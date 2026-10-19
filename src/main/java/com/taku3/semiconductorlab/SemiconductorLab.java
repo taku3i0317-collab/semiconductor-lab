@@ -20,6 +20,7 @@ public class SemiconductorLab implements ModInitializer {
 		ModDataComponents.initialize();
 		ModBlocks.initialize();
 		ModBlockEntities.initialize();
+		ModMenus.initialize();
 		ModItems.initialize();
 		ModWorldGen.initialize();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.

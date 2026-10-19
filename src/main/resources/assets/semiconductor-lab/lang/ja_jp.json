@@ -66,5 +66,9 @@
   "item.semiconductor-lab.graphite.note": "変成岩中の天然黒鉛（スリランカの脈状黒鉛など）。鉛筆の芯と同じもの。",
   "message.semiconductor-lab.refiner.not_germanium": "この炉で精製できるのはゲルマニウムだけ。還元ゲルマニウムか精製ゲルマニウムを入れよう。",
   "message.semiconductor-lab.refiner.max_purity": "もう 11N。帯域精製ではこれ以上は上がらない。",
-  "message.semiconductor-lab.refiner.empty": "炉は空っぽ。ゲルマニウムを持って右クリックで開始。"
+  "message.semiconductor-lab.refiner.empty": "炉は空っぽ。ゲルマニウムを持って右クリックで開始。",
+  "gui.semiconductor-lab.refiner.hint": "ゲルマニウムを入れると帯域精製が始まる",
+  "gui.semiconductor-lab.refiner.unrefined": "未精製",
+  "gui.semiconductor-lab.refiner.purity": "今: %s  →  次: %s",
+  "gui.semiconductor-lab.refiner.max": "今: %s（帯域精製の上限）"
 }

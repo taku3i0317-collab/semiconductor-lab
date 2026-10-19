@@ -400,3 +400,11 @@ protected abstract int getDropOff(net.minecraft.world.level.LevelReader);
 public abstract int getAmount(net.minecraft.world.level.material.FluidState);
 public net.minecraft.world.item.BucketItem(net.minecraft.world.level.material.Fluid, net.minecraft.world.item.Item$Properties);
 ``
+
+## Screen（#7 で確定・動作確認後に✅）
+- 背景：`extractBackground(GuiGraphicsExtractor g, int, int, float)` をオーバーライド → `g.blit(RenderPipelines.GUI_TEXTURED, Identifier, x, y, u, v, w, h, 256, 256)`
+- 塗り：`g.fill(x1, y1, x2, y2, argb)`／文字：`g.text(font, Component, x, y, argb, shadow)`
+- ラベル：`extractLabels(GuiGraphicsExtractor, int, int)`
+- 登録：`MenuScreens.register(ModMenus.X, Screen::new)`（ClientModInitializer 内）
+- 右クリックで開く：Block で `getMenuProvider` ＋ `useWithoutItem` → `player.openMenu(be)`。BlockEntity が `MenuProvider` を実装
+- SimpleContainer.addListener は廃止 → 匿名サブクラスで setChanged() を上書きする
