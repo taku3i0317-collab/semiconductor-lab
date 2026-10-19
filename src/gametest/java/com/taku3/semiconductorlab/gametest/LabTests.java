@@ -6,6 +6,7 @@ import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
 import com.taku3.semiconductorlab.SemiconductorLab;
 import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
+import com.taku3.semiconductorlab.block.CompressorBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.GasType;
@@ -156,7 +157,7 @@ public class LabTests {
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
-                ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE}) {
+                ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -534,7 +535,7 @@ public class LabTests {
     // =====================================================================
 
     private static final String[] RECIPES = {
-            "bessemer_converter", "coal_ash", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "fused_quartz",
+            "bessemer_converter", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "hf_power_supply", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
@@ -682,6 +683,68 @@ public class LabTests {
             LOG.info("[LAB] hydrogen furnace pulled 16 H2 from an adjacent gas holder (20 -> 4 mol)");
             h.succeed();
         });
+    }
+
+    // =====================================================================
+    // [6-03] 圧縮機（ガスホルダーのガス → 鋼のボンベに 50mol）
+    // =====================================================================
+
+    @GameTest
+    public void compressorFillsCylinders(GameTestHelper h) {
+        BlockPos cp = p(1, 1, 1), hp = p(2, 1, 1);
+        h.setBlock(cp, ModBlocks.COMPRESSOR);
+        CompressorBlockEntity be = h.getBlockEntity(cp, CompressorBlockEntity.class);
+        var c = be.getContainer();
+        int E = CompressorBlockEntity.SLOT_EMPTY, OUT = CompressorBlockEntity.SLOT_OUT, T = CompressorBlockEntity.TOTAL_TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(CompressorBlockEntity.WATTS);
+        c.setItem(E, new ItemStack(ModItems.EMPTY_GAS_CYLINDER, 3));
+
+        // ホルダーなし：電気があっても動かない
+        tickConsumer(h, cp, be, T + 10, feed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no gas holder -> nothing filled");
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
+
+        // 水素 40mol（50 に足りない）→ 動かない
+        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
+        g.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.HYDROGEN_GAS, 64)); // ホルダーの出口を埋めて量を固定
+        g.setContentsForTest(GasType.HYDROGEN, 40);
+        tickConsumer(h, cp, be, T + 10, feed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "40 mol is not enough for a 50 mol cylinder");
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
+
+        // 水素 120mol、電気なし → 動かない
+        g.setContentsForTest(GasType.HYDROGEN, 120);
+        tickConsumer(h, cp, be, T + 10, 0);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no power -> nothing filled");
+
+        // 電気あり：124秒で水素ボンベ1本、ホルダー -50、空ボンベ -1
+        tickConsumer(h, cp, be, T - 1, feed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "not finished 1 tick early");
+        h.assertBlockProperty(cp, BlockStateProperties.LIT, true);
+        tickConsumer(h, cp, be, 1, feed);
+        h.assertTrue(c.getItem(OUT).is(ModItems.HYDROGEN_CYLINDER), "H2 holder -> hydrogen cylinder");
+        h.assertValueEqual(g.getAmount(), 70, "holder lost 50 mol");
+        h.assertValueEqual(c.getItem(E).getCount(), 2, "one empty cylinder used");
+
+        // ホルダーの中身を酸素に替える → 出口に水素ボンベがあるので酸素ボンベは置けない＝止まる
+        g.setContentsForTest(GasType.OXYGEN, 100);
+        tickConsumer(h, cp, be, T + 10, feed);
+        h.assertValueEqual(g.getAmount(), 100, "out slot holds H2 cylinders -> O2 must not be compressed");
+        // 出口を空ける → 酸素ボンベ
+        c.setItem(OUT, ItemStack.EMPTY);
+        tickConsumer(h, cp, be, T, feed);
+        h.assertTrue(c.getItem(OUT).is(ModItems.OXYGEN_CYLINDER), "O2 holder -> oxygen cylinder");
+        h.assertValueEqual(g.getAmount(), 50, "O2 holder lost 50 mol");
+        h.assertValueEqual(GasType.ofCylinder(c.getItem(OUT)), GasType.OXYGEN, "GasType.ofCylinder");
+
+        // 空ボンベがなくなったら止まる
+        c.setItem(E, ItemStack.EMPTY);
+        tickConsumer(h, cp, be, T + 10, feed);
+        h.assertValueEqual(g.getAmount(), 50, "no empty cylinder -> holder untouched");
+        h.assertBlockProperty(cp, BlockStateProperties.LIT, false);
+        LOG.info("[LAB] compressor: 50 mol from an adjacent holder -> 1 cylinder in {} ticks @5 kW (620 kJ); H2 and O2; stops without holder/gas/power/cylinder", T);
+        h.succeed();
     }
 
     private static final String[] CHAPTER1 = {"root", "coal_ash", "concentrate", "dioxide", "sulfuric_acid", "raw_germanium",

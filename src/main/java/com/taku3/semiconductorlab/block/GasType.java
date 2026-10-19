@@ -10,17 +10,27 @@ import net.minecraft.world.item.ItemStack;
  * 順番（ordinal）を GUI 同期とセーブに使わないよう、セーブは name() で行う。
  */
 public enum GasType {
-    NONE(null, "none"),
-    HYDROGEN(() -> ModItems.HYDROGEN_GAS, "hydrogen"),
-    OXYGEN(() -> ModItems.OXYGEN_GAS, "oxygen");
+    NONE(null, null, "none"),
+    HYDROGEN(() -> ModItems.HYDROGEN_GAS, () -> ModItems.HYDROGEN_CYLINDER, "hydrogen"),
+    OXYGEN(() -> ModItems.OXYGEN_GAS, () -> ModItems.OXYGEN_CYLINDER, "oxygen");
 
     private final java.util.function.Supplier<Item> bag;
+    private final java.util.function.Supplier<Item> cylinder;
     public final String key;
 
-    GasType(java.util.function.Supplier<Item> bag, String key) { this.bag = bag; this.key = key; }
+    GasType(java.util.function.Supplier<Item> bag, java.util.function.Supplier<Item> cylinder, String key) { this.bag = bag; this.cylinder = cylinder; this.key = key; }
 
     /** 袋詰めガスのアイテム（NONE は null） */
     public Item bagItem() { return bag == null ? null : bag.get(); }
+
+    /** 高圧ボンベ（[6-03] 圧縮機で 50mol 詰めたもの）のアイテム（NONE は null） */
+    public Item cylinderItem() { return cylinder == null ? null : cylinder.get(); }
+
+    /** アイテムが充填済みボンベならその種類、違えば NONE */
+    public static GasType ofCylinder(ItemStack s) {
+        for (GasType t : values()) if (t.cylinder != null && s.is(t.cylinder.get())) return t;
+        return NONE;
+    }
 
     /** アイテムが袋詰めガスならその種類、違えば NONE */
     public static GasType of(ItemStack s) {

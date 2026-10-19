@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/compressor_front",
+    "side": "semiconductor-lab:block/compressor_side",
+    "top": "semiconductor-lab:block/compressor_top"
+  }
+}

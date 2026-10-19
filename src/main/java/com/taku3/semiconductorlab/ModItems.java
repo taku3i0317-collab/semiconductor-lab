@@ -57,6 +57,10 @@ public class ModItems {
     // 「袋詰め」のガス（約1mol）。貯蔵は [6-02] ガスホルダー、高圧の持ち運びは [6-03] ボンベ
     public static final Item HYDROGEN_GAS          = simple("hydrogen_gas");
     public static final Item OXYGEN_GAS            = simple("oxygen_gas");
+    // 高圧ボンベ（[6-03] 圧縮機。鋼製・約150気圧・1本 50mol）
+    public static final Item EMPTY_GAS_CYLINDER    = register("empty_gas_cylinder", Item::new, new Item.Properties().stacksTo(16));
+    public static final Item HYDROGEN_CYLINDER     = register("hydrogen_cylinder", Item::new, new Item.Properties().stacksTo(16));
+    public static final Item OXYGEN_CYLINDER       = register("oxygen_cylinder", Item::new, new Item.Properties().stacksTo(16));
 
     // --- 冶金（[1-26]）---
     public static final Item STEEL_INGOT           = simple("steel_ingot");   // ベッセマー転炉の鋼（C 約0.1〜0.5%）
@@ -85,7 +89,7 @@ public class ModItems {
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
-            HYDROGEN_GAS, OXYGEN_GAS,
+            HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK,

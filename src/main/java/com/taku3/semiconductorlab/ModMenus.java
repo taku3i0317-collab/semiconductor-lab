@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.BessemerConverterMenu;
+import com.taku3.semiconductorlab.block.CompressorMenu;
 import com.taku3.semiconductorlab.block.ElectrolyzerMenu;
 import com.taku3.semiconductorlab.block.GasHolderMenu;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceMenu;
@@ -30,6 +31,9 @@ public class ModMenus {
     public static final MenuType<HydrogenFurnaceMenu> HYDROGEN_FURNACE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("hydrogen_furnace"),
             new MenuType<>(HydrogenFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<CompressorMenu> COMPRESSOR = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("compressor"),
+            new MenuType<>(CompressorMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }

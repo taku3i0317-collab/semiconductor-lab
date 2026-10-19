@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " S ",
+    "S S",
+    "SSS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": { "id": "semiconductor-lab:empty_gas_cylinder", "count": 1 }
+}

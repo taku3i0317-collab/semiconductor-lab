@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
+import com.taku3.semiconductorlab.block.CompressorBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
@@ -20,6 +21,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<GasHolderBlockEntity> GAS_HOLDER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("gas_holder"), FabricBlockEntityTypeBuilder.create(GasHolderBlockEntity::new, ModBlocks.GAS_HOLDER).build());
     public static final BlockEntityType<BessemerConverterBlockEntity> BESSEMER_CONVERTER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("bessemer_converter"), FabricBlockEntityTypeBuilder.create(BessemerConverterBlockEntity::new, ModBlocks.BESSEMER_CONVERTER).build());
     public static final BlockEntityType<HydrogenFurnaceBlockEntity> HYDROGEN_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("hydrogen_furnace"), FabricBlockEntityTypeBuilder.create(HydrogenFurnaceBlockEntity::new, ModBlocks.HYDROGEN_FURNACE).build());
+    public static final BlockEntityType<CompressorBlockEntity> COMPRESSOR = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("compressor"), FabricBlockEntityTypeBuilder.create(CompressorBlockEntity::new, ModBlocks.COMPRESSOR).build());
 
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
@@ -28,5 +30,6 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTROLYZER);   // 消費側：受け取り専用
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), BESSEMER_CONVERTER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), HYDROGEN_FURNACE);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COMPRESSOR);
     }
 }

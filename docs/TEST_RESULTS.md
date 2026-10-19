@@ -3,6 +3,21 @@
 実行：`powershell -ExecutionPolicy Bypass -File tools\test.ps1`（中身は `./gradlew.bat runGameTest`。画面なしの専用サーバーで約20秒）
 テストのコード：src/gametest/java/com/taku3/semiconductorlab/gametest/LabTests.java ／ 全ログ：build/gametest.log
 
+## 2026-10-19 夜 タスク01（決定反映＋[3-12][1-27][1-28][6-03]）
+**28 本中 28 本 PASSED、FAILED 0**（`All 28 required tests passed :)`）。途中で1回失敗→テスト側を修正（docs/tasks/FAILED.md）
+
+| 追加したテスト | 確かめること | 結果 |
+|---|---|---|
+| gas_holder_full_stops | 満杯（1000mol）で電解槽からも「入」の袋からも吸わない、出口を空けると再開（テスト用の量設定口 setContentsForTest） | ✅ |
+| refractory_brick | 未焼成は溶鉱炉でだけ耐火れんがになる（かまど不可）、材料＝砂＋粘土、転炉レシピが耐火れんがを使い粘土を使わない | ✅ |
+| lead_from_galena | 方鉛鉱→一酸化鉛→鉛インゴット（かまど2回）、#c:ingots/lead・#c:ingots | ✅ |
+| tungsten_hydrogen_furnace | 鉄マンガン重石→WO3、WO3＋H2×3＋3kW×30秒→W粉、水素なし・電気なし・H2不足で停止、W粉2＋H2＋10kW×20秒→焼結棒、粉不足で停止、3kWでは焼結が終わらない、LIT | ✅ |
+| hydrogen_furnace_pulls_from_holder | 隣の水素ホルダーから 16 袋まで自動補充（本当に tick を進める） | ✅ |
+| compressor_fills_cylinders | ホルダーなし／40mol／電気なし／空ボンベなしで停止、50mol→ボンベ1本（2480 tick・5kW）、水素・酸素、出口に別の種類があると止まる、LIT | ✅ |
+| （更新）recipes_resolve | 33→43 レシピ | ✅ |
+| （更新）block_drops | 機械に水素炉・圧縮機を追加 | ✅ |
+| （更新）vanilla_elements_exist | 辰砂・硫黄の仲間をレジストリの実名で全部ログ（cinnabar, polished_cinnabar, cinnabar_bricks と _slab/_stairs/_wall、sulfur 系、sulfur_cube_bucket など） | ログのみ |
+
 ## 2026-10-19（Minecraft 26.3 / Loom 1.18.4 / fabric-gametest-api-v1 4.0.34）
 **22 本中 22 本 PASSED、FAILED 0**（`All 22 required tests passed :)`。うち vanilla_elements_exist は失敗にしない「ログ専用」）
 
