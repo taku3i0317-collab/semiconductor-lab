@@ -62,6 +62,16 @@ public class GasHolderBlockEntity extends BlockEntity implements MenuProvider {
     public GasType getGasType() { return type; }
     public int getAmount() { return amount; }
 
+    /**
+     * テスト用の量設定口（GameTest・デバッグ専用。ゲーム中の通常の操作では呼ばれない）。
+     * 「満杯なら吸い込みが止まる」などを、1000袋ぶん吸わせずに確かめるために使う。
+     */
+    public void setContentsForTest(GasType g, int n) {
+        amount = Math.max(0, Math.min(CAPACITY, n));
+        type = amount == 0 ? GasType.NONE : g;
+        setChanged();
+    }
+
     /** このガスを受け入れられるか（空、または同じ種類で満杯でない） */
     private boolean accepts(GasType g) {
         return g != GasType.NONE && amount < CAPACITY && (amount == 0 || type == g);

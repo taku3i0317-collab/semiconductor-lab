@@ -376,6 +376,35 @@ public class LabTests {
         });
     }
 
+    /** 満杯（1000mol）のホルダーは、電解槽の出口からも「入」の袋からも吸い込まない */
+    @GameTest(maxTicks = 80)
+    public void gasHolderFullStops(GameTestHelper h) {
+        BlockPos hp = p(1, 1, 1), ep = p(2, 1, 1);
+        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        h.setBlock(ep, ModBlocks.ELECTROLYZER);
+        GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
+        var gc = g.getContainer();
+        g.setContentsForTest(GasType.HYDROGEN, GasHolderBlockEntity.CAPACITY);
+        // 「出」を埋めておく（空だと1袋出して 999 になり、また吸えてしまうため）
+        gc.setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.HYDROGEN_GAS, 64));
+        gc.setItem(GasHolderBlockEntity.SLOT_IN, new ItemStack(ModItems.HYDROGEN_GAS, 3));
+        var ec = h.getBlockEntity(ep, ElectrolyzerBlockEntity.class).getContainer();
+        ec.setItem(ElectrolyzerBlockEntity.SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, 4));
+        h.runAfterDelay(30, () -> {
+            h.assertValueEqual(g.getAmount(), GasHolderBlockEntity.CAPACITY, "full holder stays at capacity");
+            h.assertValueEqual(gc.getItem(GasHolderBlockEntity.SLOT_IN).getCount(), 3, "full holder must not take bags from the in slot");
+            h.assertValueEqual(ec.getItem(ElectrolyzerBlockEntity.SLOT_H2).getCount(), 4, "full holder must not pull from the electrolyzer");
+            // 1袋取り出す → 999 になり、また吸い込める
+            gc.setItem(GasHolderBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        });
+        h.runAfterDelay(60, () -> {
+            h.assertTrue(gc.getItem(GasHolderBlockEntity.SLOT_IN).getCount() < 3 || ec.getItem(ElectrolyzerBlockEntity.SLOT_H2).getCount() < 4,
+                    "after taking bags out, the holder should accept gas again");
+            LOG.info("[LAB] gas holder full ({} mol): in-slot and electrolyzer untouched; resumes after emptying the out slot", GasHolderBlockEntity.CAPACITY);
+            h.succeed();
+        });
+    }
+
     // =====================================================================
     // ベッセマー転炉 [1-26]
     // =====================================================================
@@ -507,7 +536,7 @@ public class LabTests {
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "hf_power_supply", "indium", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_screw", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "steam_engine",
-            "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_spike", "transistor",
+            "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
     @GameTest
@@ -551,6 +580,10 @@ public class LabTests {
             Identifier id = Identifier.withDefaultNamespace(n);
             LOG.info("[LAB] [VANILLA] minecraft:{} block={} item={}", n, BuiltInRegistries.BLOCK.containsKey(id), BuiltInRegistries.ITEM.containsKey(id));
         }
+        // 辰砂・硫黄の仲間（建材の派生など）を、レジストリにある実名で全部出す（[1-45] の「ゲーム」行の根拠）
+        BuiltInRegistries.ITEM.keySet().stream().filter(i -> i.getNamespace().equals("minecraft"))
+                .filter(i -> i.getPath().contains("cinnabar") || i.getPath().contains("sulfur")).sorted()
+                .forEach(i -> LOG.info("[LAB] [VANILLA] registry item {} (block={})", i, BuiltInRegistries.BLOCK.containsKey(i)));
         h.succeed();
     }
 }

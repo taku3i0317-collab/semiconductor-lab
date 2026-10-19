@@ -170,5 +170,6 @@
   "gui.semiconductor-lab.bessemer_converter.need_power": "電気なし（送風が止まっている）",
   "gui.semiconductor-lab.bessemer_converter.stage.silicon": "① ケイ素が燃える：赤い火花",
   "gui.semiconductor-lab.bessemer_converter.stage.carbon": "② 炭素が燃える：白く長い炎",
-  "gui.semiconductor-lab.bessemer_converter.stage.drop": "③ 炎が落ちた＝鋼ができる"
+  "gui.semiconductor-lab.bessemer_converter.stage.drop": "③ 炎が落ちた＝鋼ができる",
+  "gui.semiconductor-lab.refiner.dopant_wait": "純度不足→先に精製中。ドーパントは待機"
 }

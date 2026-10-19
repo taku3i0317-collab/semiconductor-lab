@@ -40,6 +40,8 @@ public class ZoneRefiningFurnaceScreen extends AbstractContainerScreen<ZoneRefin
         else if (n >= 9 && menu.hasDopant()) line = Component.translatable(K + "purity", n + "N", (n >= 10 ? "-" : "10N"));
         else if (n >= 9 && n < 10) line = Component.translatable(K + "ready", n + "N");
         else if (n >= 10) line = Component.translatable(K + "max", n + "N");
+        // 決定（2026-10）：6N 以下＋ドーパントは「先に精製 → 9N になったら自動でドープ」。待っている理由を見せる
+        else if (menu.hasDopant()) line = Component.translatable(K + "dopant_wait");
         else {
             String cur = n <= 0 ? Component.translatable(K + "unrefined").getString() : n + "N";
             line = Component.translatable(K + "purity", cur, (n <= 0 ? 6 : 9) + "N");

@@ -170,5 +170,6 @@
   "gui.semiconductor-lab.bessemer_converter.need_power": "No power (blower stopped)",
   "gui.semiconductor-lab.bessemer_converter.stage.silicon": "1 Silicon burns: red sparks",
   "gui.semiconductor-lab.bessemer_converter.stage.carbon": "2 Carbon burns: white flame",
-  "gui.semiconductor-lab.bessemer_converter.stage.drop": "3 Flame drops: steel ready"
+  "gui.semiconductor-lab.bessemer_converter.stage.drop": "3 Flame drops: steel ready",
+  "gui.semiconductor-lab.refiner.dopant_wait": "Refining first; dopant waits for 9N"
 }
