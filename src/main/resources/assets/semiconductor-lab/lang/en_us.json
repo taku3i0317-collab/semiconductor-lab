@@ -1,6 +1,6 @@
 {
   "item.semiconductor-lab.coal_ash": "Coal Ash",
-  "item.semiconductor-lab.raw_germanium": "Raw Germanium (98%)",
+  "item.semiconductor-lab.raw_germanium": "Reduced Germanium (Unrefined)",
   "item.semiconductor-lab.refined_germanium": "Refined Germanium",
   "item.semiconductor-lab.transistor": "Point-Contact Transistor",
   "item.semiconductor-lab.transistor_radio": "Transistor Radio",
@@ -9,7 +9,7 @@
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "Ashes to Elements",
   "advancements.semiconductor-lab.chapter1.coal_ash.description": "Smelt coal into coal ash. Some coal deposits contain trace germanium.",
   "advancements.semiconductor-lab.chapter1.raw_germanium.title": "Reduction",
-  "advancements.semiconductor-lab.chapter1.raw_germanium.description": "Reduce GeO2 with charcoal into metallic germanium, about 98% pure. Not pure enough yet!",
+  "advancements.semiconductor-lab.chapter1.raw_germanium.description": "Reduce GeO2 with charcoal into metallic germanium. Still full of impurities - not nearly pure enough for a transistor!",
   "advancements.semiconductor-lab.chapter1.refined.title": "Zone Refining",
   "advancements.semiconductor-lab.chapter1.refined.description": "Refine germanium. A molten zone sweeps impurities to one end of the bar (Pfann, 1952).",
   "advancements.semiconductor-lab.chapter1.transistor.title": "The First Transistor",
@@ -29,7 +29,7 @@
   "advancements.semiconductor-lab.chapter1.concentrate.title": "Needle in a Haystack",
   "advancements.semiconductor-lab.chapter1.concentrate.description": "Combine 8 coal ash into germanium concentrate. Only a tiny fraction is germanium.",
   "advancements.semiconductor-lab.chapter1.sulfuric_acid.title": "Brimstone Chemistry",
-  "advancements.semiconductor-lab.chapter1.sulfuric_acid.description": "Make sulfuric acid from sulfur powder. Real plants use the contact process: S -> SO2 -> SO3 -> H2SO4.",
+  "advancements.semiconductor-lab.chapter1.sulfuric_acid.description": "Burn sulfur powder in a furnace to get SO2, then dissolve it in water. Real plants oxidize SO2 to SO3 first (contact process).",
   "advancements.semiconductor-lab.chapter1.dioxide.title": "Leaching",
   "advancements.semiconductor-lab.chapter1.dioxide.description": "Dissolve the concentrate in acid to get germanium dioxide (GeO2).",
   "advancements.semiconductor-lab.chapter1.n_type.title": "Doping",
@@ -37,5 +37,6 @@
   "advancements.semiconductor-lab.chapter1.junction.title": "The Sandwich",
   "advancements.semiconductor-lab.chapter1.junction.description": "Indium on both sides of n-type germanium, then heat: a p-n-p alloy-junction transistor (1952).",
   "block.semiconductor-lab.sphalerite_ore": "Sphalerite Ore",
-  "item.semiconductor-lab.sphalerite": "Sphalerite"
+  "item.semiconductor-lab.sphalerite": "Sphalerite",
+  "item.semiconductor-lab.sulfur_dioxide": "Sulfur Dioxide"
 }

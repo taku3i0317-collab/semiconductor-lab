@@ -22,6 +22,7 @@ public class ModItems {
 
     // --- 試薬 ---
     public static final Item SULFUR_POWDER         = simple("sulfur_powder");
+    public static final Item SULFUR_DIOXIDE        = simple("sulfur_dioxide"); // 硫黄を燃やした気体
     public static final Item SULFURIC_ACID         = register("sulfuric_acid", Item::new, new Item.Properties().stacksTo(16));
     public static final Item PHOSPHORUS            = simple("phosphorus");
 
@@ -42,7 +43,7 @@ public class ModItems {
 
     public static final List<Item> ALL = List.of(
             SPHALERITE, COAL_ASH, ZINC_INGOT, GERMANIUM_CONCENTRATE, INDIUM,
-            SULFUR_POWDER, SULFURIC_ACID, PHOSPHORUS,
+            SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);

@@ -1,6 +1,6 @@
 {
   "item.semiconductor-lab.coal_ash": "石炭灰",
-  "item.semiconductor-lab.raw_germanium": "粗ゲルマニウム（98%）",
+  "item.semiconductor-lab.raw_germanium": "還元ゲルマニウム（未精製）",
   "item.semiconductor-lab.refined_germanium": "精製ゲルマニウム",
   "item.semiconductor-lab.transistor": "点接触型トランジスタ",
   "item.semiconductor-lab.transistor_radio": "トランジスタラジオ",
@@ -9,7 +9,7 @@
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "灰の中の元素",
   "advancements.semiconductor-lab.chapter1.coal_ash.description": "石炭を焼いて石炭灰を作ろう。一部の石炭には微量のゲルマニウムがふくまれている。",
   "advancements.semiconductor-lab.chapter1.raw_germanium.title": "還元",
-  "advancements.semiconductor-lab.chapter1.raw_germanium.description": "GeO2を木炭で還元して金属ゲルマニウム（純度約98%）に。まだ純度が足りない！",
+  "advancements.semiconductor-lab.chapter1.raw_germanium.description": "GeO2を木炭で還元して金属ゲルマニウムに。まだ不純物だらけで、トランジスタにはとても使えない！",
   "advancements.semiconductor-lab.chapter1.refined.title": "帯域精製",
   "advancements.semiconductor-lab.chapter1.refined.description": "ゲルマニウムを精製しよう。溶けた部分を動かすと不純物がはしに集まる（パン、1952年）。",
   "advancements.semiconductor-lab.chapter1.transistor.title": "最初のトランジスタ",
@@ -29,7 +29,7 @@
   "advancements.semiconductor-lab.chapter1.concentrate.title": "干し草の中の針",
   "advancements.semiconductor-lab.chapter1.concentrate.description": "石炭灰8個からゲルマニウム精鉱を作ろう。ゲルマニウムはほんのわずかしか入っていない。",
   "advancements.semiconductor-lab.chapter1.sulfuric_acid.title": "硫黄の化学",
-  "advancements.semiconductor-lab.chapter1.sulfuric_acid.description": "硫黄の粉から硫酸を作ろう。本物の工場は接触法：S → SO2 → SO3 → H2SO4。",
+  "advancements.semiconductor-lab.chapter1.sulfuric_acid.description": "硫黄の粉をかまどで燃やしてSO2にし、水に溶かそう。本物の工場はSO2をSO3に酸化してから水に溶かす（接触法）。",
   "advancements.semiconductor-lab.chapter1.dioxide.title": "浸出",
   "advancements.semiconductor-lab.chapter1.dioxide.description": "精鉱を酸に溶かして二酸化ゲルマニウム（GeO2）を取り出そう。",
   "advancements.semiconductor-lab.chapter1.n_type.title": "ドーピング",
@@ -37,5 +37,6 @@
   "advancements.semiconductor-lab.chapter1.junction.title": "サンドイッチ",
   "advancements.semiconductor-lab.chapter1.junction.description": "n型ゲルマニウムの両側にインジウムを置いて加熱。p-n-pの合金接合型トランジスタ（1952年）。",
   "block.semiconductor-lab.sphalerite_ore": "閃亜鉛鉱",
-  "item.semiconductor-lab.sphalerite": "閃亜鉛鉱（原石）"
+  "item.semiconductor-lab.sphalerite": "閃亜鉛鉱（原石）",
+  "item.semiconductor-lab.sulfur_dioxide": "二酸化硫黄"
 }

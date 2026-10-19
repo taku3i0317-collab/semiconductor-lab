@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sphalerite",
+    "semiconductor-lab:sphalerite",
+    "semiconductor-lab:sphalerite",
+    "semiconductor-lab:sphalerite"
+  ],
+  "result": { "id": "semiconductor-lab:germanium_concentrate", "count": 1 }
+}
