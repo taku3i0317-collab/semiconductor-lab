@@ -7,6 +7,7 @@ import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.SealingStationBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlock;
 import com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity;
+import com.taku3.semiconductorlab.block.AchesonFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlock;
 import com.taku3.semiconductorlab.block.HandVacuumPumpBlock;
 import com.taku3.semiconductorlab.block.VacuumChamberBlock;
@@ -70,6 +71,10 @@ public class ModBlocks {
     public static final Block ELECTRIC_FURNACE = register("electric_furnace", p -> new ConsumerMachineBlock(p, ElectricFurnaceBlockEntity::new, () -> ModBlockEntities.ELECTRIC_FURNACE), BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.5f).sound(SoundType.STONE)
             .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 12 : 0), true);
 
+    // アチソン炉 [3-10]（1896。耐火れんがの箱に炭素＋砂、両端の黒鉛電極から中身に直接通電。約2500℃で人造黒鉛）。赤熱すると光る
+    public static final Block ACHESON_FURNACE = register("acheson_furnace", p -> new ConsumerMachineBlock(p, AchesonFurnaceBlockEntity::new, () -> ModBlockEntities.ACHESON_FURNACE), BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.5f).sound(SoundType.STONE)
+            .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 15 : 0), true);
+
     // 圧縮機 [6-03]（電動モーターのピストン圧縮機。隣のガスホルダーのガスを鋼のボンベに 50mol ずつ詰める）
     public static final Block COMPRESSOR = register("compressor", p -> new ConsumerMachineBlock(p, CompressorBlockEntity::new, () -> ModBlockEntities.COMPRESSOR), BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.5f).sound(SoundType.METAL), true);
 
@@ -107,6 +112,6 @@ public class ModBlocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(ELECTRIC_FURNACE); tab.accept(HYDROGEN_FURNACE); tab.accept(COMPRESSOR); tab.accept(VACUUM_CHAMBER); tab.accept(HAND_VACUUM_PUMP); tab.accept(SEALING_STATION); });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(ELECTRIC_FURNACE); tab.accept(ACHESON_FURNACE); tab.accept(HYDROGEN_FURNACE); tab.accept(COMPRESSOR); tab.accept(VACUUM_CHAMBER); tab.accept(HAND_VACUUM_PUMP); tab.accept(SEALING_STATION); });
     }
 }

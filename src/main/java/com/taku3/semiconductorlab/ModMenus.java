@@ -4,6 +4,7 @@ import com.taku3.semiconductorlab.block.BessemerConverterMenu;
 import com.taku3.semiconductorlab.block.CompressorMenu;
 import com.taku3.semiconductorlab.block.ElectrolyzerMenu;
 import com.taku3.semiconductorlab.block.ElectricFurnaceMenu;
+import com.taku3.semiconductorlab.block.AchesonFurnaceMenu;
 import com.taku3.semiconductorlab.block.GasHolderMenu;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceMenu;
 import com.taku3.semiconductorlab.block.SealingStationMenu;
@@ -42,6 +43,9 @@ public class ModMenus {
     public static final MenuType<ElectricFurnaceMenu> ELECTRIC_FURNACE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("electric_furnace"),
             new MenuType<>(ElectricFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<AchesonFurnaceMenu> ACHESON_FURNACE = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("acheson_furnace"),
+            new MenuType<>(AchesonFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }

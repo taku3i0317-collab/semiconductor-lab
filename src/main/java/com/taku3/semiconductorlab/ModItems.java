@@ -78,6 +78,7 @@ public class ModItems {
 
     // --- 電気炉（[4-12] 抵抗加熱の発熱体）---
     public static final Item GRAPHITE_ROD          = simple("graphite_rod");      // 黒鉛棒（電気炉の発熱体・アチソン炉の電極）
+    public static final Item SYNTHETIC_GRAPHITE    = simple("synthetic_graphite"); // [3-10] 人造黒鉛（アチソン炉、炭素を約2500℃以上で黒鉛化）
 
     // --- 熱（[3-12] 耐火れんが＝珪石れんが・ディナス 1822）---
     public static final Item REFRACTORY_BRICK_BLANK = simple("refractory_brick_blank"); // 成形しただけ（未焼成）
@@ -109,7 +110,7 @@ public class ModItems {
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
-            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD,
+            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 

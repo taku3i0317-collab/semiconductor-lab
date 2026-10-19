@@ -4,6 +4,7 @@ import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
 import com.taku3.semiconductorlab.block.CompressorBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity;
+import com.taku3.semiconductorlab.block.AchesonFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
@@ -29,6 +30,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<SealingStationBlockEntity> SEALING_STATION = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("sealing_station"), FabricBlockEntityTypeBuilder.create(SealingStationBlockEntity::new, ModBlocks.SEALING_STATION).build());
 
     public static final BlockEntityType<ElectricFurnaceBlockEntity> ELECTRIC_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("electric_furnace"), FabricBlockEntityTypeBuilder.create(ElectricFurnaceBlockEntity::new, ModBlocks.ELECTRIC_FURNACE).build());
+    public static final BlockEntityType<AchesonFurnaceBlockEntity> ACHESON_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("acheson_furnace"), FabricBlockEntityTypeBuilder.create(AchesonFurnaceBlockEntity::new, ModBlocks.ACHESON_FURNACE).build());
 
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
@@ -40,5 +42,6 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COMPRESSOR);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), SEALING_STATION);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTRIC_FURNACE);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ACHESON_FURNACE);
     }
 }

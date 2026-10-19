@@ -9,6 +9,7 @@ import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
 import com.taku3.semiconductorlab.block.CompressorBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity;
+import com.taku3.semiconductorlab.block.AchesonFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.GasType;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
@@ -163,7 +164,7 @@ public class LabTests {
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
                 ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
-                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE}) {
+                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -541,7 +542,7 @@ public class LabTests {
     // =====================================================================
 
     private static final String[] RECIPES = {
-            "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
+            "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "steam_engine",
@@ -917,6 +918,57 @@ public class LabTests {
         h.assertTrue(recipeUses(h, "electric_furnace", ModItems.GRAPHITE_ROD) && recipeUses(h, "electric_furnace", ModItems.REFRACTORY_BRICK), "electric furnace = refractory brick + graphite rods");
         h.assertTrue(recipeUses(h, "hydrogen_furnace", ModBlocks.ELECTRIC_FURNACE.asItem()), "hydrogen furnace is built from the electric furnace");
         LOG.info("[LAB] electric furnace: blank -> brick / boat in {} ticks at 5 kW, nothing without power; hydrogen furnace built on it", T);
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [3-10] アチソン炉（炭素＋砂に直接通電、2500℃以上で人造黒鉛）
+    // =====================================================================
+
+    /** 電力不足では温度が届かず黒鉛にならない。炭素がないと電流が流れない。500kW を直接入れると昇温→黒鉛化 */
+    @GameTest
+    public void achesonFurnace(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.ACHESON_FURNACE);
+        AchesonFurnaceBlockEntity be = h.getBlockEntity(pos, AchesonFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        int C = AchesonFurnaceBlockEntity.SLOT_CARBON, S = AchesonFurnaceBlockEntity.SLOT_SAND, OUT = AchesonFurnaceBlockEntity.SLOT_OUT;
+        long full = EnergyStorage.wattsToJoulesPerTick(AchesonFurnaceBlockEntity.REQUIRED_WATTS);
+        long steamEngine = EnergyStorage.wattsToJoulesPerTick(SteamEngineBlockEntity.WATTS);
+
+        // 炭素なし：電気が来ても通り道がないので流れない（使わない）
+        c.setItem(S, new ItemStack(Items.SAND, 2));
+        tickConsumer(h, pos, be, 40, full);
+        h.assertValueEqual(be.getLastWatts(), 0.0, "no carbon -> no current");
+        h.assertTrue(be.getTemperature() < 21, "no carbon -> stays cold");
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
+
+        // 蒸気機関1台分（50kW）：何分たっても 2500℃ に届かない（約280℃で落ち着く）
+        c.setItem(C, new ItemStack(Items.COAL, 8));
+        tickConsumer(h, pos, be, 20 * 120, steamEngine);
+        double t50 = be.getTemperature();
+        h.assertTrue(t50 > 200 && t50 < 400, "50 kW should settle near 280 C, got " + t50);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "underpowered -> no graphite");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+
+        // 500kW を直接入れる：約47秒で 2500℃、そこから60秒で人造黒鉛2
+        int heat = 0;
+        while (be.getTemperature() < AchesonFurnaceBlockEntity.GRAPHITIZE_C && heat < 20 * 120) { tickConsumer(h, pos, be, 1, full); heat++; }
+        h.assertTrue(be.getTemperature() >= AchesonFurnaceBlockEntity.GRAPHITIZE_C, "500 kW should reach 2500 C within 2 min");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "graphitizing has only just started");
+        tickConsumer(h, pos, be, AchesonFurnaceBlockEntity.WORK_TICKS, full);
+        h.assertTrue(c.getItem(OUT).is(ModItems.SYNTHETIC_GRAPHITE), "carbon + sand at 2500 C -> synthetic graphite");
+        h.assertValueEqual(c.getItem(OUT).getCount(), AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH, "graphite per batch");
+        h.assertValueEqual(c.getItem(C).getCount(), 4, "4 carbon used");
+        h.assertValueEqual(c.getItem(S).getCount(), 1, "1 sand used");
+
+        // 電気を止めると冷えて、黒鉛化も止まる
+        tickConsumer(h, pos, be, 20 * 60, 0);
+        h.assertTrue(be.getTemperature() < 500, "cools down without power, got " + be.getTemperature());
+        h.assertValueEqual(c.getItem(OUT).getCount(), AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH, "no more graphite while cold");
+        h.assertTrue(recipeUses(h, "acheson_furnace", ModItems.GRAPHITE_ROD), "electrodes are graphite rods");
+        LOG.info("[LAB] acheson: no carbon -> 0 W; 50 kW -> {} C (no graphite); 500 kW -> 2500 C in {} ticks, 4 C + sand -> 2 synthetic graphite", Math.round(t50), heat);
         h.succeed();
     }
 
