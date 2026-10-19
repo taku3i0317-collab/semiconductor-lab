@@ -1,0 +1,18 @@
+{
+  "parent": "semiconductor-lab:chapter1/root",
+  "display": {
+    "icon": { "id": "semiconductor-lab:coal_ash" },
+    "title": { "translate": "advancements.semiconductor-lab.chapter1.coal_ash.title" },
+    "description": { "translate": "advancements.semiconductor-lab.chapter1.coal_ash.description" },
+    
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "got_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [ { "items": "semiconductor-lab:coal_ash" } ] }
+    }
+  }
+}

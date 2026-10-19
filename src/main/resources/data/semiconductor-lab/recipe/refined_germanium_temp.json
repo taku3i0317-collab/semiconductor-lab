@@ -1,0 +1,6 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [ "semiconductor-lab:raw_germanium" ],
+  "result": { "id": "semiconductor-lab:refined_germanium", "count": 1 }
+}

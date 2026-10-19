@@ -3,5 +3,17 @@
   "item.semiconductor-lab.raw_germanium": "粗ゲルマニウム",
   "item.semiconductor-lab.refined_germanium": "精製ゲルマニウム",
   "item.semiconductor-lab.transistor": "トランジスタ",
-  "item.semiconductor-lab.transistor_radio": "トランジスタラジオ"
+  "item.semiconductor-lab.transistor_radio": "トランジスタラジオ",
+  "advancements.semiconductor-lab.chapter1.root.title": "第1章：トランジスタの誕生",
+  "advancements.semiconductor-lab.chapter1.root.description": "1947年。シリコンの前に、ゲルマニウムがあった。ゴール：トランジスタラジオを作ろう！",
+  "advancements.semiconductor-lab.chapter1.coal_ash.title": "灰の中の元素",
+  "advancements.semiconductor-lab.chapter1.coal_ash.description": "石炭を焼いて石炭灰を作ろう。石炭にはごく少量のゲルマニウムがふくまれている。",
+  "advancements.semiconductor-lab.chapter1.raw_germanium.title": "干し草の中の針",
+  "advancements.semiconductor-lab.chapter1.raw_germanium.description": "石炭灰8個と水バケツで、粗ゲルマニウムを取り出そう。",
+  "advancements.semiconductor-lab.chapter1.refined.title": "帯域精製",
+  "advancements.semiconductor-lab.chapter1.refined.description": "ゲルマニウムを精製しよう。溶けた部分を動かすと、不純物がはしに集まる。",
+  "advancements.semiconductor-lab.chapter1.transistor.title": "最初のトランジスタ",
+  "advancements.semiconductor-lab.chapter1.transistor.description": "精製ゲルマニウム＋金の電極＋銅の線＝トランジスタ。",
+  "advancements.semiconductor-lab.chapter1.radio.title": "石炭から音楽を",
+  "advancements.semiconductor-lab.chapter1.radio.description": "トランジスタラジオを作ろう。1954年、これが世界の聞き方を変えた。"
 }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "iii",
+    "ttt",
+    "cRc"
+  ],
+  "key": {
+    "i": "minecraft:iron_ingot",
+    "t": "semiconductor-lab:transistor",
+    "c": "minecraft:copper_ingot",
+    "R": "minecraft:redstone"
+  },
+  "result": { "id": "semiconductor-lab:transistor_radio", "count": 1 }
+}

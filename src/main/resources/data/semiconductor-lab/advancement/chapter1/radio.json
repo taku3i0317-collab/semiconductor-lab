@@ -1,0 +1,18 @@
+{
+  "parent": "semiconductor-lab:chapter1/transistor",
+  "display": {
+    "icon": { "id": "semiconductor-lab:transistor_radio" },
+    "title": { "translate": "advancements.semiconductor-lab.chapter1.radio.title" },
+    "description": { "translate": "advancements.semiconductor-lab.chapter1.radio.description" },
+    
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "got_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [ { "items": "semiconductor-lab:transistor_radio" } ] }
+    }
+  }
+}

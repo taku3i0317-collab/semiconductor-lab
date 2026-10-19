@@ -1,0 +1,18 @@
+{
+  "parent": "semiconductor-lab:chapter1/refined",
+  "display": {
+    "icon": { "id": "semiconductor-lab:transistor" },
+    "title": { "translate": "advancements.semiconductor-lab.chapter1.transistor.title" },
+    "description": { "translate": "advancements.semiconductor-lab.chapter1.transistor.description" },
+    
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "got_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [ { "items": "semiconductor-lab:transistor" } ] }
+    }
+  }
+}

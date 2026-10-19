@@ -3,5 +3,17 @@
   "item.semiconductor-lab.raw_germanium": "Raw Germanium",
   "item.semiconductor-lab.refined_germanium": "Refined Germanium",
   "item.semiconductor-lab.transistor": "Transistor",
-  "item.semiconductor-lab.transistor_radio": "Transistor Radio"
+  "item.semiconductor-lab.transistor_radio": "Transistor Radio",
+  "advancements.semiconductor-lab.chapter1.root.title": "Chapter 1: The Birth of the Transistor",
+  "advancements.semiconductor-lab.chapter1.root.description": "1947. Before silicon, there was germanium. Goal: build a transistor radio!",
+  "advancements.semiconductor-lab.chapter1.coal_ash.title": "Ashes to Elements",
+  "advancements.semiconductor-lab.chapter1.coal_ash.description": "Smelt coal to get coal ash. Some coal contains tiny amounts of germanium.",
+  "advancements.semiconductor-lab.chapter1.raw_germanium.title": "Needle in a Haystack",
+  "advancements.semiconductor-lab.chapter1.raw_germanium.description": "Combine 8 coal ash with a water bucket to extract raw germanium.",
+  "advancements.semiconductor-lab.chapter1.refined.title": "Zone Refining",
+  "advancements.semiconductor-lab.chapter1.refined.description": "Refine germanium. Impurities move with the molten zone and collect at one end.",
+  "advancements.semiconductor-lab.chapter1.transistor.title": "The First Transistor",
+  "advancements.semiconductor-lab.chapter1.transistor.description": "Refined germanium + gold contacts + copper leads = a transistor.",
+  "advancements.semiconductor-lab.chapter1.radio.title": "Music from Sand... well, Coal",
+  "advancements.semiconductor-lab.chapter1.radio.description": "Build a transistor radio. In 1954 this changed how the world listened."
 }
