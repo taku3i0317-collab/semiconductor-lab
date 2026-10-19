@@ -47,5 +47,21 @@
   "item.semiconductor-lab.junction_transistor_blank": "Alloy-Junction Transistor (Unfired)",
   "block.semiconductor-lab.zone_refining_furnace": "Zone Refining Furnace",
   "block.semiconductor-lab.graphite_ore": "Graphite Ore",
-  "item.semiconductor-lab.graphite": "Graphite"
+  "item.semiconductor-lab.graphite": "Graphite",
+  "item.semiconductor-lab.graphite_boat_blank": "Graphite Boat (Unfired)",
+  "item.semiconductor-lab.graphite_boat": "Graphite Boat",
+  "item.semiconductor-lab.fused_quartz": "Fused Quartz",
+  "item.semiconductor-lab.quartz_tube": "Quartz Tube",
+  "item.semiconductor-lab.induction_coil": "Induction Coil",
+  "item.semiconductor-lab.lead_screw": "Lead Screw",
+  "item.semiconductor-lab.electric_motor": "Electric Motor",
+  "item.semiconductor-lab.hf_power_supply": "HF Power Supply (Placeholder)",
+  "item.semiconductor-lab.hf_power_supply.placeholder": "PLACEHOLDER - real one is a vacuum-tube RF oscillator. Replaced when electricity arrives (v0.2).",
+  "item.semiconductor-lab.graphite_boat.placeholder": "Clay-bonded graphite (19th century style). Bell Labs used synthetic high-purity graphite (needs electric furnace, v0.2).",
+  "item.semiconductor-lab.graphite_boat.note": "Molten germanium does not react with graphite. Silicon does (forms SiC) - which is why Chapter 2 needs a different method.",
+  "item.semiconductor-lab.quartz_tube.note": "Fused silica (pure SiO2) survives high heat and adds no impurities. Ordinary glass would melt and leak sodium.",
+  "item.semiconductor-lab.induction_coil.note": "High-frequency current in the coil heats only the germanium itself, melting a narrow zone. Real coils are water-cooled.",
+  "item.semiconductor-lab.lead_screw.note": "Moves the coil slowly along the bar. Too fast and impurities cannot keep up.",
+  "item.semiconductor-lab.electric_motor.note": "Turns the lead screw. Real zone refiners move a few cm per hour.",
+  "item.semiconductor-lab.graphite.note": "Natural graphite from metamorphic rock (e.g. Sri Lanka vein graphite). Same stuff as pencil lead."
 }

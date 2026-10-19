@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ici",
+    "cic",
+    "ici"
+  ],
+  "key": {
+    "i": "minecraft:iron_ingot",
+    "c": "minecraft:copper_ingot"
+  },
+  "result": { "id": "semiconductor-lab:electric_motor", "count": 1 }
+}

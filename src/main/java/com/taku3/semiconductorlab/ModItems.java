@@ -36,6 +36,16 @@ public class ModItems {
     public static final Item N_TYPE_GERMANIUM      = simple("n_type_germanium");
     public static final Item P_TYPE_GERMANIUM      = simple("p_type_germanium");
 
+    // --- 帯域精製炉の部品（Pfann 1952 の装置構成）---
+    public static final Item GRAPHITE_BOAT_BLANK   = simple("graphite_boat_blank"); // 黒鉛+粘土、未焼成
+    public static final Item GRAPHITE_BOAT         = simple("graphite_boat");
+    public static final Item FUSED_QUARTZ          = simple("fused_quartz");
+    public static final Item QUARTZ_TUBE           = simple("quartz_tube");
+    public static final Item INDUCTION_COIL        = simple("induction_coil");
+    public static final Item LEAD_SCREW            = simple("lead_screw");
+    public static final Item ELECTRIC_MOTOR        = simple("electric_motor");
+    public static final Item HF_POWER_SUPPLY       = simple("hf_power_supply"); // ★仮：v0.2 の電力実装で置換
+
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = simple("junction_transistor_blank"); // 合金化前
@@ -47,6 +57,7 @@ public class ModItems {
             SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
+            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
     private static Item simple(String name) {

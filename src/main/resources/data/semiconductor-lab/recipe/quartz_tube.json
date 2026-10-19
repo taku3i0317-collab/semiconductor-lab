@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "qqq",
+    "   ",
+    "qqq"
+  ],
+  "key": {
+    "q": "semiconductor-lab:fused_quartz"
+  },
+  "result": { "id": "semiconductor-lab:quartz_tube", "count": 1 }
+}

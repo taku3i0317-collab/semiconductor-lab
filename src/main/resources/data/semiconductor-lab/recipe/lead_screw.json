@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "  i",
+    " i ",
+    "i  "
+  ],
+  "key": {
+    "i": "minecraft:iron_ingot"
+  },
+  "result": { "id": "semiconductor-lab:lead_screw", "count": 1 }
+}

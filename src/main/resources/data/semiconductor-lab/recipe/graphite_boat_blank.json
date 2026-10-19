@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:graphite",
+    "semiconductor-lab:graphite",
+    "semiconductor-lab:graphite",
+    "minecraft:clay_ball"
+  ],
+  "result": { "id": "semiconductor-lab:graphite_boat_blank", "count": 1 }
+}

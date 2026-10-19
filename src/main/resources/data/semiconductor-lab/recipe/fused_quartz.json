@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "minecraft:quartz",
+  "result": { "id": "semiconductor-lab:fused_quartz" },
+  "experience": 0.2,
+  "cookingtime": 200
+}

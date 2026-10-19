@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " c ",
+    "c c",
+    " c "
+  ],
+  "key": {
+    "c": "minecraft:copper_ingot"
+  },
+  "result": { "id": "semiconductor-lab:induction_coil", "count": 1 }
+}

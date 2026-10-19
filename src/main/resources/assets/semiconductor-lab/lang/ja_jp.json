@@ -47,5 +47,21 @@
   "item.semiconductor-lab.junction_transistor_blank": "合金接合型トランジスタ（未焼成）",
   "block.semiconductor-lab.zone_refining_furnace": "帯域精製炉",
   "block.semiconductor-lab.graphite_ore": "黒鉛鉱石",
-  "item.semiconductor-lab.graphite": "黒鉛"
+  "item.semiconductor-lab.graphite": "黒鉛",
+  "item.semiconductor-lab.graphite_boat_blank": "黒鉛ボート（未焼成）",
+  "item.semiconductor-lab.graphite_boat": "黒鉛ボート",
+  "item.semiconductor-lab.fused_quartz": "溶融石英",
+  "item.semiconductor-lab.quartz_tube": "石英管",
+  "item.semiconductor-lab.induction_coil": "誘導コイル",
+  "item.semiconductor-lab.lead_screw": "送りねじ",
+  "item.semiconductor-lab.electric_motor": "電動モーター",
+  "item.semiconductor-lab.hf_power_supply": "高周波電源（仮）",
+  "item.semiconductor-lab.hf_power_supply.placeholder": "仮アイテム：本物は真空管の高周波発振器。電力実装（v0.2）で置き換え予定。",
+  "item.semiconductor-lab.graphite_boat.placeholder": "粘土黒鉛（19世紀式）。ベル研は人造高純度黒鉛を使用（電気炉が必要、v0.2）。",
+  "item.semiconductor-lab.graphite_boat.note": "溶けたゲルマニウムは黒鉛と反応しない。シリコンは反応してSiCになる。だから第2章では別の方法が必要になる。",
+  "item.semiconductor-lab.quartz_tube.note": "溶融石英（純粋なSiO2）は高温に耐え、不純物を出さない。普通のガラスは溶けてナトリウムが混ざる。",
+  "item.semiconductor-lab.induction_coil.note": "コイルの高周波電流でゲルマニウムだけが発熱し、狭い帯だけ溶ける。本物のコイルは水冷。",
+  "item.semiconductor-lab.lead_screw.note": "コイルを棒に沿ってゆっくり動かす。速すぎると不純物が追いつかない。",
+  "item.semiconductor-lab.electric_motor.note": "送りねじを回す。本物の帯域精製は1時間に数cmの速さ。",
+  "item.semiconductor-lab.graphite.note": "変成岩中の天然黒鉛（スリランカの脈状黒鉛など）。鉛筆の芯と同じもの。"
 }

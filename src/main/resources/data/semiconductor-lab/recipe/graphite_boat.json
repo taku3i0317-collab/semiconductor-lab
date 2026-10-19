@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:graphite_boat_blank",
+  "result": { "id": "semiconductor-lab:graphite_boat" },
+  "experience": 0.2,
+  "cookingtime": 200
+}
