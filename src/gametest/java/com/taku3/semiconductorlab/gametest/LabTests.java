@@ -837,7 +837,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
@@ -881,10 +881,29 @@ public class LabTests {
         ItemStack fired = cook(h, BLAST, ModItems.REFRACTORY_BRICK_BLANK);
         h.assertTrue(fired.is(ModItems.REFRACTORY_BRICK), "blast furnace should fire the blank into a refractory brick, got " + fired);
         h.assertTrue(cook(h, SMELT, ModItems.REFRACTORY_BRICK_BLANK).isEmpty(), "an ordinary furnace (~1000 C) must not fire silica bricks");
-        h.assertTrue(recipeUses(h, "refractory_brick_blank", Items.SAND) && recipeUses(h, "refractory_brick_blank", Items.CLAY_BALL), "blank = silica sand + clay");
+        h.assertTrue(recipeUses(h, "refractory_brick_blank", Items.SAND) && recipeUses(h, "refractory_brick_blank", ModItems.SLAKED_LIME), "blank = silica sand + slaked lime (Dinas)");
+        h.assertFalse(recipeUses(h, "refractory_brick_blank", Items.CLAY_BALL), "binder is lime now, not clay [0-10]");
         h.assertTrue(recipeUses(h, "bessemer_converter", ModItems.REFRACTORY_BRICK), "converter lining should be refractory brick");
         h.assertFalse(recipeUses(h, "bessemer_converter", Items.CLAY_BALL), "converter no longer uses raw clay");
         LOG.info("[LAB] refractory brick: blank fires only in the blast furnace; Bessemer converter lined with refractory brick");
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [0-10] 生石灰・[0-11] 消石灰
+    // =====================================================================
+
+    /** 方解石をかまど/溶鉱炉で焼くと生石灰（CaCO3 → CaO + CO2）。生石灰＋水 → 消石灰。石や凝灰岩は焼いても石灰にならない */
+    @GameTest
+    public void limeFromCalcite(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        var BLAST = net.minecraft.world.item.crafting.RecipeType.BLASTING;
+        h.assertTrue(cook(h, SMELT, Items.CALCITE).is(ModItems.QUICKLIME), "furnace: calcite -> quicklime");
+        h.assertTrue(cook(h, BLAST, Items.CALCITE).is(ModItems.QUICKLIME), "blast furnace: calcite -> quicklime");
+        h.assertFalse(cook(h, SMELT, Items.TUFF).is(ModItems.QUICKLIME), "tuff is not CaCO3");
+        h.assertFalse(cook(h, SMELT, Items.STONE).is(ModItems.QUICKLIME), "stone is not CaCO3");
+        h.assertTrue(recipeUses(h, "slaked_lime", ModItems.QUICKLIME) && recipeUses(h, "slaked_lime", Items.WATER_BUCKET), "CaO + H2O -> Ca(OH)2");
+        LOG.info("[LAB] lime: calcite -> quicklime (furnace / blast), quicklime + water -> slaked lime -> brick binder");
         h.succeed();
     }
 

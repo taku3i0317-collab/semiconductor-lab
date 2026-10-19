@@ -86,6 +86,10 @@ public class ModItems {
     public static final Item REFRACTORY_BRICK_BLANK = simple("refractory_brick_blank"); // 成形しただけ（未焼成）
     public static final Item REFRACTORY_BRICK      = simple("refractory_brick");       // 高温（約1450℃）で焼いたもの
 
+    // --- 石灰（[0-10] 方解石 CaCO3 → 焼成 → 生石灰 CaO、[0-11] CaO + H2O → 消石灰 Ca(OH)2）---
+    public static final Item QUICKLIME             = simple("quicklime");
+    public static final Item SLAKED_LIME           = simple("slaked_lime");
+
     // --- 水銀（[1-45] 辰砂 HgS の焙焼。HgS + O2 → Hg + SO2）---
     public static final Item CINNABAR_DUST         = simple("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉
     public static final Item MERCURY               = register("mercury", Item::new, new Item.Properties().stacksTo(16)); // 液体の金属（容器入り）
@@ -112,7 +116,7 @@ public class ModItems {
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
-            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE,
+            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 

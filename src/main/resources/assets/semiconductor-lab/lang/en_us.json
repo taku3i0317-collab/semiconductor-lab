@@ -170,8 +170,7 @@
   "gui.semiconductor-lab.refiner.dopant_wait": "Refining first; dopant waits for 9N",
   "item.semiconductor-lab.refractory_brick_blank": "Unfired Silica Brick",
   "item.semiconductor-lab.refractory_brick_blank.note1": "Mostly quartz sand, shaped into a brick. It still has to be fired very hot.",
-  "item.semiconductor-lab.refractory_brick_blank.note": "Silica sand (SiO2) with a little clay to hold it together, pressed into shape. An ordinary furnace (~1000 C) is not hot enough: fire it in a blast furnace (~1450 C). During firing, quartz slowly turns into other crystal forms (tridymite, cristobalite), which is why silica bricks grow slightly instead of shrinking.",
-  "item.semiconductor-lab.refractory_brick_blank.placeholder": "Approximation: real Dinas bricks used about 2% lime as the binder. Lime [0-10] is not implemented yet, so clay holds the sand together (clay-bonded silica bricks also existed).",
+  "item.semiconductor-lab.refractory_brick_blank.note": "Silica sand (SiO2) bound with a little slaked lime (about 2%, as milk of lime), pressed into shape. An ordinary furnace (~1000 C) is not hot enough: fire it in a blast furnace (~1450 C). During firing, quartz slowly turns into other crystal forms (tridymite, cristobalite), which is why silica bricks grow slightly instead of shrinking.",
   "item.semiconductor-lab.refractory_brick": "Refractory Brick (Silica)",
   "item.semiconductor-lab.refractory_brick.note1": "Ordinary bricks melt in a furnace. Only bricks full of quartz can take the heat.",
   "item.semiconductor-lab.refractory_brick.note": "Silica brick, about 95% SiO2. Fire-clay bricks soften around 1600 C, but silica bricks stay hard almost up to their melting point (~1700 C), so they were used for the roofs of steel furnaces. Silica is acidic: it is the right lining for an acid Bessemer converter.",
@@ -401,5 +400,16 @@
   "message.semiconductor-lab.cable.network": "Cable network: %s cables, longest path %s (loss %s%%), %s generators, %s machines, %s batteries, %s delivered",
   "tooltip.semiconductor-lab.battery_energy": "Charge: %s / %s",
   "block.semiconductor-lab.copper_cable.note1": "Joins machines into one electric grid. Long cables lose more power.",
-  "block.semiconductor-lab.copper_cable.note4": "Real loss is P = I^2 R: doubling the voltage halves the current for the same power and cuts the loss to a quarter. That is why power lines run at hundreds of kV (transformer [4-10]). In this mod the whole network shares one 1 MW limit (like one trunk line) and the loss uses the longest path for every machine - both are simplifications."
+  "block.semiconductor-lab.copper_cable.note4": "Real loss is P = I^2 R: doubling the voltage halves the current for the same power and cuts the loss to a quarter. That is why power lines run at hundreds of kV (transformer [4-10]). In this mod the whole network shares one 1 MW limit (like one trunk line) and the loss uses the longest path for every machine - both are simplifications.",
+  "item.semiconductor-lab.quicklime": "Quicklime",
+  "item.semiconductor-lab.quicklime.note1": "Burn seashells or white stone and you get lime: the start of wall plaster.",
+  "item.semiconductor-lab.quicklime.note": "CaO. Calcite (CaCO3) heated to about 900 C loses its carbon dioxide: CaCO3 -> CaO + CO2. A furnace (~1000 C) or blast furnace is hot enough. Seashells and limestone are also CaCO3 and burn the same way.",
+  "item.semiconductor-lab.quicklime.note3": "Lime plaster is one of the oldest man-made materials: floors at Catalhoyuk and other early villages (around 9000-7000 BC) were coated with burnt lime. People built lime kilns everywhere there was limestone or shells.",
+  "item.semiconductor-lab.quicklime.note4": "Above about 900 C the pressure of CO2 released by CaCO3 exceeds 1 atm, so the reaction runs on its own. Burned too hot or too long, lime becomes 'dead-burned' (dense crystals that react slowly with water). The CO2 from lime kilns is still a big part of the cement industry's emissions.",
+  "item.semiconductor-lab.quicklime.placeholder": "Omitted: the CO2 given off is not collected (a furnace has only one output).",
+  "item.semiconductor-lab.slaked_lime": "Slaked Lime",
+  "item.semiconductor-lab.slaked_lime.note1": "Pour water on quicklime and it gets hot enough to steam, then falls into a white powder.",
+  "item.semiconductor-lab.slaked_lime.note": "Ca(OH)2. CaO + H2O -> Ca(OH)2 gives off a lot of heat. Mixed as 'milk of lime' (about 2%), it binds silica sand into Dinas refractory bricks. In air it slowly takes back CO2: Ca(OH)2 + CO2 -> CaCO3 + H2O, which is how lime plaster hardens.",
+  "item.semiconductor-lab.slaked_lime.note3": "The Romans mixed slaked lime with volcanic ash (pozzolana) and got a concrete that sets even under water. Japanese castle walls (shikkui plaster) are slaked lime with seaweed glue and fibres.",
+  "item.semiconductor-lab.slaked_lime.note4": "Slaking releases about 65 kJ per mole of CaO, enough to boil water or set wood on fire; self-heating meal boxes still use this reaction. Slaked lime is a strong base (pH about 12.4) used to causticize potash [2-02] and soda [2-08] and to neutralize acids."
 }

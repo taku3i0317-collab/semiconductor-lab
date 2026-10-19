@@ -5,7 +5,10 @@
     "minecraft:sand",
     "minecraft:sand",
     "minecraft:sand",
-    "minecraft:clay_ball"
+    "semiconductor-lab:slaked_lime"
   ],
-  "result": { "id": "semiconductor-lab:refractory_brick_blank", "count": 2 }
+  "result": {
+    "id": "semiconductor-lab:refractory_brick_blank",
+    "count": 2
+  }
 }

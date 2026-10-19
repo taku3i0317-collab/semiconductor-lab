@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:quicklime",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:slaked_lime",
+    "count": 1
+  }
+}
