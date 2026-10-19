@@ -3,6 +3,17 @@
 実行：`powershell -ExecutionPolicy Bypass -File tools\test.ps1`（中身は `./gradlew.bat runGameTest`。画面なしの専用サーバーで約20秒）
 テストのコード：src/gametest/java/com/taku3/semiconductorlab/gametest/LabTests.java ／ 全ログ：build/gametest.log
 
+## 2026-10-20 夜 タスク04（[4-05]→[4-06]→[4-07]、[1-45] は確認のみ）
+**39 本中 39 本 PASSED、FAILED 0**（`All 39 required tests passed :)`）。ノードごとに実行し、毎回全部 PASSED（36→38→39）
+
+| 追加したテスト | 確かめること | 結果 |
+|---|---|---|
+| self_excited_dynamo | 蒸気機関に積み替えると 100kW・石炭15秒（1個1.5MJは同じ）、2個目は付かない、熱効率5%、水車も2倍、レシピは鋼＋コイル（磁石なし） | ✅ |
+| steam_turbine | 水なし0W、500kW、バケツ1杯＝石炭2個、熱効率30%、横の水源で取水し続ける、積み替え不可、レシピに鋼 | ✅ |
+| turbine_powers_acheson | タービン→銅ケーブル1本→アチソン炉：490kW 届き 1182tick で 2500℃、2382tick で人造黒鉛（石炭 32→25） | ✅ |
+| lead_acid_battery | 横＝充電専用・正面＝放電専用、10kW×85% で充電、1MJ で満杯、正面ケーブルから逆流なし、正面の電気炉へ 10kW 放電・点灯、レシピ＝鉛＋硫酸 | ✅ |
+| （更新）recipes_resolve / block_drops / tool_requirements | 自励式ダイナモ・蒸気タービン・鉛蓄電池を追加 | ✅ |
+
 ## 2026-10-20 夜 タスク03（[4-12]→[3-10]→人造黒鉛ボート→帯域精製炉の電力駆動）
 **35 本中 35 本 PASSED、FAILED 0**（`All 35 required tests passed :)`）。ステップごとに実行し、毎回全部 PASSED（33→34→35）
 
