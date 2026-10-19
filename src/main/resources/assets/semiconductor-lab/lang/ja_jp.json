@@ -118,7 +118,7 @@
   "item.semiconductor-lab.magnet.note": "自然に磁化した磁鉄鉱（落雷でも磁化する）。古代から「ロードストーン」として知られる。",
   "item.semiconductor-lab.dynamo.note": "ファラデー1831年：磁場の中でコイルを回すと電流が流れる。初期は永久磁石、1866年（ジーメンス）からは鉄心に残った磁気だけで足りるようになった。",
   "block.semiconductor-lab.water_wheel.note": "横に「流れている水」が必要（1面500W）。止まった水では回らない。電力＝流量×落差。初期の発電所は水力が多かった。",
-  "block.semiconductor-lab.steam_engine.note": "石炭で水を沸かし、蒸気がピストンを押し、ダイナモが回る：50kW。本物の熱効率は約30%。水バケツ1杯＝石炭2個分の蒸気。",
+  "block.semiconductor-lab.steam_engine.note": "石炭で水を沸かし、蒸気がピストンを押し、ダイナモが回る：50kW。ワットの機関の熱効率はわずか2〜5%（石炭の熱の大半は捨てられた）。30%級になるのは蒸気タービンから。水バケツ1杯＝石炭2個分の蒸気。",
   "gui.semiconductor-lab.steam_engine.output": "出力: %s",
   "gui.semiconductor-lab.steam_engine.stored": "蓄積: %s",
   "gui.semiconductor-lab.steam_engine.water": "水: 石炭%s個分",

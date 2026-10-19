@@ -118,7 +118,7 @@
   "item.semiconductor-lab.magnet.note": "Magnetite that nature magnetized (lightning does it). Known since antiquity as lodestone.",
   "item.semiconductor-lab.dynamo.note": "Faraday 1831: spin a coil in a magnetic field and current flows. Early dynamos used permanent magnets; from 1866 (Siemens) the iron core's residual magnetism was enough.",
   "block.semiconductor-lab.water_wheel.note": "Needs FLOWING water beside it (500 W per side). Still water does nothing: power = flow x head. Early power stations were hydro.",
-  "block.semiconductor-lab.steam_engine.note": "Coal boils water, steam pushes a piston, the dynamo turns: 50 kW. Real thermal efficiency is only about 30%. One water bucket = 2 coal's worth of steam.",
+  "block.semiconductor-lab.steam_engine.note": "Coal boils water, steam pushes a piston, the dynamo turns: 50 kW. Watt's engine converted only 2-5% of the coal's heat into work; ~30% only came with steam turbines. One water bucket = 2 coal's worth of steam.",
   "gui.semiconductor-lab.steam_engine.output": "Output: %s",
   "gui.semiconductor-lab.steam_engine.stored": "Stored: %s",
   "gui.semiconductor-lab.steam_engine.water": "Water: %s coal",
