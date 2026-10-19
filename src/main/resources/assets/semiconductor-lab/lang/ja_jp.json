@@ -70,5 +70,6 @@
   "gui.semiconductor-lab.refiner.hint": "ゲルマニウムを入れると帯域精製が始まる",
   "gui.semiconductor-lab.refiner.unrefined": "未精製",
   "gui.semiconductor-lab.refiner.purity": "今: %s  →  次: %s",
-  "gui.semiconductor-lab.refiner.max": "今: %s（帯域精製の上限）"
+  "gui.semiconductor-lab.refiner.max": "今: %s（帯域精製の上限）",
+  "item.semiconductor-lab.refined_germanium.note": "純度は結晶の中身の話。表面は手や空気ですぐ汚れるので、本物は使う直前に酸（CP-4液）で表面を削り取る。ゲームではまだ未実装。"
 }
