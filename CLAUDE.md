@@ -27,7 +27,7 @@
 
 ## コードの慣習
 - Mojang 公式マッピング（Yarn ではない）。Identifier.fromNamespaceAndPath / ResourceKey / setId(key) の登録パターン
-- lang は en_us.json と ja_jp.json の両方を必ず更新。解説は item/block.<id>.note、仮は .placeholder
+- lang は en_us.json と ja_jp.json の両方を必ず更新。解説は item/block.<id>.note1（子ども・通常表示）.note2（学生・Shift）.note3（大人・ガイド）.note4（ガチ・深掘り）。旧 .note は .note2 扱い。仮は .placeholder
 - 仮テクスチャは 16x16 PNG を自動生成でよい（System.Drawing）。本番差し替えは仕上げフェーズ
 - 機械は ZoneRefiningFurnace（BE/Menu/Screen）を参考に。発電機は energy/GeneratorBlockEntity を継承
 
