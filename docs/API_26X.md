@@ -752,3 +752,9 @@ GameTestHelper:  public Player makeMockPlayer(GameType);
 Player:  public void sendOverlayMessage(Component);   （既存の手押しポンプと同じ）
 ``
 - GameTest の世界のバイオームは minecraft:desert だった（2026-10-20 のログ）。テスト場の上（y+7 付近）にバリアの天井がある
+- 自分自身を返す「作業台で使っても戻る道具」：`Item.Properties.craftRemainder(Item)` は登録前の自分を渡せないので、Fabric の `net.fabricmc.fabric.api.item.v1.FabricItem`（Item にインターフェース注入済み、fabric-item-api-v1 14.7.1）の `default ItemStackTemplate getCraftingRemainder(ItemStack)` を上書きする（item/QuartzStillItem）。GameTest で `CraftingRecipe.getRemainingItems(CraftingInput)` に反映されることを確認（ge_cl4_route）
+``
+net.minecraft.world.item.ItemStackTemplate:  public ItemStackTemplate(Item);  (Item,int) / (Item, DataComponentPatch) / (Holder<Item>, int, DataComponentPatch)；create()
+net.minecraft.world.item.crafting.CraftingRecipe:  public default NonNullList<ItemStack> getRemainingItems(CraftingInput);
+net.minecraft.world.item.crafting.CraftingInput:  public static CraftingInput of(int w, int h, List<ItemStack>);
+``
