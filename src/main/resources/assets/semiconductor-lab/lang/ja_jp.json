@@ -45,5 +45,7 @@
   "tooltip.semiconductor-lab.purity.hint": "トランジスタには 9N 以上が必要。帯域精製で一段ずつ純度を上げる。",
   "tooltip.semiconductor-lab.shift": "Shift で詳細",
   "item.semiconductor-lab.junction_transistor_blank": "合金接合型トランジスタ（未焼成）",
-  "block.semiconductor-lab.zone_refining_furnace": "帯域精製炉"
+  "block.semiconductor-lab.zone_refining_furnace": "帯域精製炉",
+  "block.semiconductor-lab.graphite_ore": "黒鉛鉱石",
+  "item.semiconductor-lab.graphite": "黒鉛"
 }

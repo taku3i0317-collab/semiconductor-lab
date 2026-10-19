@@ -23,6 +23,11 @@ public class ModBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f).sound(SoundType.STONE), true);
 
+    // 黒鉛鉱石（変成岩中の天然黒鉛。スリランカの脈状黒鉛など）
+    public static final Block GRAPHITE_ORE = register("graphite_ore", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops()
+                    .strength(4.5f, 3.0f).sound(SoundType.DEEPSLATE), true);
+
     // 帯域精製炉（Pfann, 1952）。点灯中は光る
     public static final Block ZONE_REFINING_FURNACE = register("zone_refining_furnace", ZoneRefiningFurnaceBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops()
@@ -43,7 +48,7 @@ public class ModBlocks {
     }
 
     public static void initialize() {
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> tab.accept(SPHALERITE_ORE));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> tab.accept(ZONE_REFINING_FURNACE));
     }
 }
