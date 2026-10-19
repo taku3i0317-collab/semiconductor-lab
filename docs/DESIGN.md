@@ -217,6 +217,7 @@
 
 
 \## 26.x で変わった点（メモ）
+- loot_table（26.3）: "conditions":[{"condition":…}] は廃止 → "condition": {"type":…} の単数（または述語ID文字列 "minecraft:tool/can_silk_touch"）。"functions":[{"function":…}] は廃止 → "modifier": [{"type":…}]。古い書式はエラーにならず**黙って無視**され、ログに WARN「validation problem … Unreachable entry!」が出るだけ（シルクタッチ無しでも鉱石ブロックが落ちていた。GameTest blockDrops で検出・修正）
 - worldgen: configured_feature フォルダ/レジストリは feature に改名（26.1）。feature JSON は "config": {} の入れ子がなくなり、type と同じ階層に書く。targets の state は {"Name":…} ではなく文字列 "modid:block" で書く
 - recipe / advancement / loot_table は単数形（1.21〜）
 - items/ の client item 定義が必要（1.21.4〜）

@@ -6,6 +6,7 @@
 ## 3年前から変わった点（まとめ）
 - worldgen: configured_feature フォルダ/レジストリは feature に改名（26.1）。feature JSON は "config": {} の入れ子がなくなり、type と同じ階層に書く。targets の state は {"Name":…} ではなく文字列 "modid:block" で書く
 - recipe / advancement / loot_table は単数形（1.21〜）
+- loot_table（26.3）: "conditions":[{"condition":…}] は廃止 → "condition": {"type":…} の単数（または述語ID文字列 "minecraft:tool/can_silk_touch"）。"functions":[{"function":…}] は廃止 → "modifier": [{"type":…}]。古い書式はエラーにならず**黙って無視**され、ログに WARN「validation problem … Unreachable entry!」が出るだけ（シルクタッチ無しでも鉱石ブロックが落ちていた。GameTest blockDrops で検出・修正）
 - items/ の client item 定義が必要（1.21.4〜）
 - Fabric ItemTooltipCallback は引数4つ (stack, context, flag, lines)
 - Screen.hasShiftDown() は廃止。Shift判定は Minecraft.getInstance().hasShiftDown()（Minecraft クラスのインスタンスメソッドに移動）
@@ -612,4 +613,63 @@ public void grow(int); public void shrink(int);
 public default int getMaxStackSize();
 // Containers
 public static void dropContents(Level, BlockPos, NonNullList<ItemStack>);
+``
+
+## 自動テスト（GameTest）— 2026-10-19 javap / ソースで確認、実際に動作
+### Loom 1.18.4（instrumented-fabric-loom-1.18.4.jar）
+``
+// build.gradle で使う拡張：fabricApi
+public interface net.fabricmc.loom.api.fabricapi.FabricApiExtension {
+  void configureTests(); void configureTests(Action<GameTestSettings>);
+  void configureDataGeneration(...);
+}
+public interface net.fabricmc.loom.api.fabricapi.GameTestSettings {
+  Property<Boolean> getCreateSourceSet();       // 既定 false。true で src/gametest/ ソースセットを作る
+  Property<String>  getModId();                  // テスト用 MOD の id（src/gametest/resources/fabric.mod.json と一致させる）
+  Property<Boolean> getEnableGameTests();        // 既定 true → run 設定 "gameTest" ＝ タスク runGameTest。check タスクにもぶら下がる
+  Property<Boolean> getEnableClientGameTests();  // 既定 true → runClientGameTest（画面が開くので false にした）
+  Property<Boolean> getEula();                   // 既定 false。true で eula.txt を自動作成
+  Property<Boolean> getClearRunDirectory();      // 既定 true（build/run/gameTest を毎回消す）
+  Property<String>  getUsername();               // 既定 "Player0"
+}
+// FabricApiTesting の定数：run 名 "gameTest"、runDir "build/run/gameTest"、vmArg -Dfabric-api.gametest
+``
+- タスク名は **runGameTest**（G と T が大文字。runGametest ではない）
+
+### fabric-gametest-api-v1 4.0.34（sources jar で確認）
+``
+@interface net.fabricmc.fabric.api.gametest.v1.GameTest {
+  String environment() default "minecraft:default"; String structure() default "fabric-gametest-api-v1:empty"; // 8x8 の空き
+  int maxTicks() default 20; int setupTicks() default 0; boolean required() default true;
+  boolean skyAccess() default false; int padding() default 1; int maxAttempts() default 1; ...
+}
+// メソッドは public・非 static・void・引数 GameTestHelper 1つ。クラスは fabric.mod.json の "fabric-gametest" エントリポイントに書く
+// テスト名 = <modid>:<クラス名_メソッド名 のスネークケース>（例 semiconductor-lab-gametest:lab_tests_block_drops）
+``
+### net.minecraft.gametest.framework.GameTestHelper（26.3）
+``
+ServerLevel getLevel(); BlockPos absolutePos(BlockPos);  <T extends BlockEntity> T getBlockEntity(BlockPos, Class<T>);
+void setBlock(BlockPos, Block); void setBlock(BlockPos, BlockState); BlockState getBlockState(BlockPos);
+void succeed(); void succeedWhen(Runnable); void runAfterDelay(long, Runnable); void runAtTickTime(long, Runnable);
+void fail(String); void assertTrue(boolean, String); void assertFalse(boolean, String);
+<N> void assertValueEqual(N, N, String); <T extends Comparable<T>> void assertBlockProperty(BlockPos, Property<T>, T);
+void assertBlockPresent(Block, BlockPos); Player makeMockPlayer(GameType); long getTick();
+``
+### テストで使ったその他の API
+``
+// Registries.FEATURE は Registry<Feature>（旧 ConfiguredFeature が Feature に統合。Feature はインターフェース）
+boolean Feature.place(WorldGenLevel, ChunkGenerator, RandomSource, BlockPos);
+ServerChunkCache ServerLevel.getChunkSource(); ChunkGenerator ServerChunkCache.getGenerator();
+<E> Registry<E> RegistryAccess.lookupOrThrow(ResourceKey<? extends Registry<? extends E>>);
+T Registry.getValue(Identifier); boolean Registry.containsKey(Identifier);
+Holder.Reference<T> HolderGetter.getOrThrow(ResourceKey<T>);
+// レシピ・進捗・関数
+Optional<RecipeHolder<?>> RecipeManager.byKey(ResourceKey<Recipe<?>>);   // ResourceKey.create(Registries.RECIPE, id)
+AdvancementHolder ServerAdvancementManager.get(Identifier);  Collection<AdvancementHolder> getAllAdvancements();
+Optional<CommandFunction<CommandSourceStack>> ServerFunctionManager.get(Identifier);
+// ドロップ
+static List<ItemStack> Block.getDrops(BlockState, ServerLevel, BlockPos, BlockEntity, Entity, ItemInstance);
+void ItemStack.enchant(Holder<Enchantment>, int);   ResourceKey<Enchantment> Enchantments.SILK_TOUCH;
+TagKey<Block> BlockTags.STONE_ORE_REPLACEABLES / DEEPSLATE_ORE_REPLACEABLES;
+static RandomSource RandomSource.create(long);
 ``
