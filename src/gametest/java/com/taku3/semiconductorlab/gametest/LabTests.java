@@ -24,6 +24,8 @@ import com.taku3.semiconductorlab.energy.EnergyStorage;
 import com.taku3.semiconductorlab.energy.GeneratorBlockEntity;
 import com.taku3.semiconductorlab.energy.SteamEngineBlockEntity;
 import com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity;
+import com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity;
+import com.taku3.semiconductorlab.energy.EnergyApi;
 import com.taku3.semiconductorlab.energy.WaterWheelBlockEntity;
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.core.BlockPos;
@@ -162,7 +164,7 @@ public class LabTests {
             h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw)), b + " with a pickaxe should drop " + raw + ", got " + normal);
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
-        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
+        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
                 ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
                 ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
@@ -184,7 +186,7 @@ public class LabTests {
         h.assertTrue(stone.isCorrectToolForDrops(ModBlocks.GRAPHITE_ORE.defaultBlockState()), "graphite ore with a stone pickaxe");
         h.assertTrue(new ItemStack(Items.IRON_SHOVEL).getDestroySpeed(ModBlocks.IRON_SAND.defaultBlockState()) > 1f, "iron sand: shovel is the right tool");
         h.assertTrue(new ItemStack(Items.IRON_AXE).getDestroySpeed(ModBlocks.WATER_WHEEL.defaultBlockState()) > 1f, "water wheel: axe is the right tool");
-        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE}) {
+        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE}) {
             h.assertTrue(iron.isCorrectToolForDrops(m.defaultBlockState()), m + " should be collected with a pickaxe");
             h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(m.defaultBlockState()), m + " should not drop when broken by hand");
         }
@@ -347,6 +349,52 @@ public class LabTests {
         h.assertTrue(f.getContainer().getItem(AchesonFurnaceBlockEntity.SLOT_OUT).is(ModItems.SYNTHETIC_GRAPHITE), "synthetic graphite made on turbine power");
         LOG.info("[LAB] turbine -> cable -> acheson: {} W delivered, 2500 C at tick {}, graphite at tick {}, coal left {}", Math.round(maxW), reached, ticks,
                 t.getContainer().getItem(SteamEngineBlockEntity.SLOT_COAL).getCount());
+        h.succeed();
+    }
+
+    /** [4-07] 鉛蓄電池：横から充電（85% が貯まる、10kW まで）、1MJ で満杯、正面から放電（10kW まで）。正面のケーブルからは逆流しない */
+    @GameTest
+    public void leadAcidBattery(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);   // 向きは既定の NORTH → 正面（放電端子）は z-1
+        h.setBlock(pos, ModBlocks.LEAD_ACID_BATTERY);
+        LeadAcidBatteryBlockEntity be = h.getBlockEntity(pos, LeadAcidBatteryBlockEntity.class);
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(pos);
+        EnergyStorage side = EnergyApi.ENERGY.find(lv, a, net.minecraft.core.Direction.EAST);
+        EnergyStorage front = EnergyApi.ENERGY.find(lv, a, be.front());
+        h.assertTrue(side != null && side.canInsert() && !side.canExtract(), "side faces charge only");
+        h.assertTrue(front != null && !front.canInsert() && front.canExtract(), "front terminal discharges only");
+        long per = LeadAcidBatteryBlockEntity.MAX_PER_TICK;
+
+        // 充電：毎 tick たっぷり入れても 10kW（500 J/tick）まで、貯まるのはその 85%
+        for (int i = 0; i < 100; i++) { side.insert(1_000_000, false); LeadAcidBatteryBlockEntity.tick(lv, a, lv.getBlockState(a), be); }
+        h.assertValueEqual(be.getStoredJ(), 100 * per * 85 / 100, "100 ticks x 500 J x 85%");
+        h.assertValueEqual(be.getLastChargeWatts(), LeadAcidBatteryBlockEntity.MAX_WATTS, "charging at 10 kW");
+        // 満杯まで：1MJ を超えない
+        int t = 0;
+        while (side.insert(1_000_000, false) > 0 && t++ < 5000) LeadAcidBatteryBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        h.assertTrue(be.getStoredJ() <= LeadAcidBatteryBlockEntity.CAPACITY && be.getStoredJ() > LeadAcidBatteryBlockEntity.CAPACITY - per, "full at 1 MJ, got " + be.getStoredJ());
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+
+        // 正面にケーブル：ケーブルの電気は電池に逆流しない
+        h.setBlock(p(1, 1, 0), ModBlocks.COPPER_CABLE);
+        CableBlockEntity cable = h.getBlockEntity(p(1, 1, 0), CableBlockEntity.class);
+        cable.getStorage().insert(10_000, false);
+        long full = be.getStoredJ();
+        BlockPos ac = h.absolutePos(p(1, 1, 0));
+        CableBlockEntity.tick(lv, ac, lv.getBlockState(ac), cable);
+        h.assertValueEqual(be.getStoredJ(), full, "no backflow into the front terminal");
+
+        // 放電：正面の電気炉へ 10kW ずつ押し出す
+        h.setBlock(p(1, 1, 0), ModBlocks.ELECTRIC_FURNACE);
+        ElectricFurnaceBlockEntity furnace = h.getBlockEntity(p(1, 1, 0), ElectricFurnaceBlockEntity.class);
+        for (int i = 0; i < 20; i++) LeadAcidBatteryBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        h.assertValueEqual(full - be.getStoredJ(), 20 * per, "discharged 20 ticks x 500 J");
+        h.assertValueEqual(furnace.getStorage().getStoredJ(), 20 * (per - per / 100), "furnace received it (1% contact loss)");
+        h.assertValueEqual(be.getLastDischargeWatts(), LeadAcidBatteryBlockEntity.MAX_WATTS, "discharging at 10 kW");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        h.assertTrue(recipeUses(h, "lead_acid_battery", ModItems.LEAD_INGOT) && recipeUses(h, "lead_acid_battery", ModItems.SULFURIC_ACID), "lead + sulfuric acid");
+        LOG.info("[LAB] lead-acid battery: charge 10 kW at 85%, full at {} J, no backflow, discharge 10 kW to the front", full);
         h.succeed();
     }
 
@@ -641,7 +689,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 

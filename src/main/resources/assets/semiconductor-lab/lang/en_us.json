@@ -387,5 +387,12 @@
   "block.semiconductor-lab.steam_turbine.note3": "No piston going back and forth, just a wheel of blades turning in one direction — so it can spin fast (Parsons' first: 18,000 rpm) and be built huge. Power plants sit by rivers and the sea because they need lots of cooling water.",
   "block.semiconductor-lab.steam_turbine.note4": "Real plants are multi-stage (steam expands through many rows of blades) and use a condenser to turn the steam back into water under vacuum, which raises efficiency. Coal plants reach about 33-40% today, combined-cycle gas plants over 60%. Your electricity is still mostly made by spinning turbines.",
   "block.semiconductor-lab.steam_turbine.placeholder": "Simplified: blades are not machined on a lathe ([8-01] not yet implemented); single stage, no condenser; feedwater from a river is not used up.",
-  "gui.semiconductor-lab.steam_engine.water_intake": "Water: from the river"
+  "gui.semiconductor-lab.steam_engine.water_intake": "Water: from the river",
+  "block.semiconductor-lab.lead_acid_battery": "Lead-Acid Battery",
+  "block.semiconductor-lab.lead_acid_battery.note1": "The same kind of battery as in a car. It stores electricity as a chemical change.",
+  "block.semiconductor-lab.lead_acid_battery.note": "Planté 1859. Lead plates in sulfuric acid. Holds 1 MJ. Charges from any side except the front (only 85% is stored), discharges out of the front terminal; both up to 10 kW. Right-click: charge level. Glows while discharging.",
+  "block.semiconductor-lab.lead_acid_battery.note3": "Charging: 2PbSO4 + 2H2O -> Pb + PbO2 + 2H2SO4. Discharging runs it backwards, so the acid gets weaker as the battery empties — mechanics check charge by measuring the acid's density. Planté made the PbO2 plate by charging and discharging bare lead sheets over and over ('forming').",
+  "block.semiconductor-lab.lead_acid_battery.note4": "The first rechargeable battery, and still in nearly every car 160+ years later because it can give a huge current to the starter motor and is cheap and recyclable (over 95% of the lead is recycled). Pure lead plates are soft, so grids were hardened with a few % antimony ([1-43]). Overcharging splits water into H2 + O2 — battery rooms need ventilation.",
+  "block.semiconductor-lab.lead_acid_battery.placeholder": "Simplified: no self-discharge, no voltage (12 V etc.), charge is lost when the block is broken; the case is glass (real: glass jars, later hard rubber / plastic).",
+  "message.semiconductor-lab.lead_acid_battery.status": "Lead-acid battery: %s / %s (charging %s, discharging %s)"
 }

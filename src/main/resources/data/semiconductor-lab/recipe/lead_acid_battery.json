@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LcL",
+    "GAG",
+    "GLG"
+  ],
+  "key": {
+    "L": "semiconductor-lab:lead_ingot",
+    "c": "semiconductor-lab:copper_cable",
+    "G": "minecraft:glass",
+    "A": "semiconductor-lab:sulfuric_acid"
+  },
+  "result": {
+    "id": "semiconductor-lab:lead_acid_battery",
+    "count": 1
+  }
+}

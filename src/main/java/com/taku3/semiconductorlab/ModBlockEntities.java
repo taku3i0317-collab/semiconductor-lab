@@ -21,6 +21,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<CableBlockEntity> COPPER_CABLE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("copper_cable"), FabricBlockEntityTypeBuilder.create(CableBlockEntity::new, ModBlocks.COPPER_CABLE).build());
     public static final BlockEntityType<WaterWheelBlockEntity> WATER_WHEEL = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("water_wheel"), FabricBlockEntityTypeBuilder.create(WaterWheelBlockEntity::new, ModBlocks.WATER_WHEEL).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity> STEAM_TURBINE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("steam_turbine"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity::new, ModBlocks.STEAM_TURBINE).build());
+    public static final BlockEntityType<com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity> LEAD_ACID_BATTERY = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("lead_acid_battery"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity::new, ModBlocks.LEAD_ACID_BATTERY).build());
     public static final BlockEntityType<SteamEngineBlockEntity> STEAM_ENGINE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("steam_engine"), FabricBlockEntityTypeBuilder.create(SteamEngineBlockEntity::new, ModBlocks.STEAM_ENGINE).build());
     public static final BlockEntityType<ElectrolyzerBlockEntity> ELECTROLYZER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("electrolyzer"), FabricBlockEntityTypeBuilder.create(ElectrolyzerBlockEntity::new, ModBlocks.ELECTROLYZER).build());
     public static final BlockEntityType<GasHolderBlockEntity> GAS_HOLDER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("gas_holder"), FabricBlockEntityTypeBuilder.create(GasHolderBlockEntity::new, ModBlocks.GAS_HOLDER).build());
@@ -39,6 +40,7 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WATER_WHEEL);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_ENGINE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_TURBINE);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.storageFor(dir), LEAD_ACID_BATTERY);   // 正面＝放電、ほか＝充電
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTROLYZER);   // 消費側：受け取り専用
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), BESSEMER_CONVERTER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), HYDROGEN_FURNACE);
