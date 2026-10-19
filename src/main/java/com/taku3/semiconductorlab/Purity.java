@@ -3,11 +3,11 @@ package com.taku3.semiconductorlab;
 public final class Purity {
     private Purity() {}
 
-    // 段階（DESIGN.md：98% / 6N / 9N / 11N）
+    // 段階（DESIGN.md：98% / 6N / 9N / 10N）
     public static final double METALLURGICAL = 0.98;
     public static final double SIX_N    = 0.999999;
     public static final double NINE_N   = 0.999999999;
-    public static final double ELEVEN_N = 0.99999999999;
+    public static final double TEN_N = 0.9999999999;
 
     /** 「9」の個数。0.999999 → 6 */
     public static int nines(double p) {

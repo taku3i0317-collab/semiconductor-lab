@@ -42,7 +42,7 @@
   "tooltip.semiconductor-lab.purity": "Purity: %s",
   "tooltip.semiconductor-lab.purity.percent": "%s pure",
   "tooltip.semiconductor-lab.purity.ratio": "About 1 impurity atom per %s atoms",
-  "tooltip.semiconductor-lab.purity.hint": "Transistors need 9N or better. Zone refining raises purity one step at a time.",
+  "tooltip.semiconductor-lab.purity.hint": "Transistors need 9N or better. Zone refining raises purity one step at a time (up to 10N for Ge).",
   "tooltip.semiconductor-lab.shift": "Hold Shift for details",
   "item.semiconductor-lab.junction_transistor_blank": "Alloy-Junction Transistor (Unfired)",
   "block.semiconductor-lab.zone_refining_furnace": "Zone Refining Furnace",
@@ -67,9 +67,13 @@
   "message.semiconductor-lab.refiner.not_germanium": "Only germanium can be zone-refined here. Put in reduced or refined germanium.",
   "message.semiconductor-lab.refiner.max_purity": "Already 11N - zone refining cannot go further.",
   "message.semiconductor-lab.refiner.empty": "The furnace is empty. Right-click with germanium to start.",
-  "gui.semiconductor-lab.refiner.hint": "Put in germanium to start zone refining",
+  "gui.semiconductor-lab.refiner.hint": "Left: germanium (max 8)  Right: dopant (P = n-type, In = p-type)",
   "gui.semiconductor-lab.refiner.unrefined": "unrefined",
   "gui.semiconductor-lab.refiner.purity": "Now: %s  >  Next: %s",
-  "gui.semiconductor-lab.refiner.max": "Now: %s (max for zone refining)",
-  "item.semiconductor-lab.refined_germanium.note": "Purity is about the inside of the crystal. The surface gets dirty from your hands and air at once - real labs etch it off with acid (CP-4) right before use. Not yet in the game."
+  "gui.semiconductor-lab.refiner.max": "Now: %s (limit of zone refining). Add a dopant to make n/p-type",
+  "item.semiconductor-lab.refined_germanium.note": "Purity is about the inside of the crystal. The surface gets dirty from your hands and air at once - real labs etch it off with acid (CP-4) right before use. Not yet in the game.",
+  "gui.semiconductor-lab.refiner.ready": "Now: %s - transistor grade. Add a dopant, or refine to 10N",
+  "gui.semiconductor-lab.refiner.doping": "Zone leveling: spreading dopant evenly through %s germanium",
+  "item.semiconductor-lab.n_type_germanium.note": "Made by zone leveling: dopant is added to the molten zone so it spreads evenly. Mixing solids would not work.",
+  "item.semiconductor-lab.p_type_germanium.note": "Made by zone leveling: dopant is added to the molten zone so it spreads evenly. Mixing solids would not work."
 }
