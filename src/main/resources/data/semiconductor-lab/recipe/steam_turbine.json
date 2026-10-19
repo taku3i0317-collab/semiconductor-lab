@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SDS",
+    "RbR"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "D": "semiconductor-lab:self_excited_dynamo",
+    "R": "semiconductor-lab:refractory_brick",
+    "b": "minecraft:bucket"
+  },
+  "result": {
+    "id": "semiconductor-lab:steam_turbine",
+    "count": 1
+  }
+}

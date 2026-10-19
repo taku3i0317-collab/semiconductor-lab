@@ -380,5 +380,12 @@
   "item.semiconductor-lab.self_excited_dynamo.note4": "Permanent magnets of the 1860s were weak, so magneto machines could only turn part of the engine's power into electricity. Electromagnet fields made big generators possible — Wheatstone and Varley found the same idea in the same months. Energy is still conserved: double the electricity needs double the steam.",
   "message.semiconductor-lab.self_excited_dynamo.installed": "Installed the self-excited dynamo: output x2",
   "message.semiconductor-lab.self_excited_dynamo.already": "This generator already has a self-excited dynamo",
-  "message.semiconductor-lab.self_excited_dynamo.not_needed": "This generator already has an electromagnet field built in"
+  "message.semiconductor-lab.self_excited_dynamo.not_needed": "This generator already has an electromagnet field built in",
+  "block.semiconductor-lab.steam_turbine": "Steam Turbine Generator",
+  "block.semiconductor-lab.steam_turbine.note1": "Steam spins a fan really fast. This is how most power plants still work.",
+  "block.semiconductor-lab.steam_turbine.note": "Parsons 1884. Coal + water -> 500 kW. One coal lasts 18 s (9 MJ = 30% of the coal's heat; the steam engine gets 5%). Water: a bucket in the top slot (1 bucket = 2 coal), or a water source block beside it feeds it forever. Enough to run the Acheson furnace (500 kW) by itself.",
+  "block.semiconductor-lab.steam_turbine.note3": "No piston going back and forth, just a wheel of blades turning in one direction — so it can spin fast (Parsons' first: 18,000 rpm) and be built huge. Power plants sit by rivers and the sea because they need lots of cooling water.",
+  "block.semiconductor-lab.steam_turbine.note4": "Real plants are multi-stage (steam expands through many rows of blades) and use a condenser to turn the steam back into water under vacuum, which raises efficiency. Coal plants reach about 33-40% today, combined-cycle gas plants over 60%. Your electricity is still mostly made by spinning turbines.",
+  "block.semiconductor-lab.steam_turbine.placeholder": "Simplified: blades are not machined on a lathe ([8-01] not yet implemented); single stage, no condenser; feedwater from a river is not used up.",
+  "gui.semiconductor-lab.steam_engine.water_intake": "Water: from the river"
 }

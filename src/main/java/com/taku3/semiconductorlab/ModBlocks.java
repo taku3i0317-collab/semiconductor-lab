@@ -51,6 +51,7 @@ public class ModBlocks {
 
     // 発電機（v0.2a）：水車＋ダイナモ／ボイラー＋蒸気機関＋ダイナモ
     public static final Block WATER_WHEEL = register("water_wheel", p -> new GeneratorBlock(p, WaterWheelBlockEntity::new, () -> ModBlockEntities.WATER_WHEEL), BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0f).sound(SoundType.WOOD), true);
+    public static final Block STEAM_TURBINE = register("steam_turbine", p -> new GeneratorBlock(p, com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity::new, () -> ModBlockEntities.STEAM_TURBINE), BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(4.0f).sound(SoundType.METAL), true);
     public static final Block STEAM_ENGINE = register("steam_engine", p -> new GeneratorBlock(p, SteamEngineBlockEntity::new, () -> ModBlockEntities.STEAM_ENGINE), BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.5f).sound(SoundType.METAL), true);
 
     // 電解槽 [6-01]（ガラス槽＋黒鉛電極）。電気を消費する機械の第1号
@@ -112,6 +113,6 @@ public class ModBlocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(ELECTRIC_FURNACE); tab.accept(ACHESON_FURNACE); tab.accept(HYDROGEN_FURNACE); tab.accept(COMPRESSOR); tab.accept(VACUUM_CHAMBER); tab.accept(HAND_VACUUM_PUMP); tab.accept(SEALING_STATION); });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(STEAM_TURBINE); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(ELECTRIC_FURNACE); tab.accept(ACHESON_FURNACE); tab.accept(HYDROGEN_FURNACE); tab.accept(COMPRESSOR); tab.accept(VACUUM_CHAMBER); tab.accept(HAND_VACUUM_PUMP); tab.accept(SEALING_STATION); });
     }
 }

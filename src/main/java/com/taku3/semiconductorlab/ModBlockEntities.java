@@ -20,6 +20,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<ZoneRefiningFurnaceBlockEntity> ZONE_REFINING_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("zone_refining_furnace"), FabricBlockEntityTypeBuilder.create(ZoneRefiningFurnaceBlockEntity::new, ModBlocks.ZONE_REFINING_FURNACE).build());
     public static final BlockEntityType<CableBlockEntity> COPPER_CABLE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("copper_cable"), FabricBlockEntityTypeBuilder.create(CableBlockEntity::new, ModBlocks.COPPER_CABLE).build());
     public static final BlockEntityType<WaterWheelBlockEntity> WATER_WHEEL = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("water_wheel"), FabricBlockEntityTypeBuilder.create(WaterWheelBlockEntity::new, ModBlocks.WATER_WHEEL).build());
+    public static final BlockEntityType<com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity> STEAM_TURBINE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("steam_turbine"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity::new, ModBlocks.STEAM_TURBINE).build());
     public static final BlockEntityType<SteamEngineBlockEntity> STEAM_ENGINE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("steam_engine"), FabricBlockEntityTypeBuilder.create(SteamEngineBlockEntity::new, ModBlocks.STEAM_ENGINE).build());
     public static final BlockEntityType<ElectrolyzerBlockEntity> ELECTROLYZER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("electrolyzer"), FabricBlockEntityTypeBuilder.create(ElectrolyzerBlockEntity::new, ModBlocks.ELECTROLYZER).build());
     public static final BlockEntityType<GasHolderBlockEntity> GAS_HOLDER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("gas_holder"), FabricBlockEntityTypeBuilder.create(GasHolderBlockEntity::new, ModBlocks.GAS_HOLDER).build());
@@ -37,6 +38,7 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WATER_WHEEL);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_ENGINE);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_TURBINE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTROLYZER);   // 消費側：受け取り専用
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), BESSEMER_CONVERTER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), HYDROGEN_FURNACE);

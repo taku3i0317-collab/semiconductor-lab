@@ -11,8 +11,9 @@ import net.minecraft.world.level.storage.ValueOutput;
 
 /** 銅ケーブル。隣のケーブルとは均し（拡散）、機械には押し込む。1ホップ1%損失（簡易。本物は I²R） */
 public class CableBlockEntity extends BlockEntity {
-    public static final long CAPACITY = 20_000;                 // 20 kJ
     public static final long MAX_TRANSFER = EnergyStorage.wattsToJoulesPerTick(1_000_000); // 1 MW/ホップ
+    /** 1 tick 分の MAX_TRANSFER（50 kJ）。20 kJ だと 1本で 400kW しか通らず、タービン [4-06] の 500kW が流れなかった */
+    public static final long CAPACITY = MAX_TRANSFER;
     public static final int LOSS_PERCENT = 1;
     private final SimpleEnergyStorage storage = new SimpleEnergyStorage(CAPACITY, MAX_TRANSFER, MAX_TRANSFER, 0, this::setChanged);
 

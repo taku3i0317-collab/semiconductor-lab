@@ -380,5 +380,12 @@
   "item.semiconductor-lab.self_excited_dynamo.note4": "1860年代の永久磁石は弱く、磁石式の発電機はエンジンの力の一部しか電気にできなかった。電磁石の界磁で大きな発電機が作れるようになった（ホイートストンとヴァーリーも同じ月に同じ考えに達した）。エネルギー保存は守られる：電気を2倍出すには蒸気も2倍いる。",
   "message.semiconductor-lab.self_excited_dynamo.installed": "自励式ダイナモに積み替えた：出力2倍",
   "message.semiconductor-lab.self_excited_dynamo.already": "この発電機はもう自励式ダイナモになっている",
-  "message.semiconductor-lab.self_excited_dynamo.not_needed": "この発電機は最初から電磁石の界磁を持っている"
+  "message.semiconductor-lab.self_excited_dynamo.not_needed": "この発電機は最初から電磁石の界磁を持っている",
+  "block.semiconductor-lab.steam_turbine": "蒸気タービン発電機",
+  "block.semiconductor-lab.steam_turbine.note1": "蒸気で羽根車をものすごく速く回す。今の発電所もほとんどこれ。",
+  "block.semiconductor-lab.steam_turbine.note": "パーソンズ1884年。石炭＋水 → 500kW。石炭1個で18秒（9MJ＝石炭の熱の30%。蒸気機関は5%）。水は上の枠の水バケツ（1杯＝石炭2個分）か、横に水源ブロックを置くとそこから取り続ける。1台でアチソン炉（500kW）を動かせる。",
+  "block.semiconductor-lab.steam_turbine.note3": "ピストンが往復せず、羽根車が一方向に回るだけなので、速く回せて（パーソンズの最初の機械で毎分18000回転）大きくも作れた。発電所が川や海のそばにあるのは、冷やすための水がたくさん要るから。",
+  "block.semiconductor-lab.steam_turbine.note4": "本物は多段（蒸気が何列もの羽根を通りながら膨らむ）で、復水器で蒸気を真空中で水に戻して効率を上げる。石炭火力は今33〜40%、ガスのコンバインドサイクルは60%以上。今あなたが使う電気も、ほとんどは回るタービンで作られている。",
+  "block.semiconductor-lab.steam_turbine.placeholder": "省略：羽根の削り出し（旋盤[8-01]が未実装）、多段・復水器、川の水は減らない。",
+  "gui.semiconductor-lab.steam_engine.water_intake": "水: 川から取水中"
 }

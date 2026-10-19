@@ -23,6 +23,7 @@ import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
 import com.taku3.semiconductorlab.energy.GeneratorBlockEntity;
 import com.taku3.semiconductorlab.energy.SteamEngineBlockEntity;
+import com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity;
 import com.taku3.semiconductorlab.energy.WaterWheelBlockEntity;
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.core.BlockPos;
@@ -161,7 +162,7 @@ public class LabTests {
             h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw)), b + " with a pickaxe should drop " + raw + ", got " + normal);
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
-        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
+        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
                 ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
                 ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
@@ -183,7 +184,7 @@ public class LabTests {
         h.assertTrue(stone.isCorrectToolForDrops(ModBlocks.GRAPHITE_ORE.defaultBlockState()), "graphite ore with a stone pickaxe");
         h.assertTrue(new ItemStack(Items.IRON_SHOVEL).getDestroySpeed(ModBlocks.IRON_SAND.defaultBlockState()) > 1f, "iron sand: shovel is the right tool");
         h.assertTrue(new ItemStack(Items.IRON_AXE).getDestroySpeed(ModBlocks.WATER_WHEEL.defaultBlockState()) > 1f, "water wheel: axe is the right tool");
-        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE}) {
+        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE}) {
             h.assertTrue(iron.isCorrectToolForDrops(m.defaultBlockState()), m + " should be collected with a pickaxe");
             h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(m.defaultBlockState()), m + " should not drop when broken by hand");
         }
@@ -285,6 +286,67 @@ public class LabTests {
         h.assertTrue(ww.installSelfExcitedDynamo() && ww.dynamoFactor() == 2, "water wheel accepts the self-excited dynamo");
         h.assertTrue(recipeUses(h, "self_excited_dynamo", ModItems.STEEL_INGOT) && !recipeUses(h, "self_excited_dynamo", ModItems.MAGNET), "steel core, no magnet");
         LOG.info("[LAB] self-excited dynamo: steam engine 100 kW, coal 15 s (1.5 MJ/coal unchanged), water wheel x2, no magnet in recipe");
+        h.succeed();
+    }
+
+    /** [4-06] 蒸気タービン：500kW・石炭18秒（熱効率30%）。水はバケツ（1杯＝石炭2個）か、横の水源から取り続ける。積み替えはない */
+    @GameTest
+    public void steamTurbine(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.STEAM_TURBINE);
+        SteamTurbineBlockEntity be = h.getBlockEntity(pos, SteamTurbineBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 5));
+        tickGenerator(h, pos, be, 3);
+        h.assertValueEqual(be.getLastWatts(), 0.0, "coal without water -> 0 W");
+        c.setItem(SteamEngineBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        tickGenerator(h, pos, be, 1);
+        h.assertValueEqual(be.getLastWatts(), SteamTurbineBlockEntity.WATTS, "turbine 500 kW");
+        tickGenerator(h, pos, be, SteamTurbineBlockEntity.COAL_TICKS * 2);
+        h.assertValueEqual(be.getLastWatts(), 0.0, "1 bucket = 2 coal, then stops");
+        h.assertValueEqual(c.getItem(SteamEngineBlockEntity.SLOT_COAL).getCount(), 3, "2 coal burned");
+        h.assertTrue(Math.abs(be.thermalEfficiency() - 0.30) < 1e-9, "turbine thermal efficiency 30%, got " + be.thermalEfficiency());
+        // 横に水源：バケツなしで燃え続ける
+        h.setBlock(p(1, 1, 2), Blocks.WATER);
+        tickGenerator(h, pos, be, SteamTurbineBlockEntity.COAL_TICKS * 2 + 1);
+        h.assertValueEqual(be.getLastWatts(), SteamTurbineBlockEntity.WATTS, "running on river water");
+        h.assertValueEqual(c.getItem(SteamEngineBlockEntity.SLOT_COAL).getCount(), 0, "3 more coal lit with no bucket");
+        h.assertFalse(be.supportsDynamoUpgrade(), "turbine generator is already self-excited");
+        h.assertTrue(recipeUses(h, "steam_turbine", ModItems.STEEL_INGOT), "turbine is built of steel");
+        LOG.info("[LAB] steam turbine: 500 kW, 18 s/coal (30%), bucket = 2 coal, adjacent water source = unlimited feed");
+        h.succeed();
+    }
+
+    /** [4-06] のテスト「アチソン炉が動く」：タービン → 銅ケーブル1本 → アチソン炉 で 2500℃に届き、人造黒鉛ができる */
+    @GameTest
+    public void turbinePowersAcheson(GameTestHelper h) {
+        BlockPos tp = p(1, 1, 1), cp = p(2, 1, 1), fp = p(3, 1, 1);
+        h.setBlock(tp, ModBlocks.STEAM_TURBINE);
+        h.setBlock(cp, ModBlocks.COPPER_CABLE);
+        h.setBlock(fp, ModBlocks.ACHESON_FURNACE);
+        h.setBlock(p(1, 1, 0), Blocks.WATER);
+        SteamTurbineBlockEntity t = h.getBlockEntity(tp, SteamTurbineBlockEntity.class);
+        CableBlockEntity cable = h.getBlockEntity(cp, CableBlockEntity.class);
+        AchesonFurnaceBlockEntity f = h.getBlockEntity(fp, AchesonFurnaceBlockEntity.class);
+        t.getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 32));
+        f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_CARBON, new ItemStack(Items.COAL, 4));
+        f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_SAND, new ItemStack(Items.SAND, 1));
+        ServerLevel lv = h.getLevel();
+        BlockPos at = h.absolutePos(tp), ac = h.absolutePos(cp), af = h.absolutePos(fp);
+        int ticks = 0, reached = -1;
+        double maxW = 0;
+        while (ticks < 20 * 200 && f.getContainer().getItem(AchesonFurnaceBlockEntity.SLOT_OUT).isEmpty()) {
+            GeneratorBlockEntity.tick(lv, at, lv.getBlockState(at), t);
+            CableBlockEntity.tick(lv, ac, lv.getBlockState(ac), cable);
+            ConsumerBlockEntity.tick(lv, af, lv.getBlockState(af), f);
+            maxW = Math.max(maxW, f.getLastWatts());
+            if (reached < 0 && f.getTemperature() >= AchesonFurnaceBlockEntity.GRAPHITIZE_C) reached = ticks;
+            ticks++;
+        }
+        h.assertTrue(reached >= 0, "turbine via 1 cable should heat the Acheson furnace past 2500 C (max power seen " + maxW + " W, temp " + f.getTemperature() + ")");
+        h.assertTrue(f.getContainer().getItem(AchesonFurnaceBlockEntity.SLOT_OUT).is(ModItems.SYNTHETIC_GRAPHITE), "synthetic graphite made on turbine power");
+        LOG.info("[LAB] turbine -> cable -> acheson: {} W delivered, 2500 C at tick {}, graphite at tick {}, coal left {}", Math.round(maxW), reached, ticks,
+                t.getContainer().getItem(SteamEngineBlockEntity.SLOT_COAL).getCount());
         h.succeed();
     }
 
@@ -579,7 +641,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
