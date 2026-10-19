@@ -44,5 +44,6 @@
   "tooltip.semiconductor-lab.purity.ratio": "原子 %s 個に不純物が約1個",
   "tooltip.semiconductor-lab.purity.hint": "トランジスタには 9N 以上が必要。帯域精製で一段ずつ純度を上げる。",
   "tooltip.semiconductor-lab.shift": "Shift で詳細",
-  "item.semiconductor-lab.junction_transistor_blank": "合金接合型トランジスタ（未焼成）"
+  "item.semiconductor-lab.junction_transistor_blank": "合金接合型トランジスタ（未焼成）",
+  "block.semiconductor-lab.zone_refining_furnace": "帯域精製炉"
 }

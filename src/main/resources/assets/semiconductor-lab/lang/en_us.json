@@ -44,5 +44,6 @@
   "tooltip.semiconductor-lab.purity.ratio": "About 1 impurity atom per %s atoms",
   "tooltip.semiconductor-lab.purity.hint": "Transistors need 9N or better. Zone refining raises purity one step at a time.",
   "tooltip.semiconductor-lab.shift": "Hold Shift for details",
-  "item.semiconductor-lab.junction_transistor_blank": "Alloy-Junction Transistor (Unfired)"
+  "item.semiconductor-lab.junction_transistor_blank": "Alloy-Junction Transistor (Unfired)",
+  "block.semiconductor-lab.zone_refining_furnace": "Zone Refining Furnace"
 }

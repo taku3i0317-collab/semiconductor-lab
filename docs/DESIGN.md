@@ -187,6 +187,8 @@
 - Fabric ItemTooltipCallback は引数4つ (stack, context, flag, lines)
 - Screen.hasShiftDown() は廃止。Shift判定は Minecraft.getInstance().hasShiftDown()（Minecraft クラスのインスタンスメソッドに移動）
 
+- Block の MapCodec / simpleCodec / codec() は廃止（26.x）。ブロッククラスに書かない
+
 ## 変更履歴
 - 2026-10-19 化学ルールを追加。第1章フローを改訂（水バケツ廃止・硫酸ルート・閃亜鉛鉱・ドーピング・トランジスタ2種）
 

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/zone_refining_furnace_front",
+    "side": "semiconductor-lab:block/zone_refining_furnace_side",
+    "top": "semiconductor-lab:block/zone_refining_furnace_top"
+  }
+}
