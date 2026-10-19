@@ -208,7 +208,7 @@
 
 - I18n.exists() は廃止。翻訳キーの存在チェックは Language.getInstance().has(key)
 
-- Player.displayClientMessage は廃止 → sendSystemMessage__ONEARG
+- Player.displayClientMessage は廃止 → sendSystemMessage（引数1つ：Component。チャットに表示）
 
 ## 変更履歴
 - 2026-10-19 v0.2a 電気の設計を決定（J/W・電圧欄・鉱石3つの産状・水素/木炭両方・水車）

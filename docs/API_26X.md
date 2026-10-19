@@ -590,3 +590,4 @@ public static final net.minecraft.world.item.Item AXOLOTL_BUCKET;
 public static final net.minecraft.world.item.Item SULFUR_CUBE_BUCKET;
 public static final net.minecraft.world.item.Item TADPOLE_BUCKET;
 ``
+- Player.displayClientMessage(Component, boolean) は廃止 → player.sendSystemMessage(Component)（1引数、チャット表示）

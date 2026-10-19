@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlock;
+import com.taku3.semiconductorlab.energy.CableBlock;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -34,6 +35,10 @@ public class ModBlocks {
                     .strength(3.5f).sound(SoundType.STONE)
                     .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 13 : 0), true);
 
+    // 銅ケーブル（v0.2a）
+    public static final Block COPPER_CABLE = register("copper_cable", CableBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f).sound(SoundType.COPPER).noOcclusion(), true);
+
     public static Block register(String name, Function<BlockBehaviour.Properties, Block> factory,
                                  BlockBehaviour.Properties props, boolean withItem) {
         ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, SemiconductorLab.id(name));
@@ -49,6 +54,6 @@ public class ModBlocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> tab.accept(ZONE_REFINING_FURNACE));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); });
     }
 }

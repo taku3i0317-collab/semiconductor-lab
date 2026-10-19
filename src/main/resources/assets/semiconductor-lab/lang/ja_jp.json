@@ -120,7 +120,8 @@ Lキーで次の目標が見える。",
 
 君のゲルマニウムの表面は今、汚れている。本物は使う前に酸で削る。",
   "guide.semiconductor-lab.root.title": "ガイド：第1章",
-  "guide.semiconductor-lab.root.description": "ガイドブックの内容がここに永久に残る。進むごとにページが解放される。\n本をなくしたら /function semiconductor-lab:give_guidebook",
+  "guide.semiconductor-lab.root.description": "ガイドブックの内容がここに永久に残る。進むごとにページが解放される。
+本をなくしたら /function semiconductor-lab:give_guidebook",
   "guide.semiconductor-lab.p1.title": "はじめに",
   "guide.semiconductor-lab.p2.title": "1. ゲルマニウム",
   "guide.semiconductor-lab.p3.title": "2. 硫酸",
@@ -129,5 +130,8 @@ Lキーで次の目標が見える。",
   "guide.semiconductor-lab.p6.title": "炉のしくみ",
   "guide.semiconductor-lab.p7.title": "5. ドーピング",
   "guide.semiconductor-lab.p8.title": "6. トランジスタ",
-  "guide.semiconductor-lab.p9.title": "クリーンルームは？"
+  "guide.semiconductor-lab.p9.title": "クリーンルームは？",
+  "block.semiconductor-lab.copper_cable": "銅ケーブル",
+  "message.semiconductor-lab.cable.stored": "ケーブル: %s / %s 蓄積",
+  "block.semiconductor-lab.copper_cable.note": "電気を運ぶ。1ブロックごとに1%損失（簡略化）。本物の損失は I^2 R で、太い銅線と高電圧で減らす。"
 }

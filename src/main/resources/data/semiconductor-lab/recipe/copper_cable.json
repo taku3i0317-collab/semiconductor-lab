@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [ "ccc" ],
+  "key": { "c": "minecraft:copper_ingot" },
+  "result": { "id": "semiconductor-lab:copper_cable", "count": 6 }
+}

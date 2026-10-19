@@ -120,7 +120,8 @@ Correct - in 1947 there were none. Laminar-flow clean rooms arrived in the 1960s
 
 The surface of your germanium is dirty right now. Real labs etch it with acid before use.",
   "guide.semiconductor-lab.root.title": "Guide: Chapter 1",
-  "guide.semiconductor-lab.root.description": "The guidebook, kept here forever. Pages unlock as you progress.\nLost the book item? Run /function semiconductor-lab:give_guidebook",
+  "guide.semiconductor-lab.root.description": "The guidebook, kept here forever. Pages unlock as you progress.
+Lost the book item? Run /function semiconductor-lab:give_guidebook",
   "guide.semiconductor-lab.p1.title": "Welcome",
   "guide.semiconductor-lab.p2.title": "1. Germanium",
   "guide.semiconductor-lab.p3.title": "2. Sulfuric Acid",
@@ -129,5 +130,8 @@ The surface of your germanium is dirty right now. Real labs etch it with acid be
   "guide.semiconductor-lab.p6.title": "The Furnace",
   "guide.semiconductor-lab.p7.title": "5. Doping",
   "guide.semiconductor-lab.p8.title": "6. Transistors",
-  "guide.semiconductor-lab.p9.title": "No Clean Room?"
+  "guide.semiconductor-lab.p9.title": "No Clean Room?",
+  "block.semiconductor-lab.copper_cable": "Copper Cable",
+  "message.semiconductor-lab.cable.stored": "Cable: %s / %s stored",
+  "block.semiconductor-lab.copper_cable.note": "Carries electricity. Loses 1% per block (simplified). Real loss is I^2 R - thick copper and high voltage cut it."
 }
