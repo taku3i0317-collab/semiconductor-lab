@@ -74,7 +74,7 @@ def parse():
 def fill(n):
     head = n["head"]
     first = re.split(r"\s{2,}|前提:|／", head)[0]
-    n["name"] = re.sub(r"[✅❓⛔🔧🌿⚠️【】\"]|（.*", "", first).strip()[:24] or n["id"]
+    n["name"] = re.sub(r"\s*→\s*$", "",re.sub(r"[✅❓⛔🔧🌿⚠️【】\"]|（.*", "", first).strip())[:24] or n["id"]
     status_zone = re.split(r"前提:", head)[0]
     if "✅" in status_zone:
         n["st"] = "✅"
