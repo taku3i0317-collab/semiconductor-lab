@@ -871,7 +871,8 @@ public class LabTests {
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace"};
+            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
+            "salt_from_rock_salt", "salt_pan"};
 
     @GameTest
     public void recipesResolve(GameTestHelper h) {
@@ -1544,6 +1545,98 @@ public class LabTests {
         h.assertTrue(missing.isEmpty(), "not registered: " + missing);
         h.assertValueEqual(ch1, 11L, "number of chapter1 advancements");
         LOG.info("[LAB] advancements: chapter1 = {}, guide = {}, functions = {} all registered", ch1, GUIDE_ADV.length, GUIDE_FN.length);
+        h.succeed();
+    }
+
+    // =====================================================================
+    // タスク09：塩素の鎖 [6-04][0-16] → [6-05] → [6-06] → WO3 本物化・[1-34] GeCl4
+    // =====================================================================
+
+    @GameTest public void oreRockSalt(GameTestHelper h) { oreFeature(h, "rock_salt_ore", Blocks.STONE, Blocks.DEEPSLATE, ModBlocks.ROCK_SALT_ORE, s -> s.is(Blocks.STONE)); }
+
+    /** 生成するバイオームに placed feature id が入っているか */
+    private static boolean biomeHas(GameTestHelper h, ResourceKey<net.minecraft.world.level.biome.Biome> biome, String id) {
+        var b = h.getLevel().registryAccess().lookupOrThrow(Registries.BIOME).getOrThrow(biome).value();
+        return b.getGenerationSettings().features().stream()
+                .anyMatch(set -> set.stream().anyMatch(f -> f.unwrapKey().map(k -> k.identifier().equals(SemiconductorLab.id(id))).orElse(false)));
+    }
+
+    /** [6-04] 岩塩鉱：ツルハシで岩塩、シルクタッチでブロック。砂漠・荒野だけ。岩塩→作業台→塩 */
+    @GameTest
+    public void rockSalt(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        BlockPos at = h.absolutePos(p(1, 1, 1));
+        ItemStack pick = new ItemStack(Items.WOODEN_PICKAXE);
+        ItemStack silk = new ItemStack(Items.IRON_PICKAXE);
+        silk.enchant(lv.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH), 1);
+        BlockState st = ModBlocks.ROCK_SALT_ORE.defaultBlockState();
+        h.assertTrue(pick.isCorrectToolForDrops(st), "rock salt is soft: a wooden pickaxe is enough");
+        h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(st), "not by hand");
+        List<ItemStack> normal = Block.getDrops(st, lv, at, null, null, pick);
+        List<ItemStack> silky = Block.getDrops(st, lv, at, null, null, silk);
+        h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(ModItems.ROCK_SALT)), "pickaxe -> rock salt, got " + normal);
+        h.assertTrue(silky.size() == 1 && silky.get(0).is(ModBlocks.ROCK_SALT_ORE.asItem()), "silk touch -> block, got " + silky);
+        h.assertTrue(recipeUses(h, "salt_from_rock_salt", ModItems.ROCK_SALT), "rock salt -> salt");
+        h.assertTrue(biomeHas(h, net.minecraft.world.level.biome.Biomes.DESERT, "rock_salt_ore"), "rock salt under deserts");
+        h.assertTrue(biomeHas(h, net.minecraft.world.level.biome.Biomes.BADLANDS, "rock_salt_ore"), "rock salt under badlands");
+        h.assertFalse(biomeHas(h, net.minecraft.world.level.biome.Biomes.PLAINS, "rock_salt_ore"), "no rock salt under plains");
+        LOG.info("[LAB] rock salt: pickaxe -> rock salt, silk -> block, crafting -> salt, desert/badlands only");
+        h.succeed();
+    }
+
+    /** [0-16] 塩田：海・浜バイオーム＋横に水＋空＋晴れで、1分に塩1、塩8ごとににがり1。右クリックで受け取る */
+    @GameTest
+    public void saltPan(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        floor(h, 4);
+        BlockPos pos = p(1, 1, 1), water = p(2, 1, 1);
+        h.setBlock(pos, ModBlocks.SALT_PAN);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.SaltPanBlockEntity.class);
+        BlockPos a = h.absolutePos(pos);
+        int T = com.taku3.semiconductorlab.block.SaltPanBlockEntity.TICKS_PER_SALT;
+        boolean sea = com.taku3.semiconductorlab.block.SaltPanBlockEntity.isSeaBiome(lv, a);
+        LOG.info("[LAB] salt pan: test biome = {} (sea={})", lv.getBiome(a).unwrapKey().map(k -> k.identifier().toString()).orElse("?"), sea);
+        h.setBlock(water, Blocks.WATER);
+        if (!sea) {
+            // 海でなければ（平原など）水があっても動かない
+            be.step(lv, a, T * 2);
+            h.assertValueEqual(be.getSalt(), 0, "not by the sea -> no salt");
+            h.assertTrue(be.status(lv, a) == com.taku3.semiconductorlab.block.SaltPanBlockEntity.Status.NOT_SEA, "status NOT_SEA");
+        }
+        be.setForceSeaForTest(true);
+        h.assertTrue(be.status(lv, a) != com.taku3.semiconductorlab.block.SaltPanBlockEntity.Status.NOT_SEA, "forced sea");
+        if (lv.isRainingAt(a.above())) { LOG.info("[LAB] salt pan: raining in the test world, skip the sunny part"); h.succeed(); return; }
+        // 水なし：止まる
+        h.setBlock(water, Blocks.STONE);
+        be.step(lv, a, T * 2);
+        h.assertValueEqual(be.getSalt(), 0, "no seawater beside -> no salt");
+        // 屋根：止まる
+        h.setBlock(water, Blocks.WATER);
+        h.setBlock(p(1, 2, 1), Blocks.STONE);
+        be.step(lv, a, T * 2);
+        h.assertValueEqual(be.getSalt(), 0, "no sky -> no salt");
+        h.setBlock(p(1, 2, 1), Blocks.AIR);
+        // 晴れ・空・水：1分で1個
+        be.step(lv, a, T - 20);
+        h.assertValueEqual(be.getSalt(), 0, "not yet 1 s before a minute");
+        be.step(lv, a, 20);
+        h.assertValueEqual(be.getSalt(), 1, "1 salt per minute");
+        h.assertValueEqual(be.getBittern(), 0, "no bittern yet");
+        be.step(lv, a, T * 7);
+        h.assertValueEqual(be.getSalt(), 8, "8 salt");
+        h.assertValueEqual(be.getBittern(), 1, "1 bittern per 8 salt (NaCl crystallises first, MgCl2 stays)");
+        // 右クリック相当：プレイヤーに渡る
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        int n = be.collect(player);
+        h.assertValueEqual(n, 9, "collected 8 salt + 1 bittern");
+        h.assertValueEqual(player.getInventory().countItem(ModItems.SALT), 8, "salt in inventory");
+        h.assertValueEqual(player.getInventory().countItem(ModItems.BITTERN), 1, "bittern in inventory");
+        h.assertValueEqual(be.getSalt(), 0, "pan emptied");
+        // 満杯で止まる（塩64）
+        be.step(lv, a, T * 80);
+        h.assertValueEqual(be.getSalt(), com.taku3.semiconductorlab.block.SaltPanBlockEntity.MAX_SALT, "stops at 64 salt");
+        h.assertTrue(recipeUses(h, "salt_pan", Items.CAULDRON), "salt pan needs an iron pot (cauldron) for boiling down");
+        LOG.info("[LAB] salt pan: sea + water + sky + no rain -> 1 salt / {} ticks, 1 bittern / 8 salt, stops at 64", T);
         h.succeed();
     }
 

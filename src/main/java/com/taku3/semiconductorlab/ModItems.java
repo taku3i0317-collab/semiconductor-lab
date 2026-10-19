@@ -98,6 +98,11 @@ public class ModItems {
     public static final Item GLASS_BATCH           = simple("glass_batch");       // 調合原料（砂6＋ソーダ1＋生石灰1）
     public static final Item SODA_LIME_GLASS       = simple("soda_lime_glass");   // 溶かして固めたガラス（器具の素材）
 
+    // --- 塩（[6-04] 岩塩・[0-16] 塩田）。岩塩でも海水でも同じ NaCl ---
+    public static final Item ROCK_SALT             = simple("rock_salt");         // 岩塩の原石（蒸発岩、NaCl 95〜99%）
+    public static final Item SALT                  = simple("salt");              // 塩 NaCl（クロルアルカリ電解 [6-05] の原料）
+    public static final Item BITTERN               = simple("bittern");           // にがり（海水を煮詰めた母液、主成分 MgCl2）
+
     // --- 水銀（[1-45] 辰砂 HgS の焙焼。HgS + O2 → Hg + SO2）---
     public static final Item CINNABAR_DUST         = simple("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉
     public static final Item MERCURY               = register("mercury", Item::new, new Item.Properties().stacksTo(16)); // 液体の金属（容器入り）
@@ -124,7 +129,7 @@ public class ModItems {
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT, ZINC_OXIDE,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
-            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE, GLASS_BATCH, SODA_LIME_GLASS,
+            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE, GLASS_BATCH, SODA_LIME_GLASS, ROCK_SALT, SALT, BITTERN,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 

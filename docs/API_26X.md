@@ -738,3 +738,17 @@ net.minecraft.resources.ResourceKey:  public Identifier identifier();   （旧 l
 net.minecraft.world.item.ItemStack:  public void enchant(Holder<Enchantment>, int);
 ``
 
+
+### タスク09 で確認（javap、26.3）
+``
+net.minecraft.world.level.BlockAndLightGetter:  public default boolean canSeeSky(BlockPos);   （空の明るさで判定＝光の計算が後から追いつくので、置いた直後の屋根に反応しない。塩田は高さマップを使う）
+net.minecraft.world.level.LevelReader:  public abstract int getHeight(Heightmap.Types, int x, int z);  ／ Heightmap.Types.MOTION_BLOCKING
+net.minecraft.world.level.LevelReader:  public default Holder<Biome> getBiome(BlockPos);   （Holder.is(TagKey) で BiomeTags.IS_OCEAN / IS_BEACH / IS_BADLANDS）
+net.minecraft.world.level.Level:  public boolean isRainingAt(BlockPos);  public boolean isRaining();  public boolean isBrightOutside();
+BlockBehaviour.BlockStateBase:  public boolean propagatesSkylightDown();   （バリア・ガラスは true。GameTest の天井はバリア）
+net.minecraft.world.item.Item$Properties:  craftRemainder(Item) / craftRemainder(ItemStackTemplate)   ／ Item.getCraftingRemainder() は ItemStackTemplate
+net.minecraft.world.Container:  public default int countItem(Item);   （Inventory でも使える）
+GameTestHelper:  public Player makeMockPlayer(GameType);
+Player:  public void sendOverlayMessage(Component);   （既存の手押しポンプと同じ）
+``
+- GameTest の世界のバイオームは minecraft:desert だった（2026-10-20 のログ）。テスト場の上（y+7 付近）にバリアの天井がある

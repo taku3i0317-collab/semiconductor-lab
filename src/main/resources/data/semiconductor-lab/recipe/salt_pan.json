@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "CKC"
+  ],
+  "key": {
+    "S": "minecraft:sand",
+    "C": "minecraft:clay_ball",
+    "K": "minecraft:cauldron"
+  },
+  "result": {
+    "id": "semiconductor-lab:salt_pan",
+    "count": 1
+  }
+}

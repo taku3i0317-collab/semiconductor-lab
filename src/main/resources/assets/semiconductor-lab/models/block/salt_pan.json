@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "semiconductor-lab:block/salt_pan_top",
+    "side": "semiconductor-lab:block/salt_pan_side",
+    "bottom": "minecraft:block/sand"
+  }
+}
