@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide2/p8",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:synthetic_graphite"
+    },
+    "title": {
+      "translate": "guide2.semiconductor-lab.p9.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch2.p9"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "synthetic_graphite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:synthetic_graphite"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "synthetic_graphite"
+    ]
+  ]
+}

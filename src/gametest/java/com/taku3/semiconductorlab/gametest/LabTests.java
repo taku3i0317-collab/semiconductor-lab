@@ -1557,6 +1557,59 @@ public class LabTests {
     }
 
     // =====================================================================
+    // タスク10：ガイド第2巻「電気」（guide2/）・図鑑タブ（zukan/）・へえ①〜④
+    // =====================================================================
+
+    private static final String[] GUIDE2_ADV = {"root", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"};
+
+    /** guide2/ の11個と give_guidebook2 が登録され、ルートの報酬が本を渡す関数になっている */
+    @GameTest
+    public void guide2Electricity(GameTestHelper h) {
+        MinecraftServer server = h.getLevel().getServer();
+        List<String> missing = new ArrayList<>();
+        for (String a : GUIDE2_ADV) if (server.getAdvancements().get(SemiconductorLab.id("guide2/" + a)) == null) missing.add("guide2/" + a);
+        if (server.getFunctions().get(SemiconductorLab.id("give_guidebook2")).isEmpty()) missing.add("function give_guidebook2");
+        h.assertTrue(missing.isEmpty(), "not registered: " + missing);
+        long n = server.getAdvancements().getAllAdvancements().stream()
+                .filter(x -> x.id().getNamespace().equals(SemiconductorLab.MOD_ID) && x.id().getPath().startsWith("guide2/")).count();
+        h.assertValueEqual(n, (long) GUIDE2_ADV.length, "number of guide2 advancements");
+        LOG.info("[LAB] guide2 (electricity): {} advancements + give_guidebook2 registered", n);
+        h.succeed();
+    }
+
+    private static com.google.gson.JsonObject langJson(String code) {
+        try (var in = SemiconductorLab.class.getResourceAsStream("/assets/" + SemiconductorLab.MOD_ID + "/lang/" + code + ".json")) {
+            return com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
+        } catch (java.io.IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /** MOD の全アイテムに へえ①〜④（en/ja）があり、図鑑タブ zukan/<id> が全部ある */
+    @GameTest
+    public void notesAndZukanComplete(GameTestHelper h) {
+        MinecraftServer server = h.getLevel().getServer();
+        var en = langJson("en_us");
+        var ja = langJson("ja_jp");
+        List<String> missing = new ArrayList<>();
+        int items = 0;
+        for (var item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
+            var key = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
+            if (!key.getNamespace().equals(SemiconductorLab.MOD_ID)) continue;
+            items++;
+            String base = (en.has("item." + key.getNamespace() + "." + key.getPath()) ? "item." : "block.") + key.getNamespace() + "." + key.getPath();
+            for (var lang : List.of(en, ja)) {
+                for (String s : new String[] {"note1", "note3", "note4"}) if (!lang.has(base + "." + s)) missing.add(base + "." + s);
+                if (!lang.has(base + ".note2") && !lang.has(base + ".note")) missing.add(base + ".note2");
+            }
+            if (server.getAdvancements().get(SemiconductorLab.id("zukan/" + key.getPath())) == null) missing.add("zukan/" + key.getPath());
+        }
+        h.assertTrue(missing.isEmpty(), "missing (" + missing.size() + "): " + missing);
+        LOG.info("[LAB] notes: all {} items have note1-4 in en/ja and a zukan entry", items);
+        h.succeed();
+    }
+
+    // =====================================================================
     // タスク09：塩素の鎖 [6-04][0-16] → [6-05] → [6-06] → WO3 本物化・[1-34] GeCl4
     // =====================================================================
 

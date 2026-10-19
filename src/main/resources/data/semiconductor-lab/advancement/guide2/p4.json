@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide2/p3",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:self_excited_dynamo"
+    },
+    "title": {
+      "translate": "guide2.semiconductor-lab.p4.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch2.p4"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "self_excited_dynamo": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:self_excited_dynamo"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "self_excited_dynamo"
+    ]
+  ]
+}

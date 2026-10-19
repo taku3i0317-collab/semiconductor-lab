@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide2/p4",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:copper_cable"
+    },
+    "title": {
+      "translate": "guide2.semiconductor-lab.p5.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch2.p5"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "copper_cable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:copper_cable"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "copper_cable"
+    ]
+  ]
+}

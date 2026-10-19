@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:germanium_tetrachloride"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.germanium_tetrachloride"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.germanium_tetrachloride.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.germanium_tetrachloride.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:germanium_tetrachloride"
+          }
+        ]
+      }
+    }
+  }
+}

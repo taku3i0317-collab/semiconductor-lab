@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide2/p5",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:electrolyzer"
+    },
+    "title": {
+      "translate": "guide2.semiconductor-lab.p6.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch2.p6"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "electrolyzer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:electrolyzer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "electrolyzer"
+    ]
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:writable_book"
+    },
+    "title": {
+      "translate": "zukan.semiconductor-lab.root.title"
+    },
+    "description": {
+      "translate": "zukan.semiconductor-lab.root.description"
+    },
+    "background": "minecraft:block/birch_planks",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "joined": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

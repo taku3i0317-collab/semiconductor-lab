@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:synthetic_graphite_boat"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.synthetic_graphite_boat"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.synthetic_graphite_boat.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.synthetic_graphite_boat.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:synthetic_graphite_boat"
+          }
+        ]
+      }
+    }
+  }
+}

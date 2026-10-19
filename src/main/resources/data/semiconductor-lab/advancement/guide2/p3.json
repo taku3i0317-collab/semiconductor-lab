@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide2/p2",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:steam_engine"
+    },
+    "title": {
+      "translate": "guide2.semiconductor-lab.p3.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch2.p3"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "steam_engine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:steam_engine"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "steam_engine"
+    ]
+  ]
+}

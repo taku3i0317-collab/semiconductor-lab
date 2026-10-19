@@ -1,0 +1,57 @@
+{
+  "parent": "semiconductor-lab:guide2/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:book"
+    },
+    "title": {
+      "translate": "guide2.semiconductor-lab.p1.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch2.p1"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "water_wheel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:water_wheel"
+          }
+        ]
+      }
+    },
+    "steam_engine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:steam_engine"
+          }
+        ]
+      }
+    },
+    "copper_cable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:copper_cable"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "water_wheel",
+      "steam_engine",
+      "copper_cable"
+    ]
+  ]
+}

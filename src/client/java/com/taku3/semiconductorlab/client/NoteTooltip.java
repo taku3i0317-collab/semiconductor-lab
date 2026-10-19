@@ -25,10 +25,24 @@ public class NoteTooltip {
             String note = key(id, "note2");
             if (note == null) note = key(id, "note");
             if (note != null) {
-                if (Minecraft.getInstance().hasShiftDown()) lines.add(Component.translatable(note).withStyle(ChatFormatting.GRAY));
-                else lines.add(Component.translatable("tooltip.semiconductor-lab.shift").withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC));
+                if (Minecraft.getInstance().hasShiftDown()) {
+                    lines.add(Component.translatable(note).withStyle(ChatFormatting.GRAY));
+                    // へえ③（大人）・④（ガチ）は冒頭だけ。全文はガイドタブ「図鑑」（advancement zukan/<id>）
+                    for (String s : new String[] {"note3", "note4"}) {
+                        String k = key(id, s);
+                        if (k != null) lines.add(Component.translatable("tooltip.semiconductor-lab." + s + "_locked",
+                                preview(Language.getInstance().getOrDefault(k))).withStyle(ChatFormatting.DARK_AQUA));
+                    }
+                } else lines.add(Component.translatable("tooltip.semiconductor-lab.shift").withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC));
             }
         });
+    }
+
+    /** 冒頭 PREVIEW 文字（コードポイント単位）＋「…」 */
+    static final int PREVIEW = 18;
+    static String preview(String s) {
+        if (s.codePointCount(0, s.length()) <= PREVIEW) return s;
+        return s.substring(0, s.offsetByCodePoints(0, PREVIEW)) + "…";
     }
 
     private static String key(String id, String suffix) {

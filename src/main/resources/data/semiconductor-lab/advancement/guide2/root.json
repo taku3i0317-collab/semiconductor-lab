@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:copper_cable"
+    },
+    "title": {
+      "translate": "guide2.semiconductor-lab.root.title"
+    },
+    "description": {
+      "translate": "guide2.semiconductor-lab.root.description"
+    },
+    "background": "minecraft:block/copper_block",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "water_wheel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:water_wheel"
+          }
+        ]
+      }
+    },
+    "steam_engine": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:steam_engine"
+          }
+        ]
+      }
+    },
+    "copper_cable": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:copper_cable"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "water_wheel",
+      "steam_engine",
+      "copper_cable"
+    ]
+  ],
+  "rewards": {
+    "function": "semiconductor-lab:give_guidebook2"
+  }
+}
