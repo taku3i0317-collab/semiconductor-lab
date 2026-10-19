@@ -1,0 +1,18 @@
+{
+	"schemaVersion": 1,
+	"id": "semiconductor-lab-gametest",
+	"version": "1.0.0",
+	"name": "Semiconductor Lab GameTests",
+	"description": "Automated GameTests for Semiconductor Lab (not shipped)",
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"fabric-gametest": [
+			"com.taku3.semiconductorlab.gametest.LabTests"
+		]
+	},
+	"depends": {
+		"semiconductor-lab": "*",
+		"fabric-gametest-api-v1": "*"
+	}
+}
