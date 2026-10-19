@@ -408,3 +408,4 @@ public net.minecraft.world.item.BucketItem(net.minecraft.world.level.material.Fl
 - 登録：`MenuScreens.register(ModMenus.X, Screen::new)`（ClientModInitializer 内）
 - 右クリックで開く：Block で `getMenuProvider` ＋ `useWithoutItem` → `player.openMenu(be)`。BlockEntity が `MenuProvider` を実装
 - SimpleContainer.addListener は廃止 → 匿名サブクラスで setChanged() を上書きする
+- 本を渡す：loot table の set_components で written_book_content は動かず（形不明）。進捗 rewards.function → mcfunction の give コマンド（SNBT: pages:[{translate:...}]）で動作。コマンド内の文章は JSON 文字列ではなく SNBT 形式

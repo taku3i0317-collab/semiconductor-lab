@@ -1,0 +1,4 @@
+{
+  "criteria": { "joined": { "trigger": "minecraft:tick" } },
+  "rewards": { "function": "semiconductor-lab:give_guidebook" }
+}

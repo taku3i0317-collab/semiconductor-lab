@@ -1,1 +1,1 @@
-{ "replace": false, "values": [ "semiconductor-lab:zone_refining_furnacesemiconductor-lab:graphite_ore" ] }
+{ "replace": false, "values": [ "semiconductor-lab:graphite_ore", "semiconductor-lab:zone_refining_furnace" ] }

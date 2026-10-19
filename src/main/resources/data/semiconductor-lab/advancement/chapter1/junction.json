@@ -1,17 +1,32 @@
 {
-  "parent": "semiconductor-lab:chapter1/transistor",
-  "display": {
-    "icon": { "id": "semiconductor-lab:junction_transistor" },
-    "title": { "translate": "advancements.semiconductor-lab.chapter1.junction.title" },
-    "description": { "translate": "advancements.semiconductor-lab.chapter1.junction.description" },
-    "frame": "goal",
-    "show_toast": true,
-    "announce_to_chat": true
-  },
-  "criteria": {
-    "got_item": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": { "items": [ { "items": "semiconductor-lab:junction_transistor" } ] }
-    }
-  }
+    "parent":  "semiconductor-lab:chapter1/transistor",
+    "display":  {
+                    "icon":  {
+                                 "id":  "semiconductor-lab:junction_transistor"
+                             },
+                    "title":  {
+                                  "translate":  "advancements.semiconductor-lab.chapter1.junction.title"
+                              },
+                    "description":  {
+                                        "translate":  "advancements.semiconductor-lab.chapter1.junction.description"
+                                    },
+                    "frame":  "goal",
+                    "show_toast":  true,
+                    "announce_to_chat":  true
+                },
+    "criteria":  {
+                     "got_item":  {
+                                      "trigger":  "minecraft:inventory_changed",
+                                      "conditions":  {
+                                                         "items":  [
+                                                                       {
+                                                                           "items":  "semiconductor-lab:junction_transistor"
+                                                                       }
+                                                                   ]
+                                                     }
+                                  }
+                 },
+    "rewards":  {
+                    "function":  "semiconductor-lab:guide/junction"
+                }
 }

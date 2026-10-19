@@ -1,17 +1,32 @@
 {
-  "parent": "semiconductor-lab:chapter1/dioxide",
-  "display": {
-    "icon": { "id": "semiconductor-lab:raw_germanium" },
-    "title": { "translate": "advancements.semiconductor-lab.chapter1.raw_germanium.title" },
-    "description": { "translate": "advancements.semiconductor-lab.chapter1.raw_germanium.description" },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true
-  },
-  "criteria": {
-    "got_item": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": { "items": [ { "items": "semiconductor-lab:raw_germanium" } ] }
-    }
-  }
+    "parent":  "semiconductor-lab:chapter1/dioxide",
+    "display":  {
+                    "icon":  {
+                                 "id":  "semiconductor-lab:raw_germanium"
+                             },
+                    "title":  {
+                                  "translate":  "advancements.semiconductor-lab.chapter1.raw_germanium.title"
+                              },
+                    "description":  {
+                                        "translate":  "advancements.semiconductor-lab.chapter1.raw_germanium.description"
+                                    },
+                    "frame":  "task",
+                    "show_toast":  true,
+                    "announce_to_chat":  true
+                },
+    "criteria":  {
+                     "got_item":  {
+                                      "trigger":  "minecraft:inventory_changed",
+                                      "conditions":  {
+                                                         "items":  [
+                                                                       {
+                                                                           "items":  "semiconductor-lab:raw_germanium"
+                                                                       }
+                                                                   ]
+                                                     }
+                                  }
+                 },
+    "rewards":  {
+                    "function":  "semiconductor-lab:guide/raw_germanium"
+                }
 }

@@ -75,5 +75,59 @@
   "gui.semiconductor-lab.refiner.ready": "今: %s ― トランジスタ級。ドーパントを入れるか、10Nまで精製",
   "gui.semiconductor-lab.refiner.doping": "ゾーンレベリング：%s ゲルマニウムにドーパントを均一に広げている",
   "item.semiconductor-lab.n_type_germanium.note": "ゾーンレベリングで作る：溶融帯にドーパントを入れて均一に広げる。固体を混ぜても半導体にはならない。",
-  "item.semiconductor-lab.p_type_germanium.note": "ゾーンレベリングで作る：溶融帯にドーパントを入れて均一に広げる。固体を混ぜても半導体にはならない。"
+  "item.semiconductor-lab.p_type_germanium.note": "ゾーンレベリングで作る：溶融帯にドーパントを入れて均一に広げる。固体を混ぜても半導体にはならない。",
+  "book.semiconductor-lab.ch1.p1": "半導体ラボ
+第1章：トランジスタの誕生（1947年）
+
+ゴール：トランジスタラジオを作る。
+
+ここでやることは本物の化学に沿っている。ゲームで省略した所は、この本に書いてある。
+
+Lキーで次の目標が見える。",
+  "book.semiconductor-lab.ch1.p2": "1. ゲルマニウム
+シリコンの前に、ゲルマニウムがあった。隠れている場所は2つ：亜鉛の鉱石（閃亜鉛鉱・地下深く）と、一部の石炭の灰。
+
+石炭を焼いて灰に。閃亜鉛鉱は鉄のツルハシで。",
+  "book.semiconductor-lab.ch1.p3": "2. 硫酸
+硫黄の粉（硫黄の洞窟）をかまどで燃やす：S + O2 → SO2。水に溶かす。
+
+省略：本物の工場はまず触媒でSO2をSO3に酸化する。",
+  "book.semiconductor-lab.ch1.p4": "3. 抽出と還元
+酸が精鉱からゲルマニウムをGeO2として引き出す。木炭が酸素を奪う：金属ゲルマニウム。でもまだ不純物だらけ。
+
+省略：工業は水素還元と、塩化物の蒸留を使う。",
+  "book.semiconductor-lab.ch1.p5": "4. 帯域精製（パン、1952年）
+狭い帯だけ溶かして棒に沿って動かす。不純物は液体のほうを好むので、端まで運ばれる。
+
+1パスごとに：未精製 → 6N → 9N → 10N。9N＝原子10億個に不純物1個。",
+  "book.semiconductor-lab.ch1.p6": "炉のしくみ
+黒鉛ボート（Geは黒鉛と反応しない）、石英管、銅の誘導コイル、送りねじ＋モーター。
+
+仮アイテム：高周波電源。本物は真空管の発振器。電気は後のアップデートで。",
+  "book.semiconductor-lab.ch1.p7": "5. ドーピング
+純粋なだけでは足りない。溶けた帯に「狙った不純物を1種類だけ」入れる（ゾーンレベリング）：
+ リン → n型（電子が余る）
+ インジウム → p型（電子が足りない）
+
+固体を混ぜても何も起きない。9N以上が必要。",
+  "book.semiconductor-lab.ch1.p8": "6. トランジスタ
+1947 点接触型：n型Geに金の針2本。
+1952 合金接合型：n型Geの両側にインジウムを置いて加熱 → p-n-pのサンドイッチ。
+
+小さなベース電流が大きな電流を操る。それがすべて。",
+  "book.semiconductor-lab.ch1.p9": "クリーンルームは？
+正解、1947年にはなかった。層流クリーンルームは1960年代、ホコリ1粒でIC全体が死ぬ時代になってから。
+
+君のゲルマニウムの表面は今、汚れている。本物は使う前に酸で削る。",
+  "guide.semiconductor-lab.root.title": "ガイド：第1章",
+  "guide.semiconductor-lab.root.description": "ガイドブックの内容がここに永久に残る。進むごとにページが解放される。\n本をなくしたら /function semiconductor-lab:give_guidebook",
+  "guide.semiconductor-lab.p1.title": "はじめに",
+  "guide.semiconductor-lab.p2.title": "1. ゲルマニウム",
+  "guide.semiconductor-lab.p3.title": "2. 硫酸",
+  "guide.semiconductor-lab.p4.title": "3. 抽出と還元",
+  "guide.semiconductor-lab.p5.title": "4. 帯域精製",
+  "guide.semiconductor-lab.p6.title": "炉のしくみ",
+  "guide.semiconductor-lab.p7.title": "5. ドーピング",
+  "guide.semiconductor-lab.p8.title": "6. トランジスタ",
+  "guide.semiconductor-lab.p9.title": "クリーンルームは？"
 }

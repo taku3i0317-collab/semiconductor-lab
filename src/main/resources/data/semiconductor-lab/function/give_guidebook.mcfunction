@@ -1,0 +1,2 @@
+give @s minecraft:written_book[minecraft:written_book_content={title:"Semiconductor Lab - Chapter 1",author:"Semiconductor Lab",pages:[{translate:"book.semiconductor-lab.ch1.p1"},{translate:"book.semiconductor-lab.ch1.p2"},{translate:"book.semiconductor-lab.ch1.p3"},{translate:"book.semiconductor-lab.ch1.p4"},{translate:"book.semiconductor-lab.ch1.p5"},{translate:"book.semiconductor-lab.ch1.p6"},{translate:"book.semiconductor-lab.ch1.p7"},{translate:"book.semiconductor-lab.ch1.p8"},{translate:"book.semiconductor-lab.ch1.p9"}]}]
+function semiconductor-lab:guide/welcome

@@ -1,17 +1,32 @@
 {
-  "parent": "semiconductor-lab:chapter1/refined",
-  "display": {
-    "icon": { "id": "semiconductor-lab:n_type_germanium" },
-    "title": { "translate": "advancements.semiconductor-lab.chapter1.n_type.title" },
-    "description": { "translate": "advancements.semiconductor-lab.chapter1.n_type.description" },
-    "frame": "task",
-    "show_toast": true,
-    "announce_to_chat": true
-  },
-  "criteria": {
-    "got_item": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": { "items": [ { "items": "semiconductor-lab:n_type_germanium" } ] }
-    }
-  }
+    "parent":  "semiconductor-lab:chapter1/refined",
+    "display":  {
+                    "icon":  {
+                                 "id":  "semiconductor-lab:n_type_germanium"
+                             },
+                    "title":  {
+                                  "translate":  "advancements.semiconductor-lab.chapter1.n_type.title"
+                              },
+                    "description":  {
+                                        "translate":  "advancements.semiconductor-lab.chapter1.n_type.description"
+                                    },
+                    "frame":  "task",
+                    "show_toast":  true,
+                    "announce_to_chat":  true
+                },
+    "criteria":  {
+                     "got_item":  {
+                                      "trigger":  "minecraft:inventory_changed",
+                                      "conditions":  {
+                                                         "items":  [
+                                                                       {
+                                                                           "items":  "semiconductor-lab:n_type_germanium"
+                                                                       }
+                                                                   ]
+                                                     }
+                                  }
+                 },
+    "rewards":  {
+                    "function":  "semiconductor-lab:guide/n_type"
+                }
 }

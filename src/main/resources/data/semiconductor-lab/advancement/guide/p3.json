@@ -1,0 +1,5 @@
+{
+  "parent": "semiconductor-lab:guide/p2",
+  "display": { "icon": { "id": "minecraft:book" }, "title": { "translate": "guide.semiconductor-lab.p3.title" }, "description": { "translate": "book.semiconductor-lab.ch1.p3" }, "frame": "task", "show_toast": true, "announce_to_chat": false, "hidden": true },
+  "criteria": { "g": { "trigger": "minecraft:impossible" } }
+}
