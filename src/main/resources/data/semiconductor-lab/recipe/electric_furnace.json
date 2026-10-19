@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "RCR",
+    "BSB"
+  ],
+  "key": {
+    "B": "semiconductor-lab:refractory_brick",
+    "R": "semiconductor-lab:graphite_rod",
+    "C": "semiconductor-lab:copper_cable",
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": { "id": "semiconductor-lab:electric_furnace", "count": 1 }
+}

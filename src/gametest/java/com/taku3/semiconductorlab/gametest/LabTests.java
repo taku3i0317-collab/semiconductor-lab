@@ -8,6 +8,7 @@ import com.taku3.semiconductorlab.SemiconductorLab;
 import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
 import com.taku3.semiconductorlab.block.CompressorBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
+import com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.GasType;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
@@ -162,7 +163,7 @@ public class LabTests {
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
                 ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
-                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION}) {
+                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -540,9 +541,9 @@ public class LabTests {
     // =====================================================================
 
     private static final String[] RECIPES = {
-            "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
+            "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
-            "graphite_boat", "graphite_boat_blank", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
+            "graphite_boat", "graphite_boat_blank", "graphite_rod", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
@@ -882,6 +883,40 @@ public class LabTests {
         h.assertFalse(BuiltInRegistries.ITEM.containsKey(SemiconductorLab.id("hf_power_supply")), "placeholder hf_power_supply must be gone");
         h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("hf_power_supply"))).isEmpty(), "placeholder recipe must be gone");
         LOG.info("[LAB] HF oscillator: 2 tubes + coil + Leyden jar + cable; zone refining furnace uses it; hf_power_supply removed");
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [4-12] 電気炉（黒鉛棒の抵抗加熱、約1500℃）
+    // =====================================================================
+
+    /** れんが・ボートの成形品を電気で焼く。電気なしでは焼けない。水素炉は電気炉から作る */
+    @GameTest
+    public void electricFurnace(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.ELECTRIC_FURNACE);
+        ElectricFurnaceBlockEntity be = h.getBlockEntity(pos, ElectricFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        int IN = ElectricFurnaceBlockEntity.SLOT_IN, OUT = ElectricFurnaceBlockEntity.SLOT_OUT, T = ElectricFurnaceBlockEntity.TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(ElectricFurnaceBlockEntity.WATTS);
+        c.setItem(IN, new ItemStack(ModItems.REFRACTORY_BRICK_BLANK, 2));
+        tickConsumer(h, pos, be, T + 20, 0);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no power -> nothing fired");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        tickConsumer(h, pos, be, T - 1, feed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "not done 1 tick early");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        tickConsumer(h, pos, be, 1, feed);
+        h.assertTrue(c.getItem(OUT).is(ModItems.REFRACTORY_BRICK), "blank -> refractory brick at ~1500 C");
+        h.assertValueEqual(c.getItem(IN).getCount(), 1, "1 blank used");
+        c.setItem(IN, new ItemStack(ModItems.GRAPHITE_BOAT_BLANK));
+        c.setItem(OUT, ItemStack.EMPTY);
+        tickConsumer(h, pos, be, T, feed);
+        h.assertTrue(c.getItem(OUT).is(ModItems.GRAPHITE_BOAT), "clay-graphite blank -> graphite boat");
+        h.assertFalse(ElectricFurnaceBlockEntity.isInput(new ItemStack(Items.RAW_IRON)), "not a general smelter");
+        h.assertTrue(recipeUses(h, "electric_furnace", ModItems.GRAPHITE_ROD) && recipeUses(h, "electric_furnace", ModItems.REFRACTORY_BRICK), "electric furnace = refractory brick + graphite rods");
+        h.assertTrue(recipeUses(h, "hydrogen_furnace", ModBlocks.ELECTRIC_FURNACE.asItem()), "hydrogen furnace is built from the electric furnace");
+        LOG.info("[LAB] electric furnace: blank -> brick / boat in {} ticks at 5 kW, nothing without power; hydrogen furnace built on it", T);
         h.succeed();
     }
 

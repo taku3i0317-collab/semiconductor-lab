@@ -76,6 +76,9 @@ public class ModItems {
     public static final Item TUNGSTEN_BAR          = simple("tungsten_bar");      // 焼結棒（水素中で通電焼結）
     public static final Item TUNGSTEN_WIRE         = simple("tungsten_wire");     // 線引きした延性タングステン線
 
+    // --- 電気炉（[4-12] 抵抗加熱の発熱体）---
+    public static final Item GRAPHITE_ROD          = simple("graphite_rod");      // 黒鉛棒（電気炉の発熱体・アチソン炉の電極）
+
     // --- 熱（[3-12] 耐火れんが＝珪石れんが・ディナス 1822）---
     public static final Item REFRACTORY_BRICK_BLANK = simple("refractory_brick_blank"); // 成形しただけ（未焼成）
     public static final Item REFRACTORY_BRICK      = simple("refractory_brick");       // 高温（約1450℃）で焼いたもの
@@ -106,7 +109,7 @@ public class ModItems {
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
-            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK,
+            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 

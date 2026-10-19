@@ -3,6 +3,7 @@ package com.taku3.semiconductorlab;
 import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
 import com.taku3.semiconductorlab.block.CompressorBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
+import com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
@@ -27,6 +28,8 @@ public class ModBlockEntities {
     public static final BlockEntityType<VacuumChamberBlockEntity> VACUUM_CHAMBER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("vacuum_chamber"), FabricBlockEntityTypeBuilder.create(VacuumChamberBlockEntity::new, ModBlocks.VACUUM_CHAMBER).build());
     public static final BlockEntityType<SealingStationBlockEntity> SEALING_STATION = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("sealing_station"), FabricBlockEntityTypeBuilder.create(SealingStationBlockEntity::new, ModBlocks.SEALING_STATION).build());
 
+    public static final BlockEntityType<ElectricFurnaceBlockEntity> ELECTRIC_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("electric_furnace"), FabricBlockEntityTypeBuilder.create(ElectricFurnaceBlockEntity::new, ModBlocks.ELECTRIC_FURNACE).build());
+
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WATER_WHEEL);
@@ -36,5 +39,6 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), HYDROGEN_FURNACE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COMPRESSOR);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), SEALING_STATION);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTRIC_FURNACE);
     }
 }

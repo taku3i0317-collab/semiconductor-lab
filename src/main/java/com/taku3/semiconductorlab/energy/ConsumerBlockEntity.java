@@ -34,9 +34,9 @@ public abstract class ConsumerBlockEntity extends BlockEntity {
         @Override public int get(int i) { return switch (i) {
             case DATA_PROGRESS -> progress; case DATA_TOTAL -> workTicks();
             case DATA_DECI_KW -> (int) Math.round(lastWatts / 100); case DATA_KJ -> (int) (storage.getStoredJ() / 1000);
-            case DATA_READY -> ready ? 1 : 0; default -> 0; }; }
+            case DATA_READY -> ready ? 1 : 0; default -> extraData(i); }; }
         @Override public void set(int i, int v) {}
-        @Override public int getCount() { return DATA_COUNT; }
+        @Override public int getCount() { return DATA_COUNT + extraDataCount(); }
     };
 
     /**
@@ -63,11 +63,24 @@ public abstract class ConsumerBlockEntity extends BlockEntity {
     public SimpleContainer getContainer() { return container; }
     public double getLastWatts() { return lastWatts; }
 
+    /** GUI へ追加で送る数値の個数（DATA_COUNT 番以降）。既定は 0 */
+    protected int extraDataCount() { return 0; }
+    /** 追加の数値（i は DATA_COUNT 以上） */
+    protected int extraData(int i) { return 0; }
+    protected void setLastWatts(double w) { lastWatts = w; }
+    protected void setReady(boolean r) { ready = r; }
+
     /** 毎 tick、材料の確認より前に呼ばれる（隣のガスホルダーから吸うなど）。既定は何もしない */
     protected void beforeWork(Level level, BlockPos pos) {}
 
     public static void tick(Level level, BlockPos pos, BlockState state, ConsumerBlockEntity be) {
         if (level.isClientSide()) return;
+        be.serverTick(level, pos, state);
+    }
+
+    /** サーバー側の1 tick。ふつうはこのままでよい（アチソン炉のように温度を持つ機械は上書きする） */
+    protected void serverTick(Level level, BlockPos pos, BlockState state) {
+        ConsumerBlockEntity be = this;
         be.beforeWork(level, pos);
         be.ready = be.canWork();
         double used = 0;
@@ -82,7 +95,10 @@ public abstract class ConsumerBlockEntity extends BlockEntity {
         } else if (be.progress != 0) { be.progress = 0; be.setChanged(); }
         be.lastWatts = used;
         // ブロックに LIT（点灯）があれば「今電気を使って動いている」を表示
-        boolean lit = used > 0;
+        setLit(level, pos, state, used > 0);
+    }
+
+    protected static void setLit(Level level, BlockPos pos, BlockState state, boolean lit) {
         if (state.hasProperty(BlockStateProperties.LIT) && state.getValue(BlockStateProperties.LIT) != lit)
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, lit), 3);
     }
