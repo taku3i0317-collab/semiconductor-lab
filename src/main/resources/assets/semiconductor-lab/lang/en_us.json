@@ -133,5 +133,16 @@ Lost the book item? Run /function semiconductor-lab:give_guidebook",
   "guide.semiconductor-lab.p9.title": "No Clean Room?",
   "block.semiconductor-lab.copper_cable": "Copper Cable",
   "message.semiconductor-lab.cable.stored": "Cable: %s / %s stored",
-  "block.semiconductor-lab.copper_cable.note": "Carries electricity. Loses 1% per block (simplified). Real loss is I^2 R - thick copper and high voltage cut it."
+  "block.semiconductor-lab.copper_cable.note": "Carries electricity. Loses 1% per block (simplified). Real loss is I^2 R - thick copper and high voltage cut it.",
+  "block.semiconductor-lab.magnetite_ore": "Magnetite Ore",
+  "block.semiconductor-lab.iron_sand": "Iron Sand",
+  "block.semiconductor-lab.wolframite_ore": "Wolframite Ore",
+  "block.semiconductor-lab.galena_ore": "Galena Ore",
+  "item.semiconductor-lab.magnetite": "Magnetite",
+  "item.semiconductor-lab.wolframite": "Wolframite",
+  "item.semiconductor-lab.galena": "Galena",
+  "block.semiconductor-lab.magnetite_ore.note": "Fe3O4, the natural magnet (lodestone). Found deep in ancient banded iron formations.",
+  "block.semiconductor-lab.iron_sand.note": "Magnetite grains washed out of rock and concentrated on beaches. Japanese tatara steel was made from this.",
+  "block.semiconductor-lab.wolframite_ore.note": "(Fe,Mn)WO4. Forms in quartz veins at the edge of granite. 'Tungsten' is Swedish for 'heavy stone'.",
+  "block.semiconductor-lab.galena_ore.note": "PbS. Forms with sphalerite in the same hydrothermal veins - look near zinc ore. Often carries silver."
 }
