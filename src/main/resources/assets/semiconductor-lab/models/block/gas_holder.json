@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "semiconductor-lab:block/gas_holder_side",
+    "top": "semiconductor-lab:block/gas_holder_top",
+    "bottom": "semiconductor-lab:block/gas_holder_bottom"
+  }
+}

@@ -54,7 +54,7 @@ public class ModItems {
     public static final Item DYNAMO                = simple("dynamo");   // 磁石＋銅コイル＋鉄：ファラデーの電磁誘導
 
     // --- ガス（v0.2a [6-01] 電解槽の生成物）---
-    // ★仮：まずアイテムとして出す。[6-02]ガスホルダー/[6-03]圧縮機ボンベで容器に置き換える
+    // 「袋詰め」のガス（約1mol）。貯蔵は [6-02] ガスホルダー、高圧の持ち運びは [6-03] ボンベ
     public static final Item HYDROGEN_GAS          = simple("hydrogen_gas");
     public static final Item OXYGEN_GAS            = simple("oxygen_gas");
 

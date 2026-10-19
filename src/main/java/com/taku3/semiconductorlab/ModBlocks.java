@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.ElectrolyzerBlock;
+import com.taku3.semiconductorlab.block.GasHolderBlock;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlock;
 import com.taku3.semiconductorlab.energy.CableBlock;
 import com.taku3.semiconductorlab.energy.GeneratorBlock;
@@ -46,6 +47,9 @@ public class ModBlocks {
     // 電解槽 [6-01]（ガラス槽＋黒鉛電極）。電気を消費する機械の第1号
     public static final Block ELECTROLYZER = register("electrolyzer", ElectrolyzerBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.0f).sound(SoundType.GLASS), true);
 
+    // ガスホルダー [6-02]（水封式の低圧ガスタンク。鉄のベル＋水槽）
+    public static final Block GAS_HOLDER = register("gas_holder", GasHolderBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.0f).sound(SoundType.METAL), true);
+
     // 銅ケーブル（v0.2a）
     public static final Block COPPER_CABLE = register("copper_cable", CableBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f).sound(SoundType.COPPER).noOcclusion(), true);
@@ -71,6 +75,6 @@ public class ModBlocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(ELECTROLYZER); });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); });
     }
 }

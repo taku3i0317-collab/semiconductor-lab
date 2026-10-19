@@ -44,6 +44,13 @@
 - `RenderPipelines.GUI_TEXTURED` が存在（blit の引数に使う可能性）
 - ？ GuiGraphicsExtractor の blit / 文字描画の関数名 → 下の調査ログ参照
 
+## 爆発・音・パーティクル（[6-02] ガスホルダーで確認・使用）
+- `Level.playSound(Entity, double x, double y, double z, Holder<SoundEvent>, SoundSource, float vol, float pitch)`（Holder 版。`SoundEvents.GENERIC_EXPLODE` は `Holder$Reference<SoundEvent>`）。SoundEvent 版の同じ形もある
+- `ServerLevel.sendParticles(T extends ParticleOptions, x, y, z, int count, dx, dy, dz, double speed)`／`ParticleTypes.EXPLOSION`, `POOF` は SimpleParticleType
+- `Level.explode(Entity, x, y, z, float power, Level$ExplosionInteraction)`（ほか boolean fire 付き・DamageSource 付きなど5形）。`ExplosionInteraction` = NONE / BLOCK / MOB / TNT / TRIGGER。NONE は「ブロックを壊さない」指定で、人へのダメージは別扱い（？未確認）。ガスホルダーでは人を傷つけないよう explode を使わず音＋パーティクルだけにした
+- `ValueOutput.putString(String, String)`／`ValueInput.getStringOr(String, String)`
+- `SoundSource.BLOCKS`、`Direction.values()`
+
 ## 調査ログ（生の javap 出力）
 ### GuiGraphicsExtractor（2026-10-19）
 `` 
