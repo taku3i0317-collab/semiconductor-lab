@@ -76,52 +76,17 @@
   "gui.semiconductor-lab.refiner.doping": "Zone leveling: spreading dopant evenly through %s germanium",
   "item.semiconductor-lab.n_type_germanium.note": "Made by zone leveling: dopant is added to the molten zone so it spreads evenly. Mixing solids would not work.",
   "item.semiconductor-lab.p_type_germanium.note": "Made by zone leveling: dopant is added to the molten zone so it spreads evenly. Mixing solids would not work.",
-  "book.semiconductor-lab.ch1.p1": "SEMICONDUCTOR LAB
-Chapter 1: The Birth of the Transistor (1947)
-
-Goal: build a transistor radio.
-
-Everything here follows real chemistry. Where the game simplifies, this book says so.
-
-Press L to see your next step.",
-  "book.semiconductor-lab.ch1.p2": "1. GERMANIUM
-Before silicon, there was germanium. It hides in two places: zinc ore (sphalerite, deep underground) and the ash of some coal.
-
-Smelt coal for ash. Mine sphalerite with an iron pickaxe.",
-  "book.semiconductor-lab.ch1.p3": "2. SULFURIC ACID
-Burn sulfur powder (from sulfur caves) in a furnace: S + O2 -> SO2. Dissolve in water.
-
-Simplified: real plants first oxidize SO2 to SO3 with a catalyst.",
-  "book.semiconductor-lab.ch1.p4": "3. EXTRACT + REDUCE
-Acid pulls germanium out of the concentrate as GeO2. Charcoal takes the oxygen away: metallic germanium, but still dirty.
-
-Simplified: industry uses hydrogen, and chlorine distillation.",
-  "book.semiconductor-lab.ch1.p5": "4. ZONE REFINING (Pfann, 1952)
-Melt a narrow zone and move it along the bar. Impurities prefer the liquid, so they ride to the end.
-
-Each pass: unrefined -> 6N -> 9N -> 10N. 9N = one impurity per billion atoms.",
-  "book.semiconductor-lab.ch1.p6": "THE FURNACE
-Graphite boat (Ge does not react with it), quartz tube, copper induction coil, screw + motor.
-
-PLACEHOLDER: the HF power supply. The real one is a vacuum-tube oscillator - electricity comes in a later update.",
-  "book.semiconductor-lab.ch1.p7": "5. DOPING
-Pure is not enough. Add ONE chosen impurity to the molten zone (zone leveling):
- phosphorus -> n-type (extra electrons)
- indium -> p-type (missing electrons)
-
-Mixing solids would do nothing. Needs 9N or better.",
-  "book.semiconductor-lab.ch1.p8": "6. TRANSISTORS
-1947 point-contact: two gold needles on n-type Ge.
-1952 alloy-junction: indium on both sides of n-type Ge, then heat -> p-n-p sandwich.
-
-A small base current controls a large current. That is the whole trick.",
-  "book.semiconductor-lab.ch1.p9": "NO CLEAN ROOM?
-Correct - in 1947 there were none. Laminar-flow clean rooms arrived in the 1960s, when one speck could kill a whole integrated circuit.
-
-The surface of your germanium is dirty right now. Real labs etch it with acid before use.",
+  "book.semiconductor-lab.ch1.p1": "SEMICONDUCTOR LAB\nChapter 1: The Birth of the Transistor (1947)\n\nGoal: build a transistor radio.\n\nEverything here follows real chemistry. Where the game simplifies, this book says so.\n\nPress L to see your next step.",
+  "book.semiconductor-lab.ch1.p2": "1. GERMANIUM\nBefore silicon, there was germanium. It hides in two places: zinc ore (sphalerite, deep underground) and the ash of some coal.\n\nSmelt coal for ash. Mine sphalerite with an iron pickaxe.",
+  "book.semiconductor-lab.ch1.p3": "2. SULFURIC ACID\nBurn sulfur powder (from sulfur caves) in a furnace: S + O2 -> SO2. Dissolve in water.\n\nSimplified: real plants first oxidize SO2 to SO3 with a catalyst.",
+  "book.semiconductor-lab.ch1.p4": "3. EXTRACT + REDUCE\nAcid pulls germanium out of the concentrate as GeO2. Charcoal takes the oxygen away: metallic germanium, but still dirty.\n\nSimplified: industry uses hydrogen, and chlorine distillation.",
+  "book.semiconductor-lab.ch1.p5": "4. ZONE REFINING (Pfann, 1952)\nMelt a narrow zone and move it along the bar. Impurities prefer the liquid, so they ride to the end.\n\nEach pass: unrefined -> 6N -> 9N -> 10N. 9N = one impurity per billion atoms.",
+  "book.semiconductor-lab.ch1.p6": "THE FURNACE\nGraphite boat (Ge does not react with it), quartz tube, copper induction coil, screw + motor.\n\nPLACEHOLDER: the HF power supply. The real one is a vacuum-tube oscillator - electricity comes in a later update.",
+  "book.semiconductor-lab.ch1.p7": "5. DOPING\nPure is not enough. Add ONE chosen impurity to the molten zone (zone leveling):\n phosphorus -> n-type (extra electrons)\n indium -> p-type (missing electrons)\n\nMixing solids would do nothing. Needs 9N or better.",
+  "book.semiconductor-lab.ch1.p8": "6. TRANSISTORS\n1947 point-contact: two gold needles on n-type Ge.\n1952 alloy-junction: indium on both sides of n-type Ge, then heat -> p-n-p sandwich.\n\nA small base current controls a large current. That is the whole trick.",
+  "book.semiconductor-lab.ch1.p9": "NO CLEAN ROOM?\nCorrect - in 1947 there were none. Laminar-flow clean rooms arrived in the 1960s, when one speck could kill a whole integrated circuit.\n\nThe surface of your germanium is dirty right now. Real labs etch it with acid before use.",
   "guide.semiconductor-lab.root.title": "Guide: Chapter 1",
-  "guide.semiconductor-lab.root.description": "The guidebook, kept here forever. Pages unlock as you progress.
-Lost the book item? Run /function semiconductor-lab:give_guidebook",
+  "guide.semiconductor-lab.root.description": "The guidebook, kept here forever. Pages unlock as you progress.\nLost the book item? Run /function semiconductor-lab:give_guidebook",
   "guide.semiconductor-lab.p1.title": "Welcome",
   "guide.semiconductor-lab.p2.title": "1. Germanium",
   "guide.semiconductor-lab.p3.title": "2. Sulfuric Acid",
