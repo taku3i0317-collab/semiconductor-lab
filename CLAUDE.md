@@ -31,5 +31,5 @@
 - 機械は ZoneRefiningFurnace（BE/Menu/Screen）を参考に。発電機は energy/GeneratorBlockEntity を継承
 
 ## 現在地
-v0.2a 電気：#1 ケーブル ✅ #2 鉱石4つ ✅ #3 発電機 ✅ → 次は #4 蒸気機関の GUI。
+v0.2a 電気：#1 ケーブル ✅ #2 鉱石4つ ✅ #3 発電機 ✅ #4 蒸気機関GUI ✅ → 次は #5 電解槽＋ガスボンベ。
 ROADMAP.md の v0.2a セクションに従って進める。設計の判断に迷ったら実装せずユーザーに質問する。

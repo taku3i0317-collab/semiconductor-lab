@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceMenu;
+import com.taku3.semiconductorlab.energy.SteamEngineMenu;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.flag.FeatureFlags;
@@ -10,6 +11,9 @@ public class ModMenus {
     public static final MenuType<ZoneRefiningFurnaceMenu> ZONE_REFINING_FURNACE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("zone_refining_furnace"),
             new MenuType<>(ZoneRefiningFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<SteamEngineMenu> STEAM_ENGINE = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("steam_engine"),
+            new MenuType<>(SteamEngineMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }

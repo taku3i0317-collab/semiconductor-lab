@@ -34,6 +34,7 @@
 - 登録：`new MenuType<>(MenuSupplier, FeatureFlags.DEFAULT_FLAGS)`。`MenuSupplier.create(int, Inventory)`。Fabric の screen-handler-api は不要
 - 開く：`Player.openMenu(MenuProvider)`。`MenuProvider.getDisplayName()` + `MenuConstructor.createMenu(int, Inventory, Player)`
 - Block：`getMenuProvider(BlockState, Level, BlockPos)` をオーバーライド
+- v0.2a #4 蒸気機関 GUI も上の形だけで実装（新しい API なし・コンパイル通過）。注意：ContainerData の同期は short 幅とされる（バニラ慣例。javap では未確認）ため、50000 W や 200000 J は 0.1kW / kJ 単位に縮めて送っている
 
 ## Screen（#7 で確認・一部未確認）
 - `AbstractContainerScreen(T menu, Inventory, Component title)`／`init()`／`imageWidth`, `leftPos`, `topPos`, `titleLabelX/Y`, `inventoryLabelX/Y`
