@@ -79,7 +79,11 @@ public class ModItems {
     public static final Item ZINC_OXIDE            = simple("zinc_oxide");    // [3-06] 閃亜鉛鉱を反射炉で焙焼した ZnO（亜鉛華）
 
     // --- タングステン（[1-28] 粉末冶金。クーリッジ 1909〜1910）---
-    public static final Item TUNGSTEN_TRIOXIDE     = simple("tungsten_trioxide"); // WO3（黄色）。★仮：ソーダ融解・酸処理を省略
+    // WO3 の本物のルート（タスク09）：鉄マンガン重石＋ソーダ → 融解 → Na2WO4 → 塩酸 → H2WO4 → 焼成 → WO3
+    public static final Item WOLFRAMITE_SODA_CHARGE = simple("wolframite_soda_charge"); // 調合物（鉄マンガン重石＋炭酸ナトリウム）
+    public static final Item SODIUM_TUNGSTATE      = simple("sodium_tungstate");  // タングステン酸ナトリウム Na2WO4（水に溶ける）
+    public static final Item TUNGSTIC_ACID         = simple("tungstic_acid");     // タングステン酸 H2WO4（黄色の沈殿）
+    public static final Item TUNGSTEN_TRIOXIDE     = simple("tungsten_trioxide"); // WO3（黄色）
     public static final Item TUNGSTEN_POWDER       = simple("tungsten_powder");   // 水素還元した W 粉
     public static final Item TUNGSTEN_BAR          = simple("tungsten_bar");      // 焼結棒（水素中で通電焼結）
     public static final Item TUNGSTEN_WIRE         = simple("tungsten_wire");     // 線引きした延性タングステン線
@@ -133,7 +137,7 @@ public class ModItems {
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO, SELF_EXCITED_DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER, CHLORINE_GAS, CHLORINE_CYLINDER, SODIUM_HYDROXIDE,
             STEEL_INGOT, LITHARGE, LEAD_INGOT, ZINC_OXIDE,
-            TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
+            WOLFRAMITE_SODA_CHARGE, SODIUM_TUNGSTATE, TUNGSTIC_ACID, TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE, GLASS_BATCH, SODA_LIME_GLASS, ROCK_SALT, SALT, BITTERN,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);

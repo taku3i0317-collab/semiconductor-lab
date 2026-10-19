@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:wolframite",
+    "semiconductor-lab:sodium_carbonate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:wolframite_soda_charge",
+    "count": 1
+  }
+}

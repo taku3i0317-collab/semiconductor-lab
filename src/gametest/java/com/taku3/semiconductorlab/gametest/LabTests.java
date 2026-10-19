@@ -871,7 +871,7 @@ public class LabTests {
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
+            "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner"};
 
     @GameTest
@@ -1049,7 +1049,7 @@ public class LabTests {
 
     @GameTest
     public void tungstenHydrogenFurnace(GameTestHelper h) {
-        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.WOLFRAMITE).is(ModItems.TUNGSTEN_TRIOXIDE), "wolframite -> WO3 (placeholder roast)");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.TUNGSTIC_ACID).is(ModItems.TUNGSTEN_TRIOXIDE), "tungstic acid -> WO3 (task09 real route)");
         h.assertTrue(recipeUses(h, "tungsten_wire", ModItems.TUNGSTEN_BAR), "wire is drawn from the sintered bar");
         BlockPos pos = p(1, 1, 1);
         h.setBlock(pos, ModBlocks.HYDROGEN_FURNACE);
@@ -1793,6 +1793,21 @@ public class LabTests {
             LOG.info("[LAB] HCl burner: H2 + Cl2 + 1/4 bucket -> 1 hydrochloric acid in {} ticks; bags, cylinders and adjacent holder (from game time {})", T, t0);
             h.succeed();
         });
+    }
+
+    /** WO3 の本物のルート：鉄マンガン重石＋ソーダ →（かまど）→ Na2WO4 ＋塩酸 → H2WO4 →（かまど）→ WO3。鉱石を焼くだけの仮ルートは消えた */
+    @GameTest
+    public void tungstenTrioxideRoute(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(cook(h, SMELT, ModItems.WOLFRAMITE).isEmpty(), "roasting wolframite alone no longer gives WO3 (placeholder removed)");
+        h.assertTrue(recipeUses(h, "wolframite_soda_charge", ModItems.WOLFRAMITE) && recipeUses(h, "wolframite_soda_charge", ModItems.SODIUM_CARBONATE), "wolframite + soda [2-03]");
+        h.assertTrue(cook(h, SMELT, ModItems.WOLFRAMITE_SODA_CHARGE).is(ModItems.SODIUM_TUNGSTATE), "soda fusion -> Na2WO4");
+        h.assertTrue(recipeUses(h, "tungstic_acid", ModItems.SODIUM_TUNGSTATE) && recipeUses(h, "tungstic_acid", ModItems.HYDROCHLORIC_ACID), "Na2WO4 + 2HCl [6-06] -> H2WO4");
+        h.assertTrue(cook(h, SMELT, ModItems.TUNGSTIC_ACID).is(ModItems.TUNGSTEN_TRIOXIDE), "H2WO4 -> WO3 + H2O");
+        ResourceKey<Recipe<?>> old = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("tungsten_trioxide"));
+        h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(old).isEmpty(), "old recipe tungsten_trioxide removed");
+        LOG.info("[LAB] WO3: wolframite + soda -> fusion -> Na2WO4 + HCl -> H2WO4 -> roast -> WO3 (no shortcut)");
+        h.succeed();
     }
 
     /** 26.2 以降のバニラ要素が実在するかをログに出すだけ（失敗にしない） */
