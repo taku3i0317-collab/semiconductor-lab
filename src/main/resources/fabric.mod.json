@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "semiconductor-lab",
+	"version": "${version}",
+	"name": "Semiconductor Lab",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/semiconductor-lab/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.taku3.semiconductorlab.SemiconductorLab"
+		],
+		"client": [
+			"com.taku3.semiconductorlab.client.SemiconductorLabClient"
+		]
+	},
+	"mixins": [
+		"semiconductor-lab.mixins.json",
+		{
+			"config": "semiconductor-lab.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.5",
+		"minecraft": "~26.3",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}
