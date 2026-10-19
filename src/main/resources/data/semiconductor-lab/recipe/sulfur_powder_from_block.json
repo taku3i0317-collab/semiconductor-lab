@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sulfur"
+  ],
+  "result": { "id": "semiconductor-lab:sulfur_powder", "count": 4 }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "InI",
+    " c "
+  ],
+  "key": {
+    "I": "semiconductor-lab:indium",
+    "n": "semiconductor-lab:n_type_germanium",
+    "c": "minecraft:copper_ingot"
+  },
+  "result": { "id": "semiconductor-lab:junction_transistor_blank", "count": 1 }
+}

@@ -8,7 +8,7 @@
   ],
   "key": {
     "i": "minecraft:iron_ingot",
-    "t": "semiconductor-lab:transistor",
+    "t": "semiconductor-lab:junction_transistor",
     "c": "minecraft:copper_ingot",
     "R": "minecraft:redstone"
   },

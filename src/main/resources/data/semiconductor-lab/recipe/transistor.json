@@ -4,11 +4,11 @@
   "pattern": [
     "n n",
     " G ",
-    "c c"
+    " c "
   ],
   "key": {
     "n": "minecraft:gold_nugget",
-    "G": "semiconductor-lab:refined_germanium",
+    "G": "semiconductor-lab:n_type_germanium",
     "c": "minecraft:copper_ingot"
   },
   "result": { "id": "semiconductor-lab:transistor", "count": 1 }

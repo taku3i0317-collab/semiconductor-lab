@@ -35,6 +35,7 @@ public class ModItems {
 
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
+    public static final Item JUNCTION_TRANSISTOR_BLANK = simple("junction_transistor_blank"); // 合金化前
     public static final Item JUNCTION_TRANSISTOR   = simple("junction_transistor");  // 合金接合型 (1952)
     public static final Item TRANSISTOR_RADIO      = register("transistor_radio", Item::new, new Item.Properties().stacksTo(1));
 
@@ -43,7 +44,7 @@ public class ModItems {
             SULFUR_POWDER, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
-            TRANSISTOR, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
+            TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
     private static Item simple(String name) {
         return register(name, Item::new, new Item.Properties());

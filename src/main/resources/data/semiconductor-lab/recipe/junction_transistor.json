@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:junction_transistor_blank",
+  "result": { "id": "semiconductor-lab:junction_transistor" },
+  "experience": 0.2,
+  "cookingtime": 200
+}

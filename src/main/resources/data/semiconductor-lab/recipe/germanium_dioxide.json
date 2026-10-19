@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:germanium_concentrate",
+    "semiconductor-lab:sulfuric_acid"
+  ],
+  "result": { "id": "semiconductor-lab:germanium_dioxide", "count": 1 }
+}

@@ -2,9 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "semiconductor-lab:coal_ash", "semiconductor-lab:coal_ash", "semiconductor-lab:coal_ash", "semiconductor-lab:coal_ash",
-    "semiconductor-lab:coal_ash", "semiconductor-lab:coal_ash", "semiconductor-lab:coal_ash", "semiconductor-lab:coal_ash",
-    "minecraft:water_bucket"
+    "semiconductor-lab:germanium_dioxide",
+    "minecraft:charcoal"
   ],
   "result": { "id": "semiconductor-lab:raw_germanium", "count": 1 }
 }
