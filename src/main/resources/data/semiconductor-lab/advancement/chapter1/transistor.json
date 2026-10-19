@@ -1,10 +1,9 @@
 {
-  "parent": "semiconductor-lab:chapter1/refined",
+  "parent": "semiconductor-lab:chapter1/n_type",
   "display": {
     "icon": { "id": "semiconductor-lab:transistor" },
     "title": { "translate": "advancements.semiconductor-lab.chapter1.transistor.title" },
     "description": { "translate": "advancements.semiconductor-lab.chapter1.transistor.description" },
-    
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true

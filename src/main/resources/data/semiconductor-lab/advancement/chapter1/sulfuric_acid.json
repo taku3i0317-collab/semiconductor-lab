@@ -1,0 +1,17 @@
+{
+  "parent": "semiconductor-lab:chapter1/concentrate",
+  "display": {
+    "icon": { "id": "semiconductor-lab:sulfuric_acid" },
+    "title": { "translate": "advancements.semiconductor-lab.chapter1.sulfuric_acid.title" },
+    "description": { "translate": "advancements.semiconductor-lab.chapter1.sulfuric_acid.description" },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "got_item": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": { "items": [ { "items": "semiconductor-lab:sulfuric_acid" } ] }
+    }
+  }
+}

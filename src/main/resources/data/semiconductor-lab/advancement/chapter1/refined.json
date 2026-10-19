@@ -4,7 +4,6 @@
     "icon": { "id": "semiconductor-lab:refined_germanium" },
     "title": { "translate": "advancements.semiconductor-lab.chapter1.refined.title" },
     "description": { "translate": "advancements.semiconductor-lab.chapter1.refined.description" },
-    
     "frame": "goal",
     "show_toast": true,
     "announce_to_chat": true

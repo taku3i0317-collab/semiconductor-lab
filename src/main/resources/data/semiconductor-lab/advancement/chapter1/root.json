@@ -1,5 +1,4 @@
 {
-  
   "display": {
     "icon": { "id": "semiconductor-lab:transistor" },
     "title": { "translate": "advancements.semiconductor-lab.chapter1.root.title" },
