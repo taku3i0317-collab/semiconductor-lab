@@ -46,6 +46,9 @@ public class ModMenus {
     public static final MenuType<AchesonFurnaceMenu> ACHESON_FURNACE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("acheson_furnace"),
             new MenuType<>(AchesonFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<com.taku3.semiconductorlab.block.ReverberatoryFurnaceMenu> REVERBERATORY_FURNACE = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("reverberatory_furnace"),
+            new MenuType<>(com.taku3.semiconductorlab.block.ReverberatoryFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }

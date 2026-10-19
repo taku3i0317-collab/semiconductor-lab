@@ -14,6 +14,7 @@ import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.GasType;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.HandVacuumPumpBlock;
+import com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
 import com.taku3.semiconductorlab.block.SealingStationBlockEntity;
 import com.taku3.semiconductorlab.item.MercuryVacuumGaugeItem;
@@ -167,7 +168,7 @@ public class LabTests {
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
                 ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
-                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE}) {
+                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE, ModBlocks.REVERBERATORY_FURNACE}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -187,7 +188,7 @@ public class LabTests {
         h.assertTrue(stone.isCorrectToolForDrops(ModBlocks.GRAPHITE_ORE.defaultBlockState()), "graphite ore with a stone pickaxe");
         h.assertTrue(new ItemStack(Items.IRON_SHOVEL).getDestroySpeed(ModBlocks.IRON_SAND.defaultBlockState()) > 1f, "iron sand: shovel is the right tool");
         h.assertTrue(new ItemStack(Items.IRON_AXE).getDestroySpeed(ModBlocks.WATER_WHEEL.defaultBlockState()) > 1f, "water wheel: axe is the right tool");
-        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE}) {
+        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.REVERBERATORY_FURNACE}) {
             h.assertTrue(iron.isCorrectToolForDrops(m.defaultBlockState()), m + " should be collected with a pickaxe");
             h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(m.defaultBlockState()), m + " should not drop when broken by hand");
         }
@@ -835,11 +836,11 @@ public class LabTests {
 
     private static final String[] RECIPES = {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
-            "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
-            "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
+            "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
+            "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
+            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace"};
 
     @GameTest
     public void recipesResolve(GameTestHelper h) {
@@ -924,6 +925,89 @@ public class LabTests {
         h.assertTrue(new ItemStack(ModItems.LEAD_INGOT).is(leadTag), "lead ingot should be in #c:ingots/lead");
         h.assertTrue(new ItemStack(ModItems.LEAD_INGOT).is(ingots), "lead ingot should be in #c:ingots");
         LOG.info("[LAB] lead: galena -> litharge (PbO) -> lead ingot, tagged c:ingots/lead");
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [3-06] 反射炉（焙焼炉）：鉱石＋燃料 → 金属酸化物/金属 ＋ SO2（＋閃亜鉛鉱の副産物）
+    // =====================================================================
+
+    private static void tickRoaster(GameTestHelper h, BlockPos rel, ReverberatoryFurnaceBlockEntity be, int n) {
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(rel);
+        for (int i = 0; i < n; i++) ReverberatoryFurnaceBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+    }
+
+    @GameTest
+    public void reverberatoryRoasting(GameTestHelper h) {
+        int T = ReverberatoryFurnaceBlockEntity.ROAST_TICKS;
+        int IN = ReverberatoryFurnaceBlockEntity.SLOT_IN, FUEL = ReverberatoryFurnaceBlockEntity.SLOT_FUEL, OUT = ReverberatoryFurnaceBlockEntity.SLOT_OUT;
+        int SO2 = ReverberatoryFurnaceBlockEntity.SLOT_SO2, GE = ReverberatoryFurnaceBlockEntity.SLOT_BY_GE, IND = ReverberatoryFurnaceBlockEntity.SLOT_BY_IN;
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.REVERBERATORY_FURNACE);
+        ReverberatoryFurnaceBlockEntity be = h.getBlockEntity(pos, ReverberatoryFurnaceBlockEntity.class);
+        var c = be.getContainer();
+
+        // 燃料なし：焼けない
+        c.setItem(IN, new ItemStack(ModItems.GALENA, 2));
+        tickRoaster(h, pos, be, T + 10);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no fuel -> no roasting");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        // 石炭1個：方鉛鉱 → 一酸化鉛 ＋ SO2（10秒）
+        c.setItem(FUEL, new ItemStack(Items.COAL, 1));
+        tickRoaster(h, pos, be, T - 1);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "not finished 1 tick early");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        tickRoaster(h, pos, be, 1);
+        h.assertTrue(c.getItem(OUT).is(ModItems.LITHARGE), "galena -> litharge (2PbS + 3O2 -> 2PbO + 2SO2)");
+        h.assertTrue(c.getItem(SO2).is(ModItems.SULFUR_DIOXIDE), "SO2 is collected");
+        h.assertTrue(c.getItem(FUEL).isEmpty(), "one coal was burned");
+        tickRoaster(h, pos, be, T);
+        h.assertValueEqual(c.getItem(OUT).getCount(), 2, "the same coal keeps burning for the 2nd ore");
+        h.assertValueEqual(c.getItem(SO2).getCount(), 2, "2 SO2");
+        // SO2 は硫酸の原料
+        h.assertTrue(recipeUses(h, "sulfuric_acid", ModItems.SULFUR_DIOXIDE), "SO2 -> sulfuric acid route");
+
+        // 辰砂の粉 → 水銀 ＋ SO2（木炭でも燃える）
+        c.setItem(OUT, ItemStack.EMPTY); c.setItem(SO2, ItemStack.EMPTY);
+        c.setItem(IN, new ItemStack(ModItems.CINNABAR_DUST, 1));
+        c.setItem(FUEL, new ItemStack(Items.CHARCOAL, 1));
+        tickRoaster(h, pos, be, T);
+        h.assertTrue(c.getItem(OUT).is(ModItems.MERCURY), "cinnabar -> mercury (HgS + O2 -> Hg + SO2)");
+        h.assertValueEqual(c.getItem(SO2).getCount(), 1, "SO2 from cinnabar");
+
+        // 閃亜鉛鉱 8個 → 酸化亜鉛 8 ＋ SO2 8 ＋ Ge精鉱 2 ＋ インジウム 1（1回で同時に）
+        c.setItem(OUT, ItemStack.EMPTY); c.setItem(SO2, ItemStack.EMPTY);
+        c.setItem(IN, new ItemStack(ModItems.SPHALERITE, 8));
+        c.setItem(FUEL, new ItemStack(Items.COAL, 2));
+        tickRoaster(h, pos, be, T * 4);
+        h.assertValueEqual(c.getItem(GE).getCount(), 1, "4 sphalerite -> 1 Ge concentrate");
+        h.assertTrue(c.getItem(IND).isEmpty(), "no indium before the 8th");
+        tickRoaster(h, pos, be, T * 4);
+        h.assertTrue(c.getItem(OUT).is(ModItems.ZINC_OXIDE) && c.getItem(OUT).getCount() == 8, "8 sphalerite -> 8 ZnO, got " + c.getItem(OUT));
+        h.assertValueEqual(c.getItem(SO2).getCount(), 8, "8 SO2");
+        h.assertValueEqual(c.getItem(GE).getCount(), 2, "8 sphalerite -> 2 Ge concentrate");
+        h.assertValueEqual(c.getItem(IND).getCount(), 1, "8 sphalerite -> 1 indium");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.ZINC_OXIDE).is(ModItems.ZINC_INGOT), "ZnO -> zinc in a furnace");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.SPHALERITE).is(ModItems.ZINC_INGOT), "old furnace route sphalerite -> zinc is kept");
+        // 作業台での分割（旧 #16）は無くなった
+        MinecraftServer server = h.getLevel().getServer();
+        for (String gone : new String[] {"germanium_concentrate_from_sphalerite", "indium"})
+            h.assertTrue(server.getRecipeManager().byKey(ResourceKey.create(Registries.RECIPE, SemiconductorLab.id(gone))).isEmpty(), "crafting split recipe should be gone: " + gone);
+
+        // SO2 の出口が満杯なら止まる（煙を捨てない）
+        c.setItem(IN, new ItemStack(ModItems.GALENA, 1));
+        c.setItem(OUT, ItemStack.EMPTY);
+        c.setItem(SO2, new ItemStack(ModItems.SULFUR_DIOXIDE, 64));
+        c.setItem(FUEL, new ItemStack(Items.COAL, 1));
+        tickRoaster(h, pos, be, T * 2);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "SO2 output full -> stop");
+        h.assertValueEqual(c.getItem(IN).getCount(), 1, "galena not used while SO2 is full");
+        // 焼けない物は入らない
+        h.assertFalse(ReverberatoryFurnaceBlockEntity.isInput(new ItemStack(Items.RAW_IRON)), "iron ore is not roasted here");
+        h.assertFalse(ReverberatoryFurnaceBlockEntity.isFuel(new ItemStack(Items.LAVA_BUCKET)), "only coal / charcoal");
+        LOG.info("[LAB] reverberatory furnace: galena -> PbO + SO2, cinnabar -> Hg + SO2, 8 sphalerite -> 8 ZnO + 8 SO2 + 2 Ge conc + 1 In ({} t each, coal {} t)",
+                T, ReverberatoryFurnaceBlockEntity.FUEL_TICKS);
         h.succeed();
     }
 

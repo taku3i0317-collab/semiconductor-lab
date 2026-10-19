@@ -71,6 +71,7 @@ public class ModItems {
     public static final Item STEEL_INGOT           = simple("steel_ingot");   // ベッセマー転炉の鋼（C 約0.1〜0.5%）
     public static final Item LITHARGE              = simple("litharge");      // [1-27] 一酸化鉛 PbO（方鉛鉱を焙焼したもの）
     public static final Item LEAD_INGOT            = simple("lead_ingot");    // [1-27] 鉛（PbO を炭素で還元）
+    public static final Item ZINC_OXIDE            = simple("zinc_oxide");    // [3-06] 閃亜鉛鉱を反射炉で焙焼した ZnO（亜鉛華）
 
     // --- タングステン（[1-28] 粉末冶金。クーリッジ 1909〜1910）---
     public static final Item TUNGSTEN_TRIOXIDE     = simple("tungsten_trioxide"); // WO3（黄色）。★仮：ソーダ融解・酸処理を省略
@@ -114,7 +115,7 @@ public class ModItems {
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO, SELF_EXCITED_DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
-            STEEL_INGOT, LITHARGE, LEAD_INGOT,
+            STEEL_INGOT, LITHARGE, LEAD_INGOT, ZINC_OXIDE,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,

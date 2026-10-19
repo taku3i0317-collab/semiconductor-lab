@@ -19,6 +19,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		MenuScreens.register(ModMenus.SEALING_STATION, SealingStationScreen::new);
 		MenuScreens.register(ModMenus.ELECTRIC_FURNACE, ElectricFurnaceScreen::new);
 		MenuScreens.register(ModMenus.ACHESON_FURNACE, AchesonFurnaceScreen::new);
+		MenuScreens.register(ModMenus.REVERBERATORY_FURNACE, ReverberatoryFurnaceScreen::new);
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 	}
 }

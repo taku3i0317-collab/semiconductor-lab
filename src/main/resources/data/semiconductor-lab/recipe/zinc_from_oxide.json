@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:zinc_oxide",
+  "result": {
+    "id": "semiconductor-lab:zinc_ingot"
+  },
+  "experience": 0.5,
+  "cookingtime": 200
+}

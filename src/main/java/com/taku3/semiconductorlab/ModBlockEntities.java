@@ -33,6 +33,7 @@ public class ModBlockEntities {
 
     public static final BlockEntityType<ElectricFurnaceBlockEntity> ELECTRIC_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("electric_furnace"), FabricBlockEntityTypeBuilder.create(ElectricFurnaceBlockEntity::new, ModBlocks.ELECTRIC_FURNACE).build());
     public static final BlockEntityType<AchesonFurnaceBlockEntity> ACHESON_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("acheson_furnace"), FabricBlockEntityTypeBuilder.create(AchesonFurnaceBlockEntity::new, ModBlocks.ACHESON_FURNACE).build());
+    public static final BlockEntityType<com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity> REVERBERATORY_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("reverberatory_furnace"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity::new, ModBlocks.REVERBERATORY_FURNACE).build());   // 燃料式（電気の受け口なし）
 
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ZONE_REFINING_FURNACE);   // 帯域精製炉：発振器の電源

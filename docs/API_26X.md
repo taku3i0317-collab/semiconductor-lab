@@ -723,3 +723,7 @@ protected void onPlace(BlockState, Level, BlockPos, BlockState old, boolean move
 protected void neighborChanged(BlockState, Level, BlockPos, Block, net.minecraft.world.level.redstone.Orientation, boolean);
 ``
 - loot_table の copy_components（バニラ shulker_box.json で確認）: `"modifier": {"type":"minecraft:copy_components","source":"block_entity","include":["semiconductor-lab:battery_energy"]}`（modifier は配列でなく1つのオブジェクトでも可）
+
+## タスク07（2026-10-20）
+- 新しい API はなし。反射炉は既存の形だけで書いた（HorizontalDirectionalBlock＋EntityBlock＝ConsumerMachineBlock と同じ、SimpleContainer / ContainerData / ValueInput.getIntOr / ValueOutput.putInt / preRemoveSideEffects＝ConsumerBlockEntity と同じ）
+- Items.CALCITE / Items.TUFF（GameTest で使用、コンパイルで実在確認）
