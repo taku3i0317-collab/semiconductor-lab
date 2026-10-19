@@ -63,5 +63,8 @@
   "item.semiconductor-lab.induction_coil.note": "コイルの高周波電流でゲルマニウムだけが発熱し、狭い帯だけ溶ける。本物のコイルは水冷。",
   "item.semiconductor-lab.lead_screw.note": "コイルを棒に沿ってゆっくり動かす。速すぎると不純物が追いつかない。",
   "item.semiconductor-lab.electric_motor.note": "送りねじを回す。本物の帯域精製は1時間に数cmの速さ。",
-  "item.semiconductor-lab.graphite.note": "変成岩中の天然黒鉛（スリランカの脈状黒鉛など）。鉛筆の芯と同じもの。"
+  "item.semiconductor-lab.graphite.note": "変成岩中の天然黒鉛（スリランカの脈状黒鉛など）。鉛筆の芯と同じもの。",
+  "message.semiconductor-lab.refiner.not_germanium": "この炉で精製できるのはゲルマニウムだけ。還元ゲルマニウムか精製ゲルマニウムを入れよう。",
+  "message.semiconductor-lab.refiner.max_purity": "もう 11N。帯域精製ではこれ以上は上がらない。",
+  "message.semiconductor-lab.refiner.empty": "炉は空っぽ。ゲルマニウムを持って右クリックで開始。"
 }

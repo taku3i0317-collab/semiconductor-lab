@@ -191,6 +191,8 @@
 
 - I18n.exists() は廃止。翻訳キーの存在チェックは Language.getInstance().has(key)
 
+- Player.displayClientMessage は廃止 → sendSystemMessage__ONEARG
+
 ## 変更履歴
 - 2026-10-19 化学ルールを追加。第1章フローを改訂（水バケツ廃止・硫酸ルート・閃亜鉛鉱・ドーピング・トランジスタ2種）
 
