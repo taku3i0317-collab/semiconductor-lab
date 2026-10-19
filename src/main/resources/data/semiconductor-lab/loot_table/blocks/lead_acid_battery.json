@@ -6,7 +6,14 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "semiconductor-lab:lead_acid_battery"
+          "name": "semiconductor-lab:lead_acid_battery",
+          "modifier": {
+            "type": "minecraft:copy_components",
+            "source": "block_entity",
+            "include": [
+              "semiconductor-lab:battery_energy"
+            ]
+          }
         }
       ],
       "condition": {

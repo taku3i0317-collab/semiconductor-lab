@@ -17,5 +17,14 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.DOUBLE)
                     .build());
 
+    // 鉛蓄電池 [4-07] の残量（J）。壊してもアイテムに残り、置き直すと戻る（タスク06）
+    public static final DataComponentType<Long> BATTERY_ENERGY = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("battery_energy"),
+            DataComponentType.<Long>builder()
+                    .persistent(Codec.LONG)
+                    .networkSynchronized(ByteBufCodecs.VAR_LONG)
+                    .build());
+
     public static void initialize() {}
 }

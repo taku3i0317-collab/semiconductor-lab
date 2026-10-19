@@ -19,6 +19,7 @@ import com.taku3.semiconductorlab.block.SealingStationBlockEntity;
 import com.taku3.semiconductorlab.item.MercuryVacuumGaugeItem;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
 import com.taku3.semiconductorlab.energy.CableBlockEntity;
+import com.taku3.semiconductorlab.energy.CableNetwork;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
 import com.taku3.semiconductorlab.energy.GeneratorBlockEntity;
@@ -352,18 +353,19 @@ public class LabTests {
         h.succeed();
     }
 
-    /** [4-07] 鉛蓄電池：横から充電（85% が貯まる、10kW まで）、1MJ で満杯、正面から放電（10kW まで）。正面のケーブルからは逆流しない */
+    /** [4-07] 鉛蓄電池（タスク06 で全面充放電）：どの面からも充電（85% が貯まる、10kW まで）、1MJ で満杯、隣の機械へ直接放電（10kW まで） */
     @GameTest
     public void leadAcidBattery(GameTestHelper h) {
-        BlockPos pos = p(1, 1, 1);   // 向きは既定の NORTH → 正面（放電端子）は z-1
+        BlockPos pos = p(1, 1, 1);
         h.setBlock(pos, ModBlocks.LEAD_ACID_BATTERY);
         LeadAcidBatteryBlockEntity be = h.getBlockEntity(pos, LeadAcidBatteryBlockEntity.class);
         ServerLevel lv = h.getLevel();
         BlockPos a = h.absolutePos(pos);
+        for (net.minecraft.core.Direction d : net.minecraft.core.Direction.values()) {
+            EnergyStorage s = EnergyApi.ENERGY.find(lv, a, d);
+            h.assertTrue(s != null && s.canInsert() && s.canExtract(), "every face charges and discharges: " + d);
+        }
         EnergyStorage side = EnergyApi.ENERGY.find(lv, a, net.minecraft.core.Direction.EAST);
-        EnergyStorage front = EnergyApi.ENERGY.find(lv, a, be.front());
-        h.assertTrue(side != null && side.canInsert() && !side.canExtract(), "side faces charge only");
-        h.assertTrue(front != null && !front.canInsert() && front.canExtract(), "front terminal discharges only");
         long per = LeadAcidBatteryBlockEntity.MAX_PER_TICK;
 
         // 充電：毎 tick たっぷり入れても 10kW（500 J/tick）まで、貯まるのはその 85%
@@ -374,64 +376,210 @@ public class LabTests {
         int t = 0;
         while (side.insert(1_000_000, false) > 0 && t++ < 5000) LeadAcidBatteryBlockEntity.tick(lv, a, lv.getBlockState(a), be);
         h.assertTrue(be.getStoredJ() <= LeadAcidBatteryBlockEntity.CAPACITY && be.getStoredJ() > LeadAcidBatteryBlockEntity.CAPACITY - per, "full at 1 MJ, got " + be.getStoredJ());
+        LeadAcidBatteryBlockEntity.tick(lv, a, lv.getBlockState(a), be);
         h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
-
-        // 正面にケーブル：ケーブルの電気は電池に逆流しない
-        h.setBlock(p(1, 1, 0), ModBlocks.COPPER_CABLE);
-        CableBlockEntity cable = h.getBlockEntity(p(1, 1, 0), CableBlockEntity.class);
-        cable.getStorage().insert(10_000, false);
         long full = be.getStoredJ();
-        BlockPos ac = h.absolutePos(p(1, 1, 0));
-        CableBlockEntity.tick(lv, ac, lv.getBlockState(ac), cable);
-        h.assertValueEqual(be.getStoredJ(), full, "no backflow into the front terminal");
 
-        // 放電：正面の電気炉へ 10kW ずつ押し出す
-        h.setBlock(p(1, 1, 0), ModBlocks.ELECTRIC_FURNACE);
-        ElectricFurnaceBlockEntity furnace = h.getBlockEntity(p(1, 1, 0), ElectricFurnaceBlockEntity.class);
+        // 放電：ケーブルなしで隣（正面でなくてよい）の電気炉へ 10kW ずつ押し出す
+        h.setBlock(p(2, 1, 1), ModBlocks.ELECTRIC_FURNACE);
+        ElectricFurnaceBlockEntity furnace = h.getBlockEntity(p(2, 1, 1), ElectricFurnaceBlockEntity.class);
         for (int i = 0; i < 20; i++) LeadAcidBatteryBlockEntity.tick(lv, a, lv.getBlockState(a), be);
         h.assertValueEqual(full - be.getStoredJ(), 20 * per, "discharged 20 ticks x 500 J");
         h.assertValueEqual(furnace.getStorage().getStoredJ(), 20 * (per - per / 100), "furnace received it (1% contact loss)");
         h.assertValueEqual(be.getLastDischargeWatts(), LeadAcidBatteryBlockEntity.MAX_WATTS, "discharging at 10 kW");
         h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
         h.assertTrue(recipeUses(h, "lead_acid_battery", ModItems.LEAD_INGOT) && recipeUses(h, "lead_acid_battery", ModItems.SULFURIC_ACID), "lead + sulfuric acid");
-        LOG.info("[LAB] lead-acid battery: charge 10 kW at 85%, full at {} J, no backflow, discharge 10 kW to the front", full);
+        LOG.info("[LAB] lead-acid battery: charge 10 kW at 85% from any face, full at {} J, discharge 10 kW to an adjacent machine", full);
+        h.succeed();
+    }
+
+    /** タスク06：壊すと残量がアイテム（データコンポーネント battery_energy）に残り、置き直すと戻る */
+    @GameTest
+    public void batteryKeepsCharge(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        h.setBlock(p(1, 1, 1), ModBlocks.LEAD_ACID_BATTERY);
+        LeadAcidBatteryBlockEntity be = h.getBlockEntity(p(1, 1, 1), LeadAcidBatteryBlockEntity.class);
+        be.setStoredForTest(400_000);
+        BlockPos a = h.absolutePos(p(1, 1, 1));
+        List<ItemStack> drops = Block.getDrops(lv.getBlockState(a), lv, a, be, null, new ItemStack(Items.IRON_PICKAXE));
+        h.assertTrue(drops.size() == 1 && drops.get(0).is(ModBlocks.LEAD_ACID_BATTERY.asItem()), "battery drops itself, got " + drops);
+        h.assertValueEqual(drops.get(0).get(ModDataComponents.BATTERY_ENERGY), 400_000L, "charge stored on the item");
+        h.setBlock(p(3, 1, 1), ModBlocks.LEAD_ACID_BATTERY);
+        LeadAcidBatteryBlockEntity placed = h.getBlockEntity(p(3, 1, 1), LeadAcidBatteryBlockEntity.class);
+        placed.applyComponentsFromItemStack(drops.get(0));
+        h.assertValueEqual(placed.getStoredJ(), 400_000L, "charge restored when placed again");
+        // 空の電池はコンポーネントなし（ふつうの電池とスタックできる）
+        h.setBlock(p(5, 1, 1), ModBlocks.LEAD_ACID_BATTERY);
+        BlockPos e = h.absolutePos(p(5, 1, 1));
+        List<ItemStack> empty = Block.getDrops(lv.getBlockState(e), lv, e, lv.getBlockEntity(e), null, new ItemStack(Items.IRON_PICKAXE));
+        h.assertTrue(empty.get(0).get(ModDataComponents.BATTERY_ENERGY) == null, "empty battery has no charge component");
+        LOG.info("[LAB] battery keeps charge: 400 kJ -> item component -> placed again 400 kJ");
         h.succeed();
     }
 
     // =====================================================================
-    // ケーブル
+    // ケーブル（タスク06：ネットワーク方式）
     // =====================================================================
 
-    /** 蒸気機関→ケーブル3本：末端のケーブルに電気が届く（本当に tick を進める） */
+    /** 並べた順に BE の tick を n 回まわす（発電機 → ケーブル → 機械 → 電池 の順に並べる） */
+    private static void tickAll(GameTestHelper h, int n, BlockPos... rels) {
+        ServerLevel lv = h.getLevel();
+        for (int i = 0; i < n; i++) for (BlockPos r : rels) {
+            BlockPos a = h.absolutePos(r);
+            BlockState s = lv.getBlockState(a);
+            switch (lv.getBlockEntity(a)) {
+                case GeneratorBlockEntity g -> GeneratorBlockEntity.tick(lv, a, s, g);
+                case CableBlockEntity c -> CableBlockEntity.tick(lv, a, s, c);
+                case ConsumerBlockEntity c -> ConsumerBlockEntity.tick(lv, a, s, c);
+                case LeadAcidBatteryBlockEntity b -> LeadAcidBatteryBlockEntity.tick(lv, a, s, b);
+                case null, default -> {}
+            }
+        }
+    }
+
+    private static BlockPos[] line(int x0, int x1, int y, int z) {
+        BlockPos[] r = new BlockPos[x1 - x0 + 1];
+        for (int x = x0; x <= x1; x++) r[x - x0] = p(x, y, z);
+        return r;
+    }
+
+    private static BlockPos[] concat(BlockPos[]... parts) {
+        List<BlockPos> l = new ArrayList<>();
+        for (BlockPos[] b : parts) l.addAll(List.of(b));
+        return l.toArray(new BlockPos[0]);
+    }
+
+    /** 蒸気機関→ケーブル3本→電気炉：本当に tick を進めて、電気炉に電気が届く */
     @GameTest(maxTicks = 60)
-    public void cableChainFills(GameTestHelper h) {
+    public void cableChainDelivers(GameTestHelper h) {
         h.setBlock(p(1, 1, 1), ModBlocks.STEAM_ENGINE);
         for (int x = 2; x <= 4; x++) h.setBlock(p(x, 1, 1), ModBlocks.COPPER_CABLE);
+        h.setBlock(p(5, 1, 1), ModBlocks.ELECTRIC_FURNACE);
         SteamEngineBlockEntity eng = h.getBlockEntity(p(1, 1, 1), SteamEngineBlockEntity.class);
         eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL));
         eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
-        long[] first = {-1};
-        h.runAfterDelay(3, () -> first[0] = h.getBlockEntity(p(4, 1, 1), CableBlockEntity.class).getStorage().getStoredJ());
         h.succeedWhen(() -> {
-            long now = h.getBlockEntity(p(4, 1, 1), CableBlockEntity.class).getStorage().getStoredJ();
-            h.assertTrue(first[0] >= 0 && now > first[0], "3rd cable should be filling up (was " + first[0] + ", now " + now + ")");
-            LOG.info("[LAB] cable x3: last cable {} J -> {} J", first[0], now);
+            long j = h.getBlockEntity(p(5, 1, 1), ElectricFurnaceBlockEntity.class).getStorage().getStoredJ();
+            h.assertTrue(j > 0, "electric furnace 3 cables away should receive power");
+            LOG.info("[LAB] cable x3 network: furnace has {} J", j);
         });
     }
 
-    /** ケーブル1ホップで 1% 失う：10000 J のケーブルの隣の空ケーブルへ半分(5000)送ると 4950 届く */
+    /** 損失は最長経路のケーブル1本につき 1%：電池（10kW＝500 J/tick）→ ケーブル1本 → 495 J、5本 → 475 J。ケーブルは貯めない */
     @GameTest
-    public void cableLossOnePercent(GameTestHelper h) {
-        h.setBlock(p(1, 1, 1), ModBlocks.COPPER_CABLE);
+    public void cableLossPerHop(GameTestHelper h) {
+        int[] lengths = {1, 5};
+        for (int k = 0; k < lengths.length; k++) {
+            int n = lengths[k], z = 1 + 2 * k;
+            h.setBlock(p(1, 1, z), ModBlocks.LEAD_ACID_BATTERY);
+            h.getBlockEntity(p(1, 1, z), LeadAcidBatteryBlockEntity.class).setStoredForTest(100_000);
+            for (int x = 2; x <= 1 + n; x++) h.setBlock(p(x, 1, z), ModBlocks.COPPER_CABLE);
+            h.setBlock(p(2 + n, 1, z), ModBlocks.ELECTRIC_FURNACE);
+            tickAll(h, 1, concat(line(2, 1 + n, 1, z), new BlockPos[] {p(1, 1, z)}));
+            long got = h.getBlockEntity(p(2 + n, 1, z), ElectricFurnaceBlockEntity.class).getStorage().getStoredJ();
+            h.assertValueEqual(got, 500L * (100 - n) / 100, n + " cables: 500 J minus " + n + "%");
+            CableNetwork net = CableNetwork.get(h.getLevel(), h.absolutePos(p(2, 1, z)));
+            h.assertValueEqual(net.longestPath, n, "longest path");
+            LOG.info("[LAB] cable loss: {} cables -> {} J of 500 J", n, got);
+        }
+        h.succeed();
+    }
+
+    /** タスク06：ケーブル10本先のアチソン炉に 500kW が届く（タービン2台＝1MW、損失10%で 900kW まで）。1台だと損失で 450kW しか届かない */
+    @GameTest
+    public void cableTenHops500kW(GameTestHelper h) {
+        h.setBlock(p(1, 1, 1), ModBlocks.STEAM_TURBINE);
+        h.setBlock(p(1, 1, 0), Blocks.WATER);
+        h.setBlock(p(2, 1, 2), ModBlocks.STEAM_TURBINE);
+        h.setBlock(p(2, 1, 3), Blocks.WATER);
+        for (int x = 2; x <= 11; x++) h.setBlock(p(x, 1, 1), ModBlocks.COPPER_CABLE);
+        h.setBlock(p(12, 1, 1), ModBlocks.ACHESON_FURNACE);
+        for (BlockPos t : new BlockPos[] {p(1, 1, 1), p(2, 1, 2)})
+            h.getBlockEntity(t, SteamTurbineBlockEntity.class).getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 64));
+        AchesonFurnaceBlockEntity f = h.getBlockEntity(p(12, 1, 1), AchesonFurnaceBlockEntity.class);
+        f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_CARBON, new ItemStack(Items.COAL, 4));
+        f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_SAND, new ItemStack(Items.SAND, 1));
+        BlockPos[] order = concat(new BlockPos[] {p(1, 1, 1), p(2, 1, 2)}, line(2, 11, 1, 1), new BlockPos[] {p(12, 1, 1)});
+        tickAll(h, 200, order);
+        CableNetwork net = CableNetwork.get(h.getLevel(), h.absolutePos(p(2, 1, 1)));
+        h.assertValueEqual(net.longestPath, 10, "10 cables in a row");
+        h.assertValueEqual(net.lossPercent(), 10, "10% loss");
+        h.assertValueEqual(f.getLastWatts(), AchesonFurnaceBlockEntity.REQUIRED_WATTS, "500 kW reaches the furnace 10 cables away");
+        // タービンを1台にすると 500kW × 0.9 = 450kW しか届かない
+        h.setBlock(p(2, 1, 2), Blocks.AIR);
+        tickAll(h, 1000, order);   // タービンの内部バッファ（1MJ）と炉のバッファが尽きるまで待つ
+        double one = f.getLastWatts();
+        h.assertTrue(Math.abs(one - 450_000) < 1_000, "one turbine through 10 cables -> about 450 kW, got " + one);
+        LOG.info("[LAB] 10 cables: 2 turbines -> {} W at the furnace, 1 turbine -> {} W (10% loss)", AchesonFurnaceBlockEntity.REQUIRED_WATTS, one);
+        h.succeed();
+    }
+
+    /** タスク06：通過上限 1MW を超える要求は按分。タービン3台（1.5MW）→ ケーブル3本 → アチソン炉3台：取り出しは 1MW で頭打ち、3台に等分 */
+    @GameTest
+    public void cableShareOverLimit(GameTestHelper h) {
+        List<BlockPos> order = new ArrayList<>();
+        for (int x = 2; x <= 4; x++) {
+            h.setBlock(p(x, 1, 0), Blocks.WATER);
+            h.setBlock(p(x, 1, 1), ModBlocks.STEAM_TURBINE);
+            h.getBlockEntity(p(x, 1, 1), SteamTurbineBlockEntity.class).getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 64));
+            h.setBlock(p(x, 1, 2), ModBlocks.COPPER_CABLE);
+            h.setBlock(p(x, 1, 3), ModBlocks.ACHESON_FURNACE);
+            AchesonFurnaceBlockEntity f = h.getBlockEntity(p(x, 1, 3), AchesonFurnaceBlockEntity.class);
+            f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_CARBON, new ItemStack(Items.COAL, 4));
+            f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_SAND, new ItemStack(Items.SAND, 1));
+        }
+        for (int x = 2; x <= 4; x++) order.add(p(x, 1, 1));
+        for (int x = 2; x <= 4; x++) order.add(p(x, 1, 2));
+        for (int x = 2; x <= 4; x++) order.add(p(x, 1, 3));
+        tickAll(h, 100, order.toArray(new BlockPos[0]));
+        CableNetwork net = CableNetwork.get(h.getLevel(), h.absolutePos(p(2, 1, 2)));
+        h.assertTrue(net.lastTakenJ <= CableNetwork.MAX_TRANSFER && net.lastTakenJ >= CableNetwork.MAX_TRANSFER - 10, "taken is capped at 1 MW (50 kJ/tick), got " + net.lastTakenJ);
+        double expectEach = CableNetwork.MAX_TRANSFER * 0.97 * 20 / 3;   // 3本＝3% 損失、3等分
+        double sum = 0;
+        for (int x = 2; x <= 4; x++) {
+            double w = h.getBlockEntity(p(x, 1, 3), AchesonFurnaceBlockEntity.class).getLastWatts();
+            sum += w;
+            h.assertTrue(Math.abs(w - expectEach) < expectEach * 0.01, "furnace " + x + " gets an equal share ~" + Math.round(expectEach) + " W, got " + w);
+        }
+        LOG.info("[LAB] cable limit: 1.5 MW supply, 1 MW taken, {} W delivered to 3 furnaces (shared equally)", Math.round(sum));
+        h.succeed();
+    }
+
+    /** タスク06：電池はネットワークで「余れば充電・足りなければ放電」。電池どうしでは流れない */
+    @GameTest
+    public void batteryOnNetwork(GameTestHelper h) {
+        h.setBlock(p(1, 1, 1), ModBlocks.STEAM_ENGINE);
         h.setBlock(p(2, 1, 1), ModBlocks.COPPER_CABLE);
-        CableBlockEntity a = h.getBlockEntity(p(1, 1, 1), CableBlockEntity.class);
-        CableBlockEntity b = h.getBlockEntity(p(2, 1, 1), CableBlockEntity.class);
-        a.getStorage().insert(10_000, false);
-        BlockPos abs = h.absolutePos(p(1, 1, 1));
-        CableBlockEntity.tick(h.getLevel(), abs, h.getLevel().getBlockState(abs), a);
-        h.assertValueEqual(a.getStorage().getStoredJ(), 5_000L, "sender keeps half");
-        h.assertValueEqual(b.getStorage().getStoredJ(), 4_950L, "receiver gets half minus 1%");
-        LOG.info("[LAB] cable loss: sent 5000 J, received {} J", b.getStorage().getStoredJ());
+        h.setBlock(p(3, 1, 1), ModBlocks.COPPER_CABLE);
+        h.setBlock(p(3, 1, 2), ModBlocks.LEAD_ACID_BATTERY);
+        SteamEngineBlockEntity eng = h.getBlockEntity(p(1, 1, 1), SteamEngineBlockEntity.class);
+        eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 4));
+        eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        LeadAcidBatteryBlockEntity bat = h.getBlockEntity(p(3, 1, 2), LeadAcidBatteryBlockEntity.class);
+        BlockPos[] order = {p(1, 1, 1), p(2, 1, 1), p(3, 1, 1), p(3, 1, 0), p(3, 1, 2), p(2, 1, 2)};
+        // ① 発電機だけ → 電池が 10kW で充電
+        tickAll(h, 100, order);
+        h.assertValueEqual(bat.getLastChargeWatts(), LeadAcidBatteryBlockEntity.MAX_WATTS, "battery charges at 10 kW from the network");
+        h.assertTrue(bat.getStoredJ() > 40_000, "battery charged, got " + bat.getStoredJ());
+        // ② 電気炉もつなぐ（50kW の発電 > 炉の要求）→ 電池は放電しない
+        h.setBlock(p(3, 1, 0), ModBlocks.ELECTRIC_FURNACE);
+        tickAll(h, 5, order);
+        h.assertValueEqual(bat.getLastDischargeWatts(), 0.0, "spare power: battery does not discharge");
+        // ③ 発電機を外す → 電池から炉へ放電（最長経路2本＝2% 損失）
+        h.setBlock(p(1, 1, 1), Blocks.AIR);
+        ElectricFurnaceBlockEntity furnace = h.getBlockEntity(p(3, 1, 0), ElectricFurnaceBlockEntity.class);
+        long before = furnace.getStorage().getStoredJ(), batBefore = bat.getStoredJ();
+        tickAll(h, 1, order);
+        h.assertValueEqual(furnace.getStorage().getStoredJ() - before, 490L, "battery -> 2 cables -> furnace: 500 J - 2%");
+        h.assertValueEqual(batBefore - bat.getStoredJ(), 500L, "battery gave 500 J");
+        h.assertValueEqual(bat.getLastDischargeWatts(), LeadAcidBatteryBlockEntity.MAX_WATTS, "discharging at 10 kW");
+        // ④ 炉を外して空の電池をつなぐ → 電池どうしでは流れない
+        h.setBlock(p(3, 1, 0), Blocks.AIR);
+        h.setBlock(p(2, 1, 2), ModBlocks.LEAD_ACID_BATTERY);
+        LeadAcidBatteryBlockEntity other = h.getBlockEntity(p(2, 1, 2), LeadAcidBatteryBlockEntity.class);
+        tickAll(h, 20, order);
+        h.assertValueEqual(other.getStoredJ(), 0L, "no battery-to-battery flow");
+        LOG.info("[LAB] battery on network: charges from spare power, discharges when the generator is gone (490 J/tick over 2 cables), no battery-to-battery flow");
         h.succeed();
     }
 

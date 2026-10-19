@@ -36,11 +36,11 @@ public class ModBlockEntities {
 
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ZONE_REFINING_FURNACE);   // 帯域精製炉：発振器の電源
-        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
+        // 銅ケーブルは受け口を持たない（タスク06：導体。CableNetwork がまとめて配電する）
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WATER_WHEEL);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_ENGINE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_TURBINE);
-        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.storageFor(dir), LEAD_ACID_BATTERY);   // 正面＝放電、ほか＝充電
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.storageFor(dir), LEAD_ACID_BATTERY);   // 全面で充放電（タスク06）
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTROLYZER);   // 消費側：受け取り専用
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), BESSEMER_CONVERTER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), HYDROGEN_FURNACE);

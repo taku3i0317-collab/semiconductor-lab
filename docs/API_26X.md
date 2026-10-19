@@ -705,3 +705,21 @@ public void playSound(Entity, BlockPos, SoundEvent, SoundSource, float, float); 
 ## タスク03（2026-10-20）
 新しい 26.3 API は使っていない（ConsumerBlockEntity・ConsumerMachineBlock・ContainerData など既存の形のみ）。
 ConsumerBlockEntity に serverTick（tick 本体の上書き）・extraDataCount/extraData（GUI へ送る数値の追加）・setLit を足した（MOD 内の仕組み）。
+
+## タスク06（2026-10-20 javap で確認）
+``
+// net.minecraft.world.level.block.entity.BlockEntity
+public void setLevel(Level);  public void setRemoved();  public void clearRemoved();
+protected void applyImplicitComponents(net.minecraft.core.component.DataComponentGetter);   // アイテム → BE（置いたとき）
+protected void collectImplicitComponents(net.minecraft.core.component.DataComponentMap$Builder);   // BE → アイテム（壊したとき、copy_components で）
+public void removeComponentsFromTag(ValueOutput);   // コンポーネントに移した値を NBT から消す（out.discard("キー")）
+public final void applyComponentsFromItemStack(ItemStack);   // テストで「置き直し」を再現できる
+// net.minecraft.core.component.DataComponentGetter: <T> T get(DataComponentType<? extends T>)
+// net.minecraft.core.component.DataComponentMap$Builder: <T> Builder set(DataComponentType<T>, T)
+// net.minecraft.world.level.storage.ValueOutput: void discard(String)
+// net.minecraft.network.codec.ByteBufCodecs: LONG, VAR_LONG
+// net.minecraft.world.level.block.state.BlockBehaviour
+protected void onPlace(BlockState, Level, BlockPos, BlockState old, boolean movedByPiston);
+protected void neighborChanged(BlockState, Level, BlockPos, Block, net.minecraft.world.level.redstone.Orientation, boolean);
+``
+- loot_table の copy_components（バニラ shulker_box.json で確認）: `"modifier": {"type":"minecraft:copy_components","source":"block_entity","include":["semiconductor-lab:battery_energy"]}`（modifier は配列でなく1つのオブジェクトでも可）

@@ -13,6 +13,10 @@ public class NoteTooltip {
         ItemTooltipCallback.EVENT.register((stack, context, flag, lines) -> {
             String id = BuiltInRegistries.ITEM.getKey(stack.getItem()).toString().replace(':', '.');
             // ブロックのアイテムは block.<id>.note に書いてあるので、item. → block. の順で探す
+            // 鉛蓄電池の残量（データコンポーネント battery_energy）
+            Long battery = stack.get(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY);
+            if (battery != null) lines.add(Component.translatable("tooltip.semiconductor-lab.battery_energy",
+                    com.taku3.semiconductorlab.energy.EnergyStorage.format(battery), com.taku3.semiconductorlab.energy.EnergyStorage.format(com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY)).withStyle(ChatFormatting.AQUA));
             String ph = key(id, "placeholder");
             if (ph != null) lines.add(Component.translatable(ph).withStyle(ChatFormatting.YELLOW));
             // へえ①（子ども）は常に表示、へえ②（学生）は Shift。旧 .note は .note2 扱い。.note3/.note4 はガイドブック用
