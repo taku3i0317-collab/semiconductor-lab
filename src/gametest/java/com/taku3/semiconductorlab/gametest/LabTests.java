@@ -15,6 +15,7 @@ import com.taku3.semiconductorlab.block.GasType;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.HandVacuumPumpBlock;
 import com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity;
+import com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity;
 import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
 import com.taku3.semiconductorlab.block.SealingStationBlockEntity;
 import com.taku3.semiconductorlab.item.MercuryVacuumGaugeItem;
@@ -168,7 +169,7 @@ public class LabTests {
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
                 ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
-                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE, ModBlocks.REVERBERATORY_FURNACE}) {
+                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE, ModBlocks.REVERBERATORY_FURNACE, ModBlocks.OXYHYDROGEN_BURNER}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -835,7 +836,7 @@ public class LabTests {
     // =====================================================================
 
     private static final String[] RECIPES = {
-            "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
+            "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
@@ -1413,6 +1414,70 @@ public class LabTests {
         h.assertTrue(recipeUses(h, "synthetic_graphite_boat", ModItems.SYNTHETIC_GRAPHITE), "synthetic boat is made from Acheson graphite");
         h.assertFalse(recipeUses(h, "zone_refining_furnace", ModItems.GRAPHITE_BOAT), "the boat now goes in its own slot, not in the furnace recipe");
         LOG.info("[LAB] zone refiner: needs boat + {} W; clay-graphite boat caps at 9N, synthetic graphite boat reaches 10N; pauses without power", ZoneRefiningFurnaceBlockEntity.WATTS);
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [7-02] 酸水素バーナー：ネザークォーツ ＋ H2/O2 ボンベ → 溶融石英（かまどでは溶けない）
+    // =====================================================================
+
+    private static void tickBurner(GameTestHelper h, BlockPos rel, OxyhydrogenBurnerBlockEntity be, int n) {
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(rel);
+        for (int i = 0; i < n; i++) OxyhydrogenBurnerBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+    }
+
+    @GameTest
+    public void oxyhydrogenFusedQuartz(GameTestHelper h) {
+        int T = OxyhydrogenBurnerBlockEntity.MELT_TICKS;
+        int IN = OxyhydrogenBurnerBlockEntity.SLOT_IN, H2 = OxyhydrogenBurnerBlockEntity.SLOT_H2, O2 = OxyhydrogenBurnerBlockEntity.SLOT_O2;
+        int OUT = OxyhydrogenBurnerBlockEntity.SLOT_OUT, EMPTY = OxyhydrogenBurnerBlockEntity.SLOT_EMPTY;
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.OXYHYDROGEN_BURNER);
+        OxyhydrogenBurnerBlockEntity be = h.getBlockEntity(pos, OxyhydrogenBurnerBlockEntity.class);
+        var c = be.getContainer();
+
+        // かまどではもう溶けない（仮レシピ #19 は削除）
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.QUARTZ).isEmpty(), "quartz must not melt in a furnace (~1000 C < 1713 C)");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Items.QUARTZ).isEmpty(), "nor in a blast furnace");
+
+        // ボンベなし：動かない
+        c.setItem(IN, new ItemStack(Items.QUARTZ, 30));
+        tickBurner(h, pos, be, T + 10);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no cylinders -> no melting");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        // 水素だけ：動かない（酸素がないと燃えない）。水素ボンベはつながない（無駄に開けない）
+        c.setItem(H2, new ItemStack(ModItems.HYDROGEN_CYLINDER, 1));
+        tickBurner(h, pos, be, T + 10);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "hydrogen only -> no flame");
+        // 酸素だけ：動かない
+        c.setItem(H2, ItemStack.EMPTY);
+        c.setItem(O2, new ItemStack(ModItems.OXYGEN_CYLINDER, 1));
+        tickBurner(h, pos, be, T + 10);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "oxygen only -> no flame");
+
+        // 両方：10秒で溶融石英1個、空ボンベ2本が出る
+        c.setItem(H2, new ItemStack(ModItems.HYDROGEN_CYLINDER, 2));
+        tickBurner(h, pos, be, T - 1);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "not finished 1 tick early");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        tickBurner(h, pos, be, 1);
+        h.assertTrue(c.getItem(OUT).is(ModItems.FUSED_QUARTZ), "quartz -> fused quartz");
+        h.assertValueEqual(c.getItem(EMPTY).getCount(), 2, "one H2 and one O2 cylinder connected -> 2 empties");
+        h.assertValueEqual(be.getH2(), OxyhydrogenBurnerBlockEntity.MOL_PER_CYLINDER - OxyhydrogenBurnerBlockEntity.H2_PER, "H2 46 mol left");
+        h.assertValueEqual(be.getO2(), OxyhydrogenBurnerBlockEntity.MOL_PER_CYLINDER - OxyhydrogenBurnerBlockEntity.O2_PER, "O2 48 mol left");
+        // 水素ボンベ1本＝12個まで（50/4）、13個目で2本目をつなぐ
+        tickBurner(h, pos, be, T * 11);
+        h.assertValueEqual(c.getItem(OUT).getCount(), 12, "12 fused quartz from the first H2 cylinder");
+        h.assertValueEqual(c.getItem(H2).getCount(), 1, "2nd H2 cylinder still unopened");
+        tickBurner(h, pos, be, T);
+        h.assertValueEqual(c.getItem(OUT).getCount(), 13, "13th quartz");
+        h.assertTrue(c.getItem(H2).isEmpty(), "2nd H2 cylinder connected");
+        h.assertValueEqual(c.getItem(EMPTY).getCount(), 3, "3 empty cylinders");
+        h.assertValueEqual(be.getO2(), OxyhydrogenBurnerBlockEntity.MOL_PER_CYLINDER - 13 * OxyhydrogenBurnerBlockEntity.O2_PER, "O2 used at 2 mol each (2H2 + O2)");
+        // 溶融石英 → 石英管のルートは残る
+        h.assertTrue(recipeUses(h, "quartz_tube", ModItems.FUSED_QUARTZ), "fused quartz -> quartz tube");
+        LOG.info("[LAB] oxyhydrogen burner: no gas -> 0, H2+O2 -> fused quartz in {} ticks, 12.5 per H2 cylinder", T);
         h.succeed();
     }
 

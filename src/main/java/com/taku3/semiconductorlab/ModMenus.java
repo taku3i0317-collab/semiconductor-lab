@@ -49,6 +49,9 @@ public class ModMenus {
     public static final MenuType<com.taku3.semiconductorlab.block.ReverberatoryFurnaceMenu> REVERBERATORY_FURNACE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("reverberatory_furnace"),
             new MenuType<>(com.taku3.semiconductorlab.block.ReverberatoryFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<com.taku3.semiconductorlab.block.OxyhydrogenBurnerMenu> OXYHYDROGEN_BURNER = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("oxyhydrogen_burner"),
+            new MenuType<>(com.taku3.semiconductorlab.block.OxyhydrogenBurnerMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }
