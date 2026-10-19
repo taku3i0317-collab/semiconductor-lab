@@ -66,6 +66,10 @@ public class ModItems {
     public static final Item EMPTY_GAS_CYLINDER    = register("empty_gas_cylinder", Item::new, new Item.Properties().stacksTo(16));
     public static final Item HYDROGEN_CYLINDER     = register("hydrogen_cylinder", Item::new, new Item.Properties().stacksTo(16));
     public static final Item OXYGEN_CYLINDER       = register("oxygen_cylinder", Item::new, new Item.Properties().stacksTo(16));
+    // [6-05] クロルアルカリ電解：2NaCl + 2H2O → Cl2 + H2 + 2NaOH
+    public static final Item CHLORINE_GAS          = simple("chlorine_gas");      // 塩素（黄緑色の有毒な気体）。1袋＝約1mol
+    public static final Item CHLORINE_CYLINDER     = register("chlorine_cylinder", Item::new, new Item.Properties().stacksTo(16)); // 塗色は黄（日本の規格）
+    public static final Item SODIUM_HYDROXIDE      = simple("sodium_hydroxide");  // 水酸化ナトリウム NaOH（苛性ソーダ）
 
     // --- 冶金（[1-26]）---
     public static final Item STEEL_INGOT           = simple("steel_ingot");   // ベッセマー転炉の鋼（C 約0.1〜0.5%）
@@ -126,7 +130,7 @@ public class ModItems {
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO, SELF_EXCITED_DYNAMO,
-            HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
+            HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER, CHLORINE_GAS, CHLORINE_CYLINDER, SODIUM_HYDROXIDE,
             STEEL_INGOT, LITHARGE, LEAD_INGOT, ZINC_OXIDE,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE, GLASS_BATCH, SODA_LIME_GLASS, ROCK_SALT, SALT, BITTERN,

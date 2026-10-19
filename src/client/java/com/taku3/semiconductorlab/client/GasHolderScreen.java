@@ -24,7 +24,7 @@ public class GasHolderScreen extends AbstractContainerScreen<GasHolderMenu> {
     @Override protected void init() { super.init(); titleLabelX = (imageWidth - font.width(title)) / 2; }
 
     private static int color(GasType t) {
-        return switch (t) { case HYDROGEN -> 0xFFE8E070; case OXYGEN -> 0xFF6FB7FF; default -> 0xFF808080; };
+        return switch (t) { case HYDROGEN -> 0xFFE8E070; case OXYGEN -> 0xFF6FB7FF; case CHLORINE -> 0xFFB8D040; default -> 0xFF808080; };
     }
 
     @Override

@@ -1640,6 +1640,94 @@ public class LabTests {
         h.succeed();
     }
 
+    /** [6-05] クロルアルカリ電解：水＋塩×2 → H2×1（陰極）＋Cl2×1（陽極）＋NaOH×2。硫酸を入れれば従来どおり水の電気分解 */
+    @GameTest
+    public void chlorAlkali(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.ELECTROLYZER);
+        ElectrolyzerBlockEntity be = h.getBlockEntity(pos, ElectrolyzerBlockEntity.class);
+        var c = be.getContainer();
+        int W = ElectrolyzerBlockEntity.SLOT_WATER, S = ElectrolyzerBlockEntity.SLOT_ACID, H2 = ElectrolyzerBlockEntity.SLOT_H2,
+                AN = ElectrolyzerBlockEntity.SLOT_O2, NA = ElectrolyzerBlockEntity.SLOT_NAOH, T = ElectrolyzerBlockEntity.BRINE_TICKS;
+        long feed = 250;
+        // 塩1個では足りない（2NaCl）
+        c.setItem(W, new ItemStack(Items.WATER_BUCKET));
+        c.setItem(S, new ItemStack(ModItems.SALT, 1));
+        tickConsumer(h, pos, be, T + 10, feed);
+        h.assertTrue(c.getItem(H2).isEmpty(), "1 salt is not enough for 2NaCl");
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
+        // 塩3個：128秒で1回分
+        c.setItem(S, new ItemStack(ModItems.SALT, 3));
+        h.assertValueEqual(be.mode(), ElectrolyzerBlockEntity.MODE_BRINE, "salt -> brine mode");
+        tickConsumer(h, pos, be, T - 1, feed);
+        h.assertTrue(c.getItem(H2).isEmpty(), "not finished 1 tick before 128 s");
+        tickConsumer(h, pos, be, 1, feed);
+        h.assertTrue(c.getItem(H2).is(ModItems.HYDROGEN_GAS) && c.getItem(H2).getCount() == 1, "cathode: 1 H2, got " + c.getItem(H2));
+        h.assertTrue(c.getItem(AN).is(ModItems.CHLORINE_GAS) && c.getItem(AN).getCount() == 1, "anode: 1 Cl2, got " + c.getItem(AN));
+        h.assertTrue(c.getItem(NA).is(ModItems.SODIUM_HYDROXIDE) && c.getItem(NA).getCount() == 2, "2 NaOH, got " + c.getItem(NA));
+        h.assertValueEqual(c.getItem(S).getCount(), 1, "2 salt consumed");
+        h.assertTrue(c.getItem(W).is(Items.BUCKET), "water used");
+        // 陽極の出口に酸素が残っていると塩素は出せない（混ぜない）
+        c.setItem(W, new ItemStack(Items.WATER_BUCKET));
+        c.setItem(S, new ItemStack(ModItems.SALT, 2));
+        c.setItem(AN, new ItemStack(ModItems.OXYGEN_GAS, 1));
+        tickConsumer(h, pos, be, T + 10, feed);
+        h.assertTrue(c.getItem(W).is(Items.WATER_BUCKET), "anode outlet holds O2 -> brine run blocked");
+        // 硫酸に戻すと水の電気分解（NaOH は出ない、塩素も出ない）
+        c.setItem(AN, ItemStack.EMPTY);
+        c.setItem(H2, ItemStack.EMPTY);
+        c.setItem(NA, ItemStack.EMPTY);
+        c.setItem(S, new ItemStack(ModItems.SULFURIC_ACID, 1));
+        tickConsumer(h, pos, be, ElectrolyzerBlockEntity.TOTAL_TICKS, feed);
+        h.assertTrue(c.getItem(AN).is(ModItems.OXYGEN_GAS), "acid -> water electrolysis, O2 at the anode");
+        h.assertValueEqual(c.getItem(H2).getCount(), 2, "2 H2 in water mode");
+        h.assertTrue(c.getItem(NA).isEmpty(), "no NaOH in water mode");
+        // 塩素はボンベとガスホルダーに対応、水素と混ぜると爆発（塩素爆鳴気）、酸素とは爆発しない
+        h.assertTrue(GasType.CHLORINE.cylinderItem() == ModItems.CHLORINE_CYLINDER && GasType.of(new ItemStack(ModItems.CHLORINE_GAS)) == GasType.CHLORINE, "chlorine gas type");
+        h.assertTrue(GasType.explosive(GasType.HYDROGEN, GasType.CHLORINE), "H2 + Cl2 explodes");
+        h.assertFalse(GasType.explosive(GasType.OXYGEN, GasType.CHLORINE), "O2 + Cl2 does not explode");
+        LOG.info("[LAB] chlor-alkali: water + 2 salt -> H2 + Cl2 + 2 NaOH in {} ticks; acid -> H2 x2 + O2", T);
+        h.succeed();
+    }
+
+    /** 塩素：電解槽の陽極からガスホルダーへ吸われ、圧縮機で塩素ボンベになる。水素のホルダーに塩素を入れると爆発 */
+    @GameTest(maxTicks = 80)
+    public void chlorineHolderAndCylinder(GameTestHelper h) {
+        BlockPos hp = p(1, 1, 1), ep = p(2, 1, 1), cp = p(0, 1, 1), h2p = p(1, 1, 3);
+        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        h.setBlock(ep, ModBlocks.ELECTROLYZER);
+        var ec = h.getBlockEntity(ep, ElectrolyzerBlockEntity.class).getContainer();
+        ec.setItem(ElectrolyzerBlockEntity.SLOT_O2, new ItemStack(ModItems.CHLORINE_GAS, 3));
+        ec.setItem(ElectrolyzerBlockEntity.SLOT_NAOH, new ItemStack(ModItems.SODIUM_HYDROXIDE, 2));
+        h.setBlock(h2p, ModBlocks.GAS_HOLDER);
+        h.runAfterDelay(25, () -> {
+            GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
+            int total = g.getAmount() + g.getContainer().getItem(GasHolderBlockEntity.SLOT_OUT).getCount();
+            h.assertValueEqual(g.getGasType() == GasType.NONE ? GasType.of(g.getContainer().getItem(GasHolderBlockEntity.SLOT_OUT)) : g.getGasType(), GasType.CHLORINE, "holder took chlorine");
+            h.assertValueEqual(total, 3, "3 mol Cl2 pulled");
+            h.assertValueEqual(ec.getItem(ElectrolyzerBlockEntity.SLOT_NAOH).getCount(), 2, "NaOH is not a gas: stays");
+            // 圧縮機：塩素 60mol → 塩素ボンベ
+            h.setBlock(cp, ModBlocks.COMPRESSOR);
+            CompressorBlockEntity comp = h.getBlockEntity(cp, CompressorBlockEntity.class);
+            g.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.CHLORINE_GAS, 64));
+            g.setContentsForTest(GasType.CHLORINE, 60);
+            comp.getContainer().setItem(CompressorBlockEntity.SLOT_EMPTY, new ItemStack(ModItems.EMPTY_GAS_CYLINDER, 1));
+            tickConsumer(h, cp, comp, CompressorBlockEntity.TOTAL_TICKS, EnergyStorage.wattsToJoulesPerTick(CompressorBlockEntity.WATTS));
+            h.assertTrue(comp.getContainer().getItem(CompressorBlockEntity.SLOT_OUT).is(ModItems.CHLORINE_CYLINDER), "compressor -> chlorine cylinder");
+            h.assertValueEqual(g.getAmount(), 10, "60 - 50 mol");
+            // 塩素爆鳴気：水素の入ったホルダーに塩素の袋
+            GasHolderBlockEntity g2 = h.getBlockEntity(h2p, GasHolderBlockEntity.class);
+            g2.setContentsForTest(GasType.HYDROGEN, 30);
+            g2.getContainer().setItem(GasHolderBlockEntity.SLOT_IN, new ItemStack(ModItems.CHLORINE_GAS, 1));
+        });
+        h.runAfterDelay(30, () -> {
+            GasHolderBlockEntity g2 = h.getBlockEntity(h2p, GasHolderBlockEntity.class);
+            h.assertValueEqual(g2.getAmount(), 0, "H2 + Cl2 bang empties the holder");
+            LOG.info("[LAB] chlorine: electrolyzer anode -> holder, compressor -> chlorine cylinder, H2 holder + Cl2 -> bang");
+            h.succeed();
+        });
+    }
+
     /** 26.2 以降のバニラ要素が実在するかをログに出すだけ（失敗にしない） */
     @GameTest(required = false)
     public void vanillaElementsExist(GameTestHelper h) {

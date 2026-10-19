@@ -13,15 +13,16 @@ import net.minecraft.world.item.Items;
 
 import static com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity.*;
 
-/** 電解槽の画面の中身。0＝水バケツ（左上）、1＝硫酸（左下）、2＝水素（出口）、3＝酸素（出口）、4〜39＝プレイヤー */
+/** 電解槽の画面の中身。0＝水バケツ（左上）、1＝硫酸 or 塩（左下）、2＝水素（出口）、3＝酸素 or 塩素（陽極の出口）、4＝水酸化ナトリウム、5〜40＝プレイヤー */
 public class ElectrolyzerMenu extends AbstractContainerMenu {
     public static final int PLAYER_START = SLOT_COUNT;
+    public static final int OUT_X = 78;
     private final ContainerData data;
     private final ContainerLevelAccess access;
 
     /** クライアント側用（中身はサーバーから同期される） */
     public ElectrolyzerMenu(int id, Inventory inv) {
-        this(id, inv, new SimpleContainer(SLOT_COUNT), new SimpleContainerData(ConsumerBlockEntity.DATA_COUNT), ContainerLevelAccess.NULL);
+        this(id, inv, new SimpleContainer(SLOT_COUNT), new SimpleContainerData(ConsumerBlockEntity.DATA_COUNT + 1), ContainerLevelAccess.NULL);
     }
 
     public ElectrolyzerMenu(int id, Inventory inv, Container container, ContainerData data, ContainerLevelAccess access) {
@@ -32,13 +33,14 @@ public class ElectrolyzerMenu extends AbstractContainerMenu {
         addSlot(new Slot(container, SLOT_WATER, 8, 17) {
             @Override public boolean mayPlace(ItemStack s) { return s.is(Items.WATER_BUCKET); }
         });
-        // 電解質の硫酸（左下）。消耗しない
+        // 左下：電解質の硫酸（消耗しない＝水の電気分解）か、塩（消耗する＝クロルアルカリ電解 [6-05]）
         addSlot(new Slot(container, SLOT_ACID, 8, 53) {
-            @Override public boolean mayPlace(ItemStack s) { return ElectrolyzerBlockEntity.isElectrolyte(s); }
+            @Override public boolean mayPlace(ItemStack s) { return ElectrolyzerBlockEntity.isSecondInput(s); }
         });
-        // 出口：水素（上）・酸素（下）。取り出し専用
-        addSlot(new Slot(container, SLOT_H2, 78, 26) { @Override public boolean mayPlace(ItemStack s) { return false; } });
-        addSlot(new Slot(container, SLOT_O2, 78, 48) { @Override public boolean mayPlace(ItemStack s) { return false; } });
+        // 出口：水素（上）・陽極の酸素 or 塩素（中）・水酸化ナトリウム（下）。取り出し専用
+        addSlot(new Slot(container, SLOT_H2, OUT_X, 17) { @Override public boolean mayPlace(ItemStack s) { return false; } });
+        addSlot(new Slot(container, SLOT_O2, OUT_X, 35) { @Override public boolean mayPlace(ItemStack s) { return false; } });
+        addSlot(new Slot(container, SLOT_NAOH, OUT_X, 53) { @Override public boolean mayPlace(ItemStack s) { return false; } });
         addStandardInventorySlots(inv, 8, 84);
         addDataSlots(data);
     }
@@ -48,6 +50,7 @@ public class ElectrolyzerMenu extends AbstractContainerMenu {
     public double getKw()      { return data.get(ConsumerBlockEntity.DATA_DECI_KW) / 10.0; }
     public int getStoredKj()   { return data.get(ConsumerBlockEntity.DATA_KJ); }
     public boolean isReady()   { return data.get(ConsumerBlockEntity.DATA_READY) != 0; }
+    public int getMode()       { return data.get(ElectrolyzerBlockEntity.DATA_MODE); }
 
     @Override
     public boolean stillValid(Player player) { return stillValid(access, player, ModBlocks.ELECTROLYZER); }
@@ -61,7 +64,7 @@ public class ElectrolyzerMenu extends AbstractContainerMenu {
         boolean ok;
         if (index < PLAYER_START) ok = moveItemStackTo(stack, PLAYER_START, slots.size(), true);
         else if (stack.is(Items.WATER_BUCKET)) ok = moveItemStackTo(stack, SLOT_WATER, SLOT_WATER + 1, false);
-        else if (ElectrolyzerBlockEntity.isElectrolyte(stack)) ok = moveItemStackTo(stack, SLOT_ACID, SLOT_ACID + 1, false);
+        else if (ElectrolyzerBlockEntity.isSecondInput(stack)) ok = moveItemStackTo(stack, SLOT_ACID, SLOT_ACID + 1, false);
         else ok = false;
         if (!ok) return ItemStack.EMPTY;
         if (stack.isEmpty()) slot.setByPlayer(ItemStack.EMPTY); else slot.setChanged();
