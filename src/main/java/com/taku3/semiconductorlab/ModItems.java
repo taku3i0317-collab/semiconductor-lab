@@ -35,6 +35,11 @@ public class ModItems {
     // --- ゲルマニウムの精錬・精製 ---
     public static final Item GERMANIUM_DIOXIDE     = simple("germanium_dioxide");
     public static final Item RAW_GERMANIUM         = simple("raw_germanium");       // 金属Ge 98%
+    // [1-34] 四塩化ゲルマニウム蒸留精製：GeO2 + 4HCl → GeCl4 + 2H2O → 蒸留（沸点83℃）→ GeCl4 + 2H2O → 高純度 GeO2 + 4HCl
+    public static final Item CRUDE_GERMANIUM_TETRACHLORIDE = simple("crude_germanium_tetrachloride"); // 粗 GeCl4（他の塩化物が混じった液）
+    public static final Item GERMANIUM_TETRACHLORIDE = simple("germanium_tetrachloride");              // 蒸留した GeCl4（無色の液）
+    public static final Item HIGH_PURITY_GERMANIUM_DIOXIDE = simple("high_purity_germanium_dioxide");  // 加水分解した高純度 GeO2（水素炉で還元 → 10N まで精製できる Ge）
+    public static final Item QUARTZ_STILL          = register("quartz_still", com.taku3.semiconductorlab.item.QuartzStillItem::new, new Item.Properties().stacksTo(1)); // 石英の蒸留器（作業台で使っても戻る）
     public static final Item REFINED_GERMANIUM     = register("refined_germanium", Item::new, new Item.Properties().component(ModDataComponents.PURITY, Purity.SIX_N));   // 帯域精製後
 
     // --- ドーピング ---
@@ -132,7 +137,7 @@ public class ModItems {
     public static final List<Item> ALL = List.of(
             MAGNETITE, WOLFRAMITE, GALENA, GRAPHITE, SPHALERITE, COAL_ASH, ZINC_INGOT, GERMANIUM_CONCENTRATE, INDIUM,
             SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS, HYDROCHLORIC_ACID,
-            GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
+            GERMANIUM_DIOXIDE, CRUDE_GERMANIUM_TETRACHLORIDE, GERMANIUM_TETRACHLORIDE, HIGH_PURITY_GERMANIUM_DIOXIDE, QUARTZ_STILL, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO, SELF_EXCITED_DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER, CHLORINE_GAS, CHLORINE_CYLINDER, SODIUM_HYDROXIDE,

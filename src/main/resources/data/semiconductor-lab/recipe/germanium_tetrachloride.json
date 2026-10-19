@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crude_germanium_tetrachloride",
+    "semiconductor-lab:quartz_still"
+  ],
+  "result": {
+    "id": "semiconductor-lab:germanium_tetrachloride",
+    "count": 1
+  }
+}

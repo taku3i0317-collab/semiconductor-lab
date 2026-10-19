@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:germanium_tetrachloride",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:high_purity_germanium_dioxide",
+    "count": 1
+  }
+}

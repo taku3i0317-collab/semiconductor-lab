@@ -51,6 +51,7 @@ public class ZoneRefiningFurnaceMenu extends AbstractContainerMenu {
     public int getMode()     { return data.get(DATA_MODE); }
     /** ボートで届く上限の「9の数」。0＝ボートなし */
     public int getBoatCap()  { return data.get(DATA_BOAT_CAP); }
+    public int getRouteCap() { return data.get(DATA_ROUTE_CAP); }
     public boolean isGeEmpty() { return getSlot(GE_SLOT).getItem().isEmpty(); }
     public boolean hasDopant() { return !getSlot(DOPANT_SLOT).getItem().isEmpty(); }
 

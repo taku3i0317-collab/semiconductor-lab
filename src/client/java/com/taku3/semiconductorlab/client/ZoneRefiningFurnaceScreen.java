@@ -44,6 +44,7 @@ public class ZoneRefiningFurnaceScreen extends AbstractContainerScreen<ZoneRefin
         else if (menu.getMode() == ZoneRefiningFurnaceBlockEntity.MODE_DOPE) line = Component.translatable(K + "doping", n + "N");
         else if (n >= 9 && menu.hasDopant()) line = Component.translatable(K + "purity", n + "N", (n >= 10 ? "-" : "10N"));
         else if (n >= 9 && n < 10 && cap < 10) line = Component.translatable(K + "clay_cap");
+        else if (n >= 9 && n < 10 && menu.getRouteCap() < 10) line = Component.translatable(K + "route_cap");
         else if (n >= 9 && n < 10) line = Component.translatable(K + "ready", n + "N");
         else if (n >= 10) line = Component.translatable(K + "max", n + "N");
         // 決定（2026-10）：6N 以下＋ドーパントは「先に精製 → 9N になったら自動でドープ」。待っている理由を見せる

@@ -26,5 +26,14 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.VAR_LONG)
                     .build());
 
+    // [1-34] GeCl4 蒸留経由のゲルマニウムか（true なら帯域精製で 10N まで、なければ硫酸経由として 9N まで）。還元→精製で受け継ぐ
+    public static final DataComponentType<Boolean> CHLORIDE_ROUTE = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("chloride_route"),
+            DataComponentType.<Boolean>builder()
+                    .persistent(Codec.BOOL)
+                    .networkSynchronized(ByteBufCodecs.BOOL)
+                    .build());
+
     public static void initialize() {}
 }

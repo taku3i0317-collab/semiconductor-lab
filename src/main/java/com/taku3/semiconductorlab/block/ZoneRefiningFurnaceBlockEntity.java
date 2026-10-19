@@ -24,7 +24,7 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implemen
     public static final int TOTAL_TICKS = 20 * 30;
     public static final double WATTS = 3_000;
     public static final int GE_SLOT = 0, DOPANT_SLOT = 1, BOAT_SLOT = 2, SLOT_COUNT = 3;
-    public static final int DATA_NINES = DATA_COUNT, DATA_MODE = DATA_COUNT + 1, DATA_BOAT_CAP = DATA_COUNT + 2, EXTRA_DATA = 3;
+    public static final int DATA_NINES = DATA_COUNT, DATA_MODE = DATA_COUNT + 1, DATA_BOAT_CAP = DATA_COUNT + 2, DATA_ROUTE_CAP = DATA_COUNT + 3, EXTRA_DATA = 4;
     public static final int MODE_IDLE = 0, MODE_REFINE = 1, MODE_DOPE = 2;
 
     /** 中身が変わったら進捗をやり直す（途中で Ge を足して「ただで精製」させないため） */
@@ -46,6 +46,18 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implemen
         return 0;
     }
 
+    /** GeCl4 蒸留 [1-34] を経たゲルマニウムか（データコンポーネント chloride_route） */
+    public static boolean isChlorideRoute(ItemStack s) { return Boolean.TRUE.equals(s.get(ModDataComponents.CHLORIDE_ROUTE)); }
+
+    /**
+     * 原料の経路で決まる純度の上限：GeCl4 蒸留経由なら 10N、硫酸浸出のまま（蒸留していない）なら 9N。
+     * 本物：硫酸浸出の GeO2 には As・Si などが残り、帯域精製でも分配係数が1に近い不純物は取り切れない。GeCl4 は沸点83℃で蒸留でき、AsCl3（130℃）などと分かれる。
+     */
+    public static double routeCap(ItemStack ge) { return isChlorideRoute(ge) ? Purity.TEN_N : Purity.NINE_N; }
+
+    /** ボートと原料の経路の、低いほうの上限 */
+    public static double effectiveCap(ItemStack ge, ItemStack boat) { return Math.min(boatCap(boat), routeCap(ge)); }
+
     /** 次の純度段階。上がらないなら -1 */
     public static double nextPurity(ItemStack s) {
         if (s.is(ModItems.RAW_GERMANIUM)) return Purity.SIX_N;
@@ -60,7 +72,7 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implemen
 
     private int mode() {
         ItemStack ge = container.getItem(GE_SLOT), dp = container.getItem(DOPANT_SLOT);
-        double cap = boatCap(container.getItem(BOAT_SLOT));
+        double cap = effectiveCap(ge, container.getItem(BOAT_SLOT));
         if (ge.isEmpty() || cap <= 0) return MODE_IDLE;
         if (isTransistorGrade(ge) && isDopant(dp)) return MODE_DOPE;
         double next = nextPurity(ge);
@@ -85,6 +97,7 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implemen
         if (mode() == MODE_REFINE) {
             ItemStack out = new ItemStack(ModItems.REFINED_GERMANIUM, ge.getCount());
             out.set(ModDataComponents.PURITY, nextPurity(ge));
+            if (isChlorideRoute(ge)) out.set(ModDataComponents.CHLORIDE_ROUTE, true);   // 経路は受け継ぐ
             container.setItem(GE_SLOT, out);
         } else {
             ItemStack dp = container.getItem(DOPANT_SLOT);
@@ -101,6 +114,7 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implemen
             case DATA_NINES -> currentNines();
             case DATA_MODE -> mode();
             case DATA_BOAT_CAP -> { double c = boatCap(container.getItem(BOAT_SLOT)); yield c <= 0 ? 0 : Purity.nines(c); }
+            case DATA_ROUTE_CAP -> container.getItem(GE_SLOT).isEmpty() ? 0 : Purity.nines(routeCap(container.getItem(GE_SLOT)));
             default -> 0;
         };
     }

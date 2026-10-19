@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QFQ",
+    " G "
+  ],
+  "key": {
+    "Q": "semiconductor-lab:quartz_tube",
+    "F": "semiconductor-lab:fused_quartz",
+    "G": "semiconductor-lab:soda_lime_glass"
+  },
+  "result": {
+    "id": "semiconductor-lab:quartz_still",
+    "count": 1
+  }
+}

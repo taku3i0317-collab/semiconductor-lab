@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:germanium_dioxide",
+    "semiconductor-lab:hydrochloric_acid",
+    "semiconductor-lab:hydrochloric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crude_germanium_tetrachloride",
+    "count": 1
+  }
+}

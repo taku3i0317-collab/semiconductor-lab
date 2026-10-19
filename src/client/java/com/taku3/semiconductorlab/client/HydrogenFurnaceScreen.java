@@ -47,7 +47,7 @@ public class HydrogenFurnaceScreen extends AbstractContainerScreen<HydrogenFurna
         else if (!h2.is(ModItems.HYDROGEN_GAS)) hint = "need_h2";
         else if (!menu.isReady()) hint = "not_enough";   // 量が足りない or 出口が満杯
         else if (menu.getKw() <= 0) hint = "need_power";
-        else hint = m == HydrogenFurnaceBlockEntity.Mode.SINTER ? "sintering" : "reducing";
+        else hint = switch (m) { case SINTER -> "sintering"; case REDUCE_GE -> "reducing_ge"; default -> "reducing"; };
         g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
         g.text(font, Component.literal("H2"), 28, 57, TEXT_COLOR, false);
     }

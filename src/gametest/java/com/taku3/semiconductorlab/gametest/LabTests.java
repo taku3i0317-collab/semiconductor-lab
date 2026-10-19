@@ -791,6 +791,13 @@ public class LabTests {
     // 帯域精製炉
     // =====================================================================
 
+    /** GeCl4 蒸留 [1-34] を経た還元ゲルマニウム（帯域精製で 10N まで行ける） */
+    private static ItemStack rawChloride(int n) {
+        ItemStack s = new ItemStack(ModItems.RAW_GERMANIUM, n);
+        s.set(ModDataComponents.CHLORIDE_ROUTE, true);
+        return s;
+    }
+
     private static ItemStack refined(double purity, int n) {
         ItemStack s = new ItemStack(ModItems.REFINED_GERMANIUM, n);
         s.set(ModDataComponents.PURITY, purity);
@@ -808,7 +815,7 @@ public class LabTests {
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT;
         c.setItem(ZoneRefiningFurnaceBlockEntity.BOAT_SLOT, new ItemStack(ModItems.SYNTHETIC_GRAPHITE_BOAT));
 
-        c.setItem(G, new ItemStack(ModItems.RAW_GERMANIUM, 4));
+        c.setItem(G, rawChloride(4));   // [1-34] GeCl4 経由（硫酸経由は 9N 止まり＝geCl4Route）
         tickRefiner(h, pos, be, T - 1);
         h.assertTrue(c.getItem(G).is(ModItems.RAW_GERMANIUM), "not refined 1 tick before 30 s");
         tickRefiner(h, pos, be, 1);
@@ -872,7 +879,8 @@ public class LabTests {
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
-            "salt_from_rock_salt", "salt_pan", "hcl_burner"};
+            "salt_from_rock_salt", "salt_pan", "hcl_burner",
+            "crude_germanium_tetrachloride", "quartz_still", "germanium_tetrachloride", "high_purity_germanium_dioxide"};
 
     @GameTest
     public void recipesResolve(GameTestHelper h) {
@@ -1413,7 +1421,7 @@ public class LabTests {
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT, B = ZoneRefiningFurnaceBlockEntity.BOAT_SLOT;
 
         // ボートなし：電気があっても動かない（電気も使わない）
-        c.setItem(G, new ItemStack(ModItems.RAW_GERMANIUM, 2));
+        c.setItem(G, rawChloride(2));   // 10N まで確かめるので GeCl4 経由の Ge
         tickRefiner(h, pos, be, T + 10);
         h.assertTrue(c.getItem(G).is(ModItems.RAW_GERMANIUM), "no boat -> no refining");
         h.assertValueEqual(be.getLastWatts(), 0.0, "no boat -> no power drawn");
@@ -1808,6 +1816,73 @@ public class LabTests {
         h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(old).isEmpty(), "old recipe tungsten_trioxide removed");
         LOG.info("[LAB] WO3: wolframite + soda -> fusion -> Na2WO4 + HCl -> H2WO4 -> roast -> WO3 (no shortcut)");
         h.succeed();
+    }
+
+    /**
+     * [1-34] GeCl4 蒸留精製：GeO2 ＋ 塩酸×2 → 粗 GeCl4 ＋ 石英の蒸留器（戻る）→ GeCl4 ＋ 水 → 高純度 GeO2 → 水素炉 → Ge（経路つき）。
+     * 帯域精製の上限：GeCl4 経由なら 10N、硫酸経由（精鉱＋硫酸 → GeO2 → 木炭）なら人造黒鉛ボートでも 9N
+     */
+    @GameTest
+    public void geCl4Route(GameTestHelper h) {
+        var server = h.getLevel().getServer();
+        h.assertValueEqual(s_count(h, "crude_germanium_tetrachloride", ModItems.HYDROCHLORIC_ACID), 2L, "GeO2 + 4HCl: 2 bottles of acid (2 mol each)");
+        h.assertTrue(recipeUses(h, "crude_germanium_tetrachloride", ModItems.GERMANIUM_DIOXIDE), "starts from GeO2");
+        h.assertTrue(recipeUses(h, "quartz_still", ModItems.QUARTZ_TUBE) && recipeUses(h, "quartz_still", ModItems.FUSED_QUARTZ), "still is quartz glassware");
+        // 蒸留：作業台で使っても蒸留器は戻る
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("germanium_tetrachloride"));
+        var r = (net.minecraft.world.item.crafting.CraftingRecipe) server.getRecipeManager().byKey(key).orElseThrow().value();
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(ModItems.CRUDE_GERMANIUM_TETRACHLORIDE), new ItemStack(ModItems.QUARTZ_STILL)));
+        h.assertTrue(r.matches(input, h.getLevel()), "crude GeCl4 + still matches");
+        h.assertTrue(r.assemble(input).is(ModItems.GERMANIUM_TETRACHLORIDE), "-> distilled GeCl4");
+        var rem = r.getRemainingItems(input);
+        h.assertTrue(rem.stream().anyMatch(st -> st.is(ModItems.QUARTZ_STILL)), "the quartz still comes back, got " + rem);
+        h.assertTrue(recipeUses(h, "high_purity_germanium_dioxide", ModItems.GERMANIUM_TETRACHLORIDE) && recipeUses(h, "high_purity_germanium_dioxide", Items.WATER_BUCKET), "hydrolysis GeCl4 + 2H2O");
+        // 水素炉：高純度 GeO2 + 2H2 → 経路つきの Ge、ふつうの GeO2 → 経路なし
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, ModBlocks.HYDROGEN_FURNACE);
+        HydrogenFurnaceBlockEntity f = h.getBlockEntity(fp, HydrogenFurnaceBlockEntity.class);
+        var fc = f.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(HydrogenFurnaceBlockEntity.REDUCE_WATTS);
+        fc.setItem(HydrogenFurnaceBlockEntity.SLOT_IN, new ItemStack(ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE, 1));
+        fc.setItem(HydrogenFurnaceBlockEntity.SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, 4));
+        tickConsumer(h, fp, f, HydrogenFurnaceBlockEntity.GE_REDUCE_TICKS, feed);
+        ItemStack ge = fc.getItem(HydrogenFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(ge.is(ModItems.RAW_GERMANIUM) && ZoneRefiningFurnaceBlockEntity.isChlorideRoute(ge), "HP GeO2 + 2H2 -> Ge with chloride route, got " + ge);
+        h.assertValueEqual(fc.getItem(HydrogenFurnaceBlockEntity.SLOT_H2).getCount(), 2, "2 H2 used (GeO2 + 2H2)");
+        fc.setItem(HydrogenFurnaceBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        fc.setItem(HydrogenFurnaceBlockEntity.SLOT_IN, new ItemStack(ModItems.GERMANIUM_DIOXIDE, 1));
+        tickConsumer(h, fp, f, HydrogenFurnaceBlockEntity.GE_REDUCE_TICKS, feed);
+        ItemStack ge2 = fc.getItem(HydrogenFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(ge2.is(ModItems.RAW_GERMANIUM) && !ZoneRefiningFurnaceBlockEntity.isChlorideRoute(ge2), "plain GeO2 (sulfate route) -> Ge without route");
+        // 帯域精製：人造黒鉛ボートでも硫酸経由は 9N で止まる、GeCl4 経由は 10N
+        BlockPos zp = p(3, 1, 1);
+        h.setBlock(zp, ModBlocks.ZONE_REFINING_FURNACE);
+        ZoneRefiningFurnaceBlockEntity z = h.getBlockEntity(zp, ZoneRefiningFurnaceBlockEntity.class);
+        var zc = z.getContainer();
+        int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT;
+        zc.setItem(ZoneRefiningFurnaceBlockEntity.BOAT_SLOT, new ItemStack(ModItems.SYNTHETIC_GRAPHITE_BOAT));
+        zc.setItem(G, ge2.copy());
+        tickRefiner(h, zp, z, T * 4);
+        h.assertValueEqual(purityOf(zc.getItem(G)), Purity.NINE_N, "sulfate-route Ge stops at 9N even with a synthetic graphite boat");
+        h.assertValueEqual(z.getLastWatts(), 0.0, "idle at the route cap");
+        zc.setItem(G, ge.copy());
+        tickRefiner(h, zp, z, T * 3);
+        h.assertValueEqual(purityOf(zc.getItem(G)), Purity.TEN_N, "GeCl4-route Ge reaches 10N");
+        h.assertTrue(ZoneRefiningFurnaceBlockEntity.isChlorideRoute(zc.getItem(G)), "route is kept through refining");
+        // 粘土ボートなら GeCl4 経由でも 9N（低いほうの上限）
+        zc.setItem(ZoneRefiningFurnaceBlockEntity.BOAT_SLOT, new ItemStack(ModItems.GRAPHITE_BOAT));
+        zc.setItem(G, rawChloride(1));
+        tickRefiner(h, zp, z, T * 4);
+        h.assertValueEqual(purityOf(zc.getItem(G)), Purity.NINE_N, "clay boat caps GeCl4-route Ge at 9N");
+        // 硫酸のルートも残っている
+        h.assertTrue(recipeUses(h, "germanium_dioxide", ModItems.SULFURIC_ACID), "concentrate + sulfuric acid -> GeO2 kept");
+        LOG.info("[LAB] GeCl4: GeO2 + 2 HCl -> crude -> still (returned) -> GeCl4 -> + water -> HP GeO2 -> H2 furnace -> Ge(route); refining caps 10N (GeCl4) / 9N (sulfate)");
+        h.succeed();
+    }
+
+    private static long s_count(GameTestHelper h, String id, net.minecraft.world.item.Item item) {
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id(id));
+        return h.getLevel().getServer().getRecipeManager().byKey(key).map(r -> r.value().placementInfo().ingredients().stream().filter(i -> i.test(new ItemStack(item))).count()).orElse(0L);
     }
 
     /** 26.2 以降のバニラ要素が実在するかをログに出すだけ（失敗にしない） */

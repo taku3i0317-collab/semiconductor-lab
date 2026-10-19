@@ -26,47 +26,58 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity implements M
     public static final double REDUCE_WATTS = 3_000, SINTER_WATTS = 10_000;
     public static final int REDUCE_TICKS = 20 * 30, SINTER_TICKS = 20 * 20;
     public static final int REDUCE_H2 = 3, SINTER_H2 = 1, SINTER_POWDER = 2;
+    /** GeO2 + 2H2 → Ge + 2H2O（約650℃）。3kW×20秒 */
+    public static final int GE_REDUCE_TICKS = 20 * 20, GE_REDUCE_H2 = 2;
     public static final int SLOT_IN = 0, SLOT_H2 = 1, SLOT_OUT = 2, SLOT_COUNT = 3;
     /** 隣のホルダーから水素を補充する間隔（tick）と、スロットに貯める上限 */
     private static final int PULL_INTERVAL = 10, H2_TARGET = 16;
 
-    public enum Mode { NONE, REDUCE, SINTER }
+    public enum Mode { NONE, REDUCE, SINTER, REDUCE_GE }
 
     public HydrogenFurnaceBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.HYDROGEN_FURNACE, pos, state, SLOT_COUNT, 100_000, SINTER_WATTS);
     }
 
-    public static boolean isInput(ItemStack s) { return s.is(ModItems.TUNGSTEN_TRIOXIDE) || s.is(ModItems.TUNGSTEN_POWDER); }
+    public static boolean isInput(ItemStack s) { return modeOf(s) != Mode.NONE; }
 
     /** 入っている材料から、どちらの工程か（材料がそろっていなくても種類で決める。GUI 表示用） */
     public static Mode modeOf(ItemStack in) {
         if (in.is(ModItems.TUNGSTEN_TRIOXIDE)) return Mode.REDUCE;
         if (in.is(ModItems.TUNGSTEN_POWDER)) return Mode.SINTER;
+        if (in.is(ModItems.GERMANIUM_DIOXIDE) || in.is(ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE)) return Mode.REDUCE_GE;
         return Mode.NONE;
     }
 
     private Mode mode() { return modeOf(container.getItem(SLOT_IN)); }
-    private static ItemStack product(Mode m) {
+    private ItemStack product(Mode m) {
+        if (m == Mode.REDUCE_GE) {
+            ItemStack ge = new ItemStack(ModItems.RAW_GERMANIUM);
+            // GeCl4 蒸留を経た高純度 GeO2 から還元した Ge は「経路」を持つ（帯域精製で 10N まで）
+            if (container.getItem(SLOT_IN).is(ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE)) ge.set(com.taku3.semiconductorlab.ModDataComponents.CHLORIDE_ROUTE, true);
+            return ge;
+        }
         return m == Mode.REDUCE ? new ItemStack(ModItems.TUNGSTEN_POWDER) : new ItemStack(ModItems.TUNGSTEN_BAR);
     }
+    private static int h2For(Mode m) { return switch (m) { case SINTER -> SINTER_H2; case REDUCE_GE -> GE_REDUCE_H2; default -> REDUCE_H2; }; }
 
     @Override protected double workWatts() { return mode() == Mode.SINTER ? SINTER_WATTS : REDUCE_WATTS; }
-    @Override protected int workTicks() { return mode() == Mode.SINTER ? SINTER_TICKS : REDUCE_TICKS; }
+    @Override protected int workTicks() { return switch (mode()) { case SINTER -> SINTER_TICKS; case REDUCE_GE -> GE_REDUCE_TICKS; default -> REDUCE_TICKS; }; }
 
     @Override protected boolean canWork() {
         Mode m = mode();
         if (m == Mode.NONE) return false;
         ItemStack in = container.getItem(SLOT_IN), h2 = container.getItem(SLOT_H2);
-        int needIn = m == Mode.SINTER ? SINTER_POWDER : 1, needH2 = m == Mode.SINTER ? SINTER_H2 : REDUCE_H2;
+        int needIn = m == Mode.SINTER ? SINTER_POWDER : 1, needH2 = h2For(m);
         return in.getCount() >= needIn && h2.is(ModItems.HYDROGEN_GAS) && h2.getCount() >= needH2
                 && canMerge(container.getItem(SLOT_OUT), product(m));
     }
 
     @Override protected void finishWork() {
         Mode m = mode();
+        ItemStack out = product(m);   // 入力が減る前に決める（GeO2 の種類で経路が変わる）
         container.getItem(SLOT_IN).shrink(m == Mode.SINTER ? SINTER_POWDER : 1);
-        container.getItem(SLOT_H2).shrink(m == Mode.SINTER ? SINTER_H2 : REDUCE_H2);   // 水素は H2O になって出ていく（還元）／流しっぱなしで燃やす（焼結）
-        merge(SLOT_OUT, product(m));
+        container.getItem(SLOT_H2).shrink(h2For(m));   // 水素は H2O になって出ていく（還元）／流しっぱなしで燃やす（焼結）
+        merge(SLOT_OUT, out);
         container.setChanged();
     }
 
