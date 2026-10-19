@@ -7,7 +7,7 @@
     "MS"
   ],
   "key": {
-    "G": "minecraft:glass_pane",
+    "G": "semiconductor-lab:soda_lime_glass",
     "S": "minecraft:stick",
     "M": "semiconductor-lab:mercury"
   },

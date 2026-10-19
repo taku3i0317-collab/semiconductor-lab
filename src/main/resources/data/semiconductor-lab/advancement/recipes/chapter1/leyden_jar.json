@@ -6,7 +6,7 @@
       "conditions": {
         "items": [
           {
-            "items": "minecraft:glass_bottle"
+            "items": "semiconductor-lab:soda_lime_glass"
           }
         ]
       }

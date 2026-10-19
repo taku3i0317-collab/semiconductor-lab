@@ -866,7 +866,7 @@ public class LabTests {
     // =====================================================================
 
     private static final String[] RECIPES = {
-            "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate",
+            "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate", "glass_batch", "soda_lime_glass", "soda_lime_glass_from_blasting",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
@@ -1305,7 +1305,7 @@ public class LabTests {
         h.assertValueEqual(tubes, 2L, "vacuum tubes in the oscillator");
         for (var it : new net.minecraft.world.item.Item[] {ModItems.LEYDEN_JAR, ModItems.INDUCTION_COIL, ModBlocks.COPPER_CABLE.asItem()})
             h.assertTrue(recipeUses(h, "hf_oscillator", it), "oscillator should use " + it);
-        h.assertTrue(recipeUses(h, "leyden_jar", Items.GLASS_BOTTLE), "Leyden jar = glass jar + metal foil");
+        h.assertTrue(recipeUses(h, "leyden_jar", ModItems.SODA_LIME_GLASS), "Leyden jar = glass jar (soda-lime glass) + metal foil");
         h.assertTrue(recipeUses(h, "zone_refining_furnace", ModItems.HF_OSCILLATOR), "zone refining furnace needs the HF oscillator");
         h.assertFalse(BuiltInRegistries.ITEM.containsKey(SemiconductorLab.id("hf_power_supply")), "placeholder hf_power_supply must be gone");
         h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("hf_power_supply"))).isEmpty(), "placeholder recipe must be gone");
@@ -1508,6 +1508,27 @@ public class LabTests {
         // 溶融石英 → 石英管のルートは残る
         h.assertTrue(recipeUses(h, "quartz_tube", ModItems.FUSED_QUARTZ), "fused quartz -> quartz tube");
         LOG.info("[LAB] oxyhydrogen burner: no gas -> 0, H2+O2 -> fused quartz in {} ticks, 12.5 per H2 cylinder", T);
+        h.succeed();
+    }
+
+    /** [2-14] ソーダ石灰ガラス：砂6＋ソーダ＋生石灰 → 調合原料6 → かまど/溶鉱炉 → ガラス。実験器具3つはバニラのガラスでなく MOD ガラス */
+    @GameTest
+    public void sodaLimeGlass(GameTestHelper h) {
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("glass_batch"));
+        var r = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value();
+        var ings = r.placementInfo().ingredients();
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Items.SAND))).count(), 6L, "6 sand (SiO2 ~72%)");
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(ModItems.SODIUM_CARBONATE))).count(), 1L, "1 soda (Na2O ~14%)");
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(ModItems.QUICKLIME))).count(), 1L, "1 quicklime (CaO ~10%)");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.GLASS_BATCH).is(ModItems.SODA_LIME_GLASS), "batch -> furnace -> soda-lime glass");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, ModItems.GLASS_BATCH).is(ModItems.SODA_LIME_GLASS), "batch -> blast furnace -> soda-lime glass");
+        for (String id : new String[] {"vacuum_chamber", "mercury_vacuum_gauge", "leyden_jar"}) {
+            h.assertTrue(recipeUses(h, id, ModItems.SODA_LIME_GLASS), id + " should use soda-lime glass");
+            for (var v : new net.minecraft.world.item.Item[] {Items.GLASS, Items.GLASS_PANE, Items.GLASS_BOTTLE})
+                h.assertFalse(recipeUses(h, id, v), id + " must not use vanilla " + v);
+        }
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.SAND).is(Items.GLASS), "vanilla sand -> glass stays for windows");
+        LOG.info("[LAB] soda-lime glass: 6 sand + soda + lime -> 6 batch -> glass; vacuum chamber / gauge / Leyden jar need it");
         h.succeed();
     }
 

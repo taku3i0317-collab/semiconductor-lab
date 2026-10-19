@@ -8,7 +8,7 @@
   ],
   "key": {
     "n": "minecraft:copper_nugget",
-    "B": "minecraft:glass_bottle"
+    "B": "semiconductor-lab:soda_lime_glass"
   },
   "result": {
     "id": "semiconductor-lab:leyden_jar",
