@@ -16,3 +16,9 @@
 - [ ] Ge濃縮石炭の産地・含有量（雲南省ほか）／閃亜鉛鉱中の Ge・In 含有率
 - [ ] CP-4 エッチング液の組成（HNO3/HF/CH3COOH）
 - [ ] 硫酸浸出でのGe回収の妥当性（塩酸ルートとの差）
+## 技術ツリーの参考文献
+- Lewis Dartnell *The Knowledge* (2014) 邦訳『この世界が消えたあとの科学文明のつくりかた』: 文明再建の最短ルート、ボトルネック技術。幹1〜4の照合に使う
+- Ryan North *How to Invent Everything* (2018) 邦訳『ゼロからつくる科学文明』: 技術依存チャート、各技術の「本当はいつ可能だったか」
+- Thomas Thwaites *The Toaster Project* (2011): 鉱石からの手作りの現実
+- James Burke *Connections* (1978): 技術史のつながり
+- 注: いずれも露光装置・半導体製造までは扱わない。幹5〜9は本MOD独自

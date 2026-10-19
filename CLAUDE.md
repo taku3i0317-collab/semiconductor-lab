@@ -18,7 +18,7 @@
 2. 26.x の API は推測で書かない。.gradle/loom-cache 内の minecraft-common / clientOnly jar を
    `javap -cp <jar> <クラス>` で確認してから書き、結果を docs/API_26X.md に追記する
    （GuiGraphics は廃止→GuiGraphicsExtractor、Block の CODEC 廃止、configured_feature→feature など既知の変更あり）
-3. 変更後は `cmd /c "gradlew compileJava compileClientJava 2>&1"` で必ずコンパイル確認。runClient は実行しない（ユーザーが遠隔作業中のため）
+3. 変更後は `./gradlew.bat compileJava compileClientJava` で必ずコンパイル確認。runClient は実行しない（ユーザーが遠隔作業中のため）
 4. ゲーム内で確認が必要な項目は docs/TEST_QUEUE.md に追記する
 5. 1ステップごとに `git add -A; git commit -m "..."`。push もする
 6. 新しいバニラ要素（26.2 の硫黄など）をレシピに使う前に、名前の実在をユーザーに確認する
