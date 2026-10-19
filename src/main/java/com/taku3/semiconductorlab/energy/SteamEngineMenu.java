@@ -15,16 +15,18 @@ public class SteamEngineMenu extends AbstractContainerMenu {
     public static final int PLAYER_START = 2;
     private final ContainerData data;
     private final ContainerLevelAccess access;
+    private final net.minecraft.world.level.block.Block block;   // 蒸気機関 or 蒸気タービン（画面は共通）
 
     /** クライアント側用（中身はサーバーから同期される） */
     public SteamEngineMenu(int id, Inventory inv) {
-        this(id, inv, new SimpleContainer(2), new SimpleContainerData(SteamEngineBlockEntity.DATA_COUNT), ContainerLevelAccess.NULL);
+        this(id, inv, new SimpleContainer(2), new SimpleContainerData(SteamEngineBlockEntity.DATA_COUNT), ContainerLevelAccess.NULL, ModBlocks.STEAM_ENGINE);
     }
 
-    public SteamEngineMenu(int id, Inventory inv, Container container, ContainerData data, ContainerLevelAccess access) {
+    public SteamEngineMenu(int id, Inventory inv, Container container, ContainerData data, ContainerLevelAccess access, net.minecraft.world.level.block.Block block) {
         super(ModMenus.STEAM_ENGINE, id);
         this.data = data;
         this.access = access;
+        this.block = block;
         // 石炭・木炭（下＝かまどの燃料と同じ位置）
         addSlot(new Slot(container, SteamEngineBlockEntity.SLOT_COAL, 56, 53) {
             @Override public boolean mayPlace(ItemStack s) { return SteamEngineBlockEntity.isFuel(s); }
@@ -44,7 +46,7 @@ public class SteamEngineMenu extends AbstractContainerMenu {
     public int getStoredKj()  { return data.get(SteamEngineBlockEntity.DATA_KJ); }
 
     @Override
-    public boolean stillValid(Player player) { return stillValid(access, player, ModBlocks.STEAM_ENGINE); }
+    public boolean stillValid(Player player) { return stillValid(access, player, block); }
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {

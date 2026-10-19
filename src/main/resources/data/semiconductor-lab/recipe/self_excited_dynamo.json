@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " c ",
+    "cSc",
+    " c "
+  ],
+  "key": {
+    "c": "semiconductor-lab:induction_coil",
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:self_excited_dynamo",
+    "count": 1
+  }
+}

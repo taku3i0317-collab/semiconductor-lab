@@ -372,5 +372,13 @@
   "gui.semiconductor-lab.refiner.power": "Power %s / need %s",
   "gui.semiconductor-lab.refiner.no_boat": "Put a graphite boat in the middle",
   "gui.semiconductor-lab.refiner.need_power": "No power: the HF oscillator is off",
-  "gui.semiconductor-lab.refiner.clay_cap": "Clay boat stops at 9N. 10N: synthetic boat"
+  "gui.semiconductor-lab.refiner.clay_cap": "Clay boat stops at 9N. 10N: synthetic boat",
+  "item.semiconductor-lab.self_excited_dynamo": "Self-Excited Dynamo",
+  "item.semiconductor-lab.self_excited_dynamo.note1": "A dynamo with no magnet inside. It makes its own magnet out of its own electricity.",
+  "item.semiconductor-lab.self_excited_dynamo.note": "Siemens 1866: a steel core + 4 coils. Right-click a water wheel or steam engine to swap out its permanent-magnet dynamo: output x2 (a steam engine also burns coal twice as fast — same electricity per coal, twice the power per machine).",
+  "item.semiconductor-lab.self_excited_dynamo.note3": "The core keeps a little leftover magnetism. Spinning makes a weak current, which goes through the field coils and makes the field stronger, which makes more current... it builds itself up in seconds (the 'dynamo-electric principle').",
+  "item.semiconductor-lab.self_excited_dynamo.note4": "Permanent magnets of the 1860s were weak, so magneto machines could only turn part of the engine's power into electricity. Electromagnet fields made big generators possible — Wheatstone and Varley found the same idea in the same months. Energy is still conserved: double the electricity needs double the steam.",
+  "message.semiconductor-lab.self_excited_dynamo.installed": "Installed the self-excited dynamo: output x2",
+  "message.semiconductor-lab.self_excited_dynamo.already": "This generator already has a self-excited dynamo",
+  "message.semiconductor-lab.self_excited_dynamo.not_needed": "This generator already has an electromagnet field built in"
 }

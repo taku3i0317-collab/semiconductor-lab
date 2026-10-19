@@ -256,6 +256,38 @@ public class LabTests {
         h.succeed();
     }
 
+    /** [4-05] 自励式ダイナモ：蒸気機関に積むと 100kW、ただし石炭は15秒で燃え尽きる（石炭1個の電気は同じ 1.5MJ）。2個目は付かない */
+    @GameTest
+    public void selfExcitedDynamo(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.STEAM_ENGINE);
+        SteamEngineBlockEntity be = h.getBlockEntity(pos, SteamEngineBlockEntity.class);
+        h.assertTrue(be.supportsDynamoUpgrade() && !be.isSelfExcited(), "a new steam engine has a permanent-magnet dynamo");
+        h.assertTrue(be.installSelfExcitedDynamo(), "install the self-excited dynamo");
+        h.assertFalse(be.installSelfExcitedDynamo(), "cannot install twice");
+        var c = be.getContainer();
+        c.setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 2));
+        c.setItem(SteamEngineBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        tickGenerator(h, pos, be, 1);
+        h.assertValueEqual(be.getLastWatts(), SteamEngineBlockEntity.WATTS * 2, "self-excited: output x2");
+        tickGenerator(h, pos, be, SteamEngineBlockEntity.COAL_TICKS / 2 - 1);
+        h.assertValueEqual(c.getItem(SteamEngineBlockEntity.SLOT_COAL).getCount(), 1, "still on the 1st coal at 15 s");
+        tickGenerator(h, pos, be, 1);
+        h.assertValueEqual(c.getItem(SteamEngineBlockEntity.SLOT_COAL).getCount(), 0, "2nd coal lit after 15 s (coal burns twice as fast)");
+        // 石炭1個の電気 = 出力 × 燃焼時間 は永久磁石と同じ（エネルギー保存）
+        double perCoalMagneto = SteamEngineBlockEntity.WATTS * SteamEngineBlockEntity.COAL_TICKS / 20.0;
+        double perCoalSelf = be.ratedWatts() * (SteamEngineBlockEntity.COAL_TICKS / 2) / 20.0;
+        h.assertValueEqual(perCoalSelf, perCoalMagneto, "same electricity per coal");
+        h.assertTrue(Math.abs(be.thermalEfficiency() - 0.05) < 1e-9, "steam engine thermal efficiency 5%");
+        // 水車も積み替えられる
+        h.setBlock(p(3, 1, 1), ModBlocks.WATER_WHEEL);
+        WaterWheelBlockEntity ww = h.getBlockEntity(p(3, 1, 1), WaterWheelBlockEntity.class);
+        h.assertTrue(ww.installSelfExcitedDynamo() && ww.dynamoFactor() == 2, "water wheel accepts the self-excited dynamo");
+        h.assertTrue(recipeUses(h, "self_excited_dynamo", ModItems.STEEL_INGOT) && !recipeUses(h, "self_excited_dynamo", ModItems.MAGNET), "steel core, no magnet");
+        LOG.info("[LAB] self-excited dynamo: steam engine 100 kW, coal 15 s (1.5 MJ/coal unchanged), water wheel x2, no magnet in recipe");
+        h.succeed();
+    }
+
     // =====================================================================
     // ケーブル
     // =====================================================================
@@ -547,7 +579,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "steam_engine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 

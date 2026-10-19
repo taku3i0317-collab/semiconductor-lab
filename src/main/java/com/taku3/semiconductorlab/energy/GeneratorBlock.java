@@ -31,6 +31,19 @@ public class GeneratorBlock extends Block implements EntityBlock {
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return level.getBlockEntity(pos) instanceof MenuProvider mp ? mp : null;
     }
+    /** [4-05] 自励式ダイナモを手に持って右クリック：永久磁石のダイナモと積み替える（出力2倍）。それ以外は素手と同じ */
+    @Override protected InteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
+        if (!stack.is(com.taku3.semiconductorlab.ModItems.SELF_EXCITED_DYNAMO) || !(level.getBlockEntity(pos) instanceof GeneratorBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
+        if (level.isClientSide()) return InteractionResult.SUCCESS;
+        if (!be.supportsDynamoUpgrade()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.self_excited_dynamo.not_needed"));
+        else if (be.isSelfExcited()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.self_excited_dynamo.already"));
+        else if (be.installSelfExcitedDynamo()) {
+            if (!player.getAbilities().instabuild) stack.shrink(1);
+            player.sendSystemMessage(Component.translatable("message.semiconductor-lab.self_excited_dynamo.installed"));
+        }
+        return InteractionResult.SUCCESS;
+    }
+
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (level.isClientSide()) return InteractionResult.SUCCESS;
         BlockEntity be0 = level.getBlockEntity(pos);

@@ -18,7 +18,7 @@
 
 ## BlockEntity（#6 で確認・動作済み）
 - 登録：`FabricBlockEntityTypeBuilder.create(BE::new, block).build()` → `Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, id, type)`
-- 保存：`saveAdditional(ValueOutput)` / `loadAdditional(ValueInput)`。`out.putInt` / `in.getIntOr(key, def)`
+- 保存：`saveAdditional(ValueOutput)` / `loadAdditional(ValueInput)`。`out.putInt` / `in.getIntOr(key, def)`／`out.putBoolean` / `in.getBooleanOr(key, def)`（javap 確認 2026-10 タスク04）
 - アイテム：`ContainerHelper.saveAllItems(ValueOutput, NonNullList)` / `loadAllItems(ValueInput, NonNullList)`
 - ticker：`EntityBlock.getTicker(Level, BlockState, BlockEntityType<T>)` → `BlockEntityTicker<T>.tick(Level, BlockPos, BlockState, T)`
 - 右クリック：`useItemOn(ItemStack, BlockState, Level, BlockPos, Player, InteractionHand, BlockHitResult)` / `useWithoutItem(BlockState, Level, BlockPos, Player, BlockHitResult)`

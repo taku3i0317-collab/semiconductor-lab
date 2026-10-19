@@ -36,10 +36,10 @@ public class SteamEngineScreen extends AbstractContainerScreen<SteamEngineMenu> 
         super.extractLabels(g, mouseX, mouseY);
         g.text(font, Component.translatable(K + "output", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
         g.text(font, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "water", menu.getWater()), TEXT_X, 44, TEXT_COLOR, false);
+        g.text(font, menu.getWater() < 0 ? Component.translatable(K + "water_intake") : Component.translatable(K + "water", menu.getWater()), TEXT_X, 44, TEXT_COLOR, false);
         Component hint = null;
         if (menu.getBurn() > 0) hint = Component.translatable(K + "running");
-        else if (menu.getWater() <= 0 && !menu.getSlot(1).getItem().is(Items.WATER_BUCKET)) hint = Component.translatable(K + "need_water");
+        else if (menu.getWater() == 0 && !menu.getSlot(1).getItem().is(Items.WATER_BUCKET)) hint = Component.translatable(K + "need_water");
         else if (menu.getSlot(0).getItem().isEmpty()) hint = Component.translatable(K + "need_coal");
         if (hint != null) g.text(font, hint, TEXT_X, 58, TEXT_COLOR, false);
     }

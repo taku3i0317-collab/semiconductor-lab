@@ -372,5 +372,13 @@
   "gui.semiconductor-lab.refiner.power": "電力 %s ／ 必要 %s",
   "gui.semiconductor-lab.refiner.no_boat": "中央に黒鉛ボートを入れる",
   "gui.semiconductor-lab.refiner.need_power": "電気なし：発振器が止まっている",
-  "gui.semiconductor-lab.refiner.clay_cap": "粘土ボートは9Nまで。10Nは人造黒鉛ボート"
+  "gui.semiconductor-lab.refiner.clay_cap": "粘土ボートは9Nまで。10Nは人造黒鉛ボート",
+  "item.semiconductor-lab.self_excited_dynamo": "自励式ダイナモ",
+  "item.semiconductor-lab.self_excited_dynamo.note1": "中に磁石がないダイナモ。自分の電気で自分の磁石を作る。",
+  "item.semiconductor-lab.self_excited_dynamo.note": "ジーメンス1866年：鋼の鉄心＋コイル×4。水車・蒸気機関に持って右クリックすると、永久磁石のダイナモと積み替えて出力2倍（蒸気機関は石炭も2倍の速さで燃える＝石炭1個の電気は同じ、1台の力が2倍）。",
+  "item.semiconductor-lab.self_excited_dynamo.note3": "鉄心にはほんの少し磁気が残っている（残留磁気）。回すと弱い電流が出て、それが界磁コイルを通って磁場を強め、もっと電流が出て…と数秒で自分で立ち上がる（ダイナモ電気の原理）。",
+  "item.semiconductor-lab.self_excited_dynamo.note4": "1860年代の永久磁石は弱く、磁石式の発電機はエンジンの力の一部しか電気にできなかった。電磁石の界磁で大きな発電機が作れるようになった（ホイートストンとヴァーリーも同じ月に同じ考えに達した）。エネルギー保存は守られる：電気を2倍出すには蒸気も2倍いる。",
+  "message.semiconductor-lab.self_excited_dynamo.installed": "自励式ダイナモに積み替えた：出力2倍",
+  "message.semiconductor-lab.self_excited_dynamo.already": "この発電機はもう自励式ダイナモになっている",
+  "message.semiconductor-lab.self_excited_dynamo.not_needed": "この発電機は最初から電磁石の界磁を持っている"
 }

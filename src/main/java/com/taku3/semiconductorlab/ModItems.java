@@ -56,6 +56,7 @@ public class ModItems {
     // --- 電気の部品（v0.2a）---
     public static final Item MAGNET                = simple("magnet");   // 天然磁石（磁鉄鉱のうち磁化したもの＝ロードストーン）
     public static final Item DYNAMO                = simple("dynamo");   // 磁石＋銅コイル＋鉄：ファラデーの電磁誘導
+    public static final Item SELF_EXCITED_DYNAMO   = simple("self_excited_dynamo"); // [4-05] ジーメンス1866：鋼の鉄心＋コイル×4、磁石不要（残留磁気で自分を励磁）
 
     // --- ガス（v0.2a [6-01] 電解槽の生成物）---
     // 「袋詰め」のガス（約1mol）。貯蔵は [6-02] ガスホルダー、高圧の持ち運びは [6-03] ボンベ
@@ -107,7 +108,7 @@ public class ModItems {
             SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
-            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO,
+            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO, SELF_EXCITED_DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
