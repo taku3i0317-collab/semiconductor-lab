@@ -872,7 +872,7 @@ public class LabTests {
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
-            "salt_from_rock_salt", "salt_pan"};
+            "salt_from_rock_salt", "salt_pan", "hcl_burner"};
 
     @GameTest
     public void recipesResolve(GameTestHelper h) {
@@ -1724,6 +1724,73 @@ public class LabTests {
             GasHolderBlockEntity g2 = h.getBlockEntity(h2p, GasHolderBlockEntity.class);
             h.assertValueEqual(g2.getAmount(), 0, "H2 + Cl2 bang empties the holder");
             LOG.info("[LAB] chlorine: electrolyzer anode -> holder, compressor -> chlorine cylinder, H2 holder + Cl2 -> bang");
+            h.succeed();
+        });
+    }
+
+    private static void tickHcl(GameTestHelper h, BlockPos rel, com.taku3.semiconductorlab.block.HclBurnerBlockEntity be, int n) {
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(rel);
+        for (int i = 0; i < n; i++) com.taku3.semiconductorlab.block.HclBurnerBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+    }
+
+    /** [6-06] 塩酸合成炉：H2 1mol ＋ Cl2 1mol ＋ 水 1/4 バケツ（100 tick）→ 塩酸1。袋・ボンベ・隣のホルダーから。片方だけでは燃えない */
+    @GameTest(maxTicks = 80)
+    public void hclBurner(GameTestHelper h) {
+        int T = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.BURN_TICKS;
+        int H2 = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_H2, CL = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_CL2,
+                W = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_WATER, OUT = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_OUT,
+                EMPTY = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_EMPTY, BUCKET = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_BUCKET;
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.HCL_BURNER);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.HclBurnerBlockEntity.class);
+        var c = be.getContainer();
+        // 水だけ・水素だけ：燃えない（水素の袋は開けない）
+        c.setItem(W, new ItemStack(Items.WATER_BUCKET, 1));
+        c.setItem(H2, new ItemStack(ModItems.HYDROGEN_GAS, 3));
+        tickHcl(h, pos, be, T + 10);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "hydrogen without chlorine -> no flame");
+        h.assertValueEqual(c.getItem(H2).getCount(), 3, "H2 bags not opened without chlorine");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        // 塩素の袋を足す：100 tick で塩酸1、バケツは空になって出る（水は残り3本分）
+        c.setItem(CL, new ItemStack(ModItems.CHLORINE_GAS, 3));
+        tickHcl(h, pos, be, T - 1);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "not finished 1 tick early");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        tickHcl(h, pos, be, 1);
+        h.assertTrue(c.getItem(OUT).is(ModItems.HYDROCHLORIC_ACID), "H2 + Cl2 -> 2HCl -> hydrochloric acid");
+        h.assertValueEqual(c.getItem(H2).getCount(), 2, "1 mol H2 used");
+        h.assertValueEqual(c.getItem(CL).getCount(), 2, "1 mol Cl2 used (1:1)");
+        h.assertTrue(c.getItem(BUCKET).is(Items.BUCKET), "empty bucket comes out");
+        h.assertValueEqual(be.getWater(), 3, "1 bucket = 4 bottles of acid");
+        // ボンベ：塩素ボンベ1本＝50mol、空ボンベが出る
+        c.setItem(CL, new ItemStack(ModItems.CHLORINE_CYLINDER, 1));
+        c.setItem(H2, new ItemStack(ModItems.HYDROGEN_CYLINDER, 1));
+        tickHcl(h, pos, be, T * 3);
+        h.assertValueEqual(c.getItem(OUT).getCount(), 4, "4 acids from 1 bucket");
+        h.assertValueEqual(c.getItem(EMPTY).getCount(), 2, "H2 and Cl2 cylinders opened -> 2 empties");
+        h.assertValueEqual(be.getCl2(), 47, "Cl2 50 - 3 mol");
+        // 水がなくなると止まる
+        tickHcl(h, pos, be, T * 2);
+        h.assertValueEqual(c.getItem(OUT).getCount(), 4, "no water -> stops");
+        // 隣のガスホルダー（塩素）からももらえる
+        BlockPos pos2 = p(3, 1, 1), hp = p(4, 1, 1);
+        h.setBlock(pos2, ModBlocks.HCL_BURNER);
+        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        var be2 = h.getBlockEntity(pos2, com.taku3.semiconductorlab.block.HclBurnerBlockEntity.class);
+        GasHolderBlockEntity holder = h.getBlockEntity(hp, GasHolderBlockEntity.class);
+        holder.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.CHLORINE_GAS, 64));
+        holder.setContentsForTest(GasType.CHLORINE, 20);
+        be2.getContainer().setItem(W, new ItemStack(Items.WATER_BUCKET, 1));
+        be2.getContainer().setItem(H2, new ItemStack(ModItems.HYDROGEN_GAS, 4));
+        ServerLevel lv = h.getLevel();
+        // 引き込みは 10 tick ごと（ゲーム時刻）。tick を手で回すとゲーム時刻は進まないので、引き込みを直接確かめる
+        long t0 = lv.getGameTime();
+        h.assertTrue(recipeUses(h, "hcl_burner", ModBlocks.OXYHYDROGEN_BURNER.asItem()), "derived from the oxyhydrogen burner [7-02]");
+        h.runAfterDelay(25, () -> {
+            h.assertTrue(be2.getCl2() > 0 || be2.getContainer().getItem(OUT).getCount() > 0, "pulled chlorine from the adjacent holder");
+            h.assertTrue(holder.getAmount() < 20, "holder chlorine decreased");
+            LOG.info("[LAB] HCl burner: H2 + Cl2 + 1/4 bucket -> 1 hydrochloric acid in {} ticks; bags, cylinders and adjacent holder (from game time {})", T, t0);
             h.succeed();
         });
     }

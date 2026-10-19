@@ -30,6 +30,7 @@ public class ModItems {
     public static final Item SULFUR_DIOXIDE        = simple("sulfur_dioxide"); // 硫黄を燃やした気体
     public static final Item SULFURIC_ACID         = register("sulfuric_acid", Item::new, new Item.Properties().stacksTo(16));
     public static final Item PHOSPHORUS            = simple("phosphorus");
+    public static final Item HYDROCHLORIC_ACID     = register("hydrochloric_acid", Item::new, new Item.Properties().stacksTo(16)); // [6-06] 塩酸（HCl 約25%、ガラス瓶入り）
 
     // --- ゲルマニウムの精錬・精製 ---
     public static final Item GERMANIUM_DIOXIDE     = simple("germanium_dioxide");
@@ -126,7 +127,7 @@ public class ModItems {
 
     public static final List<Item> ALL = List.of(
             MAGNETITE, WOLFRAMITE, GALENA, GRAPHITE, SPHALERITE, COAL_ASH, ZINC_INGOT, GERMANIUM_CONCENTRATE, INDIUM,
-            SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS,
+            SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS, HYDROCHLORIC_ACID,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO, SELF_EXCITED_DYNAMO,

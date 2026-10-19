@@ -37,6 +37,8 @@ public class ModBlockEntities {
     public static final BlockEntityType<com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity> REVERBERATORY_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("reverberatory_furnace"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity::new, ModBlocks.REVERBERATORY_FURNACE).build());   // 燃料式（電気の受け口なし）
     public static final BlockEntityType<com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity> OXYHYDROGEN_BURNER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("oxyhydrogen_burner"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity::new, ModBlocks.OXYHYDROGEN_BURNER).build());   // ガスボンベ式（電気の受け口なし）
 
+    public static final BlockEntityType<com.taku3.semiconductorlab.block.HclBurnerBlockEntity> HCL_BURNER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("hcl_burner"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.HclBurnerBlockEntity::new, ModBlocks.HCL_BURNER).build());   // ガス式（電気の受け口なし）
+
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ZONE_REFINING_FURNACE);   // 帯域精製炉：発振器の電源
         // 銅ケーブルは受け口を持たない（タスク06：導体。CableNetwork がまとめて配電する）

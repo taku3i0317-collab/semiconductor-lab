@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GQG",
+    "RBR"
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "Q": "semiconductor-lab:quartz_tube",
+    "R": "semiconductor-lab:refractory_brick",
+    "B": "semiconductor-lab:oxyhydrogen_burner"
+  },
+  "result": {
+    "id": "semiconductor-lab:hcl_burner",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/hcl_burner_front",
+    "side": "semiconductor-lab:block/hcl_burner_side",
+    "top": "semiconductor-lab:block/hcl_burner_top"
+  }
+}

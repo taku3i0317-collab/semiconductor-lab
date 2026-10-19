@@ -14,3 +14,6 @@
 ## タスク09 [0-16] 塩田（2026-10-20 08:10）
 - 失敗1：`salt_pan` — "no sky -> no salt"。canSeeSky（空の明るさ）は光の計算が遅れるので、置いた直後の石の屋根に反応しなかった（MOD 側）。修正：高さマップで判定
 - 失敗2：`salt_pan` — "1 salt per minute"。GameTest の場の天井がバリアで、高さマップがバリアの上になっていた。修正：日光を通すブロック（バリア・ガラス）は空とみなす（propagatesSkylightDown）。3回目で 52/52 PASSED
+
+## タスク09 [6-06] 塩酸合成炉（2026-10-20 08:21）
+- 失敗：`hcl_burner` — "Didn't succeed or fail within 20 ticks"。テスト側：runAfterDelay(25) なのに maxTicks の指定を忘れた（既定 20）。修正：maxTicks = 80

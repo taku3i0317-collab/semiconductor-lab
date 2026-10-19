@@ -521,5 +521,22 @@
   "item.semiconductor-lab.sodium_hydroxide.note1": "Caustic soda. Strong enough to dissolve skin - handle with care.",
   "item.semiconductor-lab.sodium_hydroxide.note2": "NaOH, collects at the - electrode in brine electrolysis [6-05] (2 per run). Strong base: later used in the Bayer process for alumina [1-14] and for soap.",
   "item.semiconductor-lab.sodium_hydroxide.note3": "Chlorine and caustic soda always come out together in a fixed ratio (1 t Cl2 : 1.1 t NaOH). Plants must find buyers for both - this is called the 'chlor-alkali balance'.",
-  "item.semiconductor-lab.sodium_hydroxide.note4": "Before electrolysis (1890s), caustic soda was made by boiling soda ash with slaked lime: Na2CO3 + Ca(OH)2 -> 2NaOH + CaCO3. Castner and Kellner's mercury cell (1892) made electrolysis practical."
+  "item.semiconductor-lab.sodium_hydroxide.note4": "Before electrolysis (1890s), caustic soda was made by boiling soda ash with slaked lime: Na2CO3 + Ca(OH)2 -> 2NaOH + CaCO3. Castner and Kellner's mercury cell (1892) made electrolysis practical.",
+  "block.semiconductor-lab.hcl_burner": "HCl Synthesis Burner",
+  "block.semiconductor-lab.hcl_burner.note1": "Burns hydrogen in chlorine and dissolves the smoke in water to make hydrochloric acid.",
+  "block.semiconductor-lab.hcl_burner.note2": "H2 + Cl2 -> 2HCl (burns at about 2000 C), then HCl gas is absorbed in water. 1 mol H2 + 1 mol Cl2 + 1/4 bucket of water (5 s) -> 1 hydrochloric acid. Gas from bags (1 mol), cylinders (50 mol) or an adjacent gas holder. No electricity needed.",
+  "block.semiconductor-lab.hcl_burner.note3": "Burning hydrogen in chlorine gives a pale flame and white fumes of HCl. This 'synthetic hydrochloric acid' became the main use for the chlorine and hydrogen that chlor-alkali plants produced from the 1890s on.",
+  "block.semiconductor-lab.hcl_burner.note4": "The burner nozzle is made of quartz (later graphite) because hot HCl eats metals. The mixture is only safe because the gases meet at the nozzle: premixed H2 + Cl2 explodes in sunlight. Earlier, HCl came from the Leblanc process (salt + sulfuric acid) and was simply vented as a pollutant until the 1863 Alkali Act.",
+  "block.semiconductor-lab.hcl_burner.placeholder": "Approximation: one-block burner with a built-in absorber. Gas amounts are stoichiometric; cooling water is not needed.",
+  "gui.semiconductor-lab.hcl_burner.water": "Water %s",
+  "gui.semiconductor-lab.hcl_burner.need_water": "Needs water",
+  "gui.semiconductor-lab.hcl_burner.need_h2": "Needs hydrogen",
+  "gui.semiconductor-lab.hcl_burner.need_cl2": "Needs chlorine",
+  "gui.semiconductor-lab.hcl_burner.burning": "Burning H2 in Cl2",
+  "gui.semiconductor-lab.hcl_burner.out_full": "Output full",
+  "item.semiconductor-lab.hydrochloric_acid": "Hydrochloric Acid",
+  "item.semiconductor-lab.hydrochloric_acid.note1": "A strong acid that dissolves metals. Your stomach makes a weak version of it.",
+  "item.semiconductor-lab.hydrochloric_acid.note2": "HCl dissolved in water (about 25%, 2 mol HCl per bottle). Made in the HCl synthesis burner [6-06]. Used for tungstic acid [1-28] and germanium tetrachloride [1-34].",
+  "item.semiconductor-lab.hydrochloric_acid.note3": "Alchemists called it 'spirit of salt' (made by heating salt with sulfuric acid). Concentrated hydrochloric acid gives off HCl gas that fumes in moist air. Gastric juice is about 0.1 mol/L HCl.",
+  "item.semiconductor-lab.hydrochloric_acid.note4": "HCl gas dissolves enormously in water: about 450 L of gas per litre at 20 C, so you cannot make it more than about 38%. In semiconductor fabs, dilute HCl with hydrogen peroxide (RCA clean SC-2, 1965) removes metal contamination from wafers."
 }

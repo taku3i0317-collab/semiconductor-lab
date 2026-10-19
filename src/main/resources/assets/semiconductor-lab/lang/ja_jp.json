@@ -521,5 +521,22 @@
   "item.semiconductor-lab.sodium_hydroxide.note1": "苛性ソーダ。皮ふをとかすほど強いので、さわらないこと。",
   "item.semiconductor-lab.sodium_hydroxide.note2": "NaOH。塩水の電気分解 [6-05] で−極側にたまる（1回で2個）。強いアルカリ：のちにアルミナを取り出すバイヤー法 [1-14] やせっけんに使う。",
   "item.semiconductor-lab.sodium_hydroxide.note3": "塩素と苛性ソーダはいつも決まった割合（塩素1t：NaOH 1.1t）で同時にできる。工場は両方の買い手を見つけないといけない＝「クロルアルカリのバランス」。",
-  "item.semiconductor-lab.sodium_hydroxide.note4": "電気分解（1890年代）より前は、ソーダ灰を消石灰と煮て作った：Na2CO3 + Ca(OH)2 → 2NaOH + CaCO3（苛性化）。1892年カストナーとケルナーの水銀法で電解が実用になった。"
+  "item.semiconductor-lab.sodium_hydroxide.note4": "電気分解（1890年代）より前は、ソーダ灰を消石灰と煮て作った：Na2CO3 + Ca(OH)2 → 2NaOH + CaCO3（苛性化）。1892年カストナーとケルナーの水銀法で電解が実用になった。",
+  "block.semiconductor-lab.hcl_burner": "塩酸合成炉",
+  "block.semiconductor-lab.hcl_burner.note1": "水素を塩素の中で燃やし、出てきたけむりを水に溶かして塩酸を作る。",
+  "block.semiconductor-lab.hcl_burner.note2": "H2 + Cl2 → 2HCl（約2000℃で燃える）、できた塩化水素を水に吸わせる。H2 1mol＋Cl2 1mol＋水 1/4 バケツ（5秒）→ 塩酸1本。ガスは袋（1mol）・ボンベ（50mol）・隣のガスホルダーのどれからでも。電気は不要。",
+  "block.semiconductor-lab.hcl_burner.note3": "水素を塩素の中で燃やすと、青白い炎と塩化水素の白いけむりが出る。この「合成塩酸」は、1890年代からクロルアルカリ工場で同時にできる塩素と水素の大きな使い道になった。",
+  "block.semiconductor-lab.hcl_burner.note4": "熱い塩化水素は金属をおかすので、火口は石英（のちに黒鉛）で作る。ガスは火口の先でだけ出会わせる：先に混ぜた H2＋Cl2 は日光でも爆発する。それより前の塩化水素はルブラン法（塩＋硫酸）の副産物で、1863年のアルカリ法ができるまで煙突から捨てられ公害になっていた。",
+  "block.semiconductor-lab.hcl_burner.placeholder": "近似：吸収塔を組み込んだ1ブロックの炉。ガスの量は反応式どおり、冷却水は不要にした。",
+  "gui.semiconductor-lab.hcl_burner.water": "水 %s",
+  "gui.semiconductor-lab.hcl_burner.need_water": "水がない",
+  "gui.semiconductor-lab.hcl_burner.need_h2": "水素がない",
+  "gui.semiconductor-lab.hcl_burner.need_cl2": "塩素がない",
+  "gui.semiconductor-lab.hcl_burner.burning": "塩素中で燃焼中",
+  "gui.semiconductor-lab.hcl_burner.out_full": "出口が満杯",
+  "item.semiconductor-lab.hydrochloric_acid": "塩酸",
+  "item.semiconductor-lab.hydrochloric_acid.note1": "金属をとかす強い酸。胃の中にも、うすい塩酸がある。",
+  "item.semiconductor-lab.hydrochloric_acid.note2": "HCl の水溶液（約25%、1本に HCl 2mol）。塩酸合成炉 [6-06] で作る。タングステン酸 [1-28] や四塩化ゲルマニウム [1-34] に使う。",
+  "item.semiconductor-lab.hydrochloric_acid.note3": "錬金術師は「塩の精」と呼んだ（塩に硫酸をかけて熱して作った）。濃い塩酸は塩化水素を出し、湿った空気の中で白くけむる。胃液はおよそ 0.1mol/L の塩酸。",
+  "item.semiconductor-lab.hydrochloric_acid.note4": "塩化水素は水にものすごく溶ける：20℃で水 1L に気体約450L。それでも約38% より濃くはできない。半導体工場では、うすい塩酸＋過酸化水素（RCA 洗浄の SC-2、1965年）でウェハーの金属汚れを落とす。"
 }
