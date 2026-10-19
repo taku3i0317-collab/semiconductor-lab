@@ -42,7 +42,8 @@ public class ModItems {
 
     // --- 帯域精製炉の部品（Pfann 1952 の装置構成）---
     public static final Item GRAPHITE_BOAT_BLANK   = simple("graphite_boat_blank"); // 黒鉛+粘土、未焼成
-    public static final Item GRAPHITE_BOAT         = simple("graphite_boat");
+    public static final Item GRAPHITE_BOAT         = simple("graphite_boat");          // 粘土黒鉛ボート（19世紀式、9N まで）
+    public static final Item SYNTHETIC_GRAPHITE_BOAT = simple("synthetic_graphite_boat"); // 人造黒鉛ボート（[3-10] アチソン炉の黒鉛、10N まで）
     public static final Item FUSED_QUARTZ          = simple("fused_quartz");
     public static final Item QUARTZ_TUBE           = simple("quartz_tube");
     public static final Item INDUCTION_COIL        = simple("induction_coil");
@@ -106,7 +107,7 @@ public class ModItems {
             SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
-            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO,
+            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,

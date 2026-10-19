@@ -9,7 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
-/** 帯域精製炉の画面。左＝Ge、右＝ドーパント。バーは溶融帯の進み具合 */
+/** 帯域精製炉の画面。左＝Ge、中央＝黒鉛ボート、右＝ドーパント。上＝電力、バーは溶融帯の進み具合 */
 public class ZoneRefiningFurnaceScreen extends AbstractContainerScreen<ZoneRefiningFurnaceMenu> {
     private static final Identifier BG = Identifier.fromNamespaceAndPath("semiconductor-lab", "textures/gui/zone_refining_furnace.png");
     private static final int BAR_X = 60, BAR_Y = 58, BAR_W = 56, BAR_H = 6;
@@ -33,11 +33,17 @@ public class ZoneRefiningFurnaceScreen extends AbstractContainerScreen<ZoneRefin
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
+        Component power = Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()), String.format("%.0f kW", ZoneRefiningFurnaceBlockEntity.WATTS / 1000));
+        g.text(font, power, (imageWidth - font.width(power)) / 2, 18, 0xFF404040, false);
         Component line;
-        int n = menu.getNines();
+        int n = menu.getNines(), cap = menu.getBoatCap();
+        boolean working = menu.getMode() != ZoneRefiningFurnaceBlockEntity.MODE_IDLE;
         if (menu.isGeEmpty()) line = Component.translatable(K + "hint");
+        else if (cap == 0) line = Component.translatable(K + "no_boat");
+        else if (working && menu.getKw() <= 0) line = Component.translatable(K + "need_power");
         else if (menu.getMode() == ZoneRefiningFurnaceBlockEntity.MODE_DOPE) line = Component.translatable(K + "doping", n + "N");
         else if (n >= 9 && menu.hasDopant()) line = Component.translatable(K + "purity", n + "N", (n >= 10 ? "-" : "10N"));
+        else if (n >= 9 && n < 10 && cap < 10) line = Component.translatable(K + "clay_cap");
         else if (n >= 9 && n < 10) line = Component.translatable(K + "ready", n + "N");
         else if (n >= 10) line = Component.translatable(K + "max", n + "N");
         // 決定（2026-10）：6N 以下＋ドーパントは「先に精製 → 9N になったら自動でドープ」。待っている理由を見せる

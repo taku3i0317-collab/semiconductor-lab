@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "G G",
+    " G "
+  ],
+  "key": {
+    "G": "semiconductor-lab:synthetic_graphite"
+  },
+  "result": { "id": "semiconductor-lab:synthetic_graphite_boat", "count": 1 }
+}

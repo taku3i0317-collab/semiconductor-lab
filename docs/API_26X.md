@@ -701,3 +701,7 @@ public InteractionResult useOn(net.minecraft.world.item.context.UseOnContext);  
 public void playSound(Entity, BlockPos, SoundEvent, SoundSource, float, float);   // SoundEvents.PISTON_CONTRACT 実在
 // net.minecraft.world.item.Items: COPPER_NUGGET, IRON_NUGGET, GLASS_BOTTLE, LEATHER, CINNABAR, GLASS_PANE 実在
 ``
+
+## タスク03（2026-10-20）
+新しい 26.3 API は使っていない（ConsumerBlockEntity・ConsumerMachineBlock・ContainerData など既存の形のみ）。
+ConsumerBlockEntity に serverTick（tick 本体の上書き）・extraDataCount/extraData（GUI へ送る数値の追加）・setLit を足した（MOD 内の仕組み）。

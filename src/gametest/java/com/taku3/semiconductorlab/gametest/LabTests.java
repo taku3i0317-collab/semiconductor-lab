@@ -83,10 +83,9 @@ public class LabTests {
         for (int i = 0; i < n; i++) GeneratorBlockEntity.tick(lv, a, lv.getBlockState(a), be);
     }
 
+    /** 帯域精製炉を n tick まわす（発振器の電力 3kW をテストが直接入れる） */
     private static void tickRefiner(GameTestHelper h, BlockPos rel, ZoneRefiningFurnaceBlockEntity be, int n) {
-        ServerLevel lv = h.getLevel();
-        BlockPos a = h.absolutePos(rel);
-        for (int i = 0; i < n; i++) ZoneRefiningFurnaceBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        tickConsumer(h, rel, be, n, EnergyStorage.wattsToJoulesPerTick(ZoneRefiningFurnaceBlockEntity.WATTS));
     }
 
     private static void floor(GameTestHelper h, int size) {
@@ -485,6 +484,7 @@ public class LabTests {
         ZoneRefiningFurnaceBlockEntity be = h.getBlockEntity(pos, ZoneRefiningFurnaceBlockEntity.class);
         var c = be.getContainer();
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT;
+        c.setItem(ZoneRefiningFurnaceBlockEntity.BOAT_SLOT, new ItemStack(ModItems.SYNTHETIC_GRAPHITE_BOAT));
 
         c.setItem(G, new ItemStack(ModItems.RAW_GERMANIUM, 4));
         tickRefiner(h, pos, be, T - 1);
@@ -511,6 +511,7 @@ public class LabTests {
         ZoneRefiningFurnaceBlockEntity be = h.getBlockEntity(pos, ZoneRefiningFurnaceBlockEntity.class);
         var c = be.getContainer();
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT, D = ZoneRefiningFurnaceBlockEntity.DOPANT_SLOT;
+        c.setItem(ZoneRefiningFurnaceBlockEntity.BOAT_SLOT, new ItemStack(ModItems.GRAPHITE_BOAT));   // ドーピングは粘土ボートでも 9N でできる
 
         // 9N + リン → n型
         c.setItem(G, refined(Purity.NINE_N, 8));
@@ -533,6 +534,7 @@ public class LabTests {
         tickRefiner(h, pos, be, T);
         h.assertFalse(c.getItem(G).is(ModItems.N_TYPE_GERMANIUM), "6N + P must not become n-type");
         h.assertValueEqual(c.getItem(D).getCount(), 1, "P not consumed with 6N");
+        h.assertValueEqual(c.getItem(ZoneRefiningFurnaceBlockEntity.BOAT_SLOT).getCount(), 1, "boat is not used up");
         LOG.info("[LAB] zone doping: 9N+P -> n, 9N+In -> p, 6N+P -> no doping (refines to {} first)", Purity.label(purityOf(c.getItem(G))));
         h.succeed();
     }
@@ -544,7 +546,7 @@ public class LabTests {
     private static final String[] RECIPES = {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
-            "graphite_boat", "graphite_boat_blank", "graphite_rod", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
+            "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
@@ -969,6 +971,55 @@ public class LabTests {
         h.assertValueEqual(c.getItem(OUT).getCount(), AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH, "no more graphite while cold");
         h.assertTrue(recipeUses(h, "acheson_furnace", ModItems.GRAPHITE_ROD), "electrodes are graphite rods");
         LOG.info("[LAB] acheson: no carbon -> 0 W; 50 kW -> {} C (no graphite); 500 kW -> 2500 C in {} ticks, 4 C + sand -> 2 synthetic graphite", Math.round(t50), heat);
+        h.succeed();
+    }
+
+    // =====================================================================
+    // 帯域精製炉の電力駆動（ROADMAP #9）とボート（粘土黒鉛＝9N、人造黒鉛＝10N）
+    // =====================================================================
+
+    /** 電気がないと止まる。ボートがないと動かない。粘土黒鉛ボートは 9N 止まり、人造黒鉛ボートに替えると 10N */
+    @GameTest
+    public void zoneRefinerPowerAndBoat(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.ZONE_REFINING_FURNACE);
+        ZoneRefiningFurnaceBlockEntity be = h.getBlockEntity(pos, ZoneRefiningFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT, B = ZoneRefiningFurnaceBlockEntity.BOAT_SLOT;
+
+        // ボートなし：電気があっても動かない（電気も使わない）
+        c.setItem(G, new ItemStack(ModItems.RAW_GERMANIUM, 2));
+        tickRefiner(h, pos, be, T + 10);
+        h.assertTrue(c.getItem(G).is(ModItems.RAW_GERMANIUM), "no boat -> no refining");
+        h.assertValueEqual(be.getLastWatts(), 0.0, "no boat -> no power drawn");
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
+
+        // 粘土黒鉛ボート＋電気なし：止まる
+        c.setItem(B, new ItemStack(ModItems.GRAPHITE_BOAT));
+        tickConsumer(h, pos, be, T + 10, 0);
+        h.assertTrue(c.getItem(G).is(ModItems.RAW_GERMANIUM), "no power -> furnace stops");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        // 電気あり：6N → 9N、そこで止まる（粘土の不純物）
+        tickRefiner(h, pos, be, T * 2);
+        h.assertValueEqual(purityOf(c.getItem(G)), Purity.NINE_N, "clay-graphite boat: raw -> 6N -> 9N");
+        tickRefiner(h, pos, be, T * 2);
+        h.assertValueEqual(purityOf(c.getItem(G)), Purity.NINE_N, "clay-graphite boat stops at 9N");
+        h.assertValueEqual(be.getLastWatts(), 0.0, "idle at the cap -> no power drawn");
+        // 人造黒鉛ボートに替える → 10N
+        c.setItem(B, new ItemStack(ModItems.SYNTHETIC_GRAPHITE_BOAT));
+        tickRefiner(h, pos, be, T);
+        h.assertValueEqual(purityOf(c.getItem(G)), Purity.TEN_N, "synthetic graphite boat -> 10N");
+        h.assertTrue(c.getItem(B).is(ModItems.SYNTHETIC_GRAPHITE_BOAT), "boat stays");
+        // 途中で電気が切れると一時停止（進捗は残る）、戻ると続きから
+        c.setItem(G, new ItemStack(ModItems.RAW_GERMANIUM, 1));
+        tickRefiner(h, pos, be, T / 2);
+        tickConsumer(h, pos, be, T, 0);
+        h.assertTrue(c.getItem(G).is(ModItems.RAW_GERMANIUM), "paused while power is off");
+        tickRefiner(h, pos, be, T - T / 2);
+        h.assertValueEqual(purityOf(c.getItem(G)), Purity.SIX_N, "resumes when power returns");
+        h.assertTrue(recipeUses(h, "synthetic_graphite_boat", ModItems.SYNTHETIC_GRAPHITE), "synthetic boat is made from Acheson graphite");
+        h.assertFalse(recipeUses(h, "zone_refining_furnace", ModItems.GRAPHITE_BOAT), "the boat now goes in its own slot, not in the furnace recipe");
+        LOG.info("[LAB] zone refiner: needs boat + {} W; clay-graphite boat caps at 9N, synthetic graphite boat reaches 10N; pauses without power", ZoneRefiningFurnaceBlockEntity.WATTS);
         h.succeed();
     }
 

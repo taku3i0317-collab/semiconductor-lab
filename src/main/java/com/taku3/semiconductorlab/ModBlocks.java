@@ -11,7 +11,7 @@ import com.taku3.semiconductorlab.block.AchesonFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlock;
 import com.taku3.semiconductorlab.block.HandVacuumPumpBlock;
 import com.taku3.semiconductorlab.block.VacuumChamberBlock;
-import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlock;
+import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
 import com.taku3.semiconductorlab.energy.CableBlock;
 import com.taku3.semiconductorlab.energy.GeneratorBlock;
 import com.taku3.semiconductorlab.energy.WaterWheelBlockEntity;
@@ -43,8 +43,8 @@ public class ModBlocks {
             BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops()
                     .strength(4.5f, 3.0f).sound(SoundType.DEEPSLATE), true);
 
-    // 帯域精製炉（Pfann, 1952）。点灯中は光る
-    public static final Block ZONE_REFINING_FURNACE = register("zone_refining_furnace", ZoneRefiningFurnaceBlock::new,
+    // 帯域精製炉（Pfann, 1952）。電気で動く（組み込みの高周波発振器 [4-09]）。点灯中は光る
+    public static final Block ZONE_REFINING_FURNACE = register("zone_refining_furnace", p -> new ConsumerMachineBlock(p, ZoneRefiningFurnaceBlockEntity::new, () -> ModBlockEntities.ZONE_REFINING_FURNACE),
             BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops()
                     .strength(3.5f).sound(SoundType.STONE)
                     .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 13 : 0), true);

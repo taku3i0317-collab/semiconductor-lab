@@ -33,6 +33,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<AchesonFurnaceBlockEntity> ACHESON_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("acheson_furnace"), FabricBlockEntityTypeBuilder.create(AchesonFurnaceBlockEntity::new, ModBlocks.ACHESON_FURNACE).build());
 
     public static void initialize() {
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ZONE_REFINING_FURNACE);   // 帯域精製炉：発振器の電源
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WATER_WHEEL);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_ENGINE);

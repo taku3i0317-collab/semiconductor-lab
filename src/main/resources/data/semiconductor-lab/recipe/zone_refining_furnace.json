@@ -10,7 +10,7 @@
     "i": "minecraft:iron_ingot",
     "T": "semiconductor-lab:quartz_tube",
     "C": "semiconductor-lab:induction_coil",
-    "B": "semiconductor-lab:graphite_boat",
+    "B": "minecraft:iron_ingot",
     "m": "semiconductor-lab:electric_motor",
     "S": "semiconductor-lab:lead_screw",
     "P": "semiconductor-lab:hf_oscillator"
