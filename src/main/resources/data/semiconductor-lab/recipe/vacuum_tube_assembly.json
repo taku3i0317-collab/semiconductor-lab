@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " G ",
+    "nWI",
+    " G "
+  ],
+  "key": {
+    "G": "minecraft:glass",
+    "n": "minecraft:iron_nugget",
+    "W": "semiconductor-lab:tungsten_wire",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:vacuum_tube_assembly",
+    "count": 1
+  }
+}

@@ -1,0 +1,80 @@
+package com.taku3.semiconductorlab.block;
+
+import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModItems;
+import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
+import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.ContainerLevelAccess;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.state.BlockState;
+
+/**
+ * 封止台 [5-02]（真空管の排気・封じ切り台）。隣の真空容器を「排気マニホールド」として使う：
+ * 真空管の組立品（未排気）を入れ、容器の圧力が {@link #SEAL_MAX_PA} 以下のあいだだけ、
+ * 500W×10秒（フィラメントに電流を流して中のガスを追い出す＝ガス出し）→ 管の首を焼き切って封じる → 三極真空管。
+ * 1本封じるたびに、次の管を付け替えるときの空気が入り、容器の圧力が少し上がる（大気圧との差の {@link #VENT_FRACTION}）。
+ * ⚠️ 近似：本物の真空管は 0.1Pa（初期の軟真空）〜10⁻⁴Pa（高真空）が必要。手押しポンプでは 1kPa までしか届かないため、
+ * シュプレンゲルポンプ[5-15]・拡散ポンプ[5-05]が実装されるまで閾値を 1.5kPa に緩めている（vacuum_tube.placeholder）。
+ */
+public class SealingStationBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+    public static final double WATTS = 500;
+    public static final int TICKS = 20 * 10;
+    /** 封止してよい容器の圧力の上限（Pa）。★仮：本物よりずっと高い */
+    public static final double SEAL_MAX_PA = 1_500;
+    /** 1本封じるごとに戻る空気の割合 */
+    public static final double VENT_FRACTION = 0.05;
+    public static final int SLOT_IN = 0, SLOT_OUT = 1, SLOT_COUNT = 2;
+    /** GUI へ送る追加の数値：隣の容器の圧力（{@link #encodePa}） */
+    public static final int DATA_PRESSURE = ConsumerBlockEntity.DATA_COUNT, MENU_DATA_COUNT = ConsumerBlockEntity.DATA_COUNT + 1;
+
+    private final ContainerData menuData = new ContainerData() {
+        @Override public int get(int i) {
+            if (i == DATA_PRESSURE) { VacuumChamberBlockEntity c = chamber(); return c == null ? 0 : encodePa(c.getPressure()); }
+            return data.get(i);
+        }
+        @Override public void set(int i, int v) {}
+        @Override public int getCount() { return MENU_DATA_COUNT; }
+    };
+
+    public SealingStationBlockEntity(BlockPos pos, BlockState state) {
+        super(ModBlockEntities.SEALING_STATION, pos, state, SLOT_COUNT, 20_000, 2_000);
+    }
+
+    /**
+     * 圧力を GUI 同期用の整数にする（同期は short までなので Pa のままだと 101325 が入らない）。
+     * 0＝容器なし、それ以外は round(log10(Pa)×1000)+10000（1mPa〜1気圧が 7000〜15006 に入る）
+     */
+    public static int encodePa(double pa) { return (int) Math.round(Math.log10(Math.max(pa, 1e-3)) * 1000) + 10_000; }
+    /** encodePa の逆。容器なしは -1 */
+    public static double decodePa(int v) { return v <= 0 ? -1 : Math.pow(10, (v - 10_000) / 1000.0); }
+
+    private VacuumChamberBlockEntity chamber() { return level == null ? null : VacuumChamberBlockEntity.findAdjacent(level, worldPosition); }
+
+    @Override protected double workWatts() { return WATTS; }
+    @Override protected int workTicks() { return TICKS; }
+
+    @Override protected boolean canWork() {
+        if (!container.getItem(SLOT_IN).is(ModItems.VACUUM_TUBE_ASSEMBLY)) return false;
+        VacuumChamberBlockEntity c = chamber();
+        return c != null && c.getPressure() <= SEAL_MAX_PA && canMerge(container.getItem(SLOT_OUT), new ItemStack(ModItems.VACUUM_TUBE));
+    }
+
+    @Override protected void finishWork() {
+        container.getItem(SLOT_IN).shrink(1);
+        merge(SLOT_OUT, new ItemStack(ModItems.VACUUM_TUBE));
+        container.setChanged();
+        VacuumChamberBlockEntity c = chamber();
+        if (c != null) c.vent(VENT_FRACTION);
+    }
+
+    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.sealing_station"); }
+    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
+        return new SealingStationMenu(id, inv, container, menuData, ContainerLevelAccess.create(level, worldPosition));
+    }
+}

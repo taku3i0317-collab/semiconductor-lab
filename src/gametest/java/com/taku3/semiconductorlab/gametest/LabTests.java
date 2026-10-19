@@ -13,6 +13,7 @@ import com.taku3.semiconductorlab.block.GasType;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.HandVacuumPumpBlock;
 import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
+import com.taku3.semiconductorlab.block.SealingStationBlockEntity;
 import com.taku3.semiconductorlab.item.MercuryVacuumGaugeItem;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
 import com.taku3.semiconductorlab.energy.CableBlockEntity;
@@ -161,7 +162,7 @@ public class LabTests {
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
                 ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
-                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP}) {
+                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -542,9 +543,9 @@ public class LabTests {
             "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "hand_vacuum_pump", "hf_power_supply", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
+            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
     @GameTest
     public void recipesResolve(GameTestHelper h) {
@@ -821,6 +822,45 @@ public class LabTests {
         h.assertTrue(use.apply(cp) instanceof net.minecraft.world.InteractionResult.Success, "gauge on a chamber should succeed");
         h.assertTrue(use.apply(p(3, 0, 3)) == net.minecraft.world.InteractionResult.PASS, "gauge on stone should pass");
         LOG.info("[LAB] mercury: cinnabar -> dust -> furnace -> mercury; gauge 1 atm = {} mmHg, 1 kPa readable, 100 Pa below 1 mm", String.format("%.1f", atm));
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [5-02] 真空管（封止台）
+    // =====================================================================
+
+    /** 容器が 1.5kPa 以下のときだけ封じる。1本封じると容器に空気がもどり、続けては封じられない。容器なしでは動かない */
+    @GameTest
+    public void sealingStationNeedsVacuum(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "vacuum_tube_assembly", ModItems.TUNGSTEN_WIRE), "the filament is tungsten wire [1-28]");
+        double back = SealingStationBlockEntity.decodePa(SealingStationBlockEntity.encodePa(1234));
+        h.assertTrue(Math.abs(back - 1234) < 5, "pressure sync encoding round-trip, got " + back);
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), sp = p(2, 1, 1), lonely = p(5, 1, 5);
+        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
+        h.setBlock(sp, ModBlocks.SEALING_STATION);
+        h.setBlock(lonely, ModBlocks.SEALING_STATION);
+        VacuumChamberBlockEntity c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        SealingStationBlockEntity be = h.getBlockEntity(sp, SealingStationBlockEntity.class);
+        var box = be.getContainer();
+        int IN = SealingStationBlockEntity.SLOT_IN, OUT = SealingStationBlockEntity.SLOT_OUT, T = SealingStationBlockEntity.TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(SealingStationBlockEntity.WATTS);
+        box.setItem(IN, new ItemStack(ModItems.VACUUM_TUBE_ASSEMBLY, 2));
+        tickConsumer(h, sp, be, T + 20, feed);
+        h.assertTrue(box.getItem(OUT).isEmpty(), "at 1 atm nothing may be sealed");
+        c.setPressure(1400);
+        tickConsumer(h, sp, be, T, feed);
+        h.assertTrue(box.getItem(OUT).is(ModItems.VACUUM_TUBE) && box.getItem(OUT).getCount() == 1, "at 1.4 kPa one tube should be sealed in " + T + " ticks, got " + box.getItem(OUT));
+        h.assertValueEqual(box.getItem(IN).getCount(), 1, "one assembly used");
+        double after = c.getPressure();
+        h.assertTrue(after > SealingStationBlockEntity.SEAL_MAX_PA, "sealing lets air back into the chamber: " + after);
+        tickConsumer(h, sp, be, T + 20, feed);
+        h.assertValueEqual(box.getItem(OUT).getCount(), 1, "no second tube until pumped down again");
+        SealingStationBlockEntity alone = h.getBlockEntity(lonely, SealingStationBlockEntity.class);
+        alone.getContainer().setItem(IN, new ItemStack(ModItems.VACUUM_TUBE_ASSEMBLY));
+        tickConsumer(h, lonely, alone, T + 20, feed);
+        h.assertTrue(alone.getContainer().getItem(OUT).isEmpty(), "no chamber next to it -> no sealing");
+        LOG.info("[LAB] sealing station: 1 atm -> wait, 1.4 kPa -> tube in {} ticks, chamber back to {}, no chamber -> wait", T, VacuumChamberBlockEntity.formatPa(after));
         h.succeed();
     }
 

@@ -6,6 +6,7 @@ import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
+import com.taku3.semiconductorlab.block.SealingStationBlockEntity;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
 import com.taku3.semiconductorlab.energy.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -24,6 +25,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<HydrogenFurnaceBlockEntity> HYDROGEN_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("hydrogen_furnace"), FabricBlockEntityTypeBuilder.create(HydrogenFurnaceBlockEntity::new, ModBlocks.HYDROGEN_FURNACE).build());
     public static final BlockEntityType<CompressorBlockEntity> COMPRESSOR = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("compressor"), FabricBlockEntityTypeBuilder.create(CompressorBlockEntity::new, ModBlocks.COMPRESSOR).build());
     public static final BlockEntityType<VacuumChamberBlockEntity> VACUUM_CHAMBER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("vacuum_chamber"), FabricBlockEntityTypeBuilder.create(VacuumChamberBlockEntity::new, ModBlocks.VACUUM_CHAMBER).build());
+    public static final BlockEntityType<SealingStationBlockEntity> SEALING_STATION = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("sealing_station"), FabricBlockEntityTypeBuilder.create(SealingStationBlockEntity::new, ModBlocks.SEALING_STATION).build());
 
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
@@ -33,5 +35,6 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), BESSEMER_CONVERTER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), HYDROGEN_FURNACE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COMPRESSOR);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), SEALING_STATION);
     }
 }

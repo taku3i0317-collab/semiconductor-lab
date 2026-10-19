@@ -85,6 +85,10 @@ public class ModItems {
     // --- 真空（[5-01] ポンプ・[5-10] 真空計）---
     public static final Item MERCURY_VACUUM_GAUGE  = register("mercury_vacuum_gauge", MercuryVacuumGaugeItem::new, new Item.Properties().stacksTo(1));
 
+    // --- 真空管（[5-02] ド・フォレストの三極管 1906）---
+    public static final Item VACUUM_TUBE_ASSEMBLY  = simple("vacuum_tube_assembly"); // ガラス球＋W フィラメント＋グリッド＋プレート（まだ空気入り）
+    public static final Item VACUUM_TUBE           = simple("vacuum_tube");          // 排気して封じた三極真空管
+
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = simple("junction_transistor_blank"); // 合金化前
@@ -101,7 +105,7 @@ public class ModItems {
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK,
-            CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE,
+            CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
     private static Item simple(String name) {
