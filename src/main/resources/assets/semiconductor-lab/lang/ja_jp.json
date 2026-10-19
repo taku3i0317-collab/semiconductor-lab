@@ -51,6 +51,7 @@
   "item.semiconductor-lab.graphite_boat_blank": "黒鉛ボート（未焼成）",
   "item.semiconductor-lab.graphite_boat": "黒鉛ボート",
   "item.semiconductor-lab.fused_quartz": "溶融石英",
+  "item.semiconductor-lab.fused_quartz.placeholder": "仮：石英が溶けるのは約1713℃。かまど（約1000℃）では溶けない。酸水素炎[7-02]（H2+O2、1839ゴーダン）に置き換え予定。",
   "item.semiconductor-lab.quartz_tube": "石英管",
   "item.semiconductor-lab.induction_coil": "誘導コイル",
   "item.semiconductor-lab.lead_screw": "送りねじ",
