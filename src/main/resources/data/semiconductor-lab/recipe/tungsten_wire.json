@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tungsten_bar"
+  ],
+  "result": { "id": "semiconductor-lab:tungsten_wire", "count": 4 }
+}

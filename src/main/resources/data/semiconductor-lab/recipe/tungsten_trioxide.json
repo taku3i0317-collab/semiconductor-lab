@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:wolframite",
+  "result": { "id": "semiconductor-lab:tungsten_trioxide" },
+  "experience": 0.3,
+  "cookingtime": 200
+}

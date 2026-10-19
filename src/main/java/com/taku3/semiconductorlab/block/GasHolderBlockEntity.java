@@ -72,6 +72,19 @@ public class GasHolderBlockEntity extends BlockEntity implements MenuProvider {
         setChanged();
     }
 
+    /**
+     * 隣の機械（水素炉・圧縮機）がガスを直接もらう口。同じ種類のときだけ、最大 max mol を渡す。
+     * @return 実際に渡した mol（違う種類・空なら 0）
+     */
+    public int extract(GasType g, int max) {
+        if (g == GasType.NONE || type != g || amount <= 0 || max <= 0) return 0;
+        int n = Math.min(max, amount);
+        amount -= n;
+        if (amount == 0) type = GasType.NONE;
+        setChanged();
+        return n;
+    }
+
     /** このガスを受け入れられるか（空、または同じ種類で満杯でない） */
     private boolean accepts(GasType g) {
         return g != GasType.NONE && amount < CAPACITY && (amount == 0 || type == g);

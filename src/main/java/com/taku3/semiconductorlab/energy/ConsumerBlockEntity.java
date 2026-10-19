@@ -63,8 +63,12 @@ public abstract class ConsumerBlockEntity extends BlockEntity {
     public SimpleContainer getContainer() { return container; }
     public double getLastWatts() { return lastWatts; }
 
+    /** 毎 tick、材料の確認より前に呼ばれる（隣のガスホルダーから吸うなど）。既定は何もしない */
+    protected void beforeWork(Level level, BlockPos pos) {}
+
     public static void tick(Level level, BlockPos pos, BlockState state, ConsumerBlockEntity be) {
         if (level.isClientSide()) return;
+        be.beforeWork(level, pos);
         be.ready = be.canWork();
         double used = 0;
         if (be.ready) {

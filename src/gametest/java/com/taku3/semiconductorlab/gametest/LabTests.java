@@ -9,9 +9,11 @@ import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.GasType;
+import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
 import com.taku3.semiconductorlab.energy.CableBlockEntity;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
+import com.taku3.semiconductorlab.energy.EnergyStorage;
 import com.taku3.semiconductorlab.energy.GeneratorBlockEntity;
 import com.taku3.semiconductorlab.energy.SteamEngineBlockEntity;
 import com.taku3.semiconductorlab.energy.WaterWheelBlockEntity;
@@ -154,11 +156,11 @@ public class LabTests {
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
-                ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE}) {
+                ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
-        LOG.info("[LAB] block drops: 6 ores drop raw items (silk touch -> ore block), 7 machines drop themselves");
+        LOG.info("[LAB] block drops: 6 ores drop raw items (silk touch -> ore block), machines drop themselves");
         h.succeed();
     }
 
@@ -534,10 +536,10 @@ public class LabTests {
     private static final String[] RECIPES = {
             "bessemer_converter", "coal_ash", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
-            "graphite_boat", "graphite_boat_blank", "hf_power_supply", "indium", "induction_coil", "junction_transistor",
+            "graphite_boat", "graphite_boat_blank", "hf_power_supply", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "transistor_radio", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
+            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
     @GameTest
     public void recipesResolve(GameTestHelper h) {
@@ -604,6 +606,82 @@ public class LabTests {
         h.assertTrue(new ItemStack(ModItems.LEAD_INGOT).is(ingots), "lead ingot should be in #c:ingots");
         LOG.info("[LAB] lead: galena -> litharge (PbO) -> lead ingot, tagged c:ingots/lead");
         h.succeed();
+    }
+
+    // =====================================================================
+    // [1-28] タングステン線（WO3 → 水素還元 → W粉 → 通電焼結 → 線引き）
+    // =====================================================================
+
+    @GameTest
+    public void tungstenHydrogenFurnace(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.WOLFRAMITE).is(ModItems.TUNGSTEN_TRIOXIDE), "wolframite -> WO3 (placeholder roast)");
+        h.assertTrue(recipeUses(h, "tungsten_wire", ModItems.TUNGSTEN_BAR), "wire is drawn from the sintered bar");
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, ModBlocks.HYDROGEN_FURNACE);
+        HydrogenFurnaceBlockEntity be = h.getBlockEntity(pos, HydrogenFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        int IN = HydrogenFurnaceBlockEntity.SLOT_IN, H2 = HydrogenFurnaceBlockEntity.SLOT_H2, OUT = HydrogenFurnaceBlockEntity.SLOT_OUT;
+        c.setItem(IN, new ItemStack(ModItems.TUNGSTEN_TRIOXIDE, 2));
+
+        // 水素なし：電気があっても還元しない（炭素は使わない）
+        long reduceFeed = EnergyStorage.wattsToJoulesPerTick(HydrogenFurnaceBlockEntity.REDUCE_WATTS);
+        tickConsumer(h, pos, be, HydrogenFurnaceBlockEntity.REDUCE_TICKS + 10, reduceFeed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no hydrogen -> no reduction");
+        // 水素5袋、電気なし：止まる（上で入れた電気がバッファに残っているので、先に抜く）
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
+        c.setItem(H2, new ItemStack(ModItems.HYDROGEN_GAS, 5));
+        tickConsumer(h, pos, be, HydrogenFurnaceBlockEntity.REDUCE_TICKS + 10, 0);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no power -> no reduction");
+        // 電気あり：30秒で W粉1、WO3 -1、H2 -3（WO3 + 3H2 -> W + 3H2O）
+        tickConsumer(h, pos, be, HydrogenFurnaceBlockEntity.REDUCE_TICKS - 1, reduceFeed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "not finished 1 tick early");
+        tickConsumer(h, pos, be, 1, reduceFeed);
+        h.assertTrue(c.getItem(OUT).is(ModItems.TUNGSTEN_POWDER), "WO3 + 3 H2 -> W powder");
+        h.assertValueEqual(c.getItem(IN).getCount(), 1, "WO3 used 1");
+        h.assertValueEqual(c.getItem(H2).getCount(), 2, "H2 used 3");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        // 水素2袋では足りない（3要る）→ 止まる
+        tickConsumer(h, pos, be, HydrogenFurnaceBlockEntity.REDUCE_TICKS + 10, reduceFeed);
+        h.assertValueEqual(c.getItem(OUT).getCount(), 1, "2 H2 is not enough for WO3");
+
+        // 焼結：W粉2 + H2 1 + 10kW×20秒 → 焼結棒
+        c.setItem(OUT, ItemStack.EMPTY);
+        c.setItem(IN, new ItemStack(ModItems.TUNGSTEN_POWDER, 3));
+        long sinterFeed = EnergyStorage.wattsToJoulesPerTick(HydrogenFurnaceBlockEntity.SINTER_WATTS);
+        tickConsumer(h, pos, be, HydrogenFurnaceBlockEntity.SINTER_TICKS, sinterFeed);
+        h.assertTrue(c.getItem(OUT).is(ModItems.TUNGSTEN_BAR), "2 W powder + H2 -> sintered bar");
+        h.assertValueEqual(c.getItem(IN).getCount(), 1, "powder used 2");
+        h.assertValueEqual(c.getItem(H2).getCount(), 1, "H2 used 1");
+        // 粉1個では焼結しない
+        tickConsumer(h, pos, be, HydrogenFurnaceBlockEntity.SINTER_TICKS + 10, sinterFeed);
+        h.assertValueEqual(c.getItem(OUT).getCount(), 1, "1 powder is not enough for a bar");
+        // 3kW しか来ないと、電気が貯まった tick にしか進まない（約3割の速さ）→ 2倍の時間でも終わらない
+        c.setItem(IN, new ItemStack(ModItems.TUNGSTEN_POWDER, 2));
+        c.setItem(OUT, ItemStack.EMPTY);
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
+        tickConsumer(h, pos, be, HydrogenFurnaceBlockEntity.SINTER_TICKS * 2, reduceFeed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "with only 3 kW supplied, sintering (10 kW) must not finish in 2x the time");
+        LOG.info("[LAB] hydrogen furnace: WO3 + 3 H2 -> W powder ({} t @3 kW), 2 W + H2 -> bar ({} t @10 kW), stops without H2/power",
+                HydrogenFurnaceBlockEntity.REDUCE_TICKS, HydrogenFurnaceBlockEntity.SINTER_TICKS);
+        h.succeed();
+    }
+
+    /** 隣の水素ガスホルダーから、水素炉のスロットへ 16 袋まで自動で補充（本当に tick を進める） */
+    @GameTest(maxTicks = 60)
+    public void hydrogenFurnacePullsFromHolder(GameTestHelper h) {
+        BlockPos fp = p(1, 1, 1), hp = p(2, 1, 1);
+        h.setBlock(fp, ModBlocks.HYDROGEN_FURNACE);
+        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
+        g.setContentsForTest(GasType.HYDROGEN, 20);
+        g.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.HYDROGEN_GAS, 64)); // 出口を埋めて量を固定
+        h.runAfterDelay(25, () -> {
+            var c = h.getBlockEntity(fp, HydrogenFurnaceBlockEntity.class).getContainer();
+            h.assertValueEqual(c.getItem(HydrogenFurnaceBlockEntity.SLOT_H2).getCount(), 16, "furnace H2 slot filled to 16 from the holder");
+            h.assertValueEqual(g.getAmount(), 4, "holder gave 16 of 20 mol");
+            LOG.info("[LAB] hydrogen furnace pulled 16 H2 from an adjacent gas holder (20 -> 4 mol)");
+            h.succeed();
+        });
     }
 
     private static final String[] CHAPTER1 = {"root", "coal_ash", "concentrate", "dioxide", "sulfuric_acid", "raw_germanium",

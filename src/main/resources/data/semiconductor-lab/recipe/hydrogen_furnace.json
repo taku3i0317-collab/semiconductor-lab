@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SBS",
+    "BCB",
+    "SBS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "B": "semiconductor-lab:refractory_brick",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": { "id": "semiconductor-lab:hydrogen_furnace", "count": 1 }
+}

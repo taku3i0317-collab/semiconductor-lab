@@ -1,6 +1,8 @@
 package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.BessemerConverterBlock;
+import com.taku3.semiconductorlab.block.ConsumerMachineBlock;
+import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlock;
 import com.taku3.semiconductorlab.block.GasHolderBlock;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlock;
@@ -55,6 +57,10 @@ public class ModBlocks {
     public static final Block BESSEMER_CONVERTER = register("bessemer_converter", BessemerConverterBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.5f).sound(SoundType.METAL)
             .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 13 : 0), true);
 
+    // 水素炉 [1-28]（耐火れんがの管状炉＋水素の流れ。WO3 の水素還元と W 粉の通電焼結）。加熱中は光る
+    public static final Block HYDROGEN_FURNACE = register("hydrogen_furnace", p -> new ConsumerMachineBlock(p, HydrogenFurnaceBlockEntity::new, () -> ModBlockEntities.HYDROGEN_FURNACE), BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.5f).sound(SoundType.METAL)
+            .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 10 : 0), true);
+
     // 銅ケーブル（v0.2a）
     public static final Block COPPER_CABLE = register("copper_cable", CableBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f).sound(SoundType.COPPER).noOcclusion(), true);
@@ -80,6 +86,6 @@ public class ModBlocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(HYDROGEN_FURNACE); });
     }
 }

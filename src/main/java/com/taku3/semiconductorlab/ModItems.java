@@ -63,6 +63,12 @@ public class ModItems {
     public static final Item LITHARGE              = simple("litharge");      // [1-27] 一酸化鉛 PbO（方鉛鉱を焙焼したもの）
     public static final Item LEAD_INGOT            = simple("lead_ingot");    // [1-27] 鉛（PbO を炭素で還元）
 
+    // --- タングステン（[1-28] 粉末冶金。クーリッジ 1909〜1910）---
+    public static final Item TUNGSTEN_TRIOXIDE     = simple("tungsten_trioxide"); // WO3（黄色）。★仮：ソーダ融解・酸処理を省略
+    public static final Item TUNGSTEN_POWDER       = simple("tungsten_powder");   // 水素還元した W 粉
+    public static final Item TUNGSTEN_BAR          = simple("tungsten_bar");      // 焼結棒（水素中で通電焼結）
+    public static final Item TUNGSTEN_WIRE         = simple("tungsten_wire");     // 線引きした延性タングステン線
+
     // --- 熱（[3-12] 耐火れんが＝珪石れんが・ディナス 1822）---
     public static final Item REFRACTORY_BRICK_BLANK = simple("refractory_brick_blank"); // 成形しただけ（未焼成）
     public static final Item REFRACTORY_BRICK      = simple("refractory_brick");       // 高温（約1450℃）で焼いたもの
@@ -81,6 +87,7 @@ public class ModItems {
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
+            TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 

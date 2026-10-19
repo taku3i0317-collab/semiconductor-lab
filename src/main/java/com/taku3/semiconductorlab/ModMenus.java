@@ -3,6 +3,7 @@ package com.taku3.semiconductorlab;
 import com.taku3.semiconductorlab.block.BessemerConverterMenu;
 import com.taku3.semiconductorlab.block.ElectrolyzerMenu;
 import com.taku3.semiconductorlab.block.GasHolderMenu;
+import com.taku3.semiconductorlab.block.HydrogenFurnaceMenu;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceMenu;
 import com.taku3.semiconductorlab.energy.SteamEngineMenu;
 import net.minecraft.core.Registry;
@@ -26,6 +27,9 @@ public class ModMenus {
     public static final MenuType<BessemerConverterMenu> BESSEMER_CONVERTER = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("bessemer_converter"),
             new MenuType<>(BessemerConverterMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<HydrogenFurnaceMenu> HYDROGEN_FURNACE = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("hydrogen_furnace"),
+            new MenuType<>(HydrogenFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }

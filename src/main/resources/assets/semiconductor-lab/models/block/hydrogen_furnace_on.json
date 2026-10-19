@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/hydrogen_furnace_front_on",
+    "side": "semiconductor-lab:block/hydrogen_furnace_side",
+    "top": "semiconductor-lab:block/hydrogen_furnace_top"
+  }
+}
