@@ -12,13 +12,22 @@ public class NoteTooltip {
     public static void register() {
         ItemTooltipCallback.EVENT.register((stack, context, flag, lines) -> {
             String id = BuiltInRegistries.ITEM.getKey(stack.getItem()).toString().replace(':', '.');
-            String ph = "item." + id + ".placeholder";
-            if (Language.getInstance().has(ph)) lines.add(Component.translatable(ph).withStyle(ChatFormatting.YELLOW));
-            String note = "item." + id + ".note";
-            if (Language.getInstance().has(note)) {
+            // ブロックのアイテムは block.<id>.note に書いてあるので、item. → block. の順で探す
+            String ph = key(id, "placeholder");
+            if (ph != null) lines.add(Component.translatable(ph).withStyle(ChatFormatting.YELLOW));
+            String note = key(id, "note");
+            if (note != null) {
                 if (Minecraft.getInstance().hasShiftDown()) lines.add(Component.translatable(note).withStyle(ChatFormatting.GRAY));
                 else lines.add(Component.translatable("tooltip.semiconductor-lab.shift").withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC));
             }
         });
+    }
+
+    private static String key(String id, String suffix) {
+        for (String prefix : new String[] {"item.", "block."}) {
+            String k = prefix + id + "." + suffix;
+            if (Language.getInstance().has(k)) return k;
+        }
+        return null;
     }
 }

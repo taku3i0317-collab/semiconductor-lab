@@ -124,5 +124,20 @@
   "gui.semiconductor-lab.steam_engine.water": "Water: %s coal",
   "gui.semiconductor-lab.steam_engine.running": "Boiling...",
   "gui.semiconductor-lab.steam_engine.need_water": "Top: water bucket",
-  "gui.semiconductor-lab.steam_engine.need_coal": "Bottom: coal"
+  "gui.semiconductor-lab.steam_engine.need_coal": "Bottom: coal",
+  "block.semiconductor-lab.electrolyzer": "Electrolyzer",
+  "block.semiconductor-lab.electrolyzer.note": "2H2O → 2H2 + O2. Pure water barely conducts electricity, so a little sulfuric acid is added as the electrolyte (it is not used up). Graphite electrodes, direct current from the dynamo. Hydrogen bubbles at the − electrode, oxygen at the +, twice as much hydrogen by volume. Splitting 2 mol of water takes ≈572 kJ: about 115 s at 5 kW.",
+  "item.semiconductor-lab.hydrogen_gas": "Hydrogen Gas",
+  "item.semiconductor-lab.hydrogen_gas.note": "H2, the lightest gas. Made by splitting water. Later used as a protective atmosphere in furnaces and for ammonia (Haber–Bosch).",
+  "item.semiconductor-lab.hydrogen_gas.placeholder": "Placeholder: real gas cannot be held in your hand. Will go into a Gas Holder [6-02] / cylinder [6-03].",
+  "item.semiconductor-lab.oxygen_gas": "Oxygen Gas",
+  "item.semiconductor-lab.oxygen_gas.note": "O2. Comes from the + electrode of the electrolyzer, half the volume of the hydrogen. Later used for oxidising silicon (SiO2 film).",
+  "item.semiconductor-lab.oxygen_gas.placeholder": "Placeholder: real gas cannot be held in your hand. Will go into a Gas Holder [6-02] / cylinder [6-03].",
+  "gui.semiconductor-lab.electrolyzer.power": "Power %s",
+  "gui.semiconductor-lab.electrolyzer.stored": "Stored %s",
+  "gui.semiconductor-lab.electrolyzer.need_water": "No water",
+  "gui.semiconductor-lab.electrolyzer.need_acid": "No acid",
+  "gui.semiconductor-lab.electrolyzer.output_full": "Output full",
+  "gui.semiconductor-lab.electrolyzer.need_power": "No power",
+  "gui.semiconductor-lab.electrolyzer.running": "Bubbling…"
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/electrolyzer_front",
+    "side": "semiconductor-lab:block/electrolyzer_side",
+    "top": "semiconductor-lab:block/electrolyzer_top"
+  }
+}

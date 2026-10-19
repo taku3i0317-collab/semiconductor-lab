@@ -32,6 +32,8 @@ public class SimpleEnergyStorage implements EnergyStorage {
     }
     /** 自分で作った分を入れる（maxInsert を無視） */
     public void insertRaw(long j) { long n = Math.max(0, Math.min(j, capacity - stored)); if (n > 0) { stored += n; onChange.run(); } }
+    /** 自分で使う分を取り出す（maxExtract を無視。消費機械用）。実際に出た量を返す */
+    public long extractRaw(long j) { long n = Math.max(0, Math.min(j, stored)); if (n > 0) { stored -= n; onChange.run(); } return n; }
     public void save(ValueOutput out) { out.store("EnergyJ", Codec.LONG, stored); }
     public void load(ValueInput in)   { stored = Math.min(capacity, in.read("EnergyJ", Codec.LONG).orElse(0L)); }
 }

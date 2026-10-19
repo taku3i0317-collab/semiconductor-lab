@@ -53,6 +53,11 @@ public class ModItems {
     public static final Item MAGNET                = simple("magnet");   // 天然磁石（磁鉄鉱のうち磁化したもの＝ロードストーン）
     public static final Item DYNAMO                = simple("dynamo");   // 磁石＋銅コイル＋鉄：ファラデーの電磁誘導
 
+    // --- ガス（v0.2a [6-01] 電解槽の生成物）---
+    // ★仮：まずアイテムとして出す。[6-02]ガスホルダー/[6-03]圧縮機ボンベで容器に置き換える
+    public static final Item HYDROGEN_GAS          = simple("hydrogen_gas");
+    public static final Item OXYGEN_GAS            = simple("oxygen_gas");
+
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = simple("junction_transistor_blank"); // 合金化前
@@ -65,6 +70,7 @@ public class ModItems {
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
+            HYDROGEN_GAS, OXYGEN_GAS,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
     private static Item simple(String name) {

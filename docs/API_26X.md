@@ -592,3 +592,17 @@ public static final net.minecraft.world.item.Item SULFUR_CUBE_BUCKET;
 public static final net.minecraft.world.item.Item TADPOLE_BUCKET;
 ``
 - Player.displayClientMessage(Component, boolean) は廃止 → player.sendSystemMessage(Component)（1引数、チャット表示）
+
+### [6-01] 電解槽で使った API（javap 確認済み）
+``
+// StateHolder（BlockState の親）
+public boolean hasProperty(net.minecraft.world.level.block.state.properties.Property<?>);
+public <T extends Comparable<T>, V extends T> S setValue(Property<T>, V);
+// ItemStack
+public static boolean isSameItemSameComponents(ItemStack, ItemStack);
+public void grow(int); public void shrink(int);
+// ItemStack implements ItemInstance … getMaxStackSize() は ItemInstance の default メソッドに移動（ItemStack 自体の宣言にはない）
+public default int getMaxStackSize();
+// Containers
+public static void dropContents(Level, BlockPos, NonNullList<ItemStack>);
+``

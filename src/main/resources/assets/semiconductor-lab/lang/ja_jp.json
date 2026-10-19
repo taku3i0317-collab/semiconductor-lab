@@ -124,5 +124,20 @@
   "gui.semiconductor-lab.steam_engine.water": "水: 石炭%s個分",
   "gui.semiconductor-lab.steam_engine.running": "沸騰中…",
   "gui.semiconductor-lab.steam_engine.need_water": "上に水バケツ",
-  "gui.semiconductor-lab.steam_engine.need_coal": "下に石炭"
+  "gui.semiconductor-lab.steam_engine.need_coal": "下に石炭",
+  "block.semiconductor-lab.electrolyzer": "電解槽",
+  "block.semiconductor-lab.electrolyzer.note": "2H2O → 2H2 + O2。純水はほとんど電気を通さないので、電解質として硫酸を少し入れる（減らない）。黒鉛電極に、ダイナモの直流を流す。−極から水素、＋極から酸素が泡になって出て、水素の体積は酸素の2倍。水2molの分解に約572kJ＝5kWで約115秒。",
+  "item.semiconductor-lab.hydrogen_gas": "水素ガス",
+  "item.semiconductor-lab.hydrogen_gas.note": "H2。いちばん軽い気体。水を電気分解して作る。のちに炉の保護ガスや、アンモニア合成（ハーバー・ボッシュ法）に使う。",
+  "item.semiconductor-lab.hydrogen_gas.placeholder": "仮：本物の気体は手で持てない。ガスホルダー[6-02]／ボンベ[6-03]行き。",
+  "item.semiconductor-lab.oxygen_gas": "酸素ガス",
+  "item.semiconductor-lab.oxygen_gas.note": "O2。電解槽の＋極から出る。体積は水素の半分。のちにシリコンの酸化（SiO2膜）に使う。",
+  "item.semiconductor-lab.oxygen_gas.placeholder": "仮：本物の気体は手で持てない。ガスホルダー[6-02]／ボンベ[6-03]行き。",
+  "gui.semiconductor-lab.electrolyzer.power": "電力 %s",
+  "gui.semiconductor-lab.electrolyzer.stored": "蓄積 %s",
+  "gui.semiconductor-lab.electrolyzer.need_water": "水がない",
+  "gui.semiconductor-lab.electrolyzer.need_acid": "硫酸がない",
+  "gui.semiconductor-lab.electrolyzer.output_full": "出口が満杯",
+  "gui.semiconductor-lab.electrolyzer.need_power": "電気なし",
+  "gui.semiconductor-lab.electrolyzer.running": "電解中…"
 }

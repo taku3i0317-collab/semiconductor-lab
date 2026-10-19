@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab;
 
+import com.taku3.semiconductorlab.block.ElectrolyzerMenu;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceMenu;
 import com.taku3.semiconductorlab.energy.SteamEngineMenu;
 import net.minecraft.core.Registry;
@@ -14,6 +15,9 @@ public class ModMenus {
     public static final MenuType<SteamEngineMenu> STEAM_ENGINE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("steam_engine"),
             new MenuType<>(SteamEngineMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<ElectrolyzerMenu> ELECTROLYZER = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("electrolyzer"),
+            new MenuType<>(ElectrolyzerMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }
