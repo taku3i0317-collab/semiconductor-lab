@@ -14,6 +14,7 @@ import java.util.function.Function;
 public class ModItems {
 
     // --- 第1章：入手 ---
+    public static final Item SPHALERITE            = simple("sphalerite");
     public static final Item COAL_ASH              = simple("coal_ash");
     public static final Item ZINC_INGOT            = simple("zinc_ingot");
     public static final Item GERMANIUM_CONCENTRATE = simple("germanium_concentrate");
@@ -40,7 +41,7 @@ public class ModItems {
     public static final Item TRANSISTOR_RADIO      = register("transistor_radio", Item::new, new Item.Properties().stacksTo(1));
 
     public static final List<Item> ALL = List.of(
-            COAL_ASH, ZINC_INGOT, GERMANIUM_CONCENTRATE, INDIUM,
+            SPHALERITE, COAL_ASH, ZINC_INGOT, GERMANIUM_CONCENTRATE, INDIUM,
             SULFUR_POWDER, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,

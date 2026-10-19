@@ -35,5 +35,7 @@
   "advancements.semiconductor-lab.chapter1.n_type.title": "Doping",
   "advancements.semiconductor-lab.chapter1.n_type.description": "Add a trace of phosphorus to make n-type germanium. Purify first, then add exactly the impurity you want.",
   "advancements.semiconductor-lab.chapter1.junction.title": "The Sandwich",
-  "advancements.semiconductor-lab.chapter1.junction.description": "Indium on both sides of n-type germanium, then heat: a p-n-p alloy-junction transistor (1952)."
+  "advancements.semiconductor-lab.chapter1.junction.description": "Indium on both sides of n-type germanium, then heat: a p-n-p alloy-junction transistor (1952).",
+  "block.semiconductor-lab.sphalerite_ore": "Sphalerite Ore",
+  "item.semiconductor-lab.sphalerite": "Sphalerite"
 }

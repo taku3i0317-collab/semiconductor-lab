@@ -35,5 +35,7 @@
   "advancements.semiconductor-lab.chapter1.n_type.title": "ドーピング",
   "advancements.semiconductor-lab.chapter1.n_type.description": "微量のリンを加えてn型ゲルマニウムに。まず純粋にして、それから狙った不純物だけを入れる。",
   "advancements.semiconductor-lab.chapter1.junction.title": "サンドイッチ",
-  "advancements.semiconductor-lab.chapter1.junction.description": "n型ゲルマニウムの両側にインジウムを置いて加熱。p-n-pの合金接合型トランジスタ（1952年）。"
+  "advancements.semiconductor-lab.chapter1.junction.description": "n型ゲルマニウムの両側にインジウムを置いて加熱。p-n-pの合金接合型トランジスタ（1952年）。",
+  "block.semiconductor-lab.sphalerite_ore": "閃亜鉛鉱",
+  "item.semiconductor-lab.sphalerite": "閃亜鉛鉱（原石）"
 }

@@ -17,6 +17,7 @@ public class SemiconductorLab implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModBlocks.initialize();
 		ModItems.initialize();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
