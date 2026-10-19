@@ -3,6 +3,18 @@
 実行：`powershell -ExecutionPolicy Bypass -File tools\test.ps1`（中身は `./gradlew.bat runGameTest`。画面なしの専用サーバーで約20秒）
 テストのコード：src/gametest/java/com/taku3/semiconductorlab/gametest/LabTests.java ／ 全ログ：build/gametest.log
 
+## 2026-10-19 夜 タスク02（[5-01]→[1-45]/[5-10]→[5-02]→[4-09]）
+**32 本中 32 本 PASSED、FAILED 0**（`All 32 required tests passed :)`）。ノードごとに実行し、毎回全部 PASSED（29→30→31→32）
+
+| 追加したテスト | 確かめること | 結果 |
+|---|---|---|
+| hand_pump_evacuates | 新しい容器は1気圧、1回で 81.3kPa、24回で 1.5kPa 未満、限界 1.0kPa、容器のないポンプは何もしない、放置で漏れて上がる（本当に tick を進める） | ✅ |
+| mercury_gauge | 辰砂→粉→（かまど）→水銀、真空計は水銀を使う、1気圧＝760mmHg、1kPa は読める・100Pa は読めない、容器に useOn で成功・石は PASS | ✅ |
+| sealing_station_needs_vacuum | 1気圧では封じない、1.4kPa で 200 tick に真空管1本、封じると容器が 6.4kPa にもどり続けて封じない、容器なしでは動かない、圧力同期エンコードの往復 | ✅ |
+| hf_oscillator_replaces_placeholder | 発振器＝真空管2＋ライデン瓶＋誘導コイル＋ケーブル、帯域精製炉が発振器を要求、hf_power_supply のアイテム・レシピが消えている | ✅ |
+| （更新）recipes_resolve | 43→51 レシピ（hf_power_supply を除き、8 追加） | ✅ |
+| （更新）block_drops | 機械に真空容器・手押しポンプ・封止台を追加 | ✅ |
+
 ## 2026-10-19 夜 タスク01（決定反映＋[3-12][1-27][1-28][6-03]）
 **28 本中 28 本 PASSED、FAILED 0**（`All 28 required tests passed :)`）。途中で1回失敗→テスト側を修正（docs/tasks/FAILED.md）
 
