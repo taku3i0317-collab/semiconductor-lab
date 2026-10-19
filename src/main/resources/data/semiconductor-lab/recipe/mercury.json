@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:cinnabar_dust",
+  "result": {
+    "id": "semiconductor-lab:mercury"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

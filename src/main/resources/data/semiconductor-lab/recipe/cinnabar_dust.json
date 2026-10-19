@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:cinnabar"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cinnabar_dust",
+    "count": 2
+  }
+}

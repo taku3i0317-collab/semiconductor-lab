@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GS",
+    "GS",
+    "MS"
+  ],
+  "key": {
+    "G": "minecraft:glass_pane",
+    "S": "minecraft:stick",
+    "M": "semiconductor-lab:mercury"
+  },
+  "result": {
+    "id": "semiconductor-lab:mercury_vacuum_gauge",
+    "count": 1
+  }
+}

@@ -13,6 +13,7 @@ import com.taku3.semiconductorlab.block.GasType;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import com.taku3.semiconductorlab.block.HandVacuumPumpBlock;
 import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
+import com.taku3.semiconductorlab.item.MercuryVacuumGaugeItem;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
 import com.taku3.semiconductorlab.energy.CableBlockEntity;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
@@ -538,10 +539,10 @@ public class LabTests {
     // =====================================================================
 
     private static final String[] RECIPES = {
-            "bessemer_converter", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
+            "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "hand_vacuum_pump", "hf_power_supply", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
@@ -787,6 +788,40 @@ public class LabTests {
                     VacuumChamberBlockEntity.formatPa(floorPa), VacuumChamberBlockEntity.formatPa(c.getPressure()));
             h.succeed();
         });
+    }
+
+    // =====================================================================
+    // [1-45] 水銀 ＋ [5-10] 水銀真空計
+    // =====================================================================
+
+    private static String keyOf(net.minecraft.network.chat.Component c) {
+        return c.getContents() instanceof net.minecraft.network.chat.contents.TranslatableContents t ? t.getKey() : "";
+    }
+
+    /** 辰砂→粉→（かまど）→水銀。真空計は 1気圧で 760mm、1mm 未満は「読めない」。容器に当てると SUCCESS、石には PASS */
+    @GameTest
+    public void mercuryGauge(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "cinnabar_dust", Items.CINNABAR), "cinnabar dust is crushed from the vanilla cinnabar block");
+        ItemStack hg = cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.CINNABAR_DUST);
+        h.assertTrue(hg.is(ModItems.MERCURY), "roasting cinnabar dust should give mercury, got " + hg);
+        h.assertTrue(recipeUses(h, "mercury_vacuum_gauge", ModItems.MERCURY), "the gauge needs mercury");
+        double atm = MercuryVacuumGaugeItem.mmHg(VacuumChamberBlockEntity.ATM);
+        h.assertTrue(Math.abs(atm - 760) < 0.5, "1 atm should read 760 mmHg, got " + atm);
+        h.assertTrue(keyOf(MercuryVacuumGaugeItem.reading(1000)).endsWith(".reading"), "1 kPa (7.5 mm) is readable");
+        h.assertTrue(keyOf(MercuryVacuumGaugeItem.reading(100)).endsWith(".below"), "100 Pa (0.75 mm) is below what the eye can read");
+        floor(h, 5);
+        BlockPos cp = p(1, 1, 1);
+        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
+        ItemStack gauge = new ItemStack(ModItems.MERCURY_VACUUM_GAUGE);
+        java.util.function.Function<BlockPos, net.minecraft.world.InteractionResult> use = rel -> {
+            BlockPos a = h.absolutePos(rel);
+            var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(a), net.minecraft.core.Direction.UP, a, false);
+            return gauge.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(), null, net.minecraft.world.InteractionHand.MAIN_HAND, gauge, hit));
+        };
+        h.assertTrue(use.apply(cp) instanceof net.minecraft.world.InteractionResult.Success, "gauge on a chamber should succeed");
+        h.assertTrue(use.apply(p(3, 0, 3)) == net.minecraft.world.InteractionResult.PASS, "gauge on stone should pass");
+        LOG.info("[LAB] mercury: cinnabar -> dust -> furnace -> mercury; gauge 1 atm = {} mmHg, 1 kPa readable, 100 Pa below 1 mm", String.format("%.1f", atm));
+        h.succeed();
     }
 
     @GameTest
