@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GGG",
+    "G G",
+    "III"
+  ],
+  "key": {
+    "G": "minecraft:glass",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:vacuum_chamber",
+    "count": 1
+  }
+}

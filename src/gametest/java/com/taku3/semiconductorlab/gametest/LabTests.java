@@ -11,6 +11,8 @@ import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.GasType;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
+import com.taku3.semiconductorlab.block.HandVacuumPumpBlock;
+import com.taku3.semiconductorlab.block.VacuumChamberBlockEntity;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
 import com.taku3.semiconductorlab.energy.CableBlockEntity;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
@@ -157,7 +159,8 @@ public class LabTests {
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
         for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
-                ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR}) {
+                ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
+                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -537,10 +540,10 @@ public class LabTests {
     private static final String[] RECIPES = {
             "bessemer_converter", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
-            "graphite_boat", "graphite_boat_blank", "hf_power_supply", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
+            "graphite_boat", "graphite_boat_blank", "hand_vacuum_pump", "hf_power_supply", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
+            "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
     @GameTest
     public void recipesResolve(GameTestHelper h) {
@@ -752,6 +755,39 @@ public class LabTests {
     private static final String[] GUIDE_ADV = {"root", "welcome", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"};
     private static final String[] GUIDE_FN = {"give_guidebook", "guide/welcome", "guide/raw_germanium", "guide/refined",
             "guide/n_type", "guide/junction", "guide/radio", "guide/sulfuric_acid"};
+
+    // =====================================================================
+    // [5-01] 手押しピストンポンプ ＋ [5-11] 真空容器
+    // =====================================================================
+
+    /** 1回で p' = 1000 + (p-1000)*0.8。何回引いても約 1kPa より下がらない。容器がなければ何もしない。放っておくと漏れて上がる */
+    @GameTest(maxTicks = 80)
+    public void handPumpEvacuates(GameTestHelper h) {
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), pp = p(2, 1, 1), lonely = p(5, 1, 5);
+        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
+        h.setBlock(pp, ModBlocks.HAND_VACUUM_PUMP);
+        h.setBlock(lonely, ModBlocks.HAND_VACUUM_PUMP);
+        VacuumChamberBlockEntity c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        h.assertTrue(Math.abs(c.getPressure() - VacuumChamberBlockEntity.ATM) < 1e-6, "a new chamber starts at 1 atm");
+        HandVacuumPumpBlock.stroke(h.getLevel(), h.absolutePos(pp));
+        double one = 1000 + (VacuumChamberBlockEntity.ATM - 1000) * 0.8;
+        h.assertTrue(Math.abs(c.getPressure() - one) < 1, "one stroke should give " + one + " Pa, got " + c.getPressure());
+        int n = 1;
+        while (c.getPressure() > 1500 && n < 200) { HandVacuumPumpBlock.stroke(h.getLevel(), h.absolutePos(pp)); n++; }
+        h.assertTrue(n >= 20 && n <= 30, "about 24 strokes to get below 1.5 kPa, took " + n);
+        for (int i = 0; i < 100; i++) HandVacuumPumpBlock.stroke(h.getLevel(), h.absolutePos(pp));
+        double floorPa = c.getPressure();
+        h.assertTrue(floorPa >= HandVacuumPumpBlock.LIMIT_PA && floorPa < HandVacuumPumpBlock.LIMIT_PA + 1, "hand pump bottoms out at ~1 kPa, got " + floorPa);
+        h.assertTrue(HandVacuumPumpBlock.stroke(h.getLevel(), h.absolutePos(lonely)) == null, "a pump with no chamber next to it does nothing");
+        final int strokes = n;
+        h.runAfterDelay(45, () -> {
+            h.assertTrue(c.getPressure() >= floorPa + 2 - 1e-9, "air should leak back in (~1 Pa/s): " + floorPa + " -> " + c.getPressure());
+            LOG.info("[LAB] hand pump: 1 stroke -> {}, {} strokes to <1.5 kPa, floor {}, leak to {}", VacuumChamberBlockEntity.formatPa(one), strokes,
+                    VacuumChamberBlockEntity.formatPa(floorPa), VacuumChamberBlockEntity.formatPa(c.getPressure()));
+            h.succeed();
+        });
+    }
 
     @GameTest
     public void advancementsAndFunctions(GameTestHelper h) {

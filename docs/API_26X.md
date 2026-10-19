@@ -686,3 +686,18 @@ public boolean test(net.minecraft.world.item.ItemStack);
 // Registry.keySet() → Set<Identifier>（BuiltInRegistries.ITEM.keySet() で全アイテム ID を列挙できた）
 ``
 
+
+### タスク02（2026-10-19 javap で確認）
+``
+// net.minecraft.world.entity.player.Player
+public void sendOverlayMessage(net.minecraft.network.chat.Component);   // アクションバー（ホットバーの上）に出す。sendSystemMessage はチャット
+public void causeFoodExhaustion(float);                                   // 人力の機械でお腹を減らす
+// net.minecraft.world.level.storage.ValueOutput / ValueInput
+public abstract void putDouble(String, double);  public abstract double getDoubleOr(String, double);
+// net.minecraft.world.item.Item
+public InteractionResult useOn(net.minecraft.world.item.context.UseOnContext);   // ブロックに向けて右クリック
+// net.minecraft.world.item.context.UseOnContext: getLevel() getClickedPos() getPlayer() getItemInHand() getHand() sendOverlayMessage(Component)
+// net.minecraft.world.level.Level
+public void playSound(Entity, BlockPos, SoundEvent, SoundSource, float, float);   // SoundEvents.PISTON_CONTRACT 実在
+// net.minecraft.world.item.Items: COPPER_NUGGET, IRON_NUGGET, GLASS_BOTTLE, LEATHER, CINNABAR, GLASS_PANE 実在
+``

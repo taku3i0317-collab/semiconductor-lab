@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "semiconductor-lab:block/vacuum_chamber_side",
+    "top": "semiconductor-lab:block/vacuum_chamber_top",
+    "bottom": "semiconductor-lab:block/vacuum_chamber_top"
+  }
+}
