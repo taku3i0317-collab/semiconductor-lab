@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " n ",
+    "nBn",
+    " n "
+  ],
+  "key": {
+    "n": "minecraft:copper_nugget",
+    "B": "minecraft:glass_bottle"
+  },
+  "result": {
+    "id": "semiconductor-lab:leyden_jar",
+    "count": 1
+  }
+}

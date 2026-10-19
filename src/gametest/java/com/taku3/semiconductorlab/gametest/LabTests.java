@@ -542,8 +542,8 @@ public class LabTests {
     private static final String[] RECIPES = {
             "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "empty_gas_cylinder", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
-            "graphite_boat", "graphite_boat_blank", "hand_vacuum_pump", "hf_power_supply", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "steam_engine",
+            "graphite_boat", "graphite_boat_blank", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "indium", "induction_coil", "junction_transistor",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "tungsten_trioxide", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
@@ -861,6 +861,27 @@ public class LabTests {
         tickConsumer(h, lonely, alone, T + 20, feed);
         h.assertTrue(alone.getContainer().getItem(OUT).isEmpty(), "no chamber next to it -> no sealing");
         LOG.info("[LAB] sealing station: 1 atm -> wait, 1.4 kPa -> tube in {} ticks, chamber back to {}, no chamber -> wait", T, VacuumChamberBlockEntity.formatPa(after));
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [4-09] 高周波発振器（第1章の仮①「高周波電源」を置換）
+    // =====================================================================
+
+    /** 発振器＝真空管2＋コイル＋ライデン瓶＋ケーブル。帯域精製炉は発振器を要求し、旧・仮アイテムは消えている */
+    @GameTest
+    public void hfOscillatorReplacesPlaceholder(GameTestHelper h) {
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("hf_oscillator"));
+        var ings = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value().placementInfo().ingredients();
+        long tubes = ings.stream().filter(i -> i.test(new ItemStack(ModItems.VACUUM_TUBE))).count();
+        h.assertValueEqual(tubes, 2L, "vacuum tubes in the oscillator");
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.LEYDEN_JAR, ModItems.INDUCTION_COIL, ModBlocks.COPPER_CABLE.asItem()})
+            h.assertTrue(recipeUses(h, "hf_oscillator", it), "oscillator should use " + it);
+        h.assertTrue(recipeUses(h, "leyden_jar", Items.GLASS_BOTTLE), "Leyden jar = glass jar + metal foil");
+        h.assertTrue(recipeUses(h, "zone_refining_furnace", ModItems.HF_OSCILLATOR), "zone refining furnace needs the HF oscillator");
+        h.assertFalse(BuiltInRegistries.ITEM.containsKey(SemiconductorLab.id("hf_power_supply")), "placeholder hf_power_supply must be gone");
+        h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("hf_power_supply"))).isEmpty(), "placeholder recipe must be gone");
+        LOG.info("[LAB] HF oscillator: 2 tubes + coil + Leyden jar + cable; zone refining furnace uses it; hf_power_supply removed");
         h.succeed();
     }
 

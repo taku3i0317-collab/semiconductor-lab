@@ -1,9 +1,0 @@
-{
-  "parent": "minecraft:recipes/root",
-  "criteria": {
-    "has_item": { "trigger": "minecraft:inventory_changed", "conditions": { "items": [ { "items": "semiconductor-lab:induction_coil" } ] } },
-    "has_the_recipe": { "trigger": "minecraft:recipe_unlocked", "conditions": { "recipes": [ "semiconductor-lab:hf_power_supply" ] } }
-  },
-  "requirements": [ [ "has_item", "has_the_recipe" ] ],
-  "rewards": { "recipes": [ "semiconductor-lab:hf_power_supply" ] }
-}

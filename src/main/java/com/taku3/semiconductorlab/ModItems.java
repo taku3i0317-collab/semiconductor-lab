@@ -48,7 +48,9 @@ public class ModItems {
     public static final Item INDUCTION_COIL        = simple("induction_coil");
     public static final Item LEAD_SCREW            = simple("lead_screw");
     public static final Item ELECTRIC_MOTOR        = simple("electric_motor");
-    public static final Item HF_POWER_SUPPLY       = simple("hf_power_supply"); // ★仮：v0.2 の電力実装で置換
+    // 高周波発振器 [4-09]（真空管2本＋コイル＋ライデン瓶の発振回路。誘導加熱の電源。旧・仮アイテム hf_power_supply を置換）
+    public static final Item HF_OSCILLATOR         = simple("hf_oscillator");
+    public static final Item LEYDEN_JAR            = simple("leyden_jar");       // コンデンサ（ライデン瓶 1745：ガラス瓶の内外に金属箔）
 
     // --- 電気の部品（v0.2a）---
     public static final Item MAGNET                = simple("magnet");   // 天然磁石（磁鉄鉱のうち磁化したもの＝ロードストーン）
@@ -100,7 +102,7 @@ public class ModItems {
             SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
-            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
+            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,

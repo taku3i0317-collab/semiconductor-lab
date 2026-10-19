@@ -13,7 +13,7 @@
     "B": "semiconductor-lab:graphite_boat",
     "m": "semiconductor-lab:electric_motor",
     "S": "semiconductor-lab:lead_screw",
-    "P": "semiconductor-lab:hf_power_supply"
+    "P": "semiconductor-lab:hf_oscillator"
   },
   "result": { "id": "semiconductor-lab:zone_refining_furnace", "count": 1 }
 }

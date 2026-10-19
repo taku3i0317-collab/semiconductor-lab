@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TiT",
+    "CLK",
+    "iii"
+  ],
+  "key": {
+    "T": "semiconductor-lab:vacuum_tube",
+    "i": "minecraft:iron_ingot",
+    "C": "semiconductor-lab:induction_coil",
+    "L": "semiconductor-lab:leyden_jar",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:hf_oscillator",
+    "count": 1
+  }
+}
