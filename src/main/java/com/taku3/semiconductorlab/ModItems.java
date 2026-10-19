@@ -49,6 +49,10 @@ public class ModItems {
     public static final Item ELECTRIC_MOTOR        = simple("electric_motor");
     public static final Item HF_POWER_SUPPLY       = simple("hf_power_supply"); // ★仮：v0.2 の電力実装で置換
 
+    // --- 電気の部品（v0.2a）---
+    public static final Item MAGNET                = simple("magnet");   // 天然磁石（磁鉄鉱のうち磁化したもの＝ロードストーン）
+    public static final Item DYNAMO                = simple("dynamo");   // 磁石＋銅コイル＋鉄：ファラデーの電磁誘導
+
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = simple("junction_transistor_blank"); // 合金化前
@@ -60,7 +64,7 @@ public class ModItems {
             SULFUR_POWDER, SULFUR_DIOXIDE, SULFURIC_ACID, PHOSPHORUS,
             GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
-            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY,
+            GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
     private static Item simple(String name) {

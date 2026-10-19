@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ppp",
+    "pDp",
+    "ppp"
+  ],
+  "key": {
+    "p": "#minecraft:planks",
+    "D": "semiconductor-lab:dynamo"
+  },
+  "result": { "id": "semiconductor-lab:water_wheel", "count": 1 }
+}

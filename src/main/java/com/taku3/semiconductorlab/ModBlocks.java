@@ -2,6 +2,9 @@ package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlock;
 import com.taku3.semiconductorlab.energy.CableBlock;
+import com.taku3.semiconductorlab.energy.GeneratorBlock;
+import com.taku3.semiconductorlab.energy.WaterWheelBlockEntity;
+import com.taku3.semiconductorlab.energy.SteamEngineBlockEntity;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -35,6 +38,10 @@ public class ModBlocks {
                     .strength(3.5f).sound(SoundType.STONE)
                     .lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 13 : 0), true);
 
+    // 発電機（v0.2a）：水車＋ダイナモ／ボイラー＋蒸気機関＋ダイナモ
+    public static final Block WATER_WHEEL = register("water_wheel", p -> new GeneratorBlock(p, WaterWheelBlockEntity::new, () -> ModBlockEntities.WATER_WHEEL), BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0f).sound(SoundType.WOOD), true);
+    public static final Block STEAM_ENGINE = register("steam_engine", p -> new GeneratorBlock(p, SteamEngineBlockEntity::new, () -> ModBlockEntities.STEAM_ENGINE), BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.5f).sound(SoundType.METAL), true);
+
     // 銅ケーブル（v0.2a）
     public static final Block COPPER_CABLE = register("copper_cable", CableBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f).sound(SoundType.COPPER).noOcclusion(), true);
@@ -60,6 +67,6 @@ public class ModBlocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); });
     }
 }

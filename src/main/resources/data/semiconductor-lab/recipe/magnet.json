@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "mm",
+    "mm"
+  ],
+  "key": {
+    "m": "semiconductor-lab:magnetite"
+  },
+  "result": { "id": "semiconductor-lab:magnet", "count": 1 }
+}

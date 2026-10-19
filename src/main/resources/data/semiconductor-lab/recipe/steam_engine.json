@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "iii",
+    "iDi",
+    "bSc"
+  ],
+  "key": {
+    "i": "minecraft:iron_ingot",
+    "D": "semiconductor-lab:dynamo",
+    "b": "minecraft:bucket",
+    "S": "semiconductor-lab:lead_screw",
+    "c": "minecraft:copper_ingot"
+  },
+  "result": { "id": "semiconductor-lab:steam_engine", "count": 1 }
+}

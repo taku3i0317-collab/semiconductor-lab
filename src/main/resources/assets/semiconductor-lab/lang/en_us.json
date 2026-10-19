@@ -144,5 +144,14 @@ Lost the book item? Run /function semiconductor-lab:give_guidebook",
   "block.semiconductor-lab.magnetite_ore.note": "Fe3O4, the natural magnet (lodestone). Found deep in ancient banded iron formations.",
   "block.semiconductor-lab.iron_sand.note": "Magnetite grains washed out of rock and concentrated on beaches. Japanese tatara steel was made from this.",
   "block.semiconductor-lab.wolframite_ore.note": "(Fe,Mn)WO4. Forms in quartz veins at the edge of granite. 'Tungsten' is Swedish for 'heavy stone'.",
-  "block.semiconductor-lab.galena_ore.note": "PbS. Forms with sphalerite in the same hydrothermal veins - look near zinc ore. Often carries silver."
+  "block.semiconductor-lab.galena_ore.note": "PbS. Forms with sphalerite in the same hydrothermal veins - look near zinc ore. Often carries silver.",
+  "item.semiconductor-lab.magnet": "Lodestone Magnet",
+  "item.semiconductor-lab.dynamo": "Dynamo",
+  "block.semiconductor-lab.water_wheel": "Water Wheel Generator",
+  "block.semiconductor-lab.steam_engine": "Steam Engine Generator",
+  "message.semiconductor-lab.generator.status": "Output: %s  Stored: %s",
+  "item.semiconductor-lab.magnet.note": "Magnetite that nature magnetized (lightning does it). Known since antiquity as lodestone.",
+  "item.semiconductor-lab.dynamo.note": "Faraday 1831: spin a coil in a magnetic field and current flows. Early dynamos used permanent magnets; from 1866 (Siemens) the iron core's residual magnetism was enough.",
+  "block.semiconductor-lab.water_wheel.note": "Needs FLOWING water beside it (500 W per side). Still water does nothing: power = flow x head. Early power stations were hydro.",
+  "block.semiconductor-lab.steam_engine.note": "Coal boils water, steam pushes a piston, the dynamo turns: 50 kW. Real thermal efficiency is only about 30%. One water bucket = 2 coal's worth of steam."
 }
