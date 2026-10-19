@@ -441,5 +441,21 @@
   "item.semiconductor-lab.fused_quartz.note1": "石英を溶かした透明なガラス。真っ赤に熱して水に入れても割れない。",
   "item.semiconductor-lab.fused_quartz.note": "純粋な SiO2 のガラス。ネザークォーツを酸水素バーナー（約2000℃）で溶かす。石英の融点は約1713℃なので、かまど（約1000℃）では全然足りない。石英管にして帯域精製炉に使う。",
   "item.semiconductor-lab.fused_quartz.note3": "1839年にゴーダンが酸水素炎で石英を溶かし、1899年にヘレウス社が工業生産を始めた。ふつうのガラスもほとんど SiO2 だが、ソーダと石灰を混ぜて約1000℃で溶けるようにしてある。",
-  "item.semiconductor-lab.fused_quartz.note4": "熱膨張はわずか約0.5×10⁻⁶/K（ソーダ石灰ガラスは約9×10⁻⁶）なので急に冷やしても割れない。紫外線を約160〜200nm まで通すので、露光装置のレンズやフォトマスクの基板は溶融石英。ナトリウムを含まないので半導体を汚さない。"
+  "item.semiconductor-lab.fused_quartz.note4": "熱膨張はわずか約0.5×10⁻⁶/K（ソーダ石灰ガラスは約9×10⁻⁶）なので急に冷やしても割れない。紫外線を約160〜200nm まで通すので、露光装置のレンズやフォトマスクの基板は溶融石英。ナトリウムを含まないので半導体を汚さない。",
+  "block.semiconductor-lab.trona_deposit": "トロナ堆積",
+  "block.semiconductor-lab.trona_deposit.note1": "砂漠の湖が干上がったあとに残った塩。砂漠の砂や砂岩の中にある。",
+  "block.semiconductor-lab.trona_deposit.note": "トロナ Na2CO3·NaHCO3·2H2O。干上がった塩湖の蒸発岩。砂漠バイオームだけ、地表〜浅い地下（y52〜76）の砂・砂岩を置き換えて生成。軟らかい（モース硬度 2.5〜3）のでどのツルハシでも掘れてトロナが出る。シルクタッチならブロックのまま。",
+  "block.semiconductor-lab.trona_deposit.note3": "出口のない砂漠の湖は水が蒸発して減るだけなので、溶けていた塩が層になってたまる（炭酸塩→硫酸塩→岩塩の順）。エジプトのワディ・エル・ナトルーン（ナトロンの谷）が「ナトロン」の名の由来。",
+  "block.semiconductor-lab.trona_deposit.note4": "世界最大のトロナ層はアメリカ・ワイオミング州のグリーンリバー層。約5000万年前（始新世）の湖の跡で、1938年に石油を掘っていて見つかった。今のアメリカのソーダ灰はほとんどここから掘り、ソルベー法では作っていない。",
+  "item.semiconductor-lab.trona": "トロナ",
+  "item.semiconductor-lab.trona.note1": "古代エジプトのミイラ作りにも使った塩。",
+  "item.semiconductor-lab.trona.note": "Na2CO3·NaHCO3·2H2O（天然ソーダ）。かまどで焼くと炭酸ナトリウム：2トロナ → 3Na2CO3 + CO2 + 5H2O（約150〜200℃で十分）。",
+  "item.semiconductor-lab.trona.note3": "古代エジプトでは紀元前2500年頃から、トロナを含む天然ソーダ「ナトロン」で遺体を乾かしてミイラにした。ガラスやファイアンス（焼き物）にも使った。大プリニウス『博物誌』（77年）にナトロンでガラスができた話がある。",
+  "item.semiconductor-lab.trona.note4": "ナトロンはアラビア語のナトルーンから来た言葉で、元素記号 Na（ナトリウム）もナトロンに由来する。「トロナ」もナトルーンから来たと考えられている。",
+  "item.semiconductor-lab.trona.placeholder": "近似：本物は2個から炭酸ナトリウム3個。ここでは1→1。出てくる CO2 と水蒸気は回収しない。",
+  "item.semiconductor-lab.sodium_carbonate": "炭酸ナトリウム",
+  "item.semiconductor-lab.sodium_carbonate.note1": "洗濯ソーダ。砂に混ぜると、ガラスがずっと低い温度で溶ける。",
+  "item.semiconductor-lab.sodium_carbonate.note": "Na2CO3（ソーダ灰）。トロナを焼いて作る。ソーダ石灰ガラス（砂＋ソーダ＋石灰）の融剤。のちにタングステン鉱石の精製（ソーダ融解）にも使う。",
+  "item.semiconductor-lab.sodium_carbonate.note3": "1800年ごろまで、ソーダは天然の鉱床か、海藻や塩生植物の灰から取った。ルブラン法（1791）とソルベー法（1860年代）で食塩から作れるようになった。",
+  "item.semiconductor-lab.sodium_carbonate.note4": "ソーダは Si-O の網目を切って、シリカの融点を約1700℃から約1000℃に下げる（Na2O は「網目修飾体」）。入れすぎると水に溶けるガラス（水ガラス）になるので、石灰も加える。"
 }

@@ -91,6 +91,10 @@ public class ModItems {
     public static final Item QUICKLIME             = simple("quicklime");
     public static final Item SLAKED_LIME           = simple("slaked_lime");
 
+    // --- ソーダ（[2-03] 天然ソーダ：トロナを焼く 2(Na2CO3·NaHCO3·2H2O) → 3Na2CO3 + CO2 + 5H2O）---
+    public static final Item TRONA                 = simple("trona");             // トロナ（天然ソーダの鉱物）
+    public static final Item SODIUM_CARBONATE      = simple("sodium_carbonate");  // 炭酸ナトリウム（ソーダ灰）
+
     // --- 水銀（[1-45] 辰砂 HgS の焙焼。HgS + O2 → Hg + SO2）---
     public static final Item CINNABAR_DUST         = simple("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉
     public static final Item MERCURY               = register("mercury", Item::new, new Item.Properties().stacksTo(16)); // 液体の金属（容器入り）
@@ -117,7 +121,7 @@ public class ModItems {
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT, ZINC_OXIDE,
             TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
-            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME,
+            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 

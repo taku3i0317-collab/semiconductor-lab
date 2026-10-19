@@ -441,5 +441,21 @@
   "item.semiconductor-lab.fused_quartz.note1": "Quartz melted into clear glass. Heat it red hot, drop it in water, and it still will not crack.",
   "item.semiconductor-lab.fused_quartz.note": "Pure SiO2 glass. Melt nether quartz in the oxyhydrogen burner (~2000 C). A furnace (~1000 C) is far too cold: quartz melts at about 1713 C. Made into quartz tubes for the zone refiner.",
   "item.semiconductor-lab.fused_quartz.note3": "Gaudin melted quartz in an oxyhydrogen flame in 1839; Heraeus started industrial production in 1899. Ordinary glass is mostly SiO2 too, but soda and lime are added so it melts at about 1000 C.",
-  "item.semiconductor-lab.fused_quartz.note4": "Thermal expansion is only about 0.5 x 10^-6 per K (soda-lime glass ~9 x 10^-6), so it survives thermal shock. It transmits UV down to about 160-200 nm, which is why lithography lenses and photomask blanks are fused silica. With no sodium, it does not poison semiconductors."
+  "item.semiconductor-lab.fused_quartz.note4": "Thermal expansion is only about 0.5 x 10^-6 per K (soda-lime glass ~9 x 10^-6), so it survives thermal shock. It transmits UV down to about 160-200 nm, which is why lithography lenses and photomask blanks are fused silica. With no sodium, it does not poison semiconductors.",
+  "block.semiconductor-lab.trona_deposit": "Trona Deposit",
+  "block.semiconductor-lab.trona_deposit.note1": "Salt left behind when a desert lake dried up. Found in the sand and sandstone of deserts.",
+  "block.semiconductor-lab.trona_deposit.note": "Trona, Na2CO3·NaHCO3·2H2O, an evaporite from dried-up salt lakes. Generates only in desert biomes, from the surface to shallow depth (y 52-76), replacing sand and sandstone. Mine with any pickaxe (soft, Mohs 2.5-3) for trona; silk touch gives the block.",
+  "block.semiconductor-lab.trona_deposit.note3": "Desert lakes with no outlet lose their water to evaporation, so dissolved salts pile up as layers: first carbonates, then sulfates, then halite. Egypt's Wadi El Natrun gave its name to natron.",
+  "block.semiconductor-lab.trona_deposit.note4": "The world's largest trona beds lie in the Green River Formation of Wyoming, laid down in an Eocene lake about 50 million years ago and found in 1938 while drilling for oil. Today most US soda ash is mined there instead of made by the Solvay process.",
+  "item.semiconductor-lab.trona": "Trona",
+  "item.semiconductor-lab.trona.note1": "A salt the ancient Egyptians used to make mummies.",
+  "item.semiconductor-lab.trona.note": "Na2CO3·NaHCO3·2H2O (natural soda). Heat it in a furnace to get sodium carbonate: 2 trona -> 3 Na2CO3 + CO2 + 5 H2O (about 150-200 C is enough).",
+  "item.semiconductor-lab.trona.note3": "Ancient Egyptians used natron (a natural soda mixture containing trona) to dry bodies for mummies from about 2500 BC, and to make glass and faience. Pliny the Elder recorded natron glass in his Natural History (77 AD).",
+  "item.semiconductor-lab.trona.note4": "'Natron' comes from the Arabic natrun, and the chemical symbol Na (natrium) comes from natron. The name 'trona' is also thought to come from natrun.",
+  "item.semiconductor-lab.trona.placeholder": "Approx: really 2 trona give 3 sodium carbonate; here 1 -> 1. The CO2 and water vapour are not collected.",
+  "item.semiconductor-lab.sodium_carbonate": "Sodium Carbonate",
+  "item.semiconductor-lab.sodium_carbonate.note1": "Washing soda. Added to sand, it lets glass melt at a much lower heat.",
+  "item.semiconductor-lab.sodium_carbonate.note": "Na2CO3 (soda ash). Made by heating trona. Flux for soda-lime glass: sand + soda + lime. Later also for refining tungsten ore (soda fusion).",
+  "item.semiconductor-lab.sodium_carbonate.note3": "Before 1800, soda came from natural deposits or from the ashes of seaweed and salt-marsh plants. The Leblanc process (1791) and the Solvay process (1860s) made it from salt.",
+  "item.semiconductor-lab.sodium_carbonate.note4": "Soda lowers the melting point of silica from about 1700 C to about 1000 C by breaking up the Si-O network (Na2O is a 'network modifier'). Too much makes glass dissolve in water (water glass), which is why lime is added too."
 }

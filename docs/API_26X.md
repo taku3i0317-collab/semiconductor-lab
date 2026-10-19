@@ -727,3 +727,14 @@ protected void neighborChanged(BlockState, Level, BlockPos, Block, net.minecraft
 ## タスク07（2026-10-20）
 - 新しい API はなし。反射炉は既存の形だけで書いた（HorizontalDirectionalBlock＋EntityBlock＝ConsumerMachineBlock と同じ、SimpleContainer / ContainerData / ValueInput.getIntOr / ValueOutput.putInt / preRemoveSideEffects＝ConsumerBlockEntity と同じ）
 - Items.CALCITE / Items.TUFF（GameTest で使用、コンパイルで実在確認）
+
+### タスク08 で確認（javap、26.3）
+``
+net.minecraft.world.level.biome.Biomes:  public static final ResourceKey<Biome> DESERT;   （PLAINS も同様）
+BiomeSelectors.includeByKey(ResourceKey<Biome>...)   … fabric-biome-api-v1 20.1.0
+net.minecraft.world.level.biome.Biome:  public BiomeGenerationSettings getGenerationSettings();
+net.minecraft.world.level.biome.BiomeGenerationSettings:  public List<HolderSet<PlacedFeature>> features();   （BiomeModifications の追加はサーバー起動後ここに反映される＝GameTest で確認済み）
+net.minecraft.resources.ResourceKey:  public Identifier identifier();   （旧 location()）
+net.minecraft.world.item.ItemStack:  public void enchant(Holder<Enchantment>, int);
+``
+

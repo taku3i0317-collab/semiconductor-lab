@@ -143,6 +143,36 @@ public class LabTests {
     @GameTest public void oreMagnetite(GameTestHelper h)  { oreFeature(h, "magnetite_ore", Blocks.DEEPSLATE, Blocks.STONE, ModBlocks.MAGNETITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreWolframite(GameTestHelper h) { oreFeature(h, "wolframite_ore", Blocks.GRANITE, Blocks.STONE, ModBlocks.WOLFRAMITE_ORE, s -> s.is(Blocks.GRANITE)); }
     @GameTest public void oreIronSand(GameTestHelper h)   { oreFeature(h, "iron_sand", Blocks.SAND, Blocks.SANDSTONE, ModBlocks.IRON_SAND, s -> s.is(Blocks.SAND)); }
+    @GameTest public void oreTrona(GameTestHelper h)      { oreFeature(h, "trona_deposit", Blocks.SAND, Blocks.STONE, ModBlocks.TRONA_DEPOSIT, s -> s.is(Blocks.SAND) || s.is(Blocks.SANDSTONE)); }
+
+    /** [2-03] トロナ：堆積はツルハシでトロナを落とす（シルクタッチでブロック）、素手では落ちない。トロナ→かまど→炭酸ナトリウム */
+    @GameTest
+    public void tronaSoda(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        BlockPos at = h.absolutePos(p(1, 1, 1));
+        ItemStack pick = new ItemStack(Items.WOODEN_PICKAXE);
+        ItemStack silk = new ItemStack(Items.IRON_PICKAXE);
+        silk.enchant(lv.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH), 1);
+        BlockState st = ModBlocks.TRONA_DEPOSIT.defaultBlockState();
+        h.assertTrue(pick.isCorrectToolForDrops(st), "trona is soft: a wooden pickaxe is enough");
+        h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(st), "not by hand");
+        List<ItemStack> normal = Block.getDrops(st, lv, at, null, null, pick);
+        List<ItemStack> silky = Block.getDrops(st, lv, at, null, null, silk);
+        h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(ModItems.TRONA)), "pickaxe -> trona, got " + normal);
+        h.assertTrue(silky.size() == 1 && silky.get(0).is(ModBlocks.TRONA_DEPOSIT.asItem()), "silk touch -> block, got " + silky);
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.TRONA).is(ModItems.SODIUM_CARBONATE), "trona -> furnace -> sodium carbonate");
+        // 砂漠だけに生成（placed feature があり、砂漠に追加されている）
+        var placed = lv.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE);
+        h.assertTrue(placed.getValue(SemiconductorLab.id("trona_deposit")) != null, "placed feature trona_deposit registered");
+        var desert = lv.registryAccess().lookupOrThrow(Registries.BIOME).getOrThrow(net.minecraft.world.level.biome.Biomes.DESERT).value();
+        var plains = lv.registryAccess().lookupOrThrow(Registries.BIOME).getOrThrow(net.minecraft.world.level.biome.Biomes.PLAINS).value();
+        java.util.function.Predicate<net.minecraft.world.level.biome.Biome> has = b -> b.getGenerationSettings().features().stream()
+                .anyMatch(set -> set.stream().anyMatch(f -> f.unwrapKey().map(k -> k.identifier().equals(SemiconductorLab.id("trona_deposit"))).orElse(false)));
+        h.assertTrue(has.test(desert), "trona generates in the desert");
+        h.assertFalse(has.test(plains), "trona does not generate in plains");
+        LOG.info("[LAB] trona: pickaxe -> trona, silk -> block, furnace -> Na2CO3, desert only");
+        h.succeed();
+    }
 
     /**
      * 鉱石のドロップ：ふつうのツルハシ（シャベル）では原石、シルクタッチでは鉱石ブロックそのもの。
@@ -836,7 +866,7 @@ public class LabTests {
     // =====================================================================
 
     private static final String[] RECIPES = {
-            "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner",
+            "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
