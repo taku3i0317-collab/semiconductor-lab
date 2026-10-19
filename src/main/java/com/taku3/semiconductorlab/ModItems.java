@@ -58,6 +58,9 @@ public class ModItems {
     public static final Item HYDROGEN_GAS          = simple("hydrogen_gas");
     public static final Item OXYGEN_GAS            = simple("oxygen_gas");
 
+    // --- 冶金（[1-26]）---
+    public static final Item STEEL_INGOT           = simple("steel_ingot");   // ベッセマー転炉の鋼（C 約0.1〜0.5%）
+
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = simple("junction_transistor_blank"); // 合金化前
@@ -71,6 +74,7 @@ public class ModItems {
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS,
+            STEEL_INGOT,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
     private static Item simple(String name) {

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "front": "semiconductor-lab:block/bessemer_converter_front",
+    "side": "semiconductor-lab:block/bessemer_converter_side",
+    "top": "semiconductor-lab:block/bessemer_converter_top",
+    "bottom": "semiconductor-lab:block/bessemer_converter_bottom"
+  }
+}

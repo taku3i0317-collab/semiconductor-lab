@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab;
 
+import com.taku3.semiconductorlab.block.BessemerConverterBlockEntity;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
 import com.taku3.semiconductorlab.block.GasHolderBlockEntity;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceBlockEntity;
@@ -16,11 +17,13 @@ public class ModBlockEntities {
     public static final BlockEntityType<SteamEngineBlockEntity> STEAM_ENGINE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("steam_engine"), FabricBlockEntityTypeBuilder.create(SteamEngineBlockEntity::new, ModBlocks.STEAM_ENGINE).build());
     public static final BlockEntityType<ElectrolyzerBlockEntity> ELECTROLYZER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("electrolyzer"), FabricBlockEntityTypeBuilder.create(ElectrolyzerBlockEntity::new, ModBlocks.ELECTROLYZER).build());
     public static final BlockEntityType<GasHolderBlockEntity> GAS_HOLDER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("gas_holder"), FabricBlockEntityTypeBuilder.create(GasHolderBlockEntity::new, ModBlocks.GAS_HOLDER).build());
+    public static final BlockEntityType<BessemerConverterBlockEntity> BESSEMER_CONVERTER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("bessemer_converter"), FabricBlockEntityTypeBuilder.create(BessemerConverterBlockEntity::new, ModBlocks.BESSEMER_CONVERTER).build());
 
     public static void initialize() {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COPPER_CABLE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WATER_WHEEL);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_ENGINE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTROLYZER);   // 消費側：受け取り専用
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), BESSEMER_CONVERTER);
     }
 }

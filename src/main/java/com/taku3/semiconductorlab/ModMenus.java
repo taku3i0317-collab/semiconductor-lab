@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab;
 
+import com.taku3.semiconductorlab.block.BessemerConverterMenu;
 import com.taku3.semiconductorlab.block.ElectrolyzerMenu;
 import com.taku3.semiconductorlab.block.GasHolderMenu;
 import com.taku3.semiconductorlab.block.ZoneRefiningFurnaceMenu;
@@ -22,6 +23,9 @@ public class ModMenus {
     public static final MenuType<GasHolderMenu> GAS_HOLDER = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("gas_holder"),
             new MenuType<>(GasHolderMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<BessemerConverterMenu> BESSEMER_CONVERTER = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("bessemer_converter"),
+            new MenuType<>(BessemerConverterMenu::new, FeatureFlags.DEFAULT_FLAGS));
 
     public static void initialize() {}
 }
