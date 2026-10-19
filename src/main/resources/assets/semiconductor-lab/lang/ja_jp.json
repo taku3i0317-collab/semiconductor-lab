@@ -1,8 +1,8 @@
 {
   "item.semiconductor-lab.coal_ash": "石炭灰",
-  "item.semiconductor-lab.raw_germanium": "粗ゲルマニウム",
+  "item.semiconductor-lab.raw_germanium": "粗ゲルマニウム（98%）",
   "item.semiconductor-lab.refined_germanium": "精製ゲルマニウム",
-  "item.semiconductor-lab.transistor": "トランジスタ",
+  "item.semiconductor-lab.transistor": "点接触型トランジスタ",
   "item.semiconductor-lab.transistor_radio": "トランジスタラジオ",
   "advancements.semiconductor-lab.chapter1.root.title": "第1章：トランジスタの誕生",
   "advancements.semiconductor-lab.chapter1.root.description": "1947年。シリコンの前に、ゲルマニウムがあった。ゴール：トランジスタラジオを作ろう！",
@@ -15,5 +15,15 @@
   "advancements.semiconductor-lab.chapter1.transistor.title": "最初のトランジスタ",
   "advancements.semiconductor-lab.chapter1.transistor.description": "精製ゲルマニウム＋金の電極＋銅の線＝トランジスタ。",
   "advancements.semiconductor-lab.chapter1.radio.title": "石炭から音楽を",
-  "advancements.semiconductor-lab.chapter1.radio.description": "トランジスタラジオを作ろう。1954年、これが世界の聞き方を変えた。"
+  "advancements.semiconductor-lab.chapter1.radio.description": "トランジスタラジオを作ろう。1954年、これが世界の聞き方を変えた。",
+  "item.semiconductor-lab.zinc_ingot": "亜鉛インゴット",
+  "item.semiconductor-lab.germanium_concentrate": "ゲルマニウム精鉱",
+  "item.semiconductor-lab.indium": "インジウム",
+  "item.semiconductor-lab.sulfur_powder": "硫黄の粉",
+  "item.semiconductor-lab.sulfuric_acid": "硫酸",
+  "item.semiconductor-lab.phosphorus": "リン",
+  "item.semiconductor-lab.germanium_dioxide": "二酸化ゲルマニウム",
+  "item.semiconductor-lab.n_type_germanium": "n型ゲルマニウム",
+  "item.semiconductor-lab.p_type_germanium": "p型ゲルマニウム",
+  "item.semiconductor-lab.junction_transistor": "合金接合型トランジスタ"
 }

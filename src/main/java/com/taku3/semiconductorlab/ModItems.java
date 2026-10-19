@@ -8,16 +8,46 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 
+import java.util.List;
 import java.util.function.Function;
 
 public class ModItems {
 
-    // 第1章：ゲルマニウムの入手と精製
-    public static final Item COAL_ASH          = register("coal_ash", Item::new, new Item.Properties());
-    public static final Item RAW_GERMANIUM     = register("raw_germanium", Item::new, new Item.Properties());
-    public static final Item REFINED_GERMANIUM = register("refined_germanium", Item::new, new Item.Properties());
-    public static final Item TRANSISTOR        = register("transistor", Item::new, new Item.Properties());
-    public static final Item TRANSISTOR_RADIO  = register("transistor_radio", Item::new, new Item.Properties().stacksTo(1));
+    // --- 第1章：入手 ---
+    public static final Item COAL_ASH              = simple("coal_ash");
+    public static final Item ZINC_INGOT            = simple("zinc_ingot");
+    public static final Item GERMANIUM_CONCENTRATE = simple("germanium_concentrate");
+    public static final Item INDIUM                = simple("indium");
+
+    // --- 試薬 ---
+    public static final Item SULFUR_POWDER         = simple("sulfur_powder");
+    public static final Item SULFURIC_ACID         = register("sulfuric_acid", Item::new, new Item.Properties().stacksTo(16));
+    public static final Item PHOSPHORUS            = simple("phosphorus");
+
+    // --- ゲルマニウムの精錬・精製 ---
+    public static final Item GERMANIUM_DIOXIDE     = simple("germanium_dioxide");
+    public static final Item RAW_GERMANIUM         = simple("raw_germanium");       // 金属Ge 98%
+    public static final Item REFINED_GERMANIUM     = simple("refined_germanium");   // 帯域精製後
+
+    // --- ドーピング ---
+    public static final Item N_TYPE_GERMANIUM      = simple("n_type_germanium");
+    public static final Item P_TYPE_GERMANIUM      = simple("p_type_germanium");
+
+    // --- トランジスタと製品 ---
+    public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
+    public static final Item JUNCTION_TRANSISTOR   = simple("junction_transistor");  // 合金接合型 (1952)
+    public static final Item TRANSISTOR_RADIO      = register("transistor_radio", Item::new, new Item.Properties().stacksTo(1));
+
+    public static final List<Item> ALL = List.of(
+            COAL_ASH, ZINC_INGOT, GERMANIUM_CONCENTRATE, INDIUM,
+            SULFUR_POWDER, SULFURIC_ACID, PHOSPHORUS,
+            GERMANIUM_DIOXIDE, RAW_GERMANIUM, REFINED_GERMANIUM,
+            N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
+            TRANSISTOR, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
+
+    private static Item simple(String name) {
+        return register(name, Item::new, new Item.Properties());
+    }
 
     public static Item register(String name, Function<Item.Properties, Item> factory, Item.Properties properties) {
         ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, SemiconductorLab.id(name));
@@ -27,12 +57,6 @@ public class ModItems {
     }
 
     public static void initialize() {
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(tab -> {
-            tab.accept(COAL_ASH);
-            tab.accept(RAW_GERMANIUM);
-            tab.accept(REFINED_GERMANIUM);
-            tab.accept(TRANSISTOR);
-            tab.accept(TRANSISTOR_RADIO);
-        });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(tab -> ALL.forEach(tab::accept));
     }
 }

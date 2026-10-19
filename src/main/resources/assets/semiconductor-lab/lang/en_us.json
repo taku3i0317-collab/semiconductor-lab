@@ -1,8 +1,8 @@
 {
   "item.semiconductor-lab.coal_ash": "Coal Ash",
-  "item.semiconductor-lab.raw_germanium": "Raw Germanium",
+  "item.semiconductor-lab.raw_germanium": "Raw Germanium (98%)",
   "item.semiconductor-lab.refined_germanium": "Refined Germanium",
-  "item.semiconductor-lab.transistor": "Transistor",
+  "item.semiconductor-lab.transistor": "Point-Contact Transistor",
   "item.semiconductor-lab.transistor_radio": "Transistor Radio",
   "advancements.semiconductor-lab.chapter1.root.title": "Chapter 1: The Birth of the Transistor",
   "advancements.semiconductor-lab.chapter1.root.description": "1947. Before silicon, there was germanium. Goal: build a transistor radio!",
@@ -15,5 +15,15 @@
   "advancements.semiconductor-lab.chapter1.transistor.title": "The First Transistor",
   "advancements.semiconductor-lab.chapter1.transistor.description": "Refined germanium + gold contacts + copper leads = a transistor.",
   "advancements.semiconductor-lab.chapter1.radio.title": "Music from Sand... well, Coal",
-  "advancements.semiconductor-lab.chapter1.radio.description": "Build a transistor radio. In 1954 this changed how the world listened."
+  "advancements.semiconductor-lab.chapter1.radio.description": "Build a transistor radio. In 1954 this changed how the world listened.",
+  "item.semiconductor-lab.zinc_ingot": "Zinc Ingot",
+  "item.semiconductor-lab.germanium_concentrate": "Germanium Concentrate",
+  "item.semiconductor-lab.indium": "Indium",
+  "item.semiconductor-lab.sulfur_powder": "Sulfur Powder",
+  "item.semiconductor-lab.sulfuric_acid": "Sulfuric Acid",
+  "item.semiconductor-lab.phosphorus": "Phosphorus",
+  "item.semiconductor-lab.germanium_dioxide": "Germanium Dioxide",
+  "item.semiconductor-lab.n_type_germanium": "N-type Germanium",
+  "item.semiconductor-lab.p_type_germanium": "P-type Germanium",
+  "item.semiconductor-lab.junction_transistor": "Alloy-Junction Transistor"
 }
