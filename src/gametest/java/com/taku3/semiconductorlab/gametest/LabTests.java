@@ -162,6 +162,26 @@ public class LabTests {
         h.succeed();
     }
 
+    /** 道具：鉱石4種は鉄ツルハシ必須、黒鉛は石ツルハシ以上、砂鉄はシャベル、水車は斧、機械はツルハシ */
+    @GameTest
+    public void toolRequirements(GameTestHelper h) {
+        ItemStack wood = new ItemStack(Items.WOODEN_PICKAXE), stone = new ItemStack(Items.STONE_PICKAXE), iron = new ItemStack(Items.IRON_PICKAXE);
+        for (Block b : new Block[] {ModBlocks.SPHALERITE_ORE, ModBlocks.MAGNETITE_ORE, ModBlocks.WOLFRAMITE_ORE, ModBlocks.GALENA_ORE}) {
+            h.assertFalse(stone.isCorrectToolForDrops(b.defaultBlockState()), b + " must need an iron pickaxe (stone is not enough)");
+            h.assertTrue(iron.isCorrectToolForDrops(b.defaultBlockState()), b + " should drop with an iron pickaxe");
+        }
+        h.assertFalse(wood.isCorrectToolForDrops(ModBlocks.GRAPHITE_ORE.defaultBlockState()), "graphite ore needs a stone pickaxe");
+        h.assertTrue(stone.isCorrectToolForDrops(ModBlocks.GRAPHITE_ORE.defaultBlockState()), "graphite ore with a stone pickaxe");
+        h.assertTrue(new ItemStack(Items.IRON_SHOVEL).getDestroySpeed(ModBlocks.IRON_SAND.defaultBlockState()) > 1f, "iron sand: shovel is the right tool");
+        h.assertTrue(new ItemStack(Items.IRON_AXE).getDestroySpeed(ModBlocks.WATER_WHEEL.defaultBlockState()) > 1f, "water wheel: axe is the right tool");
+        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE}) {
+            h.assertTrue(iron.isCorrectToolForDrops(m.defaultBlockState()), m + " should be collected with a pickaxe");
+            h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(m.defaultBlockState()), m + " should not drop when broken by hand");
+        }
+        LOG.info("[LAB] tools: 4 ores need iron pickaxe, graphite stone+, iron sand shovel, water wheel axe, machines pickaxe");
+        h.succeed();
+    }
+
     // =====================================================================
     // 発電
     // =====================================================================
@@ -283,12 +303,18 @@ public class LabTests {
         h.assertTrue(c.getItem(ElectrolyzerBlockEntity.SLOT_WATER).is(Items.WATER_BUCKET), "no power -> water stays");
         h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
 
-        // 電気あり（1tick 1000 J を入れる＝ケーブルの代わり）
-        long feed = 1000;
+        // 電気あり。1tick にちょうど使う分（5kW＝250 J/tick）だけ入れる＝バッファに余りを貯めない
+        long feed = 250;
         tickConsumer(h, pos, be, 1, feed);
         h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
-        tickConsumer(h, pos, be, ElectrolyzerBlockEntity.TOTAL_TICKS - 2, feed);
-        h.assertTrue(c.getItem(ElectrolyzerBlockEntity.SLOT_H2).isEmpty(), "not finished 1 tick before 115 s");
+        tickConsumer(h, pos, be, 999, feed);
+        // 途中で電気を切る → 止まる（進捗は保たれる）
+        tickConsumer(h, pos, be, 500, 0);
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        h.assertTrue(c.getItem(ElectrolyzerBlockEntity.SLOT_H2).isEmpty(), "paused: nothing made");
+        // 再接続 → 続きから（電気のあった tick の合計が 2300 で完成）
+        tickConsumer(h, pos, be, ElectrolyzerBlockEntity.TOTAL_TICKS - 1001, feed);
+        h.assertTrue(c.getItem(ElectrolyzerBlockEntity.SLOT_H2).isEmpty(), "not finished 1 powered tick before 115 s");
         tickConsumer(h, pos, be, 1, feed);
         h.assertValueEqual(c.getItem(ElectrolyzerBlockEntity.SLOT_H2).getCount(), 2, "H2 count");
         h.assertTrue(c.getItem(ElectrolyzerBlockEntity.SLOT_H2).is(ModItems.HYDROGEN_GAS), "H2 item");
@@ -302,6 +328,13 @@ public class LabTests {
         c.setItem(ElectrolyzerBlockEntity.SLOT_ACID, ItemStack.EMPTY);
         tickConsumer(h, pos, be, ElectrolyzerBlockEntity.TOTAL_TICKS + 10, feed);
         h.assertValueEqual(c.getItem(ElectrolyzerBlockEntity.SLOT_H2).getCount(), 2, "without acid nothing more is made");
+
+        // 出口が満杯（水素 63 個＋2 は入らない）→ 止まる
+        c.setItem(ElectrolyzerBlockEntity.SLOT_ACID, new ItemStack(ModItems.SULFURIC_ACID, 1));
+        c.setItem(ElectrolyzerBlockEntity.SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, 63));
+        tickConsumer(h, pos, be, ElectrolyzerBlockEntity.TOTAL_TICKS + 10, feed);
+        h.assertValueEqual(c.getItem(ElectrolyzerBlockEntity.SLOT_H2).getCount(), 63, "outlet full -> stops");
+        h.assertTrue(c.getItem(ElectrolyzerBlockEntity.SLOT_WATER).is(Items.WATER_BUCKET), "outlet full -> water not used");
         LOG.info("[LAB] electrolyzer: H2 x2 + O2 x1 after {} ticks, acid kept, stops without power/acid", ElectrolyzerBlockEntity.TOTAL_TICKS);
         h.succeed();
     }
@@ -370,6 +403,26 @@ public class LabTests {
         c.setItem(BessemerConverterBlockEntity.SLOT_IN, new ItemStack(Items.GOLD_INGOT, 1));
         tickConsumer(h, pos, be, BessemerConverterBlockEntity.TOTAL_TICKS + 10, feed);
         h.assertValueEqual(c.getItem(BessemerConverterBlockEntity.SLOT_OUT).getCount(), 1, "gold must not become steel");
+
+        // 送風中は炉口が光る（LIT）
+        c.setItem(BessemerConverterBlockEntity.SLOT_IN, new ItemStack(Items.IRON_INGOT, 1));
+        tickConsumer(h, pos, be, 1, feed);
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        // 出口が満杯（鋼 64）→ 止まる
+        c.setItem(BessemerConverterBlockEntity.SLOT_OUT, new ItemStack(ModItems.STEEL_INGOT, 64));
+        tickConsumer(h, pos, be, BessemerConverterBlockEntity.TOTAL_TICKS + 10, feed);
+        h.assertValueEqual(c.getItem(BessemerConverterBlockEntity.SLOT_IN).getCount(), 1, "outlet full -> iron not used");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+
+        // 炎の段階：①ケイ素（最初の2割）→②炭素（〜9割）→③炎が落ちる
+        int T = BessemerConverterBlockEntity.TOTAL_TICKS;
+        h.assertValueEqual(BessemerConverterBlockEntity.stageOf(0, T), BessemerConverterBlockEntity.Stage.SILICON, "stage at 0%");
+        h.assertValueEqual(BessemerConverterBlockEntity.stageOf(T / 2, T), BessemerConverterBlockEntity.Stage.CARBON, "stage at 50%");
+        h.assertValueEqual(BessemerConverterBlockEntity.stageOf(T * 95 / 100, T), BessemerConverterBlockEntity.Stage.DROP, "stage at 95%");
+
+        // 鋼インゴットは c:ingots/steel タグに入っている（他MODのレシピで使える）
+        var steelTag = net.minecraft.tags.TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "ingots/steel"));
+        h.assertTrue(new ItemStack(ModItems.STEEL_INGOT).is(steelTag), "steel ingot should be in #c:ingots/steel");
         LOG.info("[LAB] bessemer: iron -> steel in {} ticks with 20 kW, nothing without power", BessemerConverterBlockEntity.TOTAL_TICKS);
         h.succeed();
     }
