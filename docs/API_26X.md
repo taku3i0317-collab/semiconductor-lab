@@ -409,3 +409,184 @@ public net.minecraft.world.item.BucketItem(net.minecraft.world.level.material.Fl
 - 右クリックで開く：Block で `getMenuProvider` ＋ `useWithoutItem` → `player.openMenu(be)`。BlockEntity が `MenuProvider` を実装
 - SimpleContainer.addListener は廃止 → 匿名サブクラスで setChanged() を上書きする
 - 本を渡す：loot table の set_components で written_book_content は動かず（形不明）。進捗 rewards.function → mcfunction の give コマンド（SNBT: pages:[{translate:...}]）で動作。コマンド内の文章は JSON 文字列ではなく SNBT 形式
+
+## v0.2a 先行調査（2026-10-19）
+
+### BlockApiLookup
+`` 
+public static <A, C> net.fabricmc.fabric.api.lookup.v1.block.BlockApiLookup<A, C> get(net.minecraft.resources.Identifier, java.lang.Class<A>, java.lang.Class<C>);
+public default A find(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, C);
+public abstract A find(net.minecraft.world.level.Level, net.minecraft.core.BlockPos, net.minecraft.world.level.block.state.BlockState, net.minecraft.world.level.block.entity.BlockEntity, C);
+public abstract void registerSelf(net.minecraft.world.level.block.entity.BlockEntityType<?>...);
+public abstract void registerForBlocks(net.fabricmc.fabric.api.lookup.v1.block.BlockApiLookup$BlockApiProvider<A, C>, net.minecraft.world.level.block.Block...);
+public default <T extends net.minecraft.world.level.block.entity.BlockEntity> void registerForBlockEntity(java.util.function.BiFunction<? super T, C, A>, net.minecraft.world.level.block.entity.BlockEntityType<T>);
+public abstract void registerForBlockEntities(net.fabricmc.fabric.api.lookup.v1.block.BlockApiLookup$BlockEntityApiProvider<A, C>, net.minecraft.world.level.block.entity.BlockEntityType<?>...);
+public abstract void registerFallback(net.fabricmc.fabric.api.lookup.v1.block.BlockApiLookup$BlockApiProvider<A, C>);
+``
+
+### Level 近隣アクセス
+`` 
+public net.minecraft.world.level.block.state.BlockState getBlockState(net.minecraft.core.BlockPos);
+public net.minecraft.world.level.material.FluidState getFluidState(net.minecraft.core.BlockPos);
+public net.minecraft.world.level.block.entity.BlockEntity getBlockEntity(net.minecraft.core.BlockPos);
+public boolean isLoaded(net.minecraft.core.BlockPos);
+``
+
+### Direction
+`` 
+public static final net.minecraft.core.Direction DOWN;
+public static final net.minecraft.core.Direction UP;
+public static final net.minecraft.core.Direction NORTH;
+public static final net.minecraft.core.Direction SOUTH;
+public static final net.minecraft.core.Direction WEST;
+public static final net.minecraft.core.Direction EAST;
+public static final net.minecraft.util.StringRepresentable$EnumCodec<net.minecraft.core.Direction> CODEC;
+public static final com.mojang.serialization.Codec<net.minecraft.core.Direction> VERTICAL_CODEC;
+public static final java.util.function.IntFunction<net.minecraft.core.Direction> BY_ID;
+public static final net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, net.minecraft.core.Direction> STREAM_CODEC;
+public static final com.mojang.serialization.Codec<net.minecraft.core.Direction> LEGACY_ID_CODEC;
+public static final com.mojang.serialization.Codec<net.minecraft.core.Direction> LEGACY_ID_CODEC_2D;
+public static net.minecraft.core.Direction[] values();
+public net.minecraft.core.Direction getOpposite();
+``
+
+### BlockPos.relative
+`` 
+public net.minecraft.core.BlockPos above();
+public net.minecraft.core.BlockPos above(int);
+public net.minecraft.core.BlockPos below();
+public net.minecraft.core.BlockPos below(int);
+public net.minecraft.core.BlockPos relative(net.minecraft.core.Direction);
+public net.minecraft.core.BlockPos relative(net.minecraft.core.Direction, int);
+public net.minecraft.core.BlockPos relative(net.minecraft.core.Direction$Axis, int);
+public net.minecraft.core.Vec3i relative(net.minecraft.core.Direction$Axis, int);
+public net.minecraft.core.Vec3i relative(net.minecraft.core.Direction, int);
+public net.minecraft.core.Vec3i relative(net.minecraft.core.Direction);
+public net.minecraft.core.Vec3i below(int);
+public net.minecraft.core.Vec3i below();
+public net.minecraft.core.Vec3i above(int);
+public net.minecraft.core.Vec3i above();
+``
+
+### FluidState
+`` 
+public boolean isSource();
+public boolean isSourceOfType(net.minecraft.world.level.material.Fluid);
+public boolean isEmpty();
+public float getHeight(net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+public float getHeightForCamera(net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+public int getAmount();
+public net.minecraft.world.phys.Vec3 getFlow(net.minecraft.world.level.BlockGetter, net.minecraft.core.BlockPos);
+``
+
+### Fluids
+`` 
+public static final net.minecraft.world.level.material.Fluid EMPTY;
+public static final net.minecraft.world.level.material.FlowingFluid FLOWING_WATER;
+public static final net.minecraft.world.level.material.FlowingFluid WATER;
+public static final net.minecraft.world.level.material.FlowingFluid FLOWING_LAVA;
+public static final net.minecraft.world.level.material.FlowingFluid LAVA;
+``
+
+### RuleTest の種類（predicate_type 名の候補）
+`` 
+NotRuleTest.class
+TagMatchTest.class
+BlockStateMatchTest.class
+AlwaysTrueTest.class
+RandomBlockStateMatchTest.class
+HeightMatchTest.class
+BlockMatchTest.class
+PosAlwaysTrueTest.class
+AnyOfRuleTest.class
+LinearPosTest.class
+AxisAlignedLinearPosTest.class
+RuleTest.class
+PosRuleTest.class
+AllOfRuleTest.class
+RandomBlockMatchTest.class
+``
+
+### バニラ ore_quartz.json（block_match の見本）
+`` 
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 0.0,
+  "size": 14,
+  "targets": [
+    {
+      "state": "minecraft:nether_quartz_ore",
+      "target": {
+        "block": "minecraft:netherrack",
+        "predicate_type": "minecraft:block_match"
+      }
+    }
+  ]
+}
+``
+
+### バニラ disk_sand or ore_gravel（砂の置換の見本）
+`` 
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 0.0,
+  "size": 33,
+  "targets": [
+    {
+      "state": "minecraft:gravel",
+      "target": {
+        "predicate_type": "minecraft:tag_match",
+        "tag": "minecraft:base_stone_overworld"
+      }
+    }
+  ]
+}
+``
+
+### BiomeSelectors
+`` 
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> all();
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> vanilla();
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> foundInOverworld();
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> foundInTheNether();
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> foundInTheEnd();
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> tag(net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome>);
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> excludeByKey(net.minecraft.resources.ResourceKey<net.minecraft.world.level.biome.Biome>...);
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> excludeByKey(java.util.Collection<net.minecraft.resources.ResourceKey<net.minecraft.world.level.biome.Biome>>);
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> includeByKey(net.minecraft.resources.ResourceKey<net.minecraft.world.level.biome.Biome>...);
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> includeByKey(java.util.Collection<net.minecraft.resources.ResourceKey<net.minecraft.world.level.biome.Biome>>);
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> spawnsOneOf(net.minecraft.world.entity.EntityType<?>...);
+public static java.util.function.Predicate<net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext> spawnsOneOf(java.util.Set<net.minecraft.world.entity.EntityType<?>>);
+``
+
+### BiomeTags（浜辺）
+`` 
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> IS_DEEP_OCEAN;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> IS_OCEAN;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> IS_BEACH;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> IS_RIVER;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> HAS_OCEAN_MONUMENT;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> HAS_OCEAN_RUIN_COLD;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> HAS_OCEAN_RUIN_WARM;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> HAS_RUINED_PORTAL_OCEAN;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> HAS_SHIPWRECK_BEACHED;
+public static final net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> REQUIRED_OCEAN_MONUMENT_SURROUNDING;
+``
+
+### BucketItem / Items.WATER_BUCKET
+`` 
+public net.minecraft.world.item.BucketItem(net.minecraft.world.level.material.Fluid, net.minecraft.world.item.Item$Properties);
+public net.minecraft.world.level.ClipContext$Fluid getFluidContext();
+public static final net.minecraft.world.item.Item BUCKET;
+public static final net.minecraft.world.item.Item WATER_BUCKET;
+public static final net.minecraft.world.item.Item LAVA_BUCKET;
+public static final net.minecraft.world.item.Item POWDER_SNOW_BUCKET;
+public static final net.minecraft.world.item.Item MILK_BUCKET;
+public static final net.minecraft.world.item.Item PUFFERFISH_BUCKET;
+public static final net.minecraft.world.item.Item SALMON_BUCKET;
+public static final net.minecraft.world.item.Item COD_BUCKET;
+public static final net.minecraft.world.item.Item TROPICAL_FISH_BUCKET;
+public static final net.minecraft.world.item.Item AXOLOTL_BUCKET;
+public static final net.minecraft.world.item.Item SULFUR_CUBE_BUCKET;
+public static final net.minecraft.world.item.Item TADPOLE_BUCKET;
+``
