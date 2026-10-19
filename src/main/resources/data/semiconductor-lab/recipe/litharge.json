@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:galena",
+  "result": { "id": "semiconductor-lab:litharge" },
+  "experience": 0.3,
+  "cookingtime": 200
+}

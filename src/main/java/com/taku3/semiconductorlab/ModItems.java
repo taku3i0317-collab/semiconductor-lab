@@ -60,6 +60,8 @@ public class ModItems {
 
     // --- 冶金（[1-26]）---
     public static final Item STEEL_INGOT           = simple("steel_ingot");   // ベッセマー転炉の鋼（C 約0.1〜0.5%）
+    public static final Item LITHARGE              = simple("litharge");      // [1-27] 一酸化鉛 PbO（方鉛鉱を焙焼したもの）
+    public static final Item LEAD_INGOT            = simple("lead_ingot");    // [1-27] 鉛（PbO を炭素で還元）
 
     // --- 熱（[3-12] 耐火れんが＝珪石れんが・ディナス 1822）---
     public static final Item REFRACTORY_BRICK_BLANK = simple("refractory_brick_blank"); // 成形しただけ（未焼成）
@@ -78,7 +80,7 @@ public class ModItems {
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS,
-            STEEL_INGOT,
+            STEEL_INGOT, LITHARGE, LEAD_INGOT,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 

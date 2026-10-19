@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:litharge",
+  "result": { "id": "semiconductor-lab:lead_ingot" },
+  "experience": 0.5,
+  "cookingtime": 200
+}

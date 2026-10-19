@@ -180,5 +180,16 @@
   "item.semiconductor-lab.refractory_brick.note1": "ふつうのレンガは炉で溶ける。石英の多いレンガだけ耐える。",
   "item.semiconductor-lab.refractory_brick.note": "SiO2 が約95%の珪石れんが。耐火粘土れんがは約1600℃でやわらかくなるが、珪石れんがは融点（約1700℃）の近くまで硬いままなので、製鋼炉の天井に使われた。シリカは酸性なので、酸性のベッセマー転炉の内張りに合う。",
   "item.semiconductor-lab.refractory_brick.note3": "1822年 ウィリアム・ウェストン・ヤングが、ウェールズのニース谷の石英の多い「ディナス」岩かられんがを作った。だから珪石れんがは今もディナスれんがと呼ばれる。1860年代の高温の平炉は、このれんががあって可能になった。",
-  "item.semiconductor-lab.refractory_brick.note4": "珪石れんがは酸性なので、塩基性のスラグ（CaO・MgO）に食われる。だからリンを抜くトーマス転炉（1878）には塩基性のドロマイトの内張りが要った。石英は約573℃で結晶の形が変わって急に体積が変わるので、低い温度で急に熱したり冷やしたりすると割れる。"
+  "item.semiconductor-lab.refractory_brick.note4": "珪石れんがは酸性なので、塩基性のスラグ（CaO・MgO）に食われる。だからリンを抜くトーマス転炉（1878）には塩基性のドロマイトの内張りが要った。石英は約573℃で結晶の形が変わって急に体積が変わるので、低い温度で急に熱したり冷やしたりすると割れる。",
+  "item.semiconductor-lab.galena.note": "硫化鉛 PbS。鉛のおもな鉱石。かまどで焼くと焙焼されて一酸化鉛（PbO）になり、それをもう一度かまどに入れると鉛になる。方鉛鉱は少し銀（0.01〜1%）を含むことが多いが、取り出す灰吹法[1-32]は未実装。",
+  "item.semiconductor-lab.litharge": "一酸化鉛（リサージ）",
+  "item.semiconductor-lab.litharge.note1": "方鉛鉱を空気中で焼くと、硫黄がむせる気体になって出ていき、黄色い粉が残る。",
+  "item.semiconductor-lab.litharge.note": "PbO。方鉛鉱を空気中で焙焼して作る：2PbS + 3O2 → 2PbO + 2SO2。もう一度かまどに入れると、燃料の炭素や CO が酸素を奪う：PbO + C → Pb + CO。ここで出る SO2 は今は逃がしている（将来は硫酸の原料に回す）。",
+  "item.semiconductor-lab.litharge.note3": "リサージはギリシャ語で「銀の石」。鉛から銀を分けたときに残る黄色いかすだった。うわぐすり・鉛ガラス[7-01]・昔の絵の具にも使われた。",
+  "item.semiconductor-lab.litharge.note4": "本物の焙焼は、方鉛鉱が溶けない温度（約600〜800℃）で空気をたっぷり送り、溶かさずに硫黄だけを燃やす。実際の製錬所では焙焼と還元を続けて行うことが多く（焙焼還元）、SO2 は硫酸工場へ送る。",
+  "item.semiconductor-lab.lead_ingot": "鉛インゴット",
+  "item.semiconductor-lab.lead_ingot.note1": "昔の水道管と活字の金属。体に悪い。",
+  "item.semiconductor-lab.lead_ingot.note": "Pb。やわらかく重く（11.3 g/cm³）、327℃で溶けるので古代から製錬されてきた。酸にあまり溶けないので、硫酸の鉛室[6-12]、フッ酸の容器[2-10]、鉛蓄電池[4-07]に使う。鉛は毒：体にたまり、脳や神経を傷つける。",
+  "item.semiconductor-lab.lead_ingot.note3": "ローマ人は鉛で水道管を作った。ラテン語の plumbum から英語の plumbing（配管）と元素記号 Pb が生まれた。グーテンベルクの活字（1450年ごろ）は鉛・錫・アンチモンの合金。有鉛ガソリンや鉛の塗料は、鉛中毒のため20世紀に禁止された。",
+  "item.semiconductor-lab.lead_ingot.note4": "方鉛鉱はよく銀を含む。先に鉛を製錬し、灰吹法で銀を分けた：鉛を空気中で溶かして PbO にし、骨灰の皿に吸わせると銀だけが残る[1-32]。古代の銀（日本の石見銀山も）の多くはこうして作られた。"
 }

@@ -535,7 +535,7 @@ public class LabTests {
             "bessemer_converter", "coal_ash", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "hf_power_supply", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_screw", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "litharge", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
@@ -583,6 +583,26 @@ public class LabTests {
         h.assertTrue(recipeUses(h, "bessemer_converter", ModItems.REFRACTORY_BRICK), "converter lining should be refractory brick");
         h.assertFalse(recipeUses(h, "bessemer_converter", Items.CLAY_BALL), "converter no longer uses raw clay");
         LOG.info("[LAB] refractory brick: blank fires only in the blast furnace; Bessemer converter lined with refractory brick");
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [1-27] 鉛（方鉛鉱 → 焙焼 → PbO → 還元 → 鉛）
+    // =====================================================================
+
+    @GameTest
+    public void leadFromGalena(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        ItemStack pbo = cook(h, SMELT, ModItems.GALENA);
+        h.assertTrue(pbo.is(ModItems.LITHARGE), "roasting galena should give litharge (PbO), got " + pbo);
+        ItemStack pb = cook(h, SMELT, ModItems.LITHARGE);
+        h.assertTrue(pb.is(ModItems.LEAD_INGOT), "reducing PbO should give a lead ingot, got " + pb);
+        h.assertFalse(cook(h, SMELT, ModItems.GALENA).is(ModItems.LEAD_INGOT), "galena must not jump straight to lead (roast first)");
+        var leadTag = net.minecraft.tags.TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "ingots/lead"));
+        var ingots = net.minecraft.tags.TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "ingots"));
+        h.assertTrue(new ItemStack(ModItems.LEAD_INGOT).is(leadTag), "lead ingot should be in #c:ingots/lead");
+        h.assertTrue(new ItemStack(ModItems.LEAD_INGOT).is(ingots), "lead ingot should be in #c:ingots");
+        LOG.info("[LAB] lead: galena -> litharge (PbO) -> lead ingot, tagged c:ingots/lead");
         h.succeed();
     }
 
