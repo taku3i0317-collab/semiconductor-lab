@@ -161,7 +161,7 @@
   "block.semiconductor-lab.bessemer_converter": "Bessemer Converter",
   "block.semiconductor-lab.bessemer_converter.note1": "No fuel: just blow air through iron and it becomes steel.",
   "block.semiconductor-lab.bessemer_converter.note": "A vessel that blows air up through molten pig iron from tuyeres in the bottom (Bessemer, 1856). No fuel: first the silicon, then the carbon burn, and that heat alone keeps the iron molten. The flame shows the progress: 1) red sparks (silicon) → 2) long white flame (the carbon \"boil\") → 3) the flame drops: done. In game: one iron ingot (≈ pig iron) + blower power 20 kW × 20 s → one steel ingot.",
-  "block.semiconductor-lab.bessemer_converter.note3": "A real converter is a pear-shaped iron vessel that tilts on side trunnions to take in and pour out the iron. Air came from steam-driven blowing engines. The lining was rammed siliceous refractory (approximated with clay in game).",
+  "block.semiconductor-lab.bessemer_converter.note3": "A real converter is a pear-shaped iron vessel tilted on trunnions to pour iron in and out. The blast came from a steam blowing engine. The lining is acidic silica refractory (here: refractory silica bricks [3-12]; early converters rammed ganister, a siliceous rock with clay).",
   "block.semiconductor-lab.bessemer_converter.note4": "Inside, mostly 2C+O2→2CO; at the mouth the CO burns in air to CO2, making the long flame. Si+O2→SiO2 releases a lot of heat, so low-silicon pig iron does not get hot enough. The end of the blow (flame drop) was judged by eye, later with a spectroscope watching the flame's light.",
   "gui.semiconductor-lab.bessemer_converter.power": "Power %s",
   "gui.semiconductor-lab.bessemer_converter.stored": "Stored %s",
@@ -171,5 +171,14 @@
   "gui.semiconductor-lab.bessemer_converter.stage.silicon": "1 Silicon burns: red sparks",
   "gui.semiconductor-lab.bessemer_converter.stage.carbon": "2 Carbon burns: white flame",
   "gui.semiconductor-lab.bessemer_converter.stage.drop": "3 Flame drops: steel ready",
-  "gui.semiconductor-lab.refiner.dopant_wait": "Refining first; dopant waits for 9N"
+  "gui.semiconductor-lab.refiner.dopant_wait": "Refining first; dopant waits for 9N",
+  "item.semiconductor-lab.refractory_brick_blank": "Unfired Silica Brick",
+  "item.semiconductor-lab.refractory_brick_blank.note1": "Mostly quartz sand, shaped into a brick. It still has to be fired very hot.",
+  "item.semiconductor-lab.refractory_brick_blank.note": "Silica sand (SiO2) with a little clay to hold it together, pressed into shape. An ordinary furnace (~1000 C) is not hot enough: fire it in a blast furnace (~1450 C). During firing, quartz slowly turns into other crystal forms (tridymite, cristobalite), which is why silica bricks grow slightly instead of shrinking.",
+  "item.semiconductor-lab.refractory_brick_blank.placeholder": "Approximation: real Dinas bricks used about 2% lime as the binder. Lime [0-10] is not implemented yet, so clay holds the sand together (clay-bonded silica bricks also existed).",
+  "item.semiconductor-lab.refractory_brick": "Refractory Brick (Silica)",
+  "item.semiconductor-lab.refractory_brick.note1": "Ordinary bricks melt in a furnace. Only bricks full of quartz can take the heat.",
+  "item.semiconductor-lab.refractory_brick.note": "Silica brick, about 95% SiO2. Fire-clay bricks soften around 1600 C, but silica bricks stay hard almost up to their melting point (~1700 C), so they were used for the roofs of steel furnaces. Silica is acidic: it is the right lining for an acid Bessemer converter.",
+  "item.semiconductor-lab.refractory_brick.note3": "1822: William Weston Young made bricks from the quartz-rich 'Dinas' rock of the Vale of Neath in Wales, so silica bricks are still called Dinas bricks. They made the hot open-hearth furnaces of the 1860s possible.",
+  "item.semiconductor-lab.refractory_brick.note4": "Silica bricks are acidic and are eaten by basic slag (CaO, MgO). That is why the Thomas converter (1878) needed a basic dolomite lining to remove phosphorus. Quartz changes crystal form near 573 C with a sudden size change, so silica bricks crack if heated or cooled quickly at low temperature."
 }

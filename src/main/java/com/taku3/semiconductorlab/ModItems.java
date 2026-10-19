@@ -61,6 +61,10 @@ public class ModItems {
     // --- 冶金（[1-26]）---
     public static final Item STEEL_INGOT           = simple("steel_ingot");   // ベッセマー転炉の鋼（C 約0.1〜0.5%）
 
+    // --- 熱（[3-12] 耐火れんが＝珪石れんが・ディナス 1822）---
+    public static final Item REFRACTORY_BRICK_BLANK = simple("refractory_brick_blank"); // 成形しただけ（未焼成）
+    public static final Item REFRACTORY_BRICK      = simple("refractory_brick");       // 高温（約1450℃）で焼いたもの
+
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = simple("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = simple("junction_transistor_blank"); // 合金化前
@@ -75,6 +79,7 @@ public class ModItems {
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_POWER_SUPPLY, MAGNET, DYNAMO,
             HYDROGEN_GAS, OXYGEN_GAS,
             STEEL_INGOT,
+            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
     private static Item simple(String name) {

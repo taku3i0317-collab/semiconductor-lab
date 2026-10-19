@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:refractory_brick_blank",
+  "result": { "id": "semiconductor-lab:refractory_brick" },
+  "experience": 0.2,
+  "cookingtime": 200
+}

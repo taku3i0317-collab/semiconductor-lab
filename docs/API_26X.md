@@ -673,3 +673,16 @@ void ItemStack.enchant(Holder<Enchantment>, int);   ResourceKey<Enchantment> Enc
 TagKey<Block> BlockTags.STONE_ORE_REPLACEABLES / DEEPSLATE_ORE_REPLACEABLES;
 static RandomSource RandomSource.create(long);
 ``
+
+### タスク01（2026-10-19 javap で確認・GameTest で使用）
+``
+// net.minecraft.world.item.crafting.PlacementInfo
+public java.util.List<net.minecraft.world.item.crafting.Ingredient> ingredients();
+public boolean isImpossibleToPlace();
+// net.minecraft.world.item.crafting.Ingredient
+public boolean test(net.minecraft.world.item.ItemStack);
+// 使い方（LabTests.recipeUses）: recipeManager.byKey(key).map(r -> r.value().placementInfo().ingredients().stream().anyMatch(i -> i.test(stack)))
+// かまど系の出力（LabTests.cook）: recipeManager.getRecipeFor(RecipeType.BLASTING, new SingleRecipeInput(stack), level).map(r -> r.value().assemble(input))
+// Registry.keySet() → Set<Identifier>（BuiltInRegistries.ITEM.keySet() で全アイテム ID を列挙できた）
+``
+

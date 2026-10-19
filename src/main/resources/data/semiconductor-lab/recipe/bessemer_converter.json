@@ -8,7 +8,7 @@
   ],
   "key": {
     "I": "minecraft:iron_ingot",
-    "c": "minecraft:clay_ball",
+    "c": "semiconductor-lab:refractory_brick",
     "M": "semiconductor-lab:electric_motor"
   },
   "result": { "id": "semiconductor-lab:bessemer_converter", "count": 1 }

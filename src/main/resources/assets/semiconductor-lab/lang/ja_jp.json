@@ -161,7 +161,7 @@
   "block.semiconductor-lab.bessemer_converter": "ベッセマー転炉",
   "block.semiconductor-lab.bessemer_converter.note1": "燃料なしで、鉄に空気を吹き込むだけで鋼になる。",
   "block.semiconductor-lab.bessemer_converter.note": "溶けた銑鉄に底の羽口から空気を吹き込む炉（1856 ベッセマー）。燃料は使わない：先にケイ素が、次に炭素が燃える熱だけで鉄が溶けたまま保たれる。炎の色で進み具合がわかる：①赤い火花（ケイ素）→②白く長い炎（炭素が燃える「ボイル」）→③炎が落ちたら終わり。ゲーム：鉄インゴット（銑鉄の近似）1個＋送風機の電力 20kW×20秒 → 鋼インゴット1個。",
-  "block.semiconductor-lab.bessemer_converter.note3": "本物の転炉は洋なし形の鉄の容器で、横の軸で傾けて鉄を注ぎ入れ・注ぎ出す。送風は蒸気機関の送風機。内張りは珪石質の耐火物を突き固めたもの（ゲームでは粘土で近似）。",
+  "block.semiconductor-lab.bessemer_converter.note3": "本物の転炉は洋なし形の鉄の容器で、横の軸で傾けて鉄を注ぎ入れ・注ぎ出す。送風は蒸気機関の送風機。内張りは酸性の珪石質耐火物（ゲームでは耐火れんが[3-12]。初期の転炉はガニスター＝珪質の岩＋粘土を突き固めた）。",
   "block.semiconductor-lab.bessemer_converter.note4": "炉の中では主に 2C+O2→2CO、炉口で CO が空気と燃えて CO2 になり長い炎になる。Si+O2→SiO2 の発熱が大きく、ケイ素が少ない銑鉄では温度が上がりきらない。炎の終わり（フレームドロップ）は職人が目で見て判断し、のちに分光器で炎の光を見て判断した。",
   "gui.semiconductor-lab.bessemer_converter.power": "電力 %s",
   "gui.semiconductor-lab.bessemer_converter.stored": "蓄積 %s",
@@ -171,5 +171,14 @@
   "gui.semiconductor-lab.bessemer_converter.stage.silicon": "① ケイ素が燃える：赤い火花",
   "gui.semiconductor-lab.bessemer_converter.stage.carbon": "② 炭素が燃える：白く長い炎",
   "gui.semiconductor-lab.bessemer_converter.stage.drop": "③ 炎が落ちた＝鋼ができる",
-  "gui.semiconductor-lab.refiner.dopant_wait": "純度不足→先に精製中。ドーパントは待機"
+  "gui.semiconductor-lab.refiner.dopant_wait": "純度不足→先に精製中。ドーパントは待機",
+  "item.semiconductor-lab.refractory_brick_blank": "耐火れんが（未焼成）",
+  "item.semiconductor-lab.refractory_brick_blank.note1": "ほとんど石英の砂をれんがの形にしたもの。まだとても高い温度で焼く必要がある。",
+  "item.semiconductor-lab.refractory_brick_blank.note": "珪砂（SiO2）に少しの粘土をつなぎに混ぜ、型で成形したもの。ふつうのかまど（≈1000℃）では足りないので、溶鉱炉（≈1450℃）で焼く。焼くあいだに石英がゆっくり別の結晶（トリディマイト・クリストバライト）に変わるので、珪石れんがは焼くと縮まずに少しふくらむ。",
+  "item.semiconductor-lab.refractory_brick_blank.placeholder": "近似：本物のディナスれんがは結合材に石灰（約2%）を使う。石灰[0-10]が未実装のため粘土でつないでいる（粘土で固めた珪石質れんがも実在する）。",
+  "item.semiconductor-lab.refractory_brick": "耐火れんが（珪石れんが）",
+  "item.semiconductor-lab.refractory_brick.note1": "ふつうのレンガは炉で溶ける。石英の多いレンガだけ耐える。",
+  "item.semiconductor-lab.refractory_brick.note": "SiO2 が約95%の珪石れんが。耐火粘土れんがは約1600℃でやわらかくなるが、珪石れんがは融点（約1700℃）の近くまで硬いままなので、製鋼炉の天井に使われた。シリカは酸性なので、酸性のベッセマー転炉の内張りに合う。",
+  "item.semiconductor-lab.refractory_brick.note3": "1822年 ウィリアム・ウェストン・ヤングが、ウェールズのニース谷の石英の多い「ディナス」岩かられんがを作った。だから珪石れんがは今もディナスれんがと呼ばれる。1860年代の高温の平炉は、このれんががあって可能になった。",
+  "item.semiconductor-lab.refractory_brick.note4": "珪石れんがは酸性なので、塩基性のスラグ（CaO・MgO）に食われる。だからリンを抜くトーマス転炉（1878）には塩基性のドロマイトの内張りが要った。石英は約573℃で結晶の形が変わって急に体積が変わるので、低い温度で急に熱したり冷やしたりすると割れる。"
 }

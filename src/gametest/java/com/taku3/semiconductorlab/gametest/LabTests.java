@@ -535,7 +535,7 @@ public class LabTests {
             "bessemer_converter", "coal_ash", "copper_cable", "dynamo", "electric_motor", "electrolyzer", "fused_quartz",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_concentrate_from_sphalerite", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "hf_power_supply", "indium", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_screw", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "steam_engine",
+            "junction_transistor_blank", "lead_screw", "magnet", "phosphorus", "quartz_tube", "raw_germanium", "refractory_brick", "refractory_brick_blank", "steam_engine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "water_wheel", "zinc_ingot", "zone_refining_furnace"};
 
@@ -549,6 +549,40 @@ public class LabTests {
         }
         h.assertTrue(missing.isEmpty(), "recipes not loaded (JSON error or missing item?): " + missing);
         LOG.info("[LAB] recipes: all {} resolved in RecipeManager", RECIPES.length);
+        h.succeed();
+    }
+
+    /** かまど系（SMELTING / BLASTING）に1個入れたときの出力。レシピがなければ EMPTY */
+    private static <T extends net.minecraft.world.item.crafting.AbstractCookingRecipe> ItemStack cook(GameTestHelper h,
+            net.minecraft.world.item.crafting.RecipeType<T> type, net.minecraft.world.item.Item in) {
+        var input = new net.minecraft.world.item.crafting.SingleRecipeInput(new ItemStack(in));
+        return h.getLevel().getServer().getRecipeManager().getRecipeFor(type, input, h.getLevel())
+                .map(r -> r.value().assemble(input)).orElse(ItemStack.EMPTY);
+    }
+
+    /** レシピ id の材料に item が含まれるか（placementInfo の Ingredient で判定） */
+    private static boolean recipeUses(GameTestHelper h, String id, net.minecraft.world.item.Item item) {
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id(id));
+        return h.getLevel().getServer().getRecipeManager().byKey(key)
+                .map(r -> r.value().placementInfo().ingredients().stream().anyMatch(i -> i.test(new ItemStack(item)))).orElse(false);
+    }
+
+    // =====================================================================
+    // [3-12] 耐火れんが（珪石れんが・ディナス）
+    // =====================================================================
+
+    /** 成形品は溶鉱炉（≈1450℃）でだけ焼ける。ふつうのかまど（≈1000℃）では焼けない。転炉の内張りは耐火れんが */
+    @GameTest
+    public void refractoryBrick(GameTestHelper h) {
+        var BLAST = net.minecraft.world.item.crafting.RecipeType.BLASTING;
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        ItemStack fired = cook(h, BLAST, ModItems.REFRACTORY_BRICK_BLANK);
+        h.assertTrue(fired.is(ModItems.REFRACTORY_BRICK), "blast furnace should fire the blank into a refractory brick, got " + fired);
+        h.assertTrue(cook(h, SMELT, ModItems.REFRACTORY_BRICK_BLANK).isEmpty(), "an ordinary furnace (~1000 C) must not fire silica bricks");
+        h.assertTrue(recipeUses(h, "refractory_brick_blank", Items.SAND) && recipeUses(h, "refractory_brick_blank", Items.CLAY_BALL), "blank = silica sand + clay");
+        h.assertTrue(recipeUses(h, "bessemer_converter", ModItems.REFRACTORY_BRICK), "converter lining should be refractory brick");
+        h.assertFalse(recipeUses(h, "bessemer_converter", Items.CLAY_BALL), "converter no longer uses raw clay");
+        LOG.info("[LAB] refractory brick: blank fires only in the blast furnace; Bessemer converter lined with refractory brick");
         h.succeed();
     }
 
