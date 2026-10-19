@@ -3,6 +3,18 @@
 実行：`powershell -ExecutionPolicy Bypass -File tools\test.ps1`（中身は `./gradlew.bat runGameTest`。画面なしの専用サーバーで約20秒）
 テストのコード：src/gametest/java/com/taku3/semiconductorlab/gametest/LabTests.java ／ 全ログ：build/gametest.log
 
+## 2026-10-20 夜 タスク03（[4-12]→[3-10]→人造黒鉛ボート→帯域精製炉の電力駆動）
+**35 本中 35 本 PASSED、FAILED 0**（`All 35 required tests passed :)`）。ステップごとに実行し、毎回全部 PASSED（33→34→35）
+
+| 追加したテスト | 確かめること | 結果 |
+|---|---|---|
+| electric_furnace | 電気なしでは焼けない、5kW×200tick で耐火れんが成形品→耐火れんが（1tick前は未完成、LIT）、粘土黒鉛ボート成形品→ボート、鉄の原石は入らない、レシピ＝耐火れんが＋黒鉛棒、水素炉は電気炉から作る | ✅ |
+| acheson_furnace | 炭素なし→電流 0W、50kW→約278℃で止まり黒鉛にならない、500kW→942tick で 2500℃→1200tick で人造黒鉛2（炭素−4・砂−1）、電気を止めると冷えて止まる、電極＝黒鉛棒 | ✅ |
+| zone_refiner_power_and_boat | ボートなし→動かず電気も使わない、電気なし→停止、粘土黒鉛ボートは 9N 止まり（上限で電気を使わない）、人造黒鉛ボートで 10N、ボートは減らない、停電で一時停止→復帰で続き | ✅ |
+| （更新）zone_refining_purity / doping | 人造黒鉛ボート／粘土黒鉛ボート＋3kW を入れて従来どおり（6N→9N→10N、9N+P→n型 など） | ✅ |
+| （更新）recipes_resolve | 51→56 レシピ（電気炉・黒鉛棒・アチソン炉・人造黒鉛ボート ほか） | ✅ |
+| （更新）block_drops | 機械に電気炉・アチソン炉を追加 | ✅ |
+
 ## 2026-10-19 夜 タスク02（[5-01]→[1-45]/[5-10]→[5-02]→[4-09]）
 **32 本中 32 本 PASSED、FAILED 0**（`All 32 required tests passed :)`）。ノードごとに実行し、毎回全部 PASSED（29→30→31→32）
 

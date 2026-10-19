@@ -90,3 +90,9 @@
 - **Q-B4 帯域精製炉の電力 3kW**（「数kW」）。水車（最大2kW）だけだと約2/3の速さ。電気がないと一時停止（進捗は残る）、中身を入れ替えると進捗リセット（旧仕様どおり）
 - **Q-B5 ドーピングもボート必須**（溶けた帯を置く容器のため）。粘土ボートでも 9N のドーピングはできる＝第1章（トランジスタ）は人造黒鉛なしでもクリアできる
 - **Q-B6 ブロッククラス ZoneRefiningFurnaceBlock を削除**し ConsumerMachineBlock に統一（ブロック状態 facing/lit は同じなので見た目・既存ブロックは変わらない）
+
+### 段階5：第1章に残っている「仮」（lang の .placeholder と CHEMISTRY を全検索、2026-10-20）
+- **❌ 仮（本物と違う代用）が残っているもの**：①溶融石英 fused_quartz（かまど≈1000℃で溶かしている。本物は1713℃↑＝酸水素炎[7-02]。電気炉 1500℃でも届かない）②WO3 tungsten_trioxide（ソーダ[2-03]・塩酸[6-06]未実装）③真空管の封止圧 1.5kPa vacuum_tube（よいポンプ[5-15]/[5-05]待ち）④閃亜鉛鉱→Ge精鉱/インジウムの分割（CHEMISTRY #16、1出力のため）⑤溶鉱炉＝高炉の近似（#37）
+- **⚠️ 近似・省略（代用ではないが本物と少し違う）**：iron_ingot（銑鉄扱い）、refractory_brick_blank（石灰→粘土）、tungsten_wire（スエージング省略）、vacuum_chamber（バニラガラス）、hand_vacuum_pump（鋼・革）、mercury（容器・SO2）、mercury_vacuum_gauge（板ガラス）、vacuum_tube_assembly（鉄電極・導入線）、sealing_station（炎→電力）、leyden_jar（錫→銅）、graphite_rod（★今回追加：ピッチ省略）
+- **今回消えたもの**：graphite_boat.placeholder（人造黒鉛ボートで解消、CHEMISTRY #18✅）、hydrogen_furnace.placeholder（電気炉で解消）、CHEMISTRY #7・#77 の「帯域精製炉は仮電源・電力を消費しない」
+- **提案**：第1章の「仮ゼロ」の残りの大物は ①溶融石英。次は [7-02] 酸水素炎（H2/O2 ボンベ✅ がそろっているので前提はほぼ満たしている）を推奨
