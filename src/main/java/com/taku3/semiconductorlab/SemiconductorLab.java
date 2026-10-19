@@ -17,6 +17,7 @@ public class SemiconductorLab implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
+		ModDataComponents.initialize();
 		ModBlocks.initialize();
 		ModItems.initialize();
 		ModWorldGen.initialize();

@@ -29,7 +29,7 @@ public class ModItems {
     // --- ゲルマニウムの精錬・精製 ---
     public static final Item GERMANIUM_DIOXIDE     = simple("germanium_dioxide");
     public static final Item RAW_GERMANIUM         = simple("raw_germanium");       // 金属Ge 98%
-    public static final Item REFINED_GERMANIUM     = simple("refined_germanium");   // 帯域精製後
+    public static final Item REFINED_GERMANIUM     = register("refined_germanium", Item::new, new Item.Properties().component(ModDataComponents.PURITY, Purity.SIX_N));   // 帯域精製後
 
     // --- ドーピング ---
     public static final Item N_TYPE_GERMANIUM      = simple("n_type_germanium");

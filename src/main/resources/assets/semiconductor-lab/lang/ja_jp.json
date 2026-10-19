@@ -38,5 +38,11 @@
   "advancements.semiconductor-lab.chapter1.junction.description": "n型ゲルマニウムの両側にインジウムを置いて加熱。p-n-pの合金接合型トランジスタ（1952年）。",
   "block.semiconductor-lab.sphalerite_ore": "閃亜鉛鉱",
   "item.semiconductor-lab.sphalerite": "閃亜鉛鉱（原石）",
-  "item.semiconductor-lab.sulfur_dioxide": "二酸化硫黄"
+  "item.semiconductor-lab.sulfur_dioxide": "二酸化硫黄",
+  "tooltip.semiconductor-lab.purity": "純度: %s",
+  "tooltip.semiconductor-lab.purity.percent": "純度 %s",
+  "tooltip.semiconductor-lab.purity.ratio": "原子 %s 個に不純物が約1個",
+  "tooltip.semiconductor-lab.purity.hint": "トランジスタには 9N 以上が必要。帯域精製で一段ずつ純度を上げる。",
+  "tooltip.semiconductor-lab.shift": "Shift で詳細",
+  "item.semiconductor-lab.junction_transistor_blank": "合金接合型トランジスタ（未焼成）"
 }

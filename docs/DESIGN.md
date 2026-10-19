@@ -184,6 +184,9 @@
 - recipe / advancement / loot_table は単数形（1.21〜）
 - items/ の client item 定義が必要（1.21.4〜）
 
+- Fabric ItemTooltipCallback は引数4つ (stack, context, flag, lines)
+- Screen.hasShiftDown() は廃止。Shift判定は flag.isAdvanced()
+
 ## 変更履歴
 - 2026-10-19 化学ルールを追加。第1章フローを改訂（水バケツ廃止・硫酸ルート・閃亜鉛鉱・ドーピング・トランジスタ2種）
 

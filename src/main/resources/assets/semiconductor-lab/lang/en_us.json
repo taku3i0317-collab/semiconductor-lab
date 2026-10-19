@@ -38,5 +38,11 @@
   "advancements.semiconductor-lab.chapter1.junction.description": "Indium on both sides of n-type germanium, then heat: a p-n-p alloy-junction transistor (1952).",
   "block.semiconductor-lab.sphalerite_ore": "Sphalerite Ore",
   "item.semiconductor-lab.sphalerite": "Sphalerite",
-  "item.semiconductor-lab.sulfur_dioxide": "Sulfur Dioxide"
+  "item.semiconductor-lab.sulfur_dioxide": "Sulfur Dioxide",
+  "tooltip.semiconductor-lab.purity": "Purity: %s",
+  "tooltip.semiconductor-lab.purity.percent": "%s pure",
+  "tooltip.semiconductor-lab.purity.ratio": "About 1 impurity atom per %s atoms",
+  "tooltip.semiconductor-lab.purity.hint": "Transistors need 9N or better. Zone refining raises purity one step at a time.",
+  "tooltip.semiconductor-lab.shift": "Hold Shift for details",
+  "item.semiconductor-lab.junction_transistor_blank": "Alloy-Junction Transistor (Unfired)"
 }
