@@ -24,6 +24,7 @@ flax  # Survival [0-06] -8000
 slaked_lime  # Survival [0-11] -7000
 bittern  # Survival [0-16] -6000
 salt_pan  # Survival [0-16] -6000
+potters_wheel  # Survival [0-19] -4500
 raw_clay_whorl  # Survival [0-07] -4000
 earthenware_whorl  # Survival [0-07] -4000
 stone_whorl  # Survival [0-07] -4000
@@ -32,7 +33,6 @@ spindle  # Survival [0-07] -4000
 carded_wool  # Survival [0-07] -4000
 woolen_yarn  # Survival [0-07] -4000
 wooden_wheel  # Survival [0-09] -3500
-potters_wheel  # Survival [0-19] None
 assembly_bench  # Survival [None] None
 malachite  # Metallurgy [1-03] -5000
 malachite_ore  # Metallurgy [1-03] -5000
