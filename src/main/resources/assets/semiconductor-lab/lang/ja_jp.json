@@ -153,6 +153,7 @@
   "litho.semiconductor-lab.discovery.monolithic_ic.note": "1枚のシリコンの中のトランジスタと、別に作った抵抗が、酸化膜の上の Al の配線でつながっている。1959年にノイス（フェアチャイルド）が考えた形。1958年のキルビーの IC はゲルマニウムで、部品どうしを金の細い線で空中につないでいた：最初の IC だが、平らでなく、たくさん作るのはむずかしかった。",
   "vessel.semiconductor-lab.polyethylene_bottle": "ポリエチレンの瓶",
   "tooltip.semiconductor-lab.overlay": "重ね合わせのずれ：%s µm",
+  "litho.semiconductor-lab.fail.wrong_developer": "このレジストには合わない現像液（ポジ型＝アルカリ、ネガ型＝有機溶剤）",
   "advancements.semiconductor-lab.chapter1.root.title": "第1章：トランジスタの誕生",
   "advancements.semiconductor-lab.chapter1.root.description": "1947年。シリコンの前に、ゲルマニウムがあった。ゴール：トランジスタラジオを作ろう！",
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "灰の中の元素",

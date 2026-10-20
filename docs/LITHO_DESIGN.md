@@ -229,6 +229,7 @@ p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、そ
 - テストの汚れ：工程の汚れは洗浄台で 0 になり、検査台で5つとも見つかる
 
 ## 変更履歴
+- 2026-10-20 レジストの型（E と決めた形、[2-30] ネガ型 KPR）：ChipState.tone（resist_tone、既定 positive）、ChipOps.coat(w, tone)・tone(w)・develop(w, Developer.ALKALI／ORGANIC)（合わなければ wrong_developer）。ネガ型は expose の中で光の当たる所を反転（遊ぶ人は「ある所」を描くだけ）、現像後のレジストの模様はポジ型と同じ。はがすとポジ型に戻る。LithoExamples.process(.., tone)。ネガ型の膨らみ（細い線の限界）は今は表さない
 - 2026-10-20 ChipState に overlayNm（保存キー overlay_nm、既定0）、ChipOps.expose(w, mask, tool, overlayNm)：2層目からのずれの最大を残す。失敗にはしない（ツールチップ「重ね合わせのずれ」、v0.5 の歩留まり）。値は C のマスクアライナー（[8-17]）が決める
 - 2026-10-20 O-010：v03_chain を全部実機に（塗布機・現像槽・はがし槽＝E、マスクアライナー＝C）。発見に monolithic_ic（[9-22]、ノイスのプレーナ IC、Discoveries.integrated）を足して5つに。[9-18]・[9-22] ✅、§10 の表を今の状態に
 - 2026-10-20 初版（O-002 ①）

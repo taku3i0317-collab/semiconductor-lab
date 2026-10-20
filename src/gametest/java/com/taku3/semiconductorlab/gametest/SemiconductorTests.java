@@ -1039,6 +1039,17 @@ public class SemiconductorTests extends LabTestBase {
         ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(wafer, design, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
         h.assertTrue(done.is(Semiconductor.PROCESS_WAFER) && done.getCount() == 8, "8 process wafers come out");
         var made = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(done.get(ModDataComponents.CHIP_STATE)));
+        {   // ネガ型 KPR（[2-30]、E と決めた形）：同じ設計図・同じ描き方で、有機溶剤で現像すると同じチップ。アルカリでは現像しない
+            ItemStack nw = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8); nw.set(ModDataComponents.DOPANT, "boron");
+            ItemStack neg = com.taku3.semiconductorlab.litho.LithoExamples.process(nw, design, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE);
+            var negNl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(neg.get(ModDataComponents.CHIP_STATE)));
+            h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(negNl).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "negative KPR route gives the same chip");
+            var c1 = com.taku3.semiconductorlab.litho.ChipOps.coat(nw, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE).out();
+            h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.tone(c1), com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE, "tone kept after coating");
+            var x1 = com.taku3.semiconductorlab.litho.ChipOps.expose(c1, design.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+            h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.develop(x1).reason(), "wrong_developer", "negative resist is not developed in alkali");
+            h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.develop(x1, com.taku3.semiconductorlab.litho.ChipOps.Developer.ORGANIC).ok(), "negative resist is developed in an organic solvent");
+        }
         h.assertTrue(com.taku3.semiconductorlab.litho.Discoveries.match(made).size() == com.taku3.semiconductorlab.litho.Discoveries.all().size(), "processed chip = predicted chip");
         h.assertValueEqual(wafer.getCount(), 8, "the input stack is not changed");
         // まちがった順・合わない物は断られる（ウェハーはそのまま）

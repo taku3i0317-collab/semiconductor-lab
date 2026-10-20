@@ -11,15 +11,22 @@ import java.util.List;
  * 中身は ChipOps だけが書きかえる（C・E の機械は ChipOps を呼ぶ）。
  * contamination＝汚れの度合い（[9-14] 洗浄、E と決めた形）：削る・はがす・しみ込ませる・Al のたびに +1、ChipOps.clean で落とす。
  * 失敗にはしない（O-002 方針2）。ツールチップに出し、v0.5 の歩留まりの欠陥密度 D に足す
+ * tone＝レジストの型（[2-30] ネガ型 KPR／[2-32] ポジ型、E と決めた形）：塗るときに決まり、露光・現像の向きが変わる。
  * overlayNm＝重ね合わせのずれ（[8-17] アライメント、C と決めた形）：2層目からの露光のずれの最大（nm）。これも失敗にはしない（ツールチップ、v0.5 の歩留まり）
  */
 public record ChipState(int size, String substrate, List<Applied> done, BitGrid windows, Resist resist,
-                        BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination, int overlayNm) {
+                        BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination, int overlayNm, Tone tone) {
 
     /** レジストの状態 */
     public enum Resist {
         NONE, COATED, EXPOSED, DEVELOPED;
         public static final Codec<Resist> CODEC = Codec.STRING.xmap(s -> Resist.valueOf(s.toUpperCase()), r -> r.name().toLowerCase());
+    }
+
+    /** レジストの型：ポジ型＝光の当たった所が溶ける（アルカリで現像）、ネガ型＝光の当たった所が固まって残る（有機溶剤で現像） */
+    public enum Tone {
+        POSITIVE, NEGATIVE;
+        public static final Codec<Tone> CODEC = Codec.STRING.xmap(s -> Tone.valueOf(s.toUpperCase()), t -> t.name().toLowerCase());
     }
 
     /** 終わった層（拡散・窓・金属） */
@@ -43,7 +50,8 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
             Codec.BOOL.fieldOf("metal_film").forGetter(ChipState::metalFilm),
             Codec.INT.fieldOf("reclaims").forGetter(ChipState::reclaims),
             Codec.INT.optionalFieldOf("contamination", 0).forGetter(ChipState::contamination),
-            Codec.INT.optionalFieldOf("overlay_nm", 0).forGetter(ChipState::overlayNm)
+            Codec.INT.optionalFieldOf("overlay_nm", 0).forGetter(ChipState::overlayNm),
+            Tone.CODEC.optionalFieldOf("resist_tone", Tone.POSITIVE).forGetter(ChipState::tone)
     ).apply(i, ChipState::new));
 
     public ChipState {
@@ -52,7 +60,12 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
 
     /** ずれのない形（前からの呼び方） */
     public ChipState(int size, String substrate, List<Applied> done, BitGrid windows, Resist resist, BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination) {
-        this(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, 0);
+        this(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, 0, Tone.POSITIVE);
+    }
+
+    /** ポジ型の形（前からの呼び方） */
+    public ChipState(int size, String substrate, List<Applied> done, BitGrid windows, Resist resist, BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination, int overlayNm) {
+        this(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, Tone.POSITIVE);
     }
 
     /** 酸化膜つきの板から始めるとき（まだ何も描いていない） */
@@ -67,20 +80,21 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
 
     // ===== 書きかえ（新しい ChipState を返す） =====
     ChipState withSize(int s) {
-        return new ChipState(s, substrate, done, BitGrid.empty(s), resist, BitGrid.empty(s), metalFilm, reclaims, contamination, overlayNm);
+        return new ChipState(s, substrate, done, BitGrid.empty(s), resist, BitGrid.empty(s), metalFilm, reclaims, contamination, overlayNm, tone);
     }
-    ChipState withResist(Resist r, BitGrid pattern) { return new ChipState(size, substrate, done, windows, r, pattern, metalFilm, reclaims, contamination, overlayNm); }
-    ChipState withWindows(BitGrid w) { return new ChipState(size, substrate, done, w, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm); }
-    ChipState withMetalFilm(boolean m) { return new ChipState(size, substrate, done, windows, resist, resistPattern, m, reclaims, contamination, overlayNm); }
+    ChipState withResist(Resist r, BitGrid pattern) { return new ChipState(size, substrate, done, windows, r, pattern, metalFilm, reclaims, contamination, overlayNm, tone); }
+    ChipState withWindows(BitGrid w) { return new ChipState(size, substrate, done, w, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone); }
+    ChipState withTone(Tone t) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, t); }
+    ChipState withMetalFilm(boolean m) { return new ChipState(size, substrate, done, windows, resist, resistPattern, m, reclaims, contamination, overlayNm, tone); }
     /** 汚れを n 増やす（工程のあと）・target まで落とす（洗浄） */
-    ChipState dirtier(int n) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination + n, overlayNm); }
-    ChipState cleanedTo(int target) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, Math.min(contamination, Math.max(0, target)), overlayNm); }
+    ChipState dirtier(int n) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination + n, overlayNm, tone); }
+    ChipState cleanedTo(int target) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, Math.min(contamination, Math.max(0, target)), overlayNm, tone); }
     /** 重ね合わせのずれを記録（いちばん大きいずれを残す） */
-    ChipState overlay(int nm) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, Math.max(overlayNm, Math.max(0, nm))); }
+    ChipState overlay(int nm) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, Math.max(overlayNm, Math.max(0, nm)), tone); }
 
     ChipState plus(LayerKind k, BitGrid cells) {
         List<Applied> d = new ArrayList<>(done);
         d.add(new Applied(k, cells));
-        return new ChipState(size, substrate, d, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm);
+        return new ChipState(size, substrate, d, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone);
     }
 }

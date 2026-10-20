@@ -70,14 +70,17 @@ public final class LithoExamples {
      * 酸化膜つきの板（p型）に、設計図の層を順に全部の工程で焼く（塗布 → 露光 → 現像 → 削る → はがす → 拡散／Al）。
      * 途中で失敗したら、その理由を例外で投げる（テスト用）
      */
-    public static ItemStack process(ItemStack oxidizedWafer, ChipDesign d, ExposureTool tool) {
+    public static ItemStack process(ItemStack oxidizedWafer, ChipDesign d, ExposureTool tool) { return process(oxidizedWafer, d, tool, ChipState.Tone.POSITIVE); }
+
+    /** レジストの型つき（ネガ型 KPR は有機溶剤で現像） */
+    public static ItemStack process(ItemStack oxidizedWafer, ChipDesign d, ExposureTool tool, ChipState.Tone tone) {
         ItemStack w = oxidizedWafer;
         for (int i = 0; i < d.layers().size(); i++) {
             LayerKind k = d.layers().get(i).kind();
             MaskData mask = d.mask(i);
-            w = step(ChipOps.coat(w), "coat " + i);
+            w = step(ChipOps.coat(w, tone), "coat " + i);
             w = step(ChipOps.expose(w, mask, tool), "expose " + i);
-            w = step(ChipOps.develop(w), "develop " + i);
+            w = step(ChipOps.develop(w, tone == ChipState.Tone.NEGATIVE ? ChipOps.Developer.ORGANIC : ChipOps.Developer.ALKALI), "develop " + i);
             if (k == LayerKind.METAL) {
                 w = step(ChipOps.etchMetal(w), "etchMetal " + i);
                 w = step(ChipOps.strip(w), "strip " + i);

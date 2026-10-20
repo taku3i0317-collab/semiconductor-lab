@@ -48,8 +48,17 @@ public final class ChipOps {
 
     public static boolean canCoat(ItemStack w) { return coat(w).ok(); }
 
-    /** [9-19] レジストを塗る。酸化膜つきの板はここで加工中のウェハーになる */
-    public static Result coat(ItemStack w) {
+    /** [9-19] ポジ型レジストを塗る（前からの呼び方） */
+    public static Result coat(ItemStack w) { return coat(w, ChipState.Tone.POSITIVE); }
+
+    /** レジストの型（塗っていなければ null） */
+    public static ChipState.Tone tone(ItemStack w) { ChipState s = state(w); return s == null || s.resist() == ChipState.Resist.NONE ? null : s.tone(); }
+
+    /** 現像液の種類：ポジ型はアルカリの薄い水溶液（NaOH・KOH・のちに TMAH）、ネガ型は有機溶剤（キシレン、KPR・KTFR） */
+    public enum Developer { ALKALI, ORGANIC }
+
+    /** [9-19] レジストを塗る（型つき：ポジ型 [2-32]・ネガ型 [2-30] KPR）。酸化膜つきの板はここで加工中のウェハーになる */
+    public static Result coat(ItemStack w, ChipState.Tone tone) {
         ChipState s = state(w);
         if (s == null) {
             if (!w.is(Semiconductor.OXIDIZED_WAFER)) return Result.fail("not_oxidized");
@@ -58,7 +67,7 @@ public final class ChipOps {
             s = ChipState.fresh(sub, 0);
         }
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("already_coated");
-        return Result.ok(write(w, s.withResist(ChipState.Resist.COATED, s.resistPattern())));
+        return Result.ok(write(w, s.withTone(tone).withResist(ChipState.Resist.COATED, s.resistPattern())));
     }
 
     public static boolean canExpose(ItemStack w, MaskData mask, ExposureTool tool) { return expose(w, mask, tool).ok(); }
@@ -81,16 +90,22 @@ public final class ChipOps {
         if (!s.sized()) s = s.withSize(mask.size());
         else if (overlayNm > 0) s = s.overlay(overlayNm);   // 2層目から
         BitGrid lit = mask.kind().window ? mask.cells() : mask.cells().invert();
+        if (s.tone() == ChipState.Tone.NEGATIVE) lit = lit.invert();   // ネガ型：残したい所に光を当てる（マスクの白黒が逆＝ネガ型用のマスク。遊ぶ人は今までどおり「ある所」を描く）
         return Result.ok(write(w, s.withResist(ChipState.Resist.EXPOSED, lit)));
     }
 
     public static boolean canDevelop(ItemStack w) { return develop(w).ok(); }
 
     /** [9-21] 現像：光の当たった所のレジストが溶ける。resistPattern は「レジストが残っている所」になる */
-    public static Result develop(ItemStack w) {
+    public static Result develop(ItemStack w) { return develop(w, Developer.ALKALI); }
+
+    /** 現像（現像液つき）：ポジ型はアルカリで光の当たった所が溶け、ネガ型は有機溶剤で光の当たらなかった所が溶ける。型と現像液が合わないと "wrong_developer" */
+    public static Result develop(ItemStack w, Developer dev) {
         ChipState s = state(w);
         if (s == null || s.resist() != ChipState.Resist.EXPOSED) return Result.fail("not_exposed");
-        return Result.ok(write(w, s.withResist(ChipState.Resist.DEVELOPED, s.resistPattern().invert())));
+        boolean neg = s.tone() == ChipState.Tone.NEGATIVE;
+        if (dev != (neg ? Developer.ORGANIC : Developer.ALKALI)) return Result.fail("wrong_developer");
+        return Result.ok(write(w, s.withResist(ChipState.Resist.DEVELOPED, neg ? s.resistPattern() : s.resistPattern().invert())));
     }
 
     public static boolean canStrip(ItemStack w) { return strip(w).ok(); }
@@ -99,7 +114,7 @@ public final class ChipOps {
     public static Result strip(ItemStack w) {
         ChipState s = state(w);
         if (s == null || s.resist() == ChipState.Resist.NONE) return Result.fail("no_resist");
-        return Result.ok(write(w, s.withResist(ChipState.Resist.NONE, s.sized() ? BitGrid.empty(s.size()) : s.resistPattern()).dirtier(1)));
+        return Result.ok(write(w, s.withResist(ChipState.Resist.NONE, s.sized() ? BitGrid.empty(s.size()) : s.resistPattern()).withTone(ChipState.Tone.POSITIVE).dirtier(1)));
     }
 
     // ===== 削る =====
