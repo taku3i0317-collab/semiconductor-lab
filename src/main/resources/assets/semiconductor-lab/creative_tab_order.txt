@@ -116,6 +116,8 @@ mercury_vacuum_gauge  # Vacuum [5-10] 1874
 vacuum_tube_assembly  # Vacuum [5-02] 1904
 vacuum_tube  # Vacuum [5-02] 1904
 sealing_station  # Vacuum [5-02] 1904
+rotary_pump  # Vacuum [5-04] 1905
+diffusion_pump  # Vacuum [5-05] 1915
 rock_salt  # Gas [6-04] -1500
 salt  # Gas [6-04] -1500
 rock_salt_ore  # Gas [6-04] -1500

@@ -57,5 +57,17 @@
   "block.semiconductor-lab.sprengel_pump.note4": "Invented by Hermann Sprengel in London in 1865; his first pump emptied a half-litre vessel in about 20 minutes. In 1879 Swan and Edison exhausted their carbon-filament lamps with it, so the filaments glowed for a long time instead of burning out. Crookes ran several in series to study cathode rays in his discharge tubes - a path that led to the discovery of the electron.",
   "message.semiconductor-lab.sprengel_pump.need_mercury": "Not enough mercury (%s / %s). Right-click with mercury",
   "message.semiconductor-lab.sprengel_pump.no_chamber": "No vacuum chamber next to it",
-  "message.semiconductor-lab.sprengel_pump.running": "Mercury drops are falling: pumping the chamber next to it (down to 0.05 Pa)"
+  "message.semiconductor-lab.sprengel_pump.running": "Mercury drops are falling: pumping the chamber next to it (down to 0.05 Pa)",
+  "block.semiconductor-lab.rotary_pump": "Rotary Pump (Mercury-Sealed)",
+  "block.semiconductor-lab.rotary_pump.note1": "A pump that spins a rotor with a motor and pushes air out steadily. Place it next to a vacuum chamber.",
+  "block.semiconductor-lab.rotary_pump.note2": "250 W electric. Pumps the adjacent vacuum chamber down to 1 Pa (about 17 s from 1 atm). It can also pump a chamber beyond an adjacent diffusion pump (as its backing pump). Recipe: rotor + 2 steel + motor + 2 mercury.",
+  "block.semiconductor-lab.rotary_pump.note3": "In 1905 Gaede built a 'rotary mercury pump' that carried air in pockets sealed by mercury on a rotating part, turning the vacuum pump from a hand tool into a motor-driven machine. Oil-sealed rotary pumps followed soon after (⚠️ around 1907).",
+  "block.semiconductor-lab.rotary_pump.note4": "As the off-centre (eccentric) rotor turns, the space between it and the casing grows to draw gas in and shrinks to push it out. Sealing the gaps with a liquid (mercury, oil) is the key. The lab's 'hum' is this pump.",
+  "block.semiconductor-lab.rotary_pump.placeholder": "Approximation: stage 1 (mercury-sealed). Gaede's rotary mercury pump also used a separate backing pump; here it pumps directly from atmosphere. The 1 Pa limit is a game value. Oil stages (castor oil, silicone oil) come later.",
+  "block.semiconductor-lab.diffusion_pump": "Mercury Diffusion Pump",
+  "block.semiconductor-lab.diffusion_pump.note1": "A pump that knocks the remaining air away with a wind of mercury vapor. No moving parts.",
+  "block.semiconductor-lab.diffusion_pump.note2": "400 W heater. Place it next to both a vacuum chamber and a running rotary pump (backing). It starts once the chamber is below 10 Pa and brings it down to about 0.004 Pa, where it balances the leak (high vacuum, enough for evaporation). Recipe: 3 soda-lime glass + 2 iron + 2 mercury + tungsten wire (heater).",
+  "block.semiconductor-lab.diffusion_pump.note3": "In 1915 Gaede boiled mercury in an iron pot and blew the vapor through glass tubes: the diffusion pump. In 1916 Langmuir cooled the walls with water to condense the vapor (the condensation pump) and made it much faster. Now vacuum tubes and lamps could reach high vacuum.",
+  "block.semiconductor-lab.diffusion_pump.note4": "A fast downward jet of mercury vapor knocks any gas molecules that wander into it downwards. At atmospheric pressure there are too many molecules and the jet breaks up, so a backing pump must lower the pressure first. From 1928, low-vapor-pressure oils replaced mercury [5-06].",
+  "block.semiconductor-lab.diffusion_pump.placeholder": "Approximation: Gaede heated with a Bunsen burner (here an electric heater). The cold trap that stops mercury vapor drifting into the chamber, the cooling water and the warm-up time are omitted."
 }

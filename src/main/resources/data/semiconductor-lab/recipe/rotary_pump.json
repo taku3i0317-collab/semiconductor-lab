@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:pump_rotor",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:electric_motor",
+    "semiconductor-lab:mercury",
+    "semiconductor-lab:mercury"
+  ],
+  "result": {
+    "id": "semiconductor-lab:rotary_pump",
+    "count": 1
+  }
+}

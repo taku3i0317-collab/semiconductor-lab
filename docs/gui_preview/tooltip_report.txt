@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 190（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 192（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -229,6 +229,10 @@ en_us vacuum_chamber lines=3
 en_us vacuum_chamber shift lines=17
 en_us sprengel_pump lines=3
 en_us sprengel_pump shift lines=13
+en_us rotary_pump lines=11
+en_us rotary_pump shift lines=20
+en_us diffusion_pump lines=10
+en_us diffusion_pump shift lines=22
 en_us sealing_station lines=6
 en_us sealing_station shift lines=19
 en_us hydrochloric_acid lines=4
@@ -609,6 +613,10 @@ ja_jp vacuum_chamber lines=3
 ja_jp vacuum_chamber shift lines=17
 ja_jp sprengel_pump lines=3
 ja_jp sprengel_pump shift lines=11
+ja_jp rotary_pump lines=8
+ja_jp rotary_pump shift lines=16
+ja_jp diffusion_pump lines=7
+ja_jp diffusion_pump shift lines=18
 ja_jp sealing_station lines=5
 ja_jp sealing_station shift lines=16
 ja_jp hydrochloric_acid lines=3

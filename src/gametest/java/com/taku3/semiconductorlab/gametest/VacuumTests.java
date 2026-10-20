@@ -221,6 +221,47 @@ public class VacuumTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [5-04] 回転ポンプ・[5-05] 水銀拡散ポンプ（IMP2-01）：回転ポンプだけ → 1Pa どまり。拡散ポンプは前段なし・10Pa より上では動かない。両方で 約0.004Pa（漏れとつり合う） */
+    @GameTest
+    public void rotaryAndDiffusionPumps(GameTestHelper h) {
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), dp = p(2, 1, 1), rp = p(3, 1, 1);
+        h.setBlock(cp, Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(dp, Vacuum.DIFFUSION_PUMP.block);
+        var c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        var d = h.getBlockEntity(dp, com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.class);
+        long dFeed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.WATTS);
+        long rFeed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.RotaryPumpBlockEntity.WATTS);
+        // 拡散ポンプだけ（前段なし）：大気圧から引けない
+        tickConsumer(h, dp, d, 400, dFeed);
+        h.assertTrue(c.getPressure() >= VacuumChamberBlockEntity.ATM - 1, "diffusion pump alone cannot pump from 1 atm");
+        h.assertValueEqual(d.status(), com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.STATUS_NO_BACKING, "status: needs backing");
+        // 回転ポンプを拡散ポンプの向こうに：拡散ポンプ越しに容器を粗引き → 1Pa 近く
+        h.setBlock(rp, Vacuum.ROTARY_PUMP.block);
+        var r = h.getBlockEntity(rp, com.taku3.semiconductorlab.block.RotaryPumpBlockEntity.class);
+        h.assertTrue(r.target() == c, "rotary pump reaches the chamber through the diffusion pump (foreline)");
+        tickConsumer(h, rp, r, 20 * 30, rFeed);
+        h.assertTrue(c.getPressure() < 1.1, "rotary pump: 1 atm -> ~1 Pa in 30 s, got " + c.getPressure());
+        double rough = c.getPressure();
+        // 回転ポンプを回しながら拡散ポンプ：高真空へ
+        for (int i = 0; i < 20 * 30; i++) {
+            tickConsumer(h, rp, r, 1, rFeed);
+            tickConsumer(h, dp, d, 1, dFeed);
+            if (i % 20 == 0) c.setPressure(c.getPressure() + VacuumChamberBlockEntity.LEAK_PA_PER_SECOND);   // 漏れ込み（容器の tick の代わり）
+        }
+        h.assertTrue(c.getPressure() < 0.01, "diffusion pump: below 0.01 Pa (evaporation range), got " + c.getPressure());
+        h.assertTrue(c.getPressure() > com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.LIMIT_PA, "leak keeps it above the pump's own limit");
+        double high = c.getPressure();
+        // 圧力が高すぎると止まる
+        c.setPressure(50);
+        tickConsumer(h, rp, r, 1, rFeed);
+        h.assertValueEqual(d.status(), com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.STATUS_TOO_HIGH, "above 10 Pa the jet breaks down");
+        h.assertTrue(recipeUses(h, "rotary_pump", com.taku3.semiconductorlab.content.Precision.PUMP_ROTOR) && recipeUses(h, "rotary_pump", com.taku3.semiconductorlab.content.Metallurgy.MERCURY), "rotary pump = lathe-turned rotor + mercury seal");
+        h.assertTrue(recipeUses(h, "diffusion_pump", com.taku3.semiconductorlab.content.Chemistry.SODA_LIME_GLASS) && recipeUses(h, "diffusion_pump", com.taku3.semiconductorlab.content.Metallurgy.MERCURY), "diffusion pump = glass + iron + mercury");
+        LOG.info("[LAB] pumps [5-04][5-05]: rotary 1 atm -> {} Pa; + diffusion -> {} Pa", String.format("%.3f", rough), String.format("%.4f", high));
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Vacuum.SEALING_STATION.block, "真空管の封止", L(io(Vacuum.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),

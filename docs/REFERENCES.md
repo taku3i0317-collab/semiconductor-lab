@@ -556,6 +556,20 @@
 - Wikipedia「Henry Maudslay」：https://en.wikipedia.org/wiki/Henry_Maudslay
 - Wikipedia「Screw-cutting lathe」：https://en.wikipedia.org/wiki/Screw-cutting_lathe
 
+## O15. 機械のポンプと、蒸気の風のポンプ（回転ポンプ・水銀拡散ポンプ）［5-04］［5-05］
+**答え**：回転ポンプは、偏心したローターを回して気体を区切って押し出す（ゲーデの回転水銀ポンプ 1905、のちに油で封じる）。到達は 1〜0.1Pa。拡散ポンプは水銀（のちに油）を沸かし、蒸気の噴流で気体分子を下へたたき落とす（ゲーデ 1915、ラングミュア 1916）。動く部品がなく 10⁻⁴Pa 級まで引けるが、大気圧には吐き出せないので前段の回転ポンプが要る。
+
+- へえ①：動く部品がないのに、蒸気の風で空気を吹き飛ばす。
+- へえ②：拡散ポンプは「前段ポンプ」と組まないと動かない。2台を直列につなぐのが高真空の基本。
+- へえ③：ラングミュアは壁を水で冷やして蒸気を凝縮させ（凝縮ポンプ）、ずっと速くした。高真空の真空管・電球はこれでできた。
+- へえ④：1928年からは水銀の代わりに蒸気圧の低い油が使われた（油拡散ポンプ [5-06]）。
+
+確かさ：拡散ポンプの原理・前段ポンプが要る ◎／ゲーデ 1915（製造開始を 1913 とする資料もある）○／ガラスと鉄・ブンゼンバーナー ○（一資料）／ラングミュア 1916 ◎／回転水銀ポンプ 1905 ○／油回転ポンプ 1907ごろ △ → ゲーム内は ⚠️
+根拠：
+- Wikipedia「Diffusion pump」：https://en.wikipedia.org/wiki/Diffusion_pump
+- Chemistry World「Classic kit: Gaede's diffusion pump」：https://www.chemistryworld.com/opinion/classic-kit-gaedes-diffusion-pump/3004912.article
+- Wikipedia「Wolfgang Gaede」：https://en.wikipedia.org/wiki/Wolfgang_Gaede
+
 ---
 
 # 冶金と熱（タスク15〜）

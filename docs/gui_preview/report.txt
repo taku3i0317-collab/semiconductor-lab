@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 50（ja・en）、文字の置き場所 198、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 54（ja・en）、文字の置き場所 210、問題 0
 bessemer_converter_en_us power gui.semiconductor-lab.bessemer_converter.power w=69 lines=1/1
 bessemer_converter_en_us stored gui.semiconductor-lab.bessemer_converter.stored w=65 lines=1/1
 bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_iron w=120 lines=1/1
@@ -80,6 +80,20 @@ electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.need_input w=
 electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.output_full w=53 lines=1/3
 electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.need_power w=46 lines=1/3
 electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.heating w=81 lines=2/3
+rotary_pump_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+rotary_pump_en_us pressure gui.semiconductor-lab.pump.pressure w=58 lines=1/1
+rotary_pump_en_us hint gui.semiconductor-lab.pump.running w=38 lines=1/3
+rotary_pump_en_us hint gui.semiconductor-lab.pump.no_chamber w=108 lines=2/3
+rotary_pump_en_us hint gui.semiconductor-lab.pump.no_backing w=109 lines=2/3
+rotary_pump_en_us hint gui.semiconductor-lab.pump.too_high w=103 lines=2/3
+rotary_pump_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+diffusion_pump_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+diffusion_pump_en_us pressure gui.semiconductor-lab.pump.pressure w=58 lines=1/1
+diffusion_pump_en_us hint gui.semiconductor-lab.pump.running w=38 lines=1/3
+diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_chamber w=108 lines=2/3
+diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_backing w=109 lines=2/3
+diffusion_pump_en_us hint gui.semiconductor-lab.pump.too_high w=103 lines=2/3
+diffusion_pump_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
 sealing_station_en_us power gui.semiconductor-lab.sealing_station.power w=63 lines=1/1
 sealing_station_en_us pressure gui.semiconductor-lab.sealing_station.pressure w=85 lines=1/1 scale=0.84999996
 sealing_station_en_us target gui.semiconductor-lab.sealing_station.target w=73 lines=1/1
@@ -278,6 +292,20 @@ electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.need_input w=
 electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.output_full w=45 lines=1/3
 electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.need_power w=36 lines=1/3
 electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.heating w=68 lines=1/3
+rotary_pump_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+rotary_pump_ja_jp pressure gui.semiconductor-lab.pump.pressure w=70 lines=1/1
+rotary_pump_ja_jp hint gui.semiconductor-lab.pump.running w=45 lines=1/3
+rotary_pump_ja_jp hint gui.semiconductor-lab.pump.no_chamber w=99 lines=2/3
+rotary_pump_ja_jp hint gui.semiconductor-lab.pump.no_backing w=99 lines=2/3
+rotary_pump_ja_jp hint gui.semiconductor-lab.pump.too_high w=77 lines=2/3
+rotary_pump_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+diffusion_pump_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+diffusion_pump_ja_jp pressure gui.semiconductor-lab.pump.pressure w=70 lines=1/1
+diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.running w=45 lines=1/3
+diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_chamber w=99 lines=2/3
+diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_backing w=99 lines=2/3
+diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.too_high w=77 lines=2/3
+diffusion_pump_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
 sealing_station_ja_jp power gui.semiconductor-lab.sealing_station.power w=51 lines=1/1
 sealing_station_ja_jp pressure gui.semiconductor-lab.sealing_station.pressure w=61 lines=1/1
 sealing_station_ja_jp target gui.semiconductor-lab.sealing_station.target w=70 lines=1/1

@@ -53,3 +53,6 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ [1-32] 銀（灰吹法）：骨灰の皿＋鉛8 → 溶鉱炉 → 銀の粒。GameTest silver_cupellation、CHEMISTRY M7〜M9、REFERENCES O13。テスト 106/106
 - ✅ [8-01] 旋盤：電気 750W、鋼 → ポンプのローター。新しく PrecisionTests.java（gametest の fabric.mod.json と CommonTests.exportMachineRecipes に1行ずつ）。GameTest lathe、CHEMISTRY P1、REFERENCES O14。テスト 107/107
   - IMP-30 の MachineLayout.standardTexts() は見本の文 "Power 500.0 kW" が 72px に入らず gui_layout テストで落ちる → 自分の2台（旋盤・水銀灯）は同じ置き場所で見本を 0.8kW・0.4kW にして自分で書いた。standardTexts 本体は触っていない（IMP 側の判断）
+- ✅ [5-04] 回転ポンプ（段階① 水銀封止）＋ [5-05] 水銀拡散ポンプ（1つの commit：回転ポンプが拡散ポンプ越しに容器を引くので互いに参照）。block/RotaryPumpBlockEntity・DiffusionPumpBlockEntity、画面 client/PumpScreen（容器の圧力と状態）。真空容器｜拡散｜回転 で 1気圧 → 1Pa → 約0.002Pa。GameTest rotary_and_diffusion_pumps、CHEMISTRY V1〜V3、REFERENCES O15。テスト 108/108
+  - 決定（ユーザー指示「1915年ごろの作り方：ガラス製・水銀・ヒーター」）：ゲーデのポンプは「ガラスと鉄」でガラスの種類は資料に無い → [2-15] ホウケイ酸を作らず [2-14] ソーダ石灰ガラス＋鉄の釜⚠️。加熱は電気のヒーター⚠️。TECH_TREE [5-05] に理由
+  - gui.semiconductor-lab.pump.* は lang の common 部品に入った（lang_add の自動振り分け）

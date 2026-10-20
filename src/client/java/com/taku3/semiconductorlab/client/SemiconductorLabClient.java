@@ -40,6 +40,8 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Power.STEAM_TURBINE, SteamEngineScreen::new);   // 蒸気機関と同じ画面
 		screen(Power.ELECTRIC_FURNACE, ElectricFurnaceScreen::new);
 		// 幹5 真空
+		screen(Vacuum.ROTARY_PUMP, PumpScreen::new);      // [5-04] IMP2-01
+		screen(Vacuum.DIFFUSION_PUMP, PumpScreen::new);   // [5-05] IMP2-01
 		screen(Vacuum.SEALING_STATION, SealingStationScreen::new);
 		// 幹6 ガス・電解
 		screen(Gas.ELECTROLYZER, ElectrolyzerScreen::new);

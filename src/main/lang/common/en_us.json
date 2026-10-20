@@ -10,5 +10,10 @@
   "gui.semiconductor-lab.machine.stored": "Stored %s",
   "gui.semiconductor-lab.machine.need_input": "Needs input (or output is full)",
   "gui.semiconductor-lab.machine.need_power": "Not enough power",
-  "gui.semiconductor-lab.machine.running": "Running"
+  "gui.semiconductor-lab.machine.running": "Running",
+  "gui.semiconductor-lab.pump.pressure": "P %s",
+  "gui.semiconductor-lab.pump.running": "Pumping",
+  "gui.semiconductor-lab.pump.no_chamber": "No chamber next to it",
+  "gui.semiconductor-lab.pump.no_backing": "Needs a backing pump",
+  "gui.semiconductor-lab.pump.too_high": "Rough to 10 Pa first"
 }

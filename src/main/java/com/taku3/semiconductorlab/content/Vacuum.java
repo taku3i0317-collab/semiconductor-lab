@@ -45,6 +45,10 @@ public final class Vacuum {
     public static final Machine<SprengelPumpBlockEntity> SPRENGEL_PUMP = Machine.builder("sprengel_pump", SprengelPumpBlockEntity::new)
             .block(SprengelPumpBlock::new).ticker(SprengelPumpBlockEntity::tick)
             .props(BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(1.0f).sound(SoundType.GLASS).noOcclusion()).build();
+    // 回転ポンプ [5-04] 段階①（IMP2-01、ゲーデの回転水銀ポンプ 1905）：モーター 250W、1Pa まで。拡散ポンプの前段にもなる
+    public static final Machine<RotaryPumpBlockEntity> ROTARY_PUMP = Machine.electric("rotary_pump", RotaryPumpBlockEntity::new, RotaryPumpBlockEntity.LAYOUT, lit(metal(3.5f), 0));
+    // 水銀拡散ポンプ [5-05]（IMP2-01、ゲーデ 1915、ガラスと鉄）：ヒーター 400W、前段の回転ポンプと 10Pa 以下が要る。10⁻⁴Pa 級
+    public static final Machine<DiffusionPumpBlockEntity> DIFFUSION_PUMP = Machine.electric("diffusion_pump", DiffusionPumpBlockEntity::new, DiffusionPumpBlockEntity.LAYOUT, lit(metal(2.0f).sound(SoundType.GLASS), 4));
     // 封止台 [5-02]（真空管の排気・封じ切り台）。隣の真空容器が十分低圧のときだけ組立品を封じる。動作中は光る
     public static final Machine<SealingStationBlockEntity> SEALING_STATION = Machine.electric("sealing_station", SealingStationBlockEntity::new, SealingStationBlockEntity.LAYOUT, lit(metal(3.0f), 7));
 
