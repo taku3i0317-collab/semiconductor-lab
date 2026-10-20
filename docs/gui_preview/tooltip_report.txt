@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 570（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 571（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -755,6 +755,8 @@ en_us sprengel_pump lines=3
 en_us sprengel_pump shift lines=13
 en_us rotary_pump lines=11
 en_us rotary_pump shift lines=20
+en_us turbo_pump lines=8
+en_us turbo_pump shift lines=18
 en_us diffusion_pump lines=10
 en_us diffusion_pump shift lines=22
 en_us fused_quartz lines=4
@@ -1895,6 +1897,8 @@ ja_jp sprengel_pump lines=3
 ja_jp sprengel_pump shift lines=11
 ja_jp rotary_pump lines=8
 ja_jp rotary_pump shift lines=16
+ja_jp turbo_pump lines=6
+ja_jp turbo_pump shift lines=14
 ja_jp diffusion_pump lines=7
 ja_jp diffusion_pump shift lines=18
 ja_jp fused_quartz lines=3
