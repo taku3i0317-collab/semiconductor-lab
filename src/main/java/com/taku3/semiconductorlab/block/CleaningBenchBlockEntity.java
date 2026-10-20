@@ -28,7 +28,7 @@ public class CleaningBenchBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_WAFER, 8, 26, ChipOps::isProcessWafer)
             .in(SLOT_NITRIC, 26, 17, s -> s.is(Gas.NITRIC_ACID))
-            .in(SLOT_HF, 26, 35, s -> s.is(Chemistry.HYDROFLUORIC_ACID))
+            .in(SLOT_HF, 26, 35, s -> s.is(Chemistry.HF_TAG))
             .in(SLOT_WATER, 26, 53, s -> s.is(Chemistry.DISTILLED_WATER))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.cleaning_bench.power").samples("500.0 kW")
@@ -53,7 +53,7 @@ public class CleaningBenchBlockEntity extends ConsumerBlockEntity {
 
     @Override protected boolean canWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER));
-        return !out.isEmpty() && container.getItem(SLOT_NITRIC).is(Gas.NITRIC_ACID) && container.getItem(SLOT_HF).is(Chemistry.HYDROFLUORIC_ACID)
+        return !out.isEmpty() && container.getItem(SLOT_NITRIC).is(Gas.NITRIC_ACID) && container.getItem(SLOT_HF).is(Chemistry.HF_TAG)
                 && container.getItem(SLOT_WATER).is(Chemistry.DISTILLED_WATER) && canMerge(container.getItem(SLOT_OUT), out);
     }
 

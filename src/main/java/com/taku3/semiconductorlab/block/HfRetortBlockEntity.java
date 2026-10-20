@@ -22,7 +22,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 /**
  * 鉛のレトルト [2-10]（IMP4-01）：蛍石を硫酸といっしょに鉛の釜で約200〜250℃に熱すると、CaF2 + H2SO4 → CaSO4 + 2HF↑。
  * 出てきたフッ化水素の気体を、鉛の受け器の水に吸わせるとフッ酸になる（1771 シェーレ。ガラスのレトルトが侵食されて性質に気づいた）。
- * フッ酸はガラス（SiO2）を溶かすので、釜・受け器・瓶は鉛（のちにろう・ガタパーチャ・ポリエチレン）。電気は使わない（燃料式）。
+ * フッ酸はガラス（SiO2）を溶かすので、釜・受け器・瓶は鉛（のちにろう・ガタパーチャ・ポリエチレン）。空のポリエチレンの瓶を入れればポリエチレンの瓶入りになる。電気は使わない（燃料式）。
  * <pre>
  *   蛍石 1 ＋ 硫酸 1（ガラス瓶は機械の上に戻る）＋ 空の鉛の瓶 1 → フッ酸（鉛の瓶入り）1 ＋ 石こう（硫酸カルシウム）1
  *   吸収用の水：水バケツ 1 で {@link #RUNS_PER_WATER} 回（空のバケツが出口に戻る）
@@ -60,7 +60,7 @@ public class HfRetortBlockEntity extends BlockEntity implements MachineBE {
     public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
             .in(SLOT_FLUORITE, 8, 17, s -> s.is(Metallurgy.FLUORITE))
             .in(SLOT_ACID, 26, 17, s -> s.is(Chemistry.SULFURIC_ACID))
-            .in(SLOT_BOTTLE, 44, 17, s -> s.is(Metallurgy.LEAD_BOTTLE))
+            .in(SLOT_BOTTLE, 44, 17, HfRetortBlockEntity::isBottle)
             .in(SLOT_WATER, 8, 53, s -> s.is(Items.WATER_BUCKET))
             .in(SLOT_FUEL, 44, 53, HfRetortBlockEntity::isFuel)
             .out(SLOT_HF, OUT_X, OUT_Y)
@@ -74,6 +74,11 @@ public class HfRetortBlockEntity extends BlockEntity implements MachineBE {
     @Override public SimpleContainer getContainer() { return container; }
     @Override public ContainerData getMenuData() { return data; }
     public int getWater() { return water; }
+
+    /** 空の瓶：鉛かポリエチレン（ガラスは溶ける） */
+    public static boolean isBottle(ItemStack s) { return s.is(Metallurgy.LEAD_BOTTLE) || s.is(Chemistry.POLYETHYLENE_BOTTLE); }
+    /** 瓶に合わせたフッ酸（鉛の瓶 → hydrofluoric_acid、PE の瓶 → hydrofluoric_acid_pe） */
+    public static ItemStack hfFor(ItemStack bottle) { return new ItemStack(bottle.is(Chemistry.POLYETHYLENE_BOTTLE) ? Chemistry.HYDROFLUORIC_ACID_PE : Chemistry.HYDROFLUORIC_ACID); }
 
     public static boolean isFuel(ItemStack s) { return s.is(Items.COAL) || s.is(Items.CHARCOAL) || s.is(Metallurgy.COKE); }
 
@@ -90,9 +95,9 @@ public class HfRetortBlockEntity extends BlockEntity implements MachineBE {
     /** 材料がそろい、出口に空きがあるか（水は受け器に残っているか、バケツを空けて足せるか） */
     private boolean canReact() {
         if (!container.getItem(SLOT_FLUORITE).is(Metallurgy.FLUORITE) || !container.getItem(SLOT_ACID).is(Chemistry.SULFURIC_ACID)
-                || !container.getItem(SLOT_BOTTLE).is(Metallurgy.LEAD_BOTTLE)) return false;
+                || !isBottle(container.getItem(SLOT_BOTTLE))) return false;
         if (water <= 0 && !(container.getItem(SLOT_WATER).is(Items.WATER_BUCKET) && canMerge(container.getItem(SLOT_BUCKET), new ItemStack(Items.BUCKET)))) return false;
-        return canMerge(container.getItem(SLOT_HF), new ItemStack(Chemistry.HYDROFLUORIC_ACID))
+        return canMerge(container.getItem(SLOT_HF), hfFor(container.getItem(SLOT_BOTTLE)))
                 && canMerge(container.getItem(SLOT_GYPSUM), new ItemStack(Chemistry.CALCIUM_SULFATE));
     }
 
@@ -107,8 +112,9 @@ public class HfRetortBlockEntity extends BlockEntity implements MachineBE {
         ItemStack acid = container.getItem(SLOT_ACID);
         Vessel.returnEmpty(level, pos, acid, 1);   // 硫酸のガラス瓶は機械の上に戻る
         acid.shrink(1);
+        ItemStack hf = hfFor(container.getItem(SLOT_BOTTLE));
         container.getItem(SLOT_BOTTLE).shrink(1);
-        merge(SLOT_HF, new ItemStack(Chemistry.HYDROFLUORIC_ACID));
+        merge(SLOT_HF, hf);
         merge(SLOT_GYPSUM, new ItemStack(Chemistry.CALCIUM_SULFATE));
         container.setChanged();
     }

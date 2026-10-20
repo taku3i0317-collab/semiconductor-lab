@@ -1225,7 +1225,7 @@
   "gui.semiconductor-lab.gas_retort.out_full": "出口が満杯",
   "block.semiconductor-lab.lead_retort": "鉛のレトルト（フッ酸）",
   "block.semiconductor-lab.lead_retort.note1": "蛍石と硫酸を鉛の釜で熱して、フッ酸を作る装置。フッ酸はガラスを溶かすので、全部が鉛でできている。",
-  "block.semiconductor-lab.lead_retort.note2": "蛍石1＋硫酸1（ガラス瓶は上に戻る）＋空の鉛の瓶1 → フッ酸（鉛の瓶）1＋石こう1（10秒、燃料1個で8回、電気なし）。出てくる気体を受け器の水に吸わせる：水バケツ1杯で4回（空のバケツは出口へ）。CaF2 + H2SO4 → CaSO4 + 2HF。",
+  "block.semiconductor-lab.lead_retort.note2": "蛍石1＋硫酸1（ガラス瓶は上に戻る）＋空の鉛の瓶かポリエチレンの瓶1 → フッ酸（その瓶入り）1＋石こう1（10秒、燃料1個で8回、電気なし）。出てくる気体を受け器の水に吸わせる：水バケツ1杯で4回（空のバケツは出口へ）。CaF2 + H2SO4 → CaSO4 + 2HF。",
   "block.semiconductor-lab.lead_retort.note3": "1771年、シェーレは蛍石を硫酸といっしょにガラスのレトルトで熱し、新しい酸を見つけた。レトルトのガラスが内側から溶けて曇ったことで、この酸がガラスを溶かすと分かった。だから工場の釜・管・瓶は鉛（のちにろう・ゴム・ポリエチレン）で作られた。",
   "block.semiconductor-lab.lead_retort.note4": "今の工場は、約200〜250℃のゆっくり回る長い窯（ロータリーキルン）で反応させ、出てきたフッ化水素を冷やして液にする。副産物の石こうは、1トンのフッ化水素あたり約3.6トンも出る。",
   "block.semiconductor-lab.lead_retort.placeholder": "省略：量は記号的（本物は蛍石1つから HF が2つ）。フッ酸の濃さ（本物は約40〜70%）と吸収塔は表さない。",

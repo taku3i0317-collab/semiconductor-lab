@@ -251,6 +251,10 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         int bottles = drops.stream().filter(e -> e.getItem().is(Chemistry.GLASS_BOTTLE)).mapToInt(e -> e.getItem().getCount()).sum();
         h.assertValueEqual(bottles, 4, "4 glass bottles from the sulfuric acid popped out");
         drops.forEach(net.minecraft.world.entity.Entity::discard);
+        // ポリエチレンの瓶（S-006）：空の PE の瓶なら PE の瓶入りのフッ酸。どちらも HF のタグ
+        h.assertTrue(com.taku3.semiconductorlab.block.HfRetortBlockEntity.hfFor(new ItemStack(Chemistry.POLYETHYLENE_BOTTLE)).is(Chemistry.HYDROFLUORIC_ACID_PE) && com.taku3.semiconductorlab.block.HfRetortBlockEntity.hfFor(new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.LEAD_BOTTLE)).is(Chemistry.HYDROFLUORIC_ACID), "bottle decides the HF item");
+        h.assertTrue(new ItemStack(Chemistry.HYDROFLUORIC_ACID_PE).is(Chemistry.HF_TAG) && new ItemStack(Chemistry.HYDROFLUORIC_ACID).is(Chemistry.HF_TAG), "both in the HF tag");
+        h.assertTrue(com.taku3.semiconductorlab.block.EtchTankBlockEntity.isAcid(new ItemStack(Chemistry.HYDROFLUORIC_ACID_PE)), "etching tank takes HF in PE");
         LOG.info("[LAB] lead retort [2-10]: fluorite + H2SO4 + lead bottle -> HF (lead bottle) + gypsum; 1 water bucket = {} runs; glass bottles returned; no glass in recipe", com.taku3.semiconductorlab.block.HfRetortBlockEntity.RUNS_PER_WATER);
         h.succeed();
     }

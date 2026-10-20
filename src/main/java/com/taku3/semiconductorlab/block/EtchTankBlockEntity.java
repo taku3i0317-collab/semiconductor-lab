@@ -67,7 +67,7 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
     /** 入れてよい物：酸化膜つきの板（全部はがす）か、窓を開けられる／Al を削れる加工中のウェハー */
     public static boolean isInput(ItemStack s) { return s.is(Semiconductor.OXIDIZED_WAFER) || s.is(Semiconductor.WAXED_WAFER) || ChipOps.canEtchOxide(s) || ChipOps.canEtchMetal(s); }
     /** 酸：フッ酸（酸化膜）かリン酸（Al） */
-    public static boolean isAcid(ItemStack s) { return s.is(Chemistry.HYDROFLUORIC_ACID) || s.is(Chemistry.PHOSPHORIC_ACID) || s.is(Chemistry.SILICON_ETCH); }
+    public static boolean isAcid(ItemStack s) { return s.is(Chemistry.HF_TAG) || s.is(Chemistry.PHOSPHORIC_ACID) || s.is(Chemistry.SILICON_ETCH); }
 
     /** 1回の枚数：板は8枚ちょうど、加工中のウェハーは1〜8枚 */
     public static int batch(ItemStack w) {
@@ -84,7 +84,7 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
             if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
             ChipOps.Result r = ChipOps.etchMetal(w.copyWithCount(n)); return r.ok() ? r.out() : ItemStack.EMPTY;
         }
-        if (!acid.is(Chemistry.HYDROFLUORIC_ACID)) return ItemStack.EMPTY;
+        if (!acid.is(Chemistry.HF_TAG)) return ItemStack.EMPTY;
         if (ChipOps.isProcessWafer(w)) { ChipOps.Result r = ChipOps.etchOxide(w.copyWithCount(n)); return r.ok() ? r.out() : ItemStack.EMPTY; }
         return stripped(w, n);
     }
