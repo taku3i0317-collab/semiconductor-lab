@@ -149,7 +149,7 @@
      "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
     }
    ],
-   "descendants": 529
+   "descendants": 530
   },
   {
    "real_full": "火の利用は約100万年前（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -200,7 +200,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 513
+   "descendants": 514
   },
   {
    "real_full": "約2万年前（中国・仙人洞）、縄文土器 約1万6500年前。粘土鉱物（カオリナイト等）は約500〜600℃で結晶水が抜け、二度と水で戻らない（不可逆な脱水）",
@@ -274,7 +274,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 504
+   "descendants": 505
   },
   {
    "real_full": "約1万1500年前、肥沃な三日月地帯でヒトツブコムギ・エンマーコムギ・大麦を栽培化（穂が落ちない変異株を選び続けた）",
@@ -852,7 +852,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 477
+   "descendants": 478
   },
   {
    "real_full": "紀元前3500〜3000年、牛に引かせる四輪車（メソポタミア・中欧）。車軸と車輪の摩擦が課題（獣脂で潤滑）",
@@ -1018,7 +1018,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 493
+   "descendants": 494
   },
   {
    "real_full": "海水（塩分約3.5%）を砂に撒いて天日で濃くし（揚げ浜式・入浜式）、かん水を釜で煮詰めると NaCl が先に結晶する。残った母液が「にがり（苦汁）」＝ MgCl2 が主成分（ほかに MgSO4・KCl）。日本では縄文晩期の製塩土器から、能登の揚げ浜式は今も続く",
@@ -1682,7 +1682,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 419
+   "descendants": 420
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛。黒鉛るつぼは1840年代に普及（ディクソン、米墨戦争のころ）、特許は1850年）",
@@ -1732,7 +1732,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 375
+   "descendants": 376
   },
   {
    "real_full": "赤熱したブルームを叩いてスラグを絞り出す。炭素0.1%未満で柔らかく粘る。浸炭（木炭と加熱して表面に炭素を入れる）＋焼入れで刃物に",
@@ -1799,7 +1799,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 296
+   "descendants": 297
   },
   {
    "real_full": "中国は紀元前5世紀頃、欧州は14世紀。炉を高くし強く送風すると、炭素が溶け込んで融点が約1150℃に下がり鉄が液体で出る（銑鉄、C約4%）。硬いが脆い→鋳物",
@@ -1875,7 +1875,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 409
+   "descendants": 410
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -1947,7 +1947,7 @@
     }
    ],
    "media": [],
-   "descendants": 336
+   "descendants": 337
   },
   {
    "real_full": "1740頃 ベンジャミン・ハンツマン（シェフィールド）。鉄を密閉るつぼで完全に溶かし、炭素量の均一な鋼に（時計ばね用）。それ以前のウーツ鋼（インド）も同系統",
@@ -2021,7 +2021,7 @@
     }
    ],
    "media": [],
-   "descendants": 280
+   "descendants": 281
   },
   {
    "real_full": "1864 ピエール・マルタン（仏）が、シーメンスの蓄熱式炉[3-18]（設備＝1856 ジーメンス）を使って銑鉄とくず鉄を一緒に溶かし鋼にする「工程」を確立。くず鉄も溶かせ、成分を時間をかけて調整できる",
@@ -19380,6 +19380,57 @@
    "understanding": [],
    "buildable_now": true,
    "hee1": "5万トンのプレスは、何階建てのビルほどの大きさがある ⚠️（O-012 で追加。出典：Wikipedia「Heavy Press Program」、ASME Landmark #71・#89）",
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "📏",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "円や直線の目盛りを、人の手ではなく機械で正確に等しく刻む。それまで六分儀（[8-21]）や計算尺（[10-21]）の目盛りは職人が手で刻んでいた。イギリスのジェシー・ラムスデンは1766年ごろ最初の機械を作り、1775年に完成させた機械では誤差を角度の0.5秒より小さくした（スミソニアン、セント・アンドルーズ大学の資料）。経度委員会は、特許を取らずに作り方を公開し、ほかの人に教えることを条件に賞金を出した。のちの回折格子の刻線機（[8-12]、1882年）の先祖",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "未定（実装の前に相談）",
+   "id": "8-42",
+   "name": "目盛り刻み機",
+   "trunk": "8",
+   "trunk_name": "精密・計測",
+   "status": "❓",
+   "branch": false,
+   "year": 1775,
+   "year_range": "1766〜1775",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "1-11"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "六分儀の目盛りを、人の手ではなく機械が刻むようになった（O-012 で追加。出典：Smithsonian NMAH 694508、MacTutor「Jesse Ramsden」、Wikipedia「Dividing engine」）",
    "kind": "tech",
    "play": "",
    "missing": "",
@@ -43210,6 +43261,13 @@
    "to": "8-41",
    "kind": "requires",
    "group": 1,
+   "or": false
+  },
+  {
+   "from": "1-11",
+   "to": "8-42",
+   "kind": "requires",
+   "group": 0,
    "or": false
   },
   {
