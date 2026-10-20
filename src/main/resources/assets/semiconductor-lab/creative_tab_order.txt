@@ -73,6 +73,11 @@ blast_furnace_hearth  # Metallurgy [1-09] -450
 sphalerite  # Metallurgy [1-13] 1150
 zinc_ingot  # Metallurgy [1-13] 1150
 sphalerite_ore  # Metallurgy [1-13] 1150
+draw_plate  # Metallurgy [1-58] 1350
+diamond_die  # Metallurgy [1-58] 1350
+gold_wire  # Metallurgy [1-58] 1350
+gold_bonding_wire  # Metallurgy [1-58] 1350
+copper_wire  # Metallurgy [1-58] 1350
 fluorite  # Metallurgy [1-21] 1530
 fluorite_ore  # Metallurgy [1-21] 1530
 coke  # Metallurgy [1-10] 1709

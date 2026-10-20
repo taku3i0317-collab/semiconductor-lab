@@ -78,6 +78,12 @@ public final class Metallurgy {
     public static final Item PLATINUM_SPONGE       = Reg.item("platinum_sponge");
     public static final Item PLATINUM_COMPACT      = Reg.item("platinum_compact");
     public static final Item PLATINUM_INGOT        = Reg.item("platinum_ingot");   // c:ingots/platinum
+    // [1-58] 伸線（IMP4-01、S-001 の答え①）：引き板（穴が段々に小さい鉄の板、戻る）で金・銅の線、ダイヤモンドのダイス（戻る）でボンディング用の細い金線
+    public static final Item DRAW_PLATE            = Reg.item("draw_plate", com.taku3.semiconductorlab.item.ReusableToolItem::new, new Item.Properties().stacksTo(1));
+    public static final Item DIAMOND_DIE           = Reg.item("diamond_die", com.taku3.semiconductorlab.item.ReusableToolItem::new, new Item.Properties().stacksTo(1));
+    public static final Item GOLD_WIRE             = Reg.item("gold_wire");
+    public static final Item GOLD_BONDING_WIRE     = Reg.item("gold_bonding_wire");
+    public static final Item COPPER_WIRE           = Reg.item("copper_wire");
     public static final Item GRAPHITE              = Reg.item("graphite");
     public static final Item SPHALERITE            = Reg.item("sphalerite");
     public static final Item COAL_ASH              = Reg.item("coal_ash");

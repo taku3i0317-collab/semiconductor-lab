@@ -129,6 +129,28 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreChromite(GameTestHelper h)   { oreFeature(h, "chromite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.CHROMITE_ORE, st -> st.is(Blocks.DEEPSLATE)); }   // [1-40] IMP2 O-015
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
 
+    /** [1-58] 伸線（IMP4-01）：引き板（戻る）で金線・銅線、ダイヤモンドのダイス（戻る）で金のボンディング線。金の粒はボンディング線にならない */
+    @GameTest
+    public void wireDrawing(GameTestHelper h) {
+        var rm = h.getLevel().getServer().getRecipeManager();
+        java.util.function.Function<List<ItemStack>, net.minecraft.world.item.crafting.CraftingInput> grid = items -> {
+            List<ItemStack> g = new ArrayList<>(items); while (g.size() < 9) g.add(ItemStack.EMPTY);
+            return net.minecraft.world.item.crafting.CraftingInput.of(3, 3, g);
+        };
+        var in1 = grid.apply(List.of(new ItemStack(Items.GOLD_INGOT), new ItemStack(Metallurgy.DRAW_PLATE)));
+        var r1 = rm.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in1, h.getLevel()).orElseThrow().value();
+        ItemStack gw = r1.assemble(in1);
+        h.assertTrue(gw.is(Metallurgy.GOLD_WIRE) && gw.getCount() == 8, "gold ingot + draw plate -> 8 gold wire, got " + gw);
+        h.assertTrue(r1.getRemainingItems(in1).stream().anyMatch(st -> st.is(Metallurgy.DRAW_PLATE)), "draw plate comes back");
+        var in2 = grid.apply(List.of(new ItemStack(Metallurgy.GOLD_WIRE), new ItemStack(Metallurgy.DIAMOND_DIE)));
+        var r2 = rm.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in2, h.getLevel()).orElseThrow().value();
+        h.assertTrue(r2.assemble(in2).is(Metallurgy.GOLD_BONDING_WIRE) && r2.getRemainingItems(in2).stream().anyMatch(st -> st.is(Metallurgy.DIAMOND_DIE)), "gold wire + diamond die -> bonding wire, die back");
+        h.assertTrue(recipeUses(h, "copper_wire", Items.COPPER_INGOT), "copper wire too");
+        h.assertFalse(recipeUses(h, "gold_bonding_wire", Items.GOLD_NUGGET), "bonding wire is drawn wire, not nuggets");
+        LOG.info("[LAB] wire drawing [1-58]: draw plate (kept) -> 8 gold / copper wire; diamond die (kept) -> 8 gold bonding wire");
+        h.succeed();
+    }
+
     /** [1-18] 白金の精製（IMP4-01）：NH4Cl、王水で溶かす（瓶が戻る）、沈殿、焼いて海綿、圧粉を溶鉱炉で → インゴット（c:ingots/platinum） */
     @GameTest
     public void platinumRefining(GameTestHelper h) {

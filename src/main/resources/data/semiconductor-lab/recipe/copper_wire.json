@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:copper_ingot",
+    "semiconductor-lab:draw_plate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:copper_wire",
+    "count": 8
+  }
+}

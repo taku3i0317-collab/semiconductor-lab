@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:gold_wire",
+    "semiconductor-lab:diamond_die"
+  ],
+  "result": {
+    "id": "semiconductor-lab:gold_bonding_wire",
+    "count": 8
+  }
+}
