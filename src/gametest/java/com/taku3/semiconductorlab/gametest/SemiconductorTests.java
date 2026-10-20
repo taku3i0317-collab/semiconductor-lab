@@ -191,6 +191,65 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-15] 熱酸化（IMP4-01）
+    // =====================================================================
+
+    /** 板8＋酸素（ドライ）か水（ウェット）→ 酸化膜つきの板8。膜は Deal–Grove（ドライ約125nm・ウェット約660nm）、続けて焼くと伸びが鈍る。電気・材料なしでは進まない */
+    @GameTest(maxTicks = 80)
+    public void oxidationFurnace(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {Power.ELECTRIC_FURNACE.block.asItem(), Optics.QUARTZ_TUBE, Heat.REFRACTORY_BRICK})
+            h.assertTrue(recipeUses(h, "oxidation_furnace", it), "oxidation furnace = electric furnace [4-12] + quartz tube [7-02]: " + it);
+        int dry = com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.grow(0, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.DRY, 1), wet = com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.grow(0, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.WET, 1);
+        h.assertTrue(dry >= 115 && dry <= 135, "dry 1100C 1 h ~ 0.12 um (Deal-Grove), got " + dry);
+        h.assertTrue(wet >= 620 && wet <= 700, "wet 1100C 1 h ~ 0.66 um, got " + wet);
+        int dry2 = com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.grow(dry, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.DRY, 1);
+        h.assertTrue(dry2 - dry < dry, "second hour grows less than the first (parabolic): " + dry + " -> " + dry2);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.grow(0, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.DRY, 2) - dry2) <= 1, "two runs = one 2 h run (nm rounding)");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.colorOf(dry), "blue", "~125 nm looks blue on the colour chart");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.OXIDATION_FURNACE.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS);
+        ItemStack w = new ItemStack(Semiconductor.SILICON_WAFER, 16);
+        w.set(ModDataComponents.PURITY, Purity.NINE_N);
+        w.set(ModDataComponents.DOPANT, "boron");
+        c.setItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_WAFER, w);
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS + 10, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT).isEmpty(), "no oxygen / water -> nothing");
+        c.setItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT, new ItemStack(Gas.OXYGEN_GAS, 2));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS, feed);
+        ItemStack o = c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(o.is(Semiconductor.OXIDIZED_WAFER) && o.getCount() == com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN, "8 slices + O2 -> 8 oxidized, got " + o);
+        h.assertValueEqual(o.get(ModDataComponents.OXIDE_NM), dry, "dry film thickness");
+        h.assertValueEqual(o.get(ModDataComponents.DOPANT), "boron", "dopant kept");
+        h.assertValueEqual(Purity.nines(o.get(ModDataComponents.PURITY)), 9, "purity kept");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT).getCount(), 1, "1 bag of O2 used");
+        // ウェット：酸化膜つきの板を水蒸気でもう一度 → 続きから厚くなり、空のバケツが戻る
+        c.setItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_WAFER, c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT).copy());
+        c.setItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT, new ItemStack(Items.WATER_BUCKET));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS + 10, feed);
+        ItemStack o2 = c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT);
+        h.assertValueEqual(o2.get(ModDataComponents.OXIDE_NM), com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.grow(dry, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.WET, 1), "wet continues from the dry film");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_BUCKET).is(Items.BUCKET), "empty bucket returned");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT).isEmpty(), "water used");
+        // 隣のガスホルダーから酸素をもらう
+        h.setBlock(p(2, 1, 1), Gas.GAS_HOLDER.block);
+        h.getBlockEntity(p(2, 1, 1), GasHolderBlockEntity.class).setContentsForTest(GasType.OXYGEN, 20);
+        int finalDry = dry, wetNm = o2.get(ModDataComponents.OXIDE_NM);
+        h.runAfterDelay(25, () -> {   // 機械はふつうに tick する（10 tick に1回ホルダーから補充）
+            ItemStack ox = c.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT);
+            h.assertTrue(ox.is(Gas.OXYGEN_GAS) && ox.getCount() == 16, "pulls O2 from the gas holder up to 16, got " + ox);
+            LOG.info("[LAB] oxidation [9-15]: 8 slices + O2 -> {} nm (dry 1 h), + water -> {} nm (wet, continues), 2nd dry hour -> {} nm; pulls O2 from a gas holder", finalDry, wetNm, dry2);
+            h.succeed();
+        });
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 
@@ -449,6 +508,10 @@ public class SemiconductorTests extends LabTestBase {
             L(io(Semiconductor.GERMANIUM_SINGLE_CRYSTAL, 1)), CrystalPullerBlockEntity.WATTS, CrystalPullerBlockEntity.GROW_TICKS / 20.0, "純度と経路を受け継ぐ");
         rec(a, Semiconductor.DIFFUSION_FURNACE.block, "p-n 接合", L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN), "n型 か p型"), cond(alt(io(Metallurgy.BORON_TRIOXIDE, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SOURCE_PER_RUN), Chemistry.PHOSPHORUS), "板と反対の型")),
             L(io(Semiconductor.PN_JUNCTION_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN)), com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS / 20.0, "ドーパントが表面からしみ込む（1954：n型＋ホウ素）");
+        rec(a, Semiconductor.OXIDATION_FURNACE.block, "ドライ酸化", L(cond(alt(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), Semiconductor.OXIDIZED_WAFER), "酸化膜つきなら続きから"), mol(Gas.OXYGEN_GAS, 1)),
+            L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), "膜 約125nm（1100℃・1時間）")), com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS / 20.0, "Si + O2 → SiO2。Deal–Grove の式");
+        rec(a, Semiconductor.OXIDATION_FURNACE.block, "ウェット酸化", L(cond(alt(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), Semiconductor.OXIDIZED_WAFER), "酸化膜つきなら続きから"), io(Items.WATER_BUCKET, 1)),
+            L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), "膜 約660nm（1100℃・1時間）"), io(Items.BUCKET, 1)), com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS / 20.0, "Si + 2H2O → SiO2 + 2H2。水蒸気は膜を速く通る");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

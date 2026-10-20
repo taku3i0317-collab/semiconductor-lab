@@ -122,10 +122,12 @@
 - へえ①：シリコンは、自分の体からガラスのよろいを作れる。
 - へえ②：このよろいを「型紙」にして、決めた場所だけに不純物を入れられる。これがのちの IC（集積回路）の基本。
 - へえ③：ゲルマニウムの酸化物は水に溶けてしまい、よろいにならない。トランジスタはゲルマニウムで始まったのに、シリコンに主役が移った大きな理由。
-- へえ④：発見は偶然の産物と伝えられている（拡散炉に入り込んだ酸素・水分で膜ができた）。細部の経緯は ⚠️。
+- へえ④：発見は偶然と伝えられている。拡散炉で不純物を運んでいた水素に火がつき、できた水蒸気で板がガラスの膜におおわれた（Howard Huff の聞き取り）。きっかけを「管のもれ」とする回想（Mason Clark）もあり、細部は ⚠️。
+- へえ⑤（ゲーム）：膜は厚くなるほど伸びが遅くなる（厚さの2乗が時間に比例、Deal–Grove の式 1965）。水蒸気（ウェット）は酸素（ドライ）の約5倍の厚さが同じ時間でできる（1100℃・1時間でドライ約0.12µm、ウェット約0.66µm）。膜の色は干渉で、色見本と比べて厚さが分かる。
 
-確かさ：1955年発見・1957年発表 ◎（コンピュータ歴史博物館、TECH_TREE とも一致）／偶然の経緯 △
-根拠：コンピュータ歴史博物館「1955 酸化膜マスクの開発」（英語）
+確かさ：1955年発見・1957年発表 ◎（コンピュータ歴史博物館、ECS Interface 2007）／水素の火の話 ○（ただし回想に食い違いあり ⚠️）／Deal–Grove の定数 ◎（原論文と教科書の表）／色見本 ○
+ゲーム（2026-10-20 IMP4-01 で実装）：酸化炉（5kW・120秒＝1100℃・1時間）で板8＋酸素（ドライ）か水（ウェット）→ 酸化膜つきの板8。膜の厚さ nm と色がツールチップに出る。もう一度焼くと続きから厚くなる
+根拠：コンピュータ歴史博物館「1955: Development of Oxide Masking」https://www.computerhistory.org/siliconengine/development-of-oxide-masking/ 、ECS Interface 2007 秋号 https://www.electrochem.org/dl/interface/fal/fal07/fall07_p36-41.pdf 、Howard Huff「Transistors to integrated circuits」https://www.chiphistory.org/exhibits/ex_howard_huff_transitors_integrated_circuits/howard_huff_section2.pdf 、Mason Clark「Silicon Burns」https://smecc.org/silicon_burns_-_by_mason_clark.htm 、Deal & Grove, J. Appl. Phys. 36, 3770 (1965)、Pliskin & Conrad, IBM J. Res. Dev. 8, 43 (1964)（すべて英語）
 
 ---
 

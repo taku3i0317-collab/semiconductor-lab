@@ -199,5 +199,7 @@ silicon_wafer  # Semiconductor [9-12] 1954
 pn_junction_wafer  # Semiconductor [9-16] 1954
 wafer_saw  # Semiconductor [9-12] 1954
 diffusion_furnace  # Semiconductor [9-16] 1954
+oxidized_wafer  # Semiconductor [None] None
+oxidation_furnace  # Semiconductor [None] None
 transistor_radio  # Communication [15-10] 1954
 solar_cell  # Branches [B-12] 1954

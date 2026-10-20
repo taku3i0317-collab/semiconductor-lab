@@ -44,5 +44,14 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.STRING_UTF8)
                     .build());
 
+    // [9-15] 熱酸化の膜の厚さ（nm）。酸化膜つきの板に付く。Deal–Grove の式で育つ（IMP4-01）
+    public static final DataComponentType<Integer> OXIDE_NM = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("oxide_nm"),
+            DataComponentType.<Integer>builder()
+                    .persistent(Codec.intRange(0, 100_000))
+                    .networkSynchronized(ByteBufCodecs.VAR_INT)
+                    .build());
+
     public static void initialize() {}
 }

@@ -15,5 +15,20 @@
   "gui.semiconductor-lab.pump.running": "Pumping",
   "gui.semiconductor-lab.pump.no_chamber": "No chamber next to it",
   "gui.semiconductor-lab.pump.no_backing": "Needs a backing pump",
-  "gui.semiconductor-lab.pump.too_high": "Rough to 10 Pa first"
+  "gui.semiconductor-lab.pump.too_high": "Rough to 10 Pa first",
+  "tooltip.semiconductor-lab.oxide": "Oxide %s nm (%s)",
+  "tooltip.semiconductor-lab.oxide.hint": "Colour is interference; it changes with thickness",
+  "tooltip.semiconductor-lab.oxide.color.silver": "silver",
+  "tooltip.semiconductor-lab.oxide.color.tan": "tan",
+  "tooltip.semiconductor-lab.oxide.color.brown": "brown",
+  "tooltip.semiconductor-lab.oxide.color.violet": "violet",
+  "tooltip.semiconductor-lab.oxide.color.blue": "blue",
+  "tooltip.semiconductor-lab.oxide.color.light_blue": "light blue",
+  "tooltip.semiconductor-lab.oxide.color.yellow": "yellow",
+  "tooltip.semiconductor-lab.oxide.color.gold": "gold",
+  "tooltip.semiconductor-lab.oxide.color.orange": "orange",
+  "tooltip.semiconductor-lab.oxide.color.red_violet": "red-violet",
+  "tooltip.semiconductor-lab.oxide.color.green": "green",
+  "tooltip.semiconductor-lab.oxide.color.pink": "pink",
+  "tooltip.semiconductor-lab.oxide.color.blue_green": "blue-green"
 }

@@ -23,6 +23,14 @@ public class PurityTooltip {
                 if (Minecraft.getInstance().hasShiftDown())
                     lines.add(Component.translatable(K + "dopant.k", String.format("%.2f", dp.k)).withStyle(ChatFormatting.GRAY));
             }
+            // [9-15] 酸化膜の厚さと色（光の干渉で、厚さによって色が変わる）
+            Integer ox = stack.get(ModDataComponents.OXIDE_NM);
+            if (ox != null) {
+                lines.add(Component.translatable(K + "oxide", ox, Component.translatable(K + "oxide.color." + com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.colorOf(ox)))
+                        .withStyle(ChatFormatting.LIGHT_PURPLE));
+                if (Minecraft.getInstance().hasShiftDown())
+                    lines.add(Component.translatable(K + "oxide.hint").withStyle(ChatFormatting.GRAY));
+            }
             Double p = stack.get(ModDataComponents.PURITY);
             if (p == null) return;
             lines.add(Component.translatable(K + "purity", Purity.label(p)).withStyle(ChatFormatting.AQUA));

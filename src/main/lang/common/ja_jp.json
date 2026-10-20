@@ -15,5 +15,20 @@
   "gui.semiconductor-lab.pump.running": "引いている",
   "gui.semiconductor-lab.pump.no_chamber": "となりに真空容器がない",
   "gui.semiconductor-lab.pump.no_backing": "前段の回転ポンプが要る",
-  "gui.semiconductor-lab.pump.too_high": "先に 10Pa 以下へ"
+  "gui.semiconductor-lab.pump.too_high": "先に 10Pa 以下へ",
+  "tooltip.semiconductor-lab.oxide": "酸化膜 %s nm（%s）",
+  "tooltip.semiconductor-lab.oxide.hint": "色は光の干渉。厚さで変わる",
+  "tooltip.semiconductor-lab.oxide.color.silver": "銀色",
+  "tooltip.semiconductor-lab.oxide.color.tan": "うす茶",
+  "tooltip.semiconductor-lab.oxide.color.brown": "茶色",
+  "tooltip.semiconductor-lab.oxide.color.violet": "紫",
+  "tooltip.semiconductor-lab.oxide.color.blue": "青",
+  "tooltip.semiconductor-lab.oxide.color.light_blue": "水色",
+  "tooltip.semiconductor-lab.oxide.color.yellow": "黄色",
+  "tooltip.semiconductor-lab.oxide.color.gold": "金色",
+  "tooltip.semiconductor-lab.oxide.color.orange": "だいだい",
+  "tooltip.semiconductor-lab.oxide.color.red_violet": "赤紫",
+  "tooltip.semiconductor-lab.oxide.color.green": "緑",
+  "tooltip.semiconductor-lab.oxide.color.pink": "ピンク",
+  "tooltip.semiconductor-lab.oxide.color.blue_green": "青緑"
 }
