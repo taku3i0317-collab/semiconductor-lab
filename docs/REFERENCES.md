@@ -2507,6 +2507,20 @@
 - Wikipedia「Iron(II) sulfate」（green vitriol, copperas）：https://en.wikipedia.org/wiki/Iron(II)_sulfate
 - Wikipedia「Acid mine drainage」：https://en.wikipedia.org/wiki/Acid_mine_drainage
 
+## C40. 海の水から軽い金属（マグネシウムとダウ法）［1-39］
+**答え**：海水 1L には約1.3g のマグネシウムが溶けている。ダウ社は1916年に地下のかん水から、1941年にテキサス州フリーポートで海水からマグネシウムを取り出し始めた。塩化マグネシウムを乾かすとき、ふつうに熱すると水と反応して酸化マグネシウムになってしまう（加水分解）ので、塩化水素の中で乾かす。無水の塩化マグネシウムを溶かして電気分解すると、マグネシウムと塩素になる。マグネシウムはクロール法でチタンを取り出す還元剤になる。
+
+- へえ①：豆腐を固めるにがりの中に、軽い金属マグネシウムが入っている。
+- へえ②：にがりをただ焼くと、マグネシウムでなく白い粉（マグネシア）になる。
+- へえ③：マグネシウムは燃えるとまぶしく光り、昔のカメラのフラッシュに使われた。
+- へえ④：第二次大戦では、海水から作ったマグネシウムが飛行機に使われた。
+
+確かさ：ダウ 1916・1941 ◎／海水の Mg 約1.3g/L ◎／加水分解と HCl 雰囲気の乾燥 ◎
+根拠：
+- Wikipedia「Dow process」：https://en.wikipedia.org/wiki/Dow_process
+- Wikipedia「Magnesium」（製法）：https://en.wikipedia.org/wiki/Magnesium
+- Wikipedia「Magnesium chloride」（加水分解）：https://en.wikipedia.org/wiki/Magnesium_chloride
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

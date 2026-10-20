@@ -459,6 +459,27 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-39] マグネシウム（IMP3、O-018）：にがりをそのまま焼くと MgO（加水分解）、塩化水素の中なら無水 MgCl2。電解槽で Mg＋塩素 */
+    @GameTest(maxTicks = 100)
+    public void magnesiumDow(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(cook(h, SMELT, Survival.BITTERN).is(Metallurgy.MAGNESIUM_OXIDE), "bittern roasted in air hydrolyses -> MgO");
+        h.assertTrue(recipeUses(h, "bittern_under_hcl", Survival.BITTERN) && recipeUses(h, "bittern_under_hcl", Metallurgy.HYDROGEN_CHLORIDE_GAS), "dry under HCl");
+        h.assertTrue(cook(h, SMELT, Metallurgy.BITTERN_UNDER_HCL).is(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE), "-> anhydrous MgCl2");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Metallurgy.MAGNESIUM_CELL.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.SLOT_IN, new ItemStack(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 2));
+        for (int i = 0; i < 2; i++) tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.TICKS, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.SLOT_OUT).is(Metallurgy.MAGNESIUM) && c.getItem(com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.SLOT_OUT).getCount() == 2, "2 MgCl2 -> 2 Mg");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.SLOT_GAS).getCount(), 2, "and 2 chlorine");
+        LOG.info("[LAB] magnesium [1-39]: bittern in air -> MgO; under HCl -> anhydrous MgCl2; Dow cell -> Mg + Cl2");
+        h.succeed();
+    }
+
     /** [1-37] ニッケル（IMP3、S-004）：ペントランド鉱＋砂 → 鈹 → 焙焼 → NiO → ＋H2 → 粗 Ni → ＋CO4 → Ni(CO)4 → 分解 → Ni。もれると事故 */
     @GameTest
     public void nickelMond(GameTestHelper h) {

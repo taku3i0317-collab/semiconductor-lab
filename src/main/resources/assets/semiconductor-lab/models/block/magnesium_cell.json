@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/magnesium_cell_front",
+    "side": "semiconductor-lab:block/magnesium_cell_side",
+    "top": "semiconductor-lab:block/magnesium_cell_top"
+  }
+}

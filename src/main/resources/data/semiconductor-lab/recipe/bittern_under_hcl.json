@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:bittern",
+    "semiconductor-lab:bittern",
+    "semiconductor-lab:hydrogen_chloride_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:bittern_under_hcl",
+    "count": 1
+  }
+}

@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 138（ja・en）、文字の置き場所 522、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 140（ja・en）、文字の置き場所 528、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -83,6 +83,11 @@ hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_anode 
 hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_power w=90 lines=2/3
 hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.running w=143 lines=2/3
 hall_heroult_cell_en_us recipe gui.semiconductor-lab.hall_heroult_cell.recipe w=128 lines=1/1 scale=0.84999996
+magnesium_cell_en_us power gui.semiconductor-lab.machine.power w=75 lines=1/1
+magnesium_cell_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
+magnesium_cell_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
+magnesium_cell_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+magnesium_cell_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_input w=57 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_fuel w=106 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.running w=79 lines=1/2
@@ -678,6 +683,11 @@ hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_anode 
 hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_power w=63 lines=1/3
 hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.running w=76 lines=2/3
 hall_heroult_cell_ja_jp recipe gui.semiconductor-lab.hall_heroult_cell.recipe w=128 lines=1/1 scale=0.84999996
+magnesium_cell_ja_jp power gui.semiconductor-lab.machine.power w=63 lines=1/1
+magnesium_cell_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
+magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
+magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_input w=54 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_fuel w=72 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.running w=62 lines=1/2

@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:bittern_under_hcl"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.bittern_under_hcl"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.bittern_under_hcl.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.bittern_under_hcl.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:bittern_under_hcl"
+          }
+        ]
+      }
+    }
+  }
+}

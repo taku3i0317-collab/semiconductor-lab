@@ -56,6 +56,12 @@ public final class Metallurgy {
     public static final Item CARBON_MONOXIDE_GAS   = Reg.contained("carbon_monoxide_gas", Vessel.GAS_BAG);
     public static final Item NICKEL_CARBONYL_GAS   = Reg.item("nickel_carbonyl_gas", com.taku3.semiconductorlab.item.NickelCarbonylItem::new, new Item.Properties());
     public static final Item NICKEL                = Reg.item("nickel");
+    // [1-39] マグネシウム（IMP3、O-018、決定(b) ダウ法）：にがり（[0-16] 塩田）2＋塩化水素の袋 → かまど（塩化水素の中で乾かす）→ 無水の塩化マグネシウム
+    //   → マグネシウムの電解槽 → マグネシウム＋塩素。実験：にがりをそのまま焼くと、水と反応して酸化マグネシウムになる（加水分解）
+    public static final Item BITTERN_UNDER_HCL     = Reg.item("bittern_under_hcl");
+    public static final Item ANHYDROUS_MAGNESIUM_CHLORIDE = Reg.item("anhydrous_magnesium_chloride");
+    public static final Item MAGNESIUM_OXIDE       = Reg.item("magnesium_oxide");
+    public static final Item MAGNESIUM             = Reg.item("magnesium");
     public static final Item FLUORITE              = Reg.item("fluorite");         // [1-21] 蛍石 CaF2（IMP4-01、[2-10] フッ酸の原料。方鉛鉱・閃亜鉛鉱と同じ熱水鉱脈）
     public static final Item COKE                  = Reg.item("coke");             // [1-10] コークス（IMP4-01：[2-20] ガス工場のレトルトで石炭を乾留した残り。高炉での使い道は [1-10] で）
     public static final Item BAUXITE               = Reg.item("bauxite");          // [1-24] ボーキサイト（IMP4-01、アルミの原料。熱帯の風化残留土＝ジャングル・サバンナの地表近く）
@@ -195,6 +201,9 @@ public final class Metallurgy {
             .ticker(BlastFurnaceBlockEntity::tick).layout(BlastFurnaceBlockEntity.LAYOUT).props(lit(stone(3.5f), 14)).build();
     // ホール・エルー電解槽 [1-29]（IMP4-01）：アルミナ＋氷晶石の浴＋炭素の陽極 → アルミニウム（100kW、15kWh/個）
     public static final Machine<HallHeroultCellBlockEntity> HALL_HEROULT_CELL = Machine.electric("hall_heroult_cell", HallHeroultCellBlockEntity::new, HallHeroultCellBlockEntity.LAYOUT, lit(metal(4.0f), 7));
+
+    // マグネシウムの電解槽 [1-39]（IMP3、O-018、ダウ法）：無水 MgCl2 → Mg＋塩素。10kW
+    public static final Machine<MagnesiumCellBlockEntity> MAGNESIUM_CELL = Machine.electric("magnesium_cell", MagnesiumCellBlockEntity::new, MagnesiumCellBlockEntity.LAYOUT, metal(4.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

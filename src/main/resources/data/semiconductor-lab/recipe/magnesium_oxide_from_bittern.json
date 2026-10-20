@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:bittern",
+  "result": {
+    "id": "semiconductor-lab:magnesium_oxide"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}
