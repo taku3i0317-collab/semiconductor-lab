@@ -913,6 +913,20 @@
 - Wikipedia「Micrometer (device)」：https://en.wikipedia.org/wiki/Micrometer_(device)
 - Wikipedia「Calipers」：https://en.wikipedia.org/wiki/Calipers
 
+## O28. 薬品から作る純粋なガラス（合成石英、SiCl4 の炎加水分解）［7-15］［1-16］
+**答え**：トリクロロシランを作ると副産物の四塩化ケイ素 SiCl4 もたくさんできる。これを酸水素炎に吹きこむと、炎の中の水と反応して（SiCl4 + 2H2O → SiO2 + 4HCl）とても細かい SiO2 の粉になり、溶かし固めると不純物の極めて少ない合成石英になる（1934 コーニングのハイド）。紫外線をよく通すので、ArF の投影レンズやフォトマスクの板、光ファイバーの材料になる。
+
+- へえ①：天然の水晶より、薬品から作ったガラスのほうが純粋。
+- へえ②：多結晶シリコンの工場の「ゴミ」だった SiCl4 が、合成石英や光ファイバーの原料になる。
+- へえ③：光ファイバー（1970 コーニング）もこの炎の加水分解の方法で作られた。
+- へえ④：わずかな鉄や水（OH）でも紫外線を吸って熱くなり、レンズがゆがむ。だから露光装置のレンズの材料は純度で決まる。
+
+確かさ：反応式・副産物としての SiCl4 ◎／ハイド 1934（米国特許 2,272,342）◎（TECH_TREE の記述）／光ファイバー 1970 コーニング ◎／TCS 合成の SiCl4 の割合 1〜2割 ○
+根拠：
+- Wikipedia「Silicon tetrachloride」：https://en.wikipedia.org/wiki/Silicon_tetrachloride
+- Wikipedia「Fused quartz」（合成石英の製法）：https://en.wikipedia.org/wiki/Fused_quartz
+- Google Patents「US2272342」（ハイド）：https://patents.google.com/patent/US2272342A/en
+
 ---
 
 # 冶金と熱（タスク15〜）

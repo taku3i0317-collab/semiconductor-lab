@@ -81,6 +81,8 @@ public final class Metallurgy {
     // [1-16] 塩化水素ガス（乾いたもの、塩酸合成炉に水がないとき）→ トリクロロシラン SiHCl3（純度つき、蒸留で上がる）→ [1-17] 多結晶シリコン（純度つき）
     public static final Item HYDROGEN_CHLORIDE_GAS = Reg.contained("hydrogen_chloride_gas", Vessel.GAS_BAG);
     public static final Item TRICHLOROSILANE       = Reg.item("trichlorosilane");
+    // 四塩化ケイ素 SiCl4（IMP2、S-001）：トリクロロシラン反応器の副産物。合成石英 [7-15]・エピタキシー [9-30] の共通の材料
+    public static final Item SILICON_TETRACHLORIDE = Reg.item("silicon_tetrachloride");
     public static final Item POLYSILICON           = Reg.item("polysilicon");
     // [1-15] 金属シリコン（アーク炉で SiO2 + 2C → Si + 2CO、純度 98%＝冶金グレード。1個 ≈ 1kg）
     public static final Item METALLURGICAL_SILICON = Reg.item("metallurgical_silicon");

@@ -28,6 +28,8 @@ public final class Optics {
     // ===== アイテム =====
     public static final Item FUSED_QUARTZ          = Reg.item("fused_quartz");
     public static final Item QUARTZ_TUBE           = Reg.item("quartz_tube");
+    // [7-15] 合成石英（IMP2、S-001）：SiCl4 を酸水素炎で加水分解（ハイド 1934）。天然の珪石より不純物がずっと少なく、紫外をよく通す
+    public static final Item SYNTHETIC_QUARTZ      = Reg.item("synthetic_quartz");
     // [7-01] 光学ガラス（IMP2-01）。クラウン＝ソーダ石灰ガラスを溶鉱炉で長く溶かしてかき混ぜたもの（分散が小さい）、
     // フリント＝一酸化鉛 PbO を約4割入れた鉛ガラス（レイヴンズクロフト 1674。屈折率が高く、分散が大きい）
     public static final Item FLINT_GLASS_BATCH     = Reg.item("flint_glass_batch"); // 調合原料（砂5＋一酸化鉛1＋カリ1。レイヴンズクロフトと同じカリ [2-02]）

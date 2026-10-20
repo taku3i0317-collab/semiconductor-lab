@@ -81,7 +81,14 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
     public int getO2() { return o2Mol; }
 
     /** 入力は珪石 [1-46]（石英鉱脈の SiO2）。ネザークォーツは現実に無い素材なので受け付けない（化学ルール1、タスク13） */
-    public static boolean isInput(ItemStack s) { return s.is(Metallurgy.VEIN_QUARTZ); }
+    public static boolean isInput(ItemStack s) { return !productOf(s).isEmpty(); }
+
+    /** 炎に入れるとできる物：珪石 → 溶融石英、[7-15]（IMP2、S-001）SiCl4 → 合成石英（炎の中の水で加水分解 SiCl4 + 2H2O → SiO2 + 4HCl、ハイド 1934） */
+    public static ItemStack productOf(ItemStack in) {
+        if (in.is(Metallurgy.VEIN_QUARTZ)) return new ItemStack(Optics.FUSED_QUARTZ);
+        if (in.is(Metallurgy.SILICON_TETRACHLORIDE)) return new ItemStack(Optics.SYNTHETIC_QUARTZ);
+        return ItemStack.EMPTY;
+    }
 
     private static boolean canMerge(ItemStack out, ItemStack add) {
         if (out.isEmpty()) return true;
@@ -106,7 +113,7 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
 
     public static void tick(Level level, BlockPos pos, BlockState state, OxyhydrogenBurnerBlockEntity be) {
         if (level.isClientSide()) return;
-        boolean can = isInput(be.container.getItem(SLOT_IN)) && canMerge(be.container.getItem(SLOT_OUT), new ItemStack(Optics.FUSED_QUARTZ));
+        boolean can = isInput(be.container.getItem(SLOT_IN)) && canMerge(be.container.getItem(SLOT_OUT), productOf(be.container.getItem(SLOT_IN)));
         // 両方のガスがそろうときだけボンベを開ける（片方だけ開けても炎は出ない）
         boolean h2Ready = be.h2Mol >= H2_PER || be.container.getItem(SLOT_H2).is(Gas.HYDROGEN_CYLINDER);
         boolean o2Ready = be.o2Mol >= O2_PER || be.container.getItem(SLOT_O2).is(Gas.OXYGEN_CYLINDER);
@@ -120,8 +127,9 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
                 be.progress = 0;
                 be.h2Mol -= H2_PER;   // 2H2 + O2 → 2H2O（水蒸気になって出ていく）
                 be.o2Mol -= O2_PER;
+                ItemStack made = productOf(be.container.getItem(SLOT_IN));
                 be.container.getItem(SLOT_IN).shrink(1);
-                be.merge(SLOT_OUT, new ItemStack(Optics.FUSED_QUARTZ));
+                be.merge(SLOT_OUT, made);
                 be.container.setChanged();
             }
             be.setChanged();

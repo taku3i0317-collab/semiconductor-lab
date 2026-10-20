@@ -94,6 +94,7 @@ tungsten_bar  # Metallurgy [1-28] 1910
 tungsten_wire  # Metallurgy [1-28] 1910
 wolframite_ore  # Metallurgy [1-28] 1910
 hydrogen_furnace  # Metallurgy [1-28] 1910
+silicon_tetrachloride  # Metallurgy [7-15] 1920
 coal_ash  # Metallurgy [1-01] 1930
 germanium_concentrate  # Metallurgy [1-01] 1930
 germanium_dioxide  # Metallurgy [1-01] 1930
@@ -220,6 +221,7 @@ mercury_lamp_assembly  # Optics [7-10] 1901
 mercury_lamp_tube  # Optics [7-10] 1901
 mercury_lamp  # Optics [7-10] 1901
 half_silvered_mirror  # Optics [5-14] 1912
+synthetic_quartz  # Optics [7-15] 1920
 caf2_crystal  # Optics [7-15] 1920
 caf2_lens  # Optics [7-15] 1920
 bridgman_furnace  # Optics [7-15] 1920

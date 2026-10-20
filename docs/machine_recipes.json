@@ -949,6 +949,35 @@
     },
     {
       "machine": "semiconductor-lab:oxyhydrogen_burner",
+      "process": "合成石英を作る",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:silicon_tetrachloride",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_cylinder",
+          "count": 4,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_cylinder",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:synthetic_quartz",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "SiCl4 + 2H2O → SiO2 + 4HCl（炎の中で加水分解、ハイド 1934）"
+    },
+    {
+      "machine": "semiconductor-lab:oxyhydrogen_burner",
       "process": "石英を溶かす",
       "inputs": [
         {

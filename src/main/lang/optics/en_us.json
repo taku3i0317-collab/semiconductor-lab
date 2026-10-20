@@ -267,5 +267,11 @@
   "item.semiconductor-lab.photomask.note2": "Made from an original in the reduction camera (the pattern is copied exactly). Used in exposure machines. The soft emulsion wears out after 10 contact exposures.",
   "item.semiconductor-lab.photomask.note3": "Masks of the 1960s were photographic plates (emulsion masks). They were pressed right onto the wafer, so dust and scratches came quickly and masks were remade again and again.",
   "item.semiconductor-lab.photomask.note4": "Scratches and dust on a mask become defects on every chip (lower yield). Later, hard chrome-film masks [7-12] and projection printing that keeps the mask away from the wafer let a mask be used thousands of times.",
-  "item.semiconductor-lab.photomask.placeholder": "Approximation: the number of uses before wearing out (10) is a game value."
+  "item.semiconductor-lab.photomask.placeholder": "Approximation: the number of uses before wearing out (10) is a game value.",
+  "item.semiconductor-lab.synthetic_quartz": "Synthetic Quartz",
+  "item.semiconductor-lab.synthetic_quartz.note1": "Extremely pure quartz glass made from chemicals. It also passes invisible ultraviolet well.",
+  "item.semiconductor-lab.synthetic_quartz.note2": "Put silicon tetrachloride in the oxyhydrogen burner: SiCl4 + 2H2O (water in the flame) -> SiO2 + 4HCl. Far fewer impurities (iron, aluminum...) than fused quartz made by melting natural vein quartz.",
+  "item.semiconductor-lab.synthetic_quartz.note3": "In 1934 Hyde at Corning in the USA invented making pure glass by hydrolyzing SiCl4 in a flame (the patent says 'an oxygen flame'). Optical fibres (1970) were later made this way too.",
+  "item.semiconductor-lab.synthetic_quartz.note4": "In ArF (193 nm) lithography, most of the projection lens and the photomask plate are synthetic quartz. Even traces of iron or water (OH) absorb UV, heat up and distort the lens, so purity decides performance.",
+  "item.semiconductor-lab.synthetic_quartz.placeholder": "Approximation: the HCl gas produced is not collected (real plants recover and reuse it)."
 }

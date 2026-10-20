@@ -526,8 +526,46 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-15] 合成石英（IMP2、S-001）：トリクロロシラン反応器の合成4回ごとに副産物 SiCl4 → 酸水素バーナーで合成石英。珪石 → 溶融石英もそのまま */
+    @GameTest
+    public void syntheticQuartz(GameTestHelper h) {
+        var TR = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.class;
+        BlockPos rp = p(1, 1, 1);
+        h.setBlock(rp, Metallurgy.TRICHLOROSILANE_REACTOR.block);
+        var r = h.getBlockEntity(rp, TR);
+        var rc = r.getContainer();
+        int SI = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_SI, HCL = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_HCL;
+        int OUT = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_OUT, S4 = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_SICL4;
+        int ST = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_WATTS);
+        rc.setItem(SI, new ItemStack(Metallurgy.METALLURGICAL_SILICON, 4));
+        rc.setItem(HCL, new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS, 12));
+        tickConsumer(h, rp, r, ST * 3, feed);
+        h.assertValueEqual(rc.getItem(OUT).getCount(), 3, "3 runs -> 3 trichlorosilane");
+        h.assertTrue(rc.getItem(S4).isEmpty(), "no SiCl4 yet after 3 runs");
+        tickConsumer(h, rp, r, ST, feed);
+        h.assertValueEqual(rc.getItem(OUT).getCount(), 4, "4th run -> 4 trichlorosilane (unchanged)");
+        h.assertTrue(rc.getItem(S4).is(Metallurgy.SILICON_TETRACHLORIDE) && rc.getItem(S4).getCount() == 1, "every 4th run also gives 1 SiCl4");
+        // 酸水素バーナー：SiCl4 → 合成石英、珪石 → 溶融石英（今までどおり）
+        h.assertTrue(com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.productOf(new ItemStack(Metallurgy.SILICON_TETRACHLORIDE)).is(Optics.SYNTHETIC_QUARTZ), "SiCl4 in the flame -> synthetic quartz");
+        h.assertTrue(com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.productOf(new ItemStack(Metallurgy.VEIN_QUARTZ)).is(Optics.FUSED_QUARTZ), "vein quartz -> fused quartz as before");
+        BlockPos bp = p(3, 1, 1);
+        h.setBlock(bp, Optics.OXYHYDROGEN_BURNER.block);
+        var b = h.getBlockEntity(bp, com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.class);
+        var bc = b.getContainer();
+        bc.setItem(com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.SLOT_IN, new ItemStack(Metallurgy.SILICON_TETRACHLORIDE));
+        bc.setItem(com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.SLOT_H2, new ItemStack(Gas.HYDROGEN_CYLINDER));
+        bc.setItem(com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.SLOT_O2, new ItemStack(Gas.OXYGEN_CYLINDER));
+        tickBurner(h, bp, b, com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.MELT_TICKS);
+        h.assertTrue(bc.getItem(com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.SLOT_OUT).is(Optics.SYNTHETIC_QUARTZ), "burner makes synthetic quartz");
+        LOG.info("[LAB] synthetic quartz [7-15]: TCS reactor gives 1 SiCl4 per 4 runs; oxyhydrogen flame hydrolysis -> synthetic quartz");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Optics.OXYHYDROGEN_BURNER.block, "合成石英を作る", L(io(Metallurgy.SILICON_TETRACHLORIDE, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
+            L(io(Optics.SYNTHETIC_QUARTZ, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "SiCl4 + 2H2O → SiO2 + 4HCl（炎の中で加水分解、ハイド 1934）");
         rec(a, Optics.REDUCTION_CAMERA.block, "原図をフォトマスクに写す", L(kept(io("semiconductor-lab:rubylith", 1)), io(Optics.PHOTO_PLATE, 1), io(Optics.FERROUS_SULFATE, 1), io(Optics.SODIUM_THIOSULFATE, 1)),
             L(io(Optics.PHOTOMASK, 1)), com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.WATTS, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.TICKS / 20.0, "照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）");
         rec(a, Optics.BRIDGMAN_FURNACE.block, "CaF2 の単結晶を育てる", L(io(Metallurgy.FLUORITE, 4), io(com.taku3.semiconductorlab.content.Gas.ARGON_GAS, 1)),

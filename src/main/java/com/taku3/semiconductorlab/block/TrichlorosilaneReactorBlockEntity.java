@@ -25,6 +25,8 @@ import net.minecraft.world.level.block.state.BlockState;
  * 蒸留のスロットにトリクロロシランがあれば蒸留を、なければ合成をする。
  * ⚠️ 量は記号的：金属シリコン1個≈1kg、ガス1袋＝1mol で、本物の比（1kg の Si に HCl 107mol）とは合わない（DECISIONS_PENDING Q22-1）。
  * ⚠️ 電力・時間はゲームの都合（本物の合成は発熱反応で、電気は主に蒸留の加熱と冷却に使う）。
+ * IMP2（S-001）：合成 {@link #SICL4_EVERY} 回ごとに副産物の四塩化ケイ素 SiCl4 が1つ出る（Si + 4HCl → SiCl4 + 2H2。本物の合成でも 1〜2割は SiCl4）。
+ * 出口は SLOT_SICL4。合成石英 [7-15]・エピタキシー [9-30] の材料。それ以外の動きは前と同じ。
  */
 public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
     public static final double SYNTH_WATTS = 10_000, DISTILL_WATTS = 20_000;
@@ -34,10 +36,14 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
     /** 粗トリクロロシランの純度（2N）。ゲームの段階、⚠️ */
     public static final double CRUDE = 0.99;
     public static final double MAX = Purity.ELEVEN_N;
-    public static final int SLOT_SI = 0, SLOT_HCL = 1, SLOT_DISTILL = 2, SLOT_OUT = 3, SLOT_H2 = 4, SLOT_COUNT = 5;
+    public static final int SLOT_SI = 0, SLOT_HCL = 1, SLOT_DISTILL = 2, SLOT_OUT = 3, SLOT_H2 = 4, SLOT_SICL4 = 5, SLOT_COUNT = 6;
+    /** 何回の合成ごとに SiCl4 が1つ出るか（IMP2、S-001。⚠️ ゲームの値：本物は合成の1〜2割が SiCl4） */
+    public static final int SICL4_EVERY = 4;
     public static final int DATA_MODE = DATA_COUNT;   // 0＝合成、1＝蒸留
 
     private boolean distilling;
+    /** 合成した回数（SiCl4 の割合を決める。保存する） */
+    private int synthRuns;
 
     /** 画面のスロットの並び（IMP-28：前の TrichlorosilaneReactorMenu の代わり） */
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + 1)
@@ -46,6 +52,7 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_DISTILL, 8, 53, TrichlorosilaneReactorBlockEntity::isTcs)
             .out(SLOT_OUT, 78, 26)
             .out(SLOT_H2, 78, 50)
+            .out(SLOT_SICL4, 56, 17)
             .right("power", 17, 1, "gui.semiconductor-lab.trichlorosilane_reactor.power").samples("20.0 kW")
             .right("need", 27, 1, "gui.semiconductor-lab.trichlorosilane_reactor.need").samples("20 kW")
             .right("hint", 38, 3, "gui.semiconductor-lab.trichlorosilane_reactor.need_input", "gui.semiconductor-lab.trichlorosilane_reactor.need_power", "gui.semiconductor-lab.trichlorosilane_reactor.distilling", "gui.semiconductor-lab.trichlorosilane_reactor.running")
@@ -82,7 +89,8 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
         return isSilicon(container.getItem(SLOT_SI)) && container.getItem(SLOT_SI).getCount() >= SI_PER_RUN
                 && isHcl(container.getItem(SLOT_HCL)) && container.getItem(SLOT_HCL).getCount() >= HCL_PER_RUN
                 && canMerge(container.getItem(SLOT_OUT), tcs(CRUDE))
-                && canMerge(container.getItem(SLOT_H2), new ItemStack(Gas.HYDROGEN_GAS, H2_PER_RUN));
+                && canMerge(container.getItem(SLOT_H2), new ItemStack(Gas.HYDROGEN_GAS, H2_PER_RUN))
+                && ((synthRuns + 1) % SICL4_EVERY != 0 || canMerge(container.getItem(SLOT_SICL4), new ItemStack(Metallurgy.SILICON_TETRACHLORIDE)));
     }
 
     @Override protected void finishWork() {
@@ -96,9 +104,13 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
             container.getItem(SLOT_HCL).shrink(HCL_PER_RUN);
             merge(SLOT_OUT, tcs(CRUDE));
             merge(SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, H2_PER_RUN));
+            if (++synthRuns % SICL4_EVERY == 0) merge(SLOT_SICL4, new ItemStack(Metallurgy.SILICON_TETRACHLORIDE));
         }
         container.setChanged();
     }
+
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput out) { super.saveAdditional(out); out.putInt("SynthRuns", synthRuns); }
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput in) { super.loadAdditional(in); synthRuns = in.getIntOr("SynthRuns", 0); }
 
     @Override protected int extraDataCount() { return 1; }
     @Override protected int extraData(int i) { return i == DATA_MODE && distilling ? 1 : 0; }

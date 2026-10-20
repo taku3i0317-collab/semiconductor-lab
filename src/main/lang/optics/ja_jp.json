@@ -267,5 +267,11 @@
   "item.semiconductor-lab.photomask.note2": "縮小カメラで原図から作る（模様をそのまま写す）。露光の機械に入れて使う。乳剤はやわらかいので、密着露光10回で傷んで使えなくなる。",
   "item.semiconductor-lab.photomask.note3": "1960年代のマスクは写真の乾板（エマルジョンマスク）。ウェハーにぴったり押し当てて焼くので、ほこりや傷がすぐにつき、マスクを何度も作り直した。",
   "item.semiconductor-lab.photomask.note4": "マスクの傷やほこりは、そのままチップの欠陥になる（歩留まりが下がる）。のちに硬いクロムの膜のマスク [7-12] と、マスクを離して写す投影露光に変わり、マスクは何千回も使えるようになった。",
-  "item.semiconductor-lab.photomask.placeholder": "近似：傷む回数（10回）はゲームの値。"
+  "item.semiconductor-lab.photomask.placeholder": "近似：傷む回数（10回）はゲームの値。",
+  "item.semiconductor-lab.synthetic_quartz": "合成石英",
+  "item.semiconductor-lab.synthetic_quartz.note1": "薬品から作った、とても純粋な石英ガラス。目に見えない紫外線もよく通す。",
+  "item.semiconductor-lab.synthetic_quartz.note2": "酸水素バーナーに四塩化ケイ素を入れる：SiCl4 + 2H2O（炎の中の水）→ SiO2 + 4HCl。天然の珪石を溶かした溶融石英より不純物（鉄・アルミなど）がずっと少ない。",
+  "item.semiconductor-lab.synthetic_quartz.note3": "1934年、アメリカのコーニングのハイドが、SiCl4 を炎の中で加水分解して純粋なガラスを作る方法を発明した（特許の言葉は「酸素の炎」）。のちに光ファイバー（1970年）もこの方法で作られた。",
+  "item.semiconductor-lab.synthetic_quartz.note4": "ArF（193nm）の露光装置では、投影レンズのほとんどと、フォトマスクの板がこの合成石英。わずかな鉄や水（OH）でも紫外線を吸って熱くなり、レンズがゆがむので、不純物の少なさが性能を決める。",
+  "item.semiconductor-lab.synthetic_quartz.placeholder": "近似：出てくる HCl のガスは回収しない（本物は回収して使い回す）。"
 }

@@ -108,3 +108,7 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ [8-02] ねじ切りと互換性部品：旋盤（LatheBlockEntity、自分の [8-01]）に親ねじの入口。送りねじ（減らない）＋鋼 → 規格ねじ×4。削った部品に寸法の誤差の成分 Precision.PART_ERROR_UM（Precision.java で登録＝共通の ModDataComponents は触っていない）。誤差は旋盤ごとのくせ（±25µm、はじめて削るときに決まり保存）。GameTest lathe、CHEMISTRY P3、REFERENCES O26。テスト 139/139
 - ✅ [8-04] ノギスとマイクロメータ：年の順に2段（ノギス 1631＝青銅だけ、マイクロメータ 1848＝規格ねじ [8-02] の後）。item/GaugeItem：旋盤の部品の寸法を読みの細かさに丸めて表示、等級 A ≤10µm／B ≤20µm／C はマイクロメータでだけ決まる。マイクロメータのねじ 0.5mm は干渉計 [7-09] とそろえた。遊び方: 実験。GameTest calipers_and_micrometer、CHEMISTRY P4、REFERENCES O27。テスト 143/143
   - 等級を使う物（[8-08] ボールねじステージ・[8-14] 鏡筒の組立の材料に「等級 A の部品」を求める、など）は後日。決めるのはその時の指示で
+
+## S-001（相談役から、Q-IMP2-4 の答え）SiCl4 と合成石英
+- ✅ トリクロロシラン反応器（A が昔作った機械）に副産物 SiCl4 の出口を足しただけ（SLOT_SICL4、合成4回ごとに1つ、合成回数を保存）。合成・蒸留・既存のテストは前と同じ（trichlorosilane_reactor も PASS）。SiCl4 は Metallurgy.SILICON_TETRACHLORIDE（[9-30] で IMP4 も使える共通の素材）
+- ✅ [7-15] の合成石英：酸水素バーナー（自分の [7-02]）に SiCl4 の入口 → 合成石英（ハイド 1934）。[7-15] は ✅ に。GameTest synthetic_quartz、CHEMISTRY O31〜O32、REFERENCES O28。テスト 144/144
