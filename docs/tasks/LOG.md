@@ -452,3 +452,8 @@
 - 遊び方の1行（TECH_TREE）：高圧＝損失 1/100、交流＝変圧器が使える、整流器＝電気分解は直流だけ
 - **ネットワーク担当へ**：network_proposals Y-2（[4-11] の前提）は A が「水銀整流器 or 真空管」で解いた
 
+## O-015 tag v0.3a（2026-10-20）
+- ネガ型 KPR [2-30] ✅（E・D）と [9-32] ✅ がそろった。test.ps1 219/219（v03_chain・v03_chain_negative とも NOT）
+- ROADMAP：v0.3a ✅、今は v0.3b。version=0.3a。HUMAN_CHECK_TODAY を v0.3a の確認表に（ネガ型の通し・チップ）
+- jar：build/libs/semiconductor-lab-0.3a.jar（約2.5MB）、git tag v0.3a を push
+
