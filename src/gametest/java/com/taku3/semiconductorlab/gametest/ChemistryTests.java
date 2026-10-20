@@ -1037,6 +1037,26 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-15] ホウケイ酸ガラス（IMP3、O-014）
+    // =====================================================================
+
+    /** 砂＋B2O3＋ソーダ → 調合原料 → 溶鉱炉だけで溶ける。たき火で：ソーダ石灰ガラスは割れる、ホウケイ酸ガラスは割れない。カレットはかまどで戻る */
+    @GameTest
+    public void borosilicateGlass(GameTestHelper h) {
+        var BLAST = net.minecraft.world.item.crafting.RecipeType.BLASTING;
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        var FIRE = net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING;
+        h.assertTrue(recipeUses(h, "borosilicate_batch", com.taku3.semiconductorlab.content.Metallurgy.BORON_TRIOXIDE), "batch has B2O3");
+        h.assertTrue(cook(h, BLAST, Chemistry.BOROSILICATE_BATCH).is(Chemistry.BOROSILICATE_GLASS), "blast furnace melts it");
+        h.assertTrue(cook(h, SMELT, Chemistry.BOROSILICATE_BATCH).isEmpty(), "a plain furnace is not hot enough");
+        h.assertTrue(cook(h, FIRE, Chemistry.SODA_LIME_GLASS).is(Chemistry.CRACKED_GLASS), "soda-lime glass cracks on an open flame");
+        h.assertTrue(cook(h, FIRE, Chemistry.BOROSILICATE_GLASS).isEmpty(), "borosilicate glass does not crack");
+        h.assertTrue(cook(h, SMELT, Chemistry.CRACKED_GLASS).is(Chemistry.SODA_LIME_GLASS), "cullet remelts");
+        LOG.info("[LAB] borosilicate [2-15]: blast furnace only; campfire cracks soda-lime glass but not borosilicate; cullet remelts");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

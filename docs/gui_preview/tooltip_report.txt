@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 489（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 492（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -499,6 +499,12 @@ en_us chloroauric_acid lines=6
 en_us chloroauric_acid shift lines=14
 en_us gold_powder lines=6
 en_us gold_powder shift lines=12
+en_us borosilicate_batch lines=6
+en_us borosilicate_batch shift lines=14
+en_us borosilicate_glass lines=7
+en_us borosilicate_glass shift lines=14
+en_us cracked_glass lines=5
+en_us cracked_glass shift lines=11
 en_us hydrofluoric_acid_pe lines=4
 en_us hydrofluoric_acid_pe shift lines=11
 en_us bleaching_powder lines=5
@@ -1477,6 +1483,12 @@ ja_jp chloroauric_acid lines=4
 ja_jp chloroauric_acid shift lines=9
 ja_jp gold_powder lines=4
 ja_jp gold_powder shift lines=9
+ja_jp borosilicate_batch lines=4
+ja_jp borosilicate_batch shift lines=10
+ja_jp borosilicate_glass lines=5
+ja_jp borosilicate_glass shift lines=11
+ja_jp cracked_glass lines=4
+ja_jp cracked_glass shift lines=10
 ja_jp hydrofluoric_acid_pe lines=4
 ja_jp hydrofluoric_acid_pe shift lines=10
 ja_jp bleaching_powder lines=5

@@ -202,6 +202,11 @@ public final class Chemistry {
     public static final Item SPENT_AQUA_REGIA      = Reg.contained("spent_aqua_regia", Vessel.GLASS_BOTTLE);
     public static final Item CHLOROAURIC_ACID      = Reg.contained("chloroauric_acid", Vessel.GLASS_BOTTLE);
     public static final Item GOLD_POWDER           = Reg.item("gold_powder");
+    // [2-15] ホウケイ酸ガラス（IMP3、O-014）：砂6＋B2O3＋炭酸ナトリウム → 調合原料6 → 溶鉱炉（ふいごの強い火）→ ホウケイ酸ガラス（1893 ショット）。
+    //   実験：ソーダ石灰ガラスはたき火（直火）で割れる → 割れたガラス（カレット、かまどで溶かし直せる）。ホウケイ酸ガラスは割れない
+    public static final Item BOROSILICATE_BATCH    = Reg.item("borosilicate_batch");
+    public static final Item BOROSILICATE_GLASS    = Reg.item("borosilicate_glass");
+    public static final Item CRACKED_GLASS         = Reg.item("cracked_glass");
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
     public static final net.minecraft.tags.TagKey<Item> HF_TAG = net.minecraft.tags.TagKey.create(Registries.ITEM, SemiconductorLab.id("hydrofluoric_acid"));

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:soda_lime_glass",
+  "result": {
+    "id": "semiconductor-lab:cracked_glass"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}

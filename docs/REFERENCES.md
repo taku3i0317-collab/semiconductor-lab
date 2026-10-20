@@ -2148,6 +2148,20 @@
 - Nobel Prize「George de Hevesy」/ メダルの話：https://www.nobelprize.org/prizes/themes/the-nobel-medals-and-the-medal-for-the-prize-in-economic-sciences/
 - Wikipedia「Pseudo-Geber」：https://en.wikipedia.org/wiki/Pseudo-Geber
 
+## C28. 火にかけても割れないガラス（ホウケイ酸ガラス）［2-15］
+**答え**：ガラスにホウ素の酸化物 B2O3 を入れると、温めたときの伸び（熱膨張）がソーダ石灰ガラスの約3分の1になる（約 3.3 対 9 ×10⁻⁶/K）。急に熱しても熱い所と冷たい所の伸びの差が小さいので割れにくい。1893年ドイツ・イェーナのオットー・ショットが作り、1915年にアメリカのコーニングが「パイレックス」として売り出した。理科室のビーカー・フラスコ、熱くなるガラスの真空装置や真空管に使われた。
+
+- へえ①：理科室のビーカーが火にかけても割れないのは、ホウ素が入っているから。
+- へえ②：ふつうのガラスのコップに熱湯を注ぐと割れることがあるのは、熱衝撃のため。
+- へえ③：ショットはアッベ・ツァイスと組んで、レンズ用のガラスもたくさん作った。
+- へえ④：割れたガラス（カレット）は、原料に混ぜて溶かし直す。
+
+確かさ：ショット 1893・パイレックス 1915 ◎／組成と熱膨張の値 ◎／真空装置に使われたこと ○（ゲーデのポンプとの直接のつながりは ⚠️）
+根拠：
+- Wikipedia「Borosilicate glass」：https://en.wikipedia.org/wiki/Borosilicate_glass
+- Wikipedia「Otto Schott」：https://en.wikipedia.org/wiki/Otto_Schott
+- Wikipedia「Thermal shock」：https://en.wikipedia.org/wiki/Thermal_shock
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

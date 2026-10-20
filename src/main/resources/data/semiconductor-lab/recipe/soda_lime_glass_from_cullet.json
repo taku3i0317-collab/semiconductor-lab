@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:cracked_glass",
+  "result": {
+    "id": "semiconductor-lab:soda_lime_glass"
+  },
+  "experience": 0.0,
+  "cookingtime": 200
+}
