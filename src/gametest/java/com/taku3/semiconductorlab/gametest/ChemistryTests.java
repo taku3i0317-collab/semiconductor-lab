@@ -564,6 +564,25 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-24] ベンゼン・キシレン：温度で分ける分留（IMP3、O-007）
+    // =====================================================================
+
+    /** コールタール：たき火 → 軽油、かまど → 中油。軽油：たき火 → ベンゼン、かまど → キシレン */
+    @GameTest
+    public void benzeneXylene(GameTestHelper h) {
+        var CAMP = net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING;
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(cook(h, CAMP, Chemistry.COAL_TAR).is(Chemistry.LIGHT_OIL), "gentle heat -> light oil");
+        h.assertTrue(cook(h, SMELT, Chemistry.COAL_TAR).is(Chemistry.CARBOLIC_OIL), "strong heat -> middle oil");
+        h.assertTrue(cook(h, CAMP, Chemistry.LIGHT_OIL).is(Chemistry.BENZENE), "light oil, low temperature -> benzene (80 C)");
+        h.assertTrue(cook(h, SMELT, Chemistry.LIGHT_OIL).is(Chemistry.XYLENE), "light oil, higher temperature -> xylene (140 C)");
+        var ja = langJson("ja_jp");
+        h.assertTrue(ja.get("item.semiconductor-lab.benzene.note2").getAsString().contains("発がん性"), "benzene warns of carcinogenicity");
+        LOG.info("[LAB] benzene/xylene [2-24]: tar campfire -> light oil (furnace -> middle oil); light oil campfire -> benzene, furnace -> xylene");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

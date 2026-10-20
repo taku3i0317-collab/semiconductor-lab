@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 600,
+  "experience": 0.1,
+  "ingredient": "semiconductor-lab:coal_tar",
+  "result": {
+    "id": "semiconductor-lab:light_oil"
+  }
+}

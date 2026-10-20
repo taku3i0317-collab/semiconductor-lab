@@ -148,6 +148,9 @@ ammonium_chloride  # Chemistry [1-18] 1800
 chloroplatinic_acid  # Chemistry [1-18] 1800
 hydrogen_peroxide  # Chemistry [2-19] 1818
 peroxide_cell  # Chemistry [2-19] 1818
+light_oil  # Chemistry [2-24] 1825
+benzene  # Chemistry [2-24] 1825
+xylene  # Chemistry [2-24] 1825
 asphalt  # Chemistry [2-31] 1826
 pine_resin  # Chemistry [2-31] 1826
 turpentine  # Chemistry [2-31] 1826

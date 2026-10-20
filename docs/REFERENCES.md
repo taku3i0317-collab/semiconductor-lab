@@ -1504,6 +1504,20 @@
 - Wikipedia「Bakelite」：https://en.wikipedia.org/wiki/Bakelite
 - Science History Institute「Leo Hendrik Baekeland」：https://www.sciencehistory.org/education/scientific-biographies/leo-hendrik-baekeland/
 
+## C8. 温度で分ける（分留）：タールからベンゼンとキシレン［2-24］
+**答え**：混ざった液体を温めると、沸点の低い物から先に気体になる。コールタールの約170℃までの軽油を、さらに温度を区切って蒸留すると、ベンゼン（80℃）・トルエン（111℃）・キシレン（約140℃）に分かれる（1849 マンスフィールドが工業化）。キシレンはゴムをよく溶かし、ネガ型レジストの溶剤・現像液になった。
+
+- へえ①：弱い火でゆっくり温めると、軽い油だけが先に出てくる。
+- へえ②：ベンゼンは白血病の原因になると分かり、溶剤はトルエンやキシレンに置き換えられた。
+- へえ③：1825 ファラデーがガス灯の油からベンゼンを発見、1865 ケクレが輪の形を考えた。マンスフィールドはベンゼンの火事で亡くなった。
+- へえ④：ネガ型レジストはキシレンの現像液でふくらみ、約2μm より細い線が引けなかった。
+
+確かさ：分留と沸点 ◎／ファラデー 1825・マンスフィールド 1849・ケクレ 1865 ○（TECH_TREE の本物欄と一致）／GHS 区分（ベンゼン発がん性 1A）○
+根拠：
+- Wikipedia「Benzene」：https://en.wikipedia.org/wiki/Benzene
+- Wikipedia「Xylene」：https://en.wikipedia.org/wiki/Xylene
+- Wikipedia「Charles Blachford Mansfield」：https://en.wikipedia.org/wiki/Charles_Blachford_Mansfield
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

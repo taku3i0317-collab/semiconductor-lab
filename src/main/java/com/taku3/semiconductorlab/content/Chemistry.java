@@ -127,6 +127,10 @@ public final class Chemistry {
     public static final Item NOVOLAC               = Reg.item("novolac");
     public static final Item RESOL_MIX             = Reg.item("resol_mix", new Item.Properties().stacksTo(16));
     public static final Item BAKELITE              = Reg.item("bakelite");
+    // [2-24] ベンゼン・キシレン（IMP3、O-007）：コールタールの分留。弱い火（たき火）では沸点の低い軽油だけ、かまどでは中油。軽油をもう一度：たき火 → ベンゼン（80℃）、かまど → キシレン（約140℃）
+    public static final Item LIGHT_OIL             = Reg.item("light_oil", new Item.Properties().stacksTo(16));        // 軽油（コールタールの約170℃までの留分）
+    public static final Item BENZENE               = Reg.item("benzene", new Item.Properties().stacksTo(16));          // ベンゼン（発がん性）
+    public static final Item XYLENE                = Reg.item("xylene", new Item.Properties().stacksTo(16));           // キシレン（ネガ型レジストの溶剤・現像液）
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）
