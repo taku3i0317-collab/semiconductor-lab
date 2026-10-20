@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:titanium_tetrachloride",
+    "semiconductor-lab:magnesium",
+    "semiconductor-lab:magnesium",
+    "semiconductor-lab:argon_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:kroll_charge",
+    "count": 1
+  }
+}

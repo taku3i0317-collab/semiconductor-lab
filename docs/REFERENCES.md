@@ -2535,6 +2535,20 @@
 - Wikipedia「Magnesium」（製法）：https://en.wikipedia.org/wiki/Magnesium
 - Wikipedia「Magnesium chloride」（加水分解）：https://en.wikipedia.org/wiki/Magnesium_chloride
 
+## C41. 砂鉄の黒い粒から飛行機の金属（チタンとクロール法）［1-41］
+**答え**：1791年、イギリスのグレゴールがコーンウォールの砂の中の黒い粒（チタン鉄鉱、FeTiO3）から新しい元素を見つけた。チタンは酸素・窒素と強く結びつくので、なかなか金属にできなかった。1940年、ルクセンブルクのヴィルヘルム・クロールが、チタン鉄鉱を炭素と塩素で四塩化チタン（沸点136℃、蒸留で精製）にし、アルゴンの中で溶けたマグネシウムで還元してスポンジ状のチタンを取り出す方法を作った。できた塩化マグネシウムは電気分解してマグネシウムと塩素に戻す。
+
+- へえ①：砂鉄にまじっている黒い粒から、飛行機の骨組みの金属がとれる。
+- へえ②：チタンは鋼くらい強いのに、鉄の6割くらいの重さ。
+- へえ③：四塩化チタンは空気の水で白い煙になり、昔は煙幕に使われた。
+- へえ④：マグネシウムと塩素は、クロール法の中でぐるぐる回る。
+
+確かさ：グレゴール 1791・クロール 1940 ◎／反応 ◎／浜の砂鉄にチタン鉄鉱が含まれること ◎
+根拠：
+- Wikipedia「Kroll process」：https://en.wikipedia.org/wiki/Kroll_process
+- Wikipedia「Titanium」（歴史）：https://en.wikipedia.org/wiki/Titanium
+- Wikipedia「Ilmenite」：https://en.wikipedia.org/wiki/Ilmenite
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

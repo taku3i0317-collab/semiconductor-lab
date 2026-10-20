@@ -459,6 +459,21 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-41] チタン（IMP3、O-018、クロール法）：チタン鉄鉱＋木炭＋塩素 → 粗 TiCl4 → 蒸留 → TiCl4 → ＋Mg2＋Ar → かまど → 塩の混ざったスポンジ → 真空蒸留 → スポンジチタン、MgCl2 が残る */
+    @GameTest
+    public void titaniumKroll(GameTestHelper h) {
+        h.assertTrue(Metallurgy.ILMENITE_FROM_IRON_SAND > 0 && Metallurgy.ILMENITE_FROM_IRON_SAND < 0.5f, "ilmenite is a by-product of iron sand");
+        h.assertTrue(recipeUses(h, "crude_titanium_tetrachloride", Metallurgy.ILMENITE) && recipeUses(h, "crude_titanium_tetrachloride", com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS), "chlorination");
+        h.assertTrue(recipeUses(h, "titanium_tetrachloride", Metallurgy.QUARTZ_STILL), "distilled TiCl4");
+        h.assertTrue(recipeUses(h, "kroll_charge", Metallurgy.MAGNESIUM) && recipeUses(h, "kroll_charge", com.taku3.semiconductorlab.content.Gas.ARGON_GAS), "Mg reduction under argon");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.KROLL_CHARGE).is(Metallurgy.SPONGE_WITH_SALT), "fired -> sponge with salt");
+        var rem = Metallurgy.SPONGE_WITH_SALT.getCraftingRemainder(new ItemStack(Metallurgy.SPONGE_WITH_SALT));
+        h.assertTrue(rem != null && rem.create().is(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE), "MgCl2 left over -> back to the magnesium cell");
+        h.assertTrue(recipeUses(h, "titanium_sponge", Metallurgy.SPONGE_WITH_SALT), "vacuum distillation -> titanium sponge");
+        LOG.info("[LAB] titanium [1-41]: ilmenite (from iron sand) + C + Cl2 -> TiCl4 -> + 2Mg under Ar -> sponge, MgCl2 recycled");
+        h.succeed();
+    }
+
     /** [1-39] マグネシウム（IMP3、O-018）：にがりをそのまま焼くと MgO（加水分解）、塩化水素の中なら無水 MgCl2。電解槽で Mg＋塩素 */
     @GameTest(maxTicks = 100)
     public void magnesiumDow(GameTestHelper h) {

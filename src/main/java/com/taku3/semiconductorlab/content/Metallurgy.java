@@ -62,6 +62,15 @@ public final class Metallurgy {
     public static final Item ANHYDROUS_MAGNESIUM_CHLORIDE = Reg.item("anhydrous_magnesium_chloride");
     public static final Item MAGNESIUM_OXIDE       = Reg.item("magnesium_oxide");
     public static final Item MAGNESIUM             = Reg.item("magnesium");
+    // [1-41] チタン（IMP3、O-018、クロール法 1940）：チタン鉄鉱は砂鉄の副産物（決定、ILMENITE_FROM_IRON_SAND の確率）。チタン鉄鉱＋木炭＋塩素3 → 粗い四塩化チタン →（蒸留）→ 四塩化チタン、
+    //   ＋マグネシウム2＋アルゴンの袋 → クロールの仕込み →かまど → 塩の混ざったスポンジ →（真空で蒸留）→ スポンジチタン（塩化マグネシウムが作業台に残る＝[1-39] の電解へ戻る）
+    public static final float ILMENITE_FROM_IRON_SAND = 0.1f;
+    public static final Item ILMENITE              = Reg.item("ilmenite");
+    public static final Item CRUDE_TITANIUM_TETRACHLORIDE = Reg.item("crude_titanium_tetrachloride", new Item.Properties().stacksTo(16));
+    public static final Item TITANIUM_TETRACHLORIDE = Reg.item("titanium_tetrachloride", new Item.Properties().stacksTo(16));
+    public static final Item KROLL_CHARGE          = Reg.item("kroll_charge");
+    public static final Item SPONGE_WITH_SALT      = Reg.item("sponge_with_salt", new Item.Properties().craftRemainder(ANHYDROUS_MAGNESIUM_CHLORIDE));
+    public static final Item TITANIUM_SPONGE       = Reg.item("titanium_sponge");
     public static final Item FLUORITE              = Reg.item("fluorite");         // [1-21] 蛍石 CaF2（IMP4-01、[2-10] フッ酸の原料。方鉛鉱・閃亜鉛鉱と同じ熱水鉱脈）
     public static final Item COKE                  = Reg.item("coke");             // [1-10] コークス（IMP4-01：[2-20] ガス工場のレトルトで石炭を乾留した残り。高炉での使い道は [1-10] で）
     public static final Item BAUXITE               = Reg.item("bauxite");          // [1-24] ボーキサイト（IMP4-01、アルミの原料。熱帯の風化残留土＝ジャングル・サバンナの地表近く）
@@ -206,5 +215,12 @@ public final class Metallurgy {
     public static final Machine<MagnesiumCellBlockEntity> MAGNESIUM_CELL = Machine.electric("magnesium_cell", MagnesiumCellBlockEntity::new, MagnesiumCellBlockEntity.LAYOUT, metal(4.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
-    static void init() {}
+    static void init() {
+        // [1-41] 浜の砂鉄には、黒い粒のチタン鉄鉱がまじっている（決定：砂鉄の副産物、IMP3 O-018）
+        net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            if (!table.is(IRON_SAND.getLootTable().orElseThrow())) return;
+            if (drops.stream().anyMatch(st -> st.is(MAGNETITE)) && ctx.getRandom().nextFloat() < ILMENITE_FROM_IRON_SAND)
+                drops.add(new net.minecraft.world.item.ItemStack(ILMENITE));
+        });
+    }
 }

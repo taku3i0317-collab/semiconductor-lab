@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:kroll_charge",
+  "result": {
+    "id": "semiconductor-lab:sponge_with_salt"
+  },
+  "experience": 0.3,
+  "cookingtime": 300
+}

@@ -133,6 +133,9 @@ coal_ash  # Metallurgy [1-01] 1930
 germanium_concentrate  # Metallurgy [1-01] 1930
 germanium_dioxide  # Metallurgy [1-01] 1930
 raw_germanium  # Metallurgy [1-01] 1930
+ilmenite  # Metallurgy [1-41] 1940
+titanium_tetrachloride  # Metallurgy [1-41] 1940
+titanium_sponge  # Metallurgy [1-41] 1940
 magnesium  # Metallurgy [1-39] 1941
 magnesium_cell  # Metallurgy [1-39] 1941
 crude_germanium_tetrachloride  # Metallurgy [1-34] 1948
@@ -155,6 +158,9 @@ nickel_carbonyl_gas  # Metallurgy [None] None
 bittern_under_hcl  # Metallurgy [None] None
 anhydrous_magnesium_chloride  # Metallurgy [None] None
 magnesium_oxide  # Metallurgy [None] None
+crude_titanium_tetrachloride  # Metallurgy [None] None
+kroll_charge  # Metallurgy [None] None
+sponge_with_salt  # Metallurgy [None] None
 blast_furnace_slag  # Metallurgy [None] None
 wood_ash  # Chemistry [2-02] -2800
 lye  # Chemistry [2-02] -2800
