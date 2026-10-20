@@ -349,5 +349,17 @@
   "gui.semiconductor-lab.mask_aligner.output_full": "Take out the wafer",
   "gui.semiconductor-lab.mask_aligner.need_power": "No power",
   "gui.semiconductor-lab.mask_aligner.running": "Exposing...",
-  "gui.semiconductor-lab.mask_aligner.switch_gap": "Switch gap"
+  "gui.semiconductor-lab.mask_aligner.switch_gap": "Switch gap",
+  "block.semiconductor-lab.developer_bench": "Developer Bench",
+  "block.semiconductor-lab.developer_bench.note1": "Dips exposed wafers in developer so the mask pattern appears in the resist.",
+  "block.semiconductor-lab.developer_bench.note2": "300 W (hot plate). 1–8 exposed process wafers + 1 developer (the empty bottle pops out on top) → developed wafers (20 s). Resist where light hit dissolves; then a hot plate hardens what is left (postbake).",
+  "block.semiconductor-lab.developer_bench.note3": "Just like developing photographic film, the circuit pattern appears. The hardened resist then protects the film underneath during HF or phosphoric acid etching.",
+  "block.semiconductor-lab.developer_bench.note4": "Opening windows by developing resist began in 1955–57 with Andrus and Bond at Bell Labs and Lathrop and Nall at the US Army, using Kodak's KPR resist. ⚠️ When postbaking began is not yet checked.",
+  "block.semiconductor-lab.developer_bench.placeholder": "Omitted: ⚠️ power and time are game values. The rinse water is not modelled. Negative resist (developed in xylene) comes after [2-30].",
+  "gui.semiconductor-lab.developer_bench.power": "Power %s",
+  "gui.semiconductor-lab.developer_bench.need_input": "Needs exposed wafers and developer",
+  "gui.semiconductor-lab.developer_bench.not_exposed": "Not exposed yet",
+  "gui.semiconductor-lab.developer_bench.need_power": "Not enough power",
+  "gui.semiconductor-lab.developer_bench.running": "Developing",
+  "gui.semiconductor-lab.developer_bench.recipe": "Exposed resist dissolves → bake"
 }

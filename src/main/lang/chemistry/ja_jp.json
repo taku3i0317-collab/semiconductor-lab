@@ -565,5 +565,11 @@
   "item.semiconductor-lab.glycerin.note2": "グリセリンを含む液をかまどで焼いて作る。塩酸・水酸化ナトリウムと反応させるとエピクロロヒドリン（エポキシ樹脂 [2-41] の原料）。",
   "item.semiconductor-lab.glycerin.note3": "グリセリン C3H5(OH)3 は、OH を3つ持つアルコール。水によく溶け、水分をつかまえるので保湿剤になる。",
   "item.semiconductor-lab.glycerin.note4": "1779年シェーレが油を煮て見つけた。今はバイオディーゼル燃料を作るときの副産物として大量にできる。",
-  "item.semiconductor-lab.glycerin.placeholder": "近似：純度は扱わない。"
+  "item.semiconductor-lab.glycerin.placeholder": "近似：純度は扱わない。",
+  "item.semiconductor-lab.developer": "現像液（ポジ型）",
+  "item.semiconductor-lab.developer.note1": "光が当たったレジストだけを溶かす、うすいアルカリの水。",
+  "item.semiconductor-lab.developer.note2": "水酸化ナトリウム 約1% の水溶液（ガラス瓶入り、使うと瓶が戻る）。作業台で 水酸化ナトリウム1＋水バケツ1＋空のガラス瓶3 → 3（バケツは戻る）。現像槽 [9-21] で使う。GHS：腐食性（目・皮膚）。",
+  "item.semiconductor-lab.developer.note3": "光が当たったポジ型レジストは、DNQ が分解して酸になっているので、アルカリと反応して溶ける。光が当たっていない所は溶けずに残る。",
+  "item.semiconductor-lab.developer.note4": "ナトリウムは酸化膜に入りこむと MOSFET の特性を狂わせるので、のちの工場は金属を含まない TMAH（2.38% の水溶液が標準）に変えた。",
+  "item.semiconductor-lab.developer.placeholder": "近似：水は水バケツ（本物は純水で作る）。"
 }

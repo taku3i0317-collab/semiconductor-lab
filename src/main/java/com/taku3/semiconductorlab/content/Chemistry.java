@@ -78,6 +78,7 @@ public final class Chemistry {
     public static final Item SILICON_ETCH          = Reg.contained("silicon_etch", Vessel.LEAD_BOTTLE); // [9-17] シリコンを溶かす混酸（フッ酸＋硝酸、鉛の瓶。IMP4-01）
     // [2-32] ポジ型レジスト（IMP4-01、O-006）：ノボラック＋DNQ をキシレンに溶かした液（ガラス瓶）。日なたで持つと感光して使えなくなる（item/PositiveResistItem）
     public static final Item POSITIVE_RESIST       = containedItem("positive_resist", com.taku3.semiconductorlab.item.PositiveResistItem::new, Vessel.GLASS_BOTTLE, 16);
+    public static final Item DEVELOPER             = Reg.contained("developer", Vessel.GLASS_BOTTLE); // [9-21] ポジ型の現像液（薄い NaOH 水溶液、IMP4-01）
     // [9-25] リン酸（IMP4-01）：骨灰＋硫酸（シェーレの時代からの湿式法）。Al のエッチング液
     public static final Item PHOSPHORIC_ACID       = Reg.contained("phosphoric_acid", Vessel.GLASS_BOTTLE);
     // [9-13] 研磨のコロイダルシリカ（IMP4-01）：砂＋NaOH → 水ガラス（ケイ酸ナトリウム）→ 硫酸で中和 → シリカの微粒子が水に分散した液（ガラス瓶）

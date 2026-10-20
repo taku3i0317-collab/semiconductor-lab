@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sodium_hydroxide",
+    "minecraft:water_bucket",
+    "semiconductor-lab:glass_bottle",
+    "semiconductor-lab:glass_bottle",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:developer",
+    "count": 3
+  }
+}

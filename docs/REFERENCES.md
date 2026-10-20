@@ -491,6 +491,20 @@
 
 ---
 
+## F20. 写真と同じ手順で模様を出す（現像・ポストベーク）［9-21］
+**答え**：露光したウェハーを薄いアルカリの水（ポジ型の現像液）に浸すと、光の当たったレジストだけが溶け、マスクの模様が浮かび上がる。すすいで熱板で温め（ポストベーク）、残ったレジストを固めてエッチングに耐えるようにする。
+
+- へえ①：写真の現像と同じ手順で、回路の模様を浮かび上がらせる。
+- へえ②：1955〜57年、ベル研のアンドラスとボンド、米陸軍のラスロップとナルが、コダックのレジストで写真製版を半導体に使った。
+- へえ③：ナトリウムは MOSFET の大敵なので、今の現像液は金属を含まない TMAH（2.38%）。
+- へえ④：ポジ型は光の当たった所が溶け、ネガ型（KPR・KTFR）は光の当たった所が残る（キシレンで現像）。
+
+確かさ：現像のしくみ ◎（教科書）／1955〜57 の写真製版 ◎（コンピュータ歴史博物館）／TMAH 2.38% ◎／ポストベークの始まりの年 △
+ゲーム（2026-10-20 IMP4-01 で実装）：現像液（薄い NaOH）、現像槽（300W）で露光した 1〜8枚を現像（ChipOps.develop）
+根拠：コンピュータ歴史博物館「1955: Photolithography Techniques Are Used to Make Silicon Devices」https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/ 、Wikipedia「Photolithography」https://en.wikipedia.org/wiki/Photolithography （英語）
+
+---
+
 # 電気（v0.2a）
 
 ---

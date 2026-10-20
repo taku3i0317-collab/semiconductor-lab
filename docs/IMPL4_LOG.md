@@ -55,3 +55,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - O-008 を読んだ：[9-20] 密着露光は C、E は塗布・現像・はがし。前の質問（[8-17] を外すか）は C の判断になったので取り下げ
 - ✅ レジストはがし（LITHO §10 の 8）：はがし槽 resist_stripper（block/ResistStripperBlockEntity、画面 ResistStripperScreen、500W）。硫酸＋過酸化水素 → ChipOps.strip。GameTest resist_stripper、CHEMISTRY F40。現像 [9-21] は C の [9-20] の後（現像液は薄い NaOH の予定）
 - 待機（18:29〜）：現像 [9-21] は C の露光 [9-20] の push 待ち、ネガ型 [2-30] は D のビスアジド（Q3-6）待ち。INBOX は6時間待つ
+- C の [9-20] マスクアライナーが push された → ✅ [9-21] 現像：現像液（NaOH＋水＋瓶3 → 3）、現像槽 developer_bench（block/DeveloperBenchBlockEntity、画面 DeveloperBenchScreen、300W）→ ChipOps.develop。GameTest developer_bench（塗布機・現像槽・はがし槽を通して NOT の例 → 4つの発見）、CHEMISTRY F41〜F42、REFERENCES F20、遊び方: 重。LITHO §10 の E の分（4 塗布・6 現像・8 はがし）はそろった

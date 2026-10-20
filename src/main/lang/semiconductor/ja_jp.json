@@ -349,5 +349,17 @@
   "gui.semiconductor-lab.mask_aligner.output_full": "できた板を取り出す",
   "gui.semiconductor-lab.mask_aligner.need_power": "電気が来ていない",
   "gui.semiconductor-lab.mask_aligner.running": "露光中…",
-  "gui.semiconductor-lab.mask_aligner.switch_gap": "すき間を変える"
+  "gui.semiconductor-lab.mask_aligner.switch_gap": "すき間を変える",
+  "block.semiconductor-lab.developer_bench": "現像槽",
+  "block.semiconductor-lab.developer_bench.note1": "露光したウェハーを現像液に浸して、マスクの模様をレジストに浮かび上がらせる槽。",
+  "block.semiconductor-lab.developer_bench.note2": "電気 300W（熱板）。露光した加工中のウェハー1〜8枚＋現像液1（空の瓶は上に戻る）→ 現像したウェハー（20秒）。光の当たった所のレジストが溶け、そのあと熱板で温めて残ったレジストを固める（ポストベーク）。",
+  "block.semiconductor-lab.developer_bench.note3": "写真のフィルムを現像するのと同じ手順で、回路の模様が浮かび上がる。固めたレジストは、このあとのフッ酸やリン酸のエッチングで下の膜を守る。",
+  "block.semiconductor-lab.developer_bench.note4": "現像で窓を開ける方法は、1955〜57年にベル研のアンドラスとボンド、米陸軍のラスロップとナルがコダックのレジスト（KPR）で始めた。⚠️ ポストベークの始まりの年は確かめていない。",
+  "block.semiconductor-lab.developer_bench.placeholder": "省略：⚠️ 電力・時間はゲームの値。すすぎの水は表さない。ネガ型（キシレンで現像）は [2-30] の後。",
+  "gui.semiconductor-lab.developer_bench.power": "電力 %s",
+  "gui.semiconductor-lab.developer_bench.need_input": "露光したウェハーと現像液が必要",
+  "gui.semiconductor-lab.developer_bench.not_exposed": "まだ露光していない",
+  "gui.semiconductor-lab.developer_bench.need_power": "電気が足りない",
+  "gui.semiconductor-lab.developer_bench.running": "現像している",
+  "gui.semiconductor-lab.developer_bench.recipe": "光の当たった所が溶ける → 焼いて固める"
 }

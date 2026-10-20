@@ -710,6 +710,51 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-21] 現像（IMP4-01、O-006）
+    // =====================================================================
+
+    /** NOT の例を「塗布機 → 露光（ChipOps）→ 現像槽 → エッチング（ChipOps）→ はがし槽」で通す → 4つの発見。露光していないと現像しない */
+    @GameTest(maxTicks = 300)
+    public void developerBench(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "developer", com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE), "developer = dilute NaOH");
+        floor(h, 5);
+        BlockPos cp = p(1, 1, 1), dp = p(3, 1, 1), sp = p(1, 1, 3);
+        h.setBlock(cp, Semiconductor.SPIN_COATER.block);
+        h.setBlock(dp, Semiconductor.DEVELOPER_BENCH.block);
+        h.setBlock(sp, Semiconductor.RESIST_STRIPPER.block);
+        var coater = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.class);
+        var dev = h.getBlockEntity(dp, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.class);
+        var stripper = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.class);
+        java.util.function.UnaryOperator<ItemStack> coat = wf -> {
+            var c = coater.getContainer(); c.setItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_OUT, ItemStack.EMPTY); c.setItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_WAFER, wf.copy()); c.setItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_RESIST, new ItemStack(Chemistry.POSITIVE_RESIST));
+            tickConsumer(h, cp, coater, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WATTS)); return c.getItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_OUT).copy(); };
+        java.util.function.UnaryOperator<ItemStack> develop = wf -> {
+            var c = dev.getContainer(); c.setItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_OUT, ItemStack.EMPTY); c.setItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_WAFER, wf.copy()); c.setItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_DEV, new ItemStack(Chemistry.DEVELOPER));
+            tickConsumer(h, dp, dev, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WATTS)); return c.getItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_OUT).copy(); };
+        java.util.function.UnaryOperator<ItemStack> strip = wf -> {
+            var c = stripper.getContainer(); c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT, ItemStack.EMPTY); c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_WAFER, wf.copy()); c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_ACID, new ItemStack(Chemistry.SULFURIC_ACID)); c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_PEROXIDE, new ItemStack(Chemistry.HYDROGEN_PEROXIDE));
+            tickConsumer(h, sp, stripper, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS)); return c.getItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT).copy(); };
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        h.assertTrue(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.product(coat.apply(w)).isEmpty(), "coated but not exposed -> developer does nothing");
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        for (int i = 0; i < d.layers().size(); i++) {
+            var k = d.layers().get(i).kind();
+            ItemStack exposed = com.taku3.semiconductorlab.litho.ChipOps.expose(coat.apply(w), d.mask(i), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+            ItemStack developed = develop.apply(exposed);
+            h.assertTrue(developed.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(developed).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.DEVELOPED, "layer " + i + ": bench = ChipOps.develop, got " + developed);
+            w = k == com.taku3.semiconductorlab.litho.LayerKind.METAL ? com.taku3.semiconductorlab.litho.ChipOps.etchMetal(developed).out() : com.taku3.semiconductorlab.litho.ChipOps.etchOxide(developed).out();
+            w = strip.apply(w);
+            if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
+            else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
+        }
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), 4, "coater -> develop -> strip machines: NOT example -> 4 discoveries");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(p(2, 1, 2))).inflate(4)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] developer [9-21]: dilute NaOH develops exposed wafers (8 per run); coater + developer + stripper machines -> NOT example 4 discoveries");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 
@@ -1326,6 +1371,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WAFERS_PER_RUN), "レジストを塗った（COATED）")), com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.TICKS / 20.0, "毎分数千回転で広げ、温めて溶剤を飛ばす（ChipOps.coat）");
         rec(a, Semiconductor.RESIST_STRIPPER.block, "レジストをはがす", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WAFERS_PER_RUN), "レジスト付き 1〜8枚"), io(Chemistry.SULFURIC_ACID, 1), io(Chemistry.HYDROGEN_PEROXIDE, 1)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WAFERS_PER_RUN), "レジストなし")), com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS / 20.0, "熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。塗り直しにも");
+        rec(a, Semiconductor.DEVELOPER_BENCH.block, "現像", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WAFERS_PER_RUN), "露光した 1〜8枚"), io(Chemistry.DEVELOPER, 1)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WAFERS_PER_RUN), "現像した（DEVELOPED）")), com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WATTS, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.TICKS / 20.0, "薄い NaOH で光の当たったレジストを溶かし、熱板で固める（ChipOps.develop）");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

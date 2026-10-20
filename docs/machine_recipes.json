@@ -539,6 +539,32 @@
       "note": "約1420℃の融液から回しながら引き上げる。17.4kWh/kg"
     },
     {
+      "machine": "semiconductor-lab:developer_bench",
+      "process": "現像",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "露光した 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:developer",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "現像した（DEVELOPED）"
+        }
+      ],
+      "watts": 300.0,
+      "seconds": 20.0,
+      "energy_kj": 6,
+      "note": "薄い NaOH で光の当たったレジストを溶かし、熱板で固める（ChipOps.develop）"
+    },
+    {
       "machine": "semiconductor-lab:diffusion_furnace",
       "process": "p-n 接合",
       "inputs": [
