@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:polyvinyl_acetate",
+    "semiconductor-lab:methanol",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:polyvinyl_alcohol",
+    "count": 1
+  }
+}

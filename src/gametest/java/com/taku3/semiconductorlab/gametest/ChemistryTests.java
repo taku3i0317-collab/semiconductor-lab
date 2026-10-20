@@ -857,6 +857,24 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-60] ポリビニルアルコール・[2-61] ポリケイ皮酸ビニル（IMP3、O-010、KPR の材料）
+    // =====================================================================
+
+    /** カーバイド＋水 → アセチレン、＋酢酸＋硫酸水銀（戻る）→ 酢酸ビニル → ＋H2O2 → PVAc → ＋メタノール＋NaOH → PVA → ＋塩化シンナモイル → ポリケイ皮酸ビニル */
+    @GameTest
+    public void polyvinylCinnamate(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "acetylene_gas", com.taku3.semiconductorlab.content.Heat.CALCIUM_CARBIDE), "carbide + water -> acetylene");
+        h.assertTrue(recipeUses(h, "vinyl_acetate", Chemistry.ACETYLENE_GAS) && recipeUses(h, "vinyl_acetate", Chemistry.ACETIC_ACID) && recipeUses(h, "vinyl_acetate", Chemistry.MERCURIC_SULFATE), "Klatte: acetylene + acetic acid, Hg catalyst");
+        var rem = Chemistry.MERCURIC_SULFATE.getCraftingRemainder(new ItemStack(Chemistry.MERCURIC_SULFATE));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.MERCURIC_SULFATE), "catalyst stays on the crafting table");
+        h.assertTrue(recipeUses(h, "polyvinyl_acetate", Chemistry.VINYL_ACETATE) && recipeUses(h, "polyvinyl_acetate", Chemistry.HYDROGEN_PEROXIDE), "radical polymerization");
+        h.assertTrue(recipeUses(h, "polyvinyl_alcohol", Chemistry.POLYVINYL_ACETATE) && recipeUses(h, "polyvinyl_alcohol", Chemistry.METHANOL), "saponification -> PVA");
+        h.assertTrue(recipeUses(h, "polyvinyl_cinnamate", Chemistry.POLYVINYL_ALCOHOL) && recipeUses(h, "polyvinyl_cinnamate", Chemistry.CINNAMOYL_CHLORIDE), "PVA + cinnamoyl chloride -> KPR material");
+        LOG.info("[LAB] polyvinyl cinnamate [2-60][2-61]: carbide -> acetylene -> vinyl acetate (Hg cat.) -> PVAc -> PVA -> + cinnamoyl chloride -> polyvinyl cinnamate");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

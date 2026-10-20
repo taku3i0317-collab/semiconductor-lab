@@ -246,6 +246,12 @@ colloidal_silica  # Chemistry [9-13] 1963
 polyethylene_bottle  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 chloroform  # Chemistry [None] None
+acetylene_gas  # Chemistry [2-60] None
+mercuric_sulfate  # Chemistry [2-60] None
+vinyl_acetate  # Chemistry [2-60] None
+polyvinyl_acetate  # Chemistry [2-60] None
+polyvinyl_alcohol  # Chemistry [2-60] None
+polyvinyl_cinnamate  # Chemistry [2-60] None
 bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690

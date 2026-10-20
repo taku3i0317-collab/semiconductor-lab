@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:acetic_acid",
+    "semiconductor-lab:mercuric_sulfate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:vinyl_acetate",
+    "count": 1
+  }
+}

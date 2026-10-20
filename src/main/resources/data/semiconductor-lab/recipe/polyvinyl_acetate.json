@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:vinyl_acetate",
+    "semiconductor-lab:vinyl_acetate",
+    "semiconductor-lab:vinyl_acetate",
+    "semiconductor-lab:vinyl_acetate",
+    "semiconductor-lab:hydrogen_peroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:polyvinyl_acetate",
+    "count": 2
+  }
+}

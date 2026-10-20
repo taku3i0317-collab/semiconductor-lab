@@ -200,6 +200,15 @@ public final class Chemistry {
     public static final Item PERKIN_MIX            = Reg.item("perkin_mix", new Item.Properties().stacksTo(16));
     public static final Item CINNAMIC_ACID         = Reg.item("cinnamic_acid");
     public static final Item CINNAMOYL_CHLORIDE    = Reg.item("cinnamoyl_chloride", new Item.Properties().stacksTo(16));
+    // [2-60] ポリビニルアルコール（IMP3、O-010）：カーバイド（A の [3-25]）＋水 → アセチレン、＋酢酸（硫酸水銀の触媒、1912 クラッテ）→ 酢酸ビニル、
+    //   ＋過酸化水素（開始剤）→ ポリ酢酸ビニル、＋メタノール＋NaOH（けん化、1924 ヘルマンとヘーネル）→ ポリビニルアルコール
+    public static final Item ACETYLENE_GAS         = Reg.contained("acetylene_gas", Vessel.GAS_BAG);
+    public static final Item MERCURIC_SULFATE      = Reg.item("mercuric_sulfate", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item VINYL_ACETATE         = Reg.item("vinyl_acetate", new Item.Properties().stacksTo(16));
+    public static final Item POLYVINYL_ACETATE     = Reg.item("polyvinyl_acetate");
+    public static final Item POLYVINYL_ALCOHOL     = Reg.item("polyvinyl_alcohol");
+    // [2-61] ポリケイ皮酸ビニル（KPR の材料、IMP3、O-010）：ポリビニルアルコール＋塩化シンナモイル2 → ポリケイ皮酸ビニル（1950年代コダック）。レジストにまとめるのは E
+    public static final Item POLYVINYL_CINNAMATE   = Reg.item("polyvinyl_cinnamate");
     /** 獣脂を落とす確率（1頭あたり） */
     public static final float TALLOW_CHANCE = 0.6f;
 

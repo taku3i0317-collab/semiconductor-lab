@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:polyvinyl_alcohol",
+    "semiconductor-lab:cinnamoyl_chloride",
+    "semiconductor-lab:cinnamoyl_chloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:polyvinyl_cinnamate",
+    "count": 1
+  }
+}

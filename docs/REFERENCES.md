@@ -1909,6 +1909,22 @@
 - Wikipedia「Antoine equation」（水の定数）：https://en.wikipedia.org/wiki/Antoine_equation
 - Wikipedia「Boiler explosion」：https://en.wikipedia.org/wiki/Boiler_explosion
 
+## C20. ガスから作る洗濯のりと、光で固まる最初のレジスト（PVA・KPR）［2-60］［2-61］
+**答え**：カーバイドに水をかけるとアセチレンが出る。アセチレンに酢酸を水銀塩の触媒で付けると酢酸ビニル（1912 クラッテ）、つなげるとポリ酢酸ビニル、酢酸の部分を OH に取りかえる（けん化）とポリビニルアルコール（1924 ヘルマンとヘーネル）。PVA に塩化シンナモイルでケイ皮酸を付けたポリケイ皮酸ビニルは、紫外線でケイ皮酸どうしが [2+2] 二量化して鎖が橋でつながり、溶けなくなる。これが1950年代コダックのネガ型フォトレジスト KPR（ミンスクら）で、最初期のトランジスタ・IC の模様づけに使われた。のちに環化ゴム＋ビスアジドのレジスト（KTFR）が主流になった。
+
+- へえ①：洗濯のりの成分（PVA）は、ガスから作れる。
+- へえ②：「ビニルアルコール」はそのままではつなげられないので、遠回りして作る。
+- へえ③：KPR の次の主流だったビスアジドは衝撃や熱で爆発しやすい物質なので、このゲームでは作らず、その前の KPR で作る。
+- へえ④：教訓：水俣病。チッソの水俣工場は、アセチレンからアセトアルデヒドを作る硫酸水銀の触媒から出たメチル水銀を海に流し、魚を食べた多くの人が重い神経の病気になった（1956年に公式確認）。
+
+確かさ：反応 ◎／クラッテ 1912・ヘルマンとヘーネル 1924 ○／KPR の年（1950年代、特許 1954 前後）○⚠️／水俣病（1956 公式確認、原因はチッソのアセトアルデヒド工程のメチル水銀）◎
+根拠：
+- Wikipedia「Vinyl acetate」（歴史）：https://en.wikipedia.org/wiki/Vinyl_acetate
+- Wikipedia「Polyvinyl alcohol」：https://en.wikipedia.org/wiki/Polyvinyl_alcohol
+- Wikipedia「Polyvinyl cinnamate」/「Photoresist」：https://en.wikipedia.org/wiki/Photoresist
+- 環境省「水俣病の教訓と日本の水銀対策」：https://www.env.go.jp/chemi/tmms/pr-m/mat01/
+- Wikipedia「Minamata disease」：https://en.wikipedia.org/wiki/Minamata_disease
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

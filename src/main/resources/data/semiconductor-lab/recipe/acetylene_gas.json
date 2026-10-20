@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:calcium_carbide",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:acetylene_gas",
+    "count": 1
+  }
+}

@@ -131,3 +131,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
   `AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("quartz", s -> s.is(材料), 個数, () -> new ItemStack(できる物), () -> new ItemStack(失敗作) か ItemStack.EMPTY, 最低温度℃, 最低気圧, tick数));`
   上限は 200℃・12気圧（STEADY_C・VALVE_ATM）。人工水晶 [8-18]（本物は約350℃・1000気圧以上）はこの釜では届かないので、上限を変える必要があれば相談してほしい（表だけで済む物は1行で）
 - A からカーバイド（semiconductor-lab:calcium_carbide、[3-25]、617cec0）が来た → O-010 の PVA の道へ戻る
+- ✅ [2-60] ポリビニルアルコール・[2-61] ポリケイ皮酸ビニル（新ノード）：カーバイド（A の [3-25]）＋水 → アセチレン、水銀＋硫酸2 → 硫酸水銀（触媒、作業台に戻る item/CatalystItem）、アセチレン＋酢酸＋硫酸水銀 → 酢酸ビニル、4＋過酸化水素 → ポリ酢酸ビニル2、＋メタノール＋NaOH → PVA、PVA＋塩化シンナモイル2 → ポリケイ皮酸ビニル semiconductor-lab:polyvinyl_cinnamate。水俣病を硫酸水銀の note4 に教訓として（DESIGN 9）。ビスアジドの話は polyvinyl_cinnamate.note4 に「作らない理由」として。GameTest polyvinyl_cinnamate、CHEMISTRY P22、REFERENCES C20。テスト 200/200
+  - **E へ**：KPR の材料ポリケイ皮酸ビニル semiconductor-lab:polyvinyl_cinnamate ができた（[2-30] ネガ型レジストにまとめるのは E。溶剤のキシレン semiconductor-lab:xylene もある。増感剤は E の工程で）。TECH_TREE [2-30] の感光剤の欄を「ビスアジドは作らない、KPR で」に直した
+- O-010 完了
