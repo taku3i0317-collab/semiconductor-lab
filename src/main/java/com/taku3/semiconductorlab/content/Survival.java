@@ -61,6 +61,16 @@ public final class Survival {
     public static final Item FLAX_FIBER            = Reg.item("flax_fiber");
     public static final Item LINEN_THREAD          = Reg.item("linen_thread");
     public static final Item LINEN_CLOTH           = Reg.item("linen_cloth");
+    // --- [0-07] 羊毛と紡錘車（はずみ車）。紡錘車＝人類最古のはずみ車。棒だけの紡錘はすぐ止まる ---
+    /** 紡錘に付けられる紡錘車（土器・石の円盤） */
+    public static final TagKey<Item> SPINDLE_WHORLS = TagKey.create(Registries.ITEM, SemiconductorLab.id("spindle_whorls"));
+    public static final Item RAW_CLAY_WHORL        = Reg.item("raw_clay_whorl");
+    public static final Item EARTHENWARE_WHORL     = Reg.item("earthenware_whorl");
+    public static final Item STONE_WHORL           = Reg.item("stone_whorl");
+    public static final Item SPINDLE_SHAFT         = Reg.item("spindle_shaft", p -> new SpindleItem(p, 20), new Item.Properties().stacksTo(1));
+    public static final Item SPINDLE               = Reg.item("spindle", p -> new SpindleItem(p, 80), new Item.Properties().stacksTo(1));
+    public static final Item CARDED_WOOL           = Reg.item("carded_wool");
+    public static final Item WOOLEN_YARN           = Reg.item("woolen_yarn");
     /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
     public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
 

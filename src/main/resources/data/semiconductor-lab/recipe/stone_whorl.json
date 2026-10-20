@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:stone",
+    "semiconductor-lab:hammerstone",
+    "minecraft:flint"
+  ],
+  "result": {
+    "id": "semiconductor-lab:stone_whorl",
+    "count": 1
+  }
+}

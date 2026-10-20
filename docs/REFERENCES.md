@@ -722,6 +722,22 @@
 - Wikipedia「Linen」（歴史・ナハル・ヘマル）：https://en.wikipedia.org/wiki/Linen
 - Wikipedia「Flax」：https://en.wikipedia.org/wiki/Flax
 
+## S6. 人類最古のはずみ車（紡錘車と羊毛）［0-07］
+**答え**：紡錘（つむ）の棒に重い円盤（紡錘車）を付けると、重さが軸から離れた所にあるので慣性モーメントが大きくなり、長く回り続ける。そのあいだ繊維に撚りがかかり続け、たくさんの糸ができる。羊毛は細かいうろことちぢれでからみ合い、撚ると丈夫な毛糸になる。
+
+- へえ①：こまのように回る「はずみ車」で、毛をよって糸にした。
+- へえ②：最初に家畜になった羊は毛がもこもこではなかった（粗い毛の下に春に抜ける短い毛）。羊毛用の品種は紀元前4000年ごろ西南アジアで現れたとされる⚠️。
+- へえ③：イスラエルのナハル・エイン・ゲヴⅡの両側から穴をあけた小石（約1万2000年前）が、最古の紡錘車ではないかと2024年に発表された⚠️。回る道具として車輪の考えの始まりかもしれない。
+- へえ④：はずみ車の考えは、ろくろ、蒸気機関やエンジンのはずみ車へと続く。糸車は約1000年前ごろ（インド・中国）⚠️。
+
+確かさ：慣性モーメントのしくみ ◎／羊毛用の羊 紀元前4000年ごろ △（紀元前6000年説〜紀元前4000〜3500年、AUDIT V-16）→ ⚠️／ナハル・エイン・ゲヴⅡ 約1万2000年前 △（2024年の1研究、まだ議論）→ ⚠️／弥生時代の紡錘車 ○／糸車の年代 △ → ⚠️
+根拠：
+- 2024年 PLOS ONE のナハル・エイン・ゲヴⅡの穴あき小石の研究（報道：https://news.artnet.com/art-world/holey-pebbles-earliest-evidence-of-wheel-2570155 ）
+- Wikipedia「Spindle whorl」：https://en.wikipedia.org/wiki/Spindle_whorl
+- Wikipedia「Sheep」（家畜化と羊毛）：https://en.wikipedia.org/wiki/Sheep
+- DAI e-Forschungsberichte（羊毛用の羊の出現時期、AUDIT V-16）：https://publications.dainst.org/journals/efb/article/view/1945/6085
+- Antiquity 2016「The earliest Near Eastern wooden spinning implements」（後期銅石器時代の木の紡錘、紡錘車つきで残る最古）：https://resolve.cambridge.org/core/journals/antiquity/article/earliest-near-eastern-wooden-spinning-implements/62EB94470A7D6D9DC2EF10E2B2D62F19
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

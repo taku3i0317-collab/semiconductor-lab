@@ -18,3 +18,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [0-06] 織物（遊び方: 実験＋軽）：亜麻 flax（作物、草から 4%）→ 茎×2＋種。茎を水に投げこむと 1分で浸水した茎（mixin/ItemEntityRettingMixin → item/Retting。浮いて上下しても足元が水なら浸かっている扱い、水から出てもたまった時間は残る）。浸水した茎＋たたき石 → 繊維 → ×2 糸 → ×4 リネン。GameTest flax_to_linen（実際の tick、テスト中だけ浸水 20tick）、CHEMISTRY S9〜S11、REFERENCES S5。テスト 106/106
   - 共通ファイルの変更：src/main/resources/semiconductor-lab.mixins.json に "ItemEntityRettingMixin" を1行
 - IMP-32（docs の部品化）に合わせ、幹0 の CHEMISTRY・TEST_QUEUE の節は docs/chemistry/0_survival.md・docs/test_queue/0_survival.md に書く（docs_build.py --adopt で移した。取り込みで幹8 の表に紛れた S7・S8 の重複は幹8 の部品から外した）
+- ✅ [0-07] 羊毛と紡錘車（遊び方: 実験＋軽、ユーザーの案）：紡錘車＝人類最古のはずみ車。item/SpindleItem（右クリックを押している間まわる）：紡錘（棒だけ）は 1秒で糸1本、紡錘車（土 or 石）つきの紡錘は 4秒で4本、材料比は繊維2 → 糸1 で同じ（物の量は保存、はずみ車が変えるのは1回の量）。羊毛ブロック → ほぐした羊毛×4 → 紡錘で毛糸。GameTest spindle_whorl、CHEMISTRY S12〜S14、REFERENCES S6、API_26X（Items.WOOL は ColorCollection、押し続ける道具）。テスト 111/111
+  - 年：紡錘車の最古はナハル・エイン・ゲヴⅡ 約1万2000年前（2024年の1研究、⚠️）。羊毛用の羊は紀元前4000年ごろ（AUDIT V-16、⚠️）
+  - ネットワーク担当への提案：docs/network_proposals.md「つながりの種類の提案」に E-2（はずみ車：紡錘車 → ろくろ → 蒸気機関・エンジン）

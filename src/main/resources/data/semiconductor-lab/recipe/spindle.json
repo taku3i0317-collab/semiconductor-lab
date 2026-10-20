@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:spindle_shaft",
+    "#semiconductor-lab:spindle_whorls"
+  ],
+  "result": {
+    "id": "semiconductor-lab:spindle",
+    "count": 1
+  }
+}

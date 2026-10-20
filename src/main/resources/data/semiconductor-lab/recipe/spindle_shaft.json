@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:stick"
+  ],
+  "result": {
+    "id": "semiconductor-lab:spindle_shaft",
+    "count": 1
+  }
+}

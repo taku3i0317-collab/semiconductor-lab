@@ -292,6 +292,61 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-07] 羊毛と紡錘車（IMP3-01）：はずみ車の実験
+    // =====================================================================
+
+    /**
+     * 棒だけの紡錘は 1回で糸1本、紡錘車つきは 4本（長く回る）。材料の比（繊維2 → 糸1）は同じ。繊維が足りなければその分だけ。
+     * 羊毛ブロック → ほぐした羊毛4 → 紡錘で毛糸。右クリックで回し始める（繊維がなければ回らない）
+     */
+    @GameTest
+    public void spindleWhorl(GameTestHelper h) {
+        var shaft = (com.taku3.semiconductorlab.item.SpindleItem) Survival.SPINDLE_SHAFT;
+        var spindle = (com.taku3.semiconductorlab.item.SpindleItem) Survival.SPINDLE;
+        h.assertTrue(spindle.spinTicks() > shaft.spinTicks(), "a whorl keeps the spindle spinning longer");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var MAIN = net.minecraft.world.InteractionHand.MAIN_HAND;
+        var OFF = net.minecraft.world.InteractionHand.OFF_HAND;
+
+        // 棒だけ：1本
+        player.setItemInHand(MAIN, new ItemStack(Survival.SPINDLE_SHAFT));
+        player.setItemInHand(OFF, new ItemStack(Survival.FLAX_FIBER, 10));
+        int a = com.taku3.semiconductorlab.item.SpindleItem.spin(player, MAIN, shaft.spinTicks());
+        h.assertValueEqual(a, 1, "bare shaft: 1 thread per spin");
+        h.assertValueEqual(player.getOffhandItem().getCount(), 8, "2 fibre per thread");
+        // 紡錘車つき：4本
+        player.setItemInHand(MAIN, new ItemStack(Survival.SPINDLE));
+        int b = com.taku3.semiconductorlab.item.SpindleItem.spin(player, MAIN, spindle.spinTicks());
+        h.assertValueEqual(b, 4, "with a whorl: 4 threads per spin");
+        h.assertValueEqual(player.getOffhandItem().getCount(), 0, "2 fibre per thread (same ratio)");
+        h.assertValueEqual(player.getInventory().countItem(Survival.LINEN_THREAD), 5, "linen thread in inventory");
+        // 繊維が足りない・途中で離した
+        player.setItemInHand(OFF, new ItemStack(Survival.FLAX_FIBER, 3));
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpindleItem.spin(player, MAIN, spindle.spinTicks()), 1, "only 3 fibre -> 1 thread");
+        player.setItemInHand(OFF, new ItemStack(Survival.FLAX_FIBER, 10));
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpindleItem.spin(player, MAIN, 45), 2, "let go after 2.25 s -> 2 threads");
+        // 羊毛
+        player.setItemInHand(OFF, new ItemStack(Survival.CARDED_WOOL, 8));
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpindleItem.spin(player, MAIN, spindle.spinTicks()), 4, "wool -> 4 yarn");
+        h.assertValueEqual(player.getInventory().countItem(Survival.WOOLEN_YARN), 4, "woolen yarn");
+        // 右クリック：繊維がなければ回らない、あれば回り始める
+        player.setItemInHand(OFF, ItemStack.EMPTY);
+        h.assertTrue(spindle.use(h.getLevel(), player, MAIN) == net.minecraft.world.InteractionResult.FAIL, "no fibre -> no spin");
+        player.setItemInHand(OFF, new ItemStack(Survival.FLAX_FIBER, 4));
+        spindle.use(h.getLevel(), player, MAIN);
+        h.assertTrue(player.isUsingItem(), "fibre in the other hand -> the spindle starts spinning");
+
+        // レシピ
+        for (var wool : Items.WOOL.asList()) h.assertTrue(recipeUses(h, "carded_wool", wool), "any wool block -> carded wool: " + wool);  // 26.3：色つきの物は Items.WOOL（ColorCollection）
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Survival.RAW_CLAY_WHORL).is(Survival.EARTHENWARE_WHORL), "clay whorl fired on a campfire");
+        h.assertTrue(recipeUses(h, "spindle", Survival.EARTHENWARE_WHORL) && recipeUses(h, "spindle", Survival.STONE_WHORL) && recipeUses(h, "spindle", Survival.SPINDLE_SHAFT), "shaft + clay or stone whorl -> spindle");
+        h.assertFalse(recipeUses(h, "spindle", Survival.RAW_CLAY_WHORL), "unfired whorl cannot be used");
+        h.assertTrue(recipeUses(h, "stone_whorl", Survival.HAMMERSTONE) && recipeUses(h, "stone_whorl", Items.FLINT), "stone whorl: hammerstone + flint drill");
+        LOG.info("[LAB] spindle [0-07]: bare shaft {} ticks -> {} thread, whorl {} ticks -> {} threads (2 fibre each); wool -> yarn", shaft.spinTicks(), a, spindle.spinTicks(), b);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 
