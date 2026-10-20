@@ -1379,6 +1379,19 @@
 - Wikipedia「Natural rubber」（ラテックス・凝固・歴史）：https://en.wikipedia.org/wiki/Natural_rubber
 - Hosler ほか 1999「Prehistoric polymers: rubber processing in ancient Mesoamerica」Science 284：https://www.science.org/doi/10.1126/science.284.5422.1988
 
+## C3. ゴムを酸で輪にすると、レジストの土台になる（環化ゴム）［2-29］→［2-30］
+**答え**：生ゴム（ポリイソプレン）を溶剤に溶かして硫酸などの酸と熱すると、鎖の中の二重結合が隣どうしつながって6員環ができる（環化）。弾性はなくなるが、硬く、溶剤によく溶けて薄い膜にしやすい樹脂になる。これにビスアジド（光で窒素が抜けて鎖を橋かけする）を混ぜたのが KTFR（1957ごろ コダック）で、1960年代の IC 作りの主力のネガ型レジストだった。
+
+- へえ①：タイヤと同じゴムが、少し形を変えると IC の模様を写す材料になった。
+- へえ②：加硫ゴムは硫黄の橋で網になっていて溶けないので、環化には加硫していない生ゴムを使う。
+- へえ③：環化は1910年代から研究され、ハリエスが1919年に硫酸での作り方を発表した。のち p-トルエンスルホン酸（1927）、塩化スズ・塩化チタン・塩化鉄（1964）なども使われた。
+- へえ④：KTFR は現像液でふくらむので約2μm より細い線が引けず、のちにポジ型（ノボラック/DNQ）に交代した（[2-30] の省略欄）。
+
+確かさ：環化のしくみ・ハリエス 1919・ほかの触媒 ○（スリランカ国立科学財団の資料）／KTFR の年・成分 ○（TECH_TREE [2-30] の本物欄）
+根拠：
+- スリランカ国立科学財団の資料（環化ゴムの歴史と触媒：Harries 1919、Brusion 1927、Stolka 1964、Stevens and Miller 1938）：https://dl.nsf.gov.lk/bitstreams/f0025022-abd5-4868-9d43-824a22aa5b18/download
+- Google Patents GB773352A「Improvements in the preparation of cyclised rubber」（スルホン酸での環化）：https://patents.google.com/patent/GB773352A/en
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:raw_rubber",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:turpentine"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cyclized_rubber_mix",
+    "count": 1
+  }
+}

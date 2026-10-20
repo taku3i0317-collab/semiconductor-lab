@@ -317,5 +317,17 @@
   "item.semiconductor-lab.vulcanized_rubber.placeholder": "Approximation: sulfur amount, temperature and time are not modelled.",
   "message.semiconductor-lab.raw_rubber.sticky": "The heat made the raw rubber sticky... (vulcanized rubber does not change)",
   "message.semiconductor-lab.raw_rubber.stiff": "The cold made the raw rubber stiff... (vulcanized rubber does not change)",
-  "message.semiconductor-lab.raw_rubber.normal": "The raw rubber is back to normal"
+  "message.semiconductor-lab.raw_rubber.normal": "The raw rubber is back to normal",
+  "item.semiconductor-lab.cyclized_rubber_mix": "Rubber Cyclization Mix",
+  "item.semiconductor-lab.cyclized_rubber_mix.note1": "Raw rubber dissolved with an acid added. Heat it and the rubber turns into a hard resin.",
+  "item.semiconductor-lab.cyclized_rubber_mix.note2": "Raw rubber + sulfuric acid + turpentine (the acid bottle is returned). Heat in a furnace to get cyclized rubber. Vulcanized rubber does not dissolve, so it cannot be used. ⚠ GHS: corrosive (sulfuric acid), flammable (turpentine). Treated only as an industrial material.",
+  "item.semiconductor-lab.cyclized_rubber_mix.note3": "Rubber molecules (polyisoprene) carry many double bonds. With an acid, neighbouring double bonds join up and six-carbon rings form inside the chain (cyclization).",
+  "item.semiconductor-lab.cyclized_rubber_mix.note4": "Vulcanized rubber is a network linked by sulfur bridges, so it does not dissolve. That is why cyclized rubber is made from unvulcanized raw rubber.",
+  "item.semiconductor-lab.cyclized_rubber_mix.placeholder": "Approximation: real processes also use benzene or xylene as solvents. Concentration, temperature and time are not modelled.",
+  "item.semiconductor-lab.cyclized_rubber": "Cyclized Rubber",
+  "item.semiconductor-lab.cyclized_rubber.note1": "Rubber changed by acid into a hard resin. It no longer bounces. It is the base of a light-hardening resist.",
+  "item.semiconductor-lab.cyclized_rubber.note2": "Heat the cyclization mix in a furnace. Mixed with a sensitizer (a bis-azide) it becomes a negative photoresist ([2-30]).",
+  "item.semiconductor-lab.cyclized_rubber.note3": "The rings stiffen the molecules, so the rubber loses its bounce (elasticity). In return it dissolves well in solvents and makes thin, even films - ideal as a photoresist base.",
+  "item.semiconductor-lab.cyclized_rubber.note4": "Rubber cyclization was studied from the 1910s; Harries published a sulfuric-acid method in 1919. From about 1957, Kodak's KTFR (cyclized rubber + bis-azide) became the main resist for early ICs.",
+  "item.semiconductor-lab.cyclized_rubber.placeholder": "Approximation: degree of cyclization and molecular weight are not modelled."
 }

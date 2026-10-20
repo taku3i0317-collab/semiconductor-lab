@@ -67,3 +67,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [2-29] ゴム（遊び方: 実験＋軽、決定どおりジャングルに新しい木）：ゴムの木（丸太・葉・苗木、木の生成 rubber_tree／rubber_trees）。剥片で幹 → ラテックス、＋木酢液 → 生ゴム、＋硫黄 → 焼く → 加硫ゴム。生ゴムは暑い所（気温 0.95 以上）で「べたついた生ゴム」、寒い所（0.15 以下）で「硬くなった生ゴム」に名前が変わる（item/RawRubberItem、ITEM_NAME の翻訳キー）。加硫ゴムは変わらない。GameTest rubber、CHEMISTRY R1〜R3、REFERENCES C2。テスト 160/160
   - 共通ファイル：ModWorldGen の OreRule に「生成の段階」を任意で足した（2引数の書き方はそのまま鉱石の段階）＋ゴムの木の1行、MetallurgyTests.ore_biome_rules に期待値1行、minecraft のタグ（logs・logs_that_burn・leaves・saplings・mineable/axe・mineable/hoe、item 側も）に足した
   - 分かったこと：GameTest の世界では木の成長（TreeGrower.growTree）がバニラのジャングルの木でも false になる → 木が育つかは人間の確認に回した（TEST_QUEUE）
+- ✅ 環化ゴム（O-005-3、[2-29] の続き。TECH_TREE に専用ノードが無いので [2-29] の行に書いた）：生ゴム＋硫酸＋テレビン油 → 環化前の液 →かまど → 環化ゴム。加硫ゴムは不可（溶けない）。出典：Harries 1919 の硫酸法（スリランカ国立科学財団の資料）、KTFR は [2-30] の本物欄。感光剤を混ぜるのは担当 E。CHEMISTRY R4、REFERENCES C3。テスト 163/163

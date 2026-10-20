@@ -194,7 +194,7 @@ setblock ~43 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~46 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-29] ゴム","新しいワールドのジャン","グルにゴムの木が生えて","いるか（多すぎ・少なす"]}}
 setblock ~46 ~0 ~18 semiconductor-lab:rubber_log
 setblock ~47 ~0 ~18 semiconductor-lab:rubber_leaves
-setblock ~48 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:rubber_sapling",count:16},{Slot:1b,id:"semiconductor-lab:latex",count:16},{Slot:2b,id:"semiconductor-lab:raw_rubber",count:16},{Slot:3b,id:"semiconductor-lab:rubber_compound",count:16},{Slot:4b,id:"semiconductor-lab:vulcanized_rubber",count:16}]}
+setblock ~48 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:rubber_sapling",count:16},{Slot:1b,id:"semiconductor-lab:latex",count:16},{Slot:2b,id:"semiconductor-lab:raw_rubber",count:16},{Slot:3b,id:"semiconductor-lab:rubber_compound",count:16},{Slot:4b,id:"semiconductor-lab:vulcanized_rubber",count:16},{Slot:5b,id:"semiconductor-lab:cyclized_rubber_mix",count:16},{Slot:6b,id:"semiconductor-lab:cyclized_rubber",count:16}]}
 setblock ~51 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-21] アンモニア水","アンモニア蒸留器の G","UI（左に4つ、右に出","口2つ、水の残り・電力"]}}
 setblock ~51 ~-1 ~18 semiconductor-lab:test_power_source
 setblock ~51 ~0 ~18 semiconductor-lab:ammonia_still

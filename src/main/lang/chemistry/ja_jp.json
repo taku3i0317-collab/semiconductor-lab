@@ -317,5 +317,17 @@
   "item.semiconductor-lab.vulcanized_rubber.placeholder": "近似：硫黄の量・温度・時間は扱わない。",
   "message.semiconductor-lab.raw_rubber.sticky": "暑さで生ゴムがべたべたになった……（加硫ゴムは変わらない）",
   "message.semiconductor-lab.raw_rubber.stiff": "寒さで生ゴムがかちかちに硬くなった……（加硫ゴムは変わらない）",
-  "message.semiconductor-lab.raw_rubber.normal": "生ゴムがふつうの柔らかさにもどった"
+  "message.semiconductor-lab.raw_rubber.normal": "生ゴムがふつうの柔らかさにもどった",
+  "item.semiconductor-lab.cyclized_rubber_mix": "環化前の液",
+  "item.semiconductor-lab.cyclized_rubber_mix.note1": "生ゴムを溶かして、酸を入れた液。熱すると、ゴムが硬い樹脂に変わる。",
+  "item.semiconductor-lab.cyclized_rubber_mix.note2": "生ゴム＋硫酸＋テレビン油で作る（硫酸の瓶は戻る）。かまどで熱すると環化ゴム。加硫ゴムは溶けないので使えない。⚠ GHS：腐食性（硫酸）・引火性（テレビン油）。工業の材料としてだけ扱う。",
+  "item.semiconductor-lab.cyclized_rubber_mix.note3": "ゴムの分子（ポリイソプレン）には二重結合がたくさん並んでいる。酸があると、となりどうしの二重結合がつながって、鎖の中に6つの炭素の輪ができる（環化）。",
+  "item.semiconductor-lab.cyclized_rubber_mix.note4": "加硫ゴムは硫黄の橋で分子どうしがつながった網なので、溶剤に溶けない。だから環化ゴムは、加硫していない生ゴムから作る。",
+  "item.semiconductor-lab.cyclized_rubber_mix.placeholder": "近似：本物は溶剤にベンゼンやキシレンも使う。濃さ・温度・時間は扱わない。",
+  "item.semiconductor-lab.cyclized_rubber": "環化ゴム",
+  "item.semiconductor-lab.cyclized_rubber.note1": "ゴムを酸で変えた、硬い樹脂。もう弾まない。光で固まるレジストの土台になる。",
+  "item.semiconductor-lab.cyclized_rubber.note2": "環化前の液をかまどで熱して作る。感光剤（ビスアジド）を混ぜると、ネガ型フォトレジストになる（[2-30]）。",
+  "item.semiconductor-lab.cyclized_rubber.note3": "輪ができると分子が固くなり、ゴムの弾み（弾性）がなくなる。そのかわり溶剤によく溶け、薄く均一な膜にしやすい。これがフォトレジストの土台に向いている。",
+  "item.semiconductor-lab.cyclized_rubber.note4": "ゴムの環化は1910年代から研究され、ハリエスが1919年に硫酸での作り方を発表した。1957年ごろからコダックの KTFR（環化ゴム＋ビスアジド）が、初期の IC 作りの主力のレジストになった。",
+  "item.semiconductor-lab.cyclized_rubber.placeholder": "近似：環化の割合・分子量は扱わない。"
 }

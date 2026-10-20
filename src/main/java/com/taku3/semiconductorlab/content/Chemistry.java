@@ -107,6 +107,9 @@ public final class Chemistry {
     public static final Item RAW_RUBBER            = Reg.item("raw_rubber", RawRubberItem::new, new Item.Properties());   // 生ゴム（暑いとべたつき、寒いと硬い）
     public static final Item RUBBER_COMPOUND       = Reg.item("rubber_compound");   // 生ゴム＋硫黄を練った物（焼く前）
     public static final Item VULCANIZED_RUBBER     = Reg.item("vulcanized_rubber"); // 加硫ゴム
+    // 環化ゴム（ネガ型レジスト KTFR の土台）：生ゴムを溶剤の中で酸と熱し、分子の二重結合を輪にした硬い樹脂（Harries 1919 硫酸）。感光剤を混ぜてレジストにするのは [2-30]（担当 E）
+    public static final Item CYCLIZED_RUBBER_MIX   = Reg.item("cyclized_rubber_mix"); // 環化前の液（生ゴム＋硫酸＋テレビン油）
+    public static final Item CYCLIZED_RUBBER       = Reg.item("cyclized_rubber");     // 環化ゴム
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

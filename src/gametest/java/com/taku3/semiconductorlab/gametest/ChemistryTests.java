@@ -469,6 +469,11 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         com.taku3.semiconductorlab.item.RawRubberItem.applyTemperature(raw, 0.7f);
         h.assertTrue(com.taku3.semiconductorlab.item.RawRubberItem.stateOf(raw) == com.taku3.semiconductorlab.item.RawRubberItem.State.NORMAL, "back to normal (0.7)");
         h.assertFalse(Chemistry.VULCANIZED_RUBBER instanceof com.taku3.semiconductorlab.item.RawRubberItem, "vulcanized rubber does not change with temperature");
+        // 環化ゴム：生ゴム＋硫酸＋テレビン油 → 焼く。加硫ゴムは溶けないので使えない
+        h.assertTrue(recipeUses(h, "cyclized_rubber_mix", Chemistry.RAW_RUBBER) && recipeUses(h, "cyclized_rubber_mix", Chemistry.SULFURIC_ACID)
+                && recipeUses(h, "cyclized_rubber_mix", Chemistry.TURPENTINE), "raw rubber + sulfuric acid + turpentine -> cyclization mix");
+        h.assertFalse(recipeUses(h, "cyclized_rubber_mix", Chemistry.VULCANIZED_RUBBER), "vulcanized rubber does not dissolve -> cannot be cyclized");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.CYCLIZED_RUBBER_MIX).is(Chemistry.CYCLIZED_RUBBER), "heated -> cyclized rubber");
         LOG.info("[LAB] rubber [2-29]: sapling -> rubber tree, flake -> latex, + wood vinegar -> raw rubber (sticky hot / stiff cold), + sulfur -> baked -> vulcanized");
         h.succeed();
     }
