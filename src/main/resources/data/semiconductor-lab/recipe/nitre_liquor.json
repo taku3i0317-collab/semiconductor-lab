@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:nitre_earth",
+    "semiconductor-lab:nitre_earth",
+    "semiconductor-lab:nitre_earth",
+    "semiconductor-lab:nitre_earth",
+    "semiconductor-lab:wood_ash",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nitre_liquor",
+    "count": 1
+  }
+}

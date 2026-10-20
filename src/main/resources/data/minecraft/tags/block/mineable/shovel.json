@@ -1,1 +1,8 @@
-{"replace": false, "values": ["semiconductor-lab:iron_sand", "semiconductor-lab:salt_pan"]}
+{
+  "replace": false,
+  "values": [
+    "semiconductor-lab:iron_sand",
+    "semiconductor-lab:salt_pan",
+    "semiconductor-lab:nitre_earth_block"
+  ]
+}

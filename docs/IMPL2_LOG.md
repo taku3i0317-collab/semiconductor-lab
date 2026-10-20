@@ -73,3 +73,7 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - **Q-IMP2-2**：[B-02a] ダゲレオタイプ・[B-02b] 湿板の遊び方（例：カメラのアイテムで景色を写すと「写真」アイテムに、湿板はガラスのネガ）を IMP2 で設計してよいか
   - **Q-IMP2-3**：[7-11] 銀塩マスクの表し方（原図＝ルビリスをどう描くか、パターンの持ち方）は露光装置の設計と一緒に決めるか
   - 回答が来るまで INBOX を待つ。そのあいだにできる光学の候補：[7-15] 紫外光学材料（CaF2 結晶 ← [1-21]✅・[3-14]✅ 誘導炉、合成石英 ← SiCl4 [1-16] 系✅？・[6-01]✅）、[7-05] 段階2 銀鏡（[6-11]・[2-21] が要る）
+
+## IMP2-02（INBOX O-002、2026-10-20）Q-IMP2-1〜3 の答え：硝酸と硝酸銀は IMP2、写真は案を出す、[7-11] は待つ
+- ✅ [6-16] 天然硝石：新しいブロック nitre_earth_block（鍾乳石の洞窟の鍾乳石ブロックを置き換える。マンモスケーブの洞窟採掘に合わせた）→ 硝石土×4＋木灰＋水 → 浸出液 → かまど → 硝石 KNO3。ModWorldGen.RULES に1行、ore_biome_rules（MetallurgyTests）に期待を1行。GameTest ore_nitre_earth・saltpeter_from_nitre_earth、CHEMISTRY G1〜G2、REFERENCES O19。テスト 119/119
+  - API の注意：26.3 の loot_table は "functions" ではなく "modifier":[{"type":…}]（API_26X.md にもう書いてあった。set_count も同じ）

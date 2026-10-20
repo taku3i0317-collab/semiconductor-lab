@@ -506,6 +506,24 @@ public class GasTests extends LabTestBase {
         });
     }
 
+    /** [6-16] 天然硝石（IMP2-02）：硝石土は鍾乳石ブロックだけを置き換える。土×4＋木灰＋水 → 浸出液（バケツは戻る）→かまど→ 硝石 */
+    @GameTest public void oreNitreEarth(GameTestHelper h) { oreFeature(h, "nitre_earth_block", Blocks.DRIPSTONE_BLOCK, Blocks.STONE, Gas.NITRE_EARTH_BLOCK, s -> s.is(Blocks.DRIPSTONE_BLOCK)); }
+
+    @GameTest
+    public void saltpeterFromNitreEarth(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Gas.NITRE_EARTH_BLOCK);
+        var drops = net.minecraft.world.level.block.Block.getDrops(h.getBlockState(pos), h.getLevel(), h.absolutePos(pos), null, null, new ItemStack(Items.WOODEN_SHOVEL));
+        h.assertTrue(drops.size() == 1 && drops.get(0).is(Gas.NITRE_EARTH) && drops.get(0).getCount() == 2, "shovel -> 2 nitre earth, got " + drops);
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("nitre_liquor"));
+        var ings = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value().placementInfo().ingredients();
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Gas.NITRE_EARTH))).count(), 4L, "4 nitre earth");
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Chemistry.WOOD_ASH))).count(), 1L, "wood ash (K2CO3 turns Ca(NO3)2 into KNO3)");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Gas.NITRE_LIQUOR).is(Gas.SALTPETER), "liquor boiled down -> saltpeter");
+        LOG.info("[LAB] saltpeter [6-16]: nitre earth (dripstone caves) x4 + wood ash + water -> liquor -> furnace -> KNO3");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Gas.ELECTROLYZER.block, "水の電気分解", L(io(Items.WATER_BUCKET, 1), kept(io(Chemistry.SULFURIC_ACID, 1))),

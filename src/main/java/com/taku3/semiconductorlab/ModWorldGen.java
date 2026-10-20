@@ -19,7 +19,8 @@ public class ModWorldGen {
             MAGNETITE_ORE = key("magnetite_ore"), WOLFRAMITE_ORE = key("wolframite_ore"), GALENA_ORE = key("galena_ore"), IRON_SAND = key("iron_sand"),
             TRONA_DEPOSIT = key("trona_deposit"), ROCK_SALT_ORE = key("rock_salt_ore"), BORAX_DEPOSIT = key("borax_deposit"), QUARTZ_VEIN = key("quartz_vein"),
             MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"),
-            FLUORITE_ORE = key("fluorite_ore");
+            FLUORITE_ORE = key("fluorite_ore"),
+            NITRE_EARTH = key("nitre_earth_block");
 
     /** 鉱石1つぶんの生成ルール：どの placed feature を、どのバイオームの選び方で入れるか（GameTest が全バイオームに対して直接調べる） */
     public record OreRule(ResourceKey<PlacedFeature> feature, Predicate<BiomeSelectionContext> biomes) {}
@@ -36,6 +37,8 @@ public class ModWorldGen {
             new OreRule(MALACHITE_ORE, BiomeSelectors.foundInOverworld()),
             // [1-22] 錫石（IMP2-01）：花崗岩だけを置き換える（鉄マンガン重石と同じ帯。本物も W・Sn は花崗岩の同じ鉱脈に出る）
             new OreRule(CASSITERITE_ORE, BiomeSelectors.foundInOverworld()),
+            // [6-16] 硝石土（IMP2-02）：鍾乳石の洞窟（石灰岩の洞窟）だけ。鍾乳石ブロックを置き換える（マンモスケーブの硝石採掘のように洞窟の堆積物）
+            new OreRule(NITRE_EARTH, BiomeSelectors.includeByKey(Biomes.DRIPSTONE_CAVES)),
             // [1-21] 蛍石（IMP4-01）：方鉛鉱と同じ帯（熱水鉱脈で方鉛鉱・閃亜鉛鉱といっしょに出る）。方鉛鉱より少ない
             new OreRule(FLUORITE_ORE, BiomeSelectors.foundInOverworld()),
             // 砂鉄：浜辺だけ（漂砂鉱床）

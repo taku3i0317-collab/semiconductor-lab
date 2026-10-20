@@ -27,6 +27,10 @@ public final class Gas {
     private Gas() {}
 
     // ===== アイテム =====
+    // [6-16] 天然硝石（IMP2-02）：鍾乳洞の硝石土 ×4＋木灰＋水 → 硝石の浸出液 →かまど（煮つめる）→ 硝石 KNO3
+    public static final Item NITRE_EARTH           = Reg.item("nitre_earth");       // 硝石土（硝酸カルシウムなどを含む洞窟の土）
+    public static final Item NITRE_LIQUOR          = Reg.item("nitre_liquor", new Item.Properties().stacksTo(16)); // 硝石の浸出液
+    public static final Item SALTPETER             = Reg.item("saltpeter");         // 硝石 KNO3（工業の材料。火薬の配合は作らない＝DESIGN「危ない技術の扱い」）
     public static final Item HYDROCHLORIC_ACID     = Reg.contained("hydrochloric_acid", Vessel.GLASS_BOTTLE); // [6-06] 塩酸（HCl 約25%、ガラス瓶入り）
     // --- ガス（v0.2a [6-01] 電解槽の生成物）---
     // 「袋詰め」のガス（約1mol）。貯蔵は [6-02] ガスホルダー、高圧の持ち運びは [6-03] ボンベ
@@ -65,6 +69,9 @@ public final class Gas {
     public static final Machine<AirSeparationBlockEntity> AIR_SEPARATION_UNIT = Machine.electric("air_separation_unit", AirSeparationBlockEntity::new, AirSeparationBlockEntity.LAYOUT, metal(3.5f));
     // 圧縮機 [6-03]（電動モーターのピストン圧縮機。隣のガスホルダーのガスを鋼のボンベに 50mol ずつ詰める）
     public static final Machine<CompressorBlockEntity> COMPRESSOR = Machine.electric("compressor", CompressorBlockEntity::new, CompressorBlockEntity.LAYOUT, metal(3.5f));
+
+    // [6-16] 硝石土（IMP2-02）：鍾乳石の洞窟（石灰岩の洞窟）の鍾乳石ブロックを置き換える、やわらかい土（シャベル）
+    public static final Block NITRE_EARTH_BLOCK = Reg.ore("nitre_earth_block", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.8f).sound(SoundType.GRAVEL));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

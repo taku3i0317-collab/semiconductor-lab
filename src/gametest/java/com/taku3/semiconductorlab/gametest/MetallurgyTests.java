@@ -458,6 +458,7 @@ public class MetallurgyTests extends LabTestBase {
         for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
+        expect.put("nitre_earth_block", b -> b.is(net.minecraft.world.level.biome.Biomes.DRIPSTONE_CAVES));   // [6-16] IMP2-02
         expect.put("trona_deposit", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT));
         expect.put("borax_deposit", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT));
         expect.put("rock_salt_ore", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT) || b.is(BiomeTags.IS_BADLANDS));

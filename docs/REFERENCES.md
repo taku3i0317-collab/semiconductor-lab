@@ -645,6 +645,19 @@
 - APS「This Month in Physics History: Katharine Blodgett」：https://www.aps.org/apsnews/2007/03/this-month-in-physics-history
 - Wikipedia「Anti-reflective coating」：https://en.wikipedia.org/wiki/Anti-reflective_coating
 
+## O19. 洞窟の土から硝石（天然硝石の採取）［6-16］（硝酸の前提）
+**答え**：乾いた洞窟や古い家畜小屋の土には、窒素の化合物が細菌に分解されてできた硝酸塩がたまる。土を水につけ、木灰（炭酸カリウム）を加えてカルシウムを沈め、煮つめると白い硝石（硝酸カリウム KNO3）の結晶がとれる。
+
+- へえ①：火薬の原料は、古い家畜小屋の土からとれた。
+- へえ②：1812年の米英戦争のころ、アメリカのマンモスケーブでは洞窟の土から硝石を取った。木の樋や桶が今も洞窟に残る。
+- へえ③：硝石は熱い水によく溶け、冷たい水に溶けにくい。煮つめて冷ますと先に結晶になる（再結晶）。
+- へえ④：19世紀はチリ硝石が肥料として輸出され、1913年からはハーバー・ボッシュ法で空気から窒素化合物を作れるようになった。
+
+確かさ：硝化・浸出・木灰で KNO3 に変える化学 ◎／マンモスケーブの硝石採掘 1812年ごろ ◎（米国国立公園局）／火薬の年（中国 9〜10世紀・ヨーロッパ 13世紀）○（TECH_TREE の記述）／土をなめて見分けた話 △ → ゲーム内は ⚠️
+根拠：
+- 米国国立公園局「Mammoth Cave: Saltpeter Mining」：https://www.nps.gov/maca/learn/historyculture/saltpeter-mining.htm
+- Wikipedia「Potassium nitrate」（歴史・用途）：https://en.wikipedia.org/wiki/Potassium_nitrate
+
 ---
 
 # 冶金と熱（タスク15〜）

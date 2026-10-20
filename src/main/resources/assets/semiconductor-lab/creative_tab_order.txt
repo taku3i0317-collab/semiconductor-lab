@@ -146,6 +146,10 @@ diffusion_pump  # Vacuum [5-05] 1915
 rock_salt  # Gas [6-04] -1500
 salt  # Gas [6-04] -1500
 rock_salt_ore  # Gas [6-04] -1500
+nitre_earth  # Gas [6-16] 1250
+nitre_liquor  # Gas [6-16] 1250
+saltpeter  # Gas [6-16] 1250
+nitre_earth_block  # Gas [6-16] 1250
 hydrogen_gas  # Gas [6-01] 1800
 oxygen_gas  # Gas [6-01] 1800
 electrolyzer  # Gas [6-01] 1800
