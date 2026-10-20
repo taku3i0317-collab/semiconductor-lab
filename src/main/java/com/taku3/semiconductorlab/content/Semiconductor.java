@@ -48,6 +48,12 @@ public final class Semiconductor {
     public static final Item PN_JUNCTION_WAFER     = Reg.item("pn_junction_wafer");
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");
+    // [9-17] メサトランジスタ（IMP4-01）：p-n 接合の板（p の板＋n の表面）→ Al の点を蒸着 → 焼いて合金（エミッタ）→ ろうで守る → 混酸で周りを削る（メサ）→ 金線でつなぐ
+    public static final Item AL_DOTTED_WAFER       = Reg.item("al_dotted_wafer");
+    public static final Item ALLOYED_WAFER         = Reg.item("alloyed_wafer");
+    public static final Item WAXED_WAFER           = Reg.item("waxed_wafer");
+    public static final Item MESA_WAFER            = Reg.item("mesa_wafer");
+    public static final Item MESA_TRANSISTOR       = Reg.item("mesa_transistor", MesaTransistorItem::new, new Item.Properties().stacksTo(16));
     // 露光とマスク（O-002、docs/LITHO_DESIGN.md）：加工中のウェハー（chip_state つき。レジストを塗ると酸化膜つきの板がこれになる）
     public static final Item PROCESS_WAFER         = Reg.item("process_wafer");
     // 製図台の設計図（方眼紙、成分 chip_design）と原図（ルビリス、成分 mask）。⚠️ 材料なしで製図台から出る（INBOX S-001）

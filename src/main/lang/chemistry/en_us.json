@@ -397,5 +397,11 @@
   "item.semiconductor-lab.bakelite.note2": "Heat the resol reaction mix in a furnace. It does not melt in a furnace (compare with novolac). It does not conduct electricity, so radio and telephone cases and wiring parts were made of it.",
   "item.semiconductor-lab.bakelite.note3": "Its molecules are bridged in three directions (a thermoset), so it does not flow when hot, hardly burns and does not conduct electricity.",
   "item.semiconductor-lab.bakelite.note4": "Invented by Baekeland in 1907, the world's first fully synthetic plastic, called 'the material of a thousand uses'. Radios and black telephones of the 1930s-40s were made of Bakelite.",
-  "item.semiconductor-lab.bakelite.placeholder": "Approximation: no filler (such as wood flour) is added."
+  "item.semiconductor-lab.bakelite.placeholder": "Approximation: no filler (such as wood flour) is added.",
+  "item.semiconductor-lab.silicon_etch": "Mixed Acid (HF + Nitric)",
+  "item.semiconductor-lab.silicon_etch.note1": "A very dangerous acid mixture that dissolves silicon itself. Kept in a lead bottle.",
+  "item.semiconductor-lab.silicon_etch.note2": "Crafting: 1 hydrofluoric acid + 1 nitric acid + 1 empty lead bottle → 1 (bottles come back). In the etching tank [9-06] it cuts away unwaxed silicon to form mesas. GHS: skull (acute toxicity), corrosive, oxidising.",
+  "item.semiconductor-lab.silicon_etch.note3": "Nitric acid oxidises silicon to SiO2 and hydrofluoric acid dissolves that SiO2; repeating the two eats into the silicon.",
+  "item.semiconductor-lab.silicon_etch.note4": "In the 1950s a liquid called CP-4 (HF, nitric, acetic acid and a little bromine) was used to smooth germanium and silicon surfaces.",
+  "item.semiconductor-lab.silicon_etch.placeholder": "Approximation: no acetic acid or bromine (not CP-4 itself)."
 }

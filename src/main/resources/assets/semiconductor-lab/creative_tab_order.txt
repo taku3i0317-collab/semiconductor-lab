@@ -182,6 +182,7 @@ novolac  # Chemistry [2-28] 1907
 resol_mix  # Chemistry [2-28] 1907
 bakelite  # Chemistry [2-28] 1907
 phosphorus  # Chemistry [9-11] 1955
+silicon_etch  # Chemistry [9-17] 1957
 phosphoric_acid  # Chemistry [9-25] 1959
 sodium_silicate  # Chemistry [9-13] 1963
 colloidal_silica  # Chemistry [9-13] 1963
@@ -323,6 +324,11 @@ wafer_saw  # Semiconductor [9-12] 1954
 diffusion_furnace  # Semiconductor [9-16] 1954
 oxidized_wafer  # Semiconductor [9-15] 1955
 oxidation_furnace  # Semiconductor [9-15] 1955
+al_dotted_wafer  # Semiconductor [9-17] 1957
+alloyed_wafer  # Semiconductor [9-17] 1957
+waxed_wafer  # Semiconductor [9-17] 1957
+mesa_wafer  # Semiconductor [9-17] 1957
+mesa_transistor  # Semiconductor [9-17] 1957
 process_wafer  # Semiconductor [9-06] 1957
 etch_tank  # Semiconductor [9-06] 1957
 rubylith  # Semiconductor [7-11] 1960

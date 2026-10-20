@@ -30,7 +30,7 @@ public class EtchTankScreen extends MachineScreen {
                         : menu.get(EtchTankBlockEntity.DATA_PROGRESS) > 0 ? "running" : "out_full";
                 yield Component.translatable(K + k);
             }
-            case "recipe" -> Component.translatable(K + (menu.machineItem(EtchTankBlockEntity.SLOT_HF).is(com.taku3.semiconductorlab.content.Chemistry.PHOSPHORIC_ACID) ? "recipe_metal" : "recipe"));
+            case "recipe" -> Component.translatable(K + (menu.machineItem(EtchTankBlockEntity.SLOT_HF).is(com.taku3.semiconductorlab.content.Chemistry.PHOSPHORIC_ACID) ? "recipe_metal" : menu.machineItem(EtchTankBlockEntity.SLOT_HF).is(com.taku3.semiconductorlab.content.Chemistry.SILICON_ETCH) ? "recipe_silicon" : "recipe"));
             default -> null;
         };
     }

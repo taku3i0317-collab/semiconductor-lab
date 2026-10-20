@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:alloyed_wafer",
+    "minecraft:honeycomb"
+  ],
+  "result": {
+    "id": "semiconductor-lab:waxed_wafer",
+    "count": 1
+  }
+}

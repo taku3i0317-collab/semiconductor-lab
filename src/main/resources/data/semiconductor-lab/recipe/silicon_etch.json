@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:nitric_acid",
+    "semiconductor-lab:lead_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:silicon_etch",
+    "count": 1
+  }
+}

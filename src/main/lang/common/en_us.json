@@ -143,5 +143,8 @@
   "assembly.semiconductor-lab.hf_oscillator.tank_coil.short": "tank coil",
   "assembly.semiconductor-lab.hf_oscillator.tank_capacitor.short": "tank capacitor",
   "assembly.semiconductor-lab.hf_oscillator.wiring.short": "wiring",
-  "assembly.semiconductor-lab.hf_oscillator.frame.short": "frame"
+  "assembly.semiconductor-lab.hf_oscillator.frame.short": "frame",
+  "tooltip.semiconductor-lab.mesa.gain": "Current gain β = %s",
+  "tooltip.semiconductor-lab.mesa.dead": "Leaks too much to work (β = %s)",
+  "tooltip.semiconductor-lab.mesa.exposed": "Exposed junction: degrades with moisture"
 }

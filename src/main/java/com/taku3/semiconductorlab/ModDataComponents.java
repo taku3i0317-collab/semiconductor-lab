@@ -76,5 +76,14 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.fromCodec(com.taku3.semiconductorlab.litho.ChipState.CODEC))
                     .build());
 
+    // [9-17] メサトランジスタの電流増幅率 β（むき出しの接合が湿気で劣化して下がる、IMP4-01）
+    public static final DataComponentType<Integer> CURRENT_GAIN = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("current_gain"),
+            DataComponentType.<Integer>builder()
+                    .persistent(Codec.intRange(0, 1000))
+                    .networkSynchronized(ByteBufCodecs.VAR_INT)
+                    .build());
+
     public static void initialize() {}
 }

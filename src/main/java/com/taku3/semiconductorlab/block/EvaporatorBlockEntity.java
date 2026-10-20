@@ -43,11 +43,17 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
         for (Recipe r : RECIPES) if (substrate.is(r.substrate()) && metal.is(r.metal())) return r;
         return null;
     }
-    public static boolean isSubstrate(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.substrate())) || com.taku3.semiconductorlab.litho.ChipOps.canDepositMetal(s); }
+    public static boolean isSubstrate(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.substrate())) || com.taku3.semiconductorlab.litho.ChipOps.canDepositMetal(s) || s.is(com.taku3.semiconductorlab.content.Semiconductor.PN_JUNCTION_WAFER); }
     public static boolean isMetal(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.metal())) || s.is(Metallurgy.ALUMINIUM_INGOT); }
 
     /** [9-25] 加工中のウェハーに Al を付けたもの（1回に1〜8枚、Al 1個）。当てはまらなければ EMPTY */
     public static ItemStack chipProduct(ItemStack substrate, ItemStack metal) {
+        if (substrate.is(com.taku3.semiconductorlab.content.Semiconductor.PN_JUNCTION_WAFER) && metal.is(Metallurgy.ALUMINIUM_INGOT)) {
+            // [9-17] メサ：p-n 接合の板の表面（n の層）にマスク越しに Al の点を付ける。n の表面でないと、焼いても接合にならないので断る
+            if (!"boron".equals(substrate.get(com.taku3.semiconductorlab.ModDataComponents.DOPANT))) return ItemStack.EMPTY;
+            ItemStack out = substrate.transmuteCopy(com.taku3.semiconductorlab.content.Semiconductor.AL_DOTTED_WAFER, Math.min(substrate.getCount(), CHIP_BATCH));
+            return out;
+        }
         if (!com.taku3.semiconductorlab.litho.ChipOps.isProcessWafer(substrate) || !metal.is(Metallurgy.ALUMINIUM_INGOT)) return ItemStack.EMPTY;
         var r = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(substrate.copyWithCount(Math.min(substrate.getCount(), CHIP_BATCH)));
         return r.ok() ? r.out() : ItemStack.EMPTY;

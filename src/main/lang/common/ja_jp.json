@@ -143,5 +143,8 @@
   "assembly.semiconductor-lab.hf_oscillator.tank_coil.short": "共振コイル",
   "assembly.semiconductor-lab.hf_oscillator.tank_capacitor.short": "共振コンデンサ",
   "assembly.semiconductor-lab.hf_oscillator.wiring.short": "配線",
-  "assembly.semiconductor-lab.hf_oscillator.frame.short": "枠"
+  "assembly.semiconductor-lab.hf_oscillator.frame.short": "枠",
+  "tooltip.semiconductor-lab.mesa.gain": "電流増幅率 β ＝ %s",
+  "tooltip.semiconductor-lab.mesa.dead": "漏れが大きすぎて働かない（β ＝ %s）",
+  "tooltip.semiconductor-lab.mesa.exposed": "接合がむき出し：湿気で劣化する"
 }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:al_dotted_wafer",
+  "result": {
+    "id": "semiconductor-lab:alloyed_wafer"
+  },
+  "experience": 0.2,
+  "cookingtime": 200
+}

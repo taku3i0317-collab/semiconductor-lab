@@ -397,5 +397,11 @@
   "item.semiconductor-lab.bakelite.note2": "レゾールの反応液をかまどで熱して作る。かまどに入れても溶けない（ノボラックとくらべよう）。電気を通さないので、ラジオや電話の外装・配線の部品に使われた。",
   "item.semiconductor-lab.bakelite.note3": "分子どうしが3方向に橋でつながった網（熱硬化性樹脂）なので、熱しても流れず、燃えにくく、電気を通さない。",
   "item.semiconductor-lab.bakelite.note4": "1907年ベークランドが発明した世界初の完全な合成プラスチック。「千の用途を持つ素材」とよばれ、1930〜40年代のラジオや黒電話はベークライトでできていた。",
-  "item.semiconductor-lab.bakelite.placeholder": "近似：充填材（木の粉など）は入れない。"
+  "item.semiconductor-lab.bakelite.placeholder": "近似：充填材（木の粉など）は入れない。",
+  "item.semiconductor-lab.silicon_etch": "混酸（フッ酸＋硝酸）",
+  "item.semiconductor-lab.silicon_etch.note1": "シリコンそのものを溶かす、とても危ない酸のまぜもの。鉛の瓶に入れる。",
+  "item.semiconductor-lab.silicon_etch.note2": "作業台で フッ酸1＋硝酸1＋空の鉛の瓶1 → 1（瓶は戻る）。エッチング槽 [9-06] で、ろうのない所のシリコンを削ってメサにする。GHS：どくろ（急性毒性）・腐食性・酸化性。",
+  "item.semiconductor-lab.silicon_etch.note3": "硝酸がシリコンを酸化して SiO2 にし、フッ酸がその SiO2 を溶かす。この2つがくり返されて、シリコンがどんどん削られる。",
+  "item.semiconductor-lab.silicon_etch.note4": "1950年代の CP-4 という液（フッ酸・硝酸・酢酸・少しの臭素）が、ゲルマニウムやシリコンの表面をなめらかに削るのに使われた。",
+  "item.semiconductor-lab.silicon_etch.placeholder": "近似：酢酸・臭素は入れない（CP-4 そのものではない）。"
 }

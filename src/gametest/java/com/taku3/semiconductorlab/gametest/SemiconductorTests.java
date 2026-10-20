@@ -513,6 +513,62 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-17] メサトランジスタ（IMP4-01）
+    // =====================================================================
+
+    /** p の板＋n の表面 → Al の点（蒸着）→ 焼いて合金 → ろう → 混酸で削る → 金線で4個。n の板は断る。β は持ち歩くと下がり、雨では速く、0 で止まる */
+    @GameTest(maxTicks = 200)
+    public void mesaTransistor(GameTestHelper h) {
+        ItemStack pn = new ItemStack(Semiconductor.PN_JUNCTION_WAFER, 8);
+        pn.set(ModDataComponents.DOPANT, "boron");
+        ItemStack wrong = new ItemStack(Semiconductor.PN_JUNCTION_WAFER, 8);
+        wrong.set(ModDataComponents.DOPANT, "phosphorus");
+        h.assertTrue(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.chipProduct(wrong, new ItemStack(Metallurgy.ALUMINIUM_INGOT)).isEmpty(), "n base + p top: aluminium (p-type) makes no emitter -> refused");
+        floor(h, 5);
+        BlockPos cp = p(1, 1, 1), ep = p(2, 1, 1), tp = p(3, 1, 3);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(ep, com.taku3.semiconductorlab.content.Vacuum.EVAPORATOR.block);
+        h.getBlockEntity(cp, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(0.004);
+        var ev = h.getBlockEntity(ep, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.class);
+        ev.getContainer().setItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_SUBSTRATE, pn.copy());
+        ev.getContainer().setItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_METAL, new ItemStack(Metallurgy.ALUMINIUM_INGOT));
+        tickConsumer(h, ep, ev, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS));
+        ItemStack dotted = ev.getContainer().getItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_OUT);
+        h.assertTrue(dotted.is(Semiconductor.AL_DOTTED_WAFER) && dotted.getCount() == 8 && "boron".equals(dotted.get(ModDataComponents.DOPANT)), "8 Al-dotted slices keeping the dopant, got " + dotted);
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Semiconductor.AL_DOTTED_WAFER).is(Semiconductor.ALLOYED_WAFER), "furnace alloys the dots (577 C eutectic)");
+        h.assertTrue(recipeUses(h, "waxed_wafer", Items.HONEYCOMB) && recipeUses(h, "silicon_etch", Chemistry.HYDROFLUORIC_ACID) && recipeUses(h, "silicon_etch", com.taku3.semiconductorlab.content.Gas.NITRIC_ACID), "wax mask, HF + HNO3");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.SILICON_ETCH) == com.taku3.semiconductorlab.machine.Vessel.LEAD_BOTTLE, "mixed acid with HF -> lead bottle");
+        // 混酸のエッチング槽
+        h.setBlock(tp, Semiconductor.ETCH_TANK.block);
+        var tank = h.getBlockEntity(tp, com.taku3.semiconductorlab.block.EtchTankBlockEntity.class);
+        var tc = tank.getContainer();
+        ServerLevel lv = h.getLevel();
+        BlockPos ta = h.absolutePos(tp);
+        h.assertTrue(com.taku3.semiconductorlab.block.EtchTankBlockEntity.product(new ItemStack(Semiconductor.WAXED_WAFER, 8), 8, new ItemStack(Chemistry.HYDROFLUORIC_ACID)).isEmpty(), "HF alone does not cut silicon");
+        tc.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_WAFER, new ItemStack(Semiconductor.WAXED_WAFER, 8));
+        tc.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF, new ItemStack(Chemistry.SILICON_ETCH));
+        for (int i = 0; i < com.taku3.semiconductorlab.block.EtchTankBlockEntity.METAL_TICKS; i++) com.taku3.semiconductorlab.block.EtchTankBlockEntity.tick(lv, ta, lv.getBlockState(ta), tank);
+        h.assertTrue(tc.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT).is(Semiconductor.MESA_WAFER) && tc.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT).getCount() == 8, "8 mesa slices, got " + tc.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT));
+        lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(ta).inflate(3)).forEach(net.minecraft.world.entity.Entity::discard);
+        // 組み立て
+        List<ItemStack> g = new ArrayList<>(List.of(new ItemStack(Semiconductor.MESA_WAFER), new ItemStack(Items.GOLD_NUGGET), new ItemStack(Items.GOLD_NUGGET), new ItemStack(Items.IRON_NUGGET)));
+        while (g.size() < 9) g.add(ItemStack.EMPTY);
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(3, 3, g);
+        ItemStack tr = lv.getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in, lv).orElseThrow().value().assemble(in);
+        h.assertTrue(tr.is(Semiconductor.MESA_TRANSISTOR) && tr.getCount() == 4 && com.taku3.semiconductorlab.item.MesaTransistorItem.gainOf(tr) == com.taku3.semiconductorlab.item.MesaTransistorItem.FRESH_GAIN, "4 mesa transistors, beta 40, got " + tr);
+        // 劣化：乾いた所で1、雨で5、0 で止まる
+        ItemStack t1 = tr.copyWithCount(1);
+        com.taku3.semiconductorlab.item.MesaTransistorItem.decay(t1, false);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.MesaTransistorItem.gainOf(t1), com.taku3.semiconductorlab.item.MesaTransistorItem.FRESH_GAIN - 1, "dry: beta -1");
+        com.taku3.semiconductorlab.item.MesaTransistorItem.decay(t1, true);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.MesaTransistorItem.gainOf(t1), com.taku3.semiconductorlab.item.MesaTransistorItem.FRESH_GAIN - 1 - com.taku3.semiconductorlab.item.MesaTransistorItem.RAIN_DECAY, "rain: beta -5");
+        for (int i = 0; i < 100; i++) com.taku3.semiconductorlab.item.MesaTransistorItem.decay(t1, true);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.MesaTransistorItem.gainOf(t1), 0, "leaks too much: beta 0, not negative");
+        LOG.info("[LAB] mesa [9-17]: p+n slice -> Al dots -> alloy -> wax -> HF+HNO3 -> mesa -> 4 transistors (beta 40), decays 1/min dry, 5/min wet, n-base refused");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 

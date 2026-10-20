@@ -75,6 +75,7 @@ public final class Chemistry {
     // [2-10] フッ酸（IMP4-01）：鉛の瓶入り（ガラスを溶かすのでガラス瓶は不可＝Vessel.ALLOWED）。副産物は石こう（硫酸カルシウム）
     public static final Item HYDROFLUORIC_ACID     = Reg.contained("hydrofluoric_acid", Vessel.LEAD_BOTTLE);
     public static final Item CALCIUM_SULFATE       = Reg.item("calcium_sulfate");   // 石こう CaSO4（無水。焼いた石こう）
+    public static final Item SILICON_ETCH          = Reg.contained("silicon_etch", Vessel.LEAD_BOTTLE); // [9-17] シリコンを溶かす混酸（フッ酸＋硝酸、鉛の瓶。IMP4-01）
     // [9-25] リン酸（IMP4-01）：骨灰＋硫酸（シェーレの時代からの湿式法）。Al のエッチング液
     public static final Item PHOSPHORIC_ACID       = Reg.contained("phosphoric_acid", Vessel.GLASS_BOTTLE);
     // [9-13] 研磨のコロイダルシリカ（IMP4-01）：砂＋NaOH → 水ガラス（ケイ酸ナトリウム）→ 硫酸で中和 → シリカの微粒子が水に分散した液（ガラス瓶）

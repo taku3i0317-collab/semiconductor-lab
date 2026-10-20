@@ -448,6 +448,20 @@
 
 ---
 
+## F17. 台地の形のトランジスタ（メサトランジスタ）［9-17］
+**答え**：拡散で作った層の上に金属の点を付け、点のまわりを酸で削って台地（メサ）の形に残したトランジスタ。拡散で作るので速く動き、1957〜58年にベル研・TI・フェアチャイルド（2N697）が作った。ただ接合の境目が台地の側面にむき出しで、湿気や汚れで特性が変わりやすかった。それを解いたのが1959年のプレーナ技術。
+
+- へえ①：「メサ」はスペイン語で机。アメリカ西部の台地の形から。
+- へえ②：写真の技術の前は、ろうを点の上にたらしてマスクにした。
+- へえ③：むき出しの接合は湿気に弱く、金属のかんに乾いた気体と封じて守った。
+- へえ④：ヘルニは接合を酸化膜の下にかくすプレーナ技術を考え、IC への道を開いた。
+
+確かさ：メサの構造と 1957〜58 ◎（コンピュータ歴史博物館）／2N697 1958 ◎／湿気・汚れに弱い ◎／ろうのマスク ○／合金エミッタ（Ge のメサ）○
+ゲーム（2026-10-20 IMP4-01 で実装）：蒸着で Al の点 → 合金 → ろう → 混酸 → メサ → 4個。β は持ち歩くと下がる ⚠️ 速さはゲームの値
+根拠：コンピュータ歴史博物館「1959: Invention of the "Planar" Manufacturing Process」https://www.computerhistory.org/siliconengine/invention-of-the-planar-manufacturing-process/ 、同「1958: Silicon Mesa Transistors Enter Commercial Production」https://www.computerhistory.org/siliconengine/silicon-mesa-transistors-enter-commercial-production/ （英語）
+
+---
+
 # 電気（v0.2a）
 
 ---

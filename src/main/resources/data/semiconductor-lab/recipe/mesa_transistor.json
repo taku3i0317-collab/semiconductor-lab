@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:mesa_wafer",
+    "minecraft:gold_nugget",
+    "minecraft:gold_nugget",
+    "minecraft:iron_nugget"
+  ],
+  "result": {
+    "id": "semiconductor-lab:mesa_transistor",
+    "count": 4
+  }
+}

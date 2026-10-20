@@ -41,3 +41,7 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - **判断待ち（A と設計担当へ）**：洗浄の効き目をチップのデータにどう残すか。案：ChipState に「洗った」印（または汚れの度合い）を足し、ChipOps.coat（と拡散・酸化の前）がそれを条件にする／削る・はがす・拡散のあとは印が消える（本物も炉に入れる前に毎回洗う）。印を足すのは A の litho のファイルなので A に頼んだ。返事が来るまで洗浄の機械は作らない（ほかの項目を先に進める）
 - A と合意：ChipState に int contamination（操作ごとに +1、ChipOps.clean で 0）。失敗にはしない（ツールチップと v0.5 の歩留まりへ）。硬い条件にするかの質問は A が LOG・Discord に出す。A が litho に入れたら、E が洗浄槽（段階1：硝酸＋フッ酸＋蒸留水 → ChipOps.clean）を作る。それまで待機（INBOX は6時間待つ、ユーザーの指示）
 - ✅ [9-14] 洗浄 段階1：洗浄槽 cleaning_bench（block/CleaningBenchBlockEntity、画面 CleaningBenchScreen、1kW）。加工中のウェハー＋硝酸＋フッ酸＋蒸留水 → ChipOps.clean(w, 0)。GameTest cleaning_bench（NOT の例の5層ごとに洗っても4つの発見）、CHEMISTRY F32、REFERENCES F16。段階2（RCA）は [2-17] 脱イオン水（[2-28] フェノール樹脂＝C のレジストの鎖）の後
+
+## O-007（2026-10-20）IC の工程の範囲で今すぐ作れるノード
+- O-006（レジスト・塗布・現像は E、材料は D）は材料待ち（環化ゴムはあるが感光剤ビスアジド・キシレンがまだ、ノボラックもまだ）。O-007 を先に
+- ✅ [9-17] メサトランジスタ：蒸着装置（C）の分岐に「p-n 接合の板＋アルミ → Al の点の板」を足した（自分が足した分岐の中、既存は変えない）。かまどで合金、ハニカムでろう、混酸（フッ酸＋硝酸、鉛の瓶）でエッチング槽、金の粒で4個。item/MesaTransistorItem：持ち物の中で β が下がる（inventoryTick、データコンポーネント current_gain）。API_26X に inventoryTick・appendHoverText・transmuteCopy を記録。GameTest mesa_transistor、CHEMISTRY F33〜F36、REFERENCES F17、遊び方: 実験

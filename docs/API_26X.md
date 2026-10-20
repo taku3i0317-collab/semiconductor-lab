@@ -874,3 +874,9 @@ public boolean instabuild;                         // クリエイティブ（�
 - 26.3 では `EntityType.PIG` などの定数は **`net.minecraft.world.entity.EntityTypes`** に移った（`EntityTypes.PIG`、`EntityTypes.ARMOR_STAND`）
 - `Entity.getDeltaMovement()`・`Vec3.horizontalDistance()`・`Level.getEntities(Entity except, AABB, Predicate)`
 - トロッコ：`net.minecraft.world.entity.vehicle.minecart.AbstractMinecart`
+
+## アイテムの毎 tick・ツールチップ・作り変え（IMP4-01 [9-17]、javap で確認 2026-10-20）
+- `Item.inventoryTick(ItemStack, ServerLevel, Entity, EquipmentSlot)`：持ち物の中で毎 tick（サーバーだけ。ServerLevel が来る）
+- `Item.appendHoverText(ItemStack, Item.TooltipContext, TooltipDisplay, Consumer<Component>, TooltipFlag)`：ツールチップの行を足す（List ではなく Consumer）
+- `ItemStack.transmuteCopy(ItemLike)`・`transmuteCopy(ItemLike, int)`：データコンポーネントを持ったまま別のアイテムに変える
+- `Entity.isInWaterOrRain()`・`isInWater()`
