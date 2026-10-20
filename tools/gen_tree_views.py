@@ -551,6 +551,10 @@ def export_json(nodes):
         for t in n["parts"]:
             if t in nodes:
                 edges.append({"from": t, "to": i, "kind": "part"})
+    # 前提でも理解でもないつながり（O-019）：つくるのに使った道具（tool）・同じしくみ（same）。network_meta.json の extra_links から
+    for x in meta.get("extra_links", []):
+        if "from" in x and x["from"] in nodes and x["to"] in nodes:
+            edges.append({"from": x["from"], "to": x["to"], "kind": x["kind"]})
     # 重複を消す（NET-05）：「本物」は real_full だけ（real は1行目の400字なので表示側で作る）。肖像は人物ごとに1か所（portraits）にまとめて番号で参照
     portraits, pidx = [], {}
     for n in out_nodes:
@@ -584,13 +588,14 @@ def export_json(nodes):
     light_keys = ("id", "name", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
                   "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
-    kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p"}
+    kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p", "tool": "t", "same": "s"}
     graph = {"goal": GOAL, "start": START, "inversions": sum(1 for x in data["year_inversions"] if not x["explained"]),
              "nodes": [{k: n[k] for k in light_keys} for n in out_nodes],
              "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout}
     detail = {"nodes": {n["id"]: {k: v for k, v in n.items() if k not in light_keys} for n in out_nodes},
               "portraits": portraits, "year_inversions": data["year_inversions"],
-              "materials": {k: v for k, v in meta.get("materials", {}).items() if not k.startswith("_")}}
+              "materials": {k: v for k, v in meta.get("materials", {}).items() if not k.startswith("_")},
+              "extra_links": [x for x in meta.get("extra_links", []) if "from" in x]}
     for path, var, obj, what in ((GRAPH_JS, "TECH_GRAPH", graph, "図に要る軽いデータ（番号・名前・年・幹・状態・種類・アイコン・位置・つながり・子孫の数）"),
                                  (DETAIL_JS, "TECH_DETAIL", detail, "カード・詳細ページ用の重いデータ（本物・へえ・出典・レシピ・人物）")):
         path.write_text(f"// 自動生成：tools/gen_tree_views.py。{what}\nwindow.{var} = "

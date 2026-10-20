@@ -15,7 +15,7 @@
 - **技術ネットワーク図**：https://taku3i0317-collab.github.io/semiconductor-lab/network.html
   （点＝技術・モノ・発見、横＝年。押すとカード、「詳しく見る」で1ノードのページ。スマホでも見られます）
 - データ：`docs/TECH_TREE.md`（技術）・`docs/products.md`（モノ）・`docs/ideas.md`（発見・考え方）・`docs/REFERENCES.md`（参考文献）。
-  機械が読めるまとめは `docs/tech_network.json`
+  機械が読めるまとめは `docs/tech_network.json`（線の種類 kind：requires＝前提、understanding＝なぜ動くかの説明、enables＝考え方から生まれた、part＝部品、tool＝つくるのに使った道具、same＝同じしくみ）
 - このプロジェクトの作り方（AI チームの使い方：相談役＋司令塔＋作業員）：[`docs/AI_WORKFLOW.md`](docs/AI_WORKFLOW.md)
 
 ## 遊び方
@@ -63,7 +63,7 @@ About 400 nodes record what cannot be made without what, and which ideas explain
 - **Technology Network map**: https://taku3i0317-collab.github.io/semiconductor-lab/network.html
   (dots are technologies, products and discoveries; the horizontal axis is time. Click for a card, "詳しく見る" for a full node page. Works on phones.)
 - Data: `docs/TECH_TREE.md` (technologies), `docs/products.md` (products), `docs/ideas.md` (discoveries and ideas), `docs/REFERENCES.md` (references).
-  A machine-readable bundle is `docs/tech_network.json`. (The texts are mostly in Japanese; in-game item descriptions also exist in English.)
+  A machine-readable bundle is `docs/tech_network.json` (edge kinds: requires, understanding, enables, part, tool = a tool used in designing it, same = the same mechanism). (The texts are mostly in Japanese; in-game item descriptions also exist in English.)
 - How this project is built (an AI team: advisor + conductor + workers): [`docs/AI_WORKFLOW.md`](docs/AI_WORKFLOW.md) (Japanese, with an English summary)
 
 ## How to play

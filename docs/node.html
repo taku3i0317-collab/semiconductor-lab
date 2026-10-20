@@ -99,7 +99,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 <script>
 (async function () {
   // 軽いデータと重いデータを1つにまとめる（肖像は人物ごとに1か所にまとめてあるので番号から戻す）
-  const G = window.TECH_GRAPH, D = window.TECH_DETAIL, kindName = { r: 'requires', u: 'understanding', e: 'enables', p: 'part' };
+  const G = window.TECH_GRAPH, D = window.TECH_DETAIL, kindName = { r: 'requires', u: 'understanding', e: 'enables', p: 'part', t: 'tool', s: 'same' };
   const data = {
     goal: G.goal, year_inversions: D.year_inversions,
     nodes: G.nodes.map(n => { const m = { ...n, ...D.nodes[n.id] }; m.people = (m.people || []).map(p => p.pi != null ? { ...p, portrait: D.portraits[p.pi] } : p); return m; }),
@@ -288,6 +288,11 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
       [d.enabled_by, 'これを作れるようにした考え方', ''],
       [d.explained_by, 'なぜ動くかを説明する考え方', '']
     ].filter(([ids]) => ids && ids.length).map(([ids, h, note]) => `<p class="muted" style="margin-top:8px">${h}${note ? `（${note}）` : ''}</p>${chips(ids)}`).join('');
+    // 前提でも理解でもないつながり（O-019）：つくるのに使った道具・同じしくみで回る物。説明の文と出典つき
+    const XL = (D.extra_links || []).filter(x => x.from === id || x.to === id);
+    const xlLabel = x => x.kind === 'tool' ? (x.to === id ? 'つくるのに使った道具' : '道具として使われた先') : '同じしくみで回る';
+    const extraHtml = XL.map(x => `<p class="muted" style="margin-top:8px">${xlLabel(x)} <small class="term">（${x.kind === 'tool' ? '前提ではない：無くても作れたが、設計・計算に使われた' : '前提ではない：同じしくみ'}）</small></p>`
+      + `<div class="chips">${chip(x.from === id ? x.to : x.from)}</div><p class="muted">${esc(x.note)}（出典：${(x.sources || []).map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(u.replace(/^https?:\/\/(www\.)?/, '').split('/')[0])}</a>`).join('、')}）</p>`).join('');
     // 誤りの報告：.github/ISSUE_TEMPLATE の3つのひな形（GitHub の Issue フォーム）を、ノード番号を入れた状態で開く
     const issue = (template, tag) => `${REPO}/issues/new?` + new URLSearchParams({
       template, title: `[${tag}] [${d.id}] ${d.name}`, node: d.id
@@ -365,6 +370,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
         <p class="muted">これが無いと作れない <small class="term">（前提。全部そろうと作れる。「または」は別の作り方）</small></p><div>${req || 'なし'}</div>
         ${d.understanding.length ? `<p class="muted" style="margin-top:8px">なぜ動くかの説明 <small class="term">（理解：後で分かった科学）</small></p><div class="chips">${d.understanding.map(chip).join('')}</div>` : ''}
         ${isIdea(d) ? '' : ideaHtml}
+        ${extraHtml}
         <p class="muted" style="margin-top:8px">すぐ次の技術（${(kids.get(id) || []).length}）</p><div class="chips">${(kids.get(id) || []).map(chip).join('') || 'なし'}</div>
       </section>
 
