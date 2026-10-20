@@ -1333,6 +1333,38 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-48] 冷媒フロン とオゾン層（IMP3、O-019）
+    // =====================================================================
+
+    /** CCl4＋HF2＋SbCl5 → CFC-12。冷凍機の冷媒になり（減らない）、氷1つごとにオゾンが減る。もれなければ時間で戻る */
+    @GameTest
+    public void cfcOzone(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "cfc12_gas", Chemistry.CARBON_TETRACHLORIDE) && recipeUses(h, "cfc12_gas", Chemistry.HYDROFLUORIC_ACID) && recipeUses(h, "cfc12_gas", Chemistry.ANTIMONY_PENTACHLORIDE), "Swarts: CCl4 + 2HF");
+        var level = h.getLevel();
+        var ozone = com.taku3.semiconductorlab.OzoneLayer.get(level);
+        ozone.resetForTest(level);
+        double before = ozone.dobson(level);
+        floor(h, 3);
+        BlockPos rel = p(1, 1, 1); BlockPos pos = h.absolutePos(rel);
+        h.setBlock(rel, com.taku3.semiconductorlab.content.Heat.PERKINS_ICE_MACHINE);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertTrue(com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.fill(level, pos, player, new ItemStack(Chemistry.CFC12_GAS)), "CFC as refrigerant");
+        for (int n = 0; n < 2; n++) {
+            com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.fill(level, pos, player, new ItemStack(Items.WATER_BUCKET));
+            for (int i = 0; i < com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.CRANKS; i++) com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.crank(level, pos, player);
+        }
+        h.assertTrue(player.getInventory().countItem(Items.ICE) == 2, "2 ice with CFC");
+        h.assertValueEqual(level.getBlockState(pos).getValue(com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.REFRIGERANT), com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.CFC, "CFC does not leak away from the machine");
+        double after = ozone.dobson(level);
+        h.assertTrue(after < before - 5, "but the ozone layer shrank: " + before + " -> " + after);
+        var fresh = new com.taku3.semiconductorlab.OzoneLayer(250, 0);
+        h.assertTrue(Math.abs(fresh.dobson(level) - Math.min(300, 250 + level.getGameTime() / 24000.0)) < 0.01, "it recovers 1 DU per day without leaks");
+        ozone.resetForTest(level);
+        LOG.info("[LAB] CFC [2-48]: CCl4 + 2HF (SbCl5) -> CFC-12; as refrigerant it stays but each ice leaks -> ozone " + before + " -> " + after + " DU");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

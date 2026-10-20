@@ -22,11 +22,12 @@ import net.minecraft.world.phys.BlockHitResult;
 /**
  * 手回しの冷凍機 [3-22]（1834 パーキンスの特許、閉じた回路の蒸気圧縮）。冷媒を入れて、水バケツで水を入れ、素手で右クリックしてハンドルを回す：
  * 圧縮（ポンプ）→ 放熱（銅の管で冷えて液に）→ 膨張弁（圧力が下がる）→ 蒸発（気化熱で水から熱をうばう）→ また圧縮。{@link #CRANKS} 回で氷1。
- * 冷媒がないと冷えない（実験）。冷媒：{@link #ETHER}＝ジエチルエーテル（1834 と同じ。燃えやすいので、作るたびに少しの確率でもれて失う＝事故）。
+ * 冷媒がないと冷えない（実験）。冷媒：{@link #ETHER}＝ジエチルエーテル（1834 と同じ。燃えやすいので、作るたびに少しの確率でもれて失う＝事故）、
+ * {@link #CFC}＝フロン [2-48]（減らないが、氷1つごとに少しもれて世界のオゾン層 OzoneLayer が減る）。
  * 冷凍機は「冷たさを作る」のでなく、中の熱を外へくみ出す熱のポンプ。
  */
 public class PerkinsIceMachineBlock extends Block {
-    public static final int NONE = 0, ETHER = 1, MAX_REFRIGERANT = 2;
+    public static final int NONE = 0, ETHER = 1, CFC = 2, MAX_REFRIGERANT = 2;
     public static final int CRANKS = 16;
     public static final float ETHER_LEAK_CHANCE = 1f / 8f;
     public static final IntegerProperty REFRIGERANT = IntegerProperty.create("refrigerant", 0, MAX_REFRIGERANT);
@@ -44,6 +45,7 @@ public class PerkinsIceMachineBlock extends Block {
     /** 手に持った物を冷媒として入れられるなら、その番号（入れられなければ NONE） */
     public static int refrigerantOf(ItemStack s) {
         if (s.is(Chemistry.DIETHYL_ETHER)) return ETHER;
+        if (s.is(Chemistry.CFC12_GAS)) return CFC;
         return NONE;
     }
 
@@ -100,7 +102,14 @@ public class PerkinsIceMachineBlock extends Block {
     }
 
     /** 氷を1つ作ったあとの冷媒ごとのできごと（[2-48] フロンで使う） */
-    static void afterIce(Level level, BlockPos pos, Player player, int refrigerant) {}
+    static void afterIce(Level level, BlockPos pos, Player player, int refrigerant) {
+        // [2-48] フロンは燃えず毒もなく、冷媒として減らないが、少しずつもれて空に上り、オゾン層を壊す（失敗の記録 [I-17]）
+        if (refrigerant == CFC && level instanceof net.minecraft.server.level.ServerLevel sl) {
+            var ozone = com.taku3.semiconductorlab.OzoneLayer.get(sl);
+            ozone.leak(sl, com.taku3.semiconductorlab.OzoneLayer.LEAK_DU);
+            player.sendOverlayMessage(Component.translatable("message.semiconductor-lab.perkins_ice_machine.cfc_leak", String.format("%.0f", ozone.dobson(sl))));
+        }
+    }
 
     private static void give(Level level, BlockPos pos, Player player, ItemStack out) {
         if (out.isEmpty()) return;

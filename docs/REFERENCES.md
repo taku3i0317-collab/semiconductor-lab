@@ -2685,6 +2685,21 @@
 - Wikipedia「Jacob Perkins」/「Vapor-compression refrigeration」：https://en.wikipedia.org/wiki/Vapor-compression_refrigeration
 - ASME「Refrigeration history」
 
+## C46. 安全な冷媒が空の上でオゾン層を壊していた（フロン）［2-48］
+**答え**：それまでの冷媒（アンモニア・二酸化硫黄・塩化メチル）は毒や燃える危険があった。1928年、GM のトマス・ミジリーたちがジクロロジフルオロメタン（CFC-12、商品名フレオン）を冷媒に選び、1930年に工業生産が始まった。毒がなく燃えない「夢の冷媒」とされたが、とても安定なので成層圏まで上り、強い紫外線で分解して出た塩素がオゾンを次々に壊す。1974年モリーナとローランドが警告し、1985年に南極のオゾンホールが見つかり（ファーマンら、ドブソン計）、1987年のモントリオール議定書で世界中の国が生産をやめた。オゾン層は少しずつ戻っている。ミジリーは有鉛ガソリンの開発者でもある。
+
+- へえ①：フロンは、毒のない安全な冷媒として作られたのに、空の上でオゾン層を壊していた。
+- へえ②：塩素の原子1つが、オゾンを何万個も壊す。
+- へえ③：世界中の国が約束を守ってフロンをやめたので、オゾン層は戻りつつある。
+- へえ④：オゾン 300 DU は、地上の圧力に集めるとたった 3mm の厚さ。
+
+確かさ：ミジリー 1928・生産 1930 ◎／1974・1985・1987 ◎／回復の見通し（WMO・UNEP 2022）◎
+根拠：
+- Wikipedia「Chlorofluorocarbon」/「Thomas Midgley Jr.」：https://en.wikipedia.org/wiki/Chlorofluorocarbon
+- Wikipedia「Ozone depletion」/「Montreal Protocol」：https://en.wikipedia.org/wiki/Montreal_Protocol
+- Wikipedia「Dobson unit」/「Dobson ozone spectrophotometer」：https://en.wikipedia.org/wiki/Dobson_unit
+- WMO/UNEP「Scientific Assessment of Ozone Depletion: 2022」
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

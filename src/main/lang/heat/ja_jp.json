@@ -73,7 +73,7 @@
   "gui.semiconductor-lab.arc_furnace.recipe_carbide": "CaO + 3C → CaC2 + CO",
   "block.semiconductor-lab.perkins_ice_machine": "手回しの冷凍機（パーキンス式）",
   "block.semiconductor-lab.perkins_ice_machine.note1": "ハンドルを回して、水を氷にする機械。冷たさを作るのでなく、熱を外へくみ出す「熱のポンプ」。",
-  "block.semiconductor-lab.perkins_ice_machine.note2": "銅4＋手押しポンプ [5-01]＋鉄3で作る。冷媒（ジエチルエーテル）を持って右クリックで入れる、水バケツで水を入れる、素手で右クリックしてハンドルを16回まわすと氷1。冷媒がないと冷えない。エーテルは燃えやすく、ときどきもれて失う（事故）。",
+  "block.semiconductor-lab.perkins_ice_machine.note2": "銅4＋手押しポンプ [5-01]＋鉄3で作る。冷媒（ジエチルエーテル）を持って右クリックで入れる、水バケツで水を入れる、素手で右クリックしてハンドルを16回まわすと氷1。冷媒がないと冷えない。エーテルは燃えやすく、ときどきもれて失う（事故）。 フロン [2-48] も冷媒になる（もれないが、オゾン層が減る）。",
   "block.semiconductor-lab.perkins_ice_machine.note3": "圧縮（気体の冷媒を押し縮める）→ 放熱（銅の管で熱を外へ、液になる）→ 膨張弁（細い弁で圧力を下げる）→ 蒸発（液が気体になるとき、まわりから熱をうばう＝気化熱）→ また圧縮。今の冷蔵庫・エアコンと同じ回路。",
   "block.semiconductor-lab.perkins_ice_machine.note4": "1834年、アメリカ生まれでロンドンにいたパーキンスが、エーテルで閉じた回路の冷凍機の特許をとった。試作機は少しの氷を作ったが、商売にはならなかった。よく「冷蔵庫はリンデ（1876）の発明」と言われるが、リンデはアンモニアで実用の機械にした人で、しくみはパーキンスが先。",
   "block.semiconductor-lab.perkins_ice_machine.placeholder": "近似：温度・圧力は扱わない。ハンドルの回数で表した。",
@@ -81,5 +81,6 @@
   "message.semiconductor-lab.perkins_ice_machine.no_refrigerant": "冷媒がないので、まわしても冷えない",
   "message.semiconductor-lab.perkins_ice_machine.no_water": "水バケツで水を入れる",
   "message.semiconductor-lab.perkins_ice_machine.ice": "水がこおった",
-  "message.semiconductor-lab.perkins_ice_machine.ether_leak": "氷ができたが、エーテルがもれてしまった（燃えやすく危ない）"
+  "message.semiconductor-lab.perkins_ice_machine.ether_leak": "氷ができたが、エーテルがもれてしまった（燃えやすく危ない）",
+  "message.semiconductor-lab.perkins_ice_machine.cfc_leak": "氷ができた。フロンが少し空にもれた（オゾン %s DU）"
 }

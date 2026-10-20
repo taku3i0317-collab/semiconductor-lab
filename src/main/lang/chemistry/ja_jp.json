@@ -1277,5 +1277,19 @@
   "item.semiconductor-lab.diethyl_ether.note2": "エタノール2（瓶は戻る）＋硫酸（瓶は戻る）＋石英の蒸留器（戻る）＋空のガラス瓶で作る。手回しの冷凍機の冷媒。⚠ GHS：引火性液体（区分1）・急性毒性（経口）・眠気。空気中で爆発性の過酸化物ができる。工業の材料としてだけ扱う。",
   "item.semiconductor-lab.diethyl_ether.note3": "2C2H5OH → (C2H5)2O + H2O（硫酸が水を取る）。沸点 34.6℃ でとても蒸発しやすく、蒸発するときにまわりの熱を大きくうばう。",
   "item.semiconductor-lab.diethyl_ether.note4": "1540年ごろドイツのコルドゥスが「ばん油の甘い油」として作った。1846年アメリカのモートンが手術の麻酔に使い、外科が大きく変わった。",
-  "item.semiconductor-lab.diethyl_ether.placeholder": "近似：条件は書かない（DESIGN）。"
+  "item.semiconductor-lab.diethyl_ether.placeholder": "近似：条件は書かない（DESIGN）。",
+  "item.semiconductor-lab.cfc12_gas": "フロン（CFC-12、袋）",
+  "item.semiconductor-lab.cfc12_gas.note1": "燃えず、毒もない、夢の冷媒とされたガス。でも空の上でオゾン層を壊していた。",
+  "item.semiconductor-lab.cfc12_gas.note2": "四塩化炭素＋フッ酸2（鉛の瓶は戻る）＋五塩化アンチモン（触媒、戻る）で作る。手回しの冷凍機の冷媒になる（エーテルとちがい、もれて失うことはない）。でも氷を1つ作るたびに少しずつ空にもれ、世界のオゾンの量が減る（ドブソン計で見よう）。⚠ GHS：高圧ガス・オゾン層への有害性。",
+  "item.semiconductor-lab.cfc12_gas.note3": "CCl4 + 2HF → CCl2F2 + 2HCl。とても安定なので、空の高い所（成層圏）まで分解されずに上る。そこで強い紫外線で分解されて塩素原子を出し、塩素1つがオゾンを何万個もこわす（触媒のようにくり返す）。",
+  "item.semiconductor-lab.cfc12_gas.note4": "1928年 GM のミジリーたちが、アンモニアや二酸化硫黄の毒・燃える危険をなくす冷媒として選んだ。教訓：1974年モリーナとローランドがオゾン層を壊すと警告し、1985年に南極のオゾンホールが見つかった。1987年のモントリオール議定書で世界中の国が生産をやめ、オゾン層は少しずつ戻ってきている。",
+  "item.semiconductor-lab.cfc12_gas.placeholder": "近似：1袋＝約1mol。もれる量・オゾンの減り方・戻り方はゲームの値。",
+  "item.semiconductor-lab.dobson_meter": "ドブソン分光光度計",
+  "item.semiconductor-lab.dobson_meter.note1": "空の上のオゾンの量をはかる道具。右クリックで読む。",
+  "item.semiconductor-lab.dobson_meter.note2": "石英の管（紫外線を通す）＋鉄2＋銅ケーブルで作る。右クリックで世界のオゾンの量（ドブソン単位 DU）。はじめは 300 DU、220 DU より下はオゾンホールの目安。フロンがもれると減り、もれなければ1日に 1 DU ずつ戻る。",
+  "item.semiconductor-lab.dobson_meter.note3": "オゾンに吸われやすい紫外線と吸われにくい紫外線の強さをくらべて、空の上のオゾンの量を出す。300 DU は、オゾンを地上の空気の圧力に集めると厚さ3mm。",
+  "item.semiconductor-lab.dobson_meter.note4": "1924年イギリスのドブソンが作った。1985年、イギリスの南極観測所のファーマンたちは、この道具で南極のオゾンホールを見つけた。",
+  "item.semiconductor-lab.dobson_meter.placeholder": "近似：場所・季節で変わらない。世界に1つの値。",
+  "message.semiconductor-lab.dobson_meter.reading": "オゾンの量：%s DU",
+  "message.semiconductor-lab.dobson_meter.hole": "オゾンの量：%s DU（オゾンホール！ 220 DU より少ない）"
 }

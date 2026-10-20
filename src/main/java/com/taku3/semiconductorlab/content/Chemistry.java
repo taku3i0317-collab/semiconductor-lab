@@ -278,6 +278,10 @@ public final class Chemistry {
     public static final Item CONTINUITY_TESTER     = Reg.item("continuity_tester", com.taku3.semiconductorlab.item.ContinuityTesterItem::new, new Item.Properties().stacksTo(1));
     // [3-22] の冷媒：エタノール2＋硫酸＋石英の蒸留器＋瓶 → ジエチルエーテル（1540 コルドゥス）（IMP3、O-019）
     public static final Item DIETHYL_ETHER         = Reg.contained("diethyl_ether", Vessel.GLASS_BOTTLE);
+    // [2-48] 冷媒フロン（IMP3、O-019）：四塩化炭素＋フッ酸2＋五塩化アンチモン（触媒）→ CFC-12 の袋（1928〜30 ミジリー）。手回しの冷凍機の冷媒。もれるとオゾン層（OzoneLayer）が減る。
+    //   ドブソン計でオゾンの量をはかる（1924 ドブソン）
+    public static final Item CFC12_GAS             = Reg.contained("cfc12_gas", Vessel.GAS_BAG);
+    public static final Item DOBSON_METER          = Reg.item("dobson_meter", com.taku3.semiconductorlab.item.DobsonMeterItem::new, new Item.Properties().stacksTo(1));
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [2-43] 黄鉄鉱（IMP3）
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける

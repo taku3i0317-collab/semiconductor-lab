@@ -880,3 +880,9 @@ public boolean instabuild;                         // クリエイティブ（�
 - `Item.appendHoverText(ItemStack, Item.TooltipContext, TooltipDisplay, Consumer<Component>, TooltipFlag)`：ツールチップの行を足す（List ではなく Consumer）
 - `ItemStack.transmuteCopy(ItemLike)`・`transmuteCopy(ItemLike, int)`：データコンポーネントを持ったまま別のアイテムに変える
 - `Entity.isInWaterOrRain()`・`isInWater()`
+
+## SavedData（世界に1つの値を保存、IMP3 O-019 OzoneLayer）
+- `SavedData`（抽象、setDirty）、`SavedDataType<T>(Identifier, Supplier<T>, Codec<T>, DataFixTypes)`（record）
+- `ServerLevel.getDataStorage()` / `MinecraftServer.getDataStorage()` → `SavedDataStorage`：`computeIfAbsent(SavedDataType)`・`get`・`set`
+- ⚠️ `DataFixTypes` に null を渡すと、読みこみ（readTagFromDisk）で `DataFixTypes.update` が呼ばれて落ちる。中身を書きかえない `DataFixTypes.SAVED_DATA_COMMAND_STORAGE` を使った
+

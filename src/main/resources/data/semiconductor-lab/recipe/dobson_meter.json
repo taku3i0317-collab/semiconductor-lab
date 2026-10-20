@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:quartz_tube",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "semiconductor-lab:copper_cable"
+  ],
+  "result": {
+    "id": "semiconductor-lab:dobson_meter",
+    "count": 1
+  }
+}

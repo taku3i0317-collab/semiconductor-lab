@@ -1277,5 +1277,19 @@
   "item.semiconductor-lab.diethyl_ether.note2": "2 ethanol (bottles returned) + sulfuric acid (bottle returned) + quartz still (returned) + empty glass bottle. Refrigerant for the hand-cranked ice machine. ⚠ GHS: flammable liquid (category 1), acute toxicity (oral), drowsiness. Forms explosive peroxides in air. Treated only as an industrial material.",
   "item.semiconductor-lab.diethyl_ether.note3": "2C2H5OH -> (C2H5)2O + H2O (the sulfuric acid takes the water). It boils at 34.6 C, evaporates very easily and takes a lot of heat from its surroundings as it does.",
   "item.semiconductor-lab.diethyl_ether.note4": "Cordus in Germany made it around 1540 as 'sweet oil of vitriol'. In 1846 Morton in the USA used it as a surgical anaesthetic, transforming surgery.",
-  "item.semiconductor-lab.diethyl_ether.placeholder": "Approximation: conditions are not described (DESIGN)."
+  "item.semiconductor-lab.diethyl_ether.placeholder": "Approximation: conditions are not described (DESIGN).",
+  "item.semiconductor-lab.cfc12_gas": "CFC-12 (Freon, Bag)",
+  "item.semiconductor-lab.cfc12_gas.note1": "A gas called the dream refrigerant: non-flammable and non-toxic. But high in the sky it was destroying the ozone layer.",
+  "item.semiconductor-lab.cfc12_gas.note2": "Carbon tetrachloride + 2 hydrofluoric acid (lead bottles returned) + antimony pentachloride (catalyst, returned). A refrigerant for the hand-cranked ice machine (unlike ether it never leaks away). But every ice made leaks a little into the sky and lowers the world's ozone (check with a Dobson meter). ⚠ GHS: gas under pressure, hazardous to the ozone layer.",
+  "item.semiconductor-lab.cfc12_gas.note3": "CCl4 + 2HF -> CCl2F2 + 2HCl. It is so stable that it rises intact to the stratosphere, where strong UV breaks it apart and frees chlorine atoms; one chlorine atom can destroy tens of thousands of ozone molecules (it repeats like a catalyst).",
+  "item.semiconductor-lab.cfc12_gas.note4": "In 1928 Midgley and colleagues at GM chose it to remove the poison and fire risks of ammonia and sulfur dioxide refrigerants. Lesson: in 1974 Molina and Rowland warned it destroys the ozone layer, and the Antarctic ozone hole was found in 1985. Under the 1987 Montreal Protocol every country stopped making it, and the ozone layer is slowly recovering.",
+  "item.semiconductor-lab.cfc12_gas.placeholder": "Approximation: 1 bag = about 1 mol. Leak amounts and ozone loss/recovery are game values.",
+  "item.semiconductor-lab.dobson_meter": "Dobson Spectrophotometer",
+  "item.semiconductor-lab.dobson_meter.note1": "An instrument that measures the ozone overhead. Right-click to read it.",
+  "item.semiconductor-lab.dobson_meter.note2": "Quartz tube (passes UV) + 2 iron + copper cable. Right-click for the world's ozone (Dobson units, DU). It starts at 300 DU; below 220 DU counts as an ozone hole. CFC leaks lower it; without leaks it recovers 1 DU per day.",
+  "item.semiconductor-lab.dobson_meter.note3": "It compares UV wavelengths that ozone absorbs strongly and weakly to work out how much ozone is overhead. 300 DU means all the ozone, squeezed to ground-level pressure, would be 3 mm thick.",
+  "item.semiconductor-lab.dobson_meter.note4": "Built by Dobson in Britain in 1924. In 1985 Farman and colleagues at the British Antarctic Survey found the Antarctic ozone hole with this instrument.",
+  "item.semiconductor-lab.dobson_meter.placeholder": "Approximation: one value for the whole world, unchanged by place or season.",
+  "message.semiconductor-lab.dobson_meter.reading": "Ozone: %s DU",
+  "message.semiconductor-lab.dobson_meter.hole": "Ozone: %s DU (ozone hole! below 220 DU)"
 }
