@@ -99,3 +99,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - SiCl4（Q-IMP2-4）：A は作る予定なし。作るならトリクロロシラン反応器 [1-16] に副産物の出口を足すのが自然（A の意見）。誰が作るかは設計担当へ
 - ✅ [7-11] の材料（litho のデータに依存しない化学）：ゼラチン・塩化銀ゼラチン乳剤・感光乾板・硫酸鉄(II) 現像液・チオ硫酸ナトリウム定着液。GameTest photo_plate_chemistry、CHEMISTRY O25〜O28、REFERENCES O22。テスト 128/128。縮小カメラと photomask は A の litho の push を待って作る
 - 📝 REFERENCES O23：露光の方法と CD（LITHO_DESIGN §3 の出典）。マイクラライン 1973・DSW4800 1978 は ○、各 CD の値は △（製品資料で未確認）。ExposureTool の値は今のまま（変える根拠がまだ無い）
+- ✅ [7-11] 銀塩フォトマスク：縮小カメラ（block/ReductionCameraBlockEntity、画面 ReductionCameraScreen、1kW）。原図（mask 成分を持つ物。rubylith は A が登録）＋乾板＋現像液＋定着液 → フォトマスク（mask 成分をそのまま写す、原図は減らない）。photomask は耐久10（密着露光の機械が damage で傷める）。テストで ChipOps.expose(coated, mask, CONTACT_G) が通るのを確認。GameTest reduction_camera_photomask、CHEMISTRY O29〜O30、REFERENCES O24。テスト 136/136

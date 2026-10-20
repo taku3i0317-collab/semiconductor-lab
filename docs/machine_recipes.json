@@ -952,6 +952,39 @@
       "note": "2H2 + O2 → 2H2O（約2800℃）。電気なし"
     },
     {
+      "machine": "semiconductor-lab:reduction_camera",
+      "process": "原図をフォトマスクに写す",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:rubylith",
+          "count": 1,
+          "consumed": false
+        },
+        {
+          "item": "semiconductor-lab:photo_plate",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:ferrous_sulfate",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sodium_thiosulfate",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:photomask",
+          "count": 1
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 30.0,
+      "energy_kj": 30,
+      "note": "照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）"
+    },
+    {
       "machine": "semiconductor-lab:reverberatory_furnace",
       "process": "焙焼",
       "inputs": [

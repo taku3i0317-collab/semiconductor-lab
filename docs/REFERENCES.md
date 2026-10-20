@@ -801,6 +801,20 @@
 - 半導体産業人協会 日本半導体歴史館（SHMJ）「露光装置の歴史」：https://www.shmj.or.jp/english/pdf/process/exhibi421E.pdf
 - SHMJ「GCA DSW4800」：https://shmj.or.jp/english/pdf/em/exhibi2446E.pdf
 
+## O24. 手で切ったフィルムを写真で縮める（ルビリスと縮小カメラ、エマルジョンマスク）［7-11］
+**答え**：1960年ごろの IC は、まず大きな台の上で、赤いフィルム（ルビリス：透明なフィルムに赤い膜を貼ったもの）をナイフで切り抜いて原図を作った。それを写真で何百分の一にも縮めて高解像度の写真乾板に焼き、現像・定着したものがマスク（エマルジョンマスク）。本物は2段で縮め（レチクル → ステップ・アンド・リピート）、ウェハー1枚分に同じ模様を何百個も並べた。
+
+- へえ①：最初の IC の回路図は、手でフィルムを切り抜いて作った。
+- へえ②：ルビリスの赤い膜は、写真の乳剤が感じない色なので、写真では「真っ黒」に写る。
+- へえ③：乳剤のマスクはウェハーに押し当てて焼くので、すぐ傷やほこりがついた。のちに硬いクロムのマスク [7-12] に変わった。
+- へえ④：マスクの誤差・傷は、そのまま全部のチップの欠陥になる。
+
+確かさ：ルビリスの切り抜きと写真による縮小 ◎（Wikipedia・写真の歴史）／エマルジョンマスクが傷みやすい ○／2段の縮小とステップ・アンド・リピート ○／「何百分の一」の倍率 △ → ゲーム内は ⚠️
+根拠：
+- Wikipedia「Rubylith」：https://en.wikipedia.org/wiki/Rubylith
+- Wikipedia「Photomask」：https://en.wikipedia.org/wiki/Photomask
+- Computer History Museum「1960: First Planar Integrated Circuit is Fabricated」：https://www.computerhistory.org/siliconengine/first-planar-integrated-circuit-is-fabricated/
+
 ---
 
 # 冶金と熱（タスク15〜）

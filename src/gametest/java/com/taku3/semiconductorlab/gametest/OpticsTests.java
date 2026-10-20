@@ -487,8 +487,49 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-11] 縮小カメラ（IMP2-03）：原図（mask 成分つき）＋乾板＋現像液＋定着液 → フォトマスク（mask をそのまま写す、原図は減らない）。そのマスクで ChipOps.expose が通る。耐久10 */
+    @GameTest
+    public void reductionCameraPhotomask(GameTestHelper h) {
+        var RC = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.class;
+        var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        var maskData = design.mask(0);
+        ItemStack original = new ItemStack(Items.PAPER);   // 原図 rubylith（A が登録）の代わりに、mask 成分を付けた紙
+        original.set(com.taku3.semiconductorlab.ModDataComponents.MASK, maskData);
+        h.assertTrue(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.isOriginal(original), "anything carrying a mask (not a photomask) is an original");
+        h.assertFalse(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.isOriginal(new ItemStack(Items.PAPER)), "plain paper is not");
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Optics.REDUCTION_CAMERA.block);
+        var be = h.getBlockEntity(pos, RC);
+        var c = be.getContainer();
+        int T = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.TICKS;
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_ORIGINAL, original.copy());
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_PLATE, new ItemStack(Optics.PHOTO_PLATE, 2));
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_DEVELOPER, new ItemStack(Optics.FERROUS_SULFATE, 2));
+        tickConsumer(h, pos, be, T + 5, full);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_OUT).isEmpty(), "no fixer -> wait (the image would fade in light)");
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_FIXER, new ItemStack(Optics.SODIUM_THIOSULFATE, 2));
+        tickConsumer(h, pos, be, T, full);
+        ItemStack mask = c.getItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_OUT);
+        h.assertTrue(mask.is(Optics.PHOTOMASK), "photomask made");
+        h.assertTrue(maskData.equals(mask.get(com.taku3.semiconductorlab.ModDataComponents.MASK)), "the mask pattern is copied exactly");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_ORIGINAL).has(com.taku3.semiconductorlab.ModDataComponents.MASK), "the original is kept");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_PLATE).getCount(), 1, "one plate used");
+        h.assertValueEqual(mask.getMaxDamage(), Optics.PHOTOMASK_USES, "emulsion mask wears out after 10 contact exposures");
+        // そのマスクで露光できる（塗ったウェハー → expose OK）
+        ItemStack wafer = new ItemStack(com.taku3.semiconductorlab.content.Semiconductor.OXIDIZED_WAFER);
+        wafer.set(com.taku3.semiconductorlab.ModDataComponents.DOPANT, "boron");
+        ItemStack coated = com.taku3.semiconductorlab.litho.ChipOps.coat(wafer).out();
+        var r = com.taku3.semiconductorlab.litho.ChipOps.expose(coated, mask.get(com.taku3.semiconductorlab.ModDataComponents.MASK), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.assertTrue(r.ok(), "ChipOps.expose accepts the copied mask: " + r.reason());
+        LOG.info("[LAB] reduction camera [7-11]: original (mask) + plate + FeSO4 + hypo -> photomask (pattern copied, original kept, 10 uses); expose OK");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Optics.REDUCTION_CAMERA.block, "原図をフォトマスクに写す", L(kept(io("semiconductor-lab:rubylith", 1)), io(Optics.PHOTO_PLATE, 1), io(Optics.FERROUS_SULFATE, 1), io(Optics.SODIUM_THIOSULFATE, 1)),
+            L(io(Optics.PHOTOMASK, 1)), com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.WATTS, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.TICKS / 20.0, "照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）");
         rec(a, Optics.BRIDGMAN_FURNACE.block, "CaF2 の単結晶を育てる", L(io(Metallurgy.FLUORITE, 4), io(com.taku3.semiconductorlab.content.Gas.ARGON_GAS, 1)),
             L(io(Optics.CAF2_CRYSTAL, 1)), com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.TICKS / 20.0, "アルゴンの中で溶かし（1418℃）、ゆっくり下げて下から結晶化");
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),

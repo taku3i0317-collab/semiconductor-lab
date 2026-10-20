@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/reduction_camera_front",
+    "side": "semiconductor-lab:block/reduction_camera_side",
+    "top": "semiconductor-lab:block/reduction_camera_top"
+  }
+}

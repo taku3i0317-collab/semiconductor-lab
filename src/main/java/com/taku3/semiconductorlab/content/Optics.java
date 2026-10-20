@@ -71,6 +71,9 @@ public final class Optics {
     public static final Item FERROUS_SULFATE       = Reg.item("ferrous_sulfate");   // 硫酸鉄(II)＝緑ばん（現像液）
     public static final Item HYPO_LIQUOR           = Reg.item("hypo_liquor", new Item.Properties().stacksTo(16)); // チオ硫酸の煮汁
     public static final Item SODIUM_THIOSULFATE    = Reg.item("sodium_thiosulfate"); // チオ硫酸ナトリウム＝ハイポ（定着液）
+    // [7-11] フォトマスク（IMP2-03、LITHO_DESIGN §4.3）：縮小カメラで原図の mask 成分を写した乾板。密着露光で傷むので耐久 PHOTOMASK_USES 回
+    public static final int PHOTOMASK_USES = 10;
+    public static final Item PHOTOMASK             = Reg.item("photomask", new Item.Properties().durability(PHOTOMASK_USES));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
@@ -80,6 +83,8 @@ public final class Optics {
     public static final Item GRATING_SPECTROSCOPE  = Reg.item("grating_spectroscope", p -> new SpectroscopeItem(p, WIRE_GRATING_MICRONS), new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
+    // 縮小カメラ [7-11]（IMP2-03）：原図を照明して色消しレンズで縮め、感光乾板に写して現像・定着 → フォトマスク（原図は減らない）。1kW
+    public static final Machine<ReductionCameraBlockEntity> REDUCTION_CAMERA = Machine.electric("reduction_camera", ReductionCameraBlockEntity::new, ReductionCameraBlockEntity.LAYOUT, lit(metal(3.0f), 8));
     // ブリッジマン炉 [7-15]（IMP2-02）：誘導加熱 3kW、アルゴンの中で蛍石を溶かし、ゆっくり下げて CaF2 単結晶に
     public static final Machine<BridgmanFurnaceBlockEntity> BRIDGMAN_FURNACE = Machine.electric("bridgman_furnace", BridgmanFurnaceBlockEntity::new, BridgmanFurnaceBlockEntity.LAYOUT, lit(metal(3.5f), 10));
     // 水銀灯 [7-10]（IMP2-01）：直流 385W（110V・3.5A）でつく。画面なし。点灯中は明るさ15、分光器で水銀の線（g線・h線・i線）が見える
