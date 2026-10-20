@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sodium_carbonate",
+    "semiconductor-lab:slaked_lime",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sodium_hydroxide",
+    "count": 2
+  }
+}

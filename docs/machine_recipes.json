@@ -1559,6 +1559,35 @@
       "note": "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる"
     },
     {
+      "machine": "semiconductor-lab:solvay_tower",
+      "process": "炭酸ナトリウム",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:salt",
+          "count": 2
+        },
+        {
+          "item": "minecraft:calcite",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:ammonia_water",
+          "count": 1,
+          "per_runs": 64
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:sodium_carbonate",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 15.0,
+      "energy_kj": 75,
+      "note": "2NaCl + CaCO3 → Na2CO3 + CaCl2（捨てる）。アンモニアは回って戻る（補給は少し）"
+    },
+    {
       "machine": "semiconductor-lab:spin_coater",
       "process": "レジストを塗る",
       "inputs": [

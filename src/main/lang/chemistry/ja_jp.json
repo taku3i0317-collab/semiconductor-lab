@@ -910,5 +910,19 @@
   "gui.semiconductor-lab.electroplating_bath.need_mould": "型を入れる",
   "gui.semiconductor-lab.electroplating_bath.output_full": "出口がいっぱい",
   "gui.semiconductor-lab.electroplating_bath.need_power": "電気が来ていない",
-  "gui.semiconductor-lab.electroplating_bath.plating": "銅をくっつけている"
+  "gui.semiconductor-lab.electroplating_bath.plating": "銅をくっつけている",
+  "block.semiconductor-lab.solvay_tower": "ソルベー塔",
+  "block.semiconductor-lab.solvay_tower.note1": "塩と石灰石からソーダを作る塔。中のアンモニアはぐるぐる回って、何度も使える。",
+  "block.semiconductor-lab.solvay_tower.note2": "鉄6＋ソーダ石灰ガラス＋銅ケーブル＋かまどで作る。5kW。塩2＋方解石（石灰石）1 → 炭酸ナトリウム1（15秒）。最初にアンモニア水を入れる（1本で4単位、空の瓶が出る）。アンモニアは回って戻り、失うのは16回に1単位だけ。副産物の塩化カルシウムの液は捨てる。",
+  "block.semiconductor-lab.solvay_tower.note3": "NaCl + NH3 + CO2 + H2O → NaHCO3↓ + NH4Cl（重曹は冷たい水に溶けにくいので沈む）。重曹を焼くと炭酸ナトリウム。NH4Cl は石灰で NH3 に戻す。全体では 2NaCl + CaCO3 → Na2CO3 + CaCl2 で、アンモニアは減らない。",
+  "block.semiconductor-lab.solvay_tower.note4": "1861年ベルギーのエルネスト・ソルベーが特許をとり、1865年に工場を動かした。塩酸ガスで大気をよごしたルブラン法に代わり、20世紀にはソーダのほとんどがこの方法になった。",
+  "block.semiconductor-lab.solvay_tower.placeholder": "近似：工場を1つのブロックにまとめた。副産物の塩化カルシウム（[2-13]、保留中）は出さない。アンモニアの量は単位で記号化。",
+  "gui.semiconductor-lab.solvay_tower.power": "電力 %s",
+  "gui.semiconductor-lab.solvay_tower.nh3": "NH3（循環）%s",
+  "gui.semiconductor-lab.solvay_tower.loss": "補給まで %s 回",
+  "gui.semiconductor-lab.solvay_tower.need_input": "塩2と方解石が必要",
+  "gui.semiconductor-lab.solvay_tower.need_ammonia": "アンモニア水を入れる",
+  "gui.semiconductor-lab.solvay_tower.output_full": "出口がいっぱい",
+  "gui.semiconductor-lab.solvay_tower.need_power": "電気が来ていない",
+  "gui.semiconductor-lab.solvay_tower.running": "アンモニアが回っている"
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IGI",
+    "ICI",
+    "IFI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "semiconductor-lab:soda_lime_glass",
+    "C": "semiconductor-lab:copper_cable",
+    "F": "minecraft:furnace"
+  },
+  "result": {
+    "id": "semiconductor-lab:solvay_tower",
+    "count": 1
+  }
+}

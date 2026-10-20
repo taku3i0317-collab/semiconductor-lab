@@ -220,6 +220,7 @@ ethanol  # Chemistry [2-39] 1857
 fermentation_crock  # Chemistry [2-39] 1857
 copper_gauze  # Chemistry [2-27] 1859
 formalin  # Chemistry [2-27] 1859
+solvay_tower  # Chemistry [2-06] 1861
 toluene  # Chemistry [2-59] 1868
 benzal_chloride  # Chemistry [2-59] 1868
 benzaldehyde  # Chemistry [2-59] 1868

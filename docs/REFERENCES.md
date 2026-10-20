@@ -2107,6 +2107,20 @@
 - Wikipedia「Copper interconnects」（IBM 1997）：https://en.wikipedia.org/wiki/Copper_interconnects
 - Wikipedia「Copper(II) sulfate」：https://en.wikipedia.org/wiki/Copper(II)_sulfate
 
+## C26. アンモニアがぐるぐる回る工場（ソルベー法）［2-06］［2-08］
+**答え**：塩水にアンモニアと二酸化炭素を吹きこむと、水に溶けにくい重曹（NaHCO3）が沈む。焼くと炭酸ナトリウム（ソーダ）。残った塩化アンモニウムは石灰でアンモニアに戻して、また使う。全体では 2NaCl + CaCO3 → Na2CO3 + CaCl2 で、アンモニアは減らない（もれる分だけ補給）。1861年ベルギーのエルネスト・ソルベーが特許をとり、1865年に工場を動かした。ソーダに消石灰を混ぜると苛性ソーダ（石灰ソーダ法）で、1890年代の電解法（カストナー・ケルナー法）が広まるまでの主な作り方だった。
+
+- へえ①：塩と石灰石からソーダができる。アンモニアは回収してまた使う。
+- へえ②：ルブラン法は塩酸ガスで空気をよごしたが、ソルベー法はずっときれいだった。
+- へえ③：ソルベーは得た財産で、物理学者が集まる「ソルベー会議」（1911〜）を始めた。
+- へえ④：副産物の塩化カルシウムは、道の融雪剤や乾燥剤になる。
+
+確かさ：反応 ◎／ソルベー 1861 特許・1865 操業 ◎／ソルベー会議 1911 ◎
+根拠：
+- Wikipedia「Solvay process」：https://en.wikipedia.org/wiki/Solvay_process
+- Wikipedia「Ernest Solvay」/「Solvay Conference」：https://en.wikipedia.org/wiki/Solvay_Conference
+- Wikipedia「Sodium hydroxide」（石灰ソーダ法）：https://en.wikipedia.org/wiki/Sodium_hydroxide
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

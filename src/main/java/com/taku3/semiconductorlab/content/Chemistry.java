@@ -268,6 +268,9 @@ public final class Chemistry {
     // めっき槽 [2-12]（IMP3、O-013）：硫酸銅の液で銅を型に電着。2kW（約1V・2000A）、1 mol（63.5g）ごとに電鋳1
     public static final Machine<ElectroplatingBathBlockEntity> ELECTROPLATING_BATH = Machine.electric("electroplating_bath", ElectroplatingBathBlockEntity::new, ElectroplatingBathBlockEntity.LAYOUT, metal(2.0f));
 
+    // ソルベー塔 [2-06]（IMP3、O-013）：塩2＋方解石（石灰石）→ 炭酸ナトリウム。アンモニアは塔の中を回る（16回に1単位だけ補給）。5kW
+    public static final Machine<SolvayTowerBlockEntity> SOLVAY_TOWER = Machine.electric("solvay_tower", SolvayTowerBlockEntity::new, SolvayTowerBlockEntity.LAYOUT, metal(3.0f));
+
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
     private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {
         Item.Properties props = new Item.Properties().stacksTo(Math.min(stack, v.stack));

@@ -980,6 +980,37 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-06] ソルベー法・[2-08] 苛性ソーダ（IMP3、O-013）
+    // =====================================================================
+
+    /** アンモニアなしでは動かない。アンモニア水1本（4単位）で 16回まで減らずに回り、17回目の手前で1単位補給。塩2＋方解石1 → ソーダ1。ソーダ＋消石灰 → NaOH */
+    @GameTest(maxTicks = 200)
+    public void solvay(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "sodium_hydroxide_from_soda", Chemistry.SODIUM_CARBONATE) && recipeUses(h, "sodium_hydroxide_from_soda", com.taku3.semiconductorlab.content.Survival.SLAKED_LIME), "[2-08] lime-soda process");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.SOLVAY_TOWER.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.WATTS);
+        int T = com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.TICKS;
+        c.setItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_SALT, new ItemStack(com.taku3.semiconductorlab.content.Gas.SALT, 64));
+        c.setItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_LIMESTONE, new ItemStack(Items.CALCITE, 32));
+        tickConsumer(h, fp, be, T + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_OUT).isEmpty(), "no ammonia -> nothing");
+        c.setItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_AMMONIA, new ItemStack(Chemistry.AMMONIA_WATER, 1));
+        for (int i = 0; i < 16; i++) tickConsumer(h, fp, be, T, feed);
+        ItemStack soda = c.getItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_OUT);
+        h.assertTrue(soda.is(Chemistry.SODIUM_CARBONATE) && soda.getCount() == 16, "16 runs -> 16 soda, got " + soda);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_SALT).getCount(), 32, "2 salt per run");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_LIMESTONE).getCount(), 16, "1 limestone per run");
+        h.assertValueEqual(be.getAmmonia(), 3, "ammonia circulates: one bottle (4) lost only 1 unit in 16 runs");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SLOT_BOTTLE).is(Chemistry.GLASS_BOTTLE), "empty bottle comes out");
+        LOG.info("[LAB] solvay [2-06][2-08]: no NH3 -> nothing; 1 bottle of ammonia water runs 16 times losing 1 unit; 2 NaCl + CaCO3 -> Na2CO3; soda + lime -> NaOH");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
@@ -998,6 +1029,9 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         rec(a, Chemistry.ELECTROPLATING_BATH.block, "銅の電鋳", L(io(Items.COPPER_INGOT, 1), io(Chemistry.GRAPHITE_WAX_MOULD, 1)), L(io(Chemistry.COPPER_ELECTROTYPE, 1)),
             com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.WATTS, com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.COULOMBS_PER_COPY / (com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.WATTS / com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.VOLTS),
             "硫酸銅の液（減らない）で、陽極の銅を型へ運ぶ。2F（193 kC）で銅 63.5 g（ファラデーの法則）");
+        rec(a, Chemistry.SOLVAY_TOWER.block, "炭酸ナトリウム", L(io(com.taku3.semiconductorlab.content.Gas.SALT, com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SALT_PER_RUN), io(Items.CALCITE, 1),
+                perRuns(io(Chemistry.AMMONIA_WATER, 1), com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.LOSS_EVERY * com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.NH3_PER_BOTTLE)),
+            L(io(Chemistry.SODIUM_CARBONATE, 1)), com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.WATTS, com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.TICKS / 20.0, "2NaCl + CaCO3 → Na2CO3 + CaCl2（捨てる）。アンモニアは回って戻る（補給は少し）");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");
