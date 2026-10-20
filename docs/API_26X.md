@@ -851,3 +851,5 @@ FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registri
 - `AbstractContainerScreen(T menu, Inventory, Component title, int imageWidth, int imageHeight)`（imageWidth・imageHeight は final。大きな画面はこのコンストラクタで）
 - `AbstractContainerScreen.mouseClicked(MouseButtonEvent, boolean)`・`mouseDragged(MouseButtonEvent, double, double)`・`mouseReleased(MouseButtonEvent)`
 - `net.minecraft.client.input.MouseButtonEvent`（record）：`x()`・`y()`・`button()`（0＝左、1＝右）・`modifiers()`
+- 看板の文（IMP3 S-001）：`SignBlockEntity.getText(SignTextSlot.FRONT).getMessages(boolean filtered)`（getFrontText は無い）。setblock の NBT は `oak_sign[rotation=8]{front_text:{messages:["1行目","2行目","",""]}}`（文字列をそのまま書ける）、チェストは `chest[facing=north]{Items:[{Slot:0b,id:"...",count:16}]}`
+- コマンドを Java から：`server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withLevel(lv).withPosition(Vec3).withSuppressedOutput(), "function ns:id")`。チャンクを読み込んだままにするのは `ServerLevel.setChunkForced(cx, cz, true/false)`

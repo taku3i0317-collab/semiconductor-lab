@@ -268,3 +268,4 @@ layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
 transistor_radio  # Communication [15-10] 1954
 solar_cell  # Branches [B-12] 1954
+test_power_source  # Testing [None] None

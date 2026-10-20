@@ -85,5 +85,11 @@
   "litho.semiconductor-lab.role.base": "2 ベース・p",
   "litho.semiconductor-lab.role.emitter": "3 エミッタ・n",
   "litho.semiconductor-lab.role.contact": "4 金属の窓",
-  "litho.semiconductor-lab.role.metal": "5 アルミの配線"
+  "litho.semiconductor-lab.role.metal": "5 アルミの配線",
+  "block.semiconductor-lab.test_power_source": "試験用の無限電源",
+  "block.semiconductor-lab.test_power_source.note1": "ゲームの確認のための、ふつうには作れないブロック。燃料なしで電気が出つづける。",
+  "block.semiconductor-lab.test_power_source.note2": "クリエイティブ専用・レシピなし。機械の真下（となり）に置くと、1 MW を送る。試験場（/function semiconductor-lab:testworld）が機械の下に置く。本物の発電は、試験場の蒸気機関の区画で確かめる。",
+  "block.semiconductor-lab.test_power_source.note3": "本物の世界に「燃料のいらない電源」はない。電気は、燃料・水の流れ・光などのエネルギーを変えて作る（エネルギー保存）。このブロックは確認を早くするための約束ごと。",
+  "block.semiconductor-lab.test_power_source.note4": "研究室では、本物の電源の代わりに「安定化電源」を使って、装置だけを確かめることがある。試験場も同じ考え方。",
+  "block.semiconductor-lab.test_power_source.placeholder": "試験用：本物の技術ではない（ゲーム内の確認のためだけ）。"
 }

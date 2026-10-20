@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "semiconductor-lab:test_power_source"
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "semiconductor-lab:blocks/test_power_source"
+}

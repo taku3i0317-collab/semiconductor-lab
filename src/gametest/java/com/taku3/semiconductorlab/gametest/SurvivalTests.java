@@ -538,6 +538,56 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // 試験場（S-001、IMP3）：関数 semiconductor-lab:testworld（tools/gen_testworld.py が作る）
+    // =====================================================================
+
+    /**
+     * 試験場の関数が読み込まれ、最後まで動き、testworld_layout.json のとおりに置かれるか（機械・試験用の電源・チェスト・看板）。
+     * ほかのテストとぶつからないよう、テストの場所の 100 ブロック上に建て、そのあいだチャンクを読み込んだままにする
+     */
+    @GameTest(maxTicks = 40)
+    public void testworld(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        var server = lv.getServer();
+        h.assertTrue(server.getFunctions().get(SemiconductorLab.id("testworld")).isPresent(), "function semiconductor-lab:testworld is loaded (no parse error)");
+        com.google.gson.JsonObject layout;
+        try (var in = SurvivalTests.class.getResourceAsStream("/testworld_layout.json")) {
+            layout = com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
+        } catch (Exception e) { throw new RuntimeException("testworld_layout.json", e); }
+        int w = layout.get("width").getAsInt(), d = layout.get("depth").getAsInt();
+        BlockPos base = h.absolutePos(p(0, 0, 0)).above(100);
+        List<long[]> forced = new ArrayList<>();
+        for (int cx = (base.getX() - 2) >> 4; cx <= (base.getX() + w + 2) >> 4; cx++)
+            for (int cz = (base.getZ() - 3) >> 4; cz <= (base.getZ() + d + 2) >> 4; cz++)
+                if (lv.setChunkForced(cx, cz, true)) forced.add(new long[] {cx, cz});
+        try {
+            server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withLevel(lv)
+                    .withPosition(net.minecraft.world.phys.Vec3.atLowerCornerOf(base)).withSuppressedOutput(), "function semiconductor-lab:testworld");
+            int n = 0, power = 0, chests = 0, signs = 0;
+            List<String> wrong = new ArrayList<>();
+            for (var el : layout.getAsJsonArray("blocks")) {
+                var o = el.getAsJsonObject();
+                var pa = o.getAsJsonArray("pos");
+                BlockPos at = base.offset(pa.get(0).getAsInt(), pa.get(1).getAsInt(), pa.get(2).getAsInt());
+                String want = o.get("block").getAsString();
+                String got = BuiltInRegistries.BLOCK.getKey(lv.getBlockState(at).getBlock()).toString();
+                if (!got.equals(want)) wrong.add(pa + " " + want + " != " + got);
+                if (want.equals("semiconductor-lab:test_power_source")) power++;
+                if (want.equals("minecraft:chest") && lv.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.ChestBlockEntity c && !c.isEmpty()) chests++;
+                if (want.equals("minecraft:oak_sign") && lv.getBlockEntity(at) instanceof net.minecraft.world.level.block.entity.SignBlockEntity sg
+                        && !sg.getText(net.minecraft.world.level.block.entity.SignTextSlot.FRONT).getMessages(false).get(0).getString().isEmpty()) signs++;
+                n++;
+            }
+            h.assertTrue(wrong.isEmpty(), "testworld blocks wrong (" + wrong.size() + "): " + wrong.subList(0, Math.min(5, wrong.size())));
+            h.assertTrue(power > 0 && chests > 0 && signs > 0, "power " + power + ", filled chests " + chests + ", signs with text " + signs);
+            LOG.info("[LAB] testworld (S-001): {} blocks as planned ({} test power sources, {} filled chests, {} signs), {}x{}", n, power, chests, signs, w, d);
+        } finally {
+            for (long[] c : forced) lv.setChunkForced((int) c[0], (int) c[1], false);
+        }
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 

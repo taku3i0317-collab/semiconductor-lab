@@ -48,3 +48,11 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
   - 共通ファイル：mixins.json に "AnimalBreedingMixin" を1行
 - ✅ [0-13] 荷車（O-002 の続き、決定どおり進捗のみ）：進捗 domestication/cart（「牛の家畜化」の下、木の車輪を手に入れると達成、説明がへえ①）。テストは domestication に1つ足した
 - 幹0 は [0-01]〜[0-19] の全ノードが ✅（INBOX O-001〜O-004 完了）。INBOX の新しい指示を待つ（2026-10-20 16:20〜）
+
+## S-001 試験場（相談役から、ユーザーの提案）
+- 途中でメモリ不足で止まった → 再開（git status で途中の変更が無事なのを確認、ロックファイルなし、pull --rebase）
+- ✅ 関数 semiconductor-lab:testworld（tools/gen_testworld.py が作る）：幹ごとに1列、ノードごとに1区画（ブロック・機械＋チェスト＋看板）。電気を使う機械の真下に「試験用の無限電源」（content/Testing.java＋energy/TestPowerSourceBlockEntity、1 MW、クリエイティブ専用・レシピなし・壊れない、名前に「試験用」）。最後の列は本物の発電（蒸気機関 → 銅ケーブル → 電気炉）。98×101 ブロック、311 個
+- 区画は タブの並び（幹・ノード）、機械と材料は machine_recipes.json、看板は TEST_QUEUE の部品の「人間：」の最初の項目（全文は docs/TESTWORLD.md の自動生成の一覧）。チェストの個数は Java の stacksTo・斧・剣から（重ねられない物は1個）
+- GameTest testworld（SurvivalTests）：テストの場所の100ブロック上に建て、311 ブロックがすべて計画どおり。テスト 138/138
+- 共通ファイルの変更（S-001 の指示の範囲＋登録に要る最小限）：content/Content.java に Testing.init() の1行、lang の common 部品に試験用電源の6キー、CLAUDE.md の手順に gen_testworld.py の1行、docs/test_queue/general.md に1節、API_26X に2行
+- 決めたこと（小）：「章」は幹ごとの列にした（石器時代＝幹0、ゲルマニウム・シリコン＝幹9 など。v0.3 の本線の物は各幹の列に入る）。作物はブロックにせず種としてチェストへ
