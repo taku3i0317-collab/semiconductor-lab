@@ -166,6 +166,8 @@ iodine  # Chemistry [2-04] 1750
 hydrofluoric_acid  # Chemistry [2-10] 1771
 calcium_sulfate  # Chemistry [2-10] 1771
 lead_retort  # Chemistry [2-10] 1771
+alkali_waste  # Chemistry [2-11] 1777
+hydrogen_sulfide_gas  # Chemistry [2-11] 1777
 salt_cake  # Chemistry [2-05] 1791
 salt_cake_charge  # Chemistry [2-05] 1791
 black_ash  # Chemistry [2-05] 1791

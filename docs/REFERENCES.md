@@ -2246,6 +2246,20 @@
 - Wikipedia「Match」（安全マッチ・リン顎）：https://en.wikipedia.org/wiki/Match
 - Wikipedia「Berne Convention (1906)」：https://en.wikipedia.org/wiki/Berne_Convention_(1906)
 
+## C34. ソーダ工場のかすから硫黄を取り戻す（硫化水素とクラウス法）［2-11］
+**答え**：ルブラン法のかす（硫化カルシウム、ガリグー）は工場のまわりに積まれ、雨で硫化水素（腐った卵のにおいの毒ガス）を出した。1882年チャンスが二酸化炭素でかすから硫化水素を追い出し、1883年クラウスが硫化水素を空気で半分燃やして硫黄にする方法（2H2S + O2 → 2S + 2H2O）を作って、硫黄を取り戻せるようになった。今も石油や天然ガスの硫化水素はアルミナの触媒のクラウス法で硫黄にされ、世界の硫黄の大部分はこうして作られる。硫化水素は1777年シェーレが記述した。
+
+- へえ①：ソーダ工場のかすから、硫黄を取り戻した。
+- へえ②：硫化水素は濃いと鼻がまひして、においがわからなくなる（だから危ない）。
+- へえ③：今の硫黄のほとんどは、鉱山ではなく、石油やガスをきれいにするときに出てくる。
+- へえ④：同じアルミナの触媒が、アルコールからエチレンを作るのにも、硫化水素から硫黄を作るのにも使える。
+
+確かさ：シェーレ 1777 ○／チャンス 1882・クラウス 1883 ◎／今の硫黄の大部分がクラウス法 ◎
+根拠：
+- Wikipedia「Claus process」：https://en.wikipedia.org/wiki/Claus_process
+- Wikipedia「Leblanc process」（チャンス法）：https://en.wikipedia.org/wiki/Leblanc_process
+- Wikipedia「Hydrogen sulfide」：https://en.wikipedia.org/wiki/Hydrogen_sulfide
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

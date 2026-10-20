@@ -216,7 +216,9 @@ public final class Chemistry {
     public static final Item SALT_CAKE             = Reg.item("salt_cake");
     public static final Item SALT_CAKE_CHARGE      = Reg.item("salt_cake_charge", new Item.Properties().stacksTo(16).craftRemainder(SALT_CAKE));
     public static final Item BLACK_ASH_CHARGE      = Reg.item("black_ash_charge");
-    public static final Item BLACK_ASH             = Reg.item("black_ash");
+    // [2-11] ルブラン法のかす（硫化カルシウム、ガリグー）：黒灰を水で洗うと作業台に残る（IMP3、O-016）
+    public static final Item ALKALI_WASTE          = Reg.item("alkali_waste");
+    public static final Item BLACK_ASH             = Reg.item("black_ash", new Item.Properties().craftRemainder(ALKALI_WASTE));
     // [2-47] 化学強化ガラス（IMP3、O-015）：砂5＋アルミナ＋ソーダ → アルミノケイ酸ガラスの調合原料 → 溶鉱炉 → アルミノケイ酸ガラス。
     //   ガラス4＋硝石 → 硝酸カリウムの浴に入れたガラス4 →かまど（約400℃の溶けた塩）→ 化学強化ガラス（表面の Na+ が K+ に入れかわる、1962 キスラー）。
     //   実験：たたき石でたたくと、ふつうのガラスは割れる、強化ガラスは割れない
@@ -234,6 +236,8 @@ public final class Chemistry {
     public static final Item PHOSPHORUS_UNDER_NITROGEN = Reg.item("phosphorus_under_nitrogen", new Item.Properties().stacksTo(16));
     public static final Item RED_PHOSPHORUS        = Reg.item("red_phosphorus");
     public static final Item PHOSPHORUS_PENTOXIDE  = Reg.item("phosphorus_pentoxide");
+    // [2-11] 硫化水素と硫黄回収（IMP3、O-016）：かす（CaS）＋塩酸 → 硫化水素の袋（1777 シェーレ）、熱したアルミナの触媒管で空気と → 硫黄（1883 クラウス法）
+    public static final Item HYDROGEN_SULFIDE_GAS  = containedItem("hydrogen_sulfide_gas", com.taku3.semiconductorlab.item.HydrogenSulfideItem::new, Vessel.GAS_BAG, 64);
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);

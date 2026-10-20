@@ -21,6 +21,7 @@ import net.minecraft.world.phys.BlockHitResult;
 /**
  * アルミナの触媒管 [2-36]（鉄の管にアルミナ Al2O3 の粒を詰めた物）。火のついたたき火（か火）の上に置いて熱し、エタノールを持って右クリックすると、
  * エタノールの蒸気が熱いアルミナの上で水を失ってエチレンになる：C2H5OH → C2H4 + H2O。エチレンは袋に集める（水は捨てる）。
+ * 硫化水素の袋で右クリックすると、まわりの空気の酸素と熱いアルミナの上で硫黄になる（クラウス法 [2-11]：2H2S + O2 → 2S + 2H2O）。
  * アルミナ（触媒）は減らない。冷たい管では反応しない（実験）。熱いかどうかは {@link CopperGauzeBlock#hot} と同じ決まり。
  */
 public class AluminaCatalystTubeBlock extends Block {
@@ -28,7 +29,7 @@ public class AluminaCatalystTubeBlock extends Block {
 
     @Override
     protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!stack.is(Chemistry.ETHANOL)) return InteractionResult.TRY_WITH_EMPTY_HAND;
+        if (!stack.is(Chemistry.ETHANOL) && !stack.is(Chemistry.HYDROGEN_SULFIDE_GAS)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (!level.isClientSide()) react(level, pos, player, stack);
         return InteractionResult.SUCCESS;
     }
@@ -39,14 +40,16 @@ public class AluminaCatalystTubeBlock extends Block {
             player.sendOverlayMessage(Component.translatable("message.semiconductor-lab.alumina_catalyst_tube.cold"));
             return false;
         }
+        boolean claus = ethanol.is(Chemistry.HYDROGEN_SULFIDE_GAS);
         Vessel.returnEmpty(player, pos, ethanol);
         ethanol.shrink(1);
-        ItemStack out = new ItemStack(Chemistry.ETHYLENE_GAS);
+        // エタノール → エチレン（脱水）。硫化水素 → 硫黄（クラウス法：2H2S + O2 → 2S + 2H2O、O2 はまわりの空気）
+        ItemStack out = new ItemStack(claus ? Chemistry.SULFUR_POWDER : Chemistry.ETHYLENE_GAS);
         if (!player.getInventory().add(out) && !out.isEmpty())
             level.addFreshEntity(new ItemEntity(level, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, out));
         level.playSound(null, pos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 0.3f, 1.5f);
         if (level instanceof ServerLevel sl) sl.sendParticles(ParticleTypes.CLOUD, pos.getX() + 0.5, pos.getY() + 1.0, pos.getZ() + 0.5, 4, 0.1, 0.05, 0.1, 0.01);
-        player.sendOverlayMessage(Component.translatable("message.semiconductor-lab.alumina_catalyst_tube.reacted"));
+        player.sendOverlayMessage(Component.translatable(claus ? "message.semiconductor-lab.alumina_catalyst_tube.claus" : "message.semiconductor-lab.alumina_catalyst_tube.reacted"));
         return true;
     }
 }

@@ -1160,6 +1160,32 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-11] 硫化水素と硫黄回収（IMP3、O-016）
+    // =====================================================================
+
+    /** 黒灰を洗うとかすが残る。かす＋塩酸 → H2S。熱したアルミナの管で H2S → 硫黄（冷たいと反応しない）。もれると吐き気 */
+    @GameTest
+    public void sulfurRecovery(GameTestHelper h) {
+        var rem = Chemistry.BLACK_ASH.getCraftingRemainder(new ItemStack(Chemistry.BLACK_ASH));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.ALKALI_WASTE), "washing black ash leaves the CaS waste");
+        h.assertTrue(recipeUses(h, "hydrogen_sulfide_gas", Chemistry.ALKALI_WASTE) && recipeUses(h, "hydrogen_sulfide_gas", com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID), "CaS + 2HCl -> H2S");
+        floor(h, 3);
+        BlockPos fire = p(1, 1, 1);
+        h.setBlock(fire.above(), Chemistry.ALUMINA_CATALYST_TUBE);
+        BlockPos tube = h.absolutePos(fire.above());
+        var level = h.getLevel(); var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack gas = new ItemStack(Chemistry.HYDROGEN_SULFIDE_GAS, 2);
+        h.assertFalse(com.taku3.semiconductorlab.block.AluminaCatalystTubeBlock.react(level, tube, player, gas), "cold tube does not react");
+        h.setBlock(fire, net.minecraft.world.level.block.Blocks.CAMPFIRE.defaultBlockState().setValue(net.minecraft.world.level.block.CampfireBlock.LIT, true));
+        h.assertTrue(com.taku3.semiconductorlab.block.AluminaCatalystTubeBlock.react(level, tube, player, gas), "hot alumina: Claus");
+        h.assertTrue(gas.getCount() == 1 && player.getInventory().countItem(Chemistry.SULFUR_POWDER) == 1, "H2S -> sulfur");
+        com.taku3.semiconductorlab.item.HydrogenSulfideItem.leak(player);
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.NAUSEA), "a leak makes you feel sick (accident)");
+        LOG.info("[LAB] sulfur recovery [2-11]: black ash -> alkali waste (CaS); + HCl -> H2S; hot alumina (Claus) -> sulfur; leak -> nausea");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
