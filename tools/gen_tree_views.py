@@ -1019,6 +1019,8 @@ def main():
             print(f"  [{a}] {f} -> [{i}] がない")
         badurl = [(i, u) for i, n in allnodes.items() for u in re.findall(r"https?://[^\s／]+", n["body"])
                   if re.search(r"[（）、。「」]|[^\x00-\x7f%]", u.rstrip(",.）)")) or u.endswith(",")]
+        noicon = [i for i in sorted(allnodes, key=sort_key) if i not in ICON_E]
+        print(f"no production icon: {len(noicon)} {' '.join(noicon)}（tools/gen_icons.py：docs/icon_glyphs.json に形を足す）")
         print(f"odd urls: {len(badurl)}")
         for i, u in badurl:
             print(f"  [{i}] {u}")
