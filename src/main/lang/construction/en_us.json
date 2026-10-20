@@ -1,0 +1,14 @@
+{
+  "item.semiconductor-lab.theodolite": "Theodolite",
+  "item.semiconductor-lab.theodolite.note1": "Measures how far away something is without going there. Sight the same mark from two places and the triangle tells you the distance.",
+  "item.semiconductor-lab.theodolite.note2": "Telescope + vernier caliper (vernier scale) + 2 bronze + 2 sticks. Hold right-click to look, release to read the direction. 1) sight a mark and release (station A) -> 2) walk at least 3 m sideways, sight the same mark and release (station B) -> the base and two angles give the distance. Sneak + right-click clears station A.",
+  "item.semiconductor-lab.theodolite.note3": "In 1615 the Dutchman Snellius measured the distance between towns with a chain of triangles (triangulation). Measure one base line carefully and angles alone do the rest of the country. In the 18th century the theodolite combined a telescope with graduated circles.",
+  "item.semiconductor-lab.theodolite.note4": "Sine rule: with base c and end angles alpha and beta, distance from B = c sin(alpha) / sin(alpha + beta). The thinner the triangle (far target, short base), the more a small angle error grows. Ino Tadataka (1800-1821) mapped Japan by combining walked traverses with sightings of mountain peaks from many places.",
+  "item.semiconductor-lab.theodolite.placeholder": "Approximation: the base length is taken directly as the distance between the two stations (really it was measured on the ground with chains or rods). No link to map items yet.",
+  "item.semiconductor-lab.theodolite.station_a": "📐 Station A recorded: bearing %s°. Walk sideways and sight the same mark",
+  "item.semiconductor-lab.theodolite.short_base": "The base is only %s m. Move at least %s m away first",
+  "item.semiconductor-lab.theodolite.no_cross": "The two sight lines do not cross ahead. Did you sight the same mark? (station A kept)",
+  "item.semiconductor-lab.theodolite.result": "📐 Base %s m, angle A %s°, angle B %s° -> %s m from here to the target (at %s, %s)",
+  "item.semiconductor-lab.theodolite.real": "The block you sighted is really %s m away (off by %s m)",
+  "item.semiconductor-lab.theodolite.cleared": "Station A cleared"
+}

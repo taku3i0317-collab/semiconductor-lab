@@ -7,6 +7,7 @@ package com.taku3.semiconductorlab.content;
  * 幹0 Survival 生存・道具     幹1 Metallurgy 冶金      幹2 Chemistry 化学       幹3 Heat 熱（炉と温度）
  * 幹4 Power 動力・電気        幹5 Vacuum 真空          幹6 Gas ガス・電解       幹7 Optics 光学
  * 幹8 Precision 精密機械・計測  幹9 Semiconductor 半導体プロセス
+ * 幹12 Construction 建設・測量
  * 幹15 Communication 通信・情報  枝🌿 Branches（[B-..] など、EUV の前提にならない製品）
  * </pre>
  * 幹10〜14 のファイルは、その幹の最初のノードを実装するときに作る（中身が空のファイルは置かない）。
@@ -26,6 +27,7 @@ public final class Content {
         Optics.init();
         Precision.init();
         Semiconductor.init();
+        Construction.init();   // 幹12（IMP2 O-007）
         Communication.init();
         Branches.init();
         Testing.init();   // S-001 試験場の試験用ブロック（IMP3）

@@ -1025,6 +1025,21 @@
 - Wikipedia「Louis Daguerre」：https://en.wikipedia.org/wiki/Louis_Daguerre
 - Wikipedia「Petzval lens」：https://en.wikipedia.org/wiki/Petzval_lens
 
+## O31. 行かずに距離を測る（三角測量）［12-11］
+**答え**：離れた2点（底辺の両はし）から同じ目標をのぞいて角度を測ると、三角形の形が決まり、正弦定理で目標までの距離が分かる。1615年スネルが三角形をつないで町の間の距離を測り、18世紀には望遠鏡と目盛り円のセオドライトで国土が測られた。
+
+- へえ①：底辺を1本ていねいに測れば、あとは角度だけで国じゅうの地図が作れる。
+- へえ②：伊能忠敬は 55歳から17年かけて日本中を歩き、歩いた距離と山の方角を組み合わせて地図を作った。
+- へえ③：細長い三角形ほど、角度のわずかなずれで距離が大きく狂う。
+- へえ④：メートルは、フランスの子午線を三角測量して決めた長さだった（[8-22]）。
+
+確かさ：三角測量の原理 ◎／スネル 1615（Eratosthenes Batavus 1617 刊）◎／伊能忠敬 1800〜1821（本人は1818没、地図の完成は1821）◎／伊能の方法（導線法・交会法）○
+根拠：
+- Wikipedia「Triangulation (surveying)」：https://en.wikipedia.org/wiki/Triangulation_(surveying)
+- Wikipedia「Willebrord Snellius」：https://en.wikipedia.org/wiki/Willebrord_Snellius
+- Wikipedia「Theodolite」：https://en.wikipedia.org/wiki/Theodolite
+- Wikipedia「Inō Tadataka」：https://en.wikipedia.org/wiki/In%C5%8D_Tadataka
+
 ---
 
 # 冶金と熱（タスク15〜）

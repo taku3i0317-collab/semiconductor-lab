@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " T ",
+    "BVB",
+    "S S"
+  ],
+  "key": {
+    "T": "semiconductor-lab:refracting_telescope",
+    "B": "semiconductor-lab:bronze_ingot",
+    "V": "semiconductor-lab:vernier_caliper",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "semiconductor-lab:theodolite",
+    "count": 1
+  }
+}

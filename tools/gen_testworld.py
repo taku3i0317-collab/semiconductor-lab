@@ -34,7 +34,7 @@ DOC_MARK = "## 区画の一覧（自動生成）"
 
 TRUNK_NAME = {"Survival": "幹0 生存（石器時代）", "Metallurgy": "幹1 冶金", "Chemistry": "幹2 化学", "Heat": "幹3 熱",
               "Power": "幹4 電気・動力", "Vacuum": "幹5 真空", "Gas": "幹6 ガス・電解", "Optics": "幹7 光学",
-              "Precision": "幹8 精密", "Semiconductor": "幹9 半導体（Ge・Si）", "Communication": "幹15 通信",
+              "Precision": "幹8 精密", "Semiconductor": "幹9 半導体（Ge・Si）", "Construction": "幹12 建設・測量", "Communication": "幹15 通信",
               "Branches": "枝 製品"}
 ROW_STEP = 8          # 列と列の間（南へ）
 GAP = 2               # 区画と区画の間

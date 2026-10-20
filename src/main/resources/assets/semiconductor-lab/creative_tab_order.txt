@@ -291,6 +291,7 @@ wafer_polisher  # Semiconductor [9-13] 1963
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
 probe_station  # Semiconductor [None] None
+theodolite  # Construction [12-11] 1615
 transistor_radio  # Communication [15-10] 1954
 silvered_plate  # Branches [B-02] 1839
 daguerreotype_plate  # Branches [B-02] 1839

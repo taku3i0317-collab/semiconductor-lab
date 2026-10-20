@@ -1,0 +1,14 @@
+{
+  "item.semiconductor-lab.theodolite": "セオドライト（測量器）",
+  "item.semiconductor-lab.theodolite.note1": "遠くの物までの距離を、そこへ行かずに測る道具。2か所から同じ目印をのぞくと、三角形の形から距離が分かる。",
+  "item.semiconductor-lab.theodolite.note2": "望遠鏡＋ノギス（副尺の目盛り）＋青銅×2＋棒×2。右クリックを押してのぞき、離すと向きを読む。①目印をのぞいて離す（測点A）→ ②横に3m以上歩いて、同じ目印をのぞいて離す（測点B）→ 底辺と2つの角から距離が出る。スニーク＋右クリックで測点A を消す。",
+  "item.semiconductor-lab.theodolite.note3": "1615年、オランダのスネルは、三角形をつないで町と町の距離を測った（三角測量）。底辺を1本だけていねいに測れば、あとは角度だけで国じゅうを測れる。18世紀には、望遠鏡と目盛り円を組み合わせたセオドライトが作られた。",
+  "item.semiconductor-lab.theodolite.note4": "正弦定理：底辺 c、両はしの角 α・β なら、Bから目標まで＝c・sin α／sin(α＋β)。細長い三角形（目標が遠いのに底辺が短い）ほど、角度の少しのずれが大きな誤差になる。伊能忠敬（1800〜1821）は、歩いた距離（導線法）と、山の頂上をいろいろな場所からのぞく方法（交会法）を組み合わせて日本地図を作った。",
+  "item.semiconductor-lab.theodolite.placeholder": "近似：底辺の長さは、2つの測点の間の長さをそのまま使う（本物は測鎖や物差しで地面を測る）。地図アイテムとのつながりはまだ無い。",
+  "item.semiconductor-lab.theodolite.station_a": "📐 測点A を記録：方位 %s°。横に歩いて、同じ目印をのぞこう",
+  "item.semiconductor-lab.theodolite.short_base": "底辺が %s m しかない。%s m 以上離れてからのぞこう",
+  "item.semiconductor-lab.theodolite.no_cross": "2本の視線が前で交わらない。同じ目印をのぞいたか確かめよう（測点A はそのまま）",
+  "item.semiconductor-lab.theodolite.result": "📐 底辺 %s m、角A %s°、角B %s° → ここから目標まで %s m（目標の場所 %s, %s）",
+  "item.semiconductor-lab.theodolite.real": "のぞいた先のブロックまで実際は %s m（ずれ %s m）",
+  "item.semiconductor-lab.theodolite.cleared": "測点A を消した"
+}
