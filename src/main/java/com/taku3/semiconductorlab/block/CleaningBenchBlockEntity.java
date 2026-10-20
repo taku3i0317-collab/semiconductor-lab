@@ -23,6 +23,8 @@ public class CleaningBenchBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 1_000;
     public static final int TICKS = 20 * 40;
     public static final int WAFERS_PER_RUN = 8;
+    /** 段階1 で落とせる所まで：硝酸とフッ酸では金属の汚れが少し残る（汚れ 1）。0 まで落とすのは RCA（{@link RcaBenchBlockEntity}） */
+    public static final int STAGE1_TARGET = 1;
     public static final int SLOT_WAFER = 0, SLOT_NITRIC = 1, SLOT_HF = 2, SLOT_WATER = 3, SLOT_OUT = 4, SLOT_COUNT = 5;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
@@ -47,7 +49,7 @@ public class CleaningBenchBlockEntity extends ConsumerBlockEntity {
     /** 洗ったあとのウェハー（1〜8枚）。洗えなければ EMPTY */
     public static ItemStack product(ItemStack w) {
         if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
-        ChipOps.Result r = ChipOps.clean(w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)), 0);
+        ChipOps.Result r = ChipOps.clean(w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)), STAGE1_TARGET);
         return r.ok() ? r.out() : ItemStack.EMPTY;
     }
 

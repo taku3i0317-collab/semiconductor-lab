@@ -66,3 +66,6 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [2-30] ネガ型レジスト KPR：作業台で ポリケイ皮酸ビニル（D）＋キシレン＋瓶 → negative_resist（日なたで感光）。塗布機が KPR ならネガ型で塗る（ChipOps.coat NEGATIVE）。GameTest v03_chain_negative（A の v03_chain を写し、レジストと現像液だけ KPR・キシレンに）で NOT が見つかる。CHEMISTRY F43、REFERENCES F21。O-009 完了
 - A（O-014）の依頼：フッ酸の判定を Chemistry.HF_TAG に（洗浄槽・エッチング槽・cryolite.json・silicon_etch.json）。鉛のレトルトは空の PE の瓶も受け付けて hydrofluoric_acid_pe を詰める（瓶で決まる）。GameTest lead_retort_hf に PE の確認を追加
 - ✅ [9-14] 段階2 RCA 洗浄台 rca_bench（block/RcaBenchBlockEntity、画面 RcaBenchScreen、1.5kW）：NH3水＋HCl＋H2O2 2＋脱イオン水（D の [2-17]）か超純水 → ChipOps.clean(w, 0)。段階1 の洗浄槽のすすぎに脱イオン水・超純水も。[9-14] を ✅ に。GameTest rca_bench、CHEMISTRY F44
+
+## O-010（2026-10-20）RCA の差と後工程
+- ✅ 1. [9-14] 段階2 は前の push で ✅。O-010 の「落ち方の差」：段階1 の洗浄槽は ChipOps.clean(w, 1)（汚れ 1 まで＝金属が残る）、RCA は clean(w, 0)。A の v03Chain の「洗浄で 0」の行を「段階1 で 1 以下」に直した（A に連絡）。GameTest rca_bench に差の確認

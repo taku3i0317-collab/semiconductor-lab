@@ -29,7 +29,7 @@ public class CleaningBenchScreen extends MachineScreen {
             case "hint" -> {
                 ItemStack w = menu.machineItem(CleaningBenchBlockEntity.SLOT_WAFER);
                 String k;
-                if (ChipOps.isProcessWafer(w) && !ChipOps.canClean(w)) k = "resist_on".equals(ChipOps.clean(w, 0).reason()) ? "resist_on" : "no_dirt";
+                if (ChipOps.isProcessWafer(w) && CleaningBenchBlockEntity.product(w).isEmpty()) k = "resist_on".equals(ChipOps.clean(w, CleaningBenchBlockEntity.STAGE1_TARGET).reason()) ? "resist_on" : "no_dirt";
                 else if (w.isEmpty() || menu.machineItem(CleaningBenchBlockEntity.SLOT_NITRIC).isEmpty() || menu.machineItem(CleaningBenchBlockEntity.SLOT_HF).isEmpty()
                         || menu.machineItem(CleaningBenchBlockEntity.SLOT_WATER).isEmpty()) k = "need_input";
                 else if (menu.getKw() <= 0) k = "need_power";

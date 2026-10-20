@@ -494,8 +494,8 @@ public class SemiconductorTests extends LabTestBase {
             if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
             else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
             maxDirt = Math.max(maxDirt, com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination());
-            ItemStack cleaned = wash.apply(w);
-            h.assertTrue(cleaned.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(cleaned).contamination() == 0, "layer " + i + ": bench cleans 8 wafers to 0, got " + cleaned);
+            ItemStack cleaned = com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination() <= com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.STAGE1_TARGET ? w.copy() : wash.apply(w);
+            h.assertTrue(cleaned.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(cleaned).contamination() <= com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.STAGE1_TARGET, "layer " + i + ": stage-1 bench cleans 8 wafers to <= 1, got " + cleaned);
             w = cleaned;
         }
         h.assertTrue(maxDirt > 0, "dirt builds up between cleanings");
@@ -816,6 +816,10 @@ public class SemiconductorTests extends LabTestBase {
         h.assertTrue(out.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(out).contamination() == 0, "8 wafers cleaned to 0, got " + out);
         h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_PEROXIDE).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_AMMONIA).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_HCL).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_WATER).isEmpty(), "SC-1 + SC-2 + rinse used");
         h.assertTrue(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.isRinse(new ItemStack(Chemistry.DEIONIZED_WATER)), "stage 1 bench also rinses with deionised water");
+        // 段階1 の洗浄槽は 1 まで（金属が残る）、RCA は 0 まで。汚れ 1 のウェハーは段階1 では「もうきれい」、RCA なら 0 にできる
+        ItemStack stage1 = com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.product(w);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(stage1).contamination(), 1, "stage 1 (nitric + HF) leaves dirt 1");
+        h.assertTrue(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.product(stage1).isEmpty() && !com.taku3.semiconductorlab.block.RcaBenchBlockEntity.product(stage1).isEmpty(), "dirt 1: stage 1 can do no more, RCA brings it to 0");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
         LOG.info("[LAB] RCA clean [9-14] stage 2: NH3 water + HCl + 2 H2O2 + DI water clean 8 wafers (dirt {} -> 0)", dirt);
         h.succeed();
@@ -1429,7 +1433,7 @@ public class SemiconductorTests extends LabTestBase {
                         com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_HF, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WATER},
                 new ItemStack[] {w, new ItemStack(Gas.NITRIC_ACID), new ItemStack(Chemistry.HYDROFLUORIC_ACID), new ItemStack(Chemistry.DISTILLED_WATER)},
                 com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WATTS);
-        h.assertTrue(dirt > 0 && com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination() == 0, "cleaning bench: dirt " + dirt + " -> 0");
+        h.assertTrue(dirt > 0 && com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination() <= com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.STAGE1_TARGET, "stage-1 cleaning bench (nitric + HF leave a little metal): dirt " + dirt + " -> 0");
         // 検査台（実機）
         h.setBlock(p(3, 1, 6), Semiconductor.PROBE_STATION.block);
         var probe = h.getBlockEntity(p(3, 1, 6), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
@@ -1509,7 +1513,7 @@ public class SemiconductorTests extends LabTestBase {
                         com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_HF, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WATER},
                 new ItemStack[] {w, new ItemStack(Gas.NITRIC_ACID), new ItemStack(Chemistry.HYDROFLUORIC_ACID), new ItemStack(Chemistry.DISTILLED_WATER)},
                 com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WATTS);
-        h.assertTrue(dirt > 0 && com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination() == 0, "cleaning bench: dirt " + dirt + " -> 0");
+        h.assertTrue(dirt > 0 && com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination() <= com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.STAGE1_TARGET, "stage-1 cleaning bench (nitric + HF leave a little metal): dirt " + dirt + " -> 0");
         // 検査台（実機）
         h.setBlock(p(3, 1, 6), Semiconductor.PROBE_STATION.block);
         var probe = h.getBlockEntity(p(3, 1, 6), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
