@@ -153,6 +153,15 @@ public final class Chemistry {
     public static final Item ACETIC_ACID           = Reg.item("acetic_acid", GlacialAceticAcidItem::new, new Item.Properties().stacksTo(16));
     // [2-40] アセトン（IMP3、O-008）：酢酸カルシウムを焼く（乾留）Ca(CH3COO)2 → CaCO3 + (CH3)2CO
     public static final Item ACETONE               = Reg.item("acetone", new Item.Properties().stacksTo(16));
+    // [2-09] 石けん（IMP3、O-008）：決定どおり獣脂は牛・豚・羊が落とす。獣脂＋NaOH＋水 → 煮る（けん化）→ 塩で石けんを分ける（塩析、残りの液は手元に残る）→ 液を焼くとグリセリン
+    public static final Item TALLOW                = Reg.item("tallow");
+    public static final Item SOAP_BATCH            = Reg.item("soap_batch");                                            // 煮る前の鍋の中身
+    public static final Item SPENT_LYE             = Reg.item("spent_lye", new Item.Properties().stacksTo(16));        // 塩析の残りの液（グリセリン水）
+    public static final Item SAPONIFIED_TALLOW     = Reg.item("saponified_tallow", new Item.Properties().craftRemainder(SPENT_LYE)); // 煮た物（石けん＋グリセリン）
+    public static final Item SOAP                  = Reg.item("soap");
+    public static final Item GLYCERIN              = Reg.item("glycerin", new Item.Properties().stacksTo(16));
+    /** 獣脂を落とす確率（1頭あたり） */
+    public static final float TALLOW_CHANCE = 0.6f;
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）
@@ -183,5 +192,16 @@ public final class Chemistry {
     }
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
-    static void init() {}
+    static void init() {
+        // [2-09] 獣脂（IMP3）：牛・豚・羊が落とす（決定）。肉といっしょにとれる脂身
+        net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            for (var type : java.util.List.of(net.minecraft.world.entity.EntityTypes.COW, net.minecraft.world.entity.EntityTypes.PIG, net.minecraft.world.entity.EntityTypes.SHEEP)) {
+                var key = type.getDefaultLootTable();
+                if (key.isPresent() && table.is(key.get())) {
+                    if (ctx.getRandom().nextFloat() < TALLOW_CHANCE) drops.add(new net.minecraft.world.item.ItemStack(TALLOW));
+                    return;
+                }
+            }
+        });
+    }
 }

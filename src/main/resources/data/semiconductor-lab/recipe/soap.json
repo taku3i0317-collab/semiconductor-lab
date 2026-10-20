@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:saponified_tallow",
+    "semiconductor-lab:salt"
+  ],
+  "result": {
+    "id": "semiconductor-lab:soap",
+    "count": 3
+  }
+}

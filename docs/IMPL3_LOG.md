@@ -95,3 +95,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
   - **E へ**：脱イオン水ができた（[2-18] 超純水・[9-14] RCA 洗浄に使える）
 - ✅ [2-42] 酢酸（遊び方: 実験＋軽）：石灰を入れた木酢液をたき火 → 酢酸カルシウム（かまど → メタノール）、＋硫酸 → 氷酢酸2（寒い所で凍る、item/GlacialAceticAcidItem）。GameTest acetic_acid、CHEMISTRY P11、REFERENCES C11。テスト 180/180
 - ✅ [2-40] アセトン（遊び方: 軽）：酢酸カルシウム →かまど → アセトン。テストは acetic_acid に1行。CHEMISTRY P12、REFERENCES C11 に追記。テスト 180/180
+- ✅ [2-09] 石けん（遊び方: 軽、決定どおり獣脂）：牛・豚・羊が獣脂を60%で落とす（Chemistry.init の MODIFY_DROPS）。獣脂3＋NaOH＋水 → たき火 → けん化した脂、＋塩 → 石けん3（グリセリンを含む液が作業台に残る＝塩析、craftRemainder）→ かまど → グリセリン。GameTest soap（牛のルートテーブルを200回引いて 120 個）、CHEMISTRY P13、REFERENCES C12。テスト 183/183

@@ -124,6 +124,12 @@ blast_furnace_slag  # Metallurgy [None] None
 wood_ash  # Chemistry [2-02] -2800
 lye  # Chemistry [2-02] -2800
 potash  # Chemistry [2-02] -2800
+tallow  # Chemistry [2-09] -2800
+soap_batch  # Chemistry [2-09] -2800
+spent_lye  # Chemistry [2-09] -2800
+saponified_tallow  # Chemistry [2-09] -2800
+soap  # Chemistry [2-09] -2800
+glycerin  # Chemistry [2-09] -2800
 trona  # Chemistry [2-03] -2600
 sodium_carbonate  # Chemistry [2-03] -2600
 trona_deposit  # Chemistry [2-03] -2600

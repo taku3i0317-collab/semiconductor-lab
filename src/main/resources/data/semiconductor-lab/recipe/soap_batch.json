@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tallow",
+    "semiconductor-lab:tallow",
+    "semiconductor-lab:tallow",
+    "semiconductor-lab:sodium_hydroxide",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:soap_batch",
+    "count": 1
+  }
+}

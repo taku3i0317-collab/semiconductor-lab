@@ -1633,6 +1633,20 @@
 - Wikipedia「Calcium acetate」：https://en.wikipedia.org/wiki/Calcium_acetate
 - Wikipedia「Acetone」（歴史・ワイツマン）：https://en.wikipedia.org/wiki/Acetone
 
+## C12. 油と強いアルカリで石けん、残りの液からグリセリン［2-09］
+**答え**：油脂（グリセリン＋脂肪酸3本）を強いアルカリと煮ると、結び目が切れて脂肪酸のナトリウム塩（石けん）とグリセリンになる（けん化）。塩をたくさん入れると石けんが固まって浮き（塩析）、残りの液からグリセリンが取れる。
+
+- へえ①：油と強いアルカリをまぜると、石けんができる。
+- へえ②：石けんの分子は水になじむ頭と油になじむしっぽを持ち、油汚れを包んで流す（ミセル）。
+- へえ③：1823 シュヴルールが油脂の正体を解明、1779 シェーレがグリセリンを発見。
+- へえ④：ウェハーは石けんでなく RCA 洗浄（1965）で洗う。
+
+確かさ：けん化・塩析・ミセル ◎／シュヴルール 1823 ○／シェーレ 1779 ○／紀元前2800年のバビロン △（TECH_TREE の本物欄どおり ⚠️）
+根拠：
+- Wikipedia「Soap」：https://en.wikipedia.org/wiki/Soap
+- Wikipedia「Saponification」：https://en.wikipedia.org/wiki/Saponification
+- Wikipedia「Glycerol」：https://en.wikipedia.org/wiki/Glycerol
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

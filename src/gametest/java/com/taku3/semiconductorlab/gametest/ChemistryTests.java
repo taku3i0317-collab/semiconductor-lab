@@ -653,6 +653,38 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-09] 石けん（IMP3、O-008）
+    // =====================================================================
+
+    /** 牛・豚・羊が獣脂を落とす。獣脂3＋NaOH＋水 → たき火 → けん化した脂、＋塩 → 石けん3（残りの液が手元に残る）、残りの液 → かまど → グリセリン */
+    @GameTest
+    public void soap(GameTestHelper h) {
+        var lv = h.getLevel();
+        floor(h, 4);
+        var cow = h.spawn(net.minecraft.world.entity.EntityTypes.COW, p(1, 1, 1));
+        int tallow = 0, N = 200;
+        var key = net.minecraft.world.entity.EntityTypes.COW.getDefaultLootTable().orElseThrow();
+        var table = lv.getServer().reloadableRegistries().getLootTable(key);
+        var params = new net.minecraft.world.level.storage.loot.LootParams.Builder(lv)
+                .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.THIS_ENTITY, cow)
+                .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.ORIGIN, cow.position())
+                .withParameter(net.minecraft.world.level.storage.loot.parameters.LootContextParams.DAMAGE_SOURCE, lv.damageSources().generic())
+                .create(net.minecraft.world.level.storage.loot.parameters.LootContextParamSets.ENTITY);
+        for (int i = 0; i < N; i++) for (ItemStack st : table.getRandomItems(params)) if (st.is(Chemistry.TALLOW)) tallow++;
+        h.assertTrue(tallow > N * 0.4 && tallow < N * 0.8, "cows drop tallow ~60%: " + tallow + "/" + N);
+        h.assertTrue(recipeUses(h, "soap_batch", Chemistry.TALLOW) && recipeUses(h, "soap_batch", Gas.SODIUM_HYDROXIDE), "tallow + NaOH + water");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Chemistry.SOAP_BATCH).is(Chemistry.SAPONIFIED_TALLOW), "boiled -> saponified");
+        var mgr = lv.getServer().getRecipeManager(); var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(Chemistry.SAPONIFIED_TALLOW), new ItemStack(Gas.SALT)));
+        var r = mgr.getRecipeFor(CRAFT, in, lv).orElseThrow().value();
+        h.assertTrue(r.assemble(in).is(Chemistry.SOAP), "salting out -> soap");
+        h.assertTrue(r.getRemainingItems(in).stream().anyMatch(st -> st.is(Chemistry.SPENT_LYE)), "the glycerin water stays in the grid");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.SPENT_LYE).is(Chemistry.GLYCERIN), "spent lye -> glycerin");
+        LOG.info("[LAB] soap [2-09]: cow tallow {}/{}; tallow + NaOH + water -> boil -> + salt -> soap + spent lye -> glycerin", tallow, N);
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
