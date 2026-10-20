@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:boric_acid",
+  "result": {
+    "id": "semiconductor-lab:boron_trioxide"
+  },
+  "experience": 0.1,
+  "cookingtime": 200
+}

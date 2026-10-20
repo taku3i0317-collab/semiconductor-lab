@@ -145,6 +145,37 @@ public class LabTests {
     @GameTest public void oreIronSand(GameTestHelper h)   { oreFeature(h, "iron_sand", Blocks.SAND, Blocks.SANDSTONE, ModBlocks.IRON_SAND, s -> s.is(Blocks.SAND)); }
     @GameTest public void oreTrona(GameTestHelper h)      { oreFeature(h, "trona_deposit", Blocks.SAND, Blocks.STONE, ModBlocks.TRONA_DEPOSIT, s -> s.is(Blocks.SAND) || s.is(Blocks.SANDSTONE)); }
 
+    @GameTest public void oreBorax(GameTestHelper h)      { oreFeature(h, "borax_deposit", Blocks.SAND, Blocks.STONE, ModBlocks.BORAX_DEPOSIT, s -> s.is(Blocks.SAND) || s.is(Blocks.SANDSTONE)); }
+
+    /** [1-33] ホウ素：堆積→ホウ砂（木のツルハシ、シルクでブロック）→＋硫酸→ホウ酸2→かまど→B2O3。砂漠だけ */
+    @GameTest
+    public void boronChain(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        BlockPos at = h.absolutePos(p(1, 1, 1));
+        ItemStack pick = new ItemStack(Items.WOODEN_PICKAXE);
+        ItemStack silk = new ItemStack(Items.IRON_PICKAXE);
+        silk.enchant(lv.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH), 1);
+        BlockState st = ModBlocks.BORAX_DEPOSIT.defaultBlockState();
+        h.assertTrue(pick.isCorrectToolForDrops(st), "borax is soft (Mohs 2-2.5): a wooden pickaxe is enough");
+        h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(st), "not by hand");
+        List<ItemStack> normal = Block.getDrops(st, lv, at, null, null, pick);
+        List<ItemStack> silky = Block.getDrops(st, lv, at, null, null, silk);
+        h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(ModItems.BORAX)), "pickaxe -> borax, got " + normal);
+        h.assertTrue(silky.size() == 1 && silky.get(0).is(ModBlocks.BORAX_DEPOSIT.asItem()), "silk touch -> block, got " + silky);
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("boric_acid"));
+        var r = lv.getServer().getRecipeManager().byKey(key).orElseThrow().value();
+        var ings = r.placementInfo().ingredients();
+        h.assertValueEqual(ings.size(), 2, "borax + sulfuric acid");
+        h.assertTrue(recipeUses(h, "boric_acid", ModItems.BORAX) && recipeUses(h, "boric_acid", ModItems.SULFURIC_ACID), "Na2B4O7 + H2SO4");
+        ItemStack out = ((net.minecraft.world.item.crafting.CraftingRecipe) r).assemble(net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(ModItems.BORAX), new ItemStack(ModItems.SULFURIC_ACID))));
+        h.assertTrue(out.is(ModItems.BORIC_ACID) && out.getCount() == 2, "4 mol H3BO3 = 2 items (2 mol each), got " + out);
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.BORIC_ACID).is(ModItems.BORON_TRIOXIDE), "2 H3BO3 -> B2O3 + 3 H2O in a furnace");
+        h.assertTrue(biomeHas(h, net.minecraft.world.level.biome.Biomes.DESERT, "borax_deposit"), "borax in deserts");
+        h.assertFalse(biomeHas(h, net.minecraft.world.level.biome.Biomes.PLAINS, "borax_deposit"), "no borax in plains");
+        LOG.info("[LAB] boron: deposit -> borax -> + H2SO4 -> 2 boric acid -> furnace -> B2O3, desert only");
+        h.succeed();
+    }
+
     /** [2-03] トロナ：堆積はツルハシでトロナを落とす（シルクタッチでブロック）、素手では落ちない。トロナ→かまど→炭酸ナトリウム */
     @GameTest
     public void tronaSoda(GameTestHelper h) {
@@ -876,7 +907,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate", "glass_batch", "soda_lime_glass", "soda_lime_glass_from_blasting",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "self_excited_dynamo", "steam_engine", "steam_turbine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "boric_acid", "boron_trioxide", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner",

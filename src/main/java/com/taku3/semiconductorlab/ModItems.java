@@ -112,6 +112,10 @@ public class ModItems {
 
     // --- ソーダ（[2-03] 天然ソーダ：トロナを焼く 2(Na2CO3·NaHCO3·2H2O) → 3Na2CO3 + CO2 + 5H2O）---
     public static final Item TRONA                 = simple("trona");             // トロナ（天然ソーダの鉱物）
+    // [1-33] ホウ素：ホウ砂 Na2B4O7·10H2O ＋ 硫酸 → ホウ酸 H3BO3（1個＝2mol）→ 焼く → B2O3（1個＝1mol）
+    public static final Item BORAX                 = simple("borax");
+    public static final Item BORIC_ACID            = simple("boric_acid");
+    public static final Item BORON_TRIOXIDE        = simple("boron_trioxide");
     public static final Item SODIUM_CARBONATE      = simple("sodium_carbonate");  // 炭酸ナトリウム（ソーダ灰）
     // [2-14] ソーダ石灰ガラス（SiO2 約72%・Na2O 14%・CaO 10%）。実験器具用（窓・建材はバニラのガラス＝近似、CHEMISTRY #36）
     public static final Item GLASS_BATCH           = simple("glass_batch");       // 調合原料（砂6＋ソーダ1＋生石灰1）
@@ -148,7 +152,7 @@ public class ModItems {
             HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER, CHLORINE_GAS, CHLORINE_CYLINDER, SODIUM_HYDROXIDE, NITROGEN_GAS, NITROGEN_CYLINDER, ARGON_GAS, ARGON_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT, ZINC_OXIDE,
             WOLFRAMITE_SODA_CHARGE, SODIUM_TUNGSTATE, TUNGSTIC_ACID, TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
-            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE, GLASS_BATCH, SODA_LIME_GLASS, ROCK_SALT, SALT, BITTERN,
+            REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE, BORAX, BORIC_ACID, BORON_TRIOXIDE, GLASS_BATCH, SODA_LIME_GLASS, ROCK_SALT, SALT, BITTERN,
             CINNABAR_DUST, MERCURY, MERCURY_VACUUM_GAUGE, VACUUM_TUBE_ASSEMBLY, VACUUM_TUBE,
             TRANSISTOR, JUNCTION_TRANSISTOR_BLANK, JUNCTION_TRANSISTOR, TRANSISTOR_RADIO);
 
