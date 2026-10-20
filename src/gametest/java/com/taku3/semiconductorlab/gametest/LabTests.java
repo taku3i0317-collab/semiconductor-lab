@@ -1448,6 +1448,18 @@ public class LabTests {
         LOG.info("[LAB] HF oscillator: 2 tubes + coil + Leyden jar + cable; zone refining furnace uses it; hf_power_supply removed");
         h.succeed();
     }
+    /** [3-14] 誘導加熱炉＝帯域精製炉＋高周波発振器（タスク12で ✅）：誘導コイル＋発振器＋電気を通さない石英管、燃料スロットなし・電力 3kW だけ */
+    @GameTest
+    public void inductionHeatingIsZoneRefiner(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.INDUCTION_COIL, ModItems.HF_OSCILLATOR, ModItems.QUARTZ_TUBE})
+            h.assertTrue(recipeUses(h, "zone_refining_furnace", it), "induction heating needs " + it);
+        h.assertTrue(recipeUses(h, "induction_coil", Items.COPPER_INGOT), "the coil is copper [4-03]");
+        h.assertValueEqual(ZoneRefiningFurnaceBlockEntity.WATTS, 3000.0, "the HF oscillator draws 3 kW");
+        h.assertValueEqual(ZoneRefiningFurnaceBlockEntity.SLOT_COUNT, 3, "germanium, dopant, boat - no fuel slot (heat comes from eddy currents)");
+        LOG.info("[LAB] induction heating [3-14]: zone refiner = copper coil + HF oscillator + quartz tube, 3 kW, no fuel");
+        h.succeed();
+    }
+
 
     // =====================================================================
     // [4-12] 電気炉（黒鉛棒の抵抗加熱、約1500℃）

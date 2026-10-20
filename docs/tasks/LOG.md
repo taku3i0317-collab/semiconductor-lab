@@ -111,3 +111,13 @@
 - CHEMISTRY #28・#73・#94・#116・レビュー欄を更新。GameTest soda_lime_glass に3レシピを追加（59本、全部 PASSED）
 - 新規：docs/README.md（役割と読む順番）・docs/HANDOFF.md（現在地1枚）。CLAUDE.md に「各タスクの最後に HANDOFF.md を更新」
 - 保留判断：Q10-C5（封止台もバニラのガラス×2、そろえるか）。タスク11の 3〜6 は queue に残した
+
+## タスク12：判断の片付け → [5-15] → [6-07] → [1-33] → [3-14]（2026-10-20、対話で実行）
+- 0. DECISIONS_PENDING の未採用（Q600〜Q934・Q10-*、66件）を仮決定どおり採用し、全150件を docs/DECISIONS.md の表へ。封止台もソーダ石灰ガラス（Q10-C5）
+- [5-15] シュプレンゲル水銀ポンプ（水銀4・電気なし・0.05Pa まで）。封止圧 1.5kPa（仮）→ 0.1Pa、容器の漏れ 1 → 0.002Pa/s、vacuum_tube.placeholder 削除。出典は SOURCES
+- [6-07] 空気分離装置（5kW×16秒で空気10mol → N2/O2/Ar を mmol で持ち越し）。GasType に N2・Ar（袋・ねずみ色ボンベ）、GasSource で隣のホルダーが吸う
+- [1-33] ホウ砂の堆積（砂漠）→ ホウ砂＋硫酸 → ホウ酸2 → かまど → B2O3
+- [3-14] 新ブロックなし：帯域精製炉＋発振器を誘導加熱の実例として ✅（ユーザー決定 Q1214-1）。へえに「IH 調理器と同じ原理」
+- テスト：GameTest 59→64本（sprengel_pump_reaches_soft_vacuum, air_separation, ore_borax, boron_chain, induction_heating_is_zone_refiner）＋既存3本更新、ノードごとに全部 PASSED（失敗なし）
+- 解放ノード：[9-07] Ge 単結晶の引き上げ・[5-09] クライオポンプ・[6-08] 希ガス・[6-09] ハーバー・ボッシュ・[13-15] 医療用酸素（今すぐ作れる 38→39、完成 45→49）
+- 保留判断：Q1207-1（空気分離は1台）、Q1207-2（電力は現代の値）

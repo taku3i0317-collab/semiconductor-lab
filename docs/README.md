@@ -27,7 +27,8 @@
 | tasks/queue/ | これからやるタスク（NN_*.md）。tasks/done/ は終わったタスク |
 | tasks/next.md | 単発のタスク指示 |
 | tasks/LOG.md | タスクごとの作業記録（作ったもの・テスト・解放ノード・保留判断・費用） |
-| tasks/DECISIONS_PENDING.md | 無人バッチで保留した判断（質問・仮決定・理由）。決まったら「採用」と追記 |
+| DECISIONS.md | 決定済みの判断の表（日付／ノード／決定） |
+| tasks/DECISIONS_PENDING.md | まだ決まっていない判断だけ（質問・仮決定・理由）。決まったら DECISIONS.md へ移す |
 | tasks/FAILED.md | 失敗の記録と直し方 |
 | tasks/night_output.txt | 夜間バッチの出力ログ（生ログ） |
 
@@ -39,5 +40,5 @@
 | ノードの仕様 | TECH_TREE.md |
 | API の書き方 | API_26X.md |
 | 何がゲーム内確認待ち？ | TEST_QUEUE.md |
-| 決まっていないこと | tasks/DECISIONS_PENDING.md（「採用」が付いていない行） |
+| 決まったこと・決まっていないこと | DECISIONS.md ／ tasks/DECISIONS_PENDING.md |
 | 前のタスクで何をした？ | tasks/LOG.md |
