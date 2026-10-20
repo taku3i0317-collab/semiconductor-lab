@@ -22,6 +22,8 @@ import net.minecraft.world.level.block.state.BlockState;
  * シリコンの板 ×{@link #WAFERS_PER_RUN}（n型 か p型）＋ 反対の型のドーパント源 ×1 → p-n 接合の板 ×{@link #WAFERS_PER_RUN}。
  * n型の板には B2O3（ホウ素 → 表面が p型、1954 の電池と同じ向き）、p型の板には白リン（リン → 表面が n型、のちの電池の向き）。
  * 同じ型・ドーパントなし（真性）の板では接合ができないので動かない。1954 年は酸化膜のマスクなしで板全体に拡散した。
+ * 窓のある加工中のウェハー（O-002、LITHO_DESIGN §5）：酸化膜の窓からだけしみ込ませる（1959 プレーナ法）。型はドーパント源で決まり、
+ * 何枚でも（1〜8、同じ中身の束）→ ChipOps.diffuse。同じ型の板に同じ型を重ねてもよい（あとの拡散ほど濃い）。
  * ⚠️ 温度（約1000℃）・電力（5kW）・時間（120秒、本物は何時間も）は出典で未確認のゲームの値（DECISIONS_PENDING Q25-6）。
  */
 public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
@@ -45,13 +47,19 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.DIFFUSION_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean isWafer(ItemStack s) { return s.is(Semiconductor.SILICON_WAFER); }
+    public static boolean isWafer(ItemStack s) { return s.is(Semiconductor.SILICON_WAFER) || com.taku3.semiconductorlab.litho.ChipOps.isProcessWafer(s); }
+
+    /** 窓のある加工中のウェハーに、このドーパント源でしみ込ませられるか */
+    public static boolean planar(ItemStack wafer, ItemStack source) {
+        Dopant add = Dopant.of(source);
+        return add != null && com.taku3.semiconductorlab.litho.ChipOps.canDiffuse(wafer, add.type);
+    }
     public static Dopant baseOf(ItemStack wafer) { return Dopant.byId(wafer.getOrDefault(ModDataComponents.DOPANT, "")); }
 
     /** 板の型と反対の型のドーパント源なら true（n型の板＋ホウ素、p型の板＋リン） */
     public static boolean makesJunction(ItemStack wafer, ItemStack source) {
         Dopant base = baseOf(wafer), add = Dopant.of(source);
-        return isWafer(wafer) && base != null && add != null && base.type != add.type;
+        return wafer.is(Semiconductor.SILICON_WAFER) && base != null && add != null && base.type != add.type;   // マスクなし（1954）は切った板だけ
     }
 
     /** p-n 接合の板：元の板の純度と、土台（板）のドーパントを受け継ぐ */
@@ -69,11 +77,22 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
 
     @Override protected boolean canWork() {
         ItemStack w = container.getItem(SLOT_WAFER), src = container.getItem(SLOT_SOURCE);
+        if (planar(w, src)) return src.getCount() >= SOURCE_PER_RUN && container.getItem(SLOT_OUT).isEmpty();
         return w.getCount() >= WAFERS_PER_RUN && src.getCount() >= SOURCE_PER_RUN && makesJunction(w, src)
                 && canMerge(container.getItem(SLOT_OUT), junction(w, WAFERS_PER_RUN));
     }
 
     @Override protected void finishWork() {
+        ItemStack w = container.getItem(SLOT_WAFER), src = container.getItem(SLOT_SOURCE);
+        if (planar(w, src)) {   // 窓からだけ（プレーナ法）：束ごと
+            ItemStack done = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, Dopant.of(src).type).out();
+            container.setItem(SLOT_WAFER, ItemStack.EMPTY);
+            com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, src, SOURCE_PER_RUN);
+            src.shrink(SOURCE_PER_RUN);
+            container.setItem(SLOT_OUT, done);
+            container.setChanged();
+            return;
+        }
         ItemStack out = junction(container.getItem(SLOT_WAFER), WAFERS_PER_RUN);
         container.getItem(SLOT_WAFER).shrink(WAFERS_PER_RUN);
         com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, container.getItem(SLOT_SOURCE), SOURCE_PER_RUN);   // 空の瓶は上に出る（IMP-33）

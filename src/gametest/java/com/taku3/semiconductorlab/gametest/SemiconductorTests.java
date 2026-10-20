@@ -745,6 +745,11 @@ public class SemiconductorTests extends LabTestBase {
         ItemStack redo = com.taku3.semiconductorlab.litho.ChipOps.strip(exposed).out();
         h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.canCoat(redo), "strip resist and coat again (rework)");
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.diffuse(redo, 'n').reason(), "no_window", "diffuse without windows");
+        // 拡散炉 [9-16]：窓の開いた加工中のウェハーは窓からだけ（プレーナ）。窓がなければ入れても動かず、p-n 接合の板にもならない
+        ItemStack opened = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.etchOxide(com.taku3.semiconductorlab.litho.ChipOps.develop(exposed).out()).out()).out();
+        h.assertTrue(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.planar(opened, new ItemStack(Chemistry.PHOSPHORUS)), "windows open + phosphorus -> planar diffusion");
+        h.assertFalse(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.planar(redo, new ItemStack(Chemistry.PHOSPHORUS)), "no windows -> no planar diffusion");
+        h.assertFalse(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(opened.copyWithCount(8), new ItemStack(Metallurgy.BORON_TRIOXIDE)), "a process wafer never becomes a plain junction wafer");
         // 研磨してやり直し（2回まで）
         ItemStack r1 = com.taku3.semiconductorlab.litho.ChipOps.reclaim(done).out(), r2 = com.taku3.semiconductorlab.litho.ChipOps.reclaim(r1).out();
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.reclaim(r2).reason(), "too_many_reclaims", "reclaim twice at most");
