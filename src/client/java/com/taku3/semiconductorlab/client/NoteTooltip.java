@@ -24,6 +24,8 @@ public class NoteTooltip {
             var chip = stack.get(com.taku3.semiconductorlab.ModDataComponents.CHIP_STATE);
             if (chip != null && chip.contamination() > 0)
                 lines.add(Component.translatable("tooltip.semiconductor-lab.contamination", chip.contamination()).withStyle(ChatFormatting.GOLD));
+            if (chip != null && chip.overlayNm() > 0)
+                lines.add(Component.translatable("tooltip.semiconductor-lab.overlay", String.format("%.1f", chip.overlayNm() / 1000.0)).withStyle(ChatFormatting.GOLD));
             // ブロックのアイテムは block.<id>.… に書いてあるので、item. → block. の順で探す
             Language lang = Language.getInstance();
             String base = lang.has("item." + id) || !lang.has("block." + id) ? "item." + id : "block." + id;

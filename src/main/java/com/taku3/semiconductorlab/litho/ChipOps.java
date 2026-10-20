@@ -67,12 +67,19 @@ public final class ChipOps {
      * [9-20]／[9-39] マスクを通して光を当てる。ポジ型レジスト：光の当たった所があとで溶ける。
      * 窓の層は描いた所に光、金属の層は描いていない所に光（描いた所の金属が残る）。
      */
-    public static Result expose(ItemStack w, MaskData mask, ExposureTool tool) {
+    public static Result expose(ItemStack w, MaskData mask, ExposureTool tool) { return expose(w, mask, tool, 0); }
+
+    /**
+     * 露光（ずれつき、[8-17] C のマスクアライナー）：overlayNm＝この層の重ね合わせのずれ（nm）。1層目（まだ何も焼いていない板）は合わせる相手がないので記録しない。
+     * ずれは失敗にしない（ChipState.overlayNm に最大を残す。ツールチップ、v0.5 の歩留まり）
+     */
+    public static Result expose(ItemStack w, MaskData mask, ExposureTool tool, int overlayNm) {
         ChipState s = state(w);
         if (s == null || s.resist() != ChipState.Resist.COATED) return Result.fail("no_resist");
         if (mask.size() > tool.grid) return Result.fail("too_fine");
         if (s.sized() && s.size() != mask.size()) return Result.fail("size_mismatch");
         if (!s.sized()) s = s.withSize(mask.size());
+        else if (overlayNm > 0) s = s.overlay(overlayNm);   // 2層目から
         BitGrid lit = mask.kind().window ? mask.cells() : mask.cells().invert();
         return Result.ok(write(w, s.withResist(ChipState.Resist.EXPOSED, lit)));
     }

@@ -151,5 +151,6 @@
   "tooltip.semiconductor-lab.oxygen.cz": "Oxygen about %s ppma (CZ: from the quartz crucible)",
   "litho.semiconductor-lab.discovery.monolithic_ic": "Integrated circuit",
   "litho.semiconductor-lab.discovery.monolithic_ic.note": "A transistor and a separate resistor on one silicon chip, joined by aluminium wiring laid on the oxide. Noyce (Fairchild) wrote this idea down in 1959. Kilby's IC of 1958 was germanium, with its parts joined by thin gold wires in the air: the first IC, but not flat and hard to make in numbers.",
-  "vessel.semiconductor-lab.polyethylene_bottle": "polyethylene bottle"
+  "vessel.semiconductor-lab.polyethylene_bottle": "polyethylene bottle",
+  "tooltip.semiconductor-lab.overlay": "Overlay error: %s µm"
 }

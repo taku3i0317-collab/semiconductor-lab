@@ -1010,6 +1010,17 @@ public class SemiconductorTests extends LabTestBase {
      */
     @GameTest
     public void lithoCore(GameTestHelper h) {
+        {   // 重ね合わせのずれ（[8-17]、C と決めた形）：1層目は記録しない、2層目から最大が残る、失敗にはしない
+            var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+            ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+            var e1 = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G, 3000).out();
+            h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(e1).overlayNm(), 0, "first layer has nothing to align to");
+            var e2 = com.taku3.semiconductorlab.litho.ChipOps.strip(e1).out();
+            e2 = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(e2).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G, 2000).out();
+            e2 = com.taku3.semiconductorlab.litho.ChipOps.strip(e2).out();
+            e2 = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(e2).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G, 500).out();
+            h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(e2).overlayNm(), 2000, "overlay keeps the worst layer");
+        }
         // 方眼の大きさ：N = 8 × (10 µm ÷ CD)^(1/3) を 4 の倍数に
         for (var t : com.taku3.semiconductorlab.litho.ExposureTool.values())
             h.assertValueEqual(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(t.cdNm), t.grid, "grid size of " + t);
