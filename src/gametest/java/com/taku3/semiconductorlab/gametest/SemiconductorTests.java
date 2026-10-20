@@ -1444,6 +1444,38 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-32] ダイシング 段階1（O-013）：仕上がったウェハー → ダイヤモンドのけがき針で8個（まれに7個）のチップ。chip_state を引き継ぎ、検査台で同じ発見。
+     * 仕上がっていない（レジストが残る・Al がない）ウェハーは割れない
+     */
+    @GameTest(maxTicks = 200)
+    public void dicing(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER, 2); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.assertTrue(com.taku3.semiconductorlab.item.DiamondScribeItem.finished(done), "finished wafer can be scribed");
+        h.assertFalse(com.taku3.semiconductorlab.item.DiamondScribeItem.finished(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out()), "a wafer with resist and no wiring is not finished");
+        int total = 0;
+        var rnd = net.minecraft.util.RandomSource.create(42);
+        for (int i = 0; i < 50; i++) {
+            ItemStack chips = com.taku3.semiconductorlab.item.DiamondScribeItem.scribe(done, rnd);
+            h.assertTrue(chips.is(Semiconductor.CHIP) && chips.getCount() >= 7 && chips.getCount() <= 8, "8 chips, sometimes 7: " + chips);
+            h.assertValueEqual(chips.get(ModDataComponents.CHIP_STATE), done.get(ModDataComponents.CHIP_STATE), "chips keep the chip state");
+            total += chips.getCount();
+        }
+        h.assertTrue(total > 50 * 7 && total < 50 * 8, "a few chips break (about 10% of wafers lose one): " + total);
+        // 検査台にチップを置く → 同じ発見
+        h.setBlock(p(1, 1, 1), Semiconductor.PROBE_STATION.block);
+        var probe = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
+        ItemStack chip = com.taku3.semiconductorlab.item.DiamondScribeItem.scribe(done, rnd);
+        h.assertTrue(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.LAYOUT.slots().get(0).accepts().test(chip), "the probe station takes a chip");
+        probe.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, chip);
+        probe.onButton(h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
+        h.assertValueEqual(probe.found(), (1 << com.taku3.semiconductorlab.litho.Discoveries.all().size()) - 1, "a chip gives the same discoveries as its wafer");
+        h.assertTrue(recipeUses(h, "diamond_scribe", net.minecraft.world.item.Items.DIAMOND), "the scribe has a real diamond point");
+        LOG.info("[LAB] dicing [9-32] stage 1: wafer -> {} chips over 50 wafers (8 each, ~10% lose one), chip state kept, probe finds all", total);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

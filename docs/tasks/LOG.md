@@ -431,3 +431,8 @@
 - Vessel に POLYETHYLENE_BOTTLE、空のポリエチレンの瓶（content/Chemistry、ポリエチレン×3 → 3）、相性表のフッ酸＝鉛の瓶・ポリエチレンの瓶。REFERENCES L5・CHEMISTRY PE1・へえ①〜④（1950年代は ⚠️）、GameTest vessels に1行
 - **残り（判断が要る、後で）**：中身入りのアイテムは容器を1つに決める決まり（DESIGN「容器のしくみ」）なので、今のフッ酸は鉛の瓶入りのまま。PE の瓶に入ったフッ酸を作る案：A「PE 入りのフッ酸」を別のアイテムにし、フッ酸を使う機械（C・E）はタグで受ける／B 1つのアイテムのまま、容器をデータ成分で持つ（作業台で戻る瓶も成分で決める）。どちらにするか、D と相談するか INBOX で決めてほしい
 
+## O-013 [9-32] チップとダイシング（2026-10-20、司令塔の決定で A）
+- 段階1（1960年ごろのけがいて割る）：diamond_scribe（ダイヤモンド＋鉄＋棒、耐久64）、chip。仕上がった加工中のウェハー（Al まで・レジストなし）を割る → チップ8個（10% で1個欠ける）。chip_state を写し、検査台はチップも受けて同じ5つの発見。GameTest dicing
+- TECH_TREE [9-32] に段階と理由（段階2 のダイシングソーは [8-08] ✅ になったが、後に）。CHEMISTRY S-D1、REFERENCES L7、test_queue、ROADMAP（v0.3 の 7 ✅）、LITHO_DESIGN §10、HANDOFF。test.ps1 200/200
+- ほかの担当からの相談に答えて入れた物（同じ日）：ChipState.overlayNm と expose のずれつき（C、fa977e6a）、レジストの型 tone・現像液の種類（E、7ef6700e）、[3-25] カーバイド（D、617cec06）、C の玉軸受の入口は C が ConsumerBlockEntity に入れてよいと返事（A の条件つき）
+

@@ -50,7 +50,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     public static final MachineLayout LAYOUT;
     static {
         var b = MachineLayout.builder(DATA_COUNT).height(H)
-                .in(SLOT_WAFER, WAFER_X, WAFER_Y, s -> s.is(Semiconductor.PROCESS_WAFER))
+                .in(SLOT_WAFER, WAFER_X, WAFER_Y, s -> s.is(Semiconductor.PROCESS_WAFER) || s.is(Semiconductor.CHIP))   // 割ったチップも調べられる（[9-32]）
                 .area("chip", CHIP_X, CHIP_Y, CHIP_W, CHIP_W)
                 .area("legend", CHIP_X, CHIP_Y + CHIP_W + 4, CHIP_W, 20)
                 .area("probe_button", RIGHT_X, PROBE_Y, 78, 14)

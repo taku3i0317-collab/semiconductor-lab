@@ -257,10 +257,10 @@ zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690
 refractory_brick_blank  # Heat [3-12] 1822
 refractory_brick  # Heat [3-12] 1822
+calcium_carbide  # Heat [3-25] 1892
 arc_furnace  # Heat [3-15] 1892
 synthetic_graphite  # Heat [3-10] 1896
 acheson_furnace  # Heat [3-10] 1896
-calcium_carbide  # Heat [3-25] None
 magnet  # Power [1-47] -600
 electric_motor  # Power [4-08] 1821
 dynamo  # Power [4-04] 1831
@@ -416,6 +416,8 @@ etch_tank  # Semiconductor [9-06] 1957
 resist_stripper  # Semiconductor [9-21] 1957
 developer_bench  # Semiconductor [9-21] 1957
 probe_station  # Semiconductor [9-22] 1958
+diamond_scribe  # Semiconductor [9-32] 1960
+chip  # Semiconductor [9-32] 1960
 rubylith  # Semiconductor [7-11] 1960
 spin_coater  # Semiconductor [9-19] 1960
 wafer_polisher  # Semiconductor [9-13] 1963

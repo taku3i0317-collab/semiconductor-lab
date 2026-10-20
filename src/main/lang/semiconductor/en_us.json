@@ -363,5 +363,18 @@
   "gui.semiconductor-lab.developer_bench.running": "Developing",
   "gui.semiconductor-lab.developer_bench.recipe": "Exposed resist dissolves → bake",
   "gui.semiconductor-lab.mask_aligner.overlay": "Align %s um",
-  "gui.semiconductor-lab.developer_bench.wrong_developer": "Wrong developer for this resist"
+  "gui.semiconductor-lab.developer_bench.wrong_developer": "Wrong developer for this resist",
+  "item.semiconductor-lab.diamond_scribe": "Diamond Scribe",
+  "item.semiconductor-lab.diamond_scribe.note1": "Hold a finished wafer in the other hand and use: scratch a grid and snap it into chips.",
+  "item.semiconductor-lab.diamond_scribe.note2": "A diamond point scratches a shallow line along the crystal; bending the wafer breaks it cleanly along the line, like cutting glass. One wafer gives 8 chips; sometimes one chips off.",
+  "item.semiconductor-lab.diamond_scribe.note3": "Around 1960 the first ICs were separated this way: scribe with diamond, then roll or press the wafer to break it. Later a thin saw blade coated with diamond (the dicing saw) cut straight through.",
+  "item.semiconductor-lab.diamond_scribe.note4": "Silicon breaks most easily along its {111} planes, so the scribe lines follow the crystal directions marked by the wafer's flat. ⚠️ The year and the chip count per wafer are game simplifications (a 1-inch wafer held tens to about a hundred dies).",
+  "item.semiconductor-lab.diamond_scribe.hold": "Hold a process wafer in the other hand",
+  "item.semiconductor-lab.diamond_scribe.not_finished": "Finish the wafer first (aluminium wiring done, resist stripped)",
+  "item.semiconductor-lab.diamond_scribe.done": "Snapped into %s chips (%s broken)",
+  "item.semiconductor-lab.chip": "Chip (Die)",
+  "item.semiconductor-lab.chip.note1": "One small piece cut from the wafer. Put it on the probe station to test it.",
+  "item.semiconductor-lab.chip.note2": "Every chip from one wafer has the same circuit, because the same masks were printed over the whole wafer.",
+  "item.semiconductor-lab.chip.note3": "The first ICs were a few millimetres across. Next the chip is bonded with thin gold wires and sealed in a package (later nodes).",
+  "item.semiconductor-lab.chip.note4": "In industry 'die' is the word for one chip (plural dice). The share of good dice per wafer is the yield, which decides the cost of every chip."
 }

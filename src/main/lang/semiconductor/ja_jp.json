@@ -363,5 +363,18 @@
   "gui.semiconductor-lab.developer_bench.running": "現像している",
   "gui.semiconductor-lab.developer_bench.recipe": "光の当たった所が溶ける → 焼いて固める",
   "gui.semiconductor-lab.mask_aligner.overlay": "ずれ %s µm",
-  "gui.semiconductor-lab.developer_bench.wrong_developer": "現像液が型と合わない"
+  "gui.semiconductor-lab.developer_bench.wrong_developer": "現像液が型と合わない",
+  "item.semiconductor-lab.diamond_scribe": "ダイヤモンドのけがき針",
+  "item.semiconductor-lab.diamond_scribe.note1": "もう片方の手に仕上がったウェハーを持って使う。格子の傷を付けて、チップに割る。",
+  "item.semiconductor-lab.diamond_scribe.note2": "ダイヤモンドの先で結晶にそって浅い傷を付け、曲げると傷の線できれいに割れる（ガラス切りと同じ）。1枚から8個、ときどき1個欠ける。",
+  "item.semiconductor-lab.diamond_scribe.note3": "1960年ごろ、最初の IC はこうして分けた：ダイヤモンドでけがいて、ウェハーを転がしたり押したりして割る。のちに、ダイヤモンドを付けた薄い円盤の刃（ダイシングソー）でまっすぐ切るようになった。",
+  "item.semiconductor-lab.diamond_scribe.note4": "シリコンは {111} の面でいちばん割れやすいので、けがく線はウェハーの平らな切りかき（オリフラ）が示す結晶の向きにそろえる。⚠️ 年と1枚あたりのチップの数はゲームの近似（1インチのウェハーで数十〜百個ほど）。",
+  "item.semiconductor-lab.diamond_scribe.hold": "もう片方の手に加工中のウェハーを持って",
+  "item.semiconductor-lab.diamond_scribe.not_finished": "先にウェハーを仕上げる（Al の配線まで、レジストははがす）",
+  "item.semiconductor-lab.diamond_scribe.done": "チップ %s 個に割った（欠けたのは %s 個）",
+  "item.semiconductor-lab.chip": "チップ（ダイ）",
+  "item.semiconductor-lab.chip.note1": "ウェハーから割った小さな1かけら。検査台で調べられる。",
+  "item.semiconductor-lab.chip.note2": "1枚のウェハーのチップは、どれも同じ回路。同じマスクをウェハー全体に焼いたから。",
+  "item.semiconductor-lab.chip.note3": "最初の IC は数ミリ角。このあと金の細い線でつなぎ（ワイヤーボンディング）、パッケージに封じる（後のノード）。",
+  "item.semiconductor-lab.chip.note4": "工場ではチップ1個を「ダイ」と呼ぶ。1枚のウェハーのうち良いダイの割合が歩留まりで、チップの値段を決める。"
 }
