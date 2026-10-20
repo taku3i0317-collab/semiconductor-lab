@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 100（ja・en）、文字の置き場所 376、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 100（ja・en）、文字の置き場所 378、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -304,19 +304,28 @@ probe_station_en_us amps gui.semiconductor-lab.probe_station.amps w=92 lines=1/1
 probe_station_en_us found0 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
 probe_station_en_us found0 litho.semiconductor-lab.discovery.junction_diode w=94 lines=1/1 scale=0.79999995
 probe_station_en_us found0 litho.semiconductor-lab.discovery.planar_transistor w=89 lines=1/1 scale=0.84999996
+probe_station_en_us found0 litho.semiconductor-lab.discovery.monolithic_ic w=90 lines=1/1 scale=0.84999996
 probe_station_en_us found0 litho.semiconductor-lab.discovery.rtl_not w=94 lines=1/1 scale=0.79999995
 probe_station_en_us found1 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
 probe_station_en_us found1 litho.semiconductor-lab.discovery.junction_diode w=94 lines=1/1 scale=0.79999995
 probe_station_en_us found1 litho.semiconductor-lab.discovery.planar_transistor w=89 lines=1/1 scale=0.84999996
+probe_station_en_us found1 litho.semiconductor-lab.discovery.monolithic_ic w=90 lines=1/1 scale=0.84999996
 probe_station_en_us found1 litho.semiconductor-lab.discovery.rtl_not w=94 lines=1/1 scale=0.79999995
 probe_station_en_us found2 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
 probe_station_en_us found2 litho.semiconductor-lab.discovery.junction_diode w=94 lines=1/1 scale=0.79999995
 probe_station_en_us found2 litho.semiconductor-lab.discovery.planar_transistor w=89 lines=1/1 scale=0.84999996
+probe_station_en_us found2 litho.semiconductor-lab.discovery.monolithic_ic w=90 lines=1/1 scale=0.84999996
 probe_station_en_us found2 litho.semiconductor-lab.discovery.rtl_not w=94 lines=1/1 scale=0.79999995
 probe_station_en_us found3 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
 probe_station_en_us found3 litho.semiconductor-lab.discovery.junction_diode w=94 lines=1/1 scale=0.79999995
 probe_station_en_us found3 litho.semiconductor-lab.discovery.planar_transistor w=89 lines=1/1 scale=0.84999996
+probe_station_en_us found3 litho.semiconductor-lab.discovery.monolithic_ic w=90 lines=1/1 scale=0.84999996
 probe_station_en_us found3 litho.semiconductor-lab.discovery.rtl_not w=94 lines=1/1 scale=0.79999995
+probe_station_en_us found4 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
+probe_station_en_us found4 litho.semiconductor-lab.discovery.junction_diode w=94 lines=1/1 scale=0.79999995
+probe_station_en_us found4 litho.semiconductor-lab.discovery.planar_transistor w=89 lines=1/1 scale=0.84999996
+probe_station_en_us found4 litho.semiconductor-lab.discovery.monolithic_ic w=90 lines=1/1 scale=0.84999996
+probe_station_en_us found4 litho.semiconductor-lab.discovery.rtl_not w=94 lines=1/1 scale=0.79999995
 probe_station_en_us dirt gui.semiconductor-lab.probe_station.dirt w=40 lines=1/1
 probe_station_en_us hint gui.semiconductor-lab.probe_station.need_wafer w=128 lines=1/1 scale=0.6
 probe_station_en_us hint gui.semiconductor-lab.probe_station.set_pads w=98 lines=1/1 scale=0.74999994
@@ -713,19 +722,28 @@ probe_station_ja_jp amps gui.semiconductor-lab.probe_station.amps w=70 lines=1/1
 probe_station_ja_jp found0 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1
 probe_station_ja_jp found0 litho.semiconductor-lab.discovery.junction_diode w=79 lines=1/1 scale=0.95
 probe_station_ja_jp found0 litho.semiconductor-lab.discovery.planar_transistor w=90 lines=1/1 scale=0.84999996
+probe_station_ja_jp found0 litho.semiconductor-lab.discovery.monolithic_ic w=64 lines=1/1
 probe_station_ja_jp found0 litho.semiconductor-lab.discovery.rtl_not w=112 lines=1/1 scale=0.6499999
 probe_station_ja_jp found1 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1
 probe_station_ja_jp found1 litho.semiconductor-lab.discovery.junction_diode w=79 lines=1/1 scale=0.95
 probe_station_ja_jp found1 litho.semiconductor-lab.discovery.planar_transistor w=90 lines=1/1 scale=0.84999996
+probe_station_ja_jp found1 litho.semiconductor-lab.discovery.monolithic_ic w=64 lines=1/1
 probe_station_ja_jp found1 litho.semiconductor-lab.discovery.rtl_not w=112 lines=1/1 scale=0.6499999
 probe_station_ja_jp found2 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1
 probe_station_ja_jp found2 litho.semiconductor-lab.discovery.junction_diode w=79 lines=1/1 scale=0.95
 probe_station_ja_jp found2 litho.semiconductor-lab.discovery.planar_transistor w=90 lines=1/1 scale=0.84999996
+probe_station_ja_jp found2 litho.semiconductor-lab.discovery.monolithic_ic w=64 lines=1/1
 probe_station_ja_jp found2 litho.semiconductor-lab.discovery.rtl_not w=112 lines=1/1 scale=0.6499999
 probe_station_ja_jp found3 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1
 probe_station_ja_jp found3 litho.semiconductor-lab.discovery.junction_diode w=79 lines=1/1 scale=0.95
 probe_station_ja_jp found3 litho.semiconductor-lab.discovery.planar_transistor w=90 lines=1/1 scale=0.84999996
+probe_station_ja_jp found3 litho.semiconductor-lab.discovery.monolithic_ic w=64 lines=1/1
 probe_station_ja_jp found3 litho.semiconductor-lab.discovery.rtl_not w=112 lines=1/1 scale=0.6499999
+probe_station_ja_jp found4 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1
+probe_station_ja_jp found4 litho.semiconductor-lab.discovery.junction_diode w=79 lines=1/1 scale=0.95
+probe_station_ja_jp found4 litho.semiconductor-lab.discovery.planar_transistor w=90 lines=1/1 scale=0.84999996
+probe_station_ja_jp found4 litho.semiconductor-lab.discovery.monolithic_ic w=64 lines=1/1
+probe_station_ja_jp found4 litho.semiconductor-lab.discovery.rtl_not w=112 lines=1/1 scale=0.6499999
 probe_station_ja_jp dirt gui.semiconductor-lab.probe_station.dirt w=40 lines=1/1
 probe_station_ja_jp hint gui.semiconductor-lab.probe_station.need_wafer w=99 lines=1/1 scale=0.74999994
 probe_station_ja_jp hint gui.semiconductor-lab.probe_station.set_pads w=117 lines=1/1 scale=0.6499999

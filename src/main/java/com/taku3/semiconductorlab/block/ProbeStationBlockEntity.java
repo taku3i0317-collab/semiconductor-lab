@@ -56,7 +56,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                 .area("probe_button", RIGHT_X, PROBE_Y, 78, 14)
                 .text("pad", RIGHT_X, 18, 78, 1, "gui.semiconductor-lab.probe_station.pad").samples("12", "5 V").fit()
                 .text("amps", RIGHT_X, 28, 78, 1, "gui.semiconductor-lab.probe_station.amps").samples("-123.4 mA").fit();
-        for (int i = 0; i < 4; i++) b.lazyText("found" + i, RIGHT_X, 42 + 10 * i, 78, 1, () -> Discoveries.all().stream().map(Discoveries.Discovery::langKey).toList()).fit();
+        for (int i = 0; i < Discoveries.all().size(); i++) b.lazyText("found" + i, RIGHT_X, 38 + 9 * i, 78, 1, () -> Discoveries.all().stream().map(Discoveries.Discovery::langKey).toList()).fit();
         LAYOUT = b.text("dirt", WAFER_X + 22, WAFER_Y + 4, 54, 1, "gui.semiconductor-lab.probe_station.dirt").samples("200").fit()
                 .text("hint", RIGHT_X, 122, 78, 1, MachineLayout.keys("gui.semiconductor-lab.probe_station.", "need_wafer", "set_pads", "nothing")).fit()
                 .build();

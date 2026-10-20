@@ -392,3 +392,9 @@
 - TECH_TREE：[9-08]・[9-11] に「前提の年」の注、[9-09]（E のノード）は前提の行だけ。REFERENCES §4 に年の注。DECISIONS に1行
 - ネットワーク担当へ：Y-1 は A の判断で「前提は変えない・注を書いた」。年の逆転の自動チェックで残る場合は「説明ずみ」として扱ってほしい（network_proposals.md は B のファイルなので A は触っていない）
 
+## O-010 v0.3 の本線を実機で通す・[9-18] [9-22]（2026-10-20）
+- v03_chain：レジスト塗布機・現像槽・はがし槽（E）、マスクアライナー（C）を入れて、ChipOps の代わりなしの全部実機。E・C のファイルは触っていない（テストの数「4つの発見」を Discoveries.all().size() に変えただけ）
+- 発見 monolithic_ic（[9-22]、1959、Discoveries.integrated）：トランジスタと、別の領域の抵抗が同じ Al の線でつながっている。ゲームで作れるのはノイスの形（Si・プレーナ・蒸着 Al・接合分離）。キルビーの形（1958、Ge・メサ・金線）は省略⚠️、説明と REFERENCES L4 に違い。進捗 discovery/monolithic_ic（チャレンジ）。検査台の発見の欄を5行に（38＋9×i）
+- [9-18] は「やり方」として ✅（本線の工程そのもの、発見 planar_transistor）
+- TECH_TREE [9-18][9-22] ✅、REFERENCES L4、LITHO_DESIGN §6.3・§10（残りなし）、test_queue 9_semiconductor、HANDOFF。test.ps1 186/186
+

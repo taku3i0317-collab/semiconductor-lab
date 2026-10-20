@@ -339,7 +339,7 @@ public class SemiconductorTests extends LabTestBase {
         h.assertTrue(closed.get(ModDataComponents.OXIDE_NM) > 600, "and the oxide grows");
         // 全部の工程（エッチングはこの槽と同じ ChipOps）で NOT の例が4つの発見になる
         ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(wafer, design, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
-        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(done.get(ModDataComponents.CHIP_STATE)))).size(), 4, "NOT example through all steps");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(done.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "NOT example through all steps");
         LOG.info("[LAB] litho hookup [9-06]/[9-15]: etching tank opens windows on 4 developed wafers (= ChipOps.etchOxide), oxidation furnace closes them (reoxidize) and grows the oxide");
         h.succeed();
     }
@@ -408,7 +408,7 @@ public class SemiconductorTests extends LabTestBase {
         lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(ta).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
         ItemStack chip = com.taku3.semiconductorlab.litho.ChipOps.strip(wired).out();
         var found = com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(chip.get(ModDataComponents.CHIP_STATE))));
-        h.assertValueEqual(found.size(), 4, "wired chip = NOT example (4 discoveries)");
+        h.assertValueEqual(found.size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "wired chip = NOT example (all discoveries)");
         LOG.info("[LAB] Al wiring [9-25]: bone ash + H2SO4 -> H3PO4; evaporator puts Al on 8 wafers (0.004 Pa, not 50 Pa); H3PO4 in the etching tank leaves the wiring; NOT example -> {} discoveries", found.size());
         h.succeed();
     }
@@ -499,7 +499,7 @@ public class SemiconductorTests extends LabTestBase {
             w = cleaned;
         }
         h.assertTrue(maxDirt > 0, "dirt builds up between cleanings");
-        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), 4, "cleaned NOT example still gives 4 discoveries");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "cleaned NOT example still gives all discoveries");
         // 薬品なしでは動かない
         c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT, ItemStack.EMPTY);
         ItemStack dirty = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out()).out();
@@ -660,7 +660,7 @@ public class SemiconductorTests extends LabTestBase {
             if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
             else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
         }
-        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), 4, "NOT example with the spin coater -> 4 discoveries");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "NOT example with the spin coater -> all discoveries");
         // 塗ったウェハーにもう一度は塗れない
         ItemStack again = coat.apply(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out());
         h.assertTrue(again.isEmpty(), "already coated -> cannot coat again");
@@ -702,7 +702,7 @@ public class SemiconductorTests extends LabTestBase {
             if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
             else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
         }
-        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), 4, "NOT example with the stripper -> 4 discoveries");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "NOT example with the stripper -> all discoveries");
         h.assertTrue(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.product(w).isEmpty(), "no resist -> nothing to strip");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
         LOG.info("[LAB] resist stripper: H2SO4 + H2O2 strips 8 wafers per run (rework too); NOT example -> 4 discoveries");
@@ -748,7 +748,7 @@ public class SemiconductorTests extends LabTestBase {
             if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
             else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
         }
-        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), 4, "coater -> develop -> strip machines: NOT example -> 4 discoveries");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "coater -> develop -> strip machines: NOT example -> all discoveries");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(p(2, 1, 2))).inflate(4)).forEach(net.minecraft.world.entity.Entity::discard);
         LOG.info("[LAB] developer [9-21]: dilute NaOH develops exposed wafers (8 per run); coater + developer + stripper machines -> NOT example 4 discoveries");
         h.succeed();
@@ -1017,7 +1017,7 @@ public class SemiconductorTests extends LabTestBase {
         // 予想（設計図から）
         var predicted = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(design, "p"));
         var ids = com.taku3.semiconductorlab.litho.Discoveries.match(predicted).stream().map(com.taku3.semiconductorlab.litho.Discoveries.Discovery::id).toList();
-        h.assertTrue(ids.equals(java.util.List.of("diffused_resistor", "junction_diode", "planar_transistor", "rtl_not")), "8x8 example finds all four: " + ids);
+        h.assertTrue(ids.equals(java.util.List.of("diffused_resistor", "junction_diode", "planar_transistor", "monolithic_ic", "rtl_not")), "8x8 example finds all five: " + ids);
         int[] pins = com.taku3.semiconductorlab.litho.Circuit.notPins(predicted);
         double hi = com.taku3.semiconductorlab.litho.Circuit.notOutput(predicted, pins, false), lo = com.taku3.semiconductorlab.litho.Circuit.notOutput(predicted, pins, true);
         // 出力の低い方は約 1 V：島（コレクタ）の抵抗が大きい（埋め込み層のない最初のころの IC と同じ）
@@ -1028,7 +1028,7 @@ public class SemiconductorTests extends LabTestBase {
         ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(wafer, design, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
         h.assertTrue(done.is(Semiconductor.PROCESS_WAFER) && done.getCount() == 8, "8 process wafers come out");
         var made = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(done.get(ModDataComponents.CHIP_STATE)));
-        h.assertTrue(com.taku3.semiconductorlab.litho.Discoveries.match(made).size() == 4, "processed chip = predicted chip");
+        h.assertTrue(com.taku3.semiconductorlab.litho.Discoveries.match(made).size() == com.taku3.semiconductorlab.litho.Discoveries.all().size(), "processed chip = predicted chip");
         h.assertValueEqual(wafer.getCount(), 8, "the input stack is not changed");
         // まちがった順・合わない物は断られる（ウェハーはそのまま）
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(wafer, design.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).reason(), "no_resist", "expose before coating");
@@ -1148,7 +1148,7 @@ public class SemiconductorTests extends LabTestBase {
         var filthyNl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(filthy));
         h.assertFalse(com.taku3.semiconductorlab.litho.Circuit.worksAsNot(filthyNl), "very dirty chip does not work as a NOT");
         h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE), "probe");
-        h.assertValueEqual(be.found(), 0b1111, "four discoveries on this chip");
+        h.assertValueEqual(be.found(), (1 << com.taku3.semiconductorlab.litho.Discoveries.all().size()) - 1, "all discoveries on this chip");
         for (var d : com.taku3.semiconductorlab.litho.Discoveries.all())
             h.assertTrue(h.getLevel().getServer().getAdvancements().get(com.taku3.semiconductorlab.SemiconductorLab.id("discovery/" + d.id())) != null, "advancement discovery/" + d.id());
         be.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, ItemStack.EMPTY);
@@ -1253,7 +1253,11 @@ public class SemiconductorTests extends LabTestBase {
         int step = 0;
         for (int i = 0; i < design.layers().size(); i++) {
             var k = design.layers().get(i).kind();
-            w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(w), "coat " + i + " (stand-in for [9-19])");
+            // レジスト塗布機 [9-19]（実機、E）
+            w = runConsumer(h, p(7, 1, 4), Semiconductor.SPIN_COATER.block, new int[] {com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_RESIST},
+                    new ItemStack[] {w, new ItemStack(Chemistry.POSITIVE_RESIST)}, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WATTS);
+            h.assertTrue(w.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.COATED,
+                    "spin coater coats layer " + i + ", got " + w);
             // マスクアライナー [9-20]（実機、密着）：設計図の層のマスクをフォトマスクにして重ねる
             ItemStack photomask = new ItemStack(com.taku3.semiconductorlab.content.Optics.PHOTOMASK);
             photomask.set(ModDataComponents.MASK, design.mask(i));
@@ -1261,15 +1265,21 @@ public class SemiconductorTests extends LabTestBase {
                     new ItemStack[] {w, photomask}, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.WATTS);
             h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.EXPOSED,
                     "mask aligner (contact) exposes layer " + i);
-            w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.develop(w), "develop " + i + " (stand-in for [9-21])");
+            // 現像槽 [9-21]（実機、E）
+            w = runConsumer(h, p(7, 1, 6), Semiconductor.DEVELOPER_BENCH.block, new int[] {com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_DEV},
+                    new ItemStack[] {w, new ItemStack(Chemistry.DEVELOPER)}, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WATTS);
+            h.assertTrue(w.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.DEVELOPED,
+                    "developer bench develops layer " + i + ", got " + w);
             if (k == com.taku3.semiconductorlab.litho.LayerKind.METAL) {
                 w = runEtch(h, p(3, 1, 1), w, Chemistry.PHOSPHORIC_ACID);   // Al のエッチング（実機）
                 h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w).has(k), "etch tank + phosphoric acid -> metal layer");
-                w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.strip(w), "strip " + i);
+                w = runConsumer(h, p(1, 1, 6), Semiconductor.RESIST_STRIPPER.block, new int[] {com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_ACID, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_PEROXIDE},
+                        new ItemStack[] {w, new ItemStack(Chemistry.SULFURIC_ACID), new ItemStack(Chemistry.HYDROGEN_PEROXIDE)}, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS);   // レジストはがし槽（実機、E）
             } else {
                 w = runEtch(h, p(3, 1, 1), w, Chemistry.HYDROFLUORIC_ACID);   // 酸化膜の窓（実機）
                 h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).hasWindows(), "etch tank + HF -> windows, layer " + i);
-                w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.strip(w), "strip " + i + " (no machine yet)");
+                w = runConsumer(h, p(1, 1, 6), Semiconductor.RESIST_STRIPPER.block, new int[] {com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_ACID, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_PEROXIDE},
+                        new ItemStack[] {w, new ItemStack(Chemistry.SULFURIC_ACID), new ItemStack(Chemistry.HYDROGEN_PEROXIDE)}, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS);   // レジストはがし槽（実機、E）
                 if (k.isDiffusion()) {   // 拡散炉（実機）
                     var src = new ItemStack(k.dopes == 'n' ? Chemistry.PHOSPHORUS : Metallurgy.BORON_TRIOXIDE);
                     w = runConsumer(h, p(5, 1, 1), Semiconductor.DIFFUSION_FURNACE.block,
@@ -1301,8 +1311,8 @@ public class SemiconductorTests extends LabTestBase {
         var probe = h.getBlockEntity(p(3, 1, 6), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
         probe.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, w);
         probe.onButton(h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
-        h.assertValueEqual(probe.found(), 0b1111, "the probe finds resistor, diode, transistor and NOT on the chip made by the machines");
-        LOG.info("[LAB] v0.3 chain: oxidation, mask aligner, etch (HF / phosphoric), diffusion x3, evaporator, cleaning bench, probe = real machines; coat / develop / strip = ChipOps stand-ins; NOT found (dirt {} -> 0)", dirt);
+        h.assertValueEqual(probe.found(), (1 << com.taku3.semiconductorlab.litho.Discoveries.all().size()) - 1, "the probe finds resistor, diode, transistor, IC and NOT on the chip made by the machines");
+        LOG.info("[LAB] v0.3 chain: oxidation, mask aligner, etch (HF / phosphoric), diffusion x3, evaporator, cleaning bench, probe = real machines; spin coater, developer bench, resist stripper = real machines too (no ChipOps stand-ins); NOT found (dirt {} -> 0)", dirt);
         h.succeed();
     }
 
