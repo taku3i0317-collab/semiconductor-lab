@@ -214,5 +214,16 @@
   "gui.semiconductor-lab.electron_microscope.need_sample": "Insert a mask or wafer",
   "gui.semiconductor-lab.electron_microscope.em_only": "Lines visible only by electrons",
   "gui.semiconductor-lab.electron_microscope.both": "Coarse enough for the optical one too",
-  "gui.semiconductor-lab.electron_microscope.neither": "Too fine even for electrons"
+  "gui.semiconductor-lab.electron_microscope.neither": "Too fine even for electrons",
+  "item.semiconductor-lab.mass_spectrometer": "Mass Spectrometer",
+  "item.semiconductor-lab.mass_spectrometer.note1": "Sorts atoms by weight. Shows that one element can have members of different weight (isotopes).",
+  "item.semiconductor-lab.mass_spectrometer.note2": "Crafting: 2 electromagnets + 4 soda-lime glass + 1 mercury diffusion pump + 2 iron + 1 copper cable → 1. Hold a sample in the other hand (B2O3, phosphorus, chlorine, argon, hydrogen, silicon, germanium, copper, lead, gold) and right-click to list its isotopes and their shares.",
+  "item.semiconductor-lab.mass_spectrometer.note3": "The sample is ionised and sent through an electromagnet, where the ions curve in circles. Lighter ions curve more, so where they land tells their mass. The inside is kept at high vacuum so they do not hit air.",
+  "item.semiconductor-lab.mass_spectrometer.note4": "In 1913 J. J. Thomson found two kinds of neon of different weight, and in 1919 Aston built a mass spectrograph and found isotopes of many elements (1922 Nobel Prize in Chemistry). An ion implanter uses the same idea to pick only ¹¹B for boron before it hits the wafer.",
+  "item.semiconductor-lab.mass_spectrometer.placeholder": "Approximation: hold it and right-click for the result (a real one needs an ion source, high voltage and a photographic plate or detector). Shares are natural abundances.",
+  "item.semiconductor-lab.mass_spectrometer.result": "Isotopes of %s: %s",
+  "item.semiconductor-lab.mass_spectrometer.line": "  %s: %s %%",
+  "item.semiconductor-lab.mass_spectrometer.single": "  Only one isotope (all atoms weigh the same)",
+  "item.semiconductor-lab.mass_spectrometer.no_sample": "Hold a sample in the other hand",
+  "item.semiconductor-lab.mass_spectrometer.unknown": "This sample cannot be analysed yet"
 }

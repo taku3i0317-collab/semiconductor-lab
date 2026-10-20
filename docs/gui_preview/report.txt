@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 142（ja・en）、文字の置き場所 540、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 144（ja・en）、文字の置き場所 546、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -313,6 +313,16 @@ hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_h2 w=82 lines=2/2
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_cl2 w=75 lines=2/2
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_bottle w=99 lines=2/2 scale=0.74999994
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.out_full w=53 lines=2/2
+fluorine_cell_en_us power gui.semiconductor-lab.fluorine_cell.power w=63 lines=1/1
+fluorine_cell_en_us f2 gui.semiconductor-lab.fluorine_cell.f2 w=34 lines=1/1
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.need_kf w=128 lines=3/3
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.need_anode w=120 lines=3/3
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.need_hf w=124 lines=3/3
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.need_cylinder w=125 lines=2/3
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.output_full w=113 lines=2/3
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.need_power w=46 lines=1/3
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.running w=72 lines=1/3
+fluorine_cell_en_us hint gui.semiconductor-lab.fluorine_cell.accident w=183 lines=3/3
 rare_gas_column_en_us kr =Kr w=12 lines=1/1
 rare_gas_column_en_us xe =Xe w=12 lines=1/1
 rare_gas_column_en_us ne =Ne w=12 lines=1/1
@@ -923,6 +933,16 @@ hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_h2 w=45 lines=1/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_cl2 w=45 lines=1/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_bottle w=63 lines=2/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.out_full w=45 lines=1/2
+fluorine_cell_ja_jp power gui.semiconductor-lab.fluorine_cell.power w=51 lines=1/1
+fluorine_cell_ja_jp f2 gui.semiconductor-lab.fluorine_cell.f2 w=47 lines=1/1
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.need_kf w=99 lines=2/3
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.need_anode w=90 lines=2/3
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.need_hf w=63 lines=1/3
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.need_cylinder w=81 lines=2/3
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.output_full w=81 lines=2/3
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.need_power w=72 lines=1/3
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.running w=35 lines=1/3
+fluorine_cell_ja_jp hint gui.semiconductor-lab.fluorine_cell.accident w=189 lines=3/3
 rare_gas_column_ja_jp kr =Kr w=12 lines=1/1
 rare_gas_column_ja_jp xe =Xe w=12 lines=1/1
 rare_gas_column_ja_jp ne =Ne w=12 lines=1/1

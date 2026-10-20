@@ -510,4 +510,22 @@ public class PrecisionTests extends LabTestBase {
         rec(a, Precision.LATHE.block, "規格ねじを切る", L(io(Metallurgy.STEEL_INGOT, 1), kept(io(Precision.LEAD_SCREW, 1))), L(io(Precision.STANDARD_SCREW, 4)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "親ねじと同じねじ山を何本でも（ホイットワースの規格 55°）");
     }
+    /** [8-33] 質量分析器（IMP4-01、C の了承で追記）：B2O3 → ¹⁰B 19.9%・¹¹B 80.1%、リンは ³¹P だけ、割合の合計はほぼ100%、電磁石と拡散ポンプでできている */
+    @GameTest
+    public void massSpectrometer(GameTestHelper h) {
+        var b = com.taku3.semiconductorlab.item.MassSpectrometerItem.of(new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.BORON_TRIOXIDE));
+        h.assertTrue(b != null && b.element().equals("B") && b.mass()[1] == 11 && b.percent()[1] > 80, "boron: 10B 19.9%, 11B 80.1%");
+        var pp = com.taku3.semiconductorlab.item.MassSpectrometerItem.of(new ItemStack(com.taku3.semiconductorlab.content.Chemistry.PHOSPHORUS));
+        h.assertTrue(pp != null && pp.mass().length == 1 && pp.mass()[0] == 31, "phosphorus has a single isotope 31P");
+        for (var it : new net.minecraft.world.item.Item[] {com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS, com.taku3.semiconductorlab.content.Metallurgy.POLYSILICON, com.taku3.semiconductorlab.content.Metallurgy.LEAD_INGOT, net.minecraft.world.item.Items.COPPER_INGOT}) {
+            var iso = com.taku3.semiconductorlab.item.MassSpectrometerItem.of(new ItemStack(it));
+            double sum = 0; for (double v : iso.percent()) sum += v;
+            h.assertTrue(Math.abs(sum - 100) < 0.6, iso.element() + " shares add to 100%: " + sum);
+        }
+        h.assertTrue(recipeUses(h, "mass_spectrometer", com.taku3.semiconductorlab.content.Control.ELECTROMAGNET) && recipeUses(h, "mass_spectrometer", com.taku3.semiconductorlab.content.Vacuum.DIFFUSION_PUMP.block.asItem()), "electromagnet + high vacuum");
+        LOG.info("[LAB] mass spectrometer [8-33]: B 10/11 = 19.9/80.1 %, P single, Cl/Si/Pb/Cu shares add to 100 %");
+        h.succeed();
+    }
+
+
 }

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GEG",
+    "GDG",
+    "ICI"
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "E": "semiconductor-lab:electromagnet",
+    "D": "semiconductor-lab:diffusion_pump",
+    "I": "minecraft:iron_ingot",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:mass_spectrometer",
+    "count": 1
+  }
+}

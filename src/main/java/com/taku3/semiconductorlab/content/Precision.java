@@ -129,6 +129,9 @@ public final class Precision {
                 () -> new net.minecraft.world.item.ItemStack(CULTURED_QUARTZ, 3), () -> new net.minecraft.world.item.ItemStack(HYDROTHERMAL_CHARGE), 280, 15, 20 * 40));
     }
 
+    // [8-33] 質量分析器（IMP4-01、O-011。C の了承で幹8 に E が追記）：電磁石でイオンを曲げて重さでふるい分ける。右クリックでもう片方の手の試料の同位体
+    public static final Item MASS_SPECTROMETER     = Reg.item("mass_spectrometer", com.taku3.semiconductorlab.item.MassSpectrometerItem::new, new Item.Properties().stacksTo(1));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

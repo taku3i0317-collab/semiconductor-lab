@@ -84,3 +84,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - 前提を調べた：[9-28] は [9-47] 加速器・[10-01] 電磁石・[8-33] 質量分析が ❓。[9-26] は [5-06] 油拡散ポンプ（幹5＝C）が ❓。A に [8-33] の担当とイオン注入の ChipOps（implant・anneal）を相談中
 - ✅ [10-01] 電磁石：幹10 のファイル content/Control.java を作った（Content.java・lang_build の ORDER・gametest の fabric.mod.json に1行、ControlTests）。鉄＋銅線8 → 電磁石。CHEMISTRY F48、REFERENCES F25
 - ✅ [9-47] 加速器の部品：コッククロフト・ウォルトン回路・加速管（部品アイテム、イオン注入装置に組みこむ）。サイクロトロンは作らない。GameTest accelerator_parts、REFERENCES F26。[8-33]・[5-06] は C に相談中（A の答え：幹8 は C か司令塔に）。イオン注入の ChipOps は A が入れた（implant・anneal）
+- C の答え：[8-33]・[5-06] とも E が作る（Precision.java・Vacuum.java に追記してよい）
+- ✅ [8-33] 質量分析器（item/MassSpectrometerItem、Precision.java の末尾に1行）：試料の同位体と天然存在比。GameTest mass_spectrometer（PrecisionTests）、CHEMISTRY F49、REFERENCES F27

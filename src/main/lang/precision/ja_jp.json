@@ -214,5 +214,16 @@
   "gui.semiconductor-lab.electron_microscope.need_sample": "マスクやウェハーを入れる",
   "gui.semiconductor-lab.electron_microscope.em_only": "電子顕微鏡でだけ線が見える",
   "gui.semiconductor-lab.electron_microscope.both": "光学顕微鏡でも見える太さ",
-  "gui.semiconductor-lab.electron_microscope.neither": "電子顕微鏡でも細かすぎる"
+  "gui.semiconductor-lab.electron_microscope.neither": "電子顕微鏡でも細かすぎる",
+  "item.semiconductor-lab.mass_spectrometer": "質量分析器",
+  "item.semiconductor-lab.mass_spectrometer.note1": "原子を重さでふるい分ける道具。同じ元素にも、重さのちがう仲間（同位体）がいることがわかる。",
+  "item.semiconductor-lab.mass_spectrometer.note2": "作業台で 電磁石2＋ソーダ石灰ガラス4＋水銀拡散ポンプ1＋鉄2＋銅ケーブル1 → 1。もう片方の手に試料（B2O3・リン・塩素・アルゴン・水素・シリコン・ゲルマニウム・銅・鉛・金）を持って右クリックすると、同位体と割合が出る。",
+  "item.semiconductor-lab.mass_spectrometer.note3": "試料をイオンにして電圧で飛ばし、電磁石の中を通すと、イオンは円を描いて曲がる。軽いほど大きく曲がるので、着く場所で重さがわかる。中は高真空にして、空気にぶつからないようにする。",
+  "item.semiconductor-lab.mass_spectrometer.note4": "1913年に J・J・トムソンがネオンに重さのちがう2種類があることを見つけ、1919年にアストンが質量分析器を作って多くの元素の同位体を見つけた（1922年ノーベル化学賞）。イオン注入装置は同じしくみで、ホウ素なら ¹¹B だけを選んでウェハーに打ちこむ。",
+  "item.semiconductor-lab.mass_spectrometer.placeholder": "近似：持って右クリックで結果が出る（本物はイオン源・高電圧・写真乾板か検出器がいる）。割合は天然の値。",
+  "item.semiconductor-lab.mass_spectrometer.result": "%s の同位体：%s 種類",
+  "item.semiconductor-lab.mass_spectrometer.line": "  %s：%s %%",
+  "item.semiconductor-lab.mass_spectrometer.single": "  同位体が1つだけの元素（重さがそろっている）",
+  "item.semiconductor-lab.mass_spectrometer.no_sample": "もう片方の手に試料を持って",
+  "item.semiconductor-lab.mass_spectrometer.unknown": "この試料はまだ調べられない"
 }
