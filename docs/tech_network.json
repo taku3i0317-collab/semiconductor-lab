@@ -8438,7 +8438,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C13. 2つの液を混ぜて熱すると固まる（エポキシ樹脂と IC の封止）［2-41］",
+     "answer": "ビスフェノールA（フェノール2＋アセトン、1891 ディアニン）とエピクロロヒドリン（グリセリンから）を反応させると、両端に三角の輪（エポキシ基）を持つ樹脂になる。硬化剤（フェノールの OH やアミン）が輪を開いてつながると網の目になり、固く、電気も水も通さない。1936年ごろカスタンとグリーンリーが別々に開発。IC の黒い外装は、エポキシ樹脂＋フェノールノボラックの硬化剤＋シリカの粉を型で固めた物。",
+     "hee": {
+      "1": "2つの液を混ぜて熱すると、固くて丈夫なプラスチックになる（2液の接着剤）。",
+      "2": "IC の黒い外装はエポキシ。1960〜70年代にセラミックから安いエポキシの成形に移った。",
+      "3": "カスタンは歯の詰め物の研究からエポキシにたどり着いた。",
+      "4": "BPA はホルモンに似た働きが心配され、食器での使い方に決まりがある。エピクロロヒドリンは発がん性1B。"
+     },
+     "certainty": "反応・硬化のしくみ ◎／ディアニン 1891・カスタンとグリーンリー 1936ごろ ○（TECH_TREE の本物欄と一致）／IC 封止材の組成（エポキシ＋フェノールノボラック＋シリカ）○",
+     "basis": "- Wikipedia「Epoxy」（歴史・硬化剤）：https://en.wikipedia.org/wiki/Epoxy"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -8448,7 +8461,7 @@
    "name": "エポキシ樹脂",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1936,
    "year_range": "1891〜1936",
@@ -8472,7 +8485,7 @@
    "buildable_now": false,
    "hee1": "2本のチューブを混ぜると固まる接着剤がエポキシ",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -21262,7 +21275,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "「平らなまま作る」というアイデアが IC の始まり",
    "kind": "tech",
    "play": "",
@@ -21461,7 +21474,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F20. 写真と同じ手順で模様を出す（現像・ポストベーク）［9-21］",
+     "answer": "露光したウェハーを薄いアルカリの水（ポジ型の現像液）に浸すと、光の当たったレジストだけが溶け、マスクの模様が浮かび上がる。すすいで熱板で温め（ポストベーク）、残ったレジストを固めてエッチングに耐えるようにする。",
+     "hee": {
+      "1": "写真の現像と同じ手順で、回路の模様を浮かび上がらせる。",
+      "2": "1955〜57年、ベル研のアンドラスとボンド、米陸軍のラスロップとナルが、コダックのレジストで写真製版を半導体に使った。",
+      "3": "ナトリウムは MOSFET の大敵なので、今の現像液は金属を含まない TMAH（2.38%）。",
+      "4": "ポジ型は光の当たった所が溶け、ネガ型（KPR・KTFR）は光の当たった所が残る（キシレンで現像）。"
+     },
+     "certainty": "現像のしくみ ◎（教科書）／1955〜57 の写真製版 ◎（コンピュータ歴史博物館）／TMAH 2.38% ◎／ポストベークの始まりの年 △",
+     "basis": "コンピュータ歴史博物館「1955: Photolithography Techniques Are Used to Make Silicon Devices」https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/ 、Wikipedia「Photolithography」https://en.wikipedia.org/wiki/Photolithography （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -21471,7 +21497,7 @@
    "name": "現像・ポストベーク",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1957,
    "year_range": "1955〜57",
@@ -21495,10 +21521,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "写真の現像と同じ手順で回路を浮かび上がらせる",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
