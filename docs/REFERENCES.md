@@ -543,6 +543,19 @@
 - Wikipedia「Cupellation」：https://en.wikipedia.org/wiki/Cupellation
 - UNESCO「Iwami Ginzan Silver Mine and its Cultural Landscape」：https://whc.unesco.org/en/list/1246/
 
+## O14. 手のふるえを機械が消した（旋盤）［8-01］（回転ポンプの前提）
+**答え**：旋盤は材料を回して刃物でけずる機械。1797〜1800年ごろモーズリーが、全部金属で、刃物台を送りねじで動かす旋盤を作り、人の手のふるえなしに同じ寸法の部品を何個でも作れるようにした。
+
+- へえ①：刃物を送りねじで動かす旋盤が、人の手のふるえを取り除いた。
+- へえ②：旋盤は自分の送りねじを、もっと正確に作り直せる。これが精密機械の進歩のくり返し。
+- へえ③：モーズリーの工房からは、ホイットワース（ねじの規格）やナスミス（蒸気ハンマー）など次の世代の機械技術者が育った。
+- へえ④：回転ポンプのローターとケースのすき間は数十μm。旋盤の精度が真空の質を決める。
+
+確かさ：モーズリーのねじ切り旋盤 1797〜1800 ◎／弟子（ホイットワース・ナスミス）◎／ローターのすき間 ○（一般的な値）
+根拠：
+- Wikipedia「Henry Maudslay」：https://en.wikipedia.org/wiki/Henry_Maudslay
+- Wikipedia「Screw-cutting lathe」：https://en.wikipedia.org/wiki/Screw-cutting_lathe
+
 ---
 
 # 冶金と熱（タスク15〜）

@@ -51,3 +51,5 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - 前提の確認：[5-05] は [5-04] 油回転ポンプ（← [8-01] 旋盤）と [2-15] ホウケイ酸（← [3-04] ふいご）が ❓。[5-14] は蒸着する金属（Ag [1-32] ❓・Al [1-29] ❓…）が要る。[7-09] は [5-14] が要る
 - 道：[1-32] 銀 → [8-01] 旋盤 → [5-04]（段階① 水銀封止＝ゲーデの回転水銀ポンプ 1905）→ [5-05]（ゲーデ 1915：ガラスと鉄、水銀、ヒーター。[2-15] は使わない）→ [5-14]（熱した W 線で銀を蒸発）→ [7-09]
 - ✅ [1-32] 銀（灰吹法）：骨灰の皿＋鉛8 → 溶鉱炉 → 銀の粒。GameTest silver_cupellation、CHEMISTRY M7〜M9、REFERENCES O13。テスト 106/106
+- ✅ [8-01] 旋盤：電気 750W、鋼 → ポンプのローター。新しく PrecisionTests.java（gametest の fabric.mod.json と CommonTests.exportMachineRecipes に1行ずつ）。GameTest lathe、CHEMISTRY P1、REFERENCES O14。テスト 107/107
+  - IMP-30 の MachineLayout.standardTexts() は見本の文 "Power 500.0 kW" が 72px に入らず gui_layout テストで落ちる → 自分の2台（旋盤・水銀灯）は同じ置き場所で見本を 0.8kW・0.4kW にして自分で書いた。standardTexts 本体は触っていない（IMP 側の判断）

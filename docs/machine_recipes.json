@@ -534,6 +534,26 @@
       "note": "GeO2 + 2H2 → Ge + 2H2O"
     },
     {
+      "machine": "semiconductor-lab:lathe",
+      "process": "ローターを削る",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:steel_ingot",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:pump_rotor",
+          "count": 1
+        }
+      ],
+      "watts": 750.0,
+      "seconds": 30.0,
+      "energy_kj": 23,
+      "note": "送りねじの刃物台で削る（モーズリー型）"
+    },
+    {
       "machine": "semiconductor-lab:lead_acid_battery",
       "process": "電気をためる",
       "inputs": [

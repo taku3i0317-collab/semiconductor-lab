@@ -14,7 +14,9 @@ import net.minecraft.world.level.block.state.BlockState;
  */
 public class MercuryLampBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 385;
-    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT).build();
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT).text("power", 100, 18, 72, 1, "gui.semiconductor-lab.machine.power").samples("0.4 kW")
+            .text("stored", 100, 30, 72, 1, "gui.semiconductor-lab.machine.stored").samples("20 kJ")
+            .text("hint", 100, 42, 72, 3, "gui.semiconductor-lab.machine.need_input", "gui.semiconductor-lab.machine.need_power", "gui.semiconductor-lab.machine.running").build();
 
     public MercuryLampBlockEntity(BlockPos pos, BlockState state) { super(Optics.MERCURY_LAMP.type, pos, state, 0, 20_000, 2_000); }
 

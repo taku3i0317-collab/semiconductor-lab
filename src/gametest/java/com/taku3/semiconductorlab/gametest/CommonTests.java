@@ -225,6 +225,7 @@ public class CommonTests extends LabTestBase {
         VacuumTests.machineRecipes(a);
         GasTests.machineRecipes(a);
         OpticsTests.machineRecipes(a);
+        PrecisionTests.machineRecipes(a);
         SemiconductorTests.machineRecipes(a);
         var sorted = new java.util.ArrayList<com.google.gson.JsonElement>();
         a.forEach(sorted::add);

@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 188（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 190（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -327,6 +327,10 @@ en_us oxyhydrogen_burner lines=9
 en_us oxyhydrogen_burner shift lines=21
 en_us lead_screw lines=3
 en_us lead_screw shift lines=8
+en_us pump_rotor lines=3
+en_us pump_rotor shift lines=11
+en_us lathe lines=7
+en_us lathe shift lines=15
 en_us refined_germanium lines=3
 en_us refined_germanium shift lines=11
 en_us n_type_germanium lines=3
@@ -703,6 +707,10 @@ ja_jp oxyhydrogen_burner lines=7
 ja_jp oxyhydrogen_burner shift lines=17
 ja_jp lead_screw lines=2
 ja_jp lead_screw shift lines=7
+ja_jp pump_rotor lines=2
+ja_jp pump_rotor shift lines=9
+ja_jp lathe lines=6
+ja_jp lathe shift lines=13
 ja_jp refined_germanium lines=3
 ja_jp refined_germanium shift lines=9
 ja_jp n_type_germanium lines=2
