@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phenol",
+    "semiconductor-lab:phenol",
+    "semiconductor-lab:formalin",
+    "semiconductor-lab:hydrochloric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:novolac_mix",
+    "count": 1
+  }
+}

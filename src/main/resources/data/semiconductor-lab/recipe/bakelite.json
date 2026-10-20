@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 300,
+  "experience": 0.3,
+  "ingredient": "semiconductor-lab:resol_mix",
+  "result": {
+    "id": "semiconductor-lab:bakelite",
+    "count": 2
+  }
+}

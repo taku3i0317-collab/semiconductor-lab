@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "ingredient": "semiconductor-lab:novolac_mix",
+  "result": {
+    "id": "semiconductor-lab:novolac",
+    "count": 2
+  }
+}

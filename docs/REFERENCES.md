@@ -1476,6 +1476,20 @@
 - Wikipedia「Coal tar」（留分）：https://en.wikipedia.org/wiki/Coal_tar
 - Wikipedia「Joseph Lister」：https://en.wikipedia.org/wiki/Joseph_Lister
 
+## C7. 触媒と配合で、溶ける樹脂と溶けない樹脂（ノボラックとベークライト）［2-28］
+**答え**：フェノールとホルムアルデヒドは CH2 の橋でつながる。酸触媒でフェノールを多めにすると、網にならない線状のノボラック（熱で溶ける）。塩基触媒でホルムアルデヒドを多めにするとレゾールになり、熱すると全体が網になって二度と溶けないベークライト（熱硬化性）。1907 ベークランド、世界初の完全な合成プラスチック。ノボラックは DNQ と混ぜてポジ型フォトレジストの主成分になった。
+
+- へえ①：フェノールとホルムアルデヒドから、初めての合成プラスチックができた。
+- へえ②：同じ材料でも、触媒（酸か塩基）と配合で、溶ける樹脂と固まる樹脂に作り分けられる。
+- へえ③：ベークランドは加圧しながら熱する「ベークライザー」で泡を防いだ（1909年特許）。ラジオや黒電話の外装に。
+- へえ④：1970年代後半からノボラック/DNQ のポジ型レジストが IC 作りの主役（g線・i線）。
+
+確かさ：反応のしくみ・ノボラックとレゾールの違い ◎／ベークランド 1907（特許 1909）○（TECH_TREE の本物欄と一致）／ノボラック/DNQ の時代 ○（[2-32] の本物欄）
+根拠：
+- Wikipedia「Phenol formaldehyde resin」（ノボラック・レゾール）：https://en.wikipedia.org/wiki/Phenol_formaldehyde_resin
+- Wikipedia「Bakelite」：https://en.wikipedia.org/wiki/Bakelite
+- Science History Institute「Leo Hendrik Baekeland」：https://www.sciencehistory.org/education/scientific-biographies/leo-hendrik-baekeland/
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

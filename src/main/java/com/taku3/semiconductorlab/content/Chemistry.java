@@ -121,6 +121,11 @@ public final class Chemistry {
     public static final Item CARBOLIC_OIL          = Reg.item("carbolic_oil", new Item.Properties().stacksTo(16));      // 中油（石炭酸油）
     public static final Item SODIUM_PHENOLATE      = Reg.item("sodium_phenolate", new Item.Properties().stacksTo(16));  // フェノールのナトリウム塩の水溶液
     public static final Item PHENOL                = Reg.item("phenol");                                                // フェノール（石炭酸）
+    // [2-28] フェノール樹脂（IMP3、O-006）：酸触媒・フェノール多め → ノボラック（熱で溶ける。[2-32] ポジ型レジストの主成分）、塩基触媒・ホルムアルデヒド多め → レゾール → ベークライト（固まると溶けない）
+    public static final Item NOVOLAC_MIX           = Reg.item("novolac_mix", new Item.Properties().stacksTo(16));
+    public static final Item NOVOLAC               = Reg.item("novolac");
+    public static final Item RESOL_MIX             = Reg.item("resol_mix", new Item.Properties().stacksTo(16));
+    public static final Item BAKELITE              = Reg.item("bakelite");
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

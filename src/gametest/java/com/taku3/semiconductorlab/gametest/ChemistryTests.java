@@ -543,6 +543,27 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-28] フェノール樹脂：ノボラックとベークライト（IMP3、O-006）
+    // =====================================================================
+
+    /** フェノール2＋ホルマリン＋塩酸 → 焼く → ノボラック。フェノール＋ホルマリン2＋NaOH → 焼く → ベークライト（かまどに入れても溶けない） */
+    @GameTest
+    public void phenolicResin(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(recipeUses(h, "novolac_mix", Chemistry.PHENOL) && recipeUses(h, "novolac_mix", Chemistry.FORMALIN) && recipeUses(h, "novolac_mix", Gas.HYDROCHLORIC_ACID), "acid catalyst, extra phenol");
+        h.assertTrue(cook(h, SMELT, Chemistry.NOVOLAC_MIX).is(Chemistry.NOVOLAC), "-> novolac");
+        h.assertTrue(recipeUses(h, "resol_mix", Chemistry.PHENOL) && recipeUses(h, "resol_mix", Chemistry.FORMALIN) && recipeUses(h, "resol_mix", Gas.SODIUM_HYDROXIDE), "base catalyst, extra formaldehyde");
+        h.assertTrue(cook(h, SMELT, Chemistry.RESOL_MIX).is(Chemistry.BAKELITE), "-> Bakelite");
+        h.assertTrue(cook(h, SMELT, Chemistry.BAKELITE).isEmpty(), "Bakelite does not melt in a furnace (thermoset)");
+        // 触媒の取り違え：酸で配合だけ変えたり、触媒なしでは作れない
+        var lv = h.getLevel(); var mgr = lv.getServer().getRecipeManager(); var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        var noCat = net.minecraft.world.item.crafting.CraftingInput.of(3, 1, List.of(new ItemStack(Chemistry.PHENOL), new ItemStack(Chemistry.PHENOL), new ItemStack(Chemistry.FORMALIN)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, noCat, lv).isEmpty(), "no catalyst -> no resin");
+        LOG.info("[LAB] phenolic resin [2-28]: acid + extra phenol -> novolac (melts); base + extra formaldehyde -> Bakelite (does not melt)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phenol",
+    "semiconductor-lab:formalin",
+    "semiconductor-lab:formalin",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:resol_mix",
+    "count": 1
+  }
+}
