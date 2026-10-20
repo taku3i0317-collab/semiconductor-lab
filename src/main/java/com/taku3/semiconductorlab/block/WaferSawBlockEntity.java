@@ -37,6 +37,10 @@ public class WaferSawBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_CRYSTAL, 8, 26, WaferSawBlockEntity::isCrystal)
             .in(SLOT_BLADE, 8, 50, WaferSawBlockEntity::isBlade)
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.wafer_saw.power").samples("500.0 kW")
+            .right("need", 27, 1, "gui.semiconductor-lab.wafer_saw.need").samples("5 kW")
+            .right("hint", 38, 3, "gui.semiconductor-lab.wafer_saw.need_input", "gui.semiconductor-lab.wafer_saw.need_power", "gui.semiconductor-lab.wafer_saw.running")
+            .bottom("recipe", "gui.semiconductor-lab.wafer_saw.recipe")
             .build();
 
     public WaferSawBlockEntity(BlockPos pos, BlockState state) {

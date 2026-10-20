@@ -71,6 +71,10 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
             .out(SLOT_OUT, OUT_X, OUT_Y)
             .out(SLOT_EMPTY, EMPTY_X, EMPTIES_Y)
             .out(SLOT_BUCKET, BUCKET_X, EMPTIES_Y)
+            .text("h2", H2_X - 2, GAS_Y - 10, 34, 1, "=H2 00")
+            .text("cl2", CL2_X - 2, GAS_Y - 10, 34, 1, "=Cl2 00")
+            .text("water", WATER_X + 20, WATER_Y + 1, 108, 1, "gui.semiconductor-lab.hcl_burner.water").samples("4")
+            .text("hint", 82, 53, 48, 2, "gui.semiconductor-lab.hcl_burner.burning", "gui.semiconductor-lab.hcl_burner.need_water", "gui.semiconductor-lab.hcl_burner.need_h2", "gui.semiconductor-lab.hcl_burner.need_cl2", "gui.semiconductor-lab.hcl_burner.out_full").fit()
             .build();
 
     public HclBurnerBlockEntity(BlockPos pos, BlockState state) { super(Gas.HCL_BURNER.type, pos, state); }

@@ -51,6 +51,10 @@ public class CzPullerBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_CRUCIBLE, 30, 17, CzPullerBlockEntity::isCrucible)
             .in(SLOT_AR, 30, 53, CzPullerBlockEntity::isArgon)
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.cz_puller.power").samples("150.0 kW")
+            .right("stored", 27, 1, "gui.semiconductor-lab.cz_puller.stored").samples("50 kJ")
+            .right("hint", 38, 3, "gui.semiconductor-lab.cz_puller.need_seed", "gui.semiconductor-lab.cz_puller.need_crucible", "gui.semiconductor-lab.cz_puller.need_ar", "gui.semiconductor-lab.cz_puller.need_poly", "gui.semiconductor-lab.cz_puller.need_power", "gui.semiconductor-lab.cz_puller.running")
+            .bottom("mode", "gui.semiconductor-lab.cz_puller.mode.seed", "gui.semiconductor-lab.cz_puller.mode.grow")
             .build();
 
     public CzPullerBlockEntity(BlockPos pos, BlockState state) {

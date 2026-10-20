@@ -53,6 +53,10 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Mach
             .in(SLOT_COAL, 56, 53, SteamEngineBlockEntity::isFuel)
             .in(SLOT_WATER, 56, 17, s -> s.is(net.minecraft.world.item.Items.WATER_BUCKET))
             .texture("steam_engine")
+            .text("output", 82, 17, 90, 1, "gui.semiconductor-lab.steam_engine.output").samples("500.0 kW")
+            .text("stored", 82, 27, 90, 1, "gui.semiconductor-lab.steam_engine.stored").samples("50 kJ")
+            .text("water", 82, 37, 90, 2, "gui.semiconductor-lab.steam_engine.water_intake", "gui.semiconductor-lab.steam_engine.water").samples("8")
+            .text("hint", 82, 58, 90, 2, "gui.semiconductor-lab.steam_engine.running", "gui.semiconductor-lab.steam_engine.need_water", "gui.semiconductor-lab.steam_engine.need_coal")
             .build();
 
     public SteamEngineBlockEntity(BlockPos pos, BlockState state) { this(Power.STEAM_ENGINE.type, pos, state, 200_000, WATTS, COAL_TICKS); }

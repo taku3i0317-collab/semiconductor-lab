@@ -45,6 +45,12 @@ public class AchesonFurnaceBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_CARBON, 8, 17, AchesonFurnaceBlockEntity::isCarbon)
             .in(SLOT_SAND, 8, 53, AchesonFurnaceBlockEntity::isSand)
             .out(SLOT_OUT, 78, 35)
+            .right("power", 16, 1, "gui.semiconductor-lab.hydrogen_furnace.power").samples("500 kW")
+            .right("need", 26, 1, "gui.semiconductor-lab.acheson_furnace.need").samples("500 kW")
+            .right("temp", 36, 1, "gui.semiconductor-lab.acheson_furnace.temp").samples("2500℃")
+            .right("hint", 47, 2, "gui.semiconductor-lab.acheson_furnace.need_carbon", "gui.semiconductor-lab.acheson_furnace.need_sand", "gui.semiconductor-lab.acheson_furnace.output_full", "gui.semiconductor-lab.acheson_furnace.need_power", "gui.semiconductor-lab.acheson_furnace.underpowered", "gui.semiconductor-lab.acheson_furnace.heating", "gui.semiconductor-lab.acheson_furnace.graphitizing")
+            .bottom("hint2", "gui.semiconductor-lab.acheson_furnace.underpowered2").samples("2000℃")
+            .label("c", 28, 21, 10, "C").label("sio2", 28, 57, 24, "SiO2")
             .build();
 
     public AchesonFurnaceBlockEntity(BlockPos pos, BlockState state) {

@@ -23,18 +23,23 @@ public class HclBurnerScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFFE0E8A0);   // 塩素中の水素の炎は白っぽい黄緑
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は HclBurnerBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.literal("H2 " + menu.get(HclBurnerBlockEntity.DATA_H2)), HclBurnerBlockEntity.H2_X - 2, HclBurnerBlockEntity.GAS_Y - 10);
-        text(g, Component.literal("Cl2 " + menu.get(HclBurnerBlockEntity.DATA_CL2)), HclBurnerBlockEntity.CL2_X - 2, HclBurnerBlockEntity.GAS_Y - 10);
-        text(g, Component.translatable(K + "water", menu.get(HclBurnerBlockEntity.DATA_WATER)), HclBurnerBlockEntity.WATER_X + 20, HclBurnerBlockEntity.WATER_Y + 4);
-        String hint;
-        if (menu.get(HclBurnerBlockEntity.DATA_PROGRESS) > 0) hint = "burning";
-        else if (menu.get(HclBurnerBlockEntity.DATA_WATER) <= 0 && menu.getSlot(HclBurnerBlockEntity.SLOT_WATER).getItem().isEmpty()) hint = "need_water";
-        else if (menu.get(HclBurnerBlockEntity.DATA_H2) < HclBurnerBlockEntity.H2_PER && menu.getSlot(HclBurnerBlockEntity.SLOT_H2).getItem().isEmpty()) hint = "need_h2";
-        else if (menu.get(HclBurnerBlockEntity.DATA_CL2) < HclBurnerBlockEntity.CL2_PER && menu.getSlot(HclBurnerBlockEntity.SLOT_CL2).getItem().isEmpty()) hint = "need_cl2";
-        else hint = "out_full";
-        text(g, Component.translatable(K + hint), 80, 26);
+    protected Component text(String id) {
+        return switch (id) {
+            case "h2" -> Component.literal("H2 " + menu.get(HclBurnerBlockEntity.DATA_H2));
+            case "cl2" -> Component.literal("Cl2 " + menu.get(HclBurnerBlockEntity.DATA_CL2));
+            case "water" -> Component.translatable(K + "water", menu.get(HclBurnerBlockEntity.DATA_WATER));
+            case "hint" -> {
+                String hint;
+                if (menu.get(HclBurnerBlockEntity.DATA_PROGRESS) > 0) hint = "burning";
+                else if (menu.get(HclBurnerBlockEntity.DATA_WATER) <= 0 && menu.getSlot(HclBurnerBlockEntity.SLOT_WATER).getItem().isEmpty()) hint = "need_water";
+                else if (menu.get(HclBurnerBlockEntity.DATA_H2) < HclBurnerBlockEntity.H2_PER && menu.getSlot(HclBurnerBlockEntity.SLOT_H2).getItem().isEmpty()) hint = "need_h2";
+                else if (menu.get(HclBurnerBlockEntity.DATA_CL2) < HclBurnerBlockEntity.CL2_PER && menu.getSlot(HclBurnerBlockEntity.SLOT_CL2).getItem().isEmpty()) hint = "need_cl2";
+                else hint = "out_full";
+                yield Component.translatable(K + hint);
+            }
+            default -> null;
+        };
     }
 }

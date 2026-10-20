@@ -39,6 +39,8 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity {
             .in(GE_SLOT, 56, 35, ZoneRefiningFurnaceBlockEntity::isGermanium, 8)
             .in(DOPANT_SLOT, 104, 35, ZoneRefiningFurnaceBlockEntity::isDopant)
             .in(BOAT_SLOT, 80, 35, ZoneRefiningFurnaceBlockEntity::isBoat, 1)
+            .center("power", 4, 18, 168, 1, "gui.semiconductor-lab.refiner.power").samples("3.0 kW", "3 kW")
+            .center("line", 58, 64, 114, 2, "gui.semiconductor-lab.refiner.hint", "gui.semiconductor-lab.refiner.no_boat", "gui.semiconductor-lab.refiner.need_power", "gui.semiconductor-lab.refiner.doping", "gui.semiconductor-lab.refiner.purity", "gui.semiconductor-lab.refiner.clay_cap", "gui.semiconductor-lab.refiner.route_cap", "gui.semiconductor-lab.refiner.ready", "gui.semiconductor-lab.refiner.max", "gui.semiconductor-lab.refiner.dopant_wait").samples("10N", "10N").fit()
             .build();
 
     public ZoneRefiningFurnaceBlockEntity(BlockPos pos, BlockState state) {

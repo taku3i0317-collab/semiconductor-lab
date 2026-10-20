@@ -41,6 +41,11 @@ public class AirSeparationBlockEntity extends ConsumerBlockEntity implements Gas
             .out(SLOT_N2, 62, 17)
             .out(SLOT_O2, 62, 35)
             .out(SLOT_AR, 62, 53)
+            .label("n2", 44, 21, 12, "N2").label("o2", 44, 39, 12, "O2").label("ar", 44, 57, 12, "Ar")
+            .right("power", 17, 1, "gui.semiconductor-lab.air_separation_unit.power").samples("500.0 kW")
+            .right("stored", 27, 1, "gui.semiconductor-lab.air_separation_unit.stored").samples("50 kJ")
+            .right("hint", 38, 3, "gui.semiconductor-lab.air_separation_unit.output_full", "gui.semiconductor-lab.air_separation_unit.need_power", "gui.semiconductor-lab.air_separation_unit.running")
+            .bottom("air", "gui.semiconductor-lab.air_separation_unit.air")
             .build();
 
     public AirSeparationBlockEntity(BlockPos pos, BlockState state) {

@@ -806,3 +806,25 @@ ServerLevel: <T extends ParticleOptions> int sendParticles(T, double x, double y
 - 描画層（切り抜き・半透明）は **ItemBlockRenderTypes / BlockRenderLayerMap で指定しない**：`ChunkSectionLayer.byTransparency(Transparency)` でテクスチャの透けから自動で決まる（client jar に ItemBlockRenderTypes は無い）
 - 斧・剣は AxeItem/SwordItem が無くなり `new Item.Properties().axe(ToolMaterial, dmg, speed)` / `.sword(...)`（Items.STONE_AXE の bytecode で確認）。`ToolMaterial(TagKey<Block> incorrect, int durability, float speed, float attackBonus, int enchant, TagKey<Item> repair)`
 - 落とし物を足すのは Fabric `LootTableEvents.MODIFY_DROPS`：`(Holder<LootTable> table, LootContext ctx, List<ItemStack> drops)`、`table.is(Blocks.GRAVEL.getLootTable().orElseThrow())`
+## IMP-30 画面の自動チェック・IMP-31 専用タブ（2026-10-20 javap で確認）
+```
+// fabric-client-gametest-api-v1 6.0.9（entrypoint "fabric-client-gametest"、Loom: fabricApi.configureTests { enableClientGameTests = true } → タスク runClientGameTest）
+FabricClientGameTest.runTest(ClientGameTestContext)
+ClientGameTestContext: waitTick(); waitTicks(int); waitFor(Predicate<Minecraft>[, int]); setScreen(Supplier<Screen>); runOnClient(..); computeOnClient(..);
+  worldBuilder() → TestWorldBuilder.setUseConsistentSettings(boolean).create() → TestSingleplayerContext（AutoCloseable）
+  takeScreenshot(String|TestScreenshotOptions); assertScreenshotEquals(TestScreenshotComparisonOptions)
+TestScreenshotComparisonOptions.of(String 名前).withRegion(x, y, w, h).withAlgorithm(TestScreenshotComparisonAlgorithm.meanSquaredDifference(float)).save()
+  見本はテスト MOD の resources の templates/<名前>.png。無ければ -Dfabric.client.gametest.testModResourcesPath=<resources> の所へ書き出す
+// minecraft-clientOnly
+Minecraft: gui.screen()・gui.setScreen(Screen)・gui.overlay()（26.x で Minecraft から Gui へ移った）; font; options.languageCode; getLanguageManager().setSelected(String); reloadResourcePacks() → CompletableFuture
+MenuScreens.create(MenuType<T>, Minecraft, int id, Component title)   // 登録した画面をクライアントだけで開く
+Window.getGuiScale(); AbstractContainerScreen: protected int leftPos/topPos/titleLabelX/Y/inventoryLabelX/Y; protected final int imageWidth/imageHeight; protected final Component playerInventoryTitle
+GuiGraphicsExtractor: org.joml.Matrix3x2fStack pose()（pushMatrix/translate/scale/popMatrix）; text(Font, Component|String|FormattedCharSequence, x, y, color, shadow)
+Font: width(..); lineHeight; split(FormattedText, int) → List<FormattedCharSequence>; getSplitter().splitLines(FormattedText, int, Style) → List<FormattedText>
+// minecraft-common
+ItemStack.getTooltipLines(Item.TooltipContext, Player, TooltipFlag); Item.TooltipContext.of(Level); TooltipFlag.NORMAL
+TranslatableContents.getKey(); Language.getInstance().has(String)
+CreativeModeTab.Builder: title(Component); icon(Supplier<ItemStack>); displayItems((params, output) -> ...); build()
+FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registries.CREATIVE_MODE_TAB; BuiltInRegistries.CREATIVE_MODE_TAB
+```
+- GitHub の自動ビルド（ubuntu・xvfb）：OpenGL の窓は「Couldn't find matching GLX visual」で作れないが、ゲームが Vulkan（Mesa の llvmpipe、mesa-vulkan-drivers）に切り替えて動く

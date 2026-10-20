@@ -39,6 +39,9 @@ public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_IN, 8, 35, ElectricFurnaceBlockEntity::isInput)
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.hydrogen_furnace.power").samples("5.0 kW")
+            .right("stored", 27, 1, "gui.semiconductor-lab.hydrogen_furnace.stored").samples("50 kJ")
+            .right("hint", 38, 3, "gui.semiconductor-lab.electric_furnace.need_input", "gui.semiconductor-lab.electric_furnace.output_full", "gui.semiconductor-lab.electric_furnace.need_power", "gui.semiconductor-lab.electric_furnace.heating")
             .build();
 
     public ElectricFurnaceBlockEntity(BlockPos pos, BlockState state) {

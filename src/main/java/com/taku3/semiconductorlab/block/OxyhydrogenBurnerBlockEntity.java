@@ -68,6 +68,9 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
             .in(SLOT_O2, O2_X, GAS_Y, s -> s.is(com.taku3.semiconductorlab.content.Gas.OXYGEN_CYLINDER))
             .out(SLOT_OUT, OUT_X, OUT_Y)
             .out(SLOT_EMPTY, EMPTY_X, EMPTY_Y)
+            .text("h2", H2_X - 2, GAS_Y - 10, 34, 1, "=H2 00")
+            .text("o2", O2_X - 2, GAS_Y - 10, 34, 1, "=O2 00")
+            .text("hint", 64, 20, 108, 1, "gui.semiconductor-lab.oxyhydrogen_burner.need_input", "gui.semiconductor-lab.oxyhydrogen_burner.melting", "gui.semiconductor-lab.oxyhydrogen_burner.need_h2", "gui.semiconductor-lab.oxyhydrogen_burner.need_o2", "gui.semiconductor-lab.oxyhydrogen_burner.out_full")
             .build();
 
     public OxyhydrogenBurnerBlockEntity(BlockPos pos, BlockState state) { super(Optics.OXYHYDROGEN_BURNER.type, pos, state); }

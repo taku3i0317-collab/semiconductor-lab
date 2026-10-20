@@ -61,6 +61,11 @@ public class GasHolderBlockEntity extends BlockEntity implements MachineBE {
     public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
             .in(SLOT_IN, 26, 35, s -> GasType.of(s) != GasType.NONE)
             .out(SLOT_OUT, 134, 35)
+            .text("gas", 48, 30, 84, 1, GasType.langKeys())
+            .text("amount", 48, 41, 84, 1, "=1000/1000 mol")
+            .text("volume", 48, 52, 80, 1, "=≈24.0 m³")
+            .text("bang", 60, 64, 112, 1, "gui.semiconductor-lab.gas_holder.bang")
+            .text("in", 22, 54, 22, 1, "gui.semiconductor-lab.gas_holder.in").text("out", 130, 54, 40, 1, "gui.semiconductor-lab.gas_holder.out")
             .build();
 
     public GasHolderBlockEntity(BlockPos pos, BlockState state) {

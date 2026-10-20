@@ -22,9 +22,10 @@ public class WoodRetortScreen extends MachineScreen {
         bar(g, BAR_X, BAR_Y, BAR_W, BAR_H, menu.get(WoodRetortBlockEntity.DATA_PROGRESS), menu.get(WoodRetortBlockEntity.DATA_TOTAL), 0xFF8A5A2A);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は WoodRetortBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
+    protected Component text(String id) {
+        if (!id.equals("hint")) return null;
         ItemStack in = menu.getSlot(WoodRetortBlockEntity.SLOT_IN).getItem();
         ItemStack fuel = menu.getSlot(WoodRetortBlockEntity.SLOT_FUEL).getItem();
         String hint;
@@ -32,6 +33,6 @@ public class WoodRetortScreen extends MachineScreen {
         else if (menu.get(WoodRetortBlockEntity.DATA_BURN) <= 0 && fuel.isEmpty()) hint = "need_fuel";
         else if (menu.get(WoodRetortBlockEntity.DATA_PROGRESS) > 0) hint = "running";
         else hint = "out_full";   // 原木も燃料もあるのに進まない＝出口のどれかが満杯
-        text(g, Component.translatable(K + hint), 64, 63);
+        return Component.translatable(K + hint);
     }
 }

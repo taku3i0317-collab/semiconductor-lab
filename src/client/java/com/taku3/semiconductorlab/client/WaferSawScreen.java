@@ -23,13 +23,15 @@ public class WaferSawScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFFD8DCE0);   // 刃の銀色
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は WaferSawBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "need", String.format("%.0f kW", WaferSawBlockEntity.WATTS / 1000)), TEXT_X, 32);
-        String hint = !menu.isReady() ? "need_input" : menu.getKw() <= 0 ? "need_power" : "running";
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
-        text(g, Component.translatable(K + "recipe"), TEXT_X, 60);
+    protected Component text(String id) {
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "need" -> Component.translatable(K + "need", String.format("%.0f kW", WaferSawBlockEntity.WATTS / 1000));
+            case "hint" -> Component.translatable(K + (!menu.isReady() ? "need_input" : menu.getKw() <= 0 ? "need_power" : "running"));
+            case "recipe" -> Component.translatable(K + "recipe");
+            default -> null;
+        };
     }
 }

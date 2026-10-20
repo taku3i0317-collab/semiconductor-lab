@@ -35,6 +35,10 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_WAFER, 8, 26, DiffusionFurnaceBlockEntity::isWafer)
             .in(SLOT_SOURCE, 8, 50, s -> com.taku3.semiconductorlab.Dopant.of(s) != null)
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.diffusion_furnace.power").samples("500.0 kW")
+            .right("need", 27, 1, "gui.semiconductor-lab.diffusion_furnace.need").samples("50 kW")
+            .right("hint", 38, 3, "gui.semiconductor-lab.diffusion_furnace.need_input", "gui.semiconductor-lab.diffusion_furnace.need_power", "gui.semiconductor-lab.diffusion_furnace.running")
+            .bottom("recipe", "gui.semiconductor-lab.diffusion_furnace.recipe")
             .build();
 
     public DiffusionFurnaceBlockEntity(BlockPos pos, BlockState state) {

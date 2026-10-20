@@ -35,6 +35,10 @@ public class CompressorBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_EMPTY, 8, 35, s -> s.is(com.taku3.semiconductorlab.content.Gas.EMPTY_GAS_CYLINDER))
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.compressor.power").samples("5.0 kW")
+            .right("stored", 27, 1, "gui.semiconductor-lab.compressor.stored").samples("50 kJ")
+            .right("hint", 38, 3, "gui.semiconductor-lab.compressor.need_cylinder", "gui.semiconductor-lab.compressor.output_full", "gui.semiconductor-lab.compressor.need_gas", "gui.semiconductor-lab.compressor.need_power", "gui.semiconductor-lab.compressor.running")
+            .bottom("mol", "gui.semiconductor-lab.compressor.mol").samples("50")
             .build();
 
     public CompressorBlockEntity(BlockPos pos, BlockState state) {

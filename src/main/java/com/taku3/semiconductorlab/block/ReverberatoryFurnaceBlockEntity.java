@@ -73,6 +73,8 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
             .out(SLOT_SO2, OUT_X + 22, OUT_Y)
             .out(SLOT_BY_GE, OUT_X, OUT_Y + 22)
             .out(SLOT_BY_IN, OUT_X + 22, OUT_Y + 22)
+            .text("hint", 64, 64, 108, 2, "gui.semiconductor-lab.reverberatory_furnace.need_input", "gui.semiconductor-lab.reverberatory_furnace.need_fuel", "gui.semiconductor-lab.reverberatory_furnace.roasting", "gui.semiconductor-lab.reverberatory_furnace.out_full")
+            .label("so2", OUT_X + 22 + 18, OUT_Y + 4, 18, "SO2")
             .build();
 
     public ReverberatoryFurnaceBlockEntity(BlockPos pos, BlockState state) { super(Heat.REVERBERATORY_FURNACE.type, pos, state); }

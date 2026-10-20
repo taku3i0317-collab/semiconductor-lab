@@ -45,6 +45,10 @@ public class ArcFurnaceBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_CARBON, 8, 35, ArcFurnaceBlockEntity::isCarbon)
             .in(SLOT_ELECTRODE, 8, 53, ArcFurnaceBlockEntity::isElectrode)
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.arc_furnace.power").samples("500.0 kW")
+            .right("need", 27, 1, "gui.semiconductor-lab.arc_furnace.need").samples("500 kW")
+            .right("hint", 38, 3, "gui.semiconductor-lab.arc_furnace.need_input", "gui.semiconductor-lab.arc_furnace.need_power", "gui.semiconductor-lab.arc_furnace.running").fit()
+            .bottom("recipe", "gui.semiconductor-lab.arc_furnace.recipe")
             .build();
 
     public ArcFurnaceBlockEntity(BlockPos pos, BlockState state) {

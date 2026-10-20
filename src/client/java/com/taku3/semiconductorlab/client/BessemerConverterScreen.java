@@ -31,17 +31,22 @@ public class BessemerConverterScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, flameColor(BessemerConverterBlockEntity.stageOf(menu.getProgress(), menu.getTotal())));
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は BessemerConverterBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 32);
-        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 43);
-        // 下の行：動いていれば炎の段階、止まっていれば足りないもの
-        String line;
-        if (!BessemerConverterBlockEntity.isPigIron(menu.getSlot(BessemerConverterBlockEntity.SLOT_IN).getItem())) line = "need_iron";
-        else if (!menu.isReady()) line = "output_full";
-        else if (menu.getKw() <= 0) line = "need_power";
-        else line = "stage." + BessemerConverterBlockEntity.stageOf(menu.getProgress(), menu.getTotal()).name().toLowerCase();
-        text(g, Component.translatable(K + line), 8, 60, running() ? 0xFF803010 : TEXT_COLOR);
+    protected Component text(String id) {
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "stored" -> Component.translatable(K + "stored", menu.getStoredKj() + " kJ");
+            case "line" -> {
+                String line;
+                if (!BessemerConverterBlockEntity.isPigIron(menu.getSlot(BessemerConverterBlockEntity.SLOT_IN).getItem())) line = "need_iron";
+                else if (!menu.isReady()) line = "output_full";
+                else if (menu.getKw() <= 0) line = "need_power";
+                else line = "stage." + BessemerConverterBlockEntity.stageOf(menu.getProgress(), menu.getTotal()).name().toLowerCase();
+                Component c = Component.translatable(K + line);
+                yield running() ? c.copy().withStyle(s -> s.withColor(0x803010)) : c;
+            }
+            default -> null;
+        };
     }
 }

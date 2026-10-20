@@ -46,6 +46,10 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(MENU_DATA_COUNT)
             .in(SLOT_IN, 8, 35, s -> !sealedProduct(s).isEmpty())
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.sealing_station.power").samples("0.5 kW")
+            .right("pressure", 27, 1, "gui.semiconductor-lab.sealing_station.pressure").samples("101 kPa").fit()
+            .right("target", 37, 1, "gui.semiconductor-lab.sealing_station.target").samples("0.1 Pa")
+            .right("hint", 48, 2, "gui.semiconductor-lab.sealing_station.need_input", "gui.semiconductor-lab.sealing_station.need_chamber", "gui.semiconductor-lab.sealing_station.need_vacuum", "gui.semiconductor-lab.sealing_station.output_full", "gui.semiconductor-lab.sealing_station.need_power", "gui.semiconductor-lab.sealing_station.sealing")
             .build();
 
     public SealingStationBlockEntity(BlockPos pos, BlockState state) {

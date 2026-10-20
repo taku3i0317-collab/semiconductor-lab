@@ -30,16 +30,18 @@ public class GasHolderScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, color(GasType.byIndex(menu.get(GasHolderBlockEntity.DATA_TYPE))));
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は GasHolderBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        GasType t = GasType.byIndex(menu.get(GasHolderBlockEntity.DATA_TYPE));
+    protected Component text(String id) {
         int amount = menu.get(GasHolderBlockEntity.DATA_AMOUNT);
-        text(g, Component.translatable(K + "gas." + t.key), TEXT_X, 30);
-        text(g, Component.literal(amount + "/" + GasHolderBlockEntity.CAPACITY + " mol"), TEXT_X, 41);
-        text(g, Component.literal(String.format("≈%.1f m³", amount * LITERS_PER_MOL / 1000)), TEXT_X, 52);
-        if ((menu.get(GasHolderBlockEntity.DATA_BANG) > 0)) text(g, Component.translatable(K + "bang"), TEXT_X, 63, 0xFFC03030);
-        text(g, Component.translatable(K + "in"), 22, 54);
-        text(g, Component.translatable(K + "out"), 130, 54);
+        return switch (id) {
+            case "gas" -> Component.translatable(K + "gas." + GasType.byIndex(menu.get(GasHolderBlockEntity.DATA_TYPE)).key);
+            case "amount" -> Component.literal(amount + "/" + GasHolderBlockEntity.CAPACITY + " mol");
+            case "volume" -> Component.literal(String.format("≈%.1f m³", amount * LITERS_PER_MOL / 1000));
+            case "bang" -> menu.get(GasHolderBlockEntity.DATA_BANG) > 0 ? Component.translatable(K + "bang").withStyle(s -> s.withColor(0xC03030)) : null;
+            case "in" -> Component.translatable(K + "in");
+            case "out" -> Component.translatable(K + "out");
+            default -> null;
+        };
     }
 }

@@ -1,83 +1,48 @@
 package com.taku3.semiconductorlab.gametest;
 
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.taku3.semiconductorlab.client.MachineScreen;
 import com.taku3.semiconductorlab.machine.Machine;
-import com.taku3.semiconductorlab.machine.MachineLayout;
 import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
 import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
 import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext;
 import net.fabricmc.fabric.api.client.gametest.v1.screenshot.TestScreenshotComparisonAlgorithm;
 import net.fabricmc.fabric.api.client.gametest.v1.screenshot.TestScreenshotComparisonOptions;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.contents.TranslatableContents;
-import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
- * 画面の自動チェック（IMP-30 ②③）。クライアント（画面つきのゲーム）を起動して、全部の機械の画面を英語・日本語で開く。
- * - ② 文字：描いた文字が画面の枠からはみ出さない／スロット・ほかの文字・題名・「持ち物」に重ならない。
- *       描かれていない文の候補（同じ画面の gui.semiconductor-lab.<名前>.* の全部のキー）も、その列に入る幅かを測る
- * - ③ 見た目：画面の部分のスクリーンショットを見本（src/gametest/resources/templates/&lt;機械&gt;_&lt;言語&gt;.png）と比べる。
- *       見本がないときは、その回の画像を見本として書き出す（GitHub の自動ビルドの成果物から取ってきて commit する）
+ * 本物の画面の見た目の確認（IMP-30 ③、最後の見た目確認）。クライアント（画面つきのゲーム）を起動して、全部の機械の画面を英語・日本語で開き、
+ * 画面の部分のスクリーンショットを見本（src/gametest/resources/templates/&lt;機械&gt;_&lt;言語&gt;.png）と比べる。
+ * 見本がないときは、その回の画像を見本として書き出す（GitHub の自動ビルドの成果物 screen-checks から取ってきて commit する）。
+ * 文字のはみ出し・重なりは、ゲームなしの GameTest gui_layout（GuiLayoutTests）が先に調べる。
  * ウィンドウが開くので手元では実行しない（runClientGameTest は GitHub の自動ビルドが画面なし＝xvfb で実行する）。
- * 結果は実行フォルダの screen_checks.txt と、ログの [LAB] 行。
  */
 public class ScreenChecks implements FabricClientGameTest {
     private static final Logger LOG = LoggerFactory.getLogger("semiconductor-lab-gametest");
-    private static final String NS = "semiconductor-lab";
     private static final String[] LANGS = {"en_us", "ja_jp"};
-    /** 画面の内側の縁（px）と、持ち物の段の上の端 */
-    private static final int EDGE = 4, INV_TOP = 83, LINE_H = 9;
-    /** 描かれていない文の幅を測るときの、%s の代わりの文字（よくある長さ） */
-    private static final String SAMPLE_ARG = "0.0 kW";
     /** 見本と比べるときの許し（平均二乗誤差。文字のにじみ程度は通す） */
     private static final float MSE = 0.005f;
-    /**
-     * わかっていて、まだ直していない文字の問題（lang を直したら消す）。
-     * NET-06（ネットワーク担当が lang の部品を直している間）は lang を触らないので、見つかったものはここに書いて記録する
-     */
-    private static final Set<String> KNOWN = Set.of();
 
     @Override
     public void runTest(ClientGameTestContext ctx) {
         List<String> problems = new ArrayList<>();
-        List<String> report = new ArrayList<>();
         int screens = 0, newTemplates = 0;
         try (TestSingleplayerContext world = ctx.worldBuilder().setUseConsistentSettings(true).create()) {
             ctx.waitFor(mc -> mc.player != null && mc.level != null);
             ctx.waitTicks(20);
             for (String lang : LANGS) {
                 setLanguage(ctx, lang);
-                Map<String, String> strings = langStrings(ctx, lang);
-                checkTooltips(ctx, lang, problems, report);
                 for (Machine<?> m : Machine.all()) {
                     if (m.menu == null) continue;
-                    List<MachineScreen.TextDraw> draws = new ArrayList<>();
-                    ctx.runOnClient(mc -> {
-                        MachineScreen.recordTextInto(draws);
-                        MenuScreens.create(m.menu, mc, 100, m.block.getName());
-                    });
+                    ctx.runOnClient(mc -> MenuScreens.create(m.menu, mc, 100, m.block.getName()));
                     ctx.waitTicks(3);
                     String name = m.name + "_" + lang;
                     int[] region = ctx.computeOnClient(mc -> {
-                        MachineScreen.recordTextInto(null);
                         if (!(mc.gui.screen() instanceof MachineScreen s)) return null;
-                        checkTexts(m, s, new ArrayList<>(draws), strings, lang, problems, report);
                         int sc = mc.getWindow().getGuiScale();
                         return new int[] {s.panelLeft() * sc, s.panelTop() * sc, s.panelWidth() * sc, s.panelHeight() * sc};
                     });
@@ -89,7 +54,7 @@ public class ScreenChecks implements FabricClientGameTest {
                     } catch (Throwable t) {
                         if (hadTemplate) problems.add(name + ": looks different from templates/" + name + ".png (" + t.getMessage() + ")");
                     }
-                    if (!hadTemplate) { newTemplates++; report.add("new template (written to src/gametest/resources/templates): " + name); }
+                    if (!hadTemplate) newTemplates++;
                     ctx.runOnClient(mc -> mc.player.closeContainer());
                     ctx.waitTicks(1);
                     screens++;
@@ -97,44 +62,9 @@ public class ScreenChecks implements FabricClientGameTest {
             }
         }
         setLanguage(ctx, "en_us");
-        report.add(0, "screens: " + screens + ", problems: " + problems.size() + ", new templates: " + newTemplates);
-        problems.forEach(p -> report.add("PROBLEM " + p));
-        Path out = ctx.computeOnClient(mc -> mc.gameDirectory.toPath().resolve("screen_checks.txt"));
-        try { Files.write(out, report, StandardCharsets.UTF_8); } catch (java.io.IOException e) { throw new RuntimeException(e); }
-        LOG.info("[LAB] screen checks: {} screens (en+ja), {} problems, {} new templates, report {} (IMP-30)", screens, problems.size(), newTemplates, out);
+        LOG.info("[LAB] screen checks: {} screens (en+ja), {} differ from templates, {} new templates (IMP-30)", screens, problems.size(), newTemplates);
         problems.forEach(p -> LOG.warn("[LAB] screen checks: {}", p));
-        List<String> unknown = problems.stream().filter(p -> KNOWN.stream().noneMatch(p::startsWith)).toList();
-        if (!unknown.isEmpty()) throw new AssertionError("screen checks found " + unknown.size() + " problems: " + unknown);
-    }
-
-    /** ツールチップの1行の幅の上限（px）。バニラの長い説明（鍛冶型の説明など）と同じくらい */
-    static final int TOOLTIP_MAX = 200;
-
-    /**
-     * ツールチップ（IMP-30 追加）：MOD の全部のアイテムで、Shift なし・ありの両方の行が TOOLTIP_MAX px 以内か。
-     * 「省略：」（en は Omitted / Simplified）の行は Shift を押したときだけ出ているか
-     */
-    private static void checkTooltips(ClientGameTestContext ctx, String lang, List<String> problems, List<String> report) {
-        ctx.runOnClient(mc -> {
-            var tctx = net.minecraft.world.item.Item.TooltipContext.of(mc.level);
-            try {
-                for (var item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
-                    var id = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
-                    if (!id.getNamespace().equals(NS)) continue;
-                    for (boolean shift : new boolean[] {false, true}) {
-                        com.taku3.semiconductorlab.client.NoteTooltip.forceShift = shift;
-                        var lines = new net.minecraft.world.item.ItemStack(item).getTooltipLines(tctx, mc.player, net.minecraft.world.item.TooltipFlag.NORMAL);
-                        for (var line : lines) {
-                            String t = line.getString();
-                            int w = mc.font.width(line);
-                            if (w > TOOLTIP_MAX) problems.add("tooltip " + lang + " " + id.getPath() + (shift ? " (Shift)" : "") + ": a line is " + w + " px (max " + TOOLTIP_MAX + "): \"" + t + "\"");
-                            if (!shift && (t.startsWith("省略") || t.startsWith("Omitted") || t.startsWith("Simplified")))
-                                problems.add("tooltip " + lang + " " + id.getPath() + ": the 'omitted' note shows without Shift: \"" + t + "\"");
-                        }
-                    }
-                }
-            } finally { com.taku3.semiconductorlab.client.NoteTooltip.forceShift = null; }
-        });
+        if (!problems.isEmpty()) throw new AssertionError("screens differ from their templates: " + problems);
     }
 
     /** 言語を切り替えて、読み込みが終わるまで待つ */
@@ -147,79 +77,5 @@ public class ScreenChecks implements FabricClientGameTest {
         });
         if (f != null) ctx.waitFor(mc -> f.isDone() && mc.gui.overlay() == null, 20 * 120);
         ctx.waitTicks(2);
-    }
-
-    /** MOD の lang（ゲームが読んだもの）をそのまま読む */
-    private static Map<String, String> langStrings(ClientGameTestContext ctx, String code) {
-        return ctx.computeOnClient(mc -> {
-            Map<String, String> map = new HashMap<>();
-            var res = mc.getResourceManager().getResource(Identifier.fromNamespaceAndPath(NS, "lang/" + code + ".json"));
-            if (res.isPresent()) try (var r = new InputStreamReader(res.get().open(), StandardCharsets.UTF_8)) {
-                JsonObject o = JsonParser.parseReader(r).getAsJsonObject();
-                for (var e : o.entrySet()) map.put(e.getKey(), e.getValue().getAsString());
-            } catch (java.io.IOException e) { throw new java.io.UncheckedIOException(e); }
-            return map;
-        });
-    }
-
-    private static void checkTexts(Machine<?> m, MachineScreen s, List<MachineScreen.TextDraw> draws, Map<String, String> strings,
-                                   String lang, List<String> problems, List<String> report) {
-        String where = m.name + "_" + lang;
-        int w = s.panelWidth();
-        var font = s.font();
-        // 題名（真ん中）と「持ち物」（左下）の場所
-        int titleW = font.width(m.block.getName());
-        int[] title = {(w - titleW) / 2, 6, titleW, LINE_H};
-        int[] invLabel = {8, s.panelHeight() - 94, font.width(Component.translatable("container.inventory")), LINE_H};
-        List<int[]> slots = new ArrayList<>();
-        for (MachineLayout.SlotDef d : m.layout.slots()) slots.add(new int[] {d.x() - 1, d.y() - 1, 18, 18});
-        // 文のキーの頭 → その文を描いた場所（最初の行の x・y）。状態で切り替わるほかの文も、ここに入るかを後で調べる
-        Map<String, int[]> slotOfText = new HashMap<>();
-        for (int i = 0; i < draws.size(); i++) {
-            var d = draws.get(i);
-            int[] r = {d.x(), d.y(), d.width(), d.height()};
-            String what = where + " \"" + d.text().getString() + "\"";
-            if (d.x() < EDGE || d.x() + d.width() > w - EDGE) problems.add(what + " sticks out (x " + d.x() + "〜" + (d.x() + d.width()) + ", panel 0〜" + w + ")");
-            if (d.y() < EDGE || d.y() + d.height() > INV_TOP) problems.add(what + " is outside the upper part (y " + d.y() + "〜" + (d.y() + d.height()) + ")");
-            if (d.scale() < MachineScreen.MIN_SCALE - 1e-3f) problems.add(what + " is shrunk below " + MachineScreen.MIN_SCALE);
-            if (overlap(r, title)) problems.add(what + " overlaps the title");
-            if (overlap(r, invLabel)) problems.add(what + " overlaps the inventory label");
-            for (int[] sl : slots) if (overlap(r, sl)) { problems.add(what + " overlaps a slot at (" + (sl[0] + 1) + "," + (sl[1] + 1) + ")"); break; }
-            for (int j = i + 1; j < draws.size(); j++) {
-                var e = draws.get(j);
-                if (overlap(r, new int[] {e.x(), e.y(), e.width(), e.height()})) problems.add(what + " overlaps \"" + e.text().getString() + "\"");
-            }
-            if (d.key() != null && d.key().startsWith("gui." + NS + ".") && !d.formula() && Math.abs(d.x() * 2 + d.width() - w) > 2) {
-                String prefix = d.key().substring(0, d.key().lastIndexOf('.') + 1);
-                slotOfText.merge(prefix, new int[] {d.x(), d.y()}, (a, b) -> a[1] <= b[1] ? a : b);
-            }
-            report.add(where + " text \"" + d.text().getString() + "\" x=" + d.x() + " y=" + d.y() + " w=" + d.width() + " h=" + d.height()
-                    + (d.scale() < 1 ? " scale=" + d.scale() : "") + (d.formula() ? " (formula line)" : ""));
-        }
-        // まだ描かれていない文（状態で切り替わる表示）も、同じ場所で折り返し・縮小（MIN_SCALE まで）すれば入るか。画面と同じ計算
-        boolean hasFormula = strings.containsKey("gui." + NS + "." + m.name + ".recipe");
-        int limit = (hasFormula ? s.panelHeight() - 94 : s.panelHeight() - 84) - 1;
-        Object[] args = {SAMPLE_ARG, SAMPLE_ARG, SAMPLE_ARG, SAMPLE_ARG};
-        for (var e : slotOfText.entrySet()) {
-            int x = e.getValue()[0], top = e.getValue()[1], room = Math.max(8, w - EDGE - x);
-            for (String key : strings.keySet()) {
-                if (!key.startsWith(e.getKey()) || key.endsWith(".recipe")) continue;
-                var c = Component.translatable(key, args);
-                int n = font.split(c, (int) (room / MachineScreen.MIN_SCALE)).size();
-                float h = ((n - 1) * MachineScreen.LINE + font.lineHeight) * MachineScreen.MIN_SCALE;
-                if (top + h > limit + 1) problems.add(where + " lang " + key + " does not fit even when wrapped and shrunk (" + n + " lines from y " + top + ", bottom " + limit + "): \"" + c.getString() + "\"");
-            }
-        }
-        // 反応式（….recipe）は「持ち物」の右の行に、MIN_SCALE まで縮めて入るか
-        int fRoom = (w - 8) - (8 + font.width(Component.translatable("container.inventory")) + 6);
-        for (String key : strings.keySet()) {
-            if (!key.equals("gui." + NS + "." + m.name + ".recipe")) continue;
-            int fw = font.width(Component.translatable(key));
-            if (fw * MachineScreen.MIN_SCALE > fRoom) problems.add(where + " formula " + key + " is " + fw + " px, does not fit " + fRoom + " px even shrunk");
-        }
-    }
-
-    private static boolean overlap(int[] a, int[] b) {
-        return a[0] < b[0] + b[2] && b[0] < a[0] + a[2] && a[1] < b[1] + b[3] && b[1] < a[1] + a[3];
     }
 }

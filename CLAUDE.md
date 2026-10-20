@@ -24,6 +24,8 @@
 3. 変更後は `./gradlew.bat compileJava compileClientJava` で必ずコンパイル確認。runClient は実行しない（ユーザーが遠隔作業中のため）
    機械の動作・レシピ・ルートテーブル・worldgen など「データやロジック」に関わる変更なら `tools/test.ps1`（GameTest。画面なしの専用サーバー、約20秒）も実行し、
    全部 PASSED を確認する。新しい機械や挙動を足したら src/gametest/java/.../<幹>Tests.java（MetallurgyTests など、共通の道具は LabTestBase）にテストを足す
+   **画面（MachineLayout の文字・スロット）・lang の画面の文・ツールチップを変えたら、必ず test.ps1 で画面の検査（GameTest gui_layout・tooltip_text、ゲームなし）を通す**。
+   画面の文字は MachineLayout にデータで書き、画面のコードでは直接描かない（DESIGN「画面の文字と自動チェック」）。設計図は docs/gui_preview/
 4. ゲーム内で確認が必要な項目は docs/TEST_QUEUE.md に追記する
 5. 1ステップごとに `git add -A; git commit -m "..."`。push もする
 6. 新しいバニラ要素（26.2 の硫黄など）をレシピに使う前に、名前の実在をユーザーに確認する

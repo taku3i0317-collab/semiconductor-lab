@@ -12,6 +12,7 @@
 		],
 		"fabric-gametest": [
 			"com.taku3.semiconductorlab.gametest.CommonTests",
+			"com.taku3.semiconductorlab.gametest.GuiLayoutTests",
 			"com.taku3.semiconductorlab.gametest.SurvivalTests",
 			"com.taku3.semiconductorlab.gametest.MetallurgyTests",
 			"com.taku3.semiconductorlab.gametest.ChemistryTests",

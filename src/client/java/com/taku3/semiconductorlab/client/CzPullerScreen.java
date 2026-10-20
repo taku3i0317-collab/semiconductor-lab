@@ -24,21 +24,25 @@ public class CzPullerScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFFFFC060);   // 1420℃の融液の光
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は CzPullerBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
-        ItemStack seed = menu.getSlot(CzPullerBlockEntity.SLOT_SEED).getItem();
-        var mode = CzPullerBlockEntity.modeOf(seed);
-        String hint;
-        if (mode == CzPullerBlockEntity.Mode.NONE) hint = "need_seed";
-        else if (!CzPullerBlockEntity.isCrucible(menu.getSlot(CzPullerBlockEntity.SLOT_CRUCIBLE).getItem())) hint = "need_crucible";
-        else if (!CzPullerBlockEntity.isArgon(menu.getSlot(CzPullerBlockEntity.SLOT_AR).getItem())) hint = "need_ar";
-        else if (!menu.isReady()) hint = "need_poly";
-        else if (menu.getKw() <= 0) hint = "need_power";
-        else hint = "running";
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
-        if (mode != CzPullerBlockEntity.Mode.NONE) text(g, Component.translatable(K + "mode." + mode.name().toLowerCase()), TEXT_X, 60);
+    protected Component text(String id) {
+        var mode = CzPullerBlockEntity.modeOf(menu.getSlot(CzPullerBlockEntity.SLOT_SEED).getItem());
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "stored" -> Component.translatable(K + "stored", menu.getStoredKj() + " kJ");
+            case "hint" -> {
+                String hint;
+                if (mode == CzPullerBlockEntity.Mode.NONE) hint = "need_seed";
+                else if (!CzPullerBlockEntity.isCrucible(menu.getSlot(CzPullerBlockEntity.SLOT_CRUCIBLE).getItem())) hint = "need_crucible";
+                else if (!CzPullerBlockEntity.isArgon(menu.getSlot(CzPullerBlockEntity.SLOT_AR).getItem())) hint = "need_ar";
+                else if (!menu.isReady()) hint = "need_poly";
+                else if (menu.getKw() <= 0) hint = "need_power";
+                else hint = "running";
+                yield Component.translatable(K + hint);
+            }
+            case "mode" -> mode == CzPullerBlockEntity.Mode.NONE ? null : Component.translatable(K + "mode." + mode.name().toLowerCase());
+            default -> null;
+        };
     }
 }

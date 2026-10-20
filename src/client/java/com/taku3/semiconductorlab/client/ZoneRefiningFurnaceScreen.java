@@ -23,29 +23,29 @@ public class ZoneRefiningFurnaceScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, color);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は ZoneRefiningFurnaceBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        Component power = Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()), String.format("%.0f kW", ZoneRefiningFurnaceBlockEntity.WATTS / 1000));
-        text(g, power, (imageWidth - font.width(power)) / 2, 18);
-        Component line;
-        int n = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_NINES), cap = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_BOAT_CAP);
-        boolean working = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_MODE) != ZoneRefiningFurnaceBlockEntity.MODE_IDLE;
-        if (menu.getSlot(ZoneRefiningFurnaceBlockEntity.GE_SLOT).getItem().isEmpty()) line = Component.translatable(K + "hint");
-        else if (cap == 0) line = Component.translatable(K + "no_boat");
-        else if (working && menu.getKw() <= 0) line = Component.translatable(K + "need_power");
-        else if (menu.get(ZoneRefiningFurnaceBlockEntity.DATA_MODE) == ZoneRefiningFurnaceBlockEntity.MODE_DOPE) line = Component.translatable(K + "doping", n + "N");
-        else if (n >= 9 && !menu.getSlot(ZoneRefiningFurnaceBlockEntity.DOPANT_SLOT).getItem().isEmpty()) line = Component.translatable(K + "purity", n + "N", (n >= 10 ? "-" : "10N"));
-        else if (n >= 9 && n < 10 && cap < 10) line = Component.translatable(K + "clay_cap");
-        else if (n >= 9 && n < 10 && menu.get(ZoneRefiningFurnaceBlockEntity.DATA_ROUTE_CAP) < 10) line = Component.translatable(K + "route_cap");
-        else if (n >= 9 && n < 10) line = Component.translatable(K + "ready", n + "N");
-        else if (n >= 10) line = Component.translatable(K + "max", n + "N");
-        // 決定（2026-10）：6N 以下＋ドーパントは「先に精製 → 9N になったら自動でドープ」。待っている理由を見せる
-        else if (!menu.getSlot(ZoneRefiningFurnaceBlockEntity.DOPANT_SLOT).getItem().isEmpty()) line = Component.translatable(K + "dopant_wait");
-        else {
-            String cur = n <= 0 ? Component.translatable(K + "unrefined").getString() : n + "N";
-            line = Component.translatable(K + "purity", cur, (n <= 0 ? 6 : 9) + "N");
-        }
-        text(g, line, (imageWidth - font.width(line)) / 2, 66);
+    protected Component text(String id) {
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()), String.format("%.0f kW", ZoneRefiningFurnaceBlockEntity.WATTS / 1000));
+            case "line" -> {
+                int n = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_NINES), cap = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_BOAT_CAP);
+                boolean working = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_MODE) != ZoneRefiningFurnaceBlockEntity.MODE_IDLE;
+                if (menu.getSlot(ZoneRefiningFurnaceBlockEntity.GE_SLOT).getItem().isEmpty()) yield Component.translatable(K + "hint");
+                if (cap == 0) yield Component.translatable(K + "no_boat");
+                if (working && menu.getKw() <= 0) yield Component.translatable(K + "need_power");
+                if (menu.get(ZoneRefiningFurnaceBlockEntity.DATA_MODE) == ZoneRefiningFurnaceBlockEntity.MODE_DOPE) yield Component.translatable(K + "doping", n + "N");
+                if (n >= 9 && !menu.getSlot(ZoneRefiningFurnaceBlockEntity.DOPANT_SLOT).getItem().isEmpty()) yield Component.translatable(K + "purity", n + "N", (n >= 10 ? "-" : "10N"));
+                if (n >= 9 && n < 10 && cap < 10) yield Component.translatable(K + "clay_cap");
+                if (n >= 9 && n < 10 && menu.get(ZoneRefiningFurnaceBlockEntity.DATA_ROUTE_CAP) < 10) yield Component.translatable(K + "route_cap");
+                if (n >= 9 && n < 10) yield Component.translatable(K + "ready", n + "N");
+                if (n >= 10) yield Component.translatable(K + "max", n + "N");
+                // 決定（2026-10）：6N 以下＋ドーパントは「先に精製 → 9N になったら自動でドープ」。待っている理由を見せる
+                if (!menu.getSlot(ZoneRefiningFurnaceBlockEntity.DOPANT_SLOT).getItem().isEmpty()) yield Component.translatable(K + "dopant_wait");
+                String cur = n <= 0 ? Component.translatable(K + "unrefined").getString() : n + "N";
+                yield Component.translatable(K + "purity", cur, (n <= 0 ? 6 : 9) + "N");
+            }
+            default -> null;
+        };
     }
 }

@@ -46,6 +46,10 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_DISTILL, 8, 53, TrichlorosilaneReactorBlockEntity::isTcs)
             .out(SLOT_OUT, 78, 26)
             .out(SLOT_H2, 78, 50)
+            .right("power", 17, 1, "gui.semiconductor-lab.trichlorosilane_reactor.power").samples("20.0 kW")
+            .right("need", 27, 1, "gui.semiconductor-lab.trichlorosilane_reactor.need").samples("20 kW")
+            .right("hint", 38, 3, "gui.semiconductor-lab.trichlorosilane_reactor.need_input", "gui.semiconductor-lab.trichlorosilane_reactor.need_power", "gui.semiconductor-lab.trichlorosilane_reactor.distilling", "gui.semiconductor-lab.trichlorosilane_reactor.running")
+            .bottom("recipe", "gui.semiconductor-lab.trichlorosilane_reactor.recipe", "gui.semiconductor-lab.trichlorosilane_reactor.recipe_distill")
             .build();
 
     public TrichlorosilaneReactorBlockEntity(BlockPos pos, BlockState state) {

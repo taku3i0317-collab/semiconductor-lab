@@ -22,15 +22,15 @@ public class AirSeparationScreen extends MachineScreen {
         if (h > 0) g.fill(x, y + BAR_H - h, x + BAR_W, y + BAR_H, 0xFF7FC8FF);   // 下から液体空気がたまる
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は AirSeparationBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        String[] gas = {"N2", "O2", "Ar"};
-        for (int i = 0; i < gas.length; i++) text(g, gas[i], 44, 21 + i * 18);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
-        String hint = !menu.isReady() ? "output_full" : menu.getKw() <= 0 ? "need_power" : "running";
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
-        text(g, Component.translatable(K + "air"), TEXT_X, 60);
+    protected Component text(String id) {
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "stored" -> Component.translatable(K + "stored", menu.getStoredKj() + " kJ");
+            case "hint" -> Component.translatable(K + (!menu.isReady() ? "output_full" : menu.getKw() <= 0 ? "need_power" : "running"));
+            case "air" -> Component.translatable(K + "air");
+            default -> null;
+        };
     }
 }

@@ -40,6 +40,10 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_IN, 8, 17, HydrogenFurnaceBlockEntity::isInput)
             .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS))
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.hydrogen_furnace.power").samples("10.0 kW")
+            .right("stored", 27, 1, "gui.semiconductor-lab.hydrogen_furnace.stored").samples("50 kJ")
+            .right("hint", 38, 3, "gui.semiconductor-lab.hydrogen_furnace.need_input", "gui.semiconductor-lab.hydrogen_furnace.need_h2", "gui.semiconductor-lab.hydrogen_furnace.not_enough", "gui.semiconductor-lab.hydrogen_furnace.need_power", "gui.semiconductor-lab.hydrogen_furnace.sintering", "gui.semiconductor-lab.hydrogen_furnace.reducing_ge", "gui.semiconductor-lab.hydrogen_furnace.reducing")
+            .label("h2", 28, 57, 12, "H2")
             .build();
 
     public HydrogenFurnaceBlockEntity(BlockPos pos, BlockState state) {

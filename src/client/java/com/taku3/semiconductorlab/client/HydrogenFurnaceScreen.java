@@ -28,20 +28,24 @@ public class HydrogenFurnaceScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, color);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は HydrogenFurnaceBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
-        ItemStack h2 = menu.getSlot(HydrogenFurnaceBlockEntity.SLOT_H2).getItem();
-        String hint;
-        HydrogenFurnaceBlockEntity.Mode m = mode();
-        if (m == HydrogenFurnaceBlockEntity.Mode.NONE) hint = "need_input";
-        else if (!h2.is(Gas.HYDROGEN_GAS)) hint = "need_h2";
-        else if (!menu.isReady()) hint = "not_enough";   // 量が足りない or 出口が満杯
-        else if (menu.getKw() <= 0) hint = "need_power";
-        else hint = switch (m) { case SINTER -> "sintering"; case REDUCE_GE -> "reducing_ge"; default -> "reducing"; };
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
-        text(g, Component.literal("H2"), 28, 57);
+    protected Component text(String id) {
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "stored" -> Component.translatable(K + "stored", menu.getStoredKj() + " kJ");
+            case "hint" -> {
+                ItemStack h2 = menu.getSlot(HydrogenFurnaceBlockEntity.SLOT_H2).getItem();
+                HydrogenFurnaceBlockEntity.Mode m = mode();
+                String hint;
+                if (m == HydrogenFurnaceBlockEntity.Mode.NONE) hint = "need_input";
+                else if (!h2.is(Gas.HYDROGEN_GAS)) hint = "need_h2";
+                else if (!menu.isReady()) hint = "not_enough";   // 量が足りない or 出口が満杯
+                else if (menu.getKw() <= 0) hint = "need_power";
+                else hint = switch (m) { case SINTER -> "sintering"; case REDUCE_GE -> "reducing_ge"; default -> "reducing"; };
+                yield Component.translatable(K + hint);
+            }
+            default -> null;
+        };
     }
 }

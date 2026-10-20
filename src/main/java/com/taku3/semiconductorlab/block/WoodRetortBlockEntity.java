@@ -63,6 +63,7 @@ public class WoodRetortBlockEntity extends BlockEntity implements MachineBE {
             .out(SLOT_CHARCOAL, OUT_X, OUT_Y)
             .out(SLOT_VINEGAR, OUT_X + 22, OUT_Y)
             .out(SLOT_TAR, OUT_X, OUT_Y + 22)
+            .text("hint", 64, 64, 108, 2, MachineLayout.keys("gui.semiconductor-lab.wood_retort.", "need_input", "need_fuel", "running", "out_full"))
             .build();
 
     public WoodRetortBlockEntity(BlockPos pos, BlockState state) { super(Chemistry.WOOD_RETORT.type, pos, state); }

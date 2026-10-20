@@ -25,20 +25,25 @@ public class SealingStationScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFFFFC870);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は SealingStationBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
+    protected Component text(String id) {
         double pa = SealingStationBlockEntity.decodePa(menu.get(SealingStationBlockEntity.DATA_PRESSURE));
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "pressure", pa < 0 ? "-" : VacuumChamberBlockEntity.formatPa(pa)), TEXT_X, 32);
-        text(g, Component.translatable(K + "target", VacuumChamberBlockEntity.formatPa(SealingStationBlockEntity.SEAL_MAX_PA)), TEXT_X, 44);
-        String hint;
-        if (SealingStationBlockEntity.sealedProduct(menu.getSlot(SealingStationBlockEntity.SLOT_IN).getItem()).isEmpty()) hint = "need_input";
-        else if (pa < 0) hint = "need_chamber";
-        else if (pa > SealingStationBlockEntity.SEAL_MAX_PA) hint = "need_vacuum";
-        else if (!menu.isReady()) hint = "output_full";
-        else if (menu.getKw() <= 0) hint = "need_power";
-        else hint = "sealing";
-        text(g, Component.translatable(K + hint), TEXT_X, 60);
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "pressure" -> Component.translatable(K + "pressure", pa < 0 ? "-" : VacuumChamberBlockEntity.formatPa(pa));
+            case "target" -> Component.translatable(K + "target", VacuumChamberBlockEntity.formatPa(SealingStationBlockEntity.SEAL_MAX_PA));
+            case "hint" -> {
+                String hint;
+                if (SealingStationBlockEntity.sealedProduct(menu.getSlot(SealingStationBlockEntity.SLOT_IN).getItem()).isEmpty()) hint = "need_input";
+                else if (pa < 0) hint = "need_chamber";
+                else if (pa > SealingStationBlockEntity.SEAL_MAX_PA) hint = "need_vacuum";
+                else if (!menu.isReady()) hint = "output_full";
+                else if (menu.getKw() <= 0) hint = "need_power";
+                else hint = "sealing";
+                yield Component.translatable(K + hint);
+            }
+            default -> null;
+        };
     }
 }

@@ -24,18 +24,23 @@ public class OxyhydrogenBurnerScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFF9AD8FF);   // 酸水素炎はほとんど見えない淡い青
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は OxyhydrogenBurnerBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.literal("H2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_H2)), OxyhydrogenBurnerBlockEntity.H2_X - 2, OxyhydrogenBurnerBlockEntity.GAS_Y - 10);
-        text(g, Component.literal("O2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_O2)), OxyhydrogenBurnerBlockEntity.O2_X - 2, OxyhydrogenBurnerBlockEntity.GAS_Y - 10);
-        ItemStack in = menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_IN).getItem();
-        String hint;
-        if (in.isEmpty()) hint = "need_input";
-        else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_PROGRESS) > 0) hint = "melting";
-        else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_H2) < OxyhydrogenBurnerBlockEntity.H2_PER && menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_H2).getItem().isEmpty()) hint = "need_h2";
-        else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_O2) < OxyhydrogenBurnerBlockEntity.O2_PER && menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_O2).getItem().isEmpty()) hint = "need_o2";
-        else hint = "out_full";
-        text(g, Component.translatable(K + hint), 80, 22);
+    protected Component text(String id) {
+        return switch (id) {
+            case "h2" -> Component.literal("H2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_H2));
+            case "o2" -> Component.literal("O2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_O2));
+            case "hint" -> {
+                ItemStack in = menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_IN).getItem();
+                String hint;
+                if (in.isEmpty()) hint = "need_input";
+                else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_PROGRESS) > 0) hint = "melting";
+                else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_H2) < OxyhydrogenBurnerBlockEntity.H2_PER && menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_H2).getItem().isEmpty()) hint = "need_h2";
+                else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_O2) < OxyhydrogenBurnerBlockEntity.O2_PER && menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_O2).getItem().isEmpty()) hint = "need_o2";
+                else hint = "out_full";
+                yield Component.translatable(K + hint);
+            }
+            default -> null;
+        };
     }
 }

@@ -40,6 +40,9 @@ public class BessemerConverterBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_IN, 26, 35, BessemerConverterBlockEntity::isPigIron)
             .out(SLOT_OUT, 134, 35)
+            .text("power", 48, 32, 84, 1, "gui.semiconductor-lab.bessemer_converter.power").samples("50.0 kW")
+            .text("stored", 48, 43, 84, 1, "gui.semiconductor-lab.bessemer_converter.stored").samples("50 kJ")
+            .text("line", 8, 60, 164, 1, "gui.semiconductor-lab.bessemer_converter.need_iron", "gui.semiconductor-lab.bessemer_converter.output_full", "gui.semiconductor-lab.bessemer_converter.need_power", "gui.semiconductor-lab.bessemer_converter.stage.silicon", "gui.semiconductor-lab.bessemer_converter.stage.carbon", "gui.semiconductor-lab.bessemer_converter.stage.drop")
             .build();
 
     public BessemerConverterBlockEntity(BlockPos pos, BlockState state) {

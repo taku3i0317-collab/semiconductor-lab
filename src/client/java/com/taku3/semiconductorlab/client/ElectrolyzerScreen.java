@@ -24,26 +24,27 @@ public class ElectrolyzerScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFF4FA3FF); // 青＝電気
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は ElectrolyzerBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
-        // 状態：足りないものを1つだけ表示（上から順に確認）
-        String hint;
-        var second = menu.getSlot(ElectrolyzerBlockEntity.SLOT_ACID).getItem();
-        if (!menu.getSlot(ElectrolyzerBlockEntity.SLOT_WATER).getItem().is(Items.WATER_BUCKET)) hint = "need_water";
-        else if (!ElectrolyzerBlockEntity.isSecondInput(second)) hint = "need_acid";
-        else if (ElectrolyzerBlockEntity.isSalt(second) && second.getCount() < ElectrolyzerBlockEntity.SALT_PER_RUN) hint = "need_salt";
-        else if (!menu.isReady()) hint = "output_full";
-        else if (menu.getKw() <= 0) hint = "need_power";
-        else hint = "running";
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
-        // モード（水の電気分解／クロルアルカリ）と出口ラベル。陽極は酸素か塩素
+    protected Component text(String id) {
         boolean brine = menu.get(ElectrolyzerBlockEntity.DATA_MODE) == ElectrolyzerBlockEntity.MODE_BRINE;
-        text(g, Component.translatable(K + (brine ? "mode_brine" : "mode_water")), TEXT_X, 62);
-        text(g, Component.literal("H2"), 62, 21);
-        text(g, Component.literal(brine ? "Cl2" : "O2"), 58, 39);
-        text(g, Component.literal("NaOH"), 52, 57);
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "stored" -> Component.translatable(K + "stored", menu.getStoredKj() + " kJ");
+            case "hint" -> {
+                String hint;
+                var second = menu.getSlot(ElectrolyzerBlockEntity.SLOT_ACID).getItem();
+                if (!menu.getSlot(ElectrolyzerBlockEntity.SLOT_WATER).getItem().is(Items.WATER_BUCKET)) hint = "need_water";
+                else if (!ElectrolyzerBlockEntity.isSecondInput(second)) hint = "need_acid";
+                else if (ElectrolyzerBlockEntity.isSalt(second) && second.getCount() < ElectrolyzerBlockEntity.SALT_PER_RUN) hint = "need_salt";
+                else if (!menu.isReady()) hint = "output_full";
+                else if (menu.getKw() <= 0) hint = "need_power";
+                else hint = "running";
+                yield Component.translatable(K + hint);
+            }
+            case "mode" -> Component.translatable(K + (brine ? "mode_brine" : "mode_water"));
+            case "anode" -> Component.literal(brine ? "Cl2" : "O2");   // 陽極は酸素か塩素
+            default -> null;
+        };
     }
 }

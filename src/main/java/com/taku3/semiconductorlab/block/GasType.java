@@ -46,6 +46,11 @@ public enum GasType {
         return NONE;
     }
 
+    /** ガスホルダーの画面に出るガスの名前の lang キー（全部の種類。画面の自動チェック用、IMP-30） */
+    public static String[] langKeys() {
+        return java.util.Arrays.stream(values()).map(t -> "gui.semiconductor-lab.gas_holder.gas." + t.key).toArray(String[]::new);
+    }
+
     public static GasType byIndex(int i) { return i >= 0 && i < values().length ? values()[i] : NONE; }
 
     /**

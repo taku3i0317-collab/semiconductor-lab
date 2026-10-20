@@ -23,13 +23,16 @@ public class TrichlorosilaneReactorScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, (menu.get(TrichlorosilaneReactorBlockEntity.DATA_MODE) != 0) ? 0xFF9AD0FF : 0xFFE0C080);   // 蒸留＝水色、合成＝黄土色
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は TrichlorosilaneReactorBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "need", String.format("%.0f kW", ((menu.get(TrichlorosilaneReactorBlockEntity.DATA_MODE) != 0) ? TrichlorosilaneReactorBlockEntity.DISTILL_WATTS : TrichlorosilaneReactorBlockEntity.SYNTH_WATTS) / 1000)), TEXT_X, 32);
-        String hint = !menu.isReady() ? "need_input" : menu.getKw() <= 0 ? "need_power" : (menu.get(TrichlorosilaneReactorBlockEntity.DATA_MODE) != 0) ? "distilling" : "running";
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
-        text(g, Component.translatable(K + ((menu.get(TrichlorosilaneReactorBlockEntity.DATA_MODE) != 0) ? "recipe_distill" : "recipe")), TEXT_X, 60);
+    protected Component text(String id) {
+        boolean distill = menu.get(TrichlorosilaneReactorBlockEntity.DATA_MODE) != 0;
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "need" -> Component.translatable(K + "need", String.format("%.0f kW", (distill ? TrichlorosilaneReactorBlockEntity.DISTILL_WATTS : TrichlorosilaneReactorBlockEntity.SYNTH_WATTS) / 1000));
+            case "hint" -> Component.translatable(K + (!menu.isReady() ? "need_input" : menu.getKw() <= 0 ? "need_power" : distill ? "distilling" : "running"));
+            case "recipe" -> Component.translatable(K + (distill ? "recipe_distill" : "recipe"));
+            default -> null;
+        };
     }
 }

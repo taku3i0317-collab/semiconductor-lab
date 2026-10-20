@@ -37,29 +37,31 @@ public class AchesonFurnaceScreen extends MachineScreen {
         g.fill(mark, ty - 1, mark + 1, ty + TEMP_H + 1, 0xFFFFFFFF);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は AchesonFurnaceBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
+    protected Component text(String id) {
         double kw = menu.getKw(), needKw = REQUIRED_WATTS / 1000;
         int t = menu.get(AchesonFurnaceBlockEntity.DATA_TEMP);
         boolean under = kw < needKw * 0.97;
-        text(g, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.0f kW", kw)), TEXT_X, 16, under ? WARN_COLOR : TEXT_COLOR);
-        text(g, Component.translatable(K + "need", String.format("%.0f kW", needKw)), TEXT_X, 26);
-        text(g, Component.translatable(K + "temp", t + "℃"), TEXT_X, 38);
-        ItemStack carbon = menu.getSlot(SLOT_CARBON).getItem(), sand = menu.getSlot(SLOT_SAND).getItem();
-        String hint;
-        Object arg = null;
-        if (carbon.getCount() < CARBON_PER_BATCH) hint = "need_carbon";
-        else if (sand.isEmpty()) hint = "need_sand";
-        else if (!menu.isReady()) hint = "output_full";
-        else if (kw <= 0) hint = "need_power";
-        else if (under && t < GRAPHITIZE_C) { hint = "underpowered"; arg = (int) steadyTemperature(kw * 1000) + "℃"; }
-        else if (t < GRAPHITIZE_C) hint = "heating";
-        else hint = "graphitizing";
-        Component line = Component.translatable(K + hint);
-        text(g, line, TEXT_X, 50, hint.equals("underpowered") ? WARN_COLOR : TEXT_COLOR);
-        if (hint.equals("underpowered")) text(g, Component.translatable(K + "underpowered2", arg), TEXT_X, 60, WARN_COLOR);
-        text(g, Component.literal("C"), 28, 21);
-        text(g, Component.literal("SiO2"), 28, 57);
+        return switch (id) {
+            case "power" -> { Component c = Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.0f kW", kw)); yield under ? warn(c) : c; }
+            case "need" -> Component.translatable(K + "need", String.format("%.0f kW", needKw));
+            case "temp" -> Component.translatable(K + "temp", t + "℃");
+            case "hint", "hint2" -> {
+                ItemStack carbon = menu.getSlot(SLOT_CARBON).getItem(), sand = menu.getSlot(SLOT_SAND).getItem();
+                String hint;
+                if (carbon.getCount() < CARBON_PER_BATCH) hint = "need_carbon";
+                else if (sand.isEmpty()) hint = "need_sand";
+                else if (!menu.isReady()) hint = "output_full";
+                else if (kw <= 0) hint = "need_power";
+                else if (under && t < GRAPHITIZE_C) hint = "underpowered";
+                else if (t < GRAPHITIZE_C) hint = "heating";
+                else hint = "graphitizing";
+                if (id.equals("hint2")) yield hint.equals("underpowered") ? warn(Component.translatable(K + "underpowered2", (int) steadyTemperature(kw * 1000) + "℃")) : null;
+                Component c = Component.translatable(K + hint);
+                yield hint.equals("underpowered") ? warn(c) : c;
+            }
+            default -> null;
+        };
     }
 }

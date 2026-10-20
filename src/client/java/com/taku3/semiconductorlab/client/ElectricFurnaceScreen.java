@@ -23,16 +23,21 @@ public class ElectricFurnaceScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFFFFB23E);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は ElectricFurnaceBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
-        String hint;
-        if (!ElectricFurnaceBlockEntity.isInput(menu.getSlot(ElectricFurnaceBlockEntity.SLOT_IN).getItem())) hint = "need_input";
-        else if (!menu.isReady()) hint = "output_full";
-        else if (menu.getKw() <= 0) hint = "need_power";
-        else hint = "heating";
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
+    protected Component text(String id) {
+        return switch (id) {
+            case "power" -> Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.1f kW", menu.getKw()));
+            case "stored" -> Component.translatable("gui.semiconductor-lab.hydrogen_furnace.stored", menu.getStoredKj() + " kJ");
+            case "hint" -> {
+                String hint;
+                if (!ElectricFurnaceBlockEntity.isInput(menu.getSlot(ElectricFurnaceBlockEntity.SLOT_IN).getItem())) hint = "need_input";
+                else if (!menu.isReady()) hint = "output_full";
+                else if (menu.getKw() <= 0) hint = "need_power";
+                else hint = "heating";
+                yield Component.translatable(K + hint);
+            }
+            default -> null;
+        };
     }
 }

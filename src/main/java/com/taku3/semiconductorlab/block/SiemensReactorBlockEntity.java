@@ -39,6 +39,10 @@ public class SiemensReactorBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_H2, 8, 50, SiemensReactorBlockEntity::isHydrogen)
             .out(SLOT_OUT, 78, 26)
             .out(SLOT_HCL, 78, 50)
+            .right("power", 17, 1, "gui.semiconductor-lab.siemens_reactor.power").samples("500.0 kW")
+            .right("need", 27, 1, "gui.semiconductor-lab.siemens_reactor.need").samples("500 kW")
+            .right("hint", 38, 3, "gui.semiconductor-lab.siemens_reactor.need_input", "gui.semiconductor-lab.siemens_reactor.need_power", "gui.semiconductor-lab.siemens_reactor.running")
+            .bottom("recipe", "gui.semiconductor-lab.siemens_reactor.recipe")
             .build();
 
     public SiemensReactorBlockEntity(BlockPos pos, BlockState state) {

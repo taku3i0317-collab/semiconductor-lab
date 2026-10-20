@@ -48,6 +48,11 @@ public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements GasS
             .out(SLOT_H2, 78, 17)
             .out(SLOT_O2, 78, 35)
             .out(SLOT_NAOH, 78, 53)
+            .right("power", 17, 1, "gui.semiconductor-lab.electrolyzer.power").samples("5.0 kW")
+            .right("stored", 27, 1, "gui.semiconductor-lab.electrolyzer.stored").samples("50 kJ")
+            .right("hint", 38, 3, "gui.semiconductor-lab.electrolyzer.need_water", "gui.semiconductor-lab.electrolyzer.need_acid", "gui.semiconductor-lab.electrolyzer.need_salt", "gui.semiconductor-lab.electrolyzer.output_full", "gui.semiconductor-lab.electrolyzer.need_power", "gui.semiconductor-lab.electrolyzer.running")
+            .bottom("mode", "gui.semiconductor-lab.electrolyzer.mode_brine", "gui.semiconductor-lab.electrolyzer.mode_water")
+            .label("h2", 62, 21, 12, "H2").text("anode", 58, 39, 18, 1, "=O2", "=Cl2").label("naoh", 52, 57, 24, "NaOH")
             .build();
 
     public ElectrolyzerBlockEntity(BlockPos pos, BlockState state) {

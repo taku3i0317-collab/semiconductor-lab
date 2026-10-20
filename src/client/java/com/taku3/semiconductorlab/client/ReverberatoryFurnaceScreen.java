@@ -31,9 +31,10 @@ public class ReverberatoryFurnaceScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFFE8D24A);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は ReverberatoryFurnaceBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
+    protected Component text(String id) {
+        if (!id.equals("hint")) return null;
         ItemStack in = menu.getSlot(ReverberatoryFurnaceBlockEntity.SLOT_IN).getItem();
         ItemStack fuel = menu.getSlot(ReverberatoryFurnaceBlockEntity.SLOT_FUEL).getItem();
         String hint;
@@ -41,7 +42,6 @@ public class ReverberatoryFurnaceScreen extends MachineScreen {
         else if (menu.get(ReverberatoryFurnaceBlockEntity.DATA_BURN) <= 0 && fuel.isEmpty()) hint = "need_fuel";
         else if (menu.get(ReverberatoryFurnaceBlockEntity.DATA_PROGRESS) > 0) hint = "roasting";
         else hint = "out_full";   // 鉱石も燃料もあるのに進まない＝出口のどれかが満杯
-        text(g, Component.translatable(K + hint), 64, 63);   // 燃料スロットの右・出口の下
-        text(g, Component.literal("SO2"), ReverberatoryFurnaceBlockEntity.OUT_X + 22 + 18, ReverberatoryFurnaceBlockEntity.OUT_Y + 4);
+        return Component.translatable(K + hint);
     }
 }

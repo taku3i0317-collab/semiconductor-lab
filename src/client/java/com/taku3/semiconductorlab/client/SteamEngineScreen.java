@@ -25,16 +25,21 @@ public class SteamEngineScreen extends MachineScreen {
         if (h > 0) g.fill(x, y + FLAME_H - h, x + FLAME_W, y + FLAME_H, 0xFFFF8C1E);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は SteamEngineBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "output", String.format("%.1f kW", (menu.get(SteamEngineBlockEntity.DATA_DECI_KW) / 10.0))), TEXT_X, 20);
-        text(g, Component.translatable(K + "stored", menu.get(SteamEngineBlockEntity.DATA_KJ) + " kJ"), TEXT_X, 32);
-        text(g, menu.get(SteamEngineBlockEntity.DATA_WATER) < 0 ? Component.translatable(K + "water_intake") : Component.translatable(K + "water", menu.get(SteamEngineBlockEntity.DATA_WATER)), TEXT_X, 44);
-        Component hint = null;
-        if (menu.get(SteamEngineBlockEntity.DATA_BURN) > 0) hint = Component.translatable(K + "running");
-        else if (menu.get(SteamEngineBlockEntity.DATA_WATER) == 0 && !menu.getSlot(1).getItem().is(Items.WATER_BUCKET)) hint = Component.translatable(K + "need_water");
-        else if (menu.getSlot(0).getItem().isEmpty()) hint = Component.translatable(K + "need_coal");
-        if (hint != null) text(g, hint, TEXT_X, 58);
+    protected Component text(String id) {
+        int water = menu.get(SteamEngineBlockEntity.DATA_WATER);
+        return switch (id) {
+            case "output" -> Component.translatable(K + "output", String.format("%.1f kW", menu.get(SteamEngineBlockEntity.DATA_DECI_KW) / 10.0));
+            case "stored" -> Component.translatable(K + "stored", menu.get(SteamEngineBlockEntity.DATA_KJ) + " kJ");
+            case "water" -> water < 0 ? Component.translatable(K + "water_intake") : Component.translatable(K + "water", water);
+            case "hint" -> {
+                if (menu.get(SteamEngineBlockEntity.DATA_BURN) > 0) yield Component.translatable(K + "running");
+                if (water == 0 && !menu.getSlot(1).getItem().is(Items.WATER_BUCKET)) yield Component.translatable(K + "need_water");
+                if (menu.getSlot(0).getItem().isEmpty()) yield Component.translatable(K + "need_coal");
+                yield null;
+            }
+            default -> null;
+        };
     }
 }

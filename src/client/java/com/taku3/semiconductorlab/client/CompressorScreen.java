@@ -25,19 +25,24 @@ public class CompressorScreen extends MachineScreen {
         if (w > 0) g.fill(x, y, x + w, y + BAR_H, 0xFF4FA3FF);
     }
 
+    /** 置き場所ごとに今出す文（位置・幅・行数は CompressorBlockEntity.LAYOUT） */
     @Override
-    protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
-        super.extractLabels(g, mouseX, mouseY);
-        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
-        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
-        ItemStack empty = menu.getSlot(CompressorBlockEntity.SLOT_EMPTY).getItem();
-        ItemStack out = menu.getSlot(CompressorBlockEntity.SLOT_OUT).getItem();
-        String hint;
-        if (!empty.is(Gas.EMPTY_GAS_CYLINDER)) hint = "need_cylinder";
-        else if (!menu.isReady()) hint = !out.isEmpty() && out.getCount() >= out.getMaxStackSize() ? "output_full" : "need_gas";
-        else if (menu.getKw() <= 0) hint = "need_power";
-        else hint = "running";
-        text(g, Component.translatable(K + hint), TEXT_X, 48);
-        text(g, Component.translatable(K + "mol", CompressorBlockEntity.MOL_PER_CYLINDER), TEXT_X, 60);
+    protected Component text(String id) {
+        return switch (id) {
+            case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "stored" -> Component.translatable(K + "stored", menu.getStoredKj() + " kJ");
+            case "hint" -> {
+                ItemStack empty = menu.getSlot(CompressorBlockEntity.SLOT_EMPTY).getItem();
+                ItemStack out = menu.getSlot(CompressorBlockEntity.SLOT_OUT).getItem();
+                String hint;
+                if (!empty.is(Gas.EMPTY_GAS_CYLINDER)) hint = "need_cylinder";
+                else if (!menu.isReady()) hint = !out.isEmpty() && out.getCount() >= out.getMaxStackSize() ? "output_full" : "need_gas";
+                else if (menu.getKw() <= 0) hint = "need_power";
+                else hint = "running";
+                yield Component.translatable(K + hint);
+            }
+            case "mol" -> Component.translatable(K + "mol", CompressorBlockEntity.MOL_PER_CYLINDER);
+            default -> null;
+        };
     }
 }

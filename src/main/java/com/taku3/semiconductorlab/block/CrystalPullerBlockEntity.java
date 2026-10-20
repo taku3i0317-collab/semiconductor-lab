@@ -43,6 +43,10 @@ public class CrystalPullerBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_SEED, 8, 35, s -> modeOf(s) != Mode.NONE)
             .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS))
             .out(SLOT_OUT, 78, 35)
+            .right("power", 17, 1, "gui.semiconductor-lab.crystal_puller.power").samples("50.0 kW")
+            .right("stored", 27, 1, "gui.semiconductor-lab.crystal_puller.stored").samples("50 kJ")
+            .right("hint", 38, 3, "gui.semiconductor-lab.crystal_puller.need_seed", "gui.semiconductor-lab.crystal_puller.need_h2", "gui.semiconductor-lab.crystal_puller.need_ge", "gui.semiconductor-lab.crystal_puller.need_power", "gui.semiconductor-lab.crystal_puller.running").fit()
+            .bottom("mode", "gui.semiconductor-lab.crystal_puller.mode.seed", "gui.semiconductor-lab.crystal_puller.mode.grow")
             .build();
 
     public CrystalPullerBlockEntity(BlockPos pos, BlockState state) {
