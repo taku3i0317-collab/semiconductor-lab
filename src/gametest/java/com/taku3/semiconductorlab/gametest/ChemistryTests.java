@@ -521,6 +521,28 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-25] フェノール：コールタール → 中油 → アルカリで抽出 → 酸で戻す（IMP3、O-006）
+    // =====================================================================
+
+    /** コールタール →かまど→ 中油、＋NaOH → フェノールのナトリウム塩の液、＋硫酸 → フェノール（瓶は戻る）。中油にいきなり硫酸ではできない */
+    @GameTest
+    public void phenol(GameTestHelper h) {
+        var lv = h.getLevel();
+        var mgr = lv.getServer().getRecipeManager();
+        var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.COAL_TAR).is(Chemistry.CARBOLIC_OIL), "coal tar distilled -> middle oil");
+        h.assertTrue(recipeUses(h, "sodium_phenolate", Chemistry.CARBOLIC_OIL) && recipeUses(h, "sodium_phenolate", Gas.SODIUM_HYDROXIDE), "middle oil + NaOH -> phenoxide");
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(Chemistry.SODIUM_PHENOLATE), new ItemStack(Chemistry.SULFURIC_ACID)));
+        var r = mgr.getRecipeFor(CRAFT, in, lv).orElseThrow().value();
+        h.assertTrue(r.assemble(in).is(Chemistry.PHENOL), "phenoxide + sulfuric acid -> phenol");
+        h.assertTrue(r.getRemainingItems(in).stream().anyMatch(st -> !st.isEmpty()), "the acid bottle comes back");
+        var direct = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(Chemistry.CARBOLIC_OIL), new ItemStack(Chemistry.SULFURIC_ACID)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, direct, lv).isEmpty(), "acid straight into the oil does not separate phenol");
+        LOG.info("[LAB] phenol [2-25]: coal tar -> middle oil -> + NaOH -> phenoxide -> + H2SO4 -> phenol");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

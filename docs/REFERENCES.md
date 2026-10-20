@@ -1462,6 +1462,20 @@
 - Wikipedia「Formox process」（銀・金属酸化物触媒）：https://en.wikipedia.org/wiki/Formox_process
 - 国土交通省「シックハウス対策について」（2003年 建築基準法改正）：https://www.mlit.go.jp/jutakukentiku/build/jutakukentiku_house_tk_000043.html
 
+## C6. 石炭のタールから消毒薬（フェノール）［2-25］
+**答え**：コールタールを蒸留した中油（約170〜230℃）にはフェノールが多い。フェノールは弱い酸なので、水酸化ナトリウムで洗うと塩になって水に移り、ナフタレンなどは油に残る。水の層に酸を入れるとフェノールが戻って分かれる。1834 ルンゲが発見、1867 リスターが手術の消毒に使った。
+
+- へえ①：石炭のタールから見つかったフェノールは、手術の消毒に使われた。
+- へえ②：酸・塩基の性質の違いで物を分ける。ポジ型レジストがアルカリに溶けるのも同じ考え。
+- へえ③：リスターの石炭酸消毒で、手術のあとの死亡がぐっと減った。
+- へえ④：今のフェノールは主にクメン法（1942 ウドリスら、1944 ホック）。
+
+確かさ：抽出のしくみ ◎／ルンゲ 1834・リスター 1867 ○（TECH_TREE の本物欄と一致）／GHS 区分 ○
+根拠：
+- Wikipedia「Phenol」：https://en.wikipedia.org/wiki/Phenol
+- Wikipedia「Coal tar」（留分）：https://en.wikipedia.org/wiki/Coal_tar
+- Wikipedia「Joseph Lister」：https://en.wikipedia.org/wiki/Joseph_Lister
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
