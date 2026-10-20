@@ -2204,6 +2204,20 @@
 - Wikipedia「Alkali Act 1863」：https://en.wikipedia.org/wiki/Alkali_Act_1863
 - Wikipedia「Nicolas Leblanc」：https://en.wikipedia.org/wiki/Nicolas_Leblanc
 
+## C31. 大きな原子を押しこんで割れにくくする（化学強化ガラス）［2-47］
+**答え**：ナトリウムを含むガラスを約400℃の溶けた硝酸カリウムにひたすと、表面の小さな Na+ が大きな K+ と入れかわり、表面がぎゅっと押し縮められる（圧縮応力）。ひびは引っぱる力で広がるので、表面の押す力に勝たないと割れ始めない。1962年 S・S・キスラーがイオン交換による強化を発表し、同じころコーニングが「Chemcor」を作ったが売れずに止めた。2007年、スマートフォンの画面用に改良されたアルミノケイ酸の強化ガラスが使われ、今はほとんどのスマートフォンの表面がこの種類のガラス ⚠️。
+
+- へえ①：大きな原子を小さなすき間に押しこむと、ガラスの表面が締まって割れにくくなる。
+- へえ②：ガラスが割れるのは、引っぱる力でひびが広がるから。
+- へえ③：一度は売れずに止めたガラスが、40年以上たってスマートフォンで使われた。
+- へえ④：アルミニウムが入ると、イオンが動きやすくなって深くまで強くできる。
+
+確かさ：イオン交換のしくみ ◎／キスラー 1962 ○／Chemcor（1960年代・1971年ごろ中止）○／2007 スマートフォン ○⚠️（TECH_TREE の本物欄の出典：Corning「Innovations」、WIRED「The Glass That Saved Corning」）
+根拠：
+- Wikipedia「Chemically strengthened glass」：https://en.wikipedia.org/wiki/Chemically_strengthened_glass
+- Wikipedia「Gorilla Glass」（歴史）：https://en.wikipedia.org/wiki/Gorilla_Glass
+- WIRED「The Glass That Saved Corning」（2012）
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

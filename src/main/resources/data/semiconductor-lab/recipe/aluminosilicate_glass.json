@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:aluminosilicate_batch",
+  "result": {
+    "id": "semiconductor-lab:aluminosilicate_glass"
+  },
+  "experience": 0.2,
+  "cookingtime": 400
+}

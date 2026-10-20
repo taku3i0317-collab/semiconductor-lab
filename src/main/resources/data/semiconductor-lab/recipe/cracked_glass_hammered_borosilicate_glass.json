@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:borosilicate_glass",
+    "semiconductor-lab:hammerstone"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cracked_glass",
+    "count": 1
+  }
+}

@@ -1102,6 +1102,33 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-47] 化学強化ガラス（IMP3、O-015）
+    // =====================================================================
+
+    /** 砂＋アルミナ＋ソーダ → 溶鉱炉 → アルミノケイ酸ガラス、＋硝石 → 浴 → かまど → 強化ガラス。たたき石でふつうのガラスは割れ、強化ガラスは割れない */
+    @GameTest
+    public void strengthenedGlass(GameTestHelper h) {
+        var BLAST = net.minecraft.world.item.crafting.RecipeType.BLASTING;
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(recipeUses(h, "aluminosilicate_batch", com.taku3.semiconductorlab.content.Metallurgy.ALUMINA), "batch has alumina");
+        h.assertTrue(cook(h, BLAST, Chemistry.ALUMINOSILICATE_BATCH).is(Chemistry.ALUMINOSILICATE_GLASS), "blast furnace melts it");
+        h.assertTrue(recipeUses(h, "glass_in_salt_bath", com.taku3.semiconductorlab.content.Gas.SALTPETER), "potassium nitrate bath");
+        h.assertTrue(cook(h, SMELT, Chemistry.GLASS_IN_SALT_BATH).is(Chemistry.STRENGTHENED_GLASS), "ion exchange in molten KNO3");
+        for (var g : new net.minecraft.world.item.Item[] {Chemistry.SODA_LIME_GLASS, Chemistry.BOROSILICATE_GLASS, Chemistry.ALUMINOSILICATE_GLASS})
+            h.assertTrue(craft2(h, new ItemStack(g), new ItemStack(com.taku3.semiconductorlab.content.Survival.HAMMERSTONE)).is(Chemistry.CRACKED_GLASS), "hammerstone cracks " + g);
+        h.assertTrue(craft2(h, new ItemStack(Chemistry.STRENGTHENED_GLASS), new ItemStack(com.taku3.semiconductorlab.content.Survival.HAMMERSTONE)).isEmpty(), "strengthened glass does not crack");
+        LOG.info("[LAB] strengthened glass [2-47]: aluminosilicate glass + KNO3 bath -> strengthened; hammerstone cracks ordinary glasses but not strengthened");
+        h.succeed();
+    }
+
+    /** 作業台に2つ並べたときの出力 */
+    private static ItemStack craft2(GameTestHelper h, ItemStack a, ItemStack b) {
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, java.util.List.of(a, b));
+        return h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel())
+                .map(r -> r.value().assemble(input)).orElse(ItemStack.EMPTY);
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

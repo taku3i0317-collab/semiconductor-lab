@@ -217,6 +217,13 @@ public final class Chemistry {
     public static final Item SALT_CAKE_CHARGE      = Reg.item("salt_cake_charge", new Item.Properties().stacksTo(16).craftRemainder(SALT_CAKE));
     public static final Item BLACK_ASH_CHARGE      = Reg.item("black_ash_charge");
     public static final Item BLACK_ASH             = Reg.item("black_ash");
+    // [2-47] 化学強化ガラス（IMP3、O-015）：砂5＋アルミナ＋ソーダ → アルミノケイ酸ガラスの調合原料 → 溶鉱炉 → アルミノケイ酸ガラス。
+    //   ガラス4＋硝石 → 硝酸カリウムの浴に入れたガラス4 →かまど（約400℃の溶けた塩）→ 化学強化ガラス（表面の Na+ が K+ に入れかわる、1962 キスラー）。
+    //   実験：たたき石でたたくと、ふつうのガラスは割れる、強化ガラスは割れない
+    public static final Item ALUMINOSILICATE_BATCH = Reg.item("aluminosilicate_batch");
+    public static final Item ALUMINOSILICATE_GLASS = Reg.item("aluminosilicate_glass");
+    public static final Item GLASS_IN_SALT_BATH    = Reg.item("glass_in_salt_bath");
+    public static final Item STRENGTHENED_GLASS    = Reg.item("strengthened_glass");
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
