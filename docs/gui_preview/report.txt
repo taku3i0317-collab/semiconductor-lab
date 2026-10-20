@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 62（ja・en）、文字の置き場所 236、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 64（ja・en）、文字の置き場所 238、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -58,6 +58,12 @@ gas_retort_en_us hint gui.semiconductor-lab.gas_retort.need_input w=53 lines=1/2
 gas_retort_en_us hint gui.semiconductor-lab.gas_retort.need_fuel w=167 lines=2/2
 gas_retort_en_us hint gui.semiconductor-lab.gas_retort.running w=108 lines=1/2
 gas_retort_en_us hint gui.semiconductor-lab.gas_retort.out_full w=53 lines=1/2
+lead_retort_en_us hint gui.semiconductor-lab.lead_retort.need_input w=160 lines=2/2
+lead_retort_en_us hint gui.semiconductor-lab.lead_retort.need_bottle w=136 lines=2/2
+lead_retort_en_us hint gui.semiconductor-lab.lead_retort.need_water w=169 lines=2/2
+lead_retort_en_us hint gui.semiconductor-lab.lead_retort.need_fuel w=167 lines=2/2
+lead_retort_en_us hint gui.semiconductor-lab.lead_retort.running w=113 lines=2/2
+lead_retort_en_us hint gui.semiconductor-lab.lead_retort.out_full w=53 lines=1/2
 acheson_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=67 lines=1/1
 acheson_furnace_en_us need gui.semiconductor-lab.acheson_furnace.need w=61 lines=1/1
 acheson_furnace_en_us temp gui.semiconductor-lab.acheson_furnace.temp w=56 lines=1/1
@@ -313,6 +319,12 @@ gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.need_input w=54 lines=1/2
 gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.need_fuel w=153 lines=2/2
 gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.running w=68 lines=1/2
 gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.out_full w=45 lines=1/2
+lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.need_input w=81 lines=1/2
+lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.need_bottle w=72 lines=1/2
+lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.need_water w=99 lines=1/2
+lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.need_fuel w=153 lines=2/2
+lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.running w=62 lines=1/2
+lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.out_full w=45 lines=1/2
 acheson_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=55 lines=1/1
 acheson_furnace_ja_jp need gui.semiconductor-lab.acheson_furnace.need w=55 lines=1/1
 acheson_furnace_ja_jp temp gui.semiconductor-lab.acheson_furnace.temp w=50 lines=1/1
