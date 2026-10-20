@@ -323,6 +323,14 @@ small.term { color: var(--sub); font-weight: 400; }
       for (const [yr] of eras) { const x = LEFT + xs(yr); ctx.moveTo(x, 18); ctx.lineTo(x, H); }
       ctx.stroke(); ctx.setLineDash([]);
       for (const [yr, lab] of eras) text(lab, `10px ${FONT}`, 'left', 'alphabetic', C.sub, LEFT + xs(yr) + 2, 14);
+      // いま進行中（現在の最前線）の列（S-005）：予想ではなく「今進んでいる研究・製品」だけを置く
+      if (L.frontier) {
+        const [f0, f1] = L.frontier;
+        ctx.globalAlpha = 0.5; ctx.fillStyle = C.panel; ctx.fillRect(f0, 18, f1 - f0, H - 18); ctx.globalAlpha = 1;
+        ctx.strokeStyle = C.hl; ctx.lineWidth = 1.5; ctx.setLineDash([6, 4]);
+        ctx.beginPath(); ctx.moveTo(f0, 18); ctx.lineTo(f0, H); ctx.stroke(); ctx.setLineDash([]);
+        text('いま進行中（現在の最前線）', `600 11px ${FONT}`, 'left', 'alphabetic', C.hl, f0 + 6, 14);
+      }
     }
     // モノとモノのつながり
     if (!V.plinkHidden) {

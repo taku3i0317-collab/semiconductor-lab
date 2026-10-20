@@ -126,6 +126,8 @@ def fill(n):
     n["parts"] = ids_of("部品")
     mm = re.search(r"(?:^|／|\s)素材[:：](.*?)(?:／|\n|$)", n["body"], re.S)
     n["materials"] = [x.strip() for x in re.split(r"[、,・]", mm.group(1)) if x.strip()] if mm else []
+    # いま進行中（S-005）：「区分: 進行中」のノードは、図の右端の「いま進行中（現在の最前線）」の列に置く
+    n["frontier"] = bool(re.search(r"(?:^|／|\s)区分[:：]\s*進行中", n["body"]))
     if "回避" in status_zone:
         n["st"] = "➖"
     ym = YEAR_RE.search(n["body"])
@@ -482,7 +484,7 @@ def export_json(nodes):
                           "kind": kind_of(n["body"]),
                           "play": field(n["body"], r"遊び方"), "missing": field(n["body"], r"足りない"),
                           "sources": re.findall(r"https?://[^\s,／]+", field_all(n["body"], r"出典")),
-                          "enables": n["enables"], "explains": n["explains"], "parts": n["parts"], "materials": n["materials"],
+                          "enables": n["enables"], "explains": n["explains"], "parts": n["parts"], "materials": n["materials"], "frontier": n["frontier"],
                           "enabled_by": [k for k, o in nodes.items() if i in o["enables"]],
                           "explained_by": [k for k, o in nodes.items() if i in o["explains"]],
                           "icon": icon_uri(icons[i]) if i in icons else None, "emoji": emoji.get(i),
@@ -536,7 +538,7 @@ def export_json(nodes):
     # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
     # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
     light_keys = ("id", "name", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
-                  "icon", "emoji", "symbol", "descendants", "buildable_now")
+                  "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
     kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p"}
     graph = {"goal": GOAL, "start": START, "inversions": len(data["year_inversions"]),
@@ -558,6 +560,7 @@ def export_json(nodes):
 XS_DOMAIN = [-3400000, -100000, -10000, -3000, 0, 1000, 1500, 1700, 1800, 1850, 1900, 1930, 1950, 1970, 1990, 2030]
 XS_RANGE = [0, 50, 120, 200, 260, 320, 380, 470, 580, 690, 820, 930, 1040, 1170, 1300, 1460]
 LAYOUT_LEFT = 110
+FRONTIER_GAP, FRONTIER_W = 30, 220   # いま進行中の列（S-005）：時間軸の右端からのすき間と幅
 
 
 def _xs(y):
@@ -613,12 +616,19 @@ def compute_layout(out_nodes, edges):
     x, y, tx = np.zeros(N), np.zeros(N), np.zeros(N)
     idx = {n["id"]: k for k, n in enumerate(out_nodes)}
     bands, y0 = {}, 30
+    fx0 = LAYOUT_LEFT + XS_RANGE[-1] + FRONTIER_GAP
+    has_frontier = any(n.get("frontier") for n in out_nodes)
+    def x_of(n):
+        if n.get("frontier"):   # 2000〜2030 年を列の幅に広げる
+            yr = n["year"] if n["year"] is not None else 2020
+            return fx0 + 24 + max(0, min(1, (yr - 2000) / 30)) * (FRONTIER_W - 48)
+        return LAYOUT_LEFT + _xs(n["year"] if n["year"] is not None else 0)
     for t in keys:
         ns = sorted([n for n in out_nodes if band_of(n) == t], key=lambda n: n["year"] if n["year"] is not None else 0)
         lanes, lane_of, is_land = [], {}, t in ("P", "I")
         for n in ns:
             k = idx[n["id"]]
-            x[k] = tx[k] = LAYOUT_LEFT + _xs(n["year"] if n["year"] is not None else 0)
+            x[k] = tx[k] = x_of(n)
             r = R(n)
             li = next((q for q, last in enumerate(lanes) if x[k] - x[idx[last["id"]]] >= (64 if is_land else r + R(last) + 3)), -1)
             if li < 0:
@@ -651,7 +661,7 @@ def compute_layout(out_nodes, edges):
         x += vx; y += vy
         y = np.maximum(by + 16 + rclamp, np.minimum(by + bh - np.where(isl, 16, 4) - rclamp, y))
         x = np.maximum(LAYOUT_LEFT + 4, x)
-    W, H = LAYOUT_LEFT + XS_RANGE[-1] + 40, y0 + 20
+    W, H = (fx0 + FRONTIER_W + 20 if has_frontier else LAYOUT_LEFT + XS_RANGE[-1] + 40), y0 + 20
     time_pos = {n["id"]: [round(float(x[k]), 2), round(float(y[k]), 2)] for k, n in enumerate(out_nodes)}
     # ネットワーク：前提と「発見→技術」の線をばねに。子孫の多い技術（ハブ）ほど中心へ
     links = [(idx[e["from"]], idx[e["to"]]) for e in edges if e["kind"] in ("requires", "enables", "part") and e["from"] in idx and e["to"] in idx]
@@ -690,7 +700,8 @@ def compute_layout(out_nodes, edges):
         vx *= 0.6; vy *= 0.6
         nx += vx; ny += vy
     net_pos = {n["id"]: [round(float(nx[k] + W / 2), 2), round(float(ny[k] + H / 2), 2)] for k, n in enumerate(out_nodes)}
-    return {"left": LAYOUT_LEFT, "W": W, "H": H, "xs": [XS_DOMAIN, XS_RANGE], "bands": bands, "time": time_pos, "net": net_pos}
+    return {"left": LAYOUT_LEFT, "W": W, "H": H, "xs": [XS_DOMAIN, XS_RANGE], "bands": bands, "time": time_pos, "net": net_pos,
+            "frontier": [fx0, fx0 + FRONTIER_W] if has_frontier else None}
 
 
 AUDIT_OUT = ROOT / "docs" / "AUDIT_QUEUE.md"
