@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SMS",
+    "TVR",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "M": "semiconductor-lab:magnet",
+    "T": "semiconductor-lab:transformer",
+    "V": "semiconductor-lab:oil_diffusion_pump",
+    "R": "semiconductor-lab:rectifier",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:sputter",
+    "count": 1
+  }
+}

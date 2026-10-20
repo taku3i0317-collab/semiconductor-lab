@@ -972,6 +972,46 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-26] スパッタ（IMP4-01）：窓まで開けた NOT のウェハーに、Ar（ホルダーから）＋Al の的で Al を一面に。真空が悪いと動かない。蒸着と同じ結果 */
+    @GameTest(maxTicks = 100)
+    public void sputter(GameTestHelper h) {
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        for (int i = 0; i < 4; i++) {
+            w = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.etchOxide(com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(i), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out()).out()).out();
+            if (d.layers().get(i).kind().isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, d.layers().get(i).kind().dopes).out();
+        }
+        floor(h, 5);
+        BlockPos cp = p(1, 1, 1), sp = p(2, 1, 1), gp = p(3, 1, 1);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(sp, Semiconductor.SPUTTER.block);
+        h.setBlock(gp, Gas.GAS_HOLDER.block);
+        h.getBlockEntity(gp, com.taku3.semiconductorlab.block.GasHolderBlockEntity.class).setContentsForTest(com.taku3.semiconductorlab.block.GasType.ARGON, 5);
+        var ch = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class);
+        var be = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.SputterBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_WAFER, w.copy());
+        c.setItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_TARGET, new ItemStack(Metallurgy.ALUMINIUM_INGOT, 2));
+        ch.setPressure(5);
+        tickConsumer(h, sp, be, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_OUT).isEmpty(), "5 Pa: air not pumped out first -> nothing");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_AR).is(Gas.ARGON_GAS), "argon pulled from the holder");
+        ch.setPressure(0.003);
+        tickConsumer(h, sp, be, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_OUT);
+        h.assertTrue(out.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(out).metalFilm(), "8 wafers coated with Al, got " + out);
+        var ev = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.chipProduct(w, new ItemStack(Metallurgy.ALUMINIUM_INGOT)));
+        var sp2 = com.taku3.semiconductorlab.litho.ChipOps.state(out);
+        h.assertTrue(sp2.conformalMetal() && !ev.conformalMetal(), "sputtered film is marked conformal (covers steps), evaporated is not");
+        h.assertTrue(sp2.done().equals(ev.done()), "same circuit as evaporation (the difference is for yield, v0.5)");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_TARGET).getCount(), 1, "target wears by 1");
+        h.assertTrue(recipeUses(h, "sputter", com.taku3.semiconductorlab.content.Vacuum.OIL_DIFFUSION_PUMP.block.asItem()), "sputter system is pumped by an oil diffusion pump [5-06]");
+        LOG.info("[LAB] sputter [9-26]: <= 0.01 Pa + Ar from holder + Al target -> Al film on 8 process wafers (marked conformal, same circuit as evaporation)");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2246,6 +2286,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WAFERS_PER_RUN), "注入した（アニール前は効かない）")), com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WATTS, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.TICKS / 20.0, "イオン源 → 質量分析の磁石 → 加速。隣の真空容器 0.01Pa 以下");
         rec(a, Semiconductor.ANNEAL_FURNACE.block, "アニール", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WAFERS_PER_RUN), "注入した 1〜8枚（レジストなし）"), alt(io(Gas.NITROGEN_GAS, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.GAS_PER_RUN), Gas.ARGON_GAS)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WAFERS_PER_RUN), "注入した層が働く")), com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.TICKS / 20.0, "N2/Ar の中で約1000℃。隣のガスホルダーから補充");
+        rec(a, Semiconductor.SPUTTER.block, "Al の膜", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "窓を開けた 1〜8枚"), io(Metallurgy.ALUMINIUM_INGOT, 1), io(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.SputterBlockEntity.AR_PER_RUN)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "Al を一面に")), com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS / 20.0, "Ar⁺ で的をたたく。隣の真空容器 0.01Pa 以下、Ar はホルダーから");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

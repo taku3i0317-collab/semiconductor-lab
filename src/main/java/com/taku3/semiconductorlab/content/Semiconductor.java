@@ -127,6 +127,8 @@ public final class Semiconductor {
     public static final Machine<IonImplanterBlockEntity> ION_IMPLANTER = Machine.electric("ion_implanter", IonImplanterBlockEntity::new, IonImplanterBlockEntity.LAYOUT, metal(4.0f));
     // [9-29] アニール炉（IMP4-01）：注入したウェハーを N2/Ar の中で熱して働かせる。3kW
     public static final Machine<AnnealFurnaceBlockEntity> ANNEAL_FURNACE = Machine.electric("anneal_furnace", AnnealFurnaceBlockEntity::new, AnnealFurnaceBlockEntity.LAYOUT, metal(4.0f));
+    // [9-26] スパッタ装置（IMP4-01）：Ar⁺ で Al の的をたたいて膜にする。隣の真空容器 0.01Pa 以下＋アルゴン。5kW
+    public static final Machine<SputterBlockEntity> SPUTTER = Machine.electric("sputter", SputterBlockEntity::new, SputterBlockEntity.LAYOUT, lit(metal(4.0f), 9));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

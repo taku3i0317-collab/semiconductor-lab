@@ -623,15 +623,19 @@ setblock ~93 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~93 ~0 ~74 semiconductor-lab:cleaning_bench
 setblock ~94 ~0 ~74 semiconductor-lab:rca_bench
 setblock ~95 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitric_acid",count:16},{Slot:2b,id:"semiconductor-lab:hydrofluoric_acid",count:16},{Slot:3b,id:"semiconductor-lab:distilled_water",count:16}]}
-setblock ~98 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに電気をつな","ぎ、塗った板・クロムマ","スク・投影レンズ（・ボ"]}}
-setblock ~98 ~0 ~74 semiconductor-lab:stepper
-setblock ~102 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-29] アニール","アニール炉の GUI（","「レジストを先にはがす","」「注入した層がない」"]}}
-setblock ~102 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~102 ~0 ~74 semiconductor-lab:anneal_furnace
-setblock ~103 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitrogen_gas",count:16}]}
-setblock ~106 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stamp","（人間の確認項目なし）","",""]}}
-setblock ~106 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~107 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stamp",count:1},{Slot:1b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~98 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-26] スパッタリング","スパッタ装置の GUI","（「隣の真空容器を 0",".01Pa 以下に」）"]}}
+setblock ~98 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~98 ~0 ~74 semiconductor-lab:sputter
+setblock ~99 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:aluminium_ingot",count:16},{Slot:2b,id:"semiconductor-lab:argon_gas",count:16}]}
+setblock ~102 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに電気をつな","ぎ、塗った板・クロムマ","スク・投影レンズ（・ボ"]}}
+setblock ~102 ~0 ~74 semiconductor-lab:stepper
+setblock ~106 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-29] アニール","アニール炉の GUI（","「レジストを先にはがす","」「注入した層がない」"]}}
+setblock ~106 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~106 ~0 ~74 semiconductor-lab:anneal_furnace
+setblock ~107 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitrogen_gas",count:16}]}
+setblock ~110 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stamp","（人間の確認項目なし）","",""]}}
+setblock ~110 ~0 ~74 semiconductor-lab:drafting_table
+setblock ~111 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stamp",count:1},{Slot:1b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-13] 冷蔵・冷凍","冷凍機に電気をつなぎ、","アンモニア水と水バケツ","を入れて氷ができるか。"]}}
 setblock ~2 ~0 ~82 semiconductor-lab:refrigerator

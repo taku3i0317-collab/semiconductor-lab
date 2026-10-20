@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 624（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 625（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1187,6 +1187,8 @@ en_us ion_implanter lines=4
 en_us ion_implanter shift lines=19
 en_us anneal_furnace lines=4
 en_us anneal_furnace shift lines=17
+en_us sputter lines=4
+en_us sputter shift lines=21
 en_us crystal_puller lines=3
 en_us crystal_puller shift lines=16
 en_us electromagnet lines=6
@@ -2435,6 +2437,8 @@ ja_jp ion_implanter lines=3
 ja_jp ion_implanter shift lines=18
 ja_jp anneal_furnace lines=3
 ja_jp anneal_furnace shift lines=18
+ja_jp sputter lines=4
+ja_jp sputter shift lines=19
 ja_jp crystal_puller lines=3
 ja_jp crystal_puller shift lines=15
 ja_jp electromagnet lines=6

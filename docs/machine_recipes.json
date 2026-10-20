@@ -2021,6 +2021,36 @@
       "note": "電気なし"
     },
     {
+      "machine": "semiconductor-lab:sputter",
+      "process": "Al の膜",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "窓を開けた 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:aluminium_ingot",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "Al を一面に"
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 20.0,
+      "energy_kj": 100,
+      "note": "Ar⁺ で的をたたく。隣の真空容器 0.01Pa 以下、Ar はホルダーから"
+    },
+    {
       "machine": "semiconductor-lab:steam_engine",
       "process": "蒸気で発電",
       "inputs": [
