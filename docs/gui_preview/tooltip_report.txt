@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 603（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 606（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -877,6 +877,10 @@ en_us projection_lens_i lines=8
 en_us projection_lens_i shift lines=17
 en_us i_line_filter lines=3
 en_us i_line_filter shift lines=11
+en_us krf_laser lines=8
+en_us krf_laser shift lines=20
+en_us projection_lens_krf lines=6
+en_us projection_lens_krf shift lines=14
 en_us prism lines=3
 en_us prism shift lines=12
 en_us spectroscope lines=9
@@ -2085,6 +2089,10 @@ ja_jp projection_lens_i lines=6
 ja_jp projection_lens_i shift lines=15
 ja_jp i_line_filter lines=2
 ja_jp i_line_filter shift lines=10
+ja_jp krf_laser lines=6
+ja_jp krf_laser shift lines=18
+ja_jp projection_lens_krf lines=5
+ja_jp projection_lens_krf shift lines=13
 ja_jp prism lines=2
 ja_jp prism shift lines=9
 ja_jp spectroscope lines=7
