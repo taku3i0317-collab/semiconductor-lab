@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LBL",
+    "LFL",
+    "RRR"
+  ],
+  "key": {
+    "L": "semiconductor-lab:lead_ingot",
+    "B": "semiconductor-lab:lead_bottle",
+    "F": "minecraft:furnace",
+    "R": "minecraft:brick"
+  },
+  "result": {
+    "id": "semiconductor-lab:lead_retort",
+    "count": 1
+  }
+}

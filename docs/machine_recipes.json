@@ -699,6 +699,50 @@
       "note": "充電・放電とも最大の電力"
     },
     {
+      "machine": "semiconductor-lab:lead_retort",
+      "process": "フッ酸",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:fluorite",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sulfuric_acid",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:lead_bottle",
+          "count": 1
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "per_runs": 4
+        },
+        {
+          "item": "minecraft:coal",
+          "count": 0.125
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydrofluoric_acid",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:calcium_sulfate",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "CaF2 + H2SO4 → CaSO4 + 2HF（約200℃）。HF を受け器の水に吸わせる。釜も瓶も鉛（ガラスは溶ける）"
+    },
+    {
       "machine": "semiconductor-lab:oxidation_furnace",
       "process": "ドライ酸化",
       "inputs": [

@@ -51,6 +51,9 @@ public final class Chemistry {
     // [2-20] コールタール（IMP4-01）：ガス工場のレトルトで石炭を乾留した副産物。安水は [2-21] アンモニア水の原料
     public static final Item COAL_TAR              = Reg.item("coal_tar", new Item.Properties().stacksTo(16));
     public static final Item AMMONIACAL_LIQUOR     = Reg.item("ammoniacal_liquor", new Item.Properties().stacksTo(16)); // 安水（NH3 約1〜2% の水）
+    // [2-10] フッ酸（IMP4-01）：鉛の瓶入り（ガラスを溶かすのでガラス瓶は不可＝Vessel.ALLOWED）。副産物は石こう（硫酸カルシウム）
+    public static final Item HYDROFLUORIC_ACID     = Reg.contained("hydrofluoric_acid", Vessel.LEAD_BOTTLE);
+    public static final Item CALCIUM_SULFATE       = Reg.item("calcium_sulfate");   // 石こう CaSO4（無水。焼いた石こう）
 
     // ===== ブロック =====
     public static final Block TRONA_DEPOSIT  = Reg.ore("trona_deposit", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.0f).sound(SoundType.STONE));
@@ -63,6 +66,10 @@ public final class Chemistry {
     // ガス工場のレトルト [2-20]（IMP4-01）：耐火れんがの釜＋銅の冷却管。石炭 → コークス＋コールタール＋安水。燃料式（電気なし）
     public static final Machine<GasRetortBlockEntity> GAS_RETORT = Machine.builder("gas_retort", GasRetortBlockEntity::new)
             .ticker(GasRetortBlockEntity::tick).layout(GasRetortBlockEntity.LAYOUT).props(lit(stone(3.5f), 11)).build();
+
+    // 鉛のレトルト [2-10]（IMP4-01）：蛍石＋硫酸 → フッ化水素 → 水に吸わせてフッ酸（鉛の瓶）＋石こう。燃料式（電気なし）
+    public static final Machine<HfRetortBlockEntity> LEAD_RETORT = Machine.builder("lead_retort", HfRetortBlockEntity::new)
+            .ticker(HfRetortBlockEntity::tick).layout(HfRetortBlockEntity.LAYOUT).props(lit(metal(3.0f), 9)).build();
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

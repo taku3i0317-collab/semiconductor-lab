@@ -106,6 +106,9 @@ wood_vinegar  # Chemistry [2-23] 1661
 wood_tar  # Chemistry [2-23] 1661
 pitch  # Chemistry [2-23] 1661
 wood_retort  # Chemistry [2-23] 1661
+hydrofluoric_acid  # Chemistry [2-10] 1771
+calcium_sulfate  # Chemistry [2-10] 1771
+lead_retort  # Chemistry [2-10] 1771
 coal_tar  # Chemistry [2-20] 1792
 ammoniacal_liquor  # Chemistry [2-20] 1792
 gas_retort  # Chemistry [2-20] 1792

@@ -34,7 +34,8 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Metallurgy.TRICHLOROSILANE_REACTOR, TrichlorosilaneReactorScreen::new);
 		// 幹2 化学
 		screen(Chemistry.WOOD_RETORT, WoodRetortScreen::new);
-		screen(Chemistry.GAS_RETORT, GasRetortScreen::new);   // [2-23] IMP2-01
+		screen(Chemistry.GAS_RETORT, GasRetortScreen::new);
+		screen(Chemistry.LEAD_RETORT, HfRetortScreen::new);   // [2-23] IMP2-01
 		// 幹3 熱
 		screen(Heat.ARC_FURNACE, ArcFurnaceScreen::new);
 		screen(Heat.ACHESON_FURNACE, AchesonFurnaceScreen::new);

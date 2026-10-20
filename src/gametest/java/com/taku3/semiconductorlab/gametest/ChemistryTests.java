@@ -215,6 +215,46 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** [2-10] 鉛のレトルト（IMP4-01）：蛍石＋硫酸＋空の鉛の瓶 → フッ酸（鉛の瓶）＋石こう。水1杯で4回、瓶・水・燃料がないと止まる。フッ酸はガラス瓶に入れない */
+    @GameTest
+    public void leadRetortHf(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.HYDROFLUORIC_ACID) == com.taku3.semiconductorlab.machine.Vessel.LEAD_BOTTLE, "HF is kept in a lead bottle");
+        h.assertFalse(com.taku3.semiconductorlab.machine.Vessel.ALLOWED.get("hydrofluoric_acid").contains(com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE), "HF never in glass (SiO2 + 4HF -> SiF4)");
+        h.assertTrue(new ItemStack(Chemistry.HYDROFLUORIC_ACID).getItem().getCraftingRemainder().create().is(com.taku3.semiconductorlab.content.Metallurgy.LEAD_BOTTLE), "using HF at the bench gives the lead bottle back");
+        h.assertTrue(recipeUses(h, "lead_retort", com.taku3.semiconductorlab.content.Metallurgy.LEAD_INGOT), "the retort is lead");
+        for (var g : new net.minecraft.world.item.Item[] {Chemistry.SODA_LIME_GLASS, Chemistry.GLASS_BOTTLE, Items.GLASS})
+            h.assertFalse(recipeUses(h, "lead_retort", g), "no glass in an HF retort: " + g);
+        int T = com.taku3.semiconductorlab.block.HfRetortBlockEntity.REACT_TICKS;
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Chemistry.LEAD_RETORT.block);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.HfRetortBlockEntity.class);
+        var c = be.getContainer();
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(pos);
+        Runnable tick = () -> com.taku3.semiconductorlab.block.HfRetortBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        c.setItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_FLUORITE, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.FLUORITE, 5));
+        c.setItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_ACID, new ItemStack(Chemistry.SULFURIC_ACID, 5));
+        c.setItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_FUEL, new ItemStack(Items.COAL, 1));
+        c.setItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET, 1));
+        for (int i = 0; i < T + 10; i++) tick.run();
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_HF).isEmpty(), "no lead bottle -> nothing");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_FUEL).getCount(), 1, "no fuel burnt while waiting");
+        c.setItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_BOTTLE, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.LEAD_BOTTLE, 5));
+        for (int i = 0; i < T * 4; i++) tick.run();
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_HF).is(Chemistry.HYDROFLUORIC_ACID) && c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_HF).getCount() == 4, "4 runs -> 4 HF, got " + c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_HF));
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_GYPSUM).is(Chemistry.CALCIUM_SULFATE) && c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_GYPSUM).getCount() == 4, "4 gypsum");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_BUCKET).is(Items.BUCKET), "empty bucket returned");
+        h.assertValueEqual(be.getWater(), 0, "1 bucket = 4 runs");
+        for (int i = 0; i < T + 10; i++) tick.run();
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.HfRetortBlockEntity.SLOT_HF).getCount(), 4, "no water -> stops (HF gas has nowhere to go)");
+        var drops = lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(a).inflate(2));
+        int bottles = drops.stream().filter(e -> e.getItem().is(Chemistry.GLASS_BOTTLE)).mapToInt(e -> e.getItem().getCount()).sum();
+        h.assertValueEqual(bottles, 4, "4 glass bottles from the sulfuric acid popped out");
+        drops.forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] lead retort [2-10]: fluorite + H2SO4 + lead bottle -> HF (lead bottle) + gypsum; 1 water bucket = {} runs; glass bottles returned; no glass in recipe", com.taku3.semiconductorlab.block.HfRetortBlockEntity.RUNS_PER_WATER);
+        h.succeed();
+    }
+
     /** [2-02] カリ（IMP2-01）：原木 →たき火→ 木灰、木灰4＋水バケツ → 灰汁（バケツは戻る）、灰汁 →かまど→ 炭酸カリウム */
     @GameTest
     public void potash(GameTestHelper h) {
@@ -239,5 +279,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         rec(a, Chemistry.GAS_RETORT.block, "石炭を乾留する", L(io(Items.COAL, 8), io(Items.COAL, 1)),
             L(io(com.taku3.semiconductorlab.content.Metallurgy.COKE, 6), io(Chemistry.AMMONIACAL_LIQUOR, 2), io(Chemistry.COAL_TAR, 1)), 0, 8 * com.taku3.semiconductorlab.block.GasRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない");
+        rec(a, Chemistry.LEAD_RETORT.block, "フッ酸", L(io(com.taku3.semiconductorlab.content.Metallurgy.FLUORITE, 1), io(Chemistry.SULFURIC_ACID, 1), io(com.taku3.semiconductorlab.content.Metallurgy.LEAD_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.HfRetortBlockEntity.RUNS_PER_WATER), io(Items.COAL, 0.125)),
+            L(io(Chemistry.HYDROFLUORIC_ACID, 1), io(Chemistry.CALCIUM_SULFATE, 1), io(Chemistry.GLASS_BOTTLE, 1)), 0, com.taku3.semiconductorlab.block.HfRetortBlockEntity.REACT_TICKS / 20.0,
+            "CaF2 + H2SO4 → CaSO4 + 2HF（約200℃）。HF を受け器の水に吸わせる。釜も瓶も鉛（ガラスは溶ける）");
     }
 }
