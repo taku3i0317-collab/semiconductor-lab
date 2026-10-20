@@ -113,6 +113,7 @@ aside#card.open { display: block; }
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="tech_network_graph.js"></script>
+<script src="design_options/design.js"></script>
 <script>
 (function () {
   // データ：最初は図に要る軽いデータ（TECH_GRAPH。位置は tools/gen_tree_views.py が先に計算してある）だけを読む。
@@ -127,7 +128,11 @@ aside#card.open { display: block; }
   const palette = ['#8c6d31', '#b5651d', '#2e8b57', '#d1495b', '#e09f3e', '#6a4c93', '#1982c4', '#4f772d', '#7d8597', '#c44569',
                    '#00798c', '#a7c957', '#bc6c25', '#9d4edd', '#3a86ff', '#ff6d00', '#6c757d'];
   // products.md のモノ（P）と ideas.md の発見（I）は幹ではないので決まった色
-  const color = t => t === 'P' ? '#c98a00' : t === 'I' ? '#8e5bd6' : palette[trunks.indexOf(t) % palette.length];
+  // デザイン案（NET-09、?design=A/B/C のときだけ）：色は意味のある所だけ（技術は1色、モノ・発見だけ色を付ける）
+  const DS = window.DESIGN || null;
+  const IDEA = DS ? DS.idea : '#8e5bd6';
+  const color = t => DS ? (t === 'P' ? DS.prod : t === 'I' ? DS.idea : DS.tech)
+    : t === 'P' ? '#c98a00' : t === 'I' ? '#8e5bd6' : palette[trunks.indexOf(t) % palette.length];
 
   // ---- 横軸：おおまかな年（古い時代は詰め、近代を広げる）。位置・帯は gen_tree_views.py の compute_layout が計算済み ----
   const L = G.layout, LEFT = L.left, W = L.W, H = L.H;
@@ -166,7 +171,7 @@ aside#card.open { display: block; }
 
   // ---- 線の色：前提との年の差（小＝薄い黄土色、大＝オレンジ） ----
   const gapColor = g => d3.interpolateRgb('#d9d0b0', '#e8590c')(Math.min(1, Math.log10(1 + Math.abs(g)) / 3.3));
-  for (const e of edges) e.color = gapColor(e.gap);
+  for (const e of edges) e.color = DS ? DS.edge : gapColor(e.gap);
   // 線の形：時間軸は横に流れる曲線、ネットワークは直線
   let layoutMode = 'time';
   const TOP = new Set([...edges].filter(e => e.kind === 'requires').sort((p, q) => Math.abs(q.gap) - Math.abs(p.gap)).slice(0, 60));
@@ -175,7 +180,8 @@ aside#card.open { display: block; }
 
   // ---- 描画は Canvas 1枚（NET-05：以前の SVG と同じ色・太さ・文字・重なり順） ----
   const chart = document.getElementById('chart'), cv = document.getElementById('cv'), ctx = cv.getContext('2d');
-  const FONT = 'system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif';
+  const FONT = DS ? DS.font : 'system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif';
+  const LABEL_FONT = DS ? DS.labelFont : FONT;   // モノ・発見の名前（案 B はドット風の書体）
   const C = {};   // CSS の色の変数（明るい／暗いの切り替えに追従）
   const readColors = () => { const cs = getComputedStyle(document.documentElement); for (const k of ['bg', 'panel', 'ink', 'sub', 'line', 'band-a', 'band-b', 'prod', 'hl']) C[k] = cs.getPropertyValue('--' + k).trim(); };
   readColors();
@@ -233,6 +239,29 @@ aside#card.open { display: block; }
     ctx.imageSmoothingEnabled = true;
     ctx.drawImage(sp.c, x - sp.l, y - sp.t, sp.w, sp.h);
   }
+  // 単色のドット絵（デザイン案）：テクスチャは形だけを1色に、絵文字・記号は小さく描いて1色にし、拡大する
+  const monoCache = new Map();
+  function monoIcon(d, im) {
+    const key = d.id;
+    if (monoCache.has(key)) return monoCache.get(key);
+    const c = document.createElement('canvas'), g = c.getContext('2d');
+    if (im) {
+      if (!(im.complete && im.naturalWidth)) return null;
+      c.width = im.naturalWidth; c.height = im.naturalHeight; g.drawImage(im, 0, 0);
+    } else {
+      c.width = c.height = 14;
+      g.font = `11px ${FONT}`; g.textAlign = 'center'; g.textBaseline = 'middle';
+      g.fillText(isProd(d) ? (d.emoji || d.symbol) : isIdea(d) ? (d.emoji || '💡') : d.symbol, 7, 7.5);
+    }
+    // 薄い所は消し、残りを1色に（ドット絵らしく、半透明をなくす）
+    const px = g.getImageData(0, 0, c.width, c.height), q = px.data;
+    const col = (DS.icon.match(/[0-9a-f]{2}/gi) || ['33', '33', '33']).map(h => parseInt(h, 16));
+    for (let i = 0; i < q.length; i += 4) { const on = q[i + 3] > 110; q[i] = col[0]; q[i + 1] = col[1]; q[i + 2] = col[2]; q[i + 3] = on ? 255 : 0; }
+    g.putImageData(px, 0, 0);
+    monoCache.set(key, c);
+    return c;
+  }
+  if (DS && document.fonts) document.fonts.ready.then(() => { spriteCache.clear(); monoCache.clear(); requestDraw(); });
   function draw() {
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, cw, chh);
     ctx.setTransform(dpr * T.k, 0, 0, dpr * T.k, dpr * T.x, dpr * T.y);
@@ -249,7 +278,7 @@ aside#card.open { display: block; }
         ctx.fillRect(0, b.y, W, b.h);
         if (!land && !V.bandZoomHidden) text('ズームすると技術が見えます', `13px ${FONT}`, 'center', 'alphabetic', C.sub, W / 2, b.y + b.h / 2 + 4);
         text(t === 'P' ? 'モノ（時代順）' : t === 'I' ? '発見・考え方（◆ 実験で見つける）' : `${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}`,
-          `600 11px ${FONT}`, 'left', 'alphabetic', land ? C.ink : color(t), 8, b.y + 14);
+          `600 11px ${FONT}`, 'left', 'alphabetic', land || DS ? (land ? C.ink : C.sub) : color(t), 8, b.y + 14);
       });
       ctx.globalAlpha = 1;
       // 時代の目盛り（点線と年）
@@ -284,13 +313,19 @@ aside#card.open { display: block; }
       const a = d.dim ? 0.12 : 1;
       ctx.globalAlpha = a;
       ctx.beginPath(); if (isIdea(d)) diamondPath(r); else ctx.arc(0, 0, r, 0, Math.PI * 2);
-      ctx.fillStyle = land ? C.prod : d.status === '✅' ? color(d.trunk) : C.bg; ctx.fill();
-      ctx.strokeStyle = d.sel || d.match || d.lit ? C.hl : isIdea(d) ? '#8e5bd6' : color(d.trunk);
+      ctx.fillStyle = land ? C.prod : d.status === '✅' ? (DS ? DS.done : color(d.trunk)) : C.bg; ctx.fill();
+      ctx.strokeStyle = d.sel || d.match || d.lit ? C.hl : isIdea(d) ? IDEA : color(d.trunk);
       ctx.lineWidth = d.sel ? 4 : d.match ? 3 : isIdea(d) ? 2 : isProd(d) ? 2.4 : 1.6;
       if (d.status === '⛔' || d.status === '➖') ctx.setLineDash([2, 2]);
       ctx.stroke(); ctx.setLineDash([]);
       const im = imgs.get(d.id);
-      if (im) {
+      if (DS && DS.mono) {   // デザイン案：アイコン・絵文字を単色のドット絵に
+        const sp = monoIcon(d, im);
+        if (sp) {
+          ctx.globalAlpha = a * (!isProd(d) && d.status !== '✅' ? 0.6 : 1); ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(sp, -r * 0.65, -r * 0.65, r * 1.3, r * 1.3); ctx.globalAlpha = a;
+        }
+      } else if (im) {
         if (im.complete && im.naturalWidth) {
           ctx.globalAlpha = a * (!isProd(d) && d.status !== '✅' ? 0.6 : 1); ctx.imageSmoothingEnabled = false;
           ctx.drawImage(im, -r * 0.65, -r * 0.65, r * 1.3, r * 1.3); ctx.globalAlpha = a;
@@ -303,7 +338,7 @@ aside#card.open { display: block; }
       }
       if (land || d.descendants >= 8) {   // 名前（背景色のふちどり付き）
         const lx = land ? 0 : r + 2, ly = land ? r * (isIdea(d) ? 1.25 : 1) + 12 : 3;
-        text(d.name, land ? `700 11px ${FONT}` : `9px ${FONT}`, land ? 'center' : 'left', 'alphabetic', C.ink, lx, ly, land ? ps : 1, C.bg, 3);
+        text(d.name, land ? `700 11px ${LABEL_FONT}` : `9px ${FONT}`, land ? 'center' : 'left', 'alphabetic', C.ink, lx, ly, land ? ps : 1, C.bg, 3);
       }
       ctx.restore();
     }
