@@ -284,6 +284,8 @@ lead_screw  # Precision [8-02] 1797
 standard_screw  # Precision [8-02] 1797
 pump_rotor  # Precision [8-01] 1797
 lathe  # Precision [8-01] 1797
+cast_iron_plate  # Precision [8-03] 1830
+surface_plate  # Precision [8-03] 1830
 metre_bar  # Precision [8-06] 1892
 transistor  # Semiconductor [9-03] 1947
 germanium_seed_crystal  # Semiconductor [9-07] 1950

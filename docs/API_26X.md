@@ -859,3 +859,13 @@ FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registri
 - `Player.drop(ItemStack, boolean)` は無い → `player.getInventory().placeItemBackInInventory(stack, Prediction.SERVER_ONLY)`（入らなければ足元に落とす）
 - `RecipeType`：`minecraft:crafting_transmute`（input＋material、input の成分を結果に引き継ぐ。シュルカーボックスの染め直しと同じ）で、写真のデータを現像・定着のあいだ引き継げる
 - データコンポーネントは content/<幹>.java の static で `Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, …)` してよい（Precision.PART_ERROR_UM・Branches.PHOTO）
+
+## 持ち物から1つ使う（IMP2 O-009、javap 26.3）
+```java
+// net.minecraft.world.entity.player.Inventory
+public int findSlotMatchingItem(ItemStack);        // 同じ物（成分も同じ）の入ったスロット。無ければ -1
+public ItemStack removeItem(int slot, int count);
+public int countItem(Item);
+// net.minecraft.world.entity.player.Abilities
+public boolean instabuild;                         // クリエイティブ（減らさない）
+```

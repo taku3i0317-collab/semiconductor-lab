@@ -52,5 +52,19 @@
   "item.semiconductor-lab.metre_bar.note4": "原器は、両はしの面の間が1mの「端度器」。さびず形が変わりにくい白金が選ばれた。1889年に白金イリジウムの国際原器（目盛りの線の間が1m）に代わり、1893年マイケルソンはこれを光の波長で測った（カドミウムの赤い光の約155万波長）。1960年に光の波長、1983年に光の速さでメートルが決め直された。日本の尺は1891年に「1メートルの33分の10」と決めた。",
   "item.semiconductor-lab.metre_bar.placeholder": "近似：子午線の測量の手間は、セオドライトをレシピに入れるだけ。長さはブロックの中心の間で測る。",
   "item.semiconductor-lab.metre_bar.mark": "📏 1つ目の印：%s, %s, %s。別のブロックを右クリックしよう",
-  "item.semiconductor-lab.metre_bar.length": "📏 長さ %s m（%s 尺、%s トワーズ）"
+  "item.semiconductor-lab.metre_bar.length": "📏 長さ %s m（%s 尺、%s トワーズ）",
+  "item.semiconductor-lab.cast_iron_plate": "鋳鉄の板",
+  "item.semiconductor-lab.cast_iron_plate.note1": "銑鉄を砂の型に流して作った板。少しそっている。3枚をこすり合わせると、まっ平らになる。",
+  "item.semiconductor-lab.cast_iron_plate.note2": "銑鉄×4＋砂 → 1枚。利き手にこの板、もう片方の手に別の板を持って右クリック → ルージュを1つ使って2枚をすり合わせる。2枚だけでは凸と凹のまま合ってしまう。3枚を A-B・B-C・C-A と順に合わせると、3枚とも平らになり、そりが 1µm 以下で定盤になる。",
+  "item.semiconductor-lab.cast_iron_plate.note3": "1830〜40年代、ホイットワースは「3枚の板を互いにすり合わせると、ほかの基準なしに3枚とも平面になる」方法を広めた。A と B が合い、A と C が合えば、B と C は同じ形。その B と C も合うなら、どちらも平らしかない。",
+  "item.semiconductor-lab.cast_iron_plate.note4": "もっと平らな物がなくても、平らな物は作れる。ホイットワースは研磨剤ですり合わせるより、赤い塗料（光明丹）を付けてこすり、当たって色の付いた高い所を「きさげ」で少しずつ削る方法をすすめた。平面・直角・ねじ・物差しが、機械を作る機械（マザーマシン）の出発点になった。",
+  "item.semiconductor-lab.cast_iron_plate.placeholder": "近似：本物はきさげで削ることが多い（ここではルージュですり合わせる）。鋳込み（溶かして砂型に流す）はレシピにまとめた。",
+  "item.semiconductor-lab.cast_iron_plate.hold": "もう片方の手に、すり合わせる相手の板（鋳鉄の板か定盤）を持とう",
+  "item.semiconductor-lab.cast_iron_plate.no_rouge": "研磨剤（ルージュ）が要る。持ち物に入れよう",
+  "item.semiconductor-lab.cast_iron_plate.lapped": "🪨 すり合わせ：この板 %s µm（%s）、相手 %s µm（%s）／ 2枚の合い %s µm",
+  "item.semiconductor-lab.cast_iron_plate.unknown": "そり：まだすり合わせていない（鋳物のまま ±20〜60µm）",
+  "item.semiconductor-lab.cast_iron_plate.curve": "そり：%s µm（%s）",
+  "item.semiconductor-lab.cast_iron_plate.flat": "平ら",
+  "item.semiconductor-lab.cast_iron_plate.convex": "凸",
+  "item.semiconductor-lab.cast_iron_plate.concave": "凹"
 }

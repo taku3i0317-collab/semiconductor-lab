@@ -50,6 +50,18 @@ public final class Precision {
                     .networkSynchronized(net.minecraft.core.BlockPos.STREAM_CODEC).build());
     public static final Item METRE_BAR             = Reg.item("metre_bar", MetreBarItem::new, new Item.Properties().stacksTo(1));
 
+    // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤
+    /** 板のそり（0.1µm 単位、＋凸・−凹）。すり合わせ（item/CastPlateItem）で変わる */
+    public static final net.minecraft.core.component.DataComponentType<Integer> PLATE_CURVE = net.minecraft.core.Registry.register(
+            net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("plate_curve"),
+            net.minecraft.core.component.DataComponentType.<Integer>builder().persistent(com.mojang.serialization.Codec.INT)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
+    public static final Item CAST_IRON_PLATE       = Reg.item("cast_iron_plate", CastPlateItem::new, new Item.Properties().stacksTo(1));
+    /** 定盤（置けるブロック。精密な機械の「隣に定盤」の条件に使う予定） */
+    public static final Block SURFACE_PLATE = Reg.block("surface_plate", Block::new,
+            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().mapColor(net.minecraft.world.level.material.MapColor.METAL)
+                    .strength(5.0f, 6.0f).sound(net.minecraft.world.level.block.SoundType.METAL).requiresCorrectToolForDrops());
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 旋盤 [8-01]（IMP2-01、モーズリー 1797〜1800頃）：モーターで材料を回し、送りねじの刃物台で削る。750W
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));

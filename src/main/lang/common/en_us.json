@@ -124,5 +124,10 @@
   "gui.semiconductor-lab.blast_furnace.need_air": "Blow air in through a tuyere",
   "gui.semiconductor-lab.blast_furnace.smelting": "Pig iron is flowing",
   "gui.semiconductor-lab.blast_furnace.out_full": "Take out pig iron and slag",
-  "gui.semiconductor-lab.blast_furnace.missing": "%s more (%s)"
+  "gui.semiconductor-lab.blast_furnace.missing": "%s more (%s)",
+  "block.semiconductor-lab.surface_plate": "Surface Plate",
+  "block.semiconductor-lab.surface_plate.note1": "A perfectly flat iron table, the reference for measuring flatness and length.",
+  "block.semiconductor-lab.surface_plate.note2": "Cast iron plates lapped three together until the warp is 1 um or less. It can be placed. Lapping it again against a warped plate can warp it again.",
+  "block.semiconductor-lab.surface_plate.note3": "Inspection rooms still have cast iron or granite surface plates. In the 20th century granite, which does not rust and moves little with temperature, became common.",
+  "block.semiconductor-lab.surface_plate.note4": "Precise measuring and assembly begin on a surface plate. Gauge blocks ([8-05]) and isolation tables ([8-07]) only make sense once there is a flat reference."
 }

@@ -124,5 +124,10 @@
   "gui.semiconductor-lab.blast_furnace.need_air": "羽口の外のふいごで風を",
   "gui.semiconductor-lab.blast_furnace.smelting": "銑鉄が流れ出ている",
   "gui.semiconductor-lab.blast_furnace.out_full": "銑鉄とスラグを取り出す",
-  "gui.semiconductor-lab.blast_furnace.missing": "あと %s か所（%s）"
+  "gui.semiconductor-lab.blast_furnace.missing": "あと %s か所（%s）",
+  "block.semiconductor-lab.surface_plate": "定盤",
+  "block.semiconductor-lab.surface_plate.note1": "まっ平らな鉄の台。物の平らさや長さを測るときの基準になる。",
+  "block.semiconductor-lab.surface_plate.note2": "鋳鉄の板を3枚すり合わせて、そりが 1µm 以下になった物。置いて使える。もう一度すり合わせると、相手しだいでまたそることもある。",
+  "block.semiconductor-lab.surface_plate.note3": "工場の検査室には、今も鋳鉄や花こう岩の定盤がある。20世紀には、さびず温度で変形しにくい花こう岩の定盤が増えた。",
+  "block.semiconductor-lab.surface_plate.note4": "精密な測定・組み立ては、定盤の上で始まる。ゲージブロック（[8-05]）や除振台（[8-07]）も、平らな基準があって初めて意味を持つ。"
 }

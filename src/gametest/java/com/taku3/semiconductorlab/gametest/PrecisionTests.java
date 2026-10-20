@@ -15,6 +15,43 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-03] 平面と定盤（IMP2 O-009）：2枚だけでは凸と凹で合ってしまう。3枚を順にすり合わせると、基準なしに3枚とも平面（定盤）になる */
+    @GameTest
+    public void surface_plates(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "cast_iron_plate", Metallurgy.PIG_IRON), "cast iron plate from pig iron [1-09]");
+        // 2枚だけ：合い（a＋b）は 0 に近づくが、+20µm と -20µm のまま
+        int a = 300, b = -100;
+        for (int i = 0; i < 20; i++) { int[] r = com.taku3.semiconductorlab.item.CastPlateItem.lap(a, b); a = r[0]; b = r[1]; }
+        h.assertTrue(Math.abs(a + b) <= 1, "two plates fit each other: gap " + (a + b));
+        h.assertTrue(Math.abs(a) >= 150 && Math.abs(b) >= 150, "but one stays convex and one concave: " + a + ", " + b);
+        // 3枚：A-B・B-C・C-A の順にすり合わせると、3枚とも 1µm 以下
+        int[] p3 = {400, -250, 550};
+        int n = 0;
+        while (n < 40 && (Math.abs(p3[0]) > 10 || Math.abs(p3[1]) > 10 || Math.abs(p3[2]) > 10)) {
+            int i = n % 3, j = (n + 1) % 3;
+            int[] r = com.taku3.semiconductorlab.item.CastPlateItem.lap(p3[i], p3[j]);
+            p3[i] = r[0]; p3[j] = r[1]; n++;
+        }
+        h.assertTrue(n < 40, "three plates all flat within 1 um after " + n + " laps");
+        h.assertTrue(com.taku3.semiconductorlab.item.CastPlateItem.withCurve(5).is(Precision.SURFACE_PLATE.asItem()), "1 um or less -> surface plate");
+        h.assertTrue(com.taku3.semiconductorlab.item.CastPlateItem.withCurve(-50).is(Precision.CAST_IRON_PLATE), "5 um concave -> still a cast plate");
+        // 手に持ってすり合わせる：ルージュを1つ使う
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Precision.CAST_IRON_PLATE));
+        h.assertFalse(Precision.CAST_IRON_PLATE.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "one plate alone -> nothing");
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(Precision.CAST_IRON_PLATE));
+        h.assertFalse(Precision.CAST_IRON_PLATE.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "no rouge -> nothing");
+        player.getInventory().add(new ItemStack(com.taku3.semiconductorlab.content.Optics.ROUGE, 2));
+        h.assertTrue(Precision.CAST_IRON_PLATE.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "two plates + rouge -> lapped");
+        h.assertTrue(player.getMainHandItem().has(Precision.PLATE_CURVE) && player.getOffhandItem().has(Precision.PLATE_CURVE), "both plates now have a measured curve");
+        h.assertValueEqual(player.getInventory().countItem(com.taku3.semiconductorlab.content.Optics.ROUGE), 1, "one rouge used");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"hold", "no_rouge", "lapped", "unknown", "curve", "flat", "convex", "concave"})
+            h.assertTrue(ja.has("item.semiconductor-lab.cast_iron_plate." + k), "lang cast_iron_plate." + k);
+        LOG.info("[LAB] surface_plates [8-03]: two plates stay convex/concave, three plates flat within 1 um after " + n + " laps, rouge used");
+        h.succeed();
+    }
+
     /** [8-22] メートル原器（IMP2 O-007）：白金×3＋セオドライト（戻る）。2つのブロックを右クリックして長さを m・尺・トワーズで */
     @GameTest
     public void metre_bar(GameTestHelper h) {

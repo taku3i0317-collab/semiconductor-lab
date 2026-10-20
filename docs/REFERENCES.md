@@ -1082,6 +1082,20 @@
 - Wikipedia「Richard Leach Maddox」：https://en.wikipedia.org/wiki/Richard_Leach_Maddox
 - Wikipedia「Salt print」：https://en.wikipedia.org/wiki/Salt_print
 
+## O34. 基準なしに「まっ平ら」を作る（3枚すり合わせ）［8-03］
+**答え**：2枚の板をすり合わせると、ぴったり合うようにはなるが、一方が凸・一方が凹でも合ってしまう。3枚を2枚ずつ順にすり合わせると、3枚とも互いに合うのは平面のときだけなので、外の基準なしに平面ができる。1830〜40年代にホイットワースが広め、精密な機械づくりの出発点になった。
+
+- へえ①：もっと平らな物がなくても、平らな物は作れる。
+- へえ②：ホイットワースは研磨剤ですり合わせるより、塗料で当たりを見て高い所を「きさげ」で削る方法をすすめた。
+- へえ③：A と B、A と C が合えば B と C は同じ形。その B と C が合うなら、平らしかない。
+- へえ④：今も工場の検査室には鋳鉄や花こう岩の定盤がある。
+
+確かさ：3枚すり合わせの原理 ◎／ホイットワースが広めた（1830〜40年代）○／モーズリーが3枚1組で作り始めた △ → ゲーム内は ⚠️ を付けない（へえに入れていない）
+根拠：
+- Wikipedia「Surface plate」：https://en.wikipedia.org/wiki/Surface_plate
+- Wikipedia「Flatness (manufacturing)」：https://en.wikipedia.org/wiki/Flatness_(manufacturing)
+- Wikipedia「Joseph Whitworth」：https://en.wikipedia.org/wiki/Joseph_Whitworth
+
 ---
 
 # 冶金と熱（タスク15〜）

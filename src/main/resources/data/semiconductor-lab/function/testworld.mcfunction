@@ -341,8 +341,11 @@ setblock ~11 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-01]
 setblock ~11 ~-1 ~66 semiconductor-lab:test_power_source
 setblock ~11 ~0 ~66 semiconductor-lab:lathe
 setblock ~12 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:pump_rotor",count:16},{Slot:1b,id:"semiconductor-lab:steel_ingot",count:16},{Slot:2b,id:"semiconductor-lab:lead_screw",count:16}]}
-setblock ~15 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-06] 光波干渉測長","（人間の確認項目なし）","",""]}}
-setblock ~15 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:metre_bar",count:1}]}
+setblock ~15 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-03] 平面と定盤","鋳鉄の板を3枚作り、利","き手と左手に1枚ずつ持","って右クリック → チ"]}}
+setblock ~15 ~0 ~66 semiconductor-lab:surface_plate
+setblock ~16 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cast_iron_plate",count:1}]}
+setblock ~19 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-06] 光波干渉測長","（人間の確認項目なし）","",""]}}
+setblock ~19 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:metre_bar",count:1}]}
 setblock ~0 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹9 半導体（Ge・Si）","↓ この列","",""]}}
 setblock ~2 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-03] 点接触トランジ","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:transistor",count:16}]}
