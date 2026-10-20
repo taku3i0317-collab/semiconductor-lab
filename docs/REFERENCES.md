@@ -564,6 +564,21 @@
 - Tegel ほか 2012「Early Neolithic water wells reveal the world's oldest wood architecture」PLOS ONE：https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051374
 - Wikipedia「Stone axe」：https://en.wikipedia.org/wiki/Stone_axe
 
+## O12. 水銀の蒸気を光らせる（水銀灯、g線・i線）［7-10］
+**答え**：空気を抜いた管に水銀を入れ、両端の電極に電流を流すと、水銀の蒸気の中で放電が起き、水銀原子が決まった波長の光を出す（黄 577/579nm、緑 546nm、g線 436nm、h線 405nm、i線 365nm ほか）。1901年クーパー・ヒューイットの水銀灯、1903〜04年キューヒ（ヘレウス）の石英水銀灯は、どちらも直流で動いた。
+
+- へえ①：半導体工場が黄色い光なのは、レジストが反応しない色だから。
+- へえ②：最初の水銀灯は、管をかたむけて水銀で電極をつないで点灯した。110V・3.5A＝385W で、白熱電球より効率がよかったが光は青緑だった。
+- へえ③：キューヒは酸水素炎で水晶を溶かして泡のない石英ガラスを作り、その管で紫外線をたくさん出す水銀灯を作った（のちに医療・殺菌に）。
+- へえ④：水銀の g線・i線は 1980〜90年代の露光装置（ステッパー）の光源になった。
+
+確かさ：水銀の線の波長 ◎（NIST）／クーパー・ヒューイット 1901・直流・かたむけて点灯 ○（Wikipedia）／385W・110V・3.5A ○（lamptech の一資料）／キューヒの石英灯 1903〜04・直流 ○（Deutsche Biographie・lamptech）／g線・i線ステッパー ◎
+根拠：
+- Wikipedia「Mercury-vapor lamp」：https://en.wikipedia.org/wiki/Mercury-vapor_lamp
+- Lamptech「Cooper Hewitt」：https://lamptech.co.uk/Documents/M6A%20Lamp%20Design.htm
+- Lamptech「Küch & Retschinsky」：https://www.lamptech.co.uk/Documents/M7%20Kuch%20%26%20Retschinsky.htm
+- Deutsche Biographie「Küch, Richard」：https://www.deutsche-biographie.de/sfz46546.html
+
 ---
 
 # 冶金と熱（タスク15〜）

@@ -33,7 +33,7 @@ public class SealingStationScreen extends MachineScreen {
         text(g, Component.translatable(K + "pressure", pa < 0 ? "-" : VacuumChamberBlockEntity.formatPa(pa)), TEXT_X, 32);
         text(g, Component.translatable(K + "target", VacuumChamberBlockEntity.formatPa(SealingStationBlockEntity.SEAL_MAX_PA)), TEXT_X, 44);
         String hint;
-        if (!menu.getSlot(SealingStationBlockEntity.SLOT_IN).getItem().is(Vacuum.VACUUM_TUBE_ASSEMBLY)) hint = "need_input";
+        if (SealingStationBlockEntity.sealedProduct(menu.getSlot(SealingStationBlockEntity.SLOT_IN).getItem()).isEmpty()) hint = "need_input";
         else if (pa < 0) hint = "need_chamber";
         else if (pa > SealingStationBlockEntity.SEAL_MAX_PA) hint = "need_vacuum";
         else if (!menu.isReady()) hint = "output_full";

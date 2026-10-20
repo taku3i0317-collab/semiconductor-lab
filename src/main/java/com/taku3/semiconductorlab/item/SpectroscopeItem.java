@@ -50,6 +50,7 @@ public class SpectroscopeItem extends Item {
             case "k" -> new double[] {766.5, 769.9, 404.4};
             case "ca" -> new double[] {422.7};
             case "pb" -> new double[] {405.8};
+            case "hg" -> new double[] {579.1, 577.0, 546.1, 435.8, 404.7};   // 黄2・緑・g線・h線（i線 365.0 は紫外で見えない）
             case "sun" -> new double[] {656.3, 589.0, 518.4, 486.1, 396.8, 393.4};   // C・D・b1・F・H・K
             default -> new double[0];
         };
@@ -87,6 +88,9 @@ public class SpectroscopeItem extends Item {
         return e;
     }
 
+    /** 点灯中の水銀灯を見たときのチャットの行（lang キーの末尾） */
+    public static List<String> lampReport() { return List.of("line.hg", "line.hg_i"); }
+
     /** 炎を見たときのチャットの行（lang キーの末尾）。試料なし＝炎だけの連続スペクトル */
     public static List<String> flameReport(ItemStack sample) {
         List<String> out = new ArrayList<>();
@@ -100,6 +104,16 @@ public class SpectroscopeItem extends Item {
     @Override
     public InteractionResult useOn(UseOnContext ctx) {
         Level level = ctx.getLevel();
+        // [7-10] 点灯中の水銀灯：水銀の線（g線・h線・i線）
+        if (com.taku3.semiconductorlab.block.MercuryLampBlockEntity.isLit(level.getBlockState(ctx.getClickedPos()))) {
+            Player p = ctx.getPlayer();
+            if (!level.isClientSide() && p != null) {
+                p.sendSystemMessage(Component.translatable(K + "lamp"));
+                for (String key : lampReport()) p.sendSystemMessage(Component.translatable(K + key));
+                sendMeasure(p, "hg");
+            }
+            return InteractionResult.SUCCESS;
+        }
         if (!isFlame(level.getBlockState(ctx.getClickedPos()))) return InteractionResult.PASS;   // 炎でなければ use()（空を見る）へ
         Player p = ctx.getPlayer();
         if (!level.isClientSide() && p != null) {

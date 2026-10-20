@@ -153,6 +153,9 @@ grating_spectroscope  # Optics [7-07] 1821
 fused_quartz  # Optics [7-02] 1839
 quartz_tube  # Optics [7-02] 1839
 oxyhydrogen_burner  # Optics [7-02] 1839
+mercury_lamp_assembly  # Optics [7-10] 1901
+mercury_lamp_tube  # Optics [7-10] 1901
+mercury_lamp  # Optics [7-10] 1901
 lead_screw  # Precision [8-02] 1797
 transistor  # Semiconductor [9-03] 1947
 germanium_seed_crystal  # Semiconductor [9-07] 1950

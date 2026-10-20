@@ -50,6 +50,9 @@ public final class Optics {
     public static final Item SPECULUM_INGOT        = Reg.item("speculum_ingot");    // スペキュラム合金（Cu 約67%・Sn 約33%）
     public static final Item SPECULUM_MIRROR       = Reg.item("speculum_mirror");   // 磨いた凹面鏡
     public static final Item REFLECTING_TELESCOPE  = Reg.item("reflecting_telescope", TelescopeItem::new, new Item.Properties().stacksTo(1));
+    // [7-10] 水銀ランプ（IMP2-01）：石英管＋水銀＋W電極2 → 組立品 →封止台（0.1Pa 以下、シュプレンゲル [5-15]）→ 水銀灯の管 → 直流で光る水銀灯（385W、クーパー・ヒューイット 1901）
+    public static final Item MERCURY_LAMP_ASSEMBLY = Reg.item("mercury_lamp_assembly");
+    public static final Item MERCURY_LAMP_TUBE     = Reg.item("mercury_lamp_tube");
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
@@ -59,6 +62,9 @@ public final class Optics {
     public static final Item GRATING_SPECTROSCOPE  = Reg.item("grating_spectroscope", p -> new SpectroscopeItem(p, WIRE_GRATING_MICRONS), new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
+    // 水銀灯 [7-10]（IMP2-01）：直流 385W（110V・3.5A）でつく。画面なし。点灯中は明るさ15、分光器で水銀の線（g線・h線・i線）が見える
+    public static final Machine<MercuryLampBlockEntity> MERCURY_LAMP = Machine.electric("mercury_lamp", MercuryLampBlockEntity::new, MercuryLampBlockEntity.LAYOUT,
+            lit(metal(1.5f).sound(SoundType.GLASS), 15));
     // 酸水素バーナー [7-02]（ヘアの吹管 1801、ゴーダン 1839。水素＋酸素ボンベの炎 約2800℃で石英を溶かす）。ガスボンベ式（電気の受け口なし）。炎が出ている間は光る
     public static final Machine<OxyhydrogenBurnerBlockEntity> OXYHYDROGEN_BURNER = Machine.builder("oxyhydrogen_burner", OxyhydrogenBurnerBlockEntity::new)
             .ticker(OxyhydrogenBurnerBlockEntity::tick).layout(OxyhydrogenBurnerBlockEntity.LAYOUT).props(lit(metal(3.5f), 12)).build();

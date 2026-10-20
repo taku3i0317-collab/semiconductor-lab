@@ -44,7 +44,7 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
 
     /** 画面のスロットの並び（IMP-28：前の SealingStationMenu の代わり） */
     public static final MachineLayout LAYOUT = MachineLayout.builder(MENU_DATA_COUNT)
-            .in(SLOT_IN, 8, 35, s -> s.is(com.taku3.semiconductorlab.content.Vacuum.VACUUM_TUBE_ASSEMBLY))
+            .in(SLOT_IN, 8, 35, s -> !sealedProduct(s).isEmpty())
             .out(SLOT_OUT, 78, 35)
             .build();
 
@@ -67,15 +67,27 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return TICKS; }
 
+    /**
+     * 封じると何になるか（封じられない物は EMPTY）。真空管の組立品 → 三極真空管、
+     * IMP2-01：水銀灯の組立品 [7-10] → 水銀灯の管（空気を抜いて封じる。水銀の蒸気だけが残る）
+     */
+    public static ItemStack sealedProduct(ItemStack in) {
+        if (in.is(Vacuum.VACUUM_TUBE_ASSEMBLY)) return new ItemStack(Vacuum.VACUUM_TUBE);
+        if (in.is(com.taku3.semiconductorlab.content.Optics.MERCURY_LAMP_ASSEMBLY)) return new ItemStack(com.taku3.semiconductorlab.content.Optics.MERCURY_LAMP_TUBE);
+        return ItemStack.EMPTY;
+    }
+
     @Override protected boolean canWork() {
-        if (!container.getItem(SLOT_IN).is(Vacuum.VACUUM_TUBE_ASSEMBLY)) return false;
+        ItemStack out = sealedProduct(container.getItem(SLOT_IN));
+        if (out.isEmpty()) return false;
         VacuumChamberBlockEntity c = chamber();
-        return c != null && c.getPressure() <= SEAL_MAX_PA && canMerge(container.getItem(SLOT_OUT), new ItemStack(Vacuum.VACUUM_TUBE));
+        return c != null && c.getPressure() <= SEAL_MAX_PA && canMerge(container.getItem(SLOT_OUT), out);
     }
 
     @Override protected void finishWork() {
+        ItemStack out = sealedProduct(container.getItem(SLOT_IN));
         container.getItem(SLOT_IN).shrink(1);
-        merge(SLOT_OUT, new ItemStack(Vacuum.VACUUM_TUBE));
+        merge(SLOT_OUT, out);
         container.setChanged();
         VacuumChamberBlockEntity c = chamber();
         if (c != null) c.vent(VENT_FRACTION);

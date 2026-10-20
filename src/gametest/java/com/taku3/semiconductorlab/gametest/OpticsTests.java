@@ -322,6 +322,60 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-10] 水銀灯（IMP2-01）：組立品 →封止台（0.1Pa 以下だけ）→ 管 → ランプ。直流 385W で点灯（LIT）、電気なしで消える。分光器で Hg の線 */
+    @GameTest
+    public void mercuryLamp(GameTestHelper h) {
+        h.assertTrue(craft(h, Optics.QUARTZ_TUBE, Metallurgy.MERCURY, Metallurgy.TUNGSTEN_WIRE, Metallurgy.TUNGSTEN_WIRE)[0].is(Optics.MERCURY_LAMP_ASSEMBLY),
+                "quartz tube + mercury + 2 W electrodes -> lamp assembly");
+        h.assertTrue(craft(h, Chemistry.SODA_LIME_GLASS, Metallurgy.MERCURY, Metallurgy.TUNGSTEN_WIRE, Metallurgy.TUNGSTEN_WIRE)[0].isEmpty(), "needs a quartz tube (UV)");
+        // 封止台：大気圧・1kPa では封じない、0.08Pa で管になる
+        var SS = com.taku3.semiconductorlab.block.SealingStationBlockEntity.class;
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), sp = p(2, 1, 1);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(sp, com.taku3.semiconductorlab.content.Vacuum.SEALING_STATION.block);
+        var c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        var st = h.getBlockEntity(sp, SS);
+        int IN = com.taku3.semiconductorlab.block.SealingStationBlockEntity.SLOT_IN, OUT = com.taku3.semiconductorlab.block.SealingStationBlockEntity.SLOT_OUT;
+        int T = com.taku3.semiconductorlab.block.SealingStationBlockEntity.TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SealingStationBlockEntity.WATTS);
+        st.getContainer().setItem(IN, new ItemStack(Optics.MERCURY_LAMP_ASSEMBLY));
+        c.setPressure(1000);
+        tickConsumer(h, sp, st, T + 20, feed);
+        h.assertTrue(st.getContainer().getItem(OUT).isEmpty(), "1 kPa: air left -> not sealed");
+        c.setPressure(0.08);
+        tickConsumer(h, sp, st, T, feed);
+        h.assertTrue(st.getContainer().getItem(OUT).is(Optics.MERCURY_LAMP_TUBE), "0.08 Pa -> sealed mercury lamp tube");
+        h.assertTrue(com.taku3.semiconductorlab.block.SealingStationBlockEntity.sealedProduct(new ItemStack(com.taku3.semiconductorlab.content.Vacuum.VACUUM_TUBE_ASSEMBLY))
+                .is(com.taku3.semiconductorlab.content.Vacuum.VACUUM_TUBE), "vacuum tubes still seal as before");
+        h.assertTrue(craft(h, Optics.MERCURY_LAMP_TUBE, Items.IRON_INGOT, Items.IRON_INGOT, com.taku3.semiconductorlab.content.Power.COPPER_CABLE.block.asItem())[0].is(Optics.MERCURY_LAMP.block.asItem()),
+                "tube + iron + cable -> lamp block");
+
+        // 点灯：直流 385W があれば LIT（明るさ15）、なければ消える
+        BlockPos lp = p(4, 1, 4);
+        h.setBlock(lp, Optics.MERCURY_LAMP.block);
+        var lamp = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.MercuryLampBlockEntity.class);
+        tickConsumer(h, lp, lamp, 5, 0);
+        h.assertBlockProperty(lp, BlockStateProperties.LIT, false);
+        tickConsumer(h, lp, lamp, 5, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.MercuryLampBlockEntity.WATTS));
+        h.assertBlockProperty(lp, BlockStateProperties.LIT, true);
+        h.assertValueEqual(h.getBlockState(lp).getLightEmission(), 15, "lit lamp light level 15");
+        h.assertTrue(Math.abs(lamp.getLastWatts() - 385) < 1e-6, "385 W (110 V x 3.5 A)");
+        // 分光器を点灯中のランプに：反応する（SUCCESS）
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack scope = new ItemStack(Optics.GRATING_SPECTROSCOPE);
+        BlockPos a = h.absolutePos(lp);
+        var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(a), net.minecraft.core.Direction.UP, a, false);
+        h.assertTrue(scope.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND, scope, hit)).consumesAction(),
+                "spectroscope reads the lit lamp");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpectroscopeItem.measurableNm("hg").length, 5, "5 visible Hg lines (i-line is UV)");
+        // 電気が切れたら消える
+        tickConsumer(h, lp, lamp, 200, 0);
+        h.assertBlockProperty(lp, BlockStateProperties.LIT, false);
+        LOG.info("[LAB] mercury lamp [7-10]: assembly sealed at 0.08 Pa -> tube -> lamp; DC 385 W -> lit (15); spectroscope shows Hg g/h lines");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
