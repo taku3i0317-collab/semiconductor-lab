@@ -114,6 +114,9 @@ public final class Chemistry {
     // --- IMP3（O-006）[2-26] メタノール：木酢液に消石灰を入れて酢酸を酢酸カルシウムにし、残りを蒸留して木精（1834 デュマとペリゴが確認） ---
     public static final Item LIMED_WOOD_LIQUOR     = Reg.item("limed_wood_liquor", new Item.Properties().stacksTo(16)); // 石灰を入れた木酢液
     public static final Item METHANOL              = Reg.item("methanol", new Item.Properties().stacksTo(16));          // メタノール（木精）。飲むと失明
+    // [2-27] ホルムアルデヒド（IMP3、O-006）：熱した銅の網（触媒）の上でメタノールを空気で酸化（1867 ホフマン）
+    public static final Block COPPER_GAUZE   = Reg.functional("copper_gauze", CopperGauzeBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f).sound(SoundType.COPPER).noOcclusion());
+    public static final Item FORMALIN              = Reg.item("formalin", new Item.Properties().stacksTo(16));          // ホルマリン（ホルムアルデヒドの水溶液）
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

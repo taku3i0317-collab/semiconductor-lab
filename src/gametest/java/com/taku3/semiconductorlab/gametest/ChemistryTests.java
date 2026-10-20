@@ -494,6 +494,33 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-27] ホルムアルデヒド：熱した銅の網（触媒）（IMP3、O-006）
+    // =====================================================================
+
+    /** 冷たい網では反応しない。火のついたたき火の上の網ならメタノール → ホルマリン、網は減らない（何度でも） */
+    @GameTest
+    public void formaldehyde(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        floor(h, 4);
+        BlockPos gauze = p(1, 2, 1);
+        h.setBlock(gauze, Chemistry.COPPER_GAUZE);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack meth = new ItemStack(Chemistry.METHANOL, 3);
+        h.assertFalse(com.taku3.semiconductorlab.block.CopperGauzeBlock.react(lv, h.absolutePos(gauze), player, meth), "cold gauze -> no reaction");
+        h.assertValueEqual(meth.getCount(), 3, "methanol not used");
+        h.setBlock(gauze.below(), Blocks.CAMPFIRE);
+        h.assertTrue(com.taku3.semiconductorlab.block.CopperGauzeBlock.react(lv, h.absolutePos(gauze), player, meth), "hot gauze over a lit campfire -> formalin");
+        h.assertTrue(com.taku3.semiconductorlab.block.CopperGauzeBlock.react(lv, h.absolutePos(gauze), player, meth), "again: the catalyst is not used up");
+        h.assertValueEqual(player.getInventory().countItem(Chemistry.FORMALIN), 2, "2 formalin");
+        h.assertTrue(h.getBlockState(gauze).is(Chemistry.COPPER_GAUZE), "the gauze is still there");
+        h.setBlock(gauze.below(), Blocks.CAMPFIRE.defaultBlockState().setValue(net.minecraft.world.level.block.CampfireBlock.LIT, false));
+        h.assertFalse(com.taku3.semiconductorlab.block.CopperGauzeBlock.react(lv, h.absolutePos(gauze), player, meth), "an unlit campfire does not heat it");
+        h.assertTrue(recipeUses(h, "copper_gauze", Items.COPPER_INGOT), "gauze from copper");
+        LOG.info("[LAB] formaldehyde [2-27]: cold gauze no, over lit campfire methanol -> formalin (x2, gauze stays)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

@@ -71,3 +71,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 
 ## O-006 フェノール樹脂までの鎖
 - ✅ [2-26] メタノール（遊び方: 軽）：木酢液4＋消石灰 → 石灰を入れた木酢液4 →かまど → メタノール（石灰なしは不可）。GHS を note2 に。GameTest methanol、CHEMISTRY P1、REFERENCES C4。テスト 165/165
+- ✅ [2-27] ホルムアルデヒド（遊び方: 実験）：銅の網（銅4、block/CopperGauzeBlock）を火のついたたき火の上に置き、メタノールで右クリック → ホルマリン。網は減らない（触媒）、冷たい・火の消えたたき火では反応しない。GameTest formaldehyde、CHEMISTRY P2、REFERENCES C5。テスト 166/166

@@ -172,6 +172,8 @@ cyclized_rubber_mix  # Chemistry [2-29] 1839
 cyclized_rubber  # Chemistry [2-29] 1839
 ammonia_water  # Chemistry [2-21] 1850
 ammonia_still  # Chemistry [2-21] 1850
+copper_gauze  # Chemistry [2-27] 1859
+formalin  # Chemistry [2-27] 1859
 phosphorus  # Chemistry [9-11] 1955
 phosphoric_acid  # Chemistry [9-25] 1959
 sodium_silicate  # Chemistry [9-13] 1963

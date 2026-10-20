@@ -1420,6 +1420,20 @@
 - Wikipedia「Pyroligneous acid」（木酢液の成分）：https://en.wikipedia.org/wiki/Pyroligneous_acid
 - Wikipedia「Wood distillation」（酢酸石灰・木精）：https://en.wikipedia.org/wiki/Wood_distillation
 
+## C5. 熱い銅の網は減らない（触媒とホルムアルデヒド）［2-27］
+**答え**：メタノールの蒸気と空気を、熱した銅や銀の網に通すと、表面でメタノールが酸化されてホルムアルデヒドと水になる（2CH3OH + O2 → 2HCHO + 2H2O）。網は反応を速めるだけで自分は変わらない（触媒）。ホルムアルデヒドを水に溶かした物がホルマリン。
+
+- へえ①：熱した銅や銀の網の上で、メタノールを酸素と反応させる。網はなくならない。
+- へえ②：ホルムアルデヒドはたんぱく質をつないで固めるので、標本の保存に使われた。同じ性質でフェノールとつながって樹脂になる。
+- へえ③：1859年ブートレロフが発見、1867年ホフマンがメタノールの酸化で確かめた。工場では銀の網（約600℃）が主。
+- へえ④：建材から出るホルムアルデヒドはシックハウス症候群の原因。日本は2003年から建材に決まりを作った。
+
+確かさ：反応式・触媒 ◎／ブートレロフ 1859・ホフマン 1867 ○（TECH_TREE の本物欄と一致）／シックハウスの規制 2003（建築基準法改正）○／GHS 区分（発がん性 1B など）○
+根拠：
+- Wikipedia「Formaldehyde」：https://en.wikipedia.org/wiki/Formaldehyde
+- Wikipedia「Formox process」（銀・金属酸化物触媒）：https://en.wikipedia.org/wiki/Formox_process
+- 国土交通省「シックハウス対策について」（2003年 建築基準法改正）：https://www.mlit.go.jp/jutakukentiku/build/jutakukentiku_house_tk_000043.html
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
