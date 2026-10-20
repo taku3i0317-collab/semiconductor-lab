@@ -94,7 +94,7 @@
   "guide4.semiconductor-lab.p4.title": "3. Oxide",
   "book.semiconductor-lab.ch4.p4": "The oxidation furnace grows a SiO2 film on the wafer.\n\nThis film shields the places that must not be doped.",
   "guide4.semiconductor-lab.p5.title": "4. Resist and exposure",
-  "book.semiconductor-lab.ch4.p5": "The spin coater spreads a light-sensitive film (positive resist). Sunlight spoils it.\n\nThe mask aligner prints the mask's shadow. Contact is sharp but wears the mask.",
+  "book.semiconductor-lab.ch4.p5": "The spin coater spreads a light-sensitive film (resist). Early ICs used negative KPR; positive resist spread in the 1970s.\n\nThe mask aligner prints the mask's shadow. Contact is sharp but wears the mask.",
   "guide4.semiconductor-lab.p6.title": "5. Develop and etch",
   "book.semiconductor-lab.ch4.p6": "The developer bench dissolves the exposed resist.\n\nHydrofluoric acid in the etch tank opens windows in the bare oxide. The stripper removes the rest of the resist.",
   "guide4.semiconductor-lab.p7.title": "6. Planar",

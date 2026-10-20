@@ -458,6 +458,8 @@
 - へえ③：たくさん作れる形になったのはノイスの方（平らなので、写真の方法で配線まで一度に作れる）。今の IC はすべてこの子孫。
 - へえ④：2000年のノーベル物理学賞はキルビーが受けた。ノイスは1990年に亡くなっていて、ノーベル賞は亡くなった人には贈られない。
 
+- レジストの時代（S-004）：最初の IC の時代（1959〜60年代）の写真製版はネガ型のコダック KPR・KTFR（光の当たった所が固まって残る）。ポジ型（ノボラック＋DNQ、AZ レジストなど）が IC で広く使われるのは、細かい線が要るようになった 1970年代から ○。だから v0.3a はネガ型 KPR を待って出す
+
 確かさ：キルビー 1958.9.12・Ge・金線 ◎／ノイスの 1959 年のノートと特許（US 2,981,877、1961年に認められた）◎／ルホヴェックの接合分離 1959 ◎／フェアチャイルドの最初の動くプレーナ IC が 1960 年 ○／両社の取り決めが 1966 年 ○
 ゲーム（litho/Discoveries.integrated）：トランジスタと、それと別の領域の抵抗が、同じ Al の線につながっていれば見つかる。⚠️ キルビーの形（Ge・メサ・金線）はゲームでは作れない（省略）
 根拠：Computer History Museum「1958 – All semiconductor "Solid Circuit" is demonstrated」「1959 – Practical monolithic integrated circuit concept patented」、J. S. Kilby, "Invention of the integrated circuit", IEEE Trans. Electron Devices 23 (1976) 648、Nobel Prize in Physics 2000（nobelprize.org）

@@ -246,7 +246,7 @@
   "guide4.semiconductor-lab.p4.title": "3. 酸化膜",
   "book.semiconductor-lab.ch4.p4": "酸化炉で板の表面に SiO2 の膜を作る。\n\nこの膜が、しみ込ませたくない所を守る盾になる。",
   "guide4.semiconductor-lab.p5.title": "4. レジストと露光",
-  "book.semiconductor-lab.ch4.p5": "塗布機で光に弱い膜（ポジ型レジスト）を薄く塗る。日なたに持ち出すと感光してしまう。\n\nマスクアライナーでマスクの影を焼く。密着は鋭いがマスクが傷む。",
+  "book.semiconductor-lab.ch4.p5": "塗布機で光に弱い膜（レジスト）を薄く塗る。最初の IC の時代はネガ型 KPR、ポジ型が広まるのは1970年代から。\n\nマスクアライナーでマスクの影を焼く。密着は鋭いがマスクが傷む。",
   "guide4.semiconductor-lab.p6.title": "5. 現像とエッチング",
   "book.semiconductor-lab.ch4.p6": "現像槽で光の当たった所のレジストを溶かす。\n\nエッチング槽のフッ酸で、むき出しの酸化膜に窓を開ける。はがし槽で残りのレジストを取る。",
   "guide4.semiconductor-lab.p7.title": "6. プレーナ",
