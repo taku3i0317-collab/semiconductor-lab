@@ -347,6 +347,30 @@ def node_details(nodes, icons):
                 "certainty": get(r"確かさ"), "basis": get(r"根拠")}
         for t, num in ids:
             refs[f"{t}-{num}"].append(item)
+    # 機械のレシピ（GameTest exportMachineRecipes が書き出す docs/machine_recipes.json）
+    mfile = ROOT / "docs" / "machine_recipes.json"
+    machine = json.loads(mfile.read_text(encoding="utf-8")).get("recipes", []) if mfile.exists() else []
+    def thing(x):
+        name = ja_name(x["item"]) if ":" in x["item"] else x["item"]
+        amt = x.get("count", x.get("note", ""))
+        m = re.match(r"^(\d+)(.*)$", str(amt)) if isinstance(amt, str) else None
+        if m:   # 「1（石炭も可）」→「木炭×1（石炭も可）」
+            return f"{name}×{m.group(1)}{m.group(2)}"
+        return f"{name}×{amt}" if isinstance(amt, (int, float)) and amt != 1 else (f"{name}（{amt}）" if amt not in ("", 1) else name)
+    def power(r):
+        w, s = r["watts"], r["seconds"]
+        if w < 0:
+            return f"発電 {(-w) / 1000:g} kW" + (f"・石炭1個 {s:g} 秒" if s else "")
+        if w == 0:
+            return f"電気なし・{s:g} 秒" if s else "電気なし"
+        return f"{w / 1000:g} kW × {s:g} 秒＝{r.get('energy_kj', 0):,} kJ" if s else f"{w / 1000:g} kW"
+    by_item = defaultdict(list)
+    for r in machine:
+        line = (f"{ja_name(r['machine'])}「{r['process']}」：" + " ＋ ".join(thing(x) for x in r["inputs"]) + " → "
+                + " ＋ ".join(thing(x) for x in r["outputs"]) + f"（{power(r)}）" + (f"。{r['note']}" if r.get("note") else ""))
+        keys = {r["machine"]} | {x["item"] for x in r["outputs"] if ":" in x["item"]}
+        for k in keys:
+            by_item[k].append(line)
     out = {}
     for i, n in nodes.items():
         body = n["body"]
@@ -365,6 +389,7 @@ def node_details(nodes, icons):
         out[i] = {"real_full": re.sub(r"\*\*|`", "", real.group(1)).strip() if real else "",
                   "hee_tree": tree_hee, "hee_game": game, "refs": refs.get(i, []),
                   "item": item_id, "recipes": recipes.get(f"semiconductor-lab:{item_id}", []) if item_id else [],
+                  "machine_recipes": by_item.get(f"semiconductor-lab:{item_id}", []) if item_id else [],
                   "placeholder": lang(f"semiconductor-lab.{item_id}.placeholder") if item_id else None,
                   "game_text": field_all(body, r"ゲーム") or field_all(body, r"MC入手") or field_all(body, r"MC")}
     return out

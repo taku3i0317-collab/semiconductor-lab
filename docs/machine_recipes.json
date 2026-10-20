@@ -1,0 +1,728 @@
+{
+  "_note": "自動生成：GameTest exportMachineRecipes（tools/test.ps1 で更新）。各機械の定数とアイテムの登録から作る。watts が負＝発電、0＝電気なし",
+  "recipes": [
+    {
+      "machine": "semiconductor-lab:zone_refining_furnace",
+      "process": "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:raw_germanium",
+          "note": "最大8"
+        },
+        {
+          "item": "semiconductor-lab:graphite_boat",
+          "note": "減らない（粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで）"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "note": "同じ数"
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90,
+      "note": "GeCl4 経由でない Ge は 9N まで"
+    },
+    {
+      "machine": "semiconductor-lab:zone_refining_furnace",
+      "process": "ゾーンレベリング（n型）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "note": "9N 以上・最大8"
+        },
+        {
+          "item": "semiconductor-lab:phosphorus",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:n_type_germanium",
+          "note": "同じ数"
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90
+    },
+    {
+      "machine": "semiconductor-lab:zone_refining_furnace",
+      "process": "ゾーンレベリング（p型）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "note": "9N 以上・最大8"
+        },
+        {
+          "item": "semiconductor-lab:indium",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:p_type_germanium",
+          "note": "同じ数"
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90
+    },
+    {
+      "machine": "semiconductor-lab:electrolyzer",
+      "process": "水の電気分解",
+      "inputs": [
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sulfuric_acid",
+          "note": "減らない（電解質）"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:oxygen_gas",
+          "count": 1
+        },
+        {
+          "item": "minecraft:bucket",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 115.0,
+      "energy_kj": 575,
+      "note": "2H2O → 2H2 + O2"
+    },
+    {
+      "machine": "semiconductor-lab:electrolyzer",
+      "process": "塩水の電気分解（クロルアルカリ）",
+      "inputs": [
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:salt",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sodium_hydroxide",
+          "count": 2
+        },
+        {
+          "item": "minecraft:bucket",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 128.0,
+      "energy_kj": 640,
+      "note": "2NaCl + 2H2O → Cl2 + H2 + 2NaOH"
+    },
+    {
+      "machine": "semiconductor-lab:bessemer_converter",
+      "process": "ベッセマー転炉",
+      "inputs": [
+        {
+          "item": "minecraft:iron_ingot",
+          "note": "1（銑鉄の近似）"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:steel_ingot",
+          "count": 1
+        }
+      ],
+      "watts": 20000.0,
+      "seconds": 20.0,
+      "energy_kj": 400,
+      "note": "送風の動力を電力で代表"
+    },
+    {
+      "machine": "semiconductor-lab:hydrogen_furnace",
+      "process": "WO3 の水素還元",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:tungsten_trioxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 3
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:tungsten_powder",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90,
+      "note": "WO3 + 3H2 → W + 3H2O"
+    },
+    {
+      "machine": "semiconductor-lab:hydrogen_furnace",
+      "process": "タングステン粉の焼結",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:tungsten_powder",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:tungsten_bar",
+          "count": 1
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 20.0,
+      "energy_kj": 200
+    },
+    {
+      "machine": "semiconductor-lab:hydrogen_furnace",
+      "process": "GeO2 の水素還元",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:germanium_dioxide",
+          "note": "1（高純度 GeO2 も可）"
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:raw_germanium",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "GeO2 + 2H2 → Ge + 2H2O"
+    },
+    {
+      "machine": "semiconductor-lab:compressor",
+      "process": "ボンベに詰める",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:empty_gas_cylinder",
+          "count": 1
+        },
+        {
+          "item": "隣のガスホルダーのガス",
+          "note": "50 mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "ガスの種類のボンベ（H2・O2・Cl2・N2・Ar）",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 124.0,
+      "energy_kj": 620,
+      "note": "約150気圧"
+    },
+    {
+      "machine": "semiconductor-lab:sealing_station",
+      "process": "真空管の封止",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vacuum_tube_assembly",
+          "count": 1
+        },
+        {
+          "item": "隣の真空容器",
+          "note": "≤ 0.1 Pa"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:vacuum_tube",
+          "count": 1
+        }
+      ],
+      "watts": 500.0,
+      "seconds": 10.0,
+      "energy_kj": 5,
+      "note": "封じるたびに容器へ空気がもどる"
+    },
+    {
+      "machine": "semiconductor-lab:electric_furnace",
+      "process": "電気で焼く",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:refractory_brick_blank",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:refractory_brick",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 10.0,
+      "energy_kj": 50
+    },
+    {
+      "machine": "semiconductor-lab:electric_furnace",
+      "process": "電気で焼く",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:graphite_boat_blank",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:graphite_boat",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 10.0,
+      "energy_kj": 50
+    },
+    {
+      "machine": "semiconductor-lab:acheson_furnace",
+      "process": "人造黒鉛",
+      "inputs": [
+        {
+          "item": "minecraft:coal",
+          "note": "4（木炭も可）"
+        },
+        {
+          "item": "minecraft:sand",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:synthetic_graphite",
+          "count": 2
+        }
+      ],
+      "watts": 500000.0,
+      "seconds": 60.0,
+      "energy_kj": 30000,
+      "note": "2500℃ 以上で進む（電力が足りないと届かない）"
+    },
+    {
+      "machine": "semiconductor-lab:reverberatory_furnace",
+      "process": "焙焼",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:galena",
+          "count": 1
+        },
+        {
+          "item": "minecraft:coal",
+          "note": "燃料（1個で80秒）"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:litharge",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sulfur_dioxide",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:reverberatory_furnace",
+      "process": "焙焼",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:cinnabar_dust",
+          "count": 1
+        },
+        {
+          "item": "minecraft:coal",
+          "note": "燃料（1個で80秒）"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:mercury",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sulfur_dioxide",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:reverberatory_furnace",
+      "process": "焙焼",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:sphalerite",
+          "count": 1
+        },
+        {
+          "item": "minecraft:coal",
+          "note": "燃料（1個で80秒）"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:zinc_oxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sulfur_dioxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:germanium_concentrate",
+          "note": "4回に1個"
+        },
+        {
+          "item": "semiconductor-lab:indium",
+          "note": "8回に1個"
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:oxyhydrogen_burner",
+      "process": "石英を溶かす",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vein_quartz",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_cylinder",
+          "note": "4 mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_cylinder",
+          "note": "2 mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:fused_quartz",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "2H2 + O2 → 2H2O（約2800℃）。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:hcl_burner",
+      "process": "塩酸を作る",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "note": "1 mol"
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "note": "1 mol"
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "note": "1/4"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydrochloric_acid",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "H2 + Cl2 → 2HCl。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:salt_pan",
+      "process": "天日で塩",
+      "inputs": [
+        {
+          "item": "海辺の水と日光",
+          "note": "雨の日は止まる"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:salt",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:bittern",
+          "note": "塩8個ごとに1"
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 60.0,
+      "note": "電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:sprengel_pump",
+      "process": "真空にする",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:mercury",
+          "note": "4（減らない）"
+        },
+        {
+          "item": "隣の真空容器",
+          "note": "1気圧から"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "真空容器の圧力",
+          "note": "1秒ごとに残り 90%、0.05 Pa まで"
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 1.0,
+      "note": "電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:air_separation_unit",
+      "process": "空気分離",
+      "inputs": [
+        {
+          "item": "空気",
+          "note": "10 mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:nitrogen_gas",
+          "note": "7.808 mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_gas",
+          "note": "2.095 mol"
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "note": "0.093 mol"
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 16.0,
+      "energy_kj": 80,
+      "note": "端数は持ち越して袋にする"
+    },
+    {
+      "machine": "semiconductor-lab:crystal_puller",
+      "process": "種結晶づくり",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:tungsten_wire",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:germanium_seed_crystal",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90,
+      "note": "粒の選択。線は消える"
+    },
+    {
+      "machine": "semiconductor-lab:crystal_puller",
+      "process": "単結晶の引き上げ",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:germanium_seed_crystal",
+          "note": "減らない"
+        },
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:germanium_single_crystal",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 60.0,
+      "energy_kj": 180,
+      "note": "純度と経路を受け継ぐ"
+    },
+    {
+      "machine": "semiconductor-lab:arc_furnace",
+      "process": "金属シリコン",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vein_quartz",
+          "count": 2
+        },
+        {
+          "item": "minecraft:charcoal",
+          "note": "1（石炭も可）"
+        },
+        {
+          "item": "semiconductor-lab:graphite_rod",
+          "note": "8回で1本"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:metallurgical_silicon",
+          "count": 1
+        }
+      ],
+      "watts": 500000.0,
+      "seconds": 86.4,
+      "energy_kj": 43200,
+      "note": "SiO2 + 2C → Si + 2CO、純度98%"
+    },
+    {
+      "machine": "semiconductor-lab:steam_engine",
+      "process": "蒸気で発電",
+      "inputs": [
+        {
+          "item": "minecraft:coal",
+          "count": 1
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "note": "水"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "電気",
+          "note": "50 kW"
+        }
+      ],
+      "watts": -50000.0,
+      "seconds": 30.0,
+      "note": "石炭1個の熱は 30 MJ（ゲームの約束）。自励式ダイナモで2倍"
+    },
+    {
+      "machine": "semiconductor-lab:steam_turbine",
+      "process": "蒸気タービンで発電",
+      "inputs": [
+        {
+          "item": "minecraft:coal",
+          "count": 1
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "note": "水"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "電気",
+          "note": "500 kW"
+        }
+      ],
+      "watts": -500000.0,
+      "seconds": 18.0,
+      "note": "熱効率30%"
+    },
+    {
+      "machine": "semiconductor-lab:water_wheel",
+      "process": "水車で発電",
+      "inputs": [
+        {
+          "item": "横に流れる水",
+          "note": "1面ごと"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "電気",
+          "note": "500 W / 面"
+        }
+      ],
+      "watts": -500.0,
+      "seconds": 0.0,
+      "note": "止まった水では回らない"
+    },
+    {
+      "machine": "semiconductor-lab:lead_acid_battery",
+      "process": "電気をためる",
+      "inputs": [
+        {
+          "item": "電気",
+          "note": "最大 10 kW"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "電気",
+          "note": "1 MJ まで（充電は 85% がたまる）"
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 0.0
+    }
+  ]
+}

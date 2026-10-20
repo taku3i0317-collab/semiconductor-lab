@@ -90,6 +90,7 @@ aside#card.open { display: block; }
   <h1>技術ネットワーク</h1>
   <input type="search" id="q" placeholder="検索（名前・番号・本物・へえ）" aria-label="検索">
   <select id="trunk" aria-label="幹で絞り込み"><option value="">すべての幹</option></select>
+  <select id="layout" aria-label="表示の形"><option value="time">時間軸</option><option value="net">ネットワーク</option></select>
   <label><input type="checkbox" id="all"> すべての技術</label>
   <label><input type="checkbox" id="now"> 今すぐ作れるだけ</label>
   <label><input type="checkbox" id="und" checked> 理解の線</label>
@@ -205,7 +206,9 @@ aside#card.open { display: block; }
 
   // ---- 線 ----
   const gapColor = g => d3.interpolateRgb('#d9d0b0', '#e8590c')(Math.min(1, Math.log10(1 + Math.abs(g)) / 3.3));
-  const curve = (a, b) => { const mx = (a.x + b.x) / 2; return `M${a.x},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x},${b.y}`; };
+  // 線の形：時間軸は横に流れる曲線、ネットワークは直線
+  let layoutMode = 'time';
+  const curve = (a, b) => { if (layoutMode === 'net') return `M${a.x},${a.y} L${b.x},${b.y}`; const mx = (a.x + b.x) / 2; return `M${a.x},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x},${b.y}`; };
   const TOP = new Set([...edges].filter(e => e.kind === 'requires').sort((p, q) => Math.abs(q.gap) - Math.abs(p.gap)).slice(0, 60));
   const baseOpacity = d => TOP.has(d) ? 0.32 : 0.035;
   const plinkSel = root.append('g').selectAll('path').data(plinks).join('path').attr('class', 'plink').attr('d', d => curve(d.a, d.b));
@@ -237,6 +240,49 @@ aside#card.open { display: block; }
   svg.on('click', () => select(null));
 
   const state = { sel: null, q: '', trunk: '', now: false, und: true, all: false };
+  // ---- 表示の切り替え：「時間軸」（年と幹の帯）と「ネットワーク」（年を使わず、つながりだけの力学レイアウト。ハブが中央に集まる） ----
+  for (const n of nodes) { n.timeX = n.x; n.timeY = n.y; }
+  let netReady = false;
+  function computeNet() {
+    const links = edges.filter(e => e.kind === 'requires').map(e => ({ source: e.a, target: e.b }));
+    const maxD = d3.max(nodes, n => n.descendants) || 1;
+    const sims = nodes.map(n => ({ n, x: n.timeX - W / 2, y: n.timeY - H / 2 }));
+    const byN = new Map(sims.map(s => [s.n, s]));
+    const L = links.map(l => ({ source: byN.get(l.source), target: byN.get(l.target) }));
+    const s = d3.forceSimulation(sims)
+      .force('link', d3.forceLink(L).distance(28).strength(0.25))
+      .force('charge', d3.forceManyBody().strength(-38))
+      // 子孫の多い技術（ハブ）ほど中心へ、少ないものほど外側へ
+      .force('radial', d3.forceRadial(d => 60 + 520 * (1 - Math.sqrt(d.n.descendants / maxD)), 0, 0).strength(0.12))
+      .force('collide', d3.forceCollide(d => (isProd(d.n) ? 18 : R(d.n)) + 2))
+      .stop();
+    for (let i = 0; i < 320; i++) s.tick();
+    for (const d of sims) { d.n.netX = d.x + W / 2; d.n.netY = d.y + H / 2; }
+    netReady = true;
+  }
+  function applyLayout(mode, animate = true) {
+    layoutMode = mode;
+    if (mode === 'net' && !netReady) computeNet();
+    for (const n of nodes) { n.x = mode === 'net' ? n.netX : n.timeX; n.y = mode === 'net' ? n.netY : n.timeY; }
+    const tr = animate ? d3.transition().duration(700) : null;
+    const sel = s => tr ? s.transition(tr) : s;
+    sel(nodeSel).attr('transform', d => `translate(${d.x},${d.y})` + (isProd(d) ? ` scale(${pinScale()})` : ''));
+    sel(edgeSel).attr('d', d => curve(d.a, d.b));
+    sel(plinkSel).attr('d', d => curve(d.a, d.b));
+    bands.style('display', mode === 'net' ? 'none' : null);
+    eraG.style('display', mode === 'net' ? 'none' : null);
+    // ネットワークでは帯がないので、点の真ん中が画面の真ん中に来るように合わせ直す
+    const b = document.getElementById('chart').getBoundingClientRect();
+    const xsN = nodes.map(n => n.x), ysN = nodes.map(n => n.y);
+    const [x0, x1, y0b, y1b] = [d3.min(xsN), d3.max(xsN), d3.min(ysN), d3.max(ysN)];
+    if (mode === 'net') {
+      const k = Math.min(b.width / (x1 - x0 + 80), b.height / (y1b - y0b + 80), 1.2);
+      svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(b.width / 2 - (x0 + x1) / 2 * k, b.height / 2 - (y0b + y1b) / 2 * k).scale(k));
+    } else {
+      svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(narrow ? 4 : Math.max(4, (b.width - W * k0) / 2), 4).scale(k0));
+    }
+  }
+
   // ---- ズーム：近づくほど細かく（地図アプリのように）。遠いときはモノだけ ----
   let K = 1, DETAIL_K = 1;
   // モノは地図のピンのように、遠くからでも同じくらいの大きさに見せる（倍率の逆数で拡大）
@@ -355,6 +401,7 @@ aside#card.open { display: block; }
   trunks.forEach(t => sel.insertAdjacentHTML('beforeend', `<option value="${t}">${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}</option>`));
   sel.onchange = () => { state.trunk = sel.value; render(); };
   document.getElementById('all').onchange = e => { state.all = e.target.checked; render(); };
+  document.getElementById('layout').onchange = e => { applyLayout(e.target.value); render(); };
   document.getElementById('now').onchange = e => { state.now = e.target.checked; render(); };
   document.getElementById('und').onchange = e => { state.und = e.target.checked; render(); };
   const qi = document.getElementById('q');

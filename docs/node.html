@@ -169,11 +169,12 @@ del { color: var(--sub); }
 
       <section><h2>ゲームでの作り方</h2>
         ${d.status === '✅' ? '' : '<p class="muted">まだゲームにない。予定：</p>'}
-        ${d.recipes.length ? `<ul>${d.recipes.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
+        ${d.machine_recipes.length ? `<p class="muted">機械で（GameTest が機械の設定から書き出した表）</p><ul>${d.machine_recipes.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
+        ${d.recipes.length ? `<p class="muted">作業台・かまどで</p><ul>${d.recipes.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
         ${d.hee_game.note2 ? `<p>${rich(d.hee_game.note2)}</p>` : ''}
         ${d.game_text ? `<p class="muted">${rich(d.game_text)}</p>` : ''}
         ${d.placeholder ? `<p class="muted">⚠️ 省略・近似：${esc(d.placeholder)}</p>` : ''}
-        ${!d.recipes.length && !d.hee_game.note2 && !d.game_text ? '<p class="muted">（まだ書いていない）</p>' : ''}
+        ${!d.recipes.length && !d.machine_recipes.length && !d.hee_game.note2 && !d.game_text ? '<p class="muted">（まだ書いていない）</p>' : ''}
       </section>
 
       <section><h2>ここにたどり着くには</h2>
