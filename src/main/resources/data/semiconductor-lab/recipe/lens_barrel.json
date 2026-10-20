@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:achromatic_lens",
+    "semiconductor-lab:achromatic_lens",
+    "semiconductor-lab:achromatic_lens",
+    "semiconductor-lab:achromatic_lens",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:standard_screw",
+    "semiconductor-lab:standard_screw"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lens_barrel",
+    "count": 1
+  }
+}

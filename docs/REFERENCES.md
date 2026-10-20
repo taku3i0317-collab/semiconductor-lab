@@ -1138,6 +1138,20 @@
 - Doiron, T.「20 °C—A Short History of the Standard Reference Temperature for Industrial Dimensional Measurements」J. Res. NIST 112 (2007)：https://nvlpubs.nist.gov/nistpubs/jres/112/1/V112.N01.A01.pdf
 - Wikipedia「Vibration isolation」：https://en.wikipedia.org/wiki/Vibration_isolation
 
+## O36. レンズの中心をそろえる（鏡筒の心出し）［8-14］
+**答え**：何枚ものレンズを筒に組むと、それぞれの中心（光軸）が少しずつずれ、像がぼやけたりゆがんだりする。鏡筒を回して像の揺れを顕微鏡で見ながら、揺れが消えるまでレンズを寄せて固定する（心出し）。光学メーカーの熟練工の技だった。
+
+- へえ①：最高のレンズも、0.001mm ずれて組むとぼやける。
+- へえ②：見分けられるずれの細かさは、のぞく顕微鏡の分解能（λ/2NA）で決まる。
+- へえ③：足元の揺れがあると、細かいずれは揺れに隠れて見えない。
+- へえ④：今の投影レンズは 20〜30枚を数十nm でそろえ、干渉計で波面を測りながら組む。
+
+確かさ：心出しの原理（回転させて像の振れを見る）◎／露光装置の投影レンズ 20〜30枚 ○／年 1950 △ → TECH_TREE とゲーム内で ⚠️
+根拠：
+- Wikipedia「Optical lens design」：https://en.wikipedia.org/wiki/Optical_lens_design
+- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper
+- Nikon「レンズの組立と調整（心出し）」の解説（光学メーカーの技術紹介）：https://www.nikon.com/company/technology/
+
 ---
 
 # 冶金と熱（タスク15〜）

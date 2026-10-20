@@ -66,6 +66,15 @@ public final class Precision {
     public static final Block ISOLATION_TABLE = Reg.block("isolation_table", Block::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(5.0f, 6.0f).sound(SoundType.METAL).requiresCorrectToolForDrops());
 
+    // [8-14] 鏡筒の精密組立（心出し、IMP2 O-010）：レンズ4枚の心のずれを顕微鏡で見て寄せる（item/LensBarrelItem）。全部 1µm 以下で心出し済み → [7-19] 投影レンズ
+    /** 鏡筒の中のレンズそれぞれの心のずれ（0.1µm 単位） */
+    public static final net.minecraft.core.component.DataComponentType<java.util.List<Integer>> LENS_DECENTER = net.minecraft.core.Registry.register(
+            net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("lens_decenter"),
+            net.minecraft.core.component.DataComponentType.<java.util.List<Integer>>builder().persistent(com.mojang.serialization.Codec.INT.listOf())
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.fromCodec(com.mojang.serialization.Codec.INT.listOf())).build());
+    public static final Item LENS_BARREL           = Reg.item("lens_barrel", LensBarrelItem::new, new Item.Properties().stacksTo(1));          // 組んだままの鏡筒
+    public static final Item CENTERED_LENS_BARREL  = Reg.item("centered_lens_barrel", LensBarrelItem::new, new Item.Properties().stacksTo(1)); // 心出し済みの鏡筒
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 旋盤 [8-01]（IMP2-01、モーズリー 1797〜1800頃）：モーターで材料を回し、送りねじの刃物台で削る。750W
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));

@@ -303,6 +303,8 @@ cast_iron_plate  # Precision [8-03] 1830
 surface_plate  # Precision [8-03] 1830
 metre_bar  # Precision [8-06] 1892
 isolation_table  # Precision [8-07] 1931
+lens_barrel  # Precision [8-14] 1950
+centered_lens_barrel  # Precision [8-14] 1950
 transistor  # Semiconductor [9-03] 1947
 germanium_seed_crystal  # Semiconductor [9-07] 1950
 germanium_single_crystal  # Semiconductor [9-07] 1950

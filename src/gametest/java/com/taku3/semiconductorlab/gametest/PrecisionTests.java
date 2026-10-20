@@ -15,6 +15,37 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-14] 鏡筒の心出し（IMP2 O-010）：顕微鏡で像の揺れを見て、いちばんずれたレンズを寄せる。複式顕微鏡なら全部 1µm 以下、単レンズでは見えずに止まる */
+    @GameTest
+    public void lens_centering(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "lens_barrel", com.taku3.semiconductorlab.content.Optics.ACHROMATIC_LENS) && recipeUses(h, "lens_barrel", Precision.STANDARD_SCREW),
+                "lens barrel = 4 achromatic lenses + steel tube + screw rings");
+        var L = com.taku3.semiconductorlab.item.LensBarrelItem.class;
+        int compound = com.taku3.semiconductorlab.item.LensBarrelItem.seeLimit(0.9, 0), simple = com.taku3.semiconductorlab.item.LensBarrelItem.seeLimit(0.2, 0);
+        h.assertTrue(compound < 10 && simple > 10, "compound microscope sees below 1 um, simple one does not: " + compound + ", " + simple);
+        var d = new java.util.ArrayList<>(java.util.List.of(800, 600, 300, 200));
+        int n = 0;
+        while (!com.taku3.semiconductorlab.item.LensBarrelItem.centered(d) && n < 30) { com.taku3.semiconductorlab.item.LensBarrelItem.tap(d, compound); n++; }
+        h.assertTrue(com.taku3.semiconductorlab.item.LensBarrelItem.centered(d), "centered with the compound microscope after " + n + " taps");
+        var e = new java.util.ArrayList<>(java.util.List.of(800, 600, 300, 200));
+        for (int k = 0; k < 40; k++) com.taku3.semiconductorlab.item.LensBarrelItem.tap(e, simple);
+        h.assertFalse(com.taku3.semiconductorlab.item.LensBarrelItem.centered(e), "simple microscope stops at about 1.4 um");
+        h.assertTrue(com.taku3.semiconductorlab.item.LensBarrelItem.seeLimit(0.9, com.taku3.semiconductorlab.block.Vibration.PISTON_NM) > 10, "a moving piston next to you hides the wobble");
+        // 手に持って：顕微鏡なしでは何もしない、あると1回寄せる
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Precision.LENS_BARREL));
+        h.assertFalse(Precision.LENS_BARREL.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "no microscope -> nothing");
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(Precision.COMPOUND_MICROSCOPE));
+        for (int k = 0; k < 30 && !player.getMainHandItem().is(Precision.CENTERED_LENS_BARREL); k++)
+            Precision.LENS_BARREL.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertTrue(player.getMainHandItem().is(Precision.CENTERED_LENS_BARREL) && player.getMainHandItem().has(Precision.LENS_DECENTER), "tapping until centered -> centered lens barrel");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"hold", "wobble", "cannot_see", "tapped", "done", "unknown", "decenter"})
+            h.assertTrue(ja.has("item.semiconductor-lab.lens_barrel." + k), "lang lens_barrel." + k);
+        LOG.info("[LAB] lens_centering [8-14]: compound microscope sees " + compound / 10.0 + " um -> centered in " + n + " taps; simple " + simple / 10.0 + " um cannot finish");
+        h.succeed();
+    }
+
     /** [8-07] 除振（IMP2）：まわりで動く物・ピストンで床が揺れ、干渉縞がゆれる。除振台（定盤＋ゴム）の上なら 1/20 */
     @GameTest
     public void vibration_isolation(GameTestHelper h) {
