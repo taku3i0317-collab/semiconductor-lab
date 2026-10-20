@@ -1,7 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.machine.MachineLayout;
 import com.taku3.semiconductorlab.Dopant;
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
@@ -24,14 +25,21 @@ import net.minecraft.world.level.block.state.BlockState;
  * 同じ型・ドーパントなし（真性）の板では接合ができないので動かない。1954 年は酸化膜のマスクなしで板全体に拡散した。
  * ⚠️ 温度（約1000℃）・電力（5kW）・時間（120秒、本物は何時間も）は出典で未確認のゲームの値（DECISIONS_PENDING Q25-6）。
  */
-public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 5_000;
     public static final int TICKS = 20 * 120;
     public static final int WAFERS_PER_RUN = 8, SOURCE_PER_RUN = 1;
     public static final int SLOT_WAFER = 0, SLOT_SOURCE = 1, SLOT_OUT = 2, SLOT_COUNT = 3;
 
+    /** 画面のスロットの並び（IMP-28：前の DiffusionFurnaceMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_WAFER, 8, 26, DiffusionFurnaceBlockEntity::isWafer)
+            .in(SLOT_SOURCE, 8, 50, s -> com.taku3.semiconductorlab.Dopant.of(s) != null)
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public DiffusionFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.DIFFUSION_FURNACE, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(ModMachines.DIFFUSION_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     public static boolean isWafer(ItemStack s) { return s.is(ModItems.SILICON_WAFER); }
@@ -70,8 +78,4 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity implements 
         container.setChanged();
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.diffusion_furnace"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new DiffusionFurnaceMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

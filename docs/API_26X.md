@@ -767,3 +767,19 @@ net.minecraft.world.item.crafting.CraftingInput:  public static CraftingInput of
 ## DataComponentType<String>（タスク23、コンパイルで確認）
 - `Codec.STRING` ＋ `ByteBufCodecs.STRING_UTF8` で文字列のデータコンポーネント（ModDataComponents.DOPANT）
 - `ItemStack.getOrDefault(type, default)` が使える
+
+## IMP-28 機械の共通化（2026-10-20 javap で確認）
+```
+// fabric-object-builder-api-v1 24.1.11
+FabricBlockEntityTypeBuilder.create(FabricBlockEntityTypeBuilder.Factory<? extends T>, Block...) → .build()
+interface FabricBlockEntityTypeBuilder.Factory<T extends BlockEntity> { T create(BlockPos, BlockState); }   // BE::new がそのまま入る
+// fabric-api-lookup-api-v1
+BlockApiLookup<A, C>: default <T extends BlockEntity> void registerForBlockEntity(BiFunction<? super T, C, A>, BlockEntityType<T>)
+// minecraft-clientOnly
+MenuScreens: static <M extends AbstractContainerMenu, U extends Screen & MenuAccess<M>> void register(MenuType<? extends M>, MenuScreens.ScreenConstructor<M, U>)
+interface MenuScreens.ScreenConstructor<T, U> { U create(T, Inventory, Component); }   // 同じ MenuType を2回 register するとエラー
+// minecraft-common
+GameTestHelper: Player makeMockPlayer(GameType); Player makeMockServerPlayer(GameType); ServerPlayer makeMockServerPlayerInLevel()
+```
+- `MenuType<>((id, inv) -> new MachineMenu(this, id, inv), FeatureFlags.DEFAULT_FLAGS)`：コンストラクタの中の `this` を使ってよい（ラムダは画面を開くときに呼ばれる）
+- 静的な定数は、宣言より前の行から単純名で使えない（「前方参照が不正です」）。`LAYOUT` は SLOT_ 定数より後ろに書く

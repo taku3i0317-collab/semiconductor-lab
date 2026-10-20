@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -26,7 +26,7 @@ public class VacuumChamberBlockEntity extends BlockEntity {
 
     private double pressure = ATM;
 
-    public VacuumChamberBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.VACUUM_CHAMBER, pos, state); }
+    public VacuumChamberBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.VACUUM_CHAMBER.type, pos, state); }
 
     public double getPressure() { return pressure; }
     public void setPressure(double pa) { pressure = Math.max(0, Math.min(ATM, pa)); setChanged(); }

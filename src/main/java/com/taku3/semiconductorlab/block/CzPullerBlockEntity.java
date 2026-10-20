@@ -1,7 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.machine.MachineLayout;
 import com.taku3.semiconductorlab.Dopant;
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
@@ -30,7 +31,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * ⚠️ 速さ：本物の引き上げは 1 分に約 1mm（2kg・直径10cm なら約2時間）。ゲームは約8倍速い（電力量は本物どおりにした）。
  * ⚠️ アルゴンの量は記号的（本物は 1kg あたり数十 mol 流す）。
  */
-public class CzPullerBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class CzPullerBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 150_000;
     /** 34.8 kWh ÷ 150 kW = 835.2 秒 */
     public static final int GROW_TICKS = 16704, SEED_TICKS = 20 * 60;
@@ -41,8 +42,18 @@ public class CzPullerBlockEntity extends ConsumerBlockEntity implements MenuProv
 
     public enum Mode { NONE, SEED, GROW }
 
+    /** 画面のスロットの並び（IMP-28：前の CzPullerMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_POLY, 8, 17, CzPullerBlockEntity::isPoly)
+            .in(SLOT_SEED, 8, 35, s -> modeOf(s) != Mode.NONE)
+            .in(SLOT_DOPANT, 8, 53, s -> com.taku3.semiconductorlab.Dopant.of(s) != null)
+            .in(SLOT_CRUCIBLE, 30, 17, CzPullerBlockEntity::isCrucible)
+            .in(SLOT_AR, 30, 53, CzPullerBlockEntity::isArgon)
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public CzPullerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.CZ_PULLER, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(ModMachines.CZ_PULLER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     /** 種のスロットの中身で決まる：多結晶シリコン＝種結晶づくり、シリコン種結晶＝引き上げ */
@@ -113,8 +124,4 @@ public class CzPullerBlockEntity extends ConsumerBlockEntity implements MenuProv
         }
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.cz_puller"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new CzPullerMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

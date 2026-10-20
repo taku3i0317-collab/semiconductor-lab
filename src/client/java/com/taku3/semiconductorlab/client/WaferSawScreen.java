@@ -1,29 +1,22 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.machine.MachineMenu;
 import com.taku3.semiconductorlab.block.WaferSawBlockEntity;
-import com.taku3.semiconductorlab.block.WaferSawMenu;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 
 /** ウェハー切断機の画面。左＝単結晶・刃、中央バー＝進み具合、出口＝シリコンの板、右＝電力・状態 */
-public class WaferSawScreen extends AbstractContainerScreen<WaferSawMenu> {
-    private static final Identifier BG = Identifier.fromNamespaceAndPath("semiconductor-lab", "textures/gui/wafer_saw.png");
+public class WaferSawScreen extends MachineScreen {
     private static final int BAR_X = 30, BAR_Y = 41, BAR_W = 40, BAR_H = 6;
     private static final int TEXT_X = 100, TEXT_COLOR = 0xFF404040;
     private static final String K = "gui.semiconductor-lab.wafer_saw.";
 
-    public WaferSawScreen(WaferSawMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
-
-    @Override protected void init() { super.init(); titleLabelX = (imageWidth - font.width(title)) / 2; }
+    public WaferSawScreen(MachineMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
 
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         super.extractBackground(g, mouseX, mouseY, partialTick);
-        g.blit(RenderPipelines.GUI_TEXTURED, BG, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
         int x = leftPos + BAR_X, y = topPos + BAR_Y;
         g.fill(x, y, x + BAR_W, y + BAR_H, 0xFF3A3A40);
         int w = menu.getProgress() * BAR_W / menu.getTotal();

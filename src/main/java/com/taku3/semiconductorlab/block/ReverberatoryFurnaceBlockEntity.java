@@ -1,6 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineBE;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -35,7 +37,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * </pre>
  * スロット：0＝鉱石、1＝燃料、2＝主生成物、3＝SO2、4＝副産物（Ge精鉱）、5＝副産物（インジウム）
  */
-public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements MenuProvider {
+public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements MachineBE {
     public static final int SLOT_IN = 0, SLOT_FUEL = 1, SLOT_OUT = 2, SLOT_SO2 = 3, SLOT_BY_GE = 4, SLOT_BY_IN = 5, SLOT_COUNT = 6;
     /** 1個を焼く時間（かまどと同じ 10秒） */
     public static final int ROAST_TICKS = 200;
@@ -60,9 +62,22 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Menu
         @Override public int getCount() { return DATA_COUNT; }
     };
 
-    public ReverberatoryFurnaceBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.REVERBERATORY_FURNACE, pos, state); }
+    /** 画面のスロットの並び（IMP-28：前の ReverberatoryFurnaceMenu の代わり） */
+    /** 画面の中のスロットの位置（画面の絵と合わせる） */
+    public static final int OUT_X = 104, OUT_Y = 22;
+    public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
+            .in(SLOT_IN, 44, 17, ReverberatoryFurnaceBlockEntity::isInput)
+            .in(SLOT_FUEL, 44, 53, ReverberatoryFurnaceBlockEntity::isFuel)
+            .out(SLOT_OUT, OUT_X, OUT_Y)
+            .out(SLOT_SO2, OUT_X + 22, OUT_Y)
+            .out(SLOT_BY_GE, OUT_X, OUT_Y + 22)
+            .out(SLOT_BY_IN, OUT_X + 22, OUT_Y + 22)
+            .build();
 
-    public SimpleContainer getContainer() { return container; }
+    public ReverberatoryFurnaceBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.REVERBERATORY_FURNACE.type, pos, state); }
+
+    @Override public SimpleContainer getContainer() { return container; }
+    @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
     public int getSphaleriteRoasted() { return sphaleriteRoasted; }
 
     public static boolean isFuel(ItemStack s) { return s.is(Items.COAL) || s.is(Items.CHARCOAL); }
@@ -136,11 +151,6 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Menu
         boolean lit = be.burnTicks > 0;
         if (state.hasProperty(BlockStateProperties.LIT) && state.getValue(BlockStateProperties.LIT) != lit)
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, lit), 3);
-    }
-
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.reverberatory_furnace"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new ReverberatoryFurnaceMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
     }
 
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) { if (level != null) Containers.dropContents(level, pos, container.getItems()); super.preRemoveSideEffects(pos, state); }

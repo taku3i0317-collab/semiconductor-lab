@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * 電力量 620kJ ≒ 50mol を 1→150 気圧へ等温圧縮する仕事 nRT·ln(150) ≈ 621kJ（25℃）。
  * 袋詰め（低圧・約1mol）は手軽な運搬用として残る。ボンベは「たくさん・小さく」運ぶためのもの。
  */
-public class CompressorBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class CompressorBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 5_000;
     public static final int TOTAL_TICKS = 20 * 124;
     public static final int MOL_PER_CYLINDER = 50;
@@ -31,8 +32,14 @@ public class CompressorBlockEntity extends ConsumerBlockEntity implements MenuPr
     private GasHolderBlockEntity source;
     private GasType sourceGas = GasType.NONE;
 
+    /** 画面のスロットの並び（IMP-28：前の CompressorMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_EMPTY, 8, 35, s -> s.is(com.taku3.semiconductorlab.ModItems.EMPTY_GAS_CYLINDER))
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public CompressorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.COMPRESSOR, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(ModMachines.COMPRESSOR.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
     @Override protected double workWatts() { return WATTS; }
@@ -66,8 +73,4 @@ public class CompressorBlockEntity extends ConsumerBlockEntity implements MenuPr
         container.setChanged();
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.compressor"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new CompressorMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

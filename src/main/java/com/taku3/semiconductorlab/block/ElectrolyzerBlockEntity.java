@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -26,7 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * ⚠️ 省略：本物の②は陽極側と陰極側を隔膜（アスベスト）・水銀・イオン交換膜で分けないと、塩素と NaOH が混ざって
  * 次亜塩素酸ナトリウム（漂白剤）になってしまう。ここでは隔膜の違いを省略（electrolyzer.placeholder）。
  */
-public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements MenuProvider, GasSource {
+public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements GasSource {
     /** ガスホルダーが吸う出口：陰極（H2）と陽極（O2／Cl2）。NaOH は液体なので吸わない */
     @Override public int[] gasOutputSlots() { return new int[] {SLOT_H2, SLOT_O2}; }
     public static final double WATTS = 5_000;
@@ -40,8 +41,17 @@ public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements Menu
     /** GUI へ送るモード（DATA_COUNT 番）：0＝なし、1＝水（硫酸）、2＝塩水 */
     public static final int DATA_MODE = DATA_COUNT, MODE_NONE = 0, MODE_WATER = 1, MODE_BRINE = 2;
 
+    /** 画面のスロットの並び（IMP-28：前の ElectrolyzerMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + 1)
+            .in(SLOT_WATER, 8, 17, s -> s.is(net.minecraft.world.item.Items.WATER_BUCKET))
+            .in(SLOT_ACID, 8, 53, ElectrolyzerBlockEntity::isSecondInput)
+            .out(SLOT_H2, 78, 17)
+            .out(SLOT_O2, 78, 35)
+            .out(SLOT_NAOH, 78, 53)
+            .build();
+
     public ElectrolyzerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ELECTROLYZER, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(ModMachines.ELECTROLYZER.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
     public static boolean isElectrolyte(ItemStack s) { return s.is(ModItems.SULFURIC_ACID); }
@@ -87,8 +97,4 @@ public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements Menu
     @Override protected int extraDataCount() { return 1; }
     @Override protected int extraData(int i) { return i == DATA_MODE ? mode() : 0; }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.electrolyzer"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new ElectrolyzerMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

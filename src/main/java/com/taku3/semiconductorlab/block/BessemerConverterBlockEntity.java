@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * ゲーム：バニラの鉄インゴット＝銑鉄の近似（CHEMISTRY に注記）。電気は送風機（モーター）を回すのに使う。
  * 鉄インゴット1個 ＋ 20kW×20秒 → 鋼インゴット1個。
  */
-public class BessemerConverterBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class BessemerConverterBlockEntity extends ConsumerBlockEntity {
     /** 送風機の電力（W）。本物の送風機関（蒸気駆動）は数百kW〜MW 級。ゲームでは小さくしている */
     public static final double WATTS = 20_000;
     /** 1回の吹錬（ブロー）の長さ。本物は数トンを10〜20分 */
@@ -36,8 +37,14 @@ public class BessemerConverterBlockEntity extends ConsumerBlockEntity implements
         return f < 0.2 ? Stage.SILICON : f < 0.9 ? Stage.CARBON : Stage.DROP;
     }
 
+    /** 画面のスロットの並び（IMP-28：前の BessemerConverterMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_IN, 26, 35, BessemerConverterBlockEntity::isPigIron)
+            .out(SLOT_OUT, 134, 35)
+            .build();
+
     public BessemerConverterBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.BESSEMER_CONVERTER, pos, state, SLOT_COUNT, 100_000, WATTS);
+        super(ModMachines.BESSEMER_CONVERTER.type, pos, state, SLOT_COUNT, 100_000, WATTS);
     }
 
     /** 銑鉄として受け付けるもの（今はバニラの鉄インゴット＝銑鉄の近似。[1-09]高炉の銑鉄が来たら置き換え） */
@@ -56,8 +63,4 @@ public class BessemerConverterBlockEntity extends ConsumerBlockEntity implements
         merge(SLOT_OUT, steel());
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.bessemer_converter"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new BessemerConverterMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

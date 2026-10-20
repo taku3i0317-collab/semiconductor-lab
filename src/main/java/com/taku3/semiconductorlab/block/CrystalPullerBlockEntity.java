@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
@@ -26,7 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * どちらも水素 1袋（流しっぱなしで燃やして捨てる）と 3kW（発振器 1台分）。純度と GeCl4 経路の印はインゴットに受け継ぐ。
  * 速さ：本物は 1時間に 1〜4cm（10〜40mm/h）、回転 3〜20rpm。ゲームでは1本 60秒に短縮（SOURCES.md）。
  */
-public class CrystalPullerBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class CrystalPullerBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 3_000;
     public static final int GROW_TICKS = 20 * 60, SEED_TICKS = 20 * 30;
     public static final int GE_PER_INGOT = 4, GE_PER_SEED = 1, H2_PER_RUN = 1;
@@ -35,8 +36,16 @@ public class CrystalPullerBlockEntity extends ConsumerBlockEntity implements Men
 
     public enum Mode { NONE, SEED, GROW }
 
+    /** 画面のスロットの並び（IMP-28：前の CrystalPullerMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_GE, 8, 17, CrystalPullerBlockEntity::isGermanium)
+            .in(SLOT_SEED, 8, 35, s -> modeOf(s) != Mode.NONE)
+            .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.ModItems.HYDROGEN_GAS))
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public CrystalPullerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.CRYSTAL_PULLER, pos, state, SLOT_COUNT, 100_000, WATTS);
+        super(ModMachines.CRYSTAL_PULLER.type, pos, state, SLOT_COUNT, 100_000, WATTS);
     }
 
     /** 種のスロットの中身で決まる：タングステン線＝種結晶づくり、種結晶＝引き上げ */
@@ -96,8 +105,4 @@ public class CrystalPullerBlockEntity extends ConsumerBlockEntity implements Men
         }
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.crystal_puller"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new CrystalPullerMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

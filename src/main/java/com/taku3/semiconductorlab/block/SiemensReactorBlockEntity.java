@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
@@ -24,7 +25,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * 蒸留が 9N に届かないトリクロロシランは入れられない（電子グレード 9N〜11N だけを作る）。
  * ⚠️ 量は記号的（Q22-1）。省略：最初に立てる細いシリコン棒（種棒）と、棒を初めに温める仕組み（冷えたシリコンは電気を通しにくい）。
  */
-public class SiemensReactorBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class SiemensReactorBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 500_000;
     /** 90 kWh = 324 MJ ÷ 500 kW = 648 秒 */
     public static final int TICKS = 12960;
@@ -32,8 +33,16 @@ public class SiemensReactorBlockEntity extends ConsumerBlockEntity implements Me
     public static final int MIN_NINES = 9;
     public static final int SLOT_TCS = 0, SLOT_H2 = 1, SLOT_OUT = 2, SLOT_HCL = 3, SLOT_COUNT = 4;
 
+    /** 画面のスロットの並び（IMP-28：前の SiemensReactorMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_TCS, 8, 26, SiemensReactorBlockEntity::isTcs)
+            .in(SLOT_H2, 8, 50, SiemensReactorBlockEntity::isHydrogen)
+            .out(SLOT_OUT, 78, 26)
+            .out(SLOT_HCL, 78, 50)
+            .build();
+
     public SiemensReactorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.SIEMENS_REACTOR, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(ModMachines.SIEMENS_REACTOR.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     public static boolean isTcs(ItemStack s) { return s.is(ModItems.TRICHLOROSILANE); }
@@ -68,8 +77,4 @@ public class SiemensReactorBlockEntity extends ConsumerBlockEntity implements Me
         container.setChanged();
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.siemens_reactor"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new SiemensReactorMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

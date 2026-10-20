@@ -1,5 +1,7 @@
 package com.taku3.semiconductorlab.energy;
 
+import com.taku3.semiconductorlab.machine.Machine;
+import com.taku3.semiconductorlab.machine.MachineEntityBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -17,16 +19,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import java.util.function.BiFunction;
 
 /** 発電機ブロックの共通クラス。右クリック：GUI を持つもの（蒸気機関）は画面を開き、それ以外（水車）は出力(W)と蓄積(J)をチャットに表示 */
-public class GeneratorBlock extends Block implements EntityBlock {
-    private final BiFunction<BlockPos, BlockState, ? extends GeneratorBlockEntity> factory;
-    private final java.util.function.Supplier<BlockEntityType<?>> typeRef;
-    public GeneratorBlock(Properties props, BiFunction<BlockPos, BlockState, ? extends GeneratorBlockEntity> factory, java.util.function.Supplier<BlockEntityType<?>> type) { super(props); this.factory = factory; this.typeRef = type; }
-
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return factory.apply(pos, state); }
-    @Override @SuppressWarnings("unchecked")
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == typeRef.get() ? (BlockEntityTicker<T>) (BlockEntityTicker<GeneratorBlockEntity>) GeneratorBlockEntity::tick : null;
-    }
+public class GeneratorBlock extends MachineEntityBlock {
+    public GeneratorBlock(Properties props, Machine<?> machine) { super(props, machine); }
     /** GUI を持つ発電機（今は蒸気機関だけ）は BE が MenuProvider。水車は null＝GUIなし */
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {
         return level.getBlockEntity(pos) instanceof MenuProvider mp ? mp : null;

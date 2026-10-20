@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
@@ -24,7 +25,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * 刃はダイヤモンドが少しずつ取れて減る：{@link #RUNS_PER_BLADE} 本で1枚。
  * ⚠️ 電力（1kW）・時間（60秒）・枚数はゲームの値（出典なし、DECISIONS_PENDING Q25-5）。
  */
-public class WaferSawBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class WaferSawBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 1_000;
     public static final int TICKS = 20 * 60;
     public static final int SLICES_PER_INGOT = 8, RUNS_PER_BLADE = 4;
@@ -32,8 +33,15 @@ public class WaferSawBlockEntity extends ConsumerBlockEntity implements MenuProv
 
     private int bladeRuns;
 
+    /** 画面のスロットの並び（IMP-28：前の WaferSawMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_CRYSTAL, 8, 26, WaferSawBlockEntity::isCrystal)
+            .in(SLOT_BLADE, 8, 50, WaferSawBlockEntity::isBlade)
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public WaferSawBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.WAFER_SAW, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(ModMachines.WAFER_SAW.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     public static boolean isCrystal(ItemStack s) { return s.is(ModItems.SILICON_SINGLE_CRYSTAL); }
@@ -71,8 +79,4 @@ public class WaferSawBlockEntity extends ConsumerBlockEntity implements MenuProv
     @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); out.putInt("BladeRuns", bladeRuns); }
     @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); bladeRuns = in.getIntOr("BladeRuns", 0); }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.wafer_saw"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new WaferSawMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

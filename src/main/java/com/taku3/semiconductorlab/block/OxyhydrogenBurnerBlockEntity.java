@@ -1,6 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineBE;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -32,7 +34,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * ボンベは中のガスが足りなくなったときに1本ずつ「つなぎ」、ガスは BE の中（mol）に移る。空ボンベは右下の出口へ。
  * スロット：0＝石英、1＝水素ボンベ、2＝酸素ボンベ、3＝溶融石英、4＝空ボンベ
  */
-public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements MenuProvider {
+public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements MachineBE {
     public static final int SLOT_IN = 0, SLOT_H2 = 1, SLOT_O2 = 2, SLOT_OUT = 3, SLOT_EMPTY = 4, SLOT_COUNT = 5;
     /** 1個を溶かす時間（10秒） */
     public static final int MELT_TICKS = 200;
@@ -56,9 +58,21 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements MenuPro
         @Override public int getCount() { return DATA_COUNT; }
     };
 
-    public OxyhydrogenBurnerBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.OXYHYDROGEN_BURNER, pos, state); }
+    /** 画面のスロットの並び（IMP-28：前の OxyhydrogenBurnerMenu の代わり） */
+    /** 画面の中のスロットの位置（画面の絵と合わせる） */
+    public static final int IN_X = 44, IN_Y = 17, H2_X = 26, O2_X = 62, GAS_Y = 53, OUT_X = 116, OUT_Y = 35, EMPTY_X = 148, EMPTY_Y = 53;
+    public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
+            .in(SLOT_IN, IN_X, IN_Y, OxyhydrogenBurnerBlockEntity::isInput)
+            .in(SLOT_H2, H2_X, GAS_Y, s -> s.is(com.taku3.semiconductorlab.ModItems.HYDROGEN_CYLINDER))
+            .in(SLOT_O2, O2_X, GAS_Y, s -> s.is(com.taku3.semiconductorlab.ModItems.OXYGEN_CYLINDER))
+            .out(SLOT_OUT, OUT_X, OUT_Y)
+            .out(SLOT_EMPTY, EMPTY_X, EMPTY_Y)
+            .build();
 
-    public SimpleContainer getContainer() { return container; }
+    public OxyhydrogenBurnerBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.OXYHYDROGEN_BURNER.type, pos, state); }
+
+    @Override public SimpleContainer getContainer() { return container; }
+    @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
     public int getH2() { return h2Mol; }
     public int getO2() { return o2Mol; }
 
@@ -110,11 +124,6 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements MenuPro
         } else if (be.progress != 0) { be.progress = 0; be.setChanged(); }   // 炎が消えたら溶けかけは固まる
         if (state.hasProperty(BlockStateProperties.LIT) && state.getValue(BlockStateProperties.LIT) != burning)
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, burning), 3);
-    }
-
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.oxyhydrogen_burner"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new OxyhydrogenBurnerMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
     }
 
     /** 壊すと中身は落ちる。つないだボンベのガスは逃げる（ボンベに戻らない） */

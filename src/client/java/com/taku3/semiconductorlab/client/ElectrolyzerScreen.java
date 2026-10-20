@@ -1,30 +1,23 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.machine.MachineMenu;
 import com.taku3.semiconductorlab.block.ElectrolyzerBlockEntity;
-import com.taku3.semiconductorlab.block.ElectrolyzerMenu;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.Items;
 
 /** 電解槽の画面。左＝水バケツ/硫酸、中央バー＝分解の進み具合、出口＝水素/酸素、右＝電力・蓄積・状態 */
-public class ElectrolyzerScreen extends AbstractContainerScreen<ElectrolyzerMenu> {
-    private static final Identifier BG = Identifier.fromNamespaceAndPath("semiconductor-lab", "textures/gui/electrolyzer.png");
+public class ElectrolyzerScreen extends MachineScreen {
     private static final int BAR_X = 28, BAR_Y = 38, BAR_W = 24, BAR_H = 6;
     private static final int TEXT_X = 100, TEXT_COLOR = 0xFF404040;
     private static final String K = "gui.semiconductor-lab.electrolyzer.";
 
-    public ElectrolyzerScreen(ElectrolyzerMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
-
-    @Override protected void init() { super.init(); titleLabelX = (imageWidth - font.width(title)) / 2; }
+    public ElectrolyzerScreen(MachineMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
 
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         super.extractBackground(g, mouseX, mouseY, partialTick);
-        g.blit(RenderPipelines.GUI_TEXTURED, BG, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
         int x = leftPos + BAR_X, y = topPos + BAR_Y;
         g.fill(x, y, x + BAR_W, y + BAR_H, 0xFF3A3A40);
         int w = menu.getProgress() * BAR_W / menu.getTotal();
@@ -47,7 +40,7 @@ public class ElectrolyzerScreen extends AbstractContainerScreen<ElectrolyzerMenu
         else hint = "running";
         g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
         // モード（水の電気分解／クロルアルカリ）と出口ラベル。陽極は酸素か塩素
-        boolean brine = menu.getMode() == ElectrolyzerBlockEntity.MODE_BRINE;
+        boolean brine = menu.get(ElectrolyzerBlockEntity.DATA_MODE) == ElectrolyzerBlockEntity.MODE_BRINE;
         g.text(font, Component.translatable(K + (brine ? "mode_brine" : "mode_water")), TEXT_X, 62, TEXT_COLOR, false);
         g.text(font, Component.literal("H2"), 62, 21, TEXT_COLOR, false);
         g.text(font, Component.literal(brine ? "Cl2" : "O2"), 58, 39, TEXT_COLOR, false);

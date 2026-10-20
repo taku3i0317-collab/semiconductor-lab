@@ -1018,5 +1018,10 @@
   "guide3.semiconductor-lab.p9.title": "8. Solar cell",
   "book.semiconductor-lab.ch3.p9": "8. SOLAR CELL\n8 p-n slices + copper cable. 60 W under the day sky (1000 W/m2 x 6%), about 20% in rain.\n\nBell Labs, 25 April 1954. Powered a satellite in 1958. Chapter 2 goal!",
   "guide3.semiconductor-lab.root.title": "Guide: Silicon",
-  "guide3.semiconductor-lab.root.description": "Guidebook vol. 3 stays here forever. Pages unlock as you make things.\nLost the book? /function semiconductor-lab:give_guidebook3"
+  "guide3.semiconductor-lab.root.description": "Guidebook vol. 3 stays here forever. Pages unlock as you make things.\nLost the book? /function semiconductor-lab:give_guidebook3",
+  "gui.semiconductor-lab.machine.power": "Power %s",
+  "gui.semiconductor-lab.machine.stored": "Stored %s",
+  "gui.semiconductor-lab.machine.need_input": "Needs input (or output is full)",
+  "gui.semiconductor-lab.machine.need_power": "Not enough power",
+  "gui.semiconductor-lab.machine.running": "Running"
 }

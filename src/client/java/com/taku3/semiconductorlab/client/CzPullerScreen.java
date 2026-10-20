@@ -1,31 +1,24 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.machine.MachineMenu;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.block.CzPullerBlockEntity;
-import com.taku3.semiconductorlab.block.CzPullerMenu;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
-import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
-import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
 
 /** CZ 引き上げ機の画面。左＝多結晶シリコン・種・ドーパント・るつぼ・アルゴン、中央バー＝引き上げの進み具合、出口、右＝電力・状態・モード */
-public class CzPullerScreen extends AbstractContainerScreen<CzPullerMenu> {
-    private static final Identifier BG = Identifier.fromNamespaceAndPath("semiconductor-lab", "textures/gui/cz_puller.png");
+public class CzPullerScreen extends MachineScreen {
     private static final int BAR_X = 50, BAR_Y = 41, BAR_W = 24, BAR_H = 6;
     private static final int TEXT_X = 100, TEXT_COLOR = 0xFF404040;
     private static final String K = "gui.semiconductor-lab.cz_puller.";
 
-    public CzPullerScreen(CzPullerMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
-
-    @Override protected void init() { super.init(); titleLabelX = (imageWidth - font.width(title)) / 2; }
+    public CzPullerScreen(MachineMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
 
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         super.extractBackground(g, mouseX, mouseY, partialTick);
-        g.blit(RenderPipelines.GUI_TEXTURED, BG, leftPos, topPos, 0, 0, imageWidth, imageHeight, 256, 256);
         int x = leftPos + BAR_X, y = topPos + BAR_Y;
         g.fill(x, y, x + BAR_W, y + BAR_H, 0xFF3A3A40);
         int w = menu.getProgress() * BAR_W / menu.getTotal();

@@ -1,6 +1,8 @@
 package com.taku3.semiconductorlab.energy;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineBE;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
@@ -24,7 +26,7 @@ import net.minecraft.world.ContainerHelper;
  * 自励式ダイナモ [4-05] を付けると 100kW になるが、石炭も2倍の速さ（15秒）で燃える＝石炭1個の電気は同じ 1.5MJ。
  * 蒸気タービン [4-06] はこのクラスを継承し、出力と燃焼時間だけ変える（30%＝石炭1個 9MJ）。
  */
-public class SteamEngineBlockEntity extends GeneratorBlockEntity implements MenuProvider {
+public class SteamEngineBlockEntity extends GeneratorBlockEntity implements MachineBE {
     public static final double WATTS = 50_000;
     public static final int COAL_TICKS = 20 * 30;
     public static final double COAL_HEAT_J = 30_000_000;   // 石炭1個の熱（ゲームの約束）
@@ -46,7 +48,14 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Menu
     private final double watts;
     private final int coalTicks;
 
-    public SteamEngineBlockEntity(BlockPos pos, BlockState state) { this(ModBlockEntities.STEAM_ENGINE, pos, state, 200_000, WATTS, COAL_TICKS); }
+    /** 画面のスロットの並び（IMP-28：前の SteamEngineMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
+            .in(SLOT_COAL, 56, 53, SteamEngineBlockEntity::isFuel)
+            .in(SLOT_WATER, 56, 17, s -> s.is(net.minecraft.world.item.Items.WATER_BUCKET))
+            .texture("steam_engine")
+            .build();
+
+    public SteamEngineBlockEntity(BlockPos pos, BlockState state) { this(ModMachines.STEAM_ENGINE.type, pos, state, 200_000, WATTS, COAL_TICKS); }
     protected SteamEngineBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state, long bufferJ, double watts, int coalTicks) {
         super(type, pos, state, bufferJ, watts * 2);   // ×2 は自励式ダイナモの分
         this.watts = watts; this.coalTicks = coalTicks;
@@ -60,7 +69,8 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Menu
     public double thermalEfficiency() { return watts * coalTicks / 20.0 / COAL_HEAT_J; }
     /** ボイラーに水が来ているか（バケツの水が残っている以外に）。タービンは隣の水源からも取る */
     protected boolean hasFeedWater(Level level, BlockPos pos) { return false; }
-    public SimpleContainer getContainer() { return container; }
+    @Override public SimpleContainer getContainer() { return container; }
+    @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
     public int getBurnTicks() { return burnTicks; }
     public int getWaterUnits() { return waterUnits; }
     public static boolean isFuel(ItemStack s) { return s.is(Items.COAL) || s.is(Items.CHARCOAL); }
@@ -77,8 +87,6 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Menu
         burnTicks = Math.max(0, burnTicks - dynamoFactor());   // 自励式：2倍の出力＝2倍の速さで石炭を使う
         return ratedWatts();
     }
-    @Override public Component getDisplayName() { return getBlockState().getBlock().getName(); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) { return new SteamEngineMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition), getBlockState().getBlock()); }
     @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); ContainerHelper.saveAllItems(out, container.getItems()); out.putInt("Burn", burnTicks); out.putInt("Water", waterUnits); }
     @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); container.getItems().replaceAll(s -> ItemStack.EMPTY); ContainerHelper.loadAllItems(in, container.getItems()); burnTicks = in.getIntOr("Burn", 0); waterUnits = in.getIntOr("Water", 0); }
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) { if (level != null) net.minecraft.world.Containers.dropContents(level, pos, container.getItems()); super.preRemoveSideEffects(pos, state); }

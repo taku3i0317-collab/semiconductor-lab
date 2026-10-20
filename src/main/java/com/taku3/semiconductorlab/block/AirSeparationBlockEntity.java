@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -25,7 +26,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * 電力：現代の装置の実測 0.46 kWh/m³(O2) ×（1回の O2 2.1mol ＝ 0.047 m³）≈ 78 kJ → 5kW×16秒＝80kJ。
  * ⚠️ 省略：断熱箱（本物は羊毛などを詰めた木箱）・始動時の冷却に何時間もかかること・アルゴン専用の塔・1900年代の装置の電力（もっと多い）。
  */
-public class AirSeparationBlockEntity extends ConsumerBlockEntity implements MenuProvider, GasSource {
+public class AirSeparationBlockEntity extends ConsumerBlockEntity implements GasSource {
     public static final double WATTS = 5_000;
     public static final int TICKS = 20 * 16;
     public static final int AIR_MOL = 10;
@@ -36,8 +37,15 @@ public class AirSeparationBlockEntity extends ConsumerBlockEntity implements Men
     /** 次の袋になるまでの端数（mmol） */
     private int n2, o2, ar;
 
+    /** 画面のスロットの並び（IMP-28）：出口 N2・O2・Ar を縦に */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .out(SLOT_N2, 62, 17)
+            .out(SLOT_O2, 62, 35)
+            .out(SLOT_AR, 62, 53)
+            .build();
+
     public AirSeparationBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.AIR_SEPARATION, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(ModMachines.AIR_SEPARATION_UNIT.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
     @Override public int[] gasOutputSlots() { return new int[] {SLOT_N2, SLOT_O2, SLOT_AR}; }
@@ -79,8 +87,4 @@ public class AirSeparationBlockEntity extends ConsumerBlockEntity implements Men
         n2 = in.getIntOr("N2", 0); o2 = in.getIntOr("O2", 0); ar = in.getIntOr("Ar", 0);
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.air_separation_unit"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new AirSeparationMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

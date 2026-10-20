@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +29,7 @@ public class SprengelPumpBlockEntity extends BlockEntity {
 
     private int mercury;
 
-    public SprengelPumpBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.SPRENGEL_PUMP, pos, state); }
+    public SprengelPumpBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.SPRENGEL_PUMP.type, pos, state); }
 
     public int getMercury() { return mercury; }
     public boolean isReady() { return mercury >= MERCURY_NEEDED; }

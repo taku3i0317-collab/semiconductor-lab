@@ -1,6 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineBE;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -32,7 +34,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * - 左のスロットに袋詰めガスを入れると吸い込む。右のスロットに1袋ずつ出てくる
  * - 水素と酸素を混ぜると爆鳴気で小さく爆発し、中身が空になる（ブロックは壊れない）
  */
-public class GasHolderBlockEntity extends BlockEntity implements MenuProvider {
+public class GasHolderBlockEntity extends BlockEntity implements MachineBE {
     /** 容量（mol）。25℃・1気圧で 1mol ≈ 24.5 L なので 1000mol ≈ 24.5 m³（小さな町工場のホルダー程度） */
     public static final int CAPACITY = 1000;
     public static final int SLOT_IN = 0, SLOT_OUT = 1, SLOT_COUNT = 2;
@@ -55,8 +57,14 @@ public class GasHolderBlockEntity extends BlockEntity implements MenuProvider {
         @Override public int getCount() { return DATA_COUNT; }
     };
 
+    /** 画面のスロットの並び（IMP-28：前の GasHolderMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
+            .in(SLOT_IN, 26, 35, s -> GasType.of(s) != GasType.NONE)
+            .out(SLOT_OUT, 134, 35)
+            .build();
+
     public GasHolderBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.GAS_HOLDER, pos, state);
+        super(ModMachines.GAS_HOLDER.type, pos, state);
     }
 
     public GasType getGasType() { return type; }
@@ -159,12 +167,8 @@ public class GasHolderBlockEntity extends BlockEntity implements MenuProvider {
         setChanged();
     }
 
-    public SimpleContainer getContainer() { return container; }
-
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.gas_holder"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new GasHolderMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
+    @Override public SimpleContainer getContainer() { return container; }
+    @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
 
     // 壊したときは袋だけ落ちる。中のガスは逃げる（本物も低圧なので、こわれたら空気に混ざって散る）
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) { if (level != null) Containers.dropContents(level, pos, container.getItems()); super.preRemoveSideEffects(pos, state); }

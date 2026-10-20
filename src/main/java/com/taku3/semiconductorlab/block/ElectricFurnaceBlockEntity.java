@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -21,7 +22,7 @@ import java.util.Map;
  * 燃料を燃やさないので、煙・灰・硫黄が中身に入らない。
  * 今できること：耐火れんがの焼成（≈1450℃）、粘土黒鉛ボートの焼成。水素炉 [1-28] はこの炉に水素の管を足したもの（レシピで電気炉を使う）。
  */
-public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 5_000;
     public static final int TICKS = 20 * 10;
     public static final int SLOT_IN = 0, SLOT_OUT = 1, SLOT_COUNT = 2;
@@ -33,8 +34,14 @@ public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity implements M
                 ModItems.GRAPHITE_BOAT_BLANK, ModItems.GRAPHITE_BOAT);
     }
 
+    /** 画面のスロットの並び（IMP-28：前の ElectricFurnaceMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_IN, 8, 35, ElectricFurnaceBlockEntity::isInput)
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public ElectricFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ELECTRIC_FURNACE, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(ModMachines.ELECTRIC_FURNACE.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
     public static boolean isInput(ItemStack s) { return recipes().containsKey(s.getItem()); }
@@ -55,8 +62,4 @@ public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity implements M
         container.setChanged();
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.electric_furnace"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new ElectricFurnaceMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

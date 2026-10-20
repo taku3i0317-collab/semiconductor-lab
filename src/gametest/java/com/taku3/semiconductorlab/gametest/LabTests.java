@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.gametest;
 
 import com.taku3.semiconductorlab.ModBlocks;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
@@ -262,9 +263,9 @@ public class LabTests {
             h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw)), b + " with a pickaxe should drop " + raw + ", got " + normal);
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
-        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.WATER_WHEEL, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER,
-                ModBlocks.BESSEMER_CONVERTER, ModBlocks.COPPER_CABLE, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.HYDROGEN_FURNACE, ModBlocks.COMPRESSOR,
-                ModBlocks.VACUUM_CHAMBER, ModBlocks.HAND_VACUUM_PUMP, ModBlocks.SEALING_STATION, ModBlocks.ELECTRIC_FURNACE, ModBlocks.ACHESON_FURNACE, ModBlocks.REVERBERATORY_FURNACE, ModBlocks.OXYHYDROGEN_BURNER}) {
+        for (Block m : new Block[] {ModMachines.STEAM_ENGINE.block, ModMachines.STEAM_TURBINE.block, ModMachines.LEAD_ACID_BATTERY.block, ModMachines.WATER_WHEEL.block, ModMachines.ELECTROLYZER.block, ModMachines.GAS_HOLDER.block,
+                ModMachines.BESSEMER_CONVERTER.block, ModMachines.COPPER_CABLE.block, ModMachines.ZONE_REFINING_FURNACE.block, ModMachines.HYDROGEN_FURNACE.block, ModMachines.COMPRESSOR.block,
+                ModMachines.VACUUM_CHAMBER.block, ModBlocks.HAND_VACUUM_PUMP, ModMachines.SEALING_STATION.block, ModMachines.ELECTRIC_FURNACE.block, ModMachines.ACHESON_FURNACE.block, ModMachines.REVERBERATORY_FURNACE.block, ModMachines.OXYHYDROGEN_BURNER.block}) {
             List<ItemStack> d = Block.getDrops(m.defaultBlockState(), lv, at, null, null, pick);
             h.assertTrue(d.size() == 1 && d.get(0).is(m.asItem()), m + " should drop itself, got " + d);
         }
@@ -283,8 +284,8 @@ public class LabTests {
         h.assertFalse(wood.isCorrectToolForDrops(ModBlocks.GRAPHITE_ORE.defaultBlockState()), "graphite ore needs a stone pickaxe");
         h.assertTrue(stone.isCorrectToolForDrops(ModBlocks.GRAPHITE_ORE.defaultBlockState()), "graphite ore with a stone pickaxe");
         h.assertTrue(new ItemStack(Items.IRON_SHOVEL).getDestroySpeed(ModBlocks.IRON_SAND.defaultBlockState()) > 1f, "iron sand: shovel is the right tool");
-        h.assertTrue(new ItemStack(Items.IRON_AXE).getDestroySpeed(ModBlocks.WATER_WHEEL.defaultBlockState()) > 1f, "water wheel: axe is the right tool");
-        for (Block m : new Block[] {ModBlocks.STEAM_ENGINE, ModBlocks.STEAM_TURBINE, ModBlocks.LEAD_ACID_BATTERY, ModBlocks.ELECTROLYZER, ModBlocks.GAS_HOLDER, ModBlocks.BESSEMER_CONVERTER, ModBlocks.ZONE_REFINING_FURNACE, ModBlocks.REVERBERATORY_FURNACE}) {
+        h.assertTrue(new ItemStack(Items.IRON_AXE).getDestroySpeed(ModMachines.WATER_WHEEL.block.defaultBlockState()) > 1f, "water wheel: axe is the right tool");
+        for (Block m : new Block[] {ModMachines.STEAM_ENGINE.block, ModMachines.STEAM_TURBINE.block, ModMachines.LEAD_ACID_BATTERY.block, ModMachines.ELECTROLYZER.block, ModMachines.GAS_HOLDER.block, ModMachines.BESSEMER_CONVERTER.block, ModMachines.ZONE_REFINING_FURNACE.block, ModMachines.REVERBERATORY_FURNACE.block}) {
             h.assertTrue(iron.isCorrectToolForDrops(m.defaultBlockState()), m + " should be collected with a pickaxe");
             h.assertFalse(ItemStack.EMPTY.isCorrectToolForDrops(m.defaultBlockState()), m + " should not drop when broken by hand");
         }
@@ -300,7 +301,7 @@ public class LabTests {
     @GameTest(maxTicks = 100)
     public void waterWheelFlowing(GameTestHelper h) {
         floor(h, 8);
-        h.setBlock(p(3, 1, 3), ModBlocks.WATER_WHEEL);
+        h.setBlock(p(3, 1, 3), ModMachines.WATER_WHEEL.block);
         h.setBlock(p(1, 1, 3), Blocks.WATER);   // 水源。ここから (2,1,3) へ流れが出る
         h.succeedWhen(() -> {
             WaterWheelBlockEntity be = h.getBlockEntity(p(3, 1, 3), WaterWheelBlockEntity.class);
@@ -313,7 +314,7 @@ public class LabTests {
     @GameTest(maxTicks = 60)
     public void waterWheelStillWater(GameTestHelper h) {
         floor(h, 8);
-        h.setBlock(p(3, 1, 3), ModBlocks.WATER_WHEEL);
+        h.setBlock(p(3, 1, 3), ModMachines.WATER_WHEEL.block);
         h.setBlock(p(2, 1, 3), Blocks.WATER);
         h.setBlock(p(4, 1, 3), Blocks.WATER);
         h.setBlock(p(3, 1, 2), Blocks.WATER);
@@ -329,7 +330,7 @@ public class LabTests {
     @GameTest
     public void steamEngine(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.STEAM_ENGINE);
+        h.setBlock(pos, ModMachines.STEAM_ENGINE.block);
         SteamEngineBlockEntity be = h.getBlockEntity(pos, SteamEngineBlockEntity.class);
         var c = be.getContainer();
 
@@ -361,7 +362,7 @@ public class LabTests {
     @GameTest
     public void selfExcitedDynamo(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.STEAM_ENGINE);
+        h.setBlock(pos, ModMachines.STEAM_ENGINE.block);
         SteamEngineBlockEntity be = h.getBlockEntity(pos, SteamEngineBlockEntity.class);
         h.assertTrue(be.supportsDynamoUpgrade() && !be.isSelfExcited(), "a new steam engine has a permanent-magnet dynamo");
         h.assertTrue(be.installSelfExcitedDynamo(), "install the self-excited dynamo");
@@ -381,7 +382,7 @@ public class LabTests {
         h.assertValueEqual(perCoalSelf, perCoalMagneto, "same electricity per coal");
         h.assertTrue(Math.abs(be.thermalEfficiency() - 0.05) < 1e-9, "steam engine thermal efficiency 5%");
         // 水車も積み替えられる
-        h.setBlock(p(3, 1, 1), ModBlocks.WATER_WHEEL);
+        h.setBlock(p(3, 1, 1), ModMachines.WATER_WHEEL.block);
         WaterWheelBlockEntity ww = h.getBlockEntity(p(3, 1, 1), WaterWheelBlockEntity.class);
         h.assertTrue(ww.installSelfExcitedDynamo() && ww.dynamoFactor() == 2, "water wheel accepts the self-excited dynamo");
         h.assertTrue(recipeUses(h, "self_excited_dynamo", ModItems.STEEL_INGOT) && !recipeUses(h, "self_excited_dynamo", ModItems.MAGNET), "steel core, no magnet");
@@ -393,7 +394,7 @@ public class LabTests {
     @GameTest
     public void steamTurbine(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.STEAM_TURBINE);
+        h.setBlock(pos, ModMachines.STEAM_TURBINE.block);
         SteamTurbineBlockEntity be = h.getBlockEntity(pos, SteamTurbineBlockEntity.class);
         var c = be.getContainer();
         c.setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 5));
@@ -421,9 +422,9 @@ public class LabTests {
     @GameTest
     public void turbinePowersAcheson(GameTestHelper h) {
         BlockPos tp = p(1, 1, 1), cp = p(2, 1, 1), fp = p(3, 1, 1);
-        h.setBlock(tp, ModBlocks.STEAM_TURBINE);
-        h.setBlock(cp, ModBlocks.COPPER_CABLE);
-        h.setBlock(fp, ModBlocks.ACHESON_FURNACE);
+        h.setBlock(tp, ModMachines.STEAM_TURBINE.block);
+        h.setBlock(cp, ModMachines.COPPER_CABLE.block);
+        h.setBlock(fp, ModMachines.ACHESON_FURNACE.block);
         h.setBlock(p(1, 1, 0), Blocks.WATER);
         SteamTurbineBlockEntity t = h.getBlockEntity(tp, SteamTurbineBlockEntity.class);
         CableBlockEntity cable = h.getBlockEntity(cp, CableBlockEntity.class);
@@ -454,7 +455,7 @@ public class LabTests {
     @GameTest
     public void leadAcidBattery(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.LEAD_ACID_BATTERY);
+        h.setBlock(pos, ModMachines.LEAD_ACID_BATTERY.block);
         LeadAcidBatteryBlockEntity be = h.getBlockEntity(pos, LeadAcidBatteryBlockEntity.class);
         ServerLevel lv = h.getLevel();
         BlockPos a = h.absolutePos(pos);
@@ -478,7 +479,7 @@ public class LabTests {
         long full = be.getStoredJ();
 
         // 放電：ケーブルなしで隣（正面でなくてよい）の電気炉へ 10kW ずつ押し出す
-        h.setBlock(p(2, 1, 1), ModBlocks.ELECTRIC_FURNACE);
+        h.setBlock(p(2, 1, 1), ModMachines.ELECTRIC_FURNACE.block);
         ElectricFurnaceBlockEntity furnace = h.getBlockEntity(p(2, 1, 1), ElectricFurnaceBlockEntity.class);
         for (int i = 0; i < 20; i++) LeadAcidBatteryBlockEntity.tick(lv, a, lv.getBlockState(a), be);
         h.assertValueEqual(full - be.getStoredJ(), 20 * per, "discharged 20 ticks x 500 J");
@@ -494,19 +495,19 @@ public class LabTests {
     @GameTest
     public void batteryKeepsCharge(GameTestHelper h) {
         ServerLevel lv = h.getLevel();
-        h.setBlock(p(1, 1, 1), ModBlocks.LEAD_ACID_BATTERY);
+        h.setBlock(p(1, 1, 1), ModMachines.LEAD_ACID_BATTERY.block);
         LeadAcidBatteryBlockEntity be = h.getBlockEntity(p(1, 1, 1), LeadAcidBatteryBlockEntity.class);
         be.setStoredForTest(400_000);
         BlockPos a = h.absolutePos(p(1, 1, 1));
         List<ItemStack> drops = Block.getDrops(lv.getBlockState(a), lv, a, be, null, new ItemStack(Items.IRON_PICKAXE));
-        h.assertTrue(drops.size() == 1 && drops.get(0).is(ModBlocks.LEAD_ACID_BATTERY.asItem()), "battery drops itself, got " + drops);
+        h.assertTrue(drops.size() == 1 && drops.get(0).is(ModMachines.LEAD_ACID_BATTERY.block.asItem()), "battery drops itself, got " + drops);
         h.assertValueEqual(drops.get(0).get(ModDataComponents.BATTERY_ENERGY), 400_000L, "charge stored on the item");
-        h.setBlock(p(3, 1, 1), ModBlocks.LEAD_ACID_BATTERY);
+        h.setBlock(p(3, 1, 1), ModMachines.LEAD_ACID_BATTERY.block);
         LeadAcidBatteryBlockEntity placed = h.getBlockEntity(p(3, 1, 1), LeadAcidBatteryBlockEntity.class);
         placed.applyComponentsFromItemStack(drops.get(0));
         h.assertValueEqual(placed.getStoredJ(), 400_000L, "charge restored when placed again");
         // 空の電池はコンポーネントなし（ふつうの電池とスタックできる）
-        h.setBlock(p(5, 1, 1), ModBlocks.LEAD_ACID_BATTERY);
+        h.setBlock(p(5, 1, 1), ModMachines.LEAD_ACID_BATTERY.block);
         BlockPos e = h.absolutePos(p(5, 1, 1));
         List<ItemStack> empty = Block.getDrops(lv.getBlockState(e), lv, e, lv.getBlockEntity(e), null, new ItemStack(Items.IRON_PICKAXE));
         h.assertTrue(empty.get(0).get(ModDataComponents.BATTERY_ENERGY) == null, "empty battery has no charge component");
@@ -549,9 +550,9 @@ public class LabTests {
     /** 蒸気機関→ケーブル3本→電気炉：本当に tick を進めて、電気炉に電気が届く */
     @GameTest(maxTicks = 60)
     public void cableChainDelivers(GameTestHelper h) {
-        h.setBlock(p(1, 1, 1), ModBlocks.STEAM_ENGINE);
-        for (int x = 2; x <= 4; x++) h.setBlock(p(x, 1, 1), ModBlocks.COPPER_CABLE);
-        h.setBlock(p(5, 1, 1), ModBlocks.ELECTRIC_FURNACE);
+        h.setBlock(p(1, 1, 1), ModMachines.STEAM_ENGINE.block);
+        for (int x = 2; x <= 4; x++) h.setBlock(p(x, 1, 1), ModMachines.COPPER_CABLE.block);
+        h.setBlock(p(5, 1, 1), ModMachines.ELECTRIC_FURNACE.block);
         SteamEngineBlockEntity eng = h.getBlockEntity(p(1, 1, 1), SteamEngineBlockEntity.class);
         eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL));
         eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
@@ -568,10 +569,10 @@ public class LabTests {
         int[] lengths = {1, 5};
         for (int k = 0; k < lengths.length; k++) {
             int n = lengths[k], z = 1 + 2 * k;
-            h.setBlock(p(1, 1, z), ModBlocks.LEAD_ACID_BATTERY);
+            h.setBlock(p(1, 1, z), ModMachines.LEAD_ACID_BATTERY.block);
             h.getBlockEntity(p(1, 1, z), LeadAcidBatteryBlockEntity.class).setStoredForTest(100_000);
-            for (int x = 2; x <= 1 + n; x++) h.setBlock(p(x, 1, z), ModBlocks.COPPER_CABLE);
-            h.setBlock(p(2 + n, 1, z), ModBlocks.ELECTRIC_FURNACE);
+            for (int x = 2; x <= 1 + n; x++) h.setBlock(p(x, 1, z), ModMachines.COPPER_CABLE.block);
+            h.setBlock(p(2 + n, 1, z), ModMachines.ELECTRIC_FURNACE.block);
             tickAll(h, 1, concat(line(2, 1 + n, 1, z), new BlockPos[] {p(1, 1, z)}));
             long got = h.getBlockEntity(p(2 + n, 1, z), ElectricFurnaceBlockEntity.class).getStorage().getStoredJ();
             h.assertValueEqual(got, 500L * (100 - n) / 100, n + " cables: 500 J minus " + n + "%");
@@ -585,12 +586,12 @@ public class LabTests {
     /** タスク06：ケーブル10本先のアチソン炉に 500kW が届く（タービン2台＝1MW、損失10%で 900kW まで）。1台だと損失で 450kW しか届かない */
     @GameTest
     public void cableTenHops500kW(GameTestHelper h) {
-        h.setBlock(p(1, 1, 1), ModBlocks.STEAM_TURBINE);
+        h.setBlock(p(1, 1, 1), ModMachines.STEAM_TURBINE.block);
         h.setBlock(p(1, 1, 0), Blocks.WATER);
-        h.setBlock(p(2, 1, 2), ModBlocks.STEAM_TURBINE);
+        h.setBlock(p(2, 1, 2), ModMachines.STEAM_TURBINE.block);
         h.setBlock(p(2, 1, 3), Blocks.WATER);
-        for (int x = 2; x <= 11; x++) h.setBlock(p(x, 1, 1), ModBlocks.COPPER_CABLE);
-        h.setBlock(p(12, 1, 1), ModBlocks.ACHESON_FURNACE);
+        for (int x = 2; x <= 11; x++) h.setBlock(p(x, 1, 1), ModMachines.COPPER_CABLE.block);
+        h.setBlock(p(12, 1, 1), ModMachines.ACHESON_FURNACE.block);
         for (BlockPos t : new BlockPos[] {p(1, 1, 1), p(2, 1, 2)})
             h.getBlockEntity(t, SteamTurbineBlockEntity.class).getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 64));
         AchesonFurnaceBlockEntity f = h.getBlockEntity(p(12, 1, 1), AchesonFurnaceBlockEntity.class);
@@ -617,10 +618,10 @@ public class LabTests {
         List<BlockPos> order = new ArrayList<>();
         for (int x = 2; x <= 4; x++) {
             h.setBlock(p(x, 1, 0), Blocks.WATER);
-            h.setBlock(p(x, 1, 1), ModBlocks.STEAM_TURBINE);
+            h.setBlock(p(x, 1, 1), ModMachines.STEAM_TURBINE.block);
             h.getBlockEntity(p(x, 1, 1), SteamTurbineBlockEntity.class).getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 64));
-            h.setBlock(p(x, 1, 2), ModBlocks.COPPER_CABLE);
-            h.setBlock(p(x, 1, 3), ModBlocks.ACHESON_FURNACE);
+            h.setBlock(p(x, 1, 2), ModMachines.COPPER_CABLE.block);
+            h.setBlock(p(x, 1, 3), ModMachines.ACHESON_FURNACE.block);
             AchesonFurnaceBlockEntity f = h.getBlockEntity(p(x, 1, 3), AchesonFurnaceBlockEntity.class);
             f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_CARBON, new ItemStack(Items.COAL, 4));
             f.getContainer().setItem(AchesonFurnaceBlockEntity.SLOT_SAND, new ItemStack(Items.SAND, 1));
@@ -645,10 +646,10 @@ public class LabTests {
     /** タスク06：電池はネットワークで「余れば充電・足りなければ放電」。電池どうしでは流れない */
     @GameTest
     public void batteryOnNetwork(GameTestHelper h) {
-        h.setBlock(p(1, 1, 1), ModBlocks.STEAM_ENGINE);
-        h.setBlock(p(2, 1, 1), ModBlocks.COPPER_CABLE);
-        h.setBlock(p(3, 1, 1), ModBlocks.COPPER_CABLE);
-        h.setBlock(p(3, 1, 2), ModBlocks.LEAD_ACID_BATTERY);
+        h.setBlock(p(1, 1, 1), ModMachines.STEAM_ENGINE.block);
+        h.setBlock(p(2, 1, 1), ModMachines.COPPER_CABLE.block);
+        h.setBlock(p(3, 1, 1), ModMachines.COPPER_CABLE.block);
+        h.setBlock(p(3, 1, 2), ModMachines.LEAD_ACID_BATTERY.block);
         SteamEngineBlockEntity eng = h.getBlockEntity(p(1, 1, 1), SteamEngineBlockEntity.class);
         eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 4));
         eng.getContainer().setItem(SteamEngineBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
@@ -659,7 +660,7 @@ public class LabTests {
         h.assertValueEqual(bat.getLastChargeWatts(), LeadAcidBatteryBlockEntity.MAX_WATTS, "battery charges at 10 kW from the network");
         h.assertTrue(bat.getStoredJ() > 40_000, "battery charged, got " + bat.getStoredJ());
         // ② 電気炉もつなぐ（50kW の発電 > 炉の要求）→ 電池は放電しない
-        h.setBlock(p(3, 1, 0), ModBlocks.ELECTRIC_FURNACE);
+        h.setBlock(p(3, 1, 0), ModMachines.ELECTRIC_FURNACE.block);
         tickAll(h, 5, order);
         h.assertValueEqual(bat.getLastDischargeWatts(), 0.0, "spare power: battery does not discharge");
         // ③ 発電機を外す → 電池から炉へ放電（最長経路2本＝2% 損失）
@@ -672,7 +673,7 @@ public class LabTests {
         h.assertValueEqual(bat.getLastDischargeWatts(), LeadAcidBatteryBlockEntity.MAX_WATTS, "discharging at 10 kW");
         // ④ 炉を外して空の電池をつなぐ → 電池どうしでは流れない
         h.setBlock(p(3, 1, 0), Blocks.AIR);
-        h.setBlock(p(2, 1, 2), ModBlocks.LEAD_ACID_BATTERY);
+        h.setBlock(p(2, 1, 2), ModMachines.LEAD_ACID_BATTERY.block);
         LeadAcidBatteryBlockEntity other = h.getBlockEntity(p(2, 1, 2), LeadAcidBatteryBlockEntity.class);
         tickAll(h, 20, order);
         h.assertValueEqual(other.getStoredJ(), 0L, "no battery-to-battery flow");
@@ -687,7 +688,7 @@ public class LabTests {
     @GameTest
     public void electrolyzer(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.ELECTROLYZER);
+        h.setBlock(pos, ModMachines.ELECTROLYZER.block);
         ElectrolyzerBlockEntity be = h.getBlockEntity(pos, ElectrolyzerBlockEntity.class);
         var c = be.getContainer();
         c.setItem(ElectrolyzerBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
@@ -742,8 +743,8 @@ public class LabTests {
     @GameTest(maxTicks = 80)
     public void gasHolderPullAndBang(GameTestHelper h) {
         BlockPos hp = p(1, 1, 1), ep = p(2, 1, 1);
-        h.setBlock(hp, ModBlocks.GAS_HOLDER);
-        h.setBlock(ep, ModBlocks.ELECTROLYZER);
+        h.setBlock(hp, ModMachines.GAS_HOLDER.block);
+        h.setBlock(ep, ModMachines.ELECTROLYZER.block);
         var ec = h.getBlockEntity(ep, ElectrolyzerBlockEntity.class).getContainer();
         ec.setItem(ElectrolyzerBlockEntity.SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, 2));
         ec.setItem(ElectrolyzerBlockEntity.SLOT_O2, new ItemStack(ModItems.OXYGEN_GAS, 1));
@@ -766,7 +767,7 @@ public class LabTests {
             GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
             h.assertValueEqual(g.getAmount(), 0, "oxyhydrogen bang empties the holder");
             h.assertValueEqual(g.getGasType(), GasType.NONE, "gas type after bang");
-            h.assertBlockPresent(ModBlocks.GAS_HOLDER, hp);
+            h.assertBlockPresent(ModMachines.GAS_HOLDER.block, hp);
             LOG.info("[LAB] gas holder: pulled H2 from electrolyzer, O2 left alone, bang -> empty, block intact");
             h.succeed();
         });
@@ -776,8 +777,8 @@ public class LabTests {
     @GameTest(maxTicks = 80)
     public void gasHolderFullStops(GameTestHelper h) {
         BlockPos hp = p(1, 1, 1), ep = p(2, 1, 1);
-        h.setBlock(hp, ModBlocks.GAS_HOLDER);
-        h.setBlock(ep, ModBlocks.ELECTROLYZER);
+        h.setBlock(hp, ModMachines.GAS_HOLDER.block);
+        h.setBlock(ep, ModMachines.ELECTROLYZER.block);
         GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
         var gc = g.getContainer();
         g.setContentsForTest(GasType.HYDROGEN, GasHolderBlockEntity.CAPACITY);
@@ -808,7 +809,7 @@ public class LabTests {
     @GameTest
     public void bessemerConverter(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.BESSEMER_CONVERTER);
+        h.setBlock(pos, ModMachines.BESSEMER_CONVERTER.block);
         BessemerConverterBlockEntity be = h.getBlockEntity(pos, BessemerConverterBlockEntity.class);
         var c = be.getContainer();
         c.setItem(BessemerConverterBlockEntity.SLOT_IN, new ItemStack(Items.IRON_INGOT, 3));
@@ -874,7 +875,7 @@ public class LabTests {
     @GameTest
     public void zoneRefiningPurity(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.ZONE_REFINING_FURNACE);
+        h.setBlock(pos, ModMachines.ZONE_REFINING_FURNACE.block);
         ZoneRefiningFurnaceBlockEntity be = h.getBlockEntity(pos, ZoneRefiningFurnaceBlockEntity.class);
         var c = be.getContainer();
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT;
@@ -901,7 +902,7 @@ public class LabTests {
     @GameTest
     public void zoneRefiningDoping(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.ZONE_REFINING_FURNACE);
+        h.setBlock(pos, ModMachines.ZONE_REFINING_FURNACE.block);
         ZoneRefiningFurnaceBlockEntity be = h.getBlockEntity(pos, ZoneRefiningFurnaceBlockEntity.class);
         var c = be.getContainer();
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT, D = ZoneRefiningFurnaceBlockEntity.DOPANT_SLOT;
@@ -1049,7 +1050,7 @@ public class LabTests {
         int IN = ReverberatoryFurnaceBlockEntity.SLOT_IN, FUEL = ReverberatoryFurnaceBlockEntity.SLOT_FUEL, OUT = ReverberatoryFurnaceBlockEntity.SLOT_OUT;
         int SO2 = ReverberatoryFurnaceBlockEntity.SLOT_SO2, GE = ReverberatoryFurnaceBlockEntity.SLOT_BY_GE, IND = ReverberatoryFurnaceBlockEntity.SLOT_BY_IN;
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.REVERBERATORY_FURNACE);
+        h.setBlock(pos, ModMachines.REVERBERATORY_FURNACE.block);
         ReverberatoryFurnaceBlockEntity be = h.getBlockEntity(pos, ReverberatoryFurnaceBlockEntity.class);
         var c = be.getContainer();
 
@@ -1125,7 +1126,7 @@ public class LabTests {
         h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.TUNGSTIC_ACID).is(ModItems.TUNGSTEN_TRIOXIDE), "tungstic acid -> WO3 (task09 real route)");
         h.assertTrue(recipeUses(h, "tungsten_wire", ModItems.TUNGSTEN_BAR), "wire is drawn from the sintered bar");
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.HYDROGEN_FURNACE);
+        h.setBlock(pos, ModMachines.HYDROGEN_FURNACE.block);
         HydrogenFurnaceBlockEntity be = h.getBlockEntity(pos, HydrogenFurnaceBlockEntity.class);
         var c = be.getContainer();
         int IN = HydrogenFurnaceBlockEntity.SLOT_IN, H2 = HydrogenFurnaceBlockEntity.SLOT_H2, OUT = HydrogenFurnaceBlockEntity.SLOT_OUT;
@@ -1178,8 +1179,8 @@ public class LabTests {
     @GameTest(maxTicks = 60)
     public void hydrogenFurnacePullsFromHolder(GameTestHelper h) {
         BlockPos fp = p(1, 1, 1), hp = p(2, 1, 1);
-        h.setBlock(fp, ModBlocks.HYDROGEN_FURNACE);
-        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        h.setBlock(fp, ModMachines.HYDROGEN_FURNACE.block);
+        h.setBlock(hp, ModMachines.GAS_HOLDER.block);
         GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
         g.setContentsForTest(GasType.HYDROGEN, 20);
         g.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.HYDROGEN_GAS, 64)); // 出口を埋めて量を固定
@@ -1199,7 +1200,7 @@ public class LabTests {
     @GameTest
     public void compressorFillsCylinders(GameTestHelper h) {
         BlockPos cp = p(1, 1, 1), hp = p(2, 1, 1);
-        h.setBlock(cp, ModBlocks.COMPRESSOR);
+        h.setBlock(cp, ModMachines.COMPRESSOR.block);
         CompressorBlockEntity be = h.getBlockEntity(cp, CompressorBlockEntity.class);
         var c = be.getContainer();
         int E = CompressorBlockEntity.SLOT_EMPTY, OUT = CompressorBlockEntity.SLOT_OUT, T = CompressorBlockEntity.TOTAL_TICKS;
@@ -1212,7 +1213,7 @@ public class LabTests {
         ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) be.getStorage()).extractRaw(be.getStorage().getStoredJ());
 
         // 水素 40mol（50 に足りない）→ 動かない
-        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        h.setBlock(hp, ModMachines.GAS_HOLDER.block);
         GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
         g.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.HYDROGEN_GAS, 64)); // ホルダーの出口を埋めて量を固定
         g.setContentsForTest(GasType.HYDROGEN, 40);
@@ -1269,7 +1270,7 @@ public class LabTests {
     public void handPumpEvacuates(GameTestHelper h) {
         floor(h, 7);
         BlockPos cp = p(1, 1, 1), pp = p(2, 1, 1), lonely = p(5, 1, 5);
-        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
+        h.setBlock(cp, ModMachines.VACUUM_CHAMBER.block);
         h.setBlock(pp, ModBlocks.HAND_VACUUM_PUMP);
         h.setBlock(lonely, ModBlocks.HAND_VACUUM_PUMP);
         VacuumChamberBlockEntity c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
@@ -1303,9 +1304,9 @@ public class LabTests {
         h.assertTrue(recipeUses(h, "sprengel_pump", ModItems.SODA_LIME_GLASS), "the pump is glass tubing (soda-lime glass)");
         floor(h, 7);
         BlockPos cp = p(1, 1, 1), sp = p(2, 1, 1), lonely = p(5, 1, 5);
-        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
-        h.setBlock(sp, ModBlocks.SPRENGEL_PUMP);
-        h.setBlock(lonely, ModBlocks.SPRENGEL_PUMP);
+        h.setBlock(cp, ModMachines.VACUUM_CHAMBER.block);
+        h.setBlock(sp, ModMachines.SPRENGEL_PUMP.block);
+        h.setBlock(lonely, ModMachines.SPRENGEL_PUMP.block);
         VacuumChamberBlockEntity c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
         var pump = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.SprengelPumpBlockEntity.class);
         h.assertTrue(pump.pumpOnce() == null && c.getPressure() == VacuumChamberBlockEntity.ATM, "no mercury -> no pumping");
@@ -1331,6 +1332,63 @@ public class LabTests {
             LOG.info("[LAB] Sprengel pump: 4 Hg, 1 atm -> 0.1 Pa in {} s, from 1 kPa in {} s, steady {} with leak, breaking drops the mercury", fromAtm, fromRough, VacuumChamberBlockEntity.formatPa(eq));
             h.succeed();
         });
+    }
+
+    // =====================================================================
+    // 機械の共通化（IMP-28）：Machine 1行の登録・共通の画面 MachineMenu
+    // =====================================================================
+
+    /**
+     * 画面を持つ全部の機械で、サーバーの画面（BE から作る）とクライアントの画面（MachineLayout だけから作る）の
+     * スロットの数・数値の数がそろっているか。ずれると画面の数字が化けたり、つないだときに落ちたりする。
+     * シフトクリックで入口に入ること・出口には入らないことも確かめる。
+     */
+    @GameTest
+    public void machineMenus(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        BlockPos fp = p(1, 1, 1);
+        int checked = 0;
+        for (var m : com.taku3.semiconductorlab.machine.Machine.all()) {
+            h.assertTrue(BuiltInRegistries.BLOCK.getKey(m.block).getPath().equals(m.name), "block id = machine name: " + m.name);
+            h.assertTrue(m.type.isValid(m.block.defaultBlockState()), "BE type accepts its block: " + m.name);
+            h.assertTrue(com.taku3.semiconductorlab.machine.Machine.of(m.type) == m, "lookup by BE type: " + m.name);
+            if (m.menu == null) continue;
+            h.setBlock(fp, m.block);
+            var be = h.getBlockEntity(fp, net.minecraft.world.level.block.entity.BlockEntity.class);
+            h.assertTrue(be instanceof com.taku3.semiconductorlab.machine.MachineBE, "BE has a screen: " + m.name);
+            var mbe = (com.taku3.semiconductorlab.machine.MachineBE) be;
+            var server = (com.taku3.semiconductorlab.machine.MachineMenu) mbe.createMenu(1, player.getInventory(), player);
+            var client = new com.taku3.semiconductorlab.machine.MachineMenu(m, 1, player.getInventory());
+            int machineSlots = m.layout.slots().size();
+            h.assertValueEqual(server.slots.size(), machineSlots + 36, "server slots: " + m.name);
+            h.assertValueEqual(client.slots.size(), server.slots.size(), "client slots = server slots: " + m.name);
+            h.assertValueEqual(m.layout.dataCount(), mbe.getMenuData().getCount(), "synced numbers (client = BE): " + m.name);
+            h.assertTrue(mbe.getContainer().getContainerSize() >= m.layout.containerSize(), "container big enough: " + m.name);
+            h.assertTrue(mbe.getDisplayName().getString().equals(m.block.getName().getString()), "title = block name: " + m.name);
+            for (int i = 0; i < machineSlots; i++) {
+                var s = m.layout.slots().get(i);
+                h.assertValueEqual(server.getSlot(i).getContainerSlot(), s.index(), "slot order: " + m.name + " #" + i);
+                if (s.isOutput()) h.assertFalse(server.getSlot(i).mayPlace(new ItemStack(Items.DIRT)), "output takes nothing: " + m.name);
+            }
+            h.setBlock(fp, Blocks.AIR);
+            checked++;
+        }
+        // シフトクリック：持ち物の材料 → 入れられる最初の入口。出口には入らない
+        h.setBlock(fp, ModMachines.ELECTRIC_FURNACE.block);
+        var ef = h.getBlockEntity(fp, ElectricFurnaceBlockEntity.class);
+        var menu = (com.taku3.semiconductorlab.machine.MachineMenu) ef.createMenu(1, player.getInventory(), player);
+        player.getInventory().setItem(0, new ItemStack(ModItems.REFRACTORY_BRICK_BLANK, 5));
+        int invSlot = -1;
+        for (int i = 0; i < menu.slots.size(); i++) if (menu.getSlot(i).container == player.getInventory() && menu.getSlot(i).getContainerSlot() == 0) invSlot = i;
+        menu.quickMoveStack(player, invSlot);
+        h.assertValueEqual(ef.getContainer().getItem(ElectricFurnaceBlockEntity.SLOT_IN).getCount(), 5, "shift-click puts the blank into the input");
+        player.getInventory().setItem(0, new ItemStack(Items.DIRT, 3));
+        menu.quickMoveStack(player, invSlot);
+        h.assertTrue(ef.getContainer().getItem(ElectricFurnaceBlockEntity.SLOT_OUT).isEmpty(), "dirt does not go into the output");
+        h.assertValueEqual(player.getInventory().getItem(0).getCount(), 3, "dirt stays in the inventory");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Machine.all().size() >= 29, "machines registered: " + com.taku3.semiconductorlab.machine.Machine.all().size());
+        LOG.info("[LAB] machine menus: {} machines with a screen, {} machines in all (IMP-28)", checked, com.taku3.semiconductorlab.machine.Machine.all().size());
+        h.succeed();
     }
 
     // =====================================================================
@@ -1375,33 +1433,33 @@ public class LabTests {
     public void exportMachineRecipes(GameTestHelper h) {
         var a = new com.google.gson.JsonArray();
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
-        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
+        rec(a, ModMachines.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
             L(max(io(ModItems.RAW_GERMANIUM, 1), 8), kept(cond(io(ModItems.GRAPHITE_BOAT, 1), "粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで"))),
             L(io(ModItems.REFINED_GERMANIUM, 1)), zw, zt, "入れた数だけ出る。GeCl4 経由でない Ge は 9N まで");
-        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "ゾーンレベリング（n型）", L(max(cond(io(ModItems.REFINED_GERMANIUM, 1), "9N 以上"), 8), io(ModItems.PHOSPHORUS, 1)),
+        rec(a, ModMachines.ZONE_REFINING_FURNACE.block, "ゾーンレベリング（n型）", L(max(cond(io(ModItems.REFINED_GERMANIUM, 1), "9N 以上"), 8), io(ModItems.PHOSPHORUS, 1)),
             L(io(ModItems.N_TYPE_GERMANIUM, 1)), zw, zt, "入れた数だけ出る");
-        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "ゾーンレベリング（p型）", L(max(cond(io(ModItems.REFINED_GERMANIUM, 1), "9N 以上"), 8), io(ModItems.INDIUM, 1)),
+        rec(a, ModMachines.ZONE_REFINING_FURNACE.block, "ゾーンレベリング（p型）", L(max(cond(io(ModItems.REFINED_GERMANIUM, 1), "9N 以上"), 8), io(ModItems.INDIUM, 1)),
             L(io(ModItems.P_TYPE_GERMANIUM, 1)), zw, zt, "入れた数だけ出る");
-        rec(a, ModBlocks.ELECTROLYZER, "水の電気分解", L(io(Items.WATER_BUCKET, 1), kept(io(ModItems.SULFURIC_ACID, 1))),
+        rec(a, ModMachines.ELECTROLYZER.block, "水の電気分解", L(io(Items.WATER_BUCKET, 1), kept(io(ModItems.SULFURIC_ACID, 1))),
             L(io(ModItems.HYDROGEN_GAS, 2), io(ModItems.OXYGEN_GAS, 1), io(Items.BUCKET, 1)), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.TOTAL_TICKS / 20.0, "2H2O → 2H2 + O2。硫酸は電解質");
-        rec(a, ModBlocks.ELECTROLYZER, "塩水の電気分解（クロルアルカリ）", L(io(Items.WATER_BUCKET, 1), io(ModItems.SALT, ElectrolyzerBlockEntity.SALT_PER_RUN)),
+        rec(a, ModMachines.ELECTROLYZER.block, "塩水の電気分解（クロルアルカリ）", L(io(Items.WATER_BUCKET, 1), io(ModItems.SALT, ElectrolyzerBlockEntity.SALT_PER_RUN)),
             L(io(ModItems.HYDROGEN_GAS, 1), io(ModItems.CHLORINE_GAS, 1), io(ModItems.SODIUM_HYDROXIDE, 2), io(Items.BUCKET, 1)), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.BRINE_TICKS / 20.0, "2NaCl + 2H2O → Cl2 + H2 + 2NaOH");
-        rec(a, ModBlocks.BESSEMER_CONVERTER, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(ModItems.STEEL_INGOT, 1)),
+        rec(a, ModMachines.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(ModItems.STEEL_INGOT, 1)),
             BessemerConverterBlockEntity.WATTS, BessemerConverterBlockEntity.TOTAL_TICKS / 20.0, "送風の動力を電力で代表");
-        rec(a, ModBlocks.HYDROGEN_FURNACE, "WO3 の水素還元", L(io(ModItems.TUNGSTEN_TRIOXIDE, 1), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.REDUCE_H2)),
+        rec(a, ModMachines.HYDROGEN_FURNACE.block, "WO3 の水素還元", L(io(ModItems.TUNGSTEN_TRIOXIDE, 1), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.REDUCE_H2)),
             L(io(ModItems.TUNGSTEN_POWDER, 1)), HydrogenFurnaceBlockEntity.REDUCE_WATTS, HydrogenFurnaceBlockEntity.REDUCE_TICKS / 20.0, "WO3 + 3H2 → W + 3H2O");
-        rec(a, ModBlocks.HYDROGEN_FURNACE, "タングステン粉の焼結", L(io(ModItems.TUNGSTEN_POWDER, HydrogenFurnaceBlockEntity.SINTER_POWDER), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.SINTER_H2)),
+        rec(a, ModMachines.HYDROGEN_FURNACE.block, "タングステン粉の焼結", L(io(ModItems.TUNGSTEN_POWDER, HydrogenFurnaceBlockEntity.SINTER_POWDER), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.SINTER_H2)),
             L(io(ModItems.TUNGSTEN_BAR, 1)), HydrogenFurnaceBlockEntity.SINTER_WATTS, HydrogenFurnaceBlockEntity.SINTER_TICKS / 20.0, null);
-        rec(a, ModBlocks.HYDROGEN_FURNACE, "GeO2 の水素還元", L(alt(io(ModItems.GERMANIUM_DIOXIDE, 1), ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.GE_REDUCE_H2)),
+        rec(a, ModMachines.HYDROGEN_FURNACE.block, "GeO2 の水素還元", L(alt(io(ModItems.GERMANIUM_DIOXIDE, 1), ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.GE_REDUCE_H2)),
             L(io(ModItems.RAW_GERMANIUM, 1)), HydrogenFurnaceBlockEntity.REDUCE_WATTS, HydrogenFurnaceBlockEntity.GE_REDUCE_TICKS / 20.0, "GeO2 + 2H2 → Ge + 2H2O");
-        rec(a, ModBlocks.COMPRESSOR, "ボンベに詰める", L(io(ModItems.EMPTY_GAS_CYLINDER, 1), mol("隣のガスホルダーのガス", CompressorBlockEntity.MOL_PER_CYLINDER)),
+        rec(a, ModMachines.COMPRESSOR.block, "ボンベに詰める", L(io(ModItems.EMPTY_GAS_CYLINDER, 1), mol("隣のガスホルダーのガス", CompressorBlockEntity.MOL_PER_CYLINDER)),
             L(io("そのガスのボンベ", 1)), CompressorBlockEntity.WATTS, CompressorBlockEntity.TOTAL_TICKS / 20.0, "約150気圧。H2・O2・Cl2・N2・Ar");
-        rec(a, ModBlocks.SEALING_STATION, "真空管の封止", L(io(ModItems.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),
+        rec(a, ModMachines.SEALING_STATION.block, "真空管の封止", L(io(ModItems.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),
             L(io(ModItems.VACUUM_TUBE, 1)), SealingStationBlockEntity.WATTS, SealingStationBlockEntity.TICKS / 20.0, "封じるたびに容器へ空気がもどる");
         // recipes() は順番のない Map なので、材料の ID 順に並べて毎回同じ順で書く（IMP-27）
         for (var e : ElectricFurnaceBlockEntity.recipes().entrySet().stream().sorted(java.util.Comparator.comparing(x -> iid(x.getKey()))).toList())
-            rec(a, ModBlocks.ELECTRIC_FURNACE, "電気で焼く", L(io(e.getKey(), 1)), L(io(e.getValue(), 1)), ElectricFurnaceBlockEntity.WATTS, ElectricFurnaceBlockEntity.TICKS / 20.0, null);
-        rec(a, ModBlocks.ACHESON_FURNACE, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
+            rec(a, ModMachines.ELECTRIC_FURNACE.block, "電気で焼く", L(io(e.getKey(), 1)), L(io(e.getValue(), 1)), ElectricFurnaceBlockEntity.WATTS, ElectricFurnaceBlockEntity.TICKS / 20.0, null);
+        rec(a, ModMachines.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(ModItems.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");
         double fuelS = ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS;
         for (var it : new net.minecraft.world.item.Item[] {ModItems.GALENA, ModItems.CINNABAR_DUST, ModItems.SPHALERITE}) {
@@ -1409,32 +1467,32 @@ public class LabTests {
             var out = it == ModItems.SPHALERITE
                     ? L(io(main, 1), io(ModItems.SULFUR_DIOXIDE, 1), perRuns(io(ModItems.GERMANIUM_CONCENTRATE, 1), ReverberatoryFurnaceBlockEntity.GE_EVERY), perRuns(io(ModItems.INDIUM, 1), ReverberatoryFurnaceBlockEntity.IN_EVERY))
                     : L(io(main, 1), io(ModItems.SULFUR_DIOXIDE, 1));
-            rec(a, ModBlocks.REVERBERATORY_FURNACE, "焙焼", L(io(it, 1), perRuns(io(Items.COAL, 1), (int) fuelS)), out, 0, ReverberatoryFurnaceBlockEntity.ROAST_TICKS / 20.0, "燃料式（電気なし）");
+            rec(a, ModMachines.REVERBERATORY_FURNACE.block, "焙焼", L(io(it, 1), perRuns(io(Items.COAL, 1), (int) fuelS)), out, 0, ReverberatoryFurnaceBlockEntity.ROAST_TICKS / 20.0, "燃料式（電気なし）");
         }
-        rec(a, ModBlocks.OXYHYDROGEN_BURNER, "石英を溶かす", L(io(ModItems.VEIN_QUARTZ, 1), mol(ModItems.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(ModItems.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
+        rec(a, ModMachines.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(ModItems.VEIN_QUARTZ, 1), mol(ModItems.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(ModItems.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
             L(io(ModItems.FUSED_QUARTZ, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "2H2 + O2 → 2H2O（約2800℃）。電気なし");
-        rec(a, ModBlocks.HCL_BURNER, "塩酸を作る", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER), io(Items.WATER_BUCKET, 1.0 / HclBurnerBlockEntity.ACID_PER_BUCKET)),
+        rec(a, ModMachines.HCL_BURNER.block, "塩酸を作る", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER), io(Items.WATER_BUCKET, 1.0 / HclBurnerBlockEntity.ACID_PER_BUCKET)),
             L(io(ModItems.HYDROCHLORIC_ACID, 1)), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "H2 + Cl2 → 2HCl を水に溶かす。電気なし");
-        rec(a, ModBlocks.SALT_PAN, "天日で塩", L(kept(cond(io("海辺の水と日光", 1), "雨の日は止まる"))), L(io(ModItems.SALT, 1), perRuns(io(ModItems.BITTERN, 1), SaltPanBlockEntity.SALT_PER_BITTERN)),
+        rec(a, ModMachines.SALT_PAN.block, "天日で塩", L(kept(cond(io("海辺の水と日光", 1), "雨の日は止まる"))), L(io(ModItems.SALT, 1), perRuns(io(ModItems.BITTERN, 1), SaltPanBlockEntity.SALT_PER_BITTERN)),
             0, SaltPanBlockEntity.TICKS_PER_SALT / 20.0, "電気なし");
-        rec(a, ModBlocks.SPRENGEL_PUMP, "真空にする", L(kept(io(ModItems.MERCURY, SprengelPumpBlockEntity.MERCURY_NEEDED)), kept(io("隣の真空容器", 1))),
+        rec(a, ModMachines.SPRENGEL_PUMP.block, "真空にする", L(kept(io(ModItems.MERCURY, SprengelPumpBlockEntity.MERCURY_NEEDED)), kept(io("隣の真空容器", 1))),
             L(cond(io("真空容器の圧力", 1), "1秒ごとに残り " + (int) (SprengelPumpBlockEntity.RATIO * 100) + "%、" + SprengelPumpBlockEntity.LIMIT_PA + " Pa まで")), 0, 1, "電気なし");
-        rec(a, ModBlocks.AIR_SEPARATION_UNIT, "空気分離", L(mol("空気", AirSeparationBlockEntity.AIR_MOL)),
+        rec(a, ModMachines.AIR_SEPARATION_UNIT.block, "空気分離", L(mol("空気", AirSeparationBlockEntity.AIR_MOL)),
             L(mol(ModItems.NITROGEN_GAS, AirSeparationBlockEntity.N2_PER_RUN / 1000.0), mol(ModItems.OXYGEN_GAS, AirSeparationBlockEntity.O2_PER_RUN / 1000.0), mol(ModItems.ARGON_GAS, AirSeparationBlockEntity.AR_PER_RUN / 1000.0)),
             AirSeparationBlockEntity.WATTS, AirSeparationBlockEntity.TICKS / 20.0, "端数は持ち越して袋（1 mol）にする");
-        rec(a, ModBlocks.CRYSTAL_PULLER, "種結晶づくり", L(io(ModItems.TUNGSTEN_WIRE, 1), io(ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_SEED), io(ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN)),
+        rec(a, ModMachines.CRYSTAL_PULLER.block, "種結晶づくり", L(io(ModItems.TUNGSTEN_WIRE, 1), io(ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_SEED), io(ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN)),
             L(io(ModItems.GERMANIUM_SEED_CRYSTAL, 1)), CrystalPullerBlockEntity.WATTS, CrystalPullerBlockEntity.SEED_TICKS / 20.0, "粒の選択。線は結晶に埋まる");
-        rec(a, ModBlocks.CRYSTAL_PULLER, "単結晶の引き上げ", L(kept(io(ModItems.GERMANIUM_SEED_CRYSTAL, 1)), io(ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_INGOT), io(ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN)),
+        rec(a, ModMachines.CRYSTAL_PULLER.block, "単結晶の引き上げ", L(kept(io(ModItems.GERMANIUM_SEED_CRYSTAL, 1)), io(ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_INGOT), io(ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN)),
             L(io(ModItems.GERMANIUM_SINGLE_CRYSTAL, 1)), CrystalPullerBlockEntity.WATTS, CrystalPullerBlockEntity.GROW_TICKS / 20.0, "純度と経路を受け継ぐ");
-        rec(a, ModBlocks.ARC_FURNACE, "金属シリコン", L(io(ModItems.VEIN_QUARTZ, ArcFurnaceBlockEntity.QUARTZ_PER_RUN), alt(io(Items.CHARCOAL, ArcFurnaceBlockEntity.CARBON_PER_RUN), Items.COAL), perRuns(io(ModItems.GRAPHITE_ROD, 1), ArcFurnaceBlockEntity.RUNS_PER_ELECTRODE)),
+        rec(a, ModMachines.ARC_FURNACE.block, "金属シリコン", L(io(ModItems.VEIN_QUARTZ, ArcFurnaceBlockEntity.QUARTZ_PER_RUN), alt(io(Items.CHARCOAL, ArcFurnaceBlockEntity.CARBON_PER_RUN), Items.COAL), perRuns(io(ModItems.GRAPHITE_ROD, 1), ArcFurnaceBlockEntity.RUNS_PER_ELECTRODE)),
             L(io(ModItems.METALLURGICAL_SILICON, 1)), ArcFurnaceBlockEntity.WATTS, ArcFurnaceBlockEntity.TICKS / 20.0, "SiO2 + 2C → Si + 2CO、純度98%");
-        rec(a, ModBlocks.STEAM_ENGINE, "蒸気で発電", L(io(Items.COAL, 1), cond(io(Items.WATER_BUCKET, 1), "バケツ1杯で石炭2個分")), L(io("電気", 1)),
+        rec(a, ModMachines.STEAM_ENGINE.block, "蒸気で発電", L(io(Items.COAL, 1), cond(io(Items.WATER_BUCKET, 1), "バケツ1杯で石炭2個分")), L(io("電気", 1)),
             -com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.WATTS, com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.COAL_TICKS / 20.0, "石炭1個の熱は 30 MJ（ゲームの約束）。自励式ダイナモで2倍");
-        rec(a, ModBlocks.STEAM_TURBINE, "蒸気タービンで発電", L(io(Items.COAL, 1), cond(io(Items.WATER_BUCKET, 1), "バケツ1杯で石炭2個分")), L(io("電気", 1)),
+        rec(a, ModMachines.STEAM_TURBINE.block, "蒸気タービンで発電", L(io(Items.COAL, 1), cond(io(Items.WATER_BUCKET, 1), "バケツ1杯で石炭2個分")), L(io("電気", 1)),
             -com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity.WATTS, com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity.COAL_TICKS / 20.0, "熱効率30%");
-        rec(a, ModBlocks.WATER_WHEEL, "水車で発電", L(kept(cond(io("横に流れる水", 1), "1面ごと"))), L(io("電気", 1)),
+        rec(a, ModMachines.WATER_WHEEL.block, "水車で発電", L(kept(cond(io("横に流れる水", 1), "1面ごと"))), L(io("電気", 1)),
             -com.taku3.semiconductorlab.energy.WaterWheelBlockEntity.WATTS_PER_FLOW, 0, "1面あたり。止まった水では回らない");
-        rec(a, ModBlocks.LEAD_ACID_BATTERY, "電気をためる", L(io("電気", 1)), L(cond(io("電気", 1), (com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY / 1_000_000) + " MJ まで、充電は "
+        rec(a, ModMachines.LEAD_ACID_BATTERY.block, "電気をためる", L(io("電気", 1)), L(cond(io("電気", 1), (com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY / 1_000_000) + " MJ まで、充電は "
             + com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CHARGE_EFFICIENCY_PERCENT + "% がたまる")), com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.MAX_WATTS, 0, "充電・放電とも最大の電力");
         exportExtraMachines(a);
 
@@ -1459,23 +1517,23 @@ public class LabTests {
 
     /** 後から足した機械（タスク22 [1-16][1-17] など）。exportMachineRecipes から呼ぶ */
     private static void exportExtraMachines(com.google.gson.JsonArray a) {
-        rec(a, ModBlocks.DIFFUSION_FURNACE, "p-n 接合", L(cond(io(ModItems.SILICON_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN), "n型 か p型"), cond(alt(io(ModItems.BORON_TRIOXIDE, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SOURCE_PER_RUN), ModItems.PHOSPHORUS), "板と反対の型")),
+        rec(a, ModMachines.DIFFUSION_FURNACE.block, "p-n 接合", L(cond(io(ModItems.SILICON_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN), "n型 か p型"), cond(alt(io(ModItems.BORON_TRIOXIDE, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SOURCE_PER_RUN), ModItems.PHOSPHORUS), "板と反対の型")),
             L(io(ModItems.PN_JUNCTION_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN)), com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS / 20.0, "ドーパントが表面からしみ込む（1954：n型＋ホウ素）");
-        rec(a, ModBlocks.WAFER_SAW, "板に切る", L(io(ModItems.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(ModItems.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
+        rec(a, ModMachines.WAFER_SAW.block, "板に切る", L(io(ModItems.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(ModItems.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(ModItems.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
-        rec(a, ModBlocks.HCL_BURNER, "乾いた塩化水素", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER)),
+        rec(a, ModMachines.HCL_BURNER.block, "乾いた塩化水素", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER)),
             L(mol(ModItems.HYDROGEN_CHLORIDE_GAS, 2)), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし");
-        rec(a, ModBlocks.TRICHLOROSILANE_REACTOR, "合成", L(io(ModItems.METALLURGICAL_SILICON, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SI_PER_RUN), mol(ModItems.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.HCL_PER_RUN)),
+        rec(a, ModMachines.TRICHLOROSILANE_REACTOR.block, "合成", L(io(ModItems.METALLURGICAL_SILICON, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SI_PER_RUN), mol(ModItems.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.HCL_PER_RUN)),
             L(io(ModItems.TRICHLOROSILANE, 1), mol(ModItems.HYDROGEN_GAS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.H2_PER_RUN)),
             com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_WATTS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_TICKS / 20.0, "Si + 3HCl → SiHCl3 + H2（約300℃）。できたては 99%");
-        rec(a, ModBlocks.TRICHLOROSILANE_REACTOR, "蒸留（1段）", L(io(ModItems.TRICHLOROSILANE, 1)), L(cond(io(ModItems.TRICHLOROSILANE, 1), "「9」が1つ増える（最大 11N）")),
+        rec(a, ModMachines.TRICHLOROSILANE_REACTOR.block, "蒸留（1段）", L(io(ModItems.TRICHLOROSILANE, 1)), L(cond(io(ModItems.TRICHLOROSILANE, 1), "「9」が1つ増える（最大 11N）")),
             com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_WATTS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_TICKS / 20.0, "沸点の差で B・P の塩化物を分ける");
-        rec(a, ModBlocks.SIEMENS_REACTOR, "多結晶シリコン", L(cond(io(ModItems.TRICHLOROSILANE, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TCS_PER_RUN), "9N 以上に蒸留したもの"), mol(ModItems.HYDROGEN_GAS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.H2_PER_RUN)),
+        rec(a, ModMachines.SIEMENS_REACTOR.block, "多結晶シリコン", L(cond(io(ModItems.TRICHLOROSILANE, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TCS_PER_RUN), "9N 以上に蒸留したもの"), mol(ModItems.HYDROGEN_GAS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.H2_PER_RUN)),
             L(cond(io(ModItems.POLYSILICON, 1), "純度はトリクロロシランと同じ（9N〜11N）"), mol(ModItems.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.HCL_OUT)),
             com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TICKS / 20.0, "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる");
-        rec(a, ModBlocks.CZ_PULLER, "種結晶", L(cond(io(ModItems.POLYSILICON, 1), "種のスロットに"), io(ModItems.QUARTZ_CRUCIBLE, 1), mol(ModItems.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),
+        rec(a, ModMachines.CZ_PULLER.block, "種結晶", L(cond(io(ModItems.POLYSILICON, 1), "種のスロットに"), io(ModItems.QUARTZ_CRUCIBLE, 1), mol(ModItems.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),
             L(io(ModItems.SILICON_SEED_CRYSTAL, 1)), com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.SEED_TICKS / 20.0, "細く絞って引くと1つの粒だけが残る");
-        rec(a, ModBlocks.CZ_PULLER, "単結晶", L(kept(io(ModItems.SILICON_SEED_CRYSTAL, 1)), io(ModItems.POLYSILICON, com.taku3.semiconductorlab.block.CzPullerBlockEntity.POLY_PER_INGOT), io(ModItems.QUARTZ_CRUCIBLE, 1), mol(ModItems.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_INGOT), cond(alt(io(ModItems.BORON_TRIOXIDE, 1), ModItems.PHOSPHORUS), "入れなくてもよい（真性）")),
+        rec(a, ModMachines.CZ_PULLER.block, "単結晶", L(kept(io(ModItems.SILICON_SEED_CRYSTAL, 1)), io(ModItems.POLYSILICON, com.taku3.semiconductorlab.block.CzPullerBlockEntity.POLY_PER_INGOT), io(ModItems.QUARTZ_CRUCIBLE, 1), mol(ModItems.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_INGOT), cond(alt(io(ModItems.BORON_TRIOXIDE, 1), ModItems.PHOSPHORUS), "入れなくてもよい（真性）")),
             L(cond(io(ModItems.SILICON_SINGLE_CRYSTAL, 1), "B2O3 で p型・リンで n型、純度は多結晶シリコンと同じ")), com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.GROW_TICKS / 20.0, "約1420℃の融液から回しながら引き上げる。17.4kWh/kg");
     }
 
@@ -1486,7 +1544,7 @@ public class LabTests {
     /** p-n 接合の板8＋銅ケーブル → 太陽電池。昼・空で 60W（1000W/m²×6%）、雨は約2割の 12W。夜・屋根の下は 0。テスト世界の昼夜・天気に合わせて確かめる */
     @GameTest
     public void solarCell(GameTestHelper h) {
-        h.assertTrue(recipeUses(h, "solar_cell", ModItems.PN_JUNCTION_WAFER) && recipeUses(h, "solar_cell", ModBlocks.COPPER_CABLE.asItem()), "solar cell = p-n slices + copper electrodes");
+        h.assertTrue(recipeUses(h, "solar_cell", ModItems.PN_JUNCTION_WAFER) && recipeUses(h, "solar_cell", ModMachines.COPPER_CABLE.block.asItem()), "solar cell = p-n slices + copper electrodes");
         h.assertTrue(Math.abs(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.WATTS - 60) < 1e-9, "1000 W/m2 x 6% x 1 m2 = 60 W");
         h.assertTrue(Math.abs(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.WATTS * 0.836 - 50) < 1.0, "matches 1954 'about 50 W per square yard'");
         h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, true, false), com.taku3.semiconductorlab.energy.SolarCellBlockEntity.WATTS, "sunny day, open sky -> 60 W");
@@ -1495,8 +1553,8 @@ public class LabTests {
         h.assertTrue(Math.abs(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, true, true) - 12) < 1e-9, "rain (overcast) -> diffuse light, about 20% = 12 W");
         h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, false, true), 0.0, "rainy night -> 0");
         BlockPos fp = p(1, 1, 1), roofed = p(3, 1, 1);
-        h.setBlock(fp, ModBlocks.SOLAR_CELL);
-        h.setBlock(roofed, ModBlocks.SOLAR_CELL);
+        h.setBlock(fp, ModMachines.SOLAR_CELL.block);
+        h.setBlock(roofed, ModMachines.SOLAR_CELL.block);
         h.setBlock(roofed.above(2), Blocks.STONE);
         ServerLevel lv = h.getLevel();
         BlockPos a = h.absolutePos(fp), ar = h.absolutePos(roofed);
@@ -1518,7 +1576,7 @@ public class LabTests {
     /** n型の板8＋B2O3 → p-n 接合の板8（1954 と同じ向き）。p型＋リンも可。同じ型・真性・数が足りない・電力不足では動かない */
     @GameTest
     public void diffusionFurnace(GameTestHelper h) {
-        for (var it : new net.minecraft.world.item.Item[] {ModBlocks.ELECTRIC_FURNACE.asItem(), ModItems.QUARTZ_TUBE, ModItems.REFRACTORY_BRICK})
+        for (var it : new net.minecraft.world.item.Item[] {ModMachines.ELECTRIC_FURNACE.block.asItem(), ModItems.QUARTZ_TUBE, ModItems.REFRACTORY_BRICK})
             h.assertTrue(recipeUses(h, "diffusion_furnace", it), "diffusion furnace = electric furnace [4-12] + quartz tube [7-02]: " + it);
         java.util.function.Function<String, ItemStack> wafer = dp -> {
             ItemStack s = new ItemStack(ModItems.SILICON_WAFER, 16);
@@ -1532,7 +1590,7 @@ public class LabTests {
         h.assertFalse(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(wafer.apply(null), new ItemStack(ModItems.BORON_TRIOXIDE)), "intrinsic -> no junction");
         floor(h, 3);
         BlockPos fp = p(1, 1, 1);
-        h.setBlock(fp, ModBlocks.DIFFUSION_FURNACE);
+        h.setBlock(fp, ModMachines.DIFFUSION_FURNACE.block);
         var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.class);
         var c = be.getContainer();
         long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS);
@@ -1571,7 +1629,7 @@ public class LabTests {
         h.assertTrue(recipeUses(h, "diamond_saw_blade", Items.DIAMOND) && recipeUses(h, "diamond_saw_blade", ModItems.STEEL_INGOT), "blade = steel disc + diamond");
         floor(h, 3);
         BlockPos fp = p(1, 1, 1);
-        h.setBlock(fp, ModBlocks.WAFER_SAW);
+        h.setBlock(fp, ModMachines.WAFER_SAW.block);
         var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.WaferSawBlockEntity.class);
         var c = be.getContainer();
         long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS);
@@ -1607,7 +1665,7 @@ public class LabTests {
     /** 種：多結晶Si＋るつぼ＋Ar → 種結晶。単結晶：種（残る）＋多結晶Si 2＋るつぼ＋Ar 2＋B2O3/リン → インゴット（純度とドーパントを受け継ぐ）。るつぼ・Ar・電力が欠けると動かない */
     @GameTest
     public void czPuller(GameTestHelper h) {
-        for (var it : new net.minecraft.world.item.Item[] {ModBlocks.CRYSTAL_PULLER.asItem(), ModItems.GRAPHITE_ROD, ModItems.STEEL_INGOT, ModItems.LEAD_SCREW, ModItems.ELECTRIC_MOTOR})
+        for (var it : new net.minecraft.world.item.Item[] {ModMachines.CRYSTAL_PULLER.block.asItem(), ModItems.GRAPHITE_ROD, ModItems.STEEL_INGOT, ModItems.LEAD_SCREW, ModItems.ELECTRIC_MOTOR})
             h.assertTrue(recipeUses(h, "cz_puller", it), "CZ puller = bigger Ge puller [9-07] + graphite heater + steel chamber: " + it);
         h.assertTrue(recipeUses(h, "quartz_crucible", ModItems.FUSED_QUARTZ), "quartz crucible from fused quartz [7-02]");
         h.assertFalse(com.taku3.semiconductorlab.block.CzPullerBlockEntity.isCrucible(new ItemStack(ModItems.GRAPHITE_BOAT)), "graphite is not a crucible for Si (forms SiC)");
@@ -1615,7 +1673,7 @@ public class LabTests {
         h.assertTrue(Math.abs(kwhPerKg - com.taku3.semiconductorlab.block.CzPullerBlockEntity.KWH_PER_KG) < 0.05, "17.4 kWh/kg (NTU), got " + kwhPerKg);
         floor(h, 3);
         BlockPos fp = p(1, 1, 1);
-        h.setBlock(fp, ModBlocks.CZ_PULLER);
+        h.setBlock(fp, ModMachines.CZ_PULLER.block);
         var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.CzPullerBlockEntity.class);
         var c = be.getContainer();
         long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS);
@@ -1693,7 +1751,7 @@ public class LabTests {
     /** トランジスタラジオ [15-10]：合金接合型3＋炭素抵抗（黒鉛）＋コイル（銅ケーブル）＋コンデンサ（ライデン瓶）＋スピーカー（磁石）＋乾電池（亜鉛・黒鉛棒） */
     @GameTest
     public void transistorRadioParts(GameTestHelper h) {
-        for (var it : new net.minecraft.world.item.Item[] {ModItems.JUNCTION_TRANSISTOR, ModItems.GRAPHITE, ModBlocks.COPPER_CABLE.asItem(), ModItems.LEYDEN_JAR, ModItems.MAGNET, ModItems.ZINC_INGOT, ModItems.GRAPHITE_ROD})
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.JUNCTION_TRANSISTOR, ModItems.GRAPHITE, ModMachines.COPPER_CABLE.block.asItem(), ModItems.LEYDEN_JAR, ModItems.MAGNET, ModItems.ZINC_INGOT, ModItems.GRAPHITE_ROD})
             h.assertTrue(recipeUses(h, "transistor_radio", it), "radio part: " + it);
         h.assertFalse(recipeUses(h, "transistor_radio", Items.REDSTONE), "no redstone in the radio");
         h.assertFalse(recipeUses(h, "transistor_radio", Items.IRON_INGOT), "the plain iron chassis was removed");
@@ -1730,7 +1788,7 @@ public class LabTests {
     /** 金属シリコン1＋乾いた HCl 3 → 粗 TCS（99%）＋H2。蒸留1段で「9」が1つ増え、9段で 11N。塩酸（水溶液）は入らない */
     @GameTest
     public void trichlorosilaneReactor(GameTestHelper h) {
-        for (var it : new net.minecraft.world.item.Item[] {ModItems.QUARTZ_TUBE, ModItems.STEEL_INGOT, ModBlocks.COPPER_CABLE.asItem()})
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.QUARTZ_TUBE, ModItems.STEEL_INGOT, ModMachines.COPPER_CABLE.block.asItem()})
             h.assertTrue(recipeUses(h, "trichlorosilane_reactor", it), "reactor + column: " + it);
         h.assertFalse(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.isHcl(new ItemStack(ModItems.HYDROCHLORIC_ACID)), "hydrochloric acid (water) is not accepted: SiHCl3 reacts with water");
         // 純度：粗 2N → 蒸留9段で 11N、それ以上は上がらない
@@ -1742,7 +1800,7 @@ public class LabTests {
         h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(com.taku3.semiconductorlab.Purity.TEN_N), 10, "TEN_N reads as 10N (rounding fix)");
         floor(h, 3);
         BlockPos fp = p(1, 1, 1);
-        h.setBlock(fp, ModBlocks.TRICHLOROSILANE_REACTOR);
+        h.setBlock(fp, ModMachines.TRICHLOROSILANE_REACTOR.block);
         var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.class);
         var c = be.getContainer();
         int SI = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_SI, HCL = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_HCL, D = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_DISTILL, OUT = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_OUT, H2 = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_H2;
@@ -1784,14 +1842,14 @@ public class LabTests {
     /** 9N 以上の TCS 1＋H2 1＋500kW×648秒（90kWh）→ 多結晶シリコン（純度は TCS と同じ）＋HCl 3（[1-16] にちょうど1回分戻る）。電力半分・8N では動かない */
     @GameTest
     public void siemensReactor(GameTestHelper h) {
-        for (var it : new net.minecraft.world.item.Item[] {ModItems.GRAPHITE_ROD, ModItems.STEEL_INGOT, ModItems.QUARTZ_TUBE, ModBlocks.COPPER_CABLE.asItem()})
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.GRAPHITE_ROD, ModItems.STEEL_INGOT, ModItems.QUARTZ_TUBE, ModMachines.COPPER_CABLE.block.asItem()})
             h.assertTrue(recipeUses(h, "siemens_reactor", it), "steel bell jar + graphite electrode chucks + sight glass + heavy cable: " + it);
         double kwh = com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.WATTS * com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TICKS / 20.0 / 3.6e6;
         h.assertTrue(kwh >= 85 && kwh <= 95, "about 90 kWh per kg (US 8,398,946), got " + kwh);
         h.assertValueEqual(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.HCL_OUT, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.HCL_PER_RUN, "HCl out = HCl for one TCS synthesis (closed loop)");
         floor(h, 3);
         BlockPos fp = p(1, 1, 1);
-        h.setBlock(fp, ModBlocks.SIEMENS_REACTOR);
+        h.setBlock(fp, ModMachines.SIEMENS_REACTOR.block);
         var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.class);
         var c = be.getContainer();
         int T = com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TICKS;
@@ -1828,14 +1886,14 @@ public class LabTests {
     /** 珪石2＋木炭（か石炭）1＋500kW×86.4秒（12kWh）→ 金属シリコン（98%）。電力が半分なら進まない。電極は8回で1本 */
     @GameTest
     public void arcFurnaceSilicon(GameTestHelper h) {
-        for (var it : new net.minecraft.world.item.Item[] {ModItems.GRAPHITE_ROD, ModItems.REFRACTORY_BRICK, ModBlocks.COPPER_CABLE.asItem()})
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.GRAPHITE_ROD, ModItems.REFRACTORY_BRICK, ModMachines.COPPER_CABLE.block.asItem()})
             h.assertTrue(recipeUses(h, "arc_furnace", it), "arc furnace = graphite electrodes + refractory lining + heavy cable: " + it);
         var A = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.class;
         double kwh = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.WATTS * com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.TICKS / 20.0 / 3.6e6;
         h.assertTrue(kwh >= 10 && kwh <= 14, "about 12 kWh per kg of silicon (real: over 10 kWh), got " + kwh);
         floor(h, 5);
         BlockPos fp = p(1, 1, 1);
-        h.setBlock(fp, ModBlocks.ARC_FURNACE);
+        h.setBlock(fp, ModMachines.ARC_FURNACE.block);
         var be = h.getBlockEntity(fp, A);
         var c = be.getContainer();
         int Q = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_QUARTZ, CB = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_CARBON,
@@ -1896,7 +1954,7 @@ public class LabTests {
             h.assertTrue(recipeUses(h, "crystal_puller", it), "puller = induction heating + graphite crucible + pulling screw: " + it);
         floor(h, 5);
         BlockPos pp = p(1, 1, 1);
-        h.setBlock(pp, ModBlocks.CRYSTAL_PULLER);
+        h.setBlock(pp, ModMachines.CRYSTAL_PULLER.block);
         var be = h.getBlockEntity(pp, com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.class);
         var c = be.getContainer();
         int GE = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.SLOT_GE, SEED = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.SLOT_SEED,
@@ -1943,10 +2001,10 @@ public class LabTests {
     /** 空気10mol/回：N2 7.808・O2 2.095・Ar 0.093 mol を mmol で持ち越して袋にする。電気なしでは動かない。隣のホルダーが N2 を吸い、圧縮機で窒素ボンベ */
     @GameTest(maxTicks = 100)
     public void airSeparation(GameTestHelper h) {
-        h.assertTrue(recipeUses(h, "air_separation_unit", ModBlocks.COMPRESSOR.asItem()), "Linde's machine starts with a compressor [6-03]");
+        h.assertTrue(recipeUses(h, "air_separation_unit", ModMachines.COMPRESSOR.block.asItem()), "Linde's machine starts with a compressor [6-03]");
         floor(h, 7);
         BlockPos ap = p(1, 1, 1), hp = p(2, 1, 1), cp = p(3, 1, 1);
-        h.setBlock(ap, ModBlocks.AIR_SEPARATION_UNIT);
+        h.setBlock(ap, ModMachines.AIR_SEPARATION_UNIT.block);
         var asu = h.getBlockEntity(ap, com.taku3.semiconductorlab.block.AirSeparationBlockEntity.class);
         var box = asu.getContainer();
         int T = com.taku3.semiconductorlab.block.AirSeparationBlockEntity.TICKS;
@@ -1971,8 +2029,8 @@ public class LabTests {
         h.assertTrue(box.getItem(AR).is(ModItems.ARGON_GAS) && box.getItem(AR).getCount() == 1, "11 runs = 110 mol air -> 1 bag of argon, got " + box.getItem(AR));
         h.assertValueEqual(asu.argonRemainderMmol(), 23, "argon carry-over 1023 - 1000 mmol");
         box.setItem(N2, new ItemStack(ModItems.NITROGEN_GAS, 5));
-        h.setBlock(hp, ModBlocks.GAS_HOLDER);
-        h.setBlock(cp, ModBlocks.COMPRESSOR);
+        h.setBlock(hp, ModMachines.GAS_HOLDER.block);
+        h.setBlock(cp, ModMachines.COMPRESSOR.block);
         h.runAfterDelay(25, () -> {
             GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
             int got = g.getAmount() + g.getContainer().getItem(GasHolderBlockEntity.SLOT_OUT).getCount();
@@ -2010,7 +2068,7 @@ public class LabTests {
         h.assertTrue(keyOf(MercuryVacuumGaugeItem.reading(100)).endsWith(".below"), "100 Pa (0.75 mm) is below what the eye can read");
         floor(h, 5);
         BlockPos cp = p(1, 1, 1);
-        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
+        h.setBlock(cp, ModMachines.VACUUM_CHAMBER.block);
         ItemStack gauge = new ItemStack(ModItems.MERCURY_VACUUM_GAUGE);
         java.util.function.Function<BlockPos, net.minecraft.world.InteractionResult> use = rel -> {
             BlockPos a = h.absolutePos(rel);
@@ -2035,9 +2093,9 @@ public class LabTests {
         h.assertTrue(Math.abs(back - 1234) < 5, "pressure sync encoding round-trip, got " + back);
         floor(h, 7);
         BlockPos cp = p(1, 1, 1), sp = p(2, 1, 1), lonely = p(5, 1, 5);
-        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
-        h.setBlock(sp, ModBlocks.SEALING_STATION);
-        h.setBlock(lonely, ModBlocks.SEALING_STATION);
+        h.setBlock(cp, ModMachines.VACUUM_CHAMBER.block);
+        h.setBlock(sp, ModMachines.SEALING_STATION.block);
+        h.setBlock(lonely, ModMachines.SEALING_STATION.block);
         VacuumChamberBlockEntity c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
         SealingStationBlockEntity be = h.getBlockEntity(sp, SealingStationBlockEntity.class);
         var box = be.getContainer();
@@ -2076,7 +2134,7 @@ public class LabTests {
         var ings = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value().placementInfo().ingredients();
         long tubes = ings.stream().filter(i -> i.test(new ItemStack(ModItems.VACUUM_TUBE))).count();
         h.assertValueEqual(tubes, 2L, "vacuum tubes in the oscillator");
-        for (var it : new net.minecraft.world.item.Item[] {ModItems.LEYDEN_JAR, ModItems.INDUCTION_COIL, ModBlocks.COPPER_CABLE.asItem()})
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.LEYDEN_JAR, ModItems.INDUCTION_COIL, ModMachines.COPPER_CABLE.block.asItem()})
             h.assertTrue(recipeUses(h, "hf_oscillator", it), "oscillator should use " + it);
         h.assertTrue(recipeUses(h, "leyden_jar", ModItems.SODA_LIME_GLASS), "Leyden jar = glass jar (soda-lime glass) + metal foil");
         h.assertTrue(recipeUses(h, "zone_refining_furnace", ModItems.HF_OSCILLATOR), "zone refining furnace needs the HF oscillator");
@@ -2106,7 +2164,7 @@ public class LabTests {
     @GameTest
     public void electricFurnace(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.ELECTRIC_FURNACE);
+        h.setBlock(pos, ModMachines.ELECTRIC_FURNACE.block);
         ElectricFurnaceBlockEntity be = h.getBlockEntity(pos, ElectricFurnaceBlockEntity.class);
         var c = be.getContainer();
         int IN = ElectricFurnaceBlockEntity.SLOT_IN, OUT = ElectricFurnaceBlockEntity.SLOT_OUT, T = ElectricFurnaceBlockEntity.TICKS;
@@ -2127,7 +2185,7 @@ public class LabTests {
         h.assertTrue(c.getItem(OUT).is(ModItems.GRAPHITE_BOAT), "clay-graphite blank -> graphite boat");
         h.assertFalse(ElectricFurnaceBlockEntity.isInput(new ItemStack(Items.RAW_IRON)), "not a general smelter");
         h.assertTrue(recipeUses(h, "electric_furnace", ModItems.GRAPHITE_ROD) && recipeUses(h, "electric_furnace", ModItems.REFRACTORY_BRICK), "electric furnace = refractory brick + graphite rods");
-        h.assertTrue(recipeUses(h, "hydrogen_furnace", ModBlocks.ELECTRIC_FURNACE.asItem()), "hydrogen furnace is built from the electric furnace");
+        h.assertTrue(recipeUses(h, "hydrogen_furnace", ModMachines.ELECTRIC_FURNACE.block.asItem()), "hydrogen furnace is built from the electric furnace");
         LOG.info("[LAB] electric furnace: blank -> brick / boat in {} ticks at 5 kW, nothing without power; hydrogen furnace built on it", T);
         h.succeed();
     }
@@ -2140,7 +2198,7 @@ public class LabTests {
     @GameTest
     public void achesonFurnace(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.ACHESON_FURNACE);
+        h.setBlock(pos, ModMachines.ACHESON_FURNACE.block);
         AchesonFurnaceBlockEntity be = h.getBlockEntity(pos, AchesonFurnaceBlockEntity.class);
         var c = be.getContainer();
         int C = AchesonFurnaceBlockEntity.SLOT_CARBON, S = AchesonFurnaceBlockEntity.SLOT_SAND, OUT = AchesonFurnaceBlockEntity.SLOT_OUT;
@@ -2191,7 +2249,7 @@ public class LabTests {
     @GameTest
     public void zoneRefinerPowerAndBoat(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.ZONE_REFINING_FURNACE);
+        h.setBlock(pos, ModMachines.ZONE_REFINING_FURNACE.block);
         ZoneRefiningFurnaceBlockEntity be = h.getBlockEntity(pos, ZoneRefiningFurnaceBlockEntity.class);
         var c = be.getContainer();
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT, B = ZoneRefiningFurnaceBlockEntity.BOAT_SLOT;
@@ -2248,7 +2306,7 @@ public class LabTests {
         int IN = OxyhydrogenBurnerBlockEntity.SLOT_IN, H2 = OxyhydrogenBurnerBlockEntity.SLOT_H2, O2 = OxyhydrogenBurnerBlockEntity.SLOT_O2;
         int OUT = OxyhydrogenBurnerBlockEntity.SLOT_OUT, EMPTY = OxyhydrogenBurnerBlockEntity.SLOT_EMPTY;
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.OXYHYDROGEN_BURNER);
+        h.setBlock(pos, ModMachines.OXYHYDROGEN_BURNER.block);
         OxyhydrogenBurnerBlockEntity be = h.getBlockEntity(pos, OxyhydrogenBurnerBlockEntity.class);
         var c = be.getContainer();
 
@@ -2517,7 +2575,7 @@ public class LabTests {
         ServerLevel lv = h.getLevel();
         floor(h, 4);
         BlockPos pos = p(1, 1, 1), water = p(2, 1, 1);
-        h.setBlock(pos, ModBlocks.SALT_PAN);
+        h.setBlock(pos, ModMachines.SALT_PAN.block);
         var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.SaltPanBlockEntity.class);
         BlockPos a = h.absolutePos(pos);
         int T = com.taku3.semiconductorlab.block.SaltPanBlockEntity.TICKS_PER_SALT;
@@ -2571,7 +2629,7 @@ public class LabTests {
     @GameTest
     public void chlorAlkali(GameTestHelper h) {
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.ELECTROLYZER);
+        h.setBlock(pos, ModMachines.ELECTROLYZER.block);
         ElectrolyzerBlockEntity be = h.getBlockEntity(pos, ElectrolyzerBlockEntity.class);
         var c = be.getContainer();
         int W = ElectrolyzerBlockEntity.SLOT_WATER, S = ElectrolyzerBlockEntity.SLOT_ACID, H2 = ElectrolyzerBlockEntity.SLOT_H2,
@@ -2621,12 +2679,12 @@ public class LabTests {
     @GameTest(maxTicks = 80)
     public void chlorineHolderAndCylinder(GameTestHelper h) {
         BlockPos hp = p(1, 1, 1), ep = p(2, 1, 1), cp = p(0, 1, 1), h2p = p(1, 1, 3);
-        h.setBlock(hp, ModBlocks.GAS_HOLDER);
-        h.setBlock(ep, ModBlocks.ELECTROLYZER);
+        h.setBlock(hp, ModMachines.GAS_HOLDER.block);
+        h.setBlock(ep, ModMachines.ELECTROLYZER.block);
         var ec = h.getBlockEntity(ep, ElectrolyzerBlockEntity.class).getContainer();
         ec.setItem(ElectrolyzerBlockEntity.SLOT_O2, new ItemStack(ModItems.CHLORINE_GAS, 3));
         ec.setItem(ElectrolyzerBlockEntity.SLOT_NAOH, new ItemStack(ModItems.SODIUM_HYDROXIDE, 2));
-        h.setBlock(h2p, ModBlocks.GAS_HOLDER);
+        h.setBlock(h2p, ModMachines.GAS_HOLDER.block);
         h.runAfterDelay(25, () -> {
             GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
             int total = g.getAmount() + g.getContainer().getItem(GasHolderBlockEntity.SLOT_OUT).getCount();
@@ -2634,7 +2692,7 @@ public class LabTests {
             h.assertValueEqual(total, 3, "3 mol Cl2 pulled");
             h.assertValueEqual(ec.getItem(ElectrolyzerBlockEntity.SLOT_NAOH).getCount(), 2, "NaOH is not a gas: stays");
             // 圧縮機：塩素 60mol → 塩素ボンベ
-            h.setBlock(cp, ModBlocks.COMPRESSOR);
+            h.setBlock(cp, ModMachines.COMPRESSOR.block);
             CompressorBlockEntity comp = h.getBlockEntity(cp, CompressorBlockEntity.class);
             g.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.CHLORINE_GAS, 64));
             g.setContentsForTest(GasType.CHLORINE, 60);
@@ -2669,7 +2727,7 @@ public class LabTests {
                 W = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_WATER, OUT = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_OUT,
                 EMPTY = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_EMPTY, BUCKET = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_BUCKET;
         BlockPos pos = p(1, 1, 1);
-        h.setBlock(pos, ModBlocks.HCL_BURNER);
+        h.setBlock(pos, ModMachines.HCL_BURNER.block);
         var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.HclBurnerBlockEntity.class);
         var c = be.getContainer();
         // 水だけ・水素だけ：燃えない（水素の袋は開けない）
@@ -2707,8 +2765,8 @@ public class LabTests {
         h.assertValueEqual(be.getWater(), 0, "dry mode uses no water");
         // 隣のガスホルダー（塩素）からももらえる
         BlockPos pos2 = p(3, 1, 1), hp = p(4, 1, 1);
-        h.setBlock(pos2, ModBlocks.HCL_BURNER);
-        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        h.setBlock(pos2, ModMachines.HCL_BURNER.block);
+        h.setBlock(hp, ModMachines.GAS_HOLDER.block);
         var be2 = h.getBlockEntity(pos2, com.taku3.semiconductorlab.block.HclBurnerBlockEntity.class);
         GasHolderBlockEntity holder = h.getBlockEntity(hp, GasHolderBlockEntity.class);
         holder.getContainer().setItem(GasHolderBlockEntity.SLOT_OUT, new ItemStack(ModItems.CHLORINE_GAS, 64));
@@ -2718,7 +2776,7 @@ public class LabTests {
         ServerLevel lv = h.getLevel();
         // 引き込みは 10 tick ごと（ゲーム時刻）。tick を手で回すとゲーム時刻は進まないので、引き込みを直接確かめる
         long t0 = lv.getGameTime();
-        h.assertTrue(recipeUses(h, "hcl_burner", ModBlocks.OXYHYDROGEN_BURNER.asItem()), "derived from the oxyhydrogen burner [7-02]");
+        h.assertTrue(recipeUses(h, "hcl_burner", ModMachines.OXYHYDROGEN_BURNER.block.asItem()), "derived from the oxyhydrogen burner [7-02]");
         h.runAfterDelay(25, () -> {
             h.assertTrue(be2.getCl2() > 0 || be2.getContainer().getItem(OUT).getCount() > 0, "pulled chlorine from the adjacent holder");
             h.assertTrue(holder.getAmount() < 20, "holder chlorine decreased");
@@ -2763,7 +2821,7 @@ public class LabTests {
         h.assertTrue(recipeUses(h, "high_purity_germanium_dioxide", ModItems.GERMANIUM_TETRACHLORIDE) && recipeUses(h, "high_purity_germanium_dioxide", Items.WATER_BUCKET), "hydrolysis GeCl4 + 2H2O");
         // 水素炉：高純度 GeO2 + 2H2 → 経路つきの Ge、ふつうの GeO2 → 経路なし
         BlockPos fp = p(1, 1, 1);
-        h.setBlock(fp, ModBlocks.HYDROGEN_FURNACE);
+        h.setBlock(fp, ModMachines.HYDROGEN_FURNACE.block);
         HydrogenFurnaceBlockEntity f = h.getBlockEntity(fp, HydrogenFurnaceBlockEntity.class);
         var fc = f.getContainer();
         long feed = EnergyStorage.wattsToJoulesPerTick(HydrogenFurnaceBlockEntity.REDUCE_WATTS);
@@ -2780,7 +2838,7 @@ public class LabTests {
         h.assertTrue(ge2.is(ModItems.RAW_GERMANIUM) && !ZoneRefiningFurnaceBlockEntity.isChlorideRoute(ge2), "plain GeO2 (sulfate route) -> Ge without route");
         // 帯域精製：人造黒鉛ボートでも硫酸経由は 9N で止まる、GeCl4 経由は 10N
         BlockPos zp = p(3, 1, 1);
-        h.setBlock(zp, ModBlocks.ZONE_REFINING_FURNACE);
+        h.setBlock(zp, ModMachines.ZONE_REFINING_FURNACE.block);
         ZoneRefiningFurnaceBlockEntity z = h.getBlockEntity(zp, ZoneRefiningFurnaceBlockEntity.class);
         var zc = z.getContainer();
         int T = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS, G = ZoneRefiningFurnaceBlockEntity.GE_SLOT;

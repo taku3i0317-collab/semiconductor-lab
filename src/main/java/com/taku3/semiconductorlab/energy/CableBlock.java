@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.energy;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.Machine;
+import com.taku3.semiconductorlab.machine.MachineEntityBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -15,15 +16,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 /** 銅ケーブル（v0.2a #1、タスク06 でネットワーク方式）。右クリックでネットワークの様子を表示（テスター代わり） */
-public class CableBlock extends Block implements EntityBlock {
-    public CableBlock(Properties props) { super(props); }
-
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new CableBlockEntity(pos, state); }
-
-    @Override @SuppressWarnings("unchecked")
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == ModBlockEntities.COPPER_CABLE ? (BlockEntityTicker<T>) (BlockEntityTicker<CableBlockEntity>) CableBlockEntity::tick : null;
-    }
+public class CableBlock extends MachineEntityBlock {
+    public CableBlock(Properties props, Machine<?> machine) { super(props, machine); }
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {

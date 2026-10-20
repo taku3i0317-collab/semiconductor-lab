@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -39,7 +39,7 @@ public class SaltPanBlockEntity extends BlockEntity {
     /** テスト専用：バイオーム判定を「海」とみなす（GameTest の世界は平原なので） */
     private boolean forceSeaForTest;
 
-    public SaltPanBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.SALT_PAN, pos, state); }
+    public SaltPanBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.SALT_PAN.type, pos, state); }
 
     public int getSalt() { return salt; }
     public int getBittern() { return bittern; }

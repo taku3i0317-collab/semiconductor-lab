@@ -1,6 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineBE;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -37,7 +39,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * トリクロロシラン [1-16] は水と反応してしまうので、塩酸ではなくこの乾いたガスを使う（タスク22）。
  * スロット：0＝水素、1＝塩素、2＝水バケツ、3＝塩酸、4＝空ボンベ、5＝空バケツ
  */
-public class HclBurnerBlockEntity extends BlockEntity implements MenuProvider {
+public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
     public static final int SLOT_H2 = 0, SLOT_CL2 = 1, SLOT_WATER = 2, SLOT_OUT = 3, SLOT_EMPTY = 4, SLOT_BUCKET = 5, SLOT_COUNT = 6;
     public static final int BURN_TICKS = 100;
     /** 塩酸1本あたり：H2 1mol ＋ Cl2 1mol → HCl 2mol。水バケツ1杯（1L）で4本＝HCl 8mol/L */
@@ -59,9 +61,22 @@ public class HclBurnerBlockEntity extends BlockEntity implements MenuProvider {
         @Override public int getCount() { return DATA_COUNT; }
     };
 
-    public HclBurnerBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.HCL_BURNER, pos, state); }
+    /** 画面のスロットの並び（IMP-28：前の HclBurnerMenu の代わり） */
+    /** 画面の中のスロットの位置（画面の絵と合わせる） */
+    public static final int H2_X = 26, CL2_X = 62, GAS_Y = 53, WATER_X = 44, WATER_Y = 17, OUT_X = 116, OUT_Y = 35, EMPTY_X = 134, BUCKET_X = 152, EMPTIES_Y = 59;
+    public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
+            .in(SLOT_H2, H2_X, GAS_Y, HclBurnerBlockEntity::isHydrogen)
+            .in(SLOT_CL2, CL2_X, GAS_Y, HclBurnerBlockEntity::isChlorine)
+            .in(SLOT_WATER, WATER_X, WATER_Y, s -> s.is(net.minecraft.world.item.Items.WATER_BUCKET))
+            .out(SLOT_OUT, OUT_X, OUT_Y)
+            .out(SLOT_EMPTY, EMPTY_X, EMPTIES_Y)
+            .out(SLOT_BUCKET, BUCKET_X, EMPTIES_Y)
+            .build();
 
-    public SimpleContainer getContainer() { return container; }
+    public HclBurnerBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.HCL_BURNER.type, pos, state); }
+
+    @Override public SimpleContainer getContainer() { return container; }
+    @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
     public int getH2() { return h2Mol; }
     public int getCl2() { return cl2Mol; }
     public int getWater() { return water; }
@@ -140,11 +155,6 @@ public class HclBurnerBlockEntity extends BlockEntity implements MenuProvider {
         } else if (be.progress != 0) { be.progress = 0; be.setChanged(); }
         if (state.hasProperty(BlockStateProperties.LIT) && state.getValue(BlockStateProperties.LIT) != burning)
             level.setBlock(pos, state.setValue(BlockStateProperties.LIT, burning), 3);
-    }
-
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.hcl_burner"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new HclBurnerMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
     }
 
     /** 壊すと中身は落ちる。中のガスと水は逃げる */

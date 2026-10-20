@@ -1,6 +1,5 @@
-package com.taku3.semiconductorlab.block;
+package com.taku3.semiconductorlab.machine;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionResult;
@@ -20,12 +19,18 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-/** 塩酸合成炉 [6-06]（酸水素バーナー [7-02] の派生）。向き FACING ＋ 炎 LIT、右クリックで画面。ガスで動くので ConsumerMachineBlock は使わない */
-public class HclBurnerBlock extends HorizontalDirectionalBlock implements EntityBlock {
+/**
+ * 機械ブロックの共通クラス：向き FACING（置いた人の方を向く）＋ 点灯 LIT（動いている間）、右クリックで画面（IMP-28）。
+ * 前の ConsumerMachineBlock・ElectrolyzerBlock・BessemerConverterBlock・HclBurnerBlock・OxyhydrogenBurnerBlock・
+ * ReverberatoryFurnaceBlock は中身が同じだったので、これ1つにまとめた。BE を作る・tick・画面は {@link Machine} から。
+ */
+public class MachineBlock extends HorizontalDirectionalBlock implements EntityBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+    protected final Machine<?> machine;
 
-    public HclBurnerBlock(Properties props) {
+    public MachineBlock(Properties props, Machine<?> machine) {
         super(props);
+        this.machine = machine;
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }
 
@@ -35,12 +40,10 @@ public class HclBurnerBlock extends HorizontalDirectionalBlock implements Entity
         return defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite());
     }
 
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new HclBurnerBlockEntity(pos, state); }
+    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return machine.create(pos, state); }
 
-    @Override @SuppressWarnings("unchecked")
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == ModBlockEntities.HCL_BURNER
-                ? (BlockEntityTicker<T>) (BlockEntityTicker<HclBurnerBlockEntity>) HclBurnerBlockEntity::tick : null;
+    @Override public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        return machine.tickerFor(type);
     }
 
     @Override protected MenuProvider getMenuProvider(BlockState state, Level level, BlockPos pos) {

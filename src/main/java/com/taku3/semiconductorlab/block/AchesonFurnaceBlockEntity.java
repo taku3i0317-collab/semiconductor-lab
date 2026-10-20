@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
@@ -27,7 +28,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  *   → 電力が足りないと、いくら待っても 2500℃ に届かない（50kW なら約280℃で止まる）。
  * 炭素が入っていないと電流の通り道がないので、電気を受け取っても流れない（使わない）。
  */
-public class AchesonFurnaceBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class AchesonFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final double REQUIRED_WATTS = 500_000;           // 500kW（ゲームの値。本物は数百kW〜MW級）
     public static final double AMBIENT_C = 20, GRAPHITIZE_C = 2500, STEADY_C = 2600, GLOW_C = 800;
     public static final double TAU_SECONDS = 15;                   // 温まり方・冷え方の速さ（時定数）
@@ -40,8 +41,15 @@ public class AchesonFurnaceBlockEntity extends ConsumerBlockEntity implements Me
 
     private double temperature = AMBIENT_C;
 
+    /** 画面のスロットの並び（IMP-28：前の AchesonFurnaceMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA)
+            .in(SLOT_CARBON, 8, 17, AchesonFurnaceBlockEntity::isCarbon)
+            .in(SLOT_SAND, 8, 53, AchesonFurnaceBlockEntity::isSand)
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public AchesonFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ACHESON_FURNACE, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(REQUIRED_WATTS) * 4, REQUIRED_WATTS);
+        super(ModMachines.ACHESON_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(REQUIRED_WATTS) * 4, REQUIRED_WATTS);
     }
 
     public static boolean isCarbon(ItemStack s) { return s.is(Items.COAL) || s.is(Items.CHARCOAL); }
@@ -94,8 +102,4 @@ public class AchesonFurnaceBlockEntity extends ConsumerBlockEntity implements Me
     @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); out.putInt("TempC", (int) Math.round(temperature)); }
     @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); temperature = in.getIntOr("TempC", (int) AMBIENT_C); }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.acheson_furnace"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new AchesonFurnaceMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

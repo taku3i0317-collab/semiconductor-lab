@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.Machine;
+import com.taku3.semiconductorlab.machine.MachineBlock;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
 import com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -22,20 +23,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 
 /** 鉛蓄電池 [4-07] のブロック。向き FACING（正面＝放電端子、置いた人の方を向く）＋ LIT（放電中）。右クリックで残量をチャットに表示 */
-public class LeadAcidBatteryBlock extends HorizontalDirectionalBlock implements EntityBlock {
-    public LeadAcidBatteryBlock(Properties props) {
-        super(props);
-        registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(BlockStateProperties.LIT, false));
-    }
-
-    @Override protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) { b.add(FACING, BlockStateProperties.LIT); }
-    @Override public BlockState getStateForPlacement(BlockPlaceContext ctx) { return defaultBlockState().setValue(FACING, ctx.getHorizontalDirection().getOpposite()); }
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new LeadAcidBatteryBlockEntity(pos, state); }
-
-    @Override @SuppressWarnings("unchecked")
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == ModBlockEntities.LEAD_ACID_BATTERY ? (BlockEntityTicker<T>) (BlockEntityTicker<LeadAcidBatteryBlockEntity>) LeadAcidBatteryBlockEntity::tick : null;
-    }
+public class LeadAcidBatteryBlock extends MachineBlock {
+    public LeadAcidBatteryBlock(Properties props, Machine<?> machine) { super(props, machine); }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof LeadAcidBatteryBlockEntity be)

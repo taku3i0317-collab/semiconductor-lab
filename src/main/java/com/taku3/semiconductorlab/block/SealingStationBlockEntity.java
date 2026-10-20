@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -22,7 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * 閾値は初期の軟真空管（オーディオン 1906）の 0.1Pa（約 10⁻³ Torr）。手押しポンプ（1kPa まで）では届かず、
  * シュプレンゲル水銀ポンプ[5-15]（0.05Pa まで）が要る。高真空管（10⁻⁴Pa、ラングミュア 1913）は拡散ポンプ[5-05]で。
  */
-public class SealingStationBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class SealingStationBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 500;
     public static final int TICKS = 20 * 10;
     /** 封止してよい容器の圧力の上限（Pa）。軟真空 0.1Pa ≈ 7.5×10⁻⁴ Torr（2026-10 タスク12 で 1.5kPa の仮から変更） */
@@ -42,8 +43,14 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity implements Me
         @Override public int getCount() { return MENU_DATA_COUNT; }
     };
 
+    /** 画面のスロットの並び（IMP-28：前の SealingStationMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(MENU_DATA_COUNT)
+            .in(SLOT_IN, 8, 35, s -> s.is(com.taku3.semiconductorlab.ModItems.VACUUM_TUBE_ASSEMBLY))
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public SealingStationBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.SEALING_STATION, pos, state, SLOT_COUNT, 20_000, 2_000);
+        super(ModMachines.SEALING_STATION.type, pos, state, SLOT_COUNT, 20_000, 2_000);
     }
 
     /**
@@ -53,6 +60,8 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity implements Me
     public static int encodePa(double pa) { return (int) Math.round(Math.log10(Math.max(pa, 1e-3)) * 1000) + 10_000; }
     /** encodePa の逆。容器なしは -1 */
     public static double decodePa(int v) { return v <= 0 ? -1 : Math.pow(10, (v - 10_000) / 1000.0); }
+
+    @Override public ContainerData getMenuData() { return menuData; }
 
     private VacuumChamberBlockEntity chamber() { return level == null ? null : VacuumChamberBlockEntity.findAdjacent(level, worldPosition); }
 
@@ -73,8 +82,4 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity implements Me
         if (c != null) c.vent(VENT_FRACTION);
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.sealing_station"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new SealingStationMenu(id, inv, container, menuData, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

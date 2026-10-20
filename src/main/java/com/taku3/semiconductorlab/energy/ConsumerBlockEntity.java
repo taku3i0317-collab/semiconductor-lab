@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab.energy;
 
+import com.taku3.semiconductorlab.machine.MachineBE;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
@@ -20,7 +21,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * 電気が足りない tick は進捗が止まる（リセットはしない）。材料がなくなったら進捗は 0 に戻る。
  * サブクラスが書くのは「何W使うか」「何tickかかるか」「材料はそろっているか」「完成したら何を出すか」の4つだけ。
  */
-public abstract class ConsumerBlockEntity extends BlockEntity {
+public abstract class ConsumerBlockEntity extends BlockEntity implements MachineBE {
     // GUI へ送る数値（同期は short＝最大32767 なので、W は 0.1kW 単位、J は kJ 単位に縮める）
     public static final int DATA_PROGRESS = 0, DATA_TOTAL = 1, DATA_DECI_KW = 2, DATA_KJ = 3, DATA_READY = 4, DATA_COUNT = 5;
 
@@ -60,7 +61,9 @@ public abstract class ConsumerBlockEntity extends BlockEntity {
     protected abstract void finishWork();
 
     public EnergyStorage getStorage() { return storage; }
-    public SimpleContainer getContainer() { return container; }
+    @Override public SimpleContainer getContainer() { return container; }
+    /** GUI へ同期する数値（追加の数値がある機械は extraData で足す。列ごと差し替える機械は上書きする） */
+    @Override public ContainerData getMenuData() { return data; }
     public double getLastWatts() { return lastWatts; }
 
     /** GUI へ追加で送る数値の個数（DATA_COUNT 番以降）。既定は 0 */

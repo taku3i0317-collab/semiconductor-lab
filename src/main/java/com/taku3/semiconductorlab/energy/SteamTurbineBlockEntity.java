@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.energy;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
@@ -19,7 +19,7 @@ public class SteamTurbineBlockEntity extends SteamEngineBlockEntity {
     public static final int COAL_TICKS = 20 * 18;
 
     public SteamTurbineBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.STEAM_TURBINE, pos, state, 1_000_000, WATTS, COAL_TICKS);
+        super(ModMachines.STEAM_TURBINE.type, pos, state, 1_000_000, WATTS, COAL_TICKS);
     }
 
     /** タービンの発電機は最初から電磁石の界磁（自励式）。積み替えはない */

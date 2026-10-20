@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.energy;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.block.SaltPanBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -18,7 +18,7 @@ public class SolarCellBlockEntity extends GeneratorBlockEntity {
     /** 雨（曇り空）の日の散乱光：晴れの約2割 */
     public static final double RAIN_FACTOR = 0.2;
 
-    public SolarCellBlockEntity(BlockPos pos, BlockState state) { super(ModBlockEntities.SOLAR_CELL, pos, state, 2_000, WATTS); }
+    public SolarCellBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.SOLAR_CELL.type, pos, state, 2_000, WATTS); }
 
     /** 空・昼・雨から出力を決める（GameTest からも呼ぶ） */
     public static double watts(boolean openSky, boolean bright, boolean raining) {

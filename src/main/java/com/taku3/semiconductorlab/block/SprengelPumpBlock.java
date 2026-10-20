@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.Machine;
+import com.taku3.semiconductorlab.machine.MachineEntityBlock;
 import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -18,16 +19,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 /** シュプレンゲル水銀ポンプ [5-15]。水銀を持って右クリックで入れる。素手で右クリックすると状態を表示 */
-public class SprengelPumpBlock extends Block implements EntityBlock {
-    public SprengelPumpBlock(Properties props) { super(props); }
-
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new SprengelPumpBlockEntity(pos, state); }
-
-    @Override @SuppressWarnings("unchecked")
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == ModBlockEntities.SPRENGEL_PUMP
-                ? (BlockEntityTicker<T>) (BlockEntityTicker<SprengelPumpBlockEntity>) SprengelPumpBlockEntity::tick : null;
-    }
+public class SprengelPumpBlock extends MachineEntityBlock {
+    public SprengelPumpBlock(Properties props, Machine<?> machine) { super(props, machine); }
 
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!stack.is(ModItems.MERCURY) || !(level.getBlockEntity(pos) instanceof SprengelPumpBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;

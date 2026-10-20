@@ -143,6 +143,27 @@
 - 作業台に残すのは、手で作れる物と簡単な組み合わせだけ（れんがの成形、道具、ケーブルなど）
 - 組立台とマルチブロックの仕組みは、v0.2b の区切りの「機械の共通化」と一緒に設計する（ROADMAP）。それまでは今の作業台レシピのまま（トランジスタラジオなど）
 
+## 機械の共通化 ✅（2026-10-20 IMP-28）
+機械1台に要るものを「機械にしかない中身」だけにした。共通の部分は machine/ パッケージにまとめた。
+- **machine/Machine**：1台ぶんの登録（ブロック＋ブロックのアイテム＋BE の種類＋画面の種類＋電気の受け口）を1行で。使う側は `X.block`・`X.type`
+  - `Machine.electric(名前, BE::new, BE.LAYOUT, 性質)` … 電気で動くふつうの機械（ConsumerBlockEntity を継承した BE）
+  - `Machine.builder(名前, BE::new).block(..).ticker(..).layout(..).energy(..).props(..).build()` … 燃料式・ガス式・発電機・画面なしなど
+  - 性質の近道：`metal(硬さ)`・`stone(硬さ)`・`lit(性質, 明るさ)`（動いている間だけ光る）
+- **machine/MachineLayout**：画面のスロットの並び（`in(番号, x, y, 入れてよい物)`・`out(番号, x, y)`・上限つき `in(.., 8)`）。BE に `LAYOUT` として1つ書く
+- **machine/MachineMenu**：全部の機械で共通の画面の中身（前は機械ごとに約60行の Menu クラスが22個）。シフトクリックは「入れられる最初の入口」だけ（前と同じ）
+- **machine/MachineBE**：画面のある BE が実装する（ConsumerBlockEntity は実装済み）。画面の題名＝ブロックの名前
+- **machine/MachineBlock**（向き＋点灯）・**MachineEntityBlock**（向きなし）：前の ConsumerMachineBlock と、中身が同じだった電解槽・転炉・反射炉・酸水素バーナー・塩酸合成炉のブロック5つをまとめた
+- **client/MachineScreen**：背景（textures/gui/<名前>.png）・題名・`bar`/`vbar`/`text`。**SimpleMachineScreen**：専用の画面を書かない機械のふつうの画面（電力・蓄積・状態）
+- 確認：GameTest machineMenus（画面のある 22 台で、サーバーとクライアントのスロット数・数値の数がそろう、シフトクリック）
+- 結果：Java は差し引き約 1,400 行へった（Menu 22 個・ブロック 6 個・ModBlockEntities・ModMenus を削除）
+
+**新しい機械を足す手順（電気で動くふつうの機械）**
+1. BE：`ConsumerBlockEntity` を継承し、`workWatts`・`workTicks`・`canWork`・`finishWork` の4つと `LAYOUT`（スロット1つ＝1行）を書く。コンストラクタは `super(ModMachines.X.type, …)`
+2. 登録：ModMachines に1行 `public static final Machine<XBlockEntity> X = Machine.electric("x", XBlockEntity::new, XBlockEntity.LAYOUT, metal(3.5f));`
+3. 画面：書かなければ SimpleMachineScreen になる。温度などを見せたいときだけ MachineScreen を継承した画面（約20行）を書き、クライアントで `screen(X, XScreen::new)` の1行
+4. JSON・テクスチャ：`python tools/new_machine.py <id> …`、画面の背景 `python tools/gen_gui.py`、lang は `tools/lang_add.py`
+- 前は：BE（＋画面を開く2メソッド）・Menu クラス（約60行）・Screen（約45行）・ModBlocks／ModBlockEntities／ModMenus／電気の登録／クライアントの登録／クリエイティブタブに各1〜3行、の8か所
+
 ## レッドストーンは使わない ✅（2026-10-20 決定）
 - **レッドストーンは電力にも材料にもしない**（化学ルール1：バニラの架空の素材で本物の部品を代用しない）。電気は MOD の電気（energy/、J と W）だけ
 - 機械のオン・オフ操作が必要になったら、**MOD 独自の本物のスイッチ・電磁リレー**（[10-02] など）で作る。レッドストーン信号で機械を止める・動かす仕組みも作らない

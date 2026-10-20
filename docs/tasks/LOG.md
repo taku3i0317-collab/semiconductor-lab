@@ -287,3 +287,5 @@
 - ついでに：テストは LF（改行コード）で書くが core.autocrlf=true のため git status に中身の差がない「M」が出ていた → .gitattributes に docs/machine_recipes.json text eol=lf
 - 確認：tools/test.ps1 を3回、JSON は毎回同じ（HEAD と同じハッシュ）、git status に出ない
 - テスト：81/81 PASSED
+## IMP-28：v0.3 前の土台づくり（2026-10-20、対話で実行）
+- (1) 機械の共通化：machine/ に Machine（1台＝1行の登録：ブロック＋アイテム＋BE＋画面＋電気）・MachineLayout（スロットの並び）・MachineMenu（共通の画面の中身）・MachineBE・MachineBlock／MachineEntityBlock、client/ に MachineScreen・SimpleMachineScreen。Menu 22 個・同じ中身のブロック 6 個・ModBlockEntities・ModMenus を削除し、登録は ModMachines に（29 台）。Java は差し引き約 1,400 行へった。GameTest machineMenus を追加。テスト：82/82 PASSED

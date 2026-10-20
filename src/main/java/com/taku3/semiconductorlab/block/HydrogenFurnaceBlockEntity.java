@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -22,7 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * 水素は左下のスロット（袋）か、隣のガスホルダー（水素）から自動で受け取る。
  * ⚠️ 近似：本物の還元炉は抵抗加熱の電気炉 [4-12]（未実装）。ここでは電力を直接「熱」とみなしている。
  */
-public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final double REDUCE_WATTS = 3_000, SINTER_WATTS = 10_000;
     public static final int REDUCE_TICKS = 20 * 30, SINTER_TICKS = 20 * 20;
     public static final int REDUCE_H2 = 3, SINTER_H2 = 1, SINTER_POWDER = 2;
@@ -34,8 +35,15 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity implements M
 
     public enum Mode { NONE, REDUCE, SINTER, REDUCE_GE }
 
+    /** 画面のスロットの並び（IMP-28：前の HydrogenFurnaceMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_IN, 8, 17, HydrogenFurnaceBlockEntity::isInput)
+            .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.ModItems.HYDROGEN_GAS))
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public HydrogenFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.HYDROGEN_FURNACE, pos, state, SLOT_COUNT, 100_000, SINTER_WATTS);
+        super(ModMachines.HYDROGEN_FURNACE.type, pos, state, SLOT_COUNT, 100_000, SINTER_WATTS);
     }
 
     public static boolean isInput(ItemStack s) { return modeOf(s) != Mode.NONE; }
@@ -95,8 +103,4 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity implements M
         }
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.hydrogen_furnace"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new HydrogenFurnaceMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

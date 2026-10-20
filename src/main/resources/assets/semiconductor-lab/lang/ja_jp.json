@@ -1018,5 +1018,10 @@
   "guide3.semiconductor-lab.p9.title": "8. 太陽電池",
   "book.semiconductor-lab.ch3.p9": "8. 太陽電池\np-n 接合の板8＋銅ケーブル。昼の空の下で 60W（1000W/m²×6%）、雨は散乱光で約2割。\n\n1954年4月25日、ベル研が発表。1958年に人工衛星の電源に。第2章のゴール！",
   "guide3.semiconductor-lab.root.title": "ガイド：シリコン",
-  "guide3.semiconductor-lab.root.description": "ガイドブック第3巻の内容がここに永久に残る。作るごとにページが解放される。\n本をなくしたら /function semiconductor-lab:give_guidebook3"
+  "guide3.semiconductor-lab.root.description": "ガイドブック第3巻の内容がここに永久に残る。作るごとにページが解放される。\n本をなくしたら /function semiconductor-lab:give_guidebook3",
+  "gui.semiconductor-lab.machine.power": "電力 %s",
+  "gui.semiconductor-lab.machine.stored": "蓄積 %s",
+  "gui.semiconductor-lab.machine.need_input": "材料が要る（か出口が満杯）",
+  "gui.semiconductor-lab.machine.need_power": "電気が足りない",
+  "gui.semiconductor-lab.machine.running": "動作中"
 }

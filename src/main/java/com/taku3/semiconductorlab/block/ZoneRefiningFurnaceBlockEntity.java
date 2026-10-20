@@ -1,5 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.*;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -20,7 +22,7 @@ import java.util.Objects;
  * 黒鉛ボートを中央のスロットに入れる（消耗しない）。粘土黒鉛ボート（19世紀式）は粘土の不純物がしみ出すので 9N まで、
  * 人造黒鉛ボート（アチソン炉 [3-10]）なら 10N まで上がる。
  */
-public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final int TOTAL_TICKS = 20 * 30;
     public static final double WATTS = 3_000;
     public static final int GE_SLOT = 0, DOPANT_SLOT = 1, BOAT_SLOT = 2, SLOT_COUNT = 3;
@@ -30,8 +32,15 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implemen
     /** 中身が変わったら進捗をやり直す（途中で Ge を足して「ただで精製」させないため） */
     private Integer lastSignature;
 
+    /** 画面のスロットの並び（IMP-28：前の ZoneRefiningFurnaceMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA)
+            .in(GE_SLOT, 56, 35, ZoneRefiningFurnaceBlockEntity::isGermanium, 8)
+            .in(DOPANT_SLOT, 104, 35, ZoneRefiningFurnaceBlockEntity::isDopant)
+            .in(BOAT_SLOT, 80, 35, ZoneRefiningFurnaceBlockEntity::isBoat, 1)
+            .build();
+
     public ZoneRefiningFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ZONE_REFINING_FURNACE, pos, state, SLOT_COUNT, 30_000, WATTS);
+        super(ModMachines.ZONE_REFINING_FURNACE.type, pos, state, SLOT_COUNT, 30_000, WATTS);
     }
 
     public static boolean isGermanium(ItemStack s) { return s.is(ModItems.RAW_GERMANIUM) || s.is(ModItems.REFINED_GERMANIUM); }
@@ -119,6 +128,4 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity implemen
         };
     }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.zone_refining_furnace"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) { return new ZoneRefiningFurnaceMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition)); }
 }

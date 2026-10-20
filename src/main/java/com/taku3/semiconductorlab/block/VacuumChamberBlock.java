@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.Machine;
+import com.taku3.semiconductorlab.machine.MachineEntityBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
@@ -15,16 +16,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 
 /** 真空容器 [5-11]（ガラスのベルジャー）。素手で右クリックしても圧力は分からない（真空計 [5-10] で測る） */
-public class VacuumChamberBlock extends Block implements EntityBlock {
-    public VacuumChamberBlock(Properties props) { super(props); }
-
-    @Override public BlockEntity newBlockEntity(BlockPos pos, BlockState state) { return new VacuumChamberBlockEntity(pos, state); }
-
-    @Override @SuppressWarnings("unchecked")
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return type == ModBlockEntities.VACUUM_CHAMBER
-                ? (BlockEntityTicker<T>) (BlockEntityTicker<VacuumChamberBlockEntity>) VacuumChamberBlockEntity::tick : null;
-    }
+public class VacuumChamberBlock extends MachineEntityBlock {
+    public VacuumChamberBlock(Properties props, Machine<?> machine) { super(props, machine); }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide()) player.sendOverlayMessage(Component.translatable("message.semiconductor-lab.vacuum_chamber.need_gauge"));

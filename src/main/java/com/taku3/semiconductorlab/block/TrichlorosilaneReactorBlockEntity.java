@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
@@ -25,7 +26,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * ⚠️ 量は記号的：金属シリコン1個≈1kg、ガス1袋＝1mol で、本物の比（1kg の Si に HCl 107mol）とは合わない（DECISIONS_PENDING Q22-1）。
  * ⚠️ 電力・時間はゲームの都合（本物の合成は発熱反応で、電気は主に蒸留の加熱と冷却に使う）。
  */
-public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
     public static final double SYNTH_WATTS = 10_000, DISTILL_WATTS = 20_000;
     /** 合成 10kW × 60秒、蒸留1段 20kW × 30秒 */
     public static final int SYNTH_TICKS = 1200, DISTILL_TICKS = 600;
@@ -38,8 +39,17 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity imple
 
     private boolean distilling;
 
+    /** 画面のスロットの並び（IMP-28：前の TrichlorosilaneReactorMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + 1)
+            .in(SLOT_SI, 8, 17, TrichlorosilaneReactorBlockEntity::isSilicon)
+            .in(SLOT_HCL, 8, 35, TrichlorosilaneReactorBlockEntity::isHcl)
+            .in(SLOT_DISTILL, 8, 53, TrichlorosilaneReactorBlockEntity::isTcs)
+            .out(SLOT_OUT, 78, 26)
+            .out(SLOT_H2, 78, 50)
+            .build();
+
     public TrichlorosilaneReactorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.TRICHLOROSILANE_REACTOR, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(DISTILL_WATTS) * 4, DISTILL_WATTS);
+        super(ModMachines.TRICHLOROSILANE_REACTOR.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(DISTILL_WATTS) * 4, DISTILL_WATTS);
     }
 
     public static boolean isSilicon(ItemStack s) { return s.is(ModItems.METALLURGICAL_SILICON); }
@@ -89,8 +99,4 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity imple
     @Override protected int extraDataCount() { return 1; }
     @Override protected int extraData(int i) { return i == DATA_MODE && distilling ? 1 : 0; }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.trichlorosilane_reactor"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new TrichlorosilaneReactorMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }

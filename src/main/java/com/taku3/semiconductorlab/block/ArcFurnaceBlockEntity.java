@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModBlockEntities;
+import com.taku3.semiconductorlab.machine.MachineLayout;
+import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
@@ -27,7 +28,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * 黒鉛の電極（黒鉛棒）は少しずつ燃えて減る：{@link #RUNS_PER_ELECTRODE} 回で1本。
  * ⚠️ 近似：本物（現代）は交流のサブマージドアーク炉。ゲームでは交流 [4-10] が v0.4 で出るまで、直流（モアッサンの炉と同じ、⚠️要確認）で近似。
  */
-public class ArcFurnaceBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class ArcFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 500_000;
     /** 12 kWh = 43.2 MJ ÷ 500 kW = 86.4 秒 */
     public static final int TICKS = 1728;
@@ -37,8 +38,16 @@ public class ArcFurnaceBlockEntity extends ConsumerBlockEntity implements MenuPr
     /** いま差している電極で、あと何回動けるか（0 なら次の電極を1本使う） */
     private int electrodeRuns;
 
+    /** 画面のスロットの並び（IMP-28：前の ArcFurnaceMenu の代わり） */
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+            .in(SLOT_QUARTZ, 8, 17, ArcFurnaceBlockEntity::isQuartz)
+            .in(SLOT_CARBON, 8, 35, ArcFurnaceBlockEntity::isCarbon)
+            .in(SLOT_ELECTRODE, 8, 53, ArcFurnaceBlockEntity::isElectrode)
+            .out(SLOT_OUT, 78, 35)
+            .build();
+
     public ArcFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModBlockEntities.ARC_FURNACE, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(ModMachines.ARC_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     public static boolean isQuartz(ItemStack s) { return s.is(ModItems.VEIN_QUARTZ); }
@@ -75,8 +84,4 @@ public class ArcFurnaceBlockEntity extends ConsumerBlockEntity implements MenuPr
     @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); out.putInt("ElectrodeRuns", electrodeRuns); }
     @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); electrodeRuns = in.getIntOr("ElectrodeRuns", 0); }
 
-    @Override public Component getDisplayName() { return Component.translatable("block.semiconductor-lab.arc_furnace"); }
-    @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {
-        return new ArcFurnaceMenu(id, inv, container, data, ContainerLevelAccess.create(level, worldPosition));
-    }
 }
