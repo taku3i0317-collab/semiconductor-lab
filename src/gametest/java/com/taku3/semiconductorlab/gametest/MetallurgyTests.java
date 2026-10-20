@@ -783,7 +783,10 @@ public class MetallurgyTests extends LabTestBase {
         }
         h.assertTrue(be.getContainer().getItem(com.taku3.semiconductorlab.block.BloomeryBlockEntity.SLOT_OUT).is(Metallurgy.IRON_BLOOM), "pumping the bellows -> bloom (after " + t + " ticks, " + be.temperature() + " C)");
         h.assertTrue(be.temperature() >= com.taku3.semiconductorlab.block.BloomeryBlockEntity.T_REDUCE, "above 1100 C while pumping");
-        h.assertTrue(recipeUses(h, "iron_ingot_from_bloom", Metallurgy.IRON_BLOOM) && recipeUses(h, "iron_ingot_from_bloom", Survival.HAMMERSTONE), "bloom + hammerstone -> iron ingot");
+        // [1-08] 鍛鉄：ブルームをかまどで赤く熱し直し、たき石で叩いてスラグを絞り出す → 鍛鉄（錬鉄＝鉄インゴット）。冷えたままでは叩けない
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.IRON_BLOOM).is(Metallurgy.HOT_IRON_BLOOM), "bloom -> furnace -> red-hot bloom");
+        h.assertTrue(recipeUses(h, "iron_ingot_from_bloom", Metallurgy.HOT_IRON_BLOOM) && recipeUses(h, "iron_ingot_from_bloom", Survival.HAMMERSTONE), "red-hot bloom + hammerstone -> wrought iron");
+        h.assertFalse(recipeUses(h, "iron_ingot_from_bloom", Metallurgy.IRON_BLOOM), "a cold bloom can't be forged");
         h.assertFalse(com.taku3.semiconductorlab.block.BloomeryBlockEntity.isFuel(new ItemStack(Items.COAL)), "coal is not used (sulfur makes iron brittle)");
         LOG.info("[LAB] bloomery: fire alone {} C; with bellows a bloom after {} ticks", com.taku3.semiconductorlab.block.BloomeryBlockEntity.T_DRAFT, t);
         h.succeed();

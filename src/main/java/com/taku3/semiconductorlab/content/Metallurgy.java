@@ -102,6 +102,8 @@ public final class Metallurgy {
     // 容器（IMP-33）：鉄のフラスコ（水銀）・鉛の瓶（フッ酸 [2-10]、ガラスを溶かすので）。中身入りより上に書く
     // [1-06] 塊鉄炉の海綿鉄（ブルーム：溶けずにできたスポンジ状の鉄、スラグ入り）。たき石で叩くと錬鉄（鉄インゴット）
     public static final Item IRON_BLOOM            = Reg.item("iron_bloom");
+    // [1-08] 赤熱したブルーム（かまどで熱し直す）。たき石で叩いてスラグを絞り出すと鍛鉄（錬鉄＝鉄インゴット）
+    public static final Item HOT_IRON_BLOOM        = Reg.item("hot_iron_bloom");
     // [1-09] 高炉の銑鉄（炭素約4%、溶けて流れ出た鉄。硬いがもろい → 転炉 [1-26] で鋼に）とスラグ（ケイ酸カルシウム）
     public static final Item PIG_IRON              = Reg.item("pig_iron");
     public static final Item BLAST_FURNACE_SLAG    = Reg.item("blast_furnace_slag");

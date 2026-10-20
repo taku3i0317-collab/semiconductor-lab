@@ -54,6 +54,7 @@ cassiterite_ore  # Metallurgy [1-22] -3000
 vein_quartz  # Metallurgy [1-46] -2500
 quartz_vein  # Metallurgy [1-46] -2500
 iron_bloom  # Metallurgy [1-06] -1200
+hot_iron_bloom  # Metallurgy [1-08] -1200
 bloomery  # Metallurgy [1-06] -1200
 magnetite  # Metallurgy [1-47] -600
 magnetite_ore  # Metallurgy [1-47] -600

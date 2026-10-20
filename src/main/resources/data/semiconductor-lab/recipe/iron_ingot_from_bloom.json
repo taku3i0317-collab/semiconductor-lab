@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "semiconductor-lab:iron_bloom",
+    "semiconductor-lab:hot_iron_bloom",
     "semiconductor-lab:hammerstone"
   ],
   "result": {

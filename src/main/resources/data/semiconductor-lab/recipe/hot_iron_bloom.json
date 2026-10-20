@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:iron_bloom",
+  "result": {
+    "id": "semiconductor-lab:hot_iron_bloom"
+  },
+  "experience": 0.1,
+  "cookingtime": 100
+}
