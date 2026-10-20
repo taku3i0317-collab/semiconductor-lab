@@ -34,6 +34,8 @@ import java.util.function.Function;
 
 public class ModBlocks {
 
+    // [1-46] 石英鉱脈（熱水が岩の割れ目に SiO2 を沈めた白い脈）。石英はモース硬度7なので石のツルハシ以上
+    public static final Block QUARTZ_VEIN    = register("quartz_vein", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE), true);
     public static final Block SPHALERITE_ORE = register("sphalerite_ore", Block::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f).sound(SoundType.STONE), true);
@@ -137,7 +139,7 @@ public class ModBlocks {
     }
 
     public static void initialize() {
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(BORAX_DEPOSIT); tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); tab.accept(TRONA_DEPOSIT); tab.accept(ROCK_SALT_ORE); });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(QUARTZ_VEIN); tab.accept(BORAX_DEPOSIT); tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); tab.accept(TRONA_DEPOSIT); tab.accept(ROCK_SALT_ORE); });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(STEAM_TURBINE); tab.accept(LEAD_ACID_BATTERY); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(ELECTRIC_FURNACE); tab.accept(ACHESON_FURNACE); tab.accept(REVERBERATORY_FURNACE); tab.accept(OXYHYDROGEN_BURNER); tab.accept(HCL_BURNER); tab.accept(HYDROGEN_FURNACE); tab.accept(COMPRESSOR); tab.accept(AIR_SEPARATION_UNIT); tab.accept(VACUUM_CHAMBER); tab.accept(HAND_VACUUM_PUMP); tab.accept(SPRENGEL_PUMP); tab.accept(SEALING_STATION); tab.accept(SALT_PAN); });
     }
 }

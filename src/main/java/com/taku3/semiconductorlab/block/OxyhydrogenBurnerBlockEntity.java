@@ -14,7 +14,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -25,9 +24,9 @@ import net.minecraft.world.level.storage.ValueOutput;
 /**
  * 酸水素バーナー [7-02]（ヘアの吹管 1801 → ゴーダンが 1839 年に石英を溶かした）。電気は使わない。
  * 水素ボンベと酸素ボンベ（[6-03] 圧縮機、1本 50mol）をつなぎ、2H2 + O2 → 2H2O の炎（約2800℃）で
- * ネザークォーツ（SiO2、融点 約1713℃）を溶かして溶融石英にする。
+ * 珪石 [1-46]（石英鉱脈の SiO2、融点 約1713℃）を溶かして溶融石英にする。
  * <pre>
- *   ネザークォーツ ×1 ＋ H2 4mol ＋ O2 2mol（10秒） → 溶融石英 ×1
+ *   珪石 ×1 ＋ H2 4mol ＋ O2 2mol（10秒） → 溶融石英 ×1
  *   水素ボンベ1本＝石英 12.5個分、酸素ボンベ1本＝25個分（H2:O2 = 2:1 の量論比）
  * </pre>
  * ボンベは中のガスが足りなくなったときに1本ずつ「つなぎ」、ガスは BE の中（mol）に移る。空ボンベは右下の出口へ。
@@ -63,7 +62,8 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements MenuPro
     public int getH2() { return h2Mol; }
     public int getO2() { return o2Mol; }
 
-    public static boolean isInput(ItemStack s) { return s.is(Items.QUARTZ); }
+    /** 入力は珪石 [1-46]（石英鉱脈の SiO2）。ネザークォーツは現実に無い素材なので受け付けない（化学ルール1、タスク13） */
+    public static boolean isInput(ItemStack s) { return s.is(ModItems.VEIN_QUARTZ); }
 
     private static boolean canMerge(ItemStack out, ItemStack add) {
         if (out.isEmpty()) return true;

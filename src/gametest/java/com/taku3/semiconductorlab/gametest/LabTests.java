@@ -145,6 +145,33 @@ public class LabTests {
     @GameTest public void oreIronSand(GameTestHelper h)   { oreFeature(h, "iron_sand", Blocks.SAND, Blocks.SANDSTONE, ModBlocks.IRON_SAND, s -> s.is(Blocks.SAND)); }
     @GameTest public void oreTrona(GameTestHelper h)      { oreFeature(h, "trona_deposit", Blocks.SAND, Blocks.STONE, ModBlocks.TRONA_DEPOSIT, s -> s.is(Blocks.SAND) || s.is(Blocks.SANDSTONE)); }
 
+    @GameTest public void oreQuartzVein(GameTestHelper h) { oreFeature(h, "quartz_vein", Blocks.STONE, Blocks.DEEPSLATE, ModBlocks.QUARTZ_VEIN, LabTests::stoneOrDeepslate); }
+
+    /** [1-46] 石英鉱脈：石のツルハシ以上（木では落ちない）で珪石、シルクタッチでブロック。オーバーワールド全体（ほかの鉱石と同じ選び方）。MOD のレシピにネザークォーツは無い */
+    @GameTest
+    public void quartzVeinDrops(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        BlockPos at = h.absolutePos(p(1, 1, 1));
+        BlockState st = ModBlocks.QUARTZ_VEIN.defaultBlockState();
+        ItemStack wood = new ItemStack(Items.WOODEN_PICKAXE), stone = new ItemStack(Items.STONE_PICKAXE), silk = new ItemStack(Items.IRON_PICKAXE);
+        silk.enchant(lv.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH), 1);
+        h.assertFalse(wood.isCorrectToolForDrops(st), "quartz is Mohs 7: a wooden pickaxe is not enough");
+        h.assertTrue(stone.isCorrectToolForDrops(st), "a stone pickaxe works");
+        List<ItemStack> normal = Block.getDrops(st, lv, at, null, null, stone);
+        List<ItemStack> silky = Block.getDrops(st, lv, at, null, null, silk);
+        h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(ModItems.VEIN_QUARTZ)), "pickaxe -> vein quartz, got " + normal);
+        h.assertTrue(silky.size() == 1 && silky.get(0).is(ModBlocks.QUARTZ_VEIN.asItem()), "silk touch -> block, got " + silky);
+        // foundInOverworld は「そのワールドのオーバーワールドに出るバイオーム」に入る。GameTest のワールドは砂漠だけなので砂漠で確かめる（平原などは本物のワールドで TEST_QUEUE）
+        h.assertTrue(biomeHas(h, net.minecraft.world.level.biome.Biomes.DESERT, "quartz_vein") && biomeHas(h, net.minecraft.world.level.biome.Biomes.DESERT, "sphalerite_ore"), "quartz veins go wherever the other overworld ores go");
+        List<String> uses = new ArrayList<>();
+        for (var r : lv.getServer().getRecipeManager().getRecipes())
+            if (r.id().identifier().getNamespace().equals(SemiconductorLab.MOD_ID) && r.value().placementInfo().ingredients().stream().anyMatch(i -> i.test(new ItemStack(Items.QUARTZ))))
+                uses.add(r.id().identifier().toString());
+        h.assertTrue(uses.isEmpty(), "no MOD recipe may use nether quartz: " + uses);
+        LOG.info("[LAB] quartz vein: stone pickaxe -> vein quartz, silk -> block, overworld-wide; no MOD recipe uses nether quartz");
+        h.succeed();
+    }
+
     @GameTest public void oreBorax(GameTestHelper h)      { oreFeature(h, "borax_deposit", Blocks.SAND, Blocks.STONE, ModBlocks.BORAX_DEPOSIT, s -> s.is(Blocks.SAND) || s.is(Blocks.SANDSTONE)); }
 
     /** [1-33] ホウ素：堆積→ホウ砂（木のツルハシ、シルクでブロック）→＋硫酸→ホウ酸2→かまど→B2O3。砂漠だけ */
@@ -1616,11 +1643,14 @@ public class LabTests {
         var c = be.getContainer();
 
         // かまどではもう溶けない（仮レシピ #19 は削除）
-        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.QUARTZ).isEmpty(), "quartz must not melt in a furnace (~1000 C < 1713 C)");
-        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Items.QUARTZ).isEmpty(), "nor in a blast furnace");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.VEIN_QUARTZ).isEmpty(), "quartz must not melt in a furnace (~1000 C < 1713 C)");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, ModItems.VEIN_QUARTZ).isEmpty(), "nor in a blast furnace");
+        // タスク13：入力は珪石 [1-46]。ネザークォーツ（現実に無い素材）は受け付けない
+        h.assertTrue(OxyhydrogenBurnerBlockEntity.isInput(new ItemStack(ModItems.VEIN_QUARTZ)), "the burner melts vein quartz");
+        h.assertFalse(OxyhydrogenBurnerBlockEntity.isInput(new ItemStack(Items.QUARTZ)), "nether quartz is not accepted (chemistry rule 1)");
 
         // ボンベなし：動かない
-        c.setItem(IN, new ItemStack(Items.QUARTZ, 30));
+        c.setItem(IN, new ItemStack(ModItems.VEIN_QUARTZ, 30));
         tickBurner(h, pos, be, T + 10);
         h.assertTrue(c.getItem(OUT).isEmpty(), "no cylinders -> no melting");
         h.assertBlockProperty(pos, BlockStateProperties.LIT, false);

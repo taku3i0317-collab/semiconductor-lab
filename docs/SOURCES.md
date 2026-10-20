@@ -37,3 +37,10 @@
 - 「Oxygen Specific Power Consumption Comparison for Air Separation Units」（ResearchGate 287708500）：理論最小 0.33 kWh/m³(O2)、実機は 0.46 kWh/m³ 以上 → ゲームの電力に使用
 - 乾燥空気の組成（N2 78.08・O2 20.95・Ar 0.93・CO2 0.04 vol%）：標準的な値
 - ❓ 要確認：1900〜1910年代のリンデ装置の電力（kWh/m³ O2）、アルゴンを工業的に取り出し始めた年
+
+## [1-46] 珪石（石英鉱脈）（タスク13、2026-10-20）
+- USGS Mineral Commodity Summaries 2025「Quartz (high-purity)」（https://pubs.usgs.gov/periodicals/mcs2025/mcs2025-quartz.pdf）：スプルースパイン（ノースカロライナ）の高純度石英はペグマタイト由来、長石・雲母と同時に採掘
+- USGS Mineral Commodity Summaries 2026「Quartz」（https://pubs.usgs.gov/periodicals/mcs2026/mcs2026-quartz.pdf）：高純度石英＝不純物 100ppm 未満（超高純度は 10ppm 未満）。用途：電子材料・光ファイバー・シリコン単結晶用の石英るつぼ・ランプ管
+- 脈石英を高純度石英の原料として評価した研究：Fenkina-Lampi 鉱床（カレリア）の脈石英の選鉱（https://zrmo.org/archives/2021/issue-6/mineral-processing-of-vein-quartz-from-the-fenkina-lampi-deposit-karelia.html）、ペシャワール盆地の石英脈（https://ejm.copernicus.org/articles/37/151/2025/）
+- 地殻の鉱物組成（石英 約12%、長石に次ぐ）：鉱物学の標準的な値
+- ゲームの値（y−56〜96・大きさ12・10回）は「どこにでもあるが掘りに行く必要がある」量として決めた（産状の厳密な再現ではない）
