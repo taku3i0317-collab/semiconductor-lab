@@ -134,4 +134,4 @@
 - Q1346-1（鉱脈は1ブロックのまま、仕上げで分ける）採用、Q1346-2（水晶は珪石と別アイテム・鉱脈からまれに）仮決定 → DECISIONS.md。PENDING は空
 - ModWorldGen の生成条件を RULES（OreRule の一覧）にまとめ、GameTest ore_biome_rules がレジストリの全67バイオームで直接判定（偽の BiomeSelectionContext。foundInOverworld＝canGenerateIn(OVERWORLD) を javap -c で確認）
 - テスト：GameTest 66→67本、全部 PASSED。FAILED.md の「弱い確認」を解決済みに
-- 手順1（docs/REFERENCES.md の commit と CLAUDE.md の1行）は、ファイルがリポジトリに無かったので保留
+- docs/REFERENCES.md（ユーザー作成、v0.2b シリコンの参考文献まとめ）を commit。CLAUDE.md の必読リストと docs/README.md に1行ずつ追加

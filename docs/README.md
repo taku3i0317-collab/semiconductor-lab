@@ -22,6 +22,7 @@
 | CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき） |
 | API_26X.md | javap で確認した Minecraft 26.3 API の形。コードはここにある形で書く |
 | SOURCES.md | 出典と要確認リスト |
+| REFERENCES.md | 参考文献のまとめ（答え→へえ①〜④→確かさ→根拠）。v0.2b シリコンの試作版 |
 | TEST_QUEUE.md | テスト待ち行列：自動✅（GameTest）と、人間がゲーム内で見る項目 |
 | TEST_RESULTS.md | 自動テスト（GameTest）の実行方法と結果 |
 | tasks/queue/ | これからやるタスク（NN_*.md）。tasks/done/ は終わったタスク |
