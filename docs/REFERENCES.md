@@ -8,7 +8,7 @@
 - **第2章 シリコン（v0.2b）**：1〜9
 - **電気（v0.2a）**：E1〜E12
 - **光学**：O1〜（IMP2、2人目の実装担当が追加）
-- **生存（石器時代）**：S1〜（IMP3、3人目の実装担当が追加）
+- **生存（石器時代）**：S1〜（IMP3、3人目の実装担当が追加。第1章の直前）
 - **冶金と熱**：M1〜（タスク15〜、Claude Code が実装時に追加）
 - **第1章 ゲルマニウム（v0.1）**：G1〜G8（このファイルの最後）
 
@@ -532,6 +532,32 @@
 
 ---
 
+# 冶金と熱（タスク15〜）
+
+## M1. 木を焼いて炭にする（木炭）［0-12］
+**答え**：木を空気の少ないところで約400〜700℃に熱する（乾留）と、水分と煙になる成分が抜けて、炭素が80〜90%の木炭が残る。金属を取り出す還元剤と燃料になる。
+
+- へえ①：木を「燃やす」のではなく「蒸し焼き」にすると炭になる。
+- へえ②：石炭とちがって硫黄がほとんどないので、金属を汚しにくい。だから古い製鉄はみな木炭だった。
+- へえ③：イギリスでは製鉄のために森を切りすぎ、1709年にダービーが石炭を蒸し焼きにしたコークスで製鉄した。
+- へえ④：洞窟壁画の黒い線は、3万年以上前の木炭で描かれている。
+
+確かさ：乾留の温度と炭素の割合 ◎（化学の標準値）／コークス製鉄 1709 ◎／洞窟壁画の木炭 約3万年前 ◎（ショーヴェ洞窟の放射性炭素年代 2万9000〜3万2000年前）／製錬の燃料として重要になった時期（銅の製錬、紀元前5000年頃〜）△ → ゲーム内は ⚠️
+根拠：TECH_TREE［0-12］、化学の標準値。Scientific American（ショーヴェの年代）https://www.scientificamerican.com/article/scientists-confirm-great 、UCL（ベロヴォデの銅製錬 紀元前5000年頃）https://discovery.ucl.ac.uk/id/eprint/1470180/ 、ペン博物館（木炭は製錬の主燃料）https://www.penn.museum/sites/expedition/fuel-for-the-metal-worker/
+
+## M2. 電気の火花で2000℃（アーク炉）［3-15］
+**答え**：2本の黒鉛電極のあいだに大電流を流すと、気体がプラズマになって光り、2000〜3000℃になる（アーク放電）。この熱で、ふつうの炉では溶けない・離れない物を溶かしたり還元したりできる。
+
+- へえ①：雷と同じ「電気の火花」で炉を熱くする。
+- へえ②：この温度なら、酸素とがっちり結びついたケイ素からも炭素が酸素を奪える。金属シリコン［1-15］はこの炉で作る。
+- へえ③：1892年にモアッサン（フランス）がアークの電気炉でいろいろな物質を溶かし、同じ年にウィルソン（アメリカ）は偶然カーバイドを作った。1900年ごろエルーが鋼を溶かすアーク炉を実用にした。
+- へえ④：今の大きなアーク炉は交流で、変圧器で電圧を下げて何万アンペアもの電流を流す。ゲームでは交流が v0.4 で出るまで直流で近似。
+
+確かさ：アークの温度・原理 ◎／モアッサン1892・ウィルソン1892（5月2日）◎／エルー1900（10月9日、ラ・プラで操業）○／ペトロフ1802（発表1803）○／デービーのアーク（1808〜1810年、出典で割れる）△ → ゲーム内は ⚠️／モアッサンの炉が直流だったか △（仏化学会誌の追悼記事では電源は4馬力ガスエンジンで回す小型グラム発電機＝直流機だが、「直流」の語はない）
+根拠：TECH_TREE［3-15］、REFERENCES §1 のリンク（USGS・PV-Manufacturing.org）。カナダ人物辞典（ウィルソン）https://www.biographi.ca/en/bio/willson_thomas_leopold_14E.html 、ノースカロライナ州（カーバイド）https://dncr.nc.gov/blog/2016/05/02/discovery-calcium-carbide-process 、Techniques de l'Ingénieur（エルー）https://techniques-ingenieur.fr/en/resources/article/ti554/electric-steelworks-m7700/v1/history-of-the-arc-furnace-1 、Wikipedia「Electric arc」（ペトロフ）https://en.wikipedia.org/wiki/Arcing 、ギネス（デービー1808）https://www.guinnessworldrecords.com/world-records/109048-first-electric-arc-lamp 、仏化学会誌（モアッサンの電源）https://new.societechimiquedefrance.fr/wp-content/uploads/2019/12/2006-301-302-octnov-Fournier-p.16.pdf
+
+---
+
 # 生存（IMP3-01〜）
 
 ## S1. 石を石で打ち欠くと刃になる（打製石器）［0-01］
@@ -594,33 +620,6 @@
 - Wikipedia「Einkorn wheat」：https://en.wikipedia.org/wiki/Einkorn_wheat
 - Wikipedia「Shattering (agriculture)」：https://en.wikipedia.org/wiki/Shattering_(agriculture)
 
----
-
-# 冶金と熱（タスク15〜）
-
-## M1. 木を焼いて炭にする（木炭）［0-12］
-**答え**：木を空気の少ないところで約400〜700℃に熱する（乾留）と、水分と煙になる成分が抜けて、炭素が80〜90%の木炭が残る。金属を取り出す還元剤と燃料になる。
-
-- へえ①：木を「燃やす」のではなく「蒸し焼き」にすると炭になる。
-- へえ②：石炭とちがって硫黄がほとんどないので、金属を汚しにくい。だから古い製鉄はみな木炭だった。
-- へえ③：イギリスでは製鉄のために森を切りすぎ、1709年にダービーが石炭を蒸し焼きにしたコークスで製鉄した。
-- へえ④：洞窟壁画の黒い線は、3万年以上前の木炭で描かれている。
-
-確かさ：乾留の温度と炭素の割合 ◎（化学の標準値）／コークス製鉄 1709 ◎／洞窟壁画の木炭 約3万年前 ◎（ショーヴェ洞窟の放射性炭素年代 2万9000〜3万2000年前）／製錬の燃料として重要になった時期（銅の製錬、紀元前5000年頃〜）△ → ゲーム内は ⚠️
-根拠：TECH_TREE［0-12］、化学の標準値。Scientific American（ショーヴェの年代）https://www.scientificamerican.com/article/scientists-confirm-great 、UCL（ベロヴォデの銅製錬 紀元前5000年頃）https://discovery.ucl.ac.uk/id/eprint/1470180/ 、ペン博物館（木炭は製錬の主燃料）https://www.penn.museum/sites/expedition/fuel-for-the-metal-worker/
-
-## M2. 電気の火花で2000℃（アーク炉）［3-15］
-**答え**：2本の黒鉛電極のあいだに大電流を流すと、気体がプラズマになって光り、2000〜3000℃になる（アーク放電）。この熱で、ふつうの炉では溶けない・離れない物を溶かしたり還元したりできる。
-
-- へえ①：雷と同じ「電気の火花」で炉を熱くする。
-- へえ②：この温度なら、酸素とがっちり結びついたケイ素からも炭素が酸素を奪える。金属シリコン［1-15］はこの炉で作る。
-- へえ③：1892年にモアッサン（フランス）がアークの電気炉でいろいろな物質を溶かし、同じ年にウィルソン（アメリカ）は偶然カーバイドを作った。1900年ごろエルーが鋼を溶かすアーク炉を実用にした。
-- へえ④：今の大きなアーク炉は交流で、変圧器で電圧を下げて何万アンペアもの電流を流す。ゲームでは交流が v0.4 で出るまで直流で近似。
-
-確かさ：アークの温度・原理 ◎／モアッサン1892・ウィルソン1892（5月2日）◎／エルー1900（10月9日、ラ・プラで操業）○／ペトロフ1802（発表1803）○／デービーのアーク（1808〜1810年、出典で割れる）△ → ゲーム内は ⚠️／モアッサンの炉が直流だったか △（仏化学会誌の追悼記事では電源は4馬力ガスエンジンで回す小型グラム発電機＝直流機だが、「直流」の語はない）
-根拠：TECH_TREE［3-15］、REFERENCES §1 のリンク（USGS・PV-Manufacturing.org）。カナダ人物辞典（ウィルソン）https://www.biographi.ca/en/bio/willson_thomas_leopold_14E.html 、ノースカロライナ州（カーバイド）https://dncr.nc.gov/blog/2016/05/02/discovery-calcium-carbide-process 、Techniques de l'Ingénieur（エルー）https://techniques-ingenieur.fr/en/resources/article/ti554/electric-steelworks-m7700/v1/history-of-the-arc-furnace-1 、Wikipedia「Electric arc」（ペトロフ）https://en.wikipedia.org/wiki/Arcing 、ギネス（デービー1808）https://www.guinnessworldrecords.com/world-records/109048-first-electric-arc-lamp 、仏化学会誌（モアッサンの電源）https://new.societechimiquedefrance.fr/wp-content/uploads/2019/12/2006-301-302-octnov-Fournier-p.16.pdf
-
----
 ---
 
 # 第1章 ゲルマニウム（v0.1）
