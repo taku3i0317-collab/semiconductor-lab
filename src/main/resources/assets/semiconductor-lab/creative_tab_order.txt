@@ -154,6 +154,8 @@ lead_retort  # Chemistry [2-10] 1771
 coal_tar  # Chemistry [2-20] 1792
 ammoniacal_liquor  # Chemistry [2-20] 1792
 gas_retort  # Chemistry [2-20] 1792
+alumina_catalyst_tube  # Chemistry [2-36] 1795
+ethylene_gas  # Chemistry [2-36] 1795
 ammonium_chloride  # Chemistry [1-18] 1800
 chloroplatinic_acid  # Chemistry [1-18] 1800
 hydrogen_peroxide  # Chemistry [2-19] 1818

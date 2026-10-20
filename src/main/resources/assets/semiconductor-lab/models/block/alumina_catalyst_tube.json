@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "side": "semiconductor-lab:block/alumina_catalyst_tube",
+    "end": "semiconductor-lab:block/alumina_catalyst_tube_end"
+  }
+}

@@ -732,6 +732,29 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-36] エチレン（IMP3、O-009）
+    // =====================================================================
+
+    /** 冷たい管では何も起きない。火のついたたき火の上ならエタノール → エチレン（袋）＋空のガラス瓶、管は残る */
+    @GameTest
+    public void ethylene(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "alumina_catalyst_tube", com.taku3.semiconductorlab.content.Metallurgy.ALUMINA), "tube is packed with alumina");
+        floor(h, 3);
+        BlockPos fire = p(1, 1, 1);
+        h.setBlock(fire.above(), Chemistry.ALUMINA_CATALYST_TUBE);
+        BlockPos tube = h.absolutePos(fire.above());
+        var level = h.getLevel(); var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack eth = new ItemStack(Chemistry.ETHANOL, 2);
+        h.assertFalse(com.taku3.semiconductorlab.block.AluminaCatalystTubeBlock.react(level, tube, player, eth), "cold tube does not react");
+        h.setBlock(fire, net.minecraft.world.level.block.Blocks.CAMPFIRE.defaultBlockState().setValue(net.minecraft.world.level.block.CampfireBlock.LIT, true));
+        h.assertTrue(com.taku3.semiconductorlab.block.AluminaCatalystTubeBlock.react(level, tube, player, eth), "hot tube reacts");
+        h.assertTrue(eth.getCount() == 1 && player.getInventory().countItem(Chemistry.ETHYLENE_GAS) == 1 && player.getInventory().countItem(Chemistry.GLASS_BOTTLE) == 1, "ethylene bag + empty bottle");
+        h.assertTrue(level.getBlockState(tube).is(Chemistry.ALUMINA_CATALYST_TUBE), "catalyst stays");
+        LOG.info("[LAB] ethylene [2-36]: cold tube no; over lit campfire ethanol -> ethylene bag + bottle, alumina stays");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

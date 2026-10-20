@@ -175,6 +175,9 @@ public final class Chemistry {
     public static final Item FERMENTED_WASH        = Reg.item("fermented_wash", new Item.Properties().stacksTo(16));
     public static final Item ETHANOL               = Reg.contained("ethanol", Vessel.GLASS_BOTTLE);
     public static final Block FERMENTATION_CROCK   = Reg.functional("fermentation_crock", com.taku3.semiconductorlab.block.FermentationCrockBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).strength(1.0f).sound(SoundType.DECORATED_POT).noOcclusion());
+    // [2-36] エチレン（IMP3、O-009、決定どおりアルミナ触媒が本流）：熱したアルミナの管にエタノールを通す C2H5OH → C2H4 + H2O。エチレンは袋（約1mol）
+    public static final Block ALUMINA_CATALYST_TUBE = Reg.functional("alumina_catalyst_tube", com.taku3.semiconductorlab.block.AluminaCatalystTubeBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.0f).sound(SoundType.METAL));
+    public static final Item ETHYLENE_GAS          = Reg.contained("ethylene_gas", Vessel.GAS_BAG);
     /** 獣脂を落とす確率（1頭あたり） */
     public static final float TALLOW_CHANCE = 0.6f;
 

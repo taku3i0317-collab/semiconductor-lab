@@ -1720,6 +1720,20 @@
 - Nobel Prize「Eduard Buchner」1907：https://www.nobelprize.org/prizes/chemistry/1907/buchner/facts/
 - Wikipedia「Georgian wine」（紀元前6000年）：https://en.wikipedia.org/wiki/Georgian_wine
 
+## C15. アルコールから水を取るとエチレン［2-36］
+**答え**：エタノールの蒸気を熱したアルミナ（Al2O3）に通すと、水が抜けてエチレンになる（C2H5OH → C2H4 + H2O）。アルミナは触媒で減らない。石油化学が広まる前の工業エチレンはこの方法で、今もブラジル・インドではサトウキビのエタノールから「バイオエチレン」を作っている。1795年にオランダの化学者たちが「油生ガス」と呼んだ（塩素と油状の液を作るため）。
+
+- へえ①：アルコールから水を取ると、エチレンというガスになる。
+- へえ②：触媒は反応を助けるだけで、なくならない。
+- へえ③：エチレンは果物を熟させる植物ホルモン。バナナの追熟に使われる。
+- へえ④：「オレフィン」という言葉は、この「油を作るガス（gaz oléfiant）」から来た。
+
+確かさ：反応・アルミナ触媒 ◎／1795 オランダの化学者 ○⚠️（年は資料で 1794〜1795）／バイオエチレンの工業化 ○
+根拠：
+- Wikipedia「Ethylene」（歴史・製法）：https://en.wikipedia.org/wiki/Ethylene
+- Wikipedia「Ethanol」（脱水）：https://en.wikipedia.org/wiki/Ethanol
+- Wikipedia「Alkene」（olefiant gas）：https://en.wikipedia.org/wiki/Alkene
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

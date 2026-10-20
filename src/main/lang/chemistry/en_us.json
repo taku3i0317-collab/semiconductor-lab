@@ -642,5 +642,19 @@
   "item.semiconductor-lab.ethanol.note2": "3 fermented wash + quartz still (returned) + empty glass bottle. Raw material for ethylene [2-36] and chloroform [2-38]; a solvent. ⚠ GHS: flammable, eye irritant.",
   "item.semiconductor-lab.ethanol.note3": "Ethanol, C2H5OH, boils at 78 C, below water (100 C), so distilling collects it. But at 95.6% the vapour has the same makeup as the liquid (an azeotrope), so distilling cannot make it any stronger.",
   "item.semiconductor-lab.ethanol.note4": "To get 100% ethanol you use something that takes only the water (quicklime, molecular sieves), or distil with benzene added.",
-  "item.semiconductor-lab.ethanol.placeholder": "Approximation: making it 100% (anhydrous) is not implemented."
+  "item.semiconductor-lab.ethanol.placeholder": "Approximation: making it 100% (anhydrous) is not implemented.",
+  "block.semiconductor-lab.alumina_catalyst_tube": "Alumina Catalyst Tube",
+  "block.semiconductor-lab.alumina_catalyst_tube.note1": "Pass alcohol vapour over hot white powder (alumina) and it turns into a gas called ethylene.",
+  "block.semiconductor-lab.alumina_catalyst_tube.note2": "6 iron + 3 alumina. Put it on a lit campfire and right-click with ethanol -> 1 bag of ethylene (the bottle is returned). The tube (catalyst) is not used up. A cold tube does not react.",
+  "block.semiconductor-lab.alumina_catalyst_tube.note3": "The hot alumina surface pulls water out of ethanol (dehydration): C2H5OH -> C2H4 + H2O. Alumina only helps the reaction and is not used up (a catalyst).",
+  "block.semiconductor-lab.alumina_catalyst_tube.note4": "Before oil became cheap, ethylene was made from alcohol this way. Brazil and India still make 'bio-ethylene' from sugarcane alcohol.",
+  "block.semiconductor-lab.alumina_catalyst_tube.placeholder": "Approximation: temperature is only 'over a fire or not'. The water by-product is not collected. The old route of dehydrating with concentrated sulfuric acid is not implemented.",
+  "message.semiconductor-lab.alumina_catalyst_tube.cold": "The tube is cold. Put it on a lit campfire",
+  "message.semiconductor-lab.alumina_catalyst_tube.reacted": "The ethanol lost water and became ethylene",
+  "item.semiconductor-lab.ethylene_gas": "Ethylene (Bag)",
+  "item.semiconductor-lab.ethylene_gas.note1": "A sweet-smelling, very flammable gas. The source of polyethylene (plastic bags).",
+  "item.semiconductor-lab.ethylene_gas.note2": "Made from ethanol in an alumina catalyst tube. Becomes polyethylene [2-37] in a high-pressure reactor. ⚠ GHS: flammable gas, gas under pressure, specific target organ toxicity (drowsiness).",
+  "item.semiconductor-lab.ethylene_gas.note3": "In ethylene, C2H4, the two carbons share a double bond. When it opens and links to the next ethylene again and again, you get polyethylene.",
+  "item.semiconductor-lab.ethylene_gas.note4": "In 1795 four Dutch chemists called it 'oil-making gas' (with chlorine it makes an oily liquid) ⚠️. Ethylene is also a plant hormone that ripens fruit; it is used to ripen bananas.",
+  "item.semiconductor-lab.ethylene_gas.placeholder": "Approximation: 1 bag = about 1 mol. The petroleum (naphtha cracking) route is not included (this mod has no crude oil)."
 }
