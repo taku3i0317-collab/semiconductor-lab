@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage0"
+    },
+    "age=1": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage1"
+    },
+    "age=2": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage2"
+    },
+    "age=3": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage3"
+    },
+    "age=4": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage4"
+    },
+    "age=5": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage5"
+    },
+    "age=6": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage6"
+    },
+    "age=7": {
+      "model": "semiconductor-lab:block/wild_einkorn_stage7"
+    }
+  }
+}

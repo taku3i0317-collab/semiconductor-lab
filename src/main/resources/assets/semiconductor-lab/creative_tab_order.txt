@@ -6,6 +6,8 @@ obsidian_flake  # Survival [0-01] -2600000
 hand_axe  # Survival [0-01] -2600000
 raw_clay_pot  # Survival [0-03] -20000
 earthenware_pot  # Survival [0-03] -20000
+wild_einkorn  # Survival [0-04] -9500
+einkorn  # Survival [0-04] -9500
 polished_stone_axe  # Survival [0-08] -9000
 quicklime  # Survival [0-10] -9000
 slaked_lime  # Survival [0-11] -7000

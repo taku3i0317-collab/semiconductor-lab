@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "semiconductor-lab:block/einkorn_stage2"
+  }
+}

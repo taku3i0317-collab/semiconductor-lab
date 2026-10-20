@@ -800,3 +800,9 @@ ServerLevel: <T extends ParticleOptions> int sendParticles(T, double x, double y
 - `CraftingInput.ofPositioned(int, int, List<ItemStack>).input()`：空きを詰めた入力（形のあるレシピを GameTest で探すときはこちら。`of` は詰めない）
 - `RecipeType.CAMPFIRE_COOKING`（`CampfireCookingRecipe extends AbstractCookingRecipe`）。JSON は `"type": "minecraft:campfire_cooking"`, `"ingredient": "#minecraft:logs_that_burn"` 可
 - `ItemTags.LOGS_THAT_BURN`（ネザーの幹を含まない）・`ItemTags.LOGS`
+
+## 作物ブロックと描画層（IMP3-01、javap で確認）
+- `CropBlock(Properties)` は protected コンストラクタ（継承して使う）。上書きできる：`getBaseSeedId()`（ItemLike）・`isRandomlyTicking(BlockState)`・`randomTick(BlockState, ServerLevel, BlockPos, RandomSource)`。`getStateForAge(int)`・`isMaxAge`・`getAge`・`MAX_AGE`=7。性質は `BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)`
+- 描画層（切り抜き・半透明）は **ItemBlockRenderTypes / BlockRenderLayerMap で指定しない**：`ChunkSectionLayer.byTransparency(Transparency)` でテクスチャの透けから自動で決まる（client jar に ItemBlockRenderTypes は無い）
+- 斧・剣は AxeItem/SwordItem が無くなり `new Item.Properties().axe(ToolMaterial, dmg, speed)` / `.sword(...)`（Items.STONE_AXE の bytecode で確認）。`ToolMaterial(TagKey<Block> incorrect, int durability, float speed, float attackBonus, int enchant, TagKey<Item> repair)`
+- 落とし物を足すのは Fabric `LootTableEvents.MODIFY_DROPS`：`(Holder<LootTable> table, LootContext ctx, List<ItemStack> drops)`、`table.is(Blocks.GRAVEL.getLootTable().orElseThrow())`

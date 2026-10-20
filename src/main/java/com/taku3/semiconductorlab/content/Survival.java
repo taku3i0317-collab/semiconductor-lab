@@ -63,6 +63,13 @@ public final class Survival {
     public static final Item SLAKED_LIME           = Reg.item("slaked_lime");
     public static final Item BITTERN               = Reg.item("bittern");           // にがり（海水を煮詰めた母液、主成分 MgCl2）
 
+    // ===== ブロック =====
+    // --- [0-04] 農耕：ヒトツブコムギ（野生種は熟すと穂が落ちる。まれに出る「穂が落ちない」種を選んで植え続けると栽培種）。種＝ブロックのアイテム ---
+    public static final Block WILD_EINKORN = Reg.block("wild_einkorn", p -> new EinkornCropBlock(p, true), BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
+    public static final Block EINKORN      = Reg.block("einkorn", p -> new EinkornCropBlock(p, false), BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
+    /** 草（短い草・背の高い草）を刈ったとき、種が出なかったら野生のヒトツブコムギの種が混ざる確率 */
+    public static final float WILD_EINKORN_FROM_GRASS = 0.05f;
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // [0-16] 塩田（揚げ浜式。海水を砂にまいて天日で濃くし、釜で煮詰める）。海・浜バイオームで、横に水があり、空が見えて晴れているときだけ塩がたまる
     public static final Machine<SaltPanBlockEntity> SALT_PAN = Machine.builder("salt_pan", SaltPanBlockEntity::new)
@@ -71,6 +78,11 @@ public final class Survival {
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {
+        // [0-04] 草むらの中に野生の麦がまじっている
+        LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            if (!table.is(Blocks.SHORT_GRASS.getLootTable().orElseThrow()) && !table.is(Blocks.TALL_GRASS.getLootTable().orElseThrow())) return;
+            if (drops.isEmpty() && ctx.getRandom().nextFloat() < WILD_EINKORN_FROM_GRASS) drops.add(new ItemStack(WILD_EINKORN));
+        });
         // [0-01] 砂利の中にはときどき丸く硬い河原石がある → たたき石
         LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
             if (!table.is(Blocks.GRAVEL.getLootTable().orElseThrow())) return;

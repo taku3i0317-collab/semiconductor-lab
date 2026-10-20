@@ -187,6 +187,63 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-04] 農耕（IMP3-01）：野生のヒトツブコムギから「穂が落ちない」種を選ぶ
+    // =====================================================================
+
+    /**
+     * 草 → 野生のヒトツブコムギの種（約5%）。野生種は熟したまま放っておくと穂が落ちて芽に戻る（収穫なし）。
+     * 熟したうちに刈ると約10%で栽培種の種。栽培種は熟しても穂が落ちず、刈ると麦（バニラの小麦）と種。
+     */
+    @GameTest
+    public void einkornDomestication(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        var W = (com.taku3.semiconductorlab.block.EinkornCropBlock) Survival.WILD_EINKORN;
+        var D = (com.taku3.semiconductorlab.block.EinkornCropBlock) Survival.EINKORN;
+        floor(h, 3);
+        BlockPos wild = p(1, 1, 1), dom = p(2, 1, 1);
+        h.setBlock(wild.below(), Blocks.FARMLAND);
+        h.setBlock(dom.below(), Blocks.FARMLAND);
+        h.setBlock(wild, W.getStateForAge(W.getMaxAge()));
+        h.setBlock(dom, D.getStateForAge(D.getMaxAge()));
+        RandomSource rnd = RandomSource.create(4);
+
+        // 野生種：熟したまま待つと穂が落ちる（芽に戻る）
+        int ticks = 0;
+        while (W.isMaxAge(h.getBlockState(wild)) && ticks < 200) { h.getBlockState(wild).randomTick(lv, h.absolutePos(wild), rnd); ticks++; }
+        h.assertTrue(h.getBlockState(wild).is(W) && W.getAge(h.getBlockState(wild)) == 0, "ripe wild einkorn shatters back to a sprout (after " + ticks + " random ticks)");
+        // 栽培種：いくら待っても穂は落ちない
+        for (int i = 0; i < 200; i++) h.getBlockState(dom).randomTick(lv, h.absolutePos(dom), rnd);
+        h.assertTrue(D.isMaxAge(h.getBlockState(dom)), "domesticated einkorn keeps its ears");
+
+        // 刈り取り：野生種は種と、まれに栽培種の種。麦（小麦）は出ない
+        int N = 1000, wildSeeds = 0, mutants = 0, wheat = 0;
+        for (int i = 0; i < N; i++)
+            for (ItemStack st : Block.getDrops(W.getStateForAge(W.getMaxAge()), lv, h.absolutePos(wild), null)) {
+                if (st.is(W.asItem())) wildSeeds += st.getCount();
+                if (st.is(D.asItem())) mutants += st.getCount();
+                if (st.is(Items.WHEAT)) wheat += st.getCount();
+            }
+        h.assertValueEqual(wheat, 0, "wild einkorn gives no wheat");
+        h.assertTrue(wildSeeds >= N, "ripe wild einkorn gives seeds: " + wildSeeds);
+        h.assertTrue(mutants > N * 0.05 && mutants < N * 0.16, "non-shattering mutants ~10%: " + mutants + "/" + N);
+        h.assertTrue(Block.getDrops(W.getStateForAge(3), lv, h.absolutePos(wild), null).stream().noneMatch(s -> s.is(D.asItem())), "unripe -> no mutant");
+        // 栽培種は麦と種
+        var domDrops = Block.getDrops(D.getStateForAge(D.getMaxAge()), lv, h.absolutePos(dom), null);
+        h.assertTrue(domDrops.stream().anyMatch(s -> s.is(Items.WHEAT)) && domDrops.stream().anyMatch(s -> s.is(D.asItem())), "domesticated einkorn -> wheat + seeds");
+        h.assertTrue(W.asItem() instanceof net.minecraft.world.item.BlockItem && D.asItem() instanceof net.minecraft.world.item.BlockItem, "seeds plant the crop");
+
+        // 草むらから野生の麦（シャベルなどの素手扱い）
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        int found = 0, G = 4000;
+        for (int i = 0; i < G; i++)
+            for (ItemStack st : Block.getDrops(Blocks.SHORT_GRASS.defaultBlockState(), lv, h.absolutePos(wild), null, player, new ItemStack(Items.WOODEN_SHOVEL)))
+                if (st.is(W.asItem())) found++;
+        h.assertTrue(found > G * 0.02 && found < G * 0.08, "wild einkorn from grass ~4%: " + found + "/" + G);
+        LOG.info("[LAB] einkorn [0-04]: wild shatters after {} random ticks, domesticated keeps ears; mutants {}/{}; grass -> wild {}/{}", ticks, mutants, N, found, G);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 
