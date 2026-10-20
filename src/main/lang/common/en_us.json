@@ -73,5 +73,12 @@
   "litho.semiconductor-lab.discovery.junction_diode": "p-n junction diode",
   "litho.semiconductor-lab.discovery.planar_transistor": "Planar transistor",
   "litho.semiconductor-lab.discovery.rtl_not": "NOT (RTL inverter)",
-  "litho.semiconductor-lab.found": "You made the %2$s of %1$s yourself!"
+  "litho.semiconductor-lab.found": "You made the %2$s of %1$s yourself!",
+  "item.semiconductor-lab.microscope.limit": "🔬 NA %s: finest resolvable line ~ %s (Abbe: lambda / 2NA, light 550 nm)",
+  "item.semiconductor-lab.microscope.hold": "  Hold a mask, original, design or process wafer in your other hand and right-click",
+  "item.semiconductor-lab.microscope.nothing": "  This has no grid pattern",
+  "item.semiconductor-lab.microscope.cell": "  %s: %s x %s cells, 1 cell ~ %s",
+  "item.semiconductor-lab.microscope.sharp": "  ✔ The lines are sharp",
+  "item.semiconductor-lab.microscope.blurred": "  ✖ The lines are too fine and blur (needs a higher-NA objective or a shorter wavelength)",
+  "item.semiconductor-lab.microscope.scratches": "  Scratches in the emulsion: %s (unusable after %s)"
 }

@@ -73,5 +73,12 @@
   "litho.semiconductor-lab.discovery.junction_diode": "pn 接合ダイオード",
   "litho.semiconductor-lab.discovery.planar_transistor": "プレーナトランジスタ",
   "litho.semiconductor-lab.discovery.rtl_not": "NOT（RTL のインバータ）",
-  "litho.semiconductor-lab.found": "あなたは %s 年の「%s」を自分で作った！"
+  "litho.semiconductor-lab.found": "あなたは %s 年の「%s」を自分で作った！",
+  "item.semiconductor-lab.microscope.limit": "🔬 NA %s：見分けられる一番細い線 ≈ %s（アッベ：λ ÷ 2NA、光 550nm）",
+  "item.semiconductor-lab.microscope.hold": "  もう片方の手に、マスク・原図・設計図・加工中のウェハーを持って右クリック",
+  "item.semiconductor-lab.microscope.nothing": "  これには方眼の模様がない",
+  "item.semiconductor-lab.microscope.cell": "  %s：%s×%s マス、1マス ≈ %s",
+  "item.semiconductor-lab.microscope.sharp": "  ✔ 線がくっきり見える",
+  "item.semiconductor-lab.microscope.blurred": "  ✖ 線が細すぎて、ぼやけて見えない（もっと NA の大きい対物か、短い波長が要る）",
+  "item.semiconductor-lab.microscope.scratches": "  乳剤に傷：%s か所（%s 回で使えなくなる）"
 }

@@ -843,6 +843,20 @@
 - Wikipedia「Photomask」：https://en.wikipedia.org/wiki/Photomask
 - Computer History Museum「1960: First Planar Integrated Circuit is Fabricated」：https://www.computerhistory.org/siliconengine/first-planar-integrated-circuit-is-fabricated/
 
+## O25. 光の波長より細かい物は見えない（光学顕微鏡とアッベの限界）［8-10］
+**答え**：顕微鏡で見分けられる一番細い線は、光の波長 λ と対物レンズの開口数 NA で決まり、d ≈ λ ÷ 2NA（アッベ 1873）。空気中では NA は 1 をこえられないので、緑の光（約550nm）なら 0.3µm ほどが限界。もっと細かく見るには、波長を短くする（紫外線）、油や水で NA を上げる（油浸）、光の代わりに電子を使う（電子顕微鏡）。露光の解像度（レイリーの式）と同じ物理。
+
+- へえ①：光の顕微鏡では、光の波長より細かい物は見えない。
+- へえ②：1670年代レーウェンフックは、小さな球のようなレンズ1つの顕微鏡（約270倍）で細菌を初めて見た。
+- へえ③：アッベはツァイスの工場で、この限界を理論で示し、1878年に油浸レンズを作った。
+- へえ④：半導体の線が光の波長より細くなってから、チップの検査は電子顕微鏡に変わった。
+
+確かさ：アッベの限界 1873・油浸 1878 ◎／レーウェンフックの単レンズ約270倍 ◎／単レンズの解像度 約1µm ○／紫外線顕微鏡 1904（ケーラー）○
+根拠：
+- Wikipedia「Diffraction-limited system」（アッベの限界）：https://en.wikipedia.org/wiki/Diffraction-limited_system
+- Wikipedia「Antonie van Leeuwenhoek」：https://en.wikipedia.org/wiki/Antonie_van_Leeuwenhoek
+- Wikipedia「Ernst Abbe」：https://en.wikipedia.org/wiki/Ernst_Abbe
+
 ---
 
 # 冶金と熱（タスク15〜）

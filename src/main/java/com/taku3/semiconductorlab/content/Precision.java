@@ -28,6 +28,9 @@ public final class Precision {
     // ===== アイテム =====
     public static final Item LEAD_SCREW            = Reg.item("lead_screw");
     // [8-01] 旋盤で削った部品（IMP2-01）
+    // [8-10] 光学顕微鏡（IMP2-04）：単レンズ（レーウェンフック 1670年代、NA 0.2⚠️）と複式（色消し対物、NA 0.9）。見分けられる線 d ＝ λ ÷ 2NA
+    public static final Item SIMPLE_MICROSCOPE     = Reg.item("simple_microscope", p -> new MicroscopeItem(p, 0.2), new Item.Properties().stacksTo(1));
+    public static final Item COMPOUND_MICROSCOPE   = Reg.item("compound_microscope", p -> new MicroscopeItem(p, 0.9), new Item.Properties().stacksTo(1));
     public static final Item PUMP_ROTOR            = Reg.item("pump_rotor");        // 回転ポンプ [5-04] の偏心ローター（鋼）
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====

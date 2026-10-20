@@ -14,5 +14,17 @@
   "item.semiconductor-lab.pump_rotor.note1": "回転ポンプの中で回る、鋼をけずった円柱。",
   "item.semiconductor-lab.pump_rotor.note2": "旋盤で鋼のインゴットから。回転ポンプ [5-04] の部品。軸からずれた位置で回る（偏心）ので、すき間の部屋が大きくなったり小さくなったりして気体を押し出す。",
   "item.semiconductor-lab.pump_rotor.note3": "1905年、ゲーデは回転する部品で空気を運ぶ「回転水銀ポンプ」を作り、真空ポンプを手で動かす道具から機械に変えた。",
-  "item.semiconductor-lab.pump_rotor.note4": "ローターとケースのすき間は数十μm。すき間が大きいと気体が漏れもどって真空が悪くなる。だから旋盤の精度がポンプの性能を決める。"
+  "item.semiconductor-lab.pump_rotor.note4": "ローターとケースのすき間は数十μm。すき間が大きいと気体が漏れもどって真空が悪くなる。だから旋盤の精度がポンプの性能を決める。",
+  "item.semiconductor-lab.simple_microscope": "単レンズ顕微鏡",
+  "item.semiconductor-lab.simple_microscope.note1": "小さな丸いレンズ1つで、目に見えないほど小さな物を大きく見る道具。",
+  "item.semiconductor-lab.simple_microscope.note2": "クラウンレンズ＋銅×2。もう片方の手にマスク・原図・ウェハーを持って右クリック → 模様の1マスが見えるか。NA 0.2 なので、見分けられる線は約1.4µm（密着露光・等倍投影のマスクまで）。",
+  "item.semiconductor-lab.simple_microscope.note3": "1670年代、オランダの織物商レーウェンフックは、自分で磨いた小さな球のようなレンズ1つの顕微鏡（約270倍）で、水の中の小さな生き物や細菌を初めて見た。",
+  "item.semiconductor-lab.simple_microscope.note4": "レンズが小さく強く曲がっているほど倍率は上がるが、目を近づけないと見えない。レーウェンフックのレンズの作り方は秘密にされ、その性能は長いあいだ他の人には出せなかった。",
+  "item.semiconductor-lab.simple_microscope.placeholder": "近似：NA 0.2 はゲームの値（⚠️ レーウェンフックの一番よいレンズは約1µm まで見えたとされる）。本物の枠は真ちゅう。",
+  "item.semiconductor-lab.compound_microscope": "複式顕微鏡",
+  "item.semiconductor-lab.compound_microscope.note1": "対物レンズと接眼レンズの2段で大きくする顕微鏡。ウェハーやマスクの細かい線を調べる。",
+  "item.semiconductor-lab.compound_microscope.note2": "色消しレンズ（対物）＋クラウンレンズ（接眼）＋銅×2＋送りねじ（ピント合わせ）＋鉄。NA 0.9 なので約0.31µm まで見分けられる（i線ステッパーのマスクまで。KrF より細かい線は光では見えない）。",
+  "item.semiconductor-lab.compound_microscope.note3": "1873年、ツァイスの工場で働いていたアッベは、顕微鏡で見分けられる一番細い線は光の波長のおよそ半分（d ＝ λ ÷ 2NA）で、それより細かい物はどんなレンズでも見えないことを示した。1878年には油にひたして NA を上げる油浸レンズを作った。",
+  "item.semiconductor-lab.compound_microscope.note4": "NA（開口数）はレンズが光を受け取る角度の広さ。空気中では 1 をこえられないので、もっと細かく見るには、波長を短くする（紫外線の顕微鏡 1904年）、間を油や水で満たす（液浸 [7-16] と同じ考え）、光の代わりに電子を使う（電子顕微鏡）しかない。半導体の線が光の波長より細くなってから、検査は電子顕微鏡になった。",
+  "item.semiconductor-lab.compound_microscope.placeholder": "近似：光は白色光のまん中 550nm で計算。照明の工夫（ケーラー照明）や油浸は省略。"
 }

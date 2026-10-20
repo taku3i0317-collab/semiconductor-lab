@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "semiconductor-lab:achromatic_lens",
+    "semiconductor-lab:crown_lens",
+    "minecraft:copper_ingot",
+    "minecraft:copper_ingot",
+    "semiconductor-lab:lead_screw",
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:compound_microscope",
+    "count": 1
+  }
+}

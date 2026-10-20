@@ -14,5 +14,17 @@
   "item.semiconductor-lab.pump_rotor.note1": "A turned steel cylinder that spins inside a rotary pump.",
   "item.semiconductor-lab.pump_rotor.note2": "Turned from a steel ingot on the lathe. A part of the rotary pump [5-04]. It spins off-centre (eccentric), so the gap chamber grows and shrinks and pushes gas out.",
   "item.semiconductor-lab.pump_rotor.note3": "In 1905 Gaede built a 'rotary mercury pump' that moved air with a rotating part, turning the vacuum pump from a hand tool into a machine.",
-  "item.semiconductor-lab.pump_rotor.note4": "The gap between rotor and casing is a few tens of micrometres. A larger gap lets gas leak back and spoils the vacuum, so the lathe's accuracy sets the pump's performance."
+  "item.semiconductor-lab.pump_rotor.note4": "The gap between rotor and casing is a few tens of micrometres. A larger gap lets gas leak back and spoils the vacuum, so the lathe's accuracy sets the pump's performance.",
+  "item.semiconductor-lab.simple_microscope": "Simple Microscope",
+  "item.semiconductor-lab.simple_microscope.note1": "A tool with one small round lens that makes tiny, invisible things look big.",
+  "item.semiconductor-lab.simple_microscope.note2": "Crown lens + 2 copper. Hold a mask, original or wafer in your other hand and right-click to see whether one cell of its pattern is visible. With NA 0.2 it resolves about 1.4 um (masks up to contact and 1:1 projection printing).",
+  "item.semiconductor-lab.simple_microscope.note3": "In the 1670s the Dutch draper Leeuwenhoek used microscopes with a single tiny bead-like lens he ground himself (about 270x) and was the first to see microorganisms and bacteria in water.",
+  "item.semiconductor-lab.simple_microscope.note4": "The smaller and more strongly curved the lens, the higher the magnification, but it must be held right up to the eye. Leeuwenhoek kept his lens-making secret, and nobody else matched his lenses for a long time.",
+  "item.semiconductor-lab.simple_microscope.placeholder": "Approximation: NA 0.2 is a game value (⚠️ Leeuwenhoek's best lenses are said to have resolved about 1 um). The real mount was brass.",
+  "item.semiconductor-lab.compound_microscope": "Compound Microscope",
+  "item.semiconductor-lab.compound_microscope.note1": "A microscope that magnifies in two stages, objective and eyepiece. Used to inspect fine lines on wafers and masks.",
+  "item.semiconductor-lab.compound_microscope.note2": "Achromatic lens (objective) + crown lens (eyepiece) + 2 copper + lead screw (focus) + iron. With NA 0.9 it resolves about 0.31 um (masks up to i-line steppers; lines finer than KrF cannot be seen with light).",
+  "item.semiconductor-lab.compound_microscope.note3": "In 1873 Abbe, working at the Zeiss works, showed that the finest line a microscope can resolve is about half the wavelength of light (d = lambda / 2NA), and that nothing finer can be seen with any lens. In 1878 he made oil-immersion lenses that raise the NA.",
+  "item.semiconductor-lab.compound_microscope.note4": "NA (numerical aperture) is how wide an angle of light the lens accepts. In air it cannot exceed 1, so to see finer you must shorten the wavelength (the UV microscope, 1904), fill the gap with oil or water (the same idea as immersion lithography [7-16]), or use electrons instead of light. Once chip lines became finer than the wavelength of light, inspection moved to electron microscopes.",
+  "item.semiconductor-lab.compound_microscope.placeholder": "Approximation: calculated with 550 nm, the middle of white light. Illumination techniques (Köhler) and oil immersion are omitted."
 }
