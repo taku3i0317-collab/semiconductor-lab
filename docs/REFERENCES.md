@@ -386,6 +386,20 @@
 - Smithsonian「Making Neanderthal birch tar isn't complex」（2019年の実験）：https://www.smithsonianmag.com/smart-news/making-neanderthal-birch-tar-isnt-complex-thought-180972994/
 - Antiquity「Early tar production in Sweden」：https://doi.org/10.15184/aqy.2018.22
 
+## O3. 灰から取ったアルカリ（カリ・炭酸カリウム）［2-02］（フリントガラスの融剤）
+**答え**：木を燃やしきった灰を水に浸すと、炭酸カリウム K2CO3 が溶け出す（灰汁）。これを鍋で煮詰めると白い炭酸カリウム（カリ）が残る。ガラス・石けん・火薬の原料。
+
+- へえ①：カリウム（potassium）の名前は「鍋の灰（pot ash）」から。1807年にデービーが電気分解で取り出した。
+- へえ②：灰には炭酸カルシウムも入っているが、水にほとんど溶けない。だから水に浸すだけでカリウムの塩を分けられる。
+- へえ③：アメリカで最初の特許（1790年、サミュエル・ホプキンス）はカリの作り方だった。
+- へえ④：フラウンホーファーが作ったフリントガラスは、砂・鉛丹・炭酸カリウムから。鉛ガラスの融剤は昔からカリ。
+
+確かさ：灰汁と K2CO3 の化学 ◎／デービー1807・potassium の語源 ◎／1790年の最初の特許 ◎（どのホプキンスかは議論あり）／フラウンホーファーのフリントの材料 ○（ユニヴェルサリス）
+根拠：
+- USPTO「The history of presidentially signed patents」（最初の特許 X1、1790年、カリの製法）：https://www.uspto.gov/about-us/history/freedom-250/history-presidentially-signed-patents
+- Wikipedia「Patent Act of 1790」（発明者の取り違えの話）：https://en.wikipedia.org/wiki/Patent_Act_of_1790
+- ユニヴェルサリス「Fraunhofer」：https://www.universalis.fr/encyclopedie/joseph-von-fraunhofer/2-un-savant-et-experimentateur-renomme/
+
 ---
 
 # 冶金と熱（タスク15〜）

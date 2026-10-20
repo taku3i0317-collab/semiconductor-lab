@@ -72,5 +72,22 @@
   "item.semiconductor-lab.pitch.note1": "A black lump made by boiling down tar. It softens when warm and hardens when cool.",
   "item.semiconductor-lab.pitch.note2": "Wood tar boiled down in a furnace (the light parts escape). Used to waterproof ships and for the polishing lap that shapes lenses [7-03].",
   "item.semiconductor-lab.pitch.note3": "The seams of wooden ships were packed with oakum and sealed with hot pitch. Tar and pitch were 'naval stores' that supported navies from the 17th to the 19th century.",
-  "item.semiconductor-lab.pitch.note4": "Pitch looks solid but is a very viscous liquid. In the University of Queensland pitch drop experiment, started in 1927, a drop falls from the funnel about once a decade. In lens polishing this slow flow lets the pitch lap mould itself exactly to the lens."
+  "item.semiconductor-lab.pitch.note4": "Pitch looks solid but is a very viscous liquid. In the University of Queensland pitch drop experiment, started in 1927, a drop falls from the funnel about once a decade. In lens polishing this slow flow lets the pitch lap mould itself exactly to the lens.",
+  "item.semiconductor-lab.wood_ash": "Wood Ash",
+  "item.semiconductor-lab.wood_ash.note1": "The ash left after burning wood completely in a campfire. It contains a water-soluble salt (potassium carbonate).",
+  "item.semiconductor-lab.wood_ash.note2": "Put a log on a campfire for 30 s. The potassium and calcium in the wood remain as carbonates and oxides. 4 + a water bucket make lye.",
+  "item.semiconductor-lab.wood_ash.note3": "Ash has long been spread on fields as fertilizer and used as a detergent: water with ash dissolved in it washed cloth.",
+  "item.semiconductor-lab.wood_ash.note4": "Wood ash is mainly calcium carbonate and potassium carbonate. Potassium carbonate dissolves well in water but calcium carbonate hardly at all, so soaking the ash and taking the clear liquid separates the potassium salt.",
+  "item.semiconductor-lab.lye": "Lye",
+  "item.semiconductor-lab.lye.note1": "The clear liquid from soaking wood ash in water. It feels slippery and stings the skin (alkaline).",
+  "item.semiconductor-lab.lye.note2": "4 wood ash + water bucket (the bucket comes back) -> lye. Contains dissolved K2CO3. Boil it down in a furnace for potassium carbonate.",
+  "item.semiconductor-lab.lye.note3": "In Japan, ash lye was used to prepare indigo dye vats, to set konjac, and to take the bitterness out of wild vegetables.",
+  "item.semiconductor-lab.lye.note4": "K2CO3 partly hydrolyses in water and releases OH-, so lye is alkaline (around pH 11). Boiled with fat it makes soap (saponification). In English, lye now also means sodium hydroxide solution.",
+  "item.semiconductor-lab.lye.placeholder": "Approximation: carried without a bottle until the container system (v0.3). Concentration control is omitted.",
+  "item.semiconductor-lab.potash": "Potassium Carbonate (Potash)",
+  "item.semiconductor-lab.potash.note1": "The white powder left after boiling down lye. A material for glass and soap.",
+  "item.semiconductor-lab.potash.note2": "Lye -> furnace (10 s) -> K2CO3. In glass it lowers the melting point (a flux). Used in the flint glass batch (Ravenscroft's lead glass used potash too).",
+  "item.semiconductor-lab.potash.note3": "It was made by boiling lye down in iron pots, so 'pot ash'. In 1807 Davy extracted a new metal from it by electrolysis and named it potassium.",
+  "item.semiconductor-lab.potash.note4": "In the 18th and 19th centuries forests in North America and Russia were burned in huge amounts and potash was exported (for glass, soap and gunpowder). The first US patent (1790) was for a way of making potash. Today potash comes from mined potassium chloride.",
+  "item.semiconductor-lab.potash.placeholder": "Not yet: causticizing with slaked lime to potassium hydroxide KOH (added when something needs it)."
 }

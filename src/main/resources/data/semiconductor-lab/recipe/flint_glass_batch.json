@@ -8,7 +8,7 @@
     "minecraft:sand",
     "minecraft:sand",
     "semiconductor-lab:litharge",
-    "semiconductor-lab:sodium_carbonate"
+    "semiconductor-lab:potash"
   ],
   "result": {
     "id": "semiconductor-lab:flint_glass_batch",

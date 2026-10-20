@@ -72,5 +72,22 @@
   "item.semiconductor-lab.pitch.note1": "タールを煮詰めた黒い固まり。温めるとやわらかくなり、冷えると固まる。",
   "item.semiconductor-lab.pitch.note2": "木タールをかまどで煮詰めたもの（軽い成分が飛ぶ）。船のすき間の防水と、レンズを磨く研磨皿 [7-03] に使う。",
   "item.semiconductor-lab.pitch.note3": "木造船のすき間には、麻くずを詰めてから熱いピッチを流しこんだ。タールとピッチの産業は、17〜19世紀の海軍を支えた「ネイバル・ストアーズ（海軍の物資）」だった。",
-  "item.semiconductor-lab.pitch.note4": "ピッチは固く見えて、実はとてもねばい液体。1927年に始まったクイーンズランド大学の「ピッチ・ドロップ実験」では、漏斗から落ちるしずくは約10年に1滴。レンズ研磨ではこの「ゆっくり流れる」性質で、ピッチの皿がレンズの形にぴったりなじむ。"
+  "item.semiconductor-lab.pitch.note4": "ピッチは固く見えて、実はとてもねばい液体。1927年に始まったクイーンズランド大学の「ピッチ・ドロップ実験」では、漏斗から落ちるしずくは約10年に1滴。レンズ研磨ではこの「ゆっくり流れる」性質で、ピッチの皿がレンズの形にぴったりなじむ。",
+  "item.semiconductor-lab.wood_ash": "木灰",
+  "item.semiconductor-lab.wood_ash.note1": "木をたき火で燃やしきった後の灰。水に溶ける塩（炭酸カリウム）が入っている。",
+  "item.semiconductor-lab.wood_ash.note2": "原木をたき火にのせて30秒。木の中のカリウムやカルシウムが、燃えたあと炭酸塩・酸化物として残る。4個＋水バケツで灰汁。",
+  "item.semiconductor-lab.wood_ash.note3": "灰は昔から畑にまく肥料で、洗剤でもあった。灰を溶かした水で布を洗ったり、山菜の「あく抜き」をしたりする。",
+  "item.semiconductor-lab.wood_ash.note4": "木灰の主な成分は炭酸カルシウムと炭酸カリウム。炭酸カリウムは水によく溶けるが、炭酸カルシウムはほとんど溶けない。だから水に浸して上澄みを取ると、カリウムの塩だけを分けられる。",
+  "item.semiconductor-lab.lye": "灰汁（あく）",
+  "item.semiconductor-lab.lye.note1": "木灰を水に浸した上澄みの液。ぬるぬるして、肌にしみる（アルカリ性）。",
+  "item.semiconductor-lab.lye.note2": "木灰×4＋水バケツ（バケツは戻る）→ 灰汁。溶けた K2CO3 を含む。かまどで煮詰めると炭酸カリウム。",
+  "item.semiconductor-lab.lye.note3": "「あく抜き」の「あく」はこの灰汁のこと。日本では灰汁で藍染めの液を作ったり、こんにゃくを固めたりしてきた。",
+  "item.semiconductor-lab.lye.note4": "K2CO3 は水の中で一部が加水分解して OH⁻ を出すので、灰汁はアルカリ性（pH 11 前後）になる。油脂と煮ると石けんになる（けん化）。英語の lye は今は水酸化ナトリウムの液も指す。",
+  "item.semiconductor-lab.lye.placeholder": "近似：容器のしくみ（v0.3）ができるまでは瓶なしで持ち歩ける。濃さの管理は省略。",
+  "item.semiconductor-lab.potash": "炭酸カリウム（カリ）",
+  "item.semiconductor-lab.potash.note1": "灰汁を煮詰めて残った白い粉。ガラスや石けんの材料。",
+  "item.semiconductor-lab.potash.note2": "灰汁 →かまど（10秒）→ K2CO3。ガラスに入れると融点が下がる（融剤）。フリントガラスの調合原料に使う（レイヴンズクロフトの鉛ガラスもカリ）。",
+  "item.semiconductor-lab.potash.note3": "灰汁を鉄の鍋（pot）で煮詰めて作ったので「pot ash（鍋の灰）」。1807年、デービーはこれから電気分解で新しい金属を取り出し、potassium（カリウム）と名付けた。",
+  "item.semiconductor-lab.potash.note4": "18〜19世紀、北アメリカやロシアの森は大量に燃やされ、カリが輸出された（ガラス・石けん・火薬の原料）。アメリカ最初の特許（1790年）もカリの作り方。今のカリは鉱山の塩化カリウムから作る。",
+  "item.semiconductor-lab.potash.placeholder": "未実装：消石灰を加えて水酸化カリウム KOH にする苛性化（使い道が出たときに作る）。"
 }

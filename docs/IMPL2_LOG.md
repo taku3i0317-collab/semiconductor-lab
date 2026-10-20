@@ -12,3 +12,5 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ [2-23] 木材乾留（ユーザーの指示で [7-03] の前提として実装）：乾留炉 wood_retort（燃料式、block/WoodRetortBlockEntity、画面 WoodRetortScreen）、木酢液・木タール・ピッチ。GameTest wood_retort、CHEMISTRY W1〜W3、REFERENCES O2、遊び方: 重。テスト 85/85
   - 共通ファイルの変更：CommonTests.exportMachineRecipes に ChemistryTests.machineRecipes の1行（幹2 の機械が初めてなので）。SemiconductorLabClient に「幹2 化学」の段
   - へえ：ネアンデルタール人の白樺タール（カンピテッロ約20万年前）は二次資料で確認 → ○
+- ✅ [2-02] カリ（ユーザーの指示）：木灰（たき火）→ 灰汁（水バケツ、バケツは戻る）→ 炭酸カリウム（かまど）。フリントの調合原料の融剤をソーダ→カリにして flint_glass_batch.placeholder を削除。GameTest potash、CHEMISTRY K1〜K3（O1 を更新）、REFERENCES O3、遊び方: 軽。テスト 86/86
+  - 判断：KOH（苛性化）は 🔧 で保留。作業台は出力が1つで方解石の副産物を出せない（消石灰に craftRemainder を付けると耐火れんがなど他のレシピにも方解石が残ってしまう）。使い道が出たときに機械か反応ブロックで

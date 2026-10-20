@@ -30,7 +30,7 @@ public final class Optics {
     public static final Item QUARTZ_TUBE           = Reg.item("quartz_tube");
     // [7-01] 光学ガラス（IMP2-01）。クラウン＝ソーダ石灰ガラスを溶鉱炉で長く溶かしてかき混ぜたもの（分散が小さい）、
     // フリント＝一酸化鉛 PbO を約4割入れた鉛ガラス（レイヴンズクロフト 1674。屈折率が高く、分散が大きい）
-    public static final Item FLINT_GLASS_BATCH     = Reg.item("flint_glass_batch"); // 調合原料（砂5＋一酸化鉛1＋ソーダ1）
+    public static final Item FLINT_GLASS_BATCH     = Reg.item("flint_glass_batch"); // 調合原料（砂5＋一酸化鉛1＋カリ1。レイヴンズクロフトと同じカリ [2-02]）
     public static final Item FLINT_GLASS           = Reg.item("flint_glass");
     public static final Item CROWN_GLASS           = Reg.item("crown_glass");
 

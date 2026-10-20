@@ -178,6 +178,22 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** [2-02] カリ（IMP2-01）：原木 →たき火→ 木灰、木灰4＋水バケツ → 灰汁（バケツは戻る）、灰汁 →かまど→ 炭酸カリウム */
+    @GameTest
+    public void potash(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Items.OAK_LOG).is(Chemistry.WOOD_ASH), "log on a campfire -> wood ash");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Items.CRIMSON_STEM).isEmpty(), "nether stems are not wood");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.OAK_LOG).is(Items.CHARCOAL), "furnace (little air) still makes charcoal");
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(3, 2, List.of(ItemStack.EMPTY, new ItemStack(Chemistry.WOOD_ASH), new ItemStack(Chemistry.WOOD_ASH),
+                new ItemStack(Chemistry.WOOD_ASH), new ItemStack(Chemistry.WOOD_ASH), new ItemStack(Items.WATER_BUCKET)));
+        var r = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel()).orElseThrow().value();
+        h.assertTrue(r.assemble(input).is(Chemistry.LYE), "4 wood ash + water -> lye");
+        h.assertTrue(r.getRemainingItems(input).stream().anyMatch(s -> s.is(Items.BUCKET)), "the bucket comes back");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.LYE).is(Chemistry.POTASH), "lye boiled down -> K2CO3");
+        LOG.info("[LAB] potash [2-02]: log -> campfire -> wood ash; 4 ash + water -> lye (bucket back); lye -> furnace -> K2CO3");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
