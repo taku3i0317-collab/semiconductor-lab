@@ -45,6 +45,9 @@ public final class Optics {
     // [7-04] 色消しレンズと屈折望遠鏡（IMP2-01）：クラウン凸＋フリント凹 → 色消しレンズ（ドロンド 1758）。対物＝色消し、接眼＝凸のケプラー式
     public static final Item ACHROMATIC_LENS       = Reg.item("achromatic_lens");
     public static final Item REFRACTING_TELESCOPE  = Reg.item("refracting_telescope", TelescopeItem::new, new Item.Properties().stacksTo(1));
+    // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
+    public static final Item PRISM                 = Reg.item("prism");
+    public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 酸水素バーナー [7-02]（ヘアの吹管 1801、ゴーダン 1839。水素＋酸素ボンベの炎 約2800℃で石英を溶かす）。ガスボンベ式（電気の受け口なし）。炎が出ている間は光る

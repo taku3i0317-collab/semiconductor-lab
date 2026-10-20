@@ -429,6 +429,21 @@
 - Linda Hall Library「Scientist of the Day: John Dollond」：https://lindahall.org/about/news/scientist-of-the-day/john-dollond
 - arXiv「John Dollond's Prismatic Experiments」：https://arxiv.org/pdf/2110.08945
 
+## O6. 光を虹に分けて元素を当てる（プリズム分光）［7-06］
+**答え**：プリズムは色ごとに曲がり方が違う（分散）ので、光を虹に分ける。炎に物質を入れると、元素ごとに決まった波長の明るい線が出る（ナトリウムなら黄色の 589nm）。太陽の光には、外側のガスが吸った暗い線がある。線の位置で元素が分かる（分光分析）。
+
+- へえ①：光を虹に分けると、星が何でできているか分かる。
+- へえ②：1814年ごろフラウンホーファーが太陽の光の中に数百本の暗い線を見つけ、A〜K の記号を付けた（D線は今でもナトリウムの線の名前）。
+- へえ③：1859年キルヒホッフとブンゼンが分光分析を始め、1860年にセシウム（「空色」）、1861年にルビジウム（「暗い赤」）を、線の色から発見した。
+- へえ④：1868年の日食で太陽の 587.6nm に未知の線が見つかり、ヘリウム（ギリシャ語の太陽）と名付けられた。地球で見つかったのは1895年。
+
+確かさ：分散・炎色反応・線の波長 ◎（NIST）／ニュートン1666・フラウンホーファー1814・キルヒホッフとブンゼン1859・Cs 1860・Rb 1861・ヘリウム1868/1895 ◎（よく知られた史実。一次資料は未確認）
+根拠：
+- NIST Atomic Spectra Database（線の波長）：https://physics.nist.gov/PhysRefData/ASD/lines_form.html
+- Wikipedia「Fraunhofer lines」：https://en.wikipedia.org/wiki/Fraunhofer_lines
+- Wikipedia「Flame test」：https://en.wikipedia.org/wiki/Flame_test
+- Wikipedia「Helium」（歴史）：https://en.wikipedia.org/wiki/Helium
+
 ---
 
 # 冶金と熱（タスク15〜）

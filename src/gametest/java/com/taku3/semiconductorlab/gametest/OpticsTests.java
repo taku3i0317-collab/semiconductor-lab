@@ -228,6 +228,60 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-06] プリズム分光（IMP2-01）：プリズム・分光器のレシピ、炎の判定、試料ごとの元素の線、たき火に使うと反応・石には反応しない */
+    @GameTest
+    public void spectroscope(GameTestHelper h) {
+        var SP = com.taku3.semiconductorlab.item.SpectroscopeItem.class;
+        var prism = craft(h, Optics.FLINT_GLASS, Items.SAND, Optics.GRINDING_TOOL, Optics.ROUGE, Optics.PITCH_LAP);
+        h.assertTrue(prism[0].is(Optics.PRISM), "flint glass ground and polished -> prism");
+        h.assertTrue(craft(h, Optics.CROWN_GLASS, Items.SAND, Optics.GRINDING_TOOL, Optics.ROUGE, Optics.PITCH_LAP)[0].isEmpty(), "prism is flint (high dispersion), not crown");
+        h.assertTrue(craft(h, Optics.CROWN_LENS, Items.COPPER_INGOT, Optics.CROWN_LENS, Items.COPPER_INGOT, Optics.PRISM, Items.COPPER_INGOT)[0].is(Optics.SPECTROSCOPE),
+                "slit/collimator lens + prism + telescope lens -> spectroscope");
+
+        // 炎の判定：火のついたたき火・火だけ
+        BlockState camp = Blocks.CAMPFIRE.defaultBlockState();
+        h.assertTrue(com.taku3.semiconductorlab.item.SpectroscopeItem.isFlame(camp.setValue(BlockStateProperties.LIT, true)), "lit campfire is a flame");
+        h.assertFalse(com.taku3.semiconductorlab.item.SpectroscopeItem.isFlame(camp.setValue(BlockStateProperties.LIT, false)), "unlit campfire is not");
+        h.assertTrue(com.taku3.semiconductorlab.item.SpectroscopeItem.isFlame(Blocks.FIRE.defaultBlockState()), "fire is a flame");
+        h.assertFalse(com.taku3.semiconductorlab.item.SpectroscopeItem.isFlame(Blocks.STONE.defaultBlockState()), "stone is not");
+
+        // 元素の線（炎色反応）
+        java.util.function.Function<net.minecraft.world.item.Item, List<String>> el = it -> com.taku3.semiconductorlab.item.SpectroscopeItem.elementsOf(new ItemStack(it));
+        h.assertValueEqual(el.apply(com.taku3.semiconductorlab.content.Gas.SALT), List.of("na"), "NaCl -> Na D lines");
+        h.assertValueEqual(el.apply(Chemistry.POTASH), List.of("k"), "K2CO3 -> K");
+        h.assertTrue(el.apply(Chemistry.WOOD_ASH).containsAll(List.of("k", "na", "ca")), "wood ash -> K, Ca and some Na");
+        h.assertValueEqual(el.apply(Survival.SLAKED_LIME), List.of("ca"), "Ca(OH)2 -> Ca");
+        h.assertValueEqual(el.apply(Metallurgy.BORIC_ACID), List.of("b"), "H3BO3 -> green B");
+        h.assertValueEqual(el.apply(Metallurgy.BORAX), List.of("b", "na"), "borax Na2B4O7 -> B + Na");
+        h.assertValueEqual(el.apply(Metallurgy.LITHARGE), List.of("pb"), "PbO -> Pb");
+        h.assertValueEqual(el.apply(Metallurgy.GERMANIUM_DIOXIDE), List.of("ge"), "GeO2 -> Ge (UV, invisible)");
+        h.assertTrue(el.apply(Items.STONE).isEmpty(), "stone: no lines");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpectroscopeItem.flameReport(ItemStack.EMPTY), List.of("flame_only", "hold_sample"), "no sample -> continuous spectrum");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpectroscopeItem.flameReport(new ItemStack(Items.STONE)), List.of("none"), "non-emitting sample");
+        // lang に全部の行がある
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"flame", "flame_with", "flame_only", "hold_sample", "none", "sun", "sun_lines", "no_sun", "line.na", "line.k", "line.ca", "line.b", "line.pb", "line.ge"})
+            h.assertTrue(ja.has("item.semiconductor-lab.spectroscope." + k), "lang spectroscope." + k);
+
+        // 実際に使う：火のついたたき火には反応（SUCCESS）、石には反応しない（PASS → 空を見る）
+        BlockPos fire = p(1, 1, 1), stone = p(3, 1, 1);
+        h.setBlock(fire, camp.setValue(BlockStateProperties.LIT, true));
+        h.setBlock(stone, Blocks.STONE);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack scope = new ItemStack(Optics.SPECTROSCOPE);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, scope);
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(com.taku3.semiconductorlab.content.Gas.SALT));
+        for (BlockPos rel : new BlockPos[] {fire, stone}) {
+            BlockPos a = h.absolutePos(rel);
+            var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(a), net.minecraft.core.Direction.UP, a, false);
+            var r = scope.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND, scope, hit));
+            if (rel == fire) h.assertTrue(r.consumesAction(), "spectroscope on a lit campfire -> reads the flame");
+            else h.assertFalse(r.consumesAction(), "spectroscope on stone -> passes to looking at the sky");
+        }
+        LOG.info("[LAB] spectroscope [7-06]: flint prism + 2 crown lenses + copper; flame test Na/K/Ca/B/Pb (Ge in UV); sun -> Fraunhofer lines");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),

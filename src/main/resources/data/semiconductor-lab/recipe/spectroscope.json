@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    "LCL",
+    "CPC"
+  ],
+  "key": {
+    "L": "semiconductor-lab:crown_lens",
+    "C": "minecraft:copper_ingot",
+    "P": "semiconductor-lab:prism"
+  },
+  "result": {
+    "id": "semiconductor-lab:spectroscope",
+    "count": 1
+  }
+}
