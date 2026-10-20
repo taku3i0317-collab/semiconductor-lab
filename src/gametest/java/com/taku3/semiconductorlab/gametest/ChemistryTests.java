@@ -299,6 +299,20 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** [2-04] 海藻灰ソーダとヨウ素（IMP2、S-002）：乾燥昆布 →たき火→ 海藻灰、灰4＋水 → 浸出液（バケツは戻る）→かまど→ 炭酸ナトリウム、浸出液＋硫酸 → ヨウ素（瓶が戻る） */
+    @GameTest
+    public void kelpAshAndIodine(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Items.DRIED_KELP).is(Chemistry.KELP_ASH), "dried kelp burned in open air -> kelp ash");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.KELP).is(Items.DRIED_KELP), "vanilla kelp -> dried kelp stays");
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("kelp_liquor"));
+        var ings = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value().placementInfo().ingredients();
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Chemistry.KELP_ASH))).count(), 4L, "4 kelp ash");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.KELP_LIQUOR).is(Chemistry.SODIUM_CARBONATE), "boiled down -> soda");
+        h.assertTrue(recipeUses(h, "iodine", Chemistry.KELP_LIQUOR) && recipeUses(h, "iodine", Chemistry.SULFURIC_ACID), "liquor + sulfuric acid -> iodine (Courtois 1811)");
+        LOG.info("[LAB] kelp [2-04]: dried kelp -> campfire -> ash -> liquor -> soda (furnace) or + H2SO4 -> iodine");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.AMMONIA_STILL.block, "アンモニア水", L(io(Chemistry.AMMONIACAL_LIQUOR, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.LIQUOR_PER_RUN), io(com.taku3.semiconductorlab.content.Survival.SLAKED_LIME, 1), io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.RUNS_PER_WATER)),

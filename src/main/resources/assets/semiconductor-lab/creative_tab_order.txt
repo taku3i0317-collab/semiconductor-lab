@@ -122,6 +122,9 @@ wood_vinegar  # Chemistry [2-23] 1661
 wood_tar  # Chemistry [2-23] 1661
 pitch  # Chemistry [2-23] 1661
 wood_retort  # Chemistry [2-23] 1661
+kelp_ash  # Chemistry [2-04] 1750
+kelp_liquor  # Chemistry [2-04] 1750
+iodine  # Chemistry [2-04] 1750
 hydrofluoric_acid  # Chemistry [2-10] 1771
 calcium_sulfate  # Chemistry [2-10] 1771
 lead_retort  # Chemistry [2-10] 1771

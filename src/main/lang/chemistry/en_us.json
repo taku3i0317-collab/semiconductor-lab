@@ -175,5 +175,21 @@
   "gui.semiconductor-lab.ammonia_still.need_water": "Needs a water bucket (absorber)",
   "gui.semiconductor-lab.ammonia_still.need_power": "Not enough power",
   "gui.semiconductor-lab.ammonia_still.running": "Driving out ammonia",
-  "gui.semiconductor-lab.ammonia_still.recipe": "NH4Cl + lime → NH3↑"
+  "gui.semiconductor-lab.ammonia_still.recipe": "NH4Cl + lime → NH3↑",
+  "item.semiconductor-lab.kelp_ash": "Kelp Ash",
+  "item.semiconductor-lab.kelp_ash.note1": "Ash from burnt kelp. Soaked in water it gives soda, and iodine can be taken from the liquid too.",
+  "item.semiconductor-lab.kelp_ash.note2": "Burn dried kelp on a campfire (30 s). 4 + water bucket make kelp-ash liquor.",
+  "item.semiconductor-lab.kelp_ash.note3": "In 18th-century Scotland the 'kelp industry' gathered and burned shore seaweed and sold the ash for glass and soap. In Spain the ash of saltwort plants, 'barilla', was famous.",
+  "item.semiconductor-lab.kelp_ash.note4": "Ash from land trees is rich in potassium (K2CO3), but ash from sea plants is rich in sodium (Na2CO3), taken up from seawater. Kelp also concentrates seawater's iodine thousands of times.",
+  "item.semiconductor-lab.kelp_liquor": "Kelp-Ash Liquor",
+  "item.semiconductor-lab.kelp_liquor.note1": "The clear liquid from soaking kelp ash in water. Boil it down for soda, or add sulfuric acid for iodine.",
+  "item.semiconductor-lab.kelp_liquor.note2": "4 kelp ash + water bucket (the bucket comes back). Boil it in a furnace for (impure) sodium carbonate, or combine with sulfuric acid for iodine (the bottle comes back).",
+  "item.semiconductor-lab.kelp_liquor.note3": "In 1811 Courtois, at a French saltpeter works, added sulfuric acid to kelp-ash liquor and saw a beautiful violet vapor that left dark crystals on cool surfaces: the discovery of iodine (Greek for 'violet').",
+  "item.semiconductor-lab.kelp_liquor.note4": "Iodide ions I- in the liquid are oxidized by concentrated sulfuric acid to I2, which heat turns into violet vapor (sublimation). In reality soda and other salts were crystallized first, and iodine was taken from the remaining mother liquor.",
+  "item.semiconductor-lab.kelp_liquor.placeholder": "Approximation: one liquor gives either soda or iodine, not both (in reality both). No bottle.",
+  "item.semiconductor-lab.iodine": "Iodine",
+  "item.semiconductor-lab.iodine.note1": "Dark violet crystals. Warmed, they give off violet vapor. ⚠ Do not breathe it or get it on skin.",
+  "item.semiconductor-lab.iodine.note2": "Kelp-ash liquor + sulfuric acid. A daguerreotype [B-02a] silver plate held over its vapor gains a light-sensitive silver iodide film. ⚠ GHS: harmful if inhaled or on skin, toxic to aquatic life.",
+  "item.semiconductor-lab.iodine.note3": "Iodine is familiar from wound disinfectant (tincture of iodine) and the blue-black starch test. Japan extracts it from underground brine (ancient seawater) in Chiba and is one of the world's top iodine producers.",
+  "item.semiconductor-lab.iodine.note4": "Iodine readily turns straight from solid to gas (sublimation). This let a thin, even silver iodide film form on a silver plate. In the body it is needed to make thyroid hormone."
 }

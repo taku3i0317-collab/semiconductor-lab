@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "cookingtime": 600,
+  "experience": 0.1,
+  "ingredient": "minecraft:dried_kelp",
+  "result": {
+    "id": "semiconductor-lab:kelp_ash"
+  }
+}

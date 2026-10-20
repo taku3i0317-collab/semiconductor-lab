@@ -112,3 +112,6 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 ## S-001（相談役から、Q-IMP2-4 の答え）SiCl4 と合成石英
 - ✅ トリクロロシラン反応器（A が昔作った機械）に副産物 SiCl4 の出口を足しただけ（SLOT_SICL4、合成4回ごとに1つ、合成回数を保存）。合成・蒸留・既存のテストは前と同じ（trichlorosilane_reactor も PASS）。SiCl4 は Metallurgy.SILICON_TETRACHLORIDE（[9-30] で IMP4 も使える共通の素材）
 - ✅ [7-15] の合成石英：酸水素バーナー（自分の [7-02]）に SiCl4 の入口 → 合成石英（ハイド 1934）。[7-15] は ✅ に。GameTest synthetic_quartz、CHEMISTRY O31〜O32、REFERENCES O28。テスト 144/144
+
+## S-002（相談役から。写真は案B に決定）
+- ✅ [2-04] 海藻灰ソーダとヨウ素（[B-02a] の前提）：乾燥昆布 → たき火 → 海藻灰 → 浸出液 → かまどでソーダ、または硫酸でヨウ素。GameTest kelp_ash_and_iodine、CHEMISTRY C1〜C3、REFERENCES O29。テスト 147/147

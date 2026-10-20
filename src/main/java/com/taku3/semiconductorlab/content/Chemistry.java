@@ -44,6 +44,10 @@ public final class Chemistry {
     public static final Item WOOD_ASH              = Reg.item("wood_ash");          // 木灰（K2CO3 などを含む）
     public static final Item LYE                   = Reg.item("lye", new Item.Properties().stacksTo(16)); // 灰汁（木灰の上澄み）
     public static final Item POTASH                = Reg.item("potash");            // 炭酸カリウム K2CO3
+    // [2-04] 海藻灰ソーダとヨウ素（IMP2、S-002）：乾燥昆布 →たき火→ 海藻灰 ×4＋水 → 浸出液 →かまど→ 炭酸ナトリウム（不純）、浸出液＋硫酸 → ヨウ素（クールトア 1811）
+    public static final Item KELP_ASH              = Reg.item("kelp_ash");          // 海藻灰（ケルプ）
+    public static final Item KELP_LIQUOR           = Reg.item("kelp_liquor", new Item.Properties().stacksTo(16)); // 海藻灰の浸出液（ヨウ化物をふくむ）
+    public static final Item IODINE                = Reg.item("iodine");            // ヨウ素（黒紫の結晶。熱すると紫の蒸気）
     // [2-23] 木材乾留（IMP2-01）：乾留炉の副産物。木タールをかまどで煮詰めるとピッチ（レンズ研磨 [7-03] の研磨皿）
     public static final Item WOOD_VINEGAR          = Reg.item("wood_vinegar", new Item.Properties().stacksTo(16)); // 木酢液（酢酸・メタノールを含む水）
     public static final Item WOOD_TAR              = Reg.item("wood_tar", new Item.Properties().stacksTo(16));     // 木タール

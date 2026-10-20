@@ -941,6 +941,20 @@
 - Wikipedia「Fused quartz」（合成石英の製法）：https://en.wikipedia.org/wiki/Fused_quartz
 - Google Patents「US2272342」（ハイド）：https://patents.google.com/patent/US2272342A/en
 
+## O29. 海藻の灰からソーダとヨウ素［2-04］（ダゲレオタイプの前提）
+**答え**：海の植物の灰は炭酸ナトリウム（ソーダ）が多く、18世紀にはガラス・石けんの原料として売られた（スコットランドのケルプ、スペインのバリラ）。1811年クールトアは、海藻灰の液に濃硫酸を加えると紫の蒸気が出て黒い結晶がつくのを見つけた＝ヨウ素の発見。
+
+- へえ①：海藻の灰からソーダがとれた。その灰の液からヨウ素も見つかった。
+- へえ②：ヨウ素はギリシャ語の「すみれ色」。紫の蒸気から名付けられた。
+- へえ③：昆布は海水のヨウ素を何千倍にも濃くためている。
+- へえ④：日本は千葉県の地下のかん水からヨウ素を取り、世界有数の産出国。
+
+確かさ：クールトア 1811 ◎／ケルプ産業・バリラ ◎／昆布のヨウ素の濃縮 ○／日本の生産 ◎
+根拠：
+- Wikipedia「Iodine」（歴史）：https://en.wikipedia.org/wiki/Iodine
+- Wikipedia「Bernard Courtois」：https://en.wikipedia.org/wiki/Bernard_Courtois
+- Wikipedia「Kelp」（ケルプ産業）：https://en.wikipedia.org/wiki/Kelp
+
 ---
 
 # 冶金と熱（タスク15〜）
