@@ -30,6 +30,10 @@
 7. 既存の構造を踏襲する：アイテムは ModItems、ブロックは ModBlocks、BE は ModBlockEntities、
    機械は block/ パッケージ、電気は energy/ パッケージ、クライアント描画は src/client
 
+## 担当の分け方（2026-10-20〜）
+- docs/network.html・docs/node.html・tools/gen_tree_views.py・docs/network_meta.json・products.md・ideas.md・tools/gen_portraits.py は、別フォルダ C:/Users/taku3/mods/semilab-network（ネットワーク担当）の担当。このフォルダ（A＝MOD 本体）ではこれらを触らない
+- A が TECH_TREE.md・REFERENCES.md・lang・machine_recipes.json（GameTest が書き出す）を変えると、ネットワーク担当がそれを読んで図を作り直す。図の作り直し（gen_tree_views.py の実行）もネットワーク担当
+
 ## コードの慣習
 - Mojang 公式マッピング（Yarn ではない）。Identifier.fromNamespaceAndPath / ResourceKey / setId(key) の登録パターン
 - lang は en_us.json と ja_jp.json の両方を必ず更新。解説は item/block.<id>.note1（子ども・通常表示）.note2（学生・Shift）.note3（大人・ガイド）.note4（ガチ・深掘り）。旧 .note は .note2 扱い。仮は .placeholder

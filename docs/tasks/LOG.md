@@ -239,3 +239,9 @@
 - tools/gen_portraits.py：16x16 の肖像を、特徴の表（肌・髪の色と形・ひげ・帽子・めがね・服・襟/ネクタイ）から描いて network_meta.json の people に portrait（data URI）として入れる。49人。写真や絵画の写しではない記号的な絵
 - network.html・node.html：肖像を表示（なければシルエット）、ドットのままくっきり拡大
 - 別件：C:/Users/taku3/mods/semilab-network にこのリポジトリを clone
+
+## タスク26：遊び方の4種類・肖像 32×32・担当の分け方（2026-10-20、対話で実行）
+- DESIGN「すべてのノードを遊べるようにする」：見るだけのノードは作らない。遊び方は 重（機械）／軽（作業台・かまど）／実験（ミニ実験で発見）／作品（置いて動かせるモノ）。TECH_TREE の凡例に「遊び方:」を足し、[1-15][1-16][1-17] に「遊び方: 重」
+- gen_portraits.py：肖像を 32×32 に（目・まゆ・鼻・口・耳・輪郭）。network.html は 48px、node.html は 64px で表示。丸の中のアイコンは 16×16 のまま
+- 人物の偏りの点検：女性 0人、西洋以外 3人。TECH_TREE に出典つきで載っている候補を DECISIONS_PENDING Q26-1 に（事実は足していない）
+- 担当：network.html・node.html・gen_tree_views.py・network_meta.json・products.md・ideas.md・gen_portraits.py は semilab-network（ネットワーク担当）へ。CLAUDE.md・README・HANDOFF に記録
