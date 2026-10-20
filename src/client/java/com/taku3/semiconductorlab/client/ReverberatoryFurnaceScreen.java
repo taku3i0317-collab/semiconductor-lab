@@ -34,6 +34,7 @@ public class ReverberatoryFurnaceScreen extends MachineScreen {
     /** 置き場所ごとに今出す文（位置・幅・行数は ReverberatoryFurnaceBlockEntity.LAYOUT） */
     @Override
     protected Component text(String id) {
+        if (id.equals("so2")) return Component.translatable("gui.semiconductor-lab.reverberatory_furnace.flue");   // 煙道のガス（SO2 か CO2）
         if (!id.equals("hint")) return null;
         ItemStack in = menu.getSlot(ReverberatoryFurnaceBlockEntity.SLOT_IN).getItem();
         ItemStack fuel = menu.getSlot(ReverberatoryFurnaceBlockEntity.SLOT_FUEL).getItem();

@@ -71,6 +71,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		// 幹7 光学
 		screen(Optics.REDUCTION_CAMERA, ReductionCameraScreen::new);   // [7-11] IMP2-03
 		screen(Optics.OXYHYDROGEN_BURNER, OxyhydrogenBurnerScreen::new);
+		screen(Optics.CO2_LASER, Co2LaserScreen::new);   // [7-14] IMP2 O-019
 		// 幹9 半導体プロセス
 		screen(Semiconductor.DRAFTING_TABLE, DraftingTableScreen::new);   // O-002 製図台
 		screen(Semiconductor.PROBE_STATION, ProbeStationScreen::new);   // O-002 検査台

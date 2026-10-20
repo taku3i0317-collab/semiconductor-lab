@@ -34,6 +34,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  *   方鉛鉱       → 一酸化鉛 ＋ SO2        2PbS + 3O2 → 2PbO + 2SO2
  *   辰砂の粉     → 水銀     ＋ SO2        HgS + O2 → Hg + SO2（水銀は蒸気で出て冷えて液体に）
  *   閃亜鉛鉱     → 酸化亜鉛 ＋ SO2        2ZnS + 3O2 → 2ZnO + 2SO2
+ *   方解石       → 生石灰   ＋ CO2        CaCO3 → CaO + CO2（約900℃、IMP2 O-019：CO2 レーザー [7-14] の CO2。煙道のスロットに出る）
  *                  ＋ 4個ごとに Ge精鉱、8個ごとにインジウム（副産物スロット。#16 の「作業台で分割」を置換）
  * </pre>
  * スロット：0＝鉱石、1＝燃料、2＝主生成物、3＝SO2、4＝副産物（Ge精鉱）、5＝副産物（インジウム）
@@ -74,7 +75,7 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
             .out(SLOT_BY_GE, OUT_X, OUT_Y + 22)
             .out(SLOT_BY_IN, OUT_X + 22, OUT_Y + 22)
             .text("hint", 64, 64, 108, 2, "gui.semiconductor-lab.reverberatory_furnace.need_input", "gui.semiconductor-lab.reverberatory_furnace.need_fuel", "gui.semiconductor-lab.reverberatory_furnace.roasting", "gui.semiconductor-lab.reverberatory_furnace.out_full")
-            .label("so2", OUT_X + 22 + 18, OUT_Y + 4, 18, "SO2")
+            .text("so2", OUT_X + 22 + 18, OUT_Y + 4, 28, 1, "gui.semiconductor-lab.reverberatory_furnace.flue")
             .build();
 
     public ReverberatoryFurnaceBlockEntity(BlockPos pos, BlockState state) { super(Heat.REVERBERATORY_FURNACE.type, pos, state); }
@@ -92,7 +93,13 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
         if (in.is(Metallurgy.GALENA)) out = Metallurgy.LITHARGE;
         else if (in.is(Metallurgy.CINNABAR_RETORT_CHARGE)) out = Metallurgy.MERCURY;   // 辰砂＋空の鉄のフラスコ（受け器）→ 水銀入りのフラスコ（IMP-33）
         else if (in.is(Metallurgy.SPHALERITE)) out = Heat.ZINC_OXIDE;
+        else if (in.is(net.minecraft.world.item.Items.CALCITE)) out = com.taku3.semiconductorlab.content.Survival.QUICKLIME;
         return out == null ? ItemStack.EMPTY : new ItemStack(out);
+    }
+
+    /** 煙道に集まるガス：硫化鉱は SO2、方解石は CO2 */
+    public static ItemStack flueGas(ItemStack in) {
+        return new ItemStack(in.is(net.minecraft.world.item.Items.CALCITE) ? com.taku3.semiconductorlab.content.Gas.CARBON_DIOXIDE_GAS : Chemistry.SULFUR_DIOXIDE);
     }
 
     private static boolean canMerge(ItemStack out, ItemStack add) {
@@ -111,7 +118,7 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
         ItemStack main = mainProduct(in);
         if (main.isEmpty()) return false;
         if (!canMerge(container.getItem(SLOT_OUT), main)) return false;
-        if (!canMerge(container.getItem(SLOT_SO2), new ItemStack(Chemistry.SULFUR_DIOXIDE))) return false;
+        if (!canMerge(container.getItem(SLOT_SO2), flueGas(in))) return false;
         if (in.is(Metallurgy.SPHALERITE)) {
             return canMerge(container.getItem(SLOT_BY_GE), new ItemStack(Metallurgy.GERMANIUM_CONCENTRATE))
                     && canMerge(container.getItem(SLOT_BY_IN), new ItemStack(Metallurgy.INDIUM));
@@ -123,9 +130,10 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
         ItemStack in = container.getItem(SLOT_IN);
         ItemStack main = mainProduct(in);
         boolean sphalerite = in.is(Metallurgy.SPHALERITE);
+        ItemStack gas = flueGas(in);
         in.shrink(1);
         merge(SLOT_OUT, main);
-        merge(SLOT_SO2, new ItemStack(Chemistry.SULFUR_DIOXIDE));   // 硫黄1つ分 → SO2 1つ（煙道で集める）
+        merge(SLOT_SO2, gas);   // 硫黄1つ分 → SO2 1つ、方解石1つ → CO2 1つ（煙道で集める）
         if (sphalerite) {
             sphaleriteRoasted++;
             if (sphaleriteRoasted % GE_EVERY == 0) merge(SLOT_BY_GE, new ItemStack(Metallurgy.GERMANIUM_CONCENTRATE));

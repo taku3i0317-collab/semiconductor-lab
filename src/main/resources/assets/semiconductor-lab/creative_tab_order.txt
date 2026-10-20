@@ -445,6 +445,7 @@ xenon_cylinder  # Gas [6-08] 1898
 rare_gas_column  # Gas [6-08] 1898
 hydrochloric_acid  # Gas [6-06] 1900
 hcl_burner  # Gas [6-06] 1900
+carbon_dioxide_gas  # Gas [7-14] 1964
 achromatic_lens  # Optics [7-04] 1608
 refracting_telescope  # Optics [7-04] 1608
 rouge  # Optics [7-03] 1650
@@ -494,6 +495,8 @@ ruby_rod  # Optics [7-13] 1960
 xenon_flashlamp  # Optics [7-13] 1960
 ruby_laser  # Optics [7-13] 1960
 reduction_camera  # Optics [7-11] 1960
+salt_window  # Optics [7-14] 1964
+co2_laser  # Optics [7-14] 1964
 chrome_blank  # Optics [7-12] 1970
 chrome_photomask  # Optics [7-12] 1970
 krf_laser  # Optics [7-20] 1975

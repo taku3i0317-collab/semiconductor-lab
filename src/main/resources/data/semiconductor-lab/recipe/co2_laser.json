@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MQM",
+    "WTW",
+    "III"
+  ],
+  "key": {
+    "M": "semiconductor-lab:silvered_mirror",
+    "Q": "semiconductor-lab:quartz_tube",
+    "W": "semiconductor-lab:tungsten_wire",
+    "T": "semiconductor-lab:transformer",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:co2_laser",
+    "count": 1
+  }
+}

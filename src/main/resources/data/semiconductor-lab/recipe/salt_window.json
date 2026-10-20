@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:rock_salt",
+    "semiconductor-lab:rock_salt"
+  ],
+  "result": {
+    "id": "semiconductor-lab:salt_window",
+    "count": 1
+  }
+}

@@ -101,6 +101,8 @@ public final class Optics {
     public static final Item XENON_FLASHLAMP       = Reg.item("xenon_flashlamp", new Item.Properties().stacksTo(16));
     public static final int RUBY_LAMP_SHOTS = 100;
     public static final Item RUBY_LASER            = Reg.item("ruby_laser", RubyLaserItem::new, new Item.Properties().durability(RUBY_LAMP_SHOTS));
+    // [7-14] CO2 レーザー（IMP2 O-019）：10.6µm の赤外線はガラスを通らないので、窓は岩塩 NaCl の結晶（湿気で曇る＝耐久）
+    public static final Item SALT_WINDOW           = Reg.item("salt_window", new Item.Properties().durability(64));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
@@ -122,6 +124,9 @@ public final class Optics {
     // 酸水素バーナー [7-02]（ヘアの吹管 1801、ゴーダン 1839。水素＋酸素ボンベの炎 約2800℃で石英を溶かす）。ガスボンベ式（電気の受け口なし）。炎が出ている間は光る
     public static final Machine<OxyhydrogenBurnerBlockEntity> OXYHYDROGEN_BURNER = Machine.builder("oxyhydrogen_burner", OxyhydrogenBurnerBlockEntity::new)
             .ticker(OxyhydrogenBurnerBlockEntity::tick).layout(OxyhydrogenBurnerBlockEntity.LAYOUT).props(lit(metal(3.5f), 12)).build();
+
+    // CO2 レーザー [7-14]（IMP2 O-019、1964 パテル）：CO2＋N2 に放電、10.6µm の赤外線。1kW、He なしの低出力版（決定）。珪石を溶かして溶融石英
+    public static final Machine<Co2LaserBlockEntity> CO2_LASER = Machine.electric("co2_laser", Co2LaserBlockEntity::new, Co2LaserBlockEntity.LAYOUT, lit(metal(3.0f), 6));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

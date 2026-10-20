@@ -33,7 +33,7 @@
   "block.semiconductor-lab.reverberatory_furnace.note3": "The fire burns in a separate firebox; the flame and hot gas sweep over the hearth and the low roof reflects ('reverberates') the heat down onto the ore. English smelters used it for lead and copper from the 1690s, and Henry Cort used it for puddling iron in 1784. The Nirayama reverberatory furnace in Japan (Egawa Hidetatsu, finished by his son Hidetoshi in 1857) cast cannons and is a World Heritage site.",
   "block.semiconductor-lab.reverberatory_furnace.note4": "Because the fuel never touches the ore, the ash and sulfur of coal do not get into the metal. Roasting itself gives off heat (sulfur burns), so little fuel is needed. Smelter smoke (SO2) once killed forests around mines, such as Ashio in Japan; today smelter gas is sent to contact-process sulfuric acid plants, and smelters are major acid producers.",
   "block.semiconductor-lab.reverberatory_furnace.placeholder": "Approximation: a real furnace is a large brick building (firebox, hearth, flue, chimney); shrunk to one block. Ge and In really come from zinc-refining residues (leach residue, flue dust), not straight from roasting; here they come out as roasting by-products.",
-  "gui.semiconductor-lab.reverberatory_furnace.need_input": "Insert sulfide ore",
+  "gui.semiconductor-lab.reverberatory_furnace.need_input": "Insert sulfide ore or calcite",
   "gui.semiconductor-lab.reverberatory_furnace.need_fuel": "Needs coal / charcoal",
   "gui.semiconductor-lab.reverberatory_furnace.roasting": "Roasting ~700 C",
   "gui.semiconductor-lab.reverberatory_furnace.out_full": "An output is full",
@@ -82,5 +82,6 @@
   "message.semiconductor-lab.perkins_ice_machine.no_water": "Fill it with a water bucket",
   "message.semiconductor-lab.perkins_ice_machine.ice": "The water froze",
   "message.semiconductor-lab.perkins_ice_machine.ether_leak": "Ice made, but the ether leaked out (flammable and dangerous)",
-  "message.semiconductor-lab.perkins_ice_machine.cfc_leak": "Ice made. A little CFC leaked into the sky (ozone %s DU)"
+  "message.semiconductor-lab.perkins_ice_machine.cfc_leak": "Ice made. A little CFC leaked into the sky (ozone %s DU)",
+  "gui.semiconductor-lab.reverberatory_furnace.flue": "Flue"
 }

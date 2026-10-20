@@ -33,7 +33,7 @@
   "block.semiconductor-lab.reverberatory_furnace.note3": "火は別の燃焼室で燃え、炎と熱いガスが炉床の上を流れ、低い天井が熱を鉱石へ「反射」する。イギリスでは1690年代から鉛・銅の製錬に、1784年にはヘンリー・コートが鉄のパドル法に使った。日本の韮山反射炉（江川英龍が着手し、子の英敏が1857年に完成）は大砲を鋳造し、世界遺産になっている。",
   "block.semiconductor-lab.reverberatory_furnace.note4": "燃料が鉱石に触れないので、石炭の灰や硫黄が金属に入らない。焙焼は硫黄が燃えて自分で熱を出すので、燃料は少なくてすむ。製錬所の煙（SO2）は足尾銅山などで山の木を枯らした（煙害）。今は製錬所のガスを接触法の硫酸工場に送り、製錬所は硫酸の大きな生産者になっている。",
   "block.semiconductor-lab.reverberatory_furnace.placeholder": "近似：本物は燃焼室・炉床・煙道・煙突のある大きなれんがの建物。1ブロックに縮めた。Ge・In は本物は亜鉛精錬の残さ（浸出残さ・煙灰）から取るが、ここでは焙焼の副産物として出す。",
-  "gui.semiconductor-lab.reverberatory_furnace.need_input": "硫化鉱を入れて",
+  "gui.semiconductor-lab.reverberatory_furnace.need_input": "硫化鉱か方解石を入れて",
   "gui.semiconductor-lab.reverberatory_furnace.need_fuel": "石炭・木炭が必要",
   "gui.semiconductor-lab.reverberatory_furnace.roasting": "焙焼中 約700℃",
   "gui.semiconductor-lab.reverberatory_furnace.out_full": "出口が満杯",
@@ -82,5 +82,6 @@
   "message.semiconductor-lab.perkins_ice_machine.no_water": "水バケツで水を入れる",
   "message.semiconductor-lab.perkins_ice_machine.ice": "水がこおった",
   "message.semiconductor-lab.perkins_ice_machine.ether_leak": "氷ができたが、エーテルがもれてしまった（燃えやすく危ない）",
-  "message.semiconductor-lab.perkins_ice_machine.cfc_leak": "氷ができた。フロンが少し空にもれた（オゾン %s DU）"
+  "message.semiconductor-lab.perkins_ice_machine.cfc_leak": "氷ができた。フロンが少し空にもれた（オゾン %s DU）",
+  "gui.semiconductor-lab.reverberatory_furnace.flue": "煙道"
 }

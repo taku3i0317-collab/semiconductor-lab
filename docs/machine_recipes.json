@@ -554,6 +554,31 @@
       "note": "熱い硝酸で煮る → フッ酸 → 蒸留水ですすぐ（1950年代）"
     },
     {
+      "machine": "semiconductor-lab:co2_laser",
+      "process": "赤外線で石英を溶かす",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:salt_window",
+          "count": 1,
+          "consumed": false
+        },
+        {
+          "item": "semiconductor-lab:vein_quartz",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:fused_quartz",
+          "count": 1
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 10.0,
+      "energy_kj": 10,
+      "note": "CO2＋N2 の放電で 10.6µm（CO2・N2 の袋1つずつで 8 回）。石英は赤外線をよく吸う"
+    },
+    {
       "machine": "semiconductor-lab:compressor",
       "process": "ボンベに詰める",
       "inputs": [

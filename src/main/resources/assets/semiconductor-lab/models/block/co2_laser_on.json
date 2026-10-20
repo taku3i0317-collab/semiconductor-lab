@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/co2_laser_front_on",
+    "side": "semiconductor-lab:block/co2_laser_side",
+    "top": "semiconductor-lab:block/co2_laser_top"
+  }
+}

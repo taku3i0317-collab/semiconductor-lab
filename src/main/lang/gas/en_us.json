@@ -241,5 +241,10 @@
   "gui.semiconductor-lab.fluorine_cell.output_full": "Take out the products",
   "gui.semiconductor-lab.fluorine_cell.need_power": "No power",
   "gui.semiconductor-lab.fluorine_cell.running": "Electrolysing...",
-  "gui.semiconductor-lab.fluorine_cell.accident": "Accident: gases mixed (clear H2 out)"
+  "gui.semiconductor-lab.fluorine_cell.accident": "Accident: gases mixed (clear H2 out)",
+  "item.semiconductor-lab.carbon_dioxide_gas": "Carbon Dioxide (Bag)",
+  "item.semiconductor-lab.carbon_dioxide_gas.note1": "The gas that comes out when limestone is burned. It is also in your breath.",
+  "item.semiconductor-lab.carbon_dioxide_gas.note2": "Roast calcite in the reverberatory furnace: quicklime comes out with CO2 in the flue slot. Gas for the CO2 laser. ⚠ GHS: gas under pressure (in cylinders). It pools in low places and can suffocate.",
+  "item.semiconductor-lab.carbon_dioxide_gas.note3": "Lime-kiln gas is rich in CO2, and industry collected it there for fizzy drinks, dry ice and welding gas.",
+  "item.semiconductor-lab.carbon_dioxide_gas.note4": "CaCO3 -> CaO + CO2 (about 900 C). CO2 is heavier than air and collects in hollows."
 }

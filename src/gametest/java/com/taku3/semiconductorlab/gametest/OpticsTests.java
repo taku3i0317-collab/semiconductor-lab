@@ -666,6 +666,37 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-14] CO2 レーザー（IMP2 O-019）：方解石を反射炉で焼くと CO2。ガラスの窓は赤外線を吸って割れる。CO2 だけでは弱く、N2 を足すと珪石が溶ける */
+    @GameTest(maxTicks = 100)
+    public void co2_laser(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity.mainProduct(new ItemStack(net.minecraft.world.item.Items.CALCITE)).is(com.taku3.semiconductorlab.content.Survival.QUICKLIME)
+                && com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity.flueGas(new ItemStack(net.minecraft.world.item.Items.CALCITE)).is(Gas.CARBON_DIOXIDE_GAS), "roasting calcite: CaCO3 -> CaO + CO2 caught in the flue");
+        h.assertTrue(com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity.flueGas(new ItemStack(Metallurgy.GALENA)).is(com.taku3.semiconductorlab.content.Chemistry.SULFUR_DIOXIDE), "sulfide ores still give SO2");
+        h.assertTrue(recipeUses(h, "salt_window", Gas.ROCK_SALT) && recipeUses(h, "co2_laser", com.taku3.semiconductorlab.content.Power.TRANSFORMER.block.asItem()), "salt window from rock salt; discharge from a transformer");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Optics.CO2_LASER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.class);
+        var c = be.getContainer();
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_WINDOW, new ItemStack(Optics.CROWN_GLASS));
+        c.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_CO2, new ItemStack(Gas.CARBON_DIOXIDE_GAS, 2));
+        c.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_IN, new ItemStack(Metallurgy.VEIN_QUARTZ, 2));
+        tickConsumer(h, at, be, 5, full);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_WINDOW).isEmpty() && be.hadAccident(), "a glass window absorbs 10.6 um and cracks");
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.ACCIDENT_SHOW + 2, full);
+        c.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_WINDOW, new ItemStack(Optics.SALT_WINDOW));
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.TICKS + 5, full);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_OUT).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_CO2).getCount() == 2, "CO2 alone: " + be.beamW() + " W, too weak to melt quartz");
+        c.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_N2, new ItemStack(Gas.NITROGEN_GAS));
+        h.assertTrue(be.beamW() >= com.taku3.semiconductorlab.block.Co2LaserBlockEntity.MELT_W, "adding N2 boosts the beam (Patel 1965): " + be.beamW() + " W");
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.TICKS + 5, full);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_OUT).is(Optics.FUSED_QUARTZ), "the infrared beam melts vein quartz into fused quartz");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_CO2).getCount() == 1 && c.getItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_N2).isEmpty() && be.runs() == com.taku3.semiconductorlab.block.Co2LaserBlockEntity.RUNS_PER_FILL - 1, "one CO2 + N2 fill lasts " + com.taku3.semiconductorlab.block.Co2LaserBlockEntity.RUNS_PER_FILL + " runs");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_WINDOW).getDamageValue(), 1, "the salt window fogs a little each run");
+        LOG.info("[LAB] CO2 laser [7-14]: CO2 from calcite in the roaster flue; glass window cracks, salt window works; CO2 only " + Math.round(1000 * com.taku3.semiconductorlab.block.Co2LaserBlockEntity.EFF_CO2) + " W, with N2 " + Math.round(1000 * com.taku3.semiconductorlab.block.Co2LaserBlockEntity.EFF_N2) + " W melts quartz");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "合成石英を作る", L(io(Metallurgy.SILICON_TETRACHLORIDE, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
@@ -676,6 +707,8 @@ public class OpticsTests extends LabTestBase {
             L(io(Optics.CAF2_CRYSTAL, 1)), com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.TICKS / 20.0, "アルゴンの中で溶かし（1418℃）、ゆっくり下げて下から結晶化");
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "ルビーの単結晶を育てる", L(io(Optics.RUBY_FEED, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
             L(io(Optics.RUBY_BOULE, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "Al2O3:Cr の粉を炎に落として溶かし、種の上に積もらせる（ベルヌーイ法 1902、約2050℃）");
+        rec(a, Optics.CO2_LASER.block, "赤外線で石英を溶かす", L(kept(io(Optics.SALT_WINDOW, 1)), io(Metallurgy.VEIN_QUARTZ, 1)),
+            L(io(Optics.FUSED_QUARTZ, 1)), com.taku3.semiconductorlab.block.Co2LaserBlockEntity.WATTS, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.TICKS / 20.0, "CO2＋N2 の放電で 10.6µm（CO2・N2 の袋1つずつで 8 回）。石英は赤外線をよく吸う");
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
             L(io(Optics.FUSED_QUARTZ, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "2H2 + O2 → 2H2O（約2800℃）。電気なし");
     }

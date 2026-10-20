@@ -241,5 +241,10 @@
   "gui.semiconductor-lab.fluorine_cell.output_full": "できた物を取り出す",
   "gui.semiconductor-lab.fluorine_cell.need_power": "電気が来ていない",
   "gui.semiconductor-lab.fluorine_cell.running": "電解中…",
-  "gui.semiconductor-lab.fluorine_cell.accident": "事故！ガスが混ざった（水素の出口を空ける）"
+  "gui.semiconductor-lab.fluorine_cell.accident": "事故！ガスが混ざった（水素の出口を空ける）",
+  "item.semiconductor-lab.carbon_dioxide_gas": "二酸化炭素（袋）",
+  "item.semiconductor-lab.carbon_dioxide_gas.note1": "石灰石を焼くと出てくる気体。息にも入っている。",
+  "item.semiconductor-lab.carbon_dioxide_gas.note2": "方解石を反射炉で焼くと、生石灰といっしょに煙道のスロットに出る。CO2 レーザーのガス。⚠ GHS：高圧ガス（ボンベのとき）。狭い所にたまると息が苦しくなる。",
+  "item.semiconductor-lab.carbon_dioxide_gas.note3": "石灰を焼く窯の煙は CO2 が多く、工業ではここから集めて、炭酸飲料やドライアイス、溶接のガスに使ってきた。",
+  "item.semiconductor-lab.carbon_dioxide_gas.note4": "CaCO3 → CaO + CO2（約900℃）。CO2 は空気より重く、窪みにたまる。"
 }

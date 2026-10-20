@@ -1817,6 +1817,19 @@
 - Wikipedia「Verneuil method」：https://en.wikipedia.org/wiki/Verneuil_method
 - Wikipedia「Theodore Maiman」：https://en.wikipedia.org/wiki/Theodore_Maiman
 
+## O63. 塩の窓から出る見えない光（CO2 レーザー）［7-14］
+**答え**：1964年、ベル研究所のクマール・パテルは、二酸化炭素の気体に放電をかけて、分子の振動から 10.6µm の赤外線のレーザーを出した。翌1965年、窒素を混ぜると、放電で揺れた N2 が CO2 にエネルギーを渡して出力が大きく上がることを見つけた（さらにヘリウムで効率 10〜20%）。赤外線はガラスを通らないので、窓には岩塩 NaCl の結晶を使った。
+
+- へえ①：このレーザーの光はガラスを通らないので、窓は塩の結晶。
+- へえ②：CO2 は石灰石を焼く窯の煙から集められる。
+- へえ③：今も金属・木・アクリルの切断や、手術、そして EUV 露光の光源（スズの粒を撃つ）に使う。
+- へえ④：N2 の振動の高さが CO2 の上の準位とほぼ同じなので、ぶつかるとエネルギーが渡る（共鳴エネルギー移動）。
+
+確かさ：1964 パテル・10.6µm ◎／N2 の効果 1965 ◎／He で 10〜20% ○／ゲームの出力の数字 △（ゲームの値）
+根拠：
+- Wikipedia「Carbon-dioxide laser」：https://en.wikipedia.org/wiki/Carbon-dioxide_laser
+- Wikipedia「C. Kumar N. Patel」：https://en.wikipedia.org/wiki/C._Kumar_N._Patel
+
 ---
 
 # 冶金と熱（タスク15〜）

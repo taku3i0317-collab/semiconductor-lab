@@ -57,6 +57,8 @@ public final class Gas {
     public static final Item NEON_GAS              = Reg.contained("neon_gas", Vessel.GAS_BAG);
     public static final Item KRYPTON_GAS           = Reg.contained("krypton_gas", Vessel.GAS_BAG);
     public static final Item XENON_GAS             = Reg.contained("xenon_gas", Vessel.GAS_BAG);
+    // [7-14] の前提（IMP2 O-019）：二酸化炭素。石灰石（方解石）を反射炉で焼くと煙道に集まる CaCO3 → CaO + CO2（[0-10] の副産物）
+    public static final Item CARBON_DIOXIDE_GAS    = Reg.contained("carbon_dioxide_gas", Vessel.GAS_BAG);
     public static final Item NEON_CYLINDER         = Reg.contained("neon_cylinder", Vessel.STEEL_CYLINDER);
     public static final Item KRYPTON_CYLINDER      = Reg.contained("krypton_cylinder", Vessel.STEEL_CYLINDER);
     // [6-14] フッ素（IMP2 O-018）：袋（ゴム）はフッ素に侵されるので、表面がフッ化物の膜で守られる鋼のボンベに直接詰める
