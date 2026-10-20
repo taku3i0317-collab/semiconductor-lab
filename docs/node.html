@@ -60,6 +60,9 @@ nav a + a { margin-left: 4px; }
 .pathbox { border: 1px solid var(--accent); border-radius: 10px; padding: 8px; margin: 6px 0 10px; background: var(--bg); }
 .pathline { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .pathline .arrow { color: var(--accent); font-weight: 700; }
+/* 部品表・素材（S-002） */
+ul.parts, ul.mats { padding-left: 1.2em; margin: 4px 0; }
+ul.parts li, ul.mats li { margin: 6px 0; }
 /* 画像・動画（NET-10） */
 .medias { display: grid; gap: 12px; }
 figure.media { margin: 0; }
@@ -96,7 +99,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 <script>
 (async function () {
   // 軽いデータと重いデータを1つにまとめる（肖像は人物ごとに1か所にまとめてあるので番号から戻す）
-  const G = window.TECH_GRAPH, D = window.TECH_DETAIL, kindName = { r: 'requires', u: 'understanding', e: 'enables' };
+  const G = window.TECH_GRAPH, D = window.TECH_DETAIL, kindName = { r: 'requires', u: 'understanding', e: 'enables', p: 'part' };
   const data = {
     goal: G.goal, year_inversions: D.year_inversions,
     nodes: G.nodes.map(n => { const m = { ...n, ...D.nodes[n.id] }; m.people = (m.people || []).map(p => p.pi != null ? { ...p, portrait: D.portraits[p.pi] } : p); return m; }),
@@ -128,7 +131,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 
   // ---- この技術の裏にいる人たち（NET-04）：祖先（前提と、発見→技術のつながり）と自分に付いている人物。重複なし、年代順 ----
   const parentsAll = new Map();
-  for (const e of data.edges) if (e.kind === 'requires' || e.kind === 'enables') (parentsAll.get(e.to) || parentsAll.set(e.to, []).get(e.to)).push(e.from);
+  for (const e of data.edges) if (e.kind === 'requires' || e.kind === 'enables' || e.kind === 'part') (parentsAll.get(e.to) || parentsAll.set(e.to, []).get(e.to)).push(e.from);
   // 人物の年（"1804"・"1040年代"・"8〜9世紀"・"前…"）を並べるための数に。読めなければ技術の年
   const personYear = (p, n) => {
     const s = String(p.year || ''), c = s.match(/(\d+)\s*(?:〜\d+)?\s*世紀/);
@@ -257,6 +260,19 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     const ic = d.icon ? `<img src="${d.icon}" alt="">` : esc(isProd(d) ? (d.emoji || d.symbol) : isIdea(d) ? (d.emoji || '💡') : d.symbol);
     const chips = ids => `<div class="chips">${ids.map(chip).join('')}</div>`;
     const wall = wallHtml(id);
+    // 部品表（S-002・S-003）：このモノがどの部品のモノでできているか。部品から、その中身の技術へ進める
+    const partsHtml = (d.parts || []).filter(i => byId.has(i)).map(pid => {
+      const p = byId.get(pid), pre = (parentsAll.get(pid) || []).filter(i => byId.has(i));
+      return `<li><a href="#${pid}"><b>${esc(p.name)}</b></a> ${p.status}<div class="muted">中身：${pre.slice(0, 8).map(i => `<a href="#${i}">${esc(byId.get(i).name)}</a>`).join('・') || '—'}${pre.length > 8 ? ` ほか ${pre.length - 8}` : ''}</div></li>`;
+    }).join('');
+    // 素材：ゲームで作れる物には、どこで作れるかを出す
+    const MAT = D.materials || {};
+    const matsHtml = (d.materials || []).map(name => {
+      const x = MAT[name], nd = x && byId.get(x.node);
+      if (!x) return `<li><b>${esc(name)}</b></li>`;
+      const ok = nd && nd.status === '✅';
+      return `<li><b>${esc(name)}</b>：${ok ? `<span class="ok">ゲームで作れる</span>（${esc(x.where)}${x.chapter ? `。${esc(x.chapter)}` : ''}）` : `まだゲームに無い（${esc(x.where)}）`} <a href="#${x.node}">[${x.node}]</a></li>`;
+    }).join('');
     // 画像・動画（NET-10）：ファイルは持たずリンクだけ。作者とライセンスを必ず出す（docs/MEDIA.md）
     const mediaHtml = (d.media || []).filter(m => m.url && m.author && m.license).map(m => {
       const isVideo = m.kind === '動画', file = /\.(webm|ogv|mp4)(\?|$)/i.test(m.url);
@@ -299,6 +315,10 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
       ${isIdea(d) && ideaHtml ? `<section><h2>この考え方がつながる技術</h2>${ideaHtml}</section>` : ''}
 
       ${d.real_full ? `<section><h2>本当の話 <small class="term">（本物：工程・反応式）</small></h2><div>${rich(d.real_full)}</div></section>` : ''}
+
+      ${partsHtml ? `<section><h2>部品表 <small class="term">（このモノを形づくる部品のモノ）</small></h2><ul class="parts">${partsHtml}</ul></section>` : ''}
+
+      ${matsHtml ? `<section><h2>素材 <small class="term">（ゲームで作った素材が入っている所）</small></h2><ul class="mats">${matsHtml}</ul></section>` : ''}
 
       ${mediaHtml ? `<section><h2>画像・動画</h2><div class="medias">${mediaHtml}</div></section>` : ''}
 

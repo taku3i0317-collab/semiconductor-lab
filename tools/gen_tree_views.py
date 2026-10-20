@@ -122,6 +122,10 @@ def fill(n):
         m = re.search(r"(?:^|／|\s)" + pat + r"[:：](.*?)(?:／|\n|$)", n["body"], re.S)
         return sorted({nid(x) for x in ID_RE.findall(m.group(1))}, key=sort_key) if m else []
     n["enables"], n["explains"] = ids_of("前提になる"), ids_of("説明する")
+    # モノの部品（S-002）：「部品: [P-07], …」。部品→モノの線（kind="part"）。作れるかの判定には数えない
+    n["parts"] = ids_of("部品")
+    mm = re.search(r"(?:^|／|\s)素材[:：](.*?)(?:／|\n|$)", n["body"], re.S)
+    n["materials"] = [x.strip() for x in re.split(r"[、,・]", mm.group(1)) if x.strip()] if mm else []
     if "回避" in status_zone:
         n["st"] = "➖"
     ym = YEAR_RE.search(n["body"])
@@ -478,7 +482,7 @@ def export_json(nodes):
                           "kind": kind_of(n["body"]),
                           "play": field(n["body"], r"遊び方"), "missing": field(n["body"], r"足りない"),
                           "sources": re.findall(r"https?://[^\s,／]+", field_all(n["body"], r"出典")),
-                          "enables": n["enables"], "explains": n["explains"],
+                          "enables": n["enables"], "explains": n["explains"], "parts": n["parts"], "materials": n["materials"],
                           "enabled_by": [k for k, o in nodes.items() if i in o["enables"]],
                           "explained_by": [k for k, o in nodes.items() if i in o["explains"]],
                           "icon": icon_uri(icons[i]) if i in icons else None, "emoji": emoji.get(i),
@@ -499,6 +503,9 @@ def export_json(nodes):
         for t in n["explains"]:
             if t in nodes:
                 edges.append({"from": i, "to": t, "kind": "understanding"})
+        for t in n["parts"]:
+            if t in nodes:
+                edges.append({"from": t, "to": i, "kind": "part"})
     # 重複を消す（NET-05）：「本物」は real_full だけ（real は1行目の400字なので表示側で作る）。肖像は人物ごとに1か所（portraits）にまとめて番号で参照
     portraits, pidx = [], {}
     for n in out_nodes:
@@ -520,7 +527,8 @@ def export_json(nodes):
             "year_note": "西暦。紀元前はマイナス。year_uncertain=true は諸説・未確認（⚠️）",
             "requires_note": "requires はノードを作るのに要る項目の並び（全部そろう＝AND）。1項目の中の複数案は OR、案の中は AND",
             "edge_kinds": {"requires": "前提（無いと作れない）", "understanding": "理解（後で分かった科学。作るのには要らない）",
-                           "enables": "発見→技術（その考えがないと作れなかった。作れるかの判定には数えない）"},
+                           "enables": "発見→技術（その考えがないと作れなかった。作れるかの判定には数えない）",
+                           "part": "部品→モノ（そのモノを形づくる部品のモノ。作れるかの判定には数えない）"},
             "kinds": {"tech": "技術", "product": "モノ（TECH_TREE の「種類: モノ」と products.md）", "idea": "発見・考え方（ideas.md）"},
             "nodes": out_nodes, "edges": edges, "year_inversions": [
                 {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d} for a, y, p, py, d in year_inversions(nodes)]}
@@ -530,12 +538,13 @@ def export_json(nodes):
     light_keys = ("id", "name", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
                   "icon", "emoji", "symbol", "descendants", "buildable_now")
     layout = compute_layout(out_nodes, edges)
-    kind_code = {"requires": "r", "understanding": "u", "enables": "e"}
+    kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p"}
     graph = {"goal": GOAL, "start": START, "inversions": len(data["year_inversions"]),
              "nodes": [{k: n[k] for k in light_keys} for n in out_nodes],
              "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout}
     detail = {"nodes": {n["id"]: {k: v for k, v in n.items() if k not in light_keys} for n in out_nodes},
-              "portraits": portraits, "year_inversions": data["year_inversions"]}
+              "portraits": portraits, "year_inversions": data["year_inversions"],
+              "materials": {k: v for k, v in meta.get("materials", {}).items() if not k.startswith("_")}}
     for path, var, obj, what in ((GRAPH_JS, "TECH_GRAPH", graph, "図に要る軽いデータ（番号・名前・年・幹・状態・種類・アイコン・位置・つながり・子孫の数）"),
                                  (DETAIL_JS, "TECH_DETAIL", detail, "カード・詳細ページ用の重いデータ（本物・へえ・出典・レシピ・人物）")):
         path.write_text(f"// 自動生成：tools/gen_tree_views.py。{what}\nwindow.{var} = "
@@ -645,7 +654,7 @@ def compute_layout(out_nodes, edges):
     W, H = LAYOUT_LEFT + XS_RANGE[-1] + 40, y0 + 20
     time_pos = {n["id"]: [round(float(x[k]), 2), round(float(y[k]), 2)] for k, n in enumerate(out_nodes)}
     # ネットワーク：前提と「発見→技術」の線をばねに。子孫の多い技術（ハブ）ほど中心へ
-    links = [(idx[e["from"]], idx[e["to"]]) for e in edges if e["kind"] in ("requires", "enables") and e["from"] in idx and e["to"] in idx]
+    links = [(idx[e["from"]], idx[e["to"]]) for e in edges if e["kind"] in ("requires", "enables", "part") and e["from"] in idx and e["to"] in idx]
     count = np.zeros(N)
     for s, t in links:
         count[s] += 1; count[t] += 1

@@ -170,14 +170,14 @@ small.term { color: var(--sub); font-weight: 400; }
   for (const n of nodes) { [n.timeX, n.timeY] = L.time[n.id]; [n.netX, n.netY] = L.net[n.id]; n.x = n.timeX; n.y = n.timeY; }
 
   // ---- つながりと祖先 ----
-  const kindName = { r: 'requires', u: 'understanding', e: 'enables' };
+  const kindName = { r: 'requires', u: 'understanding', e: 'enables', p: 'part' };
   const edges = G.edges.filter(([f, t]) => byId.has(f) && byId.has(t)).map(([f, t, k]) => {
     const a = byId.get(f), b = byId.get(t);
     return { from: f, to: t, kind: kindName[k], a, b, gap: (b.year ?? 0) - (a.year ?? 0) };
   });
   const parents = new Map(), kids = new Map(), explainsOf = new Map();
   for (const e of edges) {
-    if (e.kind === 'requires' || e.kind === 'enables') {
+    if (e.kind === 'requires' || e.kind === 'enables' || e.kind === 'part') {
       (parents.get(e.b.id) || parents.set(e.b.id, []).get(e.b.id)).push(e.a.id);
       (kids.get(e.a.id) || kids.set(e.a.id, []).get(e.a.id)).push(e.b.id);
     } else if (isIdea(e.a)) (explainsOf.get(e.a.id) || explainsOf.set(e.a.id, []).get(e.a.id)).push(e.b.id);   // 発見が「説明する」技術
