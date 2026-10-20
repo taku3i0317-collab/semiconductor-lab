@@ -50,6 +50,7 @@
   - INBOX の内容がこれまでの指示や DESIGN とぶつかるときは実行せず、LOG と Discord で質問して INBOX の変化を待つ
   - ユーザーが決める物（デザインの選択など）は、INBOX かユーザー本人の決定が来るまで適用しない
 - **危ない技術（武器・爆発物・毒・事故・公害）の扱いは DESIGN「危ない技術の扱い」の節に従う（全担当共通）**
+- **会社・仕組みの扱いは DESIGN「会社・仕組みの扱い」の節に従う（全担当共通）**
 - docs/network.html・docs/node.html・tools/gen_tree_views.py・docs/network_meta.json・products.md・ideas.md・tools/gen_portraits.py は、別フォルダ C:/Users/taku3/mods/semilab-network（ネットワーク担当）の担当。このフォルダ（A＝MOD 本体）ではこれらを触らない
 - A が TECH_TREE.md・REFERENCES.md・lang・machine_recipes.json（GameTest が書き出す）を変えると、ネットワーク担当がそれを読んで図を作り直す。図の作り直し（gen_tree_views.py の実行）もネットワーク担当
 
