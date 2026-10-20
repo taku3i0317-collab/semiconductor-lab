@@ -916,6 +916,109 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+
+    // =====================================================================
+    // v0.3 の通し（O-005、docs/LITHO_DESIGN.md §10）：作った機械で順に通す
+    // =====================================================================
+
+    /** 消費機械を1つ置き、入口に物を入れて回し、出口の物を返す（電気はケーブルの代わりに直接入れる） */
+    private static ItemStack runConsumer(GameTestHelper h, BlockPos rel, net.minecraft.world.level.block.Block block, int[] slots, ItemStack[] items, int outSlot, int ticks, double watts) {
+        h.setBlock(rel, net.minecraft.world.level.block.Blocks.AIR);   // 前の回の中身を残さない
+        h.setBlock(rel, block);
+        var be = (com.taku3.semiconductorlab.energy.ConsumerBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(rel));
+        for (int i = 0; i < slots.length; i++) be.getContainer().setItem(slots[i], items[i]);
+        tickConsumer(h, rel, be, ticks, EnergyStorage.wattsToJoulesPerTick(watts));
+        return be.getContainer().getItem(outSlot).copy();
+    }
+
+    /** エッチング槽（電気なし）で1回 */
+    private static ItemStack runEtch(GameTestHelper h, BlockPos rel, ItemStack wafer, net.minecraft.world.item.Item acid) {
+        h.setBlock(rel, net.minecraft.world.level.block.Blocks.AIR);
+        h.setBlock(rel, Semiconductor.ETCH_TANK.block);
+        var be = h.getBlockEntity(rel, com.taku3.semiconductorlab.block.EtchTankBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_WAFER, wafer);
+        c.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF, new ItemStack(acid));
+        var lv = h.getLevel(); var a = h.absolutePos(rel);
+        for (int i = 0; i < 4000 && c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT).isEmpty(); i++)
+            com.taku3.semiconductorlab.block.EtchTankBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        return c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT).copy();
+    }
+
+    private static ItemStack ok(GameTestHelper h, com.taku3.semiconductorlab.litho.ChipOps.Result r, String what) {
+        h.assertTrue(r.ok(), what + ": " + r.reason());
+        return r.out();
+    }
+
+    /**
+     * v0.3 の通し：シリコンの板（p型）→ 酸化炉 → [塗布・露光・現像は ChipOps で代わり] → エッチング槽（HF）→ [はがすのは ChipOps] → 拡散炉 …
+     * → 真空蒸着装置（Al）→ エッチング槽（リン酸）→ 洗浄台 → 検査台で NOT を発見。
+     * 実機：酸化炉 [9-15]・エッチング槽 [9-06]・拡散炉 [9-16]・真空蒸着 [9-25]・Al のエッチング [9-25]・洗浄台 [9-14]・検査台。
+     * 代わり（まだ機械がない）：レジスト塗布 [9-19]・密着露光 [9-20]・現像 [9-21]・レジストはがし（ChipOps.coat / expose / develop / strip）。
+     * マスクは設計図から直接（MaskData。製図台・縮小カメラ [7-11] でも作れるが、ここでは通さない）
+     */
+    @GameTest(maxTicks = 200)
+    public void v03Chain(GameTestHelper h) {
+        var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        var tool = com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G;
+        // 酸化炉（実機）
+        ItemStack w = new ItemStack(Semiconductor.SILICON_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        w = runConsumer(h, p(1, 1, 1), Semiconductor.OXIDATION_FURNACE.block,
+                new int[] {com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT},
+                new ItemStack[] {w, new ItemStack(Gas.OXYGEN_GAS, 1)}, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT,
+                com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS);
+        h.assertTrue(w.is(Semiconductor.OXIDIZED_WAFER) && w.getCount() == 8, "oxidation furnace -> 8 oxidized wafers, got " + w);
+        int step = 0;
+        for (int i = 0; i < design.layers().size(); i++) {
+            var k = design.layers().get(i).kind();
+            w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(w), "coat " + i + " (stand-in for [9-19])");
+            w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.expose(w, design.mask(i), tool), "expose " + i + " (stand-in for [9-20])");
+            w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.develop(w), "develop " + i + " (stand-in for [9-21])");
+            if (k == com.taku3.semiconductorlab.litho.LayerKind.METAL) {
+                w = runEtch(h, p(3, 1, 1), w, Chemistry.PHOSPHORIC_ACID);   // Al のエッチング（実機）
+                h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w).has(k), "etch tank + phosphoric acid -> metal layer");
+                w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.strip(w), "strip " + i);
+            } else {
+                w = runEtch(h, p(3, 1, 1), w, Chemistry.HYDROFLUORIC_ACID);   // 酸化膜の窓（実機）
+                h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).hasWindows(), "etch tank + HF -> windows, layer " + i);
+                w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.strip(w), "strip " + i + " (no machine yet)");
+                if (k.isDiffusion()) {   // 拡散炉（実機）
+                    var src = new ItemStack(k.dopes == 'n' ? Chemistry.PHOSPHORUS : Metallurgy.BORON_TRIOXIDE);
+                    w = runConsumer(h, p(5, 1, 1), Semiconductor.DIFFUSION_FURNACE.block,
+                            new int[] {com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_SOURCE},
+                            new ItemStack[] {w, src}, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT,
+                            com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS);
+                    h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).diffusions() == ++step, "diffusion furnace through windows, layer " + i);
+                } else {   // 真空蒸着装置（実機、隣に 0.001 Pa の真空容器）
+                    h.setBlock(p(2, 1, 4), Vacuum.VACUUM_CHAMBER.block);
+                    h.getBlockEntity(p(2, 1, 4), com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(0.001);
+                    w = runConsumer(h, p(1, 1, 4), Vacuum.EVAPORATOR.block,
+                            new int[] {com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_SUBSTRATE, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_METAL},
+                            new ItemStack[] {w, new ItemStack(Metallurgy.ALUMINIUM_INGOT, 1)}, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_OUT,
+                            com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS);
+                    h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).metalFilm(), "evaporator -> aluminium film over the contacts");
+                }
+            }
+        }
+        int dirt = com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination();
+        // 洗浄台（実機）
+        w = runConsumer(h, p(5, 1, 4), Semiconductor.CLEANING_BENCH.block,
+                new int[] {com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_NITRIC,
+                        com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_HF, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WATER},
+                new ItemStack[] {w, new ItemStack(Gas.NITRIC_ACID), new ItemStack(Chemistry.HYDROFLUORIC_ACID), new ItemStack(Chemistry.DISTILLED_WATER)},
+                com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WATTS);
+        h.assertTrue(dirt > 0 && com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination() == 0, "cleaning bench: dirt " + dirt + " -> 0");
+        // 検査台（実機）
+        h.setBlock(p(3, 1, 6), Semiconductor.PROBE_STATION.block);
+        var probe = h.getBlockEntity(p(3, 1, 6), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
+        probe.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, w);
+        probe.onButton(h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
+        h.assertValueEqual(probe.found(), 0b1111, "the probe finds resistor, diode, transistor and NOT on the chip made by the machines");
+        LOG.info("[LAB] v0.3 chain: oxidation, etch (HF / phosphoric), diffusion x3, evaporator, cleaning bench, probe = real machines; coat / expose / develop / strip = ChipOps stand-ins; NOT found (dirt {} -> 0)", dirt);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
