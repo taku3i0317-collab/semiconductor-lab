@@ -54,7 +54,7 @@ public final class Survival {
     public static final Item EARTHENWARE_POT       = Reg.item("earthenware_pot", new Item.Properties().stacksTo(16));
     // --- [0-08] 木工（新石器時代の磨製石斧）。打ち欠いた斧を砂と水で研ぐと、剥離の傷が消えて欠けにくい刃になる。柄を付ける ---
     public static final ToolMaterial POLISHED_STONE_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_STONE_TOOL, 200, 4.5f, 1.0f, 5, KNAPPING_STONES);
-    public static final Item POLISHED_STONE_AXE    = Reg.item("polished_stone_axe", new Item.Properties().axe(POLISHED_STONE_MATERIAL, 6.0f, -3.1f));
+    public static final Item POLISHED_STONE_AXE    = Reg.item("polished_stone_axe", PolishedStoneAxeItem::new, new Item.Properties().axe(POLISHED_STONE_MATERIAL, 6.0f, -3.1f));
     // --- [0-06] 亜麻の茎・浸水した茎・繊維・リネンの糸・リネン ---
     public static final Item FLAX_STALKS           = Reg.item("flax_stalks");
     public static final Item RETTED_FLAX           = Reg.item("retted_flax");
@@ -73,6 +73,8 @@ public final class Survival {
     public static final Item WOOLEN_YARN           = Reg.item("woolen_yarn");
     // --- [0-18] ロープ（糸を撚り合わせ、さらに逆向きに撚り合わせる） ---
     public static final Item ROPE                  = Reg.item("rope");
+    // --- [0-09] 車輪（板材を磨製石斧で削って円盤に。ろくろ [0-19] の後） ---
+    public static final Item WOODEN_WHEEL          = Reg.item("wooden_wheel");
     /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
     public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
 
@@ -92,6 +94,8 @@ public final class Survival {
     // --- [0-05] 豆（窒素固定）：エンドウが熟すと下の耕地が「窒素の多い耕地」になり、次の作物が速く育つ（輪作） ---
     public static final Block PEA          = Reg.block("pea", PeaCropBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
     public static final Block NITROGEN_FARMLAND = Reg.block("nitrogen_farmland", NitrogenFarmlandBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND));
+    // --- [0-19] ろくろ（はずみ車で回る陶工の回転台。粘土が少なくて済む） ---
+    public static final Block POTTERS_WHEEL = Reg.functional("potters_wheel", PottersWheelBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5f).sound(SoundType.WOOD).noOcclusion());
     /** 草からエンドウが出る確率（ヒトツブコムギ・亜麻が出なかったとき） */
     public static final float PEA_FROM_GRASS = 0.03f;
     /** 同じく、亜麻の種が混ざる確率（ヒトツブコムギが出なかったとき） */

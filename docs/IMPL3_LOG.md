@@ -38,3 +38,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [0-05] 豆（O-003-1、遊び方: 実験）：エンドウ pea（草から 3%）が熟すと下の耕地が窒素の多い耕地 nitrogen_farmland（3回分）。上の作物は耕地のランダムtick ごと 50% でもう1段育つ、熟すたびに1回分使い3回でふつうの耕地。GameTest pea_rotation（同じtick 数で豆の後の麦 3段 vs 豆なし 0段）、CHEMISTRY S16〜S17、REFERENCES S8。テスト 119/119
   - 見つけた不具合を直した：MOD の作物（エンドウ・ヒトツブコムギ2種・亜麻）が minecraft:maintains_farmland に入っておらず、水が遠いと下の耕地が土に戻っていた → タグに追加（minecraft:crops にも）
   - 共通ファイル：data/minecraft/tags/block/mineable/shovel.json に nitrogen_farmland を1つ追加（既存の iron_sand・salt_pan はそのまま）
+- ✅ [0-19] ろくろ（新ノード、O-003-2）＋ [0-09] 車輪：ろくろ potters_wheel（石3＋紡錘の棒＋板材3、block/PottersWheelBlock）で粘土玉3つ → 生の土器（手は5つ）。木の車輪＝板材3＋磨製石斧（戻るが耐久 −10、item/PolishedStoneAxeItem）。年：ろくろ 紀元前4500年ごろ⚠️（ククテニ・トリピリア）、車輪 紀元前3500〜3350（ウルク）・リュブリャナ 紀元前3130ごろ⚠️。TECH_TREE に [0-19] を追加、[0-09] の前提に [0-19]。network_proposals E-2 に「[0-19] 追加済み」と書き足した。GameTest potters_wheel_and_wheel、CHEMISTRY S18〜S19、REFERENCES S9。テスト 125/125
+  - タブの並び：[0-19] は docs/tech_network.json にまだ無いので幹0 の最後（ネットワーク担当が作り直すと年の順になる）
+  - 共通ファイル：data/minecraft/tags/block/mineable/axe.json に potters_wheel を1つ追加

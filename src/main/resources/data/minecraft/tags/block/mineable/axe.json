@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "semiconductor-lab:water_wheel",
-    "semiconductor-lab:assembly_bench"
+    "semiconductor-lab:assembly_bench",
+    "semiconductor-lab:potters_wheel"
   ]
 }

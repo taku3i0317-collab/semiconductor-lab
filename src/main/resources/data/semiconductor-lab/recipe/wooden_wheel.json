@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#minecraft:planks",
+    "#minecraft:planks",
+    "#minecraft:planks",
+    "semiconductor-lab:polished_stone_axe"
+  ],
+  "result": {
+    "id": "semiconductor-lab:wooden_wheel",
+    "count": 1
+  }
+}

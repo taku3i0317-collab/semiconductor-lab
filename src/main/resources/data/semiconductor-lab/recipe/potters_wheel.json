@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    " T ",
+    "PPP"
+  ],
+  "key": {
+    "S": "minecraft:stone",
+    "T": "semiconductor-lab:spindle_shaft",
+    "P": "#minecraft:planks"
+  },
+  "result": {
+    "id": "semiconductor-lab:potters_wheel",
+    "count": 1
+  }
+}

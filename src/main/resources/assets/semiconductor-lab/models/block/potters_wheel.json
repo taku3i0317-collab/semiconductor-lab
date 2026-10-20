@@ -1,0 +1,101 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "minecraft:block/oak_planks",
+    "base": "minecraft:block/oak_planks",
+    "disc": "minecraft:block/smooth_stone",
+    "axle": "minecraft:block/stripped_oak_log"
+  },
+  "elements": [
+    {
+      "from": [
+        1,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        4,
+        15
+      ],
+      "faces": {
+        "north": {
+          "texture": "#base"
+        },
+        "south": {
+          "texture": "#base"
+        },
+        "east": {
+          "texture": "#base"
+        },
+        "west": {
+          "texture": "#base"
+        },
+        "up": {
+          "texture": "#base"
+        },
+        "down": {
+          "texture": "#base"
+        }
+      }
+    },
+    {
+      "from": [
+        7,
+        4,
+        7
+      ],
+      "to": [
+        9,
+        7,
+        9
+      ],
+      "faces": {
+        "north": {
+          "texture": "#axle"
+        },
+        "south": {
+          "texture": "#axle"
+        },
+        "east": {
+          "texture": "#axle"
+        },
+        "west": {
+          "texture": "#axle"
+        }
+      }
+    },
+    {
+      "from": [
+        2,
+        7,
+        2
+      ],
+      "to": [
+        14,
+        10,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#disc"
+        },
+        "south": {
+          "texture": "#disc"
+        },
+        "east": {
+          "texture": "#disc"
+        },
+        "west": {
+          "texture": "#disc"
+        },
+        "up": {
+          "texture": "#disc"
+        },
+        "down": {
+          "texture": "#disc"
+        }
+      }
+    }
+  ]
+}

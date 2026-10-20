@@ -422,6 +422,38 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-19] ろくろ・[0-09] 車輪（IMP3-01、O-003）
+    // =====================================================================
+
+    /** ろくろ：粘土玉3つで生の土器（手は5つ）。木の車輪：板材3＋磨製石斧（斧は戻るが耐久 −10、壊れかけなら戻らない） */
+    @GameTest
+    public void pottersWheelAndWheel(GameTestHelper h) {
+        var lv = h.getLevel();
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack clay = new ItemStack(Items.CLAY_BALL, 5);
+        h.assertTrue(com.taku3.semiconductorlab.block.PottersWheelBlock.throwPot(player, clay), "throw a pot on the wheel");
+        h.assertValueEqual(clay.getCount(), 2, "3 clay used (5 by hand)");
+        h.assertValueEqual(player.getInventory().countItem(Survival.RAW_CLAY_POT), 1, "unfired pot");
+        h.assertFalse(com.taku3.semiconductorlab.block.PottersWheelBlock.throwPot(player, clay), "2 clay is not enough");
+        h.assertTrue(recipeUses(h, "potters_wheel", Survival.SPINDLE_SHAFT) && recipeUses(h, "potters_wheel", Items.STONE), "wheel = stone disc (flywheel) + spindle shaft (axle)");
+
+        var mgr = lv.getServer().getRecipeManager();
+        var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        ItemStack axe = new ItemStack(Survival.POLISHED_STONE_AXE);
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(2, 2, List.of(new ItemStack(Items.OAK_PLANKS), new ItemStack(Items.OAK_PLANKS), new ItemStack(Items.SPRUCE_PLANKS), axe));
+        var r = mgr.getRecipeFor(CRAFT, in, lv).orElseThrow().value();
+        h.assertTrue(r.assemble(in).is(Survival.WOODEN_WHEEL), "3 planks + polished stone axe -> wooden wheel");
+        ItemStack back = r.getRemainingItems(in).stream().filter(s -> s.is(Survival.POLISHED_STONE_AXE)).findFirst().orElse(ItemStack.EMPTY);
+        h.assertValueEqual(back.getDamageValue(), com.taku3.semiconductorlab.item.PolishedStoneAxeItem.CRAFT_WEAR, "the axe comes back slightly worn");
+        axe.setDamageValue(axe.getMaxDamage() - 1);
+        h.assertTrue(r.getRemainingItems(in).stream().noneMatch(s -> s.is(Survival.POLISHED_STONE_AXE)), "a nearly broken axe breaks");
+        var noAxe = net.minecraft.world.item.crafting.CraftingInput.of(2, 2, List.of(new ItemStack(Items.OAK_PLANKS), new ItemStack(Items.OAK_PLANKS), new ItemStack(Items.OAK_PLANKS), new ItemStack(Survival.HAND_AXE)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, noAxe, lv).isEmpty(), "a knapped hand axe cannot shape a wheel");
+        LOG.info("[LAB] potter's wheel [0-19]: 3 clay -> pot (5 by hand); wheel [0-09]: 3 planks + polished axe (-{} durability)", com.taku3.semiconductorlab.item.PolishedStoneAxeItem.CRAFT_WEAR);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 
