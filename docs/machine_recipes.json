@@ -495,6 +495,35 @@
       "note": "2NaCl + 2H2O → Cl2 + H2 + 2NaOH"
     },
     {
+      "machine": "semiconductor-lab:etch_tank",
+      "process": "酸化膜をはがす",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:oxidized_wafer",
+          "count": 8,
+          "cond": "時間は膜の厚さ（1秒に20nm）"
+        },
+        {
+          "item": "semiconductor-lab:hydrofluoric_acid",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8,
+          "cond": "純度とドーパントを受け継ぐ"
+        },
+        {
+          "item": "semiconductor-lab:lead_bottle",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 6.25,
+      "note": "SiO2 + 6HF → H2SiF6 + 2H2O。シリコンは溶けない。室温・電気なし（125nm の膜の時間）"
+    },
+    {
       "machine": "semiconductor-lab:gas_retort",
       "process": "石炭を乾留する",
       "inputs": [

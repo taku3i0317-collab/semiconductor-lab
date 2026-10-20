@@ -233,5 +233,6 @@ wafer_saw  # Semiconductor [9-12] 1954
 diffusion_furnace  # Semiconductor [9-16] 1954
 oxidized_wafer  # Semiconductor [9-15] 1955
 oxidation_furnace  # Semiconductor [9-15] 1955
+etch_tank  # Semiconductor [9-06] 1957
 transistor_radio  # Communication [15-10] 1954
 solar_cell  # Branches [B-12] 1954

@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 64（ja・en）、文字の置き場所 238、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 66（ja・en）、文字の置き場所 242、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -251,6 +251,10 @@ oxidation_furnace_en_us hint gui.semiconductor-lab.oxidation_furnace.running_wet
 oxidation_furnace_en_us recipe gui.semiconductor-lab.oxidation_furnace.recipe_dry w=100 lines=1/1
 oxidation_furnace_en_us recipe gui.semiconductor-lab.oxidation_furnace.recipe_wet w=114 lines=1/1 scale=0.95
 oxidation_furnace_en_us recipe gui.semiconductor-lab.oxidation_furnace.recipe w=140 lines=1/1 scale=0.74999994
+etch_tank_en_us hint gui.semiconductor-lab.etch_tank.need_input w=109 lines=2/4
+etch_tank_en_us hint gui.semiconductor-lab.etch_tank.running w=99 lines=2/4
+etch_tank_en_us hint gui.semiconductor-lab.etch_tank.out_full w=53 lines=1/4
+etch_tank_en_us recipe gui.semiconductor-lab.etch_tank.recipe w=138 lines=1/1 scale=0.74999994
 crystal_puller_en_us power gui.semiconductor-lab.crystal_puller.power w=69 lines=1/1
 crystal_puller_en_us stored gui.semiconductor-lab.crystal_puller.stored w=65 lines=1/1
 crystal_puller_en_us hint gui.semiconductor-lab.crystal_puller.need_seed w=197 lines=3/3
@@ -511,6 +515,10 @@ oxidation_furnace_ja_jp hint gui.semiconductor-lab.oxidation_furnace.running_wet
 oxidation_furnace_ja_jp recipe gui.semiconductor-lab.oxidation_furnace.recipe_dry w=115 lines=1/1 scale=0.95
 oxidation_furnace_ja_jp recipe gui.semiconductor-lab.oxidation_furnace.recipe_wet w=114 lines=1/1 scale=0.95
 oxidation_furnace_ja_jp recipe gui.semiconductor-lab.oxidation_furnace.recipe w=117 lines=1/1 scale=0.9
+etch_tank_ja_jp hint gui.semiconductor-lab.etch_tank.need_input w=102 lines=2/4
+etch_tank_ja_jp hint gui.semiconductor-lab.etch_tank.running w=90 lines=2/4
+etch_tank_ja_jp hint gui.semiconductor-lab.etch_tank.out_full w=45 lines=1/4
+etch_tank_ja_jp recipe gui.semiconductor-lab.etch_tank.recipe w=138 lines=1/1 scale=0.74999994
 crystal_puller_ja_jp power gui.semiconductor-lab.crystal_puller.power w=57 lines=1/1
 crystal_puller_ja_jp stored gui.semiconductor-lab.crystal_puller.stored w=49 lines=1/1
 crystal_puller_ja_jp hint gui.semiconductor-lab.crystal_puller.need_seed w=114 lines=2/3

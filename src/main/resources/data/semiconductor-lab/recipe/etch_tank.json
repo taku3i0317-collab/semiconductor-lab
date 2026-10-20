@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "L L",
+    "L L",
+    "LLL"
+  ],
+  "key": {
+    "L": "semiconductor-lab:lead_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:etch_tank",
+    "count": 1
+  }
+}

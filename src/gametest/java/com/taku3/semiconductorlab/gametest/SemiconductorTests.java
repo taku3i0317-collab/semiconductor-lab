@@ -250,6 +250,56 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-06] 酸化膜エッチング（IMP4-01）
+    // =====================================================================
+
+    /** 酸化膜つきの板8＋フッ酸 → シリコンの板8（純度・ドーパントを受け継ぐ）。時間は膜の厚さ÷速さ、鉛の瓶が上に戻る。フッ酸・板が足りないと動かない。槽は鉛 */
+    @GameTest(maxTicks = 200)
+    public void etchTank(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "etch_tank", Metallurgy.LEAD_INGOT), "HF tank is lead");
+        h.assertFalse(recipeUses(h, "etch_tank", Chemistry.SODA_LIME_GLASS) || recipeUses(h, "etch_tank", Items.GLASS), "no glass in an HF tank");
+        h.assertTrue(com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(125) > com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(60) && com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(660) > com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(125), "thicker oxide takes longer");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.ETCH_TANK.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.EtchTankBlockEntity.class);
+        var c = be.getContainer();
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(fp);
+        Runnable tick = () -> com.taku3.semiconductorlab.block.EtchTankBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 16);
+        w.set(ModDataComponents.PURITY, Purity.NINE_N);
+        w.set(ModDataComponents.DOPANT, "phosphorus");
+        w.set(ModDataComponents.OXIDE_NM, 125);
+        c.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_WAFER, w);
+        int t = com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(125);
+        for (int i = 0; i < t + 5; i++) tick.run();
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT).isEmpty(), "no HF -> nothing");
+        c.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF, new ItemStack(Chemistry.HYDROFLUORIC_ACID, 2));
+        for (int i = 0; i < t - 1; i++) tick.run();
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT).isEmpty(), "not done 1 tick early");
+        tick.run();
+        ItemStack o = c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT);
+        h.assertTrue(o.is(Semiconductor.SILICON_WAFER) && o.getCount() == com.taku3.semiconductorlab.block.EtchTankBlockEntity.WAFERS_PER_RUN, "8 oxidized -> 8 bare slices, got " + o);
+        h.assertTrue(o.get(ModDataComponents.OXIDE_NM) == null, "oxide gone");
+        h.assertValueEqual(o.get(ModDataComponents.DOPANT), "phosphorus", "dopant kept");
+        h.assertValueEqual(Purity.nines(o.get(ModDataComponents.PURITY)), 9, "purity kept");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF).getCount(), 1, "1 HF per 8 slices");
+        var drops = lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(a).inflate(2));
+        h.assertTrue(drops.stream().anyMatch(e -> e.getItem().is(Metallurgy.LEAD_BOTTLE)), "empty lead bottle pops out");
+        drops.forEach(net.minecraft.world.entity.Entity::discard);
+        // 板が7枚では動かない
+        c.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_WAFER).setCount(7);
+        for (int i = 0; i < t + 5; i++) tick.run();
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT).isEmpty(), "7 slices are not a batch");
+        // 酸化炉 → エッチング槽 → また酸化炉に入る（板に戻る）
+        h.assertTrue(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.isWafer(o), "stripped slice can be oxidized again");
+        LOG.info("[LAB] etch [9-06]: 8 oxidized slices (125 nm) + HF -> 8 bare slices in {} ticks (660 nm: {} ticks); lead bottle returned; purity/dopant kept", t, com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(660));
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 
@@ -512,6 +562,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), "膜 約125nm（1100℃・1時間）")), com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS / 20.0, "Si + O2 → SiO2。Deal–Grove の式");
         rec(a, Semiconductor.OXIDATION_FURNACE.block, "ウェット酸化", L(cond(alt(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), Semiconductor.OXIDIZED_WAFER), "酸化膜つきなら続きから"), io(Items.WATER_BUCKET, 1)),
             L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), "膜 約660nm（1100℃・1時間）"), io(Items.BUCKET, 1)), com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS / 20.0, "Si + 2H2O → SiO2 + 2H2。水蒸気は膜を速く通る");
+        rec(a, Semiconductor.ETCH_TANK.block, "酸化膜をはがす", L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.EtchTankBlockEntity.WAFERS_PER_RUN), "時間は膜の厚さ（1秒に20nm）"), io(Chemistry.HYDROFLUORIC_ACID, 1)),
+            L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.EtchTankBlockEntity.WAFERS_PER_RUN), "純度とドーパントを受け継ぐ"), io(Metallurgy.LEAD_BOTTLE, 1)), 0, com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(125) / 20.0, "SiO2 + 6HF → H2SiF6 + 2H2O。シリコンは溶けない。室温・電気なし（125nm の膜の時間）");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

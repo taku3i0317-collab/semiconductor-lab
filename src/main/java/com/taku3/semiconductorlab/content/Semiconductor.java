@@ -60,6 +60,9 @@ public final class Semiconductor {
     public static final Machine<WaferSawBlockEntity> WAFER_SAW = Machine.electric("wafer_saw", WaferSawBlockEntity::new, WaferSawBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<DiffusionFurnaceBlockEntity> DIFFUSION_FURNACE = Machine.electric("diffusion_furnace", DiffusionFurnaceBlockEntity::new, DiffusionFurnaceBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<OxidationFurnaceBlockEntity> OXIDATION_FURNACE = Machine.electric("oxidation_furnace", OxidationFurnaceBlockEntity::new, OxidationFurnaceBlockEntity.LAYOUT, metal(4.0f));
+    // [9-06] エッチング槽（IMP4-01）：鉛張りの槽にフッ酸。酸化膜だけを溶かす（室温、電気なし）
+    public static final Machine<EtchTankBlockEntity> ETCH_TANK = Machine.builder("etch_tank", EtchTankBlockEntity::new)
+            .ticker(EtchTankBlockEntity::tick).layout(EtchTankBlockEntity.LAYOUT).props(metal(3.0f)).build();
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

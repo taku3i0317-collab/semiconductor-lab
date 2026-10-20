@@ -62,6 +62,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.CRYSTAL_PULLER, CrystalPullerScreen::new);
 		screen(Semiconductor.DIFFUSION_FURNACE, DiffusionFurnaceScreen::new);
 		screen(Semiconductor.OXIDATION_FURNACE, OxidationFurnaceScreen::new);
+		screen(Semiconductor.ETCH_TANK, EtchTankScreen::new);
 		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);
 		screen(Semiconductor.CZ_PULLER, CzPullerScreen::new);
 		// 専用の画面を書いていない機械は、ふつうの画面（電力・進み具合・状態）
