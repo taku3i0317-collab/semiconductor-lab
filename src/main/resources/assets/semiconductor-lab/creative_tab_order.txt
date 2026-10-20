@@ -189,6 +189,11 @@ cyclized_rubber  # Chemistry [2-29] 1839
 ammonia_water  # Chemistry [2-21] 1850
 calcium_acetate  # Chemistry [2-42] 1850
 ammonia_still  # Chemistry [2-21] 1850
+wild_yeast  # Chemistry [2-39] 1857
+sugar_wash  # Chemistry [2-39] 1857
+fermented_wash  # Chemistry [2-39] 1857
+ethanol  # Chemistry [2-39] 1857
+fermentation_crock  # Chemistry [2-39] 1857
 copper_gauze  # Chemistry [2-27] 1859
 formalin  # Chemistry [2-27] 1859
 novolac_mix  # Chemistry [2-28] 1907

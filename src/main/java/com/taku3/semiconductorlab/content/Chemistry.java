@@ -169,6 +169,12 @@ public final class Chemistry {
     public static final Item EPOXY_RESIN           = Reg.item("epoxy_resin", new Item.Properties().stacksTo(16));
     public static final Item EPOXY_MOLDING_COMPOUND = Reg.item("epoxy_molding_compound");
     public static final Item CURED_EPOXY           = Reg.item("cured_epoxy");
+    // [2-39] エタノール（IMP3、O-009）：果実の皮の野生酵母 → 酵母入りの砂糖水 → 発酵のかめ（土器）→ 発酵した液 → 石英の蒸留器 → エタノール（95.6％で止まる＝共沸）
+    public static final Item WILD_YEAST            = Reg.item("wild_yeast");
+    public static final Item SUGAR_WASH            = Reg.item("sugar_wash", new Item.Properties().stacksTo(16));
+    public static final Item FERMENTED_WASH        = Reg.item("fermented_wash", new Item.Properties().stacksTo(16));
+    public static final Item ETHANOL               = Reg.contained("ethanol", Vessel.GLASS_BOTTLE);
+    public static final Block FERMENTATION_CROCK   = Reg.functional("fermentation_crock", com.taku3.semiconductorlab.block.FermentationCrockBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).strength(1.0f).sound(SoundType.DECORATED_POT).noOcclusion());
     /** 獣脂を落とす確率（1頭あたり） */
     public static final float TALLOW_CHANCE = 0.6f;
 

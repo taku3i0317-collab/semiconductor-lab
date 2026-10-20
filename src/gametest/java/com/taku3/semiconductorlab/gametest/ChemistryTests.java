@@ -704,6 +704,34 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-39] エタノール（IMP3、O-009）
+    // =====================================================================
+
+    /** 果実＋砂糖＋水 → 酵母。砂糖3＋酵母＋水 → 砂糖水。かめに仕込む → 3段発酵 → 発酵した液2＋酵母1。液3＋蒸留器＋瓶 → エタノール。発酵前は取り出せない */
+    @GameTest
+    public void ethanol(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "wild_yeast_from_berries", net.minecraft.world.item.Items.SWEET_BERRIES) && recipeUses(h, "wild_yeast_from_apple", net.minecraft.world.item.Items.APPLE), "yeast from fruit skins");
+        h.assertTrue(recipeUses(h, "sugar_wash", Chemistry.WILD_YEAST), "sugar wash needs yeast");
+        h.assertTrue(recipeUses(h, "ethanol", Chemistry.FERMENTED_WASH) && recipeUses(h, "ethanol", com.taku3.semiconductorlab.content.Metallurgy.QUARTZ_STILL), "distil fermented wash");
+        h.assertTrue(recipeUses(h, "fermentation_crock", com.taku3.semiconductorlab.content.Survival.EARTHENWARE_POT), "crock from earthenware");
+        floor(h, 3);
+        BlockPos rel = p(1, 1, 1); BlockPos pos = h.absolutePos(rel);
+        h.setBlock(rel, Chemistry.FERMENTATION_CROCK);
+        var level = h.getLevel(); var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertFalse(com.taku3.semiconductorlab.block.FermentationCrockBlock.collect(level, pos, player), "empty crock gives nothing");
+        ItemStack wash = new ItemStack(Chemistry.SUGAR_WASH, 2);
+        h.assertTrue(com.taku3.semiconductorlab.block.FermentationCrockBlock.fill(level, pos, player, wash) && wash.getCount() == 1, "filled");
+        h.assertFalse(com.taku3.semiconductorlab.block.FermentationCrockBlock.fill(level, pos, player, wash), "cannot fill twice");
+        h.assertFalse(com.taku3.semiconductorlab.block.FermentationCrockBlock.collect(level, pos, player), "not done yet");
+        for (int i = 0; i < 3; i++) com.taku3.semiconductorlab.block.FermentationCrockBlock.ferment(level, pos);
+        h.assertTrue(com.taku3.semiconductorlab.block.FermentationCrockBlock.collect(level, pos, player), "done");
+        h.assertTrue(player.getInventory().countItem(Chemistry.FERMENTED_WASH) == 2 && player.getInventory().countItem(Chemistry.WILD_YEAST) == 1, "2 wash + yeast back");
+        h.assertTrue(level.getBlockState(pos).getValue(com.taku3.semiconductorlab.block.FermentationCrockBlock.STAGE) == 0, "crock empty again");
+        LOG.info("[LAB] ethanol [2-39]: fruit -> wild yeast -> sugar wash -> crock (3 stages) -> 2 fermented wash + yeast -> still -> ethanol 95.6%");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

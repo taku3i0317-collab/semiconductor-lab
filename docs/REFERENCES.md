@@ -1705,6 +1705,21 @@
 - Wikipedia「Epichlorohydrin」：https://en.wikipedia.org/wiki/Epichlorohydrin
 - Wikipedia「Epoxy molding compound」/「Integrated circuit packaging」：https://en.wikipedia.org/wiki/Integrated_circuit_packaging
 
+## C14. お酒は酵母が作る、でも 95.6％ で止まる（エタノール）［2-39］
+**答え**：酵母は酸素の少ない所で糖をエタノールと二酸化炭素に分ける（C6H12O6 → 2C2H5OH + 2CO2）。果物の皮には野生の酵母が付いている。1857年パスツールが発酵は生きた酵母のはたらきだと示し、1897年ブフナーが細胞なしの抽出液でも発酵することを見つけた（酵素）。蒸留するとエタノール（沸点 78℃）が濃くなるが、95.6％ で液と蒸気の割合が同じになる（共沸）ので、それ以上は濃くならない。
+
+- へえ①：お酒ができるのは酵母という小さな生き物のはたらき。泡は二酸化炭素。
+- へえ②：いくら蒸留しても 95.6％ より濃くならない（共沸）。
+- へえ③：ブフナーは酵母をすりつぶした汁でも発酵することを見つけ、「酵素」の研究が始まった（1907 ノーベル化学賞）。
+- へえ④：ジョージアの紀元前6000年ごろの土のかめにワインの跡。ブラジルは今もサトウキビから燃料のエタノールを作る。
+
+確かさ：反応式・共沸 95.6％ ◎／パスツール 1857・ブフナー 1897 ◎／ジョージアの紀元前6000年 ○
+根拠：
+- Wikipedia「Ethanol fermentation」：https://en.wikipedia.org/wiki/Ethanol_fermentation
+- Wikipedia「Azeotrope」（エタノールと水）：https://en.wikipedia.org/wiki/Azeotrope
+- Nobel Prize「Eduard Buchner」1907：https://www.nobelprize.org/prizes/chemistry/1907/buchner/facts/
+- Wikipedia「Georgian wine」（紀元前6000年）：https://en.wikipedia.org/wiki/Georgian_wine
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

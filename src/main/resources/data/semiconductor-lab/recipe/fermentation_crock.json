@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:earthenware_pot",
+    "semiconductor-lab:earthenware_pot",
+    "#minecraft:wooden_slabs"
+  ],
+  "result": {
+    "id": "semiconductor-lab:fermentation_crock",
+    "count": 1
+  }
+}
