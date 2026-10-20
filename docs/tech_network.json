@@ -5341,7 +5341,7 @@
    "requires": [],
    "understanding": [],
    "buildable_now": true,
-   "hee1": "鉱石の中の金属の粒は、泡にくっついて浮かび上がる（O-012 で追加。出典：Wikipedia「Froth flotation」、Fuerstenau, Jameson, Yoon 編『Froth Flotation: A Century of Innovation』（SME, 2007）（https://www.smenet.org/））",
+   "hee1": "鉱石の中の金属の粒は、泡にくっついて浮かび上がる（O-012 で追加。出典：Wikipedia「Froth flotation」、Fuerstenau, Jameson, Yoon 編『Froth Flotation: A Century of Innovation』（SME, 2007））",
    "kind": "tech",
    "play": "",
    "missing": "",
@@ -5453,7 +5453,7 @@
    ],
    "understanding": [],
    "buildable_now": false,
-   "hee1": "歯車の表面だけを硬くして、中は割れにくく粘り強くしている（O-012 で追加。出典：Wikipedia「Nitriding」「Carburizing」、D. Pye『Practical Nitriding and Ferritic Nitrocarburizing』(ASM International, 2003)（https://www.asminternational.org/practical-nitriding-and-ferritic-nitrocarburizing/results/-/journal_content/56/10192/06948G/PUBLICATION））",
+   "hee1": "歯車の表面だけを硬くして、中は割れにくく粘り強くしている（O-012 で追加。出典：Wikipedia「Nitriding」「Carburizing」、D. Pye『Practical Nitriding and Ferritic Nitrocarburizing』(ASM International, 2003)）",
    "kind": "tech",
    "play": "",
    "missing": "",
@@ -5504,7 +5504,7 @@
    ],
    "understanding": [],
    "buildable_now": true,
-   "hee1": "ハフニウムは、X線で元素を調べる方法ができてから、やっと見つかった（O-012 で追加。出典：Wikipedia「Hafnium」「Crystal bar process」、ASM International (hafnium, van Arkel–de Boer 1925)（https://www.asminternational.org/?p=20779））",
+   "hee1": "ハフニウムは、X線で元素を調べる方法ができてから、やっと見つかった（O-012 で追加。出典：Wikipedia「Hafnium」「Crystal bar process」）",
    "kind": "tech",
    "play": "",
    "missing": "",
@@ -5779,7 +5779,7 @@
    ],
    "understanding": [],
    "buildable_now": true,
-   "hee1": "溶けた鋼を真空に吸い上げると、中にかくれていた気体があわになって出てくる（O-012 で追加。出典：Wikipedia「Vacuum degassing」「Secondary steelmaking」、AISE『The Making, Shaping and Treating of Steel』（二次精錬の章）（https://www.aist.org/））",
+   "hee1": "溶けた鋼を真空に吸い上げると、中にかくれていた気体があわになって出てくる（O-012 で追加。出典：Wikipedia「Vacuum degassing」「Secondary steelmaking」、AISE『The Making, Shaping and Treating of Steel』（二次精錬の章））",
    "kind": "tech",
    "play": "",
    "missing": "",
@@ -6849,7 +6849,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C10. ベークライトの親戚が水をきれいにする（イオン交換）［2-17］",
+     "answer": "スルホ基（SO3H）を付けた樹脂は金属イオンを H+ と、アミノ基を付けた樹脂は陰イオンを OH- と入れ替える。出てきた H+ と OH- が水になるので、水の中のイオンがなくなる。樹脂が飽和したら、酸とアルカリで元に戻せる（再生）。1935 アダムスとホームズがフェノール樹脂系で初めて作った。",
+     "hee": {
+      "1": "ベークライトの親戚が、水の中の塩を取りのぞく。",
+      "2": "純粋な水は電気をほとんど通さない。18.2 MΩ·cm（25℃）が理論上の上限。",
+      "3": "それまでは天然の鉱物（ゼオライト）が使われた。今の樹脂はポリスチレン系（1944 ダレリオ）。",
+      "4": "1950年代から半導体工場はイオン交換の純水でウェハーを洗った（[2-18] 超純水へ）。"
+     },
+     "certainty": "イオン交換のしくみ ◎／アダムスとホームズ 1935 ○（TECH_TREE の本物欄と一致）／18.2 MΩ·cm ◎／ダレリオ 1944 ○",
+     "basis": "- Wikipedia「Ion-exchange resin」：https://en.wikipedia.org/wiki/Ion-exchange_resin"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -6859,7 +6872,7 @@
    "name": "イオン交換",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1935,
    "year_range": null,
@@ -6886,7 +6899,7 @@
    "buildable_now": false,
    "hee1": "ベークライトの親戚が水をきれいにする",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -7865,7 +7878,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F19. 光で溶けるようになる液とスピンコート（ポジ型レジスト・塗布）［2-32］［9-19］",
+     "answer": "ポジ型レジストは、ノボラック樹脂に感光剤 DNQ を溶かした液。DNQ は樹脂がアルカリに溶けるのを抑えているが、紫外線で分解して酸になると、光の当たった所だけがアルカリに溶けるようになる。ウェハーを毎分数千回転させてレジストを薄く均一に広げ（スピンコート、約1µm）、温めて溶剤を飛ばす。",
+     "hee": {
+      "1": "ピザ生地を回して広げるのと同じ方法で、ウェハーに液を塗る。",
+      "2": "工場の照明が黄色いのは、レジストが紫外線や青い光で感光しないようにするため（イエロールーム）。",
+      "3": "DNQ のポジ型は 1940年代にカレ社のズースが複写用の感光紙として考えた。IC の主力になったのは 1970年代後半の投影露光から（それまではネガ型の KPR・KTFR）。",
+      "4": "光の当たった所が消えるのでポジ（写真のポジと同じ向き）、残るのがネガ型。"
+     },
+     "certainty": "DNQ／ノボラックのしくみ ◎（教科書）／ズース 1940年代 ○（年は出典で 1940〜44 とばらつく）／IC の主力は 1970年代後半 ○／スピンコートの始まりの年 △（未確認）",
+     "basis": "Wikipedia「Photoresist」https://en.wikipedia.org/wiki/Photoresist 、Wikipedia「Diazonaphthoquinone」https://en.wikipedia.org/wiki/Diazonaphthoquinone 、Wikipedia「Spin coating」https://en.wikipedia.org/wiki/Spin_coating （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -7875,7 +7901,7 @@
    "name": "ポジ型フォトレジスト",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1940,
    "year_range": "1940〜1944",
@@ -7902,10 +7928,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "光が当たったところだけ溶ける材料。もとは図面をコピーする紙のための発明",
    "kind": "tech",
-   "play": "",
+   "play": "軽（日なたで感光するので運び方に気をつける）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -21074,7 +21100,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F19. 光で溶けるようになる液とスピンコート（ポジ型レジスト・塗布）［2-32］［9-19］",
+     "answer": "ポジ型レジストは、ノボラック樹脂に感光剤 DNQ を溶かした液。DNQ は樹脂がアルカリに溶けるのを抑えているが、紫外線で分解して酸になると、光の当たった所だけがアルカリに溶けるようになる。ウェハーを毎分数千回転させてレジストを薄く均一に広げ（スピンコート、約1µm）、温めて溶剤を飛ばす。",
+     "hee": {
+      "1": "ピザ生地を回して広げるのと同じ方法で、ウェハーに液を塗る。",
+      "2": "工場の照明が黄色いのは、レジストが紫外線や青い光で感光しないようにするため（イエロールーム）。",
+      "3": "DNQ のポジ型は 1940年代にカレ社のズースが複写用の感光紙として考えた。IC の主力になったのは 1970年代後半の投影露光から（それまではネガ型の KPR・KTFR）。",
+      "4": "光の当たった所が消えるのでポジ（写真のポジと同じ向き）、残るのがネガ型。"
+     },
+     "certainty": "DNQ／ノボラックのしくみ ◎（教科書）／ズース 1940年代 ○（年は出典で 1940〜44 とばらつく）／IC の主力は 1970年代後半 ○／スピンコートの始まりの年 △（未確認）",
+     "basis": "Wikipedia「Photoresist」https://en.wikipedia.org/wiki/Photoresist 、Wikipedia「Diazonaphthoquinone」https://en.wikipedia.org/wiki/Diazonaphthoquinone 、Wikipedia「Spin coating」https://en.wikipedia.org/wiki/Spin_coating （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -21084,7 +21123,7 @@
    "name": "レジスト塗布",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": null,
@@ -21113,7 +21152,7 @@
    "buildable_now": false,
    "hee1": "ピザ生地を回して広げるのと同じ",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -33323,7 +33362,7 @@
    "missing": "",
    "sources": [
     "https://en.wikipedia.org/wiki/Liquid-crystal_display",
-    "https://ethw.org/Milestones:Liquid_Crystal_Display"
+    "https://ethw.org/Milestones:Liquid_Crystal_Display,_1968"
    ],
    "enables": [],
    "explains": [],
@@ -34217,7 +34256,7 @@
    "play": "作品：遠くの人や機械と電波でつながる",
    "missing": "",
    "sources": [
-    "https://www.gps.gov/systems/gps/"
+    "https://www.gps.gov/"
    ],
    "enables": [],
    "explains": [],
@@ -34509,7 +34548,7 @@
    "play": "作品：教えた動きで部品を運び、AI で物の形を見てつかむ",
    "missing": "",
    "sources": [
-    "https://www.thehenryford.org/collections-and-research/digital-collections/artifact/183434",
+    "https://spectrum.ieee.org/unimation-robot",
     "https://www.automate.org/robotics/engelberger/joseph-engelberger-unimate"
    ],
    "enables": [],
@@ -34819,7 +34858,7 @@
    "play": "作品：部屋の熱を外へ（冬は外の熱を部屋へ）運ぶ",
    "missing": "",
    "sources": [
-    "https://ethw.org/Milestones:Inverter-Driven_Air_Conditioner",
+    "https://ethw.org/Milestones:Inverter-Driven_Air_Conditioner,_1980-1981",
     "https://www.asme.org/About-ASME/Engineering-History/Landmarks/274-Perkins-Vapor-Compression-Cycle-for-Refrigeration"
    ],
    "enables": [],
@@ -36284,7 +36323,6 @@
    "play": "実験：自分で描いた回路の図を、別のプレイヤーの工場で焼いてもらう",
    "missing": "",
    "sources": [
-    "https://www.computerhistory.org/siliconengine/",
     "https://newsroom.arm.com/blog/arm-official-history",
     "https://www.digitimes.com/news/a20040913ST402.html"
    ],
@@ -36684,7 +36722,7 @@
    "play": "実験：水銀の線を少しずつ冷やし、ある温度で電気抵抗が急に 0 になるのを見る",
    "missing": "",
    "sources": [
-    "https://ethw.org/Milestones:Discovery_of_Superconductivity",
+    "https://ethw.org/Milestones:Discovery_of_Superconductivity,_1911",
     "https://www.nobelprize.org/prizes/physics/1913/summary/"
    ],
    "enables": [
@@ -38404,7 +38442,7 @@
    "branch": false,
    "year": 1863,
    "year_range": "1863〜1900",
-   "year_uncertain": false,
+   "year_uncertain": true,
    "requires": [
     [
      [
@@ -38425,8 +38463,7 @@
    "missing": "",
    "sources": [
     "https://en.wikipedia.org/wiki/Henry_Clifton_Sorby",
-    "https://en.wikipedia.org/wiki/William_Chandler_Roberts-Austen",
-    "https://press.uchicago.edu/"
+    "https://en.wikipedia.org/wiki/William_Chandler_Roberts-Austen"
    ],
    "enables": [],
    "explains": [
@@ -38485,7 +38522,7 @@
    "missing": "",
    "sources": [
     "https://en.wikipedia.org/wiki/Dislocation",
-    "https://en.wikipedia.org/wiki/Dash_necking",
+    "https://en.wikipedia.org/wiki/Necking_(engineering)",
     "https://www.ias.ac.in/article/fulltext/boms/019/06/0857-0872"
    ],
    "enables": [],

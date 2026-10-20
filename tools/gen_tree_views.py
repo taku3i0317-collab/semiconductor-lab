@@ -158,6 +158,14 @@ def year_of(text):
     return best[1] if best else None
 
 
+def clean_url(u):
+    """本文から取った URL の後ろの句読点・閉じかっこを外す（URL の中の「(computer)」や「,_1911」は残す）"""
+    u = u.rstrip(",.、。）")
+    while u.endswith(")") and u.count(")") > u.count("("):
+        u = u[:-1].rstrip(",.、。）")
+    return u
+
+
 def link_check(nodes):
     """つながりの検査（O-013）：products・ideas も合わせた全ノードで、
     ①前提・前提になる・説明する・部品・本文中の [番号] が存在しない番号を指していないか
@@ -504,7 +512,7 @@ def export_json(nodes):
                           "real": field(n["body"], r"本物"), "hee1": field(n["body"], r"へえ①?"),
                           "kind": kind_of(n["body"]),
                           "play": field(n["body"], r"遊び方"), "missing": field(n["body"], r"足りない"),
-                          "sources": re.findall(r"https?://[^\s,／]+", field_all(n["body"], r"出典")),
+                          "sources": [clean_url(u) for u in re.findall(r"https?://[^\s／]+", field_all(n["body"], r"出典"))],
                           "enables": n["enables"], "explains": n["explains"], "parts": n["parts"], "materials": n["materials"], "frontier": n["frontier"],
                           "enabled_by": [k for k, o in nodes.items() if i in o["enables"]],
                           "explained_by": [k for k, o in nodes.items() if i in o["explains"]],
@@ -929,6 +937,11 @@ def main():
         print(f"bad links: {len(bad)}")
         for a, f, i in bad:
             print(f"  [{a}] {f} -> [{i}] がない")
+        badurl = [(i, u) for i, n in allnodes.items() for u in re.findall(r"https?://[^\s／]+", n["body"])
+                  if re.search(r"[（）、。「」]|[^\x00-\x7f%]", u.rstrip(",.）)")) or u.endswith(",")]
+        print(f"odd urls: {len(badurl)}")
+        for i, u in badurl:
+            print(f"  [{i}] {u}")
         print(f"same-name candidates: {len(same)}")
         for a, b in same:
             print(f"  [{a}] {allnodes[a]['name']} ／ [{b}] {allnodes[b]['name']}")
