@@ -262,6 +262,35 @@ public class VacuumTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [5-14] 真空蒸着（IMP2-01）：クラウンガラス＋銀 → 半透明鏡。シュプレンゲル（0.05Pa）では足りず 0.01Pa 以下だけ。1回ごとに容器が少し大気にもどる */
+    @GameTest
+    public void vacuumEvaporation(GameTestHelper h) {
+        var E = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.class;
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), ep = p(2, 1, 1);
+        h.setBlock(cp, Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(ep, Vacuum.EVAPORATOR.block);
+        var c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        var e = h.getBlockEntity(ep, E);
+        var box = e.getContainer();
+        int S = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_SUBSTRATE, M = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_METAL, O = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_OUT;
+        int T = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS);
+        box.setItem(S, new ItemStack(com.taku3.semiconductorlab.content.Optics.CROWN_GLASS, 2));
+        box.setItem(M, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.SILVER_NUGGET, 2));
+        c.setPressure(0.06);   // シュプレンゲルの到達あたり
+        tickConsumer(h, ep, e, T + 20, feed);
+        h.assertTrue(box.getItem(O).isEmpty(), "0.06 Pa (Sprengel) is not enough: atoms scatter");
+        c.setPressure(0.004);  // 拡散ポンプ
+        tickConsumer(h, ep, e, T, feed);
+        h.assertTrue(box.getItem(O).is(com.taku3.semiconductorlab.content.Optics.HALF_SILVERED_MIRROR), "0.004 Pa -> half-silvered mirror");
+        h.assertValueEqual(box.getItem(M).getCount(), 1, "1 silver nugget used");
+        h.assertTrue(c.getPressure() > com.taku3.semiconductorlab.block.EvaporatorBlockEntity.MAX_PA, "opening the bell jar lets air back in");
+        h.assertTrue(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Items.GLASS), new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.SILVER_NUGGET)) == null, "vanilla glass is not an optical substrate");
+        LOG.info("[LAB] evaporation [5-14]: crown glass + Ag at <= 0.01 Pa -> half-silvered mirror; 0.06 Pa rejected");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Vacuum.SEALING_STATION.block, "真空管の封止", L(io(Vacuum.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),

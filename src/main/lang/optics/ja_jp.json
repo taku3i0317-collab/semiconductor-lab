@@ -165,5 +165,10 @@
   "item.semiconductor-lab.mercury_lamp_tube.note4": "電極から出た電子が水銀原子にぶつかって、原子の中の電子を上の段に押し上げる。電子が下の段にもどるとき、段の差のエネルギーの光が出る（決まった波長の線）。",
   "item.semiconductor-lab.spectroscope.lamp": "💡 水銀灯の光を分光：",
   "item.semiconductor-lab.spectroscope.line.hg": "  水銀 Hg：黄 579.1・577.0nm、緑 546.1nm、青 435.8nm（g線）、紫 404.7nm（h線）",
-  "item.semiconductor-lab.spectroscope.line.hg_i": "  i線 365.0nm は紫外で目に見えない（紙の蛍光で青白く光って見える）。最初の露光装置はこの g線・i線を使った"
+  "item.semiconductor-lab.spectroscope.line.hg_i": "  i線 365.0nm は紫外で目に見えない（紙の蛍光で青白く光って見える）。最初の露光装置はこの g線・i線を使った",
+  "item.semiconductor-lab.half_silvered_mirror": "半透明鏡",
+  "item.semiconductor-lab.half_silvered_mirror.note1": "光の半分を映して、半分を通すガラス。のぞくと向こうも見えて、自分も映る。",
+  "item.semiconductor-lab.half_silvered_mirror.note2": "真空蒸着装置で、クラウンガラスに銀をとても薄く（数十nm⚠️）付けたもの。干渉計 [7-09] で光を2つの道に分け、またもどす板（ビームスプリッター）。",
+  "item.semiconductor-lab.half_silvered_mirror.note3": "取調室の「マジックミラー」も同じしくみ。明るい側からは鏡に、暗い側からは窓に見える。",
+  "item.semiconductor-lab.half_silvered_mirror.note4": "銀の膜が厚いほどよく反射し、薄いほどよく通す。半分ずつにするには数十nm の厚さにそろえる必要がある。マイケルソンの時代（1881）は、化学反応の銀めっきを薄く付けて作った。"
 }

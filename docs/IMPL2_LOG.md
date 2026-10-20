@@ -56,3 +56,5 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ [5-04] 回転ポンプ（段階① 水銀封止）＋ [5-05] 水銀拡散ポンプ（1つの commit：回転ポンプが拡散ポンプ越しに容器を引くので互いに参照）。block/RotaryPumpBlockEntity・DiffusionPumpBlockEntity、画面 client/PumpScreen（容器の圧力と状態）。真空容器｜拡散｜回転 で 1気圧 → 1Pa → 約0.002Pa。GameTest rotary_and_diffusion_pumps、CHEMISTRY V1〜V3、REFERENCES O15。テスト 108/108
   - 決定（ユーザー指示「1915年ごろの作り方：ガラス製・水銀・ヒーター」）：ゲーデのポンプは「ガラスと鉄」でガラスの種類は資料に無い → [2-15] ホウケイ酸を作らず [2-14] ソーダ石灰ガラス＋鉄の釜⚠️。加熱は電気のヒーター⚠️。TECH_TREE [5-05] に理由
   - gui.semiconductor-lab.pump.* は lang の common 部品に入った（lang_add の自動振り分け）
+- ✅ [5-14] 真空蒸着（熱した W 線で銀を蒸発、いちばん古い方法）：block/EvaporatorBlockEntity・client/EvaporatorScreen。隣の容器 0.01Pa 以下（拡散ポンプが要る、シュプレンゲル 0.05Pa では不可）、クラウンガラス＋銀 → 半透明鏡。組み合わせは EvaporatorBlockEntity.recipe に1行ずつ足す。GameTest vacuum_evaporation、CHEMISTRY V4〜V5、REFERENCES O16。テスト 109/109
+  - IMP-32 から CHEMISTRY.md・TEST_QUEUE.md は部品（docs/chemistry/・docs/test_queue/）に書いて tools/docs_build.py で組み立てる。[5-04][5-05] の節は --adopt で部品へ移した

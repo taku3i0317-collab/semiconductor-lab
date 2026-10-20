@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "semiconductor-lab:item/half_silvered_mirror"
+  }
+}

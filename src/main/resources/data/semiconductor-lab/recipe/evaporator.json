@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tungsten_wire",
+    "semiconductor-lab:tungsten_wire",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "semiconductor-lab:copper_cable",
+    "semiconductor-lab:soda_lime_glass"
+  ],
+  "result": {
+    "id": "semiconductor-lab:evaporator",
+    "count": 1
+  }
+}

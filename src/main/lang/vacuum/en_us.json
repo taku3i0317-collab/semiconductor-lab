@@ -69,5 +69,20 @@
   "block.semiconductor-lab.diffusion_pump.note2": "400 W heater. Place it next to both a vacuum chamber and a running rotary pump (backing). It starts once the chamber is below 10 Pa and brings it down to about 0.004 Pa, where it balances the leak (high vacuum, enough for evaporation). Recipe: 3 soda-lime glass + 2 iron + 2 mercury + tungsten wire (heater).",
   "block.semiconductor-lab.diffusion_pump.note3": "In 1915 Gaede boiled mercury in an iron pot and blew the vapor through glass tubes: the diffusion pump. In 1916 Langmuir cooled the walls with water to condense the vapor (the condensation pump) and made it much faster. Now vacuum tubes and lamps could reach high vacuum.",
   "block.semiconductor-lab.diffusion_pump.note4": "A fast downward jet of mercury vapor knocks any gas molecules that wander into it downwards. At atmospheric pressure there are too many molecules and the jet breaks up, so a backing pump must lower the pressure first. From 1928, low-vapor-pressure oils replaced mercury [5-06].",
-  "block.semiconductor-lab.diffusion_pump.placeholder": "Approximation: Gaede heated with a Bunsen burner (here an electric heater). The cold trap that stops mercury vapor drifting into the chamber, the cooling water and the warm-up time are omitted."
+  "block.semiconductor-lab.diffusion_pump.placeholder": "Approximation: Gaede heated with a Bunsen burner (here an electric heater). The cold trap that stops mercury vapor drifting into the chamber, the cooling water and the warm-up time are omitted.",
+  "block.semiconductor-lab.evaporator": "Vacuum Evaporator",
+  "block.semiconductor-lab.evaporator.note1": "A machine that heats metal in a vacuum into vapor and coats glass with a thin layer of it.",
+  "block.semiconductor-lab.evaporator.note2": "300 W electric (tungsten wire heater). Place it next to a vacuum chamber; it runs only while the chamber is below 0.01 Pa (needs a diffusion pump [5-05]). Crown glass + silver nugget -> half-silvered mirror (20 s). Each run opens the chamber, so the pressure rises a little. Recipe: 2 W wire + 2 iron + copper cable + soda-lime glass.",
+  "block.semiconductor-lab.evaporator.note3": "In 1912 Pohl and Pringsheim evaporated metals in vacuum to make mirror films (there were earlier attempts). In the 1930s John Strong evaporated aluminum onto telescope mirrors, making mirrors that tarnish less. The aluminum wiring of 1960s ICs was made the same way.",
+  "block.semiconductor-lab.evaporator.note4": "Leftover air scatters the evaporated metal atoms. The distance a gas molecule travels before the next collision (mean free path) is about 6.6 mm divided by the pressure in Pa. At 0.01 Pa that is about 66 cm, longer than the bell jar, so atoms fly straight to the substrate.",
+  "block.semiconductor-lab.evaporator.placeholder": "Omitted: film thickness control (the later quartz crystal thickness monitor [8-15]) and sputtering. For now only silver can be deposited (aluminum, chromium and others once their prerequisites exist).",
+  "gui.semiconductor-lab.evaporator.power": "Power %s",
+  "gui.semiconductor-lab.evaporator.pressure": "In %s",
+  "gui.semiconductor-lab.evaporator.target": "Goal %s",
+  "gui.semiconductor-lab.evaporator.need_input": "Insert glass and silver",
+  "gui.semiconductor-lab.evaporator.need_chamber": "No chamber",
+  "gui.semiconductor-lab.evaporator.need_vacuum": "Pump lower (diffusion)",
+  "gui.semiconductor-lab.evaporator.output_full": "Output full",
+  "gui.semiconductor-lab.evaporator.need_power": "Not enough power",
+  "gui.semiconductor-lab.evaporator.running": "Evaporating"
 }

@@ -570,6 +570,20 @@
 - Chemistry World「Classic kit: Gaede's diffusion pump」：https://www.chemistryworld.com/opinion/classic-kit-gaedes-diffusion-pump/3004912.article
 - Wikipedia「Wolfgang Gaede」：https://en.wikipedia.org/wiki/Wolfgang_Gaede
 
+## O16. 真空の中で金属を蒸気にして付ける（真空蒸着）［5-14］
+**答え**：真空の中で熱したタングステン線に金属をのせて蒸発させると、金属の原子がまっすぐ飛んでガラスなどの基板に付き、薄い膜になる。空気が残っていると原子がぶつかって散るので、平均自由行程（およそ 6.6mm÷圧力 Pa）が容器より長くなる 0.01Pa 以下の高真空が要る。
+
+- へえ①：ポテトチップスの袋の内側の銀色も真空蒸着のアルミ。
+- へえ②：1912年ポールとプリングスハイムが真空で金属を蒸発させて鏡の膜を作った（これが最初ではない）。
+- へえ③：1930年代ジョン・ストロングが望遠鏡の鏡にアルミを蒸着（1934年ウィルソン山のタワー望遠鏡、1935年に100インチ主鏡）。
+- へえ④：1960年代の IC のアルミ配線も真空蒸着。干渉計の半透明鏡・反射防止膜・マスクのクロムも、この「膜を付ける」技術の上にある。
+
+確かさ：平均自由行程と蒸着の原理 ◎／ポールとプリングスハイム 1912 ○（TECH_TREE の記述、一次資料は未確認）／ストロングのアルミ蒸着 1934〜35 ○／IC のアルミ配線 ◎
+根拠：
+- Wikipedia「Evaporation (deposition)」：https://en.wikipedia.org/wiki/Evaporation_(deposition)
+- Wikipedia「Mean free path」：https://en.wikipedia.org/wiki/Mean_free_path
+- Wikipedia「John Strong (physicist)」：https://en.wikipedia.org/wiki/John_Strong_(physicist)
+
 ---
 
 # 冶金と熱（タスク15〜）

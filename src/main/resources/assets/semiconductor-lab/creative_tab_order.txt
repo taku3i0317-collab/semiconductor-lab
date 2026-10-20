@@ -117,6 +117,7 @@ vacuum_tube_assembly  # Vacuum [5-02] 1904
 vacuum_tube  # Vacuum [5-02] 1904
 sealing_station  # Vacuum [5-02] 1904
 rotary_pump  # Vacuum [5-04] 1905
+evaporator  # Vacuum [5-14] 1912
 diffusion_pump  # Vacuum [5-05] 1915
 rock_salt  # Gas [6-04] -1500
 salt  # Gas [6-04] -1500
@@ -165,6 +166,7 @@ oxyhydrogen_burner  # Optics [7-02] 1839
 mercury_lamp_assembly  # Optics [7-10] 1901
 mercury_lamp_tube  # Optics [7-10] 1901
 mercury_lamp  # Optics [7-10] 1901
+half_silvered_mirror  # Optics [5-14] 1912
 lead_screw  # Precision [8-02] 1797
 pump_rotor  # Precision [8-01] 1797
 lathe  # Precision [8-01] 1797

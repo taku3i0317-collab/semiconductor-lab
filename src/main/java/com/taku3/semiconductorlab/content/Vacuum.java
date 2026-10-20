@@ -49,6 +49,8 @@ public final class Vacuum {
     public static final Machine<RotaryPumpBlockEntity> ROTARY_PUMP = Machine.electric("rotary_pump", RotaryPumpBlockEntity::new, RotaryPumpBlockEntity.LAYOUT, lit(metal(3.5f), 0));
     // 水銀拡散ポンプ [5-05]（IMP2-01、ゲーデ 1915、ガラスと鉄）：ヒーター 400W、前段の回転ポンプと 10Pa 以下が要る。10⁻⁴Pa 級
     public static final Machine<DiffusionPumpBlockEntity> DIFFUSION_PUMP = Machine.electric("diffusion_pump", DiffusionPumpBlockEntity::new, DiffusionPumpBlockEntity.LAYOUT, lit(metal(2.0f).sound(SoundType.GLASS), 4));
+    // 真空蒸着装置 [5-14]（IMP2-01）：W 線のヒーター 300W で金属を蒸発。隣の容器が 0.01Pa 以下のときだけ。クラウンガラス＋銀 → 半透明鏡
+    public static final Machine<EvaporatorBlockEntity> EVAPORATOR = Machine.electric("evaporator", EvaporatorBlockEntity::new, EvaporatorBlockEntity.LAYOUT, lit(metal(3.0f), 9));
     // 封止台 [5-02]（真空管の排気・封じ切り台）。隣の真空容器が十分低圧のときだけ組立品を封じる。動作中は光る
     public static final Machine<SealingStationBlockEntity> SEALING_STATION = Machine.electric("sealing_station", SealingStationBlockEntity::new, SealingStationBlockEntity.LAYOUT, lit(metal(3.0f), 7));
 

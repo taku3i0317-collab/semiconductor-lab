@@ -165,5 +165,10 @@
   "item.semiconductor-lab.mercury_lamp_tube.note4": "Electrons from the electrodes hit mercury atoms and push an atom's electron up to a higher step. When it falls back, light with exactly the step's energy comes out (a line of fixed wavelength).",
   "item.semiconductor-lab.spectroscope.lamp": "💡 Spectrum of the mercury lamp:",
   "item.semiconductor-lab.spectroscope.line.hg": "  Mercury Hg: yellow 579.1, 577.0 nm, green 546.1 nm, blue 435.8 nm (g-line), violet 404.7 nm (h-line)",
-  "item.semiconductor-lab.spectroscope.line.hg_i": "  The i-line at 365.0 nm is ultraviolet and invisible (paper fluoresces bluish-white under it). The first lithography steppers used these g and i lines"
+  "item.semiconductor-lab.spectroscope.line.hg_i": "  The i-line at 365.0 nm is ultraviolet and invisible (paper fluoresces bluish-white under it). The first lithography steppers used these g and i lines",
+  "item.semiconductor-lab.half_silvered_mirror": "Half-Silvered Mirror",
+  "item.semiconductor-lab.half_silvered_mirror.note1": "Glass that reflects half the light and lets half through. You see through it and see yourself too.",
+  "item.semiconductor-lab.half_silvered_mirror.note2": "Crown glass with a very thin silver film (tens of nm ⚠️) from the vacuum evaporator. In the interferometer [7-09] it splits light into two paths and joins them again (a beam splitter).",
+  "item.semiconductor-lab.half_silvered_mirror.note3": "An interrogation-room 'one-way mirror' works the same way: a mirror from the bright side, a window from the dark side.",
+  "item.semiconductor-lab.half_silvered_mirror.note4": "A thicker silver film reflects more, a thinner one transmits more; an even split needs a film a few tens of nm thick. In Michelson's time (1881) it was made with a thin layer of chemical silvering."
 }

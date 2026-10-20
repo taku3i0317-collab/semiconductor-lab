@@ -53,6 +53,8 @@ public final class Optics {
     // [7-10] 水銀ランプ（IMP2-01）：石英管＋水銀＋W電極2 → 組立品 →封止台（0.1Pa 以下、シュプレンゲル [5-15]）→ 水銀灯の管 → 直流で光る水銀灯（385W、クーパー・ヒューイット 1901）
     public static final Item MERCURY_LAMP_ASSEMBLY = Reg.item("mercury_lamp_assembly");
     public static final Item MERCURY_LAMP_TUBE     = Reg.item("mercury_lamp_tube");
+    // [5-14] 真空蒸着の製品（IMP2-01）：クラウンガラスに銀を薄く蒸着した半透明鏡（半分反射・半分透過）。干渉計 [7-09] の光を2つに分ける板
+    public static final Item HALF_SILVERED_MIRROR  = Reg.item("half_silvered_mirror");
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
