@@ -15,6 +15,33 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-18] 人工水晶（IMP2 O-016）：珪石×4＋NaOH＋種の水晶 → 水熱合成の仕込み → D の加圧加熱釜（280℃・15気圧以上⚠️）→ 人工水晶×3。圧力が足りないと仕込みのまま */
+    @GameTest(maxTicks = 3000)
+    public void cultured_quartz(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "hydrothermal_charge", Metallurgy.VEIN_QUARTZ) && recipeUses(h, "hydrothermal_charge", com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE)
+                && recipeUses(h, "hydrothermal_charge", Metallurgy.ROCK_CRYSTAL), "quartz scraps + NaOH (mineralizer) + seed crystal");
+        h.assertTrue(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.find(new ItemStack(Precision.HYDROTHERMAL_CHARGE)) != null, "one row in D's autoclave table");
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, com.taku3.semiconductorlab.content.Chemistry.AUTOCLAVE.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.AutoclaveBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, new ItemStack(Precision.HYDROTHERMAL_CHARGE));
+        be.setTemperatureForTest(290);
+        tickConsumer(h, fp, be, 20 * 40 + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT).is(Precision.HYDROTHERMAL_CHARGE), "dry (1 atm) -> nothing grows, the charge comes back");
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, new ItemStack(Precision.HYDROTHERMAL_CHARGE));
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_WATER, new ItemStack(net.minecraft.world.item.Items.WATER_BUCKET));
+        be.setTemperatureForTest(290);
+        tickConsumer(h, fp, be, 20 * 40 + 5, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Precision.CULTURED_QUARTZ) && out.getCount() == 3, "hot water under pressure -> 3 cultured quartz, got " + out);
+        h.assertTrue(recipeUses(h, "quartz_blank_cultured", Precision.CULTURED_QUARTZ), "cultured quartz cuts into blanks too");
+        LOG.info("[LAB] cultured_quartz [8-18]: charge in D's autoclave at 290 C / " + Math.round(be.getPressureAtm()) + " atm -> 3 cultured quartz; dry -> charge back");
+        h.succeed();
+    }
+
     /** [8-15] 水晶振動子（IMP2 O-016）：水晶 → AT カットの水晶片（0.5mm＝3.32MHz）→ ルージュで磨くと振動数が上がる → 銀の電極で振動子。膜厚計（ザウアーブレイ） */
     @GameTest
     public void crystal_resonator(GameTestHelper h) {

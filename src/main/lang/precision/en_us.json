@@ -171,5 +171,16 @@
   "item.semiconductor-lab.crystal_resonator.note2": "Quartz blank + silver nugget (electrodes). Right-click in the air to hear how many times a second it vibrates. Right-click a vacuum evaporator for a thickness monitor (the film's mass lowers the frequency).",
   "item.semiconductor-lab.crystal_resonator.note3": "In 1927 Marrison at Bell Labs built the quartz clock. In a wristwatch a tuning-fork quartz vibrates 32,768 times a second (2 multiplied 15 times).",
   "item.semiconductor-lab.crystal_resonator.note4": "In 1959 Sauerbrey showed that a film on quartz lowers its frequency (df = 2.26e-6 f0^2 dm/A). Evaporator thickness monitors measure nanometre films this way.",
-  "item.semiconductor-lab.crystal_resonator.placeholder": "Approximation: each evaporation adds 50 nm of silver. Depositing the electrodes and wiring to an oscillator circuit are skipped."
+  "item.semiconductor-lab.crystal_resonator.placeholder": "Approximation: each evaporation adds 50 nm of silver. Depositing the electrodes and wiring to an oscillator circuit are skipped.",
+  "item.semiconductor-lab.hydrothermal_charge": "Hydrothermal Charge",
+  "item.semiconductor-lab.hydrothermal_charge.note1": "Quartz scraps, alkali and a seed crystal packed together, to grow quartz in hot water.",
+  "item.semiconductor-lab.hydrothermal_charge.note2": "4 vein quartz + sodium hydroxide + rock crystal (seed). In the autoclave with water at 280 C and 15 atm or more for 40 s -> 3 cultured quartz. Without enough pressure it comes back unchanged. ⚠ GHS: skin corrosion (sodium hydroxide).",
+  "item.semiconductor-lab.hydrothermal_charge.note3": "World War II left radios short of (Brazilian) quartz, so from the late 1940s Bell Labs and others developed ways to grow quartz in factories.",
+  "item.semiconductor-lab.hydrothermal_charge.note4": "Quartz scraps and alkaline water sit at the bottom of a steel pressure vessel with seed crystals hung above. Heating the bottom dissolves the quartz, which crystallizes on the seeds in the slightly cooler top (hydrothermal growth), just as quartz forms in hot water underground.",
+  "item.semiconductor-lab.hydrothermal_charge.placeholder": "Approximation: really about 350 C and over 1000 atm for weeks (the game autoclave tops out at 300 C and 20 atm). The top-bottom temperature difference is skipped.",
+  "item.semiconductor-lab.cultured_quartz": "Cultured Quartz",
+  "item.semiconductor-lab.cultured_quartz.note1": "Quartz grown in a factory vessel. Fewer flaws than natural crystal and a regular shape.",
+  "item.semiconductor-lab.cultured_quartz.note2": "3 from a hydrothermal charge in the autoclave. A diamond saw cuts it into quartz blanks (for crystal resonators).",
+  "item.semiconductor-lab.cultured_quartz.note3": "Almost all quartz in today's resonators is cultured. Japan became a major producer.",
+  "item.semiconductor-lab.cultured_quartz.note4": "Seeds are oriented, so the crystals are easy to cut in set directions. This differs from optical synthetic silica glass [7-15], which is glass made by burning SiCl4."
 }

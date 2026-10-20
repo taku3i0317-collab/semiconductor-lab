@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:vein_quartz",
+    "semiconductor-lab:vein_quartz",
+    "semiconductor-lab:vein_quartz",
+    "semiconductor-lab:vein_quartz",
+    "semiconductor-lab:sodium_hydroxide",
+    "semiconductor-lab:rock_crystal"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hydrothermal_charge",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:cultured_quartz",
+    "semiconductor-lab:diamond_saw"
+  ],
+  "result": {
+    "id": "semiconductor-lab:quartz_blank",
+    "count": 1
+  }
+}

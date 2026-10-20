@@ -1543,6 +1543,19 @@
 - Wikipedia「Quartz crystal microbalance」：https://en.wikipedia.org/wiki/Quartz_crystal_microbalance
 - Wikipedia「Quartz clock」：https://en.wikipedia.org/wiki/Quartz_clock
 
+## O54. 工場で育てる水晶（人工水晶）［8-18］
+**答え**：鋼の圧力釜の下に石英のくずとアルカリの水、上に種の水晶を入れ、下を約350℃・1000気圧以上に熱すると、溶けた石英が少し冷たい上で種の上に結晶として出てくる（水熱合成）。第二次大戦で無線機用の天然水晶（ブラジル産）が足りなくなったのをきっかけに、1940年代末からベル研究所などが工業化した。
+
+- へえ①：地下の熱い水の中で水晶ができるのと同じことを、工場の釜でやる。
+- へえ②：今の水晶振動子の水晶は、ほとんどが人工水晶。
+- へえ③：育つのに何週間もかかる。
+- へえ④：合成石英ガラス（[7-15]）は結晶ではなくガラスで、作り方がまったく違う。
+
+確かさ：大戦中の天然水晶不足と戦後の工業化 ◎／約350℃・1000気圧以上 ○（方式で違う）／年 1948 ⚠️
+根拠：
+- Wikipedia「Hydrothermal synthesis」：https://en.wikipedia.org/wiki/Hydrothermal_synthesis
+- Wikipedia「Quartz」（Synthetic and artificial）：https://en.wikipedia.org/wiki/Quartz
+
 ---
 
 # 冶金と熱（タスク15〜）

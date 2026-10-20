@@ -99,6 +99,9 @@ public final class Precision {
     public static final Item DIAMOND_SAW           = Reg.item("diamond_saw", ReusableToolItem::new, new Item.Properties().stacksTo(1)); // ダイヤモンドの刃ののこぎり（戻る）
     public static final Item QUARTZ_BLANK          = Reg.item("quartz_blank", QuartzBlankItem::new, new Item.Properties().stacksTo(1));
     public static final Item CRYSTAL_RESONATOR     = Reg.item("crystal_resonator", CrystalResonatorItem::new, new Item.Properties().stacksTo(1));
+    // [8-18] 人工水晶（IMP2 O-016、1940年代末〜）：鋼の釜（D のオートクレーブ）に石英くず＋NaOH の水と種結晶を入れて育てる。表に1行（下の static）
+    public static final Item HYDROTHERMAL_CHARGE   = Reg.item("hydrothermal_charge");   // 珪石×4＋水酸化ナトリウム＋種の水晶
+    public static final Item CULTURED_QUARTZ       = Reg.item("cultured_quartz");       // 人工水晶（種から育った単結晶）
     public static final Item BALL_SCREW            = Reg.item("ball_screw", BallScrewItem::new, new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
@@ -106,6 +109,12 @@ public final class Precision {
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));
     // 研削盤 [8-31]（IMP2 O-013）：焼入れした鋼球＋砥石＋測る道具 → そろえた鋼球（1kW）
     public static final Machine<GrinderBlockEntity> GRINDER = Machine.electric("grinder", GrinderBlockEntity::new, GrinderBlockEntity.LAYOUT, metal(3.5f));
+
+    static {
+        // [8-18] D の加圧加熱釜の表に1行（IMP3_LOG の使い方どおり）。⚠️ 本物は約350℃・1000気圧以上、ゲームの釜（300℃・20気圧まで）に合わせた
+        AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("cultured_quartz", s -> s.is(HYDROTHERMAL_CHARGE), 1,
+                () -> new net.minecraft.world.item.ItemStack(CULTURED_QUARTZ, 3), () -> new net.minecraft.world.item.ItemStack(HYDROTHERMAL_CHARGE), 280, 15, 20 * 40));
+    }
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

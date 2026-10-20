@@ -470,6 +470,8 @@ quartz_blank  # Precision [8-15] 1921
 crystal_resonator  # Precision [8-15] 1921
 isolation_table  # Precision [8-07] 1931
 ball_screw  # Precision [8-08] 1939
+hydrothermal_charge  # Precision [8-18] 1948
+cultured_quartz  # Precision [8-18] 1948
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
 transistor  # Semiconductor [9-03] 1947
