@@ -893,6 +893,15 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-47] 加速器の部品（IMP4-01）：コッククロフト・ウォルトン回路＝ライデン瓶（コンデンサー）＋整流器のはしご、加速管＝ガラスと鋼の輪 */
+    @GameTest
+    public void acceleratorParts(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "cw_multiplier", com.taku3.semiconductorlab.content.Power.LEYDEN_JAR) && recipeUses(h, "cw_multiplier", com.taku3.semiconductorlab.content.Power.RECTIFIER.block.asItem()), "CW = capacitors + rectifiers");
+        h.assertTrue(recipeUses(h, "accelerator_tube", Chemistry.SODA_LIME_GLASS) && recipeUses(h, "accelerator_tube", Metallurgy.STEEL_INGOT), "tube = glass insulators + steel electrodes");
+        LOG.info("[LAB] accelerator parts [9-47]: Cockcroft-Walton multiplier (Leyden jars + rectifiers), accelerator tube (glass + steel rings)");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================

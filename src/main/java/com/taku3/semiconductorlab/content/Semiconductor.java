@@ -66,6 +66,9 @@ public final class Semiconductor {
     public static final Item CAN_CAP               = Reg.item("can_cap");
     public static final Item CAN_PACKAGED_CHIP     = Reg.item("can_packaged_chip");
     public static final Item PLASTIC_PACKAGED_CHIP = Reg.item("plastic_packaged_chip");
+    // [9-47] 加速器の部品（IMP4-01、O-011）：コッククロフト・ウォルトン回路（整流器とコンデンサーのはしご、電圧を何倍にも）と加速管（ガラスと金属の輪を重ねた真空の管）
+    public static final Item CW_MULTIPLIER         = Reg.item("cw_multiplier");
+    public static final Item ACCELERATOR_TUBE      = Reg.item("accelerator_tube");
     // v0.3b（A、O-016 ③）：ハンコ。お題を解いたチップの形（成分 chip_design、切り抜き）。製図台で何度でも押せる（減らない）
     public static final Item STAMP                 = Reg.item("stamp", new Item.Properties().stacksTo(1));
     // [9-32] 段階2（A、O-014）：ダイシングソーの刃（ダイヤモンドの粒を青銅で固めた薄い円盤、32枚で減る）

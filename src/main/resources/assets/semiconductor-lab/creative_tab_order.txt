@@ -511,6 +511,8 @@ hydrothermal_charge  # Precision [8-18] 1948
 cultured_quartz  # Precision [8-18] 1948
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
+cw_multiplier  # Semiconductor [9-47] 1932
+accelerator_tube  # Semiconductor [9-47] 1932
 transistor  # Semiconductor [9-03] 1947
 germanium_seed_crystal  # Semiconductor [9-07] 1950
 germanium_single_crystal  # Semiconductor [9-07] 1950
