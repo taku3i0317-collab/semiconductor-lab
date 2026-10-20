@@ -2131,6 +2131,12 @@ public class SemiconductorTests extends LabTestBase {
         st = com.taku3.semiconductorlab.litho.ChipOps.state(a.out());
         h.assertTrue(st.implanted().isEmpty() && st.diffusions() == 1 && st.has(com.taku3.semiconductorlab.litho.LayerKind.DIFF_N), "annealed implant = a diffused layer");
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.anneal(a.out()).reason(), "nothing_to_anneal", "nothing left to anneal");
+        // [9-26] スパッタ（E と決めた形）：金属の付け方の記録だけ。蒸着とスパッタで回路は同じ
+        var annealed = a.out();
+        var sput = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(annealed.copy(), true);
+        var evap = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(annealed.copy());
+        h.assertTrue(sput.ok() && com.taku3.semiconductorlab.litho.ChipOps.state(sput.out()).conformalMetal()
+                && !com.taku3.semiconductorlab.litho.ChipOps.state(evap.out()).conformalMetal(), "sputtering is recorded (conformal), evaporation is not");
         LOG.info("[LAB] implant/anneal: ions through the resist opening, inactive until anneal, then a DIFF_N layer");
         h.succeed();
     }

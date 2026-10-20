@@ -262,6 +262,7 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 - データ（ChipState・MaskData・ChipDesign）、工程の関数（ChipOps）、Netlist・Circuit.solve はそのまま使う。お題・ハンコは新しいデータで、チップの中身には入れない
 
 ## 変更履歴
+- 2026-10-20 [9-26] スパッタの土台（E と決めた形、案②）：ChipOps.depositMetal(w, conformal)、ChipState.conformalMetal（記録だけ）。蒸着とスパッタで回路は同じ。v0.5 の歩留まりで「蒸着は段差のふちで切れやすい」に使う ⚠️（今切れる形にすると NOT の例の蒸着がこわれるため）
 - 2026-10-20 S-010（Q20-1 案A）：ChipOps.exposeAtCd(w, mask, 光の当て方, CD, ずれ)＝レンズの CD から方眼（gridFor、4刻み）。例：g線 NA0.35 で k1 0.6〜0.8 → 36・1.0 → 32、i線 NA0.7 で k1 0.6 → 52・0.7 → 48。表の数（§3）は基準のレンズの値として変わらない。C のステッパーがレンズの cdNm でこれを呼ぶ
 - 2026-10-20 イオン注入・アニールの土台（E の [9-28]・[9-29] と決めた形）：ChipState.implanted（アニール前、回路に効かない）、ChipOps.implant(w, 'n'|'p', 量)（現像したレジストの開いた所、なければ酸化膜の窓。窓は閉じない、量は今は記録だけ ⚠️）、ChipOps.anneal(w)（注入を拡散と同じ層に。レジストは先にはがす）。拡散の回数の上限に注入も数える
 - 2026-10-20 S-009：覚える回路（順序回路）のお題＝手順の列（Challenge.Def.steps、前の手の電圧から Circuit.solve を始める・入力は10回に分けてなめらかに）。役目 入力C・D・クロック・出力3/4。お題 sr_latch・d_latch・counter・register。24×24 の SR ラッチの例（LithoExamples.srLatch、投影の等倍露光）で合格を確かめた。記憶が安定する条件：切れている側のベースが 0 V に近いこと（入力の抵抗を短く、結合の抵抗を長めに）

@@ -218,13 +218,16 @@ public final class ChipOps {
     public static boolean canDepositMetal(ItemStack w) { return depositMetal(w).ok(); }
 
     /** [9-25] Al を一面に付ける（真空蒸着）。開いている窓は金属とシリコンがつながる所（CONTACT）になる */
-    public static Result depositMetal(ItemStack w) {
+    public static Result depositMetal(ItemStack w) { return depositMetal(w, false); }
+
+    /** conformal＝段差によく付く方法（[9-26] スパッタ）。今は記録だけ（ChipState.conformalMetal、v0.5 の歩留まりで使う ⚠️） */
+    public static Result depositMetal(ItemStack w, boolean conformal) {
         ChipState s = state(w);
         if (s == null || !s.sized()) return Result.fail("no_pattern");
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
         if (s.metalFilm() || s.has(LayerKind.METAL)) return Result.fail("too_many");
         ChipState t = s.hasWindows() ? s.plus(LayerKind.CONTACT, s.windows()) : s;
-        return Result.ok(write(w, t.withWindows(BitGrid.empty(s.size())).withMetalFilm(true).dirtier(1)));
+        return Result.ok(write(w, t.withWindows(BitGrid.empty(s.size())).withMetalFilm(true).withConformal(conformal).dirtier(1)));
     }
 
     // ===== 洗う（[9-14]、E の洗浄槽が呼ぶ） =====
