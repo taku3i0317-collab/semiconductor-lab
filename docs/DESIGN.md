@@ -177,6 +177,78 @@
 - 分けたときの確認（IMP-28）：まとめた lang は分ける前と**キーと文が完全に同じ**（en 1025・ja 1025、並び順だけ変わった）。machine_recipes.json も同じ 37 件（並びは機械の ID 順になった）。GameTest 82 本はそのまま全部通る
 - 共有のまま残るもの：docs（TECH_TREE・CHEMISTRY・REFERENCES・TEST_QUEUE など）と、新しい幹を足すときの Content.java。クリエイティブタブは幹の順（Survival → … → Branches）に並ぶ
 
+## 組立台（作り方の3段の2段目）📝 設計（2026-10-20 IMP-28。実装はまだ・v0.3 の最初に）
+**ねらい**：作業台の3×3 は「形」を覚える遊びで、中身が学べない。組立台は**部品表（BOM＝Bill of Materials、製品を作る部品の一覧）**で組み立て、
+「ラジオはトランジスタ3個・抵抗・コイル・コンデンサ・スピーカー・電池でできていて、それぞれ何の役目か」を見せる。
+- **形**：ブロック assembly_bench（木の作業机＋万力。幹0 の道具、電気なし）。右クリックで画面：
+  ```
+  ┌ 組立台 ───────────────────────────────┐
+  │ [作る物の一覧]  │  基板の絵（部品の置き場所）     │
+  │ ▶ ラジオ        │   [増幅][増幅][増幅]            │
+  │   高周波発振器  │   [抵抗] [同調コイル][同調コンデンサ] │
+  │   …             │   [スピーカー]  [電池]          │
+  │                 │  役目：選んだ置き場所の説明      │
+  │                 │  [組み立てる]（全部そろうと押せる）→ [完成品] │
+  └ プレイヤーの持ち物 ──────────────────────┘
+  ```
+  - 左：作れる物の一覧（その製品の部品を1つでも持ったことがある物だけ出す。多すぎると選べないため）
+  - 右：選んだ製品の**役目つきスロット**（置き場所ごとに「増幅」「同調」などの名前。マス目の数・位置はレシピごとに違う）
+- **データ**：レシピは Java で、製品の幹のファイルに書く（machine_recipes と同じく GameTest で JSON に書き出せる。データパックの JSON は使わない＝26.x のレシピの API を推測で書かずに済む）
+  ```java
+  // content/Communication.java
+  public static final AssemblyRecipe RADIO = Assembly.recipe("transistor_radio", TRANSISTOR_RADIO)
+          .part("amplify", Semiconductor.JUNCTION_TRANSISTOR, 3)      // 役目の名前 → lang assembly.semiconductor-lab.transistor_radio.amplify
+          .part("resistor", Metallurgy.GRAPHITE, 1).part("tuning_coil", Power.COPPER_CABLE, 1)
+          .part("tuning_capacitor", Power.LEYDEN_JAR, 1).part("speaker", Power.MAGNET, 1)
+          .part("battery", Metallurgy.ZINC_INGOT, 1).part("battery", Power.GRAPHITE_ROD, 1)
+          .seconds(5).build();
+  ```
+  - 部品の条件は「アイテム」か「アイテム＋データ（純度 9N 以上・n型など）」の述語（ZoneRefining と同じ書き方）
+  - 時間：「組み立てる」を押すと数秒の進み具合（電気なし）。工具（はんだごて・ドライバーなど）は、そのノードができたら「工具スロット」（減る）を足す。今はなし（未実装の工具を仮で置かない）
+- **判定**：役目ごとのスロットは、その役目の条件に合う物しか入らない（MachineLayout の in と同じ）。全部そろったら「組み立てる」が押せる。
+  押したらサーバー側で条件をもう一度確かめてから（ずるの防止）部品を減らし完成品を出す。ボタンは vanilla の `AbstractContainerMenu.clickMenuButton(Player, int)`（エンチャント台と同じ仕組み、専用の通信は不要）
+- **見せる**：
+  - スロットに乗せる／空のスロットに触れると、その役目の説明（lang、子ども向けの1行）。足りない部品は赤い枠
+  - 完成品のツールチップ（Shift）に**部品表**を自動で出す（「部品：トランジスタ×3（増幅）・…」）。作業台で作った物と違い、中身が分かる
+  - 画面の基板の絵は、役目ごとの位置（x, y）をレシピに書く。背景は tools/gen_gui.py で作る
+- **作業台から移す候補**（「2種類以上の部品を組み合わせて動くモノ」）：transistor_radio（第1章のゴール）・hf_oscillator（真空管2＋コイル＋ライデン瓶）・vacuum_tube_assembly（ガラス球＋W フィラメント＋グリッド＋プレート）・solar_cell（p-n 板＋電極）・dynamo／self_excited_dynamo・electric_motor。
+  作業台に残す：素材の加工（れんがの成形・調合・ボートの成形）、道具、ケーブル、ボンベなど。どれを移すかは **Q28-1（DECISIONS_PENDING）**
+- **作るファイル**：machine/AssemblyRecipe（レシピの形）・machine/Assembly（登録と一覧）・block/AssemblyBenchBlockEntity（MachineBE、Machine.builder で登録）・client/AssemblyBenchScreen（MachineScreen を継承）。レシピは製品の幹のファイル
+- **GameTest**：全部の組立レシピの部品が登録されている／移した製品が作業台のレシピに残っていない（二重にならない）／条件に合わない物は入らない／押すと部品が減って完成品が出る／足りないと押しても何も起きない／machine_recipes.json に組立台の行が出る（形は今の行と同じ：machine＝assembly_bench、inputs の cond に役目）
+
+## マルチブロック（作り方の3段の3段目）📝 設計（2026-10-20 IMP-28。実装はまだ）
+**ねらい**：高炉・EUV 露光装置のような**大きな装置は、部品のブロックを世界に積んで組む**。「炉は高いほど温度が上がる」「EUV は鏡が何枚もある」を、自分で積んで体で覚える。
+- **形**：**制御ブロック**（1個。BE を持ち、計算・画面・中身を持つ。Machine で登録）＋**構造ブロック**（BE を持たないふつうのブロック：耐火れんがのブロック・鋼の外板・ガラスの窓・羽口など、本物の材料と同じ名前）＋**口ブロック**（電気の口・ガスの口・物の口。制御ブロックの代わりに隣とつながる）
+  - 向き：制御ブロックの正面（FACING）で構造の向きが決まる（4方向。裏返しは無し）
+  - 大きさの上限：16×16×16（チャンクをまたいでもよいが、全部読み込まれているときだけ判定する）
+- **データ**：構造は文字の絵で書く（vanilla の BlockPatternBuilder と同じ書き方。下の層から）。文字ごとに「ブロックの条件」と「名前（lang）」
+  ```java
+  // content/Metallurgy.java（[1-09] 高炉の例。REFRACTORY_BRICK_BLOCK・TUYERE はまだ無いブロック。大きさ・形は Q28-2 で決める）
+  public static final MultiblockPattern BLAST_FURNACE_SHAPE = MultiblockPattern.builder()
+          .layer("BBB", "BCB", "BBB")       // 1段目（C＝制御ブロック＝湯口）
+          .layer("BTB", "T T", "BTB")       // 2段目（T＝羽口：風を吹き込む）
+          .layer("BBB", "B B", "BBB").layer("BBB", "B B", "BBB")
+          .where('B', Heat.REFRACTORY_BRICK_BLOCK, "lining")   // 名前 → lang multiblock.semiconductor-lab.lining
+          .where('T', Metallurgy.TUYERE, "tuyere").where(' ', AIR, "inside").controller('C').build();
+  ```
+- **判定**：
+  - 自前の判定にする（vanilla の BlockPattern.matches は「合う／合わない」しか返さず、どこが足りないかが分からないため。書き方だけ同じにする）。結果は「組み上がった（formed）」と「足りない・違う場所の一覧（位置・期待する名前・今のブロック）」
+  - いつ調べるか：制御ブロックの tick で **20 tick（1秒）に1回だけ**（重さ対策）＋構造ブロックが壊された・置かれたとき（隣の制御ブロックへ知らせる）。結果は覚えておき、組み上がっている間は動く
+  - 組み上がっていないときは canWork が false（ConsumerBlockEntity と同じ止まり方）。構造を1つ壊したら止まり、中身は制御ブロックに残る（なくならない）
+  - 制御ブロックの見た目：FORMED（組み上がった）を blockstate に持ち、テクスチャを変える
+- **見せる**（ここが学びの中心）：
+  1. 画面：**層ごとの見取り図**（上下のボタンで段を選ぶ。マスごとに 緑＝合っている・赤＝足りない・黄＝違うブロック、マスに触れると名前と役目）。「あと 3 個：耐火れんがのブロック」のように足りない物の合計
+  2. 世界：組み上がっていない制御ブロックを素手で右クリックすると、10 秒間、足りない場所に粒子（`ServerLevel.sendParticles`）を出す。半透明のブロックの見本（ゴースト）は描画の API を確かめてから2段目で
+  3. 構造ブロックのツールチップ：役目（羽口＝「ここから風を吹き込む」）と へえ
+  4. 組み上がった瞬間：音＋メッセージ＋進捗「はじめての大きな装置」
+  5. ガイド本：層ごとの図のページ（tools で構造から自動で作る）
+- **口ブロック**：電気の口は EnergyApi に「組み上がっていれば制御ブロックの蓄電を返す」で登録、ガスの口は GasHolderBlockEntity.extract の相手、物の口は制御ブロックの中身の入口・出口（ホッパーとつながる）。口は形の中の決まった文字の場所にだけ置ける
+- **作るファイル**：machine/MultiblockPattern（形と判定）・machine/MultiblockController（制御ブロックの BE の土台。ConsumerBlockEntity を継承）・machine/PortBlock（口）・client/MultiblockScreen（見取り図）。形と構造ブロックは装置の幹のファイル
+- **最初に作る装置の候補**：[1-09] 高炉（CHEMISTRY #37 の仮「バニラの溶鉱炉＝高炉」が消える。形が分かりやすい）→ [3-15] アーク炉の大型化（Q1515-1）→ v1.0 で [9-40] EUV。どれから・どの大きさにするかは **Q28-2（DECISIONS_PENDING）**
+- **GameTest**：形どおりに置く→組み上がる／1個壊す→止まる・中身は残る／違うブロック→その場所が「違う」に出る／4方向どれでも判定できる／口から電気・ガスが入る／判定は 20 tick に1回より多く走らない
+
+**両方に共通**：組立台・マルチブロックとも machine/ の共通部品（Machine・MachineMenu・MachineScreen）の上に作る。新しい API（ボタン・粒子・見取り図の描画・ゴースト）は実装の前に javap で確かめて API_26X に書く（2026-10-20 時点で確認済み：BlockPatternBuilder／BlockPattern、clickMenuButton、ServerLevel.sendParticles）
+
 ## レッドストーンは使わない ✅（2026-10-20 決定）
 - **レッドストーンは電力にも材料にもしない**（化学ルール1：バニラの架空の素材で本物の部品を代用しない）。電気は MOD の電気（energy/、J と W）だけ
 - 機械のオン・オフ操作が必要になったら、**MOD 独自の本物のスイッチ・電磁リレー**（[10-02] など）で作る。レッドストーン信号で機械を止める・動かす仕組みも作らない

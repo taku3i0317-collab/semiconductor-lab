@@ -783,3 +783,13 @@ GameTestHelper: Player makeMockPlayer(GameType); Player makeMockServerPlayer(Gam
 ```
 - `MenuType<>((id, inv) -> new MachineMenu(this, id, inv), FeatureFlags.DEFAULT_FLAGS)`：コンストラクタの中の `this` を使ってよい（ラムダは画面を開くときに呼ばれる）
 - 静的な定数は、宣言より前の行から単純名で使えない（「前方参照が不正です」）。`LAYOUT` は SLOT_ 定数より後ろに書く
+## IMP-28 組立台・マルチブロックの設計（2026-10-20 javap で確認、実装はまだ）
+```
+BlockPatternBuilder: static start(); aisle(String...); where(char, Predicate<BlockInWorld>); build()
+BlockPattern: matches(LevelReader, BlockPos, Direction forwards, Direction up) → BlockPatternMatch（合わなければ null。どこが違うかは返さない）
+              find(LevelReader, BlockPos); getWidth/getHeight/getDepth(); static createLevelCache(LevelReader, boolean)
+BlockInWorld(LevelReader, BlockPos, boolean); getState(); getEntity(); getPos(); static hasState(Predicate<BlockState>)
+AbstractContainerMenu: boolean clickMenuButton(Player, int)            // 画面のボタン（サーバー側で呼ばれる）
+MultiPlayerGameMode（client）: void handleInventoryButtonClick(int containerId, int buttonId)   // クライアントから押す
+ServerLevel: <T extends ParticleOptions> int sendParticles(T, double x, double y, double z, int count, double dx, double dy, double dz, double speed)
+```
