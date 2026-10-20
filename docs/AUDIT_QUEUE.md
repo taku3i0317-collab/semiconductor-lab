@@ -9,9 +9,9 @@
 - **結果の書き方**：項目ごとに「V-番号｜同意 / 修正 / 不明｜理由（1〜2文）｜出典 URL」。修正のときは正しい文も書く
 - **優先順**：✖（訂正）→ △（未確認）→ ○（出典1つ・Wikipedia のみ）→ ◎（本線の年・人物、念のため）。どれも [10-16] AI までの道（本線）のノード
 
-全 123 件（✖ 9・△ 37・○ 23・◎ 54）
+全 169 件（✖ 11・△ 51・○ 37・◎ 70）
 
-## ✖ 訂正した項目（9）
+## ✖ 訂正した項目（11）
 
 | 番号 | ノード | 主張 | 今の判定 | NET-03 の結果 | 出典 | 特に確かめてほしい点 |
 |---|---|---|---|---|---|---|
@@ -24,8 +24,10 @@
 | V-53 | [7-05] 反射鏡 | 1932 ストロングのアルミ蒸着 | ✖ | 正しくは 1930年頃（カリフォルニア工科大）。1932〜37年はパロマー計画の期間、詳しい論文は1936年 | https://en.wikipedia.org/wiki/Silvering , https://ftp.astro.caltech.edu/palomar/audioguide/mirror_en.html | 訂正（「正しくは…」）が出典で本当に支えられているか |
 | V-99 | [4-11] 整流器 | 年 1904 | ✖ | 正しくは 1902：クーパー・ヒューイットの水銀整流器が最初の電力用の静止形整流器（フレミング二極管1904より2年早い）。1904 を残すなら「真空管の整流器の年」と書き分ける | https://en.wikipedia.org/wiki/Mercury-arc_valve , https://www.research.unipd.it/bitstream/11577/3271203/1/IEMPowerElectronics.pdf | 訂正（「正しくは…」）が出典で本当に支えられているか |
 | V-109 | [3-14] 誘導加熱炉 | 年 1916、ノースラップの高周波炉 | ✖ | 正しくは 1918年（プリンストン大で実演、論文1919年）。1916年の出典なし | https://foundrytradejournal.com/features/past-present-future-induction-technology , https://www.engineering.org.cn/en/top_journal_details/41479 | 訂正（「正しくは…」）が出典で本当に支えられているか |
+| V-127 | [9-08] CZ 法 | 年 1954（Si は1950年代〜） | ✖ | 正しくは Si の引き上げは1951年にベル研のティールとビューラー（発表1952年）。1954年は TI の Si トランジスタの年。年を1951〜52に | https://spectrum.ieee.org/the-lost-history-of-the-transistor , https://www.nationalacademies.org/read/12473/chapter/52 | 訂正（「正しくは…」）が出典で本当に支えられているか |
+| V-155 | [7-17] 多層膜ミラー | 1980年代 バービーとアンダーウッドらが Mo/Si を実証 | ✖ | 正しくは Mo/Si の実証は1985年バービー・ムロウカ・ヘトリック（Applied Optics 24, 883、反射率 最大約78%）。1981年のアンダーウッドとバービーは多層膜の軟X線鏡で、Mo/Si ではない | https://repository.exst.jaxa.jp/dspace/handle/a-is/392259 , https://www.nature.com/articles/294429a0.pdf | 訂正（「正しくは…」）が出典で本当に支えられているか |
 
-## △ 未確認のまま残った項目（37）
+## △ 未確認のまま残った項目（51）
 
 | 番号 | ノード | 主張 | 今の判定 | NET-03 の結果 | 出典 | 特に確かめてほしい点 |
 |---|---|---|---|---|---|---|
@@ -66,8 +68,22 @@
 | V-119 | [2-32] ポジ型フォトレジスト | DNQ はナフタレン＋亜硝酸でジアゾ化 | △ | 合成の道すじの出典なし。単純化しすぎの可能性 | — | 食い違い・未確認の点を、より確かな出典で決められるか |
 | V-122 | [8-14] 鏡筒の精密組立 | 年 1950 | △ | 1950年代の心出しの手順の出典なし | https://spiedigitallibrary.org/conference-proceedings-of-spie/0381/0000/Centering-Optical-Lenses/10.1117/12.934838.full | 食い違い・未確認の点を、より確かな出典で決められるか |
 | V-123 | [1-16] トリクロロシラン合成・蒸留 | 年 1953 | △ | シーメンス法の特許 DE1061593 は1954年出願、ワッカーは1953年に超高純度 Si の研究開始。何の年として1953とするかを決める | https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9382122 , https://cdn.ihs.com/Connect/Content/ChemWeek/pdf/Wacker.pdf | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-124 | [1-17] シーメンス法 | 年 1953・特許1953年頃 | △ | ワッカーは1953年に研究開始、総説は1954年・1955年開発・1957年工場と分かれる。特許番号・出願日は未確認（V-123 は DE1061593 を1954年出願とする）。「1950年代前半」なら安全 | https://cdn.ihs.com/Connect/Content/ChemWeek/pdf/Wacker.pdf , https://www.sciencedirect.com/topics/engineering/polysilicon-production | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-130 | [9-12] ウェハー切断 | 1990年代〜マルチワイヤーソー | △ | Wikipedia は2000年代初め、NASA 報告は1980年前後に試作。「広まった」の定義で変わる | https://en.wikipedia.org/wiki/Wafering , https://ntrs.nasa.gov/citations/19820015789 | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-135 | [9-11] ドーパント源 | 年 1955 | △ | ホウ素拡散は1954年初め（CHM）、POCl3 は1957年フロッシュとデリック。BBr3 の初出年は不明、SHMJ はホウ素源を B2H6 とする | https://www.computerhistory.org/siliconengine/diffusion-process-developed-for-transistors/ , https://www.shmj.or.jp/english/pdf/process/exhibi433E.pdf | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-141 | [9-13] ラッピング・鏡面研磨 | 年 1960 | △ | 1960年の根拠なし。コロイダルシリカ研磨に合わせるなら1963年 | — | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-142 | [9-19] レジスト塗布 | 年 1960 | △ | スピンコートをレジストに使い始めた年の出典なし | — | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-147 | [7-12] クロムマスク | 年 1967 | △ | ULVAC の社史は「1960年代後半はまだハードマスクが商品化されず乳剤が主流」。「1960年代末〜70年代初め」に広げる | https://www.ulvac.co.jp:443/en/news/upload/ulvac69e-8.pdf | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-148 | [7-12] クロムマスク | Cr 約100nm | △ | 薄くて長持ちは特許で確認、100nm の裏づけは弱い | https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4166148 | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-150 | [2-18] 超純水 | 年 1970、1970年代から IC 工場で必須 | △ | 「超純水」の語は1970年代後半〜80年代初め、イオン交換は1950年代から。1970 の根拠なし（18.2 MΩ·cm は一致） | https://en.wikipedia.org/wiki/Milli-Q , https://www.shmj.or.jp/english/pdf/em/exhibi2414E.pdf | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-153 | [9-39] 縮小投影露光 | g線 | △ | g線とするのは解説記事1件、仕様ページは 4800 を i線とする（改造機の可能性）。g線と確認できたのは後継の 6300 | https://www.htx.com/uk-ua/news/a-brief-history-of-the-lithography-machine-how-a-beam-of-lig-WvqrSISl/ , https://www.cnfusers.cornell.edu/sites/default/files/Equipment-Resources/Stepper%20Training%20Manual20.pdf | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-156 | [7-17] 多層膜ミラー | 年 1980 | △ | 多層膜の X線/EUV 鏡は1981年、Mo/Si に限るなら1985年。どちらかに | https://www.nature.com/articles/294429a0.pdf , https://als.lbl.gov/?p=57790 | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-157 | [8-09] リニアモーター・エアベアリングステージ | 年 1990 | △ | 1980年代の特許にすでにある。「1990年に露光装置へ」の出典なし（ASML PAS 5500 のステップ＆スキャンは1997年） | https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/6583597 , https://www.sec.gov/Archives/edgar/data/0000937966/000115697304000133/u47074e20vf.htm | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-162 | [7-16] 液浸光学 | 157nm F2 計画は液浸のせいで中止 | △ | 2003年に「157nm は予備の技術」、中止の年の出典なし。「主流から外れた」と書く | https://www.eetimes.com/?p=1146356 | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-163 | [8-13] 液滴発生器 | 年 2010 | △ | サイマーの Sn 液滴＋CO2 レーザー光源は2006年から稼働、2007年に ASML が採用。2010 の決め手なし | https://sst.semiconductor-digest.com/?p=28597 , https://eejournal.com/article/20120302_uav | 食い違い・未確認の点を、より確かな出典で決められるか |
+| V-167 | [9-40] EUV 露光装置 | 1台 約200億円 | △ | 定価は非公表。約2〜2.5億ドル、High-NA は約3.5〜4億ドル。「約200〜300億円（機種・為替による）」として ⚠️ を残す | https://en.wikipedia.org/wiki/ASML_Holding , https://finance.yahoo.com/news/explainer-250-million-asml-printer-050227041.html | 食い違い・未確認の点を、より確かな出典で決められるか |
 
-## ○ 出典1つ・Wikipedia のみの項目（23）
+## ○ 出典1つ・Wikipedia のみの項目（37）
 
 | 番号 | ノード | 主張 | 今の判定 | NET-03 の結果 | 出典 | 特に確かめてほしい点 |
 |---|---|---|---|---|---|---|
@@ -94,8 +110,22 @@
 | V-117 | [2-32] ポジ型フォトレジスト | 1940年代 カレ社のオスカー・ズース | ○ | Allresist は1940年、百度百科は1949年。独立した信頼できる出典2つがそろわない | https://www.allresist.com/forays-through-the-lithography-of-microelectronics-matthias-schirmer/ , https://baike.baidu.com/en/item/photoresist/1470078 | 2つ目の独立した出典があるか |
 | V-118 | [2-32] ポジ型フォトレジスト | 1970年代にシップレー社の AZ 系が IC の主力に | ○ | AZ-1350 は1965年発表。投影露光に移った「1970年代後半」にネガ型と入れ替わり。同じ館のページ2つ | https://www.shmj.or.jp/english/pdf/em/exhibi2437E.pdf , https://shmj.or.jp/english/pdf/em/exhibi2447E.pdf | 2つ目の独立した出典があるか |
 | V-121 | [8-08] ボールねじ精密ステージ | 年 1940、GM がステアリングで量産 | ○ | 1940年代に自動車のステアリングで普及、GM サギノーの特許 US2267524（1939出願・1941登録）。量産開始の年は未確認 | https://en.wikipedia.org/wiki/Ball_screw , https://patents.google.com/patent/US2267524 | 2つ目の独立した出典があるか |
+| V-126 | [9-08] CZ 法 | ペンをインク壺でなく溶けたスズに浸した逸話 | ○ | 伝記サイトと Wikipedia。IEEE には無い。「〜と言われる」と書く | https://en.wikipedia.org/wiki/Czochralski_method , https://janczochralski.com/en/method/ | 2つ目の独立した出典があるか |
+| V-128 | [9-12] ウェハー切断 | 1954 ベル研の太陽電池で細長い板を切り出した | ○ | フラーが長い strip を切り出した（結晶から、とまでは書いていない） | https://ethw.org/Milestones:First_Practical_Photovoltaic_Solar_Cell | 2つ目の独立した出典があるか |
+| V-129 | [9-12] ウェハー切断 | 円盤刃（1950〜60年代）→1970年代〜内周刃 | ○ | Wikipedia「Wafering」と一致 | https://en.wikipedia.org/wiki/Wafering | Wikipedia 以外の独立した出典で確かめられるか |
+| V-134 | [9-28] イオン注入 | 1970年代に量産技術へ | ○ | 量産で初の注入1962年、全製品に注入を使う工場は1970年（AVS） | https://www2.avs.org/symposium1999/Papers/Paper_VT-TuA6.html | 2つ目の独立した出典があるか |
+| V-137 | [9-06] 酸化膜エッチング | 年 1957 | ○ | 1957年ラスロップとナル（陸軍）が SiO2 に穴、ベル研の窓開けは1955年から。エッチング液が HF だったかは未確認 | https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/ | 2つ目の独立した出典があるか |
+| V-138 | [9-21] 現像・ポストベーク | 年 1957 | ○ | 現像で窓を開ける工程はベル研で1955〜57年（Kodak KPR）。ポストベークの年は未確認 | https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/ , https://www.shmj.or.jp/english/pdf/em/exhibi2415E.pdf | 2つ目の独立した出典があるか |
+| V-140 | [9-13] ラッピング・鏡面研磨 | 1960年代 ウォルシュとハーゾグ（モンサント）のコロイダルシリカ研磨 | ○ | US 3,170,273（1963年1月出願、1965年2月登録）。根拠は特許資料だけ | https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/4462188 | 2つ目の独立した出典があるか |
+| V-151 | [7-19] 投影レンズ | 年 1978 GCA の DSW | ○ | 日本半導体歴史館は発売1978年、Wikipedia は1975年。「発売の年」と書く | https://www.shmj.or.jp/english/pdf/em/exhibi2443E.pdf , https://en.wikipedia.org/wiki/Stepper | 2つ目の独立した出典があるか |
+| V-152 | [9-39] 縮小投影露光 | 1978 GCA DSW、1/10 縮小 | ○ | 1978年（発売）と 10:1 は一致、年は Wikipedia の1975年と食い違う | https://www.shmj.or.jp/english/pdf/em/exhibi2443E.pdf , https://terpconnect.umd.edu/~browns/stepspec.html | 2つ目の独立した出典があるか |
+| V-154 | [9-39] 縮小投影露光 | 1990年代スキャナー | ○ | Wikipedia はステップ＆スキャンの登場を1990年（⚠️ なし、確認のみ） | https://en.wikipedia.org/wiki/Stepper | Wikipedia 以外の独立した出典で確かめられるか |
+| V-158 | [7-16] 液浸光学 | 年 2006 | ○ | ASML 最初の液浸機 XT:1250i 発表は2003年12月、2007年1月には量産中。2006年ごろ量産開始（ASML の資料のみ） | https://www.sec.gov/Archives/edgar/data/937966/000114420407005498/exhibit99-2.htm , https://www.asml.com/en/company/stories/2023/how-immersion-lithography-saved-moores-law | 2つ目の独立した出典があるか |
+| V-161 | [7-16] 液浸光学 | NA 1.35 | ○ | XT:1900i（2006年発表、2007年出荷）。ASML の発表のみ | https://asml.com/en/news/press-releases/2006/asml-expands-immersion-product-suite , https://www.asml.com/en/news/press-releases/2007/asml-ships-first-lithography-system | 2つ目の独立した出典があるか |
+| V-166 | [9-40] EUV 露光装置 | 約180トン | ○ | 180トンと約150トンの両方（機種で違う）。「約150〜180トン」 | https://en.wikipedia.org/wiki/ASML_Holding , https://t3n.de/news/euv-lithografie-asml-400-millionen-dollar-1748711/ | 2つ目の独立した出典があるか |
+| V-169 | [9-38] GAA | 2025頃〜 TSMC・インテルも | ○ | TSMC N2 は2025年第4四半期量産（二次報道）。インテル 18A は予定の報道のみ | https://pausehardware.com/tsmc-n2-20000-wafers-mois/ , https://www.trendforce.com/news/2025/02/24/news-intel-to-begin-18a-tape-outs-in-1h25-reportedly-leading-tsmcs-2nm-launch/ | 2つ目の独立した出典があるか |
 
-## ◎ 本線の年・人物（念のため）（54）
+## ◎ 本線の年・人物（念のため）（70）
 
 | 番号 | ノード | 主張 | 今の判定 | NET-03 の結果 | 出典 | 特に確かめてほしい点 |
 |---|---|---|---|---|---|---|
@@ -153,3 +183,19 @@
 | V-115 | [1-19] 希土類分離 | ブキメラ（1980年代、三菱化成系）の残渣問題 | ◎ | 1982年操業、1985年提訴、1992年閉鎖 | https://phys.org/news/2012-06-toxic-legacy-malaysia-rare-earths-village.html , https://consumer.org.my/?p=559 | 出典が主張（年・人物・場所）をそのまま支えているか |
 | V-116 | [1-19] 希土類分離 | ライナス社の残渣保管問題は今も続く | ◎ | 2026年3月の決定で残渣の発生は2031年までに終える | https://www.malaymail.com/news/malaysia/2026/03/06/lynas-stays-another-decade-no-new-radioactive-dump-wlp-to-cease-by-2031/211209 , https://www.greenpeace.org/malaysia/press/63383/digging-deep-into-the-latest-developments-on-lynas-and-the-state-of-the-rare-earth-industry-in-malaysia | 出典が主張（年・人物・場所）をそのまま支えているか |
 | V-120 | [8-08] ボールねじ精密ステージ | 19世紀末に特許 | ◎ | 1898年 米国特許 601,451・610,044 | https://en.wikipedia.org/wiki/Ball_screw , https://www.machinedesign.com/mechanical-motion-systems/article/21834593/a-short-history-on-ball-screws | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-125 | [9-08] CZ 法 | 1916 チョクラルスキー | ◎ | IEEE マイルストーンは1916年（論文受理1916年8月、出版1918年） | https://ethw.org/Milestones:Czochralski_Process , https://en.wikipedia.org/wiki/Czochralski_method | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-131 | [9-16] 熱拡散 | 年 1954、フラーが n型 Si にホウ素を拡散 | ◎ | ETHW・APS・CHM が一致 | https://ethw.org/Milestones:First_Practical_Photovoltaic_Solar_Cell , https://aps.org/apsnews/2009/04/bell-labs-silicon-solar-cell | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-132 | [9-16] 熱拡散 | 1954〜55 ベル研の拡散型トランジスタ | ◎ | 1954 リー（Ge）、1955年3月タネンバウムとトーマス（Si）。リーを名前に足す | https://www.computerhistory.org/siliconengine/diffusion-process-developed-for-transistors/ , https://spectrum.ieee.org/the-lost-history-of-the-transistor | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-133 | [9-28] イオン注入 | 1954 ショックレーの特許 | ◎ | US 2,787,564（1954年10月出願、1957年4月発行） | https://patents.google.com/patent/US2787564A/en , https://www2.avs.org/symposium1999/Papers/Paper_VT-TuA6.html | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-136 | [10-09] トランジスタ論理 | 年 1956、MIT の TX-0 | ◎ | 1955年着工、1956年稼働。「MIT リンカーン研究所」と書くとより正確 | https://www.computerhistory.org/collections/catalog/102622467 , https://mitmuseum.mit.edu/collections/subject/computers-individual-computers-tx-0-computer-288 | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-139 | [9-21] 現像・ポストベーク | 現代は金属を含まない TMAH | ◎ | 2.38% TMAH が標準（移行の年は未確認） | https://www.microchemicals.com/PRODUKTE/Produktinformationen/Fotochemikalien/Entwickler/ , https://www.fujifilm.com/us/en/business/semiconductor-materials/photoresist-ancillaries/other-developer | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-143 | [10-11] 加算器・カウンタ・レジスタ | 1964 シャープ CS-10A はトランジスタ式 | ◎ | 世界初のオールトランジスタ電卓（Ge トランジスタ約530個）、IEEE マイルストーン | https://museum.ipsj.or.jp/en/heritage/CS-10A.html , https://ethw.org/Milestones:Pioneering_Work_on_Electronic_Calculators | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-144 | [10-11] 加算器・カウンタ・レジスタ | 1969〜 IC 化 | ◎ | 1969年シャープ QT-8D（MOS LSI 4チップ） | https://global.sharp/corporate/info/his/only_one/i_c/subwin/i_c3.html , https://oldcalculatormuseum.com/s-sharpqt8d.html | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-145 | [7-14] CO2 レーザー | 年 1964 パテル（ベル研） | ◎ | 1964年で一致（⚠️ なし、確認のみ） | https://lemelson.mit.edu/resources/kumar-patel , https://physics.aps.org/story/v26/st24 | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-146 | [7-14] CO2 レーザー | He を足すとさらに効率が上がる（1965〜） | ◎ | 翌年に He 添加で約100W・効率6〜7% | https://apps.dtic.mil/sti/tr/pdf/AD0757263.pdf , https://www.researching.cn/ArticlePdf/m00002/1966/3/2/1966-02-0009.pdf | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-149 | [7-12] クロムマスク | Cr のエッチング液は硝酸セリウムアンモニウム | ◎ | ＋過塩素酸が標準（メーカー資料と特許） | https://microchemicals.com/dokumente/datenblaetter/tds/tf/en/tds_tf_technietch_cr01.pdf , https://patents.google.com/patent/US6162565 | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-159 | [7-16] 液浸光学 | 2002 TSMC が ArF の水液浸を提案 | ◎ | 2002年の SPIE 講演と Sematech のワークショップ | https://ece.osu.edu/news/2013/04/ece-alum-burn-lin-receives-ieee-jun-ichi-nishizawa-medal , https://nthu-en.site.nthu.edu.tw/p/404-1003-106872.php | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-160 | [7-16] 液浸光学 | 193nm での水の屈折率 1.44 | ◎ | 約1.44 | https://en.wikipedia.org/wiki/Immersion_lithography , https://rit.edu/~w-lithography/research/immersion/SPIE_5040_58_immersion.pdf | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-164 | [8-13] 液滴発生器 | 1880 キュリー兄弟が圧電効果を発見 | ◎ | 正しい。「電圧で伸び縮み」（逆圧電効果）は1881年リップマンの予言をキュリー兄弟が確認 | https://en.wikipedia.org/wiki/Jacques_Curie , https://www.aps.org/apsnews/2014/03/this-month-in-physics-history | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-165 | [8-13] 液滴発生器 | 1878 レイリーが液柱の分裂を解いた | ◎ | "On the Instability of Jets"（1878）。実験はプラトー（1873）が先 | https://zenodo.org/record/2095384 , https://www.princeton.edu/~stonelab/Teaching/Oren%20Breslouer%20559%20Final%20Report.pdf | 出典が主張（年・人物・場所）をそのまま支えているか |
+| V-168 | [9-38] GAA | 2022 サムスンが 3nm（MBCFET）で量産 | ◎ | 2022年6月30日に生産開始を発表 | https://at-web1.www.anandtech.com/show/17474/samsung-starts-3nm-production-the-gaafet-era-begins , https://www.eenewseurope.com/en/samsung-starts-3nm-chip-production-ahead-of-tsmc | 出典が主張（年・人物・場所）をそのまま支えているか |
