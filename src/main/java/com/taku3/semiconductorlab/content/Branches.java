@@ -29,6 +29,19 @@ public final class Branches {
     // 発電機（v0.2a）：水車＋ダイナモ／ボイラー＋蒸気機関＋ダイナモ。[B-12] 太陽電池（昼・空・雨なしで 60W）
     public static final Machine<SolarCellBlockEntity> SOLAR_CELL = Power.generator("solar_cell", SolarCellBlockEntity::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(2.0f).sound(SoundType.GLASS)).build();
 
+    // ===== [B-02a] ダゲレオタイプ（IMP2、S-002 案B：化学の工程を体験。写真の中身は場所・時刻・写りのデータ）=====
+    /** 写真の中身（撮った場所・時刻・露光の量） */
+    public static final net.minecraft.core.component.DataComponentType<PhotoData> PHOTO = net.minecraft.core.Registry.register(
+            net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("photo"),
+            net.minecraft.core.component.DataComponentType.<PhotoData>builder().persistent(PhotoData.CODEC)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.fromCodec(PhotoData.CODEC)).build());
+    public static final Item SILVERED_PLATE        = Reg.item("silvered_plate");        // 銀めっきの銅板（磨いた鏡のような銀の面）
+    public static final Item DAGUERREOTYPE_PLATE   = Reg.item("daguerreotype_plate");   // ヨウ素の蒸気で AgI の膜を付けた感光板
+    public static final Item CAMERA                = Reg.item("camera", CameraItem::new, new Item.Properties().stacksTo(1)); // 暗箱カメラ
+    public static final Item EXPOSED_PLATE         = Reg.item("exposed_plate", PhotoItem::new, new Item.Properties().stacksTo(1));   // 露光した板（まだ像は見えない）
+    public static final Item DEVELOPED_PLATE       = Reg.item("developed_plate", PhotoItem::new, new Item.Properties().stacksTo(1)); // 水銀の蒸気で現像した板
+    public static final Item DAGUERREOTYPE         = Reg.item("daguerreotype", PhotoItem::new, new Item.Properties().stacksTo(1));   // 定着した写真（1枚きり）
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

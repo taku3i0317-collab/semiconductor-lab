@@ -103,5 +103,11 @@
   "litho.semiconductor-lab.discovery.planar_transistor.note": "酸化膜に窓を開け、n・p・n を入れ子にしみ込ませたトランジスタ。1959年のヘルニの方法で、表面が平らなまま作れる。",
   "litho.semiconductor-lab.discovery.rtl_not.note": "トランジスタと抵抗だけで、入力が 1 なら 0、0 なら 1 を出す回路（RTL）。1961年に IC として発表された論理回路の仲間。",
   "advancement.semiconductor-lab.discovery.root.title": "発見",
-  "advancement.semiconductor-lab.discovery.root.description": "自分で描いたチップの中に、歴史上の発明が見つかる。検査台で「調べる」。"
+  "advancement.semiconductor-lab.discovery.root.description": "自分で描いたチップの中に、歴史上の発明が見つかる。検査台で「調べる」。",
+  "item.semiconductor-lab.photo.place": "撮った場所：%s",
+  "item.semiconductor-lab.photo.time": "撮った時刻：%s",
+  "item.semiconductor-lab.photo.exposure": "露光の量：%s％（%s）",
+  "item.semiconductor-lab.photo.thin": "うすい：露光が足りない",
+  "item.semiconductor-lab.photo.good": "ちょうどよい",
+  "item.semiconductor-lab.photo.dark": "黒い：露光しすぎ"
 }

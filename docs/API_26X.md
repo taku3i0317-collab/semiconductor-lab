@@ -853,3 +853,9 @@ FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registri
 - `net.minecraft.client.input.MouseButtonEvent`（record）：`x()`・`y()`・`button()`（0＝左、1＝右）・`modifiers()`
 - 看板の文（IMP3 S-001）：`SignBlockEntity.getText(SignTextSlot.FRONT).getMessages(boolean filtered)`（getFrontText は無い）。setblock の NBT は `oak_sign[rotation=8]{front_text:{messages:["1行目","2行目","",""]}}`（文字列をそのまま書ける）、チェストは `chest[facing=north]{Items:[{Slot:0b,id:"...",count:16}]}`
 - コマンドを Java から：`server.getCommands().performPrefixedCommand(server.createCommandSourceStack().withLevel(lv).withPosition(Vec3).withSuppressedOutput(), "function ns:id")`。チャンクを読み込んだままにするのは `ServerLevel.setChunkForced(cx, cz, true/false)`
+
+## IMP2（2026-10-20 javap）時刻・持ち物
+- 時刻：`Level.getDayTime()` は無い → `Level.getOverworldClockTime()`（オーバーワールドの時計の tick、`getDefaultClockTime()` もある）。`LevelAccessor.getGameTime()` は今まで通り
+- `Player.drop(ItemStack, boolean)` は無い → `player.getInventory().placeItemBackInInventory(stack, Prediction.SERVER_ONLY)`（入らなければ足元に落とす）
+- `RecipeType`：`minecraft:crafting_transmute`（input＋material、input の成分を結果に引き継ぐ。シュルカーボックスの染め直しと同じ）で、写真のデータを現像・定着のあいだ引き継げる
+- データコンポーネントは content/<幹>.java の static で `Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, …)` してよい（Precision.PART_ERROR_UM・Branches.PHOTO）

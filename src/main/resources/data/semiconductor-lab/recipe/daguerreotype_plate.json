@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:silvered_plate",
+    "semiconductor-lab:iodine"
+  ],
+  "result": {
+    "id": "semiconductor-lab:daguerreotype_plate",
+    "count": 1
+  }
+}

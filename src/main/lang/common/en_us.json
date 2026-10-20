@@ -103,5 +103,11 @@
   "litho.semiconductor-lab.discovery.planar_transistor.note": "Open windows in the oxide and diffuse n, p, n nested inside each other: a transistor. Hoerni's 1959 method keeps the surface flat.",
   "litho.semiconductor-lab.discovery.rtl_not.note": "A circuit of just a transistor and resistors that outputs 0 for input 1 and 1 for input 0 (RTL). One of the logic circuits announced as ICs in 1961.",
   "advancement.semiconductor-lab.discovery.root.title": "Discoveries",
-  "advancement.semiconductor-lab.discovery.root.description": "Inventions from history hide in the chips you draw. Press Probe at the probe station."
+  "advancement.semiconductor-lab.discovery.root.description": "Inventions from history hide in the chips you draw. Press Probe at the probe station.",
+  "item.semiconductor-lab.photo.place": "Taken at: %s",
+  "item.semiconductor-lab.photo.time": "Time taken: %s",
+  "item.semiconductor-lab.photo.exposure": "Exposure: %s%% (%s)",
+  "item.semiconductor-lab.photo.thin": "thin: underexposed",
+  "item.semiconductor-lab.photo.good": "just right",
+  "item.semiconductor-lab.photo.dark": "dark: overexposed"
 }

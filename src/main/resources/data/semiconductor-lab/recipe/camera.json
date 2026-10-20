@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "semiconductor-lab:achromatic_lens",
+    "#minecraft:planks",
+    "#minecraft:planks",
+    "#minecraft:planks",
+    "#minecraft:planks"
+  ],
+  "result": {
+    "id": "semiconductor-lab:camera",
+    "count": 1
+  }
+}

@@ -111,4 +111,47 @@ public class BranchesTests extends LabTestBase {
         LOG.info("[LAB] solar cell [B-12]: {} W (bright={}, rain={}); roofed 0 W", be.getLastWatts(), lv.isBrightOutside(), lv.isRainingAt(a.above()));
         h.succeed();
     }
+
+    /** [B-02a] ダゲレオタイプ（IMP2、S-002 案B）：銀めっき板＋ヨウ素 → 感光板、カメラで露光（日なた 60秒がちょうどよい）、水銀で現像、塩かハイポで定着。写真のデータは最後まで引き継ぐ */
+    @GameTest
+    public void daguerreotype(GameTestHelper h) {
+        var cam = com.taku3.semiconductorlab.item.CameraItem.class;
+        int T = com.taku3.semiconductorlab.item.CameraItem.DAG_TARGET_TICKS;
+        h.assertValueEqual(com.taku3.semiconductorlab.item.CameraItem.exposurePercent(T, 1.0, T), 100, "60 s in sun = 100%");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.CameraItem.exposurePercent(T, 0.3, T), 30, "rain: 30% -> thin");
+        h.assertValueEqual(new com.taku3.semiconductorlab.item.PhotoData("x", 0, 30, "daguerreotype").quality(), "thin", "under 50% -> thin");
+        h.assertValueEqual(new com.taku3.semiconductorlab.item.PhotoData("x", 0, 120, "daguerreotype").quality(), "good", "50-200% -> good");
+        h.assertValueEqual(new com.taku3.semiconductorlab.item.PhotoData("x", 0, 350, "daguerreotype").quality(), "dark", "over 200% -> dark");
+        h.assertTrue(com.taku3.semiconductorlab.item.CameraItem.targetTicks(new ItemStack(Branches.DAGUERREOTYPE_PLATE)) == T, "sensitized plate can be exposed");
+        h.assertTrue(com.taku3.semiconductorlab.item.CameraItem.targetTicks(new ItemStack(Branches.SILVERED_PLATE)) == 0, "unsensitized plate cannot");
+        h.assertTrue(recipeUses(h, "daguerreotype_plate", com.taku3.semiconductorlab.content.Chemistry.IODINE), "iodine vapor sensitizes the plate");
+        // 現像・定着：成分（写真の中身）を引き継ぐ（crafting_transmute）
+        var data = new com.taku3.semiconductorlab.item.PhotoData("plains (10, 20)", 6000, 110, "daguerreotype");
+        ItemStack exposed = new ItemStack(Branches.EXPOSED_PLATE);
+        exposed.set(Branches.PHOTO, data);
+        ItemStack dev = craft2(h, exposed, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.MERCURY));
+        h.assertTrue(dev.is(Branches.DEVELOPED_PLATE) && data.equals(dev.get(Branches.PHOTO)), "mercury vapor develops, data kept");
+        ItemStack fixed = craft2(h, dev, new ItemStack(com.taku3.semiconductorlab.content.Gas.SALT));
+        h.assertTrue(fixed.is(Branches.DAGUERREOTYPE) && data.equals(fixed.get(Branches.PHOTO)), "salt fixes, data kept");
+        ItemStack fixed2 = craft2(h, dev, new ItemStack(com.taku3.semiconductorlab.content.Optics.SODIUM_THIOSULFATE));
+        h.assertTrue(fixed2.is(Branches.DAGUERREOTYPE), "hypo fixes too");
+        // カメラを使う：感光板を持たないと FAIL
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Branches.CAMERA));
+        h.assertFalse(Branches.CAMERA.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "no plate -> nothing");
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(Branches.DAGUERREOTYPE_PLATE));
+        h.assertTrue(Branches.CAMERA.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "with a plate -> shutter opens");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"photo.place", "photo.time", "photo.exposure", "photo.thin", "photo.good", "photo.dark", "camera.hold", "camera.exposed"})
+            h.assertTrue(ja.has("item.semiconductor-lab." + k), "lang " + k);
+        LOG.info("[LAB] daguerreotype [B-02a]: plate + iodine, camera 60 s in sun = 100%, mercury develop, salt/hypo fix, data kept");
+        h.succeed();
+    }
+
+    /** 作業台に2つ並べたときの出力（成分を引き継ぐクラフトの確認用） */
+    private static ItemStack craft2(GameTestHelper h, ItemStack a, ItemStack b) {
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, java.util.List.of(a, b));
+        return h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel())
+                .map(r -> r.value().assemble(input)).orElse(ItemStack.EMPTY);
+    }
 }

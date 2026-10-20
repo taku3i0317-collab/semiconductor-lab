@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:developed_plate",
+  "material": "semiconductor-lab:salt",
+  "result": {
+    "id": "semiconductor-lab:daguerreotype"
+  }
+}
