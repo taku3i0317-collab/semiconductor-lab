@@ -31,6 +31,13 @@ public final class Precision {
     // [8-10] 光学顕微鏡（IMP2-04）：単レンズ（レーウェンフック 1670年代、NA 0.2⚠️）と複式（色消し対物、NA 0.9）。見分けられる線 d ＝ λ ÷ 2NA
     public static final Item SIMPLE_MICROSCOPE     = Reg.item("simple_microscope", p -> new MicroscopeItem(p, 0.2), new Item.Properties().stacksTo(1));
     public static final Item COMPOUND_MICROSCOPE   = Reg.item("compound_microscope", p -> new MicroscopeItem(p, 0.9), new Item.Properties().stacksTo(1));
+    // [8-02] ねじ切りと互換性部品（IMP2-05）：旋盤の親ねじの入口に送りねじを入れて鋼を削る → 同じねじ山の規格ねじ（ホイットワース 1841：山の角度 55°）
+    public static final Item STANDARD_SCREW        = Reg.item("standard_screw");
+    /** 削った部品の寸法の誤差（µm、+ は大きすぎ）。旋盤のくせで決まる。ノギス・マイクロメータ [8-04] で測る（IMP2-05） */
+    public static final net.minecraft.core.component.DataComponentType<Integer> PART_ERROR_UM = net.minecraft.core.Registry.register(
+            net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("part_error_um"),
+            net.minecraft.core.component.DataComponentType.<Integer>builder().persistent(com.mojang.serialization.Codec.INT)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
     public static final Item PUMP_ROTOR            = Reg.item("pump_rotor");        // 回転ポンプ [5-04] の偏心ローター（鋼）
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====

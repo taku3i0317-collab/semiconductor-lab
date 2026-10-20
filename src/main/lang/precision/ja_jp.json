@@ -6,7 +6,7 @@
   "item.semiconductor-lab.lead_screw.note4": "1800年ごろ、イギリスのヘンリー・モーズリーが送りねじで刃物台を動かす全金属の旋盤を作り、正確なねじを何本でも同じに作れるようになった。半導体の露光装置のステージ（ボールねじ）も、この子孫。",
   "block.semiconductor-lab.lathe": "旋盤",
   "block.semiconductor-lab.lathe.note1": "材料をぐるぐる回して、刃物でけずって丸い部品を作る機械。",
-  "block.semiconductor-lab.lathe.note2": "電気 750W。鋼のインゴット → 回転ポンプのローター（30秒）。作り方：鋼×2＋送りねじ＋鉄×2＋モーター。刃物台を送りねじで動かすので、手でけずるよりずっと正確。",
+  "block.semiconductor-lab.lathe.note2": "電気 750W。鋼のインゴット → ポンプのローター（30秒）。左下の「親ねじ」の入口に送りねじを入れておくと、鋼 → 規格ねじ×4 [8-02]（送りねじは減らない）。作った部品には、この旋盤のくせの寸法の誤差が付く。作り方：鋼×2＋送りねじ＋鉄×2＋モーター。",
   "block.semiconductor-lab.lathe.note3": "1797〜1800年ごろ、イギリスのヘンリー・モーズリーは、全部を金属で作り、刃物台を送りねじで動かす旋盤を作った。人の手のふるえがなくなり、同じ寸法のねじや部品をいくつでも作れるようになった。「工作機械の母」と呼ばれる。",
   "block.semiconductor-lab.lathe.note4": "旋盤は自分の送りねじを、自分でより正確に作り直せる（よいねじ → よい部品 → もっとよいねじ）。この「自分より正確な機械を作る」くり返しが、精密機械から露光装置のステージ（nm の位置決め）までつながっている。",
   "block.semiconductor-lab.lathe.placeholder": "近似：モーズリーの旋盤は人力や水車・蒸気の動力。ここでは電気のモーター。今けずれるのは回転ポンプのローターだけ。",
@@ -26,5 +26,11 @@
   "item.semiconductor-lab.compound_microscope.note2": "色消しレンズ（対物）＋クラウンレンズ（接眼）＋銅×2＋送りねじ（ピント合わせ）＋鉄。NA 0.9 なので約0.31µm まで見分けられる（i線ステッパーのマスクまで。KrF より細かい線は光では見えない）。",
   "item.semiconductor-lab.compound_microscope.note3": "1873年、ツァイスの工場で働いていたアッベは、顕微鏡で見分けられる一番細い線は光の波長のおよそ半分（d ＝ λ ÷ 2NA）で、それより細かい物はどんなレンズでも見えないことを示した。1878年には油にひたして NA を上げる油浸レンズを作った。",
   "item.semiconductor-lab.compound_microscope.note4": "NA（開口数）はレンズが光を受け取る角度の広さ。空気中では 1 をこえられないので、もっと細かく見るには、波長を短くする（紫外線の顕微鏡 1904年）、間を油や水で満たす（液浸 [7-16] と同じ考え）、光の代わりに電子を使う（電子顕微鏡）しかない。半導体の線が光の波長より細くなってから、検査は電子顕微鏡になった。",
-  "item.semiconductor-lab.compound_microscope.placeholder": "近似：光は白色光のまん中 550nm で計算。照明の工夫（ケーラー照明）や油浸は省略。"
+  "item.semiconductor-lab.compound_microscope.placeholder": "近似：光は白色光のまん中 550nm で計算。照明の工夫（ケーラー照明）や油浸は省略。",
+  "item.semiconductor-lab.standard_screw": "規格ねじ",
+  "item.semiconductor-lab.standard_screw.note1": "どれも同じ形に切られたねじ。どの機械のナットにも合う。",
+  "item.semiconductor-lab.standard_screw.note2": "旋盤の「親ねじ」の入口に送りねじを入れて、鋼を削ると4本（送りねじは減らない）。旋盤のくせの寸法の誤差を持つ（ノギス・マイクロメータ [8-04] で測れる）。",
+  "item.semiconductor-lab.standard_screw.note3": "昔は工房ごとにねじの形がばらばらで、ねじとナットは1組ずつ合わせて作った。1841年、ホイットワースはねじ山の角度を 55° に、太さごとの山の数を決めることを提案し、イギリス中のねじがそろった。",
+  "item.semiconductor-lab.standard_screw.note4": "モーズリーの旋盤は、刃物台を「親ねじ」で動かすので、親ねじと同じピッチ（山の間かく）のねじを何本でも正確に切れた。部品の形が決まっていれば、どの部品を取っても組める（互換性部品）。のちの大量生産・自動車の組立ラインの土台になった。",
+  "item.semiconductor-lab.standard_screw.placeholder": "近似：誤差の幅（±25µm）はゲームの値。ねじ山の形（55° など）の違いは区別しない。"
 }

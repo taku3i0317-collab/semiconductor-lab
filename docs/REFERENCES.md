@@ -871,6 +871,20 @@
 - Wikipedia「Antonie van Leeuwenhoek」：https://en.wikipedia.org/wiki/Antonie_van_Leeuwenhoek
 - Wikipedia「Ernst Abbe」：https://en.wikipedia.org/wiki/Ernst_Abbe
 
+## O26. 同じねじを何本でも（親ねじ付き旋盤とねじの規格）［8-02］
+**答え**：モーズリーの旋盤（1797〜1800頃）は刃物台を親ねじで動かすので、親ねじと同じピッチのねじを何本でも正確に切れた。1841年ホイットワースは、ねじ山の角度 55° と太さごとの山の数をそろえることを提案し、どの工場のねじとナットも合うようになった。形と寸法が決まっていれば、どの部品を取っても組める（互換性部品）。
+
+- へえ①：どの店のネジでも合うのは、ねじ山の角度が決まっているから。
+- へえ②：それまでは、ねじとナットは1組ずつ合わせて作り、別の組とは合わなかった。
+- へえ③：互換性部品の考え方は、のちのミシン・自転車・自動車の大量生産の土台になった（歴史では兵器工場から広まった）。
+- へえ④：アメリカのねじ（セラーズ 1864、60°）はイギリスと角度が違い、第二次世界大戦のころまで部品が合わずに困った。
+
+確かさ：モーズリーの親ねじ旋盤 ◎／ホイットワース 1841・55° ◎／セラーズ 1864・60° ◎／1850年ごろの精度 0.01〜0.03mm △ → ゲーム内は ⚠️
+根拠：
+- Wikipedia「British Standard Whitworth」：https://en.wikipedia.org/wiki/British_Standard_Whitworth
+- Wikipedia「Henry Maudslay」：https://en.wikipedia.org/wiki/Henry_Maudslay
+- Wikipedia「Interchangeable parts」：https://en.wikipedia.org/wiki/Interchangeable_parts
+
 ---
 
 # 冶金と熱（タスク15〜）

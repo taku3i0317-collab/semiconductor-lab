@@ -103,3 +103,6 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 
 ## IMP2-04（INBOX O-004、2026-10-20 再開後）[8-10] 光学顕微鏡
 - ✅ [8-10]：単レンズ（NA 0.2）・複式（NA 0.9）の顕微鏡（item/MicroscopeItem）。持ち替えた手のマスク・原図・設計図・ウェハーの方眼の1マス（ExposureTool の CD）と、アッベの d ＝ 550nm ÷ 2NA をくらべて見える／ぼやける＋フォトマスクの傷の数。A のデータ（mask・chip_design・chip_state の size）は読むだけ、A のファイルは触っていない。遊び方: 実験。GameTest microscope、CHEMISTRY P2、REFERENCES O25。テスト 138/138
+
+## IMP2-05（INBOX O-005）[8-02] → [8-04]
+- ✅ [8-02] ねじ切りと互換性部品：旋盤（LatheBlockEntity、自分の [8-01]）に親ねじの入口。送りねじ（減らない）＋鋼 → 規格ねじ×4。削った部品に寸法の誤差の成分 Precision.PART_ERROR_UM（Precision.java で登録＝共通の ModDataComponents は触っていない）。誤差は旋盤ごとのくせ（±25µm、はじめて削るときに決まり保存）。GameTest lathe、CHEMISTRY P3、REFERENCES O26。テスト 139/139

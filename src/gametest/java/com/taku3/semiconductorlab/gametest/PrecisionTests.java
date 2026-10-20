@@ -27,12 +27,23 @@ public class PrecisionTests extends LabTestBase {
         int T = LatheBlockEntity.TICKS;
         long full = EnergyStorage.wattsToJoulesPerTick(LatheBlockEntity.WATTS);
         h.assertFalse(LatheBlockEntity.isInput(new ItemStack(Items.IRON_INGOT)), "iron is not turned into a rotor (needs steel)");
+        int err = be.errorUm();
+        h.assertTrue(Math.abs(err) <= LatheBlockEntity.ERROR_UM, "lathe error within +-25 um: " + err);
         c.setItem(LatheBlockEntity.SLOT_IN, new ItemStack(Metallurgy.STEEL_INGOT, 2));
         tickConsumer(h, pos, be, T, full / 2);
         h.assertTrue(c.getItem(LatheBlockEntity.SLOT_OUT).isEmpty(), "half power -> no progress");
         tickConsumer(h, pos, be, T, full);
         h.assertTrue(c.getItem(LatheBlockEntity.SLOT_OUT).is(Precision.PUMP_ROTOR), "steel -> pump rotor in 30 s at 750 W");
-        LOG.info("[LAB] lathe [8-01]: steel -> pump rotor (750 W x 30 s)");
+        h.assertValueEqual(c.getItem(LatheBlockEntity.SLOT_OUT).get(Precision.PART_ERROR_UM), err, "the part carries this lathe's error");
+        // [8-02] 親ねじを入れると、鋼 → 規格ねじ×4（親ねじは減らない）
+        c.setItem(LatheBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(LatheBlockEntity.SLOT_TOOL, new ItemStack(Precision.LEAD_SCREW));
+        tickConsumer(h, pos, be, T, full);
+        h.assertTrue(c.getItem(LatheBlockEntity.SLOT_OUT).is(Precision.STANDARD_SCREW) && c.getItem(LatheBlockEntity.SLOT_OUT).getCount() == 4, "lead screw as master -> 4 standard screws");
+        h.assertTrue(c.getItem(LatheBlockEntity.SLOT_TOOL).is(Precision.LEAD_SCREW), "the master screw stays");
+        tickConsumer(h, pos, be, T, full);
+        h.assertValueEqual(c.getItem(LatheBlockEntity.SLOT_OUT).getCount(), 4, "out of steel (2 used) -> stays at 4");
+        LOG.info("[LAB] lathe [8-01][8-02]: steel -> pump rotor; with the lead screw as master -> 4 standard screws (error {} um)", err);
         h.succeed();
     }
 
@@ -73,5 +84,7 @@ public class PrecisionTests extends LabTestBase {
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");
+        rec(a, Precision.LATHE.block, "規格ねじを切る", L(io(Metallurgy.STEEL_INGOT, 1), kept(io(Precision.LEAD_SCREW, 1))), L(io(Precision.STANDARD_SCREW, 4)),
+            LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "親ねじと同じねじ山を何本でも（ホイットワースの規格 55°）");
     }
 }
