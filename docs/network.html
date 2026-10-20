@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>技術ネットワーク</title>
-<!-- データ：tools/gen_tree_views.py が書き出す tech_network.js（＝tech_network.json と同じ中身）。実行すれば図も最新になる。
+<!-- データ：tools/gen_tree_views.py が書き出す tech_network_graph.js（図に要る軽いデータ。位置も計算済み）と
+     tech_network_detail.js（カード用の重いデータ。押したとき・検索したときに読む）。実行すれば図も最新になる。描画は Canvas（NET-05）。
      アイコン・モノの絵文字・人物は docs/network_meta.json、どれがモノかは TECH_TREE.md の「種類: モノ」 -->
 <style>
 :root {
@@ -32,28 +33,9 @@ header input[type=search] { width: 220px; max-width: 100%; }
 header label { display: inline-flex; gap: 4px; align-items: center; color: var(--sub); white-space: nowrap; cursor: pointer; }
 main { flex: 1; position: relative; overflow: hidden; display: flex; min-height: 0; }
 #chart { flex: 1; min-width: 0; position: relative; }
-svg#svg { width: 100%; height: 100%; display: block; touch-action: none; }
-.band-label { font-size: 11px; font-weight: 600; }
-.era-label { font-size: 10px; fill: var(--sub); }
-.era-line { stroke: var(--line); stroke-dasharray: 2 4; }
-.edge { fill: none; stroke-width: 0.9; }
-.edge.hot { stroke-width: 1.8; }
-.edge.understanding { stroke-dasharray: 3 3; }
-.plink { fill: none; stroke: var(--sub); stroke-width: 1.4; stroke-opacity: 0.35; }
-.node { cursor: pointer; }
-.node .shape { stroke-width: 1.6; }
-.node image { image-rendering: pixelated; pointer-events: none; }
-.node .sym { pointer-events: none; text-anchor: middle; dominant-baseline: central; }
-.node .lab { font-size: 9px; fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
-.node.product .shape, .node.idea .shape { stroke-width: 2.4; fill: var(--prod); }
-.node.product .lab, .node.idea .lab { font-size: 11px; font-weight: 700; text-anchor: middle; }
-.node.idea .shape { stroke-width: 2; }
-.edge.enables { stroke-dasharray: 7 3; }
-.dimmed { opacity: var(--dim); }
-.hidden { display: none; }
-.node.match .shape { stroke: var(--hl); stroke-width: 3; }
-.node.selected .shape { stroke: var(--hl); stroke-width: 4; }
-.node.lit .shape { stroke: var(--hl); }
+canvas#cv { width: 100%; height: 100%; display: block; touch-action: none; }
+/* 図の中の色・太さ・文字の大きさは、以前の SVG と同じ値を draw() の中で使う（帯の名前 11px 太字、時代 10px、名前 9px／モノ 11px 太字、
+   線 0.9px（選んだ点の線 1.8px）、理解の線は点線 3 3、発見→技術は 7 3、丸のふち 1.6px（モノ 2.4px、発見 2px）、薄くする 0.12） */
 aside#card { width: 340px; max-width: 100%; border-left: 1px solid var(--line); background: var(--panel); overflow: auto; padding: 14px 16px; display: none; }
 aside#card.open { display: block; }
 #card h2 { font-size: 16px; margin: 0 0 4px; display: flex; align-items: center; gap: 8px; }
@@ -75,8 +57,6 @@ aside#card.open { display: block; }
 #card .person small { color: var(--sub); }
 .legend { position: absolute; left: 12px; bottom: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 11px; color: var(--sub); display: flex; gap: 12px; flex-wrap: wrap; max-width: calc(100% - 24px); }
 .legend span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
-.band-tech.faint { opacity: 0.3; }
-.band-zoom { font-size: 13px; fill: var(--sub); }
 #card .more { display: inline-block; margin-top: 6px; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 3px 10px; text-decoration: none; font-size: 13px; }
 .hint { position: absolute; right: 12px; top: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--sub); }
 /* 人の壁（NET-04） */
@@ -116,7 +96,7 @@ aside#card.open { display: block; }
 </header>
 <main>
   <div id="chart">
-    <svg id="svg" role="img" aria-label="技術ネットワーク図"></svg>
+    <canvas id="cv" role="img" aria-label="技術ネットワーク図"></canvas>
     <div class="hint" id="hint"></div>
     <div class="legend">
       <span>大きな丸＝モノ（選ぶと使われている技術が光る）</span>
@@ -132,11 +112,13 @@ aside#card.open { display: block; }
   <aside id="card" aria-live="polite"></aside>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-<script src="tech_network.js"></script>
+<script src="tech_network_graph.js"></script>
 <script>
-(async function () {
-  const data = window.TECH_NETWORK || await fetch('tech_network.json').then(r => r.json());
-  const nodes = data.nodes, byId = new Map(nodes.map(n => [n.id, n]));
+(function () {
+  // データ：最初は図に要る軽いデータ（TECH_GRAPH。位置は tools/gen_tree_views.py が先に計算してある）だけを読む。
+  // カード・検索で本物やへえ・人物が要るときに、重いデータ（tech_network_detail.js）を読み込む（NET-05）
+  const G = window.TECH_GRAPH;
+  const nodes = G.nodes, byId = new Map(nodes.map(n => [n.id, n]));
   const isProd = n => n.kind === 'product';
   // 発見・考え方（ideas.md）：ひし形。モノと同じく遠くからでも見える目印
   const isIdea = n => n.kind === 'idea', isLand = n => isProd(n) || isIdea(n);
@@ -147,76 +129,29 @@ aside#card.open { display: block; }
   // products.md のモノ（P）と ideas.md の発見（I）は幹ではないので決まった色
   const color = t => t === 'P' ? '#c98a00' : t === 'I' ? '#8e5bd6' : palette[trunks.indexOf(t) % palette.length];
 
-  // ---- 横軸：おおまかな年（古い時代は詰め、近代を広げる） ----
-  const xs = d3.scaleLinear()
-    .domain([-3400000, -100000, -10000, -3000, 0, 1000, 1500, 1700, 1800, 1850, 1900, 1930, 1950, 1970, 1990, 2030])
-    .range([0, 50, 120, 200, 260, 320, 380, 470, 580, 690, 820, 930, 1040, 1170, 1300, 1460]).clamp(true);
+  // ---- 横軸：おおまかな年（古い時代は詰め、近代を広げる）。位置・帯は gen_tree_views.py の compute_layout が計算済み ----
+  const L = G.layout, LEFT = L.left, W = L.W, H = L.H;
+  const xs = d3.scaleLinear().domain(L.xs[0]).range(L.xs[1]).clamp(true);
   const eras = [[-3000000, '300万年前'], [-10000, '1万年前'], [-3000, '前3000'], [0, '0'], [1000, '1000'], [1500, '1500'],
                 [1700, '1700'], [1800, '1800'], [1850, '1850'], [1900, '1900'], [1950, '1950'], [1970, '1970'], [2000, '2000']];
-  const LEFT = 110, R = n => isProd(n) ? 15 : isIdea(n) ? 12 : 3 + 1.3 * Math.sqrt(n.descendants);
-
-  // ---- 縦：一番上に「モノ」の帯（時代順のランドマーク）、その下に幹ごとの帯。帯の中は力学レイアウトで散らす ----
-  // その下に「発見・考え方」の帯
-  const bandOf = n => isProd(n) ? 'P' : isIdea(n) ? 'I' : n.trunk;
+  const R = n => isProd(n) ? 15 : isIdea(n) ? 12 : 3 + 1.3 * Math.sqrt(n.descendants);
+  // 縦：一番上に「モノ」の帯（時代順のランドマーク）、その下に「発見・考え方」の帯、その下に幹ごとの帯
   const bandKeys = ['P', 'I', ...trunks];
-  let y0 = 30; const band = new Map();
-  for (const t of bandKeys) {
-    const ns = nodes.filter(n => bandOf(n) === t).sort((a, b) => (a.year ?? 0) - (b.year ?? 0));
-    const lanes = [];
-    for (const n of ns) {
-      n.x = n.tx = LEFT + xs(n.year ?? 0); const r = R(n);
-      // モノは名前の幅も空ける
-      let li = lanes.findIndex(last => n.x - last.x >= (t === 'P' || t === 'I' ? 64 : r + R(last) + 3));
-      if (li < 0) { lanes.push(n); li = lanes.length - 1; } else lanes[li] = n;
-      n.lane = li;
-    }
-    const land = t === 'P' || t === 'I', laneH = land ? 44 : 15;
-    const h = land ? lanes.length * laneH + 40 : Math.min(220, Math.max(48, lanes.length * 15 + 26));
-    ns.forEach(n => { n.y = y0 + 20 + (land ? 10 : 0) + (n.lane % Math.max(1, Math.floor((h - 28) / laneH))) * laneH; });
-    band.set(t, { y: y0, h }); y0 += h;
-  }
-  const sim = d3.forceSimulation(nodes)
-    .force('x', d3.forceX(n => n.tx).strength(0.6))
-    .force('y', d3.forceY(n => band.get(bandOf(n)).y + band.get(bandOf(n)).h / 2 + 4).strength(n => isLand(n) ? 0.005 : 0.04))
-    .force('collide', d3.forceCollide(n => isLand(n) ? 30 : R(n) + 1.5).iterations(3))
-    .stop();
-  for (let i = 0; i < 260; i++) {
-    sim.tick();
-    for (const n of nodes) {
-      const b = band.get(bandOf(n)), r = isLand(n) ? R(n) : Math.min(R(n), 10);
-      n.y = Math.max(b.y + 16 + r, Math.min(b.y + b.h - (isLand(n) ? 16 : 4) - r, n.y));
-      n.x = Math.max(LEFT + 4, n.x);
-    }
-  }
-  const W = LEFT + xs.range()[xs.range().length - 1] + 40, H = y0 + 20;
-
-  const svg = d3.select('#svg'), root = svg.append('g');
-  const bands = root.append('g');
-  bandKeys.forEach((t, i) => {
-    const b = band.get(t);
-    const land = t === 'P' || t === 'I';
-    const g = bands.append('g').attr('class', land ? 'band-prod' : 'band-tech');
-    g.append('rect').attr('x', 0).attr('y', b.y).attr('width', W).attr('height', b.h).attr('fill', land ? 'var(--panel)' : i % 2 ? 'var(--band-b)' : 'var(--band-a)');
-    if (!land) g.append('text').attr('class', 'band-zoom').attr('x', W / 2).attr('y', b.y + b.h / 2 + 4).attr('text-anchor', 'middle').text('ズームすると技術が見えます');
-    g.append('text').attr('class', 'band-label').attr('x', 8).attr('y', b.y + 14).attr('fill', land ? 'var(--ink)' : color(t))
-      .text(t === 'P' ? 'モノ（時代順）' : t === 'I' ? '発見・考え方（◆ 実験で見つける）' : `${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}`);
-  });
-  const eraG = root.append('g');
-  for (const [yr, lab] of eras) {
-    const x = LEFT + xs(yr);
-    eraG.append('line').attr('class', 'era-line').attr('x1', x).attr('x2', x).attr('y1', 18).attr('y2', H);
-    eraG.append('text').attr('class', 'era-label').attr('x', x + 2).attr('y', 14).text(lab);
-  }
+  const band = new Map(bandKeys.map(t => [t, { y: L.bands[t][0], h: L.bands[t][1] }]));
+  for (const n of nodes) { [n.timeX, n.timeY] = L.time[n.id]; [n.netX, n.netY] = L.net[n.id]; n.x = n.timeX; n.y = n.timeY; }
 
   // ---- つながりと祖先 ----
-  const edges = data.edges.filter(e => byId.has(e.from) && byId.has(e.to)).map(e => {
-    const a = byId.get(e.from), b = byId.get(e.to);
-    return { ...e, a, b, gap: (b.year ?? 0) - (a.year ?? 0) };
+  const kindName = { r: 'requires', u: 'understanding', e: 'enables' };
+  const edges = G.edges.filter(([f, t]) => byId.has(f) && byId.has(t)).map(([f, t, k]) => {
+    const a = byId.get(f), b = byId.get(t);
+    return { from: f, to: t, kind: kindName[k], a, b, gap: (b.year ?? 0) - (a.year ?? 0) };
   });
-  const parents = new Map(), kids = new Map();
-  for (const e of edges) if (e.kind === 'requires' || e.kind === 'enables') {
-    (parents.get(e.b.id) || parents.set(e.b.id, []).get(e.b.id)).push(e.a.id);
-    (kids.get(e.a.id) || kids.set(e.a.id, []).get(e.a.id)).push(e.b.id);
+  const parents = new Map(), kids = new Map(), explainsOf = new Map();
+  for (const e of edges) {
+    if (e.kind === 'requires' || e.kind === 'enables') {
+      (parents.get(e.b.id) || parents.set(e.b.id, []).get(e.b.id)).push(e.a.id);
+      (kids.get(e.a.id) || kids.set(e.a.id, []).get(e.a.id)).push(e.b.id);
+    } else if (isIdea(e.a)) (explainsOf.get(e.a.id) || explainsOf.set(e.a.id, []).get(e.a.id)).push(e.b.id);   // 発見が「説明する」技術
   }
   const walk = (start, next) => { const seen = new Set(), q = [start]; while (q.length) { const u = q.pop(); for (const v of next.get(u) || []) if (!seen.has(v)) { seen.add(v); q.push(v); } } return seen; };
   const anc = new Map(nodes.map(n => [n.id, walk(n.id, parents)]));
@@ -229,105 +164,233 @@ aside#card.open { display: block; }
     for (const q of pa) if (!pa.some(o => o.id !== q.id && anc.get(o.id).has(q.id))) plinks.push({ a: q, b: p });
   }
 
-  // ---- 線 ----
+  // ---- 線の色：前提との年の差（小＝薄い黄土色、大＝オレンジ） ----
   const gapColor = g => d3.interpolateRgb('#d9d0b0', '#e8590c')(Math.min(1, Math.log10(1 + Math.abs(g)) / 3.3));
+  for (const e of edges) e.color = gapColor(e.gap);
   // 線の形：時間軸は横に流れる曲線、ネットワークは直線
   let layoutMode = 'time';
-  const curve = (a, b) => { if (layoutMode === 'net') return `M${a.x},${a.y} L${b.x},${b.y}`; const mx = (a.x + b.x) / 2; return `M${a.x},${a.y} C${mx},${a.y} ${mx},${b.y} ${b.x},${b.y}`; };
   const TOP = new Set([...edges].filter(e => e.kind === 'requires').sort((p, q) => Math.abs(q.gap) - Math.abs(p.gap)).slice(0, 60));
   const baseOpacity = d => TOP.has(d) ? 0.32 : 0.035;
-  const plinkSel = root.append('g').selectAll('path').data(plinks).join('path').attr('class', 'plink').attr('d', d => curve(d.a, d.b));
-  const edgeSel = root.append('g').selectAll('path').data(edges).join('path')
-    .attr('class', d => 'edge ' + d.kind).attr('d', d => curve(d.a, d.b))
-    .attr('stroke', d => gapColor(d.gap)).attr('stroke-opacity', baseOpacity);
+  const ordered = [...nodes].sort((a, b) => isLand(a) - isLand(b));   // モノ・発見を上に描く
 
-  // ---- 点（丸の中に 16×16 のドット絵。無いものは幹の記号・モノの絵文字） ----
-  const nodeG = root.append('g');
-  const ordered = [...nodes].sort((a, b) => isLand(a) - isLand(b));   // モノを上に描く
-  const nodeSel = nodeG.selectAll('g').data(ordered).join('g').attr('class', d => 'node' + (isProd(d) ? ' product' : isIdea(d) ? ' idea' : ''))
-    .attr('transform', d => `translate(${d.x},${d.y})`);
-  // 形：技術とモノは丸、発見はひし形
-  const diamond = r => `M0,${-r * 1.25}L${r * 1.25},0L0,${r * 1.25}L${-r * 1.25},0Z`;
-  nodeSel.append(d => document.createElementNS('http://www.w3.org/2000/svg', isIdea(d) ? 'path' : 'circle')).attr('class', 'shape')
-    .attr('r', d => isIdea(d) ? null : R(d)).attr('d', d => isIdea(d) ? diamond(R(d)) : null)
-    .attr('fill', d => isLand(d) ? null : d.status === '✅' ? color(d.trunk) : 'var(--bg)')
-    .attr('stroke', d => isIdea(d) ? '#8e5bd6' : color(d.trunk))
-    .attr('stroke-dasharray', d => d.status === '⛔' || d.status === '➖' ? '2 2' : null)
-    .append('title').text(d => `[${d.id}] ${d.name}（${yearText(d)}）`);
-  nodeSel.filter(d => d.icon).append('image').attr('href', d => d.icon)
-    .attr('width', d => R(d) * 1.3).attr('height', d => R(d) * 1.3).attr('x', d => -R(d) * 0.65).attr('y', d => -R(d) * 0.65)
-    .attr('opacity', d => !isProd(d) && d.status !== '✅' ? 0.6 : 1);
-  nodeSel.filter(d => !d.icon).append('text').attr('class', 'sym')
-    .attr('font-size', d => isLand(d) ? (isIdea(d) ? 13 : 17) : Math.max(5, R(d) * 1.05))
-    .attr('opacity', d => isLand(d) ? 1 : 0.85)
-    .text(d => isProd(d) ? (d.emoji || d.symbol) : isIdea(d) ? (d.emoji || '💡') : d.symbol);
-  nodeSel.append('text').attr('class', 'lab')
-    .attr('x', d => isLand(d) ? 0 : R(d) + 2).attr('y', d => isLand(d) ? R(d) * (isIdea(d) ? 1.25 : 1) + 12 : 3)
-    .text(d => isLand(d) || d.descendants >= 8 ? d.name : '');
-  nodeSel.on('click', (ev, d) => { ev.stopPropagation(); select(d.id); });
-  svg.on('click', () => select(null));
+  // ---- 描画は Canvas 1枚（NET-05：以前の SVG と同じ色・太さ・文字・重なり順） ----
+  const chart = document.getElementById('chart'), cv = document.getElementById('cv'), ctx = cv.getContext('2d');
+  const FONT = 'system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif';
+  const C = {};   // CSS の色の変数（明るい／暗いの切り替えに追従）
+  const readColors = () => { const cs = getComputedStyle(document.documentElement); for (const k of ['bg', 'panel', 'ink', 'sub', 'line', 'band-a', 'band-b', 'prod', 'hl']) C[k] = cs.getPropertyValue('--' + k).trim(); };
+  readColors();
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); requestDraw(); });
+  // 16×16 のドット絵のアイコンは画像として先に読む（読めたら描き直す）
+  const imgs = new Map();
+  for (const n of nodes) if (n.icon) { const im = new Image(); im.onload = () => requestDraw(); im.src = n.icon; imgs.set(n.id, im); }
+  let cw = 0, chh = 0, dpr = 1;
+  function resize() {
+    const b = chart.getBoundingClientRect(); dpr = window.devicePixelRatio || 1; cw = b.width; chh = b.height;
+    cv.width = Math.max(1, Math.round(cw * dpr)); cv.height = Math.max(1, Math.round(chh * dpr));
+    cv.style.width = cw + 'px'; cv.style.height = chh + 'px'; requestDraw();
+  }
+  // 描き直しは requestAnimationFrame で1コマに1回まで（ズーム中にイベントが何回来ても）
+  let raf = 0;
+  function requestDraw() { if (!raf) raf = requestAnimationFrame(() => { raf = 0; draw(); }); }
+  let T = d3.zoomIdentity, K = 1, DETAIL_K = 1;
+  // 表示の状態（render() が決め、draw() が描く）
+  const V = { plinkHidden: false, bandFaint: false, bandZoomHidden: false };
+  const diamondPath = r => { ctx.moveTo(0, -r * 1.25); ctx.lineTo(r * 1.25, 0); ctx.lineTo(0, r * 1.25); ctx.lineTo(-r * 1.25, 0); ctx.closePath(); };
+  const curve = (a, b) => {
+    ctx.moveTo(a.x, a.y);
+    if (layoutMode === 'net') ctx.lineTo(b.x, b.y);
+    else { const mx = (a.x + b.x) / 2; ctx.bezierCurveTo(mx, a.y, mx, b.y, b.x, b.y); }
+  };
+  const DASH = { understanding: [3, 3], enables: [7, 3] };
+  // モノは地図のピンのように、遠くからでも同じくらいの大きさに見せる（倍率の逆数で拡大）
+  const pinScale = () => Math.max(1, 0.7 / K);
+  // 文字は「その倍率で描いた小さな画像」を作って使い回す（ズーム中に毎コマ文字を描き直すのが一番重いため）。
+  // 画像の細かさは倍率の 2 の累乗ごと（地図アプリのタイルと同じ考え）なので、見た目は直接描いた文字と同じ
+  const spriteCache = new Map();
+  function sprite(text, font, align, base, fill, stroke, sw, lv) {
+    const key = text + '\u0000' + font + align + base + fill + stroke + sw + '|' + lv;
+    let sp = spriteCache.get(key);
+    if (sp) return sp;
+    if (spriteCache.size > 4000) spriteCache.clear();
+    const c = document.createElement('canvas'), g = c.getContext('2d');
+    g.font = font; g.textAlign = align; g.textBaseline = base;
+    const m = g.measureText(text), pad = (stroke ? sw / 2 : 0) + 1;
+    const l = m.actualBoundingBoxLeft + pad, t = m.actualBoundingBoxAscent + pad;
+    const w = l + m.actualBoundingBoxRight + pad, h = t + m.actualBoundingBoxDescent + pad;
+    c.width = Math.max(1, Math.ceil(w * lv)); c.height = Math.max(1, Math.ceil(h * lv));
+    g.scale(lv, lv); g.font = font; g.textAlign = align; g.textBaseline = base;
+    if (stroke) { g.lineWidth = sw; g.lineJoin = 'miter'; g.strokeStyle = stroke; g.strokeText(text, l, t); }
+    g.fillStyle = fill; g.fillText(text, l, t);
+    sp = { c, l, t, w: c.width / lv, h: c.height / lv };
+    spriteCache.set(key, sp);
+    return sp;
+  }
+  // (x, y) に文字を置く。s はいまの座標の拡大（モノのピンの倍率など）
+  function text(str, font, align, base, fill, x, y, s = 1, stroke = null, sw = 0) {
+    if (!str) return;
+    const lv = 2 ** Math.ceil(Math.log2(Math.min(16, Math.max(0.25, T.k * dpr * s))));
+    const sp = sprite(str, font, align, base, fill, stroke, sw, lv);
+    ctx.imageSmoothingEnabled = true;
+    ctx.drawImage(sp.c, x - sp.l, y - sp.t, sp.w, sp.h);
+  }
+  function draw() {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, cw, chh);
+    ctx.setTransform(dpr * T.k, 0, 0, dpr * T.k, dpr * T.x, dpr * T.y);
+    ctx.lineCap = 'butt'; ctx.lineJoin = 'miter';
+    // 画面の外は描かない（見た目は同じで、近づいたときに速い）。名前の幅のぶん少し広めに
+    const vx0 = -T.x / T.k, vy0 = -T.y / T.k, vx1 = vx0 + cw / T.k, vy1 = vy0 + chh / T.k, M = 160;
+    const off = (x0, y0, x1, y1) => x1 < vx0 - M || x0 > vx1 + M || y1 < vy0 - M || y0 > vy1 + M;
+    if (layoutMode !== 'net') {
+      // 帯（幹ごと）と、帯の名前・「ズームすると技術が見えます」
+      bandKeys.forEach((t, i) => {
+        const b = band.get(t), land = t === 'P' || t === 'I';
+        ctx.globalAlpha = !land && V.bandFaint ? 0.3 : 1;
+        ctx.fillStyle = land ? C.panel : i % 2 ? C['band-b'] : C['band-a'];
+        ctx.fillRect(0, b.y, W, b.h);
+        if (!land && !V.bandZoomHidden) text('ズームすると技術が見えます', `13px ${FONT}`, 'center', 'alphabetic', C.sub, W / 2, b.y + b.h / 2 + 4);
+        text(t === 'P' ? 'モノ（時代順）' : t === 'I' ? '発見・考え方（◆ 実験で見つける）' : `${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}`,
+          `600 11px ${FONT}`, 'left', 'alphabetic', land ? C.ink : color(t), 8, b.y + 14);
+      });
+      ctx.globalAlpha = 1;
+      // 時代の目盛り（点線と年）
+      ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.setLineDash([2, 4]);
+      ctx.beginPath();
+      for (const [yr] of eras) { const x = LEFT + xs(yr); ctx.moveTo(x, 18); ctx.lineTo(x, H); }
+      ctx.stroke(); ctx.setLineDash([]);
+      for (const [yr, lab] of eras) text(lab, `10px ${FONT}`, 'left', 'alphabetic', C.sub, LEFT + xs(yr) + 2, 14);
+    }
+    // モノとモノのつながり
+    if (!V.plinkHidden) {
+      ctx.globalAlpha = 0.35; ctx.strokeStyle = C.sub; ctx.lineWidth = 1.4; ctx.beginPath();
+      for (const d of plinks) curve(d.a, d.b);
+      ctx.stroke(); ctx.globalAlpha = 1;
+    }
+    // つながり
+    for (const e of edges) {
+      if (e.hidden || e.op <= 0) continue;
+      if (off(Math.min(e.a.x, e.b.x), Math.min(e.a.y, e.b.y), Math.max(e.a.x, e.b.x), Math.max(e.a.y, e.b.y))) continue;   // 曲線は両端の箱の中に収まる
+      ctx.globalAlpha = e.op * (e.dim ? 0.12 : 1);
+      ctx.strokeStyle = e.color; ctx.lineWidth = e.hot ? 1.8 : 0.9; ctx.setLineDash(DASH[e.kind] || []);
+      ctx.beginPath(); curve(e.a, e.b); ctx.stroke();
+    }
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    // 点（丸の中に 16×16 のドット絵。無いものは幹の記号・モノの絵文字。発見はひし形）
+    const ps = pinScale();
+    for (const d of ordered) {
+      if (d.hidden) continue;
+      const land = isLand(d), r = R(d), sr = (land ? ps : 1) * r * 1.3;
+      if (off(d.x - sr, d.y - sr, d.x + sr, d.y + sr + (land ? 20 * ps : 0))) continue;
+      ctx.save(); ctx.translate(d.x, d.y); if (land && ps !== 1) ctx.scale(ps, ps);
+      const a = d.dim ? 0.12 : 1;
+      ctx.globalAlpha = a;
+      ctx.beginPath(); if (isIdea(d)) diamondPath(r); else ctx.arc(0, 0, r, 0, Math.PI * 2);
+      ctx.fillStyle = land ? C.prod : d.status === '✅' ? color(d.trunk) : C.bg; ctx.fill();
+      ctx.strokeStyle = d.sel || d.match || d.lit ? C.hl : isIdea(d) ? '#8e5bd6' : color(d.trunk);
+      ctx.lineWidth = d.sel ? 4 : d.match ? 3 : isIdea(d) ? 2 : isProd(d) ? 2.4 : 1.6;
+      if (d.status === '⛔' || d.status === '➖') ctx.setLineDash([2, 2]);
+      ctx.stroke(); ctx.setLineDash([]);
+      const im = imgs.get(d.id);
+      if (im) {
+        if (im.complete && im.naturalWidth) {
+          ctx.globalAlpha = a * (!isProd(d) && d.status !== '✅' ? 0.6 : 1); ctx.imageSmoothingEnabled = false;
+          ctx.drawImage(im, -r * 0.65, -r * 0.65, r * 1.3, r * 1.3); ctx.globalAlpha = a;
+        }
+      } else {
+        ctx.globalAlpha = a * (land ? 1 : 0.85);
+        text(isProd(d) ? (d.emoji || d.symbol) : isIdea(d) ? (d.emoji || '💡') : d.symbol,
+          `${Math.round((land ? (isIdea(d) ? 13 : 17) : Math.max(5, r * 1.05)) * 10) / 10}px ${FONT}`, 'center', 'middle', '#000', 0, 0, land ? ps : 1);
+        ctx.globalAlpha = a;
+      }
+      if (land || d.descendants >= 8) {   // 名前（背景色のふちどり付き）
+        const lx = land ? 0 : r + 2, ly = land ? r * (isIdea(d) ? 1.25 : 1) + 12 : 3;
+        text(d.name, land ? `700 11px ${FONT}` : `9px ${FONT}`, land ? 'center' : 'left', 'alphabetic', C.ink, lx, ly, land ? ps : 1, C.bg, 3);
+      }
+      ctx.restore();
+    }
+  }
+
+  // ---- 当たり判定：見えている点の四分木（d3.quadtree）で、押した場所の点を探す ----
+  let qt = null;
+  const markDirty = () => { qt = null; };
+  function nodeAt(px, py) {
+    if (!qt) qt = d3.quadtree(ordered.filter(d => !d.hidden), d => d.x, d => d.y);
+    const [wx, wy] = T.invert([px, py]), ps = pinScale();
+    const rad = Math.max(30, 15 * 1.25 * ps + 3), order = new Map(ordered.map((d, i) => [d, i]));
+    let best = null;
+    qt.visit((q, x0, y0, x1, y1) => {
+      if (!q.length) {
+        let p = q;
+        do {
+          const d = p.data, s = isLand(d) ? ps : 1, hr = (isIdea(d) ? R(d) * 1.25 : R(d)) * s + 2;
+          if ((d.x - wx) ** 2 + (d.y - wy) ** 2 <= hr * hr && (!best || order.get(d) > order.get(best))) best = d;
+        } while ((p = p.next));
+      }
+      return x0 > wx + rad || x1 < wx - rad || y0 > wy + rad || y1 < wy - rad;
+    });
+    return best;
+  }
+  cv.addEventListener('click', ev => { const d = nodeAt(ev.offsetX, ev.offsetY); select(d ? d.id : null); });
+  cv.addEventListener('mousemove', ev => {
+    const d = nodeAt(ev.offsetX, ev.offsetY);
+    cv.style.cursor = d ? 'pointer' : '';
+    cv.title = d ? `[${d.id}] ${d.name}（${yearText(d)}）` : '';
+  });
 
   const state = { sel: null, q: '', trunk: '', now: false, und: true, all: false };
   // ---- 表示の切り替え：「時間軸」（年と幹の帯）と「ネットワーク」（年を使わず、つながりだけの力学レイアウト。ハブが中央に集まる） ----
-  for (const n of nodes) { n.timeX = n.x; n.timeY = n.y; }
-  let netReady = false;
-  function computeNet() {
-    const links = edges.filter(e => e.kind === 'requires' || e.kind === 'enables').map(e => ({ source: e.a, target: e.b }));
-    const maxD = d3.max(nodes, n => n.descendants) || 1;
-    const sims = nodes.map(n => ({ n, x: n.timeX - W / 2, y: n.timeY - H / 2 }));
-    const byN = new Map(sims.map(s => [s.n, s]));
-    const L = links.map(l => ({ source: byN.get(l.source), target: byN.get(l.target) }));
-    const s = d3.forceSimulation(sims)
-      .force('link', d3.forceLink(L).distance(28).strength(0.25))
-      .force('charge', d3.forceManyBody().strength(-38))
-      // 子孫の多い技術（ハブ）ほど中心へ、少ないものほど外側へ
-      .force('radial', d3.forceRadial(d => 60 + 520 * (1 - Math.sqrt(d.n.descendants / maxD)), 0, 0).strength(0.12))
-      .force('collide', d3.forceCollide(d => (isLand(d.n) ? 18 : R(d.n)) + 2))
-      .stop();
-    for (let i = 0; i < 320; i++) s.tick();
-    for (const d of sims) { d.n.netX = d.x + W / 2; d.n.netY = d.y + H / 2; }
-    netReady = true;
-  }
+  let layoutTimer = null;
   function applyLayout(mode, animate = true) {
     layoutMode = mode;
-    if (mode === 'net' && !netReady) computeNet();
-    for (const n of nodes) { n.x = mode === 'net' ? n.netX : n.timeX; n.y = mode === 'net' ? n.netY : n.timeY; }
-    const tr = animate ? d3.transition().duration(700) : null;
-    const sel = s => tr ? s.transition(tr) : s;
-    sel(nodeSel).attr('transform', d => `translate(${d.x},${d.y})` + (isLand(d) ? ` scale(${pinScale()})` : ''));
-    sel(edgeSel).attr('d', d => curve(d.a, d.b));
-    sel(plinkSel).attr('d', d => curve(d.a, d.b));
-    bands.style('display', mode === 'net' ? 'none' : null);
-    eraG.style('display', mode === 'net' ? 'none' : null);
+    const from = nodes.map(n => [n.x, n.y]), to = nodes.map(n => mode === 'net' ? [n.netX, n.netY] : [n.timeX, n.timeY]);
+    if (layoutTimer) layoutTimer.stop();
+    const place = e => { nodes.forEach((n, i) => { n.x = from[i][0] + (to[i][0] - from[i][0]) * e; n.y = from[i][1] + (to[i][1] - from[i][1]) * e; }); markDirty(); requestDraw(); };
+    if (animate) layoutTimer = d3.timer(el => { const t = Math.min(1, el / 700); place(d3.easeCubic(t)); if (t === 1) layoutTimer.stop(); });
+    else place(1);
     // ネットワークでは帯がないので、点の真ん中が画面の真ん中に来るように合わせ直す
-    const b = document.getElementById('chart').getBoundingClientRect();
-    const xsN = nodes.map(n => n.x), ysN = nodes.map(n => n.y);
+    const b = chart.getBoundingClientRect();
+    const xsN = to.map(p => p[0]), ysN = to.map(p => p[1]);
     const [x0, x1, y0b, y1b] = [d3.min(xsN), d3.max(xsN), d3.min(ysN), d3.max(ysN)];
     if (mode === 'net') {
       const k = Math.min(b.width / (x1 - x0 + 80), b.height / (y1b - y0b + 80), 1.2);
-      svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(b.width / 2 - (x0 + x1) / 2 * k, b.height / 2 - (y0b + y1b) / 2 * k).scale(k));
+      d3.select(cv).transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(b.width / 2 - (x0 + x1) / 2 * k, b.height / 2 - (y0b + y1b) / 2 * k).scale(k));
     } else {
-      svg.transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(narrow ? 4 : Math.max(4, (b.width - W * k0) / 2), 4).scale(k0));
+      d3.select(cv).transition().duration(700).call(zoom.transform, d3.zoomIdentity.translate(narrow ? 4 : Math.max(4, (b.width - W * k0) / 2), 4).scale(k0));
     }
   }
 
   // ---- ズーム：近づくほど細かく（地図アプリのように）。遠いときはモノだけ ----
-  let K = 1, DETAIL_K = 1;
-  // モノは地図のピンのように、遠くからでも同じくらいの大きさに見せる（倍率の逆数で拡大）
-  const pinScale = () => Math.max(1, 0.7 / K);
-  const placeProducts = () => nodeSel.filter(isLand).attr('transform', d => `translate(${d.x},${d.y}) scale(${pinScale()})`);
   const zoom = d3.zoom().scaleExtent([0.15, 8]).on('zoom', ev => {
-    root.attr('transform', ev.transform);
-    const was = detail(); K = ev.transform.k; placeProducts(); if (was !== detail()) render();
+    T = ev.transform;
+    const was = detail(); K = T.k; if (was !== detail()) render(); else requestDraw();
   });
-  svg.call(zoom);
-  const box = document.getElementById('chart').getBoundingClientRect();
+  resize();
+  new ResizeObserver(resize).observe(chart);
+  d3.select(cv).call(zoom);
+  const box = chart.getBoundingClientRect();
   const pb = band.get('P');
   // 最初は「モノ」の帯が収まる倍率。スマホ幅では縮めすぎると読めないので、読める大きさで始めて横にドラッグする
   const narrow = box.width < 700;
   const k0 = narrow ? 0.62 : Math.max(Math.min(box.width / W, (box.height - 10) / (pb.y + pb.h + 10), 1), 0.2);
   DETAIL_K = k0 * 1.8;
-  svg.call(zoom.transform, d3.zoomIdentity.translate(narrow ? 4 : Math.max(4, (box.width - W * k0) / 2), 4).scale(k0));
+  d3.select(cv).call(zoom.transform, d3.zoomIdentity.translate(narrow ? 4 : Math.max(4, (box.width - W * k0) / 2), 4).scale(k0));
+
+  // ---- 重いデータ（本物・へえ・出典・人物・前提の並び）：カードを開くか検索したときに読む ----
+  let detailP = null, ALL = null;
+  function ensureDetail() {
+    if (!detailP) detailP = new Promise((res, rej) => {
+      if (window.TECH_DETAIL) return res();
+      const s = document.createElement('script'); s.src = 'tech_network_detail.js'; s.onload = res; s.onerror = rej; document.head.appendChild(s);
+    }).then(() => {
+      const D = window.TECH_DETAIL;
+      for (const n of nodes) {
+        Object.assign(n, D.nodes[n.id]);
+        n.real = Array.from((n.real_full || '').split('\n')[0].trim()).slice(0, 400).join('');   // カードの「本物」は全文の1行目の400字
+        for (const p of n.people || []) if (p.pi != null) p.portrait = D.portraits[p.pi];
+      }
+      ALL = makeable(null);
+    });
+    return detailP;
+  }
 
   // ---- 「これが無いと作れなくなる技術」：OR の別ルートも考える ----
   function makeable(without) {
@@ -341,7 +404,6 @@ aside#card.open { display: block; }
     }
     return ok;
   }
-  const ALL = makeable(null);
 
   // ---- 表示の状態 ----
   function detail() { return state.all || K >= DETAIL_K || !!state.q.trim() || !!state.trunk || state.now; }
@@ -350,7 +412,7 @@ aside#card.open { display: block; }
     const y = d.year < 0 ? `前${(-d.year).toLocaleString()}年` : `${d.year}年`;
     return y + (d.year_range ? `（${d.year_range}）` : '') + (d.year_uncertain ? ' ⚠️' : '');
   }
-  const hay = d => (d.name + ' ' + d.real + ' ' + d.hee1).toLowerCase();
+  const hay = d => (d.name + ' ' + (d.real || '') + ' ' + (d.hee1 || '')).toLowerCase();
   function matches(d, q) { const id = q.replace(/[\[\]]/g, ''); return d.id.toLowerCase() === id || hay(d).includes(q); }
   function visibleBase(d) {
     if (state.trunk && d.trunk !== state.trunk && !isLand(d)) return false;
@@ -363,29 +425,34 @@ aside#card.open { display: block; }
     if (state.sel) {
       const s = byId.get(state.sel);
       lit = anc.get(state.sel);
-      focus = isProd(s) ? new Set([state.sel, ...lit]) : new Set([state.sel, ...lit, ...desc(state.sel), ...(s.explains || [])]);
+      focus = isProd(s) ? new Set([state.sel, ...lit]) : new Set([state.sel, ...lit, ...desc(state.sel), ...(explainsOf.get(state.sel) || [])]);
     }
     const q = state.q.trim().toLowerCase();
     // 遠いとき：モノだけ。モノを選ぶと、使われている技術（祖先）が現れて光る
-    nodeSel.classed('hidden', d => !isLand(d) && !det && !(focus && focus.has(d.id)))
-      .classed('dimmed', d => !visibleBase(d) || (focus && !focus.has(d.id)))
-      .classed('lit', d => !!(lit && lit.has(d.id)))
-      .classed('match', d => q && matches(d, q))
-      .classed('selected', d => d.id === state.sel);
+    for (const d of nodes) {
+      d.hidden = !isLand(d) && !det && !(focus && focus.has(d.id));
+      d.dim = !visibleBase(d) || !!(focus && !focus.has(d.id));
+      d.lit = !!(lit && lit.has(d.id));
+      d.match = !!(q && matches(d, q));
+      d.sel = d.id === state.sel;
+    }
     const shown = d => isLand(d) || det || (focus && focus.has(d.id));
-    edgeSel.classed('hidden', d => (d.kind === 'understanding' && !state.und) || !(shown(d.a) && shown(d.b)))
-      .classed('dimmed', d => !(visibleBase(d.a) && visibleBase(d.b)))
-      .classed('hot', d => state.sel && (d.a.id === state.sel || d.b.id === state.sel))
-      .attr('stroke-opacity', d => !focus ? (det ? baseOpacity(d) : 0)
-        : (d.a.id === state.sel || d.b.id === state.sel) ? 0.95
-        : (focus.has(d.a.id) && focus.has(d.b.id)) ? (det ? 0.3 : 0.45) : 0.015);
-    plinkSel.classed('hidden', () => det || !!state.sel);
+    for (const e of edges) {
+      e.hidden = (e.kind === 'understanding' && !state.und) || !(shown(e.a) && shown(e.b));
+      e.dim = !(visibleBase(e.a) && visibleBase(e.b));
+      e.hot = !!state.sel && (e.a.id === state.sel || e.b.id === state.sel);
+      e.op = !focus ? (det ? baseOpacity(e) : 0)
+        : (e.a.id === state.sel || e.b.id === state.sel) ? 0.95
+        : (focus.has(e.a.id) && focus.has(e.b.id)) ? (det ? 0.3 : 0.45) : 0.015;
+    }
+    V.plinkHidden = det || !!state.sel;
     // 最初の画面（モノだけ）では、技術の帯を薄くして「ズームすると技術が見えます」と出す
-    bands.selectAll('.band-tech').classed('faint', !det && !state.sel);
-    bands.selectAll('.band-zoom').classed('hidden', det || !!state.sel);
-    const n = nodes.filter(visibleBase).length, hits = q ? nodes.filter(d => matches(d, q)).length : 0;
+    V.bandFaint = !det && !state.sel;
+    V.bandZoomHidden = det || !!state.sel;
+    markDirty(); requestDraw();
+    const hits = q ? nodes.filter(d => matches(d, q)).length : 0;
     document.getElementById('stat').textContent = (q ? `「${state.q.trim()}」${hits} 件・` : '') +
-      `モノ ${prods.length}・発見 ${nodes.filter(isIdea).length}・技術 ${nodes.length - prods.length - nodes.filter(isIdea).length}・つながり ${edges.length} 本・年の逆転 ${data.year_inversions.length} 件`;
+      `モノ ${prods.length}・発見 ${nodes.filter(isIdea).length}・技術 ${nodes.length - prods.length - nodes.filter(isIdea).length}・つながり ${edges.length} 本・年の逆転 ${G.inversions} 件`;
     document.getElementById('hint').textContent = det ? 'すべての技術を表示中' : 'ズームすると技術が見えます（モノを選んでも）';
   }
 
@@ -428,6 +495,17 @@ aside#card.open { display: block; }
     state.sel = id; render();
     const card = document.getElementById('card');
     if (!id) { card.classList.remove('open'); card.innerHTML = ''; return; }
+    // カードは先に開いて（図の幅が決まり、中央合わせがずれない）、中身は重いデータを読んでから
+    if (!window.TECH_DETAIL) {
+      const d = byId.get(id);
+      card.innerHTML = `<button class="close" aria-label="閉じる">×</button><h2><span>[${d.id}] ${esc(d.name)} ${d.status}</span></h2>`;
+      card.classList.add('open');
+      card.querySelector('.close').onclick = () => select(null);
+    }
+    ensureDetail().then(() => { if (state.sel === id) fillCard(id); });
+  }
+  function fillCard(id) {
+    const card = document.getElementById('card');
     const d = byId.get(id), used = [...anc.get(id)];
     const still = makeable(id), lost = [...ALL].filter(x => x !== id && !still.has(x));
     const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span style="color:var(--sub)">or</span> ')).join('<br>');
@@ -459,8 +537,8 @@ aside#card.open { display: block; }
     card.querySelectorAll('.chip').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
   }
   function center(id) {
-    const d = byId.get(id), b = document.getElementById('chart').getBoundingClientRect(), t = d3.zoomTransform(svg.node()), k = Math.max(t.k, 1);
-    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(b.width / 2 - d.x * k, b.height / 2 - d.y * k).scale(k));
+    const d = byId.get(id), b = chart.getBoundingClientRect(), t = d3.zoomTransform(cv), k = Math.max(t.k, 1);
+    d3.select(cv).transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(b.width / 2 - d.x * k, b.height / 2 - d.y * k).scale(k));
   }
 
   // ---- 操作 ----
@@ -472,7 +550,7 @@ aside#card.open { display: block; }
   document.getElementById('now').onchange = e => { state.now = e.target.checked; render(); };
   document.getElementById('und').onchange = e => { state.und = e.target.checked; render(); };
   const qi = document.getElementById('q');
-  qi.oninput = () => { state.q = qi.value; render(); };
+  qi.oninput = () => { state.q = qi.value; render(); if (state.q.trim()) ensureDetail().then(render); };   // 本物・へえでも探せるように重いデータを読む
   qi.onkeydown = e => {
     if (e.key !== 'Enter') return;
     const q = qi.value.trim().toLowerCase().replace(/[\[\]]/g, '');

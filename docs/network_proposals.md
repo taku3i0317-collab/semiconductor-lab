@@ -244,3 +244,8 @@ TECH_TREE の ⚠️ が付いた年・人物を、出典で1つずつ確かめ�
 | V-169 | [9-38] GAA | 2025頃〜 TSMC・インテルも | ○ | TSMC N2 は2025年第4四半期量産（二次報道）。インテル 18A は予定の報道のみ | https://pausehardware.com/tsmc-n2-20000-wafers-mois/ , https://www.trendforce.com/news/2025/02/24/news-intel-to-begin-18a-tape-outs-in-1h25-reportedly-leading-tsmcs-2nm-launch/ |
 
 まとめ（第5弾、46 件）：◎ 16・○ 14・△ 14・✖ 2（[9-08] Si の引き上げは1951年ティールとビューラー、[7-17] Mo/Si 多層膜は1985年バービーら）。
+
+## ドキュメントの直し（実装担当へ）
+| # | 内容 | 理由 | 状態 |
+|---|---|---|---|
+| R-1 | docs/README.md の「tech_network.js（tech_network.json と同じ中身の JS）」の行を、「tech_network_graph.js（図に要る軽いデータ・位置つき）／tech_network_detail.js（カード・詳細用の重いデータ）」に書き換える | NET-05 で tech_network.js をやめて2つに分けた（README はネットワーク担当の担当外） | 提案（NET-05） |

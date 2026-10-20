@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>技術の詳細</title>
-<!-- 1枚のページで、URL の #番号（例 node.html#9-07）を見て中身を表示する。データは tech_network.js（tools/gen_tree_views.py が書き出す） -->
+<!-- 1枚のページで、URL の #番号（例 node.html#9-07）を見て中身を表示する。データは tech_network_graph.js（軽い：番号・名前・年・つながり）と tech_network_detail.js（重い：本物・へえ・出典・人物）。どちらも tools/gen_tree_views.py が書き出す -->
 <style>
 :root { --bg: #f7f6f2; --panel: #ffffff; --ink: #1f2328; --sub: #5b6470; --line: #d9d6cc; --accent: #2f6fdd; --warn: #b26b00; --ok: #2e8b57; }
 @media (prefers-color-scheme: dark) {
@@ -69,10 +69,17 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
   </nav>
   <main id="page"><p class="muted">読み込み中…</p></main>
 </div>
-<script src="tech_network.js"></script>
+<script src="tech_network_graph.js"></script>
+<script src="tech_network_detail.js"></script>
 <script>
 (async function () {
-  const data = window.TECH_NETWORK || await fetch('tech_network.json').then(r => r.json());
+  // 軽いデータと重いデータを1つにまとめる（肖像は人物ごとに1か所にまとめてあるので番号から戻す）
+  const G = window.TECH_GRAPH, D = window.TECH_DETAIL, kindName = { r: 'requires', u: 'understanding', e: 'enables' };
+  const data = {
+    goal: G.goal, year_inversions: D.year_inversions,
+    nodes: G.nodes.map(n => { const m = { ...n, ...D.nodes[n.id] }; m.people = (m.people || []).map(p => p.pi != null ? { ...p, portrait: D.portraits[p.pi] } : p); return m; }),
+    edges: G.edges.map(([from, to, k]) => ({ from, to, kind: kindName[k] }))
+  };
   const REPO = 'https://github.com/taku3i0317-collab/semiconductor-lab';
   const nodes = data.nodes, byId = new Map(nodes.map(n => [n.id, n]));
   const isProd = n => n.kind === 'product', isIdea = n => n.kind === 'idea';

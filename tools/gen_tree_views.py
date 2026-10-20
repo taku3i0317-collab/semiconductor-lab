@@ -12,7 +12,7 @@
 - 理解 = "理解: [2-39]..." の項目。作るのに要るのではなく「なぜそうなるか」を後で分かった科学（例：パン・酒と発酵の科学）。
   前提には数えない（作れるか・年の逆転の判定に使わない）。JSON では kind="understanding" のつながり
 - 年 = "年: 1866（1866〜67） ⚠️" の項目（西暦、紀元前はマイナス、括弧は範囲、⚠️ は諸説・未確認）。無ければ本物欄から推定
-書き出し：docs/TECH_TREE_VIEW.md ／ docs/tech_network.json（技術ネットワーク図の元データ：ノードとつながり）
+書き出し：docs/TECH_TREE_VIEW.md ／ docs/tech_network.json（全部入り）／ docs/tech_network_graph.js（図の軽いデータ・位置つき）／ docs/tech_network_detail.js（カード用の重いデータ）
 追加の読み込み（技術ネットワーク図だけに合流。TECH_TREE_VIEW.md の表・今すぐ作れる には入れない）
 - docs/products.md の [P-番号]（種類: モノ、遊び方: 作品）
 - docs/ideas.md の [I-番号]（種類: 発見、遊び方: 実験）。「前提になる: [..]」は 発見→技術 の線（kind="enables"）、
@@ -30,7 +30,9 @@ SRC = ROOT / "docs" / "TECH_TREE.md"
 EXTRA_SRC = [ROOT / "docs" / "products.md", ROOT / "docs" / "ideas.md"]
 OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
 JSON_OUT = ROOT / "docs" / "tech_network.json"
-JS_OUT = ROOT / "docs" / "tech_network.js"
+JS_OUT = ROOT / "docs" / "tech_network.js"          # 以前の全部入り（NET-05 で分けたので消す）
+GRAPH_JS = ROOT / "docs" / "tech_network_graph.js"   # network.html が最初に読む軽いデータ（位置つき）
+DETAIL_JS = ROOT / "docs" / "tech_network_detail.js"  # カード・node.html 用の重いデータ
 META = ROOT / "docs" / "network_meta.json"
 TEX = ROOT / "src" / "main" / "resources" / "assets" / "semiconductor-lab" / "textures"
 YEAR_RE = re.compile(r"(?:^|／|\s)年:\s*(-?\d+)(?:（([^）]*)）)?(\s*⚠️)?")
@@ -496,7 +498,24 @@ def export_json(nodes):
         for t in n["explains"]:
             if t in nodes:
                 edges.append({"from": i, "to": t, "kind": "understanding"})
+    # 重複を消す（NET-05）：「本物」は real_full だけ（real は1行目の400字なので表示側で作る）。肖像は人物ごとに1か所（portraits）にまとめて番号で参照
+    portraits, pidx = [], {}
+    for n in out_nodes:
+        n.pop("real", None)
+        ps = []
+        for p in n["people"]:
+            p = dict(p)
+            uri = p.pop("portrait", None)
+            if uri:
+                if uri not in pidx:
+                    pidx[uri] = len(portraits)
+                    portraits.append(uri)
+                p["pi"] = pidx[uri]
+            ps.append(p)
+        n["people"] = ps
     data = {"generated_by": "tools/gen_tree_views.py", "source": "docs/TECH_TREE.md", "start": START, "goal": GOAL,
+            "real_note": "本物の全文は real_full。図のカードに出す短い本物は real_full の1行目の先頭400字",
+            "portraits": portraits, "portraits_note": "人物の肖像（data URI）。people[].pi が番号",
             "year_note": "西暦。紀元前はマイナス。year_uncertain=true は諸説・未確認（⚠️）",
             "requires_note": "requires はノードを作るのに要る項目の並び（全部そろう＝AND）。1項目の中の複数案は OR、案の中は AND",
             "edge_kinds": {"requires": "前提（無いと作れない）", "understanding": "理解（後で分かった科学。作るのには要らない）",
@@ -505,10 +524,163 @@ def export_json(nodes):
             "nodes": out_nodes, "edges": edges, "year_inversions": [
                 {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d} for a, y, p, py, d in year_inversions(nodes)]}
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    # docs/network.html はファイルを直接開いても読めるように、同じ中身を JS としても書く（file:// では fetch できないため）
-    JS_OUT.write_text("// 自動生成：tools/gen_tree_views.py（tech_network.json と同じ中身）\nwindow.TECH_NETWORK = "
-                      + json.dumps(data, ensure_ascii=False) + ";\n", encoding="utf-8")
+    # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
+    # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
+    light_keys = ("id", "name", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
+                  "icon", "emoji", "symbol", "descendants", "buildable_now")
+    layout = compute_layout(out_nodes, edges)
+    kind_code = {"requires": "r", "understanding": "u", "enables": "e"}
+    graph = {"goal": GOAL, "start": START, "inversions": len(data["year_inversions"]),
+             "nodes": [{k: n[k] for k in light_keys} for n in out_nodes],
+             "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout}
+    detail = {"nodes": {n["id"]: {k: v for k, v in n.items() if k not in light_keys} for n in out_nodes},
+              "portraits": portraits, "year_inversions": data["year_inversions"]}
+    for path, var, obj, what in ((GRAPH_JS, "TECH_GRAPH", graph, "図に要る軽いデータ（番号・名前・年・幹・状態・種類・アイコン・位置・つながり・子孫の数）"),
+                                 (DETAIL_JS, "TECH_DETAIL", detail, "カード・詳細ページ用の重いデータ（本物・へえ・出典・レシピ・人物）")):
+        path.write_text(f"// 自動生成：tools/gen_tree_views.py。{what}\nwindow.{var} = "
+                        + json.dumps(obj, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+    if JS_OUT.exists():   # 以前の全部入りの JS は使わなくなった
+        JS_OUT.unlink()
     return data
+
+
+# ---- ネットワーク図の配置（NET-05）：以前ブラウザ（network.html）で d3-force で計算していたものを、同じ設定でここで計算する ----
+XS_DOMAIN = [-3400000, -100000, -10000, -3000, 0, 1000, 1500, 1700, 1800, 1850, 1900, 1930, 1950, 1970, 1990, 2030]
+XS_RANGE = [0, 50, 120, 200, 260, 320, 380, 470, 580, 690, 820, 930, 1040, 1170, 1300, 1460]
+LAYOUT_LEFT = 110
+
+
+def _xs(y):
+    """横軸：おおまかな年（古い時代は詰め、近代を広げる）。d3.scaleLinear().clamp(true) と同じ折れ線"""
+    if y <= XS_DOMAIN[0]:
+        return XS_RANGE[0]
+    for k in range(1, len(XS_DOMAIN)):
+        if y <= XS_DOMAIN[k]:
+            a, b = XS_DOMAIN[k - 1], XS_DOMAIN[k]
+            return XS_RANGE[k - 1] + (y - a) / (b - a) * (XS_RANGE[k] - XS_RANGE[k - 1])
+    return XS_RANGE[-1]
+
+
+def _collide(x, y, vx, vy, radii, iterations):
+    """d3.forceCollide（strength 1）と同じ式。重なりの候補は各回のはじめに一度に求め、ノードの番号順に押し合う"""
+    import numpy as np
+    n = len(x)
+    for _ in range(iterations):
+        px, py = x + vx, y + vy
+        dx = px[:, None] - px[None, :]
+        dy = py[:, None] - py[None, :]
+        rr = (radii[:, None] + radii[None, :]) * 1.5
+        cand = np.argwhere(np.triu(dx * dx + dy * dy < rr * rr, 1))
+        for i, j in cand:
+            ri, rj = radii[i], radii[j]
+            xi, yi = x[i] + vx[i], y[i] + vy[i]
+            ddx, ddy = xi - x[j] - vx[j], yi - y[j] - vy[j]
+            l2, r = ddx * ddx + ddy * ddy, ri + rj
+            if l2 < r * r:
+                if ddx == 0:
+                    ddx, l2 = 1e-6, l2 + 1e-12
+                if ddy == 0:
+                    ddy, l2 = 1e-6, l2 + 1e-12
+                l = l2 ** 0.5
+                l = (r - l) / l
+                ddx, ddy = ddx * l, ddy * l
+                w = rj * rj / (ri * ri + rj * rj)
+                vx[i] += ddx * w; vy[i] += ddy * w
+                vx[j] -= ddx * (1 - w); vy[j] -= ddy * (1 - w)
+    # i の行の押し合いは j の順番によらない（i の位置は i を処理し始めたときの値を使うため）ので、番号順で d3 と同じになる
+
+
+def compute_layout(out_nodes, edges):
+    """時間軸（年×幹の帯）とネットワーク（つながりだけの力学レイアウト）の位置。d3-force の設定・手順を同じにした移植"""
+    import math
+    import numpy as np
+    land = lambda n: n["kind"] in ("product", "idea")
+    R = lambda n: 15 if n["kind"] == "product" else 12 if n["kind"] == "idea" else 3 + 1.3 * math.sqrt(n["descendants"])
+    band_of = lambda n: "P" if n["kind"] == "product" else "I" if n["kind"] == "idea" else n["trunk"]
+    trunks = sorted({n["trunk"] for n in out_nodes if n["trunk"] not in ("P", "I")}, key=lambda t: (t == "B", 0 if t == "B" else int(t)))
+    keys = ["P", "I"] + trunks
+    N = len(out_nodes)
+    x, y, tx = np.zeros(N), np.zeros(N), np.zeros(N)
+    idx = {n["id"]: k for k, n in enumerate(out_nodes)}
+    bands, y0 = {}, 30
+    for t in keys:
+        ns = sorted([n for n in out_nodes if band_of(n) == t], key=lambda n: n["year"] if n["year"] is not None else 0)
+        lanes, lane_of, is_land = [], {}, t in ("P", "I")
+        for n in ns:
+            k = idx[n["id"]]
+            x[k] = tx[k] = LAYOUT_LEFT + _xs(n["year"] if n["year"] is not None else 0)
+            r = R(n)
+            li = next((q for q, last in enumerate(lanes) if x[k] - x[idx[last["id"]]] >= (64 if is_land else r + R(last) + 3)), -1)
+            if li < 0:
+                lanes.append(n); li = len(lanes) - 1
+            else:
+                lanes[li] = n
+            lane_of[n["id"]] = li
+        lane_h = 44 if is_land else 15
+        h = len(lanes) * lane_h + 40 if is_land else min(220, max(48, len(lanes) * 15 + 26))
+        for n in ns:
+            y[idx[n["id"]]] = y0 + 20 + (10 if is_land else 0) + (lane_of[n["id"]] % max(1, math.floor((h - 28) / lane_h))) * lane_h
+        bands[t] = [y0, h]
+        y0 += h
+    by = np.array([bands[band_of(n)][0] for n in out_nodes], float)
+    bh = np.array([bands[band_of(n)][1] for n in out_nodes], float)
+    isl = np.array([land(n) for n in out_nodes])
+    Rr = np.array([R(n) for n in out_nodes])
+    ty = by + bh / 2 + 4
+    sy = np.where(isl, 0.005, 0.04)
+    rad = np.where(isl, 30, Rr + 1.5)
+    rclamp = np.where(isl, Rr, np.minimum(Rr, 10))
+    vx, vy = np.zeros(N), np.zeros(N)
+    alpha, decay = 1.0, 1 - 0.001 ** (1 / 300)
+    for _ in range(260):   # d3：alpha を減らし、力（x → y → 重なり）を足し、速さを 0.6 倍して位置を動かす
+        alpha += (0 - alpha) * decay
+        vx += (tx - x) * 0.6 * alpha
+        vy += (ty - y) * sy * alpha
+        _collide(x, y, vx, vy, rad, 3)
+        vx *= 0.6; vy *= 0.6
+        x += vx; y += vy
+        y = np.maximum(by + 16 + rclamp, np.minimum(by + bh - np.where(isl, 16, 4) - rclamp, y))
+        x = np.maximum(LAYOUT_LEFT + 4, x)
+    W, H = LAYOUT_LEFT + XS_RANGE[-1] + 40, y0 + 20
+    time_pos = {n["id"]: [round(float(x[k]), 2), round(float(y[k]), 2)] for k, n in enumerate(out_nodes)}
+    # ネットワーク：前提と「発見→技術」の線をばねに。子孫の多い技術（ハブ）ほど中心へ
+    links = [(idx[e["from"]], idx[e["to"]]) for e in edges if e["kind"] in ("requires", "enables") and e["from"] in idx and e["to"] in idx]
+    count = np.zeros(N)
+    for s, t in links:
+        count[s] += 1; count[t] += 1
+    bias = [count[s] / (count[s] + count[t]) for s, t in links]
+    maxd = max((n["descendants"] for n in out_nodes), default=1) or 1
+    radial = np.array([60 + 520 * (1 - math.sqrt(n["descendants"] / maxd)) for n in out_nodes])
+    rad2 = np.where(isl, 18, Rr) + 2
+    nx, ny = x - W / 2, y - H / 2
+    vx, vy = np.zeros(N), np.zeros(N)
+    alpha = 1.0
+    for _ in range(320):   # d3：link → manyBody → radial → collide
+        alpha += (0 - alpha) * decay
+        for (s, t), b in zip(links, bias):
+            dx = nx[t] + vx[t] - nx[s] - vx[s] or 1e-6
+            dy = ny[t] + vy[t] - ny[s] - vy[s] or 1e-6
+            l = math.hypot(dx, dy)
+            l = (l - 28) / l * alpha * 0.25
+            dx *= l; dy *= l
+            vx[t] -= dx * b; vy[t] -= dy * b
+            vx[s] += dx * (1 - b); vy[s] += dy * (1 - b)
+        ddx = nx[None, :] - nx[:, None]
+        ddy = ny[None, :] - ny[:, None]
+        l2 = ddx * ddx + ddy * ddy
+        l2 = np.where(l2 < 1, np.sqrt(l2), l2)
+        np.fill_diagonal(l2, np.inf)
+        vx += (ddx * (-38) * alpha / l2).sum(axis=1)
+        vy += (ddy * (-38) * alpha / l2).sum(axis=1)
+        dxr = np.where(nx == 0, 1e-6, nx)
+        rr = np.sqrt(dxr * dxr + ny * ny)
+        kk = (radial - rr) * 0.12 * alpha / rr
+        vx += dxr * kk; vy += ny * kk
+        _collide(nx, ny, vx, vy, rad2, 1)
+        vx *= 0.6; vy *= 0.6
+        nx += vx; ny += vy
+    net_pos = {n["id"]: [round(float(nx[k] + W / 2), 2), round(float(ny[k] + H / 2), 2)] for k, n in enumerate(out_nodes)}
+    return {"left": LAYOUT_LEFT, "W": W, "H": H, "xs": [XS_DOMAIN, XS_RANGE], "bands": bands, "time": time_pos, "net": net_pos}
 
 
 AUDIT_OUT = ROOT / "docs" / "AUDIT_QUEUE.md"

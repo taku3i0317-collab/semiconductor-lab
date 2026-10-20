@@ -1,7 +1,7 @@
 # NETWORK_LOG.md — 技術ネットワーク担当（NET-番号）の作業記録
 
 技術ネットワーク担当が書く（HANDOFF.md は実装担当が書くので触らない）。タスクが終わるたびに下へ追記する。
-担当ファイル：docs/network.html・docs/node.html・tools/gen_tree_views.py・tools/gen_portraits.py・docs/network_meta.json・docs/products.md・docs/ideas.md・docs/network_proposals.md・docs/NETWORK_LOG.md と、その生成物（tech_network.json/.js・TECH_TREE_VIEW.md・AUDIT_QUEUE.md）
+担当ファイル：docs/network.html・docs/node.html・tools/gen_tree_views.py・tools/gen_portraits.py・docs/network_meta.json・docs/products.md・docs/ideas.md・docs/network_proposals.md・docs/NETWORK_LOG.md と、その生成物（tech_network.json・tech_network_graph.js・tech_network_detail.js・TECH_TREE_VIEW.md・AUDIT_QUEUE.md）
 
 ## NET-01（2026-10-20）表示の確認・モノ・発見　commit 7bb3303
 - 表示：node.html の「ゲームでの作り方」の量は machine_recipes.json の数字から正しく出ている。直したのは2つ：出てくる物は「N回に1個できる」（材料は「N回で1個」）、説明に「電気なし」があるとき二重に書かない
@@ -57,3 +57,23 @@
 - ◎ 16・○ 14・△ 14・✖ 2。間違い：[9-08] Si の引き上げは1951年（ベル研ティールとビューラー、1954年ではない）、[7-17] Mo/Si 多層膜の実証は1985年バービー・ムロウカ・ヘトリック
 - 累計：169 件（◎ 70・○ 37・△ 50・✖ 11・混在 1）。**本線（[10-16] AI の祖先）の ⚠️ ノードは全部一巡した**
 - 次：本線の外の ⚠️ ノード（52）、または AUDIT_QUEUE を強いモデルで監査
+
+## NET-05（2026-10-20）network.html の軽量化（見た目・情報量・操作は同じ）
+- 計測：ヘッドレス Chrome（1280×800、CDP）。読み込みは3回の中央値、なめらかさはホイールのズーム／ドラッグを1コマに1回×180コマ（rAF の間隔）。スクリーンショットは build/net05/（before_* と after_*、4場面：モノだけ・時間軸すべて・ネットワーク・[9-40] を選んだところ）
+
+| 項目 | 前（SVG） | 後（Canvas） |
+|---|---|---|
+| 開くまで（読み込み完了・長い処理の合計） | 1326 ms（長い処理 1299 ms） | 50 ms（長い処理 0） |
+| 最初に読むデータ | tech_network.js 771 KB | tech_network_graph.js 158 KB（カード用の tech_network_detail.js 456 KB は押したとき・検索したときだけ） |
+| ズーム（モノだけ） | 1.7 FPS（1コマ 606 ms） | 53.6 FPS（18.7 ms） |
+| ズーム（すべての技術） | 1.8 FPS（544 ms） | 53.7 FPS（18.6 ms） |
+| ドラッグ（モノだけ） | 165 FPS（6.1 ms） | 165 FPS（6.1 ms） |
+| ドラッグ（すべての技術） | 53 FPS（18.7 ms） | 80 FPS（12.5 ms） |
+
+- 1 描画を SVG から Canvas 1枚に。色・太さ・点線・文字の大きさ・重なり順・薄くする割合は以前の SVG の値のまま。当たり判定は d3.quadtree、ホバーで以前と同じ説明（[番号] 名前（年））
+- 2 位置：時間軸とネットワークの力学レイアウトを gen_tree_views.py の compute_layout で先に計算（d3-force の設定と手順を移植。重なりの押し合いはノード番号順で d3 と同じ式、引き合い・反発は近似なしの総当たり）。ブラウザでは計算しない
+- 3 ズームの描き直しは requestAnimationFrame で1コマに1回まで。文字は倍率ごとの小さな画像にして使い回す（ズーム中に文字を毎回描くのが一番重かった）。画面の外は描かない
+- 4 データを分けた：tech_network_graph.js（番号・名前・年・幹・状態・種類・アイコン・位置・つながり・子孫の数）と tech_network_detail.js（本物・へえ・出典・レシピ・人物・前提の並び）。node.html は両方を読む。以前の tech_network.js は消した（tech_network.json は全部入りの公開用として残す）
+- 5 重複を消した：「本物」は real_full だけ（カードの短い本物は1行目の400字を表示側で作る。全ノードで以前の real と一致を確認）、肖像は人物ごとに1か所（portraits）にまとめて番号（pi）で参照
+- 前後の比較：4場面とも帯・線・点・文字・カードは同じ。違いは、ネットワーク表示の点の細かな位置（力学レイアウトを Python に移したため。形・ハブの集まり方は同じ）と、カードが中身より一瞬先に開くこと（図の中央合わせを以前と同じにするため）
+- 注意：計測のために自分で起動したヘッドレス Chrome を止めるとき、名前で探す強すぎるコマンド（taskkill）を一度使った。ユーザーの Chrome は動いたままだったことを確認し、以後は起動したプロセスだけを止める形にした
