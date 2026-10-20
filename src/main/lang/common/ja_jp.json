@@ -146,5 +146,7 @@
   "assembly.semiconductor-lab.hf_oscillator.frame.short": "枠",
   "tooltip.semiconductor-lab.mesa.gain": "電流増幅率 β ＝ %s",
   "tooltip.semiconductor-lab.mesa.dead": "漏れが大きすぎて働かない（β ＝ %s）",
-  "tooltip.semiconductor-lab.mesa.exposed": "接合がむき出し：湿気で劣化する"
+  "tooltip.semiconductor-lab.mesa.exposed": "接合がむき出し：湿気で劣化する",
+  "tooltip.semiconductor-lab.oxygen.fz": "酸素 %s ppma（FZ：るつぼなし）",
+  "tooltip.semiconductor-lab.oxygen.cz": "酸素 約 %s ppma（CZ：石英るつぼから）"
 }

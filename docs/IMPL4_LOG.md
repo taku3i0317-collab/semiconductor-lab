@@ -45,3 +45,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 ## O-007（2026-10-20）IC の工程の範囲で今すぐ作れるノード
 - O-006（レジスト・塗布・現像は E、材料は D）は材料待ち（環化ゴムはあるが感光剤ビスアジド・キシレンがまだ、ノボラックもまだ）。O-007 を先に
 - ✅ [9-17] メサトランジスタ：蒸着装置（C）の分岐に「p-n 接合の板＋アルミ → Al の点の板」を足した（自分が足した分岐の中、既存は変えない）。かまどで合金、ハニカムでろう、混酸（フッ酸＋硝酸、鉛の瓶）でエッチング槽、金の粒で4個。item/MesaTransistorItem：持ち物の中で β が下がる（inventoryTick、データコンポーネント current_gain）。API_26X に inventoryTick・appendHoverText・transmuteCopy を記録。GameTest mesa_transistor、CHEMISTRY F33〜F36、REFERENCES F17、遊び方: 実験
+- ✅ [9-09] FZ 法：FZ 炉 fz_puller（block/FzPullerBlockEntity、画面 FzPullerScreen、20kW）。るつぼなし、酸素 0.05 ppma（新しいデータコンポーネント oxygen_ppma、ウェハー切断で受け継ぐ＝WaferSawBlockEntity に2行）。ツールチップ（PurityTooltip）に酸素。年と人を出典で確かめ ⚠️ を外した。GameTest fz_puller、CHEMISTRY F37、REFERENCES F18、遊び方: 重

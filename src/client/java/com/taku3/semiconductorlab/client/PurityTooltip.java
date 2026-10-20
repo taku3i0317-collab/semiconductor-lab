@@ -23,6 +23,11 @@ public class PurityTooltip {
                 if (Minecraft.getInstance().hasShiftDown())
                     lines.add(Component.translatable(K + "dopant.k", String.format("%.2f", dp.k)).withStyle(ChatFormatting.GRAY));
             }
+            // [9-09] 酸素の量：FZ（成分あり）は少ない、成分のないシリコン単結晶は CZ（石英るつぼから溶けこむ）
+            Double oxy = stack.get(ModDataComponents.OXYGEN_PPMA);
+            if (oxy != null) lines.add(Component.translatable(K + "oxygen.fz", String.format("%.2f", oxy)).withStyle(ChatFormatting.GRAY));
+            else if (stack.is(com.taku3.semiconductorlab.content.Semiconductor.SILICON_SINGLE_CRYSTAL))
+                lines.add(Component.translatable(K + "oxygen.cz", String.format("%.0f", com.taku3.semiconductorlab.block.FzPullerBlockEntity.CZ_OXYGEN_PPMA)).withStyle(ChatFormatting.GRAY));
             // [9-15] 酸化膜の厚さと色（光の干渉で、厚さによって色が変わる）
             Integer ox = stack.get(ModDataComponents.OXIDE_NM);
             if (ox != null) {

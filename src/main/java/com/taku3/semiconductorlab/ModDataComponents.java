@@ -85,5 +85,14 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.VAR_INT)
                     .build());
 
+    // [9-09] シリコン結晶の酸素の量（ppma）。FZ は 0.05、付いていない単結晶は CZ（石英るつぼから溶けこむ、約15）として表示する。切った板に受け継ぐ（IMP4-01）
+    public static final DataComponentType<Double> OXYGEN_PPMA = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("oxygen_ppma"),
+            DataComponentType.<Double>builder()
+                    .persistent(Codec.doubleRange(0.0, 1000.0))
+                    .networkSynchronized(ByteBufCodecs.DOUBLE)
+                    .build());
+
     public static void initialize() {}
 }

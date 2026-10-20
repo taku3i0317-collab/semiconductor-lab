@@ -292,5 +292,17 @@
   "item.semiconductor-lab.mesa_transistor.note4": "In 1959 Hoerni at Fairchild devised the planar process [9-18], keeping the junction hidden under oxide. Protected junctions could be laid out in large numbers on a flat surface, and the IC was born.",
   "item.semiconductor-lab.mesa_transistor.placeholder": "Omitted: ⚠️ The rate of decline is a game value (really days to months depending on humidity and temperature). Sealing in a metal can with dry nitrogen (hermetic packaging) is not available yet.",
   "gui.semiconductor-lab.etch_tank.recipe_silicon": "HNO3 oxidises Si → HF dissolves",
-  "gui.semiconductor-lab.drafting_table.zoom": "Wheel zoom, middle pan"
+  "gui.semiconductor-lab.drafting_table.zoom": "Wheel zoom, middle pan",
+  "block.semiconductor-lab.fz_puller": "Float-Zone Furnace",
+  "block.semiconductor-lab.fz_puller.note1": "Makes a single crystal by melting just part of a silicon rod, with no crucible. The molten part floats in the air.",
+  "block.semiconductor-lab.fz_puller.note2": "20 kW (induction heating). 2 polysilicon + silicon seed crystal (kept) + 2 argon (topped up from a gas holder next to it) + dopant (optional) → 1 silicon single crystal (300 s). Unlike CZ, no quartz crucible is used up. The crystal has very little oxygen (about 0.05 ppma).",
+  "block.semiconductor-lab.fz_puller.note3": "Melting part of an upright rod with a coil, the molten zone is held between the solid parts by surface tension. Moving the zone along leaves single crystal behind. Nothing touches the melt, so no oxygen or dirt dissolves in from a crucible.",
+  "block.semiconductor-lab.fz_puller.note4": "In 1952 Theuerer at Bell Labs turned zone refining upright (patent filed December 1952, granted 1962); Keck and Golay (US Army) in 1953 and Emeis at Siemens in 1953–54 did it independently. Low-oxygen, high-resistivity silicon is used for power devices and radiation detectors.",
+  "block.semiconductor-lab.fz_puller.placeholder": "Omitted: ⚠️ power and time are game values. That FZ struggles to grow large-diameter crystals (big wafers are mostly CZ) is not modelled.",
+  "gui.semiconductor-lab.fz_puller.power": "Power %s",
+  "gui.semiconductor-lab.fz_puller.need_input": "Needs 2 polysilicon + seed",
+  "gui.semiconductor-lab.fz_puller.need_ar": "Needs argon",
+  "gui.semiconductor-lab.fz_puller.need_power": "Not enough power",
+  "gui.semiconductor-lab.fz_puller.running": "Moving the zone (about 1420 °C)",
+  "gui.semiconductor-lab.fz_puller.recipe": "No crucible, floating zone"
 }

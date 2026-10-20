@@ -58,6 +58,8 @@ public class WaferSawBlockEntity extends ConsumerBlockEntity {
         if (p != null) s.set(ModDataComponents.PURITY, p);
         String d = crystal.get(ModDataComponents.DOPANT);
         if (d != null) s.set(ModDataComponents.DOPANT, d);
+        Double o = crystal.get(ModDataComponents.OXYGEN_PPMA);   // [9-09] FZ の結晶の酸素の少なさを板に受け継ぐ（IMP4-01）
+        if (o != null) s.set(ModDataComponents.OXYGEN_PPMA, o);
         return s;
     }
 

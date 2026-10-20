@@ -330,6 +330,7 @@ synthetic_graphite_boat  # Semiconductor [9-01] 1952
 junction_transistor_blank  # Semiconductor [9-04] 1952
 junction_transistor  # Semiconductor [9-04] 1952
 zone_refining_furnace  # Semiconductor [9-01] 1952
+fz_puller  # Semiconductor [9-09] 1952
 diamond_saw_blade  # Semiconductor [9-12] 1954
 silicon_wafer  # Semiconductor [9-12] 1954
 pn_junction_wafer  # Semiconductor [9-16] 1954

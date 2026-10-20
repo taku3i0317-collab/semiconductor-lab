@@ -569,6 +569,51 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-09] FZ 法（IMP4-01）
+    // =====================================================================
+
+    /** 多結晶2＋種（減らない）＋Ar2（＋リン）→ 単結晶（酸素 0.05 ppma、るつぼを使わない）。ウェハー切断で酸素を受け継ぐ。種・Ar・電気がないと止まる */
+    @GameTest(maxTicks = 100)
+    public void fzPuller(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "fz_puller", com.taku3.semiconductorlab.content.Power.INDUCTION_COIL) && recipeUses(h, "fz_puller", com.taku3.semiconductorlab.content.Power.HF_OSCILLATOR), "induction heating [9-01]");
+        h.assertFalse(com.taku3.semiconductorlab.block.FzPullerBlockEntity.LAYOUT.slots().stream().anyMatch(sl -> !sl.isOutput() && sl.accepts().test(new ItemStack(Semiconductor.QUARTZ_CRUCIBLE))), "no crucible slot");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.FZ_PULLER.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.FzPullerBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.FzPullerBlockEntity.WATTS);
+        ItemStack poly = new ItemStack(Metallurgy.POLYSILICON, 4);
+        poly.set(ModDataComponents.PURITY, Purity.ELEVEN_N);
+        c.setItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_POLY, poly);
+        c.setItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_AR, new ItemStack(com.taku3.semiconductorlab.content.Gas.ARGON_GAS, 4));
+        c.setItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_DOPANT, new ItemStack(Chemistry.PHOSPHORUS));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.FzPullerBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_OUT).isEmpty(), "no seed crystal -> nothing");
+        c.setItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_SEED, new ItemStack(Semiconductor.SILICON_SEED_CRYSTAL));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.FzPullerBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.FzPullerBlockEntity.TICKS, feed);
+        ItemStack x = c.getItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_OUT);
+        h.assertTrue(x.is(Semiconductor.SILICON_SINGLE_CRYSTAL) && x.getCount() == 1, "1 FZ crystal, got " + x);
+        h.assertTrue(x.get(ModDataComponents.OXYGEN_PPMA) != null && x.get(ModDataComponents.OXYGEN_PPMA) < 0.1, "FZ oxygen < 0.1 ppma");
+        h.assertValueEqual(x.get(ModDataComponents.DOPANT), "phosphorus", "n-type");
+        h.assertValueEqual(Purity.nines(x.get(ModDataComponents.PURITY)), 11, "purity kept");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_SEED).getCount() == 1 && c.getItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_POLY).getCount() == 2 && c.getItem(com.taku3.semiconductorlab.block.FzPullerBlockEntity.SLOT_AR).getCount() == 2, "seed kept, 2 poly + 2 Ar used");
+        // ウェハー切断で酸素を受け継ぐ
+        BlockPos sp = p(2, 1, 2);
+        h.setBlock(sp, Semiconductor.WAFER_SAW.block);
+        var saw = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.WaferSawBlockEntity.class);
+        saw.getContainer().setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_CRYSTAL, x.copy());
+        saw.getContainer().setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_BLADE, new ItemStack(Semiconductor.DIAMOND_SAW_BLADE));
+        tickConsumer(h, sp, saw, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS));
+        ItemStack wafers = saw.getContainer().getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT);
+        h.assertTrue(wafers.is(Semiconductor.SILICON_WAFER) && wafers.get(ModDataComponents.OXYGEN_PPMA) != null && wafers.get(ModDataComponents.OXYGEN_PPMA) < 0.1, "FZ wafers keep the low oxygen, got " + wafers);
+        LOG.info("[LAB] FZ [9-09]: 2 poly + seed + 2 Ar (+P) -> 1 crystal, oxygen {} ppma (CZ about {}), no crucible, 11N kept", com.taku3.semiconductorlab.block.FzPullerBlockEntity.FZ_OXYGEN_PPMA, com.taku3.semiconductorlab.block.FzPullerBlockEntity.CZ_OXYGEN_PPMA);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 

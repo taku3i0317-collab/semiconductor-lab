@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "STS",
+    "CPC",
+    "SMS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "T": "semiconductor-lab:quartz_tube",
+    "C": "semiconductor-lab:induction_coil",
+    "P": "semiconductor-lab:hf_oscillator",
+    "M": "semiconductor-lab:lead_screw"
+  },
+  "result": {
+    "id": "semiconductor-lab:fz_puller",
+    "count": 1
+  }
+}
