@@ -22,5 +22,12 @@ public final class Agriculture {
     // [11-15] 低温殺菌（IMP3、S-005）：発酵した液をたき火で少し温める（約60℃）→ 低温殺菌した酒（菌がいないので酢にならない）
     public static final Item PASTEURIZED_WINE = Reg.item("pasteurized_wine", new Item.Properties().stacksTo(16));
 
+    // [11-14] 砂糖（IMP3、S-005）：サトウキビ3（またはテンサイ＝ビートルート4）＋消石灰＋水 → 石灰を入れたしぼり汁 → たき火で煮つめる → 黒糖（茶色）。
+    //   黒糖2＋骨炭＋水 → 白い砂糖2（骨炭が色を吸う）。骨 →かまど（空気を断って焼く）→ 骨炭
+    public static final Item CANE_JUICE = Reg.item("cane_juice", new Item.Properties().stacksTo(16));
+    public static final Item BEET_JUICE = Reg.item("beet_juice", new Item.Properties().stacksTo(16));
+    public static final Item RAW_SUGAR = Reg.item("raw_sugar");
+    public static final Item BONE_CHAR = Reg.item("bone_char");
+
     static void init() {}
 }

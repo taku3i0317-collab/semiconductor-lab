@@ -654,8 +654,14 @@ setblock ~115 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] s
 setblock ~115 ~0 ~74 semiconductor-lab:drafting_table
 setblock ~116 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stamp",count:1},{Slot:1b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
-setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-13] 冷蔵・冷凍","冷凍機に電気をつなぎ、","アンモニア水と水バケツ","を入れて氷ができるか。"]}}
-setblock ~2 ~0 ~82 semiconductor-lab:refrigerator
+setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-10] 酒と酢","かめに酒を入れて数分で","酢になるか、殺菌した酒","のメッセージ"]}}
+setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vinegar",count:16}]}
+setblock ~5 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-14] 砂糖","たき火で汁から黒糖がで","きるか、見た目（茶色 ","→ 白）"]}}
+setblock ~5 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cane_juice",count:16},{Slot:1b,id:"semiconductor-lab:beet_juice",count:16},{Slot:2b,id:"semiconductor-lab:raw_sugar",count:16},{Slot:3b,id:"semiconductor-lab:bone_char",count:16}]}
+setblock ~8 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-15] 低温殺菌","かめに酒を入れて数分で","酢になるか、殺菌した酒","のメッセージ"]}}
+setblock ~8 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:pasteurized_wine",count:16}]}
+setblock ~11 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-13] 冷蔵・冷凍","冷凍機に電気をつなぎ、","アンモニア水と水バケツ","を入れて氷ができるか。"]}}
+setblock ~11 ~0 ~82 semiconductor-lab:refrigerator
 setblock ~0 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹12 建設・測量","↓ この列","",""]}}
 setblock ~2 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-11] 測量","セオドライトで遠くの木","や塔をのぞいて離す →"," チャットに方位。横に"]}}
 setblock ~2 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:theodolite",count:1}]}

@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 643（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 647（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1231,6 +1231,14 @@ en_us vinegar lines=5
 en_us vinegar shift lines=12
 en_us pasteurized_wine lines=6
 en_us pasteurized_wine shift lines=13
+en_us cane_juice lines=5
+en_us cane_juice shift lines=11
+en_us beet_juice lines=6
+en_us beet_juice shift lines=12
+en_us raw_sugar lines=6
+en_us raw_sugar shift lines=12
+en_us bone_char lines=5
+en_us bone_char shift lines=12
 en_us theodolite lines=10
 en_us theodolite shift lines=22
 en_us air_conditioner lines=10
@@ -2517,6 +2525,14 @@ ja_jp vinegar lines=4
 ja_jp vinegar shift lines=10
 ja_jp pasteurized_wine lines=4
 ja_jp pasteurized_wine shift lines=10
+ja_jp cane_juice lines=4
+ja_jp cane_juice shift lines=9
+ja_jp beet_juice lines=5
+ja_jp beet_juice shift lines=10
+ja_jp raw_sugar lines=4
+ja_jp raw_sugar shift lines=9
+ja_jp bone_char lines=3
+ja_jp bone_char shift lines=9
 ja_jp theodolite lines=7
 ja_jp theodolite shift lines=17
 ja_jp air_conditioner lines=5

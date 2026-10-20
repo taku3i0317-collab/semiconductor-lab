@@ -51,4 +51,16 @@ public class AgricultureTests extends LabTestBase {
         h.assertTrue(recipeUses(h, "sodium_acetate_from_vinegar", Agriculture.VINEGAR), "vinegar -> sodium acetate");
         h.succeed();
     }
+
+    /** [11-14] 砂糖（IMP3、S-005）：サトウキビ・テンサイ＋石灰＋水 → 汁 → たき火 → 黒糖2、骨 → かまど → 骨炭、黒糖2＋骨炭＋水 → 白い砂糖2 */
+    @GameTest
+    public void sugarRefining(GameTestHelper h) {
+        var FIRE = net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING;
+        h.assertTrue(recipeUses(h, "cane_juice", net.minecraft.world.item.Items.SUGAR_CANE) && recipeUses(h, "beet_juice", net.minecraft.world.item.Items.BEETROOT), "cane and beet");
+        ItemStack raw = cook(h, FIRE, Agriculture.CANE_JUICE);
+        h.assertTrue(raw.is(Agriculture.RAW_SUGAR) && raw.getCount() == 2 && cook(h, FIRE, Agriculture.BEET_JUICE).is(Agriculture.RAW_SUGAR), "boiled down -> raw sugar");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, net.minecraft.world.item.Items.BONE).is(Agriculture.BONE_CHAR), "bone -> bone char");
+        h.assertTrue(recipeUses(h, "white_sugar", Agriculture.RAW_SUGAR) && recipeUses(h, "white_sugar", Agriculture.BONE_CHAR), "bone char decolourizes -> white sugar");
+        h.succeed();
+    }
 }

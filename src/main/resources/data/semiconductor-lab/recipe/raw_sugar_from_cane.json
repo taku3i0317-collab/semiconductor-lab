@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:cane_juice",
+  "result": {
+    "id": "semiconductor-lab:raw_sugar",
+    "count": 2
+  },
+  "experience": 0.1,
+  "cookingtime": 300
+}

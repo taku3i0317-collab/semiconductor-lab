@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:beetroot",
+    "minecraft:beetroot",
+    "minecraft:beetroot",
+    "minecraft:beetroot",
+    "semiconductor-lab:slaked_lime",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:beet_juice",
+    "count": 1
+  }
+}

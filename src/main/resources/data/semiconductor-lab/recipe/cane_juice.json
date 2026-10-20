@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sugar_cane",
+    "minecraft:sugar_cane",
+    "minecraft:sugar_cane",
+    "semiconductor-lab:slaked_lime",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cane_juice",
+    "count": 1
+  }
+}

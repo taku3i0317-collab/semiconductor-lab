@@ -614,6 +614,10 @@ layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
 electromagnet  # Control [10-01] 1820
 vinegar  # Agriculture [11-10] -6000
+cane_juice  # Agriculture [11-14] 0
+beet_juice  # Agriculture [11-14] 0
+raw_sugar  # Agriculture [11-14] 0
+bone_char  # Agriculture [11-14] 0
 pasteurized_wine  # Agriculture [11-15] 1864
 refrigerator  # Agriculture [11-13] 1876
 theodolite  # Construction [12-11] 1615

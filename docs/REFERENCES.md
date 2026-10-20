@@ -2877,6 +2877,20 @@
 - Wikipedia「Vinegar」/「Acetobacter」：https://en.wikipedia.org/wiki/Vinegar
 - Wikipedia「Pasteurization」：https://en.wikipedia.org/wiki/Pasteurization
 
+## C50. 白い砂糖は茶色の汁を炭で白くしたもの（砂糖）［11-14］
+**答え**：サトウキビの砂糖はインドで紀元前後から作られた。しぼった汁に石灰を入れてにごりを沈め、煮つめると茶色の砂糖（黒糖）の結晶ができる。19世紀から、骨を焼いた骨炭に通して色のもとを吸いとり、白い砂糖にするようになった。1747年ドイツのマルクグラーフがテンサイ（砂糖大根）にも同じ砂糖があることを見つけ、1801年アシャールが最初のテンサイ製糖工場を作った。
+
+- へえ①：白い砂糖は、茶色の汁を炭で白くしたもの。
+- へえ②：サトウキビの砂糖とテンサイの砂糖は、まったく同じ物（ショ糖）。
+- へえ③：シュガーの語源は、サンスクリット語の「シャルカラ（砂粒）」。
+- へえ④：ナポレオンの大陸封鎖でサトウキビの砂糖が入らなくなり、テンサイ糖が広まった。
+
+確かさ：マルクグラーフ 1747・アシャール 1801 ◎／インドの砂糖（紀元前後）○⚠️／骨炭の脱色 ◎
+根拠：
+- Wikipedia「Sugar」（歴史）：https://en.wikipedia.org/wiki/Sugar
+- Wikipedia「Sugar beet」：https://en.wikipedia.org/wiki/Sugar_beet
+- Wikipedia「Bone char」：https://en.wikipedia.org/wiki/Bone_char
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

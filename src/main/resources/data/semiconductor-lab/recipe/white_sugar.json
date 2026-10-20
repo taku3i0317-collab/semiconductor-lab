@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:raw_sugar",
+    "semiconductor-lab:raw_sugar",
+    "semiconductor-lab:bone_char",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "minecraft:sugar",
+    "count": 2
+  }
+}
