@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """機械の GUI 背景（256x256 の左上 176x166）を作る。電解槽の背景と同じ色・書式。
 
-使い方:  python tools/gen_gui.py <出力パス> x,y [x,y ...]
+使い方:  python tools/gen_gui.py <出力パス> [h=画面の高さ] x,y [x,y ...]
 x,y は Menu の addSlot に渡す「アイテムの左上」の座標（枠はその1px外側に描く）。
 プレイヤーのインベントリ（8,84 から 3x9 ＋ ホットバー 8,142）は自動で描く。
 """
@@ -23,14 +23,19 @@ def slot(px, x, y):
 
 
 def main(out, *coords):
+    H = 166   # 画面の高さ（h=222 など。MachineLayout.height と同じ値。持ち物の段は 高さ − 82）
+    for c in coords:
+        if c.startswith("h="):
+            H = int(c[2:])
+    coords = [c for c in coords if not c.startswith("h=")]
     img = Image.new("RGBA", (256, 256), (0, 0, 0, 0))
     px = img.load()
     for x in range(176):
-        for y in range(166):
+        for y in range(H):
             c = BG
             if x == 0 or y == 0:
                 c = LIGHT
-            elif x == 175 or y == 165:
+            elif x == 175 or y == H - 1:
                 c = DARK
             px[x, y] = c
     for c in coords:
@@ -38,9 +43,9 @@ def main(out, *coords):
         slot(px, x, y)
     for r in range(3):
         for k in range(9):
-            slot(px, 8 + k * 18, 84 + r * 18)
+            slot(px, 8 + k * 18, H - 82 + r * 18)
     for k in range(9):
-        slot(px, 8 + k * 18, 142)
+        slot(px, 8 + k * 18, H - 24)
     img.save(out)
     print("wrote", out)
 

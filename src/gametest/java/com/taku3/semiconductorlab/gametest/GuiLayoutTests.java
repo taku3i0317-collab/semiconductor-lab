@@ -33,7 +33,11 @@ public class GuiLayoutTests extends LabTestBase {
     static final String NS = "semiconductor-lab";
     static final String[] LANGS = {"en_us", "ja_jp"};
     /** 画面の大きさ（バニラの入れ物の画面と同じ）・内側の縁・持ち物の段の上の端・「持ち物」の行の高さ */
-    static final int W = 176, H = 166, EDGE = 4, INV_TOP = 83, INV_LABEL_Y = H - 94;
+    static final int W = 176, EDGE = 4;
+    /** 画面の高さ・持ち物の段の上の端・「持ち物」の行（画面の高さはレイアウトのデータ。ふつうは 166） */
+    static int H(Machine<?> m) { return m.layout.height(); }
+    static int invTop(Machine<?> m) { return H(m) - 83; }
+    static int invLabelY(Machine<?> m) { return H(m) - 94; }
     /** バニラの「持ち物」の文字（lang は MOD の外にあるので、ここに書く） */
     static final Map<String, String> INVENTORY = Map.of("en_us", "Inventory", "ja_jp", "持ち物");
 
@@ -131,12 +135,26 @@ public class GuiLayoutTests extends LabTestBase {
         if (title.bad()) problems.add(where + " title \"" + titleText + "\" is " + tw + " px, does not fit " + (W - 8) + " px even shrunk");
         if (ts < 1) report.add(where + " title shrunk to " + ts);
         int iw = FontWidths.width(INVENTORY.get(lang));
-        Box inv = new Box("label", 8, INV_LABEL_Y, iw, 9, List.of(INVENTORY.get(lang)), false);
+        Box inv = new Box("label", 8, invLabelY(m), iw, 9, List.of(INVENTORY.get(lang)), false);
         boxes.add(title);
         boxes.add(inv);
         List<Box> slots = new ArrayList<>();
         for (var s : m.layout.slots()) slots.add(new Box(s.isOutput() ? "out" : "in", s.x() - 1, s.y() - 1, 18, 18, List.of(), false));
         boxes.addAll(slots);
+        // 画面のコードが自分で描く場所（方眼など）：枠の中・持ち物の段より上・スロットと重ならない
+        List<Box> areas = new ArrayList<>();
+        for (MachineLayout.AreaDef a : m.layout.areas()) {
+            Box b = new Box("area", a.x(), a.y(), a.width(), a.height(), List.of(), false);
+            List<String> place = new ArrayList<>();
+            if (b.x() < EDGE || b.x() + b.w() > W - EDGE || b.y() < EDGE || b.y() + b.h() > invTop(m)) place.add("sticks out of the upper part");
+            if (overlap(b, title)) place.add("overlaps the title");
+            if (overlap(b, inv)) place.add("overlaps the inventory label");
+            for (Box sl : slots) if (overlap(b, sl)) place.add("overlaps a slot at (" + (sl.x() + 1) + "," + (sl.y() + 1) + ")");
+            for (Box o : areas) if (overlap(b, o)) place.add("overlaps another area");
+            for (String pl : place) problems.add(where + " area '" + a.id() + "' " + pl);
+            areas.add(place.isEmpty() ? b : new Box("area", b.x(), b.y(), b.w(), b.h(), List.of(), true));
+        }
+        boxes.addAll(areas);
         List<Box> textBoxes = new ArrayList<>();
         for (MachineLayout.TextDef d : m.layout.texts()) {
             String what = where + " text '" + d.id() + "'";
@@ -160,10 +178,11 @@ public class GuiLayoutTests extends LabTestBase {
             // 枠・題名の帯・持ち物の段
             List<String> place = new ArrayList<>();
             if (b.x() < EDGE || b.x() + b.w() > W - EDGE) place.add("sticks out of the panel (x " + b.x() + "〜" + (b.x() + b.w()) + ", inside " + EDGE + "〜" + (W - EDGE) + ")");
-            if (b.y() < EDGE || b.y() + b.h() > INV_TOP) place.add("is outside the upper part (y " + b.y() + "〜" + (b.y() + b.h()) + ", inside " + EDGE + "〜" + INV_TOP + ")");
+            if (b.y() < EDGE || b.y() + b.h() > invTop(m)) place.add("is outside the upper part (y " + b.y() + "〜" + (b.y() + b.h()) + ", inside " + EDGE + "〜" + invTop(m) + ")");
             if (overlap(b, title)) place.add("overlaps the title \"" + titleText + "\"");
             if (overlap(b, inv)) place.add("overlaps the inventory label");
             for (Box s : slots) if (overlap(b, s)) place.add("overlaps a slot at (" + (s.x() + 1) + "," + (s.y() + 1) + ")");
+            for (int i = 0; i < areas.size(); i++) if (overlap(b, areas.get(i))) place.add("overlaps area '" + m.layout.areas().get(i).id() + "'");
             for (int i = 0; i < textBoxes.size(); i++) if (overlap(b, textBoxes.get(i))) place.add("overlaps text '" + m.layout.texts().get(i).id() + "'");
             for (String p : place) problems.add(what + " " + p);
             if (!place.isEmpty()) b = new Box(b.kind(), b.x(), b.y(), b.w(), b.h(), b.lines(), true, b.scale());
@@ -222,6 +241,7 @@ public class GuiLayoutTests extends LabTestBase {
 
     private static void drawBlueprint(Machine<?> m, String lang, List<Box> boxes, Path file) {
         System.setProperty("java.awt.headless", "true");
+        int H = H(m), INV_TOP = invTop(m);
         BufferedImage img = new BufferedImage(W * SC, H * SC, BufferedImage.TYPE_INT_RGB);
         Graphics2D g = img.createGraphics();
         g.setColor(new Color(0xC6C6C6));
@@ -232,13 +252,19 @@ public class GuiLayoutTests extends LabTestBase {
         // プレイヤーの持ち物（3段＋ホットバー）
         g.setColor(new Color(0x8B8B8B));
         for (int r = 0; r < 4; r++) for (int c = 0; c < 9; c++)
-            g.fillRect((7 + c * 18) * SC, (r < 3 ? 83 + r * 18 : 141) * SC, 18 * SC - 2, 18 * SC - 2);
+            g.fillRect((7 + c * 18) * SC, (r < 3 ? INV_TOP + r * 18 : H - 25) * SC, 18 * SC - 2, 18 * SC - 2);
         for (Box b : boxes) {
             switch (b.kind()) {
                 case "in", "out" -> {
                     g.setColor(b.kind().equals("in") ? new Color(0x4C8C4C) : new Color(0xC07A30));
                     g.fillRect(b.x() * SC, b.y() * SC, b.w() * SC, b.h() * SC);
                     g.setColor(Color.WHITE);
+                    g.drawRect(b.x() * SC, b.y() * SC, b.w() * SC - 1, b.h() * SC - 1);
+                }
+                case "area" -> {   // 画面のコードが描く場所（方眼など）：薄い紫
+                    g.setColor(b.bad() ? new Color(255, 80, 80, 110) : new Color(150, 110, 200, 80));
+                    g.fillRect(b.x() * SC, b.y() * SC, b.w() * SC, b.h() * SC);
+                    g.setColor(b.bad() ? Color.RED : new Color(0x7050A0));
                     g.drawRect(b.x() * SC, b.y() * SC, b.w() * SC - 1, b.h() * SC - 1);
                 }
                 case "text" -> {

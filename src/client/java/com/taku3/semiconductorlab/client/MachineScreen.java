@@ -24,7 +24,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private final Identifier bg;
 
     public MachineScreen(MachineMenu menu, Inventory inv, Component title) {
-        super(menu, inv, title);
+        super(menu, inv, title, 176, menu.machine().layout.height());   // 高さはレイアウトのデータ（ふつうは 166）
         String tex = menu.machine().layout.texture() != null ? menu.machine().layout.texture() : menu.machine().name;
         bg = Identifier.fromNamespaceAndPath("semiconductor-lab", "textures/gui/" + tex + ".png");
     }

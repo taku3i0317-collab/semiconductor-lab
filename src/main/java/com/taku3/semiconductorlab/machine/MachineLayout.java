@@ -71,17 +71,33 @@ public final class MachineLayout {
         return out;
     }
 
+    /** 画面のコードが自分で描く場所（方眼・図など）。文字やスロットと重ならないかを自動チェックが見る（O-002 製図台） */
+    public record AreaDef(String id, int x, int y, int width, int height) {}
+
+    /** ふつうの画面の高さ（バニラの入れ物の画面と同じ）。持ち物の段は 高さ − 82、「持ち物」の文字は 高さ − 94 */
+    public static final int DEFAULT_HEIGHT = 166;
+
     private final List<SlotDef> slots;
     private final List<TextDef> texts;
+    private final List<AreaDef> areas;
     private final int dataCount;
     private final String texture;
+    private final int height;
 
-    private MachineLayout(List<SlotDef> slots, List<TextDef> texts, int dataCount, String texture) {
+    private MachineLayout(List<SlotDef> slots, List<TextDef> texts, List<AreaDef> areas, int dataCount, String texture, int height) {
         this.slots = List.copyOf(slots);
         this.texts = List.copyOf(texts);
+        this.areas = List.copyOf(areas);
         this.dataCount = dataCount;
         this.texture = texture;
+        this.height = height;
     }
+
+    public List<AreaDef> areas() { return areas; }
+    /** 画面の高さ（ふつうは 166） */
+    public int height() { return height; }
+    /** 持ち物の段のいちばん上のスロットの y（ふつうは 84） */
+    public int inventoryY() { return height - 82; }
 
     public List<TextDef> texts() { return texts; }
 
@@ -96,8 +112,10 @@ public final class MachineLayout {
 
     public static final class Builder {
         private final List<SlotDef> slots = new ArrayList<>();
+        private final List<AreaDef> areas = new ArrayList<>();
         private final int dataCount;
         private String texture;
+        private int height = DEFAULT_HEIGHT;
 
         private Builder(int dataCount) { this.dataCount = dataCount; }
 
@@ -118,6 +136,10 @@ public final class MachineLayout {
             slots.add(new SlotDef(index, x, y, null, 0, null));
             return this;
         }
+        /** 画面を縦に大きくする（方眼を描く製図台など。持ち物の段はその分下がる） */
+        public Builder height(int h) { height = h; return this; }
+        /** 画面のコードが自分で描く場所（方眼・図）。自動チェックで文字・スロットと重ならないかを見る */
+        public Builder area(String id, int x, int y, int width, int h) { areas.add(new AreaDef(id, x, y, width, h)); return this; }
         /** 背景の画像を別の機械と共有するとき（蒸気タービンは蒸気機関の画面） */
         public Builder texture(String name) { texture = name; return this; }
 
@@ -164,6 +186,6 @@ public final class MachineLayout {
             return this;
         }
 
-        public MachineLayout build() { return new MachineLayout(slots, texts, dataCount, texture); }
+        public MachineLayout build() { return new MachineLayout(slots, texts, areas, dataCount, texture, height); }
     }
 }

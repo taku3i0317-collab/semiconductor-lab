@@ -158,12 +158,13 @@ public class CommonTests extends LabTestBase {
      */
     @GameTest
     public void machineSlotLayout(GameTestHelper h) {
-        final int W = 176, EDGE = 4, TITLE_BOTTOM = 16, INV_TOP = 83;
+        final int W = 176, EDGE = 4, TITLE_BOTTOM = 16;
         List<String> bad = new ArrayList<>();
         int n = 0;
         for (var m : com.taku3.semiconductorlab.machine.Machine.all()) {
             if (m.layout == null) continue;
             var ss = m.layout.slots();
+            final int INV_TOP = m.layout.height() - 83, LABEL_Y = m.layout.height() - 95;   // 画面の高さはレイアウトのデータ（ふつうは 166）
             for (int i = 0; i < ss.size(); i++) {
                 var s = ss.get(i);
                 int x0 = s.x() - 1, y0 = s.y() - 1, x1 = x0 + 18, y1 = y0 + 18;
@@ -171,7 +172,7 @@ public class CommonTests extends LabTestBase {
                 if (x0 < EDGE || x1 > W - EDGE) bad.add(id + " sticks out left/right");
                 if (y0 < TITLE_BOTTOM) bad.add(id + " overlaps the title band");
                 if (y1 > INV_TOP) bad.add(id + " overlaps the player inventory");
-                if (x0 < 77 && x1 > 7 && y0 < 81 && y1 > 71) bad.add(id + " overlaps the inventory label");
+                if (x0 < 77 && x1 > 7 && y0 < LABEL_Y + 10 && y1 > LABEL_Y) bad.add(id + " overlaps the inventory label");
                 for (int j = i + 1; j < ss.size(); j++) {
                     var t = ss.get(j);
                     if (Math.abs(s.x() - t.x()) < 18 && Math.abs(s.y() - t.y()) < 18) bad.add(id + " overlaps slot#" + t.index() + " (" + t.x() + "," + t.y() + ")");

@@ -45,7 +45,7 @@ public class MachineMenu extends AbstractContainerMenu {
             });
         }
         playerStart = slots.size();
-        addStandardInventorySlots(inv, 8, 84);
+        addStandardInventorySlots(inv, 8, machine.layout.inventoryY());
         addDataSlots(data);
     }
 
