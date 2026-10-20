@@ -1687,6 +1687,34 @@
       "note": "沸点の差で B・P の塩化物を分ける"
     },
     {
+      "machine": "semiconductor-lab:ultrapure_water_system",
+      "process": "超純水",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:deionized_water",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:polyethylene_bottle",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:ultrapure_water",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 5.0,
+      "energy_kj": 5,
+      "note": "イオン交換した水を逆浸透膜でこし、紫外線で殺菌。18.2 MΩ·cm（25℃）"
+    },
+    {
       "machine": "semiconductor-lab:wafer_saw",
       "process": "板に切る",
       "inputs": [

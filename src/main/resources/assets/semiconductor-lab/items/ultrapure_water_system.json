@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "semiconductor-lab:block/ultrapure_water_system"
+  }
+}

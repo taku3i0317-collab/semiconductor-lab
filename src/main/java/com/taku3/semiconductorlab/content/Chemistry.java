@@ -187,6 +187,11 @@ public final class Chemistry {
     public static final Item POLYETHYLENE          = Reg.item("polyethylene");
     // S-006（A、D のお願い）：ポリエチレンの瓶。フッ酸を入れられる（1950年代から鉛・ろうの容器に代わった⚠️）
     public static final Item POLYETHYLENE_BOTTLE   = Reg.item("polyethylene_bottle");
+    // [2-18] 超純水（IMP3、S-002）：木材パルプ（[15-01]）＋無水酢酸2＋酢酸＋硫酸 → 酢酸セルロース、2＋アセトン＋水 → 逆浸透膜（1960 ローブとスリラージャン）。
+    //   超純水装置で脱イオン水 → 超純水（ポリエチレンの瓶、18.2 MΩ·cm）
+    public static final Item CELLULOSE_ACETATE     = Reg.item("cellulose_acetate");
+    public static final Item RO_MEMBRANE           = Reg.item("ro_membrane");
+    public static final Item ULTRAPURE_WATER       = Reg.contained("ultrapure_water", Vessel.POLYETHYLENE_BOTTLE);
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
     public static final net.minecraft.tags.TagKey<Item> HF_TAG = net.minecraft.tags.TagKey.create(Registries.ITEM, SemiconductorLab.id("hydrofluoric_acid"));
@@ -251,6 +256,9 @@ public final class Chemistry {
 
     // 熱分解炉 [2-38]（IMP3、S-002）：白金の管で R-22 2袋 → TFE＋塩化水素2。8kW
     public static final Machine<PyrolysisFurnaceBlockEntity> PYROLYSIS_FURNACE = Machine.electric("pyrolysis_furnace", PyrolysisFurnaceBlockEntity::new, PyrolysisFurnaceBlockEntity.LAYOUT, metal(4.0f));
+
+    // 超純水装置 [2-18]（IMP3、S-002）：脱イオン水＋ポリエチレンの瓶 → 超純水（RO 膜＋紫外線）。1kW
+    public static final Machine<UltrapureWaterSystemBlockEntity> ULTRAPURE_WATER_SYSTEM = Machine.electric("ultrapure_water_system", UltrapureWaterSystemBlockEntity::new, UltrapureWaterSystemBlockEntity.LAYOUT, metal(3.0f));
 
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
     private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {

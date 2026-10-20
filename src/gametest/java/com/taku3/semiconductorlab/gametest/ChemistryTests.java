@@ -913,6 +913,35 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-18] 超純水（IMP3、S-002）
+    // =====================================================================
+
+    /** パルプ＋無水酢酸 → 酢酸セルロース → RO 膜。装置：蒸留水は受けない、脱イオン水＋PE の瓶 → 超純水（PE の瓶）＋ガラス瓶 */
+    @GameTest(maxTicks = 200)
+    public void ultrapureWater(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "cellulose_acetate", com.taku3.semiconductorlab.content.Communication.WOOD_PULP) && recipeUses(h, "cellulose_acetate", Chemistry.ACETIC_ANHYDRIDE), "pulp + acetic anhydride -> cellulose acetate");
+        h.assertTrue(recipeUses(h, "ro_membrane", Chemistry.CELLULOSE_ACETATE) && recipeUses(h, "ro_membrane", Chemistry.ACETONE), "Loeb-Sourirajan casting");
+        h.assertTrue(recipeUses(h, "ultrapure_water_system", Chemistry.RO_MEMBRANE) && recipeUses(h, "ultrapure_water_system", com.taku3.semiconductorlab.content.Optics.MERCURY_LAMP_TUBE), "system has RO + UV");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.ULTRAPURE_WATER) == com.taku3.semiconductorlab.machine.Vessel.POLYETHYLENE_BOTTLE, "ultrapure water is kept in polyethylene, not glass");
+        h.assertTrue(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.RESISTIVITY_MOHM_CM == 18.2, "theoretical limit 18.2 MOhm cm");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.ULTRAPURE_WATER_SYSTEM.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.class);
+        var c = be.getContainer();
+        h.assertFalse(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.LAYOUT.slots().get(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.SLOT_IN).accepts().test(new ItemStack(Chemistry.DISTILLED_WATER)), "distilled water must go through ion exchange first");
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.SLOT_IN, new ItemStack(Chemistry.DEIONIZED_WATER, 2));
+        c.setItem(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.SLOT_BOTTLE, new ItemStack(Chemistry.POLYETHYLENE_BOTTLE, 2));
+        for (int i = 0; i < 2; i++) tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.TICKS, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Chemistry.ULTRAPURE_WATER) && out.getCount() == 2, "2 DI water -> 2 ultrapure water, got " + out);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.SLOT_GLASS).getCount(), 2, "glass bottles come back");
+        LOG.info("[LAB] ultrapure water [2-18]: pulp + acetic anhydride -> cellulose acetate -> RO membrane; system: DI water + PE bottle -> ultrapure water (18.2 MOhm cm)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
@@ -926,6 +955,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         rec(a, Chemistry.PYROLYSIS_FURNACE.block, "TFE", L(mol(Chemistry.CHLORODIFLUOROMETHANE_GAS, com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.FEED_PER_RUN)),
             L(mol(Chemistry.TETRAFLUOROETHYLENE_GAS, 1), mol(com.taku3.semiconductorlab.content.Metallurgy.HYDROGEN_CHLORIDE_GAS, 2)), com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.TICKS / 20.0, "白金の管で約700℃：2CHClF2 → C2F4 + 2HCl");
         rec(a, Chemistry.AUTOCLAVE.block, "PTFE", L(mol(Chemistry.TETRAFLUOROETHYLENE_GAS, 4)), L(io(Chemistry.PTFE, 1)), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS, 30.0, "TFE を水の中で温めて重合：n C2F4 → (C2F4)n（1938 プランケット）");
+        rec(a, Chemistry.ULTRAPURE_WATER_SYSTEM.block, "超純水", L(io(Chemistry.DEIONIZED_WATER, 1), io(Chemistry.POLYETHYLENE_BOTTLE, 1)),
+            L(io(Chemistry.ULTRAPURE_WATER, 1), io(Chemistry.GLASS_BOTTLE, 1)), com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.WATTS, com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.TICKS / 20.0, "イオン交換した水を逆浸透膜でこし、紫外線で殺菌。18.2 MΩ·cm（25℃）");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");

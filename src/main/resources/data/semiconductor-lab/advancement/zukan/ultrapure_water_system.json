@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:ultrapure_water_system"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.ultrapure_water_system"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.ultrapure_water_system.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.ultrapure_water_system.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:ultrapure_water_system"
+          }
+        ]
+      }
+    }
+  }
+}

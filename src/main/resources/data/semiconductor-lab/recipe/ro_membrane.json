@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:cellulose_acetate",
+    "semiconductor-lab:cellulose_acetate",
+    "semiconductor-lab:acetone",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ro_membrane",
+    "count": 1
+  }
+}

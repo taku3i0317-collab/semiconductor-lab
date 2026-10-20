@@ -1,34 +1,34 @@
 # 試験場（S-001、IMP3）：自動生成 python tools/gen_testworld.py。手で直さない
 # 使い方：新しいワールド（クリエイティブ・コマンド有効）の平らな所で /function semiconductor-lab:testworld
-# 大きさ：東へ 143・南へ 109 ブロック（足元から）。機械の真下のピンクと黒は試験用の無限電源
-fill ~-1 ~-1 ~-2 ~143 ~-1 ~5 minecraft:smooth_stone
-fill ~-1 ~ ~-2 ~143 ~5 ~5 minecraft:air
-fill ~-1 ~-1 ~6 ~143 ~-1 ~13 minecraft:smooth_stone
-fill ~-1 ~ ~6 ~143 ~5 ~13 minecraft:air
-fill ~-1 ~-1 ~14 ~143 ~-1 ~21 minecraft:smooth_stone
-fill ~-1 ~ ~14 ~143 ~5 ~21 minecraft:air
-fill ~-1 ~-1 ~22 ~143 ~-1 ~29 minecraft:smooth_stone
-fill ~-1 ~ ~22 ~143 ~5 ~29 minecraft:air
-fill ~-1 ~-1 ~30 ~143 ~-1 ~37 minecraft:smooth_stone
-fill ~-1 ~ ~30 ~143 ~5 ~37 minecraft:air
-fill ~-1 ~-1 ~38 ~143 ~-1 ~45 minecraft:smooth_stone
-fill ~-1 ~ ~38 ~143 ~5 ~45 minecraft:air
-fill ~-1 ~-1 ~46 ~143 ~-1 ~53 minecraft:smooth_stone
-fill ~-1 ~ ~46 ~143 ~5 ~53 minecraft:air
-fill ~-1 ~-1 ~54 ~143 ~-1 ~61 minecraft:smooth_stone
-fill ~-1 ~ ~54 ~143 ~5 ~61 minecraft:air
-fill ~-1 ~-1 ~62 ~143 ~-1 ~69 minecraft:smooth_stone
-fill ~-1 ~ ~62 ~143 ~5 ~69 minecraft:air
-fill ~-1 ~-1 ~70 ~143 ~-1 ~77 minecraft:smooth_stone
-fill ~-1 ~ ~70 ~143 ~5 ~77 minecraft:air
-fill ~-1 ~-1 ~78 ~143 ~-1 ~85 minecraft:smooth_stone
-fill ~-1 ~ ~78 ~143 ~5 ~85 minecraft:air
-fill ~-1 ~-1 ~86 ~143 ~-1 ~93 minecraft:smooth_stone
-fill ~-1 ~ ~86 ~143 ~5 ~93 minecraft:air
-fill ~-1 ~-1 ~94 ~143 ~-1 ~101 minecraft:smooth_stone
-fill ~-1 ~ ~94 ~143 ~5 ~101 minecraft:air
-fill ~-1 ~-1 ~102 ~143 ~-1 ~109 minecraft:smooth_stone
-fill ~-1 ~ ~102 ~143 ~5 ~109 minecraft:air
+# 大きさ：東へ 147・南へ 109 ブロック（足元から）。機械の真下のピンクと黒は試験用の無限電源
+fill ~-1 ~-1 ~-2 ~147 ~-1 ~5 minecraft:smooth_stone
+fill ~-1 ~ ~-2 ~147 ~5 ~5 minecraft:air
+fill ~-1 ~-1 ~6 ~147 ~-1 ~13 minecraft:smooth_stone
+fill ~-1 ~ ~6 ~147 ~5 ~13 minecraft:air
+fill ~-1 ~-1 ~14 ~147 ~-1 ~21 minecraft:smooth_stone
+fill ~-1 ~ ~14 ~147 ~5 ~21 minecraft:air
+fill ~-1 ~-1 ~22 ~147 ~-1 ~29 minecraft:smooth_stone
+fill ~-1 ~ ~22 ~147 ~5 ~29 minecraft:air
+fill ~-1 ~-1 ~30 ~147 ~-1 ~37 minecraft:smooth_stone
+fill ~-1 ~ ~30 ~147 ~5 ~37 minecraft:air
+fill ~-1 ~-1 ~38 ~147 ~-1 ~45 minecraft:smooth_stone
+fill ~-1 ~ ~38 ~147 ~5 ~45 minecraft:air
+fill ~-1 ~-1 ~46 ~147 ~-1 ~53 minecraft:smooth_stone
+fill ~-1 ~ ~46 ~147 ~5 ~53 minecraft:air
+fill ~-1 ~-1 ~54 ~147 ~-1 ~61 minecraft:smooth_stone
+fill ~-1 ~ ~54 ~147 ~5 ~61 minecraft:air
+fill ~-1 ~-1 ~62 ~147 ~-1 ~69 minecraft:smooth_stone
+fill ~-1 ~ ~62 ~147 ~5 ~69 minecraft:air
+fill ~-1 ~-1 ~70 ~147 ~-1 ~77 minecraft:smooth_stone
+fill ~-1 ~ ~70 ~147 ~5 ~77 minecraft:air
+fill ~-1 ~-1 ~78 ~147 ~-1 ~85 minecraft:smooth_stone
+fill ~-1 ~ ~78 ~147 ~5 ~85 minecraft:air
+fill ~-1 ~-1 ~86 ~147 ~-1 ~93 minecraft:smooth_stone
+fill ~-1 ~ ~86 ~147 ~5 ~93 minecraft:air
+fill ~-1 ~-1 ~94 ~147 ~-1 ~101 minecraft:smooth_stone
+fill ~-1 ~ ~94 ~147 ~5 ~101 minecraft:air
+fill ~-1 ~-1 ~102 ~147 ~-1 ~109 minecraft:smooth_stone
+fill ~-1 ~ ~102 ~147 ~5 ~109 minecraft:air
 setblock ~0 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹0 生存（石器時代）","↓ この列","",""]}}
 setblock ~2 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-01] 打製石器","右クリックでの打ち欠き","（メインにたたき石・オ","フハンドに火打ち石／逆"]}}
 setblock ~2 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hammerstone",count:1},{Slot:1b,id:"semiconductor-lab:flint_flake",count:1},{Slot:2b,id:"semiconductor-lab:obsidian_flake",count:1},{Slot:3b,id:"semiconductor-lab:hand_axe",count:1}]}
@@ -269,8 +269,11 @@ setblock ~134 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25
 setblock ~134 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphoric_acid",count:16}]}
 setblock ~137 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-13] ラッピング・鏡","研磨機の GUI（左に","ウェハー・砥粒・シリカ","、銀色のバー、「やり直"]}}
 setblock ~137 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sodium_silicate",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
-setblock ~140 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] polyethyle","（人間の確認項目なし）","",""]}}
-setblock ~140 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:polyethylene_bottle",count:16},{Slot:1b,id:"semiconductor-lab:hydrofluoric_acid_pe",count:16},{Slot:2b,id:"semiconductor-lab:bleaching_powder",count:16}]}
+setblock ~140 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-18] 超純水","装置の画面（ふつうの画","面）と見た目、PE の","瓶が作業台で戻るか、ツ"]}}
+setblock ~140 ~0 ~18 semiconductor-lab:ultrapure_water_system
+setblock ~141 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cellulose_acetate",count:16},{Slot:1b,id:"semiconductor-lab:ro_membrane",count:16},{Slot:2b,id:"semiconductor-lab:ultrapure_water",count:16}]}
+setblock ~144 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] polyethyle","（人間の確認項目なし）","",""]}}
+setblock ~144 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:polyethylene_bottle",count:16},{Slot:1b,id:"semiconductor-lab:hydrofluoric_acid_pe",count:16},{Slot:2b,id:"semiconductor-lab:bleaching_powder",count:16}]}
 setblock ~0 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹3 熱","↓ この列","",""]}}
 setblock ~2 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-04] ふいご","ふいごを素手で右クリッ","クすると音と「送風 1","00%」が出て、1秒ほ"]}}
 setblock ~2 ~0 ~26 semiconductor-lab:bellows

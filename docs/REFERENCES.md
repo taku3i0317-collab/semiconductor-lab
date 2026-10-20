@@ -2025,6 +2025,20 @@
 - Wikipedia「Pulp (paper)」：https://en.wikipedia.org/wiki/Pulp_(paper)
 - Wikipedia「Cai Lun」：https://en.wikipedia.org/wiki/Cai_Lun
 
+## C24. 水そのものしか電気を通さない水（超純水）［2-18］
+**答え**：イオン交換で作るきれいな水は1950年代から半導体工場で使われ、「超純水」の言葉は1970年代後半〜80年代から広まった ⚠️。今の超純水は、イオン交換・逆浸透（RO）膜・紫外線（254nm）などを組み合わせて作る。理論上の抵抗率の上限は 18.2 MΩ·cm（25℃）で、水自身の電離（H+ と OH- が 10^-7 mol/L ずつ）で決まる。RO 膜は 1960年ごろローブとスリラージャン（UCLA）の非対称な酢酸セルロース膜が最初の実用品。
+
+- へえ①：超純水は、水そのものがほんの少しイオンに分かれる分しか電気を通さない。
+- へえ②：超純水をガラス瓶に入れると、ガラスからイオンが溶け出すので、ポリエチレンや PTFE の容器を使う。
+- へえ③：逆浸透膜は、海水から真水を作る装置にも使われる。
+- へえ④：今の半導体工場は1日に何千トンもの超純水を使う。
+
+確かさ：18.2 MΩ·cm（25℃）◎／ローブとスリラージャン 1960ごろ ◎／超純水の語の広まり（1970年代後半〜80年代）△ → ⚠️（TECH_TREE の本物欄と同じ）
+根拠：
+- Wikipedia「Ultrapure water」：https://en.wikipedia.org/wiki/Ultrapure_water
+- Wikipedia「Reverse osmosis」（ローブとスリラージャン）：https://en.wikipedia.org/wiki/Reverse_osmosis
+- Wikipedia「Cellulose acetate」：https://en.wikipedia.org/wiki/Cellulose_acetate
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
