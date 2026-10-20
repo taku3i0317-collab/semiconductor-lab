@@ -1366,6 +1366,49 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-39] ステッパー段階1（IMP2 S-004）：投影レンズで方眼16（g線）のクロムマスクを、ボタンで1チップずつ4回送って焼く。マスクは傷まない。ぼけたレンズでは焼けない */
+    @GameTest(maxTicks = 100)
+    public void stepper(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "stepper", Semiconductor.MASK_ALIGNER.block.asItem()), "stepper grows out of the mask aligner");
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(16), "stepper_test", 0);
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        mask.set(ModDataComponents.MASK, fine);
+        h.assertFalse(com.taku3.semiconductorlab.litho.ChipOps.canExpose(ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"), fine, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G),
+                "a 16-grid mask is too fine for contact printing");
+        ItemStack lens = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS);
+        lens.set(Precision.LENS_DECENTER, java.util.List.of(5, 5, 5, 5));
+        h.assertFalse(com.taku3.semiconductorlab.block.StepperBlockEntity.lensOk(new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS)), "an uncentred lens is too blurred");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.STEPPER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.StepperBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER, ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK, mask);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, lens);
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.StepperBlockEntity.WATTS);
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.StepperBlockEntity.STEP_TICKS + 5, full);
+        h.assertValueEqual(be.stepsDone(), 0, "nothing happens until the step button is pressed (stage 1: hand stepping)");
+        for (int k = 1; k <= com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS; k++) {
+            h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "step " + k + " starts");
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.StepperBlockEntity.STEP_TICKS + 2, full);
+        }
+        ItemStack out = be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT);
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(out);
+        h.assertTrue(st != null && st.resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.EXPOSED && st.size() == 16, "4 hand steps -> wafer exposed at grid 16");
+        h.assertValueEqual(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK).getDamageValue(), 0, "projection: the mask is never touched");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"power", "steps", "cd", "step", "need_wafer", "need_mask", "need_lens", "blurred", "cannot", "output_full", "press", "need_power", "running"})
+            h.assertTrue(ja.has("gui.semiconductor-lab.stepper." + k), "lang stepper." + k);
+        LOG.info("[LAB] stepper [9-39] stage 1: projection lens CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens) + " nm, 4 hand steps -> grid 16 (contact max 8), mask untouched");
+        h.succeed();
+    }
+
+    private static ItemStack oxidized() {
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER);
+        w.set(ModDataComponents.DOPANT, "boron");
+        return w;
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

@@ -497,6 +497,7 @@ dicing_saw  # Semiconductor [9-32] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
 cleaning_bench  # Semiconductor [9-14] 1965
 rca_bench  # Semiconductor [9-14] 1965
+stepper  # Semiconductor [9-39] 1978
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None

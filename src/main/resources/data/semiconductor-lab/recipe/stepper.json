@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IMI",
+    "IAI",
+    "ICI"
+  ],
+  "key": {
+    "I": "semiconductor-lab:steel_ingot",
+    "M": "semiconductor-lab:electric_motor",
+    "A": "semiconductor-lab:mask_aligner",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:stepper",
+    "count": 1
+  }
+}
