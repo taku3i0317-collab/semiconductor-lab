@@ -656,5 +656,17 @@
   "item.semiconductor-lab.ethylene_gas.note2": "アルミナの触媒管でエタノールから作る。高圧の反応釜でポリエチレン [2-37] になる。⚠ GHS：可燃性ガス・高圧ガス・特定標的臓器毒性（眠気）。",
   "item.semiconductor-lab.ethylene_gas.note3": "エチレン C2H4 は炭素どうしが二重結合でつながっている。この二重結合が開いて、となりのエチレンと次々につながるとポリエチレンになる。",
   "item.semiconductor-lab.ethylene_gas.note4": "1795年オランダの化学者4人が「油を作るガス」と名付けた（塩素と混ぜると油のような液になるから）⚠️。エチレンは果物を熟させる植物ホルモンでもあり、バナナの追熟に使われる。",
-  "item.semiconductor-lab.ethylene_gas.placeholder": "近似：1袋＝約1mol。石油（ナフサ）の熱分解の道は入れない（このMODは原油を入れない）。"
+  "item.semiconductor-lab.ethylene_gas.placeholder": "近似：1袋＝約1mol。石油（ナフサ）の熱分解の道は入れない（このMODは原油を入れない）。",
+  "item.semiconductor-lab.polyethylene": "ポリエチレン",
+  "item.semiconductor-lab.polyethylene.note1": "ポリ袋やバケツの材料になる、軽くて水も電気も通さないプラスチック。",
+  "item.semiconductor-lab.polyethylene.note2": "高圧の反応釜でエチレンから作る。薬品の容器・電線の絶縁に使う。熱すると柔らかくなる（熱可塑性）。",
+  "item.semiconductor-lab.polyethylene.note3": "-CH2-CH2- が何万もつながった長い鎖。炭素と水素だけでできていて、酸にもアルカリにも強く、フッ酸にも溶けない。",
+  "item.semiconductor-lab.polyethylene.note4": "第二次世界大戦では、飛行機に積むレーダーのケーブルの絶縁に使われた。今の半導体工場では、フッ酸の瓶もポリエチレン。",
+  "item.semiconductor-lab.polyethylene.placeholder": "近似：分子量・密度は区別しない。",
+  "block.semiconductor-lab.high_pressure_reactor": "高圧の反応釜",
+  "block.semiconductor-lab.high_pressure_reactor.note1": "ガスをものすごい力で押し込めて、プラスチック（ポリエチレン）にする機械。",
+  "block.semiconductor-lab.high_pressure_reactor.note2": "鋼8＋圧縮機で作る。エチレン4袋＋酸素（1袋で16回）→ ポリエチレン1（20秒、5kW）。酸素がないと始まらない。",
+  "block.semiconductor-lab.high_pressure_reactor.note3": "とても高い圧力（約1400気圧）でエチレンの分子をぎゅうぎゅうに近づけ、ほんの少しの酸素がきっかけ（開始剤）になって、二重結合が開いて次々につながる。",
+  "block.semiconductor-lab.high_pressure_reactor.note4": "1933年 ICI のフォーセットとギブソンは別の反応を調べていて、釜の中に白いろうのような物を見つけた。もれて入った酸素がきっかけだったとわかったのは1935年。",
+  "block.semiconductor-lab.high_pressure_reactor.placeholder": "近似：圧力・温度は数字で扱わない。反応しなかったエチレンの回収、低密度と高密度の違いは扱わない。"
 }

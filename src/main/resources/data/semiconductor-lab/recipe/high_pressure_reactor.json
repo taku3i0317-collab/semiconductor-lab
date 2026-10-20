@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "SPS",
+    "SSS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "P": "semiconductor-lab:compressor"
+  },
+  "result": {
+    "id": "semiconductor-lab:high_pressure_reactor",
+    "count": 1
+  }
+}

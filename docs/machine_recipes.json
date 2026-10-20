@@ -850,6 +850,33 @@
       "note": "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし"
     },
     {
+      "machine": "semiconductor-lab:high_pressure_reactor",
+      "process": "ポリエチレン",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:ethylene_gas",
+          "count": 4,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_gas",
+          "count": 1,
+          "unit": "mol",
+          "per_runs": 16
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:polyethylene",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 20.0,
+      "energy_kj": 100,
+      "note": "約1400気圧・約200℃、ほんの少しの酸素が開始剤：n C2H4 → (C2H4)n（1933 ICI）"
+    },
+    {
       "machine": "semiconductor-lab:hydrogen_furnace",
       "process": "WO3 の水素還元",
       "inputs": [

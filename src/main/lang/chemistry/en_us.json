@@ -656,5 +656,17 @@
   "item.semiconductor-lab.ethylene_gas.note2": "Made from ethanol in an alumina catalyst tube. Becomes polyethylene [2-37] in a high-pressure reactor. ⚠ GHS: flammable gas, gas under pressure, specific target organ toxicity (drowsiness).",
   "item.semiconductor-lab.ethylene_gas.note3": "In ethylene, C2H4, the two carbons share a double bond. When it opens and links to the next ethylene again and again, you get polyethylene.",
   "item.semiconductor-lab.ethylene_gas.note4": "In 1795 four Dutch chemists called it 'oil-making gas' (with chlorine it makes an oily liquid) ⚠️. Ethylene is also a plant hormone that ripens fruit; it is used to ripen bananas.",
-  "item.semiconductor-lab.ethylene_gas.placeholder": "Approximation: 1 bag = about 1 mol. The petroleum (naphtha cracking) route is not included (this mod has no crude oil)."
+  "item.semiconductor-lab.ethylene_gas.placeholder": "Approximation: 1 bag = about 1 mol. The petroleum (naphtha cracking) route is not included (this mod has no crude oil).",
+  "item.semiconductor-lab.polyethylene": "Polyethylene",
+  "item.semiconductor-lab.polyethylene.note1": "A light plastic that keeps out water and electricity; used for plastic bags and buckets.",
+  "item.semiconductor-lab.polyethylene.note2": "Made from ethylene in a high-pressure reactor. Used for chemical containers and wire insulation. Softens when heated (thermoplastic).",
+  "item.semiconductor-lab.polyethylene.note3": "A long chain of tens of thousands of -CH2-CH2- units. Made of only carbon and hydrogen, it resists acids, alkalis, and even hydrofluoric acid.",
+  "item.semiconductor-lab.polyethylene.note4": "In World War II it insulated the cables of airborne radar. In chip fabs today, hydrofluoric acid bottles are polyethylene too.",
+  "item.semiconductor-lab.polyethylene.placeholder": "Approximation: molecular weight and density are not distinguished.",
+  "block.semiconductor-lab.high_pressure_reactor": "High-Pressure Reactor",
+  "block.semiconductor-lab.high_pressure_reactor.note1": "A machine that squeezes a gas with huge force and turns it into plastic (polyethylene).",
+  "block.semiconductor-lab.high_pressure_reactor.note2": "8 steel + compressor. 4 bags of ethylene + oxygen (1 bag lasts 16 runs) -> 1 polyethylene (20 s, 5 kW). Without oxygen it does not start.",
+  "block.semiconductor-lab.high_pressure_reactor.note3": "Very high pressure (about 1400 atm) packs ethylene molecules close together; a tiny trace of oxygen starts it off (initiator), the double bonds open and link one after another.",
+  "block.semiconductor-lab.high_pressure_reactor.note4": "In 1933 Fawcett and Gibson at ICI were studying a different reaction and found a white waxy solid in the vessel. Only in 1935 did they learn that oxygen leaking in had started it.",
+  "block.semiconductor-lab.high_pressure_reactor.placeholder": "Approximation: pressure and temperature are not given as numbers. Unreacted ethylene is not recycled, and low- vs high-density polyethylene is not distinguished."
 }

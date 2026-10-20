@@ -204,6 +204,8 @@ novolac  # Chemistry [2-28] 1907
 resol_mix  # Chemistry [2-28] 1907
 bakelite  # Chemistry [2-28] 1907
 acetone  # Chemistry [2-40] 1915
+polyethylene  # Chemistry [2-37] 1933
+high_pressure_reactor  # Chemistry [2-37] 1933
 cation_exchange_resin  # Chemistry [2-17] 1935
 anion_exchange_resin  # Chemistry [2-17] 1935
 deionized_water  # Chemistry [2-17] 1935

@@ -178,6 +178,8 @@ public final class Chemistry {
     // [2-36] エチレン（IMP3、O-009、決定どおりアルミナ触媒が本流）：熱したアルミナの管にエタノールを通す C2H5OH → C2H4 + H2O。エチレンは袋（約1mol）
     public static final Block ALUMINA_CATALYST_TUBE = Reg.functional("alumina_catalyst_tube", com.taku3.semiconductorlab.block.AluminaCatalystTubeBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(2.0f).sound(SoundType.METAL));
     public static final Item ETHYLENE_GAS          = Reg.contained("ethylene_gas", Vessel.GAS_BAG);
+    // [2-37] ポリエチレン（IMP3、O-009）：高圧の反応釜でエチレン＋ほんの少しの酸素 → ポリエチレン（1933 ICI）
+    public static final Item POLYETHYLENE          = Reg.item("polyethylene");
     /** 獣脂を落とす確率（1頭あたり） */
     public static final float TALLOW_CHANCE = 0.6f;
 
@@ -199,6 +201,9 @@ public final class Chemistry {
 
     // 過酸化水素の電解槽 [2-19]（IMP4-01）：白金の陽極で硫酸を電解 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。3kW
     public static final Machine<PeroxideCellBlockEntity> PEROXIDE_CELL = Machine.electric("peroxide_cell", PeroxideCellBlockEntity::new, PeroxideCellBlockEntity.LAYOUT, metal(3.0f));
+
+    // 高圧の反応釜 [2-37]（IMP3、O-009）：エチレン4袋＋酸素（開始剤、1袋で16回）→ ポリエチレン。5kW
+    public static final Machine<HighPressureReactorBlockEntity> HIGH_PRESSURE_REACTOR = Machine.electric("high_pressure_reactor", HighPressureReactorBlockEntity::new, HighPressureReactorBlockEntity.LAYOUT, metal(4.0f));
 
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
     private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {

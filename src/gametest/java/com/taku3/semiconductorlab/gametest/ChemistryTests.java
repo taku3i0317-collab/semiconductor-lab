@@ -755,12 +755,42 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-37] ポリエチレン（IMP3、O-009）
+    // =====================================================================
+
+    /** 酸素なしでは始まらない。エチレン4＋酸素 → ポリエチレン、酸素1袋で16回。電気が半分だと終わらない */
+    @GameTest(maxTicks = 100)
+    public void polyethylene(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.HIGH_PRESSURE_REACTOR.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.WATTS);
+        int T = com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.TICKS;
+        c.setItem(com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.SLOT_ETHYLENE, new ItemStack(Chemistry.ETHYLENE_GAS, 12));
+        tickConsumer(h, fp, be, T + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.SLOT_OUT).isEmpty(), "no oxygen -> no polymerization");
+        c.setItem(com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.SLOT_OXYGEN, new ItemStack(com.taku3.semiconductorlab.content.Gas.OXYGEN_GAS, 1));
+        tickConsumer(h, fp, be, T, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        for (int i = 0; i < 3; i++) tickConsumer(h, fp, be, T, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Chemistry.POLYETHYLENE) && out.getCount() == 3, "12 ethylene -> 3 polyethylene, got " + out);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.SLOT_OXYGEN).isEmpty() && be.getOxygen() == com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.RUNS_PER_OXYGEN - 3, "1 oxygen bag = 16 runs");
+        LOG.info("[LAB] polyethylene [2-37]: no O2 -> nothing; 4 ethylene + trace O2 (1 bag / 16 runs) -> polyethylene at 5 kW");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
             L(io(Chemistry.HYDROGEN_PEROXIDE, 1), mol(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS, 1)), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS / 20.0, "白金の陽極で硫酸 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。全体 2H2O → H2O2 + H2");
         rec(a, Chemistry.AMMONIA_STILL.block, "アンモニア水", L(io(Chemistry.AMMONIACAL_LIQUOR, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.LIQUOR_PER_RUN), io(com.taku3.semiconductorlab.content.Survival.SLAKED_LIME, 1), io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.RUNS_PER_WATER)),
             L(io(Chemistry.AMMONIA_WATER, 1)), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.WATTS, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS / 20.0, "安水を熱し、消石灰で塩のアンモニアも追い出して水に吸わせる");
+        rec(a, Chemistry.HIGH_PRESSURE_REACTOR.block, "ポリエチレン", L(mol(Chemistry.ETHYLENE_GAS, com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.ETHYLENE_PER_RUN), perRuns(mol(com.taku3.semiconductorlab.content.Gas.OXYGEN_GAS, 1), com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.RUNS_PER_OXYGEN)),
+            L(io(Chemistry.POLYETHYLENE, 1)), com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.TICKS / 20.0, "約1400気圧・約200℃、ほんの少しの酸素が開始剤：n C2H4 → (C2H4)n（1933 ICI）");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");

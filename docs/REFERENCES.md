@@ -1763,6 +1763,20 @@
 - Wikipedia「Ethanol」（脱水）：https://en.wikipedia.org/wiki/Ethanol
 - Wikipedia「Alkene」（olefiant gas）：https://en.wikipedia.org/wiki/Alkene
 
+## C16. ポリエチレンは偶然見つかった［2-37］
+**答え**：1933年、イギリスの ICI のフォーセットとギブソンは、エチレンとベンズアルデヒドを約1400気圧で反応させる実験で、釜の中に白いろうのような物（ポリエチレン）を見つけた。再現がむずかしかったが、1935年にペリンが「もれて入った微量の酸素がきっかけ（開始剤）」と気づき、工業化された。第二次大戦ではレーダーのケーブルの絶縁に使われた。
+
+- へえ①：ポリエチレンは、とても高い圧力の実験の中で偶然見つかった。
+- へえ②：酸素がまったくないと始まらず、多すぎると爆発的に分解する。ほんの少しが大事。
+- へえ③：レーダーのケーブルを軽く細くでき、飛行機に積めるようになった。
+- へえ④：1950年代にチーグラーとナッタの触媒（[2-50]）で、ふつうの圧力でも作れるようになった（高密度ポリエチレン）。
+
+確かさ：1933 フォーセットとギブソン・約1400気圧 ◎／1935 ペリンの酸素 ○／レーダーの絶縁 ◎
+根拠：
+- Wikipedia「Polyethylene」（歴史）：https://en.wikipedia.org/wiki/Polyethylene
+- Science History Institute ほか「ICI polyethylene 1933」：https://en.wikipedia.org/wiki/Imperial_Chemical_Industries
+- Wikipedia「Low-density polyethylene」：https://en.wikipedia.org/wiki/Low-density_polyethylene
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
