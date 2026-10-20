@@ -6366,7 +6366,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C12. 油と強いアルカリで石けん、残りの液からグリセリン［2-09］",
+     "answer": "油脂（グリセリン＋脂肪酸3本）を強いアルカリと煮ると、結び目が切れて脂肪酸のナトリウム塩（石けん）とグリセリンになる（けん化）。塩をたくさん入れると石けんが固まって浮き（塩析）、残りの液からグリセリンが取れる。",
+     "hee": {
+      "1": "油と強いアルカリをまぜると、石けんができる。",
+      "2": "石けんの分子は水になじむ頭と油になじむしっぽを持ち、油汚れを包んで流す（ミセル）。",
+      "3": "1823 シュヴルールが油脂の正体を解明、1779 シェーレがグリセリンを発見。",
+      "4": "ウェハーは石けんでなく RCA 洗浄（1965）で洗う。"
+     },
+     "certainty": "けん化・塩析・ミセル ◎／シュヴルール 1823 ○／シェーレ 1779 ○／紀元前2800年のバビロン △（TECH_TREE の本物欄どおり ⚠️）",
+     "basis": "- Wikipedia「Soap」：https://en.wikipedia.org/wiki/Soap"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -6376,7 +6389,7 @@
    "name": "石けん",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -2800,
    "year_range": null,
@@ -6392,10 +6405,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "油と強いアルカリをまぜると、石けんができる",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -13852,7 +13865,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "電球の根元の線は、ガラスと同じだけ伸び縮みする特別な金属",
    "kind": "tech",
    "play": "",
@@ -27445,7 +27458,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "手を洗えと言った医者は、生きている間は笑われた",
    "kind": "tech",
    "play": "",
