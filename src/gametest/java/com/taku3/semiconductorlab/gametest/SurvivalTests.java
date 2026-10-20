@@ -745,6 +745,13 @@ public class SurvivalTests extends LabTestBase {
         h.runAfterDelay(a.ticks + 5, () -> {
             h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.SLOT_OUT).is(com.taku3.semiconductorlab.content.Communication.TRANSISTOR_RADIO), "radio comes out");
             for (int i = 0; i < a.parts.size(); i++) h.assertTrue(c.getItem(i).isEmpty(), "part used: " + a.parts.get(i).role());
+            // 完成品のツールチップ（Shift）に部品表（O-005）
+            var ja = GuiLayoutTests.lang("ja_jp");
+            var lines = com.taku3.semiconductorlab.machine.TooltipText.lines("item.semiconductor-lab.transistor_radio", null, a.bom(), true, ja::get, FontWidths::width)
+                    .stream().map(com.taku3.semiconductorlab.machine.TooltipText.Line::text).toList();
+            h.assertTrue(lines.contains(ja.get("tooltip.semiconductor-lab.bom")) && lines.stream().anyMatch(l -> l.contains("×3") && l.contains("増幅")), "radio tooltip lists its parts: " + lines);
+            h.assertFalse(com.taku3.semiconductorlab.machine.TooltipText.lines("item.semiconductor-lab.transistor_radio", null, a.bom(), false, ja::get, FontWidths::width)
+                    .stream().anyMatch(l -> l.text().equals(ja.get("tooltip.semiconductor-lab.bom"))), "parts list only with Shift");
             LOG.info("[LAB] assembly bench: {} recipes; radio from {} parts in {} ticks", all.size(), a.parts.size(), a.ticks);
             h.succeed();
         });

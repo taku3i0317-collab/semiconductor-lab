@@ -97,8 +97,10 @@ public class GuiLayoutTests extends LabTestBase {
                 String key = NS + "." + id.getPath();
                 String base = tr.containsKey("item." + key) || !tr.containsKey("block." + key) ? "item." + key : "block." + key;
                 for (boolean shift : new boolean[] {false, true}) {
+                    var asm = com.taku3.semiconductorlab.machine.Assembly.of(item);
                     var lines = com.taku3.semiconductorlab.machine.TooltipText.lines(base,
-                            com.taku3.semiconductorlab.machine.Vessel.of(item) == null ? null : com.taku3.semiconductorlab.machine.Vessel.of(item).langKey(), shift, tr::get, FontWidths::width);
+                            com.taku3.semiconductorlab.machine.Vessel.of(item) == null ? null : com.taku3.semiconductorlab.machine.Vessel.of(item).langKey(),
+                            asm == null ? null : asm.bom(), shift, tr::get, FontWidths::width);
                     for (var l : lines) {
                         int w = FontWidths.width(l.text());
                         if (w > com.taku3.semiconductorlab.machine.TooltipText.WIDTH)

@@ -21,6 +21,8 @@ public final class TooltipText {
     /** 行の色（ゲームでは ChatFormatting に直す） */
     public enum Tone { VESSEL, PLACEHOLDER, NOTE, DEEP, HINT }
     public record Line(String text, Tone tone) {}
+    /** 組立台の部品表の1行分（O-005、DESIGN「組立台」）：部品の名前の lang キー・数・役目（lang キーの頭、＋".short" が短い名前） */
+    public record BomPart(String itemKey, int count, String roleKey) {}
 
     /**
      * @param base  "item.semiconductor-lab.<id>" か "block.semiconductor-lab.<id>"（lang にある方）
@@ -33,6 +35,11 @@ public final class TooltipText {
 
     /** @param vesselKey 入っている容器の lang キー（Vessel.langKey()、容器に入っていない物は null） */
     public static List<Line> lines(String base, String vesselKey, boolean shift, Function<String, String> lang, ToIntFunction<String> width) {
+        return lines(base, vesselKey, null, shift, lang, width);
+    }
+
+    /** @param bom 組立台で作る物の部品表（なければ null）。Shift のときに「部品：」と1行ずつ出す */
+    public static List<Line> lines(String base, String vesselKey, List<BomPart> bom, boolean shift, Function<String, String> lang, ToIntFunction<String> width) {
         List<Line> out = new ArrayList<>();
         // 「容器：ガラス瓶」はいつも出す（作業台で使うと空の容器が戻る、IMP-33）
         String vfmt = lang.apply("tooltip.semiconductor-lab.vessel"), vname = vesselKey == null ? null : lang.apply(vesselKey);
@@ -48,6 +55,7 @@ public final class TooltipText {
         if (note != null) {
             if (shift) {
                 out.add(new Line(note, Tone.NOTE));
+                bomLines(out, bom, lang);
                 for (String s : new String[] {"note3", "note4"}) {
                     String k = lang.apply(base + "." + s);
                     String locked = lang.apply("tooltip.semiconductor-lab." + s + "_locked");
@@ -63,6 +71,20 @@ public final class TooltipText {
         List<Line> wrapped = new ArrayList<>();
         for (Line l : out) for (String part : TextWrap.split(l.text(), WIDTH, width)) wrapped.add(new Line(part, l.tone()));
         return wrapped;
+    }
+
+    /** 部品表の行（見出し＋部品ごと）。名前が lang に無いとき（バニラの物をテストで測るとき）は ID の末尾 */
+    private static void bomLines(List<Line> out, List<BomPart> bom, Function<String, String> lang) {
+        if (bom == null || bom.isEmpty()) return;
+        String head = lang.apply("tooltip.semiconductor-lab.bom"), fmt = lang.apply("tooltip.semiconductor-lab.bom_part");
+        if (head == null || fmt == null) return;
+        out.add(new Line(head, Tone.DEEP));
+        for (BomPart p : bom) {
+            String name = lang.apply(p.itemKey());
+            if (name == null) name = p.itemKey().substring(p.itemKey().lastIndexOf('.') + 1);
+            String role = lang.apply(p.roleKey() + ".short");
+            out.add(new Line(fmt.replace("%1$s", name).replace("%2$s", String.valueOf(p.count())).replace("%3$s", role == null ? "" : role), Tone.DEEP));
+        }
     }
 
     /** 冒頭 PREVIEW 文字（コードポイント単位）＋「…」 */

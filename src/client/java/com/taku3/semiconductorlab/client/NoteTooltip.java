@@ -28,7 +28,7 @@ public class NoteTooltip {
             Language lang = Language.getInstance();
             String base = lang.has("item." + id) || !lang.has("block." + id) ? "item." + id : "block." + id;
             var font = Minecraft.getInstance().font;
-            for (TooltipText.Line l : TooltipText.lines(base, vesselKey(stack), shiftDown(), k -> lang.has(k) ? lang.getOrDefault(k) : null, font::width)) {
+            for (TooltipText.Line l : TooltipText.lines(base, vesselKey(stack), bom(stack), shiftDown(), k -> lang.has(k) ? lang.getOrDefault(k) : null, font::width)) {
                 ChatFormatting[] style = switch (l.tone()) {
                     case VESSEL -> new ChatFormatting[] {ChatFormatting.BLUE};
                     case PLACEHOLDER -> new ChatFormatting[] {ChatFormatting.YELLOW};
@@ -39,6 +39,11 @@ public class NoteTooltip {
                 lines.add(Component.literal(l.text()).withStyle(style));
             }
         });
+    }
+
+    static java.util.List<TooltipText.BomPart> bom(net.minecraft.world.item.ItemStack s) {
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(s.getItem());
+        return a == null ? null : a.bom();
     }
 
     static String vesselKey(net.minecraft.world.item.ItemStack s) {

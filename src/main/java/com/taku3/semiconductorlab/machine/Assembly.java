@@ -61,6 +61,11 @@ public final class Assembly {
         return p != null && !s.isEmpty() && p.ok().test(s) && s.getCount() >= p.count();
     }
 
+    /** 完成品のツールチップの部品表（TooltipText） */
+    public List<TooltipText.BomPart> bom() {
+        return parts.stream().map(p -> new TooltipText.BomPart(p.display().getDescriptionId(), p.count(), roleKey(p))).toList();
+    }
+
     /** 自動チェック用：全部のレシピの製品と役目の lang キー */
     public static List<String> resultKeys() { return ALL.stream().map(Assembly::resultKey).toList(); }
     public static List<String> roleKeys() { return ALL.stream().flatMap(a -> a.parts.stream().map(a::roleKey)).distinct().toList(); }
