@@ -40,6 +40,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Chemistry.GAS_RETORT, GasRetortScreen::new);
 		screen(Chemistry.LEAD_RETORT, HfRetortScreen::new);
 		screen(Chemistry.AMMONIA_STILL, AmmoniaStillScreen::new);
+		screen(Chemistry.AUTOCLAVE, AutoclaveScreen::new);   // [2-28] 加圧加熱釜（IMP3、O-011）
 		screen(Chemistry.PEROXIDE_CELL, PeroxideCellScreen::new);   // [2-23] IMP2-01
 		// 幹3 熱
 		screen(Heat.ARC_FURNACE, ArcFurnaceScreen::new);

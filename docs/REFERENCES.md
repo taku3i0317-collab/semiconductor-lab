@@ -1894,6 +1894,21 @@
 - Wikipedia「Cinnamic acid」（光二量化）：https://en.wikipedia.org/wiki/Cinnamic_acid
 - Wikipedia「Polyvinyl cinnamate」：https://en.wikipedia.org/wiki/Polyvinyl_cinnamate
 
+## C19. 熱と圧力：泡を出さずに固める（ベークライザー）［2-28］
+**答え**：フェノールとホルムアルデヒドの樹脂（レゾール）は、固まるときに水などの蒸気を出すので、ふつうに熱すると泡だらけでもろくなる。ベークランドは、閉じた釜の中で圧力をかけながら熱して泡を押さえこむ方法を考え（「熱と圧力」、1907年出願・1909年特許）、1909年に発表した。この釜は「ベークライザー」とよばれた ⚠️。閉じた釜で水を熱すると、蒸気の圧力（飽和水蒸気圧）は 100℃で1気圧、約150℃で約5気圧、約190℃で約12気圧と急に上がる。
+
+- へえ①：圧力鍋と同じしくみで、泡のないプラスチックを作った。
+- へえ②：ベークランドより前にも同じ樹脂を作った人はいたが、泡だらけで使えなかった。
+- へえ③：ベークランドは、写真の印画紙ベロックスをイーストマン・コダックに売ったお金で研究所を作った。
+- へえ④：⚠ 事故：圧力容器は安全弁がこわれると破裂する。19世紀のボイラー爆発の事故から、安全弁と検査の決まりができた。
+
+確かさ：「熱と圧力」の特許（US 942,699、1909）◎／1909年の発表 ◎／「ベークライザー」という名と年 ○⚠️／飽和水蒸気圧の値（アントワンの式）◎
+根拠：
+- Wikipedia「Bakelite」（歴史・ベークライザー）：https://en.wikipedia.org/wiki/Bakelite
+- Wikipedia「Leo Baekeland」：https://en.wikipedia.org/wiki/Leo_Baekeland
+- Wikipedia「Antoine equation」（水の定数）：https://en.wikipedia.org/wiki/Antoine_equation
+- Wikipedia「Boiler explosion」：https://en.wikipedia.org/wiki/Boiler_explosion
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

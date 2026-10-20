@@ -554,7 +554,7 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.assertTrue(recipeUses(h, "novolac_mix", Chemistry.PHENOL) && recipeUses(h, "novolac_mix", Chemistry.FORMALIN) && recipeUses(h, "novolac_mix", Gas.HYDROCHLORIC_ACID), "acid catalyst, extra phenol");
         h.assertTrue(cook(h, SMELT, Chemistry.NOVOLAC_MIX).is(Chemistry.NOVOLAC), "-> novolac");
         h.assertTrue(recipeUses(h, "resol_mix", Chemistry.PHENOL) && recipeUses(h, "resol_mix", Chemistry.FORMALIN) && recipeUses(h, "resol_mix", Gas.SODIUM_HYDROXIDE), "base catalyst, extra formaldehyde");
-        h.assertTrue(cook(h, SMELT, Chemistry.RESOL_MIX).is(Chemistry.BAKELITE), "-> Bakelite");
+        h.assertTrue(cook(h, SMELT, Chemistry.RESOL_MIX).is(Chemistry.FOAMY_BAKELITE), "furnace (no pressure) -> foamy Bakelite (O-011: real Bakelite needs the autoclave)");
         h.assertTrue(cook(h, SMELT, Chemistry.BAKELITE).isEmpty(), "Bakelite does not melt in a furnace (thermoset)");
         // 触媒の取り違え：酸で配合だけ変えたり、触媒なしでは作れない
         var lv = h.getLevel(); var mgr = lv.getServer().getRecipeManager(); var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
@@ -817,6 +817,46 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-28] 加圧加熱釜（オートクレーブ、IMP3、O-011）
+    // =====================================================================
+
+    /** 水なし → 1気圧のまま → 泡だらけ。水あり・200℃ → 蒸気で約12気圧 → ベークライト2。温度が足りないと進まない。飽和水蒸気圧の目安 */
+    @GameTest(maxTicks = 2000)
+    public void autoclave(GameTestHelper h) {
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.steamAtm(100) - 1.0) < 0.05 && Math.abs(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.steamAtm(150) - 4.7) < 0.4, "saturated steam: 1 atm at 100 C, about 4.7 atm at 150 C");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.AUTOCLAVE.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.AutoclaveBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS);
+        int T = 20 * 30;
+        // 1) 温度が足りないと進まない（電気なし＝冷えたまま）
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, new ItemStack(Chemistry.RESOL_MIX, 2));
+        tickConsumer(h, fp, be, T + 5, 0);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT).isEmpty(), "cold -> nothing");
+        // 2) 水なし：熱くても 1気圧 → 泡だらけ
+        be.setTemperatureForTest(200);
+        tickConsumer(h, fp, be, T + 5, feed);
+        h.assertTrue(be.getPressureAtm() < 1.01, "no water -> 1 atm");
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Chemistry.FOAMY_BAKELITE) && out.getCount() == 2, "no pressure -> foamy Bakelite, got " + out);
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        // 3) 水あり：蒸気の圧力 → ベークライト、空のバケツ
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_WATER, new ItemStack(net.minecraft.world.item.Items.WATER_BUCKET));
+        be.setTemperatureForTest(200);
+        tickConsumer(h, fp, be, T + 5, feed);
+        h.assertTrue(be.getPressureAtm() >= 5, "steam pressure >= 5 atm, got " + be.getPressureAtm());
+        out = c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Chemistry.BAKELITE) && out.getCount() == 2, "under pressure -> Bakelite, got " + out);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_BUCKET).is(net.minecraft.world.item.Items.BUCKET) && be.getWater() == com.taku3.semiconductorlab.block.AutoclaveBlockEntity.RUNS_PER_WATER - 1, "1 bucket = 4 runs");
+        // 4) 表で探せる（ほかの担当が1行足す形）
+        h.assertTrue(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.find(new ItemStack(Chemistry.RESOL_MIX)) != null && com.taku3.semiconductorlab.block.AutoclaveBlockEntity.find(new ItemStack(Chemistry.NOVOLAC_MIX)) == null, "recipe table lookup");
+        LOG.info("[LAB] autoclave [2-28]: cold no; dry 1 atm -> foamy Bakelite; water -> steam ~12 atm -> Bakelite x2; 1 bucket = 4 runs");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
@@ -825,6 +865,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
             L(io(Chemistry.AMMONIA_WATER, 1)), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.WATTS, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS / 20.0, "安水を熱し、消石灰で塩のアンモニアも追い出して水に吸わせる");
         rec(a, Chemistry.HIGH_PRESSURE_REACTOR.block, "ポリエチレン", L(mol(Chemistry.ETHYLENE_GAS, com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.ETHYLENE_PER_RUN), perRuns(mol(com.taku3.semiconductorlab.content.Gas.OXYGEN_GAS, 1), com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.RUNS_PER_OXYGEN)),
             L(io(Chemistry.POLYETHYLENE, 1)), com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.TICKS / 20.0, "約1400気圧・約200℃、ほんの少しの酸素が開始剤：n C2H4 → (C2H4)n（1933 ICI）");
+        rec(a, Chemistry.AUTOCLAVE.block, "ベークライト", L(io(Chemistry.RESOL_MIX, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.RUNS_PER_WATER)),
+            L(io(Chemistry.BAKELITE, 2)), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS, 30.0, "150℃以上・5気圧以上（水の蒸気の圧力）で固める。圧力が足りないと泡だらけのベークライト（ベークランドの「熱と圧力」）");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");

@@ -213,6 +213,8 @@ novolac_mix  # Chemistry [2-28] 1907
 novolac  # Chemistry [2-28] 1907
 resol_mix  # Chemistry [2-28] 1907
 bakelite  # Chemistry [2-28] 1907
+foamy_bakelite  # Chemistry [2-28] 1907
+autoclave  # Chemistry [2-28] 1907
 acetone  # Chemistry [2-40] 1915
 polyethylene  # Chemistry [2-37] 1933
 high_pressure_reactor  # Chemistry [2-37] 1933

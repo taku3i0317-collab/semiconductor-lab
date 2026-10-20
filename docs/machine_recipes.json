@@ -216,6 +216,31 @@
       "note": "部品表で組み立てる。電気なし"
     },
     {
+      "machine": "semiconductor-lab:autoclave",
+      "process": "ベークライト",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:resol_mix",
+          "count": 1
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "per_runs": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:bakelite",
+          "count": 2
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 30.0,
+      "energy_kj": 300,
+      "note": "150℃以上・5気圧以上（水の蒸気の圧力）で固める。圧力が足りないと泡だらけのベークライト（ベークランドの「熱と圧力」）"
+    },
+    {
       "machine": "semiconductor-lab:bayer_digester",
       "process": "バイヤー法",
       "inputs": [

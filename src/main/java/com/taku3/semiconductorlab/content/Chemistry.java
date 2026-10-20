@@ -130,6 +130,7 @@ public final class Chemistry {
     public static final Item NOVOLAC               = Reg.item("novolac");
     public static final Item RESOL_MIX             = Reg.item("resol_mix", new Item.Properties().stacksTo(16));
     public static final Item BAKELITE              = Reg.item("bakelite");
+    public static final Item FOAMY_BAKELITE        = Reg.item("foamy_bakelite");   // 泡だらけのベークライト（圧力なしで熱した失敗作、O-011）
     // [2-24] ベンゼン・キシレン（IMP3、O-007）：コールタールの分留。弱い火（たき火）では沸点の低い軽油だけ、かまどでは中油。軽油をもう一度：たき火 → ベンゼン（80℃）、かまど → キシレン（約140℃）
     public static final Item LIGHT_OIL             = Reg.item("light_oil", new Item.Properties().stacksTo(16));        // 軽油（コールタールの約170℃までの留分）
     public static final Item BENZENE               = Reg.item("benzene", new Item.Properties().stacksTo(16));          // ベンゼン（発がん性）
@@ -223,6 +224,9 @@ public final class Chemistry {
 
     // 高圧の反応釜 [2-37]（IMP3、O-009）：エチレン4袋＋酸素（開始剤、1袋で16回）→ ポリエチレン。5kW
     public static final Machine<HighPressureReactorBlockEntity> HIGH_PRESSURE_REACTOR = Machine.electric("high_pressure_reactor", HighPressureReactorBlockEntity::new, HighPressureReactorBlockEntity.LAYOUT, metal(4.0f));
+
+    // 加圧加熱釜（オートクレーブ）[2-28]（IMP3、O-011）：水の蒸気で圧力をかけながら熱する。組み合わせは AutoclaveBlockEntity.RECIPES の表。10kW
+    public static final Machine<AutoclaveBlockEntity> AUTOCLAVE = Machine.electric("autoclave", AutoclaveBlockEntity::new, AutoclaveBlockEntity.LAYOUT, metal(4.0f));
 
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
     private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {

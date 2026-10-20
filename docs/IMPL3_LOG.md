@@ -122,3 +122,12 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - Q3-6 の行は答え（KPR で作る、作り方は書かない）に直した
 - ⛔ ポリビニルアルコールの側で止まっている：アセチレン（＋酢酸 → 酢酸ビニル 1912 クラッテ → 重合 → けん化 1924）が要り、アセチレンはカーバイド CaC2＋水、カーバイドは約2000℃のアーク炉 [3-15]（A の機械 ArcFurnaceBlockEntity）でしか作れない。**A に「アーク炉でカーバイド（生石灰＋コークス）」を頼んだ（2026-10-20、直接メッセージ）**。できたら、アセチレン → 酢酸ビニル → ポリ酢酸ビニル → ポリビニルアルコール → ＋塩化シンナモイル → ポリケイ皮酸ビニル を幹2 で作る
 - A のレビュー（O-011 ③）2件は d45729a で直した。A のポリエチレンの瓶（75d11dd）へ：案A（別アイテム＋タグ）に賛成と返事した
+
+## O-011 加圧加熱釜（ベークライザー、Q3-5 の答え②）
+- ✅ 加圧加熱釜（オートクレーブ）autoclave（鋼7＋銅ケーブル、10kW、block/AutoclaveBlockEntity・client/AutoclaveScreen）。温度はアチソン炉と同じ形のモデル（10kW で 200℃ に落ち着く、約10秒の時定数）、圧力は水があれば飽和水蒸気圧（アントワンの式、150℃で約4.7気圧）、安全弁 12気圧。水バケツ1で4回（空のバケツが出口に）。画面に温度計・圧力計（必要な所に白い印）、圧力不足・泡は赤字
+- レゾールの反応液 → 150℃・5気圧以上でベークライト2。進んでいる間に一度でも圧力が足りないと泡だらけのベークライト foamy_bakelite。かまど（大気圧）のレシピも泡だらけに変えた（ベークライトはこの機械だけ）。ノボラックはかまどのまま
+- GameTest autoclave、machine_recipes、CHEMISTRY P21、REFERENCES C19、[2-28] の placeholder を直した。テスト 198/198
+- **C へ（使い方）**：組み合わせは表 `AutoclaveBlockEntity.RECIPES`。自分の content/<幹>.java の static 初期化で1行足せば使える：
+  `AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("quartz", s -> s.is(材料), 個数, () -> new ItemStack(できる物), () -> new ItemStack(失敗作) か ItemStack.EMPTY, 最低温度℃, 最低気圧, tick数));`
+  上限は 200℃・12気圧（STEADY_C・VALVE_ATM）。人工水晶 [8-18]（本物は約350℃・1000気圧以上）はこの釜では届かないので、上限を変える必要があれば相談してほしい（表だけで済む物は1行で）
+- A からカーバイド（semiconductor-lab:calcium_carbide、[3-25]、617cec0）が来た → O-010 の PVA の道へ戻る
