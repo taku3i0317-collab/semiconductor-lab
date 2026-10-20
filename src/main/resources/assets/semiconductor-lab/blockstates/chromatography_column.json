@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "loaded=false": {
+      "model": "semiconductor-lab:block/chromatography_column"
+    },
+    "loaded=true": {
+      "model": "semiconductor-lab:block/chromatography_column_loaded"
+    }
+  }
+}

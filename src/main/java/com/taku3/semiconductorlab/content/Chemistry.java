@@ -207,6 +207,11 @@ public final class Chemistry {
     public static final Item BOROSILICATE_BATCH    = Reg.item("borosilicate_batch");
     public static final Item BOROSILICATE_GLASS    = Reg.item("borosilicate_glass");
     public static final Item CRACKED_GLASS         = Reg.item("cracked_glass");
+    // [2-54] クロマトグラフィー（IMP3、O-014）：葉4＋エタノール＋瓶 → 葉の色素の液、炭酸カルシウムの柱に入れてベンゼンで流す → カロテン（先に出る）＋クロロフィル（残る帯）（1906 ツヴェット）
+    public static final Item LEAF_PIGMENT_EXTRACT  = Reg.contained("leaf_pigment_extract", Vessel.GLASS_BOTTLE);
+    public static final Item CAROTENE              = Reg.item("carotene");
+    public static final Item CHLOROPHYLL           = Reg.item("chlorophyll");
+    public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
     public static final net.minecraft.tags.TagKey<Item> HF_TAG = net.minecraft.tags.TagKey.create(Registries.ITEM, SemiconductorLab.id("hydrofluoric_acid"));

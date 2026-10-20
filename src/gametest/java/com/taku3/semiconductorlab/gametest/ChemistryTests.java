@@ -1057,6 +1057,31 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-54] クロマトグラフィー（IMP3、O-014）
+    // =====================================================================
+
+    /** 空の柱にベンゼン → 何もない。色素の液 → しみこむ（瓶が戻る）、二度は入らない。ベンゼンで流す → カロテン＋クロロフィル、柱は空に戻る */
+    @GameTest
+    public void chromatography(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "leaf_pigment_extract", Items.OAK_LEAVES) && recipeUses(h, "leaf_pigment_extract", Chemistry.ETHANOL), "leaves + ethanol -> extract");
+        h.assertTrue(recipeUses(h, "chromatography_column", Items.CALCITE), "column packed with calcium carbonate (Tsvet)");
+        floor(h, 3);
+        BlockPos rel = p(1, 1, 1); BlockPos pos = h.absolutePos(rel);
+        h.setBlock(rel, Chemistry.CHROMATOGRAPHY_COLUMN);
+        var level = h.getLevel(); var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack benz = new ItemStack(Chemistry.BENZENE, 2), ext = new ItemStack(Chemistry.LEAF_PIGMENT_EXTRACT, 2);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ChromatographyColumnBlock.use(level, pos, player, benz), "empty", "nothing to separate yet");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ChromatographyColumnBlock.use(level, pos, player, ext), "loaded", "extract soaks in");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ChromatographyColumnBlock.use(level, pos, player, ext), "already_loaded", "only one load at a time");
+        h.assertTrue(player.getInventory().countItem(Chemistry.GLASS_BOTTLE) == 1 && ext.getCount() == 1, "bottle returned");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ChromatographyColumnBlock.use(level, pos, player, benz), "separated", "benzene runs the bands apart");
+        h.assertTrue(player.getInventory().countItem(Chemistry.CAROTENE) == 1 && player.getInventory().countItem(Chemistry.CHLOROPHYLL) == 1, "carotene + chlorophyll");
+        h.assertFalse(level.getBlockState(pos).getValue(com.taku3.semiconductorlab.block.ChromatographyColumnBlock.LOADED), "column empty again");
+        LOG.info("[LAB] chromatography [2-54]: leaves + ethanol -> extract; CaCO3 column + benzene -> carotene (first) + chlorophyll (band)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

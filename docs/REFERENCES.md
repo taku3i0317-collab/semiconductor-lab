@@ -2162,6 +2162,20 @@
 - Wikipedia「Otto Schott」：https://en.wikipedia.org/wiki/Otto_Schott
 - Wikipedia「Thermal shock」：https://en.wikipedia.org/wiki/Thermal_shock
 
+## C29. 色を書く（クロマトグラフィー）［2-54］
+**答え**：1906年ロシアのミハイル・ツヴェットは、炭酸カルシウムの粉をつめたガラスの管に葉の色素の液を入れて液を流し、色素が色の帯に分かれることを示して「クロマトグラフィー（色を書く）」と名付けた。粉にくっつきにくい物（カロテン）ほど速く進む。1941年マーティンとシングの分配クロマトグラフィー（1952年ノーベル化学賞）、1952年ジェームズとマーティンのガスクロマトグラフィーへ進み、今は半導体の原料ガスに残ったわずかな不純物を量るのに使う。
+
+- へえ①：葉の緑の中に、黄色やだいだいの色もかくれている。
+- へえ②：くっつきやすさのちがいだけで、混ざった物が分かれる。
+- へえ③：ツヴェットの名前（Tsvet）はロシア語で「色」という意味。
+- へえ④：秋に葉が黄色くなるのは、クロロフィルがこわれてカロテンなどが見えてくるから。
+
+確かさ：ツヴェット 1906 ◎／マーティンとシング 1941・1952 ノーベル賞 ◎／ガスクロマトグラフィー 1952 ◎／ツヴェットの名前の意味 ◎
+根拠：
+- Wikipedia「Chromatography」（歴史）：https://en.wikipedia.org/wiki/Chromatography
+- Wikipedia「Mikhail Tsvet」：https://en.wikipedia.org/wiki/Mikhail_Tsvet
+- Nobel Prize 1952 Chemistry（Martin, Synge）：https://www.nobelprize.org/prizes/chemistry/1952/summary/
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

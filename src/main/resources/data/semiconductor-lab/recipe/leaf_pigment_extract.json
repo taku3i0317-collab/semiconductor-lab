@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#minecraft:leaves",
+    "#minecraft:leaves",
+    "#minecraft:leaves",
+    "#minecraft:leaves",
+    "semiconductor-lab:ethanol",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:leaf_pigment_extract",
+    "count": 1
+  }
+}

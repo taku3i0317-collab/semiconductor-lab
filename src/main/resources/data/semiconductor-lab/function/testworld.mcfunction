@@ -1,36 +1,36 @@
 # 試験場（S-001、IMP3）：自動生成 python tools/gen_testworld.py。手で直さない
 # 使い方：新しいワールド（クリエイティブ・コマンド有効）の平らな所で /function semiconductor-lab:testworld
-# 大きさ：東へ 161・南へ 117 ブロック（足元から）。機械の真下のピンクと黒は試験用の無限電源
-fill ~-1 ~-1 ~-2 ~161 ~-1 ~5 minecraft:smooth_stone
-fill ~-1 ~ ~-2 ~161 ~5 ~5 minecraft:air
-fill ~-1 ~-1 ~6 ~161 ~-1 ~13 minecraft:smooth_stone
-fill ~-1 ~ ~6 ~161 ~5 ~13 minecraft:air
-fill ~-1 ~-1 ~14 ~161 ~-1 ~21 minecraft:smooth_stone
-fill ~-1 ~ ~14 ~161 ~5 ~21 minecraft:air
-fill ~-1 ~-1 ~22 ~161 ~-1 ~29 minecraft:smooth_stone
-fill ~-1 ~ ~22 ~161 ~5 ~29 minecraft:air
-fill ~-1 ~-1 ~30 ~161 ~-1 ~37 minecraft:smooth_stone
-fill ~-1 ~ ~30 ~161 ~5 ~37 minecraft:air
-fill ~-1 ~-1 ~38 ~161 ~-1 ~45 minecraft:smooth_stone
-fill ~-1 ~ ~38 ~161 ~5 ~45 minecraft:air
-fill ~-1 ~-1 ~46 ~161 ~-1 ~53 minecraft:smooth_stone
-fill ~-1 ~ ~46 ~161 ~5 ~53 minecraft:air
-fill ~-1 ~-1 ~54 ~161 ~-1 ~61 minecraft:smooth_stone
-fill ~-1 ~ ~54 ~161 ~5 ~61 minecraft:air
-fill ~-1 ~-1 ~62 ~161 ~-1 ~69 minecraft:smooth_stone
-fill ~-1 ~ ~62 ~161 ~5 ~69 minecraft:air
-fill ~-1 ~-1 ~70 ~161 ~-1 ~77 minecraft:smooth_stone
-fill ~-1 ~ ~70 ~161 ~5 ~77 minecraft:air
-fill ~-1 ~-1 ~78 ~161 ~-1 ~85 minecraft:smooth_stone
-fill ~-1 ~ ~78 ~161 ~5 ~85 minecraft:air
-fill ~-1 ~-1 ~86 ~161 ~-1 ~93 minecraft:smooth_stone
-fill ~-1 ~ ~86 ~161 ~5 ~93 minecraft:air
-fill ~-1 ~-1 ~94 ~161 ~-1 ~101 minecraft:smooth_stone
-fill ~-1 ~ ~94 ~161 ~5 ~101 minecraft:air
-fill ~-1 ~-1 ~102 ~161 ~-1 ~109 minecraft:smooth_stone
-fill ~-1 ~ ~102 ~161 ~5 ~109 minecraft:air
-fill ~-1 ~-1 ~110 ~161 ~-1 ~117 minecraft:smooth_stone
-fill ~-1 ~ ~110 ~161 ~5 ~117 minecraft:air
+# 大きさ：東へ 165・南へ 117 ブロック（足元から）。機械の真下のピンクと黒は試験用の無限電源
+fill ~-1 ~-1 ~-2 ~165 ~-1 ~5 minecraft:smooth_stone
+fill ~-1 ~ ~-2 ~165 ~5 ~5 minecraft:air
+fill ~-1 ~-1 ~6 ~165 ~-1 ~13 minecraft:smooth_stone
+fill ~-1 ~ ~6 ~165 ~5 ~13 minecraft:air
+fill ~-1 ~-1 ~14 ~165 ~-1 ~21 minecraft:smooth_stone
+fill ~-1 ~ ~14 ~165 ~5 ~21 minecraft:air
+fill ~-1 ~-1 ~22 ~165 ~-1 ~29 minecraft:smooth_stone
+fill ~-1 ~ ~22 ~165 ~5 ~29 minecraft:air
+fill ~-1 ~-1 ~30 ~165 ~-1 ~37 minecraft:smooth_stone
+fill ~-1 ~ ~30 ~165 ~5 ~37 minecraft:air
+fill ~-1 ~-1 ~38 ~165 ~-1 ~45 minecraft:smooth_stone
+fill ~-1 ~ ~38 ~165 ~5 ~45 minecraft:air
+fill ~-1 ~-1 ~46 ~165 ~-1 ~53 minecraft:smooth_stone
+fill ~-1 ~ ~46 ~165 ~5 ~53 minecraft:air
+fill ~-1 ~-1 ~54 ~165 ~-1 ~61 minecraft:smooth_stone
+fill ~-1 ~ ~54 ~165 ~5 ~61 minecraft:air
+fill ~-1 ~-1 ~62 ~165 ~-1 ~69 minecraft:smooth_stone
+fill ~-1 ~ ~62 ~165 ~5 ~69 minecraft:air
+fill ~-1 ~-1 ~70 ~165 ~-1 ~77 minecraft:smooth_stone
+fill ~-1 ~ ~70 ~165 ~5 ~77 minecraft:air
+fill ~-1 ~-1 ~78 ~165 ~-1 ~85 minecraft:smooth_stone
+fill ~-1 ~ ~78 ~165 ~5 ~85 minecraft:air
+fill ~-1 ~-1 ~86 ~165 ~-1 ~93 minecraft:smooth_stone
+fill ~-1 ~ ~86 ~165 ~5 ~93 minecraft:air
+fill ~-1 ~-1 ~94 ~165 ~-1 ~101 minecraft:smooth_stone
+fill ~-1 ~ ~94 ~165 ~5 ~101 minecraft:air
+fill ~-1 ~-1 ~102 ~165 ~-1 ~109 minecraft:smooth_stone
+fill ~-1 ~ ~102 ~165 ~5 ~109 minecraft:air
+fill ~-1 ~-1 ~110 ~165 ~-1 ~117 minecraft:smooth_stone
+fill ~-1 ~ ~110 ~165 ~5 ~117 minecraft:air
 setblock ~0 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹0 生存（石器時代）","↓ この列","",""]}}
 setblock ~2 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-01] 打製石器","右クリックでの打ち欠き","（メインにたたき石・オ","フハンドに火打ち石／逆"]}}
 setblock ~2 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hammerstone",count:1},{Slot:1b,id:"semiconductor-lab:flint_flake",count:1},{Slot:2b,id:"semiconductor-lab:obsidian_flake",count:1},{Slot:3b,id:"semiconductor-lab:hand_axe",count:1}]}
@@ -271,24 +271,27 @@ setblock ~130 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-32
 setblock ~130 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:positive_resist",count:16}]}
 setblock ~133 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-57] ジアゾナフトキ","DNQ を持って昼の屋","外に出ると、2秒ほどで","名前が「光で分解した "]}}
 setblock ~133 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:naphthalene",count:16},{Slot:1b,id:"semiconductor-lab:naphthalenesulfonic_acid",count:16},{Slot:2b,id:"semiconductor-lab:naphthol_melt",count:16},{Slot:3b,id:"semiconductor-lab:naphthol",count:16},{Slot:4b,id:"semiconductor-lab:tobias_acid",count:16},{Slot:5b,id:"semiconductor-lab:nitrite_mix",count:16},{Slot:6b,id:"semiconductor-lab:potassium_nitrite",count:16},{Slot:7b,id:"semiconductor-lab:dnq",count:16}]}
-setblock ~136 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-30] ネガ型フォトレ","KPR を塗った後、現","像槽に薄い NaOH ","を入れると「現像液が型"]}}
-setblock ~136 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:negative_resist",count:16}]}
-setblock ~139 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-11] ドーパント源","ドーパントの付いた結晶","のツールチップ（p型は","赤・n型は青の文字、S"]}}
-setblock ~139 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphorus",count:16}]}
-setblock ~142 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-17] メサトランジス","メサトランジスタを持ち","歩くと1分ごとにツール","チップの β が下がる"]}}
-setblock ~142 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:silicon_etch",count:16}]}
-setblock ~145 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-21] 現像・ポストベ","C のマスクアライナー","で露光したウェハーが現","像槽に入るか、現像槽の"]}}
-setblock ~145 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:developer",count:16}]}
-setblock ~148 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
-setblock ~148 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphoric_acid",count:16}]}
-setblock ~151 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-13] ラッピング・鏡","研磨機の GUI（左に","ウェハー・砥粒・シリカ","、銀色のバー、「やり直"]}}
-setblock ~151 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sodium_silicate",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
-setblock ~154 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-18] 超純水","装置の画面（ふつうの画","面）と見た目、PE の","瓶が作業台で戻るか、ツ"]}}
-setblock ~154 ~-1 ~18 semiconductor-lab:test_power_source
-setblock ~154 ~0 ~18 semiconductor-lab:ultrapure_water_system
-setblock ~155 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cellulose_acetate",count:16},{Slot:1b,id:"semiconductor-lab:ro_membrane",count:16},{Slot:2b,id:"semiconductor-lab:ultrapure_water",count:16},{Slot:3b,id:"semiconductor-lab:deionized_water",count:16},{Slot:4b,id:"semiconductor-lab:polyethylene_bottle",count:16}]}
-setblock ~158 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] polyethyle","（人間の確認項目なし）","",""]}}
-setblock ~158 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:polyethylene_bottle",count:16},{Slot:1b,id:"semiconductor-lab:hydrofluoric_acid_pe",count:16},{Slot:2b,id:"semiconductor-lab:bleaching_powder",count:16}]}
+setblock ~136 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-54] クロマトグラフ","柱の見た目（しみこむと","色の帯が見えるか）、メ","ッセージ（帯の順）"]}}
+setblock ~136 ~0 ~18 semiconductor-lab:chromatography_column
+setblock ~137 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:leaf_pigment_extract",count:16},{Slot:1b,id:"semiconductor-lab:carotene",count:16},{Slot:2b,id:"semiconductor-lab:chlorophyll",count:16}]}
+setblock ~140 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-30] ネガ型フォトレ","KPR を塗った後、現","像槽に薄い NaOH ","を入れると「現像液が型"]}}
+setblock ~140 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:negative_resist",count:16}]}
+setblock ~143 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-11] ドーパント源","ドーパントの付いた結晶","のツールチップ（p型は","赤・n型は青の文字、S"]}}
+setblock ~143 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphorus",count:16}]}
+setblock ~146 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-17] メサトランジス","メサトランジスタを持ち","歩くと1分ごとにツール","チップの β が下がる"]}}
+setblock ~146 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:silicon_etch",count:16}]}
+setblock ~149 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-21] 現像・ポストベ","C のマスクアライナー","で露光したウェハーが現","像槽に入るか、現像槽の"]}}
+setblock ~149 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:developer",count:16}]}
+setblock ~152 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
+setblock ~152 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphoric_acid",count:16}]}
+setblock ~155 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-13] ラッピング・鏡","研磨機の GUI（左に","ウェハー・砥粒・シリカ","、銀色のバー、「やり直"]}}
+setblock ~155 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sodium_silicate",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
+setblock ~158 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-18] 超純水","装置の画面（ふつうの画","面）と見た目、PE の","瓶が作業台で戻るか、ツ"]}}
+setblock ~158 ~-1 ~18 semiconductor-lab:test_power_source
+setblock ~158 ~0 ~18 semiconductor-lab:ultrapure_water_system
+setblock ~159 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cellulose_acetate",count:16},{Slot:1b,id:"semiconductor-lab:ro_membrane",count:16},{Slot:2b,id:"semiconductor-lab:ultrapure_water",count:16},{Slot:3b,id:"semiconductor-lab:deionized_water",count:16},{Slot:4b,id:"semiconductor-lab:polyethylene_bottle",count:16}]}
+setblock ~162 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] polyethyle","（人間の確認項目なし）","",""]}}
+setblock ~162 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:polyethylene_bottle",count:16},{Slot:1b,id:"semiconductor-lab:hydrofluoric_acid_pe",count:16},{Slot:2b,id:"semiconductor-lab:bleaching_powder",count:16}]}
 setblock ~0 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹3 熱","↓ この列","",""]}}
 setblock ~2 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-04] ふいご","ふいごを素手で右クリッ","クすると音と「送風 1","00%」が出て、1秒ほ"]}}
 setblock ~2 ~0 ~26 semiconductor-lab:bellows
@@ -321,28 +324,28 @@ setblock ~15 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-05]
 setblock ~15 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:self_excited_dynamo",count:16}]}
 setblock ~18 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-01] 水車発電機","（人間の確認項目なし）","",""]}}
 setblock ~18 ~0 ~34 semiconductor-lab:water_wheel
-setblock ~22 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-14] 蒸気発電","（人間の確認項目なし）","",""]}}
-setblock ~22 ~0 ~34 semiconductor-lab:steam_engine
-setblock ~23 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
-setblock ~26 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-03] 銅ケーブル","（人間の確認項目なし）","",""]}}
-setblock ~26 ~0 ~34 semiconductor-lab:copper_cable
-setblock ~30 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-06] 蒸気タービン","（人間の確認項目なし）","",""]}}
-setblock ~30 ~0 ~34 semiconductor-lab:steam_turbine
-setblock ~31 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
-setblock ~34 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-10] 変圧器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~34 ~0 ~34 semiconductor-lab:transformer
-setblock ~38 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-12] 電気炉","電気炉の見た目（れんが","色、正面の窓が加熱中に","橙）、GUI（タイトル"]}}
-setblock ~38 ~-1 ~34 semiconductor-lab:test_power_source
-setblock ~38 ~0 ~34 semiconductor-lab:electric_furnace
-setblock ~39 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:2b,id:"semiconductor-lab:refractory_brick_blank",count:16}]}
-setblock ~42 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-11] 整流器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~42 ~0 ~34 semiconductor-lab:rectifier
-setblock ~46 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-09] 高周波発振器","レシピ本で帯域精製炉の","右下が「高周波発振器」","になっている。発振器・"]}}
-setblock ~46 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:induction_coil",count:16},{Slot:1b,id:"semiconductor-lab:hf_oscillator",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16}]}
-setblock ~49 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-34] 交流発電機","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~49 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:alternator",count:16}]}
-setblock ~52 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-35] 高圧送電","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~52 ~0 ~34 semiconductor-lab:high_voltage_line
+setblock ~22 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-34] 交流発電機","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~22 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:alternator",count:16}]}
+setblock ~25 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-14] 蒸気発電","（人間の確認項目なし）","",""]}}
+setblock ~25 ~0 ~34 semiconductor-lab:steam_engine
+setblock ~26 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
+setblock ~29 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-03] 銅ケーブル","（人間の確認項目なし）","",""]}}
+setblock ~29 ~0 ~34 semiconductor-lab:copper_cable
+setblock ~33 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-06] 蒸気タービン","（人間の確認項目なし）","",""]}}
+setblock ~33 ~0 ~34 semiconductor-lab:steam_turbine
+setblock ~34 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
+setblock ~37 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-10] 変圧器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~37 ~0 ~34 semiconductor-lab:transformer
+setblock ~41 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-35] 高圧送電","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~41 ~0 ~34 semiconductor-lab:high_voltage_line
+setblock ~45 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-12] 電気炉","電気炉の見た目（れんが","色、正面の窓が加熱中に","橙）、GUI（タイトル"]}}
+setblock ~45 ~-1 ~34 semiconductor-lab:test_power_source
+setblock ~45 ~0 ~34 semiconductor-lab:electric_furnace
+setblock ~46 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:2b,id:"semiconductor-lab:refractory_brick_blank",count:16}]}
+setblock ~49 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-11] 整流器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~49 ~0 ~34 semiconductor-lab:rectifier
+setblock ~53 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-09] 高周波発振器","レシピ本で帯域精製炉の","右下が「高周波発振器」","になっている。発振器・"]}}
+setblock ~53 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:induction_coil",count:16},{Slot:1b,id:"semiconductor-lab:hf_oscillator",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16}]}
 setblock ~0 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹5 真空","↓ この列","",""]}}
 setblock ~2 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-01] 真空ポンプ →","容器の隣でポンプを素手","で右クリック → アク","ションバーに「シュッ…"]}}
 setblock ~2 ~0 ~42 semiconductor-lab:hand_vacuum_pump

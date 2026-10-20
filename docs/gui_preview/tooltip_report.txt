@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 492（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 496（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -505,6 +505,14 @@ en_us borosilicate_glass lines=7
 en_us borosilicate_glass shift lines=14
 en_us cracked_glass lines=5
 en_us cracked_glass shift lines=11
+en_us leaf_pigment_extract lines=6
+en_us leaf_pigment_extract shift lines=13
+en_us carotene lines=5
+en_us carotene shift lines=10
+en_us chlorophyll lines=5
+en_us chlorophyll shift lines=10
+en_us chromatography_column lines=8
+en_us chromatography_column shift lines=19
 en_us hydrofluoric_acid_pe lines=4
 en_us hydrofluoric_acid_pe shift lines=11
 en_us bleaching_powder lines=5
@@ -1489,6 +1497,14 @@ ja_jp borosilicate_glass lines=5
 ja_jp borosilicate_glass shift lines=11
 ja_jp cracked_glass lines=4
 ja_jp cracked_glass shift lines=10
+ja_jp leaf_pigment_extract lines=5
+ja_jp leaf_pigment_extract shift lines=11
+ja_jp carotene lines=5
+ja_jp carotene shift lines=10
+ja_jp chlorophyll lines=5
+ja_jp chlorophyll shift lines=10
+ja_jp chromatography_column lines=5
+ja_jp chromatography_column shift lines=14
 ja_jp hydrofluoric_acid_pe lines=4
 ja_jp hydrofluoric_acid_pe shift lines=10
 ja_jp bleaching_powder lines=5
