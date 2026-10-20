@@ -50,5 +50,4 @@ section, #card { overflow-wrap: anywhere; }   /* 長い URL・英単語でスマ
 .legend .sw { background: var(--edge) !important; }   /* 線は1色 */
 
 /* アイコンは単色のドット絵（絵文字・テクスチャは形だけを1色に） */
-#card h2 img, header.top .ic img { image-rendering: pixelated; filter: grayscale(1) contrast(1.4); }
-#card h2 .em, header.top .ic { filter: grayscale(1); }
+#card h2 img, header.top .ic img { image-rendering: pixelated; }   /* S-008：アイコンは色付き（素材の色） */

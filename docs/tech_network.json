@@ -155,7 +155,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABqklEQVR4nMWSb0tUQRTGn5k79153148SZChiyAYR9KKSFJKFWOrThUTqC1Nsqeh1RKIp9DG8a9zdO39PnBNedjF867y4c+7MPM/5nTkD3PVQt20OtjepKAqklPBuZ/e/Z9Xsz/D1NimlQCmB50f9hxiP/yDGiNNfF9h5v3/DRF0Hb4YDevK4j6oag7NqrVFPJuh1u2JweVnh+48THBx+mjMxbUQkWfM8h3UOWil45zH2V1D63/rqygMQEX08GrUm+jrwIaCuJwghiJAFZVkgzw2cdUK1sFBi6f49vHj2lOYI3g4H1F9fg9Ia3nssLvZkZpJMa3Q6HfjgYRuLIs8lyZyBdQ4EwqSuJeZbl83MwFoLIsfoci9Snm7BIRHXXlVXmE4blEUp+CFEWGfhvBcxr8WUxHzWwPCHkbjGojBi0jRRhIzPXeAOdLqQ9mZZ1hK2Bh/2DpTJDK0sLyFRkrZ555D3upg2DSPKRcYU8fPkDKPP39ouqNmebr18Tmury4LMuMF7MVBQIj6/+I3j0dc5zY2X9WprgxgxEYmRtQ7GZIgx4Xj05danfzfjL9Xz6xSGqRKCAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAvElEQVR42mNgGGjAiE8yIizoP4y9YtU6rGpZcGlgYGBg8HBzYnjyAaIkgoHhPzZDWJA1wzTICPxhYGBgQGEzmLlhNYQF3UQZgT9wW2GGwIAOFkOY0A2AaYDbjAZ0zNxQvMqE7HxcrkAHj179YsDqApgmfJrRARM2v+JyPgzIibFhdwFy6OMDyF5gRI5GHTM3gk7etmULw7EDWxixpkR8hlw5tYvh0atfKJqxJmX01Pjo1S8GOTE2rJoHBwAAesFXgY46DMwAAAAASUVORK5CYII=",
    "emoji": "🪨",
    "symbol": "🪓",
    "people": [],
@@ -179,7 +179,7 @@
      "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
     }
    ],
-   "descendants": 533
+   "descendants": 534
   },
   {
    "real_full": "火の利用は約100万年前（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -232,7 +232,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 517
+   "descendants": 518
   },
   {
    "real_full": "約2万年前（中国・仙人洞）、縄文土器 約1万6500年前。粘土鉱物（カオリナイト等）は約500〜600℃で結晶水が抜け、二度と水で戻らない（不可逆な脱水）",
@@ -300,7 +300,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABeElEQVR4nGNgGGjACGPUN3f9d3ByY/jz+zfD7z+/wfSfP38YfoNpCP/3nz9g+sSxwwwL5s0A62WBGfD163eGiX2dRNnKzsEBZ7PAGK9fv2CIT8oE23r37k0GaWk5MPvBvdsMEpIyYFc8eniPQUxckuHM6eNwA5hgDFFRCTD98MFdBnl5ZTD78aP7DDJyCmD206ePGKSk5cDsD+/fYRoAAg/u32GQV4BoBtkmK6cIZj958hDsIhB49uwJg4CgEAOGAa9fv2BQUFQBsx8+vMsgJ68E0fzoAYOMjDxEM8gVUjIMWGMBBEoqGv9Ly8gyyMgqgP1/7+5NsLNB/n9w/y6DhIQUw6kTRxgWL5jJiNULr4lwxfv3b5G1MKAYQExACgoK4/YCCMQnZ/4PCIrEGp2PHz1kmDd7MiNOFzAguQIEYK4AAZgr0AE8IcFAT0c9yIb/1raOKOInjh3CsB0EMARgIDAk6r+mth7D379/Ga5eOs+wZdManGopAgB2BLAB7K0HMwAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApklEQVR42mNgGGjACGNEhAX9f/PDAqsiEY4TGGIrVq1jZGBgYGAhpJAQQDHAwaeJgYGBgYHj1wGGH2wODBy/DmDVtGPXPjibCV0SpplYwIRLMzG2YxiArBmXKzzcnLCHATRU/3u4OeH1wo5d++AxgDUMiHEFTi+QE5BM6InjwJY6nK5Adz5OF6B7h6ikjAwiwoL+wxIVDBzYUodhO04DYIZgS/tUBwDwdUgf+jjZLQAAAABJRU5ErkJggg==",
    "emoji": "🏺",
    "symbol": "🪓",
    "people": [],
@@ -315,7 +315,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 508
+   "descendants": 509
   },
   {
    "real_full": "約1万1500年前、肥沃な三日月地帯でヒトツブコムギ・エンマーコムギ・大麦を栽培化（穂が落ちない変異株を選び続けた）",
@@ -381,7 +381,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiklEQVR4nGNgoBWYVuH2n2IN0waNIUsznXAawoRNEFkDyMCP338xVPgY/CfKgKyOXYwf+VngGkB8BgkunC5mwursF98Y5HTEUAxF5mMF05AMgbHR/Y4vLLAaMi3B5j+y39H5GGGQ1bGLEWYLIb/jBNPQbCHkbCZCBuKLQhBgQRfIWnCEkTi3DhYAAFOCT+wMSBHCAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAfUlEQVR42mNgoBVIslP6T7GGoWEIEyFDkuyU/nvZqDF0uaj9J8qAeYfuMTIwMMA1zDt0j3HbkVsMeF2AzYk3fv1BMRSZz0CMs7EZTDBA0Q1ZU+XxH9nvSXZK/9HDggnd/zBDCPkdryvQbcWnnokYQ3FFIQMDAwMLrmgcOgAALaNJrC3nKvIAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -452,7 +452,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACQklEQVR4nD1TS2sTYRQ932semaRpayMtWIobQURBcOtCUMSNP8CdG8GFG4sVFcFYkEKhigj+QjeCgsQkk/lecu4kDoSZzHfvedxzRz26fZRjyuCVcoZWCvxfFwY+JhitkXNGiAmlM3LG58pZKAXYw70h2i6icAadj1LQVBYx9qAsejk9wecP51j5CKUUtAJ46kOCev7wZiYz38xXHgqANRpaK2FHzqLEWYOVD6KQIM5oUaIXq4AQEmZth7ef3qAqLLqQhI3NqxDx6vS1AJfOiqouRHlPYPX4ztW86AIG0hiFlez0Tba0UbBmpBLW0WrlDOywctgdVqhLi7YLUsyLas7enaGwRjxTNkEJyJlvBq6e3b/BCfRy1v7JRBt10YPS1qLzGBRO2JmGWASg6YVolEOWeetFLouWXeiV+QCj+jgLqyUZsjelg/3xey7NlGG0Evaff5YYlFaef836ODkbkrGRP9mFwkAfTUbY32kwGdfYbkoc7Db4+v0Uk60al8cDXHz7iP3tBnujClcuDcG94f1gp8HWoIB6eu96ptzZ0suwmsqJGtpqfQSH/OL9Mb5Mz6GgZFconeecmXpy91rWUBjVhRxycPS4iY53y4VabyVBYs6IKeF4egL14NahKGCuLCZAWn8bnInsfkryjt5ZyzrOgEotvTA6xkO5TOLvshMgFjJCFjMRyi6Mkfumx9IPGfpGL1tYl04khpQlVoKRjQqoTRTlLBYtM2Y84hH96jJvLgqb+FnTM4croDFhXJf/v4l/CAVoawhjSmQAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgUlEQVR42mNMslP6zwAFR15wMNhI/IDTxAAmZA5ME7pmLxs14gzABbYduUWcAbhsIuiCIy848NqETRymhwmbnwnZiqyHiRx/kxyIeA2A+QWb//CJw8MAm//bQuSwhgWyWrxhgOz/bUdu0TEh4fI7LnDkBQf2vEAssJH4QYVopNQAAIoyNnlp6hiGAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -523,7 +523,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOklEQVR4nGNgGAX0ARUBGv+nZZr/J1tDiqMy8ZrJ0kAzUIHmFZLDIgXNK0R5rYJUWxgI2Ep1AwcfAADD6COD1mFb7wAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVR42mNgGAX0AV0uav+n+Bn8J1tDl4vaf5JtHJx+JyssSPYaybYQYytVDRx8AAAC9yPL9cZ/gwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -596,7 +596,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqUlEQVR4nGNgGAWM2IKgobX/P1bx6kIM9YzInJqGrv+mFtZ4g/X0iaMMLQ1lcH2MMEZ5Tet/E1NLouLkzOnjDJ0t1WC9LDBBXT0jhp8/f6IojAnzBCtasmo7ipdAamGABcb49QtVMzLAJ8cCd9apYwx6+sYokjPmrgTb/AvNZZcunsUeiKmZhf919AwY8IErly4wzJ7ejxmIyCAxNQdrNM6fPQWreoYRDgCl6DYWzjh5dQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjElEQVR42mNgGAWM2AQjwoL+YxNfsWodhnoWdI1vflgwOPh4YbXtzQ+L/yIcJ1AMYkTW7ODThKJhzZptDAwMDAwhIagGHthSBzeEBcl0DM17NpXBLPiPbAhE7TpUL4hwnGDg+MXFgMwnRo4FV+h6uDkxMDAw/EdiE44FWOjj0rBj1z6M2KA4GkcBAwMAf0A3F7Vo3NgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -669,7 +669,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVR4nGNgoCdIK8//jy7GSIzG3Pqy/79//2b4/es3w59fvxhA7IriUgY9FS1GJkKa8xsr/v/9+5fh75+/DGAayoYBJkIGIGv+9+cP3BDSDPgLMuQPimFEGzC9tY8RbPtf7F4gCOqizP4nuGiCQz80OQYjFojWTDKoG9U8hAAAt/90nG3GX4kAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZUlEQVR42mNgoCdQU9P6jy7GQopGLy8/BgYGhv9GBhoMDAwMDCtWrWNkIUYzVCMDAwMDA0wzDDBR6i2SDHjx7BYDyWFw69Y1RgYGhv/YnE8UiAgL+h8RFvQfxiZbM0U2j2oe7AAACPAu9YCOyJEAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -747,7 +747,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsklEQVR4nGNgoBAwogtkemv9v/vsE4OUMCeDlpwgWOzao/cMz95+Z9BSEGKYsP4Sih4mdM26ikIMcqI8cM0gAGKDxAyURRgKAvX+YzUgE6qZEEA3hIkUzdgMYWKgEDDhk9x07BEYEzRAF4vzkTViMwTkDYIuIAYwgYjL999hSPhZyWFlw8CFu2/ANAs+07FpxOoCSgATiJi+9RojNm/gAiDnw5I03AXEGoKsGQQozkwUAwC7WE050jv0VwAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhElEQVR42mNgoBAwogsk2Sn9h7GNBPgYGBgYGM59+ASXn3foHooeJnTNXjZqKJqR2V42aigWoBiArBkfQDeEiRTN2AxhojQQ8Rpw7sMnlAAkyQBkjfgMoZ0XsEUjNsCCz3R8GqnrhXmH7jFuO3KLaE3bjtyCJ2km5DROjCHImqmSmSgGANT1O0cYgTAoAAAAAElFTkSuQmCC",
    "emoji": "🛞",
    "symbol": "🪓",
    "people": [],
@@ -816,12 +816,12 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABA0lEQVR4nO1QzUoCYRQ9N9s0DxFE7loELaJ6gKBdr9mihSiC2UimlhAmSSVTxjAWE47jMBINOgon5sugaTG5cROdzb3c88PhAv/4A5Ak8qJSpKZpcJw+9g8OE7UxhIHLaJIBx4HLF6vNarmgbr+CfOdZKc+fMDstTsdecsibbytx17xTQr2YjYXYzw+qzXfP0tcyGQ1oWV2IiKyubUhk2N3ZRqt5qW7ACAPPg2E8IuJiASTp+0OE4UTttfMTNhtV6KUyNrf2xHl9osiKLKdSSKfXcVrI4Pam/hkSGYz7Bus1ffY4smd3VOVs5mhWPmA+d0xOh/T6Ft2eyeurimLmeuxC8QEMrskZ6VwMeAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjklEQVR42mNgGAXDADDik7Qo6/rPwMDAoPDgBMOKVesYiTYVptGirOv/mhuP/q+58eg/TIwozTANMM34DGHCZnPPvBUMJ7rKGNfUFTDA+AwMDAwlSREMOF1iUdaFYgOyS5D5C+ZMwXQJsmIYXnPj0f+IsKD/2MIE2RBGZNNOdJWh8BUenGB4oGCBwR5cAAAkzHlNsuSKbgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 355
+   "descendants": 356
   },
   {
    "real_full": "CaO+H2O→Ca(OH)2（強く発熱）、空気中で Ca(OH)2+CO2→CaCO3 に戻って固まる。ローマはポッツォラーナ（火山灰）を混ぜて水中でも固まるコンクリートに",
@@ -876,7 +876,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtklEQVR4nO2QywqCUBRF/f8/8lmBGE18lI+LhpKD9JaJpmGQsKMbXQgkbNBEWpMzOGdtDlsQ/kyZur7ghWk6+EqO4x0oLZj0CGiajgWNkh3HxRBZdhgXAgCiqHBRUWZIkhS2vfksA4BhrEDIlomqOkdZnuH7IfK8QBTFcF0y/AUASJLKlmm6Z7OqWuj6kh17HmFTljVY1pp3w2VKT9C0Bdr2ytO77sYPnx0c3z4IghB9P7LYn3IHa1nYgWqM9XMAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVR42mNgGAXDADDikrAo6/qPzD/RVYZVLRM+zTBNJUkRGAYy4LN5zY1H/9fcePQfmQ3jE+WCN6c+McBshoGeeSuweoMF3dnImmAaYWLoXkNx9oxFV+DOhDkdpgFGu/h1YYgx4gpti7Ku/ye6yhix+RuX+MAAAMZvXo5bi8EKAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -947,7 +947,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 481
+   "descendants": 482
   },
   {
    "real_full": "紀元前3500〜3000年、牛に引かせる四輪車（メソポタミア・中欧）。車軸と車輪の摩擦が課題（獣脂で潤滑）",
@@ -1068,7 +1068,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR4nGNgGAWjgIGBETkQ3Azk/hMTKLsuPILrYyRFIzaDWEAMIzUxsmJj14VHDEwMFAIWEPHi3RdKzRnKAACYkQ2xg7zgJAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mNgGAWjgIGBEZmTZKf0nxhN8w7dY0QxgFiN2AxiYWBgYNBgYyHbC0yUhgELAwMDw41ff0ZyOgAAOVQLDaByXGgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -1126,7 +1126,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 497
+   "descendants": 498
   },
   {
    "real_full": "海水（塩分約3.5%）を砂に撒いて天日で濃くし（揚げ浜式・入浜式）、かん水を釜で煮詰めると NaCl が先に結晶する。残った母液が「にがり（苦汁）」＝ MgCl2 が主成分（ほかに MgSO4・KCl）。日本では縄文晩期の製塩土器から、能登の揚げ浜式は今も続く",
@@ -1184,7 +1184,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADG0lEQVR4nB2SW28bRRTHf7u+rNf2Ok6cdUio6iSQUlTUUiGVNKpAQi088cBX6NfiBYHUh8IDD0FBBBoVNa3aJpGIUtMkOMa52Um8Xtvrjb2+7FQz5+nMaOac/0178eQHMT1t02p5pNNJTPsuoRBY4i3nFw0S9l0ufZ9rH8zhui7xeJyRt0Xp4JhYLIK298+vwp4cZzgcYhhxtLE7tFotstksg66P0/LIJBOMRiNisRimadLpdMhkMpSLv6H7fpd+9Doj4wbW1D0Gzgv1sFqtcrT3BxflNWzbplz8nVwuh3P8lHw+z9GePGfRx8bS6iIMQzrn65imgeM4hK0tUkmTjJUkCAJmP/4GWd1uj1p5Fc26TSR7h6iuaRzvrWBZKYZDwauNHTKZNPnJcfKzXzEYDDAMQ0F3PZ8weZPouE0uEmHz6Y9oQgjheR6vnz1i6fNbdDqXCOszYppQH+WA6oWjqMwsPMBMJjl5u0KhMMObYomo5KoHb4joOvW6i9v0yBs9BrqOrutKrHQ6zUTmWyKGye7mL1x5fwozYShKujHaRQophStXTnGbbaamppQm8rPv+wghlJAM+3z46Xd0uwG9IFDORPdLh2r77ZsfEfT77JeOODytkk4YtNttRSGVSqltsvfr6wRBH03TWFq8hR6GgobbZhC/QXbmS65ee8DVmWkmJiYUAqnD1vojNSCtl0i9dw97/j4bm0V6clCtVhMSnrQuEe5i5hZVUGSQ+v0+2y8fMz93hfjkkqIg9fi/uMwg8QlxGbyzszPRaHdIJBKMmhsclE/44uuHanOj0cCyLBXhTM5G9HtUTqoszBVo+V0uDlbRQz1KoTBLUH+JaSZYvP8QonGazSa9xmsFPT78l1r1lNLOMoVCgYjMwN8/Kcuj7uEa5rRNr9fHaTSZH/OxTINmECgb11a+V+lMpU64vjBLo/InqWSCMSuNkNP/K1dklkQYhsJxHNXLuqw/F67rqt7zPNHr9YR39kxIzWRJ6t1uV+homvK5XFxWcKXvl/XnHB2fKR1qB6tKuO1XP7O9s68yclH5S6E7rzzhHYnFpHfa+ZzmAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuElEQVR42mOMCAv6/0DBgkHhwQmGBwoWDMQCmHpGi7Ku/yVJEQzkgJ55KxiYFB6cwKvoy5FNKDQ6YCLkbB4bPxQawwBsNuKyDVs4MKE7lcfGD6ttyIYis5mIDTCYoV+ObEKxgIlU56O7jkXhwQmGL0e4UGwgFjxQsMD0AiH/o4sxPVCwwBlF2PyMbhETIdvwGY7VAEIakC1SeHCCgQVbOsDlImyGsxCyGZ/4g1vfILmR2GQLizpkAADoK1mZ8IjjRAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -1317,7 +1317,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9klEQVR4nGNgoBAwYhOcXB/1H0Q/ffoSzJeWFgfTuY3LMNQzInMqUpz/gxQbassx3LnzCCymoiIHpkH8G/degg1DNogRWbOPmylcMbpmZP6WXacZOubsBetlgRkAcyay4vNXH4G9oaEkjmEYDLDA/Izs7M8/GRhswjpQvAdSw8sOYYNcKi0t/h/kFSaYAmSbsQUWTAzmElgAMyFzYM7GBUAuQ/cGE4yBbjIuANMMCzMm9AAEBRguAAsDmGUoLriDFAawhIQMQNGMzaWM+NIBzM/oNhOdDhjw8GEAIymDaFwpEmQzCMBsxzAABkBhgJ6RQHxkjVQDADW1jGQTr1sBAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABEUlEQVR42q2TsW6DMBCGPyNmxJCBuYoydUDMCGXOUOUZMld5ms48RAfmCjGjDJkQYvbAYPECdOm5xk1oq/a2s+/+++/3b/hjqFuHp+JhBsjiCIDWTACU9aBWAV6e0rk1E+djQT9qALabBIB+1OirpjXTAki5zfk+tcV+s5s3bxeeXy8KIBSA1kzkTrG+airTkcURwsoFkwhlZ5d21XSWZvlZOx/yHQD5PuVkprmsBxXIrTv5llhlPaiq6ewaInDgJttNYhVfC3cNy8BH/q5ZBgVu0o/6Rwxk2IKBIJ+PhTWS75FDvvvCNBSBsjiyPvhQewGSPCa/84H/7r6p7lpZ3vmeAwE7ffUz+R8pi6NF47/FO31cnQ/LmIBzAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -1481,7 +1481,7 @@
    "explained_by": [
     "I-03"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVDhPY2AYBcMVSEpK/seG0dVhAJjCqKgorBivQfg0omOshgy8ASBAbBiA2Oh64QBZITqGGYSuZ2ABAD05f9v7jxu+AAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAX0lEQVR42mNgGAXDADBiE1RT0/qPTfzWrWsY6lmwaTQy0MBl4X90gxiRNePRiALOXbgBN4SJ0jCg2AAWtADCGwbnLtxggMnfunUNeyxEhAX9hylEBzCDV6xaxzh4EhIALzohN4si4g4AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -1612,7 +1612,7 @@
    "explained_by": [
     "I-24"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACYklEQVR4nD1TSY8SQRh9FMUOw2YDYVNMxpMXry6JJzXeTDwZEy/6A/g7evTgzcucjBn9BXr1MCxhwtIQaNKsDd005n0jdtIUVf3V+95SFWg2m8dAIIBwOIxsNotoNArXdTGfz5FOpxEMBmFZFmzbRqVSkdHzPBSLRYRCIejD4YBUKgWOjuOAYLvdDoVCAePxGEopGIYhIx+uD4dDaUAgRdRcLicF0+lURnZhV9/3BXi1WiESicj3j/4vXBgDXD7X0lBxg2maMslkMvjk/8aPhwd8vW0ikUjI+na7lc1k8qJvIBgPw7meolqtQlEvGdCDfD6P94EHWF+ZCOeTiMfjonW/30sNgejLG/scr9oFkaAXi4V4wLfb7QrVl24JxiEPndDo9/sii+byP0fWsJ6AihrZiR/K5bIkoLUWM+lDMpmUNTJsNBrSle96vRYjNQE4IeJsNkO9Xhe3SZubmAjpTyYTLJdLxGIxaUB/KEdTI5GYKSkdj0dxn90ZGYv5UAa/kRFj5JxgarPZCAN24sIpPs6pmSkQhGy4zlpKZi1ZatKmfur6/vQI17Lh2SbC52d4/NMTL041TIkN2J2glK1OR5dob/+U4G/38F0P3nIruYvTSkkx3SeDUqkkHshJdP4dX4406p1170ZzJIQvZ1e4uDvFtycePt+5xmAwELB2uy0yhA1NYXyn+0CQ15M6gtEQovVb+LC5j017DKdvyWWr1WpCv9PpyD7Nn16vJ5PRaCRp8HA9uvTFtFluhmfLzI3jaSW1JxPJQPPGEZURURONYifqbbVa/08dLxi94mFiQqxl3V+AcXRftp8qYAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABG0lEQVR42o1TsWrDMBB9UUuGbAERgqOC8KAhZOjUjzCm39RvKsFzKZ0yZchsNAhPgoRAs3RIB0XXi6KqPRDI9+6k995ZI2OWZ1xCVnXcwg89ffuhJ5zvAeAeAJrmOSSVBg/vbMi3LbyzhMd8171CyKq+AbyztCd2SsM7i269xma7o567B21eppMxFb69f2Axn1HT6XigJZXGdDLGYj7D6XjA/vMLglOXSqNpW2y2u6ubOYNUqiBTLgXeWTw9rm5kpRFxkUumJv6KD32YAm/gRZx2joms6jCFHMj1xpVK9UP/40GOdulgMvE/jTn3SULJJO5BmpdKBwklE1NWOUNFenNpdNxM7+z1FFL6f/kR/4ORMcszf7alJ82xGN+ugLFkCi7vmQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -1744,7 +1744,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABBElEQVR4nO2QPU4DMRCFP//srrMJF4KKDiqOAUfgDpwAcQ0K6KiQuAA1NyBhNyFrr23kQYsCKWnzJGvmjWfePA0c8G+ov4WXu/Pc1JpuHVi0Fas+0DrDGLP8H18+/JpRu+T59kyGQ0gopdAaxjGTcnkwd4bPIXJy9fgzp6bk/uY0G63wIWGMIqZMbTXL3kucOcuq97SNlf6L6yeZtbsOuk2QaLMWoRgzR23FEBKDj8ydRWtFWTTBTklKmdZZsVryxcxijea988waQxiT1GNC+J7A1ifgW6SqtNzgYx2k2dWFgzVKbrAZxn2B17elbCwoDrc+Cm9qgw+RnMGVzRnGYuMAJnwBnSltzvUTwzEAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAX0lEQVR42mNgGAUUA0Z0gSl+Bv/xacjZdAFFDwu6ZhsHA7w2TmFg+I9sCJyRZKf038tGjShnbztyi2HeoXuMDAwMDEyUhsHAGwAPRCMBPoYXV14QpclIgI9h3mgKhgMANlsVMmzATTwAAAAASUVORK5CYII=",
    "emoji": "🔔",
    "symbol": "⛏️",
    "people": [],
@@ -1834,12 +1834,12 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB5UlEQVR4nKWTu5ITQQxFbz+n7bGB3SKjiiIigYCIjyCDP+UrICTfTUg2hMXr8fRblDRjO4eu8tjdI92+OpLVl49vCf+xLD/evXqJ/cbLgTManQgKCrV3lNrgrUEjwikV7IPHYc4S//3+AZqTvNVonXCMGbk2lNYxpSxizhoYLWG43W0wl4rn2wGnXORMLwJG1G/GIAkspJUSsSkVPMUMq7Xs+WPZZadrCcdYMDiDx1OCAjBYA6W4BMI+OMTS0HoXoeAsHk8RW++uAs5osf1s4/H1x08orZBKBYgweCfJtTZorfH5wxvsjMMh5msJBJKgP6ck4KaYxAVzYYgpV4Cxsj0AuXWYdaPlobVY4qPaOgZnwdHMg4WDt5LMYsdUJIZFLgK9swdg4bLcykF8Lu1sfdkTBDR3gr8vAsEZ9N7lkOlz25aaV8/rYidTzHjBbUzlCnEulXkJC7UKWMPJBCJaSyFQJ+kWr8iQzwL74EUxlYZP719jHCx+T0kCbsZBynuaM4xW8pths4tLCcdYMAaP7eDk5l9TxO0urPCUjPYueJkLHigu8+xgaSMRDnMSUAxtHBxSbTIfbJ1vL62Jg/MwzdLaVWAMDvvBCwtW5pd8E1PgUeZR51vPs7HxVt5fGHy7e/jnv/NfFZYgay7MYssAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mNMslP6z0ABYGFgYGAwEuAjS/O5D58YmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAAVbUK6QNwXUsAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 422
+   "descendants": 423
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛。黒鉛るつぼは1840年代に普及（ディクソン、米墨戦争のころ）、特許は1850年）",
@@ -1886,12 +1886,12 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABASURBVDhP7YuxCQAwCMA8x6WvOff7FhxEgtixi4FsicgwFJjtU6m6Qj5Bjl7ydRh18nUYdfJ1GHXyDRhW8vnLBYnfYROswAabAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVR42mNgGAWjgIGBEV1ATU3rPyFNt25dg+tjIlUzujomSr0wyAxADhxiA3HgAQCHxwwMKDe7jgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 379
+   "descendants": 380
   },
   {
    "real_full": "赤熱したブルームを叩いてスラグを絞り出す。炭素0.1%未満で柔らかく粘る。浸炭（木炭と加熱して表面に炭素を入れる）＋焼入れで刃物に",
@@ -1962,12 +1962,12 @@
     "I-51",
     "I-52"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABYklEQVR4nOWRy07bYBCFv9+JcUhCoBBxFRdFQJsdbGg3XbBESFzWIHg2JB6AJUgsEBskeoFKtFwiWEA3pDUJIXZsY3sQXnGJHwBxdmdG82nmDLwPXcwXJa6XbFaUlUkJ/JCqF6CAjb+3yPKEqPXDR/tM2svC5nRBjkybsuPz3bTpaEnwtTtLGApHsx9fbaKemtJcUUbbDAIRKl5Al5Fg99rivO7yJZ/hrOZEwOntc9X0hOGMzq9Kg95UMgLsXNfRNUWLpjitOSwOf+C40ojPwHQDBlp18mmdC6vO3X3ASqETPxROai5l2yNE4gFlxyepKb7d2Mz05xhK6/wwbUp3LguD7TiB8LvqxAMOKg1Wx/P0tSbZ+29RzBlM9WSZ6s5GcWcEPucz8QBfhK3LKkZC8SmXinL45/qMtRlYXoimFCMbf54Fr16+5VGyNCFXlkdOT+CFwr5pRZDxzjRq7WfTmTesBz6PjsYiEy1TAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqUlEQVR42mNgGBmgy0XtPy45RlI0lO25haGeBV1gip/BfwYGBgYHMyWGA6fuMTiYKcHluLi4/udsusCI0wVdLmr/vRx0UAw8cOoew7dv3xi4uLjgYsiGMKG74MCpe3AaxoYBZNfgNABZ0bdv3xgczJQY0F2FMwy4uLjgtsIMgnkBlyEoBiArhAUgurO/ffuGPxbQXYAMth24ghGVRKUDLi4uuM3Y0sIQBwADqkbf470pcAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 297
+   "descendants": 298
   },
   {
    "real_full": "中国は紀元前5世紀頃、欧州は14世紀。炉を高くし強く送風すると、炭素が溶け込んで融点が約1150℃に下がり鉄が液体で出る（銑鉄、C約4%）。硬いが脆い→鋳物",
@@ -2039,7 +2039,7 @@
    "explained_by": [
     "I-51"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB1UlEQVR4nKVTy2pUQRA9Xd33MRlFiW5cBUQQQfAD/Alx7//lO1y6dpWNi0BAEDTJJHP7WXKqb2ayFQtu9/S91afOOVXjPr9/rfiPCFw+nr3CUipOxoBdzLbn2uzZDAHiYL/vc4E4h9IaXpzM+PrjqgN4cQjicL2PeL6ZDNkHj7uU4QAMXjAFjyCCWCtG77FL+cjg192C7RgwhWBVllyt6pNxQFU1dgSwQioYRFCU0IBweTaPaNqZxFKNDY3hw2SC/NlH/N5H7HPp4lfnAhfqm4JY5fPvF3AORp05BKXu2hSqii8f3iG3hqZ6ZDCa3mJa5dHl1hSlqp1ra3bBPBHBfSpHgIcggKe+pvCuVx7DepaeyupE2QzezsKFurZr6xRqEhg8xdVQSmAXSI2tZnsZgQu10cTbmI02E0279Cp8x3P3ytt+s6Qjg6fTaCCkRRm8QOe5M1nYldU0ekUDt9PwiAHIQE3zp7dvELzDHAJuY8LpZrbZYOWlFKTSLG9Z2ylmTG02LM65g/7eNvRLtdoccLDoFfMIcgDgC37k6FLO5L3Joe5Um8l6uZ2NPgeNd8noIIH0ycLBYRcT2HEayj/MTUxIpSKKGGhTbzkPYQDfLn8eXvxr/AUyqA2EH1cZywAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjklEQVR42qVSQQ6AMAjDhRMP8SW+zgdz1YNhgQrLdE2WDDIodN3OY79oAUxEJCI9oao99neLDSJCqvo0yIqzXNas+cAzW6ExIewtV50ROH7QoCoeMRvaaP8RggZfgHq1FfbXBJWAmQZhhT/sYYVMYW8eO1kjnvkFZPX5ht5GtsylpQ+8jauJ0No8a9/KpTcGC3ZrWcvGcAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2054,7 +2054,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 412
+   "descendants": 413
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -2122,7 +2122,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABT0lEQVR4nNWSwU7CQBCG/3Z3W2rbCBEI1VQ0xOfQiAGjiR6868Un00Q8m4gvI4khMQskgJQCpaVdw54ELXfntjOTb/9/ZoB/H0pa4fikKjRNA6UMb82X1D7lr+Tt3b1QVRVJEmPQ74NQAsPYwnPj8Ve/up44rdZEu/2BbpcjjmOEUQTGNFiWjfr5pdgIqNUvhOvuo1I5QhAEyGQyKBSK2M5m0elwBLMZqmf1FQj9+WCMIQxDEELhOHvgnINSAiESmKYJ27alqlQFQRDA930IIcD5JxijEhbHibQwHA6wnM1GwGj0JX8sHxwiCiMsFgtYloler4tisSRtpVpwnF0QQtBqvcN1y6BsWVYwnU4xmfhyK7nczgpAWZ/q1fWN8P0xDMNAPl+ApusYex4URZHqmq+rN0HXAbquI5zP4XkjOY+lZE3TUSo5aDw9pB7UP45vAbZ+/Ip05vkAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAf0lEQVR42mNgGPKAEZeElYPPfxj72IEtjCQZEBEW9B+b+IpV6zDUM2Gz+dGrXwyPXv1iYGBggNPorsJqgJWDz385MTYGOTE2uBgyG5shKAbg0wgTQxdHMQDZuchsfGJMuBThcgFeA2BOJNZ2DAOwRRO67ehqWHBpQLYRl+ZhAgCMOjPa3rxJAAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [
@@ -2135,7 +2135,7 @@
     }
    ],
    "media": [],
-   "descendants": 339
+   "descendants": 340
   },
   {
    "real_full": "1740頃 ベンジャミン・ハンツマン（シェフィールド）。鉄を密閉るつぼで完全に溶かし、炭素量の均一な鋼に（時計ばね用）。それ以前のウーツ鋼（インド）も同系統",
@@ -2218,7 +2218,7 @@
    "explained_by": [
     "I-51"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUklEQVR4nGNgGAWMyEGwoCfvPzFBklAyCa6PBV1SQ0MDr+YbN26g8JkojQQmqhqQUDKJEd2JyAAkh+x/6rtgcBiQgCMcsPmfKi7ASEjINtIFAADQbhle3fQR9AAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATUlEQVR42mNgGAWMyJyIsKD/xGhasWodXB8LuqSHmxNezTt27UPhM1HqBeoasGLVOkZ0J6I7H9n/g9ALVDEAVzhg8z9VXMBCbIKhGQAAEX4aDq4/rq0AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [
@@ -2231,7 +2231,7 @@
     }
    ],
    "media": [],
-   "descendants": 281
+   "descendants": 282
   },
   {
    "real_full": "1864 ピエール・マルタン（仏）が、シーメンスの蓄熱式炉[3-18]（設備＝1856 ジーメンス）を使って銑鉄とくず鉄を一緒に溶かし鋼にする「工程」を確立。くず鉄も溶かせ、成分を時間をかけて調整できる",
@@ -2345,7 +2345,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAuSURBVDhPY2AYBdQDkpKS/0nB6PrBBrx+/ZoojNOAFVv2EoWHswGkYHT9IxkAALO3zRU06CNVAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVR42mNgGAUUA0YYQ01N6z8pGm/dusbIwMDAwIIsWFSziijNfS1hcDYTpV4YBgZQHAujgIEBAFZuCw8H3KvKAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2425,7 +2425,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGklEQVR4nKWTO4/UMBSFPzuO89zJLNoKiR4KOkpaCiQafuy20FIgGgoQDR3FFrszyeTpF7J3NdNDotiJc++55x4fi/cfPgb+41JxePnqNYFHnKIoCd5TlBXHwz1Xu45t2xCAsYa23QGB0zDw88f3RwDnHfv99Rl1HE84Z9l114zjQNO0GLNRVTXWGoQQ54IqDk3TMAw9IYQUpHWBlJK+P6TkuC7iLSTeGaRSdE8FVRwixbpuUqCUGcs8sXiHyhRm2/DeU1YV42lAZpKckN7PAFoXLMuc5je/bznMG/tK40Mgl5L7eaXVCiUln27eUtVNYhMv+chgpW2v0EXBah27Msc4z7hZVCZS4uY8/WqSVsEHQvAXBnUSyWCNoSt1+rE5hxAwLIZMCGqdJRDnHFkmsZYLg8PDffoQUnJ3WqjyDOMChcpYnacpFP1i2JeaeZpYliXpdQYoyyotlGWZ6P/pZ26aguO88aKrU1vP6oLZOnKtU+y2rheAqqpS//M802hFJmA2jqsi525cGVaLFCK1Ms9T6l8X+qJBCIFTf6SuWz4/f8cSgZo2mSYaSuWaX96n6tW6pvgsyy4MjDHJwnFvx6GnbVuOx4ckavTFNJ5QKsdZyzSN2Kf5DOCdQ2tN3bZE6fv+SNddY51NlaI/or1jUrRxjI0mOwNEatFtsXqc48GJbOKWxRaiuPGJbCLTaRxTzlmDb1+//PNx/gt7xCkLss1+fQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaklEQVR42mOMCAv6z0ABYGFgYGCQkFIjS/OLZ7cYmBgoBIPUgBfPbuHl4zXgxbNb8EBF1vji2S2sBrGgCyDHiISUGlwTrphiIuR8dIMIGoCsGNk7RLsAm3dICkRstuFLqcMgJbIQCiRCAAC+iit1mrSLPwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2518,7 +2518,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABbUlEQVR4nNVSy0oCARQ9M5qJk1aa+GjSrBYF7TOon4l2ti1yEVTUoqCWRfsg6AP6hYgyKiqbfCSRhY6PcUZnRp1xQgnSbNp3dvfcy+Hcew/w70HoNQ6OjrV4nIHT6UJ4ZUl3jviNXFgMaS63BzTth8FgQK1WhSiKWF0Odc2TP4mT0zOtf2AQDbUBu2MIHFcEm83A7fFibX1H+1Ngc3tfqyt1eL00hmkfmKcH+PwBlMsCuGIRVVnG7t6hpitQqZSRSibwzERhtzuQyXzg6vIcQllAOv0Kq80Gkuw0TbYXFgsFC0WBoqhvUtMQnJ1HvVaDJEl4T791CBjbixybhaqqGA2Mg2UzmAnOIZmIIfWSgKKqGPH5IUuSvgNJEltrNJ0UCnnEmCgEvtS6Q4/RiMf7O8iyrC9gMvUiMDaB25sIzGYzCJIEz5eQz2UxOTUNRVG6MkF0yH2hGSK+xKHPasN15ALNtzbvsrUR1g3UP8YnQd+S7j983uAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42mNgGL7AysHnv5qa1n8rB5//+NSxYBNUU9P6b2agwyDi4wMT+s/AwMBw7MAWRoIGWDn4/Dcz0EER80IyCN0QFnTNSIrh4M2TBwwiMgoMUINRDGFCUfjsHlwDjEZmi8goYBiOYoCIlBLWgIJpfPPkAdwSvC6AaRCRUUCxVURGAcMSJmz+RWaj8/F6gYGBgeHUhStwhei2b9u2CSMqGXElIgxvSSlhTQfDAAAA5WxOwQKw+zEAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2609,7 +2609,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR4nGNgoBAw4pJ4/fr1f2S+qKgoVrWM2AQlJSVRNMPA8+fPMdSz4HLB/WfPepH5ilJSxdjUMTFQCJgG3AAWXBLnrr0qposLmEYNYKA4KQ88AABtARMdWrjbRgAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mNgoBAw4pKwKOv6j8w/0VXGSLQBampa/7GJ37p1DUM9Cy4XtG3agcKv8vPAqo6J0jAYNWDUAKok5YEHAJOsDxqJcfyWAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2692,7 +2692,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaUlEQVR4nNWSTUsCcRDGH3NbV6UVNd3NVozSW4REEfSVOiiUJOWhgiIKguoSnTz2ccJ8KYkwNXLd1U1t3XzBf2gdUtO7z23mmfkxMwww8dKNM2+jd0SWilCUEs5PDv+t1Q0mAtthYrXZwXE8NE2DLEtot9v40jRcXZwO1U8NJab0kEQR+XwOyXgMdfUTrWYT/tU1XN9EyVhAOHJEKIqCSxAgiQUsr/ghuD2YYVk8pRIwm80Ihvb6INTfgHfNg2UtACFQVRWEENTrKhwODrlsBtM0/eOPAkhFERVFQa1WRaPRwJLXB37O1fMYhkGr1YLJZB69QrkkQ5aLsM86QNN0DyIW3pFKxtEhHbzlsnBy/GiA8/fyuddMD2CgDUgmHmA0mmAwMFj0+qCUS30A3eBVj88uSbXyAZfgxstzGusbm4jH7ntxd8KD/VBfj24Q0NVWYIdYrTa4PQtIP6bAWizQ6ylEdoNjH29C9Q1O3IsOWe0AZAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwUlEQVR42t2SoQ7CMBRF7xY+oWqZWCYqlokpBArdLHwCEsnXNeipCRSCICaaiqaq/1AEtKyj2zRc2dd7cl7ygJ9PsjTc7VsLAEYLDMMj+nczfaC0siQrAQCsbWGUBJoaAGwMksao26b+lN85ns7eaNaA0soydgDJCxglQfLCz4ySL6gWgUlgQLIyKMXi1ltcYazuizPgAGC0+FJfSxrTGxvEbGYBfceT6+3ulZ2Ng1w4R9/xZPWQxrdgtPBm0/Kf5Ankd0w0a0l1HgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2779,7 +2779,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABZUlEQVR4nN1Rv0sCcRx9X/EQ79RBPdPDBAkzwSQJpEGaWpxb/FOCi/BPEAKHXNpc2l0Kp/xBiCHpkifoIMLZCd3RocN9425KTfd62+d9Pu/xPp8P8OdBdjVLpTva7/eQzZ4jn7/8dZasE8XiLTVpl8uFyWQCRflAOLwPTdNQKFxvzNvWiWj0AJqmotd7gyAIiMePkEgk4Ha7Uak80J0GonhDdf0LgcCeJVTVT3g8HtTrz4jFDsEwdpTL93SrQSp1AkmSIMsyGIaBqmoghIDnA+h02pjP5xgOpZUE9p+FKTLjZzJnWC6XiEQiaLWaVnxCbAgGQ+B5frtBu/0CXdcxGLyDUsMSOBwOGIYBQQhhNpMxHo+3GywWCySTx5hOp1Z08/Lm7ia8Xi+azQY4jlsxIOtXrVYfqaIo6HZf4XQ64ffz1jdqtScrkShekZ1vzOUuCMuy8Pl8SKdPrVVGoxFYltsQ/xN8A1N8fatpHuyyAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA10lEQVR42t2SoQ6DMBCGf5YGjUI1PAEagVoQDWIKQXjEZWJqglSQqQk0T0Cqqqobkk4sNNDC0NuZNn/b/77rHfDzEXw7bOrKzPvr7b55l7hCfr4YAEjiEGnGMPQcacaQS21ez0dwSNDUlUkzBgCg0WR1oQiGnnskxM1esgLAZB/RaLIrZQUAmKXJaWmQxCGEIhDKq8xqo9Qr/bT1MTM6jSa0vIObZNdglBpDz1cU7n+4BB5ryQoI5dMsyzjswseErAxa3mGUGm4rg70BGqW29c7YW3PwB/EGHqldlZESWCUAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2905,7 +2905,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABE0lEQVR4nO1RzUrDYBDc5BUS8jYeeshF6NVDH60liJdahJZgjAQ8taAFc0vBpCRFDFRJ268xNqQJ0YzkEwTFHzx4Eeeys7vMMOwS/eMvQ9MO4Lo+RqMLxHGKH4l1/YQLanFdHefqUwPx/SCK1lBVlfPp1KOiqGDbl7zvdPa/TmJZZ8jzJ5imhW73CKtVAsM4BWMPGA7P4fvXGI9tfJhgNrsBY4yyLKM0TanV2hNq3mzuCus1o6qqSFEUCgKf5vMIbwwGg2N4nktFUZAoClSWJV+apkH9vg5ZlqnR2BF6vUOSJIkcx6F2W3sxmUxcTsLw7tW1jrvdPvI+STJ4XoAwvEUUMSwWMZbLe2w2Oep7ff+S38YzdnCsKGFt8yAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwklEQVR42u2SoQ6DMBCG/y4onqKKZzg9saARBD3FAyx9iOrJiUlCGjRBoPsIZOrCQ8zeTEtYMtDLsjOX9v7/u7umwD9+INRWoSoLYU3L2VvzUXvYMjdtp/aMmwAydums2YOMFc1+Ae/uQ8aKm2a5365SlYW4aV5yrJGxb5Bkba6zFADQDyOatlOsSXzIUVdnKWCsxNWSOFqepeiHEfx4QgexZg9dFsLhLRx7yU9HXM4VHHtp2k4pCjRaUeOY8f67P9ILtgxpjVKWC8QAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2970,7 +2970,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCUlEQVR4nE2TuUpkURCGq0+f3vcdzAQDxcBIMBP6CRTjiQfmCcZ+g2HyCXwLEQxFxMxIMBHBTLD3fe++V74azsUDlz731l/1/1V/dajRaPiRSEQGg4GEQiGJx+P6zGYzSSaTsl6vpd/vS7ValV6vpzHf9zXOMXxcLpf6QsCd6XQqnU5HrLWa1G63JRaLyXg8lt2PCzns/1ACW6vVFEwwkUhoMoyooiDFPc+T7XarasC5M5/PxRIgkV9kGWMUSAGYh8OhFItFyeVy0mq1pFKpyGf2VlarlZiZEUvCZDJRFhKZAwnhcFi63a62gApUUhTcYrHQHDCG3tLptAJRkc1mVR79IzeVSukTjUblbP+31Hd+qVKKkWNQQEUYAPFsNhsNckdqs9nUdtzhDjvHlsvlwBYYONevfwIQ7LQwGo3kzvunZBDk83kltfhPgUwmEzCQwCwYIEBaoSBq3Z1ZoNICLhQKyvDQutKFYohIJ5lC0ZcT8bDt6En3IP9eV6Lx3r0YJ5HhOSeYMN95p4A72P39HUstCQSQxlaWSiVVQ588KPH2H3XqZvN/icLHz4rxF0kxyATkGNhCloZ+YWM2zk42j/8ExWhblwkWdtqt6/nBpZzWfgYOONvonQSKgGVWtG2YJHZQ6Ht/2IW1xGgNVWAdLrARq9hEEpB98/Y38JkE1pk7m8mvW2/U0N4XmNZW3TKq8/cAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZUlEQVR42mNUU9P6z0ABYGFgYGDw8vIjSRMXlx0DAwMDw5o1JQxMDBQCFnI0fft2CM6m2AVMpPod5n+quYAFW+gi+xGX32njAlw2o7sMEQ6b6JQO0F1G23SALa6plpCwAUZKszMA/q4bxfbHu4QAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3035,7 +3035,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC8UlEQVR4nD2TS4scVRiGn6o6dem6dE9fZpJMMjMm6EIluHGrC80moChRUYImG0GTrRrQLCJZSDauRFwJroKXjRcIiL/ChRocDGbavsz09L26614l5wgeqMU5fKe+932+92j3br9XAfTGU8Io5vGdbXRNwzIFg8mMOMsQukGSZbiOTZ4X6LqGbZoIQ0domsZ+b0jDq6nLi3VEu+7z4Vdfk2Q5VQWfvn2ZwXSO3BRViWVY2KbgwXCEkF33ttqkeUF/PKVV9/ntYY9bl1/hznc/qC6rJKUoS9Isp9MIuPPtj2ovlWifXXurcm35R5Msz8nLkpPNBus4IUozTrUalFWFa1nc/2eArC3Kii/u/aJUaHdvXKuWUaS8nt87wzpJsS0Toev0xzOEMKiqiqDm0B1NVN1TZ3eQ4FZRjO7XbDzHphX4/NEdcLwIMQ2Dvw+PcWyTyTJEGAZRmpLmOU3foz+ZUZYVSV4g5KHsGqeZ8iuhyk7LKFaflNwOPMaLUIE+3d5QNZKT5KA9/dhuVbNNRfzGqy8qmEVR4No2nbqvSIdxwk6nxcFozPlHzigmWV7gWCb6OxefJ4ykvILhZM4sXKsLrcBjvo7YO9FhZ7Olijd8l18fHPDX4EixyIsCIalfvfCszJIay7lTm4znodpLyve7AzzHIui0aLgulhAqcJPlit7xFCEBbjXqjOZLdrfafPLN9wqQVPTR6y8R1Gxl5/0v79Kpe+RFybsXL2AYOpYw0CVA6U2uP3tDbr/5mpIrocq13W4yXoZ8cOkFVnGq/K+SBN9x1OS0z69fqfyao0L06PYJNa793iGuY6nOnm1xNF/SDnzqrqMmdjRbqLdiC4G+tVFXtDc36oq4zIAEp6HR9FyVB/m4uqOxmr9kICcmFQync4QG7PcPeXL3NB//9DOGrpFmBTffeFkVSguyo1zysgTdDLz/Yqxp6N3jCU/sbhPGMVeee0YFpxW4jGYLxUKO89zJTRqei7T6+0Gf6XL1f8j+BXkcdLtaT8HrAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABEklEQVR42n2TsW3EMAxF3wlXGy5cqA6MVCkC14EHuCLwDBnAwxwySKobILhaAwgewIULQwtcCoEGTSvHypb49T8/ydP35/sDIKwJgK6ukJCzZ3EG8G+eC5628UzLTNt4rj+/W9I49EzLvANKjgtrom08wAaelplx6IuMbeO53eNGcPrqXx6Xj9dDkjDK40IgcbtHAJwFCkCrKskfh56urnDaNJ1sQfpfvsOasgc2SoxWpeQ4qUdqKgHFXHvX1VVu439uW3atTs7PALoLWp4F6LtpmQlr2ivYD1DczYIeLE3orDw7QCK1NCsHD2yyNU8el3aHNWUFtj5tYMmPwzIJU25lLEoudynmXejqqri6drVLeX8dH57xZmIbfgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3147,7 +3147,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACR0lEQVR4nE1Ty27UQBCsednedZYkbFgQsAQOEOUUgbghJL6DA1dOcOAT+BeO/EA+ggPiCNyAkAd52mvPw4Oql0RYsqxpd3dVV9eoDy+f5ZEz4JOGjJPOYzouEdKASWnRxwFtSGhCxMgaOKOxCAkpZxilYEurceEjro8KnMWAlcLieOFhtJIkJjPmtMbYGWnG+K2VSkD1kDO0WqITtbQGWinkDDnP6lIaWK0wZGARkzQ67YLU6JCy/Piz8FgfFXBaoTAaceAIDmHI2LvoBO20D/Il6FrlcNx5aHZ7tDmTIJEP2h59WtJuQ5RxVisHnwbcnlQSL43B76YTTfRJF/D52y/U/2Z/8eYdrCaDjMoa/Pj6E+d9FHZkQr0yMiaFE5HVx1fPM0WpnZUiqs35K6uFfmm0xMiARSweOyviiogpZzx9/VYOR4texOLTp0Ga8D+LZ3UluhDkoOkxvzOVs3r/5F5+vPMAmd2UQheTNKHKa1VxxagujHiCY1Ej/r9WOuiH23PZ7X7TXyEQcev+TRF0lUkKUqwUcNYHAaLZaCrNlRGRriISZ2b33d1PojIbUovNuxtofJJivhScPrFUnPst/hOLitfbc2nGdRHgy/c9YcL9kxmdytc6o8Q8RCGL9arAYduLJg0gLDgrG3FTjLMJmZGFpguJylm5IhbTgZcXZzou5IJder/xEUetly8F1ftNJwhMWuqx1IQIvAc0zo26FKcyRtob41LWTBdrdj73UdCIytvJZCZyM/TIYevRxUGYUjhui2Cs+wtW7nphX3j0wQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABAUlEQVR42oVTO27DMAx9NjITHD13yNTB4GwUmTP4EDlSkIN06hwUnoUMmXICDx0EXcAdAsqUQiOaqCc+8vGj5jL2S4gJACBMAIAQE4QJNe6dVp2Pwz6DShCmgtx9doUdYkJbR7dOeldsvs8ZV7u1gEeuifZNmJ4lDIf+JbLaNrBNkBUIE6brLYM2mNapQWolISY0p6+PRZhe5CrBI1qsFaactZZfd92+KWcXYkL3N2/WuJVdy24uY7940oZDj+l62ywBAH6mx3MKntTz929Bss1VZcK0NtGT+a6BIaZ1kTwHOxFvO4VpDbC1dVaNXa5ijLVUu3neOPVeLJL9xu+O9fsHLpy00zg59X8AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3257,7 +3257,7 @@
    "explained_by": [
     "I-51"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR4nGNgGAWMyEHQPXn+f2ZmZgZCOCrIDa6PCcZo7Z35/+/fvwzE4GXrdv2H6WOBMUAS5ACWATeACUSU1XUR7X8Ynrt043+4C/6SafvgMGAYAAAgvWJIoLacyQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaklEQVR42mNgGAWMyBwrB5//MLacGBtOTStWrYPrY0HW7OXjg6JQRuAPLjP+wwxhwue8Jx9YCHqBiZACQoYwERNQ+AxhwuV/fIZ4uDkxRIQF/SfaBfhcwkRqvKMbAudt27KFJIPwpZMhBgCAwR3DyfLtagAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [
@@ -3280,7 +3280,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 376
+   "descendants": 377
   },
   {
    "real_full": "焙焼 2PbS+3O2→2PbO+2SO2 → 炭素還元 PbO+C→Pb+CO。融点327℃で古代から製錬。ヨーロッパ最古の方鉛鉱の処理は紀元前4400〜4300年（ルーマニア・ピエトレレ）。近東ではそれ以前（後期新石器）から鉛利用の例があり、最古の鉛の像はアビドスの紀元前3800年頃",
@@ -3329,7 +3329,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6UlEQVR4nO1Qu1IDMQxcyfadeQy/yQdQ0JCZhIKCkpnQ8HkU0DPhzvbZYqSbCwnQ0WZdeGVrpZWAE/4N+vmweXiRcfgEMSP4gBA6iB4RtFqxvrs+0vBhsNpshdnh4vIKgKBMGbvdB5gZRAR2Dqv7Z/nTwc3to6Q0GhdpaK2h63qLvQ9I44A+nqHWCSVnbJ/WdOQg52SJKlK7ytWNIqVZrDlEjD7G3yMQEYhgnWM8N7E6cc7bfynZis5535PzQqapWOflVqtmPQ2otdqbFtR9HMIv5P3tdb8WH+aZtUBrs9iWyM4aKD8Be3wB+SZv/rGdFO4AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWElEQVR42mNgGAUUA0Z0ASsHn//4NBw7sAVFDwu6Zi8fH0KW/kc2BM5QU9P67+XlR5Szt23bxHDr1jVGBgYGBiZKw2DgDWDEFvpvnt1jEJFSYiAlNkYyAAC57Bfv4kW5RgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3391,7 +3391,7 @@
    "explained_by": [
     "I-26"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkElEQVR4nGNgGGjAiC4wedq8//g05GYlYehB0YzPAGzyjMiSMBt27DmG1RAPFytGZHUYpjMwMDCANGMzAFkc2RUsuGy68/AtiiEq8sJYXcaEy78wTSCMTw0TA5EA5iJ0bzAR0gTTCHMJyHvIgciETSPIFmTn4/I/daMRBLAlFGTD8CYkZIAvNeJNyqQaRhUAABkOcifwBBCFAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuElEQVR42sVSIQ7DMAw8V0F7xdDeUDwwFQdEwXvD5EdYfUhUEDwNDOdXHlmlKE3SkmmGtu98tg/4d1CZ8M5qDxCWSM2id1Z7BLU6lZPDEmlkqZIkYcr7qtJHFq0R5PlchWlNKklqOQAYegdLwpSEqddjjr5rZNHH3WMGdLqcAEDDEsnsgXI1M6BJmM7O6nrEoQXM5bf236zgndXwbV4Bq+zyjYeNkk/uGqll5+l2xfP1PmblPbKfxAcAx2+WyeDBkAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3481,7 +3481,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABzElEQVR4nKWTy87UMAyFTy5NL2n/DRI7xAIJCcEaseH9nwAJWIGAF2CapuklQcelfxmxQlhqpkkd+zu2R719977gP8xyefnqDbZ1QZoTjDVwrkYpBcuSACjkvN9d8r6X388fP0DzRQFY0iIvJReUkmGrCkppeO/RNC2MNlBKyeV1XaG1vghCGNF5j33fYa1FzhnbuqLrOoRxRNO2gFKoXYM5Rtmfui0XYyxinCRTjPE3shIJne8xhRFKayGiNJKE8XYFcM5J9mkK+P7lE9q2xbZt4khUIpOM9vzFawlibXUF2PdNDqmTwc6LlCJO1soZn3kmYRZampZFW5QCVM7JYUpJnE8jDRPQuq4/imrMHzWwBjEG5HxgnthHKxc5Y1aSbNsqe36/ujDe0PfDI/KJy8xVVUk2Piww92Rhlx4lOOekgMxMR2blGTOexQshCJFQpfl+DmjUNYWAJ0+foR8epN/aGBkq4no/COm6LjJ0zjX3c5DSjFwy6qbFON5EAqcxpQVV5ZDmCFfX0j7VaozjTwkgHMSnsGF4kGBt28nH478A1HUt9eCeHaLPXxKYPU6TzMQxdUrqse9ZiHw/yEQeU1quGeHy49vXM84/2y92Jf93/0xYnAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mO0cvD5z0ABYGFgYGCQE2MjS/OjV78YmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAATjsK7cMZ9Q0AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [
@@ -3570,7 +3570,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7ElEQVR4nO1RuY7DIBB94BOD5RSuU+T/P2KV/0ixvRuILAMBs5qRHGU35bZ5FHO/OQA++DfEX4ddbWnbFqUU0Isx4qRPuG93GGUghfxVU78acY9cFnxAr3oICOz7zjGlFNs++dLX/ZNEHMrt+1accxiGAVJKrOsKYwycddBGs69pGmzbhq7rcDlfuFYeBBQcx5FHphUoKYSAuqnZxyuVwjaRHJCHQkGC1hrLsqCqKiYhUiEEx0k+4oPl2w1CCLwvJUzThJQSdyIfFeSU4b1HzhnzPL8TXL+ufBHqaK19rkBkdBsz8g8w6esE+AA/mll2lclBwRoAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAU0lEQVR42mNgGAUUA0Z0AYuyrv/4NJzoKkPRw4KuuSQpAq+NPQwM/5ENYSJFMwMDA0NJUgSKK5koDYOBNwAeiAoPTjCsqTtBlCYFBgaGE6MpGA4AJDIWN609FmYAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3701,7 +3701,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6UlEQVR4nO1QS07DMBQc23FSEidqlQ2rSr3/AZDgQiygiurEwX/0LIooLSuWMNKTbGtmPPOAf/wa7PtDyDmLG0SfgYoBnLELDf96yT+Iy08MCB+cmwmeX07ZGIPtdgetT3DOERspZ4zjiOPxFUJU6LoOqzE47O+LtjobTNMEKSXW1UAphRgjlmVB3/eY5xlK9UgplXHefyaozodhGMA5RwgBIUZ45wqZKltrywghUNc1mqa5Nths7uC9QwyBehYSCbTWaNu2mJOYkqYUrw2eHh/AuYC1b5CyLkk4Z8WYklA9EtKeLteIP493Cil19QvXBl0AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAU0lEQVR42mNgGAUUA0Z0AYuyrv/4NJzoKkPRw4KuuSQpAq+NPQwM/5ENYSJFMwMDA0NJUgSKK5koDYOBNwAeiAoPTjCsqTtBlCYFBgaGE6MpGA4AJDIWN609FmYAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3774,7 +3774,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABSElEQVR4nN1RS0sCYRQ9nyVFtCpFlzog1roSH636CdGmvxcESYRuUqOy1BBKoWYqH0U2zQwWIz7SdAzNG07uaqS1Z3W5XM49D2By0aUf7OwFqVR+I6M701/L1/o7zQD4AuD1B5BOpcAXHuhfBOFojM5OT/S5B0DrdGCxWrHkdmGoaKzsSquty36UFbrOFeijPxgZIbq8EWh3/0CfDRUcRSIoihJsNjuYiSGbuULoMIrGZw+1ahU2ux25kmhsYdFigaqqEHgeDieHlTUPupoGRZLg5DhsrPvRqNeNCVxuN3yeVSiyhIqqYn6KYXtrE81mEy+iCD5fhNk8bZwBEVFGuKNap0vDGuMXab3Ccq1B1bam+8+XROMMgqEwFFkGYwyJRBLegG/IiluBx8LcLGLxcyxzDja2CYyU3D896x9b/QEdJ1O/0p8gfANZWsli13ejcAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAl0lEQVR42mNgGPKAEZeERVnXfwYGBgaFBycYHihYMJzoKmMk2gCLsq7/JUkRcP6XI5sYZtz6htUQFnSBiLCg/x5qXChiPDZ+DCU2DAw9DAz/0Q1hxGczOsDmEiZkBQoPTmDVhOwSdIBiwAMFC5JjgQmXU/HZStAAQppwGqDw4ATDmroCnIp75q1gwBsL6IkIHeBKTEMcAABIFTa3hBXDLAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3847,7 +3847,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVR4nN2QWUsCARSFz0hpQaMvpVQwEFE9VBBBvST92TbKigiC1pceWrBFTa2c0TYrw0ltG2mWTswQIdH4Xt/bvZx777kH+L+86B+sVA1ORxZYT+f52djejdLmNJ2CaZpob++AZpFPVYPJ8yzrLkhlcvQH/NiJHkF/11EplRAMhtDsARLxOHxNvvoOZDkDQzcg+v0YGx1Gt9QB0zJx8/AISZJQLpdx8ouLb9RnjRbJs+wV7Qz2DmOspVB65tTcPF0dbG1uOI1cVkFLowBVVbF/nMDVfRFp5RIba6sIh8fhimWHp1yyoulMyxfO1ZnIIotPb5ycnWdkaZm5fMH9BZKcmJnjQTzFqkV+fFm3hwySK+tbTl0701BbCIIgRGNJ9vT24fo6D6/XC0XOIBAIoKszBNMwHI1rBgAwMjQg3N3mIYoi3l5f0T8wiNa2ICwAmqa5//93+QTq7tyX8iWD5wAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAnUlEQVR42mNgGPKAEZeERVnXfwYGBgaFBycYVqxah1MdCy6NJUkRUJEIhgcKFv9h8ie6yhhxusCirOs/QiMm6Jm3AsMAJmSOwoMTeP1bkhQBdyFWAx4oWBAMNHRLSHLBlyObMCwh6IIvRzah0OiACZcGGOCx8YPTMDZOA050lTHOuPUNpxfW1BVgxAJGOjjRVcbYw8DwH2sAMgxLAABa3zercoKQ/AAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -4104,7 +4104,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABRUlEQVR4nN1QTUsCURQ9T6IZo1UrFdoUkQlBqzZtWlVY0J9MqCjBaCqVrE3QohYRpH04qOOYU88CbXSmdG7Ms0BFg5Z14PHuB/fccy7wf6EkTqjEq+JFtqL0q+GNzR2q2UTJ0zPaO0ySi7d36kvi6S2oxSeangnBNE1IkgSfzw9etVEuG9iNHfysJLIdJSWeIs14pfPLa7GV12yhwnKI8o8VurhKDybJlThVXO1Ewvc32pW2JRcDLdTrJjLpGxGvhFfFv390jGQ8JWJZlmH37Pd0JrIkwx8IiHhsdBiZrAbviBfNVhMv5gc4f8bdbbaLYKgz0fUiLMuCVijAcRwsLswj+3CP9fCSIGvUG5gNTnYRsN47uB5jSkJ0yCGE15ahqpogngtNgTHGBiqAy8gYcy+u6wbyuRw4ryI4MY7WV6/v9f82PgGJMsm5lNRG8QAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqUlEQVR42mNgGPKAEZeEi1/X/y8aEDbPDQaGPZvKsKplwaU5oyuCgYGBgeHNqU8MIkl8DF80GP6f6MI0BEPAoqzrf0lSBFZXzShbgeESJnSbE3S8MDS+OfWJgYGBgSGjK4LBoqzrP04DvmgwMIiY8aFoYmBAiGEDTLgkkA1CNoxoA7DZjs0ggga8OfUJrxewxgJyQCJr7pm3ggE9KrEmDvSQhgFs6WAYAAAPeju+0P5qMQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -4516,7 +4516,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABZklEQVR4nN2RzSsEARjGfzOzM6uR3am1XORrlrCWJJ+bE3Lwlc+TlP9MycFNQkKJA+3HrJwwa3xslnUjuwfrMGpL+Zpy5Tm+Pb3P+3sf+L86vUjbv/G5fhqubuzasqKwf2jY8WgEUZKYm18gaZ7T2xESPnrFb8lW2tY0DSMeIRGPMT4xjSgK5HI5zPPTb2Hi57Nv7SJ3ETU1OrpexztDRUUl21sbjIxNsryyajsiHOzv0dUdxjTP6Ozqwe8vw4hH6Qn34VbcHCdi1OoB5wt8vlIsK0nmLo3L5WJ4dByvpiHLMqnUNYFAPSfHhvMTq2t1FFmhOdRCNHLEQ+YeVVVJ3VyTfX4mYcQItbY5L6iqqi6kLS8t8prP4/FqNDQG8ZeVk8+/kM1mkSTJGcHvVYTN9bUCP4LA1MwsJR4PVtIkk7lnYHCI7vbgpxqFL60UtLlzYDc2Bbm6tFDVYsDm6fGJof7wj/4/rjdEp3SiIcND/QAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwUlEQVR42t2SMQ6CMBiFP4yT4RBMnqEDZ2AghHTu5OhgGB0YiQOjhzAOPUMHzuDEIRrXughCBYMr/9i89/W9/oX1jigqt0S3nTqUeeoyJbmAi9oGgDYSADRVEfwEiKJymZJYoznsd4SqxhpNGCfczkcaT7/xzSclAQjjZCS0RpOVNTJP3Sygi2uNHhnDOOmBXZXZCkOzn6K7pJkDtJHoTVMga/Q7wX26wtIUwwkmV1h+Xn4IvT6eX2sM/vlEvnkl8wKIbE3Q7crOlAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -4568,7 +4568,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABXklEQVR4nN2SzUsCURTFz9isHHXMLEgnJIhqV9airFWRCCEtov+vRRFBQSFqBEHhV4uyL/BrErSUgtEsGsVBshvOIhRmal1ndx73/d695z7g/yqXuSGiFomZWyJqk16dQeuwVBRpfHIKiWgEiqJAfpPwWMhqQthuQ0R0FDpAoViEXJchCALs9gEYzXbUaq+gjwYxLMfoApIXcXjm58CyLEz8EE6Og7BaeUjPRaTSWdhs/T93YGAYxOIJcByHzjMr3mXAYEQksA/ewiMWO0etUibboMBoAhiGgX9tA2g3gD4OhXwao2MTKtDlGsG7XAfPW/TyhJrBtz6bPXZvd4vKDyIRNXvCZLuNUn9BNJ6A1+dDOBTGjHsaOfEeZpMJTsGJTDaHSrWqv8bDQBAOxzAip2dY9a8jeXWtjtWBeBaXIEkVuGcXerYALaXuLtXPs7O9Se2WTE+lvDrGrxf/pr4A5uquAE8xI2wAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAk0lEQVR42mNgGPKAEZeERVnXf2T+ia4yrGpZcGkuSYpAEethYPiPzRBGdI0KD04whDRNwOqqnnkrMFzChK4IWfOXI5uwsvEagKyQx8YPLsZj48eQocaFETYYBsA0YRPDJsdEbHSR7AV0DTw2flgNQTFA4cEJhhm3vmFogNE7du3DiAVGfIlI4cEJhgcKFgQT0xAHAG74Q2lybxKCAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -4622,7 +4622,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFzSURBVDhPPdJXjoQxCAPgHGl6n3962V7ufxdWXyTvQ5QAxiZAWy5PNZ3ua7e712Zzrclk18/z+Vuz2dDfo9GmhuFZj8dPt92Hw0sdj6/VTqe3ut2+ajzedudicewJCAAkrteXul4/az4/9OTV6lyXy0dtt7dqks/n90LkVhGV/f7Rifi9EUkUg0EO35SJ6X7//q9CgBoQJcmEJCPxZTdsEwTWA2UKIACKKpsIAn5vfqK9AsA0kI1QEkL/B+aXAKMyflU1TaPOUK4AhUwAsbjmufVEnE24ZTRYBR1JiJEiRKYaAm4Yd5+C8oyMA9Bbsm/wIXHYmoxcjsmoqKVkDgpZImB/lqw6HYeJehaveWQCGR0QAuSSAMURUs83CDUGEIX0IosFzM5U+GAQIbVQfZUpqSLJEtJ9cxcH1nBi3rmbdc1/kGHPIoVQleKarE+ajNS7ZbeVa66Ovzma6075xDSVCBJVtBhZJs6Q8melNTVjRCSuoj97B72jDsyH4gAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVR42mO0cvD5z0AAvHl2j0FESgmrHBOyImxsBgYGnJpRDEBWBGOjG4TXAFJtxmoAMRrwGkAOGGIGYIsVJlIUYwtk2nmB2Cil3AXEJFe8BpCS+kiKBXyakdkAT4YiRX9JftgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -6358,7 +6358,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA5SURBVDhPY2CgFXj9+vV/ZIwujxdISkr+x4bR1eEEIMUnnv7rQcYj0oBDVSh41ICBMAAbRlc3OAAAuuyz+UX1AGUAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQ0lEQVR42mNgoBAw4pKY4mfwH5mfs+kCI9EGqKlp/ccmfuvWNQz1LLhcsCrDDIUfNuMUVnVMlIbBqAGjBlAlKQ88AACGzA8aCNFAiAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6430,7 +6430,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQUlEQVR4nO1QsUsCYRx939mU3w15mbhl3VQHIYoQ/gNubW4h3BA1NwgtGhFyQ0SDQijhYNBg2OCg+A9IozRIV8OXFxh3fDUKHn7RQUFg0dQQvenxe7/fe48f8I8/APKVUCjsC85fkEjEIMsyUqmNqbvStGG5XBTxeAyEECiKgn7/FsXisfixwWBgod3uYDKZwDTv4PfPIhicR7V6Kr41aLWuRLN5KZLJdWjaKlR1yTu0bRvp9CYxzXvU6+efTMg7qdXOBGMMlMoIh0MYDp9AqR8+nw/jsQvbdhAKLUDXt0k2uysM44h8NOh0mqLXu/FSHccBYw+glELXd0gms0U45xiNRggE5lCplEQ0ugbDOPCazDQaF6LbvYamrYCxAVR1Ga7rIhJZ9JrlcnvijXP+DEmSYFmPyOcPvfRS6WTqY38Xr8kPda44qHjhAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuUlEQVR42u1QMQqDQBCcC3lECKkXkRTiEyxELCwsxBdZ+ADfIBbWYuET5AoRudp/bKqVEy4pU4RMuTszuzPAHz8A9W5B5DMAhIEHAGi73sm9uoZlkXMSR9DLjuD5kDG7TC4ug1lv0MvuNP4YQQhJHJ1IVd3AmFUR+RwG3imOssW3O9kvYxgniGFVNxAxkc/GrOrowBZL7mGc7EucppmYS7ncdr1SZZHzrLejbRtyzd7NeoNcd3XyfbwAwolNvHgr8EsAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6482,7 +6482,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABfElEQVR4nN2SW0uTARjHf3ux2VzBYB1ePEVezKUstwVJDIwoGCUGQVd9BG/8Hl5165VXObAo0ZooYyg62Nhi6ZoNS2RzOqR4cYfe1zHHI3jVJu4+/3fP4f+D5wCXX98iH6RV3dSc+PjurTwZeUhy4wfdXSq6brCV2cHrHsD5YOxcv6k5IZITLZdDURRs3b1ADWgnn9liM73N6OvxBo/SaN6XpU9BDgq/SaW3kaLGwuxnqOvEEpsMufpJRt7LhYBUNIr/+WN2s3lcgw7+aEf4n/oIfQkz6h/h2KgiTRtR/g2q1RqBmXnM5iuUShXq9Tora3GevXxBdq9wNnBPl9oAaGugKSasHRZ8wx5+7mTxDN1D7euFmk6H5SqJZBrDqF4M8A678ZqtVAr75A8OcTruElpc4U5PJ/cfebl9y87qerz1FQLTk3JSO0FVb6JpRW7YbfzVDa5fs3JULPPqzcQ5D836tREUOc5I5uuCSPm7xMIzIqWULM9NtXyq/1SnkTiZoEII+NEAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxklEQVR42t1TLQ6DMBT+IFMLh3hqZ3gCNbGgEAtZ0FM7wMIBJlE7BiELArUgphA9xjsEvhMbpLQd83ymfW3e99OXAutHfjrqpfuNr0GIQaIgxEh2WwDQQgxVFsFfAiHG9ZwDyKezLE4BAA9RuqqbGUloFlyU+vJRxNC3zprd7k6k0HYQxSmGvkX0VbVrGzMCEjUpjrCbhRiLDkzVcW+SkajfBELsWDUd+WIEvjEmh70377N7wZ6CM8aqbgIh1vbbCDFonX/lDXv3TawjmQiMAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6553,7 +6553,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABKUlEQVR4nO1RQUsCYRB9s9/u6roqq7soFetPiU5mXRK95KEI1oMIon/FHxDePIRIFwmELv2YtTporLplBhPfBp1W6NQheoeBmXnz5jED/OMPgHY1Go0z3m4/kMmY2GzeMRzexnKVuGK363E+b4EIGAxuaLF4QadzxT9yUKkcsRAChYKN2ewZyWQCMnfdPTAD/f417XRQLh+yaaYwmdxTEKyimmVlIcQXLQxf4XnnHCvQbDZ4On2gYtFBrXbCclDXNSyXa6iqCmaG7z9GYu325bcIyVCtHrPr7sP3n0BEGI0mVK+f8mq1hqZpUFUB6SybzWA+X0BRlOiw4/EdKb2ex7quRxsMIwHTNCJlx8nBtnNIp1MolQ4gPxIEAcLwLeLK77RaF7GH/V18AkruYpI/osWSAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiklEQVR42mNgGAXDADDikogIC/qPzF+xah1WtUzYBNXUtP5LSKmhaFRT0/pPlAvQbYYBCSk1hm3bNjHcunWNEacLYJpxOdfIQAPDAiZkzStWrWM8d+EGTlcgexHFCxFhQf8lpNQYXjy7Bfc3NkOQ1cDUMcFM27ZtE04bz124wcDAwICiGV940RcAADiIOXKCmzeXAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6881,7 +6881,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVR4nGNgGAUUA0Zkzp8fz/4To4mFQwqujwVZ4se3D3D2pw/vGPgEhDA0g8SRARM2G/BpRhdnokQzhgGfSNSMYQAfiZqxeoEUzaOAAQwAbtck7tj8WUAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAN0lEQVR42mNgGAUUA0ZkjkVZ139iNJ3oKoPrY0GXLEmKwKu5Z94KFD4TpV4YBgawEAqkUUAYAAAtkQjkRcKk/QAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6993,7 +6993,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABx0lEQVR4nKVTu47UMBQ9dhzHSWagotmGBiRERYVExf+3ICS0BQXiC9jJw290bjJearCUKLHvPa/cqI+fPlf8xzK8vXv/AaVkbNsK1Ao7OBhjEEI4ikyPdXlC13UwfS97PPv18wc0X9gcY0QpBYMbAVSklKC1PoEXXK4v0NsB8QQlEZfmbVluqLVKQwgepVQopaS47y3m+YJ1uUkDQdh7EJ0AWmmkFKGg0HVGmjtjkEVZgFJaGnTXNXbaaRkorTBYB607PH77AudGUeH9fvg2RoD3fcPrN2/lnEobQN9bKSbAUbjL3jhO8H6TYqWiZFNrkVpm0wBC8MLCEJmDtQNyTtJ8t0QbfM8pQfWH1ZaBcxNSTBIkF33zGgYnoHe5VDROF8mKJA1g31f5viy++yYWn8lOa0o9Dw/rbrfff4WolHia5yumaZYDa60AcR6oBjhyisEzCbHcAIbBYVtX8f3q4UFSZvFd5hFaafskBNSzhZQi3DidQ1SQc5ZisnOMmQ3VkZVtPGPYDSDnAr+v4pWfj4ecToItyxNqKdj5n0Bhmq9IMYqSZsE5J2ObchI7wXtcry+FmerITFUCVquoOGycAI/fv/7z7/wHrQEVZ6pJY9gAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mO0cvD5z0ABYGFgYGCQE2MjS/OjV78YmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAATjsK7cMZ9Q0AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7244,7 +7244,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVR4nGNgGAWM2IJg2olVz2BsI2XdDefuXg6A8bMswqTwGjDtxKpnIE3mIhpRIP7JNzeWIcuDDEM2hIkUzTAXIbuQBZsXsGnEBZiIVThSDMiyCJNCjnNsAD0aKU5IAw8A2NUzR8stb/0AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWElEQVR42mNgGAWM2AQjwoL+w9gPFCwYFB6cgMutWLUORQ8LNs0hTRPQRZE5/5ENYSKsGRWENE1AcSETpWEwagCaAStWrWNcU1eAV8OaugKUtEBxQhp4AABphyLSPGmMhQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7374,7 +7374,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVR4nGNgoBAw4pI48+r/f2S+iRgjVrWM2AQrpm1B0QwDHVk+GOpZcLnALdC7F5m/a/3WYmzqmBgoBEwDbgALTplPt4vp4gKmUQMYcMbCrr23KA0eOgEA5TAQsEcuhlwAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVR42mNgoBAw4pKwKOv6j8w/0VWGVS0LNkErq5z/Diw6KGJMVjn/jx2bwkiUAQwMDAxGcagGHDiwDas6JkrDYNSAUQPwpsS+pC6GoQEACw0Oo4yaopQAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [
@@ -7476,7 +7476,7 @@
    "explained_by": [
     "I-21"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARUlEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZcEn4AIfVzANGoAA8VhQDEAAOQFC96o48hWAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVR42mNgGNTAxa/rv4tf1398apgotYRiA1hwOf2LBgNDRlIEAwMDA8MXDYb/PDcYGPZsKmMk2gUlUM3o7MEXBqMG0CohMTAwMPTMW4HC56FVhgMArQwRykfVa/IAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7639,7 +7639,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFklEQVR4nKVTO47UQBB97rb75/EMYrQasQkxBFwBiYiMk2zAFTgECWcigIBkg00QWu0wu2uPx7+2u1GVGW+MKMnt7nLXq1dVz8nbd+8j/sNSWl69foM0zSCEQNc1EEJCKY2mqZFlir/FGJAkCUKI7I8h4ubmegbww4BpmuCHngNkJnE6Hf8G05XIwd57TpLnK96TCVqU1hiGHtpYGOswjiOkTKGUApCg73v0fcdnAqJzDOEJoG0bppxlVEbCYCFMfDkiQmvNDGd/gDEGfpwZpLQ4lzOlvutw8eETLnc5Hm+PyLRDU+6h3BovLx0mD/z4fIWiWHOyhUHfdTDWQkiJVGnU9wM2uwJN+RuJEHAbh/JuwOHngdnEGPlZGIQYuCaqkai31T3CtOFLm4sdurqHTBWevdjiKFNIKbnBCwOyrmtR10eYXENmCsXWYfV8h7aqoZ3G2LeIAQxKTaReLABCCJ6vtQ7kd+stqn2NTCcY2hqPt79g1w71oWIAGvvZ0nMTCZE+KgOcHgYU2xWqfYXM5LBFAWXp5hoHqj0Bpml8AhhHj2HwCNOE6y8fmcmd96w+mg6Jid4kIGstyrJnnSwlBK4nIlMKxjieObGhPTWWkpJOSGDkL4oNRj+XMcNwGSsWDkmYAChDVT5AaYMkmfs0J4to2xOPd2Fw/nEomGiS0qgMCj4LZtb+/CNpzQ15YvD929fF8a/2BzOEG9sN4FsGAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mO0cvD5z0ABYGFgYGAwM9AhS/OpC1cYmBgoBANvAAu6gIiMAl4Nb548GGReGI6xgB7KIyUMTl24QrYBAPIVDQth4dRzAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7722,7 +7722,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB2klEQVR4nKVTu24UQRCs6XntnvEJkZgAJ8Tk/AMi4j/5FiR+gAiEBCYwvru9eTWq3vWZGEba0Uyrp7qrutZ9ePNa8R8rcHt7ewPnHFofmFPAr+OCHLzdn88ZPw8LnuWIPgbmGDBU8XCu+Pz9DkIAJkexI5bacJ0TggiS9ziUhil6iHOofVjO/VIRvbezcOtjY+GAror7pWAMtfPSmnXSBj9F6QMiDqfanig453AoRBVMwQMK1DGwnxKg0YCPpdndAdjniKX1JwBVNe6s+vHLVwTxOJUK52CxFD1K7ZhzxLtXN3Z+BBDjdC5YamdhWxQrBjHgtHWUYzAq7JQt6ZYs3K5zZB8mJJMIwMpMcuJWbRhTxT4n04NTuQAcSzNV744LphQRg0cKxs6qUyMCdAq4TYOTu2hQiV4JImitWwUDiX6lpdQJmFM0Xbw4nP/WYBcjvHNmEj4gdy4b5RimPAHpEdKgPx49EbiVvlbdxYD3ty8NhHcmztGbE1dwxUNpyF7MaJcOhiqmsFanefiYMZqItr5KwYrQcPTAqbLg2uVGIVgyydrsVS3GB8ELvAiuUrQJMPZil3G2/A2A9qQORGUC9Ti1bmLxzi95we/Nray9S+sYTYNP33788+/8B9zPJ+vsBfu2AAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkUlEQVR42qVTWw6AIAybhK8dxJN4Og/cX/2CjK5E1CVGTEbXx9zOY7/sRxUzM3cfnljtO75jT1WoDMIFwNzdAGQAAB2knWcgXQJfjFMiZSWjMu04VTFgZmXW+KQ/pbAK0nobSGFXP+3BWxlykVbyV0YmEzk2Bue4l2KME6WJykD1T0Q2SQJfUKay1EHCyt6rvhvEU2OjTuSZpAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7800,7 +7800,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFUlEQVR4nKVSS47UMBSs2HH+naan+WhmhRA7VmzYsuYMnARuwZJjcA52iA0DI4FgepDQiOnOx/EnMXov091iC5YcK4lfvap6Fb14/izgP1ZMj6dPHkOpGDhABWybDlmaIIoi3oOxmEJAEseQUkDFMd5/+ARB14WIoLVBQEDT9ZimgBAAYx3vTg9YlAWWVQEhBLp+QKALVAsAejCMGgFcPE4TEjV3ShPFzPw4coEfPTMzzh0B8ixFrwfs2h5RNHcmNOdH7lgWGaQQsM5DCslgYQpHD2gVeca67r98DSEldNtCJQmysoKMFbKyxObiM3bv3sB6z00PDAbjWBPRcsagWq5Q1DVM36Ool1Bpil/fvzHwrulY6l8eAAHOezjnUa/vwhqDen0P+WLBE+h2N3jw8BFipZBnGaoihzb2KEHc6pumaUYOwObLOWRMUhr02y100zA4GXvTtIiYxy1ALOVsipSoVie4vvyBk9MzpHkB7yyDrk/P2AsaOTMYzFGCH0fEsWRzfv+8Ao1CSgk7DCyBPLjeXMJbi7bT3JBGeWCQJQptPzCpi7evWBL5QaCUA8oGjfHKGP5mrJ2Tu2fg/IhEKaZGFhD6OE7cqdeGi8m0/T0K2n4KDEM5p+R12nKhtY5ZDBSoELiYwEQUsXZi1bT6yIB+UhZI7+rOggHrqmBpVZnD+5Fp06jpnZJK54HBx/Ovcxz+Yf0BM1cazkpwCSAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42qVTMQ7CMAy8WnkEQsxMDLylQ9WnIgbewMCUGUX5RRlQwnFJQ0Q9Rfb57uy6wzyNCzaEA4Dd/lgUYvBf+Rh8fqd8DP5NwA3cWGtScqupcWieSQFgmKdxSco9BEriFHg+HZpLuz+eGR+D/4zQG4p1ReGHA12wrc3Z68L+OR4WtNa2W+oJX+zgcr2BP+vaNVYdqAsmYsJiBwpSRT1vJrHabAnErmr1fMpbfucXlqxw7fLumtIAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7936,7 +7936,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABv0lEQVR4nKVSW2rcQBCsnodG0tonMARyg4CDnft/O+Q7AYPv4JW0mmeonvUK/yYNI8FMd3VVdcvz47eG/wjHz9cvDzDGoDXAWoMYE4w1CMOAWqu+LcsK6yzQAGMEzjn8eX3rANZaPUwupSCEQYvOywoRYAwBp3nCul0gRtCaIKV0MGit3TrxEITJjMH7flcrIMA0jsrQe38ApJThnNXDx1IqvLOaRGA2YI41BjkX7V5rOQAgPKKFv36+wFn60b31zqG2ipQ70Pen5xtThulJXh/ZYQqkLCi1KaNcippLRgxKYS5NPCTkpO4iiP5YQBYpFQUjCD7uYsI0jZ/HOFy10rzLntR5I6LFHCujtqYSGxpyzjq1wwP0UV72HcFTc1Nb+CcLFtGLWLOOVKWUenjAYHdrrGpMuUCuppIBvek+iwJxIt7bzxJKrdhjxOPTD6VICdSi+9Aa7u5OdEelctEIdgN4XxZdEIFg2y5qUowRKWfMV8PoPIu4iXHfEVPWe5XAkex7VORxHPB+XiBiYKTT1xUGsKyrSmXcn+YDYHAO3jus26YjZFAG6RIsDF67n+ZZjaa553U9JPx+fetV/xB/AfWhCb3pGn8RAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPUlEQVR42mNUU9P6z0ABYGFgYGAwMtAgS/O5CzcYmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyGIQBI6XZGQAmuAmZ2JrwmgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8007,7 +8007,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEitA3FP45WrmAadQABorDgGIAAEdTDaY+47d6AAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVR42mNgGNTAxa/rv4tf1398apgotYRiA1hwOf2LBgNDRlIEAwMDA8MXDYb/PDcYGPZsKmMk2gUlUM3o7MEXBqMG0CohMTAwMPTMW4HC56FVhgMArQwRykfVa/IAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8085,7 +8085,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVR4nGNgGPKAEZ/km2vX/nOJiTF8e/UKzAexuUREGPEa8AaqCVkhMQZhAJCmb2/e/IfRDJSCN6Qa9IYWNr+hlive0MU7bwYs9BmGHAAAmWZjT/6I+IwAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR42mNgGPKAEZ+kRVnXf3SxE11ljHgNgGlCVojPIEZibUe3mWRgUdb1H5tLqKeBGIOo5gr6eIcmYTBMAQBl3DfiXckGxQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8158,7 +8158,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeElAAXCv8crVzANGoAA8VhQDEAAGmHDK55LGY6AAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVR42mNgGNTAxa/rv4tf1398apgotYRiA1hwOf2LBgNDRlIEAwMDA8MXDYb/PDcYGPZsKmMk2gUlUM3o7MEXBqMG0CohMTAwMPTMW4HC56FVhgMArQwRykfVa/IAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8231,7 +8231,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKklEQVR4nGM8kuf2n4EScATJAHLYTBTZzsDAwDjqBYbRWHAbTUgMVMgLAIOnWM2XD7+YAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVR42mNMslP6z0AJQDaAHDYTA4WABdlULxs1BgYGBqLZo14Y9cIw8gIjpdkZAB+AWfEAdQbnAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8263,6 +8263,18 @@
      },
      "certainty": "反応のしくみ・ノボラックとレゾールの違い ◎／ベークランド 1907（特許 1909）○（TECH_TREE の本物欄と一致）／ノボラック/DNQ の時代 ○（[2-32] の本物欄）",
      "basis": "- Wikipedia「Phenol formaldehyde resin」（ノボラック・レゾール）：https://en.wikipedia.org/wiki/Phenol_formaldehyde_resin"
+    },
+    {
+     "title": "C19. 熱と圧力：泡を出さずに固める（ベークライザー）［2-28］",
+     "answer": "フェノールとホルムアルデヒドの樹脂（レゾール）は、固まるときに水などの蒸気を出すので、ふつうに熱すると泡だらけでもろくなる。ベークランドは、閉じた釜の中で圧力をかけながら熱して泡を押さえこむ方法を考え（「熱と圧力」、1907年出願・1909年特許）、1909年に発表した。この釜は「ベークライザー」とよばれた ⚠️。閉じた釜で水を熱すると、蒸気の圧力（飽和水蒸気圧）は 100℃で1気圧、約150℃で約5気圧、約190℃で約12気圧と急に上がる。",
+     "hee": {
+      "1": "圧力鍋と同じしくみで、泡のないプラスチックを作った。",
+      "2": "ベークランドより前にも同じ樹脂を作った人はいたが、泡だらけで使えなかった。",
+      "3": "ベークランドは、写真の印画紙ベロックスをイーストマン・コダックに売ったお金で研究所を作った。",
+      "4": "⚠ 事故：圧力容器は安全弁がこわれると破裂する。19世紀のボイラー爆発の事故から、安全弁と検査の決まりができた。"
+     },
+     "certainty": "「熱と圧力」の特許（US 942,699、1909）◎／1909年の発表 ◎／「ベークライザー」という名と年 ○⚠️／飽和水蒸気圧の値（アントワンの式）◎",
+     "basis": "- Wikipedia「Bakelite」（歴史・ベークライザー）：https://en.wikipedia.org/wiki/Bakelite"
     }
    ],
    "item": "novolac",
@@ -8311,7 +8323,7 @@
    "explained_by": [
     "I-23"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABKElEQVR4nO2SvUrDUBiGn5OTNDbGVEm1aBHddBMFQS/Bi3ESBBcHBwfBzVvpDbgJitJdir8YaBNSk7RN0xxXW0roKviOH8/78v3Bv0TRCu4b10ojw9Jyto/OprJiWtFrXKiWzNmSKzwvR9R6Kb4Y0ZM2B/snYx5t0ty8vVGeKlEycnpLIZZnY5IzkoJ6FPL4dKl+8/pkwGI5YmDPIWJBNxtSFR10r0SlYqFkm83OeNPaZIDf7tNNY9ATnMBBlCT+poOpEkTq8mnqxQF2rcqa0hgOqqisS2too7+kZDLhI5FI36RwBOV/48UW9fkBKnfRtC8Cw8AybNY3AsJohivcPVyphTQFXyd3bFy9jwzKvK/G7O2eipn/4K15rsJXk5HrsHN4XMj+Yf0AOkpqHVVat2MAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAvklEQVR42mNgGAWM+CQjwoL+MzAwMNj8uMeQs+kCVrUs2ASn+Bn8P8KhxFBhwcdwgc+EweATH8MUBob/RziUGFasWseI14CIsKD/NhZ8DDZo4jx+KQwVn84wMDAE/Uc2hAndAJsf9xgu8JnA+QafzmDIIwMmYgIK4g2IQUc4lPAbcIRDicHg0xm4K5A1I7uMoBdgmpC9YPDpDIYXGHFFn82Peww2DgZww44cuMCALRbwpoMpfgb/Yd5C1ziMAABDV0mqyF5gEAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8390,7 +8402,7 @@
    "explained_by": [
     "I-23"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACg0lEQVR4nD1Ty27TUBQc32vHceJHnBehBX6nP8CaNSwQCyqBeAlQERIVICFW/F1RK9o0zcOJ47cvmlOEV/b1uXPmzMyxHj08MuNRhCjoY7XZwu04+H0xx+FsjHgQ4OJygb7Xxdn5Fe4dTDCOI1wv1/C6Ls7OL6EcW0MrhevlBrZto2la9Htdeb+cLzEcBKjqBq7roK4bLNcJwqAvdV23AwULsG0tDIwx6HQcwADJLsWdSYx9VqCqa+R5AVtrpFmOXZqhaRq0bQtVlJV05MMDoramlRHKssYoDqGUBa01RsNQmgxCH1HoY5tmUEVRwhjITK9Pvko3y7KwuNngarFCus8xGQ7kUrLdS+18sUKyTWV0m7PwwPNcYbFcJVLoODZm0+E/fdbIixIHvS7yooBSCoHfg9/3oCjIMA6l8NOb5/jw5YfoQRbsQtHIgABlVcFxHCjLwm6fiSaKhRRlu9vDoqKACHT/7lTex8NIwFhMZmVZYRAFIi4BFSWnkHXTwPM6eHv8FKc/f8HAiDs3qwR/5jfyX2sl4AQJ/R4sS0Ftdxm0snA4m2CxTP5rcXW9QlFU6HkumBWy4OwcoTVGGFkWoCajCGVVY7Hc4MHhVJBfPHuMd5+/o2lbcWE0jASIFtJy6sWcbJIUiuliPOPIl47Jbi954DObxKgqUq5l5jgKhA0jn+eljKQYEAaFdq6TncSVl04/vsST4/cSKl4iKEXb0H+tcTAbSyYUKfJAM84h7buNtmmNsJiOBhIuBinLC1RVLaOwkd/nzmglqB3HFga0kgDpPsO3k1dCnQ6QYejfLhFBsqIQW5XrdqSYFCkOhXNsW1aZ31HQk30gCO2WnTFGdoaB+wu3o3HWk5lMTgAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3UlEQVR42o1SOw7CMAx9RD1EFTFHHRiqHoEBIUYGxDkZIsTAEaIMDFVmFOUWMLlygg14sfXs+PNeVufT8QUAIc6YxmHx/2IdAPTWYWJewwBgGgf01uFgHUpOMGAPSk7orQOAJS45obWS04IbKEaNyLcYxVWD/W4rTuFNKEdmWoDH/BzNDC+83u7iFtIZZJ02oSWV13FyTfuIb0GF2oCqQSuZtL7KAde93ULjoDqB6yqp8E0Vo+kbH0+Mm7X4C0UOpIkaJsookRh/fKJqA+8vVSLEGd5fEOKMEOePGorfd1Ga2xk6Q68AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8535,7 +8547,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACEklEQVR4nD2TWWsVQRCFq/vu++5DomgkAbfcxHhRyCI3Pui/FkUhiUQRwUD0QR98vfu+jnwH5hbMTE9X1alzqrpdOZ8NstmsjUYj895bpVKxdrttq9XKIpGIpdNpm06ntlwutZ7P5xaLxfQfBIH5Wq2mZJzOOTt6tmUAAgQgQPl83t4267Zer+VLpVICxxcdDodWLBYNIwDD2el0LB6PK7jf79v7zzeWTCa1D3CpVBILz2swGCg5kUjYp6vfcvAPADShHQKRCEC327U3p0/M7e3cDwCgKhXQh43HYyWyh0E3ZAlYyMSTTCUCwuZQ6fTlrtWPXguEJmYyGTt7tWdPD04M2YDQJ1crFQJohpoA6fV6AkTSZDIRCxpMdfyLxUL+XC5nHlrValVVMALD8YUgs9lMyecnjzf+w0ZTfXA797YDnNDCkEPSceOhXXz9s9nDYPpg99B+3XxR45HloUMF7N35gYIBvPz2V198L/a3xYamfb/+oFh6ABu3dacaoKXVakkfSeEI+YcZPYBVOGpOaqFQ0KSioIJEH2DDGgcGAMlQpQDaObUUZE2858WomABrKjaPH4kuOgFRs5xTIsaUYMOeAHhAZoPT9fHiVlNBRgjOfWCk5XJZcYCz59VJ723/+ZmArn/8U8MIQi8AoX7YAByNRvXoBqOFgNufV+pso35XmkGnMrQ5E7q63mu8mwk4Z/8BwsJUHkn3oyYAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAa0lEQVR42mNUU9P6z0ABYEIXMDLQwKoQlzgTsTadu3ADqzgjJV4wMtCgzAC8XjAy0MDwNzYx2rmAUEzA2EzEKEaOCZg4LFaYcGlCjjZc4vQPA6INwJVsic4LuJItXgPQQ5dkA2AaCTkfXR4AiLgkyW8n0sgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8622,7 +8634,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWElEQVR4nGNgoBAw4pL4v9vtP4pC111Y1TJiE2wPYkfRDAOV635iqGfB5YLMNNdeZP70WbuLsaljYqAQMA24ASw4Zd7fKKaLC5hGDWDAGQvTVz+mNHjoBACdgRB+FU8nsgAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARUlEQVR42mNgoBAw4pKYlifyH5mfNekNI9EGdLmo/ccmXrbnFoZ6FlwuiKtRQuEvarmHVR0TpWEwasCoAXhTIq6UN/gAAG/mDSGL0AuMAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8817,7 +8829,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACWklEQVR4nCWTO44kRRQAI19+q2p6hIS1K4w9GDYWZ0ZrgIG0DtNdXfl7+VDPXiCkkCLc73/8ad++fOWuTw6NqAR+/P0PX77+Qo+ZaZO9Rr7/951vv/7G020ceXA2x78//kLsevK4Ku+W6BN8W1xhcM4D90y4PrhSwLqhC1x0PFqlpItYI+IlEQLUPtG8GG+VYJ7NC8Ig7G8kUYTE0ztkDoITvG6gE1lO+Qkp7LEj50FkIjJpeML1pPuGX5GYHX1NZouo65+KsmJGm1LzpNuBt0rzxmmdHE7WthEeYKWz3ZUQjIJgdeFRZLsmkiebXdh9QdyJakjytLHT74pkxTfhGZRcA+72BFk4A7nocO2YHOSbgFs4t1OuAt7Y98HQgysOdDtgN2RkXNpZMhGfMy4bqz8xAvRKtSfzmMg20XogoxFaRJqhVZgYww1cLMh0irjKtBv1VGb0+BZZWlHdsAT9tqPm2V0nlovuF2UU5jkJmw18UhInLKUFwYeBX47iTqoZtync5WcHYpkNz7MvtmLI1TMPA9ehBkeeHu8LYWS6ZrwUHkGoQekrgHqaC8RoqM+f0iSMOW/4bdFwNKCaJ/mLPg2fIkUUjcoIla15ri3Q5vkKLBIf78ytUeadGDsrGHlXnAplHviH+wTZcMT1Th8BPtIrM8TmZBwfyIiM8I49HKUpzjVOE1aqRBZqO0WFiwdrqwSvBHOElI1YHTPeGSNQLOJSZJw7m368bkBxlFdcZWBTSd2hBtoHInim7qwGpQfme6QpOHfi3sCXQEqvLx6sYbzJa/k3wt5IOfM/FtdsVQ3cqP4AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAfklEQVR42mNUU9P6z0AEMDLQYDh34QaGGGNEWNB/CSk1FIkXz24xECvGxEAhINoAdNvhBqD7Cxd48ewWdgOMDDSo7wVcziXaAFzORQfnLtygLBaMDDSoEAvEKsbmLZxeIDYMSPICxSmR4nSAKxBZGBgYGLZt20RWdmZgYGAAADntKu0359znAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -9047,7 +9059,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEipgACv8crVzANGoAA8VhQDEAAJP/DMT2KS99AAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVR42mNgGNTAxa/rv4tf1398apgotYRiA1hwOf2LBgNDRlIEAwMDA8MXDYb/PDcYGPZsKmMk2gUlUM3o7MEXBqMG0CohMTAwMPTMW4HC56FVhgMArQwRykfVa/IAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -9108,7 +9120,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASUlEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBacANYMEloSMlgsI/d45GLmAa+gZQDAAzpg2ipAX3mQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVR42mNgGNTAxa/rv4tf1398apgotYRiA1hwOf2LBgNDRlIEAwMDA8MXDYb/PDcYGPZsKmMk2gUlUM3o7MEXBqMG0CohMTAwMPTMW4HC56FVhgMArQwRykfVa/IAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -9191,7 +9203,7 @@
    "explained_by": [
     "I-23"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEyItJaCI2tHEB06gBDBSHAcUAAPMODXbsd2uKAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVR42mNgGNRgWp7I/2l5Iv/xqWGi1BKKDWDBJuji1/WfgYGBgcnEC8rf9p+BgYFhz6YyRqJdEBLihZVNHy8wMDAwBMiVoPDXMDgN0lgYBgbgjIV1686giTjRJsMBAIeGETIiW4ldAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -9282,7 +9294,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEiggfCv8crVzANGoAA8VhQDEAAIxJDMDZBrhDAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVR42mNgGNTAxa/rv4tf1398apgotYRiA1hwOf2LBgNDRlIEAwMDA8MXDYb/PDcYGPZsKmMk2gUlUM3o7MEXBqMG0CohMTAwMPTMW4HC56FVhgMArQwRykfVa/IAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -10200,7 +10212,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3klEQVR4nO2Rz0sCURSFv/dmnJEZUxENXJQLFUYEN0K4KZj/uFXbIAqkVQWaaFCbyYUo/ujpqDGvbcKkyxb17c6991wO98I/fwF9ea739UVc8XlwplOByfHkk9eswyoUnFpbTAsyF7c7Hhm3YP3kMisKDEcS5j4olyOGKmJQiOhcNXcSmd9F77qlqwuYe4rRQ5JuYUtuYvMyVWQqFvXumreiy48JPL8tZGhz9OhSPVnR8O/FyNEY0mYxNgiyCdRmefgG83ZTT9/TmCWFkBaJpCRfu4mdPUj/zt/7hd/nCzwJQ3o60E/RAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaUlEQVR42mNgGAUjAUzLE/mPT56FkKagIBMGBoYzcH7WpDeMBA1AaISAzBIHhpf3vkB5Z/4jG8KCzWaY5nXrzjAEBZkgacYETMgcZJPXrTvDkDXpDeO6dWfgfBgbGTASEwYww2gSCwMPAIqbL2HJkYywAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -10417,7 +10429,7 @@
    "symbol": "🔥",
    "people": [],
    "media": [],
-   "descendants": 357
+   "descendants": 358
   },
   {
    "real_full": "火を囲うと放射が壁で戻り約1000℃。土器窯・鍛冶炉の原型",
@@ -10543,7 +10555,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4nGOsCFD4z0ABYAERGhoaZGm+ceMGAxMDhYBp1ACG0TBgGA0DBmhuBOUqcgEAZeEHk86H3aMAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR42mPsclH7z0ABYGFgYGBQMlMiS/O9U/cYmBgoBKMGjBowagBSbrx36h7ZBgAAlo8HnR4aacgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔥",
    "people": [
@@ -10702,7 +10714,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABy0lEQVR4nKWTTW4TQRCFX/9Mz9gJERjEAUBsUMRh2LHgjtwjJ2CJlA1ISBFx7OmfqkavJjOBJaIsj1s9Xa+/elV2H6/fdPxHRD7evz7g1cWEY66oqtDe0Tvwcj8hi2CugstxwKlUpBgQvUOVjpvb7/AUGILHz9MMscSOKUY4BxOzW4LDfS7YpwjRRZznGJ4P3ng1JkTvwe0pBjwbkx1oorhMg63vzsXezU2MZBPYD9GS1/DOYa4N7bGcKoqrKRnpSjy39uSBcw7S1Wr78vUbcl1uKCImTEGKpOjx6fotxhisjI0gegd+jqVCtWOI3m5ebyxNAHSrn1GbGt1GcK4NWZYN0Ly2rMdhoWAwlSSB7gLWlb9K8JYQIdItkYgshTSLJ2JULOluzpj+JKii1sJgXeiLcU0RvDNBdR3TsLhOgMN+sjObBxdpsFsIR/PYutWH9SBrWAeMNL/m8kTQVE2Av58/vEMKS/J9rpuRjBSCnSEZ52YjCETVjofSLJGmrmsODsW5d8zFWsiSs3XmkeAhVxz2o22wlcSl+89341bai92IU21GRVF6thFQ9VwFTTtKU+yGaONL4SJqiSsNZ4ajzO9GcHP745//xmv8Bj67HtVBFKihAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mNMslP6z0ABYGFgYGAwEuAjS/O5D58YmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAAVbUK6QNwXUsAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔥",
    "people": [],
@@ -10835,7 +10847,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAw0lEQVR4nGM0NzL6z0ABYAER1lZmDKysrAx//vxhWL1mA14NoSEBYHUg9YePnGBgAgn++/cPjgkBkBp2dna4WiYQARMg1gBktSwg4sWTxwzEgg9vXqPwWUCEiIQk3F+EgKikFFztjbuPIAbA/AWSiIwIAdMwRdhomFp4GPxD8hcMw8IFOXzQMUYgsuNRjE0NThewE2kgigHsJNqOEo1vX75gIBewgAgJGVmCIQ+jkdkMdx+hhgGpgYk3GokxEAQYKc3OAKAnN6VCaRp1AAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYUlEQVR42mNUU9P6z0ABYGFgYGDw8vKDC2zbtgmvBnS1TAwUAooNYGFgYGB48ewW0RrQ1bIwMDAwSEipIUQu3MBrALpaFnyBRJcwGAYGkByNWA1AiRpSwIUbgyAMGCnNzgDt7RfvumLCWwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔥",
    "people": [],
@@ -10986,7 +10998,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB5UlEQVR4nKWTTY4UMQyFX/6r/2CQWLNgMeIEICGOwRFYcC7Og1iyng1igTQwTPdUJbETZGe6mjWUqqpVcfzy/Nlt3r9+1fEfl5fXu+sXuD3NMACMMdimAG8tjAHuHjKudhOWQrqeK+GUK6J3+HLzHVYEWu+aaK3Fk01Socqs6/sp4tdpwRS9rnHruNpO2EQ9GyogJyXvcJiibpoLoVLT060xKnJ7nNWVdxa9d5yWeikhV1ZFZy3mUtdNz3aTxjo6nDV4KBWlMow16mIV6L2rNWs6Pn2+0UCKAdwaaq3w3qO1huA9Prx5id9z1mcV4N6Rl4LgLELwYGZUIuWiyb3De4dCpKXIevT2IjAFDwTgfs6aLBsGVAMiRmMGCWiBZuUNpOAuEOdCammXIuhRQMoqpcI5p48Mi3Rpn6LGBfIqMAWH54ctjrlgk9LqQhPb2Bj9gHwntXe9LwKVmwITskWgOafQRoz1e4BueLpNOGyG05VBZYYjoyd8fHuNTISlEqyx2j6pV9q5jR7HXLFPAcR/ldD7ACkcqImbMZnhkfT9XDQurCQxEyMJ+LOA2JrraJuIyFBJOcxNy5OBEkciPkbdjM6dBX6eFh1TGdtzV2SMBdQuBQUnvwJSZkKucwkq8/Xbj3/+O/8B7McXS0Kj028AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mNMslP6z0ABYGFgYGAwEuAjS/O5D58YmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAAVbUK6QNwXUsAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔥",
    "people": [
@@ -11122,7 +11134,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVR4nO2Ru04CQRiFj7szCLvAgoBcJBqkMr6TiYmJje9g5TvY0ljYWFj7FMbC0FCQBVw2C7LM7IXdMTNmabDwATjJJGcu/5lv/gH2OshaMHh8EOVyEZOpg067gc0mwdxdoNWsgfMQPAiQpgJF04C/Zri5u1e1JAtYM46r2+t/tfR58LT1JDMnnWMsxyMEYYQoisF4AF3XUSoa8H2G815X0UmKL8fdBmiZkRumaaBeqyCfP0S/1wVjHEmSQD70/WMISgkI0WEYhd0AIQQ+hyN8r9bI0V+wy4s+Vj5TjTqqWkiSFFEcgxLyd4AQqcIf2zN4i5VaN82ConO9hbqZ8wCWVdoNkKpWytA0TR2QXha2mw0ICOQohW3PQAnFdDZHJpIZZ+7h5fUNZ6cd2BMHuq6pIb+w1awrQjkPw1jybgOwF34A6aeJ/lCvB6QAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVR42mNgGAWMMEZEWNB/UjSuWLWOkYGBgYEFWTCkaQJRmtfUFcDZTJR6YdQAtFhADt1RQDwAALv5CK6MvgC6AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔥",
    "people": [],
@@ -11246,7 +11258,7 @@
    "explained_by": [
     "I-01"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEvSURBVDhPldM7kgIxDARQ34VkT8YfZgYY9neZTTbeI3rrqaoJSIBAyNa0u1uyafv91M/nj75a7fvl8ll5txv7ZnOsfDq993n+6nBq4zj3w+HUl8td7ZtDgOv14RbA1+t3326HCgLH47lP07UEYJDANcUoYwSWEVChTsAaDlH2vjULkRYoAlBIVosDNVi1cuBHnw7LyIDZ5CZt6X0YLlWjzCXyasGHxeLtpYjraoHCPeBRmJFzzYJlxZ/fv6cC1gy4r2s0h1cJzID7IrC4t/goDLIITFIb94BH4Tq10cKUJyy7MteVZ2xGanlA6nBurxwE4EP2CKxDZE4OyNoOvmGyyNPNk0ZCHYEwcRlB/i+3W4iKQ/YIAuQiyvZ5zrD1kHxQAMoBJPZschW71ggIROgfceUryX8wMW0AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATklEQVR42mNUU9P6z0ABYGFgYGDw8vIjS/O2bZsYmBgoBANvAAuyf0gBsHCjngsYGBgYqsqyiNLU1jWNBmGAbjL9Y4Hc1DgMUiIjpdkZAPf/DptRxB6yAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔥",
    "people": [],
@@ -11341,12 +11353,12 @@
    "explained_by": [
     "I-07"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCklEQVR4nKVTXWoUQRis7ume7p7sJLIhDysJiC8eQBA8hMfwCoJnEDyFl/AE3sAHkYAIBgybhM389fSffN+EjM86MNPszFfVVV214tXL1wX/cSl6XJw/Q04JlVJIMaI2BiUXlLJwxxjgXIOqqpBSQogBprb49v0rJA0QuGmOoJXmFQVIKTKglAytNf/23mOaRjjr4P3E5JIem02LOcyoZMVg2lEpAiVWQUQQAkIIVjmMA5xzqwU/e+SckXJCjBHGWF5piFzQrvSdbOScWM08zyuBqQ36oUdMEW8+fGJQd3sDISvU1qHd1jjsPeaxx5eP7zD5Cda41UJKCQICMQTcXV9DG2D3fIvm+ORBNqCNwenTLSsgWzGFlWAOM5RSsNbh7PwMUgDDATjsf2Pq75EjYBsgeDB4c9RCCrkSlFKYgK77W/ILjN2EkjOa9gl+XV7BNIAfA8/2fYdc8noGzi6HQ9HUxoHCsBuLUk6grcTFix38AJzuNFviaJVeFfRDxwlIKdn//uoWtaXkBMKU0d8trTvcgA9Q65qTeFSg6JQKOL7P799y0yhaslDXhmUT+Tx7SFZALRWrAq0131QY2oFSoSwpdwItjVwOb+lIYOK1SH56YC1o22N0ffe4KwFoJRJSRbboXQh/FUnKilMg0DgO/IF80lCIEVWSPENgauhS7yVGJvjx8/Kf/85/ACdSLZF2zCzNAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mO0cvD5z0ABYGFgYGCQE2MjS/OjV78YmBgoBANvAAu6gIebE14NO3btG2ReGI6xgB7KIyUMHr36RbYBAGl9DOMwFsCQAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔥",
    "people": [],
    "media": [],
-   "descendants": 231
+   "descendants": 232
   },
   {
    "real_full": "空気を抜いて加熱すると酸化せず、気体が出る反応が進む（Mg 蒸留[1-39]、W/Mo の焼結[1-28][1-31]、ウェハーのアニール）。1929年にレイセオンが最初の真空炉を発注（イプセン社史）、工業的な普及は1950年代末〜60年代⚠️",
@@ -11839,6 +11851,85 @@
    "descendants": 1
   },
   {
+   "real_full": "1892 トーマス・ウィルソン（アメリカ、アーク炉でアルミを作ろうとして偶然）とアンリ・モアッサン（フランス）。CaO + 3C → CaC2 + CO（約2000℃）、水で CaC2 + 2H2O → C2H2 + Ca(OH)2。1t に約3000kWh",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [
+    {
+     "title": "L6. カーバイドは失敗から（炭化カルシウム）［3-25］（D の KPR の道）",
+     "answer": "炭化カルシウム（カーバイド、CaC2）は、生石灰（CaO）と炭素を電気のアーク炉で約2000℃にして作る：CaO + 3C → CaC2 + CO。水をかけるとアセチレン（C2H2）が出る：CaC2 + 2H2O → C2H2 + Ca(OH)2。",
+     "hee": {
+      "1": "1892年、アメリカのウィルソンはアーク炉でアルミを作ろうとして、たまたまカーバイドを作った。",
+      "2": "同じ年に、フランスのモアッサンも電気炉でカーバイドを作った（モアッサンは1906年にフッ素の単離でノーベル化学賞）。",
+      "3": "カーバイドのアセチレンは、炭鉱や自転車のランプの明かりになり、酸素と燃やすと鉄を切るほど熱い炎になる。",
+      "4": "カーバイド1トンに約3000kWh の電気が要るので、工場は水力発電所のそばに建てられた。アセチレンは酢酸ビニル → ポリビニルアルコールなど化学品の出発点（KPR の材料）。"
+     },
+     "certainty": "反応式 ◎／1892 ウィルソン・モアッサン ◎／1t あたり約3000kWh ○（現代の炉で 2900〜3200kWh）",
+     "basis": "Wikipedia「Calcium carbide」（Production・History）、Ullmann's Encyclopedia「Calcium Carbide」"
+    }
+   ],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "3-25",
+   "name": "炭化カルシウム",
+   "trunk": "3",
+   "trunk_name": "熱",
+   "status": "✅",
+   "branch": false,
+   "year": 1892,
+   "year_range": null,
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "3-15"
+     ]
+    ],
+    [
+     [
+      "0-10"
+     ]
+    ],
+    [
+     [
+      "1-10"
+     ],
+     [
+      "0-12"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "カーバイドは、アルミを作ろうとした失敗から見つかった",
+   "name_en": null,
+   "hee1_en": null,
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🔥",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
    "real_full": "ファラデー電磁誘導。流量×落差。初期の発電所は水力（1878年 英国クラッグサイド邸でアームストロングが水力の電気でアーク灯をともした。「世界初の水力発電所」ではなく「初めて水力の電気で照明された家」）",
    "hee_tree": {
     "2": "",
@@ -11908,7 +11999,7 @@
    "explained_by": [
     "I-01"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGESURBVDhPPdLFbgQwDATQfE2Zme+lLXO7297LzPzfrl4k9xAltsczju1ys9obF0ud8bg1FPcbA3G+2FHP78lcXC531ffpfFs874zEz/Fstd0vu6PxujcW5W1/PL6a03G20F6d1ys9NQEBgMS79f74PJqKq0Z3Tb5d64uPw8l42ByMIvn9YCIQuVVE5Wl7uBLxeyOSKAaDHL4oE9N3a+a/CgFqQJQkE5KMxJfdsEUQWA+UKYAAKFXZRBDwe/MTrRUAZgPZCCUh9H9gfgkwKuNXVdE06gzlClDICSAW1zy3noizCZccDVZBRxJipAiRqYaAG8Zdp6A8I+MA9JbsG3xIHLYmI5djMioqWTIHhVwiYH+WrDodh0n1XLzikRPI0QEhQC4JUBwh9fwGocIAopC9yMUCZudU+GAQIbVQdZUpqSKTJWT3zV0cWMOJeeddrGv+Bxn2XKQkVKW4JuuTJiP1LrnbyjVXx98czXVn+cQ0lQgSVZQ0cpk4k5Q/V1pTc4yIxFX0B/tD/qOB5GWSAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApUlEQVR42o1TQRKEMAiLjKc8xJf4un0w1/WEphFm5NKWAgmh3X7n8UdjJJGZyxkAMvPeA0CQvB16UWf1VXIVzkyEI2iwMlC/5oQGFoIz8uJaKLw3R9XinYWK4ky8SMdo94QJsdjpurTQiTndKdju6FPSqIGOzOlN6C8NvMdp5hozajD1272D5SW6Fj4NZaP76MTxfieRST4Mvv7G1xg9sHvK/gPVLkNqnu2LIRWCAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
@@ -11985,7 +12076,7 @@
    "explained_by": [
     "I-02"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFzSURBVDhPPdJHkkQxCANQn7Bz7t85TA733zD1XKVZuGxASBhoy+WpptN97Xb32myuNZns+nk+f2s2G/p7NNrUMDzr8fjptvtweKnj8bXa6fRWt9tXjcfb7lwsjj0BAYDE9fpS1+tnzeeHnrxanety+ajt9lZN8vn8XojcKqKy3z86Eb83IoliMMjhmzIx3e/f/1UIUAOiJJmQZCS+7IZtgsB6oEwBBEBRZRNBwO/NT7RXAJgGshFKQuj/wPwSYFTGr6qmadQZyhWgkAkgFtc8t56Iswm3jAaroCMJMVKEyFRDwA3j7lNQnpFxAHpL9g0+JA5bk5HLMRkVtZTMQSFLBOzPklWn4zBRz+I1j0wgowNCgFwSoDhC6vkGocYAopBeZLGA2ZkKHwwipBaqrzIlVSRZQrpv7uLAGk7MO3ezrvkPMuxZpBCqUlyT9UmTkXq37LZyzdXxN0dz3SmfmKYSQaKKFiPLxBlS/qy0pmaMiMRV9AeCwBeyI51wWQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1ElEQVR42oVTMQ7DIAy8oDwC8QCEOiE/I0OHDlVfjRhRHhDlF+kQOTKuabwQbDjfXcz0eb8OGFFqA+Vk5mTNAYAP8QdgWZ7d3ocIyqlbAcCV2rpDHPu2dgC8l2upDY5ywr6t8CFeRQnE3xZLyumUwIjWIQ2uPXEjmj7EC9BixjFrqlqrrMucDxEkTdy31byk9zo3y19i6dXMtFwnu/Nl3eUfs9nSaPlgMSm19R6MtI+YUE7nIP1z25oTWXdWJz2J2uThIN0NjW5AOWGK8XGwDOsJ38UXItKTGbs4IFwAAAAASUVORK5CYII=",
    "emoji": "🚂",
    "symbol": "⚡",
    "people": [
@@ -12015,7 +12106,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 389
+   "descendants": 390
   },
   {
    "real_full": "I²R損失。太線と高電圧で減らす。1882年9月4日 エジソンのパール街発電所が、銅の導体を地下の管に通して送電を始めた",
@@ -12077,7 +12168,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFySURBVDhPTdNnUlgxDARgX4feW4ADESD0kgSuRA2QEPrFzHyaWeb98JNtrVYrWa/d7U73j/P1/mdnqv8/XuyX30f708lS2dsfk/39bK38lrvXX9/Kz/I1oKvNsVpvv1f7zfZEAf4ezPWH/dkCCURu/+9wvogfjxbKXwTY7vdmvrJcb43359PlfrExUsoAWUEsPOVsw4wkMi2BKU2QzFRRiIBaFq5hJ1dWRIApSTnuYEiXESkMhWJaanz5uVJElrMFLCsyBMMeIKkeYMEsmyUIybBO5PEpSXbB1QOsABZmhPayqlGP7EOm2dRRgqz5CALASjJSNu+NILjcw0vUOEliSZfVXiBFzvwyI5AdLiU3daW+DA55gIIFKYMV6Pn4U16LFBllciYRKaCATGheCCaNbC6SNf8AgJqHg5WS8uz8NUgOGZpMX55RdkFs5kJgprJ6kMZluUQ4nA97PsH5+TLWNUh6oARkka0+nc8T2qe5znnWT4BBXA5WOTNJAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVR42mNMslP6z4AETAw+MZy5wAensckhA8YkO6X/XjZqDPjAqy9nGMR4TDDEtx25xcCETTE6G5tmGMAwQIzHhCiNMC8xYZMgpBEGzlzggxiA7GwYH10MF2DBZiOxLsAaBrgCFJc4XgNwuQRZnImQrYT4LLhMxxWVqPJ8uL0gxmOC1QvoBjOZGHwiGHDIYsgJDWtCwmYrsiZkNWcu8DGwQHLeGbLSADw3kqIBPUsDABFiV/vp564SAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
@@ -12146,7 +12237,7 @@
     "I-01"
    ],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGFSURBVDhPPdJlcgQwCAXgnKvu7keobd3b3fYIdXe/KJ0vM/RHJgEe7xGg3Kz2xsVSZzxuDcX9xkCcL3bU83syF5fLXfV9Ot8Wzzsj8XM8W233y+5ovO6NRXnbH4+v5nScLbRX5/VKT01AACDxbr0/Po+m4qrRXZNv1/ri43AyHjYHo0h+P5gIRG4VUXnaHq5E/N6IJIrBIIcvysT03Zr5r0KAGhAlyYQkI/FlN2wRBNYDZQogAEpVNhEE/N78RGsFgNlANkJJCP0fmF8CjMr4VVU0jTpDuQIUcgKIxTXPrSfibMIlR4NV0JGEGClCZKoh4IZx1ykoz8g4AL0l+wYfEoetycjlmIyKSpbMQSGXCNifJatOx2FSPReveOQEcnRACJBLAhRHSD2/QagwgChkL3KxgNk5FT4YREgtVF1lSqrIZAnZfXMXB9ZwYt55F+ua/0GGPRcpCVUprsn6pMlIvUvutnLN1fE3R3PdWT4xTSWCRBUljVwmziTlz5XW1BwjInEV/QGLukmykWBhLgAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0ElEQVR42o1TOxLCIBB9YVIzlNQprFI41E4OYOEhcibP4gmsU6XyBJRMLhALZ531uaCvAZb9vH2w3fVy3AFgKRsAIAUPOcue72UPAN08Dfv5dEBeM+IYkdcMAIhjBEN8BLf7A04OtQANKaDtTtOUCuLISS2bW8rWpP2rjT4F/zZoarXq3FbPPXL/YuPVbIFhMWM4y/Ef9T8SsKMlprxOM0EtuAVXu7AE5X0K/rsFK4C/ePUnshb8fCziUrYXA0vdlhY6WTdPw84jyqz0aPOYPwGz14q9vw5cGwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚡",
    "people": [
@@ -12169,7 +12260,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 373
+   "descendants": 374
   },
   {
    "real_full": "1866年12月 ヴァーリーが特許出願、1867年1月 ジーメンスとホイートストンが王立協会で発表（ほぼ同時）。鉄心の残留磁気で自分を励磁、永久磁石不要",
@@ -12242,12 +12333,12 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAW0lEQVR4nGNgoCWwsbH5D8L41LDgk5STkyNoCSMuiROlxig2W3SfxaqWCZtgbXPP/zdffjEg4/DopP8keeGRSTXD82dPEAKfrjEQ7QJSABNJqkcNGK6ByEApAACZrh3uEX0t6gAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVR42mNgoCWwcvD5b+Xg8x+fGiZ8knJibAxyYmx4LWHBJRERFvTfw80Jxv2/YtU6RmzqGHE5HZvN2AzB6QIPNyeGJx8Q0ldO7SI9DIgBowYMCwNwJqQdu/YxPHr1CyVf0AQAADatGB1YavqXAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 242
+   "descendants": 243
   },
   {
    "real_full": "パーソンズ1884。回転が速く発電に最適、MW級。現代の復水式蒸気タービン火力で熱効率30%級（最新鋭は40%超）",
@@ -12329,7 +12420,7 @@
    "explained_by": [
     "I-02"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9ElEQVR4nKVTSYvUQBT+KlWVtdM93kUQwWUYRP+BF2/+dS+CiiOtA3qW7kmnU3vJe+lJ7lohIcurb3sv4t37Dxn/sRRdXt68gbN2edn1W6QY4ZxFVdVIKfF9XbcQQsA7C+8d9rdfUNAGKnp18xZt16OQEuIClFPCNJ0RgmdAKSVSinj2/Bp1260KzDTh7sctHsDG8QQBAakUs56GI5TWGMcBwXt8/vSRwRaAqmn4w3QeUVY1y5SFhJSK5dIzHTEE/t62HWIMDFDQZTwNKIoC/fYKWmvEGEHJ5pzZgi4rQAi03Ybr3CWDBaDb9LDWzMxSzYxCzCHWNTOTZDOd52xyRkp5BYghQCuNjAxjJvT9joMjG5QPsVMnAAFjzmw3Br9mMI4DmrrlDAiMZJJP2qSUgg8e1jomUVohhsgqFoCm6dgCWSF0kkrSqQPktSwrttQ0LW90wgFZrRasmaCk4r7TomJScjz8gfeeQelM7D1xq90lRMUK2m5mNhNSTJx6XTdIOWEc7jkDmgOah+3u0TIvi4IQPLeOetduNnDWYLg/8PQRGHWANhAoEVHdwyAxAK0X168R4iy1312houJAw5LRdT1bqaqG7T5+8nSZA7ZgjcH++1fIQnEHiIEk0/1wPFzUZbiigFQav3/9hNblCnC3//bPv/NfKhMid/hVFy0AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARklEQVR42mO0cvD5z0ABYGFgYGAwM9AhS/OpC1cYmGAcERkFojUiq4Ub8ObJA6INQFbLxEAhGDVg1AAUAwYsKbPAchW5AACHvhNX3fb1oQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
@@ -12344,7 +12435,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 237
+   "descendants": 238
   },
   {
    "real_full": "プランテ1859。Pb+PbO2+H2SO4。極板の格子は純鉛だと柔らかいので [1-43]アンチモンを数%混ぜて硬くした（任意の上位素材）",
@@ -12421,7 +12512,7 @@
    "explained_by": [
     "I-21"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB20lEQVR4nKWTO4/VMBCFj5+xk1xtTUGBVgs9BRIF//8v0K7YbSngJn7baCb3EmjBUqI4sY+/c2YiPn3+MvAfQ9Pt3eN75JSglEIfHd7P/HGMgVoKjLUoOaO2Cuc8YtgxBvD68nwI0ELnHISUkEohp4haK5blgt4bQtiBAf5Gz/O8YozOh0i60aKcM5TSTELqRLNvVxbnhUpinmcWaq3ynlOgNSzrSiyMTIPE7DQhpwwpJM9ba/AkwkOcGUzOY7te+ZTX718xrzPiHnmutELJBb11Jnt6+xEpRiitTwF1C8/qCcYa3mCdRbgGaKMxuQklFSijjmzWyx0AbIHQLpcHxBhQS+X56AN+8UghodUGqSU/s3cBjP5HiDEG9n9UBLCT5fDCfhDQRqIkOipjLRkxxlNAa4N922CNhV8ccsxorcN5xxnQuxgSi/VOQVcYY84MJNVfawgh+GQKjxbfe4QEyQ6hC8LHgLX2FNDGIMXAHfjm4QPjUq0FBPeHvCgWLyVDCAljLEIIp4UUwuGZOu42CFMZw74Jt9bCnUkUJPQXgV+WI9WDD1IKtkBdSSffq5JS5Pk0Obb9m2D7+eNIdQy0WrDvG4dFp5Ad6nutNVMQKV3l1rFM8PLt+Z9/51+GMx4B8vV78QAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mO0cvD5z0ABYGFgYGCQE2MjS/OjV78YmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAATjsK7cMZ9Q0AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚡",
    "people": [
@@ -12483,12 +12574,12 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA/SURBVDhPY2AYBShAUlLyPzEYXR8cgCS9/KPwYqIMeP36NRija6aaATB5dP1Ee4FiA9D1wQFVDCAGo+sb6QAA+L6c2ZNtzyMAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVR42mNgGAWMyBw1Na3/xGi6desaXB8LuqSRgQZezecu3EDhM2FT5OHmxODh5kSUF5jI8XdEWND/iLCg/1i9wMDAwLBj1z6iDWMhxwUrVq1jpMgLeF2AHsqjgDAAAC/dE12HhHh8AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 385
+   "descendants": 386
   },
   {
    "real_full": "真空管発振回路（1910年代）。誘導加熱の電源",
@@ -12568,7 +12659,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA/SURBVDhPY2AYBShAUlLyPzEYXR8cgCSrsqzwYqIMeP36NRija6aaATB5dP1Ee4FiA9D1wQFVDCAGo+sb6QAA3SWkPXfpie8AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVR42mNgGAWMyBw1Na3/xGi6desaXB8LumSeBhtezZNu/ELhM2FTZONgwGDjYECUF5jI8fcUP4P/U/wM/mP1AgMDA8ORAxeINoyFHBfkbLrASJEX8LoAPZRHAWEAAOCoEzlys/ELAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
@@ -12626,7 +12717,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 235
+   "descendants": 236
   },
   {
    "real_full": "交流→直流。1902年 クーパー・ヒューイットの水銀整流器が最初の電力用の静止形整流器（真空管の整流器はフレミングの二極管 1904）。電解・イオン注入の高電圧直流に必要",
@@ -12761,7 +12852,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB8UlEQVR4nKVTO7LTQBDs/cqS7We/V9yBA3AAioyAiBtQRcIFiN4xuAOnICAjIyEi4ABUvbKxvNJqv9SMbSkHqfSpnZ2e7p5Z8eHty4r/uDS9Xr14jm5l8fTHQSmJWip2mxanweN+20FJgZQLhBA49gNWjcF5mPDtx68LwLpt4MYJRiv+L6VASoHdegVUoFZgCokTS60Yp4hn+83C4Pehh1aSFw+ngZPpCTGj1oq2Mfw4H/hLbGidLkmvh23Hi4TMEmqFD4lBppg4MReqTACWmYaUFwYn5/Fwt0ZMCZ8+f+FkqjT4gMYaaCnh/ITGajy+fwMfIlbWLACF6VTEVCCF5GBM+SojIQqwgRSnvWRy7/wCYI2CklfqMXKglAprNIQAx4iBANhsrRSklIsH99sObgzz5uaaSPZLCKbMhbRmT6hTlDMDhJix6RpOjjmzma21yLVCSAG6b8n7TYd+8CxxlpBy5oqsm7YrwVJyKZfKRnGXyH1qNxl8cuMC4EPiqnfrFh/fvWb39zSJzrNWGqhhCgxyA6V2zwAA2PlD73jqaKyP5xFSCK5OPSLzQFKMRtcYljN7QJvO44TdpuPW3aaN6KaUef6tMXwmrFY49AMXmQFSuowmuU8BAqEmECBNHOsnsFyYGXXh6XheJHz9/vOfj/NfxQkU1uTwJC4AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR42mOMCAv6z0ABYGFgYGAIUflGluY1d7gYmBgoBANvAAu6wLYjt/Bq8LJRG2ReGI6xgB7KQywMvij5MODjYwOMlGZnAPr7DZOayDafAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
@@ -12922,7 +13013,7 @@
    "explained_by": [
     "I-02"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFzSURBVDhPPdJHkkQxCANQn7Bz7t85TA733zD1XKVZuGxASBhoy+WpptN97Xb32myuNZns+nk+f2s2G/p7NNrUMDzr8fjptvtweKnj8bXa6fRWt9tXjcfb7lwsjj0BAYDE9fpS1+tnzeeHnrxanety+ajt9lZN8vn8XojcKqKy3z86Eb83IoliMMjhmzIx3e/f/1UIUAOiJJmQZCS+7IZtgsB6oEwBBEBRZRNBwO/NT7RXAJgGshFKQuj/wPwSYFTGr6qmadQZyhWgkAkgFtc8t56Iswm3jAaroCMJMVKEyFRDwA3j7lNQnpFxAHpL9g0+JA5bk5HLMRkVtZTMQSFLBOzPklWn4zBRz+I1j0wgowNCgFwSoDhC6vkGocYAopBeZLGA2ZkKHwwipBaqrzIlVSRZQrpv7uLAGk7MO3ezrvkPMuxZpBCqUlyT9UmTkXq37LZyzdXxN0dz3SmfmKYSQaKKFiPLxBlS/qy0pmaMiMRV9AeCwBeyI51wWQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1ElEQVR42oVTMQ7DIAy8oDwC8QCEOiE/I0OHDlVfjRhRHhDlF+kQOTKuabwQbDjfXcz0eb8OGFFqA+Vk5mTNAYAP8QdgWZ7d3ocIyqlbAcCV2rpDHPu2dgC8l2upDY5ywr6t8CFeRQnE3xZLyumUwIjWIQ2uPXEjmj7EC9BixjFrqlqrrMucDxEkTdy31byk9zo3y19i6dXMtFwnu/Nl3eUfs9nSaPlgMSm19R6MtI+YUE7nIP1z25oTWXdWJz2J2uThIN0NjW5AOWGK8XGwDOsJ38UXItKTGbs4IFwAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚡",
    "people": [],
@@ -14178,7 +14269,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB80lEQVR4nKWT627UMBCFz9iOc93dLg+BEEKlBfEQSP3Bc4NoKUKoqniI7sa52k7QTGh2f9NEiSNlfOabM2P6fPNlxgsuw6+rD58wzzOUUmickx9FWSKEgHEcUBQliAjaGDR1DRCQmAQ/72+hRMUYvH7zFiBClufY7nZom0Y2E99E6Pse8zSDcd9dXosYX4pfh6cnPD78Rte20FrD1bUQGG2QF4XQMYVShGqzwd33rxK3CoCArls2M3ZiLdq2QYgBjaslxLkabdsihoCq2mCa55NAVW3k8X4UXBbjNctyIQCYoJBSp2kSnxTRyURXH0GkJJgpWMxai67rME1RMj+LMQGX92y2EYLtDlOMCN6vBJyNvxUL50wB1IcDbJqKqA/+zIN5RoxB6me3q2qLcRzFVO7K0HeycuYkScRUm9iTQAgeaZpht99LZmO0+JEXuZh3sX+F+nhEjFFEeWWxVSCGCK0N2sZJ7Zyde+5HL8EswsLjMED9ax/7snqQWCtBTGJtKphUlkKR6kyQ2dyoNfq+kxKXkTrzgOtn9zkT47KBIUTxhrF5uESYCM4dZc8qMIwD3l9/xDD0gsxiTJRlGYZ+kEFLsxTee5nIy6sl9szEgB+331BWm2UwCVIK+8JtW9pI6LtOzsCv+zuZi9WDP48P/32c/wJ2vheG52KNOwAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARklEQVR42mOMCAv6z0ABYGFgYGCQkFIjS/OLZ7cYmGAcAx0ZojUiq4UbcOHKE6INQFbLxEAhGDVg1AAUAwYsKbPAchW5AACcdxPLHIaENgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🫙",
    "people": [
@@ -14293,7 +14384,7 @@
     "I-25",
     "I-26"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVR4nGNgoCWwsbH5D8L41LDgk5STkyNoCSMuiQNHTqDY7GBjgVUtIzbBG2++/L9y5ACK2Ouv3xgyo8MYifZCsL83w823X+H8/Tu3YVXHxEAhYBo1gGE0DBgoBwB8rxezFsoqTAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXUlEQVR42mNgoCWICAv6HxEW9B+fGiaa2W5R1vV/zY1H/9fcePTfoqwLpysYcWnOUONCEduxax/DilXrMNSz4DKZx8YPVWDXPtqEwagBw8IAnAmpZ94KFL4CrfIMABQjGlIxky+nAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🫙",
    "people": [
@@ -14467,7 +14558,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABzElEQVR4nKVTW27bMBAckiIpyXLQMxgtkBMk7U/vf4AiCBAU6BWa2BYpvopZyXK/WwEUJXFndnZ2pZ6+fW/4j6vj7fTlETkndJ3FskT0/YBSyvYeYIyEIeeMWgqGcURKC379fIPmQWtVgnlIMEmstYhhhrVOgGlZUEsWcK1V4nYFpRQoVSW41ZXserlAGw2tNTPgME2IMUosY9JWguaNbK1BgKUWxBjgvEfJWQCm64SQqrQxUFrL912BUgp934v0l5dXFPphHUK4ypn3A6DWjJ9PJ3TWwjl3V6CURghBjExLFDDr1Nps5i3iAajS0qssxDvBPF/hvUctdc2kIO4zWHxho1vbOtWRB2Ge7wTeezSJIlZJ7c71kiWnBOuc1L12rGEcJ/i+v3sQQ4DSSpb1XqTSD+kAu5SzPBPMPaWItKS/PNBrPeN4QJivNEWyEsDM3Dk43FcSgyaFbApo2DCM8uH5+SsulzMOh0kGiHKokKTH4wNSSrLoxV0BFEKYhYg7+329nEUuwceHTxL88f6+llLrPt7rKIscJcy30fXbqDLz+eM3DtMRxph9gG7X1oVhq7mK68wgHdjMs85jiWtbuejZzWDR8fb6459/5z9GIQ0RJijd3wAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mO0cvD5z0ABYGFgYGCQE2MjS/OjV78YmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAATjsK7cMZ9Q0AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -14550,7 +14641,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGklEQVR4nKVTyY7UMBB9cWJn6S09vUzD/A0nJD5hNDeuzYWPQnBD4sQHIC58BzMD9JKks3iJUVX3dGuuEMmJY1e98nv1HLx9997jP56IXq9ev0GaZdht/sBai3x6xd/9boswDDEYjlCVJbIs4/Wua9H3PX58/3YE6J1DVRboug6z+YLnFEjztmmQJCmCIOCKYRShbWosltf8L+g1HI25wnx5zRUpmABoaK3R1AccqgpSKVhjkGYD1IfDhULT1Fi9vMF+u4VzFlIqrF7coPc9hBA8mqZhcKJKybR3BoiTBL8fHzjgw8dPzO+YGOJQFpBxDKs7hJHE3e0tSPXBcHgBqMoScZKi7x3qsgQCQKoYUSSZM1GKpIIIQ/Tew/cOztoLgFKKg7z3CITgJEog3WjNao04TdFUFYQIYJ2HMeYCoE9CheGxGgF0TY1IStZDd82RilRQcQLnHLLB4NIFdTrB1XzOSdZoJFnG1Y3uOFCpmNdJ5Ek+fd4F7z2mszl+PdzznHzR1jVzftKA9AkCwZ4gkUnwM4Ald7UtZosl1us1rHOQUnJnyEzFfoe+9whDgWK341aS6c4AURRhOBoxiLUGRhsUxrAmbduytUk02vfoYJ3lNj9rIx37yWlJmmKc53i8/4nJdArvgd1mg3w2w2g8gTH6fJkYZpLnbM9iv2dbE7ruOg4WgeC7sVitGJxcy+KeQPgEX798/ufr/BfGxyuVhm9ywwAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbUlEQVR42mNUU9P6z0ABYGFgYGAoqllFlua+ljAGJgYKwcAbwIIusGbNNrwaQkK88Lvg0Y0FDI9uLCDfBXIaCTgVQwz2Ii8MHt1YgNVwog2Q00jA6jUm3E4lMwwgoeyFQ7nXIExIFBvASGl2BgDXSxrvR53BygAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -14907,7 +14998,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4nGNgGAiw9fDp/xRpvvbs/X+KNH/7/590A7aOaiYNbB2BAQYCFGkGAYo0UwIA6qCCdZs+RBkAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANklEQVR42mNgGAhgUdb1H8ZmokQzyQZYlHX9L0mKIN/Za248+o/uglHNo5oxDCBbM7Y0TjcAAMmIVOjGIrItAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -14973,7 +15064,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACTUlEQVR4nKVTu47TQBQ94/crcRznsVntou1okBAFFSUNHT9AR88/UPMXVNRIiIKOggqJio5iYcluCHH8dvwco7lIMbQwkseSPXPuueecy549f9HjP5YitsdPnoJJEuqqpCeNIyiqBtOy0DYNwBiqQwHdtNC1LearU+w2N3j/9jUkgmHAvQsX8T7AaOJBUVVouo4izzDxZ5hMfXizBYGJf3fPR6iramCQhHu8+7GBYVlIwhDzk1NkSUzVkigEA0OepVA1DYwxfPwSQDfNAcCwbMiKgpHrQZIkdLxDniZYnV9g8/0bffNmcwIUq2lqAjoCKKpK9ATlqjygrWtYzhh5lmB5dg5ZlhEFO0ymMxyKHH3PSZMjQN/3MG0HeRrD8+d0QJJl5EmCQ54jjfZwxhOkSYSmqqBqOtzpbABo6xqqrmM8mSLYblCVJfzFEl3XkhvT+ZLa4JyjLApojEHTDQKQxCZoCSHLQ4Gec1JeiCdYibY477DfbWGYFoln2jbC3XYA8OYLEkVUsccuHUDfo8hSmJYNxiTouoHtzRqyrBALyxkNLWzXV1ie3UIcBMTikGfkjFhZEtGl2XJFgQJ6XH+9hDN2BwDOOXjXoUcPf3FCTghbBZAQS6QzifYUnrZtSJ9oHwwtaILe9ZreYfCToiw8d6c++q6DZTvEQojpej7SOIRu/CGiPRrj0YM7FB6RQkVRqKKiqEiTmNIpZqWpK3Lm4f3bxygTgBDvw+c1iVdV5e9kygo26ysaKNGCuKgbJmxnhE+X8d/T+ObVy38e51+c3SP4wEepIwAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR42mNUU9P6z0ABYGFgYGBo27SDLM1Vfh4MTAwUglEDRg0YNQACGCnNzgCtGQYLt1MJiwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -15126,7 +15217,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+klEQVR4nKVTy47TQBCsedqJHWcXxFcgceBPuHDObbnxIRxXfBRCQsBfIJZN/H6MZxp1S4nv0NJYsqe7uqq6rd69PxH+Iyw/Xr95i7KsoJRC29QoygOyLMfT71/wWQatNVJK8N6DCLDOYRx6/Pj2BZoBquoexlqsa0CW55jnCTFGWGthrbuBhxBARFJ8DS00rIVWGkPfS3cuCGEWEO8zDEMPYyyMNljmCc55hLBsAESErmsABXRtg7a5wLkMeb6D0grj0MEYg2WZsS9KjOOAw+G4edD3rXSNKeLz4yckSgIQlgnO50KfI8YVp9MDt7wxsPxY5hlhWZBSBJSCczliWKCNlXdmyP4w9biuYjDX3CRkeb6ZojXWZYY2BkpprGGRzjIJSigPlXjD58Ygy3fYFwe09RlKa1jvsTIjSlLIyVobUFyFDYOMZtgAQCTu8kYxRdZ4DWbBuyDySMuIeSfY1JuEGKPMmCPFKEculRYpLCkxsFLi/sq5vFFXBl3b4MXLVyAQHj58lAs2lQs4sbq7ByVCU59xfn6C815kbxJAmOcRXdviyMkEGaNzDkRJ1ps/MhteLD5tW28SdvsC8zShOt7JuFiv1kq0MlEenxQ7LyPkKIpyA2C61nlBZbenaZRtu5z/YBpH0cymMe368iyM+67dJPz8/vWff+e/jMMd8Hdg0uAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBANvAAu6wLYtW/Bq8PLxGWReGI6xgB7KIyUMrpzaRbYBAOzUC2ECTbCwAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -15206,7 +15297,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACPElEQVR4nKWTv47TQBDGv13bcRLbcWI7iZU7JAoKiiugQKKjoLgOXocHQDwOAlEgUVBCQ0FBBRIgXXLJkTiJ4zjxf6MZ6ZweUmy8651vvvnNWLx4+arGf/xUWi6fPUeapCiKHMOxD73dRrD8A0VRkSRHCAi0Ox1Yto1guYQQApqm4f2b15AkkOc5Lh89hH92zhd34RZCSEhFotPpou84sHo25tMpqqrE0wcX6DsuO5C0uMMRPn3/yQebIEBZlOh0uzjEMbtSFAWHQwzTsvj549dviPfRSWBxPcM+ivillBJmr4ftZo2qqlBVNf+nSQKC5Y3GUDQNWZqeBBzXa6AYloXlzYLPqM6B66KuazieB9M0WUzXdRRFcRLQ6SDPkWcZw6PgaBeiLCvOREJUzi4MgbpGlmXsthHIsgwj30dL16GqGttPjgnGvo/1aoU4jtE1DJRlCSElCxKjRqAoCr5IWYi2rrfhTyaYz2YQAhwQhSFUVcViNuPgWwYqLUS3InUhmHpZFgg3G25pz7ahtVrsjgCTwH63430jsAkC3hSHA1xvyMNClikwTVPczOccwNYNg+8Sr6YEq9fjDdGmyZuc32HaZHu7XsMwTaiayiLkku4Ri0ZgvVqx3VarxWNMUKnv48mEadNZf+Bw7VG4ZfHbpCxgDwZ4fO8ut4kySim47wLgMmjIrq+uuAuGaeHJxX0cj8cTg3i/x5ffU/hnZxxEbaSPi4aKMpEb1/MgFYVL+PzjFwNtBD68e/vPn/NfVEAN0i8M+LAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALklEQVR42mO0cvD5z0ABYGFgYGAomjGNLM19GVkMTAwUglEDRg0YNQACGCnNzgDznAarsCeawwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🫙",
    "people": [
@@ -15369,7 +15460,7 @@
    "explained_by": [
     "I-21"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVDhPY+jqn/afWHzAwABDjAFEnHj0HowNEg7AMUwMhkGaYRgmhmEAIYysGacB2tp6YIyuGZs49QyImn8CjmEKkcVwiY8aMGoATgNIwXADKMEA93+jnUFPXtIAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVR42mO0cvD5z0ABYGFgYGDw8vFhYGBgYPj2Tg4uwSX0CEXhti1b4GyY+m1btjAwISviEnoEx+gApglGwwATusJtW7ag2IbNBXgNICsMkP0OA9jEsIlT7IJRA4aFASzoAg5WWVgV4hJnpDQ7AwBulB+VynnlCwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -15423,7 +15514,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9UlEQVR4nKVSS2rDMBB9sgXe9AjdlG6yKPHfPUFMTG7SA6YkN/HfLj2FF3YYEQ1OSYNjDYxghvdGek8j0vQwZdke4zhyOo5zU9/rUX08fsMCANf1UFU1mqZF1/XYbl2UZYW6btC2HZLkE0VRMiaOE+R5QVQIekGa7h7e9N9rTqczJE2xbRtCCJXDMCjAvNakvxgKScczpHlNYdGhNWndURSj739YdxhGyhuNCYJQecMeZAa/IE0lSG3iUtIcwx4EV01at+8HvBOk2/N83gnC6L1RHmw2HxMMQr5EXzeN17d3/Lb14p5lQmYP1pJ5wFqyGmBCJu4FWUgmUcObd0UAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAj0lEQVR42mO0cvD5z0ABYJZVUGuIS+pguH33FwMruzwDK7s8Q2R0JlH83z8fMjBaOfj89/LxIcv2bVu2MDAxUAgoNoCFgYGBQUTMhmHNmm1wwZAQL6L5o2EADQOKXMDFZ4ci4GDHx3Dg0CeixZgo0YwSiORohhtArmYGBgYGZglJ9oanLyRQBL99OsRArBgAijFq/QAeRIgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -15492,7 +15583,7 @@
    "explained_by": [
     "I-38"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCElEQVR4nKVTTW8TMRQce3e99mbzQZT+BS5IHBBC4saFP03/AUJU6gkkDkhV1SpFpE2yH94Pu5q3tOEMjuKsvM/zZuZN1PsPHyP+Y6XcXr56jbZp4IoCTV3BFTMkSYqIiK5tYaxF33VIkgRtU2McR5SLJb5dXkATIIQA65y8yIwRMJ4pKIQYgAg510kCyOn04dLcfNtAKSW/7MxiMuE30Qk636L3XrqbPJeLbVufAJI0BZSCUhrDMGDoe2it0fedAGd5DqU1MpMjTVPM5nNopU8eIEK05tbi3ds3WL1Yo64qlPMFtFa4vrqCtVY8+nR+LkBd508MuGxRyGGWGTzsdkL196873G238rzenIlHJreIMU6snwAU6UNBU2/XiQfOOXjvMY4DNpszAae5fDcMvTTiSrnFGFBXRwGalSUO+z0O+wcBNCbH/f0OzhVYrdfwTcMLSLPsxAAcVwjy1NS1mFjMSiitxLQYAowx2N7ewvtWcsKaZwZKKTGsaSqhTJrL1UqC8zSVm5trmNxILaXQj2eAYehFY24dPn/5KhSZk857uUDjOCqmkZIYLpcXJwmz+UIKeYHmEIydJ2bLSWUErCukGRmFPwymKI+jjIV6j4e9GMSgclzV8SBSGGOGqyjnwnQMf0lgZxaxM71gZKmBXoQxSIO2bYQd00kmMUx/YgH4+eP7RPMf1iOsAQx4gs7nygAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAnUlEQVR42qVTMQ6AIAwsDY8wxtnJwbc4GJ9qHHwIDyD8QhcbSi0Ewi2Qll7bazHHvj3QAQsAMIwzBO+SM4fgHfAYJAcFkaMWyFkluwZZHWrGFhIrHesyRQO/fzivOyFHTaASuFY/gpL6uURYm7k4hZbRyT3B1vJlG4ZWWSPge6FlD97FVc6JxH28VXUKuSxyUqoGMpge8vI1QtP7nV9n41l58OA+CwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -15544,7 +15635,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC6klEQVR4nDVTW0iTcRw930V31d1xiuEFn3yplwiih+ihfDAJQQgXYWOxUDIktkQEsUmEpM2mRpbMuSwttCihCxQYQUUPEeiL7GkETt3N2zbd5uL3Az/4+G7/75zzO+f8he7u7oJGo8EtWwsSySQCi5+RTCahUChQXFyMjsvNEASB30ciERQKBRQVFfG7XC4HeX9/H1arFZuxGIx19Whvr8PBwQHMZjNS4RBkScKgfwZKpRIu+xUY9Xo8fP4KTWdOQRJFiCaTCVtbWxgJzkGv18Pv9/M1trqMsbk3uPPgEX9PJBLQajS4PxlkZSqlAmOz8xA6OzsLJSUlyGQyyOfzqKqqYgUkl54lScLh4SHUajV2d3dRU1ODWCzGoLW1tZCNRiMMBgN/TKVSzLS9vQ1RFFFdXY2uri7s7OwgtrrCrMEPX0CHz+dDPB6HSB6EQiGk02mQkv7+frjdbgbIZrO8eGBgAAa9DsPTswxmsVh4vdfrhRBfXS7kcnkMBV6wdJfLhdHRUb4vLy+H3W5noPHxcezt7UGn0/FYREwkcjQex7OFRWi1Wo5uamoKR8aSBzR7YfMfVCoVm9facA5qlQozH79ypKJv5jUz0Enzk2HhcBiyLHMf6EipDXA6nQxWZjbj3hM/G0mnTJLIQJJMfSAlJI9mJcYjFb29vdyF4eAcl4iMp6tAMZI8kt189jTKLBYMBV4iGo3yrARCTb3W1IBsLo9333+xKgImYpFQqHVtFy9AqVDA83iS0yBlt9ta0ddxnf0gf6z1x+FwOLjC1BNWEI1GeS9EVv5gYekHz0XyyA9HcyOezr/nn2k0m82GQCCA9fV13L3phCiJkEm6x+NhR6lIpaWljEw/eadnOaobLZdw7MRJZqY1FRUVkGQJ7sERiNS0q43n0dbUwLLX1tawsbHB97TrKisrkc6kGbSnp4fnJl/6fBO8Z2SKy2QwYGJhkRlIPkVJTEdb99Pvv3j77SebR0lRQuQTxfwf9ldx2LKJeX0AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0UlEQVR42p1Ruw2DMBB9WCgDeAgXzMAEFJFHcImYJTWiilymtChQBqDINF6BFBHhON0FlNf4d+d7n8K5agEA6wMAIKcICu1+ReFctTTNFXXbQcM89ADwrZmHHnXb4XZ/wPCidV339Mzfc4obg38wTSPKoyIujcp5XewmgTZoTVxOThHG+qA20E81L4xk3JEkOtBo+f7ygg4xZx3XfCilKZIk6W3HQCqQEuHnXQqSgZw6ZWR9+EjQnOf0OXKKKHOKqMfnqQglbwrnqsX6gLNxcrwB/yV3IxpG0gIAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -15627,7 +15718,7 @@
    "explained_by": [
     "I-21"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR4nGNgGPKAEV1gxmqX//g0ZITuQdHDiE2zkho/Vs33bn3EMISJWM3IcsiuZCJWMy5DmBgoBEzDxIAMaLTAogkfQI9KJpgEMYZgSwcUp8SBBwDBsysU6/wh2wAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVR42mNgGPKAEV0gyU7pPz4N8w7dQ9HDgq7Zy0aNwcYNu+YjuxgYGBgY/iMbwkKsZgYGBqicGoohLMRqxmUIE6WBOAwMYEGK2/8MDIQD8sguBoZtR24xoMQCsYaga6ZKShx4AAD7JTFihVBNvQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -15702,7 +15793,7 @@
    "explained_by": [
     "I-41"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR4nGNgoBAw4pJ4/fr1f2S+qKgoVrWM2AQlJSVRNMPA8+fPMdSz4HLBsyeTepH5UjJ5xdjUMTFQCJgG3AAWXBIXT98uposLmEYNYKA4KQ88AAA16hMGBUWd1wAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mNgoBAw4pKICAv6j8xfsWodI9EGqKlp/ccmfuvWNQz1LLhcUFWWhcJv65qGVR0TpWEwasCoAVRJygMPAIbMDxrBr+RrAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -15766,7 +15857,7 @@
    "explained_by": [
     "I-38"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACNklEQVR4nKWTO28UMRRGjz1Pz2OTbDYhECSQ6CkpKGnpKKn5dfwBCgqaFPQIKiKBgEhEyWZ3nh7PzA6yN0pCC7fwXI2uv/s6Fq9ev5n4D/Pt8ez5C4ahJwwjfD+g6zSdbolVwrTZ0BnNOIzszffRWjP0hlilfDx5j7QCxnTuYlWuWV6eOz+f7VJXBSpJSdMcpRLqukJKSZrldF3rKpD2SJKUpq6IIuV+NnVJUVyRZjOK9RXDMNA0FYEfEMUx69UScbcFKT2EFCRZRhQr5/emcxXZtsZhIMt3GMeB5cU5u/MFVVncCpTFiiybMU0TXx+/ZPn9C9n9Y+rwjOzgIc3Vb4ZO46uIp/ITdVm4+BuBNMspizWbzcjmeCCZH6HLK+KdBV6oyA8fOZEwyfG6gKavaNv6VmDoe3zfZ9wI+qbEVCvG3tC3lduCvah2F6x/nbo25vuHaN3eCvS9YTNNLtjUhatA+gG6WG6zhjGj6UAIxqFHa9x2bgQ83ycOQve11lUrvCAkiFPqyzNXjRCCnQdPiH6eui3Alj9/y4FxkxZSou4duuB2dUGUzwlURqAEurhEer5jZHFw5GC7EZjs8AAVK44+vyVJM0zXoYrUrXGbEfIf3yir0hFq7grksz1027h1CiFdBVsyC0felr4ZxujreY2Ia5QcidaXnnTKQRDQG4PWjduMrcbyYd+K5/lk+cy1a7dxh0SJJz3Hus1ucbXB1rcZbbAVsVYVa/b2D/6ewcmHd//8nP8AKOYfmFFF8QEAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBKMGjBowagBSbrxyahfZBgAAxmkHe9C54nYAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💨",
    "people": [
@@ -16341,7 +16432,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADAklEQVR4nB2TW08bVxSFvxkPeOwZ2xB8wRg7YGwuJUBD41RVX/pQ9aW/oP8yD5H6hipFpVEuSigyuA5xIBgbDPaMbYzj61RnjzTSHJ0ze6/9rXW0N69eehv5LMXTMv3+N+YiYdbzWcqfKuRzq7jtDj5dJxIJ8+X8q6wfZ5YJmCaVLxfo6uf6dQPbtsikU2xu5HCcNslkQg6k88/pTU2s6DqN2ya6rhOybW7vmqzn19AnkwlXtWseHvoYhsFxscRkOhUlo/GEbqNEPv8E9TzZ3iC3vU+l3mbr6S84rouhaRqJeJR4PMpwMJQxer0Hqld14rEFDl+/I5e9k/2zz+dYVoP9579JQaXG8Pv9VGvXpJYWabVcwiFbNpaSCcbjMc/29zg6PqFx1yQSDpFbW6F9fcJ970E46Dc3t+iahmmamH4/4bDNo/mIQC2elLms1ij8sCeqFLy/Xr1mdnaGkG0JVK19feKpw9mVDKPxmOl0SjAQwHXbXFxe8WPhKY7bxrYsvg0GGD4fpfIZy6kk8egCxoejojAIBgMoHu1Ol4//Fvn19z/I7UCn06DVuuDysiYF1Gjf725TKn+Wb93zpiQX42Ld2/dHIn9ne5PDgxdcXVUIh+ekQTQ6TzqVZDgaCdjN9TWOjk/RPM/zYIjrtqieFbGtoABzHFfCMxgM2dvZEqvHk4k0U5Dr9YbwMlQnO5pid7dAZfQBM/CI4XDIzz8VJCw+3ScZyWVXpMCbdx8JBky2NvM0Ww7aeekfb34uwul/Z2JLp9sVFtPJVAKlOpqmX0ZUtqrE+v2zkoNut4fus2L0sbAXUmTSSyJvPJ6wu/MdkUiI84tL8V+pUSyaTYdEPCYFlJ3a4cELTw/OUyg8o1n9JPdC0zXCtk270xEVylIVuF6vL3OPRmOyqxk6nS66HbLw+i5/H/zJxdcqMzMGiViUh36fltMmv7ZKJr3MjGGIbWrMuUgIS8G+vUNzakVPdVDXVL2Kx+NMipvGnRS5v++RWkqSXIwhfg1HtFqOjJRcTPA/XZZ4e8bb/XgAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1UlEQVR42o2TvRHCMAyFv/hcZghXzJAiFQOkTs0MHENwzEBNnRlSeAwPkR4Kzj6jSA7qrKef92SpG273N0BIEYAUBloWUvyJ8QDXywzMHNm2LnA6048TAI/nC1eAP6wfp5KczWXgp4vsamClQA3IDv04sa0L27rssFKgqbnBMKTYLiCZ1Izyj7mQ4o6a1VnzOytRDqz+gRpz9VJoTLTJ13H+u4HzLlGbuCbPy9XNAZpe7e2Otk4WlJJcPiJrXWUROWCfwmDSzQmWjJAiXT5n7VQtX+3/AM5rgwuRLlk1AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -16422,7 +16513,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWklEQVR4nN2R3S+CARSHn5cXw6aE1cQyLhiz4QLjwrIZ/2+br6nZmMwmpah5fZbykV5lpN7UsTJbWxnXfjdnZ+ec5+ycH/xvBbWEpHMi0ces/Hkokxfx+iJy+5SThG5I5DopZfnDUVlze2tADdVJubGjGS60M2xdLUTCJww7ugmexQkGjkilkjUL1erkMHRFOv1MSYRGwDk3gXvXx0smTY/VyujoeGWJoijK94xSDVjzeMVkMmO19SJSYsBuroD0LDQ0Qu79g/BpiMX5SaXuCQ7HIFNTI9zfxbm/S2AAWkzH0gZvr3lsZhV7X//PJxwHfDwl7eh6ik5LF03A5bnG1aXC0sI06559DMP4GZDP5ygWixQKhfJHK8Vl5wzb3gAHfo2VxVl+VUhLSCyZla2dQ3Ft7FQsdG1+xVX3Xo2NSj3IzcOb7O1uMzwyhqqqDA7ZaS8/EWitcuCf6BODUrBaU5PxIAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlklEQVR42mNgGPKAEZ+kRVnXfxj7RFcZVrUs+DSVJEXAxXsYGP5jM4gFXXNJUgTDm1OfGETM+FAMTtDxYlizZhthF2ADMAMzzCIYvmgw/Ed2BRM2Dei2o/ORAROlsYBiAM8NhJNxAZgasl3wRQOPAXs2lTH2zFsB9zPMJTC6Z94K/NEIi+ceBob/PDegtl2BSlxhGK4AAJC3Nipv+UtXAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16492,7 +16583,7 @@
    "explained_by": [
     "I-41"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA9SURBVDhPY2AYBRjgxbuv//FhdPUYAF0DOkZXjwHQNaBjdPVwICkp+Z8UjK4fbAC6bbjwIDaAFIyufyQDAM6V80lG4qdpAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS0lEQVR42mNgGAWM6AIWZV3/8Wk40VWGoocFm6KSpAismnvmrcAQY6KaF9TUtP6TovHWrWuMGF5o27SDKM1Vfh7U88LAh8EoYGAAAH9uEhK+5XgEAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16588,7 +16679,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABI0lEQVR4nO1QPUsDURCcfXn37kwwICJITgkJUZSAioW/wkIFwX/hT7ATBXtbf4BWgrWl2KgBCwmJKQQ/iJiT8/R4727lDi2iUawsxCmWhZmdGRb4xx8AfUVsjbuclxlU+mzcaY2VWqunVnx3bBFw0PbgmxibYwX+UYOdapHDOIYSAkoQJFEqSgyDKMbSWbPrRn40aDyHmO3PYvFNuF4p8JCSuA41Vi+uPgXS+7I/U2Yiwk2o0dYGRUehHoQwzBhxFB5NhImcg/mTRpcJJWN7cpRd20orH3kB5vJZHD74YDBcWyHhlmuXtFYeZtdRyAAYVBILp02ivekSD1gSHR2ljvfawI9iVHMOpCB0tMGxF2CjdZuG7U6VOAJDgHD+9NLrr7+MVy5gYvdvZ5V3AAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAe0lEQVR42mNgGAXDADDikuhyUfvPwMDAwMXFxfDt2zeGsj23GIk2AKYZHWAzhIlYzVxcXFjlmHB5oWzPLUZkG3F5Ay4wxc/gP0whLsDFxcWQs+kCI4YBXS5q/7m4uOA2wQIO3UXoXijbc4uREaYZXQOygcgBiCuMBg4AAEWcOQocdPXPAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16669,7 +16760,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABO0lEQVR4nN2Q3UvCYBTGjykR7SKvLLswraRA6rY/N0Eo+rCMCgqCIopKdGM4Na3cjJxNV5NQ8qP2xF5SvFij2/rdvM/zcs7DOYfo/yLcK7CwdP/9NSW9wZq3Do9g6QtRQrr4gFg84RwUi+/CBHCVyaPeMdEGmLfoAcg+qs4Bje9iWW9A7wKXYpb5lx6QzBWxc3wCvWv+HPIBILoZxzkvwtLD3FY0FNSac8Dqxja0d2tYQHl9w1lKYLoF4DTJ4yZXGBy2j2vYVFsdTI2PMr2W2KfZcJjcI24yzU9aiSyy/2K1TgvTvkGfZzhASKcosrRMZVmmQDBIobl50qoqhUMBksoV0us1mvB6He9ITQBqsw3+roRrKc/GX987QBew3d9lF5JRnvCsVsgwDOI4jib9fgrMBMk35rGt/+N8Aeva+KBOd8iwAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkklEQVR42mNgGL7Aoqzrv0VZ138Ym2TNa248+r9gzpT/MLZFWdf/iLAgDIMYkTkRYUH/HyhYMJQkRWA1uGfeCoYTXWUoepiQOfg0MzAwMJQkRWB4hwld0Zcjm0jyLooBCg9OMPDY+JFvwAMFC5JdwoRLgliXoBhwoquMsWfeCgZc4YItFhhxpQNYmCB7C13zMAEA0t9AXEUyIqAAAAAASUVORK5CYII=",
    "emoji": "🔭",
    "symbol": "🔍",
    "people": [
@@ -16797,7 +16888,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABNklEQVR4nGNgGAXDADDikpiY4fJfXJCbQU1akIGNlZlBJ30uVrVM2ATX1gT+z5+xh1FPQZSBh5ON4dSN5wynJsb9J8oFq6r8/0sJ8zJ8+/mbgZONBS7+5+8/hvsvPjIk9W9jxOmC5RV+/19//MbAwcbCIMrHxfDj1x+Gt5+/M+goiDLcevqOgZ+bneHG7NT/WA042hfzP7JjE6OPuQrDuTsvGDjYWRhuPnnHENC4jnHn2fsMLExMDPZ6sgwgCyZnusANYYQFGBc7C4O9nhyDCB8nw6pDNxjkRPnAtoOc/uvPXwZxAW6wah15UYaXH74y3H32gSGuZwsj46NFWf/ff/kB9vPP338ZLt57xWCqJgnmC/JwMDx69YmBlYWJwVBZnEE6Zirjm5V5/5++/cJw59l7sAUDDwBTaXdgO8ymtAAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA0ElEQVR42u2RMQoCMRREX8RaLCxSy2JlEazDknoL8Qxbi4cR65xBLDxAsBYLK5HUKbYQLxAbE1B3a0Gc7v/MzB8m8McPQHQ91OU4AsyGAwCWu1Mrt9clts6L2XCANgo5lWzmKrZx+23i1aIEiNooAIqRpDCS+naP1nnRmaAux7HSEwCeJqy3DoBrE6j05CNJNtjMVbTOi3AOXJuQxdZ5kUyKkUQblfvJJabL4RzQRmUDgP3hQkq1P1xeklnnhXiPdLzdc/NpTr+x3J0yP+2/jwcJHFVwcdUahwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16875,7 +16966,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQklEQVR4nN2RTU/CQBCG322N8WIUjOEAkYPB1PgXvHnx4MmD/1ETVESRiCRiRA8qMSFBCFEhlVYqVmnF8lXHuHhoQ/Guz2X2nZ3ZmdkB/jcdInrUTPpmVAzzchbKMs2FQ9C0F5iGgWr1AW3Lwsb6mme8i73DNK/49kFkdogSqQzp7zY1LaJY4nhkJ5yd+BEP3to+oN39FN3LDcpkr/mDFUWn2rNJRnv0OMiXqiTXm+Sk5zhvRuND/yE4RTAYQr/XR7lSx2vrk/sKxQq3pxc5TPv8OMleuYoyp3jSLQr4JnB5cwvbtiGKIk+KhAP8vnhXgzQfBGOMeXYgiiKURguqqiCyIKHb7fJkuW4gmT6Dz+8fGltwitmpcVYqFiAIAmYmxyAtLg06UxWsrixD0zRXdU/oh2gsyW3mfLCFXL78+wr/Ll8q1dF0jw5k5wAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAnElEQVR42mNgGPKAEZ+kRVnXfxj7RFcZVrUs+DSWJEUwMDAwMLw59YmBx4/h/55NmIZgGODi1/U/A6oRplnEjI8hwyyCgYEB0xBGDM1dEQxvTn1iYGBgYBAx48NwXc+8FSjeQXHBFw0GnBphrkEHTKSEODaDmSiNRiZinUqUASe6yhh75q3AqRg9AHGmgwVXtjHwrEEEKqHENMQBAJpHNZbdxzGoAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16975,7 +17066,7 @@
    "explained_by": [
     "I-28"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkElEQVR4nGNgGGjAiC6wIFHvPz4NCfMvYehB0YzPAGzyjMiSMBtOVFlhNcSi7RgjsjoM0xkYGBhAmrEZgCyO7AoWXDZ9mOSKYohA3m6sLmPC5V+YJhDGp4aJgUgAcxG6N5gIaYJphLkE5D3kQGTCphFkC7LzcfmfutEIAtgSCrJheBMSMsCXGvEmZVINowoAACWkaRbda86qAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAo0lEQVR42sVSuw2FMAw8R8ySioIRKFJRMAl1hkjNJNQZgjrLmCqSFRy/POlJz6U/5/P5gH8HtYlzX9gaOK6busVzX9gC0OrUbj6um1LwKkjMhWSfSj0FzxqAzEsWU29TC6LlAMBZgsVcKOZCVo8bfVcKnrd1RnvG9GlIsgHAVcgqousNSvq9+18MKrJUfFtnAOD2jcNGkZtNI43a2bTyt2A/iQfqpmopMrCi4AAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -17064,7 +17155,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA/ElEQVR4nO2QPU4DMRCFn//WdqRlOREdTc5BhcSBKKhoEVIoQBQcArhINvLGu+tdD/JEkRJCR5tpRjP2+96zgXP9u8TvxdPqjax1u4EIMUZcNA2GYYAxBsvrqyONPBxWrx8kxW4lhQABqOsa8zyj73sGPr+8058J7h8e2TnGLaxz2HYdO+acobVGVVVIKTGIcsbd7Q1r9R6glMJm03JXUrKoANiOCCEEPrPWMnRf+jBO01xy3C4EEBEmKbkXgfee0xVISXPyB8YYtO2aL0sl4RcL/rgyM2yaIERJZjCO42mC769PpDTCOc8CIcAApTS7DkMP5xymaT56As6FH51weaVZCqapAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATUlEQVR42mNgGAUUA0Z0ARe/rv/4NOzZVIaihwVdc0iIFyFL/yMbAmdEhAX993BzIsrZO3btY1ixah0jAwMDAxOlYTDwBrCg+20UkA4AsdYTMulW1EcAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -17145,7 +17236,7 @@
    "explained_by": [
     "I-32"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALUlEQVR4nGNgGAiw9+ip/xRpvv/i3X+KNIPAqGYiwN7RACMdkJ3CYIAizZQAAJdFg8WnWA7LAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANklEQVR42mNgGAhgUdb1H8ZmokQzyQZYlHX9L0mKIN/Za248+o/uglHNo5oxDCBbM7Y0TjcAAMmIVOjGIrItAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -17242,7 +17333,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABtklEQVR4nKVTS2/WQAwcex/5Qv8CEhIHLqWF//9DygmJAxIS4trmZe9W4/0e5QqJklW83rFnxpFP9187/uPKfL3/8BFmB3rv8eRcsG0r5nd3cLOINfc4oClBVWP9+eM7lMF2PsgkgURiyQV2HJE8wBtENfK42r7fOgAB2rl6qQxEhWPfA7SUCndHzjlyjm2DJr0BmBlKrbG5ri+otcLNA0REoMq2E45jR2Ls3MkVoNYJ7Nz3HU9P3yAy0HtziA6Qjh7xh8/30VFrfgPovcEPg6iM5N5ik5X47U4tElqz0IO6/OVCaw25kjuCcyqk00JQrjwMAjePbkn5AqJ8HfuG9eV5uKAKt6Ew2wyuItQ1gNgRdUg53wDqdMJpvhs90abzTRH53dzCmYs2BFaCXgBEBOvyHEOjRD7r0NvQYtjcIrauS1hN2lcN3Awpl+D15fExaNBrdsZqtI/TGYAisLAzvwHwwdU4QBQn+Cq2bQnRmMwi4YgZptMcul0BuMGqHCCOL0eEDFVS/BPcJ9C2rmE1ZyL0eWvjNM9YlyUSqDKtIvdSp+jG3ZBLCWCKmvOwPQD+/P71z7/zKyEODOD6bDweAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mNUU9P6z0ABYGFgYGAQkVIiS/ObZ/cYmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAAIToKnZAw/c0AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -17564,7 +17655,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJklEQVR4nN1QYUvCUBQ9G7VGSuHQgvVhkN/TfkAE/eBAFLVSWpMi+iAag0qCXGXOrNWMclvQjfdqEeGjz3Xgcnj3vXPvOQ/433gaR8Rgn3ZI9Eae1GSizUKRkuo0P3ueh2K5OnGI9LPxRkS7ew2EYQhFUXilUhr0JR3aXBKSJElCB822Tex2JZdHLr8K3/chyzIMw+Di2J0ws3v3wDObjQOK8UpE1v4hFUoVzoP7RxI6OG63OEdR+BEHwBSAdCYDVZ1BEIyxoM0LDYBtrO7UqW5afLvT63M+O7/g3HOHVDMtsYNrd4jlbBYb62vwnwOM/BHvO06Xs76YRmI2IXbAEGe/vBnQd1z1b8k+6dBRsyX+RHyisl2j0Uv4JS6Vt/gAVr+K/x7eAWGIyaCRL93jAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkklEQVR42mNgGPKAEZ+kRVnXfxj7RFcZVrUsuDTy3GBgyEiKgIvNuMHwf88mTENYsGkuSYpgeHPqE4p4RlcEwxcNhv/oLmHCppmBgYFBxIwPw5CSpAgUb2EYgA5EzPjgbHTDiDIAl2F4DcBlEy7ARKxNRBlwoquMsWfeCsoTkotf1/8vGgg+zw0GBhgfV4IawgAA6OAyoIg4qeUAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -17892,7 +17983,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaklEQVR4nGNgoBAwYhO0sXP7r6yihiJ2984thiOHdmGoZ6LUBUyUGsCCzfkBVk0YCnXFwNR/dG+wYDP18qslRLuAiWiVtDKABVv06YrF4FC+BCMcWIZ+GDDCGMjJF1cYwLyGnKwHPgwoBgB4xyVFPBSLJgAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAi0lEQVR42mNgoBAwYhO0cvD5/+bZPRQxESklhmMHtmCoZ8FlspeXHwr/1IUrWNUxUeoFFmzO9/LxwXSRjAIDAwPDf3RvYPXCmycPiHYBxV6gbhhYOfj8NzPQYRCB+BcDmEEolHAYBmHAiO5/BgYGnGEA89qpC1fgyZriMEAxYNu2TURpEpFSYqAaAAC34yt1a5baxwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -18125,7 +18216,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgklEQVR4nN2SzSvDcRzHX78fzZqnSNuopSSsTZoQkqU8UzsoTq7+AX+Dg5sLNyflIicuJGGUg6d5GtMkD2vMbLQHm/GV30Foc+d9+Xy/n3q/Pp/vuy/8X81Pn4iPOjYyK6Ym7Mo5maRkzZnJbXF548ba2EPw0U8g6KMgX8/Z+QFDw53fPOk/zfurCVGoSyMcqSY3B2IxDfEXAysb61SUWX7fYGn2UoTCj1QazQSfohydbKFSqfHde+hutREIhvEH7ujoL/n0yV8BQrxhNprxeH34H27JyswlEg3R225TgM6zXYr0xaR8guNokwyVGp1Wx6HzhvLSKrx31yyuLJBIvCiZhMJPqQFt1j5lipyWrpidrl30WgN1lhb8gVtkWcLlPvgGkL9ePN4LrI21SjDaAonmhmqOXTtsO9YwlRvY2rPzHIukDvFD46NzospUT052HhdXp0SjEVqaarBvOtBosugaKJV+BewsP4trzzm1FiOyBK+v4Dh2E4/HsA2akv6bP653CwKXEvXe4tkAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAvklEQVR42mNgGL7Axa/rP4yGsbEBFlyaQ0K8GL5oMPwP0fGCCf9nYGBg2LOpjBFZLSO6Zouyrv8lSREYhr459YlhwZVtDCe6UA1gwbAZYSPDm1Of4GwRMz6GErMIhhk3GP4ju4IJ3SYRMz6smmFiXzRQ1TPhC0hkjW9OfYLzcRrwRQNhs4gZH1wTskaeG3higecGA4NIEh+KC9ANxOuCPZvKGGeUrcAIRJjmNWu2EReNPDcYUAIL5mx0zcMEAABm81WLWYt6EQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [
@@ -18457,7 +18548,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB0ElEQVR4nKVTy27UQBCseXj8Wu9+RCJOKFdyQ0J8PHBGcAN+IcHyYzyeQVXEzh1a2nltd1d1ddu8//Cx4D/Mc7m7f4Ou77HMM0rJyHvGZRgwTRN6vi8zmqbVvWkaxHWFdQ7fv32FZYKu67CnpL0UKHhdFoQQMM8zrHXYtg37npQsxoh938XAchnH37qUUmCtRc4Zvqp0ZxLuRL1cBjjrBGCMeS2hqRsFEjXnXQmWZWFKhCrAeS9EBoW6xrqu8jsTbNsmxKZt8fnTlxN9ixEwQAg1eIhxwePjO71TszOB816oNCIxuAo1mrYTKn/rSkYGKSWwbYe/5cL6vPcwxqLtehhr1Q2WldKGbYs613UtsdUJsjsYXG+3F5V3Odd1cwYe6M55MSNbCnuYPdQng0Mctsr7Sm+0qgoSj+hkQqDjP89lniaJwja9apFEk6XoTuptK6YshfuZIJeCcRzhnMPDw1tNorFGQ3W93qR+zkUlEZ0TS98zgXcOPgQNyTg+Y7hexYQlabRzkXCkz3I5I/ZlEv8WYgzSFhFzQd9fhBLjiq7rdSZlfgcsi0YRj0mUiFS5bTs5EkWTl3Y8Pz0pAXvPYAo7DDfiicnJ4NfPH//8Of8BJ1QwfVpRm8wAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mO0cvD5z0ABYGFgYGAwM9AhS/OpC1cYmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAAq7sK7XVvQHoAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [
@@ -18480,7 +18571,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 276
+   "descendants": 277
   },
   {
    "real_full": "1797〜1800頃 モーズリーが親ねじ（送りねじ）付き旋盤で同じねじを何本でも切れるように。1841 ジョセフ・ホイットワースがねじ山の角度55°・インチあたりの山数を標準化。互換性部品はフランスのブラン（1785年頃、部品を混ぜて銃を組み立てた）・米国の兵器工場（1824 ハーパーズ・フェリーでホールの M1819 ライフル1000丁、1826年の検査で部品を混ぜても組めた）",
@@ -18556,7 +18647,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkklEQVR4nGNgGGjAiC7Q0Nz2H5+GhtoqDD0omvEZgE2eEVkSTNdWMS5YsgKrIQkxEYzI6jBMZ2BgYABpxmYAsjiyK1hw2XTgyEkUQxxszLG6jAmXf2GaQBifGiYGIgHMRejeYCKkCaYR5hKQ95ADkQmbRpAtyM7H5X/qRiMIYEsoyIbhTUjIAG9qxJeUSTWMKgAA7Z9ucj+DP6YAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAs0lEQVR42sVSoQ5DIQy8vvA50xMoMvGyLCgE4RMJAkWmUXzMPmGmUySEAe+ZZZVt73ptD/h3UJ+QSvMKUHKiaVEqzSuCUZ36ySUnctYMSXyI1PYNpTtreETQ5lsVYjapJxnlAGBbHcyHSD5EWvWIs+9y1vB9vwEAX647AHDJicQRqFUDgH2IJF9vrkfcZsBW/mz/rxWk0lybK6DK7t942ijt5KWRZnZ+aI1nSuesfET2k/gAza9r7uELZdwAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -18636,7 +18727,7 @@
    "explained_by": [
     "I-11"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARElEQVR4nGNgGAUUA0YQkZKU8J8czXPmLWBkgXEkJSRI0vz8xQswzcRAIWAacANYYIyTp04xyMnJgdmPHj0iyB4FVAQAUxQSx/h0wtgAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAO0lEQVR42mNgGAUUA0YGBgaGiLCg/+RoXrFqHSMLjCMhpUaS5hfPbjEwMDAwMFHqhYE3gAXdT6NgAAAAuDwJuGYNYRwAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -18713,7 +18804,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVR4nGNgGAgwtdjsP4zNRI5maVEuBrIMmArVLCXCSboBU5E0m6VsZyTJgKk4NBNlwFQ8mgkaMJWAZrwGTCVCM04DphKpGasBU0nQjGHAVBI1oxgwlQzNKAaQoxkFnJrjCc8gdAUAIY4v7PpgHvkAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARklEQVR42mNgGAiQZKf0H8ZmokQzyQYk2Sn997JRY9BgYyHP2WuqPP53uaj9H9U8qhkdoKTEe6fuMZTtucVIVgYhy9nUAADwMkPXwSlXSwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -18796,7 +18887,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAV0lEQVR4nGNgGAWMoCCoCDD6T05QdGw4x8gC4xzhEiFJs823NwhORYDR/xNnr/+3iXJDofGxYa5mojQWmYa+ASzoAiW9+QzEiGGkgyNkRCNKOkCJ1yEFAOIZOctvPqwGAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQ0lEQVR42mNgGAWMDAwMDFYOPv/J0XzswBZGJqo4w8rB5/+aG4/+o9OE2AwMDAwUu2AYGMCCLtCXkcVAjNggSwcDCgBrozCZztdi7gAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -18965,7 +19056,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGOMj43+z0ABYKJE86gBEMDy/PlzBkoAy8fPPxjevHkD5oiIiBClCVk9E0XWj6YDMKA4EFkkJSUYQJgUgKyeYhcAAH85Dqtn2gtUAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKElEQVR42mOMCAv6z0ABYGKgEIwawMDA8ujVr9FAHDWARU6MbWBdAACEMwUjxxJIngAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -19197,7 +19288,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVR4nGNgGAiwKt3wP4zNRI5mOWFOBrIMWAXVLCvEQboBq5A0S5fsYyTJgFU4NBNlwCo8mgkasIqAZrwGrCJCM04DVhGpGasBq0jQjGHAKhI1oxiwigzNKAaQoxkFPO1xgmcQugIASwwv+H91dcYAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mNgGAiQZKf0H8ZmIkezBhsLA1kGJNkp/S9yMyDf2Vdagv53uaj9H9U8qhkn6HJRI18zzIAByZkAU6JFgKEAbSwAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -19490,7 +19581,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVR4nGNgoBAwYhPMKyj7rxFRgCJ2Y8UEhkkTujDUs+Ay+duxdUS5gAWboIaaKlFiOA24ces2g5ycHIrYo0ePsBrAxEAhYKLUABZsgqNhwDDSwoCBUgAABEoc7dtfPFIAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR42mNgoBAwYhNUU9P6LyKlhCL25tk9hlu3rmGoZ8FlspePDwp/0axJWNUxYRNEtx2XGE4D3jy7R5QYTgNIAbQxYDQMhloY4MwL27ZsYaALAACy4R3u8YYXRQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -19633,7 +19724,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O45. 何枚もの絵をぴったり重ねる（アライメント）［8-17］",
+     "answer": "IC は何枚ものマスクを順に焼いて作るので、2枚目からは前の層の合わせマークを顕微鏡で見て、台のねじでマスクを動かしてぴったり重ねる（アライメント）。1960年代のマスクアライナーは、分割視野の顕微鏡と手のノブで µm 単位に合わせた。ずれの細かさは、台のねじの送り・顕微鏡の分解能・床の揺れで決まる。",
+     "hee": {
+      "1": "何十枚の透明な絵を、髪の毛の数万分の1のずれで重ねる。",
+      "2": "今の露光装置の重ね合わせのずれは 1〜2nm。",
+      "3": "合わせが悪いと、トランジスタの窓と配線がずれて回路がつながらない。",
+      "4": "ねじの送り（ボールねじ）・顕微鏡・除振台・メートルを光で測る技術——精密機械の全部がここに集まる。"
+     },
+     "certainty": "1960年代のマスクアライナー（分割視野の顕微鏡・手動）○／現代の重ね合わせ 1〜2nm ○",
+     "basis": "- Wikipedia「Aligner」（マスクアライナー）：https://en.wikipedia.org/wiki/Aligner"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -19643,7 +19747,7 @@
    "name": "アライメント",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": null,
@@ -19666,12 +19770,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "何十枚の透明な絵を、髪の毛の数万分の1のずれで重ねる",
    "name_en": "Alignment",
    "hee1_en": "Dozens of transparent pictures are stacked off by only a few ten-thousandths of a hair's width.",
    "kind": "tech",
-   "play": "",
+   "play": "実験（台のねじと揺れでずれが変わる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -20027,7 +20131,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASUlEQVR4nGNgIBO8fv3hP4hmJFfzwsXLwGwmcjTfvf8IzC4pymIkWfOJU5f+9/RNAzt/VDMB8Ho0wEgDlAQYC4iAZQyS0zY1AABhjICo5fLkBgAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPUlEQVR42mNgIBNYlHX9Z2BgYGAmV7OPGB/Dj18MDWRpXnPj0X8rB5//o5pHNQ8nzQwMDAxWDj7ka6YUAABSmGNqp96L4AAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -21333,7 +21437,7 @@
     "I-06"
    ],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAuSURBVDhPY2AYBdQDkpKS/0nB6PrBBjx79owojNOAk2euEIWHswGkYHT9IxkAAIom2P8eb0zwAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVR42mNgGAUUA0YYQ01N6z8pGm/dusbIwMDAwIIs2LZpB1Gaq/w84GwmSr0wDAygOBZGAQMDAGQuCw9HHQsGAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [
@@ -21417,7 +21521,7 @@
     "I-03",
     "I-06"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAtSURBVDhPY2AYBdQDkpKS/0nB6PrBBrx+/ZoojNOA+mU3icLD2QBSMLr+kQwAJuLI3ej/YowAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVR42mNgGAUUA0YYQ01N6z8pGm/dusbIwMDAwIIsWFSziijNfS1hcDYTpV4YBgZQHAujgIEBAFZuCw8H3KvKAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21493,7 +21597,7 @@
     "I-29",
     "I-43"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVDhPY2AYfkBSUvI/PoyuHgOAFGlra2PFowaQYAA+jK4eK3j27BlYITpNNEDXOAQNoCsAAIDketGtEuRrAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMElEQVR42mNgGPKAEV1ATU3rPz4Nt25dQ9HDRKkLRg2gggFYgUVZ139s9EgKA7oCABVpCrmZeO1JAAAAAElFTkSuQmCC",
    "emoji": "🔌",
    "symbol": "💠",
    "people": [
@@ -21591,7 +21695,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAA3SURBVDhPY2AYfkBSUvI/PoyuHgOAFFlZWWHFowaQYAA+jK4eK3j9+jVYITpNNEDXOAQNoCsAAPU1gMvg7G3wAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR42mNgGPKAEV1ATU3rPz4Nt25dQ9HDgk2RiJQSVs1vnt3DEGOi1AvDwAAWYgOLJGDl4PMfGz1MA3HgAQBswg8XT2RLnQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21740,7 +21844,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDElEQVR4nKVTzW7UMBgc/zvZJNuiFg7wEHDgjMSJO2/B89C36PNwoBJcKiQkRLP5ceLEsZG/rXbpFSLFSuzvG49nxuzd+w8J//HIPLx+8xYpJczzDKUUxnEAUgJjHDFFWGuxrgFCCPoexxExbvj+7e4I0LYP2O8vACQCkoKmYaxFCCuEUOBcEMC6rkgxnhhwGhiH9552DCEgbAGM0xKEkGAMkFJmUpgmh3K3g9b6DFA3e6JujEFKEVXVUMG6LgQwzxPtnGkXRQHOOeIjC5mHvj9Aa0Mgrz5+gt01CIvHMjtIpeHdAGVLKG1wf/sZzo1UfwJAAryf6Yyu/Q1b1vBjj8VPcI87V5dXmIaONMp6ZEYnAMYZ4nakFLeNGm29p3fqWxJxC4GckUpBSImhO5w1EFygqmowxlBfPYcylmgtbsAyOZhdDWULeDcirCs1V3VzZqC0JlG2bcPw8Au8a8mZ/YuXkNoSw7k/oHp2jY4x0sWN4xnAuRFKaSyLR3V5DVPsyI2wzOBS4vDzB2zdEP2swbaFp0nU2pBt1ha4v70BF8fQZEBjLP0PMZJwR2sFiqI8a1AUBS04N5BAOSzrslCoxqGn5OW57H/ORVlWT13IKaQEhkAu1HVDxcxzotv3HcU7pzHPZ8uz4CcG1BgjUTO2IDGdc1SQtcnHKKsK3aGliGdQbf4K0t3XL/98nf8AVkYY5sd6SoAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mO0cvD5z0ABYGFgYGAwM9AhS/OpC1cYmBgoBANvAAu6gIiMAl4Nb548GGReGI6xgB7KIyUMTl24QrYBAPIVDQth4dRzAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21830,7 +21934,7 @@
    "explained_by": [
     "I-06"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVR4nGNgGAjQ1DX5P4zNRI5mCUkpBrIMaIJqFpeQJN2AJiTN/q5WjCQZ0IRDM1EGNOHRTNCAJgKa8RrQRIRmnAY0EakZqwFNJGjGMKCJRM0oBjSRoRnFAHI0o4CNu4/BMwhdAQC/FDFkjNI0WwAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAP0lEQVR42mNgGAhg5eDzH8ZmIkeznBgbA1kGWDn4/E+L8SDf2QvmTPkfERb0f1TzqGacICIsiHzNMAMGJGcCAKvSR8B0NtnrAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [
@@ -21949,7 +22053,7 @@
     "I-06",
     "I-52"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACM0lEQVR4nKWTzYrUQBDH/93p7qSTzEd2xlkXXEVY8SUEwScRvOzNh/FNPAiCICw+gCev4mldd4bdyUcnnaQ7khqZ4FVzaBJS9atfV1ez128uB/zHI8blxctXCAIOKRWMqWAqg0hrcMYglURZlNCxRl3XCIIAnHEslhk+fnh/ALTWwnmH+XyBvuspWOsYjHFUZQHGGJIkhXMeWmvUxqCuzWSQpClB2rZFGEUYhgHGGIRhiMY2yLIT+lebihKVVHBNTQA+LkWRk7KpKnRdRwBgoMqnp2ewtkGR58hOVmBgAGOIIj0ZYACqqoKOYzz/9m78xKMsIsC+7pDXPeZaYLYTuDq/RFWV4DyeDBbL5Qilylki6X1MvsktYhXgyUojCQV+7AzFpOkM93d3E6BtW1hrRwIlrRIFzg4Wu7LF961B2fQ4W0ZwzlH8erP5uwer1Rq966EER2l7+nlbtMhiiYtNAtM6shoNOOd0nEfAbDbHbrtFqELMIoGi6SEDTkmjkfMDJf7cNzQvSincXF9PTfTeYf1gQ3rrVMF2Hm3vKfHxKiZIlij0ziMIBBlIpSaAUiGsrekIvzx9i236iwYnfpbi6801FudLmpM4SYGupR4Mg58AXdfBNg0iHSHP9/DeU1+ElFSN9iwE9vd3ZMk4o20fAWVZ0HRxHoBzj9l8cVAcBrIbmzee/WbzkO6K/AM+NpHuQN+hKktIedjjWE0IQTNB456k2O1uaSqFkBR7NLj6/Omfr/Nvvwcawf1M5eQAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZElEQVR42mNUU9P6z0ABYGFgYGCoKssiS3Nb1zQGJgYKwSA04MKVJwwXrjzBECPaAAMdGQZcYtgMwuoCdENgGrEZTlQYYNOI1wvITsXFxusCZD8j206yF/A5fRAnJFIBI6XZGQCCSyQLUyfc9AAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💠",
    "people": [
@@ -22058,7 +22162,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACJklEQVR4nKVTuY7UQBSsvtweHzP2wiIQEt+AhAhIIUJEfA8JOX9FQAJIiHQDEiSWhd3xzPho92GjfgNjYrBly21V16t69Zo9f/Fyxn9cMr4ePX4C7z2MGZDnBawdaR18QFGWx+8QkOU5ds0WnHMUxRof3787EvwBKJVASolpmuhRK4Wh78GFgFIKdhxRlmvCxiInBX3XHvUwRgRCSGjNIISAMQZhChCCU2UpFaJn59xCsK5qMACcC2KWUqBtB8zzhCTRsKNBkqTY7xsid3aE1ulCwOLNGLrugDcP38J3Hu0YUGgBFyasMglIjraxeP3lGeGVoq3gZKFvyQZnHN8ue8g6wWYl0I0Bq1Jhu7MENm4i6TpNsb25XgiC95BK0Y97DwpEk6zS2JxpXF4ZVJlEczPidpVAySMuL8qFoCjXGIYezjt8/9rBNSPMTwNwhrt3VmCCobql8aMZKZGYUKL10gNrLXU4xhOrq0xCmoC5c7B+xugnWp/fz6FvUrLb/U6OkzczUDxZlpNcpJIs2DBDJxzr8xSjm9BeGXCKWiFRyaIgzwuKa7u9xquLp5gvZorLe4cpTKjqGj4EHPY7cNYgywu0ZlgIvHdo2wPSNCUbkTBeu2bApqrhnCdMTCkmEBXHUT5ZiKMc5yDLCrJxOOwxzzMl03UdOGfH/rAjNmLk33MQ5VfVGTHHjXHK9lEuF1S57zsa5c2mRgieGh7PxcnC508f/vk4/wI4zxoMCYvXWQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mOMCAv6z0ABYGFgYGCQkFIjS/OLZ7cYmBgoBANvAAu6gIGODF4NF648GWReGI6xgB7KIyUMXjy7RbYBALMWDVf1OUfdAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -22289,7 +22393,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACEklEQVR4nKWTy47UMBBFb95OppNO093zKQiJFQv4ABZs+EmExAcgoZFYjBASa2A7MMN0bMd5+YGqmukWW7Dyku3cOreqHL189TrgP0ZKj8dPniJJEmRZBq0Uf/emR57lyIsCzlk452GXBYUQqKoLSHnA50/XRwH6cZ5neO+RZhnyvICoKhitOUocJzw3ICBNU8zzxGK8BgDOOQzGIHiPaRr5RgiI4pjXrLVIEo4FY3oURcEkJwvTNOLRdscTPgSmWJYFpu/RbjZMplTHb8In0bKszgJJksJ7h8P9PV48f4a2bTEMA8qqguw61E2D4APGccDVx2v+Xpb5bCGOYxhj0KzXvInwRFni+7evGMcROedowu3tT/be95oTfSLQWiHLcizzjKIQ6A4HSCmxWtUs2nUdQgjY7faQ3TUQRXSdCdbrDZI4BqJjRaTssN/vYe3CidVaoyxL9l6IkoXHYTgTOGf/ZNhACMF4SilOGg0iI4rtdsd56bVC027OAiF4bpg4SSBEiV93d7DO8YYfNzfYX15ynxARlZdyRmQnAWst+r5Hnud48/YdtJIsRs1DjWPtF6ai0pIVKiEl+yRQVRdY1Q2ctYxNEaIoYq9EN00Te6aeoDwQDe05CVDNH7xTpzXrliujZAc6aTQfspT3URCiexgsQz/TIO8UmSiO52NiZKKg8tZ1zW1MJf3LwtWH9/98nH8DfNUwg5RZEw4AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBANvAAu6gIzAH7wannxgGWReGI6xgB7KIyUMrpzaRbYBAPYHDFeGpnYIAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -22372,7 +22476,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACI0lEQVR4nKVT0W7TMBQ9sR03iZMmbaeOwgTiE0C8Iu0bkHjhI/cyHnhCAiHBb8A2JNZ13dIkTeIkRveuavcMlhw7zvW595xz4717/8HhP4aix6vXb5AkKfL8DtZaTCYzVFUJKSWvcA5hZNB1Fm3bIk0z+L6Pr18+QxCAMQn6voPva3ieh2HoEccxlFKIIgOpFJ8nyRjGGAghYW13qKAsNhBS8kcKBDxUVcV7yhoEIe9XqxsGqcoCnhAHAKkU9GiE9foWSvno+x5CCK7AOQdrWwal0VnL8XS+BwAcqrKEkgpvT09xvFjg99UljImxulliFIR4dnKCsizx8ewM/dBz7B7AI3TnEKcpJ6L3o6M5ri4v8PzFSxbMdhYhURECWim0bXMAGJyDrzU2eY4sm6BpG1xf/0GaZbj49RNBGOwEBjtDAgMJAwh6EEfiHYYhTBxjk99zhiAIEEUROzGfH3OtWmteb29XB4AsmzAF8ti2lieJREI+WTzlrMvlNTtRFgXW64fLewoOYArElcqfzo6QTSYYBseNRPaN9IiBgjBE09TcC3uAervFMAyswafzc/Rdx4DkTDIec3dSdqqQGk5KBfm4D4ZhQL2tME5TztJLyeWbOMHd3Rpaj3YdKDiWtCGwPcCDMECe37P3dKFptnw2nc5Q1/VubqF9jaauERlzEJEEI2Qa5EZR5NyRVHpRFKwDXSAayvfR9R087xGFH9+//fPv/BfHyf2cj3mlCgAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBANvAAu6gIzAH7wannxgGWReGI6xgB7KIyUMrpzaRbYBAPYHDFeGpnYIAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -22588,7 +22692,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDklEQVR4nKVTvc7UMBCcOLHzf5e7T/ACvAA1BaL5XgCJipeloACEaHgEJET13eWS2E4c22j3jotowUUsxzuzs7Pr5O279xH/sTL6vH7ziHG8YJkXhOCRCIGqrIAkwWwNVF4AiCiKEuM4MFCpHF8+fbwS9P0J+/0Ba+GwLDOESCGEQJplcMuCebZIRYrenjlBJiWsNUwk6NO2exijESMlFQymoNUtyLIMXXdERIRUEofjA6RU/O9OMM+W5RHAGs0ERk8IIULlOd8TaLYWWmtWofW4eZAkCR8oy/cPPyDET8gsh8wU34UYMc8TpCzw8rHDNI1o292mwBjN5pAxRV4z1eIs0lRC2wExBDZUmwumcUDTtPDebwRNs0PdNBiGC8w8QckSTXVACAF12cGHFbmqUBYNA8+nJyilNoIYA8bhwgAqJsYIH9zVCzugzGsYOzJR0+6uBq9+88B7z50gkjJvWHqWSZz6X+QQVu+4NCK2xqCqapzPT38rGIYLO05SyeVRn9lIkkT74gxyWcCtDs45dIfjpiBGMIjYX7zaw681RCq4bTRMpIazCcFxtOP2AMSfC+oALQq4rySBlBLOLbwXZcnl0plm405AQ0KDQ0E0xmQUZajrhgcszwuuf+h7+HXlhFT2vQRrNR6ePUe49TbEwA9KTyMD0zRFWdXYdweewNWtqGqalxvBt6+f//k5/waNRBslfT+vygAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBANvAAs2f+ED6OE1DMJgEMYCqalyuIQBodSHDwAArm4LJ4l1SDAAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -22693,7 +22797,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCElEQVR4nKWTzYoUMRSFvySVSlVXdzMKiqK4cCfM2lcQX3MexUdwIbgSQRQclZme6apUKj9y03T3rDWLkITk3HPOPVHv314W/mM0Mr159RytFTkXjNb0zrIbPVqpum9tgwJiyqScyeVQ89PX72hZHB8OnUMpuJ9mNn1H71oao9lPnlIflbqXOwJ0YrDu5aFiN044ayuYDKk6zoG+bZnCUkFSLmyHjpQOAFqmvQ8YrbgYVuScaRvDElMFXHeOJSX61tIYw8W6Z5oDPixnBpuV43bvcdbwbv7MPBaMgsfO0CyKax/RXvGkN1yNrxENm1V3BhjnUHX5ECvtF0ODKJ5i5sYnWq3oG00usHItWmtu7qczQFgi677DNoZHk2EXDvrGmHm2agi5sJszPmXiNqNyZujaswdGWtUY/tztuQ2JtdU4oyrA9ZRwWiG+Pu0P7ZT7Rw90BTC6utwaw8ZqfvlIaxQvB1t1/xhjlfHbJ2KWLJTa8hOANYZ5iVW3XBKtdyHzc4rcLRmjFDEXfCrVg8IhNycPlpjYrnruJ8+H7SUxpcpo2LYVzA2mpmLpE7ZAZy2pPMiBUooQI842tSMSWem/RFjORx9qiGQtMRYZRwYHCY2p5ggTa3TtcYjp1CoZwkgK1AiXwvwwSBLLOcZ6IH6IBKkoqTu6Laz2fkYrXQtKYk8AH798++fv/BfqfRwNinAuqQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVR42mOMCAv6z0ABYMImaPPjHmUGHOFQoswAsrxg8+MeUU5HV8MCE4Q5m5AhyOqOcChBXECKn9ENYiI39LGGATkuYSIn6iiKRpg3YTQLOYkI2btMpMQ5siUwObx5AZ9r8LqA2ERF0AvEhAcAJ9gxNeFjg0kAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -22774,7 +22878,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQElEQVR4nO1QvUoDQRic29vd7CWRgC8gNmJhYW1jp42tr2AtVgEFEQQlhQh2PodgI4hoY2Nl4w9qQAIiGO6Su9vb+4nkC7ca8gqZZr+db2eYHWAKp6xgZXV9UFEKiY7BmAvGGJRXQxT2UK3VEYV9OI4DWVHIUoObqwvS8tKgPtPA4tIyzc3tLTqPT89txf+5h/tby/NyyLIUfvcHxmi77AU+dBxSohLfXx1KMfGFtY3Nwdz8ArSOUOQ50iyFEJJ2dE8NXJfDq9bw+vSIu+tL0rK/BBmiqD9yd0a+RZHD5Rx5kRPHhUDYD6C8qk3AymFYXhyHVJSOI+KGZlJISqCUB5NoEg/fTnQgpESjMYvA7+Ls5Ii4neY+wjRARXloHe4Rt3vQGuuAWwMh8fH2DGMSu+x8tjEoirHI7fcXSjQFLH4BnTZ+SzqgfJwAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVR42mNgGAWMMIaVg89/UjQeO7CFkYGBgYEFWdDMQIeBgYGBQURGgYGBgYHhzZMHcDlksVMXrsDFmSj1Ags2QWSb8YlRxQW0MUBERgEeaPjEMMIAHrpIoQwH2MRGAQMDAwMDAIfXGWz/hefaAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -22952,7 +23056,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACKElEQVR4nKVTyW7VMBQ98ZD3Mr1Bj4KeKrEAxA9Q8R8gsUGs+DD2fACfgUCoYlN1gRgkVLVvimMnsR10b2kKW7ASJ7bvPecOx8nzFy8H/MdQND05eYosyxFjhNIazlqkaQrvPbTWaNuW/7MsgzE1uq6DSBKcnn66BtA6RQgB+/2OUcuyYiPnHJIkgZQCrWuBYaCHyQiMhqCJHKVUzKqUZra2dciyKXzfQwgJnWpIpaCkZCAiHFNYLJbY7TZI0wk79X3HQKY2yPIc0yxDYyKC94hDZIJIodwAhBAwm80hhMDr9Vuc/WjwaJ3DtAGX+x73j6bQSqB2Hm++PUNZzdAYcwsgpbyuwW6HczQop5JBhmHAw3WOpg0oRYKvF47rZerD2AXBKEqz8Xyx5M17ywk7PljncF3kKDaHnvdoUIEp3TEC73s4d926u4sJDo2HFAlaH+HDgHmh0IcBZ98NlJJYrY7QNOY2gq7reGGtRddHbI2H6yOGCByvpliUGhMl8Pi4gDEGdX3AQIc3AM5ZZFmBvu+ZSQrAuIBlpdnoy0+Li33HZ2RbliVrYUyhqmawtkFRFHhnX7HylFLYfd5yrsQ2mUzRnjus7iyx3Vz9LSRrLfK8wHazwdXVJTuRZKm11HNSI73UgRjib9A/ukBopDxSGwawM3WGdEGFpa+pa7aJMYzrMQUKP0kEp0J6oMNqNsN+u0UiEhRFyazkSAUsiorVOQJ8/PD+n6/zLyyyJ2MVS0KjAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBANvAAu6gIzAH7wannxgGWReGI6xgB7KIyUMrpzaRbYBAPYHDFeGpnYIAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -22968,7 +23072,7 @@
    },
    "hee_game": {
     "note1": "レジストを塗ったウェハーにマスクを重ねて、水銀ランプの光で模様を焼きつける機械。",
-    "note2": "鋼×4＋複式顕微鏡＋送りねじ×2＋水銀灯の管＋銅ケーブル。電気 500W・10秒。レジストを塗った板＋フォトマスク → 露光した板。ボタンですき間を切りかえ：密着はくっきりだがマスクが板1枚ごとに傷む（耐久10）、近接 20µm はマスクが傷まないが少しぼける、80µm はぼけすぎて焼けない。",
+    "note2": "鋼×4＋複式顕微鏡＋送りねじ×2＋水銀灯の管＋銅ケーブル。電気 500W・10秒。レジストを塗った板＋フォトマスク → 露光した板。ボタンですき間を切りかえ：密着はくっきりだがマスクが板1枚ごとに傷む（耐久10）、近接 20µm はマスクが傷まないが少しぼける、80µm はぼけすぎて焼けない。上の小さな入口に台のねじ（送りねじかボールねじ）を入れると、2枚目からのマスクを前の層にぴったり合わせられる（重ね合わせ：手 20µm・送りねじ 10µm・ボールねじ 5〜1µm）。",
     "note3": "1955〜57年、ベル研究所のアンドラスとボンド、アメリカ陸軍のラスロップとナルが、写真製版の方法をトランジスタづくりに使った。マスクを板にぴったり押しつけて等倍で焼く「密着露光」から始まった。",
     "note4": "密着ではマスクと板がこすれて、ごみや傷が増え、マスクを何回か使うと取りかえた。少し浮かす「近接露光」はマスクが長持ちするが、光が回りこんで（回折）ぼける：ぼけ ≒ √(波長×すき間)。この弱点を両方なくしたのが、レンズで写す投影露光（[7-19]）。"
    },
@@ -23003,7 +23107,7 @@
     "作業台：鋼インゴット×4 ＋ 複式顕微鏡 ＋ 送りねじ×2 ＋ 水銀灯の管 ＋ 銅ケーブル → マスクアライナー（密着・近接露光）"
    ],
    "machine_recipes": [],
-   "placeholder": "近似：位置合わせ（[8-17] アライメント）はまだ無く、自動で合う。ぼけの式は単純化（√(λ×すき間)）。",
+   "placeholder": "近似：合わせのマークを見る操作は自動。ずれ＝台の送り・顕微鏡の分解能・床の揺れの一番大きいもの（数値はゲームの値）。ぼけの式は単純化（√(λ×すき間)）。",
    "game_text": "コンタクト露光機（ROADMAP v0.3 #5、マスク耐久が減る）",
    "id": "9-20",
    "name": "密着・近接露光",
@@ -23055,7 +23159,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFUlEQVR4nKWTTavUMBSG3yRt2ul0ms4dLoI794IIglt/g+DKv+rKhbgTxT8heufe6UeaNF+SM9CrW21pGnKSN895c8Levnuf8B9PkZsXL19BiAL7fYvh8gDV91iWBYwxVHWN1Vrqcy5weTijrncopcTnTx+vAjFGSMnpv2saWqz1DM74tlOOjeOATvVwbsU0DjTOc9N1CikBnHOUZYmiKCBlhYQEaw2klBBC4ObmBO89tNZEsAnEmFCWEutq4X0g3MOhQ1XVNGmeJyIYhguC91DqSHM2D4xZsG9beOPw9cMAzgukFCF4Qf3FjGhqATCJZ68dlmVG07SPBECCnifCr2WLWZ9RlXs4bzHOd2h2PRjjMHaCcw4pps2DIjc5rxACiqJETAHH7im0uUCWNew6QS/3NJ5Fj8cexhgi3AgYY1Cqh55nClymH8gpZoKufUJp+OCwegNrLZZF06YbgVJXxJwCYwIpJciyITGWX8bQ7W+vvgiB3S4ftf7zFCIFffAY55/kyWIHEgMDVreQoT6sWNeVRJpm/0gQYiSkPPj8DajSvHdIKUDKAsYckKKG6k94uD8jBE91sgkUQiCyjMrJyHys2en2cCC6LH463WKaRnT9Ed65vwW4EFRE1liqQiok1dGCXJ20eBxoTgwBMUWi3Dw43/2inQ5KQVYVBV3OlV8NizFQWed7kr/85HuxEXz/9uWfr/Nv9DclVy8dX7YAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBANvAAs2f+ED6OHFRKxCkr1AyCWDJxCpHwukpsrhEgbExjk2AABmfw4ng81uXQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -23139,7 +23243,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVR4nGNgoBAw4pI4//bxf2S+obAsVrWM2ATTWqpQNMPArJo2DPUsuFwQkVbci8xfMau3GJs6JgYKAdOAG8CCU+b9vmK6uIBp1AAGnLGwYvV5SoOHTgAAex8QYW9ubRcAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVR42mNgoBAw4pKwKOv6j8w/0VWGVS0LNkE1Na3/Fr/eoYi9U9P6f+vWNUaiDGBgYGCwychC4W/btgmrOiZKw2DUgFEDcOYFNTWt/9jEsSXlgQcABmQTplF3y6kAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -23229,7 +23333,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACG0lEQVR4nKVT3W7TMBg9Thw7P00bUW6gKzwAEhe8AjdcbO85nqAvgjQxrdsEGkVoUpu/xomdFH1fWDtuIVKsfLa/43OOT8THT+cH/McjaXj3/gMXw9AjjGI4a7GvKxwOBwjPg1YaSmsYYxCGIeq6wjAMWF9fwaPG3jm0rYHneSjzHPt9jUk6hS8lg+gwhBACURyj73tIGcD3/BMD1ztoHeIwDAijiIHoBJpTSjG4tZZrYxokSYq9qxjAo4HQTdOg6zqWUZUFhr6Hcw51XcP3JYTgrYiTCYp8y9KODIQQUFohihJcXJxjlmX4udkwSJwkTJ20V1WFz5eXkEGAIAhODAI5FkSbGu7Wa+zrmus0naIqS9zf3SJJJnwYmayUPjEIlIbwBIp8h7IosDhbIt9t0Q/DMwkC97c3bOB0lrEXRwatadht2jifv2Q5jWkQRRGaZo84jrF885b1l0XO7MjcIwCE4BughqIocHP9Fa8XSxR5jrIssPnxAM/z2WSSGCiFrmtPAF1rWC8F5PHxF4fm4fs3vFqccYhezOdojUGWZbC2G7X/8U3SoMPx7oNAYbVajaGJYpZF8xQe3/f5qq2zmM0yvuK/clCVJaSU3EBu267jlxppnegTEIWJgtX3IwAzIDqTVDIInUpyyBcCeKqf4kzNlAlrnzFompqjmk6nI1XTcFAo1vRNIMVuy820rnUE5+yJwfXVl3/+nX8DkmwlItrgPUIAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mO0cvD5z0ABYGFgYGAwM9AhS/OpC1cYmBgoBANvAAu6gIiMAl4Nb548GGReGI6xgB7KIyUMTl24QrYBAPIVDQth4dRzAAAAAElFTkSuQmCC",
    "emoji": "🔲",
    "symbol": "💠",
    "people": [
@@ -23463,7 +23567,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+klEQVR4nKVTy47TQBCsedqJHWcXxFcgceBPuHDObbnxIRxXfBRCQsBfIJZN/H6MZxp1S4nv0NJYsqe7uqq6rd69PxH+Iyw/Xr95i7KsoJRC29QoygOyLMfT71/wWQatNVJK8N6DCLDOYRx6/Pj2BZoBquoexlqsa0CW55jnCTFGWGthrbuBhxBARFJ8DS00rIVWGkPfS3cuCGEWEO8zDEMPYyyMNljmCc55hLBsAESErmsABXRtg7a5wLkMeb6D0grj0MEYg2WZsS9KjOOAw+G4edD3rXSNKeLz4yckSgIQlgnO50KfI8YVp9MDt7wxsPxY5hlhWZBSBJSCczliWKCNlXdmyP4w9biuYjDX3CRkeb6ZojXWZYY2BkpprGGRzjIJSigPlXjD58Ygy3fYFwe09RlKa1jvsTIjSlLIyVobUFyFDYOMZtgAQCTu8kYxRdZ4DWbBuyDySMuIeSfY1JuEGKPMmCPFKEculRYpLCkxsFLi/sq5vFFXBl3b4MXLVyAQHj58lAs2lQs4sbq7ByVCU59xfn6C815kbxJAmOcRXdviyMkEGaNzDkRJ1ps/MhteLD5tW28SdvsC8zShOt7JuFiv1kq0MlEenxQ7LyPkKIpyA2C61nlBZbenaZRtu5z/YBpH0cymMe368iyM+67dJPz8/vWff+e/jMMd8Hdg0uAAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVR42mOMCAv6z0ABYGFgYGDQMXMjS/OVU7sYmBgoBANvAAu6wLYtW/Bq8PLxGWReGI6xgB7KIyUMrpzaRbYBAOzUC2ECTbCwAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -29013,7 +29117,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbUlEQVR4nGNgGPKAEcaYduLZf6k9UURpCqg5ANfHgiyx78wL6jovL0DjPwjjU8OIS2JDi8N/XM5GBiy4DKCKd3pSbP6DMD41TJRbQ4Tt+FzBxIAHlMw5wkjICwy4bEe3GZdB1HcBPg3Y5CiOBQC6TjBvJNihwQAAAABJRU5ErkJggg==",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVR42mNgGPKAEcaY4mfw/9yHT0RpmnfoHlwfE02dl2Sn9D/JTuk/PjUs+DR72ajBuP+RnU2UAQwMDAzbjtyizAtT/Az+T/EzwOsF2gUisu34XIHXBTmbLjAS8gJO29FtxmUQ9V2ATwM2OYpjAQBMCi8/j9DtaQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🧱",
    "people": [
@@ -32191,7 +32295,7 @@
    "explained_by": [
     "I-15"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABISURBVDhPY2CgN5CUlPyPLkYSGMQGgCRIwej6wQZsTZUlCpNlwLNnz8CYKANgipE1UWwAMibLAIpdQJIBhDBOA0jB6PoHDgAAMbT0cbEUtc8AAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAX0lEQVR42mNgoDdQU9P6j8xnotTAgTeAEZffCIFbt64xMjAwMLAgCxZ4vCJK84QdYqR7ISjIhCEoyARDnAWXYmSwbt0ZnAazEOsCXIZQ7AWKo5GFWOfi8gILrugZOgAAJPsWzZ0n6VYAAAAASUVORK5CYII=",
    "emoji": "📻",
    "symbol": "📡",
    "people": [],
@@ -33737,7 +33841,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA40lEQVR4nO1QsVEDQQxc6XSmHUeeIXPogAoogICa7MhVmIAGCGjDoQMC4E4SI/2fMQwZqXfm/ySNdrUScMW/Qb8Lj3e33rqCidDVUJhARHB3qDl2Ty8/OHSZPGxWXqVkc8DcIYVhNpHVLOvbw7cIjeB+vXRhzsoQiD8hnCi6WboKQgzZP78mV4ZAU81JVTjzj6YpUZhzhZsq6N1ywHvrZ9cygkI8k6cpsbsjvtmmAyLTOotF/UOAKfeMzrRKlLUgprvI58NeHk5GcDy9ZcNnV1B2EGphNDVIIbQeL+dhQ/wKnPEFhV9h9kM/WDEAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARUlEQVR42mNgGAUUA0Z0gSQ7pf/4NMw7dA9FDxMpmrGpYSJFMza1TJSGwcAbwAJjHHnBwWAj8YPhyAsOuCSMjy4+ClABAD0eFcgHc6q8AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🌿",
    "people": [
@@ -33824,7 +33928,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABdElEQVR4nN1Rv0sCART+LqTz1MOILk9LQUkNCRwadHDNBsGhFof+pYZGB6GGptAhaKigpbAhEMyfi2j+uOuoPAXNFOUFTmnqXt/2vvfxvfe9B/x5MIua0egxuVxb4Dgt/P79mVpmFqkoBWIYBoryDllW4PG4wLIsBMH1S780TcRiJ8TzPGo1Cfl8EYGAD5VKDa1WG/H4KS3MUyg8Ujb7QJeX5zQYyNTpVCmROKNM5p76fZmIPuj6+oLmbpBKPUNR3tBsqkgkrqDXG2C325DNFlGvS8jlChDF9fkRrNYNlMsvcLu3oNWyuL29QzqdQyi0B1VtwWIRkUw+TRhofhY+3y70em6c2eNxo9v9hNe7g2q1gdFohF7vC9vbzvkGGo0GDocd9bqM1dUVDIcjEBEaDWlsznEcTKbJCMz0IW9u4lQqlcGyyxCENRiN/Hiyqrah02kRDh8xC98YDB4yTqcDkcgBeN4ASXqFzbYJURRgNovT8v+Ab7Q6k1f3NocHAAAAAElFTkSuQmCC",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwklEQVR42t2RIQ7CQBBFXxtkD7HHWFGFIKgKsiHVnABViahsED0GIaSiilRUVfQYe4j6RZRtgN02WPhqsjP///k78PMIlprpfmcAtJD0ReadXfkeZVYYAHVIGbqaKE44g/GJBD5XlZcAE9nidjpyuVZvnPDTWeUlQ1cDEMXJVAOovJxieQWE7ifCnIgWklkB27RrD13txBC6X/5E6/hKWkL4zdBSBO8Vtpu1sxHAvWmdKzgRngNGCznmbVpsPbpX/Bkekn9Wh+d45CoAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🌿",
    "people": [],
@@ -34517,7 +34621,7 @@
     "I-27",
     "I-29"
    ],
-   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVR4nGPcd/jEfwYKAAuIyKrcwMAvIsfw8c0jhmntAQyVvefAbBAA8UHyIABS015shKKeCSYB0wACMDZIHAaQ1SCzmUjVgK6eiVQN6OqZhr4XGKmWDnDFM6F0wQRmjexYYBpwLwAAL327GmAnUOQAAAAASUVORK5CYII=",
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjklEQVR42u2RsQ2FMAxEX6w/B3OkYBDqjICQh4gQI6RmECZhEPKrWFFEE/GrL9zkfLo7x7LzGjMPSgDkOCnvEibDpS8YsN40ANc4GFkHXuNgXK2psfQaWr30Glr9H6zgvMZcTtdba9r5AGwhWuoSJrYQbcKclDXt9os5qel5r/CbFZzXmFuDHKeJau4u6Avxpr5jvhRYIwAAAABJRU5ErkJggg==",
    "emoji": "☀️",
    "symbol": "🌿",
    "people": [],
@@ -43495,6 +43599,34 @@
    "kind": "requires",
    "group": 3,
    "or": false
+  },
+  {
+   "from": "3-15",
+   "to": "3-25",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "0-10",
+   "to": "3-25",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "1-10",
+   "to": "3-25",
+   "kind": "requires",
+   "group": 2,
+   "or": true
+  },
+  {
+   "from": "0-12",
+   "to": "3-25",
+   "kind": "requires",
+   "group": 2,
+   "or": true
   },
   {
    "from": "4-04",

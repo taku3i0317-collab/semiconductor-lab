@@ -30,6 +30,9 @@ SRC = ROOT / "docs" / "TECH_TREE.md"
 EXTRA_SRC = [ROOT / "docs" / "products.md", ROOT / "docs" / "ideas.md"]
 # 英語（O-021）：ノードの名前とへえ①の英訳。docs/network_en.json（{番号: {name, hee1}}）。図とページで日本語／英語を切り替える
 EN_SRC = ROOT / "docs" / "network_en.json"
+# 本番のアイコン（S-008、案 E「色付き」）：tools/gen_icons.py が作る docs/icons_e.json（番号 → data URI）
+ICON_E_SRC = ROOT / "docs" / "icons_e.json"
+ICON_E = json.loads(ICON_E_SRC.read_text(encoding="utf-8")) if ICON_E_SRC.exists() else {}
 EN = {k: v for k, v in json.loads(EN_SRC.read_text(encoding="utf-8")).items() if not k.startswith("_")} if EN_SRC.exists() else {}
 OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
 JSON_OUT = ROOT / "docs" / "tech_network.json"
@@ -534,7 +537,7 @@ def export_json(nodes):
                           "enables": n["enables"], "explains": n["explains"], "parts": n["parts"], "materials": n["materials"], "frontier": n["frontier"],
                           "enabled_by": [k for k, o in nodes.items() if i in o["enables"]],
                           "explained_by": [k for k, o in nodes.items() if i in o["explains"]],
-                          "icon": icon_uri(icons[i]) if i in icons else None, "emoji": emoji.get(i),
+                          "icon": ICON_E.get(i) or (icon_uri(icons[i]) if i in icons else None), "emoji": emoji.get(i),
                           "symbol": symbols.get(trunk_of(i), "●"), "people": people.get(i, []),
                           "media": [x for x in meta.get("media", {}).get(i, []) if isinstance(x, dict)],
                           "descendants": len(descendants(i))})
