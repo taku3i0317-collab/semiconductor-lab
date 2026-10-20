@@ -168,9 +168,11 @@ record ChipState(
 - 年と出典は REFERENCES に1項目ずつ（A）。⚠️ のものは確かめてから
 - 判定は「形」ではなく**つながり方**で見る（同じ回路なら、どこに描いても・どの向きでも同じ発見）
 
-### 6.4 v0.3 の大きさで NOT が入るか（8×8 の例）
-p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、その真ん中に n（エミッタ）1マス。島の横に n の細い帯（抵抗）。配線はその上の Al で、ふちの4か所がパッド（電源・入力・出力・0 V）。
+### 6.4 v0.3 の大きさで NOT が入るか（8×8 の例 = `LithoExamples.notGate()`）
+p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、その真ん中に n（エミッタ）1マス。島の右と下に n の細い帯（コレクタの抵抗・ベースの抵抗。本物のマイクロロジックと同じくベースにも抵抗）。配線はその上の Al で、ふちの4か所がパッド（0 V・電源・入力・出力）。
 → **拡散3回（n・p・n）＋窓＋金属1層**で入る。拡散2回だと、トランジスタと抵抗を同じ板の上で分ける島が作れない（§2 の ⚠️ 未決）
+- 計算の結果（GameTest litho_core）：入力 0 V → 出力 5.0 V、入力 5 V → 出力 約 1.1 V。低い方が 0.2 V まで下がらないのは、島（コレクタ）の抵抗が大きいから（埋め込み層のない最初のころの IC と同じ。のちの [9-30] エピタキシーと埋め込み層で下がる）
+- 判定のきまり：トランジスタのベースは拡散した領域（板そのものはベースにしない）
 
 ## 7. 画面（A）
 
@@ -182,13 +184,12 @@ p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、そ
 
 | 誰が | 何を作る | 使うもの |
 |---|---|---|
-| C（IMP2） | [9-19] レジスト塗布・[9-21] 現像・レジストの材料（[2-20] → [2-30]/[2-32]） | `ChipOps.coat`・`develop`・`strip`、`canCoat`…、process_wafer |
-| C か E | [9-20] 密着露光（[7-10] 水銀ランプ✅）・[7-11] 銀塩マスク | `ChipOps.expose(w, mask, ExposureTool.CONTACT_G)`、MaskData、photomask の耐久 |
-| E（IMP4） | [2-10] フッ酸 → [9-06] 酸化膜エッチング、[9-15] 酸化炉（再酸化） | `ChipOps.etchOxide`・`reoxidize` |
-| A（IMP） | litho パッケージ全部（データ・ChipOps・ChipModel・Netlist・Circuit・Discoveries）、製図台、検査台、拡散炉の窓対応、発見と図鑑・進捗 | — |
-| 未定 | [9-25] Al 蒸着とそのエッチング、[9-13] 研磨（reclaim） | `depositMetal`・`etchMetal`・`reclaim` |
+| C（IMP2、INBOX O-003） | photomask の登録と [7-11] 銀塩マスク（縮小カメラ：rubylith の mask 成分をそのまま photomask に写す）・のちのクロムマスク、露光の光学（光源・投影レンズのノード、ExposureTool の λ・CD・N の出典、ガイドの「アッベの限界」）。[9-19] レジスト塗布・[9-21] 現像は C の INBOX で割り当てが来たら | `ChipOps.coat`・`develop`・`strip`・`expose`、MaskData（成分 `semiconductor-lab:mask`）、photomask の耐久 |
+| C か E | [9-20] 密着露光（[7-10] 水銀ランプ✅） | `ChipOps.expose(w, mask, ExposureTool.CONTACT_G)` |
+| E（IMP4） | [2-10] フッ酸 ✅ → [9-06] エッチング槽（process_wafer の入口）、[9-15] 酸化炉（再酸化）、[2-20] コールタール ✅、[9-25] Al 配線（前提の Al の鎖から。Al を付けるのは C の真空蒸着装置 EvaporatorBlockEntity を使える）、[9-13] 研磨 | `ChipOps.etchOxide`・`reoxidize`・`depositMetal`・`etchMetal`・`reclaim` |
+| A（IMP） | litho パッケージ全部（データ・ChipOps・ChipModel・Netlist・Circuit・Discoveries・ExposureTool・LithoExamples）、process_wafer、製図台と rubylith（原図）の登録、検査台、拡散炉の窓対応、発見と図鑑・進捗 | — |
 
-- 機械を作ったら、GameTest で「ChipOps を順に呼ぶと、§6.4 の 8×8 の例が NOT と判定される」を通す（A が `LithoTests.notExample()` を用意し、C・E は自分の機械の tick からそれを呼ぶテストを書けばよい）
+- 機械を作ったら、GameTest で「ChipOps を順に呼ぶと、§6.4 の 8×8 の例が NOT と判定される」を通す（A の `LithoExamples.notGate()` が例の設計図、`LithoExamples.process(板, 設計図, 露光の方法)` が全部の工程を順に通す道具。C・E は自分の機械の工程をこの順の中に入れて確かめればよい）
 - `ExposureTool`（enum）：`CONTACT_G(436, 8)`・`PROJECTION_1X(…, 12)`・`STEPPER_G(436, 16)`・`STEPPER_I(365, 24)`・`KRF(248, 36)`・`ARF(193, 44)`・`ARF_IMMERSION(193, 52)`・`EUV(13.5, 72)`（波長 nm・N）
 
 ## 9. まだ決めていないこと（質問中）
@@ -199,3 +200,4 @@ p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、そ
 
 ## 変更履歴
 - 2026-10-20 初版（O-002 ①）
+- 2026-10-20 litho パッケージの最初の実装（データ・ChipOps・ChipModel・Netlist・Circuit・Discoveries・ExposureTool・LithoExamples、process_wafer）。§6.4 の例にベースの抵抗を足した。§8 の担当を C（O-003）・E の申し出どおりに

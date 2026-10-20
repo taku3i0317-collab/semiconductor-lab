@@ -197,5 +197,10 @@
   "gui.semiconductor-lab.etch_tank.need_input": "酸化膜つきの板8＋フッ酸",
   "gui.semiconductor-lab.etch_tank.running": "酸化膜を溶かしている",
   "gui.semiconductor-lab.etch_tank.out_full": "出口が満杯",
-  "gui.semiconductor-lab.etch_tank.recipe": "SiO2 + 6HF → H2SiF6 + 2H2O"
+  "gui.semiconductor-lab.etch_tank.recipe": "SiO2 + 6HF → H2SiF6 + 2H2O",
+  "item.semiconductor-lab.process_wafer": "加工中のウェハー",
+  "item.semiconductor-lab.process_wafer.note1": "マスクの模様を1枚ずつ焼き付けているシリコンの板。",
+  "item.semiconductor-lab.process_wafer.note2": "レジストを塗る → 露光 → 現像 → 削る → しみ込ませる、をマスクの枚数だけくり返す。失敗してもレジストをはがせばやり直せる。",
+  "item.semiconductor-lab.process_wafer.note3": "1959年、ヘルニは酸化膜を残したまま窓だけ開けてしみ込ませる「プレーナ法」を考えた。表面が平らなので、部品をいくつも並べて金属でつなげる。",
+  "item.semiconductor-lab.process_wafer.note4": "本物の1枚のウェハーには同じチップがたくさん並ぶ（ステップ・アンド・リピート）。ゲームでは1枚に1つ分の中身を持たせ、それが並んでいることにしている。"
 }

@@ -543,6 +543,57 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
+
+    // =====================================================================
+    // 露光とマスク（O-002、docs/LITHO_DESIGN.md）
+    // =====================================================================
+
+    /**
+     * 中心の仕組み：8×8 の NOT の例を、工程の関数（ChipOps）で順に焼くと、抵抗・ダイオード・トランジスタ・NOT が見つかる。
+     * 予想（設計図から）と本物の工程の結果が同じ。NOT は計算しても入力 0 → 出力 高、入力 1 → 出力 低。
+     * まちがった順の工程は断られ、ウェハーは失われない。方眼の大きさの表は式どおり。
+     */
+    @GameTest
+    public void lithoCore(GameTestHelper h) {
+        // 方眼の大きさ：N = 8 × (10 µm ÷ CD)^(1/3) を 4 の倍数に
+        for (var t : com.taku3.semiconductorlab.litho.ExposureTool.values())
+            h.assertValueEqual(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(t.cdNm), t.grid, "grid size of " + t);
+        var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        // 予想（設計図から）
+        var predicted = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(design, "p"));
+        var ids = com.taku3.semiconductorlab.litho.Discoveries.match(predicted).stream().map(com.taku3.semiconductorlab.litho.Discoveries.Discovery::id).toList();
+        h.assertTrue(ids.equals(java.util.List.of("diffused_resistor", "junction_diode", "planar_transistor", "rtl_not")), "8x8 example finds all four: " + ids);
+        int[] pins = com.taku3.semiconductorlab.litho.Circuit.notPins(predicted);
+        double hi = com.taku3.semiconductorlab.litho.Circuit.notOutput(predicted, pins, false), lo = com.taku3.semiconductorlab.litho.Circuit.notOutput(predicted, pins, true);
+        // 出力の低い方は約 1 V：島（コレクタ）の抵抗が大きい（埋め込み層のない最初のころの IC と同じ）
+        h.assertTrue(hi > 4.5 && lo < 1.5, String.format("NOT computes: in 0 -> %.2f V, in 1 -> %.2f V", hi, lo));
+        // 本物の工程（p型の酸化膜つきの板から）
+        ItemStack wafer = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        wafer.set(ModDataComponents.DOPANT, "boron");
+        ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(wafer, design, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.assertTrue(done.is(Semiconductor.PROCESS_WAFER) && done.getCount() == 8, "8 process wafers come out");
+        var made = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(done.get(ModDataComponents.CHIP_STATE)));
+        h.assertTrue(com.taku3.semiconductorlab.litho.Discoveries.match(made).size() == 4, "processed chip = predicted chip");
+        h.assertValueEqual(wafer.getCount(), 8, "the input stack is not changed");
+        // まちがった順・合わない物は断られる（ウェハーはそのまま）
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(wafer, design.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).reason(), "no_resist", "expose before coating");
+        ItemStack undoped = new ItemStack(Semiconductor.OXIDIZED_WAFER);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.coat(undoped).reason(), "undoped", "undoped wafer");
+        ItemStack coated = com.taku3.semiconductorlab.litho.ChipOps.coat(wafer).out();
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(12, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(12), "", 0);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(coated, fine, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).reason(), "too_fine", "12x12 mask with contact printing (8x8)");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.expose(coated, fine, com.taku3.semiconductorlab.litho.ExposureTool.PROJECTION_1X).ok(), "12x12 mask with 1:1 projection");
+        ItemStack exposed = com.taku3.semiconductorlab.litho.ChipOps.expose(coated, design.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+        ItemStack redo = com.taku3.semiconductorlab.litho.ChipOps.strip(exposed).out();
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.canCoat(redo), "strip resist and coat again (rework)");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.diffuse(redo, 'n').reason(), "no_window", "diffuse without windows");
+        // 研磨してやり直し（2回まで）
+        ItemStack r1 = com.taku3.semiconductorlab.litho.ChipOps.reclaim(done).out(), r2 = com.taku3.semiconductorlab.litho.ChipOps.reclaim(r1).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.reclaim(r2).reason(), "too_many_reclaims", "reclaim twice at most");
+        LOG.info("[LAB] litho core: 8x8 NOT example -> {}; NOT in 0 -> {} V, in 1 -> {} V", ids, String.format("%.2f", hi), String.format("%.2f", lo));
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

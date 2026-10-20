@@ -317,4 +317,8 @@
 - DESIGN に「露光とマスク（v0.3 の中心）」（ユーザーの決定6つ）、仕様は docs/LITHO_DESIGN.md：層（DIFF_N・DIFF_P・CONTACT・METAL）、方眼の大きさ N＝8×(10µm÷CD)^(1/3)（g線密着 8 → EUV 72）、データ（BitGrid・chip_design・mask・chip_state）、工程の関数 ChipOps（coat・expose・develop・etchOxide・etchMetal・strip・diffuse・depositMetal・reoxidize・reclaim、失敗はウェハーを失わない）、判定（ChipModel → Netlist → Circuit → Discoveries）、C・E がつなぐ所
 - **質問（設計担当へ）**：①「1〜2層」を金属の層の数と読み、拡散は3回までとしてよいか（拡散2回だと NOT のトランジスタと抵抗を分ける島が作れない）②設計図・原図の材料（紙 [15-01]・ルビリス＝プラスチック）が未実装。製図台で材料なしに描けるようにしてよいか ③面抵抗・CD の値は REFERENCES で確定する
 - 答えを待つあいだは、答えに左右されない所（データ・ChipOps・判定・回路の計算）から ② を進める
+## O-002 ② の1：litho パッケージ（2026-10-20）
+- litho/：BitGrid・LayerKind・ChipDesign・MaskData・ChipState（データコンポーネント chip_design・mask・chip_state）、ChipOps（工程の関数。失敗はウェハーを変えない）、ChipModel（完成した姿）、Netlist（領域・線・パッド・抵抗・ダイオード・トランジスタ）、Circuit（ニュートン法の直流の回路：面抵抗・pn 接合・エバース・モルの順方向）、Discoveries（4つ）、ExposureTool（g線密着 8 → EUV 72）、LithoExamples（8×8 の NOT と全部の工程を通す道具）。アイテム process_wafer
+- 途中で見つけて直した：①抵抗の帯を「エミッタ」、板を「ベース」とまちがえてトランジスタにしていた → ベースは拡散した領域だけ ②ベースを入力に直結すると、計算で出力がマイナスになった（収束はしていた。ベースに 5 V を直接かけるのは本物でも壊れる）→ 例を本物のマイクロロジックと同じくベースにも抵抗を入れた形に
+- C（O-003）・E と担当を確かめて LITHO_DESIGN §8 を直した（rubylith＝A、photomask と [7-11]・光学＝C、Al 配線・研磨＝E）。テスト：125/125 PASSED
 

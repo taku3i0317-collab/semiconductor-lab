@@ -53,5 +53,28 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.VAR_INT)
                     .build());
 
+    // 露光とマスク（O-002、docs/LITHO_DESIGN.md §4）：設計図・マスク・加工中のウェハーの中身
+    public static final DataComponentType<com.taku3.semiconductorlab.litho.ChipDesign> CHIP_DESIGN = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("chip_design"),
+            DataComponentType.<com.taku3.semiconductorlab.litho.ChipDesign>builder()
+                    .persistent(com.taku3.semiconductorlab.litho.ChipDesign.CODEC)
+                    .networkSynchronized(ByteBufCodecs.fromCodec(com.taku3.semiconductorlab.litho.ChipDesign.CODEC))
+                    .build());
+    public static final DataComponentType<com.taku3.semiconductorlab.litho.MaskData> MASK = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("mask"),
+            DataComponentType.<com.taku3.semiconductorlab.litho.MaskData>builder()
+                    .persistent(com.taku3.semiconductorlab.litho.MaskData.CODEC)
+                    .networkSynchronized(ByteBufCodecs.fromCodec(com.taku3.semiconductorlab.litho.MaskData.CODEC))
+                    .build());
+    public static final DataComponentType<com.taku3.semiconductorlab.litho.ChipState> CHIP_STATE = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("chip_state"),
+            DataComponentType.<com.taku3.semiconductorlab.litho.ChipState>builder()
+                    .persistent(com.taku3.semiconductorlab.litho.ChipState.CODEC)
+                    .networkSynchronized(ByteBufCodecs.fromCodec(com.taku3.semiconductorlab.litho.ChipState.CODEC))
+                    .build());
+
     public static void initialize() {}
 }

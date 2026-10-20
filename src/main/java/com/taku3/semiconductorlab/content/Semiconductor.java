@@ -48,6 +48,8 @@ public final class Semiconductor {
     public static final Item PN_JUNCTION_WAFER     = Reg.item("pn_junction_wafer");
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");
+    // 露光とマスク（O-002、docs/LITHO_DESIGN.md）：加工中のウェハー（chip_state つき。レジストを塗ると酸化膜つきの板がこれになる）
+    public static final Item PROCESS_WAFER         = Reg.item("process_wafer");
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = Reg.item("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = Reg.item("junction_transistor_blank"); // 合金化前
