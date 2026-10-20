@@ -429,6 +429,50 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-29] ゴム：ゴムの木 → ラテックス → 生ゴム → 加硫ゴム（IMP3、O-005）
+    // =====================================================================
+
+    /** 苗木 → ゴムの木。剥片で幹 → ラテックス。ラテックス3＋木酢液 → 生ゴム、＋硫黄 → 焼く → 加硫ゴム。生ゴムは暑いとべたつき寒いと硬い、加硫ゴムは変わらない */
+    @GameTest
+    public void rubber(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        floor(h, 7);
+        BlockPos sap = p(3, 1, 3);
+        h.setBlock(sap.below(), Blocks.GRASS_BLOCK);
+        h.setBlock(sap, Chemistry.RUBBER_SAPLING);
+        // 木の成長（growTree）は GameTest の世界ではバニラのジャングルの木でも起きない（false が返る）ので、育つかは人間の確認（TEST_QUEUE）。ここでは定義を確かめる
+        h.assertTrue(lv.registryAccess().lookupOrThrow(Registries.FEATURE).get(Chemistry.RUBBER_TREE_FEATURE).isPresent(), "tree feature rubber_tree is loaded");
+        h.assertTrue(h.getBlockState(sap).is(Chemistry.RUBBER_SAPLING) && Chemistry.RUBBER_SAPLING.defaultBlockState().canSurvive(lv, h.absolutePos(sap)), "the sapling can be planted on grass");
+        h.setBlock(sap, Chemistry.RUBBER_LOG);
+        h.assertTrue(lv.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE).get(SemiconductorLab.id("rubber_trees")).isPresent(), "placed feature rubber_trees (jungle)");
+        // 剥片で幹からラテックス
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Survival.OBSIDIAN_FLAKE));
+        BlockPos la = h.absolutePos(sap);
+        var ctx = new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(la), net.minecraft.core.Direction.NORTH, la, false));
+        player.getMainHandItem().getItem().useOn(ctx);
+        h.assertTrue(h.getEntities(net.minecraft.world.entity.EntityTypes.ITEM).stream().anyMatch(e -> e.getItem().is(Chemistry.LATEX)), "latex oozes from the rubber tree");
+        // レシピ
+        h.assertTrue(recipeUses(h, "raw_rubber", Chemistry.LATEX) && recipeUses(h, "raw_rubber", Chemistry.WOOD_VINEGAR), "latex + acid (wood vinegar) -> raw rubber");
+        h.assertTrue(recipeUses(h, "rubber_compound", Chemistry.RAW_RUBBER) && recipeUses(h, "rubber_compound", Chemistry.SULFUR_POWDER), "raw rubber + sulfur");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.RUBBER_COMPOUND).is(Chemistry.VULCANIZED_RUBBER), "baked -> vulcanized rubber");
+        // 暑さ・寒さ
+        ItemStack raw = new ItemStack(Chemistry.RAW_RUBBER);
+        com.taku3.semiconductorlab.item.RawRubberItem.applyTemperature(raw, 2.0f);
+        h.assertTrue(com.taku3.semiconductorlab.item.RawRubberItem.stateOf(raw) == com.taku3.semiconductorlab.item.RawRubberItem.State.STICKY, "raw rubber gets sticky in the heat (desert 2.0)");
+        com.taku3.semiconductorlab.item.RawRubberItem.applyTemperature(raw, 0.95f);
+        h.assertTrue(com.taku3.semiconductorlab.item.RawRubberItem.stateOf(raw) == com.taku3.semiconductorlab.item.RawRubberItem.State.STICKY, "sticky in the jungle too (0.95)");
+        com.taku3.semiconductorlab.item.RawRubberItem.applyTemperature(raw, 0.0f);
+        h.assertTrue(com.taku3.semiconductorlab.item.RawRubberItem.stateOf(raw) == com.taku3.semiconductorlab.item.RawRubberItem.State.STIFF, "stiff in the cold (snowy 0.0)");
+        com.taku3.semiconductorlab.item.RawRubberItem.applyTemperature(raw, 0.7f);
+        h.assertTrue(com.taku3.semiconductorlab.item.RawRubberItem.stateOf(raw) == com.taku3.semiconductorlab.item.RawRubberItem.State.NORMAL, "back to normal (0.7)");
+        h.assertFalse(Chemistry.VULCANIZED_RUBBER instanceof com.taku3.semiconductorlab.item.RawRubberItem, "vulcanized rubber does not change with temperature");
+        LOG.info("[LAB] rubber [2-29]: sapling -> rubber tree, flake -> latex, + wood vinegar -> raw rubber (sticky hot / stiff cold), + sulfur -> baked -> vulcanized");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

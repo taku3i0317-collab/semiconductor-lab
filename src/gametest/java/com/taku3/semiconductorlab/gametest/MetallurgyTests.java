@@ -588,6 +588,7 @@ public class MetallurgyTests extends LabTestBase {
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));
         expect.put("nitre_earth_block", b -> b.is(net.minecraft.world.level.biome.Biomes.DRIPSTONE_CAVES));   // [6-16] IMP2-02
         expect.put("natural_asphalt", b -> b.is(BiomeTags.IS_BADLANDS) || b.is(net.minecraft.world.level.biome.Biomes.DESERT));   // [2-31] IMP3
+        expect.put("rubber_trees", b -> b.is(BiomeTags.IS_JUNGLE));   // [2-29] IMP3（木。植生の段階）
         expect.put("trona_deposit", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT));
         expect.put("borax_deposit", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT));
         expect.put("rock_salt_ore", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT) || b.is(BiomeTags.IS_BADLANDS));

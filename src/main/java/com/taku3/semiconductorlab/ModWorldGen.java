@@ -21,10 +21,14 @@ public class ModWorldGen {
             MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"),
             FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"),
             NITRE_EARTH = key("nitre_earth_block"),
-            NATURAL_ASPHALT = key("natural_asphalt");
+            NATURAL_ASPHALT = key("natural_asphalt"),
+            RUBBER_TREES = key("rubber_trees");
 
     /** 鉱石1つぶんの生成ルール：どの placed feature を、どのバイオームの選び方で入れるか（GameTest が全バイオームに対して直接調べる） */
-    public record OreRule(ResourceKey<PlacedFeature> feature, Predicate<BiomeSelectionContext> biomes) {}
+    public record OreRule(ResourceKey<PlacedFeature> feature, Predicate<BiomeSelectionContext> biomes, GenerationStep.Decoration step) {
+        /** 鉱石（地下の鉱石の段階）。木など地表の物は step を指定する（IMP3 [2-29]） */
+        public OreRule(ResourceKey<PlacedFeature> feature, Predicate<BiomeSelectionContext> biomes) { this(feature, biomes, GenerationStep.Decoration.UNDERGROUND_ORES); }
+    }
 
     public static final List<OreRule> RULES = List.of(
             // オーバーワールド全体。[1-46] 石英鉱脈もここ（地殻の約12%が石英）。石・深層岩の割れ目を埋めた脈
@@ -53,9 +57,11 @@ public class ModWorldGen {
             // [6-04] 岩塩：乾燥バイオーム（砂漠・荒野）の地下の石だけ（古い海の蒸発岩層）
             // [2-31] 天然アスファルト（IMP3）：荒野・砂漠の地表近く（死海やタール坑のように、地下の油が地表で軽い成分を失って残った瀝青）。原油は作らない
             new OreRule(NATURAL_ASPHALT, BiomeSelectors.tag(BiomeTags.IS_BADLANDS).or(BiomeSelectors.includeByKey(Biomes.DESERT))),
+            // [2-29] ゴムの木（IMP3）：ジャングルだけ（パラゴムノキは南米の熱帯雨林の木）。地表の植生の段階
+            new OreRule(RUBBER_TREES, BiomeSelectors.tag(BiomeTags.IS_JUNGLE), GenerationStep.Decoration.VEGETAL_DECORATION),
             new OreRule(ROCK_SALT_ORE, BiomeSelectors.includeByKey(Biomes.DESERT).or(BiomeSelectors.tag(BiomeTags.IS_BADLANDS))));
 
     public static void initialize() {
-        for (OreRule r : RULES) BiomeModifications.addFeature(r.biomes(), GenerationStep.Decoration.UNDERGROUND_ORES, r.feature());
+        for (OreRule r : RULES) BiomeModifications.addFeature(r.biomes(), r.step(), r.feature());
     }
 }

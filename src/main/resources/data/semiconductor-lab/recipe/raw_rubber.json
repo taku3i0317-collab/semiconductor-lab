@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:latex",
+    "semiconductor-lab:latex",
+    "semiconductor-lab:latex",
+    "semiconductor-lab:wood_vinegar"
+  ],
+  "result": {
+    "id": "semiconductor-lab:raw_rubber",
+    "count": 1
+  }
+}

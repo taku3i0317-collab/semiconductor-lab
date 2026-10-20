@@ -1350,6 +1350,21 @@
 - Wikipedia「Bitumen」（天然アスファルト、ユダヤのアスファルト）：https://en.wikipedia.org/wiki/Bitumen
 - Wikipedia「Turpentine」：https://en.wikipedia.org/wiki/Turpentine
 
+## C2. 硫黄で橋をかけると暑くてもべたつかない（加硫ゴム）［2-29］
+**答え**：天然ゴムはパラゴムノキの樹液（ラテックス）に浮いたポリイソプレンの粒。酸を入れると粒がくっついて生ゴムになる。生ゴムは長い分子がからまっているだけなので、暑いと流れてべたつき、寒いと硬くなる。硫黄を混ぜて熱すると、硫黄が分子どうしを橋でつなぎ（加硫）、網の目になって温度で変わりにくい弾性のあるゴムになる（1839 グッドイヤー）。
+
+- へえ①：ゴムに硫黄を入れて熱すると、暑くてもべたつかない丈夫なゴムになる。
+- へえ②：1830年代のアメリカのゴム製品は、夏に溶けてにおい、ブームがすぐ終わった。
+- へえ③：中南米の人々は3500年以上前、ラテックスに朝顔の汁を混ぜて弾むボールを作った（一種の加硫）⚠️。
+- へえ④：1876 ウィッカムが種を持ち出し、東南アジアの農園が今の天然ゴムの大部分を作る。
+
+確かさ：加硫のしくみ・グッドイヤー 1839（特許 1844）◎／ハンコックの特許 1843 ○／中南米のゴムボール（朝顔の汁）○、年代 △ → ⚠️／ウィッカム 1876 ○
+根拠：
+- Wikipedia「Vulcanization」：https://en.wikipedia.org/wiki/Vulcanization
+- Wikipedia「Charles Goodyear」：https://en.wikipedia.org/wiki/Charles_Goodyear
+- Wikipedia「Natural rubber」（ラテックス・凝固・歴史）：https://en.wikipedia.org/wiki/Natural_rubber
+- Hosler ほか 1999「Prehistoric polymers: rubber processing in ancient Mesoamerica」Science 284：https://www.science.org/doi/10.1126/science.284.5422.1988
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

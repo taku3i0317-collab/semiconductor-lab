@@ -9,7 +9,18 @@ import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.machine.Vessel;
 import com.taku3.semiconductorlab.machine.MachineBlock;
 import com.taku3.semiconductorlab.machine.MachineEntityBlock;
+import com.taku3.semiconductorlab.SemiconductorLab;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.util.random.WeightedList;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.SaplingBlock;
+import net.minecraft.world.level.block.TintedParticleLeavesBlock;
+import net.minecraft.world.level.block.grower.TreeGrower;
+import net.minecraft.world.level.levelgen.feature.Feature;
+import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -84,6 +95,18 @@ public final class Chemistry {
     public static final Block HELIOGRAPH      = Reg.functional("heliograph", p -> new Block(p) {
             @Override protected net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState s, net.minecraft.world.level.BlockGetter l, net.minecraft.core.BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext c) { return Block.box(1, 0, 1, 15, 1, 15); }
         }, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5f).sound(SoundType.METAL).noOcclusion());
+
+    // --- IMP3（O-005）[2-29] ゴム：ジャングルのゴムの木 → ラテックス → 酸（木酢液）で生ゴム → 硫黄と熱で加硫ゴム（1839 グッドイヤー） ---
+    public static final ResourceKey<Feature> RUBBER_TREE_FEATURE = ResourceKey.create(Registries.FEATURE, SemiconductorLab.id("rubber_tree"));
+    public static final ResourceKey<PlacedFeature> RUBBER_TREES_PLACED = ResourceKey.create(Registries.PLACED_FEATURE, SemiconductorLab.id("rubber_trees"));
+    public static final TreeGrower RUBBER_GROWER = new TreeGrower("semiconductor-lab:rubber", WeightedList.of(RUBBER_TREE_FEATURE), WeightedList.of(), WeightedList.of(), RUBBER_TREE_FEATURE);
+    public static final Block RUBBER_LOG     = Reg.block("rubber_log", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_LOG));
+    public static final Block RUBBER_LEAVES  = Reg.block("rubber_leaves", p -> new TintedParticleLeavesBlock(0.01f, p), BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_LEAVES));
+    public static final Block RUBBER_SAPLING = Reg.block("rubber_sapling", p -> new SaplingBlock(RUBBER_GROWER, p) {}, BlockBehaviour.Properties.ofFullCopy(Blocks.JUNGLE_SAPLING));
+    public static final Item LATEX                 = Reg.item("latex");             // ラテックス（ゴムの粒が水に浮いた白い樹液）
+    public static final Item RAW_RUBBER            = Reg.item("raw_rubber", RawRubberItem::new, new Item.Properties());   // 生ゴム（暑いとべたつき、寒いと硬い）
+    public static final Item RUBBER_COMPOUND       = Reg.item("rubber_compound");   // 生ゴム＋硫黄を練った物（焼く前）
+    public static final Item VULCANIZED_RUBBER     = Reg.item("vulcanized_rubber"); // 加硫ゴム
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=y": {
+      "model": "semiconductor-lab:block/rubber_log"
+    },
+    "axis=z": {
+      "model": "semiconductor-lab:block/rubber_log",
+      "x": 90
+    },
+    "axis=x": {
+      "model": "semiconductor-lab:block/rubber_log",
+      "x": 90,
+      "y": 90
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "ingredient": "semiconductor-lab:rubber_compound",
+  "result": {
+    "id": "semiconductor-lab:vulcanized_rubber"
+  }
+}

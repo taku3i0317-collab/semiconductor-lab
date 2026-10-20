@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:vulcanized_rubber"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.vulcanized_rubber"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.vulcanized_rubber.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.vulcanized_rubber.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:vulcanized_rubber"
+          }
+        ]
+      }
+    }
+  }
+}

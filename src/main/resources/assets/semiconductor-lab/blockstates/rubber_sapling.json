@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "stage=0": {
+      "model": "semiconductor-lab:block/rubber_sapling"
+    },
+    "stage=1": {
+      "model": "semiconductor-lab:block/rubber_sapling"
+    }
+  }
+}

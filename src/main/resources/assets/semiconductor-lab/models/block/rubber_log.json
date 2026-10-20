@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "semiconductor-lab:block/rubber_log_top",
+    "side": "semiconductor-lab:block/rubber_log"
+  }
+}

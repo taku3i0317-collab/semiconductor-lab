@@ -189,16 +189,20 @@ setblock ~39 ~0 ~18 semiconductor-lab:heliograph
 setblock ~40 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:asphalt",count:16},{Slot:1b,id:"semiconductor-lab:pine_resin",count:16},{Slot:2b,id:"semiconductor-lab:turpentine",count:16},{Slot:3b,id:"semiconductor-lab:bitumen_varnish",count:16},{Slot:4b,id:"semiconductor-lab:pewter_plate",count:16}]}
 setblock ~43 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-01] 硫酸","（人間の確認項目なし）","",""]}}
 setblock ~43 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sulfur_powder",count:16},{Slot:1b,id:"semiconductor-lab:sulfur_dioxide",count:16},{Slot:2b,id:"semiconductor-lab:sulfuric_acid",count:16}]}
-setblock ~46 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-21] アンモニア水","アンモニア蒸留器の G","UI（左に4つ、右に出","口2つ、水の残り・電力"]}}
-setblock ~46 ~-1 ~18 semiconductor-lab:test_power_source
-setblock ~46 ~0 ~18 semiconductor-lab:ammonia_still
-setblock ~47 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ammonia_water",count:16},{Slot:1b,id:"semiconductor-lab:ammoniacal_liquor",count:16},{Slot:2b,id:"semiconductor-lab:slaked_lime",count:16},{Slot:3b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:4b,id:"minecraft:water_bucket",count:1}]}
-setblock ~50 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-11] ドーパント源","ドーパントの付いた結晶","のツールチップ（p型は","赤・n型は青の文字、S"]}}
-setblock ~50 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphorus",count:16}]}
-setblock ~53 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
-setblock ~53 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphoric_acid",count:16}]}
-setblock ~56 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-13] ラッピング・鏡","研磨機の GUI（左に","ウェハー・砥粒・シリカ","、銀色のバー、「やり直"]}}
-setblock ~56 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sodium_silicate",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
+setblock ~46 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-29] ゴム","新しいワールドのジャン","グルにゴムの木が生えて","いるか（多すぎ・少なす"]}}
+setblock ~46 ~0 ~18 semiconductor-lab:rubber_log
+setblock ~47 ~0 ~18 semiconductor-lab:rubber_leaves
+setblock ~48 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:rubber_sapling",count:16},{Slot:1b,id:"semiconductor-lab:latex",count:16},{Slot:2b,id:"semiconductor-lab:raw_rubber",count:16},{Slot:3b,id:"semiconductor-lab:rubber_compound",count:16},{Slot:4b,id:"semiconductor-lab:vulcanized_rubber",count:16}]}
+setblock ~51 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-21] アンモニア水","アンモニア蒸留器の G","UI（左に4つ、右に出","口2つ、水の残り・電力"]}}
+setblock ~51 ~-1 ~18 semiconductor-lab:test_power_source
+setblock ~51 ~0 ~18 semiconductor-lab:ammonia_still
+setblock ~52 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ammonia_water",count:16},{Slot:1b,id:"semiconductor-lab:ammoniacal_liquor",count:16},{Slot:2b,id:"semiconductor-lab:slaked_lime",count:16},{Slot:3b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:4b,id:"minecraft:water_bucket",count:1}]}
+setblock ~55 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-11] ドーパント源","ドーパントの付いた結晶","のツールチップ（p型は","赤・n型は青の文字、S"]}}
+setblock ~55 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphorus",count:16}]}
+setblock ~58 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
+setblock ~58 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:phosphoric_acid",count:16}]}
+setblock ~61 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-13] ラッピング・鏡","研磨機の GUI（左に","ウェハー・砥粒・シリカ","、銀色のバー、「やり直"]}}
+setblock ~61 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sodium_silicate",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
 setblock ~0 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹3 熱","↓ この列","",""]}}
 setblock ~2 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-04] ふいご","ふいごを素手で右クリッ","クすると音と「送風 1","00%」が出て、1秒ほ"]}}
 setblock ~2 ~0 ~26 semiconductor-lab:bellows
