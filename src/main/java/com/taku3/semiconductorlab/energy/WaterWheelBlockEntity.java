@@ -14,12 +14,21 @@ public class WaterWheelBlockEntity extends GeneratorBlockEntity {
     public WaterWheelBlockEntity(BlockPos pos, BlockState state) { super(Power.WATER_WHEEL.type, pos, state, 10_000, WATTS_PER_FLOW * 4 * 2); }
     @Override public boolean supportsDynamoUpgrade() { return true; }
 
-    @Override protected double produceWatts(Level level, BlockPos pos, BlockState state) {
+    /** 横を流れている水の面の数（0〜4） */
+    public static int flows(Level level, BlockPos pos) {
         int flows = 0;
         for (Direction d : Direction.Plane.HORIZONTAL) {
             FluidState f = level.getFluidState(pos.relative(d));
             if (!f.isEmpty() && f.is(Fluids.FLOWING_WATER) && f.getFlow(level, pos.relative(d)).lengthSqr() > 0) flows++;
         }
+        return flows;
+    }
+
+    /** 回っているか（水車ふいご [3-04] がこれを見る） */
+    public static boolean turning(Level level, BlockPos pos) { return flows(level, pos) > 0; }
+
+    @Override protected double produceWatts(Level level, BlockPos pos, BlockState state) {
+        int flows = flows(level, pos);
         // 流れの力には余裕がある。永久磁石のダイナモは磁場が弱く、その一部しか電気にできなかった → 自励式で2倍
         return flows * WATTS_PER_FLOW * dynamoFactor();
     }

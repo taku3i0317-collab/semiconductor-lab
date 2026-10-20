@@ -4,6 +4,7 @@
     "semiconductor-lab:water_wheel",
     "semiconductor-lab:assembly_bench",
     "semiconductor-lab:potters_wheel",
-    "semiconductor-lab:drafting_table"
+    "semiconductor-lab:drafting_table",
+    "semiconductor-lab:bellows"
   ]
 }

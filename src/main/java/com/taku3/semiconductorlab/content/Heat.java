@@ -36,6 +36,10 @@ public final class Heat {
     // アチソン炉 [3-10]（1896。耐火れんがの箱に炭素＋砂、両端の黒鉛電極から中身に直接通電。約2500℃で人造黒鉛）。赤熱すると光る
     public static final Machine<AchesonFurnaceBlockEntity> ACHESON_FURNACE = Machine.electric("acheson_furnace", AchesonFurnaceBlockEntity::new, AchesonFurnaceBlockEntity.LAYOUT, lit(stone(3.5f), 15));
     // 反射炉 [3-06]（焙焼炉。燃焼室と炉床を分け、炎の熱を天井で反射させる。石炭で硫化鉱を焼き、SO2 を集める）。燃料式（電気の受け口なし）。燃焼中は光る
+    // [3-04] ふいご：炉の横に置いて踏む（素手で右クリック）と風を送る。横に回る水車があれば水車ふいご（ずっと送る）
+    public static final Machine<BellowsBlockEntity> BELLOWS = Machine.builder("bellows", BellowsBlockEntity::new)
+            .block(BellowsBlock::new).ticker(BellowsBlockEntity::tick)
+            .props(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(1.5f).sound(SoundType.WOOD)).build();
     public static final Machine<ReverberatoryFurnaceBlockEntity> REVERBERATORY_FURNACE = Machine.builder("reverberatory_furnace", ReverberatoryFurnaceBlockEntity::new)
             .ticker(ReverberatoryFurnaceBlockEntity::tick).layout(ReverberatoryFurnaceBlockEntity.LAYOUT)
             .props(lit(stone(3.5f).mapColor(MapColor.COLOR_RED), 13)).build();

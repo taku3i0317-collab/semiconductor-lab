@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "semiconductor-lab:block/bellows_side",
+    "top": "semiconductor-lab:block/bellows_top",
+    "bottom": "semiconductor-lab:block/bellows_bottom"
+  }
+}

@@ -214,7 +214,7 @@ public abstract class LabTestBase {
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "glass_bottle", "iron_flask", "lead_bottle", "cinnabar_retort_charge", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "crystal_puller", "arc_furnace", "boric_acid", "boron_trioxide", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "assembly_bench", "drafting_table", "probe_station", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
+            "assembly_bench", "bellows", "drafting_table", "probe_station", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner",
             "crude_germanium_tetrachloride", "quartz_still", "germanium_tetrachloride", "high_purity_germanium_dioxide"};
 

@@ -272,6 +272,34 @@ public class HeatTests extends LabTestBase {
     }
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
+
+    /**
+     * [3-04] ふいご：踏む（pump）と送風 100%、約1秒で抜けて 0。横の炉は airflow で読む。
+     * 横に回る水車があれば水車ふいご（ずっと 100%）
+     */
+    @GameTest(maxTicks = 100)
+    public void bellows(GameTestHelper h) {
+        floor(h, 8);
+        var furnace = p(5, 1, 5);
+        h.setBlock(p(5, 1, 6), Heat.BELLOWS.block);
+        var be = h.getBlockEntity(p(5, 1, 6), com.taku3.semiconductorlab.block.BellowsBlockEntity.class);
+        var lv = h.getLevel();
+        h.assertValueEqual(com.taku3.semiconductorlab.block.BellowsBlockEntity.airflow(lv, h.absolutePos(furnace)), 0.0, "no air before pumping");
+        be.pump();
+        h.assertValueEqual(com.taku3.semiconductorlab.block.BellowsBlockEntity.airflow(lv, h.absolutePos(furnace)), 1.0, "one pump = full blow");
+        for (int i = 0; i < com.taku3.semiconductorlab.block.BellowsBlockEntity.PER_PUMP; i++) com.taku3.semiconductorlab.block.BellowsBlockEntity.tick(lv, h.absolutePos(p(5, 1, 6)), lv.getBlockState(h.absolutePos(p(5, 1, 6))), be);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.BellowsBlockEntity.airflow(lv, h.absolutePos(furnace)), 0.0, "the air runs out in about a second");
+        // 水車ふいご：流れる水の横の水車の隣
+        h.setBlock(p(3, 1, 3), Power.WATER_WHEEL.block);
+        h.setBlock(p(1, 1, 3), Blocks.WATER);
+        h.setBlock(p(3, 1, 4), Heat.BELLOWS.block);
+        h.succeedWhen(() -> {
+            h.assertTrue(com.taku3.semiconductorlab.block.BellowsBlockEntity.waterDriven(lv, h.absolutePos(p(3, 1, 4))), "bellows beside a turning water wheel is water-driven");
+            h.assertValueEqual(com.taku3.semiconductorlab.block.BellowsBlockEntity.airflow(lv, h.absolutePos(p(3, 1, 5))), 1.0, "water-powered bellows blows all the time");
+            LOG.info("[LAB] bellows: one pump = about 1 s of full blow; water wheel -> continuous");
+        });
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Heat.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(Heat.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");

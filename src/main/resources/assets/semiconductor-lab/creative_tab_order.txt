@@ -150,6 +150,7 @@ phosphorus  # Chemistry [9-11] 1955
 phosphoric_acid  # Chemistry [9-25] 1959
 sodium_silicate  # Chemistry [9-13] 1963
 colloidal_silica  # Chemistry [9-13] 1963
+bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690
 refractory_brick_blank  # Heat [3-12] 1822

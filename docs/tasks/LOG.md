@@ -345,4 +345,6 @@
 - 答えを待つあいだ：高炉に左右されないマルチブロックの仕組み（machine/MultiblockPattern：文字の絵の形・4方向・足りない所の一覧）を先に作る
 - machine/MultiblockPattern（IMP-33 ③ の高炉に左右されない部分）：文字の絵の形（下の段から、空白＝空気、?＝何でも）、制御ブロックの向きで4方向に回す、判定は「足りない（空気）・ちがう・中に物」を場所ごとに返し、名前ごとの足りない数も。読み込まれていない場所があれば組み上がらない。粒子で足りない場所を見せる道具。GameTest multiblock_pattern（4方向）。テスト：145/145 PASSED
 - 高炉の前提の答えを INBOX で待つ（Monitor）
-
+## O-003 [3-04] ふいご（2026-10-20）
+- ふいご bellows（Heat.BELLOWS、block/BellowsBlock・BellowsBlockEntity）：素手で右クリック＝踏む → 約1秒ぶん送風 100%（ゲームの値）、横に回る水車があれば水車ふいご（ずっと 100%）。炉は BellowsBlockEntity.airflow(level, 炉の位置) で読む。WaterWheelBlockEntity.turning を足した
+- E から相談（[9-14] 洗浄）：ChipState に「洗った」印を足し coat などの条件にしたい → A の案：int contamination（工程ごとに +1、clean で 0）を足し、失敗にはせずツールチップと v0.5 の歩留まりで効かせる。**「洗わないと塗れない」にするかはユーザーの判断（質問）**。O-002 方針2（ストレスを減らす）と合うのは A の案と考える

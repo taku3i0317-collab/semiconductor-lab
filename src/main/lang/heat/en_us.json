@@ -56,5 +56,13 @@
   "gui.semiconductor-lab.arc_furnace.running": "Arcing (~2000 °C)",
   "gui.semiconductor-lab.arc_furnace.need_input": "Needs 2 quartz, 1 charcoal/coal, electrode",
   "gui.semiconductor-lab.arc_furnace.need_power": "Not enough power",
-  "gui.semiconductor-lab.arc_furnace.recipe": "SiO2 + 2C -> Si + 2CO"
+  "gui.semiconductor-lab.arc_furnace.recipe": "SiO2 + 2C -> Si + 2CO",
+  "block.semiconductor-lab.bellows": "Bellows",
+  "block.semiconductor-lab.bellows.note1": "Put it beside a furnace and pump it to blow air and make the fire hotter.",
+  "block.semiconductor-lab.bellows.note2": "Each right-click with an empty hand gives about a second of air. With a turning water wheel beside it, it becomes a water-powered bellows that blows all the time. Place it next to a bloomery or blast furnace.",
+  "block.semiconductor-lab.bellows.note3": "Blowing in more oxygen makes charcoal burn hard, reaching about 1200–1300 °C. An open fire (about 800 °C) can't make iron. The tomb of Rekhmire in Egypt (about 1450 BC) shows foot-operated bellows.",
+  "block.semiconductor-lab.bellows.note4": "In AD 31 Du Shi of the Eastern Han dynasty in China drove bellows with a water wheel. The 'tatara' of Japanese iron-making was originally the name of a big foot bellows.",
+  "block.semiconductor-lab.bellows.placeholder": "Approximation: one pump gives about a second of air (game value)",
+  "message.semiconductor-lab.bellows.air": "Air %s%% (keep pumping to keep it going)",
+  "message.semiconductor-lab.bellows.water": "Water-powered bellows: air %s%% (continuous)"
 }
