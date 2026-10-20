@@ -8,6 +8,7 @@
 - **第2章 シリコン（v0.2b）**：1〜9
 - **電気（v0.2a）**：E1〜E12
 - **光学**：O1〜（IMP2、2人目の実装担当が追加）
+- **生存（石器時代）**：S1〜（IMP3、3人目の実装担当が追加）
 - **冶金と熱**：M1〜（タスク15〜、Claude Code が実装時に追加）
 - **第1章 ゲルマニウム（v0.1）**：G1〜G8（このファイルの最後）
 
@@ -470,6 +471,27 @@
 - Wikipedia「Cassiterite」：https://en.wikipedia.org/wiki/Cassiterite
 - Wikipedia「Tin」（スズペスト・スズ鳴き・歴史）：https://en.wikipedia.org/wiki/Tin
 - Wikipedia「Extreme ultraviolet lithography」（スズのプラズマ光源）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
+
+---
+
+# 生存（IMP3-01〜）
+
+## S1. 石を石で打ち欠くと刃になる（打製石器）［0-01］
+**答え**：フリントや黒曜石のようにガラス質・微晶質の石は、硬い丸石（たたき石）で縁を打つと、衝撃が円すい状に広がって貝殻状に割れ（貝殻状断口）、薄く鋭い剥片がはがれる。粒の粗い石（花こう岩・砂岩など）は粒の境目で崩れて刃にならない。確実な最古の例は約260万年前のオルドワン石器（エチオピア・ゴナ）、両面を打ち欠いたハンドアックス（アシュール石器）は約170万年前から。
+
+- へえ①：石を石でたたいて割ると、ナイフのように鋭いふちができる。確かな証拠は260万年前（330万年前という説も⚠️）。
+- へえ②：フリントは細かい石英（SiO2）の粒、黒曜石は天然のガラス。どちらも粒の境目がないので割れ目がまっすぐ走る。シリコンのウェハーも同じ SiO2 から作る。
+- へえ③：ハンドアックスは100万年以上ほとんど同じ形で作られ続けた。石の刃を木の柄にくくりつける（着柄）のは約50万年前からといわれる⚠️。バニラの石の道具はこの段階。
+- へえ④：黒曜石の割れ口は厚さ数 nm で、鋼のメスより鋭い。19世紀のオーストラリアでは瓶のガラスを打ち欠いて「キンバリー・ポイント」が作られた。
+
+確かさ：貝殻状断口のしくみ ◎／オルドワン 約260万年前（ゴナ）◎／アシュール 約176万年前（コキセレイ）○／ロメクウィ 約330万年前 △（年代・人工かどうかに議論）→ ゲーム内は ⚠️／ニャヤンガ 約290万年前 △／着柄 約50万年前（カトゥ・パン）△／黒曜石の刃先 数 nm ○／神津島の黒曜石 約3万8000年前 △
+根拠：
+- Harmand ほか 2015「3.3-million-year-old stone tools from Lomekwi 3」Nature 521：https://www.nature.com/articles/nature14464
+- Semaw ほか 1997「2.5-million-year-old stone tools from Gona, Ethiopia」Nature 385：https://www.nature.com/articles/385333a0
+- Lepre ほか 2011「An earlier origin for the Acheulian」Nature 477（コキセレイ 約176万年前）：https://www.nature.com/articles/nature10372
+- Plummer ほか 2023「Expanded geographic distribution and dietary strategies of the earliest Oldowan hominins」Science（ニャヤンガ）：https://www.science.org/doi/10.1126/science.add9115
+- Wilkins ほか 2012「Evidence for early hafted hunting technology」Science（カトゥ・パン）：https://www.science.org/doi/10.1126/science.1227608
+- Wikipedia「Oldowan」「Acheulean」「Conchoidal fracture」「Obsidian」「Kimberley point」：https://en.wikipedia.org/wiki/Oldowan ・ https://en.wikipedia.org/wiki/Acheulean ・ https://en.wikipedia.org/wiki/Conchoidal_fracture ・ https://en.wikipedia.org/wiki/Obsidian ・ https://en.wikipedia.org/wiki/Kimberley_point
 
 ---
 

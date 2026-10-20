@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:flint",
+    "minecraft:flint",
+    "minecraft:flint",
+    "semiconductor-lab:hammerstone"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hand_axe",
+    "count": 1
+  }
+}

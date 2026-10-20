@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "minecraft:flint",
+    "semiconductor-lab:hammerstone"
+  ],
+  "result": {
+    "id": "semiconductor-lab:flint_flake",
+    "count": 2
+  }
+}

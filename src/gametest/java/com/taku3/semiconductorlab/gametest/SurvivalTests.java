@@ -81,6 +81,83 @@ import java.util.function.Predicate;
  */
 public class SurvivalTests extends LabTestBase {
     // =====================================================================
+    // [0-01] 打製石器（IMP3-01）：たたき石で打ち欠く
+    // =====================================================================
+
+    /**
+     * 実験：たたき石で火打ち石（手）→ 剥片2、黒曜石ブロック → 黒曜石の剥片（ブロックは残る）、粒の粗い石 → 何も出ない。
+     * 軽：作業台で剥片・ハンドアックス（たたき石は戻る）。剥片は小さな刃物、ハンドアックスは柄のない斧。砂利からたたき石が出る
+     */
+    @GameTest
+    public void knapping(GameTestHelper h) {
+        // 石の種類：ガラス質だけが刃になる
+        h.assertTrue(com.taku3.semiconductorlab.item.HammerstoneItem.classify(Blocks.OBSIDIAN.defaultBlockState()) == com.taku3.semiconductorlab.item.HammerstoneItem.Knap.GLASSY, "obsidian is glassy");
+        for (Block b : new Block[] {Blocks.STONE, Blocks.COBBLESTONE, Blocks.GRANITE, Blocks.ANDESITE, Blocks.SANDSTONE})
+            h.assertTrue(com.taku3.semiconductorlab.item.HammerstoneItem.classify(b.defaultBlockState()) == com.taku3.semiconductorlab.item.HammerstoneItem.Knap.GRAINY, b + " is coarse-grained");
+        h.assertTrue(com.taku3.semiconductorlab.item.HammerstoneItem.classify(Blocks.DIRT.defaultBlockState()) == com.taku3.semiconductorlab.item.HammerstoneItem.Knap.NONE, "dirt is not stone");
+
+        // 手で打ち欠く：火打ち石1 → 剥片2
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var hand = net.minecraft.world.InteractionHand.MAIN_HAND;
+        player.setItemInHand(hand, new ItemStack(Survival.HAMMERSTONE));
+        h.assertFalse(com.taku3.semiconductorlab.item.HammerstoneItem.knapFlint(player, hand), "no flint in the other hand -> nothing");
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(Items.FLINT, 3));
+        h.assertTrue(com.taku3.semiconductorlab.item.HammerstoneItem.knapFlint(player, hand), "knap flint");
+        h.assertValueEqual(player.getOffhandItem().getCount(), 2, "1 flint used");
+        h.assertValueEqual(player.getInventory().countItem(Survival.FLINT_FLAKE), com.taku3.semiconductorlab.item.HammerstoneItem.FLAKES_PER_FLINT, "2 flakes");
+        h.assertTrue(player.getMainHandItem().is(Survival.HAMMERSTONE), "hammerstone stays");
+
+        // ブロックを打つ：黒曜石 → 剥片（ブロックは残る）、丸石 → 何も出ない
+        floor(h, 3);
+        BlockPos obs = p(1, 1, 1), cob = p(2, 1, 1);
+        h.setBlock(obs, Blocks.OBSIDIAN);
+        h.setBlock(cob, Blocks.COBBLESTONE);
+        var hs = player.getMainHandItem();
+        java.util.function.Function<BlockPos, net.minecraft.world.InteractionResult> hit = rel -> {
+            BlockPos a = h.absolutePos(rel);
+            var ctx = new net.minecraft.world.item.context.UseOnContext(player, hand,
+                    new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(a), net.minecraft.core.Direction.UP, a, false));
+            return hs.getItem().useOn(ctx);
+        };
+        hit.apply(cob);
+        h.assertValueEqual(player.getInventory().countItem(Survival.OBSIDIAN_FLAKE), 0, "cobblestone gives no flake");
+        h.assertTrue(h.getBlockState(cob).is(Blocks.COBBLESTONE), "cobblestone stays");
+        hit.apply(obs);
+        h.assertValueEqual(player.getInventory().countItem(Survival.OBSIDIAN_FLAKE), 1, "obsidian -> 1 flake");
+        h.assertTrue(h.getBlockState(obs).is(Blocks.OBSIDIAN), "obsidian block stays");
+        hit.apply(obs);
+        h.assertValueEqual(player.getInventory().countItem(Survival.OBSIDIAN_FLAKE), 1, "cooldown: no second flake at once");
+
+        // 作業台：たたき石は戻る
+        h.assertTrue(recipeUses(h, "flint_flake", Items.FLINT) && recipeUses(h, "flint_flake", Survival.HAMMERSTONE), "flint + hammerstone -> flakes");
+        h.assertTrue(recipeUses(h, "hand_axe", Items.FLINT) && recipeUses(h, "hand_axe", Survival.HAMMERSTONE), "3 flint + hammerstone -> hand axe");
+        h.assertFalse(recipeUses(h, "hand_axe", Items.STICK), "a hand axe has no handle");
+        h.assertTrue(Survival.HAMMERSTONE.getCraftingRemainder(new ItemStack(Survival.HAMMERSTONE)) != null, "hammerstone returns");
+
+        // 道具として：剥片＝刃物、ハンドアックス＝柄のない斧（木の斧より少し速い）。火打ち石・黒曜石で直せる
+        h.assertValueEqual(new ItemStack(Survival.FLINT_FLAKE).getMaxDamage(), 32, "flint flake durability");
+        h.assertTrue(new ItemStack(Survival.OBSIDIAN_FLAKE).getMaxDamage() < new ItemStack(Survival.FLINT_FLAKE).getMaxDamage(), "obsidian is brittle");
+        BlockState log = Blocks.OAK_LOG.defaultBlockState();
+        float axe = new ItemStack(Survival.HAND_AXE).getDestroySpeed(log);
+        h.assertTrue(axe > new ItemStack(Items.WOODEN_AXE).getDestroySpeed(log) && axe < new ItemStack(Items.STONE_AXE).getDestroySpeed(log), "hand axe between wooden and stone axe: " + axe);
+        h.assertTrue(new ItemStack(Items.FLINT).is(Survival.KNAPPING_STONES) && new ItemStack(Items.OBSIDIAN).is(Survival.KNAPPING_STONES), "repair with flint / obsidian");
+
+        // 砂利からたたき石（火打ち石が出なかったときの 10%）
+        ServerLevel lv = h.getLevel();
+        int stones = 0, N = 1000;
+        for (int i = 0; i < N; i++)
+            for (ItemStack st : Block.getDrops(Blocks.GRAVEL.defaultBlockState(), lv, h.absolutePos(obs), null, player, new ItemStack(Items.WOODEN_SHOVEL)))
+                if (st.is(Survival.HAMMERSTONE)) stones++;
+        h.assertTrue(stones > N * 0.03 && stones < N * 0.2, "hammerstones from gravel ~9%: " + stones + "/" + N);
+
+        var ja = langJson("ja_jp");
+        for (String id : new String[] {"hammerstone", "flint_flake", "obsidian_flake", "hand_axe"})
+            h.assertTrue(ja.has("item.semiconductor-lab." + id + ".placeholder"), id + " should state what is omitted");
+        LOG.info("[LAB] knapping [0-01]: flint -> 2 flakes, obsidian -> flake, cobble -> nothing; hand axe speed {}; gravel -> hammerstone {}/{}", axe, stones, N);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-10] 生石灰・[0-11] 消石灰
     // =====================================================================
 

@@ -8,7 +8,16 @@ import com.taku3.semiconductorlab.item.*;
 import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.machine.MachineBlock;
 import com.taku3.semiconductorlab.machine.MachineEntityBlock;
+import com.taku3.semiconductorlab.SemiconductorLab;
+import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.BlockTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.ToolMaterial;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -26,6 +35,23 @@ public final class Survival {
     private Survival() {}
 
     // ===== アイテム =====
+    // --- [0-01] 打製石器（オルドワン 約260万年前〜、ハンドアックス＝アシュール 約170万年前〜）。柄はない。バニラの石の道具（丸石＋棒）は「柄を付けた石器」として扱う ---
+    /** 打製石器の修理に使える石（打ち欠き直す）：火打ち石・黒曜石 */
+    public static final TagKey<Item> KNAPPING_STONES = TagKey.create(Registries.ITEM, SemiconductorLab.id("knapping_stones"));
+    /** フリントの剥片：小さな刃物。耐久は小さめ */
+    public static final ToolMaterial FLINT_FLAKE_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 32, 2.0f, 0.5f, 5, KNAPPING_STONES);
+    /** 黒曜石の剥片：鋭い（刃先は数 nm）が、もろい */
+    public static final ToolMaterial OBSIDIAN_FLAKE_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 16, 2.0f, 1.5f, 5, KNAPPING_STONES);
+    /** ハンドアックス：両面を打ち欠いた握り斧。木の斧より少し速く切れるが、柄がないので振りは遅い */
+    public static final ToolMaterial HAND_AXE_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 80, 3.0f, 1.0f, 5, KNAPPING_STONES);
+
+    public static final Item HAMMERSTONE           = Reg.item("hammerstone", HammerstoneItem::new, new Item.Properties().stacksTo(1));
+    public static final Item FLINT_FLAKE           = Reg.item("flint_flake", new Item.Properties().sword(FLINT_FLAKE_MATERIAL, 1.0f, -1.8f));
+    public static final Item OBSIDIAN_FLAKE        = Reg.item("obsidian_flake", new Item.Properties().sword(OBSIDIAN_FLAKE_MATERIAL, 1.0f, -1.8f));
+    public static final Item HAND_AXE              = Reg.item("hand_axe", new Item.Properties().axe(HAND_AXE_MATERIAL, 5.0f, -3.4f));
+    /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
+    public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
+
     // --- 石灰（[0-10] 方解石 CaCO3 → 焼成 → 生石灰 CaO、[0-11] CaO + H2O → 消石灰 Ca(OH)2）---
     public static final Item QUICKLIME             = Reg.item("quicklime");
     public static final Item SLAKED_LIME           = Reg.item("slaked_lime");
@@ -38,5 +64,12 @@ public final class Survival {
             .props(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.8f).sound(SoundType.SAND)).build();
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
-    static void init() {}
+    static void init() {
+        // [0-01] 砂利の中にはときどき丸く硬い河原石がある → たたき石
+        LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            if (!table.is(Blocks.GRAVEL.getLootTable().orElseThrow())) return;
+            if (drops.stream().anyMatch(st -> st.is(Items.GRAVEL)) && ctx.getRandom().nextFloat() < HAMMERSTONE_FROM_GRAVEL)
+                drops.add(new ItemStack(HAMMERSTONE));
+        });
+    }
 }
