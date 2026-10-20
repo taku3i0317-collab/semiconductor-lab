@@ -271,6 +271,11 @@ public final class Chemistry {
     public static final Item TRIETHYLALUMINIUM     = Reg.item("triethylaluminium", new Item.Properties().stacksTo(16));
     public static final Item ZIEGLER_NATTA_CATALYST = Reg.item("ziegler_natta_catalyst", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
     public static final Item HDPE                  = Reg.item("hdpe");
+    // [2-55] 導電性高分子（IMP3、O-018）：アセチレン4＋チーグラー・ナッタ触媒（とても多く）→ 銀色のポリアセチレンの膜、＋ヨウ素 → ドープしたポリアセチレン（電気を通す、1977）。
+    //   導通テスター（乾電池＋豆電球）で、金属・黒鉛・プラスチックとくらべる
+    public static final Item POLYACETYLENE_FILM    = Reg.item("polyacetylene_film");
+    public static final Item DOPED_POLYACETYLENE   = Reg.item("doped_polyacetylene");
+    public static final Item CONTINUITY_TESTER     = Reg.item("continuity_tester", com.taku3.semiconductorlab.item.ContinuityTesterItem::new, new Item.Properties().stacksTo(1));
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [2-43] 黄鉄鉱（IMP3）
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける

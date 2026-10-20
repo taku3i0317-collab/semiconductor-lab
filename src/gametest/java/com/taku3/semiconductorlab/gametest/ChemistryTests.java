@@ -1314,6 +1314,25 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-55] 導電性高分子（IMP3、O-018）
+    // =====================================================================
+
+    /** アセチレン4＋ZN 触媒 → ポリアセチレン、＋ヨウ素 → ドープ。テスター：ドープ前はつかない、後はつく。銅・黒鉛はつく、ポリエチレン・ガラスはつかない */
+    @GameTest
+    public void conductivePolymer(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "polyacetylene_film", Chemistry.ACETYLENE_GAS) && recipeUses(h, "polyacetylene_film", Chemistry.ZIEGLER_NATTA_CATALYST), "Shirakawa: acetylene on Ziegler-Natta catalyst");
+        h.assertTrue(recipeUses(h, "doped_polyacetylene", Chemistry.IODINE), "iodine doping");
+        var T = (java.util.function.Predicate<net.minecraft.world.item.Item>) it -> com.taku3.semiconductorlab.item.ContinuityTesterItem.lampOn(new ItemStack(it));
+        h.assertFalse(T.test(Chemistry.POLYACETYLENE_FILM), "undoped polyacetylene: bulb stays dark");
+        h.assertTrue(T.test(Chemistry.DOPED_POLYACETYLENE), "doped: bulb lights");
+        h.assertTrue(T.test(Items.COPPER_INGOT) && T.test(com.taku3.semiconductorlab.content.Metallurgy.GRAPHITE), "metals and graphite conduct");
+        h.assertFalse(T.test(Chemistry.POLYETHYLENE) || T.test(Chemistry.SODA_LIME_GLASS) || T.test(Chemistry.ULTRAPURE_WATER), "plastic, glass, ultrapure water do not");
+        h.assertTrue(com.taku3.semiconductorlab.item.ContinuityTesterItem.conductivity(new ItemStack(Chemistry.DOPED_POLYACETYLENE)) / com.taku3.semiconductorlab.item.ContinuityTesterItem.conductivity(new ItemStack(Chemistry.POLYACETYLENE_FILM)) > 1e6, "doping raises conductivity by over a million");
+        LOG.info("[LAB] conductive polymer [2-55]: acetylene + ZN catalyst -> polyacetylene (dark); + iodine -> doped (lamp lights)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

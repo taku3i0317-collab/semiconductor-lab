@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:ziegler_natta_catalyst"
+  ],
+  "result": {
+    "id": "semiconductor-lab:polyacetylene_film",
+    "count": 1
+  }
+}

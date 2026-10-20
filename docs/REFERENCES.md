@@ -2630,6 +2630,20 @@
 - Wikipedia「Carbide lamp」：https://en.wikipedia.org/wiki/Carbide_lamp
 - Wikipedia「Thomas Willson」：https://en.wikipedia.org/wiki/Thomas_Willson
 
+## C44. 電気を通すプラスチック（導電性高分子）［2-55］
+**答え**：プラスチックはふつう電気を通さないが、ポリアセチレンの膜にヨウ素を加える（ドーピング）と、金属のように電気を通すようになる。1967年ごろ、東京工業大学の研究室で触媒の量をまちがえて1000倍入れたことから、銀色に光るポリアセチレンの膜ができた。1977年、日本とアメリカの研究者（ひとりはアラン・マクダイアミッド）がヨウ素で電気伝導率が大きく上がることを示した（2000年ノーベル化学賞）。半導体のドーピングと同じく、電気の運び手を足す考え方。
+
+- へえ①：電気を通すプラスチックは、実験の材料の量のまちがいから生まれた。
+- へえ②：ヨウ素を加えると、電気の通りやすさが1億倍以上になった。
+- へえ③：電気の通りやすさは、PTFE から銅まで23けたもちがう。
+- へえ④：リチウムイオン電池の研究も、ポリアセチレンを電極に使う試みから始まった。
+
+確かさ：1967ごろの触媒の量のまちがい・1977・2000年ノーベル賞 ◎（TECH_TREE の本物欄、Nobel Prize「Chemistry 2000」）／伝導率の値（代表値）○
+根拠：
+- Nobel Prize「Chemistry 2000」：https://www.nobelprize.org/prizes/chemistry/2000/summary/
+- Wikipedia「Polyacetylene」：https://en.wikipedia.org/wiki/Polyacetylene
+- Wikipedia「Electrical resistivity and conductivity」（代表値）：https://en.wikipedia.org/wiki/Electrical_resistivity_and_conductivity
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

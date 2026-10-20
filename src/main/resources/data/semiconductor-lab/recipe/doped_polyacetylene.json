@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:polyacetylene_film",
+    "semiconductor-lab:iodine"
+  ],
+  "result": {
+    "id": "semiconductor-lab:doped_polyacetylene",
+    "count": 1
+  }
+}

@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 599（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 603（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -643,6 +643,12 @@ en_us ziegler_natta_catalyst lines=7
 en_us ziegler_natta_catalyst shift lines=16
 en_us hdpe lines=5
 en_us hdpe shift lines=13
+en_us polyacetylene_film lines=6
+en_us polyacetylene_film shift lines=13
+en_us doped_polyacetylene lines=7
+en_us doped_polyacetylene shift lines=14
+en_us continuity_tester lines=7
+en_us continuity_tester shift lines=19
 en_us chromatography_column lines=8
 en_us chromatography_column shift lines=19
 en_us pyrite_ore lines=6
@@ -1843,6 +1849,12 @@ ja_jp ziegler_natta_catalyst lines=6
 ja_jp ziegler_natta_catalyst shift lines=14
 ja_jp hdpe lines=4
 ja_jp hdpe shift lines=12
+ja_jp polyacetylene_film lines=5
+ja_jp polyacetylene_film shift lines=12
+ja_jp doped_polyacetylene lines=6
+ja_jp doped_polyacetylene shift lines=12
+ja_jp continuity_tester lines=5
+ja_jp continuity_tester shift lines=15
 ja_jp chromatography_column lines=5
 ja_jp chromatography_column shift lines=14
 ja_jp pyrite_ore lines=4

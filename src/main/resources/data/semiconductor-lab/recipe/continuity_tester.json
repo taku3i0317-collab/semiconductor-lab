@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:zinc_ingot",
+    "semiconductor-lab:graphite_rod",
+    "semiconductor-lab:copper_cable",
+    "semiconductor-lab:soda_lime_glass"
+  ],
+  "result": {
+    "id": "semiconductor-lab:continuity_tester",
+    "count": 1
+  }
+}
