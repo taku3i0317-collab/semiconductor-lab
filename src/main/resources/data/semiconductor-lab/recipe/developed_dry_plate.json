@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:exposed_dry_plate",
+  "material": "semiconductor-lab:ferrous_sulfate",
+  "result": {
+    "id": "semiconductor-lab:developed_dry_plate"
+  }
+}

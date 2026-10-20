@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:negative",
+  "material": "semiconductor-lab:printing_paper",
+  "result": {
+    "id": "semiconductor-lab:print"
+  }
+}

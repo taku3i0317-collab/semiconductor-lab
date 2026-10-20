@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:paper",
+    "minecraft:paper",
+    "minecraft:paper",
+    "minecraft:paper",
+    "semiconductor-lab:salt",
+    "semiconductor-lab:silver_nitrate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:printing_paper",
+    "count": 4
+  }
+}

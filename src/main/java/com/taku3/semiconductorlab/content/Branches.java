@@ -42,6 +42,13 @@ public final class Branches {
     public static final Item DEVELOPED_PLATE       = Reg.item("developed_plate", PhotoItem::new, new Item.Properties().stacksTo(1)); // 水銀の蒸気で現像した板
     public static final Item DAGUERREOTYPE         = Reg.item("daguerreotype", PhotoItem::new, new Item.Properties().stacksTo(1));   // 定着した写真（1枚きり）
 
+    // ===== [B-02b] ゼラチン乾板とネガ（IMP2 O-008：湿板は作らない＝コロジオンは危ない技術。[7-11] の感光乾板をカメラで露光）=====
+    public static final Item EXPOSED_DRY_PLATE     = Reg.item("exposed_dry_plate", PhotoItem::new, new Item.Properties().stacksTo(1));   // 露光した乾板
+    public static final Item DEVELOPED_DRY_PLATE   = Reg.item("developed_dry_plate", PhotoItem::new, new Item.Properties().stacksTo(1)); // 現像した乾板（まだ定着前）
+    public static final Item NEGATIVE              = Reg.item("negative", NegativeItem::new, new Item.Properties().stacksTo(1));         // ガラスのネガ（焼いても戻る）
+    public static final Item PRINTING_PAPER        = Reg.item("printing_paper");     // 印画紙（紙＋塩＋硝酸銀＝塩化銀の紙、タルボット 1840）
+    public static final Item PRINT                 = Reg.item("print", PhotoItem::new, new Item.Properties().stacksTo(16));            // 写真（紙焼き）
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

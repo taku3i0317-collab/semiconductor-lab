@@ -1068,6 +1068,20 @@
 - Wikipedia「History of the metre」：https://en.wikipedia.org/wiki/History_of_the_metre
 - Wikipedia「Shaku (unit)」：https://en.wikipedia.org/wiki/Shaku_(unit)
 
+## O33. ネガから何枚も焼ける（ゼラチン乾板）［B-02b］
+**答え**：ガラス板に銀塩を混ぜたゼラチンを塗った乾板（1871 マドックス、1878ごろ市販）は、乾いたまま保存でき、露光は 1/25秒ほどに短くなった。現像・定着すると明るさが逆のネガになり、印画紙に重ねて焼くと元の明るさの写真が何枚でもできる。
+
+- へえ①：露光時間は、銀板（1839）の数分から、乾板（1878ごろ）の 1/25秒ほどまで、40年で何千分の1になった。
+- へえ②：1851年の湿板もガラスのネガだったが、塗る膜（コロジオン）が燃えやすく危険で、濡れているうちに撮らなければならなかった。乾板に置き換わった。
+- へえ③：ネガで写真は「1枚きりの物」から「何枚も配れる物」になった。
+- へえ④：1枚のネガから何枚も焼く考えは、1枚のフォトマスクから何枚ものウェハーに回路を写すフォトリソグラフィに受け継がれた。
+
+確かさ：マドックス 1871・乾板の市販 1878ごろ ◎／乾板の露光 1/25秒ほど ○（乳剤・明るさで大きく違う）／タルボットの塩化銀紙 1840ごろ ◎
+根拠：
+- Wikipedia「Dry plate」：https://en.wikipedia.org/wiki/Dry_plate
+- Wikipedia「Richard Leach Maddox」：https://en.wikipedia.org/wiki/Richard_Leach_Maddox
+- Wikipedia「Salt print」：https://en.wikipedia.org/wiki/Salt_print
+
 ---
 
 # 冶金と熱（タスク15〜）

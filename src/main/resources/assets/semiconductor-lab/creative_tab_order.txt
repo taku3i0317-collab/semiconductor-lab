@@ -315,5 +315,10 @@ camera  # Branches [B-02] 1839
 exposed_plate  # Branches [B-02] 1839
 developed_plate  # Branches [B-02] 1839
 daguerreotype  # Branches [B-02] 1839
+exposed_dry_plate  # Branches [B-02] 1839
+developed_dry_plate  # Branches [B-02] 1839
+negative  # Branches [B-02] 1839
+printing_paper  # Branches [B-02] 1839
+print  # Branches [B-02] 1839
 solar_cell  # Branches [B-12] 1954
 test_power_source  # Testing [None] None

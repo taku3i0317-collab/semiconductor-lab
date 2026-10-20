@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:developed_dry_plate",
+  "material": "semiconductor-lab:sodium_thiosulfate",
+  "result": {
+    "id": "semiconductor-lab:negative"
+  }
+}

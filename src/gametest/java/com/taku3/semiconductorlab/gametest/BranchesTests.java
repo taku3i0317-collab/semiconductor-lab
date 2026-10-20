@@ -112,6 +112,41 @@ public class BranchesTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [B-02b] ゼラチン乾板（IMP2 O-008：湿板の代わり）：乾板 1秒 → 硫酸鉄(II)で現像 → ハイポで定着 → ネガ。ネガ＋印画紙 → 紙焼き（ネガは戻る＝何枚でも） */
+    @GameTest
+    public void dry_plate_negative(GameTestHelper h) {
+        int D = com.taku3.semiconductorlab.item.CameraItem.DRY_TARGET_TICKS;
+        h.assertTrue(com.taku3.semiconductorlab.item.CameraItem.targetTicks(new ItemStack(com.taku3.semiconductorlab.content.Optics.PHOTO_PLATE)) == D, "dry plate can be exposed");
+        h.assertTrue(D * 60 == com.taku3.semiconductorlab.item.CameraItem.DAG_TARGET_TICKS, "dry plate 1 s vs silver plate 60 s");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.CameraItem.exposurePercent(D, 1.0, D), 100, "1 s in sun = 100%");
+        h.assertTrue(recipeUses(h, "printing_paper", com.taku3.semiconductorlab.content.Gas.SILVER_NITRATE) && recipeUses(h, "printing_paper", com.taku3.semiconductorlab.content.Gas.SALT),
+                "printing paper = salted paper + silver nitrate (silver chloride)");
+        var data = new com.taku3.semiconductorlab.item.PhotoData("forest (5, 6)", 1000, 90, "dry_plate");
+        ItemStack exposed = new ItemStack(Branches.EXPOSED_DRY_PLATE);
+        exposed.set(Branches.PHOTO, data);
+        ItemStack dev = craft2(h, exposed, new ItemStack(com.taku3.semiconductorlab.content.Optics.FERROUS_SULFATE));
+        h.assertTrue(dev.is(Branches.DEVELOPED_DRY_PLATE) && data.equals(dev.get(Branches.PHOTO)), "iron(II) sulfate develops, data kept");
+        h.assertTrue(craft2(h, exposed, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.MERCURY)).isEmpty(), "mercury does not develop a dry plate");
+        ItemStack neg = craft2(h, dev, new ItemStack(com.taku3.semiconductorlab.content.Optics.SODIUM_THIOSULFATE));
+        h.assertTrue(neg.is(Branches.NEGATIVE) && data.equals(neg.get(Branches.PHOTO)), "hypo fixes -> negative");
+        // ネガから何枚でも焼ける：ネガは中身ごと戻る
+        for (int n = 0; n < 3; n++) {
+            ItemStack print = craft2(h, neg, new ItemStack(Branches.PRINTING_PAPER));
+            h.assertTrue(print.is(Branches.PRINT) && data.equals(print.get(Branches.PHOTO)), "print " + (n + 1) + " carries the negative's data");
+            var back = Branches.NEGATIVE.getCraftingRemainder(neg);
+            h.assertTrue(back != null && back.item().value() == Branches.NEGATIVE, "negative comes back");
+            neg = back.create();
+            h.assertTrue(data.equals(neg.get(Branches.PHOTO)), "returned negative keeps its data");
+        }
+        // カメラに乾板を持つと開く
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Branches.CAMERA));
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(com.taku3.semiconductorlab.content.Optics.PHOTO_PLATE));
+        h.assertTrue(Branches.CAMERA.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "with a dry plate -> shutter opens");
+        LOG.info("[LAB] dry_plate_negative [B-02b]: dry plate 1 s, iron(II) sulfate develop, hypo fix -> negative, 3 prints and the negative returns with its data");
+        h.succeed();
+    }
+
     /** [B-02a] ダゲレオタイプ（IMP2、S-002 案B）：銀めっき板＋ヨウ素 → 感光板、カメラで露光（日なた 60秒がちょうどよい）、水銀で現像、塩かハイポで定着。写真のデータは最後まで引き継ぐ */
     @GameTest
     public void daguerreotype(GameTestHelper h) {
