@@ -372,6 +372,26 @@
       "note": "1100℃以上（ふいごで送風）。電気なし"
     },
     {
+      "machine": "semiconductor-lab:bottle_machine",
+      "process": "ガラス瓶",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:soda_lime_glass",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 1.0,
+      "energy_kj": 2,
+      "note": "溶けたガラスを型に吸い上げて吹く（1903 オーエンス）。止めずに作り続ける"
+    },
+    {
       "machine": "semiconductor-lab:bridgman_furnace",
       "process": "CaF2 の単結晶を育てる",
       "inputs": [

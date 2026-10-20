@@ -313,6 +313,9 @@ public final class Chemistry {
     // ソルベー塔 [2-06]（IMP3、O-013）：塩2＋方解石（石灰石）→ 炭酸ナトリウム。アンモニアは塔の中を回る（16回に1単位だけ補給）。5kW
     public static final Machine<SolvayTowerBlockEntity> SOLVAY_TOWER = Machine.electric("solvay_tower", SolvayTowerBlockEntity::new, SolvayTowerBlockEntity.LAYOUT, metal(3.0f));
 
+    // 自動製びん機 [2-56]（IMP3、O-016、1903 オーエンス）：ソーダ石灰ガラス → ガラス瓶を1秒に1本、作り続ける。2kW
+    public static final Machine<BottleMachineBlockEntity> BOTTLE_MACHINE = Machine.electric("bottle_machine", BottleMachineBlockEntity::new, BottleMachineBlockEntity.LAYOUT, metal(3.0f));
+
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
     private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {
         Item.Properties props = new Item.Properties().stacksTo(Math.min(stack, v.stack));

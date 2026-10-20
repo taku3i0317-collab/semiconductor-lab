@@ -240,6 +240,7 @@ cinnamoyl_chloride  # Chemistry [2-59] 1868
 borosilicate_batch  # Chemistry [2-15] 1893
 borosilicate_glass  # Chemistry [2-15] 1893
 cracked_glass  # Chemistry [2-15] 1893
+bottle_machine  # Chemistry [2-56] 1903
 novolac_mix  # Chemistry [2-28] 1907
 novolac  # Chemistry [2-28] 1907
 resol_mix  # Chemistry [2-28] 1907

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SBS",
+    "SCS",
+    "SFS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "B": "semiconductor-lab:bellows",
+    "C": "semiconductor-lab:copper_cable",
+    "F": "minecraft:furnace"
+  },
+  "result": {
+    "id": "semiconductor-lab:bottle_machine",
+    "count": 1
+  }
+}

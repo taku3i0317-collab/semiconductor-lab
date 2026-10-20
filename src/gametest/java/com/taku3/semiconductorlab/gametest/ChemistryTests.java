@@ -1186,6 +1186,28 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-56] 自動製びん機（IMP3、O-016）
+    // =====================================================================
+
+    /** ガラス10を入れて電気を流し続けると、10秒で瓶10（1分に60本の速さ）。ガラスが尽きると止まる */
+    @GameTest(maxTicks = 100)
+    public void bottleMachine(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.BOTTLE_MACHINE.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.BottleMachineBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.BottleMachineBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.BottleMachineBlockEntity.SLOT_IN, new ItemStack(Chemistry.SODA_LIME_GLASS, 10));
+        tickConsumer(h, fp, be, 20 * 12, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.BottleMachineBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Chemistry.GLASS_BOTTLE) && out.getCount() == 10, "10 glass -> 10 bottles in about 10 s, got " + out);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BottleMachineBlockEntity.SLOT_IN).isEmpty(), "stops when the glass runs out");
+        LOG.info("[LAB] bottle machine [2-56]: 1 bottle per second (60 a minute) from soda-lime glass");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
@@ -1207,6 +1229,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         rec(a, Chemistry.SOLVAY_TOWER.block, "炭酸ナトリウム", L(io(com.taku3.semiconductorlab.content.Gas.SALT, com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.SALT_PER_RUN), io(Items.CALCITE, 1),
                 perRuns(io(Chemistry.AMMONIA_WATER, 1), com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.LOSS_EVERY * com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.NH3_PER_BOTTLE)),
             L(io(Chemistry.SODIUM_CARBONATE, 1)), com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.WATTS, com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.TICKS / 20.0, "2NaCl + CaCO3 → Na2CO3 + CaCl2（捨てる）。アンモニアは回って戻る（補給は少し）");
+        rec(a, Chemistry.BOTTLE_MACHINE.block, "ガラス瓶", L(io(Chemistry.SODA_LIME_GLASS, 1)), L(io(Chemistry.GLASS_BOTTLE, 1)),
+            com.taku3.semiconductorlab.block.BottleMachineBlockEntity.WATTS, com.taku3.semiconductorlab.block.BottleMachineBlockEntity.TICKS / 20.0, "溶けたガラスを型に吸い上げて吹く（1903 オーエンス）。止めずに作り続ける");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");

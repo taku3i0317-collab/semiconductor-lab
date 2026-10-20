@@ -2274,6 +2274,19 @@
 - Wikipedia「Leblanc process」（チャンス法）：https://en.wikipedia.org/wiki/Leblanc_process
 - Wikipedia「Hydrogen sulfide」：https://en.wikipedia.org/wiki/Hydrogen_sulfide
 
+## C35. 口で吹いていたびんを機械が作る（自動製びん機）［2-56］
+**答え**：1903年アメリカのマイケル・オーエンスが、溶けたガラスを真空で型に吸い上げ、圧縮空気で吹いてびんにする全自動の製びん機を作った（ASME ランドマーク #86）。それまでは職人と子どもの手伝いが口で吹いていた。1926年コーニング社のリボンマシンは、ガラスの帯から電球の球を1分間に最大約2000個作り（ASME ランドマーク #81）、電球が安くなった。
+
+- へえ①：電球のガラスの球は、1分に何百個も機械で吹いて作られるようになった。
+- へえ②：人の息と手の仕事が、真空・圧縮空気・型に置きかわった。
+- へえ③：製びん工場で働いていた子どもたちの仕事が減った ⚠️。
+- へえ④：同じ形のびんが大量にできるので、びん詰めの飲み物や薬が広まった。
+
+確かさ：オーエンス 1903（ASME #86）◎／リボンマシン 1926・最大約2000個/分（ASME #81）◎／児童労働が減った ○⚠️／オーエンスの機械の速さ（職人の何倍か）△ → ⚠️（ゲームの本数は記号）
+根拠：
+- ASME Landmark #86「Owens AR Bottle Machine」：https://www.asme.org/about-asme/engineering-history/landmarks/86-owens-ar-bottle-machine
+- ASME Landmark #81「Corning Ribbon Machine」：https://www.asme.org/about-asme/engineering-history/landmarks/81-corning-ribbon-machine
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

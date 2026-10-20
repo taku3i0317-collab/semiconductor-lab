@@ -1093,5 +1093,11 @@
   "item.semiconductor-lab.hydrogen_sulfide_gas.note4": "Described by Scheele in 1777. Hydrogen sulfide from oil and natural gas is still turned into sulfur by the Claus process; most of the world's sulfur is made this way.",
   "item.semiconductor-lab.hydrogen_sulfide_gas.placeholder": "Approximation: 1 bag = about 1 mol. Leaks do not use up the bag.",
   "message.semiconductor-lab.hydrogen_sulfide_gas.leak": "Rotten-egg smell... hydrogen sulfide leaked from the bag (at high levels your nose goes numb and you cannot notice)",
-  "message.semiconductor-lab.alumina_catalyst_tube.claus": "The hydrogen sulfide reacted with oxygen in the air and became sulfur (Claus process)"
+  "message.semiconductor-lab.alumina_catalyst_tube.claus": "The hydrogen sulfide reacted with oxygen in the air and became sulfur (Claus process)",
+  "block.semiconductor-lab.bottle_machine": "Automatic Bottle Machine",
+  "block.semiconductor-lab.bottle_machine.note1": "A machine that keeps making bottles as long as it has glass. Nobody had to blow them by mouth anymore.",
+  "block.semiconductor-lab.bottle_machine.note2": "6 steel + bellows + copper cable + furnace. 2 kW. 1 soda-lime glass -> 1 glass bottle (1 s; running nonstop, 60 a minute). Hand-making on the crafting table (3 glass -> 3 bottles) is done one batch at a time by a person. Compare them.",
+  "block.semiconductor-lab.bottle_machine.note3": "It sucks molten glass up into a mould (by vacuum), moves it to a second mould and blows air in to shape the bottle. Breath and hands were replaced by vacuum, compressed air and moulds.",
+  "block.semiconductor-lab.bottle_machine.note4": "In 1903 Owens in the USA built a fully automatic bottle machine (ASME Landmark #86), replacing work done by glassblowers and child helpers (it also helped reduce child labour ⚠️). The 1926 ribbon machine (ASME #81) made up to about 2000 light-bulb envelopes a minute, making bulbs cheap.",
+  "block.semiconductor-lab.bottle_machine.placeholder": "Approximation: bottles per minute is a game value; real speeds varied greatly by machine and year ⚠️."
 }
