@@ -78,7 +78,9 @@ public enum Vessel {
 
     /** ここに載っていない中身はどの容器でもよい。載っていれば、この中からだけ */
     public static final Map<String, Set<Vessel>> ALLOWED = Map.of(
-            "hydrofluoric_acid", Set.of(LEAD_BOTTLE, POLYETHYLENE_BOTTLE),   // HF は SiO2 を溶かす（4HF + SiO2 → SiF4 + 2H2O）。ガラス瓶は不可。鉛か PE（S-006）
+            "hydrofluoric_acid", Set.of(LEAD_BOTTLE, POLYETHYLENE_BOTTLE),
+            "hydrofluoric_acid_pe", Set.of(POLYETHYLENE_BOTTLE),   // O-014：PE の瓶のフッ酸
+              // HF は SiO2 を溶かす（4HF + SiO2 → SiF4 + 2H2O）。ガラス瓶は不可。鉛か PE（S-006）
             "phosphorus", Set.of(WATER_JAR),                   // 白リンは空気に触れさせない
             "mercury", Set.of(IRON_FLASK, GLASS_BOTTLE),       // 水銀は鉄を溶かさない（アマルガムを作らない）。銅・亜鉛・金の容器は不可
             "sulfuric_acid", Set.of(GLASS_BOTTLE),

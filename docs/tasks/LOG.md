@@ -436,3 +436,7 @@
 - TECH_TREE [9-32] に段階と理由（段階2 のダイシングソーは [8-08] ✅ になったが、後に）。CHEMISTRY S-D1、REFERENCES L7、test_queue、ROADMAP（v0.3 の 7 ✅）、LITHO_DESIGN §10、HANDOFF。test.ps1 200/200
 - ほかの担当からの相談に答えて入れた物（同じ日）：ChipState.overlayNm と expose のずれつき（C、fa977e6a）、レジストの型 tone・現像液の種類（E、7ef6700e）、[3-25] カーバイド（D、617cec06）、C の玉軸受の入口は C が ConsumerBlockEntity に入れてよいと返事（A の条件つき）
 
+## O-014 ① PE の瓶のフッ酸（2026-10-20、司令塔の決定＝案A）
+- hydrofluoric_acid_pe（Vessel.POLYETHYLENE_BOTTLE）、移しかえのレシピ（フッ酸＋空の PE の瓶 → PE のフッ酸、鉛の瓶は戻る）、タグ #semiconductor-lab:hydrofluoric_acid（Chemistry.HF_TAG）に両方。A の silicon_etch はタグに。DECISIONS「前例：容器のしくみ」、CHEMISTRY PE2、へえ・GHS
+- **E へ**：フッ酸を使う機械をタグで受けるように（`s.is(Chemistry.HF_TAG)`）：CleaningBenchBlockEntity（SLOT_HF の2か所）・EtchTankBlockEntity（isAcid・87行の窓の判定）、レシピ cryolite.json の HF を `#semiconductor-lab:hydrofluoric_acid` に。HfRetort が空の PE の瓶にも詰められるようにするかは E の判断
+

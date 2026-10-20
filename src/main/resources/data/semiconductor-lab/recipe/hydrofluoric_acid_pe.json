@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:polyethylene_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hydrofluoric_acid_pe",
+    "count": 1
+  }
+}

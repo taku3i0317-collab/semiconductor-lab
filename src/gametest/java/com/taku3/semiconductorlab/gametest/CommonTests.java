@@ -456,6 +456,9 @@ public class CommonTests extends LabTestBase {
         h.assertTrue(!com.taku3.semiconductorlab.machine.Vessel.ALLOWED.get("hydrofluoric_acid").contains(com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE), "HF dissolves glass");
         h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.ALLOWED.get("hydrofluoric_acid").contains(com.taku3.semiconductorlab.machine.Vessel.POLYETHYLENE_BOTTLE)
                 && com.taku3.semiconductorlab.machine.Vessel.POLYETHYLENE_BOTTLE.empty() == Chemistry.POLYETHYLENE_BOTTLE && recipeUses(h, "polyethylene_bottle", Chemistry.POLYETHYLENE), "HF may go in a polyethylene bottle (S-006)");
+        h.assertTrue(all.get(Chemistry.HYDROFLUORIC_ACID_PE) == com.taku3.semiconductorlab.machine.Vessel.POLYETHYLENE_BOTTLE
+                && new ItemStack(Chemistry.HYDROFLUORIC_ACID_PE).is(Chemistry.HF_TAG) && new ItemStack(Chemistry.HYDROFLUORIC_ACID).is(Chemistry.HF_TAG)
+                && recipeUses(h, "hydrofluoric_acid_pe", Chemistry.POLYETHYLENE_BOTTLE), "HF in a PE bottle is its own item; the tag holds both (O-014)");
         h.assertTrue(recipeUses(h, "cinnabar_retort_charge", Metallurgy.IRON_FLASK) && recipeUses(h, "sulfuric_acid", Chemistry.GLASS_BOTTLE)
                 && recipeUses(h, "phosphorus", Chemistry.GLASS_BOTTLE), "filling recipes use the empty container");
         // 機械で使う：空の容器が機械の上に出る（袋は何も出ない）

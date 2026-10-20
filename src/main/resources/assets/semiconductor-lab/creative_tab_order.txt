@@ -269,6 +269,7 @@ phosphoric_acid  # Chemistry [9-25] 1959
 sodium_silicate  # Chemistry [9-13] 1963
 colloidal_silica  # Chemistry [9-13] 1963
 polyethylene_bottle  # Chemistry [None] None
+hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
