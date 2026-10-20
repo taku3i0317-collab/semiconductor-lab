@@ -170,5 +170,15 @@
   "item.semiconductor-lab.rope.note2": "リネンの糸3つで作る（3本の糸を撚りあわせる）。のちに滑車やクレーンで重い物をつり上げるのに使う予定。",
   "item.semiconductor-lab.rope.note3": "繊維を撚って糸にし、その糸を何本か「逆向き」に撚りあわせる。逆向きにすると、ほどけようとする力どうしがつり合って、ロープがほどけない。引っぱると撚りが締まり、繊維どうしの摩擦で力を分けあう。",
   "item.semiconductor-lab.rope.note4": "フランスのアブリ・デュ・マラ遺跡で、約4万1000〜5万2000年前の石器に、3本の撚った束をさらに撚りあわせたひもの切れはしがついていた（ネアンデルタール人、2020年発表）⚠️。古代エジプトではパピルスやヤシの繊維で太いロープを作り、大きな石を運んだ。",
-  "item.semiconductor-lab.rope.placeholder": "近似：撚りの段（糸 → ストランド → ロープ）を1回にまとめた。"
+  "item.semiconductor-lab.rope.placeholder": "近似：撚りの段（糸 → ストランド → ロープ）を1回にまとめた。",
+  "block.semiconductor-lab.assembly_bench": "組立台",
+  "block.semiconductor-lab.assembly_bench.note1": "部品をならべて機械を組み立てる机。どの部品が何の役目かがわかる。",
+  "block.semiconductor-lab.assembly_bench.note2": "左の < > で作る物を選び、役目ごとのスロットに部品を入れて「組立」。ラジオと高周波発振器はここで作る。",
+  "block.semiconductor-lab.assembly_bench.note3": "工場では製品ごとに「部品表（BOM：Bill of Materials）」を作り、どの部品をいくつ使うかを1枚にまとめる。注文・在庫・修理もこの表で決まる。",
+  "block.semiconductor-lab.assembly_bench.note4": "1955年のソニー TR-55 はトランジスタ5個のラジオ。部品を基板にさしてから、はんだの池にくぐらせて一度に付ける「フローはんだ付け」が、同じころに広まった。",
+  "gui.semiconductor-lab.assembly_bench.assemble": "組立",
+  "gui.semiconductor-lab.assembly_bench.need_parts": "部品が足りない（赤い枠）",
+  "gui.semiconductor-lab.assembly_bench.ready": "そろった：組立を押す",
+  "gui.semiconductor-lab.assembly_bench.assembling": "組み立て中 %s",
+  "gui.semiconductor-lab.assembly_bench.out_full": "完成品を取り出す"
 }

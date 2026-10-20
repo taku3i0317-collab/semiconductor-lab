@@ -37,5 +37,17 @@
   "vessel.semiconductor-lab.water_jar": "glass bottle under water",
   "vessel.semiconductor-lab.iron_flask": "iron flask",
   "vessel.semiconductor-lab.lead_bottle": "lead bottle",
-  "tooltip.semiconductor-lab.vessel": "Container: %s"
+  "tooltip.semiconductor-lab.vessel": "Container: %s",
+  "assembly.semiconductor-lab.transistor_radio.amplify": "Amplify (3 transistors): boost the weak radio signal",
+  "assembly.semiconductor-lab.transistor_radio.resistor": "Resistor (graphite): sets the transistors' current",
+  "assembly.semiconductor-lab.transistor_radio.tuning_coil": "Tuning coil (copper): with the capacitor, picks a station",
+  "assembly.semiconductor-lab.transistor_radio.tuning_capacitor": "Tuning capacitor (Leyden jar): with the coil, picks a station",
+  "assembly.semiconductor-lab.transistor_radio.speaker": "Speaker (magnet): the signal shakes a cone into sound",
+  "assembly.semiconductor-lab.transistor_radio.battery_case": "Battery case (zinc): − pole, gives off electrons",
+  "assembly.semiconductor-lab.transistor_radio.battery_rod": "Battery rod (graphite): + pole, takes in electrons",
+  "assembly.semiconductor-lab.hf_oscillator.oscillate": "Oscillate (2 tubes): push and pull the current steadily",
+  "assembly.semiconductor-lab.hf_oscillator.tank_coil": "Tank coil: with the capacitor, sets the frequency",
+  "assembly.semiconductor-lab.hf_oscillator.tank_capacitor": "Tank capacitor (Leyden jar): trades charge with the coil",
+  "assembly.semiconductor-lab.hf_oscillator.wiring": "Wiring (copper): links the parts and the refiner's coil",
+  "assembly.semiconductor-lab.hf_oscillator.frame": "Frame (4 iron): holds the parts and sheds heat"
 }

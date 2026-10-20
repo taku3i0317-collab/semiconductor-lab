@@ -39,7 +39,8 @@ public class MachineMenu extends AbstractContainerMenu {
         this.block = block;
         for (MachineLayout.SlotDef s : machine.layout.slots()) {
             addSlot(new Slot(container, s.index(), s.x(), s.y()) {
-                @Override public boolean mayPlace(ItemStack st) { return !s.isOutput() && s.accepts().test(st); }
+                @Override public boolean mayPlace(ItemStack st) { return s.accepts(data::get, st); }
+                @Override public boolean isActive() { return s.active(data::get); }
                 @Override public int getMaxStackSize() { return s.maxStack() > 0 ? s.maxStack() : super.getMaxStackSize(); }
             });
         }
@@ -67,6 +68,11 @@ public class MachineMenu extends AbstractContainerMenu {
 
     @Override public boolean stillValid(Player player) { return stillValid(access, player, block); }
 
+    /** 画面のボタン（サーバー側。クライアントは MultiPlayerGameMode.handleInventoryButtonClick で送る）。BE の onButton へ渡す */
+    @Override public boolean clickMenuButton(Player player, int id) {
+        return access.evaluate((level, pos) -> level.getBlockEntity(pos) instanceof MachineBE be && be.onButton(player, id), false);
+    }
+
     /**
      * シフトクリック：機械 → 持ち物。持ち物 → 「入れられる最初の入口」だけ
      * （前の Menu と同じ。いっぱいでも次の入口へは回さない：CZ の多結晶 Si が種のスロットへ入らないように）
@@ -82,7 +88,7 @@ public class MachineMenu extends AbstractContainerMenu {
         else {
             for (int i = 0; i < playerStart; i++) {
                 MachineLayout.SlotDef s = machine.layout.slots().get(i);
-                if (!s.isOutput() && s.accepts().test(stack)) { ok = moveItemStackTo(stack, i, i + 1, false); break; }
+                if (s.accepts(data::get, stack) && s.active(data::get)) { ok = moveItemStackTo(stack, i, i + 1, false); break; }
             }
         }
         if (!ok) return ItemStack.EMPTY;

@@ -481,7 +481,59 @@ public class SurvivalTests extends LabTestBase {
     }
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
+
+    // =====================================================================
+    // 組立台（IMP-33、DESIGN「組立台」）
+    // =====================================================================
+
+    /**
+     * 組立台：役目のスロットにはその部品しか入らない／足りないと押しても何も起きない／そろえて押すと部品が減って完成品が出る。
+     * 作業台から移した製品（ラジオ・高周波発振器）は作業台のレシピに残っていない（二重にならない）。全部の部品が登録済み。
+     */
+    @GameTest(maxTicks = 300)
+    public void assemblyBench(GameTestHelper h) {
+        var all = com.taku3.semiconductorlab.machine.Assembly.all();
+        h.assertTrue(all.size() >= 2, "radio and HF oscillator are assembly recipes: " + all.size());
+        for (String moved : new String[] {"transistor_radio", "hf_oscillator"})
+            h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, com.taku3.semiconductorlab.SemiconductorLab.id(moved))).isEmpty(),
+                    "crafting recipe removed (assembly bench only): " + moved);
+        for (var r : all) for (var pt : r.parts)
+            h.assertTrue(pt.ok().test(new net.minecraft.world.item.ItemStack(pt.display())), r.id + "." + pt.role() + ": display item is a valid part");
+        int radio = all.indexOf(com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Communication.TRANSISTOR_RADIO));
+        var pos = p(1, 1, 1);
+        h.setBlock(pos, Survival.ASSEMBLY_BENCH.block);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.class);
+        var c = be.getContainer();
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        while (be.getMenuData().get(com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.DATA_RECIPE) != radio) be.onButton(player, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.BUTTON_NEXT);
+        var a = be.current();
+        // スロットの条件（画面と同じ判定）：増幅のスロットに磁石は入らない、トランジスタは入る。使わない8番目のスロットは隠れる
+        var slots = com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.LAYOUT.slots();
+        java.util.function.IntUnaryOperator data = be.getMenuData()::get;
+        h.assertFalse(slots.get(0).accepts(data, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Power.MAGNET)), "amplify slot rejects a magnet");
+        h.assertTrue(slots.get(0).accepts(data, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.JUNCTION_TRANSISTOR)), "amplify slot takes a transistor");
+        h.assertFalse(slots.get(7).active(data), "unused 8th slot is hidden for the radio (7 parts)");
+        // 1つ足りない（トランジスタ2個）：押しても始まらない
+        for (int i = 0; i < a.parts.size(); i++) c.setItem(i, new net.minecraft.world.item.ItemStack(a.parts.get(i).display(), a.parts.get(i).count()));
+        c.getItem(0).setCount(2);
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.BUTTON_ASSEMBLE), "2 of 3 transistors -> cannot assemble");
+        c.getItem(0).setCount(3);
+        h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.BUTTON_ASSEMBLE), "all parts -> assemble starts");
+        h.runAfterDelay(a.ticks + 5, () -> {
+            h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.SLOT_OUT).is(com.taku3.semiconductorlab.content.Communication.TRANSISTOR_RADIO), "radio comes out");
+            for (int i = 0; i < a.parts.size(); i++) h.assertTrue(c.getItem(i).isEmpty(), "part used: " + a.parts.get(i).role());
+            LOG.info("[LAB] assembly bench: {} recipes; radio from {} parts in {} ticks", all.size(), a.parts.size(), a.ticks);
+            h.succeed();
+        });
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
+        // 組立台（IMP-33）：レシピごとに1行。部品の cond に役目
+        for (var r : com.taku3.semiconductorlab.machine.Assembly.all()) {
+            var in = new com.google.gson.JsonArray();
+            for (var pt : r.parts) in.add(cond(io(pt.display(), pt.count()), pt.role()));
+            rec(a, Survival.ASSEMBLY_BENCH.block, "組み立て（" + r.id + "）", in, L(io(r.result, 1)), 0, r.ticks / 20.0, "部品表で組み立てる。電気なし");
+        }
         rec(a, Survival.SALT_PAN.block, "天日で塩", L(kept(cond(io("海辺の水と日光", 1), "雨の日は止まる"))), L(io(Gas.SALT, 1), perRuns(io(Survival.BITTERN, 1), SaltPanBlockEntity.SALT_PER_BITTERN)),
             0, SaltPanBlockEntity.TICKS_PER_SALT / 20.0, "電気なし");
     }

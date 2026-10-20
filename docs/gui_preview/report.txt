@@ -1,4 +1,23 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 60（ja・en）、文字の置き場所 228、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 60（ja・en）、文字の置き場所 234、問題 0
+assembly_bench_en_us index =1/2 w=18 lines=1/1
+assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
+assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.oscillate w=273 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.tank_coil w=245 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.tank_capacitor w=288 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.wiring w=268 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.frame w=239 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.amplify w=258 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.resistor w=252 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.tuning_coil w=276 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.tuning_capacitor w=298 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.speaker w=275 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.battery_case w=240 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.battery_rod w=249 lines=2/2
+assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.need_parts w=96 lines=1/1
+assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.ready w=93 lines=1/1
+assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.assembling w=81 lines=1/1
+assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.out_full w=107 lines=1/1
 bessemer_converter_en_us power gui.semiconductor-lab.bessemer_converter.power w=69 lines=1/1
 bessemer_converter_en_us stored gui.semiconductor-lab.bessemer_converter.stored w=65 lines=1/1
 bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_iron w=120 lines=1/1
@@ -35,10 +54,6 @@ wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_input w=57 lines=1
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_fuel w=106 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.running w=79 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.out_full w=53 lines=1/2
-gas_retort_en_us hint gui.semiconductor-lab.gas_retort.need_input w=53 lines=1/2
-gas_retort_en_us hint gui.semiconductor-lab.gas_retort.need_fuel w=167 lines=2/2
-gas_retort_en_us hint gui.semiconductor-lab.gas_retort.running w=108 lines=1/2
-gas_retort_en_us hint gui.semiconductor-lab.gas_retort.out_full w=53 lines=1/2
 acheson_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=67 lines=1/1
 acheson_furnace_en_us need gui.semiconductor-lab.acheson_furnace.need w=61 lines=1/1
 acheson_furnace_en_us temp gui.semiconductor-lab.acheson_furnace.temp w=56 lines=1/1
@@ -98,22 +113,10 @@ diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_chamber w=108 lines=2/3
 diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_backing w=109 lines=2/3
 diffusion_pump_en_us hint gui.semiconductor-lab.pump.too_high w=103 lines=2/3
 diffusion_pump_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
-mercury_lamp_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
-mercury_lamp_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
-mercury_lamp_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
-mercury_lamp_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
-mercury_lamp_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
-oxyhydrogen_burner_en_us h2 =H2 00 w=28 lines=1/1
-oxyhydrogen_burner_en_us o2 =O2 00 w=28 lines=1/1
-oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_input w=94 lines=1/1
-oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.melting w=78 lines=1/1
-oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_h2 w=107 lines=1/1
-oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_o2 w=107 lines=1/1
-oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.out_full w=53 lines=1/1
 evaporator_en_us power gui.semiconductor-lab.evaporator.power w=63 lines=1/1
 evaporator_en_us pressure gui.semiconductor-lab.evaporator.pressure w=53 lines=1/1
 evaporator_en_us target gui.semiconductor-lab.evaporator.target w=61 lines=1/1
-evaporator_en_us hint gui.semiconductor-lab.evaporator.need_input w=125 lines=2/2
+evaporator_en_us hint gui.semiconductor-lab.evaporator.need_input w=118 lines=2/2
 evaporator_en_us hint gui.semiconductor-lab.evaporator.need_chamber w=58 lines=1/2
 evaporator_en_us hint gui.semiconductor-lab.evaporator.need_vacuum w=111 lines=2/2
 evaporator_en_us hint gui.semiconductor-lab.evaporator.output_full w=53 lines=1/2
@@ -179,6 +182,18 @@ compressor_en_us hint gui.semiconductor-lab.compressor.need_gas w=117 lines=2/3
 compressor_en_us hint gui.semiconductor-lab.compressor.need_power w=46 lines=1/3
 compressor_en_us hint gui.semiconductor-lab.compressor.running w=62 lines=1/3
 compressor_en_us mol gui.semiconductor-lab.compressor.mol w=90 lines=1/1
+mercury_lamp_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+mercury_lamp_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
+mercury_lamp_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
+mercury_lamp_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+mercury_lamp_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
+oxyhydrogen_burner_en_us h2 =H2 00 w=28 lines=1/1
+oxyhydrogen_burner_en_us o2 =O2 00 w=28 lines=1/1
+oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_input w=94 lines=1/1
+oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.melting w=78 lines=1/1
+oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_h2 w=107 lines=1/1
+oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_o2 w=107 lines=1/1
+oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.out_full w=53 lines=1/1
 lathe_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
 lathe_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 lathe_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
@@ -235,6 +250,25 @@ crystal_puller_en_us hint gui.semiconductor-lab.crystal_puller.need_power w=46 l
 crystal_puller_en_us hint gui.semiconductor-lab.crystal_puller.running w=32 lines=1/3
 crystal_puller_en_us mode gui.semiconductor-lab.crystal_puller.mode.seed w=103 lines=1/1
 crystal_puller_en_us mode gui.semiconductor-lab.crystal_puller.mode.grow w=104 lines=1/1
+assembly_bench_ja_jp index =1/2 w=18 lines=1/1
+assembly_bench_ja_jp product item.semiconductor-lab.hf_oscillator w=54 lines=1/2
+assembly_bench_ja_jp product item.semiconductor-lab.transistor_radio w=81 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.oscillate w=228 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.tank_coil w=225 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.tank_capacitor w=234 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.wiring w=207 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.frame w=174 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.amplify w=228 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.resistor w=225 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.tuning_coil w=207 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.tuning_capacitor w=234 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.speaker w=207 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.battery_case w=216 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.battery_rod w=186 lines=2/2
+assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.need_parts w=108 lines=1/1
+assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.ready w=90 lines=1/1
+assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.assembling w=73 lines=1/1
+assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.out_full w=72 lines=1/1
 bessemer_converter_ja_jp power gui.semiconductor-lab.bessemer_converter.power w=57 lines=1/1
 bessemer_converter_ja_jp stored gui.semiconductor-lab.bessemer_converter.stored w=49 lines=1/1
 bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.need_iron w=126 lines=1/1
@@ -271,10 +305,6 @@ wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_input w=54 lines=1
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_fuel w=72 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.running w=62 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.out_full w=45 lines=1/2
-gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.need_input w=54 lines=1/2
-gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.need_fuel w=153 lines=2/2
-gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.running w=68 lines=1/2
-gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.out_full w=45 lines=1/2
 acheson_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=55 lines=1/1
 acheson_furnace_ja_jp need gui.semiconductor-lab.acheson_furnace.need w=55 lines=1/1
 acheson_furnace_ja_jp temp gui.semiconductor-lab.acheson_furnace.temp w=50 lines=1/1
@@ -333,18 +363,6 @@ diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_chamber w=99 lines=2/3
 diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_backing w=99 lines=2/3
 diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.too_high w=77 lines=2/3
 diffusion_pump_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
-mercury_lamp_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
-mercury_lamp_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
-mercury_lamp_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
-mercury_lamp_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
-mercury_lamp_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
-oxyhydrogen_burner_ja_jp h2 =H2 00 w=28 lines=1/1
-oxyhydrogen_burner_ja_jp o2 =O2 00 w=28 lines=1/1
-oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_input w=54 lines=1/1
-oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.melting w=68 lines=1/1
-oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_h2 w=72 lines=1/1
-oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_o2 w=72 lines=1/1
-oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.out_full w=45 lines=1/1
 evaporator_ja_jp power gui.semiconductor-lab.evaporator.power w=51 lines=1/1
 evaporator_ja_jp pressure gui.semiconductor-lab.evaporator.pressure w=61 lines=1/1
 evaporator_ja_jp target gui.semiconductor-lab.evaporator.target w=58 lines=1/1
@@ -414,6 +432,18 @@ compressor_ja_jp hint gui.semiconductor-lab.compressor.need_gas w=108 lines=2/3
 compressor_ja_jp hint gui.semiconductor-lab.compressor.need_power w=36 lines=1/3
 compressor_ja_jp hint gui.semiconductor-lab.compressor.running w=27 lines=1/3
 compressor_ja_jp mol gui.semiconductor-lab.compressor.mol w=90 lines=1/1
+mercury_lamp_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+mercury_lamp_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
+mercury_lamp_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
+mercury_lamp_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+mercury_lamp_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
+oxyhydrogen_burner_ja_jp h2 =H2 00 w=28 lines=1/1
+oxyhydrogen_burner_ja_jp o2 =O2 00 w=28 lines=1/1
+oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_input w=54 lines=1/1
+oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.melting w=68 lines=1/1
+oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_h2 w=72 lines=1/1
+oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_o2 w=72 lines=1/1
+oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.out_full w=45 lines=1/1
 lathe_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
 lathe_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 lathe_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3

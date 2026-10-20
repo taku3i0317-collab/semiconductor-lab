@@ -443,12 +443,9 @@ public class PowerTests extends LabTestBase {
     /** 発振器＝真空管2＋コイル＋ライデン瓶＋ケーブル。帯域精製炉は発振器を要求し、旧・仮アイテムは消えている */
     @GameTest
     public void hfOscillatorReplacesPlaceholder(GameTestHelper h) {
-        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("hf_oscillator"));
-        var ings = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value().placementInfo().ingredients();
-        long tubes = ings.stream().filter(i -> i.test(new ItemStack(Vacuum.VACUUM_TUBE))).count();
-        h.assertValueEqual(tubes, 2L, "vacuum tubes in the oscillator");
+        h.assertValueEqual(assemblyCount(Power.HF_OSCILLATOR, Vacuum.VACUUM_TUBE), 2, "vacuum tubes in the oscillator (assembly bench, IMP-33)");
         for (var it : new net.minecraft.world.item.Item[] {Power.LEYDEN_JAR, Power.INDUCTION_COIL, Power.COPPER_CABLE.block.asItem()})
-            h.assertTrue(recipeUses(h, "hf_oscillator", it), "oscillator should use " + it);
+            h.assertTrue(assemblyCount(Power.HF_OSCILLATOR, it) > 0, "oscillator should use " + it);
         h.assertTrue(recipeUses(h, "leyden_jar", Chemistry.SODA_LIME_GLASS), "Leyden jar = glass jar (soda-lime glass) + metal foil");
         h.assertTrue(recipeUses(h, "zone_refining_furnace", Power.HF_OSCILLATOR), "zone refining furnace needs the HF oscillator");
         h.assertFalse(BuiltInRegistries.ITEM.containsKey(SemiconductorLab.id("hf_power_supply")), "placeholder hf_power_supply must be gone");

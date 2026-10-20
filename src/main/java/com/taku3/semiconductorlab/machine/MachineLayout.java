@@ -4,6 +4,7 @@ import net.minecraft.world.item.ItemStack;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.IntUnaryOperator;
 import java.util.function.Predicate;
 
 /**
@@ -18,9 +19,27 @@ import java.util.function.Predicate;
  * 1つの BE に入っているアイテムの数（containerSize）は、いちばん大きいスロット番号＋1。
  */
 public final class MachineLayout {
-    /** スロット1つ。accepts が null なら出口（入れられない）。maxStack が 0 ならふつうの上限 */
-    public record SlotDef(int index, int x, int y, Predicate<ItemStack> accepts, int maxStack) {
+    /** スロット1つ。accepts が null なら出口（入れられない）。maxStack が 0 ならふつうの上限。ctx は画面の数値で変わる条件（組立台：選んだ製品、なければ null） */
+    public record SlotDef(int index, int x, int y, Predicate<ItemStack> accepts, int maxStack, Ctx ctx) {
         public boolean isOutput() { return accepts == null; }
+        /** 入れてよいか（ctx があれば画面の数値も見る） */
+        public boolean accepts(IntUnaryOperator data, ItemStack s) { return !isOutput() && accepts.test(s) && (ctx == null || ctx.accepts(data, s)); }
+        /** 画面に出すか（使わないスロットは隠す） */
+        public boolean active(IntUnaryOperator data) { return ctx == null || ctx.active(data); }
+    }
+
+    /** 画面の数値（ContainerData）しだいで変わるスロットの条件（IMP-33 組立台：選んだ製品の役目ごとの部品）。data.applyAsInt(i) は数値 i 番 */
+    public interface Ctx {
+        boolean accepts(IntUnaryOperator data, ItemStack s);
+        default boolean active(IntUnaryOperator data) { return true; }
+    }
+
+    /** あとで決まる lang キーの一覧（組立台：製品と役目の名前は、各幹のファイルの組立レシピが読み込まれてから決まる） */
+    private static final class LazyKeys extends java.util.AbstractList<String> {
+        private final java.util.function.Supplier<List<String>> f;
+        LazyKeys(java.util.function.Supplier<List<String>> f) { this.f = f; }
+        @Override public String get(int i) { return f.get().get(i); }
+        @Override public int size() { return f.get().size(); }
     }
 
     // ===== 画面の文字（IMP-30）：文字もスロットと同じく「どこに・どの幅で・何行まで」をデータで決める =====
@@ -86,12 +105,17 @@ public final class MachineLayout {
         public Builder in(int index, int x, int y, Predicate<ItemStack> accepts) { return in(index, x, y, accepts, 0); }
         /** 入口のスロット（1スロットに入る数の上限つき。例：帯域精製炉の Ge は 8 個まで） */
         public Builder in(int index, int x, int y, Predicate<ItemStack> accepts, int maxStack) {
-            slots.add(new SlotDef(index, x, y, accepts, maxStack));
+            slots.add(new SlotDef(index, x, y, accepts, maxStack, null));
+            return this;
+        }
+        /** 入口のスロット（画面の数値しだいで条件と表示が変わる。組立台） */
+        public Builder in(int index, int x, int y, Predicate<ItemStack> accepts, Ctx ctx) {
+            slots.add(new SlotDef(index, x, y, accepts, 0, ctx));
             return this;
         }
         /** 出口のスロット（取り出すだけ） */
         public Builder out(int index, int x, int y) {
-            slots.add(new SlotDef(index, x, y, null, 0));
+            slots.add(new SlotDef(index, x, y, null, 0, null));
             return this;
         }
         /** 背景の画像を別の機械と共有するとき（蒸気タービンは蒸気機関の画面） */
@@ -113,6 +137,11 @@ public final class MachineLayout {
             return right("power", 17, 1, k + "power").samples("500.0 kW")
                     .right("stored", 27, 1, k + "stored").samples("50 kJ")
                     .right("hint", 38, 3, k + "need_input", k + "need_power", k + "running");
+        }
+        /** 左寄せの文。候補の lang キーはあとで決まる（keys は自動チェックや描くときに呼ばれる） */
+        public Builder lazyText(String id, int x, int y, int width, int lines, java.util.function.Supplier<List<String>> keys) {
+            texts.add(new TextDef(id, x, y, width, lines, Align.LEFT, false, new LazyKeys(keys), List.of()));
+            return this;
         }
         /** 直前の文を「折り返しても入らなければ縮める」にする（混んだ画面だけ。MIN_SCALE まで） */
         public Builder fit() {

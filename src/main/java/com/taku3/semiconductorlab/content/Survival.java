@@ -98,6 +98,11 @@ public final class Survival {
             .block(SaltPanBlock::new).ticker(SaltPanBlockEntity::tick)
             .props(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.8f).sound(SoundType.SAND)).build();
 
+    // 組立台（IMP-33、作り方の3段の2段目）：木の作業机＋万力。部品表で組み立てる。電気なし
+    public static final Machine<AssemblyBenchBlockEntity> ASSEMBLY_BENCH = Machine.builder("assembly_bench", AssemblyBenchBlockEntity::new)
+            .ticker(AssemblyBenchBlockEntity::tick).layout(AssemblyBenchBlockEntity.LAYOUT)
+            .props(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.5f).sound(SoundType.WOOD)).build();
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {
         // [0-04] 草むらの中に野生の麦がまじっている

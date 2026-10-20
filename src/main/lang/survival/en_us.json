@@ -170,5 +170,15 @@
   "item.semiconductor-lab.rope.note2": "3 linen threads (twisted together). To be used later with pulleys and cranes for lifting heavy loads.",
   "item.semiconductor-lab.rope.note3": "Fibres are twisted into yarns, then several yarns are twisted together the opposite way. The opposite twists balance each other, so the rope does not unravel. Under load the twist tightens and friction shares the force among the fibres.",
   "item.semiconductor-lab.rope.note4": "At Abri du Maras, France, a stone tool about 41,000-52,000 years old carried a fragment of cord: three twisted bundles plied together (Neanderthals, published 2020) ⚠️. Ancient Egyptians made thick ropes of papyrus and palm fibre to haul huge stones.",
-  "item.semiconductor-lab.rope.placeholder": "Approximation: the twisting stages (yarn -> strand -> rope) are merged into one."
+  "item.semiconductor-lab.rope.placeholder": "Approximation: the twisting stages (yarn -> strand -> rope) are merged into one.",
+  "block.semiconductor-lab.assembly_bench": "Assembly Bench",
+  "block.semiconductor-lab.assembly_bench.note1": "A desk for assembling machines from parts. It shows what each part is for.",
+  "block.semiconductor-lab.assembly_bench.note2": "Pick a product with < > on the left, put parts into the slot for each role, then press Build. Radios and HF oscillators are made here.",
+  "block.semiconductor-lab.assembly_bench.note3": "Factories keep a bill of materials (BOM) for each product: one list of which parts and how many. Orders, stock and repairs are all planned from it.",
+  "block.semiconductor-lab.assembly_bench.note4": "Sony's TR-55 of 1955 was a five-transistor radio. Around the same time, flow soldering spread: parts are pushed into the board, which then passes over a wave of molten solder to solder everything at once.",
+  "gui.semiconductor-lab.assembly_bench.assemble": "Build",
+  "gui.semiconductor-lab.assembly_bench.need_parts": "Parts missing (red)",
+  "gui.semiconductor-lab.assembly_bench.ready": "Ready: press Build",
+  "gui.semiconductor-lab.assembly_bench.assembling": "Assembling %s",
+  "gui.semiconductor-lab.assembly_bench.out_full": "Take out the product"
 }

@@ -30,6 +30,9 @@ public interface MachineBE extends MenuProvider {
     BlockState getBlockState();
     BlockEntityType<?> getType();
 
+    /** 画面のボタンが押された（サーバー側、MachineMenu.clickMenuButton から）。使ったら true */
+    default boolean onButton(Player player, int id) { return false; }
+
     @Override default Component getDisplayName() { return getBlockState().getBlock().getName(); }
 
     @Override default AbstractContainerMenu createMenu(int id, Inventory inv, Player player) {

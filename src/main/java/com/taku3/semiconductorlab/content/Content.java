@@ -28,6 +28,9 @@ public final class Content {
         Semiconductor.init();
         Communication.init();
         Branches.init();
+        // 組立台のレシピ（IMP-33）：ほかの幹のアイテムを使うので、全部の幹を読み込んでから。製品の幹のファイルに書く
+        Power.assemblies();
+        Communication.assemblies();
         Reg.registerTabs();
     }
 }

@@ -7,6 +7,7 @@ import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.content.Optics;
 import com.taku3.semiconductorlab.content.Power;
 import com.taku3.semiconductorlab.content.Semiconductor;
+import com.taku3.semiconductorlab.content.Survival;
 import com.taku3.semiconductorlab.content.Vacuum;
 import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.machine.MachineMenu;
@@ -24,6 +25,8 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		PurityTooltip.register();
 		NoteTooltip.register();
 		// 専用の画面を持つ機械（IMP-28：画面は MachineScreen を継承）。幹ごとにまとめる（自分の幹の段にだけ足す）
+		// 幹0 生存・道具
+		screen(Survival.ASSEMBLY_BENCH, AssemblyBenchScreen::new);   // IMP-33 組立台
 		// 幹1 冶金
 		screen(Metallurgy.BESSEMER_CONVERTER, BessemerConverterScreen::new);
 		screen(Metallurgy.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);

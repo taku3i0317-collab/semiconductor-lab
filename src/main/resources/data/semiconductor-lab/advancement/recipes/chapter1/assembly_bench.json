@@ -6,7 +6,10 @@
       "conditions": {
         "items": [
           {
-            "items": "semiconductor-lab:vacuum_tube"
+            "items": [
+              "semiconductor-lab:vacuum_tube",
+              "semiconductor-lab:junction_transistor"
+            ]
           }
         ]
       }
@@ -15,7 +18,7 @@
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
         "recipes": [
-          "semiconductor-lab:hf_oscillator"
+          "semiconductor-lab:assembly_bench"
         ]
       }
     }
@@ -28,7 +31,7 @@
   ],
   "rewards": {
     "recipes": [
-      "semiconductor-lab:hf_oscillator"
+      "semiconductor-lab:assembly_bench"
     ]
   }
 }

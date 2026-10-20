@@ -60,4 +60,16 @@ public final class Power {
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
+
+    /** 組立台のレシピ（IMP-33。Content.initialize が全部の幹のあとで呼ぶ） */
+    static void assemblies() {
+        // [4-09] 高周波発振器：真空管2本（発振）＋共振回路（コイル＋ライデン瓶）＋鉄の枠＋配線（前は作業台）
+        com.taku3.semiconductorlab.machine.Assembly.recipe("hf_oscillator", HF_OSCILLATOR)
+                .part("oscillate", Vacuum.VACUUM_TUBE, 2)
+                .part("tank_coil", INDUCTION_COIL, 1)
+                .part("tank_capacitor", LEYDEN_JAR, 1)
+                .part("wiring", COPPER_CABLE.block.asItem(), 1)
+                .part("frame", net.minecraft.world.item.Items.IRON_INGOT, 4)
+                .seconds(5).build();
+    }
 }

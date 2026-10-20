@@ -30,4 +30,18 @@ public final class Communication {
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
+
+    /** 組立台のレシピ（IMP-33。Content.initialize が全部の幹のあとで呼ぶ） */
+    static void assemblies() {
+        // [15-10] トランジスタラジオ：合金接合型トランジスタ3（増幅）＋炭素抵抗＋同調コイル＋同調コンデンサ＋スピーカー＋乾電池（前は作業台）
+        com.taku3.semiconductorlab.machine.Assembly.recipe("transistor_radio", TRANSISTOR_RADIO)
+                .part("amplify", Semiconductor.JUNCTION_TRANSISTOR, 3)
+                .part("resistor", Metallurgy.GRAPHITE, 1)
+                .part("tuning_coil", Power.COPPER_CABLE.block.asItem(), 1)
+                .part("tuning_capacitor", Power.LEYDEN_JAR, 1)
+                .part("speaker", Power.MAGNET, 1)
+                .part("battery_case", Metallurgy.ZINC_INGOT, 1)
+                .part("battery_rod", Power.GRAPHITE_ROD, 1)
+                .seconds(5).build();
+    }
 }

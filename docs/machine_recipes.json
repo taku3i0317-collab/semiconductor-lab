@@ -93,6 +93,96 @@
       "note": "SiO2 + 2C → Si + 2CO、純度98%"
     },
     {
+      "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（hf_oscillator）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vacuum_tube",
+          "count": 2,
+          "cond": "oscillate"
+        },
+        {
+          "item": "semiconductor-lab:induction_coil",
+          "count": 1,
+          "cond": "tank_coil"
+        },
+        {
+          "item": "semiconductor-lab:leyden_jar",
+          "count": 1,
+          "cond": "tank_capacitor"
+        },
+        {
+          "item": "semiconductor-lab:copper_cable",
+          "count": 1,
+          "cond": "wiring"
+        },
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 4,
+          "cond": "frame"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hf_oscillator",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（transistor_radio）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:junction_transistor",
+          "count": 3,
+          "cond": "amplify"
+        },
+        {
+          "item": "semiconductor-lab:graphite",
+          "count": 1,
+          "cond": "resistor"
+        },
+        {
+          "item": "semiconductor-lab:copper_cable",
+          "count": 1,
+          "cond": "tuning_coil"
+        },
+        {
+          "item": "semiconductor-lab:leyden_jar",
+          "count": 1,
+          "cond": "tuning_capacitor"
+        },
+        {
+          "item": "semiconductor-lab:magnet",
+          "count": 1,
+          "cond": "speaker"
+        },
+        {
+          "item": "semiconductor-lab:zinc_ingot",
+          "count": 1,
+          "cond": "battery_case"
+        },
+        {
+          "item": "semiconductor-lab:graphite_rod",
+          "count": 1,
+          "cond": "battery_rod"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:transistor_radio",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
       "machine": "semiconductor-lab:bessemer_converter",
       "process": "ベッセマー転炉",
       "inputs": [

@@ -191,7 +191,7 @@
 - タブ「Semiconductor Lab」（名前は MOD の名前なので翻訳しない）。アイコンは点接触トランジスタ（1947、半導体の始まり）
 - 並び：技術ネットワークの順＝幹の順（content/Content.java の順）→ 同じ幹の中はノードの年の順。表は src/main/resources/assets/semiconductor-lab/creative_tab_order.txt（`python tools/gen_tab_order.py` が作る。年は docs/tech_network.json）。アイテムを足したら作り直す（GameTest creative_tab が見張る）
 - バニラのタブ（材料・自然ブロック・機能的ブロック）には入れない（Q31-1 採用）。検索タブには出る
-## 組立台（作り方の3段の2段目）📝 設計（2026-10-20 IMP-28。実装はまだ・v0.3 の最初に）
+## 組立台（作り方の3段の2段目）✅ 設計（2026-10-20 IMP-28）→ 実装 IMP-33（ラジオ・高周波発振器）
 **ねらい**：作業台の3×3 は「形」を覚える遊びで、中身が学べない。組立台は**部品表（BOM＝Bill of Materials、製品を作る部品の一覧）**で組み立て、
 「ラジオはトランジスタ3個・抵抗・コイル・コンデンサ・スピーカー・電池でできていて、それぞれ何の役目か」を見せる。
 - **形**：ブロック assembly_bench（木の作業机＋万力。幹0 の道具、電気なし）。右クリックで画面：
@@ -228,6 +228,12 @@
 - **作業台から移す候補**（「2種類以上の部品を組み合わせて動くモノ」）：transistor_radio（第1章のゴール）・hf_oscillator（真空管2＋コイル＋ライデン瓶）・vacuum_tube_assembly（ガラス球＋W フィラメント＋グリッド＋プレート）・solar_cell（p-n 板＋電極）・dynamo／self_excited_dynamo・electric_motor。
   作業台に残す：素材の加工（れんがの成形・調合・ボートの成形）、道具、ケーブル、ボンベなど。**決定 Q28-1（DECISIONS）：ラジオと高周波発振器から先に移す**
 - **作るファイル**：machine/AssemblyRecipe（レシピの形）・machine/Assembly（登録と一覧）・block/AssemblyBenchBlockEntity（MachineBE、Machine.builder で登録）・client/AssemblyBenchScreen（MachineScreen を継承）。レシピは製品の幹のファイル
+- **実装 IMP-33 で決めたこと（設計との違い）**
+  - 登録：machine/Assembly（`Assembly.recipe(id, 製品).part(役目, アイテム, 数)…seconds(5).build()`）。ほかの幹のアイテムを使うので、各幹の `assemblies()` を content/Content.initialize が**全部の幹を読み込んだあと**に呼ぶ（クラスの読み込み順で null にならないように）。組立台のブロックは幹0 Survival.ASSEMBLY_BENCH（木、斧で壊す。鉄2＋板材6、真空管かトランジスタを持つと解放）
+  - 画面：作る物は左の < > で順に選ぶ（設計の「持ったことのある物だけの一覧」は、レシピが増えてから）。部品のスロットは 4×2 の8個に固定で、選んだ製品の役目の順に使い、使わないスロットは隠す。空のスロットには薄い見本（数つき）、足りないと赤い枠。下の行＝さわっている（なければ最初に足りない）部品の役目。完成品は右上、「組立」ボタンはその下、進み具合は状態の行に %
+  - 共通の部品に足したもの：`MachineLayout.Ctx`（画面の数値しだいで変わるスロットの条件と表示。MachineMenu の mayPlace・isActive・シフトクリックが使う）、`MachineLayout.lazyText`（あとで決まる lang キーの候補。自動チェックが全部の製品名・役目を測る）、`MachineBE.onButton` ＋ `MachineMenu.clickMenuButton`（ボタン）
+  - 製品を選び直すと、入っていた部品は持ち物へ戻る。組み立て中に部品を抜くと止まる。サーバーで押したときと終わるときの2回確かめる
+  - まだ：完成品のツールチップ（Shift）の部品表、工具スロット（はんだごてなど＝そのノードができてから）、ほかの候補（真空管の組立品・太陽電池・ダイナモ・モーター）の移動
 - **GameTest**：全部の組立レシピの部品が登録されている／移した製品が作業台のレシピに残っていない（二重にならない）／条件に合わない物は入らない／押すと部品が減って完成品が出る／足りないと押しても何も起きない／machine_recipes.json に組立台の行が出る（形は今の行と同じ：machine＝assembly_bench、inputs の cond に役目）
 
 ## マルチブロック（作り方の3段の3段目）📝 設計（2026-10-20 IMP-28。実装はまだ）

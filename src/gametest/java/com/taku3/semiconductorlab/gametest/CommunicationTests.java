@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab.gametest;
 
 import com.taku3.semiconductorlab.content.Branches;
+import com.taku3.semiconductorlab.content.Communication;
 import com.taku3.semiconductorlab.content.Chemistry;
 import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.content.Heat;
@@ -84,9 +85,10 @@ public class CommunicationTests extends LabTestBase {
     @GameTest
     public void transistorRadioParts(GameTestHelper h) {
         for (var it : new net.minecraft.world.item.Item[] {Semiconductor.JUNCTION_TRANSISTOR, Metallurgy.GRAPHITE, Power.COPPER_CABLE.block.asItem(), Power.LEYDEN_JAR, Power.MAGNET, Metallurgy.ZINC_INGOT, Power.GRAPHITE_ROD})
-            h.assertTrue(recipeUses(h, "transistor_radio", it), "radio part: " + it);
-        h.assertFalse(recipeUses(h, "transistor_radio", Items.REDSTONE), "no redstone in the radio");
-        h.assertFalse(recipeUses(h, "transistor_radio", Items.IRON_INGOT), "the plain iron chassis was removed");
+            h.assertTrue(assemblyCount(Communication.TRANSISTOR_RADIO, it) > 0, "radio part (assembly bench): " + it);
+        h.assertValueEqual(assemblyCount(Communication.TRANSISTOR_RADIO, Semiconductor.JUNCTION_TRANSISTOR), 3, "3 transistors amplify");
+        h.assertValueEqual(assemblyCount(Communication.TRANSISTOR_RADIO, Items.REDSTONE), 0, "no redstone in the radio");
+        h.assertValueEqual(assemblyCount(Communication.TRANSISTOR_RADIO, Items.IRON_INGOT), 0, "the plain iron chassis was removed");
         h.succeed();
     }
 }

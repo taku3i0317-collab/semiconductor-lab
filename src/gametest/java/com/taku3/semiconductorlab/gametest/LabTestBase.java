@@ -211,10 +211,10 @@ public abstract class LabTestBase {
     protected static final String[] RECIPES = {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate", "glass_batch", "soda_lime_glass", "soda_lime_glass_from_blasting",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
-            "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
+            "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hydrogen_furnace", "induction_coil", "junction_transistor",
             "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "glass_bottle", "iron_flask", "lead_bottle", "cinnabar_retort_charge", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "crystal_puller", "arc_furnace", "boric_acid", "boron_trioxide", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
-            "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
+            "assembly_bench", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner",
             "crude_germanium_tetrachloride", "quartz_still", "germanium_tetrachloride", "high_purity_germanium_dioxide"};
 
@@ -227,6 +227,13 @@ public abstract class LabTestBase {
     }
 
     /** レシピ id の材料に item が含まれるか（placementInfo の Ingredient で判定） */
+    /** 組立台のレシピ（IMP-33）で、製品 result の部品に item が入っているか。何個か（なければ 0） */
+    protected static int assemblyCount(net.minecraft.world.item.Item result, net.minecraft.world.item.Item item) {
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(result);
+        if (a == null) return 0;
+        return a.parts.stream().filter(p -> p.ok().test(new ItemStack(item))).mapToInt(com.taku3.semiconductorlab.machine.Assembly.Part::count).sum();
+    }
+
     protected static boolean recipeUses(GameTestHelper h, String id, net.minecraft.world.item.Item item) {
         ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id(id));
         return h.getLevel().getServer().getRecipeManager().byKey(key)

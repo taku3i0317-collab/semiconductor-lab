@@ -836,3 +836,12 @@ FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registri
 - `Block.popResource(Level, BlockPos, ItemStack)`（機械の上に空の容器を出す）
 - `Item.getCraftingRemainder()` → `ItemStackTemplate`（record）。中のアイテムは `.create().getItem()`
 - `GameTestHelper.assertItemEntityPresent(Item, BlockPos, double)`
+
+## IMP-33 組立台（2026-10-20、javap で確認）
+- `Button.builder(Component, Button.OnPress).bounds(x, y, w, h).build()`、`OnPress.onPress(Button)`、`AbstractWidget.active`（public boolean）、`Screen.addRenderableWidget(T)`
+- `MultiPlayerGameMode.handleInventoryButtonClick(int containerId, int buttonId)` → サーバーの `AbstractContainerMenu.clickMenuButton(Player, int)`
+- `Slot.isActive()`（false なら描かない・さわれない）、`Slot.x / y` は public final
+- `GuiGraphicsExtractor.fakeItem(ItemStack, x, y)`（見本のアイテム）・`outline(x, y, w, h, color)`
+- `AbstractContainerScreen.hoveredSlot`（protected）、`containerTick()`
+- `ValueOutput.putBoolean` / `ValueInput.getBooleanOr`、`SimpleContainer.removeItemNoUpdate(int)`
+
