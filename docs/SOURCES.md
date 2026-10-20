@@ -76,3 +76,4 @@
 - ETHW「Milestones: First Practical Photovoltaic Solar Cell」https://ethw.org/Milestones:First_Practical_Photovoltaic_Solar_Cell （John Perlin『From Space to Earth』3章の要約）：1954年、結晶から細長い板を切る、ヒ素で n型、ホウ素で薄い p型の表面層、光る表面の反射をくもった樹脂の膜で減らす、効率約6%、1平方ヤードあたり約50W。リチウムで作った最初の電池は接合が動いて不安定だった。フラーは以前リンを蒸着した試料も作った
 - PVEducation「Early Silicon Cells」https://www.pveducation.org/pvcdrom/manufacturing-si-cells/early-silicon-cells ：1954年の電池は結晶成長と拡散による接合で作られ、電極は2つとも裏側、効率6%。原論文 Chapin, Fuller, Pearson, J. Appl. Phys. 25, 676 (1954)
 - 要確認：1954年の電極の金属・拡散の温度と時間（原論文は有料で未確認）
+- CZ の 1950年代の雰囲気（Ar か He か）は要確認（REVIEW_v0.2b）
