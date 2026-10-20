@@ -1,0 +1,29 @@
+{
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:probe_station"
+    },
+    "title": {
+      "translate": "advancement.semiconductor-lab.challenge.root.title"
+    },
+    "description": {
+      "translate": "advancement.semiconductor-lab.challenge.root.description"
+    },
+    "background": "minecraft:block/smooth_stone",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:probe_station"
+          }
+        ]
+      }
+    }
+  }
+}

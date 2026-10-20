@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 122（ja・en）、文字の置き場所 456、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 122（ja・en）、文字の置き場所 460、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -381,6 +381,17 @@ probe_station_en_us dirt gui.semiconductor-lab.probe_station.dirt w=40 lines=1/1
 probe_station_en_us hint gui.semiconductor-lab.probe_station.need_wafer w=128 lines=1/1 scale=0.6
 probe_station_en_us hint gui.semiconductor-lab.probe_station.set_pads w=98 lines=1/1 scale=0.74999994
 probe_station_en_us hint gui.semiconductor-lab.probe_station.nothing w=81 lines=1/1 scale=0.95
+probe_station_en_us challenge litho.semiconductor-lab.challenge.not.goal w=352 lines=2/2 scale=0.79999995
+probe_station_en_us challenge litho.semiconductor-lab.challenge.nor.goal w=237 lines=2/2
+probe_station_en_us challenge litho.semiconductor-lab.challenge.or.goal w=216 lines=2/2
+probe_station_en_us challenge litho.semiconductor-lab.challenge.nand.goal w=217 lines=2/2
+probe_station_en_us challenge litho.semiconductor-lab.challenge.and.goal w=215 lines=2/2
+probe_station_en_us challenge litho.semiconductor-lab.challenge.xor.goal w=250 lines=2/2
+probe_station_en_us challenge litho.semiconductor-lab.challenge.half_adder.goal w=232 lines=2/2
+probe_station_en_us result gui.semiconductor-lab.probe_station.result_none w=169 lines=1/1 scale=0.9
+probe_station_en_us result gui.semiconductor-lab.probe_station.result_missing w=188 lines=1/1 scale=0.84999996
+probe_station_en_us result gui.semiconductor-lab.probe_station.result_rows w=91 lines=1/1
+probe_station_en_us result gui.semiconductor-lab.probe_station.result_pass w=87 lines=1/1
 wafer_saw_en_us power gui.semiconductor-lab.wafer_saw.power w=75 lines=1/1
 wafer_saw_en_us need gui.semiconductor-lab.wafer_saw.need w=55 lines=1/1
 wafer_saw_en_us hint gui.semiconductor-lab.wafer_saw.need_input w=144 lines=3/3
@@ -876,6 +887,17 @@ probe_station_ja_jp dirt gui.semiconductor-lab.probe_station.dirt w=40 lines=1/1
 probe_station_ja_jp hint gui.semiconductor-lab.probe_station.need_wafer w=99 lines=1/1 scale=0.74999994
 probe_station_ja_jp hint gui.semiconductor-lab.probe_station.set_pads w=117 lines=1/1 scale=0.6499999
 probe_station_ja_jp hint gui.semiconductor-lab.probe_station.nothing w=81 lines=1/1 scale=0.95
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.not.goal w=265 lines=2/2
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.nor.goal w=243 lines=2/2
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.or.goal w=243 lines=2/2
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.nand.goal w=243 lines=2/2
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.and.goal w=177 lines=2/2
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.xor.goal w=252 lines=2/2
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.half_adder.goal w=231 lines=2/2
+probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_none w=117 lines=1/1
+probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_missing w=163 lines=1/1 scale=0.95
+probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_rows w=93 lines=1/1
+probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_pass w=54 lines=1/1
 wafer_saw_ja_jp power gui.semiconductor-lab.wafer_saw.power w=63 lines=1/1
 wafer_saw_ja_jp need gui.semiconductor-lab.wafer_saw.need w=43 lines=1/1
 wafer_saw_ja_jp hint gui.semiconductor-lab.wafer_saw.need_input w=63 lines=1/3

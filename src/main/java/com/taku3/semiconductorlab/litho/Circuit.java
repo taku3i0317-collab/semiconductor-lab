@@ -257,6 +257,33 @@ public final class Circuit {
     /** 電源・入力の電圧 */
     public static final double VCC = 5.0, HIGH = 2.5;
 
+    /** パッドの役目（v0.3b のお題、検査台で決める） */
+    public enum Role { GROUND, VCC, IN_A, IN_B, OUT_1, OUT_2 }
+
+    /**
+     * 論理の計算（§6.2 の 7、v0.3b）：0 V・電源（5 V）・入力（0 V か 5 V）をかけて回路を解き、出力の線の電圧が {@link #HIGH} より上なら 1。
+     * 返り値＝出力のビット（bit0＝出力1、bit1＝出力2）。0 V・電源・要る入力・要る出力の役目がそろっていなければ −1。
+     * 出力のパッドには何もつながない（測るだけ）
+     */
+    public static int logic(Netlist nl, Map<Integer, Role> roles, boolean a, boolean b, int inputs, int outputs, double leakScale) {
+        Map<Integer, Double> d = new HashMap<>();
+        int out1 = -1, out2 = -1;
+        boolean gnd = false, vcc = false, inA = false, inB = false;
+        for (var e : roles.entrySet()) switch (e.getValue()) {
+            case GROUND -> { d.put(e.getKey(), 0.0); gnd = true; }
+            case VCC -> { d.put(e.getKey(), VCC); vcc = true; }
+            case IN_A -> { d.put(e.getKey(), a ? VCC : 0.0); inA = true; }
+            case IN_B -> { d.put(e.getKey(), b ? VCC : 0.0); inB = true; }
+            case OUT_1 -> out1 = e.getKey();
+            case OUT_2 -> out2 = e.getKey();
+        }
+        if (!gnd || !vcc || !inA || (inputs >= 2 && !inB) || out1 < 0 || (outputs >= 2 && out2 < 0)) return -1;
+        Solution sol = solve(nl, d, leakScale);
+        int bits = sol.netVolts(nl, out1) > HIGH ? 1 : 0;
+        if (outputs >= 2 && sol.netVolts(nl, out2) > HIGH) bits |= 2;
+        return bits;
+    }
+
     /**
      * NOT（RTL のインバータ）の形か：トランジスタ1つ、エミッタの線＝パッド（0 V）、コレクタの線＝パッド（出力）で、
      * コレクタの線から抵抗で別のパッド（電源）へ、ベースの線（か抵抗の先）がパッド（入力）。

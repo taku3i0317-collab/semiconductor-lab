@@ -1,0 +1,22 @@
+{
+  "parent": "semiconductor-lab:challenge/or",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chip"
+    },
+    "title": {
+      "translate": "litho.semiconductor-lab.challenge.nand"
+    },
+    "description": {
+      "translate": "litho.semiconductor-lab.challenge.nand.goal"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "solved": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

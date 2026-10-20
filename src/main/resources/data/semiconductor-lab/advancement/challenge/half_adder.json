@@ -1,0 +1,22 @@
+{
+  "parent": "semiconductor-lab:challenge/xor",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chip"
+    },
+    "title": {
+      "translate": "litho.semiconductor-lab.challenge.half_adder"
+    },
+    "description": {
+      "translate": "litho.semiconductor-lab.challenge.half_adder.goal"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "solved": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

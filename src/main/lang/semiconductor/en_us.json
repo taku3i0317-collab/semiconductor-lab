@@ -402,5 +402,16 @@
   "gui.semiconductor-lab.rca_bench.recipe": "SC-1 → SC-2 → rinse",
   "gui.semiconductor-lab.mask_aligner.room_none": "Not clean",
   "gui.semiconductor-lab.mask_aligner.room_1000": "Class 1000",
-  "gui.semiconductor-lab.mask_aligner.room_100": "Class 100"
+  "gui.semiconductor-lab.mask_aligner.room_100": "Class 100",
+  "gui.semiconductor-lab.probe_station.role0": "—",
+  "gui.semiconductor-lab.probe_station.role1": "0 V",
+  "gui.semiconductor-lab.probe_station.role2": "5 V",
+  "gui.semiconductor-lab.probe_station.role3": "input A",
+  "gui.semiconductor-lab.probe_station.role4": "input B",
+  "gui.semiconductor-lab.probe_station.role5": "output 1",
+  "gui.semiconductor-lab.probe_station.role6": "output 2",
+  "gui.semiconductor-lab.probe_station.result_none": "Probe to check the challenge too",
+  "gui.semiconductor-lab.probe_station.result_missing": "Set pads: 0 V, 5 V, inputs and outputs",
+  "gui.semiconductor-lab.probe_station.result_rows": "%s of %s rows match",
+  "gui.semiconductor-lab.probe_station.result_pass": "Challenge solved!"
 }

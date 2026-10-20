@@ -402,5 +402,16 @@
   "gui.semiconductor-lab.rca_bench.recipe": "SC-1 → SC-2 → すすぐ",
   "gui.semiconductor-lab.mask_aligner.room_none": "部屋の外",
   "gui.semiconductor-lab.mask_aligner.room_1000": "クラス1000",
-  "gui.semiconductor-lab.mask_aligner.room_100": "クラス100"
+  "gui.semiconductor-lab.mask_aligner.room_100": "クラス100",
+  "gui.semiconductor-lab.probe_station.role0": "—",
+  "gui.semiconductor-lab.probe_station.role1": "0 V",
+  "gui.semiconductor-lab.probe_station.role2": "5 V",
+  "gui.semiconductor-lab.probe_station.role3": "入力A",
+  "gui.semiconductor-lab.probe_station.role4": "入力B",
+  "gui.semiconductor-lab.probe_station.role5": "出力1",
+  "gui.semiconductor-lab.probe_station.role6": "出力2",
+  "gui.semiconductor-lab.probe_station.result_none": "「調べる」でお題も判定する",
+  "gui.semiconductor-lab.probe_station.result_missing": "パッドに 0V・5V・入力・出力を決めて",
+  "gui.semiconductor-lab.probe_station.result_rows": "%s / %s 行が合っている",
+  "gui.semiconductor-lab.probe_station.result_pass": "お題クリア！"
 }

@@ -1615,6 +1615,52 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+
+    /**
+     * v0.3b お題（S-005、LITHO_DESIGN §11.1）：真理値表を Circuit.logic で判定。NOT の例は NOT のお題に合格、役目が足りないと missingRoles、
+     * 入力と出力を入れちがえると合わない行が出る。検査台でパッドの役目を決めて「調べる」→ お題の進捗 challenge/not
+     */
+    @GameTest(maxTicks = 200)
+    public void challenges(GameTestHelper h) {
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.LithoExamples.notGate(), "p"));
+        int[] pins = com.taku3.semiconductorlab.litho.Circuit.notPins(nl);   // {入力, 出力, 電源, 0V}
+        var R = com.taku3.semiconductorlab.litho.Circuit.Role.class;
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        roles.put(pins[0], com.taku3.semiconductorlab.litho.Circuit.Role.IN_A); roles.put(pins[1], com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+        roles.put(pins[2], com.taku3.semiconductorlab.litho.Circuit.Role.VCC); roles.put(pins[3], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        var not = com.taku3.semiconductorlab.litho.Challenge.byIndex(0);
+        var r = com.taku3.semiconductorlab.litho.Challenge.check(not, nl, roles, 1.0);
+        h.assertTrue(r.passed() && r.rows() == 2, "the NOT example solves the NOT challenge: " + r);
+        h.assertTrue(com.taku3.semiconductorlab.litho.Challenge.check(com.taku3.semiconductorlab.litho.Challenge.byIndex(1), nl, roles, 1.0).missingRoles(), "NOR needs input B");
+        var swapped = new java.util.HashMap<>(roles);
+        swapped.put(pins[0], com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1); swapped.put(pins[1], com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        var rs = com.taku3.semiconductorlab.litho.Challenge.check(not, nl, swapped, 1.0);
+        h.assertTrue(!rs.passed() && !rs.missingRoles(), "input and output swapped -> not every row matches: " + rs);
+        var and = com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals("and")).findFirst().orElseThrow();
+        h.assertTrue(and.inputs() == 2 && java.util.Arrays.equals(and.table(), new int[] {0, 0, 0, 1}), "AND: light only when both get power");
+        // 検査台：パッドを決めて「調べる」→ 結果は合格
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.setBlock(p(1, 1, 1), Semiconductor.PROBE_STATION.block);
+        var probe = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
+        probe.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, chip);
+        var pnl = probe.netlist(); int[] pp = com.taku3.semiconductorlab.litho.Circuit.notPins(pnl);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        int[] want = {com.taku3.semiconductorlab.block.ProbeStationBlockEntity.IN_A, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.OUT_1,
+                com.taku3.semiconductorlab.block.ProbeStationBlockEntity.VCC, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.GROUND};
+        for (int k = 0; k < 4; k++) {
+            int padIndex = -1;
+            for (int i = 0; i < pnl.pads().size(); i++) if (pnl.pads().get(i).id() == pp[k]) padIndex = i;
+            for (int c = 0; c < want[k]; c++) probe.onButton(player, padIndex);
+        }
+        probe.onButton(player, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
+        int res = probe.result();
+        h.assertTrue(res >= 2 && (res - 2) / 16 == (res - 2) % 16, "the probe station solves the NOT challenge, result " + res);
+        h.assertTrue(h.getLevel().getServer().getAdvancements().get(com.taku3.semiconductorlab.SemiconductorLab.id("challenge/not")) != null, "advancement challenge/not exists");
+        LOG.info("[LAB] challenges: NOT solved by the NOT example (2/2 rows), NOR needs input B, swapped pins fail some rows; {} challenges defined", com.taku3.semiconductorlab.litho.Challenge.all().size());
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

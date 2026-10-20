@@ -23,7 +23,8 @@ import static com.taku3.semiconductorlab.block.ProbeStationBlockEntity.*;
  */
 public class ProbeStationScreen extends MachineScreen {
     private static final int P = 0xFFE89A9A, N = 0xFF92B4EE, P_SUB = 0xFFF2C4C4, N_SUB = 0xFFC4D6F4, METAL = 0x90707078;
-    private static final int[] PAD_COLOR = {0xFFA0A0A0, 0xFF3060D0, 0xFFE08020};
+    /** つながない・0 V・5 V・入力A・入力B・出力1・出力2 */
+    private static final int[] PAD_COLOR = {0xFFA0A0A0, 0xFF3060D0, 0xFFE08020, 0xFF30B040, 0xFF20A0A0, 0xFFD040C0, 0xFF9050E0};
 
     private ItemStack cachedWafer = ItemStack.EMPTY;
     private Netlist nl;
@@ -36,6 +37,7 @@ public class ProbeStationScreen extends MachineScreen {
         super.init();
         addRenderableWidget(Button.builder(Component.translatable("gui.semiconductor-lab.probe_station.probe"),
                 b -> press(BTN_PROBE)).bounds(leftPos + RIGHT_X, topPos + PROBE_Y, 78, 14).build());
+        addRenderableWidget(Button.builder(Component.literal("▶"), b -> press(BTN_CHALLENGE)).bounds(leftPos + CHIP_X, topPos + 134, 16, 14).build());   // 次のお題
     }
 
     private void press(int id) {
@@ -46,7 +48,7 @@ public class ProbeStationScreen extends MachineScreen {
     private void refresh() {
         ItemStack w = menu.machineItem(SLOT_WAFER);
         int padsKey = 0;
-        for (int i = 0; i < MAX_PADS; i++) padsKey = padsKey * 3 + menu.get(i);
+        for (int i = 0; i < MAX_PADS; i++) padsKey = padsKey * PAD_STATES + menu.get(i);
         if (!ItemStack.isSameItemSameComponents(w, cachedWafer)) {
             cachedWafer = w.copy();
             nl = netlistOf(w);
@@ -128,7 +130,7 @@ public class ProbeStationScreen extends MachineScreen {
             case "pad", "amps" -> {
                 if (nl == null || hoverPad < 0) return null;
                 int st = menu.get(hoverPad);
-                if (id.equals("pad")) return Component.translatable(k + "pad", hoverPad + 1, st == VCC ? "5 V" : st == GROUND ? "0 V" : "—");
+                if (id.equals("pad")) return Component.translatable(k + "pad", hoverPad + 1, Component.translatable(k + "role" + st));
                 Double a = sol == null ? null : sol.padAmps().get(nl.pads().get(hoverPad).id());
                 return a == null ? null : Component.translatable(k + "amps", amps(a));
             }
@@ -140,6 +142,17 @@ public class ProbeStationScreen extends MachineScreen {
                 if (nl == null) return Component.translatable(k + "need_wafer");
                 if (menu.get(DATA_PROBED) != 0 && menu.get(DATA_FOUND) == 0) return Component.translatable(k + "nothing");
                 return Component.translatable(k + "set_pads");
+            }
+            case "challenge" -> {
+                var d = com.taku3.semiconductorlab.litho.Challenge.byIndex(menu.get(DATA_CHALLENGE));
+                return d == null ? null : Component.translatable(d.goalKey());
+            }
+            case "result" -> {
+                int r = menu.get(DATA_RESULT);
+                if (r == RESULT_NONE) return Component.translatable(k + "result_none");
+                if (r == RESULT_MISSING) return Component.translatable(k + "result_missing");
+                int ok = (r - 2) / 16, rows = (r - 2) % 16;
+                return ok == rows ? Component.translatable(k + "result_pass") : Component.translatable(k + "result_rows", ok, rows);
             }
             default -> {
                 if (!id.startsWith("found") || menu.get(DATA_PROBED) == 0) return null;
