@@ -108,8 +108,8 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MachineBE {
     public int temperature() { return temp; }
     public MultiblockPattern.Result lastCheck() { return last; }
 
-    /** 木炭（コークスは [1-10] コークス高炉で） */
-    public static boolean isFuel(ItemStack s) { return s.is(Items.CHARCOAL); }
+    /** 木炭か、コークス（[1-10] コークス高炉、1709 ダービー。E の [2-20] ガス工場のレトルトで作る） */
+    public static boolean isFuel(ItemStack s) { return s.is(Items.CHARCOAL) || s.is(Metallurgy.COKE); }
     /** 石灰石（バニラの方解石を石灰石 CaCO3 の近似とする。生石灰 [0-10] と同じ扱い） */
     public static boolean isFlux(ItemStack s) { return s.is(Items.CALCITE); }
 

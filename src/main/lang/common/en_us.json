@@ -119,7 +119,7 @@
   "gui.semiconductor-lab.blast_furnace.air": "Air %s%%",
   "gui.semiconductor-lab.blast_furnace.not_formed": "Furnace not complete",
   "gui.semiconductor-lab.blast_furnace.need_ore": "Add iron ore or iron sand",
-  "gui.semiconductor-lab.blast_furnace.need_fuel": "Add charcoal",
+  "gui.semiconductor-lab.blast_furnace.need_fuel": "Add charcoal or coke",
   "gui.semiconductor-lab.blast_furnace.need_flux": "Add limestone",
   "gui.semiconductor-lab.blast_furnace.need_air": "Blow air in through a tuyere",
   "gui.semiconductor-lab.blast_furnace.smelting": "Pig iron is flowing",

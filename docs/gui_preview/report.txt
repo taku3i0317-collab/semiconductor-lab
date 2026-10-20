@@ -69,7 +69,7 @@ blast_furnace_hearth_en_us temp gui.semiconductor-lab.blast_furnace.temp w=67 li
 blast_furnace_hearth_en_us air gui.semiconductor-lab.blast_furnace.air w=42 lines=1/1
 blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.not_formed w=109 lines=2/3
 blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_ore w=132 lines=2/3
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_fuel w=67 lines=1/3
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_fuel w=110 lines=2/3
 blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_flux w=67 lines=1/3
 blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_air w=143 lines=3/3
 blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.smelting w=88 lines=2/3
@@ -438,7 +438,7 @@ blast_furnace_hearth_ja_jp temp gui.semiconductor-lab.blast_furnace.temp w=50 li
 blast_furnace_hearth_ja_jp air gui.semiconductor-lab.blast_furnace.air w=46 lines=1/1
 blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.not_formed w=99 lines=2/3
 blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_ore w=90 lines=2/3
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_fuel w=54 lines=1/3
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_fuel w=99 lines=2/3
 blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_flux w=63 lines=1/3
 blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_air w=99 lines=2/3
 blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.smelting w=81 lines=2/3

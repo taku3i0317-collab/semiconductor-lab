@@ -836,6 +836,21 @@ public class MetallurgyTests extends LabTestBase {
         var broken = be.recheck();
         h.assertTrue(!broken.formed() && broken.problems().size() == 1 && "lining".equals(broken.problems().get(0).expected()), "one brick missing -> not formed, 1 lining");
         h.assertTrue(!be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_ORE).isEmpty(), "contents stay");
+        // [1-10] コークス高炉：コークスも燃料になる（木炭と同じように銑鉄が出る）。塊鉄炉は木炭だけ
+        lv.setBlockAndUpdate(shape.worldPos(ctl, Direction.NORTH, 0, 3, 2), Blocks.BRICKS.defaultBlockState());
+        be.recheck();
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_FUEL, new ItemStack(Metallurgy.COKE, 16));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_FLUX, new ItemStack(Items.CALCITE, 2));
+        int before = be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_OUT).getCount(), t2 = 0;
+        while (be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_OUT).getCount() == before && t2 < 3000) {
+            if (t2 % 15 == 0) bel.pump();
+            com.taku3.semiconductorlab.block.BellowsBlockEntity.tick(lv, bpos, lv.getBlockState(bpos), bel);
+            com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.tick(lv, ctl, lv.getBlockState(ctl), be);
+            t2++;
+        }
+        h.assertTrue(be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_OUT).getCount() > before
+                && be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_FUEL).getCount() < 16, "coke blast furnace [1-10]: coke burns and pig iron flows");
+        h.assertFalse(com.taku3.semiconductorlab.block.BloomeryBlockEntity.isFuel(new ItemStack(Metallurgy.COKE)), "the bloomery stays charcoal-only");
         h.assertTrue(com.taku3.semiconductorlab.block.BessemerConverterBlockEntity.isPigIron(new ItemStack(Metallurgy.PIG_IRON))
                 && !com.taku3.semiconductorlab.block.BessemerConverterBlockEntity.isPigIron(new ItemStack(Items.IRON_INGOT)), "converter takes pig iron only");
         LOG.info("[LAB] blast furnace: 3x3x4 formed; pig iron after {} ticks of blast; one brick missing -> stops", t);
