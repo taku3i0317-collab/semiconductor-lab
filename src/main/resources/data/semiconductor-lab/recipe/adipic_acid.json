@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:cyclohexanol",
+    "semiconductor-lab:nitric_acid",
+    "semiconductor-lab:nitric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:adipic_acid",
+    "count": 1
+  }
+}

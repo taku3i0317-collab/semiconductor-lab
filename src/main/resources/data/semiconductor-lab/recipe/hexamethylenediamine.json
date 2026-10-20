@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:adiponitrile",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:raney_nickel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hexamethylenediamine",
+    "count": 1
+  }
+}

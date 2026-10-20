@@ -1208,6 +1208,42 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-51] ナイロン 66（IMP3、S-004）
+    // =====================================================================
+
+    /** ラネー Ni（戻る）で フェノール → シクロヘキサノール、アジポニトリル → HMDA。加圧加熱釜：水なしでは塩のまま、水あり約270℃でナイロン 66 → かまど → 糸4 */
+    @GameTest(maxTicks = 2000)
+    public void nylon(GameTestHelper h) {
+        var rem = Chemistry.RANEY_NICKEL.getCraftingRemainder(new ItemStack(Chemistry.RANEY_NICKEL));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.RANEY_NICKEL), "Raney nickel stays (catalyst)");
+        h.assertTrue(recipeUses(h, "raney_alloy_charge", com.taku3.semiconductorlab.content.Metallurgy.NICKEL), "Raney alloy from nickel");
+        h.assertTrue(recipeUses(h, "cyclohexanol", Chemistry.PHENOL) && recipeUses(h, "cyclohexanol", Chemistry.RANEY_NICKEL), "phenol hydrogenated");
+        h.assertTrue(recipeUses(h, "adipic_acid", com.taku3.semiconductorlab.content.Gas.NITRIC_ACID), "nitric acid oxidation");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.AMMONIUM_ADIPATE).is(Chemistry.ADIPONITRILE), "dehydration -> adiponitrile");
+        h.assertTrue(recipeUses(h, "hexamethylenediamine", Chemistry.ADIPONITRILE) && recipeUses(h, "nylon_salt", Chemistry.HEXAMETHYLENEDIAMINE), "HMDA + adipic acid -> nylon salt");
+        floor(h, 3);
+        BlockPos ap = p(1, 1, 1);
+        h.setBlock(ap, Chemistry.AUTOCLAVE.block);
+        var ac = h.getBlockEntity(ap, com.taku3.semiconductorlab.block.AutoclaveBlockEntity.class);
+        var c = ac.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, new ItemStack(Chemistry.NYLON_SALT, 1));
+        ac.setTemperatureForTest(290);
+        tickConsumer(h, ap, ac, 20 * 30 + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT).is(Chemistry.NYLON_SALT), "no water -> no pressure -> salt comes back");
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT).copy());
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        ac.setTemperatureForTest(290);
+        tickConsumer(h, ap, ac, 20 * 30 + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT).is(Chemistry.NYLON_66), "under pressure at ~270 C -> nylon 66, got " + c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT));
+        ItemStack fib = cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.NYLON_66);
+        h.assertTrue(fib.is(Chemistry.NYLON_FIBER) && fib.getCount() == 4, "melt-spun -> 4 fibre");
+        LOG.info("[LAB] nylon [2-51]: Raney Ni; phenol -> cyclohexanol -> adipic acid; -> adiponitrile -> HMDA; nylon salt -> autoclave 270 C with water -> nylon 66 -> fibre");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
@@ -1231,6 +1267,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
             L(io(Chemistry.SODIUM_CARBONATE, 1)), com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.WATTS, com.taku3.semiconductorlab.block.SolvayTowerBlockEntity.TICKS / 20.0, "2NaCl + CaCO3 → Na2CO3 + CaCl2（捨てる）。アンモニアは回って戻る（補給は少し）");
         rec(a, Chemistry.BOTTLE_MACHINE.block, "ガラス瓶", L(io(Chemistry.SODA_LIME_GLASS, 1)), L(io(Chemistry.GLASS_BOTTLE, 1)),
             com.taku3.semiconductorlab.block.BottleMachineBlockEntity.WATTS, com.taku3.semiconductorlab.block.BottleMachineBlockEntity.TICKS / 20.0, "溶けたガラスを型に吸い上げて吹く（1903 オーエンス）。止めずに作り続ける");
+        rec(a, Chemistry.AUTOCLAVE.block, "ナイロン 66", L(io(Chemistry.NYLON_SALT, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.RUNS_PER_WATER)),
+            L(io(Chemistry.NYLON_66, 1)), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS, 30.0, "ナイロン塩の水溶液を約270℃・15気圧以上（1935 カロザース）。圧力が足りないと塩のまま");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");

@@ -2315,6 +2315,19 @@
 - Wikipedia「Sudbury Basin」：https://en.wikipedia.org/wiki/Sudbury_Basin
 - Wikipedia「Pentlandite」：https://en.wikipedia.org/wiki/Pentlandite
 
+## C37. 石炭と空気と水から作る糸（ナイロン 66）［2-51］
+**答え**：1935年2月、デュポンのウォーレス・カロザースのチームが、アジピン酸（炭素6）とヘキサメチレンジアミン（炭素6）をアミド結合で何百もつないだナイロン 66 を作った。チームのジュリアン・ヒルは1930年に溶けた高分子から糸が引けることを見つけていた。1930年代の原料はコールタールのフェノールで、ニッケルの触媒で水素を付け、硝酸で酸化してアジピン酸にし、アンモニアからジアミンを作った。1938年に発表、1939年にストッキングとして売り出され、絹の代わりになった（ACS 化学遺産）。
+
+- へえ①：ナイロンは「石炭と空気と水から作る」と宣伝された。
+- へえ②：「66」は、2つの原料の炭素の数（6と6）。
+- へえ③：アミド結合は、絹や羊毛のたんぱく質と同じつながり方。
+- へえ④：アジピン酸を作るときに出る一酸化二窒素は強い温室効果ガスなので、今は回収している。
+
+確かさ：カロザース 1935・ヒル 1930・ストッキング 1939 ◎（TECH_TREE の本物欄、ACS 化学遺産）／1930年代のフェノールからの道 ○／ラネー 1926 ◎
+根拠：
+- ACS「Foundations of Polymer Science: Wallace Carothers and the Development of Nylon」：https://www.acs.org/education/whatischemistry/landmarks/carotherspolymers.html
+- Wikipedia「Nylon 66」/「Adipic acid」/「Raney nickel」：https://en.wikipedia.org/wiki/Nylon_66
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

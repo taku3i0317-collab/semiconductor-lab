@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:nylon_66",
+  "result": {
+    "id": "semiconductor-lab:nylon_fiber",
+    "count": 4
+  },
+  "experience": 0.2,
+  "cookingtime": 200
+}

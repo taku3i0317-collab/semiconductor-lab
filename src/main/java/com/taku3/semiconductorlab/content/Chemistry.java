@@ -238,6 +238,18 @@ public final class Chemistry {
     public static final Item PHOSPHORUS_PENTOXIDE  = Reg.item("phosphorus_pentoxide");
     // [2-11] 硫化水素と硫黄回収（IMP3、O-016）：かす（CaS）＋塩酸 → 硫化水素の袋（1777 シェーレ）、熱したアルミナの触媒管で空気と → 硫黄（1883 クラウス法）
     public static final Item HYDROGEN_SULFIDE_GAS  = containedItem("hydrogen_sulfide_gas", com.taku3.semiconductorlab.item.HydrogenSulfideItem::new, Vessel.GAS_BAG, 64);
+    // [2-51] ナイロン 66（IMP3、S-004）：ニッケル＋アルミ → 合金 → ＋NaOH → ラネーニッケル（触媒、1926）。フェノール＋水素3（ラネー Ni）→ シクロヘキサノール →＋硝酸2 → アジピン酸。
+    //   アジピン酸＋アンモニア水2 → アジピン酸アンモニウム →かまど → アジポニトリル →＋水素4（ラネー Ni）→ ヘキサメチレンジアミン。両方 → ナイロン塩 → 加圧加熱釜（約270℃・15気圧）→ ナイロン 66 →かまど（溶かして糸に引く）→ ナイロンの糸（1935 カロザース）
+    public static final Item RANEY_ALLOY           = Reg.item("raney_alloy");
+    public static final Item RANEY_NICKEL          = Reg.item("raney_nickel", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item CYCLOHEXANOL          = Reg.item("cyclohexanol", new Item.Properties().stacksTo(16));
+    public static final Item ADIPIC_ACID           = Reg.item("adipic_acid");
+    public static final Item AMMONIUM_ADIPATE      = Reg.item("ammonium_adipate");
+    public static final Item ADIPONITRILE          = Reg.item("adiponitrile", new Item.Properties().stacksTo(16));
+    public static final Item HEXAMETHYLENEDIAMINE  = Reg.item("hexamethylenediamine");
+    public static final Item NYLON_SALT            = Reg.item("nylon_salt");
+    public static final Item NYLON_66              = Reg.item("nylon_66");
+    public static final Item NYLON_FIBER           = Reg.item("nylon_fiber");
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);

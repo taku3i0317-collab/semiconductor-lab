@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:adipic_acid",
+    "semiconductor-lab:hexamethylenediamine"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nylon_salt",
+    "count": 1
+  }
+}

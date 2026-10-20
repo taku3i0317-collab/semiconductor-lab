@@ -262,6 +262,31 @@
       "note": "TFE を水の中で温めて重合：n C2F4 → (C2F4)n（1938 プランケット）"
     },
     {
+      "machine": "semiconductor-lab:autoclave",
+      "process": "ナイロン 66",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:nylon_salt",
+          "count": 1
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "per_runs": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:nylon_66",
+          "count": 1
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 30.0,
+      "energy_kj": 300,
+      "note": "ナイロン塩の水溶液を約270℃・15気圧以上（1935 カロザース）。圧力が足りないと塩のまま"
+    },
+    {
       "machine": "semiconductor-lab:bayer_digester",
       "process": "バイヤー法",
       "inputs": [

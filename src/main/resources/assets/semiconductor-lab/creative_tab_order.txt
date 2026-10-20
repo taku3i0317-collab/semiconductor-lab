@@ -269,6 +269,7 @@ cation_exchange_resin  # Chemistry [2-17] 1935
 anion_exchange_resin  # Chemistry [2-17] 1935
 deionized_water  # Chemistry [2-17] 1935
 ion_exchange_column  # Chemistry [2-17] 1935
+raney_nickel  # Chemistry [2-51] 1935
 bisphenol_a  # Chemistry [2-41] 1936
 dichlorohydrin  # Chemistry [2-41] 1936
 epichlorohydrin  # Chemistry [2-41] 1936
@@ -315,6 +316,15 @@ aluminosilicate_batch  # Chemistry [None] None
 glass_in_salt_bath  # Chemistry [None] None
 indium_tin_coated_glass  # Chemistry [None] None
 phosphorus_under_nitrogen  # Chemistry [None] None
+raney_alloy  # Chemistry [None] None
+cyclohexanol  # Chemistry [None] None
+adipic_acid  # Chemistry [None] None
+ammonium_adipate  # Chemistry [None] None
+adiponitrile  # Chemistry [None] None
+hexamethylenediamine  # Chemistry [None] None
+nylon_salt  # Chemistry [None] None
+nylon_66  # Chemistry [None] None
+nylon_fiber  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 bellows  # Heat [3-04] -1450

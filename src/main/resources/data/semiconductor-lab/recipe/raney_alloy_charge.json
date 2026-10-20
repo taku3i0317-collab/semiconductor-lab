@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:nickel",
+    "semiconductor-lab:aluminium_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:raney_alloy",
+    "count": 1
+  }
+}

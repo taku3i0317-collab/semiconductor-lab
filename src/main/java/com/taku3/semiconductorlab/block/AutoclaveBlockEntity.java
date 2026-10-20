@@ -19,7 +19,7 @@ import java.util.function.Supplier;
 
 /**
  * 加圧加熱釜（オートクレーブ）[2-28]（O-011、ベークランドの「ベークライザー」1909年ごろ ⚠️）。厚い鋼の釜に材料と水を入れて電気で熱する。
- * 水が沸くと、ふたが閉まっているので蒸気の圧力が上がる（飽和水蒸気圧：100℃で1気圧、約150℃で約5気圧、約190℃で約12気圧）。
+ * 水が沸くと、ふたが閉まっているので蒸気の圧力が上がる（飽和水蒸気圧：100℃で1気圧、約150℃で約5気圧、約190℃で約12気圧、約215℃で約20気圧）。
  * 圧力をかけながら熱すると、材料から出る水やホルムアルデヒドの蒸気が泡にならない＝ベークランドの発明の核心。
  *
  * 温度のしくみ（アチソン炉と同じ簡単なモデル）：毎 tick「入った電力 − 逃げる熱」。電力 WATTS で STEADY_C に落ち着く。
@@ -32,7 +32,7 @@ import java.util.function.Supplier;
  */
 public class AutoclaveBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 10_000;                    // 10kW（ゲームの値）
-    public static final double AMBIENT_C = 20, STEADY_C = 200, BOIL_C = 100, VALVE_ATM = 12;
+    public static final double AMBIENT_C = 20, STEADY_C = 300, BOIL_C = 100, VALVE_ATM = 20;   // S-004 で 200℃・12気圧 → 300℃・20気圧（ナイロン）
     public static final double TAU_SECONDS = 10;
     public static final double K_W_PER_C = WATTS / (STEADY_C - AMBIENT_C);
     public static final double HEAT_CAPACITY_J_PER_C = K_W_PER_C * TAU_SECONDS;
@@ -48,7 +48,9 @@ public class AutoclaveBlockEntity extends ConsumerBlockEntity {
             // [2-28] ベークライト：レゾールの反応液を約150℃以上・5気圧以上で固める。圧力が足りないと泡だらけ
             new Recipe("bakelite", s -> s.is(Chemistry.RESOL_MIX), 1, () -> new ItemStack(Chemistry.BAKELITE, 2), () -> new ItemStack(Chemistry.FOAMY_BAKELITE, 2), 150, 5, 20 * 30),
             // [2-38] PTFE：TFE を水の中で温めて重合（IMP3、S-002）。⚠️ 本物の圧力は TFE 自身（約10〜30気圧）と過硫酸の開始剤。この釜の圧力は水の蒸気だけなので、温度だけを条件にした（ptfe.placeholder）
-            new Recipe("ptfe", s -> s.is(Chemistry.TETRAFLUOROETHYLENE_GAS), 4, () -> new ItemStack(Chemistry.PTFE), () -> ItemStack.EMPTY, 80, 1, 20 * 30)
+            new Recipe("ptfe", s -> s.is(Chemistry.TETRAFLUOROETHYLENE_GAS), 4, () -> new ItemStack(Chemistry.PTFE), () -> ItemStack.EMPTY, 80, 1, 20 * 30),
+            // [2-51] ナイロン 66（IMP3、S-004）：ナイロン塩の水溶液を圧力をかけて約270℃に。圧力がないと HMDA と水が逃げて重合しない（塩のまま戻る）
+            new Recipe("nylon_66", s -> s.is(Chemistry.NYLON_SALT), 1, () -> new ItemStack(Chemistry.NYLON_66), () -> new ItemStack(Chemistry.NYLON_SALT), 270, 15, 20 * 30)
     ));
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA)
@@ -57,8 +59,8 @@ public class AutoclaveBlockEntity extends ConsumerBlockEntity {
             .out(SLOT_OUT, 78, 17)
             .out(SLOT_BUCKET, 78, 53)
             .right("power", 16, 1, "gui.semiconductor-lab.autoclave.power").samples("10.0 kW")
-            .right("temp", 25, 1, "gui.semiconductor-lab.autoclave.temp").samples("200℃")
-            .right("pressure", 34, 1, "gui.semiconductor-lab.autoclave.pressure").samples("12.0 atm")
+            .right("temp", 25, 1, "gui.semiconductor-lab.autoclave.temp").samples("300℃")
+            .right("pressure", 34, 1, "gui.semiconductor-lab.autoclave.pressure").samples("20.0 atm")
             .right("need", 43, 1, "gui.semiconductor-lab.autoclave.need").samples("150℃ 5atm")
             .right("hint", 53, 2, "gui.semiconductor-lab.autoclave.need_input", "gui.semiconductor-lab.autoclave.output_full", "gui.semiconductor-lab.autoclave.need_power",
                     "gui.semiconductor-lab.autoclave.heating", "gui.semiconductor-lab.autoclave.low_pressure", "gui.semiconductor-lab.autoclave.curing", "gui.semiconductor-lab.autoclave.bubbled")

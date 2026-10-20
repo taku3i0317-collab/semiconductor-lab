@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phenol",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:raney_nickel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cyclohexanol",
+    "count": 1
+  }
+}

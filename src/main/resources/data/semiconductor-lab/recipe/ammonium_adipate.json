@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:adipic_acid",
+    "semiconductor-lab:ammonia_water",
+    "semiconductor-lab:ammonia_water"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ammonium_adipate",
+    "count": 1
+  }
+}
