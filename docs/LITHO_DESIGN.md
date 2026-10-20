@@ -202,5 +202,6 @@ p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、そ
 
 ## 変更履歴
 - 2026-10-20 初版（O-002 ①）
+- 2026-10-20 製図台（drafting_table・layout_sheet・rubylith）。画面の高さ 222（MachineLayout.height）、方眼・断面図は MachineLayout.area で自動チェック
 - 2026-10-20 S-001 の答えを反映（§2・§4.3・§7・§9、MaskData に artworkMm・reduction）
 - 2026-10-20 litho パッケージの最初の実装（データ・ChipOps・ChipModel・Netlist・Circuit・Discoveries・ExposureTool・LithoExamples、process_wafer）。§6.4 の例にベースの抵抗を足した。§8 の担当を C（O-003）・E の申し出どおりに

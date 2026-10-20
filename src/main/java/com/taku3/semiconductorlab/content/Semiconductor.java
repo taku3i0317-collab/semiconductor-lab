@@ -50,6 +50,9 @@ public final class Semiconductor {
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");
     // 露光とマスク（O-002、docs/LITHO_DESIGN.md）：加工中のウェハー（chip_state つき。レジストを塗ると酸化膜つきの板がこれになる）
     public static final Item PROCESS_WAFER         = Reg.item("process_wafer");
+    // 製図台の設計図（方眼紙、成分 chip_design）と原図（ルビリス、成分 mask）。⚠️ 材料なしで製図台から出る（INBOX S-001）
+    public static final Item LAYOUT_SHEET          = Reg.item("layout_sheet", new Item.Properties().stacksTo(1));
+    public static final Item RUBYLITH              = Reg.item("rubylith", new Item.Properties().stacksTo(1));
     // --- トランジスタと製品 ---
     public static final Item TRANSISTOR            = Reg.item("transistor");           // 点接触型 (1947)
     public static final Item JUNCTION_TRANSISTOR_BLANK = Reg.item("junction_transistor_blank"); // 合金化前
@@ -59,6 +62,10 @@ public final class Semiconductor {
     // 帯域精製炉（Pfann, 1952）。電気で動く（組み込みの高周波発振器 [4-09]）。点灯中は光る
     public static final Machine<ZoneRefiningFurnaceBlockEntity> ZONE_REFINING_FURNACE = Machine.electric("zone_refining_furnace", ZoneRefiningFurnaceBlockEntity::new, ZoneRefiningFurnaceBlockEntity.LAYOUT, lit(stone(3.5f), 13));
     public static final Machine<CzPullerBlockEntity> CZ_PULLER = Machine.electric("cz_puller", CzPullerBlockEntity::new, CzPullerBlockEntity.LAYOUT, metal(4.0f));
+    // 製図台（O-002、docs/LITHO_DESIGN §7）：方眼に層ごとの模様を描き、原図に切り出す。電気なし
+    public static final Machine<DraftingTableBlockEntity> DRAFTING_TABLE = Machine.builder("drafting_table", DraftingTableBlockEntity::new)
+            .layout(DraftingTableBlockEntity.LAYOUT)
+            .props(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().mapColor(net.minecraft.world.level.material.MapColor.WOOD).strength(2.5f).sound(net.minecraft.world.level.block.SoundType.WOOD)).build();
     public static final Machine<WaferSawBlockEntity> WAFER_SAW = Machine.electric("wafer_saw", WaferSawBlockEntity::new, WaferSawBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<DiffusionFurnaceBlockEntity> DIFFUSION_FURNACE = Machine.electric("diffusion_furnace", DiffusionFurnaceBlockEntity::new, DiffusionFurnaceBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<OxidationFurnaceBlockEntity> OXIDATION_FURNACE = Machine.electric("oxidation_furnace", OxidationFurnaceBlockEntity::new, OxidationFurnaceBlockEntity.LAYOUT, metal(4.0f));

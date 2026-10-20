@@ -80,5 +80,10 @@
   "item.semiconductor-lab.microscope.cell": "  %s：%s×%s マス、1マス ≈ %s",
   "item.semiconductor-lab.microscope.sharp": "  ✔ 線がくっきり見える",
   "item.semiconductor-lab.microscope.blurred": "  ✖ 線が細すぎて、ぼやけて見えない（もっと NA の大きい対物か、短い波長が要る）",
-  "item.semiconductor-lab.microscope.scratches": "  乳剤に傷：%s か所（%s 回で使えなくなる）"
+  "item.semiconductor-lab.microscope.scratches": "  乳剤に傷：%s か所（%s 回で使えなくなる）",
+  "litho.semiconductor-lab.role.island": "1 島・n（分離）",
+  "litho.semiconductor-lab.role.base": "2 ベース・p",
+  "litho.semiconductor-lab.role.emitter": "3 エミッタ・n",
+  "litho.semiconductor-lab.role.contact": "4 金属の窓",
+  "litho.semiconductor-lab.role.metal": "5 アルミの配線"
 }

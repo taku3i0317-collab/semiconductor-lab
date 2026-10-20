@@ -846,3 +846,8 @@ FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registri
 - `ValueOutput.putBoolean` / `ValueInput.getBooleanOr`、`SimpleContainer.removeItemNoUpdate(int)`
 
 - レシピの category に "transportation" は使えない（26.3 の crafting は building / redstone / equipment / misc。間違えると全レシピの読み込みが止まる）（IMP3-01）
+
+## O-002 製図台（2026-10-20、javap で確認）
+- `AbstractContainerScreen(T menu, Inventory, Component title, int imageWidth, int imageHeight)`（imageWidth・imageHeight は final。大きな画面はこのコンストラクタで）
+- `AbstractContainerScreen.mouseClicked(MouseButtonEvent, boolean)`・`mouseDragged(MouseButtonEvent, double, double)`・`mouseReleased(MouseButtonEvent)`
+- `net.minecraft.client.input.MouseButtonEvent`（record）：`x()`・`y()`・`button()`（0＝左、1＝右）・`modifiers()`

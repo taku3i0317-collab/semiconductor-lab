@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 74（ja・en）、文字の置き場所 268、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 76（ja・en）、文字の置き場所 282、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -257,6 +257,15 @@ cz_puller_en_us hint gui.semiconductor-lab.cz_puller.need_power w=46 lines=1/3
 cz_puller_en_us hint gui.semiconductor-lab.cz_puller.running w=115 lines=2/3
 cz_puller_en_us mode gui.semiconductor-lab.cz_puller.mode.seed w=114 lines=1/1 scale=0.95
 cz_puller_en_us mode gui.semiconductor-lab.cz_puller.mode.grow w=113 lines=1/1 scale=0.95
+drafting_table_en_us layer0 litho.semiconductor-lab.role.island w=104 lines=1/1 scale=0.6499999
+drafting_table_en_us layer1 litho.semiconductor-lab.role.base w=44 lines=1/1
+drafting_table_en_us layer2 litho.semiconductor-lab.role.emitter w=54 lines=1/1
+drafting_table_en_us layer3 litho.semiconductor-lab.role.contact w=83 lines=1/1 scale=0.79999995
+drafting_table_en_us layer4 litho.semiconductor-lab.role.metal w=85 lines=1/1 scale=0.79999995
+drafting_table_en_us arrow =→ w=8 lines=1/1
+drafting_table_en_us hint gui.semiconductor-lab.drafting_table.need_sheet w=91 lines=1/1 scale=0.84999996
+drafting_table_en_us hint gui.semiconductor-lab.drafting_table.draw w=113 lines=1/1 scale=0.6499999
+drafting_table_en_us hint gui.semiconductor-lab.drafting_table.out_full w=106 lines=1/1 scale=0.6999999
 wafer_saw_en_us power gui.semiconductor-lab.wafer_saw.power w=75 lines=1/1
 wafer_saw_en_us need gui.semiconductor-lab.wafer_saw.need w=55 lines=1/1
 wafer_saw_en_us hint gui.semiconductor-lab.wafer_saw.need_input w=144 lines=3/3
@@ -549,6 +558,15 @@ cz_puller_ja_jp hint gui.semiconductor-lab.cz_puller.need_power w=45 lines=1/3
 cz_puller_ja_jp hint gui.semiconductor-lab.cz_puller.running w=100 lines=2/3
 cz_puller_ja_jp mode gui.semiconductor-lab.cz_puller.mode.seed w=108 lines=1/1
 cz_puller_ja_jp mode gui.semiconductor-lab.cz_puller.mode.grow w=90 lines=1/1
+drafting_table_ja_jp layer0 litho.semiconductor-lab.role.island w=70 lines=1/1 scale=0.95
+drafting_table_ja_jp layer1 litho.semiconductor-lab.role.base w=52 lines=1/1
+drafting_table_ja_jp layer2 litho.semiconductor-lab.role.emitter w=61 lines=1/1
+drafting_table_ja_jp layer3 litho.semiconductor-lab.role.contact w=46 lines=1/1
+drafting_table_ja_jp layer4 litho.semiconductor-lab.role.metal w=64 lines=1/1
+drafting_table_ja_jp arrow =→ w=8 lines=1/1
+drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.need_sheet w=69 lines=1/1
+drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.draw w=81 lines=1/1 scale=0.95
+drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.out_full w=63 lines=1/1
 wafer_saw_ja_jp power gui.semiconductor-lab.wafer_saw.power w=63 lines=1/1
 wafer_saw_ja_jp need gui.semiconductor-lab.wafer_saw.need w=43 lines=1/1
 wafer_saw_ja_jp hint gui.semiconductor-lab.wafer_saw.need_input w=63 lines=1/3

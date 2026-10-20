@@ -263,5 +263,8 @@ oxidized_wafer  # Semiconductor [9-15] 1955
 oxidation_furnace  # Semiconductor [9-15] 1955
 process_wafer  # Semiconductor [9-06] 1957
 etch_tank  # Semiconductor [9-06] 1957
+rubylith  # Semiconductor [7-11] 1960
+layout_sheet  # Semiconductor [None] None
+drafting_table  # Semiconductor [None] None
 transistor_radio  # Communication [15-10] 1954
 solar_cell  # Branches [B-12] 1954

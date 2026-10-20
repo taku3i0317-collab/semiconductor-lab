@@ -708,6 +708,55 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+
+    /**
+     * 製図台（O-002）：＋で白紙の方眼紙（8×8・5つの層）、塗る・消す、ひと筆ずつ元に戻す・やり直す、
+     * ✂ で選んだ層を原図（mask 成分つき）に切り出す。8×8 の NOT の例を塗ると、設計図は例と同じになる
+     */
+    @GameTest
+    public void draftingTable(GameTestHelper h) {
+        var pos = p(1, 1, 1);
+        h.setBlock(pos, Semiconductor.DRAFTING_TABLE.block);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_NEW), "new sheet");
+        h.assertValueEqual(be.design().size(), 8, "8x8 for contact printing");
+        h.assertValueEqual(be.design().layers().size(), 5, "island, base, emitter, contacts, metal");
+        // 例の設計図を、画面と同じボタンで塗る（層ごとに1筆）
+        var ex = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        for (int l = 0; l < ex.layers().size(); l++) {
+            be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_STROKE);
+            var cells = ex.layers().get(l).cells();
+            for (int y = 0; y < 8; y++) for (int x = 0; x < 8; x++) if (cells.get(x, y)) be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.paintId(true, l, y * 8 + x));
+        }
+        for (int l = 0; l < ex.layers().size(); l++)
+            h.assertTrue(be.design().layers().get(l).cells().equals(ex.layers().get(l).cells()), "layer " + l + " painted like the example");
+        // 元に戻す（金属の1筆が消える）→ やり直す
+        be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_UNDO);
+        h.assertTrue(be.design().layers().get(4).cells().isEmpty(), "undo removes the last stroke (metal)");
+        be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_REDO);
+        h.assertTrue(be.design().layers().get(4).cells().equals(ex.layers().get(4).cells()), "redo brings it back");
+        // 消す（1マス）
+        be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_STROKE);
+        be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.paintId(false, 4, 0));
+        h.assertFalse(be.design().layers().get(4).cells().get(0, 0), "right click erases");
+        be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_UNDO);
+        // 原図を切る（窓の層）
+        h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_CUT + 3), "cut the contact layer");
+        var r = be.getContainer().getItem(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.SLOT_OUT);
+        h.assertTrue(r.is(Semiconductor.RUBYLITH), "rubylith comes out");
+        var mask = r.get(ModDataComponents.MASK);
+        h.assertTrue(mask.kind() == com.taku3.semiconductorlab.litho.LayerKind.CONTACT && mask.cells().equals(ex.layers().get(3).cells()) && mask.index() == 3, "mask = contact layer");
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_CUT + 4), "the outlet is full");
+        // 方眼の大きさを変える（白紙になる、元に戻せる）
+        be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_SIZE + 1);
+        h.assertValueEqual(be.design().size(), 12, "12x12");
+        be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_UNDO);
+        h.assertValueEqual(be.design().size(), 8, "undo the size change");
+        LOG.info("[LAB] drafting table: painted the 8x8 NOT example, undo/redo, cut the contact layer to rubylith");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

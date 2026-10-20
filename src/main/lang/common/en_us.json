@@ -80,5 +80,10 @@
   "item.semiconductor-lab.microscope.cell": "  %s: %s x %s cells, 1 cell ~ %s",
   "item.semiconductor-lab.microscope.sharp": "  ✔ The lines are sharp",
   "item.semiconductor-lab.microscope.blurred": "  ✖ The lines are too fine and blur (needs a higher-NA objective or a shorter wavelength)",
-  "item.semiconductor-lab.microscope.scratches": "  Scratches in the emulsion: %s (unusable after %s)"
+  "item.semiconductor-lab.microscope.scratches": "  Scratches in the emulsion: %s (unusable after %s)",
+  "litho.semiconductor-lab.role.island": "1 Island n (isolation)",
+  "litho.semiconductor-lab.role.base": "2 Base p",
+  "litho.semiconductor-lab.role.emitter": "3 Emitter n",
+  "litho.semiconductor-lab.role.contact": "4 Metal contacts",
+  "litho.semiconductor-lab.role.metal": "5 Aluminium wiring"
 }
