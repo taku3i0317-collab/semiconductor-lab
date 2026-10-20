@@ -148,3 +148,47 @@ TECH_TREE の ⚠️ が付いた年・人物を、出典で1つずつ確かめ�
 | # | 内容 | 理由 | 状態 |
 |---|---|---|---|
 | D-1 | ゲーム内でモノを作ったとき、その裏にいる人たちの肖像が並ぶ演出（例：画面の下を肖像が年代順に流れ、最後に「名前の残っていない、無数の人たち」のシルエットと「N 人の発明の上に、いま君が作った」） | ウェブの「人の壁」（NET-04）と同じ数え方・同じ肖像（network_meta.json）を使える。技術は一人ではなく大勢の積み重ねだと伝わる。モノ（種類: モノ・products.md）を作った節目だけにして、毎回は出さない（うるさくしない） | 提案（NET-04） |
+
+### 第4弾（2026-10-20）本線の続き 20 ノード・38 件
+| # | ノード | 主張 | 判定 | 結果 | 出典 |
+|---|---|---|---|---|---|
+| V-86 | [4-12] 電気炉 | 年 1890（黒鉛の抵抗加熱炉） | △ | 「最初の黒鉛抵抗炉」の年は特定できない。早い例はアチソンの黒鉛芯の炉（SiC 特許1893、炉の特許1896）とモアッサン1892。「1890年代」としてなら妥当 | https://en.wikipedia.org/wiki/Acheson_process , https://usgennet.org/usa/topic/preservation/science/inventions/chpt27.htm |
+| V-87 | [5-16] ゲッター | 1890年代にマリニャーニが電球に赤リン（人物・材料） | ◎ | 2つの出典で一致 | https://lamptech.co.uk/Documents/IN%20Getters.htm , https://forumeditrice.it/percorsi/storia-e-societa/varia/arturo-malignani.-con-il-futuro-negli-occhi/luomo-che-con-i-suoi-bulbi-bianchi-incanto-edison/file |
+| V-88 | [5-16] ゲッター | 年 1890 | △ | 1893（発明）・1894（伊特許）・1895（米特許 537,693）で分かれる。年は 1894 か「1893〜1895」に（V-71 と同じ） | 同上 |
+| V-89 | [5-16] ゲッター | 初期の真空管は Mg、のちに Ba | △ | 「リン→Ba・Mg」とする愛好家サイトが中心。順番は確かめられない（1920年代初めには普及） | https://r-type.org/addtext/add007.htm , https://en.wikipedia.org/wiki/Getter |
+| V-90 | [3-15] アーク炉 | 1802 ペトロフのアーク | ◎ | 1802年（発表1803年） | https://en.wikipedia.org/wiki/Electric_arc_furnace , https://www.ieap.uni-kiel.de/plasma/ag-kersten/sites/default/files/media/oeffentlichkeitsarbeit/gas_discharge_history/poster19thcentury.pdf |
+| V-91 | [3-15] アーク炉 | 1808頃 デービーのアーク放電 | △ | 出典により1808〜1810年。「1808〜1810年」と幅で | https://en.wikipedia.org/wiki/Electric_arc_furnace , https://www.electrochem.org/category/ecs-classics |
+| V-92 | [3-15] アーク炉 | 1892 モアッサンの電気炉、同年ウィルソンのカーバイド | ◎ | ウィルソンは1892年5月2日にアーク炉でカーバイド、モアッサンも同年 | https://www.biographi.ca/en/bio/willson_thomas_leopold_14E.html , https://dncr.nc.gov/blog/2016/05/02/discovery-calcium-carbide-process |
+| V-93 | [3-15] アーク炉 | 1900頃 エルーの製鋼アーク炉 | ◎ | 1900年10月9日フランス・ラ・プラで操業（特許1899） | https://techniques-ingenieur.fr/en/resources/article/ti554/electric-steelworks-m7700/v1/history-of-the-arc-furnace-1 , https://en.wikipedia.org/wiki/Electric_arc_furnace |
+| V-94 | [3-15] アーク炉 | モアッサンの炉は直流 | △ | 出典が見つからない | — |
+| V-95 | [1-15] 金属シリコン | 年 1900、電気炉での工業生産は1900年頃〜 | ○ | 総説は「20世紀初めから電気炉で Si 金属と高 Si 合金の開発」。年の決め手はない | https://faculty.kfupm.edu.sa/RI/srehman/Projects/CER2280/RI%20projectLiteratureRev/760400.pdf , https://runeberg.org/sweden14/2/0319.html |
+| V-96 | [6-06] 塩酸 | 年 1900（クロルアルカリの H2・Cl2 を燃やして HCl） | ○ | IARC モノグラフ：クロルアルカリの発達（20世紀初め）のあと塩素を水素中で燃やす合成が主流に。最初の工場の年は不明、「20世紀初め」なら妥当 | https://ncbi.nlm.nih.gov/books/NBK424680 |
+| V-97 | [7-10] 水銀ランプ | 年 1901 クーパー・ヒューイットの低圧水銀灯 | ◎ | 1901年の発明・特許・発売で一致 | https://en.wikipedia.org/wiki/Peter_Cooper_Hewitt , https://www.britannica.com/print/article/264522 |
+| V-98 | [7-10] 水銀ランプ | 1906 キューヒとレチンスキーの石英管高圧水銀灯 | ○ | 1906年 Annalen der Physik。シーメンスの発明とする年表もあり食い違う | https://www.lamptech.co.uk/Documents/M7%20Kuch%20%26%20Retschinsky.htm , https://identity.wellcomecollection.org/works/mw8ucqpn |
+| V-99 | [4-11] 整流器 | 年 1904 | ✖ | 正しくは 1902：クーパー・ヒューイットの水銀整流器が最初の電力用の静止形整流器（フレミング二極管1904より2年早い）。1904 を残すなら「真空管の整流器の年」と書き分ける | https://en.wikipedia.org/wiki/Mercury-arc_valve , https://www.research.unipd.it/bitstream/11577/3271203/1/IEMPowerElectronics.pdf |
+| V-100 | [5-02] 真空管 | 1914 ラングミュアのトリウム入り W フィラメント | ○ | 1914年7月に GE で特許出願（論文の年は未確認） | https://r-type.org/articles/art-249.htm |
+| V-101 | [5-04] 油回転ポンプ | 年 1905 ゲーデの回転水銀ポンプ | ◎ | Leybold の社史・SVC の資料で一致 | https://www.leybold.com/en/about-us/history/our-founders , https://www.svc.org/clientuploads/directory/resource_library/02_551.pdf |
+| V-102 | [5-04] 油回転ポンプ | 油で封じる回転ポンプ 1907頃 | ◎ | 1907年ゲーデ。「頃」は外してよい | https://www.svc.org/clientuploads/directory/resource_library/02_551.pdf , https://www.chemistryworld.com/opinion/gaedes-diffusion-pump/3004912.article |
+| V-103 | [5-14] 真空蒸着 | 年 1912 ポールとプリングスハイム | ◎ | 1912年に真空で金属を蒸発させ鏡の膜。前史に1887ナールボルトがあるので「最初」とは書かない | https://en.wikipedia.org/wiki/Evaporation_(deposition) , https://articles.adsabs.harvard.edu/pdf/1936ApJ....83..401S |
+| V-104 | [5-14] 真空蒸着 | 1930年代 ストロングが望遠鏡の鏡にアルミ蒸着 | ◎ | 1934年にはウィルソン山100インチ鏡も（V-53 の「1930年頃」と合う） | https://en.wikipedia.org/wiki/Evaporation_(deposition) , https://digital.archives.caltech.edu/collections/Images/10.12-48 |
+| V-105 | [I-06] 偏析 | ガリバー 1913 の式 | ○ | Glicksman & Hills（2001）が「遅くとも1913年」。主著は1922年の本 | https://researchportal.hw.ac.uk/en/publications/non-equilibrium-segregation-during-alloy-solidification/ , https://en.wikipedia.org/wiki/Scheil_equation |
+| V-106 | [I-06] 偏析 | シャイル 1942 の式 | ○ | Z. Metallkd. 1942, 34, 70-72（Wikipedia の文献表）。Springer の論文の引用は雑誌名が食い違う | https://en.wikipedia.org/wiki/Scheil_equation , https://link.springer.com/article/10.1007/BF00652037 |
+| V-107 | [I-06] 偏析 | 1952 ベル研プファンが帯域精製 | ◎ | Pfann "Principles of Zone-Melting"（JOM 4, 747-753, 1952） | https://onemine.org/documents/institute-of-metals-division-principles-of-zone-melting , https://en.wikipedia.org/wiki/William_Gardner_Pfann |
+| V-108 | [3-14] 誘導加熱炉 | 1900頃 キェリン（スウェーデン）の低周波誘導炉 | △ | 操業開始を1900年とする教科書と1903年とする社史。「1900〜1903頃」 | https://cdigital.cabu.uanl.mx/fg/11/1020061217/1020061217_022.pdf , https://abpinduction.com/en/?p=7473 |
+| V-109 | [3-14] 誘導加熱炉 | 年 1916、ノースラップの高周波炉 | ✖ | 正しくは 1918年（プリンストン大で実演、論文1919年）。1916年の出典なし | https://foundrytradejournal.com/features/past-present-future-induction-technology , https://www.engineering.org.cn/en/top_journal_details/41479 |
+| V-110 | [3-16] 真空炉 | 年 1920、工業化は1920年代〜 | △ | 1929年に Raytheon が最初の真空炉を発注（Ipsen 社史）だけ。「最初の真空炉は1950年代末〜60年代初め」とする資料もある | https://ipsenglobal.com/?p=10205 , https://asm.confex.com/asm/ht2011/webprogram/Paper28229.html |
+| V-111 | [7-15] 紫外光学材料 | CaF2 はブリッジマン・ストックバーガー法（1920〜30年代） | ◎ | ブリッジマン1925、ストックバーガー1927〜、改良1935年頃 | https://en.wikipedia.org/wiki/Bridgman%E2%80%93Stockbarger_method , https://publicacions.iec.cat/repository/pdf/00000121\00000024.pdf |
+| V-112 | [7-15] 紫外光学材料 | 合成石英は SiCl4 の火炎加水分解 | ◎ | 1934年コーニングのハイド（米国特許 2,272,342）。特許は「酸素の炎」で「酸水素炎」とは書いていない | https://en.wikipedia.org/wiki/James_Franklin_Hyde , https://optica-opn.org/home/articles/volume_21/issue_10/features/making_the_first_low-loss_optical_fibers |
+| V-113 | [8-07] 除振と恒温 | 長さの標準温度20℃は1931年に国際採用 | ◎ | 1931年4月に CIPM が全会一致、ISO 1 は1975年 | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4654601/ , https://en.wikipedia.org/wiki/ISO_1 |
+| V-114 | [1-19] 希土類分離 | 年 1940（1940〜50）、スペディングのイオン交換・溶媒抽出 | ◎ | イオン交換は1940年代、1947年 JACS。溶媒抽出は別の流れなので分けて書く | https://en.wikipedia.org/wiki/Frank_Spedding , https://onemine.org/documents/extractive-metallurgy-division-the-separation-of-rare-earths-by-ion-exchange |
+| V-115 | [1-19] 希土類分離 | ブキメラ（1980年代、三菱化成系）の残渣問題 | ◎ | 1982年操業、1985年提訴、1992年閉鎖 | https://phys.org/news/2012-06-toxic-legacy-malaysia-rare-earths-village.html , https://consumer.org.my/?p=559 |
+| V-116 | [1-19] 希土類分離 | ライナス社の残渣保管問題は今も続く | ◎ | 2026年3月の決定で残渣の発生は2031年までに終える | https://www.malaymail.com/news/malaysia/2026/03/06/lynas-stays-another-decade-no-new-radioactive-dump-wlp-to-cease-by-2031/211209 , https://www.greenpeace.org/malaysia/press/63383/digging-deep-into-the-latest-developments-on-lynas-and-the-state-of-the-rare-earth-industry-in-malaysia |
+| V-117 | [2-32] ポジ型フォトレジスト | 1940年代 カレ社のオスカー・ズース | ○ | Allresist は1940年、百度百科は1949年。独立した信頼できる出典2つがそろわない | https://www.allresist.com/forays-through-the-lithography-of-microelectronics-matthias-schirmer/ , https://baike.baidu.com/en/item/photoresist/1470078 |
+| V-118 | [2-32] ポジ型フォトレジスト | 1970年代にシップレー社の AZ 系が IC の主力に | ○ | AZ-1350 は1965年発表。投影露光に移った「1970年代後半」にネガ型と入れ替わり。同じ館のページ2つ | https://www.shmj.or.jp/english/pdf/em/exhibi2437E.pdf , https://shmj.or.jp/english/pdf/em/exhibi2447E.pdf |
+| V-119 | [2-32] ポジ型フォトレジスト | DNQ はナフタレン＋亜硝酸でジアゾ化 | △ | 合成の道すじの出典なし。単純化しすぎの可能性 | — |
+| V-120 | [8-08] ボールねじ精密ステージ | 19世紀末に特許 | ◎ | 1898年 米国特許 601,451・610,044 | https://en.wikipedia.org/wiki/Ball_screw , https://www.machinedesign.com/mechanical-motion-systems/article/21834593/a-short-history-on-ball-screws |
+| V-121 | [8-08] ボールねじ精密ステージ | 年 1940、GM がステアリングで量産 | ○ | 1940年代に自動車のステアリングで普及、GM サギノーの特許 US2267524（1939出願・1941登録）。量産開始の年は未確認 | https://en.wikipedia.org/wiki/Ball_screw , https://patents.google.com/patent/US2267524 |
+| V-122 | [8-14] 鏡筒の精密組立 | 年 1950 | △ | 1950年代の心出しの手順の出典なし | https://spiedigitallibrary.org/conference-proceedings-of-spie/0381/0000/Centering-Optical-Lenses/10.1117/12.934838.full |
+| V-123 | [1-16] トリクロロシラン合成・蒸留 | 年 1953 | △ | シーメンス法の特許 DE1061593 は1954年出願、ワッカーは1953年に超高純度 Si の研究開始。何の年として1953とするかを決める | https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/9382122 , https://cdn.ihs.com/Connect/Content/ChemWeek/pdf/Wacker.pdf |
+
+まとめ（第4弾、38 件）：◎ 17・○ 9・△ 10・✖ 2（[4-11] 整流器は1902年、[3-14] ノースラップの高周波炉は1918年）。
