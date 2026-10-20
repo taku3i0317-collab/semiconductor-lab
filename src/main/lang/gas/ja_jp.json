@@ -169,5 +169,17 @@
   "item.semiconductor-lab.saltpeter.note1": "白い結晶。硝酸の原料。肥料にもなる。⚠ 燃えるのを助ける（酸化性）。",
   "item.semiconductor-lab.saltpeter.note2": "硝酸カリウム KNO3。浸出液をかまどで煮つめて作る。硫酸と蒸留すると硝酸 [6-11]。⚠ GHS：酸化性固体（火に近づけない）。",
   "item.semiconductor-lab.saltpeter.note3": "硝石は火薬の原料として歴史を大きく動かした（中国で9〜10世紀、ヨーロッパで13世紀ごろ）。平和な使い道も多く、肉の塩づけ（色を保つ）、肥料、ガラスの泡を抜く薬にも使われた。",
-  "item.semiconductor-lab.saltpeter.note4": "19世紀にはチリの砂漠の硝石（硝酸ナトリウム）が肥料として世界に輸出された。1913年からはハーバー・ボッシュ法で空気の窒素からアンモニアを作り、それを酸化して硝酸を作れるようになった [6-09]。"
+  "item.semiconductor-lab.saltpeter.note4": "19世紀にはチリの砂漠の硝石（硝酸ナトリウム）が肥料として世界に輸出された。1913年からはハーバー・ボッシュ法で空気の窒素からアンモニアを作り、それを酸化して硝酸を作れるようになった [6-09]。",
+  "item.semiconductor-lab.nitric_acid": "硝酸",
+  "item.semiconductor-lab.nitric_acid.note1": "銀や銅を溶かす、とても強い酸。ガラス瓶に入れておく。⚠ 皮ふにつくと黄色くなってただれる。",
+  "item.semiconductor-lab.nitric_acid.note2": "硝石＋硫酸（瓶）＋空のガラス瓶＋石英の蒸留器（戻る）で蒸留：KNO3 + H2SO4 → HNO3 + KHSO4。硫酸の空き瓶も戻る。銀と反応させると硝酸銀。⚠ GHS：酸化性液体・金属腐食性・皮膚腐食性・吸入で有毒（工業の材料としてだけ使う）。",
+  "item.semiconductor-lab.nitric_acid.note3": "昔の名前は「アクア・フォルティス（強い水）」。銀は溶かすが金は溶かさないので、金と銀を分ける（金の純度を調べる）のに使われた。最初の処方は13世紀末〜14世紀初めの錬金術の本にあり、17世紀中ごろにグラウバーが硝石と硫酸から作る方法を書いた（⚠️ 1648年という年は出典未確認）。",
+  "item.semiconductor-lab.nitric_acid.note4": "硝酸は酸と酸化剤の両方の力を持つので、水素より溶けにくい銅や銀も溶かす（NO や NO2 の気体が出る）。半導体ではフッ酸と混ぜたエッチング液（CP-4 など）でシリコンやゲルマニウムの表面を溶かして磨くのに使う。",
+  "item.semiconductor-lab.nitric_acid.placeholder": "近似：作業台の蒸留で加熱を省略。副産物の硫酸水素カリウムと、出てくる茶色い NO2 の気体は省略。",
+  "item.semiconductor-lab.silver_nitrate": "硝酸銀",
+  "item.semiconductor-lab.silver_nitrate.note1": "銀を硝酸に溶かしてできる白い結晶。光に当たると黒くなる。⚠ 皮ふにつくと黒いしみになる。",
+  "item.semiconductor-lab.silver_nitrate.note2": "銀の粒＋硝酸（空き瓶が戻る）：3Ag + 4HNO3 → 3AgNO3 + NO + 2H2O。写真 [B-02] の感光材（ハロゲン化銀）や銀鏡 [7-05] の材料。⚠ GHS：酸化性固体・皮膚腐食性・水生生物に毒性。",
+  "item.semiconductor-lab.silver_nitrate.note3": "昔は「月の腐食剤（ルナ・コースティック）」と呼ばれ、いぼを焼くなど医療にも使われた（錬金術で銀は月の金属）。",
+  "item.semiconductor-lab.silver_nitrate.note4": "光が当たると銀イオンが還元されて細かい銀の粒になり、黒く見える。この性質が写真の始まり（1727年 シュルツェが光で黒くなることを示した⚠️）。ヨウ化物・臭化物と混ぜると、もっと光に敏感なハロゲン化銀ができる。",
+  "item.semiconductor-lab.silver_nitrate.placeholder": "近似：容器なし（本物は光を通さない茶色の瓶に入れる）。結晶にするまで煮つめる工程と NO の気体は省略。"
 }

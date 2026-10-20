@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:nitric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:silver_nitrate",
+    "count": 1
+  }
+}

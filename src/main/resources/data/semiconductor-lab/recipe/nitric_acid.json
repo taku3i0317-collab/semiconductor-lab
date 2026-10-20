@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:saltpeter",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:quartz_still",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nitric_acid",
+    "count": 1
+  }
+}

@@ -672,6 +672,20 @@
 - 米国国立公園局「Mammoth Cave: Saltpeter Mining」：https://www.nps.gov/maca/learn/historyculture/saltpeter-mining.htm
 - Wikipedia「Potassium nitrate」（歴史・用途）：https://en.wikipedia.org/wiki/Potassium_nitrate
 
+## O20. 硝石から強い水（硝酸）、銀を溶かして硝酸銀［6-11］
+**答え**：硝石（KNO3）に硫酸をかけてガラスのレトルトで蒸留すると、硝酸が出てくる（KNO3 + H2SO4 → HNO3 + KHSO4）。硝酸は酸と酸化剤の両方の力で銀や銅を溶かし、銀を溶かすと硝酸銀（AgNO3）になる。硝酸銀は光で黒くなり、写真の材料になった。
+
+- へえ①：硝石に硫酸をかけると、硝酸が出てくる。
+- へえ②：昔の名前は「アクア・フォルティス（強い水）」。銀は溶かすが金は溶かさないので、金と銀を分けるのに使った。
+- へえ③：硝酸銀は「月の腐食剤」と呼ばれ、医療にも使われた。皮ふにつくと黒いしみになる。
+- へえ④：半導体ではフッ酸と混ぜたエッチング液（CP-4 など）で、シリコンやゲルマニウムの表面を溶かして磨く。
+
+確かさ：反応式 ◎／最初の処方 13世紀末〜14世紀初め ○（偽ゲーベル文書）／グラウバーが硝石＋硫酸の製法を記した ○（The Chemical Engineer・Britannica）、1648年 △ → ゲーム内は ⚠️（監査 V-43）／シュルツェ 1727 △
+根拠：
+- The Chemical Engineer「Johann Glauber: alchem to modern chemistry」：https://www.thechemicalengineer.com/features/johann-glauber-alchem-to-modern-chemistry/
+- Wikipedia「Nitric acid」（歴史）：https://en.wikipedia.org/wiki/Nitric_acid
+- Wikipedia「Silver nitrate」：https://en.wikipedia.org/wiki/Silver_nitrate
+
 ---
 
 # 冶金と熱（タスク15〜）

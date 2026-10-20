@@ -77,3 +77,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 ## IMP2-02（INBOX O-002、2026-10-20）Q-IMP2-1〜3 の答え：硝酸と硝酸銀は IMP2、写真は案を出す、[7-11] は待つ
 - ✅ [6-16] 天然硝石：新しいブロック nitre_earth_block（鍾乳石の洞窟の鍾乳石ブロックを置き換える。マンモスケーブの洞窟採掘に合わせた）→ 硝石土×4＋木灰＋水 → 浸出液 → かまど → 硝石 KNO3。ModWorldGen.RULES に1行、ore_biome_rules（MetallurgyTests）に期待を1行。GameTest ore_nitre_earth・saltpeter_from_nitre_earth、CHEMISTRY G1〜G2、REFERENCES O19。テスト 119/119
   - API の注意：26.3 の loot_table は "functions" ではなく "modifier":[{"type":…}]（API_26X.md にもう書いてあった。set_count も同じ）
+- ✅ [6-11] 硝酸・硝酸銀：硝石＋硫酸（瓶）＋空き瓶＋石英の蒸留器 → 硝酸（Reg.contained ガラス瓶、Vessel.ALLOWED に1行＝共通ファイル）。銀＋硝酸 → 硝酸銀。年は監査 V-43 に合わせた。IMP4 はこの硝酸を使う（INBOX O-002）。GameTest nitric_acid_and_silver_nitrate、CHEMISTRY G3〜G4、REFERENCES O20。テスト 121/121

@@ -80,5 +80,6 @@ public enum Vessel {
             "phosphorus", Set.of(WATER_JAR),                   // 白リンは空気に触れさせない
             "mercury", Set.of(IRON_FLASK, GLASS_BOTTLE),       // 水銀は鉄を溶かさない（アマルガムを作らない）。銅・亜鉛・金の容器は不可
             "sulfuric_acid", Set.of(GLASS_BOTTLE),
-            "hydrochloric_acid", Set.of(GLASS_BOTTLE));         // 塩酸は鉄を溶かす（Fe + 2HCl → FeCl2 + H2）
+            "hydrochloric_acid", Set.of(GLASS_BOTTLE),
+            "nitric_acid", Set.of(GLASS_BOTTLE));              // [6-11] IMP2-02：硝酸は銅・亜鉛・鉄を溶かす（濃硝酸は鉄を不動態にするが、薄いと溶かす）。ガラスは侵さない         // 塩酸は鉄を溶かす（Fe + 2HCl → FeCl2 + H2）
 }

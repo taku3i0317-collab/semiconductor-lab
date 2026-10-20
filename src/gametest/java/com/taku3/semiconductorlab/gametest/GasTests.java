@@ -524,6 +524,32 @@ public class GasTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [6-11] 硝酸・硝酸銀（IMP2-02）：硝石＋硫酸＋空き瓶＋石英の蒸留器 → 硝酸（瓶入り）。硫酸の空き瓶と蒸留器が戻る。銀＋硝酸 → 硝酸銀（空き瓶が戻る） */
+    @GameTest
+    public void nitricAcidAndSilverNitrate(GameTestHelper h) {
+        java.util.function.Function<net.minecraft.world.item.Item[], ItemStack[]> craft = items -> {
+            List<ItemStack> list = new ArrayList<>();
+            for (int i = 0; i < 9; i++) list.add(i < items.length ? new ItemStack(items[i]) : ItemStack.EMPTY);
+            var input = net.minecraft.world.item.crafting.CraftingInput.ofPositioned(3, 3, list).input();
+            var r = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel());
+            if (r.isEmpty()) return new ItemStack[0];
+            List<ItemStack> out = new ArrayList<>(List.of(r.get().value().assemble(input)));
+            r.get().value().getRemainingItems(input).stream().filter(x -> !x.isEmpty()).forEach(out::add);
+            return out.toArray(new ItemStack[0]);
+        };
+        var res = craft.apply(new net.minecraft.world.item.Item[] {Gas.SALTPETER, Chemistry.SULFURIC_ACID, com.taku3.semiconductorlab.content.Metallurgy.QUARTZ_STILL, Chemistry.GLASS_BOTTLE});
+        h.assertTrue(res.length == 3 && res[0].is(Gas.NITRIC_ACID), "KNO3 + H2SO4 distilled -> nitric acid");
+        long bottles = java.util.Arrays.stream(res).filter(x -> x.is(Chemistry.GLASS_BOTTLE)).count();
+        long stills = java.util.Arrays.stream(res).filter(x -> x.is(com.taku3.semiconductorlab.content.Metallurgy.QUARTZ_STILL)).count();
+        h.assertTrue(bottles == 1 && stills == 1, "sulfuric acid's bottle and the still come back (bottles in 2 = out 2)");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Gas.NITRIC_ACID) == com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE, "nitric acid lives in a glass bottle");
+        h.assertValueEqual(craft.apply(new net.minecraft.world.item.Item[] {Gas.SALTPETER, Chemistry.SULFURIC_ACID, Chemistry.GLASS_BOTTLE}).length, 0, "no still -> no distillation");
+        var ag = craft.apply(new net.minecraft.world.item.Item[] {com.taku3.semiconductorlab.content.Metallurgy.SILVER_NUGGET, Gas.NITRIC_ACID});
+        h.assertTrue(ag.length == 2 && ag[0].is(Gas.SILVER_NITRATE) && ag[1].is(Chemistry.GLASS_BOTTLE), "Ag + HNO3 -> AgNO3, bottle back");
+        LOG.info("[LAB] nitric acid [6-11]: KNO3 + H2SO4 (still) -> HNO3 in a bottle; Ag + HNO3 -> AgNO3");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Gas.ELECTROLYZER.block, "水の電気分解", L(io(Items.WATER_BUCKET, 1), kept(io(Chemistry.SULFURIC_ACID, 1))),

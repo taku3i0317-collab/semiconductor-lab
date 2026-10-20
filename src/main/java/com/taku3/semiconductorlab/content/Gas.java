@@ -31,6 +31,10 @@ public final class Gas {
     public static final Item NITRE_EARTH           = Reg.item("nitre_earth");       // 硝石土（硝酸カルシウムなどを含む洞窟の土）
     public static final Item NITRE_LIQUOR          = Reg.item("nitre_liquor", new Item.Properties().stacksTo(16)); // 硝石の浸出液
     public static final Item SALTPETER             = Reg.item("saltpeter");         // 硝石 KNO3（工業の材料。火薬の配合は作らない＝DESIGN「危ない技術の扱い」）
+    // [6-11] 硝酸（IMP2-02）：硝石＋硫酸を石英の蒸留器で蒸留（KNO3 + H2SO4 → HNO3 + KHSO4）→ ガラス瓶入りの硝酸。工業の材料としてだけ
+    public static final Item NITRIC_ACID           = Reg.contained("nitric_acid", Vessel.GLASS_BOTTLE);
+    // 硝酸銀（IMP2-02）：銀＋硝酸（3Ag + 4HNO3 → 3AgNO3 + NO + 2H2O）。写真 [B-02]・銀鏡 [7-05] 段階2 の材料
+    public static final Item SILVER_NITRATE        = Reg.item("silver_nitrate");
     public static final Item HYDROCHLORIC_ACID     = Reg.contained("hydrochloric_acid", Vessel.GLASS_BOTTLE); // [6-06] 塩酸（HCl 約25%、ガラス瓶入り）
     // --- ガス（v0.2a [6-01] 電解槽の生成物）---
     // 「袋詰め」のガス（約1mol）。貯蔵は [6-02] ガスホルダー、高圧の持ち運びは [6-03] ボンベ
