@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "RCR",
+    "RFR",
+    "IRI"
+  ],
+  "key": {
+    "R": "semiconductor-lab:refractory_brick",
+    "C": "minecraft:copper_ingot",
+    "F": "minecraft:furnace",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:gas_retort",
+    "count": 1
+  }
+}

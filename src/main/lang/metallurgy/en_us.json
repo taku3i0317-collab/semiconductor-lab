@@ -370,5 +370,10 @@
   "item.semiconductor-lab.cinnabar_retort_charge.note1": "Cinnabar dust packed with an empty iron flask. Roast it to collect mercury.",
   "item.semiconductor-lab.cinnabar_retort_charge.note2": "Roast it in a furnace or a reverberatory furnace to get an iron flask of mercury (the reverberatory furnace also gives SO2).",
   "item.semiconductor-lab.cinnabar_retort_charge.note3": "HgS + O2 → Hg (gas) + SO2. Mercury boils at 357 °C, so it leaves as vapour; it is cooled back to liquid and caught in the flask.",
-  "item.semiconductor-lab.cinnabar_retort_charge.note4": "At the Almadén mine in Spain, mercury vapour was cooled and collected for centuries in rows of clay pipes called aludels. The vapour is very toxic and ruined the health of the workers."
+  "item.semiconductor-lab.cinnabar_retort_charge.note4": "At the Almadén mine in Spain, mercury vapour was cooled and collected for centuries in rows of clay pipes called aludels. The vapour is very toxic and ruined the health of the workers.",
+  "item.semiconductor-lab.coke": "Coke",
+  "item.semiconductor-lab.coke.note1": "What is left after baking coal: a light, grey, holey kind of charcoal.",
+  "item.semiconductor-lab.coke.note2": "From the gasworks retort [2-20]: 4 coal → 3 coke. It can fuel the retort (real retorts were heated with coke). Its use in the blast furnace [1-10] comes when the blast furnace is built.",
+  "item.semiconductor-lab.coke.note3": "Raw coal gives off smoke and sulfur that make iron brittle. Baking off the volatile part leaves almost pure carbon, a strong fuel. In 1709 Darby made iron with coke, ending the worry of using up the forests.",
+  "item.semiconductor-lab.coke.note4": "In a blast furnace, coke does three jobs: fuel, carbon that reduces the iron ore, and a frame that holds up the charge. Because it is full of holes, the air blast can pass through it."
 }

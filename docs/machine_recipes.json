@@ -405,6 +405,37 @@
       "note": "2NaCl + 2H2O → Cl2 + H2 + 2NaOH"
     },
     {
+      "machine": "semiconductor-lab:gas_retort",
+      "process": "石炭を乾留する",
+      "inputs": [
+        {
+          "item": "minecraft:coal",
+          "count": 8
+        },
+        {
+          "item": "minecraft:coal",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:coke",
+          "count": 6
+        },
+        {
+          "item": "semiconductor-lab:ammoniacal_liquor",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:coal_tar",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 80.0,
+      "note": "空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない"
+    },
+    {
       "machine": "semiconductor-lab:hcl_burner",
       "process": "塩酸を作る",
       "inputs": [

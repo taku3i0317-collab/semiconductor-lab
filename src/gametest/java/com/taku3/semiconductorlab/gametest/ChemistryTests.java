@@ -178,6 +178,43 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** [2-20] ガス工場のレトルト（IMP4-01）：石炭8＋燃料1 → コークス6・安水2・コールタール1。燃料なし・木炭は乾留しない。コークスも燃料になる */
+    @GameTest
+    public void gasRetort(GameTestHelper h) {
+        int T = com.taku3.semiconductorlab.block.GasRetortBlockEntity.DISTILL_TICKS;
+        int IN = com.taku3.semiconductorlab.block.GasRetortBlockEntity.SLOT_IN, FUEL = com.taku3.semiconductorlab.block.GasRetortBlockEntity.SLOT_FUEL, CO = com.taku3.semiconductorlab.block.GasRetortBlockEntity.SLOT_COKE, TA = com.taku3.semiconductorlab.block.GasRetortBlockEntity.SLOT_TAR, LQ = com.taku3.semiconductorlab.block.GasRetortBlockEntity.SLOT_LIQUOR;
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Chemistry.GAS_RETORT.block);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.GasRetortBlockEntity.class);
+        var c = be.getContainer();
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(pos);
+        Runnable tick = () -> com.taku3.semiconductorlab.block.GasRetortBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        h.assertTrue(com.taku3.semiconductorlab.block.GasRetortBlockEntity.isInput(new ItemStack(Items.COAL)), "coal is baked");
+        h.assertFalse(com.taku3.semiconductorlab.block.GasRetortBlockEntity.isInput(new ItemStack(Items.CHARCOAL)), "charcoal is already baked");
+        h.assertFalse(com.taku3.semiconductorlab.block.GasRetortBlockEntity.isInput(new ItemStack(Items.OAK_LOG)), "wood goes to the wood retort");
+        h.assertTrue(com.taku3.semiconductorlab.block.GasRetortBlockEntity.isFuel(new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.COKE)), "coke heats the retort");
+        c.setItem(IN, new ItemStack(Items.COAL, 8));
+        for (int i = 0; i < T + 10; i++) tick.run();
+        h.assertTrue(c.getItem(CO).isEmpty(), "no fuel -> nothing");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        c.setItem(FUEL, new ItemStack(Items.COAL, 1));
+        for (int i = 0; i < T * 8; i++) tick.run();
+        h.assertTrue(c.getItem(CO).is(com.taku3.semiconductorlab.content.Metallurgy.COKE) && c.getItem(CO).getCount() == 6, "8 coal -> 6 coke, got " + c.getItem(CO));
+        h.assertTrue(c.getItem(LQ).is(Chemistry.AMMONIACAL_LIQUOR) && c.getItem(LQ).getCount() == 2, "2 ammoniacal liquor, got " + c.getItem(LQ));
+        h.assertTrue(c.getItem(TA).is(Chemistry.COAL_TAR) && c.getItem(TA).getCount() == 1, "1 coal tar, got " + c.getItem(TA));
+        h.assertTrue(c.getItem(IN).isEmpty() && c.getItem(FUEL).isEmpty(), "1 fuel bakes 8 coal");
+        // 出口のタールが満杯なら止まる
+        c.setItem(TA, new ItemStack(Chemistry.COAL_TAR, 16));
+        c.setItem(IN, new ItemStack(Items.COAL, 1));
+        c.setItem(FUEL, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.COKE, 1));
+        for (int i = 0; i < T + 10; i++) tick.run();
+        h.assertValueEqual(c.getItem(IN).getCount(), 1, "tar outlet full -> stops");
+        h.assertTrue(recipeUses(h, "gas_retort", Heat.REFRACTORY_BRICK) && recipeUses(h, "gas_retort", Items.COPPER_INGOT), "fireclay retort + copper condenser");
+        LOG.info("[LAB] gas retort [2-20]: 8 coal + 1 fuel -> 6 coke + 2 ammoniacal liquor + 1 coal tar; charcoal / logs rejected; coke is fuel");
+        h.succeed();
+    }
+
     /** [2-02] カリ（IMP2-01）：原木 →たき火→ 木灰、木灰4＋水バケツ → 灰汁（バケツは戻る）、灰汁 →かまど→ 炭酸カリウム */
     @GameTest
     public void potash(GameTestHelper h) {
@@ -199,5 +236,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");
+        rec(a, Chemistry.GAS_RETORT.block, "石炭を乾留する", L(io(Items.COAL, 8), io(Items.COAL, 1)),
+            L(io(com.taku3.semiconductorlab.content.Metallurgy.COKE, 6), io(Chemistry.AMMONIACAL_LIQUOR, 2), io(Chemistry.COAL_TAR, 1)), 0, 8 * com.taku3.semiconductorlab.block.GasRetortBlockEntity.DISTILL_TICKS / 20.0,
+            "空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない");
     }
 }

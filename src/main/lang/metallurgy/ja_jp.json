@@ -370,5 +370,10 @@
   "item.semiconductor-lab.cinnabar_retort_charge.note1": "辰砂の粉と空の鉄のフラスコのセット。焼くと水銀が集まる。",
   "item.semiconductor-lab.cinnabar_retort_charge.note2": "かまどや反射炉で焼くと、水銀入りの鉄のフラスコになる（反射炉では SO2 も出る）。",
   "item.semiconductor-lab.cinnabar_retort_charge.note3": "HgS + O2 → Hg（気体）+ SO2。水銀は 357℃ で沸騰するので、焼くと気体になって出てくる。冷やして液体にもどし、フラスコで受ける。",
-  "item.semiconductor-lab.cinnabar_retort_charge.note4": "スペインのアルマデン鉱山では、何百年も「アルデル」という焼き窯と土管の列で水銀の蒸気を冷やして集めた。水銀の蒸気はとても毒なので、働く人の体をこわした。"
+  "item.semiconductor-lab.cinnabar_retort_charge.note4": "スペインのアルマデン鉱山では、何百年も「アルデル」という焼き窯と土管の列で水銀の蒸気を冷やして集めた。水銀の蒸気はとても毒なので、働く人の体をこわした。",
+  "item.semiconductor-lab.coke": "コークス",
+  "item.semiconductor-lab.coke.note1": "石炭を蒸し焼きにした残り。軽くて穴だらけの、灰色の炭。",
+  "item.semiconductor-lab.coke.note2": "ガス工場のレトルト [2-20] で、石炭4個からコークス3個。レトルトの燃料にもなる（本物もコークスで釜を熱した）。高炉 [1-10] での使い道は、高炉ができてから。",
+  "item.semiconductor-lab.coke.note3": "石炭のままだと煙や硫黄が多く、鉄をもろくする。蒸し焼きにして揮発分をとばすと、ほぼ炭素だけの強い燃料になる。1709年、ダービーがコークスで鉄を作り、森の木を使い切る心配がなくなった。",
+  "item.semiconductor-lab.coke.note4": "コークスは高炉の中で、燃料・鉄鉱石を還元する炭素・上の材料を支える骨組みの3役をこなす。穴だらけなので、下から吹き込む風が通り抜けられる。"
 }

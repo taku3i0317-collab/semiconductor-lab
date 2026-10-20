@@ -48,6 +48,9 @@ public final class Chemistry {
     public static final Item WOOD_VINEGAR          = Reg.item("wood_vinegar", new Item.Properties().stacksTo(16)); // 木酢液（酢酸・メタノールを含む水）
     public static final Item WOOD_TAR              = Reg.item("wood_tar", new Item.Properties().stacksTo(16));     // 木タール
     public static final Item PITCH                 = Reg.item("pitch");             // ピッチ（タールを煮詰めた黒い固まり）
+    // [2-20] コールタール（IMP4-01）：ガス工場のレトルトで石炭を乾留した副産物。安水は [2-21] アンモニア水の原料
+    public static final Item COAL_TAR              = Reg.item("coal_tar", new Item.Properties().stacksTo(16));
+    public static final Item AMMONIACAL_LIQUOR     = Reg.item("ammoniacal_liquor", new Item.Properties().stacksTo(16)); // 安水（NH3 約1〜2% の水）
 
     // ===== ブロック =====
     public static final Block TRONA_DEPOSIT  = Reg.ore("trona_deposit", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.0f).sound(SoundType.STONE));
@@ -56,6 +59,10 @@ public final class Chemistry {
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）
     public static final Machine<WoodRetortBlockEntity> WOOD_RETORT = Machine.builder("wood_retort", WoodRetortBlockEntity::new)
             .ticker(WoodRetortBlockEntity::tick).layout(WoodRetortBlockEntity.LAYOUT).props(lit(metal(3.0f), 11)).build();
+
+    // ガス工場のレトルト [2-20]（IMP4-01）：耐火れんがの釜＋銅の冷却管。石炭 → コークス＋コールタール＋安水。燃料式（電気なし）
+    public static final Machine<GasRetortBlockEntity> GAS_RETORT = Machine.builder("gas_retort", GasRetortBlockEntity::new)
+            .ticker(GasRetortBlockEntity::tick).layout(GasRetortBlockEntity.LAYOUT).props(lit(stone(3.5f), 11)).build();
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

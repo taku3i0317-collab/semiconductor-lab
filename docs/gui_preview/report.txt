@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 58（ja・en）、文字の置き場所 226、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 60（ja・en）、文字の置き場所 228、問題 0
 bessemer_converter_en_us power gui.semiconductor-lab.bessemer_converter.power w=69 lines=1/1
 bessemer_converter_en_us stored gui.semiconductor-lab.bessemer_converter.stored w=65 lines=1/1
 bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_iron w=120 lines=1/1
@@ -35,6 +35,10 @@ wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_input w=57 lines=1
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_fuel w=106 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.running w=79 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.out_full w=53 lines=1/2
+gas_retort_en_us hint gui.semiconductor-lab.gas_retort.need_input w=53 lines=1/2
+gas_retort_en_us hint gui.semiconductor-lab.gas_retort.need_fuel w=167 lines=2/2
+gas_retort_en_us hint gui.semiconductor-lab.gas_retort.running w=108 lines=1/2
+gas_retort_en_us hint gui.semiconductor-lab.gas_retort.out_full w=53 lines=1/2
 acheson_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=67 lines=1/1
 acheson_furnace_en_us need gui.semiconductor-lab.acheson_furnace.need w=61 lines=1/1
 acheson_furnace_en_us temp gui.semiconductor-lab.acheson_furnace.temp w=56 lines=1/1
@@ -267,6 +271,10 @@ wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_input w=54 lines=1
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_fuel w=72 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.running w=62 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.out_full w=45 lines=1/2
+gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.need_input w=54 lines=1/2
+gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.need_fuel w=153 lines=2/2
+gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.running w=68 lines=1/2
+gas_retort_ja_jp hint gui.semiconductor-lab.gas_retort.out_full w=45 lines=1/2
 acheson_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=55 lines=1/1
 acheson_furnace_ja_jp need gui.semiconductor-lab.acheson_furnace.need w=55 lines=1/1
 acheson_furnace_ja_jp temp gui.semiconductor-lab.acheson_furnace.temp w=50 lines=1/1
