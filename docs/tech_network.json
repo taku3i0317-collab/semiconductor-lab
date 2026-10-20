@@ -18980,7 +18980,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O44. ねじの中で玉が転がる（ボールねじ）［8-08］",
+     "answer": "ねじとナットの間に鋼の球を入れて転がすと、すべりの摩擦がほとんどなくなり、細かく軽く動かせる。1898年スティーブンソンとグレンがアメリカで特許をとり、自動車の循環ボール式ステアリング（1939年ごろ）で広まった。1952年、MIT の数値制御フライス盤と組み合わさって µm 級の位置決めが始まった。",
+     "hee": {
+      "1": "ねじの溝の中を、小さな鉄の玉が転がって、出口から入口へぐるぐる戻っている。",
+      "2": "ふつうのねじは「引っかかってから急にすべる」ので、ごく小さくは動かせない（スティックスリップ）。",
+      "3": "玉の大きさがそろっていないと、送りがガタつく。玉軸受と同じく研削でそろえることが大事。",
+      "4": "露光装置のステージは、のちにボールねじからリニアモーターと空気の膜（[8-09]）に変わった。"
+     },
+     "certainty": "1898 の米国特許 ◎／GM の循環ボール式ステアリングの特許 1939出願・1941登録 ○（量産の年は未確認⚠️）／1952 MIT の NC フライス盤 ◎",
+     "basis": "- Wikipedia「Ball screw」：https://en.wikipedia.org/wiki/Ball_screw"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -18990,7 +19003,7 @@
    "name": "ボールねじ精密ステージ",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1939,
    "year_range": "1898〜1941",
@@ -19018,12 +19031,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ねじの溝の中を、小さな鉄の玉が転がっている",
    "name_en": "Ball-screw precision stage",
    "hee1_en": "Little steel balls roll inside the screw's groove",
    "kind": "tech",
-   "play": "",
+   "play": "実験（送りねじとの比べ：送りの細かさ・電気）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -19653,7 +19666,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "何十枚の透明な絵を、髪の毛の数万分の1のずれで重ねる",
    "name_en": "Alignment",
    "hee1_en": "Dozens of transparent pictures are stacked off by only a few ten-thousandths of a hair's width.",
@@ -23896,7 +23909,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "1枚のウェハーから何百個のチップが切り出される",
    "name_en": "Dicing",
    "hee1_en": "Hundreds of chips are cut out of a single wafer.",
