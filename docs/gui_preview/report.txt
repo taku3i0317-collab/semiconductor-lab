@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 148（ja・en）、文字の置き場所 558、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 152（ja・en）、文字の置き場所 570、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -241,6 +241,23 @@ diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_chamber w=108 lines=2/3
 diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_backing w=109 lines=2/3
 diffusion_pump_en_us hint gui.semiconductor-lab.pump.too_high w=103 lines=2/3
 diffusion_pump_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+silicone_reactor_en_us power gui.semiconductor-lab.silicone_reactor.power w=75 lines=1/1
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.need_input w=139 lines=3/4
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.need_alumina w=114 lines=2/4
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.need_copper w=115 lines=2/4
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.need_bottle w=142 lines=3/4
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.need_power w=90 lines=2/4
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.mecl w=111 lines=2/4
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.direct w=118 lines=3/4
+silicone_reactor_en_us hint gui.semiconductor-lab.silicone_reactor.hydro w=114 lines=2/4
+silicone_reactor_en_us recipe gui.semiconductor-lab.silicone_reactor.recipe w=125 lines=1/1 scale=0.84999996
+oil_diffusion_pump_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+oil_diffusion_pump_en_us pressure gui.semiconductor-lab.pump.pressure w=58 lines=1/1
+oil_diffusion_pump_en_us hint gui.semiconductor-lab.pump.running w=38 lines=1/3
+oil_diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_chamber w=108 lines=2/3
+oil_diffusion_pump_en_us hint gui.semiconductor-lab.pump.no_backing w=109 lines=2/3
+oil_diffusion_pump_en_us hint gui.semiconductor-lab.pump.too_high w=103 lines=2/3
+oil_diffusion_pump_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
 reduction_camera_en_us power gui.semiconductor-lab.reduction_camera.power w=63 lines=1/1
 reduction_camera_en_us hint gui.semiconductor-lab.reduction_camera.need_original w=89 lines=2/3
 reduction_camera_en_us hint gui.semiconductor-lab.reduction_camera.need_plate w=103 lines=2/3
@@ -883,6 +900,23 @@ diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_chamber w=99 lines=2/3
 diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_backing w=99 lines=2/3
 diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.too_high w=77 lines=2/3
 diffusion_pump_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+silicone_reactor_ja_jp power gui.semiconductor-lab.silicone_reactor.power w=63 lines=1/1
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.need_input w=99 lines=2/4
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.need_alumina w=90 lines=2/4
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.need_copper w=63 lines=1/4
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.need_bottle w=81 lines=2/4
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.need_power w=63 lines=1/4
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.mecl w=99 lines=2/4
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.direct w=63 lines=1/4
+silicone_reactor_ja_jp hint gui.semiconductor-lab.silicone_reactor.hydro w=108 lines=2/4
+silicone_reactor_ja_jp recipe gui.semiconductor-lab.silicone_reactor.recipe w=123 lines=1/1 scale=0.84999996
+oil_diffusion_pump_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+oil_diffusion_pump_ja_jp pressure gui.semiconductor-lab.pump.pressure w=70 lines=1/1
+oil_diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.running w=45 lines=1/3
+oil_diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_chamber w=99 lines=2/3
+oil_diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.no_backing w=99 lines=2/3
+oil_diffusion_pump_ja_jp hint gui.semiconductor-lab.pump.too_high w=77 lines=2/3
+oil_diffusion_pump_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
 reduction_camera_ja_jp power gui.semiconductor-lab.reduction_camera.power w=51 lines=1/1
 reduction_camera_ja_jp hint gui.semiconductor-lab.reduction_camera.need_original w=54 lines=1/3
 reduction_camera_ja_jp hint gui.semiconductor-lab.reduction_camera.need_plate w=72 lines=1/3

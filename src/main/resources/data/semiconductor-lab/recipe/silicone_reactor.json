@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SQS",
+    "SFS",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "Q": "semiconductor-lab:quartz_tube",
+    "F": "semiconductor-lab:electric_furnace",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:silicone_reactor",
+    "count": 1
+  }
+}

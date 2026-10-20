@@ -1284,6 +1284,33 @@
       "note": "CaF2 + H2SO4 → CaSO4 + 2HF（約200℃）。HF を受け器の水に吸わせる。釜も瓶も鉛（ガラスは溶ける）"
     },
     {
+      "machine": "semiconductor-lab:oil_diffusion_pump",
+      "process": "高真空にする",
+      "inputs": [
+        {
+          "item": "隣の真空容器（10Pa 以下）",
+          "count": 1,
+          "consumed": false
+        },
+        {
+          "item": "Block{semiconductor-lab:rotary_pump}",
+          "count": 1,
+          "consumed": false
+        }
+      ],
+      "outputs": [
+        {
+          "item": "真空容器の圧力",
+          "count": 1,
+          "cond": "1秒ごとに残り 30%、1.0E-5 Pa まで"
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 1.0,
+      "energy_kj": 1,
+      "note": "前段に回転ポンプ。油の蒸気も少し戻る"
+    },
+    {
       "machine": "semiconductor-lab:oxidation_furnace",
       "process": "ドライ酸化",
       "inputs": [
@@ -1795,6 +1822,96 @@
       "seconds": 648.0,
       "energy_kj": 324000,
       "note": "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる"
+    },
+    {
+      "machine": "semiconductor-lab:silicone_reactor",
+      "process": "塩化メチル",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:methanol",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_chloride_gas",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:alumina",
+          "count": 1,
+          "consumed": false
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:methyl_chloride",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 15.0,
+      "energy_kj": 30,
+      "note": "CH3OH + HCl → CH3Cl + H2O（水は捨てる）"
+    },
+    {
+      "machine": "semiconductor-lab:silicone_reactor",
+      "process": "直接法",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:metallurgical_silicon",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:methyl_chloride",
+          "count": 2
+        },
+        {
+          "item": "minecraft:copper_ingot",
+          "count": 1,
+          "consumed": false
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:dimethyldichlorosilane",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 15.0,
+      "energy_kj": 30,
+      "note": "Si + 2CH3Cl → (CH3)2SiCl2（ロチョウ 1941〜45）"
+    },
+    {
+      "machine": "semiconductor-lab:silicone_reactor",
+      "process": "加水分解",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:dimethyldichlorosilane",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:distilled_water",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silicone_oil",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrochloric_acid",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 15.0,
+      "energy_kj": 30,
+      "note": "(CH3)2SiCl2 + H2O → シリコーン油 + 2HCl"
     },
     {
       "machine": "semiconductor-lab:solvay_tower",

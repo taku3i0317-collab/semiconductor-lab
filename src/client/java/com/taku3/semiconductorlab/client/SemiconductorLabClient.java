@@ -57,6 +57,8 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Vacuum.ROTARY_PUMP, PumpScreen::new);      // [5-04] IMP2-01
 		screen(Vacuum.DIFFUSION_PUMP, PumpScreen::new);   // [5-05] IMP2-01
 		screen(Vacuum.TURBO_PUMP, PumpScreen::new);       // [5-07] IMP2 O-017
+		screen(Vacuum.OIL_DIFFUSION_PUMP, PumpScreen::new);   // [5-06] IMP4-01
+		screen(Vacuum.SILICONE_REACTOR, SiliconeReactorScreen::new);   // [5-04]③ IMP4-01
 		screen(Vacuum.EVAPORATOR, EvaporatorScreen::new); // [5-14] IMP2-01
 		screen(Vacuum.SEALING_STATION, SealingStationScreen::new);
 		// 幹6 ガス・電解

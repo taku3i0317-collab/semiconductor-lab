@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SOS",
+    "S S",
+    "SWS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "O": "semiconductor-lab:silicone_oil",
+    "W": "semiconductor-lab:tungsten_wire"
+  },
+  "result": {
+    "id": "semiconductor-lab:oil_diffusion_pump",
+    "count": 1
+  }
+}

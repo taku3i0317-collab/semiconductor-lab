@@ -325,10 +325,94 @@ public class VacuumTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [5-04]③ シリコーン油（IMP4-01）：塩化メチル → 直接法 → 加水分解。触媒は減らない、触媒がちがうと動かない */
+    @GameTest(maxTicks = 100)
+    public void siliconeOil(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos rp = p(2, 1, 2);
+        h.setBlock(rp, Vacuum.SILICONE_REACTOR.block);
+        var be = h.getBlockEntity(rp, com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.WATTS);
+        int T = com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.TICKS;
+        // ① メタノール＋乾いた HCl。触媒が銅だと動かない → アルミナで塩化メチル
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_A, new ItemStack(Chemistry.METHANOL, 2));
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_B, new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS, 2));
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_CAT, new ItemStack(Items.COPPER_INGOT));
+        tickConsumer(h, rp, be, T + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT).isEmpty(), "methyl chloride needs alumina, not copper");
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_CAT, new ItemStack(Metallurgy.ALUMINA));
+        tickConsumer(h, rp, be, 2 * T + 2, feed);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT).getCount(), 2, "2 methyl chloride");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_CAT).getCount(), 1, "catalyst kept");
+        // ② Si + 2CH3Cl（銅、空き瓶）
+        ItemStack mecl = c.removeItemNoUpdate(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT);
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_A, new ItemStack(Metallurgy.METALLURGICAL_SILICON));
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_B, mecl);
+        tickConsumer(h, rp, be, T + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT).isEmpty(), "direct process needs copper");
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_CAT, new ItemStack(Items.COPPER_INGOT));
+        tickConsumer(h, rp, be, T + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT).isEmpty(), "no empty bottle -> nowhere to put the liquid");
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_BOTTLE, new ItemStack(Chemistry.GLASS_BOTTLE));
+        tickConsumer(h, rp, be, T + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT).is(Vacuum.DIMETHYLDICHLOROSILANE) && c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_B).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_A).isEmpty(), "Si + 2 CH3Cl -> (CH3)2SiCl2");
+        // ③ 蒸留水で加水分解 → シリコーン油＋塩酸
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_A, c.removeItemNoUpdate(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT));
+        c.setItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_B, new ItemStack(Chemistry.DISTILLED_WATER));
+        tickConsumer(h, rp, be, T + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT).is(Vacuum.SILICONE_OIL) && c.getItem(com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.SLOT_OUT2).is(Gas.HYDROCHLORIC_ACID), "hydrolysis -> silicone oil + hydrochloric acid");
+        h.assertTrue(recipeUses(h, "oil_diffusion_pump", Vacuum.SILICONE_OIL), "oil diffusion pump is filled with silicone oil");
+        LOG.info("[LAB] silicone oil [5-04]-3: MeOH + HCl (alumina) -> CH3Cl; Si + 2 CH3Cl (Cu) -> Me2SiCl2; + H2O -> silicone oil + HCl");
+        h.succeed();
+    }
+
+    /** [5-06] 油拡散ポンプ（IMP4-01）：水銀拡散ポンプと同じ条件で動き、同じ漏れでもっと低い圧力まで。回転ポンプの前段になれる・蒸気は戻る */
+    @GameTest(maxTicks = 100)
+    public void oilDiffusionPump(GameTestHelper h) {
+        floor(h, 9);
+        double[] reached = new double[2];
+        for (int k = 0; k < 2; k++) {
+            int z = 1 + k * 4;
+            BlockPos cp = p(1, 1, z), dp = p(2, 1, z), rp = p(3, 1, z);
+            h.setBlock(cp, Vacuum.VACUUM_CHAMBER.block);
+            h.setBlock(dp, k == 0 ? Vacuum.DIFFUSION_PUMP.block : Vacuum.OIL_DIFFUSION_PUMP.block);
+            h.setBlock(rp, Vacuum.ROTARY_PUMP.block);
+            var c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+            var d = h.getBlockEntity(dp, com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.class);
+            var r = h.getBlockEntity(rp, com.taku3.semiconductorlab.block.RotaryPumpBlockEntity.class);
+            h.assertTrue(r.target() == c, "rotary pump backs the chamber through either diffusion pump");
+            long dFeed = EnergyStorage.wattsToJoulesPerTick(k == 0 ? com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.WATTS : com.taku3.semiconductorlab.block.OilDiffusionPumpBlockEntity.WATTS), rFeed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.RotaryPumpBlockEntity.WATTS);
+            c.setPressure(50);
+            tickConsumer(h, rp, r, 1, rFeed);
+            tickConsumer(h, dp, d, 40, dFeed);
+            h.assertTrue(c.getPressure() > 10, "above 10 Pa the jet cannot pump (k=" + k + ")");
+            c.setPressure(1);
+            for (int i = 0; i < 20 * 30; i++) {
+                tickConsumer(h, rp, r, 1, rFeed);
+                tickConsumer(h, dp, d, 1, dFeed);
+                if (i % 20 == 0) c.setPressure(c.getPressure() + VacuumChamberBlockEntity.LEAK_PA_PER_SECOND);
+            }
+            reached[k] = c.getPressure();
+            if (k == 1) h.assertTrue(com.taku3.semiconductorlab.block.TurboPumpBlockEntity.backstreams(h.getLevel(), h.absolutePos(cp)), "oil vapour also backstreams");
+        }
+        h.assertTrue(reached[1] < reached[0] && reached[1] < 0.004, "oil pump goes lower with the same leak: Hg " + reached[0] + " Pa vs oil " + reached[1] + " Pa");
+        LOG.info("[LAB] oil diffusion pump [5-06]: same backing rules; with the same leak Hg -> " + reached[0] + " Pa, oil -> " + reached[1] + " Pa; oil also backstreams");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Vacuum.SEALING_STATION.block, "真空管の封止", L(io(Vacuum.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),
             L(io(Vacuum.VACUUM_TUBE, 1)), SealingStationBlockEntity.WATTS, SealingStationBlockEntity.TICKS / 20.0, "封じるたびに容器へ空気がもどる");
+        rec(a, Vacuum.SILICONE_REACTOR.block, "塩化メチル", L(io(Chemistry.METHANOL, 1), io(Metallurgy.HYDROGEN_CHLORIDE_GAS, 1), kept(io(Metallurgy.ALUMINA, 1))),
+            L(io(Vacuum.METHYL_CHLORIDE, 1)), com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.TICKS / 20.0, "CH3OH + HCl → CH3Cl + H2O（水は捨てる）");
+        rec(a, Vacuum.SILICONE_REACTOR.block, "直接法", L(io(Metallurgy.METALLURGICAL_SILICON, 1), io(Vacuum.METHYL_CHLORIDE, com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.MECL_PER_SI), kept(io(Items.COPPER_INGOT, 1)), io(Chemistry.GLASS_BOTTLE, 1)),
+            L(io(Vacuum.DIMETHYLDICHLOROSILANE, 1)), com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.TICKS / 20.0, "Si + 2CH3Cl → (CH3)2SiCl2（ロチョウ 1941〜45）");
+        rec(a, Vacuum.SILICONE_REACTOR.block, "加水分解", L(io(Vacuum.DIMETHYLDICHLOROSILANE, 1), io(Chemistry.DISTILLED_WATER, 1)),
+            L(io(Vacuum.SILICONE_OIL, 1), io(Gas.HYDROCHLORIC_ACID, 1)), com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SiliconeReactorBlockEntity.TICKS / 20.0, "(CH3)2SiCl2 + H2O → シリコーン油 + 2HCl");
+        rec(a, Vacuum.OIL_DIFFUSION_PUMP.block, "高真空にする", L(kept(io("隣の真空容器（10Pa 以下）", 1)), kept(io(Vacuum.ROTARY_PUMP.block, 1))),
+            L(cond(io("真空容器の圧力", 1), "1秒ごとに残り " + (int) (com.taku3.semiconductorlab.block.OilDiffusionPumpBlockEntity.RATIO * 100) + "%、" + com.taku3.semiconductorlab.block.OilDiffusionPumpBlockEntity.LIMIT_PA + " Pa まで")), com.taku3.semiconductorlab.block.OilDiffusionPumpBlockEntity.WATTS, 1, "前段に回転ポンプ。油の蒸気も少し戻る");
         rec(a, Vacuum.SPRENGEL_PUMP.block, "真空にする", L(kept(io(Metallurgy.MERCURY, SprengelPumpBlockEntity.MERCURY_NEEDED)), kept(io("隣の真空容器", 1))),
             L(cond(io("真空容器の圧力", 1), "1秒ごとに残り " + (int) (SprengelPumpBlockEntity.RATIO * 100) + "%、" + SprengelPumpBlockEntity.LIMIT_PA + " Pa まで")), 0, 1, "電気なし");
     }

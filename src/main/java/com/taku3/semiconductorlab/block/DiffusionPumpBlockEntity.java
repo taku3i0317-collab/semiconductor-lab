@@ -41,6 +41,11 @@ public class DiffusionPumpBlockEntity extends ConsumerBlockEntity {
         super(Vacuum.DIFFUSION_PUMP.type, pos, state, 0, EnergyStorage.wattsToJoulesPerTick(WATTS) * 40, 2_000);
     }
 
+    /** 油拡散ポンプ [5-06] が継承するための入口（IMP4-01、C の了承済み）。前段・逆流の判定は instanceof でそのまま共通 */
+    protected DiffusionPumpBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state, double watts) {
+        super(type, pos, state, 0, EnergyStorage.wattsToJoulesPerTick(watts) * 40, watts * 4);
+    }
+
     private VacuumChamberBlockEntity chamber() { return level == null ? null : VacuumChamberBlockEntity.findAdjacent(level, worldPosition); }
 
     /** 隣に回っている回転ポンプ（前段）があるか */

@@ -88,3 +88,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [8-33] 質量分析器（item/MassSpectrometerItem、Precision.java の末尾に1行）：試料の同位体と天然存在比。GameTest mass_spectrometer（PrecisionTests）、CHEMISTRY F49、REFERENCES F27
 - ✅ [9-28] イオン注入装置 ion_implanter（block/IonImplanterBlockEntity、画面 IonImplanterScreen、5kW）：A の ChipOps.implant。隣の真空容器 0.01Pa 以下。GameTest ion_implanter、CHEMISTRY F50、REFERENCES F28
 - ✅ [9-29] アニール炉 anneal_furnace（block/AnnealFurnaceBlockEntity、画面 AnnealFurnaceScreen、3kW、N2/Ar をホルダーから）：A の ChipOps.anneal。注入しただけでは層が同じ。GameTest anneal_furnace、CHEMISTRY F51、REFERENCES F29
+- ✅ [5-04]③ シリコーン油（block/SiliconeReactorBlockEntity、3つの反応）・[5-06] 油拡散ポンプ（block/OilDiffusionPumpBlockEntity、水銀拡散ポンプを継承：C の了承どおり DiffusionPumpBlockEntity に protected の入口1つだけ追加。RotaryPump・Turbo は instanceof のまま変更なし）。GameTest silicone_oil・oil_diffusion_pump、CHEMISTRY F52〜F53、REFERENCES F30

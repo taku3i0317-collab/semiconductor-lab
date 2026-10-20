@@ -402,6 +402,11 @@ vacuum_tube  # Vacuum [5-02] 1904
 sealing_station  # Vacuum [5-02] 1904
 rotary_pump  # Vacuum [5-04] 1905
 diffusion_pump  # Vacuum [5-05] 1915
+methyl_chloride  # Vacuum [5-06] 1928
+dimethyldichlorosilane  # Vacuum [5-06] 1928
+silicone_oil  # Vacuum [5-06] 1928
+silicone_reactor  # Vacuum [5-06] 1928
+oil_diffusion_pump  # Vacuum [5-06] 1928
 turbo_pump  # Vacuum [5-07] 1958
 evaporator  # Vacuum [9-25] 1959
 rock_salt  # Gas [6-04] -1500
@@ -615,7 +620,7 @@ printing_paper  # Branches [B-02] 1839
 print  # Branches [B-02] 1839
 carbide_lamp  # Branches [B-14] 1892
 solar_cell  # Branches [B-12] 1954
-nixie_tube  # Branches [None] None
-key_switch  # Branches [None] None
-calculator  # Branches [None] None
+key_switch  # Branches [B-08] 1964
+calculator  # Branches [B-08] 1964
+nixie_tube  # Branches [B-24] None
 test_power_source  # Testing [None] None
