@@ -66,6 +66,7 @@ aside#card.open { display: block; }
 #card .close { float: right; border: 0; background: none; color: var(--sub); font-size: 18px; cursor: pointer; }
 #card .big { font-size: 22px; font-weight: 700; color: var(--accent); }
 #card .people { display: flex; flex-wrap: wrap; gap: 8px; }
+.portrait { width: 34px; height: 34px; image-rendering: pixelated; flex: none; }
 #card .person { display: flex; gap: 8px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 6px 10px 6px 6px; background: var(--bg); }
 #card .person svg { flex: none; }
 #card .person b { display: block; font-size: 13px; }
@@ -364,7 +365,7 @@ aside#card.open { display: block; }
   // ---- カード ----
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const chip = id => { const n = byId.get(id); return `<button class="chip" data-id="${id}">${id} ${n ? esc(n.name) : ''}</button>`; };
-  // 人物は似顔絵にしない：シルエット＋名前＋ゆかりの道具
+  // 人物：自作のドット絵の肖像（tools/gen_portraits.py、特徴だけの記号的な絵）＋名前＋ゆかりの道具。肖像がなければシルエット
   const silhouette = `<svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="11" r="7" fill="var(--sub)"/><path d="M4 33c0-8 6-13 13-13s13 5 13 13z" fill="var(--sub)"/></svg>`;
   function select(id) {
     state.sel = id; render();
@@ -380,7 +381,7 @@ aside#card.open { display: block; }
       <a class="more" href="node.html#${encodeURIComponent(d.id)}">詳しく見る →</a>
       <div class="meta"><span style="color:${color(d.trunk)}">●</span> ${isProd(d) ? '<b>モノ</b>・' : ''}${d.trunk === 'B' ? '枝' : '幹' + d.trunk} ${esc(d.trunk_name)}・${yearText(d)}${d.buildable_now ? '・<b>今すぐ作れる</b>' : ''}</div>
       ${d.hee1 ? `<div class="sec"><h3>へえ①</h3>${esc(d.hee1)}</div>` : ''}
-      ${d.people.length ? `<div class="sec"><h3>人物（似顔絵ではなくシルエット）</h3><div class="people">${d.people.map(p => `<div class="person">${silhouette}<div><b>${esc(p.name)}</b><small>${esc(p.tool)}・${esc(p.year)}</small></div></div>`).join('')}</div></div>` : ''}
+      ${d.people.length ? `<div class="sec"><h3>人物</h3><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><small>${esc(p.tool)}・${esc(p.year)}</small></div></div>`).join('')}</div></div>` : ''}
       ${d.real ? `<div class="sec"><h3>本物</h3>${esc(d.real)}</div>` : ''}
       ${isProd(d) ? `<div class="sec"><h3>このモノに使われている技術</h3><div class="big">${used.length}</div><div class="chips">${used.sort().map(chip).join('')}</div></div>` : ''}
       <div class="sec"><h3>これが無いと作れなくなる技術（別ルートも考えたうえで）</h3><div class="big">${lost.length}</div><div class="chips">${lost.map(chip).join('')}</div></div>

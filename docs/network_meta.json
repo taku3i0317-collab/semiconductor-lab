@@ -114,13 +114,14 @@
   "10-16": "🤖"
  },
  "people": {
-  "_note": "人物は似顔絵にしない：シルエット＋名前＋ゆかりの道具。存命の人は載せない（DESIGN「遊びの要素」）。名前と年は TECH_TREE の本物欄から",
+  "_note": "人物は自作のドット絵の肖像（16x16、髪・ひげ・帽子・めがね・服などの特徴だけの記号的な絵。写真や絵画の写しではない）＋名前＋ゆかりの道具。存命の人は載せない（DESIGN「遊びの要素」）。肖像は tools/gen_portraits.py が作る。名前と年は TECH_TREE の本物欄から",
   "15-01": [
    {
     "name": "蔡倫",
     "tool": "📜 紙すき",
     "year": "105",
-    "intro": "105年、紙の作り方を改良した"
+    "intro": "105年、紙の作り方を改良した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42mNgwAMkJeX+S0rK/cenhgmfZmxsogzApgGXIUwMFAJGdAENJfx+vnHvEYoeFlwKd0zIQeF7FEwhzgUPNnXhdYGCXxkjzjA4uaAGrtkuZyYDNjayGuq7AB1cv/+c4fr953hjgQWf5OeT9yEMRUnioxGfN9Cdj2FAj4YGisaQriQGBgYGhjVl81A0ldy4wYhhQKac3H9lLi6iUt/db98Ypj+CJCiKkzLFBgAAozQ5VJqLHIEAAAAASUVORK5CYII="
    }
   ],
   "15-02": [
@@ -128,7 +129,8 @@
     "name": "グーテンベルク",
     "tool": "🔤 金属の活字",
     "year": "1450ごろ",
-    "intro": "1450年ごろ、鉛・錫・アンチモンの合金で活字を作り、活版印刷を始めた"
+    "intro": "1450年ごろ、鉛・錫・アンチモンの合金で活字を作り、活版印刷を始めた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuUlEQVR42mNgoBAwogvYyMn9x6fhyKNHKHqYSNGMTQ2GCwI0NPAasuHGDRQ9LOgK5OQIOOEGnjDIc0PYXldXgaKwqakDzp60C+EKDBega0QXRzYIIxCRgVFUM1Y23miEeQGXK2C2I3uBCV94Xb3zmOHqncd4w5QFlwSyX9ficRWGARDndfzHZuCkXTcYkWMKIwxS3HThklwMv1EM+MbACmfP2XUZMwy8TRT/o2tAxsgAWS0TpbmRYgMAnCE/7drmuLwAAAAASUVORK5CYII="
    }
   ],
   "14-02": [
@@ -136,7 +138,8 @@
     "name": "沈括",
     "tool": "🧭 磁針",
     "year": "1088",
-    "intro": "1088年、『夢渓筆談』に磁針と、磁針が真北からずれること（偏角）を書いた"
+    "intro": "1088年、『夢渓筆談』に磁針と、磁針が真北からずれること（偏角）を書いた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAvElEQVR42mNgoCXQUJL7r6Ek9x+fGkZ0AUlJ/BqeP3+EooeRkAZCgBGbs/FpuHEP1QUsuBTumJCDwvcomEKcCx5s6sLrAgW/MhQ9TMickwtq4JrtcmYyYGMjq6G+C9DB9fvPGa7ff443FnAa4FEwheHzyfsMn0/exxmAWL2A7A2YRliMoDsfwwCblAUo/n+zr46BgYGBQcSpCUXTkTkJjBgG6HpX/OeX1CAq9X18foPh8tYORoKBSAyg2AAAaGZBiooUNOEAAAAASUVORK5CYII="
    }
   ],
   "7-04": [
@@ -144,13 +147,15 @@
     "name": "リッペルハイ",
     "tool": "🔭 筒とレンズ",
     "year": "1608",
-    "intro": "1608年、オランダで望遠鏡の特許を申し出た"
+    "intro": "1608年、オランダで望遠鏡の特許を申し出た",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAt0lEQVR42mNgGPKAEZtgnpvGf2zik3bdwFDPRKxmXHIsuBTX1VWg8JuaOojzwpsjC/7j87OITQIjTi9c2TABrtkoqpkBGxtZDfVdgA6u3nnMcPXOY7zRiNOApqYOhpe7zjK83HUWZwDiTAcwb8A0wmIE3fkY0aisDIln8/gOhp0718PFP0iYM7i7B8Ll795FJCg4Q0pK7j8nJxeK6TBD3N0DUcS/f//G8OzZI0aCBuACyAYwUZqZAG3CSv0BU4OvAAAAAElFTkSuQmCC"
    },
    {
     "name": "ガリレオ",
     "tool": "🔭 望遠鏡",
     "year": "1609",
-    "intro": "1609年、望遠鏡を作って空を観察した"
+    "intro": "1609年、望遠鏡を作って空を観察した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtUlEQVR42mNgGPKAEZvgNDeN/9jEs3bdYCRoAExzWF0Fiviqpg6shjBhswldMy4xnAaQHQZXNkz4LyEiwMDAwMBgFNXMcG5ZLQb7xZsPDDoBBYx4wwCXc1c1dRAXBjBw9c5jhqt3HuP1AgsuCVioMzAwMFzFE4jUTQfKygiNxcqoCnvvIth3797ADEQpKbn/nJxcKJp27lzPwMDAwODuHogi/v37N4Znzx4xEjQAF0A2gOKEBAArnkWqVWcc1gAAAABJRU5ErkJggg=="
    }
   ],
   "5-03": [
@@ -158,7 +163,8 @@
     "name": "トリチェリ",
     "tool": "🧪 水銀を満たしたガラス管",
     "year": "1643",
-    "intro": "1643年、水銀を満たしたガラス管を逆さに立てると約76cmで止まり、上に真空ができることを示した"
+    "intro": "1643年、水銀を満たしたガラス管を逆さに立てると約76cmで止まり、上に真空ができることを示した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAr0lEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHKMuBQsm1SLojAqrxmrSzAMQNeIDqLymlEMYMKl0CiqGSubYBjAwLlltVjZRBvAwMDAcPXOY4ardx7j9RILPr8iA1xhgxGIu87dZXxzZAHWqBSxSWCEqcFqgLKyBlzjzp3rUTS7uwfC2Xfv3sCMBSkpuf+4NCCz0dUyIgtycnIRlf6/f//G8OzZI0aCsUAMAAARFkHTyXqVyAAAAABJRU5ErkJggg=="
    }
   ],
   "5-01": [
@@ -166,7 +172,8 @@
     "name": "ゲーリケ",
     "tool": "⚪ マクデブルクの半球",
     "year": "1650ごろ",
-    "intro": "マクデブルク市長。1650年ごろ空気ポンプを作り、1654年に公開実験をした"
+    "intro": "マクデブルク市長。1650年ごろ空気ポンプを作り、1654年に公開実験をした",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAr0lEQVR42mNgGPKAEZvgtGnT/mMTz8rKwlDPRKxmXHKMuBSE6XGhKFx16RtWl7Cgm4iuEV0c2SCsXoABo6hmrGyCYQAD55bVYmUTbQADAwPD1TuPGa7eeYw3GllwSUD8Kgwx6NI3nGGD4QIRmwRGWKAhY2Q5nNGorKwBj8adO9ejKHR3D4Sz7969wYjhAikpuf+4NCCz0dUyIgtycnIRlf6/f//G8OzZI0aCsUAMAADVgTr9RwKtvAAAAABJRU5ErkJggg=="
    }
   ],
   "4-02": [
@@ -174,13 +181,15 @@
     "name": "ニューコメン",
     "tool": "⛏️ 炭鉱の排水ポンプ",
     "year": "1712",
-    "intro": "1712年、炭鉱の水をくみ出す大気圧機関を作った"
+    "intro": "1712年、炭鉱の水をくみ出す大気圧機関を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxUlEQVR42mNgGPKAEZvgw4cP/2MTl5eXx1DPRKxmXHJwE0+dOvVfXFwcLsH9eD+Kwq+yjnD2y5cvGczMzBgZGBgYWNBNRNeILo5sEFYvwIBRVDNWNsEwgIFzy2qxsok2gIGBgeHqnccMV+88xhuNLPgkX+46y8DAwMCgrSJLvAtEbBLgMeOUFcDglBWAVQ5rQkpx00WJ5466YgYGBgaGiqZeFE1zdl1mxDDA20Txv6QQD1HJ9/m7Lwxbz9xnJBiIxACKDQAAvl85aqRMOA4AAAAASUVORK5CYII="
    },
    {
     "name": "ワット",
     "tool": "⚙️ 分離凝縮器",
     "year": "1776",
-    "intro": "1776年、分離凝縮器で蒸気機関の効率を数倍にした"
+    "intro": "1776年、分離凝縮器で蒸気機関の効率を数倍にした",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtUlEQVR42mNgGPKAEZvgtGnT/mMTz8rKYiRoAExzmB4XiviqS9+wGsKEzSZ0zbjEcBpACkAx4MqGCf9hNhlFNcPFYewwPS6GKxsm/McbBm+OLPiPz0YRmwRGor1w9c5jhqt3HuP1Ags+yZe7zjIwMDAwaKvIkpYOcHkD3fkYBigra8A17ty5HkWhu3sgnH337g1GjDCQkpL7j0sDMhtdLSOyICcnF1Fx//37N4Znzx4xUiUhAQCl7jf3VeMAHgAAAABJRU5ErkJggg=="
    }
   ],
   "1-10": [
@@ -188,7 +197,8 @@
     "name": "エイブラハム・ダービー1世",
     "tool": "🔥 コークス",
     "year": "1709",
-    "intro": "1709年、石炭を蒸し焼きにしたコークスで鉄を作った"
+    "intro": "1709年、石炭を蒸し焼きにしたコークスで鉄を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxUlEQVR42mNgGPKAEZvgw4cP/2MTl5eXx1DPRKxmXHJwE0+dOvVfXFwcLsH9eD+Kwq+yjnD2y5cvGczMzBgZGBgYWNBNRNeILo5sEFYvwIBRVDNWNsEwgIFzy2qxsok2gIGBgeHqnccMV+88xhuNLPgkX+46y8DAwMCgrSJLvAtEbBLgMeOUFcDglBWAVQ5rQsrLq0CJ57owDQYGBgaGplU3UDRNmtTBiGFAUFDUfxkZOaKS75MnjxjWrVvGSDAQiQEUGwAA5Hc5akwtML4AAAAASUVORK5CYII="
    }
   ],
   "1-11": [
@@ -196,7 +206,8 @@
     "name": "ハンツマン",
     "tool": "🏺 るつぼ",
     "year": "1740ごろ",
-    "intro": "1740年ごろ、シェフィールドで鉄を密閉るつぼで溶かし、むらのない鋼を作った"
+    "intro": "1740年ごろ、シェフィールドで鉄を密閉るつぼで溶かし、むらのない鋼を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxUlEQVR42mNgGPKAEZvgw4cP/2MTl5eXx1DPRKxmXHJwE0+dOvVfXFwcLsH9eD+Kwq+yjnD2y5cvGczMzBgZGBgYWNBNRNeILo5sEFYvwIBRVDNWNsEwgIFzy2qxsok2gIGBgeHqnccMV+88xhuNLPgkX+46y8DAwMCgrSJLvAtEbBLgMeOUFcDglBWAVQ5rQkpx00WJ5466YgYGBgaGiqZeFE1zdl1mxDDA20Txv6QQD1HJ9/m7Lwxbz9xnJBiIxACKDQAAvl85aqRMOA4AAAAASUVORK5CYII="
    }
   ],
   "8-01": [
@@ -204,7 +215,8 @@
     "name": "モーズリー",
     "tool": "🔩 送りねじ",
     "year": "1797ごろ",
-    "intro": "1797〜1800年ごろ、刃物台を送りねじで動かす全金属の旋盤を作った"
+    "intro": "1797〜1800年ごろ、刃物台を送りねじで動かす全金属の旋盤を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArklEQVR42mNgGPKAEZtgnpvGf2zik3bdwFDPRKxmXHIsuBTX1VWg8JuaOrCqYyJGMy4xDAOubJgAd6JRVDMDNjayGgwDdAIK4IF0blktAzY2shqcXoCBq3ceM1y985i0aHxzZAHcifumbWBgYGBgcMoKgMuL2CQwEkwHyIYgA3TNGAZoGEXBNW5ZVYui0CcMEZA3zi1jxAgDOVXn/7g0ILPR1bLgCyB0jUQnJFIAAIQxOVpeOh/bAAAAAElFTkSuQmCC"
    }
   ],
   "4-13": [
@@ -212,7 +224,8 @@
     "name": "ヴォルタ",
     "tool": "🪙 銅と亜鉛の円板",
     "year": "1800",
-    "intro": "1800年、銅と亜鉛の円板を塩水の布ではさんで積み、電気が流れ続ける電池を作った"
+    "intro": "1800年、銅と亜鉛の円板を塩水の布ではさんで積み、電気が流れ続ける電池を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtUlEQVR42mNgGHRg2rRp/5FpXGIwwIjPEHSQlZWFoZ6JWM1EuQBZQZgeF4rCVZe+YXUJC7qJ6BrRxZENwuoFGDCKasbKJhgGMHBuWS1WNsFYeHNkATwcrt55zMDAwMCgrSILlxexSUDRw4IvTbzcdRbDAKLSAbIrkAG67RgGKCtrwDXu3LkeRaG7eyCcfffuDUaMQJSSkvuPSwMyG10tI7IgJycXUfnl+/dvDM+ePWLEG43EAgBhK0VpspI1kgAAAABJRU5ErkJggg=="
    }
   ],
   "10-01": [
@@ -220,7 +233,8 @@
     "name": "エルステッド",
     "tool": "🧭 電流で振れる方位磁針",
     "year": "1820",
-    "intro": "1820年、電流で方位磁針が振れることを見つけた"
+    "intro": "1820年、電流で方位磁針が振れることを見つけた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAp0lEQVR42mNgGHQgz03jPzKNSwwGGPEZgg4m7bqBoZ6JWM1EuQBZQV1dBYrCpqYOrC5hQTcRXSO6OLJBWL0AA0ZRzVjZBMMABs4tq8XKJhgLb44sgIfD1TuPGRgYGBi0VWTh8iI2CSh6WPCliZe7zmIYQFQ6QHYFMkC3HcMADaMouMYtq1D97ROGCMgb55YxYgSinKrzf1wakNnoavGGAbpGkqKRWAAAsY08B1jxlP0AAAAASUVORK5CYII="
    }
   ],
   "4-04": [
@@ -228,7 +242,8 @@
     "name": "ファラデー",
     "tool": "🧲 コイルと磁石",
     "year": "1831",
-    "intro": "1831年、磁場の中でコイルを動かすと電流が流れること（電磁誘導）を見つけた"
+    "intro": "1831年、磁場の中でコイルを動かすと電流が流れること（電磁誘導）を見つけた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42mNgGHRg2rRp/5FpXGIwwIjPEHSQlZWFoZ6JWM1EuQBZQZgeF4rCVZe+YXUJEzab0DXjEsNpAAMDA4NRVDNWNtEGnFtWi5WN1wD0UL565zHD1TuP8cYEEz6/vtx1luHlrrN4wwFrOnhzZAHWqBSxSWDEa4CysgZc486d61EUursHwtl3797AjEYpKbn/uDQgs9HVMiILcnJyEZVfvn//xvDs2SNGvNFILAAA6l9GusmZNCIAAAAASUVORK5CYII="
    }
   ],
   "14-05": [
@@ -236,7 +251,8 @@
     "name": "トレビシック",
     "tool": "🚂 蒸気機関車",
     "year": "1804",
-    "intro": "1804年、蒸気機関車を走らせた"
+    "intro": "1804年、蒸気機関車を走らせた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArUlEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/Ka8aqjokYzbjEMAy4smEC3IlGUQgbkdnIarAGopuR8n9ctkXlNWMEJBO+KLp65zHD1TuPSYvGN0cWwJ24b9oGBgYGBganrAC4vIhNAiPBdIBsCDJA14xhgFGUDVzjqqbZKArD6lLh7HPLjjBihIGqs+5/XBqQ2ehqWfAFELpGohMSKQAAxvE693NSaP8AAAAASUVORK5CYII="
    }
   ],
   "10-03": [
@@ -244,7 +260,8 @@
     "name": "モールス",
     "tool": "📟 電鍵（トン・ツー）",
     "year": "1837〜44",
-    "intro": "1837〜44年、アメリカで電信を実用にした（1844 ワシントン〜ボルティモア）"
+    "intro": "1837〜44年、アメリカで電信を実用にした（1844 ワシントン〜ボルティモア）",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVR42mNgGPKAEZvgw4cP/2MTl5eXZyRoAEwz9+P9KOJfZR2xGsKEzSZ0zbjEcBpACkAx4MqGCf9hNhlFNcPFYWzux/sZrmyY8J9gGOBy7ldZR+LCAAau3nnMcPXOY7xeYMEl8VXWkUFBFsrGE4jUTQfKyhpwjfv27URR6OTkDmffvXuDESMMpKTk/qNr+P37G8Pv399QNKOrZUQW5OTkIiruv3//xvDs2SNGqiQkAPE/RnnEZWtsAAAAAElFTkSuQmCC"
    }
   ],
   "B-02a": [
@@ -252,7 +269,8 @@
     "name": "ダゲール",
     "tool": "📷 銀板",
     "year": "1839",
-    "intro": "1839年、銀板をヨウ素の蒸気にさらし、水銀の蒸気で現像する写真を発表した"
+    "intro": "1839年、銀板をヨウ素の蒸気にさらし、水銀の蒸気で現像する写真を発表した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArElEQVR42mNgGHTAzUj5PzKNSwwGGPEZgg52nbuLoZ6JWM1EuQBZwbJJtSgKo/KasboEwwB0jeggKq8ZxQAmXAqNopqxsgmGAQycW1aLlY3XAPRQvnrnMcPVO4/xxgQLPr8iA1xhgzUdvDmyAGtUitgkMOI1QFlZA65x5871KArd3QPh7Lt3b2DGgpSU3H9cGpDZ6GoZkQU5ObmIyi/fv39jePbsESPeaCQWAADfgEUHxr51yAAAAABJRU5ErkJggg=="
    }
   ],
   "1-26": [
@@ -260,7 +278,8 @@
     "name": "ベッセマー",
     "tool": "🏭 空気を吹き込む転炉",
     "year": "1856",
-    "intro": "1856年、溶けた銑鉄に空気を吹き込んで鋼にする転炉を発明した"
+    "intro": "1856年、溶けた銑鉄に空気を吹き込んで鋼にする転炉を発明した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArElEQVR42mNgGPKAEZvgtGnT/mMTz8rKYiRoAExzmB4XiviqS9+wGsKEzSZ0zbjEcBpACkAx4MqGCXC/G0U1M2BjI6vBGQa4nLvq0jfiwgAGrt55zHD1zmPivYAeWC93nWV4uess3oDEmg7eHFmANR2I2CTgTwfKyhpwjTt3rkdR6O4eCGffvXuDEcMLUlJy/3FpQGajq2VEFuTk5CIq7r9//8bw7NkjRqokJAAj5Dz5PMleYgAAAABJRU5ErkJggg=="
    }
   ],
   "4-07": [
@@ -268,7 +287,8 @@
     "name": "プランテ",
     "tool": "🔋 鉛の板と硫酸",
     "year": "1859",
-    "intro": "1859年、鉛の板と硫酸で、充電できる電池（鉛蓄電池）を作った"
+    "intro": "1859年、鉛の板と硫酸で、充電できる電池（鉛蓄電池）を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNVhd4Gak/B/d+cjeQA9IJnzOvXrnMcPVO4/xRiPOQEQPNFyuojgdoAgoK2vANSrz/0ZRePcjK4J99wYjhgFSUnL/OTm5UDTt3LmegYGBgcHdPRBF/Pv3bwzPnj1iJGgALoBsABOlmQkAg3FBuCPnb4UAAAAASUVORK5CYII="
    }
   ],
   "5-15": [
@@ -276,7 +296,8 @@
     "name": "シュプレンゲル",
     "tool": "💧 水銀のしずく",
     "year": "1865",
-    "intro": "1865年、ロンドンで水銀のしずくで空気を運び出す真空ポンプを作った"
+    "intro": "1865年、ロンドンで水銀のしずくで空気を運び出す真空ポンプを作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApUlEQVR42mNgGPKAEZugm5Hyf2ziu87dZSRoAEzzskm1KOJRec1YDWHCZhO6ZlxiOA0gBaAYcGXDhP8wm4yimuHiMPaySbUMVzZM+E8wDHA5NyqvmbgwgIGrdx4zXL3zGK8XWHBJwEKdUCBSNx3k5VXANd44shpFoYZNKJw9aVIHI4YBQUFR/2Vk5BhQDYyHaliIIv7kySOGdeuWMeINA2waaZKQAPruQB69nobvAAAAAElFTkSuQmCC"
    }
   ],
   "15-04": [
@@ -284,7 +305,8 @@
     "name": "ベル",
     "tool": "☎️ 電話",
     "year": "1876",
-    "intro": "1876年、電話の特許を取った（同じ日にイライシャ・グレイも出願）"
+    "intro": "1876年、電話の特許を取った（同じ日にイライシャ・グレイも出願）",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVR42mNgGPKAEZvgw4cP/2MTl5eXx1DPRKxmXHIsuBRzP96Pwv8q64hVHQshjYTEUbxwZcMEuBONopoZsLGR1WANxIcPH/7HZdtXWUeMgGTCF0VX7zxmuHrnMd5oxBmIX2UdGRRkoWw8YUBxOkARUFbWgGvct28nikInJ3c4++7dG4wYYSAlJfcfXcPv398Yfv/+hqIZXS0jsiAnJxdR6f/7928Mz549YiQYC8QAAIlQRmhCe1iEAAAAAElFTkSuQmCC"
    }
   ],
   "15-05": [
@@ -292,7 +314,8 @@
     "name": "エジソン",
     "tool": "🎵 錫はくの円筒",
     "year": "1877",
-    "intro": "1877年に錫はくの円筒に声を刻む蓄音機を、1879年に炭素フィラメントの電球を作った"
+    "intro": "1877年に錫はくの円筒に声を刻む蓄音機を、1879年に炭素フィラメントの電球を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAp0lEQVR42mNgGPKAEZvgtGnT/mMTz8rKwlDPRKxmXHIsuBSH6XGh8Fdd+kacF94cWfAfn59FbBIYcXrhyoYJcM1GUc0M2NjIaqjvAnRw9c5jhqt3HuONRhZ8ki93nWVgYGBg0FaRJS0d4PIGuvMxDFBW1oBr3LlzPYpCd/dAOPvu3RuMGGEgJSX3H5cGZDa6WkZkQU5OLqLS//fv3xiePXvESDAWiAEAqro7Q1/HkT8AAAAASUVORK5CYII="
    }
   ],
   "B-01": [
@@ -300,13 +323,15 @@
     "name": "エジソン",
     "tool": "💡 炭素フィラメント",
     "year": "1879",
-    "intro": "1877年に錫はくの円筒に声を刻む蓄音機を、1879年に炭素フィラメントの電球を作った"
+    "intro": "1877年に錫はくの円筒に声を刻む蓄音機を、1879年に炭素フィラメントの電球を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAp0lEQVR42mNgGPKAEZvgtGnT/mMTz8rKwlDPRKxmXHIsuBSH6XGh8Fdd+kacF94cWfAfn59FbBIYcXrhyoYJcM1GUc0M2NjIaqjvAnRw9c5jhqt3HuONRhZ8ki93nWVgYGBg0FaRJS0d4PIGuvMxDFBW1oBr3LlzPYpCd/dAOPvu3RuMGGEgJSX3H5cGZDa6WkZkQU5OLqLS//fv3xiePXvESDAWiAEAqro7Q1/HkT8AAAAASUVORK5CYII="
    },
    {
     "name": "スワン",
     "tool": "💡 炭素フィラメント",
     "year": "1879",
-    "intro": "1879年、エジソンと同じころに炭素フィラメントの電球を作った"
+    "intro": "1879年、エジソンと同じころに炭素フィラメントの電球を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVR42mNgGPKAEZvgw4cP/2MTl5eXZyRoAEwz9+P9KOJfZR2xGsKEzSZ0zbjEcBpACkAx4MqGCf9hNhlFNcPFYWzux/sZrmyY8J9gGOBy7ldZR+LCAAau3nnMcPXOY7xeYMEl8VXWkUFBFsrGE4jUTQfKyhpwjfv27URR6OTkDmffvXuDESMMpKTk/qNr+P37G8Pv399QNKOrZUQW5OTkIiruv3//xvDs2SNGqiQkAPE/RnnEZWtsAAAAAElFTkSuQmCC"
    }
   ],
   "1-29": [
@@ -314,13 +339,15 @@
     "name": "ホール",
     "tool": "⚡ 溶けた氷晶石の電解",
     "year": "1886",
-    "intro": "1886年、アメリカで、溶かした氷晶石にアルミナを溶かして電気分解する方法を発明した"
+    "intro": "1886年、アメリカで、溶かした氷晶石にアルミナを溶かして電気分解する方法を発明した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlElEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNdR3ATq4eucxw9U7j/FGI85ARA809EDFmw5weQPd+RgGaBhFwTVuWYVqo08YwkU3zi1jxAgDOVXn/7g0ILPR1bLgCyB0jdgAE6WZCQDbcTQ1wIcYZAAAAABJRU5ErkJggg=="
    },
    {
     "name": "エルー",
     "tool": "⚡ 溶けた氷晶石の電解",
     "year": "1886",
-    "intro": "1886年、フランスでホールと同じ方法を独立に発明した。1900年ごろ製鋼のアーク炉も実用にした"
+    "intro": "1886年、フランスでホールと同じ方法を独立に発明した。1900年ごろ製鋼のアーク炉も実用にした",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNVhd4Gak/B/d+cjeQA9IJnzOvXrnMcPVO4/xRiPOQEQPNFyuojgdoAgoK2vANSrz/0ZRePcjK4J99wYjhgFSUnL/OTm5UDTt3LmegYGBgcHdPRBF/Pv3bwzPnj1iJGgALoBsABOlmQkAg3FBuCPnb4UAAAAASUVORK5CYII="
    }
   ],
   "3-10": [
@@ -328,7 +355,8 @@
     "name": "アチソン",
     "tool": "⚫ 人造黒鉛",
     "year": "1896",
-    "intro": "1896年、炭素に直接大電流を流して人造黒鉛を作った"
+    "intro": "1896年、炭素に直接大電流を流して人造黒鉛を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApklEQVR42mNgGPKAEZvgw4cP/2MTl5eXZyRoAEwz9+P9KOJfZR2xGsKEzSZ0zbjEcBpACkAx4MqGCf9hNhlFNcPFYWzux/sZrmyY8B9vGLw5suA/PhtFbBIYifbC1TuPGa7eeYzXCyy4JL7KOjIoyELZeAIRazrA5Q1052MYkJdX8R/BjkdROGnSQiR2ByNGGAQFRf3HrWEhimHIalnwBRC6RpokJAAKSDu1pBhAFAAAAABJRU5ErkJggg=="
    }
   ],
   "6-07": [
@@ -336,7 +364,8 @@
     "name": "リンデ",
     "tool": "🧊 液体空気",
     "year": "1895",
-    "intro": "1895年に空気の液化に成功し、1902年から精留塔で酸素と窒素を分けた"
+    "intro": "1895年に空気の液化に成功し、1902年から精留塔で酸素と窒素を分けた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVR42mNgGPKAEZvgw4cP/2MTl5eXZyRoAEwz9+P9KOJfZR2xGsKEzSZ0zbjEcBpACkAx4MqGCf9hNhlFNcPFYWzux/sZrmyY8J9gGOBy7ldZR+LCAAau3nnMcPXOY7xeYMEl8VXWkUFBFsrGE4jUTQfKyhpwjfv27URR6OTkDmffvXuDESMMpKTk/qNr+P37G8Pv399QNKOrZUQW5OTkIiruv3//xvDs2SNGqiQkAPE/RnnEZWtsAAAAAElFTkSuQmCC"
    }
   ],
   "13-11": [
@@ -344,7 +373,8 @@
     "name": "レントゲン",
     "tool": "🦴 手の骨の写真",
     "year": "1895",
-    "intro": "1895年、放電管から出る見えない光線で妻の手の骨を写した"
+    "intro": "1895年、放電管から出る見えない光線で妻の手の骨を写した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsElEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNVhd4Gak/B/d+cjeQA9IJnzOvXrnMcPVO4/xRiPOQEQPNFyuojgdoAgoK2vANSrz/0ZRePcjK4J99wYjhgFSUnL/OTm5UDTt3LmegYGBgcHdPRBF/Pv3bwzPnj1iJGgALoBsABOlmQkAg3FBuCPnb4UAAAAASUVORK5CYII="
    }
   ],
   "15-07": [
@@ -352,7 +382,8 @@
     "name": "マルコーニ",
     "tool": "📡 アンテナ",
     "year": "1895",
-    "intro": "1895年に無線通信を始め、1901年に大西洋を越えて電波を送った"
+    "intro": "1895年に無線通信を始め、1901年に大西洋を越えて電波を送った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAmklEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNdR3ATq4eucxw9U7j/FGIws+yZe7zjIwMDAwaKvIkpYOcHkD3fkYBmgYRcE1blmFGo0+YYiAvHFuGSNGGMipOv/HpQGZja4Wbxiga8QGmCjNTAC06zQRrAardQAAAABJRU5ErkJggg=="
    }
   ],
   "5-02": [
@@ -360,13 +391,15 @@
     "name": "フレミング",
     "tool": "💡 二極管",
     "year": "1904",
-    "intro": "1904年、熱した陰極から電子が出るエジソン効果を使って、二極管を作った"
+    "intro": "1904年、熱した陰極から電子が出るエジソン効果を使って、二極管を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAu0lEQVR42mNgGAWM2ATfHFnwH5u4iE0ChnomdIGHDx/+x2UbNjkmSr2AYsCVDRP+cz/ez8DAwMBgFNUMF4exuR/vZ7iyYcJ/vGHw8OFDuCHo4KusI4O8vDwj0V64eucxw9U7j/F6gQWXxFdZRwYFWSgb6nyioxFXTKA7H8MAZWUNuMZ9+3aiKHRycoez7969wYgRBlJScv/RNfz+/Y3h9+9vKJrR1TIiC3JychEV99+/f2N49uwRI1USEgC1L0Niot52CAAAAABJRU5ErkJggg=="
    },
    {
     "name": "ド・フォレスト",
     "tool": "📻 三極管",
     "year": "1906",
-    "intro": "1906年、二極管にグリッドを足して、電流を操れる三極管（オーディオン）を作った"
+    "intro": "1906年、二極管にグリッドを足して、電流を操れる三極管（オーディオン）を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNdR3ATq4eucxw9U7j/FGI85ARA809EDFmw5weQPd+RgG5OVVwDVWVGQysN3bz8DAwMDwS8mRoaNjOlzdpEkdjBgGBAVF/ZeRkUMxXW7XBgYGBgaGR24BKOJPnjxiWLduGSPBQCQGUGwAANkIOrnJJCNyAAAAAElFTkSuQmCC"
    }
   ],
   "6-09": [
@@ -374,13 +407,15 @@
     "name": "ハーバー",
     "tool": "🧪 高圧の反応管",
     "year": "1913",
-    "intro": "1913年、高い圧力で窒素と水素からアンモニアを作る方法を工業化した（ボッシュと）"
+    "intro": "1913年、高い圧力で窒素と水素からアンモニアを作る方法を工業化した（ボッシュと）",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAs0lEQVR42mNgGAWM2ATfHFnwH5u4iE0ChnomdAE3I+X/uGzDJseES3FAxTKsbLxeuLJhwn8JEQGGgIplDI8e3WWQk1NmYGBggLM3dEQxvHjzgUEnoIARZxjg8j+ucGDCp/jqnccMV+88xhsLLLgkovKaUfjLJtXSJhpRBJSVNeAad+5cj6LQ3T0Qzr579wYjRhhIScn9x6UBmY2ulhFZkJOTi6jk+/37N4Znzx4xEowFYgAAFpw8rWM8GlAAAAAASUVORK5CYII="
    },
    {
     "name": "ボッシュ",
     "tool": "🏭 アンモニア工場",
     "year": "1913",
-    "intro": "1913年、ハーバーと、窒素と水素からアンモニアを作る方法を工業化した"
+    "intro": "1913年、ハーバーと、窒素と水素からアンモニアを作る方法を工業化した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlElEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNdR3ATq4eucxw9U7j/FGI85ARA809EDFmw5weQPd+RgG5OVV/Eew41EUTpq0EIndwYgRBkFBUf9xa1iIYhiyWhZ8AYSuERtgojQzAQCOUTcFMHdLkwAAAABJRU5ErkJggg=="
    }
   ],
   "14-12": [
@@ -388,7 +423,8 @@
     "name": "ライト兄弟",
     "tool": "✈️ 自作の飛行機",
     "year": "1903",
-    "intro": "1903年、自作のエンジンをのせた飛行機で空を飛んだ"
+    "intro": "1903年、自作のエンジンをのせた飛行機で空を飛んだ",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArklEQVR42mNgGGjAiC5QkRf/H5+GjkkLUfQwUdUF8aHe/4nVuHD1VkasXnAzUv6/bFItVk1Rec0Mu87dpa4XUAy4smEC3HajqGa4OIy9bFItw5UNE/7jjYU3RxbgDQcRmwTivXD1zmOGq3ce4/UCCy6JqLxmFD6ugGXEJojLG+jOxzAgxU0XrrFi2irUFJgVBmfP2XWZESMMvE0U/+PSgMxGV8uCN92jaSSYDsgBAMVqOQcN1iifAAAAAElFTkSuQmCC"
    }
   ],
   "9-08": [
@@ -396,7 +432,8 @@
     "name": "チョクラルスキー",
     "tool": "🏺 溶けた金属と種",
     "year": "1916",
-    "intro": "1916年、溶けた金属から結晶を引き上げる方法を見つけた"
+    "intro": "1916年、溶けた金属から結晶を引き上げる方法を見つけた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNgGPKAEZugm5Hyf2ziu87dZSRoAEzzskm1KOJRec1YDWHCZhO6ZlxiOA0gBaAYcGXDhP8wm4yimuHiMPaySbUMVzZM+I83DN4cWfAfn40iNgmMRHvh6p3HDFfvPMbrBRZcErBQJxSIWNMBLm+gOx/DAA2jKLjGfVvaGdju7WdgYGBg+KXkyODkUwlXd+PcMkYMA+RUnf9z8YqjmJ7y7RwDAwMDwxwuIxTxb59fMjy6vZeR+umAHAAAZVg+V8cO1xkAAAAASUVORK5CYII="
    }
   ],
   "13-10": [
@@ -404,7 +441,8 @@
     "name": "フレミング（アレクサンダー）",
     "tool": "🧫 青カビの皿",
     "year": "1928",
-    "intro": "1928年、青カビのまわりで菌が死ぬのを見つけた（ペニシリン）"
+    "intro": "1928年、青カビのまわりで菌が死ぬのを見つけた（ペニシリン）",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAArUlEQVR42mNgGPKAEZvgtGnT/mMTz8rKwlDPRKxmXHIsuBSH6XGh8Fdd+kacF94cWfAfn59FbBIYcXrhyoYJcM1GUc0M2NjIaqjvAnRw9c5jhqt3HuONRhZ8ki93nWVgYGBg0FaRJS0d4PIGuvMxDLhz5zpcIxcXFwPbvf0MDAwMDL+UHBm+fUNEo4qKJiNGGCxduhDF1m/fvjEsSOlgWJDSgaIZXS0TpXmBYgMA02lBlMonu08AAAAASUVORK5CYII="
    }
   ],
   "9-03": [
@@ -412,13 +450,15 @@
     "name": "バーディーン",
     "tool": "🔌 金の接点とゲルマニウム",
     "year": "1947",
-    "intro": "1947年12月、ブラッテンとゲルマニウムに金の接点を押し当て、信号を増幅した"
+    "intro": "1947年12月、ブラッテンとゲルマニウムに金の接点を押し当て、信号を増幅した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwUlEQVR42mNgGPKAEZugm5Hyf2ziu87dZSRoAEzzskm1KOJRec1YDWHCZhO6ZlxiOA0gBaAYcGXDhP8wm4yimuHiMPaySbUMVzZM+I83DN4cWfAfn40iNgmMRHvh6p3HDFfvPMbrBRZ8ki93nWVgYGBg0FaRJS0d4PIGuvMxDMjLq4BrrKjIZGC7t5+BgYGB4ZeSI0NHx3S4ukmTOhgxDAgKivovIyOHYvq5bxqQWOC6gSL+5MkjhnXrljFSPx2QAwBosj4znCxWqgAAAABJRU5ErkJggg=="
    },
    {
     "name": "ブラッテン",
     "tool": "🔌 プラスチックのくさび",
     "year": "1947",
-    "intro": "1947年12月、バーディーンとプラスチックのくさびで2つの金の接点を押し当てた"
+    "intro": "1947年12月、バーディーンとプラスチックのくさびで2つの金の接点を押し当てた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA30lEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOT2+OLPj/5siC/zY2bv+xsfGGwZUNE/5LiAgwBFQsY3j06C6DnJwyAwMDA5y9oSOK4cWbDww6AQWMOAMRmy3IQMQmgRFvICKDq3ceM1y98xivl1nwSb7cdZaBgYGBQVtFlrR0gMsb6M7HMCDFTReusWnBFga2e/sZGBgYGH4pOTLUJfjA1c3ZdRkzEL1NFP9LCvGgmK7x6DcDAwMDww05VhTx5+++MGw9c5+RYCASAyg2AACuxlWjDwzrYQAAAABJRU5ErkJggg=="
    }
   ],
   "15-14": [
@@ -426,7 +466,8 @@
     "name": "シャノン",
     "tool": "0️⃣1️⃣ ビット",
     "year": "1948",
-    "intro": "1948年「通信の数学的理論」で、情報の単位ビットを示した"
+    "intro": "1948年「通信の数学的理論」で、情報の単位ビットを示した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAs0lEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNdR3ATq4eucxw9U7j/FGIws+yZe7zjIwMDAwaKvIkpYOcHkD3fkYBuTlVcA1VlRkMrDd28/AwMDA8EvJkaGjYzpc3aRJHYwYBgQFRf2XkZFDTXlHHkESkA2q+JMnjxjWrVvGSDAQiQEUGwAAuUI6lX9Kuk8AAAAASUVORK5CYII="
    }
   ],
   "9-07": [
@@ -434,13 +475,15 @@
     "name": "ティール",
     "tool": "💎 種結晶",
     "year": "1950",
-    "intro": "1950年、リトルとゲルマニウムの単結晶の引き上げを始めた。のちにシリコンでも"
+    "intro": "1950年、リトルとゲルマニウムの単結晶の引き上げを始めた。のちにシリコンでも",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA30lEQVR42mNgGPKAEZtgnpvGf2zik3bdwFDPRKxmXHIsuBTX1VWg8JuaOojz05sjC/6/ObLgv42N239sbLxhcGXDhP8SIgIMARXLGB49ussgJ6fMwMDAAGdv6IhiePHmA4NOQAEjzkDEZgsyELFJYMQbiMjg6p3HDFfvPMbrZRZ8ki93nWVgYGBg0FaRJS0d4PIGuvMxDNAwioJr3LelnYHt3n4GBgYGhl9KjgxOPpVwdTfOLcMMRDlV5/9cvOIopqd8O8fAwMDAMIfLCEX82+eXDI9u72UkGIjEAIoNAAAkklYlmf2+HAAAAABJRU5ErkJggg=="
    },
    {
     "name": "リトル",
     "tool": "💎 種結晶",
     "year": "1950",
-    "intro": "1950年、ティールとゲルマニウムの単結晶の引き上げ装置を作った"
+    "intro": "1950年、ティールとゲルマニウムの単結晶の引き上げ装置を作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuElEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNdR3ATq4eucxw9U7j/FGIws+yZe7zjIwMDAwaKvIkpYOcHkD3fkYBuTlVcA1VlRkMrDd28/AwMDA8EvJkaGjYzpc3aRJHYwYBgQFRf2XkZFDMf3ImyMMDAwMDDYiNijiT548Yli3bhkjwUAkBlBsAAC54jqVfZ5wNgAAAABJRU5ErkJggg=="
    }
   ],
   "9-01": [
@@ -448,7 +491,8 @@
     "name": "プファン",
     "tool": "🔥 動く溶けた帯",
     "year": "1952",
-    "intro": "1952年、溶けた帯を動かして不純物を端に集める帯域精製を考えた"
+    "intro": "1952年、溶けた帯を動かして不純物を端に集める帯域精製を考えた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1UlEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOT2+OLPj/5siC/zY2bv+xsfGGwZUNE/5LiAgwBFQsY3j06C6DnJwyAwMDA5y9oSOK4cWbDww6AQWMOAMRmy3IQMQmgRFvICKDq3ceM1y98xivl1nwSb7cdZaBgYGBQVtFlrR0gMsb6M7HMODOnetwjVxcXAxs9/YzMDAwMPxScmT49u0bXJ2KiiYjRhgsXboQxdZv374x2OTtYrDJ24WiGV0tE6V5gWIDAPSWWgRfI4GAAAAAAElFTkSuQmCC"
    }
   ],
   "9-22": [
@@ -456,13 +500,15 @@
     "name": "キルビー",
     "tool": "🔲 ゲルマニウム上の回路",
     "year": "1958",
-    "intro": "1958年9月、テキサス・インスツルメンツでゲルマニウムの上に部品を作り、金線で結んだ"
+    "intro": "1958年9月、テキサス・インスツルメンツでゲルマニウムの上に部品を作り、金線で結んだ",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA40lEQVR42mNgGPKAEZugm5Hyf2ziu87dZSRoAEzzskm1KOJRec1YDWHCZhO6ZlxiOA1gYGBgCKhYhpWN1wtXNkz4LyEiwBBQsYzh0aO7DHJyygwMDAxw9oaOKIYXbz4w6AQUMOIMgzdHFvzHF+oiNgmMRHmBgYGB4eqdxwxX7zzGG40s+CRf7jrLwMDAwKCtIktaOsDlDXTnYxigYRQF17hvSzsD2739DAwMDAy/lBwZnHwq4epunFuGGYhyqs7/uXjFUUxP+XaOgYGBgWEOlxGK+LfPLxke3d7LSDAQiQEUGwAAZJtFYMss3xcAAAAASUVORK5CYII="
    },
    {
     "name": "ノイス",
     "tool": "🔲 平らなシリコンの回路",
     "year": "1959",
-    "intro": "1959年、シリコンの平らな面の上に部品と配線を作る IC を考えた"
+    "intro": "1959年、シリコンの平らな面の上に部品と配線を作る IC を考えた",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAs0lEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOC2+OLPiPz88iNgmMOL1wZcMEuGajKISNyGxkNdR3ATq4eucxw9U7j/FGIws+yZe7zjIwMDAwaKvIkpYOcHkD3fkYBuTlVcA1VlRkMrDd28/AwMDA8EvJkaGjYzpc3aRJHYwYBgQFRf2XkZFDTXlHHkESkA2q+JMnjxjWrVvGSDAQiQEUGwAAuUI6lX9Kuk8AAAAASUVORK5CYII="
    }
   ],
   "10-16": [
@@ -470,19 +516,22 @@
     "name": "マカロック",
     "tool": "🧠 人工ニューロン",
     "year": "1943",
-    "intro": "1943年、ピッツと人工ニューロン（脳の神経細胞の数学モデル）を発表した"
+    "intro": "1943年、ピッツと人工ニューロン（脳の神経細胞の数学モデル）を発表した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqElEQVR42mNgGPKAEZvgw4cP/2MTl5eXZyRoAEwz9+P9KOJfZR2xGsKEzSZ0zbjEcBpACkAx4MqGCf9hNhlFNcPFYWzux/sZrmyY8J9gGOBy7ldZR+LCAAau3nnMcPXOY7xeYMEl8VXWkUFBFsrGE4jUTQcpbrpwjbWzt6AobE71gbPn7LrMiBEG3iaK/9E1/P79jeH3728omtHVsuALoI6sMNLSATkAACE9QjJevvzvAAAAAElFTkSuQmCC"
    },
    {
     "name": "ピッツ",
     "tool": "🧠 人工ニューロン",
     "year": "1943",
-    "intro": "1943年、マカロックと人工ニューロンを発表した"
+    "intro": "1943年、マカロックと人工ニューロンを発表した",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA2UlEQVR42mNgGPKAEZugm5Hyf2ziu87dxVDPRKxmXHIsuBQvm1SLwo/KaybOT2+OLPj/5siC/zY2bv+xsfGGwZUNE/5LiAgwBFQsY3j06C6DnJwyAwMDA5y9oSOK4cWbDww6AQWMOAMRmy3IQMQmgRFvICKDq3ceM1y98xivl1nwSb7cdZaBgYGBQVtFlrR0gMsb6M7HMCAvrwKusaIik4Ht3n4GBgYGhl9KjgwdHdPh6iZN6sAMxKCgqP8yMnKoKe/II0gCskEVf/LkEcO6dcsYCQYiMYBiAwDTzlWjkaIY+wAAAABJRU5ErkJggg=="
    },
    {
     "name": "ローゼンブラット",
     "tool": "🧠 パーセプトロン",
     "year": "1958",
-    "intro": "1958年、学習するパーセプトロンを作った"
+    "intro": "1958年、学習するパーセプトロンを作った",
+    "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAp0lEQVR42mNgGHTAzUj5PzKNSwwGGPEZgg52nbuLoZ6JWM1EuQBZwbJJtSgKo/KasboEwwB0jeggKq8ZxQAmXAqNopqxsgmGAQycW1aLlY3XAPRQvnrnMcPVO4/xxgQLPv++3HWWgYGBgUFbRRanGqzp4M2RBVijUsQmgRGvARpGUXCNW1ah+tsnDBGQN84tw4wFOVXn/7g0ILPR1eINA3SNJEUjsQAAiG4//yGIGJAAAAAASUVORK5CYII="
    }
   ]
  }

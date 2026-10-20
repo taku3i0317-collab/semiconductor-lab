@@ -21,7 +21,7 @@
 | network.html | 技術ネットワーク図（ブラウザで開く。点＝技術、横＝年、縦＝幹。クリックでカード）。データは tech_network.js |
 | node.html | ノード詳細ページ（node.html#9-07 のように番号で開く）：へえ①〜④・本物・人物・確かさと出典・ゲームでの作り方・ここにたどり着く道のり・影響・時を超えたつながり・誤りの報告 |
 | machine_recipes.json | 機械のレシピ（入力・出力・電力・時間）。GameTest exportMachineRecipes が tools/test.ps1 のたびに書き出す（手で編集しない） |
-| network_meta.json | ネットワーク図の見た目（ノード→アイコンのテクスチャ、幹の記号、モノの絵文字、人物＝シルエット＋名前＋ゆかりの道具）。手で編集する |
+| network_meta.json | ネットワーク図の見た目（ノード→アイコンのテクスチャ、幹の記号、モノの絵文字、人物＝ドット絵の肖像（tools/gen_portraits.py）＋名前＋ゆかりの道具）。手で編集する |
 | tech_network.js | tech_network.json と同じ中身の JS（network.html をファイルから直接開いても読めるように） |
 | tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
