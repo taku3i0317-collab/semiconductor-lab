@@ -72,6 +72,10 @@ sphalerite_ore  # Metallurgy [1-13] 1150
 fluorite  # Metallurgy [1-21] 1530
 fluorite_ore  # Metallurgy [1-21] 1530
 coke  # Metallurgy [1-10] 1709
+raw_crucible  # Metallurgy [1-11] 1740
+clay_crucible  # Metallurgy [1-11] 1740
+crucible_charge  # Metallurgy [1-11] 1740
+crucible_steel  # Metallurgy [1-11] 1740
 platinum_grain  # Metallurgy [1-20] 1748
 ammonium_chloroplatinate  # Metallurgy [1-18] 1800
 platinum_sponge  # Metallurgy [1-18] 1800

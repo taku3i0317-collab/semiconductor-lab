@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:clay_crucible",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "minecraft:charcoal"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crucible_charge",
+    "count": 1
+  }
+}

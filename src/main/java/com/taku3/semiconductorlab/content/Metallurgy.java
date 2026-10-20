@@ -107,6 +107,11 @@ public final class Metallurgy {
     // [1-09] 高炉の銑鉄（炭素約4%、溶けて流れ出た鉄。硬いがもろい → 転炉 [1-26] で鋼に）とスラグ（ケイ酸カルシウム）
     public static final Item PIG_IRON              = Reg.item("pig_iron");
     public static final Item BLAST_FURNACE_SLAG    = Reg.item("blast_furnace_slag");
+    // [1-11] るつぼ鋼（IMP2 O-010、ハンツマン 1740頃）：耐火粘土のるつぼに鍛鉄＋木炭を入れ、ふたをして完全に溶かす → 炭素のむらがない鋼（C 約1%）
+    public static final Item RAW_CRUCIBLE          = Reg.item("raw_crucible");          // 粘土＋焼粉（耐火れんがを砕いた物）で形を作っただけ
+    public static final Item CLAY_CRUCIBLE         = Reg.item("clay_crucible", new Item.Properties().stacksTo(16)); // 焼いた耐火粘土のるつぼ
+    public static final Item CRUCIBLE_CHARGE       = Reg.item("crucible_charge");       // るつぼ＋鍛鉄×2＋木炭（ふたをした物）
+    public static final Item CRUCIBLE_STEEL        = Reg.item("crucible_steel");        // るつぼ鋼のインゴット（C 約1%、焼入れで硬くなる）
     public static final Item IRON_FLASK            = Reg.item("iron_flask");
     public static final Item LEAD_BOTTLE           = Reg.item("lead_bottle");
     public static final Item CINNABAR_DUST         = Reg.item("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉

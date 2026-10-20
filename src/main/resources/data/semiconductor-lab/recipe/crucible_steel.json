@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:crucible_charge",
+  "result": {
+    "id": "semiconductor-lab:crucible_steel",
+    "count": 2
+  },
+  "experience": 0.7,
+  "cookingtime": 400
+}

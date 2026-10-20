@@ -1209,6 +1209,20 @@
 - Wikipedia「Jay W. Lathrop」：https://en.wikipedia.org/wiki/Jay_W._Lathrop
 - Wikipedia「Contact lithography」：https://en.wikipedia.org/wiki/Contact_lithography
 
+## O39. ふたをしたるつぼで鋼を完全に溶かす（るつぼ鋼）［1-11］
+**答え**：1740年ごろ、シェフィールドの時計職人ハンツマンは、ばねにするむらのない鋼を作るため、浸炭した鋼（ふくれ鋼）を耐火粘土のるつぼに入れてふたをし、コークスの火で完全に溶かして型に流した（キャスト・スチール）。ふたで空気をさえぎるので炭素が逃げず、どこも同じ硬さの鋼になる。
+
+- へえ①：時計のばねのために生まれた鋼が、100年以上、刃物と工具の最高の鋼になった。
+- へえ②：インドのウーツ鋼（ダマスカス刀の材料）も、鉄と植物を密閉したるつぼで作られた。
+- へえ③：るつぼは職人が耐火粘土を足で踏んでこねて作り、3回ほどで割れた。
+- へえ④：むらのない鋼があって初めて、ゲージブロックのような精密な測定具が作れた。
+
+確かさ：ハンツマン 1740年ごろ・時計のばね ◎／ストウブリッジ粘土のるつぼ ○／るつぼが3回ほど使えた ○／ウーツ鋼の製法 ○
+根拠：
+- Wikipedia「Crucible steel」：https://en.wikipedia.org/wiki/Crucible_steel
+- Wikipedia「Benjamin Huntsman」：https://en.wikipedia.org/wiki/Benjamin_Huntsman
+- Wikipedia「Wootz steel」：https://en.wikipedia.org/wiki/Wootz_steel
+
 ---
 
 # 冶金と熱（タスク15〜）

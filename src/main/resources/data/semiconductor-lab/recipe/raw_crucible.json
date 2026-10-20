@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C C",
+    "CBC"
+  ],
+  "key": {
+    "C": "minecraft:clay_ball",
+    "B": "semiconductor-lab:refractory_brick"
+  },
+  "result": {
+    "id": "semiconductor-lab:raw_crucible",
+    "count": 1
+  }
+}

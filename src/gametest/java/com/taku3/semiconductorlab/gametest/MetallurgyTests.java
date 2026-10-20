@@ -81,6 +81,24 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class MetallurgyTests extends LabTestBase {
+    /** [1-11] るつぼ鋼（IMP2 O-010）：粘土＋焼粉 → るつぼ（溶鉱炉で焼く）→ るつぼ＋鍛鉄×2＋木炭 → 溶鉱炉で溶かす → るつぼ鋼×2（るつぼは割る） */
+    @GameTest
+    public void crucible_steel(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "raw_crucible", Heat.REFRACTORY_BRICK) && recipeUses(h, "raw_crucible", net.minecraft.world.item.Items.CLAY_BALL), "crucible = clay + grog (crushed refractory brick)");
+        h.assertTrue(recipeUses(h, "clay_crucible", Metallurgy.RAW_CRUCIBLE), "raw crucible fired in the blast furnace");
+        h.assertTrue(recipeUses(h, "crucible_charge", Metallurgy.CLAY_CRUCIBLE) && recipeUses(h, "crucible_charge", net.minecraft.world.item.Items.IRON_INGOT)
+                && recipeUses(h, "crucible_charge", net.minecraft.world.item.Items.CHARCOAL), "charge = crucible + wrought iron + charcoal (carbon)");
+        var lv = h.getLevel();
+        var in = new net.minecraft.world.item.crafting.SingleRecipeInput(new ItemStack(Metallurgy.CRUCIBLE_CHARGE));
+        ItemStack out = lv.getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.BLASTING, in, lv)
+                .map(r -> r.value().assemble(in)).orElse(ItemStack.EMPTY);
+        h.assertTrue(out.is(Metallurgy.CRUCIBLE_STEEL) && out.getCount() == 2, "blast furnace melts the charge -> 2 crucible steel");
+        h.assertTrue(lv.getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.SMELTING, in, lv).isEmpty(),
+                "an ordinary furnace is not hot enough");
+        LOG.info("[LAB] crucible_steel [1-11]: clay + grog -> crucible, + 2 wrought iron + charcoal -> blast furnace -> 2 crucible steel");
+        h.succeed();
+    }
+
     @GameTest public void oreSphalerite(GameTestHelper h) { oreFeature(h, "sphalerite_ore", Blocks.STONE, Blocks.COBBLESTONE, Metallurgy.SPHALERITE_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreGalena(GameTestHelper h)     { oreFeature(h, "galena_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.GALENA_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreGraphite(GameTestHelper h)   { oreFeature(h, "graphite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.GRAPHITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:raw_crucible",
+  "result": {
+    "id": "semiconductor-lab:clay_crucible"
+  },
+  "experience": 0.2,
+  "cookingtime": 200
+}
