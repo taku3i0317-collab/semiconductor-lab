@@ -71,6 +71,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 </div>
 <script src="tech_network_graph.js"></script>
 <script src="tech_network_detail.js"></script>
+<script src="design_options/design.js"></script>
 <script>
 (async function () {
   // 軽いデータと重いデータを1つにまとめる（肖像は人物ごとに1か所にまとめてあるので番号から戻す）
@@ -180,7 +181,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     const anc = walk(id, parentsOf), desc = walk(id, kids);
     const still = makeable(id), lost = [...ALL].filter(x => x !== id && !still.has(x));
     const usedBy = nodes.filter(n => isProd(n) && n.id !== id && walk(n.id, parentsOf).has(id));
-    const { n: remain, order, memo } = plan(id);
+    // あと何個：作る順番の一覧の数（共通の前提を何度も数えないように。以前は合計の見積もりをそのまま出していて、[10-16] で 8367 と出ていた）
+    const { order, memo } = plan(id), remain = order.length;
     const pathHtml = order.map(u => {
       const m = memo.get(u), n = byId.get(u);
       const ors = m.pick.filter(p => p.alts.length > 1).map(p => `<div class="or">別ルート（どれか1つ）：${p.alts.map(a => a.map(i => `<a href="#${i}">${i}</a>`).join('+')).join(' or ')}</div>`).join('');
@@ -201,10 +203,12 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
       [d.enabled_by, 'これを作れるようにした考え方', ''],
       [d.explained_by, 'なぜ動くかを説明する考え方', '']
     ].filter(([ids]) => ids && ids.length).map(([ids, h, note]) => `<p class="muted" style="margin-top:8px">${h}${note ? `（${note}）` : ''}</p>${chips(ids)}`).join('');
-    const issue = `${REPO}/issues/new?` + new URLSearchParams({
-      title: `[${d.id}] ${d.name} の誤り`,
-      body: `ノード: [${d.id}] ${d.name}\nページ: node.html#${d.id}\n\nどこが違うか：\n\n正しいと思う内容：\n\n出典（あれば）：\n`
+    // 誤りの報告：.github/ISSUE_TEMPLATE の3つのひな形（GitHub の Issue フォーム）を、ノード番号を入れた状態で開く
+    const issue = (template, tag) => `${REPO}/issues/new?` + new URLSearchParams({
+      template, title: `[${tag}] [${d.id}] ${d.name}`, node: d.id
     }).toString();
+    const issues = [['1-year-person.yml', '年・人物', '年・人物の誤り'], ['2-prerequisite.yml', 'つながり', '前提（つながり）の誤り'], ['3-source.yml', '出典', '出典の追加']]
+      .map(([t, tag, label]) => `<a class="btn" href="${issue(t, tag)}" target="_blank" rel="noopener">${label}</a>`).join(' ');
     const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span class="muted">or</span> ')).join('<br>');
 
     page.innerHTML = `
@@ -271,8 +275,9 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
       </section>
 
       <section><h2>誤りを見つけたら</h2>
-        <p><a class="btn" href="${issue}" target="_blank" rel="noopener">誤りを報告（GitHub の Issue）</a></p>
-        <p class="muted">タイトルにノード番号が入った報告の画面が開きます（GitHub のアカウントが要ります）。</p>
+        <p class="muted">誤りを報告（GitHub の Issue）：</p>
+        <p style="display:flex;flex-wrap:wrap;gap:6px">${issues}</p>
+        <p class="muted">ノード番号が入ったひな形が開きます（GitHub のアカウントが要ります）。</p>
       </section>`;
   }
   const go = document.getElementById('go');
