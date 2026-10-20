@@ -48,7 +48,23 @@ aside#card.open { display: block; }
 .legend { position: absolute; left: 12px; bottom: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 11px; color: var(--sub); display: flex; gap: 12px; flex-wrap: wrap; max-width: calc(100% - 24px); }
 .legend span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 #card .more { display: inline-block; margin-top: 6px; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 3px 10px; text-decoration: none; font-size: 13px; }
+.legend[hidden] { display: none; }
 .hint { position: absolute; right: 12px; top: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--sub); }
+/* 入口の説明・検索の結果・図の見方（NET-09 U-1 U-6 U-7） */
+.intro { padding: 8px 16px; background: var(--band-a); border-bottom: 1px solid var(--line); font-size: 14px; }
+.searchbox { position: relative; }
+.results { position: absolute; z-index: 20; left: 0; top: calc(100% + 4px); width: min(420px, 90vw); max-height: 60vh; overflow: auto; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+.results button { display: flex; gap: 8px; width: 100%; text-align: left; border: 0; border-bottom: 1px solid var(--line); background: none; padding: 8px 10px; font: inherit; color: var(--ink); cursor: pointer; }
+.results button:hover, .results button:focus { background: var(--band-a); }
+.results small { color: var(--sub); }
+.btn.primary { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+.btn { border: 1px solid var(--accent); color: var(--accent); background: var(--panel); cursor: pointer; font-family: var(--font); }
+.legendBtn { position: absolute; left: 12px; bottom: 10px; z-index: 4; }
+.legend { bottom: 54px; }
+#card .loading { color: var(--sub); }
+#card details.trunks summary { cursor: pointer; font-size: 13px; color: var(--accent); margin: 4px 0; }
+#card details.trunks details summary { color: var(--ink); }
+small.term { color: var(--sub); font-weight: 400; }
 /* 祖先の層（NET-09） */
 #card .layer { margin: 6px 0; }
 #card .layer h4 { font-size: 12px; color: var(--sub); margin: 6px 0 4px; font-weight: 600; }
@@ -75,39 +91,45 @@ aside#card.open { display: block; }
   header input[type=search] { width: auto; flex: 1 1 160px; }
   header select { flex: 1 1 40%; }
   header label { font-size: 12px; }
-  header .stat { font-size: 11px; width: 100%; }
+  header .stat { display: none; }   /* スマホでは数の行を出さない（図を広く） */
+  header .btn { min-height: 32px; padding: 0 10px; font-size: 13px; }
+  .intro { font-size: 13px; padding: 6px 12px; }
   .legend { display: none; }
   .hint { top: auto; bottom: 10px; right: 10px; left: 10px; text-align: center; }
 }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
 <link rel="stylesheet" href="design.css">
 </head>
 <body>
 <header>
   <h1>技術ネットワーク</h1>
-  <input type="search" id="q" placeholder="検索（名前・番号・本物・へえ）" aria-label="検索">
-  <select id="trunk" aria-label="幹で絞り込み"><option value="">すべての幹</option></select>
-  <select id="layout" aria-label="表示の形"><option value="time">時間軸</option><option value="net">ネットワーク</option></select>
+  <div class="searchbox"><input type="search" id="q" placeholder="さがす（技術・モノ・人の名前、番号）" aria-label="さがす" autocomplete="off"><div id="results" class="results" hidden></div></div>
+  <button type="button" id="layoutBtn" class="btn primary">つながりで見る</button>
+  <button type="button" id="aiBtn" class="btn">AI までの道</button>
+  <a class="btn" href="people.html">人物の一覧</a>
+  <select id="trunk" aria-label="分野でしぼる"><option value="">すべての分野</option></select>
   <label><input type="checkbox" id="all"> すべての技術</label>
   <label><input type="checkbox" id="now"> 今すぐ作れるだけ</label>
-  <label><input type="checkbox" id="und" checked> 理解の線</label>
+  <label><input type="checkbox" id="und" checked> なぜ動くかの線</label>
   <span class="stat" id="stat"></span>
 </header>
+<div class="intro" id="intro">石器から AI まで、約400の技術・モノ・発見が「何が無いと何が作れないか」でつながる地図です。<b>まず、モノ（大きな丸）を押してみよう。</b></div>
 <main>
   <div id="chart">
     <canvas id="cv" role="img" aria-label="技術ネットワーク図"></canvas>
     <div class="hint" id="hint"></div>
-    <div class="legend">
-      <span>大きな丸＝モノ（選ぶと使われている技術が光る）</span>
-      <span><svg width="14" height="14"><path d="M7 1L13 7L7 13L1 7Z" fill="none" stroke="#8e5bd6" stroke-width="1.6"/></svg>発見・考え方（実験で見つける）</span>
-      <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="#888" stroke="#888"/></svg>✅ 作った</span>
-      <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="#888" stroke-width="1.6"/></svg>❓ まだ</span>
-      <span><i class="sw"></i>前提</span>
-      <span><svg width="18" height="6"><line x1="0" y1="3" x2="18" y2="3" stroke="#888" stroke-dasharray="3 3"/></svg>理解</span>
-      <span><svg width="18" height="6"><line x1="0" y1="3" x2="18" y2="3" stroke="#888" stroke-dasharray="7 3"/></svg>発見→技術</span>
+    <button type="button" class="btn legendBtn" id="legendBtn" aria-expanded="false">？ 図の見方</button>
+    <div class="legend" id="legend" hidden>
+      <span>大きな丸＝モノ（押すと、使われている技術が光る）</span>
+      <span><svg width="14" height="14"><path d="M7 1L13 7L7 13L1 7Z" fill="none" stroke="#8e5bd6" stroke-width="1.6"/></svg>発見・考え方</span>
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="#888" stroke="#888"/></svg>塗り＝ゲームで作れる</span>
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="#888" stroke-width="1.6"/></svg>輪だけ＝まだ</span>
+      <span><i class="sw"></i>これが無いと作れない</span>
+      <span><svg width="18" height="6"><line x1="0" y1="3" x2="18" y2="3" stroke="#888" stroke-dasharray="3 3"/></svg>なぜ動くかの説明</span>
+      <span><svg width="18" height="6"><line x1="0" y1="3" x2="18" y2="3" stroke="#888" stroke-dasharray="7 3"/></svg>考え方から生まれた</span>
     </div>
   </div>
   <aside id="card" aria-live="polite"></aside>
@@ -291,7 +313,7 @@ aside#card.open { display: block; }
         ctx.fillStyle = land ? C.panel : i % 2 ? C['band-b'] : C['band-a'];
         ctx.fillRect(0, b.y, W, b.h);
         if (!land && !V.bandZoomHidden) text('ズームすると技術が見えます', `13px ${FONT}`, 'center', 'alphabetic', C.sub, W / 2, b.y + b.h / 2 + 4);
-        text(t === 'P' ? 'モノ（時代順）' : t === 'I' ? '発見・考え方（◆ 実験で見つける）' : `${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}`,
+        text(t === 'P' ? 'モノ（時代順）' : t === 'I' ? '発見・考え方（◆ 実験で見つける）' : `${trunkName(t)}（${t === 'B' ? '枝' : '幹' + t}）`,
           `600 11px ${FONT}`, 'left', 'alphabetic', land || DS ? (land ? C.ink : C.sub) : color(t), 8, b.y + 14);
       });
       ctx.globalAlpha = 1;
@@ -328,7 +350,7 @@ aside#card.open { display: block; }
       ctx.globalAlpha = a;
       ctx.beginPath(); if (isIdea(d)) diamondPath(r); else ctx.arc(0, 0, r, 0, Math.PI * 2);
       ctx.fillStyle = land ? C.prod : d.status === '✅' ? (DS ? DS.done : color(d.trunk)) : C.bg; ctx.fill();
-      ctx.strokeStyle = d.sel || d.match || d.lit || d.onPath ? C.hl : isIdea(d) ? IDEA : color(d.trunk);
+      ctx.strokeStyle = d.sel || d.match || d.lit || d.onPath ? C.hl : isIdea(d) ? IDEA : isProd(d) ? DS.prod : color(d.trunk);   // モノは幹によらず1色
       ctx.lineWidth = d.sel ? 4 : d.match ? 3 : isIdea(d) ? 2 : isProd(d) ? 2.4 : 1.6;
       if (d.status === '⛔' || d.status === '➖') ctx.setLineDash([2, 2]);
       ctx.stroke(); ctx.setLineDash([]);
@@ -351,8 +373,8 @@ aside#card.open { display: block; }
         ctx.globalAlpha = a;
       }
       if (land || d.descendants >= 8) {   // 名前（背景色のふちどり付き）
-        const lx = land ? 0 : r + 2, ly = land ? r * (isIdea(d) ? 1.25 : 1) + 12 : 3;
-        text(d.name, land ? `700 11px ${LABEL_FONT}` : `9px ${FONT}`, land ? 'center' : 'left', 'alphabetic', C.ink, lx, ly, land ? ps : 1, C.bg, 3);
+        const lx = land ? 0 : r + 2, ly = land ? (d.labelUp ? -r * (isIdea(d) ? 1.25 : 1) - 5 : r * (isIdea(d) ? 1.25 : 1) + 13) : 3;
+        text(d.name, land ? `700 12px ${LABEL_FONT}` : `9px ${FONT}`, land ? 'center' : 'left', 'alphabetic', C.ink, lx, ly, land ? ps : 1, C.bg, 3);
       }
       ctx.restore();
     }
@@ -378,7 +400,7 @@ aside#card.open { display: block; }
     });
     return best;
   }
-  cv.addEventListener('click', ev => { const d = nodeAt(ev.offsetX, ev.offsetY); select(d ? d.id : null); });
+  cv.addEventListener('click', ev => { const d = nodeAt(ev.offsetX, ev.offsetY); select(d ? d.id : null); if (d) centerKeep(d.id); });
   cv.addEventListener('mousemove', ev => {
     const d = nodeAt(ev.offsetX, ev.offsetY);
     cv.style.cursor = d ? 'pointer' : '';
@@ -387,9 +409,22 @@ aside#card.open { display: block; }
 
   const state = { sel: null, q: '', trunk: '', now: false, und: true, all: false, path: null };
   // ---- 表示の切り替え：「時間軸」（年と幹の帯）と「ネットワーク」（年を使わず、つながりだけの力学レイアウト。ハブが中央に集まる） ----
+  // 近くのモノ・発見と名前が重なるときは、片方の名前を丸の上に出す（U-2）
+  function placeLabels() {
+    const L = nodes.filter(isLand).map(n => ({ n, x: layoutMode === 'net' ? n.netX : n.timeX, y: layoutMode === 'net' ? n.netY : n.timeY, w: n.name.length * 12 }));
+    L.sort((a, b) => a.x - b.x);
+    for (const a of L) a.n.labelUp = false;
+    for (let i = 0; i < L.length; i++) for (let j = i - 1; j >= 0 && L[i].x - L[j].x < (L[i].w + L[j].w) / 2 + 6; j--) {
+      if (Math.abs(L[i].y - L[j].y) < 30 && !L[j].n.labelUp && !L[i].n.labelUp) L[i].n.labelUp = true;
+    }
+  }
   let layoutTimer = null;
   function applyLayout(mode, animate = true) {
     layoutMode = mode;
+    placeLabels();
+    // 表示の切り替えのボタン：今の表示ではない方の名前を出す。一度切り替えた人は次もその表示（保存できない環境でも動く）
+    document.getElementById('layoutBtn').textContent = mode === 'net' ? '時間で見る' : 'つながりで見る';
+    try { localStorage.setItem('tn-layout', mode); } catch (e) { /* 保存できない環境 */ }
     const from = nodes.map(n => [n.x, n.y]), to = nodes.map(n => mode === 'net' ? [n.netX, n.netY] : [n.timeX, n.timeY]);
     if (layoutTimer) layoutTimer.stop();
     const place = e => { nodes.forEach((n, i) => { n.x = from[i][0] + (to[i][0] - from[i][0]) * e; n.y = from[i][1] + (to[i][1] - from[i][1]) * e; }); markDirty(); requestDraw(); };
@@ -510,7 +545,7 @@ aside#card.open { display: block; }
     markDirty(); requestDraw();
     const hits = q ? nodes.filter(d => matches(d, q)).length : 0;
     document.getElementById('stat').textContent = (q ? `「${state.q.trim()}」${hits} 件・` : '') +
-      `モノ ${prods.length}・発見 ${nodes.filter(isIdea).length}・技術 ${nodes.length - prods.length - nodes.filter(isIdea).length}・つながり ${edges.length} 本・年の逆転 ${G.inversions} 件`;
+      `モノ ${prods.length}・発見 ${nodes.filter(isIdea).length}・技術 ${nodes.length - prods.length - nodes.filter(isIdea).length}・つながり ${edges.length} 本・前提より古い技術（年の逆転）${G.inversions} 件`;
     document.getElementById('hint').textContent = det ? 'すべての技術を表示中' : 'ズームすると技術が見えます（モノを選んでも）';
   }
 
@@ -584,7 +619,7 @@ aside#card.open { display: block; }
     // カードは先に開いて（図の幅が決まり、中央合わせがずれない）、中身は重いデータを読んでから
     if (!window.TECH_DETAIL) {
       const d = byId.get(id);
-      card.innerHTML = `<button class="close" aria-label="閉じる">×</button><h2><span>[${d.id}] ${esc(d.name)} ${d.status}</span></h2>`;
+      card.innerHTML = `<button class="close" aria-label="閉じる">×</button><h2><span>[${d.id}] ${esc(d.name)} ${d.status}</span></h2><p class="loading">読み込み中…</p>`;
       card.classList.add('open');
       card.querySelector('.close').onclick = () => select(null);
     }
@@ -594,15 +629,21 @@ aside#card.open { display: block; }
     const card = document.getElementById('card');
     const d = byId.get(id), used = [...anc.get(id)];
     const still = makeable(id), lost = [...ALL].filter(x => x !== id && !still.has(x));
-    const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span style="color:var(--sub)">or</span> ')).join('<br>');
+    const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span style="color:var(--sub)">または（別の作り方）</span> ')).join('<br>');
+    // 使われている技術を分野（幹）ごとにまとめて折りたたむ（U-5）
+    const byTrunk = new Map();
+    for (const i of used) { const t = byId.get(i).trunk; (byTrunk.get(t) || byTrunk.set(t, []).get(t)).push(i); }
+    const trunkHtml = used.length ? `<details class="trunks sec"><summary>分野ごとに見る（${byTrunk.size} 分野）</summary>${[...byTrunk.entries()]
+      .sort((a, b) => b[1].length - a[1].length).map(([t, ids]) => `<details><summary>${esc(byId.get(ids[0]).trunk_name || t)}（${ids.length}）</summary><div class="chips">${ids.sort().map(chip).join('')}</div></details>`).join('')}</details>` : '';
     const next = kids.get(id) || [];
     const head = d.icon ? `<img src="${d.icon}" alt="">` : `<span class="em">${esc(isProd(d) ? (d.emoji || d.symbol) : isIdea(d) ? (d.emoji || '💡') : d.symbol)}</span>`;
     const chips = ids => `<div class="chips">${ids.map(chip).join('')}</div>`;
     card.innerHTML = `<button class="close" aria-label="閉じる">×</button>
       <h2>${head}<span>[${d.id}] ${esc(d.name)} ${d.status}</span></h2>
       <a class="more" href="node.html#${encodeURIComponent(d.id)}">詳しく見る →</a>
-      <div class="meta"><span style="color:${isIdea(d) ? IDEA : color(d.trunk)}">${isIdea(d) ? '◆' : '●'}</span> ${isProd(d) ? '<b>モノ</b>・' : ''}${d.trunk === 'P' || d.trunk === 'I' ? '' : (d.trunk === 'B' ? '枝' : '幹' + d.trunk) + ' '}${esc(d.trunk_name)}・${yearText(d)}${d.buildable_now ? '・<b>今すぐ作れる</b>' : ''}</div>
+      <div class="meta"><span style="color:${isIdea(d) ? IDEA : isProd(d) ? DS.prod : color(d.trunk)}">${isIdea(d) ? '◆' : '●'}</span> ${isProd(d) ? '<b>モノ</b>・' : ''}${esc(d.trunk_name)}${d.trunk === 'P' || d.trunk === 'I' ? '' : `<small class="term">（${d.trunk === 'B' ? '枝' : '幹' + d.trunk}）</small>`}・${yearText(d)}${d.buildable_now ? '・<b>今すぐ作れる</b>' : ''}</div>
       ${wallHtml(id)}
+      ${d.people.length ? `<div class="sec"><h3>人物</h3><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><small>${esc(p.tool)}・${esc(p.year)}</small></div></div>`).join('')}</div></div>` : ''}
       ${d.hee1 ? `<div class="sec"><h3>へえ①</h3>${esc(d.hee1)}</div>` : ''}
       ${d.play ? `<div class="sec"><h3>遊び方</h3>${esc(d.play)}</div>` : ''}
       ${d.enables.length ? `<div class="sec"><h3>この考え方で作れるようになった技術</h3>${chips(d.enables)}</div>` : ''}
@@ -610,18 +651,22 @@ aside#card.open { display: block; }
       ${d.enabled_by.length ? `<div class="sec"><h3>これを作れるようにした考え方</h3>${chips(d.enabled_by)}</div>` : ''}
       ${d.explained_by.length ? `<div class="sec"><h3>なぜ動くかを説明する考え方</h3>${chips(d.explained_by)}</div>` : ''}
       ${d.missing ? `<div class="sec"><h3>足りない技術（ノードを提案中）</h3>${esc(d.missing)}</div>` : ''}
-      ${d.people.length ? `<div class="sec"><h3>人物</h3><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><small>${esc(p.tool)}・${esc(p.year)}</small></div></div>`).join('')}</div></div>` : ''}
-      ${d.real ? `<div class="sec"><h3>本物</h3>${esc(d.real)}</div>` : ''}
+      ${d.real ? `<div class="sec"><h3>本当の話 <small class="term">（本物）</small></h3>${esc(d.real)}</div>` : ''}
       ${layersHtml(id)}
-      ${isIdea(d) ? '' : `<div class="sec"><h3>これが無いと作れなくなる技術（別ルートも考えたうえで）</h3><div class="big">${lost.length}</div><div class="chips">${lost.map(chip).join('')}</div></div>`}
-      <div class="sec"><h3>前提（全部そろう＝AND、or は別ルート）</h3>${req || 'なし'}</div>
-      ${d.understanding.length ? `<div class="sec"><h3>理解（後で分かった科学）</h3><div class="chips">${d.understanding.map(chip).join('')}</div></div>` : ''}
+      ${trunkHtml}
+      ${isIdea(d) ? '' : `<div class="sec"><h3>これが無いと作れなくなる技術 <small class="term">（別の作り方も考えたうえで）</small></h3><div class="big">${lost.length}</div><div class="chips">${lost.map(chip).join('')}</div></div>`}
+      <div class="sec"><h3>これが無いと作れない <small class="term">（前提。全部そろうと作れる）</small></h3>${req || 'なし'}</div>
+      ${d.understanding.length ? `<div class="sec"><h3>なぜ動くかの説明 <small class="term">（理解：後で分かった科学）</small></h3><div class="chips">${d.understanding.map(chip).join('')}</div></div>` : ''}
       <div class="sec"><h3>すぐ次の技術（${next.length}）</h3><div class="chips">${next.map(chip).join('')}</div></div>`;
     card.classList.add('open');
     card.querySelector('.close').onclick = () => select(null);
     card.querySelectorAll('.lchip').forEach(b => b.onclick = ev => { ev.stopPropagation(); showPath(b.dataset.id, id, card); });
     card.querySelectorAll('.wtile').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
     card.querySelectorAll('.chip:not(.lchip)').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
+  }
+  function centerKeep(id) {   // 倍率は変えずに、押した点を図の真ん中へ
+    const d = byId.get(id), b = chart.getBoundingClientRect(), k = d3.zoomTransform(cv).k;
+    d3.select(cv).transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(b.width / 2 - d.x * k, b.height / 2 - d.y * k).scale(k));
   }
   function center(id) {
     const d = byId.get(id), b = chart.getBoundingClientRect(), t = d3.zoomTransform(cv), k = Math.max(t.k, 1);
@@ -630,22 +675,46 @@ aside#card.open { display: block; }
 
   // ---- 操作 ----
   const sel = document.getElementById('trunk');
-  trunks.forEach(t => sel.insertAdjacentHTML('beforeend', `<option value="${t}">${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}</option>`));
+  trunks.forEach(t => sel.insertAdjacentHTML('beforeend', `<option value="${t}">${trunkName(t)}（${t === 'B' ? '枝' : '幹' + t}）</option>`));
   sel.onchange = () => { state.trunk = sel.value; render(); };
   document.getElementById('all').onchange = e => { state.all = e.target.checked; render(); };
-  document.getElementById('layout').onchange = e => { applyLayout(e.target.value); render(); };
+  document.getElementById('layoutBtn').onclick = () => { applyLayout(layoutMode === 'net' ? 'time' : 'net'); render(); };
+  document.getElementById('aiBtn').onclick = () => { select(G.goal); centerKeep(G.goal); };   // AI までの道（U-11）
+  const lb = document.getElementById('legendBtn'), lg = document.getElementById('legend');
+  lb.onclick = () => { lg.hidden = !lg.hidden; lb.setAttribute('aria-expanded', String(!lg.hidden)); };
   document.getElementById('now').onchange = e => { state.now = e.target.checked; render(); };
   document.getElementById('und').onchange = e => { state.und = e.target.checked; render(); };
   const qi = document.getElementById('q');
-  qi.oninput = () => { state.q = qi.value; render(); if (state.q.trim()) ensureDetail().then(render); };   // 本物・へえでも探せるように重いデータを読む
+  // 検索の結果を一覧で（技術・モノ・発見と、人物）。押すとその点へ（U-7）
+  const resBox = document.getElementById('results');
+  function showResults() {
+    const q = state.q.trim().toLowerCase();
+    if (!q) { resBox.hidden = true; resBox.innerHTML = ''; return; }
+    const hit = nodes.filter(d => matches(d, q)).sort((a, b) => (b.name.toLowerCase().includes(q) - a.name.toLowerCase().includes(q)) || (a.year ?? 0) - (b.year ?? 0)).slice(0, 30);
+    const ppl = [];
+    for (const n of nodes) for (const p of n.people || []) if (p.name.toLowerCase().includes(q)) ppl.push({ p, n });
+    const kindName = d => isProd(d) ? 'モノ' : isIdea(d) ? '発見' : '技術';
+    resBox.innerHTML = (ppl.slice(0, 10).map(({ p, n }) => `<button data-id="${n.id}">👤 <span><b>${esc(p.name)}</b> <small>${esc(p.year)}・${esc(n.name)}</small></span></button>`).join('')
+      + hit.map(d => `<button data-id="${d.id}"><span><b>${esc(d.name)}</b> <small>${kindName(d)}・[${d.id}]・${yearText(d)}</small></span></button>`).join(''))
+      || '<p class="muted" style="padding:8px 10px;margin:0">見つかりませんでした</p>';
+    resBox.hidden = false;
+    resBox.querySelectorAll('button').forEach(b => b.onclick = () => { resBox.hidden = true; select(b.dataset.id); centerKeep(b.dataset.id); });
+  }
+  qi.oninput = () => { state.q = qi.value; render(); showResults(); if (state.q.trim()) ensureDetail().then(() => { render(); showResults(); }); };   // 本物・へえ・人物でも探せるように重いデータを読む
+  qi.onfocus = () => { if (state.q.trim()) showResults(); };
+  document.addEventListener('click', ev => { if (!ev.target.closest('.searchbox')) resBox.hidden = true; });
   qi.onkeydown = e => {
     if (e.key !== 'Enter') return;
     const q = qi.value.trim().toLowerCase().replace(/[\[\]]/g, '');
     const hit = nodes.find(n => n.id.toLowerCase() === q) || nodes.find(n => n.name.toLowerCase().includes(q)) || nodes.find(n => matches(n, q));
-    if (hit) { select(hit.id); center(hit.id); }
+    if (hit) { resBox.hidden = true; select(hit.id); centerKeep(hit.id); }
   };
   const fromHash = () => { const h = decodeURIComponent(location.hash.slice(1)); if (byId.has(h)) { select(h); center(h); } };
   window.addEventListener('hashchange', fromHash);
+  let saved = 'time';
+  try { saved = localStorage.getItem('tn-layout') || 'time'; } catch (e) { /* 保存できない環境では時間軸 */ }
+  placeLabels();
+  if (saved === 'net') applyLayout('net', false);
   render();
   fromHash();
 })();

@@ -1,30 +1,32 @@
-/* 技術ネットワークのウェブの共通デザイン（docs/DESIGN_SYSTEM.md の「案 A：シンプル・白基調」）。
+/* 技術ネットワークのウェブの共通デザイン（docs/DESIGN_SYSTEM.md の「案 C：中間＝生成りの紙・青緑のモノ・大きな見出しだけドット風」）。
    network.html と node.html の両方が読む。色・文字・部品の大きさはここで決め、ページの中では変数を使う。
    文字は BIZ UDPゴシック（Google Fonts から読む。フォントのファイルはリポジトリに入れない：SIL OFL で CC0 とは別のため） */
 :root {
   /* 色：意味のある所だけ */
-  --bg: #ffffff; --panel: #ffffff; --ink: #1a1a1a; --sub: #5f6368; --line: #e3e3e3;
-  --band-a: #f6f7f8; --band-b: #ffffff;
-  --accent: #1f5fbf;      /* リンク・ボタン・数字 */
-  --hl: #e8710a;          /* 選んだ・光っている・道 */
-  --prod: #ffffff;        /* モノ・発見の丸の中 */
+  --bg: #faf7f0; --panel: #fffdf8; --ink: #2b2622; --sub: #6b6259; --line: #e4dccd;
+  --band-a: #f3eee3; --band-b: #faf7f0;
+  --accent: #2f6f8f;      /* リンク・ボタン・数字 */
+  --hl: #d9480f;          /* 選んだ・光っている・道 */
+  --prod: #fffdf8;        /* モノ・発見の丸の中 */
   --ok: #2e7d32; --warn: #b26b00;
-  --node-tech: #5f6368;   /* 技術（幹の区別は色でなく、帯の名前とアイコンの形） */
-  --node-done: #3c4043;   /* ✅ 作った技術は塗る（❓ は輪だけ） */
-  --node-prod: #1f5fbf;   /* モノ */
-  --node-idea: #7b3fbf;   /* 発見・考え方（ひし形） */
-  --edge: #9aa0a6;        /* つながりの線（1色） */
-  --icon: #3c4043;        /* 単色のドット絵のアイコン */
+  --node-tech: #7a6f64;   /* 技術（幹の区別は色でなく、帯の名前とアイコンの形） */
+  --node-done: #4a423b;   /* ✅ 作った技術は塗る（❓ は輪だけ） */
+  --node-prod: #2f6f8f;   /* モノ（青緑） */
+  --node-idea: #7c4dab;   /* 発見・考え方（ひし形） */
+  --edge: #b6aa98;        /* つながりの線（1色） */
+  --icon: #4a423b;        /* 単色のドット絵のアイコン */
   /* 文字 */
   --font: "BIZ UDPGothic", system-ui, sans-serif;
+  --font-pixel: "DotGothic16", "BIZ UDPGothic", sans-serif;   /* 大きな見出しだけ */
   /* 形・余白（4・8・12・16・24 の段） */
-  --radius: 8px; --gap-1: 4px; --gap-2: 8px; --gap-3: 12px; --gap-4: 16px; --gap-5: 24px;
+  --radius: 6px; --gap-1: 4px; --gap-2: 8px; --gap-3: 12px; --gap-4: 16px; --gap-5: 24px;
   color-scheme: light;
 }
 body { font-family: var(--font); background: var(--bg); color: var(--ink); }
 a { color: var(--accent); }
 
-/* 見出し：ページ 20px／節 16px／小見出し 13px */
+/* 見出し：ページ 20px／節 16px／小見出し 13px。大きな見出し（ページの題・節の見出し・カードの題）だけドット風の書体 */
+header h1, header.top h1, section h2, #card h2 span, .pixel { font-family: var(--font-pixel); letter-spacing: .02em; font-weight: 400; }
 header h1 { font-size: 18px; }
 header.top h1 { font-size: 20px; }
 section h2, #card h2 { font-size: 16px; }
@@ -36,7 +38,7 @@ header input[type=search], header select, nav input { min-height: 36px; border-r
 .btn, #card .more { min-height: 36px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: var(--radius); font-size: 14px; font-weight: 700; text-decoration: none; }
 
 /* カード：枠 1px・角 12px・内側 16px */
-section, header.top { border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.5); padding: var(--gap-4); margin-top: var(--gap-3); box-shadow: none; }
+section, header.top { background: var(--panel); border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.5); padding: var(--gap-4); margin-top: var(--gap-3); box-shadow: 0 1px 0 var(--line); }
 #card { padding: var(--gap-4); }
 section, #card { overflow-wrap: anywhere; }   /* 長い URL・英単語でスマホの幅からはみ出さない */
 

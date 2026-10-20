@@ -45,6 +45,14 @@ table.gap { border-collapse: collapse; width: 100%; font-size: 13px; }
 table.gap td { border-top: 1px solid var(--line); padding: 4px 6px; vertical-align: top; }
 .btn { display: inline-block; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 6px 12px; text-decoration: none; font-size: 14px; }
 del { color: var(--sub); }
+/* 道のりの時代ごとの折りたたみ・進み具合（NET-09 U-10） */
+details.era { border-top: 1px solid var(--line); padding: 6px 0; }
+details.era summary { cursor: pointer; }
+.progress { height: 10px; background: var(--band-a); border: 1px solid var(--line); border-radius: 999px; overflow: hidden; margin: 6px 0 10px; }
+.progress span { display: block; height: 100%; background: var(--ok); }
+.ok { color: var(--ok); }
+small.term { color: var(--sub); font-weight: 400; font-size: 12px; }
+nav a + a { margin-left: 4px; }
 /* 祖先の層（NET-09） */
 .layers .layer h3 { font-size: 13px; color: var(--sub); margin: 10px 0 6px; font-weight: 600; }
 .layers details.farlayers summary { cursor: pointer; color: var(--accent); margin: 10px 0 4px; }
@@ -70,13 +78,15 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
 <link rel="stylesheet" href="design.css">
 </head>
 <body>
 <div class="wrap">
   <nav>
     <a href="network.html" id="back">← 技術ネットワーク図へ</a>
+    <a href="people.html">人物の一覧</a>
+    <a href="#10-16">AI までの道</a>
     <input type="search" id="go" placeholder="番号か名前で移動（例 9-07）" aria-label="ノードへ移動">
   </nav>
   <main id="page"><p class="muted">読み込み中…</p></main>
@@ -220,11 +230,25 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     const usedBy = nodes.filter(n => isProd(n) && n.id !== id && walk(n.id, parentsOf).has(id));
     // あと何個：作る順番の一覧の数（共通の前提を何度も数えないように。以前は合計の見積もりをそのまま出していて、[10-16] で 8367 と出ていた）
     const { order, memo } = plan(id), remain = order.length;
-    const pathHtml = order.map(u => {
+    const item = u => {
       const m = memo.get(u), n = byId.get(u);
-      const ors = m.pick.filter(p => p.alts.length > 1).map(p => `<div class="or">別ルート（どれか1つ）：${p.alts.map(a => a.map(i => `<a href="#${i}">${i}</a>`).join('+')).join(' or ')}</div>`).join('');
+      const ors = m.pick.filter(p => p.alts.length > 1).map(p => `<div class="or">別の作り方（どれか1つ）：${p.alts.map(a => a.map(i => `<a href="#${i}">${i}</a>`).join('+')).join(' または ')}</div>`).join('');
       return `<li><a href="#${u}">[${u}] ${esc(n.name)}</a> <span class="muted">${yearText(n)}</span>${ors}</li>`;
+    };
+    // 時代ごとにまとめて折りたたむ（いちばん古い時代だけ開く）。進み具合は祖先のうち ✅ の数
+    const ERAS = [['紀元前', -1e9, -1], ['1〜1500年', 0, 1500], ['1501〜1800年', 1501, 1800], ['1801〜1900年', 1801, 1900], ['1901〜1950年', 1901, 1950], ['1951年〜', 1951, 1e9]];
+    const ancAll = [...walk(id, parentsAll)].map(i => byId.get(i)).filter(Boolean);
+    const doneN = ancAll.filter(n => n.status === '✅').length;
+    const groups = ERAS.map(([label, lo, hi]) => {
+      const all = ancAll.filter(n => (n.year ?? 0) >= lo && (n.year ?? 0) <= hi), todo = order.filter(u => { const y = byId.get(u).year ?? 0; return y >= lo && y <= hi; });
+      return { label, all, todo, done: all.filter(n => n.status === '✅').length };
+    }).filter(g => g.all.length || g.todo.length);
+    let opened = false;
+    const pathHtml = groups.map(g => {
+      const open = !opened && g.todo.length ? (opened = true, ' open') : '';
+      return `<details class="era"${open}><summary><b>${g.label}</b>　✅ ${g.done} / ${g.all.length}${g.todo.length ? `　<span class="muted">あと ${g.todo.length}</span>` : '　<span class="ok">ぜんぶ作れる</span>'}</summary>${g.todo.length ? `<ol class="path">${g.todo.map(item).join('')}</ol>` : ''}</details>`;
     }).join('');
+    const progress = ancAll.length ? `<div class="progress" title="✅ ${doneN} / ${ancAll.length}"><span style="width:${Math.round(doneN / ancAll.length * 100)}%"></span></div>` : '';
     const gaps = [
       ...(parentsOf.get(id) || []).map(p => ({ dir: '前提', o: byId.get(p) })),
       ...(kids.get(id) || []).map(c => ({ dir: '子', o: byId.get(c) }))
@@ -254,31 +278,32 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     }).toString();
     const issues = [['1-year-person.yml', '年・人物', '年・人物の誤り'], ['2-prerequisite.yml', 'つながり', '前提（つながり）の誤り'], ['3-source.yml', '出典', '出典の追加']]
       .map(([t, tag, label]) => `<a class="btn" href="${issue(t, tag)}" target="_blank" rel="noopener">${label}</a>`).join(' ');
-    const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span class="muted">or</span> ')).join('<br>');
+    const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span class="muted">または</span> ')).join('<br>');
 
     page.innerHTML = `
       <header class="top">
         <div class="ic">${ic}</div>
         <div>
           <h1>[${d.id}] ${esc(d.name)}</h1>
-          <div class="meta">${yearText(d)}・${d.trunk === 'P' || d.trunk === 'I' ? '' : (d.trunk === 'B' ? '枝' : '幹' + d.trunk) + ' '}${esc(d.trunk_name)}</div>
+          <div class="meta">${yearText(d)}・${esc(d.trunk_name)}${d.trunk === 'P' || d.trunk === 'I' ? '' : `<small class="term">（${d.trunk === 'B' ? '枝' : '幹' + d.trunk}）</small>`}</div>
           <div>${d.status === '✅' ? '<span class="badge ok">✅ ゲームにある</span>' : `<span class="badge">${d.status} まだ</span>`}${isProd(d) ? '<span class="badge">モノ</span>' : ''}${isIdea(d) ? '<span class="badge">◆ 発見・考え方</span>' : ''}${d.buildable_now ? '<span class="badge ok">今すぐ作れる</span>' : ''}${d.year_uncertain ? '<span class="badge warn">⚠️ 年は諸説・未確認</span>' : ''}</div>
         </div>
       </header>
 
       ${heeHtml ? `<section><h2>へえ</h2><div class="hee">${heeHtml}</div></section>` : ''}
 
+      ${d.people.length ? `<section><h2>人物</h2><p class="muted">肖像は自作のドット絵（髪・ひげ・服などの特徴だけ）。存命の人は載せない</p><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><span class="muted">${esc(p.tool)}・${esc(p.year)}</span><div>${esc(p.intro || '')}</div></div></div>`).join('')}</div></section>` : ''}
+
       ${d.play ? `<section><h2>遊び方（${isIdea(d) ? 'ゲームで発見する実験' : '作って置いて動かす作品'}）</h2><div>${rich(d.play)}</div></section>` : ''}
 
       ${isIdea(d) && ideaHtml ? `<section><h2>この考え方がつながる技術</h2>${ideaHtml}</section>` : ''}
 
-      ${d.real_full ? `<section><h2>本物（工程・反応式）</h2><div>${rich(d.real_full)}</div></section>` : ''}
+      ${d.real_full ? `<section><h2>本当の話 <small class="term">（本物：工程・反応式）</small></h2><div>${rich(d.real_full)}</div></section>` : ''}
 
       ${mediaHtml ? `<section><h2>画像・動画</h2><div class="medias">${mediaHtml}</div></section>` : ''}
 
       ${wall ? `<section>${wall}</section>` : ''}
 
-      ${d.people.length ? `<section><h2>人物</h2><p class="muted">肖像は自作のドット絵（髪・ひげ・服などの特徴だけ）。存命の人は載せない</p><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><span class="muted">${esc(p.tool)}・${esc(p.year)}</span><div>${esc(p.intro || '')}</div></div></div>`).join('')}</div></section>` : ''}
 
       <section><h2>確かさと出典</h2>
         ${d.refs.length ? d.refs.map(r => `<div class="ref"><b>${esc(r.title)}</b>${r.answer ? `<div>${rich(r.answer)}</div>` : ''}<div class="muted">確かさ：${esc(r.certainty || '—')}</div>${r.basis ? `<div class="muted">根拠：${esc(r.basis)}</div>` : ''}</div>`).join('')
@@ -303,11 +328,11 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
       ${layersHtml(id)}
 
       <section><h2>ここにたどり着くには</h2>
-        ${remain === 0 ? '<p>もうゲームで作れる（✅）。</p>' : `<p>あと <span class="big">${remain}</span> 個（別ルートはいちばん少ない方で数えた）。作る順番：</p><ol class="path">${pathHtml}</ol>`}
+        ${remain === 0 ? '<p>もうゲームで作れる（✅）。</p>' : `<p>さかのぼると ${ancAll.length} の技術のうち、ゲームで作れるのは <b>✅ ${doneN}</b>。あと <span class="big">${remain}</span> 個 <small class="term">（別の作り方は、いちばん少ない方で数えた）</small></p>${progress}<p class="muted">作る順番（時代ごと）：</p>${pathHtml}`}
       </section>
 
       ${isIdea(d) ? '' : `<section><h2>影響</h2>
-        <p>これが無いと作れなくなる技術（別ルートも考えたうえで）：<span class="big">${lost.length}</span></p>
+        <p>これが無いと作れなくなる技術 <small class="term">（別の作り方も考えたうえで）</small>：<span class="big">${lost.length}</span></p>
         <div class="chips">${lost.map(chip).join('')}</div>
         <p style="margin-top:10px">これを使う「モノ」：${usedBy.length} 個</p>
         <div class="chips">${usedBy.map(n => chip(n.id)).join('') || '<span class="muted">なし</span>'}</div>
@@ -317,8 +342,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
       ${gaps.length ? `<section><h2>時を超えたつながり（年の差 100年以上）</h2><table class="gap">${gaps.map(g => `<tr><td>${g.dir}</td><td>${chip(g.o.id)}</td><td>${yearText(g.o)}</td><td>${g.gap.toLocaleString()} 年</td></tr>`).join('')}</table></section>` : ''}
 
       <section><h2>つながり</h2>
-        <p class="muted">前提（全部そろう＝AND、or は別ルート）</p><div>${req || 'なし'}</div>
-        ${d.understanding.length ? `<p class="muted" style="margin-top:8px">理解（後で分かった科学）</p><div class="chips">${d.understanding.map(chip).join('')}</div>` : ''}
+        <p class="muted">これが無いと作れない <small class="term">（前提。全部そろうと作れる。「または」は別の作り方）</small></p><div>${req || 'なし'}</div>
+        ${d.understanding.length ? `<p class="muted" style="margin-top:8px">なぜ動くかの説明 <small class="term">（理解：後で分かった科学）</small></p><div class="chips">${d.understanding.map(chip).join('')}</div>` : ''}
         ${isIdea(d) ? '' : ideaHtml}
         <p class="muted" style="margin-top:8px">すぐ次の技術（${(kids.get(id) || []).length}）</p><div class="chips">${(kids.get(id) || []).map(chip).join('') || 'なし'}</div>
       </section>
