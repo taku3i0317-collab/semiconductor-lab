@@ -270,5 +270,12 @@
   "assembly.semiconductor-lab.calculator.frame": "Frame",
   "assembly.semiconductor-lab.calculator.frame.short": "Frame",
   "assembly.semiconductor-lab.calculator.wiring": "Wiring",
-  "assembly.semiconductor-lab.calculator.wiring.short": "Wiring"
+  "assembly.semiconductor-lab.calculator.wiring.short": "Wiring",
+  "item.semiconductor-lab.mirror.lamp": "🪞 Reflecting mercury lamp light with %s:",
+  "item.semiconductor-lab.mirror.line0": "  green %s nm: %s%%",
+  "item.semiconductor-lab.mirror.line1": "  i-line %s nm: %s%%",
+  "item.semiconductor-lab.mirror.line2": "  UV %s nm: %s%%",
+  "item.semiconductor-lab.mirror.tarnish.speculum": "Speculum: oxidises and sulfides within weeks; needs re-polishing",
+  "item.semiconductor-lab.mirror.tarnish.silver": "Silver: yellows and blackens within months from sulfur in the air (silver sulfide); needs re-silvering",
+  "item.semiconductor-lab.mirror.tarnish.aluminium": "Aluminium: a few-nm oxide film forms and stops further corrosion. Stays bright for years"
 }

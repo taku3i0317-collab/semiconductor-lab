@@ -270,5 +270,12 @@
   "assembly.semiconductor-lab.calculator.frame": "枠",
   "assembly.semiconductor-lab.calculator.frame.short": "枠",
   "assembly.semiconductor-lab.calculator.wiring": "配線",
-  "assembly.semiconductor-lab.calculator.wiring.short": "配線"
+  "assembly.semiconductor-lab.calculator.wiring.short": "配線",
+  "item.semiconductor-lab.mirror.lamp": "🪞 %s で水銀灯の光を反射すると：",
+  "item.semiconductor-lab.mirror.line0": "  緑 %s nm：%s%%",
+  "item.semiconductor-lab.mirror.line1": "  i線 %s nm：%s%%",
+  "item.semiconductor-lab.mirror.line2": "  紫外 %s nm：%s%%",
+  "item.semiconductor-lab.mirror.tarnish.speculum": "スペキュラム：数週間で表面が酸化・硫化して曇り、研ぎ直しが要る",
+  "item.semiconductor-lab.mirror.tarnish.silver": "銀：空気中の硫黄で数か月のうちに黄ばみ黒ずむ（硫化銀）。めっきし直しが要る",
+  "item.semiconductor-lab.mirror.tarnish.aluminium": "アルミ：表面に数nm の酸化膜ができて、それ以上はさびない。何年も曇らない"
 }

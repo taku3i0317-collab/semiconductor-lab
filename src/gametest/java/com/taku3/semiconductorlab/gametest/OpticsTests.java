@@ -712,6 +712,20 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-05] 段階3 アルミ蒸着の鏡（IMP2 O-020）：クラウンガラス＋アルミ →蒸着 → アルミの鏡。水銀の紫外線（254nm）を銀よりずっとよく反射し、曇らない */
+    @GameTest
+    public void aluminized_mirror(GameTestHelper h) {
+        var r = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.CROWN_GLASS), new ItemStack(Metallurgy.ALUMINIUM_INGOT));
+        h.assertTrue(r != null && r.product() == Optics.ALUMINIZED_MIRROR, "crown glass + aluminium in the evaporator -> aluminized mirror");
+        h.assertTrue(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.CROWN_GLASS), new ItemStack(Metallurgy.SILVER_NUGGET)).product() == Optics.HALF_SILVERED_MIRROR, "silver still gives the half mirror");
+        var spec = (com.taku3.semiconductorlab.item.MirrorItem) Optics.SPECULUM_MIRROR; var ag = (com.taku3.semiconductorlab.item.MirrorItem) Optics.SILVERED_MIRROR; var al = (com.taku3.semiconductorlab.item.MirrorItem) Optics.ALUMINIZED_MIRROR;
+        h.assertTrue(ag.reflectance[0] > al.reflectance[0] && al.reflectance[0] > spec.reflectance[0], "visible: silver > aluminium > speculum");
+        h.assertTrue(al.reflectance[2] > 3 * ag.reflectance[2], "UV 254 nm: aluminium " + al.reflectance[2] + "% vs silver " + ag.reflectance[2] + "%");
+        h.assertTrue(recipeUses(h, "reflecting_telescope_aluminized", Optics.ALUMINIZED_MIRROR), "the reflecting telescope can use the aluminium mirror");
+        LOG.info("[LAB] aluminized mirror [7-05]: evaporated Al on crown glass; reflectance green/i-line/UV speculum " + java.util.Arrays.toString(spec.reflectance) + " silver " + java.util.Arrays.toString(ag.reflectance) + " aluminium " + java.util.Arrays.toString(al.reflectance));
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "合成石英を作る", L(io(Metallurgy.SILICON_TETRACHLORIDE, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),

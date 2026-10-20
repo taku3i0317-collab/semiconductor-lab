@@ -1885,6 +1885,20 @@
 - Wikipedia「Ultra low expansion glass」：https://en.wikipedia.org/wiki/Ultra_low_expansion_glass
 - Wikipedia「Thermal expansion」（係数の表）：https://en.wikipedia.org/wiki/Thermal_expansion
 
+## O65. 曇らない鏡（アルミ蒸着の鏡）［7-05 段階3］
+**答え**：1930年代、カリフォルニア工科大のジョン・ストロングは、真空の中でアルミを熱して蒸発させ、望遠鏡のガラスの鏡に薄く付けた。銀の鏡は空気中の硫黄で黒ずんで数か月ごとにめっきし直しが要ったが、アルミは表面にできる数nm の酸化膜に守られて何年も曇らない。紫外線もよく反射する。パロマー山の5m 望遠鏡（1948）も、今の天体望遠鏡の多くもアルミの鏡。
+
+- へえ①：今の望遠鏡の鏡の多くは、ガラスに付けたアルミのとても薄い膜。
+- へえ②：銀は見える光をいちばんよく反射するが、紫外線はほとんど反射しない。
+- へえ③：アルミはさびないのではなく、さびの膜がとても薄くてそこで止まる。
+- へえ④：アルミの膜の上にさらに透明な膜をかぶせて守ることも多い。
+
+確かさ：ストロングのアルミ蒸着 1930年代・論文 1936 ◎／パロマー 1948 ◎／反射率の数字 ○（代表値、スペキュラムの紫外は △）
+根拠：
+- Wikipedia「Aluminized mirror」：https://en.wikipedia.org/wiki/Aluminized_mirror
+- Wikipedia「John Strong (physicist)」：https://en.wikipedia.org/wiki/John_Strong_(physicist)
+- Wikipedia「Silver」（光学的性質）：https://en.wikipedia.org/wiki/Silver
+
 ---
 
 # 冶金と熱（タスク15〜）

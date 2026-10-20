@@ -408,5 +408,11 @@
   "item.semiconductor-lab.interferometer.thermal": "🌡 %s (%se-6/K): %s mm bar, temperature swing +-%s C -> length +-%s nm -> fringes +-%s: %s",
   "item.semiconductor-lab.interferometer.thermal_still": "barely moves",
   "item.semiconductor-lab.interferometer.thermal_small": "wobbles a little",
-  "item.semiconductor-lab.interferometer.thermal_big": "the fringes run away"
+  "item.semiconductor-lab.interferometer.thermal_big": "the fringes run away",
+  "item.semiconductor-lab.aluminized_mirror": "Aluminized Mirror",
+  "item.semiconductor-lab.aluminized_mirror.note1": "Glass coated with a thin film of aluminium in vacuum. It does not tarnish for years.",
+  "item.semiconductor-lab.aluminized_mirror.note2": "Vacuum evaporator: crown glass + aluminium. Works as the mirror of a reflecting telescope. Right-click a lit mercury lamp to compare reflectance (it reflects UV well too). Right-click in the air for how it tarnishes.",
+  "item.semiconductor-lab.aluminized_mirror.note3": "In the 1930s John Strong at Caltech made telescope mirrors by evaporating aluminium (paper 1936). The 5 m Palomar telescope (1948) has an aluminium mirror.",
+  "item.semiconductor-lab.aluminized_mirror.note4": "Aluminium quickly grows a few-nm oxide film and then stops reacting with air. Silver reacts with sulfur in air to form black silver sulfide. Aluminium also reflects UV well, which suits later exposure-tool mirrors.",
+  "item.semiconductor-lab.aluminized_mirror.placeholder": "Approximation: real coatings use only tens of mg of aluminium on glass ground concave first. Reflectances are typical values."
 }

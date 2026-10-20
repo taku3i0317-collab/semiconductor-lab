@@ -36,6 +36,8 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
             new Recipe(Optics.CROWN_GLASS, Metallurgy.SILVER_NUGGET, 1, Optics.HALF_SILVERED_MIRROR),
             // [7-22] 反射防止膜（ストロング 1936）：CaF2（蛍石 [1-21]）を波長の 1/4 の厚さに付ける
             new Recipe(Optics.CROWN_LENS, Metallurgy.FLUORITE, 1, Optics.COATED_CROWN_LENS),
+            // [7-05] 段階3 アルミ蒸着の鏡（ストロング 1930年代、IMP2 O-020）：クラウンガラスにアルミを厚めに付ける（曇らない）
+            new Recipe(Optics.CROWN_GLASS, Metallurgy.ALUMINIUM_INGOT, 1, Optics.ALUMINIZED_MIRROR),
             new Recipe(Optics.FLINT_LENS, Metallurgy.FLUORITE, 1, Optics.COATED_FLINT_LENS),
             new Recipe(Optics.SYNTHETIC_QUARTZ, Metallurgy.CHROMIUM, 1, Optics.CHROME_BLANK),   // [7-12] クロムマスクのブランク（IMP2 O-015）
             new Recipe(Optics.SYNTHETIC_QUARTZ, Metallurgy.FLUORITE, 2, Optics.I_LINE_FILTER),   // O-017 i線フィルター（薄い膜を重ねた干渉フィルター、IMP2）

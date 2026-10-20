@@ -50,7 +50,7 @@ public final class Optics {
     // [7-05] 反射鏡 段階1 スペキュラム（IMP2-01）：銅2＋スズ1 の白い合金を削って磨いた鏡（反射率 約6割、すぐ曇る）→ ニュートン式反射望遠鏡
     public static final Item SPECULUM_CHARGE       = Reg.item("speculum_charge");   // 地金の調合（銅2＋スズ1）
     public static final Item SPECULUM_INGOT        = Reg.item("speculum_ingot");    // スペキュラム合金（Cu 約67%・Sn 約33%）
-    public static final Item SPECULUM_MIRROR       = Reg.item("speculum_mirror");   // 磨いた凹面鏡
+    public static final Item SPECULUM_MIRROR       = Reg.item("speculum_mirror", p -> new MirrorItem(p, "speculum", 63, 50, 35), new Item.Properties());   // 磨いた凹面鏡
     public static final Item REFLECTING_TELESCOPE  = Reg.item("reflecting_telescope", TelescopeItem::new, new Item.Properties().stacksTo(1));
     // [7-10] 水銀ランプ（IMP2-01）：石英管＋水銀＋W電極2 → 組立品 →封止台（0.1Pa 以下、シュプレンゲル [5-15]）→ 水銀灯の管 → 直流で光る水銀灯（385W、クーパー・ヒューイット 1901）
     public static final Item MERCURY_LAMP_ASSEMBLY = Reg.item("mercury_lamp_assembly");
@@ -58,7 +58,9 @@ public final class Optics {
     // [5-14] 真空蒸着の製品（IMP2-01）：クラウンガラスに銀を薄く蒸着した半透明鏡（半分反射・半分透過）。干渉計 [7-09] の光を2つに分ける板
     public static final Item HALF_SILVERED_MIRROR  = Reg.item("half_silvered_mirror");
     // [7-05] 段階2 銀鏡反応（IMP2 O-012、リービッヒ 1835・フーコー 1857）：ガラス＋硝酸銀＋アンモニア水＋砂糖（還元剤）→ 薄い銀＝半透明鏡、もう一度 → 銀鏡（反射率 約9割）
-    public static final Item SILVERED_MIRROR       = Reg.item("silvered_mirror");
+    public static final Item SILVERED_MIRROR       = Reg.item("silvered_mirror", p -> new MirrorItem(p, "silver", 96, 80, 25), new Item.Properties());
+    // [7-05] 段階3 アルミ蒸着の鏡（IMP2 O-020、1930年代 ストロング）：クラウンガラスに真空蒸着装置 [5-14] でアルミ [1-29] を付ける。曇らない・紫外も反射
+    public static final Item ALUMINIZED_MIRROR     = Reg.item("aluminized_mirror", p -> new MirrorItem(p, "aluminium", 91, 92, 90), new Item.Properties());
     // [7-09] マイケルソン干渉計（IMP2-01）：半透明鏡＋スペキュラム鏡×2＋送りねじ（動く鏡）＋鉄の台。水銀の緑線 546.1nm で長さを測る
     public static final Item INTERFEROMETER        = Reg.item("interferometer", InterferometerItem::new, new Item.Properties().stacksTo(1));
     // [7-22] 反射防止膜（IMP2-01）：真空蒸着装置でレンズに CaF2 を 1/4 波長の厚さ付けたもの（表面の反射 約4% → 約2%）。投影レンズ [7-19] の材料

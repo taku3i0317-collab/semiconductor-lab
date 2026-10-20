@@ -408,5 +408,11 @@
   "item.semiconductor-lab.interferometer.thermal": "🌡 %s（%s×10⁻⁶/K）：%s mm の棒、温度のゆれ ±%s℃ → 長さ ±%s nm → 縞 ±%s 本：%s",
   "item.semiconductor-lab.interferometer.thermal_still": "ほとんど動かない",
   "item.semiconductor-lab.interferometer.thermal_small": "少しゆれる",
-  "item.semiconductor-lab.interferometer.thermal_big": "縞が流れてしまう"
+  "item.semiconductor-lab.interferometer.thermal_big": "縞が流れてしまう",
+  "item.semiconductor-lab.aluminized_mirror": "アルミの鏡",
+  "item.semiconductor-lab.aluminized_mirror.note1": "ガラスに真空の中でアルミの薄い膜を付けた鏡。何年たっても曇らない。",
+  "item.semiconductor-lab.aluminized_mirror.note2": "真空蒸着装置：クラウンガラス＋アルミ。反射望遠鏡の鏡にも使える。点灯中の水銀灯を右クリックすると反射率をくらべられる（紫外もよく反射）。空中で右クリックすると曇り方。",
+  "item.semiconductor-lab.aluminized_mirror.note3": "1930年代、カリフォルニア工科大のジョン・ストロングが望遠鏡の鏡をアルミの蒸着で作った（論文 1936年）。パロマー山の5m 望遠鏡（1948）もアルミの鏡。",
+  "item.semiconductor-lab.aluminized_mirror.note4": "アルミの表面には数nm の酸化アルミの膜がすぐでき、それ以上は空気と反応しない。銀は空気中の硫黄と反応して黒い硫化銀になる。アルミは紫外線もよく反射するので、のちの露光装置の鏡にも向く。",
+  "item.semiconductor-lab.aluminized_mirror.placeholder": "近似：本物は蒸着する量がごくわずか（数十mg）で、ガラスを凹面に研いでから付ける。反射率は代表値。"
 }
