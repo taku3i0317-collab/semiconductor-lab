@@ -1482,7 +1482,7 @@ public class LabTests {
     // [B-12] 太陽電池（IMP-25、v0.2b 第2章のゴール）
     // =====================================================================
 
-    /** p-n 接合の板8＋銅ケーブル → 太陽電池。昼・空・雨なしで 60W（1000W/m²×6%）。屋根の下は 0。テスト世界の昼夜・天気に合わせて確かめる */
+    /** p-n 接合の板8＋銅ケーブル → 太陽電池。昼・空で 60W（1000W/m²×6%）、雨は約2割の 12W。夜・屋根の下は 0。テスト世界の昼夜・天気に合わせて確かめる */
     @GameTest
     public void solarCell(GameTestHelper h) {
         h.assertTrue(recipeUses(h, "solar_cell", ModItems.PN_JUNCTION_WAFER) && recipeUses(h, "solar_cell", ModBlocks.COPPER_CABLE.asItem()), "solar cell = p-n slices + copper electrodes");
@@ -1491,7 +1491,8 @@ public class LabTests {
         h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, true, false), com.taku3.semiconductorlab.energy.SolarCellBlockEntity.WATTS, "sunny day, open sky -> 60 W");
         h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, false, false), 0.0, "night -> 0");
         h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(false, true, false), 0.0, "under a roof -> 0");
-        h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, true, true), 0.0, "rain -> 0");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, true, true) - 12) < 1e-9, "rain (overcast) -> diffuse light, about 20% = 12 W");
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, false, true), 0.0, "rainy night -> 0");
         BlockPos fp = p(1, 1, 1), roofed = p(3, 1, 1);
         h.setBlock(fp, ModBlocks.SOLAR_CELL);
         h.setBlock(roofed, ModBlocks.SOLAR_CELL);

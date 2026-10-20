@@ -49,7 +49,7 @@ public class GeneratorBlock extends Block implements EntityBlock {
         BlockEntity be0 = level.getBlockEntity(pos);
         if (be0 instanceof MenuProvider mp) player.openMenu(mp);      // 蒸気機関：GUI を開く
         else if (be0 instanceof GeneratorBlockEntity be)               // 水車：チャットに状態表示
-            player.sendSystemMessage(Component.translatable("message.semiconductor-lab.generator.status", String.format("%.1f kW", be.getLastWatts() / 1000), EnergyStorage.format(be.getStorage().getStoredJ())));
+            player.sendSystemMessage(Component.translatable("message.semiconductor-lab.generator.status", EnergyStorage.formatWatts(be.getLastWatts()), EnergyStorage.format(be.getStorage().getStoredJ())));
         return InteractionResult.SUCCESS;
     }
 }

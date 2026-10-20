@@ -16,6 +16,11 @@ public interface EnergyStorage {
     /** W → J/tick（20 tick = 1 秒） */
     static long wattsToJoulesPerTick(double watts) { return Math.round(watts / 20.0); }
     /** 表示用：1234567 J → "1.23 MJ" */
+    /** 電力の表示：1kW 未満は W、それ以上は kW（太陽電池の 60W が「0.1 kW」にならないように） */
+    static String formatWatts(double w) {
+        return w < 1000 ? String.format("%.0f W", w) : String.format("%.1f kW", w / 1000);
+    }
+
     static String format(long j) {
         if (j >= 1_000_000) return String.format("%.2f MJ", j / 1e6);
         if (j >= 1_000)     return String.format("%.1f kJ", j / 1e3);
