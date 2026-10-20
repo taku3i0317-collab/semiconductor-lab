@@ -185,6 +185,34 @@ public class CommonTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * 専用のクリエイティブタブ（IMP-31）：登録されている／MOD のアイテムが全部（ブロックのアイテムも）並ぶ／
+     * 並びの表（creative_tab_order.txt）に全部が載っていて、もう無い ID が残っていない（足したら python tools/gen_tab_order.py）
+     */
+    @GameTest
+    public void creativeTab(GameTestHelper h) {
+        h.assertTrue(BuiltInRegistries.CREATIVE_MODE_TAB.getValue(com.taku3.semiconductorlab.content.Reg.TAB) != null, "tab Semiconductor Lab is registered");
+        java.util.Set<String> mod = new java.util.TreeSet<>();
+        for (var it : BuiltInRegistries.ITEM) { var id = BuiltInRegistries.ITEM.getKey(it); if (id.getNamespace().equals(SemiconductorLab.MOD_ID)) mod.add(id.getPath()); }
+        var order = com.taku3.semiconductorlab.content.Reg.tabOrder();
+        java.util.Set<String> inTab = new java.util.TreeSet<>();
+        for (var it : order) inTab.add(BuiltInRegistries.ITEM.getKey(it).getPath());
+        h.assertTrue(inTab.equals(mod), "every MOD item is in the tab; missing " + new java.util.TreeSet<>(mod) {{ removeAll(inTab); }});
+        java.util.List<String> listed = new java.util.ArrayList<>();
+        try (var in = com.taku3.semiconductorlab.content.Reg.class.getResourceAsStream("/assets/semiconductor-lab/creative_tab_order.txt")) {
+            h.assertTrue(in != null, "creative_tab_order.txt exists");
+            for (String line : new String(in.readAllBytes(), java.nio.charset.StandardCharsets.UTF_8).split("\n")) { String id = line.split("#")[0].trim(); if (!id.isEmpty()) listed.add(id); }
+        } catch (java.io.IOException e) { throw new RuntimeException(e); }
+        var notListed = new java.util.TreeSet<>(mod); notListed.removeAll(listed);
+        var stale = new java.util.TreeSet<>(listed); stale.removeAll(mod);
+        h.assertTrue(notListed.isEmpty(), "not in creative_tab_order.txt (run python tools/gen_tab_order.py): " + notListed);
+        h.assertTrue(stale.isEmpty(), "creative_tab_order.txt has ids that no longer exist: " + stale);
+        for (int i = 0; i < listed.size(); i++)
+            h.assertValueEqual(BuiltInRegistries.ITEM.getKey(order.get(i)).getPath(), listed.get(i), "tab order follows the table at #" + i);
+        LOG.info("[LAB] creative tab: {} items, first {} … last {} (IMP-31)", order.size(), listed.get(0), listed.get(listed.size() - 1));
+        h.succeed();
+    }
+
     @GameTest
     public void exportMachineRecipes(GameTestHelper h) {
         var a = new com.google.gson.JsonArray();
