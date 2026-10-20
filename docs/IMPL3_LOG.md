@@ -44,3 +44,5 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [0-14] 水運（O-004-1、案③、遊び方: 実験＋作品）：丸木舟 dugout_canoe（原木5＋磨製石斧、entity/DugoutCanoe＝ChestBoat 継承、荷物入れ27、client/SurvivalClient で BoatRenderer＋自前テクスチャ。テクスチャはバニラの透明部分の形だけを使い色は自前）。石材の荷 stone_load（石4＋ロープ）を持つと鈍化1〜4段（歩く速さ 0.10 → 0.04）、乗り物に乗ると鈍化なし。バニラのボートは変えていない。GameTest dugout_canoe、CHEMISTRY S20〜S21、REFERENCES S10。テスト 128/128
   - 共通ファイル：SemiconductorLabClient の「幹0」の段に SurvivalClient.register() を1行
   - 失敗から：レシピの category "transportation" は 26.3 に無く、全レシピの読み込みが止まった → misc（API_26X に追記）
+- ✅ [0-17] 家畜化（O-004-2、②＋①、遊び方: 実験）：新しい動物は作らない。繁殖させた牛・羊・山羊の子に世代タグ semilab_gen_N（親の大きい方＋1、mixin/AnimalBreedingMixin → entity/Domestication）、最初の繁殖で進捗「家畜化のはじまり」、3世代目で「牛／羊／山羊の家畜化」（新しい進捗タブ domestication、説明がへえ）。バニラの牛・羊・山羊のスポーンエッグに へえ①〜④（lang の vanilla 部品）。GameTest domestication（本当の繁殖で mixin が世代を付けるのも確認）、CHEMISTRY S22、REFERENCES S11。テスト 131/131
+  - 共通ファイル：mixins.json に "AnimalBreedingMixin" を1行

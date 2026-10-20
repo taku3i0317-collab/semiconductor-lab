@@ -1,0 +1,22 @@
+{
+  "parent": "semiconductor-lab:domestication/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:white_wool"
+    },
+    "title": {
+      "translate": "advancement.semiconductor-lab.domestication.sheep.title"
+    },
+    "description": {
+      "translate": "advancement.semiconductor-lab.domestication.sheep.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "bred": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

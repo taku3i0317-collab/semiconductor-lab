@@ -1,0 +1,22 @@
+{
+  "parent": "semiconductor-lab:domestication/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:milk_bucket"
+    },
+    "title": {
+      "translate": "advancement.semiconductor-lab.domestication.goat.title"
+    },
+    "description": {
+      "translate": "advancement.semiconductor-lab.domestication.goat.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "bred": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -219,5 +219,15 @@
   "item.semiconductor-lab.stone_load.note3": "人が背負って運べる重さは、長い距離なら体重の半分ほどまで。重い荷ほど一歩ごとに持ち上げる力が要り、すぐ疲れる。水の上なら、荷の重さは浮力が支えるので、こぐ力は水をかき分ける分だけで済む。",
   "item.semiconductor-lab.stone_load.note4": "鉄道ができるまで、重い物（石材・木材・穀物・のちに石炭）を遠くへ運ぶいちばん安い方法は川と運河だった。18世紀イギリスの運河では、馬1頭が引ける荷の重さが、荷車の数十倍になったといわれる ⚠️。",
   "item.semiconductor-lab.stone_load.placeholder": "近似：重さは数で数えた（本物は石の量と、背負う人の体力しだい）。",
-  "entity.semiconductor-lab.dugout_canoe": "丸木舟"
+  "entity.semiconductor-lab.dugout_canoe": "丸木舟",
+  "advancement.semiconductor-lab.domestication.root.title": "家畜化のはじまり",
+  "advancement.semiconductor-lab.domestication.root.description": "牛・羊・山羊を繁殖させて、子を生ませた。その子どうしを、また繁殖させてみよう（3世代で家畜化）",
+  "advancement.semiconductor-lab.domestication.cow.title": "牛の家畜化",
+  "advancement.semiconductor-lab.domestication.cow.description": "牛を3世代育てた。牛のご先祖は、肩の高さ2m近い野生のオーロックス。約1万年前、西アジアでおとなしい個体を選んで育てはじめた",
+  "advancement.semiconductor-lab.domestication.sheep.title": "羊の家畜化",
+  "advancement.semiconductor-lab.domestication.sheep.description": "羊を3世代育てた。最初の家畜の羊は毛がもこもこではなかった。毛をとるための羊は、何千年も選び続けて紀元前4000年ごろに現れた ⚠️",
+  "advancement.semiconductor-lab.domestication.goat.title": "山羊の家畜化",
+  "advancement.semiconductor-lab.domestication.goat.description": "山羊を3世代育てた。山羊は羊と並んで最初期の家畜（約1万年前、ザグロス山脈のあたり ⚠️）。乳・肉・毛・皮をくれる",
+  "message.semiconductor-lab.domestication.generation": "第%s世代の子が生まれた（家畜化まであと%s世代。この子もまた繁殖させよう）",
+  "message.semiconductor-lab.domestication.done": "第%s世代！ 人に慣れた家畜になった"
 }

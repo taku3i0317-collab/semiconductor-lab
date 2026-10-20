@@ -1,0 +1,22 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:wheat"
+    },
+    "title": {
+      "translate": "advancement.semiconductor-lab.domestication.root.title"
+    },
+    "description": {
+      "translate": "advancement.semiconductor-lab.domestication.root.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "background": "minecraft:block/hay_block_side"
+  },
+  "criteria": {
+    "bred": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

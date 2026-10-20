@@ -4,5 +4,17 @@
   "item.minecraft.charcoal.note2": "Smelt logs in a furnace (vanilla). In this MOD it is the carbon for reducing germanium dioxide (GeO2 + C) and for making phosphorus, and fuel for fires and furnaces.",
   "item.minecraft.charcoal.note3": "Heating wood to about 400-700 °C with the air shut off (dry distillation) drives out water and the volatile matter that would become smoke, leaving charcoal of 80-90% carbon. Unlike coal it contains almost no sulfur, so it reduces metals without contaminating them.",
   "item.minecraft.charcoal.note4": "The black lines of cave paintings were drawn with charcoal over 30,000 years ago. In England, where too much forest had been cut to make iron, Abraham Darby smelted iron with coke (baked coal) in 1709, ending the charcoal age. Japan's binchotan is a hard white charcoal born in Edo-period Kishu.",
-  "item.minecraft.charcoal.placeholder": "Omitted: the kiln step that shuts off the air (here a vanilla furnace bakes the logs). ⚠️ When it began to be made in bulk as smelting fuel (with copper smelting, from about 5000 BC) is unclear."
+  "item.minecraft.charcoal.placeholder": "Omitted: the kiln step that shuts off the air (here a vanilla furnace bakes the logs). ⚠️ When it began to be made in bulk as smelting fuel (with copper smelting, from about 5000 BC) is unclear.",
+  "item.minecraft.cow_spawn_egg.note1": "The ancestor of cattle was the wild aurochs, nearly 2 m tall at the shoulder.",
+  "item.minecraft.cow_spawn_egg.note2": "In this MOD, calves bred by a player get a generation number; at generation 3 you earn the advancement Domesticated Cattle [0-17].",
+  "item.minecraft.cow_spawn_egg.note3": "About 10,000 years ago in West Asia (around today's south-east Turkey), people began penning and raising the calmest wild aurochs. Besides milk, meat and hides, cattle came to pull ploughs and carts [0-13].",
+  "item.minecraft.cow_spawn_egg.note4": "Aurochs were bigger than cattle with longer horns, but hunting and land clearing reduced them, and the last one died in Poland in 1627. Genetics suggests domestic cattle came from a very small number of females ⚠️.",
+  "item.minecraft.sheep_spawn_egg.note1": "The first domestic sheep were not woolly.",
+  "item.minecraft.sheep_spawn_egg.note2": "In this MOD, lambs bred by a player get a generation number; at generation 3 you earn the advancement Domesticated Sheep [0-17]. Wool can be spun into yarn on a spindle [0-07].",
+  "item.minecraft.sheep_spawn_egg.note3": "Sheep were domesticated from the wild mouflon in West Asia about 10,000 years ago, at first for meat and hides, with a coarse hairy coat over a short undercoat that fell out each spring. Thousands of years of choosing the woolliest animals produced wool sheep (around 4000 BC ⚠️).",
+  "item.minecraft.sheep_spawn_egg.note4": "Modern wool sheep do not shed, so their fleece keeps growing unless shorn. An escaped sheep in Australia was found in 2021 carrying about 35 kg of wool after some six years ('Baarack').",
+  "item.minecraft.goat_spawn_egg.note1": "Goats, along with sheep, are among the oldest livestock.",
+  "item.minecraft.goat_spawn_egg.note2": "In this MOD, kids bred by a player get a generation number; at generation 3 you earn the advancement Domesticated Goats [0-17].",
+  "item.minecraft.goat_spawn_egg.note3": "Goats are thought to have been domesticated about 10,000 years ago from the wild bezoar ibex around the Zagros Mountains between Iran and Iraq ⚠️. They thrive on rocky, dry land, eating plants and leaves other animals leave.",
+  "item.minecraft.goat_spawn_egg.note4": "Counting bones at sites by age and sex shows periods when mostly young males were eaten - a sign that people were keeping females to breed, the start of herding."
 }

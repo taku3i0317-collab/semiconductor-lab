@@ -1,0 +1,22 @@
+{
+  "parent": "semiconductor-lab:domestication/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:leather"
+    },
+    "title": {
+      "translate": "advancement.semiconductor-lab.domestication.cow.title"
+    },
+    "description": {
+      "translate": "advancement.semiconductor-lab.domestication.cow.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "bred": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

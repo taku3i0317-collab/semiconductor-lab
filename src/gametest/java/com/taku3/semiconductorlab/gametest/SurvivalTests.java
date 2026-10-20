@@ -497,6 +497,47 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-17] 家畜化（IMP3-01、O-004）：世代を重ねる
+    // =====================================================================
+
+    /**
+     * 繁殖で生まれた牛・羊・山羊の子に世代（親の大きい方＋1）が付く。本当の繁殖（spawnChildFromBreeding → mixin）でも付く。
+     * 3世代目が家畜化。豚など対象外には付けない。進捗4つ（はじまり・牛・羊・山羊）が読み込まれている
+     */
+    @GameTest
+    public void domestication(GameTestHelper h) {
+        var lv = h.getLevel();
+        floor(h, 5);
+        var cowA = h.spawn(net.minecraft.world.entity.EntityTypes.COW, p(1, 1, 1));
+        var cowB = h.spawn(net.minecraft.world.entity.EntityTypes.COW, p(2, 1, 1));
+        h.assertValueEqual(com.taku3.semiconductorlab.entity.Domestication.generation(cowA), 0, "wild cow = generation 0");
+        // 本当の繁殖（mixin 経由）
+        int before = h.getEntities(net.minecraft.world.entity.EntityTypes.COW).size();
+        cowA.spawnChildFromBreeding(lv, cowB);
+        var cows = h.getEntities(net.minecraft.world.entity.EntityTypes.COW);
+        h.assertValueEqual(cows.size(), before + 1, "a calf is born");
+        var calf = cows.stream().filter(c -> c.isBaby()).findFirst().orElseThrow();
+        h.assertValueEqual(com.taku3.semiconductorlab.entity.Domestication.generation(calf), 1, "calf of wild parents = generation 1 (tagged by the mixin)");
+        // 世代を重ねる：親の大きい方 + 1
+        cowA.addTag("semilab_gen_2");
+        var calf2 = h.spawn(net.minecraft.world.entity.EntityTypes.COW, p(3, 1, 1));
+        int g = com.taku3.semiconductorlab.entity.Domestication.onBred(lv, cowA, cowB, calf2, null);
+        h.assertValueEqual(g, 3, "parents gen 2 and 0 -> gen 3");
+        h.assertTrue(g >= com.taku3.semiconductorlab.entity.Domestication.GENERATIONS, "generation 3 = domesticated");
+        var pig = h.spawn(net.minecraft.world.entity.EntityTypes.PIG, p(3, 1, 3));
+        h.assertValueEqual(com.taku3.semiconductorlab.entity.Domestication.onBred(lv, cowA, cowB, pig, null), 0, "pigs are not part of [0-17]");
+        h.assertValueEqual(com.taku3.semiconductorlab.entity.Domestication.species(net.minecraft.world.entity.EntityTypes.GOAT), "goat", "goats count");
+        for (String a : new String[] {"root", "cow", "sheep", "goat"})
+            h.assertTrue(lv.getServer().getAdvancements().get(SemiconductorLab.id("domestication/" + a)) != null, "advancement domestication/" + a);
+        var ja = langJson("ja_jp");
+        for (String egg : new String[] {"cow", "sheep", "goat"})
+            for (String n : new String[] {"note1", "note2", "note3", "note4"})
+                h.assertTrue(ja.has("item.minecraft." + egg + "_spawn_egg." + n), egg + " spawn egg " + n);
+        LOG.info("[LAB] domestication [0-17]: wild x wild -> gen 1 (mixin), gen 2 parent -> gen 3 = domesticated; 4 advancements");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 

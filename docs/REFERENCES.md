@@ -964,6 +964,21 @@
 - Wikipedia「Dugout canoe」：https://en.wikipedia.org/wiki/Dugout_canoe
 - Wikipedia「Canal」（運河の輸送）：https://en.wikipedia.org/wiki/Canal
 
+## S11. おとなしい動物を選んで育てる（家畜化）［0-17］
+**答え**：約1万年前の西アジアで、人は野生の羊（ムフロン）・山羊（ベゾアール山羊）・牛（オーロックス）のうち、おとなしい個体を囲って育て、子を残す個体を選び続けた。何世代も選ぶうちに、人に慣れ、乳や毛の多い家畜になった。
+
+- へえ①：牛のご先祖は、肩の高さ2m近い野生のオーロックス（1627年に絶滅）。
+- へえ②：最初の家畜の羊は毛がもこもこではなかった。羊毛の羊は紀元前4000年ごろ⚠️。
+- へえ③：遺跡の骨で若い雄ばかり食べられている時期は、雌を残して増やす「飼い方」が始まった印。
+- へえ④：家畜の牛の遺伝子は、ごく少ない数の雌から始まったらしい⚠️。
+
+確かさ：家畜化の時期と場所（約1万年前・西アジア）○／オーロックスの絶滅 1627 ◎／羊毛の羊の時期 △（AUDIT V-16）→ ⚠️／牛の母系の少なさ △ → ⚠️／山羊のザグロス △ → ⚠️
+根拠：
+- Wikipedia「Domestication of animals」：https://en.wikipedia.org/wiki/Domestication_of_animals
+- Wikipedia「Aurochs」：https://en.wikipedia.org/wiki/Aurochs
+- Wikipedia「Domestic goat」（ザグロス、ベゾアール山羊）：https://en.wikipedia.org/wiki/Goat
+- Wikipedia「Sheep」：https://en.wikipedia.org/wiki/Sheep
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

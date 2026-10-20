@@ -219,5 +219,15 @@
   "item.semiconductor-lab.stone_load.note3": "Over long distances a person can carry about half their body weight. The heavier the load, the more lifting each step needs, and you tire fast. On water, buoyancy carries the load, and paddling only has to push the water aside.",
   "item.semiconductor-lab.stone_load.note4": "Until railways, rivers and canals were the cheapest way to move heavy goods (stone, timber, grain, later coal) far. On 18th-century English canals one horse is said to have pulled tens of times more than with a cart ⚠️.",
   "item.semiconductor-lab.stone_load.placeholder": "Approximation: weight is counted by number of loads (really it depends on the stone and the carrier's strength).",
-  "entity.semiconductor-lab.dugout_canoe": "Dugout Canoe"
+  "entity.semiconductor-lab.dugout_canoe": "Dugout Canoe",
+  "advancement.semiconductor-lab.domestication.root.title": "The Start of Domestication",
+  "advancement.semiconductor-lab.domestication.root.description": "You bred cattle, sheep or goats. Now breed their young again (3 generations to domesticate)",
+  "advancement.semiconductor-lab.domestication.cow.title": "Domesticated Cattle",
+  "advancement.semiconductor-lab.domestication.cow.description": "You raised 3 generations of cattle. Their ancestor was the wild aurochs, nearly 2 m tall at the shoulder. About 10,000 years ago people in West Asia began keeping the calmest ones",
+  "advancement.semiconductor-lab.domestication.sheep.title": "Domesticated Sheep",
+  "advancement.semiconductor-lab.domestication.sheep.description": "You raised 3 generations of sheep. The first domestic sheep were not woolly; wool breeds appeared around 4000 BC after thousands of years of selection ⚠️",
+  "advancement.semiconductor-lab.domestication.goat.title": "Domesticated Goats",
+  "advancement.semiconductor-lab.domestication.goat.description": "You raised 3 generations of goats. Goats, with sheep, were among the very first livestock (about 10,000 years ago, around the Zagros Mountains ⚠️), giving milk, meat, hair and hides",
+  "message.semiconductor-lab.domestication.generation": "Generation %s is born (%s more to domestication - breed this one too)",
+  "message.semiconductor-lab.domestication.done": "Generation %s! They are now tame livestock"
 }
