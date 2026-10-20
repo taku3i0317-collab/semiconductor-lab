@@ -300,13 +300,13 @@
       "process": "電気で焼く",
       "inputs": [
         {
-          "item": "semiconductor-lab:refractory_brick_blank",
+          "item": "semiconductor-lab:graphite_boat_blank",
           "count": 1
         }
       ],
       "outputs": [
         {
-          "item": "semiconductor-lab:refractory_brick",
+          "item": "semiconductor-lab:graphite_boat",
           "count": 1
         }
       ],
@@ -319,13 +319,13 @@
       "process": "電気で焼く",
       "inputs": [
         {
-          "item": "semiconductor-lab:graphite_boat_blank",
+          "item": "semiconductor-lab:refractory_brick_blank",
           "count": 1
         }
       ],
       "outputs": [
         {
-          "item": "semiconductor-lab:graphite_boat",
+          "item": "semiconductor-lab:refractory_brick",
           "count": 1
         }
       ],
