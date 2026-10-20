@@ -110,6 +110,8 @@
   "item.semiconductor-lab.photo.thin": "thin: underexposed",
   "item.semiconductor-lab.photo.good": "just right",
   "item.semiconductor-lab.photo.dark": "dark: overexposed",
+  "litho.semiconductor-lab.fail.no_dirt": "Already clean",
+  "tooltip.semiconductor-lab.contamination": "Contamination: %s (washing removes it)",
   "advancements.semiconductor-lab.chapter1.root.title": "Chapter 1: The Birth of the Transistor",
   "advancements.semiconductor-lab.chapter1.root.description": "1947. Before silicon, there was germanium. Goal: build a transistor radio!",
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "Ashes to Elements",

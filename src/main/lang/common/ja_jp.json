@@ -109,5 +109,7 @@
   "item.semiconductor-lab.photo.exposure": "露光の量：%s％（%s）",
   "item.semiconductor-lab.photo.thin": "うすい：露光が足りない",
   "item.semiconductor-lab.photo.good": "ちょうどよい",
-  "item.semiconductor-lab.photo.dark": "黒い：露光しすぎ"
+  "item.semiconductor-lab.photo.dark": "黒い：露光しすぎ",
+  "litho.semiconductor-lab.fail.no_dirt": "もうきれい",
+  "tooltip.semiconductor-lab.contamination": "汚れ：%s（洗うと落ちる）"
 }

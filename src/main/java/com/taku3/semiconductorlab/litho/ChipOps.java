@@ -92,7 +92,7 @@ public final class ChipOps {
     public static Result strip(ItemStack w) {
         ChipState s = state(w);
         if (s == null || s.resist() == ChipState.Resist.NONE) return Result.fail("no_resist");
-        return Result.ok(write(w, s.withResist(ChipState.Resist.NONE, s.sized() ? BitGrid.empty(s.size()) : s.resistPattern())));
+        return Result.ok(write(w, s.withResist(ChipState.Resist.NONE, s.sized() ? BitGrid.empty(s.size()) : s.resistPattern()).dirtier(1)));
     }
 
     // ===== 削る =====
@@ -107,7 +107,7 @@ public final class ChipOps {
         BitGrid open = s.windows();
         BitGrid r = s.resistPattern();
         for (int y = 0; y < s.size(); y++) for (int x = 0; x < s.size(); x++) if (!r.get(x, y)) open = open.with(x, y, true);
-        return Result.ok(write(w, s.withWindows(open)));
+        return Result.ok(write(w, s.withWindows(open).dirtier(1)));
     }
 
     public static boolean canEtchMetal(ItemStack w) { return etchMetal(w).ok(); }
@@ -118,7 +118,7 @@ public final class ChipOps {
         if (s == null || !s.metalFilm()) return Result.fail("no_metal");
         if (s.resist() != ChipState.Resist.DEVELOPED) return Result.fail("not_developed");
         if (s.has(LayerKind.METAL)) return Result.fail("too_many");
-        return Result.ok(write(w, s.plus(LayerKind.METAL, s.resistPattern()).withMetalFilm(false)));
+        return Result.ok(write(w, s.plus(LayerKind.METAL, s.resistPattern()).withMetalFilm(false).dirtier(1)));
     }
 
     // ===== しみ込ませる・付ける =====
@@ -133,7 +133,7 @@ public final class ChipOps {
         if (s.metalFilm() || s.has(LayerKind.METAL)) return Result.fail("metal_on");
         if (s.diffusions() >= MAX_DIFFUSIONS) return Result.fail("too_many");
         LayerKind k = type == 'n' ? LayerKind.DIFF_N : LayerKind.DIFF_P;
-        return Result.ok(write(w, s.plus(k, s.windows()).withWindows(BitGrid.empty(s.size()))));
+        return Result.ok(write(w, s.plus(k, s.windows()).withWindows(BitGrid.empty(s.size())).dirtier(1)));
     }
 
     public static boolean canDepositMetal(ItemStack w) { return depositMetal(w).ok(); }
@@ -145,7 +145,23 @@ public final class ChipOps {
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
         if (s.metalFilm() || s.has(LayerKind.METAL)) return Result.fail("too_many");
         ChipState t = s.hasWindows() ? s.plus(LayerKind.CONTACT, s.windows()) : s;
-        return Result.ok(write(w, t.withWindows(BitGrid.empty(s.size())).withMetalFilm(true)));
+        return Result.ok(write(w, t.withWindows(BitGrid.empty(s.size())).withMetalFilm(true).dirtier(1)));
+    }
+
+    // ===== 洗う（[9-14]、E の洗浄槽が呼ぶ） =====
+
+    public static boolean canClean(ItemStack w) { return clean(w, 0).ok(); }
+
+    /**
+     * 汚れを target まで落とす（段階1＝硝酸・フッ酸・蒸留水なら 0、のちの RCA との差は歩留まりのときに）。
+     * レジストが付いていたら洗えない（先にはがす）。もう target 以下なら何もしない（no_dirt）
+     */
+    public static Result clean(ItemStack w, int target) {
+        ChipState s = state(w);
+        if (s == null) return Result.fail("no_pattern");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.contamination() <= Math.max(0, target)) return Result.fail("no_dirt");
+        return Result.ok(write(w, s.cleanedTo(target)));
     }
 
     // ===== やり直し =====

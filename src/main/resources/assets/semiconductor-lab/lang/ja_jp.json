@@ -110,6 +110,8 @@
   "item.semiconductor-lab.photo.thin": "うすい：露光が足りない",
   "item.semiconductor-lab.photo.good": "ちょうどよい",
   "item.semiconductor-lab.photo.dark": "黒い：露光しすぎ",
+  "litho.semiconductor-lab.fail.no_dirt": "もうきれい",
+  "tooltip.semiconductor-lab.contamination": "汚れ：%s（洗うと落ちる）",
   "advancements.semiconductor-lab.chapter1.root.title": "第1章：トランジスタの誕生",
   "advancements.semiconductor-lab.chapter1.root.description": "1947年。シリコンの前に、ゲルマニウムがあった。ゴール：トランジスタラジオを作ろう！",
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "灰の中の元素",

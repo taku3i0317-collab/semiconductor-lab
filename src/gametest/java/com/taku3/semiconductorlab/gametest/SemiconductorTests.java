@@ -750,6 +750,12 @@ public class SemiconductorTests extends LabTestBase {
         h.assertTrue(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.planar(opened, new ItemStack(Chemistry.PHOSPHORUS)), "windows open + phosphorus -> planar diffusion");
         h.assertFalse(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.planar(redo, new ItemStack(Chemistry.PHOSPHORUS)), "no windows -> no planar diffusion");
         h.assertFalse(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(opened.copyWithCount(8), new ItemStack(Metallurgy.BORON_TRIOXIDE)), "a process wafer never becomes a plain junction wafer");
+        // 汚れ（[9-14]）：工程のたびに増え、洗うと落ちる。失敗にはしない
+        int dirt = done.get(ModDataComponents.CHIP_STATE).contamination();
+        h.assertTrue(dirt > 0, "contamination grows with the steps: " + dirt);
+        ItemStack washed = com.taku3.semiconductorlab.litho.ChipOps.clean(done, 0).out();
+        h.assertValueEqual(washed.get(ModDataComponents.CHIP_STATE).contamination(), 0, "cleaned to 0");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.clean(washed, 0).reason(), "no_dirt", "already clean");
         // 研磨してやり直し（2回まで）
         ItemStack r1 = com.taku3.semiconductorlab.litho.ChipOps.reclaim(done).out(), r2 = com.taku3.semiconductorlab.litho.ChipOps.reclaim(r1).out();
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.reclaim(r2).reason(), "too_many_reclaims", "reclaim twice at most");

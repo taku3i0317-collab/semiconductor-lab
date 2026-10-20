@@ -109,5 +109,7 @@
   "item.semiconductor-lab.photo.exposure": "Exposure: %s%% (%s)",
   "item.semiconductor-lab.photo.thin": "thin: underexposed",
   "item.semiconductor-lab.photo.good": "just right",
-  "item.semiconductor-lab.photo.dark": "dark: overexposed"
+  "item.semiconductor-lab.photo.dark": "dark: overexposed",
+  "litho.semiconductor-lab.fail.no_dirt": "Already clean",
+  "tooltip.semiconductor-lab.contamination": "Contamination: %s (washing removes it)"
 }

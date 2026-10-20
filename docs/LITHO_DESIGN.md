@@ -109,7 +109,8 @@ record ChipState(
     Resist resist,            // NONE / COATED / EXPOSED / DEVELOPED
     BitGrid resistPattern,    // EXPOSED：光が当たった所、DEVELOPED：レジストが残っている所
     boolean metalFilm,        // Al を一面に付けて、まだ削っていない
-    int reclaims              // 研磨してやり直した回数（§5 reclaim）
+    int reclaims,             // 研磨してやり直した回数（§5 reclaim）
+    int contamination         // 汚れ（[9-14]、E と決めた）：削る・はがす・拡散・Al のたびに +1、clean で落とす。失敗にはしない
 )
 ```
 - 酸化膜つきの板（oxidized_wafer、[9-15]）にレジストを塗った時点で process_wafer に変わる（純度・ドーパント・膜の厚さは受け継ぐ）
@@ -131,6 +132,7 @@ record ChipState(
 | `strip(w)` | レジストはがし（どの機械でも） | resist≠NONE | resist＝NONE（**やり直し**：露光をまちがえても、はがして塗り直せる＝本物のリワーク） | — |
 | `diffuse(w, type)` | 拡散炉 [9-16]（A が窓ありに直す） | 窓が開いている、resist＝NONE | done に DIFF_N/P（窓の形）、窓は閉じる（拡散中に酸化膜が育つ） | `no_window`・`resist_on`・`too_many` |
 | `depositMetal(w)` | Al 蒸着 [9-25]（担当未定） | resist＝NONE | 窓があれば done に CONTACT（窓の形）、metalFilm＝true | `resist_on` |
+| `clean(w, target)` | 洗浄槽 [9-14]（E） | resist＝NONE、汚れ ＞ target | 汚れを target まで落とす（段階1＝0。RCA との差は v0.5 の歩留まりで） | `resist_on`・`no_dirt` |
 | `reoxidize(w)` | 酸化炉 [9-15]（E、すでにある） | resist＝NONE | 窓を閉じる（窓の開けまちがいのやり直し） | — |
 | `reclaim(w)` | 研磨 [9-13]（担当未定） | — | 全部の層を消して酸化膜つきの板に戻す（2回まで。本物の再生ウェハー） | `too_many_reclaims` |
 
@@ -202,6 +204,7 @@ p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、そ
 
 ## 変更履歴
 - 2026-10-20 初版（O-002 ①）
+- 2026-10-20 ChipState に contamination、ChipOps.clean(w, target)（E の [9-14] 洗浄と相談して決めた。失敗にはしない、ツールチップと v0.5 の歩留まりで）
 - 2026-10-20 検査台（probe_station）：パッドの 0 V・5 V・つながない、Circuit で電流の明るさ、「調べる」で発見（ビット）と進捗 discovery/<id>（impossible を award）、REFERENCES L2
 - 2026-10-20 製図台（drafting_table・layout_sheet・rubylith）。画面の高さ 222（MachineLayout.height）、方眼・断面図は MachineLayout.area で自動チェック
 - 2026-10-20 S-001 の答えを反映（§2・§4.3・§7・§9、MaskData に artworkMm・reduction）

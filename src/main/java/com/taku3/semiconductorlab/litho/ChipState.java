@@ -9,9 +9,11 @@ import java.util.List;
 /**
  * 加工中のウェハーの中身（データコンポーネント chip_state、アイテム process_wafer。LITHO_DESIGN §4.4）。
  * 中身は ChipOps だけが書きかえる（C・E の機械は ChipOps を呼ぶ）。
+ * contamination＝汚れの度合い（[9-14] 洗浄、E と決めた形）：削る・はがす・しみ込ませる・Al のたびに +1、ChipOps.clean で落とす。
+ * 失敗にはしない（O-002 方針2）。ツールチップに出し、v0.5 の歩留まりの欠陥密度 D に足す
  */
 public record ChipState(int size, String substrate, List<Applied> done, BitGrid windows, Resist resist,
-                        BitGrid resistPattern, boolean metalFilm, int reclaims) {
+                        BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination) {
 
     /** レジストの状態 */
     public enum Resist {
@@ -38,7 +40,8 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
             Resist.CODEC.fieldOf("resist").forGetter(ChipState::resist),
             BitGrid.CODEC.fieldOf("resist_pattern").forGetter(ChipState::resistPattern),
             Codec.BOOL.fieldOf("metal_film").forGetter(ChipState::metalFilm),
-            Codec.INT.fieldOf("reclaims").forGetter(ChipState::reclaims)
+            Codec.INT.fieldOf("reclaims").forGetter(ChipState::reclaims),
+            Codec.INT.optionalFieldOf("contamination", 0).forGetter(ChipState::contamination)
     ).apply(i, ChipState::new));
 
     public ChipState {
@@ -47,7 +50,7 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
 
     /** 酸化膜つきの板から始めるとき（まだ何も描いていない） */
     public static ChipState fresh(String substrate, int reclaims) {
-        return new ChipState(0, substrate, List.of(), BitGrid.empty(UNSET), Resist.NONE, BitGrid.empty(UNSET), false, reclaims);
+        return new ChipState(0, substrate, List.of(), BitGrid.empty(UNSET), Resist.NONE, BitGrid.empty(UNSET), false, reclaims, 0);
     }
 
     public boolean sized() { return size > 0; }
@@ -57,14 +60,18 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
 
     // ===== 書きかえ（新しい ChipState を返す） =====
     ChipState withSize(int s) {
-        return new ChipState(s, substrate, done, BitGrid.empty(s), resist, BitGrid.empty(s), metalFilm, reclaims);
+        return new ChipState(s, substrate, done, BitGrid.empty(s), resist, BitGrid.empty(s), metalFilm, reclaims, contamination);
     }
-    ChipState withResist(Resist r, BitGrid pattern) { return new ChipState(size, substrate, done, windows, r, pattern, metalFilm, reclaims); }
-    ChipState withWindows(BitGrid w) { return new ChipState(size, substrate, done, w, resist, resistPattern, metalFilm, reclaims); }
-    ChipState withMetalFilm(boolean m) { return new ChipState(size, substrate, done, windows, resist, resistPattern, m, reclaims); }
+    ChipState withResist(Resist r, BitGrid pattern) { return new ChipState(size, substrate, done, windows, r, pattern, metalFilm, reclaims, contamination); }
+    ChipState withWindows(BitGrid w) { return new ChipState(size, substrate, done, w, resist, resistPattern, metalFilm, reclaims, contamination); }
+    ChipState withMetalFilm(boolean m) { return new ChipState(size, substrate, done, windows, resist, resistPattern, m, reclaims, contamination); }
+    /** 汚れを n 増やす（工程のあと）・target まで落とす（洗浄） */
+    ChipState dirtier(int n) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination + n); }
+    ChipState cleanedTo(int target) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, Math.min(contamination, Math.max(0, target))); }
+
     ChipState plus(LayerKind k, BitGrid cells) {
         List<Applied> d = new ArrayList<>(done);
         d.add(new Applied(k, cells));
-        return new ChipState(size, substrate, d, windows, resist, resistPattern, metalFilm, reclaims);
+        return new ChipState(size, substrate, d, windows, resist, resistPattern, metalFilm, reclaims, contamination);
     }
 }
