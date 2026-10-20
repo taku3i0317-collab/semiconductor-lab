@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 352（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 355（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -361,6 +361,12 @@ en_us resol_mix lines=6
 en_us resol_mix shift lines=14
 en_us bakelite lines=6
 en_us bakelite shift lines=15
+en_us light_oil lines=7
+en_us light_oil shift lines=17
+en_us benzene lines=5
+en_us benzene shift lines=15
+en_us xylene lines=6
+en_us xylene shift lines=18
 en_us wood_retort lines=5
 en_us wood_retort shift lines=18
 en_us gas_retort lines=4
@@ -1065,6 +1071,12 @@ ja_jp resol_mix lines=5
 ja_jp resol_mix shift lines=12
 ja_jp bakelite lines=5
 ja_jp bakelite shift lines=12
+ja_jp light_oil lines=5
+ja_jp light_oil shift lines=13
+ja_jp benzene lines=4
+ja_jp benzene shift lines=12
+ja_jp xylene lines=4
+ja_jp xylene shift lines=14
 ja_jp wood_retort lines=4
 ja_jp wood_retort shift lines=14
 ja_jp gas_retort lines=4
