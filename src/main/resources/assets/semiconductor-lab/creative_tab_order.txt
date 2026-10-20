@@ -459,6 +459,9 @@ drafting_table  # Semiconductor [None] None
 refrigerator  # Agriculture [11-13] 1876
 theodolite  # Construction [12-11] 1615
 air_conditioner  # Construction [12-12] 1902
+platinum_bushing  # Construction [12-13] 1940
+glass_fiber  # Construction [12-13] 1940
+hepa_filter  # Construction [12-13] 1940
 sulfite_liquor  # Communication [15-01] 105
 pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105

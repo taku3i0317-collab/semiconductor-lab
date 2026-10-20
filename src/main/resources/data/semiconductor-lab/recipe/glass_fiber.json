@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:platinum_bushing"
+  ],
+  "result": {
+    "id": "semiconductor-lab:glass_fiber",
+    "count": 4
+  }
+}

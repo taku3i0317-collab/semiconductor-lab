@@ -21,20 +21,26 @@ public class AirConditionerBlockEntity extends ConsumerBlockEntity {
     /** 精密な台の長さ（m）と鋼の線膨張（1/℃）：温度のずれ（nm）＝ 長さ × 膨張 × ゆれ */
     public static final double STAGE_M = 0.1, STEEL_PER_C = 11e-6;
 
+    public static final int SLOT_FILTER = 0, SLOT_COUNT = 1;
+
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
-            .text("power", 8, 18, 160, 1, "gui.semiconductor-lab.machine.power").samples("2.0 kW")
-            .text("stored", 8, 30, 160, 1, "gui.semiconductor-lab.machine.stored").samples("20 kJ")
-            .text("hint", 8, 42, 160, 2, "gui.semiconductor-lab.machine.need_power", "gui.semiconductor-lab.machine.running")
+            .in(SLOT_FILTER, 8, 17, s -> s.is(Construction.HEPA_FILTER), 1)
+            .text("power", 32, 18, 136, 1, "gui.semiconductor-lab.machine.power").samples("2.0 kW")
+            .text("stored", 32, 30, 136, 1, "gui.semiconductor-lab.machine.stored").samples("20 kJ")
+            .text("hint", 32, 42, 136, 2, "gui.semiconductor-lab.machine.need_power", "gui.semiconductor-lab.machine.running")
             .build();
 
     public AirConditionerBlockEntity(BlockPos pos, BlockState state) {
-        super(Construction.AIR_CONDITIONER.type, pos, state, 0, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(Construction.AIR_CONDITIONER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return 20; }
     @Override protected boolean canWork() { return true; }   // 材料なし：電気が来ている間ずっと動く
     @Override protected void finishWork() {}
+
+    /** [12-13] HEPA フィルターが入っているか（[12-14] クリーンルームの空気の入口） */
+    public boolean filtered() { return container.getItem(SLOT_FILTER).is(Construction.HEPA_FILTER); }
 
     /** pos のまわりで、動いている空調機があるか */
     public static boolean conditioned(Level level, BlockPos pos) {

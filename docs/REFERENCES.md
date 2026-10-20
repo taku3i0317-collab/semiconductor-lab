@@ -1448,6 +1448,19 @@
 - Wikipedia「Willis Carrier」：https://en.wikipedia.org/wiki/Willis_Carrier
 - Wikipedia「Air conditioning」：https://en.wikipedia.org/wiki/Air_conditioning
 
+## O50. 0.3µm の粒を 99.97% 捕まえる（HEPA フィルター）［12-13］
+**答え**：HEPA フィルターは、ガラスの極細繊維をひだ状に折ったマット。1940年代、マンハッタン計画で放射性の粉を捕まえるために作られ、0.3µm の粒を 99.97% 以上取る。ガラス繊維は1930年代、白金の板の小さな穴から溶けたガラスを引き出す方法で量産された。
+
+- へえ①：いちばん捕まえにくい大きさの粒が 0.3µm。だからこの大きさで性能を決める。
+- へえ②：大きい粒はぶつかり、小さい粒はふらふら動いて（ブラウン運動）繊維につかまる。
+- へえ③：今はクリーンルームのほか、病院の手術室や掃除機にも使われる。
+- へえ④：ガラス繊維を引く板（ブッシング）は、溶けたガラスに溶けない白金でできている。
+
+確かさ：HEPA の起源（マンハッタン計画、1940年代）◎／0.3µm・99.97% の定義 ◎／白金ブッシング ○
+根拠：
+- Wikipedia「HEPA」：https://en.wikipedia.org/wiki/HEPA
+- Wikipedia「Glass fiber」：https://en.wikipedia.org/wiki/Glass_fiber
+
 ---
 
 # 冶金と熱（タスク15〜）

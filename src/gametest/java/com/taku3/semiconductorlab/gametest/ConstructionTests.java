@@ -14,6 +14,23 @@ import net.minecraft.world.item.ItemStack;
  * GameTest：幹12 建設・測量（IMP2 O-007 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class ConstructionTests extends LabTestBase {
+    /** [12-13] HEPA フィルター（IMP2 S-003）：ソーダ石灰ガラス →溶鉱炉→ ガラス繊維×4 → HEPA フィルター。空調機のフィルターの入口に入る */
+    @GameTest
+    public void hepa_filter(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "glass_fiber", Construction.PLATINUM_BUSHING) && recipeUses(h, "glass_fiber", com.taku3.semiconductorlab.content.Chemistry.SODA_LIME_GLASS), "glass drawn through a platinum bushing");
+        var rem = Construction.PLATINUM_BUSHING.getCraftingRemainder(new ItemStack(Construction.PLATINUM_BUSHING));
+        h.assertTrue(rem != null && rem.item().value() == Construction.PLATINUM_BUSHING, "the bushing comes back");
+        h.assertTrue(recipeUses(h, "hepa_filter", Construction.GLASS_FIBER), "HEPA = glass fibre mat in a frame");
+        net.minecraft.core.BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Construction.AIR_CONDITIONER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.AirConditionerBlockEntity.class);
+        h.assertFalse(be.filtered(), "no filter yet");
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SLOT_FILTER, new ItemStack(Construction.HEPA_FILTER));
+        h.assertTrue(be.filtered(), "HEPA filter installed in the air conditioner");
+        LOG.info("[LAB] hepa_filter [12-13]: soda-lime glass -> 4 glass fibre -> HEPA filter -> air conditioner filter slot");
+        h.succeed();
+    }
+
     /** [12-12] 空調（IMP2 S-003）：動いている空調機の近くは温度のゆれ ±3℃ → ±0.1℃。マスクアライナーの重ね合わせの「温度のずれ」が 3.3µm → 0.11µm */
     @GameTest
     public void air_conditioning(GameTestHelper h) {

@@ -16,5 +16,22 @@
   "block.semiconductor-lab.air_conditioner.note2": "Refrigerating machine + motor + copper cable + 6 iron. Uses 2 kW the whole time it runs. Within 8 blocks the temperature swing drops from +-3 C to +-0.1 C, cutting the mask aligner's thermal overlay error (the stage growing and shrinking) from 3.3 um to 0.1 um.",
   "block.semiconductor-lab.air_conditioner.note3": "In 1902 the American Carrier built air conditioning that held temperature and humidity for a printing plant where damp paper stretched and colors misregistered. Air conditioning was born for paper, not people.",
   "block.semiconductor-lab.air_conditioner.note4": "Steel grows about 11 um per metre per degree, which is why lengths are measured in rooms held at the standard 20 C (CIPM 1931). Today's lithography rooms hold temperature to a hundredth of a degree.",
-  "block.semiconductor-lab.air_conditioner.placeholder": "Approximation: the temperature swings (+-3 C, +-0.1 C) and range (8 blocks) are game values. Humidity control is skipped."
+  "block.semiconductor-lab.air_conditioner.placeholder": "Approximation: the temperature swings (+-3 C, +-0.1 C) and range (8 blocks) are game values. Humidity control is skipped.",
+  "item.semiconductor-lab.glass_fiber": "Glass Fibre",
+  "item.semiconductor-lab.glass_fiber.note1": "Glass melted and drawn out into thin threads.",
+  "item.semiconductor-lab.glass_fiber.note2": "4 from 2 soda-lime glass + platinum bushing (returned). 7 + 2 iron make a HEPA filter.",
+  "item.semiconductor-lab.glass_fiber.note3": "Molten glass pulled through small holes becomes threads finer than a hair. Mass production began in the 1930s for insulation, filters and reinforced plastics.",
+  "item.semiconductor-lab.glass_fiber.note4": "Thin glass bends without breaking easily. Optical fibre is also a thin thread of very pure silica glass.",
+  "item.semiconductor-lab.hepa_filter": "HEPA Filter",
+  "item.semiconductor-lab.hepa_filter.note1": "A filter that removes almost all the tiny dust in the air.",
+  "item.semiconductor-lab.hepa_filter.note2": "7 glass fibre + 2 iron. Goes in the air conditioner's filter slot and becomes the air inlet of a cleanroom [12-14].",
+  "item.semiconductor-lab.hepa_filter.note3": "Developed in the 1940s in the Manhattan Project to catch radioactive dust. It removes at least 99.97% of 0.3 um particles.",
+  "item.semiconductor-lab.hepa_filter.note4": "Large particles hit the fibres and tiny ones wander into them (Brownian motion). Mid-sized particles around 0.3 um are the hardest to catch, so performance is rated at that size.",
+  "item.semiconductor-lab.hepa_filter.placeholder": "Approximation: real HEPA media is pleated ultra-fine borosilicate glass fibre (soda-lime glass fibre here).",
+  "item.semiconductor-lab.platinum_bushing": "Platinum Bushing",
+  "item.semiconductor-lab.platinum_bushing.note1": "A platinum plate with many tiny holes. Molten glass pulled through it becomes threads.",
+  "item.semiconductor-lab.platinum_bushing.note2": "3 platinum. With 2 soda-lime glass it makes 4 glass fibre (the bushing returns).",
+  "item.semiconductor-lab.platinum_bushing.note3": "In the 1930s Owens-Corning and others began mass-producing glass fibre by pulling molten glass through tiny holes in platinum plates.",
+  "item.semiconductor-lab.platinum_bushing.note4": "Platinum neither dissolves in glass above 1000 C nor corrodes. Platinum-rhodium bushings are still used today.",
+  "item.semiconductor-lab.platinum_bushing.placeholder": "Approximation: the heat to melt the glass is skipped (drawn in the crafting grid)."
 }
