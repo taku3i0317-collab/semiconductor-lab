@@ -16142,7 +16142,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "1メートルは、地球の大きさから決めた長さだった（NET-06 で追加。出典：Wikipedia「Mètre des Archives」、Quality Magazine「The Emergence of the Metric System」）",
    "kind": "tech",
    "play": "",
@@ -23496,17 +23496,30 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O31. 行かずに距離を測る（三角測量）［12-11］",
+     "answer": "離れた2点（底辺の両はし）から同じ目標をのぞいて角度を測ると、三角形の形が決まり、正弦定理で目標までの距離が分かる。1615年スネルが三角形をつないで町の間の距離を測り、18世紀には望遠鏡と目盛り円のセオドライトで国土が測られた。",
+     "hee": {
+      "1": "底辺を1本ていねいに測れば、あとは角度だけで国じゅうの地図が作れる。",
+      "2": "伊能忠敬は 55歳から17年かけて日本中を歩き、歩いた距離と山の方角を組み合わせて地図を作った。",
+      "3": "細長い三角形ほど、角度のわずかなずれで距離が大きく狂う。",
+      "4": "メートルは、フランスの子午線を三角測量して決めた長さだった（[8-22]）。"
+     },
+     "certainty": "三角測量の原理 ◎／スネル 1615（Eratosthenes Batavus 1617 刊）◎／伊能忠敬 1800〜1821（本人は1818没、地図の完成は1821）◎／伊能の方法（導線法・交会法）○",
+     "basis": "- Wikipedia「Triangulation (surveying)」：https://en.wikipedia.org/wiki/Triangulation_(surveying)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "地図アイテムの精度向上（幹8 と共有）",
+   "game_text": "実装（IMP2 O-007）：theodolite（セオドライト＝屈折望遠鏡＋ノギスの副尺＋青銅＋棒、item/TheodoliteItem）。のぞいて離すと向きを 1分（1/60°）まで読む。測点A → 3m 以上横へ → 測点B で同じ目印 → 底辺・角A・角B から正弦定理で距離と目標の場所。のぞいた先のブロックまでの実際の距離とずれも出る（細長い三角形ほど誤差が大きいのが分かる）。⚠️ 底辺はそのままの長さ（測鎖は省略）。地図アイテムの精度向上は後で",
    "id": "12-11",
    "name": "測量",
    "trunk": "12",
    "trunk_name": "建築・土木",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1615,
    "year_range": null,
@@ -23524,7 +23537,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "伊能忠敬は歩幅で日本中を測った",
    "kind": "tech",
    "play": "",
