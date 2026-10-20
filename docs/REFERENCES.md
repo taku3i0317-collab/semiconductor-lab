@@ -1939,6 +1939,21 @@
 - 環境省「水俣病の教訓と日本の水銀対策」：https://www.env.go.jp/chemi/tmms/pr-m/mat01/
 - Wikipedia「Minamata disease」：https://en.wikipedia.org/wiki/Minamata_disease
 
+## C21. 固まるとふくらむ金属（アンチモン）［1-43］
+**答え**：輝安鉱（Sb2S3）を空気中で焼くと三酸化アンチモン、炭素で還元するとアンチモン。輝安鉱の粉は少なくとも紀元前3000年から目の化粧（コール）に使われた。アンチモンは固まるときに少しふくらむので、鉛・錫と混ぜた活字合金は型の角までくっきり出る。15族なので、ゲルマニウムやシリコンに入れると n型になる。五塩化アンチモンはフッ素を付ける反応（スワーツ反応）の触媒。
+
+- へえ①：アンチモンは水と同じく、固まるときに少しふくらむ。
+- へえ②：古代エジプトの黒いアイシャドウは輝安鉱の粉だった。
+- へえ③：1540年のビリングッチョ『ピロテクニア』にアンチモンの章がある（鉄で硫黄を奪う方法がそこにあるかは未確認 ⚠️）。
+- へえ④：愛媛の市ノ川鉱山の輝安鉱の大きな結晶は、世界の博物館にある。
+
+確かさ：焙焼と還元 ◎／コールの使用（紀元前3000年ごろから）○／ビリングッチョ 1540 の書名と年 ◎・鉄による方法 △（監査 V-21：不明）⚠️／固まるときの膨張と活字合金 ◎
+根拠：
+- Wikipedia「Antimony」（歴史・製錬）：https://en.wikipedia.org/wiki/Antimony
+- Wikipedia「Stibnite」：https://en.wikipedia.org/wiki/Stibnite
+- Wikipedia「Type metal」：https://en.wikipedia.org/wiki/Type_metal
+- docs/AUDIT_RESULTS.md V-21
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

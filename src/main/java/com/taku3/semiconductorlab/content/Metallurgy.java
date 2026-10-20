@@ -42,6 +42,10 @@ public final class Metallurgy {
     public static final Item SILVER_INGOT          = Reg.item("silver_ingot");
     public static final Item MALACHITE             = Reg.item("malachite");        // [1-03] 孔雀石 Cu2CO3(OH)2（IMP2-01。銅鉱床の上の酸化帯）
     public static final Item GALENA                = Reg.item("galena");
+    // [1-43] アンチモン（IMP3、S-002）：輝安鉱 Sb2S3 →かまど（焙焼）→ 三酸化アンチモン →かまど（還元）→ アンチモン。＋塩素 → 五塩化アンチモン（スワーツ反応の触媒、[2-38]）
+    public static final Item STIBNITE              = Reg.item("stibnite");
+    public static final Item ANTIMONY_TRIOXIDE     = Reg.item("antimony_trioxide");
+    public static final Item ANTIMONY              = Reg.item("antimony");
     public static final Item FLUORITE              = Reg.item("fluorite");         // [1-21] 蛍石 CaF2（IMP4-01、[2-10] フッ酸の原料。方鉛鉱・閃亜鉛鉱と同じ熱水鉱脈）
     public static final Item COKE                  = Reg.item("coke");             // [1-10] コークス（IMP4-01：[2-20] ガス工場のレトルトで石炭を乾留した残り。高炉での使い道は [1-10] で）
     public static final Item BAUXITE               = Reg.item("bauxite");          // [1-24] ボーキサイト（IMP4-01、アルミの原料。熱帯の風化残留土＝ジャングル・サバンナの地表近く）
@@ -140,6 +144,7 @@ public final class Metallurgy {
     // [1-22] 錫石（IMP2-01）：花崗岩の熱水鉱脈（鉄マンガン重石といっしょ）。固い（モース硬度 6〜7）
     public static final Block CASSITERITE_ORE = Reg.ore("cassiterite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().strength(3.5f, 3.0f).sound(SoundType.STONE));
     public static final Block GALENA_ORE     = Reg.ore("galena_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
+    public static final Block STIBNITE_ORE   = Reg.ore("stibnite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.5f, 3.0f).sound(SoundType.STONE));   // [1-43] 輝安鉱（方鉛鉱と同じ熱水鉱脈の帯）
     public static final Block FLUORITE_ORE   = Reg.ore("fluorite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     public static final Block BAUXITE_ORE    = Reg.ore("bauxite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().strength(1.5f, 3.0f).sound(SoundType.GRAVEL));
     // [2-03] トロナ堆積（干上がった塩湖の蒸発岩 Na2CO3·NaHCO3·2H2O）。砂漠の地表〜浅い地下の砂・砂岩に生成。軟らかい（モース硬度 2.5〜3）

@@ -101,6 +101,7 @@ public class MetallurgyTests extends LabTestBase {
 
     @GameTest public void oreSphalerite(GameTestHelper h) { oreFeature(h, "sphalerite_ore", Blocks.STONE, Blocks.COBBLESTONE, Metallurgy.SPHALERITE_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreGalena(GameTestHelper h)     { oreFeature(h, "galena_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.GALENA_ORE, LabTestBase::stoneOrDeepslate); }
+    @GameTest public void oreStibnite(GameTestHelper h)   { oreFeature(h, "stibnite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.STIBNITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-43] IMP3
     @GameTest public void oreGraphite(GameTestHelper h)   { oreFeature(h, "graphite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.GRAPHITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreMagnetite(GameTestHelper h)  { oreFeature(h, "magnetite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.MAGNETITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreWolframite(GameTestHelper h) { oreFeature(h, "wolframite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.WOLFRAMITE_ORE, s -> s.is(Blocks.GRANITE)); }
@@ -417,6 +418,17 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-43] アンチモン（IMP3、S-002）：輝安鉱 → 焙焼 → Sb2O3 → 還元 → アンチモン。いきなりアンチモンにはならない */
+    @GameTest
+    public void antimonyFromStibnite(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(cook(h, SMELT, Metallurgy.STIBNITE).is(Metallurgy.ANTIMONY_TRIOXIDE), "roasting stibnite -> Sb2O3");
+        h.assertTrue(cook(h, SMELT, Metallurgy.ANTIMONY_TRIOXIDE).is(Metallurgy.ANTIMONY), "reducing Sb2O3 -> antimony");
+        h.assertFalse(cook(h, SMELT, Metallurgy.STIBNITE).is(Metallurgy.ANTIMONY), "stibnite does not jump straight to antimony");
+        LOG.info("[LAB] antimony [1-43]: stibnite -> Sb2O3 -> antimony");
+        h.succeed();
+    }
+
     // =====================================================================
     // [1-28] タングステン線（WO3 → 水素還元 → W粉 → 通電焼結 → 線引き）
     // =====================================================================
@@ -600,7 +612,7 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));

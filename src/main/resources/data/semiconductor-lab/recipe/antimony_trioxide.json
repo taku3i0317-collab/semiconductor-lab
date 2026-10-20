@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:stibnite",
+  "result": {
+    "id": "semiconductor-lab:antimony_trioxide"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}
