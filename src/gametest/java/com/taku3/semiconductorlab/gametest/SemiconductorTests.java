@@ -1404,7 +1404,7 @@ public class SemiconductorTests extends LabTestBase {
         var ja = langJson("ja_jp");
         for (String k : new String[] {"power", "steps", "cd", "step", "need_wafer", "need_mask", "need_lens", "blurred", "cannot", "output_full", "press", "need_power", "running"})
             h.assertTrue(ja.has("gui.semiconductor-lab.stepper." + k), "lang stepper." + k);
-        LOG.info("[LAB] stepper [9-39] stage 1: projection lens CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens) + " nm, 4 hand steps -> grid 16 (contact max 8), mask untouched");
+        LOG.info("[LAB] stepper [9-39] stage 1: projection lens CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens) + " nm, 4 hand steps -> grid " + com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid + " (contact max " + com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G.grid + "), mask untouched");
         h.succeed();
     }
 

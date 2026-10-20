@@ -151,3 +151,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ S-003 の前提 [12-14] 層流クリーンルーム（A と合意：等級は C、汚れの反映は A の ChipOps.addDust）：hepa_ceiling（ブロック）、block/CleanRoom.classAt（部屋をたどる・天井の HEPA の割合・HEPA 入りの空調）。マスクアライナーが露光のあとに等級の汚れ（2/1/0）を足し、画面に部屋の等級。v03Chain の汚れは 14 → 24 になったが洗浄台で落ちて NOT が見つかる。GameTest clean_room、CHEMISTRY K5、REFERENCES O51。テスト 220/220
   - [9-39] の前提で残るのは [10-15] 制御だけ（Q-IMP2-6 の答え待ち）
 - ✅ S-004（Q-IMP2-6 の答え②）[9-39] ステッパー段階1：block/StepperBlockEntity・client/StepperScreen、Semiconductor.STEPPER（1行）。ボタンで1チップずつ4回送って焼く（手で送る）、ChipOps.expose(STEPPER_G＝方眼16)、レンズの CD が届かないと不可、マスクは傷まない、重ね合わせ（MaskAlignerBlockEntity.overlayNm）と汚れ（CleanRoom）はアライナーと同じ。段階2（[10-15] の自動送り）は後。GameTest stepper、CHEMISTRY X2、REFERENCES O52。テスト 233/233
+- ✅ A の S-008（方眼の係数 8→16：密着16・投影24・g線ステッパー36…）に合わせた：乳剤（銀塩）マスクの上限 EMULSION_MAX_GRID を ExposureTool.PROJECTION_1X.grid（今 24）から読むように（数字を直書きしない）、chrome_mask テストをステッパーの方眼に、lang・TECH_TREE・CHEMISTRY・TEST_QUEUE の方眼の数字（12/16/8 → 24/36/16）を直した。stepper テストは A が直してくれた

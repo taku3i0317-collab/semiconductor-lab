@@ -306,7 +306,7 @@
   "item.semiconductor-lab.chrome_blank.note4": "クロムの膜は厚さ 0.1µm ほどで光をほぼ全部止める。紫外の光（KrF・ArF）ではガラスが光を吸うので、合成石英の板を使う。",
   "item.semiconductor-lab.chrome_photomask": "クロムマスク",
   "item.semiconductor-lab.chrome_photomask.note1": "石英の板にクロムで回路の形を描いた、硬いマスク。傷に強く、何回も使える。",
-  "item.semiconductor-lab.chrome_photomask.note2": "縮小カメラで原図をクロムのブランクに写して作る（レジスト＋塩酸で Cr を削る）。耐久100（銀塩マスクの10倍）。銀塩の乳剤では描けない細かい原図（方眼12より細かい）も描ける。マスクアライナーで使える。",
+  "item.semiconductor-lab.chrome_photomask.note2": "縮小カメラで原図をクロムのブランクに写して作る（レジスト＋塩酸で Cr を削る）。耐久100（銀塩マスクの10倍）。銀塩の乳剤では描けない細かい原図（等倍投影の方眼24より細かい、ステッパー用）も描ける。マスクアライナーで使える。",
   "item.semiconductor-lab.chrome_photomask.note3": "1960年代の銀塩（エマルジョン）マスクはやわらかく、密着露光ですぐ傷んだ。1970年代、硬いクロムマスクに変わって、何千回も使えるようになった。",
   "item.semiconductor-lab.chrome_photomask.note4": "乳剤は銀の粒（数µm）でできているので、それより細かい線は描けない。クロムは金属の膜なので、のちに電子線で描くと 1µm より細かい線が描ける。今のマスクも石英にクロム（とその仲間）を付けた物。",
   "item.semiconductor-lab.chrome_photomask.placeholder": "近似：本物の Cr のエッチング液は硝酸セリウムアンモニウム（ここでは塩酸）。反射防止の酸化クロム層・電子線描画は省略。"

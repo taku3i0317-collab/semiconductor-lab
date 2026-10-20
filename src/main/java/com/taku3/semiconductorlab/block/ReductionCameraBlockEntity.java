@@ -23,8 +23,9 @@ public class ReductionCameraBlockEntity extends ConsumerBlockEntity {
     /** 原図として使える物：mask の成分を持ち、フォトマスクそのものではない物（原図 rubylith は A が登録） */
     public static boolean isOriginal(ItemStack s) { return !s.isEmpty() && s.has(ModDataComponents.MASK) && !s.is(Optics.PHOTOMASK) && !s.is(Optics.CHROME_PHOTOMASK); }
 
-    /** [7-12] 乳剤（銀塩）で描ける一番細かい方眼。乳剤の粒（数µm）より細かい線は描けない（IMP2 O-015）。クロムは制限なし */
-    public static final int EMULSION_MAX_GRID = 12;
+    /** [7-12] 乳剤（銀塩）で描ける一番細かい方眼＝等倍投影（CD 約3µm）まで。乳剤の粒（数µm）より細かい線は描けない（IMP2 O-015）。クロムは制限なし。
+     *  A の方眼の係数が変わっても合うように ExposureTool から読む（S-008 で 8→16） */
+    public static final int EMULSION_MAX_GRID = com.taku3.semiconductorlab.litho.ExposureTool.PROJECTION_1X.grid;
 
     public static boolean isPlate(ItemStack s) { return s.is(Optics.PHOTO_PLATE) || s.is(Optics.CHROME_BLANK); }
     public static boolean isDeveloper(ItemStack s) { return s.is(Optics.FERROUS_SULFATE) || s.is(com.taku3.semiconductorlab.content.Chemistry.POSITIVE_RESIST); }

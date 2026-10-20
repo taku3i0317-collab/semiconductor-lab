@@ -85,10 +85,11 @@ public class OpticsTests extends LabTestBase {
     public void chrome_mask(GameTestHelper h) {
         var r = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.SYNTHETIC_QUARTZ), new ItemStack(Metallurgy.CHROMIUM));
         h.assertTrue(r != null && r.product() == Optics.CHROME_BLANK, "evaporator: synthetic quartz + chromium -> chrome blank");
-        var fine = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(16), "chrome_test", 0);
+        int g = com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid;
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(g), "chrome_test", 0);
         ItemStack original = new ItemStack(net.minecraft.world.item.Items.PAPER);
         original.set(ModDataComponents.MASK, fine);
-        h.assertFalse(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.fineEnough(new ItemStack(Optics.PHOTO_PLATE), original), "16-grid original is finer than the emulsion grain");
+        h.assertFalse(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.fineEnough(new ItemStack(Optics.PHOTO_PLATE), original), "a stepper-grid original is finer than the emulsion grain");
         h.assertTrue(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.fineEnough(new ItemStack(Optics.CHROME_BLANK), original), "chrome draws it");
         h.assertTrue(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.chemicalsMatch(new ItemStack(Optics.CHROME_BLANK), new ItemStack(Chemistry.POSITIVE_RESIST), new ItemStack(Gas.HYDROCHLORIC_ACID)), "chrome: resist + HCl etch");
         h.assertFalse(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.chemicalsMatch(new ItemStack(Optics.CHROME_BLANK), new ItemStack(Optics.FERROUS_SULFATE), new ItemStack(Optics.SODIUM_THIOSULFATE)), "silver chemistry does not etch chrome");
@@ -104,7 +105,7 @@ public class OpticsTests extends LabTestBase {
         h.assertTrue(out.is(Optics.CHROME_PHOTOMASK) && fine.equals(out.get(ModDataComponents.MASK)), "reduction camera -> chrome mask with the original's pattern");
         h.assertTrue(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.isMask(out), "the mask aligner takes chrome masks");
         h.assertTrue(out.getMaxDamage() == Optics.CHROME_MASK_USES && Optics.CHROME_MASK_USES >= 10 * Optics.PHOTOMASK_USES, "chrome lasts 10x longer than emulsion");
-        LOG.info("[LAB] chrome_mask [7-12]: quartz + Cr -> blank; resist + HCl -> chrome mask (16-grid OK, emulsion max 12), {} uses", Optics.CHROME_MASK_USES);
+        LOG.info("[LAB] chrome_mask [7-12]: quartz + Cr -> blank; resist + HCl -> chrome mask (stepper grid OK, emulsion max = projection 1x grid), {} uses", Optics.CHROME_MASK_USES);
         h.succeed();
     }
 
