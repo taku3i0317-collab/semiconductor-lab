@@ -1,0 +1,57 @@
+{
+  "parent": "semiconductor-lab:guide4/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:book"
+    },
+    "title": {
+      "translate": "guide4.semiconductor-lab.p1.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch4.p1"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "drafting_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:drafting_table"
+          }
+        ]
+      }
+    },
+    "oxidized_wafer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:oxidized_wafer"
+          }
+        ]
+      }
+    },
+    "process_wafer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:process_wafer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "drafting_table",
+      "oxidized_wafer",
+      "process_wafer"
+    ]
+  ]
+}

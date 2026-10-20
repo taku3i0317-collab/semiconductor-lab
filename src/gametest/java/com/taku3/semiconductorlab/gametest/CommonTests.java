@@ -357,6 +357,22 @@ public class CommonTests extends LabTestBase {
         h.succeed();
     }
 
+    /** O-011：ガイド第4巻「IC」（guide4/）の11個と give_guidebook4 が登録されている。ページは en・ja の両方にある */
+    @GameTest
+    public void guide4Ic(GameTestHelper h) {
+        MinecraftServer server = h.getLevel().getServer();
+        String[] adv = {"root", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"};
+        List<String> missing = new ArrayList<>();
+        for (String a : adv) if (server.getAdvancements().get(SemiconductorLab.id("guide4/" + a)) == null) missing.add("guide4/" + a);
+        if (server.getFunctions().get(SemiconductorLab.id("give_guidebook4")).isEmpty()) missing.add("function give_guidebook4");
+        h.assertTrue(missing.isEmpty(), "not registered: " + missing);
+        long n = server.getAdvancements().getAllAdvancements().stream()
+                .filter(x -> x.id().getNamespace().equals(SemiconductorLab.MOD_ID) && x.id().getPath().startsWith("guide4/")).count();
+        h.assertValueEqual(n, (long) adv.length, "number of guide4 advancements");
+        LOG.info("[LAB] guide4 (ICs): {} advancements + give_guidebook4 registered", n);
+        h.succeed();
+    }
+
     /** IMP-26：ガイド第3巻「シリコン」（guide3/）の10個と give_guidebook3 が登録されている */
     @GameTest
     public void guide3Silicon(GameTestHelper h) {

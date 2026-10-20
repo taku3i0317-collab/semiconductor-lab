@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide4/p3",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:oxidized_wafer"
+    },
+    "title": {
+      "translate": "guide4.semiconductor-lab.p4.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch4.p4"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "oxidized_wafer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:oxidized_wafer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "oxidized_wafer"
+    ]
+  ]
+}

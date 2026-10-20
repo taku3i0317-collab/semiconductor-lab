@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide4/p7",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:evaporator"
+    },
+    "title": {
+      "translate": "guide4.semiconductor-lab.p8.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch4.p8"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "evaporator": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:evaporator"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "evaporator"
+    ]
+  ]
+}

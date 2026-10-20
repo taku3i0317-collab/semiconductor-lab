@@ -1,0 +1,59 @@
+{
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:process_wafer"
+    },
+    "title": {
+      "translate": "guide4.semiconductor-lab.root.title"
+    },
+    "description": {
+      "translate": "guide4.semiconductor-lab.root.description"
+    },
+    "background": "minecraft:block/smooth_quartz",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "drafting_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:drafting_table"
+          }
+        ]
+      }
+    },
+    "oxidized_wafer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:oxidized_wafer"
+          }
+        ]
+      }
+    },
+    "process_wafer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:process_wafer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "drafting_table",
+      "oxidized_wafer",
+      "process_wafer"
+    ]
+  ],
+  "rewards": {
+    "function": "semiconductor-lab:give_guidebook4"
+  }
+}

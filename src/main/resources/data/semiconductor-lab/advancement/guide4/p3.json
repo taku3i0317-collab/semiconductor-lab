@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide4/p2",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:photomask"
+    },
+    "title": {
+      "translate": "guide4.semiconductor-lab.p3.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch4.p3"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "photomask": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:photomask"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "photomask"
+    ]
+  ]
+}

@@ -22,24 +22,28 @@ OUT = ROOT / "docs/HUMAN_CHECK_TODAY.md"
 NODE_RE = r"[0-9A-Z]+-[0-9]+"
 
 # ノード番号の無い節（general.md など）を、どの機械の区画で確かめるか
-KEYWORDS = [("組立台", "assembly_bench"), ("製図台", "drafting_table"), ("検査台", "probe_station"), ("高炉", "blast_furnace_hearth"),
+KEYWORDS = [("塗布", "spin_coater"), ("マスクアライナー", "mask_aligner"), ("現像", "developer_bench"), ("はがし", "resist_stripper"), ("組立台", "assembly_bench"), ("製図台", "drafting_table"), ("検査台", "probe_station"), ("高炉", "blast_furnace_hearth"),
             ("塊鉄炉", "bloomery"), ("ふいご", "bellows"), ("塩酸合成炉", "hcl_burner"), ("拡散炉", "diffusion_furnace"),
             ("汚れ", "probe_station"), ("大きな方眼", "drafting_table"), ("露光とマスク", "drafting_table"), ("洗浄", "cleaning_bench")]
 # v0.3 の本線（製図台 → … → 検査台）に入れる節：見出しにこの言葉か、このノード
-MAIN_WORDS = ("露光とマスク", "製図台", "検査台", "汚れ", "大きな方眼", "拡散炉の窓", "v0.3")
-MAIN_NODES = {"7-11", "9-06", "9-13", "9-14", "9-15", "9-16", "9-25", "9-12"}
+MAIN_WORDS = ("露光とマスク", "製図台", "検査台", "汚れ", "大きな方眼", "拡散炉の窓", "v0.3", "レジスト", "現像", "マスクアライナー", "はがし", "集積回路")
+MAIN_NODES = {"7-11", "9-06", "9-13", "9-14", "9-15", "9-16", "9-25", "9-12", "9-18", "9-19", "9-20", "9-21", "9-22", "2-30", "2-32"}
 # 本線の手順（機械 ID・何をする）。機械がまだ無い工程は None
 MAIN_STEPS = [
     ("drafting_table", "製図台で ＋（新しい方眼紙）→ 層を選んで方眼に描く → ✂ で層ごとに原図を切り出す"),
     ("reduction_camera", "縮小カメラ（C）で原図 → フォトマスク"),
     ("oxidation_furnace", "酸化炉で、切ったシリコンの板（p型）＋酸素 → 酸化膜つきの板"),
-    (None, "レジスト塗布 [9-19]・密着露光 [9-20]・現像 [9-21]・レジストはがし：**まだ機械がない**（LITHO_DESIGN §10）。ゲームの中ではここで止まる"),
+    ("spin_coater", "レジスト塗布機＋ポジ型レジスト → レジストを塗った板（日なたに持ち出さない）"),
+    ("mask_aligner", "マスクアライナー＋フォトマスク（すき間は密着）→ 露光した板"),
+    ("developer_bench", "現像槽＋現像液 → 現像した板"),
     ("etch_tank", "エッチング槽＋フッ酸 → 酸化膜に窓（窓の開いた加工中のウェハー）"),
+    ("resist_stripper", "レジストはがし槽＋硫酸＋過酸化水素 → レジストが取れる（ここから 塗布 → … をマスクの枚数＝5回）"),
+    (None, "ネガ型レジスト（KPR、[2-30]）：**まだ ❓**（D・E が作っている）。できたら、ネガ型ではマスクの白黒が逆になるのを確かめる"),
     ("diffusion_furnace", "拡散炉＋リン／B2O3 → 窓からだけしみ込む（3回）"),
     ("evaporator", "真空蒸着装置（隣に真空容器）＋アルミ → Al の膜"),
     ("etch_tank", "エッチング槽＋リン酸 → Al の配線"),
     ("cleaning_bench", "洗浄台 → 汚れが 0 に"),
-    ("probe_station", "検査台でパッドを 0 V・5 V にして「調べる」→ 発見（抵抗・ダイオード・トランジスタ・NOT）"),
+    ("probe_station", "検査台でパッドを 0 V・5 V にして「調べる」→ 発見（抵抗・ダイオード・トランジスタ・集積回路・NOT の5つ）。ガイド第4巻（give_guidebook4）のページも開くか"),
 ]
 
 
@@ -115,7 +119,7 @@ def main():
              "2. 場所は、コマンドを実行した所から **東へ x・南へ z** ブロック（各区画の北側に看板、チェストに材料）",
              f"3. 終わった項目は docs/test_queue/ の部品で `[ ]` を `[x]` に（この手順書は作り直せば消える）。全部で {len(items)} 項目",
              "",
-             "## 1. v0.3 の本線（製図台 → … → 検査台）を通しで",
+             "## 1. v0.3 の確認表：本線（製図台 → … → 検査台）を通しで（全部実機、GameTest v03_chain と同じ順）",
              ""]
     for k, (bid, what) in enumerate(MAIN_STEPS, 1):
         pos = blocks.get(bid) if bid else None
