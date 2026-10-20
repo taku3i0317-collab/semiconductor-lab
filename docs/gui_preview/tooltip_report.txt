@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 396（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 397（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -663,6 +663,8 @@ en_us micrometer lines=6
 en_us micrometer shift lines=16
 en_us pump_rotor lines=3
 en_us pump_rotor shift lines=11
+en_us gauge_block_set lines=8
+en_us gauge_block_set shift lines=18
 en_us metre_bar lines=8
 en_us metre_bar shift lines=16
 en_us cast_iron_plate lines=10
@@ -1455,6 +1457,8 @@ ja_jp micrometer lines=4
 ja_jp micrometer shift lines=13
 ja_jp pump_rotor lines=2
 ja_jp pump_rotor shift lines=9
+ja_jp gauge_block_set lines=6
+ja_jp gauge_block_set shift lines=14
 ja_jp metre_bar lines=6
 ja_jp metre_bar shift lines=13
 ja_jp cast_iron_plate lines=6
