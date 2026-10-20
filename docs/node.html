@@ -13,6 +13,7 @@
 :root[data-theme="dark"] { --bg: #15171b; --panel: #1e2127; --ink: #e8e6e1; --sub: #a0a7b2; --line: #343842; --accent: #7aa7ff; --warn: #ffb347; --ok: #6fcf97; }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.7 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif; }
+a { color: var(--accent); overflow-wrap: anywhere; }
 .wrap { max-width: 780px; margin: 0 auto; padding: 12px 16px 48px; }
 nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; font-size: 13px; padding: 6px 0 10px; }
 nav a { color: var(--accent); text-decoration: none; }
@@ -65,7 +66,7 @@ del { color: var(--sub); }
   const data = window.TECH_NETWORK || await fetch('tech_network.json').then(r => r.json());
   const REPO = 'https://github.com/taku3i0317-collab/semiconductor-lab';
   const nodes = data.nodes, byId = new Map(nodes.map(n => [n.id, n]));
-  const isProd = n => n.kind === 'product';
+  const isProd = n => n.kind === 'product', isIdea = n => n.kind === 'idea';
   const kids = new Map(), parentsOf = new Map();
   for (const e of data.edges) if (e.kind === 'requires') {
     (kids.get(e.from) || kids.set(e.from, []).get(e.from)).push(e.to);
@@ -82,7 +83,7 @@ del { color: var(--sub); }
   const ALL = makeable(null);
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   // 本文の中の [番号] をリンクに、~~消し線~~ を del に
-  const rich = s => esc(s).replace(/~~(.*?)~~/g, '<del>$1</del>').replace(/\[(\d+|B)-(\d+[a-z]?)\]/g, (m, t, n) => byId.has(`${t}-${n}`) ? `<a href="#${t}-${n}">[${t}-${n}]</a>` : m);
+  const rich = s => esc(s).replace(/~~(.*?)~~/g, '<del>$1</del>').replace(/\[(\d+|B|P|I)-(\d+[a-z]?)\]/g, (m, t, n) => byId.has(`${t}-${n}`) ? `<a href="#${t}-${n}">[${t}-${n}]</a>` : m);
   const yearText = d => d.year == null ? '年 ?' : (d.year < 0 ? `前${(-d.year).toLocaleString()}年` : `${d.year}年`) + (d.year_range ? `（${d.year_range}）` : '') + (d.year_uncertain ? ' ⚠️' : '');
   const chip = id => { const n = byId.get(id); return n ? `<a class="chip${n.status === '✅' ? ' done' : ''}" href="#${id}">${id} ${esc(n.name)} ${n.status}</a>` : ''; };
   const silhouette = `<svg width="40" height="40" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="11" r="7" fill="var(--sub)"/><path d="M4 33c0-8 6-13 13-13s13 5 13 13z" fill="var(--sub)"/></svg>`;
@@ -138,7 +139,15 @@ del { color: var(--sub); }
       ...(kids.get(id) || []).map(c => ({ dir: '子', o: byId.get(c) }))
     ].filter(x => x.o && x.o.year != null && d.year != null).map(x => ({ ...x, gap: Math.abs(x.o.year - d.year) }))
       .filter(x => x.gap >= 100).sort((a, b) => b.gap - a.gap);
-    const ic = d.icon ? `<img src="${d.icon}" alt="">` : esc(isProd(d) ? (d.emoji || d.symbol) : d.symbol);
+    const ic = d.icon ? `<img src="${d.icon}" alt="">` : esc(isProd(d) ? (d.emoji || d.symbol) : isIdea(d) ? (d.emoji || '💡') : d.symbol);
+    const chips = ids => `<div class="chips">${ids.map(chip).join('')}</div>`;
+    // 発見・考え方（ideas.md）とのつながり。発見のページでは「作れるようになった技術」「説明する技術」、技術のページでは逆向き
+    const ideaHtml = [
+      [d.enables, 'この考え方で作れるようになった技術', 'この考えがないと作れなかった＝前提'],
+      [d.explains, 'この考え方が説明する技術', 'なぜ動くかが、この考えで分かる＝理解'],
+      [d.enabled_by, 'これを作れるようにした考え方', ''],
+      [d.explained_by, 'なぜ動くかを説明する考え方', '']
+    ].filter(([ids]) => ids && ids.length).map(([ids, h, note]) => `<p class="muted" style="margin-top:8px">${h}${note ? `（${note}）` : ''}</p>${chips(ids)}`).join('');
     const issue = `${REPO}/issues/new?` + new URLSearchParams({
       title: `[${d.id}] ${d.name} の誤り`,
       body: `ノード: [${d.id}] ${d.name}\nページ: node.html#${d.id}\n\nどこが違うか：\n\n正しいと思う内容：\n\n出典（あれば）：\n`
@@ -150,12 +159,16 @@ del { color: var(--sub); }
         <div class="ic">${ic}</div>
         <div>
           <h1>[${d.id}] ${esc(d.name)}</h1>
-          <div class="meta">${yearText(d)}・${d.trunk === 'B' ? '枝' : '幹' + d.trunk} ${esc(d.trunk_name)}</div>
-          <div>${d.status === '✅' ? '<span class="badge ok">✅ ゲームにある</span>' : `<span class="badge">${d.status} まだ</span>`}${isProd(d) ? '<span class="badge">モノ</span>' : ''}${d.buildable_now ? '<span class="badge ok">今すぐ作れる</span>' : ''}${d.year_uncertain ? '<span class="badge warn">⚠️ 年は諸説・未確認</span>' : ''}</div>
+          <div class="meta">${yearText(d)}・${d.trunk === 'P' || d.trunk === 'I' ? '' : (d.trunk === 'B' ? '枝' : '幹' + d.trunk) + ' '}${esc(d.trunk_name)}</div>
+          <div>${d.status === '✅' ? '<span class="badge ok">✅ ゲームにある</span>' : `<span class="badge">${d.status} まだ</span>`}${isProd(d) ? '<span class="badge">モノ</span>' : ''}${isIdea(d) ? '<span class="badge">◆ 発見・考え方</span>' : ''}${d.buildable_now ? '<span class="badge ok">今すぐ作れる</span>' : ''}${d.year_uncertain ? '<span class="badge warn">⚠️ 年は諸説・未確認</span>' : ''}</div>
         </div>
       </header>
 
       ${heeHtml ? `<section><h2>へえ</h2><div class="hee">${heeHtml}</div></section>` : ''}
+
+      ${d.play ? `<section><h2>遊び方（${isIdea(d) ? 'ゲームで発見する実験' : '作って置いて動かす作品'}）</h2><div>${rich(d.play)}</div></section>` : ''}
+
+      ${isIdea(d) && ideaHtml ? `<section><h2>この考え方がつながる技術</h2>${ideaHtml}</section>` : ''}
 
       ${d.real_full ? `<section><h2>本物（工程・反応式）</h2><div>${rich(d.real_full)}</div></section>` : ''}
 
@@ -165,10 +178,13 @@ del { color: var(--sub); }
         ${d.refs.length ? d.refs.map(r => `<div class="ref"><b>${esc(r.title)}</b>${r.answer ? `<div>${rich(r.answer)}</div>` : ''}<div class="muted">確かさ：${esc(r.certainty || '—')}</div>${r.basis ? `<div class="muted">根拠：${esc(r.basis)}</div>` : ''}</div>`).join('')
           + `<p><a href="${REPO}/blob/master/docs/REFERENCES.md">REFERENCES.md（参考文献のまとめ）を開く</a></p>`
           : `<p class="muted">まだ REFERENCES.md に項目がない（確かさは未評価）。${d.year_uncertain ? '年は ⚠️（諸説・未確認）。' : ''}</p>`}
+        ${d.sources && d.sources.length ? `<p>出典：${d.sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(decodeURIComponent(u.replace(/^https?:\/\/(www\.)?/, '')).slice(0, 60))}</a>`).join('<br>')}</p>` : ''}
         <p class="muted">◎ 信頼できる出典2つ以上で一致／○ 1つで確認／△ 未確認（ゲームでは ⚠️）</p>
       </section>
 
-      <section><h2>ゲームでの作り方</h2>
+      ${d.missing ? `<section><h2>足りない技術</h2><p>${esc(d.missing)}</p><p class="muted">前提に要るのに、まだ技術ネットワークにノードがない（network_proposals.md で追加を提案中）</p></section>` : ''}
+
+      ${isIdea(d) ? '' : `<section><h2>ゲームでの作り方</h2>
         ${d.status === '✅' ? '' : '<p class="muted">まだゲームにない。予定：</p>'}
         ${d.machine_recipes.length ? `<p class="muted">機械で（GameTest が機械の設定から書き出した表）</p><ul>${d.machine_recipes.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
         ${d.recipes.length ? `<p class="muted">作業台・かまどで</p><ul>${d.recipes.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
@@ -176,25 +192,26 @@ del { color: var(--sub); }
         ${d.game_text ? `<p class="muted">${rich(d.game_text)}</p>` : ''}
         ${d.placeholder ? `<p class="muted">⚠️ 省略・近似：${esc(d.placeholder)}</p>` : ''}
         ${!d.recipes.length && !d.machine_recipes.length && !d.hee_game.note2 && !d.game_text ? '<p class="muted">（まだ書いていない）</p>' : ''}
-      </section>
+      </section>`}
 
       <section><h2>ここにたどり着くには</h2>
         ${remain === 0 ? '<p>もうゲームで作れる（✅）。</p>' : `<p>あと <span class="big">${remain}</span> 個（別ルートはいちばん少ない方で数えた）。作る順番：</p><ol class="path">${pathHtml}</ol>`}
       </section>
 
-      <section><h2>影響</h2>
+      ${isIdea(d) ? '' : `<section><h2>影響</h2>
         <p>これが無いと作れなくなる技術（別ルートも考えたうえで）：<span class="big">${lost.length}</span></p>
         <div class="chips">${lost.map(chip).join('')}</div>
         <p style="margin-top:10px">これを使う「モノ」：${usedBy.length} 個</p>
         <div class="chips">${usedBy.map(n => chip(n.id)).join('') || '<span class="muted">なし</span>'}</div>
         <p class="muted">この技術の祖先 ${anc.size}・子孫 ${desc.size}</p>
-      </section>
+      </section>`}
 
       ${gaps.length ? `<section><h2>時を超えたつながり（年の差 100年以上）</h2><table class="gap">${gaps.map(g => `<tr><td>${g.dir}</td><td>${chip(g.o.id)}</td><td>${yearText(g.o)}</td><td>${g.gap.toLocaleString()} 年</td></tr>`).join('')}</table></section>` : ''}
 
       <section><h2>つながり</h2>
         <p class="muted">前提（全部そろう＝AND、or は別ルート）</p><div>${req || 'なし'}</div>
         ${d.understanding.length ? `<p class="muted" style="margin-top:8px">理解（後で分かった科学）</p><div class="chips">${d.understanding.map(chip).join('')}</div>` : ''}
+        ${isIdea(d) ? '' : ideaHtml}
         <p class="muted" style="margin-top:8px">すぐ次の技術（${(kids.get(id) || []).length}）</p><div class="chips">${(kids.get(id) || []).map(chip).join('') || 'なし'}</div>
       </section>
 

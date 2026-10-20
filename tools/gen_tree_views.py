@@ -13,6 +13,10 @@
   前提には数えない（作れるか・年の逆転の判定に使わない）。JSON では kind="understanding" のつながり
 - 年 = "年: 1866（1866〜67） ⚠️" の項目（西暦、紀元前はマイナス、括弧は範囲、⚠️ は諸説・未確認）。無ければ本物欄から推定
 書き出し：docs/TECH_TREE_VIEW.md ／ docs/tech_network.json（技術ネットワーク図の元データ：ノードとつながり）
+追加の読み込み（技術ネットワーク図だけに合流。TECH_TREE_VIEW.md の表・今すぐ作れる には入れない）
+- docs/products.md の [P-番号]（種類: モノ、遊び方: 作品）
+- docs/ideas.md の [I-番号]（種類: 発見、遊び方: 実験）。「前提になる: [..]」は 発見→技術 の線（kind="enables"）、
+  「説明する: [..]」は 理解の線（kind="understanding"）。技術ノードの前提（作れるかの判定）には数えない
 """
 import base64
 import json
@@ -23,6 +27,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "docs" / "TECH_TREE.md"
+EXTRA_SRC = [ROOT / "docs" / "products.md", ROOT / "docs" / "ideas.md"]
 OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
 JSON_OUT = ROOT / "docs" / "tech_network.json"
 JS_OUT = ROOT / "docs" / "tech_network.js"
@@ -30,8 +35,8 @@ META = ROOT / "docs" / "network_meta.json"
 TEX = ROOT / "src" / "main" / "resources" / "assets" / "semiconductor-lab" / "textures"
 YEAR_RE = re.compile(r"(?:^|／|\s)年:\s*(-?\d+)(?:（([^）]*)）)?(\s*⚠️)?")
 
-ID_RE = re.compile(r"\[(\d+|B)-(\d+[a-z]?)\]")
-HEAD_RE = re.compile(r"^###\s+\[(\d+|B)-(\d+[a-z]?)\]\s*(.*)$")
+ID_RE = re.compile(r"\[(\d+|B|P|I)-(\d+[a-z]?)\]")
+HEAD_RE = re.compile(r"^###\s+\[(\d+|B|P|I)-(\d+[a-z]?)\]\s*(.*)$")
 START, GOAL = "0-01", "10-16"   # 最終目的は AI（DESIGN「MOD の最終目的」、2026-10-20）。EUV [9-40] はその手前の最後の機械
 GOALS = [GOAL]
 TRUNK_NAMES = {
@@ -40,6 +45,7 @@ TRUNK_NAMES = {
     "10": "制御・計算", "11": "農業・食", "12": "建築・土木", "13": "医薬・衛生",
     "14": "輸送", "15": "通信・情報", "B": "枝",
 }
+EXTRA_TRUNKS = {"P": "モノ（作品）", "I": "発見・考え方"}   # products.md・ideas.md
 ERAS = [("〜BC", -10**9, 0), ("1〜1500", 1, 1500), ("1500〜1800", 1501, 1800),
         ("1800〜1900", 1801, 1900), ("1900〜1950", 1901, 1950), ("1950〜", 1951, 10**9)]
 
@@ -55,11 +61,11 @@ def trunk_of(i):
 def sort_key(i):
     t, n = i.split("-")
     num = int(re.match(r"\d+", n).group())
-    return (999 if t == "B" else int(t), num, n)
+    return ({"B": 999, "P": 1000, "I": 1001}[t] if t in ("B", "P", "I") else int(t), num, n)
 
 
-def parse():
-    lines = SRC.read_text(encoding="utf-8").splitlines()
+def parse(src=SRC):
+    lines = src.read_text(encoding="utf-8").splitlines() if src.exists() else []
     nodes, dups, cur = {}, [], None
     for line in lines:
         m = HEAD_RE.match(line)
@@ -109,6 +115,11 @@ def fill(n):
     n["pre"] = sorted({i for alts in groups for a in alts for i in a}, key=sort_key)
     um = re.search(r"(?:^|／|\s)理解[:：](.*?)(?:／|\n|$)", n["body"], re.S)
     n["understand"] = sorted({nid(x) for x in ID_RE.findall(um.group(1))}, key=sort_key) if um else []
+    # 発見（ideas.md）から技術への線：前提になる（無いと作れなかった）／説明する（なぜ動くか）
+    def ids_of(pat):
+        m = re.search(r"(?:^|／|\s)" + pat + r"[:：](.*?)(?:／|\n|$)", n["body"], re.S)
+        return sorted({nid(x) for x in ID_RE.findall(m.group(1))}, key=sort_key) if m else []
+    n["enables"], n["explains"] = ids_of("前提になる"), ids_of("説明する")
     if "回避" in status_zone:
         n["st"] = "➖"
     ym = YEAR_RE.search(n["body"])
@@ -350,13 +361,14 @@ def node_details(nodes, icons):
     # 機械のレシピ（GameTest exportMachineRecipes が書き出す docs/machine_recipes.json）
     mfile = ROOT / "docs" / "machine_recipes.json"
     machine = json.loads(mfile.read_text(encoding="utf-8")).get("recipes", []) if mfile.exists() else []
-    def thing(x):
-        """量の数字の項目から表示の文を作る（例：「黒鉛棒 8回で1本」「水素ガス 4 mol」「水入りバケツ 1/4」）"""
+    def thing(x, out=False):
+        """量の数字の項目から表示の文を作る（例：「黒鉛棒 8回で1本」「水素ガス 4 mol」「水入りバケツ 1/4」）。
+        per_runs は材料なら「N回で1個へる」、できる物なら「N回に1個できる」"""
         name = ja_name(x["item"]) if ":" in x["item"] else x["item"]
         c = x.get("count", 1)
         frac = {0.25: "1/4", 0.5: "1/2", 0.75: "3/4"}
         if x.get("per_runs"):
-            s = f"{name} {x['per_runs']}回で{c:g}" + ("本" if "棒" in name else "個")
+            s = f"{name} {x['per_runs']}回{'に' if out else 'で'}{c:g}" + ("本" if "棒" in name else "個") + ("できる" if out else "")
         elif x.get("unit"):
             s = f"{name} {c:g} {x['unit']}"
         elif c in frac:
@@ -377,13 +389,14 @@ def node_details(nodes, icons):
         w, s = r["watts"], r["seconds"]
         if w < 0:
             return f"発電 {(-w) / 1000:g} kW" + (f"・石炭1個 {s:g} 秒" if s else "")
-        if w == 0:
-            return f"電気なし・{s:g} 秒" if s else "電気なし"
+        if w == 0:   # 説明に「電気なし」があれば二重に書かない
+            tag = "" if "電気なし" in (r.get("note") or "") else "電気なし"
+            return "・".join(x for x in (tag, f"{s:g} 秒" if s else "") if x) or "電気なし"
         return f"{w / 1000:g} kW × {s:g} 秒＝{r.get('energy_kj', 0):,} kJ" if s else f"{w / 1000:g} kW"
     by_item = defaultdict(list)
     for r in machine:
         line = (f"{ja_name(r['machine'])}「{r['process']}」：" + " ＋ ".join(thing(x) for x in r["inputs"]) + " → "
-                + " ＋ ".join(thing(x) for x in r["outputs"]) + f"（{power(r)}）" + (f"。{r['note']}" if r.get("note") else ""))
+                + " ＋ ".join(thing(x, True) for x in r["outputs"]) + f"（{power(r)}）" + (f"。{r['note']}" if r.get("note") else ""))
         keys = {r["machine"]} | {x["item"] for x in r["outputs"] if ":" in x["item"]}
         for k in keys:
             by_item[k].append(line)
@@ -409,6 +422,14 @@ def node_details(nodes, icons):
                   "placeholder": lang(f"semiconductor-lab.{item_id}.placeholder") if item_id else None,
                   "game_text": field_all(body, r"ゲーム") or field_all(body, r"MC入手") or field_all(body, r"MC")}
     return out
+
+
+def kind_of(body):
+    if re.search(r"種類[:：]\s*モノ", body):
+        return "product"
+    if re.search(r"種類[:：]\s*発見", body):
+        return "idea"
+    return "tech"
 
 
 def field_all(body, pat):
@@ -447,12 +468,17 @@ def export_json(nodes):
     out_nodes, edges = [], []
     for i in sorted(nodes, key=sort_key):
         n = nodes[i]
-        out_nodes.append({**details.get(i, {}),"id": i, "name": n["name"], "trunk": trunk_of(i), "trunk_name": TRUNK_NAMES.get(trunk_of(i), ""),
+        out_nodes.append({**details.get(i, {}),"id": i, "name": n["name"], "trunk": trunk_of(i), "trunk_name": {**TRUNK_NAMES, **EXTRA_TRUNKS}.get(trunk_of(i), ""),
                           "status": n["st"], "branch": n["branch"], "year": n["year"], "year_range": n["year_range"],
                           "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
                           "understanding": n["understand"], "buildable_now": i in now,
                           "real": field(n["body"], r"本物"), "hee1": field(n["body"], r"へえ①?"),
-                          "kind": "product" if re.search(r"種類[:：]\s*モノ", n["body"]) else "tech",
+                          "kind": kind_of(n["body"]),
+                          "play": field(n["body"], r"遊び方"), "missing": field(n["body"], r"足りない"),
+                          "sources": re.findall(r"https?://[^\s,／]+", field_all(n["body"], r"出典")),
+                          "enables": n["enables"], "explains": n["explains"],
+                          "enabled_by": [k for k, o in nodes.items() if i in o["enables"]],
+                          "explained_by": [k for k, o in nodes.items() if i in o["explains"]],
                           "icon": icon_uri(icons[i]) if i in icons else None, "emoji": emoji.get(i),
                           "symbol": symbols.get(trunk_of(i), "●"), "people": people.get(i, []),
                           "descendants": len(descendants(i))})
@@ -464,10 +490,18 @@ def export_json(nodes):
         for p in n["understand"]:
             if p in nodes:
                 edges.append({"from": p, "to": i, "kind": "understanding"})
+        for t in n["enables"]:
+            if t in nodes:
+                edges.append({"from": i, "to": t, "kind": "enables"})
+        for t in n["explains"]:
+            if t in nodes:
+                edges.append({"from": i, "to": t, "kind": "understanding"})
     data = {"generated_by": "tools/gen_tree_views.py", "source": "docs/TECH_TREE.md", "start": START, "goal": GOAL,
             "year_note": "西暦。紀元前はマイナス。year_uncertain=true は諸説・未確認（⚠️）",
             "requires_note": "requires はノードを作るのに要る項目の並び（全部そろう＝AND）。1項目の中の複数案は OR、案の中は AND",
-            "edge_kinds": {"requires": "前提（無いと作れない）", "understanding": "理解（後で分かった科学。作るのには要らない）"},
+            "edge_kinds": {"requires": "前提（無いと作れない）", "understanding": "理解（後で分かった科学。作るのには要らない）",
+                           "enables": "発見→技術（その考えがないと作れなかった。作れるかの判定には数えない）"},
+            "kinds": {"tech": "技術", "product": "モノ（TECH_TREE の「種類: モノ」と products.md）", "idea": "発見・考え方（ideas.md）"},
             "nodes": out_nodes, "edges": edges, "year_inversions": [
                 {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d} for a, y, p, py, d in year_inversions(nodes)]}
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
@@ -613,6 +647,13 @@ def main():
             print(f"  [{a}] {y} < [{p}] {py} (gap {d})")
         return
     OUT.write_text("\n".join(L) + "\n", encoding="utf-8")
+    # products.md・ideas.md のノードはネットワーク図にだけ合流させる（TECH_TREE_VIEW.md には入れない）
+    for src in EXTRA_SRC:
+        extra, edup = parse(src)
+        clash = [i for i in extra if i in nodes] + edup
+        if clash:
+            print(f"warning: {src.name} の重複 {clash}")
+        nodes.update({k: v for k, v in extra.items() if k not in nodes})
     data = export_json(nodes)
     print(f"wrote {OUT} ({len(nodes)} nodes), {JSON_OUT.name} ({len(data['nodes'])} nodes, {len(data['edges'])} edges, {len(data['year_inversions'])} year inversions)")
 
