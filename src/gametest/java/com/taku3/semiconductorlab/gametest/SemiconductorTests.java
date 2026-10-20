@@ -669,6 +669,46 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** レジストはがし槽（IMP4-01）：NOT の例の全部の「はがす」を槽で通す → 4つの発見。塗っただけ（リワーク）もはがせる、レジストがないと動かない */
+    @GameTest(maxTicks = 300)
+    public void resistStripper(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.RESIST_STRIPPER.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS);
+        java.util.function.UnaryOperator<ItemStack> strip = wf -> {
+            c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+            c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_WAFER, wf.copy());
+            c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_ACID, new ItemStack(Chemistry.SULFURIC_ACID));
+            c.setItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_PEROXIDE, new ItemStack(Chemistry.HYDROGEN_PEROXIDE));
+            tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS, feed);
+            return c.getItem(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT).copy();
+        };
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        // リワーク：塗っただけのウェハーをはがすと、また塗れる
+        ItemStack rework = strip.apply(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out());
+        h.assertTrue(rework.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.canCoat(rework), "rework: strip a coated wafer and coat again");
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        for (int i = 0; i < d.layers().size(); i++) {
+            var k = d.layers().get(i).kind();
+            w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(i), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+            if (k == com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.etchMetal(w).out(); else w = com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w).out();
+            ItemStack s2 = strip.apply(w);
+            h.assertTrue(s2.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(s2).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.NONE, "layer " + i + ": stripper = ChipOps.strip, got " + s2);
+            w = s2;
+            if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
+            else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
+        }
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), 4, "NOT example with the stripper -> 4 discoveries");
+        h.assertTrue(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.product(w).isEmpty(), "no resist -> nothing to strip");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] resist stripper: H2SO4 + H2O2 strips 8 wafers per run (rework too); NOT example -> 4 discoveries");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -1239,6 +1279,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WAFERS_PER_RUN), "汚れ 0")), com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WATTS, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS / 20.0, "熱い硝酸で煮る → フッ酸 → 蒸留水ですすぐ（1950年代）");
         rec(a, Semiconductor.SPIN_COATER.block, "レジストを塗る", L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WAFERS_PER_RUN), "酸化膜つきの板か加工中のウェハー 1〜8枚"), cond(io(Chemistry.POSITIVE_RESIST, 1), "感光していない物")),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WAFERS_PER_RUN), "レジストを塗った（COATED）")), com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.TICKS / 20.0, "毎分数千回転で広げ、温めて溶剤を飛ばす（ChipOps.coat）");
+        rec(a, Semiconductor.RESIST_STRIPPER.block, "レジストをはがす", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WAFERS_PER_RUN), "レジスト付き 1〜8枚"), io(Chemistry.SULFURIC_ACID, 1), io(Chemistry.HYDROGEN_PEROXIDE, 1)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WAFERS_PER_RUN), "レジストなし")), com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS / 20.0, "熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。塗り直しにも");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

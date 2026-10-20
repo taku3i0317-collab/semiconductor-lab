@@ -317,5 +317,17 @@
   "gui.semiconductor-lab.spin_coater.cannot": "このウェハーには塗れない",
   "gui.semiconductor-lab.spin_coater.need_power": "電気が足りない",
   "gui.semiconductor-lab.spin_coater.running": "回して塗っている",
-  "gui.semiconductor-lab.spin_coater.recipe": "回して広げる → 温めて乾かす"
+  "gui.semiconductor-lab.spin_coater.recipe": "回して広げる → 温めて乾かす",
+  "block.semiconductor-lab.resist_stripper": "レジストはがし槽",
+  "block.semiconductor-lab.resist_stripper.note1": "使い終わったレジストを、熱い酸で溶かして取る槽。",
+  "block.semiconductor-lab.resist_stripper.note2": "電気 500W。加工中のウェハー1〜8枚（レジストが付いている物）＋硫酸1＋過酸化水素1（空の瓶2本は上に戻る）→ レジストをはがしたウェハー（20秒）。窓を開けたあとや、露光をまちがえたときの塗り直し（リワーク）に使う。",
+  "block.semiconductor-lab.resist_stripper.note3": "濃い硫酸に過酸化水素をまぜると、強く酸化する液（カロ酸を含む）になり、レジストのような有機物を二酸化炭素と水にして溶かしてしまう。酸化膜・シリコン・アルミの配線はほとんど溶かさない。",
+  "block.semiconductor-lab.resist_stripper.note4": "この液は有機物を食べつくすようにはげしく反応するので「ピラニア液」とも呼ばれる。混ぜると大きく発熱し、有機の溶剤が入ると吹き出す事故が起きてきたので、工場では決まった順番と専用の容器で扱う。⚠️ 半導体で使い始めた年は確かめていない（カロ酸は 1898 カロ）。",
+  "block.semiconductor-lab.resist_stripper.placeholder": "省略：⚠️ 電力・時間はゲームの値。のちの酸素プラズマではがす方法（アッシング）はまだない。",
+  "gui.semiconductor-lab.resist_stripper.power": "電力 %s",
+  "gui.semiconductor-lab.resist_stripper.need_input": "ウェハー・硫酸・過酸化水素が必要",
+  "gui.semiconductor-lab.resist_stripper.no_resist": "レジストが付いていない",
+  "gui.semiconductor-lab.resist_stripper.need_power": "電気が足りない",
+  "gui.semiconductor-lab.resist_stripper.running": "レジストを溶かしている",
+  "gui.semiconductor-lab.resist_stripper.recipe": "H2SO4＋H2O2 で有機物を酸化"
 }

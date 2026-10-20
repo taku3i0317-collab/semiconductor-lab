@@ -317,5 +317,17 @@
   "gui.semiconductor-lab.spin_coater.cannot": "Cannot coat this wafer",
   "gui.semiconductor-lab.spin_coater.need_power": "Not enough power",
   "gui.semiconductor-lab.spin_coater.running": "Spinning and coating",
-  "gui.semiconductor-lab.spin_coater.recipe": "Spin to spread → bake dry"
+  "gui.semiconductor-lab.spin_coater.recipe": "Spin to spread → bake dry",
+  "block.semiconductor-lab.resist_stripper": "Resist Stripper",
+  "block.semiconductor-lab.resist_stripper.note1": "A tank that dissolves used photoresist off wafers with hot acid.",
+  "block.semiconductor-lab.resist_stripper.note2": "500 W. 1–8 process wafers with resist + 1 sulfuric acid + 1 hydrogen peroxide (the 2 empty bottles pop out on top) → wafers with the resist removed (20 s). Used after opening windows, and for rework when an exposure went wrong.",
+  "block.semiconductor-lab.resist_stripper.note3": "Strong sulfuric acid mixed with hydrogen peroxide becomes a fiercely oxidising liquid (containing Caro's acid) that turns organic matter like resist into carbon dioxide and water. It hardly attacks oxide, silicon or aluminium wiring.",
+  "block.semiconductor-lab.resist_stripper.note4": "It eats organic matter so violently that it is nicknamed 'piranha solution'. Mixing releases a lot of heat, and accidents where organic solvents got in and it erupted are why fabs handle it in a fixed order with dedicated containers. ⚠️ When fabs began using it is not yet checked (Caro's acid: Caro, 1898).",
+  "block.semiconductor-lab.resist_stripper.placeholder": "Omitted: ⚠️ power and time are game values. Later oxygen-plasma stripping (ashing) is not available yet.",
+  "gui.semiconductor-lab.resist_stripper.power": "Power %s",
+  "gui.semiconductor-lab.resist_stripper.need_input": "Needs wafers, H2SO4, H2O2",
+  "gui.semiconductor-lab.resist_stripper.no_resist": "No resist on these wafers",
+  "gui.semiconductor-lab.resist_stripper.need_power": "Not enough power",
+  "gui.semiconductor-lab.resist_stripper.running": "Dissolving the resist",
+  "gui.semiconductor-lab.resist_stripper.recipe": "H2SO4 + H2O2 oxidise organics"
 }

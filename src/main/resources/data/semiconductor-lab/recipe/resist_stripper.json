@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "G G",
+    "GCG",
+    "GGG"
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:resist_stripper",
+    "count": 1
+  }
+}

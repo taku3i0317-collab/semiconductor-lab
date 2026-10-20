@@ -89,6 +89,8 @@ public final class Semiconductor {
     public static final Machine<FzPullerBlockEntity> FZ_PULLER = Machine.electric("fz_puller", FzPullerBlockEntity::new, FzPullerBlockEntity.LAYOUT, metal(4.0f));
     // [9-19] レジスト塗布機（スピンコーター、IMP4-01）：回して薄く広げ、温めて溶剤を飛ばす（ChipOps.coat）。500W
     public static final Machine<SpinCoaterBlockEntity> SPIN_COATER = Machine.electric("spin_coater", SpinCoaterBlockEntity::new, SpinCoaterBlockEntity.LAYOUT, metal(3.0f));
+    // レジストはがし槽（[9-21] の続き、IMP4-01）：熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。500W
+    public static final Machine<ResistStripperBlockEntity> RESIST_STRIPPER = Machine.electric("resist_stripper", ResistStripperBlockEntity::new, ResistStripperBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

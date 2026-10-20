@@ -52,3 +52,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [2-32] ポジ型レジスト：作業台で ノボラック＋DNQ＋キシレン＋瓶 → positive_resist（ガラス瓶、Chemistry の containedItem＝Reg.contained と同じことを専用クラスで）。日なたで感光（item/PositiveResistItem、D の DnqItem と同じしくみ）
 - ✅ [9-19] レジスト塗布機 spin_coater（block/SpinCoaterBlockEntity、画面 SpinCoaterScreen、500W）：1〜8枚＋レジスト → ChipOps.coat。GameTest spin_coater（NOT の例の全部の塗布を塗布機で → 4つの発見）、CHEMISTRY F38〜F39、REFERENCES F19
 - **止まっている所（判断・前提待ち）**：[9-21] 現像は前提 [9-20] 露光が未実装。[9-20] 密着露光（「C か E」）は前提 [8-17] アライメント（← [8-10][8-08][8-06]、幹8＝IMP2）が ❓。LITHO_DESIGN では v0.3 は合わせのずれなし。案：①[9-20] の前提から [8-17] を外し「顕微鏡で手で合わせる」1960年の形にする（ずれは v0.5）②IMP2 が [8-17] を作るのを待つ。ユーザー（設計担当）の判断を LOG と Discord で聞く。その間は ③現像液（薄い NaOH 水溶液）だけ先に作る、などで止まらない
+- O-008 を読んだ：[9-20] 密着露光は C、E は塗布・現像・はがし。前の質問（[8-17] を外すか）は C の判断になったので取り下げ
+- ✅ レジストはがし（LITHO §10 の 8）：はがし槽 resist_stripper（block/ResistStripperBlockEntity、画面 ResistStripperScreen、500W）。硫酸＋過酸化水素 → ChipOps.strip。GameTest resist_stripper、CHEMISTRY F40。現像 [9-21] は C の [9-20] の後（現像液は薄い NaOH の予定）

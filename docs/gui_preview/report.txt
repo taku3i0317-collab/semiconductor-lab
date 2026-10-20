@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 94（ja・en）、文字の置き場所 354、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 96（ja・en）、文字の置き場所 360、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -374,6 +374,12 @@ spin_coater_en_us hint gui.semiconductor-lab.spin_coater.cannot w=115 lines=2/4
 spin_coater_en_us hint gui.semiconductor-lab.spin_coater.need_power w=90 lines=2/4
 spin_coater_en_us hint gui.semiconductor-lab.spin_coater.running w=102 lines=2/4
 spin_coater_en_us recipe gui.semiconductor-lab.spin_coater.recipe w=135 lines=1/1 scale=0.79999995
+resist_stripper_en_us power gui.semiconductor-lab.resist_stripper.power w=75 lines=1/1
+resist_stripper_en_us hint gui.semiconductor-lab.resist_stripper.need_input w=135 lines=2/4
+resist_stripper_en_us hint gui.semiconductor-lab.resist_stripper.no_resist w=133 lines=2/4
+resist_stripper_en_us hint gui.semiconductor-lab.resist_stripper.need_power w=90 lines=2/4
+resist_stripper_en_us hint gui.semiconductor-lab.resist_stripper.running w=103 lines=2/4
+resist_stripper_en_us recipe gui.semiconductor-lab.resist_stripper.recipe w=154 lines=1/1 scale=0.6999999
 crystal_puller_en_us power gui.semiconductor-lab.crystal_puller.power w=69 lines=1/1
 crystal_puller_en_us stored gui.semiconductor-lab.crystal_puller.stored w=65 lines=1/1
 crystal_puller_en_us hint gui.semiconductor-lab.crystal_puller.need_seed w=197 lines=3/3
@@ -757,6 +763,12 @@ spin_coater_ja_jp hint gui.semiconductor-lab.spin_coater.cannot w=108 lines=2/4
 spin_coater_ja_jp hint gui.semiconductor-lab.spin_coater.need_power w=63 lines=1/4
 spin_coater_ja_jp hint gui.semiconductor-lab.spin_coater.running w=72 lines=1/4
 spin_coater_ja_jp recipe gui.semiconductor-lab.spin_coater.recipe w=124 lines=1/1 scale=0.84999996
+resist_stripper_ja_jp power gui.semiconductor-lab.resist_stripper.power w=63 lines=1/1
+resist_stripper_ja_jp hint gui.semiconductor-lab.resist_stripper.need_input w=144 lines=2/4
+resist_stripper_ja_jp hint gui.semiconductor-lab.resist_stripper.no_resist w=99 lines=2/4
+resist_stripper_ja_jp hint gui.semiconductor-lab.resist_stripper.need_power w=63 lines=1/4
+resist_stripper_ja_jp hint gui.semiconductor-lab.resist_stripper.running w=99 lines=2/4
+resist_stripper_ja_jp recipe gui.semiconductor-lab.resist_stripper.recipe w=127 lines=1/1 scale=0.84999996
 crystal_puller_ja_jp power gui.semiconductor-lab.crystal_puller.power w=57 lines=1/1
 crystal_puller_ja_jp stored gui.semiconductor-lab.crystal_puller.stored w=49 lines=1/1
 crystal_puller_ja_jp hint gui.semiconductor-lab.crystal_puller.need_seed w=114 lines=2/3

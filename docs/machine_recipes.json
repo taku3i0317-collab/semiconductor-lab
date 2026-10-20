@@ -1201,6 +1201,36 @@
       "note": "照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）"
     },
     {
+      "machine": "semiconductor-lab:resist_stripper",
+      "process": "レジストをはがす",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "レジスト付き 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:sulfuric_acid",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_peroxide",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "レジストなし"
+        }
+      ],
+      "watts": 500.0,
+      "seconds": 20.0,
+      "energy_kj": 10,
+      "note": "熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。塗り直しにも"
+    },
+    {
       "machine": "semiconductor-lab:reverberatory_furnace",
       "process": "焙焼",
       "inputs": [
