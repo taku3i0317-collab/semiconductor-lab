@@ -14478,7 +14478,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O27. 0.01mm を測る（ノギスとマイクロメータ）［8-04］",
+     "answer": "ノギスは主尺と少しずれた副尺（ヴェルニエ 1631）で目盛りの間の端数を読み、0.05mm ほどまで測れる。マイクロメータはねじを回して物をはさみ、ねじ1回転（0.5mm）を円周の 50 目盛りで割って 0.01mm まで測る（パルマー 1848）。正確なねじが作れるようになって（[8-02]）、はじめて生まれた計器。",
+     "hee": {
+      "1": "ねじを1回まわすと何mm進むかが分かれば、0.01mm が測れる。",
+      "2": "副尺は、2本の線がぴったりそろう所を目で探す。目は線のずれにとても敏感。",
+      "3": "マイクロメータには、強くはさみすぎないように一定の力で空回りするラチェットが付いている。",
+      "4": "鋼は1℃で1mあたり約11µm 伸びるので、精密な測定は 20℃ で行う（[8-07]）。"
+     },
+     "certainty": "ヴェルニエ 1631 ◎／パルマー 1848 ◎／ブラウン＆シャープのノギス 1851 ○／読みの細かさ（0.05・0.01mm）◎",
+     "basis": "- Wikipedia「Vernier scale」：https://en.wikipedia.org/wiki/Vernier_scale"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -14488,7 +14501,7 @@
    "name": "ノギスとマイクロメータ",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1631,
    "year_range": null,
@@ -14505,10 +14518,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ねじを1回まわすと何mm進むかが分かれば、0.01mm が測れる",
    "kind": "tech",
-   "play": "",
+   "play": "実験（測って等級を分ける）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -15528,7 +15541,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "鋼の玉をはさむと、こすれる代わりに転がる。だから車輪やモーターは軽く回る（NET-06 で追加。出典：Wikipedia「Bearing (mechanical)」、Schaeffler「Impeccably round and smooth」、Wikipedia「Jules Suriray」、Wikipedia「Sven Gustaf Wingqvist」）",
    "kind": "tech",
    "play": "未定（案：軽＝部品アイテム。モーター・ポンプ・自転車の材料。実装の前に相談）",
@@ -15589,7 +15602,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "2枚の鏡で太陽を水平線に重ねると、自分が地球のどこにいるかが分かる（NET-06 で追加。出典：Wikipedia「Sextant」「Octant (instrument)」、Grace's Guide「John Hadley」）",
    "kind": "tech",
    "play": "実験（太陽の高さを測って、自分のいる緯度を知る）",
@@ -22679,7 +22692,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "伊能忠敬は歩幅で日本中を測った",
    "kind": "tech",
    "play": "",
