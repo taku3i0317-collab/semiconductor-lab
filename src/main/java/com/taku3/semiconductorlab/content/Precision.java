@@ -42,6 +42,8 @@ public final class Precision {
     public static final Item VERNIER_CALIPER       = Reg.item("vernier_caliper", p -> new GaugeItem(p, 50), new Item.Properties().stacksTo(1));
     public static final Item MICROMETER            = Reg.item("micrometer", p -> new GaugeItem(p, 10), new Item.Properties().stacksTo(1));
     public static final Item PUMP_ROTOR            = Reg.item("pump_rotor");        // 回転ポンプ [5-04] の偏心ローター（鋼）
+    // [8-05] ゲージブロック（IMP2 O-010、ヨハンソン 1896）：焼入れしたるつぼ鋼の長さの基準。重ねて好きな長さ（リンギング）、マイクロメータと旋盤を合わせる
+    public static final Item GAUGE_BLOCK_SET       = Reg.item("gauge_block_set", GaugeBlockSetItem::new, new Item.Properties().stacksTo(1));
     // [8-22] メートル原器（IMP2 O-007）：子午線の三角測量（[12-11]、1792〜98）で決めた長さの白金の棒（1799 アルシーヴのメートル）。2つのブロックの間を m で測る
     /** メートル原器で付けた1つ目の印（ブロックの場所） */
     public static final net.minecraft.core.component.DataComponentType<net.minecraft.core.BlockPos> METRE_MARK = net.minecraft.core.Registry.register(

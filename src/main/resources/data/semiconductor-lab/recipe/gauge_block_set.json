@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "semiconductor-lab:crucible_steel",
+    "semiconductor-lab:crucible_steel",
+    "semiconductor-lab:crucible_steel",
+    "semiconductor-lab:crucible_steel",
+    "minecraft:water_bucket",
+    "semiconductor-lab:rouge"
+  ],
+  "result": {
+    "id": "semiconductor-lab:gauge_block_set",
+    "count": 1
+  }
+}

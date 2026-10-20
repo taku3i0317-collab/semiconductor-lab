@@ -63,6 +63,12 @@ public class LatheBlockEntity extends ConsumerBlockEntity {
         return errorUm;
     }
 
+    /** [8-05] ゲージブロックで合わせる：くせを残り residualUm に（IMP2 O-010） */
+    public void calibrate(int residualUm) {
+        errorUm = residualUm;
+        setChanged();
+    }
+
     private ItemStack made() {
         ItemStack out = product(container.getItem(SLOT_IN), container.getItem(SLOT_TOOL));
         if (!out.isEmpty()) out.set(Precision.PART_ERROR_UM, errorUm());

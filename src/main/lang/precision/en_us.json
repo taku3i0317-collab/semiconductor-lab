@@ -90,5 +90,14 @@
   "item.semiconductor-lab.centered_lens_barrel.note1": "A tube whose four lens centers line up exactly. The image no longer wobbles when it turns.",
   "item.semiconductor-lab.centered_lens_barrel.note2": "A lens barrel brought within 1 um for every lens under the microscope. Material for the projection lens [7-19].",
   "item.semiconductor-lab.centered_lens_barrel.note3": "Good centering matters not only for blur but also for distortion. Copying a mask pattern onto a wafer in its true shape requires lenses on a common axis.",
-  "item.semiconductor-lab.centered_lens_barrel.note4": "Even after assembly, temperature and vibration move lenses. That is why lithography tools sit on isolation tables in rooms held at 20 C ([8-07])."
+  "item.semiconductor-lab.centered_lens_barrel.note4": "Even after assembly, temperature and vibration move lenses. That is why lithography tools sit on isolation tables in rooms held at 20 C ([8-07]).",
+  "item.semiconductor-lab.gauge_block_set": "Gauge Block Set",
+  "item.semiconductor-lab.gauge_block_set.note1": "A box of steel blocks of exactly known length. Stack a few and you have a ruler of any length you like.",
+  "item.semiconductor-lab.gauge_block_set.note2": "4 crucible steel + water bucket (quench) + rouge (finish). Right-click in the air to see how many blocks make a target length. With a micrometer in your other hand, right-click a lathe to bring its error within 1 um (a vernier caliper is too coarse).",
+  "item.semiconductor-lab.gauge_block_set.note3": "In 1896 the Swede Johansson devised a set whose few blocks combine into tens of thousands of lengths to the micrometre. Henry Ford bought it in, and it underpinned interchangeable parts in American factories.",
+  "item.semiconductor-lab.gauge_block_set.note4": "The faces are so flat that pressed and slid together they cling (wringing). Stacking adds almost no error, so blocks can be combined. Workshop gauges are set by comparing them with gauge blocks.",
+  "item.semiconductor-lab.gauge_block_set.placeholder": "Approximation: a 111-piece set (not the count of Johansson's first set). Finishing on a surface plate is folded into the recipe.",
+  "item.semiconductor-lab.gauge_block_set.combine": "📏 %s mm = %s (%s blocks wrung together)",
+  "item.semiconductor-lab.gauge_block_set.need_micrometer": "Hold a micrometer in your other hand (a vernier caliper is too coarse)",
+  "item.semiconductor-lab.gauge_block_set.calibrated": "🔧 Lathe error %s um -> %s um (set with gauge blocks and micrometer)"
 }

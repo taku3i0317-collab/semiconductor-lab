@@ -1237,6 +1237,19 @@
 - Wikipedia「Benjamin Huntsman」：https://en.wikipedia.org/wiki/Benjamin_Huntsman
 - Wikipedia「Wootz steel」：https://en.wikipedia.org/wiki/Wootz_steel
 
+## O40. 少ない数の鋼の板で何万通りの長さ（ゲージブロック）［8-05］
+**答え**：1896年、スウェーデンのカール・エドヴァルド・ヨハンソンは、焼入れした鋼の直方体を µm の精度で仕上げ、数十〜百個ほどの組み合わせで何万通りもの長さを作れるセットを考えた。表面が平らすぎて押しつけると吸い付く（リンギング）ので、重ねても誤差がほとんど増えない。工場の測定具はゲージブロックと比べて合わせる。
+
+- へえ①：平らな2枚の鋼は、押しつけて少しずらすと吸い付いて離れない。
+- へえ②：ヘンリー・フォードがヨハンソンのセットを買い入れ、アメリカの大量生産の互換性部品を支えた。
+- へえ③：少ない数の組み合わせで何万通り——数字の位ごとにブロックを選ぶ。
+- へえ④：ゲージブロックも、のちに光の波長（干渉計）で測られるようになった（[8-06]）。
+
+確かさ：ヨハンソン 1896 ◎／フォードが買い入れ（1923年に会社ごと）○／リンギング ◎
+根拠：
+- Wikipedia「Gauge block」：https://en.wikipedia.org/wiki/Gauge_block
+- Wikipedia「Carl Edvard Johansson」：https://en.wikipedia.org/wiki/Carl_Edvard_Johansson
+
 ---
 
 # 冶金と熱（タスク15〜）

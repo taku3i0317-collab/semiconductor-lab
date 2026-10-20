@@ -336,6 +336,7 @@ lathe  # Precision [8-01] 1797
 cast_iron_plate  # Precision [8-03] 1830
 surface_plate  # Precision [8-03] 1830
 metre_bar  # Precision [8-06] 1892
+gauge_block_set  # Precision [8-05] 1896
 isolation_table  # Precision [8-07] 1931
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950

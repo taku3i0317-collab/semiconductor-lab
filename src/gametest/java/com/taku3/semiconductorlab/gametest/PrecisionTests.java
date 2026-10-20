@@ -15,6 +15,41 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-05] ゲージブロック（IMP2 O-010）：焼入れしたるつぼ鋼。何個かを重ねて好きな長さ、マイクロメータと比べて旋盤のくせを ±1µm に */
+    @GameTest
+    public void gauge_blocks(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "gauge_block_set", Metallurgy.CRUCIBLE_STEEL) && recipeUses(h, "gauge_block_set", com.taku3.semiconductorlab.content.Optics.ROUGE),
+                "gauge blocks = hardened crucible steel lapped with rouge");
+        var G = com.taku3.semiconductorlab.item.GaugeBlockSetItem.class;
+        for (int t : new int[] {3_000, 37_415, 41_009, 99_999, 150_000, 12_345, 3_499}) {
+            var c = com.taku3.semiconductorlab.item.GaugeBlockSetItem.combine(t);
+            h.assertTrue(!c.isEmpty() && c.stream().mapToInt(Integer::intValue).sum() == t && c.size() <= 6 && c.stream().distinct().count() == c.size(),
+                    "combine " + t + " um -> " + c);
+        }
+        h.assertValueEqual(com.taku3.semiconductorlab.item.GaugeBlockSetItem.combine(37_415), java.util.List.of(1_005, 1_410, 25_000, 10_000), "37.415 = 1.005 + 1.41 + 25 + 10");
+        // 旋盤を合わせる：マイクロメータを持っていないと断る、持っていれば ±1µm
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Precision.LATHE.block);
+        var be = h.getBlockEntity(pos, LatheBlockEntity.class);
+        be.calibrate(22);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Precision.GAUGE_BLOCK_SET));
+        var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(h.absolutePos(pos)), net.minecraft.core.Direction.UP, h.absolutePos(pos), false);
+        Precision.GAUGE_BLOCK_SET.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND, hit));
+        h.assertValueEqual(be.errorUm(), 22, "without a micrometer -> not calibrated");
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(Precision.VERNIER_CALIPER));
+        Precision.GAUGE_BLOCK_SET.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND, hit));
+        h.assertValueEqual(be.errorUm(), 22, "a vernier caliper (50 um) is too coarse");
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(Precision.MICROMETER));
+        Precision.GAUGE_BLOCK_SET.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND, hit));
+        h.assertTrue(Math.abs(be.errorUm()) <= com.taku3.semiconductorlab.item.GaugeBlockSetItem.CALIBRATED_UM, "micrometer + gauge blocks -> lathe within 1 um: " + be.errorUm());
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"combine", "need_micrometer", "calibrated"})
+            h.assertTrue(ja.has("item.semiconductor-lab.gauge_block_set." + k), "lang gauge_block_set." + k);
+        LOG.info("[LAB] gauge_blocks [8-05]: 37.415 mm = 1.005 + 1.41 + 25 + 10 (wrung), lathe +22 um -> " + be.errorUm() + " um with micrometer");
+        h.succeed();
+    }
+
     /** [8-14] 鏡筒の心出し（IMP2 O-010）：顕微鏡で像の揺れを見て、いちばんずれたレンズを寄せる。複式顕微鏡なら全部 1µm 以下、単レンズでは見えずに止まる */
     @GameTest
     public void lens_centering(GameTestHelper h) {
