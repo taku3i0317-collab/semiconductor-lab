@@ -143,3 +143,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
   - **E へ**：超純水 semiconductor-lab:ultrapure_water（A の PE の瓶 Vessel.POLYETHYLENE_BOTTLE 入り）ができた。[9-14] RCA 洗浄のすすぎに使える
   - **A へ**：超純水も PE の瓶に入れた（ガラスからイオンが溶け出すため）。相性表 ALLOWED に「ultrapure_water は PE か PTFE だけ」を足すかは A の判断で
 - S-002 完了。判断待ちは無し
+- S-003（KPR を最優先）：KPR の材料ポリケイ皮酸ビニル semiconductor-lab:polyvinyl_cinnamate は S-002 を始める前に完了していた（448237c、2026-10-20）。**E へ：KPR の材料はもう使える**
