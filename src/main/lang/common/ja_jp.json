@@ -255,5 +255,20 @@
   "litho.semiconductor-lab.challenge.register.hint3": "③同じフリップフロップのハンコを2つ押して、クロックをつなぐ。記号で見ると配線が読みやすい。",
   "litho.semiconductor-lab.challenge.register.hint4": "④CPU はほとんどがレジスタと加算器。1971年のインテル 4004 は、4ビットのレジスタ16個に数を入れていた。",
   "gui.semiconductor-lab.pump.no_bearing": "精密な玉軸受（段階2以上）を入れる",
-  "litho.semiconductor-lab.fail.nothing_to_anneal": "アニールする注入がない"
+  "litho.semiconductor-lab.fail.nothing_to_anneal": "アニールする注入がない",
+  "tooltip.semiconductor-lab.challenges": "合格したお題：%s",
+  "assembly.semiconductor-lab.calculator.adder": "加算器のチップ（全加算器に合格）",
+  "assembly.semiconductor-lab.calculator.adder.short": "加算器のチップ",
+  "assembly.semiconductor-lab.calculator.register": "レジスタのチップ（レジスタに合格）",
+  "assembly.semiconductor-lab.calculator.register.short": "レジスタのチップ",
+  "assembly.semiconductor-lab.calculator.counter": "カウンタのチップ（カウンタに合格）",
+  "assembly.semiconductor-lab.calculator.counter.short": "カウンタのチップ",
+  "assembly.semiconductor-lab.calculator.display": "表示",
+  "assembly.semiconductor-lab.calculator.display.short": "表示",
+  "assembly.semiconductor-lab.calculator.keys": "キー",
+  "assembly.semiconductor-lab.calculator.keys.short": "キー",
+  "assembly.semiconductor-lab.calculator.frame": "枠",
+  "assembly.semiconductor-lab.calculator.frame.short": "枠",
+  "assembly.semiconductor-lab.calculator.wiring": "配線",
+  "assembly.semiconductor-lab.calculator.wiring.short": "配線"
 }

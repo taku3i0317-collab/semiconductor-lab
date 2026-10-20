@@ -40,7 +40,8 @@ public class DiamondScribeItem extends Item {
         int n = good(wafer) - (random.nextFloat() < BREAK_CHANCE ? 1 : 0);
         ItemStack chips = new ItemStack(Semiconductor.CHIP, n);
         chips.set(ModDataComponents.CHIP_STATE, wafer.get(ModDataComponents.CHIP_STATE));
-        if (wafer.has(ModDataComponents.DIE_MAP)) chips.set(ModDataComponents.DIE_MAP, -1);   // プローバーを通った良品（ツールチップ）
+        if (wafer.has(ModDataComponents.DIE_MAP)) chips.set(ModDataComponents.DIE_MAP, -1);
+        if (wafer.has(ModDataComponents.CHALLENGES)) chips.set(ModDataComponents.CHALLENGES, wafer.get(ModDataComponents.CHALLENGES));   // 合格したお題（S-010）   // プローバーを通った良品（ツールチップ）
         return chips;
     }
 

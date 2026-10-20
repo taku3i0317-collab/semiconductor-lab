@@ -26,6 +26,13 @@ public class NoteTooltip {
                 lines.add(Component.translatable("tooltip.semiconductor-lab.contamination", chip.contamination()).withStyle(ChatFormatting.GOLD));
             if (chip != null && chip.overlayNm() > 0)
                 lines.add(Component.translatable("tooltip.semiconductor-lab.overlay", String.format("%.1f", chip.overlayNm() / 1000.0)).withStyle(ChatFormatting.GOLD));
+            // [B-08] 合格したお題（S-010）
+            var passed = stack.get(com.taku3.semiconductorlab.ModDataComponents.CHALLENGES);
+            if (passed != null && !passed.isEmpty()) {
+                var names = Component.empty();
+                for (int i = 0; i < passed.size(); i++) { if (i > 0) names.append(", "); names.append(Component.translatable("litho.semiconductor-lab.challenge." + passed.get(i))); }
+                lines.add(Component.translatable("tooltip.semiconductor-lab.challenges", names).withStyle(ChatFormatting.LIGHT_PURPLE));
+            }
             // [9-35] プローバーの結果（ウェハー：良品の数、チップ：良品の印）
             Integer dies = stack.get(com.taku3.semiconductorlab.ModDataComponents.DIE_MAP);
             if (dies != null) lines.add((dies < 0 ? Component.translatable("tooltip.semiconductor-lab.die_good")

@@ -24,7 +24,10 @@ public final class Assembly {
     public static final int MAX_PARTS = 8;
 
     /** 役目1つ：名前（lang の頭）・入れてよい物・要る数・表示用のアイテム */
-    public record Part(String role, Predicate<ItemStack> ok, int count, Item display) {}
+    public record Part(String role, Predicate<ItemStack> ok, int count, Item display, java.util.function.Supplier<ItemStack> example) {
+        /** 条件を満たす見本（表示・テスト用。条件が成分なら、その成分を付けた物） */
+        public ItemStack sample() { return example.get(); }
+    }
 
     private static final List<Assembly> ALL = new ArrayList<>();
 
@@ -81,8 +84,10 @@ public final class Assembly {
         /** 役目1つ（その1種類のアイテムを count 個） */
         public Builder part(String role, Item item, int count) { return part(role, s -> s.is(item), count, item); }
         /** 役目1つ（条件つき：純度・n型など） */
-        public Builder part(String role, Predicate<ItemStack> ok, int count, Item display) {
-            parts.add(new Part(role, ok, count, display));
+        public Builder part(String role, Predicate<ItemStack> ok, int count, Item display) { return part(role, ok, count, display, () -> new ItemStack(display)); }
+        /** 役目1つ（条件つき、見本の作り方つき：例 お題に合格したチップ） */
+        public Builder part(String role, Predicate<ItemStack> ok, int count, Item display, java.util.function.Supplier<ItemStack> example) {
+            parts.add(new Part(role, ok, count, display, example));
             return this;
         }
         public Builder seconds(int s) { ticks = s * 20; return this; }

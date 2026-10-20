@@ -36,6 +36,7 @@ public final class Content {
         // 組立台のレシピ（IMP-33）：ほかの幹のアイテムを使うので、全部の幹を読み込んでから。製品の幹のファイルに書く
         Power.assemblies();
         Communication.assemblies();
+        Branches.assemblies();   // [B-08] 電卓（S-010）
         Reg.registerTabs();
     }
 }

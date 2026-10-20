@@ -615,4 +615,7 @@ printing_paper  # Branches [B-02] 1839
 print  # Branches [B-02] 1839
 carbide_lamp  # Branches [B-14] 1892
 solar_cell  # Branches [B-12] 1954
+nixie_tube  # Branches [None] None
+key_switch  # Branches [None] None
+calculator  # Branches [None] None
 test_power_source  # Testing [None] None

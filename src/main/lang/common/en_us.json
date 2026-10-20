@@ -255,5 +255,20 @@
   "litho.semiconductor-lab.challenge.register.hint3": "③ Stamp the same flip-flop twice and join their clock inputs; use symbols to keep the wiring readable.",
   "litho.semiconductor-lab.challenge.register.hint4": "④ A CPU is mostly registers and adders. The Intel 4004 (1971) held its numbers in sixteen 4-bit registers.",
   "gui.semiconductor-lab.pump.no_bearing": "Needs bearing grade 2+",
-  "litho.semiconductor-lab.fail.nothing_to_anneal": "Nothing implanted to anneal"
+  "litho.semiconductor-lab.fail.nothing_to_anneal": "Nothing implanted to anneal",
+  "tooltip.semiconductor-lab.challenges": "Passed: %s",
+  "assembly.semiconductor-lab.calculator.adder": "Adder chip (passed full adder)",
+  "assembly.semiconductor-lab.calculator.adder.short": "Adder chip",
+  "assembly.semiconductor-lab.calculator.register": "Register chips (passed register)",
+  "assembly.semiconductor-lab.calculator.register.short": "Register chips",
+  "assembly.semiconductor-lab.calculator.counter": "Counter chip (passed counter)",
+  "assembly.semiconductor-lab.calculator.counter.short": "Counter chip",
+  "assembly.semiconductor-lab.calculator.display": "Display",
+  "assembly.semiconductor-lab.calculator.display.short": "Display",
+  "assembly.semiconductor-lab.calculator.keys": "Keys",
+  "assembly.semiconductor-lab.calculator.keys.short": "Keys",
+  "assembly.semiconductor-lab.calculator.frame": "Frame",
+  "assembly.semiconductor-lab.calculator.frame.short": "Frame",
+  "assembly.semiconductor-lab.calculator.wiring": "Wiring",
+  "assembly.semiconductor-lab.calculator.wiring.short": "Wiring"
 }

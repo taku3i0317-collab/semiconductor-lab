@@ -72,5 +72,20 @@
   "block.semiconductor-lab.carbide_lamp.note4": "In 1892 Canadian-born Willson, trying to make aluminium, heated lime and coal in an arc furnace and made carbide by accident. In the early 20th century it lit miners' helmet lamps and bicycle and car headlights.",
   "block.semiconductor-lab.carbide_lamp.placeholder": "Approximation: filling with water is skipped (the lamp holds water).",
   "message.semiconductor-lab.carbide_lamp.lit": "Water dripped onto the carbide and acetylene began to burn brightly",
-  "message.semiconductor-lab.carbide_lamp.burning": "It is still burning"
+  "message.semiconductor-lab.carbide_lamp.burning": "It is still burning",
+  "item.semiconductor-lab.nixie_tube": "Nixie Tube",
+  "item.semiconductor-lab.nixie_tube.note1": "A glass tube that lights up a glowing orange number.",
+  "item.semiconductor-lab.nixie_tube.note2": "Neon in a glass tube, with ten metal cathodes shaped like 0-9 stacked behind a mesh anode. The chosen cathode glows with the neon light.",
+  "item.semiconductor-lab.nixie_tube.note3": "Developed in the mid-1950s (Haydu Brothers, sold by Burroughs as the 'Nixie'). Sharp's first transistor calculator CS-10A (1964) showed its numbers on Nixie tubes. ⚠️ exact years not confirmed; the cathodes here are crude nickel.",
+  "item.semiconductor-lab.nixie_tube.note4": "It needs about 170 V to glow, so calculators carried a high-voltage supply. LEDs and vacuum fluorescent displays replaced Nixies in the 1970s.",
+  "item.semiconductor-lab.key_switch": "Key Switch",
+  "item.semiconductor-lab.key_switch.note1": "A spring push-button. Calculators need one per key.",
+  "item.semiconductor-lab.key_switch.note2": "Press to close two copper contacts, a steel spring pushes it back.",
+  "item.semiconductor-lab.key_switch.note3": "Early calculators used mechanical key switches; the counter chip scanned them one after another to see which was pressed.",
+  "item.semiconductor-lab.key_switch.note4": "Contacts 'bounce' for a few milliseconds when pressed, so circuits wait a moment before reading them (debouncing).",
+  "item.semiconductor-lab.calculator": "Calculator",
+  "item.semiconductor-lab.calculator.note1": "A calculator you built from your own chips. Right-click to add and subtract (4 digits).",
+  "item.semiconductor-lab.calculator.note2": "Assembled from chips that passed the full adder, register and counter challenges, plus 14 keys, 4 Nixie tubes, a frame and wiring. Registers hold the numbers, the adder adds (subtracting = adding the complement), the counter reads the keys.",
+  "item.semiconductor-lab.calculator.note3": "1964 Sharp CS-10A: the first all-transistor desktop calculator, about 25 kg. From 1967 Texas Instruments built a hand-held IC calculator prototype; in 1971 Busicom asked Intel for calculator chips, which led to the 4004. ⚠️ the dates of IC calculators are approximate.",
+  "item.semiconductor-lab.calculator.note4": "Only 4 digits, add and subtract (a game simplification). Overflow shows E; press C to clear, like real calculators."
 }

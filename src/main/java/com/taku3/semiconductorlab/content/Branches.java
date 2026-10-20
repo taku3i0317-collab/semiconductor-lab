@@ -25,9 +25,37 @@ import static com.taku3.semiconductorlab.machine.Machine.stone;
 public final class Branches {
     private Branches() {}
 
+    /** 組立台のレシピ（S-010）：電卓＝合格したチップ（加算器＝全加算器、レジスタ、カウンタ）＋キー14＋ニキシー管4＋枠＋配線 */
+    /** お題に合格したチップの見本（組立台の表示・テスト用） */
+    static net.minecraft.world.item.ItemStack passedChip(String id) {
+        var st = new net.minecraft.world.item.ItemStack(Semiconductor.CHIP);
+        st.set(com.taku3.semiconductorlab.ModDataComponents.CHALLENGES, java.util.List.of(id));
+        return st;
+    }
+
+    static void assemblies() {
+        com.taku3.semiconductorlab.machine.Assembly.recipe("calculator", CALCULATOR)
+                .part("adder", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "full_adder"), 1, Semiconductor.CHIP, () -> passedChip("full_adder"))
+                .part("register", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "register"), 2, Semiconductor.CHIP, () -> passedChip("register"))
+                .part("counter", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "counter"), 1, Semiconductor.CHIP, () -> passedChip("counter"))
+                .part("display", NIXIE_TUBE, 4)
+                .part("keys", KEY_SWITCH, 14)
+                .part("frame", net.minecraft.world.item.Items.IRON_INGOT, 4)
+                .part("wiring", Power.COPPER_CABLE.block.asItem(), 2)
+                .seconds(10).build();
+    }
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 発電機（v0.2a）：水車＋ダイナモ／ボイラー＋蒸気機関＋ダイナモ。[B-12] 太陽電池（昼・空・雨なしで 60W）
     public static final Machine<SolarCellBlockEntity> SOLAR_CELL = Power.generator("solar_cell", SolarCellBlockEntity::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(2.0f).sound(SoundType.GLASS)).build();
+
+    // ===== [B-24] ニキシー管・[B-08] 電卓（A、S-010） =====
+    /** ニキシー管（1955 ⚠️ ハイドゥ兄弟／バローズ）：ネオンを入れたガラス管に、数字の形の陰極10枚。光る数字を重ねて見せる */
+    public static final Item NIXIE_TUBE            = Reg.item("nixie_tube");
+    /** 電卓のキー（ばねで戻る押しボタンの接点） */
+    public static final Item KEY_SWITCH            = Reg.item("key_switch");
+    /** 電卓：自分で作ったチップ＋キー＋ニキシー管を組立台で。右クリックで計算 */
+    public static final Item CALCULATOR            = Reg.item("calculator", com.taku3.semiconductorlab.item.CalculatorItem::new, new Item.Properties().stacksTo(1));
 
     // ===== [B-02a] ダゲレオタイプ（IMP2、S-002 案B：化学の工程を体験。写真の中身は場所・時刻・写りのデータ）=====
     /** 写真の中身（撮った場所・時刻・露光の量） */

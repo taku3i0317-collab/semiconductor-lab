@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GNG",
+    "GKG",
+    " W "
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "N": "semiconductor-lab:neon_gas",
+    "K": "semiconductor-lab:crude_nickel",
+    "W": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:nixie_tube",
+    "count": 2
+  }
+}

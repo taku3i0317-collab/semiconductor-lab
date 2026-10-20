@@ -17,6 +17,15 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.DOUBLE)
                     .build());
 
+    // [B-08] 電卓（S-010）：このチップ（ウェハー）が検査台で合格したお題の id。電卓の組み立てに「加算器・レジスタ・カウンタに合格したチップ」が要る
+    public static final DataComponentType<java.util.List<String>> CHALLENGES = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("challenges"),
+            DataComponentType.<java.util.List<String>>builder()
+                    .persistent(Codec.STRING.listOf())
+                    .networkSynchronized(ByteBufCodecs.fromCodec(Codec.STRING.listOf()))
+                    .build());
+
     // [9-35] プローバー（O-017）：ウェハーのチップごとの良否（ビット i＝チップ i が良品）。ダイシングで印の付いたチップは捨てる
     public static final DataComponentType<Integer> DIE_MAP = Registry.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE,

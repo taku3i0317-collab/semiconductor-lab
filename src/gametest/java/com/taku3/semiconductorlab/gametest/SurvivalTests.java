@@ -721,7 +721,7 @@ public class SurvivalTests extends LabTestBase {
             h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, com.taku3.semiconductorlab.SemiconductorLab.id(moved))).isEmpty(),
                     "crafting recipe removed (assembly bench only): " + moved);
         for (var r : all) for (var pt : r.parts)
-            h.assertTrue(pt.ok().test(new net.minecraft.world.item.ItemStack(pt.display())), r.id + "." + pt.role() + ": display item is a valid part");
+            h.assertTrue(pt.ok().test(pt.sample()), r.id + "." + pt.role() + ": the sample is a valid part");
         int radio = all.indexOf(com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Communication.TRANSISTOR_RADIO));
         var pos = p(1, 1, 1);
         h.setBlock(pos, Survival.ASSEMBLY_BENCH.block);

@@ -886,3 +886,7 @@ public boolean instabuild;                         // クリエイティブ（�
 - `ServerLevel.getDataStorage()` / `MinecraftServer.getDataStorage()` → `SavedDataStorage`：`computeIfAbsent(SavedDataType)`・`get`・`set`
 - ⚠️ `DataFixTypes` に null を渡すと、読みこみ（readTagFromDisk）で `DataFixTypes.update` が呼ばれて落ちる。中身を書きかえない `DataFixTypes.SAVED_DATA_COMMAND_STORAGE` を使った
 
+
+## 画面を開く・アイテムの画面（S-010、A、javap で確認）
+- `Minecraft` には `setScreen` が無い。`Minecraft.getInstance().gui.setScreen(Screen)`（`net.minecraft.client.gui.Gui#setScreen(Screen)`、ほかに `setScreenAndShow`）
+- `Screen(Component)` は protected。`protected void init()`・`public boolean isPauseScreen()`・`public void extractBackground(GuiGraphicsExtractor, int, int, float)` をオーバーライドする

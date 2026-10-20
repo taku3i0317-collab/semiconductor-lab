@@ -2156,6 +2156,51 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [B-08] 電卓（S-010）：4ケタの足し算・引き算（あふれると E、C で消す）。検査台でお題に合格したチップには記録が付き、割ったチップへも続く。
+     * 電卓の組立台のレシピは、全加算器・レジスタ・カウンタに合格したチップでないと入らない
+     */
+    @GameTest(maxTicks = 100)
+    public void calculator(GameTestHelper h) {
+        var R = (java.util.function.Function<String, String>) com.taku3.semiconductorlab.item.CalculatorLogic::run;
+        h.assertValueEqual(R.apply("12+34="), "46", "12 + 34");
+        h.assertValueEqual(R.apply("100-250="), "-150", "100 - 250");
+        h.assertValueEqual(R.apply("9999+1="), "E", "overflow past 4 digits");
+        h.assertValueEqual(R.apply("9999+1=C5+5="), "10", "C clears the error");
+        h.assertValueEqual(R.apply("12345"), "1234", "only 4 digits can be typed");
+        h.assertValueEqual(R.apply("5+3+2="), "10", "chained adding");
+        // 検査台：NOT のお題に合格するとチップに記録 → 割ったチップへ
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.setBlock(p(1, 1, 1), Semiconductor.PROBE_STATION.block);
+        var probe = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
+        probe.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, chip);
+        var pnl = probe.netlist(); int[] pp = com.taku3.semiconductorlab.litho.Circuit.notPins(pnl);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        int[] want = {com.taku3.semiconductorlab.block.ProbeStationBlockEntity.IN_A, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.OUT_1,
+                com.taku3.semiconductorlab.block.ProbeStationBlockEntity.VCC, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.GROUND};
+        for (int k = 0; k < 4; k++) {
+            int padIndex = -1;
+            for (int i = 0; i < pnl.pads().size(); i++) if (pnl.pads().get(i).id() == pp[k]) padIndex = i;
+            for (int c = 0; c < want[k]; c++) probe.onButton(player, padIndex);
+        }
+        probe.onButton(player, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
+        ItemStack marked = probe.getContainer().getItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER);
+        h.assertTrue(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(marked, "not"), "the wafer remembers it passed NOT");
+        ItemStack diced = com.taku3.semiconductorlab.item.DiamondScribeItem.scribe(marked, net.minecraft.util.RandomSource.create(1));
+        h.assertTrue(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(diced, "not"), "chips cut from it keep the record");
+        // 組立台のレシピ
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Branches.CALCULATOR);
+        h.assertTrue(a != null && a.parts.size() == 7, "calculator assembly with 7 roles");
+        ItemStack plain = new ItemStack(Semiconductor.CHIP, 2);
+        ItemStack reg = new ItemStack(Semiconductor.CHIP, 2); reg.set(ModDataComponents.CHALLENGES, java.util.List.of("register"));
+        h.assertFalse(a.satisfied(1, plain), "a chip that never passed the register challenge cannot be the register");
+        h.assertTrue(a.satisfied(1, reg), "register chips are accepted");
+        h.assertTrue(recipeUses(h, "nixie_tube", com.taku3.semiconductorlab.content.Gas.NEON_GAS), "Nixie tubes are filled with neon");
+        LOG.info("[LAB] calculator [B-08]: 12+34=46, 100-250=-150, 9999+1=E; chips carry passed challenges; assembly needs adder/register/counter chips");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

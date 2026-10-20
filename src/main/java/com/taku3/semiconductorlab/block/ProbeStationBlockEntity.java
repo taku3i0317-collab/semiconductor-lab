@@ -153,6 +153,9 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
         return r;
     }
 
+    /** このチップはお題 id に合格しているか（電卓の組み立て、S-010） */
+    public static boolean passed(ItemStack chip, String id) { return chip.getOrDefault(ModDataComponents.CHALLENGES, java.util.List.of()).contains(id); }
+
     /** チップ（加工中のウェハー）からハンコを作る：層を設計図に戻し、描いてある所で切り抜く。名前＝お題の id */
     public static ItemStack stampOf(ItemStack wafer, String name) {
         ChipState s = wafer.get(ModDataComponents.CHIP_STATE);
@@ -222,6 +225,11 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                 var roleMap = roles(nl, i -> pads[i]);
                 var r = com.taku3.semiconductorlab.litho.Challenge.check(def, nl, roleMap, leakScale);
                 result = encodeResult(r);
+                if (r.passed()) {   // 合格したお題をチップ（ウェハー）に記録（[B-08] 電卓の組み立てに使う、S-010）
+                    ItemStack chip = container.getItem(SLOT_WAFER);
+                    java.util.List<String> got = new java.util.ArrayList<>(chip.getOrDefault(ModDataComponents.CHALLENGES, java.util.List.of()));
+                    if (!got.contains(def.id())) { got.add(def.id()); java.util.Collections.sort(got); chip.set(ModDataComponents.CHALLENGES, java.util.List.copyOf(got)); }
+                }
                 setChanged();
                 if (!r.passed() && player instanceof ServerPlayer sp0)   // あと少しの手がかり（§11.2、正解の形は言わない）
                     sp0.sendSystemMessage(Component.translatable("litho.semiconductor-lab.near." + com.taku3.semiconductorlab.litho.NearMiss.diagnose(def, nl, roleMap, r, leakScale)));

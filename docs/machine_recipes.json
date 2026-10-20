@@ -245,6 +245,56 @@
       "note": "部品表で組み立てる。電気なし"
     },
     {
+      "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（calculator）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "adder"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 2,
+          "cond": "register"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "counter"
+        },
+        {
+          "item": "semiconductor-lab:nixie_tube",
+          "count": 4,
+          "cond": "display"
+        },
+        {
+          "item": "semiconductor-lab:key_switch",
+          "count": 14,
+          "cond": "keys"
+        },
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 4,
+          "cond": "frame"
+        },
+        {
+          "item": "semiconductor-lab:copper_cable",
+          "count": 2,
+          "cond": "wiring"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:calculator",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
       "machine": "semiconductor-lab:autoclave",
       "process": "ベークライト",
       "inputs": [

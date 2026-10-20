@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:nixie_tube"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.nixie_tube"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.nixie_tube.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.nixie_tube.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:nixie_tube"
+          }
+        ]
+      }
+    }
+  }
+}
