@@ -143,6 +143,11 @@ public final class Chemistry {
     public static final Item NITRITE_MIX           = Reg.item("nitrite_mix");
     public static final Item POTASSIUM_NITRITE     = Reg.item("potassium_nitrite");
     public static final Item DNQ                   = Reg.item("dnq", DnqItem::new, new Item.Properties());
+    // [2-17] イオン交換（IMP3、O-008）：フェノール樹脂をスルホン化 → 陽イオン交換樹脂、フェノール樹脂＋アミン（安水）＋ホルムアルデヒド → 陰イオン交換樹脂、塔に詰めて蒸留水 → 脱イオン水
+    public static final Item CATION_EXCHANGE_RESIN = Reg.item("cation_exchange_resin");
+    public static final Item ANION_EXCHANGE_RESIN  = Reg.item("anion_exchange_resin");
+    public static final Item DEIONIZED_WATER       = Reg.contained("deionized_water", Vessel.GLASS_BOTTLE);
+    public static final Block ION_EXCHANGE_COLUMN  = Reg.functional("ion_exchange_column", IonExchangeColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.8f).sound(SoundType.GLASS).noOcclusion());
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

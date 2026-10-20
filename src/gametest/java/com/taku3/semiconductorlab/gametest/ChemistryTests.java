@@ -606,6 +606,35 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-17] イオン交換（IMP3、O-008）
+    // =====================================================================
+
+    /** 蒸留水 → 脱イオン水（8回）。どちらかの樹脂が尽きると止まる。硫酸で陽イオン側、NaOH で陰イオン側を再生 */
+    @GameTest
+    public void ionExchange(GameTestHelper h) {
+        var lv = h.getLevel();
+        floor(h, 3);
+        BlockPos col = p(1, 1, 1);
+        h.setBlock(col, Chemistry.ION_EXCHANGE_COLUMN);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        int cap = com.taku3.semiconductorlab.block.IonExchangeColumnBlock.CAPACITY;
+        ItemStack water = new ItemStack(Chemistry.DISTILLED_WATER, 16);
+        for (int i = 0; i < cap; i++)
+            h.assertValueEqual(com.taku3.semiconductorlab.block.IonExchangeColumnBlock.use(lv, h.absolutePos(col), player, water), "deionized", "use " + i);
+        h.assertValueEqual(player.getInventory().countItem(Chemistry.DEIONIZED_WATER), cap, "8 deionized water");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.IonExchangeColumnBlock.use(lv, h.absolutePos(col), player, water), "spent_cation", "spent -> no more");
+        h.assertValueEqual(water.getCount(), 16 - cap, "spent column does not take water");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.IonExchangeColumnBlock.use(lv, h.absolutePos(col), player, new ItemStack(Chemistry.SULFURIC_ACID)), "regen_cation", "acid regenerates the cation side");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.IonExchangeColumnBlock.use(lv, h.absolutePos(col), player, water), "spent_anion", "the anion side is still spent");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.IonExchangeColumnBlock.use(lv, h.absolutePos(col), player, new ItemStack(Gas.SODIUM_HYDROXIDE)), "regen_anion", "NaOH regenerates the anion side");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.IonExchangeColumnBlock.use(lv, h.absolutePos(col), player, water), "deionized", "works again");
+        h.assertTrue(recipeUses(h, "cation_exchange_resin", Chemistry.BAKELITE) && recipeUses(h, "cation_exchange_resin", Chemistry.SULFURIC_ACID), "sulfonated phenolic resin");
+        h.assertTrue(recipeUses(h, "anion_exchange_resin", Chemistry.NOVOLAC) && recipeUses(h, "anion_exchange_resin", Chemistry.AMMONIACAL_LIQUOR), "aminated phenolic resin");
+        LOG.info("[LAB] ion exchange [2-17]: distilled -> deionized x{}, spent, regenerated with H2SO4 / NaOH", cap);
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

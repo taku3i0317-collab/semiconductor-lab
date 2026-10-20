@@ -1589,6 +1589,20 @@
 - Wikipedia「Bucherer reaction」：https://en.wikipedia.org/wiki/Bucherer_reaction
 - Wikipedia「Potassium nitrite」（硝酸カリウムを鉛で還元する作り方）：https://en.wikipedia.org/wiki/Potassium_nitrite
 
+## C10. ベークライトの親戚が水をきれいにする（イオン交換）［2-17］
+**答え**：スルホ基（SO3H）を付けた樹脂は金属イオンを H+ と、アミノ基を付けた樹脂は陰イオンを OH- と入れ替える。出てきた H+ と OH- が水になるので、水の中のイオンがなくなる。樹脂が飽和したら、酸とアルカリで元に戻せる（再生）。1935 アダムスとホームズがフェノール樹脂系で初めて作った。
+
+- へえ①：ベークライトの親戚が、水の中の塩を取りのぞく。
+- へえ②：純粋な水は電気をほとんど通さない。18.2 MΩ·cm（25℃）が理論上の上限。
+- へえ③：それまでは天然の鉱物（ゼオライト）が使われた。今の樹脂はポリスチレン系（1944 ダレリオ）。
+- へえ④：1950年代から半導体工場はイオン交換の純水でウェハーを洗った（[2-18] 超純水へ）。
+
+確かさ：イオン交換のしくみ ◎／アダムスとホームズ 1935 ○（TECH_TREE の本物欄と一致）／18.2 MΩ·cm ◎／ダレリオ 1944 ○
+根拠：
+- Wikipedia「Ion-exchange resin」：https://en.wikipedia.org/wiki/Ion-exchange_resin
+- Wikipedia「Ion exchange」（歴史：Adams and Holmes 1935）：https://en.wikipedia.org/wiki/Ion_exchange
+- Wikipedia「Ultrapure water」：https://en.wikipedia.org/wiki/Ultrapure_water
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

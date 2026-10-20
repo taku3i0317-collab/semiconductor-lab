@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "semiconductor-lab:block/ion_exchange_column"
+      }
+    }
+  ]
+}

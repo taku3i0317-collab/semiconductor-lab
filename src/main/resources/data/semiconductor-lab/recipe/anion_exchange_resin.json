@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:novolac",
+    "semiconductor-lab:ammoniacal_liquor",
+    "semiconductor-lab:formalin"
+  ],
+  "result": {
+    "id": "semiconductor-lab:anion_exchange_resin",
+    "count": 2
+  }
+}
