@@ -158,6 +158,27 @@ def year_of(text):
     return best[1] if best else None
 
 
+def link_check(nodes):
+    """つながりの検査（O-013）：products・ideas も合わせた全ノードで、
+    ①前提・前提になる・説明する・部品・本文中の [番号] が存在しない番号を指していないか
+    ②名前がほとんど同じノード（同じ物が2つ）の候補。名前のかっこ書きと空白を除いて同じ、または4文字以上の名前が別の名前にそのまま含まれる"""
+    bad = []
+    for n in nodes.values():
+        refs = [("前提", p) for p in n["pre"]] + [("前提になる", p) for p in n.get("enables", [])] +                [("説明する", p) for p in n.get("explains", [])] + [("部品", p) for p in n.get("parts", [])] +                [("本文", nid(x)) for x in ID_RE.findall(n["body"])]
+        for f, i in refs:
+            if i not in nodes:
+                bad.append((n["id"], f, i))
+    norm = lambda t: re.sub(r"[（(].*?[）)]|\s|・", "", t)
+    names = sorted(((norm(n["name"]), n["id"]) for n in nodes.values()), key=lambda x: sort_key(x[1]))
+    same = []
+    for a in range(len(names)):
+        for b in range(a + 1, len(names)):
+            x, y = names[a][0], names[b][0]
+            if x and y and (x == y or (min(len(x), len(y)) >= 4 and (x in y or y in x))):
+                same.append((names[a][1], names[b][1]))
+    return sorted(set(bad)), same
+
+
 def check(nodes):
     undefined = defaultdict(list)
     for n in nodes.values():
@@ -901,6 +922,16 @@ def main():
         print(f"year inversions: {len(inv)}")
         for a, y, p, py, d in inv:
             print(f"  [{a}] {y} < [{p}] {py} (gap {d})")
+        allnodes = dict(nodes)
+        for src in EXTRA_SRC:
+            allnodes.update({k: v for k, v in parse(src)[0].items() if k not in allnodes})
+        bad, same = link_check(allnodes)
+        print(f"bad links: {len(bad)}")
+        for a, f, i in bad:
+            print(f"  [{a}] {f} -> [{i}] がない")
+        print(f"same-name candidates: {len(same)}")
+        for a, b in same:
+            print(f"  [{a}] {allnodes[a]['name']} ／ [{b}] {allnodes[b]['name']}")
         return
     OUT.write_text("\n".join(L) + "\n", encoding="utf-8")
     # products.md・ideas.md のノードはネットワーク図にだけ合流させる（TECH_TREE_VIEW.md には入れない）
