@@ -1324,6 +1324,20 @@
 - Wikipedia「Grinding machine」：https://en.wikipedia.org/wiki/Grinding_machine
 - Schaeffler「Friedrich Fischer」：https://www.schaeffler.com/
 
+## O44. ねじの中で玉が転がる（ボールねじ）［8-08］
+**答え**：ねじとナットの間に鋼の球を入れて転がすと、すべりの摩擦がほとんどなくなり、細かく軽く動かせる。1898年スティーブンソンとグレンがアメリカで特許をとり、自動車の循環ボール式ステアリング（1939年ごろ）で広まった。1952年、MIT の数値制御フライス盤と組み合わさって µm 級の位置決めが始まった。
+
+- へえ①：ねじの溝の中を、小さな鉄の玉が転がって、出口から入口へぐるぐる戻っている。
+- へえ②：ふつうのねじは「引っかかってから急にすべる」ので、ごく小さくは動かせない（スティックスリップ）。
+- へえ③：玉の大きさがそろっていないと、送りがガタつく。玉軸受と同じく研削でそろえることが大事。
+- へえ④：露光装置のステージは、のちにボールねじからリニアモーターと空気の膜（[8-09]）に変わった。
+
+確かさ：1898 の米国特許 ◎／GM の循環ボール式ステアリングの特許 1939出願・1941登録 ○（量産の年は未確認⚠️）／1952 MIT の NC フライス盤 ◎
+根拠：
+- Wikipedia「Ball screw」：https://en.wikipedia.org/wiki/Ball_screw
+- Wikipedia「Recirculating ball」：https://en.wikipedia.org/wiki/Recirculating_ball
+- Wikipedia「Numerical control」：https://en.wikipedia.org/wiki/Numerical_control
+
 ---
 
 # 冶金と熱（タスク15〜）

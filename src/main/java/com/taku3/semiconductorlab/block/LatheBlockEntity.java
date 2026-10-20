@@ -34,7 +34,7 @@ public class LatheBlockEntity extends ConsumerBlockEntity {
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_IN, 8, 26, LatheBlockEntity::isInput)
-            .in(SLOT_TOOL, 8, 50, s -> s.is(Precision.LEAD_SCREW))
+            .in(SLOT_TOOL, 8, 50, LatheBlockEntity::isMasterScrew)
             .out(SLOT_OUT, 78, 35)
             .text("power", 100, 18, 72, 1, "gui.semiconductor-lab.machine.power").samples("0.8 kW")
             .text("stored", 100, 30, 72, 1, "gui.semiconductor-lab.machine.stored").samples("20 kJ")
@@ -47,10 +47,13 @@ public class LatheBlockEntity extends ConsumerBlockEntity {
 
     public static boolean isInput(ItemStack s) { return s.is(Metallurgy.STEEL_INGOT); }
 
+    /** 親ねじの入口に入る物：送りねじ [8-01] かボールねじ [8-08] */
+    public static boolean isMasterScrew(ItemStack s) { return s.is(Precision.LEAD_SCREW) || s.is(Precision.BALL_SCREW); }
+
     /** 削るとできる物（削れない物は EMPTY）。tool＝親ねじの入口の中身 */
     public static ItemStack product(ItemStack in, ItemStack tool) {
         if (!in.is(Metallurgy.STEEL_INGOT)) return ItemStack.EMPTY;
-        if (tool.is(Precision.LEAD_SCREW)) return new ItemStack(Precision.STANDARD_SCREW, 4);
+        if (isMasterScrew(tool)) return new ItemStack(Precision.STANDARD_SCREW, 4);
         return new ItemStack(Precision.PUMP_ROTOR);
     }
 
@@ -71,11 +74,14 @@ public class LatheBlockEntity extends ConsumerBlockEntity {
 
     private ItemStack made() {
         ItemStack out = product(container.getItem(SLOT_IN), container.getItem(SLOT_TOOL));
-        if (!out.isEmpty()) out.set(Precision.PART_ERROR_UM, errorUm());
+        // [8-08] ボールねじは送りが細かいので、部品の誤差が小さくなる（IMP2 O-014）
+        if (!out.isEmpty()) out.set(Precision.PART_ERROR_UM, (int) Math.round(errorUm() * com.taku3.semiconductorlab.item.BallScrewItem.errorScale(container.getItem(SLOT_TOOL))));
         return out;
     }
 
     @Override protected double workWatts() { return WATTS; }
+    /** [8-08] ボールねじの送りは摩擦が小さい（玉軸受の倍率にさらに掛ける） */
+    @Override protected double drawWatts() { return super.drawWatts() * com.taku3.semiconductorlab.item.BallScrewItem.powerFactor(container.getItem(SLOT_TOOL)); }
     @Override protected int workTicks() { return TICKS; }
     @Override protected boolean canWork() {
         ItemStack out = made();

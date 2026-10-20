@@ -143,5 +143,12 @@
   "item.semiconductor-lab.ball_bearing.grade3": "Grade 3: matched balls (gauge blocks)",
   "item.semiconductor-lab.ball_bearing.factor": "Rotating machine power -%s%%",
   "item.semiconductor-lab.ball_bearing.installed": "⚙ Bearing installed: %s (power -%s%%)",
-  "item.semiconductor-lab.ball_bearing.not_rotating": "This machine has no rotating shaft (no bearing fits)"
+  "item.semiconductor-lab.ball_bearing.not_rotating": "This machine has no rotating shaft (no bearing fits)",
+  "item.semiconductor-lab.ball_screw": "Ball Screw",
+  "item.semiconductor-lab.ball_screw.note1": "A screw with small steel balls rolling between the thread and the nut. Nothing slides, so it moves very finely and lightly.",
+  "item.semiconductor-lab.ball_screw.note2": "Lead screw + steel + steel balls (grade 1-3 from the balls). In a lathe's master-screw slot it shrinks the error of the screws it makes (grade 1 half, grade 2 a quarter, grade 3 a tenth) and saves a little power. Feed resolution 5/2/1 um (a lead screw: 10 um).",
+  "item.semiconductor-lab.ball_screw.note3": "In 1898 Stevenson and Glenn in the USA patented the ball screw. It spread through recirculating-ball car steering (around 1939), and in 1952 it met MIT's numerically controlled milling machine, starting micrometre positioning.",
+  "item.semiconductor-lab.ball_screw.note4": "An ordinary screw sticks and then suddenly slips when it starts to move (stick-slip), so it cannot make tiny moves. Rolling balls avoid this, giving the fine feed of a lithography stage.",
+  "item.semiconductor-lab.ball_screw.placeholder": "Approximation: feed resolution and the error and power reductions are game values.",
+  "item.semiconductor-lab.ball_screw.feed": "Feed %s um / lathe part error %s%%"
 }

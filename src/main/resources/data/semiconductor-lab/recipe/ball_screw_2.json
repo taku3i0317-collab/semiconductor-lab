@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lead_screw",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_balls_ground"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ball_screw",
+    "count": 1,
+    "components": {
+      "semiconductor-lab:bearing_grade": 2
+    }
+  }
+}

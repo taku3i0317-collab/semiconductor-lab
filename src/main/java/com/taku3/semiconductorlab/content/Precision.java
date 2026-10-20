@@ -89,6 +89,8 @@ public final class Precision {
             net.minecraft.core.component.DataComponentType.<Integer>builder().persistent(com.mojang.serialization.Codec.INT)
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
     public static final Item BALL_BEARING          = Reg.item("ball_bearing", BallBearingItem::new, new Item.Properties());
+    // [8-08] ボールねじ（IMP2 O-014）：送りねじ＋鋼球。段階（bearing_grade）で送りの細かさ 5・2・1µm（送りねじは 10µm）。旋盤の親ねじに入れると部品の誤差・電力が下がる
+    public static final Item BALL_SCREW            = Reg.item("ball_screw", BallScrewItem::new, new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 旋盤 [8-01]（IMP2-01、モーズリー 1797〜1800頃）：モーターで材料を回し、送りねじの刃物台で削る。750W

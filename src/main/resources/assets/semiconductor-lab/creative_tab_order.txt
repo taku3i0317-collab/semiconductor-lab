@@ -368,6 +368,7 @@ steel_balls_precise  # Precision [8-20] 1883
 ball_bearing  # Precision [8-20] 1883
 gauge_block_set  # Precision [8-05] 1896
 isolation_table  # Precision [8-07] 1931
+ball_screw  # Precision [8-08] 1939
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
 transistor  # Semiconductor [9-03] 1947

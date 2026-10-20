@@ -15,6 +15,38 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-08] ボールねじ（IMP2 O-014）：送りねじ＋鋼球。旋盤の親ねじにすると、段階ごとに部品の誤差が小さく・電気が少なく。送りの細かさ 10 → 5・2・1µm */
+    @GameTest
+    public void ball_screw(GameTestHelper h) {
+        var B = com.taku3.semiconductorlab.item.BallScrewItem.class;
+        h.assertTrue(recipeUses(h, "ball_screw_3", Precision.LEAD_SCREW) && recipeUses(h, "ball_screw_3", Precision.STEEL_BALLS_PRECISE), "ball screw = lead screw + steel balls");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.BallScrewItem.feedUm(new ItemStack(Precision.LEAD_SCREW)), 10, "plain lead screw: 10 um (stick-slip)");
+        int[] feed = new int[4]; int[] err = new int[4]; double[] watts = new double[4];
+        for (int g = 0; g <= 3; g++) {
+            ItemStack screw = g == 0 ? new ItemStack(Precision.LEAD_SCREW) : com.taku3.semiconductorlab.item.BallBearingItem.of(g).transmuteCopy(Precision.BALL_SCREW);
+            feed[g] = com.taku3.semiconductorlab.item.BallScrewItem.feedUm(screw);
+            BlockPos lp = p(1 + g, 1, 1);
+            h.setBlock(lp, Precision.LATHE.block);
+            var lb = h.getBlockEntity(lp, LatheBlockEntity.class);
+            lb.calibrate(20);
+            lb.getContainer().setItem(LatheBlockEntity.SLOT_IN, new ItemStack(Metallurgy.STEEL_INGOT));
+            lb.getContainer().setItem(LatheBlockEntity.SLOT_TOOL, screw);
+            tickConsumer(h, lp, lb, 1, EnergyStorage.wattsToJoulesPerTick(LatheBlockEntity.WATTS));
+            watts[g] = lb.getLastWatts();
+            tickConsumer(h, lp, lb, LatheBlockEntity.TICKS + 5, EnergyStorage.wattsToJoulesPerTick(LatheBlockEntity.WATTS));
+            ItemStack out = lb.getContainer().getItem(LatheBlockEntity.SLOT_OUT);
+            h.assertTrue(out.is(Precision.STANDARD_SCREW), "grade " + g + " makes standard screws");
+            err[g] = out.getOrDefault(Precision.PART_ERROR_UM, 999);
+        }
+        h.assertTrue(feed[0] == 10 && feed[1] == 5 && feed[2] == 2 && feed[3] == 1, "feed " + java.util.Arrays.toString(feed));
+        h.assertTrue(err[0] == 20 && err[1] == 10 && err[2] == 5 && err[3] == 2, "part error with a lathe 20 um off: " + java.util.Arrays.toString(err));
+        h.assertTrue(watts[0] > watts[1] && watts[1] > watts[2] && watts[2] > watts[3], "power drops by grade: " + java.util.Arrays.toString(watts));
+        var ja = langJson("ja_jp");
+        h.assertTrue(ja.has("item.semiconductor-lab.ball_screw.feed"), "lang ball_screw.feed");
+        LOG.info("[LAB] ball_screw [8-08]: feed 10/5/2/1 um, part error 20/10/5/2 um, lathe power " + java.util.Arrays.toString(watts));
+        h.succeed();
+    }
+
     /** [8-31] 研削盤・[8-20] 玉軸受（IMP2 O-013）：測る道具で玉の段階が決まり、回る機械に入れると段階ごとに消費電力が下がる（炉には入らない） */
     @GameTest
     public void ball_bearings(GameTestHelper h) {
