@@ -64,6 +64,7 @@ public class ScreenChecks implements FabricClientGameTest {
             for (String lang : LANGS) {
                 setLanguage(ctx, lang);
                 Map<String, String> strings = langStrings(ctx, lang);
+                checkTooltips(ctx, lang, problems, report);
                 for (Machine<?> m : Machine.all()) {
                     if (m.menu == null) continue;
                     List<MachineScreen.TextDraw> draws = new ArrayList<>();
@@ -104,6 +105,36 @@ public class ScreenChecks implements FabricClientGameTest {
         problems.forEach(p -> LOG.warn("[LAB] screen checks: {}", p));
         List<String> unknown = problems.stream().filter(p -> KNOWN.stream().noneMatch(p::startsWith)).toList();
         if (!unknown.isEmpty()) throw new AssertionError("screen checks found " + unknown.size() + " problems: " + unknown);
+    }
+
+    /** ツールチップの1行の幅の上限（px）。バニラの長い説明（鍛冶型の説明など）と同じくらい */
+    static final int TOOLTIP_MAX = 200;
+
+    /**
+     * ツールチップ（IMP-30 追加）：MOD の全部のアイテムで、Shift なし・ありの両方の行が TOOLTIP_MAX px 以内か。
+     * 「省略：」（en は Omitted / Simplified）の行は Shift を押したときだけ出ているか
+     */
+    private static void checkTooltips(ClientGameTestContext ctx, String lang, List<String> problems, List<String> report) {
+        ctx.runOnClient(mc -> {
+            var tctx = net.minecraft.world.item.Item.TooltipContext.of(mc.level);
+            try {
+                for (var item : net.minecraft.core.registries.BuiltInRegistries.ITEM) {
+                    var id = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(item);
+                    if (!id.getNamespace().equals(NS)) continue;
+                    for (boolean shift : new boolean[] {false, true}) {
+                        com.taku3.semiconductorlab.client.NoteTooltip.forceShift = shift;
+                        var lines = new net.minecraft.world.item.ItemStack(item).getTooltipLines(tctx, mc.player, net.minecraft.world.item.TooltipFlag.NORMAL);
+                        for (var line : lines) {
+                            String t = line.getString();
+                            int w = mc.font.width(line);
+                            if (w > TOOLTIP_MAX) problems.add("tooltip " + lang + " " + id.getPath() + (shift ? " (Shift)" : "") + ": a line is " + w + " px (max " + TOOLTIP_MAX + "): \"" + t + "\"");
+                            if (!shift && (t.startsWith("省略") || t.startsWith("Omitted") || t.startsWith("Simplified")))
+                                problems.add("tooltip " + lang + " " + id.getPath() + ": the 'omitted' note shows without Shift: \"" + t + "\"");
+                        }
+                    }
+                }
+            } finally { com.taku3.semiconductorlab.client.NoteTooltip.forceShift = null; }
+        });
     }
 
     /** 言語を切り替えて、読み込みが終わるまで待つ */

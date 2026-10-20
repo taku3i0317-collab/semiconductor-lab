@@ -25,7 +25,7 @@ public class NoteTooltip {
             String note = key(id, "note2");
             if (note == null) note = key(id, "note");
             if (note != null) {
-                if (Minecraft.getInstance().hasShiftDown()) {
+                if (shiftDown()) {
                     lines.add(Component.translatable(note).withStyle(ChatFormatting.GRAY));
                     // へえ③（大人）・④（ガチ）は冒頭だけ。全文はガイドタブ「図鑑」（advancement zukan/<id>）
                     for (String s : new String[] {"note3", "note4"}) {
@@ -37,6 +37,10 @@ public class NoteTooltip {
             }
         });
     }
+
+    /** 画面の自動チェック（IMP-30 ScreenChecks）用：null ならキーボードの Shift、true/false ならそのふりをする */
+    public static Boolean forceShift;
+    static boolean shiftDown() { return forceShift != null ? forceShift : Minecraft.getInstance().hasShiftDown(); }
 
     /** 冒頭 PREVIEW 文字（コードポイント単位）＋「…」 */
     static final int PREVIEW = 18;
