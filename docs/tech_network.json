@@ -125,7 +125,26 @@
    "emoji": "🪨",
    "symbol": "🪓",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Handaxe_by_John_Frere.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Handaxe_by_John_Frere.png",
+     "kind": "画像",
+     "author": "John Frere",
+     "license": "Public domain",
+     "description": "1800年にジョン・フレアが本に描いた、イギリス・ホクスンで見つかった両面打ちのハンドアックス（石の手おの）の絵。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    },
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Chopper_Plouhinec_Pal%C3%A9olithique_inf%C3%A9rieur_Mus%C3%A9e_de_Bretagne_D2003.2.5.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Chopper_Plouhinec_Pal%C3%A9olithique_inf%C3%A9rieur_Mus%C3%A9e_de_Bretagne_D2003.2.5.jpg",
+     "kind": "画像",
+     "author": "Alain Amet",
+     "license": "Public domain",
+     "description": "石を打ち欠いて刃をつけた、旧石器時代前期のチョッパー（石の刃物）。",
+     "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
+    }
+   ],
    "descendants": 344
   },
   {
@@ -234,7 +253,17 @@
    "emoji": "🏺",
    "symbol": "🪓",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/%E7%81%AB%E7%84%94%E5%9C%9F%E5%99%A8-%E2%80%9CFlame-Rimmed%E2%80%9D_Cooking_Vessel_%28Kaen_doki%29_MET_2015_300_258_Burke_website.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:%E7%81%AB%E7%84%94%E5%9C%9F%E5%99%A8-%E2%80%9CFlame-Rimmed%E2%80%9D_Cooking_Vessel_(Kaen_doki)_MET_2015_300_258_Burke_website.jpg",
+     "kind": "画像",
+     "author": "メトロポリタン美術館（CC0 で公開）",
+     "license": "CC0",
+     "description": "縁が炎のように盛り上がった、縄文時代の火焔土器（煮炊き用のうつわ）。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 314
   },
   {
@@ -354,7 +383,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "S5. 茎を水で腐らせて糸を取る（亜麻とリネン）［0-06］",
+     "answer": "亜麻の茎の皮の内側には長い靱皮繊維の束があり、ペクチンで皮や芯にくっついている。茎を水に浸けると微生物がペクチンを分解し（レッティング）、たたいて芯を落とすと繊維が取れる。繊維を撚って糸にし、織ると亜麻布（リネン）になる。",
+     "hee": {
+      "1": "亜麻の茎を水につけて腐らせると、布にする糸がとれる。",
+      "2": "繊維は主にセルロースで、ぬれるとかえって強くなる。",
+      "3": "イスラエルのナハル・ヘマル洞窟で約9000年前の亜麻の布・網。ジョージアのズズアナ洞窟では約3万年前の野生の亜麻の繊維が報告されている⚠️。",
+      "4": "line・lining・lingerie・linoleum はラテン語 linum（亜麻）から。日本は大麻・苧麻から同じように布を作った。"
+     },
+     "certainty": "レッティングのしくみ ◎／ナハル・ヘマル 約9000年前 ○／ズズアナ 約3万年前 △（人の利用かに議論）→ ゲーム内は ⚠️／エジプトの S 撚り △ → ⚠️／語源 ◎",
+     "basis": "- Kvavadze ほか 2009「30,000-year-old wild flax fibers」Science 325：https://www.science.org/doi/10.1126/science.1175404"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -364,7 +406,7 @@
    "name": "織物",
    "trunk": "0",
    "trunk_name": "生存・道具",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -8000,
    "year_range": "-30000〜-8000",
@@ -377,10 +419,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "亜麻の茎を水につけて腐らせると、布にする糸がとれる",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -425,7 +467,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "こまのように回る「はずみ車」で、毛をよって糸にした",
    "kind": "tech",
    "play": "",
@@ -1012,7 +1054,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "細い繊維も、より合わせると重い物を吊れる （IMP-24 で追加、network_proposals N-2）",
    "kind": "tech",
    "play": "軽",
@@ -1342,7 +1384,17 @@
    "emoji": "🔔",
    "symbol": "⛏️",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%95%86_%E9%9D%92%E9%8A%85%E9%BC%8E-Tripod_Cauldron_%28Ding%29_MET_DP140755.jpg/960px-%E5%95%86_%E9%9D%92%E9%8A%85%E9%BC%8E-Tripod_Cauldron_%28Ding%29_MET_DP140755.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:%E5%95%86_%E9%9D%92%E9%8A%85%E9%BC%8E-Tripod_Cauldron_(Ding)_MET_DP140755.jpg",
+     "kind": "画像",
+     "author": "メトロポリタン美術館（CC0 で公開）",
+     "license": "CC0",
+     "description": "約3200年前の中国・商（殷）の時代の、3本足の青銅のうつわ「鼎（てい）」。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 116
   },
   {
@@ -1538,7 +1590,17 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Chinese_Fining_and_Blast_Furnace.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Chinese_Fining_and_Blast_Furnace.jpg",
+     "kind": "画像",
+     "author": "不明（Commons に作者の記載なし）",
+     "license": "Public domain",
+     "description": "1637年の中国の本『天工開物』の絵。左は鉄をとかす高炉、右はとけた鉄をかき混ぜて錬鉄にする炉。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 245
   },
   {
@@ -2497,7 +2559,17 @@
      "pi": 2
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/A_Bessemer_steel_converter_LCCN90715020.jpg/960px-A_Bessemer_steel_converter_LCCN90715020.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:A_Bessemer_steel_converter_LCCN90715020.jpg",
+     "kind": "画像",
+     "author": "Miscellaneous Items in High Demand, PPOC, Library of Congress",
+     "license": "Public domain",
+     "description": "火花を吹き上げるベッセマー転炉の木版画（1889年）。溶けた鉄に空気を吹き込んで鋼にする。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 221
   },
   {
@@ -2804,7 +2876,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O13. 鉛から銀を取り出す（灰吹法）［1-32］（蒸着の金属）",
+     "answer": "銀をふくむ鉛を骨灰の皿にのせ、空気を当てて約1000℃に熱すると、鉛は一酸化鉛 PbO になって溶け、皿にしみこむ。酸化しにくい銀だけが皿の上に玉になって残る（灰吹法、キューペレーション）。",
+     "hee": {
+      "1": "石見銀山も灰吹法で銀を取り出していた（1533年に朝鮮半島から伝わった）。",
+      "2": "鉛が全部なくなる瞬間、銀の玉がぱっと輝く（「銀のひらめき」）。",
+      "3": "同じ皿で金や銀の純度を調べる「試金」も行われてきた。",
+      "4": "銀は可視光の反射率が金属で一番高く（95%以上）、真空蒸着で鏡や半透明鏡にする [5-14]。"
+     },
+     "certainty": "灰吹法の化学 ◎／紀元前3000年ごろから ○／石見銀山 1533・灰吹法 ◎（世界遺産の説明）／世界の銀産出に占める割合 △ → ゲーム内は ⚠️",
+     "basis": "- Wikipedia「Cupellation」：https://en.wikipedia.org/wiki/Cupellation"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -2814,7 +2899,7 @@
    "name": "銀",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -3000,
    "year_range": null,
@@ -2827,10 +2912,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "石見銀山も灰吹法で銀を取り出していた",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -4551,7 +4636,17 @@
      "pi": 5
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Zosimos_distillation_equipment.jpg/960px-Zosimos_distillation_equipment.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Zosimos_distillation_equipment.jpg",
+     "kind": "画像",
+     "author": "Unknown Byzantine Greek illustrator, reproduced by Marcelin Berthelot in his 1887 text, Collection des anciens alchimistes grecs",
+     "license": "Public domain",
+     "description": "古代の錬金術師ゾシモスが伝えた蒸留の道具を、ビザンツ時代の写本から描き写した絵。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 55
   },
   {
@@ -6186,7 +6281,17 @@
      "pi": 6
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Metal_Working%2C_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg/960px-Metal_Working%2C_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Metal_Working,_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg",
+     "kind": "画像",
+     "author": "Nina M. Davies",
+     "license": "CC0",
+     "description": "古代エジプトのレクミラの墓の壁画を写した絵。足でふむふいごで火を強め、金属を溶かす職人たち。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 139
   },
   {
@@ -7286,7 +7391,17 @@
      "pi": 8
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/SteamEngine_Boulton%26Watt_1784.png/960px-SteamEngine_Boulton%26Watt_1784.png",
+     "page": "https://commons.wikimedia.org/wiki/File:SteamEngine_Boulton%26Watt_1784.png",
+     "kind": "画像",
+     "author": "Robert Henry Thurston (1839–1903)",
+     "license": "Public domain",
+     "description": "1784年のボールトン・アンド・ワット社の蒸気機関のしくみを描いた図。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 228
   },
   {
@@ -7420,7 +7535,17 @@
      "pi": 9
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Faraday_disk_generator.jpg/960px-Faraday_disk_generator.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Faraday_disk_generator.jpg",
+     "kind": "画像",
+     "author": "Émile Alglave",
+     "license": "Public domain",
+     "description": "ファラデーの円板発電機の絵。磁石のあいだで銅の円板を回すと電気が生まれる。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 226
   },
   {
@@ -7575,7 +7700,17 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/US553932-drawings-page-1.png/960px-US553932-drawings-page-1.png",
+     "page": "https://commons.wikimedia.org/wiki/File:US553932-drawings-page-1.png",
+     "kind": "画像",
+     "author": "Charles Parsons",
+     "license": "Public domain",
+     "description": "チャールズ・パーソンズの蒸気タービンの米国特許（1896年）の図面。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 136
   },
   {
@@ -8031,7 +8166,26 @@
      "pi": 10
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Voltaic_pile%2C_circa_1805.jpg/960px-Voltaic_pile%2C_circa_1805.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Voltaic_pile,_circa_1805.jpg",
+     "kind": "画像",
+     "author": "Daderot",
+     "license": "Public domain",
+     "description": "1805年ごろに作られたボルタ電池（金属の円板を積み重ねた電堆）。博物館の展示。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    },
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Pile_de_Volta.jpg/960px-Pile_de_Volta.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Pile_de_Volta.jpg",
+     "kind": "画像",
+     "author": "Gillard",
+     "license": "Public domain",
+     "description": "銅と亜鉛の円板と、しめった布を交互に積んだボルタ電池のイラスト。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 215
   },
   {
@@ -8293,7 +8447,17 @@
      "pi": 11
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Magdeburg.jpg/960px-Magdeburg.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Magdeburg.jpg",
+     "kind": "画像",
+     "author": "Gaspar Schott",
+     "license": "Public domain",
+     "description": "ゲーリケの「マクデブルクの半球」の実験の版画。中の空気を抜いた球を、馬が両側から引いても離れない。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 91
   },
   {
@@ -8397,7 +8561,17 @@
      "pi": 13
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Fleming_valves.jpg/960px-Fleming_valves.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Fleming_valves.jpg",
+     "kind": "画像",
+     "author": "John Ambrose Fleming",
+     "license": "Public domain",
+     "description": "フレミングが1904年に作った、最初の二極真空管（フレミング・バルブ）の試作品。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 83
   },
   {
@@ -8469,7 +8643,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O15. 機械のポンプと、蒸気の風のポンプ（回転ポンプ・水銀拡散ポンプ）［5-04］［5-05］",
+     "answer": "回転ポンプは、偏心したローターを回して気体を区切って押し出す（ゲーデの回転水銀ポンプ 1905、のちに油で封じる）。到達は 1〜0.1Pa。拡散ポンプは水銀（のちに油）を沸かし、蒸気の噴流で気体分子を下へたたき落とす（ゲーデ 1915、ラングミュア 1916）。動く部品がなく 10⁻⁴Pa 級まで引けるが、大気圧には吐き出せないので前段の回転ポンプが要る。",
+     "hee": {
+      "1": "動く部品がないのに、蒸気の風で空気を吹き飛ばす。",
+      "2": "拡散ポンプは「前段ポンプ」と組まないと動かない。2台を直列につなぐのが高真空の基本。",
+      "3": "ラングミュアは壁を水で冷やして蒸気を凝縮させ（凝縮ポンプ）、ずっと速くした。高真空の真空管・電球はこれでできた。",
+      "4": "1928年からは水銀の代わりに蒸気圧の低い油が使われた（油拡散ポンプ [5-06]）。"
+     },
+     "certainty": "拡散ポンプの原理・前段ポンプが要る ◎／ゲーデ 1915（製造開始を 1913 とする資料もある）○／ガラスと鉄・ブンゼンバーナー ○（一資料）／ラングミュア 1916 ◎／回転水銀ポンプ 1905 ○／油回転ポンプ 1907ごろ △ → ゲーム内は ⚠️",
+     "basis": "- Wikipedia「Diffusion pump」：https://en.wikipedia.org/wiki/Diffusion_pump"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -8479,7 +8666,7 @@
    "name": "油回転ポンプ",
    "trunk": "5",
    "trunk_name": "真空",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1905,
    "year_range": null,
@@ -8505,7 +8692,7 @@
    "buildable_now": false,
    "hee1": "実験室の「ブーン」という音はこのポンプ",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -8527,7 +8714,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O15. 機械のポンプと、蒸気の風のポンプ（回転ポンプ・水銀拡散ポンプ）［5-04］［5-05］",
+     "answer": "回転ポンプは、偏心したローターを回して気体を区切って押し出す（ゲーデの回転水銀ポンプ 1905、のちに油で封じる）。到達は 1〜0.1Pa。拡散ポンプは水銀（のちに油）を沸かし、蒸気の噴流で気体分子を下へたたき落とす（ゲーデ 1915、ラングミュア 1916）。動く部品がなく 10⁻⁴Pa 級まで引けるが、大気圧には吐き出せないので前段の回転ポンプが要る。",
+     "hee": {
+      "1": "動く部品がないのに、蒸気の風で空気を吹き飛ばす。",
+      "2": "拡散ポンプは「前段ポンプ」と組まないと動かない。2台を直列につなぐのが高真空の基本。",
+      "3": "ラングミュアは壁を水で冷やして蒸気を凝縮させ（凝縮ポンプ）、ずっと速くした。高真空の真空管・電球はこれでできた。",
+      "4": "1928年からは水銀の代わりに蒸気圧の低い油が使われた（油拡散ポンプ [5-06]）。"
+     },
+     "certainty": "拡散ポンプの原理・前段ポンプが要る ◎／ゲーデ 1915（製造開始を 1913 とする資料もある）○／ガラスと鉄・ブンゼンバーナー ○（一資料）／ラングミュア 1916 ◎／回転水銀ポンプ 1905 ○／油回転ポンプ 1907ごろ △ → ゲーム内は ⚠️",
+     "basis": "- Wikipedia「Diffusion pump」：https://en.wikipedia.org/wiki/Diffusion_pump"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -8537,7 +8737,7 @@
    "name": "水銀拡散ポンプ",
    "trunk": "5",
    "trunk_name": "真空",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1915,
    "year_range": null,
@@ -8563,7 +8763,7 @@
    "buildable_now": false,
    "hee1": "動く部品がないのに、蒸気の風で空気を吹き飛ばす",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -8618,7 +8818,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "水銀の代わりに、ほとんど蒸発しない特別な油を使う",
    "kind": "tech",
    "play": "",
@@ -9032,7 +9232,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O16. 真空の中で金属を蒸気にして付ける（真空蒸着）［5-14］",
+     "answer": "真空の中で熱したタングステン線に金属をのせて蒸発させると、金属の原子がまっすぐ飛んでガラスなどの基板に付き、薄い膜になる。空気が残っていると原子がぶつかって散るので、平均自由行程（およそ 6.6mm÷圧力 Pa）が容器より長くなる 0.01Pa 以下の高真空が要る。",
+     "hee": {
+      "1": "ポテトチップスの袋の内側の銀色も真空蒸着のアルミ。",
+      "2": "1912年ポールとプリングスハイムが真空で金属を蒸発させて鏡の膜を作った（これが最初ではない）。",
+      "3": "1930年代ジョン・ストロングが望遠鏡の鏡にアルミを蒸着（1934年ウィルソン山のタワー望遠鏡、1935年に100インチ主鏡）。",
+      "4": "1960年代の IC のアルミ配線も真空蒸着。干渉計の半透明鏡・反射防止膜・マスクのクロムも、この「膜を付ける」技術の上にある。"
+     },
+     "certainty": "平均自由行程と蒸着の原理 ◎／ポールとプリングスハイム 1912 ○（TECH_TREE の記述、一次資料は未確認）／ストロングのアルミ蒸着 1934〜35 ○／IC のアルミ配線 ◎",
+     "basis": "- Wikipedia「Evaporation (deposition)」：https://en.wikipedia.org/wiki/Evaporation_(deposition)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9042,7 +9255,7 @@
    "name": "真空蒸着",
    "trunk": "5",
    "trunk_name": "真空",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1912,
    "year_range": null,
@@ -9079,7 +9292,7 @@
    "buildable_now": false,
    "hee1": "ポテトチップスの袋の内側の銀色も真空蒸着のアルミ",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -10462,7 +10675,26 @@
      "pi": 20
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Galileo_telescope_replica_%281%29_-_white_bg.jpg/960px-Galileo_telescope_replica_%281%29_-_white_bg.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Galileo_telescope_replica_(1)_-_white_bg.jpg",
+     "kind": "画像",
+     "author": "\"The authors that took this picture are Jim and Rhoda Morris.\" - white BG added",
+     "license": "Public domain",
+     "description": "ガリレオが作ったと伝わる、いちばん古く残る望遠鏡の複製。",
+     "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
+    },
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Galileo%27s_sketches_of_the_moon.png/960px-Galileo%27s_sketches_of_the_moon.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Galileo%27s_sketches_of_the_moon.png",
+     "kind": "画像",
+     "author": "Galileo Galilei",
+     "license": "Public domain",
+     "description": "ガリレオが1610年に望遠鏡で見て描いた、月の満ち欠けとでこぼこのスケッチ。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 62
   },
   {
@@ -10733,7 +10965,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "光の波を物差しにすると、髪の毛の100分の1が測れる",
    "kind": "tech",
    "play": "",
@@ -11578,7 +11810,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "薄い膜を重ねると、ガラスが「見えなく」なる （IMP-24 で追加、network_proposals W-3）",
    "kind": "tech",
    "play": "軽（レンズ・太陽電池に塗る）",
@@ -11603,7 +11835,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O14. 手のふるえを機械が消した（旋盤）［8-01］（回転ポンプの前提）",
+     "answer": "旋盤は材料を回して刃物でけずる機械。1797〜1800年ごろモーズリーが、全部金属で、刃物台を送りねじで動かす旋盤を作り、人の手のふるえなしに同じ寸法の部品を何個でも作れるようにした。",
+     "hee": {
+      "1": "刃物を送りねじで動かす旋盤が、人の手のふるえを取り除いた。",
+      "2": "旋盤は自分の送りねじを、もっと正確に作り直せる。これが精密機械の進歩のくり返し。",
+      "3": "モーズリーの工房からは、ホイットワース（ねじの規格）やナスミス（蒸気ハンマー）など次の世代の機械技術者が育った。",
+      "4": "回転ポンプのローターとケースのすき間は数十μm。旋盤の精度が真空の質を決める。"
+     },
+     "certainty": "モーズリーのねじ切り旋盤 1797〜1800 ◎／弟子（ホイットワース・ナスミス）◎／ローターのすき間 ○（一般的な値）",
+     "basis": "- Wikipedia「Henry Maudslay」：https://en.wikipedia.org/wiki/Henry_Maudslay"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -11613,7 +11858,7 @@
    "name": "旋盤",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1797,
    "year_range": "1797〜1800",
@@ -11629,10 +11874,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "刃物を送りねじで動かす旋盤が、人の手のふるえを取り除いた",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -11651,7 +11896,17 @@
      "pi": 21
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Maudslay_screw-cutting_lathes_of_circa_1797_and_1800.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Maudslay_screw-cutting_lathes_of_circa_1797_and_1800.png",
+     "kind": "画像",
+     "author": "Unknown photographer",
+     "license": "Public domain",
+     "description": "ヘンリー・モーズリーが1797年ごろと1800年ごろに作った、ねじ切り旋盤の写真。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 156
   },
   {
@@ -11693,7 +11948,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "どの店のネジでも合うのは、ねじ山の角度が決まっているから",
    "kind": "tech",
    "play": "",
@@ -12182,7 +12437,17 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Hooke-microscope.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Hooke-microscope.png",
+     "kind": "画像",
+     "author": "Robert Hooke",
+     "license": "Public domain",
+     "description": "ロバート・フックが1665年の本『ミクログラフィア』に描いた、自分の顕微鏡とランプ。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 46
   },
   {
@@ -13286,7 +13551,17 @@
      "pi": 24
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Replica-of-first-transistor.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Replica-of-first-transistor.jpg",
+     "kind": "画像",
+     "author": "Federal employee",
+     "license": "Public domain",
+     "description": "Ge と金属の針の接点から生まれた、1947年の最初の点接触トランジスタの複製（1997年作）。",
+     "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
+    }
+   ],
    "descendants": 0
   },
   {
@@ -15812,7 +16087,26 @@
      "pi": 30
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Sturgeon_electromagnet.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Sturgeon_electromagnet.png",
+     "kind": "画像",
+     "author": "William Sturgeon",
+     "license": "Public domain",
+     "description": "1824年にウィリアム・スタージャンが発表した、最初の電磁石の図。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    },
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Joseph_Henry_electromagnet.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Joseph_Henry_electromagnet.png",
+     "kind": "画像",
+     "author": "Unknown author",
+     "license": "Public domain",
+     "description": "ジョセフ・ヘンリーが作った、線を何重にも巻いた大きな電磁石の絵。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 39
   },
   {
@@ -15860,7 +16154,17 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/PSM_V03_D425_Morse_with_relay.jpg/960px-PSM_V03_D425_Morse_with_relay.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:PSM_V03_D425_Morse_with_relay.jpg",
+     "kind": "画像",
+     "author": "Unknown author",
+     "license": "Public domain",
+     "description": "1870年代の雑誌に載った、リレー（中継器）をつないだモールス電信のしくみの図。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 27
   },
   {
@@ -15960,7 +16264,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "目標とのずれを見て直す、が全ての自動制御の基本",
    "kind": "tech",
    "play": "",
@@ -16120,7 +16424,26 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Two_women_operating_ENIAC.gif",
+     "page": "https://commons.wikimedia.org/wiki/File:Two_women_operating_ENIAC.gif",
+     "kind": "画像",
+     "author": "United States Army",
+     "license": "Public domain",
+     "description": "真空管で動いたコンピューター ENIAC の操作盤を動かす2人の女性（1940年代）。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    },
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg/960px-Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg",
+     "kind": "画像",
+     "author": "Unknown author",
+     "license": "Public domain",
+     "description": "ENIAC にプログラムを設定するグレン・ベックとベティ・スナイダー（1947年ごろ）。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 3
   },
   {
@@ -18487,7 +18810,26 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/TRACE_in_cleanroom_during_assembly.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:TRACE_in_cleanroom_during_assembly.jpg",
+     "kind": "画像",
+     "author": "NASA（米国政府の著作物）",
+     "license": "Public domain",
+     "description": "NASA のクリーンルームで、防じん服を着た人たちが人工衛星 TRACE を組み立てているところ。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    },
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Cleanroom_air_shower.jpg",
+     "page": "https://commons.wikimedia.org/wiki/File:Cleanroom_air_shower.jpg",
+     "kind": "画像",
+     "author": "NASA（米国政府の著作物）",
+     "license": "Public domain",
+     "description": "クリーンルームに入る前に、風を吹きつけて服のほこりを落とすエアシャワー（NASA）。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 5
   },
   {
@@ -20205,7 +20547,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "紙の原料は昔はぼろ布、今は木",
    "kind": "product",
    "play": "",
@@ -20227,7 +20569,17 @@
      "pi": 41
     }
    ],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Making_Paper.gif",
+     "page": "https://commons.wikimedia.org/wiki/File:Making_Paper.gif",
+     "kind": "画像",
+     "author": "Unknown pre-modern painter of the 1637 Tiangong Kaiwu of the Ming dynasty.",
+     "license": "Public domain",
+     "description": "『天工開物』（1637年）にある、竹から紙を作る5つの手順を描いた木版画。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 40
   },
   {
@@ -20794,7 +21146,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "日本のテレビの最初の映像はカタカナの「イ」",
    "kind": "product",
    "play": "",
@@ -21407,7 +21759,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "電子レンジはレーダーの部品から生まれた",
    "kind": "product",
    "play": "",
@@ -22501,7 +22853,17 @@
    "emoji": "🧲",
    "symbol": "●",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Induction_experiment.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Induction_experiment.png",
+     "kind": "画像",
+     "author": "J. Lambert",
+     "license": "Public domain",
+     "description": "ファラデーの1831年の電磁誘導の実験を描いた絵。コイルの中で磁石を動かすと、電流計の針が振れる。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 0
   },
   {
@@ -22714,7 +23076,17 @@
    "emoji": "🧠",
    "symbol": "●",
    "people": [],
-   "media": [],
+   "media": [
+    {
+     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Mark_I_Perceptron%2C_Figure_2_of_operator%27s_manual.png/960px-Mark_I_Perceptron%2C_Figure_2_of_operator%27s_manual.png",
+     "page": "https://commons.wikimedia.org/wiki/File:Mark_I_Perceptron,_Figure_2_of_operator%27s_manual.png",
+     "kind": "画像",
+     "author": "John C. Hay, Albert E. Murray",
+     "license": "Public domain",
+     "description": "1960年の操作説明書に載った、学習する機械 Mark I パーセプトロンの写真。",
+     "verified": "2026-10-20 Commons API で PD を確認"
+    }
+   ],
    "descendants": 0
   },
   {

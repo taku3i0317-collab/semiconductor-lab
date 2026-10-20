@@ -643,6 +643,324 @@
   ]
  },
  "media": {
-  "_note": "ノードの画像・動画（NET-10、docs/MEDIA.md）。ファイルはリポジトリに入れずリンクだけ。各項目：url（表示する画像・動画）・page（出典のページ）・kind（画像／動画）・author（作者）・license（ライセンス）・description（説明）・verified（いつ何で確かめたか）"
+  "_note": "ノードの画像・動画（NET-10、docs/MEDIA.md）。ファイルはリポジトリに入れずリンクだけ。各項目：url（表示する画像・動画）・page（出典のページ）・kind（画像／動画）・author（作者）・license（ライセンス）・description（説明）・verified（いつ何で確かめたか）",
+  "0-01": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Handaxe_by_John_Frere.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Handaxe_by_John_Frere.png",
+    "kind": "画像",
+    "author": "John Frere",
+    "license": "Public domain",
+    "description": "1800年にジョン・フレアが本に描いた、イギリス・ホクスンで見つかった両面打ちのハンドアックス（石の手おの）の絵。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   },
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Chopper_Plouhinec_Pal%C3%A9olithique_inf%C3%A9rieur_Mus%C3%A9e_de_Bretagne_D2003.2.5.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chopper_Plouhinec_Pal%C3%A9olithique_inf%C3%A9rieur_Mus%C3%A9e_de_Bretagne_D2003.2.5.jpg",
+    "kind": "画像",
+    "author": "Alain Amet",
+    "license": "Public domain",
+    "description": "石を打ち欠いて刃をつけた、旧石器時代前期のチョッパー（石の刃物）。",
+    "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
+   }
+  ],
+  "0-03": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/%E7%81%AB%E7%84%94%E5%9C%9F%E5%99%A8-%E2%80%9CFlame-Rimmed%E2%80%9D_Cooking_Vessel_%28Kaen_doki%29_MET_2015_300_258_Burke_website.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%E7%81%AB%E7%84%94%E5%9C%9F%E5%99%A8-%E2%80%9CFlame-Rimmed%E2%80%9D_Cooking_Vessel_(Kaen_doki)_MET_2015_300_258_Burke_website.jpg",
+    "kind": "画像",
+    "author": "メトロポリタン美術館（CC0 で公開）",
+    "license": "CC0",
+    "description": "縁が炎のように盛り上がった、縄文時代の火焔土器（煮炊き用のうつわ）。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "1-05": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/%E5%95%86_%E9%9D%92%E9%8A%85%E9%BC%8E-Tripod_Cauldron_%28Ding%29_MET_DP140755.jpg/960px-%E5%95%86_%E9%9D%92%E9%8A%85%E9%BC%8E-Tripod_Cauldron_%28Ding%29_MET_DP140755.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:%E5%95%86_%E9%9D%92%E9%8A%85%E9%BC%8E-Tripod_Cauldron_(Ding)_MET_DP140755.jpg",
+    "kind": "画像",
+    "author": "メトロポリタン美術館（CC0 で公開）",
+    "license": "CC0",
+    "description": "約3200年前の中国・商（殷）の時代の、3本足の青銅のうつわ「鼎（てい）」。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "3-04": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Metal_Working%2C_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg/960px-Metal_Working%2C_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Metal_Working,_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg",
+    "kind": "画像",
+    "author": "Nina M. Davies",
+    "license": "CC0",
+    "description": "古代エジプトのレクミラの墓の壁画を写した絵。足でふむふいごで火を強め、金属を溶かす職人たち。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "1-09": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/8/8c/Chinese_Fining_and_Blast_Furnace.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Chinese_Fining_and_Blast_Furnace.jpg",
+    "kind": "画像",
+    "author": "不明（Commons に作者の記載なし）",
+    "license": "Public domain",
+    "description": "1637年の中国の本『天工開物』の絵。左は鉄をとかす高炉、右はとけた鉄をかき混ぜて錬鉄にする炉。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "15-01": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Making_Paper.gif",
+    "page": "https://commons.wikimedia.org/wiki/File:Making_Paper.gif",
+    "kind": "画像",
+    "author": "Unknown pre-modern painter of the 1637 Tiangong Kaiwu of the Ming dynasty.",
+    "license": "Public domain",
+    "description": "『天工開物』（1637年）にある、竹から紙を作る5つの手順を描いた木版画。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "2-16": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ef/Zosimos_distillation_equipment.jpg/960px-Zosimos_distillation_equipment.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Zosimos_distillation_equipment.jpg",
+    "kind": "画像",
+    "author": "Unknown Byzantine Greek illustrator, reproduced by Marcelin Berthelot in his 1887 text, Collection des anciens alchimistes grecs",
+    "license": "Public domain",
+    "description": "古代の錬金術師ゾシモスが伝えた蒸留の道具を、ビザンツ時代の写本から描き写した絵。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "7-04": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Galileo_telescope_replica_%281%29_-_white_bg.jpg/960px-Galileo_telescope_replica_%281%29_-_white_bg.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Galileo_telescope_replica_(1)_-_white_bg.jpg",
+    "kind": "画像",
+    "author": "\"The authors that took this picture are Jim and Rhoda Morris.\" - white BG added",
+    "license": "Public domain",
+    "description": "ガリレオが作ったと伝わる、いちばん古く残る望遠鏡の複製。",
+    "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
+   },
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7b/Galileo%27s_sketches_of_the_moon.png/960px-Galileo%27s_sketches_of_the_moon.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Galileo%27s_sketches_of_the_moon.png",
+    "kind": "画像",
+    "author": "Galileo Galilei",
+    "license": "Public domain",
+    "description": "ガリレオが1610年に望遠鏡で見て描いた、月の満ち欠けとでこぼこのスケッチ。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "8-10": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Hooke-microscope.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Hooke-microscope.png",
+    "kind": "画像",
+    "author": "Robert Hooke",
+    "license": "Public domain",
+    "description": "ロバート・フックが1665年の本『ミクログラフィア』に描いた、自分の顕微鏡とランプ。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "5-01": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Magdeburg.jpg/960px-Magdeburg.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Magdeburg.jpg",
+    "kind": "画像",
+    "author": "Gaspar Schott",
+    "license": "Public domain",
+    "description": "ゲーリケの「マクデブルクの半球」の実験の版画。中の空気を抜いた球を、馬が両側から引いても離れない。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "4-02": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f2/SteamEngine_Boulton%26Watt_1784.png/960px-SteamEngine_Boulton%26Watt_1784.png",
+    "page": "https://commons.wikimedia.org/wiki/File:SteamEngine_Boulton%26Watt_1784.png",
+    "kind": "画像",
+    "author": "Robert Henry Thurston (1839–1903)",
+    "license": "Public domain",
+    "description": "1784年のボールトン・アンド・ワット社の蒸気機関のしくみを描いた図。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "8-01": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Maudslay_screw-cutting_lathes_of_circa_1797_and_1800.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Maudslay_screw-cutting_lathes_of_circa_1797_and_1800.png",
+    "kind": "画像",
+    "author": "Unknown photographer",
+    "license": "Public domain",
+    "description": "ヘンリー・モーズリーが1797年ごろと1800年ごろに作った、ねじ切り旋盤の写真。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "4-13": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Voltaic_pile%2C_circa_1805.jpg/960px-Voltaic_pile%2C_circa_1805.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Voltaic_pile,_circa_1805.jpg",
+    "kind": "画像",
+    "author": "Daderot",
+    "license": "Public domain",
+    "description": "1805年ごろに作られたボルタ電池（金属の円板を積み重ねた電堆）。博物館の展示。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   },
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Pile_de_Volta.jpg/960px-Pile_de_Volta.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Pile_de_Volta.jpg",
+    "kind": "画像",
+    "author": "Gillard",
+    "license": "Public domain",
+    "description": "銅と亜鉛の円板と、しめった布を交互に積んだボルタ電池のイラスト。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "10-01": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Sturgeon_electromagnet.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Sturgeon_electromagnet.png",
+    "kind": "画像",
+    "author": "William Sturgeon",
+    "license": "Public domain",
+    "description": "1824年にウィリアム・スタージャンが発表した、最初の電磁石の図。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   },
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Joseph_Henry_electromagnet.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Joseph_Henry_electromagnet.png",
+    "kind": "画像",
+    "author": "Unknown author",
+    "license": "Public domain",
+    "description": "ジョセフ・ヘンリーが作った、線を何重にも巻いた大きな電磁石の絵。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "I-01": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Induction_experiment.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Induction_experiment.png",
+    "kind": "画像",
+    "author": "J. Lambert",
+    "license": "Public domain",
+    "description": "ファラデーの1831年の電磁誘導の実験を描いた絵。コイルの中で磁石を動かすと、電流計の針が振れる。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "4-04": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/Faraday_disk_generator.jpg/960px-Faraday_disk_generator.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Faraday_disk_generator.jpg",
+    "kind": "画像",
+    "author": "Émile Alglave",
+    "license": "Public domain",
+    "description": "ファラデーの円板発電機の絵。磁石のあいだで銅の円板を回すと電気が生まれる。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "10-02": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/PSM_V03_D425_Morse_with_relay.jpg/960px-PSM_V03_D425_Morse_with_relay.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:PSM_V03_D425_Morse_with_relay.jpg",
+    "kind": "画像",
+    "author": "Unknown author",
+    "license": "Public domain",
+    "description": "1870年代の雑誌に載った、リレー（中継器）をつないだモールス電信のしくみの図。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "1-26": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0b/A_Bessemer_steel_converter_LCCN90715020.jpg/960px-A_Bessemer_steel_converter_LCCN90715020.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:A_Bessemer_steel_converter_LCCN90715020.jpg",
+    "kind": "画像",
+    "author": "Miscellaneous Items in High Demand, PPOC, Library of Congress",
+    "license": "Public domain",
+    "description": "火花を吹き上げるベッセマー転炉の木版画（1889年）。溶けた鉄に空気を吹き込んで鋼にする。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "4-06": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/US553932-drawings-page-1.png/960px-US553932-drawings-page-1.png",
+    "page": "https://commons.wikimedia.org/wiki/File:US553932-drawings-page-1.png",
+    "kind": "画像",
+    "author": "Charles Parsons",
+    "license": "Public domain",
+    "description": "チャールズ・パーソンズの蒸気タービンの米国特許（1896年）の図面。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "5-02": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/Fleming_valves.jpg/960px-Fleming_valves.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Fleming_valves.jpg",
+    "kind": "画像",
+    "author": "John Ambrose Fleming",
+    "license": "Public domain",
+    "description": "フレミングが1904年に作った、最初の二極真空管（フレミング・バルブ）の試作品。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "10-07": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Two_women_operating_ENIAC.gif",
+    "page": "https://commons.wikimedia.org/wiki/File:Two_women_operating_ENIAC.gif",
+    "kind": "画像",
+    "author": "United States Army",
+    "license": "Public domain",
+    "description": "真空管で動いたコンピューター ENIAC の操作盤を動かす2人の女性（1940年代）。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   },
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d3/Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg/960px-Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg",
+    "kind": "画像",
+    "author": "Unknown author",
+    "license": "Public domain",
+    "description": "ENIAC にプログラムを設定するグレン・ベックとベティ・スナイダー（1947年ごろ）。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "I-05": [
+   {
+    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/13/Mark_I_Perceptron%2C_Figure_2_of_operator%27s_manual.png/960px-Mark_I_Perceptron%2C_Figure_2_of_operator%27s_manual.png",
+    "page": "https://commons.wikimedia.org/wiki/File:Mark_I_Perceptron,_Figure_2_of_operator%27s_manual.png",
+    "kind": "画像",
+    "author": "John C. Hay, Albert E. Murray",
+    "license": "Public domain",
+    "description": "1960年の操作説明書に載った、学習する機械 Mark I パーセプトロンの写真。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "12-14": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/TRACE_in_cleanroom_during_assembly.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:TRACE_in_cleanroom_during_assembly.jpg",
+    "kind": "画像",
+    "author": "NASA（米国政府の著作物）",
+    "license": "Public domain",
+    "description": "NASA のクリーンルームで、防じん服を着た人たちが人工衛星 TRACE を組み立てているところ。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   },
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Cleanroom_air_shower.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Cleanroom_air_shower.jpg",
+    "kind": "画像",
+    "author": "NASA（米国政府の著作物）",
+    "license": "Public domain",
+    "description": "クリーンルームに入る前に、風を吹きつけて服のほこりを落とすエアシャワー（NASA）。",
+    "verified": "2026-10-20 Commons API で PD を確認"
+   }
+  ],
+  "9-03": [
+   {
+    "url": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Replica-of-first-transistor.jpg",
+    "page": "https://commons.wikimedia.org/wiki/File:Replica-of-first-transistor.jpg",
+    "kind": "画像",
+    "author": "Federal employee",
+    "license": "Public domain",
+    "description": "Ge と金属の針の接点から生まれた、1947年の最初の点接触トランジスタの複製（1997年作）。",
+    "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
+   }
+  ]
  }
 }
