@@ -63,3 +63,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - 環化ゴム（D の物）の扱い（E の判断）：レジストのレシピには使わない（KTFR はビスアジドが要るため）。[2-30] の本物欄・note で「1957〜 の KTFR の土台だった」と触れるだけにする。環化ゴムそのものの使い道は D に任せる
 - ChipOps はポジ型だけなので、A にネガ型の扱い（レジストの型 tone、coat(w, tone)、ネガ型はキシレンで現像）を頼んだ。D の材料と A の返事が来たら、ネガ型のレジスト・塗布機・現像槽を合わせ、v03_chain のネガ型版で NOT を確かめる
 - ✅ 現像槽のネガ型：A の ChipOps（tone・develop(w, Developer)）に合わせ、現像液にキシレン（D の物、有機溶剤）を受け付ける。型と合わなければ「現像液が型と合わない」。GameTest developer_bench_negative。ネガ型レジスト（KPR）の液と塗布機の対応は D のポリケイ皮酸ビニル待ち
+- ✅ [2-30] ネガ型レジスト KPR：作業台で ポリケイ皮酸ビニル（D）＋キシレン＋瓶 → negative_resist（日なたで感光）。塗布機が KPR ならネガ型で塗る（ChipOps.coat NEGATIVE）。GameTest v03_chain_negative（A の v03_chain を写し、レジストと現像液だけ KPR・キシレンに）で NOT が見つかる。CHEMISTRY F43、REFERENCES F21。O-009 完了

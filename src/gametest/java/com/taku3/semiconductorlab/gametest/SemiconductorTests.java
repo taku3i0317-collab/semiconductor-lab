@@ -1406,6 +1406,86 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v0.3 の通しのネガ型版（IMP4-01、INBOX O-009）：A の v03Chain と同じ実機の並びで、レジストを KPR、現像液をキシレンにしても NOT が見つかる */
+    @GameTest(maxTicks = 200)
+    public void v03ChainNegative(GameTestHelper h) {
+        var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        var tool = com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G;
+        // 酸化炉（実機）
+        ItemStack w = new ItemStack(Semiconductor.SILICON_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        w = runConsumer(h, p(1, 1, 1), Semiconductor.OXIDATION_FURNACE.block,
+                new int[] {com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT},
+                new ItemStack[] {w, new ItemStack(Gas.OXYGEN_GAS, 1)}, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT,
+                com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS);
+        h.assertTrue(w.is(Semiconductor.OXIDIZED_WAFER) && w.getCount() == 8, "oxidation furnace -> 8 oxidized wafers, got " + w);
+        int step = 0;
+        for (int i = 0; i < design.layers().size(); i++) {
+            var k = design.layers().get(i).kind();
+            // レジスト塗布機 [9-19]（実機、E）
+            w = runConsumer(h, p(7, 1, 4), Semiconductor.SPIN_COATER.block, new int[] {com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_RESIST},
+                    new ItemStack[] {w, new ItemStack(Chemistry.NEGATIVE_RESIST)}, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WATTS);
+            h.assertTrue(w.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.COATED,
+                    "spin coater coats layer " + i + ", got " + w);
+            h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.tone(w) == com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE, "KPR coats negative tone, layer " + i);
+            // マスクアライナー [9-20]（実機、密着）：設計図の層のマスクをフォトマスクにして重ねる
+            ItemStack photomask = new ItemStack(com.taku3.semiconductorlab.content.Optics.PHOTOMASK);
+            photomask.set(ModDataComponents.MASK, design.mask(i));
+            w = runConsumer(h, p(7, 1, 1), Semiconductor.MASK_ALIGNER.block, new int[] {com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_MASK},
+                    new ItemStack[] {w, photomask}, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.WATTS);
+            h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.EXPOSED,
+                    "mask aligner (contact) exposes layer " + i);
+            // 現像槽 [9-21]（実機、E）
+            w = runConsumer(h, p(7, 1, 6), Semiconductor.DEVELOPER_BENCH.block, new int[] {com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_DEV},
+                    new ItemStack[] {w, new ItemStack(Chemistry.XYLENE)}, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WATTS);
+            h.assertTrue(w.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.DEVELOPED,
+                    "developer bench develops layer " + i + ", got " + w);
+            if (k == com.taku3.semiconductorlab.litho.LayerKind.METAL) {
+                w = runEtch(h, p(3, 1, 1), w, Chemistry.PHOSPHORIC_ACID);   // Al のエッチング（実機）
+                h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w).has(k), "etch tank + phosphoric acid -> metal layer");
+                w = runConsumer(h, p(1, 1, 6), Semiconductor.RESIST_STRIPPER.block, new int[] {com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_ACID, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_PEROXIDE},
+                        new ItemStack[] {w, new ItemStack(Chemistry.SULFURIC_ACID), new ItemStack(Chemistry.HYDROGEN_PEROXIDE)}, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS);   // レジストはがし槽（実機、E）
+            } else {
+                w = runEtch(h, p(3, 1, 1), w, Chemistry.HYDROFLUORIC_ACID);   // 酸化膜の窓（実機）
+                h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).hasWindows(), "etch tank + HF -> windows, layer " + i);
+                w = runConsumer(h, p(1, 1, 6), Semiconductor.RESIST_STRIPPER.block, new int[] {com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_ACID, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_PEROXIDE},
+                        new ItemStack[] {w, new ItemStack(Chemistry.SULFURIC_ACID), new ItemStack(Chemistry.HYDROGEN_PEROXIDE)}, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS);   // レジストはがし槽（実機、E）
+                if (k.isDiffusion()) {   // 拡散炉（実機）
+                    var src = new ItemStack(k.dopes == 'n' ? Chemistry.PHOSPHORUS : Metallurgy.BORON_TRIOXIDE);
+                    w = runConsumer(h, p(5, 1, 1), Semiconductor.DIFFUSION_FURNACE.block,
+                            new int[] {com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_SOURCE},
+                            new ItemStack[] {w, src}, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT,
+                            com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS);
+                    h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).diffusions() == ++step, "diffusion furnace through windows, layer " + i);
+                } else {   // 真空蒸着装置（実機、隣に 0.001 Pa の真空容器）
+                    h.setBlock(p(2, 1, 4), Vacuum.VACUUM_CHAMBER.block);
+                    h.getBlockEntity(p(2, 1, 4), com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(0.001);
+                    w = runConsumer(h, p(1, 1, 4), Vacuum.EVAPORATOR.block,
+                            new int[] {com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_SUBSTRATE, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_METAL},
+                            new ItemStack[] {w, new ItemStack(Metallurgy.ALUMINIUM_INGOT, 1)}, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_OUT,
+                            com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS);
+                    h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).metalFilm(), "evaporator -> aluminium film over the contacts");
+                }
+            }
+        }
+        int dirt = com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination();
+        // 洗浄台（実機）
+        w = runConsumer(h, p(5, 1, 4), Semiconductor.CLEANING_BENCH.block,
+                new int[] {com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_NITRIC,
+                        com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_HF, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WATER},
+                new ItemStack[] {w, new ItemStack(Gas.NITRIC_ACID), new ItemStack(Chemistry.HYDROFLUORIC_ACID), new ItemStack(Chemistry.DISTILLED_WATER)},
+                com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WATTS);
+        h.assertTrue(dirt > 0 && com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination() == 0, "cleaning bench: dirt " + dirt + " -> 0");
+        // 検査台（実機）
+        h.setBlock(p(3, 1, 6), Semiconductor.PROBE_STATION.block);
+        var probe = h.getBlockEntity(p(3, 1, 6), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
+        probe.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, w);
+        probe.onButton(h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
+        h.assertValueEqual(probe.found(), (1 << com.taku3.semiconductorlab.litho.Discoveries.all().size()) - 1, "the probe finds resistor, diode, transistor, IC and NOT on the chip made by the machines");
+        LOG.info("[LAB] v0.3 chain (negative KPR, xylene developer, IMP4 O-009): oxidation, mask aligner, etch (HF / phosphoric), diffusion x3, evaporator, cleaning bench, probe = real machines; spin coater, developer bench, resist stripper = real machines too (no ChipOps stand-ins); NOT found (dirt {} -> 0)", dirt);
+        h.succeed();
+    }
+
 
     /**
      * 大きな方眼の回路の計算（O-006）：疎な解き方（BiCGSTAB）でも 8×8 の NOT の答えは密な解き方と同じ。

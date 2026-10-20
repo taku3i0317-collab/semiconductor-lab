@@ -841,5 +841,11 @@
   "block.semiconductor-lab.pyrolysis_furnace.note2": "6 steel + platinum + copper cable. 8 kW. 2 bags of R-22 -> 1 bag of TFE + 2 bags of hydrogen chloride (10 s).",
   "block.semiconductor-lab.pyrolysis_furnace.note3": "At about 700 C hydrogen chloride leaves chlorodifluoromethane, and two leftover CF2 fragments join into TFE. The tube is platinum, which resists attack even when hot (real ones use platinum, silver or nickel alloys).",
   "block.semiconductor-lab.pyrolysis_furnace.note4": "Rearranging molecules with heat ('pyrolysis' or 'cracking') is also the heart of making ethylene from petroleum in today's chemical industry.",
-  "block.semiconductor-lab.pyrolysis_furnace.placeholder": "Approximation: temperature is not given as a number. By-products (such as hexafluoropropylene) are not produced."
+  "block.semiconductor-lab.pyrolysis_furnace.placeholder": "Approximation: temperature is not given as a number. By-products (such as hexafluoropropylene) are not produced.",
+  "item.semiconductor-lab.negative_resist": "Negative Photoresist (KPR)",
+  "item.semiconductor-lab.negative_resist.note1": "A liquid that hardens and stays where light hits it. Carrying it in sunlight ruins it.",
+  "item.semiconductor-lab.negative_resist.note2": "In a glass bottle (the bottle comes back). Crafting: 1 polyvinyl cinnamate (from D) + 1 xylene + 1 empty glass bottle → 1. Coated in the spin coater [9-19] it becomes a negative resist, developed in xylene [9-21]. Holding it in sunlight spoils it. GHS: flammable (solvent).",
+  "item.semiconductor-lab.negative_resist.note3": "The cinnamate groups on the polyvinyl cinnamate chains join in pairs under ultraviolet light ([2+2] photodimerisation). Cross-linked chains no longer dissolve; unexposed areas wash away in xylene, hence 'negative'.",
+  "item.semiconductor-lab.negative_resist.note4": "Minsk and colleagues at Kodak made it as KPR around 1954; it was the resist when Bell Labs and the US Army applied photoengraving to semiconductors in 1955–57. From 1957 KTFR, based on cyclized rubber, became the main IC resist. Both swell in the developer and cannot print lines much finer than about 2 µm, so positive resist took over in the late 1970s. ⚠️ Real KPR contained a sensitiser so ordinary mercury lamp light exposed it well (no sensitiser here).",
+  "item.semiconductor-lab.negative_resist.placeholder": "Approximation: no sensitiser (real KPR used one to respond to longer wavelengths). Solvent is xylene."
 }

@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * レジスト塗布機（スピンコーター）[9-19]（IMP4-01、O-006）：ウェハーをモーターで毎分数千回転させ、真ん中にたらしたレジストを遠心力で薄く均一に広げる（約1µm）。
  * そのあと温めて溶剤を飛ばす（プリベーク）。加工中のウェハー・酸化膜つきの板 1〜8枚 ＋ ポジ型レジスト 1（空のガラス瓶は上に戻る）
  * → レジストを塗ったウェハー（ChipOps.coat、LITHO_DESIGN §5）。感光してしまったレジストは使えない。
+ * ネガ型レジスト（[2-30] KPR）を入れるとネガ型で塗る（ChipOps.coat(w, NEGATIVE)。現像はキシレン）。
  * ⚠️ 電力（500W：モーター＋プリベークの熱板）・時間（20秒）はゲームの値（spin_coater.placeholder）。
  */
 public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
@@ -26,7 +27,7 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_WAFER, 8, 26, s -> s.is(Semiconductor.OXIDIZED_WAFER) || ChipOps.isProcessWafer(s))
-            .in(SLOT_RESIST, 8, 50, s -> s.is(Chemistry.POSITIVE_RESIST))
+            .in(SLOT_RESIST, 8, 50, s -> s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.spin_coater.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.spin_coater.need_input", "gui.semiconductor-lab.spin_coater.spoiled",
@@ -38,12 +39,16 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.SPIN_COATER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean goodResist(ItemStack s) { return s.is(Chemistry.POSITIVE_RESIST) && !PositiveResistItem.spoiled(s); }
+    public static boolean goodResist(ItemStack s) { return (s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST)) && !PositiveResistItem.spoiled(s); }
 
     /** 塗ったウェハー（1〜8枚）。塗れなければ EMPTY */
-    public static ItemStack product(ItemStack w) {
+    public static ItemStack product(ItemStack w) { return product(w, new ItemStack(Chemistry.POSITIVE_RESIST)); }
+
+    /** レジストの種類で型を決めて塗る（ネガ型レジストなら NEGATIVE） */
+    public static ItemStack product(ItemStack w, ItemStack resist) {
         if (w.isEmpty()) return ItemStack.EMPTY;
-        ChipOps.Result r = ChipOps.coat(w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)));
+        ItemStack n = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
+        ChipOps.Result r = resist.is(Chemistry.NEGATIVE_RESIST) ? ChipOps.coat(n, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE) : ChipOps.coat(n);
         return r.ok() ? r.out() : ItemStack.EMPTY;
     }
 
@@ -51,12 +56,12 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
     @Override protected int workTicks() { return TICKS; }
 
     @Override protected boolean canWork() {
-        ItemStack out = product(container.getItem(SLOT_WAFER));
+        ItemStack out = product(container.getItem(SLOT_WAFER), container.getItem(SLOT_RESIST));
         return !out.isEmpty() && goodResist(container.getItem(SLOT_RESIST)) && canMerge(container.getItem(SLOT_OUT), out);
     }
 
     @Override protected void finishWork() {
-        ItemStack out = product(container.getItem(SLOT_WAFER));
+        ItemStack out = product(container.getItem(SLOT_WAFER), container.getItem(SLOT_RESIST));
         container.getItem(SLOT_WAFER).shrink(out.getCount());
         ItemStack r = container.getItem(SLOT_RESIST);
         Vessel.returnEmpty(level, worldPosition, r, 1);

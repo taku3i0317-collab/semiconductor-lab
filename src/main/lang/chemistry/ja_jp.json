@@ -841,5 +841,11 @@
   "block.semiconductor-lab.pyrolysis_furnace.note2": "鋼6＋白金＋銅ケーブルで作る。8kW。R-22 2袋 → TFE 1袋＋塩化水素2袋（10秒）。",
   "block.semiconductor-lab.pyrolysis_furnace.note3": "約700℃でクロロジフルオロメタンから塩化水素が抜け、残った CF2 のかけらが2つつながって TFE になる。管は熱くても侵されにくい白金（本物は白金や銀、ニッケル合金）。",
   "block.semiconductor-lab.pyrolysis_furnace.note4": "熱で分子を組みかえる「熱分解（クラッキング）」は、石油からエチレンを作る今の化学工業の中心の技術でもある。",
-  "block.semiconductor-lab.pyrolysis_furnace.placeholder": "近似：温度は数字で扱わない。副産物（ヘキサフルオロプロピレンなど）は出さない。"
+  "block.semiconductor-lab.pyrolysis_furnace.placeholder": "近似：温度は数字で扱わない。副産物（ヘキサフルオロプロピレンなど）は出さない。",
+  "item.semiconductor-lab.negative_resist": "ネガ型フォトレジスト（KPR）",
+  "item.semiconductor-lab.negative_resist.note1": "光が当たった所が固まって残る液。日なたで持ち歩くとだめになる。",
+  "item.semiconductor-lab.negative_resist.note2": "ガラス瓶入り（使うと瓶が戻る）。作業台で ポリケイ皮酸ビニル1（D）＋キシレン1＋空のガラス瓶1 → 1。レジスト塗布機 [9-19] で塗るとネガ型になり、現像はキシレン [9-21]。日なたで持つと感光して使えなくなる。GHS：引火性（溶剤）。",
+  "item.semiconductor-lab.negative_resist.note3": "ポリケイ皮酸ビニルの鎖についたケイ皮酸の部分が、紫外線で2つずつ手をつなぐ（[2+2] 光二量化）。鎖どうしが橋かけされると溶剤に溶けなくなる。光の当たらなかった所はキシレンで溶ける＝ネガ型。",
+  "item.semiconductor-lab.negative_resist.note4": "1954年ごろコダックのミンスクらが KPR として作り、1955〜57年にベル研と米陸軍が写真製版を半導体に使ったときのレジストになった。1957年からはゴム（環化ゴム）を土台にした KTFR が IC の主力。どちらも現像液で膨らむので、約2µm より細い線が引けず、1970年代後半にポジ型に代わった。⚠️ 本物の KPR は増感剤入りで、ふつうの水銀灯の光でよく感光する（ここでは増感剤なし）。",
+  "item.semiconductor-lab.negative_resist.placeholder": "近似：増感剤を入れていない（本物の KPR は増感剤で長い波長にも感光させた）。溶剤はキシレン。"
 }

@@ -261,6 +261,7 @@ tobias_acid  # Chemistry [2-57] 1944
 nitrite_mix  # Chemistry [2-57] 1944
 potassium_nitrite  # Chemistry [2-57] 1944
 dnq  # Chemistry [2-57] 1944
+negative_resist  # Chemistry [2-30] 1954
 phosphorus  # Chemistry [9-11] 1955
 silicon_etch  # Chemistry [9-17] 1957
 developer  # Chemistry [9-21] 1957
