@@ -57,6 +57,8 @@ public final class Optics {
     public static final Item MERCURY_LAMP_TUBE     = Reg.item("mercury_lamp_tube");
     // [5-14] 真空蒸着の製品（IMP2-01）：クラウンガラスに銀を薄く蒸着した半透明鏡（半分反射・半分透過）。干渉計 [7-09] の光を2つに分ける板
     public static final Item HALF_SILVERED_MIRROR  = Reg.item("half_silvered_mirror");
+    // [7-05] 段階2 銀鏡反応（IMP2 O-012、リービッヒ 1835・フーコー 1857）：ガラス＋硝酸銀＋アンモニア水＋砂糖（還元剤）→ 薄い銀＝半透明鏡、もう一度 → 銀鏡（反射率 約9割）
+    public static final Item SILVERED_MIRROR       = Reg.item("silvered_mirror");
     // [7-09] マイケルソン干渉計（IMP2-01）：半透明鏡＋スペキュラム鏡×2＋送りねじ（動く鏡）＋鉄の台。水銀の緑線 546.1nm で長さを測る
     public static final Item INTERFEROMETER        = Reg.item("interferometer", InterferometerItem::new, new Item.Properties().stacksTo(1));
     // [7-22] 反射防止膜（IMP2-01）：真空蒸着装置でレンズに CaF2 を 1/4 波長の厚さ付けたもの（表面の反射 約4% → 約2%）。投影レンズ [7-19] の材料

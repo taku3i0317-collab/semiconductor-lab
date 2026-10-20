@@ -1280,6 +1280,20 @@
 - Wikipedia「Michelson interferometer」：https://en.wikipedia.org/wiki/Michelson_interferometer
 - BIPM「The metre」：https://www.bipm.org/en/si-base-units/metre
 
+## O42. 砂糖で銀の鏡を作る（銀鏡反応）［7-05］
+**答え**：硝酸銀のアンモニア水に糖などの還元剤を入れると、銀イオンが銀の原子になってガラスに鏡のように付く（1835 リービッヒ）。1857年、フーコーはこの方法でガラスに銀めっきした望遠鏡の鏡を作り、重く曇りやすいスペキュラム合金の鏡をおきかえた。1881年のマイケルソンの干渉計の半透明鏡も、化学の銀めっきだった。
+
+- へえ①：鏡の銀は、砂糖が銀イオンに電子を渡してできる。
+- へえ②：銀めっきの鏡は、くもったらはがしてやり直せる。スペキュラムの鏡は磨き直しが大変だった。
+- へえ③：銀を薄くすると半分だけ光を通す「半透明鏡」になり、干渉計で光を2つに分けられる。
+- へえ④：銀鏡反応の液は置いておくと危ない物質ができるので、使ったらすぐに捨てる（実験室の注意）。
+
+確かさ：リービッヒ 1835 ◎／フーコー 1857（シュタインハイルも同じころ）◎／マイケルソンの半透明鏡が化学銀めっき ○
+根拠：
+- Wikipedia「Silvering」：https://en.wikipedia.org/wiki/Silvering
+- Wikipedia「Tollens' reagent」：https://en.wikipedia.org/wiki/Tollens%27_reagent
+- Wikipedia「Léon Foucault」：https://en.wikipedia.org/wiki/L%C3%A9on_Foucault
+
 ---
 
 # 冶金と熱（タスク15〜）

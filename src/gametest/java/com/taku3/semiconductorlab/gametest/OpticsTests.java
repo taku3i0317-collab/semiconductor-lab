@@ -80,6 +80,20 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class OpticsTests extends LabTestBase {
+    /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
+    @GameTest
+    public void silvering(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "half_silvered_mirror_chemical", Optics.CROWN_GLASS) && recipeUses(h, "half_silvered_mirror_chemical", Gas.SILVER_NITRATE)
+                && recipeUses(h, "half_silvered_mirror_chemical", Chemistry.AMMONIA_WATER) && recipeUses(h, "half_silvered_mirror_chemical", net.minecraft.world.item.Items.SUGAR),
+                "Tollens/Liebig bath: silver nitrate + ammonia + sugar (reducer) on glass -> thin silver = half mirror");
+        h.assertTrue(recipeUses(h, "silvered_mirror", Optics.HALF_SILVERED_MIRROR), "second bath -> full silvered mirror");
+        h.assertTrue(recipeUses(h, "interferometer_silvered", Optics.SILVERED_MIRROR) && recipeUses(h, "interferometer_silvered", Optics.HALF_SILVERED_MIRROR),
+                "Michelson 1881: chemically silvered half mirror and mirrors");
+        h.assertTrue(recipeUses(h, "reflecting_telescope_silvered", Optics.SILVERED_MIRROR), "Foucault 1857: silvered-glass telescope mirror");
+        LOG.info("[LAB] silvering [7-05] stage 2: glass + AgNO3 + NH3 + sugar -> half mirror -> silvered mirror; interferometer and reflector without evaporation");
+        h.succeed();
+    }
+
     /** [7-19] 投影レンズ（IMP2 O-010）：心出し済みの鏡筒＋反射防止膜のレンズ → 1/5 縮小。鏡筒のずれから波面収差 → CD＝k1·λ/NA。g線ステッパーの 1µm に届く */
     @GameTest
     public void projection_lens(GameTestHelper h) {

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:half_silvered_mirror",
+    "semiconductor-lab:silver_nitrate",
+    "semiconductor-lab:ammonia_water",
+    "minecraft:sugar"
+  ],
+  "result": {
+    "id": "semiconductor-lab:silvered_mirror",
+    "count": 1
+  }
+}

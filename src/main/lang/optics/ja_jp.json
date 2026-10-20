@@ -292,5 +292,10 @@
   "item.semiconductor-lab.projection_lens.spec": "縮小 1/%s、NA %s、g線で CD %s µm",
   "item.semiconductor-lab.interferometer.measure_metre": "📏 メートル原器：1 m ＝ 水銀の緑の光（%2$s nm）の %1$s 波長（マイケルソンとブノワ 1893 はカドミウムの赤で 1,553,163.5 波長）",
   "item.semiconductor-lab.interferometer.measure_gauge": "📏 ゲージブロック %s mm → 縞 %s 本 → %s mm（表示とのずれ %s µm）",
-  "item.semiconductor-lab.interferometer.measure_shaky": "縞がゆれて数えられない。水銀灯を除振台にのせよう"
+  "item.semiconductor-lab.interferometer.measure_shaky": "縞がゆれて数えられない。水銀灯を除振台にのせよう",
+  "item.semiconductor-lab.silvered_mirror": "銀鏡",
+  "item.semiconductor-lab.silvered_mirror.note1": "ガラスに銀をうすく付けた、よく映る鏡。",
+  "item.semiconductor-lab.silvered_mirror.note2": "半透明鏡＋硝酸銀＋アンモニア水＋砂糖（もう一度銀をのせる）。反射率 約9割。反射望遠鏡・干渉計の鏡に使える。",
+  "item.semiconductor-lab.silvered_mirror.note3": "1835年、リービッヒは硝酸銀のアンモニア水に糖などを入れると、銀がガラスに鏡のように付くことを見つけた（銀鏡反応）。1857年、フーコーはガラスに銀めっきした望遠鏡の鏡を作り、重くて曇りやすいスペキュラム合金の鏡をおきかえた。",
+  "item.semiconductor-lab.silvered_mirror.note4": "砂糖（還元剤）が銀イオンに電子を渡して銀の原子にする。銀はくもったら、はがしてめっきし直せる。のちに望遠鏡の鏡は、さびないアルミの真空蒸着（1930年ごろ）に変わった。"
 }

@@ -292,5 +292,10 @@
   "item.semiconductor-lab.projection_lens.spec": "Reduction 1/%s, NA %s, CD %s um at g-line",
   "item.semiconductor-lab.interferometer.measure_metre": "📏 Metre bar: 1 m = %1$s waves of mercury green (%2$s nm) (Michelson and Benoit, 1893: 1,553,163.5 waves of cadmium red)",
   "item.semiconductor-lab.interferometer.measure_gauge": "📏 Gauge block %s mm -> %s fringes -> %s mm (off by %s um from its marking)",
-  "item.semiconductor-lab.interferometer.measure_shaky": "The fringes jitter too much to count. Put the mercury lamp on an isolation table"
+  "item.semiconductor-lab.interferometer.measure_shaky": "The fringes jitter too much to count. Put the mercury lamp on an isolation table",
+  "item.semiconductor-lab.silvered_mirror": "Silvered Mirror",
+  "item.semiconductor-lab.silvered_mirror.note1": "A bright mirror made by laying a thin coat of silver on glass.",
+  "item.semiconductor-lab.silvered_mirror.note2": "Half-silvered mirror + silver nitrate + ammonia water + sugar (a second coat of silver). About 90% reflective. Used for reflecting telescope and interferometer mirrors.",
+  "item.semiconductor-lab.silvered_mirror.note3": "In 1835 Liebig found that adding sugars to ammoniacal silver nitrate makes silver deposit on glass like a mirror (the silver mirror reaction). In 1857 Foucault made silvered-glass telescope mirrors, replacing heavy speculum metal that tarnished easily.",
+  "item.semiconductor-lab.silvered_mirror.note4": "The sugar (a reducing agent) gives electrons to silver ions, turning them into silver atoms. Tarnished silver can be stripped and redone. Later, telescope mirrors moved to vacuum-evaporated aluminium (around 1930), which does not tarnish."
 }
