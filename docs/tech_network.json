@@ -149,7 +149,7 @@
      "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
     }
    ],
-   "descendants": 481
+   "descendants": 483
   },
   {
    "real_full": "火の利用は約100万年前（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -200,7 +200,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 465
+   "descendants": 467
   },
   {
    "real_full": "約2万年前（中国・仙人洞）、縄文土器 約1万6500年前。粘土鉱物（カオリナイト等）は約500〜600℃で結晶水が抜け、二度と水で戻らない（不可逆な脱水）",
@@ -274,7 +274,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 456
+   "descendants": 458
   },
   {
    "real_full": "約1万1500年前、肥沃な三日月地帯でヒトツブコムギ・エンマーコムギ・大麦を栽培化（穂が落ちない変異株を選び続けた）",
@@ -852,7 +852,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 430
+   "descendants": 432
   },
   {
    "real_full": "紀元前3500〜3000年、牛に引かせる四輪車（メソポタミア・中欧）。車軸と車輪の摩擦が課題（獣脂で潤滑）",
@@ -1018,7 +1018,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 445
+   "descendants": 447
   },
   {
    "real_full": "海水（塩分約3.5%）を砂に撒いて天日で濃くし（揚げ浜式・入浜式）、かん水を釜で煮詰めると NaCl が先に結晶する。残った母液が「にがり（苦汁）」＝ MgCl2 が主成分（ほかに MgSO4・KCl）。日本では縄文晩期の製塩土器から、能登の揚げ浜式は今も続く",
@@ -1079,7 +1079,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 319
+   "descendants": 320
   },
   {
    "real_full": "約1万年前、肥沃な三日月地帯で羊・山羊、続いて野生のオーロックスから牛が家畜になった。囲って育て、乳・肉・毛・力（犂や荷車を引く）を得る",
@@ -1483,7 +1483,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 326
+   "descendants": 327
   },
   {
    "real_full": "CuFeS2 を焙焼→硫化銅の「マット」→空気を吹いて Fe を酸化しスラグへ、S を SO2 へ（1880 マネス転炉）。現代の銅の大半はこの硫化鉱から",
@@ -1682,7 +1682,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 377
+   "descendants": 379
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛。黒鉛るつぼは1840年代に普及（ディクソン、米墨戦争のころ）、特許は1850年）",
@@ -1732,7 +1732,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 340
+   "descendants": 341
   },
   {
    "real_full": "赤熱したブルームを叩いてスラグを絞り出す。炭素0.1%未満で柔らかく粘る。浸炭（木炭と加熱して表面に炭素を入れる）＋焼入れで刃物に",
@@ -1742,7 +1742,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "M6. 赤く焼けた鉄をたたくと、かすが絞り出される（鍛鉄・錬鉄）［1-08］",
+     "answer": "塊鉄炉のブルームは、鉄のつぶのすきまにスラグ（ケイ酸塩のかす）が入っている。約1000℃以上に赤く熱してから叩くと、スラグがやわらかくなって外へ絞り出され、鉄のつぶどうしがくっつく（鍛接）。こうしてできた鍛鉄（錬鉄）は炭素が0.1%未満で、柔らかく粘る。表面に炭素をしみこませて（浸炭）急に冷やす（焼入れ）と、硬い刃物になる。",
+     "hee": {
+      "1": "赤く焼けた鉄をたたくと、まじったかすが絞り出される。",
+      "2": "冷えたままでは叩いても割れたり、つぶがくっつかなかったりする。",
+      "3": "鍛鉄に木炭をまぶして長く熱すると表面に炭素が入り、水で急に冷やすと硬くなる（浸炭・焼入れ）。",
+      "4": "19世紀のエッフェル塔（1889年）も、鋼ではなく錬鉄でできている。"
+     },
+     "certainty": "叩いてスラグを出す・炭素0.1%未満・浸炭と焼入れ ◎（教科書）／始まりの年（製鉄と同じ紀元前1400〜1200年ごろ）○⚠️／エッフェル塔が錬鉄 ◎",
+     "basis": "TECH_TREE［1-08］、ブリタニカ「wrought iron」https://www.britannica.com/technology/wrought-iron"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -1752,7 +1765,7 @@
    "name": "鍛鉄",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -1200,
    "year_range": "-1400〜-1200",
@@ -1765,10 +1778,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "赤く焼けた鉄をたたくと、まじったかすが絞り出される",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -1783,7 +1796,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 267
+   "descendants": 268
   },
   {
    "real_full": "中国は紀元前5世紀頃、欧州は14世紀。炉を高くし強く送風すると、炭素が溶け込んで融点が約1150℃に下がり鉄が液体で出る（銑鉄、C約4%）。硬いが脆い→鋳物",
@@ -1857,7 +1870,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 370
+   "descendants": 372
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -1916,7 +1929,7 @@
     }
    ],
    "media": [],
-   "descendants": 307
+   "descendants": 308
   },
   {
    "real_full": "1740頃 ベンジャミン・ハンツマン（シェフィールド）。鉄を密閉るつぼで完全に溶かし、炭素量の均一な鋼に（時計ばね用）。それ以前のウーツ鋼（インド）も同系統",
@@ -1988,7 +2001,7 @@
     }
    ],
    "media": [],
-   "descendants": 254
+   "descendants": 255
   },
   {
    "real_full": "1864 ピエール・マルタン（仏）が、シーメンスの蓄熱式炉[3-18]（設備＝1856 ジーメンス）を使って銑鉄とくず鉄を一緒に溶かし鋼にする「工程」を確立。くず鉄も溶かせ、成分を時間をかけて調整できる",
@@ -2103,7 +2116,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 318
+   "descendants": 319
   },
   {
    "real_full": "1888 カール・ヨーゼフ・バイヤー。Al(OH)3+NaOH→NaAl(OH)4 で溶かし、鉄分（赤泥）をろ過、冷やして Al(OH)3 を析出→焼いて Al2O3",
@@ -2954,7 +2967,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 338
+   "descendants": 340
   },
   {
    "real_full": "焙焼 2PbS+3O2→2PbO+2SO2 → 炭素還元 PbO+C→Pb+CO。融点327℃で古代から製錬。ヨーロッパ最古の方鉛鉱の処理は紀元前4400〜4300年（ルーマニア・ピエトレレ）。近東ではそれ以前（後期新石器）から鉛利用の例があり、最古の鉛の像はアビドスの紀元前3800年頃",
@@ -3415,7 +3428,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 214
+   "descendants": 215
   },
   {
    "real_full": "GeO2+4HCl→GeCl4+2H2O。GeCl4 は沸点83℃の液体なので蒸留で他の塩化物から分け、水で加水分解 GeCl4+2H2O→GeO2+4HCl して高純度 GeO2 に",
@@ -4429,7 +4442,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "2本の回るローラーの間を通すと、鉄がぐんぐん薄く長くなる（S-001 で追加。出典：Wikipedia「Rolling (metalworking)」、ERIH「Henry Cort」）",
    "kind": "tech",
    "play": "",
@@ -4709,7 +4722,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "人の腕では打てない大きな鋼の塊も、蒸気で動くハンマーなら100トンの力でたたける（O-010 で追加。出典：ASME Landmark #69「Creusot Steam Hammer」、日本機械学会「機械遺産 No.058」、Wikipedia「Steam hammer」）",
    "kind": "tech",
    "play": "",
@@ -4779,7 +4792,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 314
+   "descendants": 315
   },
   {
    "real_full": "木灰を水に浸して上澄み（灰汁＝あく）を取り、鍋で煮詰めると K2CO3（\"pot ash\"＝鍋の灰、potassium の語源）。古代から石けん・ガラスの原料。灰を使った最古級の記録は、紀元前2800年頃のバビロンの粘土の円筒に「灰を脂と煮た」とあるもの（石けんの最古の証拠と同じ記録 ⚠️、[2-09]）。シュメール・ギルスの粘土板には約4500年前に羊毛を洗った記録⚠️。これに消石灰を加えると K2CO3 + Ca(OH)2 → 2KOH + CaCO3↓（苛性化）で KOH ができ、古代〜中世の石けん作りでも使われた",
@@ -7745,6 +7758,57 @@
    "descendants": 0
   },
   {
+   "real_full": "ホウ素と水素だけでできた化合物。空気にふれると燃えるので、1912年からドイツのアルフレート・シュトックが空気を入れずに気体を扱うガラスの真空の装置を作って、初めて取り出した。1950年代、アメリカのウィリアム・リプスコムが、水素が2つのホウ素を同時につなぐ変わった結合（三中心結合）であることを明らかにした（1976年ノーベル化学賞）。半導体工場では、ジボラン（B2H6）を p 型のドーパント（ホウ素）のガスとして、拡散や CVD の膜にホウ素を入れるのに使う",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "未定（実装の前に相談）",
+   "id": "2-52",
+   "name": "ボラン",
+   "trunk": "2",
+   "trunk_name": "化学",
+   "status": "❓",
+   "branch": false,
+   "year": 1912,
+   "year_range": "1912〜1950年代",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "1-33"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": true,
+   "hee1": "ジボランは空気にふれるだけで燃えるので、昔の化学者は空気を入れない装置を自分で作った（O-011 で追加。出典：Nobel Prize「Chemistry 1976」）",
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "⚗️",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
    "real_full": "開放燃焼で約600〜900℃。C+O2→CO2（放射で熱が逃げる）。火の利用は約100万年前",
    "hee_tree": {
     "2": "",
@@ -9230,7 +9294,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 315
+   "descendants": 316
   },
   {
    "real_full": "1712 ニューコメンの大気圧機関（炭鉱の排水）、ワット1776。熱効率は約2〜5%（ニューコメン機関は約1%、ワットの分離凝縮器で数倍に改善）",
@@ -9330,7 +9394,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 350
+   "descendants": 352
   },
   {
    "real_full": "I²R損失。太線と高電圧で減らす。1882年9月4日 エジソンのパール街発電所が、銅の導体を地下の管に通して送電を始めた",
@@ -9395,7 +9459,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 167
+   "descendants": 168
   },
   {
    "real_full": "ファラデー1831。整流子付きダイナモは直流を出す（電解に直流が要る点で重要）",
@@ -9480,7 +9544,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 334
+   "descendants": 335
   },
   {
    "real_full": "1866年12月 ヴァーリーが特許出願、1867年1月 ジーメンスとホイートストンが王立協会で発表（ほぼ同時）。鉄心の残留磁気で自分を励磁、永久磁石不要",
@@ -9556,7 +9620,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 217
+   "descendants": 218
   },
   {
    "real_full": "パーソンズ1884。回転が速く発電に最適、MW級。現代の復水式蒸気タービン火力で熱効率30%級（最新鋭は40%超）",
@@ -9791,7 +9855,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 347
+   "descendants": 349
   },
   {
    "real_full": "真空管発振回路（1910年代）。誘導加熱の電源",
@@ -9925,7 +9989,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 212
+   "descendants": 213
   },
   {
    "real_full": "交流→直流。1902年 クーパー・ヒューイットの水銀整流器が最初の電力用の静止形整流器（真空管の整流器はフレミングの二極管 1904）。電解・イオン注入の高電圧直流に必要",
@@ -10151,7 +10215,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 316
+   "descendants": 317
   },
   {
    "real_full": "1882 エジソンのパール・ストリート発電所（ニューヨーク）とホルボーン高架橋発電所（ロンドン）で、蒸気機関で回したダイナモの電気を街に配った",
@@ -10684,7 +10748,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 0
+   "descendants": 1
   },
   {
    "real_full": "細長い円筒のまわりに小さな曲がった羽根をたくさん並べた羽根車で、空気は筒の横から入り、筒の中を横切って反対側から出る。筒の中にできる渦がこの流れを助ける。長さをのばせば幅の広い平たい風が作れるので、タワーファンやエアコンの室内機の中に使われている。フランスのポール・モルティエが鉱山の換気用に考えた（1891年・1892年と書く資料もある）。今も設計は経験にたよる部分が多い",
@@ -11092,6 +11156,62 @@
    "understanding": [],
    "buildable_now": false,
    "hee1": "旅客機のエンジンの前の大きなファンも、後ろのタービンが回している（O-010 で追加。出典：ASME Landmark #135「Neuchâtel Gas Turbine」、日本機械学会「機械遺産 No.007」）",
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "⚡",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "3本の電線に少しずつずれた交流を流すと、モーターの中に回る磁界ができ（[4-22]）、同じ太さの電線で多くの電気を送れる。1891年、ドイツの AEG のミハイル・ドリヴォ＝ドブロヴォルスキーとオスカー・フォン・ミラーらが、ラウフェンからフランクフルトまで約175km、変圧器で電圧を上げて三相交流を送った（IEEE マイルストーン）。回転磁界を考えたフェラリスは特許を取らずに公開していた。今の発電所から家までの送電と、工場のモーターのほとんどは三相交流",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "未定（実装の前に相談）",
+   "id": "4-30",
+   "name": "三相交流送電",
+   "trunk": "4",
+   "trunk_name": "動力・電気",
+   "status": "❓",
+   "branch": false,
+   "year": 1891,
+   "year_range": "1885〜1895",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "4-22"
+     ]
+    ],
+    [
+     [
+      "4-10"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "電柱の上の電線が3本ずつ並んでいるのは、三相交流だから（O-011 で追加。出典：IEEE Milestones「Rotating Fields and Early Induction Motors」、Wikipedia「Mikhail Dolivo-Dobrovolsky」）",
    "kind": "tech",
    "play": "",
    "missing": "",
@@ -12438,7 +12558,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-38"
+   ],
    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCElEQVR4nKVTTW8TMRQce3e99mbzQZT+BS5IHBBC4saFP03/AUJU6gkkDkhV1SpFpE2yH94Pu5q3tOEMjuKsvM/zZuZN1PsPHyP+Y6XcXr56jbZp4IoCTV3BFTMkSYqIiK5tYaxF33VIkgRtU2McR5SLJb5dXkATIIQA65y8yIwRMJ4pKIQYgAg510kCyOn04dLcfNtAKSW/7MxiMuE30Qk636L3XrqbPJeLbVufAJI0BZSCUhrDMGDoe2it0fedAGd5DqU1MpMjTVPM5nNopU8eIEK05tbi3ds3WL1Yo64qlPMFtFa4vrqCtVY8+nR+LkBd508MuGxRyGGWGTzsdkL196873G238rzenIlHJreIMU6snwAU6UNBU2/XiQfOOXjvMY4DNpszAae5fDcMvTTiSrnFGFBXRwGalSUO+z0O+wcBNCbH/f0OzhVYrdfwTcMLSLPsxAAcVwjy1NS1mFjMSiitxLQYAowx2N7ewvtWcsKaZwZKKTGsaSqhTJrL1UqC8zSVm5trmNxILaXQj2eAYehFY24dPn/5KhSZk857uUDjOCqmkZIYLpcXJwmz+UIKeYHmEIydJ2bLSWUErCukGRmFPwymKI+jjIV6j4e9GMSgclzV8SBSGGOGqyjnwnQMf0lgZxaxM71gZKmBXoQxSIO2bYQd00kmMUx/YgH4+eP7RPMf1iOsAQx4gs7nygAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💨",
@@ -12700,7 +12822,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-38"
+   ],
    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACNklEQVR4nKWTO28UMRRGjz1Pz2OTbDYhECSQ6CkpKGnpKKn5dfwBCgqaFPQIKiKBgEhEyWZ3nh7PzA6yN0pCC7fwXI2uv/s6Fq9ev5n4D/Pt8ez5C4ahJwwjfD+g6zSdbolVwrTZ0BnNOIzszffRWjP0hlilfDx5j7QCxnTuYlWuWV6eOz+f7VJXBSpJSdMcpRLqukJKSZrldF3rKpD2SJKUpq6IIuV+NnVJUVyRZjOK9RXDMNA0FYEfEMUx69UScbcFKT2EFCRZRhQr5/emcxXZtsZhIMt3GMeB5cU5u/MFVVncCpTFiiybMU0TXx+/ZPn9C9n9Y+rwjOzgIc3Vb4ZO46uIp/ITdVm4+BuBNMspizWbzcjmeCCZH6HLK+KdBV6oyA8fOZEwyfG6gKavaNv6VmDoe3zfZ9wI+qbEVCvG3tC3lduCvah2F6x/nbo25vuHaN3eCvS9YTNNLtjUhatA+gG6WG6zhjGj6UAIxqFHa9x2bgQ83ycOQve11lUrvCAkiFPqyzNXjRCCnQdPiH6eui3Alj9/y4FxkxZSou4duuB2dUGUzwlURqAEurhEer5jZHFw5GC7EZjs8AAVK44+vyVJM0zXoYrUrXGbEfIf3yir0hFq7grksz1027h1CiFdBVsyC0felr4ZxujreY2Ia5QcidaXnnTKQRDQG4PWjduMrcbyYd+K5/lk+cy1a7dxh0SJJz3Hus1ucbXB1rcZbbAVsVYVa/b2D/6ewcmHd//8nP8AKOYfmFFF8QEAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💨",
@@ -12821,7 +12945,8 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [
-    "I-22"
+    "I-22",
+    "I-39"
    ],
    "icon": null,
    "emoji": null,
@@ -13071,7 +13196,8 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [
-    "I-22"
+    "I-22",
+    "I-39"
    ],
    "icon": null,
    "emoji": null,
@@ -13188,7 +13314,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-40"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "💨",
@@ -15147,7 +15275,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 250
+   "descendants": 251
   },
   {
    "real_full": "1797〜1800頃 モーズリーが親ねじ（送りねじ）付き旋盤で同じねじを何本でも切れるように。1841 ジョセフ・ホイットワースがねじ山の角度55°・インチあたりの山数を標準化。互換性部品はフランスのブラン（1785年頃、部品を混ぜて銃を組み立てた）・米国の兵器工場（1824 ハーパーズ・フェリーでホールの M1819 ライフル1000丁、1826年の検査で部品を混ぜても組めた）",
@@ -16449,17 +16577,30 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O32. 1メートルは地球から決めた（メートル原器）［8-22］",
+     "answer": "フランス革命のあと、ばらばらだった長さの単位をやめ、北極から赤道までの子午線の長さの1000万分の1を1メートルと決めた。ドランブルとメシャンが1792〜98年にダンケルク〜バルセロナを三角測量し、1799年にその長さの白金の棒（アルシーヴのメートル）を国立公文書館に納めた。",
+     "hee": {
+      "1": "1メートルは、地球の大きさから決めた長さだった。",
+      "2": "メシャンは測量の小さなずれに悩み続けたと伝えられる（あとで分かった子午線の値とは約0.2mm ずれていた）。",
+      "3": "1893年、マイケルソンはメートル原器をカドミウムの赤い光の波長で測った（約155万波長）。1960年に光の波長、1983年に光の速さでメートルが決め直された。",
+      "4": "日本の尺は、1891年に「1メートルの33分の10」と決められた。"
+     },
+     "certainty": "子午線の1000万分の1・1792〜98 の測量・1799 の白金の原器 ◎／原器と後の値のずれ 約0.2mm ○／マイケルソンとブノワ 1893 の 1,553,163.5 波長 ○／1尺＝10/33 m（1891 度量衡法）◎",
+     "basis": "- Wikipedia「Mètre des Archives」：https://en.wikipedia.org/wiki/M%C3%A8tre_des_Archives"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "未定（実装の前に相談）",
+   "game_text": "実装（IMP2 O-007）：metre_bar（白金インゴット×3＋セオドライト（戻る）、item/MetreBarItem）。ブロックを右クリックで印 → 別のブロックで長さを m（小数3桁）と尺・トワーズで（1ブロック＝1m）。のちの [8-06] 光波干渉測長は、この棒を光の波長で測る（マイケルソンとブノワ 1893：1m＝カドミウム赤線の約155万波長）。⚠️ 子午線の測量の手間はセオドライトをレシピに入れるだけ（省略）。キログラム原器は [8-23]",
    "id": "8-22",
    "name": "メートル原器",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1799,
    "year_range": null,
@@ -16477,7 +16618,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "1メートルは、地球の大きさから決めた長さだった（NET-06 で追加。出典：Wikipedia「Mètre des Archives」、Quality Magazine「The Emergence of the Metric System」）",
    "kind": "tech",
    "play": "",
@@ -16533,7 +16674,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "2019年まで、1キログラムはパリの金庫にある金属のかたまり1個の重さだった（NET-06 で追加。出典：Wikipedia「International Prototype of the Kilogram」、EPFL Graph Search）",
    "kind": "tech",
    "play": "",
@@ -17249,6 +17390,62 @@
    "understanding": [],
    "buildable_now": false,
    "hee1": "クオーツ時計の中の水晶は、1秒に 32768 回も震えている（O-010 で追加。出典：日本機械学会「機械遺産 No.066」、Wikipedia「Seiko Astron」）",
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "📏",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "回る軸を押す大きな力（スラスト）を、少し傾けた何枚もの板（パッド）と軸の間にできるくさび形の油の膜で支える。金属どうしは触れず、油の膜の上に浮いて回る。1907年、アメリカのアルバート・キングスベリーが特許を出し（1910年登録）、1912年にホルトウッド水力発電所の大きな立て軸の水車に初めて付けられた（ASME ランドマーク #123）。オーストラリアの A・G・M・ミッチェルも独立に同じものを発明した。理論の土台は1886年のレイノルズの潤滑の理論。玉で転がす玉軸受（[8-20]）とならぶ、軸受のもう1つの道",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "未定（実装の前に相談）",
+   "id": "8-36",
+   "name": "傾斜パッド式スラスト軸受",
+   "trunk": "8",
+   "trunk_name": "精密・計測",
+   "status": "❓",
+   "branch": false,
+   "year": 1912,
+   "year_range": "1907〜1912",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "8-01"
+     ]
+    ],
+    [
+     [
+      "1-26"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": true,
+   "hee1": "大きな水車の何百トンもの重さを、薄い油の膜だけで浮かせて支えている（O-011 で追加。出典：ASME Landmark #123「Kingsbury Thrust Bearing」、Wikipedia「Fluid bearing」）",
    "kind": "tech",
    "play": "",
    "missing": "",
@@ -20793,7 +20990,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 93
+   "descendants": 94
   },
   {
    "real_full": "1835 ヘンリー（電信の中継のため）。弱い電流で電磁石を動かし、別の強い回路のスイッチを入れる＝「電気で電気を切り替える」最初の部品",
@@ -25692,7 +25889,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "線路の幅は、馬車の車輪の幅に由来すると言われる⚠️",
    "kind": "product",
    "play": "",
@@ -28442,7 +28639,7 @@
    "status": "✅",
    "branch": true,
    "year": 1839,
-   "year_range": "1839〜1851",
+   "year_range": "1839〜1878",
    "year_uncertain": false,
    "requires": [
     [
@@ -28567,17 +28764,30 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O33. ネガから何枚も焼ける（ゼラチン乾板）［B-02b］",
+     "answer": "ガラス板に銀塩を混ぜたゼラチンを塗った乾板（1871 マドックス、1878ごろ市販）は、乾いたまま保存でき、露光は 1/25秒ほどに短くなった。現像・定着すると明るさが逆のネガになり、印画紙に重ねて焼くと元の明るさの写真が何枚でもできる。",
+     "hee": {
+      "1": "露光時間は、銀板（1839）の数分から、乾板（1878ごろ）の 1/25秒ほどまで、40年で何千分の1になった。",
+      "2": "1851年の湿板もガラスのネガだったが、塗る膜（コロジオン）が燃えやすく危険で、濡れているうちに撮らなければならなかった。乾板に置き換わった。",
+      "3": "ネガで写真は「1枚きりの物」から「何枚も配れる物」になった。",
+      "4": "1枚のネガから何枚も焼く考えは、1枚のフォトマスクから何枚ものウェハーに回路を写すフォトリソグラフィに受け継がれた。"
+     },
+     "certainty": "マドックス 1871・乾板の市販 1878ごろ ◎／乾板の露光 1/25秒ほど ○（乳剤・明るさで大きく違う）／タルボットの塩化銀紙 1840ごろ ◎",
+     "basis": "- Wikipedia「Dry plate」：https://en.wikipedia.org/wiki/Dry_plate"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "",
    "id": "B-02b",
-   "name": "湿板写真",
+   "name": "湿板写真 → ゼラチン乾板",
    "trunk": "B",
    "trunk_name": "枝",
-   "status": "❓",
+   "status": "✅",
    "branch": true,
    "year": 1851,
    "year_range": null,
@@ -28596,10 +28806,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ガラスのネガから何枚も焼ける＝マスクから何枚も転写するフォトリソの考え方",
    "kind": "tech",
-   "play": "",
+   "play": "実験（ネガから何枚も焼く）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -34766,6 +34976,158 @@
    "people": [],
    "media": [],
    "descendants": 0
+  },
+  {
+   "real_full": "理想の気体の式（PV＝nRT）は、分子に大きさが無く、分子どうしが引き合わないと考えている。1873年、オランダのヨハネス・ディーデリク・ファン・デル・ワールスは博士論文で、分子の大きさと引き合う力を足した式を作り、気体がどこまで冷やし・押すと液体になるか（臨界点）を説明した（1910年ノーベル物理学賞）。空気を液体にして酸素や窒素を分ける空気分離や、ヘリウムの液化の計画も、この考えの上に立つ",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-38",
+   "name": "ファン・デル・ワールスの状態方程式",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1873,
+   "year_range": "1869〜1873",
+   "year_uncertain": false,
+   "requires": [],
+   "understanding": [],
+   "buildable_now": true,
+   "hee1": "押し縮めた気体が思ったより縮まないのは、分子にも大きさがあるから",
+   "kind": "idea",
+   "play": "実験：気体を冷やしながら押し、ある温度より下でだけ液体になるのを確かめる",
+   "missing": "",
+   "sources": [
+    "https://www.nobelprize.org/prizes/physics/1910/summary/"
+   ],
+   "enables": [],
+   "explains": [
+    "6-03",
+    "6-07"
+   ],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": "💨",
+   "symbol": "●",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "反応は行ったり戻ったりしながら、ある割合で止まる（平衡）。アメリカのギブズが1876〜78年に自由エネルギーの考えを出し、1884年にフランスのルシャトリエが「条件を変えると、それを打ち消す向きに平衡が動く」原理を、オランダのファント・ホッフが平衡と温度の関係をまとめた（1901年ノーベル化学賞）。ネルンストの熱定理（1906年、1920年ノーベル化学賞）も加わった。アンモニアの合成が約200気圧・約450℃なのは、平衡（低温・高圧ほど有利）と反応の速さ（高温ほど速い）の妥協",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-39",
+   "name": "化学平衡と化学熱力学",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1884,
+   "year_range": "1876〜1906",
+   "year_uncertain": false,
+   "requires": [],
+   "understanding": [],
+   "buildable_now": true,
+   "hee1": "アンモニア工場が高い圧力を使うのは、押すほどアンモニアの方へ反応が進むから",
+   "kind": "idea",
+   "play": "実験：密閉した容器の圧力と温度を変えて、できる物の割合がどう変わるかを見る",
+   "missing": "",
+   "sources": [
+    "https://www.nobelprize.org/prizes/chemistry/1901/summary/",
+    "https://www.nobelprize.org/prizes/chemistry/1920/summary/"
+   ],
+   "enables": [],
+   "explains": [
+    "6-09",
+    "6-13"
+   ],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": "⚖️",
+   "symbol": "●",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "1896年、フランスのアンリ・ベクレルが、X線の発見に刺激されてウランの塩から目に見えない放射線が出ていることを見つけ、1898年にマリー・キュリーとピエール・キュリーがポロニウムとラジウムを見つけた（マリー・キュリーは1911年ノーベル化学賞）。1902〜03年、ラザフォードとソディが、放射能は原子が別の元素に変わることだと示した（1908年・1921年ノーベル化学賞）。1908〜09年には、α線の正体がヘリウムの原子核だと確かめられた。1905年にアメリカ・カンザス州の天然ガスからヘリウムが見つかったのは、地下のウランなどが何億年もかけてヘリウムを溜めたから（ACS 化学遺産）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-40",
+   "name": "放射能と元素の変換",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1903,
+   "year_range": "1896〜1909",
+   "year_uncertain": false,
+   "requires": [],
+   "understanding": [],
+   "buildable_now": true,
+   "hee1": "風船のヘリウムは、地下の岩の中のウランが何億年もかけて作ったもの",
+   "kind": "idea",
+   "play": "実験：放射線を出す石の近くに写真の乾板を置いて、光を当てなくても黒くなるのを見る",
+   "missing": "",
+   "sources": [
+    "https://www.nobelprize.org/prizes/chemistry/1908/summary/",
+    "https://www.nobelprize.org/prizes/chemistry/1921/summary/",
+    "https://en.wikipedia.org/wiki/National_Historic_Chemical_Landmarks"
+   ],
+   "enables": [],
+   "explains": [
+    "6-15"
+   ],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": "☢️",
+   "symbol": "●",
+   "people": [],
+   "media": [],
+   "descendants": 0
   }
  ],
  "edges": [
@@ -36436,6 +36798,13 @@
    "or": false
   },
   {
+   "from": "1-33",
+   "to": "2-52",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
    "from": "0-02",
    "to": "3-01",
    "kind": "requires",
@@ -37231,6 +37600,20 @@
    "to": "4-29",
    "kind": "requires",
    "group": 2,
+   "or": false
+  },
+  {
+   "from": "4-22",
+   "to": "4-30",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "4-10",
+   "to": "4-30",
+   "kind": "requires",
+   "group": 1,
    "or": false
   },
   {
@@ -39289,6 +39672,20 @@
    "to": "8-35",
    "kind": "requires",
    "group": 2,
+   "or": false
+  },
+  {
+   "from": "8-01",
+   "to": "8-36",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "1-26",
+   "to": "8-36",
+   "kind": "requires",
+   "group": 1,
    "or": false
   },
   {
@@ -45327,6 +45724,31 @@
   {
    "from": "I-37",
    "to": "15-12",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-38",
+   "to": "6-03",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-38",
+   "to": "6-07",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-39",
+   "to": "6-09",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-39",
+   "to": "6-13",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-40",
+   "to": "6-15",
    "kind": "understanding"
   }
  ],
