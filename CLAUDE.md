@@ -45,10 +45,11 @@
 - ネットワーク担当の進み具合は docs/NETWORK_LOG.md（ネットワーク担当が書く）
 - **このフォルダ（IMP）の指示の受け取り方（2026-10-20〜、INBOX）**：指示は、このフォルダの INBOX.local.md（git に入らない、.git/info/exclude）に設計担当（claude.ai のチャット）が直接書く
   - 作業の区切りがつくたびに INBOX.local.md を読む。状態が「新しい」の項目を上から実行し、始めるときに「実行中」、終わったら「完了（commit ハッシュ）」に書き換える
-  - 新しい項目が無ければ止まらずに、Monitor で INBOX.local.md の変化を待つ（更新時刻か「状態: 新しい」を数分おきに確かめる until ループ）。変わったら読んで実行。2時間変化が無ければ docs/tasks/LOG.md に「待機終了」と書いて止まる
+  - 新しい項目が無ければ止まらずに、Monitor で INBOX.local.md の変化を待つ（更新時刻か「状態: 新しい」を数分おきに確かめる until ループ）。変わったら読んで実行。6時間変化が無ければ docs/tasks/LOG.md に「待機終了」と書いて止まる（2026-10-20 ユーザー：2時間→6時間）
   - 報告は今までどおり docs/tasks/LOG.md と Discord に（ユーザーへのコピペは要らない）
   - INBOX の内容がこれまでの指示や DESIGN とぶつかるときは実行せず、LOG と Discord で質問して INBOX の変化を待つ
   - ユーザーが決める物（デザインの選択など）は、INBOX かユーザー本人の決定が来るまで適用しない
+  - 止まらずに進める：許可の確認が出そうな操作（.claude/settings.json の許可に無いコマンド）は避けて、許可されている方法でやる。どうしても必要な件・判断が要る件は LOG と Discord に書いて置いておき、次の項目へ進む（確認を出したまま待たない）
 - **危ない技術（武器・爆発物・毒・事故・公害）の扱いは DESIGN「危ない技術の扱い」の節に従う（全担当共通）**
 - **会社・仕組みの扱いは DESIGN「会社・仕組みの扱い」の節に従う（全担当共通）**
 - docs/network.html・docs/node.html・tools/gen_tree_views.py・docs/network_meta.json・products.md・ideas.md・tools/gen_portraits.py は、別フォルダ C:/Users/taku3/mods/semilab-network（ネットワーク担当）の担当。このフォルダ（A＝MOD 本体）ではこれらを触らない
