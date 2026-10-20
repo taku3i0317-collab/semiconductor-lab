@@ -685,6 +685,25 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-41] エポキシ樹脂（IMP3、O-008）
+    // =====================================================================
+
+    /** フェノール2＋アセトン＋HCl → BPA。グリセリン＋HCl2 → ジクロロヒドリン → ＋NaOH → エピクロロヒドリン。両方＋NaOH → 樹脂。＋ノボラック → 成形材料 → かまど → 硬化。樹脂だけでは固まらない */
+    @GameTest
+    public void epoxy(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(recipeUses(h, "bisphenol_a", Chemistry.PHENOL) && recipeUses(h, "bisphenol_a", Chemistry.ACETONE), "phenol + acetone -> bisphenol A");
+        h.assertTrue(recipeUses(h, "dichlorohydrin", Chemistry.GLYCERIN) && recipeUses(h, "epichlorohydrin", Chemistry.DICHLOROHYDRIN), "glycerin -> dichlorohydrin -> epichlorohydrin");
+        h.assertTrue(recipeUses(h, "epoxy_resin", Chemistry.BISPHENOL_A) && recipeUses(h, "epoxy_resin", Chemistry.EPICHLOROHYDRIN), "BPA + epichlorohydrin -> epoxy resin");
+        h.assertTrue(recipeUses(h, "epoxy_molding_compound", Chemistry.NOVOLAC), "novolac is the hardener (as in IC molding compounds)");
+        h.assertTrue(cook(h, SMELT, Chemistry.EPOXY_MOLDING_COMPOUND).is(Chemistry.CURED_EPOXY), "heated -> cured epoxy");
+        h.assertTrue(cook(h, SMELT, Chemistry.EPOXY_RESIN).isEmpty(), "resin without hardener does not set");
+        h.assertTrue(cook(h, SMELT, Chemistry.CURED_EPOXY).isEmpty(), "cured epoxy does not melt");
+        LOG.info("[LAB] epoxy [2-41]: BPA + epichlorohydrin (from glycerin) -> resin; + novolac -> molding compound -> cured; resin alone does not set");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phenol",
+    "semiconductor-lab:phenol",
+    "semiconductor-lab:acetone",
+    "semiconductor-lab:hydrochloric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:bisphenol_a",
+    "count": 1
+  }
+}

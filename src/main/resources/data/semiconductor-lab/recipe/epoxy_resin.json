@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:bisphenol_a",
+    "semiconductor-lab:epichlorohydrin",
+    "semiconductor-lab:epichlorohydrin",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:epoxy_resin",
+    "count": 2
+  }
+}

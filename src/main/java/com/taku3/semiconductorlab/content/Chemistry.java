@@ -161,6 +161,14 @@ public final class Chemistry {
     public static final Item SAPONIFIED_TALLOW     = Reg.item("saponified_tallow", new Item.Properties().craftRemainder(SPENT_LYE)); // 煮た物（石けん＋グリセリン）
     public static final Item SOAP                  = Reg.item("soap");
     public static final Item GLYCERIN              = Reg.item("glycerin", new Item.Properties().stacksTo(16));
+    // [2-41] エポキシ樹脂（IMP3、O-008）：フェノール＋アセトン → ビスフェノールA（1891 ディアニン）、グリセリン＋塩酸 → ジクロロヒドリン → ＋NaOH → エピクロロヒドリン、
+    //   両方＋NaOH → エポキシ樹脂（1936〜 カスタン、グリーンリー）。硬化剤はノボラック（IC の封止材と同じ組み合わせ）→ 成形材料 → かまどで硬化
+    public static final Item BISPHENOL_A           = Reg.item("bisphenol_a");
+    public static final Item DICHLOROHYDRIN        = Reg.item("dichlorohydrin", new Item.Properties().stacksTo(16));
+    public static final Item EPICHLOROHYDRIN       = Reg.item("epichlorohydrin", new Item.Properties().stacksTo(16));
+    public static final Item EPOXY_RESIN           = Reg.item("epoxy_resin", new Item.Properties().stacksTo(16));
+    public static final Item EPOXY_MOLDING_COMPOUND = Reg.item("epoxy_molding_compound");
+    public static final Item CURED_EPOXY           = Reg.item("cured_epoxy");
     /** 獣脂を落とす確率（1頭あたり） */
     public static final float TALLOW_CHANCE = 0.6f;
 

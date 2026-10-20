@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:glycerin",
+    "semiconductor-lab:hydrochloric_acid",
+    "semiconductor-lab:hydrochloric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:dichlorohydrin",
+    "count": 1
+  }
+}

@@ -1676,6 +1676,21 @@
 - Wikipedia「Saponification」：https://en.wikipedia.org/wiki/Saponification
 - Wikipedia「Glycerol」：https://en.wikipedia.org/wiki/Glycerol
 
+## C13. 2つの液を混ぜて熱すると固まる（エポキシ樹脂と IC の封止）［2-41］
+**答え**：ビスフェノールA（フェノール2＋アセトン、1891 ディアニン）とエピクロロヒドリン（グリセリンから）を反応させると、両端に三角の輪（エポキシ基）を持つ樹脂になる。硬化剤（フェノールの OH やアミン）が輪を開いてつながると網の目になり、固く、電気も水も通さない。1936年ごろカスタンとグリーンリーが別々に開発。IC の黒い外装は、エポキシ樹脂＋フェノールノボラックの硬化剤＋シリカの粉を型で固めた物。
+
+- へえ①：2つの液を混ぜて熱すると、固くて丈夫なプラスチックになる（2液の接着剤）。
+- へえ②：IC の黒い外装はエポキシ。1960〜70年代にセラミックから安いエポキシの成形に移った。
+- へえ③：カスタンは歯の詰め物の研究からエポキシにたどり着いた。
+- へえ④：BPA はホルモンに似た働きが心配され、食器での使い方に決まりがある。エピクロロヒドリンは発がん性1B。
+
+確かさ：反応・硬化のしくみ ◎／ディアニン 1891・カスタンとグリーンリー 1936ごろ ○（TECH_TREE の本物欄と一致）／IC 封止材の組成（エポキシ＋フェノールノボラック＋シリカ）○
+根拠：
+- Wikipedia「Epoxy」（歴史・硬化剤）：https://en.wikipedia.org/wiki/Epoxy
+- Wikipedia「Bisphenol A」：https://en.wikipedia.org/wiki/Bisphenol_A
+- Wikipedia「Epichlorohydrin」：https://en.wikipedia.org/wiki/Epichlorohydrin
+- Wikipedia「Epoxy molding compound」/「Integrated circuit packaging」：https://en.wikipedia.org/wiki/Integrated_circuit_packaging
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
