@@ -530,11 +530,15 @@ wire_bonder  # Semiconductor [9-33] 1957
 probe_station  # Semiconductor [9-22] 1958
 diamond_scribe  # Semiconductor [9-32] 1960
 chip  # Semiconductor [9-32] 1960
+can_cap  # Semiconductor [9-34] 1960
+can_packaged_chip  # Semiconductor [9-34] 1960
+plastic_packaged_chip  # Semiconductor [9-34] 1960
 diamond_blade  # Semiconductor [9-32] 1960
 rubylith  # Semiconductor [7-11] 1960
 spin_coater  # Semiconductor [9-19] 1960
 wafer_prober  # Semiconductor [9-35] 1960
 dicing_saw  # Semiconductor [9-32] 1960
+package_sealer  # Semiconductor [9-34] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
 cleaning_bench  # Semiconductor [9-14] 1965
 rca_bench  # Semiconductor [9-14] 1965

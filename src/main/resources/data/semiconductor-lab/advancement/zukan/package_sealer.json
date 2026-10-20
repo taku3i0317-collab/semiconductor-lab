@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:package_sealer"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.package_sealer"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.package_sealer.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.package_sealer.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:package_sealer"
+          }
+        ]
+      }
+    }
+  }
+}

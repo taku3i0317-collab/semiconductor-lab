@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:steel_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:can_cap",
+    "count": 8
+  }
+}

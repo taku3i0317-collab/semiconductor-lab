@@ -62,6 +62,10 @@ public final class Semiconductor {
     // [9-33] ワイヤーボンディング（IMP4-01）：ヘッダー（鋼の台にガラスで封じた足）、線をつないだチップ（CHIP_STATE を写す）
     public static final Item CHIP_HEADER           = Reg.item("chip_header");
     public static final Item BONDED_CHIP           = Reg.item("bonded_chip");
+    // [9-34] 封止（IMP4-01）：金属缶（鋼）、金属缶の IC・プラスチック（エポキシ）の IC（CHIP_STATE を写す）
+    public static final Item CAN_CAP               = Reg.item("can_cap");
+    public static final Item CAN_PACKAGED_CHIP     = Reg.item("can_packaged_chip");
+    public static final Item PLASTIC_PACKAGED_CHIP = Reg.item("plastic_packaged_chip");
     // v0.3b（A、O-016 ③）：ハンコ。お題を解いたチップの形（成分 chip_design、切り抜き）。製図台で何度でも押せる（減らない）
     public static final Item STAMP                 = Reg.item("stamp", new Item.Properties().stacksTo(1));
     // [9-32] 段階2（A、O-014）：ダイシングソーの刃（ダイヤモンドの粒を青銅で固めた薄い円盤、32枚で減る）
@@ -114,6 +118,8 @@ public final class Semiconductor {
     public static final Machine<RcaBenchBlockEntity> RCA_BENCH = Machine.electric("rca_bench", RcaBenchBlockEntity::new, RcaBenchBlockEntity.LAYOUT, metal(3.0f));
     // [9-33] ワイヤーボンダー（IMP4-01）：金の細い線を熱と圧力でパッドと足にくっつける。パッド1つに1本。200W
     public static final Machine<WireBonderBlockEntity> WIRE_BONDER = Machine.electric("wire_bonder", WireBonderBlockEntity::new, WireBonderBlockEntity.LAYOUT, metal(3.0f));
+    // [9-34] 封止機（IMP4-01）：金属缶＋乾いた窒素で溶接して気密封止、またはエポキシでトランスファー成形。500W
+    public static final Machine<PackageSealerBlockEntity> PACKAGE_SEALER = Machine.electric("package_sealer", PackageSealerBlockEntity::new, PackageSealerBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

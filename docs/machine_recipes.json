@@ -1296,6 +1296,61 @@
       "note": "2H2 + O2 → 2H2O（約2800℃）。電気なし"
     },
     {
+      "machine": "semiconductor-lab:package_sealer",
+      "process": "封止（金属缶）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:bonded_chip",
+          "count": 1,
+          "cond": "1〜8個"
+        },
+        {
+          "item": "semiconductor-lab:can_cap",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:nitrogen_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:can_packaged_chip",
+          "count": 1
+        }
+      ],
+      "watts": 500.0,
+      "seconds": 20.0,
+      "energy_kj": 10,
+      "note": "乾いた窒素を満たして缶を溶接（気密）"
+    },
+    {
+      "machine": "semiconductor-lab:package_sealer",
+      "process": "封止（エポキシ）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:bonded_chip",
+          "count": 4,
+          "cond": "1〜8個"
+        },
+        {
+          "item": "semiconductor-lab:epoxy_molding_compound",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:plastic_packaged_chip",
+          "count": 4
+        }
+      ],
+      "watts": 500.0,
+      "seconds": 20.0,
+      "energy_kj": 10,
+      "note": "温めた型にエポキシを押しこむ（トランスファー成形）"
+    },
+    {
       "machine": "semiconductor-lab:peroxide_cell",
       "process": "過酸化水素",
       "inputs": [
