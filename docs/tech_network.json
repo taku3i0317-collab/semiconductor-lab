@@ -56,7 +56,7 @@
    "emoji": "🪨",
    "symbol": "🪓",
    "people": [],
-   "descendants": 326
+   "descendants": 337
   },
   {
    "real_full": "火の利用は約100万年前⚠️（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -104,7 +104,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 308
+   "descendants": 317
   },
   {
    "real_full": "約2万年前（中国・仙人洞）、縄文土器 約1万6500年前。粘土鉱物（カオリナイト等）は約500〜600℃で結晶水が抜け、二度と水で戻らない（不可逆な脱水）",
@@ -152,7 +152,7 @@
    "emoji": "🏺",
    "symbol": "🪓",
    "people": [],
-   "descendants": 299
+   "descendants": 308
   },
   {
    "real_full": "約1万1500年前、肥沃な三日月地帯でヒトツブコムギ・エンマーコムギ・大麦を栽培化（穂が落ちない変異株を選び続けた）",
@@ -200,7 +200,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 150
+   "descendants": 157
   },
   {
    "real_full": "レンズ豆・エンドウも麦と同時期・同地域で栽培化。根粒菌が N2→NH3 に変え、畑が痩せにくい（輪作の根拠）",
@@ -296,7 +296,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 133
+   "descendants": 140
   },
   {
    "real_full": "羊の家畜化は約1万年前、羊毛用の品種は紀元前4000年頃⚠️。紡錘車＝はずみ車の慣性で撚り（より）をかけ続ける",
@@ -344,7 +344,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 127
+   "descendants": 132
   },
   {
    "real_full": "新石器時代の磨製石斧（研いだ刃は欠けにくい）、ほぞ組みの木製井戸枠 約7000年前（ドイツ）⚠️",
@@ -392,7 +392,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 142
+   "descendants": 147
   },
   {
    "real_full": "約紀元前3500年メソポタミア。現存最古級はリュブリャナ湿原の車輪（紀元前3150年頃⚠️）。ろくろ（陶工の回転台）が先行したとされる",
@@ -504,7 +504,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 213
+   "descendants": 219
   },
   {
    "real_full": "CaO+H2O→Ca(OH)2（強く発熱）、空気中で Ca(OH)2+CO2→CaCO3 に戻って固まる。ローマはポッツォラーナ（火山灰）を混ぜて水中でも固まるコンクリートに",
@@ -559,7 +559,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 199
+   "descendants": 205
   },
   {
    "real_full": "木を空気を絞って加熱（乾留、約400〜700℃）すると水分・揮発分が抜け炭素80〜90%に。洞窟壁画の顔料として約3万年前から、製錬用の大量生産は紀元前4000年頃⚠️",
@@ -620,7 +620,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 279
+   "descendants": 288
   },
   {
    "real_full": "紀元前3500〜3000年、牛に引かせる四輪車（メソポタミア・中欧）。車軸と車輪の摩擦が課題（獣脂で潤滑）",
@@ -764,7 +764,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 292
+   "descendants": 301
   },
   {
    "real_full": "海水（塩分約3.5%）を砂に撒いて天日で濃くし（揚げ浜式・入浜式）、かん水を釜で煮詰めると NaCl が先に結晶する。残った母液が「にがり（苦汁）」＝ MgCl2 が主成分（ほかに MgSO4・KCl）。日本では縄文晩期の製塩土器から、能登の揚げ浜式は今も続く",
@@ -821,7 +821,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 204
+   "descendants": 211
   },
   {
    "real_full": "約1万年前、肥沃な三日月地帯で羊・山羊、続いて野生のオーロックスから牛が家畜になった。囲って育て、乳・肉・毛・力（犂や荷車を引く）を得る",
@@ -859,6 +859,54 @@
    "hee1": "牛のご先祖は、肩の高さ2m近い野生のオーロックス",
    "kind": "tech",
    "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🪓",
+   "people": [],
+   "descendants": 1
+  },
+  {
+   "real_full": "繊維をより合わせて長く強い綱にする（年・出典は未調査 ⚠️）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "繊維 → ロープ（作業台）。滑車 [8-19]・クレーン（[P-01]）に使う",
+   "id": "0-18",
+   "name": "ロープ",
+   "trunk": "0",
+   "trunk_name": "生存・道具",
+   "status": "❓",
+   "branch": false,
+   "year": -7000,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "0-06"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "繊維をより合わせて長く強い綱にする（年・出典は未調査 ⚠️）",
+   "hee1": "細い繊維も、より合わせると重い物を吊れる （IMP-24 で追加、network_proposals N-2）",
+   "kind": "tech",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -957,7 +1005,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 59
+   "descendants": 62
   },
   {
    "real_full": "紀元前8000年頃（アナトリア）。地表に金属のまま出る銅を叩いて成形。叩くと硬くなり（加工硬化）、加熱すると柔らかく戻る（焼きなまし）",
@@ -1058,7 +1106,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 207
+   "descendants": 214
   },
   {
    "real_full": "CuFeS2 を焙焼→硫化銅の「マット」→空気を吹いて Fe を酸化しスラグへ、S を SO2 へ（1880 マネス転炉）。現代の銅の大半はこの硫化鉱から",
@@ -1106,7 +1154,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 45
+   "descendants": 48
   },
   {
    "real_full": "紀元前3000年頃。Cu+Sn約10%。融点が下がり（約950℃）鋳造しやすく、純銅よりずっと硬い（合金化で原子の並びが乱れ、すべりにくい）。それ以前はヒ素銅⚠️",
@@ -1159,7 +1207,7 @@
    "emoji": "🔔",
    "symbol": "⛏️",
    "people": [],
-   "descendants": 103
+   "descendants": 107
   },
   {
    "real_full": "紀元前1200年頃（ヒッタイト周辺⚠️）。Fe2O3+3CO→2Fe+3CO2 を約1200℃で。鉄の融点1538℃に届かないので、溶けないスポンジ状の鉄（海綿鉄＝ブルーム）にスラグが混じる",
@@ -1212,7 +1260,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 235
+   "descendants": 243
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛、19世紀からるつぼ材）",
@@ -1259,7 +1307,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 212
+   "descendants": 220
   },
   {
    "real_full": "赤熱したブルームを叩いてスラグを絞り出す。炭素0.1%未満で柔らかく粘る。浸炭（木炭と加熱して表面に炭素を入れる）＋焼入れで刃物に",
@@ -1307,7 +1355,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 150
+   "descendants": 156
   },
   {
    "real_full": "中国は紀元前5世紀頃、欧州は14世紀。炉を高くし強く送風すると、炭素が溶け込んで融点が約1150℃に下がり鉄が液体で出る（銑鉄、C約4%）。硬いが脆い→鋳物",
@@ -1355,7 +1403,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 231
+   "descendants": 239
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -1411,7 +1459,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACo0lEQVR42u1Wv4sTQRT+ZlnUEElEYrJNoiFbXHEHd41Wgpc0gkXY4pptRND/wGYtLJ0U/gEBDWJzKccUggjeBeRAu4O7QiRHdFMk68UjWRDRZi0ky/6Ync0mh9f4IDB5781+b7733rwB/ssZCxEZKaXOaYAYhhGJI8dt1nV9KfDt7W2hXZ73Q6VSias3TXOpAOcOYFmgKJHichdHYRz9ovzHBvAvRBJVP6XUWaYIdV0HpdQRdZMURT0PPD3YRXqwG7se7rW530vEAA88ydpbAyIGuF1g2zYsywIAFAoFV/+juBkJ5rXBbLspsG3bqdVqYIwla0PGGOprWQx7f/+rJSUEGsUQADcN9bXsYm1IKSWv3n306VIbW7ihP0ZqYyvkL7IxxkApJYlmAaXU2bxKcDQYoVJUoJYUAMBoPIGSu+T69cxRyNYzRwCAo8EIB5+/otFihFLq8O4EWVSEw702KkXFZ/OCByVoqxQVVIoKsup1Z6GLKJgCl+7z59y19X3C1c870KSoLmg2m2i0GOkcTEOB/Pz1GwCw/+kL0qkLIf0seEmtQlKrsCwLtm0n6wJKKTEMwwGARosRAM7De3Wfz/rKtUjmGi1GSH7F0TRNWISSCFzTtEjq3j977fuJ2tl7mERFCACZTAY8Fm4+uMMFfPqiM/NFJpNZ7CaMGqezIK5czuJu/ZbP92Wni+OTqQsenClRY12OAw/27wzg+GTqsuE9NW+qit4UZJ6xWq3eDlH45L6fgUfPu6F9OztvyFJPshnw6uq6T9/v98KzIH0R5bIaVDtxgchJgH0p+jCJZc6zPzIQkhS43+/xThprA4DDw/1QauR5gU9DeIxIHONCpweAclnl1ocgkLN/FcvB/ETJePwNuVw+1g8Aut23yOXycwXwB8t+WBdk7mWIAAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 183
+   "descendants": 191
   },
   {
    "real_full": "1740頃 ベンジャミン・ハンツマン（シェフィールド）。鉄を密閉るつぼで完全に溶かし、炭素量の均一な鋼に（時計ばね用）。それ以前のウーツ鋼（インド）も同系統",
@@ -1480,7 +1528,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACn0lEQVR42u1WPYgTQRT+Zlk8Y7iNBGMWNKuQFEE48BptFLxLaRFSXLONWFjaXbMgVsKkuM4mIEFsknJMYSkn6Al2woEekgNNPJIlGi4rcmizFpJlf2Zms8nhNT5Y2H3v7XxvvvfevAH+ywkLkRkppe5xgFiWJcRR4342TXMh8FarJbWrsy5kGAZX3+v1Fgpw5gAWBRKJEpe7OArj6JflPzaAfyGKrPoppe4iRWiaJiilrqybFBH1PPB0fxvp/nbs+2CnzV0vEQM88CTv/hqQMcDtAsdxYNs2ACCfz3v6n4U1IZjfhl7bS4HjOG6lUgFjLFkbMsZQXclg0P37XTL0CKiIIQBeGqormfnakFJKnr98F9ClVjdw3XyI1OpGxF9mY4yBUkoSzQJKqbt2iWC/P0SxoKNk6ACA4bdD6OfOen7d3jBi6/aGAID9/hC7n76g3mSEUuryzgRVVoSDnTaKBT1g84OHJWwrFnQUCzoypWvuXAdROAUe3UunvHf7+yFXP+tAU0Rd0Gg0UG8y0tmdRAI5+vUbAPB+7zPSqdMR/TR4pbQOpbQO27bhOE6yLqCUEsuyXACoNxkB4G7erQZ8rpYvC5mrNxkh58turVaTFqEiA6/VakLqXj95EXhk7ezfTKIiBABN08Bj4ea921zAraedqS80TZvvJBSN02kQuWwGd6q3Ar7POq8wGk888PBMEY11NQ483L9TgNF44rHh3zVvqsruFGSWsXrjyoUIhVsP7ge+Nx89jvz35sMBWehKNgUuX8wGr2ejaEudWVJh5LSw2o0LhCQB9gcQBuPpprL3dSxkhCQBjgOS2USBqLMCH4f41vdSo3CMc+0eAIycxq0PSSAnfytWw/kRyfjHEbLLqVg/AHj78QDZ5dRMAfwB01hcNjgmHMUAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 145
+   "descendants": 151
   },
   {
    "real_full": "1864 ピエール・マルタン（仏）が、シーメンスの蓄熱式炉[3-18]（設備＝1856 ジーメンス）を使って銑鉄とくず鉄を一緒に溶かし鋼にする「工程」を確立。くず鉄も溶かせ、成分を時間をかけて調整できる",
@@ -1589,7 +1637,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 202
+   "descendants": 209
   },
   {
    "real_full": "1888 カール・ヨーゼフ・バイヤー。Al(OH)3+NaOH→NaAl(OH)4 で溶かし、鉄分（赤泥）をろ過、冷やして Al(OH)3 を析出→焼いて Al2O3",
@@ -1730,7 +1778,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 57
+   "descendants": 60
   },
   {
    "real_full": "Si+3HCl→SiHCl3+H2（約300℃）。SiHCl3 は沸点32℃の液体なので、蒸留を繰り返して不純物（B・P の塩化物）を分ける。これが超高純度の鍵",
@@ -1796,7 +1844,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 56
+   "descendants": 59
   },
   {
    "real_full": "1950年代 シーメンス社（特許1953年頃⚠️）。通電で約1100℃にした細いSi棒の上で SiHCl3+H2→Si+3HCl、棒が太っていく。純度 11N（99.999999999%）級",
@@ -1867,7 +1915,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 42
+   "descendants": 45
   },
   {
    "real_full": "王水（HCl:HNO3=3:1）で溶かし H2PtCl6 に→NH4Cl で (NH4)2PtCl6 を沈殿→加熱で白金スポンジ。1800年頃 ウォラストンが粉末を圧縮・鍛造して加工可能に（粉末冶金の始まり）",
@@ -2027,7 +2075,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 86
+   "descendants": 90
   },
   {
    "real_full": "熱水鉱脈（方鉛鉱・閃亜鉛鉱と共生）",
@@ -2069,7 +2117,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 78
+   "descendants": 82
   },
   {
    "real_full": "花崗岩系の熱水・漂砂（コーンウォール、マレーシア）",
@@ -2111,7 +2159,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 109
+   "descendants": 113
   },
   {
    "real_full": "斑岩銅鉱床の副産物",
@@ -2153,7 +2201,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 51
+   "descendants": 55
   },
   {
    "real_full": "熱帯の風化残留土",
@@ -2195,7 +2243,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 77
+   "descendants": 81
   },
   {
    "real_full": "漂砂鉱床（砂鉄と共産）",
@@ -2301,7 +2349,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACB0lEQVR42mNgGAUjHTCSojgqKuo/MeqWLVtGtLksxCosKCj47+3tjSF++/ZtbMr/E+sIRmJ9bmNjA+eH6XFhVbfq0jc4+8iRI0SFBBO1LEeXs7GxISrKmEhJA/gsJ0UN2Q6gBSDaAUYCnxhooZZoB6jISdAkBFhIUYycytHjGlnOSIBKBVFFcuB/OWNXkhPXnUcvGM594GNgYGBgeHR2N0PH3PWMVAkBTsNQBj1NTYZL168zfD+/Gqccw6PJtMkF38+vZtg4qQjF8juPXuCUo0k2lBARIEuOquUAJzsbnP3y7Qes4lRxQMfc9YxHjhzBjIqfvxgYGBgYLtx4wMDNyYEhjlwf4EuAJCXCO49eYJQFBhoK9CkHjhw5wvCI8ztDSaI/XOzw7K0oamxTEVX1hr0nGR5956R+g6QiOfA/siOwgZ75GwkGO9kOgDlCVIifId7fAUV84cYDDK/ffSTJcopARXLg/zdHFvx/c2TB/4rkwP8MtGwTiopKwC2oqChiYGBgYIiLi0FRs2jREkjO6eiDi71+/YKRIgfALObjQxQwJ07sw2ughYUTnP3p0weCDmEh1mJyAJL+/7gcwkiqxV+/fmHg5ubBCAkLCye4HC6ALURYqOljckKEEeYAYiwn5ENi1cBC4/XrF4wD3ihlQY8fXODnzx8M7OwcBNVBg5aBnZ2DKAcAALt51R1DaC4EAAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 208
+   "descendants": 215
   },
   {
    "real_full": "焙焼 2PbS+3O2→2PbO+2SO2 → 炭素還元 PbO+C→Pb+CO。融点327℃で古代から製錬",
@@ -2350,7 +2398,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 122
+   "descendants": 127
   },
   {
    "real_full": "(Fe,Mn)WO4→WO3→H2還元でW粉→焼結→線引き（1910 クーリッジの延性W）",
@@ -2405,7 +2453,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 93
+   "descendants": 98
   },
   {
    "real_full": "1886 ホール（米）とエルー（仏）が独立に発明。約960℃で溶かした氷晶石にアルミナを溶かして電解 2Al2O3+3C→4Al+3CO2（陽極の炭素が燃えて減る）。1kg に約15kWh",
@@ -2483,7 +2531,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACDElEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCfCoeWAZZNqGZZNqiXIbipJpV42hKUBmAXEgDuPXjDU9cwmKiGykBICUXnNKKGBS45qIVCRHPg/wNmcgYGBgUFFToKkEICBDXtPMnTMXc9IlRDgNAxl0NPUZLh0/TrD9/OrccoxPJpMvUR49zHCN9/Pr2bYOKkIxXKYb7HJIesl2wHKshIMdT2z4XEsISKAUy1Mrq5nNkNdz2wGZVkJyh2wYe9JzKhgZ4OzX779gFUcl16S0gAs8WjJif4X5OFARMXPXwwMDAwMF248YODmxBSH1QW78CQ+khLhtUevGZHLdeQsh15QkVIRkdQeQK+UAuSUUYP70V2Sa0KyGiQwR3z98YuBm4ON7GqYLAfAHPHz9x8G9MbJkzefSG4NkeUAbKFBqq9JdoCoqAQ8AVZUFDEwMDAwxMXFoKhZtGgJJOd09MHFXr9+wUiRA2AW8/EhCh9l/t/4S86PrHD2p08fCDqEhViLyQFI+v/jcggjqRZ//fqFgZubh+HEiX0o4hYWTnA5XABbiLBQ08fkhAgjzAHEWE7Ih8SqgYXG69cvGAe8UcqCHj+4wM+fPxjY2TkIqoMGLQM7OwdRDgAAg5T4sX7nUVkAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 69
+   "descendants": 73
   },
   {
    "real_full": "SnO2+2C→Sn+2CO。青銅器時代（紀元前3000年頃）から。融点232℃と低い",
@@ -2531,7 +2579,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 108
+   "descendants": 112
   },
   {
    "real_full": "焙焼 2MoS2+7O2→2MoO3+4SO2 → 水素還元 MoO3+3H2→Mo+3H2O。1781 イェルムが初めて金属を得た。粉末を固める（W[1-28]と同じ粉末冶金）",
@@ -2584,7 +2632,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 50
+   "descendants": 54
   },
   {
    "real_full": "銀を含む方鉛鉱から鉛を製錬 → 灰吹法（キューペレーション、紀元前3000年頃〜）：溶けた鉛に空気を当てて PbO にし、骨灰の皿に吸わせると銀だけ残る。1850 パークス法（亜鉛で銀を抜き出す）",
@@ -2632,7 +2680,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 54
+   "descendants": 58
   },
   {
    "real_full": "ホウ砂 Na2B4O7·10H2O + H2SO4 → ホウ酸 H3BO3 → 加熱で B2O3。単体は1808 ゲイ=リュサック/テナールとデービー",
@@ -2700,7 +2748,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 123
+   "descendants": 128
   },
   {
    "real_full": "GeO2+4HCl→GeCl4+2H2O。GeCl4 は沸点83℃の液体なので蒸留で他の塩化物から分け、水で加水分解 GeCl4+2H2O→GeO2+4HCl して高純度 GeO2 に",
@@ -2874,7 +2922,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 45
+   "descendants": 48
   },
   {
    "real_full": "1751 クロンステットが単離。1890 モンド法 Ni+4CO→Ni(CO)4（約50℃で気体化）→約200℃で分解して純Ni",
@@ -2922,7 +2970,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 64
+   "descendants": 68
   },
   {
    "real_full": "天然氷晶石はグリーンランド・イヴィグトゥートのみ（1987枯渇）。合成: 6HF+Al(OH)3+3NaOH→Na3AlF6+6H2O",
@@ -3035,7 +3083,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 86
+   "descendants": 90
   },
   {
    "real_full": "1797 ヴォークランが紅鉛鉱から発見。テルミット法（1895特許 ハンス・ゴルトシュミット、1898頃に炭素を含まない Cr を製造⚠️）Cr2O3+2Al→2Cr+Al2O3（約2000℃まで自己発熱、外部の炉不要）",
@@ -3091,7 +3139,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 64
+   "descendants": 68
   },
   {
    "real_full": "1791 グレゴールが砂鉄の中に新元素を発見（メナカン石）。1940 ヴィルヘルム・クロール（ルクセンブルク）：FeTiO3 を炭素と塩素で TiCl4（沸点136℃の液体、蒸留で精製）→ アルゴン中で溶けた Mg で還元 TiCl4+2Mg→Ti+2MgCl2（約800〜900℃）→ 「スポンジチタン」。MgCl2 は電解して Mg と Cl2 に戻す（[1-39]b と同じ循環）",
@@ -3208,7 +3256,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 2
+   "descendants": 3
   },
   {
    "real_full": "古代エジプトでは輝安鉱の粉をアイシャドウ（コール）に使った。製錬：融点が低い（約550℃）ので加熱して溶け出させ（溶離）、鉄で硫黄を奪う Sb2S3+3Fe→2Sb+3FeS（1540 ビリングッチョ『ピロテクニア』に記述⚠️）。または焙焼 Sb2S3→Sb2O3 → 炭素還元",
@@ -3250,7 +3298,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 46
+   "descendants": 49
   },
   {
    "real_full": "1871 メンデレーエフが「エカアルミニウム」として予言、1875 ルコック・ド・ボアボードランが閃亜鉛鉱の分光で発見。Ga は Al と性質が似ていてボーキサイトに微量含まれ、バイヤー法の NaAl(OH)4 母液に溜まる → 電解 or イオン交換で回収（現代の Ga の大半がこのルート）",
@@ -3357,7 +3405,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 102
+   "descendants": 107
   },
   {
    "real_full": "熱水が岩の割れ目に SiO2 を沈めた石英脈。地殻の約12%が石英。高純度の石英（水晶・ペグマタイトの石英、スプルースパインは不純物100ppm未満）が溶融石英・石英るつぼの原料",
@@ -3404,7 +3452,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 94
+   "descendants": 97
   },
   {
    "real_full": "磁鉄鉱 Fe3O4 の一部は自然に磁石になっている（雷の大電流で磁化したと考えられている）。紀元前6世紀ごろギリシャのタレスが鉄を引きつける石を記した⚠️、中国の司南（漢代⚠️）、1088 沈括の磁針",
@@ -3502,7 +3550,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 205
+   "descendants": 211
   },
   {
    "real_full": "木灰を水に浸して上澄み（灰汁＝あく）を取り、鍋で煮詰めると K2CO3（\"pot ash\"＝鍋の灰、potassium の語源）。古代から石けん・ガラスの原料。これに消石灰を加えると K2CO3 + Ca(OH)2 → 2KOH + CaCO3↓（苛性化）で KOH ができ、古代〜中世の石けん作りでも使われた",
@@ -3551,7 +3599,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 189
+   "descendants": 195
   },
   {
    "real_full": "干上がった塩湖の蒸発岩。トロナ Na2CO3·NaHCO3·2H2O を加熱 2(Na2CO3·NaHCO3·2H2O)→3Na2CO3+CO2+5H2O。古代エジプトはナトロンをミイラ作り（紀元前2500年頃⚠️）とガラスに使い、大プリニウス『博物誌』（77年）が記録",
@@ -3598,7 +3646,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 128
+   "descendants": 133
   },
   {
    "real_full": "海藻や塩生植物（オカヒジキ類）の灰は Na2CO3 を多く含む（陸の木灰は K2CO3＝[2-02]）。18世紀スペインのバリラ、スコットランドのケルプ産業。1811 クールトアが海藻灰の母液からヨウ素を発見",
@@ -3646,7 +3694,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 146
+   "descendants": 151
   },
   {
    "real_full": "1791 ニコラ・ルブラン。2NaCl+H2SO4→Na2SO4+2HCl↑、Na2SO4+2C+CaCO3→Na2CO3+CaS+2CO2。HCl は当初垂れ流し→1863 英国アルカリ法（初期の大気汚染規制）で回収義務",
@@ -3709,7 +3757,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 147
+   "descendants": 152
   },
   {
    "real_full": "1861 エルネスト・ソルベー特許、1865 本格操業。NaCl+NH3+CO2+H2O→NaHCO3↓+NH4Cl、2NaHCO3→Na2CO3+CO2+H2O、2NH4Cl+Ca(OH)2→2NH3+CaCl2+2H2O（NH3 は循環）",
@@ -3767,7 +3815,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 116
+   "descendants": 122
   },
   {
    "real_full": "ソーダ焙焼 4FeCr2O4+8Na2CO3+7O2→8Na2CrO4+2Fe2O3+8CO2 → 酸性化 2Na2CrO4+H2SO4→Na2Cr2O7+Na2SO4+H2O → KCl で K2Cr2O7。1797 ヴォークランがクロムを発見（chroma＝色）。6価クロムは発がん性⚠️",
@@ -3823,7 +3871,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 67
+   "descendants": 71
   },
   {
    "real_full": "Na2CO3+Ca(OH)2→2NaOH+CaCO3↓（KOH の苛性化[2-02]と同じ反応）。1892 カストナー・ケルナー法（[6-05]クロルアルカリ電解）が広まるまでの主流",
@@ -3878,7 +3926,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 94
+   "descendants": 99
   },
   {
    "real_full": "けん化 (C17H35COO)3C3H5+3NaOH→3C17H35COONa+C3H5(OH)3（グリセリン）。紀元前2800年頃バビロニアの粘土板に処方⚠️、1823 シュヴルールが油脂＝脂肪酸＋グリセリンと解明",
@@ -3929,7 +3977,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 84
+   "descendants": 89
   },
   {
    "real_full": "CaF2 + H2SO4 → 2HF↑ + CaSO4（副産物は石こう）。1771 シェーレが蛍石を硫酸で処理して「フッ素酸」を得た（ガラスのレトルトが侵食されたことで性質に気付いた）。工業では200〜250℃のロータリーキルン。HF気体を水に吸わせたものがフッ酸",
@@ -3990,7 +4038,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 77
+   "descendants": 81
   },
   {
    "real_full": "1777 シェーレが記述。FeS+2HCl→FeCl2+H2S（1844頃 キップの装置で実験室の定番）。クラウス法（1883 カール・フリードリッヒ・クラウス）2H2S+O2→2S+2H2O でルブラン法のかすから硫黄を回収",
@@ -4221,7 +4269,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 127
+   "descendants": 132
   },
   {
    "real_full": "1893 オットー・ショット（イェーナ）が B2O3 を入れて熱膨張を小さくしたガラスを開発、1915 コーニングの「パイレックス」。組成およそ SiO2 80%・B2O3 13%・Na2O 4%・Al2O3 2%。熱膨張係数 約3.3×10⁻⁶/K（ソーダ石灰は約9×10⁻⁶/K）なので急に熱しても割れにくい",
@@ -4279,7 +4327,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 119
+   "descendants": 124
   },
   {
    "real_full": "H2O(液)→H2O(気)→凝縮。塩類は蒸発しないので残る。アレクサンドリアのマリア（1〜3世紀⚠️）の装置、8〜9世紀ジャービル・イブン・ハイヤーンのアランビック⚠️",
@@ -4323,13 +4371,13 @@
    "people": [
     {
      "name": "ジャービル・イブン・ハイヤーン",
-     "tool": "⚗️ アランビック（蒸留器）",
-     "year": "8〜9世紀 ⚠️",
-     "intro": "8〜9世紀の錬金術師とされる。その名で伝わる本には後の時代の人が書いたものも多いと考えられ、人物像には諸説がある ⚠️",
+     "tool": "📜 錬金術の文書",
+     "year": "9〜10世紀の文書 ⚠️",
+     "intro": "錬金術師とされる人物。その名で伝わる文書（ジャービル文書）は850〜950年頃に書かれたと考えられ、一人の実在の人物かどうかも議論がある ⚠️",
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACdklEQVR42rVWTWjUQBh9KaFu3eL+NFktrBFtKXbBXgqtevYiVZCeSi9eVulBUMRLUTwUpSAiHovk4qV4EmEVQXpeUakHhbYs3ZamC+puujXCYq2FeJpsdjLZzGTjd0rel8x73/tmPkZCiJh/cNemsZq5gydPFyTRtWTeD2/fmrFVpQ8AMD016eAbm1s4dfIEAEBV+hxhs/cecomReCt2k9LELHzxxUsuEV2i5BubWwDgIafx6alJZquEBLjJeYndOI+IQAfCELPw0AI6Ja6ZO+EEhO09jd+8ca1tG6SgPXB2fLTtbg/Cg05D4DHJaaqdVY6EmVeomL+wYtSkjvaAO+byE5jLTwQ+5y+f516T2wFCwBPGj13ohSKXA7KIA/f1Ny1u+OUic+D6pXH7wugQAEA7mhJygMTScgnPXn+QInHgzNV5jAwP48vqKr4+n/XNGY9monNg6HgGWibpOGBaDSiJeEu1dI44YFR/orRdbetA4CnQMknohaLTYzc5HSSnF4rQC0VomWTno3hpueTBYt3NzplWg4n7/Su0B4h1OU21U70xB9/bPwAArBlVHI51e3AyhN59LkuR3IhWjJqU01SbdeToQcU7AYVuRKyRfEUbaMm/MspCI1hYAC2isbePuMv+MOTCAoiIP38PMNCf9hCTdomsJyyA5YZo1cICtLFBz4Xi8cVzLe933r73juSP61JHAgixMnisOWzWvrVd0Dzd33xe/x4oROYlDhOu/20/IbIocbn3EBLZNDNnVepICAqRo6w4jCNdjKRvWJW6b/UAkMimYVXqIkLE7oT/I2R6x/rF790GelLxwO8AYPtTGT2pOJeAf/27Q0SR/NjbAAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 53
+   "descendants": 56
   },
   {
    "real_full": "1935 アダムスとホームズ（英）がフェノール・ホルムアルデヒド樹脂でイオン交換体を合成。陽イオン交換 R-SO3H+Na+→R-SO3Na+H+、陰イオン交換 R-OH+Cl-→R-Cl+OH-、出た H+ と OH- が水になる",
@@ -4388,7 +4436,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 37
+   "descendants": 40
   },
   {
    "real_full": "理論上の上限 18.2 MΩ·cm（25℃）。水自身の電離 H2O⇌H++OH-（各 10^-7 mol/L）で決まり、これ以上は上がらない。1970年代から IC 工場で必須⚠️。逆浸透（RO）膜は1960 ローブとスリラージャン（UCLA）の非対称酢酸セルロース膜（表面だけ緻密な薄い層、下は多孔質の支え）が最初の実用品",
@@ -4447,7 +4495,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 36
+   "descendants": 39
   },
   {
    "real_full": "1818 テナールが BaO2 を酸で処理して発見（バリウムはバニラになし⛔のため不採用）。1908 オーストリア・ヴァイセンシュタイン（地名）の工場で電解法が工業化⚠️：2HSO4-→S2O8^2-+2H++2e-、S2O8^2-+2H2O→2HSO4-+H2O2。現在は1936頃 リードルとプフライデラーのアントラキノン法",
@@ -4500,7 +4548,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 35
+   "descendants": 38
   },
   {
    "real_full": "石炭の乾留（空気なしで約1000℃）→コークス＋石炭ガス＋コールタール＋安水。1792 マードックのガス灯、1812 ロンドンのガス会社で大量に出たタールの使い道として1850年頃から化学工業化",
@@ -4556,7 +4604,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 147
+   "descendants": 154
   },
   {
    "real_full": "NH3+H2O⇌NH4++OH-。19世紀はコークス炉・ガス工場の副産物（安水を石灰で処理 2NH4Cl+Ca(OH)2→2NH3↑+CaCl2+2H2O）、1913 以降はハーバー・ボッシュ法",
@@ -4607,7 +4655,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 121
+   "descendants": 127
   },
   {
    "real_full": "HCl:HNO3＝3:1。Au+HNO3+4HCl→HAuCl4+NO+2H2O（硝酸が酸化し、塩化物イオンが錯イオンにして溶かし込む。片方だけでは金は溶けない）。13世紀ごろの偽ゲベル文書に記述⚠️",
@@ -4711,7 +4759,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 92
+   "descendants": 95
   },
   {
    "real_full": "1825 ファラデーがガス灯の油から発見、1845 ホフマンがコールタール中に確認（1849 マンスフィールドが分留法）。1865 ケクレの環状構造。C6H6",
@@ -4759,7 +4807,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 48
+   "descendants": 51
   },
   {
    "real_full": "1834 ルンゲがコールタールから「石炭酸」として発見、1867 リスターが手術の消毒に使用。合成：C6H6+H2SO4→C6H5SO3H+H2O → C6H5SO3Na+2NaOH→C6H5ONa+Na2SO3+H2O（1890年代〜）、現在はクメン法（1944 ホック⚠️）",
@@ -4812,7 +4860,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 45
+   "descendants": 48
   },
   {
    "real_full": "木酢液の蒸留で木精。1923 BASF（ピア、ミッタシュら⚠️）が CO+2H2→CH3OH（高圧・触媒）を工業化",
@@ -4860,7 +4908,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 43
+   "descendants": 46
   },
   {
    "real_full": "2CH3OH+O2→2HCHO+2H2O（加熱した Cu/Ag 網）。1859 ブートレロフが発見、1867 ホフマンがメタノール酸化で確立",
@@ -4908,7 +4956,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 42
+   "descendants": 45
   },
   {
    "real_full": "1907 ベークランド（特許1909）。フェノール＋ホルムアルデヒドの縮合。酸触媒・フェノール過剰→ノボラック（熱で溶ける線状）",
@@ -4961,7 +5009,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 41
+   "descendants": 44
   },
   {
    "real_full": "天然ゴム＝ポリイソプレン (C5H8)n。パラゴムノキの樹皮に傷をつけてラテックス（白い樹液）を採る。1839 グッドイヤーが加硫（硫黄で鎖を橋かけ）を発見。合成ポリイソプレンは1950年代（チーグラー・ナッタ触媒）",
@@ -5003,7 +5051,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 92
+   "descendants": 97
   },
   {
    "real_full": "1954頃 コダックのミンスク：KPR＝ポリケイ皮酸ビニル（光で [2+2] 二量化して橋かけ）。1957〜 KTFR＝環化ゴム＋ビスアジド（光で N2 が抜けたナイトレンがゴム鎖を橋かけ）が1960年代の IC の主力",
@@ -5056,7 +5104,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 34
+   "descendants": 38
   },
   {
    "real_full": "1826頃 ニエプス：ユダヤのアスファルトは光で硬くなり、未露光部をラベンダー油で洗い流す＝現存最古の写真は「フォトレジスト」だった。1852 タルボット：重クロム酸ゼラチンは光で Cr(VI)→Cr(III) に還元され、Cr(III) がゼラチンを橋かけして水に溶けなくなる（写真製版）",
@@ -5167,7 +5215,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 36
+   "descendants": 39
   },
   {
    "real_full": "1982 IBM の伊藤洋・ウィルソン・フレシェ。光で出た酸1個が加熱中に何百もの保護基を外す（触媒）→感度が桁違い。t-BOC 保護ポリヒドロキシスチレン",
@@ -5650,7 +5698,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 37
+   "descendants": 40
   },
   {
    "real_full": "緑礬（FeSO4·7H2O。黄鉄鉱が風化してできる）を焼くと 2FeSO4 → Fe2O3 + SO2 + SO3、SO3 を水に吸わせると H2SO4。とろりとした見た目から「ばん油（oil of vitriol）」。9〜10世紀のイスラム世界の錬金術師⚠️、13世紀ごろのヨーロッパで知られた。1746 鉛室法 [6-12]・1831 接触法 [2-01] より前の硫酸",
@@ -5698,7 +5746,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 96
+   "descendants": 100
   },
   {
    "real_full": "1847 アントン・シュレッター（ウィーン）が、白リン（v0.1 のリン、CHEMISTRY #8）を空気を断って約250℃に熱すると赤リンになることを見つけた。白リンと違って空気中で自然発火せず、毒も弱い。真空管のゲッター（1894 マリニャーニ⚠️）、安全マッチ（1855）",
@@ -5746,7 +5794,55 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 81
+   "descendants": 85
+  },
+  {
+   "real_full": "光が当たったところだけ分子どうしがつながって（重合・橋かけ）液体が固まる。露光のネガ型レジスト [2-30] と同じ原理（光で分子がつながり、溶けなくなる）。1981 小玉秀男、1984 ハルが光造形（3D プリンター）に使った（ASME の資料、network_proposals N-6）。存命の人は人物に載せない",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "3D プリンター（[P-04]）の材料",
+   "id": "2-45",
+   "name": "光で固まる樹脂",
+   "trunk": "2",
+   "trunk_name": "化学",
+   "status": "❓",
+   "branch": false,
+   "year": 1981,
+   "year_range": "1981〜1984",
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "2-30"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "光が当たったところだけ分子どうしがつながって（重合・橋かけ）液体が固まる。露光のネガ型レジスト [2-30] と同じ原理（光で分子がつながり、溶けなくなる）。1981 小玉秀男、1984 ハルが光造形（3D プリンター）に使った（ASME の資料、network_proposals N-6）。存命の人は人物に載せない",
+   "hee1": "チップの回路を描く樹脂と、3D プリンターの樹脂は同じしくみ （IMP-24 で追加、network_proposals N-6）",
+   "kind": "tech",
+   "play": "軽",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "⚗️",
+   "people": [],
+   "descendants": 0
   },
   {
    "real_full": "開放燃焼で約600〜900℃。C+O2→CO2（放射で熱が逃げる）。火の利用は約100万年前⚠️",
@@ -5794,7 +5890,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 215
+   "descendants": 221
   },
   {
    "real_full": "火を囲うと放射が壁で戻り約1000℃。土器窯・鍛冶炉の原型",
@@ -5903,7 +5999,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACE0lEQVR42t1XPUvDUBQ9KanaD4yGBkWlYOnkIg6Ki1NFHNwcFH+CFhHBXyFIEfEniA5uHYq4dREdRASn2oK2UjXEttTPDnHQhLx8NO+1gYp3St59751zz73v5YYDgwmCqBrfR0fjAIBCIUfMq1YVjnZPjpVAMBhuOuftrc5EwIcOG8civVv0RhVoU0GtAC0469yOp+Dv18BgRFQ5f7ilzdVGHWW5eR3wVEUYaC26SuO/1UAmlUQmlXR93t9a8rYG+nrDOgCN5UvPWN0+QqXmUQ1oNr+xR6jh5PNMgc2VOXVhZhwAEBuWmBTQLJ29ws7BCedJDUiJNSSSe5ASa0y+thQYiw0hNizpCjwqNQyIvUS0Zp+mQL70jJv8Q3sKmKU3gpvN7KNJmyuBdPbKMtbT7defn5Sa7bjTWqZTYJBOXV+e1cc/Pn+uuOtcEaFAt2WcpviYjuHvRjoJ45EzX1Qs4Mz3gAaeSSVxeXxBjE8sTuo+zzsi46lwUkED3j08pY6eWQEtFZE+6+f5IHMGuVJnAmdWwO4bAYDqzm+LQHQqrlr6PvmLbEQjXZZ1d+e59k6BBhyJD5I/HkUFAEnA39MFYUS0NEVuRHgWYEKB6agNKdIM6x2JcKzA1aJiF6mrDwDkXNmSGp4W2AuzU8Rn42wpegAQRkTbVDQh0vmmlDfnx8neX14R6A+5zgOA+4tbBPpDVAS+AbLr6gOtjdG5AAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 126
+   "descendants": 131
   },
   {
    "real_full": "[1-09][1-10] を参照（炉が高い・強い送風・銑鉄が液体で出る）。1709 ダービーのコークス高炉。到達 ≈1500℃",
@@ -6420,7 +6516,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 165
+   "descendants": 172
   },
   {
    "real_full": "珪藻土＝珪藻の殻（微小な穴だらけの SiO2）、1867 ノーベルがニトログリセリンを吸わせてダイナマイトに。石綿（アスベスト、Mg3Si2O5(OH)4 など）は優れた断熱材だったが中皮腫・肺がんの原因で、日本は2006年に原則禁止⚠️。代替のロックウールは玄武岩を約1500℃で溶かして繊維にしたもの（ハワイの火山の「ペレの毛」が天然の例）",
@@ -6534,7 +6630,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 68
+   "descendants": 71
   },
   {
    "real_full": "1802 ペトロフ、1808頃 デービーのアーク放電⚠️、1892 モアッサンの電気炉と同年ウィルソンのカーバイド CaO+3C→CaC2+CO、1900頃 エルーの製鋼アーク炉。約2000〜3000℃（決定：≈2000℃＋）",
@@ -6624,7 +6720,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 123
+   "descendants": 127
   },
   {
    "real_full": "空気を抜いて加熱すると酸化せず、気体が出る反応が進む（Mg 蒸留[1-39]、W/Mo の焼結[1-28][1-31]、ウェハーのアニール）。工業化は1920年代〜⚠️",
@@ -6690,7 +6786,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 43
+   "descendants": 46
   },
   {
    "real_full": "1856 ジーメンス（シーメンス）兄弟（フリードリヒとヴィルヘルム）が特許：排ガスでれんがの格子を温め、流れを切り替えて次の空気とガスを予熱 → 炎だけで鉄の融点を超える。これは「炉＝設備」で、製鋼の「工程」としての使い方は1864 マルタンの平炉法＝[1-12]",
@@ -6796,7 +6892,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 156
+   "descendants": 163
   },
   {
    "real_full": "カオリナイト（Al2Si2O5(OH)4）が多く鉄やアルカリの少ない粘土は、焼いても約1500℃以上まで溶けない。古代の銅や青銅のるつぼ・炉の内張りに使われた⚠️（始まりの年は未確認）。のちの耐火れんが [3-12]（珪石れんが 1822）の前の世代",
@@ -6916,7 +7012,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 203
+   "descendants": 209
   },
   {
    "real_full": "1712 ニューコメンの大気圧機関（炭鉱の排水）、ワット1776。熱効率は約2〜5%（ニューコメン機関は約1%、ワットの分離凝縮器で数倍に改善）",
@@ -7003,7 +7099,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACBklEQVR42mNgGAUjHTCSojgqKuo/MeqWLVtGtLksxCosKCj47+3tjSF++/ZtbMr/E+sIRmJ9bmNjA+eH6XFhVbfq0jc4+8iRI0SFBBO1LEeXs7GxISrKmEhJA/gsJ0UN2Q6gBSDaAUYCnxhooZZoB6jISdAkBFhIUYycytHjGlnOSIBKBVFFcuB/OWNXkhPXnUcvGM594GNgYGBgeHR2N0PH3PWMVAkBTsNQBj1NTYZL168zfD+/Gqccw6PJ1EsD/J9vwRPV9/OrGTZOKkKx/M6jF1jljAQ+MfB/vkW5A5RlUROfhAjuCEaXQ9dLlgM27D2JGRXsbHD2y7cfsIrj0ktSGkBKPP9LEv3h4t9//mJgYGBguHDjAQM3JweGOMxyfImP5Oq4IjkQxRH4QM/8jURZTnIuQAaHZ29F4dumetO+QUJMKJDie5IdAHOEqBA/Q7y/A4r4wo0HGF6/+0iS5RSBiuTA/2+OLPj/5siC/xXJgf8ZaNkmFBWVgFtQUVHEwMDAwBAXF4OiZtGiJZCc09EHF3v9+gVluQBmMR8fooA5cWIfXgMtLJzg7E+fPhB0CAuxFpMDkPT/x+UQRlIt/vr1CwM3Nw9GSFhYOMHlcAFsIcJCTR+TEyKMMAcQYzkhHxKrBhYar1+/YBzwRikLevzgAj9//mBgZ+cgqA4atAzs7BxEOQAA5TDaN2JpGxEAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 215
+   "descendants": 222
   },
   {
    "real_full": "I²R損失。太線と高電圧で減らす",
@@ -7065,7 +7161,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 88
+   "descendants": 91
   },
   {
    "real_full": "ファラデー1831。整流子付きダイナモは直流を出す（電解に直流が要る点で重要）",
@@ -7137,7 +7233,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACHklEQVR42mNgGAVEgKioqP9RUVH/yWETAkwD7TkWYhXa2NgwMDAw/IfSBNlHjhwhylxGYh1QUFDw39vbG0P89u3bGGJHjhxhWLZsGSNFDoDF4bJlyxijoqKQfUgUgDkC2RySowBLsDOQE2X4ooOJSIPIAsToHfBcQJIDwvS4GML0uAiyjQQ+Ud8BMAuIZVO9HGBgYGBYdekbTsuQ5YwEaOQAfD5ElrvziApRsGzZMsZHZ3ejiHEahjKYR9UxcBqGYqjHJffo7G68hRJJifD7+dUMGycVMXw/vxrJty9wytGkMpIQESBLjqrlACc7G5z98u0HrOJUcUDH3PWM2IrR7z9/MTAwMDBcuPGAgZuTA0McuT7omLuekSq54M6jFwwqchIoYgYaCvRpDxw5coThEed3hpJEf7jY4dlbUdTYpiKq6g17TzI8+s5J3fYAAwMDQ0Vy4H9kR2ADPfM3Egx2sh0Ac4SoED9DvL8DivjCjQcYXr/7SJLlFIGK5MD/b44s+P/myIL/FcmB/8k1hyjXiopKwC2oqChiYGBgYIiLi0FRs2jREkjO6eiDi71+/YKRIgfALObjQxQwJ07sw2ughYUTnP3p0weCDmEh1mJyAJL+/7gcwkiqxV+/fmHg5ubBCAkLCye4HC6ALURYqOljckKEEeYAYiwn5ENi1cBC4/XrF4yDp2sGix9c4OfPHwzs7BwE1UGDloGdnYMoBwAAO8D07X8eo+MAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 212
+   "descendants": 219
   },
   {
    "real_full": "1866〜67 ジーメンス・ホイートストンら（ほぼ同時、⚠️）。鉄心の残留磁気で自分を励磁、永久磁石不要",
@@ -7210,7 +7306,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 127
+   "descendants": 131
   },
   {
    "real_full": "パーソンズ1884。回転が速く発電に最適、MW級。現代の復水式蒸気タービン火力で熱効率30%級（最新鋭は40%超）",
@@ -7292,7 +7388,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 125
+   "descendants": 129
   },
   {
    "real_full": "プランテ1859。Pb+PbO2+H2SO4。極板の格子は純鉛だと柔らかいので [1-43]アンチモンを数%混ぜて硬くした（任意の上位素材）",
@@ -7375,7 +7471,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACDElEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCfCoeWAZZNqGZZNqiXIbipJpV42hKUBmAXEgDuPXjDU9cwmKiGykBICUXnNKKGBS45qIVCRHPg/wNmcgYGBgUFFToKkEICBDXtPMnTMXc9IlRDgNAxl0NPUZLh0/TrD9/OrccoxPJpMvUR49zHCN9/Pr2bYOKkIxXKYb7HJIesl2wHKshIMdT2z4XEsISKAUy1Mrq5nNkNdz2wGZVkJyh2wYe9JzKhgZ4OzX779gFUcl16S0gAs8WjJif4X5OFARMXPXwwMDAwMF248YODmxBSH1QW78CQ+khLhtUevGZHLdeQsh15QkVIRkdQeQK+UAuSUUYP70V2Sa0KyGiQwR3z98YuBm4ON7GqYLAfAHPHz9x8G9MbJkzefSG4NkeUAbKFBqq9JdoCoqAQ8AVZUFDEwMDAwxMXFoKhZtGgJJOd09MHFXr9+wUiRA2AW8/EhCh9l/t/4S86PrHD2p08fCDqEhViLyQFI+v/jcggjqRZ//fqFgZubh+HEiX0o4hYWTnA5XABbiLBQ08fkhAgjzAHEWE7Ih8SqgYXG69cvGAe8UcqCHj+4wM+fPxjY2TkIqoMGLQM7OwdRDgAAg5T4sX7nUVkAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 1
+   "descendants": 2
   },
   {
    "real_full": "ダイナモの逆。アイテムとして実装済み",
@@ -7424,7 +7520,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 209
+   "descendants": 216
   },
   {
    "real_full": "真空管発振回路（1910年代）。誘導加熱の電源",
@@ -7504,7 +7600,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 72
+   "descendants": 75
   },
   {
    "real_full": "交流で電圧を変える。送電損失を減らす",
@@ -7552,7 +7648,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 125
+   "descendants": 129
   },
   {
    "real_full": "交流→直流。電解・イオン注入の高電圧直流に必要",
@@ -7682,7 +7778,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 55
+   "descendants": 58
   },
   {
    "real_full": "1800 アレッサンドロ・ヴォルタ。銅と亜鉛の円板を、塩水をしみこませた布をはさんで何十段も積む（電堆）。初めて電気が「流れ続けた」。同じ年にニコルソンとカーライルがこれで水を電気分解し、1820 エルステッドが電流で磁針が振れるのを見つけた",
@@ -7748,7 +7844,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACHklEQVR42mNgGAVEgKioqP9RUVH/yWETAkwD7TkWYhXa2NgwMDAw/IfSBNlHjhwhylxGYh1QUFDw39vbG0P89u3bGGJHjhxhWLZsGSNFDoDF4bJlyxijoqKQfUgUgDkC2RySowBLsDOQE2X4ooOJSIPIAsToHfBcQJIDwvS4GML0uAiyjQQ+Ud8BMAuIZVO9HGBgYGBYdekbTsuQ5YwEqOgARHBy4fUhstydR5/g+s594CMvCpYtW8b46OxuFDFOw1AG86g6Bk7DUAz1uOQend2Nt1AimAbuPn4BZ38/v5ph46Qihu/nVyP59gVOOWS9ZDtAWVYChS8hgjuC0eXQ9ZLlgA17T2IGNzsbnP3y7Qes4rj0kpQIO+auh8Xd/5JEf0RU/PzFwMDAwHDhxgMGbk4ODHGY5Uj6Ka8NK5IDURyBD/TM30iU5SSXA8jg8OytKHzbVG+yzGEkRTExoUCK70l2AMwRokL8DPH+DijiCzceYHj97iNJllMEKpID/785suD/myML/lckB/4n1xyiXCsqKgG3oKKiiIGBgYEhLi4GRc2iRUsgOaejDy72+vULynIBzGI+PkQBc+LEPrwGWlg4wdmfPn0g6BAWYi0mByDp/4/LIYykWvz16xcGbm4ejJCwsHCCy+EC2EKEhZo+JidEGGEOIMZyQj4kVg0sNF6/fsE4eLpmsPjBBX7+/MHAzs5BUB00aBnY2TmIcgAA/mv9dYCQi6cAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 201
+   "descendants": 208
   },
   {
    "real_full": "1882 エジソンのパール・ストリート発電所（ニューヨーク）とホルボーン高架橋発電所（ロンドン）で、蒸気機関で回したダイナモの電気を街に配った",
@@ -7812,7 +7908,121 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 56
+   "descendants": 59
+  },
+  {
+   "real_full": "1985 吉野彰の原型、1991 ソニーが量産（TECH_TREE [B-10] の記述より。2019 ノーベル化学賞）。リチウムイオンが正極と黒鉛の負極のあいだを行き来する。存命の人は人物に載せない",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "軽くて大容量の電池 → EV（[P-03]）・スマホ [B-10]",
+   "id": "4-15",
+   "name": "リチウムイオン電池",
+   "trunk": "4",
+   "trunk_name": "動力・電気",
+   "status": "❓",
+   "branch": false,
+   "year": 1991,
+   "year_range": "1985〜1991",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "1-42"
+     ]
+    ],
+    [
+     [
+      "1-07"
+     ]
+    ],
+    [
+     [
+      "4-07"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "1985 吉野彰の原型、1991 ソニーが量産（TECH_TREE [B-10] の記述より。2019 ノーベル化学賞）。リチウムイオンが正極と黒鉛の負極のあいだを行き来する。存命の人は人物に載せない",
+   "hee1": "充電とは、リチウムのイオンを黒鉛のすき間にしまい込むこと （IMP-24 で追加、network_proposals N-3）",
+   "kind": "tech",
+   "play": "重（充放電する電池ブロック）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "⚡",
+   "people": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "2本の炭素棒のあいだにアーク（電気の火花）を飛ばして光らせる。アーク炉 [3-15] と同じ原理の電気の明かり。ハータ・エアトンが、アーク灯のシューという音は炭素と酸素の反応が原因と示した（1899、network_proposals W-1）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "明るい照明ブロック（炭素棒が減る）",
+   "id": "4-16",
+   "name": "アーク灯",
+   "trunk": "4",
+   "trunk_name": "動力・電気",
+   "status": "❓",
+   "branch": false,
+   "year": 1808,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "4-13"
+     ],
+     [
+      "4-04"
+     ]
+    ],
+    [
+     [
+      "1-07"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": true,
+   "real": "2本の炭素棒のあいだにアーク（電気の火花）を飛ばして光らせる。アーク炉 [3-15] と同じ原理の電気の明かり。ハータ・エアトンが、アーク灯のシューという音は炭素と酸素の反応が原因と示した（1899、network_proposals W-1）",
+   "hee1": "電気の明かりは、電球より先に「火花」で始まった （IMP-24 で追加、network_proposals N-9）",
+   "kind": "tech",
+   "play": "作品（置くと光る明かり）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "⚡",
+   "people": [],
+   "descendants": 0
   },
   {
    "real_full": "1650頃 オットー・フォン・ゲーリケ（マクデブルク市長）。1654 レーゲンスブルクの公開実験、1657 マクデブルク：直径約40cm の銅の半球2つを真空にすると馬16頭でも引き離せない。到達は約数百Pa⚠️",
@@ -7896,7 +8106,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACN0lEQVR42u1WMU/bQBT+HEU4dqqAKozcAZaypIMlmFLJSCgDSwYmMkQoVQf2iHbgJ3ioOpQZoS4ZYKD5AQWGDMkSEAuIBAm5S1AESiyCGxZ3SGzZjp2ck4sYypMs3d17d+9737v3zsCr/O/CBDHOZDIGiV0+nyc+N0xqmMvljFQq1bderVa9zA1SEAxp5LIsB6K2WCwSMRGahHMAkGWZKGWhl76EoUlEH4SFQAykJR5piR86Xp7R6DDgdh5kTL0MAeDg4snXmV23PEMJwAKn2+jkB0Zo19VUzdqncjo9BrilDUjxOC4uL6GfHfrqoO7SuwM3f+rWWD87ROHHtsN5Ta376ux7Rwbwfl50zMVZ/wS7de691BoRx05Z47v7puc6lRSoOodKM9a3rneeAQDnV7eIcpG+dVMqzRhUnRv/EnZB1LG4ILpKbg4AcN2b2yvBC/hYKfj1u2w5T0s83pVPHF9a4i1gpi21RtR9Wo8YAMbXz+sAgJWtlGcv+LZfgLJ3xGR0jugdCdQHlL0uCOHtND6trzp0PwunaDy0TJvJtGIbCDQeWhYbZtSjVBQRgHK5AkEQDQDY2dkGAGSzmzDf2S/KGoQPHw0AUJTv1h6SFAxELQiiEYs5m0updDzwwEQi6ZhrWhONRp0JxIAZrdv5KNI7wwDgCYQJ6rjdfkQ0+qaPiUQiaen8RNO6XdMOJEw7YgI2HIwwfrkeFP24Nva78eJ/xWF3fvyk0/kLlo0MtetRC5aNEAH4BxLq9EloGKi7AAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 87
+   "descendants": 91
   },
   {
    "real_full": "1904 フレミング二極管（熱した陰極から電子が出るエジソン効果を整流に利用）、1906 ド・フォレストのオーディオン（三極管＝網状のグリッドで電流を制御、増幅できる）。1913頃 ラングミュアとアーノルドが「高真空でないと安定しない」と示した。1914 ラングミュアのトリウム入りW フィラメント（Th はモナザイト[1-19]から）⚠️",
@@ -8000,7 +8210,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACOklEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCfCoeWAZZNqGZZNqiXIbipJpV42hKUBmAXEgDuPXjDU9cwmKiGykBICUXnNKKGBS45qIVCRHPg/wNmcgYGBgUFFToKkEICBDXtPMnTMXc9IlRDgNAxl0NPUZLh0/TrD9/OrccoxPJpMvUR49zHCN9/Pr2bYOKkIxXKYb7HJIesl2wHKsqhBLyEigFMtuhy6XrIcsGHvScyoYGeDs1++/YBVHJdektIAUuL5X5Loj4iKn78YGBgYGC7ceMDAzcmBIU5M4iMpEUINgjsCOcuhF1SkWE5yLoBZvmxSLcPh2VtRxG1TveFyNGuQVCQHokQFNtAzfyPRvifZATBHiArxM8T7O6CIL9x4gOH1u48kWU4RqEgO/P/myIL/b44s+F+RHPifXHOISgNOTh4YFgQ4mzP8V3eDsl8wnLr/HUPNvn07KMsFMIt1dAxQxO/fv8PAwMDA0GpqxSDDwcFgU5fAwM3Nw6CoqILRNiTkEBZSLEYp5VzjGGSaFsDZDMvPYKhB0o/TISykWnz//h1sPmVQVFTBKYfPISzEWowMamvzsIolJeXh1YfNIUxYJEn2PXooEALIdpHcKMXme2LkCCbCK1cu4FX45s0rBhERMYZFi5bAxU58gNSEjEhiX79+YThwYBeDiIgYUQ4AAJS3+1j1lt3NAAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 79
+   "descendants": 83
   },
   {
    "real_full": "1643 トリチェリ：水銀を満たしたガラス管を逆さに立てると約76cm で止まり、上に「トリチェリの真空」ができる。1648 パスカルの義兄ペリエがピュイ・ド・ドーム山で高いほど水銀柱が低いことを確認。1atm＝101325Pa＝760mmHg、1Torr≈133Pa",
@@ -8119,7 +8329,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 98
+   "descendants": 103
   },
   {
    "real_full": "1915 ゲーデの拡散ポンプ、1916 ラングミュアの凝縮ポンプ。水銀を沸かして蒸気の噴流を下向きに吹き、気体分子をたたき落として前段ポンプへ送る。可動部がない。10⁻⁴Pa 級",
@@ -8177,7 +8387,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 93
+   "descendants": 98
   },
   {
    "real_full": "1928 C・R・バーチ（メトロポリタン・ヴィッカース）が石油を蒸留した低蒸気圧油（アピエゾン）で置換、1930年代 ヒックマン（コダック）の分留型。水銀より毒が少なく大型化できた",
@@ -8235,7 +8445,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 53
+   "descendants": 57
   },
   {
    "real_full": "1913 ゲーデの分子ポンプが祖先。1958 ヴィリー・ベッカー（ファイファー社）がタービン型を発表。羽根の先端が分子の速さ（数百m/s）に近い速度で回り、分子をたたいて一方向へ送る。油を使わないので清浄",
@@ -8565,7 +8775,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 63
+   "descendants": 67
   },
   {
    "real_full": "初期はすり合わせガラス＋グリース。Oリングは1937 ニールス・クリステンセンの特許⚠️。超高真空は焼き出しに耐える銅ガスケットをナイフエッジで噛む（1962頃 バリアンのコンフラット⚠️）。真空管・電球の導線はガラスと熱膨張が合う白金線（高価）→ 1910年代のジュメット線（鉄ニッケル芯＋銅被覆）⚠️",
@@ -8619,7 +8829,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 81
+   "descendants": 85
   },
   {
    "real_full": "平均自由行程が容器より長いと、蒸発した金属原子がまっすぐ飛んで基板に付く。1912 ポールとプリングスハイム⚠️が真空蒸着、1930年代 ジョン・ストロングが望遠鏡の鏡にアルミ蒸着⚠️。1960年代の IC の Al 配線もこれ",
@@ -8688,7 +8898,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 49
+   "descendants": 53
   },
   {
    "real_full": "1865 ヘルマン・シュプレンゲル。細いガラス管に水銀を滴として落とすと、滴の間に気体が閉じ込められて運び出される。約0.1Pa 級に届き、1879 エジソン・スワンの炭素電球を可能にした",
@@ -8771,7 +8981,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACMklEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCB+cvm1SLVV1UXjOc/eTNJ6JCgolalqPLyYjwERVlTKSkAXyWk6KGbAfQAhDtgKaSVAZaqCXaASpyEjQJARZSFCOncvS4RpYjJQTwZpOK5MD/585fIjlx3Xn0gqGuZzYDAwMDg5GhHkPH3PWMVAkBTsNQBj1NTYZL168zfD+/Gqccw6PJ1AsBXTV5BmVZCXgaePHmA4OEiACKb9Hl7jx6wcDAwMBw9/ELhsu3HuINAYKJUFlWgqGuZzY8jpEtRwcwubqe2Qx1PbMZlGUlKM8FG/aexIwKdjY4++XbD1jFceklKQ3Agk5LTvS/IA8HXPz7z18MDAwMDBduPGDg5sQUh9UFu/AEPUmJ8Nqj14zI5TpylsNWDBNbEZHUHkCvlALklFGD+9FdkmtCshokMEd8/fGLgZuDDUMNKZaT7ACYI37+/sOA3jh58uYTya0hshyALTRI9TXJDnBy8oAnQG9vJwYGBgaGuLgYFDWLFi1hYGBgYNi6dR9cbN++HYwUOQBmsY6OAVzsxpHVeA3UsAmFs69cuUDQISzEWkwOQNL/H5dDWEi1mF3akEFRUYWhtjYPRby5eRLD/ft3SHYICzV9TE6IMMIcQIzl9+/fYVBUVKFYDSx97Nu3g3HAG6Us6CkWF3jz5hWDiIgYQXUMDAwMBw7sYhARESPKAQAW9evk4zgEUQAAAABJRU5ErkJggg=="
     }
    ],
-   "descendants": 81
+   "descendants": 85
   },
   {
    "real_full": "封じきった真空管の中で、金属を蒸発させて残った気体を吸わせる。1890年代 マリニャーニが電球に赤リン⚠️、初期の真空管はマグネシウム、後にバリウム（⛔バニラになし→Mg で統一）。真空管の内側の銀色の膜がゲッター",
@@ -8822,7 +9032,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 80
+   "descendants": 84
   },
   {
    "real_full": "2H2O→2H2+O2。純水はほぼ電気を通さない（イオンが少ない）ので電解質を入れる。電解質は硫酸 or KOH（アルカリなら黒鉛陽極の消耗が少ない）。黒鉛電極。直流が必要（ダイナモは直流）",
@@ -8912,7 +9122,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 188
+   "descendants": 194
   },
   {
    "real_full": "19世紀のガス灯用ガスタンク（水封式）。水を張った槽に底なしの鉄のベルをかぶせ、ガスが入るとベルが浮く。ガス圧＝ベルの重さ÷面積（数kPa）で圧縮不要。1812 ロンドンのガス・ライト・アンド・コーク社",
@@ -9023,7 +9233,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 157
+   "descendants": 163
   },
   {
    "real_full": "蒸発岩層（古い海の跡）。地下の塩層・砂漠",
@@ -9070,7 +9280,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 179
+   "descendants": 185
   },
   {
    "real_full": "2NaCl+2H2O→Cl2+H2+2NaOH（1890年代）。隔膜で分ける",
@@ -9146,7 +9356,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 131
+   "descendants": 136
   },
   {
    "real_full": "クロルアルカリ法で得た Cl2 と H2 を H2+Cl2→2HCl（燃焼）→水に溶かす",
@@ -9214,7 +9424,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 100
+   "descendants": 104
   },
   {
    "real_full": "1895 リンデが空気の液化に成功（圧縮→膨張で冷却＝ジュール・トムソン効果）。1902〜 リンデの精留塔（何段も蒸留を繰り返す塔）で O2/N2 を分離。Ar の実用的な取り出しは1910年頃。Kr(1.1ppm)・Ne(18ppm) は微量なので[6-08]で大型装置が要る",
@@ -9279,7 +9489,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACLklEQVR42mNgGAUjHTCSori9vf0/MeoqKyuJNpeFWIUzZ878n5aWhiH+6NEjbMr/E+sIRmJ9HhUVBedzP96PVd1XWUc4e9myZUSFBBO1LEeXi4qKIirKmEhJA/gsJ0UN2Q6gBSDaAc+PLmeghVqiHaAiJ0GTEGAhRTFyKkePa2Q5hkfLqeOAiuRAsnIAck74eOfU/4656xmpEgKchqEMepqaDJeuX2f4fn41TjmGR5OpUxRXJAf+11WTZ1CWlYCngRdvPjBIiAjA1dx59AJD7s6jFwwMDAwMdx+/YLh86yEDvhAgmAiVZSUYJK0j4XGMbDk6gMlJWkcySFpHMijLSlCeCzbsPYkZFexscPbLtx+wiuPSS1IagAUdv4rZfwsLCwZdVoj495+/GBgYGBgu3HjAwM3JAVcPE4fVBfiCnuTquL29/X+qrSRmlsOSE2Yffk50lUx2ObA1PxVFznvibCT5ZbRrkMDKhXv37jEoKSlhqCG2GibLATBHvH79miE/Px/DYlJbQxSB9vb2/w8fPvz/8OHD/8Q21cgOAVFRCbgFFRVFDAwMDAxxcTEoahYtWgLJOR19cLHXr19QlgtgFvPxIQqffft24jXQyckdzv706QNBh7AQazE5AEn/f1wOYSTV4q9fvzBwc/MwnDixD0XcwsIJLocLYAsRFmr6mJwQYYQ5gBjLCfmQWDWw0Hj9+gXjgDdKWdDjBxf4+fMHAzs7B0F10KBlYGfnIMoBADmd8kh5Ry13AAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 154
+   "descendants": 160
   },
   {
    "real_full": "Kr は空気の1.1ppm（KrFレーザーの発光ガス）、Ne は18ppm（ArF/KrFレーザーの緩衝ガス＝発光ガスを薄めて放電を安定させる役）。どちらも空気分離装置の副産物として取る",
@@ -9400,7 +9610,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEklEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCfCoeWAZZNqGZZNqiXIbipJpV42hKUBmAXEgDuPXjDU9cwmKiGykBICUXnNKKGBS45qIVCRHPg/wNmcgYGBgUFFToKkEICBDXtPMnTMXc9IlRDgNAxl0NPUZLh0/TrD9/OrccoxPJpMvUR49zHCN9/Pr2bYOKkIxXKYb7HJIesl2wHKsqhBLyEigFMtuhy6XrIcsGHvScyoYGeDs1++/YBVHJdektIAUuL5X5Loj4iKn78YGBgYGC7ceMDAzcmBIU5M4iMpEUINgjsCOcuhF1SkWE5yLoBZvmxSLcPh2VtRxG1TveFyNGuQVCQHokQFNtAzfyPRvifZATBHiArxM8T7O6CIL9x4gOH1u48kWU4RqEgO/P/myIL/b44s+F+RHPifgZZtQicnD7gF3t5ODAwMDAxxcTEoahYtWsLAwMDAsHXrPrjYvn07KMsFMIt1dAzgYugWo4s/fPgOpW1IyCEsxFpMDkDSj9MhjKRafP/+HQZFRRWG2to8FPHm5klwOVzgypULGFHDQk0fkxMijDAHEGM5IR8SqwYWGvv27WAc8EYpC3r84AJv3rxiEBERI6iOgYGB4cCBXQwiImJEOQAAR17xtGYXwCIAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 148
+   "descendants": 154
   },
   {
    "real_full": "有機物+石灰を数か月堆積、細菌の硝化でKNO3（18世紀の火薬原料）",
@@ -9442,7 +9652,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 96
+   "descendants": 100
   },
   {
    "real_full": "KNO3+H2SO4→HNO3",
@@ -9506,7 +9716,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 95
+   "descendants": 99
   },
   {
    "real_full": "1746ロバック。鉛張りの部屋でSO2+NO2+H2O→H2SO4。最初の工業的硫酸",
@@ -9559,7 +9769,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 86
+   "descendants": 90
   },
   {
    "real_full": "SO2→SO3 を白金触媒（1831）、後にV2O5（1915）。濃硫酸・発煙硫酸",
@@ -9760,7 +9970,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 96
+   "descendants": 100
   },
   {
    "real_full": "1674 ジョージ・レイヴンズクロフトの鉛ガラス（フリント：屈折率が高く、色の分かれ方＝分散が大きい）。クラウン（ソーダ石灰・ホウケイ酸系、分散が小さい）と組み合わせて色消しレンズ[7-04]。1884 アッベ・ショット・ツァイスがイェーナに光学ガラス工場",
@@ -9816,7 +10026,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 78
+   "descendants": 81
   },
   {
    "real_full": "SiO2 は約1713℃で溶ける。1839 ゴーダンが酸水素炎で石英を溶かした⚠️、1899 ヘレウス社が工業化。熱膨張が極めて小さく（約0.5×10⁻⁶/K）、紫外線をよく通す",
@@ -9879,7 +10089,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 87
+   "descendants": 90
   },
   {
    "real_full": "粗い研削（砂・エメリー）→ 柔らかいピッチの皿に研磨剤を付けてこする。17世紀からベンガラ（ジュエラーズルージュ）⚠️、1940年代から CeO2（化学的にも SiO2 と反応して速く平らに削れる）。形の検査はニュートンリング・干渉[7-09]",
@@ -9938,7 +10148,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 77
+   "descendants": 80
   },
   {
    "real_full": "1608 リッペルハイ（オランダ）の特許申請、1609 ガリレオ。単レンズは色ごとに焦点がずれる（色収差）→ 1733頃 チェスター・ムーア・ホール、1758 ジョン・ドロンドがクラウン＋フリントの色消しレンズ",
@@ -10009,7 +10219,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACJ0lEQVR42mNgGAUjHTCSojhKS+I/MeqWXXtBtLksxCosMJH7760sgiF++/03bMr/E+sIRmJ9biMjAOeH1VVgVbeqqQPOPvLkA1EhwUQty9HlbGQEiIoyJlLSAD7LSVFDtgNoAYh2gFFCAgMt1BLtABU5CZqEAAspipFTOXpcI8uREgJ4s0lFcuB/ucfXSU5cdx69YDi3YAEDAwMDwyNZTYaOuesZqRICnIahDHqamgyXrl9n+H5+NU45hkeTqRcCumryDMqyEvA08OLNBwYJEQEU36LL3Xn0goGBgYHh7uMXDJdvPcQbAgQTobKsBMO5BQvgcYxsOTqAyZ1bsIDh3IIFDMqyEpTngg17T2JGBTsbnP3y7Qes4rj0kpQGYEEXpSXxX1WQCy7+/ecvBgYGBoYLNx4wcHNyYIjD64Jd6xmpkg2XXXvBiFyuI2c5BgYGhltoWZPYioik9gB6pcTAJYeq4NsjkmtCshokMEe8/PqLQZybDUMNKZaT7ACYIz79/MPghdY4OfLkA8mtIbIcgC00SPU1yQ4QFUUkwIqKIgYGBgaGuLgYFDWLFi2B5JyOPrjY69eEHcVIjMV8fIjEV6yM38Deuwj2p08fCDqEhViLyQFI+v/jcggjqRZ//fqFgZubh+HEiX0o4hYWTnA5XABbiLBQ08fkhAgjzAHEWE7Ih8SqgYXG69cvGAe8UcqCHj+4wM+fPxjY2TkIqoMGLQM7OwdRDgAAnert95N5KAcAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 49
+   "descendants": 52
   },
   {
    "real_full": "1668 ニュートンの反射望遠鏡はスペキュラム合金（Cu:Sn≈2:1、反射率約60%、すぐ曇る）。1835 リービッヒの銀鏡反応、1857 フーコー（とシュタインハイル）がガラスに化学銀めっきした鏡（反射率90%超・再めっき可）。1932 ストロングのアルミ蒸着（曇らない、紫外も反射）⚠️",
@@ -10066,7 +10276,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 45
+   "descendants": 48
   },
   {
    "real_full": "1666 ニュートンがプリズムで白色光を虹色に分けた。1814 フラウンホーファーが太陽光に暗線を発見、1859 キルヒホッフとブンゼンが元素ごとに固有の線を出す＝分光分析（Cs・Rb を発見）。1868 日食の分光でヘリウム発見（[6-15]）",
@@ -10243,7 +10453,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 40
+   "descendants": 43
   },
   {
    "real_full": "1901 クーパー・ヒューイットの低圧水銀灯、1906 キューヒとレチンスキーの石英管高圧水銀灯⚠️。水銀原子の固有の線 g線436nm・h線405nm・i線365nm。1980年代 g線ステッパー、1990年代 i線ステッパー",
@@ -10311,7 +10521,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 42
+   "descendants": 45
   },
   {
    "real_full": "1950〜60年代の初期 IC は、大きく描いた原図（ルビリス＝赤いフィルムを切り抜き）をカメラで縮小して写真乾板（ハロゲン化銀乳剤）に焼き、それをマスクにした",
@@ -10369,7 +10579,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 34
+   "descendants": 37
   },
   {
    "real_full": "1960年代後半〜、ガラス板に Cr を約100nm 蒸着（後にスパッタ）し、レジストで描いてエッチングした硬いマスク（傷に強く何千回も使える）⚠️。紫外の KrF/ArF ではガラスが吸収するので石英基板。Cr のエッチング液は硝酸セリウムアンモニウム（Ce＝[1-19]）⚠️",
@@ -10441,7 +10651,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 33
+   "descendants": 36
   },
   {
    "real_full": "1917 アインシュタインの誘導放出、1954 タウンズのメーザー（アンモニア）、1960 メイマン（ヒューズ研究所）がルビーで初のレーザー（694nm、パルス）。人工ルビーは1902 ベルヌーイの火炎溶融法",
@@ -10637,7 +10847,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 42
+   "descendants": 45
   },
   {
    "real_full": "1878頃 アッベとツァイスの油浸顕微鏡（レンズと試料の間を油で満たして NA を上げる）。2002〜04 TSMC のバーン・リン（林本堅）が ArF で水を使う液浸を提案、水の屈折率 1.44（193nm）で NA 1.35 に。157nm F2 レーザー計画はこれで中止",
@@ -11048,6 +11258,60 @@
    "descendants": 6
   },
   {
+   "real_full": "1938 キャサリン・ブロジェットが、ステアリン酸バリウムの単分子膜を44層重ねてガラスの反射を打ち消した「見えないガラス」（特許 2,220,660、ラングミュア＝ブロジェット膜、network_proposals W-3）。膜の厚さを光の波長の1/4にすると、表と裏で反射した光が打ち消し合う",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "レンズ [7-19] と太陽電池 [B-12] の表面に。光を多く取り込める",
+   "id": "7-22",
+   "name": "反射防止膜",
+   "trunk": "7",
+   "trunk_name": "光学",
+   "status": "❓",
+   "branch": false,
+   "year": 1938,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "2-14"
+     ]
+    ],
+    [
+     [
+      "2-09",
+      "5-14"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "1938 キャサリン・ブロジェットが、ステアリン酸バリウムの単分子膜を44層重ねてガラスの反射を打ち消した「見えないガラス」（特許 2,220,660、ラングミュア＝ブロジェット膜、network_proposals W-3）。膜の厚さを光の波長の1/4にすると、表と裏で反射した光が打ち消し合う",
+   "hee1": "薄い膜を重ねると、ガラスが「見えなく」なる （IMP-24 で追加、network_proposals W-3）",
+   "kind": "tech",
+   "play": "軽（レンズ・太陽電池に塗る）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🔍",
+   "people": [],
+   "descendants": 1
+  },
+  {
    "real_full": "ヘンリー・モーズリーの全金属製ねじ切り旋盤（1797〜1800頃。刃物台を送りねじで動かし、人の手の震えを除いた＝精密機械の母）",
    "hee_tree": {
     "2": "",
@@ -11104,7 +11368,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACCklEQVR42mNgGAUjHTCSothJS+I/Mer2XXtBtLksxCoMMpH7b64sgiH+9P03bMr/E+sIRmJ9riMjQFLQXnnygaiQYKKF5QwMDAw6MgJERRnTQCfCoeWAuroKhrq6CoLsqIQE6mVDWBqAWUAMuPPoBcOyBQuISogspIRAU1MHSmjgkqNaCFQkB/7/9vg6VguJCQEGBgYGLllNho656xmpEgKchqEMepqaDJeuX2f4fn41TjmGR5Npkwi/n1/NsHFSEYrldx69wClHk2woISJAlhxVywFOdjY4++XbD1jFqeKAjrnrGa88+YAZFT9/MTAwMDBcuPGAgZuTA0McuT7AlwBJSoR3Hr1gUJGTQBEz0FCguCRkIbZm27D3JENJoj9c7PDsrShqbFO94ewNe08yYAs5ihskFcmB/5EdgQ30zN9IMNjJdgDMEaJC/Azx/g4o4gs3HmB4/e4jSZZTBCqSA/+/ObLg/5sjC/5XJAf+Z6Blm1BCzgxuQWl+CAMDAwNDXFwMippFi5YwMDAwMHRPXAMXe/HoFCNFDoBZLCCigkh8O3vwGmjrXgJnf3hzh6BDWIi1mByApP8/Locwkmrxl49PGHj4ZTBCwta9BC6HC2ALERZq+picEGGEOYAYywn5kFg1sNB48egU44A3SlnQ4wcX+PH9PQMHpyBBdQwMDAwvHp9m4OAUJMoBAOm85nw/TSS7AAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 144
+   "descendants": 150
   },
   {
    "real_full": "1797〜1800頃 モーズリーが親ねじ（送りねじ）付き旋盤で同じねじを何本でも切れるように。1841 ジョセフ・ホイットワースがねじ山の角度55°・インチあたりの山数を標準化。互換性部品はフランスのブラン（1780年代）・米国の兵器工場（1820年代〜）⚠️",
@@ -11160,7 +11424,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 60
+   "descendants": 64
   },
   {
    "real_full": "1830〜40年代 ホイットワースが「3枚の板を互いにこすり合わせると3枚とも平面になる」方法（2枚だけだと球面になる）で鋳鉄の定盤を作った。20世紀には花こう岩の定盤（さびず、温度で変形しにくい）",
@@ -11213,7 +11477,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 59
+   "descendants": 62
   },
   {
    "real_full": "1631 ピエール・ヴェルニエの副尺（主尺と少しずれた目盛りで端数を読む）。1851 ブラウン＆シャープのノギス。1848 ジャン・ローラン・パルマーのマイクロメータ（ねじ1回転で0.5mm 進む→円周の50目盛りで0.01mm）",
@@ -11265,7 +11529,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 56
+   "descendants": 59
   },
   {
    "real_full": "1896 カール・エドヴァルド・ヨハンソン（スウェーデン）。数十個の鋼の直方体を組み合わせて何万通りの長さを1µm 精度で作れる。表面が平らすぎて押し付けると吸い付く（リンギング）。ヘンリー・フォードが米国に導入",
@@ -11323,7 +11587,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 51
+   "descendants": 54
   },
   {
    "real_full": "1892〜93 マイケルソンがカドミウムの赤線の波長でメートル原器を測定。1960 メートルを Kr-86 の光の波長で定義、1983 光速で定義。干渉縞1本ごとに波長の半分（546nm なら約0.27µm）ずつ距離が分かる",
@@ -11381,7 +11645,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 34
+   "descendants": 37
   },
   {
    "real_full": "精密測定は足音・車の振動（µm 級）と温度（鋼は1℃で1mあたり約11µm 伸びる）で狂う。重い定盤をばねで浮かせ、部屋を20℃に保つ（長さの標準温度20℃は1931年に国際的に採用⚠️）",
@@ -11502,7 +11766,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 42
+   "descendants": 45
   },
   {
    "real_full": "回転モーターを「開いて伸ばした」形で、ねじを使わず直接動かす。空気の膜（数µm）で浮かせて摩擦0。現代の露光装置はウェハーを秒速1m 超・数G の加速度で動かしつつ nm 精度で止める",
@@ -11623,7 +11887,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 44
+   "descendants": 47
   },
   {
    "real_full": "1931 エルンスト・ルスカとマックス・クノールが電磁レンズで像を結び、1933 光学顕微鏡の分解能を超えた（ルスカは1986 ノーベル物理学賞）。電子の波長（ド・ブロイ1924）は可視光の数万分の1。1965 ケンブリッジ社の走査型（SEM）市販",
@@ -11919,7 +12183,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 20
+   "descendants": 22
   },
   {
    "real_full": "1981 ビーニッヒとローラー（IBM チューリッヒ）の走査トンネル顕微鏡（1986 ノーベル賞）、1986 原子間力顕微鏡。トンネル電流は距離0.1nm で約10倍変わる",
@@ -12035,7 +12299,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
-   "descendants": 33
+   "descendants": 36
   },
   {
    "real_full": "1940年代末〜1950年代 ベル研などが工業化（第二次大戦で天然水晶＝ブラジル産が不足したため）。鋼の圧力容器（オートクレーブ）にアルカリ水と石英くずを入れ、下を約400℃・上を少し低くすると、溶けた SiO2 が上の種結晶に育つ（約1000気圧）⚠️年・条件は要確認",
@@ -12088,6 +12352,54 @@
    "hee1": "時計の水晶は、ほとんどが圧力鍋の中で育てた人工の結晶",
    "kind": "tech",
    "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "📏",
+   "people": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "綱を何本もの車にかけると、小さな力で重い物を持ち上げられる（そのぶん綱を長く引く）。複滑車のクレーンはウィトルウィウスとヘロンが書き残した（network_proposals N-1）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "滑車ブロック → クレーン（[P-01]）",
+   "id": "8-19",
+   "name": "滑車",
+   "trunk": "8",
+   "trunk_name": "精密・計測",
+   "status": "❓",
+   "branch": false,
+   "year": -25,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "0-18"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "綱を何本もの車にかけると、小さな力で重い物を持ち上げられる（そのぶん綱を長く引く）。複滑車のクレーンはウィトルウィウスとヘロンが書き残した（network_proposals N-1）",
+   "hee1": "力を4分の1にする代わりに、綱を4倍引く （IMP-24 で追加、network_proposals N-1）",
+   "kind": "tech",
+   "play": "軽（滑車）＋作品（クレーン [P-01]）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -12176,7 +12488,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACRklEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCfCoeWAZZNqGZZNqiXIbipJpV42hKUBmAXEgDuPXjDU9cwmKiGykBICUXnNKKGBS45qIVCRHPg/wNmcgYGBgSF/4k4M+a298QwMDAwM3sULMeQm5rszMDAwMGzYe5KhY+56RqqkgX37tjC8eX6XYd++LXCLYZajy1EtEd59/ALOdnLyYRCRVGZwcvKBhwDMp+hy6HrJTgPKshIowY0NoMvdefQCrvfyrYeUhcCGvScxxDjZ2eDsl28/YBXHpZekEEBKPP9LEv3h4t9//mJgYGBguHDjAQM3JweGODGJj+TquCI5EMUR+EDP/I1EWU5yOYAMDs/eisK3TfWmfYOEmFAgxfckOwDmCFEhfoZ4fwcU8YUbDzC8fveRJMspAhXJgf/fHFnw/82RBf8rkgP/k2sOUWmgpaURwwIXJXaG/+puDAwMDAwBzi8YeBQNMNTU1NQzUuQAmMUREWFoRfJ+BgaGTwymtkkMHFxCDAtK9BjExEQZnJwcMdqGhBzCQorFKCWkaxwDR88lOPvS+g0YapD043QIC6kW79u3H5tPGZycHHHK4XMIC7EWIwN+fn6ixIhxCBMWSZJ9jx4KJDiE9EYpPp8SEwo408CKFavwKrxx4yaDhoY6w6JFS+BiH97cYWBgYEAR+/79O0NDQzODhoY6UQ4AAI1/9uDc+T0CAAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 58
+   "descendants": 61
   },
   {
    "real_full": "プファン。帯域を往復させてドーパントを均一に分布させる",
@@ -12247,7 +12559,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 23
+   "descendants": 25
   },
   {
    "real_full": "1947.12 バーディーンとブラッテン（ベル研）。n型Ge の板に、プラスチックのくさびで押し当てた2つの金の接点（REFERENCES G6。2026-10-20 に「針」の記述を訂正）",
@@ -12398,7 +12710,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 21
+   "descendants": 23
   },
   {
    "real_full": "Ge結晶に細い金属針を立てた点接触ダイオード。1940年代のレーダー検波器として量産、点接触トランジスタ(1947)の直接の祖先",
@@ -12500,7 +12812,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 21
+   "descendants": 23
   },
   {
    "real_full": "1950 ゴードン・ティールとジョン・リトル（ベル研）。多結晶では粒界で電子が散乱し性能がばらつく → 種結晶を融液に浸けて回しながら引き上げ1つの結晶に",
@@ -12600,7 +12912,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACJ0lEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCfCoeWAZZNqGZZNqiXIbipJpV42hKUBmAXEgDuPXjDU9cwmKiGykBICUXnNKKGBS45qIVCRHPg/wNmcgYGBgUFFToKkEICBDXtPMnTMXc9IlRDgNAxl0NPUZLh0/TrD9/OrccoxPJpMvUR49zHCN9/Pr2bYOKkIxXKYb7HJIesl2wHKsqhBLyEigFMtuhy6XrIcsGHvScyoYGeDs1++/YBVHJdektIAUuL5X5Loj4iKn78YGBgYGC7ceMDAzcmBIU5M4iO5Oq5IDkRxBD7QM38jUZaTnAuQweHZW1H4tqnetG+QEBMKpPieZAfAHCEqxM8Q7++AIr5w4wGG1+8+kmQ5RaAiOfD/myML/r85suB/RXLgf3LNISoNODl5YFgQ4GzO8F/dDcp+wXDq/ncMNfv27WCkyAEwi3V0DFDE79+/A0l4sV4MXEI8DNN8fBi4uXkYFBVVMNqGhBzCQorFKKWcaxwD15YtcDbD8jMYapD043QIC6kW379/B5tPGRQVVXDK4XMIC7EWI4Pa2jysYklJeXj1YXMIExZJkn2PHgqEALJdJDdKsfmeGDmCifDKlQt4Fb5584pBRESMYdGiJQixO5D6Hlns69cvDAcO7GIQEREjygEAMWTyLzZixasAAAAASUVORK5CYII="
     }
    ],
-   "descendants": 52
+   "descendants": 55
   },
   {
    "real_full": "1916 ヤン・チョクラルスキー（ペンをインク壺でなく溶けたスズに浸した逸話⚠️）。Si では1950年代〜。現在は直径300mm・長さ約2m のインゴット。石英るつぼから O が溶け込む",
@@ -12696,7 +13008,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACWElEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCB+cvm1SLVV1UXjOc/eTNJ6JCgolalqPLyYjwERVlTKSkAXyWk6KGbAfQAhDtgKaSVAZaqCXaASpyEjQJARZSFCOncvS4RpYjJQTwZpOK5MD/585fIjlx3Xn0gqGuZzYDAwMDg5GhHkPH3PWMVAkBTsNQBj1NTYZL168zfD+/Gqccw6PJ1AsBXTV5BmVZCXgaePHmA4OEiACKb9Hl7jx6wcDAwMBw9/ELhsu3HuINAYKJUFkWNfEhW44O0OXQ9ZLlgA17T2JGBTsbnP3y7Qes4rj0kpQGkILuf0miP1z8+89fDAwMDAwXbjxg4ObkwBCHWY4v6ElKhFCD4I5AznLYimFiLSc5F8AsXzapluHw7K0o4rap3nA5mjVIKpIDUaICG+iZv5Fo35PsAJgjRIX4GeL9HVDEF248wPD63UeSLKcIVCQH/n9zZMH/N0cW/K9IDvzPQMu6QELODMOCAGdzhv/qblD2C4YFu59iqHnx6BRluQBmsYCICor4l49PGBgYGBhaTa0YZDg4GGzqEhhYWDkYePhlMNqGhBzChMtiCTmz/wIiKhiWw0s51zgGGQ4OOBsbgOmHmUcwBHD5GN33WHzKwMMvg1MOyTyMEGEh1mJkcHhnD1YxQ4sIvPqwOYQJiyTJvkcPBUIA2S6SG6XYfE+MHMFc8OHNHbwKf3x/z8DBKciwaNESuNiJD5CakBFJ7M/vHwwvHp9m4OAUJMoBAKcr8EC/cS8lAAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 38
+   "descendants": 41
   },
   {
    "real_full": "1952〜53頃 ヘンリー・テウラー（ベル研）とシーメンス社（エマイス）が独立に⚠️。Si の融液は反応性が高く、るつぼに触れると汚れる → 棒を縦に立て、溶けた帯を表面張力で宙に保つ。酸素が少なく高抵抗（パワー半導体・検出器向け）",
@@ -12902,7 +13214,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 44
+   "descendants": 47
   },
   {
    "real_full": "初期はダイヤモンドを付けた円盤刃、1970年代〜内周刃（ドーナツ形の刃の内側で切る）、1990年代〜マルチワイヤーソー（鋼線＋砥粒で一度に数百枚）",
@@ -12973,7 +13285,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 37
+   "descendants": 40
   },
   {
    "real_full": "両面ラッピング（砥粒で平らに）→ エッチングで傷層を除去 → 1960年代 ウォルシュとハーゾグ（モンサント）のコロイダルシリカ研磨⚠️（化学＋機械の鏡面仕上げ、CMP[9-31]の祖先）",
@@ -13031,7 +13343,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 36
+   "descendants": 39
   },
   {
    "real_full": "1965 ヴェルナー・カーン（RCA 社）、1970 発表。SC-1（NH4OH:H2O2:H2O＝1:1:5、約75℃）で有機物・微粒子、SC-2（HCl:H2O2:H2O＝1:1:6）で金属",
@@ -13099,7 +13411,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 34
+   "descendants": 37
   },
   {
    "real_full": "1955 カール・フロッシュとリンカーン・デリック（ベル研）が、偶然できた酸化膜がドーパントを通さない「マスク」になると発見（1957 発表）。Si+O2→SiO2（約1000℃）。Ge の酸化物（GeO2）は水に溶けて使えない＝「シリコンが勝った理由」",
@@ -13178,7 +13490,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 33
+   "descendants": 36
   },
   {
    "real_full": "1954〜55 ベル研（フラー、タネンバウムら⚠️）の拡散型トランジスタ。高温でドーパントを表面から数µm しみ込ませる（フィックの法則）。酸化膜の窓の部分だけに入る",
@@ -13249,7 +13561,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 32
+   "descendants": 35
   },
   {
    "real_full": "1957〜58 ベル研・TI・フェアチャイルド（2N697、1958）。拡散で作った層の周りを削って台地（メサ）状に残す。接合が表面にむき出しで汚れに弱かった",
@@ -13307,7 +13619,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 20
+   "descendants": 22
   },
   {
    "real_full": "1959 ジャン・ヘルニ（フェアチャイルド）。酸化膜を残したまま窓を開けて拡散 → 接合が酸化膜で守られ、平らな表面に何個でも並べられる。これが IC[9-22]を可能にした",
@@ -13367,7 +13679,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 28
+   "descendants": 31
   },
   {
    "real_full": "ウェハーを毎分数千回転させてレジストを遠心力で薄く均一に（約1µm）。プリベークで溶剤を飛ばす",
@@ -13428,7 +13740,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 33
+   "descendants": 36
   },
   {
    "real_full": "1955〜57 ベル研のアンドラスとボンド、陸軍のラスロップとナルが写真製版を半導体に応用。マスクをウェハーに密着させて等倍で焼く（マスクが傷む）→ 少し浮かす（プロキシミティ、回折でぼける）。計算機の制御なしで動く＝ブートストラップの出発点",
@@ -13494,7 +13806,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 32
+   "descendants": 35
   },
   {
    "real_full": "露光部（ポジ）or 未露光部（ネガ）を溶かして模様を出す → 加熱して固め、エッチングに耐えるように",
@@ -13553,7 +13865,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 31
+   "descendants": 34
   },
   {
    "real_full": "1958.9 ジャック・キルビー（TI。Ge 上に部品を作り金線で結んだ）、1959 ロバート・ノイス（フェアチャイルド。プレーナ＋蒸着 Al 配線で一体化＝モノリシック IC）。キルビーは2000年ノーベル物理学賞",
@@ -13621,7 +13933,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACK0lEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCfCoeWAZZNqGZZNqiXIbipJpV42hKUBmAXEgDuPXjDU9cwmKiGykBICUXnNKKGBS45qIVCRHPg/wNmcgYGBgUFFToKkEICBDXtPMnTMXc9IlRDgNAxl0NPUZLh0/TrD9/OrccoxPJpMvUR49zHCN9/Pr2bYOKkIxXKYb7HJIesl2wHKsqhBLyEigFMtuhy6XrIcsGHvScyoYGeDs1++/YBVHJdektIAUuL5X5Loj4iKn78YGBgYGC7ceMDAzcmBIU5M4iO5Oq5IDkRxBD7QM38jUZaTnAuQweHZW1H4tqnetG+QEBMKpPieZAfAHCEqxM8Q7++AIr5w4wGG1+8+kmQ5RaAiOfD/myML/r85suB/RXLgf3LNISoNODl5YFgQ4GzO8F/dDcp+wXDq/ncMNfv27WCkyAEwi3V0DFDE79+/w8DAwMBgapvEwMElxLCgRI+Bm5uHQVFRBaNtSMghLKRYjFLKucYxcPRcgrMZlp/BUIOkH6dDWEi1+P79O9h8yqCoqIJTDp9DWIi1GBnU1uZhFUtKysOrD5tDmLBIkux79FAgBJDtIrlRis33xMgRTIRXrlzAq/DNm1cMIiJiDIsWLYGLfXgD8S2y2NevXxgOHNjFICIiRpQDABF88isYfhbNAAAAAElFTkSuQmCC"
     }
    ],
-   "descendants": 22
+   "descendants": 24
   },
   {
    "real_full": "1959 モハメド・アタラとダウォン・カーン（ベル研）が試作、1960 発表。ゲートの電圧で酸化膜の下に電子の通り道（チャネル）を作る。当初は Na イオン汚染で不安定 → 洗浄[9-14]などで1960年代後半に解決",
@@ -13679,7 +13991,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 21
+   "descendants": 24
   },
   {
    "real_full": "1963 フランク・ワンラスとサー・チータン（フェアチャイルド）。n型と p型の MOSFET を対にすると、止まっている間ほとんど電流が流れない。1970年代の電卓・腕時計から普及",
@@ -13793,7 +14105,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
-   "descendants": 24
+   "descendants": 26
   },
   {
    "real_full": "1852 グローブが放電管の陰極が削れて壁に付くことを記録。Ar イオンで的（ターゲット）をたたき、飛び出した原子を膜にする。1970年代 マグネトロンスパッタで量産化。合金・高融点金属（W・Mo・Ti）も膜にできる",
@@ -14719,6 +15031,59 @@
    "descendants": 2
   },
   {
+   "real_full": "大電流・高電圧をオン・オフできるトランジスタ（パワー MOSFET・IGBT）で、直流を細かく切り替えて交流を作り（インバータ）、モーターの回る速さを変える（年・出典は未調査 ⚠️）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "EV（[P-03]）・電車 [14-14] のモーター制御",
+   "id": "9-41",
+   "name": "パワー半導体とインバータ",
+   "trunk": "9",
+   "trunk_name": "半導体プロセス",
+   "status": "❓",
+   "branch": false,
+   "year": 1980,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "9-23"
+     ]
+    ],
+    [
+     [
+      "4-08"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "大電流・高電圧をオン・オフできるトランジスタ（パワー MOSFET・IGBT）で、直流を細かく切り替えて交流を作り（インバータ）、モーターの回る速さを変える（年・出典は未調査 ⚠️）",
+   "hee1": "電気自動車は、電気を1秒に何千回もオン・オフしてモーターを回す （IMP-24 で追加、network_proposals N-4・N-5）",
+   "kind": "tech",
+   "play": "重（モーターの速さを変える装置）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "💠",
+   "people": [],
+   "descendants": 0
+  },
+  {
    "real_full": "1820 エルステッドが電流で方位磁針が振れることを発見、1825 ウィリアム・スタージャンの電磁石、1830年代 ジョセフ・ヘンリーが絶縁線を何重にも巻いて強力に",
    "hee_tree": {
     "2": "",
@@ -14783,7 +15148,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACLElEQVR42mNgGAVEACctif9OWhL/yWETAkwD7TkWYhXqyAgwMDAw/IfSBNlXnnwgylxGYh0QZCL331xZBEP86ftvGGJXnnxg2HftBSNFDoDF4b5rLxidtCSQfUgUgDkC2RySowBLsDOQE2X4ooOJSIPIAsToHfBcQJID6uoqGOrqKgiyoxISiDYTbyJEDkKYBcSAO49eMCxbsICoXMFCSgg0NXXgdBCyHFVDAGaYipwESSEAA8sWLMAbAjjTwL5rLxi5ZDVRxDgNQxnMo+oYOA1DMdTjkuOS1cRbKBFMhHcfI3zz/fxqho2Tihi+n1+N4Vtscsh6yXaAsixq0EuI4M7b6HLoeslywIa9JzGDm50Nzn759gNWcVx6ScoFHXPXw+Luf0miPyIqfv5iYGBgYLhw4wEDNycHhjjMciT9lNeGFcmBKI7AB3rmbyTKcpLLAWRwePZWFL5tqjdZ5jCSopiYUCDF9yQ7AOYIUSF+hnh/BxTxhRsPMLx+95EkyykCFcmB/98cWfD/zZEF/yuSA/+Taw5RrpWQM4NbUJofwsDAwMAQFxeDombRoiUMDAwMDN0T18DFXjw6RVkugFksIKKCSHw7e/AaaOteAmd/eHOHoENYiLWYHICk/z8uhzCSavGXj08YePhlMELC1r0ELocLYAsRFmr6mJwQYYQ5gBjLCfmQWDWw0Hjx6BTj4OmaweIHF/jx/T0DB6cgQXUMDAwMLx6fZuDgFCTKAQD/nQe8nqqmTgAAAABJRU5ErkJggg=="
     }
    ],
-   "descendants": 37
+   "descendants": 39
   },
   {
    "real_full": "1835 ヘンリー（電信の中継のため）。弱い電流で電磁石を動かし、別の強い回路のスイッチを入れる＝「電気で電気を切り替える」最初の部品",
@@ -14831,7 +15196,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 25
+   "descendants": 27
   },
   {
    "real_full": "1837 クックとホイートストン（英）、1837〜44 モールス（米、1844 ワシントン〜ボルティモア）。1858・1866 大西洋横断ケーブル（絶縁にグッタペルカ）",
@@ -14981,8 +15346,8 @@
    "buildable_now": false,
    "real": "1854 ジョージ・ブールの論理の代数、1937 クロード・シャノンの修士論文（リレー回路で AND・OR・NOT が作れ、論理式で設計できる）",
    "hee1": "「はい",
-   "kind": "tech",
-   "play": "",
+   "kind": "idea",
+   "play": "実験（スイッチで AND・OR・NOT を作る）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -14993,7 +15358,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 22
+   "descendants": 24
   },
   {
    "real_full": "1941 コンラート・ツーゼの Z3（約2600個のリレー、プログラム式・2進浮動小数点）、1944 ハーバード Mark I",
@@ -15091,7 +15456,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 2
+   "descendants": 3
   },
   {
    "real_full": "1930 加藤与五郎と武井武（東京工大）がフェライトを発明。1951 フォレスター（MIT ワールウィンド）のコアメモリ：小さなドーナツ磁石の磁化の向きで1ビット、電源を切っても消えない。1970年代まで主記憶",
@@ -15200,7 +15565,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 19
+   "descendants": 21
   },
   {
    "real_full": "1961 フェアチャイルドのマイクロロジック（RTL）、1960年代 TTL（1964 TI の 7400 シリーズ）。1チップにゲート数個（SSI）→数十〜数百（MSI）。1969 アポロ誘導コンピュータは IC を大量に使った",
@@ -15253,7 +15618,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 18
+   "descendants": 20
   },
   {
    "real_full": "半加算器（XOR+AND）を並べると足し算、フリップフロップを並べると数を数え・覚える。1960年代の電卓（1964 シャープ CS-10A はトランジスタ、1969〜 IC 化）⚠️",
@@ -15301,7 +15666,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 16
+   "descendants": 18
   },
   {
    "real_full": "1966〜68 ロバート・デナード（IBM）の1トランジスタ+1キャパシタのセル（特許1968）、1970 インテル 1103（1kbit）。電荷が漏れるので数ms ごとに書き直す（リフレッシュ）",
@@ -15359,7 +15724,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 15
+   "descendants": 17
   },
   {
    "real_full": "1971 インテル 4004（約2300トランジスタ、10µm）。日本のビジコン社の電卓用に、嶋正利・フェデリコ・ファジン・テッド・ホフ・メイザーが開発。プログラムで動作を変えられる「汎用の部品」に",
@@ -15422,7 +15787,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 14
+   "descendants": 16
   },
   {
    "real_full": "1974 TI の TMS1000（CPU+ROM+RAM+入出力を1チップ）、1976 インテル 8048。家電・機械の制御に組み込まれる",
@@ -15470,7 +15835,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
-   "descendants": 12
+   "descendants": 13
   },
   {
    "real_full": "1978 GCA のステッパー以降、ステージの位置決め・アライメント・露光量を計算機が制御。最先端のスキャナーは数千のセンサーと多数のプロセッサで nm を保つ",
@@ -15606,6 +15971,198 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACLUlEQVR42mNgGAVEAC050f9acqL/yWETAkwD7TkWYhXKiPAxMDAw/IfSBNlP3nwiylxGYh1goir5X1lSCEP8/ZcfGGJP3nxiuPboNSNFDoDF4bVHrxm15ESRfUgUgDkC2RySowBLsDOQE2X4ooOJSIPIAsToHfBcQJIDlk2qZVg2qZYgu6kklWgz8SZC5CCEWUAMuPPoBUNdz2yicgULKSEQldeM00HIclQNAZhhKnISJIUADNT1zMYbAjjTwLVHrxmNDPVQxDgNQxnMo+oYOA1DMdTjkjMy1MNbKBFMhHcfI3zz/fxqho2Tihi+n1+N4Vtscsh6yXaAsixq0EuICOBUiy6HrpcsB2zYexIzuNnZ4OyXbz9gFcell6Rc0DF3PSzu/pck+iOi4ucvBgYGBoYLNx4wcHNyYIjDLEfST3ltWJEciOIIfKBn/kaiLCe5HEAGh2dvReHbpnqTZQ4jKYqJCQVSfE+yA2COEBXiZ4j3d0ARX7jxAMPrdx9JspwiUJEc+P/NkQX/3xxZ8L8iOfA/ueYQ5VoJOTO4BaX5IQwMDAwMcXExKGoWLVrCwMDAwNA9cQ1c7MWjU5TlApjFAiIqiMS3swevgbbuJXD2hzd3CDqEhViLyQFI+v/jcggjqRZ/+fiEgYdfBiMkbN1L4HK4ALYQYaGmj8kJEUaYA4ixnJAPiVUDC40Xj04xDp6uGSx+cIEf398zcHAKElTHwMDA8OLxaQYOTkGiHAAAgbwIJLBk2yMAAAAASUVORK5CYII="
     }
    ],
+   "descendants": 0
+  },
+  {
+   "real_full": "形を画面の上で描き、数値として保存・修正する（年・出典は未調査 ⚠️）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "3D プリンター（[P-04]）に形を渡す",
+   "id": "10-17",
+   "name": "CAD",
+   "trunk": "10",
+   "trunk_name": "制御・計算",
+   "status": "❓",
+   "branch": false,
+   "year": 1963,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "10-14"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "形を画面の上で描き、数値として保存・修正する（年・出典は未調査 ⚠️）",
+   "hee1": "図面を紙ではなく数字で持つと、何度でも直せる （IMP-24 で追加、network_proposals N-7）",
+   "kind": "tech",
+   "play": "作品（形を描いて 3D プリンターで出す）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🧮",
+   "people": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "人が読める命令を、計算機の機械語に自動で翻訳するプログラム。1952 グレース・ホッパーの A-0 システム（初期のコンパイラ。「世界初」とする言い方には諸説 ⚠️）、のち COBOL（network_proposals W-4）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "AI [10-16] を動かすソフトの土台",
+   "id": "10-18",
+   "name": "コンパイラ",
+   "trunk": "10",
+   "trunk_name": "制御・計算",
+   "status": "❓",
+   "branch": false,
+   "year": 1952,
+   "year_range": "1952〜1959",
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "10-07"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "人が読める命令を、計算機の機械語に自動で翻訳するプログラム。1952 グレース・ホッパーの A-0 システム（初期のコンパイラ。「世界初」とする言い方には諸説 ⚠️）、のち COBOL（network_proposals W-4）",
+   "hee1": "「計算機に人の言葉で命令したい」が、プログラミング言語の始まり （IMP-24 で追加、network_proposals W-4）",
+   "kind": "tech",
+   "play": "実験（ゲーム内の計算機に命令を書く）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🧮",
+   "people": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "1979 リン・コンウェイ（とカーヴァー・ミード）の『Introduction to VLSI Systems』。大きさを変えても使える設計ルールで、大きな IC の設計の教え方と進め方を変えた（network_proposals W-5）。人物はリン・コンウェイのみ（存命の共同研究者は載せない）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "AI チップ [B-11] の設計",
+   "id": "10-19",
+   "name": "VLSI 設計法",
+   "trunk": "10",
+   "trunk_name": "制御・計算",
+   "status": "❓",
+   "branch": false,
+   "year": 1979,
+   "year_range": "1970年代後半",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "10-13"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "1979 リン・コンウェイ（とカーヴァー・ミード）の『Introduction to VLSI Systems』。大きさを変えても使える設計ルールで、大きな IC の設計の教え方と進め方を変えた（network_proposals W-5）。人物はリン・コンウェイのみ（存命の共同研究者は載せない）",
+   "hee1": "何百万個のトランジスタも、決まったルールで並べれば設計できる （IMP-24 で追加、network_proposals W-5）",
+   "kind": "tech",
+   "play": "実験（ルールに沿って回路を並べる）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🧮",
+   "people": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "チャールズ・バベッジが設計した、歯車で動くプログラム式の計算機。設計だけで、完成しなかった ⚠️。1843 エイダ・ラブレスが論文を英訳して注を付け、注G にベルヌーイ数を計算する手順表を書いた（どこまで本人が書いたかは諸説 ⚠️、network_proposals N-8・W-2）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "計算機の考え方の祖先（[10-06] の前の時代の理解）",
+   "id": "10-20",
+   "name": "解析機関",
+   "trunk": "10",
+   "trunk_name": "制御・計算",
+   "status": "❓",
+   "branch": false,
+   "year": 1843,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "8-02"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "real": "チャールズ・バベッジが設計した、歯車で動くプログラム式の計算機。設計だけで、完成しなかった ⚠️。1843 エイダ・ラブレスが論文を英訳して注を付け、注G にベルヌーイ数を計算する手順表を書いた（どこまで本人が書いたかは諸説 ⚠️、network_proposals N-8・W-2）",
+   "hee1": "電気のない時代に、歯車だけでプログラムを動かす計算機が設計されていた （IMP-24 で追加、network_proposals N-8）",
+   "kind": "tech",
+   "play": "実験（歯車で計算する仕組みを動かす）",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🧮",
+   "people": [],
    "descendants": 0
   },
   {
@@ -16136,7 +16693,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
-   "descendants": 42
+   "descendants": 45
   },
   {
    "real_full": "塩で水分を奪う（浸透圧）と細菌が増えない。古代から。燻製の煙のフェノール類も殺菌",
@@ -18841,7 +19398,7 @@
    "descendants": 0
   },
   {
-   "real_full": "1903 ツィオルコフスキーのロケット方程式、1926 ロバート・ゴダードの液体燃料ロケット、1942 V2（エタノール＋液体酸素）、1957 スプートニク",
+   "real_full": "1903 ツィオルコフスキーのロケット方程式（届く速さは、噴射の速さと「燃料を積んだ重さ÷空の重さ」の対数で決まる）。モノとしての液体燃料ロケット（1926 ゴダード）はネットワーク担当の [P-02]（products.md）。その後 1942 V2（エタノール＋液体酸素）、1957 スプートニク",
    "hee_tree": {
     "2": "",
     "3": "",
@@ -18853,9 +19410,9 @@
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "⚠️範囲：解説・花火の拡張程度",
+   "game_text": "解説＋ミニ実験",
    "id": "14-15",
-   "name": "ロケット",
+   "name": "ロケット方程式",
    "trunk": "14",
    "trunk_name": "輸送",
    "status": "❓",
@@ -18882,10 +19439,10 @@
    ],
    "understanding": [],
    "buildable_now": false,
-   "real": "1903 ツィオルコフスキーのロケット方程式、1926 ロバート・ゴダードの液体燃料ロケット、1942 V2（エタノール＋液体酸素）、1957 スプートニク",
-   "hee1": "ロケットは押す空気がない宇宙でも、自分の噴射の反動で進む",
-   "kind": "tech",
-   "play": "",
+   "real": "1903 ツィオルコフスキーのロケット方程式（届く速さは、噴射の速さと「燃料を積んだ重さ÷空の重さ」の対数で決まる）。モノとしての液体燃料ロケット（1926 ゴダード）はネットワーク担当の [P-02]（products.md）。その後 1942 V2（エタノール＋液体酸素）、1957 スプートニク",
+   "hee1": "ロケットは押す空気がない宇宙でも、自分の噴射の反動で進む（IMP-24：T-3 で「ロケット」から「ロケット方程式」に変更）",
+   "kind": "idea",
+   "play": "実験（噴射の速さと燃料の量で届く速さを試す）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -18957,7 +19514,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACEUlEQVR42t1WPUvDUBQ9kYiphlqKxVIni1OX4iC4dKqUDt0UlPwELSIF/4SCqIg/QRTUQR2KiEuXgqCo0ElqESvxgxJLkIrDc5CEfLV5r41UPFNy7807555383gcGDA4GCTG99HRMQDA/f2dqe79vcbRrsmxCujvF1vWfHyoTAJ60GVwLNa7dW90gXYrqB2gJWet7foW/P0ZCA8FCdcrtrU4+VIhv7WeA55qCH3tdad8/bcZyK9nkV/Puj5vL896OwMBv6gT0KBcfcX86h6UukczoCG9tGVyo1nOMwdyUopkEnEAQHQkxOSAhpPCNdZ2TjlPZiCUXEAyu4VQcoEp15EDsWgE0ZGQ7sBzrY7hoN/UrTWnOVCuvqJUfurMAav1RnIrrDmabXMVcFK4tsWEvl79+aVWd4w3+5bpLzBYRxbnpvR44/PniLu9e8SAr88Wpxk+5htRTkqZRLTC5u4ZFTnzOWDE1cGF6X18euL3bkQsLrB0zyxAEzEUECGlJ03xnXwRb4rKRN4RclKKVI5WSOVoheSkFGl3HaoZmAmHbQSZRFw/cDKJOB7Ob2w1+7LMdSRAI54MBEzxkqraav08j5houzkRNyE8C7ERlxvHrs4Zvm8qhGMlLqmqU6euOQAoKopta3haYi/g5EiPQ7Kt7gEgJoqO89FCSPcvpbx1f5rhqdFARBBc6wDgUJYREQQqAd+ce+LMJp8zmwAAAABJRU5ErkJggg=="
     }
    ],
-   "descendants": 38
+   "descendants": 41
   },
   {
    "real_full": "1450年頃 ヨハネス・グーテンベルク。鉛・錫・アンチモンの合金の活字（固まるときに少しふくらみ、型の細部まで写る）。1040年代 畢昇の陶活字が先行",
@@ -19701,8 +20258,8 @@
    "buildable_now": false,
    "real": "1948 クロード・シャノン「通信の数学的理論」：情報の単位ビット、雑音があっても誤りなく送れる限界（通信路容量）",
    "hee1": "「ビット」という言葉はシャノンの論文で広まった",
-   "kind": "tech",
-   "play": "",
+   "kind": "idea",
+   "play": "実験（雑音のある通信でビットを送る）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -19909,7 +20466,7 @@
    "emoji": "📷",
    "symbol": "🌿",
    "people": [],
-   "descendants": 35
+   "descendants": 38
   },
   {
    "real_full": "1839 ダゲール。銀板をヨウ素蒸気で AgI 化→露光→水銀蒸気で現像（Hg が感光部にアマルガム）→食塩水で定着",
@@ -19975,7 +20532,7 @@
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACMklEQVR42mNgGAVEAC050f9acqL/yWETAkwD7TkWYhXKiPAxMDAw/IfSBNlP3nwiylxGYh1goir5X1lSCEP8/ZcfGGJP3nxiuPboNSNFDoDF4bVHrxm15ESRfUgUgDkC2RySowBLsDOQE2X4ooOJSIPIAsToHfBcQJIDlk2qZVg2qZYgu6kklWgz8SZC5CCEWUAMuPPoBUNdz2yicgULKSEQldeM00HIclQNAZhhKnISJIUADNT1zMYbAjjTwLVHrxmNDPVQxDgNQxnMo+oYOA1DMdTjkjMy1MNbKBFMhHcfI3zz/fxqho2Tihi+n1+N4Vtscsh6yXaAsixq0EuICOBUiy6HrpcsB2zYexIzuNnZ4OyXbz9gFcell6Rc0DF3PSzu/pck+iOi4ucvBgYGBoYLNx4wcHNyYIjDLEfST1l1DDUI7gjkLIdeUJFiOcnlAMzyZZNqGQ7P3ooibpvqDZcjBTCSorgiORAlKrCBnvkbifY9yQ6AOUJUiJ8h3t8BRXzhxgMMr999JMlyikBFcuD/N0cW/H9zZMH/iuTA/+SaQ5RrRUUl4BZUVBQxMDAwMMTFxaCoWbRoCSTBdvTBxV6/fsFIkQNgFvPxIQqYEyf24TXQwsIJzv706QNBh7AQazE5AEn/f1wOYSTV4q9fvzBwc/NghISFhRNcDhfAFiIs1PQxOSHCCHMAMZYT8iGxamCh8fr1C8bB0zWDxQ8u8PPnDwZ2dg6C6qBBy8DOzkGUAwBUhxIOHBmuyAAAAABJRU5ErkJggg=="
     }
    ],
-   "descendants": 37
+   "descendants": 40
   },
   {
    "real_full": "1851 スコット・アーチャー（コロジオン湿板）。ガラス板にヨウ化物入りコロジオン→AgNO3 浴で AgI→濡れたまま露光・現像",
@@ -20029,7 +20586,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
-   "descendants": 36
+   "descendants": 39
   },
   {
    "real_full": "1895 レントゲンがクルックス管（放電管）から X線を発見、1913 クーリッジの熱陰極 X線管（高真空で安定）。高速の電子が W に当たって急に止まると X線（制動放射）",
@@ -20610,6 +21167,11 @@
     [
      [
       "9-25"
+     ]
+    ],
+    [
+     [
+      "7-22"
      ]
     ]
    ],
@@ -21725,6 +22287,13 @@
   {
    "from": "0-04",
    "to": "0-17",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "0-06",
+   "to": "0-18",
    "kind": "requires",
    "group": 0,
    "or": false
@@ -22976,6 +23545,13 @@
    "or": false
   },
   {
+   "from": "2-30",
+   "to": "2-45",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
    "from": "0-02",
    "to": "3-01",
    "kind": "requires",
@@ -23419,6 +23995,48 @@
   {
    "from": "4-04",
    "to": "4-14",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "1-42",
+   "to": "4-15",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "1-07",
+   "to": "4-15",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "4-07",
+   "to": "4-15",
+   "kind": "requires",
+   "group": 2,
+   "or": false
+  },
+  {
+   "from": "4-13",
+   "to": "4-16",
+   "kind": "requires",
+   "group": 0,
+   "or": true
+  },
+  {
+   "from": "4-04",
+   "to": "4-16",
+   "kind": "requires",
+   "group": 0,
+   "or": true
+  },
+  {
+   "from": "1-07",
+   "to": "4-16",
    "kind": "requires",
    "group": 1,
    "or": false
@@ -24705,6 +25323,27 @@
    "or": false
   },
   {
+   "from": "2-14",
+   "to": "7-22",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "2-09",
+   "to": "7-22",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "5-14",
+   "to": "7-22",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
    "from": "1-26",
    "to": "8-01",
    "kind": "requires",
@@ -25101,6 +25740,13 @@
    "to": "8-18",
    "kind": "requires",
    "group": 3,
+   "or": false
+  },
+  {
+   "from": "0-18",
+   "to": "8-19",
+   "kind": "requires",
+   "group": 0,
    "or": false
   },
   {
@@ -26084,6 +26730,20 @@
    "or": false
   },
   {
+   "from": "9-23",
+   "to": "9-41",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "4-08",
+   "to": "9-41",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
    "from": "4-03",
    "to": "10-01",
    "kind": "requires",
@@ -26317,6 +26977,34 @@
   {
    "from": "9-40",
    "to": "10-16",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "10-14",
+   "to": "10-17",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "10-07",
+   "to": "10-18",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "10-13",
+   "to": "10-19",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "8-02",
+   "to": "10-20",
    "kind": "requires",
    "group": 0,
    "or": false
@@ -27767,6 +28455,13 @@
    "or": false
   },
   {
+   "from": "7-22",
+   "to": "B-12",
+   "kind": "requires",
+   "group": 3,
+   "or": false
+  },
+  {
    "from": "2-24",
    "to": "B-13",
    "kind": "requires",
@@ -28142,6 +28837,13 @@
    "gap": 44
   },
   {
+   "node": "4-16",
+   "year": 1808,
+   "requires": "1-07",
+   "requires_year": 1850,
+   "gap": 42
+  },
+  {
    "node": "7-04",
    "year": 1608,
    "requires": "7-03",
@@ -28391,6 +29093,13 @@
    "year": 1650,
    "requires": "2-23",
    "requires_year": 1661,
+   "gap": 11
+  },
+  {
+   "node": "10-17",
+   "year": 1963,
+   "requires": "10-14",
+   "requires_year": 1974,
    "gap": 11
   },
   {

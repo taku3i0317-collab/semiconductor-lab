@@ -71,3 +71,42 @@ TECH_TREE の ⚠️ が付いた年・人物を、出典で1つずつ確かめ�
 | V-26 | [2-14] ソーダ石灰ガラス | 紀元前2500年頃メソポタミア（最初のガラス） | △ | コーニングガラス美術館は約4000年前（紀元前2000年頃）、Wikipedia などは紀元前2500年頃のビーズ。「紀元前2500〜2000年頃、メソポタミアのビーズ」として ⚠️ を残す | https://whatson.cmog.org/exhibitions-galleries/origins-glassmaking , https://en.wikipedia.org/wiki/History_of_glass |
 
 まとめ（第1弾、26 件）：◎ 12・○ 3・△ 6・✖ 4・◎と△の混在 1（[1-43] ビリングッチョ）（[0-10] 石灰の例、[0-15] 焼成レンガ、[1-27] 鉛の年、[2-09] 石けんの粘土板）。年を直す候補：[0-06] -8000、[1-27] -4000 前後、[2-03] -2600、[2-02] -2500、[11-10] 範囲 -7000〜。
+
+### 第2弾（2026-10-20）本線の続き 20 ノード・32 件
+| # | ノード | 主張 | 判定 | 結果 | 出典 |
+|---|---|---|---|---|---|
+| V-27 | [0-08] 木工 | 年 -9000（磨製石斧の始まり） | △ | 「始まり＝-9000」とする出典なし。旧石器にも例外的な磨製の例があり、中欧には紀元前6千年紀半ば。新石器の始まりという慣例の年として ⚠️ を残す | https://www.gibmuseum.gi/news/polished-neolithic-axe-from-gorhams-cave-85 , https://exarc.net/ark:/88735/10196 |
+| V-28 | [6-04] 岩塩鉱 | 年 -1500 | ✖ | 正しくは「最古の岩塩採掘は紀元前4500年頃（アゼルバイジャン・ナヒチェヴァンのドゥズダグ、土器の型式による推定）。-1500 はハルシュタット（オーストリア）の青銅器時代の採掘（紀元前16〜15世紀）」。年を直すか「-1500＝ハルシュタット」と書き分ける | https://sciencedaily.com/releases/2010/11/101125201448.htm , https://www.nhm-wien.ac.at/hallstatt/en/salt_mine/bronze_age |
+| V-29 | [3-04] ふいご | 年 -1450、レクミラの墓の壁画（紀元前15世紀頃） | ◎ | メトロポリタン美術館：TT100 は紀元前1479〜1425年頃、足踏みふいごで銅を溶かす場面 | https://www.metmuseum.org/art/collection/search/544617 , https://library.biblicalarchaeology.org/images/bsba100404510ljpg/ |
+| V-30 | [1-06] 塊鉄炉 | 年 -1200 | △ | 「紀元前1200年頃アナトリア」と「紀元前1400年頃ヒッタイト」の両説。⚠️ を残す | https://www.tf.uni-kiel.de/matwis/amat/iss/kap_a/backbone/ra_3_1.html , https://www.chemeurope.com/en/encyclopedia/History_of_ferrous_metallurgy.html |
+| V-31 | [1-06] 塊鉄炉 | ヒッタイト周辺 | △ | インド・アナトリア・カフカスのいずれかとする出典もあり、ヒッタイトに限るのは不確か | 同上 |
+| V-32 | [1-08] 鍛鉄 | 年 -1200 | △ | 根拠は [1-06] と同じで幅がある（紀元前1400〜1200年頃） | 同上 |
+| V-33 | [1-45] 水銀 | 年 -500 | △ | 水銀そのものはエジプト・クルナの墓（紀元前15〜16世紀）。文字の最古の取り出し方はテオフラストス（紀元前4世紀、辰砂を酢とこする方法で、焼く方法ではない）。-500 を支える出典なし | https://www.chemistryexplained.com/elements/L-P/Mercury.html , https://chemistryworld.com/news/botanists-chemists-and-historians-come-together-to-recreate-ancient-alchemy-of-making-mercury/4015894.article |
+| V-34 | [2-16] 蒸留水 | アレクサンドリアのマリア（1〜3世紀）の装置 | ◎ | 三本腕の蒸留器（トリビコス）。伝えたのはゾシモス（300年頃）で、発明者かは不明と書くとよい | https://en.wikipedia.org/wiki/Mary_the_Jewess , https://4kyws.ua.edu/HEBRAEA.html |
+| V-35 | [2-16] 蒸留水 | 年 200（100〜300） | ○ | マリアの年代と合う（マリアの年代に頼った値） | https://en.wikipedia.org/wiki/Mary_the_Jewess |
+| V-36 | [2-16] 蒸留水 | 8〜9世紀ジャービル・イブン・ハイヤーンのアランビック | △（言い換え） | ジャービル文書は 850〜950年頃に書かれたとされ、一人の実在の人物かも議論がある。アランビックとの結びつきの出典なし。「9〜10世紀のジャービル文書」と言い換える案 | https://en.wikipedia.org/wiki/Jabir_ibn_Hayyan , https://www.nlm.nih.gov/hmd/arabic/alchemy10.html |
+| V-37 | [1-13] 亜鉛 | 年 1150、インド・ザワールで12世紀頃 | ◎ | 12世紀〜19世紀初めに操業（坑道の木材の年代はさらに古い） | https://mci.si.edu/node/1187917 , https://esamskriti.com/e/Culture/Indian-Culture/Zinc-Mining-In-Zawar-Region-Of-Rajasthan~Interview-With-Dr.-Paul-T.-Craddock-1.aspx |
+| V-38 | [6-16] 天然硝石の採取 | 中国の火薬は9世紀頃 | ○ | 808年の道教の文書が最古の処方、1044年『武経総要』がまとまった処方の最古。出典は Wikipedia 系のみ | https://en.wikipedia.org/wiki/History_of_gunpowder |
+| V-39 | [6-16] 天然硝石の採取 | 年 1250、ヨーロッパは13世紀から | ○ | 1267年ロジャー・ベーコンの著作に処方。欧州で硝石を採った記録そのものは未確認 | https://en.wikipedia.org/wiki/History_of_gunpowder , https://books.rsc.org/books/monograph/149/chapter/80602/Historical-Introduction |
+| V-40 | [2-43] ばん油 | 9〜10世紀のイスラム世界の錬金術師 | △ | ラーズィーが緑礬を乾留したとする二次資料はあるが、確かなのは鉱物の分類に入れたことだけ。ジャービルの名も伝承 | https://en.wikipedia.org/wiki/Vitriol , https://old.vscht.cz/chem_listy/common/article-vol_96-issue_12-page_997.html |
+| V-41 | [2-43] ばん油 | 13世紀頃ヨーロッパ・年 1300 | ◎ | ヴァンサン・ド・ボーヴェ、偽ゲーベル『完全大全』などに言及 | 同上 |
+| V-42 | [6-11] 硝酸 | 年 1300（硝石＋ばん類） | ○ | 偽ゲーベル『Summa perfectionis』（1310年少し前）が最初期の記述 | https://en.wikipedia.org/wiki/Pseudo-Geber , https://old.vscht.cz/chem_listy/common/article-vol_96-issue_12-page_997.html |
+| V-43 | [6-11] 硝酸 | 1648 グラウバー法 | ○ | 硝石＋ばん油で大量に作った（最初の人ではない） | https://www.cavemanchemistry.com/cavebook/chsaltpeter.html |
+| V-44 | [1-21] 蛍石 | 年 1546（アグリコラ） | ✖ | 正しくは 1530年、アグリコラ『Bermannus』で融剤「fluores」として初めて活字に。1546年は『De Natura Fossilium』で、取り違えらしい | https://en.wikipedia.org/wiki/Fluorite , https://en.wikipedia.org/wiki/History_of_fluorine |
+| V-45 | [5-01] 手押しピストンポンプ | 1650頃 ゲーリケがポンプ製作 | ◎ | 1650年（1655年頃とする資料もある） | https://en.wikipedia.org/wiki/Otto_von_Guericke , https://pages.mtu.edu/~pcharles/SCIHISTORY/Guericke.html |
+| V-46 | [5-01] 手押しピストンポンプ | 1654 レーゲンスブルクの公開実験 | ◎ | 帝国議会、皇帝フェルディナント3世の前 | https://en.wikipedia.org/wiki/Magdeburg_hemispheres , https://physicstoday.aip.org/backscatter/magdeburg-hemispheres |
+| V-47 | [5-01] 手押しピストンポンプ | 1657 マクデブルクで馬16頭 | △ | 1656年と1657年が混在（1657年はショットの本の年の可能性）、馬も16頭と30頭で食い違う | https://catalogue.museogalileo.it/indepth/MagdeburgHemispheres.html , https://en.wikipedia.org/wiki/Magdeburg_hemispheres |
+| V-48 | [5-01] 手押しピストンポンプ | 半球の直径 約40cm | △ | 30〜50cm でばらつく（Wikipedia・ガリレオ博物館は約50cm） | https://en.wikipedia.org/wiki/Magdeburg_hemispheres , https://omeka-s.grinnell.edu/s/physicsmuseum/item/5200 |
+| V-49 | [5-01] 手押しピストンポンプ | 到達圧力 約数百Pa | △ | 測定値の出典なし | — |
+| V-50 | [7-03] レンズ研磨 | 17世紀からベンガラで研磨 | △ | 酸化鉄の研磨剤がのちに CeO2 に置き換わったことは確認。17世紀からの出典なし | https://cameo.mfa.org/wiki/Optical_rouge |
+| V-51 | [2-23] 木材乾留 | 年 1661 ボイルが木精を記述 | ◎ | ツゲ材の乾留で「spirit of box」（原典は未確認） | https://graphsearch.epfl.ch/en/concept/19712 , https://kids.britannica.com/students/article/methanol/275810 |
+| V-52 | [2-23] 木材乾留 | 木酢液は酢酸数%・メタノール1〜3% | ○ | 45樹種の実測で酢酸1.2〜9.5%・メタノール0.2〜3.8%。「〜4%程度」とすると安全 | https://doaj.org/article/3084c45384e54c2c934c253895540324 , https://www.fao.org/4/X5328E/x5328e0d.htm |
+| V-53 | [7-05] 反射鏡 | 1932 ストロングのアルミ蒸着 | ✖ | 正しくは 1930年頃（カリフォルニア工科大）。1932〜37年はパロマー計画の期間、詳しい論文は1936年 | https://en.wikipedia.org/wiki/Silvering , https://ftp.astro.caltech.edu/palomar/audioguide/mirror_en.html |
+| V-54 | [1-20] 白金 | 年 1748（ウジョアの記述） | ◎ | 1748年『Relación Histórica』。ウッドが1741年に試料を英国へ持ち込んでいるので「最初の記述」と書く | https://wpd.ugr.es/~gervilla/wp-content/uploads/2022/01/Edad-del-platino-en-Espana.pdf , https://technology.matthey.com/content/journals/10.1595/003214092X3614047 |
+| V-55 | [1-23] 輝水鉛鉱 | 年 1778（シェーレ） | ◎ | 黒鉛でも鉛の鉱石でもなくモリブデンの硫化物と示した | https://www.chemicool.com/elements/molybdenum.html , https://winter.group.shef.ac.uk/webelements/molybdenum/history.html |
+| V-56 | [1-40] クロム | 1895 ゴルトシュミットのテルミット法の特許 | ◎ | DRP 96317（1895年3月13日） | https://en.wikipedia.org/wiki/Hans_Goldschmidt , https://www.goldschmidt.com/en/goldschmidt-group/history/ |
+| V-57 | [1-40] クロム | 1898年頃に炭素を含まない Cr | △ | 製造は確認、1898年の裏づけなし（1898年は論文の年）。「1890年代後半」とぼかす案 | https://www.spektrum.de/lexikon/chemie/aluminothermisches-verfahren/344 |
+| V-58 | [2-07] 重クロム酸カリウム | 6価クロムは発がん性 | ◎ | IARC グループ1（第49巻 1990、第100C巻 2012） | https://www.carexcanada.ca/?p=9477 , https://insst.es/documents/d/portal-insst/sheet-n-7-chromium-vi-ano-2023 |
+
+まとめ（第2弾、32 件）：◎ 11・○ 6・△ 12・✖ 3（[6-04] 最古の岩塩採掘、[1-21] 蛍石は1530年、[7-05] アルミ蒸着は1930年頃）。
+ネットワーク担当のファイルで直したもの：network_meta.json のジャービルの人物カード（V-36 に合わせて「9〜10世紀のジャービル文書」、道具をアランビックから錬金術の文書に）。
