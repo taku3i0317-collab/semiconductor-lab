@@ -1265,6 +1265,35 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-43] ばん油（IMP3、S-004）
+    // =====================================================================
+
+    /** 黄鉄鉱は水の中で緑礬に（陸では変わらない）。緑礬＋蒸留器＋瓶 → ばん油（硫酸）、ベンガラが残る */
+    @GameTest(maxTicks = 200)
+    public void oilOfVitriol(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "oil_of_vitriol", Chemistry.GREEN_VITRIOL) && recipeUses(h, "oil_of_vitriol", com.taku3.semiconductorlab.content.Metallurgy.QUARTZ_STILL), "green vitriol in a glass retort");
+        var rem = Chemistry.GREEN_VITRIOL.getCraftingRemainder(new ItemStack(Chemistry.GREEN_VITRIOL));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.COLCOTHAR), "colcothar is left");
+        floor(h, 4);
+        BlockPos water = p(1, 1, 1);
+        for (int y = 1; y <= 3; y++)
+            for (BlockPos wall : new BlockPos[] {p(0, y, 1), p(2, y, 1), p(1, y, 0), p(1, y, 2)}) h.setBlock(wall, net.minecraft.world.level.block.Blocks.STONE);
+        h.setBlock(water, net.minecraft.world.level.block.Blocks.WATER);
+        var wet = h.spawnItem(Chemistry.PYRITE, new net.minecraft.world.phys.Vec3(1.5, 1.3, 1.5));
+        var onLand = h.spawnItem(Chemistry.PYRITE, new net.minecraft.world.phys.Vec3(3.5, 1.1, 3.5));
+        wet.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
+        onLand.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
+        com.taku3.semiconductorlab.item.Retting.ticksForWeathering = 20;
+        h.runAfterDelay(80, () -> {
+            com.taku3.semiconductorlab.item.Retting.ticksForWeathering = com.taku3.semiconductorlab.item.Retting.WEATHERING_TICKS;
+            h.assertTrue(wet.getItem().is(Chemistry.GREEN_VITRIOL), "pyrite in water -> green vitriol (got " + wet.getItem() + ")");
+            h.assertTrue(onLand.getItem().is(Chemistry.PYRITE), "pyrite on land stays");
+            LOG.info("[LAB] oil of vitriol [2-43]: pyrite weathers in water -> green vitriol; + retort -> sulfuric acid, colcothar left");
+            h.succeed();
+        });
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 /**
  * 亜麻の浸水（レッティング）[0-06]。水の中に落ちている「亜麻の茎」は、浸かっている時間が RETTING_TICKS たまると
  * 「浸水した亜麻の茎」になる（水の中の微生物が、繊維どうしをくっつけているペクチンを分解する）。陸の上では変わらない。
+ * 黄鉄鉱 [2-43] も同じしくみで、水の中に WEATHERING_TICKS 置くと風化して緑礬になる。
  * mixin/ItemEntityRettingMixin が、落ちているアイテムの tick ごとにここを呼ぶ。
  */
 public final class Retting {
@@ -19,6 +20,10 @@ public final class Retting {
 
     /** 実際に使う時間（GameTest だけが短くする。ふだんは RETTING_TICKS） */
     public static int ticksForRetting = RETTING_TICKS;
+
+    /** [2-43] 黄鉄鉱が水の中で風化して緑礬になるまでの時間（tick）。本物の工場は何年も雨にさらした */
+    public static final int WEATHERING_TICKS = 2400;
+    public static int ticksForWeathering = WEATHERING_TICKS;
 
     private Retting() {}
 
@@ -31,10 +36,12 @@ public final class Retting {
     /** 1 tick 分すすめる。戻り値は新しい浸水時間（茎でなければ 0。水から出たら進まないが、たまった分は残る） */
     public static int tick(ItemEntity e, int soaked) {
         ItemStack st = e.getItem();
-        if (!st.is(Survival.FLAX_STALKS)) return 0;
+        boolean pyrite = st.is(com.taku3.semiconductorlab.content.Chemistry.PYRITE);
+        if (!st.is(Survival.FLAX_STALKS) && !pyrite) return 0;
         if (!wet(e)) return soaked;
-        if (++soaked < ticksForRetting) return soaked;
-        e.setItem(new ItemStack(Survival.RETTED_FLAX, st.getCount()));
+        if (++soaked < (pyrite ? ticksForWeathering : ticksForRetting)) return soaked;
+        // [2-43] 黄鉄鉱は水と空気で風化して緑礬になる（2FeS2 + 7O2 + 2H2O → 2FeSO4 + 2H2SO4、コッパラス工場の近似）
+        e.setItem(new ItemStack(pyrite ? com.taku3.semiconductorlab.content.Chemistry.GREEN_VITRIOL : Survival.RETTED_FLAX, st.getCount()));
         e.level().playSound(null, e.blockPosition(), SoundEvents.BUBBLE_POP, SoundSource.NEUTRAL, 0.6f, 0.8f);
         return 0;
     }

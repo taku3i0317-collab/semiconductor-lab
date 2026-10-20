@@ -166,6 +166,10 @@ aqua_regia  # Chemistry [2-22] 1300
 spent_aqua_regia  # Chemistry [2-22] 1300
 chloroauric_acid  # Chemistry [2-22] 1300
 gold_powder  # Chemistry [2-22] 1300
+pyrite  # Chemistry [2-43] 1300
+colcothar  # Chemistry [2-43] 1300
+green_vitriol  # Chemistry [2-43] 1300
+pyrite_ore  # Chemistry [2-43] 1300
 wood_vinegar  # Chemistry [2-23] 1661
 wood_tar  # Chemistry [2-23] 1661
 pitch  # Chemistry [2-23] 1661

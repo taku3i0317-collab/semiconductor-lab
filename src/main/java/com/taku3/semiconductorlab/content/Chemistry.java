@@ -259,7 +259,13 @@ public final class Chemistry {
     public static final Item BENZOPHENONE          = Reg.item("benzophenone");
     public static final Item PHOTOPOLYMER_RESIN    = Reg.item("photopolymer_resin", com.taku3.semiconductorlab.item.PhotopolymerResinItem::new, new Item.Properties().stacksTo(16));
     public static final Item CURED_PHOTOPOLYMER    = Reg.item("cured_photopolymer");
+    // [2-43] ばん油（IMP3、S-004、Q3-10①）：新鉱石 黄鉄鉱 FeS2 → 原石を水の中に置いて待つ → 風化して緑礬 FeSO4·7H2O（item/Retting、コッパラス工場の近似）。
+    //   緑礬＋石英の蒸留器（ガラスのレトルト）＋空の瓶 → ばん油（＝硫酸）、ベンガラ Fe2O3（研磨の紅）が作業台に残る
+    public static final Item PYRITE                = Reg.item("pyrite");
+    public static final Item COLCOTHAR             = Reg.item("colcothar");
+    public static final Item GREEN_VITRIOL         = Reg.item("green_vitriol", new Item.Properties().craftRemainder(COLCOTHAR));
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
+    public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [2-43] 黄鉄鉱（IMP3）
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
     public static final net.minecraft.tags.TagKey<Item> HF_TAG = net.minecraft.tags.TagKey.create(Registries.ITEM, SemiconductorLab.id("hydrofluoric_acid"));

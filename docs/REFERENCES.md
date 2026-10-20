@@ -2370,6 +2370,20 @@
 - Wikipedia「Walter Reppe」/「Acrylic acid」：https://en.wikipedia.org/wiki/Acrylic_acid
 - Wikipedia「Benzophenone」：https://en.wikipedia.org/wiki/Benzophenone
 
+## C39. 緑の結晶を焼いて作った昔の硫酸（ばん油）［2-43］
+**答え**：黄鉄鉱（FeS2）は水と空気で風化して緑礬（FeSO4·7H2O）になる。16〜19世紀のイギリスの「コッパラス」工場は、黄鉄鉱の山を何年も雨にさらして緑礬を作った。緑礬を焼くと SO3 が出て、水に吸わせると硫酸になる。とろりとした見た目から「ばん油（oil of vitriol）」とよばれた。イスラム世界の錬金術師も知っていたと伝わり（確かなのはラーズィーが緑礬を鉱物の分類に入れたことだけ ⚠️）、13世紀ごろのヨーロッパで知られた。のちに鉛室法（1746）、接触法（1831）に変わった。残る赤い酸化鉄（ベンガラ）は顔料や磨き粉になった。
+
+- へえ①：昔の硫酸は、緑色の結晶を焼いて作る「油」だった。
+- へえ②：「愚か者の金」とよばれた黄鉄鉱から、硫酸が作れた。
+- へえ③：緑礬は中世の黒いインク（没食子インク）の材料でもあった。
+- へえ④：古い鉱山の黄鉄鉱が風化して出る酸性の水は、今も川を汚す（酸性坑廃水）。
+
+確かさ：反応 ◎／コッパラス工場（16〜19世紀イギリス）○／ばん油の最初の年・人 △ → ⚠️（TECH_TREE の本物欄と同じ）
+根拠：
+- Wikipedia「Sulfuric acid」（歴史・oil of vitriol）：https://en.wikipedia.org/wiki/Sulfuric_acid
+- Wikipedia「Iron(II) sulfate」（green vitriol, copperas）：https://en.wikipedia.org/wiki/Iron(II)_sulfate
+- Wikipedia「Acid mine drainage」：https://en.wikipedia.org/wiki/Acid_mine_drainage
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
