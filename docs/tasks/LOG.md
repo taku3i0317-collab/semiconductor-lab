@@ -398,3 +398,12 @@
 - [9-18] は「やり方」として ✅（本線の工程そのもの、発見 planar_transistor）
 - TECH_TREE [9-18][9-22] ✅、REFERENCES L4、LITHO_DESIGN §6.3・§10（残りなし）、test_queue 9_semiconductor、HANDOFF。test.ps1 186/186
 
+## O-011 v0.3 の締め（2026-10-20、途中）
+- ① 確認表：docs/HUMAN_CHECK_TODAY.md の本線を全部実機の手順に（tools/gen_human_check.py）。ネガ型 KPR [2-30] は「まだ ❓」と明記（c054cce5）
+- ② ガイド第4巻「IC」：guide4/ の10ページ＋give_guidebook4、GameTest guide4Ic（c054cce5）
+- ④ ROADMAP の v0.3 を今の状態に、version 0.3（dda6f5e1）
+- ③ CHEMISTRY の v0.3 レビュー：実行中
+- ⑤ **tag v0.3・jar：止めた（ネガ型待ち）**。[2-30] ネガ型レジスト KPR が ❓ のまま（D・E が作っている）
+  - **ユーザーに質問**：ポジ型だけで v0.3 を出すか、KPR を待つか
+  - ほかに、ROADMAP の v0.3 の「7. チップとダイシング [9-32]」「8. 電卓 [B-08]（前提 [10-11] 加算器）」もまだ ❓。この2つが無いまま tag を付けてよいかも、あわせて決めてほしい
+
