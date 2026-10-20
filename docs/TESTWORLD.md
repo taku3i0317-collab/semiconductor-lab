@@ -309,7 +309,7 @@ GameTest `testworld` が「関数が最後まで動き、置いた物が正し�
   - 見ること：レシピ本に乾板までの流れが出るか。アイテムの見た目
 - [9-13] ラッピング・鏡面研磨：ブロック wafer_polisher／チェスト 0 種
   - 見ること：研磨機の GUI（左にウェハー・砥粒・シリカ、銀色のバー、「やり直しは2回まで」の表示）、コロイダルシリカのガラス瓶が上に出る
-- [-] layout_sheet：ブロック drafting_table, probe_station, cleaning_bench／チェスト 5 種
+- [-] layout_sheet：ブロック drafting_table, probe_station, cleaning_bench, resist_stripper／チェスト 7 種
 
 ### 幹12 建設・測量（南へ 82 ブロックの列）
 
