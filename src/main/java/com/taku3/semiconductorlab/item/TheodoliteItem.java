@@ -59,6 +59,10 @@ public class TheodoliteItem extends TelescopeItem {
         return new Fix(base, alpha, beta, distA, distB, ax + distA * ux, az + distA * uz);
     }
 
+    /** メートル原器 [8-22] のレシピで使っても戻る（子午線の測量の道具。ReusableToolItem と同じしくみ） */
+    @Override
+    public net.minecraft.world.item.ItemStackTemplate getCraftingRemainder(ItemStack stack) { return new net.minecraft.world.item.ItemStackTemplate(this); }
+
     private static double clamp(double c) { return Math.max(-1, Math.min(1, c)); }
 
     @Override

@@ -15,6 +15,35 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-22] メートル原器（IMP2 O-007）：白金×3＋セオドライト（戻る）。2つのブロックを右クリックして長さを m・尺・トワーズで */
+    @GameTest
+    public void metre_bar(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "metre_bar", Metallurgy.PLATINUM_INGOT) && recipeUses(h, "metre_bar", com.taku3.semiconductorlab.content.Construction.THEODOLITE),
+                "metre bar = platinum + the meridian survey (theodolite)");
+        var rem = com.taku3.semiconductorlab.content.Construction.THEODOLITE.getCraftingRemainder(new ItemStack(com.taku3.semiconductorlab.content.Construction.THEODOLITE));
+        h.assertTrue(rem != null && rem.item().value() == com.taku3.semiconductorlab.content.Construction.THEODOLITE, "theodolite comes back from the crafting grid");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.MetreBarItem.length(new BlockPos(0, 0, 0), new BlockPos(3, 0, 4)) - 5) < 1e-9, "3-4-5: 5.000 m");
+        h.assertTrue(Math.abs(33 * com.taku3.semiconductorlab.item.MetreBarItem.SHAKU_M - 10) < 1e-9, "33 shaku = 10 m (1891)");
+        // 使う：1つ目の印 → 2つ目で長さを出して印を消す
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack bar = new ItemStack(Precision.METRE_BAR);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, bar);
+        BlockPos a = h.absolutePos(p(0, 1, 0)), b = h.absolutePos(p(0, 1, 2));
+        h.setBlock(p(0, 1, 0), net.minecraft.world.level.block.Blocks.STONE);
+        h.setBlock(p(0, 1, 2), net.minecraft.world.level.block.Blocks.STONE);
+        var hitA = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(a), net.minecraft.core.Direction.UP, a, false);
+        var hitB = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(b), net.minecraft.core.Direction.UP, b, false);
+        Precision.METRE_BAR.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND, hitA));
+        h.assertTrue(a.equals(bar.get(Precision.METRE_MARK)), "first mark recorded");
+        Precision.METRE_BAR.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND, hitB));
+        h.assertFalse(bar.has(Precision.METRE_MARK), "second click measures and clears the mark");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"mark", "length", "placeholder"})
+            h.assertTrue(ja.has("item.semiconductor-lab.metre_bar." + k), "lang metre_bar." + k);
+        LOG.info("[LAB] metre_bar [8-22]: platinum + theodolite (returned), 3-4-5 = 5.000 m, 33 shaku = 10 m, mark -> measure");
+        h.succeed();
+    }
+
     /** [8-01] 旋盤（IMP2-01）：鋼 → ポンプのローター（750W×30秒）。電気が半分では進まない、鉄（錬鉄）は削らない */
     @GameTest
     public void lathe(GameTestHelper h) {

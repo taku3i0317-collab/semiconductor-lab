@@ -1054,6 +1054,20 @@
 - Wikipedia「Theodolite」：https://en.wikipedia.org/wiki/Theodolite
 - Wikipedia「Inō Tadataka」：https://en.wikipedia.org/wiki/In%C5%8D_Tadataka
 
+## O32. 1メートルは地球から決めた（メートル原器）［8-22］
+**答え**：フランス革命のあと、ばらばらだった長さの単位をやめ、北極から赤道までの子午線の長さの1000万分の1を1メートルと決めた。ドランブルとメシャンが1792〜98年にダンケルク〜バルセロナを三角測量し、1799年にその長さの白金の棒（アルシーヴのメートル）を国立公文書館に納めた。
+
+- へえ①：1メートルは、地球の大きさから決めた長さだった。
+- へえ②：メシャンは測量の小さなずれに悩み続けたと伝えられる（あとで分かった子午線の値とは約0.2mm ずれていた）。
+- へえ③：1893年、マイケルソンはメートル原器をカドミウムの赤い光の波長で測った（約155万波長）。1960年に光の波長、1983年に光の速さでメートルが決め直された。
+- へえ④：日本の尺は、1891年に「1メートルの33分の10」と決められた。
+
+確かさ：子午線の1000万分の1・1792〜98 の測量・1799 の白金の原器 ◎／原器と後の値のずれ 約0.2mm ○／マイケルソンとブノワ 1893 の 1,553,163.5 波長 ○／1尺＝10/33 m（1891 度量衡法）◎
+根拠：
+- Wikipedia「Mètre des Archives」：https://en.wikipedia.org/wiki/M%C3%A8tre_des_Archives
+- Wikipedia「History of the metre」：https://en.wikipedia.org/wiki/History_of_the_metre
+- Wikipedia「Shaku (unit)」：https://en.wikipedia.org/wiki/Shaku_(unit)
+
 ---
 
 # 冶金と熱（タスク15〜）

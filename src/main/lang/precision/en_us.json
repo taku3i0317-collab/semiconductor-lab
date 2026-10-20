@@ -44,5 +44,13 @@
   "item.semiconductor-lab.micrometer.note2": "Standard screw + steel + bronze. One turn advances 0.5 mm, divided by 50 marks around the thimble = 0.01 mm (the same 0.5 mm screw as the interferometer [7-09]). Grades lathe parts: A = error within 10 um, B = within 20 um, C = more.",
   "item.semiconductor-lab.micrometer.note3": "In 1848 the Frenchman Jean Laurent Palmer made a tool that measures 0.01 mm with a screw. It became possible once accurate screws could be made ([8-02]).",
   "item.semiconductor-lab.micrometer.note4": "Pressing too hard squashes both part and tool slightly and shifts the reading, so micrometers have a ratchet that slips at a set force. Steel also grows about 11 um per metre per degree, so precise measurement is done at 20 C.",
-  "item.semiconductor-lab.micrometer.placeholder": "Approximation: real frames are cast iron or steel; here the frame is bronze."
+  "item.semiconductor-lab.micrometer.placeholder": "Approximation: real frames are cast iron or steel; here the frame is bronze.",
+  "item.semiconductor-lab.metre_bar": "Platinum Metre Bar",
+  "item.semiconductor-lab.metre_bar.note1": "A platinum bar that is the model of 'one metre'. Right-click two blocks to learn the length between them.",
+  "item.semiconductor-lab.metre_bar.note2": "3 platinum ingots + theodolite (returned). Right-click a block for the first mark, another block for the length in metres and old units (shaku, toise). In Minecraft one block = 1 m.",
+  "item.semiconductor-lab.metre_bar.note3": "After the French Revolution, the jumble of local length units was replaced by the metre: one ten-millionth of the meridian from the North Pole to the equator. Delambre and Méchain triangulated from Dunkirk to Barcelona in 1792-98, and in 1799 a platinum bar of that length was placed in the National Archives.",
+  "item.semiconductor-lab.metre_bar.note4": "The bar was an end standard: 1 m between its two end faces. Platinum was chosen because it does not rust or warp easily. In 1889 a platinum-iridium international prototype (1 m between two lines) replaced it, and in 1893 Michelson measured it in wavelengths of light (about 1.55 million waves of cadmium red). The metre was redefined by a wavelength in 1960 and by the speed of light in 1983. Japan fixed the shaku in 1891 as 10/33 of a metre.",
+  "item.semiconductor-lab.metre_bar.placeholder": "Approximation: the meridian survey is represented by putting the theodolite in the recipe. Lengths are measured between block centers.",
+  "item.semiconductor-lab.metre_bar.mark": "📏 First mark: %s, %s, %s. Right-click another block",
+  "item.semiconductor-lab.metre_bar.length": "📏 Length %s m (%s shaku, %s toise)"
 }
