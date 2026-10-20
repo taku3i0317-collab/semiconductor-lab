@@ -84,6 +84,10 @@ public final class Optics {
     public static final Item CHROME_PHOTOMASK      = Reg.item("chrome_photomask", new Item.Properties().durability(CHROME_MASK_USES));
     // [7-19] 投影レンズ（IMP2 O-010）：心出し済みの鏡筒 [8-14]＋反射防止膜のレンズ [7-22] → g線の 1/5 縮小レンズ（鏡筒のずれを引き継いで CD が決まる）
     public static final Item PROJECTION_LENS       = Reg.item("projection_lens", ProjectionLensItem::new, new Item.Properties().stacksTo(1));
+    // O-017 i線の投影レンズ（IMP2）：ふつうのガラスは 365nm を吸うので合成石英のレンズで組む。NA 0.7⚠️（本物の i線ステッパーは 0.5〜0.65）
+    public static final Item PROJECTION_LENS_I     = Reg.item("projection_lens_i", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_I, 0.7), new Item.Properties().stacksTo(1));
+    // O-017 i線フィルター（IMP2）：水銀灯の光から 365nm だけを通す（合成石英に CaF2 などの薄い膜を重ねた干渉フィルター）
+    public static final Item I_LINE_FILTER         = Reg.item("i_line_filter", new Item.Properties().stacksTo(1));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));

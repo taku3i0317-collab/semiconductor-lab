@@ -46,9 +46,10 @@ public class StepperScreen extends MachineScreen {
                 String hint;
                 if (!w.is(com.taku3.semiconductorlab.content.Semiconductor.PROCESS_WAFER)) hint = "need_wafer";
                 else if (!MaskAlignerBlockEntity.isMask(m)) hint = "need_mask";
-                else if (!lens.is(Optics.PROJECTION_LENS)) hint = "need_lens";
+                else if (com.taku3.semiconductorlab.item.ProjectionLensItem.toolOf(lens) == null) hint = "need_lens";
+                else if (!StepperBlockEntity.lensMatches(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem())) hint = "lens_wrong";
                 else if (!StepperBlockEntity.lensOk(lens)) hint = "blurred";
-                else if (!ChipOps.canExpose(w, m.get(ModDataComponents.MASK), StepperBlockEntity.TOOL)) hint = "cannot";
+                else if (!ChipOps.canExpose(w, m.get(ModDataComponents.MASK), StepperBlockEntity.toolFor(menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem()))) hint = "cannot";
                 else if (!menu.getSlot(StepperBlockEntity.SLOT_OUT).getItem().isEmpty()) hint = "output_full";
                 else if (menu.getKw() <= 0 && menu.getProgress() == 0) hint = "press";
                 else if (menu.getKw() <= 0) hint = "need_power";

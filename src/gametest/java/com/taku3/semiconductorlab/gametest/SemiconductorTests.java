@@ -1414,6 +1414,45 @@ public class SemiconductorTests extends LabTestBase {
         return w;
     }
 
+    /** O-017 ステッパーの i線（IMP2）：i線フィルター＋i線のレンズ（合成石英、NA 0.7）で方眼 48。g線のガラスのレンズは i線に使えない。i線は心出しがもっと要る */
+    @GameTest(maxTicks = 100)
+    public void stepper_i_line(GameTestHelper h) {
+        var opt = com.taku3.semiconductorlab.content.Optics.class;
+        ItemStack good = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_I), rough = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_I);
+        good.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        rough.set(Precision.LENS_DECENTER, java.util.List.of(10, 10, 10, 10));
+        h.assertTrue(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsTool(good), "i-line lens centred to the microscope limit (1.6 um total) -> CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm <= 350");
+        h.assertFalse(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsTool(rough), "1 um per lens is enough for g-line but not i-line: CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(rough));
+        ItemStack filter = new ItemStack(com.taku3.semiconductorlab.content.Optics.I_LINE_FILTER);
+        ItemStack gLens = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS);
+        gLens.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        h.assertFalse(com.taku3.semiconductorlab.block.StepperBlockEntity.lensMatches(gLens, filter), "a glass g-line lens absorbs i-line");
+        h.assertTrue(com.taku3.semiconductorlab.block.StepperBlockEntity.toolFor(filter) == com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_I && com.taku3.semiconductorlab.block.StepperBlockEntity.toolFor(ItemStack.EMPTY) == com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G, "the filter switches the light");
+        int g = com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_I.grid;
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(g), "i_test", 0);
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        mask.set(ModDataComponents.MASK, fine);
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.STEPPER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.StepperBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER, ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK, mask);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, good);
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "g-line (no filter) cannot print a grid-" + g + " mask");
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER, filter);
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.StepperBlockEntity.WATTS);
+        for (int k = 1; k <= com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS; k++) {
+            h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "i-line step " + k);
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.StepperBlockEntity.STEP_TICKS + 2, full);
+        }
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT));
+        h.assertTrue(st != null && st.size() == g, "i-line stepper prints grid " + g);
+        h.assertTrue(langJson("ja_jp").has("gui.semiconductor-lab.stepper.lens_wrong"), "lang lens_wrong");
+        LOG.info("[LAB] stepper i-line (O-017): filter + quartz lens NA 0.7 -> CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm, grid " + g + " (g-line 36); g-line glass lens refused");
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

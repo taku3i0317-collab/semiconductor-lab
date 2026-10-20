@@ -34,7 +34,15 @@ public class ProjectionLensItem extends Item {
     public static final double WAVES_PER_UM = 0.01;
     private static final String K = "item.semiconductor-lab.projection_lens.";
 
-    public ProjectionLensItem(Properties properties) { super(properties); }
+    /** このレンズの露光の方法（光の波長と、届けばよい CD）と開口数。g線レンズ＝STEPPER_G・NA 0.35、i線レンズ＝STEPPER_I・NA 0.7（O-017） */
+    public final ExposureTool tool;
+    public final double na;
+
+    public ProjectionLensItem(Properties properties) { this(properties, ExposureTool.STEPPER_G, NA); }
+    public ProjectionLensItem(Properties properties, ExposureTool tool, double na) { super(properties); this.tool = tool; this.na = na; }
+
+    /** レンズの露光の方法（ProjectionLensItem でなければ null） */
+    public static ExposureTool toolOf(ItemStack s) { return s.getItem() instanceof ProjectionLensItem l ? l.tool : null; }
 
     /** 波面収差 W（波長の何倍、rms のめやす） */
     public static double wavefrontWaves(ItemStack s) {
@@ -47,10 +55,17 @@ public class ProjectionLensItem extends Item {
     public static double k1(double w) { return 0.6 + 2 * w; }
 
     /** 解像度 CD（nm）＝ k1·λ/NA */
-    public static int cdNm(ItemStack s) { return (int) Math.round(k1(wavefrontWaves(s)) * LAMBDA_NM / NA); }
+    public static int cdNm(ItemStack s) {
+        ProjectionLensItem l = s.getItem() instanceof ProjectionLensItem p ? p : null;
+        double lambda = l == null ? LAMBDA_NM : l.tool.wavelengthNm, na = l == null ? NA : l.na;
+        return (int) Math.round(k1(wavefrontWaves(s)) * lambda / na);
+    }
 
-    /** g線ステッパーの CD に届くか */
-    public static boolean meetsStepperG(ItemStack s) { return cdNm(s) <= ExposureTool.STEPPER_G.cdNm; }
+    /** このレンズの露光の方法の CD（g線なら 1µm、i線なら 0.35µm）に届くか */
+    public static boolean meetsTool(ItemStack s) { ExposureTool t = toolOf(s); return t != null && cdNm(s) <= t.cdNm; }
+
+    /** g線ステッパーの CD に届くか（g線のレンズ） */
+    public static boolean meetsStepperG(ItemStack s) { return toolOf(s) == ExposureTool.STEPPER_G && meetsTool(s); }
 
     @Override
     public InteractionResult useOn(UseOnContext ctx) {
@@ -61,13 +76,13 @@ public class ProjectionLensItem extends Item {
         if (p.getItemInHand(ctx.getHand() == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND).getItem() instanceof InterferometerItem)
             p.sendSystemMessage(Component.translatable(K + "wavefront", String.format(Locale.ROOT, "%.3f", wavefrontWaves(s))));
         p.sendSystemMessage(Component.translatable(K + "test", String.format(Locale.ROOT, "%.2f", k1(wavefrontWaves(s))),
-                String.format(Locale.ROOT, "%.0f", LAMBDA_NM), String.format(Locale.ROOT, "%.2f", NA), String.format(Locale.ROOT, "%.2f", cdNm(s) / 1000.0)));
-        p.sendSystemMessage(Component.translatable(K + (meetsStepperG(s) ? "ok" : "blurred"), String.format(Locale.ROOT, "%.1f", ExposureTool.STEPPER_G.cdNm / 1000.0)));
+                String.format(Locale.ROOT, "%.0f", tool.wavelengthNm), String.format(Locale.ROOT, "%.2f", na), String.format(Locale.ROOT, "%.2f", cdNm(s) / 1000.0)));
+        p.sendSystemMessage(Component.translatable(K + (meetsTool(s) ? "ok" : "blurred"), String.format(Locale.ROOT, "%.2f", tool.cdNm / 1000.0)));
         return InteractionResult.SUCCESS;
     }
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> out, TooltipFlag flag) {
-        out.accept(Component.translatable(K + "spec", REDUCTION, String.format(Locale.ROOT, "%.2f", NA), String.format(Locale.ROOT, "%.2f", cdNm(stack) / 1000.0)));
+        out.accept(Component.translatable(K + "spec", REDUCTION, String.format(Locale.ROOT, "%.2f", na), String.format(Locale.ROOT, "%.2f", cdNm(stack) / 1000.0)));
     }
 }

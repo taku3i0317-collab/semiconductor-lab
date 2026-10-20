@@ -450,6 +450,8 @@ reduction_camera  # Optics [7-11] 1960
 chrome_blank  # Optics [7-12] 1970
 chrome_photomask  # Optics [7-12] 1970
 projection_lens  # Optics [7-19] 1978
+projection_lens_i  # Optics [9-39] 1978
+i_line_filter  # Optics [9-39] 1978
 vernier_caliper  # Precision [8-04] 1631
 micrometer  # Precision [8-04] 1631
 simple_microscope  # Precision [8-10] 1670

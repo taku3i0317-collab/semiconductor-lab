@@ -312,5 +312,16 @@
   "item.semiconductor-lab.chrome_photomask.placeholder": "近似：本物の Cr のエッチング液は硝酸セリウムアンモニウム（ここでは塩酸）。反射防止の酸化クロム層・電子線描画は省略。",
   "item.semiconductor-lab.grating_spectroscope.resolved": "  🔍 %s と %s nm が2本に分かれて見える（溝 %s 本 ≥ 必要な分解能 %s）",
   "item.semiconductor-lab.grating_spectroscope.merged": "  🔍 %s と %s nm は1本にしか見えない（溝 %s 本 < 必要な分解能 %s）",
-  "item.semiconductor-lab.grating_spectroscope.ghosts": "  👻 本物の線の横に、にせの線（ゴースト）も見える（刻むときに揺れ・温度の変化があった）"
+  "item.semiconductor-lab.grating_spectroscope.ghosts": "  👻 本物の線の横に、にせの線（ゴースト）も見える（刻むときに揺れ・温度の変化があった）",
+  "item.semiconductor-lab.projection_lens_i": "i線の投影レンズ",
+  "item.semiconductor-lab.projection_lens_i.note1": "紫外の光（i線）でも透明な、石英などのレンズで組んだ投影レンズ。もっと細かく写せる。",
+  "item.semiconductor-lab.projection_lens_i.note2": "心出し済みの鏡筒＋CaF2 レンズ（鏡筒のずれを引き継ぐ）。ステッパーに i線フィルターと入れると方眼 48 が焼ける（g線は 36）。CD 0.35µm に届くには、鏡筒のレンズのずれを顕微鏡の限界（1枚 0.4µm）まで寄せる必要がある。",
+  "item.semiconductor-lab.projection_lens_i.note3": "1980年代後半、水銀灯の i線（365nm）を使うステッパーが広まった。ふつうの光学ガラスは i線を吸うので、透過する特別なガラスや合成石英でレンズを作り直した。",
+  "item.semiconductor-lab.projection_lens_i.note4": "CD＝k1×λ÷NA。波長を短く（436 → 365nm）、NA を大きくすると細かくなるが、レンズのわずかなずれでもぼけるようになる（波長が短いほど同じずれが大きく効く）。",
+  "item.semiconductor-lab.projection_lens_i.placeholder": "近似：NA 0.7（本物の i線ステッパーは 0.5〜0.65）。鏡筒のガラスのレンズを CaF2・合成石英に替えた扱い。",
+  "item.semiconductor-lab.i_line_filter": "i線フィルター",
+  "item.semiconductor-lab.i_line_filter.note1": "水銀灯の光から、紫外の i線だけを通す板。",
+  "item.semiconductor-lab.i_line_filter.note2": "真空蒸着で 合成石英＋蛍石×2。ステッパーの右上の入口に入れると i線のステッパーになる（i線の投影レンズが要る）。",
+  "item.semiconductor-lab.i_line_filter.note3": "屈折率の違う薄い膜を何十層も重ねると、決まった波長だけを通し、ほかを反射する（干渉フィルター）。",
+  "item.semiconductor-lab.i_line_filter.note4": "水銀灯には g線（436nm）・h線（405nm）・i線（365nm）があり、フィルターで1本だけを選ぶ。1本だけにすると、レンズの色ずれ（色収差）の心配が減る。"
 }

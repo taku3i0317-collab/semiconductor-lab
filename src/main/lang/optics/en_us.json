@@ -312,5 +312,16 @@
   "item.semiconductor-lab.chrome_photomask.placeholder": "Approximation: the real Cr etchant is ceric ammonium nitrate (hydrochloric acid here). The anti-reflective chromium oxide layer and electron-beam writing are skipped.",
   "item.semiconductor-lab.grating_spectroscope.resolved": "  🔍 %s and %s nm show as two lines (%s grooves >= needed %s)",
   "item.semiconductor-lab.grating_spectroscope.merged": "  🔍 %s and %s nm show as one line (%s grooves < needed %s)",
-  "item.semiconductor-lab.grating_spectroscope.ghosts": "  👻 False lines (ghosts) also appear beside the real ones (shaking or temperature change during ruling)"
+  "item.semiconductor-lab.grating_spectroscope.ghosts": "  👻 False lines (ghosts) also appear beside the real ones (shaking or temperature change during ruling)",
+  "item.semiconductor-lab.projection_lens_i": "i-line Projection Lens",
+  "item.semiconductor-lab.projection_lens_i.note1": "A projection lens built from quartz and other materials that stay clear in ultraviolet (i-line). It prints finer.",
+  "item.semiconductor-lab.projection_lens_i.note2": "Centered lens barrel + CaF2 lens (keeps the barrel's offsets). With an i-line filter in the stepper it prints grid 48 (g-line: 36). Reaching CD 0.35 um needs the barrel centred to the microscope limit (0.4 um per lens).",
+  "item.semiconductor-lab.projection_lens_i.note3": "In the late 1980s steppers using the mercury i-line (365 nm) spread. Ordinary optical glass absorbs the i-line, so lenses were remade from special transmitting glasses and synthetic silica.",
+  "item.semiconductor-lab.projection_lens_i.note4": "CD = k1 x lambda / NA. Shorter wavelength (436 -> 365 nm) and larger NA print finer, but tiny lens offsets now blur more (the same offset matters more at shorter wavelengths).",
+  "item.semiconductor-lab.projection_lens_i.placeholder": "Approximation: NA 0.7 (real i-line steppers were 0.5-0.65). The barrel's glass lenses count as replaced by CaF2 and silica.",
+  "item.semiconductor-lab.i_line_filter": "i-line Filter",
+  "item.semiconductor-lab.i_line_filter.note1": "A plate that passes only the ultraviolet i-line from a mercury lamp.",
+  "item.semiconductor-lab.i_line_filter.note2": "Synthetic quartz + 2 fluorite in the vacuum evaporator. In the stepper's top-right slot it makes an i-line stepper (needs an i-line projection lens).",
+  "item.semiconductor-lab.i_line_filter.note3": "Stacking dozens of thin films of different refractive index passes one set wavelength and reflects the rest (an interference filter).",
+  "item.semiconductor-lab.i_line_filter.note4": "A mercury lamp has the g-line (436 nm), h-line (405 nm) and i-line (365 nm); a filter picks just one. Using a single line also removes worries about color error in the lens (chromatic aberration)."
 }
