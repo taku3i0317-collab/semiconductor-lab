@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "semiconductor-lab:block/perkins_ice_machine",
+    "top": "semiconductor-lab:block/perkins_ice_machine_top",
+    "bottom": "semiconductor-lab:block/perkins_ice_machine_top"
+  }
+}

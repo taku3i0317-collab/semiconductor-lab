@@ -276,6 +276,8 @@ public final class Chemistry {
     public static final Item POLYACETYLENE_FILM    = Reg.item("polyacetylene_film");
     public static final Item DOPED_POLYACETYLENE   = Reg.item("doped_polyacetylene");
     public static final Item CONTINUITY_TESTER     = Reg.item("continuity_tester", com.taku3.semiconductorlab.item.ContinuityTesterItem::new, new Item.Properties().stacksTo(1));
+    // [3-22] の冷媒：エタノール2＋硫酸＋石英の蒸留器＋瓶 → ジエチルエーテル（1540 コルドゥス）（IMP3、O-019）
+    public static final Item DIETHYL_ETHER         = Reg.contained("diethyl_ether", Vessel.GLASS_BOTTLE);
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [2-43] 黄鉄鉱（IMP3）
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける

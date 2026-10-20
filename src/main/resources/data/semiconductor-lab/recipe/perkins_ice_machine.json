@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CPC",
+    "C C",
+    "III"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "P": "semiconductor-lab:hand_vacuum_pump",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:perkins_ice_machine",
+    "count": 1
+  }
+}

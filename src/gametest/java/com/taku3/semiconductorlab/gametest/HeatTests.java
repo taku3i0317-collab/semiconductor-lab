@@ -325,4 +325,23 @@ public class HeatTests extends LabTestBase {
         rec(a, Heat.ARC_FURNACE.block, "金属シリコン", L(io(Metallurgy.VEIN_QUARTZ, ArcFurnaceBlockEntity.QUARTZ_PER_RUN), alt(io(Items.CHARCOAL, ArcFurnaceBlockEntity.CARBON_PER_RUN), Items.COAL), perRuns(io(Power.GRAPHITE_ROD, 1), ArcFurnaceBlockEntity.RUNS_PER_ELECTRODE)),
             L(io(Metallurgy.METALLURGICAL_SILICON, 1)), ArcFurnaceBlockEntity.WATTS, ArcFurnaceBlockEntity.TICKS / 20.0, "SiO2 + 2C → Si + 2CO、純度98%");
     }
+
+    /** [3-22] 手回しの冷凍機（IMP3、O-019）：冷媒なしでは冷えない、水なしでは回らない、エーテル＋水で16回まわすと氷 */
+    @GameTest
+    public void perkinsIceMachine(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "diethyl_ether", Chemistry.ETHANOL) && recipeUses(h, "diethyl_ether", Chemistry.SULFURIC_ACID), "ethanol + H2SO4 -> ether");
+        floor(h, 3);
+        BlockPos rel = p(1, 1, 1); BlockPos pos = h.absolutePos(rel);
+        h.setBlock(rel, Heat.PERKINS_ICE_MACHINE);
+        var level = h.getLevel(); var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertTrue(com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.fill(level, pos, player, new ItemStack(net.minecraft.world.item.Items.WATER_BUCKET)), "water in");
+        for (int i = 0; i < 20; i++) com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.crank(level, pos, player);
+        h.assertTrue(player.getInventory().countItem(net.minecraft.world.item.Items.ICE) == 0, "no refrigerant -> no ice");
+        h.assertTrue(com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.fill(level, pos, player, new ItemStack(Chemistry.DIETHYL_ETHER)), "ether in");
+        boolean made = false;
+        for (int i = 0; i < com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.CRANKS; i++) made = com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.crank(level, pos, player);
+        h.assertTrue(made && player.getInventory().countItem(net.minecraft.world.item.Items.ICE) == 1, "16 turns -> ice");
+        h.assertFalse(level.getBlockState(pos).getValue(com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.WATER), "water used");
+        h.succeed();
+    }
 }

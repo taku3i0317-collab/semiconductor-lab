@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ethanol",
+    "semiconductor-lab:ethanol",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:quartz_still",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:diethyl_ether",
+    "count": 1
+  }
+}

@@ -1271,5 +1271,11 @@
   "message.semiconductor-lab.continuity_tester.on": "%s：豆電球がついた（約 %s）",
   "message.semiconductor-lab.continuity_tester.off": "%s：豆電球はつかない（約 %s）",
   "message.semiconductor-lab.continuity_tester.unknown": "%s：このテスターでははかれない",
-  "message.semiconductor-lab.continuity_tester.empty": "もう片方の手に、調べる物を持つ"
+  "message.semiconductor-lab.continuity_tester.empty": "もう片方の手に、調べる物を持つ",
+  "item.semiconductor-lab.diethyl_ether": "ジエチルエーテル",
+  "item.semiconductor-lab.diethyl_ether.note1": "すぐに蒸発する、においの強い液。とても燃えやすい。最初の冷凍機の冷媒。",
+  "item.semiconductor-lab.diethyl_ether.note2": "エタノール2（瓶は戻る）＋硫酸（瓶は戻る）＋石英の蒸留器（戻る）＋空のガラス瓶で作る。手回しの冷凍機の冷媒。⚠ GHS：引火性液体（区分1）・急性毒性（経口）・眠気。空気中で爆発性の過酸化物ができる。工業の材料としてだけ扱う。",
+  "item.semiconductor-lab.diethyl_ether.note3": "2C2H5OH → (C2H5)2O + H2O（硫酸が水を取る）。沸点 34.6℃ でとても蒸発しやすく、蒸発するときにまわりの熱を大きくうばう。",
+  "item.semiconductor-lab.diethyl_ether.note4": "1540年ごろドイツのコルドゥスが「ばん油の甘い油」として作った。1846年アメリカのモートンが手術の麻酔に使い、外科が大きく変わった。",
+  "item.semiconductor-lab.diethyl_ether.placeholder": "近似：条件は書かない（DESIGN）。"
 }

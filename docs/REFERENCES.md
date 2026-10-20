@@ -2658,6 +2658,19 @@
 - Wikipedia「Polyacetylene」：https://en.wikipedia.org/wiki/Polyacetylene
 - Wikipedia「Electrical resistivity and conductivity」（代表値）：https://en.wikipedia.org/wiki/Electrical_resistivity_and_conductivity
 
+## C45. 冷蔵庫は熱のポンプ（蒸気圧縮の冷凍サイクル）［3-22］
+**答え**：1834年、アメリカ生まれでロンドンにいたジェイコブ・パーキンスが、エーテルを圧縮して液にし、細い弁で圧力を下げて蒸発させ、その気化熱で冷やし、また圧縮する、閉じた回路の冷凍機の特許（英国特許6662号）を取った。機械工ジョン・ヘイグが作った試作機は少しの氷を作ったが、商売にはならなかった。この回路が今の冷蔵庫とエアコンの基本。よく「冷蔵庫はリンデ（1876）の発明」と言われるが、リンデはアンモニアで実用の機械にした人で、サイクル自体はパーキンスが先。
+
+- へえ①：冷蔵庫は冷たさを作る機械ではなく、中の熱を外へくみ出す「熱のポンプ」。
+- へえ②：アルコールをぬったら冷たく感じるのと同じ「気化熱」を使っている。
+- へえ③：最初の冷媒のエーテルは、手術の麻酔にも使われた燃えやすい液。
+- へえ④：冷蔵庫の裏が温かいのは、中からくみ出した熱を捨てているから。
+
+確かさ：パーキンス 1834・英国特許6662・ヘイグの試作機 ◎（TECH_TREE の本物欄、ASME）／リンデ 1876 ◎
+根拠：
+- Wikipedia「Jacob Perkins」/「Vapor-compression refrigeration」：https://en.wikipedia.org/wiki/Vapor-compression_refrigeration
+- ASME「Refrigeration history」
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

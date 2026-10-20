@@ -1,0 +1,9 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "semiconductor-lab:block/perkins_ice_machine"
+      }
+    }
+  ]
+}

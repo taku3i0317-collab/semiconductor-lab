@@ -1271,5 +1271,11 @@
   "message.semiconductor-lab.continuity_tester.on": "%s: the bulb lights (about %s)",
   "message.semiconductor-lab.continuity_tester.off": "%s: the bulb stays dark (about %s)",
   "message.semiconductor-lab.continuity_tester.unknown": "%s: this tester cannot measure it",
-  "message.semiconductor-lab.continuity_tester.empty": "Hold the thing to test in your other hand"
+  "message.semiconductor-lab.continuity_tester.empty": "Hold the thing to test in your other hand",
+  "item.semiconductor-lab.diethyl_ether": "Diethyl Ether",
+  "item.semiconductor-lab.diethyl_ether.note1": "A strong-smelling liquid that evaporates quickly. Very flammable. The refrigerant of the first refrigerator.",
+  "item.semiconductor-lab.diethyl_ether.note2": "2 ethanol (bottles returned) + sulfuric acid (bottle returned) + quartz still (returned) + empty glass bottle. Refrigerant for the hand-cranked ice machine. ⚠ GHS: flammable liquid (category 1), acute toxicity (oral), drowsiness. Forms explosive peroxides in air. Treated only as an industrial material.",
+  "item.semiconductor-lab.diethyl_ether.note3": "2C2H5OH -> (C2H5)2O + H2O (the sulfuric acid takes the water). It boils at 34.6 C, evaporates very easily and takes a lot of heat from its surroundings as it does.",
+  "item.semiconductor-lab.diethyl_ether.note4": "Cordus in Germany made it around 1540 as 'sweet oil of vitriol'. In 1846 Morton in the USA used it as a surgical anaesthetic, transforming surgery.",
+  "item.semiconductor-lab.diethyl_ether.placeholder": "Approximation: conditions are not described (DESIGN)."
 }

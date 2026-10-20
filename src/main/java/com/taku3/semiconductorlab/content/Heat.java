@@ -48,5 +48,9 @@ public final class Heat {
     public static final Machine<ArcFurnaceBlockEntity> ARC_FURNACE = Machine.electric("arc_furnace", ArcFurnaceBlockEntity::new, ArcFurnaceBlockEntity.LAYOUT, metal(4.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
+    // [3-22] 蒸気圧縮の冷凍サイクル（IMP3、O-019、1834 パーキンス）：手回しの冷凍機。冷媒（エーテル）＋水 → ハンドル16回で氷
+    public static final Block PERKINS_ICE_MACHINE = Reg.functional("perkins_ice_machine", PerkinsIceMachineBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(2.0f).sound(SoundType.COPPER));
+
     static void init() {}
 }
