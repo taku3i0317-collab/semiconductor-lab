@@ -11,7 +11,7 @@ import java.util.List;
  * 書きかえると新しい BitGrid を返す（データコンポーネントの中身は変えてはいけないので）。
  */
 public record BitGrid(int size, List<Long> bits) {
-    public static final int MIN = 4, MAX = 72;
+    public static final int MIN = 4, MAX = 148;   // EUV の方眼（S-008 で 72 → 148）
 
     public static final Codec<BitGrid> CODEC = RecordCodecBuilder.create(i -> i.group(
             Codec.intRange(MIN, MAX).fieldOf("size").forGetter(BitGrid::size),

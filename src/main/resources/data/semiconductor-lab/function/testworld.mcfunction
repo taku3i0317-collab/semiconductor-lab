@@ -262,7 +262,7 @@ setblock ~115 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semicondu
 setblock ~118 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-28] フェノール樹脂","ノボラック・ベークライ","トの見た目とツールチッ","プ、塩酸の瓶が戻るか、"]}}
 setblock ~118 ~-1 ~18 semiconductor-lab:test_power_source
 setblock ~118 ~0 ~18 semiconductor-lab:autoclave
-setblock ~119 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:novolac_mix",count:16},{Slot:1b,id:"semiconductor-lab:novolac",count:16},{Slot:2b,id:"semiconductor-lab:resol_mix",count:16},{Slot:3b,id:"semiconductor-lab:bakelite",count:16},{Slot:4b,id:"semiconductor-lab:foamy_bakelite",count:16},{Slot:5b,id:"minecraft:water_bucket",count:1},{Slot:6b,id:"semiconductor-lab:tetrafluoroethylene_gas",count:16}]}
+setblock ~119 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:novolac_mix",count:16},{Slot:1b,id:"semiconductor-lab:novolac",count:16},{Slot:2b,id:"semiconductor-lab:resol_mix",count:16},{Slot:3b,id:"semiconductor-lab:bakelite",count:16},{Slot:4b,id:"semiconductor-lab:foamy_bakelite",count:16},{Slot:5b,id:"minecraft:water_bucket",count:1},{Slot:6b,id:"semiconductor-lab:tetrafluoroethylene_gas",count:16},{Slot:7b,id:"semiconductor-lab:nylon_salt",count:16}]}
 setblock ~122 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-40] アセトン","アセトンの見た目とツー","ルチップ（GHS）",""]}}
 setblock ~122 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:acetone",count:16}]}
 setblock ~125 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-60] ポリビニルアル","6つのアイテムの見た目","とツールチップ（GHS","、水俣病の教訓の書き方"]}}

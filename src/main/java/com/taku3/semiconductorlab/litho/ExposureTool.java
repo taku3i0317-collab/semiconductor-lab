@@ -1,26 +1,27 @@
 package com.taku3.semiconductorlab.litho;
 
 /**
- * 露光の方法と、描ける方眼の大きさ（LITHO_DESIGN §3）。N＝8×(10µm÷CD)^(1/3) を 4 の倍数に丸めた値。
+ * 露光の方法と、描ける方眼の大きさ（LITHO_DESIGN §3）。N＝16×(10µm÷CD)^(1/3) を 4 の倍数に丸めた値。
+ * 係数は 8 → 16（S-008、Q16-1 案A ⚠️ゲームの値）：1961年のマイクロロジックは密着露光で数個のトランジスタを1チップに入れていたので、密着露光で2入力のゲートまで入るように。
  * 方眼の1マス＝その方法の最小線幅（CD）。大きすぎる（細かすぎる）マスクは焼けない。
  */
 public enum ExposureTool {
     /** 密着露光（[9-20]、水銀 g線、CD 約 10 µm） */
-    CONTACT_G(436, 10_000, 8),
+    CONTACT_G(436, 10_000, 16),
     /** 投影の等倍露光（1973 ⚠️、CD 約 3 µm） */
-    PROJECTION_1X(436, 3_000, 12),
+    PROJECTION_1X(436, 3_000, 24),
     /** g線ステッパー（[9-39]、CD 約 1 µm） */
-    STEPPER_G(436, 1_000, 16),
+    STEPPER_G(436, 1_000, 36),
     /** i線ステッパー（CD 約 0.35 µm） */
-    STEPPER_I(365, 350, 24),
+    STEPPER_I(365, 350, 48),
     /** KrF エキシマ（[7-20]、CD 約 0.13 µm） */
-    KRF(248, 130, 36),
+    KRF(248, 130, 68),
     /** ArF エキシマ（CD 約 65 nm） */
-    ARF(193, 65, 44),
+    ARF(193, 65, 84),
     /** ArF 液浸（[7-16]、CD 約 38 nm） */
-    ARF_IMMERSION(193, 38, 52),
+    ARF_IMMERSION(193, 38, 104),
     /** EUV（[9-40]、CD 約 13 nm） */
-    EUV(13.5, 13, 72);
+    EUV(13.5, 13, 148);
 
     /** 光の波長（nm） */
     public final double wavelengthNm;
@@ -33,7 +34,7 @@ public enum ExposureTool {
 
     /** CD から方眼の大きさを出す式（表の数はこの式で確かめる。GameTest） */
     public static int gridFor(double cdNm) {
-        double n = 8 * Math.cbrt(10_000.0 / cdNm);
+        double n = 16 * Math.cbrt(10_000.0 / cdNm);
         return (int) Math.round(n / 4.0) * 4;
     }
 }

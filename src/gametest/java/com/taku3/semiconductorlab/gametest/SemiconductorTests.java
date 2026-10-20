@@ -1128,8 +1128,8 @@ public class SemiconductorTests extends LabTestBase {
         ItemStack undoped = new ItemStack(Semiconductor.OXIDIZED_WAFER);
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.coat(undoped).reason(), "undoped", "undoped wafer");
         ItemStack coated = com.taku3.semiconductorlab.litho.ChipOps.coat(wafer).out();
-        var fine = new com.taku3.semiconductorlab.litho.MaskData(12, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(12), "", 0);
-        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(coated, fine, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).reason(), "too_fine", "12x12 mask with contact printing (8x8)");
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(20, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(20), "", 0);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(coated, fine, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).reason(), "too_fine", "20x20 mask with contact printing (16x16, S-008)");
         h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.expose(coated, fine, com.taku3.semiconductorlab.litho.ExposureTool.PROJECTION_1X).ok(), "12x12 mask with 1:1 projection");
         ItemStack exposed = com.taku3.semiconductorlab.litho.ChipOps.expose(coated, design.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
         ItemStack redo = com.taku3.semiconductorlab.litho.ChipOps.strip(exposed).out();
@@ -1165,22 +1165,27 @@ public class SemiconductorTests extends LabTestBase {
         var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.class);
         var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
         h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_NEW), "new sheet");
-        h.assertValueEqual(be.design().size(), 8, "8x8 for contact printing");
+        h.assertValueEqual(be.design().size(), 16, "16x16 for contact printing (S-008)");
         h.assertValueEqual(be.design().layers().size(), 5, "island, base, emitter, contacts, metal");
         // 例の設計図を、画面と同じボタンで塗る（層ごとに1筆）
         var ex = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
         for (int l = 0; l < ex.layers().size(); l++) {
             be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_STROKE);
             var cells = ex.layers().get(l).cells();
-            for (int y = 0; y < 8; y++) for (int x = 0; x < 8; x++) if (cells.get(x, y)) be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.paintId(true, l, y * 8 + x));
+            for (int y = 0; y < 8; y++) for (int x = 0; x < 8; x++) if (cells.get(x, y)) be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.paintId(true, l, y * 16 + x));   // 16×16 の紙の左上に（S-008）
         }
+        java.util.function.Function<com.taku3.semiconductorlab.litho.BitGrid, com.taku3.semiconductorlab.litho.BitGrid> on16 = g -> {   // 8×8 の例を 16×16 の左上に置いた形
+            var o = com.taku3.semiconductorlab.litho.BitGrid.empty(16);
+            for (int y = 0; y < 8; y++) for (int x = 0; x < 8; x++) if (g.get(x, y)) o = o.with(x, y, true);
+            return o;
+        };
         for (int l = 0; l < ex.layers().size(); l++)
-            h.assertTrue(be.design().layers().get(l).cells().equals(ex.layers().get(l).cells()), "layer " + l + " painted like the example");
+            h.assertTrue(be.design().layers().get(l).cells().equals(on16.apply(ex.layers().get(l).cells())), "layer " + l + " painted like the example");
         // 元に戻す（金属の1筆が消える）→ やり直す
         be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_UNDO);
         h.assertTrue(be.design().layers().get(4).cells().isEmpty(), "undo removes the last stroke (metal)");
         be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_REDO);
-        h.assertTrue(be.design().layers().get(4).cells().equals(ex.layers().get(4).cells()), "redo brings it back");
+        h.assertTrue(be.design().layers().get(4).cells().equals(on16.apply(ex.layers().get(4).cells())), "redo brings it back");
         // 消す（1マス）
         be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_STROKE);
         be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.paintId(false, 4, 0));
@@ -1191,13 +1196,13 @@ public class SemiconductorTests extends LabTestBase {
         var r = be.getContainer().getItem(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.SLOT_OUT);
         h.assertTrue(r.is(Semiconductor.RUBYLITH), "rubylith comes out");
         var mask = r.get(ModDataComponents.MASK);
-        h.assertTrue(mask.kind() == com.taku3.semiconductorlab.litho.LayerKind.CONTACT && mask.cells().equals(ex.layers().get(3).cells()) && mask.index() == 3, "mask = contact layer");
+        h.assertTrue(mask.kind() == com.taku3.semiconductorlab.litho.LayerKind.CONTACT && mask.cells().equals(on16.apply(ex.layers().get(3).cells())) && mask.index() == 3, "mask = contact layer");
         h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_CUT + 4), "the outlet is full");
         // 方眼の大きさを変える（白紙になる、元に戻せる）
         be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_SIZE + 1);
-        h.assertValueEqual(be.design().size(), 12, "12x12");
+        h.assertValueEqual(be.design().size(), com.taku3.semiconductorlab.block.DraftingTableBlockEntity.SIZES[1], "next size");
         be.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_UNDO);
-        h.assertValueEqual(be.design().size(), 8, "undo the size change");
+        h.assertValueEqual(be.design().size(), 16, "undo the size change");
         LOG.info("[LAB] drafting table: painted the 8x8 NOT example, undo/redo, cut the contact layer to rubylith");
         h.succeed();
     }
@@ -1803,6 +1808,45 @@ public class SemiconductorTests extends LabTestBase {
         h.assertValueEqual(com.taku3.semiconductorlab.item.DiamondScribeItem.scribe(marked, rnd).get(ModDataComponents.DIE_MAP), -1, "chips from a probed wafer are marked good");
         h.assertTrue(com.taku3.semiconductorlab.block.DicingSawBlockEntity.saw(marked, 3, rnd).getCount() <= 6, "the saw also drops inked chips");
         LOG.info("[LAB] wafer prober [9-35]: clean wafer 8/8 good, dirty wafer {} bad of 160, die map -> only good chips diced", bad);
+        h.succeed();
+    }
+
+    /**
+     * S-008（Q16-1 案A）：密着露光の方眼が 16×16 になり、2入力の NOR が本物のチップにできる。16×16 の NOR の例を密着露光で全部の工程に通し、
+     * 検査台と同じ役目（0V・電源・入力A/B・出力）で NOR のお題に合格。OR・AND には合わない（形がちがう）
+     */
+    @GameTest(maxTicks = 200)
+    public void norOnContact(GameTestHelper h) {
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G.grid, 16, "contact printing draws 16x16 (S-008)");
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.norGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        chip = com.taku3.semiconductorlab.litho.ChipOps.clean(chip, 0).out();   // 洗浄台のあと（大きなチップは汚れの漏れが効きやすい）
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(chip.get(ModDataComponents.CHIP_STATE)));
+        h.assertValueEqual(nl.transistors.size(), 2, "two transistors");
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        int n = nl.model.size;
+        java.util.function.BiConsumer<int[], com.taku3.semiconductorlab.litho.Circuit.Role> at = (xy, r) -> roles.put(nl.netOf[xy[1] * n + xy[0]], r);
+        at.accept(new int[] {0, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        at.accept(new int[] {11, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        at.accept(new int[] {6, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+        at.accept(new int[] {5, 15}, com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        at.accept(new int[] {7, 15}, com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        at.accept(new int[] {9, 15}, com.taku3.semiconductorlab.litho.Circuit.Role.IN_B);
+        h.assertValueEqual(roles.size(), 6, "six separate pads");
+        java.util.function.Function<String, com.taku3.semiconductorlab.litho.Challenge.Def> def = id -> com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals(id)).findFirst().orElseThrow();
+        for (int row = 0; row < 4; row++) {   // 行ごとの出力の電圧（記録）
+            var dr = new java.util.HashMap<Integer, Double>();
+            for (var e : roles.entrySet()) switch (e.getValue()) {
+                case GROUND -> dr.put(e.getKey(), 0.0); case VCC -> dr.put(e.getKey(), 5.0);
+                case IN_A -> dr.put(e.getKey(), (row & 2) != 0 ? 5.0 : 0.0); case IN_B -> dr.put(e.getKey(), (row & 1) != 0 ? 5.0 : 0.0); default -> {}
+            }
+            int outNet = nl.netOf[0 * n + 6];
+            LOG.info("[LAB] NOR row {}: out {} V", row, String.format("%.2f", com.taku3.semiconductorlab.litho.Circuit.solve(nl, dr).netVolts(nl, outNet)));
+        }
+        var r = com.taku3.semiconductorlab.litho.Challenge.check(def.apply("nor"), nl, roles, 1.0);
+        h.assertTrue(r.passed(), "the 16x16 NOR made by contact printing solves the NOR challenge: " + r);
+        h.assertFalse(com.taku3.semiconductorlab.litho.Challenge.check(def.apply("or"), nl, roles, 1.0).passed(), "it is not an OR");
+        LOG.info("[LAB] S-008: 16x16 RTL NOR through contact printing solves NOR ({} rows)", r.rows());
         h.succeed();
     }
 
