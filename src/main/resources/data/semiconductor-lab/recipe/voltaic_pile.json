@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CWC",
+    "CWC",
+    "CWC"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "W": "#minecraft:wool"
+  },
+  "result": {
+    "id": "semiconductor-lab:voltaic_pile",
+    "count": 1
+  }
+}

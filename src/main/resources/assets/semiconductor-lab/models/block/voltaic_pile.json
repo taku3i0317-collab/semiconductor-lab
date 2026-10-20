@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/voltaic_pile_front",
+    "side": "semiconductor-lab:block/voltaic_pile_side",
+    "top": "semiconductor-lab:block/voltaic_pile_top"
+  }
+}

@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 639（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 641（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -775,6 +775,10 @@ en_us lead_acid_battery lines=4
 en_us lead_acid_battery shift lines=21
 en_us steam_engine lines=3
 en_us steam_engine shift lines=12
+en_us voltaic_pile lines=8
+en_us voltaic_pile shift lines=17
+en_us daniell_cell lines=7
+en_us daniell_cell shift lines=16
 en_us electric_furnace lines=3
 en_us electric_furnace shift lines=13
 en_us copper_cable lines=3
@@ -2053,6 +2057,10 @@ ja_jp lead_acid_battery lines=3
 ja_jp lead_acid_battery shift lines=16
 ja_jp steam_engine lines=2
 ja_jp steam_engine shift lines=10
+ja_jp voltaic_pile lines=5
+ja_jp voltaic_pile shift lines=13
+ja_jp daniell_cell lines=5
+ja_jp daniell_cell shift lines=13
 ja_jp electric_furnace lines=2
 ja_jp electric_furnace shift lines=10
 ja_jp copper_cable lines=3

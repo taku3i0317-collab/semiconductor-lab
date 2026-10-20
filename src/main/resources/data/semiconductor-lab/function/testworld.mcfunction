@@ -358,39 +358,43 @@ setblock ~25 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~0 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹4 電気・動力","↓ この列","",""]}}
 setblock ~2 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-47] 天然磁石","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:magnet",count:16}]}
-setblock ~5 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-08] 電動モーター","（人間の確認項目なし）","",""]}}
-setblock ~5 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:electric_motor",count:16}]}
-setblock ~8 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-04] ダイナモ・天然","（人間の確認項目なし）","",""]}}
-setblock ~8 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:dynamo",count:16}]}
-setblock ~11 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-07] 鉛蓄電池","（人間の確認項目なし）","",""]}}
-setblock ~11 ~-1 ~34 semiconductor-lab:test_power_source
-setblock ~11 ~0 ~34 semiconductor-lab:lead_acid_battery
-setblock ~15 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-05] 自励式発電機","（人間の確認項目なし）","",""]}}
-setblock ~15 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:self_excited_dynamo",count:16}]}
-setblock ~18 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-01] 水車発電機","（人間の確認項目なし）","",""]}}
-setblock ~18 ~0 ~34 semiconductor-lab:water_wheel
-setblock ~22 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-34] 交流発電機","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~22 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:alternator",count:16}]}
-setblock ~25 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-14] 蒸気発電","（人間の確認項目なし）","",""]}}
-setblock ~25 ~0 ~34 semiconductor-lab:steam_engine
-setblock ~26 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
-setblock ~29 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-03] 銅ケーブル","（人間の確認項目なし）","",""]}}
-setblock ~29 ~0 ~34 semiconductor-lab:copper_cable
-setblock ~33 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-06] 蒸気タービン","（人間の確認項目なし）","",""]}}
-setblock ~33 ~0 ~34 semiconductor-lab:steam_turbine
-setblock ~34 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
-setblock ~37 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-10] 変圧器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~37 ~0 ~34 semiconductor-lab:transformer
-setblock ~41 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-35] 高圧送電","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~41 ~0 ~34 semiconductor-lab:high_voltage_line
-setblock ~45 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-12] 電気炉","電気炉の見た目（れんが","色、正面の窓が加熱中に","橙）、GUI（タイトル"]}}
-setblock ~45 ~-1 ~34 semiconductor-lab:test_power_source
-setblock ~45 ~0 ~34 semiconductor-lab:electric_furnace
-setblock ~46 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:2b,id:"semiconductor-lab:refractory_brick_blank",count:16}]}
-setblock ~49 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-11] 整流器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~49 ~0 ~34 semiconductor-lab:rectifier
-setblock ~53 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-09] 高周波発振器","レシピ本で帯域精製炉の","右下が「高周波発振器」","になっている。発振器・"]}}
-setblock ~53 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:induction_coil",count:16},{Slot:1b,id:"semiconductor-lab:hf_oscillator",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16}]}
+setblock ~5 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-13] ボルタ電池","画面（出力・亜鉛の残り","・分極の知らせ）、銅ケ","ーブルで機械（電解槽な"]}}
+setblock ~5 ~0 ~34 semiconductor-lab:voltaic_pile
+setblock ~9 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-08] 電動モーター","（人間の確認項目なし）","",""]}}
+setblock ~9 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:electric_motor",count:16}]}
+setblock ~12 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-04] ダイナモ・天然","（人間の確認項目なし）","",""]}}
+setblock ~12 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:dynamo",count:16}]}
+setblock ~15 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-07] 鉛蓄電池","（人間の確認項目なし）","",""]}}
+setblock ~15 ~-1 ~34 semiconductor-lab:test_power_source
+setblock ~15 ~0 ~34 semiconductor-lab:lead_acid_battery
+setblock ~19 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-05] 自励式発電機","（人間の確認項目なし）","",""]}}
+setblock ~19 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:self_excited_dynamo",count:16}]}
+setblock ~22 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-01] 水車発電機","（人間の確認項目なし）","",""]}}
+setblock ~22 ~0 ~34 semiconductor-lab:water_wheel
+setblock ~26 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-34] 交流発電機","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~26 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:alternator",count:16}]}
+setblock ~29 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-14] 蒸気発電","（人間の確認項目なし）","",""]}}
+setblock ~29 ~0 ~34 semiconductor-lab:steam_engine
+setblock ~30 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
+setblock ~33 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-03] 銅ケーブル","（人間の確認項目なし）","",""]}}
+setblock ~33 ~0 ~34 semiconductor-lab:copper_cable
+setblock ~37 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-06] 蒸気タービン","（人間の確認項目なし）","",""]}}
+setblock ~37 ~0 ~34 semiconductor-lab:steam_turbine
+setblock ~38 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
+setblock ~41 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-10] 変圧器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~41 ~0 ~34 semiconductor-lab:transformer
+setblock ~45 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-35] 高圧送電","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~45 ~0 ~34 semiconductor-lab:high_voltage_line
+setblock ~49 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-12] 電気炉","電気炉の見た目（れんが","色、正面の窓が加熱中に","橙）、GUI（タイトル"]}}
+setblock ~49 ~-1 ~34 semiconductor-lab:test_power_source
+setblock ~49 ~0 ~34 semiconductor-lab:electric_furnace
+setblock ~50 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:2b,id:"semiconductor-lab:refractory_brick_blank",count:16}]}
+setblock ~53 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-11] 整流器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~53 ~0 ~34 semiconductor-lab:rectifier
+setblock ~57 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-09] 高周波発振器","レシピ本で帯域精製炉の","右下が「高周波発振器」","になっている。発振器・"]}}
+setblock ~57 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:induction_coil",count:16},{Slot:1b,id:"semiconductor-lab:hf_oscillator",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16}]}
+setblock ~60 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-36] ダニエル電池","画面（出力・亜鉛の残り","・分極の知らせ）、銅ケ","ーブルで機械（電解槽な"]}}
+setblock ~60 ~0 ~34 semiconductor-lab:daniell_cell
 setblock ~0 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹5 真空","↓ この列","",""]}}
 setblock ~2 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-01] 真空ポンプ →","容器の隣でポンプを素手","で右クリック → アク","ションバーに「シュッ…"]}}
 setblock ~2 ~0 ~42 semiconductor-lab:hand_vacuum_pump

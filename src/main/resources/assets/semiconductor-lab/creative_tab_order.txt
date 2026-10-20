@@ -376,6 +376,7 @@ arc_furnace  # Heat [3-15] 1892
 synthetic_graphite  # Heat [3-10] 1896
 acheson_furnace  # Heat [3-10] 1896
 magnet  # Power [1-47] -600
+voltaic_pile  # Power [4-13] 1800
 electric_motor  # Power [4-08] 1821
 dynamo  # Power [4-04] 1831
 lead_acid_battery  # Power [4-07] 1859
@@ -393,6 +394,7 @@ rectifier  # Power [4-11] 1902
 induction_coil  # Power [4-09] 1913
 hf_oscillator  # Power [4-09] 1913
 leyden_jar  # Power [4-09] 1913
+daniell_cell  # Power [4-36] None
 hand_vacuum_pump  # Vacuum [5-01] 1650
 vacuum_chamber  # Vacuum [5-11] 1850
 sprengel_pump  # Vacuum [5-15] 1865

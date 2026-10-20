@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:daniell_cell"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.daniell_cell"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.daniell_cell.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.daniell_cell.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:daniell_cell"
+          }
+        ]
+      }
+    }
+  }
+}

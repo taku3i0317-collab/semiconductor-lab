@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GCG",
+    "GPG",
+    "GGG"
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "C": "minecraft:copper_ingot",
+    "P": "semiconductor-lab:earthenware_pot"
+  },
+  "result": {
+    "id": "semiconductor-lab:daniell_cell",
+    "count": 1
+  }
+}

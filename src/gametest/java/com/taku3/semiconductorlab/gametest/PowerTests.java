@@ -598,4 +598,34 @@ public class PowerTests extends LabTestBase {
         rec(a, Power.LEAD_ACID_BATTERY.block, "電気をためる", L(io("電気", 1)), L(cond(io("電気", 1), (com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY / 1_000_000) + " MJ まで、充電は "
             + com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CHARGE_EFFICIENCY_PERCENT + "% がたまる")), com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.MAX_WATTS, 0, "充電・放電とも最大の電力");
     }
+
+    /** [4-13] ボルタ・[4-36] ダニエル（IMP3、S-005）：亜鉛と液がないと出ない。ボルタは使うほど下がる（分極）、ダニエルは一定。亜鉛と液を1つずつ使う */
+    @GameTest(maxTicks = 100)
+    public void chemicalCells(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos vp = p(1, 1, 1), dp = p(3, 1, 1);
+        h.setBlock(vp, Power.VOLTAIC_PILE.block);
+        h.setBlock(dp, Power.DANIELL_CELL.block);
+        var v = h.getBlockEntity(vp, com.taku3.semiconductorlab.block.ChemicalCellBlockEntity.class);
+        var d = h.getBlockEntity(dp, com.taku3.semiconductorlab.block.ChemicalCellBlockEntity.class);
+        var lv = h.getLevel();
+        com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(vp), lv.getBlockState(h.absolutePos(vp)), v);
+        h.assertTrue(v.getLastWatts() == 0, "no zinc -> no current");
+        v.getContainer().setItem(0, new ItemStack(Metallurgy.ZINC_INGOT, 2)); v.getContainer().setItem(1, new ItemStack(Gas.SALT, 2));
+        d.getContainer().setItem(0, new ItemStack(Metallurgy.ZINC_INGOT, 2)); d.getContainer().setItem(1, new ItemStack(Chemistry.COPPER_SULFATE, 2));
+        com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(vp), lv.getBlockState(h.absolutePos(vp)), v);
+        com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(dp), lv.getBlockState(h.absolutePos(dp)), d);
+        double v0 = v.getLastWatts(), d0 = d.getLastWatts();
+        h.assertTrue(v0 > 4.9 && d0 > 9.9, "both start: volta " + v0 + " W, daniell " + d0 + " W");
+        h.assertValueEqual(v.getContainer().getItem(0).getCount(), 1, "one zinc in use");
+        for (int i = 0; i < 1200; i++) {
+            com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(vp), lv.getBlockState(h.absolutePos(vp)), v);
+            com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(dp), lv.getBlockState(h.absolutePos(dp)), d);
+        }
+        h.assertTrue(v.getLastWatts() < v0 * 0.5, "volta polarizes: " + v0 + " -> " + v.getLastWatts() + " W");
+        h.assertTrue(Math.abs(d.getLastWatts() - d0) < 0.01, "daniell stays steady: " + d.getLastWatts() + " W");
+        h.assertFalse(v.supportsAlternator() || v.supportsDynamoUpgrade(), "cells do not rotate: no alternator, no dynamo");
+        LOG.info("[LAB] chemical cells [4-13][4-36]: no zinc -> 0 W; volta " + v0 + " -> " + v.getLastWatts() + " W (polarization); daniell steady " + d.getLastWatts() + " W");
+        h.succeed();
+    }
 }

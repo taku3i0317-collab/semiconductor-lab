@@ -48,6 +48,11 @@ public final class Power {
             .block(LeadAcidBatteryBlock::new).ticker(LeadAcidBatteryBlockEntity::tick).energy((be, dir) -> be.storageFor(dir))   // 全面で充放電（タスク06）
             .props(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2.5f).sound(SoundType.GLASS)).build();
     public static final Machine<SteamEngineBlockEntity> STEAM_ENGINE = Power.generator("steam_engine", SteamEngineBlockEntity::new, metal(3.5f)).layout(SteamEngineBlockEntity.LAYOUT).build();
+
+    // [4-13] ボルタの電堆・[4-36] ダニエル電池（IMP3、S-005、A と決めた形：発電機、直流）：亜鉛＋塩水（ボルタ、分極で下がる）／亜鉛＋硫酸銅（ダニエル、一定）
+    public static final net.minecraft.world.item.Item ZINC_SOURCE = Metallurgy.ZINC_INGOT;
+    public static final Machine<ChemicalCellBlockEntity> VOLTAIC_PILE = Power.generator("voltaic_pile", (pos, st) -> new ChemicalCellBlockEntity(ChemicalCellBlockEntity.Kind.VOLTA, pos, st), metal(1.5f)).layout(ChemicalCellBlockEntity.VOLTA_LAYOUT).build();
+    public static final Machine<ChemicalCellBlockEntity> DANIELL_CELL = Power.generator("daniell_cell", (pos, st) -> new ChemicalCellBlockEntity(ChemicalCellBlockEntity.Kind.DANIELL, pos, st), metal(1.5f)).layout(ChemicalCellBlockEntity.DANIELL_LAYOUT).build();
     // 電気炉 [4-12]（耐火れんがの箱＋黒鉛棒の発熱体。抵抗加熱で約1500℃）。加熱中は光る
     public static final Machine<ElectricFurnaceBlockEntity> ELECTRIC_FURNACE = Machine.electric("electric_furnace", ElectricFurnaceBlockEntity::new, ElectricFurnaceBlockEntity.LAYOUT, lit(stone(3.5f), 12));
     // 銅ケーブル（v0.2a）。受け口を持たない（タスク06：導体。CableNetwork がまとめて配電する）
