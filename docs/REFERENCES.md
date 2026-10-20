@@ -1380,6 +1380,21 @@
 - Wikipedia「Photolithography」：https://en.wikipedia.org/wiki/Photolithography
 - Wikipedia「Overlay control」：https://en.wikipedia.org/wiki/Overlay_control
 
+## O46. 色の元素を取り出す（クロムとテルミット）［1-40］［2-07］
+**答え**：クロム鉄鉱をソーダと空気で焼くと、水に溶けるクロム酸ナトリウム（6価、黄）になる。酸を加えると重クロム酸（オレンジ）、熱で分解すると緑の酸化クロム(III)。これをアルミの粉と反応させると、アルミが酸素を奪う大きな熱でクロムが溶けて出てくる（テルミット法、1894〜95 ゴルトシュミット）。クロムは1797年ヴォークランが発見し、色とりどりの化合物から「色」と名づけられた。
+
+- へえ①：クロムの名前はギリシャ語の「色」。黄・オレンジ・緑と、価数で色が変わる。
+- へえ②：テルミットは今も、線路のレールを現場で溶接するのに使われる。
+- へえ③：6価クロムは発がん性があり、日本では1975年にクロム化合物の工場の鉱さいによる土の汚染と、働いた人の健康被害が社会問題になった。
+- へえ④：IC のマスクは、石英に 0.1µm ほどのクロムを付けて作る。
+
+確かさ：ヴォークラン 1797 ◎／ゴルトシュミット 1894〜95・DRP 96317 ◎／ソーダ焙焼の反応式 ◎／1975 の六価クロム鉱さい問題 ○／6価クロムの発がん性（IARC グループ1）◎
+根拠：
+- Wikipedia「Chromium」：https://en.wikipedia.org/wiki/Chromium
+- Wikipedia「Goldschmidt process」：https://en.wikipedia.org/wiki/Goldschmidt_process
+- Wikipedia「Sodium chromate」：https://en.wikipedia.org/wiki/Sodium_chromate
+- Wikipedia「Hexavalent chromium」：https://en.wikipedia.org/wiki/Hexavalent_chromium
+
 ---
 
 # 冶金と熱（タスク15〜）

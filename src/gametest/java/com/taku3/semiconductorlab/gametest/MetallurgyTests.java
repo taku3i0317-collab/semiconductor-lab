@@ -81,6 +81,22 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class MetallurgyTests extends LabTestBase {
+    /** [1-40] クロム・[2-07] 重クロム酸カリウム（IMP2 O-015）：ソーダ焙焼 → 酸性化 → 熱で分解して Cr2O3 → アルミでテルミット還元 */
+    @GameTest
+    public void chromium(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "chromite_roast_charge", Metallurgy.CHROMITE) && recipeUses(h, "chromite_roast_charge", Chemistry.SODIUM_CARBONATE), "soda roast charge");
+        ItemStack chromate = cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.CHROMITE_ROAST_CHARGE);
+        h.assertTrue(chromate.is(Metallurgy.SODIUM_CHROMATE) && chromate.getCount() == 2, "oxidizing roast -> sodium chromate");
+        h.assertTrue(recipeUses(h, "potassium_dichromate", Chemistry.SULFURIC_ACID) && recipeUses(h, "potassium_dichromate", Chemistry.POTASH), "acidify + potassium -> K2Cr2O7");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.POTASSIUM_DICHROMATE).is(Metallurgy.CHROMIUM_OXIDE), "dichromate decomposes on heating -> Cr2O3");
+        h.assertTrue(recipeUses(h, "thermite_charge", Metallurgy.ALUMINIUM_INGOT) && recipeUses(h, "thermite_charge", Metallurgy.CLAY_CRUCIBLE), "Cr2O3 + 2 Al in a crucible");
+        ItemStack cr = cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.THERMITE_CHARGE);
+        h.assertTrue(cr.is(Metallurgy.CHROMIUM) && cr.getCount() == 2, "Cr2O3 + 2Al -> 2Cr + Al2O3");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.CHROMITE).isEmpty(), "chromite cannot be smelted straight to chromium");
+        LOG.info("[LAB] chromium [1-40][2-07]: chromite + soda + lime -> roast -> Na2CrO4 -> + H2SO4 + K2CO3 -> K2Cr2O7 -> heat -> Cr2O3 -> + 2 Al -> 2 Cr");
+        h.succeed();
+    }
+
     /** [1-11] るつぼ鋼（IMP2 O-010）：粘土＋焼粉 → るつぼ（溶鉱炉で焼く）→ るつぼ＋鍛鉄×2＋木炭 → 溶鉱炉で溶かす → るつぼ鋼×2（るつぼは割る） */
     @GameTest
     public void crucible_steel(GameTestHelper h) {
@@ -108,6 +124,7 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreMalachite(GameTestHelper h)  { oreFeature(h, "malachite_ore", Blocks.STONE, Blocks.DIRT, Metallurgy.MALACHITE_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreCassiterite(GameTestHelper h) { oreFeature(h, "cassiterite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.CASSITERITE_ORE, s -> s.is(Blocks.GRANITE)); }
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
+    @GameTest public void oreChromite(GameTestHelper h)   { oreFeature(h, "chromite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.CHROMITE_ORE, st -> st.is(Blocks.DEEPSLATE)); }   // [1-40] IMP2 O-015
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
 
     /** [1-18] 白金の精製（IMP4-01）：NH4Cl、王水で溶かす（瓶が戻る）、沈殿、焼いて海綿、圧粉を溶鉱炉で → インゴット（c:ingots/platinum） */
@@ -612,7 +629,7 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore", "chromite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));

@@ -55,6 +55,8 @@ public final class Chemistry {
     public static final Item WOOD_ASH              = Reg.item("wood_ash");          // 木灰（K2CO3 などを含む）
     public static final Item LYE                   = Reg.item("lye", new Item.Properties().stacksTo(16)); // 灰汁（木灰の上澄み）
     public static final Item POTASH                = Reg.item("potash");            // 炭酸カリウム K2CO3
+    // [2-07] 重クロム酸カリウム K2Cr2O7（IMP2 O-015、[1-40] クロムの前提として C が作った）：クロム酸ナトリウム＋硫酸（酸性化）＋炭酸カリウム
+    public static final Item POTASSIUM_DICHROMATE  = Reg.item("potassium_dichromate");
     // [2-04] 海藻灰ソーダとヨウ素（IMP2、S-002）：乾燥昆布 →たき火→ 海藻灰 ×4＋水 → 浸出液 →かまど→ 炭酸ナトリウム（不純）、浸出液＋硫酸 → ヨウ素（クールトア 1811）
     public static final Item KELP_ASH              = Reg.item("kelp_ash");          // 海藻灰（ケルプ）
     public static final Item KELP_LIQUOR           = Reg.item("kelp_liquor", new Item.Properties().stacksTo(16)); // 海藻灰の浸出液（ヨウ化物をふくむ）

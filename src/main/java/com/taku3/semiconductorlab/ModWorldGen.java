@@ -19,7 +19,7 @@ public class ModWorldGen {
             MAGNETITE_ORE = key("magnetite_ore"), WOLFRAMITE_ORE = key("wolframite_ore"), GALENA_ORE = key("galena_ore"), STIBNITE_ORE = key("stibnite_ore"), IRON_SAND = key("iron_sand"),
             TRONA_DEPOSIT = key("trona_deposit"), ROCK_SALT_ORE = key("rock_salt_ore"), BORAX_DEPOSIT = key("borax_deposit"), QUARTZ_VEIN = key("quartz_vein"),
             MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"),
-            FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"),
+            FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"), CHROMITE_ORE = key("chromite_ore"),
             NITRE_EARTH = key("nitre_earth_block"),
             NATURAL_ASPHALT = key("natural_asphalt"),
             RUBBER_TREES = key("rubber_trees");
@@ -47,6 +47,8 @@ public class ModWorldGen {
             new OreRule(NITRE_EARTH, BiomeSelectors.includeByKey(Biomes.DRIPSTONE_CAVES)),
             // [1-21] 蛍石（IMP4-01）：方鉛鉱と同じ帯（熱水鉱脈で方鉛鉱・閃亜鉛鉱といっしょに出る）。方鉛鉱より少ない
             new OreRule(FLUORITE_ORE, BiomeSelectors.foundInOverworld()),
+            // [1-40] クロム鉄鉱（IMP2 O-015）：かんらん岩・蛇紋岩（マントルから来た岩）の近似として、深い深層岩だけを置き換える
+            new OreRule(CHROMITE_ORE, BiomeSelectors.foundInOverworld()),
             // [1-24] ボーキサイト（IMP4-01）：ジャングル・サバンナだけ（熱帯で岩が風化して残った土）。地表近くの土・石を置き換える
             new OreRule(BAUXITE_ORE, BiomeSelectors.tag(BiomeTags.IS_JUNGLE).or(BiomeSelectors.tag(BiomeTags.IS_SAVANNA))),
             // 砂鉄：浜辺だけ（漂砂鉱床）

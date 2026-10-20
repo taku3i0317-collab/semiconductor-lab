@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:potassium_dichromate",
+  "result": {
+    "id": "semiconductor-lab:chromium_oxide"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

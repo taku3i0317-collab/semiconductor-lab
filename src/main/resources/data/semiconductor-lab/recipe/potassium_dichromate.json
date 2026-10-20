@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sodium_chromate",
+    "semiconductor-lab:sodium_chromate",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:potash"
+  ],
+  "result": {
+    "id": "semiconductor-lab:potassium_dichromate",
+    "count": 1
+  }
+}

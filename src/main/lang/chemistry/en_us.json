@@ -805,5 +805,11 @@
   "item.semiconductor-lab.polyvinyl_cinnamate.note2": "Polyvinyl alcohol + 2 cinnamoyl chloride. Material for the negative photoresist ([2-30], E's process).",
   "item.semiconductor-lab.polyvinyl_cinnamate.note3": "UV makes the C=C of the many cinnamate groups on the chain join with cinnamate on a neighbouring chain into a four-carbon ring ([2+2] dimerization). The chains become bridged, so lit areas no longer dissolve in solvent: a negative resist.",
   "item.semiconductor-lab.polyvinyl_cinnamate.note4": "KPR, the photoresist made by Minsk and colleagues at Kodak in the 1950s, was used to pattern the earliest transistors and ICs ⚠️. Later, cyclized rubber + bis-azide resists took over. (Bis-azides explode easily with shock or heat, so this game does not make them and uses the earlier KPR instead.)",
-  "item.semiconductor-lab.polyvinyl_cinnamate.placeholder": "Approximation: pyridine (reaction solvent and base) is omitted. Sensitizers that raise the speed are handled in E's process."
+  "item.semiconductor-lab.polyvinyl_cinnamate.placeholder": "Approximation: pyridine (reaction solvent and base) is omitted. Sensitizers that raise the speed are handled in E's process.",
+  "item.semiconductor-lab.potassium_dichromate": "Potassium Dichromate",
+  "item.semiconductor-lab.potassium_dichromate.note1": "Bright orange crystals. Very harmful (hexavalent chromium).",
+  "item.semiconductor-lab.potassium_dichromate.note2": "2 sodium chromate + sulfuric acid (bottle returns) + potassium carbonate. Heated in a furnace it decomposes to chromium(III) oxide. ⚠ GHS: oxidizing, acute toxicity, skin corrosion, respiratory and skin sensitization, carcinogenicity (category 1B), mutagenicity, reproductive toxicity, aquatic hazard. Handled only as an industrial material.",
+  "item.semiconductor-lab.potassium_dichromate.note3": "Adding acid joins two yellow chromate ions into orange dichromate (2CrO4²⁻ + 2H⁺ -> Cr2O7²⁻ + H2O). The potassium salt dissolves poorly, so it crystallizes out easily.",
+  "item.semiconductor-lab.potassium_dichromate.note4": "Mixed into gelatin, dichromate hardens where light falls (dichromated gelatin [2-31], an ancestor of photoengraving). A strong oxidizer once used for cleaning lab glassware (chromic acid), now avoided because of its toxicity.",
+  "item.semiconductor-lab.potassium_dichromate.placeholder": "Approximation: really made by double decomposition of sodium dichromate with potassium chloride (potassium carbonate stands in here)."
 }

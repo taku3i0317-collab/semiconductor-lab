@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:chromium_oxide",
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:clay_crucible"
+  ],
+  "result": {
+    "id": "semiconductor-lab:thermite_charge",
+    "count": 1
+  }
+}

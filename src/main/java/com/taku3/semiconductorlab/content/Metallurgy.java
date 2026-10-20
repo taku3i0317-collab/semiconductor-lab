@@ -49,6 +49,13 @@ public final class Metallurgy {
     public static final Item FLUORITE              = Reg.item("fluorite");         // [1-21] 蛍石 CaF2（IMP4-01、[2-10] フッ酸の原料。方鉛鉱・閃亜鉛鉱と同じ熱水鉱脈）
     public static final Item COKE                  = Reg.item("coke");             // [1-10] コークス（IMP4-01：[2-20] ガス工場のレトルトで石炭を乾留した残り。高炉での使い道は [1-10] で）
     public static final Item BAUXITE               = Reg.item("bauxite");          // [1-24] ボーキサイト（IMP4-01、アルミの原料。熱帯の風化残留土＝ジャングル・サバンナの地表近く）
+    // [1-40] クロム（IMP2 O-015）：クロム鉄鉱 FeCr2O4 → ソーダ焙焼 → クロム酸ナトリウム → [2-07] 重クロム酸カリウム → 熱で分解 → Cr2O3 → アルミでテルミット還元
+    public static final Item CHROMITE              = Reg.item("chromite");          // クロム鉄鉱（かんらん岩・蛇紋岩の近似＝深層岩の中）
+    public static final Item CHROMITE_ROAST_CHARGE = Reg.item("chromite_roast_charge"); // クロム鉄鉱＋炭酸ナトリウム＋生石灰（焙焼の前）
+    public static final Item SODIUM_CHROMATE       = Reg.item("sodium_chromate");   // クロム酸ナトリウム Na2CrO4（6価クロム）
+    public static final Item CHROMIUM_OXIDE        = Reg.item("chromium_oxide");    // 酸化クロム(III) Cr2O3（緑）
+    public static final Item THERMITE_CHARGE       = Reg.item("thermite_charge");   // Cr2O3＋アルミ粉をるつぼに入れた物（工業の還元用）
+    public static final Item CHROMIUM              = Reg.item("chromium");          // 金属クロム
     // [1-14] バイヤー法（IMP4-01）：水酸化アルミニウム →かまど→ アルミナ。赤泥は残りかす（強いアルカリ）
     public static final Item ALUMINIUM_HYDROXIDE   = Reg.item("aluminium_hydroxide");
     public static final Item ALUMINA               = Reg.item("alumina");
@@ -147,6 +154,7 @@ public final class Metallurgy {
     public static final Block STIBNITE_ORE   = Reg.ore("stibnite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.5f, 3.0f).sound(SoundType.STONE));   // [1-43] 輝安鉱（方鉛鉱と同じ熱水鉱脈の帯）
     public static final Block FLUORITE_ORE   = Reg.ore("fluorite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     public static final Block BAUXITE_ORE    = Reg.ore("bauxite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().strength(1.5f, 3.0f).sound(SoundType.GRAVEL));
+    public static final Block CHROMITE_ORE   = Reg.ore("chromite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.DEEPSLATE));
     // [2-03] トロナ堆積（干上がった塩湖の蒸発岩 Na2CO3·NaHCO3·2H2O）。砂漠の地表〜浅い地下の砂・砂岩に生成。軟らかい（モース硬度 2.5〜3）
     public static final Block BORAX_DEPOSIT  = Reg.ore("borax_deposit", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.0f).sound(SoundType.STONE));   // [1-33] ホウ砂（砂漠の塩湖の蒸発岩）
 

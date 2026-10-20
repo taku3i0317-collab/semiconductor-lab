@@ -81,6 +81,13 @@ clay_crucible  # Metallurgy [1-11] 1740
 crucible_charge  # Metallurgy [1-11] 1740
 crucible_steel  # Metallurgy [1-11] 1740
 platinum_grain  # Metallurgy [1-20] 1748
+chromite  # Metallurgy [1-40] 1797
+chromite_roast_charge  # Metallurgy [1-40] 1797
+sodium_chromate  # Metallurgy [1-40] 1797
+chromium_oxide  # Metallurgy [1-40] 1797
+thermite_charge  # Metallurgy [1-40] 1797
+chromium  # Metallurgy [1-40] 1797
+chromite_ore  # Metallurgy [1-40] 1797
 ammonium_chloroplatinate  # Metallurgy [1-18] 1800
 platinum_sponge  # Metallurgy [1-18] 1800
 platinum_compact  # Metallurgy [1-18] 1800
@@ -160,6 +167,7 @@ ammoniacal_liquor  # Chemistry [2-20] 1792
 gas_retort  # Chemistry [2-20] 1792
 alumina_catalyst_tube  # Chemistry [2-36] 1795
 ethylene_gas  # Chemistry [2-36] 1795
+potassium_dichromate  # Chemistry [2-07] 1797
 ammonium_chloride  # Chemistry [1-18] 1800
 chloroplatinic_acid  # Chemistry [1-18] 1800
 hydrogen_peroxide  # Chemistry [2-19] 1818
