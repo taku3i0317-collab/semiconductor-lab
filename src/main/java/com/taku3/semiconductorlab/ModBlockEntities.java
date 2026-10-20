@@ -28,6 +28,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<BessemerConverterBlockEntity> BESSEMER_CONVERTER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("bessemer_converter"), FabricBlockEntityTypeBuilder.create(BessemerConverterBlockEntity::new, ModBlocks.BESSEMER_CONVERTER).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.block.SaltPanBlockEntity> SALT_PAN = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("salt_pan"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.SaltPanBlockEntity::new, ModBlocks.SALT_PAN).build());
     public static final BlockEntityType<HydrogenFurnaceBlockEntity> HYDROGEN_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("hydrogen_furnace"), FabricBlockEntityTypeBuilder.create(HydrogenFurnaceBlockEntity::new, ModBlocks.HYDROGEN_FURNACE).build());
+    public static final BlockEntityType<com.taku3.semiconductorlab.block.AirSeparationBlockEntity> AIR_SEPARATION = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("air_separation_unit"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.AirSeparationBlockEntity::new, ModBlocks.AIR_SEPARATION_UNIT).build());
     public static final BlockEntityType<CompressorBlockEntity> COMPRESSOR = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("compressor"), FabricBlockEntityTypeBuilder.create(CompressorBlockEntity::new, ModBlocks.COMPRESSOR).build());
     public static final BlockEntityType<VacuumChamberBlockEntity> VACUUM_CHAMBER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("vacuum_chamber"), FabricBlockEntityTypeBuilder.create(VacuumChamberBlockEntity::new, ModBlocks.VACUUM_CHAMBER).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.block.SprengelPumpBlockEntity> SPRENGEL_PUMP = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("sprengel_pump"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.SprengelPumpBlockEntity::new, ModBlocks.SPRENGEL_PUMP).build());
@@ -51,6 +52,7 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), BESSEMER_CONVERTER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), HYDROGEN_FURNACE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), COMPRESSOR);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), AIR_SEPARATION);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), SEALING_STATION);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ELECTRIC_FURNACE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ACHESON_FURNACE);

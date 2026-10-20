@@ -76,6 +76,11 @@ public class ModItems {
     public static final Item CHLORINE_GAS          = simple("chlorine_gas");      // 塩素（黄緑色の有毒な気体）。1袋＝約1mol
     public static final Item CHLORINE_CYLINDER     = register("chlorine_cylinder", Item::new, new Item.Properties().stacksTo(16)); // 塗色は黄（日本の規格）
     public static final Item SODIUM_HYDROXIDE      = simple("sodium_hydroxide");  // 水酸化ナトリウム NaOH（苛性ソーダ）
+    // [6-07] 空気分離（リンデ）：空気 → N2 78% ＋ O2 21% ＋ Ar 0.93%
+    public static final Item NITROGEN_GAS          = simple("nitrogen_gas");      // 窒素 N2。1袋＝約1mol
+    public static final Item ARGON_GAS             = simple("argon_gas");         // アルゴン Ar。1袋＝約1mol
+    public static final Item NITROGEN_CYLINDER     = register("nitrogen_cylinder", Item::new, new Item.Properties().stacksTo(16)); // 塗色はねずみ色（日本の規格「その他のガス」）
+    public static final Item ARGON_CYLINDER        = register("argon_cylinder", Item::new, new Item.Properties().stacksTo(16));    // 同じくねずみ色
 
     // --- 冶金（[1-26]）---
     public static final Item STEEL_INGOT           = simple("steel_ingot");   // ベッセマー転炉の鋼（C 約0.1〜0.5%）
@@ -140,7 +145,7 @@ public class ModItems {
             GERMANIUM_DIOXIDE, CRUDE_GERMANIUM_TETRACHLORIDE, GERMANIUM_TETRACHLORIDE, HIGH_PURITY_GERMANIUM_DIOXIDE, QUARTZ_STILL, RAW_GERMANIUM, REFINED_GERMANIUM,
             N_TYPE_GERMANIUM, P_TYPE_GERMANIUM,
             GRAPHITE_BOAT_BLANK, GRAPHITE_BOAT, SYNTHETIC_GRAPHITE_BOAT, FUSED_QUARTZ, QUARTZ_TUBE, INDUCTION_COIL, LEAD_SCREW, ELECTRIC_MOTOR, HF_OSCILLATOR, LEYDEN_JAR, MAGNET, DYNAMO, SELF_EXCITED_DYNAMO,
-            HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER, CHLORINE_GAS, CHLORINE_CYLINDER, SODIUM_HYDROXIDE,
+            HYDROGEN_GAS, OXYGEN_GAS, EMPTY_GAS_CYLINDER, HYDROGEN_CYLINDER, OXYGEN_CYLINDER, CHLORINE_GAS, CHLORINE_CYLINDER, SODIUM_HYDROXIDE, NITROGEN_GAS, NITROGEN_CYLINDER, ARGON_GAS, ARGON_CYLINDER,
             STEEL_INGOT, LITHARGE, LEAD_INGOT, ZINC_OXIDE,
             WOLFRAMITE_SODA_CHARGE, SODIUM_TUNGSTATE, TUNGSTIC_ACID, TUNGSTEN_TRIOXIDE, TUNGSTEN_POWDER, TUNGSTEN_BAR, TUNGSTEN_WIRE,
             REFRACTORY_BRICK_BLANK, REFRACTORY_BRICK, GRAPHITE_ROD, SYNTHETIC_GRAPHITE, QUICKLIME, SLAKED_LIME, TRONA, SODIUM_CARBONATE, GLASS_BATCH, SODA_LIME_GLASS, ROCK_SALT, SALT, BITTERN,

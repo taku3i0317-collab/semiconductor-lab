@@ -876,7 +876,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate", "glass_batch", "soda_lime_glass", "soda_lime_glass_from_blasting",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "self_excited_dynamo", "steam_engine", "steam_turbine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner",
@@ -1264,6 +1264,59 @@ public class LabTests {
         h.runAfterDelay(2, () -> {
             h.assertItemEntityPresent(ModItems.MERCURY, sp, 2.0);
             LOG.info("[LAB] Sprengel pump: 4 Hg, 1 atm -> 0.1 Pa in {} s, from 1 kPa in {} s, steady {} with leak, breaking drops the mercury", fromAtm, fromRough, VacuumChamberBlockEntity.formatPa(eq));
+            h.succeed();
+        });
+    }
+
+    // =====================================================================
+    // [6-07] 空気分離（タスク12）
+    // =====================================================================
+
+    /** 空気10mol/回：N2 7.808・O2 2.095・Ar 0.093 mol を mmol で持ち越して袋にする。電気なしでは動かない。隣のホルダーが N2 を吸い、圧縮機で窒素ボンベ */
+    @GameTest(maxTicks = 100)
+    public void airSeparation(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "air_separation_unit", ModBlocks.COMPRESSOR.asItem()), "Linde's machine starts with a compressor [6-03]");
+        floor(h, 7);
+        BlockPos ap = p(1, 1, 1), hp = p(2, 1, 1), cp = p(3, 1, 1);
+        h.setBlock(ap, ModBlocks.AIR_SEPARATION_UNIT);
+        var asu = h.getBlockEntity(ap, com.taku3.semiconductorlab.block.AirSeparationBlockEntity.class);
+        var box = asu.getContainer();
+        int T = com.taku3.semiconductorlab.block.AirSeparationBlockEntity.TICKS;
+        int N2 = com.taku3.semiconductorlab.block.AirSeparationBlockEntity.SLOT_N2, O2 = com.taku3.semiconductorlab.block.AirSeparationBlockEntity.SLOT_O2, AR = com.taku3.semiconductorlab.block.AirSeparationBlockEntity.SLOT_AR;
+        tickConsumer(h, ap, asu, T + 10, 0);
+        h.assertTrue(box.getItem(N2).isEmpty(), "no power -> no separation");
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AirSeparationBlockEntity.WATTS);
+        tickConsumer(h, ap, asu, T, feed);
+        h.assertValueEqual(box.getItem(N2).getCount(), 7, "run 1: 7.808 mol N2 -> 7 bags");
+        h.assertValueEqual(box.getItem(O2).getCount(), 2, "run 1: 2.095 mol O2 -> 2 bags");
+        h.assertTrue(box.getItem(AR).isEmpty(), "run 1: 0.093 mol Ar -> no bag yet");
+        int n2 = 0, o2 = 0;
+        for (int run = 1; run <= 11; run++) {
+            if (run > 1) tickConsumer(h, ap, asu, T, feed);
+            n2 += box.getItem(N2).getCount();
+            o2 += box.getItem(O2).getCount();
+            box.setItem(N2, ItemStack.EMPTY); box.setItem(O2, ItemStack.EMPTY);
+            if (run == 10) h.assertTrue(box.getItem(AR).isEmpty(), "10 runs = 100 mol air = 0.93 mol Ar -> still no bag");
+        }
+        h.assertValueEqual(n2, 85, "11 runs: 85.888 mol N2 -> 85 bags");
+        h.assertValueEqual(o2, 23, "11 runs: 23.045 mol O2 -> 23 bags");
+        h.assertTrue(box.getItem(AR).is(ModItems.ARGON_GAS) && box.getItem(AR).getCount() == 1, "11 runs = 110 mol air -> 1 bag of argon, got " + box.getItem(AR));
+        h.assertValueEqual(asu.argonRemainderMmol(), 23, "argon carry-over 1023 - 1000 mmol");
+        box.setItem(N2, new ItemStack(ModItems.NITROGEN_GAS, 5));
+        h.setBlock(hp, ModBlocks.GAS_HOLDER);
+        h.setBlock(cp, ModBlocks.COMPRESSOR);
+        h.runAfterDelay(25, () -> {
+            GasHolderBlockEntity g = h.getBlockEntity(hp, GasHolderBlockEntity.class);
+            int got = g.getAmount() + g.getContainer().getItem(GasHolderBlockEntity.SLOT_OUT).getCount();
+            h.assertTrue(got >= 5, "the holder pulls nitrogen from the separator, got " + got);
+            g.setContentsForTest(GasType.NITROGEN, 60);
+            CompressorBlockEntity comp = h.getBlockEntity(cp, CompressorBlockEntity.class);
+            comp.getContainer().setItem(CompressorBlockEntity.SLOT_EMPTY, new ItemStack(ModItems.EMPTY_GAS_CYLINDER, 1));
+            tickConsumer(h, cp, comp, CompressorBlockEntity.TOTAL_TICKS, EnergyStorage.wattsToJoulesPerTick(CompressorBlockEntity.WATTS));
+            h.assertTrue(comp.getContainer().getItem(CompressorBlockEntity.SLOT_OUT).is(ModItems.NITROGEN_CYLINDER), "compressor -> nitrogen cylinder");
+            h.assertTrue(!GasType.explosive(GasType.NITROGEN, GasType.HYDROGEN) && !GasType.explosive(GasType.ARGON, GasType.OXYGEN), "N2 and Ar react with nothing");
+            h.assertTrue(GasType.ARGON.cylinderItem() == ModItems.ARGON_CYLINDER, "argon has a cylinder");
+            LOG.info("[LAB] air separation: 11 runs (110 mol air) -> N2 {} / O2 {} / Ar 1 bags, holder pulls N2, compressor -> N2 cylinder", 85, 23);
             h.succeed();
         });
     }

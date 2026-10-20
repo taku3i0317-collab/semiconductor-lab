@@ -16,6 +16,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		MenuScreens.register(ModMenus.BESSEMER_CONVERTER, BessemerConverterScreen::new);
 		MenuScreens.register(ModMenus.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);
 		MenuScreens.register(ModMenus.COMPRESSOR, CompressorScreen::new);
+		MenuScreens.register(ModMenus.AIR_SEPARATION, AirSeparationScreen::new);
 		MenuScreens.register(ModMenus.SEALING_STATION, SealingStationScreen::new);
 		MenuScreens.register(ModMenus.ELECTRIC_FURNACE, ElectricFurnaceScreen::new);
 		MenuScreens.register(ModMenus.ACHESON_FURNACE, AchesonFurnaceScreen::new);

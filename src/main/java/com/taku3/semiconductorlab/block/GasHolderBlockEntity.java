@@ -28,7 +28,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * ガスホルダー [6-02]（低圧貯蔵）。19世紀のガス灯用の水封式ガスタンク：
  * 水を張った槽に、底のない鉄の「ふた（ベル）」をかぶせ、ガスが入るとベルが浮き上がる。水がふたのすき間をふさぐので漏れない。
  * 電気は使わない。1種類のガスだけを貯める（最初に入れたガスで種類が決まり、空になると解除）。
- * - 隣（6方向）の電解槽の出口から、同じ種類のガスを自動で受け取る
+ * - 隣（6方向）の電解槽・空気分離装置の出口から、同じ種類のガスを自動で受け取る（{@link GasSource}）
  * - 左のスロットに袋詰めガスを入れると吸い込む。右のスロットに1袋ずつ出てくる
  * - 水素と酸素を混ぜると爆鳴気で小さく爆発し、中身が空になる（ブロックは壊れない）
  */
@@ -134,12 +134,12 @@ public class GasHolderBlockEntity extends BlockEntity implements MenuProvider {
         if (level instanceof ServerLevel sl) sl.sendParticles(ParticleTypes.EXPLOSION, x, y, z, 1, 0, 0, 0, 0);
     }
 
-    /** 隣の電解槽の出口（水素・酸素スロット）から、受け入れられるガスを全部もらう */
+    /** 隣のガスを出す機械（電解槽・空気分離装置）の出口から、受け入れられるガスを全部もらう */
     private void pullFromNeighbors(Level level, BlockPos pos) {
         for (Direction d : Direction.values()) {
-            if (!(level.getBlockEntity(pos.relative(d)) instanceof ElectrolyzerBlockEntity el)) continue;
-            SimpleContainer c = el.getContainer();
-            for (int slot : new int[] {ElectrolyzerBlockEntity.SLOT_H2, ElectrolyzerBlockEntity.SLOT_O2}) {
+            if (!(level.getBlockEntity(pos.relative(d)) instanceof GasSource src)) continue;
+            SimpleContainer c = src.getContainer();
+            for (int slot : src.gasOutputSlots()) {
                 ItemStack s = c.getItem(slot);
                 GasType g = GasType.of(s);
                 if (!accepts(g)) continue;

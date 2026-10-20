@@ -26,7 +26,9 @@ import net.minecraft.world.level.block.state.BlockState;
  * ⚠️ 省略：本物の②は陽極側と陰極側を隔膜（アスベスト）・水銀・イオン交換膜で分けないと、塩素と NaOH が混ざって
  * 次亜塩素酸ナトリウム（漂白剤）になってしまう。ここでは隔膜の違いを省略（electrolyzer.placeholder）。
  */
-public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements MenuProvider {
+public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements MenuProvider, GasSource {
+    /** ガスホルダーが吸う出口：陰極（H2）と陽極（O2／Cl2）。NaOH は液体なので吸わない */
+    @Override public int[] gasOutputSlots() { return new int[] {SLOT_H2, SLOT_O2}; }
     public static final double WATTS = 5_000;
     // 水 2 mol を分解するのに要るエネルギー ≒ 2×286 kJ = 572 kJ。5kW なら約 115 秒
     public static final int TOTAL_TICKS = 20 * 115;

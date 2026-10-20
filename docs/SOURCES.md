@@ -31,3 +31,9 @@
 - A. Sella, "Classic Kit: Sprengel pump", Chemistry World (2008)（https://www.chemistryworld.com/opinion/classic-kit-sprengel-pump/3004941.article）：シュプレンゲル本人は 10⁻³ Torr 程度と見積もった（測る手段なし）。マクラウド計（1874）以後 10⁻⁶ Torr 級。エジソンは数台で 10⁻³ Torr
 - ゲームの値：到達 0.05Pa（≈4×10⁻⁴ Torr、1台・短時間として上の2つのあいだ）、封止 0.1Pa（≈7.5×10⁻⁴ Torr、初期の軟真空管）
 - ❓ 要確認：エジソンの電球1個あたりの排気時間、オーディオン（1906）の実際の封入圧
+
+## [6-07] 空気分離（タスク12、2026-10-20）
+- Linde Engineering「Air separation plants」（https://www.linde-engineering.com/products-and-services/process-plants/air-separation-plants）：1902 最初の空気分離装置（単塔で O2）、1904 N2、アルゴンの精留
+- 「Oxygen Specific Power Consumption Comparison for Air Separation Units」（ResearchGate 287708500）：理論最小 0.33 kWh/m³(O2)、実機は 0.46 kWh/m³ 以上 → ゲームの電力に使用
+- 乾燥空気の組成（N2 78.08・O2 20.95・Ar 0.93・CO2 0.04 vol%）：標準的な値
+- ❓ 要確認：1900〜1910年代のリンデ装置の電力（kWh/m³ O2）、アルゴンを工業的に取り出し始めた年

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "CKC",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "C": "minecraft:copper_ingot",
+    "K": "semiconductor-lab:compressor"
+  },
+  "result": { "id": "semiconductor-lab:air_separation_unit", "count": 1 }
+}
