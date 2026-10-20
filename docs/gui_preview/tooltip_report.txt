@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 368（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 369（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -525,6 +525,8 @@ en_us sodium_thiosulfate lines=4
 en_us sodium_thiosulfate shift lines=11
 en_us photomask lines=7
 en_us photomask shift lines=15
+en_us projection_lens lines=9
+en_us projection_lens shift lines=20
 en_us prism lines=3
 en_us prism shift lines=12
 en_us spectroscope lines=9
@@ -1261,6 +1263,8 @@ ja_jp sodium_thiosulfate lines=3
 ja_jp sodium_thiosulfate shift lines=8
 ja_jp photomask lines=4
 ja_jp photomask shift lines=10
+ja_jp projection_lens lines=8
+ja_jp projection_lens shift lines=16
 ja_jp prism lines=2
 ja_jp prism shift lines=9
 ja_jp spectroscope lines=7
