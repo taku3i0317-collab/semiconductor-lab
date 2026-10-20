@@ -145,7 +145,7 @@
      "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
     }
    ],
-   "descendants": 344
+   "descendants": 342
   },
   {
    "real_full": "火の利用は約100万年前（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -325,7 +325,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 165
+   "descendants": 163
   },
   {
    "real_full": "レンズ豆・エンドウも麦と同時期・同地域で栽培化。根粒菌が N2→NH3 に変え、畑が痩せにくい（輪作の根拠）",
@@ -434,7 +434,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 148
+   "descendants": 146
   },
   {
    "real_full": "羊の家畜化は約1万年前、羊毛用の羊は紀元前4000年頃に西南アジアで現れ、南東ヨーロッパには約1000年遅れて広がった（間接証拠による）。紡錘車＝はずみ車の慣性で撚り（より）をかけ続ける",
@@ -444,7 +444,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "S6. 人類最古のはずみ車（紡錘車と羊毛）［0-07］",
+     "answer": "紡錘（つむ）の棒に重い円盤（紡錘車）を付けると、重さが軸から離れた所にあるので慣性モーメントが大きくなり、長く回り続ける。そのあいだ繊維に撚りがかかり続け、たくさんの糸ができる。羊毛は細かいうろことちぢれでからみ合い、撚ると丈夫な毛糸になる。",
+     "hee": {
+      "1": "こまのように回る「はずみ車」で、毛をよって糸にした。",
+      "2": "最初に家畜になった羊は毛がもこもこではなかった（粗い毛の下に春に抜ける短い毛）。羊毛用の品種は紀元前4000年ごろ西南アジアで現れたとされる⚠️。",
+      "3": "イスラエルのナハル・エイン・ゲヴⅡの両側から穴をあけた小石（約1万2000年前）が、最古の紡錘車ではないかと2024年に発表された⚠️。回る道具として車輪の考えの始まりかもしれない。",
+      "4": "はずみ車の考えは、ろくろ、蒸気機関やエンジンのはずみ車へと続く。糸車は約1000年前ごろ（インド・中国）⚠️。"
+     },
+     "certainty": "慣性モーメントのしくみ ◎／羊毛用の羊 紀元前4000年ごろ △（紀元前6000年説〜紀元前4000〜3500年、AUDIT V-16）→ ⚠️／ナハル・エイン・ゲヴⅡ 約1万2000年前 △（2024年の1研究、まだ議論）→ ⚠️／弥生時代の紡錘車 ○／糸車の年代 △ → ⚠️",
+     "basis": "- 2024年 PLOS ONE のナハル・エイン・ゲヴⅡの穴あき小石の研究（報道：https://news.artnet.com/art-world/holey-pebbles-earliest-evidence-of-wheel-2570155 ）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -454,7 +467,7 @@
    "name": "羊毛と紡錘車",
    "trunk": "0",
    "trunk_name": "生存・道具",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -4000,
    "year_range": "-10000〜-4000",
@@ -467,10 +480,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "こまのように回る「はずみ車」で、毛をよって糸にした",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -1024,14 +1037,27 @@
    "descendants": 1
   },
   {
-   "real_full": "繊維をより合わせて長く強い綱にする（年・出典は未調査 ⚠️）",
+   "real_full": "繊維をより合わせて長く強い綱にする。人類最古の撚りひもは、フランスのアブリ・デュ・マラで見つかった約4万1000〜5万2000年前の3本撚りのひも（長さ約6mm、針葉樹の樹皮の内側の繊維。ネアンデルタール人が作った。Hardy ほか 2020、Scientific Reports）。撚る向きを2段で変える作り方は今のロープと同じ（出典：CNRS「Neanderthal cord weaver」、NPR 2020-04-10）。ゲームのロープは、リネンの糸（織物ノード、約1万年前）から作る",
    "hee_tree": {
     "2": "",
     "3": "",
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "S7. 逆向きに撚るとほどけない（ロープ）［0-18］",
+     "answer": "繊維を撚って糸にし、その糸を何本か逆向きに撚りあわせると、ほどけようとする力がつり合ってロープになる。引くと撚りが締まり、繊維どうしの摩擦で力を分けあう。",
+     "hee": {
+      "1": "細い繊維も、より合わせると重い物を吊れる。",
+      "2": "撚りの向きを段ごとに逆にするのがほどけない秘密。",
+      "3": "アブリ・デュ・マラ（フランス）の石器についていた3本撚りのひもの切れはし（約4万1000〜5万2000年前、ネアンデルタール人）⚠️。",
+      "4": "古代エジプトはパピルスやヤシの繊維の太いロープで巨石を運んだ。"
+     },
+     "certainty": "撚りのしくみ ◎／アブリ・デュ・マラのひも ○（Hardy ほか 2020、1研究・小さな断片なので ⚠️）／エジプトのロープ ○",
+     "basis": "- Hardy ほか 2020「Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications」Scientific Reports 10, 4889：https://doi.org/10.1038/s41598-020-61839-w"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -1041,20 +1067,14 @@
    "name": "ロープ",
    "trunk": "0",
    "trunk_name": "生存・道具",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
-   "year": -7000,
-   "year_range": null,
-   "year_uncertain": true,
-   "requires": [
-    [
-     [
-      "0-06"
-     ]
-    ]
-   ],
+   "year": -41000,
+   "year_range": "-52000〜-41000",
+   "year_uncertain": false,
+   "requires": [],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "細い繊維も、より合わせると重い物を吊れる （IMP-24 で追加、network_proposals N-2）",
    "kind": "tech",
    "play": "軽",
@@ -2283,7 +2303,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F1. フッ素のはじまりの石（蛍石）［1-21］（［2-10］フッ酸の前提）",
+     "answer": "蛍石はフッ化カルシウム（CaF₂）の鉱物で、方鉛鉱・閃亜鉛鉱と同じ熱水鉱脈に出ることが多い。硫酸と熱するとフッ化水素が出る（フッ酸の原料）。フッ素の化学はほとんどここから始まる。",
+     "hee": {
+      "1": "紫や緑のガラスのような石に、フッ素が入っている。",
+      "2": "1530年、アグリコラが「fluores」と書いたのが最初の記録。炉で鉱石を溶けやすくする「融剤」で、ラテン語の「流れる」から。元素フッ素の名前もここから。",
+      "3": "紫外線で青く光る蛍石があり、1852年ストークスがこの光を「蛍光（fluorescence）」と名づけた。",
+      "4": "日本語の「蛍石」は熱するとホタルのように光ることから。大きな結晶はエキシマレーザー露光のレンズにも使われる。"
+     },
+     "certainty": "CaF₂・熱水鉱脈で方鉛鉱と共生 ◎（USGS）／アグリコラ 1530 ◎／ストークスの命名 1852 ◎／和名の由来（熱で光る）○",
+     "basis": "USGS「Fluorspar Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/fluorspar-statistics-and-information 、Stokes, \"On the Change of Refrangibility of Light\", Phil. Trans. 142 (1852)、ブリタニカ「fluorite」https://www.britannica.com/science/fluorite （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -2293,17 +2326,17 @@
    "name": "蛍石 CaF2",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1530,
    "year_range": "1529〜1530",
    "year_uncertain": false,
    "requires": [],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "蛍石は、方鉛鉱や閃亜鉛鉱といっしょに鉱脈で見つかる",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -2619,7 +2652,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 132
+   "descendants": 131
   },
   {
    "real_full": "(Fe,Mn)WO4→WO3→H2還元でW粉→焼結→線引き（1910 クーリッジの延性W）",
@@ -3613,10 +3646,10 @@
    "refs": [],
    "item": "mercury",
    "recipes": [
-    "かまど：辰砂の粉 を焼く → 水銀"
+    "かまど：辰砂のレトルト仕込み を焼く → 水銀"
    ],
    "machine_recipes": [
-    "反射炉（焙焼炉）「焙焼」：辰砂の粉 ＋ 石炭 8回で1個 → 水銀 ＋ 二酸化硫黄（10 秒）。燃料式（電気なし）"
+    "反射炉（焙焼炉）「焙焼」：辰砂のレトルト仕込み ＋ 石炭 8回で1個 → 水銀 ＋ 二酸化硫黄（10 秒）。燃料式（電気なし）"
    ],
    "placeholder": "省略：レトルトの冷却器、容器（ガラス瓶・鉄フラスコ）。かまどで焼くと SO2 は逃げる（反射炉なら回収できる）。警告のみ：本物の水銀蒸気は有毒。",
    "game_text": "",
@@ -3766,7 +3799,7 @@
    "refs": [],
    "item": "sulfuric_acid",
    "recipes": [
-    "作業台：二酸化硫黄 ＋ 水入りバケツ → 硫酸"
+    "作業台：二酸化硫黄 ＋ 水入りバケツ ＋ 空のガラス瓶 → 硫酸"
    ],
    "machine_recipes": [],
    "placeholder": null,
@@ -3800,7 +3833,7 @@
    "descendants": 218
   },
   {
-   "real_full": "木灰を水に浸して上澄み（灰汁＝あく）を取り、鍋で煮詰めると K2CO3（\"pot ash\"＝鍋の灰、potassium の語源）。古代から石けん・ガラスの原料（シュメール・ギルスの粘土板に、約4500年前に羊毛を洗った記録⚠️）。これに消石灰を加えると K2CO3 + Ca(OH)2 → 2KOH + CaCO3↓（苛性化）で KOH ができ、古代〜中世の石けん作りでも使われた",
+   "real_full": "木灰を水に浸して上澄み（灰汁＝あく）を取り、鍋で煮詰めると K2CO3（\"pot ash\"＝鍋の灰、potassium の語源）。古代から石けん・ガラスの原料。灰を使った最古級の記録は、紀元前2800年頃のバビロンの粘土の円筒に「灰を脂と煮た」とあるもの（石けんの最古の証拠と同じ記録 ⚠️、[2-09]）。シュメール・ギルスの粘土板には約4500年前に羊毛を洗った記録⚠️。これに消石灰を加えると K2CO3 + Ca(OH)2 → 2KOH + CaCO3↓（苛性化）で KOH ができ、古代〜中世の石けん作りでも使われた",
    "hee_tree": {
     "2": "",
     "3": "",
@@ -3832,8 +3865,8 @@
    "trunk_name": "化学",
    "status": "✅",
    "branch": false,
-   "year": -2500,
-   "year_range": null,
+   "year": -2800,
+   "year_range": "-2800〜-2500",
    "year_uncertain": true,
    "requires": [
     [
@@ -4247,7 +4280,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F1. フッ素のはじまりの石（蛍石）［1-21］（［2-10］フッ酸の前提）",
+     "answer": "蛍石はフッ化カルシウム（CaF₂）の鉱物で、方鉛鉱・閃亜鉛鉱と同じ熱水鉱脈に出ることが多い。硫酸と熱するとフッ化水素が出る（フッ酸の原料）。フッ素の化学はほとんどここから始まる。",
+     "hee": {
+      "1": "紫や緑のガラスのような石に、フッ素が入っている。",
+      "2": "1530年、アグリコラが「fluores」と書いたのが最初の記録。炉で鉱石を溶けやすくする「融剤」で、ラテン語の「流れる」から。元素フッ素の名前もここから。",
+      "3": "紫外線で青く光る蛍石があり、1852年ストークスがこの光を「蛍光（fluorescence）」と名づけた。",
+      "4": "日本語の「蛍石」は熱するとホタルのように光ることから。大きな結晶はエキシマレーザー露光のレンズにも使われる。"
+     },
+     "certainty": "CaF₂・熱水鉱脈で方鉛鉱と共生 ◎（USGS）／アグリコラ 1530 ◎／ストークスの命名 1852 ◎／和名の由来（熱で光る）○",
+     "basis": "USGS「Fluorspar Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/fluorspar-statistics-and-information 、Stokes, \"On the Change of Refrangibility of Light\", Phil. Trans. 142 (1852)、ブリタニカ「fluorite」https://www.britannica.com/science/fluorite （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -4283,7 +4329,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "フッ酸はガラスを溶かすので、ガラス瓶には入れられない",
    "kind": "tech",
    "play": "",
@@ -5042,7 +5088,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 98
+   "descendants": 97
   },
   {
    "real_full": "1825 ファラデーがガス灯の油から発見、1845 ホフマンがコールタール中に確認（1849 マンスフィールドが分留法）。1865 ケクレの環状構造。C6H6",
@@ -6259,7 +6305,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "風を送ると火はもっと熱くなる。日本のたたらの名前は、このふいごのこと",
    "kind": "tech",
    "play": "",
@@ -6383,7 +6429,7 @@
    ],
    "machine_recipes": [
     "反射炉（焙焼炉）「焙焼」：方鉛鉱（原石） ＋ 石炭 8回で1個 → 一酸化鉛（リサージ） ＋ 二酸化硫黄（10 秒）。燃料式（電気なし）",
-    "反射炉（焙焼炉）「焙焼」：辰砂の粉 ＋ 石炭 8回で1個 → 水銀 ＋ 二酸化硫黄（10 秒）。燃料式（電気なし）",
+    "反射炉（焙焼炉）「焙焼」：辰砂のレトルト仕込み ＋ 石炭 8回で1個 → 水銀 ＋ 二酸化硫黄（10 秒）。燃料式（電気なし）",
     "反射炉（焙焼炉）「焙焼」：閃亜鉛鉱（原石） ＋ 石炭 8回で1個 → 酸化亜鉛 ＋ 二酸化硫黄 ＋ ゲルマニウム精鉱 4回に1個できる ＋ インジウム 8回に1個できる（10 秒）。燃料式（電気なし）"
    ],
    "placeholder": "近似：本物は燃焼室・炉床・煙道・煙突のある大きなれんがの建物。1ブロックに縮めた。Ge・In は本物は亜鉛精錬の残さ（浸出残さ・煙灰）から取るが、ここでは焙焼の副産物として出す。",
@@ -9794,7 +9840,7 @@
    "item": "hydrochloric_acid",
    "recipes": [],
    "machine_recipes": [
-    "塩酸合成炉「塩酸を作る」：水素ガス（袋詰め） 1 mol ＋ 袋詰め塩素 1 mol ＋ 水入りバケツ 1/4 → 塩酸（5 秒）。H2 + Cl2 → 2HCl を水に溶かす。電気なし"
+    "塩酸合成炉「塩酸を作る」：水素ガス（袋詰め） 1 mol ＋ 袋詰め塩素 1 mol ＋ 水入りバケツ 1/4 ＋ 空のガラス瓶 → 塩酸（5 秒）。H2 + Cl2 → 2HCl を水に溶かす。電気なし"
    ],
    "placeholder": null,
    "game_text": "Ge精鉱の浸出を硫酸→塩酸に置換可、GeCl4蒸留[1-34]の前提",
@@ -10445,7 +10491,7 @@
    "symbol": "🔍",
    "people": [],
    "media": [],
-   "descendants": 84
+   "descendants": 83
   },
   {
    "real_full": "SiO2 は約1713℃で溶ける。1830年代の終わり ゴーダンが酸水素炎で石英を溶かした⚠️（「1839年」の原典は未確認）、1899 ヘレウス社が工業化。熱膨張が極めて小さく（約0.5×10⁻⁶/K）、紫外線をよく通す",
@@ -10592,7 +10638,7 @@
    "symbol": "🔍",
    "people": [],
    "media": [],
-   "descendants": 83
+   "descendants": 82
   },
   {
    "real_full": "1608 リッペルハイ（オランダ）の特許申請、1609 ガリレオ。単レンズは色ごとに焦点がずれる（色収差）→ 1733頃 チェスター・ムーア・ホール、1758 ジョン・ドロンドがクラウン＋フリントの色消しレンズ",
@@ -10927,7 +10973,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O17. 光の波を物差しにする（マイケルソン干渉計）［7-09］",
+     "answer": "半透明鏡で光を2つの道に分け、2枚の鏡で返して重ねると、道の長さの差で明暗の縞ができる。片方の鏡を d 動かすと往復で 2d 変わり、縞が 2d÷λ 本流れる。波長 λ を知っていれば、縞を数えるだけで長さが分かる（縞1本＝λ/2）。",
+     "hee": {
+      "1": "光の波を物差しにすると、髪の毛の100分の1が測れる。",
+      "2": "1887年のマイケルソン・モーリーの実験は「エーテルの風」を見つけられず、相対性理論の手がかりになった。",
+      "3": "1907年、マイケルソンはアメリカ人で初めてノーベル物理学賞（精密な光学機器と、それによる計測）。",
+      "4": "露光装置のステージはレーザー干渉計で nm の位置を測りながら動く。重力波の LIGO も腕 4km のマイケルソン干渉計。"
+     },
+     "certainty": "干渉の式 ◎／マイケルソン 1881・マイケルソン・モーリー 1887・ノーベル賞 1907 ◎／LIGO の腕 4km ◎／マイケルソンの半透明鏡が化学の銀めっき ○（当時の銀めっきの普及から）",
+     "basis": "- Wikipedia「Michelson interferometer」：https://en.wikipedia.org/wiki/Michelson_interferometer"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -10937,7 +10996,7 @@
    "name": "干渉計",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1881,
    "year_range": null,
@@ -10965,10 +11024,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "光の波を物差しにすると、髪の毛の100分の1が測れる",
    "kind": "tech",
-   "play": "",
+   "play": "実験（光の波で長さを測る）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -11346,7 +11405,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "天然の蛍石が、最先端レーザーの窓になる",
    "kind": "tech",
    "play": "",
@@ -11779,7 +11838,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O18. 薄い膜で反射を消す（反射防止膜）［7-22］",
+     "answer": "レンズの表面に光の波長の 1/4 の厚さの膜を付けると、膜の表と裏ではね返った光の山と谷が打ち消し合い、反射が減る。1936年ジョン・ストロングが真空蒸着した CaF2 の膜で発表し、1938年にはブロジェットの単分子膜（見えないガラス）も現れた。",
+     "hee": {
+      "1": "薄い膜を重ねると、ガラスが「見えなく」なる。",
+      "2": "レンズの面1つで約4% はね返る。20面あれば光の半分以上が失われ、まぶしいゴーストになる。",
+      "3": "理想の膜の屈折率は √(ガラスの屈折率)≈1.23。CaF2（1.43）より MgF2（1.38）が近く、のちの定番になった。",
+      "4": "何十枚も重ねる露光装置の投影レンズは、反射防止膜がなければ成り立たない。EUV の鏡は多層膜を逆に「よく反射する」ように使う。"
+     },
+     "certainty": "1/4 波長膜の原理と反射率の式 ◎／ストロング 1936 の論文 ○（JOSA 26:73、特許文献の引用）／CaF2 膜の実用 1938・内側の面 ○（キングレイク 1951 の記述として）／ブロジェット 1938 ◎",
+     "basis": "- Optica「John D. Strong」：https://www.optica.org/History/Biographies/bios/John-D--Strong"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -11789,7 +11861,7 @@
    "name": "反射防止膜",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1938,
    "year_range": null,
@@ -11810,10 +11882,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "薄い膜を重ねると、ガラスが「見えなく」なる （IMP-24 で追加、network_proposals W-3）",
    "kind": "tech",
-   "play": "軽（レンズ・太陽電池に塗る）",
+   "play": "軽（レンズに付ける）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -12956,7 +13028,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "力を4分の1にする代わりに、綱を4倍引く （IMP-24 で追加、network_proposals N-1）",
    "kind": "tech",
    "play": "軽（滑車）＋作品（クレーン [P-01]）",
@@ -14263,7 +14335,7 @@
    "symbol": "💠",
    "people": [],
    "media": [],
-   "descendants": 35
+   "descendants": 2
   },
   {
    "real_full": "1965 ヴェルナー・カーン（RCA 社）、1970 発表。SC-1（NH4OH:H2O2:H2O＝1:1:5、約75℃）で有機物・微粒子、SC-2（HCl:H2O2:H2O＝1:1:6）で金属",
@@ -14349,10 +14421,10 @@
       "1": "シリコンは、自分の体からガラスのよろいを作れる。",
       "2": "このよろいを「型紙」にして、決めた場所だけに不純物を入れられる。これがのちの IC（集積回路）の基本。",
       "3": "ゲルマニウムの酸化物は水に溶けてしまい、よろいにならない。トランジスタはゲルマニウムで始まったのに、シリコンに主役が移った大きな理由。",
-      "4": "発見は偶然の産物と伝えられている（拡散炉に入り込んだ酸素・水分で膜ができた）。細部の経緯は ⚠️。"
+      "4": "発見は偶然と伝えられている。拡散炉で不純物を運んでいた水素に火がつき、できた水蒸気で板がガラスの膜におおわれた（Howard Huff の聞き取り）。きっかけを「管のもれ」とする回想（Mason Clark）もあり、細部は ⚠️。"
      },
-     "certainty": "1955年発見・1957年発表 ◎（コンピュータ歴史博物館、TECH_TREE とも一致）／偶然の経緯 △",
-     "basis": "コンピュータ歴史博物館「1955 酸化膜マスクの開発」（英語）"
+     "certainty": "1955年発見・1957年発表 ◎（コンピュータ歴史博物館、ECS Interface 2007）／水素の火の話 ○（ただし回想に食い違いあり ⚠️）／Deal–Grove の定数 ◎（原論文と教科書の表）／色見本 ○",
+     "basis": "コンピュータ歴史博物館「1955: Development of Oxide Masking」https://www.computerhistory.org/siliconengine/development-of-oxide-masking/ 、ECS Interface 2007 秋号 https://www.electrochem.org/dl/interface/fal/fal07/fall07_p36-41.pdf 、Howard Huff「Transistors to integrated circuits」https://www.chiphistory.org/exhibits/ex_howard_huff_transitors_integrated_circuits/howard_huff_section2.pdf 、Mason Clark「Silicon Burns」https://smecc.org/silicon_burns_-_by_mason_clark.htm 、Deal & Grove, J. Appl. Phys. 36, 3770 (1965)、Pliskin & Conrad, IBM J. Res. Dev. 8, 43 (1964)（すべて英語）"
     }
    ],
    "item": null,
@@ -14364,7 +14436,7 @@
    "name": "熱酸化",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1955,
    "year_range": "1955〜57",
@@ -14372,7 +14444,7 @@
    "requires": [
     [
      [
-      "9-13"
+      "9-12"
      ]
     ],
     [
@@ -14398,7 +14470,7 @@
    "buildable_now": false,
    "hee1": "シリコンは自分の「さび」がガラスになって身を守る",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -14428,10 +14500,10 @@
       "1": "シリコンは、自分の体からガラスのよろいを作れる。",
       "2": "このよろいを「型紙」にして、決めた場所だけに不純物を入れられる。これがのちの IC（集積回路）の基本。",
       "3": "ゲルマニウムの酸化物は水に溶けてしまい、よろいにならない。トランジスタはゲルマニウムで始まったのに、シリコンに主役が移った大きな理由。",
-      "4": "発見は偶然の産物と伝えられている（拡散炉に入り込んだ酸素・水分で膜ができた）。細部の経緯は ⚠️。"
+      "4": "発見は偶然と伝えられている。拡散炉で不純物を運んでいた水素に火がつき、できた水蒸気で板がガラスの膜におおわれた（Howard Huff の聞き取り）。きっかけを「管のもれ」とする回想（Mason Clark）もあり、細部は ⚠️。"
      },
-     "certainty": "1955年発見・1957年発表 ◎（コンピュータ歴史博物館、TECH_TREE とも一致）／偶然の経緯 △",
-     "basis": "コンピュータ歴史博物館「1955 酸化膜マスクの開発」（英語）"
+     "certainty": "1955年発見・1957年発表 ◎（コンピュータ歴史博物館、ECS Interface 2007）／水素の火の話 ○（ただし回想に食い違いあり ⚠️）／Deal–Grove の定数 ◎（原論文と教科書の表）／色見本 ○",
+     "basis": "コンピュータ歴史博物館「1955: Development of Oxide Masking」https://www.computerhistory.org/siliconengine/development-of-oxide-masking/ 、ECS Interface 2007 秋号 https://www.electrochem.org/dl/interface/fal/fal07/fall07_p36-41.pdf 、Howard Huff「Transistors to integrated circuits」https://www.chiphistory.org/exhibits/ex_howard_huff_transitors_integrated_circuits/howard_huff_section2.pdf 、Mason Clark「Silicon Burns」https://smecc.org/silicon_burns_-_by_mason_clark.htm 、Deal & Grove, J. Appl. Phys. 36, 3770 (1965)、Pliskin & Conrad, IBM J. Res. Dev. 8, 43 (1964)（すべて英語）"
     },
     {
      "title": "8a. 表面にしみ込ませる（熱拡散）［9-16］",
@@ -23539,13 +23611,6 @@
    "or": false
   },
   {
-   "from": "0-06",
-   "to": "0-18",
-   "kind": "requires",
-   "group": 0,
-   "or": false
-  },
-  {
    "from": "0-01",
    "to": "1-02",
    "kind": "requires",
@@ -27396,7 +27461,7 @@
    "or": false
   },
   {
-   "from": "9-13",
+   "from": "9-12",
    "to": "9-15",
    "kind": "requires",
    "group": 0,
@@ -30199,13 +30264,6 @@
  ],
  "year_inversions": [
   {
-   "node": "2-09",
-   "year": -2800,
-   "requires": "2-02",
-   "requires_year": -2500,
-   "gap": 300
-  },
-  {
    "node": "2-13",
    "year": 1808,
    "requires": "2-06",
@@ -30567,13 +30625,6 @@
    "year": 1666,
    "requires": "7-01",
    "requires_year": 1674,
-   "gap": 8
-  },
-  {
-   "node": "9-15",
-   "year": 1955,
-   "requires": "9-13",
-   "requires_year": 1963,
    "gap": 8
   },
   {
