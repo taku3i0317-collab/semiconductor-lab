@@ -7564,7 +7564,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "超純水は、水そのものがほんの少しイオンに分かれる分しか電気を通さない",
    "name_en": "Ultrapure water",
    "hee1_en": "Ultrapure water conducts electricity only as much as water itself splits into a tiny amount of ions.",
@@ -31897,7 +31897,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C23. 紙は昔はぼろ布、今は木（パルプ）［15-01］",
+     "answer": "105年に蔡倫が紙の製法を改良してから、紙の原料は長くぼろ布や樹皮だった。1840年代にドイツのケラーが木をすりつぶす砕木パルプを、1867年にアメリカのティルマンが亜硫酸法（SO2 と石灰の液でリグニンを溶かし、セルロースの繊維だけを取り出す）を考え、1874年にスウェーデンのエクマンが最初の工場を動かした。蒸解は圧力釜で煮る。",
+     "hee": {
+      "1": "紙の原料は、昔はぼろ布、今は木。",
+      "2": "木は、セルロースの繊維をリグニンという「のり」で固めた物。のりだけを溶かすと紙の原料になる。",
+      "3": "ぼろ布が足りなくなって、19世紀には紙の値段が上がり、木から作る方法が求められた。",
+      "4": "亜硫酸法の純度の高いパルプ（溶解パルプ）は、酢酸セルロースやレーヨンの原料にもなる。"
+     },
+     "certainty": "蔡倫 105 ◎／ケラー 1840年代 ○／ティルマン 1867・エクマン 1874 ○／蒸解の温度（約130〜140℃）○",
+     "basis": "- Wikipedia「Sulfite process」（歴史）：https://en.wikipedia.org/wiki/Sulfite_process"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -31907,7 +31920,7 @@
    "name": "紙",
    "trunk": "15",
    "trunk_name": "通信・情報",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 105,
    "year_range": null,
@@ -31925,12 +31938,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "紙の原料は昔はぼろ布、今は木",
    "name_en": "Paper",
    "hee1_en": "Paper used to be made from rags; today it is made from wood.",
    "kind": "product",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -32016,7 +32029,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "活字の金属は固まるときにふくらむ珍しい合金",
    "name_en": "Movable-type printing",
    "hee1_en": "Type metal is a rare alloy that expands when it hardens.",
