@@ -96,3 +96,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [2-42] 酢酸（遊び方: 実験＋軽）：石灰を入れた木酢液をたき火 → 酢酸カルシウム（かまど → メタノール）、＋硫酸 → 氷酢酸2（寒い所で凍る、item/GlacialAceticAcidItem）。GameTest acetic_acid、CHEMISTRY P11、REFERENCES C11。テスト 180/180
 - ✅ [2-40] アセトン（遊び方: 軽）：酢酸カルシウム →かまど → アセトン。テストは acetic_acid に1行。CHEMISTRY P12、REFERENCES C11 に追記。テスト 180/180
 - ✅ [2-09] 石けん（遊び方: 軽、決定どおり獣脂）：牛・豚・羊が獣脂を60%で落とす（Chemistry.init の MODIFY_DROPS）。獣脂3＋NaOH＋水 → たき火 → けん化した脂、＋塩 → 石けん3（グリセリンを含む液が作業台に残る＝塩析、craftRemainder）→ かまど → グリセリン。GameTest soap（牛のルートテーブルを200回引いて 120 個）、CHEMISTRY P13、REFERENCES C12。テスト 183/183
+- ✅ [2-41] エポキシ樹脂（遊び方: 実験＋軽）：フェノール2＋アセトン＋塩酸 → ビスフェノールA。グリセリン＋塩酸2 → ジクロロヒドリン、＋NaOH → エピクロロヒドリン。BPA＋エピクロロヒドリン2＋NaOH → エポキシ樹脂（未硬化）2。樹脂＋ノボラック（硬化剤）→ エポキシ成形材料 →かまど → 硬化したエポキシ。硬化剤なしの樹脂は熱しても固まらない。GHS（エピクロロヒドリン発がん性1B）、量・条件は書いていない。GameTest epoxy、CHEMISTRY P14、REFERENCES C13。テスト 184/184
+  - **本線（[9-34] 封止）へ**：semiconductor-lab:epoxy_molding_compound（成形材料）・cured_epoxy（硬化した物）ができた
+- O-008 完了。判断待ちは Q3-5（加圧釜）・Q3-6（ビスアジド）のまま
