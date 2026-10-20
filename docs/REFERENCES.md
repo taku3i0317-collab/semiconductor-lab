@@ -487,6 +487,20 @@
 - Wikipedia「Bell metal」：https://en.wikipedia.org/wiki/Bell_metal
 - Wikipedia「Arsenical bronze」：https://en.wikipedia.org/wiki/Arsenical_bronze
 
+## O10. 金属を磨いた鏡と反射望遠鏡（スペキュラム）［7-05］
+**答え**：銅2・スズ1ほどの白い青銅（スペキュラム合金）を鋳込んで、研削と研磨で凹面鏡にする。反射率は約6割で、すぐ曇るので磨き直しが要った。1668年ニュートンは、色のにじみがない鏡の望遠鏡を作った。19世紀半ばにガラスへの銀めっきが広まるまで、大望遠鏡の鏡はこの金属だった。
+
+- へえ①：鏡は色によって曲がり方が変わらないので、色収差がない。
+- へえ②：ハーシェルは自分で鋳込んで磨いたスペキュラム鏡の望遠鏡で、1781年に天王星を見つけた。
+- へえ③：1845年ロス卿の「リヴァイアサン」は直径 約1.8m の鏡（約4トン）。
+- へえ④：今の大望遠鏡も EUV 露光装置 [7-17] も、レンズではなく鏡で光を集める。
+
+確かさ：スペキュラムの組成・反射率・曇り ◎／ニュートン 1668・王立協会 1671〜72 ◎／ハーシェル 天王星 1781 ◎／リヴァイアサン 1845・約1.8m ◎（重さ 約4トン ○）
+根拠：
+- Wikipedia「Speculum metal」：https://en.wikipedia.org/wiki/Speculum_metal
+- Wikipedia「Newton's reflector」：https://en.wikipedia.org/wiki/Newton%27s_reflector
+- Wikipedia「Leviathan of Parsonstown」：https://en.wikipedia.org/wiki/Leviathan_of_Parsonstown
+
 ---
 
 # 生存（IMP3-01〜）
@@ -508,19 +522,20 @@
 - Wilkins ほか 2012「Evidence for early hafted hunting technology」Science（カトゥ・パン）：https://www.science.org/doi/10.1126/science.1227608
 - Wikipedia「Oldowan」「Acheulean」「Conchoidal fracture」「Obsidian」「Kimberley point」：https://en.wikipedia.org/wiki/Oldowan ・ https://en.wikipedia.org/wiki/Acheulean ・ https://en.wikipedia.org/wiki/Conchoidal_fracture ・ https://en.wikipedia.org/wiki/Obsidian ・ https://en.wikipedia.org/wiki/Kimberley_point
 
-## O10. 金属を磨いた鏡と反射望遠鏡（スペキュラム）［7-05］
-**答え**：銅2・スズ1ほどの白い青銅（スペキュラム合金）を鋳込んで、研削と研磨で凹面鏡にする。反射率は約6割で、すぐ曇るので磨き直しが要った。1668年ニュートンは、色のにじみがない鏡の望遠鏡を作った。19世紀半ばにガラスへの銀めっきが広まるまで、大望遠鏡の鏡はこの金属だった。
 
-- へえ①：鏡は色によって曲がり方が変わらないので、色収差がない。
-- へえ②：ハーシェルは自分で鋳込んで磨いたスペキュラム鏡の望遠鏡で、1781年に天王星を見つけた。
-- へえ③：1845年ロス卿の「リヴァイアサン」は直径 約1.8m の鏡（約4トン）。
-- へえ④：今の大望遠鏡も EUV 露光装置 [7-17] も、レンズではなく鏡で光を集める。
+## S2. 粘土は焼くと水で戻らない（土器）［0-03］
+**答え**：粘土は細かい板状の結晶（粘土鉱物）が水をはさんで重なったもので、ぬれていると形を変えられ、乾かしただけなら水で元に戻る。約500〜600℃に熱すると結晶の中の OH が水として抜け（カオリナイト → メタカオリン）、この変化は戻らない。だから焼いた土器は水を入れても溶けない。
 
-確かさ：スペキュラムの組成・反射率・曇り ◎／ニュートン 1668・王立協会 1671〜72 ◎／ハーシェル 天王星 1781 ◎／リヴァイアサン 1845・約1.8m ◎（重さ 約4トン ○）
+- へえ①：粘土は焼くと、もう水で元に戻らない。2万年前の人もそれを知っていた。
+- へえ②：土器は農耕より前、狩りや漁をする人たちが作り始めた（東アジア）。
+- へえ③：最古級の土器は中国・仙人洞の約2万年前。日本の大平山元遺跡の土器片は約1万6500年前⚠️。
+- へえ④：縄文晩期には海水を煮つめる製塩土器があった。生乾きで焼くと中の水が水蒸気になって割れる。
+
+確かさ：カオリナイトの脱水（約500〜600℃、不可逆）◎／仙人洞 約2万年前 ○（Wu ほか 2012）／大平山元 約1万6500年前 △（較正年代の幅あり）→ ゲーム内は ⚠️／製塩土器 ○
 根拠：
-- Wikipedia「Speculum metal」：https://en.wikipedia.org/wiki/Speculum_metal
-- Wikipedia「Newton's reflector」：https://en.wikipedia.org/wiki/Newton%27s_reflector
-- Wikipedia「Leviathan of Parsonstown」：https://en.wikipedia.org/wiki/Leviathan_of_Parsonstown
+- Wu ほか 2012「Early pottery at 20,000 years ago in Xianrendong Cave, China」Science 336：https://www.science.org/doi/10.1126/science.1218643
+- Wikipedia「Kaolinite」（加熱による変化）：https://en.wikipedia.org/wiki/Kaolinite
+- Wikipedia「Jōmon pottery」：https://en.wikipedia.org/wiki/J%C5%8Dmon_pottery
 
 ---
 

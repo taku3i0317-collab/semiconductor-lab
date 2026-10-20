@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": "semiconductor-lab:raw_clay_pot",
+  "result": {
+    "id": "semiconductor-lab:earthenware_pot"
+  }
+}

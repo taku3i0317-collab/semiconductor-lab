@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:raw_clay_pot",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "minecraft:clay_ball",
+    "count": 5
+  }
+}

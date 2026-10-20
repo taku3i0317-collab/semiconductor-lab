@@ -17,7 +17,7 @@
   "item.semiconductor-lab.bittern.note4": "1941年からダウ・ケミカルはテキサス州フリーポートで海水から飛行機用のマグネシウムを作った：石灰で Mg(OH)2 を沈殿 → 塩酸で溶かす → 溶かした MgCl2 を電解。海水 1L に Mg は約1.3g。",
   "block.semiconductor-lab.salt_pan": "塩田",
   "block.semiconductor-lab.salt_pan.note1": "お日さまの力で海水から塩を作る。浜辺の水のとなりに置こう。",
-  "block.semiconductor-lab.salt_pan.note2": "海・浜バイオームで、横に水があり、真上に空が見えて雨が降っていないときだけ動く。1分で塩1個、塩8個ごとににがり1個。右クリックで受け取る（塩64・にがり16までためる）。",
+  "block.semiconductor-lab.salt_pan.note2": "海・浜バイオームで、横に水があり、真上に空が見えて雨が降っていないときだけ動く。1分で塩1個、塩8個ごとににがり1個。右クリックで受け取る（塩64・にがり16までためる）。煮つめ釜は大釜でも土器 [0-03] でもよい。",
   "block.semiconductor-lab.salt_pan.note3": "揚げ浜式：砂をしいた浜に海水をまき、天日で乾かす。塩のついた砂を海水で洗って濃い塩水（かん水）を取り、釜で煮つめる。能登では今もこのやり方が続いている。",
   "block.semiconductor-lab.salt_pan.note4": "日本では縄文晩期の製塩土器が見つかっている。江戸時代は瀬戸内の入浜式塩田（潮の満ち引きで海水を引き込む）がさかんだった。1972年からはイオン交換膜による電気透析で作るのが主流。",
   "block.semiconductor-lab.salt_pan.placeholder": "近似：かん水を煮つめる釜の燃料は省略（日光だけで動く）。",
@@ -54,5 +54,17 @@
   "item.semiconductor-lab.hand_axe.placeholder": "省略：形を整える2段目の打ち欠き（骨や木のやわらかいハンマー）はない。",
   "message.semiconductor-lab.hammerstone.glassy": "パキッ！ ガラス質の石は貝殻のように割れて、するどい剥片がとれた",
   "message.semiconductor-lab.hammerstone.grainy": "ゴツッ… 粒があらい石は、粒の境目でくずれるだけ。刃にならない",
-  "message.semiconductor-lab.hammerstone.flint": "カチッ！ 火打ち石から剥片が2つとれた"
+  "message.semiconductor-lab.hammerstone.flint": "カチッ！ 火打ち石から剥片が2つとれた",
+  "item.semiconductor-lab.raw_clay_pot": "生の土器",
+  "item.semiconductor-lab.raw_clay_pot.note1": "粘土をこねて形にした入れもの。まだ焼いていないので、水につけるとまた粘土にもどる。",
+  "item.semiconductor-lab.raw_clay_pot.note2": "粘土玉5つで作る。たき火で30秒（野焼き）か、かまどで10秒焼くと土器になる。水バケツといっしょに作業台に置くと粘土玉5つにもどる（焼いた土器はもどらない）。",
+  "item.semiconductor-lab.raw_clay_pot.note3": "粘土は、とても細かい板のような結晶（粘土鉱物）が水をはさんで重なったもの。水があると板どうしがすべるので、こねて自由な形にできる。乾かしただけなら、水を吸ってまたやわらかくなる。",
+  "item.semiconductor-lab.raw_clay_pot.note4": "縄文土器の「縄文」は、生乾きの表面に縄を転がしてつけた模様。焼く前によく乾かさないと、中の水が焼くときに水蒸気になって割れる。",
+  "item.semiconductor-lab.raw_clay_pot.placeholder": "省略：乾かす工程（生乾きで焼くと割れる）はない。",
+  "item.semiconductor-lab.earthenware_pot": "土器",
+  "item.semiconductor-lab.earthenware_pot.note1": "粘土は焼くと、もう水で元にもどらない。2万年前の人もそれを知っていた。",
+  "item.semiconductor-lab.earthenware_pot.note2": "生の土器をたき火（野焼き）かかまどで焼いて作る。水につけても粘土にもどらない。塩田の煮つめ釜に使える（大釜のかわり）。",
+  "item.semiconductor-lab.earthenware_pot.note3": "粘土鉱物（カオリナイトなど）は、約500〜600℃で結晶の中の水（OH）が抜けて、別の物（メタカオリン）に変わる。この変化は一方通行で、もう水を入れても粘土にもどらない。野焼きは約600〜900℃。",
+  "item.semiconductor-lab.earthenware_pot.note4": "最古級の土器は中国・江西省の仙人洞（約2万年前）。日本でも青森県の大平山元遺跡から約1万6500年前の土器片が見つかっている ⚠️。農耕より前に、狩りや漁をする人たちが土器を作っていた。縄文晩期には、海水を煮つめる製塩土器もあった。",
+  "item.semiconductor-lab.earthenware_pot.placeholder": "省略：焼きむら・割れ・素焼きの水もれはない。"
 }

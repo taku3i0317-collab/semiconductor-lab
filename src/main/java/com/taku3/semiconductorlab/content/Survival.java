@@ -49,6 +49,9 @@ public final class Survival {
     public static final Item FLINT_FLAKE           = Reg.item("flint_flake", new Item.Properties().sword(FLINT_FLAKE_MATERIAL, 1.0f, -1.8f));
     public static final Item OBSIDIAN_FLAKE        = Reg.item("obsidian_flake", new Item.Properties().sword(OBSIDIAN_FLAKE_MATERIAL, 1.0f, -1.8f));
     public static final Item HAND_AXE              = Reg.item("hand_axe", new Item.Properties().axe(HAND_AXE_MATERIAL, 5.0f, -3.4f));
+    // --- [0-03] 土器（約2万年前〜）。粘土は約500〜600℃で結晶水が抜け、もう水で戻らない ---
+    public static final Item RAW_CLAY_POT          = Reg.item("raw_clay_pot", new Item.Properties().stacksTo(16));
+    public static final Item EARTHENWARE_POT       = Reg.item("earthenware_pot", new Item.Properties().stacksTo(16));
     /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
     public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
 

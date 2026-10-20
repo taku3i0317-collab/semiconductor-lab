@@ -4,6 +4,8 @@ hammerstone  # Survival [0-01] -3300000
 flint_flake  # Survival [0-01] -3300000
 obsidian_flake  # Survival [0-01] -3300000
 hand_axe  # Survival [0-01] -3300000
+raw_clay_pot  # Survival [0-03] -20000
+earthenware_pot  # Survival [0-03] -20000
 quicklime  # Survival [0-10] -9000
 slaked_lime  # Survival [0-11] -7000
 bittern  # Survival [0-16] -6000

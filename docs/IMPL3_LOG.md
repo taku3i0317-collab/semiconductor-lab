@@ -10,3 +10,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
   - 年（ユーザー指示）：確実な最古＝オルドワン 約260万年前（ゴナ）、ロメクウィ 約330万年前は ⚠️、ハンドアックス（アシュール）は約170万年前から
   - GameTest knapping、CHEMISTRY S1〜S3、REFERENCES S1、TEST_QUEUE、tab 順（gen_tab_order.py）。テスト 95/95（IMP2 の変更を取り込んだ後）
   - 共通ファイルの変更：なし（Survival.java・SurvivalTests.java・item/HammerstoneItem.java・lang survival のみ）。tab の年はまだ tech_network.json の -3300000（ネットワーク担当が TECH_TREE から作り直すと -2600000 になる）
+- ✅ [0-03] 土器（遊び方: 軽＋実験）：粘土玉×5 → 生の土器 raw_clay_pot →たき火30秒（野焼き）／かまど10秒 → 土器 earthenware_pot。生の土器＋水バケツ → 粘土玉5（戻る）、焼いた土器＋水 → 何もできない（不可逆な脱水）。塩田の煮つめ釜にも使える（salt_pan_earthenware、大釜版もそのまま）。GameTest pottery、CHEMISTRY S4〜S5、REFERENCES S2。テスト 97/97（IMP2 の青銅を取り込んだ後）

@@ -17,7 +17,7 @@
   "item.semiconductor-lab.bittern.note4": "From 1941 Dow Chemical made aircraft magnesium from seawater in Freeport, Texas: Mg(OH)2 precipitated with lime, dissolved in HCl, then molten MgCl2 electrolysed. 1 L of seawater holds about 1.3 g of Mg.",
   "block.semiconductor-lab.salt_pan": "Salt Pan",
   "block.semiconductor-lab.salt_pan.note1": "Makes salt from seawater using the sun. Put it on the beach next to water.",
-  "block.semiconductor-lab.salt_pan.note2": "Works only in ocean/beach biomes, with water beside it, open sky above and no rain. Makes 1 salt per minute and 1 bittern per 8 salt. Right-click to collect (holds up to 64 salt / 16 bittern).",
+  "block.semiconductor-lab.salt_pan.note2": "Works only in ocean/beach biomes, with water beside it, open sky above and no rain. Makes 1 salt per minute and 1 bittern per 8 salt. Right-click to collect (holds up to 64 salt / 16 bittern). The boiling pot can be a cauldron or an earthenware pot [0-03].",
   "block.semiconductor-lab.salt_pan.note3": "Agehama style: seawater is sprinkled on a sand bed, the sun dries it, the salty sand is washed to get strong brine (kansui), then boiled down in a pot. Noto in Japan still does it this way.",
   "block.semiconductor-lab.salt_pan.note4": "Salt-making pottery from the late Jomon period has been found in Japan. In the Edo period the Seto Inland Sea used tidal 'irihama' pans. Since 1972 Japanese salt has been made by ion-exchange membrane electrodialysis instead.",
   "block.semiconductor-lab.salt_pan.placeholder": "Approximation: the fuel for boiling down the brine is skipped (it runs on sunshine alone).",
@@ -54,5 +54,17 @@
   "item.semiconductor-lab.hand_axe.placeholder": "Omitted: the second, shaping stage with a soft hammer (bone or wood).",
   "message.semiconductor-lab.hammerstone.glassy": "Crack! Glassy stone breaks like a shell - you got a sharp flake",
   "message.semiconductor-lab.hammerstone.grainy": "Thud... Coarse-grained stone just crumbles along its grains. No edge",
-  "message.semiconductor-lab.hammerstone.flint": "Clink! You knapped 2 flakes from the flint"
+  "message.semiconductor-lab.hammerstone.flint": "Clink! You knapped 2 flakes from the flint",
+  "item.semiconductor-lab.raw_clay_pot": "Unfired Clay Pot",
+  "item.semiconductor-lab.raw_clay_pot.note1": "A pot shaped from clay. It is not fired yet, so soaking it in water turns it back into clay.",
+  "item.semiconductor-lab.raw_clay_pot.note2": "Made from 5 clay balls. Fire it on a campfire for 30 s (open firing) or in a furnace for 10 s to get earthenware. With a water bucket on the crafting table it turns back into 5 clay balls (fired earthenware does not).",
+  "item.semiconductor-lab.raw_clay_pot.note3": "Clay is made of tiny plate-shaped crystals (clay minerals) stacked with water between them. The water lets the plates slide, so you can mould it into any shape. Merely dried clay soaks up water and softens again.",
+  "item.semiconductor-lab.raw_clay_pot.note4": "The 'cord marks' of Jomon pottery were made by rolling a cord over the half-dry surface. A pot must be dried well before firing, or the water inside turns to steam and cracks it.",
+  "item.semiconductor-lab.raw_clay_pot.placeholder": "Omitted: the drying step (firing a damp pot cracks it).",
+  "item.semiconductor-lab.earthenware_pot": "Earthenware Pot",
+  "item.semiconductor-lab.earthenware_pot.note1": "Once fired, clay never turns back with water. People knew this 20,000 years ago.",
+  "item.semiconductor-lab.earthenware_pot.note2": "Fire an unfired clay pot on a campfire (open firing) or in a furnace. Water no longer turns it back into clay. Can be used as the boiling pot of a salt pan (instead of a cauldron).",
+  "item.semiconductor-lab.earthenware_pot.note3": "Clay minerals such as kaolinite lose the water (OH) inside their crystals at about 500-600 C and become something else (metakaolin). The change only goes one way: adding water will not make clay again. Open firing reaches about 600-900 C.",
+  "item.semiconductor-lab.earthenware_pot.note4": "Among the oldest pottery is from Xianren Cave, Jiangxi, China (about 20,000 years ago). In Japan, sherds about 16,500 years old come from Odai Yamamoto, Aomori ⚠️. Hunter-gatherers made pottery before farming began. Late Jomon people also had pots for boiling seawater into salt.",
+  "item.semiconductor-lab.earthenware_pot.placeholder": "Omitted: uneven firing, cracking and leaky unglazed pots."
 }

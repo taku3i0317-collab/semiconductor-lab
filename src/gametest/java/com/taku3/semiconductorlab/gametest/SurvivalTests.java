@@ -158,6 +158,35 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-03] 土器（IMP3-01）：焼く前は水で戻る、焼いたら戻らない
+    // =====================================================================
+
+    /** 粘土玉5 → 生の土器 → たき火（野焼き）/かまど → 土器。生の土器＋水 → 粘土玉5（バケツは戻る）、土器＋水 → 何もできない。塩田の釜にも使える */
+    @GameTest
+    public void pottery(GameTestHelper h) {
+        var mgr = h.getLevel().getServer().getRecipeManager();
+        var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        h.assertTrue(recipeUses(h, "raw_clay_pot", Items.CLAY_BALL), "clay balls -> unfired pot");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Survival.RAW_CLAY_POT).is(Survival.EARTHENWARE_POT), "open firing on a campfire");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Survival.RAW_CLAY_POT).is(Survival.EARTHENWARE_POT), "kiln (furnace)");
+        // 焼く前：水で粘土に戻る
+        var raw = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(Survival.RAW_CLAY_POT), new ItemStack(Items.WATER_BUCKET)));
+        var r = mgr.getRecipeFor(CRAFT, raw, h.getLevel()).orElseThrow().value();
+        ItemStack back = r.assemble(raw);
+        h.assertTrue(back.is(Items.CLAY_BALL) && back.getCount() == 5, "unfired pot + water -> 5 clay balls");
+        h.assertTrue(r.getRemainingItems(raw).stream().anyMatch(s -> s.is(Items.BUCKET)), "the bucket comes back");
+        // 焼いた後：もう戻らない（不可逆な脱水 Al2Si2O5(OH)4 → Al2Si2O7 + 2H2O）
+        var fired = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(Survival.EARTHENWARE_POT), new ItemStack(Items.WATER_BUCKET)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, fired, h.getLevel()).isEmpty(), "fired earthenware + water -> nothing");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Survival.EARTHENWARE_POT).isEmpty(), "firing again changes nothing");
+        // 使い道：塩田の煮つめ釜
+        h.assertTrue(recipeUses(h, "salt_pan_earthenware", Survival.EARTHENWARE_POT), "salt pan with an earthenware pot");
+        h.assertTrue(recipeUses(h, "salt_pan", Items.CAULDRON), "salt pan with a cauldron still works");
+        LOG.info("[LAB] pottery [0-03]: 5 clay -> unfired pot (+water -> 5 clay) -> campfire/furnace -> earthenware (+water -> nothing) -> salt pan");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-10] 生石灰・[0-11] 消石灰
     // =====================================================================
 
