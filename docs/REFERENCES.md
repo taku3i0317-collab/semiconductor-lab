@@ -1194,6 +1194,20 @@
 - Wikipedia「Photolithography」（解像度 CD＝k1λ/NA）：https://en.wikipedia.org/wiki/Photolithography
 - Chip History Center「GCA DSW 4800」：https://www.chiphistory.org/
 
+## O38. マスクを重ねて光で焼く（密着・近接露光）［9-20］
+**答え**：レジストを塗ったウェハーにマスクを重ね、水銀ランプの光で模様を焼きつける。1955〜57年にベル研究所と米陸軍の研究者が写真製版をトランジスタづくりに使い始めた。マスクを押しつける密着露光はくっきり写るがマスクが傷み、少し浮かす近接露光はマスクが長持ちするが回折でぼける（ぼけ ≒ √(波長×すき間)）。
+
+- へえ①：最初のトランジスタの模様は、印刷の写真製版と同じやり方で焼かれた。
+- へえ②：密着露光ではマスクに傷やごみが増え、何回か使うと取りかえた。
+- へえ③：すき間を 4倍にすると、ぼけは 2倍になる（平方根）。
+- へえ④：この2つの弱点をなくしたのが、レンズで写す投影露光（1973 等倍、1978 ステッパー）。
+
+確かさ：1955〜57 のベル研・陸軍の写真製版の応用 ◎／密着でマスクが傷む・近接の回折 ◎／ぼけ ∝ √(λg) ○（係数は省略）
+根拠：
+- Wikipedia「Photolithography」（History）：https://en.wikipedia.org/wiki/Photolithography
+- Wikipedia「Jay W. Lathrop」：https://en.wikipedia.org/wiki/Jay_W._Lathrop
+- Wikipedia「Contact lithography」：https://en.wikipedia.org/wiki/Contact_lithography
+
 ---
 
 # 冶金と熱（タスク15〜）

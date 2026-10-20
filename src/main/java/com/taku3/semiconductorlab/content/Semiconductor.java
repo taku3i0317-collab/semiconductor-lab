@@ -85,6 +85,8 @@ public final class Semiconductor {
     public static final Machine<WaferPolisherBlockEntity> WAFER_POLISHER = Machine.electric("wafer_polisher", WaferPolisherBlockEntity::new, WaferPolisherBlockEntity.LAYOUT, metal(3.5f));
     // [9-14] 洗浄槽 段階1（IMP4-01）：硝酸で煮る → フッ酸 → 蒸留水ですすぐ（ChipOps.clean）。1kW
     public static final Machine<CleaningBenchBlockEntity> CLEANING_BENCH = Machine.electric("cleaning_bench", CleaningBenchBlockEntity::new, CleaningBenchBlockEntity.LAYOUT, metal(3.0f));
+    // [9-20] マスクアライナー（密着・近接露光、IMP2 O-011）：レジストを塗ったウェハー＋フォトマスク → g線で露光（ChipOps.expose、CONTACT_G）。画面のボタンですき間（密着／20µm／80µm）
+    public static final Machine<MaskAlignerBlockEntity> MASK_ALIGNER = Machine.electric("mask_aligner", MaskAlignerBlockEntity::new, MaskAlignerBlockEntity.LAYOUT, metal(3.5f));
     // [9-09] FZ 炉（IMP4-01）：るつぼなしで帯を宙に保つ。酸素が少ない単結晶（20kW、誘導加熱、Ar）
     public static final Machine<FzPullerBlockEntity> FZ_PULLER = Machine.electric("fz_puller", FzPullerBlockEntity::new, FzPullerBlockEntity.LAYOUT, metal(4.0f));
     // [9-19] レジスト塗布機（スピンコーター、IMP4-01）：回して薄く広げ、温めて溶剤を飛ばす（ChipOps.coat）。500W

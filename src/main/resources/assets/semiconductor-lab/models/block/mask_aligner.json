@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/mask_aligner_front",
+    "side": "semiconductor-lab:block/mask_aligner_side",
+    "top": "semiconductor-lab:block/mask_aligner_top"
+  }
+}

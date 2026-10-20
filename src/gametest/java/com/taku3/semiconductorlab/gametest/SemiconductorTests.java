@@ -1151,9 +1151,48 @@ public class SemiconductorTests extends LabTestBase {
      * v0.3 の通し：シリコンの板（p型）→ 酸化炉 → [塗布・露光・現像は ChipOps で代わり] → エッチング槽（HF）→ [はがすのは ChipOps] → 拡散炉 …
      * → 真空蒸着装置（Al）→ エッチング槽（リン酸）→ 洗浄台 → 検査台で NOT を発見。
      * 実機：酸化炉 [9-15]・エッチング槽 [9-06]・拡散炉 [9-16]・真空蒸着 [9-25]・Al のエッチング [9-25]・洗浄台 [9-14]・検査台。
-     * 代わり（まだ機械がない）：レジスト塗布 [9-19]・密着露光 [9-20]・現像 [9-21]・レジストはがし（ChipOps.coat / expose / develop / strip）。
+     * 実機：マスクアライナー [9-20]（IMP2 O-011、密着）。代わり（まだ機械がない）：レジスト塗布 [9-19]・現像 [9-21]・レジストはがし（ChipOps.coat / develop / strip）。
      * マスクは設計図から直接（MaskData。製図台・縮小カメラ [7-11] でも作れるが、ここでは通さない）
      */
+    /** [9-20] マスクアライナー（IMP2 O-011）：密着はくっきりだがマスクが傷む、近接 20µm は傷まずに少しぼける、80µm はぼけて焼けない */
+    @GameTest
+    public void mask_aligner(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "mask_aligner", com.taku3.semiconductorlab.content.Optics.MERCURY_LAMP_TUBE) && recipeUses(h, "mask_aligner", Precision.COMPOUND_MICROSCOPE),
+                "mask aligner = mercury lamp + alignment microscope + screw stage");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.blurUm(0) - 0.436) < 1e-9 && Math.abs(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.blurUm(20) - Math.sqrt(0.436 * 20)) < 1e-9, "blur: contact ~ lambda, proximity sqrt(lambda g)");
+        h.assertTrue(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.sharpEnough(0) && com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.sharpEnough(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.GAP_NEAR_UM) && !com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.sharpEnough(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.GAP_FAR_UM), "80 um gap blurs beyond half the 10 um line");
+        var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack ox = new ItemStack(Semiconductor.OXIDIZED_WAFER);
+        ox.set(ModDataComponents.DOPANT, "boron");
+        ItemStack coated = ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(ox), "coat (stand-in for [9-19])");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.WATTS);
+        int[] gapsSeen = new int[3];
+        for (int g = 0; g < 3; g++) {
+            BlockPos at = p(1 + 2 * g, 1, 1);
+            h.setBlock(at, Semiconductor.MASK_ALIGNER.block);
+            var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.class);
+            for (int k = 0; k < g; k++) be.onButton(player, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.BTN_GAP);
+            gapsSeen[g] = be.gapUm();
+            ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.PHOTOMASK);
+            mask.set(ModDataComponents.MASK, design.mask(0));
+            be.getContainer().setItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_WAFER, coated.copy());
+            be.getContainer().setItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_MASK, mask);
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.TICKS + 10, full);
+            ItemStack out = be.getContainer().getItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_OUT);
+            int used = be.getContainer().getItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_MASK).getDamageValue();
+            if (g == 0) h.assertTrue(!out.isEmpty() && used == 1, "contact: exposed, mask worn by 1");
+            if (g == 1) h.assertTrue(!out.isEmpty() && used == 0, "proximity 20 um: exposed, mask not worn");
+            if (g == 2) h.assertTrue(out.isEmpty(), "proximity 80 um: too blurred, nothing printed");
+        }
+        h.assertTrue(gapsSeen[0] == 0 && gapsSeen[1] == com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.GAP_NEAR_UM && gapsSeen[2] == com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.GAP_FAR_UM, "the button cycles contact -> 20 -> 80 um");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"power", "gap_contact", "gap", "blur", "mask_left", "need_wafer", "need_mask", "too_blurry", "mask_worn", "cannot", "output_full", "need_power", "running", "switch_gap"})
+            h.assertTrue(ja.has("gui.semiconductor-lab.mask_aligner." + k), "lang mask_aligner." + k);
+        LOG.info("[LAB] mask_aligner [9-20]: contact sharp but wears the mask, 20 um proximity spares it (blur 3.0 um), 80 um too blurred (5.9 um)");
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
@@ -1170,7 +1209,13 @@ public class SemiconductorTests extends LabTestBase {
         for (int i = 0; i < design.layers().size(); i++) {
             var k = design.layers().get(i).kind();
             w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(w), "coat " + i + " (stand-in for [9-19])");
-            w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.expose(w, design.mask(i), tool), "expose " + i + " (stand-in for [9-20])");
+            // マスクアライナー [9-20]（実機、密着）：設計図の層のマスクをフォトマスクにして重ねる
+            ItemStack photomask = new ItemStack(com.taku3.semiconductorlab.content.Optics.PHOTOMASK);
+            photomask.set(ModDataComponents.MASK, design.mask(i));
+            w = runConsumer(h, p(7, 1, 1), Semiconductor.MASK_ALIGNER.block, new int[] {com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_MASK},
+                    new ItemStack[] {w, photomask}, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_OUT, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.TICKS + 10, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.WATTS);
+            h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w) != null && com.taku3.semiconductorlab.litho.ChipOps.state(w).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.EXPOSED,
+                    "mask aligner (contact) exposes layer " + i);
             w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.develop(w), "develop " + i + " (stand-in for [9-21])");
             if (k == com.taku3.semiconductorlab.litho.LayerKind.METAL) {
                 w = runEtch(h, p(3, 1, 1), w, Chemistry.PHOSPHORIC_ACID);   // Al のエッチング（実機）
@@ -1212,7 +1257,7 @@ public class SemiconductorTests extends LabTestBase {
         probe.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, w);
         probe.onButton(h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
         h.assertValueEqual(probe.found(), 0b1111, "the probe finds resistor, diode, transistor and NOT on the chip made by the machines");
-        LOG.info("[LAB] v0.3 chain: oxidation, etch (HF / phosphoric), diffusion x3, evaporator, cleaning bench, probe = real machines; coat / expose / develop / strip = ChipOps stand-ins; NOT found (dirt {} -> 0)", dirt);
+        LOG.info("[LAB] v0.3 chain: oxidation, mask aligner, etch (HF / phosphoric), diffusion x3, evaporator, cleaning bench, probe = real machines; coat / develop / strip = ChipOps stand-ins; NOT found (dirt {} -> 0)", dirt);
         h.succeed();
     }
 

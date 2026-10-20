@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IMI",
+    "STS",
+    "ICI"
+  ],
+  "key": {
+    "I": "semiconductor-lab:steel_ingot",
+    "M": "semiconductor-lab:compound_microscope",
+    "S": "semiconductor-lab:lead_screw",
+    "T": "semiconductor-lab:mercury_lamp_tube",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:mask_aligner",
+    "count": 1
+  }
+}
