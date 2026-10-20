@@ -189,4 +189,22 @@ public class BranchesTests extends LabTestBase {
         return h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel())
                 .map(r -> r.value().assemble(input)).orElse(ItemStack.EMPTY);
     }
+
+    /** [B-14] アセチレンランプ（IMP3、O-018）：カーバイドで光る（明るさ15）、燃えている間は入らない、燃え尽きると暗くなり、また入れると消石灰が出る */
+    @GameTest
+    public void carbideLamp(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos rel = p(1, 1, 1); BlockPos pos = h.absolutePos(rel);
+        h.setBlock(rel, Branches.CARBIDE_LAMP);
+        var level = h.getLevel(); var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack carbide = new ItemStack(com.taku3.semiconductorlab.content.Heat.CALCIUM_CARBIDE, 3);
+        h.assertTrue(com.taku3.semiconductorlab.block.CarbideLampBlock.light(level.getBlockState(pos)) == 0, "dark at first");
+        h.assertTrue(com.taku3.semiconductorlab.block.CarbideLampBlock.fuel(level, pos, player, carbide) && carbide.getCount() == 2, "carbide in");
+        h.assertTrue(com.taku3.semiconductorlab.block.CarbideLampBlock.light(level.getBlockState(pos)) == 15, "bright");
+        h.assertFalse(com.taku3.semiconductorlab.block.CarbideLampBlock.fuel(level, pos, player, carbide), "not while burning");
+        for (int i = 0; i < com.taku3.semiconductorlab.block.CarbideLampBlock.MAX_FUEL; i++) com.taku3.semiconductorlab.block.CarbideLampBlock.burn(level, pos);
+        h.assertTrue(com.taku3.semiconductorlab.block.CarbideLampBlock.light(level.getBlockState(pos)) == 0, "burnt out");
+        h.assertTrue(com.taku3.semiconductorlab.block.CarbideLampBlock.fuel(level, pos, player, carbide) && player.getInventory().countItem(Survival.SLAKED_LIME) == 1, "refill gives back the spent slaked lime");
+        h.succeed();
+    }
 }

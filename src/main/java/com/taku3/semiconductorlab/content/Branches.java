@@ -50,5 +50,9 @@ public final class Branches {
     public static final Item PRINT                 = Reg.item("print", PhotoItem::new, new Item.Properties().stacksTo(16));            // 写真（紙焼き）
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
+    // [B-14] アセチレンランプ（IMP3、O-018）：カーバイドを入れると明るく光り、ランダムティックで燃え尽きる。かすは消石灰
+    public static final Block CARBIDE_LAMP = Reg.functional("carbide_lamp", CarbideLampBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.0f).sound(SoundType.LANTERN).noOcclusion().lightLevel(CarbideLampBlock::light));
+
     static void init() {}
 }

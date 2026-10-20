@@ -2604,6 +2604,19 @@
 - ACS「Polypropylene and High-Density Polyethylene」：https://www.acs.org/education/whatischemistry/landmarks/polypropylene.html
 - Wikipedia「Ziegler–Natta catalyst」：https://en.wikipedia.org/wiki/Ziegler%E2%80%93Natta_catalyst
 
+## C43. 水をたらすと燃えるガスが出る石（カーバイドとアセチレンランプ）［B-14］
+**答え**：1892年、カナダ生まれのトマス・ウィルソンはアルミを作ろうとアーク炉で石灰と炭を熱し、偶然カーバイド（CaC2）を作った。カーバイドに水をたらすとアセチレンが出て（CaC2 + 2H2O → C2H2 + Ca(OH)2）、その炎はとても明るい。20世紀の前半、炭鉱夫のヘルメットのランプ、自転車・自動車のライト、灯台に使われた。アセチレンはのちにプラスチックや合成ゴムの原料（アセチレン化学）にもなった。
+
+- へえ①：水をたらすと燃えるガスが出る石。
+- へえ②：アセチレンの炎が明るいのは、すすの小さな粒が強く光るから。
+- へえ③：カーバイドは、アルミを作ろうとした失敗から生まれた。
+- へえ④：燃えかすは消石灰。石灰がまたもどってくる。
+
+確かさ：ウィルソン 1892 ◎／反応 ◎／炭鉱・自転車のランプ ◎
+根拠：
+- Wikipedia「Carbide lamp」：https://en.wikipedia.org/wiki/Carbide_lamp
+- Wikipedia「Thomas Willson」：https://en.wikipedia.org/wiki/Thomas_Willson
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

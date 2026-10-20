@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " I ",
+    "IGI",
+    " I "
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "semiconductor-lab:soda_lime_glass"
+  },
+  "result": {
+    "id": "semiconductor-lab:carbide_lamp",
+    "count": 1
+  }
+}

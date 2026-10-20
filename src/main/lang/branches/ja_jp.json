@@ -64,5 +64,13 @@
   "item.semiconductor-lab.print.note1": "ネガから紙に焼いた写真。同じネガから何枚でも作れる。",
   "item.semiconductor-lab.print.note2": "ガラスのネガ＋印画紙（ネガは戻る）。ツールチップに、もとのネガを撮った場所・時刻・露光の量が出る。",
   "item.semiconductor-lab.print.note3": "ネガが生まれて、写真は「1枚きりの物」から「何枚も配れる物」になった。新聞や本に写真が載るようになったのもこのおかげ。",
-  "item.semiconductor-lab.print.note4": "ネガで明るさが逆になり、焼くともう一度逆になって元に戻る。フォトレジストにもネガ型（光の当たった所が残る）とポジ型（光の当たった所が溶ける）がある。"
+  "item.semiconductor-lab.print.note4": "ネガで明るさが逆になり、焼くともう一度逆になって元に戻る。フォトレジストにもネガ型（光の当たった所が残る）とポジ型（光の当たった所が溶ける）がある。",
+  "block.semiconductor-lab.carbide_lamp": "アセチレンランプ（カーバイドランプ）",
+  "block.semiconductor-lab.carbide_lamp.note1": "カーバイドを入れると、水がたれてガスが出て、明るく燃えるランプ。",
+  "block.semiconductor-lab.carbide_lamp.note2": "鉄4＋ソーダ石灰ガラスで作る。カーバイド（A の [3-25]）を持って右クリック → 明るさ15で光る。数分で燃え尽きる。燃え尽きたランプにまたカーバイドを入れると、かすの消石灰が出てくる。⚠ アセチレンは可燃性ガス（GHS）。",
+  "block.semiconductor-lab.carbide_lamp.note3": "CaC2 + 2H2O → C2H2 + Ca(OH)2。アセチレンの炎は温度が高く、すすの小さな粒が強く光るので、とても明るい白い光になる。",
+  "block.semiconductor-lab.carbide_lamp.note4": "1892年カナダ生まれのウィルソンが、アルミを作ろうとしてアーク炉で石灰と炭を熱し、偶然カーバイドを作った。20世紀の前半、炭鉱夫のヘルメットのランプや自転車・自動車のライトに使われた。",
+  "block.semiconductor-lab.carbide_lamp.placeholder": "近似：水を入れる手間は省略（ランプの中に水がある）。",
+  "message.semiconductor-lab.carbide_lamp.lit": "カーバイドに水がたれて、アセチレンが明るく燃え始めた",
+  "message.semiconductor-lab.carbide_lamp.burning": "まだ燃えている"
 }

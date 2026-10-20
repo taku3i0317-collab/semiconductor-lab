@@ -64,5 +64,13 @@
   "item.semiconductor-lab.print.note1": "A photograph printed on paper from a negative. One negative can make any number.",
   "item.semiconductor-lab.print.note2": "Glass negative + printing paper (the negative returns). The tooltip shows where and when the negative was taken and its exposure.",
   "item.semiconductor-lab.print.note3": "With negatives, a photograph changed from a one-off object into something that could be handed out in many copies, which brought photographs into newspapers and books.",
-  "item.semiconductor-lab.print.note4": "The negative reverses light and dark, and printing reverses it again. Photoresists likewise come as negative type (exposed parts stay) and positive type (exposed parts dissolve)."
+  "item.semiconductor-lab.print.note4": "The negative reverses light and dark, and printing reverses it again. Photoresists likewise come as negative type (exposed parts stay) and positive type (exposed parts dissolve).",
+  "block.semiconductor-lab.carbide_lamp": "Acetylene Lamp (Carbide Lamp)",
+  "block.semiconductor-lab.carbide_lamp.note1": "A lamp that drips water on carbide, making a gas that burns brightly.",
+  "block.semiconductor-lab.carbide_lamp.note2": "4 iron + soda-lime glass. Right-click with calcium carbide (A's [3-25]) and it shines at light level 15. It burns out in a few minutes. Adding carbide to a burnt-out lamp gives back the spent slaked lime. ⚠ Acetylene is a flammable gas (GHS).",
+  "block.semiconductor-lab.carbide_lamp.note3": "CaC2 + 2H2O -> C2H2 + Ca(OH)2. The acetylene flame is very hot and its tiny soot particles glow strongly, giving a brilliant white light.",
+  "block.semiconductor-lab.carbide_lamp.note4": "In 1892 Canadian-born Willson, trying to make aluminium, heated lime and coal in an arc furnace and made carbide by accident. In the early 20th century it lit miners' helmet lamps and bicycle and car headlights.",
+  "block.semiconductor-lab.carbide_lamp.placeholder": "Approximation: filling with water is skipped (the lamp holds water).",
+  "message.semiconductor-lab.carbide_lamp.lit": "Water dripped onto the carbide and acetylene began to burn brightly",
+  "message.semiconductor-lab.carbide_lamp.burning": "It is still burning"
 }

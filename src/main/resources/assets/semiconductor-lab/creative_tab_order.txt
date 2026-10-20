@@ -597,5 +597,6 @@ developed_dry_plate  # Branches [B-02] 1839
 negative  # Branches [B-02] 1839
 printing_paper  # Branches [B-02] 1839
 print  # Branches [B-02] 1839
+carbide_lamp  # Branches [B-14] 1892
 solar_cell  # Branches [B-12] 1954
 test_power_source  # Testing [None] None
