@@ -224,6 +224,11 @@ public final class Chemistry {
     public static final Item ALUMINOSILICATE_GLASS = Reg.item("aluminosilicate_glass");
     public static final Item GLASS_IN_SALT_BATH    = Reg.item("glass_in_salt_bath");
     public static final Item STRENGTHENED_GLASS    = Reg.item("strengthened_glass");
+    // [2-46] 透明な電極 ITO（IMP3、O-015）：インジウム8＋錫 → インジウム錫の合金9、真空蒸着（[5-14] の表に1行）でホウケイ酸ガラスに金属の膜 →
+    //   かまど（空気中で焼いて酸化）→ ITO ガラス（光を通して電気も通す、In2O3 に SnO2 約10%）
+    public static final Item INDIUM_TIN_ALLOY      = Reg.item("indium_tin_alloy");
+    public static final Item INDIUM_TIN_COATED_GLASS = Reg.item("indium_tin_coated_glass");
+    public static final Item ITO_GLASS             = Reg.item("ito_glass");
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);

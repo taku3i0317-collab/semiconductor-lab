@@ -281,6 +281,8 @@ carotene  # Chemistry [2-54] 1952
 chlorophyll  # Chemistry [2-54] 1952
 chromatography_column  # Chemistry [2-54] 1952
 negative_resist  # Chemistry [2-30] 1954
+indium_tin_alloy  # Chemistry [2-46] 1954
+ito_glass  # Chemistry [2-46] 1954
 phosphorus  # Chemistry [9-11] 1955
 silicon_etch  # Chemistry [9-17] 1957
 developer  # Chemistry [9-21] 1957
@@ -297,6 +299,7 @@ polyethylene_bottle  # Chemistry [None] None
 black_ash_charge  # Chemistry [None] None
 aluminosilicate_batch  # Chemistry [None] None
 glass_in_salt_bath  # Chemistry [None] None
+indium_tin_coated_glass  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 bellows  # Heat [3-04] -1450

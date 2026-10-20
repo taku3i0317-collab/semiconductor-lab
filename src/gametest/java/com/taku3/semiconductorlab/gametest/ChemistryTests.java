@@ -1129,6 +1129,21 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
                 .map(r -> r.value().assemble(input)).orElse(ItemStack.EMPTY);
     }
 
+    // =====================================================================
+    // [2-46] 透明な電極 ITO（IMP3、O-015）
+    // =====================================================================
+
+    /** In8＋Sn → 合金9。蒸着装置の表：ホウケイ酸ガラス＋合金 → 金属を付けたガラス。かまど（空気で酸化）→ ITO ガラス */
+    @GameTest
+    public void itoGlass(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "indium_tin_alloy", com.taku3.semiconductorlab.content.Metallurgy.INDIUM) && recipeUses(h, "indium_tin_alloy", com.taku3.semiconductorlab.content.Metallurgy.TIN_INGOT), "In + Sn alloy");
+        var r = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Chemistry.BOROSILICATE_GLASS), new ItemStack(Chemistry.INDIUM_TIN_ALLOY));
+        h.assertTrue(r != null && r.product() == Chemistry.INDIUM_TIN_COATED_GLASS, "vacuum evaporation of In-Sn onto glass");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.INDIUM_TIN_COATED_GLASS).is(Chemistry.ITO_GLASS), "oxidized in air -> ITO");
+        LOG.info("[LAB] ITO [2-46]: In8 + Sn -> alloy; evaporator: borosilicate glass + alloy -> coated; furnace (air) -> ITO glass");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

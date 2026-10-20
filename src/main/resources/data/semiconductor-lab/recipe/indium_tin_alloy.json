@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:indium",
+    "semiconductor-lab:indium",
+    "semiconductor-lab:indium",
+    "semiconductor-lab:indium",
+    "semiconductor-lab:indium",
+    "semiconductor-lab:indium",
+    "semiconductor-lab:indium",
+    "semiconductor-lab:indium",
+    "semiconductor-lab:tin_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:indium_tin_alloy",
+    "count": 9
+  }
+}

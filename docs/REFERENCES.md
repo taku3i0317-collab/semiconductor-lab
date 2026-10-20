@@ -2218,6 +2218,20 @@
 - Wikipedia「Gorilla Glass」（歴史）：https://en.wikipedia.org/wiki/Gorilla_Glass
 - WIRED「The Glass That Saved Corning」（2012）
 
+## C32. 透けて見えるのに電気が通る（ITO）［2-46］
+**答え**：酸化インジウム In2O3 に酸化スズ SnO2 を約10%混ぜた膜（ITO）は、光を通すのに電気も通す。Sn4+ が電子を1つ余らせて n 型の半導体のように電気を運ぶが、電子は金属よりずっと少ないので目に見える光をはね返さない。1907年ベーデカーが薄い酸化カドミウムの膜で透明な導電膜を初めて報告し、1950年代に酸化インジウムの膜の研究が進んだ（ITO の最初の年は資料で揺れる ⚠️）。インジウムは1863年、ライヒとリヒターが閃亜鉛鉱の藍色（インディゴ）の線から見つけた。
+
+- へえ①：インジウムの名前は、炎の光を分けたときに見えた藍色（インディゴ）から。
+- へえ②：スマートフォンの画面を指でさわって動かせるのは、透明な電極があるから。
+- へえ③：金属の膜は光をはね返すが、酸化物にすると透けて見える。
+- へえ④：インジウムの大部分は、今も亜鉛の製錬の副産物。
+
+確かさ：ITO の組成としくみ ◎／ベーデカー 1907 ◎／ITO の最初の年 △ → ⚠️／ライヒとリヒター 1863 ◎
+根拠：
+- Wikipedia「Indium tin oxide」：https://en.wikipedia.org/wiki/Indium_tin_oxide
+- Wikipedia「Transparent conducting film」（ベーデカー）：https://en.wikipedia.org/wiki/Transparent_conducting_film
+- RSC「Indium」/ USGS「Mineral Commodity Summaries 2024: Indium」
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
