@@ -50,7 +50,7 @@
   "guide2.semiconductor-lab.p3.title": "2. 蒸気",
   "book.semiconductor-lab.ch2.p3": "2. 蒸気\n石炭で水を沸かし、蒸気がピストンを押し、ダイナモが回る：50kW。\n\n石炭1個＝熱30MJ、電気は1.5MJ（5%）。ワットの機関は熱のほとんどを捨てた。蒸気タービンなら30%。",
   "guide2.semiconductor-lab.p4.title": "3. 自励式ダイナモ",
-  "book.semiconductor-lab.ch2.p4": "3. 自励式ダイナモ\n1866〜67 ジーメンスら（ほぼ同時）：永久磁石なし。鉄心に残ったわずかな磁気で電流が流れ、それが電磁石を強め…と自分で立ち上がる。\n\n水車・蒸気機関に右クリックで出力2倍。",
+  "book.semiconductor-lab.ch2.p4": "3. 自励式ダイナモ\n1866〜67 ヴァーリー・ジーメンス・ホイートストン（ほぼ同時）：永久磁石なし。鉄心に残ったわずかな磁気で電流が流れ、それが電磁石を強め…と自分で立ち上がる。\n\n水車・蒸気機関に右クリックで出力2倍。",
   "guide2.semiconductor-lab.p5.title": "4. ケーブル",
   "book.semiconductor-lab.ch2.p5": "4. ケーブル\nつながったケーブルは1つの網。ケーブルは貯めない：発電機から機械へ直接届く。\n\n損失は最長経路1本につき1%（P＝I²R）。1つの網は最大1MW。余りは鉛蓄電池へ。",
   "guide2.semiconductor-lab.p6.title": "5. 電気分解",

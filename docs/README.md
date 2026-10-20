@@ -18,12 +18,13 @@
 | ROADMAP.md | 全体計画とバージョン（v0.1 / v0.2a / v0.2b…）ごとのチェックリスト |
 | TECH_TREE.md | 技術ツリー本体（347ノード）。ノード＝作業単位（前提/本物/入出力/ゲーム/省略/へえ/テスト） |
 | TECH_TREE_VIEW.md | TECH_TREE から自動生成した進捗表・背骨・依存図（tools/gen_tree_views.py。手で編集しない） |
-| network.html | 技術ネットワーク図（ブラウザで開く。点＝技術、横＝年、縦＝幹。クリックでカード）。データは tech_network.js |
+| network.html | 技術ネットワーク図（ブラウザで開く。点＝技術、横＝年、縦＝幹。クリックでカード）。データは tech_network_graph.js（図）と tech_network_detail.js（カード） |
 | node.html | ノード詳細ページ（node.html#9-07 のように番号で開く）：へえ①〜④・本物・人物・確かさと出典・ゲームでの作り方・ここにたどり着く道のり・影響・時を超えたつながり・誤りの報告 |
 | machine_recipes.json | 機械のレシピ（入力・出力・電力・時間）。GameTest exportMachineRecipes が tools/test.ps1 のたびに書き出す（手で編集しない） |
 | （担当） | network.html・node.html・gen_tree_views.py・network_meta.json・products.md・ideas.md・gen_portraits.py は semilab-network（ネットワーク担当）が触る。このフォルダでは触らない |
 | network_meta.json | ネットワーク図の見た目（ノード→アイコンのテクスチャ、幹の記号、モノの絵文字、人物＝ドット絵の肖像（tools/gen_portraits.py）＋名前＋ゆかりの道具）。手で編集する |
-| tech_network.js | tech_network.json と同じ中身の JS（network.html をファイルから直接開いても読めるように） |
+| tech_network_graph.js | 図に要る軽いデータ（番号・名前・年・幹・状態・種類・アイコン・位置・つながり・子孫の数）。位置は gen_tree_views.py が先に計算。network.html が最初に読む（ファイルを直接開いても読めるように JS） |
+| tech_network_detail.js | カード・詳細用の重いデータ（本物・へえ・出典・レシピ・人物）。network.html はカードを開くか検索したときに読み、node.html は最初から読む |
 | tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
 | CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき） |

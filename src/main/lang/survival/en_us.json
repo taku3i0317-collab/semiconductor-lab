@@ -2,7 +2,7 @@
   "item.semiconductor-lab.quicklime": "Quicklime",
   "item.semiconductor-lab.quicklime.note1": "Burn seashells or white stone and you get lime: the start of wall plaster.",
   "item.semiconductor-lab.quicklime.note": "CaO. Calcite (CaCO3) heated to about 900 C loses its carbon dioxide: CaCO3 -> CaO + CO2. A furnace (~1000 C) or blast furnace is hot enough. Seashells and limestone are also CaCO3 and burn the same way.",
-  "item.semiconductor-lab.quicklime.note3": "Lime plaster is one of the oldest man-made materials: floors at Catalhoyuk and other early villages (around 9000-7000 BC) were coated with burnt lime. People built lime kilns everywhere there was limestone or shells.",
+  "item.semiconductor-lab.quicklime.note3": "Lime plaster is one of the oldest man-made materials: Natufian people in Israel already used burnt-lime plaster about 12,000 years ago, floors at Gobekli Tepe (from about 9500 BC) were made with burnt lime, and it spread widely about 10,000 years ago. People built lime kilns everywhere there was limestone or shells.",
   "item.semiconductor-lab.quicklime.note4": "Above about 900 C the pressure of CO2 released by CaCO3 exceeds 1 atm, so the reaction runs on its own. Burned too hot or too long, lime becomes 'dead-burned' (dense crystals that react slowly with water). The CO2 from lime kilns is still a big part of the cement industry's emissions.",
   "item.semiconductor-lab.quicklime.placeholder": "Omitted: the CO2 given off is not collected (a furnace has only one output).",
   "item.semiconductor-lab.slaked_lime": "Slaked Lime",

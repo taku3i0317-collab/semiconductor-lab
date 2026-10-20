@@ -50,7 +50,7 @@
   "guide2.semiconductor-lab.p3.title": "2. Steam",
   "book.semiconductor-lab.ch2.p3": "2. STEAM\nCoal boils water, steam pushes a piston, a dynamo turns: 50 kW.\n\nOne coal = 30 MJ of heat but only 1.5 MJ of electricity (5%). Watt's engines wasted most heat. The steam turbine reaches 30%.",
   "guide2.semiconductor-lab.p4.title": "3. Self-Excited Dynamo",
-  "book.semiconductor-lab.ch2.p4": "3. DYNAMO\nSiemens and others, 1866-67: no permanent magnet. Leftover magnetism in the iron core starts a small current, which makes the electromagnet stronger, and so on.\n\nRight-click a water wheel or steam engine with it: 2x output.",
+  "book.semiconductor-lab.ch2.p4": "3. DYNAMO\nVarley, Siemens and Wheatstone, 1866-67: no permanent magnet. Leftover magnetism in the iron core starts a small current, which makes the electromagnet stronger, and so on.\n\nRight-click a water wheel or steam engine with it: 2x output.",
   "guide2.semiconductor-lab.p5.title": "4. Cables",
   "book.semiconductor-lab.ch2.p5": "4. CABLES\nConnected cables form one network. Cables store nothing: power goes straight from generators to machines.\n\nLoss = 1% per cable on the longest path (P = I^2 R). Max 1 MW per network. Batteries take the surplus.",
   "guide2.semiconductor-lab.p6.title": "5. Electrolysis",
