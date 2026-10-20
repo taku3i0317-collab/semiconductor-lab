@@ -193,5 +193,22 @@
   "item.semiconductor-lab.coated_flint_lens.note2": "Vacuum evaporator: flint lens + fluorite (CaF2). Flint has a higher index (about 1.6), so its bare surface reflects more than crown (about 5%).",
   "item.semiconductor-lab.coated_flint_lens.note3": "Around World War II, coated binoculars and periscopes stayed bright even at dusk.",
   "item.semiconductor-lab.coated_flint_lens.note4": "A quarter-wave film works best for one color only. To cut reflection across colors, several films of different index are stacked (multilayers). EUV mirrors [7-17] use multilayers the other way round, to reflect strongly.",
-  "item.semiconductor-lab.coated_flint_lens.placeholder": "Approximation: a single layer only. CaF2 films are soft and scratch easily."
+  "item.semiconductor-lab.coated_flint_lens.placeholder": "Approximation: a single layer only. CaF2 films are soft and scratch easily.",
+  "block.semiconductor-lab.bridgman_furnace": "Bridgman Furnace",
+  "block.semiconductor-lab.bridgman_furnace.note1": "A furnace that cools molten fluorite slowly to grow one large crystal.",
+  "block.semiconductor-lab.bridgman_furnace.note2": "3 kW electric (induction heating). 4 fluorite + 1 argon bag -> CaF2 single crystal (90 s). Recipe: induction coil + HF oscillator + graphite rod (crucible) + 2 refractory bricks + quartz tube + lead screw (lowers the crucible slowly).",
+  "block.semiconductor-lab.bridgman_furnace.note3": "In 1925 the American Bridgman described growing single crystals by moving a crucible slowly from a hot zone to a cold one. In the 1930s Stockbarger made large CaF2 and LiF crystals in a vacuum furnace (⚠️ the year for CaF2 varies by source).",
+  "block.semiconductor-lab.bridgman_furnace.note4": "With a pointed crucible tip, only one of the first tiny crystals keeps growing, so the whole melt becomes one crystal (the same idea as necking in the CZ method). CaF2 melts at 1418 C. Oxygen or water would mix in CaO and block UV, so it is grown under argon or vacuum.",
+  "block.semiconductor-lab.bridgman_furnace.placeholder": "Approximation: the real crucible is lowered over several days (here 90 s). Natural fluorite is used directly (real optical grade uses purified raw material).",
+  "item.semiconductor-lab.caf2_crystal": "CaF2 Single Crystal",
+  "item.semiconductor-lab.caf2_crystal.note1": "A large, crystal-clear crystal of calcium fluoride. It also passes invisible ultraviolet well.",
+  "item.semiconductor-lab.caf2_crystal.note2": "Bridgman furnace: 4 fluorite + argon. Grind and polish it into a CaF2 lens. It transmits UV down to about 130 nm (ordinary glass stops around 300 nm).",
+  "item.semiconductor-lab.caf2_crystal.note3": "Clear, crack-free natural fluorite is very rare. Around 1886 Abbe used natural fluorite in microscope lenses to cut color fringes further (apochromats).",
+  "item.semiconductor-lab.caf2_crystal.note4": "Projection lenses for ArF (193 nm) lithography combine fused silica and CaF2. 157 nm lithography relied on CaF2 alone, but large uniform crystals proved too hard to make and development stopped around 2003.",
+  "item.semiconductor-lab.caf2_lens": "CaF2 Lens",
+  "item.semiconductor-lab.caf2_lens.note1": "A lens ground and polished from a calcium fluoride crystal. It passes ultraviolet too.",
+  "item.semiconductor-lab.caf2_lens.note2": "CaF2 crystal + sand + grinding tool + rouge + pitch lap (tools come back). Index about 1.43, very low dispersion (Abbe number about 95). A material for projection lenses [7-19].",
+  "item.semiconductor-lab.caf2_lens.note3": "'Fluorite' lenses were used in high-end telephoto camera lenses, marked by white barrels (Canon, 1969 ⚠️).",
+  "item.semiconductor-lab.caf2_lens.note4": "CaF2 is softer than glass, cracks easily with heat, and its index changes strongly with temperature, so it is hard to polish and mount. Being a crystal, its properties vary slightly with direction (birefringence), which also became a problem at 157 nm.",
+  "item.semiconductor-lab.caf2_lens.placeholder": "Approximation: grinding and polishing are done in one crafting step."
 }

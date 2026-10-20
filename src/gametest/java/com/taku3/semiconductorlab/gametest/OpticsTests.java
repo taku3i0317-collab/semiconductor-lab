@@ -438,8 +438,40 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-15] 紫外光学材料・CaF2（IMP2-02）：ブリッジマン炉で蛍石4＋アルゴン → CaF2 単結晶（アルゴンなし・3個・電力半分では不可）→ 削って磨いて CaF2 レンズ */
+    @GameTest
+    public void bridgmanCaF2(GameTestHelper h) {
+        var B = com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.class;
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Optics.BRIDGMAN_FURNACE.block);
+        var be = h.getBlockEntity(pos, B);
+        var c = be.getContainer();
+        int IN = com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.SLOT_IN, AR = com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.SLOT_AR, OUT = com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.SLOT_OUT;
+        int T = com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.TICKS;
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.WATTS);
+        c.setItem(IN, new ItemStack(Metallurgy.FLUORITE, 4));
+        tickConsumer(h, pos, be, T + 5, full);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no argon -> oxygen would cloud the crystal -> wait");
+        c.setItem(AR, new ItemStack(com.taku3.semiconductorlab.content.Gas.ARGON_GAS, 1));
+        c.setItem(IN, new ItemStack(Metallurgy.FLUORITE, 3));
+        tickConsumer(h, pos, be, T + 5, full);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "3 fluorite is not enough");
+        c.setItem(IN, new ItemStack(Metallurgy.FLUORITE, 4));
+        tickConsumer(h, pos, be, T, full / 2);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "half power -> no progress");
+        tickConsumer(h, pos, be, T, full);
+        h.assertTrue(c.getItem(OUT).is(Optics.CAF2_CRYSTAL), "4 fluorite + Ar -> CaF2 single crystal");
+        h.assertTrue(c.getItem(AR).isEmpty() && c.getItem(IN).isEmpty(), "argon and fluorite used");
+        h.assertTrue(craft(h, Optics.CAF2_CRYSTAL, Items.SAND, Optics.GRINDING_TOOL, Optics.ROUGE, Optics.PITCH_LAP)[0].is(Optics.CAF2_LENS), "ground and polished -> CaF2 lens");
+        h.assertTrue(craft(h, Metallurgy.FLUORITE, Items.SAND, Optics.GRINDING_TOOL, Optics.ROUGE, Optics.PITCH_LAP)[0].isEmpty(), "raw fluorite (cloudy, cleaved) is not a lens");
+        LOG.info("[LAB] CaF2 [7-15]: Bridgman furnace 4 fluorite + Ar -> CaF2 crystal (3 kW x 90 s) -> CaF2 lens");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Optics.BRIDGMAN_FURNACE.block, "CaF2 の単結晶を育てる", L(io(Metallurgy.FLUORITE, 4), io(com.taku3.semiconductorlab.content.Gas.ARGON_GAS, 1)),
+            L(io(Optics.CAF2_CRYSTAL, 1)), com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.TICKS / 20.0, "アルゴンの中で溶かし（1418℃）、ゆっくり下げて下から結晶化");
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
             L(io(Optics.FUSED_QUARTZ, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "2H2 + O2 → 2H2O（約2800℃）。電気なし");
     }

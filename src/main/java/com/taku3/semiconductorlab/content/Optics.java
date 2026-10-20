@@ -60,6 +60,9 @@ public final class Optics {
     // [7-22] 反射防止膜（IMP2-01）：真空蒸着装置でレンズに CaF2 を 1/4 波長の厚さ付けたもの（表面の反射 約4% → 約2%）。投影レンズ [7-19] の材料
     public static final Item COATED_CROWN_LENS     = Reg.item("coated_crown_lens");
     public static final Item COATED_FLINT_LENS     = Reg.item("coated_flint_lens");
+    // [7-15] 紫外光学材料・CaF2（IMP2-02）：ブリッジマン炉で蛍石を溶かして単結晶に → 削って磨いて CaF2 レンズ（紫外を通す。色消しのアポクロマートにも）
+    public static final Item CAF2_CRYSTAL          = Reg.item("caf2_crystal");
+    public static final Item CAF2_LENS             = Reg.item("caf2_lens");
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
@@ -69,6 +72,8 @@ public final class Optics {
     public static final Item GRATING_SPECTROSCOPE  = Reg.item("grating_spectroscope", p -> new SpectroscopeItem(p, WIRE_GRATING_MICRONS), new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
+    // ブリッジマン炉 [7-15]（IMP2-02）：誘導加熱 3kW、アルゴンの中で蛍石を溶かし、ゆっくり下げて CaF2 単結晶に
+    public static final Machine<BridgmanFurnaceBlockEntity> BRIDGMAN_FURNACE = Machine.electric("bridgman_furnace", BridgmanFurnaceBlockEntity::new, BridgmanFurnaceBlockEntity.LAYOUT, lit(metal(3.5f), 10));
     // 水銀灯 [7-10]（IMP2-01）：直流 385W（110V・3.5A）でつく。画面なし。点灯中は明るさ15、分光器で水銀の線（g線・h線・i線）が見える
     public static final Machine<MercuryLampBlockEntity> MERCURY_LAMP = Machine.electric("mercury_lamp", MercuryLampBlockEntity::new, MercuryLampBlockEntity.LAYOUT,
             lit(metal(1.5f).sound(SoundType.GLASS), 15));

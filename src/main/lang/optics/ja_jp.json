@@ -193,5 +193,22 @@
   "item.semiconductor-lab.coated_flint_lens.note2": "真空蒸着装置で、フリントレンズ＋蛍石（CaF2）。フリントは屈折率が高い（約1.6）ので、裸の面の反射はクラウンより大きい（約5%）。",
   "item.semiconductor-lab.coated_flint_lens.note3": "第二次世界大戦のころ、反射防止膜を付けた双眼鏡や潜望鏡は、夕暮れでも明るく見えた。",
   "item.semiconductor-lab.coated_flint_lens.note4": "1/4 波長の膜がいちばん効くのは1つの色だけ。いろいろな色で反射を減らすには、屈折率の違う膜を何層も重ねる（多層膜）。EUV の鏡 [7-17] は、この多層膜を逆に「よく反射する」ように使う。",
-  "item.semiconductor-lab.coated_flint_lens.placeholder": "近似：膜は1層だけ。CaF2 の膜は柔らかく傷つきやすい。"
+  "item.semiconductor-lab.coated_flint_lens.placeholder": "近似：膜は1層だけ。CaF2 の膜は柔らかく傷つきやすい。",
+  "block.semiconductor-lab.bridgman_furnace": "ブリッジマン炉",
+  "block.semiconductor-lab.bridgman_furnace.note1": "とかした蛍石をゆっくり冷やして、大きな1つの結晶に育てる炉。",
+  "block.semiconductor-lab.bridgman_furnace.note2": "電気 3kW（誘導加熱）。蛍石×4＋アルゴン1袋 → CaF2 単結晶（90秒）。作り方：誘導コイル＋高周波発振器＋黒鉛棒（るつぼ）＋耐火れんが×2＋石英管＋送りねじ（るつぼをゆっくり下げる）。",
+  "block.semiconductor-lab.bridgman_furnace.note3": "1925年、アメリカのブリッジマンは、るつぼを熱い所から冷たい所へゆっくり動かして単結晶を育てる方法を発表した。1930年代にストックバーガーが真空炉で大きな CaF2・LiF の結晶を作れるようにした（⚠️ CaF2 の年は資料で違う）。",
+  "block.semiconductor-lab.bridgman_furnace.note4": "るつぼの先を細くしておくと、最初にできた小さな結晶の1つだけが育ち続け、全体が1つの結晶になる（CZ 法の「首しぼり」と同じ考え）。CaF2 は 1418℃ でとける。酸素や水があると CaO が混じって紫外が通らなくなるので、アルゴンや真空の中で育てる。",
+  "block.semiconductor-lab.bridgman_furnace.placeholder": "近似：本物は何日もかけて下げる（ここは90秒）。天然の蛍石をそのまま原料にした（本物の光学用は精製した原料）。",
+  "item.semiconductor-lab.caf2_crystal": "CaF2 単結晶",
+  "item.semiconductor-lab.caf2_crystal.note1": "水晶のように透明な、フッ化カルシウムの大きな結晶。目に見えない紫外線もよく通す。",
+  "item.semiconductor-lab.caf2_crystal.note2": "ブリッジマン炉で、蛍石×4＋アルゴン。削って磨くと CaF2 レンズ。紫外は約 130nm まで通す（ふつうのガラスは 300nm ほどで止まる）。",
+  "item.semiconductor-lab.caf2_crystal.note3": "天然の蛍石で透明でひびのない物はとても少ない。1886年ごろ、アッベは天然の蛍石を顕微鏡のレンズに使い、色のにじみをもっと減らした（アポクロマート）。",
+  "item.semiconductor-lab.caf2_crystal.note4": "ArF（193nm）の露光装置の投影レンズは、石英ガラスと CaF2 の組み合わせ。157nm の露光は CaF2 だけが頼りだったが、大きく均質な結晶を作るのが難しく、2003年ごろ開発が止まった。",
+  "item.semiconductor-lab.caf2_lens": "CaF2 レンズ",
+  "item.semiconductor-lab.caf2_lens.note1": "フッ化カルシウムの結晶を削って磨いたレンズ。紫外線も通す。",
+  "item.semiconductor-lab.caf2_lens.note2": "CaF2 単結晶＋砂＋研削皿＋ベンガラ＋ピッチの研磨皿（道具は戻る）。屈折率 約1.43、分散がとても小さい（アッベ数 約95）。投影レンズ [7-19] の材料。",
+  "item.semiconductor-lab.caf2_lens.note3": "高級なカメラの望遠レンズに「蛍石レンズ」が使われ、白い鏡筒の目印になった（1969年 キヤノン⚠️）。",
+  "item.semiconductor-lab.caf2_lens.note4": "CaF2 はガラスよりやわらかく、熱で割れやすく、温度で屈折率が変わりやすい。磨くのも組むのも難しい材料。結晶なので、向きによって性質が少し変わる（複屈折）のも 157nm では問題になった。",
+  "item.semiconductor-lab.caf2_lens.placeholder": "近似：研削と研磨を1回の作業台にまとめた。"
 }

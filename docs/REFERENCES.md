@@ -700,6 +700,20 @@
 - Wikipedia「Nitric acid」（歴史）：https://en.wikipedia.org/wiki/Nitric_acid
 - Wikipedia「Silver nitrate」：https://en.wikipedia.org/wiki/Silver_nitrate
 
+## O21. 蛍石をとかして1つの結晶に（CaF2 単結晶、ブリッジマン法）［7-15］
+**答え**：黒鉛のるつぼで蛍石（CaF2）をとかし（1418℃）、アルゴンや真空の中で、るつぼを熱い所から冷たい所へゆっくり下げると、先から1つの大きな結晶が育つ（ブリッジマン 1925、ストックバーガー 1930年代）。CaF2 は紫外を約130nm まで通し、分散がとても小さいので、紫外の露光装置のレンズや色消しのレンズになる。
+
+- へえ①：天然の蛍石が、最先端レーザーの窓になる。
+- へえ②：1886年ごろアッベは天然の蛍石を顕微鏡のレンズに使い、色のにじみをさらに減らした（アポクロマート）。
+- へえ③：ArF（193nm）の投影レンズは石英ガラスと CaF2 の組み合わせ。
+- へえ④：157nm の露光は CaF2 だけが頼りだったが、大きく均質な結晶が作れず、2003年ごろ開発が止まった（理由はレンズ材とレジスト。監査 V-162）。
+
+確かさ：ブリッジマン法 1925 ◎／ストックバーガーの CaF2・LiF ○（年は資料で違う ⚠️）／CaF2 の物性（融点・透過・アッベ数）◎／アッベの蛍石アポクロマート ○／157nm の中止 ○（EE Times、監査 V-162）
+根拠：
+- Wikipedia「Bridgman–Stockbarger method」：https://en.wikipedia.org/wiki/Bridgman%E2%80%93Stockbarger_method
+- Wikipedia「Calcium fluoride」：https://en.wikipedia.org/wiki/Calcium_fluoride
+- Wikipedia「Apochromat」：https://en.wikipedia.org/wiki/Apochromat
+
 ---
 
 # 冶金と熱（タスク15〜）

@@ -204,6 +204,30 @@
       "note": "送風の動力を電力で代表"
     },
     {
+      "machine": "semiconductor-lab:bridgman_furnace",
+      "process": "CaF2 の単結晶を育てる",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:fluorite",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:caf2_crystal",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 90.0,
+      "energy_kj": 270,
+      "note": "アルゴンの中で溶かし（1418℃）、ゆっくり下げて下から結晶化"
+    },
+    {
       "machine": "semiconductor-lab:compressor",
       "process": "ボンベに詰める",
       "inputs": [

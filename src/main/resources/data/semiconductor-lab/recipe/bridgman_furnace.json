@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:induction_coil",
+    "semiconductor-lab:hf_oscillator",
+    "semiconductor-lab:graphite_rod",
+    "semiconductor-lab:refractory_brick",
+    "semiconductor-lab:refractory_brick",
+    "semiconductor-lab:quartz_tube",
+    "semiconductor-lab:lead_screw"
+  ],
+  "result": {
+    "id": "semiconductor-lab:bridgman_furnace",
+    "count": 1
+  }
+}

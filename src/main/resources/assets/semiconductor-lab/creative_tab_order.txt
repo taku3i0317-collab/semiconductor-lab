@@ -204,6 +204,9 @@ mercury_lamp_assembly  # Optics [7-10] 1901
 mercury_lamp_tube  # Optics [7-10] 1901
 mercury_lamp  # Optics [7-10] 1901
 half_silvered_mirror  # Optics [5-14] 1912
+caf2_crystal  # Optics [7-15] 1920
+caf2_lens  # Optics [7-15] 1920
+bridgman_furnace  # Optics [7-15] 1920
 coated_crown_lens  # Optics [7-22] 1938
 coated_flint_lens  # Optics [7-22] 1938
 lead_screw  # Precision [8-02] 1797
