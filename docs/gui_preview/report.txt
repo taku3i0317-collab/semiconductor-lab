@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 154（ja・en）、文字の置き場所 576、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 156（ja・en）、文字の置き場所 582、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -187,11 +187,11 @@ acheson_furnace_en_us hint2 gui.semiconductor-lab.acheson_furnace.underpowered2 
 acheson_furnace_en_us c =C w=6 lines=1/1
 acheson_furnace_en_us sio2 =SiO2 w=20 lines=1/1
 reverberatory_furnace_en_us title shrunk to 0.9655172
-reverberatory_furnace_en_us hint gui.semiconductor-lab.reverberatory_furnace.need_input w=92 lines=1/2
+reverberatory_furnace_en_us hint gui.semiconductor-lab.reverberatory_furnace.need_input w=145 lines=2/2
 reverberatory_furnace_en_us hint gui.semiconductor-lab.reverberatory_furnace.need_fuel w=114 lines=2/2
 reverberatory_furnace_en_us hint gui.semiconductor-lab.reverberatory_furnace.roasting w=81 lines=1/2
 reverberatory_furnace_en_us hint gui.semiconductor-lab.reverberatory_furnace.out_full w=81 lines=1/2
-reverberatory_furnace_en_us so2 =SO2 w=18 lines=1/1
+reverberatory_furnace_en_us so2 gui.semiconductor-lab.reverberatory_furnace.flue w=21 lines=1/1
 arc_furnace_en_us power gui.semiconductor-lab.arc_furnace.power w=75 lines=1/1
 arc_furnace_en_us need gui.semiconductor-lab.arc_furnace.need w=67 lines=1/1
 arc_furnace_en_us hint gui.semiconductor-lab.arc_furnace.need_input w=221 lines=3/3 scale=0.84999996
@@ -283,6 +283,16 @@ oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.melting w
 oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_h2 w=107 lines=1/1
 oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.need_o2 w=107 lines=1/1
 oxyhydrogen_burner_en_us hint gui.semiconductor-lab.oxyhydrogen_burner.out_full w=53 lines=1/1
+co2_laser_en_us power gui.semiconductor-lab.co2_laser.power w=63 lines=1/1
+co2_laser_en_us beam gui.semiconductor-lab.co2_laser.beam w=68 lines=1/1
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.need_window w=101 lines=2/3
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.cracked w=145 lines=3/3
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.need_co2 w=86 lines=2/3
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.weak w=91 lines=2/3
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.need_input w=94 lines=2/3
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.output_full w=53 lines=1/3
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.need_power w=46 lines=1/3
+co2_laser_en_us hint gui.semiconductor-lab.co2_laser.running w=71 lines=1/3
 evaporator_en_us power gui.semiconductor-lab.evaporator.power w=63 lines=1/1
 evaporator_en_us pressure gui.semiconductor-lab.evaporator.pressure w=53 lines=1/1
 evaporator_en_us target gui.semiconductor-lab.evaporator.target w=61 lines=1/1
@@ -853,11 +863,11 @@ acheson_furnace_ja_jp hint gui.semiconductor-lab.acheson_furnace.graphitizing w=
 acheson_furnace_ja_jp hint2 gui.semiconductor-lab.acheson_furnace.underpowered2 w=53 lines=1/1
 acheson_furnace_ja_jp c =C w=6 lines=1/1
 acheson_furnace_ja_jp sio2 =SiO2 w=20 lines=1/1
-reverberatory_furnace_ja_jp hint gui.semiconductor-lab.reverberatory_furnace.need_input w=63 lines=1/2
+reverberatory_furnace_ja_jp hint gui.semiconductor-lab.reverberatory_furnace.need_input w=99 lines=1/2
 reverberatory_furnace_ja_jp hint gui.semiconductor-lab.reverberatory_furnace.need_fuel w=72 lines=1/2
 reverberatory_furnace_ja_jp hint gui.semiconductor-lab.reverberatory_furnace.roasting w=62 lines=1/2
 reverberatory_furnace_ja_jp hint gui.semiconductor-lab.reverberatory_furnace.out_full w=45 lines=1/2
-reverberatory_furnace_ja_jp so2 =SO2 w=18 lines=1/1
+reverberatory_furnace_ja_jp so2 gui.semiconductor-lab.reverberatory_furnace.flue w=18 lines=1/1
 arc_furnace_ja_jp power gui.semiconductor-lab.arc_furnace.power w=63 lines=1/1
 arc_furnace_ja_jp need gui.semiconductor-lab.arc_furnace.need w=55 lines=1/1
 arc_furnace_ja_jp hint gui.semiconductor-lab.arc_furnace.need_input w=165 lines=3/3
@@ -949,6 +959,16 @@ oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.melting w
 oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_h2 w=72 lines=1/1
 oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.need_o2 w=72 lines=1/1
 oxyhydrogen_burner_ja_jp hint gui.semiconductor-lab.oxyhydrogen_burner.out_full w=45 lines=1/1
+co2_laser_ja_jp power gui.semiconductor-lab.co2_laser.power w=51 lines=1/1
+co2_laser_ja_jp beam gui.semiconductor-lab.co2_laser.beam w=67 lines=1/1
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.need_window w=81 lines=2/3
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.cracked w=108 lines=2/3
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.need_co2 w=76 lines=2/3
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.weak w=97 lines=2/3
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.need_input w=54 lines=1/3
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.output_full w=45 lines=1/3
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.need_power w=72 lines=1/3
+co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.running w=81 lines=2/3
 evaporator_ja_jp power gui.semiconductor-lab.evaporator.power w=51 lines=1/1
 evaporator_ja_jp pressure gui.semiconductor-lab.evaporator.pressure w=61 lines=1/1
 evaporator_ja_jp target gui.semiconductor-lab.evaporator.target w=58 lines=1/1
