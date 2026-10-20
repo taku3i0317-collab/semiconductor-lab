@@ -71,8 +71,8 @@ zinc_ingot  # Metallurgy [1-13] 1150
 sphalerite_ore  # Metallurgy [1-13] 1150
 fluorite  # Metallurgy [1-21] 1530
 fluorite_ore  # Metallurgy [1-21] 1530
+coke  # Metallurgy [1-10] 1709
 platinum_grain  # Metallurgy [1-20] 1748
-coke  # Metallurgy [2-20] 1792
 ammonium_chloroplatinate  # Metallurgy [1-18] 1800
 platinum_sponge  # Metallurgy [1-18] 1800
 platinum_compact  # Metallurgy [1-18] 1800

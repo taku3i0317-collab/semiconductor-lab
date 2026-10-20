@@ -103,10 +103,10 @@ setblock ~48 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~51 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-21] 蛍石 CaF2","鉱石・蛍石の見た目（紫","と緑のつぶ）、石のツル","ハシで掘れて木では掘れ"]}}
 setblock ~51 ~0 ~10 semiconductor-lab:fluorite_ore
 setblock ~52 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:fluorite",count:16}]}
-setblock ~55 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-20] 白金","浜の砂鉄を掘ったときに","たまに出るか",""]}}
-setblock ~55 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_grain",count:16}]}
-setblock ~58 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-20] コールタール","ガス工場のレトルトの ","GUI（左に石炭・燃料","、火の縦バー、黒い進み"]}}
-setblock ~58 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:coke",count:16}]}
+setblock ~55 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-10] コークス高炉","E のガス工場のレトル","トで作ったコークスを高","炉の燃料のスロットに入"]}}
+setblock ~55 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:coke",count:16}]}
+setblock ~58 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-20] 白金","浜の砂鉄を掘ったときに","たまに出るか",""]}}
+setblock ~58 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_grain",count:16}]}
 setblock ~61 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-18] 白金精製","作業台で瓶がちゃんと手","元に戻るか、色（だいだ","いの液・黄色い粉・銀色"]}}
 setblock ~61 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ammonium_chloroplatinate",count:16},{Slot:1b,id:"semiconductor-lab:platinum_sponge",count:16},{Slot:2b,id:"semiconductor-lab:platinum_compact",count:16},{Slot:3b,id:"semiconductor-lab:platinum_ingot",count:16}]}
 setblock ~64 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-33] ホウ素","新しいワールドの砂漠の","地表近く（y56〜76","）でホウ砂の堆積（白い"]}}
