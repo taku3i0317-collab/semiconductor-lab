@@ -64,3 +64,10 @@
 - 米国特許 US 8,398,946（多結晶シリコンの製造、比較例）：シーメンス炉 1030℃前後・析出速度 約1.2mm/時・電力 約90kWh/kg → ゲームの 500kW×648秒＝90kWh/kg の根拠。現代の炉は 40〜60kWh/kg まで下がった（⚠️ 要確認）
 - 沸点（化学の標準値）：SiHCl3 31.8℃、BCl3 12.6℃、PCl3 76℃、SiCl4 57.6℃
 - 要確認：シーメンス社の最初の特許（1950年代、年と番号）
+
+## [9-11] ドーパント源・[9-08] CZ 法（タスク23、2026-10-20）
+- 米国特許 US 5,073,229（Semiconductor crystal pulling method）https://image-ppubs.uspto.gov/dirsearch-public/print/downloadPdf/5073229 ：Si 中の偏析係数 P 0.35、B 0.80
+- キール大学 材料科学（H. Föll）「Segregation」https://www.tf.uni-kiel.de/matwis/amat/iss/kap_6/illustr/s6_2_2.html ：多くのドーパントは k<1（融液に押し出される）、B は 1 に近く偏析が小さい。石英るつぼが少しずつ溶けて融液の酸素が増える
+- 国立台湾大学の論文（太陽電池用 CZ のホットゾーン改良）https://scholars.lib.ntu.edu.tw/bitstream/123456789/64459/1/35.pdf ：電力 59.1 → 17.4 kWh/kg、引き上げ速度 0.8 → 1.32 mm/分、Ar 93.3 → 27.1 立方フィート/kg（⚠️ 要確認：原文の条件）
+- 引き上げ機の仕様例（ロシアのメーカー、250mm 用）https://en.gkmp32.com/rost/ustanovki-metodom-Chohralskogo/ ：引き上げ 0.1〜8 mm/分、種の回転 1〜30rpm、るつぼの回転 1〜20rpm、ヒーター最大 150kW
+- Si の融点 1414℃（標準値）。融液は約1420℃に保つ

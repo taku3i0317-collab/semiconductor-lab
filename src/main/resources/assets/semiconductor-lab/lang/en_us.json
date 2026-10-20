@@ -912,5 +912,8 @@
   "item.semiconductor-lab.polysilicon.note2": "From the Siemens reactor [1-17]: same purity as the trichlorosilane (9N–11N). Made of many tiny crystals. Next it becomes one big crystal (CZ [9-08], FZ [9-09]) and then wafers.",
   "item.semiconductor-lab.polysilicon.note3": "\"Poly\" means many crystals: the silicon that piles up on the rod grows as countless small grains facing different ways. For transistors it must be melted and regrown as a single crystal.",
   "item.semiconductor-lab.polysilicon.note4": "Most polysilicon goes to solar cells (lower purity is enough); the purest goes to chips. Every year the world makes over a million tonnes ⚠️, mostly by the Siemens method.",
-  "item.semiconductor-lab.polysilicon.placeholder": "Approximation: 1 item ≈ 1 kg (symbolic amounts, Q22-1). Real rods are crushed into chunks for the crucible."
+  "item.semiconductor-lab.polysilicon.placeholder": "Approximation: 1 item ≈ 1 kg (symbolic amounts, Q22-1). Real rods are crushed into chunks for the crucible.",
+  "tooltip.semiconductor-lab.dopant.boron": "p-type (boron doped)",
+  "tooltip.semiconductor-lab.dopant.phosphorus": "n-type (phosphorus doped)",
+  "tooltip.semiconductor-lab.dopant.k": "Segregation coefficient k = %s"
 }

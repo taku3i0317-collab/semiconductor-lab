@@ -763,3 +763,7 @@ net.minecraft.world.item.crafting.CraftingInput:  public static CraftingInput of
 - GameTestHelper（javap 確認）：`destroyBlock(BlockPos)`（相対座標、ドロップあり）／`assertItemEntityPresent(Item, BlockPos, double)`／`assertItemEntityCountIs(Item, BlockPos, double, int)`
 - RecipeManager（javap 確認、タスク13）：`getRecipes()` → `Collection<RecipeHolder<?>>`、`RecipeHolder.id()` は `ResourceKey<Recipe<?>>`（`.identifier()` で ID）
 - タスク14：Fabric `BiomeSelectionContext`（fabric-biome-api-v1 20.1.0、javap）：getBiomeKey / getBiome / getBiomeHolder / getRegistryAccess / getFeatureKey(Feature)（26.x の Feature は型パラメータなし）/ getPlacedFeatureKey / validForStructure / getStructureKey / canGenerateIn(ResourceKey<LevelStem>) / hasTag。`BiomeSelectors.foundInOverworld()` の中身は `ctx.canGenerateIn(LevelStem.OVERWORLD)`（javap -c で確認）
+
+## DataComponentType<String>（タスク23、コンパイルで確認）
+- `Codec.STRING` ＋ `ByteBufCodecs.STRING_UTF8` で文字列のデータコンポーネント（ModDataComponents.DOPANT）
+- `ItemStack.getOrDefault(type, default)` が使える

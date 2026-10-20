@@ -35,5 +35,14 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.BOOL)
                     .build());
 
+    // [9-11] ドーパント（"boron"＝p型 / "phosphorus"＝n型）。シリコン単結晶 [9-08] に付く。Dopant.byId で元素に戻す
+    public static final DataComponentType<String> DOPANT = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("dopant"),
+            DataComponentType.<String>builder()
+                    .persistent(Codec.STRING)
+                    .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                    .build());
+
     public static void initialize() {}
 }

@@ -1471,6 +1471,29 @@ public class LabTests {
     }
 
     // =====================================================================
+    // [9-11] ドーパント源（タスク23）
+    // =====================================================================
+
+    /** B2O3 → ホウ素（p型、k≈0.8）、白リン → リン（n型、k≈0.35）。ほかのアイテムはドーパントではない。ドーパントの印は保存と同期ができる */
+    @GameTest
+    public void dopantSources(GameTestHelper h) {
+        var D = com.taku3.semiconductorlab.Dopant.class;
+        h.assertValueEqual(com.taku3.semiconductorlab.Dopant.of(new ItemStack(ModItems.BORON_TRIOXIDE)), com.taku3.semiconductorlab.Dopant.BORON, "B2O3 is the boron source");
+        h.assertValueEqual(com.taku3.semiconductorlab.Dopant.of(new ItemStack(ModItems.PHOSPHORUS)), com.taku3.semiconductorlab.Dopant.PHOSPHORUS, "white phosphorus is the P source");
+        h.assertTrue(com.taku3.semiconductorlab.Dopant.of(new ItemStack(ModItems.BORAX)) == null, "borax itself is not a dopant (make B2O3 first)");
+        h.assertTrue(com.taku3.semiconductorlab.Dopant.of(new ItemStack(Items.REDSTONE)) == null, "no vanilla stand-in");
+        h.assertValueEqual(com.taku3.semiconductorlab.Dopant.BORON.type, 'p', "B (group III) -> p-type");
+        h.assertValueEqual(com.taku3.semiconductorlab.Dopant.PHOSPHORUS.type, 'n', "P (group V) -> n-type");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.Dopant.BORON.k - 0.8) < 1e-9 && Math.abs(com.taku3.semiconductorlab.Dopant.PHOSPHORUS.k - 0.35) < 1e-9, "segregation coefficients B 0.8, P 0.35");
+        for (var d : com.taku3.semiconductorlab.Dopant.values()) h.assertValueEqual(com.taku3.semiconductorlab.Dopant.byId(d.id), d, "id round trip " + d);
+        ItemStack s = new ItemStack(ModItems.POLYSILICON);
+        s.set(com.taku3.semiconductorlab.ModDataComponents.DOPANT, "boron");
+        h.assertValueEqual(s.get(com.taku3.semiconductorlab.ModDataComponents.DOPANT), "boron", "dopant component stored");
+        LOG.info("[LAB] dopants [9-11]: B2O3 -> B (p, k={}), P4 -> P (n, k={}); As/Sb wait for [1-04]/[1-43]", com.taku3.semiconductorlab.Dopant.BORON.k, com.taku3.semiconductorlab.Dopant.PHOSPHORUS.k);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [1-16] トリクロロシラン合成・蒸留（タスク22）
     // =====================================================================
 

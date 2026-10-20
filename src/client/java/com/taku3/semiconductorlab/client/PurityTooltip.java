@@ -16,6 +16,13 @@ public class PurityTooltip {
             if (stack.is(com.taku3.semiconductorlab.ModItems.RAW_GERMANIUM) || stack.is(com.taku3.semiconductorlab.ModItems.REFINED_GERMANIUM) || stack.is(com.taku3.semiconductorlab.ModItems.GERMANIUM_SINGLE_CRYSTAL))
                 lines.add(Component.translatable(K + (Boolean.TRUE.equals(stack.get(ModDataComponents.CHLORIDE_ROUTE)) ? "route.chloride" : "route.sulfate"))
                         .withStyle(ChatFormatting.GRAY));
+            // [9-11] ドーパント：p型（ホウ素）・n型（リン）。Shift で偏析係数
+            com.taku3.semiconductorlab.Dopant dp = com.taku3.semiconductorlab.Dopant.byId(stack.getOrDefault(ModDataComponents.DOPANT, ""));
+            if (dp != null) {
+                lines.add(Component.translatable(K + "dopant." + dp.id).withStyle(dp.type == 'p' ? ChatFormatting.RED : ChatFormatting.BLUE));
+                if (Minecraft.getInstance().hasShiftDown())
+                    lines.add(Component.translatable(K + "dopant.k", String.format("%.2f", dp.k)).withStyle(ChatFormatting.GRAY));
+            }
             Double p = stack.get(ModDataComponents.PURITY);
             if (p == null) return;
             lines.add(Component.translatable(K + "purity", Purity.label(p)).withStyle(ChatFormatting.AQUA));

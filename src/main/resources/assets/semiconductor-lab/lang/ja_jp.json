@@ -912,5 +912,8 @@
   "item.semiconductor-lab.polysilicon.note2": "シーメンス炉 [1-17] で作る：純度はトリクロロシランと同じ（9N〜11N）。小さな結晶の集まり。次は1つの大きな結晶（CZ [9-08]・FZ [9-09]）にしてウェハーへ。",
   "item.semiconductor-lab.polysilicon.note3": "「多結晶」＝たくさんの結晶。棒に積もったシリコンは、向きのばらばらな小さな粒としてできる。トランジスタにするには、溶かして1つの結晶に育て直す。",
   "item.semiconductor-lab.polysilicon.note4": "多結晶シリコンの多くは太陽電池に使われる（純度は少し低くてよい）。一番きれいなものが半導体のチップへ。世界では毎年100万トン以上作られ ⚠️、その大半がシーメンス法。",
-  "item.semiconductor-lab.polysilicon.placeholder": "近似：1個≈1kg（量は記号的、Q22-1）。本物は棒を砕いて塊にし、るつぼに入れる。"
+  "item.semiconductor-lab.polysilicon.placeholder": "近似：1個≈1kg（量は記号的、Q22-1）。本物は棒を砕いて塊にし、るつぼに入れる。",
+  "tooltip.semiconductor-lab.dopant.boron": "p型（ホウ素を混ぜた）",
+  "tooltip.semiconductor-lab.dopant.phosphorus": "n型（リンを混ぜた）",
+  "tooltip.semiconductor-lab.dopant.k": "偏析係数 k = %s"
 }
