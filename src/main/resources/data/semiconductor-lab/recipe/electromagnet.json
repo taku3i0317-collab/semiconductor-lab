@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "WIW",
+    "WWW"
+  ],
+  "key": {
+    "W": "semiconductor-lab:copper_wire",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:electromagnet",
+    "count": 1
+  }
+}

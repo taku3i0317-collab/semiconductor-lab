@@ -23,6 +23,7 @@
 			"com.taku3.semiconductorlab.gametest.OpticsTests",
 			"com.taku3.semiconductorlab.gametest.PrecisionTests",
 			"com.taku3.semiconductorlab.gametest.SemiconductorTests",
+			"com.taku3.semiconductorlab.gametest.ControlTests",
 			"com.taku3.semiconductorlab.gametest.AgricultureTests",
 			"com.taku3.semiconductorlab.gametest.ConstructionTests",
 			"com.taku3.semiconductorlab.gametest.CommunicationTests",
