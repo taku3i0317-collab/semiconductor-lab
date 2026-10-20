@@ -59,6 +59,14 @@ aside#card.open { display: block; }
 .legend span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
 #card .more { display: inline-block; margin-top: 6px; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 3px 10px; text-decoration: none; font-size: 13px; }
 .hint { position: absolute; right: 12px; top: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--sub); }
+/* 祖先の層（NET-09） */
+#card .layer { margin: 6px 0; }
+#card .layer h4 { font-size: 12px; color: var(--sub); margin: 6px 0 4px; font-weight: 600; }
+#card details.farlayers summary { cursor: pointer; font-size: 13px; color: var(--accent); margin: 6px 0; }
+#card .pathbox { position: relative; border: 1px solid var(--hl); border-radius: 8px; padding: 8px 28px 8px 8px; margin: 6px 0 10px; background: var(--bg); }
+#card .pathline { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+#card .pathline .arrow { color: var(--hl); font-weight: 700; }
+#card .pathclose { position: absolute; right: 6px; top: 4px; }
 /* 人の壁（NET-04） */
 #card details.wall summary { cursor: pointer; font-size: 13px; }
 #card details.wall summary b { color: var(--accent); font-size: 18px; }
@@ -161,6 +169,18 @@ aside#card.open { display: block; }
   const walk = (start, next) => { const seen = new Set(), q = [start]; while (q.length) { const u = q.pop(); for (const v of next.get(u) || []) if (!seen.has(v)) { seen.add(v); q.push(v); } } return seen; };
   const anc = new Map(nodes.map(n => [n.id, walk(n.id, parents)]));
   const desc = id => walk(id, kids);
+  // 祖先の層（NET-09）：選んだノードから前提を何段さかのぼるか（いちばん短い段数）。via は選んだノードへ1段近づく次の点
+  function layersOf(id) {
+    const dist = new Map(), via = new Map(); let q = [id]; dist.set(id, 0);
+    while (q.length) {
+      const nq = [];
+      for (const u of q) for (const p of parents.get(u) || []) if (!dist.has(p)) { dist.set(p, dist.get(u) + 1); via.set(p, u); nq.push(p); }
+      q = nq;
+    }
+    dist.delete(id);
+    return { dist, via };
+  }
+  const pathTo = (from, L) => { const out = [from]; let u = from; while (L.via.has(u)) { u = L.via.get(u); out.push(u); } return out; };
   // モノとモノのつながり：あるモノの祖先にいるモノのうち、ほかのモノを通らずに届く「すぐ前のモノ」
   const prods = nodes.filter(isProd);
   const plinks = [];
@@ -310,11 +330,11 @@ aside#card.open { display: block; }
       const land = isLand(d), r = R(d), sr = (land ? ps : 1) * r * 1.3;
       if (off(d.x - sr, d.y - sr, d.x + sr, d.y + sr + (land ? 20 * ps : 0))) continue;
       ctx.save(); ctx.translate(d.x, d.y); if (land && ps !== 1) ctx.scale(ps, ps);
-      const a = d.dim ? 0.12 : 1;
+      const a = d.dim ? 0.12 : d.onPath ? 1 : layerAlpha(d.layer);
       ctx.globalAlpha = a;
       ctx.beginPath(); if (isIdea(d)) diamondPath(r); else ctx.arc(0, 0, r, 0, Math.PI * 2);
       ctx.fillStyle = land ? C.prod : d.status === '✅' ? (DS ? DS.done : color(d.trunk)) : C.bg; ctx.fill();
-      ctx.strokeStyle = d.sel || d.match || d.lit ? C.hl : isIdea(d) ? IDEA : color(d.trunk);
+      ctx.strokeStyle = d.sel || d.match || d.lit || d.onPath ? C.hl : isIdea(d) ? IDEA : color(d.trunk);
       ctx.lineWidth = d.sel ? 4 : d.match ? 3 : isIdea(d) ? 2 : isProd(d) ? 2.4 : 1.6;
       if (d.status === '⛔' || d.status === '➖') ctx.setLineDash([2, 2]);
       ctx.stroke(); ctx.setLineDash([]);
@@ -371,7 +391,7 @@ aside#card.open { display: block; }
     cv.title = d ? `[${d.id}] ${d.name}（${yearText(d)}）` : '';
   });
 
-  const state = { sel: null, q: '', trunk: '', now: false, und: true, all: false };
+  const state = { sel: null, q: '', trunk: '', now: false, und: true, all: false, path: null };
   // ---- 表示の切り替え：「時間軸」（年と幹の帯）と「ネットワーク」（年を使わず、つながりだけの力学レイアウト。ハブが中央に集まる） ----
   let layoutTimer = null;
   function applyLayout(mode, animate = true) {
@@ -454,12 +474,17 @@ aside#card.open { display: block; }
     if (state.now && !d.buildable_now) return false;
     return true;
   }
+  let curLayers = null;
+  // 層ごとの明るさ：1層 1.0、2層 0.85、…、遠いほど薄く（いちばん薄くて 0.3）
+  const layerAlpha = k => k == null ? 1 : Math.max(0.3, 1 - (k - 1) * 0.15);
   function render() {
     const det = detail();
+    if (!state.sel) curLayers = null;
     let focus = null, lit = null;
     if (state.sel) {
       const s = byId.get(state.sel);
       lit = anc.get(state.sel);
+      curLayers = layersOf(state.sel);
       focus = isProd(s) ? new Set([state.sel, ...lit]) : new Set([state.sel, ...lit, ...desc(state.sel), ...(explainsOf.get(state.sel) || [])]);
     }
     const q = state.q.trim().toLowerCase();
@@ -470,7 +495,10 @@ aside#card.open { display: block; }
       d.lit = !!(lit && lit.has(d.id));
       d.match = !!(q && matches(d, q));
       d.sel = d.id === state.sel;
+      d.layer = curLayers && d.lit ? curLayers.dist.get(d.id) : null;
+      d.onPath = !!(state.path && state.path.includes(d.id));
     }
+    const onPathEdge = e => state.path && state.path.some((x, i) => i + 1 < state.path.length && e.a.id === x && e.b.id === state.path[i + 1]);
     const shown = d => isLand(d) || det || (focus && focus.has(d.id));
     for (const e of edges) {
       e.hidden = (e.kind === 'understanding' && !state.und) || !(shown(e.a) && shown(e.b));
@@ -478,7 +506,8 @@ aside#card.open { display: block; }
       e.hot = !!state.sel && (e.a.id === state.sel || e.b.id === state.sel);
       e.op = !focus ? (det ? baseOpacity(e) : 0)
         : (e.a.id === state.sel || e.b.id === state.sel) ? 0.95
-        : (focus.has(e.a.id) && focus.has(e.b.id)) ? (det ? 0.3 : 0.45) : 0.015;
+        : (focus.has(e.a.id) && focus.has(e.b.id)) ? (det ? 0.3 : 0.45) * layerAlpha(e.a.layer) : 0.015;
+      if (onPathEdge(e)) { e.hot = true; e.op = 0.95; }
     }
     V.plinkHidden = det || !!state.sel;
     // 最初の画面（モノだけ）では、技術の帯を薄くして「ズームすると技術が見えます」と出す
@@ -514,7 +543,8 @@ aside#card.open { display: block; }
         if (o) { if (!o.techs.includes(i)) o.techs.push(i); } else seen.set(p.name, { p, techs: [i], y: personYear(p, n) });
       }
     }
-    return { people: [...seen.values()].sort((a, b) => a.y - b.y), anon };
+    const L = layersOf(id), lay = o => Math.min(...o.techs.map(i => i === id ? 0 : (L.dist.get(i) ?? 99)));
+    return { people: [...seen.values()].sort((a, b) => lay(a) - lay(b) || a.y - b.y), anon };   // 近い層から（同じ層は年の順）
   }
   const crowd = `<svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><g fill="var(--sub)" opacity=".55"><circle cx="11" cy="17" r="5"/><path d="M2 40c0-7 4-11 9-11s9 4 9 11z"/><circle cx="37" cy="17" r="5"/><path d="M28 40c0-7 4-11 9-11s9 4 9 11z"/></g><g fill="var(--sub)"><circle cx="24" cy="14" r="6"/><path d="M13 44c0-8 5-13 11-13s11 5 11 13z"/></g></svg>`;
   // 最初は閉じた <details>（数字だけ）。開くと肖像の壁、肖像を押すとその技術へ
@@ -524,9 +554,36 @@ aside#card.open { display: block; }
     const tile = (img, name, sub, to, title) => `<button class="wtile" data-id="${to}" title="${esc(title)}">${img}<b>${esc(name)}</b><small>${esc(sub)}</small></button>`;
     const anonTile = anon.length ? tile(crowd, '名前の残っていない、無数の人たち', `${anon.length} の技術`, anon[0], `${ANON_BEFORE}年より前で、発明した人の名前が残っていない技術：` + anon.map(i => byId.get(i).name).join('、')) : '';
     return `<details class="wall sec"><summary>この技術の裏にいる人：<b>${people.length}</b> 人${anon.length ? `＋名前の残っていない人たち（${anon.length} の技術）` : ''}</summary>
-      <div class="wgrid">${anonTile}${people.map(({ p, techs }) => tile(p.portrait ? `<img src="${p.portrait}" alt="">` : silhouette, p.name, techs.map(i => byId.get(i).name).join('・'), techs[0], `${p.name}（${p.year}）`)).join('')}</div></details>`;
+      <div class="wgrid">${people.map(({ p, techs }) => tile(p.portrait ? `<img src="${p.portrait}" alt="">` : silhouette, p.name, techs.map(i => byId.get(i).name).join('・'), techs[0], `${p.name}（${p.year}）`)).join('')}${anonTile}</div></details>`;
+  }
+  // 祖先を近い順の層で（NET-09）：1〜2層だけ開き、遠い層は「さらにさかのぼると、あと N 個」で閉じる。
+  // 祖先を押すと、そこから選んだノードまでの1本の道を矢印で出し、図でもその道を太くする
+  const LAYER_NAME = k => k === 1 ? '直接の前提' : k === 2 ? 'その前提' : `${k}段前`;
+  function layersHtml(id) {
+    const L = layersOf(id), by = new Map();
+    for (const [i, k] of L.dist) (by.get(k) || by.set(k, []).get(k)).push(i);
+    if (!by.size) return '';
+    const ks = [...by.keys()].sort((a, b) => a - b), total = L.dist.size;
+    const one = k => `<div class="layer"><h4>${k}層：${LAYER_NAME(k)}（${by.get(k).length}）</h4><div class="chips">${by.get(k)
+      .sort((a, b) => (byId.get(a).year ?? 0) - (byId.get(b).year ?? 0)).map(i => `<button class="chip lchip" data-id="${i}">${i} ${esc(byId.get(i).name)}</button>`).join('')}</div></div>`;
+    const near = ks.filter(k => k <= 2), far = ks.filter(k => k > 2), farN = far.reduce((x, k) => x + by.get(k).length, 0);
+    return `<div class="sec"><h3>${isProd(byId.get(id)) ? 'このモノ' : 'この技術'}をさかのぼる（近い順、全部で ${total}）</h3>
+      <div class="pathbox" hidden></div>${near.map(one).join('')}
+      ${far.length ? `<details class="farlayers"><summary>さらにさかのぼると、あと ${farN} 個（${far[0]}〜${far[far.length - 1]}段前）</summary>${far.map(one).join('')}</details>` : ''}
+      <p class="muted" style="font-size:12px">技術を押すと、そこから${esc(byId.get(id).name)}までの道が出ます</p></div>`;
+  }
+  function showPath(from, id, card) {
+    const L = layersOf(id), path = pathTo(from, L);
+    state.path = path; render();
+    const box = card.querySelector('.pathbox');
+    box.hidden = false;
+    box.innerHTML = `<div class="pathline">${path.map(i => `<button class="chip" data-id="${i}">${esc(byId.get(i).name)}</button>`).join('<span class="arrow">→</span>')}</div>
+      <button class="close pathclose" aria-label="道を消す">×</button>`;
+    box.querySelectorAll('.chip').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
+    box.querySelector('.pathclose').onclick = () => { state.path = null; box.hidden = true; render(); };
   }
   function select(id) {
+    state.path = null;
     state.sel = id; render();
     const card = document.getElementById('card');
     if (!id) { card.classList.remove('open'); card.innerHTML = ''; return; }
@@ -561,15 +618,16 @@ aside#card.open { display: block; }
       ${d.missing ? `<div class="sec"><h3>足りない技術（ノードを提案中）</h3>${esc(d.missing)}</div>` : ''}
       ${d.people.length ? `<div class="sec"><h3>人物</h3><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><small>${esc(p.tool)}・${esc(p.year)}</small></div></div>`).join('')}</div></div>` : ''}
       ${d.real ? `<div class="sec"><h3>本物</h3>${esc(d.real)}</div>` : ''}
-      ${isProd(d) ? `<div class="sec"><h3>このモノに使われている技術</h3><div class="big">${used.length}</div><div class="chips">${used.sort().map(chip).join('')}</div></div>` : ''}
+      ${layersHtml(id)}
       ${isIdea(d) ? '' : `<div class="sec"><h3>これが無いと作れなくなる技術（別ルートも考えたうえで）</h3><div class="big">${lost.length}</div><div class="chips">${lost.map(chip).join('')}</div></div>`}
       <div class="sec"><h3>前提（全部そろう＝AND、or は別ルート）</h3>${req || 'なし'}</div>
       ${d.understanding.length ? `<div class="sec"><h3>理解（後で分かった科学）</h3><div class="chips">${d.understanding.map(chip).join('')}</div></div>` : ''}
       <div class="sec"><h3>すぐ次の技術（${next.length}）</h3><div class="chips">${next.map(chip).join('')}</div></div>`;
     card.classList.add('open');
     card.querySelector('.close').onclick = () => select(null);
+    card.querySelectorAll('.lchip').forEach(b => b.onclick = ev => { ev.stopPropagation(); showPath(b.dataset.id, id, card); });
     card.querySelectorAll('.wtile').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
-    card.querySelectorAll('.chip').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
+    card.querySelectorAll('.chip:not(.lchip)').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
   }
   function center(id) {
     const d = byId.get(id), b = chart.getBoundingClientRect(), t = d3.zoomTransform(cv), k = Math.max(t.k, 1);

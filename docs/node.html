@@ -49,6 +49,18 @@ table.gap { border-collapse: collapse; width: 100%; font-size: 13px; }
 table.gap td { border-top: 1px solid var(--line); padding: 4px 6px; vertical-align: top; }
 .btn { display: inline-block; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 6px 12px; text-decoration: none; font-size: 14px; }
 del { color: var(--sub); }
+/* 祖先の層（NET-09） */
+.layers .layer h3 { font-size: 13px; color: var(--sub); margin: 10px 0 6px; font-weight: 600; }
+.layers details.farlayers summary { cursor: pointer; color: var(--accent); margin: 10px 0 4px; }
+.lchip { cursor: pointer; font: inherit; }
+.pathbox { border: 1px solid var(--accent); border-radius: 10px; padding: 8px; margin: 6px 0 10px; background: var(--bg); }
+.pathline { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.pathline .arrow { color: var(--accent); font-weight: 700; }
+/* 画像・動画（NET-10） */
+.medias { display: grid; gap: 12px; }
+figure.media { margin: 0; }
+figure.media img, figure.media video { width: 100%; max-height: 360px; object-fit: contain; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; }
+figure.media figcaption { font-size: 13px; margin-top: 4px; }
 /* 人の壁（NET-04） */
 details.wall summary { cursor: pointer; font-weight: 600; }
 details.wall summary b { color: var(--accent); font-size: 18px; }
@@ -116,6 +128,31 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     return m ? (s.includes('前') ? -m[0] : +m[0]) : (n.year ?? 9999);
   };
   const ANON_BEFORE = 1500;   // これより古く、人物の記録がない技術を「名前の残っていない人たち」として数える
+  // 祖先の層（NET-09）：選んだノードから前提を何段さかのぼるか（いちばん短い段数）。via は1段近づく次の点
+  function layersOf(id) {
+    const dist = new Map(), via = new Map(); let q = [id]; dist.set(id, 0);
+    while (q.length) {
+      const nq = [];
+      for (const u of q) for (const p of parentsAll.get(u) || []) if (!dist.has(p)) { dist.set(p, dist.get(u) + 1); via.set(p, u); nq.push(p); }
+      q = nq;
+    }
+    dist.delete(id);
+    return { dist, via };
+  }
+  const LAYER_NAME = k => k === 1 ? '直接の前提' : k === 2 ? 'その前提' : `${k}段前`;
+  function layersHtml(id) {
+    const L = layersOf(id), by = new Map();
+    for (const [i, k] of L.dist) (by.get(k) || by.set(k, []).get(k)).push(i);
+    if (!by.size) return '';
+    const ks = [...by.keys()].sort((a, b) => a - b);
+    const one = k => `<div class="layer"><h3>${k}層：${LAYER_NAME(k)}（${by.get(k).length}）</h3><div class="chips">${by.get(k)
+      .sort((a, b) => (byId.get(a).year ?? 0) - (byId.get(b).year ?? 0)).map(i => `<button class="chip lchip" data-id="${i}">${i} ${esc(byId.get(i).name)} ${byId.get(i).status}</button>`).join('')}</div></div>`;
+    const near = ks.filter(k => k <= 2), far = ks.filter(k => k > 2), farN = far.reduce((x, k) => x + by.get(k).length, 0);
+    return `<section class="layers"><h2>さかのぼる（近い順、全部で ${L.dist.size}）</h2>
+      <div class="pathbox" hidden></div>${near.map(one).join('')}
+      ${far.length ? `<details class="farlayers"><summary>さらにさかのぼると、あと ${farN} 個（${far[0]}〜${far[far.length - 1]}段前）</summary>${far.map(one).join('')}</details>` : ''}
+      <p class="muted">技術を押すと、そこから${esc(byId.get(id).name)}までの道が出ます</p></section>`;
+  }
   function peopleBehind(id) {
     const ids = [id, ...walk(id, parentsAll)], seen = new Map(), anon = [];
     for (const i of ids) {
@@ -127,7 +164,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
         else seen.set(p.name, { p, techs: [i], y: personYear(p, n) });
       }
     }
-    return { people: [...seen.values()].sort((a, b) => a.y - b.y), anon };
+    const L = layersOf(id), lay = o => Math.min(...o.techs.map(i => i === id ? 0 : (L.dist.get(i) ?? 99)));
+    return { people: [...seen.values()].sort((a, b) => lay(a) - lay(b) || a.y - b.y), anon };   // 近い層から（同じ層は年の順）
   }
   const crowd = `<svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><g fill="var(--sub)" opacity=".55"><circle cx="11" cy="17" r="5"/><path d="M2 40c0-7 4-11 9-11s9 4 9 11z"/><circle cx="37" cy="17" r="5"/><path d="M28 40c0-7 4-11 9-11s9 4 9 11z"/></g><g fill="var(--sub)"><circle cx="24" cy="14" r="6"/><path d="M13 44c0-8 5-13 11-13s11 5 11 13z"/></g></svg>`;
   // 人の壁：最初は閉じた <details>（数字だけ）。開くと肖像が年代順に並ぶ。肖像を押すとその技術へ
@@ -138,7 +176,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     const anonTile = anon.length ? tile(crowd, '名前の残っていない、無数の人たち', `${anon.length} の技術（${anon.slice(0, 3).map(i => byId.get(i).name).join('・')}${anon.length > 3 ? '…' : ''}）`, '#' + anon[0], `${ANON_BEFORE}年より前で、発明した人の名前が残っていない技術：` + anon.map(i => byId.get(i).name).join('、')) : '';
     const tiles = people.map(({ p, techs }) => tile(p.portrait ? `<img src="${p.portrait}" alt="">` : silhouette, p.name, techs.map(i => byId.get(i).name).join('・'), '#' + techs[0], `${p.name}（${p.year}）`)).join('');
     return `<details class="wall"><summary>この技術の裏にいる人：<b>${people.length}</b> 人${anon.length ? `＋名前の残っていない人たち（${anon.length} の技術）` : ''}</summary>
-      <p class="muted">祖先の技術に名前が残っている人を年代順に。肖像を押すとその技術へ</p><div class="wgrid">${anonTile}${tiles}</div></details>`;
+      <p class="muted">祖先の技術に名前が残っている人を、近い層から（同じ層は年代順）。肖像を押すとその技術へ</p><div class="wgrid">${tiles}${anonTile}</div></details>`;
   }
 
   // ここにたどり着く道のり：まだの前提を、OR はいちばん少ない方を選んで数える（両方の案は並べて見せる）
@@ -196,6 +234,14 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     const ic = d.icon ? `<img src="${d.icon}" alt="">` : esc(isProd(d) ? (d.emoji || d.symbol) : isIdea(d) ? (d.emoji || '💡') : d.symbol);
     const chips = ids => `<div class="chips">${ids.map(chip).join('')}</div>`;
     const wall = wallHtml(id);
+    // 画像・動画（NET-10）：ファイルは持たずリンクだけ。作者とライセンスを必ず出す（docs/MEDIA.md）
+    const mediaHtml = (d.media || []).filter(m => m.url && m.author && m.license).map(m => {
+      const isVideo = m.kind === '動画', file = /\.(webm|ogv|mp4)(\?|$)/i.test(m.url);
+      const body = isVideo && file ? `<video controls preload="none" src="${esc(m.url)}"></video>`
+        : isVideo ? `<p><a href="${esc(m.url)}" target="_blank" rel="noopener">動画を開く</a></p>`
+        : `<a href="${esc(m.page || m.url)}" target="_blank" rel="noopener"><img src="${esc(m.url)}" alt="${esc(m.description || d.name)}" loading="lazy"></a>`;
+      return `<figure class="media">${body}<figcaption>${esc(m.description || '')}<br><span class="muted">作者：${esc(m.author)}／ライセンス：${esc(m.license)}${m.page ? `／<a href="${esc(m.page)}" target="_blank" rel="noopener">出典のページ</a>` : ''}</span></figcaption></figure>`;
+    }).join('');
     // 発見・考え方（ideas.md）とのつながり。発見のページでは「作れるようになった技術」「説明する技術」、技術のページでは逆向き
     const ideaHtml = [
       [d.enables, 'この考え方で作れるようになった技術', 'この考えがないと作れなかった＝前提'],
@@ -229,6 +275,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 
       ${d.real_full ? `<section><h2>本物（工程・反応式）</h2><div>${rich(d.real_full)}</div></section>` : ''}
 
+      ${mediaHtml ? `<section><h2>画像・動画</h2><div class="medias">${mediaHtml}</div></section>` : ''}
+
       ${wall ? `<section>${wall}</section>` : ''}
 
       ${d.people.length ? `<section><h2>人物</h2><p class="muted">肖像は自作のドット絵（髪・ひげ・服などの特徴だけ）。存命の人は載せない</p><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><span class="muted">${esc(p.tool)}・${esc(p.year)}</span><div>${esc(p.intro || '')}</div></div></div>`).join('')}</div></section>` : ''}
@@ -252,6 +300,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
         ${d.placeholder ? `<p class="muted">⚠️ 省略・近似：${esc(d.placeholder)}</p>` : ''}
         ${!d.recipes.length && !d.machine_recipes.length && !d.hee_game.note2 && !d.game_text ? '<p class="muted">（まだ書いていない）</p>' : ''}
       </section>`}
+
+      ${layersHtml(id)}
 
       <section><h2>ここにたどり着くには</h2>
         ${remain === 0 ? '<p>もうゲームで作れる（✅）。</p>' : `<p>あと <span class="big">${remain}</span> 個（別ルートはいちばん少ない方で数えた）。作る順番：</p><ol class="path">${pathHtml}</ol>`}
@@ -279,6 +329,15 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
         <p style="display:flex;flex-wrap:wrap;gap:6px">${issues}</p>
         <p class="muted">ノード番号が入ったひな形が開きます（GitHub のアカウントが要ります）。</p>
       </section>`;
+    // 祖先を押すと、そこからこのノードまでの1本の道を矢印で（NET-09）
+    const L = layersOf(id), box = page.querySelector('.pathbox');
+    page.querySelectorAll('.lchip').forEach(b => b.onclick = () => {
+      const path = [b.dataset.id]; let u = b.dataset.id;
+      while (L.via.has(u)) { u = L.via.get(u); path.push(u); }
+      box.hidden = false;
+      box.innerHTML = `<div class="pathline">${path.map(i => `<a class="chip" href="#${i}">${esc(byId.get(i).name)}</a>`).join('<span class="arrow">→</span>')}</div>`;
+      box.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    });
   }
   const go = document.getElementById('go');
   go.onkeydown = e => {
