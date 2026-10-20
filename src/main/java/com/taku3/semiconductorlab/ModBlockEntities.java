@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 public class ModBlockEntities {
     public static final BlockEntityType<ZoneRefiningFurnaceBlockEntity> ZONE_REFINING_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("zone_refining_furnace"), FabricBlockEntityTypeBuilder.create(ZoneRefiningFurnaceBlockEntity::new, ModBlocks.ZONE_REFINING_FURNACE).build());
     public static final BlockEntityType<CableBlockEntity> COPPER_CABLE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("copper_cable"), FabricBlockEntityTypeBuilder.create(CableBlockEntity::new, ModBlocks.COPPER_CABLE).build());
+    public static final BlockEntityType<com.taku3.semiconductorlab.energy.SolarCellBlockEntity> SOLAR_CELL = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("solar_cell"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.energy.SolarCellBlockEntity::new, ModBlocks.SOLAR_CELL).build());
     public static final BlockEntityType<WaterWheelBlockEntity> WATER_WHEEL = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("water_wheel"), FabricBlockEntityTypeBuilder.create(WaterWheelBlockEntity::new, ModBlocks.WATER_WHEEL).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity> STEAM_TURBINE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("steam_turbine"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity::new, ModBlocks.STEAM_TURBINE).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity> LEAD_ACID_BATTERY = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("lead_acid_battery"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity::new, ModBlocks.LEAD_ACID_BATTERY).build());
@@ -52,6 +53,7 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ZONE_REFINING_FURNACE);   // 帯域精製炉：発振器の電源
         // 銅ケーブルは受け口を持たない（タスク06：導体。CableNetwork がまとめて配電する）
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WATER_WHEEL);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), SOLAR_CELL);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_ENGINE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), STEAM_TURBINE);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.storageFor(dir), LEAD_ACID_BATTERY);   // 全面で充放電（タスク06）

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "semiconductor-lab:block/solar_cell_top",
+    "bottom": "semiconductor-lab:block/solar_cell_side",
+    "side": "semiconductor-lab:block/solar_cell_side"
+  }
+}

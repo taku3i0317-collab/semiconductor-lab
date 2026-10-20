@@ -1479,6 +1479,37 @@ public class LabTests {
     }
 
     // =====================================================================
+    // [B-12] 太陽電池（IMP-25、v0.2b 第2章のゴール）
+    // =====================================================================
+
+    /** p-n 接合の板8＋銅ケーブル → 太陽電池。昼・空・雨なしで 60W（1000W/m²×6%）。屋根の下は 0。テスト世界の昼夜・天気に合わせて確かめる */
+    @GameTest
+    public void solarCell(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "solar_cell", ModItems.PN_JUNCTION_WAFER) && recipeUses(h, "solar_cell", ModBlocks.COPPER_CABLE.asItem()), "solar cell = p-n slices + copper electrodes");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.WATTS - 60) < 1e-9, "1000 W/m2 x 6% x 1 m2 = 60 W");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.WATTS * 0.836 - 50) < 1.0, "matches 1954 'about 50 W per square yard'");
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, true, false), com.taku3.semiconductorlab.energy.SolarCellBlockEntity.WATTS, "sunny day, open sky -> 60 W");
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, false, false), 0.0, "night -> 0");
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(false, true, false), 0.0, "under a roof -> 0");
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(true, true, true), 0.0, "rain -> 0");
+        BlockPos fp = p(1, 1, 1), roofed = p(3, 1, 1);
+        h.setBlock(fp, ModBlocks.SOLAR_CELL);
+        h.setBlock(roofed, ModBlocks.SOLAR_CELL);
+        h.setBlock(roofed.above(2), Blocks.STONE);
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(fp), ar = h.absolutePos(roofed);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.energy.SolarCellBlockEntity.class);
+        var ber = h.getBlockEntity(roofed, com.taku3.semiconductorlab.energy.SolarCellBlockEntity.class);
+        com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+        com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, ar, lv.getBlockState(ar), ber);
+        double expect = com.taku3.semiconductorlab.energy.SolarCellBlockEntity.watts(com.taku3.semiconductorlab.block.SaltPanBlockEntity.openSky(lv, a), lv.isBrightOutside(), lv.isRainingAt(a.above()));
+        h.assertValueEqual(be.getLastWatts(), expect, "output follows the world's day/night and weather");
+        h.assertValueEqual(ber.getLastWatts(), 0.0, "stone roof -> 0 W");
+        LOG.info("[LAB] solar cell [B-12]: {} W (bright={}, rain={}); roofed 0 W", be.getLastWatts(), lv.isBrightOutside(), lv.isRainingAt(a.above()));
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-16] 熱拡散（IMP-25）
     // =====================================================================
 
