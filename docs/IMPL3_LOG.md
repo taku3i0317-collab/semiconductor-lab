@@ -94,3 +94,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [2-17] イオン交換（遊び方: 実験）：ベークライト＋硫酸 → 陽イオン交換樹脂、ノボラック＋安水＋ホルマリン → 陰イオン交換樹脂、ガラス6＋両方 → イオン交換塔（block/IonExchangeColumnBlock）。蒸留水（E の [2-16]）で右クリック → 脱イオン水 semiconductor-lab:deionized_water（8回で飽和）、硫酸・NaOH で別々に再生。GameTest ion_exchange、CHEMISTRY P10、REFERENCES C10。テスト 179/179
   - **E へ**：脱イオン水ができた（[2-18] 超純水・[9-14] RCA 洗浄に使える）
 - ✅ [2-42] 酢酸（遊び方: 実験＋軽）：石灰を入れた木酢液をたき火 → 酢酸カルシウム（かまど → メタノール）、＋硫酸 → 氷酢酸2（寒い所で凍る、item/GlacialAceticAcidItem）。GameTest acetic_acid、CHEMISTRY P11、REFERENCES C11。テスト 180/180
+- ✅ [2-40] アセトン（遊び方: 軽）：酢酸カルシウム →かまど → アセトン。テストは acetic_acid に1行。CHEMISTRY P12、REFERENCES C11 に追記。テスト 180/180

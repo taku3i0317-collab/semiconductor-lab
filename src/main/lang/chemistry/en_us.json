@@ -523,5 +523,11 @@
   "item.semiconductor-lab.acetic_acid.note4": "Vinegar is about 4-5% acetic acid. It is a raw material for cellulose acetate ([2-18] reverse-osmosis membranes, photographic film) and vinyl acetate (glues). Today it is mostly made from methanol and carbon monoxide (Monsanto process, 1960s).",
   "item.semiconductor-lab.acetic_acid.placeholder": "Approximation: the gypsum by-product is not collected. Freezing is shown by biome temperature.",
   "message.semiconductor-lab.acetic_acid.frozen": "The cold froze the glacial acetic acid (it sets at about 17 C)",
-  "message.semiconductor-lab.acetic_acid.melted": "The glacial acetic acid melted again"
+  "message.semiconductor-lab.acetic_acid.melted": "The glacial acetic acid melted again",
+  "item.semiconductor-lab.acetone": "Acetone",
+  "item.semiconductor-lab.acetone.note1": "The main part of nail-polish remover. It dissolves many things and dries fast.",
+  "item.semiconductor-lab.acetone.note2": "Bake calcium acetate in a furnace. A raw material for bisphenol A (epoxy resin [2-41]) and a solvent for stripping resist and cleaning equipment. ⚠ GHS: flammable, eye irritant, specific target organ toxicity (drowsiness).",
+  "item.semiconductor-lab.acetone.note3": "Heated calcium acetate breaks down into calcium carbonate and acetone: Ca(CH3COO)2 -> CaCO3 + (CH3)2CO. Acetone is the smallest ketone and mixes with both water and oil.",
+  "item.semiconductor-lab.acetone.note4": "In World War I acetone, the solvent for cordite (smokeless powder), ran short; Weizmann developed a way to make it by bacterial fermentation (ABE fermentation, 1915). He later became the first president of Israel.",
+  "item.semiconductor-lab.acetone.placeholder": "Approximation: the calcium carbonate by-product is not collected."
 }

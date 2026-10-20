@@ -1611,10 +1611,13 @@
 - へえ③：酢酸セルロースは写真フィルムや逆浸透膜（[2-18]）の材料。
 - へえ④：今の酢酸は主にメタノールと一酸化炭素から（1960年代 モンサント法）。
 
-確かさ：反応式・融点 16.6℃ ◎／ターンブル 1850ごろ ○（TECH_TREE の本物欄と一致）／モンサント法 ○
+- ［2-40］アセトン：酢酸カルシウムを焼くと Ca(CH3COO)2 → CaCO3 + (CH3)2CO。1915 ワイツマンが ABE 発酵を開発（無煙火薬の溶剤）、のちイスラエル初代大統領。
+
+確かさ：反応式・融点 16.6℃ ◎／ターンブル 1850ごろ ○（TECH_TREE の本物欄と一致）／モンサント法 ○／アセトンの乾留 ◎・ワイツマン 1915 ○
 根拠：
 - Wikipedia「Acetic acid」：https://en.wikipedia.org/wiki/Acetic_acid
 - Wikipedia「Calcium acetate」：https://en.wikipedia.org/wiki/Calcium_acetate
+- Wikipedia「Acetone」（歴史・ワイツマン）：https://en.wikipedia.org/wiki/Acetone
 
 ---
 

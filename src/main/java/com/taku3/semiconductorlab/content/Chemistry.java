@@ -151,6 +151,8 @@ public final class Chemistry {
     // [2-42] 酢酸（IMP3、O-008）：石灰を入れた木酢液を煮詰める → 酢酸カルシウム（灰色の酢酸石灰）、＋硫酸 → 氷酢酸（1850ごろ ターンブル）。[2-40] アセトンは酢酸カルシウムを焼く
     public static final Item CALCIUM_ACETATE       = Reg.item("calcium_acetate");
     public static final Item ACETIC_ACID           = Reg.item("acetic_acid", GlacialAceticAcidItem::new, new Item.Properties().stacksTo(16));
+    // [2-40] アセトン（IMP3、O-008）：酢酸カルシウムを焼く（乾留）Ca(CH3COO)2 → CaCO3 + (CH3)2CO
+    public static final Item ACETONE               = Reg.item("acetone", new Item.Properties().stacksTo(16));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

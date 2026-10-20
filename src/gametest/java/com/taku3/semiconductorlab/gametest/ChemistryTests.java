@@ -648,6 +648,7 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         ItemStack aa = new ItemStack(Chemistry.ACETIC_ACID);
         h.assertTrue(com.taku3.semiconductorlab.item.GlacialAceticAcidItem.applyTemperature(aa, 0.0f) && com.taku3.semiconductorlab.item.GlacialAceticAcidItem.frozen(aa), "freezes in the cold");
         h.assertTrue(com.taku3.semiconductorlab.item.GlacialAceticAcidItem.applyTemperature(aa, 0.8f) && !com.taku3.semiconductorlab.item.GlacialAceticAcidItem.frozen(aa), "melts again where it is warm");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.CALCIUM_ACETATE).is(Chemistry.ACETONE), "[2-40] calcium acetate baked -> acetone");
         LOG.info("[LAB] acetic acid [2-42]: limed liquor campfire -> calcium acetate (furnace -> methanol); + H2SO4 -> glacial acetic acid (freezes in the cold)");
         h.succeed();
     }
