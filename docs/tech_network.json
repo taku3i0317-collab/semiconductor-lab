@@ -1669,7 +1669,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 352
+   "descendants": 353
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛。黒鉛るつぼは1840年代に普及（ディクソン、米墨戦争のころ）、特許は1850年）",
@@ -1831,7 +1831,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 345
+   "descendants": 346
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -2470,7 +2470,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 6
+   "descendants": 86
   },
   {
    "real_full": "モナザイト (Ce,La,Nd,Th)PO4 を濃硫酸 or NaOH で分解→希土類は化学的性質がそっくりなので、溶媒抽出（有機溶媒と水の間の分配のわずかな差を何百段も繰り返す）で分離。1940年代 アイオワ州立大エイムズ研究所（スペディング）のイオン交換（最初のイオン交換分離の論文は1947年 JACS）。溶媒抽出はこれとは別の流れ",
@@ -2587,7 +2587,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 162
+   "descendants": 165
   },
   {
    "real_full": "熱水鉱脈（方鉛鉱・閃亜鉛鉱と共生）。1530年 アグリコラ『ベルマヌス（Bermannus）』で融剤「fluores」として初めて活字に",
@@ -2928,7 +2928,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 315
+   "descendants": 316
   },
   {
    "real_full": "焙焼 2PbS+3O2→2PbO+2SO2 → 炭素還元 PbO+C→Pb+CO。融点327℃で古代から製錬。ヨーロッパ最古の方鉛鉱の処理は紀元前4400〜4300年（ルーマニア・ピエトレレ）。近東ではそれ以前（後期新石器）から鉛利用の例があり、最古の鉛の像はアビドスの紀元前3800年頃",
@@ -2980,7 +2980,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 195
+   "descendants": 196
   },
   {
    "real_full": "(Fe,Mn)WO4→WO3→H2還元でW粉→焼結→線引き（1910 クーリッジの延性W）",
@@ -5724,6 +5724,18 @@
      },
      "certainty": "漂砂鉱床・コロンビアとウラル ◎（USGS・ブリタニカ）／ウジョア 1748 ◎／platina の由来 ◎",
      "basis": "ブリタニカ「platinum」https://www.britannica.com/science/platinum 、USGS「Platinum-Group Metals Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/platinum-group-metals-statistics-and-information （英語）"
+    },
+    {
+     "title": "F14. 酸素を1つ多く持つ水（過酸化水素・電解法）［2-19］（［9-14］洗浄の前提）",
+     "answer": "過酸化水素（H₂O₂）は1818年にテナールが過酸化バリウムと酸から見つけた。工業では1908年ごろオーストリアのヴァイセンシュタインで電解法が始まった：冷やした濃い硫酸を白金の陽極で強く電気分解して過硫酸を作り、水と温めて分解すると過酸化水素ができ、硫酸はもとに戻る。1930年代からはアントラキノン法。",
+     "hee": {
+      "1": "傷の消毒のオキシドールは約3%の過酸化水素。",
+      "2": "過酸化水素は分解しても水と酸素しか残らないので、汚れを落とす洗浄にぴったり。",
+      "3": "電解法は白金の陽極でないとできない（炭素や鉛では過硫酸にならず酸素が出る）。",
+      "4": "濃い過酸化水素は金属やごみがまざると急に分解し、容器が破れる事故が起きてきた。"
+     },
+     "certainty": "テナール 1818 ◎／ヴァイセンシュタインの電解法の工場 ○（1908 建設・1910 生産と資料でずれる ⚠️）／過硫酸の反応と白金の陽極 ◎（教科書・Ullmann）／アントラキノン法 1930年代 ◎",
+     "basis": "ブリタニカ「hydrogen peroxide」https://www.britannica.com/science/hydrogen-peroxide 、Ullmann's Encyclopedia of Industrial Chemistry「Hydrogen Peroxide」（英語）"
     }
    ],
    "item": null,
@@ -5735,7 +5747,7 @@
    "name": "過酸化水素",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1818,
    "year_range": null,
@@ -5750,13 +5762,18 @@
      [
       "6-01"
      ]
+    ],
+    [
+     [
+      "1-18"
+     ]
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "過酸化水素は、電気分解でも作れるようになった",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -7090,7 +7107,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 161
+   "descendants": 162
   },
   {
    "real_full": "1847 アントン・シュレッター（ウィーン）が、白リン（v0.1 のリン、CHEMISTRY #8）を空気を断って約250℃に熱すると赤リンになることを見つけた。白リンと違って空気中で自然発火せず、毒も弱い。真空管のゲッター（1894年（伊特許、米特許は1895年）にマリニャーニが薬剤の蒸気で残留ガスを固める化学的真空法を発明。原特許の薬剤はヒ素・硫黄・ヨウ素で、赤リンは後の改良として伝わる⚠️）、安全マッチ（1855）",
@@ -7611,10 +7628,10 @@
      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1a/Metal_Working%2C_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg/960px-Metal_Working%2C_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg",
      "page": "https://commons.wikimedia.org/wiki/File:Metal_Working,_Tomb_of_Rekhmire_MET_31.6.22_EGDP017258.jpg",
      "kind": "画像",
-     "author": "Nina M. Davies",
+     "author": "Nina M. Davies（壁画の模写、メトロポリタン美術館）",
      "license": "CC0",
-     "description": "古代エジプトのレクミラの墓の壁画を写した絵。足でふむふいごで火を強め、金属を溶かす職人たち。",
-     "verified": "2026-10-20 Commons API で PD を確認"
+     "description": "古代エジプトのレクミラの墓（TT100）の壁画を写した絵（紀元前1450年ごろ）。足でふむふいごで火を強め、金属を溶かす職人たち。",
+     "verified": "2026-10-20 Commons API で CC0 を確認（O-007 で再確認）"
     }
    ],
    "descendants": 202
@@ -9012,7 +9029,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 326
+   "descendants": 327
   },
   {
    "real_full": "I²R損失。太線と高電圧で減らす。1882年9月4日 エジソンのパール街発電所が、銅の導体を地下の管に通して送電を始めた",
@@ -9473,7 +9490,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 324
+   "descendants": 325
   },
   {
    "real_full": "真空管発振回路（1910年代）。誘導加熱の電源",
@@ -11999,7 +12016,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 239
+   "descendants": 240
   },
   {
    "real_full": "蒸発岩層（古い海の跡）。地下の塩層・砂漠。最古の岩塩採掘は紀元前4500年頃（アゼルバイジャン・ナヒチェヴァンのドゥズダグ、出土土器の型式による推定）。年 -1500 はハルシュタット（オーストリア）の青銅器時代の採掘（最古の証拠は紀元前15世紀）",
@@ -12049,7 +12066,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 265
+   "descendants": 266
   },
   {
    "real_full": "2NaCl+2H2O→Cl2+H2+2NaOH（1890年代）。隔膜で分ける",
@@ -12130,7 +12147,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 205
+   "descendants": 206
   },
   {
    "real_full": "クロルアルカリ法で得た Cl2 と H2 を H2+Cl2→2HCl（燃焼）→水に溶かす。20世紀初め、クロルアルカリの発達に続いてこの合成塩酸が重要な製法になった（今の塩酸は大部分が塩素化反応の副生）",
@@ -12201,7 +12218,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 162
+   "descendants": 163
   },
   {
    "real_full": "1895 リンデが空気の液化に成功（圧縮→膨張で冷却＝ジュール・トムソン効果）。1902〜 リンデの精留塔（何段も蒸留を繰り返す塔）で O2/N2 を分離。Ar の実用的な取り出しは1910年頃。Kr(1.1ppm)・Ne(18ppm) は微量なので[6-08]で大型装置が要る",
@@ -12269,7 +12286,7 @@
     }
    ],
    "media": [],
-   "descendants": 235
+   "descendants": 236
   },
   {
    "real_full": "Kr は空気の1.1ppm（KrFレーザーの発光ガス）、Ne は18ppm（ArF/KrFレーザーの緩衝ガス＝発光ガスを薄めて放電を安定させる役）。どちらも空気分離装置の副産物として取る",
@@ -12398,7 +12415,7 @@
     }
    ],
    "media": [],
-   "descendants": 228
+   "descendants": 229
   },
   {
    "real_full": "有機物+石灰を数か月堆積、細菌の硝化でKNO3（18世紀の火薬原料）",
@@ -12443,7 +12460,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 161
+   "descendants": 162
   },
   {
    "real_full": "KNO3+H2SO4→HNO3。最初期の硝酸の処方は偽ゲーベル文書群の『De inventione veritatis』（13世紀末〜14世紀初め）。17世紀中ごろ（1648年頃⚠️）、グラウバーが硝石＋硫酸で硝酸を作る方法を記した",
@@ -12523,7 +12540,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 160
+   "descendants": 161
   },
   {
    "real_full": "1746ロバック。鉛張りの部屋でSO2+NO2+H2O→H2SO4。最初の工業的硫酸",
@@ -12579,7 +12596,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 151
+   "descendants": 152
   },
   {
    "real_full": "SO2→SO3 を白金触媒（1831）、後にV2O5（1915）。濃硫酸・発煙硫酸",
@@ -12807,7 +12824,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 161
+   "descendants": 162
   },
   {
    "real_full": "1674 ジョージ・レイヴンズクロフトの鉛ガラス（フリント：屈折率が高く、色の分かれ方＝分散が大きい）。クラウン（ソーダ石灰・ホウケイ酸系、分散が小さい）と組み合わせて色消しレンズ[7-04]。1884 アッベ・ショット・ツァイスがイェーナに光学ガラス工場",
@@ -17498,6 +17515,18 @@
      },
      "certainty": "ガス工場の安水とアンモニア蒸留器（遊離・固定アンモニア、石灰）◎（ブリタニカ・ガス工場の技術書）／溶解度 ◎／SC-1 の配合 ◎（Kern 1990 の回顧）",
      "basis": "ブリタニカ「ammonia」https://www.britannica.com/science/ammonia 、Kern, W. \"The Evolution of Silicon Wafer Cleaning Technology\", J. Electrochem. Soc. 137, 1887 (1990)（英語）"
+    },
+    {
+     "title": "F14. 酸素を1つ多く持つ水（過酸化水素・電解法）［2-19］（［9-14］洗浄の前提）",
+     "answer": "過酸化水素（H₂O₂）は1818年にテナールが過酸化バリウムと酸から見つけた。工業では1908年ごろオーストリアのヴァイセンシュタインで電解法が始まった：冷やした濃い硫酸を白金の陽極で強く電気分解して過硫酸を作り、水と温めて分解すると過酸化水素ができ、硫酸はもとに戻る。1930年代からはアントラキノン法。",
+     "hee": {
+      "1": "傷の消毒のオキシドールは約3%の過酸化水素。",
+      "2": "過酸化水素は分解しても水と酸素しか残らないので、汚れを落とす洗浄にぴったり。",
+      "3": "電解法は白金の陽極でないとできない（炭素や鉛では過硫酸にならず酸素が出る）。",
+      "4": "濃い過酸化水素は金属やごみがまざると急に分解し、容器が破れる事故が起きてきた。"
+     },
+     "certainty": "テナール 1818 ◎／ヴァイセンシュタインの電解法の工場 ○（1908 建設・1910 生産と資料でずれる ⚠️）／過硫酸の反応と白金の陽極 ◎（教科書・Ullmann）／アントラキノン法 1930年代 ◎",
+     "basis": "ブリタニカ「hydrogen peroxide」https://www.britannica.com/science/hydrogen-peroxide 、Ullmann's Encyclopedia of Industrial Chemistry「Hydrogen Peroxide」（英語）"
     }
    ],
    "item": null,
@@ -34010,6 +34039,13 @@
    "to": "2-19",
    "kind": "requires",
    "group": 1,
+   "or": false
+  },
+  {
+   "from": "1-18",
+   "to": "2-19",
+   "kind": "requires",
+   "group": 2,
    "or": false
   },
   {
