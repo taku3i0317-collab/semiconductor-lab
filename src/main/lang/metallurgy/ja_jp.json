@@ -307,7 +307,7 @@
   "item.semiconductor-lab.tin_ingot.note2": "錫石 →かまど（溶鉱炉なら速い）。SnO2 + 2C → Sn + 2CO（燃料の炭素で還元）。融点 232℃ととても低い。青銅 [1-05]・スペキュラム合金 [7-05] の材料。",
   "item.semiconductor-lab.tin_ingot.note3": "スズの棒を曲げると「ギシッ」と音がする（スズ鳴き）。中の結晶どうしがこすれる音。寒い所に長く置くと、ぼろぼろの灰色の粉に変わる（スズペスト、13℃より下で起こる変化）。",
   "item.semiconductor-lab.tin_ingot.note4": "5000年前に青銅の材料だったスズは、今は電子部品のはんだの主成分で、さらに最先端の EUV 露光装置の光源 [7-18] にもなる。直径 約30μm の溶けたスズの粒に毎秒数万回レーザーを当て、プラズマにして 13.5nm の光を出す。",
-  "item.semiconductor-lab.tin_ingot.placeholder": "近似：かまど（≈1000℃）で還元と溶解をまとめて行う（燃料の C/CO で還元。CHEMISTRY #38 と同じ扱い）。CO2 は回収しない。",
+  "item.semiconductor-lab.tin_ingot.placeholder": "近似：かまど（≈1000℃）で還元と溶解をまとめて行う（燃料の C/CO で還元。CHEMISTRY #38 と同じ扱い）。CO・CO2 は回収しない。",
   "item.semiconductor-lab.bronze_charge": "青銅の地金（調合）",
   "item.semiconductor-lab.bronze_charge.note1": "銅とスズを量って混ぜたもの。溶かすと青銅になる。",
   "item.semiconductor-lab.bronze_charge.note2": "銅インゴット×8＋スズのインゴット×1 → 9個（スズ 約11%）。かまど（溶鉱炉なら速い）で溶かすと青銅インゴット。",

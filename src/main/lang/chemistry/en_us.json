@@ -680,5 +680,6 @@
   "item.semiconductor-lab.chloroform.note2": "Ethanol + 2 bleaching powder + quartz still (returned) + empty glass bottle (the ethanol bottle is returned too). Raw material for PTFE [2-38] (the next step cannot be made yet); a solvent. ⚠ GHS: acute toxicity, skin irritant, carcinogenic (category 2), reproductive toxicity, specific target organ toxicity. Treated only as an industrial material.",
   "item.semiconductor-lab.chloroform.note3": "Chlorine from the bleaching powder oxidizes ethanol and adds chlorine to it; at the end, the one-carbon CHCl3 is split off (the haloform reaction).",
   "item.semiconductor-lab.chloroform.note4": "In 1831 Guthrie (USA), Soubeiran (France) and Liebig (Germany) each made it independently. Simpson used it as an anaesthetic in 1847. Today it is a raw material for refrigerants and Teflon.",
-  "item.semiconductor-lab.chloroform.placeholder": "Approximation: conditions are not described (DESIGN). By-products (calcium formate, calcium chloride) are not produced."
+  "item.semiconductor-lab.chloroform.placeholder": "Approximation: conditions are not described (DESIGN). By-products (calcium formate, calcium chloride) are not produced.",
+  "item.semiconductor-lab.kelp_ash.placeholder": "Approximation: real Scottish kelp ash held only a few percent sodium carbonate, mostly potassium salts (here the liquor yields soda). ⚠️"
 }

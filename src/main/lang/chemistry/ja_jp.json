@@ -680,5 +680,6 @@
   "item.semiconductor-lab.chloroform.note2": "エタノール＋さらし粉2＋石英の蒸留器（戻る）＋空のガラス瓶で作る（エタノールの瓶も戻る）。PTFE [2-38] の原料（次の段はまだ作れない）、溶剤。⚠ GHS：急性毒性・皮膚刺激性・発がん性（区分2）・生殖毒性・特定標的臓器毒性。工業の材料としてだけ扱う。",
   "item.semiconductor-lab.chloroform.note3": "さらし粉の塩素がエタノールを酸化して塩素を付け、最後に炭素1つの CHCl3 が切りはなされる（ハロホルム反応）。",
   "item.semiconductor-lab.chloroform.note4": "1831年、アメリカのガスリー・フランスのスーベラン・ドイツのリービッヒが、それぞれ別々に作った。1847年にシンプソンが麻酔に使った。今はフロン・テフロンの原料。",
-  "item.semiconductor-lab.chloroform.placeholder": "近似：条件は書かない（DESIGN）。副産物（ギ酸カルシウム・塩化カルシウム）は出さない。"
+  "item.semiconductor-lab.chloroform.placeholder": "近似：条件は書かない（DESIGN）。副産物（ギ酸カルシウム・塩化カルシウム）は出さない。",
+  "item.semiconductor-lab.kelp_ash.placeholder": "近似：本物のスコットランドの海藻灰は炭酸ナトリウムが数%しかなく、大半はカリウムの塩（ここでは浸出液からソーダが取れる）。⚠️"
 }
