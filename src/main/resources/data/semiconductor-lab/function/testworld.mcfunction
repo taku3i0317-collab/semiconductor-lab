@@ -237,7 +237,9 @@ setblock ~88 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-27]
 setblock ~88 ~0 ~18 semiconductor-lab:copper_gauze
 setblock ~89 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:formalin",count:16}]}
 setblock ~92 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-06] ソルベー法","ソルベー塔の画面（NH","3（循環）の数と「補給","まで」の回数）、見た目"]}}
+setblock ~92 ~-1 ~18 semiconductor-lab:test_power_source
 setblock ~92 ~0 ~18 semiconductor-lab:solvay_tower
+setblock ~93 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:salt",count:16},{Slot:1b,id:"minecraft:calcite",count:16},{Slot:2b,id:"semiconductor-lab:ammonia_water",count:16}]}
 setblock ~96 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-59] ケイ皮酸","10個のアイテムの見た","目とツールチップ（GH","S）、白リンの水の瓶・"]}}
 setblock ~96 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:toluene",count:16},{Slot:1b,id:"semiconductor-lab:benzal_chloride",count:16},{Slot:2b,id:"semiconductor-lab:benzaldehyde",count:16},{Slot:3b,id:"semiconductor-lab:perkin_mix",count:16},{Slot:4b,id:"semiconductor-lab:cinnamoyl_chloride",count:16}]}
 setblock ~99 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-28] フェノール樹脂","ノボラック・ベークライ","トの見た目とツールチッ","プ、塩酸の瓶が戻るか、"]}}
