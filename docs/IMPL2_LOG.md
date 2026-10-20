@@ -134,3 +134,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ A の CHEMISTRY v0.3 レビュー（O-011 ③）の3件を直した：2_chemistry C1 バリラ＝陸の塩生植物・ケルプはソーダ数%（✅→⚠️、kelp_ash.placeholder と REFERENCES O29 も）、8_precision P6 の波の数を「約183万（546.1nm に丸めた値）」に、1_metallurgy M4 と tin_ingot.placeholder を「CO/CO2」に
 - ✅ O-014 1. [8-08] ボールねじ：ball_screw（送りねじ＋鋼＋鋼球、段階は bearing_grade を使う、item/BallScrewItem）。旋盤の親ねじの入口に入る（LatheBlockEntity.isMasterScrew）：部品の誤差 ×1/0.5/0.25/0.1、drawWatts も下がる。送りの細かさ feedUm 10/5/2/1µm は [8-17] で使う。GameTest ball_screw、CHEMISTRY P9、REFERENCES O44。テスト 196/196
   - **A へ**：[8-08] ができたので、[9-32] ダイシングの段階2（円盤刃）の前提がそろった
+- ✅ O-014 2. [8-17] アライメント：A が ChipState.overlayNm・ChipOps.expose(…, overlayNm) を入れた（fa977e6a）ので、マスクアライナーに台のねじの入口 SLOT_STAGE（送りねじ・ボールねじ）と overlayNm（送り・顕微鏡 0.31µm・床の揺れの最大）を足し、ずれ付きで expose。画面に「ずれ ○µm」。v03Chain は台なし（20µm）のまま NOT が見つかる。GameTest alignment、CHEMISTRY P10、REFERENCES O45。テスト 198/198

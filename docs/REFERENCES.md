@@ -1352,6 +1352,20 @@
 - Wikipedia「Recirculating ball」：https://en.wikipedia.org/wiki/Recirculating_ball
 - Wikipedia「Numerical control」：https://en.wikipedia.org/wiki/Numerical_control
 
+## O45. 何枚もの絵をぴったり重ねる（アライメント）［8-17］
+**答え**：IC は何枚ものマスクを順に焼いて作るので、2枚目からは前の層の合わせマークを顕微鏡で見て、台のねじでマスクを動かしてぴったり重ねる（アライメント）。1960年代のマスクアライナーは、分割視野の顕微鏡と手のノブで µm 単位に合わせた。ずれの細かさは、台のねじの送り・顕微鏡の分解能・床の揺れで決まる。
+
+- へえ①：何十枚の透明な絵を、髪の毛の数万分の1のずれで重ねる。
+- へえ②：今の露光装置の重ね合わせのずれは 1〜2nm。
+- へえ③：合わせが悪いと、トランジスタの窓と配線がずれて回路がつながらない。
+- へえ④：ねじの送り（ボールねじ）・顕微鏡・除振台・メートルを光で測る技術——精密機械の全部がここに集まる。
+
+確かさ：1960年代のマスクアライナー（分割視野の顕微鏡・手動）○／現代の重ね合わせ 1〜2nm ○
+根拠：
+- Wikipedia「Aligner」（マスクアライナー）：https://en.wikipedia.org/wiki/Aligner
+- Wikipedia「Photolithography」：https://en.wikipedia.org/wiki/Photolithography
+- Wikipedia「Overlay control」：https://en.wikipedia.org/wiki/Overlay_control
+
 ---
 
 # 冶金と熱（タスク15〜）

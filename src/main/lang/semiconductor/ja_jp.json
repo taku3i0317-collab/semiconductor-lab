@@ -332,10 +332,10 @@
   "gui.semiconductor-lab.resist_stripper.recipe": "H2SO4＋H2O2 で有機物を酸化",
   "block.semiconductor-lab.mask_aligner": "マスクアライナー（密着・近接露光）",
   "block.semiconductor-lab.mask_aligner.note1": "レジストを塗ったウェハーにマスクを重ねて、水銀ランプの光で模様を焼きつける機械。",
-  "block.semiconductor-lab.mask_aligner.note2": "鋼×4＋複式顕微鏡＋送りねじ×2＋水銀灯の管＋銅ケーブル。電気 500W・10秒。レジストを塗った板＋フォトマスク → 露光した板。ボタンですき間を切りかえ：密着はくっきりだがマスクが板1枚ごとに傷む（耐久10）、近接 20µm はマスクが傷まないが少しぼける、80µm はぼけすぎて焼けない。",
+  "block.semiconductor-lab.mask_aligner.note2": "鋼×4＋複式顕微鏡＋送りねじ×2＋水銀灯の管＋銅ケーブル。電気 500W・10秒。レジストを塗った板＋フォトマスク → 露光した板。ボタンですき間を切りかえ：密着はくっきりだがマスクが板1枚ごとに傷む（耐久10）、近接 20µm はマスクが傷まないが少しぼける、80µm はぼけすぎて焼けない。上の小さな入口に台のねじ（送りねじかボールねじ）を入れると、2枚目からのマスクを前の層にぴったり合わせられる（重ね合わせ：手 20µm・送りねじ 10µm・ボールねじ 5〜1µm）。",
   "block.semiconductor-lab.mask_aligner.note3": "1955〜57年、ベル研究所のアンドラスとボンド、アメリカ陸軍のラスロップとナルが、写真製版の方法をトランジスタづくりに使った。マスクを板にぴったり押しつけて等倍で焼く「密着露光」から始まった。",
   "block.semiconductor-lab.mask_aligner.note4": "密着ではマスクと板がこすれて、ごみや傷が増え、マスクを何回か使うと取りかえた。少し浮かす「近接露光」はマスクが長持ちするが、光が回りこんで（回折）ぼける：ぼけ ≒ √(波長×すき間)。この弱点を両方なくしたのが、レンズで写す投影露光（[7-19]）。",
-  "block.semiconductor-lab.mask_aligner.placeholder": "近似：位置合わせ（[8-17] アライメント）はまだ無く、自動で合う。ぼけの式は単純化（√(λ×すき間)）。",
+  "block.semiconductor-lab.mask_aligner.placeholder": "近似：合わせのマークを見る操作は自動。ずれ＝台の送り・顕微鏡の分解能・床の揺れの一番大きいもの（数値はゲームの値）。ぼけの式は単純化（√(λ×すき間)）。",
   "gui.semiconductor-lab.mask_aligner.power": "電力 %s",
   "gui.semiconductor-lab.mask_aligner.gap_contact": "すき間：密着",
   "gui.semiconductor-lab.mask_aligner.gap": "すき間：%s µm",
@@ -361,5 +361,6 @@
   "gui.semiconductor-lab.developer_bench.not_exposed": "まだ露光していない",
   "gui.semiconductor-lab.developer_bench.need_power": "電気が足りない",
   "gui.semiconductor-lab.developer_bench.running": "現像している",
-  "gui.semiconductor-lab.developer_bench.recipe": "光の当たった所が溶ける → 焼いて固める"
+  "gui.semiconductor-lab.developer_bench.recipe": "光の当たった所が溶ける → 焼いて固める",
+  "gui.semiconductor-lab.mask_aligner.overlay": "ずれ %s µm"
 }

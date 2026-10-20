@@ -1249,6 +1249,41 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-17] アライメント（IMP2 O-014）：前の層に合わせるずれ＝台の送り・顕微鏡の分解能・床の揺れの一番大きいもの。2層目の露光でチップに残る（A の ChipState.overlayNm） */
+    @GameTest
+    public void alignment(GameTestHelper h) {
+        h.assertValueEqual(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.overlayNm(ItemStack.EMPTY, 0), 20_000, "hand stage: 20 um");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.overlayNm(new ItemStack(Precision.LEAD_SCREW), 0), 10_000, "lead screw: 10 um");
+        ItemStack ball3 = com.taku3.semiconductorlab.item.BallBearingItem.of(3).transmuteCopy(Precision.BALL_SCREW);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.overlayNm(ball3, 0), 1_000, "ball screw grade 3: 1 um");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.overlayNm(ball3, 4_000), 4_000, "a moving piston nearby: the floor shake wins");
+        // 1層目を焼いてから、2層目をマスクアライナー（ボールねじ段階3）で
+        var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER);
+        w.set(ModDataComponents.DOPANT, "boron");
+        w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(w), "coat 0");
+        w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.expose(w, design.mask(0), com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.TOOL), "expose 0");
+        w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.develop(w), "develop 0");
+        w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w), "etch 0");
+        w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.strip(w), "strip 0");
+        w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, design.layers().get(0).kind().dopes), "diffuse 0");
+        w = ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(w), "coat 1");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.MASK_ALIGNER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.class);
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.PHOTOMASK);
+        mask.set(ModDataComponents.MASK, design.mask(1));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_WAFER, w);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_MASK, mask);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_STAGE, ball3);
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.TICKS + 10, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.WATTS));
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(be.getContainer().getItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_OUT));
+        h.assertTrue(st != null && st.overlayNm() == 1_000, "layer 2 overlay recorded on the chip: " + (st == null ? "none" : st.overlayNm()));
+        h.assertTrue(langJson("ja_jp").has("gui.semiconductor-lab.mask_aligner.overlay"), "lang overlay");
+        LOG.info("[LAB] alignment [8-17]: overlay hand 20 / lead 10 / ball screw 1 um (microscope 0.31 um, vibration); layer 2 records 1 um on the chip");
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
