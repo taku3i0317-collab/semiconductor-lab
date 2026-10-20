@@ -38,6 +38,7 @@
 ## 担当の分け方（2026-10-20〜）
 - **共通ルール：タスク番号**は、実装担当（このフォルダ）＝ **IMP-番号**、ネットワーク担当（semilab-network）＝ **NET-番号**。commit メッセージ・LOG・Discord の通知・報告の最初の行に付ける。これまでのタスク22・23 は IMP-22・IMP-23 と読む
 - ネットワーク担当の進み具合は docs/NETWORK_LOG.md（ネットワーク担当が書く）
+- **危ない技術（武器・爆発物・毒・事故・公害）の扱いは DESIGN「危ない技術の扱い」の節に従う（全担当共通）**
 - docs/network.html・docs/node.html・tools/gen_tree_views.py・docs/network_meta.json・products.md・ideas.md・tools/gen_portraits.py は、別フォルダ C:/Users/taku3/mods/semilab-network（ネットワーク担当）の担当。このフォルダ（A＝MOD 本体）ではこれらを触らない
 - A が TECH_TREE.md・REFERENCES.md・lang・machine_recipes.json（GameTest が書き出す）を変えると、ネットワーク担当がそれを読んで図を作り直す。図の作り直し（gen_tree_views.py の実行）もネットワーク担当
 
