@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:phosphorus",
+  "result": {
+    "id": "semiconductor-lab:phosphorus_pentoxide"
+  },
+  "experience": 0.0,
+  "cookingtime": 60
+}

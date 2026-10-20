@@ -211,6 +211,8 @@ rubber_compound  # Chemistry [2-29] 1839
 vulcanized_rubber  # Chemistry [2-29] 1839
 cyclized_rubber_mix  # Chemistry [2-29] 1839
 cyclized_rubber  # Chemistry [2-29] 1839
+red_phosphorus  # Chemistry [2-44] 1847
+phosphorus_pentoxide  # Chemistry [2-44] 1847
 ammonia_water  # Chemistry [2-21] 1850
 calcium_acetate  # Chemistry [2-42] 1850
 acetic_acid  # Chemistry [2-42] 1850
@@ -300,6 +302,7 @@ black_ash_charge  # Chemistry [None] None
 aluminosilicate_batch  # Chemistry [None] None
 glass_in_salt_bath  # Chemistry [None] None
 indium_tin_coated_glass  # Chemistry [None] None
+phosphorus_under_nitrogen  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 bellows  # Heat [3-04] -1450

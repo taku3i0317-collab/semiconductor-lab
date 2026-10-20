@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phosphorus",
+    "semiconductor-lab:nitrogen_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:phosphorus_under_nitrogen",
+    "count": 1
+  }
+}

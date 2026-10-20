@@ -2232,6 +2232,20 @@
 - Wikipedia「Transparent conducting film」（ベーデカー）：https://en.wikipedia.org/wiki/Transparent_conducting_film
 - RSC「Indium」/ USGS「Mineral Commodity Summaries 2024: Indium」
 
+## C33. 同じリンなのに燃えない（赤リンと安全マッチ）［2-44］
+**答え**：白リン（P4 の分子）は空気中で自然に燃え、猛毒。1847年ウィーンのシュレッターは、空気を断って約250℃に熱すると、つながった高分子の赤リンに変わることを見つけた。赤リンは空気中で燃えず、毒も弱い。白リンのマッチ工場では職人が「リン顎」になったが、1855年スウェーデンのルンドストレムが赤リンを箱のこする面に分けた安全マッチを作り、1906年のベルン条約で白リンのマッチは禁止に向かった。
+
+- へえ①：マッチ箱のこする面には赤リンが塗ってある。
+- へえ②：同じ元素でも、原子のつながり方で性質がまったく変わる（同素体）。
+- へえ③：白リンは暗い所で青白く光る。「リン」の名前は「光を運ぶもの」から。
+- へえ④：マッチ工場の職人を病気から守るために、国どうしの条約が作られた。
+
+確かさ：シュレッター 1847 ◎／ルンドストレム 1855 ◎／ベルン条約 1906 ◎／リン顎 ◎
+根拠：
+- Wikipedia「Allotropes of phosphorus」（赤リン・シュレッター）：https://en.wikipedia.org/wiki/Allotropes_of_phosphorus
+- Wikipedia「Match」（安全マッチ・リン顎）：https://en.wikipedia.org/wiki/Match
+- Wikipedia「Berne Convention (1906)」：https://en.wikipedia.org/wiki/Berne_Convention_(1906)
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

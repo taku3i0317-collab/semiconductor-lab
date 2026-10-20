@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 508（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 511（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -533,6 +533,12 @@ en_us indium_tin_coated_glass lines=5
 en_us indium_tin_coated_glass shift lines=12
 en_us ito_glass lines=7
 en_us ito_glass shift lines=16
+en_us phosphorus_under_nitrogen lines=6
+en_us phosphorus_under_nitrogen shift lines=15
+en_us red_phosphorus lines=8
+en_us red_phosphorus shift lines=18
+en_us phosphorus_pentoxide lines=6
+en_us phosphorus_pentoxide shift lines=14
 en_us chromatography_column lines=8
 en_us chromatography_column shift lines=19
 en_us hydrofluoric_acid_pe lines=4
@@ -1549,6 +1555,12 @@ ja_jp indium_tin_coated_glass lines=4
 ja_jp indium_tin_coated_glass shift lines=10
 ja_jp ito_glass lines=5
 ja_jp ito_glass shift lines=13
+ja_jp phosphorus_under_nitrogen lines=5
+ja_jp phosphorus_under_nitrogen shift lines=12
+ja_jp red_phosphorus lines=6
+ja_jp red_phosphorus shift lines=15
+ja_jp phosphorus_pentoxide lines=4
+ja_jp phosphorus_pentoxide shift lines=10
 ja_jp chromatography_column lines=5
 ja_jp chromatography_column shift lines=14
 ja_jp hydrofluoric_acid_pe lines=4

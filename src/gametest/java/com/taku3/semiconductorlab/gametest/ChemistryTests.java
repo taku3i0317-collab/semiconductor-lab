@@ -1144,6 +1144,22 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-44] 赤リン（IMP3、O-016）
+    // =====================================================================
+
+    /** 白リン＋窒素 → かまど → 赤リン。空気の中で熱すると燃えて五酸化二リン。白リンは水の瓶が要るが、赤リンは容器なし */
+    @GameTest
+    public void redPhosphorus(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(recipeUses(h, "phosphorus_under_nitrogen", Chemistry.PHOSPHORUS) && recipeUses(h, "phosphorus_under_nitrogen", com.taku3.semiconductorlab.content.Gas.NITROGEN_GAS), "shut out the air with nitrogen");
+        h.assertTrue(cook(h, SMELT, Chemistry.PHOSPHORUS_UNDER_NITROGEN).is(Chemistry.RED_PHOSPHORUS), "no air -> red phosphorus");
+        h.assertTrue(cook(h, SMELT, Chemistry.PHOSPHORUS).is(Chemistry.PHOSPHORUS_PENTOXIDE), "in air it burns -> P4O10");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.PHOSPHORUS) == com.taku3.semiconductorlab.machine.Vessel.WATER_JAR && com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.RED_PHOSPHORUS) == null, "white needs water, red does not");
+        LOG.info("[LAB] red phosphorus [2-44]: P4 + N2 -> furnace -> red P; in air -> P4O10; red needs no water jar");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

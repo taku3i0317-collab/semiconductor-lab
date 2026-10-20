@@ -229,6 +229,11 @@ public final class Chemistry {
     public static final Item INDIUM_TIN_ALLOY      = Reg.item("indium_tin_alloy");
     public static final Item INDIUM_TIN_COATED_GLASS = Reg.item("indium_tin_coated_glass");
     public static final Item ITO_GLASS             = Reg.item("ito_glass");
+    // [2-44] 赤リン（IMP3、O-016）：白リン＋窒素の袋（空気を断つ）→ 窒素の中の白リン →かまど（約250℃）→ 赤リン（1847 シュレッター）。
+    //   実験：白リンを空気の中で（そのままかまどで）熱すると燃えて五酸化二リンの白い煙になる
+    public static final Item PHOSPHORUS_UNDER_NITROGEN = Reg.item("phosphorus_under_nitrogen", new Item.Properties().stacksTo(16));
+    public static final Item RED_PHOSPHORUS        = Reg.item("red_phosphorus");
+    public static final Item PHOSPHORUS_PENTOXIDE  = Reg.item("phosphorus_pentoxide");
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
