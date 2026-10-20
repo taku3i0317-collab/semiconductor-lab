@@ -6742,7 +6742,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C6. 石炭のタールから消毒薬（フェノール）［2-25］",
+     "answer": "コールタールを蒸留した中油（約170〜230℃）にはフェノールが多い。フェノールは弱い酸なので、水酸化ナトリウムで洗うと塩になって水に移り、ナフタレンなどは油に残る。水の層に酸を入れるとフェノールが戻って分かれる。1834 ルンゲが発見、1867 リスターが手術の消毒に使った。",
+     "hee": {
+      "1": "石炭のタールから見つかったフェノールは、手術の消毒に使われた。",
+      "2": "酸・塩基の性質の違いで物を分ける。ポジ型レジストがアルカリに溶けるのも同じ考え。",
+      "3": "リスターの石炭酸消毒で、手術のあとの死亡がぐっと減った。",
+      "4": "今のフェノールは主にクメン法（1942 ウドリスら、1944 ホック）。"
+     },
+     "certainty": "抽出のしくみ ◎／ルンゲ 1834・リスター 1867 ○（TECH_TREE の本物欄と一致）／GHS 区分 ○",
+     "basis": "- Wikipedia「Phenol」：https://en.wikipedia.org/wiki/Phenol"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -6752,7 +6765,7 @@
    "name": "フェノール",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1834,
    "year_range": null,
@@ -6770,10 +6783,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "石炭のタールから見つかったフェノールは、手術の消毒に使われた",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -6954,7 +6967,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "フェノールとホルムアルデヒドから、初めての合成プラスチックができた",
    "kind": "tech",
    "play": "",
@@ -26435,7 +26448,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "うがい薬リステリンの名前はリスターから",
    "kind": "tech",
    "play": "",
@@ -26760,7 +26773,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "薬の働きが分かったのは、売り始めてから70年以上後",
    "kind": "tech",
    "play": "",
