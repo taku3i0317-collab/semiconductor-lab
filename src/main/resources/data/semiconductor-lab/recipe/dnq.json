@@ -5,7 +5,8 @@
     "semiconductor-lab:tobias_acid",
     "semiconductor-lab:potassium_nitrite",
     "semiconductor-lab:hydrochloric_acid",
-    "minecraft:ice"
+    "minecraft:ice",
+    "semiconductor-lab:bleaching_powder"
   ],
   "result": {
     "id": "semiconductor-lab:dnq",

@@ -597,7 +597,7 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.assertTrue(recipeUses(h, "tobias_acid", Chemistry.NAPHTHOL) && recipeUses(h, "tobias_acid", Chemistry.AMMONIACAL_LIQUOR) && recipeUses(h, "tobias_acid", Chemistry.SULFUR_DIOXIDE), "Bucherer: ammonia + sulfite -> Tobias acid");
         h.assertTrue(recipeUses(h, "nitrite_mix", Gas.SALTPETER) && recipeUses(h, "nitrite_mix", Metallurgy.LEAD_INGOT), "saltpeter + lead");
         h.assertTrue(cook(h, SMELT, Chemistry.NITRITE_MIX).is(Chemistry.POTASSIUM_NITRITE), "KNO3 + Pb -> KNO2");
-        h.assertTrue(recipeUses(h, "dnq", Chemistry.TOBIAS_ACID) && recipeUses(h, "dnq", Chemistry.POTASSIUM_NITRITE) && recipeUses(h, "dnq", Gas.HYDROCHLORIC_ACID) && recipeUses(h, "dnq", Items.ICE), "diazotization in the cold -> DNQ");
+        h.assertTrue(recipeUses(h, "dnq", Chemistry.TOBIAS_ACID) && recipeUses(h, "dnq", Chemistry.BLEACHING_POWDER) && recipeUses(h, "dnq", Chemistry.POTASSIUM_NITRITE) && recipeUses(h, "dnq", Gas.HYDROCHLORIC_ACID) && recipeUses(h, "dnq", Items.ICE), "diazotization in the cold -> DNQ");
         ItemStack dnq = new ItemStack(Chemistry.DNQ);
         h.assertFalse(com.taku3.semiconductorlab.item.DnqItem.decomposed(dnq), "fresh DNQ");
         h.assertTrue(com.taku3.semiconductorlab.item.DnqItem.expose(dnq), "light decomposes it");
