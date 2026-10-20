@@ -152,6 +152,10 @@ glass_bottle  # Chemistry [2-14] -2500
 glass_batch  # Chemistry [2-14] -2500
 soda_lime_glass  # Chemistry [2-14] -2500
 distilled_water  # Chemistry [2-16] 200
+aqua_regia  # Chemistry [2-22] 1300
+spent_aqua_regia  # Chemistry [2-22] 1300
+chloroauric_acid  # Chemistry [2-22] 1300
+gold_powder  # Chemistry [2-22] 1300
 wood_vinegar  # Chemistry [2-23] 1661
 wood_tar  # Chemistry [2-23] 1661
 pitch  # Chemistry [2-23] 1661

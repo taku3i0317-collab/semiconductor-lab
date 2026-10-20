@@ -197,6 +197,11 @@ public final class Chemistry {
     public static final Item COPPER_SULFATE        = Reg.item("copper_sulfate");
     public static final Item GRAPHITE_WAX_MOULD    = Reg.item("graphite_wax_mould", new Item.Properties().stacksTo(16));
     public static final Item COPPER_ELECTROTYPE    = Reg.item("copper_electrotype", new Item.Properties().stacksTo(16));
+    // [2-22] 王水（IMP3、O-013）：塩酸3＋硝酸1＋空の瓶4 → 王水4（作り置き不可：持っているとそのうち力を失う）。王水＋金 → 塩化金酸、＋二酸化硫黄 → 金の粉 →かまど → 金
+    public static final Item AQUA_REGIA            = containedItem("aqua_regia", com.taku3.semiconductorlab.item.AquaRegiaItem::new, Vessel.GLASS_BOTTLE, 16);
+    public static final Item SPENT_AQUA_REGIA      = Reg.contained("spent_aqua_regia", Vessel.GLASS_BOTTLE);
+    public static final Item CHLOROAURIC_ACID      = Reg.contained("chloroauric_acid", Vessel.GLASS_BOTTLE);
+    public static final Item GOLD_POWDER           = Reg.item("gold_powder");
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
     public static final net.minecraft.tags.TagKey<Item> HF_TAG = net.minecraft.tags.TagKey.create(Registries.ITEM, SemiconductorLab.id("hydrofluoric_acid"));

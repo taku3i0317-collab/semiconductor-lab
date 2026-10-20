@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:chloroauric_acid",
+    "semiconductor-lab:sulfur_dioxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:gold_powder",
+    "count": 1
+  }
+}

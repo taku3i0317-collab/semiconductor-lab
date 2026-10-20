@@ -1011,6 +1011,32 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-22] 王水（IMP3、O-013）
+    // =====================================================================
+
+    /** 塩酸3＋硝酸1 → 王水。金を溶かせるのは王水だけ（塩酸だけ・硝酸だけのレシピはない）。力を失うと金は溶かせない。SO2 で金の粉 → かまど → 金 */
+    @GameTest
+    public void aquaRegia(GameTestHelper h) {
+        var HCL = com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID;
+        var HNO3 = com.taku3.semiconductorlab.content.Gas.NITRIC_ACID;
+        h.assertTrue(recipeUses(h, "aqua_regia", HCL) && recipeUses(h, "aqua_regia", HNO3), "3 HCl + 1 HNO3");
+        h.assertTrue(recipeUses(h, "chloroauric_acid", Chemistry.AQUA_REGIA) && recipeUses(h, "chloroauric_acid", Items.GOLD_INGOT), "aqua regia dissolves gold");
+        h.assertFalse(recipeUses(h, "chloroauric_acid", HCL) || recipeUses(h, "chloroauric_acid", HNO3) || recipeUses(h, "chloroauric_acid", Chemistry.SPENT_AQUA_REGIA), "neither acid alone, nor spent aqua regia");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack ar = new ItemStack(Chemistry.AQUA_REGIA, 3);
+        player.getInventory().add(ar);
+        ItemStack inInv = ItemStack.EMPTY;
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) if (player.getInventory().getItem(i).is(Chemistry.AQUA_REGIA)) inInv = player.getInventory().getItem(i);
+        h.assertFalse(inInv.isEmpty(), "aqua regia in inventory");
+        com.taku3.semiconductorlab.item.AquaRegiaItem.decay(inInv, player);
+        h.assertTrue(player.getInventory().countItem(Chemistry.AQUA_REGIA) == 0 && player.getInventory().countItem(Chemistry.SPENT_AQUA_REGIA) == 3, "aqua regia loses its power over time");
+        h.assertTrue(recipeUses(h, "gold_powder", Chemistry.CHLOROAURIC_ACID) && recipeUses(h, "gold_powder", Chemistry.SULFUR_DIOXIDE), "SO2 precipitates gold");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.GOLD_POWDER).is(Items.GOLD_INGOT), "gold powder -> gold ingot");
+        LOG.info("[LAB] aqua regia [2-22]: 3 HCl + HNO3; only aqua regia dissolves gold; decays when kept; SO2 -> gold powder -> gold ingot");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

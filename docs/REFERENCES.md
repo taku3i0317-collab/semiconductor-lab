@@ -2121,6 +2121,20 @@
 - Wikipedia「Ernest Solvay」/「Solvay Conference」：https://en.wikipedia.org/wiki/Solvay_Conference
 - Wikipedia「Sodium hydroxide」（石灰ソーダ法）：https://en.wikipedia.org/wiki/Sodium_hydroxide
 
+## C27. 金を溶かす「王の水」（王水）［2-22］
+**答え**：濃塩酸3と濃硝酸1を混ぜた王水は、金も溶かす。硝酸が金を少しずつ酸化し、塩化物イオンが金を錯イオン [AuCl4]- にして液に引き込む（片方だけでは溶けない）。混ぜると塩化ニトロシルと塩素が出て弱まっていくので、使う直前に作る。13世紀ごろの錬金術の文書（偽ゲベル）に記述がある ⚠️。1940年ヘヴェシーは、ラウエとフランクのノーベル賞メダルを王水に溶かしてナチスから守り、戦後に金を取り出してメダルが作り直された。
+
+- へえ①：金は、2つの酸を混ぜた王水になら溶ける。
+- へえ②：王水は作り置きできない。気体が逃げて弱くなる。
+- へえ③：ヘヴェシーはノーベル賞のメダルを王水に溶かして隠した。
+- へえ④：溶けた金は、二酸化硫黄などで還元すると茶色の粉になってもどる。
+
+確かさ：反応・片方では溶けないこと ◎／偽ゲベル（13世紀ごろ）△ → ⚠️（TECH_TREE の年 1300 ⚠️ のまま）／ヘヴェシー 1940 ◎
+根拠：
+- Wikipedia「Aqua regia」（歴史・化学・ヘヴェシー）：https://en.wikipedia.org/wiki/Aqua_regia
+- Nobel Prize「George de Hevesy」/ メダルの話：https://www.nobelprize.org/prizes/themes/the-nobel-medals-and-the-medal-for-the-prize-in-economic-sciences/
+- Wikipedia「Pseudo-Geber」：https://en.wikipedia.org/wiki/Pseudo-Geber
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
