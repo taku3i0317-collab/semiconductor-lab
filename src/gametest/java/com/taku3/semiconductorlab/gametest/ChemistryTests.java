@@ -583,6 +583,29 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-57] DNQ（ジアゾナフトキノン）：ポジ型レジストの感光剤（IMP3、O-007）
+    // =====================================================================
+
+    /** 中油＋氷 → ナフタレン → スルホン化 → アルカリ融解 → 2-ナフトール → トビアス酸。硝石＋鉛 → 焼く → 亜硝酸カリウム。トビアス酸＋亜硝酸塩＋塩酸＋氷 → DNQ。DNQ は光で分解（戻らない） */
+    @GameTest
+    public void dnq(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(recipeUses(h, "naphthalene", Chemistry.CARBOLIC_OIL) && recipeUses(h, "naphthalene", Items.ICE), "middle oil cooled -> naphthalene");
+        h.assertTrue(recipeUses(h, "naphthalenesulfonic_acid", Chemistry.SULFURIC_ACID), "sulfonation");
+        h.assertTrue(cook(h, SMELT, Chemistry.NAPHTHOL_MELT).is(Chemistry.NAPHTHOL), "alkali fusion -> 2-naphthol");
+        h.assertTrue(recipeUses(h, "tobias_acid", Chemistry.NAPHTHOL) && recipeUses(h, "tobias_acid", Chemistry.AMMONIACAL_LIQUOR) && recipeUses(h, "tobias_acid", Chemistry.SULFUR_DIOXIDE), "Bucherer: ammonia + sulfite -> Tobias acid");
+        h.assertTrue(recipeUses(h, "nitrite_mix", Gas.SALTPETER) && recipeUses(h, "nitrite_mix", Metallurgy.LEAD_INGOT), "saltpeter + lead");
+        h.assertTrue(cook(h, SMELT, Chemistry.NITRITE_MIX).is(Chemistry.POTASSIUM_NITRITE), "KNO3 + Pb -> KNO2");
+        h.assertTrue(recipeUses(h, "dnq", Chemistry.TOBIAS_ACID) && recipeUses(h, "dnq", Chemistry.POTASSIUM_NITRITE) && recipeUses(h, "dnq", Gas.HYDROCHLORIC_ACID) && recipeUses(h, "dnq", Items.ICE), "diazotization in the cold -> DNQ");
+        ItemStack dnq = new ItemStack(Chemistry.DNQ);
+        h.assertFalse(com.taku3.semiconductorlab.item.DnqItem.decomposed(dnq), "fresh DNQ");
+        h.assertTrue(com.taku3.semiconductorlab.item.DnqItem.expose(dnq), "light decomposes it");
+        h.assertTrue(com.taku3.semiconductorlab.item.DnqItem.decomposed(dnq) && !com.taku3.semiconductorlab.item.DnqItem.expose(dnq), "and it stays decomposed");
+        LOG.info("[LAB] DNQ [2-57]: middle oil + ice -> naphthalene -> sulfonic acid -> naphthol -> Tobias acid; KNO3 + Pb -> KNO2; diazotized -> DNQ (decomposes in light)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:carbolic_oil",
+    "minecraft:ice"
+  ],
+  "result": {
+    "id": "semiconductor-lab:naphthalene",
+    "count": 1
+  }
+}

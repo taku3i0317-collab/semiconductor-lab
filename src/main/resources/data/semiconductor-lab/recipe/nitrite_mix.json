@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:saltpeter",
+    "semiconductor-lab:lead_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nitrite_mix",
+    "count": 1
+  }
+}

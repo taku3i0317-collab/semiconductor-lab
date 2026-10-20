@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": "semiconductor-lab:nitrite_mix",
+  "result": {
+    "id": "semiconductor-lab:potassium_nitrite"
+  }
+}

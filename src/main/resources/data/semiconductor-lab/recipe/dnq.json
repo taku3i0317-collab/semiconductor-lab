@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tobias_acid",
+    "semiconductor-lab:potassium_nitrite",
+    "semiconductor-lab:hydrochloric_acid",
+    "minecraft:ice"
+  ],
+  "result": {
+    "id": "semiconductor-lab:dnq",
+    "count": 1
+  }
+}

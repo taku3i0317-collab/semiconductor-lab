@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:naphthol",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:ammoniacal_liquor",
+    "semiconductor-lab:sulfur_dioxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:tobias_acid",
+    "count": 1
+  }
+}

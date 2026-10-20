@@ -131,6 +131,16 @@ public final class Chemistry {
     public static final Item LIGHT_OIL             = Reg.item("light_oil", new Item.Properties().stacksTo(16));        // 軽油（コールタールの約170℃までの留分）
     public static final Item BENZENE               = Reg.item("benzene", new Item.Properties().stacksTo(16));          // ベンゼン（発がん性）
     public static final Item XYLENE                = Reg.item("xylene", new Item.Properties().stacksTo(16));           // キシレン（ネガ型レジストの溶剤・現像液）
+    // [2-57] DNQ の原料の鎖（IMP3、O-007）：中油を冷やしてナフタレン → スルホン化 → アルカリ融解で 2-ナフトール → スルホン化＋アンモニア（ブッヘラー）でトビアス酸
+    //   → 亜硝酸塩と塩酸でジアゾ化（冷やして）→ DNQ。亜硝酸塩は硝石を鉛と熱して作る（昔の方法）。レジストに混ぜるのは [2-32]（担当 E）
+    public static final Item NAPHTHALENE           = Reg.item("naphthalene");
+    public static final Item NAPHTHALENESULFONIC_ACID = Reg.item("naphthalenesulfonic_acid");
+    public static final Item NAPHTHOL_MELT         = Reg.item("naphthol_melt");
+    public static final Item NAPHTHOL              = Reg.item("naphthol");
+    public static final Item TOBIAS_ACID           = Reg.item("tobias_acid");
+    public static final Item NITRITE_MIX           = Reg.item("nitrite_mix");
+    public static final Item POTASSIUM_NITRITE     = Reg.item("potassium_nitrite");
+    public static final Item DNQ                   = Reg.item("dnq", DnqItem::new, new Item.Properties());
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

@@ -1532,6 +1532,21 @@
 - Wikipedia「Xylene」：https://en.wikipedia.org/wiki/Xylene
 - Wikipedia「Charles Blachford Mansfield」：https://en.wikipedia.org/wiki/Charles_Blachford_Mansfield
 
+## C9. 光で窒素が抜けてアルカリに溶ける（DNQ 感光剤）［2-57］
+**答え**：DNQ（ジアゾナフトキノン）は、ナフタレン系のアミノスルホン酸（トビアス酸）を亜硝酸でジアゾ化して作る感光剤。光を受けると N2 が抜け、形が組み変わって（ヴォルフ転位）インデンカルボン酸になり、アルカリの水に溶けるようになる。ノボラックに混ぜると、光の当たった所だけが現像液に溶ける＝ポジ型フォトレジスト。1940年代にカレ社のズースがジアゾ感光紙のために発明した。
+
+- へえ①：光が当たると分解する粉が、IC の模様を写す「目」になった。
+- へえ②：工場のクリーンルームの照明が黄色いのは、感光剤が反応する紫外〜青の光を除いているから。
+- へえ③：材料の道はコールタール → ナフタレン → ナフトール → トビアス酸 → ジアゾ化。19世紀の染料工業の技術がそのまま使われた。
+- へえ④：ジアゾ化は1858年グリース、ブッヘラー反応は1904年。亜硝酸塩の昔の作り方は、硝石を鉛と熱する方法。
+
+確かさ：DNQ の光化学（ヴォルフ転位）とポジ型のしくみ ◎／ズースの発明の年 △（1940〜44年とばらつく）→ ⚠️／ジアゾ化 1858・ブッヘラー 1904 ○／KNO3＋Pb の亜硝酸塩の作り方 ○
+根拠：
+- Wikipedia「Diazonaphthoquinone」：https://en.wikipedia.org/wiki/Diazonaphthoquinone
+- Wikipedia「Tobias acid」：https://en.wikipedia.org/wiki/Tobias_acid
+- Wikipedia「Bucherer reaction」：https://en.wikipedia.org/wiki/Bucherer_reaction
+- Wikipedia「Potassium nitrite」（硝酸カリウムを鉛で還元する作り方）：https://en.wikipedia.org/wiki/Potassium_nitrite
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

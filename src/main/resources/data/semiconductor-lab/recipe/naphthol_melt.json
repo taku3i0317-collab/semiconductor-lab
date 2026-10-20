@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:naphthalenesulfonic_acid",
+    "semiconductor-lab:sodium_hydroxide",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:naphthol_melt",
+    "count": 1
+  }
+}

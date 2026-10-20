@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:naphthalene",
+    "semiconductor-lab:sulfuric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:naphthalenesulfonic_acid",
+    "count": 1
+  }
+}
