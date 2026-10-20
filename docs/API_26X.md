@@ -792,4 +792,4 @@ BlockInWorld(LevelReader, BlockPos, boolean); getState(); getEntity(); getPos();
 AbstractContainerMenu: boolean clickMenuButton(Player, int)            // 画面のボタン（サーバー側で呼ばれる）
 MultiPlayerGameMode（client）: void handleInventoryButtonClick(int containerId, int buttonId)   // クライアントから押す
 ServerLevel: <T extends ParticleOptions> int sendParticles(T, double x, double y, double z, int count, double dx, double dy, double dz, double speed)
-```
+```- 容器のしくみ（設計、2026-10-20 javap）：`Item.Properties craftRemainder(Item)`・`craftRemainder(ItemStackTemplate)`（作業台で使ったあとに残る物）、`Item.getCraftingRemainder()` は ItemStackTemplate を返す。`DataComponents.USE_REMAINDER`（食べる・飲むなど使ったあとに残る物）
