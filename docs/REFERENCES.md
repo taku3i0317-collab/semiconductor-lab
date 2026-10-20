@@ -1529,6 +1529,20 @@
 - Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper
 - Chip History Center「GCA DSW 4800」：https://www.chiphistory.org/
 
+## O53. 1秒に何百万回ふるえる石（水晶振動子）［8-15］
+**答え**：水晶は押すと電気が出て、電圧をかけると伸び縮みする（圧電効果、1880 キュリー兄弟）。決まった厚さに切った水晶の板は決まった速さでふるえるので、1921年ケイディが水晶で振動の速さを決める発振器を作り、1927年マリソンが水晶時計を作った。1959年ザウアーブレイは、水晶に膜が付くと振動数が下がることを式にし、蒸着の膜厚計が生まれた。
+
+- へえ①：腕時計の中では、水晶が1秒に 32768 回ふるえている。
+- へえ②：水晶の板は薄いほど速くふるえる（AT カットで 1661kHz·mm÷厚さ）。
+- へえ③：膜厚計は、ナノメートルの膜の重さを振動数の変化で量る。
+- へえ④：計算機の時計（クロック）も、水晶のふるえを数えて作る。
+
+確かさ：キュリー兄弟 1880 ◎／ケイディ 1921・マリソン 1927 ◎／AT カットの周波数定数 約1.66MHz·mm ◎／ザウアーブレイ 1959 ◎
+根拠：
+- Wikipedia「Crystal oscillator」：https://en.wikipedia.org/wiki/Crystal_oscillator
+- Wikipedia「Quartz crystal microbalance」：https://en.wikipedia.org/wiki/Quartz_crystal_microbalance
+- Wikipedia「Quartz clock」：https://en.wikipedia.org/wiki/Quartz_clock
+
 ---
 
 # 冶金と熱（タスク15〜）

@@ -663,5 +663,10 @@
   "item.semiconductor-lab.nickel.note2": "ニッケルカルボニルをかまどで分解して作る（モンド法、とても純粋）。＋アルミニウム → ラネーニッケルの元（触媒、[2-51]）。⚠ GHS：皮膚感作性・発がん性の疑い（区分2）。",
   "item.semiconductor-lab.nickel.note3": "鉄・コバルトと同じく磁石にくっつく。水素をよく吸うので、水素を付け足す反応（水素化）の触媒になる。",
   "item.semiconductor-lab.nickel.note4": "1897年サバティエは、ニッケルが油や不飽和の物に水素を付ける触媒になることを見つけた（1912年ノーベル化学賞）。マーガリンもこの反応で作られる。",
-  "item.semiconductor-lab.nickel.placeholder": "近似：インゴットではなく粒（モンド法のペレット）。"
+  "item.semiconductor-lab.nickel.placeholder": "近似：インゴットではなく粒（モンド法のペレット）。",
+  "item.semiconductor-lab.rock_crystal": "水晶",
+  "item.semiconductor-lab.rock_crystal.note1": "石英が大きく透明に育った結晶。押すと電気が出る、ふしぎな石。",
+  "item.semiconductor-lab.rock_crystal.note2": "石英鉱脈をシルクタッチなしで掘ると、まれに出る。ダイヤモンドののこぎりで切ると水晶片。",
+  "item.semiconductor-lab.rock_crystal.note3": "1880年、キュリー兄弟（ピエールとジャック）は、水晶を押すと表面に電気が出ること（圧電効果）を見つけた。逆に電圧をかけると水晶がわずかに伸び縮みする。",
+  "item.semiconductor-lab.rock_crystal.note4": "天然の水晶はブラジルが大産地で、第二次大戦では無線機の水晶が足りなくなった。これが人工水晶 [8-18] を生んだ。"
 }

@@ -123,6 +123,7 @@ tungsten_wire  # Metallurgy [1-28] 1910
 wolframite_ore  # Metallurgy [1-28] 1910
 hydrogen_furnace  # Metallurgy [1-28] 1910
 silicon_tetrachloride  # Metallurgy [7-15] 1920
+rock_crystal  # Metallurgy [8-15] 1921
 coal_ash  # Metallurgy [1-01] 1930
 germanium_concentrate  # Metallurgy [1-01] 1930
 germanium_dioxide  # Metallurgy [1-01] 1930
@@ -457,6 +458,9 @@ steel_balls_ground  # Precision [8-20] 1883
 steel_balls_precise  # Precision [8-20] 1883
 ball_bearing  # Precision [8-20] 1883
 gauge_block_set  # Precision [8-05] 1896
+diamond_saw  # Precision [8-15] 1921
+quartz_blank  # Precision [8-15] 1921
+crystal_resonator  # Precision [8-15] 1921
 isolation_table  # Precision [8-07] 1931
 ball_screw  # Precision [8-08] 1939
 lens_barrel  # Precision [8-14] 1950

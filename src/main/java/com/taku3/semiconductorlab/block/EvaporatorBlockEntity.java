@@ -106,7 +106,12 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
         return c != null && c.getPressure() <= MAX_PA && canMerge(container.getItem(SLOT_OUT), new ItemStack(r.product()));
     }
 
+    /** [8-15] これまでに蒸着した回数（水晶振動子の膜厚計が読む、IMP2 O-016） */
+    private int runs;
+    public int runs() { return runs; }
+
     @Override protected void finishWork() {
+        runs++;
         ItemStack chip = chipProduct(container.getItem(SLOT_SUBSTRATE), container.getItem(SLOT_METAL));
         if (!chip.isEmpty()) {
             container.getItem(SLOT_SUBSTRATE).shrink(chip.getCount());
@@ -126,4 +131,7 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
         VacuumChamberBlockEntity c = chamber();
         if (c != null) c.vent(VENT_FRACTION);
     }
+
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput out) { super.saveAdditional(out); out.putInt("Runs", runs); }
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput in) { super.loadAdditional(in); runs = in.getIntOr("Runs", 0); }
 }

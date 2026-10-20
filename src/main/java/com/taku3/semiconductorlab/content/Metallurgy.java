@@ -115,6 +115,7 @@ public final class Metallurgy {
     public static final Item METALLURGICAL_SILICON = Reg.item("metallurgical_silicon");
     // [1-46] 珪石（石英鉱脈の SiO2）。酸水素バーナー [7-02] で溶融石英に。ネザークォーツは使わない（化学ルール1）
     public static final Item VEIN_QUARTZ           = Reg.item("vein_quartz");
+    public static final Item ROCK_CRYSTAL          = Reg.item("rock_crystal");      // [8-15] 水晶（石英鉱脈からまれに出る透明な単結晶、仮決定 Q1346-2。IMP2 O-016）
     // [1-33] ホウ素：ホウ砂 Na2B4O7·10H2O ＋ 硫酸 → ホウ酸 H3BO3（1個＝2mol）→ 焼く → B2O3（1個＝1mol）
     public static final Item BORAX                 = Reg.item("borax");
     public static final Item BORIC_ACID            = Reg.item("boric_acid");

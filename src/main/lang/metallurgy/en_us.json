@@ -663,5 +663,10 @@
   "item.semiconductor-lab.nickel.note2": "Decompose nickel carbonyl in a furnace (Mond process, very pure). + aluminium -> Raney nickel precursor (catalyst, [2-51]). ⚠ GHS: skin sensitizer, suspected carcinogen (category 2).",
   "item.semiconductor-lab.nickel.note3": "Like iron and cobalt, it sticks to magnets. It soaks up hydrogen readily, so it catalyzes reactions that add hydrogen (hydrogenation).",
   "item.semiconductor-lab.nickel.note4": "In 1897 Sabatier found that nickel catalyzes adding hydrogen to oils and unsaturated compounds (Nobel Prize in Chemistry 1912). Margarine is made with this reaction.",
-  "item.semiconductor-lab.nickel.placeholder": "Approximation: pellets (Mond process), not ingots."
+  "item.semiconductor-lab.nickel.placeholder": "Approximation: pellets (Mond process), not ingots.",
+  "item.semiconductor-lab.rock_crystal": "Rock Crystal",
+  "item.semiconductor-lab.rock_crystal.note1": "Quartz grown into a large clear crystal. A curious stone that makes electricity when squeezed.",
+  "item.semiconductor-lab.rock_crystal.note2": "A rare drop from quartz veins mined without silk touch. Cut it with a diamond saw for quartz blanks.",
+  "item.semiconductor-lab.rock_crystal.note3": "In 1880 the Curie brothers (Pierre and Jacques) found that squeezing quartz produces electric charge on its surface (piezoelectricity). Conversely, a voltage makes the crystal stretch or shrink slightly.",
+  "item.semiconductor-lab.rock_crystal.note4": "Brazil was the big source of natural quartz, and radio crystals ran short in World War II, which led to synthetic quartz [8-18]."
 }

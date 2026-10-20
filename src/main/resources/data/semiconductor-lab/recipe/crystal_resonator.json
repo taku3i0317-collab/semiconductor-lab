@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:quartz_blank",
+  "material": "semiconductor-lab:silver_nugget",
+  "result": {
+    "id": "semiconductor-lab:crystal_resonator"
+  }
+}

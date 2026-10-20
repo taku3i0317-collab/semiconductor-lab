@@ -90,6 +90,15 @@ public final class Precision {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
     public static final Item BALL_BEARING          = Reg.item("ball_bearing", BallBearingItem::new, new Item.Properties());
     // [8-08] ボールねじ（IMP2 O-014）：送りねじ＋鋼球。段階（bearing_grade）で送りの細かさ 5・2・1µm（送りねじは 10µm）。旋盤の親ねじに入れると部品の誤差・電力が下がる
+    // [8-15] 水晶振動子（IMP2 O-016）：水晶をダイヤモンドののこぎりで AT カットの水晶片に → ルージュで磨いて振動数を合わせる → 銀の電極で振動子（膜厚計・時計）
+    /** 水晶片の厚さ（µm）。振動数＝1661kHz·mm ÷ 厚さ */
+    public static final net.minecraft.core.component.DataComponentType<Integer> BLANK_THICKNESS_UM = net.minecraft.core.Registry.register(
+            net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("blank_thickness_um"),
+            net.minecraft.core.component.DataComponentType.<Integer>builder().persistent(com.mojang.serialization.Codec.INT)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
+    public static final Item DIAMOND_SAW           = Reg.item("diamond_saw", ReusableToolItem::new, new Item.Properties().stacksTo(1)); // ダイヤモンドの刃ののこぎり（戻る）
+    public static final Item QUARTZ_BLANK          = Reg.item("quartz_blank", QuartzBlankItem::new, new Item.Properties().stacksTo(1));
+    public static final Item CRYSTAL_RESONATOR     = Reg.item("crystal_resonator", CrystalResonatorItem::new, new Item.Properties().stacksTo(1));
     public static final Item BALL_SCREW            = Reg.item("ball_screw", BallScrewItem::new, new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====

@@ -15,6 +15,40 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-15] 水晶振動子（IMP2 O-016）：水晶 → AT カットの水晶片（0.5mm＝3.32MHz）→ ルージュで磨くと振動数が上がる → 銀の電極で振動子。膜厚計（ザウアーブレイ） */
+    @GameTest
+    public void crystal_resonator(GameTestHelper h) {
+        var lv = h.getLevel();
+        var silk = new ItemStack(net.minecraft.world.item.Items.DIAMOND_PICKAXE);
+        silk.enchant(lv.registryAccess().lookupOrThrow(net.minecraft.core.registries.Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH), 1);
+        var pick = new ItemStack(net.minecraft.world.item.Items.IRON_PICKAXE);
+        int rc = 0, rcSilk = 0;
+        for (int i = 0; i < 400; i++) {
+            rc += net.minecraft.world.level.block.Block.getDrops(Metallurgy.QUARTZ_VEIN.defaultBlockState(), lv, h.absolutePos(p(1, 1, 1)), null, null, pick).stream().filter(s -> s.is(Metallurgy.ROCK_CRYSTAL)).count();
+            rcSilk += net.minecraft.world.level.block.Block.getDrops(Metallurgy.QUARTZ_VEIN.defaultBlockState(), lv, h.absolutePos(p(1, 1, 1)), null, null, silk).stream().filter(s -> s.is(Metallurgy.ROCK_CRYSTAL)).count();
+        }
+        h.assertTrue(rc > 2 && rc < 40 && rcSilk == 0, "rock crystal is a rare drop from quartz veins (" + rc + "/400), never with silk touch");
+        h.assertTrue(recipeUses(h, "quartz_blank", Precision.DIAMOND_SAW), "cut with a diamond saw");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.QuartzBlankItem.freqMHz(500) - 3.322) < 0.001, "AT-cut 0.5 mm -> 3.32 MHz");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack b = new ItemStack(Precision.QUARTZ_BLANK);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, b);
+        h.assertFalse(Precision.QUARTZ_BLANK.use(lv, player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "no rouge -> cannot lap");
+        player.getInventory().add(new ItemStack(com.taku3.semiconductorlab.content.Optics.ROUGE, 5));
+        for (int i = 0; i < 5; i++) Precision.QUARTZ_BLANK.use(lv, player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.QuartzBlankItem.thicknessUm(b), 400, "5 laps of 20 um -> 0.4 mm");
+        h.assertTrue(com.taku3.semiconductorlab.item.QuartzBlankItem.freqMHz(400) > com.taku3.semiconductorlab.item.QuartzBlankItem.freqMHz(500), "thinner -> higher frequency (4.15 MHz)");
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, java.util.List.of(b, new ItemStack(Metallurgy.SILVER_NUGGET)));
+        ItemStack res = lv.getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in, lv).map(r -> r.value().assemble(in)).orElse(ItemStack.EMPTY);
+        h.assertTrue(res.is(Precision.CRYSTAL_RESONATOR) && com.taku3.semiconductorlab.item.QuartzBlankItem.thicknessUm(res) == 400, "silver electrodes -> resonator keeps the thickness");
+        double df = com.taku3.semiconductorlab.item.CrystalResonatorItem.sauerbreyHz(5e6, 100);
+        h.assertTrue(df > 5000 && df < 7000, "Sauerbrey: 100 nm of silver on 5 MHz -> about 5.9 kHz down: " + df);
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"lapped", "too_thin", "spec", "beats", "monitor"}) h.assertTrue(ja.has("item.semiconductor-lab.quartz_blank." + k), "lang quartz_blank." + k);
+        LOG.info("[LAB] crystal_resonator [8-15]: rock crystal " + rc + "/400 from veins, 0.5 mm 3.32 MHz -> lapped 0.4 mm 4.15 MHz, Sauerbrey 100 nm Ag on 5 MHz = " + Math.round(df) + " Hz");
+        h.succeed();
+    }
+
     /** [8-08] ボールねじ（IMP2 O-014）：送りねじ＋鋼球。旋盤の親ねじにすると、段階ごとに部品の誤差が小さく・電気が少なく。送りの細かさ 10 → 5・2・1µm */
     @GameTest
     public void ball_screw(GameTestHelper h) {
