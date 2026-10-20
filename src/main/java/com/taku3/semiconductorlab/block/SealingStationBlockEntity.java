@@ -19,14 +19,14 @@ import net.minecraft.world.level.block.state.BlockState;
  * 真空管の組立品（未排気）を入れ、容器の圧力が {@link #SEAL_MAX_PA} 以下のあいだだけ、
  * 500W×10秒（フィラメントに電流を流して中のガスを追い出す＝ガス出し）→ 管の首を焼き切って封じる → 三極真空管。
  * 1本封じるたびに、次の管を付け替えるときの空気が入り、容器の圧力が少し上がる（大気圧との差の {@link #VENT_FRACTION}）。
- * ⚠️ 近似：本物の真空管は 0.1Pa（初期の軟真空）〜10⁻⁴Pa（高真空）が必要。手押しポンプでは 1kPa までしか届かないため、
- * シュプレンゲルポンプ[5-15]・拡散ポンプ[5-05]が実装されるまで閾値を 1.5kPa に緩めている（vacuum_tube.placeholder）。
+ * 閾値は初期の軟真空管（オーディオン 1906）の 0.1Pa（約 10⁻³ Torr）。手押しポンプ（1kPa まで）では届かず、
+ * シュプレンゲル水銀ポンプ[5-15]（0.05Pa まで）が要る。高真空管（10⁻⁴Pa、ラングミュア 1913）は拡散ポンプ[5-05]で。
  */
 public class SealingStationBlockEntity extends ConsumerBlockEntity implements MenuProvider {
     public static final double WATTS = 500;
     public static final int TICKS = 20 * 10;
-    /** 封止してよい容器の圧力の上限（Pa）。★仮：本物よりずっと高い */
-    public static final double SEAL_MAX_PA = 1_500;
+    /** 封止してよい容器の圧力の上限（Pa）。軟真空 0.1Pa ≈ 7.5×10⁻⁴ Torr（2026-10 タスク12 で 1.5kPa の仮から変更） */
+    public static final double SEAL_MAX_PA = 0.1;
     /** 1本封じるごとに戻る空気の割合 */
     public static final double VENT_FRACTION = 0.05;
     public static final int SLOT_IN = 0, SLOT_OUT = 1, SLOT_COUNT = 2;

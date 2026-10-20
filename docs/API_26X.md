@@ -758,3 +758,6 @@ net.minecraft.world.item.ItemStackTemplate:  public ItemStackTemplate(Item);  (I
 net.minecraft.world.item.crafting.CraftingRecipe:  public default NonNullList<ItemStack> getRemainingItems(CraftingInput);
 net.minecraft.world.item.crafting.CraftingInput:  public static CraftingInput of(int w, int h, List<ItemStack>);
 ``
+
+## タスク12（2026-10-20）
+- GameTestHelper（javap 確認）：`destroyBlock(BlockPos)`（相対座標、ドロップあり）／`assertItemEntityPresent(Item, BlockPos, double)`／`assertItemEntityCountIs(Item, BlockPos, double, int)`

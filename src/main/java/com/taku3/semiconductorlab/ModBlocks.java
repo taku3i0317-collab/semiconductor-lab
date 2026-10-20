@@ -95,6 +95,7 @@ public class ModBlocks {
     // 真空容器 [5-11]（ガラスのベルジャー＋鉄の台板）。中の圧力を持つ
     public static final Block VACUUM_CHAMBER = register("vacuum_chamber", VacuumChamberBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(2.0f).sound(SoundType.GLASS), true);
     // 手押しピストンポンプ [5-01]（ゲーリケ 1650頃）。隣の真空容器を右クリックで排気
+    public static final Block SPRENGEL_PUMP = register("sprengel_pump", com.taku3.semiconductorlab.block.SprengelPumpBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(1.0f).sound(SoundType.GLASS).noOcclusion(), true);
     public static final Block HAND_VACUUM_PUMP = register("hand_vacuum_pump", HandVacuumPumpBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.0f).sound(SoundType.METAL), true);
 
     // 封止台 [5-02]（真空管の排気・封じ切り台）。隣の真空容器が十分低圧のときだけ組立品を封じる。動作中は光る
@@ -135,6 +136,6 @@ public class ModBlocks {
 
     public static void initialize() {
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> { tab.accept(SPHALERITE_ORE); tab.accept(GRAPHITE_ORE); tab.accept(MAGNETITE_ORE); tab.accept(IRON_SAND); tab.accept(WOLFRAMITE_ORE); tab.accept(GALENA_ORE); tab.accept(TRONA_DEPOSIT); tab.accept(ROCK_SALT_ORE); });
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(STEAM_TURBINE); tab.accept(LEAD_ACID_BATTERY); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(ELECTRIC_FURNACE); tab.accept(ACHESON_FURNACE); tab.accept(REVERBERATORY_FURNACE); tab.accept(OXYHYDROGEN_BURNER); tab.accept(HCL_BURNER); tab.accept(HYDROGEN_FURNACE); tab.accept(COMPRESSOR); tab.accept(VACUUM_CHAMBER); tab.accept(HAND_VACUUM_PUMP); tab.accept(SEALING_STATION); tab.accept(SALT_PAN); });
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> { tab.accept(ZONE_REFINING_FURNACE); tab.accept(COPPER_CABLE); tab.accept(WATER_WHEEL); tab.accept(STEAM_ENGINE); tab.accept(STEAM_TURBINE); tab.accept(LEAD_ACID_BATTERY); tab.accept(ELECTROLYZER); tab.accept(GAS_HOLDER); tab.accept(BESSEMER_CONVERTER); tab.accept(ELECTRIC_FURNACE); tab.accept(ACHESON_FURNACE); tab.accept(REVERBERATORY_FURNACE); tab.accept(OXYHYDROGEN_BURNER); tab.accept(HCL_BURNER); tab.accept(HYDROGEN_FURNACE); tab.accept(COMPRESSOR); tab.accept(VACUUM_CHAMBER); tab.accept(HAND_VACUUM_PUMP); tab.accept(SPRENGEL_PUMP); tab.accept(SEALING_STATION); tab.accept(SALT_PAN); });
     }
 }

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GGG",
+    " G ",
+    "IGI"
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": { "id": "semiconductor-lab:sprengel_pump", "count": 1 }
+}

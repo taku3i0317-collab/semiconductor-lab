@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 /**
  * 真空容器 [5-11]（19世紀のガラスのベルジャー＋鉄の台板）。中の気圧 pressure（Pa＝パスカル）だけを持つ。
  * - 隣の手押しポンプ [5-01] を1回引くと、容器の空気の一部がシリンダーへ移って外に捨てられる（ボイルの法則）
+ * - 隣のシュプレンゲル水銀ポンプ [5-15] は1秒ごとに引き続ける（0.05Pa まで）
  * - すり合わせ面から少しずつ空気が漏れ込む（1秒に {@link #LEAK_PA_PER_SECOND} Pa）
  * - 圧力は見た目では分からない。真空計 [5-10] を当てると読める
  */
@@ -20,8 +21,8 @@ public class VacuumChamberBlockEntity extends BlockEntity {
     public static final double ATM = 101_325;
     /** 1 mmHg（＝1 Torr）は何 Pa か */
     public static final double PA_PER_MMHG = 133.322;
-    /** 漏れ込み（Pa/秒）。グリースを塗ったすり合わせ面の小さな漏れ */
-    public static final double LEAK_PA_PER_SECOND = 1.0;
+    /** 漏れ込み（Pa/秒）。グリースを塗ったすり合わせ面の小さな漏れ（1分で約0.1Pa）。シュプレンゲル[5-15]が 0.1Pa を保てる大きさ */
+    public static final double LEAK_PA_PER_SECOND = 0.002;
 
     private double pressure = ATM;
 

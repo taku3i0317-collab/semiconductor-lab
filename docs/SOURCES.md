@@ -24,3 +24,10 @@
 - Thomas Thwaites *The Toaster Project* (2011): 鉱石からの手作りの現実
 - James Burke *Connections* (1978): 技術史のつながり
 - 注: いずれも露光装置・半導体製造までは扱わない。幹5〜9は本MOD独自
+
+## [5-15] シュプレンゲル水銀ポンプ（タスク12、2026-10-20）
+- H. Sprengel, "Researches on the vacuum", J. Chem. Soc. 18 (1865) 9–21：原論文。0.5L の容器を約20分で排気
+- Wikipedia "Sprengel pump"（https://en.wikipedia.org/wiki/Sprengel_pump）：「1 mPa 未満」と書くが要出典の印あり。エジソン・スワンの電球、クルックスの直列使用。出典に S. P. Thompson *The Development of the Mercurial Air-pump* (1888)、F. Jehl *Menlo Park Reminiscences* (1937)
+- A. Sella, "Classic Kit: Sprengel pump", Chemistry World (2008)（https://www.chemistryworld.com/opinion/classic-kit-sprengel-pump/3004941.article）：シュプレンゲル本人は 10⁻³ Torr 程度と見積もった（測る手段なし）。マクラウド計（1874）以後 10⁻⁶ Torr 級。エジソンは数台で 10⁻³ Torr
+- ゲームの値：到達 0.05Pa（≈4×10⁻⁴ Torr、1台・短時間として上の2つのあいだ）、封止 0.1Pa（≈7.5×10⁻⁴ Torr、初期の軟真空管）
+- ❓ 要確認：エジソンの電球1個あたりの排気時間、オーディオン（1906）の実際の封入圧

@@ -876,7 +876,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate", "glass_batch", "soda_lime_glass", "soda_lime_glass_from_blasting",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "self_excited_dynamo", "steam_engine", "steam_turbine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner",
@@ -1221,9 +1221,49 @@ public class LabTests {
         h.assertTrue(HandVacuumPumpBlock.stroke(h.getLevel(), h.absolutePos(lonely)) == null, "a pump with no chamber next to it does nothing");
         final int strokes = n;
         h.runAfterDelay(45, () -> {
-            h.assertTrue(c.getPressure() >= floorPa + 2 - 1e-9, "air should leak back in (~1 Pa/s): " + floorPa + " -> " + c.getPressure());
+            h.assertTrue(c.getPressure() > floorPa, "air should leak back in (~0.002 Pa/s): " + floorPa + " -> " + c.getPressure());
             LOG.info("[LAB] hand pump: 1 stroke -> {}, {} strokes to <1.5 kPa, floor {}, leak to {}", VacuumChamberBlockEntity.formatPa(one), strokes,
                     VacuumChamberBlockEntity.formatPa(floorPa), VacuumChamberBlockEntity.formatPa(c.getPressure()));
+            h.succeed();
+        });
+    }
+
+    // =====================================================================
+    // [5-15] シュプレンゲル水銀ポンプ（タスク12）
+    // =====================================================================
+
+    /** 水銀4個で動く。1秒ごとに p' = 0.05 + (p-0.05)*0.9。1気圧から約2分で 0.1Pa 以下、漏れがあっても 0.1Pa 未満を保つ。水銀なし・容器なしでは何もしない */
+    @GameTest
+    public void sprengelPumpReachesSoftVacuum(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "sprengel_pump", ModItems.SODA_LIME_GLASS), "the pump is glass tubing (soda-lime glass)");
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), sp = p(2, 1, 1), lonely = p(5, 1, 5);
+        h.setBlock(cp, ModBlocks.VACUUM_CHAMBER);
+        h.setBlock(sp, ModBlocks.SPRENGEL_PUMP);
+        h.setBlock(lonely, ModBlocks.SPRENGEL_PUMP);
+        VacuumChamberBlockEntity c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        var pump = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.SprengelPumpBlockEntity.class);
+        h.assertTrue(pump.pumpOnce() == null && c.getPressure() == VacuumChamberBlockEntity.ATM, "no mercury -> no pumping");
+        for (int i = 0; i < com.taku3.semiconductorlab.block.SprengelPumpBlockEntity.MERCURY_NEEDED; i++) h.assertTrue(pump.addMercury(), "mercury " + i + " should go in");
+        h.assertTrue(!pump.addMercury(), "the reservoir holds only " + com.taku3.semiconductorlab.block.SprengelPumpBlockEntity.MERCURY_NEEDED);
+        int s = 0;
+        while (c.getPressure() > SealingStationBlockEntity.SEAL_MAX_PA && s < 600) { pump.pumpOnce(); c.setPressure(c.getPressure() + VacuumChamberBlockEntity.LEAK_PA_PER_SECOND); s++; }
+        h.assertTrue(s >= 90 && s <= 180, "about 2 minutes from 1 atm to 0.1 Pa, took " + s + " s");
+        for (int i = 0; i < 300; i++) { pump.pumpOnce(); c.setPressure(c.getPressure() + VacuumChamberBlockEntity.LEAK_PA_PER_SECOND); }
+        double eq = c.getPressure();
+        h.assertTrue(eq >= com.taku3.semiconductorlab.block.SprengelPumpBlockEntity.LIMIT_PA && eq < SealingStationBlockEntity.SEAL_MAX_PA, "steady state with the leak stays below 0.1 Pa, got " + eq);
+        c.setPressure(HandVacuumPumpBlock.LIMIT_PA);
+        int r = 0;
+        while (c.getPressure() > SealingStationBlockEntity.SEAL_MAX_PA && r < 600) { pump.pumpOnce(); r++; }
+        h.assertTrue(r < s, "roughing to 1 kPa with the hand pump first is faster: " + r + " < " + s);
+        var alone = h.getBlockEntity(lonely, com.taku3.semiconductorlab.block.SprengelPumpBlockEntity.class);
+        for (int i = 0; i < 4; i++) alone.addMercury();
+        h.assertTrue(alone.pumpOnce() == null, "no chamber next to it -> nothing");
+        h.destroyBlock(sp);
+        final int fromAtm = s, fromRough = r;
+        h.runAfterDelay(2, () -> {
+            h.assertItemEntityPresent(ModItems.MERCURY, sp, 2.0);
+            LOG.info("[LAB] Sprengel pump: 4 Hg, 1 atm -> 0.1 Pa in {} s, from 1 kPa in {} s, steady {} with leak, breaking drops the mercury", fromAtm, fromRough, VacuumChamberBlockEntity.formatPa(eq));
             h.succeed();
         });
     }
@@ -1266,7 +1306,7 @@ public class LabTests {
     // [5-02] 真空管（封止台）
     // =====================================================================
 
-    /** 容器が 1.5kPa 以下のときだけ封じる。1本封じると容器に空気がもどり、続けては封じられない。容器なしでは動かない */
+    /** 容器が 0.1Pa 以下のときだけ封じる（手押しポンプの 1kPa では不可）。1本封じると容器に空気がもどり、続けては封じられない。容器なしでは動かない */
     @GameTest
     public void sealingStationNeedsVacuum(GameTestHelper h) {
         h.assertTrue(recipeUses(h, "vacuum_tube_assembly", ModItems.TUNGSTEN_WIRE), "the filament is tungsten wire [1-28]");
@@ -1285,9 +1325,12 @@ public class LabTests {
         box.setItem(IN, new ItemStack(ModItems.VACUUM_TUBE_ASSEMBLY, 2));
         tickConsumer(h, sp, be, T + 20, feed);
         h.assertTrue(box.getItem(OUT).isEmpty(), "at 1 atm nothing may be sealed");
-        c.setPressure(1400);
+        c.setPressure(HandVacuumPumpBlock.LIMIT_PA);
+        tickConsumer(h, sp, be, T + 20, feed);
+        h.assertTrue(box.getItem(OUT).isEmpty(), "the hand pump's 1 kPa is not enough to seal a tube");
+        c.setPressure(0.08);
         tickConsumer(h, sp, be, T, feed);
-        h.assertTrue(box.getItem(OUT).is(ModItems.VACUUM_TUBE) && box.getItem(OUT).getCount() == 1, "at 1.4 kPa one tube should be sealed in " + T + " ticks, got " + box.getItem(OUT));
+        h.assertTrue(box.getItem(OUT).is(ModItems.VACUUM_TUBE) && box.getItem(OUT).getCount() == 1, "at 0.08 Pa one tube should be sealed in " + T + " ticks, got " + box.getItem(OUT));
         h.assertValueEqual(box.getItem(IN).getCount(), 1, "one assembly used");
         double after = c.getPressure();
         h.assertTrue(after > SealingStationBlockEntity.SEAL_MAX_PA, "sealing lets air back into the chamber: " + after);
@@ -1297,7 +1340,7 @@ public class LabTests {
         alone.getContainer().setItem(IN, new ItemStack(ModItems.VACUUM_TUBE_ASSEMBLY));
         tickConsumer(h, lonely, alone, T + 20, feed);
         h.assertTrue(alone.getContainer().getItem(OUT).isEmpty(), "no chamber next to it -> no sealing");
-        LOG.info("[LAB] sealing station: 1 atm -> wait, 1.4 kPa -> tube in {} ticks, chamber back to {}, no chamber -> wait", T, VacuumChamberBlockEntity.formatPa(after));
+        LOG.info("[LAB] sealing station: 1 atm / 1 kPa -> wait, 0.08 Pa -> tube in {} ticks, chamber back to {}, no chamber -> wait", T, VacuumChamberBlockEntity.formatPa(after));
         h.succeed();
     }
 
@@ -1531,7 +1574,7 @@ public class LabTests {
         h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(ModItems.QUICKLIME))).count(), 1L, "1 quicklime (CaO ~10%)");
         h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.GLASS_BATCH).is(ModItems.SODA_LIME_GLASS), "batch -> furnace -> soda-lime glass");
         h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, ModItems.GLASS_BATCH).is(ModItems.SODA_LIME_GLASS), "batch -> blast furnace -> soda-lime glass");
-        for (String id : new String[] {"vacuum_chamber", "mercury_vacuum_gauge", "leyden_jar", "electrolyzer", "vacuum_tube_assembly", "lead_acid_battery"}) {
+        for (String id : new String[] {"vacuum_chamber", "mercury_vacuum_gauge", "leyden_jar", "electrolyzer", "vacuum_tube_assembly", "lead_acid_battery", "sealing_station", "sprengel_pump"}) {
             h.assertTrue(recipeUses(h, id, ModItems.SODA_LIME_GLASS), id + " should use soda-lime glass");
             for (var v : new net.minecraft.world.item.Item[] {Items.GLASS, Items.GLASS_PANE, Items.GLASS_BOTTLE})
                 h.assertFalse(recipeUses(h, id, v), id + " must not use vanilla " + v);

@@ -8,7 +8,7 @@
   ],
   "key": {
     "S": "semiconductor-lab:steel_ingot",
-    "G": "minecraft:glass",
+    "G": "semiconductor-lab:soda_lime_glass",
     "C": "semiconductor-lab:copper_cable"
   },
   "result": {
