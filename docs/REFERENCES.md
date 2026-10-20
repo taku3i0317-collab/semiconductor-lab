@@ -1556,6 +1556,20 @@
 - Wikipedia「Hydrothermal synthesis」：https://en.wikipedia.org/wiki/Hydrothermal_synthesis
 - Wikipedia「Quartz」（Synthetic and artificial）：https://en.wikipedia.org/wiki/Quartz
 
+## O55. 1mm に何百本の溝を刻む（刻線機）［8-12］
+**答え**：1882年、ジョンズ・ホプキンス大学のヘンリー・ローランドは、自分で磨き上げた精密なねじで台を少しずつ送りながら、ダイヤモンドで 1mm に数百本の溝を鏡に刻む刻線機を作った。溝の数が多いほど近い色を分けられ（分解能＝溝の数×次数）、ローランドの格子で太陽の何千本もの暗線の波長が正確に測られた。ねじの小さな周期的なずれは「ゴースト」というにせの線になるので、刻線機は温度の変わらない地下室に置かれた。
+
+- へえ①：何日もかけて刻む間に温度が変わると失敗した。
+- へえ②：ナトリウムの黄色い線は、細かい格子で見ると 589.0 と 589.6nm の2本に分かれる。
+- へえ③：1775年ラムズデンの目盛り刻み機が、精密なねじで等間隔に刻む技術の先祖。
+- へえ④：今の露光装置のステージの位置も、細かい格子（エンコーダー）で測っている。
+
+確かさ：ローランド 1882・凹面格子 ◎／ゴーストとねじの周期誤差 ◎／約 570本/mm ○
+根拠：
+- Wikipedia「Henry Augustus Rowland」：https://en.wikipedia.org/wiki/Henry_Augustus_Rowland
+- Wikipedia「Diffraction grating」：https://en.wikipedia.org/wiki/Diffraction_grating
+- Wikipedia「Jesse Ramsden」（dividing engine）：https://en.wikipedia.org/wiki/Jesse_Ramsden
+
 ---
 
 # 冶金と熱（タスク15〜）

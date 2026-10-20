@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "equipment",
+  "input": "semiconductor-lab:ruled_grating",
+  "material": "semiconductor-lab:spectroscope",
+  "result": {
+    "id": "semiconductor-lab:ruled_spectroscope"
+  }
+}

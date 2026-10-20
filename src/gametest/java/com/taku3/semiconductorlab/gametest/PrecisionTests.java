@@ -15,6 +15,43 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-12] 刻線機（IMP2 O-016）：1mm に 600 本・30000 本の格子は D 線（R≈982）も水銀の黄2本も分けられる。針金の格子（246本）では1本。揺れ・温度でゴースト */
+    @GameTest(maxTicks = 3000)
+    public void ruling_engine(GameTestHelper h) {
+        h.assertFalse(com.taku3.semiconductorlab.item.SpectroscopeItem.resolves(com.taku3.semiconductorlab.content.Optics.WIRE_GRATING_LINES, 589.0, 0.6), "wire grating (246 lines) cannot split the sodium D lines");
+        h.assertTrue(com.taku3.semiconductorlab.item.SpectroscopeItem.resolves((int) Precision.RULED_GRATING_LINES, 589.0, 0.6), "ruled grating (30000 lines) splits them");
+        h.assertFalse(com.taku3.semiconductorlab.item.SpectroscopeItem.resolves(com.taku3.semiconductorlab.content.Optics.WIRE_GRATING_LINES, 577.0, 2.1), "nor the mercury yellow pair with the wire grating");
+        h.assertTrue(recipeUses(h, "ruling_engine", Precision.SURFACE_PLATE.asItem()) && recipeUses(h, "ruling_engine", Precision.LEAD_SCREW), "ruling engine = precise screw on a flat bed");
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.RulingEngineBlockEntity.WATTS);
+        boolean[] ghosts = new boolean[2];
+        for (int k = 0; k < 2; k++) {
+            BlockPos at = p(1 + 3 * k, 1, 1);
+            if (k == 1) {   // 空調あり
+                BlockPos ac = p(4, 1, 3);
+                h.setBlock(ac, com.taku3.semiconductorlab.content.Construction.AIR_CONDITIONER.block);
+                var acb = h.getBlockEntity(ac, com.taku3.semiconductorlab.block.AirConditionerBlockEntity.class);
+                tickConsumer(h, ac, acb, 2, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.WATTS));
+            }
+            h.setBlock(at, Precision.RULING_ENGINE.block);
+            var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.RulingEngineBlockEntity.class);
+            be.getContainer().setItem(com.taku3.semiconductorlab.block.RulingEngineBlockEntity.SLOT_BLANK, new ItemStack(com.taku3.semiconductorlab.content.Optics.SPECULUM_MIRROR));
+            be.getContainer().setItem(com.taku3.semiconductorlab.block.RulingEngineBlockEntity.SLOT_DIAMOND, new ItemStack(net.minecraft.world.item.Items.DIAMOND));
+            be.getContainer().setItem(com.taku3.semiconductorlab.block.RulingEngineBlockEntity.SLOT_SCREW, new ItemStack(Precision.LEAD_SCREW));
+            if (k == 1) {
+                var acb = h.getBlockEntity(p(4, 1, 3), com.taku3.semiconductorlab.block.AirConditionerBlockEntity.class);
+                for (int t = 0; t < com.taku3.semiconductorlab.block.RulingEngineBlockEntity.TICKS + 5; t++) { tickConsumer(h, p(4, 1, 3), acb, 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.WATTS)); tickConsumer(h, at, be, 1, feed); }
+            } else tickConsumer(h, at, be, com.taku3.semiconductorlab.block.RulingEngineBlockEntity.TICKS + 5, feed);
+            ItemStack g = be.getContainer().getItem(com.taku3.semiconductorlab.block.RulingEngineBlockEntity.SLOT_OUT);
+            h.assertTrue(g.is(Precision.RULED_GRATING) && be.getContainer().getItem(com.taku3.semiconductorlab.block.RulingEngineBlockEntity.SLOT_DIAMOND).is(net.minecraft.world.item.Items.DIAMOND), "ruled grating, diamond kept");
+            ghosts[k] = Boolean.TRUE.equals(g.get(Precision.GRATING_GHOSTS));
+        }
+        h.assertTrue(ghosts[0] && !ghosts[1], "without air conditioning (+-3 C) ghosts appear; with it, a clean grating");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"resolved", "merged", "ghosts"}) h.assertTrue(ja.has("item.semiconductor-lab.grating_spectroscope." + k), "lang " + k);
+        LOG.info("[LAB] ruling_engine [8-12]: 600 lines/mm x 50 mm = 30000 -> D lines resolved (wire 246: merged); ghosts without air conditioning");
+        h.succeed();
+    }
+
     /** [8-18] 人工水晶（IMP2 O-016）：珪石×4＋NaOH＋種の水晶 → 水熱合成の仕込み → D の加圧加熱釜（280℃・15気圧以上⚠️）→ 人工水晶×3。圧力が足りないと仕込みのまま */
     @GameTest(maxTicks = 3000)
     public void cultured_quartz(GameTestHelper h) {

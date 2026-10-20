@@ -309,5 +309,8 @@
   "item.semiconductor-lab.chrome_photomask.note2": "Made by copying an original onto a chrome blank in the reduction camera (resist + hydrochloric acid etch the Cr). 100 uses (10x an emulsion mask). It can also take originals finer than emulsion can (finer than the 1:1 projection grid 24, for steppers). Works in the mask aligner.",
   "item.semiconductor-lab.chrome_photomask.note3": "1960s silver emulsion masks were soft and quickly damaged by contact printing. In the 1970s hard chrome masks took over and could be used thousands of times.",
   "item.semiconductor-lab.chrome_photomask.note4": "Emulsion is made of silver grains a few micrometres across, so it cannot draw finer lines. Chromium is a metal film, and later electron-beam writing drew lines finer than 1 um. Today's masks are still quartz with chromium (and its relatives).",
-  "item.semiconductor-lab.chrome_photomask.placeholder": "Approximation: the real Cr etchant is ceric ammonium nitrate (hydrochloric acid here). The anti-reflective chromium oxide layer and electron-beam writing are skipped."
+  "item.semiconductor-lab.chrome_photomask.placeholder": "Approximation: the real Cr etchant is ceric ammonium nitrate (hydrochloric acid here). The anti-reflective chromium oxide layer and electron-beam writing are skipped.",
+  "item.semiconductor-lab.grating_spectroscope.resolved": "  🔍 %s and %s nm show as two lines (%s grooves >= needed %s)",
+  "item.semiconductor-lab.grating_spectroscope.merged": "  🔍 %s and %s nm show as one line (%s grooves < needed %s)",
+  "item.semiconductor-lab.grating_spectroscope.ghosts": "  👻 False lines (ghosts) also appear beside the real ones (shaking or temperature change during ruling)"
 }

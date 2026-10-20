@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LPL",
+    "IMI",
+    "III"
+  ],
+  "key": {
+    "L": "semiconductor-lab:lead_screw",
+    "P": "semiconductor-lab:surface_plate",
+    "M": "semiconductor-lab:electric_motor",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:ruling_engine",
+    "count": 1
+  }
+}

@@ -90,6 +90,15 @@ public final class Precision {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
     public static final Item BALL_BEARING          = Reg.item("ball_bearing", BallBearingItem::new, new Item.Properties());
     // [8-08] ボールねじ（IMP2 O-014）：送りねじ＋鋼球。段階（bearing_grade）で送りの細かさ 5・2・1µm（送りねじは 10µm）。旋盤の親ねじに入れると部品の誤差・電力が下がる
+    // [8-12] 刻線機（IMP2 O-016、1882 ローランド）：スペキュラムの鏡にダイヤモンドで 1mm に 600 本の溝 → 刻線した回折格子（揺れ・温度があるとゴースト）
+    public static final net.minecraft.core.component.DataComponentType<Boolean> GRATING_GHOSTS = net.minecraft.core.Registry.register(
+            net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("grating_ghosts"),
+            net.minecraft.core.component.DataComponentType.<Boolean>builder().persistent(com.mojang.serialization.Codec.BOOL)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.BOOL).build());
+    /** 刻線した格子：1mm に 600 本（溝の間隔 1.667µm）、幅 50mm で 30000 本 */
+    public static final double RULED_GRATING_MICRONS = 1000.0 / 600, RULED_GRATING_LINES = 30_000;
+    public static final Item RULED_GRATING         = Reg.item("ruled_grating", new Item.Properties().stacksTo(1));
+    public static final Item RULED_SPECTROSCOPE    = Reg.item("ruled_spectroscope", p -> new SpectroscopeItem(p, RULED_GRATING_MICRONS, (int) RULED_GRATING_LINES), new Item.Properties().stacksTo(1));
     // [8-15] 水晶振動子（IMP2 O-016）：水晶をダイヤモンドののこぎりで AT カットの水晶片に → ルージュで磨いて振動数を合わせる → 銀の電極で振動子（膜厚計・時計）
     /** 水晶片の厚さ（µm）。振動数＝1661kHz·mm ÷ 厚さ */
     public static final net.minecraft.core.component.DataComponentType<Integer> BLANK_THICKNESS_UM = net.minecraft.core.Registry.register(
@@ -106,6 +115,8 @@ public final class Precision {
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 旋盤 [8-01]（IMP2-01、モーズリー 1797〜1800頃）：モーターで材料を回し、送りねじの刃物台で削る。750W
+    // 刻線機 [8-12]（IMP2 O-016）：鏡＋ダイヤモンド（減らない）＋送りねじ → 刻線した格子（300W・60秒）
+    public static final Machine<RulingEngineBlockEntity> RULING_ENGINE = Machine.electric("ruling_engine", RulingEngineBlockEntity::new, RulingEngineBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));
     // 研削盤 [8-31]（IMP2 O-013）：焼入れした鋼球＋砥石＋測る道具 → そろえた鋼球（1kW）
     public static final Machine<GrinderBlockEntity> GRINDER = Machine.electric("grinder", GrinderBlockEntity::new, GrinderBlockEntity.LAYOUT, metal(3.5f));

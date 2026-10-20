@@ -34,9 +34,22 @@ public class SpectroscopeItem extends Item {
 
     /** 回折格子の溝（針金）の間隔 d [μm]。0 ならプリズム（角度・波長は出さない） */
     private final double gratingMicrons;
+    /** [8-12] 格子の溝の総数 N（分解能 R＝N、1次）。0＝分解能は出さない（プリズム） */
+    private final int totalLines;
 
-    public SpectroscopeItem(Properties properties) { this(properties, 0); }
-    public SpectroscopeItem(Properties properties, double gratingMicrons) { super(properties); this.gratingMicrons = gratingMicrons; }
+    public SpectroscopeItem(Properties properties) { this(properties, 0, 0); }
+    public SpectroscopeItem(Properties properties, double gratingMicrons) { this(properties, gratingMicrons, 0); }
+    public SpectroscopeItem(Properties properties, double gratingMicrons, int totalLines) { super(properties); this.gratingMicrons = gratingMicrons; this.totalLines = totalLines; }
+
+    public int totalLines() { return totalLines; }
+
+    /** 二重線（λ と λ＋Δλ）を分けて見られるか：R＝N ≥ λ/Δλ（レイリーの基準、1次） */
+    public static boolean resolves(int totalLines, double nm, double deltaNm) { return totalLines >= nm / deltaNm; }
+
+    /** 分解能を確かめる二重線：ナトリウムの D 線（589.0・589.6）、水銀の黄色の2本（577.0・579.1） */
+    private static double[] doublet(String key) {
+        return switch (key) { case "na" -> new double[] {589.0, 0.6}; case "hg" -> new double[] {577.0, 2.1}; default -> null; };
+    }
 
     public double gratingMicrons() { return gratingMicrons; }
 
@@ -57,8 +70,12 @@ public class SpectroscopeItem extends Item {
     }
 
     /** 格子の分光器なら、key の線ごとに「回折角 → 波長」を1行ずつ送る */
-    private void sendMeasure(Player p, String key) {
+    private void sendMeasure(Player p, String key, ItemStack self) {
         if (gratingMicrons <= 0) return;
+        double[] d = doublet(key);
+        if (d != null && totalLines > 0) p.sendSystemMessage(Component.translatable("item.semiconductor-lab.grating_spectroscope." + (resolves(totalLines, d[0], d[1]) ? "resolved" : "merged"),
+                String.format(java.util.Locale.ROOT, "%.1f", d[0]), String.format(java.util.Locale.ROOT, "%.1f", d[0] + d[1]), totalLines, String.format(java.util.Locale.ROOT, "%.0f", d[0] / d[1])));
+        if (Boolean.TRUE.equals(self.get(com.taku3.semiconductorlab.content.Precision.GRATING_GHOSTS))) p.sendSystemMessage(Component.translatable("item.semiconductor-lab.grating_spectroscope.ghosts"));
         for (double nm : measurableNm(key)) {
             double deg = angleDeg(nm, gratingMicrons);
             double measured = gratingMicrons * 1e3 * Math.sin(Math.toRadians(deg));
@@ -110,7 +127,7 @@ public class SpectroscopeItem extends Item {
             if (!level.isClientSide() && p != null) {
                 p.sendSystemMessage(Component.translatable(K + "lamp"));
                 for (String key : lampReport()) p.sendSystemMessage(Component.translatable(K + key));
-                sendMeasure(p, "hg");
+                sendMeasure(p, "hg", ctx.getItemInHand());
             }
             return InteractionResult.SUCCESS;
         }
@@ -122,7 +139,7 @@ public class SpectroscopeItem extends Item {
             p.sendSystemMessage(sample.isEmpty() ? Component.translatable(K + "flame")
                     : Component.translatable(K + "flame_with", sample.getHoverName()));
             for (String key : flameReport(sample)) p.sendSystemMessage(Component.translatable(K + key));
-            for (String e : elementsOf(sample)) sendMeasure(p, e);
+            for (String e : elementsOf(sample)) sendMeasure(p, e, ctx.getItemInHand());
         }
         return InteractionResult.SUCCESS;
     }
@@ -133,7 +150,7 @@ public class SpectroscopeItem extends Item {
             boolean sun = level.dimension() == Level.OVERWORLD && level.isBrightOutside()
                     && SaltPanBlockEntity.openSky(level, p.blockPosition().above());
             p.sendSystemMessage(Component.translatable(K + (sun ? "sun" : "no_sun")));
-            if (sun) { p.sendSystemMessage(Component.translatable(K + "sun_lines")); sendMeasure(p, "sun"); }
+            if (sun) { p.sendSystemMessage(Component.translatable(K + "sun_lines")); sendMeasure(p, "sun", p.getItemInHand(hand)); }
         }
         return InteractionResult.SUCCESS;
     }

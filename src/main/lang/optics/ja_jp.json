@@ -309,5 +309,8 @@
   "item.semiconductor-lab.chrome_photomask.note2": "縮小カメラで原図をクロムのブランクに写して作る（レジスト＋塩酸で Cr を削る）。耐久100（銀塩マスクの10倍）。銀塩の乳剤では描けない細かい原図（等倍投影の方眼24より細かい、ステッパー用）も描ける。マスクアライナーで使える。",
   "item.semiconductor-lab.chrome_photomask.note3": "1960年代の銀塩（エマルジョン）マスクはやわらかく、密着露光ですぐ傷んだ。1970年代、硬いクロムマスクに変わって、何千回も使えるようになった。",
   "item.semiconductor-lab.chrome_photomask.note4": "乳剤は銀の粒（数µm）でできているので、それより細かい線は描けない。クロムは金属の膜なので、のちに電子線で描くと 1µm より細かい線が描ける。今のマスクも石英にクロム（とその仲間）を付けた物。",
-  "item.semiconductor-lab.chrome_photomask.placeholder": "近似：本物の Cr のエッチング液は硝酸セリウムアンモニウム（ここでは塩酸）。反射防止の酸化クロム層・電子線描画は省略。"
+  "item.semiconductor-lab.chrome_photomask.placeholder": "近似：本物の Cr のエッチング液は硝酸セリウムアンモニウム（ここでは塩酸）。反射防止の酸化クロム層・電子線描画は省略。",
+  "item.semiconductor-lab.grating_spectroscope.resolved": "  🔍 %s と %s nm が2本に分かれて見える（溝 %s 本 ≥ 必要な分解能 %s）",
+  "item.semiconductor-lab.grating_spectroscope.merged": "  🔍 %s と %s nm は1本にしか見えない（溝 %s 本 < 必要な分解能 %s）",
+  "item.semiconductor-lab.grating_spectroscope.ghosts": "  👻 本物の線の横に、にせの線（ゴースト）も見える（刻むときに揺れ・温度の変化があった）"
 }

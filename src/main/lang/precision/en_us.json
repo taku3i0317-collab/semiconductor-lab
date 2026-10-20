@@ -182,5 +182,21 @@
   "item.semiconductor-lab.cultured_quartz.note1": "Quartz grown in a factory vessel. Fewer flaws than natural crystal and a regular shape.",
   "item.semiconductor-lab.cultured_quartz.note2": "3 from a hydrothermal charge in the autoclave. A diamond saw cuts it into quartz blanks (for crystal resonators).",
   "item.semiconductor-lab.cultured_quartz.note3": "Almost all quartz in today's resonators is cultured. Japan became a major producer.",
-  "item.semiconductor-lab.cultured_quartz.note4": "Seeds are oriented, so the crystals are easy to cut in set directions. This differs from optical synthetic silica glass [7-15], which is glass made by burning SiCl4."
+  "item.semiconductor-lab.cultured_quartz.note4": "Seeds are oriented, so the crystals are easy to cut in set directions. This differs from optical synthetic silica glass [7-15], which is glass made by burning SiCl4.",
+  "block.semiconductor-lab.ruling_engine": "Ruling Engine",
+  "block.semiconductor-lab.ruling_engine.note1": "A machine that rules tens of thousands of fine grooves on a mirror with a diamond, advancing a very precise screw a little each time.",
+  "block.semiconductor-lab.ruling_engine.note2": "2 lead screws + surface plate + motor + 5 iron. 300 W, 60 s. Mirror (speculum or silvered) + diamond (not used up) + lead screw (not used up) -> ruled grating (600 lines/mm). If the floor shakes or the temperature changes without air conditioning at the end of ruling, the grating shows false lines (ghosts).",
+  "block.semiconductor-lab.ruling_engine.note3": "In 1882 Rowland at Johns Hopkins built a ruling engine with a screw he perfected himself, ruling hundreds of grooves per millimetre and sending concave gratings around the world. A grating took days, and a small temperature change could ruin it.",
+  "block.semiconductor-lab.ruling_engine.note4": "Small periodic errors of the screw shift the groove spacing and produce false lines called ghosts beside the real ones, so ruling engines lived in basement rooms of constant temperature. Ramsden's 1775 dividing engine (ruling precise circle scales) is an ancestor of the same technique.",
+  "block.semiconductor-lab.ruling_engine.placeholder": "Approximation: time (60 s), power and the ghost conditions (50 nm vibration, 1 C) are game values.",
+  "item.semiconductor-lab.ruled_grating": "Ruled Grating",
+  "item.semiconductor-lab.ruled_grating.note1": "A plate with many fine grooves ruled into a mirror. It splits light finely, like a rainbow.",
+  "item.semiconductor-lab.ruled_grating.note2": "Made on the ruling engine (600 lines/mm, 30000 over 50 mm). With a spectroscope it makes a ruled-grating spectroscope.",
+  "item.semiconductor-lab.ruled_grating.note3": "Finer spacing bends light more, and more grooves separate closer colors (wavelengths): resolving power R = number of grooves.",
+  "item.semiconductor-lab.ruled_grating.note4": "Modern gratings are made by recording interference fringes in resist (holographic gratings). Lithography stage encoders also use fine gratings to measure position.",
+  "item.semiconductor-lab.ruled_spectroscope": "Ruled-grating Spectroscope",
+  "item.semiconductor-lab.ruled_spectroscope.note1": "A spectroscope that splits light with a fine grating and shows it very sharply.",
+  "item.semiconductor-lab.ruled_spectroscope.note2": "Ruled grating + spectroscope. Used like the spectroscope. Sodium's yellow D line shows as two lines, 589.0 and 589.6 nm (one line with the wire grating). A grating with ghosts also shows false lines.",
+  "item.semiconductor-lab.ruled_spectroscope.note3": "With Rowland's gratings the wavelengths of thousands of dark lines in sunlight were measured precisely and compared with elements on Earth (Rowland's solar spectrum tables, 1890s).",
+  "item.semiconductor-lab.ruled_spectroscope.note4": "Splitting a doublet needs resolving power lambda / delta-lambda (about 982 for the D lines). A grating's resolving power is grooves x order."
 }

@@ -90,7 +90,9 @@ public final class Optics {
     // [7-07] 回折格子（IMP2-01）：フラウンホーファー 1821 の針金格子（2本の細いねじに銅線を巻く。間隔 0.004 インチ＝101.6μm）→ 波長を測れる分光器
     public static final double WIRE_GRATING_MICRONS = 101.6;
     public static final Item WIRE_GRATING          = Reg.item("wire_grating");
-    public static final Item GRATING_SPECTROSCOPE  = Reg.item("grating_spectroscope", p -> new SpectroscopeItem(p, WIRE_GRATING_MICRONS), new Item.Properties().stacksTo(1));
+    /** 針金の格子の溝の数（幅 約25mm ÷ 0.1016mm ≒ 246 本）。ナトリウムの D 線（R≈982）は分けられない */
+    public static final int WIRE_GRATING_LINES = 246;
+    public static final Item GRATING_SPECTROSCOPE  = Reg.item("grating_spectroscope", p -> new SpectroscopeItem(p, WIRE_GRATING_MICRONS, WIRE_GRATING_LINES), new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 縮小カメラ [7-11]（IMP2-03）：原図を照明して色消しレンズで縮め、感光乾板に写して現像・定着 → フォトマスク（原図は減らない）。1kW
