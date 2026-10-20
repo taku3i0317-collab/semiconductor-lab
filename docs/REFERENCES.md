@@ -280,6 +280,20 @@
 
 ---
 
+## F8. 金より高かった金属を電気で（ホール・エルー法・アルミニウム）［1-29］（［9-25］Al 配線の前提）
+**答え**：約960℃で溶かした氷晶石にアルミナを溶かし、炭素の電極で直流の大電流を流すと、アルミニウムが槽の底にたまる（2Al₂O₃ + 3C → 4Al + 3CO₂）。陽極の炭素は燃えて減る。アルミ1kg に約13〜15kWh。1886年にホールとエルーが別々に発明した。
+
+- へえ①：それまでアルミは金より高く、ナポレオン3世が来賓用の食器にした（と伝えられる）。
+- へえ②：ホール（米）とエルー（仏）は同じ1886年に同じ方法を見つけ、二人とも1863年生まれ・1914年没。
+- へえ③：アルミは「電気の缶詰」。工場は水力発電の近くに建てられ、リサイクルは新しく作る電気の約5%ですむ。
+- へえ④：1959年のノイスの IC はアルミを蒸着して配線した。1990年代に銅に変わるまで IC の配線はアルミ。
+
+確かさ：反応・浴・陽極・電力量 ◎（ブリタニカ、International Aluminium Institute）／ホールとエルーの生没年 ◎／ナポレオン3世の食器 ○（よく引かれる逸話）／リサイクル約5% ◎
+ゲーム（2026-10-20 IMP4-01 で実装）：電解槽（100kW、540秒＝15kWh）でアルミナ2 → アルミ1。氷晶石1で16回、黒鉛棒1で2回
+根拠：ブリタニカ「Hall–Héroult process」https://www.britannica.com/technology/Hall-Heroult-process 、ACS National Historic Chemical Landmark「Production of Aluminum: The Hall-Héroult Process」https://www.acs.org/education/whatischemistry/landmarks/aluminumprocess.html 、International Aluminium Institute https://international-aluminium.org/ （英語）
+
+---
+
 # 電気（v0.2a）
 
 ---

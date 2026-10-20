@@ -90,6 +90,35 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
 
+    /** [1-29] ホール・エルー法（IMP4-01）：アルミナ2 → Al 1（15kWh）。浴（氷晶石）・陽極（黒鉛棒）・電気がないと止まる。陽極は2回、浴は16回 */
+    @GameTest
+    public void hallHeroult(GameTestHelper h) {
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.WATTS * com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS / 20.0 / 3.6e6 - com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.KWH_PER_INGOT) < 0.01, "100 kW x 540 s = 15 kWh per ingot");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Metallurgy.HALL_HEROULT_CELL.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_ALUMINA, new ItemStack(Metallurgy.ALUMINA, 10));
+        c.setItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_ANODE, new ItemStack(com.taku3.semiconductorlab.content.Power.GRAPHITE_ROD, 2));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS + 10, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_OUT).isEmpty(), "no cryolite bath -> alumina does not melt (2050 C)");
+        c.setItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_CRYOLITE, new ItemStack(Metallurgy.CRYOLITE, 1));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        for (int i = 0; i < 4; i++) tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_OUT).is(Metallurgy.ALUMINIUM_INGOT) && c.getItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_OUT).getCount() == 4, "8 alumina -> 4 aluminium, got " + c.getItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_OUT));
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_ANODE).isEmpty() && be.getAnode() == 0, "2 anodes burnt in 4 runs");
+        h.assertValueEqual(be.getBath(), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.RUNS_PER_CRYOLITE - 4, "1 cryolite bath lasts 16 runs");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS + 10, feed);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.SLOT_OUT).getCount(), 4, "no anode -> stops");
+        h.assertTrue(new ItemStack(Metallurgy.ALUMINIUM_INGOT).is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.Identifier.fromNamespaceAndPath("c", "ingots/aluminum"))), "tagged c:ingots/aluminum");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.ALUMINA).isEmpty(), "alumina cannot be smelted with carbon in a furnace");
+        LOG.info("[LAB] Hall-Heroult [1-29]: 2 alumina + anode/2 + cryolite/16 -> 1 aluminium ({} kW x {} s = {} kWh)", com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.WATTS / 1000, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS / 20, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.KWH_PER_INGOT);
+        h.succeed();
+    }
+
     /** [1-38] 氷晶石の合成（IMP4-01）：フッ酸3＋Al(OH)3＋NaOH3 → 氷晶石（6HF + Al(OH)3 + 3NaOH）。フッ酸の鉛の瓶が3本戻る */
     @GameTest
     public void cryoliteSynthesis(GameTestHelper h) {
@@ -678,6 +707,8 @@ public class MetallurgyTests extends LabTestBase {
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Metallurgy.HALL_HEROULT_CELL.block, "ホール・エルー法", L(io(Metallurgy.ALUMINA, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.ALUMINA_PER_RUN), perRuns(io(Metallurgy.CRYOLITE, 1), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.RUNS_PER_CRYOLITE), perRuns(io(com.taku3.semiconductorlab.content.Power.GRAPHITE_ROD, 1), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.RUNS_PER_ANODE)),
+            L(io(Metallurgy.ALUMINIUM_INGOT, 1)), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS / 20.0, "約960℃の氷晶石にアルミナを溶かして電解。2Al2O3 + 3C → 4Al + 3CO2。15kWh/個");
         rec(a, Metallurgy.BAYER_DIGESTER.block, "バイヤー法", L(io(Metallurgy.BAUXITE, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.BAUXITE_PER_RUN), perRuns(io(com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR)),
             L(io(Metallurgy.ALUMINIUM_HYDROXIDE, 1), io(Metallurgy.RED_MUD, 1)), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.WATTS, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS / 20.0, "Al(OH)3 + NaOH → NaAl(OH)4 → こして冷やすと Al(OH)3。鉄は赤泥に。液は使い回す");
         rec(a, Metallurgy.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(Metallurgy.STEEL_INGOT, 1)),

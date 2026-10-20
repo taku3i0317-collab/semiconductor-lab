@@ -613,6 +613,36 @@
       "note": "空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない"
     },
     {
+      "machine": "semiconductor-lab:hall_heroult_cell",
+      "process": "ホール・エルー法",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:alumina",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:cryolite",
+          "count": 1,
+          "per_runs": 16
+        },
+        {
+          "item": "semiconductor-lab:graphite_rod",
+          "count": 1,
+          "per_runs": 2
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:aluminium_ingot",
+          "count": 1
+        }
+      ],
+      "watts": 100000.0,
+      "seconds": 540.0,
+      "energy_kj": 54000,
+      "note": "約960℃の氷晶石にアルミナを溶かして電解。2Al2O3 + 3C → 4Al + 3CO2。15kWh/個"
+    },
+    {
       "machine": "semiconductor-lab:hcl_burner",
       "process": "塩酸を作る",
       "inputs": [

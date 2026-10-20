@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SGS",
+    "RCR",
+    "SSS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "G": "semiconductor-lab:graphite_rod",
+    "R": "semiconductor-lab:refractory_brick",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:hall_heroult_cell",
+    "count": 1
+  }
+}

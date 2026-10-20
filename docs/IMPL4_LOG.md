@@ -17,3 +17,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [1-24] ボーキサイト：鉱石 bauxite_ore（ジャングル・サバンナ、Y 56〜90 の土・石）→ ボーキサイト。ModWorldGen.RULES に1行。GameTest ore_bauxite・ore_biome_rules、CHEMISTRY F12、REFERENCES F5、遊び方: 軽
 - ✅ [1-14] バイヤー法：溶解釜 bayer_digester（block/BayerDigesterBlockEntity、画面 BayerDigesterScreen、2kW）。ボーキサイト2 → Al(OH)3＋赤泥、NaOH＋水の液で4回、Al(OH)3 →かまど→ アルミナ。GameTest bayer_process、CHEMISTRY F13〜F14、REFERENCES F6、遊び方: 重
 - ✅ [1-38] 氷晶石の合成：作業台で フッ酸3＋Al(OH)3＋NaOH3 → 氷晶石（鉛の瓶3本が戻る）。GameTest cryolite_synthesis、CHEMISTRY F15、REFERENCES F7、遊び方: 軽
+- ✅ [1-29] アルミニウム：ホール・エルー電解槽 hall_heroult_cell（block/HallHeroultCellBlockEntity、画面 HallHeroultCellScreen、100kW）。アルミナ2 → アルミ1（15kWh）、氷晶石1で16回・黒鉛棒1で2回。c:ingots/aluminum。GameTest hall_heroult、CHEMISTRY F16、REFERENCES F8、遊び方: 重

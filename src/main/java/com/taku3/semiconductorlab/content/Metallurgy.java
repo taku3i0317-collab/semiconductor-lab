@@ -50,6 +50,7 @@ public final class Metallurgy {
     public static final Item ALUMINA               = Reg.item("alumina");
     public static final Item RED_MUD               = Reg.item("red_mud");
     public static final Item CRYOLITE              = Reg.item("cryolite");         // [1-38] 氷晶石 Na3AlF6（IMP4-01、合成。ホール・エルー法の電解浴）
+    public static final Item ALUMINIUM_INGOT       = Reg.item("aluminium_ingot");  // [1-29] アルミニウム（IMP4-01、ホール・エルー法。c:ingots/aluminum）
     public static final Item GRAPHITE              = Reg.item("graphite");
     public static final Item SPHALERITE            = Reg.item("sphalerite");
     public static final Item COAL_ASH              = Reg.item("coal_ash");
@@ -133,6 +134,8 @@ public final class Metallurgy {
 
     // バイヤー法の溶解釜 [1-14]（IMP4-01）：ボーキサイト＋NaOH の液 → 水酸化アルミニウム＋赤泥（2kW）
     public static final Machine<BayerDigesterBlockEntity> BAYER_DIGESTER = Machine.electric("bayer_digester", BayerDigesterBlockEntity::new, BayerDigesterBlockEntity.LAYOUT, metal(3.5f));
+    // ホール・エルー電解槽 [1-29]（IMP4-01）：アルミナ＋氷晶石の浴＋炭素の陽極 → アルミニウム（100kW、15kWh/個）
+    public static final Machine<HallHeroultCellBlockEntity> HALL_HEROULT_CELL = Machine.electric("hall_heroult_cell", HallHeroultCellBlockEntity::new, HallHeroultCellBlockEntity.LAYOUT, lit(metal(4.0f), 7));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
