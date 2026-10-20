@@ -1456,8 +1456,69 @@ public class LabTests {
         h.succeed();
     }
 
-    /** 後から足した機械（タスク25 [1-16][1-17] など）。exportMachineRecipes から呼ぶ */
+    /** 後から足した機械（タスク22 [1-16][1-17] など）。exportMachineRecipes から呼ぶ */
     private static void exportExtraMachines(com.google.gson.JsonArray a) {
+        rec(a, ModBlocks.HCL_BURNER, "乾いた塩化水素", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER)),
+            L(mol(ModItems.HYDROGEN_CHLORIDE_GAS, 2)), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし");
+        rec(a, ModBlocks.TRICHLOROSILANE_REACTOR, "合成", L(io(ModItems.METALLURGICAL_SILICON, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SI_PER_RUN), mol(ModItems.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.HCL_PER_RUN)),
+            L(io(ModItems.TRICHLOROSILANE, 1), mol(ModItems.HYDROGEN_GAS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.H2_PER_RUN)),
+            com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_WATTS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_TICKS / 20.0, "Si + 3HCl → SiHCl3 + H2（約300℃）。できたては 99%");
+        rec(a, ModBlocks.TRICHLOROSILANE_REACTOR, "蒸留（1段）", L(io(ModItems.TRICHLOROSILANE, 1)), L(cond(io(ModItems.TRICHLOROSILANE, 1), "「9」が1つ増える（最大 11N）")),
+            com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_WATTS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_TICKS / 20.0, "沸点の差で B・P の塩化物を分ける");
+    }
+
+    // =====================================================================
+    // [1-16] トリクロロシラン合成・蒸留（タスク22）
+    // =====================================================================
+
+    /** 金属シリコン1＋乾いた HCl 3 → 粗 TCS（99%）＋H2。蒸留1段で「9」が1つ増え、9段で 11N。塩酸（水溶液）は入らない */
+    @GameTest
+    public void trichlorosilaneReactor(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.QUARTZ_TUBE, ModItems.STEEL_INGOT, ModBlocks.COPPER_CABLE.asItem()})
+            h.assertTrue(recipeUses(h, "trichlorosilane_reactor", it), "reactor + column: " + it);
+        h.assertFalse(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.isHcl(new ItemStack(ModItems.HYDROCHLORIC_ACID)), "hydrochloric acid (water) is not accepted: SiHCl3 reacts with water");
+        // 純度：粗 2N → 蒸留9段で 11N、それ以上は上がらない
+        double p = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.CRUDE;
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(p), 2, "crude TCS 99%");
+        for (int i = 0; i < 9; i++) p = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.distilled(p);
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(p), 11, "9 stages -> 11N");
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.distilled(p)), 11, "11N is the ceiling");
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(com.taku3.semiconductorlab.Purity.TEN_N), 10, "TEN_N reads as 10N (rounding fix)");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, ModBlocks.TRICHLOROSILANE_REACTOR);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.class);
+        var c = be.getContainer();
+        int SI = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_SI, HCL = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_HCL, D = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_DISTILL, OUT = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_OUT, H2 = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SLOT_H2;
+        int TS = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_TICKS, TD = com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_WATTS);
+        c.setItem(SI, new ItemStack(ModItems.METALLURGICAL_SILICON, 2));
+        c.setItem(HCL, new ItemStack(ModItems.HYDROGEN_CHLORIDE_GAS, 2));
+        tickConsumer(h, fp, be, TS + 10, feed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "2 HCl is not enough (Si + 3HCl)");
+        c.setItem(HCL, new ItemStack(ModItems.HYDROGEN_CHLORIDE_GAS, 6));
+        tickConsumer(h, fp, be, TS, feed);
+        ItemStack t = c.getItem(OUT);
+        h.assertTrue(t.is(ModItems.TRICHLOROSILANE) && t.getCount() == 1, "Si + 3HCl -> SiHCl3, got " + t);
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.purityOf(t)), 2, "crude 99%");
+        h.assertTrue(c.getItem(H2).is(ModItems.HYDROGEN_GAS) && c.getItem(H2).getCount() == 1, "+ H2");
+        h.assertValueEqual(c.getItem(HCL).getCount(), 3, "3 HCl used");
+        h.assertValueEqual(c.getItem(SI).getCount(), 1, "1 Si used");
+        // 蒸留：左下に入れると、合成より先に蒸留する
+        c.setItem(D, c.getItem(OUT).copy());
+        c.setItem(OUT, ItemStack.EMPTY);
+        tickConsumer(h, fp, be, TD, feed);
+        h.assertTrue(c.getItem(D).isEmpty(), "distilled 1");
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.purityOf(c.getItem(OUT))), 3, "1 stage -> 3N");
+        h.assertValueEqual(c.getItem(SI).getCount(), 1, "synthesis waits while distilling");
+        // 11N のものはもう蒸留しない
+        c.setItem(OUT, ItemStack.EMPTY);
+        c.setItem(SI, ItemStack.EMPTY);
+        c.setItem(D, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.tcs(p));
+        tickConsumer(h, fp, be, TD + 10, feed);
+        h.assertValueEqual(c.getItem(D).getCount(), 1, "11N stays (ceiling)");
+        LOG.info("[LAB] trichlorosilane: Si + 3HCl -> TCS 2N + H2 ({} s), each distillation stage +1N ({} s), 11N after 9 stages", TS / 20, TD / 20);
+        h.succeed();
     }
 
     // =====================================================================
@@ -2322,6 +2383,11 @@ public class LabTests {
         // 水がなくなると止まる
         tickHcl(h, pos, be, T * 2);
         h.assertValueEqual(c.getItem(OUT).getCount(), 4, "no water -> stops");
+        // 出口を空けると、水なし＝乾いた塩化水素ガス 2mol（[1-16] 用、タスク22）
+        c.setItem(OUT, ItemStack.EMPTY);
+        tickHcl(h, pos, be, T);
+        h.assertTrue(c.getItem(OUT).is(ModItems.HYDROGEN_CHLORIDE_GAS) && c.getItem(OUT).getCount() == 2, "no water -> dry HCl gas x2, got " + c.getItem(OUT));
+        h.assertValueEqual(be.getWater(), 0, "dry mode uses no water");
         // 隣のガスホルダー（塩素）からももらえる
         BlockPos pos2 = p(3, 1, 1), hp = p(4, 1, 1);
         h.setBlock(pos2, ModBlocks.HCL_BURNER);

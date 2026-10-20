@@ -300,13 +300,13 @@
       "process": "電気で焼く",
       "inputs": [
         {
-          "item": "semiconductor-lab:graphite_boat_blank",
+          "item": "semiconductor-lab:refractory_brick_blank",
           "count": 1
         }
       ],
       "outputs": [
         {
-          "item": "semiconductor-lab:graphite_boat",
+          "item": "semiconductor-lab:refractory_brick",
           "count": 1
         }
       ],
@@ -319,13 +319,13 @@
       "process": "電気で焼く",
       "inputs": [
         {
-          "item": "semiconductor-lab:refractory_brick_blank",
+          "item": "semiconductor-lab:graphite_boat_blank",
           "count": 1
         }
       ],
       "outputs": [
         {
-          "item": "semiconductor-lab:refractory_brick",
+          "item": "semiconductor-lab:graphite_boat",
           "count": 1
         }
       ],
@@ -773,6 +773,83 @@
       "watts": 10000.0,
       "seconds": 0.0,
       "note": "充電・放電とも最大の電力"
+    },
+    {
+      "machine": "semiconductor-lab:hcl_burner",
+      "process": "乾いた塩化水素",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_chloride_gas",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:trichlorosilane_reactor",
+      "process": "合成",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:metallurgical_silicon",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_chloride_gas",
+          "count": 3,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:trichlorosilane",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 60.0,
+      "energy_kj": 600,
+      "note": "Si + 3HCl → SiHCl3 + H2（約300℃）。できたては 99%"
+    },
+    {
+      "machine": "semiconductor-lab:trichlorosilane_reactor",
+      "process": "蒸留（1段）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:trichlorosilane",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:trichlorosilane",
+          "count": 1,
+          "cond": "「9」が1つ増える（最大 11N）"
+        }
+      ],
+      "watts": 20000.0,
+      "seconds": 30.0,
+      "energy_kj": 600,
+      "note": "沸点の差で B・P の塩化物を分ける"
     }
   ]
 }

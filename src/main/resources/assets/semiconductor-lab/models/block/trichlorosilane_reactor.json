@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/trichlorosilane_reactor_front",
+    "side": "semiconductor-lab:block/trichlorosilane_reactor_side",
+    "top": "semiconductor-lab:block/trichlorosilane_reactor_top"
+  }
+}

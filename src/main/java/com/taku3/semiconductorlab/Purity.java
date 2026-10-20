@@ -8,12 +8,13 @@ public final class Purity {
     public static final double SIX_N    = 0.999999;
     public static final double NINE_N   = 0.999999999;
     public static final double TEN_N = 0.9999999999;
+    public static final double ELEVEN_N = 0.99999999999;   // シリコン（シーメンス法）の上限
 
     /** 「9」の個数。0.999999 → 6 */
     public static int nines(double p) {
         double r = 1.0 - p;
         if (r <= 1e-12) return 12;
-        return (int) Math.floor(-Math.log10(r) + 1e-9);
+        return (int) Math.floor(-Math.log10(r) + 1e-6);   // 1-0.9999999999 は 1.00000008e-10 になる（浮動小数の誤差）ので、余裕を 1e-6 に
     }
 
     /** 表示用ラベル：3N以上は「6N」、それ未満は「98.0%」 */

@@ -33,6 +33,8 @@ import net.minecraft.world.level.storage.ValueOutput;
  * </pre>
  * ガスは袋（1mol）・ボンベ（50mol）・隣のガスホルダーのどれからでも受け取り、BE の中（mol）に移す。
  * 水はバケツ1杯で塩酸4本分。空ボンベ・空バケツは右下の出口へ。
+ * 水がない（水のスロットも空）ときは、吸わせずに乾いた塩化水素ガスのまま袋に詰める：H2 1mol ＋ Cl2 1mol → 袋詰め塩化水素 ×2（2mol）。
+ * トリクロロシラン [1-16] は水と反応してしまうので、塩酸ではなくこの乾いたガスを使う（タスク22）。
  * スロット：0＝水素、1＝塩素、2＝水バケツ、3＝塩酸、4＝空ボンベ、5＝空バケツ
  */
 public class HclBurnerBlockEntity extends BlockEntity implements MenuProvider {
@@ -114,7 +116,10 @@ public class HclBurnerBlockEntity extends BlockEntity implements MenuProvider {
             be.water += ACID_PER_BUCKET;
             be.setChanged();
         }
-        boolean can = be.water > 0 && canMerge(be.container.getItem(SLOT_OUT), new ItemStack(ModItems.HYDROCHLORIC_ACID));
+        // 水があれば塩酸、水がなければ乾いた塩化水素ガス（2mol）
+        boolean dry = be.water <= 0 && !be.container.getItem(SLOT_WATER).is(Items.WATER_BUCKET);
+        ItemStack product = dry ? new ItemStack(ModItems.HYDROGEN_CHLORIDE_GAS, 2) : new ItemStack(ModItems.HYDROCHLORIC_ACID);
+        boolean can = (dry || be.water > 0) && canMerge(be.container.getItem(SLOT_OUT), product);
         // 両方のガスがそろうときだけ開ける（片方だけでは炎が立たない）
         boolean h2Ready = be.h2Mol >= H2_PER || be.hasGasItem(SLOT_H2, ModItems.HYDROGEN_GAS, ModItems.HYDROGEN_CYLINDER);
         boolean cl2Ready = be.cl2Mol >= CL2_PER || be.hasGasItem(SLOT_CL2, ModItems.CHLORINE_GAS, ModItems.CHLORINE_CYLINDER);
@@ -128,8 +133,8 @@ public class HclBurnerBlockEntity extends BlockEntity implements MenuProvider {
                 be.progress = 0;
                 be.h2Mol -= H2_PER;    // H2 + Cl2 → 2HCl
                 be.cl2Mol -= CL2_PER;
-                be.water--;            // HCl を水に吸わせる
-                be.merge(SLOT_OUT, new ItemStack(ModItems.HYDROCHLORIC_ACID));
+                if (!dry) be.water--;  // HCl を水に吸わせる（乾いたガスのときは水を使わない）
+                be.merge(SLOT_OUT, product);
             }
             be.setChanged();
         } else if (be.progress != 0) { be.progress = 0; be.setChanged(); }

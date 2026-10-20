@@ -40,6 +40,9 @@ public class ModMenus {
     public static final MenuType<AirSeparationMenu> AIR_SEPARATION = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("air_separation_unit"),
             new MenuType<>(AirSeparationMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<com.taku3.semiconductorlab.block.TrichlorosilaneReactorMenu> TRICHLOROSILANE_REACTOR = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("trichlorosilane_reactor"),
+            new MenuType<>(com.taku3.semiconductorlab.block.TrichlorosilaneReactorMenu::new, FeatureFlags.DEFAULT_FLAGS));
     public static final MenuType<ArcFurnaceMenu> ARC_FURNACE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("arc_furnace"),
             new MenuType<>(ArcFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));

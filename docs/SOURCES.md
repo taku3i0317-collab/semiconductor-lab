@@ -57,3 +57,10 @@
 - docs/REFERENCES.md §1（USGS シリコン統計 https://www.usgs.gov/centers/national-minerals-information-center/silicon-statistics-and-information 、PV-Manufacturing.org https://pv-manufacturing.org/silicon-production/）：SiO2 + 2C → Si + 2CO、約2000℃、98〜99%、1kg あたり 10kWh 以上
 - ゲームの値：12kWh/kg（現代の炉の 11〜13kWh の中ほど）、500kW、電極は8回で1本
 - ❓ 要確認：モアッサン（1892）の電気炉は直流ダイナモで動いたか、電気炉による金属シリコンの工業生産が始まった年（1900年ごろ）
+
+## [1-16] トリクロロシラン・[1-17] シーメンス法（タスク22、2026-10-20）
+- PV-Manufacturing.org「Silicon production」https://pv-manufacturing.org/silicon-production/ ：Si + 3HCl → SiHCl3 + H2（約300℃、流動層）、蒸留、ベル型反応炉で約1100℃の細い棒に析出、HCl の再利用
+- Fraunhofer ISE（ポリシリコン製造の解説・報告）：TCS 合成は約300℃の流動層、析出は約1100℃のベル型反応炉
+- 米国特許 US 8,398,946（多結晶シリコンの製造、比較例）：シーメンス炉 1030℃前後・析出速度 約1.2mm/時・電力 約90kWh/kg → ゲームの 500kW×648秒＝90kWh/kg の根拠。現代の炉は 40〜60kWh/kg まで下がった（⚠️ 要確認）
+- 沸点（化学の標準値）：SiHCl3 31.8℃、BCl3 12.6℃、PCl3 76℃、SiCl4 57.6℃
+- 要確認：シーメンス社の最初の特許（1950年代、年と番号）

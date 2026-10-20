@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SQS",
+    "SCS",
+    "SBS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "Q": "semiconductor-lab:quartz_tube",
+    "C": "semiconductor-lab:copper_cable",
+    "B": "semiconductor-lab:refractory_brick"
+  },
+  "result": {
+    "id": "semiconductor-lab:trichlorosilane_reactor",
+    "count": 1
+  }
+}
