@@ -1398,7 +1398,8 @@ public class LabTests {
             L(io("そのガスのボンベ", 1)), CompressorBlockEntity.WATTS, CompressorBlockEntity.TOTAL_TICKS / 20.0, "約150気圧。H2・O2・Cl2・N2・Ar");
         rec(a, ModBlocks.SEALING_STATION, "真空管の封止", L(io(ModItems.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),
             L(io(ModItems.VACUUM_TUBE, 1)), SealingStationBlockEntity.WATTS, SealingStationBlockEntity.TICKS / 20.0, "封じるたびに容器へ空気がもどる");
-        for (var e : ElectricFurnaceBlockEntity.recipes().entrySet())
+        // recipes() は順番のない Map なので、材料の ID 順に並べて毎回同じ順で書く（IMP-27）
+        for (var e : ElectricFurnaceBlockEntity.recipes().entrySet().stream().sorted(java.util.Comparator.comparing(x -> iid(x.getKey()))).toList())
             rec(a, ModBlocks.ELECTRIC_FURNACE, "電気で焼く", L(io(e.getKey(), 1)), L(io(e.getValue(), 1)), ElectricFurnaceBlockEntity.WATTS, ElectricFurnaceBlockEntity.TICKS / 20.0, null);
         rec(a, ModBlocks.ACHESON_FURNACE, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(ModItems.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");

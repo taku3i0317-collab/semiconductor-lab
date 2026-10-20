@@ -280,3 +280,10 @@
 - (7) ROADMAP v0.2b 完了、version=0.2b、jar build/libs/semiconductor-lab-0.2b.jar、git tag v0.2b
 - 気づいたこと：docs/machine_recipes.json の電気炉の2工程の順番がテストのたびに入れ替わる（書き出しの順番が決まっていない）。次に直す
 - テスト：81/81 PASSED
+
+## IMP-27：machine_recipes.json の順番を固定（2026-10-20、サイドセッション）
+- 原因：exportMachineRecipes が ElectricFurnaceBlockEntity.recipes()（順番のない Map＝入れた順を覚えない入れ物）をそのまま回していた。ほかの機械は書いた順で固定
+- 直し：電気炉の行を材料のアイテム ID 順に並べてから書く（graphite_boat_blank → refractory_brick_blank）
+- ついでに：テストは LF（改行コード）で書くが core.autocrlf=true のため git status に中身の差がない「M」が出ていた → .gitattributes に docs/machine_recipes.json text eol=lf
+- 確認：tools/test.ps1 を3回、JSON は毎回同じ（HEAD と同じハッシュ）、git status に出ない
+- テスト：81/81 PASSED

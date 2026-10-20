@@ -7,3 +7,6 @@
 # These are Windows script files and should use crlf
 *.bat           text eol=crlf
 
+
+# GameTest exportMachineRecipes writes LF; keep it LF so test runs leave git status clean (IMP-27)
+docs/machine_recipes.json text eol=lf
