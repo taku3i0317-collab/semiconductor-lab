@@ -9,6 +9,8 @@
 - 状態 = 見出しの ✅ / 🔧 / ⛔ / ❓（"⛔→❓" は ❓ 扱い＝新鉱石で解決予定）
 - 前提 = 本文の "前提:" から次の "／" まで。"," で区切った1項目に " or " があれば OR
 - "移動" "を参照（ここにはノードを作らない）" の見出しは別名として無視
+- 理解 = "理解: [2-39]..." の項目。作るのに要るのではなく「なぜそうなるか」を後で分かった科学（例：パン・酒と発酵の科学）。
+  前提には数えない（作れるか・年の逆転の判定に使わない）。JSON では kind="understanding" のつながり
 - 年 = "年: 1866（1866〜67） ⚠️" の項目（西暦、紀元前はマイナス、括弧は範囲、⚠️ は諸説・未確認）。無ければ本物欄から推定
 書き出し：docs/TECH_TREE_VIEW.md ／ docs/tech_network.json（技術ネットワーク図の元データ：ノードとつながり）
 """
@@ -101,6 +103,8 @@ def fill(n):
                 groups.append(alts)
     n["groups"] = groups
     n["pre"] = sorted({i for alts in groups for a in alts for i in a}, key=sort_key)
+    um = re.search(r"(?:^|／|\s)理解[:：](.*?)(?:／|\n|$)", n["body"], re.S)
+    n["understand"] = sorted({nid(x) for x in ID_RE.findall(um.group(1))}, key=sort_key) if um else []
     if "回避" in status_zone:
         n["st"] = "➖"
     ym = YEAR_RE.search(n["body"])
@@ -306,15 +310,20 @@ def export_json(nodes):
         out_nodes.append({"id": i, "name": n["name"], "trunk": trunk_of(i), "trunk_name": TRUNK_NAMES.get(trunk_of(i), ""),
                           "status": n["st"], "branch": n["branch"], "year": n["year"], "year_range": n["year_range"],
                           "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
+                          "understanding": n["understand"],
                           "descendants": len(descendants(i))})
         for gi, alts in enumerate(n["groups"]):
             for a in alts:
                 for p in a:
                     if p in nodes:
-                        edges.append({"from": p, "to": i, "group": gi, "or": len(alts) > 1})
+                        edges.append({"from": p, "to": i, "kind": "requires", "group": gi, "or": len(alts) > 1})
+        for p in n["understand"]:
+            if p in nodes:
+                edges.append({"from": p, "to": i, "kind": "understanding"})
     data = {"generated_by": "tools/gen_tree_views.py", "source": "docs/TECH_TREE.md", "start": START, "goal": GOAL,
             "year_note": "西暦。紀元前はマイナス。year_uncertain=true は諸説・未確認（⚠️）",
             "requires_note": "requires はノードを作るのに要る項目の並び（全部そろう＝AND）。1項目の中の複数案は OR、案の中は AND",
+            "edge_kinds": {"requires": "前提（無いと作れない）", "understanding": "理解（後で分かった科学。作るのには要らない）"},
             "nodes": out_nodes, "edges": edges, "year_inversions": [
                 {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d} for a, y, p, py, d in year_inversions(nodes)]}
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

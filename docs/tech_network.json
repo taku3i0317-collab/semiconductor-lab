@@ -5,6 +5,10 @@
  "goal": "10-16",
  "year_note": "西暦。紀元前はマイナス。year_uncertain=true は諸説・未確認（⚠️）",
  "requires_note": "requires はノードを作るのに要る項目の並び（全部そろう＝AND）。1項目の中の複数案は OR、案の中は AND",
+ "edge_kinds": {
+  "requires": "前提（無いと作れない）",
+  "understanding": "理解（後で分かった科学。作るのには要らない）"
+ },
  "nodes": [
   {
    "id": "0-01",
@@ -17,7 +21,8 @@
    "year_range": "-3300000〜-2600000",
    "year_uncertain": false,
    "requires": [],
-   "descendants": 278
+   "understanding": [],
+   "descendants": 301
   },
   {
    "id": "0-02",
@@ -36,7 +41,8 @@
      ]
     ]
    ],
-   "descendants": 260
+   "understanding": [],
+   "descendants": 284
   },
   {
    "id": "0-03",
@@ -55,7 +61,8 @@
      ]
     ]
    ],
-   "descendants": 248
+   "understanding": [],
+   "descendants": 275
   },
   {
    "id": "0-04",
@@ -74,7 +81,8 @@
      ]
     ]
    ],
-   "descendants": 137
+   "understanding": [],
+   "descendants": 142
   },
   {
    "id": "0-05",
@@ -93,6 +101,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -112,7 +121,8 @@
      ]
     ]
    ],
-   "descendants": 128
+   "understanding": [],
+   "descendants": 127
   },
   {
    "id": "0-07",
@@ -121,7 +131,7 @@
    "trunk_name": "生存・道具",
    "status": "❓",
    "branch": false,
-   "year": -10000,
+   "year": -4000,
    "year_range": "-10000〜-4000",
    "year_uncertain": true,
    "requires": [
@@ -131,7 +141,8 @@
      ]
     ]
    ],
-   "descendants": 122
+   "understanding": [],
+   "descendants": 121
   },
   {
    "id": "0-08",
@@ -140,8 +151,8 @@
    "trunk_name": "生存・道具",
    "status": "❓",
    "branch": false,
-   "year": -5000,
-   "year_range": null,
+   "year": -9000,
+   "year_range": "-9000〜-5000",
    "year_uncertain": true,
    "requires": [
     [
@@ -150,7 +161,8 @@
      ]
     ]
    ],
-   "descendants": 136
+   "understanding": [],
+   "descendants": 135
   },
   {
    "id": "0-09",
@@ -169,6 +181,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 3
   },
   {
@@ -190,10 +203,14 @@
     [
      [
       "0-15"
+     ],
+     [
+      "3-01"
      ]
     ]
    ],
-   "descendants": 204
+   "understanding": [],
+   "descendants": 207
   },
   {
    "id": "0-11",
@@ -212,7 +229,8 @@
      ]
     ]
    ],
-   "descendants": 192
+   "understanding": [],
+   "descendants": 196
   },
   {
    "id": "0-12",
@@ -231,7 +249,8 @@
      ]
     ]
    ],
-   "descendants": 204
+   "understanding": [],
+   "descendants": 257
   },
   {
    "id": "0-13",
@@ -250,6 +269,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -269,6 +289,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -278,8 +299,8 @@
    "trunk_name": "生存・道具",
    "status": "✅",
    "branch": false,
-   "year": -3500,
-   "year_range": null,
+   "year": -6000,
+   "year_range": "-6000〜-3500",
    "year_uncertain": true,
    "requires": [
     [
@@ -288,7 +309,8 @@
      ]
     ]
    ],
-   "descendants": 244
+   "understanding": [],
+   "descendants": 269
   },
   {
    "id": "0-16",
@@ -307,7 +329,8 @@
      ]
     ]
    ],
-   "descendants": 153
+   "understanding": [],
+   "descendants": 152
   },
   {
    "id": "1-01",
@@ -320,6 +343,7 @@
    "year_range": "1886〜1930",
    "year_uncertain": false,
    "requires": [],
+   "understanding": [],
    "descendants": 55
   },
   {
@@ -339,6 +363,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -363,7 +388,8 @@
      ]
     ]
    ],
-   "descendants": 123
+   "understanding": [],
+   "descendants": 202
   },
   {
    "id": "1-04",
@@ -382,6 +408,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 41
   },
   {
@@ -406,6 +433,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 121
   },
   {
@@ -430,7 +458,8 @@
      ]
     ]
    ],
-   "descendants": 179
+   "understanding": [],
+   "descendants": 194
   },
   {
    "id": "1-07",
@@ -443,7 +472,8 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
-   "descendants": 195
+   "understanding": [],
+   "descendants": 206
   },
   {
    "id": "1-08",
@@ -462,7 +492,8 @@
      ]
     ]
    ],
-   "descendants": 128
+   "understanding": [],
+   "descendants": 148
   },
   {
    "id": "1-09",
@@ -481,7 +512,8 @@
      ]
     ]
    ],
-   "descendants": 164
+   "understanding": [],
+   "descendants": 187
   },
   {
    "id": "1-10",
@@ -500,7 +532,8 @@
      ]
     ]
    ],
-   "descendants": 156
+   "understanding": [],
+   "descendants": 179
   },
   {
    "id": "1-11",
@@ -526,10 +559,14 @@
     [
      [
       "1-07"
+     ],
+     [
+      "0-03"
      ]
     ]
    ],
-   "descendants": 57
+   "understanding": [],
+   "descendants": 143
   },
   {
    "id": "1-12",
@@ -553,6 +590,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -572,6 +610,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -596,6 +635,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 10
   },
   {
@@ -635,6 +675,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 53
   },
   {
@@ -659,6 +700,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 52
   },
   {
@@ -688,6 +730,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 38
   },
   {
@@ -709,6 +752,10 @@
     [
      [
       "6-06"
+     ],
+     [
+      "6-04",
+      "6-12"
      ]
     ],
     [
@@ -717,6 +764,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -744,7 +792,8 @@
      ]
     ]
    ],
-   "descendants": 75
+   "understanding": [],
+   "descendants": 74
   },
   {
    "id": "1-20",
@@ -757,6 +806,7 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
+   "understanding": [],
    "descendants": 81
   },
   {
@@ -770,6 +820,7 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
+   "understanding": [],
    "descendants": 74
   },
   {
@@ -783,6 +834,7 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
+   "understanding": [],
    "descendants": 127
   },
   {
@@ -796,6 +848,7 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
+   "understanding": [],
    "descendants": 47
   },
   {
@@ -809,6 +862,7 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
+   "understanding": [],
    "descendants": 73
   },
   {
@@ -822,7 +876,8 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
-   "descendants": 76
+   "understanding": [],
+   "descendants": 75
   },
   {
    "id": "1-26",
@@ -842,7 +897,8 @@
      ]
     ]
    ],
-   "descendants": 195
+   "understanding": [],
+   "descendants": 204
   },
   {
    "id": "1-27",
@@ -855,7 +911,8 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
-   "descendants": 111
+   "understanding": [],
+   "descendants": 117
   },
   {
    "id": "1-28",
@@ -874,6 +931,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 88
   },
   {
@@ -908,6 +966,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 65
   },
   {
@@ -927,6 +986,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 126
   },
   {
@@ -951,6 +1011,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 46
   },
   {
@@ -970,6 +1031,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 50
   },
   {
@@ -989,7 +1051,8 @@
      ]
     ]
    ],
-   "descendants": 118
+   "understanding": [],
+   "descendants": 117
   },
   {
    "id": "1-34",
@@ -1008,6 +1071,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -1032,6 +1096,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -1056,7 +1121,8 @@
      ]
     ]
    ],
-   "descendants": 116
+   "understanding": [],
+   "descendants": 115
   },
   {
    "id": "1-37",
@@ -1075,6 +1141,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 60
   },
   {
@@ -1104,6 +1171,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -1130,7 +1198,8 @@
      ]
     ]
    ],
-   "descendants": 119
+   "understanding": [],
+   "descendants": 118
   },
   {
    "id": "1-40",
@@ -1151,9 +1220,13 @@
     [
      [
       "1-29"
+     ],
+     [
+      "0-12"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 60
   },
   {
@@ -1163,7 +1236,7 @@
    "trunk_name": "冶金",
    "status": "❓",
    "branch": false,
-   "year": 1791,
+   "year": 1940,
    "year_range": "1791〜1940",
    "year_uncertain": false,
    "requires": [
@@ -1189,6 +1262,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 8
   },
   {
@@ -1213,6 +1287,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -1226,6 +1301,7 @@
    "year_range": "-3000〜1540",
    "year_uncertain": true,
    "requires": [],
+   "understanding": [],
    "descendants": 42
   },
   {
@@ -1245,6 +1321,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -1264,6 +1341,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 97
   },
   {
@@ -1277,7 +1355,8 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
-   "descendants": 58
+   "understanding": [],
+   "descendants": 89
   },
   {
    "id": "2-01",
@@ -1290,7 +1369,8 @@
    "year_range": "1831〜1915",
    "year_uncertain": false,
    "requires": [],
-   "descendants": 200
+   "understanding": [],
+   "descendants": 199
   },
   {
    "id": "2-02",
@@ -1310,7 +1390,8 @@
      ]
     ]
    ],
-   "descendants": 184
+   "understanding": [],
+   "descendants": 186
   },
   {
    "id": "2-03",
@@ -1323,7 +1404,8 @@
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
-   "descendants": 123
+   "understanding": [],
+   "descendants": 122
   },
   {
    "id": "2-04",
@@ -1342,7 +1424,8 @@
      ]
     ]
    ],
-   "descendants": 141
+   "understanding": [],
+   "descendants": 140
   },
   {
    "id": "2-05",
@@ -1376,7 +1459,8 @@
      ]
     ]
    ],
-   "descendants": 142
+   "understanding": [],
+   "descendants": 141
   },
   {
    "id": "2-06",
@@ -1405,6 +1489,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 111
   },
   {
@@ -1420,7 +1505,9 @@
    "requires": [
     [
      [
-      "2-05",
+      "2-05"
+     ],
+     [
       "2-06"
      ]
     ],
@@ -1430,6 +1517,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 63
   },
   {
@@ -1456,6 +1544,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 89
   },
   {
@@ -1478,6 +1567,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 79
   },
   {
@@ -1499,6 +1589,9 @@
     [
      [
       "2-01"
+     ],
+     [
+      "6-12"
      ]
     ],
     [
@@ -1507,6 +1600,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 73
   },
   {
@@ -1528,9 +1622,14 @@
     [
      [
       "6-06"
+     ],
+     [
+      "6-04",
+      "6-12"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -1555,6 +1654,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -1580,6 +1680,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -1595,8 +1696,12 @@
    "requires": [
     [
      [
-      "2-03",
-      "2-04",
+      "2-03"
+     ],
+     [
+      "2-04"
+     ],
+     [
       "2-05"
      ]
     ],
@@ -1606,7 +1711,8 @@
      ]
     ]
    ],
-   "descendants": 122
+   "understanding": [],
+   "descendants": 121
   },
   {
    "id": "2-15",
@@ -1641,7 +1747,8 @@
      ]
     ]
    ],
-   "descendants": 114
+   "understanding": [],
+   "descendants": 113
   },
   {
    "id": "2-16",
@@ -1654,7 +1761,8 @@
    "year_range": "100〜300",
    "year_uncertain": true,
    "requires": [],
-   "descendants": 51
+   "understanding": [],
+   "descendants": 48
   },
   {
    "id": "2-17",
@@ -1684,6 +1792,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 33
   },
   {
@@ -1714,6 +1823,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 32
   },
   {
@@ -1738,6 +1848,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 31
   },
   {
@@ -1759,10 +1870,14 @@
     [
      [
       "3-19"
+     ],
+     [
+      "0-15"
      ]
     ]
    ],
-   "descendants": 142
+   "understanding": [],
+   "descendants": 141
   },
   {
    "id": "2-21",
@@ -1784,6 +1899,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 116
   },
   {
@@ -1793,21 +1909,25 @@
    "trunk_name": "化学",
    "status": "❓",
    "branch": false,
-   "year": 1250,
+   "year": 1300,
    "year_range": null,
    "year_uncertain": true,
    "requires": [
     [
      [
-      "6-06"
+      "6-11"
      ]
     ],
     [
      [
-      "6-11"
+      "6-06"
+     ],
+     [
+      "6-04"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -1827,7 +1947,8 @@
      ]
     ]
    ],
-   "descendants": 88
+   "understanding": [],
+   "descendants": 87
   },
   {
    "id": "2-24",
@@ -1846,6 +1967,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 44
   },
   {
@@ -1870,6 +1992,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 41
   },
   {
@@ -1879,8 +2002,8 @@
    "trunk_name": "化学",
    "status": "❓",
    "branch": false,
-   "year": 1923,
-   "year_range": null,
+   "year": 1834,
+   "year_range": "1661〜1923",
    "year_uncertain": false,
    "requires": [
     [
@@ -1889,6 +2012,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 39
   },
   {
@@ -1908,6 +2032,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 38
   },
   {
@@ -1932,6 +2057,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 37
   },
   {
@@ -1945,6 +2071,7 @@
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
+   "understanding": [],
    "descendants": 87
   },
   {
@@ -1969,6 +2096,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 30
   },
   {
@@ -1989,6 +2117,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2022,6 +2151,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 32
   },
   {
@@ -2046,6 +2176,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 3
   },
   {
@@ -2059,6 +2190,7 @@
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -2075,15 +2207,24 @@
     [
      [
       "2-39"
+     ],
+     [
+      "11-10"
      ]
     ],
     [
      [
-      "1-14",
+      "1-14"
+     ],
+     [
       "2-01"
+     ],
+     [
+      "6-12"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -2108,6 +2249,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -2133,6 +2275,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 11
   },
   {
@@ -2152,7 +2295,8 @@
      ]
     ]
    ],
-   "descendants": 50
+   "understanding": [],
+   "descendants": 22
   },
   {
    "id": "2-40",
@@ -2172,6 +2316,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -2199,6 +2344,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -2236,6 +2382,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 33
   },
   {
@@ -2255,7 +2402,8 @@
      ]
     ]
    ],
-   "descendants": 1
+   "understanding": [],
+   "descendants": 209
   },
   {
    "id": "3-02",
@@ -2274,6 +2422,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2298,7 +2447,8 @@
      ]
     ]
    ],
-   "descendants": 121
+   "understanding": [],
+   "descendants": 120
   },
   {
    "id": "3-05",
@@ -2322,6 +2472,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -2341,6 +2492,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2357,6 +2509,9 @@
     [
      [
       "1-07"
+     ],
+     [
+      "0-03"
      ]
     ],
     [
@@ -2365,6 +2520,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2394,6 +2550,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2415,9 +2572,13 @@
     [
      [
       "4-03"
+     ],
+     [
+      "1-03"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -2448,6 +2609,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2478,6 +2640,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2497,7 +2660,8 @@
      ]
     ]
    ],
-   "descendants": 159
+   "understanding": [],
+   "descendants": 158
   },
   {
    "id": "3-13",
@@ -2516,6 +2680,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -2540,6 +2705,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 64
   },
   {
@@ -2565,7 +2731,8 @@
      ]
     ]
    ],
-   "descendants": 128
+   "understanding": [],
+   "descendants": 127
   },
   {
    "id": "3-16",
@@ -2602,6 +2769,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 39
   },
   {
@@ -2626,6 +2794,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -2650,7 +2819,8 @@
      ]
     ]
    ],
-   "descendants": 150
+   "understanding": [],
+   "descendants": 149
   },
   {
    "id": "4-01",
@@ -2669,7 +2839,8 @@
      ]
     ]
    ],
-   "descendants": 196
+   "understanding": [],
+   "descendants": 197
   },
   {
    "id": "4-02",
@@ -2688,7 +2859,8 @@
      ]
     ]
    ],
-   "descendants": 199
+   "understanding": [],
+   "descendants": 208
   },
   {
    "id": "4-03",
@@ -2701,6 +2873,7 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
+   "understanding": [],
    "descendants": 83
   },
   {
@@ -2714,7 +2887,8 @@
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
-   "descendants": 233
+   "understanding": [],
+   "descendants": 234
   },
   {
    "id": "4-05",
@@ -2738,7 +2912,8 @@
      ]
     ]
    ],
-   "descendants": 131
+   "understanding": [],
+   "descendants": 130
   },
   {
    "id": "4-06",
@@ -2767,7 +2942,8 @@
      ]
     ]
    ],
-   "descendants": 131
+   "understanding": [],
+   "descendants": 130
   },
   {
    "id": "4-07",
@@ -2791,6 +2967,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -2804,7 +2981,8 @@
    "year_range": "1821〜1873",
    "year_uncertain": true,
    "requires": [],
-   "descendants": 196
+   "understanding": [],
+   "descendants": 205
   },
   {
    "id": "4-09",
@@ -2823,6 +3001,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 68
   },
   {
@@ -2842,7 +3021,8 @@
      ]
     ]
    ],
-   "descendants": 129
+   "understanding": [],
+   "descendants": 128
   },
   {
    "id": "4-11",
@@ -2864,6 +3044,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 19
   },
   {
@@ -2885,6 +3066,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 51
   },
   {
@@ -2912,7 +3094,8 @@
      ]
     ]
    ],
-   "descendants": 120
+   "understanding": [],
+   "descendants": 119
   },
   {
    "id": "5-02",
@@ -2952,6 +3135,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 74
   },
   {
@@ -2976,6 +3160,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -3005,6 +3190,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 93
   },
   {
@@ -3034,6 +3220,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 88
   },
   {
@@ -3063,6 +3250,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 49
   },
   {
@@ -3098,6 +3286,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 8
   },
   {
@@ -3135,6 +3324,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -3159,6 +3349,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -3196,6 +3387,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -3221,6 +3413,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 59
   },
   {
@@ -3230,8 +3423,8 @@
    "trunk_name": "真空",
    "status": "❓",
    "branch": false,
-   "year": 1937,
-   "year_range": null,
+   "year": 1850,
+   "year_range": "1850〜1937",
    "year_uncertain": true,
    "requires": [
     [
@@ -3246,6 +3439,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 76
   },
   {
@@ -3286,6 +3480,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 45
   },
   {
@@ -3310,6 +3505,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 76
   },
   {
@@ -3329,6 +3525,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 75
   },
   {
@@ -3350,6 +3547,9 @@
     [
      [
       "1-07"
+     ],
+     [
+      "1-03"
      ]
     ],
     [
@@ -3361,7 +3561,8 @@
      ]
     ]
    ],
-   "descendants": 182
+   "understanding": [],
+   "descendants": 185
   },
   {
    "id": "6-02",
@@ -3374,6 +3575,7 @@
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
+   "understanding": [],
    "descendants": 13
   },
   {
@@ -3398,7 +3600,8 @@
      ]
     ]
    ],
-   "descendants": 139
+   "understanding": [],
+   "descendants": 151
   },
   {
    "id": "6-04",
@@ -3411,7 +3614,8 @@
    "year_range": null,
    "year_uncertain": true,
    "requires": [],
-   "descendants": 174
+   "understanding": [],
+   "descendants": 173
   },
   {
    "id": "6-05",
@@ -3438,7 +3642,8 @@
      ]
     ]
    ],
-   "descendants": 150
+   "understanding": [],
+   "descendants": 149
   },
   {
    "id": "6-06",
@@ -3457,7 +3662,8 @@
      ]
     ]
    ],
-   "descendants": 133
+   "understanding": [],
+   "descendants": 132
   },
   {
    "id": "6-07",
@@ -3476,7 +3682,8 @@
      ]
     ]
    ],
-   "descendants": 134
+   "understanding": [],
+   "descendants": 148
   },
   {
    "id": "6-08",
@@ -3495,6 +3702,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 12
   },
   {
@@ -3524,7 +3732,8 @@
      ]
     ]
    ],
-   "descendants": 129
+   "understanding": [],
+   "descendants": 143
   },
   {
    "id": "6-10",
@@ -3537,7 +3746,8 @@
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
-   "descendants": 60
+   "understanding": [],
+   "descendants": 92
   },
   {
    "id": "6-11",
@@ -3546,19 +3756,22 @@
    "trunk_name": "ガス",
    "status": "❓",
    "branch": false,
-   "year": 1648,
-   "year_range": null,
+   "year": 1300,
+   "year_range": "1300〜1648",
    "year_uncertain": true,
    "requires": [
     [
      [
       "6-10",
-      "2-01",
+      "2-01"
+     ],
+     [
       "6-09"
      ]
     ]
    ],
-   "descendants": 58
+   "understanding": [],
+   "descendants": 91
   },
   {
    "id": "6-12",
@@ -3582,7 +3795,8 @@
      ]
     ]
    ],
-   "descendants": 1
+   "understanding": [],
+   "descendants": 82
   },
   {
    "id": "6-13",
@@ -3602,6 +3816,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -3641,6 +3856,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 12
   },
   {
@@ -3654,6 +3870,7 @@
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
+   "understanding": [],
    "descendants": 31
   },
   {
@@ -3675,15 +3892,14 @@
     [
      [
       "2-15"
-     ]
-    ],
-    [
+     ],
      [
       "1-27"
      ]
     ]
    ],
-   "descendants": 74
+   "understanding": [],
+   "descendants": 73
   },
   {
    "id": "7-02",
@@ -3698,12 +3914,20 @@
    "requires": [
     [
      [
-      "6-01",
+      "1-46"
+     ]
+    ],
+    [
+     [
+      "6-01"
+     ],
+     [
       "3-15"
      ]
     ]
    ],
-   "descendants": 83
+   "understanding": [],
+   "descendants": 82
   },
   {
    "id": "7-03",
@@ -3743,7 +3967,8 @@
      ]
     ]
    ],
-   "descendants": 73
+   "understanding": [],
+   "descendants": 72
   },
   {
    "id": "7-04",
@@ -3759,6 +3984,9 @@
     [
      [
       "7-01"
+     ],
+     [
+      "2-14"
      ]
     ],
     [
@@ -3767,6 +3995,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 44
   },
   {
@@ -3783,22 +4012,19 @@
     [
      [
       "1-05"
-     ]
-    ],
-    [
+     ],
      [
       "1-32",
       "6-11",
       "2-21"
-     ]
-    ],
-    [
+     ],
      [
       "5-14",
       "1-29"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 41
   },
   {
@@ -3823,6 +4049,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -3849,9 +4076,13 @@
     [
      [
       "8-12"
+     ],
+     [
+      "1-03"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -3886,6 +4117,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 36
   },
   {
@@ -3925,6 +4157,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 38
   },
   {
@@ -3954,6 +4187,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 30
   },
   {
@@ -3997,6 +4231,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 29
   },
   {
@@ -4028,6 +4263,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -4067,6 +4303,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 5
   },
   {
@@ -4106,6 +4343,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 38
   },
   {
@@ -4115,9 +4353,9 @@
    "trunk_name": "光学",
    "status": "❓",
    "branch": false,
-   "year": 1878,
-   "year_range": null,
-   "year_uncertain": false,
+   "year": 2006,
+   "year_range": "1878〜2006",
+   "year_uncertain": true,
    "requires": [
     [
      [
@@ -4135,6 +4373,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 5
   },
   {
@@ -4185,6 +4424,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 5
   },
   {
@@ -4229,6 +4469,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -4266,6 +4507,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 9
   },
   {
@@ -4310,6 +4552,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 10
   },
   {
@@ -4339,6 +4582,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 6
   },
   {
@@ -4355,9 +4599,13 @@
     [
      [
       "1-26"
+     ],
+     [
+      "1-11"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 142
   },
   {
@@ -4385,6 +4633,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 56
   },
   {
@@ -4409,7 +4658,8 @@
      ]
     ]
    ],
-   "descendants": 56
+   "understanding": [],
+   "descendants": 55
   },
   {
    "id": "8-04",
@@ -4424,16 +4674,16 @@
    "requires": [
     [
      [
-      "8-02"
-     ]
-    ],
-    [
-     [
+      "8-02",
       "1-26"
+     ],
+     [
+      "1-05"
      ]
     ]
    ],
-   "descendants": 53
+   "understanding": [],
+   "descendants": 52
   },
   {
    "id": "8-05",
@@ -4462,7 +4712,8 @@
      ]
     ]
    ],
-   "descendants": 48
+   "understanding": [],
+   "descendants": 47
   },
   {
    "id": "8-06",
@@ -4496,6 +4747,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 30
   },
   {
@@ -4525,6 +4777,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 14
   },
   {
@@ -4559,7 +4812,8 @@
      ]
     ]
    ],
-   "descendants": 39
+   "understanding": [],
+   "descendants": 38
   },
   {
    "id": "8-09",
@@ -4598,6 +4852,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 3
   },
   {
@@ -4622,6 +4877,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 39
   },
   {
@@ -4652,6 +4908,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 7
   },
   {
@@ -4681,6 +4938,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -4690,9 +4948,9 @@
    "trunk_name": "精密・計測",
    "status": "❓",
    "branch": false,
-   "year": 1880,
-   "year_range": null,
-   "year_uncertain": false,
+   "year": 2010,
+   "year_range": "1880〜2010",
+   "year_uncertain": true,
    "requires": [
     [
      [
@@ -4710,6 +4968,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 6
   },
   {
@@ -4744,6 +5003,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 10
   },
   {
@@ -4773,6 +5033,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 17
   },
   {
@@ -4802,6 +5063,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -4831,6 +5093,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 29
   },
   {
@@ -4865,6 +5128,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -4884,6 +5148,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 54
   },
   {
@@ -4903,6 +5168,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 20
   },
   {
@@ -4922,6 +5188,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -4941,6 +5208,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 18
   },
   {
@@ -4966,6 +5234,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 20
   },
   {
@@ -4985,6 +5254,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 18
   },
   {
@@ -5019,6 +5289,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 48
   },
   {
@@ -5063,6 +5334,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 34
   },
   {
@@ -5095,6 +5367,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -5119,6 +5392,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -5156,6 +5430,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 40
   },
   {
@@ -5185,6 +5460,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 33
   },
   {
@@ -5214,6 +5490,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 32
   },
   {
@@ -5253,6 +5530,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 30
   },
   {
@@ -5290,6 +5568,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 29
   },
   {
@@ -5319,6 +5598,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 28
   },
   {
@@ -5348,6 +5628,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 17
   },
   {
@@ -5379,6 +5660,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 24
   },
   {
@@ -5411,6 +5693,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 29
   },
   {
@@ -5448,6 +5731,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 28
   },
   {
@@ -5480,6 +5764,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 27
   },
   {
@@ -5504,6 +5789,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 19
   },
   {
@@ -5533,6 +5819,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 17
   },
   {
@@ -5560,6 +5847,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 6
   },
   {
@@ -5589,6 +5877,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 21
   },
   {
@@ -5598,7 +5887,7 @@
    "trunk_name": "半導体プロセス",
    "status": "❓",
    "branch": false,
-   "year": 1852,
+   "year": 1970,
    "year_range": "1852〜1970",
    "year_uncertain": false,
    "requires": [
@@ -5625,6 +5914,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 7
   },
   {
@@ -5655,6 +5945,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 5
   },
   {
@@ -5690,6 +5981,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 8
   },
   {
@@ -5722,6 +6014,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -5756,6 +6049,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 8
   },
   {
@@ -5780,6 +6074,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -5804,6 +6099,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -5828,6 +6124,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -5855,6 +6152,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -5884,6 +6182,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -5913,6 +6212,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -5947,6 +6247,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -5977,6 +6278,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -6024,6 +6326,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -6073,6 +6376,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -6089,6 +6393,9 @@
     [
      [
       "4-03"
+     ],
+     [
+      "1-03"
      ]
     ],
     [
@@ -6097,6 +6404,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 33
   },
   {
@@ -6116,6 +6424,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 22
   },
   {
@@ -6140,6 +6449,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -6164,6 +6474,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 7
   },
   {
@@ -6183,6 +6494,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 19
   },
   {
@@ -6202,6 +6514,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6221,6 +6534,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -6245,6 +6559,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6272,6 +6587,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 16
   },
   {
@@ -6296,6 +6612,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 15
   },
   {
@@ -6315,6 +6632,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 13
   },
   {
@@ -6344,6 +6662,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 12
   },
   {
@@ -6378,6 +6697,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 11
   },
   {
@@ -6397,6 +6717,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 10
   },
   {
@@ -6431,6 +6752,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 6
   },
   {
@@ -6451,6 +6773,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6475,6 +6798,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6501,9 +6825,13 @@
     [
      [
       "1-08"
+     ],
+     [
+      "0-08"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6528,6 +6856,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6552,6 +6881,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6567,11 +6897,11 @@
    "requires": [
     [
      [
-      "0-04",
-      "6-10"
+      "0-04"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6591,6 +6921,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6618,6 +6949,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6627,7 +6959,7 @@
    "trunk_name": "農業・食",
    "status": "❓",
    "branch": false,
-   "year": -100,
+   "year": -9500,
    "year_range": "-9500〜1785",
    "year_uncertain": true,
    "requires": [
@@ -6640,13 +6972,9 @@
      [
       "0-01"
      ]
-    ],
-    [
-     [
-      "4-01"
-     ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -6664,12 +6992,10 @@
      [
       "11-08"
      ]
-    ],
-    [
-     [
-      "2-39"
-     ]
     ]
+   ],
+   "understanding": [
+    "2-39"
    ],
    "descendants": 0
   },
@@ -6686,16 +7012,19 @@
    "requires": [
     [
      [
-      "2-39"
+      "0-04"
      ]
     ],
     [
      [
-      "2-16"
+      "0-03"
      ]
     ]
    ],
-   "descendants": 35
+   "understanding": [
+    "2-39"
+   ],
+   "descendants": 38
   },
   {
    "id": "11-11",
@@ -6722,6 +7051,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6737,7 +7067,9 @@
    "requires": [
     [
      [
-      "2-14",
+      "2-14"
+     ],
+     [
       "1-26",
       "1-30"
      ]
@@ -6748,6 +7080,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6777,6 +7110,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 8
   },
   {
@@ -6806,6 +7140,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6830,6 +7165,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6854,6 +7190,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6873,7 +7210,8 @@
      ]
     ]
    ],
-   "descendants": 0
+   "understanding": [],
+   "descendants": 1
   },
   {
    "id": "12-02",
@@ -6900,6 +7238,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 3
   },
   {
@@ -6924,6 +7263,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6939,11 +7279,14 @@
    "requires": [
     [
      [
-      "1-09",
+      "1-09"
+     ],
+     [
       "1-26"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -6968,6 +7311,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -6992,6 +7336,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 3
   },
   {
@@ -7016,6 +7361,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7040,6 +7386,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7064,6 +7411,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7079,15 +7427,15 @@
    "requires": [
     [
      [
-      "12-04"
-     ]
-    ],
-    [
-     [
+      "12-04",
       "1-26"
+     ],
+     [
+      "12-01"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7112,6 +7460,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7136,6 +7485,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 7
   },
   {
@@ -7160,6 +7510,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 6
   },
   {
@@ -7184,6 +7535,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 5
   },
   {
@@ -7200,9 +7552,13 @@
     [
      [
       "4-03"
+     ],
+     [
+      "1-03"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7222,6 +7578,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7246,6 +7603,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7271,6 +7629,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7290,6 +7649,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -7309,6 +7669,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -7328,6 +7689,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7347,6 +7709,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7371,6 +7734,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7390,6 +7754,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7414,6 +7779,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7433,6 +7799,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7452,6 +7819,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7476,6 +7844,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7495,6 +7864,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7519,6 +7889,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7545,9 +7916,13 @@
     [
      [
       "12-02"
+     ],
+     [
+      "0-11"
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7567,6 +7942,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7597,6 +7973,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7621,6 +7998,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7645,6 +8023,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -7669,6 +8048,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7688,6 +8068,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -7697,8 +8078,8 @@
    "trunk_name": "輸送",
    "status": "❓",
    "branch": false,
-   "year": 1817,
-   "year_range": null,
+   "year": 1885,
+   "year_range": "1817〜1885",
    "year_uncertain": false,
    "requires": [
     [
@@ -7713,7 +8094,7 @@
     ],
     [
      [
-      "8-08"
+      "1-26"
      ]
     ],
     [
@@ -7722,6 +8103,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7754,6 +8136,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 4
   },
   {
@@ -7778,6 +8161,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7802,6 +8186,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7826,6 +8211,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7850,6 +8236,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7874,6 +8261,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7903,6 +8291,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7927,6 +8316,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 34
   },
   {
@@ -7966,6 +8356,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -7990,6 +8381,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8014,6 +8406,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8038,6 +8431,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8062,6 +8456,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -8081,6 +8476,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -8105,6 +8501,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8129,6 +8526,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8148,6 +8546,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8172,6 +8571,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8201,6 +8601,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8225,6 +8626,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 2
   },
   {
@@ -8244,6 +8646,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8271,6 +8674,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8306,6 +8710,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8330,6 +8735,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 31
   },
   {
@@ -8359,6 +8765,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 33
   },
   {
@@ -8384,6 +8791,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 32
   },
   {
@@ -8419,6 +8827,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -8448,6 +8857,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8467,6 +8877,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8492,6 +8903,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8501,8 +8913,8 @@
    "trunk_name": "枝",
    "status": "❓",
    "branch": true,
-   "year": 1907,
-   "year_range": null,
+   "year": 1962,
+   "year_range": "1907〜1962",
    "year_uncertain": false,
    "requires": [
     [
@@ -8522,6 +8934,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 3
   },
   {
@@ -8547,6 +8960,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8576,6 +8990,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8615,6 +9030,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8644,6 +9060,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 1
   },
   {
@@ -8673,6 +9090,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8707,6 +9125,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8726,6 +9145,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   },
   {
@@ -8750,6 +9170,7 @@
      ]
     ]
    ],
+   "understanding": [],
    "descendants": 0
   }
  ],
@@ -8757,5217 +9178,6119 @@
   {
    "from": "0-01",
    "to": "0-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-02",
    "to": "0-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-01",
    "to": "0-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-04",
    "to": "0-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-04",
    "to": "0-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-06",
    "to": "0-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-01",
    "to": "0-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-08",
    "to": "0-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-02",
    "to": "0-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-15",
    "to": "0-10",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "3-01",
+   "to": "0-10",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "0-10",
    "to": "0-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-02",
    "to": "0-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-09",
    "to": "0-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-08",
    "to": "0-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-03",
    "to": "0-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-03",
    "to": "0-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-01",
    "to": "1-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-15",
    "to": "1-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-12",
    "to": "1-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-03",
    "to": "1-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-03",
    "to": "1-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-30",
    "to": "1-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-12",
    "to": "1-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-15",
    "to": "1-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-06",
    "to": "1-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-06",
    "to": "1-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-09",
    "to": "1-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-08",
    "to": "1-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-10",
    "to": "1-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-07",
    "to": "1-11",
+   "kind": "requires",
    "group": 2,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "0-03",
+   "to": "1-11",
+   "kind": "requires",
+   "group": 2,
+   "or": true
   },
   {
    "from": "1-09",
    "to": "1-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-18",
    "to": "1-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-12",
    "to": "1-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-24",
    "to": "1-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-05",
    "to": "1-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "3-15",
    "to": "1-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-06",
    "to": "1-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-07",
    "to": "1-15",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-46",
    "to": "1-15",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "0-12",
    "to": "1-15",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "1-15",
    "to": "1-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-06",
    "to": "1-16",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-16",
    "to": "1-17",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-01",
    "to": "1-17",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-05",
    "to": "1-17",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-20",
    "to": "1-18",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-06",
    "to": "1-18",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "6-04",
+   "to": "1-18",
+   "kind": "requires",
+   "group": 1,
+   "or": true
+  },
+  {
+   "from": "6-12",
+   "to": "1-18",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "6-11",
    "to": "1-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-25",
    "to": "1-19",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "1-19",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "6-05",
    "to": "1-19",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "4-02",
    "to": "1-26",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-08",
    "to": "1-26",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-01",
    "to": "1-28",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-24",
    "to": "1-29",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-05",
    "to": "1-29",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-10",
    "to": "1-29",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-07",
    "to": "1-29",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-22",
    "to": "1-30",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-23",
    "to": "1-31",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-01",
    "to": "1-31",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-27",
    "to": "1-32",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "1-33",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-06",
    "to": "1-34",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-19",
    "to": "1-35",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-33",
    "to": "1-35",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-33",
    "to": "1-36",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-39",
    "to": "1-36",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-10",
    "to": "1-37",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-10",
    "to": "1-38",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-14",
    "to": "1-38",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-05",
    "to": "1-38",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "3-15",
    "to": "1-39",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-01",
    "to": "1-39",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "1-39",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-06",
    "to": "1-39",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-07",
    "to": "1-40",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-29",
    "to": "1-40",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "0-12",
+   "to": "1-40",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "6-05",
    "to": "1-41",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-39",
    "to": "1-41",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-12",
    "to": "1-41",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-11",
    "to": "1-41",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-07",
    "to": "1-41",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "2-01",
    "to": "1-42",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-06",
    "to": "1-42",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-14",
    "to": "1-44",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-15",
    "to": "1-45",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-10",
    "to": "2-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "2-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-02",
    "to": "2-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-04",
    "to": "2-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "2-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-10",
    "to": "2-05",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "0-12",
    "to": "2-05",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-04",
    "to": "2-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-21",
    "to": "2-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-10",
    "to": "2-06",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-05",
    "to": "2-07",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "2-06",
    "to": "2-07",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "2-01",
    "to": "2-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-04",
    "to": "2-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-05",
    "to": "2-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-06",
    "to": "2-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "2-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-02",
    "to": "2-09",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-08",
    "to": "2-09",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-21",
    "to": "2-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "2-10",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "6-12",
+   "to": "2-10",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "1-27",
    "to": "2-10",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-05",
    "to": "2-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-06",
    "to": "2-11",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "6-04",
+   "to": "2-11",
+   "kind": "requires",
+   "group": 1,
+   "or": true
+  },
+  {
+   "from": "6-12",
+   "to": "2-11",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "2-01",
    "to": "2-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-03",
    "to": "2-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-10",
    "to": "2-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "2-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-06",
    "to": "2-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-03",
    "to": "2-14",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "2-04",
    "to": "2-14",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "2-05",
    "to": "2-14",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "0-10",
    "to": "2-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-14",
    "to": "2-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-33",
    "to": "2-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-36",
    "to": "2-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-33",
    "to": "2-15",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "3-04",
    "to": "2-15",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "2-28",
    "to": "2-17",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "2-17",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-08",
    "to": "2-17",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "6-05",
    "to": "2-17",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-16",
    "to": "2-18",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-17",
    "to": "2-18",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "15-01",
    "to": "2-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-42",
    "to": "2-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-01",
    "to": "2-19",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-01",
    "to": "2-19",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-10",
    "to": "2-20",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-19",
    "to": "2-20",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "0-15",
+   "to": "2-20",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "2-20",
    "to": "2-21",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "6-09",
    "to": "2-21",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
-   "from": "6-06",
+   "from": "6-11",
    "to": "2-22",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
-   "from": "6-11",
+   "from": "6-06",
    "to": "2-22",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "6-04",
+   "to": "2-22",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "0-12",
    "to": "2-23",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-20",
    "to": "2-24",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-20",
    "to": "2-25",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-24",
    "to": "2-25",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-01",
    "to": "2-25",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-08",
    "to": "2-25",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-23",
    "to": "2-26",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-26",
    "to": "2-27",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-25",
    "to": "2-28",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-27",
    "to": "2-28",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-29",
    "to": "2-30",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-20",
    "to": "2-30",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-35",
    "to": "2-31",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-07",
    "to": "2-31",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-28",
    "to": "2-32",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-20",
    "to": "2-32",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-11",
    "to": "2-32",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-02",
    "to": "2-32",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "2-08",
    "to": "2-32",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "2-32",
    "to": "2-33",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-20",
    "to": "2-33",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-39",
    "to": "2-36",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "11-10",
+   "to": "2-36",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "1-14",
    "to": "2-36",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
   },
   {
    "from": "2-01",
    "to": "2-36",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "6-12",
+   "to": "2-36",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "2-36",
    "to": "2-37",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-03",
    "to": "2-37",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-10",
    "to": "2-38",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-39",
    "to": "2-38",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-05",
    "to": "2-38",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-16",
    "to": "2-39",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-23",
    "to": "2-40",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "2-40",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-25",
    "to": "2-41",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-40",
    "to": "2-41",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-09",
    "to": "2-41",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-06",
    "to": "2-41",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-08",
    "to": "2-41",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "11-10",
    "to": "2-42",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-23",
    "to": "2-42",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "0-11",
    "to": "2-42",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-01",
    "to": "2-42",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-16",
    "to": "2-42",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "0-02",
    "to": "3-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-01",
    "to": "3-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-07",
    "to": "3-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-08",
    "to": "3-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "3-04",
    "to": "3-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-12",
    "to": "3-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "3-12",
    "to": "3-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-07",
    "to": "3-07",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "0-03",
+   "to": "3-07",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "3-04",
    "to": "3-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-09",
    "to": "3-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-02",
    "to": "3-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "3-12",
    "to": "3-08",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-18",
    "to": "3-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-03",
    "to": "3-09",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "1-03",
+   "to": "3-09",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "4-12",
    "to": "3-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-06",
    "to": "3-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-02",
    "to": "3-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-07",
    "to": "3-10",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-28",
    "to": "3-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-01",
    "to": "3-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-03",
    "to": "3-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-07",
    "to": "3-11",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "0-15",
    "to": "3-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-12",
    "to": "3-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-09",
    "to": "3-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-03",
    "to": "3-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-07",
    "to": "3-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-06",
    "to": "3-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-10",
    "to": "3-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-04",
    "to": "3-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-11",
    "to": "3-16",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-12",
    "to": "3-16",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "3-14",
    "to": "3-16",
+   "kind": "requires",
    "group": 3,
    "or": true
   },
   {
    "from": "4-12",
    "to": "3-16",
+   "kind": "requires",
    "group": 3,
    "or": true
   },
   {
    "from": "3-12",
    "to": "3-18",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-19",
    "to": "3-18",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-10",
    "to": "3-19",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-12",
    "to": "3-19",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-04",
    "to": "4-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-04",
    "to": "4-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-04",
    "to": "4-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "4-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-02",
    "to": "4-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "4-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-01",
    "to": "4-06",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-27",
    "to": "4-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "4-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-02",
    "to": "4-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-05",
    "to": "4-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-02",
    "to": "4-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "9-05",
    "to": "4-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-07",
    "to": "4-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-06",
    "to": "4-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-02",
    "to": "4-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-08",
    "to": "5-01",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-05",
    "to": "5-01",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "0-08",
    "to": "5-01",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-05",
    "to": "5-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-15",
    "to": "5-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-28",
    "to": "5-02",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-15",
    "to": "5-02",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-12",
    "to": "5-02",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "5-16",
    "to": "5-02",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "2-14",
    "to": "5-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-45",
    "to": "5-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-08",
    "to": "5-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "5-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-01",
    "to": "5-04",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-04",
    "to": "5-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-45",
    "to": "5-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-15",
    "to": "5-05",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-05",
    "to": "5-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-11",
    "to": "5-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-04",
    "to": "5-06",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-04",
    "to": "5-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-01",
    "to": "5-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-05",
    "to": "5-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-08",
    "to": "5-07",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-29",
    "to": "5-07",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "5-07",
    "to": "5-08",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "5-05",
    "to": "5-08",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "4-10",
    "to": "5-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-04",
    "to": "5-08",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-41",
    "to": "5-08",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-07",
    "to": "5-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-11",
    "to": "5-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-03",
    "to": "5-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-28",
    "to": "5-10",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "1-20",
    "to": "5-10",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "4-03",
    "to": "5-10",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-02",
    "to": "5-10",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "2-14",
    "to": "5-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-15",
    "to": "5-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-26",
    "to": "5-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-37",
    "to": "5-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-40",
    "to": "5-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-09",
    "to": "5-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-29",
    "to": "5-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-20",
    "to": "5-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-05",
    "to": "5-14",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "5-06",
    "to": "5-14",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "5-11",
    "to": "5-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-28",
    "to": "5-14",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-29",
    "to": "5-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-32",
    "to": "5-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-40",
    "to": "5-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-31",
    "to": "5-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-45",
    "to": "5-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-14",
    "to": "5-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-39",
    "to": "5-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-01",
    "to": "6-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-07",
    "to": "6-01",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "1-03",
+   "to": "6-01",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "2-01",
    "to": "6-01",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "2-02",
    "to": "6-01",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "4-08",
    "to": "6-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "6-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-01",
    "to": "6-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-04",
    "to": "6-05",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "0-16",
    "to": "6-05",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "6-05",
    "to": "6-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-03",
    "to": "6-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-07",
    "to": "6-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-01",
    "to": "6-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-07",
    "to": "6-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-03",
    "to": "6-09",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "6-10",
    "to": "6-11",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "2-01",
    "to": "6-11",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "6-09",
    "to": "6-11",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "1-27",
    "to": "6-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-11",
    "to": "6-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-20",
    "to": "6-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-12",
    "to": "6-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-10",
    "to": "6-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-02",
    "to": "6-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-07",
    "to": "6-14",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-04",
    "to": "6-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-02",
    "to": "6-14",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "2-14",
    "to": "7-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-15",
    "to": "7-01",
+   "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
   },
   {
    "from": "1-27",
    "to": "7-01",
-   "group": 2,
+   "kind": "requires",
+   "group": 1,
+   "or": true
+  },
+  {
+   "from": "1-46",
+   "to": "7-02",
+   "kind": "requires",
+   "group": 0,
    "or": false
   },
   {
    "from": "6-01",
    "to": "7-02",
-   "group": 0,
-   "or": false
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "3-15",
    "to": "7-02",
-   "group": 0,
-   "or": false
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "7-01",
    "to": "7-03",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "7-02",
    "to": "7-03",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-23",
    "to": "7-03",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "2-20",
    "to": "7-03",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "1-19",
    "to": "7-03",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-01",
    "to": "7-03",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "7-01",
    "to": "7-04",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "2-14",
+   "to": "7-04",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "7-03",
    "to": "7-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-05",
    "to": "7-05",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "1-32",
    "to": "7-05",
-   "group": 1,
-   "or": false
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "6-11",
    "to": "7-05",
-   "group": 1,
-   "or": false
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "2-21",
    "to": "7-05",
-   "group": 1,
-   "or": false
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "5-14",
    "to": "7-05",
-   "group": 2,
-   "or": false
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "1-29",
    "to": "7-05",
-   "group": 2,
-   "or": false
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "7-01",
    "to": "7-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-03",
    "to": "7-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-06",
    "to": "7-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-05",
    "to": "7-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-12",
    "to": "7-07",
+   "kind": "requires",
    "group": 2,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "1-03",
+   "to": "7-07",
+   "kind": "requires",
+   "group": 2,
+   "or": true
   },
   {
    "from": "7-05",
    "to": "7-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-03",
    "to": "7-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-14",
    "to": "7-09",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-10",
    "to": "7-09",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-45",
    "to": "7-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-02",
    "to": "7-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-28",
    "to": "7-10",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-04",
    "to": "7-10",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "4-10",
    "to": "7-10",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "B-02",
    "to": "7-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-01",
    "to": "7-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-04",
    "to": "7-11",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-11",
    "to": "7-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-40",
    "to": "7-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-07",
    "to": "7-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-14",
    "to": "7-12",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-02",
    "to": "7-12",
+   "kind": "requires",
    "group": 3,
    "or": true
   },
   {
    "from": "7-15",
    "to": "7-12",
+   "kind": "requires",
    "group": 3,
    "or": true
   },
   {
    "from": "2-32",
    "to": "7-12",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "1-14",
    "to": "7-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-40",
    "to": "7-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-02",
    "to": "7-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-08",
    "to": "7-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-05",
    "to": "7-13",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "0-10",
    "to": "7-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-07",
    "to": "7-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-10",
    "to": "7-14",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "6-04",
    "to": "7-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "7-05",
    "to": "7-14",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "1-21",
    "to": "7-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-02",
    "to": "7-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "3-14",
    "to": "7-15",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "4-12",
    "to": "7-15",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "3-16",
    "to": "7-15",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "1-16",
    "to": "7-15",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-01",
    "to": "7-15",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "7-20",
    "to": "7-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-19",
    "to": "7-16",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-18",
    "to": "7-16",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-31",
    "to": "7-17",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-17",
    "to": "7-17",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-14",
    "to": "7-17",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-07",
    "to": "7-17",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "7-21",
    "to": "7-17",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "7-02",
    "to": "7-17",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "7-21",
    "to": "7-17",
+   "kind": "requires",
    "group": 5,
    "or": false
   },
   {
    "from": "7-09",
    "to": "7-17",
+   "kind": "requires",
    "group": 6,
    "or": false
   },
   {
    "from": "1-30",
    "to": "7-18",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-14",
    "to": "7-18",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-17",
    "to": "7-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-07",
    "to": "7-18",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-01",
    "to": "7-18",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "8-13",
    "to": "7-18",
+   "kind": "requires",
    "group": 5,
    "or": false
   },
   {
    "from": "7-01",
    "to": "7-19",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "7-15",
    "to": "7-19",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "7-03",
    "to": "7-19",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-09",
    "to": "7-19",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-14",
    "to": "7-19",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-14",
    "to": "7-20",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-08",
    "to": "7-20",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-07",
    "to": "7-20",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-15",
    "to": "7-20",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "4-10",
    "to": "7-20",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "2-38",
    "to": "7-20",
+   "kind": "requires",
    "group": 5,
    "or": false
   },
   {
    "from": "7-15",
    "to": "7-21",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-41",
    "to": "7-21",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-01",
    "to": "7-21",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-26",
    "to": "8-01",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "1-11",
+   "to": "8-01",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "8-01",
    "to": "8-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "8-02",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "1-11",
    "to": "8-02",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "1-09",
    "to": "8-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-03",
    "to": "8-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-02",
    "to": "8-04",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "1-26",
    "to": "8-04",
-   "group": 1,
-   "or": false
+   "kind": "requires",
+   "group": 0,
+   "or": true
+  },
+  {
+   "from": "1-05",
+   "to": "8-04",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "8-03",
    "to": "8-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-04",
    "to": "8-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-11",
    "to": "8-05",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-09",
    "to": "8-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-05",
    "to": "8-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-10",
    "to": "8-06",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "6-15",
    "to": "8-06",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "8-03",
    "to": "8-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-29",
    "to": "8-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-03",
    "to": "8-07",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-02",
    "to": "8-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-05",
    "to": "8-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-11",
    "to": "8-08",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-08",
    "to": "8-08",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "8-08",
    "to": "8-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-35",
    "to": "8-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-03",
    "to": "8-09",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-06",
    "to": "8-09",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "10-15",
    "to": "8-09",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "7-04",
    "to": "8-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-03",
    "to": "8-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-05",
    "to": "8-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-28",
    "to": "8-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-10",
    "to": "8-11",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-11",
    "to": "8-11",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-02",
    "to": "8-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-05",
    "to": "8-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-07",
    "to": "8-12",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-15",
    "to": "8-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-30",
    "to": "8-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-11",
    "to": "8-13",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-04",
    "to": "8-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-10",
    "to": "8-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-09",
    "to": "8-14",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-07",
    "to": "8-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-46",
    "to": "8-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-09",
    "to": "8-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-03",
    "to": "8-15",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-13",
    "to": "8-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-07",
    "to": "8-16",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-07",
    "to": "8-16",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-10",
    "to": "8-17",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-08",
    "to": "8-17",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-06",
    "to": "8-17",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-15",
    "to": "8-18",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-03",
    "to": "8-18",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-26",
    "to": "8-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-08",
    "to": "8-18",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-01",
    "to": "9-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-01",
    "to": "9-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-02",
    "to": "9-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-02",
    "to": "9-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-01",
    "to": "9-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-07",
    "to": "9-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-28",
    "to": "9-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-10",
    "to": "9-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-01",
    "to": "9-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-07",
    "to": "9-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-01",
    "to": "9-07",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "3-14",
    "to": "9-07",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-07",
    "to": "9-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-17",
    "to": "9-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-02",
    "to": "9-08",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-12",
    "to": "9-08",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "6-07",
    "to": "9-08",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "9-11",
    "to": "9-08",
+   "kind": "requires",
    "group": 5,
    "or": false
   },
   {
    "from": "9-01",
    "to": "9-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-17",
    "to": "9-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-07",
    "to": "9-09",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "5-04",
    "to": "9-09",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "9-07",
    "to": "9-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-11",
    "to": "9-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-33",
    "to": "9-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-36",
    "to": "9-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "1-04",
    "to": "9-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-43",
    "to": "9-11",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "6-05",
    "to": "9-11",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-08",
    "to": "9-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-08",
    "to": "9-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-26",
    "to": "9-12",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-12",
    "to": "9-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-03",
    "to": "9-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-05",
    "to": "9-13",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-18",
    "to": "9-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-19",
    "to": "9-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-21",
    "to": "9-14",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "6-06",
    "to": "9-14",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "2-10",
    "to": "9-14",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "9-13",
    "to": "9-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-12",
    "to": "9-15",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "3-14",
    "to": "9-15",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "6-01",
    "to": "9-15",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-02",
    "to": "9-15",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-15",
    "to": "9-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-11",
    "to": "9-16",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-15",
    "to": "9-16",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-16",
    "to": "9-17",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-06",
    "to": "9-17",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-14",
    "to": "9-17",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-15",
    "to": "9-18",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-16",
    "to": "9-18",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-19",
    "to": "9-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-20",
    "to": "9-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-21",
    "to": "9-18",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-30",
    "to": "9-19",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "2-32",
    "to": "9-19",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "4-08",
    "to": "9-19",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-14",
    "to": "9-19",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-19",
    "to": "9-20",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-11",
    "to": "9-20",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "7-12",
    "to": "9-20",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "7-10",
    "to": "9-20",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-17",
    "to": "9-20",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-20",
    "to": "9-21",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-02",
    "to": "9-21",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "2-08",
    "to": "9-21",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "2-20",
    "to": "9-21",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-18",
    "to": "9-22",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-25",
    "to": "9-22",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-15",
    "to": "9-23",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-18",
    "to": "9-23",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-14",
    "to": "9-23",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-23",
    "to": "9-24",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-16",
    "to": "9-24",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "9-28",
    "to": "9-24",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "5-14",
    "to": "9-25",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-29",
    "to": "9-25",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-21",
    "to": "9-25",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-04",
    "to": "9-26",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-06",
    "to": "9-26",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-07",
    "to": "9-26",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-10",
    "to": "9-26",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-11",
    "to": "9-26",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-04",
    "to": "9-26",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-26",
    "to": "9-27",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-14",
    "to": "9-27",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-05",
    "to": "9-27",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-09",
    "to": "9-27",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-05",
    "to": "9-28",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-10",
    "to": "9-28",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-11",
    "to": "9-28",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-01",
    "to": "9-28",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-11",
    "to": "9-28",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-28",
    "to": "9-29",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-12",
    "to": "9-29",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "7-10",
    "to": "9-29",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "6-07",
    "to": "9-29",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-16",
    "to": "9-30",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-01",
    "to": "9-30",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "3-14",
    "to": "9-30",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "6-09",
    "to": "9-30",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-13",
    "to": "9-31",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-03",
    "to": "9-31",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-22",
    "to": "9-32",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-08",
    "to": "9-32",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-32",
    "to": "9-33",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-28",
    "to": "9-33",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-33",
    "to": "9-34",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-41",
    "to": "9-34",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "1-26",
    "to": "9-34",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "9-22",
    "to": "9-35",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-08",
    "to": "9-35",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-14",
    "to": "9-35",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-31",
    "to": "9-36",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-12",
    "to": "9-36",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-26",
    "to": "9-36",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-24",
    "to": "9-37",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-27",
    "to": "9-37",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-30",
    "to": "9-37",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-16",
    "to": "9-37",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "9-37",
    "to": "9-38",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-30",
    "to": "9-38",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-01",
    "to": "9-38",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-18",
    "to": "9-38",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-20",
    "to": "9-39",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "12-14",
    "to": "9-39",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-19",
    "to": "9-39",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-08",
    "to": "9-39",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "10-15",
    "to": "9-39",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "7-10",
    "to": "9-39",
+   "kind": "requires",
    "group": 5,
    "or": true
   },
   {
    "from": "7-20",
    "to": "9-39",
+   "kind": "requires",
    "group": 5,
    "or": true
   },
   {
    "from": "9-39",
    "to": "9-40",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-18",
    "to": "9-40",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-17",
    "to": "9-40",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-21",
    "to": "9-40",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "8-09",
    "to": "9-40",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "5-07",
    "to": "9-40",
+   "kind": "requires",
    "group": 5,
    "or": false
   },
   {
    "from": "2-33",
    "to": "9-40",
+   "kind": "requires",
    "group": 6,
    "or": false
   },
   {
    "from": "4-03",
    "to": "10-01",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "1-03",
+   "to": "10-01",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "4-01",
    "to": "10-01",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-01",
    "to": "10-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-02",
    "to": "10-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-03",
    "to": "10-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-02",
    "to": "10-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-01",
    "to": "10-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-02",
    "to": "10-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-05",
    "to": "10-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-02",
    "to": "10-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "10-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-07",
    "to": "10-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-04",
    "to": "10-09",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "9-17",
    "to": "10-09",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "10-05",
    "to": "10-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-22",
    "to": "10-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-09",
    "to": "10-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-10",
    "to": "10-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-23",
    "to": "10-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-15",
    "to": "10-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-10",
    "to": "10-12",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "10-11",
    "to": "10-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-12",
    "to": "10-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-23",
    "to": "10-13",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-15",
    "to": "10-13",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "10-13",
    "to": "10-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-14",
    "to": "10-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-04",
    "to": "10-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-06",
    "to": "10-15",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "8-08",
    "to": "10-15",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "B-11",
    "to": "10-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-40",
    "to": "10-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-04",
    "to": "11-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-08",
    "to": "11-01",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-08",
    "to": "11-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-13",
    "to": "11-02",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-08",
    "to": "11-02",
+   "kind": "requires",
    "group": 2,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "0-08",
+   "to": "11-02",
+   "kind": "requires",
+   "group": 2,
+   "or": true
   },
   {
    "from": "0-05",
    "to": "11-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-04",
    "to": "11-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-04",
    "to": "11-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-10",
    "to": "11-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-04",
    "to": "11-05",
-   "group": 0,
-   "or": false
-  },
-  {
-   "from": "6-10",
-   "to": "11-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "11-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-09",
    "to": "11-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "11-07",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "6-11",
    "to": "11-07",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "0-04",
    "to": "11-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-01",
    "to": "11-08",
+   "kind": "requires",
    "group": 1,
-   "or": false
-  },
-  {
-   "from": "4-01",
-   "to": "11-08",
-   "group": 2,
    "or": false
   },
   {
    "from": "11-08",
    "to": "11-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-39",
    "to": "11-09",
+   "kind": "understanding"
+  },
+  {
+   "from": "0-04",
+   "to": "11-10",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "0-03",
+   "to": "11-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-39",
    "to": "11-10",
-   "group": 0,
-   "or": false
-  },
-  {
-   "from": "2-16",
-   "to": "11-10",
-   "group": 1,
-   "or": false
+   "kind": "understanding"
   },
   {
    "from": "0-16",
    "to": "11-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "6-04",
    "to": "11-11",
+   "kind": "requires",
    "group": 0,
    "or": true
   },
   {
    "from": "0-02",
    "to": "11-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-14",
    "to": "11-12",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "1-26",
    "to": "11-12",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "1-30",
    "to": "11-12",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "0-02",
    "to": "11-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-03",
    "to": "11-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-21",
    "to": "11-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-08",
    "to": "11-13",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "0-04",
    "to": "11-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "11-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-12",
    "to": "11-14",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "11-10",
    "to": "11-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-09",
    "to": "11-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-12",
    "to": "11-16",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "11-16",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-11",
    "to": "12-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-10",
    "to": "12-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-04",
    "to": "12-02",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "3-05",
    "to": "12-02",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "12-02",
    "to": "12-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "12-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-09",
    "to": "12-04",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "1-26",
    "to": "12-04",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "2-14",
    "to": "12-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-30",
    "to": "12-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-09",
    "to": "12-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-15",
    "to": "12-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "12-06",
    "to": "12-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-05",
    "to": "12-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "12-06",
    "to": "12-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "12-02",
    "to": "12-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-09",
    "to": "12-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-20",
    "to": "12-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "12-04",
    "to": "12-10",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
   },
   {
    "from": "1-26",
    "to": "12-10",
-   "group": 1,
-   "or": false
+   "kind": "requires",
+   "group": 0,
+   "or": true
+  },
+  {
+   "from": "12-01",
+   "to": "12-10",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "7-04",
    "to": "12-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-04",
    "to": "12-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-08",
    "to": "12-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "11-13",
    "to": "12-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-14",
    "to": "12-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "12-12",
    "to": "12-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "12-13",
    "to": "12-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "12-12",
    "to": "12-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-03",
    "to": "12-15",
+   "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "1-03",
+   "to": "12-15",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "2-09",
    "to": "13-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-25",
    "to": "13-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-05",
    "to": "13-02",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-39",
    "to": "13-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-01",
    "to": "13-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-11",
    "to": "13-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-10",
    "to": "13-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "13-04",
    "to": "13-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "13-04",
    "to": "13-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "12-06",
    "to": "13-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-25",
    "to": "13-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-23",
    "to": "13-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-24",
    "to": "13-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "13-05",
    "to": "13-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-39",
    "to": "13-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "B-03",
    "to": "13-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "13-04",
    "to": "13-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-45",
    "to": "13-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-14",
    "to": "13-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-10",
    "to": "13-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-07",
    "to": "13-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-03",
    "to": "13-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "0-14",
    "to": "14-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-08",
    "to": "14-01",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "12-02",
    "to": "14-01",
+   "kind": "requires",
    "group": 2,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "0-11",
+   "to": "14-01",
+   "kind": "requires",
+   "group": 2,
+   "or": true
   },
   {
    "from": "4-04",
    "to": "14-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-02",
    "to": "14-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-11",
    "to": "14-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "7-04",
    "to": "14-03",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-05",
    "to": "14-03",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-02",
    "to": "14-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-14",
    "to": "14-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-02",
    "to": "14-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-08",
    "to": "14-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "14-05",
    "to": "14-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "14-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-29",
    "to": "14-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "14-07",
    "to": "14-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "8-02",
    "to": "14-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
-   "from": "8-08",
+   "from": "1-26",
    "to": "14-08",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "1-26",
    "to": "14-08",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "8-01",
    "to": "14-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-26",
    "to": "14-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "3-19",
    "to": "14-09",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "2-39",
    "to": "14-09",
+   "kind": "requires",
    "group": 2,
    "or": true
   },
   {
    "from": "14-09",
    "to": "14-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-04",
    "to": "14-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "14-09",
    "to": "14-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "14-07",
    "to": "14-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "14-09",
    "to": "14-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-29",
    "to": "14-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-29",
    "to": "14-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-39",
    "to": "14-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-05",
    "to": "14-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-08",
    "to": "14-14",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-07",
    "to": "14-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-39",
    "to": "14-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "14-09",
    "to": "14-15",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "0-06",
    "to": "15-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-11",
    "to": "15-01",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-27",
    "to": "15-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-30",
    "to": "15-02",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-43",
    "to": "15-02",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "15-01",
    "to": "15-02",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "0-08",
    "to": "15-02",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "10-03",
    "to": "15-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-29",
    "to": "15-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-01",
    "to": "15-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-12",
    "to": "15-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "8-02",
    "to": "15-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-30",
    "to": "15-05",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-01",
    "to": "15-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-03",
    "to": "15-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "15-06",
    "to": "15-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "15-07",
    "to": "15-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-03",
    "to": "15-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-02",
    "to": "15-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "4-09",
    "to": "15-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-04",
    "to": "15-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-02",
    "to": "15-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-05",
    "to": "15-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-01",
    "to": "15-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-06",
    "to": "15-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-37",
    "to": "15-12",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-15",
    "to": "15-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "B-07",
    "to": "15-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-05",
    "to": "15-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-14",
    "to": "15-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-03",
    "to": "15-15",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "15-13",
    "to": "15-15",
+   "kind": "requires",
    "group": 1,
    "or": true
   },
   {
    "from": "5-15",
    "to": "B-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-05",
    "to": "B-01",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-28",
    "to": "B-01",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-14",
    "to": "B-01",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "5-12",
    "to": "B-01",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "B-02a",
    "to": "B-02",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "B-02b",
    "to": "B-02",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-32",
    "to": "B-02a",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-04",
    "to": "B-02a",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-45",
    "to": "B-02a",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "B-02a",
    "to": "B-02b",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-32",
    "to": "B-02b",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-11",
    "to": "B-02b",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "5-05",
    "to": "B-03",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-28",
    "to": "B-03",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-10",
    "to": "B-03",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "4-11",
    "to": "B-03",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-14",
    "to": "B-03",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "5-02",
    "to": "B-04",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "5-05",
    "to": "B-04",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "4-04",
    "to": "B-04",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "7-03",
    "to": "B-05",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "2-04",
    "to": "B-06",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "3-15",
    "to": "B-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "2-23",
    "to": "B-06",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "1-44",
    "to": "B-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "1-14",
    "to": "B-07",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-11",
    "to": "B-07",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-30",
    "to": "B-07",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "10-11",
    "to": "B-08",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-22",
    "to": "B-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-24",
    "to": "B-08",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-13",
    "to": "B-09",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "10-12",
    "to": "B-09",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-39",
    "to": "B-09",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-37",
    "to": "B-10",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "7-16",
    "to": "B-10",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-14",
    "to": "B-10",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "15-13",
    "to": "B-10",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "1-42",
    "to": "B-10",
+   "kind": "requires",
    "group": 4,
    "or": false
   },
   {
    "from": "9-38",
    "to": "B-11",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-40",
    "to": "B-11",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "10-12",
    "to": "B-11",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "9-08",
    "to": "B-12",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "9-16",
    "to": "B-12",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "9-25",
    "to": "B-12",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-24",
    "to": "B-13",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "6-11",
    "to": "B-13",
+   "kind": "requires",
    "group": 1,
    "or": false
   },
   {
    "from": "6-06",
    "to": "B-13",
+   "kind": "requires",
    "group": 2,
    "or": false
   },
   {
    "from": "2-07",
    "to": "B-13",
+   "kind": "requires",
    "group": 3,
    "or": false
   },
   {
    "from": "3-15",
    "to": "B-14",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-05",
    "to": "B-15",
+   "kind": "requires",
    "group": 0,
    "or": false
   },
   {
    "from": "0-16",
    "to": "B-15",
+   "kind": "requires",
    "group": 1,
    "or": false
   }
  ],
  "year_inversions": [
-  {
-   "node": "11-10",
-   "year": -6000,
-   "requires": "2-39",
-   "requires_year": 1857,
-   "gap": 7857
-  },
-  {
-   "node": "11-10",
-   "year": -6000,
-   "requires": "2-16",
-   "requires_year": 200,
-   "gap": 6200
-  },
-  {
-   "node": "11-09",
-   "year": -4000,
-   "requires": "2-39",
-   "requires_year": 1857,
-   "gap": 5857
-  },
-  {
-   "node": "0-10",
-   "year": -9000,
-   "requires": "0-15",
-   "requires_year": -3500,
-   "gap": 5500
-  },
-  {
-   "node": "2-14",
-   "year": -2500,
-   "requires": "2-05",
-   "requires_year": 1791,
-   "gap": 4291
-  },
-  {
-   "node": "11-09",
-   "year": -4000,
-   "requires": "11-08",
-   "requires_year": -100,
-   "gap": 3900
-  },
-  {
-   "node": "11-05",
-   "year": -2000,
-   "requires": "6-10",
-   "requires_year": 1750,
-   "gap": 3750
-  },
-  {
-   "node": "0-07",
-   "year": -10000,
-   "requires": "0-06",
-   "requires_year": -7000,
-   "gap": 3000
-  },
-  {
-   "node": "0-14",
-   "year": -8000,
-   "requires": "0-08",
-   "requires_year": -5000,
-   "gap": 3000
-  },
-  {
-   "node": "11-02",
-   "year": -4000,
-   "requires": "1-08",
-   "requires_year": -1200,
-   "gap": 2800
-  },
-  {
-   "node": "11-08",
-   "year": -100,
-   "requires": "4-01",
-   "requires_year": 1878,
-   "gap": 1978
-  },
-  {
-   "node": "12-10",
-   "year": -100,
-   "requires": "1-26",
-   "requires_year": 1856,
-   "gap": 1956
-  },
-  {
-   "node": "12-10",
-   "year": -100,
-   "requires": "12-04",
-   "requires_year": 1779,
-   "gap": 1879
-  },
-  {
-   "node": "1-03",
-   "year": -5000,
-   "requires": "0-15",
-   "requires_year": -3500,
-   "gap": 1500
-  },
-  {
-   "node": "11-01",
-   "year": -6000,
-   "requires": "0-08",
-   "requires_year": -5000,
-   "gap": 1000
-  },
-  {
-   "node": "14-01",
-   "year": 984,
-   "requires": "12-02",
-   "requires_year": 1824,
-   "gap": 840
-  },
   {
    "node": "14-02",
    "year": 1088,
@@ -13976,11 +15299,11 @@
    "gap": 743
   },
   {
-   "node": "2-22",
-   "year": 1250,
-   "requires": "6-06",
-   "requires_year": 1900,
-   "gap": 650
+   "node": "6-11",
+   "year": 1300,
+   "requires": "2-01",
+   "requires_year": 1831,
+   "gap": 531
   },
   {
    "node": "11-02",
@@ -13990,67 +15313,11 @@
    "gap": 500
   },
   {
-   "node": "2-22",
-   "year": 1250,
-   "requires": "6-11",
-   "requires_year": 1648,
-   "gap": 398
-  },
-  {
    "node": "7-03",
    "year": 1650,
    "requires": "1-19",
    "requires_year": 1940,
    "gap": 290
-  },
-  {
-   "node": "6-11",
-   "year": 1648,
-   "requires": "6-09",
-   "requires_year": 1913,
-   "gap": 265
-  },
-  {
-   "node": "7-05",
-   "year": 1668,
-   "requires": "5-14",
-   "requires_year": 1912,
-   "gap": 244
-  },
-  {
-   "node": "8-04",
-   "year": 1631,
-   "requires": "1-26",
-   "requires_year": 1856,
-   "gap": 225
-  },
-  {
-   "node": "7-01",
-   "year": 1674,
-   "requires": "2-15",
-   "requires_year": 1893,
-   "gap": 219
-  },
-  {
-   "node": "7-05",
-   "year": 1668,
-   "requires": "2-21",
-   "requires_year": 1850,
-   "gap": 182
-  },
-  {
-   "node": "8-04",
-   "year": 1631,
-   "requires": "8-02",
-   "requires_year": 1797,
-   "gap": 166
-  },
-  {
-   "node": "1-41",
-   "year": 1791,
-   "requires": "1-39",
-   "requires_year": 1941,
-   "gap": 150
   },
   {
    "node": "7-03",
@@ -14067,109 +15334,11 @@
    "gap": 132
   },
   {
-   "node": "12-15",
-   "year": 1752,
-   "requires": "4-03",
-   "requires_year": 1882,
-   "gap": 130
-  },
-  {
-   "node": "2-11",
-   "year": 1777,
-   "requires": "6-06",
-   "requires_year": 1900,
-   "gap": 123
-  },
-  {
-   "node": "14-08",
-   "year": 1817,
-   "requires": "8-08",
-   "requires_year": 1940,
-   "gap": 123
-  },
-  {
    "node": "3-05",
    "year": 1709,
    "requires": "3-12",
    "requires_year": 1822,
    "gap": 113
-  },
-  {
-   "node": "1-11",
-   "year": 1740,
-   "requires": "1-07",
-   "requires_year": 1850,
-   "gap": 110
-  },
-  {
-   "node": "3-07",
-   "year": 1740,
-   "requires": "1-07",
-   "requires_year": 1850,
-   "gap": 110
-  },
-  {
-   "node": "1-41",
-   "year": 1791,
-   "requires": "6-07",
-   "requires_year": 1895,
-   "gap": 104
-  },
-  {
-   "node": "1-18",
-   "year": 1800,
-   "requires": "6-06",
-   "requires_year": 1900,
-   "gap": 100
-  },
-  {
-   "node": "7-16",
-   "year": 1878,
-   "requires": "7-19",
-   "requires_year": 1978,
-   "gap": 100
-  },
-  {
-   "node": "1-41",
-   "year": 1791,
-   "requires": "6-05",
-   "requires_year": 1890,
-   "gap": 99
-  },
-  {
-   "node": "7-16",
-   "year": 1878,
-   "requires": "7-20",
-   "requires_year": 1975,
-   "gap": 97
-  },
-  {
-   "node": "2-36",
-   "year": 1795,
-   "requires": "1-14",
-   "requires_year": 1888,
-   "gap": 93
-  },
-  {
-   "node": "7-16",
-   "year": 1878,
-   "requires": "2-18",
-   "requires_year": 1970,
-   "gap": 92
-  },
-  {
-   "node": "1-40",
-   "year": 1797,
-   "requires": "1-29",
-   "requires_year": 1886,
-   "gap": 89
-  },
-  {
-   "node": "2-20",
-   "year": 1792,
-   "requires": "3-19",
-   "requires_year": 1881,
-   "gap": 89
   },
   {
    "node": "6-01",
@@ -14179,94 +15348,10 @@
    "gap": 78
   },
   {
-   "node": "12-04",
-   "year": 1779,
-   "requires": "1-26",
-   "requires_year": 1856,
-   "gap": 77
-  },
-  {
-   "node": "9-26",
-   "year": 1852,
-   "requires": "5-06",
-   "requires_year": 1928,
-   "gap": 76
-  },
-  {
-   "node": "7-04",
-   "year": 1608,
-   "requires": "7-01",
-   "requires_year": 1674,
-   "gap": 66
-  },
-  {
-   "node": "2-07",
-   "year": 1797,
-   "requires": "2-06",
-   "requires_year": 1861,
-   "gap": 64
-  },
-  {
-   "node": "2-27",
-   "year": 1859,
-   "requires": "2-26",
-   "requires_year": 1923,
-   "gap": 64
-  },
-  {
-   "node": "2-36",
-   "year": 1795,
-   "requires": "2-39",
-   "requires_year": 1857,
-   "gap": 62
-  },
-  {
-   "node": "10-01",
-   "year": 1820,
-   "requires": "4-03",
-   "requires_year": 1882,
-   "gap": 62
-  },
-  {
-   "node": "3-09",
-   "year": 1821,
-   "requires": "4-03",
-   "requires_year": 1882,
-   "gap": 61
-  },
-  {
-   "node": "7-07",
-   "year": 1821,
-   "requires": "8-12",
-   "requires_year": 1882,
-   "gap": 61
-  },
-  {
-   "node": "2-10",
-   "year": 1771,
-   "requires": "2-01",
-   "requires_year": 1831,
-   "gap": 60
-  },
-  {
-   "node": "8-01",
-   "year": 1797,
-   "requires": "1-26",
-   "requires_year": 1856,
-   "gap": 59
-  },
-  {
    "node": "10-01",
    "year": 1820,
    "requires": "4-01",
    "requires_year": 1878,
-   "gap": 58
-  },
-  {
-   "node": "B-01",
-   "year": 1879,
-   "requires": "5-12",
-   "requires_year": 1937,
    "gap": 58
   },
   {
@@ -14284,53 +15369,11 @@
    "gap": 53
   },
   {
-   "node": "7-02",
-   "year": 1839,
-   "requires": "3-15",
-   "requires_year": 1892,
-   "gap": 53
-  },
-  {
-   "node": "B-07",
-   "year": 1907,
-   "requires": "9-30",
-   "requires_year": 1960,
-   "gap": 53
-  },
-  {
-   "node": "9-26",
-   "year": 1852,
-   "requires": "4-11",
-   "requires_year": 1904,
-   "gap": 52
-  },
-  {
-   "node": "11-12",
-   "year": 1804,
-   "requires": "1-26",
-   "requires_year": 1856,
-   "gap": 52
-  },
-  {
    "node": "5-16",
    "year": 1890,
    "requires": "1-39",
    "requires_year": 1941,
    "gap": 51
-  },
-  {
-   "node": "8-13",
-   "year": 1880,
-   "requires": "8-11",
-   "requires_year": 1931,
-   "gap": 51
-  },
-  {
-   "node": "6-01",
-   "year": 1800,
-   "requires": "1-07",
-   "requires_year": 1850,
-   "gap": 50
   },
   {
    "node": "1-36",
@@ -14345,13 +15388,6 @@
    "requires": "8-07",
    "requires_year": 1931,
    "gap": 49
-  },
-  {
-   "node": "B-07",
-   "year": 1907,
-   "requires": "9-11",
-   "requires_year": 1955,
-   "gap": 48
   },
   {
    "node": "10-03",
@@ -14382,13 +15418,6 @@
    "gap": 44
   },
   {
-   "node": "9-26",
-   "year": 1852,
-   "requires": "6-07",
-   "requires_year": 1895,
-   "gap": 43
-  },
-  {
    "node": "7-04",
    "year": 1608,
    "requires": "7-03",
@@ -14396,25 +15425,11 @@
    "gap": 42
   },
   {
-   "node": "8-13",
-   "year": 1880,
-   "requires": "8-15",
-   "requires_year": 1921,
-   "gap": 41
-  },
-  {
    "node": "2-05",
    "year": 1791,
    "requires": "2-01",
    "requires_year": 1831,
    "gap": 40
-  },
-  {
-   "node": "14-08",
-   "year": 1817,
-   "requires": "1-26",
-   "requires_year": 1856,
-   "gap": 39
   },
   {
    "node": "14-03",
@@ -14459,13 +15474,6 @@
    "gap": 33
   },
   {
-   "node": "5-02",
-   "year": 1904,
-   "requires": "5-12",
-   "requires_year": 1937,
-   "gap": 33
-  },
-  {
    "node": "7-15",
    "year": 1920,
    "requires": "1-16",
@@ -14494,11 +15502,11 @@
    "gap": 30
   },
   {
-   "node": "14-08",
-   "year": 1817,
-   "requires": "14-07",
-   "requires_year": 1845,
-   "gap": 28
+   "node": "8-16",
+   "year": 1981,
+   "requires": "8-13",
+   "requires_year": 2010,
+   "gap": 29
   },
   {
    "node": "3-18",
@@ -14575,13 +15583,6 @@
    "year": 1871,
    "requires": "1-14",
    "requires_year": 1888,
-   "gap": 17
-  },
-  {
-   "node": "3-16",
-   "year": 1920,
-   "requires": "5-12",
-   "requires_year": 1937,
    "gap": 17
   },
   {
@@ -14744,6 +15745,13 @@
    "requires": "4-03",
    "requires_year": 1882,
    "gap": 8
+  },
+  {
+   "node": "9-37",
+   "year": 1999,
+   "requires": "7-16",
+   "requires_year": 2006,
+   "gap": 7
   },
   {
    "node": "B-11",
@@ -14912,6 +15920,13 @@
    "requires": "9-01",
    "requires_year": 1952,
    "gap": 2
+  },
+  {
+   "node": "1-41",
+   "year": 1940,
+   "requires": "1-39",
+   "requires_year": 1941,
+   "gap": 1
   },
   {
    "node": "9-08",
