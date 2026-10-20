@@ -53,8 +53,8 @@ public final class Survival {
     public static final ToolMaterial HAND_AXE_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_WOODEN_TOOL, 80, 3.0f, 1.0f, 5, KNAPPING_STONES);
 
     public static final Item HAMMERSTONE           = Reg.item("hammerstone", HammerstoneItem::new, new Item.Properties().stacksTo(1));
-    public static final Item FLINT_FLAKE           = Reg.item("flint_flake", new Item.Properties().sword(FLINT_FLAKE_MATERIAL, 1.0f, -1.8f));
-    public static final Item OBSIDIAN_FLAKE        = Reg.item("obsidian_flake", new Item.Properties().sword(OBSIDIAN_FLAKE_MATERIAL, 1.0f, -1.8f));
+    public static final Item FLINT_FLAKE           = Reg.item("flint_flake", FlakeItem::new, new Item.Properties().sword(FLINT_FLAKE_MATERIAL, 1.0f, -1.8f));
+    public static final Item OBSIDIAN_FLAKE        = Reg.item("obsidian_flake", FlakeItem::new, new Item.Properties().sword(OBSIDIAN_FLAKE_MATERIAL, 1.0f, -1.8f));
     public static final Item HAND_AXE              = Reg.item("hand_axe", new Item.Properties().axe(HAND_AXE_MATERIAL, 5.0f, -3.4f));
     // --- [0-03] 土器（約2万年前〜）。粘土は約500〜600℃で結晶水が抜け、もう水で戻らない ---
     public static final Item RAW_CLAY_POT          = Reg.item("raw_clay_pot", new Item.Properties().stacksTo(16));

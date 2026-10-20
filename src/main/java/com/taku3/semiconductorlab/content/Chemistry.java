@@ -73,6 +73,18 @@ public final class Chemistry {
     // ===== ブロック =====
     public static final Block TRONA_DEPOSIT  = Reg.ore("trona_deposit", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.0f).sound(SoundType.STONE));
 
+    // --- IMP3（O-005）[2-31] アスファルト：ニエプスのヘリオグラフ（1826ごろ）＝レジストの一番古い祖先。原油は使わない（地表の天然アスファルト） ---
+    public static final Item ASPHALT               = Reg.item("asphalt");           // 瀝青（天然アスファルト。重い炭化水素の混ざり物）
+    public static final Item PINE_RESIN            = Reg.item("pine_resin");        // 松やに（トウヒの丸太を剥片で傷つける）
+    public static final Item TURPENTINE            = Reg.item("turpentine");        // テレビン油（松やにを蒸留した軽い油。瀝青を溶かす溶剤）
+    public static final Item BITUMEN_VARNISH       = Reg.item("bitumen_varnish");   // 瀝青をテレビン油に溶かした感光液
+    public static final Item PEWTER_PLATE          = Reg.item("pewter_plate");      // ピューター（スズ＋鉛）の板
+    public static final Block NATURAL_ASPHALT = Reg.ore("natural_asphalt", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(1.2f).sound(SoundType.STONE));
+    public static final Block HELIOGRAPH_PLATE = Reg.functional("heliograph_plate", HeliographPlateBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5f).sound(SoundType.METAL).noOcclusion().randomTicks());
+    public static final Block HELIOGRAPH      = Reg.functional("heliograph", p -> new Block(p) {
+            @Override protected net.minecraft.world.phys.shapes.VoxelShape getShape(net.minecraft.world.level.block.state.BlockState s, net.minecraft.world.level.BlockGetter l, net.minecraft.core.BlockPos pos, net.minecraft.world.phys.shapes.CollisionContext c) { return Block.box(1, 0, 1, 15, 1, 15); }
+        }, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(0.5f).sound(SoundType.METAL).noOcclusion());
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）
     public static final Machine<WoodRetortBlockEntity> WOOD_RETORT = Machine.builder("wood_retort", WoodRetortBlockEntity::new)

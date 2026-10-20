@@ -56,3 +56,11 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - GameTest testworld（SurvivalTests）：テストの場所から 2000 ブロック離れた所に建て（上に建てると塩田のテストの空をふさいで落ちた）、311 ブロックがすべて計画どおり。テスト 138/138
 - 共通ファイルの変更（S-001 の指示の範囲＋登録に要る最小限）：content/Content.java に Testing.init() の1行、lang の common 部品に試験用電源の6キー、CLAUDE.md の手順に gen_testworld.py の1行、docs/test_queue/general.md に1節、API_26X に2行
 - 決めたこと（小）：「章」は幹ごとの列にした（石器時代＝幹0、ゲルマニウム・シリコン＝幹9 など。v0.3 の本線の物は各幹の列に入る）。作物はブロックにせず種としてチェストへ
+
+## O-005 担当の変更：幹2 の有機・高分子（2026-10-20 ユーザーの決定）
+- ユーザー不在の間の決まり：INBOX の待ちは6時間、許可の確認が出る操作と判断が要る件は LOG と Discord に書いて飛ばす（CLAUDE.local.md に書いた）
+- ✅ [2-31] アスファルト（ヘリオグラフ、遊び方: 実験）：天然アスファルト natural_asphalt（荒野・砂漠の地表近く、ModWorldGen に1行）→ 瀝青。剥片でトウヒ → 松やに → かまど → テレビン油（item/FlakeItem：[0-01] の剥片に使い道を足した）。瀝青＋テレビン油 → 感光液、スズ2＋鉛1 → ピューター板3、感光液＋板 → ヘリオグラフの板（block/HeliographPlateBlock）：昼に板の真上が空まで空気かガラスならランダムtick で露光（4段）、テレビン油で洗うと露光しきれば像・足りなければ全部溶けて板が戻る。GameTest heliograph・ore_natural_asphalt、CHEMISTRY H1〜H4（docs/chemistry/2_chemistry.md）、REFERENCES C1（新しい節「化学・有機と高分子（IMP3）」）。テスト 154/154
+  - 決めたこと（小）：洗う溶剤はニエプスのラベンダー油の代わりにテレビン油（ラベンダーがバニラに無いため。INBOX の「ラベンダー油など」の範囲、placeholder に明記）。像の形は決まった絵
+  - 失敗から：日なたの判定を空の光の値でしたら、テストでは光の計算がまだ追いつかず、石の下でも固まった → 板の真上を空まで調べる（propagatesSkylightDown）に変えた
+  - 共通ファイル：ModWorldGen に1行、MetallurgyTests.ore_biome_rules に期待値1行、mineable/pickaxe タグに1つ
+  - Gradle のデーモンが1回消えた（ほかの担当のビルドと重なってメモリ不足とみられる）→ 回し直して通った

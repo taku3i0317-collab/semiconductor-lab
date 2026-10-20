@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tin_ingot",
+    "semiconductor-lab:tin_ingot",
+    "semiconductor-lab:lead_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:pewter_plate",
+    "count": 3
+  }
+}

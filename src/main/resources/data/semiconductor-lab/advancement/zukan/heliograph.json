@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:heliograph"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.heliograph"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.heliograph.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.heliograph.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:heliograph"
+          }
+        ]
+      }
+    }
+  }
+}

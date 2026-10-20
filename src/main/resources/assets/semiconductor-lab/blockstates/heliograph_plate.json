@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "exposure=0": {
+      "model": "semiconductor-lab:block/heliograph_plate_0"
+    },
+    "exposure=1": {
+      "model": "semiconductor-lab:block/heliograph_plate_1"
+    },
+    "exposure=2": {
+      "model": "semiconductor-lab:block/heliograph_plate_2"
+    },
+    "exposure=3": {
+      "model": "semiconductor-lab:block/heliograph_plate_3"
+    },
+    "exposure=4": {
+      "model": "semiconductor-lab:block/heliograph_plate_4"
+    }
+  }
+}

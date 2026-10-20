@@ -1276,6 +1276,26 @@
 
 ---
 
+# 化学・有機と高分子（IMP3、O-005〜）
+
+## C1. 光で固まる瀝青＝レジストの一番古い祖先（ニエプスのヘリオグラフ）［2-31］
+**答え**：天然アスファルト（瀝青）は、紫外線を含む日光を浴びると酸化して分子どうしが橋かけされ、油（溶剤）に溶けなくなる。ニエプスは瀝青を溶剤に溶かしてピューター板に塗り、光に当て、ラベンダー油と白い石油の混合液で光の当たらなかった所を洗い流した。こうして残った像が、現存する最古の写真『ル・グラの窓からの眺め』（1826〜27年ごろ）。光の当たった所が残るので、今のネガ型フォトレジストと同じしくみ。
+
+- へえ①：最初の写真と IC の作り方は同じ原理（塗る → 光を当てる → 溶かす）。
+- へえ②：天然アスファルトは、地下の油が地表で軽い成分を失った残り（死海・トリニダードのピッチ湖・ラ・ブレア）。
+- へえ③：露光には晴れた日で少なくとも8時間、数日かかったという説もある⚠️。遅すぎて、ダゲールの銀板写真（1839）に取って代わられた。
+- へえ④：「リソグラフィー（石版印刷）」という名前も、版画から来ている。
+
+確かさ：瀝青が光で溶けなくなること・ニエプスの方法 ◎／最古の写真の年（1826〜27）○／露光時間 △（8時間説〜数日説）→ ⚠️／テレビン油は ゲームでのラベンダー油の代わり（溶かす働きは同じ）
+根拠：
+- Wikipedia「View from the Window at Le Gras」：https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras
+- Wikipedia「Nicéphore Niépce」：https://en.wikipedia.org/wiki/Nic%C3%A9phore_Ni%C3%A9pce
+- Harry Ransom Center（テキサス大学）「The Niépce Heliograph」：https://www.hrc.utexas.edu/niepce-heliograph/
+- Wikipedia「Bitumen」（天然アスファルト、ユダヤのアスファルト）：https://en.wikipedia.org/wiki/Bitumen
+- Wikipedia「Turpentine」：https://en.wikipedia.org/wiki/Turpentine
+
+---
+
 # 第1章 ゲルマニウム（v0.1）
 
 ---

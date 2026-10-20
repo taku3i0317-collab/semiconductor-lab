@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "semiconductor-lab:block/heliograph_plate_3"
+  }
+}

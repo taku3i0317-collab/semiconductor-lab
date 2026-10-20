@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:asphalt",
+    "semiconductor-lab:turpentine"
+  ],
+  "result": {
+    "id": "semiconductor-lab:bitumen_varnish",
+    "count": 1
+  }
+}

@@ -20,7 +20,8 @@ public class ModWorldGen {
             TRONA_DEPOSIT = key("trona_deposit"), ROCK_SALT_ORE = key("rock_salt_ore"), BORAX_DEPOSIT = key("borax_deposit"), QUARTZ_VEIN = key("quartz_vein"),
             MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"),
             FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"),
-            NITRE_EARTH = key("nitre_earth_block");
+            NITRE_EARTH = key("nitre_earth_block"),
+            NATURAL_ASPHALT = key("natural_asphalt");
 
     /** 鉱石1つぶんの生成ルール：どの placed feature を、どのバイオームの選び方で入れるか（GameTest が全バイオームに対して直接調べる） */
     public record OreRule(ResourceKey<PlacedFeature> feature, Predicate<BiomeSelectionContext> biomes) {}
@@ -50,6 +51,8 @@ public class ModWorldGen {
             // [1-33] ホウ砂：砂漠だけ（トロナと同じ塩湖の蒸発岩。シアールズ湖では両方が出る）。トロナより少ない
             new OreRule(BORAX_DEPOSIT, BiomeSelectors.includeByKey(Biomes.DESERT)),
             // [6-04] 岩塩：乾燥バイオーム（砂漠・荒野）の地下の石だけ（古い海の蒸発岩層）
+            // [2-31] 天然アスファルト（IMP3）：荒野・砂漠の地表近く（死海やタール坑のように、地下の油が地表で軽い成分を失って残った瀝青）。原油は作らない
+            new OreRule(NATURAL_ASPHALT, BiomeSelectors.tag(BiomeTags.IS_BADLANDS).or(BiomeSelectors.includeByKey(Biomes.DESERT))),
             new OreRule(ROCK_SALT_ORE, BiomeSelectors.includeByKey(Biomes.DESERT).or(BiomeSelectors.tag(BiomeTags.IS_BADLANDS))));
 
     public static void initialize() {

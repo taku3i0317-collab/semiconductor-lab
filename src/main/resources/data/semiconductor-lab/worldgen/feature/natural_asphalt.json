@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 0.0,
+  "size": 10,
+  "targets": [
+    {
+      "state": "semiconductor-lab:natural_asphalt",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:sand"
+      }
+    },
+    {
+      "state": "semiconductor-lab:natural_asphalt",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:red_sand"
+      }
+    },
+    {
+      "state": "semiconductor-lab:natural_asphalt",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:sandstone"
+      }
+    },
+    {
+      "state": "semiconductor-lab:natural_asphalt",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:terracotta"
+      }
+    },
+    {
+      "state": "semiconductor-lab:natural_asphalt",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:red_sandstone"
+      }
+    }
+  ]
+}

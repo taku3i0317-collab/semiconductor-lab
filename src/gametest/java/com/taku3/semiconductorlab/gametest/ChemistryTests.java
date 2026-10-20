@@ -362,6 +362,73 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-31] アスファルト：ニエプスのヘリオグラフ（IMP3、O-005）
+    // =====================================================================
+
+    /** [2-31] 天然アスファルトの生成：砂・赤い砂・砂岩・テラコッタだけを置き換える（石は残る） */
+    @GameTest public void oreNaturalAsphalt(GameTestHelper h) { oreFeature(h, "natural_asphalt", Blocks.SAND, Blocks.STONE, Chemistry.NATURAL_ASPHALT,
+            st -> st.is(Blocks.SAND) || st.is(Blocks.RED_SAND) || st.is(Blocks.SANDSTONE) || st.is(Blocks.TERRACOTTA) || st.is(Blocks.RED_SANDSTONE)); }
+
+    /**
+     * 天然アスファルト → 瀝青。剥片でトウヒから松やに → かまど → テレビン油。瀝青＋テレビン油 → 感光液、スズ2＋鉛1 → ピューター板3、感光液＋板 → ヘリオグラフの板。
+     * 板はブロックの影では固まらない（空の光が日光のときだけ進む）。洗う：固まりきっていれば像、足りなければ全部溶けて板が戻る
+     */
+    @GameTest
+    public void heliograph(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        floor(h, 5);
+        // 材料の鎖
+        var drops = Block.getDrops(Chemistry.NATURAL_ASPHALT.defaultBlockState(), lv, h.absolutePos(p(1, 1, 1)), null, null, new ItemStack(Items.IRON_PICKAXE));
+        h.assertTrue(drops.stream().anyMatch(st -> st.is(Chemistry.ASPHALT)), "natural asphalt -> bitumen");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.PINE_RESIN).is(Chemistry.TURPENTINE), "pine resin distilled -> turpentine");
+        h.assertTrue(recipeUses(h, "bitumen_varnish", Chemistry.ASPHALT) && recipeUses(h, "bitumen_varnish", Chemistry.TURPENTINE), "bitumen + turpentine -> varnish");
+        h.assertTrue(recipeUses(h, "pewter_plate", Metallurgy.TIN_INGOT) && recipeUses(h, "pewter_plate", Metallurgy.LEAD_INGOT), "pewter = tin + lead");
+        h.assertTrue(recipeUses(h, "heliograph_plate", Chemistry.BITUMEN_VARNISH) && recipeUses(h, "heliograph_plate", Chemistry.PEWTER_PLATE), "varnish on pewter -> heliograph plate");
+        h.assertTrue(lv.registryAccess().lookupOrThrow(Registries.PLACED_FEATURE).get(SemiconductorLab.id("natural_asphalt")).isPresent(), "placed feature natural_asphalt");
+        // 剥片でトウヒから松やに（剥片は1傷む）
+        BlockPos log = p(3, 1, 3);
+        h.setBlock(log, Blocks.SPRUCE_LOG);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Survival.FLINT_FLAKE));
+        BlockPos la = h.absolutePos(log);
+        var ctx = new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND,
+                new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(la), net.minecraft.core.Direction.NORTH, la, false));
+        h.assertTrue(player.getMainHandItem().getItem().useOn(ctx) == net.minecraft.world.InteractionResult.SUCCESS, "flake taps the spruce");
+        h.assertTrue(!h.getEntities(net.minecraft.world.entity.EntityTypes.ITEM).stream().noneMatch(e -> e.getItem().is(Chemistry.PINE_RESIN)), "pine resin oozes out");
+        h.assertValueEqual(player.getMainHandItem().getDamageValue(), 1, "the flake wears by 1");
+        h.assertFalse(com.taku3.semiconductorlab.item.FlakeItem.isConiferLog(Blocks.STRIPPED_SPRUCE_LOG.defaultBlockState()), "no resin from stripped logs");
+
+        // 露光：影（上に石）では進まない。空の下では、日光のときだけ進む
+        var E = com.taku3.semiconductorlab.block.HeliographPlateBlock.EXPOSURE;
+        BlockPos shade = p(1, 1, 1), open = p(3, 1, 1);
+        h.setBlock(shade, Chemistry.HELIOGRAPH_PLATE);
+        h.setBlock(shade.above(), Blocks.STONE);
+        h.setBlock(open, Chemistry.HELIOGRAPH_PLATE);
+        RandomSource rnd = RandomSource.create(7);
+        for (int i = 0; i < 5; i++) {
+            h.getBlockState(shade).randomTick(lv, h.absolutePos(shade), rnd);
+            h.getBlockState(open).randomTick(lv, h.absolutePos(open), rnd);
+        }
+        h.assertValueEqual(h.getBlockState(shade).getValue(E), 0, "in the shade of a block the bitumen does not harden");
+        h.setBlock(p(4, 2, 4), Blocks.GLASS);
+        h.assertTrue(com.taku3.semiconductorlab.block.HeliographPlateBlock.openToSky(lv, h.absolutePos(p(4, 1, 4))), "light reaches the plate through glass");
+        h.assertFalse(com.taku3.semiconductorlab.block.HeliographPlateBlock.openToSky(lv, h.absolutePos(shade)), "not under stone");
+        boolean sun = com.taku3.semiconductorlab.block.HeliographPlateBlock.sunlit(lv, h.absolutePos(open));
+        h.assertValueEqual(h.getBlockState(open).getValue(E), sun ? com.taku3.semiconductorlab.block.HeliographPlateBlock.MAX_EXPOSURE : 0, "open sky hardens only in daylight (sunlit=" + sun + ")");
+        // 洗う
+        h.setBlock(open, Chemistry.HELIOGRAPH_PLATE.defaultBlockState().setValue(E, com.taku3.semiconductorlab.block.HeliographPlateBlock.MAX_EXPOSURE));
+        h.assertTrue(com.taku3.semiconductorlab.block.HeliographPlateBlock.wash(lv, h.absolutePos(open), h.getBlockState(open)), "fully exposed -> image");
+        h.assertTrue(h.getBlockState(open).is(Chemistry.HELIOGRAPH), "heliograph remains");
+        h.setBlock(shade.above(), Blocks.AIR);
+        h.setBlock(shade, Chemistry.HELIOGRAPH_PLATE.defaultBlockState().setValue(E, 2));
+        h.assertFalse(com.taku3.semiconductorlab.block.HeliographPlateBlock.wash(lv, h.absolutePos(shade), h.getBlockState(shade)), "under-exposed -> all dissolves");
+        h.assertTrue(h.getBlockState(shade).isAir(), "plate washed away");
+        h.assertTrue(h.getEntities(net.minecraft.world.entity.EntityTypes.ITEM).stream().anyMatch(e -> e.getItem().is(Chemistry.PEWTER_PLATE)), "the pewter plate comes back");
+        LOG.info("[LAB] heliograph [2-31]: asphalt -> bitumen, resin -> turpentine, varnish on pewter; shade 0, open {} (sunlit={}); washed -> image / dissolved", h.getBlockState(open), sun);
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

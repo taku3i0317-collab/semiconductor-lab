@@ -143,6 +143,14 @@ ammonium_chloride  # Chemistry [1-18] 1800
 chloroplatinic_acid  # Chemistry [1-18] 1800
 hydrogen_peroxide  # Chemistry [2-19] 1818
 peroxide_cell  # Chemistry [2-19] 1818
+asphalt  # Chemistry [2-31] 1826
+pine_resin  # Chemistry [2-31] 1826
+turpentine  # Chemistry [2-31] 1826
+bitumen_varnish  # Chemistry [2-31] 1826
+pewter_plate  # Chemistry [2-31] 1826
+natural_asphalt  # Chemistry [2-31] 1826
+heliograph_plate  # Chemistry [2-31] 1826
+heliograph  # Chemistry [2-31] 1826
 sulfur_powder  # Chemistry [2-01] 1831
 sulfur_dioxide  # Chemistry [2-01] 1831
 sulfuric_acid  # Chemistry [2-01] 1831
