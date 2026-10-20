@@ -292,6 +292,89 @@ def year_inversions(nodes):
     return sorted(out, key=lambda r: -r[4])
 
 
+VANILLA_JA = {"sand": "砂", "iron_ingot": "鉄インゴット", "copper_ingot": "銅インゴット", "gold_nugget": "金塊（粒）", "iron_nugget": "鉄の粒",
+              "copper_nugget": "銅の粒", "coal": "石炭", "charcoal": "木炭", "clay_ball": "粘土玉", "bone_meal": "骨粉", "brick": "れんが",
+              "bucket": "バケツ", "water_bucket": "水入りバケツ", "calcite": "方解石", "cauldron": "大釜", "cinnabar": "辰砂", "leather": "革",
+              "planks": "木材", "potent_sulfur": "強力な硫黄", "redstone": "レッドストーン", "stick": "棒", "sulfur": "硫黄ブロック",
+              "sulfur_spike": "尖った硫黄"}
+
+
+def node_details(nodes, icons):
+    """ノード詳細ページ（docs/node.html）用：本物の全文、へえ①〜④、出典（REFERENCES）、ゲームでの作り方（MOD のレシピ JSON と lang）"""
+    res = ROOT / "src" / "main" / "resources"
+    ja = json.loads((res / "assets" / "semiconductor-lab" / "lang" / "ja_jp.json").read_text(encoding="utf-8"))
+    def lang(key):
+        for p in ("item.", "block."):
+            if p + key in ja:
+                return ja[p + key]
+        return None
+    def ja_name(full):
+        ns, _, k = full.replace("#", "").partition(":")
+        if ns == "semiconductor-lab":
+            return lang("semiconductor-lab." + k) or k
+        return VANILLA_JA.get(k, k)
+    # MOD のレシピ JSON → 出てくるアイテムごと
+    recipes = defaultdict(list)
+    for f in sorted((res / "data" / "semiconductor-lab" / "recipe").glob("*.json")):
+        r = json.loads(f.read_text(encoding="utf-8"))
+        out = r.get("result", {})
+        out_id = out.get("id") if isinstance(out, dict) else out
+        cnt = out.get("count", 1) if isinstance(out, dict) else 1
+        typ = r.get("type", "").split(":")[-1]
+        if typ in ("crafting_shaped", "crafting_shapeless"):
+            ings = r.get("ingredients") or [r["key"][c] for row in r["pattern"] for c in row if c != " "]
+            cnt_by = defaultdict(int)
+            for x in ings:
+                cnt_by[ja_name(x if isinstance(x, str) else x.get("item", str(x)))] += 1
+            how = "作業台：" + " ＋ ".join(f"{k}×{v}" if v > 1 else k for k, v in cnt_by.items())
+        elif typ in ("smelting", "blasting"):
+            src = r.get("ingredient"); src = src if isinstance(src, str) else src.get("item", "")
+            how = ("かまど" if typ == "smelting" else "溶鉱炉") + "：" + ja_name(src) + " を焼く"
+        else:
+            continue
+        recipes[out_id].append(how + f" → {ja_name(out_id)}" + (f"×{cnt}" if cnt > 1 else ""))
+    # REFERENCES.md の項目（見出しの［番号］で対応）
+    refs = defaultdict(list)
+    ref_text = (ROOT / "docs" / "REFERENCES.md").read_text(encoding="utf-8")
+    for sec in re.split(r"\n(?=## )", ref_text):
+        head = sec.split("\n", 1)[0]
+        ids = re.findall(r"［(\d+|B)-(\d+[a-z]?)", head)
+        if not head.startswith("## ") or not ids:
+            continue
+        get = lambda pat: (re.search(pat + r"[:：]\s*(.*)", sec) or [None, ""])[1].strip()
+        hees = {k: get(r"- へえ" + c) for k, c in (("1", "①"), ("2", "②"), ("3", "③"), ("4", "④"))}
+        item = {"title": head[3:].strip(), "answer": re.sub(r"\*\*", "", get(r"\*\*答え\*\*")), "hee": hees,
+                "certainty": get(r"確かさ"), "basis": get(r"根拠")}
+        for t, num in ids:
+            refs[f"{t}-{num}"].append(item)
+    out = {}
+    for i, n in nodes.items():
+        body = n["body"]
+        real = re.search(r"本物[:：]\s*(.*?)(?:／|$)", body, re.S)
+        tree_hee = {k: (re.search(r"へえ" + c + r"[:：]\s*(.*?)(?:／|\n|$)", body) or [None, ""])[1].strip()
+                    for k, c in (("2", "②"), ("3", "③"), ("4", "④"))}
+        item_id = None
+        if i in icons:
+            item_id = re.sub(r"_(front|side|top|bottom)$", "", icons[i].split("/", 1)[1])
+        game = {}
+        if item_id:
+            for s in ("note1", "note2", "note3", "note4"):
+                v = lang(f"semiconductor-lab.{item_id}.{s}") or (lang(f"semiconductor-lab.{item_id}.note") if s == "note2" else None)
+                if v:
+                    game[s] = v
+        out[i] = {"real_full": re.sub(r"\*\*|`", "", real.group(1)).strip() if real else "",
+                  "hee_tree": tree_hee, "hee_game": game, "refs": refs.get(i, []),
+                  "item": item_id, "recipes": recipes.get(f"semiconductor-lab:{item_id}", []) if item_id else [],
+                  "placeholder": lang(f"semiconductor-lab.{item_id}.placeholder") if item_id else None,
+                  "game_text": field_all(body, r"ゲーム") or field_all(body, r"MC入手") or field_all(body, r"MC")}
+    return out
+
+
+def field_all(body, pat):
+    m = re.search(r"(?:^|／|\s)" + pat + r"[:：]\s*(.*?)(?:／|$)", body, re.S)
+    return re.sub(r"\*\*|`", "", m.group(1)).strip()[:600] if m else ""
+
+
 def export_json(nodes):
     """技術ネットワーク図（ROADMAP 技術ネットワーク ②）の元データ。ノード・つながり・子孫の数"""
     succ = defaultdict(set)
@@ -319,10 +402,11 @@ def export_json(nodes):
     def icon_uri(rel):
         p = TEX / (rel + ".png")
         return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode() if p.exists() else None
+    details = node_details(nodes, icons)
     out_nodes, edges = [], []
     for i in sorted(nodes, key=sort_key):
         n = nodes[i]
-        out_nodes.append({"id": i, "name": n["name"], "trunk": trunk_of(i), "trunk_name": TRUNK_NAMES.get(trunk_of(i), ""),
+        out_nodes.append({**details.get(i, {}),"id": i, "name": n["name"], "trunk": trunk_of(i), "trunk_name": TRUNK_NAMES.get(trunk_of(i), ""),
                           "status": n["st"], "branch": n["branch"], "year": n["year"], "year_range": n["year_range"],
                           "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
                           "understanding": n["understand"], "buildable_now": i in now,

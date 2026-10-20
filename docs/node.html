@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技術の詳細</title>
+<!-- 1枚のページで、URL の #番号（例 node.html#9-07）を見て中身を表示する。データは tech_network.js（tools/gen_tree_views.py が書き出す） -->
+<style>
+:root { --bg: #f7f6f2; --panel: #ffffff; --ink: #1f2328; --sub: #5b6470; --line: #d9d6cc; --accent: #2f6fdd; --warn: #b26b00; --ok: #2e8b57; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) { --bg: #15171b; --panel: #1e2127; --ink: #e8e6e1; --sub: #a0a7b2; --line: #343842; --accent: #7aa7ff; --warn: #ffb347; --ok: #6fcf97; }
+}
+:root[data-theme="dark"] { --bg: #15171b; --panel: #1e2127; --ink: #e8e6e1; --sub: #a0a7b2; --line: #343842; --accent: #7aa7ff; --warn: #ffb347; --ok: #6fcf97; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.7 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif; }
+.wrap { max-width: 780px; margin: 0 auto; padding: 12px 16px 48px; }
+nav { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; font-size: 13px; padding: 6px 0 10px; }
+nav a { color: var(--accent); text-decoration: none; }
+nav input { font: inherit; padding: 4px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--ink); width: 180px; max-width: 100%; }
+header.top { display: flex; gap: 14px; align-items: center; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+header.top .ic { width: 56px; height: 56px; flex: none; display: grid; place-items: center; border-radius: 12px; background: var(--bg); border: 2px solid var(--line); font-size: 32px; }
+header.top .ic img { width: 48px; height: 48px; image-rendering: pixelated; }
+header.top h1 { font-size: 20px; margin: 0; line-height: 1.3; }
+header.top .meta { color: var(--sub); font-size: 13px; }
+.badge { display: inline-block; font-size: 12px; border-radius: 999px; padding: 0 8px; border: 1px solid var(--line); margin-right: 4px; }
+.badge.ok { color: var(--ok); border-color: var(--ok); }
+.badge.warn { color: var(--warn); border-color: var(--warn); }
+section { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-top: 12px; }
+section h2 { font-size: 15px; margin: 0 0 8px; }
+.hee { display: grid; grid-template-columns: 4.5em 1fr; gap: 6px 10px; }
+.hee .lv { color: var(--sub); font-size: 12px; padding-top: 2px; }
+.muted { color: var(--sub); font-size: 13px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 10px; font-size: 13px; color: var(--ink); text-decoration: none; background: var(--bg); }
+.chip:hover { border-color: var(--accent); }
+.chip.done { border-color: var(--ok); }
+.people { display: grid; gap: 8px; }
+.person { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; background: var(--bg); }
+.person svg { flex: none; }
+.person b { display: block; }
+.big { font-size: 26px; font-weight: 700; color: var(--accent); line-height: 1.2; }
+ol.path { padding-left: 1.4em; margin: 6px 0; }
+ol.path li { margin: 2px 0; }
+ol.path .or { color: var(--sub); font-size: 13px; }
+.ref { border-left: 3px solid var(--accent); padding: 2px 10px; margin: 6px 0; }
+table.gap { border-collapse: collapse; width: 100%; font-size: 13px; }
+table.gap td { border-top: 1px solid var(--line); padding: 4px 6px; vertical-align: top; }
+.btn { display: inline-block; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 6px 12px; text-decoration: none; font-size: 14px; }
+del { color: var(--sub); }
+@media (max-width: 480px) { .hee { grid-template-columns: 1fr; } .hee .lv { padding: 0; } header.top h1 { font-size: 18px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a href="network.html" id="back">← 技術ネットワーク図へ</a>
+    <input type="search" id="go" placeholder="番号か名前で移動（例 9-07）" aria-label="ノードへ移動">
+  </nav>
+  <main id="page"><p class="muted">読み込み中…</p></main>
+</div>
+<script src="tech_network.js"></script>
+<script>
+(async function () {
+  const data = window.TECH_NETWORK || await fetch('tech_network.json').then(r => r.json());
+  const REPO = 'https://github.com/taku3i0317-collab/semiconductor-lab';
+  const nodes = data.nodes, byId = new Map(nodes.map(n => [n.id, n]));
+  const isProd = n => n.kind === 'product';
+  const kids = new Map(), parentsOf = new Map();
+  for (const e of data.edges) if (e.kind === 'requires') {
+    (kids.get(e.from) || kids.set(e.from, []).get(e.from)).push(e.to);
+    (parentsOf.get(e.to) || parentsOf.set(e.to, []).get(e.to)).push(e.from);
+  }
+  const walk = (s, next) => { const seen = new Set(), q = [s]; while (q.length) { const u = q.pop(); for (const v of next.get(u) || []) if (!seen.has(v)) { seen.add(v); q.push(v); } } return seen; };
+  function makeable(without) {
+    const ok = new Set(); let grew = true;
+    while (grew) { grew = false;
+      for (const n of nodes) { if (ok.has(n.id) || n.id === without) continue;
+        if (n.requires.every(alts => alts.some(a => a.every(i => i !== without && (ok.has(i) || !byId.has(i)))))) { ok.add(n.id); grew = true; } } }
+    return ok;
+  }
+  const ALL = makeable(null);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  // 本文の中の [番号] をリンクに、~~消し線~~ を del に
+  const rich = s => esc(s).replace(/~~(.*?)~~/g, '<del>$1</del>').replace(/\[(\d+|B)-(\d+[a-z]?)\]/g, (m, t, n) => byId.has(`${t}-${n}`) ? `<a href="#${t}-${n}">[${t}-${n}]</a>` : m);
+  const yearText = d => d.year == null ? '年 ?' : (d.year < 0 ? `前${(-d.year).toLocaleString()}年` : `${d.year}年`) + (d.year_range ? `（${d.year_range}）` : '') + (d.year_uncertain ? ' ⚠️' : '');
+  const chip = id => { const n = byId.get(id); return n ? `<a class="chip${n.status === '✅' ? ' done' : ''}" href="#${id}">${id} ${esc(n.name)} ${n.status}</a>` : ''; };
+  const silhouette = `<svg width="40" height="40" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="11" r="7" fill="var(--sub)"/><path d="M4 33c0-8 6-13 13-13s13 5 13 13z" fill="var(--sub)"/></svg>`;
+
+  // ここにたどり着く道のり：まだの前提を、OR はいちばん少ない方を選んで数える（両方の案は並べて見せる）
+  function plan(id) {
+    const memo = new Map();
+    const cost = u => {
+      if (memo.has(u)) return memo.get(u).c;
+      const n = byId.get(u); if (!n || n.status === '✅') { memo.set(u, { c: 0, pick: [] }); return 0; }
+      memo.set(u, { c: 1e9, pick: [] });   // 循環よけ
+      let c = 1; const pick = [];
+      for (const alts of n.requires) {
+        let best = null, bc = 1e9;
+        for (const a of alts) { const s = a.reduce((x, i) => x + cost(i), 0); if (s < bc) { bc = s; best = a; } }
+        c += bc; pick.push({ alts, best });
+      }
+      memo.set(u, { c, pick }); return c;
+    };
+    cost(id);
+    const order = [], seen = new Set();
+    const visit = u => { if (seen.has(u)) return; seen.add(u); const m = memo.get(u); if (!m || m.c === 0) return; for (const p of m.pick) for (const i of p.best) visit(i); order.push(u); };
+    visit(id);
+    return { n: memo.get(id).c, order, memo };
+  }
+
+  function render() {
+    const id = decodeURIComponent(location.hash.slice(1)) || data.goal;
+    const d = byId.get(id);
+    const page = document.getElementById('page');
+    document.getElementById('back').href = 'network.html#' + encodeURIComponent(id);
+    if (!d) { page.innerHTML = `<p>「${esc(id)}」というノードはありません。</p>`; return; }
+    document.title = `[${d.id}] ${d.name} — 技術の詳細`;
+    window.scrollTo(0, 0);
+
+    // へえ①〜④：ゲームの説明（lang）→ 参考文献（REFERENCES）→ TECH_TREE の順に探す
+    const ref = d.refs[0];
+    const hee = k => d.hee_game['note' + k] || (ref && ref.hee[k]) || (k === '1' ? d.hee1 : d.hee_tree[k]) || '';
+    const levels = [['1', '①子ども'], ['2', '②学生'], ['3', '③大人'], ['4', '④ガチ']];
+    const heeHtml = levels.map(([k, lv]) => hee(k) ? `<div class="lv">${lv}</div><div>${rich(hee(k))}</div>` : '').join('');
+
+    const anc = walk(id, parentsOf), desc = walk(id, kids);
+    const still = makeable(id), lost = [...ALL].filter(x => x !== id && !still.has(x));
+    const usedBy = nodes.filter(n => isProd(n) && n.id !== id && walk(n.id, parentsOf).has(id));
+    const { n: remain, order, memo } = plan(id);
+    const pathHtml = order.map(u => {
+      const m = memo.get(u), n = byId.get(u);
+      const ors = m.pick.filter(p => p.alts.length > 1).map(p => `<div class="or">別ルート（どれか1つ）：${p.alts.map(a => a.map(i => `<a href="#${i}">${i}</a>`).join('+')).join(' or ')}</div>`).join('');
+      return `<li><a href="#${u}">[${u}] ${esc(n.name)}</a> <span class="muted">${yearText(n)}</span>${ors}</li>`;
+    }).join('');
+    const gaps = [
+      ...(parentsOf.get(id) || []).map(p => ({ dir: '前提', o: byId.get(p) })),
+      ...(kids.get(id) || []).map(c => ({ dir: '子', o: byId.get(c) }))
+    ].filter(x => x.o && x.o.year != null && d.year != null).map(x => ({ ...x, gap: Math.abs(x.o.year - d.year) }))
+      .filter(x => x.gap >= 100).sort((a, b) => b.gap - a.gap);
+    const ic = d.icon ? `<img src="${d.icon}" alt="">` : esc(isProd(d) ? (d.emoji || d.symbol) : d.symbol);
+    const issue = `${REPO}/issues/new?` + new URLSearchParams({
+      title: `[${d.id}] ${d.name} の誤り`,
+      body: `ノード: [${d.id}] ${d.name}\nページ: node.html#${d.id}\n\nどこが違うか：\n\n正しいと思う内容：\n\n出典（あれば）：\n`
+    }).toString();
+    const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span class="muted">or</span> ')).join('<br>');
+
+    page.innerHTML = `
+      <header class="top">
+        <div class="ic">${ic}</div>
+        <div>
+          <h1>[${d.id}] ${esc(d.name)}</h1>
+          <div class="meta">${yearText(d)}・${d.trunk === 'B' ? '枝' : '幹' + d.trunk} ${esc(d.trunk_name)}</div>
+          <div>${d.status === '✅' ? '<span class="badge ok">✅ ゲームにある</span>' : `<span class="badge">${d.status} まだ</span>`}${isProd(d) ? '<span class="badge">モノ</span>' : ''}${d.buildable_now ? '<span class="badge ok">今すぐ作れる</span>' : ''}${d.year_uncertain ? '<span class="badge warn">⚠️ 年は諸説・未確認</span>' : ''}</div>
+        </div>
+      </header>
+
+      ${heeHtml ? `<section><h2>へえ</h2><div class="hee">${heeHtml}</div></section>` : ''}
+
+      ${d.real_full ? `<section><h2>本物（工程・反応式）</h2><div>${rich(d.real_full)}</div></section>` : ''}
+
+      ${d.people.length ? `<section><h2>人物</h2><p class="muted">似顔絵ではなくシルエット。存命の人は載せない</p><div class="people">${d.people.map(p => `<div class="person">${silhouette}<div><b>${esc(p.name)}</b><span class="muted">${esc(p.tool)}・${esc(p.year)}</span><div>${esc(p.intro || '')}</div></div></div>`).join('')}</div></section>` : ''}
+
+      <section><h2>確かさと出典</h2>
+        ${d.refs.length ? d.refs.map(r => `<div class="ref"><b>${esc(r.title)}</b>${r.answer ? `<div>${rich(r.answer)}</div>` : ''}<div class="muted">確かさ：${esc(r.certainty || '—')}</div>${r.basis ? `<div class="muted">根拠：${esc(r.basis)}</div>` : ''}</div>`).join('')
+          + `<p><a href="${REPO}/blob/master/docs/REFERENCES.md">REFERENCES.md（参考文献のまとめ）を開く</a></p>`
+          : `<p class="muted">まだ REFERENCES.md に項目がない（確かさは未評価）。${d.year_uncertain ? '年は ⚠️（諸説・未確認）。' : ''}</p>`}
+        <p class="muted">◎ 信頼できる出典2つ以上で一致／○ 1つで確認／△ 未確認（ゲームでは ⚠️）</p>
+      </section>
+
+      <section><h2>ゲームでの作り方</h2>
+        ${d.status === '✅' ? '' : '<p class="muted">まだゲームにない。予定：</p>'}
+        ${d.recipes.length ? `<ul>${d.recipes.map(r => `<li>${esc(r)}</li>`).join('')}</ul>` : ''}
+        ${d.hee_game.note2 ? `<p>${rich(d.hee_game.note2)}</p>` : ''}
+        ${d.game_text ? `<p class="muted">${rich(d.game_text)}</p>` : ''}
+        ${d.placeholder ? `<p class="muted">⚠️ 省略・近似：${esc(d.placeholder)}</p>` : ''}
+        ${!d.recipes.length && !d.hee_game.note2 && !d.game_text ? '<p class="muted">（まだ書いていない）</p>' : ''}
+      </section>
+
+      <section><h2>ここにたどり着くには</h2>
+        ${remain === 0 ? '<p>もうゲームで作れる（✅）。</p>' : `<p>あと <span class="big">${remain}</span> 個（別ルートはいちばん少ない方で数えた）。作る順番：</p><ol class="path">${pathHtml}</ol>`}
+      </section>
+
+      <section><h2>影響</h2>
+        <p>これが無いと作れなくなる技術（別ルートも考えたうえで）：<span class="big">${lost.length}</span></p>
+        <div class="chips">${lost.map(chip).join('')}</div>
+        <p style="margin-top:10px">これを使う「モノ」：${usedBy.length} 個</p>
+        <div class="chips">${usedBy.map(n => chip(n.id)).join('') || '<span class="muted">なし</span>'}</div>
+        <p class="muted">この技術の祖先 ${anc.size}・子孫 ${desc.size}</p>
+      </section>
+
+      ${gaps.length ? `<section><h2>時を超えたつながり（年の差 100年以上）</h2><table class="gap">${gaps.map(g => `<tr><td>${g.dir}</td><td>${chip(g.o.id)}</td><td>${yearText(g.o)}</td><td>${g.gap.toLocaleString()} 年</td></tr>`).join('')}</table></section>` : ''}
+
+      <section><h2>つながり</h2>
+        <p class="muted">前提（全部そろう＝AND、or は別ルート）</p><div>${req || 'なし'}</div>
+        ${d.understanding.length ? `<p class="muted" style="margin-top:8px">理解（後で分かった科学）</p><div class="chips">${d.understanding.map(chip).join('')}</div>` : ''}
+        <p class="muted" style="margin-top:8px">すぐ次の技術（${(kids.get(id) || []).length}）</p><div class="chips">${(kids.get(id) || []).map(chip).join('') || 'なし'}</div>
+      </section>
+
+      <section><h2>誤りを見つけたら</h2>
+        <p><a class="btn" href="${issue}" target="_blank" rel="noopener">誤りを報告（GitHub の Issue）</a></p>
+        <p class="muted">タイトルにノード番号が入った報告の画面が開きます（GitHub のアカウントが要ります）。</p>
+      </section>`;
+  }
+  const go = document.getElementById('go');
+  go.onkeydown = e => {
+    if (e.key !== 'Enter') return;
+    const q = go.value.trim().toLowerCase().replace(/[\[\]]/g, '');
+    const hit = nodes.find(n => n.id.toLowerCase() === q) || nodes.find(n => n.name.toLowerCase().includes(q));
+    if (hit) location.hash = hit.id;
+  };
+  window.addEventListener('hashchange', render);
+  render();
+})();
+</script>
+</body>
+</html>

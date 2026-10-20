@@ -72,12 +72,16 @@ aside#card.open { display: block; }
 #card .person small { color: var(--sub); }
 .legend { position: absolute; left: 12px; bottom: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 11px; color: var(--sub); display: flex; gap: 12px; flex-wrap: wrap; max-width: calc(100% - 24px); }
 .legend span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.band-tech.faint { opacity: 0.3; }
+.band-zoom { font-size: 13px; fill: var(--sub); }
+#card .more { display: inline-block; margin-top: 6px; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 3px 10px; text-decoration: none; font-size: 13px; }
 .hint { position: absolute; right: 12px; top: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--sub); }
 .sw { display: inline-block; width: 18px; height: 3px; border-radius: 2px; }
 @media (max-width: 700px) {
   aside#card { position: absolute; left: 0; right: 0; bottom: 0; width: auto; max-height: 50vh; border-left: 0; border-top: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(0,0,0,.15); z-index: 5; }
   header input[type=search] { width: 100%; }
   .legend { display: none; }
+  .hint { top: auto; bottom: 10px; right: 10px; left: 10px; text-align: center; }
 }
 </style>
 </head>
@@ -165,8 +169,10 @@ aside#card.open { display: block; }
   const bands = root.append('g');
   bandKeys.forEach((t, i) => {
     const b = band.get(t);
-    bands.append('rect').attr('x', 0).attr('y', b.y).attr('width', W).attr('height', b.h).attr('fill', t === 'P' ? 'var(--panel)' : i % 2 ? 'var(--band-b)' : 'var(--band-a)');
-    bands.append('text').attr('class', 'band-label').attr('x', 8).attr('y', b.y + 14).attr('fill', t === 'P' ? 'var(--ink)' : color(t))
+    const g = bands.append('g').attr('class', t === 'P' ? 'band-prod' : 'band-tech');
+    g.append('rect').attr('x', 0).attr('y', b.y).attr('width', W).attr('height', b.h).attr('fill', t === 'P' ? 'var(--panel)' : i % 2 ? 'var(--band-b)' : 'var(--band-a)');
+    if (t !== 'P') g.append('text').attr('class', 'band-zoom').attr('x', W / 2).attr('y', b.y + b.h / 2 + 4).attr('text-anchor', 'middle').text('ズームすると技術が見えます');
+    g.append('text').attr('class', 'band-label').attr('x', 8).attr('y', b.y + 14).attr('fill', t === 'P' ? 'var(--ink)' : color(t))
       .text(t === 'P' ? 'モノ（時代順）' : `${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}`);
   });
   const eraG = root.append('g');
@@ -243,9 +249,11 @@ aside#card.open { display: block; }
   svg.call(zoom);
   const box = document.getElementById('chart').getBoundingClientRect();
   const pb = band.get('P');
-  const k0 = Math.max(Math.min(box.width / W, (box.height - 10) / (pb.y + pb.h + 10), 1), 0.2);   // 最初は「モノ」の帯が収まる倍率
+  // 最初は「モノ」の帯が収まる倍率。スマホ幅では縮めすぎると読めないので、読める大きさで始めて横にドラッグする
+  const narrow = box.width < 700;
+  const k0 = narrow ? 0.62 : Math.max(Math.min(box.width / W, (box.height - 10) / (pb.y + pb.h + 10), 1), 0.2);
   DETAIL_K = k0 * 1.8;
-  svg.call(zoom.transform, d3.zoomIdentity.translate(Math.max(4, (box.width - W * k0) / 2), 4).scale(k0));
+  svg.call(zoom.transform, d3.zoomIdentity.translate(narrow ? 4 : Math.max(4, (box.width - W * k0) / 2), 4).scale(k0));
 
   // ---- 「これが無いと作れなくなる技術」：OR の別ルートも考える ----
   function makeable(without) {
@@ -298,10 +306,13 @@ aside#card.open { display: block; }
         : (d.a.id === state.sel || d.b.id === state.sel) ? 0.95
         : (focus.has(d.a.id) && focus.has(d.b.id)) ? (det ? 0.3 : 0.45) : 0.015);
     plinkSel.classed('hidden', () => det || !!state.sel);
+    // 最初の画面（モノだけ）では、技術の帯を薄くして「ズームすると技術が見えます」と出す
+    bands.selectAll('.band-tech').classed('faint', !det && !state.sel);
+    bands.selectAll('.band-zoom').classed('hidden', det || !!state.sel);
     const n = nodes.filter(visibleBase).length, hits = q ? nodes.filter(d => matches(d, q)).length : 0;
     document.getElementById('stat').textContent = (q ? `「${state.q.trim()}」${hits} 件・` : '') +
       `モノ ${prods.length}・技術 ${nodes.length - prods.length}・つながり ${edges.length} 本・年の逆転 ${data.year_inversions.length} 件`;
-    document.getElementById('hint').textContent = det ? 'すべての技術を表示中' : 'モノだけ表示中：ズームするかモノを選ぶと中身の技術が現れる';
+    document.getElementById('hint').textContent = det ? 'すべての技術を表示中' : 'ズームすると技術が見えます（モノを選んでも）';
   }
 
   // ---- カード ----
@@ -320,6 +331,7 @@ aside#card.open { display: block; }
     const head = d.icon ? `<img src="${d.icon}" alt="">` : `<span class="em">${esc(isProd(d) ? (d.emoji || d.symbol) : d.symbol)}</span>`;
     card.innerHTML = `<button class="close" aria-label="閉じる">×</button>
       <h2>${head}<span>[${d.id}] ${esc(d.name)} ${d.status}</span></h2>
+      <a class="more" href="node.html#${encodeURIComponent(d.id)}">詳しく見る →</a>
       <div class="meta"><span style="color:${color(d.trunk)}">●</span> ${isProd(d) ? '<b>モノ</b>・' : ''}${d.trunk === 'B' ? '枝' : '幹' + d.trunk} ${esc(d.trunk_name)}・${yearText(d)}${d.buildable_now ? '・<b>今すぐ作れる</b>' : ''}</div>
       ${d.hee1 ? `<div class="sec"><h3>へえ①</h3>${esc(d.hee1)}</div>` : ''}
       ${d.people.length ? `<div class="sec"><h3>人物（似顔絵ではなくシルエット）</h3><div class="people">${d.people.map(p => `<div class="person">${silhouette}<div><b>${esc(p.name)}</b><small>${esc(p.tool)}・${esc(p.year)}</small></div></div>`).join('')}</div></div>` : ''}
