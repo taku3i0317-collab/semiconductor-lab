@@ -80,6 +80,58 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class CommonTests extends LabTestBase {
+    // =====================================================================
+    // マルチブロックの形と判定（IMP-33 ③、DESIGN「マルチブロック」）
+    // =====================================================================
+
+    /**
+     * 形の判定：3×3×4 の見本（石れんがの壁・ガラスの窓・中は空気）を4方向に置くと、どの向きでも組み上がる。
+     * 1個こわす → その場所だけ「足りない」、ちがうブロック → 「ちがう」、中に物 → 「中」。足りない数を名前ごとに数える
+     */
+    @GameTest(maxTicks = 100)
+    public void multiblockPattern(GameTestHelper h) {
+        var pat = com.taku3.semiconductorlab.machine.MultiblockPattern.builder()
+                .layer("BBB", "BCB", "BBB")
+                .layer("BTB", "T T", "BTB")
+                .layer("BBB", "B B", "BBB")
+                .layer("BBB", "B B", "BBB")
+                .where('B', net.minecraft.world.level.block.Blocks.STONE_BRICKS, "lining")
+                .where('T', net.minecraft.world.level.block.Blocks.GLASS, "tuyere")
+                .controller('C').build();
+        var lv = h.getLevel();
+        int i = 0;
+        for (var facing : new net.minecraft.core.Direction[] {net.minecraft.core.Direction.NORTH, net.minecraft.core.Direction.EAST, net.minecraft.core.Direction.SOUTH, net.minecraft.core.Direction.WEST}) {
+            BlockPos ctl = h.absolutePos(p(4, 1, 4));   // 同じ場所で向きだけ変える（テストの場所は 8×8×8）
+            i++;
+            for (BlockPos q : BlockPos.betweenClosed(ctl.offset(-2, 0, -2), ctl.offset(2, 3, 2))) lv.setBlockAndUpdate(q, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
+            for (int y = 0; y < pat.height(); y++) for (int z = 0; z < pat.depth(); z++) for (int x = 0; x < pat.width(); x++) {
+                char c = pat.layers().get(y)[z].charAt(x);
+                var at = pat.worldPos(ctl, facing, x, y, z);
+                var state = c == 'B' ? net.minecraft.world.level.block.Blocks.STONE_BRICKS.defaultBlockState()
+                        : c == 'T' ? net.minecraft.world.level.block.Blocks.GLASS.defaultBlockState()
+                        : c == 'C' ? net.minecraft.world.level.block.Blocks.FURNACE.defaultBlockState()
+                        : net.minecraft.world.level.block.Blocks.AIR.defaultBlockState();
+                lv.setBlockAndUpdate(at, state);
+            }
+            var r = pat.check(lv, ctl, facing);
+            h.assertTrue(r.formed(), facing + ": formed, problems " + r.problems());
+            // 2段目の羽口（左）をこわす → 1か所「足りない」
+            var tuyere = pat.worldPos(ctl, facing, 0, 1, 1);
+            lv.setBlockAndUpdate(tuyere, net.minecraft.world.level.block.Blocks.AIR.defaultBlockState());
+            r = pat.check(lv, ctl, facing);
+            h.assertTrue(!r.formed() && r.problems().size() == 1 && r.problems().get(0).missing() && r.problems().get(0).pos().equals(tuyere)
+                    && r.missingCounts().get("tuyere") == 1, facing + ": one missing tuyere at the right place, got " + r.problems());
+            // ちがうブロック、中に物
+            lv.setBlockAndUpdate(tuyere, net.minecraft.world.level.block.Blocks.DIRT.defaultBlockState());
+            lv.setBlockAndUpdate(pat.worldPos(ctl, facing, 1, 2, 1), net.minecraft.world.level.block.Blocks.DIRT.defaultBlockState());
+            r = pat.check(lv, ctl, facing);
+            h.assertTrue(r.problems().size() == 2 && r.problems().stream().noneMatch(com.taku3.semiconductorlab.machine.MultiblockPattern.Problem::missing)
+                    && r.missingCounts().containsKey("inside"), facing + ": wrong block + something inside, got " + r.problems());
+        }
+        LOG.info("[LAB] multiblock pattern: 3x3x4 sample formed in all 4 directions; missing / wrong / inside reported per position");
+        h.succeed();
+    }
+
     @GameTest
     public void recipesResolve(GameTestHelper h) {
         MinecraftServer server = h.getLevel().getServer();
