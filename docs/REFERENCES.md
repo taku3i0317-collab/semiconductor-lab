@@ -507,6 +507,20 @@
 - Wilkins ほか 2012「Evidence for early hafted hunting technology」Science（カトゥ・パン）：https://www.science.org/doi/10.1126/science.1227608
 - Wikipedia「Oldowan」「Acheulean」「Conchoidal fracture」「Obsidian」「Kimberley point」：https://en.wikipedia.org/wiki/Oldowan ・ https://en.wikipedia.org/wiki/Acheulean ・ https://en.wikipedia.org/wiki/Conchoidal_fracture ・ https://en.wikipedia.org/wiki/Obsidian ・ https://en.wikipedia.org/wiki/Kimberley_point
 
+## O10. 金属を磨いた鏡と反射望遠鏡（スペキュラム）［7-05］
+**答え**：銅2・スズ1ほどの白い青銅（スペキュラム合金）を鋳込んで、研削と研磨で凹面鏡にする。反射率は約6割で、すぐ曇るので磨き直しが要った。1668年ニュートンは、色のにじみがない鏡の望遠鏡を作った。19世紀半ばにガラスへの銀めっきが広まるまで、大望遠鏡の鏡はこの金属だった。
+
+- へえ①：鏡は色によって曲がり方が変わらないので、色収差がない。
+- へえ②：ハーシェルは自分で鋳込んで磨いたスペキュラム鏡の望遠鏡で、1781年に天王星を見つけた。
+- へえ③：1845年ロス卿の「リヴァイアサン」は直径 約1.8m の鏡（約4トン）。
+- へえ④：今の大望遠鏡も EUV 露光装置 [7-17] も、レンズではなく鏡で光を集める。
+
+確かさ：スペキュラムの組成・反射率・曇り ◎／ニュートン 1668・王立協会 1671〜72 ◎／ハーシェル 天王星 1781 ◎／リヴァイアサン 1845・約1.8m ◎（重さ 約4トン ○）
+根拠：
+- Wikipedia「Speculum metal」：https://en.wikipedia.org/wiki/Speculum_metal
+- Wikipedia「Newton's reflector」：https://en.wikipedia.org/wiki/Newton%27s_reflector
+- Wikipedia「Leviathan of Parsonstown」：https://en.wikipedia.org/wiki/Leviathan_of_Parsonstown
+
 ---
 
 # 冶金と熱（タスク15〜）

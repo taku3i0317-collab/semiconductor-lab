@@ -282,6 +282,25 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-05] 反射鏡 段階1 スペキュラム（IMP2-01）：銅2＋スズ1 → 調合3 →かまど→ 合金 → 研削・研磨で鏡 → ニュートン式反射望遠鏡（のぞける） */
+    @GameTest
+    public void speculumMirror(GameTestHelper h) {
+        h.assertTrue(craft(h, Items.COPPER_INGOT, Items.COPPER_INGOT, Metallurgy.TIN_INGOT)[0].is(Optics.SPECULUM_CHARGE), "2 Cu + 1 Sn -> speculum charge");
+        h.assertValueEqual(craft(h, Items.COPPER_INGOT, Items.COPPER_INGOT, Metallurgy.TIN_INGOT)[0].getCount(), 3, "3 charges");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Optics.SPECULUM_CHARGE).is(Optics.SPECULUM_INGOT), "melt -> speculum metal");
+        var m = craft(h, Optics.SPECULUM_INGOT, Items.SAND, Optics.GRINDING_TOOL, Optics.ROUGE, Optics.PITCH_LAP);
+        h.assertTrue(m[0].is(Optics.SPECULUM_MIRROR), "ground and polished -> mirror");
+        h.assertTrue(craft(h, Metallurgy.BRONZE_INGOT, Items.SAND, Optics.GRINDING_TOOL, Optics.ROUGE, Optics.PITCH_LAP)[0].isEmpty(), "ordinary bronze (11% Sn) is not mirror metal");
+        h.assertTrue(craft(h, Items.COPPER_INGOT, Optics.CROWN_LENS, null, Items.COPPER_INGOT, null, null, Optics.SPECULUM_MIRROR)[0].is(Optics.REFLECTING_TELESCOPE),
+                "mirror at the bottom, tube, eyepiece at the side -> Newtonian telescope");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Optics.REFLECTING_TELESCOPE));
+        player.startUsingItem(net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertTrue(player.isScoping(), "reflecting telescope scopes");
+        LOG.info("[LAB] speculum [7-05]: 2 Cu + Sn -> speculum metal -> polished mirror -> Newtonian telescope (scopes)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
