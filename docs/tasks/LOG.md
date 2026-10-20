@@ -457,3 +457,7 @@
 - ROADMAP：v0.3a ✅、今は v0.3b。version=0.3a。HUMAN_CHECK_TODAY を v0.3a の確認表に（ネガ型の通し・チップ）
 - jar：build/libs/semiconductor-lab-0.3a.jar（約2.5MB）、git tag v0.3a を push
 
+## S-005 v0.3b の「回路の発見」の設計を記録（2026-10-20、tag v0.3a の後）
+- DESIGN「回路の発見（v0.3b の中心）」（6つの決定）と LITHO_DESIGN §11（お題＝真理値表と Circuit.logic、あと少しの手がかり、ハンコと記号・中身のぞき、ヒントと自力で発見、歴史とつなぐ）。実装はまだ（v0.3b の指示を待つ）
+- **ネットワーク担当（B）へ**：発見・考え方のノード「抽象化（階層設計）」「回路記号」「論理ゲート」を足し、VLSI 設計法とつなぐ提案（S-005 の決定、proposals 経由で司令塔へ）。A は network_proposals を触っていない
+
