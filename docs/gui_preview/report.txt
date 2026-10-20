@@ -79,6 +79,13 @@ lead_retort_en_us hint gui.semiconductor-lab.lead_retort.need_water w=169 lines=
 lead_retort_en_us hint gui.semiconductor-lab.lead_retort.need_fuel w=167 lines=2/2
 lead_retort_en_us hint gui.semiconductor-lab.lead_retort.running w=113 lines=2/2
 lead_retort_en_us hint gui.semiconductor-lab.lead_retort.out_full w=53 lines=1/2
+ammonia_still_en_us power gui.semiconductor-lab.ammonia_still.power w=75 lines=1/1
+ammonia_still_en_us water gui.semiconductor-lab.ammonia_still.water w=68 lines=1/1
+ammonia_still_en_us hint gui.semiconductor-lab.ammonia_still.need_input w=163 lines=3/3
+ammonia_still_en_us hint gui.semiconductor-lab.ammonia_still.need_water w=169 lines=3/3
+ammonia_still_en_us hint gui.semiconductor-lab.ammonia_still.need_power w=90 lines=2/3
+ammonia_still_en_us hint gui.semiconductor-lab.ammonia_still.running w=96 lines=2/3
+ammonia_still_en_us recipe gui.semiconductor-lab.ammonia_still.recipe w=98 lines=1/1
 acheson_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=67 lines=1/1
 acheson_furnace_en_us need gui.semiconductor-lab.acheson_furnace.need w=61 lines=1/1
 acheson_furnace_en_us temp gui.semiconductor-lab.acheson_furnace.temp w=56 lines=1/1
@@ -408,6 +415,13 @@ lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.need_water w=99 lines=1
 lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.need_fuel w=153 lines=2/2
 lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.running w=62 lines=1/2
 lead_retort_ja_jp hint gui.semiconductor-lab.lead_retort.out_full w=45 lines=1/2
+ammonia_still_ja_jp power gui.semiconductor-lab.ammonia_still.power w=63 lines=1/1
+ammonia_still_ja_jp water gui.semiconductor-lab.ammonia_still.water w=54 lines=1/1
+ammonia_still_ja_jp hint gui.semiconductor-lab.ammonia_still.need_input w=123 lines=2/3
+ammonia_still_ja_jp hint gui.semiconductor-lab.ammonia_still.need_water w=99 lines=2/3
+ammonia_still_ja_jp hint gui.semiconductor-lab.ammonia_still.need_power w=63 lines=1/3
+ammonia_still_ja_jp hint gui.semiconductor-lab.ammonia_still.running w=117 lines=2/3
+ammonia_still_ja_jp recipe gui.semiconductor-lab.ammonia_still.recipe w=91 lines=1/1
 acheson_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=55 lines=1/1
 acheson_furnace_ja_jp need gui.semiconductor-lab.acheson_furnace.need w=55 lines=1/1
 acheson_furnace_ja_jp temp gui.semiconductor-lab.acheson_furnace.temp w=50 lines=1/1

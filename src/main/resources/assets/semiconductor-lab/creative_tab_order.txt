@@ -131,6 +131,8 @@ gas_retort  # Chemistry [2-20] 1792
 sulfur_powder  # Chemistry [2-01] 1831
 sulfur_dioxide  # Chemistry [2-01] 1831
 sulfuric_acid  # Chemistry [2-01] 1831
+ammonia_water  # Chemistry [2-21] 1850
+ammonia_still  # Chemistry [2-21] 1850
 phosphorus  # Chemistry [9-11] 1955
 phosphoric_acid  # Chemistry [9-25] 1959
 sodium_silicate  # Chemistry [9-13] 1963

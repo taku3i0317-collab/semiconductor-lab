@@ -255,6 +255,34 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** [2-21] アンモニア蒸留器（IMP4-01）：安水4＋消石灰＋瓶 → アンモニア水（ガラス瓶）。水バケツ1杯で4回、石灰・瓶・水・電気がないと止まる */
+    @GameTest
+    public void ammoniaStill(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.AMMONIA_WATER) == com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE, "ammonia water in a glass bottle");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.AMMONIA_STILL.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_LIQUOR, new ItemStack(Chemistry.AMMONIACAL_LIQUOR, 16));
+        c.setItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_BOTTLE, new ItemStack(Chemistry.GLASS_BOTTLE, 8));
+        c.setItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_OUT).isEmpty(), "no lime -> the bound ammonia stays (nothing)");
+        c.setItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_LIME, new ItemStack(com.taku3.semiconductorlab.content.Survival.SLAKED_LIME, 8));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        for (int i = 0; i < 4; i++) tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_OUT).is(Chemistry.AMMONIA_WATER) && c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_OUT).getCount() == 4, "16 liquor -> 4 ammonia water, got " + c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_OUT));
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_BUCKET).is(Items.BUCKET) && be.getWater() == 0, "1 water bucket = 4 runs");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_LIME).getCount() == 4 && c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_BOTTLE).getCount() == 4, "1 lime and 1 bottle per run");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS + 5, feed);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.SLOT_OUT).getCount(), 4, "no absorber water -> stops");
+        LOG.info("[LAB] ammonia still [2-21]: 4 liquor + slaked lime + bottle -> ammonia water (glass); water bucket = 4 runs");
+        h.succeed();
+    }
+
     /** [2-02] カリ（IMP2-01）：原木 →たき火→ 木灰、木灰4＋水バケツ → 灰汁（バケツは戻る）、灰汁 →かまど→ 炭酸カリウム */
     @GameTest
     public void potash(GameTestHelper h) {
@@ -273,6 +301,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Chemistry.AMMONIA_STILL.block, "アンモニア水", L(io(Chemistry.AMMONIACAL_LIQUOR, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.LIQUOR_PER_RUN), io(com.taku3.semiconductorlab.content.Survival.SLAKED_LIME, 1), io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.RUNS_PER_WATER)),
+            L(io(Chemistry.AMMONIA_WATER, 1)), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.WATTS, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS / 20.0, "安水を熱し、消石灰で塩のアンモニアも追い出して水に吸わせる");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");

@@ -25,3 +25,7 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [9-25] 金属配線：①真空蒸着装置（IMP2 の EvaporatorBlockEntity に分岐を追記：process_wafer 1〜8枚＋アルミ1 → ChipOps.depositMetal。RECIPES と既存の動きはそのまま。C が不在だったので A に了承をもらって追記）②リン酸（骨灰1＋硫酸3＋瓶2 → 2）③エッチング槽がリン酸で ChipOps.etchMetal。GameTest aluminium_wiring（NOT の例が蒸着装置・槽を通って4つの発見）、CHEMISTRY F17〜F19、REFERENCES F9、遊び方: 重
 - ✅ [9-13] ラッピング・鏡面研磨：研磨機 wafer_polisher（block/WaferPolisherBlockEntity、画面 WaferPolisherScreen、1kW）。加工中のウェハー＋砥粒（アルミナ・ベンガラ）＋コロイダルシリカ → ChipOps.reclaim（2回まで）。水ガラス・コロイダルシリカ（作業台）。GameTest wafer_polisher、CHEMISTRY F20〜F22、REFERENCES F10、遊び方: 軽
 - 報告：自分用のルールを CLAUDE.local.md に書こうとしたが、権限で止められた（INBOX の「CLAUDE.md の自分用のルールにも書く」は未達。ルールの中身はこの LOG の冒頭と INBOX どおりに守っている）
+
+## O-004（2026-10-20）[9-14] 洗浄の前提の薬品
+- 調べた結果：[2-19] 過酸化水素の電解法（1908 ヴァイセンシュタイン）は、硫酸を白金の陽極で電解して過硫酸にする（高い電流密度で O2 より先に S2O8 ができるのは白金だけ）。白金 [1-20][1-18] が未実装なので、前提から作る：[1-20] 砂白金 → [1-18] 王水で精製（塩酸✅・硝酸✅ IMP2・塩化アンモニウム＝[2-21]＋塩酸）→ [2-19]。TECH_TREE の [2-19] の前提に白金を足す
+- ✅ [2-21] アンモニア水：アンモニア蒸留器 ammonia_still（block/AmmoniaStillBlockEntity、画面 AmmoniaStillScreen、1kW）。安水4＋消石灰＋瓶 → アンモニア水（ガラス瓶）、水バケツ1杯で4回。GameTest ammonia_still、CHEMISTRY F23、REFERENCES F11、遊び方: 軽

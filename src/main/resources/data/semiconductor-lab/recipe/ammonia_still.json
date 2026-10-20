@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ICI",
+    "IGI",
+    "IFI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "C": "minecraft:copper_ingot",
+    "G": "semiconductor-lab:soda_lime_glass",
+    "F": "minecraft:furnace"
+  },
+  "result": {
+    "id": "semiconductor-lab:ammonia_still",
+    "count": 1
+  }
+}

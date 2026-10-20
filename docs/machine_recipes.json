@@ -61,6 +61,39 @@
       "note": "端数は持ち越して袋（1 mol）にする"
     },
     {
+      "machine": "semiconductor-lab:ammonia_still",
+      "process": "アンモニア水",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:ammoniacal_liquor",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:slaked_lime",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "per_runs": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:ammonia_water",
+          "count": 1
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 20.0,
+      "energy_kj": 20,
+      "note": "安水を熱し、消石灰で塩のアンモニアも追い出して水に吸わせる"
+    },
+    {
       "machine": "semiconductor-lab:arc_furnace",
       "process": "金属シリコン",
       "inputs": [
