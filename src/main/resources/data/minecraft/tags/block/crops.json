@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "semiconductor-lab:pea",
+    "semiconductor-lab:wild_einkorn",
+    "semiconductor-lab:einkorn",
+    "semiconductor-lab:flax"
+  ]
+}

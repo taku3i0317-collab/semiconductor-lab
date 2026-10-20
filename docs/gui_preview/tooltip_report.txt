@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 231（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 233（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -51,6 +51,10 @@ en_us einkorn lines=7
 en_us einkorn shift lines=16
 en_us flax lines=5
 en_us flax shift lines=12
+en_us pea lines=8
+en_us pea shift lines=18
+en_us nitrogen_farmland lines=6
+en_us nitrogen_farmland shift lines=16
 en_us salt_pan lines=6
 en_us salt_pan shift lines=16
 en_us assembly_bench lines=3
@@ -513,6 +517,10 @@ ja_jp einkorn lines=6
 ja_jp einkorn shift lines=13
 ja_jp flax lines=5
 ja_jp flax shift lines=11
+ja_jp pea lines=6
+ja_jp pea shift lines=13
+ja_jp nitrogen_farmland lines=5
+ja_jp nitrogen_farmland shift lines=13
 ja_jp salt_pan lines=5
 ja_jp salt_pan shift lines=13
 ja_jp assembly_bench lines=3

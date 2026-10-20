@@ -1,0 +1,20 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "moisture": "0|1|2|3|4|5|6"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/nitrogen_farmland"
+      }
+    },
+    {
+      "when": {
+        "moisture": "7"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/nitrogen_farmland_moist"
+      }
+    }
+  ]
+}

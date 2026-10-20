@@ -365,6 +365,63 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-05] 豆（IMP3-01、O-003）：輪作の実験
+    // =====================================================================
+
+    /**
+     * エンドウが熟すと下の耕地が窒素の多い耕地（3回分）。同じ回数のランダムtick で、窒素の多い耕地の麦はふつうの耕地の麦より育つ。
+     * 麦が熟すたびに1回分使い、3回でふつうの耕地に戻る。豆が熟しても減らない
+     */
+    @GameTest
+    public void peaRotation(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        var pea = (com.taku3.semiconductorlab.block.PeaCropBlock) Survival.PEA;
+        var NF = Survival.NITROGEN_FARMLAND;
+        var N = com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.NITROGEN;
+        var wheat = (net.minecraft.world.level.block.CropBlock) Blocks.WHEAT;
+        floor(h, 4);
+        BlockPos withPea = p(1, 1, 1), noPea = p(3, 1, 1);
+        h.setBlock(withPea, Blocks.FARMLAND);
+        h.setBlock(noPea, Blocks.FARMLAND);
+        // エンドウを熟させる → 下が窒素の多い耕地
+        h.setBlock(withPea.above(), pea.getStateForAge(pea.getMaxAge()));
+        pea.afterGrow(lv, h.absolutePos(withPea.above()));
+        h.assertTrue(h.getBlockState(withPea).is(NF) && h.getBlockState(withPea).getValue(N) == 3, "ripe peas leave nitrogen (3 shares)");
+        // 豆が熟していても減らない
+        RandomSource rnd = RandomSource.create(5);
+        for (int i = 0; i < 20; i++) h.getBlockState(withPea).randomTick(lv, h.absolutePos(withPea), rnd);
+        h.assertValueEqual(h.getBlockState(withPea).getValue(N), 3, "peas do not use the nitrogen");
+        h.assertTrue(wheat.defaultBlockState().canSurvive(lv, h.absolutePos(withPea.above())), "wheat can be planted on nitrogen farmland");
+        for (Block b : new Block[] {Survival.PEA, Survival.WILD_EINKORN, Survival.EINKORN, Survival.FLAX})
+            h.assertTrue(b.defaultBlockState().is(net.minecraft.tags.BlockTags.MAINTAINS_FARMLAND), b + " keeps the farmland from drying back to dirt");
+
+        // 比べる：同じ回数だけ耕地のランダムtick（豆なしの耕地は作物を育てない）
+        h.setBlock(withPea.above(), wheat.getStateForAge(0));
+        h.setBlock(noPea.above(), wheat.getStateForAge(0));
+        for (int i = 0; i < 6; i++) {
+            h.getBlockState(withPea).randomTick(lv, h.absolutePos(withPea), rnd);
+            h.getBlockState(noPea).randomTick(lv, h.absolutePos(noPea), rnd);
+        }
+        int aPea = wheat.getAge(h.getBlockState(withPea.above())), aNo = wheat.getAge(h.getBlockState(noPea.above()));
+        h.assertTrue(aPea > aNo, "wheat after peas grows faster: " + aPea + " vs " + aNo);
+
+        // 3回熟すと使い切って、ふつうの耕地に戻る
+        int crops = 0;
+        for (int round = 0; round < 3 && h.getBlockState(withPea).is(NF); round++) {
+            h.setBlock(withPea.above(), wheat.getStateForAge(0));
+            for (int i = 0; i < 200 && h.getBlockState(withPea).is(NF); i++) {
+                h.getBlockState(withPea).randomTick(lv, h.absolutePos(withPea), rnd);
+                if (h.getBlockState(withPea).is(NF) && h.getBlockState(withPea).getValue(com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.COUNTED)) break;
+            }
+            crops++;
+        }
+        h.assertTrue(h.getBlockState(withPea).is(Blocks.FARMLAND), "after 3 ripe crops the nitrogen is used up -> ordinary farmland (crops=" + crops + ")");
+        h.assertValueEqual(crops, 3, "3 crops boosted");
+        LOG.info("[LAB] pea rotation [0-05]: peas -> nitrogen farmland x3; wheat age after 6 ticks {} vs {} without peas; back to farmland after 3 crops", aPea, aNo);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 

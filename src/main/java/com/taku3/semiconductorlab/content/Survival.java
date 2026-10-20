@@ -89,6 +89,11 @@ public final class Survival {
     public static final float WILD_EINKORN_FROM_GRASS = 0.05f;
     // --- [0-06] 織物：亜麻（茎 → 水に浸ける＝レッティング → たたいて繊維 → 撚って糸 → 織ってリネン） ---
     public static final Block FLAX         = Reg.block("flax", FlaxCropBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
+    // --- [0-05] 豆（窒素固定）：エンドウが熟すと下の耕地が「窒素の多い耕地」になり、次の作物が速く育つ（輪作） ---
+    public static final Block PEA          = Reg.block("pea", PeaCropBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
+    public static final Block NITROGEN_FARMLAND = Reg.block("nitrogen_farmland", NitrogenFarmlandBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND));
+    /** 草からエンドウが出る確率（ヒトツブコムギ・亜麻が出なかったとき） */
+    public static final float PEA_FROM_GRASS = 0.03f;
     /** 同じく、亜麻の種が混ざる確率（ヒトツブコムギが出なかったとき） */
     public static final float FLAX_FROM_GRASS = 0.04f;
 
@@ -112,6 +117,7 @@ public final class Survival {
             float r = ctx.getRandom().nextFloat();
             if (r < WILD_EINKORN_FROM_GRASS) drops.add(new ItemStack(WILD_EINKORN));
             else if (r < WILD_EINKORN_FROM_GRASS + FLAX_FROM_GRASS) drops.add(new ItemStack(FLAX));
+            else if (r < WILD_EINKORN_FROM_GRASS + FLAX_FROM_GRASS + PEA_FROM_GRASS) drops.add(new ItemStack(PEA));
         });
         // [0-01] 砂利の中にはときどき丸く硬い河原石がある → たたき石
         LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {

@@ -9,6 +9,8 @@ raw_clay_pot  # Survival [0-03] -20000
 earthenware_pot  # Survival [0-03] -20000
 wild_einkorn  # Survival [0-04] -9500
 einkorn  # Survival [0-04] -9500
+pea  # Survival [0-05] -9500
+nitrogen_farmland  # Survival [0-05] -9500
 polished_stone_axe  # Survival [0-08] -9000
 quicklime  # Survival [0-10] -9000
 flax_stalks  # Survival [0-06] -8000

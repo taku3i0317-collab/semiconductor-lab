@@ -821,6 +821,20 @@
 - CNRS プレスリリース「Neanderthal cord weaver」：https://www.cnrs.fr/en/press/neanderthal-cord-weaver
 - Wikipedia「Rope」：https://en.wikipedia.org/wiki/Rope
 
+## S8. 豆の根が空気の窒素を肥料にする（窒素固定と輪作）［0-05］
+**答え**：マメ科の根の根粒にすむ根粒菌は、空気の窒素 N2 をアンモニア NH3 に変えて植物にわたす（窒素固定）。豆を育てた後の畑には窒素が残り、次に植えた麦がよく育つ。豆と麦を交代で植える輪作は古代から行われた。
+
+- へえ①：豆の根には空気の中の窒素を肥料に変える菌がいて、畑がやせにくい。
+- へえ②：空気の約8割は窒素なのに、ふつうの植物はそれを直接使えない。N≡N の三重結合がとても強いから。
+- へえ③：1886年 ヘルリーゲルとヴィルファルトが、根粒があるときだけマメ科が空気の窒素を使えることを示した。メンデルの遺伝の法則もエンドウの交配から（1865年）。
+- へえ④：ノーフォーク農法（小麦・カブ・大麦・クローバー）、そして1913年からハーバー・ボッシュ法 [6-09] で工場の窒素固定。
+
+確かさ：窒素固定のしくみ ◎／ヘルリーゲルとヴィルファルト 1886 ○／メンデル 1865 ◎／エンドウ・レンズ豆の栽培化の年（約1万1000年前ごろ、⚠️ はノードのまま）△
+根拠：
+- Wikipedia「Nitrogen fixation」：https://en.wikipedia.org/wiki/Nitrogen_fixation
+- Wikipedia「Rhizobia」（ヘルリーゲルとヴィルファルト 1886、ベイエリンク 1888）：https://en.wikipedia.org/wiki/Rhizobia
+- Wikipedia「Crop rotation」（ローマの農書、ノーフォーク農法）：https://en.wikipedia.org/wiki/Crop_rotation
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
