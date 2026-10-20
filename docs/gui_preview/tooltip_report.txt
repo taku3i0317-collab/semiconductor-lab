@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 266（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 268（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -465,6 +465,10 @@ en_us nitre_earth_block lines=8
 en_us nitre_earth_block shift lines=15
 en_us lead_screw lines=3
 en_us lead_screw shift lines=8
+en_us simple_microscope lines=7
+en_us simple_microscope shift lines=16
+en_us compound_microscope lines=9
+en_us compound_microscope shift lines=18
 en_us pump_rotor lines=3
 en_us pump_rotor shift lines=11
 en_us lathe lines=7
@@ -997,6 +1001,10 @@ ja_jp nitre_earth_block lines=6
 ja_jp nitre_earth_block shift lines=12
 ja_jp lead_screw lines=2
 ja_jp lead_screw shift lines=7
+ja_jp simple_microscope lines=6
+ja_jp simple_microscope shift lines=14
+ja_jp compound_microscope lines=6
+ja_jp compound_microscope shift lines=14
 ja_jp pump_rotor lines=2
 ja_jp pump_rotor shift lines=9
 ja_jp lathe lines=6
