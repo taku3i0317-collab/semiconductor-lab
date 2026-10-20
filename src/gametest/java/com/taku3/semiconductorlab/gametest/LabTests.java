@@ -1331,7 +1331,7 @@ public class LabTests {
     // [3-15] アーク炉 → [1-15] 金属シリコン（タスク15）
     // =====================================================================
 
-    /** 珪石2＋木炭1＋500kW×86.4秒（12kWh）→ 金属シリコン（98%）。電力が半分なら進まない。電極は8回で1本。石炭は不可 */
+    /** 珪石2＋木炭（か石炭）1＋500kW×86.4秒（12kWh）→ 金属シリコン（98%）。電力が半分なら進まない。電極は8回で1本 */
     @GameTest
     public void arcFurnaceSilicon(GameTestHelper h) {
         for (var it : new net.minecraft.world.item.Item[] {ModItems.GRAPHITE_ROD, ModItems.REFRACTORY_BRICK, ModBlocks.COPPER_CABLE.asItem()})
@@ -1348,7 +1348,8 @@ public class LabTests {
             E = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_ELECTRODE, OUT = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_OUT;
         int T = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.TICKS;
         long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.WATTS);
-        h.assertFalse(com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.isCarbon(new ItemStack(Items.COAL)), "charcoal only (node spec)");
+        h.assertTrue(com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.isCarbon(new ItemStack(Items.COAL)), "coal also works (Q1515-2)");
+        h.assertFalse(com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.isCarbon(new ItemStack(Items.STICK)), "wood sticks are not carbon");
         c.setItem(Q, new ItemStack(ModItems.VEIN_QUARTZ, 20));
         c.setItem(CB, new ItemStack(Items.CHARCOAL, 10));
         tickConsumer(h, fp, be, T + 10, feed);

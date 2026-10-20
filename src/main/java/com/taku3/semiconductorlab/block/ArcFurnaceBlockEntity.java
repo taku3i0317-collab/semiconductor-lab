@@ -22,7 +22,7 @@ import net.minecraft.world.level.storage.ValueOutput;
 /**
  * アーク炉 [3-15]（モアッサン 1892 の電気炉、エルー 1900 の製鋼アーク炉）。黒鉛の電極と原料のあいだに大電流のアーク（電気の火花）を飛ばし、
  * 約2000℃以上にする。ふつうの炉では離れない酸素とケイ素を、炭素で引きはがせる。
- * [1-15] 金属シリコン：珪石 ×2 ＋ 木炭 ×1 → 金属シリコン ×1（純度 98%＝冶金グレード）。SiO2 + 2C → Si + 2CO（1個 ≈ 1kg）。
+ * [1-15] 金属シリコン：珪石 ×2 ＋ 木炭か石炭 ×1 → 金属シリコン ×1（純度 98%＝冶金グレード）。SiO2 + 2C → Si + 2CO（1個 ≈ 1kg）。
  * 電力量 12kWh/kg（本物は 1kg あたり 10kWh 以上、現代の炉で約11〜13kWh）＝ 500kW × 86.4秒。電力が足りない tick は進まない（2000℃を保てない）。
  * 黒鉛の電極（黒鉛棒）は少しずつ燃えて減る：{@link #RUNS_PER_ELECTRODE} 回で1本。
  * ⚠️ 近似：本物（現代）は交流のサブマージドアーク炉。ゲームでは交流 [4-10] が v0.4 で出るまで、直流（モアッサンの炉と同じ、⚠️要確認）で近似。
@@ -42,7 +42,8 @@ public class ArcFurnaceBlockEntity extends ConsumerBlockEntity implements MenuPr
     }
 
     public static boolean isQuartz(ItemStack s) { return s.is(ModItems.VEIN_QUARTZ); }
-    public static boolean isCarbon(ItemStack s) { return s.is(Items.CHARCOAL); }
+    /** 炭素は木炭か石炭（どちらでも出力は同じ。DECISIONS Q1515-2）。本物は石炭・コークス・木片も混ぜる */
+    public static boolean isCarbon(ItemStack s) { return s.is(Items.CHARCOAL) || s.is(Items.COAL); }
     public static boolean isElectrode(ItemStack s) { return s.is(ModItems.GRAPHITE_ROD); }
     public int getElectrodeRuns() { return electrodeRuns; }
 
