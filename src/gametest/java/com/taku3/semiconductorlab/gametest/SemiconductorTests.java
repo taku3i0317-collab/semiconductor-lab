@@ -1991,6 +1991,35 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-28]・[9-29] の土台（E と決めた形）：イオン注入は現像したレジストの開いた所に入り、窓は閉じない。アニールするまで回路に効かない（拡散の層にならない）、
+     * アニールすると拡散と同じ層になる。レジストが付いたままアニールはできない
+     */
+    @GameTest(maxTicks = 100)
+    public void implantAndAnneal(GameTestHelper h) {
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER); w.set(ModDataComponents.DOPANT, "boron");
+        w = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+        w = com.taku3.semiconductorlab.litho.ChipOps.expose(w, d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.implant(w, 'n', 1).reason(), "not_developed", "exposed but not developed resist does not mask yet");
+        w = com.taku3.semiconductorlab.litho.ChipOps.develop(w).out();
+        var r = com.taku3.semiconductorlab.litho.ChipOps.implant(w, 'n', 1);
+        h.assertTrue(r.ok(), "implant through the developed resist: " + r.reason());
+        w = r.out();
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(w);
+        h.assertTrue(st.implanted().size() == 1 && st.diffusions() == 0, "implanted but not active yet");
+        h.assertTrue(st.implanted().get(0).cells().equals(d.layers().get(0).cells()), "ions land exactly where the resist was opened (no sideways spread)");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.anneal(w).reason(), "resist_on", "strip the resist before annealing");
+        w = com.taku3.semiconductorlab.litho.ChipOps.strip(w).out();
+        var a = com.taku3.semiconductorlab.litho.ChipOps.anneal(w);
+        h.assertTrue(a.ok(), "anneal");
+        st = com.taku3.semiconductorlab.litho.ChipOps.state(a.out());
+        h.assertTrue(st.implanted().isEmpty() && st.diffusions() == 1 && st.has(com.taku3.semiconductorlab.litho.LayerKind.DIFF_N), "annealed implant = a diffused layer");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.anneal(a.out()).reason(), "nothing_to_anneal", "nothing left to anneal");
+        LOG.info("[LAB] implant/anneal: ions through the resist opening, inactive until anneal, then a DIFF_N layer");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

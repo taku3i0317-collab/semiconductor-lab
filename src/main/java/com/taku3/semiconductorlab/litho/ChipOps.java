@@ -4,6 +4,8 @@ import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.content.Semiconductor;
 import net.minecraft.world.item.ItemStack;
 
+import java.util.List;
+
 /**
  * 工程の関数（LITHO_DESIGN §5）。C・E の機械はこれだけを呼ぶ。
  * どれも入れたウェハーは変えず、結果のウェハー（同じ数）を {@link Result#out()} で返す。失敗ならウェハーはそのまま（材料を失わない）。
@@ -162,9 +164,43 @@ public final class ChipOps {
         if (s == null || !s.hasWindows()) return Result.fail("no_window");
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
         if (s.metalFilm() || s.has(LayerKind.METAL)) return Result.fail("metal_on");
-        if (s.diffusions() >= MAX_DIFFUSIONS) return Result.fail("too_many");
+        if (s.diffusions() + s.implanted().size() >= MAX_DIFFUSIONS) return Result.fail("too_many");
         LayerKind k = type == 'n' ? LayerKind.DIFF_N : LayerKind.DIFF_P;
         return Result.ok(write(w, s.plus(k, s.windows()).withWindows(BitGrid.empty(s.size())).dirtier(1)));
+    }
+
+    public static boolean canImplant(ItemStack w, char type) { return implant(w, type, 1).ok(); }
+
+    /**
+     * [9-28] イオン注入（E と決めた形）：加速したイオンを、レジストの開いた所（現像したレジストがマスク）か、レジストがなければ酸化膜の窓に打ちこむ。
+     * 拡散とちがい、窓は閉じない・横に広がらない・量を選べる。打ちこんだだけでは結晶がこわれていて効かない＝{@link #anneal} まで回路に入らない。
+     * dose＝量の段（今は記録だけ。のちに面抵抗へ ⚠️）
+     */
+    public static Result implant(ItemStack w, char type, int dose) {
+        ChipState s = state(w);
+        if (s == null || !s.sized()) return Result.fail("no_pattern");
+        if (s.metalFilm() || s.has(LayerKind.METAL)) return Result.fail("metal_on");
+        if (s.diffusions() + s.implanted().size() >= MAX_DIFFUSIONS) return Result.fail("too_many");
+        BitGrid open;
+        if (s.resist() == ChipState.Resist.DEVELOPED) open = s.resistPattern().invert();   // レジストのない所に入る
+        else if (s.resist() == ChipState.Resist.NONE && s.hasWindows()) open = s.windows();
+        else return Result.fail(s.resist() == ChipState.Resist.NONE ? "no_window" : "not_developed");
+        if (open.isEmpty()) return Result.fail("no_window");
+        List<ChipState.Applied> im = new java.util.ArrayList<>(s.implanted());
+        im.add(new ChipState.Applied(type == 'n' ? LayerKind.DIFF_N : LayerKind.DIFF_P, open));
+        return Result.ok(write(w, s.withImplanted(im).dirtier(1)));
+    }
+
+    public static boolean canAnneal(ItemStack w) { return anneal(w).ok(); }
+
+    /** [9-29] アニール：熱で結晶を直し、注入したドーパントを働かせる（注入した層が拡散と同じ層になる） */
+    public static Result anneal(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || s.implanted().isEmpty()) return Result.fail("nothing_to_anneal");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");   // レジストは焼けてしまう：先にはがす
+        ChipState t = s;
+        for (ChipState.Applied a : s.implanted()) t = t.plus(a.kind(), a.cells());
+        return Result.ok(write(w, t.withImplanted(List.of())));
     }
 
     public static boolean canDepositMetal(ItemStack w) { return depositMetal(w).ok(); }

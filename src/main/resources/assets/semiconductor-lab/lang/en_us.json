@@ -255,6 +255,7 @@
   "litho.semiconductor-lab.challenge.register.hint3": "③ Stamp the same flip-flop twice and join their clock inputs; use symbols to keep the wiring readable.",
   "litho.semiconductor-lab.challenge.register.hint4": "④ A CPU is mostly registers and adders. The Intel 4004 (1971) held its numbers in sixteen 4-bit registers.",
   "gui.semiconductor-lab.pump.no_bearing": "Needs bearing grade 2+",
+  "litho.semiconductor-lab.fail.nothing_to_anneal": "Nothing implanted to anneal",
   "advancements.semiconductor-lab.chapter1.root.title": "Chapter 1: The Birth of the Transistor",
   "advancements.semiconductor-lab.chapter1.root.description": "1947. Before silicon, there was germanium. Goal: build a transistor radio!",
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "Ashes to Elements",

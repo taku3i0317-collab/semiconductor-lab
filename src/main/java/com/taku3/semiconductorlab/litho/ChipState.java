@@ -11,11 +11,12 @@ import java.util.List;
  * 中身は ChipOps だけが書きかえる（C・E の機械は ChipOps を呼ぶ）。
  * contamination＝汚れの度合い（[9-14] 洗浄、E と決めた形）：削る・はがす・しみ込ませる・Al のたびに +1、ChipOps.clean で落とす。
  * 失敗にはしない（O-002 方針2）。ツールチップに出し、v0.5 の歩留まりの欠陥密度 D に足す
+ * implanted＝イオン注入したが、まだアニールしていない層（[9-28]・[9-29]、E と決めた形）。アニールまで回路には効かない（ChipModel は done だけを見る）。
  * tone＝レジストの型（[2-30] ネガ型 KPR／[2-32] ポジ型、E と決めた形）：塗るときに決まり、露光・現像の向きが変わる。
  * overlayNm＝重ね合わせのずれ（[8-17] アライメント、C と決めた形）：2層目からの露光のずれの最大（nm）。これも失敗にはしない（ツールチップ、v0.5 の歩留まり）
  */
 public record ChipState(int size, String substrate, List<Applied> done, BitGrid windows, Resist resist,
-                        BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination, int overlayNm, Tone tone, List<Part> parts) {
+                        BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination, int overlayNm, Tone tone, List<Part> parts, List<Applied> implanted) {
 
     /** レジストの状態 */
     public enum Resist {
@@ -52,17 +53,24 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
             Codec.INT.optionalFieldOf("contamination", 0).forGetter(ChipState::contamination),
             Codec.INT.optionalFieldOf("overlay_nm", 0).forGetter(ChipState::overlayNm),
             Tone.CODEC.optionalFieldOf("resist_tone", Tone.POSITIVE).forGetter(ChipState::tone),
-            Part.CODEC.listOf().optionalFieldOf("parts", List.of()).forGetter(ChipState::parts)
+            Part.CODEC.listOf().optionalFieldOf("parts", List.of()).forGetter(ChipState::parts),
+            Applied.CODEC.listOf().optionalFieldOf("implanted", List.of()).forGetter(ChipState::implanted)
     ).apply(i, ChipState::new));
 
     public ChipState {
         done = List.copyOf(done);
         parts = List.copyOf(parts);
+        implanted = List.copyOf(implanted);
+    }
+
+    /** 注入なしの形（前からの呼び方） */
+    public ChipState(int size, String substrate, List<Applied> done, BitGrid windows, Resist resist, BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination, int overlayNm, Tone tone, List<Part> parts) {
+        this(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, parts, List.of());
     }
 
     /** ハンコの記録なしの形（前からの呼び方） */
     public ChipState(int size, String substrate, List<Applied> done, BitGrid windows, Resist resist, BitGrid resistPattern, boolean metalFilm, int reclaims, int contamination, int overlayNm, Tone tone) {
-        this(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, List.of());
+        this(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, List.of(), List.of());
     }
 
     /** ずれのない形（前からの呼び方） */
@@ -87,23 +95,24 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
 
     // ===== 書きかえ（新しい ChipState を返す） =====
     ChipState withSize(int s) {
-        return new ChipState(s, substrate, done, BitGrid.empty(s), resist, BitGrid.empty(s), metalFilm, reclaims, contamination, overlayNm, tone, parts);
+        return new ChipState(s, substrate, done, BitGrid.empty(s), resist, BitGrid.empty(s), metalFilm, reclaims, contamination, overlayNm, tone, parts, implanted);
     }
-    ChipState withResist(Resist r, BitGrid pattern) { return new ChipState(size, substrate, done, windows, r, pattern, metalFilm, reclaims, contamination, overlayNm, tone, parts); }
-    ChipState withWindows(BitGrid w) { return new ChipState(size, substrate, done, w, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, parts); }
-    ChipState withTone(Tone t) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, t, parts); }
+    ChipState withResist(Resist r, BitGrid pattern) { return new ChipState(size, substrate, done, windows, r, pattern, metalFilm, reclaims, contamination, overlayNm, tone, parts, implanted); }
+    ChipState withWindows(BitGrid w) { return new ChipState(size, substrate, done, w, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, parts, implanted); }
+    ChipState withTone(Tone t) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, t, parts, implanted); }
     /** 押したハンコの記録（最初の露光でマスクから写す、v0.3b） */
-    ChipState withParts(List<Part> p) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, p); }
-    ChipState withMetalFilm(boolean m) { return new ChipState(size, substrate, done, windows, resist, resistPattern, m, reclaims, contamination, overlayNm, tone, parts); }
+    ChipState withParts(List<Part> p) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, p, implanted); }
+    ChipState withImplanted(List<Applied> im) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, parts, im); }
+    ChipState withMetalFilm(boolean m) { return new ChipState(size, substrate, done, windows, resist, resistPattern, m, reclaims, contamination, overlayNm, tone, parts, implanted); }
     /** 汚れを n 増やす（工程のあと）・target まで落とす（洗浄） */
-    ChipState dirtier(int n) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination + n, overlayNm, tone, parts); }
-    ChipState cleanedTo(int target) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, Math.min(contamination, Math.max(0, target)), overlayNm, tone, parts); }
+    ChipState dirtier(int n) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination + n, overlayNm, tone, parts, implanted); }
+    ChipState cleanedTo(int target) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, Math.min(contamination, Math.max(0, target)), overlayNm, tone, parts, implanted); }
     /** 重ね合わせのずれを記録（いちばん大きいずれを残す） */
-    ChipState overlay(int nm) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, Math.max(overlayNm, Math.max(0, nm)), tone, parts); }
+    ChipState overlay(int nm) { return new ChipState(size, substrate, done, windows, resist, resistPattern, metalFilm, reclaims, contamination, Math.max(overlayNm, Math.max(0, nm)), tone, parts, implanted); }
 
     ChipState plus(LayerKind k, BitGrid cells) {
         List<Applied> d = new ArrayList<>(done);
         d.add(new Applied(k, cells));
-        return new ChipState(size, substrate, d, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, parts);
+        return new ChipState(size, substrate, d, windows, resist, resistPattern, metalFilm, reclaims, contamination, overlayNm, tone, parts, implanted);
     }
 }

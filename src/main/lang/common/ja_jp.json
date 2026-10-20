@@ -254,5 +254,6 @@
   "litho.semiconductor-lab.challenge.register.hint2": "②ビットごとにクロックの上がりで動くフリップフロップ、クロックは共通。",
   "litho.semiconductor-lab.challenge.register.hint3": "③同じフリップフロップのハンコを2つ押して、クロックをつなぐ。記号で見ると配線が読みやすい。",
   "litho.semiconductor-lab.challenge.register.hint4": "④CPU はほとんどがレジスタと加算器。1971年のインテル 4004 は、4ビットのレジスタ16個に数を入れていた。",
-  "gui.semiconductor-lab.pump.no_bearing": "精密な玉軸受（段階2以上）を入れる"
+  "gui.semiconductor-lab.pump.no_bearing": "精密な玉軸受（段階2以上）を入れる",
+  "litho.semiconductor-lab.fail.nothing_to_anneal": "アニールする注入がない"
 }
