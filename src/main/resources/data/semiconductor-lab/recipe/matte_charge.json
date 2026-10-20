@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:pentlandite",
+    "minecraft:sand"
+  ],
+  "result": {
+    "id": "semiconductor-lab:matte_charge",
+    "count": 1
+  }
+}

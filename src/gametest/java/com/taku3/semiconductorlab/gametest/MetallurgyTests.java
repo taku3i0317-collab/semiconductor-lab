@@ -118,6 +118,7 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreSphalerite(GameTestHelper h) { oreFeature(h, "sphalerite_ore", Blocks.STONE, Blocks.COBBLESTONE, Metallurgy.SPHALERITE_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreGalena(GameTestHelper h)     { oreFeature(h, "galena_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.GALENA_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreStibnite(GameTestHelper h)   { oreFeature(h, "stibnite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.STIBNITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-43] IMP3
+    @GameTest public void orePentlandite(GameTestHelper h) { oreFeature(h, "pentlandite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.PENTLANDITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-37] IMP3
     @GameTest public void oreGraphite(GameTestHelper h)   { oreFeature(h, "graphite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.GRAPHITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreMagnetite(GameTestHelper h)  { oreFeature(h, "magnetite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.MAGNETITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreWolframite(GameTestHelper h) { oreFeature(h, "wolframite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.WOLFRAMITE_ORE, s -> s.is(Blocks.GRANITE)); }
@@ -435,6 +436,23 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-37] ニッケル（IMP3、S-004）：ペントランド鉱＋砂 → 鈹 → 焙焼 → NiO → ＋H2 → 粗 Ni → ＋CO4 → Ni(CO)4 → 分解 → Ni。もれると事故 */
+    @GameTest
+    public void nickelMond(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(recipeUses(h, "matte_charge", Metallurgy.PENTLANDITE) && recipeUses(h, "matte_charge", Items.SAND), "ore + sand flux");
+        h.assertTrue(cook(h, SMELT, Metallurgy.MATTE_CHARGE).is(Metallurgy.NICKEL_MATTE) && cook(h, SMELT, Metallurgy.NICKEL_MATTE).is(Metallurgy.NICKEL_OXIDE), "matte -> roast -> NiO");
+        h.assertTrue(recipeUses(h, "crude_nickel", Metallurgy.NICKEL_OXIDE) && recipeUses(h, "crude_nickel", com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS), "NiO + H2 -> Ni");
+        h.assertTrue(recipeUses(h, "carbon_monoxide_gas", Metallurgy.COKE), "coke + O2 -> CO");
+        h.assertTrue(recipeUses(h, "nickel_carbonyl_gas", Metallurgy.CRUDE_NICKEL) && recipeUses(h, "nickel_carbonyl_gas", Metallurgy.CARBON_MONOXIDE_GAS), "Mond: Ni + 4CO");
+        h.assertTrue(cook(h, SMELT, Metallurgy.NICKEL_CARBONYL_GAS).is(Metallurgy.NICKEL), "Ni(CO)4 -> Ni at 200 C");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        com.taku3.semiconductorlab.item.NickelCarbonylItem.leak(player);
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.NAUSEA) && player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS), "a leak is an accident");
+        LOG.info("[LAB] nickel [1-37]: pentlandite + sand -> matte -> NiO -> + H2 -> crude Ni -> + 4CO -> Ni(CO)4 -> 200 C -> Ni");
+        h.succeed();
+    }
+
     /** [1-43] アンチモン（IMP3、S-002）：輝安鉱 → 焙焼 → Sb2O3 → 還元 → アンチモン。いきなりアンチモンにはならない */
     @GameTest
     public void antimonyFromStibnite(GameTestHelper h) {
@@ -629,7 +647,7 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore", "chromite_ore"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore", "chromite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:nickel_carbonyl_gas",
+  "result": {
+    "id": "semiconductor-lab:nickel"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

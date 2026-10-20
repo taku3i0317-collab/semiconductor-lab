@@ -89,6 +89,7 @@
     "semiconductor-lab:solvay_tower",
     "semiconductor-lab:hepa_ceiling",
     "semiconductor-lab:wafer_prober",
-    "semiconductor-lab:bottle_machine"
+    "semiconductor-lab:bottle_machine",
+    "semiconductor-lab:pentlandite_ore"
   ]
 }

@@ -81,6 +81,8 @@ clay_crucible  # Metallurgy [1-11] 1740
 crucible_charge  # Metallurgy [1-11] 1740
 crucible_steel  # Metallurgy [1-11] 1740
 platinum_grain  # Metallurgy [1-20] 1748
+nickel  # Metallurgy [1-37] 1751
+pentlandite_ore  # Metallurgy [1-37] 1751
 chromite  # Metallurgy [1-40] 1797
 chromite_roast_charge  # Metallurgy [1-40] 1797
 sodium_chromate  # Metallurgy [1-40] 1797
@@ -135,6 +137,13 @@ trichlorosilane  # Metallurgy [1-16] 1953
 trichlorosilane_reactor  # Metallurgy [1-16] 1953
 polysilicon  # Metallurgy [1-17] 1956
 siemens_reactor  # Metallurgy [1-17] 1956
+pentlandite  # Metallurgy [None] None
+matte_charge  # Metallurgy [None] None
+nickel_matte  # Metallurgy [None] None
+nickel_oxide  # Metallurgy [None] None
+crude_nickel  # Metallurgy [None] None
+carbon_monoxide_gas  # Metallurgy [None] None
+nickel_carbonyl_gas  # Metallurgy [None] None
 blast_furnace_slag  # Metallurgy [None] None
 wood_ash  # Chemistry [2-02] -2800
 lye  # Chemistry [2-02] -2800

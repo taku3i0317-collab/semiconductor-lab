@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crude_nickel",
+    "semiconductor-lab:carbon_monoxide_gas",
+    "semiconductor-lab:carbon_monoxide_gas",
+    "semiconductor-lab:carbon_monoxide_gas",
+    "semiconductor-lab:carbon_monoxide_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nickel_carbonyl_gas",
+    "count": 1
+  }
+}

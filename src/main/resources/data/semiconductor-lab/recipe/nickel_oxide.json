@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:nickel_matte",
+  "result": {
+    "id": "semiconductor-lab:nickel_oxide"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

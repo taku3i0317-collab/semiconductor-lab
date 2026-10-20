@@ -2287,6 +2287,21 @@
 - ASME Landmark #86「Owens AR Bottle Machine」：https://www.asme.org/about-asme/engineering-history/landmarks/86-owens-ar-bottle-machine
 - ASME Landmark #81「Corning Ribbon Machine」：https://www.asme.org/about-asme/engineering-history/landmarks/81-corning-ribbon-machine
 
+## C36. 金属が気体になる（ニッケルとモンド法）［1-37］
+**答え**：ニッケルは一酸化炭素と約50℃で結びついて気体のニッケルカルボニル Ni(CO)4 になり、約200℃に熱すると分解して純粋なニッケルにもどる。鉄や銅はこの温度では気体にならないので、ニッケルだけを取り出せる。1890年にルートヴィヒ・モンドたちが見つけ、1902年にイギリスのクライダックでカナダ・サドベリーの鈹を精製する工場を動かした。ニッケルは1751年にクロンステットが単離した。ニッケルカルボニルは猛毒。
+
+- へえ①：ニッケルは一酸化炭素と気体になり、熱するとまた純粋なニッケルにもどる。
+- へえ②：「ニッケル」は、銅がとれない鉱石を小鬼のせいにしたドイツの鉱夫の言葉から。
+- へえ③：サドベリーのニッケル鉱山は、約18億年前の隕石の衝突でできたくぼみにある。
+- へえ④：ニッケルは水素化の触媒（サバティエ 1897、ノーベル賞 1912）になり、ナイロンやマーガリンを作るのに使われる。
+
+確かさ：モンド法 1890・クライダック 1902 ◎／クロンステット 1751 ◎／サドベリーの衝突（約18億年前）◎／名前の由来 ○
+根拠：
+- Wikipedia「Mond process」：https://en.wikipedia.org/wiki/Mond_process
+- Wikipedia「Nickel」（歴史・名前）：https://en.wikipedia.org/wiki/Nickel
+- Wikipedia「Sudbury Basin」：https://en.wikipedia.org/wiki/Sudbury_Basin
+- Wikipedia「Pentlandite」：https://en.wikipedia.org/wiki/Pentlandite
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:matte_charge",
+  "result": {
+    "id": "semiconductor-lab:nickel_matte"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

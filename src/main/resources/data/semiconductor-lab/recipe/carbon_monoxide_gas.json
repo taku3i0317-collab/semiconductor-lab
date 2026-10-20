@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:coke",
+    "semiconductor-lab:coke",
+    "semiconductor-lab:oxygen_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:carbon_monoxide_gas",
+    "count": 2
+  }
+}
