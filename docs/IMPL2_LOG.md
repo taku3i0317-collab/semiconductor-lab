@@ -163,3 +163,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ O-018 1. [6-08] 希ガス：block/RareGasColumnBlockEntity（GasSource、酸素1＋窒素1 → Kr/Xe/Ne を mmol で貯める）、Gas に NEON/KRYPTON/XENON の袋とボンベ、GasType に3つ足した（ガスホルダーの色は default のまま）。GameTest rare_gases、CHEMISTRY G5、REFERENCES O59。テスト 252/252
 - ✅ O-018 2. [6-14] フッ素：Chemistry に potassium_fluoride、Gas に fluorine_cylinder（袋は作らない＝ゴムを侵す、鋼のボンベに直接）と FLUORINE_CELL（block/FluorineCellBlockEntity・client/FluorineCellScreen）。事故は DESIGN⑥ どおり（水素が逃げないと混ざってフッ素を失い止まる、地形は壊れない）。Vessel の相性表は変えていない（ボンベの容器は鋼）。GameTest fluorine_cell、CHEMISTRY G6、REFERENCES O60。テスト 253/253
   - E からの相談（[8-33] 質量分析・[5-06] 油拡散ポンプ）：どちらも E が作ってよいと返事した（C は O-018 で手がいっぱい）
+- ✅ O-018 3. [7-20] KrF エキシマレーザー：Optics に krf_laser（耐久＝ガス 64）・projection_lens_krf（NA 0.8・k1 0.35、ProjectionLensItem に k1Base を足した）。ステッパーの光源の入口に KrF レーザー（ExposureTool.KRF、方眼68、1チップでガス1）。詰め替え krf_laser_refill。GameTest stepper_krf、CHEMISTRY O36、REFERENCES O61。テスト 260/260。O-018 はこれで全部（ArF・液浸・[7-13] ルビーレーザーは後）

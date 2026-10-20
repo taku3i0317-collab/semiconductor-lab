@@ -1734,6 +1734,19 @@
 - Wikipedia「Fluorine」：https://en.wikipedia.org/wiki/Fluorine
 - Wikipedia「Henri Moissan」：https://en.wikipedia.org/wiki/Henri_Moissan
 
+## O61. 希ガスとフッ素の一瞬の分子（KrF エキシマレーザー）［7-20］
+**答え**：クリプトンとフッ素をネオンで薄めたガスに強い放電をかけると、励起状態でだけ結びつく KrF* ができ、壊れるときに 248nm の紫外線を出す（エキシマレーザー）。1975年に発振し、1982年 IBM のカンティ・ジェインが露光に使えることを示した。1990年代後半から KrF の露光装置が工場の主役になり、位相シフトマスクなどの工夫で波長より細い 0.13µm ほどの線まで描いた。
+
+- へえ①：エキシマは「励起状態だけの二量体」。ふだんは存在しない分子が光を出す。
+- へえ②：レーザーのガスの大部分はネオン。
+- へえ③：248nm の光はふつうのガラスを通らないので、レンズは石英と CaF2 だけで作る。
+- へえ④：次は ArF（193nm）、水を使う液浸、そして EUV（13.5nm）。
+
+確かさ：1975 発振・1982 ジェイン ◎／KrF 量産 1990年代後半 ○／k1 0.3〜0.4 ○
+根拠：
+- Wikipedia「Excimer laser」：https://en.wikipedia.org/wiki/Excimer_laser
+- Wikipedia「Photolithography」（Excimer laser lithography）：https://en.wikipedia.org/wiki/Photolithography
+
 ---
 
 # 冶金と熱（タスク15〜）

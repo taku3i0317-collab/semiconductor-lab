@@ -479,6 +479,8 @@ photomask  # Optics [7-11] 1960
 reduction_camera  # Optics [7-11] 1960
 chrome_blank  # Optics [7-12] 1970
 chrome_photomask  # Optics [7-12] 1970
+krf_laser  # Optics [7-20] 1975
+projection_lens_krf  # Optics [7-20] 1975
 projection_lens  # Optics [7-19] 1978
 projection_lens_i  # Optics [9-39] 1978
 i_line_filter  # Optics [9-39] 1978

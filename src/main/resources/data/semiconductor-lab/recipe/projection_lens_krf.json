@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:centered_lens_barrel",
+  "material": "semiconductor-lab:synthetic_quartz",
+  "result": {
+    "id": "semiconductor-lab:projection_lens_krf"
+  }
+}

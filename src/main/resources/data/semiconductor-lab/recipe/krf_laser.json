@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WTW",
+    "KFN",
+    "SSS"
+  ],
+  "key": {
+    "W": "semiconductor-lab:caf2_lens",
+    "T": "semiconductor-lab:transformer",
+    "K": "semiconductor-lab:krypton_cylinder",
+    "F": "semiconductor-lab:fluorine_cylinder",
+    "N": "semiconductor-lab:neon_cylinder",
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:krf_laser",
+    "count": 1
+  }
+}

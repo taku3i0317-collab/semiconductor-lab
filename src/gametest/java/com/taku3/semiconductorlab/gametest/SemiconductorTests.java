@@ -1530,6 +1530,39 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-20] KrF エキシマレーザー（IMP2 O-018）：レーザー＋KrF のレンズ（石英、NA 0.8・k1 0.35）でステッパーが方眼 68。1チップでガスを1使う */
+    @GameTest(maxTicks = 100)
+    public void stepper_krf(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "krf_laser", com.taku3.semiconductorlab.content.Gas.FLUORINE_CYLINDER) && recipeUses(h, "krf_laser", com.taku3.semiconductorlab.content.Gas.KRYPTON_CYLINDER)
+                && recipeUses(h, "krf_laser", com.taku3.semiconductorlab.content.Gas.NEON_CYLINDER), "KrF laser gas = Kr + F2 diluted in Ne");
+        ItemStack good = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_KRF), rough = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_KRF);
+        good.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        rough.set(Precision.LENS_DECENTER, java.util.List.of(10, 10, 10, 10));
+        h.assertTrue(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsTool(good) && !com.taku3.semiconductorlab.item.ProjectionLensItem.meetsTool(rough), "KrF lens: " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm ok, " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(rough) + " nm too blurred (130 target)");
+        int g = com.taku3.semiconductorlab.litho.ExposureTool.KRF.grid;
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(g), "krf_test", 0);
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        mask.set(ModDataComponents.MASK, fine);
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.STEPPER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.StepperBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER, ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK, mask);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, good);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Optics.KRF_LASER));
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.StepperBlockEntity.WATTS);
+        for (int k = 1; k <= com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS; k++) {
+            h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "KrF step " + k);
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.StepperBlockEntity.STEP_TICKS + 2, full);
+        }
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT));
+        h.assertTrue(st != null && st.size() == g, "KrF stepper prints grid " + g);
+        h.assertValueEqual(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER).getDamageValue(), com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS, "one gas shot per chip");
+        LOG.info("[LAB] stepper KrF [7-20]: laser + quartz lens NA 0.8 k1 0.35 -> CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm, grid " + g + "; gas used " + com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS + "/" + com.taku3.semiconductorlab.content.Optics.KRF_LASER_SHOTS);
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

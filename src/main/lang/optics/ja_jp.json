@@ -323,5 +323,17 @@
   "item.semiconductor-lab.i_line_filter.note1": "水銀灯の光から、紫外の i線だけを通す板。",
   "item.semiconductor-lab.i_line_filter.note2": "真空蒸着で 合成石英＋蛍石×2。ステッパーの右上の入口に入れると i線のステッパーになる（i線の投影レンズが要る）。",
   "item.semiconductor-lab.i_line_filter.note3": "屈折率の違う薄い膜を何十層も重ねると、決まった波長だけを通し、ほかを反射する（干渉フィルター）。",
-  "item.semiconductor-lab.i_line_filter.note4": "水銀灯には g線（436nm）・h線（405nm）・i線（365nm）があり、フィルターで1本だけを選ぶ。1本だけにすると、レンズの色ずれ（色収差）の心配が減る。"
+  "item.semiconductor-lab.i_line_filter.note4": "水銀灯には g線（436nm）・h線（405nm）・i線（365nm）があり、フィルターで1本だけを選ぶ。1本だけにすると、レンズの色ずれ（色収差）の心配が減る。",
+  "item.semiconductor-lab.krf_laser": "KrF エキシマレーザー",
+  "item.semiconductor-lab.krf_laser.note1": "クリプトンとフッ素のガスに電気を流して、目に見えない紫外の光（248nm）を出す装置。",
+  "item.semiconductor-lab.krf_laser.note2": "CaF2 レンズ×2＋変圧器＋クリプトン・フッ素・ネオンのボンベ＋鋼×3（空きボンベは戻る）。ステッパーの右上（光源）に入れると KrF のステッパー（方眼 68、KrF の投影レンズが要る）。1チップでガスを1使い、64 で空になる（ボンベ3本と合わせて詰め替え）。⚠ フッ素を含む高圧ガス。",
+  "item.semiconductor-lab.krf_laser.note3": "1975年、希ガスとハロゲンのエキシマレーザーが発振し、1982年 IBM のジェインが露光に使えることを示した。1990年代後半から KrF ステッパー・スキャナーが工場の主役になった。",
+  "item.semiconductor-lab.krf_laser.note4": "希ガスはふつう結びつかないが、放電で励起するとフッ素と一瞬だけ KrF* を作り、壊れるときに 248nm の光を出す（励起状態だけの分子＝エキシマ）。ガスのほとんどはネオンで、放電を安定させる。",
+  "item.semiconductor-lab.krf_laser.placeholder": "近似：放電・パルスのしくみと、フッ素に耐える PTFE などの部材は省略。ガスの残りはゲームの値。",
+  "item.semiconductor-lab.projection_lens_krf": "KrF の投影レンズ",
+  "item.semiconductor-lab.projection_lens_krf.note1": "紫外の光（248nm）でも透明な石英だけで組んだ投影レンズ。",
+  "item.semiconductor-lab.projection_lens_krf.note2": "心出し済みの鏡筒＋合成石英（ずれを引き継ぐ）。KrF レーザーと合わせると方眼 68 が焼ける。CD 0.13µm に届くには鏡筒の心出しを顕微鏡の限界まで寄せる。",
+  "item.semiconductor-lab.projection_lens_krf.note3": "248nm の光はふつうのガラスを通らないので、合成石英と CaF2 だけでレンズを作る。",
+  "item.semiconductor-lab.projection_lens_krf.note4": "波長より細い線を描くため、マスクの光の位相をずらす（位相シフトマスク）・模様の形を補正する（OPC）などの工夫で k1 を 0.3〜0.4 まで下げた。",
+  "item.semiconductor-lab.projection_lens_krf.placeholder": "近似：NA 0.8・k1 0.35（解像度を上げる工夫の近似）。"
 }

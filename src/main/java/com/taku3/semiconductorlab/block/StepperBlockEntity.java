@@ -31,6 +31,8 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     public static final ExposureTool TOOL = ExposureTool.STEPPER_G;
     /** O-017：i線フィルターを入れると i線ステッパー（方眼が細かくなる） */
     public static final ExposureTool TOOL_I = ExposureTool.STEPPER_I;
+    /** [7-20]：KrF エキシマレーザーを入れると KrF（248nm、方眼がさらに細かい）。1チップごとにレーザーのガスを1使う */
+    public static final ExposureTool TOOL_KRF = ExposureTool.KRF;
     public static final int SLOT_WAFER = 0, SLOT_MASK = 1, SLOT_LENS = 2, SLOT_STAGE = 3, SLOT_OUT = 4, SLOT_FILTER = 5, SLOT_COUNT = 6;
     public static final int DATA_STEPS = DATA_COUNT, DATA_CD = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, EXTRA_DATA = 4;
     public static final int BTN_STEP = 0;
@@ -41,7 +43,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_LENS, 30, 17, s -> s.is(Optics.PROJECTION_LENS), 1)
             .in(SLOT_STAGE, 30, 39, LatheBlockEntity::isMasterScrew, 1)
             .out(SLOT_OUT, 54, 28)
-            .in(SLOT_FILTER, 78, 17, s -> s.is(Optics.I_LINE_FILTER), 1)
+            .in(SLOT_FILTER, 78, 17, s -> s.is(Optics.I_LINE_FILTER) || s.is(Optics.KRF_LASER), 1)
             .area("step_button", 8, 60, 66, 14)
             .right("power", 17, 1, "gui.semiconductor-lab.stepper.power").samples("1.5 kW")
             .right("steps", 28, 1, "gui.semiconductor-lab.stepper.steps").samples("4", "4")
@@ -66,7 +68,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     public static boolean lensOk(ItemStack lens) { return ProjectionLensItem.toolOf(lens) != null && ProjectionLensItem.meetsTool(lens); }
 
     /** 光源：i線フィルターがあれば i線、なければ g線 */
-    public static ExposureTool toolFor(ItemStack filter) { return filter.is(Optics.I_LINE_FILTER) ? TOOL_I : TOOL; }
+    public static ExposureTool toolFor(ItemStack filter) { return filter.is(Optics.KRF_LASER) ? TOOL_KRF : filter.is(Optics.I_LINE_FILTER) ? TOOL_I : TOOL; }
 
     /** レンズが光の波長に合っているか（g線のガラスのレンズは i線を吸う） */
     public static boolean lensMatches(ItemStack lens, ItemStack filter) { return ProjectionLensItem.toolOf(lens) == toolFor(filter); }
@@ -111,6 +113,11 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
 
     @Override protected void finishWork() {
         stepping = false;
+        ItemStack light = container.getItem(SLOT_FILTER);
+        if (light.is(Optics.KRF_LASER)) {   // [7-20] 1チップでガスを1使う。使い切ると空になる
+            light.setDamageValue(light.getDamageValue() + 1);
+            if (light.getDamageValue() >= light.getMaxDamage()) container.setItem(SLOT_FILTER, ItemStack.EMPTY);
+        }
         if (++stepsDone < STEPS) { setChanged(); return; }
         stepsDone = 0;
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);

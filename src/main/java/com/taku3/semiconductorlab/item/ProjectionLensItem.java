@@ -37,9 +37,12 @@ public class ProjectionLensItem extends Item {
     /** このレンズの露光の方法（光の波長と、届けばよい CD）と開口数。g線レンズ＝STEPPER_G・NA 0.35、i線レンズ＝STEPPER_I・NA 0.7（O-017） */
     public final ExposureTool tool;
     public final double na;
+    /** k1 の土台（g線・i線 0.6、KrF は位相シフトマスクなどの解像度を上げる工夫で 0.35⚠️） */
+    public final double k1Base;
 
     public ProjectionLensItem(Properties properties) { this(properties, ExposureTool.STEPPER_G, NA); }
-    public ProjectionLensItem(Properties properties, ExposureTool tool, double na) { super(properties); this.tool = tool; this.na = na; }
+    public ProjectionLensItem(Properties properties, ExposureTool tool, double na) { this(properties, tool, na, 0.6); }
+    public ProjectionLensItem(Properties properties, ExposureTool tool, double na, double k1Base) { super(properties); this.tool = tool; this.na = na; this.k1Base = k1Base; }
 
     /** レンズの露光の方法（ProjectionLensItem でなければ null） */
     public static ExposureTool toolOf(ItemStack s) { return s.getItem() instanceof ProjectionLensItem l ? l.tool : null; }
@@ -57,8 +60,8 @@ public class ProjectionLensItem extends Item {
     /** 解像度 CD（nm）＝ k1·λ/NA */
     public static int cdNm(ItemStack s) {
         ProjectionLensItem l = s.getItem() instanceof ProjectionLensItem p ? p : null;
-        double lambda = l == null ? LAMBDA_NM : l.tool.wavelengthNm, na = l == null ? NA : l.na;
-        return (int) Math.round(k1(wavefrontWaves(s)) * lambda / na);
+        double lambda = l == null ? LAMBDA_NM : l.tool.wavelengthNm, na = l == null ? NA : l.na, base = l == null ? 0.6 : l.k1Base;
+        return (int) Math.round((base + 2 * wavefrontWaves(s)) * lambda / na);
     }
 
     /** このレンズの露光の方法の CD（g線なら 1µm、i線なら 0.35µm）に届くか */
@@ -75,7 +78,7 @@ public class ProjectionLensItem extends Item {
         ItemStack s = ctx.getItemInHand();
         if (p.getItemInHand(ctx.getHand() == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND).getItem() instanceof InterferometerItem)
             p.sendSystemMessage(Component.translatable(K + "wavefront", String.format(Locale.ROOT, "%.3f", wavefrontWaves(s))));
-        p.sendSystemMessage(Component.translatable(K + "test", String.format(Locale.ROOT, "%.2f", k1(wavefrontWaves(s))),
+        p.sendSystemMessage(Component.translatable(K + "test", String.format(Locale.ROOT, "%.2f", k1Base + 2 * wavefrontWaves(s)),
                 String.format(Locale.ROOT, "%.0f", tool.wavelengthNm), String.format(Locale.ROOT, "%.2f", na), String.format(Locale.ROOT, "%.2f", cdNm(s) / 1000.0)));
         p.sendSystemMessage(Component.translatable(K + (meetsTool(s) ? "ok" : "blurred"), String.format(Locale.ROOT, "%.2f", tool.cdNm / 1000.0)));
         return InteractionResult.SUCCESS;

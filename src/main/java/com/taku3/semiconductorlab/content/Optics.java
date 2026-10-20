@@ -88,6 +88,11 @@ public final class Optics {
     public static final Item PROJECTION_LENS_I     = Reg.item("projection_lens_i", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_I, 0.7), new Item.Properties().stacksTo(1));
     // O-017 i線フィルター（IMP2）：水銀灯の光から 365nm だけを通す（合成石英に CaF2 などの薄い膜を重ねた干渉フィルター）
     public static final Item I_LINE_FILTER         = Reg.item("i_line_filter", new Item.Properties().stacksTo(1));
+    // [7-20] KrF エキシマレーザー（IMP2 O-018）：Kr＋F2（Ne で薄める）を放電で励起 → 248nm の紫外パルス。ステッパーの光源の入口に入れる。耐久＝ガスの残り（1チップで1）
+    public static final int KRF_LASER_SHOTS = 64;
+    public static final Item KRF_LASER             = Reg.item("krf_laser", new Item.Properties().durability(KRF_LASER_SHOTS));
+    // KrF の投影レンズ：248nm を通すのは石英と CaF2 だけ。NA 0.8・解像度を上げる工夫（位相シフトマスクなど）で k1 0.35⚠️
+    public static final Item PROJECTION_LENS_KRF   = Reg.item("projection_lens_krf", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.KRF, 0.8, 0.35), new Item.Properties().stacksTo(1));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
