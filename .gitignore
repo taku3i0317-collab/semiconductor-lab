@@ -41,3 +41,6 @@ replay_*.log
 agent.py
 agent_queue.py
 docs/tasks/night_output.txt
+
+# Discord の webhook URL（秘密。git に入れない）
+.discord_webhook

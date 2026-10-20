@@ -36,6 +36,9 @@ v0.2b（シリコン）の下準備が終わり、タスク13で [1-46] 珪石�
 （どれも「省略・近似」の注記で、本物と違う代用の「仮」はゼロ。タスク12で真空管の封止圧、タスク13でネザークォーツの代用が消えた）
 
 ## 担当の分け方（2026-10-20〜）
+- ネットワーク担当の進み具合は docs/NETWORK_LOG.md
+- タスク番号：実装担当＝IMP-番号、ネットワーク担当＝NET-番号（CLAUDE.md の共通ルール）
+- Discord の webhook URL は .discord_webhook（git に入らない）。semilab-network にも同じ場所にコピー済み
 - docs/network.html・docs/node.html・tools/gen_tree_views.py・docs/network_meta.json・products.md・ideas.md・tools/gen_portraits.py は semilab-network（ネットワーク担当、C:/Users/taku3/mods/semilab-network）の担当。A（このフォルダ）は触らない
 - 引き継ぎ：肖像は 32×32 にした（gen_portraits.py、49人）。人物の偏りの点検結果は DECISIONS_PENDING Q26-1（人物カードを足すのはネットワーク担当）
 

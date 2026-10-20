@@ -31,6 +31,8 @@
    機械は block/ パッケージ、電気は energy/ パッケージ、クライアント描画は src/client
 
 ## 担当の分け方（2026-10-20〜）
+- **共通ルール：タスク番号**は、実装担当（このフォルダ）＝ **IMP-番号**、ネットワーク担当（semilab-network）＝ **NET-番号**。commit メッセージ・LOG・Discord の通知・報告の最初の行に付ける。これまでのタスク22・23 は IMP-22・IMP-23 と読む
+- ネットワーク担当の進み具合は docs/NETWORK_LOG.md（ネットワーク担当が書く）
 - docs/network.html・docs/node.html・tools/gen_tree_views.py・docs/network_meta.json・products.md・ideas.md・tools/gen_portraits.py は、別フォルダ C:/Users/taku3/mods/semilab-network（ネットワーク担当）の担当。このフォルダ（A＝MOD 本体）ではこれらを触らない
 - A が TECH_TREE.md・REFERENCES.md・lang・machine_recipes.json（GameTest が書き出す）を変えると、ネットワーク担当がそれを読んで図を作り直す。図の作り直し（gen_tree_views.py の実行）もネットワーク担当
 
@@ -47,7 +49,7 @@
 - 実装後：ノードの状態を ✅ に、CHEMISTRY.md に本物/省略の行、TEST_QUEUE.md にテスト行、
   lang の .note に「へえ」、ROADMAP のチェックを更新。commit メッセージに [X-NN] を入れる
 - ノードを実装したら docs/REFERENCES.md に同じ形式（答え→へえ①〜④→確かさ◎○△→根拠リンク）で1項目を足す（既にあれば更新）。△ の内容はゲーム内（lang の note）でも ⚠️ を付ける
-- ユーザーから指示されたタスクが終わったら、毎回 Discord の Webhook に完了通知を送る（大きな見出し「# ✅🔔 作業完了 🔔✅」・色付きの埋め込み（embeds、成功＝緑 3066993）・読み上げ（"tts": true）。テストが失敗して止まったときも「# ❌ 停止」・赤 15158332 で送る）。@everyone は付けない。URL はユーザーが会話で渡したもの（このファイルには書かない）。JSON は Write でファイルにしてから curl --data-binary で送る
+- ユーザーから指示されたタスクが終わったら、毎回 Discord の Webhook に完了通知を送る（大きな見出し「# ✅🔔 作業完了 🔔✅」・色付きの埋め込み（embeds、成功＝緑 3066993）・読み上げ（"tts": true）。テストが失敗して止まったときも「# ❌ 停止」・赤 15158332 で送る）。@everyone は付けない。URL はリポジトリ直下の .discord_webhook（git に入らない、.gitignore 済み）から読む：`curl ... "$(cat .discord_webhook)"`。URL はこのファイルにもチャットにも書かない。JSON は Write でファイルにしてから curl --data-binary で送る
 - 「次に作れるノードを列挙して」と言われたら、前提が全部 ✅ の ❓ ノードを幹ごとに一覧にする
 
 ## 現在地
