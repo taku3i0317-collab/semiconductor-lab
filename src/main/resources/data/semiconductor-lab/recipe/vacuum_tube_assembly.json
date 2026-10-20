@@ -7,7 +7,7 @@
     " G "
   ],
   "key": {
-    "G": "minecraft:glass",
+    "G": "semiconductor-lab:soda_lime_glass",
     "n": "minecraft:iron_nugget",
     "W": "semiconductor-lab:tungsten_wire",
     "I": "minecraft:iron_ingot"

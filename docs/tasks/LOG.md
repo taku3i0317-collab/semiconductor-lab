@@ -105,3 +105,9 @@
 - テスト：GameTest 57→59本（guide2_electricity, notes_and_zukan_complete）、全部 PASSED
 - tag v0.2a。./gradlew.bat build → build/libs/semiconductor-lab-1.0.0.jar（＋-sources.jar）
 - 保留判断：Q10-G1〜G4（ページ構成・解放条件・本を渡す時期・巻の呼び名）、Q10-N1〜N5、Q10-T1（jar の version が 1.0.0 のまま）
+
+## タスク10の決定反映＋引き継ぎ docs（タスク11の1・2）（2026-10-20）
+- 採用：Q10-T1 version=0.2a（jar＝semiconductor-lab-0.2a.jar、tag v0.2a は動かさない）／Q10-N2 🔒 をやめ「大人：…▶図鑑で続き」（en/ja）／Q10-N4・N5 lang が正本／Q10-C1・C2 現状のまま／Q10-C3（＝Q814-2）電解槽・真空管の組立品・鉛蓄電池をソーダ石灰ガラスに（外す placeholder は無し）
+- CHEMISTRY #28・#73・#94・#116・レビュー欄を更新。GameTest soda_lime_glass に3レシピを追加（59本、全部 PASSED）
+- 新規：docs/README.md（役割と読む順番）・docs/HANDOFF.md（現在地1枚）。CLAUDE.md に「各タスクの最後に HANDOFF.md を更新」
+- 保留判断：Q10-C5（封止台もバニラのガラス×2、そろえるか）。タスク11の 3〜6 は queue に残した

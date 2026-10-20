@@ -1520,7 +1520,7 @@ public class LabTests {
         h.succeed();
     }
 
-    /** [2-14] ソーダ石灰ガラス：砂6＋ソーダ＋生石灰 → 調合原料6 → かまど/溶鉱炉 → ガラス。実験器具3つはバニラのガラスでなく MOD ガラス */
+    /** [2-14] ソーダ石灰ガラス：砂6＋ソーダ＋生石灰 → 調合原料6 → かまど/溶鉱炉 → ガラス。実験器具（＋電解槽・真空管の組立品・鉛蓄電池：Q10-C3）はバニラのガラスでなく MOD ガラス */
     @GameTest
     public void sodaLimeGlass(GameTestHelper h) {
         ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("glass_batch"));
@@ -1531,13 +1531,13 @@ public class LabTests {
         h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(ModItems.QUICKLIME))).count(), 1L, "1 quicklime (CaO ~10%)");
         h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, ModItems.GLASS_BATCH).is(ModItems.SODA_LIME_GLASS), "batch -> furnace -> soda-lime glass");
         h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, ModItems.GLASS_BATCH).is(ModItems.SODA_LIME_GLASS), "batch -> blast furnace -> soda-lime glass");
-        for (String id : new String[] {"vacuum_chamber", "mercury_vacuum_gauge", "leyden_jar"}) {
+        for (String id : new String[] {"vacuum_chamber", "mercury_vacuum_gauge", "leyden_jar", "electrolyzer", "vacuum_tube_assembly", "lead_acid_battery"}) {
             h.assertTrue(recipeUses(h, id, ModItems.SODA_LIME_GLASS), id + " should use soda-lime glass");
             for (var v : new net.minecraft.world.item.Item[] {Items.GLASS, Items.GLASS_PANE, Items.GLASS_BOTTLE})
                 h.assertFalse(recipeUses(h, id, v), id + " must not use vanilla " + v);
         }
         h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.SAND).is(Items.GLASS), "vanilla sand -> glass stays for windows");
-        LOG.info("[LAB] soda-lime glass: 6 sand + soda + lime -> 6 batch -> glass; vacuum chamber / gauge / Leyden jar need it");
+        LOG.info("[LAB] soda-lime glass: 6 sand + soda + lime -> 6 batch -> glass; vacuum chamber / gauge / Leyden jar / electrolyzer / tube assembly / lead-acid battery need it");
         h.succeed();
     }
 

@@ -9,7 +9,7 @@
   "key": {
     "g": "semiconductor-lab:graphite",
     "c": "minecraft:copper_ingot",
-    "G": "minecraft:glass"
+    "G": "semiconductor-lab:soda_lime_glass"
   },
   "result": { "id": "semiconductor-lab:electrolyzer", "count": 1 }
 }
