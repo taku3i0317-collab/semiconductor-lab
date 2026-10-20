@@ -1465,6 +1465,9 @@ public class LabTests {
             com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_WATTS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SYNTH_TICKS / 20.0, "Si + 3HCl → SiHCl3 + H2（約300℃）。できたては 99%");
         rec(a, ModBlocks.TRICHLOROSILANE_REACTOR, "蒸留（1段）", L(io(ModItems.TRICHLOROSILANE, 1)), L(cond(io(ModItems.TRICHLOROSILANE, 1), "「9」が1つ増える（最大 11N）")),
             com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_WATTS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.DISTILL_TICKS / 20.0, "沸点の差で B・P の塩化物を分ける");
+        rec(a, ModBlocks.SIEMENS_REACTOR, "多結晶シリコン", L(cond(io(ModItems.TRICHLOROSILANE, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TCS_PER_RUN), "9N 以上に蒸留したもの"), mol(ModItems.HYDROGEN_GAS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.H2_PER_RUN)),
+            L(cond(io(ModItems.POLYSILICON, 1), "純度はトリクロロシランと同じ（9N〜11N）"), mol(ModItems.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.HCL_OUT)),
+            com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TICKS / 20.0, "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる");
     }
 
     // =====================================================================
@@ -1518,6 +1521,50 @@ public class LabTests {
         tickConsumer(h, fp, be, TD + 10, feed);
         h.assertValueEqual(c.getItem(D).getCount(), 1, "11N stays (ceiling)");
         LOG.info("[LAB] trichlorosilane: Si + 3HCl -> TCS 2N + H2 ({} s), each distillation stage +1N ({} s), 11N after 9 stages", TS / 20, TD / 20);
+        h.succeed();
+    }
+
+    // =====================================================================
+    // [1-17] シーメンス法（タスク22）
+    // =====================================================================
+
+    /** 9N 以上の TCS 1＋H2 1＋500kW×648秒（90kWh）→ 多結晶シリコン（純度は TCS と同じ）＋HCl 3（[1-16] にちょうど1回分戻る）。電力半分・8N では動かない */
+    @GameTest
+    public void siemensReactor(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.GRAPHITE_ROD, ModItems.STEEL_INGOT, ModItems.QUARTZ_TUBE, ModBlocks.COPPER_CABLE.asItem()})
+            h.assertTrue(recipeUses(h, "siemens_reactor", it), "steel bell jar + graphite electrode chucks + sight glass + heavy cable: " + it);
+        double kwh = com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.WATTS * com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TICKS / 20.0 / 3.6e6;
+        h.assertTrue(kwh >= 85 && kwh <= 95, "about 90 kWh per kg (US 8,398,946), got " + kwh);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.HCL_OUT, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.HCL_PER_RUN, "HCl out = HCl for one TCS synthesis (closed loop)");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, ModBlocks.SIEMENS_REACTOR);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.class);
+        var c = be.getContainer();
+        int T = com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.WATTS);
+        double p8 = 1 - 1e-8, p9 = com.taku3.semiconductorlab.Purity.NINE_N, p11 = com.taku3.semiconductorlab.Purity.ELEVEN_N;
+        c.setItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_TCS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.tcs(p8));
+        c.setItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, 4));
+        tickConsumer(h, fp, be, T + 10, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_OUT).isEmpty(), "8N TCS is not pure enough (distil to 9N)");
+        h.assertFalse(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.pureEnough(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.tcs(p8)), "8N rejected");
+        c.setItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_TCS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.tcs(p9));
+        tickConsumer(h, fp, be, T, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_OUT).isEmpty(), "half power cannot keep the rods at 1100 C");
+        c.setItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_TCS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.tcs(p9));
+        tickConsumer(h, fp, be, T, feed);
+        ItemStack si = c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_OUT);
+        h.assertTrue(si.is(ModItems.POLYSILICON) && si.getCount() == 1, "SiHCl3 + H2 -> Si, got " + si);
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(si.get(com.taku3.semiconductorlab.ModDataComponents.PURITY)), 9, "9N TCS -> 9N polysilicon");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_HCL).is(ModItems.HYDROGEN_CHLORIDE_GAS) && c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_HCL).getCount() == 3, "+ 3 HCl gas");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_TCS).isEmpty(), "1 TCS used");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_H2).getCount(), 3, "1 H2 used");
+        c.setItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_TCS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.tcs(p11));
+        tickConsumer(h, fp, be, T, feed);
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(c.getItem(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.SLOT_OUT).get(com.taku3.semiconductorlab.ModDataComponents.PURITY)), 11, "11N TCS -> 11N polysilicon");
+        LOG.info("[LAB] siemens: TCS (>=9N) + H2 + {} kWh -> polysilicon (same purity) + 3 HCl; 8N and half power rejected", kwh);
         h.succeed();
     }
 
