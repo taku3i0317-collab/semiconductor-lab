@@ -189,6 +189,11 @@ public final class Chemistry {
     //   後半（クロロホルム＋HF → CHClF2）は SbCl5 触媒＝[1-43] アンチモン待ち（IMPL3_LOG Q3-7）
     public static final Item BLEACHING_POWDER      = Reg.item("bleaching_powder");
     public static final Item CHLOROFORM            = Reg.contained("chloroform", Vessel.GLASS_BOTTLE);
+    // [2-38] PTFE の後半（IMP3、S-002）：アンチモン＋塩素 → 五塩化アンチモン（触媒）、クロロホルム＋HF2 → R-22（スワーツ反応）、熱分解炉 → TFE、加圧加熱釜で重合 → PTFE（1938 プランケット）
+    public static final Item ANTIMONY_PENTACHLORIDE = Reg.item("antimony_pentachloride", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item CHLORODIFLUOROMETHANE_GAS = Reg.contained("chlorodifluoromethane_gas", Vessel.GAS_BAG);
+    public static final Item TETRAFLUOROETHYLENE_GAS = Reg.contained("tetrafluoroethylene_gas", Vessel.GAS_BAG);
+    public static final Item PTFE                  = Reg.item("ptfe");
     // [2-58] 無水酢酸（IMP3、O-010）：白リン＋塩素 → 三塩化リン、酢酸3＋PCl3 → 塩化アセチル3、酢酸＋NaOH → 酢酸ナトリウム、塩化アセチル＋酢酸ナトリウム → 無水酢酸（1852 ジェラール）
     public static final Item PHOSPHORUS_TRICHLORIDE = Reg.item("phosphorus_trichloride", new Item.Properties().stacksTo(16));
     public static final Item ACETYL_CHLORIDE       = Reg.item("acetyl_chloride", new Item.Properties().stacksTo(16));
@@ -238,6 +243,9 @@ public final class Chemistry {
 
     // 加圧加熱釜（オートクレーブ）[2-28]（IMP3、O-011）：水の蒸気で圧力をかけながら熱する。組み合わせは AutoclaveBlockEntity.RECIPES の表。10kW
     public static final Machine<AutoclaveBlockEntity> AUTOCLAVE = Machine.electric("autoclave", AutoclaveBlockEntity::new, AutoclaveBlockEntity.LAYOUT, metal(4.0f));
+
+    // 熱分解炉 [2-38]（IMP3、S-002）：白金の管で R-22 2袋 → TFE＋塩化水素2。8kW
+    public static final Machine<PyrolysisFurnaceBlockEntity> PYROLYSIS_FURNACE = Machine.electric("pyrolysis_furnace", PyrolysisFurnaceBlockEntity::new, PyrolysisFurnaceBlockEntity.LAYOUT, metal(4.0f));
 
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
     private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {

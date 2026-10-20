@@ -1969,6 +1969,21 @@
 - Wikipedia「Type metal」：https://en.wikipedia.org/wiki/Type_metal
 - docs/AUDIT_RESULTS.md V-21
 
+## C22. 空なのに重いボンベ（PTFE、テフロン）［2-38］
+**答え**：1938年4月、デュポンのロイ・プランケットは、冷媒（フロン）を作る実験のためにテトラフルオロエチレン（TFE）をボンベにためていた。弁を開けてもガスが出ないのに重さは変わらず、ボンベを切ると中に白いすべすべの粉がたまっていた。TFE が勝手に重合したポリテトラフルオロエチレン（PTFE）だった（1941 特許、1945 商標テフロン）。TFE は、クロロホルムにアンチモンの触媒でフッ化水素を反応させた R-22（CHClF2、スワーツ反応）を約700℃で熱分解して作る。
+
+- へえ①：テフロンは、空っぽなのに重いボンベの中から見つかった。
+- へえ②：フッ素が炭素をすき間なく包むので、ほとんど何にも溶けず、何もくっつかない。
+- へえ③：マンハッタン計画で、ウラン濃縮の腐食性の六フッ化ウランを扱う部品に使われた。
+- へえ④：R-22 はオゾン層を壊すので、モントリオール議定書で冷媒としては減らすことになった。
+
+確かさ：プランケット 1938 の発見の話 ◎／スワーツ反応・熱分解の反応 ◎／マンハッタン計画での使用 ◎／商標 1945 ○
+根拠：
+- Science History Institute「Roy J. Plunkett」：https://www.sciencehistory.org/education/scientific-biographies/roy-j-plunkett/
+- Wikipedia「Polytetrafluoroethylene」（歴史）：https://en.wikipedia.org/wiki/Polytetrafluoroethylene
+- Wikipedia「Tetrafluoroethylene」（製法）：https://en.wikipedia.org/wiki/Tetrafluoroethylene
+- Wikipedia「Swarts fluorination」：https://en.wikipedia.org/wiki/Swarts_fluorination
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

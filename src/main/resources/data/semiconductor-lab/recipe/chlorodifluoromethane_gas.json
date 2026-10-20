@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:chloroform",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:antimony_pentachloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:chlorodifluoromethane_gas",
+    "count": 1
+  }
+}

@@ -46,7 +46,9 @@ public class AutoclaveBlockEntity extends ConsumerBlockEntity {
     /** 組み合わせの表。上から順に探す */
     public static final List<Recipe> RECIPES = new ArrayList<>(List.of(
             // [2-28] ベークライト：レゾールの反応液を約150℃以上・5気圧以上で固める。圧力が足りないと泡だらけ
-            new Recipe("bakelite", s -> s.is(Chemistry.RESOL_MIX), 1, () -> new ItemStack(Chemistry.BAKELITE, 2), () -> new ItemStack(Chemistry.FOAMY_BAKELITE, 2), 150, 5, 20 * 30)
+            new Recipe("bakelite", s -> s.is(Chemistry.RESOL_MIX), 1, () -> new ItemStack(Chemistry.BAKELITE, 2), () -> new ItemStack(Chemistry.FOAMY_BAKELITE, 2), 150, 5, 20 * 30),
+            // [2-38] PTFE：TFE を水の中で温めて重合（IMP3、S-002）。⚠️ 本物の圧力は TFE 自身（約10〜30気圧）と過硫酸の開始剤。この釜の圧力は水の蒸気だけなので、温度だけを条件にした（ptfe.placeholder）
+            new Recipe("ptfe", s -> s.is(Chemistry.TETRAFLUOROETHYLENE_GAS), 4, () -> new ItemStack(Chemistry.PTFE), () -> ItemStack.EMPTY, 80, 1, 20 * 30)
     ));
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA)

@@ -246,6 +246,12 @@ epichlorohydrin  # Chemistry [2-41] 1936
 epoxy_resin  # Chemistry [2-41] 1936
 epoxy_molding_compound  # Chemistry [2-41] 1936
 cured_epoxy  # Chemistry [2-41] 1936
+chloroform  # Chemistry [2-38] 1938
+antimony_pentachloride  # Chemistry [2-38] 1938
+chlorodifluoromethane_gas  # Chemistry [2-38] 1938
+tetrafluoroethylene_gas  # Chemistry [2-38] 1938
+ptfe  # Chemistry [2-38] 1938
+pyrolysis_furnace  # Chemistry [2-38] 1938
 positive_resist  # Chemistry [2-32] 1940
 naphthalene  # Chemistry [2-57] 1944
 naphthalenesulfonic_acid  # Chemistry [2-57] 1944
@@ -263,7 +269,6 @@ sodium_silicate  # Chemistry [9-13] 1963
 colloidal_silica  # Chemistry [9-13] 1963
 polyethylene_bottle  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
-chloroform  # Chemistry [None] None
 bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690

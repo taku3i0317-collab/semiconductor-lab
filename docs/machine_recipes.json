@@ -241,6 +241,27 @@
       "note": "150℃以上・5気圧以上（水の蒸気の圧力）で固める。圧力が足りないと泡だらけのベークライト（ベークランドの「熱と圧力」）"
     },
     {
+      "machine": "semiconductor-lab:autoclave",
+      "process": "PTFE",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:tetrafluoroethylene_gas",
+          "count": 4,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:ptfe",
+          "count": 1
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 30.0,
+      "energy_kj": 300,
+      "note": "TFE を水の中で温めて重合：n C2F4 → (C2F4)n（1938 プランケット）"
+    },
+    {
       "machine": "semiconductor-lab:bayer_digester",
       "process": "バイヤー法",
       "inputs": [
@@ -1244,6 +1265,33 @@
       "seconds": 60.0,
       "energy_kj": 180,
       "note": "白金の陽極で硫酸 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。全体 2H2O → H2O2 + H2"
+    },
+    {
+      "machine": "semiconductor-lab:pyrolysis_furnace",
+      "process": "TFE",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:chlorodifluoromethane_gas",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:tetrafluoroethylene_gas",
+          "count": 1,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_chloride_gas",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "watts": 8000.0,
+      "seconds": 10.0,
+      "energy_kj": 80,
+      "note": "白金の管で約700℃：2CHClF2 → C2F4 + 2HCl"
     },
     {
       "machine": "semiconductor-lab:reduction_camera",

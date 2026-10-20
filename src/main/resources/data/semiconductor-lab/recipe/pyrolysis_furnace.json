@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SPS",
+    "S S",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "P": "semiconductor-lab:platinum_ingot",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:pyrolysis_furnace",
+    "count": 1
+  }
+}

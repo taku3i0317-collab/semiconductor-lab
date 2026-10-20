@@ -875,6 +875,44 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-38] PTFE の後半（IMP3、S-002）
+    // =====================================================================
+
+    /** Sb＋Cl2 → SbCl5（触媒、戻る）。CHCl3＋2HF＋SbCl5 → R-22。熱分解炉：R-22 2 → TFE＋HCl2。加圧加熱釜：TFE 4 → PTFE */
+    @GameTest(maxTicks = 2000)
+    public void ptfe(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "antimony_pentachloride", com.taku3.semiconductorlab.content.Metallurgy.ANTIMONY), "Sb + Cl2 -> SbCl5");
+        h.assertTrue(recipeUses(h, "chlorodifluoromethane_gas", Chemistry.CHLOROFORM) && recipeUses(h, "chlorodifluoromethane_gas", Chemistry.HYDROFLUORIC_ACID) && recipeUses(h, "chlorodifluoromethane_gas", Chemistry.ANTIMONY_PENTACHLORIDE), "Swarts: CHCl3 + 2HF with SbCl5");
+        var rem = Chemistry.ANTIMONY_PENTACHLORIDE.getCraftingRemainder(new ItemStack(Chemistry.ANTIMONY_PENTACHLORIDE));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.ANTIMONY_PENTACHLORIDE), "catalyst stays");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.PYROLYSIS_FURNACE.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.SLOT_IN, new ItemStack(Chemistry.CHLORODIFLUOROMETHANE_GAS, 1));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.SLOT_OUT).isEmpty(), "needs 2 R-22 per TFE");
+        c.setItem(com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.SLOT_IN, new ItemStack(Chemistry.CHLORODIFLUOROMETHANE_GAS, 8));
+        for (int i = 0; i < 4; i++) tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.TICKS, feed);
+        ItemStack tfe = c.getItem(com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(tfe.is(Chemistry.TETRAFLUOROETHYLENE_GAS) && tfe.getCount() == 4, "8 R-22 -> 4 TFE, got " + tfe);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.SLOT_HCL).getCount(), 8, "2 HCl per TFE");
+        BlockPos ap = p(3, 1, 1);
+        h.setBlock(ap, Chemistry.AUTOCLAVE.block);
+        var ac = h.getBlockEntity(ap, com.taku3.semiconductorlab.block.AutoclaveBlockEntity.class);
+        long afeed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS);
+        ac.getContainer().setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, tfe.copy());
+        ac.setTemperatureForTest(100);
+        tickConsumer(h, ap, ac, 20 * 30 + 5, afeed);
+        ItemStack ptfe = ac.getContainer().getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT);
+        h.assertTrue(ptfe.is(Chemistry.PTFE) && ptfe.getCount() == 1, "4 TFE -> PTFE in the autoclave, got " + ptfe);
+        LOG.info("[LAB] PTFE [2-38]: Sb -> SbCl5; CHCl3 + 2HF (SbCl5) -> R-22; pyrolysis 2 R-22 -> TFE + 2 HCl; autoclave 4 TFE -> PTFE");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
@@ -885,6 +923,9 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
             L(io(Chemistry.POLYETHYLENE, 1)), com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.HighPressureReactorBlockEntity.TICKS / 20.0, "約1400気圧・約200℃、ほんの少しの酸素が開始剤：n C2H4 → (C2H4)n（1933 ICI）");
         rec(a, Chemistry.AUTOCLAVE.block, "ベークライト", L(io(Chemistry.RESOL_MIX, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.RUNS_PER_WATER)),
             L(io(Chemistry.BAKELITE, 2)), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS, 30.0, "150℃以上・5気圧以上（水の蒸気の圧力）で固める。圧力が足りないと泡だらけのベークライト（ベークランドの「熱と圧力」）");
+        rec(a, Chemistry.PYROLYSIS_FURNACE.block, "TFE", L(mol(Chemistry.CHLORODIFLUOROMETHANE_GAS, com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.FEED_PER_RUN)),
+            L(mol(Chemistry.TETRAFLUOROETHYLENE_GAS, 1), mol(com.taku3.semiconductorlab.content.Metallurgy.HYDROGEN_CHLORIDE_GAS, 2)), com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.PyrolysisFurnaceBlockEntity.TICKS / 20.0, "白金の管で約700℃：2CHClF2 → C2F4 + 2HCl");
+        rec(a, Chemistry.AUTOCLAVE.block, "PTFE", L(mol(Chemistry.TETRAFLUOROETHYLENE_GAS, 4)), L(io(Chemistry.PTFE, 1)), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS, 30.0, "TFE を水の中で温めて重合：n C2F4 → (C2F4)n（1938 プランケット）");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");
