@@ -97,6 +97,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 </div>
 <script src="tech_network_graph.js"></script>
 <script src="tech_network_detail.js"></script>
+<script src="glossary.js"></script>
+<script src="autolink.js"></script>
 <script>
 (async function () {
   // 軽いデータと重いデータを1つにまとめる（肖像は人物ごとに1か所にまとめてあるので番号から戻す）
@@ -115,6 +117,13 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
   document.getElementById('langBtn').textContent = LANG === 'en' ? '日本語' : 'English';
   document.getElementById('langBtn').addEventListener('click', () => { try { localStorage.setItem('tn-lang', LANG === 'en' ? 'ja' : 'en'); } catch (e) { /* 保存できない */ } location.reload(); });
   if (LANG === 'en') for (const n of nodes) { n.name_ja = n.name; if (n.name_en) n.name = n.name_en; }
+  // 文の中の言葉をリンクに（S-009）。プレビューはノードならアイコン・名前・へえ①、用語集なら説明
+  AutoLink.init(LANG === 'en' ? D.terms_en : D.terms);
+  const GL = window.GLOSSARY || {};
+  AutoLink.preview(document.body, g => {
+    if (g.startsWith('g:')) { const t = GL[g.slice(2)]; return t && { name: esc(LANG === 'en' ? t.en : g.slice(2)), text: esc(LANG === 'en' ? t.en_def : t.ja_def) }; }
+    const n = byId.get(g); return n && { icon: n.icon, name: `[${g}] ${esc(n.name)}`, text: esc((LANG === 'en' && n.hee1_en) || n.hee1 || '') };
+  });
   const isProd = n => n.kind === 'product', isIdea = n => n.kind === 'idea';
   const kids = new Map(), parentsOf = new Map();
   for (const e of data.edges) if (e.kind === 'requires') {
@@ -234,7 +243,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     const ref = d.refs[0];
     const hee = k => (LANG === 'en' && k === '1' && d.hee1_en) || d.hee_game['note' + k] || (ref && ref.hee[k]) || (k === '1' ? d.hee1 : d.hee_tree[k]) || '';
     const levels = [['1', '①子ども'], ['2', '②学生'], ['3', '③大人'], ['4', '④ガチ']];
-    const heeHtml = levels.map(([k, lv]) => hee(k) ? `<div class="lv">${lv}</div><div>${rich(hee(k))}</div>` : '').join('');
+    const richL = t => AutoLink.link(rich(t), d.id, g => '#' + g);   // S-009：文の中の言葉をリンクに
+    const heeHtml = levels.map(([k, lv]) => hee(k) ? `<div class="lv">${lv}</div><div>${richL(hee(k))}</div>` : '').join('');
 
     const anc = walk(id, parentsOf), desc = walk(id, kids);
     const still = makeable(id), lost = [...ALL].filter(x => x !== id && !still.has(x));
@@ -323,13 +333,13 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 
       ${heeHtml ? `<section><h2>へえ</h2><div class="hee">${heeHtml}</div></section>` : ''}
 
-      ${d.people.length ? `<section><h2>人物</h2><p class="muted">肖像は自作のドット絵（髪・ひげ・服などの特徴だけ）。存命の人は載せない</p><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><span class="muted">${esc(p.tool)}・${esc(p.year)}</span><div>${esc(p.intro || '')}</div></div></div>`).join('')}</div></section>` : ''}
+      ${d.people.length ? `<section><h2>人物</h2><p class="muted">肖像は自作のドット絵（髪・ひげ・服などの特徴だけ）。存命の人は載せない</p><div class="people">${d.people.map(p => `<div class="person">${p.portrait ? `<img class="portrait" src="${p.portrait}" alt="">` : silhouette}<div><b>${esc(p.name)}</b><span class="muted">${esc(p.tool)}・${esc(p.year)}</span><div>${richL(p.intro || '')}</div></div></div>`).join('')}</div></section>` : ''}
 
       ${d.play ? `<section><h2>遊び方（${isIdea(d) ? 'ゲームで発見する実験' : '作って置いて動かす作品'}）</h2><div>${rich(d.play)}</div></section>` : ''}
 
       ${isIdea(d) && ideaHtml ? `<section><h2>この考え方がつながる技術</h2>${ideaHtml}</section>` : ''}
 
-      ${d.real_full ? `<section><h2>本当の話 <small class="term">（本物：工程・反応式）</small></h2><div>${rich(d.real_full)}</div></section>` : ''}
+      ${d.real_full ? `<section><h2>本当の話 <small class="term">（本物：工程・反応式）</small></h2><div>${d.real_full.split('\n').map(richL).join('<br>')}</div></section>` : ''}
 
       ${partsHtml ? `<section><h2>部品表 <small class="term">（このモノを形づくる部品（部品のモノ・技術））</small></h2><ul class="parts">${partsHtml}</ul></section>` : ''}
 

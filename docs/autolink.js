@@ -9,7 +9,7 @@
   function init(terms) {
     MAP = new Map();
     for (const [t, g] of terms || []) if (t && !MAP.has(t)) MAP.set(t, g);
-    const keys = [...MAP.keys()].sort((a, b) => b.length - a.length).map(k => k.replace(/[.*+?^${}()|[\]\]/g, '\$&'));
+    const keys = [...MAP.keys()].sort((a, b) => b.length - a.length).map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     RE = keys.length ? new RegExp(keys.join('|'), 'g') : null;
   }
   // html：エスケープ済みの HTML（タグを含んでよい）。selfId：自分のノード番号。nodeHref(id)：ノードへの href
