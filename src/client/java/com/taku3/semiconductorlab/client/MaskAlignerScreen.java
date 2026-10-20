@@ -37,6 +37,7 @@ public class MaskAlignerScreen extends MachineScreen {
             case "gap" -> gap == 0 ? Component.translatable(K + "gap_contact") : Component.translatable(K + "gap", gap);
             case "blur" -> Component.translatable(K + "blur", String.format("%.1f", MaskAlignerBlockEntity.blurUm(gap)));
             case "mask" -> Component.translatable(K + "mask_left", menu.get(MaskAlignerBlockEntity.DATA_MASK_LEFT));
+            case "room" -> Component.translatable(K + switch (menu.get(MaskAlignerBlockEntity.DATA_ROOM)) { case 2 -> "room_100"; case 1 -> "room_1000"; default -> "room_none"; });
             case "overlay" -> Component.translatable(K + "overlay", String.format("%.1f", menu.get(MaskAlignerBlockEntity.DATA_OVERLAY) / 1000.0));
             case "hint" -> {
                 ItemStack w = menu.getSlot(MaskAlignerBlockEntity.SLOT_WAFER).getItem(), m = menu.getSlot(MaskAlignerBlockEntity.SLOT_MASK).getItem();

@@ -33,5 +33,11 @@
   "item.semiconductor-lab.platinum_bushing.note2": "3 platinum. With 2 soda-lime glass it makes 4 glass fibre (the bushing returns).",
   "item.semiconductor-lab.platinum_bushing.note3": "In the 1930s Owens-Corning and others began mass-producing glass fibre by pulling molten glass through tiny holes in platinum plates.",
   "item.semiconductor-lab.platinum_bushing.note4": "Platinum neither dissolves in glass above 1000 C nor corrodes. Platinum-rhodium bushings are still used today.",
-  "item.semiconductor-lab.platinum_bushing.placeholder": "Approximation: the heat to melt the glass is skipped (drawn in the crafting grid)."
+  "item.semiconductor-lab.platinum_bushing.placeholder": "Approximation: the heat to melt the glass is skipped (drawn in the crafting grid).",
+  "block.semiconductor-lab.hepa_ceiling": "HEPA Ceiling",
+  "block.semiconductor-lab.hepa_ceiling.note1": "A ceiling outlet that sends clean air from the top down.",
+  "block.semiconductor-lab.hepa_ceiling.note2": "HEPA filter + 2 iron -> 2. Lay them across the ceiling of an enclosed room and run an air conditioner with a HEPA filter inside to make a cleanroom. With 80% or more of the ceiling it is class 100, with 25% class 1000. Wafers exposed by a mask aligner inside stay cleaner (outside: dirt +2).",
+  "block.semiconductor-lab.hepa_ceiling.note3": "In 1962 Whitfield at Sandia Laboratories devised the laminar-flow cleanroom, sending air one way from a ceiling of HEPA filters to the floor to sweep dust away, cutting room dust hundreds of times.",
+  "block.semiconductor-lab.hepa_ceiling.note4": "Cleanroom class counts particles of 0.5 um or larger per cubic foot of air (class 100 = at most 100; US Federal Standard 209, 1963). Today's fabs are thousands of times cleaner than an operating room. People are the biggest source of dust, so workers wear full-body cleanroom suits.",
+  "block.semiconductor-lab.hepa_ceiling.placeholder": "Approximation: the class thresholds (80% and 25% of the ceiling) are game values. A room is at most 512 air blocks."
 }

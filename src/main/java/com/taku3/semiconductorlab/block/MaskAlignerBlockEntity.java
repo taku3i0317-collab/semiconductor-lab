@@ -33,12 +33,12 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
     public static final int GAP_NEAR_UM = 20, GAP_FAR_UM = 80;
     public static final int[] GAPS_UM = {0, GAP_NEAR_UM, GAP_FAR_UM};
     public static final ExposureTool TOOL = ExposureTool.CONTACT_G;
-    public static final int DATA_GAP = DATA_COUNT, DATA_MASK_LEFT = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, EXTRA_DATA = 3;
+    public static final int DATA_GAP = DATA_COUNT, DATA_MASK_LEFT = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, EXTRA_DATA = 4;
     public static final int BTN_GAP = 0;
 
     public static boolean isMask(ItemStack s) { return (s.is(Optics.PHOTOMASK) || s.is(Optics.CHROME_PHOTOMASK)) && s.has(ModDataComponents.MASK); }
 
-    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA).height(196)
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA).height(206)
             .in(SLOT_WAFER, 8, 17, s -> s.is(Semiconductor.PROCESS_WAFER))
             .in(SLOT_MASK, 8, 39, MaskAlignerBlockEntity::isMask, 1)
             .out(SLOT_OUT, 54, 28)
@@ -49,7 +49,8 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
             .right("blur", 39, 1, "gui.semiconductor-lab.mask_aligner.blur").samples("5.9")
             .right("mask", 50, 1, "gui.semiconductor-lab.mask_aligner.mask_left").samples("10")
             .right("overlay", 61, 1, "gui.semiconductor-lab.mask_aligner.overlay").samples("20.0")
-            .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.mask_aligner.", "need_wafer", "need_mask", "too_blurry", "mask_worn", "cannot",
+            .right("room", 72, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
+            .right("hint", 83, 3, MachineLayout.keys("gui.semiconductor-lab.mask_aligner.", "need_wafer", "need_mask", "too_blurry", "mask_worn", "cannot",
                     "output_full", "need_power", "running"))
             .build();
 
@@ -105,6 +106,7 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
         return switch (i) {
             case DATA_GAP -> gapUm();
             case DATA_MASK_LEFT -> usesLeft(container.getItem(SLOT_MASK));
+            case DATA_ROOM -> level == null ? 0 : CleanRoom.classAt(level, worldPosition).ordinal();
             case DATA_OVERLAY -> overlayNm(container.getItem(SLOT_STAGE), level == null ? 0 : Vibration.nm(level, worldPosition, null), level == null ? 0 : AirConditionerBlockEntity.thermalNm(AirConditionerBlockEntity.swingC(level, worldPosition)));
             default -> 0;
         };
@@ -124,7 +126,8 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
         MaskData mask = m.get(ModDataComponents.MASK);
         ChipOps.Result r = ChipOps.expose(w, mask, TOOL, overlayNm(container.getItem(SLOT_STAGE), level == null ? 0 : Vibration.nm(level, worldPosition, null), level == null ? 0 : AirConditionerBlockEntity.thermalNm(AirConditionerBlockEntity.swingC(level, worldPosition))));
         if (!r.ok()) return;
-        container.setItem(SLOT_OUT, r.out());
+        // [12-14] クリーンルームの外ではほこりが付く（A の ChipOps.addDust、失敗にはしない。洗浄台で落ちる）
+        container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.addDust(r.out(), CleanRoom.classAt(level, worldPosition).dust));
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);
         if (gapUm() == 0) {   // 密着：マスクがこすれて傷む（板1枚につき1）
             m.setDamageValue(m.getDamageValue() + w.getCount());

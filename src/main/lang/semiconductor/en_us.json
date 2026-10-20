@@ -399,5 +399,8 @@
   "gui.semiconductor-lab.rca_bench.no_dirt": "Already clean",
   "gui.semiconductor-lab.rca_bench.need_power": "Not enough power",
   "gui.semiconductor-lab.rca_bench.running": "Cleaning: SC-1 then SC-2",
-  "gui.semiconductor-lab.rca_bench.recipe": "SC-1 → SC-2 → rinse"
+  "gui.semiconductor-lab.rca_bench.recipe": "SC-1 → SC-2 → rinse",
+  "gui.semiconductor-lab.mask_aligner.room_none": "Not clean",
+  "gui.semiconductor-lab.mask_aligner.room_1000": "Class 1000",
+  "gui.semiconductor-lab.mask_aligner.room_100": "Class 100"
 }

@@ -471,6 +471,7 @@ air_conditioner  # Construction [12-12] 1902
 platinum_bushing  # Construction [12-13] 1940
 glass_fiber  # Construction [12-13] 1940
 hepa_filter  # Construction [12-13] 1940
+hepa_ceiling  # Construction [12-14] 1962
 sulfite_liquor  # Communication [15-01] 105
 pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105

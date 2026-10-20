@@ -5,6 +5,10 @@ import com.taku3.semiconductorlab.item.SurveyStation;
 import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.item.TheodoliteItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.MapColor;
 
 /**
  * 幹12 建設・測量（[12-..] のノード。IMP2 O-007 の [12-11] 測量で作成）。
@@ -28,6 +32,10 @@ public final class Construction {
     public static final Item PLATINUM_BUSHING      = Reg.item("platinum_bushing", com.taku3.semiconductorlab.item.ReusableToolItem::new, new Item.Properties().stacksTo(1)); // 小さな穴がたくさんある白金の板（溶けたガラスを引き出す、戻る）
     public static final Item GLASS_FIBER           = Reg.item("glass_fiber");      // ガラス繊維（溶かしたガラスを細い穴から引き出した糸）
     public static final Item HEPA_FILTER           = Reg.item("hepa_filter", new Item.Properties().stacksTo(1)); // 0.3µm の粒を 99.97% 取る
+
+    // ===== [12-14] 層流クリーンルーム（IMP2 S-003、1962 ホイットフィールド）：天井に並べる HEPA の吹き出し口。判定は block/CleanRoom =====
+    public static final Block HEPA_CEILING = Reg.block("hepa_ceiling", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(1.5f).sound(SoundType.METAL));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

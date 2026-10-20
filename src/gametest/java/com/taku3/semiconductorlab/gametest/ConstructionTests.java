@@ -14,6 +14,41 @@ import net.minecraft.world.item.ItemStack;
  * GameTest：幹12 建設・測量（IMP2 O-007 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class ConstructionTests extends LabTestBase {
+    /** 石の箱（外 0〜6、中 1〜5 × 2〜4 × 1〜5）を作り、天井の段（y=5）の中を ceiling で埋める。hepa＝HEPA の天井にするマスの数 */
+    private static void room(GameTestHelper h, int hepa) {
+        for (int x = 0; x <= 6; x++) for (int y = 1; y <= 5; y++) for (int z = 0; z <= 6; z++) {
+            boolean wall = x == 0 || x == 6 || z == 0 || z == 6 || y == 1 || y == 5;
+            h.setBlock(p(x, y, z), wall ? net.minecraft.world.level.block.Blocks.STONE : net.minecraft.world.level.block.Blocks.AIR);
+        }
+        int k = 0;
+        for (int x = 1; x <= 5; x++) for (int z = 1; z <= 5; z++) if (k++ < hepa) h.setBlock(p(x, 5, z), Construction.HEPA_CEILING);
+    }
+
+    /** [12-14] 層流クリーンルーム（IMP2 S-003、A と決めた形）：天井の HEPA の割合と、HEPA 入りの空調で等級。等級の汚れ（外 2・1000 は 1・100 は 0）が露光のあとに付く */
+    @GameTest(maxTicks = 100)
+    public void clean_room(GameTestHelper h) {
+        net.minecraft.core.BlockPos at = p(3, 2, 3), ac = p(1, 2, 1);
+        var lv = h.getLevel();
+        room(h, 25);   // 天井 25 マス全部 HEPA
+        h.setBlock(at, net.minecraft.world.level.block.Blocks.STONE);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.CleanRoom.classAt(lv, h.absolutePos(at)), com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE, "no air conditioning -> outside grade");
+        h.setBlock(ac, Construction.AIR_CONDITIONER.block);
+        var be = h.getBlockEntity(ac, com.taku3.semiconductorlab.block.AirConditionerBlockEntity.class);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SLOT_FILTER, new ItemStack(Construction.HEPA_FILTER));
+        tickConsumer(h, ac, be, 2, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.WATTS));
+        h.assertValueEqual(com.taku3.semiconductorlab.block.CleanRoom.classAt(lv, h.absolutePos(at)), com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_100, "full HEPA ceiling + filtered air -> class 100");
+        for (int x = 1; x <= 5; x++) for (int z = 1; z <= 5; z++) if (x > 2) h.setBlock(p(x, 5, z), net.minecraft.world.level.block.Blocks.STONE);   // 10/25 = 40%
+        h.assertValueEqual(com.taku3.semiconductorlab.block.CleanRoom.classAt(lv, h.absolutePos(at)), com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_1000, "40% HEPA ceiling -> class 1000");
+        h.setBlock(p(3, 5, 3), net.minecraft.world.level.block.Blocks.AIR);   // 天井に穴
+        h.assertValueEqual(com.taku3.semiconductorlab.block.CleanRoom.classAt(lv, h.absolutePos(at)), com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE, "a hole to the sky -> not a room");
+        h.assertTrue(com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE.dust == 2 && com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_1000.dust == 1 && com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_100.dust == 0, "dust by grade (A's guide)");
+        h.assertTrue(recipeUses(h, "hepa_ceiling", Construction.HEPA_FILTER), "HEPA ceiling from HEPA filters");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"room_none", "room_1000", "room_100"}) h.assertTrue(ja.has("gui.semiconductor-lab.mask_aligner." + k), "lang " + k);
+        LOG.info("[LAB] clean_room [12-14]: no AC -> none; full HEPA ceiling + filtered AC -> class 100; 40% -> class 1000; hole -> none; dust 2/1/0");
+        h.succeed();
+    }
+
     /** [12-13] HEPA フィルター（IMP2 S-003）：ソーダ石灰ガラス →溶鉱炉→ ガラス繊維×4 → HEPA フィルター。空調機のフィルターの入口に入る */
     @GameTest
     public void hepa_filter(GameTestHelper h) {

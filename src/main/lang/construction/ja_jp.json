@@ -33,5 +33,11 @@
   "item.semiconductor-lab.platinum_bushing.note2": "白金×3。ソーダ石灰ガラス×2と合わせるとガラス繊維×4（ブッシングは戻る）。",
   "item.semiconductor-lab.platinum_bushing.note3": "1930年代、アメリカのオーエンス・コーニング社などが、白金の板の小さな穴から溶けたガラスを引き出して、ガラス繊維を大量に作り始めた。",
   "item.semiconductor-lab.platinum_bushing.note4": "白金は 1000℃ を超える溶けたガラスにも溶けず、さびない。今も白金とロジウムの合金のブッシングが使われる。",
-  "item.semiconductor-lab.platinum_bushing.placeholder": "近似：ガラスを溶かす熱は省略（作業台で引ける）。"
+  "item.semiconductor-lab.platinum_bushing.placeholder": "近似：ガラスを溶かす熱は省略（作業台で引ける）。",
+  "block.semiconductor-lab.hepa_ceiling": "HEPA の天井",
+  "block.semiconductor-lab.hepa_ceiling.note1": "天井に並べて、きれいな空気を上から下へ流す吹き出し口。",
+  "block.semiconductor-lab.hepa_ceiling.note2": "HEPA フィルター＋鉄×2 → 2つ。囲まれた部屋の天井に並べ、HEPA フィルター入りの空調機を部屋に置いて動かすとクリーンルーム。天井の 80％以上がこれならクラス100 相当、25％以上ならクラス1000 相当。部屋の中のマスクアライナーで焼いた板は汚れにくい（外だと汚れ+2）。",
+  "block.semiconductor-lab.hepa_ceiling.note3": "1962年、アメリカのサンディア研究所のホイットフィールドは、天井全体の HEPA から床へ一方向に空気を流してほこりを押し流す「層流クリーンルーム」を考え、部屋のほこりを何百分の1にした。",
+  "block.semiconductor-lab.hepa_ceiling.note4": "クリーンルームの等級は、空気 1 立方フィートの中の 0.5µm 以上の粒の数（クラス100＝100個以下、米国連邦規格 209、1963）。今の半導体工場は、手術室より何千倍もきれい。人が一番のほこりの元なので、全身を覆う服（クリーンスーツ）を着る。",
+  "block.semiconductor-lab.hepa_ceiling.placeholder": "近似：等級の境目（天井の割合 80％・25％）はゲームの値。部屋は空気 512 マスまで。"
 }

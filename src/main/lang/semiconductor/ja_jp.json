@@ -399,5 +399,8 @@
   "gui.semiconductor-lab.rca_bench.no_dirt": "もうきれい",
   "gui.semiconductor-lab.rca_bench.need_power": "電気が足りない",
   "gui.semiconductor-lab.rca_bench.running": "SC-1 → SC-2 で洗っている",
-  "gui.semiconductor-lab.rca_bench.recipe": "SC-1 → SC-2 → すすぐ"
+  "gui.semiconductor-lab.rca_bench.recipe": "SC-1 → SC-2 → すすぐ",
+  "gui.semiconductor-lab.mask_aligner.room_none": "部屋の外",
+  "gui.semiconductor-lab.mask_aligner.room_1000": "クラス1000",
+  "gui.semiconductor-lab.mask_aligner.room_100": "クラス100"
 }

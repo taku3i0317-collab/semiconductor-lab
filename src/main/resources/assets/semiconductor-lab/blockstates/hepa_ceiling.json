@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "semiconductor-lab:block/hepa_ceiling"
+    }
+  }
+}

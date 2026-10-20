@@ -533,6 +533,8 @@ setblock ~5 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-12]
 setblock ~5 ~0 ~90 semiconductor-lab:air_conditioner
 setblock ~9 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-13] HEPA フ","ブッシングでガラス繊維"," → HEPA フィル","ター → 空調機の左上"]}}
 setblock ~9 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_bushing",count:1},{Slot:1b,id:"semiconductor-lab:glass_fiber",count:16},{Slot:2b,id:"semiconductor-lab:hepa_filter",count:1}]}
+setblock ~12 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-14] 層流クリーン","石で部屋を囲み、天井に"," HEPA の天井を並","べ、中に HEPA 入"]}}
+setblock ~12 ~0 ~90 semiconductor-lab:hepa_ceiling
 setblock ~0 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹15 通信","↓ この列","",""]}}
 setblock ~2 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[15-01] 紙","3つのアイテムの見た目","とツールチップ、パルプ","から紙ができるか（レシ"]}}
 setblock ~2 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sulfite_liquor",count:16},{Slot:1b,id:"semiconductor-lab:pulp_charge",count:16},{Slot:2b,id:"semiconductor-lab:wood_pulp",count:16}]}

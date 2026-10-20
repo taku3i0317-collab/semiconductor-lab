@@ -148,3 +148,5 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ S-003 の前提 [12-12] 空調：block/AirConditionerBlockEntity（2kW 連続、材料なし）。8 ブロック以内で動いていると温度のゆれ ±3℃ → ±0.1℃（swingC・thermalNm）。MaskAlignerBlockEntity.overlayNm に温度のずれを足した（空調なしだと台が 3.3µm 伸び縮み、ボールねじ段階3 でも 3.3µm）＝ [8-07] の恒温の残りが解けた。alignment テストの期待値を 3.3µm に直した。GameTest air_conditioning、CHEMISTRY K3、REFERENCES O49。テスト 213/213
 - ✅ S-003 の前提 [12-13] HEPA フィルター：platinum_bushing（ReusableToolItem）→ glass_fiber → hepa_filter（content/Construction）。空調機にフィルターの入口（AirConditionerBlockEntity.SLOT_FILTER、filtered()）。ソーダ石灰ガラスの溶鉱炉はクラウンガラスに使われていたので、白金のブッシングの道にした。GameTest hepa_filter、CHEMISTRY K4、REFERENCES O50。テスト 214/214
   - [12-14] クリーンルーム判定の形は A に相談中（返事が来るまで作らない）
+- ✅ S-003 の前提 [12-14] 層流クリーンルーム（A と合意：等級は C、汚れの反映は A の ChipOps.addDust）：hepa_ceiling（ブロック）、block/CleanRoom.classAt（部屋をたどる・天井の HEPA の割合・HEPA 入りの空調）。マスクアライナーが露光のあとに等級の汚れ（2/1/0）を足し、画面に部屋の等級。v03Chain の汚れは 14 → 24 になったが洗浄台で落ちて NOT が見つかる。GameTest clean_room、CHEMISTRY K5、REFERENCES O51。テスト 220/220
+  - [9-39] の前提で残るのは [10-15] 制御だけ（Q-IMP2-6 の答え待ち）
