@@ -145,14 +145,37 @@ public final class ChipOps {
     public static boolean canEtchOxide(ItemStack w) { return etchOxide(w).ok(); }
 
     /** [9-06] 酸化膜を削る（HF）。レジストのない所に窓が開く（前から開いていた窓も残る）。レジストは残る（あとで strip） */
-    public static Result etchOxide(ItemStack w) {
+    public static Result etchOxide(ItemStack w) { return etchOxide(w, false); }
+
+    /** 液の削り方（HF）が細かい線で太る方眼：g線ステッパーの方眼（CD 約 1 µm）から。本物も液は約 2〜3 µm が限界 */
+    public static final int WET_LIMIT_GRID = ExposureTool.STEPPER_G.grid;
+
+    /**
+     * [9-06]／[9-27] 酸化膜を削る（E と決めた形）。anisotropic＝ドライエッチング（RIE、真下にだけ削る）。
+     * 液（HF）は横にも溶かす（アンダーカット）：方眼が {@link #WET_LIMIT_GRID} 以上の細かいウェハーでは、開ける所が上下左右に1マス太る（線がくっつく・回路が変わる）。
+     * それより粗い方眼（密着 16・投影 24）は液でも今までどおり
+     */
+    public static Result etchOxide(ItemStack w, boolean anisotropic) {
         ChipState s = state(w);
         if (s == null || s.resist() != ChipState.Resist.DEVELOPED) return Result.fail("not_developed");
         if (s.metalFilm()) return Result.fail("metal_on");
-        BitGrid open = s.windows();
         BitGrid r = s.resistPattern();
-        for (int y = 0; y < s.size(); y++) for (int x = 0; x < s.size(); x++) if (!r.get(x, y)) open = open.with(x, y, true);
+        BitGrid cut = BitGrid.empty(s.size());
+        for (int y = 0; y < s.size(); y++) for (int x = 0; x < s.size(); x++) if (!r.get(x, y)) cut = cut.with(x, y, true);
+        if (!anisotropic && s.size() >= WET_LIMIT_GRID) cut = grow(cut);
+        BitGrid open = s.windows();
+        for (int y = 0; y < s.size(); y++) for (int x = 0; x < s.size(); x++) if (cut.get(x, y)) open = open.with(x, y, true);
         return Result.ok(write(w, s.withWindows(open).dirtier(1)));
+    }
+
+    /** 上下左右に1マス太らせる（液の横への溶け） */
+    static BitGrid grow(BitGrid g) {
+        BitGrid o = g;
+        for (int y = 0; y < g.size(); y++) for (int x = 0; x < g.size(); x++) {
+            if (!g.get(x, y)) continue;
+            for (int[] d : new int[][] {{1, 0}, {-1, 0}, {0, 1}, {0, -1}}) if (g.inside(x + d[0], y + d[1])) o = o.with(x + d[0], y + d[1], true);
+        }
+        return o;
     }
 
     public static boolean canEtchMetal(ItemStack w) { return etchMetal(w).ok(); }

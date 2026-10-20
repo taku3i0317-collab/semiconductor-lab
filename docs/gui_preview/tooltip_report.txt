@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 628（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 630（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -911,6 +911,10 @@ en_us ruby_laser lines=9
 en_us ruby_laser shift lines=22
 en_us salt_window lines=4
 en_us salt_window shift lines=10
+en_us ule_feed lines=5
+en_us ule_feed shift lines=14
+en_us ule_glass lines=6
+en_us ule_glass shift lines=15
 en_us prism lines=3
 en_us prism shift lines=12
 en_us spectroscope lines=9
@@ -2167,6 +2171,10 @@ ja_jp ruby_laser lines=7
 ja_jp ruby_laser shift lines=17
 ja_jp salt_window lines=3
 ja_jp salt_window shift lines=9
+ja_jp ule_feed lines=5
+ja_jp ule_feed shift lines=11
+ja_jp ule_glass lines=5
+ja_jp ule_glass shift lines=13
 ja_jp prism lines=2
 ja_jp prism shift lines=9
 ja_jp spectroscope lines=7

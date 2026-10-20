@@ -2247,6 +2247,29 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-27] ドライエッチングの土台（E と決めた形、案α）：液（HF）は方眼 36 以上で開ける所が上下左右に1マス太る、ドライ（RIE）は太らない。
+     * 密着露光の方眼（16）は液でも太らない（今の本線はこわれない）
+     */
+    @GameTest(maxTicks = 50)
+    public void wetVsDryEtch(GameTestHelper h) {
+        int n = com.taku3.semiconductorlab.litho.ChipOps.WET_LIMIT_GRID;
+        var dot = com.taku3.semiconductorlab.litho.BitGrid.empty(n).with(n / 2, n / 2, true);
+        var mask = new com.taku3.semiconductorlab.litho.MaskData(n, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, dot, "", 0);
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER); w.set(ModDataComponents.DOPANT, "boron");
+        w = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+        w = com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(w, mask, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G, 900, 0).out();
+        w = com.taku3.semiconductorlab.litho.ChipOps.develop(w).out();
+        int wet = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w.copy()).out()).windows().count();
+        int dry = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w.copy(), true).out()).windows().count();
+        h.assertValueEqual(dry, 1, "dry etching opens exactly the drawn cell");
+        h.assertValueEqual(wet, 5, "wet HF undercuts one cell each way on a fine grid");
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.LithoExamples.notGate(), "p"));
+        h.assertTrue(com.taku3.semiconductorlab.litho.Circuit.worksAsNot(nl), "coarse grids are not affected");
+        LOG.info("[LAB] wet vs dry etch on grid {}: wet {} cells, dry {} cell", n, wet, dry);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
