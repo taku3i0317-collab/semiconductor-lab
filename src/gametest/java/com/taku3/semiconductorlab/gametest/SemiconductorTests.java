@@ -1636,6 +1636,14 @@ public class SemiconductorTests extends LabTestBase {
         swapped.put(pins[0], com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1); swapped.put(pins[1], com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
         var rs = com.taku3.semiconductorlab.litho.Challenge.check(not, nl, swapped, 1.0);
         h.assertTrue(!rs.passed() && !rs.missingRoles(), "input and output swapped -> not every row matches: " + rs);
+        // あと少し（§11.2）
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.NearMiss.diagnose(not, nl, roles, r, 1.0), "solved", "near-miss: solved");
+        var noIn = new java.util.HashMap<>(roles); noIn.remove(pins[0]);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.NearMiss.diagnose(not, nl, noIn, com.taku3.semiconductorlab.litho.Challenge.check(not, nl, noIn, 1.0), 1.0), "roles", "near-miss: roles missing");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.NearMiss.diagnose(not, nl, swapped, rs, 1.0), "input_not_base", "near-miss: the input pad is on the collector, not the base");
+        var noVcc = new java.util.HashMap<>(roles); noVcc.put(pins[2], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND); noVcc.put(pins[3], com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        String nv = com.taku3.semiconductorlab.litho.NearMiss.diagnose(not, nl, noVcc, com.taku3.semiconductorlab.litho.Challenge.check(not, nl, noVcc, 1.0), 1.0);
+        h.assertTrue(!nv.equals("solved"), "near-miss: power reversed is not solved, hint " + nv);
         var and = com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals("and")).findFirst().orElseThrow();
         h.assertTrue(and.inputs() == 2 && java.util.Arrays.equals(and.table(), new int[] {0, 0, 0, 1}), "AND: light only when both get power");
         // 検査台：パッドを決めて「調べる」→ 結果は合格

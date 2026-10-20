@@ -186,9 +186,12 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
             // お題（v0.3b）：今のお題を真理値表で判定
             var def = com.taku3.semiconductorlab.litho.Challenge.byIndex(challenge);
             if (def != null) {
-                var r = com.taku3.semiconductorlab.litho.Challenge.check(def, nl, roles(nl, i -> pads[i]), leakScale);
+                var roleMap = roles(nl, i -> pads[i]);
+                var r = com.taku3.semiconductorlab.litho.Challenge.check(def, nl, roleMap, leakScale);
                 result = encodeResult(r);
                 setChanged();
+                if (!r.passed() && player instanceof ServerPlayer sp0)   // あと少しの手がかり（§11.2、正解の形は言わない）
+                    sp0.sendSystemMessage(Component.translatable("litho.semiconductor-lab.near." + com.taku3.semiconductorlab.litho.NearMiss.diagnose(def, nl, roleMap, r, leakScale)));
                 if (r.passed() && player instanceof ServerPlayer sp && level != null && level.getServer() != null) {
                     AdvancementHolder adv = level.getServer().getAdvancements().get(SemiconductorLab.id("challenge/" + def.id()));
                     if (adv != null && !sp.getAdvancements().getOrStartProgress(adv).isDone()) {
