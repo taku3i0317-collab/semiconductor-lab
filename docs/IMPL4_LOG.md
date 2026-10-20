@@ -86,3 +86,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [9-47] 加速器の部品：コッククロフト・ウォルトン回路・加速管（部品アイテム、イオン注入装置に組みこむ）。サイクロトロンは作らない。GameTest accelerator_parts、REFERENCES F26。[8-33]・[5-06] は C に相談中（A の答え：幹8 は C か司令塔に）。イオン注入の ChipOps は A が入れた（implant・anneal）
 - C の答え：[8-33]・[5-06] とも E が作る（Precision.java・Vacuum.java に追記してよい）
 - ✅ [8-33] 質量分析器（item/MassSpectrometerItem、Precision.java の末尾に1行）：試料の同位体と天然存在比。GameTest mass_spectrometer（PrecisionTests）、CHEMISTRY F49、REFERENCES F27
+- ✅ [9-28] イオン注入装置 ion_implanter（block/IonImplanterBlockEntity、画面 IonImplanterScreen、5kW）：A の ChipOps.implant。隣の真空容器 0.01Pa 以下。GameTest ion_implanter、CHEMISTRY F50、REFERENCES F28

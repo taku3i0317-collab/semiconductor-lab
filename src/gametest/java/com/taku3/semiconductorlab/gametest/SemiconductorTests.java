@@ -903,6 +903,43 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-28] イオン注入・[9-29] アニール（IMP4-01、O-011）
+    // =====================================================================
+
+    /** 現像したウェハー＋リン → 注入（アニール前で回路に効かない）。真空が悪いと動かない。白リンの水の瓶は戻る */
+    @GameTest(maxTicks = 100)
+    public void ionImplanter(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "ion_implanter", Semiconductor.CW_MULTIPLIER) && recipeUses(h, "ion_implanter", com.taku3.semiconductorlab.content.Precision.MASS_SPECTROMETER), "implanter = accelerator [9-47] + mass analyser [8-33]");
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+        floor(h, 5);
+        BlockPos cp = p(1, 1, 1), ip = p(2, 1, 1);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(ip, Semiconductor.ION_IMPLANTER.block);
+        var ch = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class);
+        var be = h.getBlockEntity(ip, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.IonImplanterBlockEntity.SLOT_WAFER, w.copy());
+        c.setItem(com.taku3.semiconductorlab.block.IonImplanterBlockEntity.SLOT_SOURCE, new ItemStack(Chemistry.PHOSPHORUS, 2));
+        ch.setPressure(10);
+        tickConsumer(h, ip, be, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.IonImplanterBlockEntity.SLOT_OUT).isEmpty(), "10 Pa: ions hit air -> nothing");
+        ch.setPressure(0.001);
+        tickConsumer(h, ip, be, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.TICKS, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.IonImplanterBlockEntity.SLOT_OUT);
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(out);
+        h.assertTrue(out.getCount() == 8 && st.implanted().size() == 1 && st.diffusions() == 0, "8 wafers implanted, not active yet, got " + out);
+        h.assertTrue(st.implanted().get(0).cells().equals(d.layers().get(0).cells()), "ions only where the resist was opened");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.IonImplanterBlockEntity.SLOT_SOURCE).getCount(), 1, "1 source per run");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(ip)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] ion implanter [9-28]: needs <= 0.01 Pa; 8 developed wafers + P -> implanted (inactive until anneal), ions only in the resist opening");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 
@@ -2097,6 +2134,8 @@ public class SemiconductorTests extends LabTestBase {
             L(io(Semiconductor.CAN_PACKAGED_CHIP, 1)), com.taku3.semiconductorlab.block.PackageSealerBlockEntity.WATTS, com.taku3.semiconductorlab.block.PackageSealerBlockEntity.TICKS / 20.0, "乾いた窒素を満たして缶を溶接（気密）");
         rec(a, Semiconductor.PACKAGE_SEALER.block, "封止（エポキシ）", L(cond(io(Semiconductor.BONDED_CHIP, com.taku3.semiconductorlab.block.PackageSealerBlockEntity.CHIPS_PER_COMPOUND), "1〜8個"), io(Chemistry.EPOXY_MOLDING_COMPOUND, 1)),
             L(io(Semiconductor.PLASTIC_PACKAGED_CHIP, com.taku3.semiconductorlab.block.PackageSealerBlockEntity.CHIPS_PER_COMPOUND)), com.taku3.semiconductorlab.block.PackageSealerBlockEntity.WATTS, com.taku3.semiconductorlab.block.PackageSealerBlockEntity.TICKS / 20.0, "温めた型にエポキシを押しこむ（トランスファー成形）");
+        rec(a, Semiconductor.ION_IMPLANTER.block, "イオン注入", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WAFERS_PER_RUN), "現像したレジストか窓 1〜8枚"), cond(alt(io(Metallurgy.BORON_TRIOXIDE, 1), Chemistry.PHOSPHORUS), "B＝p型・P＝n型")),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WAFERS_PER_RUN), "注入した（アニール前は効かない）")), com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WATTS, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.TICKS / 20.0, "イオン源 → 質量分析の磁石 → 加速。隣の真空容器 0.01Pa 以下");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

@@ -123,6 +123,8 @@ public final class Semiconductor {
     public static final Machine<WireBonderBlockEntity> WIRE_BONDER = Machine.electric("wire_bonder", WireBonderBlockEntity::new, WireBonderBlockEntity.LAYOUT, metal(3.0f));
     // [9-34] 封止機（IMP4-01）：金属缶＋乾いた窒素で溶接して気密封止、またはエポキシでトランスファー成形。500W
     public static final Machine<PackageSealerBlockEntity> PACKAGE_SEALER = Machine.electric("package_sealer", PackageSealerBlockEntity::new, PackageSealerBlockEntity.LAYOUT, metal(3.5f));
+    // [9-28] イオン注入装置（IMP4-01）：イオン源＋質量分析の磁石＋CW 回路の加速器。隣の真空容器 0.01Pa 以下。5kW
+    public static final Machine<IonImplanterBlockEntity> ION_IMPLANTER = Machine.electric("ion_implanter", IonImplanterBlockEntity::new, IonImplanterBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

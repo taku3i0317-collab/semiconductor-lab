@@ -1066,6 +1066,36 @@
       "note": "GeO2 + 2H2 → Ge + 2H2O"
     },
     {
+      "machine": "semiconductor-lab:ion_implanter",
+      "process": "イオン注入",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "現像したレジストか窓 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:boron_trioxide",
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:phosphorus"
+          ],
+          "cond": "B＝p型・P＝n型"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "注入した（アニール前は効かない）"
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 30.0,
+      "energy_kj": 150,
+      "note": "イオン源 → 質量分析の磁石 → 加速。隣の真空容器 0.01Pa 以下"
+    },
+    {
       "machine": "semiconductor-lab:lathe",
       "process": "ローターを削る",
       "inputs": [

@@ -521,5 +521,18 @@
   "item.semiconductor-lab.accelerator_tube.note2": "Crafting: 6 soda-lime glass + 3 steel → 1. With a Cockcroft–Walton multiplier it becomes the accelerator of the ion implanter [9-28].",
   "item.semiconductor-lab.accelerator_tube.note3": "With slightly different voltages on each metal ring, an ion gets a push at every ring and speeds up. The glass insulates the rings, and the inside is kept at high vacuum so ions do not hit air molecules.",
   "item.semiconductor-lab.accelerator_tube.note4": "At the same time Lawrence in the US built the cyclotron, accelerating particles round and round in an electromagnet (1930–31, 1939 Nobel Prize in Physics). Accelerators now also treat cancer and make hospital tracers. Fast ions hitting metal give off X-rays, so accelerators are shielded.",
-  "item.semiconductor-lab.accelerator_tube.placeholder": "Approximation: a part item; length and vacuum level are not modelled."
+  "item.semiconductor-lab.accelerator_tube.placeholder": "Approximation: a part item; length and vacuum level are not modelled.",
+  "block.semiconductor-lab.ion_implanter": "Ion Implanter",
+  "block.semiconductor-lab.ion_implanter.note1": "Turns dopant atoms into ions, speeds them up with high voltage and shoots them into wafers.",
+  "block.semiconductor-lab.ion_implanter.note2": "5 kW. 1–8 process wafers (with developed resist or oxide windows) + 1 dopant source (B2O3 = p-type, phosphorus = n-type) → implanted wafers (30 s). Works only when a vacuum chamber next to it is at 0.01 Pa or below. Implanting alone does nothing until annealing [9-29].",
+  "block.semiconductor-lab.ion_implanter.note3": "An ion source ionises the dopant, a mass-analysing electromagnet picks only the wanted ion (¹¹B⁺, ³¹P⁺), and the accelerator's high voltage drives it in. Unlike diffusion, windows stay open, ions do not spread sideways, and dose and depth can be set precisely.",
+  "block.semiconductor-lab.ion_implanter.note4": "Shockley filed the patent in 1954 and implantation became a production step in the 1960s–70s; every fab relies on it today. High voltage can electrocute and fast ions give off X-rays, so implanters are enclosed and shielded. Real ion-source gases, boron trifluoride and phosphine, are highly toxic and their cylinders are kept in monitored cabinets.",
+  "block.semiconductor-lab.ion_implanter.placeholder": "Omitted: ⚠️ power and time are game values. Solid sources stand in for the source gases (BF3, PH3). Dose is only recorded; depth is not modelled.",
+  "gui.semiconductor-lab.ion_implanter.power": "Power %s",
+  "gui.semiconductor-lab.ion_implanter.need_input": "Needs wafers and a dopant source",
+  "gui.semiconductor-lab.ion_implanter.cannot": "No window or resist opening",
+  "gui.semiconductor-lab.ion_implanter.need_vacuum": "Pump the chamber to 0.01 Pa",
+  "gui.semiconductor-lab.ion_implanter.need_power": "Not enough power",
+  "gui.semiconductor-lab.ion_implanter.running": "Implanting ions",
+  "gui.semiconductor-lab.ion_implanter.recipe": "Ion source, magnet, accelerator"
 }
