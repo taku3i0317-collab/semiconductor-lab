@@ -80,6 +80,30 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class OpticsTests extends LabTestBase {
+    /** [7-19] 投影レンズ（IMP2 O-010）：心出し済みの鏡筒＋反射防止膜のレンズ → 1/5 縮小。鏡筒のずれから波面収差 → CD＝k1·λ/NA。g線ステッパーの 1µm に届く */
+    @GameTest
+    public void projection_lens(GameTestHelper h) {
+        var barrel = new ItemStack(com.taku3.semiconductorlab.content.Precision.CENTERED_LENS_BARREL);
+        barrel.set(com.taku3.semiconductorlab.content.Precision.LENS_DECENTER, java.util.List.of(10, 10, 10, 10));
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, java.util.List.of(barrel, new ItemStack(Optics.COATED_CROWN_LENS)));
+        ItemStack lens = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel())
+                .map(r -> r.value().assemble(input)).orElse(ItemStack.EMPTY);
+        h.assertTrue(lens.is(Optics.PROJECTION_LENS), "centered barrel + AR-coated lens -> projection lens");
+        h.assertValueEqual(lens.get(com.taku3.semiconductorlab.content.Precision.LENS_DECENTER), java.util.List.of(10, 10, 10, 10), "keeps the barrel's lens offsets");
+        double w = com.taku3.semiconductorlab.item.ProjectionLensItem.wavefrontWaves(lens);
+        h.assertTrue(Math.abs(w - 0.04) < 1e-9, "4 um of offsets -> 0.04 waves: " + w);
+        int cd = com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens);
+        h.assertTrue(Math.abs(cd - 0.68 * 436 / 0.35) < 1, "CD = k1 lambda / NA: " + cd);
+        h.assertTrue(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsStepperG(lens), "reaches the g-line stepper CD (1 um, A's ExposureTool)");
+        h.assertFalse(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsStepperG(new ItemStack(Optics.PROJECTION_LENS)), "no centering record -> blurred");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.ProjectionLensItem.LAMBDA_NM, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.wavelengthNm, "g-line from ExposureTool");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"wavefront", "test", "ok", "blurred", "spec"})
+            h.assertTrue(ja.has("item.semiconductor-lab.projection_lens." + k), "lang projection_lens." + k);
+        LOG.info("[LAB] projection_lens [7-19]: centered barrel + AR lens, 1/5, NA 0.35, W 0.04 waves -> CD " + cd + " nm <= stepper g 1000 nm");
+        h.succeed();
+    }
+
     @GameTest
     public void oxyhydrogenFusedQuartz(GameTestHelper h) {
         int T = OxyhydrogenBurnerBlockEntity.MELT_TICKS;

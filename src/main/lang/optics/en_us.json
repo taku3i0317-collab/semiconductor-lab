@@ -278,5 +278,16 @@
   "item.semiconductor-lab.interferometer.steady": "steady enough to count",
   "item.semiconductor-lab.interferometer.shaky": "too shaky, you will miscount. Put the mercury lamp on an isolation table",
   "item.semiconductor-lab.interferometer.on_table": "on an isolation table",
-  "item.semiconductor-lab.interferometer.on_floor": "on the floor"
+  "item.semiconductor-lab.interferometer.on_floor": "on the floor",
+  "item.semiconductor-lab.projection_lens": "Projection Lens (reduction optics)",
+  "item.semiconductor-lab.projection_lens.note1": "A lens that shrinks the mask pattern to 1/5 and projects it onto the wafer: a 'tower of glass' stacking many lenses.",
+  "item.semiconductor-lab.projection_lens.note2": "Centered lens barrel + AR-coated crown lens. It inherits the barrel's lens offsets; the smaller they are, the finer it prints (CD = k1 lambda / NA). Right-click a lit mercury lamp for a test exposure; with an interferometer in the other hand it also measures the wavefront error.",
+  "item.semiconductor-lab.projection_lens.note3": "In 1978 GCA released the DSW (g-line), a stepper that shrinks the mask and prints one chip at a time; Nikon and Canon followed. Because the mask is larger, its small dust and errors also shrink to 1/5.",
+  "item.semiconductor-lab.projection_lens.note4": "Resolution is CD = k1 x lambda / NA (from Abbe's limit). Shorter lambda (g-line 436 nm -> i-line 365 -> KrF 248 -> ArF 193), larger NA and smaller k1 drove shrinking. Today's projection lenses have 20-30 elements and weigh over a tonne; EUV uses mirrors instead.",
+  "item.semiconductor-lab.projection_lens.placeholder": "Approximation: five lenses (real ones have 20-30). NA 0.35 is an early-1980s value (the 1978 GCA was about 0.28). The offset-to-aberration factor is a game value. No exposure tool yet.",
+  "item.semiconductor-lab.projection_lens.wavefront": "🌈 Interferometer: wavefront error %s waves",
+  "item.semiconductor-lab.projection_lens.test": "🔦 Test exposure: CD = k1 %s x %s nm / NA %s = %s um",
+  "item.semiconductor-lab.projection_lens.ok": "  reaches the g-line stepper target of %s um",
+  "item.semiconductor-lab.projection_lens.blurred": "  too blurred for the g-line stepper target of %s um (redo the barrel centering)",
+  "item.semiconductor-lab.projection_lens.spec": "Reduction 1/%s, NA %s, CD %s um at g-line"
 }

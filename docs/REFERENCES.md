@@ -1166,6 +1166,20 @@
 - Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper
 - Nikon「レンズの組立と調整（心出し）」の解説（光学メーカーの技術紹介）：https://www.nikon.com/company/technology/
 
+## O37. マスクを縮めて写す「ガラスの塔」（投影レンズ）［7-19］
+**答え**：ステッパーの投影レンズは、マスクの模様を 1/10〜1/4 に縮めてウェハーに写す多枚数のレンズ。解像度は CD＝k1×λ÷NA で、レンズの心のずれなどの収差が大きいと k1 が上がってぼける。1978年の GCA DSW（g線）から、ニコン・キヤノン・ツァイスの 20〜30枚組のレンズへ進んだ。
+
+- へえ①：露光装置のレンズは何十枚ものレンズを積み重ねた「ガラスの塔」で、重さ1トンを超えるものもある。
+- へえ②：マスクを大きく作るので、マスクの小さなごみや誤差もウェハーの上では 1/5 になる。
+- へえ③：枚数が多いと表面の反射で光が減るので、反射防止膜が欠かせない。
+- へえ④：EUV（13.5nm）はガラスが光を吸うので、レンズの代わりに鏡で組む。
+
+確かさ：1978 GCA DSW の発売 ◎／DSW の NA 約0.28・1/10 縮小 ○／1980年代の g線ステッパー NA 0.35〜0.45・1/5 ○／20〜30枚組 ○
+根拠：
+- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper
+- Wikipedia「Photolithography」（解像度 CD＝k1λ/NA）：https://en.wikipedia.org/wiki/Photolithography
+- Chip History Center「GCA DSW 4800」：https://www.chiphistory.org/
+
 ---
 
 # 冶金と熱（タスク15〜）

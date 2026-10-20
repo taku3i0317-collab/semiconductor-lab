@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:centered_lens_barrel",
+  "material": "semiconductor-lab:coated_crown_lens",
+  "result": {
+    "id": "semiconductor-lab:projection_lens"
+  }
+}

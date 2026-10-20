@@ -278,5 +278,16 @@
   "item.semiconductor-lab.interferometer.steady": "落ち着いて数えられる",
   "item.semiconductor-lab.interferometer.shaky": "ゆれて数え間違える。水銀灯を除振台に置こう",
   "item.semiconductor-lab.interferometer.on_table": "除振台の上",
-  "item.semiconductor-lab.interferometer.on_floor": "床の上"
+  "item.semiconductor-lab.interferometer.on_floor": "床の上",
+  "item.semiconductor-lab.projection_lens": "投影レンズ（縮小光学系）",
+  "item.semiconductor-lab.projection_lens.note1": "マスクの模様を 1/5 に小さくしてウェハーに写すレンズ。何枚ものレンズを積んだ「ガラスの塔」。",
+  "item.semiconductor-lab.projection_lens.note2": "心出し済みの鏡筒＋反射防止膜のクラウンレンズ。鏡筒のレンズのずれを引き継ぎ、ずれが小さいほど細かく写せる（CD＝k1·λ/NA）。点灯中の水銀灯を右クリックでテスト露光、左手に干渉計を持つと波面のゆがみも測る。",
+  "item.semiconductor-lab.projection_lens.note3": "1978年、GCA の DSW（g線、マスクを縮小して1チップずつ写すステッパー）が発売され、のちにニコン・キヤノンが続いた。マスクを大きく作れるので、マスクの小さなごみや誤差も 1/5 になる。",
+  "item.semiconductor-lab.projection_lens.note4": "解像度は CD＝k1×λ÷NA（アッベの限界から）。λ を短く（g線 436nm → i線 365nm → KrF 248nm → ArF 193nm）、NA を大きく、k1 を小さくして微細化が進んだ。今の投影レンズは 20〜30枚、重さ1トンを超え、EUV ではレンズの代わりに鏡で組む。",
+  "item.semiconductor-lab.projection_lens.placeholder": "近似：レンズは5枚（本物は 20〜30枚）。NA 0.35 は1980年代前半の値（1978 の GCA は約0.28）。ずれから収差への換算はゲームの値。露光装置そのものはまだ。",
+  "item.semiconductor-lab.projection_lens.wavefront": "🌈 干渉計：波面のゆがみ %s 波長",
+  "item.semiconductor-lab.projection_lens.test": "🔦 テスト露光：CD = k1 %s × %s nm ÷ NA %s = %s µm",
+  "item.semiconductor-lab.projection_lens.ok": "  g線ステッパーの目標 %s µm に届く",
+  "item.semiconductor-lab.projection_lens.blurred": "  ぼけて g線ステッパーの目標 %s µm に届かない（鏡筒の心出しをやり直そう）",
+  "item.semiconductor-lab.projection_lens.spec": "縮小 1/%s、NA %s、g線で CD %s µm"
 }
