@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 471（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 472（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -907,6 +907,8 @@ en_us refrigerator lines=8
 en_us refrigerator shift lines=15
 en_us theodolite lines=10
 en_us theodolite shift lines=22
+en_us air_conditioner lines=10
+en_us air_conditioner shift lines=21
 en_us transistor_radio lines=14
 en_us transistor_radio shift lines=35
 en_us sulfite_liquor lines=6
@@ -1849,6 +1851,8 @@ ja_jp refrigerator lines=6
 ja_jp refrigerator shift lines=12
 ja_jp theodolite lines=7
 ja_jp theodolite shift lines=17
+ja_jp air_conditioner lines=5
+ja_jp air_conditioner shift lines=14
 ja_jp transistor_radio lines=11
 ja_jp transistor_radio shift lines=29
 ja_jp sulfite_liquor lines=4

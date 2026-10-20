@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 116（ja・en）、文字の置き場所 430、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 118（ja・en）、文字の置き場所 436、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -470,6 +470,10 @@ refrigerator_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 refrigerator_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
 refrigerator_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
 refrigerator_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
+air_conditioner_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+air_conditioner_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
+air_conditioner_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=1/2
+air_conditioner_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/2
 assembly_bench_ja_jp index =1/2 w=18 lines=1/1
 assembly_bench_ja_jp product item.semiconductor-lab.hf_oscillator w=54 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.transistor_radio w=81 lines=2/2
@@ -938,3 +942,7 @@ refrigerator_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 refrigerator_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
 refrigerator_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
 refrigerator_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
+air_conditioner_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+air_conditioner_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
+air_conditioner_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/2
+air_conditioner_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/2
