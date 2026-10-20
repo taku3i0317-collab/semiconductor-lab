@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 376（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 377（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -397,6 +397,8 @@ en_us calcium_acetate lines=5
 en_us calcium_acetate shift lines=13
 en_us acetic_acid lines=7
 en_us acetic_acid shift lines=17
+en_us acetone lines=5
+en_us acetone shift lines=14
 en_us wood_retort lines=5
 en_us wood_retort shift lines=18
 en_us gas_retort lines=4
@@ -1149,6 +1151,8 @@ ja_jp calcium_acetate lines=4
 ja_jp calcium_acetate shift lines=11
 ja_jp acetic_acid lines=5
 ja_jp acetic_acid shift lines=12
+ja_jp acetone lines=4
+ja_jp acetone shift lines=13
 ja_jp wood_retort lines=4
 ja_jp wood_retort shift lines=14
 ja_jp gas_retort lines=4
