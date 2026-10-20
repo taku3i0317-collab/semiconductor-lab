@@ -91,5 +91,11 @@
   "block.semiconductor-lab.test_power_source.note2": "Creative only, no recipe. Placed under (next to) a machine it sends 1 MW. The test site (/function semiconductor-lab:testworld) puts one under each machine. Check real power generation in the test site's steam engine area.",
   "block.semiconductor-lab.test_power_source.note3": "In the real world there is no power source that needs no fuel: electricity is converted from the energy of fuel, flowing water, light and so on (conservation of energy). This block is just a shortcut for testing.",
   "block.semiconductor-lab.test_power_source.note4": "Labs often test a device on a regulated bench power supply instead of its real power source. The test site uses the same idea.",
-  "block.semiconductor-lab.test_power_source.placeholder": "For testing only: not a real technology (just for checking the game)."
+  "block.semiconductor-lab.test_power_source.placeholder": "For testing only: not a real technology (just for checking the game).",
+  "item.semiconductor-lab.gauge.hold": "Hold a lathe-turned part (rotor, standard screw) in your other hand and right-click",
+  "item.semiconductor-lab.gauge.read": "📏 %s: %s mm (resolution %s mm)",
+  "item.semiconductor-lab.gauge.no_grade": "  This scale cannot read 0.01 mm differences -> grade with a micrometer",
+  "item.semiconductor-lab.gauge.grade_a": "  Grade A (error %s um, within 10 um)",
+  "item.semiconductor-lab.gauge.grade_b": "  Grade B (error %s um, within 20 um)",
+  "item.semiconductor-lab.gauge.grade_c": "  Grade C (error %s um, over 20 um)"
 }

@@ -32,5 +32,17 @@
   "item.semiconductor-lab.standard_screw.note2": "Turn steel on a lathe with a lead screw in its 'master screw' slot: 4 screws (the lead screw is not used up). It carries the lathe's size error (measure it with calipers or a micrometer [8-04]).",
   "item.semiconductor-lab.standard_screw.note3": "Once every workshop had its own thread shapes, and each screw and nut were made as a matched pair. In 1841 Whitworth proposed a 55-degree thread angle and a set number of threads per size, and screws across Britain became uniform.",
   "item.semiconductor-lab.standard_screw.note4": "Maudslay's lathe moved its tool carriage with a master lead screw, so it could cut any number of screws with exactly the same pitch. If part shapes are fixed, any part fits (interchangeable parts) - the foundation of later mass production and car assembly lines.",
-  "item.semiconductor-lab.standard_screw.placeholder": "Approximation: the error range (+-25 um) is a game value. Thread forms (55 degrees etc.) are not distinguished."
+  "item.semiconductor-lab.standard_screw.placeholder": "Approximation: the error range (+-25 um) is a game value. Thread forms (55 degrees etc.) are not distinguished.",
+  "item.semiconductor-lab.vernier_caliper": "Vernier Caliper",
+  "item.semiconductor-lab.vernier_caliper.note1": "A tool that grips things between two jaws to measure length or thickness. A small scale lets you read fine fractions.",
+  "item.semiconductor-lab.vernier_caliper.note2": "2 bronze. Hold a lathe part in your other hand and right-click: reads to 0.05 mm. It cannot grade parts (0.01 mm differences); that needs a micrometer.",
+  "item.semiconductor-lab.vernier_caliper.note3": "In 1631 the Frenchman Pierre Vernier devised a sliding scale slightly offset from the main scale (the vernier) to read fractions between marks. Calipers of today's shape were sold by Brown & Sharpe in the USA around 1851.",
+  "item.semiconductor-lab.vernier_caliper.note4": "If 20 vernier divisions span 19 mm of the main scale, each differs by 0.05 mm. Find where a vernier line exactly meets a main-scale line and you read that fraction (the eye is very sensitive to misaligned lines).",
+  "item.semiconductor-lab.vernier_caliper.placeholder": "Approximation: real calipers were brass (copper + zinc); here they are made of bronze.",
+  "item.semiconductor-lab.micrometer": "Micrometer",
+  "item.semiconductor-lab.micrometer.note1": "A tool that grips things by turning a screw and measures to 0.01 mm.",
+  "item.semiconductor-lab.micrometer.note2": "Standard screw + steel + bronze. One turn advances 0.5 mm, divided by 50 marks around the thimble = 0.01 mm (the same 0.5 mm screw as the interferometer [7-09]). Grades lathe parts: A = error within 10 um, B = within 20 um, C = more.",
+  "item.semiconductor-lab.micrometer.note3": "In 1848 the Frenchman Jean Laurent Palmer made a tool that measures 0.01 mm with a screw. It became possible once accurate screws could be made ([8-02]).",
+  "item.semiconductor-lab.micrometer.note4": "Pressing too hard squashes both part and tool slightly and shifts the reading, so micrometers have a ratchet that slips at a set force. Steel also grows about 11 um per metre per degree, so precise measurement is done at 20 C.",
+  "item.semiconductor-lab.micrometer.placeholder": "Approximation: real frames are cast iron or steel; here the frame is bronze."
 }

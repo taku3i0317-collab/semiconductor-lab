@@ -38,6 +38,9 @@ public final class Precision {
             net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("part_error_um"),
             net.minecraft.core.component.DataComponentType.<Integer>builder().persistent(com.mojang.serialization.Codec.INT)
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
+    // [8-04] ノギスとマイクロメータ（IMP2-05）：段階1 ノギス（副尺 1631、青銅、読み 0.05mm）→ 段階2 マイクロメータ（パルマー 1848、規格ねじ、読み 0.01mm）
+    public static final Item VERNIER_CALIPER       = Reg.item("vernier_caliper", p -> new GaugeItem(p, 50), new Item.Properties().stacksTo(1));
+    public static final Item MICROMETER            = Reg.item("micrometer", p -> new GaugeItem(p, 10), new Item.Properties().stacksTo(1));
     public static final Item PUMP_ROTOR            = Reg.item("pump_rotor");        // 回転ポンプ [5-04] の偏心ローター（鋼）
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====

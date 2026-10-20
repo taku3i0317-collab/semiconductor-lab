@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "semiconductor-lab:standard_screw",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:bronze_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:micrometer",
+    "count": 1
+  }
+}

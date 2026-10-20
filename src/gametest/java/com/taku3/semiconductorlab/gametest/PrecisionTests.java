@@ -80,6 +80,34 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-04] ノギスとマイクロメータ（IMP2-05）：ノギスは 0.05mm 読みで等級を決められない、マイクロメータは 0.01mm 読みで A/B/C。ねじ1回転 0.5mm ÷ 50 目盛り＝0.01mm */
+    @GameTest
+    public void calipersAndMicrometer(GameTestHelper h) {
+        var cal = (com.taku3.semiconductorlab.item.GaugeItem) Precision.VERNIER_CALIPER;
+        var mic = (com.taku3.semiconductorlab.item.GaugeItem) Precision.MICROMETER;
+        h.assertValueEqual(mic.resolutionUm, (int) Math.round(com.taku3.semiconductorlab.item.InterferometerItem.SCREW_MM * 1000 / 50), "micrometer: 0.5 mm per turn / 50 divisions = 10 um (same screw pitch as the interferometer)");
+        h.assertTrue(Math.abs(cal.readMm(40.0, 18) - 40.00) < 1e-9, "caliper reads 40.018 as 40.00 (0.05 mm steps)");
+        h.assertTrue(Math.abs(mic.readMm(40.0, 18) - 40.02) < 1e-9, "micrometer reads 40.018 as 40.02");
+        h.assertTrue(cal.grade(18) == null, "caliper cannot grade 10-20 um differences");
+        h.assertValueEqual(mic.grade(-7), "A", "7 um -> A");
+        h.assertValueEqual(mic.grade(18), "B", "18 um -> B");
+        h.assertValueEqual(mic.grade(25), "C", "25 um -> C");
+        h.assertTrue(recipeUses(h, "micrometer", Precision.STANDARD_SCREW), "micrometer needs a standard screw (1848 after screw-cutting)");
+        h.assertTrue(recipeUses(h, "vernier_caliper", com.taku3.semiconductorlab.content.Metallurgy.BRONZE_INGOT), "caliper is brass/bronze (1631 vernier)");
+        // 使う：もう片方の手に旋盤の部品 → SUCCESS
+        ItemStack screw = new ItemStack(Precision.STANDARD_SCREW);
+        screw.set(Precision.PART_ERROR_UM, 12);
+        h.assertTrue(com.taku3.semiconductorlab.item.GaugeItem.nominalMm(screw) == 10.0, "standard screw nominal 10 mm");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Precision.MICROMETER));
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, screw);
+        h.assertTrue(Precision.MICROMETER.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND).consumesAction(), "measuring works");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"hold", "read", "no_grade", "grade_a", "grade_b", "grade_c"}) h.assertTrue(ja.has("item.semiconductor-lab.gauge." + k), "lang " + k);
+        LOG.info("[LAB] gauges [8-04]: caliper 0.05 mm (no grade), micrometer 0.01 mm grades A<=10/B<=20/C um");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),

@@ -234,6 +234,8 @@ hypo_liquor  # Optics [7-11] 1960
 sodium_thiosulfate  # Optics [7-11] 1960
 photomask  # Optics [7-11] 1960
 reduction_camera  # Optics [7-11] 1960
+vernier_caliper  # Precision [8-04] 1631
+micrometer  # Precision [8-04] 1631
 simple_microscope  # Precision [8-10] 1670
 compound_microscope  # Precision [8-10] 1670
 lead_screw  # Precision [8-02] 1797

@@ -885,6 +885,20 @@
 - Wikipedia「Henry Maudslay」：https://en.wikipedia.org/wiki/Henry_Maudslay
 - Wikipedia「Interchangeable parts」：https://en.wikipedia.org/wiki/Interchangeable_parts
 
+## O27. 0.01mm を測る（ノギスとマイクロメータ）［8-04］
+**答え**：ノギスは主尺と少しずれた副尺（ヴェルニエ 1631）で目盛りの間の端数を読み、0.05mm ほどまで測れる。マイクロメータはねじを回して物をはさみ、ねじ1回転（0.5mm）を円周の 50 目盛りで割って 0.01mm まで測る（パルマー 1848）。正確なねじが作れるようになって（[8-02]）、はじめて生まれた計器。
+
+- へえ①：ねじを1回まわすと何mm進むかが分かれば、0.01mm が測れる。
+- へえ②：副尺は、2本の線がぴったりそろう所を目で探す。目は線のずれにとても敏感。
+- へえ③：マイクロメータには、強くはさみすぎないように一定の力で空回りするラチェットが付いている。
+- へえ④：鋼は1℃で1mあたり約11µm 伸びるので、精密な測定は 20℃ で行う（[8-07]）。
+
+確かさ：ヴェルニエ 1631 ◎／パルマー 1848 ◎／ブラウン＆シャープのノギス 1851 ○／読みの細かさ（0.05・0.01mm）◎
+根拠：
+- Wikipedia「Vernier scale」：https://en.wikipedia.org/wiki/Vernier_scale
+- Wikipedia「Micrometer (device)」：https://en.wikipedia.org/wiki/Micrometer_(device)
+- Wikipedia「Calipers」：https://en.wikipedia.org/wiki/Calipers
+
 ---
 
 # 冶金と熱（タスク15〜）
