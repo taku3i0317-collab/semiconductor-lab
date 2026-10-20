@@ -414,6 +414,21 @@
 - Science Museum ブログ「Looking at the mirror」（ハーシェルのエメリー研削、ニュートン・ハドリーのピッチ）：https://blog.sciencemuseum.org.uk/looking-at-the-mirror
 - Science Museum Group 所蔵 ハーシェルのピッチ研磨皿（1770〜1820）：https://collection.sciencemuseumgroup.org.uk/objects/co56270
 
+## O5. 2種類のガラスで色のにじみを消す（色消しレンズ・屈折望遠鏡）［7-04］
+**答え**：凸レンズ1枚では、色ごとに焦点の位置がずれる（色収差）。分散の小さいクラウンの凸レンズと、分散の大きいフリントの凹レンズを組み合わせると、曲げる力を残したまま2色の焦点をそろえられる（色消しレンズ）。これを対物レンズにすると、短くて明るい屈折望遠鏡になる。
+
+- へえ①：2種類のガラスを貼り合わせると、虹色のにじみが消える。
+- へえ②：ニュートンはレンズでは色のにじみを消せないと考え、鏡の望遠鏡を作った。オイラーやクリンゲンシェルナの理論がそれをくつがえし、ドロンドの実験につながった。
+- へえ③：最初の色消しレンズはホール（1730〜50年代、発表しなかった）。1758年にドロンドが特許を取り、のちに息子のピーターが特許を守る裁判で勝った（使って広めた人の特許が有効とされた）。
+- へえ④：望遠鏡は1608年にオランダのリッペルハイが特許を願い出て、1609年にガリレオが月や木星を観測した。色消しの前は、にじみを減らすため長さ数十mの望遠鏡まで作られた。
+
+確かさ：色収差と色消しの原理 ◎／ドロンドの特許 1758年4月19日・ホールの先行 ○（Wikipedia・Linda Hall Library）／リッペルハイ 1608・ガリレオ 1609 ◎（よく知られた史実、このファイルでのリンクは未記載）／ヘヴェリウスの長い望遠鏡（約45m）○
+根拠：
+- Wikipedia「John Dollond」：https://en.wikipedia.org/wiki/John_Dollond
+- Wikipedia「Achromatic lens」：https://en.wikipedia.org/wiki/Achromatic_lens
+- Linda Hall Library「Scientist of the Day: John Dollond」：https://lindahall.org/about/news/scientist-of-the-day/john-dollond
+- arXiv「John Dollond's Prismatic Experiments」：https://arxiv.org/pdf/2110.08945
+
 ---
 
 # 冶金と熱（タスク15〜）

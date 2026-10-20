@@ -74,5 +74,17 @@
   "item.semiconductor-lab.flint_lens.note1": "A polished, clear concave lens. It spreads light out.",
   "item.semiconductor-lab.flint_lens.note2": "Ground flint lens blank + rouge + pitch lap (comes back). Refractive index about 1.6, strong color spreading. Cemented to a crown convex lens it makes an achromatic lens [7-04].",
   "item.semiconductor-lab.flint_lens.note3": "In 1758 Dollond patented an achromatic lens combining a crown convex lens and a flint concave lens (Hall had made one around 1733).",
-  "item.semiconductor-lab.flint_lens.note4": "A concave lens alone forms no image, but its color error is opposite to that of a convex lens. Flint spreads colors strongly, so a weak concave flint lens can cancel the crown's color error. The pair stays a convex lens overall, but the color fringes vanish."
+  "item.semiconductor-lab.flint_lens.note4": "A concave lens alone forms no image, but its color error is opposite to that of a convex lens. Flint spreads colors strongly, so a weak concave flint lens can cancel the crown's color error. The pair stays a convex lens overall, but the color fringes vanish.",
+  "item.semiconductor-lab.achromatic_lens": "Achromatic Lens",
+  "item.semiconductor-lab.achromatic_lens.note1": "Two lenses of different glass put together. The rainbow fringes disappear and the image is sharp.",
+  "item.semiconductor-lab.achromatic_lens.note2": "Crown lens (convex) + flint lens (concave) + copper ingot (lens cell). Low-dispersion crown and high-dispersion flint cancel the color-by-color focus error (chromatic aberration). It becomes the objective of a refracting telescope.",
+  "item.semiconductor-lab.achromatic_lens.note3": "Newton thought color fringes could not be removed with lenses and built a mirror telescope instead. Around 1733 Hall made an achromatic lens, and in 1758 Dollond patented it and made it widespread.",
+  "item.semiconductor-lab.achromatic_lens.note4": "Achromatic means bringing two colors (usually red and blue) to one focus. The small leftover error (secondary spectrum) is reduced further with special materials such as fluorite (apochromats). Lithography projection lenses [7-19] combine many more glasses and use light of a single wavelength to avoid color problems.",
+  "item.semiconductor-lab.achromatic_lens.placeholder": "Omitted: the cement between the two lenses (Canada balsam from the 19th century). The real cell is brass.",
+  "item.semiconductor-lab.refracting_telescope": "Refracting Telescope",
+  "item.semiconductor-lab.refracting_telescope.note1": "A tube for seeing far things large. Hold right-click to look through it (like the vanilla spyglass).",
+  "item.semiconductor-lab.refracting_telescope.note2": "Achromatic lens (top, objective) + copper ingot (tube) + crown lens (bottom, eyepiece). Both are convex (Keplerian), so the image is upside down (fine for stars). Magnification = objective focal length / eyepiece focal length.",
+  "item.semiconductor-lab.refracting_telescope.note3": "In 1608 Lippershey in the Netherlands applied for a telescope patent. In 1609 Galileo found mountains on the Moon and four moons of Jupiter with telescopes he made himself. The two-convex-lens design was proposed by Kepler in 1611.",
+  "item.semiconductor-lab.refracting_telescope.note4": "Before achromatic lenses, telescopes were made extremely long so the color fringes were less noticeable. Hevelius's 17th-century telescope was about 45 m long and hung from a mast with ropes. Achromatic lenses made telescopes short and bright.",
+  "item.semiconductor-lab.refracting_telescope.placeholder": "Approximation: the view (zoom and field) is the same as the vanilla spyglass, and the image is not flipped. The real tube is brass."
 }

@@ -168,8 +168,8 @@ public class OpticsTests extends LabTestBase {
     /** 作業台で並べたときの {出力, 戻る物} */
     private static ItemStack[] craft(GameTestHelper h, net.minecraft.world.item.Item... items) {
         List<ItemStack> list = new ArrayList<>();
-        for (int i = 0; i < 9; i++) list.add(i < items.length ? new ItemStack(items[i]) : ItemStack.EMPTY);
-        var input = net.minecraft.world.item.crafting.CraftingInput.of(3, 3, list);
+        for (int i = 0; i < 9; i++) list.add(i < items.length && items[i] != null ? new ItemStack(items[i]) : ItemStack.EMPTY);
+        var input = net.minecraft.world.item.crafting.CraftingInput.ofPositioned(3, 3, list).input();   // 空きを詰める（作業台と同じ）
         var r = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel());
         if (r.isEmpty()) return new ItemStack[] {ItemStack.EMPTY, ItemStack.EMPTY};
         ItemStack back = r.get().value().getRemainingItems(input).stream().filter(s -> !s.isEmpty()).findFirst().orElse(ItemStack.EMPTY);
@@ -199,6 +199,32 @@ public class OpticsTests extends LabTestBase {
         h.assertTrue(craft(h, Items.GLASS, Items.SAND, Optics.GRINDING_TOOL)[0].isEmpty(), "vanilla glass is not lens glass");
         h.assertTrue(craft(h, Chemistry.SODA_LIME_GLASS, Items.SAND, Optics.GRINDING_TOOL)[0].isEmpty(), "soda-lime glass must be remelted to crown first");
         LOG.info("[LAB] lens grinding [7-03]: glass + sand + grinding tool -> blank; blank + rouge + pitch lap -> crown/flint lens; tools come back");
+        h.succeed();
+    }
+
+    /** [7-04] 色消しレンズ・屈折望遠鏡（IMP2-01）：クラウン凸＋フリント凹＋銅 → 色消し、色消し＋銅＋クラウン → 望遠鏡。使っている間はのぞいている（isScoping） */
+    @GameTest
+    public void telescope(GameTestHelper h) {
+        h.assertTrue(craft(h, Optics.CROWN_LENS, Optics.FLINT_LENS, Items.COPPER_INGOT)[0].is(Optics.ACHROMATIC_LENS), "crown + flint + cell -> achromatic lens");
+        h.assertTrue(craft(h, Optics.CROWN_LENS, Optics.CROWN_LENS, Items.COPPER_INGOT)[0].isEmpty(), "two crown lenses are not achromatic");
+        // 縦に 対物（色消し）・筒（銅）・接眼（クラウン）
+        var top = craft(h, Optics.ACHROMATIC_LENS, null, null, Items.COPPER_INGOT, null, null, Optics.CROWN_LENS);
+        h.assertTrue(top[0].is(Optics.REFRACTING_TELESCOPE), "achromat over copper tube over crown eyepiece -> telescope");
+        h.assertTrue(craft(h, Optics.CROWN_LENS, null, null, Items.COPPER_INGOT, null, null, Optics.CROWN_LENS)[0].isEmpty(), "no achromat -> no telescope");
+
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Optics.REFRACTING_TELESCOPE));
+        h.assertFalse(player.isScoping(), "not scoping before use");
+        player.startUsingItem(net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertTrue(player.isUsingItem(), "telescope can be used (held)");
+        h.assertTrue(player.isScoping(), "using the telescope = scoping (zoom, scope overlay)");
+        player.stopUsingItem();
+        h.assertFalse(player.isScoping(), "released -> not scoping");
+        // バニラの望遠鏡は今までどおり
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Items.SPYGLASS));
+        player.startUsingItem(net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertTrue(player.isScoping(), "vanilla spyglass still scopes");
+        LOG.info("[LAB] telescope [7-04]: crown + flint -> achromat; achromat + tube + eyepiece -> telescope; using it scopes like a spyglass");
         h.succeed();
     }
 

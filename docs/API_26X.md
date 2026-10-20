@@ -793,3 +793,10 @@ AbstractContainerMenu: boolean clickMenuButton(Player, int)            // 画面
 MultiPlayerGameMode（client）: void handleInventoryButtonClick(int containerId, int buttonId)   // クライアントから押す
 ServerLevel: <T extends ParticleOptions> int sendParticles(T, double x, double y, double z, int count, double dx, double dy, double dz, double speed)
 ```- 容器のしくみ（設計、2026-10-20 javap）：`Item.Properties craftRemainder(Item)`・`craftRemainder(ItemStackTemplate)`（作業台で使ったあとに残る物）、`Item.getCraftingRemainder()` は ItemStackTemplate を返す。`DataComponents.USE_REMAINDER`（食べる・飲むなど使ったあとに残る物）
+
+## IMP2-01（2026-10-20 javap）光学
+- `Player.isScoping()`：`isUsingItem() && getUseItem().is(Items.SPYGLASS)` だけ（Player に定義、LivingEntity にはない）。クライアントは Hud（のぞき穴 SPYGLASS_SCOPE_LOCATION）・AbstractClientPlayer（視野）・MouseHandler（感度）・FirstPersonHandsAndItems（手を隠す）が全部 `LocalPlayer.isScoping()` を呼ぶ → mixin/PlayerScopingMixin（@Inject RETURN）1つで自作の望遠鏡ものぞける
+- `SpyglassItem(Item.Properties)`：use / getUseDuration / getUseAnimation(SPYGLASS) / releaseUsing。継承して item/TelescopeItem
+- `CraftingInput.ofPositioned(int, int, List<ItemStack>).input()`：空きを詰めた入力（形のあるレシピを GameTest で探すときはこちら。`of` は詰めない）
+- `RecipeType.CAMPFIRE_COOKING`（`CampfireCookingRecipe extends AbstractCookingRecipe`）。JSON は `"type": "minecraft:campfire_cooking"`, `"ingredient": "#minecraft:logs_that_burn"` 可
+- `ItemTags.LOGS_THAT_BURN`（ネザーの幹を含まない）・`ItemTags.LOGS`

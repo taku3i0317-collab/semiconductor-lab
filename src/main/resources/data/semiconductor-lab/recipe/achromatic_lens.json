@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crown_lens",
+    "semiconductor-lab:flint_lens",
+    "minecraft:copper_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:achromatic_lens",
+    "count": 1
+  }
+}

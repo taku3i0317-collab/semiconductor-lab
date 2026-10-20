@@ -116,6 +116,8 @@ argon_cylinder  # Gas [6-07] 1895
 air_separation_unit  # Gas [6-07] 1895
 hydrochloric_acid  # Gas [6-06] 1900
 hcl_burner  # Gas [6-06] 1900
+achromatic_lens  # Optics [7-04] 1608
+refracting_telescope  # Optics [7-04] 1608
 rouge  # Optics [7-03] 1650
 grinding_tool  # Optics [7-03] 1650
 pitch_lap  # Optics [7-03] 1650

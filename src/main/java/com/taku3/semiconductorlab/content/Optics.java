@@ -42,6 +42,9 @@ public final class Optics {
     public static final Item FLINT_LENS_BLANK      = Reg.item("flint_lens_blank");
     public static final Item CROWN_LENS            = Reg.item("crown_lens");        // 磨いた凸レンズ
     public static final Item FLINT_LENS            = Reg.item("flint_lens");        // 磨いた凹レンズ（色消しの相方）
+    // [7-04] 色消しレンズと屈折望遠鏡（IMP2-01）：クラウン凸＋フリント凹 → 色消しレンズ（ドロンド 1758）。対物＝色消し、接眼＝凸のケプラー式
+    public static final Item ACHROMATIC_LENS       = Reg.item("achromatic_lens");
+    public static final Item REFRACTING_TELESCOPE  = Reg.item("refracting_telescope", TelescopeItem::new, new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 酸水素バーナー [7-02]（ヘアの吹管 1801、ゴーダン 1839。水素＋酸素ボンベの炎 約2800℃で石英を溶かす）。ガスボンベ式（電気の受け口なし）。炎が出ている間は光る
