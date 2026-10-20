@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/cz_puller_front_on",
+    "side": "semiconductor-lab:block/cz_puller_side",
+    "top": "semiconductor-lab:block/cz_puller_top"
+  }
+}

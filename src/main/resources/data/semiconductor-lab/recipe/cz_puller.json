@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SLS",
+    "GPG",
+    "SMS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "L": "semiconductor-lab:lead_screw",
+    "G": "semiconductor-lab:graphite_rod",
+    "P": "semiconductor-lab:crystal_puller",
+    "M": "semiconductor-lab:electric_motor"
+  },
+  "result": {
+    "id": "semiconductor-lab:cz_puller",
+    "count": 1
+  }
+}

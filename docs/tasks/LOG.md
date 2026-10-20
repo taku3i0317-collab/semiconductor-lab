@@ -245,3 +245,10 @@
 - gen_portraits.py：肖像を 32×32 に（目・まゆ・鼻・口・耳・輪郭）。network.html は 48px、node.html は 64px で表示。丸の中のアイコンは 16×16 のまま
 - 人物の偏りの点検：女性 0人、西洋以外 3人。TECH_TREE に出典つきで載っている候補を DECISIONS_PENDING Q26-1 に（事実は足していない）
 - 担当：network.html・node.html・gen_tree_views.py・network_meta.json・products.md・ideas.md・gen_portraits.py は semilab-network（ネットワーク担当）へ。CLAUDE.md・README・HANDOFF に記録
+
+## タスク23（依頼文の番号）：[9-11] ドーパント源 → [9-08] CZ 法（2026-10-20、対話で実行）
+- [9-11]（e748f2e）：Dopant（B2O3→ホウ素 p型 k0.80、白リン→リン n型 k0.35）、データコンポーネント dopant、ツールチップ。前提のヒ素 [1-04]・アンチモン [1-43] が ❓ なので B・P だけ実装してノードは 🔧（Q23-1）
+- [9-08]：CZ 引き上げ機（Ge の引き上げ機をレシピに入れて拡張、150kW）、石英るつぼ（使い捨て）、シリコン種結晶、シリコン単結晶（純度・ドーパントを受け継ぐ）。電力量 17.4kWh/kg（国立台湾大学の論文）、速さは約8倍（Q23-3）、ドーパントは直接（本物は母合金、Q23-2）。石英から酸素が入る点・偏析係数は note に
+- 出典：US 5,073,229（偏析係数）、キール大学 Föll「Segregation」、国立台湾大学の論文、引き上げ機の仕様例（SOURCES.md）
+- 担当の分け方どおり、gen_tree_views.py の実行（ネットワーク図の作り直し）はネットワーク担当に任せた
+- テスト：75/75 PASSED
