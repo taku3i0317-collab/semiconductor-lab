@@ -1,0 +1,2419 @@
+{
+ "_note": "英語（O-021）：ノードの名前とへえ①の英訳。日本語の欄が元で、年・人の名前・番号は同じにしてある。tools/gen_tree_views.py が図とページに入れる",
+ "0-01": {
+  "name": "Knapped stone tools",
+  "hee1": "If you hit a stone with another stone, it breaks and leaves an edge as sharp as a knife. Solid evidence goes back 2.6 million years (some say 3.3 million years ⚠️)."
+ },
+ "0-02": {
+  "name": "Fire making",
+  "hee1": "Rub two pieces of wood together and they get hot, and at last a fire starts"
+ },
+ "0-03": {
+  "name": "Earthenware",
+  "hee1": "Once clay is fired, water can never turn it back. People knew this 20,000 years ago."
+ },
+ "0-04": {
+  "name": "Farming",
+  "hee1": "Fields began when people kept choosing and growing wheat whose grains did not fall off easily."
+ },
+ "0-05": {
+  "name": "Beans",
+  "hee1": "Bean roots host bacteria that turn nitrogen from the air into fertilizer, so the field does not wear out easily."
+ },
+ "0-06": {
+  "name": "Weaving",
+  "hee1": "Soak flax stems in water until they rot, and you get fibers to spin into thread for cloth"
+ },
+ "0-07": {
+  "name": "Wool and the spindle whorl",
+  "hee1": "A flywheel that spins like a top was used to twist wool into thread."
+ },
+ "0-08": {
+  "name": "Woodworking",
+  "hee1": "Grinding a stone axe gives it an edge that chips less easily."
+ },
+ "0-09": {
+  "name": "Wheel",
+  "hee1": "Before the wheel, there was the potter's wheel, a turning table for making pottery."
+ },
+ "0-10": {
+  "name": "Lime burning",
+  "hee1": "You can make it by burning seashells. It is the base of plaster for walls"
+ },
+ "0-11": {
+  "name": "Slaked lime and lime plaster",
+  "hee1": "Slaked lime soaks up carbon dioxide from the air, turns back into stone, and hardens."
+ },
+ "0-12": {
+  "name": "Charcoal",
+  "hee1": "If you burn wood where there is little air, carbon-rich charcoal is left behind."
+ },
+ "0-13": {
+  "name": "Cart",
+  "hee1": "A four-wheeled cart pulled by oxen. People greased the axles with animal fat to make them slide."
+ },
+ "0-14": {
+  "name": "Water transport",
+  "hee1": "Heavy stones and ores are much easier to move floating on water than over land"
+ },
+ "0-15": {
+  "name": "Kiln",
+  "hee1": "Surround a fire with walls and it gets hotter than an open-air fire. That heat made it possible to melt copper."
+ },
+ "0-16": {
+  "name": "Salt pans",
+  "hee1": "From nigari, the bittern used to set tofu, we can get magnesium metal for airplanes."
+ },
+ "0-17": {
+  "name": "Domestication",
+  "hee1": "The ancestor of cattle was the wild aurochs, nearly 2 m tall at the shoulder."
+ },
+ "0-18": {
+  "name": "Rope",
+  "hee1": "Even thin fibers can hold up heavy things once you twist them together (added in IMP-24, network_proposals N-2)"
+ },
+ "0-19": {
+  "name": "Potter's wheel",
+  "hee1": "Before the wheel for carts, there was a spinning table for making pottery (the potter's wheel)."
+ },
+ "1-01": {
+  "name": "Germanium from coal ash",
+  "hee1": "Germanium is sometimes concentrated in the ash left after burning coal."
+ },
+ "1-02": {
+  "name": "Native copper",
+  "hee1": "Some copper was found in the ground already as metal. Hammering makes it hard, and heating makes it soft again."
+ },
+ "1-03": {
+  "name": "Copper smelting",
+  "hee1": "Heat a green stone (malachite) with charcoal, and copper comes out"
+ },
+ "1-04": {
+  "name": "Copper smelting",
+  "hee1": "Most copper today is taken from ores bonded with sulfur, by blowing air into them."
+ },
+ "1-05": {
+  "name": "Bronze",
+  "hee1": "Mix 10% tin into copper and you get bronze, which melts easily yet is hard."
+ },
+ "1-06": {
+  "name": "Bloomery",
+  "hee1": "Old furnaces could not melt iron, so it came out as a spongy lump."
+ },
+ "1-07": {
+  "name": "Graphite",
+  "hee1": "Graphite, the same stuff as pencil lead, was also used to make heat-proof crucibles"
+ },
+ "1-08": {
+  "name": "Wrought iron",
+  "hee1": "Hammering red-hot iron squeezes out the slag mixed inside it."
+ },
+ "1-09": {
+  "name": "Blast furnace",
+  "hee1": "Make the furnace taller and blow air in harder, and the iron melts and flows out."
+ },
+ "1-10": {
+  "name": "Coke blast furnace",
+  "hee1": "When forests ran short of wood, people began making iron with coke, made by baking coal without air."
+ },
+ "1-11": {
+  "name": "Crucible steel",
+  "hee1": "Melt iron completely in a covered crucible and you get even, uniform steel. It was used for clock springs"
+ },
+ "1-12": {
+  "name": "Open-hearth furnace",
+  "hee1": "A furnace that can melt scrap iron too, and slowly adjust what is in the steel."
+ },
+ "1-13": {
+  "name": "Zinc",
+  "hee1": "In an ordinary furnace zinc turns into a gas and escapes, so people cooled it to collect it."
+ },
+ "1-14": {
+  "name": "Bayer process",
+  "hee1": "Bauxite is dissolved in sodium hydroxide, the red iron-rich mud is filtered out, and alumina is taken out."
+ },
+ "1-15": {
+  "name": "Metallurgical silicon",
+  "hee1": "Silicon is made from \"stone\", \"charcoal\" and \"lots of electricity\""
+ },
+ "1-16": {
+  "name": "Trichlorosilane synthesis and distillation",
+  "hee1": "Silicon is first turned into a liquid that boils at 32°C, then cleaned by distillation."
+ },
+ "1-17": {
+  "name": "Siemens process",
+  "hee1": "A thin, hot silicon rod keeps getting thicker inside the gas."
+ },
+ "1-18": {
+  "name": "Platinum refining",
+  "hee1": "By pressing platinum powder together and hammering it, people got a metal they could work."
+ },
+ "1-19": {
+  "name": "Rare earth separation",
+  "hee1": "Rare earths are so alike that we separate them by using tiny differences, repeated hundreds of times"
+ },
+ "1-20": {
+  "name": "Platinum",
+  "hee1": "Platinum is found as tiny bits of pure metal mixed in river sand."
+ },
+ "1-21": {
+  "name": "Fluorite CaF2",
+  "hee1": "Fluorite is found in ore veins together with galena and sphalerite."
+ },
+ "1-22": {
+  "name": "Cassiterite SnO2",
+  "hee1": "Tin ore is found near granite and in river sand."
+ },
+ "1-23": {
+  "name": "Molybdenite MoS2",
+  "hee1": "Molybdenum ore comes out as a side product of copper mines"
+ },
+ "1-24": {
+  "name": "Bauxite",
+  "hee1": "Bauxite, the raw material for aluminum, is soil made when rocks weather in hot countries."
+ },
+ "1-25": {
+  "name": "Monazite",
+  "hee1": "Monazite is collected from sand together with iron sand."
+ },
+ "1-26": {
+  "name": "Steel",
+  "hee1": "1) Just blowing air into iron turns it into steel. The color of the flame tells you when it is done. 2) Pig iron 4% -> steel 0.1-0.5%, with no fuel. 3) Bessemer 1856 and Kelly; steel became cheap, and rails and bridges became steel. 4) Mushet's spiegeleisen; the phosphorus problem -> Thomas 1878."
+ },
+ "1-27": {
+  "name": "Lead",
+  "hee1": "The metal of old water pipes and printing type. It is bad for your body"
+ },
+ "1-28": {
+  "name": "Tungsten wire",
+  "hee1": "Its melting point is 3400°C, too high to melt, so the powder is pressed and baked solid."
+ },
+ "1-29": {
+  "name": "Aluminium",
+  "hee1": "Until then aluminium cost more than gold, and Napoleon III used it for tableware for his guests of honor."
+ },
+ "1-30": {
+  "name": "Tin",
+  "hee1": "A material for bronze 5,000 years ago becomes the light source of cutting-edge EUV."
+ },
+ "1-31": {
+  "name": "Molybdenum smelting",
+  "hee1": "The SO2 from roasting can be sent on as raw material for sulfuric acid [2-01]"
+ },
+ "1-32": {
+  "name": "Silver",
+  "hee1": "The Iwami Silver Mine also got its silver by cupellation."
+ },
+ "1-33": {
+  "name": "Boron",
+  "hee1": "Borax has long been used as a \"flux\" for brazing metals."
+ },
+ "1-34": {
+  "name": "Germanium tetrachloride distillation",
+  "hee1": "Germanium is turned into a liquid that boils at 83°C, then purified by distillation."
+ },
+ "1-35": {
+  "name": "Neodymium magnet",
+  "hee1": "A magnet made of neodymium, iron and boron. It was born in Japan and the USA at almost the same time"
+ },
+ "1-36": {
+  "name": "Elemental boron",
+  "hee1": "Magnesium steals the oxygen, leaving boron behind."
+ },
+ "1-37": {
+  "name": "Nickel",
+  "hee1": "Nickel becomes a gas with carbon monoxide, and when heated it turns back into pure nickel."
+ },
+ "1-38": {
+  "name": "Synthetic cryolite",
+  "hee1": "Natural cryolite was only found in Greenland, so today it is made by chemistry."
+ },
+ "1-39": {
+  "name": "Magnesium",
+  "hee1": "1 L of seawater holds about 1.3 g of Mg. The Mg for aircraft in World War II was taken from the sea"
+ },
+ "1-40": {
+  "name": "Chromium",
+  "hee1": "Thermite is still used today to weld railway rails on site."
+ },
+ "1-41": {
+  "name": "Titanium",
+  "hee1": "From the black grains mixed into iron sand, we get the metal used for airplane frames."
+ },
+ "1-42": {
+  "name": "Lithium",
+  "hee1": "Lithium is a metal so light it floats on water."
+ },
+ "1-43": {
+  "name": "Antimony",
+  "hee1": "Like water, antimony expands a little when it freezes (so the edges of printing type come out sharp)"
+ },
+ "1-44": {
+  "name": "Gallium",
+  "hee1": "Gallium melts from the warmth of your palm (melting point about 30°C)."
+ },
+ "1-45": {
+  "name": "Mercury",
+  "hee1": "It is what is inside a thermometer. Do not touch it."
+ },
+ "1-46": {
+  "name": "Quartzite",
+  "hee1": "A vein where white quartz filled a crack in the rock."
+ },
+ "1-47": {
+  "name": "Lodestone",
+  "hee1": "The first magnets were stones dug out of the ground"
+ },
+ "1-48": {
+  "name": "Basic oxygen furnace",
+  "hee1": "Blow oxygen instead of air, and steel is made in a few tens of minutes. (Added in S-001. Sources: Wikipedia \"Basic oxygen steelmaking\", University of Leoben \"70 Years of LD-Steelmaking\")"
+ },
+ "1-49": {
+  "name": "Electric arc steelmaking",
+  "hee1": "Old scrap iron is melted with electric sparks and made into new steel. (Added in S-001. Sources: Techniques de l'Ingénieur \"History of the arc furnace\", Wikipedia \"Electric arc furnace\")"
+ },
+ "1-50": {
+  "name": "Continuous casting",
+  "hee1": "Steel keeps flowing without stopping, and a long slab is pulled out of the mold. (Added in S-001. Sources: encyclopedia.pub \"Continuous casting\", MDPI Metals review (continuous casting history, Junghans 1930s, CONCAST 1950s) (https://www.mdpi.com/2075-4701/12/5/862))"
+ },
+ "1-51": {
+  "name": "Rolling",
+  "hee1": "Pass iron between two turning rollers and it quickly gets thinner and longer (added in S-001. Sources: Wikipedia \"Rolling (metalworking)\", ERIH \"Henry Cort\")"
+ },
+ "1-52": {
+  "name": "Extrusion",
+  "hee1": "Push it out like squeezing toothpaste, and you get long aluminum bars all the same shape. (Added in S-001. Sources: Wikipedia \"Extrusion\", Grace's Guide \"Extruded Metal Co\")"
+ },
+ "1-53": {
+  "name": "Ferrite",
+  "hee1": "The black magnets on your fridge are ferrite magnets, made like pottery. (Added in O-005. Sources: IEEE Milestones, Tokyo Institute of Technology \"The invention of ferrite\", Wikipedia \"Ferrite (magnet)\")"
+ },
+ "1-54": {
+  "name": "Invar",
+  "hee1": "Just by mixing nickel into iron, you get a metal whose length hardly changes in summer or winter. (Added in O-005. Sources: Nobel Prize \"Physics 1920\", Nobel Prize \"Physics 1920 Guillaume\" (https://www.nobelprize.org/prizes/physics/1920/guillaume/facts/))"
+ },
+ "1-55": {
+  "name": "Synthetic diamond",
+  "hee1": "Most diamonds used in factories are synthetic diamonds made by squeezing graphite hard (added in O-010. Sources: ASME Landmark #198, Nobel Prize \"Physics 1946\", GIA, Wikipedia \"Synthetic diamond\")"
+ },
+ "1-56": {
+  "name": "Steam hammer",
+  "hee1": "Huge blocks of steel that human arms cannot strike can be hit with 100 tons of force by a steam-powered hammer. (Added in O-010. Sources: ASME Landmark #69 \"Creusot Steam Hammer\", JSME \"Mechanical Engineering Heritage No.058\", Wikipedia \"Steam hammer\")"
+ },
+ "1-57": {
+  "name": "Carbon fiber",
+  "hee1": "Carbon fiber weighs about a quarter as much as steel, yet is stronger than steel ⚠️ (Added in O-011. Sources: Wikipedia \"National Historic Chemical Landmarks\", Asia News Network)"
+ },
+ "1-58": {
+  "name": "Wire drawing",
+  "hee1": "The copper wire in electric cables is made by pulling a thick rod through small holes dozens of times to stretch it thin. (Added in O-012. Sources: Wikipedia \"Wire drawing\", ASME Landmark #139)"
+ },
+ "1-59": {
+  "name": "Puddling process",
+  "hee1": "The iron of the Eiffel Tower is wrought iron, made by workers stirring the iron inside a furnace with a rod (added in O-012. Sources: Wikipedia \"Puddling (metallurgy)\", \"Henry Cort\", Britannica \"Puddling furnace\", Grace's Guide \"Henry Cort\" (https://www.britannica.com/technology/puddling-furnace))"
+ },
+ "1-60": {
+  "name": "Electrolytic copper refining",
+  "hee1": "The copper in electric wires is purified to 99.99% by electrolysis. (Added in O-012. Sources: Wikipedia \"Copper extraction\", \"James Balfour Elkington\", OneMine (SME) 'Origins of Electrorefining: the World's First Commercial Electrorefinery' (https://www.onemine.org/documents/origins-of-electrorerefining-birth-of-the-technology-and-the-world-s-first-commercial-electrorefinery))"
+ },
+ "1-61": {
+  "name": "Thomas process",
+  "hee1": "The phosphorus slag removed from iron became fertilizer for fields. (Added in O-012. Sources: Wikipedia \"Gilchrist–Thomas process\" \"Sidney Gilchrist Thomas\", IOM3 \"Steel heroes\", Grace's Guide \"Percy Gilchrist\" (https://www.iom3.org/resource/steel-heroes.html))"
+ },
+ "1-62": {
+  "name": "Stainless steel",
+  "hee1": "Stainless steel does not rust because an invisibly thin chromium film forms on the surface and protects it. (Added in O-012. Sources: Wikipedia \"Stainless steel\", \"Harry Brearley\", Sheffield City Archives \"Sources for the Study of Harry Brearley and Stainless Steel\" (https://www.sheffield.gov.uk/sites/default/files/docs/libraries-and-archives/archives-and-local-studies/research/Stainless-Steel-and-Harry-Brearley-v-1-1--PDF--578-KB-.pdf))"
+ },
+ "1-63": {
+  "name": "Manganese addition",
+  "hee1": "Adding just a little manganese made steel that used to crack easily strong (added in O-012. Sources: Wikipedia \"Robert Forester Mushet\", \"Mangalloy\", Grace's Guide 'Robert Mushet' (https://www.gracesguide.co.uk/Robert_Mushet))"
+ },
+ "1-64": {
+  "name": "Gold extraction",
+  "hee1": "One ton of gold ore often holds only a few grams of gold ⚠️ (Added in O-012. Sources: Wikipedia \"MacArthur–Forrest process\", \"Patio process\", Mining Foundation of the Southwest \"Bartolomé de Medina\" (https://miningfoundationsw.org/Bartolome_de_Medina))"
+ },
+ "1-65": {
+  "name": "High-speed steel",
+  "hee1": "A high-speed steel blade stays sharp even when it gets hot enough to glow red. (Added in O-012. Sources: Wikipedia \"High-speed steel\" \"Robert Forester Mushet\", Knife Steel Nerds \"The History of the First Tool Steel\", West Yorkshire Steel \"A History of High Speed Steel\" (https://knifesteelnerds.com/2018/03/22/the-history-of-the-first-tool-steel/))"
+ },
+ "1-66": {
+  "name": "Tantalum",
+  "hee1": "Light bulb filaments changed from carbon to tantalum to tungsten, each more heat-resistant than the last. (Added in O-012. Sources: Wikipedia \"Tantalum\", \"Werner von Bolton\", Deutsche Biographie 'Bolton, Werner' (https://www.deutsche-biographie.de/sfz5200.html))"
+ },
+ "1-67": {
+  "name": "Froth flotation",
+  "hee1": "The metal grains in ore stick to bubbles and float up (added in O-012. Sources: Wikipedia \"Froth flotation\", Fuerstenau, Jameson, Yoon (eds.), Froth Flotation: A Century of Innovation (SME, 2007))"
+ },
+ "1-68": {
+  "name": "Permanent magnet steel",
+  "hee1": "A magnet steel made by Japanese researchers was the strongest magnet in the world at the time. (Added in O-012. Sources: Wikipedia \"Kotaro Honda\", Kotobank \"MK steel\", Japan Patent Office \"Ten Great Japanese Inventors: Tokushichi Mishima\")"
+ },
+ "1-69": {
+  "name": "Carburizing and nitriding",
+  "hee1": "Only the surface of a gear is made hard, while the inside stays tough and hard to crack. (Added in O-012. Sources: Wikipedia \"Nitriding\" \"Carburizing\", D. Pye, \"Practical Nitriding and Ferritic Nitrocarburizing\" (ASM International, 2003))"
+ },
+ "1-70": {
+  "name": "Zirconium and hafnium",
+  "hee1": "Hafnium was only found after a method of studying elements with X-rays was developed. (Added in O-012. Sources: Wikipedia \"Hafnium\", \"Crystal bar process\")"
+ },
+ "1-71": {
+  "name": "Heat treatment",
+  "hee1": "The same steel can become totally different in hardness just by changing how fast you cool it (added in O-012. Sources: Wikipedia \"Quenching\", \"Isothermal transformation diagram\", Davenport & Bain \"Transformation of austenite at constant subcritical temperatures\" Trans. AIME 90 (1930) (https://doi.org/10.1007/BF02643420))"
+ },
+ "1-72": {
+  "name": "Powder metallurgy and hot isostatic pressing",
+  "hee1": "Metals that are very hard to melt are shaped by pressing powder and baking it. (Added in O-012. Sources: Wikipedia \"Powder metallurgy\", \"Hot isostatic pressing\", ASME Landmark #103)"
+ },
+ "1-73": {
+  "name": "Coated steel sheet",
+  "hee1": "The zinc on galvanized sheet rusts first itself, protecting the iron inside. (Added in O-012. Sources: Wikipedia \"Hot-dip galvanization\" \"Tinplate\", 1911 Encyclopædia Britannica \"Tin-plate and Terne-plate\", Galvanizers Association \"The potted history of galvanizing\" (https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Tin-plate_and_Terne-plate))"
+ },
+ "1-74": {
+  "name": "Cemented carbide",
+  "hee1": "The cemented carbide name \"Widia\" means \"like diamond\" in German. (Added in O-012. Sources: Wikipedia \"Cemented carbide\", \"Tungsten carbide\", Sandvik Coromant 'Celebrating 100 years of cemented carbide' / Mitsubishi Materials, history of cemented carbide (https://www.mmhm.co.jp/en/carbide/history.html))"
+ },
+ "1-75": {
+  "name": "Vacuum degassing",
+  "hee1": "Suck molten steel up into a vacuum, and the gas hidden inside comes out as bubbles (added in O-012. Sources: Wikipedia \"Vacuum degassing\", \"Secondary steelmaking\", AISE, The Making, Shaping and Treating of Steel (chapter on secondary refining))"
+ },
+ "1-76": {
+  "name": "Direct reduced iron",
+  "hee1": "Make iron with hydrogen, and what comes out of the chimney is water, not carbon dioxide. (Added in O-012. Sources: Wikipedia \"Direct reduced iron\", Midrex Technologies \"It All Started in Portland… 50 Years Ago\", VDEh \"History of direct reduction\" (https://www.midrex.com/tech-article/it-all-started-in-portland-50-years-ago/))"
+ },
+ "10-01": {
+  "name": "Electromagnet",
+  "hee1": "A magnet that turns back into plain iron when you switch it off"
+ },
+ "10-02": {
+  "name": "Relay",
+  "hee1": "A small clicking switch is the ancestor of the computer."
+ },
+ "10-03": {
+  "name": "Telegraph",
+  "hee1": "Thanks to the telegraph, news that took days by horse arrived in an instant."
+ },
+ "10-04": {
+  "name": "Feedback control",
+  "hee1": "Look at the gap from the target and correct it: that is the basis of all automatic control."
+ },
+ "10-05": {
+  "name": "Boolean algebra and switching circuits",
+  "hee1": "\"Yes"
+ },
+ "10-06": {
+  "name": "Relay computer",
+  "hee1": "The first programmable computer was a bunch of clattering switches."
+ },
+ "10-07": {
+  "name": "Vacuum tube flip-flops and computers",
+  "hee1": "ENIAC's vacuum tubes burned out all the time, and they were replaced every day."
+ },
+ "10-08": {
+  "name": "Magnetic-core memory",
+  "hee1": "The memory of old computers was a hand-woven net of tiny magnets."
+ },
+ "10-09": {
+  "name": "Transistor logic",
+  "hee1": "Computers that filled a room shrank to about the size of a desk"
+ },
+ "10-10": {
+  "name": "IC logic",
+  "hee1": "The computer that went to the Moon lined up thousands of small ICs, all the same kind."
+ },
+ "10-11": {
+  "name": "Adders, counters and registers",
+  "hee1": "Adding is just passing the \"carry\" to the next digit."
+ },
+ "10-12": {
+  "name": "DRAM",
+  "hee1": "Charge stored in a tiny capacitor is a \"1\". Left alone, it leaks away and is forgotten."
+ },
+ "10-13": {
+  "name": "Microprocessor",
+  "hee1": "The world's first microprocessor was born for a Japanese calculator"
+ },
+ "10-14": {
+  "name": "Microcomputer",
+  "hee1": "Rice cookers and washing machines have small computers inside too."
+ },
+ "10-15": {
+  "name": "Lithography machine control",
+  "hee1": "The machines that make chips are run by those same chips."
+ },
+ "10-16": {
+  "name": "Neural network",
+  "hee1": "Starting from stones and sand, we arrived at a machine that can read numbers."
+ },
+ "10-17": {
+  "name": "CAD",
+  "hee1": "Keep drawings as numbers instead of on paper, and you can fix them as many times as you like (added in IMP-24, network_proposals N-7)"
+ },
+ "10-18": {
+  "name": "Compiler",
+  "hee1": "\"I want to give orders to a computer in human words\" was the start of programming languages. (Added in IMP-24, network_proposals W-4)"
+ },
+ "10-19": {
+  "name": "VLSI design methodology",
+  "hee1": "Even millions of transistors can be designed if you arrange them by fixed rules. (Added in IMP-24, network_proposals W-5)"
+ },
+ "10-20": {
+  "name": "Analytical Engine",
+  "hee1": "In an age without electricity, a computer that ran programs with gears alone was designed. (Added in IMP-24, network_proposals N-8)"
+ },
+ "10-21": {
+  "name": "Slide rule",
+  "hee1": "A ruler that turns multiplication into \"adding lengths\". Until calculators came, engineers always had one in their pocket (added in NET-06. Sources: Oughtred Society \"History\", Smithsonian \"Slide Rules\", Britannica \"slide rule\", ETHW \"HP-35 Milestone\")"
+ },
+ "10-22": {
+  "name": "Keyboard",
+  "hee1": "Inside a keyboard is a small computer that checks which keys are pressed. (Added in S-002. Sources: Wikipedia \"QWERTY\", Computer Hope \"Keyboard history\")"
+ },
+ "10-23": {
+  "name": "Flash memory",
+  "hee1": "Electrons are locked inside a thin glass wall, so it remembers for years even with the power off. (Added in S-002. Sources: Wikipedia \"Fujio Masuoka\" \"Flash memory\", Semiconductor History Museum of Japan (SSIS) \"NAND flash memory\")"
+ },
+ "10-24": {
+  "name": "SSD",
+  "hee1": "The tiny computer inside an SSD quietly spreads out where it writes, so the same spot does not wear out from being written over and over. (Added in S-002. Sources: Computer History Museum \"Solid State Drive Module Demonstrated\", Wikipedia \"Solid-state drive\")"
+ },
+ "10-25": {
+  "name": "GPU",
+  "hee1": "A GPU lines up thousands of small calculators that can only do simple math, and runs them all together (added in S-002. Sources: Wikipedia \"GeForce 256\", Jon Peddie Research \"NEC µPD7220\")"
+ },
+ "10-26": {
+  "name": "Industrial robot",
+  "hee1": "The first robot to work in a factory took out hot metal parts that were dangerous for people to touch. (Added in S-005. Sources: The Henry Ford \"Unimate\", Guinness World Records \"First industrial production robot\", IEEE Spectrum)"
+ },
+ "10-27": {
+  "name": "Servomechanism",
+  "hee1": "\"Servo\" comes from a French word meaning \"to serve/obey,\" and at first it was the name of a device that turned a ship's rudder. (Added in S-005. Sources: Wikipedia \"Joseph Farcot\", Merriam-Webster \"servomotor\", Caltech \"Harold Hazen\")"
+ },
+ "10-28": {
+  "name": "Reinforcement learning",
+  "hee1": "Without being taught the rules of a game, an AI got good just by watching the screen and the score and playing again and again. (Added in S-005. Sources: NSF \"Barto and Sutton win 2024 Turing Award\", Nature 518 (2015), Nature 529 (2016))"
+ },
+ "10-29": {
+  "name": "Transformer and large AI",
+  "hee1": "The T in \"GPT\", often in the names of chat AIs, is the T of this Transformer (added in S-005. Sources: arXiv:1706.03762, Google Research \"Attention Is All You Need\")"
+ },
+ "10-30": {
+  "name": "SLAM (simultaneous localization and mapping)",
+  "hee1": "A robot vacuum guesses \"Where am I?\" and \"What shape is the room?\" bit by bit, with the same calculation. (Added in S-004. Sources: doc.ic.ac.uk, arxiv.org)"
+ },
+ "10-31": {
+  "name": "Stored-program computer",
+  "hee1": "The first stored-program computer remembered numbers as dots on a CRT screen, like a TV. (Added in O-008. Sources: IEEE Milestones \"Manchester University Baby Computer 1948-1951\", Wikipedia \"Turing Award\")"
+ },
+ "10-32": {
+  "name": "Floating-point standard",
+  "hee1": "When a computer calculates 0.1 + 0.2, the answer can be just slightly off from 0.3. (Added in O-010. Sources: IEEE Milestones \"IEEE Standard 754, 1985\", \"Intel 8087, 1980\", IEEE Milestone \"IEEE Standard 754 for Binary Floating-Point Arithmetic, 1985\" (https://ethw.org/Milestones:IEEE_Standard_754_for_Binary_Floating-Point_Arithmetic,_1985))"
+ },
+ "10-33": {
+  "name": "Hard disk drive",
+  "hee1": "The first hard disk stacked 50 platters about 60 cm across, and held only about 5 MB (added in O-011. Sources: ASME Landmark #90 \"IBM 350 RAMAC\", Wikipedia \"IBM 350\", National Museum of Nature and Science \"Essential Historical Materials for Science and Technology\")"
+ },
+ "10-34": {
+  "name": "Operating system",
+  "hee1": "The ideas of UNIX from more than 50 years ago still live inside smartphones. (Added in O-011. Sources: Wikipedia \"Turing Award\", \"Compatible Time-Sharing System\", \"Unix\", IEEE Computer Society 'Fernando Jose Corbató' / MIT CSAIL (https://history.computer.org/pioneers/corbato.html))"
+ },
+ "10-35": {
+  "name": "Circuit simulator",
+  "hee1": "Before chips are made, they are run many times inside a computer to check them. (Added in O-011. Sources: IEEE Milestones \"SPICE, 1969-1970\", IEEE Milestone \"SPICE, 1969-1970\" (ETHW) (https://ethw.org/Milestones:SPICE_Circuit_Simulation_Program))"
+ },
+ "10-36": {
+  "name": "RISC",
+  "hee1": "Smartphone CPUs are descendants of a design that made instructions simple on purpose to make them faster. (Added in O-011. Sources: IEEE Milestones \"RISC-I\", Wikipedia \"Reduced instruction set computer\")"
+ },
+ "10-37": {
+  "name": "Predicting protein shapes with AI",
+  "hee1": "AI can now guess how a protein folds just from its order of amino acids (added in O-011. Sources: Nobel Prize \"Chemistry 2024\", \"Chemistry 1972\", Nobel Prize \"The Nobel Prize in Chemistry 2024 press release\" (https://www.nobelprize.org/prizes/chemistry/2024/press-release/))"
+ },
+ "11-01": {
+  "name": "Irrigation",
+  "hee1": "Too much watering ruins a field with salt."
+ },
+ "11-02": {
+  "name": "Plow",
+  "hee1": "The steel plow turned the great prairies of North America into farmland."
+ },
+ "11-03": {
+  "name": "Crop rotation",
+  "hee1": "Growing beans makes the field richer."
+ },
+ "11-04": {
+  "name": "Plant breeding",
+  "hee1": "Genetics began with peas in a monastery garden"
+ },
+ "11-05": {
+  "name": "Compost",
+  "hee1": "Tiny creatures that eat fallen leaves make fertilizer."
+ },
+ "11-06": {
+  "name": "Superphosphate",
+  "hee1": "Dissolve bones in sulfuric acid and they become fertilizer."
+ },
+ "11-07": {
+  "name": "Nitrogen fertilizer",
+  "hee1": "Nitrogen from the air becomes bread."
+ },
+ "11-08": {
+  "name": "Milling",
+  "hee1": "Grinding flour was one of the first jobs people gave to machines"
+ },
+ "11-09": {
+  "name": "Bread",
+  "hee1": "The holes in bread are yeast farts (CO2)."
+ },
+ "11-10": {
+  "name": "Alcohol and vinegar",
+  "hee1": "Leave alcohol out in the air and it turns into vinegar."
+ },
+ "11-11": {
+  "name": "Salting, drying and smoking",
+  "hee1": "Salt was once called \"white gold\", and it is said to be the origin of the word salary ⚠️."
+ },
+ "11-12": {
+  "name": "Canning",
+  "hee1": "For about 50 years after cans were invented, there was no can opener⚠️"
+ },
+ "11-13": {
+  "name": "Refrigeration and freezing",
+  "hee1": "The refrigerator and liquid air were made by the same person."
+ },
+ "11-14": {
+  "name": "Sugar",
+  "hee1": "White sugar is brown juice that was whitened with charcoal."
+ },
+ "11-15": {
+  "name": "Pasteurization",
+  "hee1": "The word \"pasteurized\" on milk cartons comes from Pasteur's name."
+ },
+ "11-16": {
+  "name": "Bordeaux mixture",
+  "hee1": "A blue spray put on roadside grapes to stop theft turned out to prevent disease"
+ },
+ "11-17": {
+  "name": "Espresso pressure brewing",
+  "hee1": "Espresso is made by forcing hot water through coffee grounds at about 9 atmospheres, roughly 4 times the air pressure in a tire. (Added in S-004. Sources: en.wikipedia.org, gaggia.com, home-barista.com)"
+ },
+ "12-01": {
+  "name": "Roman concrete",
+  "hee1": "Roman concrete from 2000 years ago actually gets stronger in seawater ⚠️"
+ },
+ "12-02": {
+  "name": "Portland cement",
+  "hee1": "It got its name because its color looked like the stone from the Isle of Portland."
+ },
+ "12-03": {
+  "name": "Reinforced concrete",
+  "hee1": "Reinforced concrete was born from flower pots"
+ },
+ "12-04": {
+  "name": "Steel frame construction",
+  "hee1": "The Eiffel Tower's height changes by more than ten centimeters between summer and winter."
+ },
+ "12-05": {
+  "name": "Flat glass",
+  "hee1": "Window glass is made by \"floating it on melted metal.\""
+ },
+ "12-06": {
+  "name": "Water supply",
+  "hee1": "Microbes living in a layer of sand clean the water."
+ },
+ "12-07": {
+  "name": "Chlorination",
+  "hee1": "The smell of a swimming pool is the smell of chlorine that prevents disease"
+ },
+ "12-08": {
+  "name": "Sewer system",
+  "hee1": "It started because the smell got so bad that Parliament could not meet."
+ },
+ "12-09": {
+  "name": "Roads",
+  "hee1": "\"Tarmac\" comes from coal tar and Mr. McAdam's name."
+ },
+ "12-10": {
+  "name": "Bridge",
+  "hee1": "A framework of triangles (a truss) does not lose its shape."
+ },
+ "12-11": {
+  "name": "Surveying",
+  "hee1": "Tadataka Ino measured all of Japan by his steps"
+ },
+ "12-12": {
+  "name": "Ventilation and air conditioning",
+  "hee1": "Air conditioning was born not for people, but for paper."
+ },
+ "12-13": {
+  "name": "HEPA filter",
+  "hee1": "The hardest particle size to catch is 0.3 µm."
+ },
+ "12-14": {
+  "name": "Laminar-flow cleanroom",
+  "hee1": "Chips are made in rooms thousands of times cleaner than an operating room."
+ },
+ "12-15": {
+  "name": "Lightning rod",
+  "hee1": "Minecraft's lightning rod is made of copper, just like the real thing"
+ },
+ "12-16": {
+  "name": "Elevator safety brake",
+  "hee1": "Otis did not invent the elevator; what he made was a catch that stops it from falling even if the rope breaks. (Added in S-004. Sources: asme.org, theelevatormuseum.org, invent.org)"
+ },
+ "12-17": {
+  "name": "Electric elevator and counterweight",
+  "hee1": "On the other end of an elevator's rope hangs a weight about as heavy as the car, so the motor only lifts the \"difference in weight.\" (Added in S-004. Sources: en.wikipedia.org, theelevatormuseum.org, britannica.com)"
+ },
+ "13-01": {
+  "name": "Soap and handwashing",
+  "hee1": "The doctor who told people to wash their hands was laughed at while he was alive."
+ },
+ "13-02": {
+  "name": "Antisepsis",
+  "hee1": "The mouthwash Listerine is named after Lister"
+ },
+ "13-03": {
+  "name": "Anesthesia",
+  "hee1": "The world's first surgery under general anesthesia was done in Japan."
+ },
+ "13-04": {
+  "name": "Bacteriology",
+  "hee1": "Diseases were spread by living things too small to see."
+ },
+ "13-05": {
+  "name": "Agar medium",
+  "hee1": "Research on bacteria moved forward thanks to a kitchen trick from jam making."
+ },
+ "13-06": {
+  "name": "Vaccine",
+  "hee1": "The word vaccine comes from the Latin word for \"cow\""
+ },
+ "13-07": {
+  "name": "Epidemiology",
+  "hee1": "Just putting dots on a map revealed the cause of a disease."
+ },
+ "13-08": {
+  "name": "Aspirin",
+  "hee1": "How the medicine works was found out more than 70 years after it went on sale."
+ },
+ "13-09": {
+  "name": "Sulfa drugs",
+  "hee1": "The first antibacterial drug was a dye for coloring cloth."
+ },
+ "13-10": {
+  "name": "Penicillin",
+  "hee1": "The mold used for mass production was found on a rotten melon from a market"
+ },
+ "13-11": {
+  "name": "X-ray diagnosis",
+  "hee1": "Röntgen did not patent it, so that anyone could use it."
+ },
+ "13-12": {
+  "name": "Blood transfusion and blood types",
+  "hee1": "Until blood types were known, a transfusion was a gamble."
+ },
+ "13-13": {
+  "name": "Thermometer",
+  "hee1": "Old thermometers were as long as 30 cm."
+ },
+ "13-14": {
+  "name": "Fluoride and teeth",
+  "hee1": "The fluorine in toothpaste is the same element as the fluorine in excimer lasers"
+ },
+ "13-15": {
+  "name": "Medical oxygen",
+  "hee1": "Hospital oxygen is taken from air turned into liquid."
+ },
+ "14-01": {
+  "name": "Canals and locks",
+  "hee1": "On a canal's staircase, ships climb mountains."
+ },
+ "14-02": {
+  "name": "Compass",
+  "hee1": "A compass needle moves because the Earth itself is a giant magnet."
+ },
+ "14-03": {
+  "name": "Longitude and the chronometer",
+  "hee1": "How accurate a clock was decided where a ship was"
+ },
+ "14-04": {
+  "name": "Steamship",
+  "hee1": "Ships that could move without wind made the world smaller."
+ },
+ "14-05": {
+  "name": "Railways",
+  "hee1": "The width of railway tracks is said to come from the wheel spacing of horse carts ⚠️"
+ },
+ "14-06": {
+  "name": "Steel rails",
+  "hee1": "Steel rails lasted more than 10 times longer than iron rails ⚠️."
+ },
+ "14-07": {
+  "name": "Pneumatic tire",
+  "hee1": "The pneumatic tire was made by a veterinarian for his child"
+ },
+ "14-08": {
+  "name": "Bicycle",
+  "hee1": "The first bicycles had no pedals."
+ },
+ "14-09": {
+  "name": "Internal combustion engine",
+  "hee1": "An engine's four beats are \"suck, squeeze, bang, blow.\""
+ },
+ "14-10": {
+  "name": "Diesel engine",
+  "hee1": "A diesel engine ran on peanut oil."
+ },
+ "14-11": {
+  "name": "Automobile",
+  "hee1": "The first long-distance drive was a wife's trip with her children, kept secret from her husband"
+ },
+ "14-12": {
+  "name": "Airplane",
+  "hee1": "The Wright brothers ran a bicycle shop."
+ },
+ "14-13": {
+  "name": "Duralumin",
+  "hee1": "Left alone over a weekend, the metal had hardened all by itself."
+ },
+ "14-14": {
+  "name": "Electric railway",
+  "hee1": "Subways were only possible with smoke-free electricity."
+ },
+ "14-15": {
+  "name": "Rocket equation",
+  "hee1": "Even in space, with no air to push on, a rocket moves by the recoil of its own exhaust (IMP-24: changed from \"Rocket\" to \"Rocket equation\" in T-3)"
+ },
+ "14-16": {
+  "name": "Self-driving cars",
+  "hee1": "In the first driverless car race, not a single car finished; even the one that went farthest covered only about 1/20 of the course. (Added in S-005. Sources: AI Magazine (2009) Urmson et al., DTIC \"DARPA Grand Challenge\")"
+ },
+ "14-17": {
+  "name": "Air brake",
+  "hee1": "The air brake is built to \"stop when the air leaks out,\" so even when it breaks it fails on the safe side. (Added in S-004. Sources: en.wikipedia.org, britannica.com)"
+ },
+ "14-18": {
+  "name": "Drum brakes and disc brakes",
+  "hee1": "Brakes stop a car by turning its motion into \"heat\", so they can get too hot going down a mountain road. (Added in S-004. Sources: en.wikipedia.org, classicsworld.co.uk)"
+ },
+ "14-19": {
+  "name": "Automatic transmission",
+  "hee1": "The first mass-produced automatic transmission shifted gears by \"oil pressure\", not by working pedals. (added in S-004. Sources: en.wikipedia.org, ateupwithmotor.com)"
+ },
+ "14-20": {
+  "name": "Turbocharger",
+  "hee1": "A turbo uses the force of exhaust gas, which would be wasted, to push air into the engine. (Added in S-004. Sources: en.wikipedia.org, accelleron-industries.com)"
+ },
+ "15-01": {
+  "name": "Paper",
+  "hee1": "Paper used to be made from rags; today it is made from wood."
+ },
+ "15-02": {
+  "name": "Movable-type printing",
+  "hee1": "Type metal is a rare alloy that expands when it hardens."
+ },
+ "15-03": {
+  "name": "Submarine cable",
+  "hee1": "The cable's insulation was rubber made from tree sap"
+ },
+ "15-04": {
+  "name": "Telephone",
+  "hee1": "Telephone microphones were made of carbon grains."
+ },
+ "15-05": {
+  "name": "Phonograph",
+  "hee1": "The first words ever recorded were \"Mary Had a Little Lamb.\""
+ },
+ "15-06": {
+  "name": "Discovery of radio waves",
+  "hee1": "Hertz said, \"This discovery is of no use at all\" ⚠️."
+ },
+ "15-07": {
+  "name": "Wireless telegraphy",
+  "hee1": "In the Titanic disaster, some people were rescued in time thanks to radio"
+ },
+ "15-08": {
+  "name": "Crystal radio",
+  "hee1": "The point-contact transistor's \"needle standing on a crystal\" is a descendant of the crystal radio."
+ },
+ "15-09": {
+  "name": "Vacuum tube radio",
+  "hee1": "At first, radios were as big as furniture."
+ },
+ "15-10": {
+  "name": "Transistor radio",
+  "hee1": "In 1954, a radio using transistors went on sale."
+ },
+ "15-11": {
+  "name": "Television",
+  "hee1": "The first image on Japanese television was the katakana letter \"イ\" (i)"
+ },
+ "15-12": {
+  "name": "Magnetic recording",
+  "hee1": "The brown on cassette tape is rusted iron powder."
+ },
+ "15-13": {
+  "name": "Optical fiber",
+  "hee1": "Light cables running along the sea floor carry the world's internet."
+ },
+ "15-14": {
+  "name": "Information theory",
+  "hee1": "The word \"bit\" spread through Shannon's paper."
+ },
+ "15-15": {
+  "name": "Computer networks",
+  "hee1": "The first network message stopped after 2 letters, \"LO\" (it crashed partway through LOGIN)"
+ },
+ "15-16": {
+  "name": "USB",
+  "hee1": "Before USB, computers had several differently shaped ports: one for the mouse, one for the keyboard, one for the printer. (Added in S-002. Sources: IEEE Milestones \"Universal Serial Bus (USB)\", heise \"30 years of USB 1.0\")"
+ },
+ "15-17": {
+  "name": "Wi-Fi",
+  "hee1": "\"Wi-Fi\" does not stand for anything; it is a name chosen to be easy to remember. (Added in S-002. Sources: Wikipedia \"Wi-Fi Alliance\", EE World \"Wi-Fi's long road\")"
+ },
+ "15-18": {
+  "name": "Capacitive touchscreen",
+  "hee1": "Just by bringing your finger close, invisible electrodes under the screen notice \"there is a finger here\". (Added in S-003. Sources: Electronics Letters (1965), CERN \"The first touchscreens\", Google Patents US3482241)"
+ },
+ "15-19": {
+  "name": "Loudspeaker",
+  "hee1": "A loudspeaker makes sound by shaking paper with a magnet and a coil of wire (a cousin of the motor) (added in S-003. Sources: Wikipedia \"Loudspeaker\", Britannica \"Loudspeaker\", Trans. AIEE (1925))"
+ },
+ "15-20": {
+  "name": "Mobile phone radio",
+  "hee1": "The world's first mobile phone network was the car phone in Tokyo in 1979. (Added in S-003. Sources: Wikipedia \"History of mobile phones\", Britannica \"Mobile telephone\", NTT Docomo \"History\")"
+ },
+ "15-21": {
+  "name": "Bluetooth",
+  "hee1": "Bluetooth is named after the nickname \"Blue Tooth\" of an old king who united countries. (Added in S-003. Sources: Bluetooth SIG \"Origin of the Bluetooth name\", Ericsson \"Bluetooth: a wireless success story\")"
+ },
+ "15-22": {
+  "name": "Antenna",
+  "hee1": "An antenna's length is set by the wavelength of the radio waves it receives. For smartphone Wi-Fi, it is about 3 cm. (Added in S-003. Sources: Wikipedia \"Antenna (radio)\", \"Inverted-F antenna\", Britannica \"Antenna\")"
+ },
+ "15-23": {
+  "name": "Condenser microphone",
+  "hee1": "Studio microphones catch sound with the gap between a very thin film that moves with sound and a plate (added in S-004. Sources: mmrmagazine.com, dpamicrophones.com)"
+ },
+ "15-24": {
+  "name": "Dynamic microphone",
+  "hee1": "A karaoke microphone works the same way as a speaker used in reverse. (Added in S-004. Sources: mixonline.com, en.wikipedia.org)"
+ },
+ "15-25": {
+  "name": "Electret condenser microphone",
+  "hee1": "Many microphones in phones and toys are made of a plastic film that keeps an electric charge stored in it. (Added in S-004. Sources: aps.org, lemelson.mit.edu)"
+ },
+ "15-26": {
+  "name": "MEMS microphone",
+  "hee1": "A smartphone has several tiny microphones carved from silicon, and they are also used to cancel noise. (Added in S-004. Sources: businesswirechina.com, nt.tu-darmstadt.de)"
+ },
+ "15-27": {
+  "name": "Yagi-Uda antenna",
+  "hee1": "The rods lined up on a rooftop TV antenna are shaped to gather radio waves from one direction (added in O-010. Sources: IEEE Milestones \"Directive Short Wave Antenna, 1924\", ETHW \"Yagi Antenna\", Wikipedia \"Yagi–Uda antenna\")"
+ },
+ "15-28": {
+  "name": "Optical disc",
+  "hee1": "A scratched CD still plays because the broken parts are fixed by calculation. (Added in O-010. Sources: Wikipedia \"Compact disc\", National Museum of Nature and Science \"Essential Historical Materials for Science and Technology\")"
+ },
+ "15-29": {
+  "name": "Error-correcting code",
+  "hee1": "QR codes hide extra information so they can still be read when a little dirty or chipped. (Added in O-011. Sources: IEEE Computer Society \"Richard Hamming\", Wikipedia \"Hamming code\")"
+ },
+ "15-30": {
+  "name": "Public-key cryptography",
+  "hee1": "You can shop online because of the math of a \"lock\" that anyone can close but only you can open. (Added in O-011. Sources: Wikipedia \"Turing Award\", \"Public-key cryptography\", ACM A.M. Turing Award 2015 (public-key cryptography, 1976) (https://amturing.acm.org/award_winners/diffie_8371646.cfm))"
+ },
+ "15-31": {
+  "name": "Rotary-head videotape",
+  "hee1": "Videotape had a small head spinning faster than the tape, writing the picture at a slant (added in O-011. Sources: Wikipedia \"Videotape\", \"VHS\", National Museum of Nature and Science \"Essential Historical Materials for Science and Technology\")"
+ },
+ "2-01": {
+  "name": "Sulfuric acid",
+  "hee1": "Join oxygen to sulfur dioxide and let water absorb it, and you get sulfuric acid."
+ },
+ "2-02": {
+  "name": "Potash",
+  "hee1": "The name potassium comes from \"pot ash\", the ash left in a pot."
+ },
+ "2-03": {
+  "name": "Natural soda",
+  "hee1": "A salt that was even used to make mummies in ancient Egypt"
+ },
+ "2-04": {
+  "name": "Kelp ash soda",
+  "hee1": "Soda was obtained from seaweed ash, and iodine was discovered in the liquid from that ash."
+ },
+ "2-05": {
+  "name": "Leblanc process",
+  "hee1": "A way to make soda from salt and sulfuric acid. The hydrochloric acid gas it gave off was at first just released into the sky."
+ },
+ "2-06": {
+  "name": "Solvay process",
+  "hee1": "Soda is made from salt, ammonia and carbon dioxide. The ammonia is recovered and used again."
+ },
+ "2-07": {
+  "name": "Potassium dichromate",
+  "hee1": "The name chromium comes from the Greek word for \"color\", because it makes compounds of many colors"
+ },
+ "2-08": {
+  "name": "Caustic soda",
+  "hee1": "Mix soda with slaked lime and you get caustic soda."
+ },
+ "2-09": {
+  "name": "Soap",
+  "hee1": "Mix oil with a strong alkali and you get soap."
+ },
+ "2-10": {
+  "name": "Hydrofluoric acid",
+  "hee1": "Hydrofluoric acid dissolves glass, so it cannot be kept in a glass bottle."
+ },
+ "2-11": {
+  "name": "Hydrogen sulfide and sulfur recovery",
+  "hee1": "Sulfur was won back from the waste of soda factories"
+ },
+ "2-12": {
+  "name": "Sulfates",
+  "hee1": "Pass electricity through copper sulfate solution, and copper sticks to a mold in its shape."
+ },
+ "2-13": {
+  "name": "Lime cycle and calcium chloride",
+  "hee1": "Lime is burned, splashed with water, and turns back into stone in the air. It can be used round and round."
+ },
+ "2-14": {
+  "name": "Soda-lime glass",
+  "hee1": "Sand alone needs 1700°C, but with soda mixed in it melts at 1000°C."
+ },
+ "2-15": {
+  "name": "Borosilicate glass",
+  "hee1": "Science-room beakers don't crack over a flame thanks to boron"
+ },
+ "2-16": {
+  "name": "Distilled water",
+  "hee1": "Boil water and cool the steam, and you get water with no salt left in it."
+ },
+ "2-17": {
+  "name": "Ion exchange",
+  "hee1": "A relative of Bakelite cleans water."
+ },
+ "2-18": {
+  "name": "Ultrapure water",
+  "hee1": "Ultrapure water conducts electricity only as much as water itself splits into a tiny amount of ions."
+ },
+ "2-19": {
+  "name": "Hydrogen peroxide",
+  "hee1": "Hydrogen peroxide later became possible to make by electrolysis too"
+ },
+ "2-20": {
+  "name": "Coal tar",
+  "hee1": "Bake coal without air, and you get coke, gas, and black tar."
+ },
+ "2-21": {
+  "name": "Ammonia water",
+  "hee1": "Ammonia used to be a side product of gasworks."
+ },
+ "2-22": {
+  "name": "Aqua regia",
+  "hee1": "In 1940, to protect them from the Nazis, Hevesy dissolved the Nobel Prize medals of Laue and Franck in aqua regia and left them on a shelf. After the war, the gold was recovered and the medals were made again."
+ },
+ "2-23": {
+  "name": "Wood distillation",
+  "hee1": "Neanderthals made tar from birch bark about 200,000 years ago (Campitello)"
+ },
+ "2-24": {
+  "name": "Benzene",
+  "hee1": "In 1856 Perkin made mauve (the first synthetic dye) from tar, and the chemical industry began (candidate branch [B-xx])."
+ },
+ "2-25": {
+  "name": "Phenol",
+  "hee1": "Phenol, found in coal tar, was used to disinfect during surgery."
+ },
+ "2-26": {
+  "name": "Methanol",
+  "hee1": "Distilling the liquid from burnt wood gives methanol (wood spirit)."
+ },
+ "2-27": {
+  "name": "Formaldehyde",
+  "hee1": "Methanol is reacted with oxygen over a hot copper or silver mesh"
+ },
+ "2-28": {
+  "name": "Phenolic resin",
+  "hee1": "The first synthetic plastic was made from phenol and formaldehyde."
+ },
+ "2-29": {
+  "name": "Rubber",
+  "hee1": "Add sulfur to rubber and heat it, and it becomes strong rubber that does not get sticky even when hot."
+ },
+ "2-30": {
+  "name": "Negative photoresist",
+  "hee1": "A material that hardens only where light hits it. It was used to copy IC patterns."
+ },
+ "2-31": {
+  "name": "Films that harden in light: asphalt and dichromated gelatin",
+  "hee1": "The first photograph and the way ICs are made use the same principle"
+ },
+ "2-32": {
+  "name": "Positive photoresist",
+  "hee1": "A material that dissolves only where light hits it. It was first invented for paper used to copy drawings."
+ },
+ "2-33": {
+  "name": "Chemically amplified resist",
+  "hee1": "One acid made by light sets off hundreds of reactions. That is why a pattern can be copied with very little light."
+ },
+ "2-35": {
+  "name": "Crude oil and distillation",
+  "hee1": "Crude oil is heated and separated into gas, kerosene, heavy oil and more by their different boiling temperatures."
+ },
+ "2-36": {
+  "name": "Ethylene",
+  "hee1": "Take water out of alcohol and it becomes a gas called ethylene"
+ },
+ "2-37": {
+  "name": "Polyethylene",
+  "hee1": "Polyethylene was discovered by accident in an experiment using very high pressure."
+ },
+ "2-38": {
+  "name": "PTFE",
+  "hee1": "It was used in the Manhattan Project to handle UF6 (a corrosive gas)."
+ },
+ "2-39": {
+  "name": "Ethanol",
+  "hee1": "Yeast is what makes alcoholic drinks. But even by distilling, you cannot get it stronger than 95.6%."
+ },
+ "2-40": {
+  "name": "Acetone",
+  "hee1": "Weizmann later became the first president of Israel"
+ },
+ "2-41": {
+  "name": "Epoxy resin",
+  "hee1": "The glue that hardens when you mix two tubes together is epoxy."
+ },
+ "2-42": {
+  "name": "Acetic acid",
+  "hee1": "Pure acetic acid freezes like ice in a slightly cold room."
+ },
+ "2-43": {
+  "name": "Oil of vitriol",
+  "hee1": "Long ago, sulfuric acid was an \"oil\" made by roasting green crystals."
+ },
+ "2-44": {
+  "name": "Red phosphorus",
+  "hee1": "The striking surface of a matchbox is coated with red phosphorus"
+ },
+ "2-45": {
+  "name": "Light-curing resin",
+  "hee1": "The resin used to draw chip circuits and the resin in 3D printers work the same way. (Added in IMP-24, network_proposals N-6)"
+ },
+ "2-46": {
+  "name": "Transparent electrode ITO",
+  "hee1": "Indium is named after the indigo color seen when the light of its flame was split. (Added in S-003. Sources: RSC \"Indium\", USGS \"Mineral Commodity Summaries 2024: Indium\", Wikipedia \"Indium tin oxide\")"
+ },
+ "2-47": {
+  "name": "Chemically strengthened glass",
+  "hee1": "Pushing big atoms into small gaps squeezes the glass surface tight and makes it harder to break. (Added in S-003. Sources: Corning \"Innovations\", WIRED \"The Glass That Saved Corning\", Wikipedia \"Chemically strengthened glass\")"
+ },
+ "2-48": {
+  "name": "CFC refrigerants",
+  "hee1": "CFCs were made as safe, non-toxic refrigerants, yet high in the sky they were destroying the ozone layer (added in S-004. Sources: en.wikipedia.org, inventionandtech.com)"
+ },
+ "2-49": {
+  "name": "Polyurethane foam insulation",
+  "hee1": "Inside a refrigerator's walls is plastic packed with tiny bubbles. (Added in S-004. Sources: en.wikipedia.org, plasticstoday.com)"
+ },
+ "2-50": {
+  "name": "Coordination polymerization catalyst",
+  "hee1": "The plastic in bottle caps is made by joining molecules one by one on a metal catalyst. (Added in O-008. Sources: Nobel Prize \"Chemistry 1963\", ACS \"Polypropylene and High-Density Polyethylene\")"
+ },
+ "2-51": {
+  "name": "Nylon",
+  "hee1": "On the day nylon stockings went on sale, thousands of people lined up at the stores. (Added in O-010. Sources: Wikipedia \"National Historic Chemical Landmarks\", ACS \"Landmarks directory\")"
+ },
+ "2-52": {
+  "name": "Boranes",
+  "hee1": "Diborane catches fire just by touching air, so chemists long ago built their own air-free apparatus (added in O-011. Sources: Nobel Prize \"Chemistry 1976\", Lipscomb Nobel Lecture 1976 (nobelprize.org) (https://www.nobelprize.org/uploads/2018/06/lipscomb-lecture.pdf))"
+ },
+ "2-53": {
+  "name": "Catalytic cracking",
+  "hee1": "Much of the gasoline in cars is made by breaking heavy crude oil apart over a catalyst. (Added in O-011. Sources: Wikipedia \"National Historic Chemical Landmarks\", ACS \"Landmarks directory\")"
+ },
+ "2-54": {
+  "name": "Chromatography",
+  "hee1": "The name chromatography means \"color writing.\" At first it separated plant pigments into bands of color. (Added in O-011. Sources: Nobel Prize \"Chemistry 1952\", Wikipedia \"National Historic Chemical Landmarks\")"
+ },
+ "2-55": {
+  "name": "Conductive polymers",
+  "hee1": "Plastic that conducts electricity was born from a mistake in the amount of material used in an experiment. (Added in O-011. Sources: Nobel Prize \"Chemistry 2000\", WIPO Magazine 2020)"
+ },
+ "2-56": {
+  "name": "Automatic glass-forming machines",
+  "hee1": "Glass bulbs for light bulbs came to be blown by machine, hundreds per minute (added in O-011. Sources: ASME Landmark #86 \"Owens AR Bottle Machine\", #81 \"Corning Ribbon Machine\", ASME Landmark #81 \"Corning Ribbon Machine\" (up to about 2000 per minute) (https://www.asme.org/about-asme/engineering-history/landmarks/81-corning-ribbon-machine))"
+ },
+ "2-57": {
+  "name": "Diazonaphthoquinone",
+  "hee1": "A powder that breaks down when light hits it became the \"eye\" that copies IC patterns."
+ },
+ "3-01": {
+  "name": "Campfire",
+  "hee1": "The heat of a campfire escapes into the surroundings."
+ },
+ "3-02": {
+  "name": "Hearth stove",
+  "hee1": "When you surround a fire with walls, the heat bounces back off them, making it hotter than a campfire."
+ },
+ "3-04": {
+  "name": "Bellows",
+  "hee1": "Blowing air makes a fire hotter. The name of Japan's tatara furnace comes from this bellows"
+ },
+ "3-05": {
+  "name": "Blast furnace",
+  "hee1": "In a tall furnace that burns coke with a strong blast of air, iron flows out as a liquid."
+ },
+ "3-06": {
+  "name": "Reverberatory furnace",
+  "hee1": "When ore is roasted, sulfur leaves as smoke. It used to be poisonous smoke, but if collected it becomes sulfuric acid."
+ },
+ "3-07": {
+  "name": "Crucible furnace",
+  "hee1": "Melting things in a crucible keeps the fuel and flame from dirtying what is inside."
+ },
+ "3-08": {
+  "name": "Converter (Bessemer process)",
+  "hee1": "Just blowing air into molten iron raises its temperature, with no fuel"
+ },
+ "3-09": {
+  "name": "Thermocouple",
+  "hee1": "Before that, in 1782 Wedgwood measured kiln temperature by how much clay shrank."
+ },
+ "3-10": {
+  "name": "Acheson furnace",
+  "hee1": "Heat carbon with electricity way too much and it becomes graphite."
+ },
+ "3-11": {
+  "name": "Optical pyrometer",
+  "hee1": "It measures temperature by comparing the color of a hot object with the color of a light bulb filament."
+ },
+ "3-12": {
+  "name": "Firebrick",
+  "hee1": "Ordinary bricks melt in a furnace. Only bricks rich in quartz can stand it"
+ },
+ "3-13": {
+  "name": "Thermal insulation",
+  "hee1": "Diatomaceous earth is soil full of gaps, made from piled-up shells of tiny living things."
+ },
+ "3-14": {
+  "name": "Induction furnace",
+  "hee1": "Same principle as an induction (IH) cooktop. CHEMISTRY #142"
+ },
+ "3-15": {
+  "name": "Arc furnace",
+  "hee1": "An electric spark (arc) makes heat of over 2000°C."
+ },
+ "3-16": {
+  "name": "Vacuum furnace",
+  "hee1": "Heat things after pumping out the air, and they bake without rusting"
+ },
+ "3-18": {
+  "name": "Regenerative furnace (equipment)",
+  "hee1": "A furnace that uses the heat of exhaust gas, which would be wasted, to warm up the next air."
+ },
+ "3-19": {
+  "name": "By-product coke oven",
+  "hee1": "Old coke ovens burned off and threw away their gas and tar."
+ },
+ "3-20": {
+  "name": "Fireclay",
+  "hee1": "Since ancient times, crucibles and furnace linings have been made of heat-resistant clay."
+ },
+ "3-21": {
+  "name": "Heat pipe",
+  "hee1": "Inside is a vacuum with only a little water, so the water boils even at about body temperature and carries heat (added in S-002. Sources: Wikipedia \"Heat pipe\", C&R Technologies \"Two-Phase Musing\")"
+ },
+ "3-22": {
+  "name": "Vapor-compression refrigeration cycle",
+  "hee1": "A refrigerator is not a machine that makes cold; it is a \"heat pump\" that pumps the heat inside out. (Added in S-004. Sources: asme.org, en.wikipedia.org)"
+ },
+ "3-23": {
+  "name": "Heat pump",
+  "hee1": "An air conditioner's heating gathers heat even from the cold outside air in winter and carries it into the room. (Added in S-004. Sources: en.wikipedia.org, austria-forum.org)"
+ },
+ "3-24": {
+  "name": "Heating wire heater",
+  "hee1": "The glowing red wires in a toaster are made of a special metal mixing nickel and chromium, so they do not burn out even when red hot. (Added in S-004. Sources: en.wikipedia.org, en.wikipedia.org, hagley.org)"
+ },
+ "4-01": {
+  "name": "Water-wheel generator",
+  "hee1": "The more water flows and the higher it falls, the more electricity you can make"
+ },
+ "4-02": {
+  "name": "Steam engine",
+  "hee1": "The first steam engines were for pumping water out of coal mines."
+ },
+ "4-03": {
+  "name": "Copper cable",
+  "hee1": "Some of the electricity flowing through a wire is lost as heat. Thick wires and high voltage reduce the loss."
+ },
+ "4-04": {
+  "name": "Dynamo and natural magnets",
+  "hee1": "Spinning a coil near a magnet makes electricity."
+ },
+ "4-05": {
+  "name": "Self-excited dynamo",
+  "hee1": "It can make electricity without a magnet"
+ },
+ "4-06": {
+  "name": "Steam turbine",
+  "hee1": "Steam spins a bladed wheel fast. Because it spins so fast, it is the best fit for making electricity."
+ },
+ "4-07": {
+  "name": "Lead-acid battery",
+  "hee1": "The same as a car battery."
+ },
+ "4-08": {
+  "name": "Electric motor",
+  "hee1": "A motor is the opposite of a generator. Send electricity through it and it spins."
+ },
+ "4-09": {
+  "name": "High-frequency oscillator",
+  "hee1": "The machines that made transistors ran on vacuum tubes"
+ },
+ "4-10": {
+  "name": "Transformer",
+  "hee1": "With alternating current, you can raise or lower the voltage. Sending power at high voltage loses less electricity."
+ },
+ "4-11": {
+  "name": "Rectifier",
+  "hee1": "It turns AC into DC. Electrolysis needs DC."
+ },
+ "4-12": {
+  "name": "Electric furnace",
+  "hee1": "Even without nichrome, you can make a heating element from a graphite rod."
+ },
+ "4-13": {
+  "name": "Voltaic pile",
+  "hee1": "The first battery was a stack of copper and zinc disks with cloth soaked in salt water between them"
+ },
+ "4-14": {
+  "name": "Steam power generation",
+  "hee1": "In 1882, electricity made with steam lit up a city for the first time."
+ },
+ "4-15": {
+  "name": "Lithium-ion battery",
+  "hee1": "Charging means tucking lithium ions into the gaps in graphite. (Added in IMP-24, network_proposals N-3)"
+ },
+ "4-16": {
+  "name": "Arc lamp",
+  "hee1": "Electric light began with \"sparks\", before the light bulb. (Added in IMP-24, network_proposals N-9)"
+ },
+ "4-17": {
+  "name": "Stepper motor",
+  "hee1": "Each time you send a pulse of electricity, it turns by exactly a set angle, click (added in S-001. Sources: Nidec \"History of the Motor\", Wikipedia \"Marius Lavet\")"
+ },
+ "4-18": {
+  "name": "Electric fan",
+  "hee1": "The first electric fan was just a motor with a propeller on it. (Added in S-002. Sources: Wikipedia \"Schuyler Wheeler\", ETHW \"Schuyler Wheeler\")"
+ },
+ "4-19": {
+  "name": "Switching power supply",
+  "hee1": "Phone chargers are small because they switch the electricity on and off tens of thousands of times a second, which lets the transformer be small. (Added in S-002. Sources: righto.com \"Apple didn't revolutionize power supplies\", Wikipedia \"Switched-mode power supply\")"
+ },
+ "4-20": {
+  "name": "Vibration motor",
+  "hee1": "The weight is attached on only one side, so when it spins the whole device shakes. (Added in S-003. Sources: Google Patents US4794392, Wikipedia \"Vibrating alert\")"
+ },
+ "4-21": {
+  "name": "Brushless DC motor",
+  "hee1": "The motors in computer fans and air conditioners have no parts that rub and wear out (added in S-004. Sources: en.wikipedia.org, technav.ieee.org)"
+ },
+ "4-22": {
+  "name": "Induction motor",
+  "hee1": "No wires are connected to the spinning part of an induction motor, yet it turns, pulled by an invisible \"rotating magnet\". (Added in S-004. Sources: ethw.org, en.wikipedia.org, patents.google.com)"
+ },
+ "4-23": {
+  "name": "Cross-flow fan",
+  "hee1": "Inside an air conditioner's indoor unit is a long, thin impeller shaped like a chikuwa tube, which blows a wide sheet of air. (Added in S-004. Sources: patents.google.com, research.unipd.it)"
+ },
+ "4-24": {
+  "name": "Bladeless fan",
+  "hee1": "A bladeless fan actually has blades inside its base, and the air coming out of the ring pulls the surrounding air along, multiplying the flow many times. (Added in S-004. Sources: designingbuildings.co.uk, arxiv.org)"
+ },
+ "4-25": {
+  "name": "Regenerative braking",
+  "hee1": "When an electric car brakes, it can recharge its battery a little with the electricity made at that moment. (added in S-004. Sources: en.wikipedia.org, en.wikipedia.org, Science Museum Group \"Electric brougham motor car (Kriéger, 1904)\", Grace's Guide \"J. S. Raworth\" (https://collection.sciencemuseumgroup.org.uk/objects/co8038670/electric-brougham-motor-car-electric))"
+ },
+ "4-26": {
+  "name": "EV fast charging",
+  "hee1": "In fast charging, the charger and the car talk to each other and decide \"this much current right now\". (Added in S-004. Sources: en.wikipedia.org, www4.tepco.co.jp)"
+ },
+ "4-27": {
+  "name": "Induction coil",
+  "hee1": "From a single battery it can make lightning-like sparks of tens of thousands of volts. (Added in O-006. Sources: IEEE Milestones \"Callan's Pioneering Contributions 1836\", Wikipedia \"Induction coil\")"
+ },
+ "4-28": {
+  "name": "Dry cell battery",
+  "hee1": "Even a \"dry\" cell is not completely dry inside; it holds a damp paste. (Added in O-009. Sources: ACS \"Columbia Dry Cell Battery\", ACS \"Columbia Dry Cell Battery\" (chemical landmark) (https://www.acs.org/education/whatischemistry/landmarks/drycellbattery.html))"
+ },
+ "4-29": {
+  "name": "Gas turbines and jet engines",
+  "hee1": "The big fan at the front of an airliner engine is also turned by the turbine at the back (added in O-010. Sources: ASME Landmark #135 \"Neuchâtel Gas Turbine\", JSME \"Mechanical Engineering Heritage No.007\")"
+ },
+ "4-30": {
+  "name": "Three-phase AC transmission",
+  "hee1": "Power lines on utility poles come in sets of three because they carry three-phase AC. (Added in O-011. Sources: IEEE Milestones \"Rotating Fields and Early Induction Motors\", Wikipedia \"Mikhail Dolivo-Dobrovolsky\")"
+ },
+ "4-31": {
+  "name": "Nuclear power",
+  "hee1": "The first nuclear power lit up four light bulbs ⚠️ (Added in O-011. Sources: ASME Landmark #39 \"EBR-I\", ASME Landmark #47 \"Shippingport\", Wikipedia \"Nuclear power\")"
+ },
+ "4-32": {
+  "name": "High-voltage direct current transmission",
+  "hee1": "When sending electricity far through cables on the sea floor, direct current wastes less than alternating current. (Added in O-011. Sources: IEEE Milestones \"Gotland High Voltage Direct Current Link, 1954\", ETHW \"Uno Lamm\")"
+ },
+ "4-33": {
+  "name": "Water turbine",
+  "hee1": "The wheel in a hydroelectric plant is not an old wooden water wheel but a turbine with metal blades (added in O-011. Sources: ASME Landmark #57 \"Kaplan Turbine\", #157 \"Pelton Waterwheel\", Wikipedia \"Water turbine\")"
+ },
+ "5-01": {
+  "name": "Hand piston pump",
+  "hee1": "Because of the weight of air, even horses cannot pull them apart."
+ },
+ "5-02": {
+  "name": "Vacuum tube",
+  "hee1": "Before transistors, signals were amplified with parts that looked like glass light bulbs."
+ },
+ "5-03": {
+  "name": "Mercury column and pressure units",
+  "hee1": "The \"hPa (hectopascal)\" in weather forecasts is named after Pascal."
+ },
+ "5-04": {
+  "name": "Rotary vane oil pump",
+  "hee1": "The \"hummm\" sound in a lab is this pump"
+ },
+ "5-05": {
+  "name": "Mercury diffusion pump",
+  "hee1": "It has no moving parts, yet blows air away with a wind of vapor."
+ },
+ "5-06": {
+  "name": "Oil diffusion pump",
+  "hee1": "Instead of mercury, it uses a special oil that hardly evaporates."
+ },
+ "5-07": {
+  "name": "Turbomolecular pump",
+  "hee1": "The tips of its blades spin at nearly the speed of sound."
+ },
+ "5-08": {
+  "name": "Ion pump",
+  "hee1": "Instead of pushing air out, it traps it inside metal"
+ },
+ "5-09": {
+  "name": "Cryopump → liquid nitrogen cold trap",
+  "hee1": "It freezes the air and sticks it to the wall."
+ },
+ "5-10": {
+  "name": "Vacuum gauge",
+  "hee1": "It measures the \"emptiness\" of empty space by how fast a wire cools down."
+ },
+ "5-11": {
+  "name": "Vacuum chamber",
+  "hee1": "Gas seeps out even from the metal walls, so they are baked to drive it out."
+ },
+ "5-12": {
+  "name": "Vacuum seal",
+  "hee1": "The wires at the base of a light bulb are a special metal that expands and shrinks just as much as glass"
+ },
+ "5-14": {
+  "name": "Vacuum deposition",
+  "hee1": "The silver inside a potato chip bag is also aluminum from vacuum deposition."
+ },
+ "5-15": {
+  "name": "Sprengel mercury pump",
+  "hee1": "The vacuum in light bulbs was made with drops of mercury."
+ },
+ "5-16": {
+  "name": "Getter",
+  "hee1": "The silver part of a vacuum tube is the mark left after it ate up the leftover air."
+ },
+ "6-01": {
+  "name": "Electrolyzer",
+  "hee1": "Pure water barely conducts electricity"
+ },
+ "6-02": {
+  "name": "Gas holder",
+  "hee1": "1) Gas tanks in the gas-lamp era used water as their lid 2) The pressure is the bell's weight ÷ its area 3) At King's Cross in London, the frames remain, now part of parks and homes 4) Hydrogen escapes even through gaps in metal"
+ },
+ "6-03": {
+  "name": "Compressor",
+  "hee1": "In the 1880s high-pressure cylinders appeared, and gases could be carried around."
+ },
+ "6-04": {
+  "name": "Rock salt mine",
+  "hee1": "Rock salt is \"a sea that turned to stone\"."
+ },
+ "6-05": {
+  "name": "Chlor-alkali electrolysis",
+  "hee1": "Salt gives chlorine and caustic soda at the same time"
+ },
+ "6-06": {
+  "name": "Hydrochloric acid",
+  "hee1": "Burn hydrogen in chlorine and you get hydrogen chloride; dissolve it in water and you get hydrochloric acid."
+ },
+ "6-07": {
+  "name": "Air separation",
+  "hee1": "Turn air into a liquid and \"distill\" it."
+ },
+ "6-08": {
+  "name": "Noble gas purification",
+  "hee1": "Most of the gas in an excimer laser is neon."
+ },
+ "6-09": {
+  "name": "Haber-Bosch process",
+  "hee1": "The catalyst is made from magnetite"
+ },
+ "6-10": {
+  "name": "Saltpeter bed",
+  "hee1": "Saltpeter is made by bacteria."
+ },
+ "6-11": {
+  "name": "Nitric acid",
+  "hee1": "Pour sulfuric acid on saltpeter and nitric acid comes out."
+ },
+ "6-12": {
+  "name": "Lead chamber process sulfuric acid",
+  "hee1": "Why sulfuric acid factories were made of lead."
+ },
+ "6-13": {
+  "name": "Contact process sulfuric acid",
+  "hee1": "With a catalyst such as platinum, you can make very strong sulfuric acid"
+ },
+ "6-14": {
+  "name": "Fluorine gas",
+  "hee1": "Fluorine is the \"most dangerous element\": several chemists were poisoned before it was isolated."
+ },
+ "6-15": {
+  "name": "Helium (avoided)",
+  "hee1": "Helium was found on the Sun first (spectroscopy of the 1868 eclipse). On Earth we can only get the helium that built up underground from radioactive decay."
+ },
+ "6-16": {
+  "name": "Collecting natural saltpeter",
+  "hee1": "An ingredient for gunpowder was taken from the soil of old animal sheds."
+ },
+ "7-01": {
+  "name": "Optical glass",
+  "hee1": "Adding lead makes glass sparkle (crystal glass)"
+ },
+ "7-02": {
+  "name": "Fused quartz",
+  "hee1": "Burn hydrogen and oxygen together, and it gets hot enough to melt quartz."
+ },
+ "7-03": {
+  "name": "Lens grinding",
+  "hee1": "Lenses are polished not with hard tools, but with soft pitch."
+ },
+ "7-04": {
+  "name": "Refracting telescope and achromatic lens",
+  "hee1": "Gluing two kinds of glass together removes the rainbow-colored blur."
+ },
+ "7-05": {
+  "name": "Reflecting mirror",
+  "hee1": "Silver mirrors are made by a chemical reaction that coats glass with silver from a solution"
+ },
+ "7-06": {
+  "name": "Prism spectroscopy",
+  "hee1": "Split light into a rainbow, and you can tell what stars are made of."
+ },
+ "7-07": {
+  "name": "Diffraction grating",
+  "hee1": "The rainbow colors on the back of a CD come from a diffraction grating too."
+ },
+ "7-09": {
+  "name": "Interferometer",
+  "hee1": "If you use light waves as a ruler, you can measure one hundredth of a hair."
+ },
+ "7-10": {
+  "name": "Mercury lamp",
+  "hee1": "Semiconductor factories use yellow light because it is a color the resist does not react to"
+ },
+ "7-11": {
+  "name": "Silver halide photomask",
+  "hee1": "The circuit patterns of the first ICs were made by cutting film by hand."
+ },
+ "7-12": {
+  "name": "Chrome mask",
+  "hee1": "The \"master copy\" of a circuit is a shadow picture made of thin metal on clear quartz."
+ },
+ "7-13": {
+  "name": "Laser principle",
+  "hee1": "The first laser shone using a ruby gemstone."
+ },
+ "7-14": {
+  "name": "CO2 laser",
+  "hee1": "This laser's light can't pass through glass, so its windows are salt crystals"
+ },
+ "7-15": {
+  "name": "Ultraviolet optical materials",
+  "hee1": "Natural fluorite becomes the window of cutting-edge lasers."
+ },
+ "7-16": {
+  "name": "Immersion optics",
+  "hee1": "Just putting water between the lens and the wafer lets you draw finer patterns."
+ },
+ "7-17": {
+  "name": "Multilayer mirror",
+  "hee1": "Light that one layer cannot reflect is bounced back by stacking 40 weak reflections."
+ },
+ "7-18": {
+  "name": "EUV light source",
+  "hee1": "Falling droplets of tin are hit by a laser to make them glow"
+ },
+ "7-19": {
+  "name": "Projection lens",
+  "hee1": "The lens of a lithography machine is a \"tower of glass\" stacking dozens of lenses."
+ },
+ "7-20": {
+  "name": "Excimer laser",
+  "hee1": "\"Excimer\" means \"a pair that sticks together only when excited.\""
+ },
+ "7-21": {
+  "name": "Ultra-low expansion glass",
+  "hee1": "Glass whose length hardly changes whether you heat it or cool it."
+ },
+ "7-22": {
+  "name": "Anti-reflection coating",
+  "hee1": "Stack thin films on glass and the glass becomes \"invisible\" (added in IMP-24, network_proposals W-3)"
+ },
+ "7-23": {
+  "name": "LiDAR",
+  "hee1": "Apollo 15 measured the bumps of the Moon by timing how long laser light took to bounce back from its surface. (Added in S-005. Sources: Wikipedia \"Lidar\", Frontiers in Remote Sensing (2022) \"LiDAR history\")"
+ },
+ "7-24": {
+  "name": "Camera autofocus",
+  "hee1": "The first mass-produced camera that focuses by itself was made by Konica of Japan, in 1977. (Added in S-004. Sources: en.wikipedia.org, en.wikipedia.org, en.wikipedia.org, Camera-wiki \"Konica C35 AF\", Fstoppers \"Autofocus Turns 50\" (https://camera-wiki.org/wiki/Konica_C35_AF))"
+ },
+ "7-25": {
+  "name": "Semiconductor laser",
+  "hee1": "The light running through optical fibers comes from semiconductor lasers smaller than a grain of rice. (Added in O-010. Sources: IEEE Milestones \"Semiconductor Laser, 1962\", Wikipedia \"Laser diode\")"
+ },
+ "7-26": {
+  "name": "Holography",
+  "hee1": "The shiny patterns on banknotes and cards are holograms that record a whole light wave (added in O-011. Sources: IEEE Milestones \"Invention of Holography, 1947\", Wikipedia \"Holography\")"
+ },
+ "8-01": {
+  "name": "Lathe",
+  "hee1": "A lathe that moves the cutter with a lead screw removed the shaking of human hands."
+ },
+ "8-02": {
+  "name": "Screw cutting and interchangeable parts",
+  "hee1": "Screws from any shop fit because the angle of the thread is standardized."
+ },
+ "8-03": {
+  "name": "Flat surfaces and surface plates",
+  "hee1": "The way to make \"perfectly flat\" from nothing is to rub three plates against each other."
+ },
+ "8-04": {
+  "name": "Calipers and micrometers",
+  "hee1": "If you know how many mm a screw moves in one turn, you can measure 0.01 mm"
+ },
+ "8-05": {
+  "name": "Gauge block",
+  "hee1": "Metal pieces that are flat enough stick together without glue."
+ },
+ "8-06": {
+  "name": "Interferometric length measurement",
+  "hee1": "The definition of one meter changed from a metal bar to light."
+ },
+ "8-07": {
+  "name": "Vibration isolation and constant temperature",
+  "hee1": "In a precision factory, work stops just because a truck drives by."
+ },
+ "8-08": {
+  "name": "Ball-screw precision stage",
+  "hee1": "Little steel balls roll inside the screw's groove"
+ },
+ "8-09": {
+  "name": "Linear motor and air bearing stage",
+  "hee1": "The stage of a lithography machine accelerates like a roller coaster and stops to the nanometer."
+ },
+ "8-10": {
+  "name": "Optical microscope",
+  "hee1": "With a light microscope, you cannot see things smaller than the wavelength of light."
+ },
+ "8-11": {
+  "name": "Electron microscope",
+  "hee1": "Using electrons instead of \"light\" lets you see even viruses."
+ },
+ "8-12": {
+  "name": "Ruling engine",
+  "hee1": "If the temperature changed during the many days of ruling, the work failed"
+ },
+ "8-13": {
+  "name": "Droplet generator",
+  "hee1": "EUV light sources and inkjet printers are relatives."
+ },
+ "8-14": {
+  "name": "Precision lens barrel assembly",
+  "hee1": "Even the best lens blurs if it is assembled 0.001 mm off."
+ },
+ "8-15": {
+  "name": "Quartz crystal oscillator",
+  "hee1": "Inside a wristwatch, a quartz crystal vibrates 32,768 times a second."
+ },
+ "8-16": {
+  "name": "Scanning probe microscope",
+  "hee1": "It sees the bumps of single atoms by tracing them with a sharp needle"
+ },
+ "8-17": {
+  "name": "Alignment",
+  "hee1": "Dozens of transparent pictures are stacked off by only a few ten-thousandths of a hair's width."
+ },
+ "8-18": {
+  "name": "Synthetic quartz",
+  "hee1": "Almost all the quartz in watches is artificial crystal grown in a pressure cooker."
+ },
+ "8-19": {
+  "name": "Pulley",
+  "hee1": "You need only a quarter of the force, but you pull the rope four times as far. (Added in IMP-24, network_proposals N-1)"
+ },
+ "8-20": {
+  "name": "Ball bearing",
+  "hee1": "Put steel balls in between, and things roll instead of rubbing. That is why wheels and motors turn easily (added in NET-06. Sources: Wikipedia \"Bearing (mechanical)\", Schaeffler \"Impeccably round and smooth\", Wikipedia \"Jules Suriray\", Wikipedia \"Sven Gustaf Wingqvist\")"
+ },
+ "8-21": {
+  "name": "Sextant",
+  "hee1": "Line up the Sun with the horizon using two mirrors, and you can tell where on Earth you are. (Added in NET-06. Sources: Wikipedia \"Sextant\", \"Octant (instrument)\", Grace's Guide \"John Hadley\")"
+ },
+ "8-22": {
+  "name": "Meter prototype",
+  "hee1": "One meter was a length decided from the size of the Earth. (Added in NET-06. Sources: Wikipedia \"Mètre des Archives\", Quality Magazine \"The Emergence of the Metric System\")"
+ },
+ "8-23": {
+  "name": "International Prototype of the Kilogram",
+  "hee1": "Until 2019, one kilogram was the weight of a single lump of metal in a vault in Paris. (Added in NET-06. Sources: Wikipedia \"International Prototype of the Kilogram\", EPFL Graph Search)"
+ },
+ "8-24": {
+  "name": "International System of Units (SI)",
+  "hee1": "The whole world can use the same \"1 meter\" and \"1 second\" thanks to the SI, decided in 1960 (added in NET-06. Source: BIPM \"Resolution 12 of the 11th CGPM (1960)\")"
+ },
+ "8-25": {
+  "name": "Watt balance",
+  "hee1": "Today one kilogram is defined not by a lump of metal but by electric force. (Added in NET-06. Sources: NPL \"Bryan Kibble\", NIST \"Kilogram: Kibble balance\", Comptes Rendus Physique 2019)"
+ },
+ "8-26": {
+  "name": "Typewriter",
+  "hee1": "The key layout on computers is the same layout typewriters used 150 years ago. (Added in S-002. Sources: Wikipedia \"QWERTY\", Computer Hope \"Why is the keyboard not in alphabetical order\")"
+ },
+ "8-27": {
+  "name": "Strain wave gearing",
+  "hee1": "Inside a robot's joints, a metal gear ring turns while bending into a wobbly oval. (Added in S-005. Sources: Wikipedia \"Strain wave gearing\", \"Walton Musser\", Harmonic Drive LLC 'C. Walton Musser' (announced 1957, US Patent 2,906,143) (https://legacy.harmonicdrive.net/aboutus/musser/))"
+ },
+ "8-28": {
+  "name": "Strain gauge",
+  "hee1": "The strain gauge was thought up by a researcher studying how water tanks shake in earthquakes (added in S-005. Sources: Caltech \"Engineering and Science: Simmons\", Micro-Measurements \"Strain gage history\")"
+ },
+ "8-29": {
+  "name": "Roller chain",
+  "hee1": "The shape of a bicycle chain has barely changed from the design thought up more than 140 years ago. (Added in S-004. Sources: en.wikipedia.org, gracesguide.co.uk)"
+ },
+ "8-30": {
+  "name": "Atomic clock",
+  "hee1": "Today one second is defined as the time it takes a cesium atom to vibrate 9,192,631,770 times. (Added in O-006. Sources: IEEE Milestones \"First Atomic Clock, 1948\", NIST, Wikipedia \"Atomic clock\")"
+ },
+ "8-31": {
+  "name": "Grinding machine",
+  "hee1": "Even steel too hard to cut with a blade can be shaped to one hundredth of a hair's accuracy by rubbing it with a grinding wheel. (Added in O-009. Sources: JSME \"Mechanical Engineering Heritage No.059, No.114, No.106\", Wikipedia \"Grinding machine\", Schaeffler \"Impeccably round and smooth\")"
+ },
+ "8-32": {
+  "name": "Gear cutting machine",
+  "hee1": "Accuracy rose by remaking the gears of the gear-making machine more precisely, again and again (added in O-010. Sources: JSME \"Mechanical Engineering Heritage No.034\", Wikipedia \"Hobbing\")"
+ },
+ "8-33": {
+  "name": "Mass spectrometry",
+  "hee1": "When bent by an electromagnet, atoms fly apart sorted by weight. (Added in O-010. Sources: Nobel Prize \"Chemistry 1922\", \"Chemistry 2002\", Wikipedia \"National Historic Chemical Landmarks\")"
+ },
+ "8-34": {
+  "name": "NC",
+  "hee1": "The first NC machine tool moved its cutter by reading paper tape with holes punched in it. (Added in O-010. Sources: JSME \"Mechanical Engineering Heritage No.126\", Wikipedia \"Numerical control\" \"John T. Parsons\")"
+ },
+ "8-35": {
+  "name": "Quartz wristwatch",
+  "hee1": "The quartz crystal in a quartz watch vibrates as many as 32,768 times a second. (Added in O-010. Sources: JSME \"Mechanical Engineering Heritage No.066\", Wikipedia \"Seiko Astron\")"
+ },
+ "8-36": {
+  "name": "Tilting-pad thrust bearing",
+  "hee1": "The hundreds of tons of a big water turbine are held up floating on just a thin film of oil (added in O-011. Sources: ASME Landmark #123 \"Kingsbury Thrust Bearing\", Wikipedia \"Fluid bearing\")"
+ },
+ "8-37": {
+  "name": "Electrical discharge machining",
+  "hee1": "Tens of thousands of sparks per second melt and carve hard metal bit by bit. (Added in O-011. Sources: Wikipedia \"Electrical discharge machining\", National Museum of Nature and Science \"Essential Historical Materials for Science and Technology\")"
+ },
+ "8-38": {
+  "name": "Cryo-electron microscope",
+  "hee1": "If water is frozen in an instant, no ice crystals form and it sets solid like glass. (Added in O-011. Sources: Nobel Prize \"Chemistry 2017\", Nobel Prize \"Chemistry 2017 press release\" (https://www.nobelprize.org/prizes/chemistry/2017/press-release/))"
+ },
+ "8-39": {
+  "name": "Arc welding",
+  "hee1": "The light from arc welding is so strong that welders protect their eyes with a dark mask. (Added in O-012. Sources: Wikipedia \"Arc welding\", ASME Landmark #44)"
+ },
+ "8-40": {
+  "name": "Gas welding and cutting",
+  "hee1": "An oxygen-acetylene flame is about 3100°C and cuts iron like butter ⚠️ (added in O-012. Sources: Wikipedia \"Oxy-fuel welding and cutting\", \"Edmond Fouché\", Linde \"A Look at The History of Welding\" (https://www.lindedirect.com/blogs/industrial-guides/industrial-guides/2024/01/30/a-look-at-the-history-of-welding))"
+ },
+ "8-41": {
+  "name": "Hydraulic forging press",
+  "hee1": "A 50,000-ton press is as big as a building several stories tall ⚠️ (Added in O-012. Sources: Wikipedia \"Heavy Press Program\", ASME Landmark #71 and #89)"
+ },
+ "8-42": {
+  "name": "Dividing engine",
+  "hee1": "Sextant scales came to be engraved by a machine instead of by hand. (Added in O-012. Sources: Smithsonian NMAH 694508, MacTutor \"Jesse Ramsden\", Wikipedia \"Dividing engine\")"
+ },
+ "9-01": {
+  "name": "Ge zone refining",
+  "hee1": "Passing a molten band through many times gathers the impurities at one end."
+ },
+ "9-02": {
+  "name": "Zone leveling",
+  "hee1": "Moving the molten zone back and forth spreads the added impurity evenly through the whole bar"
+ },
+ "9-03": {
+  "name": "Point-contact transistor",
+  "hee1": "Two gold contacts were pressed onto germanium with a plastic wedge."
+ },
+ "9-04": {
+  "name": "Alloy-junction transistor",
+  "hee1": "Put a bead of indium on each side of germanium and bake it, and you get a three-layer part."
+ },
+ "9-05": {
+  "name": "Ge diode",
+  "hee1": "A part with a thin needle standing on germanium caught radar waves."
+ },
+ "9-06": {
+  "name": "Oxide etching",
+  "hee1": "When the oxide is fully dissolved, the surface repels water (hydrophobic), so you can see with your eyes when it's done"
+ },
+ "9-07": {
+  "name": "Ge single-crystal pulling",
+  "hee1": "Inside the company, people objected: \"We don't need single crystals.\""
+ },
+ "9-08": {
+  "name": "CZ process",
+  "hee1": "Most of the world's silicon is made with a method born from an accident 100 years ago."
+ },
+ "9-09": {
+  "name": "Float-zone (FZ) method",
+  "hee1": "With no crucible, liquid silicon is held up by surface tension alone."
+ },
+ "9-10": {
+  "name": "Grown-junction transistor",
+  "hee1": "Materials were mixed in while the crystal was growing, making 3 layers inside"
+ },
+ "9-11": {
+  "name": "Dopant sources",
+  "hee1": "Arsenic is poison, but it is also in the transistors inside your smartphone."
+ },
+ "9-12": {
+  "name": "Wafer slicing",
+  "hee1": "When wafers are sliced, a large part turns into dust and is lost."
+ },
+ "9-13": {
+  "name": "Lapping and mirror polishing",
+  "hee1": "The bumps on a mirror-polished wafer are only a few dozen atoms high."
+ },
+ "9-14": {
+  "name": "RCA clean",
+  "hee1": "A recipe from more than 50 years ago is still the basis in today's most advanced factories"
+ },
+ "9-15": {
+  "name": "Thermal oxidation",
+  "hee1": "Silicon's own \"rust\" turns into glass and protects it."
+ },
+ "9-16": {
+  "name": "Thermal diffusion",
+  "hee1": "Bake at 1000°C for hours, and atoms walk little by little through the solid."
+ },
+ "9-17": {
+  "name": "Mesa transistor",
+  "hee1": "\"Mesa\" means table in Spanish. It is the shape of the flat-topped hills in the American West."
+ },
+ "9-18": {
+  "name": "Planar process",
+  "hee1": "The idea of \"making it while keeping it flat\" was the start of the IC"
+ },
+ "9-19": {
+  "name": "Resist coating",
+  "hee1": "It's just like spinning pizza dough to spread it out."
+ },
+ "9-20": {
+  "name": "Contact and proximity printing",
+  "hee1": "The first ICs were made by printing the shadow of a mask, like a shadow picture."
+ },
+ "9-21": {
+  "name": "Development and post-bake",
+  "hee1": "The circuit is brought out with the same steps as developing a photograph."
+ },
+ "9-22": {
+  "name": "Integrated circuit",
+  "hee1": "The first IC was one transistor and a few parts, about the size of a fingertip"
+ },
+ "9-23": {
+  "name": "MOSFET",
+  "hee1": "Of all the things humans have ever made, the MOSFET is the most numerous."
+ },
+ "9-24": {
+  "name": "CMOS",
+  "hee1": "Calculator and watch batteries last for years thanks to CMOS."
+ },
+ "9-25": {
+  "name": "Metal wiring",
+  "hee1": "The wires inside a chip are the same metal as aluminum foil."
+ },
+ "9-26": {
+  "name": "Sputtering",
+  "hee1": "Making films by atomic billiards"
+ },
+ "9-27": {
+  "name": "Dry etching",
+  "hee1": "Dissolving with liquid also eats sideways, so an electric discharge is used to carve straight down only."
+ },
+ "9-28": {
+  "name": "Ion implantation",
+  "hee1": "Atoms are used as bullets and shot to an exact depth."
+ },
+ "9-29": {
+  "name": "Annealing",
+  "hee1": "Just like annealing metal, heat lets the atoms line up again."
+ },
+ "9-30": {
+  "name": "Epitaxy and CVD",
+  "hee1": "The reaction that thickens rods in the Siemens process is used to make thin films"
+ },
+ "9-31": {
+  "name": "CMP (chemical mechanical polishing)",
+  "hee1": "Like building a skyscraper of dozens of floors, flattening each floor one at a time."
+ },
+ "9-32": {
+  "name": "Dicing",
+  "hee1": "Hundreds of chips are cut out of a single wafer."
+ },
+ "9-33": {
+  "name": "Wire bonding",
+  "hee1": "The wire connecting the chip to the outside is gold about a third as thick as a hair."
+ },
+ "9-34": {
+  "name": "Encapsulation",
+  "hee1": "The outside of a black chip is plastic, like a shell protecting it from moisture"
+ },
+ "9-35": {
+  "name": "Testing",
+  "hee1": "Not every chip that is made actually works."
+ },
+ "9-36": {
+  "name": "Copper interconnects",
+  "hee1": "The name of Damascus inlay work is used for the most advanced wiring."
+ },
+ "9-37": {
+  "name": "FinFET",
+  "hee1": "The transistor went from a one-story house to a \"standing plate\"."
+ },
+ "9-38": {
+  "name": "GAA (gate-all-around)",
+  "hee1": "In the end, the gate wraps all the way around the channel"
+ },
+ "9-39": {
+  "name": "Reduction projection lithography",
+  "hee1": "The history of semiconductors is the history of \"shorter light, finer patterns\"."
+ },
+ "9-40": {
+  "name": "EUV lithography machine",
+  "hee1": "A \"camera\" bigger than a house that only one company in the world can make."
+ },
+ "9-41": {
+  "name": "Power semiconductors and inverters",
+  "hee1": "An electric car turns electricity on and off thousands of times a second to drive its motor. (Added in IMP-24, network_proposals N-4, N-5)"
+ },
+ "9-42": {
+  "name": "Image sensor",
+  "hee1": "Phone cameras and optical mice both use the same family of chips that \"turn light into electrons and count them\" (added in S-003. Sources: Nobel Prize \"Physics 2009\", Wikipedia \"Active-pixel sensor\", \"Optical mouse\")"
+ },
+ "9-43": {
+  "name": "MEMS",
+  "hee1": "Inside a smartphone are tiny springs and weights made of silicon, and they really move when you tilt it. (Added in S-003. Sources: Proc. IEEE \"Silicon as a Mechanical Material\" (1982), Wikipedia \"Microelectromechanical systems\")"
+ },
+ "9-44": {
+  "name": "Thermistor",
+  "hee1": "An air conditioner's thermometer is a tiny ceramic bead that lets electricity flow more easily as it warms up. (Added in S-004. Sources: shura.shu.ac.uk, murata.com)"
+ },
+ "9-45": {
+  "name": "Bayer filter",
+  "hee1": "Half of a camera's pixels are green, because the human eye is most sensitive to green. (Added in S-004. Sources: patents.google.com, en.wikipedia.org)"
+ },
+ "9-46": {
+  "name": "Sensors that detect people",
+  "hee1": "Motion sensors don't sense \"a human shape\" but \"changes\" in the infrared from your body, so the light may go off if you stay still. (added in S-004. Sources: logosfoundation.org, en.wikipedia.org)"
+ },
+ "9-47": {
+  "name": "Particle accelerator",
+  "hee1": "Semiconductor factories have rows of small accelerators (ion implanters). (Added in O-008. Sources: Nobel Prize \"Physics 1939\", \"Physics 1951\", University of Bern \"Greinacher\", DESY \"Wideröe\")"
+ },
+ "9-48": {
+  "name": "Semiconductor heterostructure",
+  "hee1": "The lasers in CDs and optical fibers shine inside a sandwich of different semiconductors stacked atoms thick. (Added in O-009. Sources: Nobel Prize \"Physics 2000\", Kyoto Prize, IEEE Milestones \"HEMT 1979\", Semiconductor History Museum of Japan (SSIS))"
+ },
+ "9-49": {
+  "name": "Thyristor",
+  "hee1": "The devices that change the speed of train motors were first made with semiconductor switches called thyristors. (Added in O-011. Sources: IEEE Milestones \"SCR/Thyristor, 1957\", ETHW IEEE Milestones 'SCR/Thyristor, 1957' / IEEE Spectrum (https://ethw.org/Milestones:SCR/Thyristor,_1957))"
+ },
+ "B-01": {
+  "name": "Incandescent light bulb",
+  "hee1": "The vacuum tube was born from adding one metal plate inside a light bulb."
+ },
+ "B-02": {
+  "name": "Silver halide photography",
+  "hee1": "The ancestor of photolithography (a setup for Chapter 3, [7-11])."
+ },
+ "B-02a": {
+  "name": "Daguerreotype",
+  "hee1": "Each picture is one of a kind and cannot be copied (there is no negative)."
+ },
+ "B-02b": {
+  "name": "Wet plate photography → gelatin dry plate",
+  "hee1": "Many prints from one glass negative = the photolithography idea of copying many times from one mask"
+ },
+ "B-03": {
+  "name": "X-ray tube",
+  "hee1": "X-rays were named X because they were \"rays of unknown nature\"."
+ },
+ "B-04": {
+  "name": "Magnetron and microwave oven",
+  "hee1": "The microwave oven was born from a radar part."
+ },
+ "B-05": {
+  "name": "Polarization",
+  "hee1": "Put a clear calcite crystal on some writing and the letters look doubled. (Moved from [7-08])"
+ },
+ "B-06": {
+  "name": "Polarizing film",
+  "hee1": "In front of an LCD screen is a film dyed with iodine"
+ },
+ "B-07": {
+  "name": "LED",
+  "hee1": "Only after the blue LED was made could white LEDs finally be made."
+ },
+ "B-08": {
+  "name": "Electronic calculator",
+  "hee1": "The first calculator weighed as much as a whole desk."
+ },
+ "B-09": {
+  "name": "Game console",
+  "hee1": "The Famicom's CPU is a grandchild of the technology that gave birth to the calculator."
+ },
+ "B-10": {
+  "name": "Smartphone",
+  "hee1": "In your pocket, millions of times the computing power of the Apollo computer"
+ },
+ "B-11": {
+  "name": "AI chip",
+  "hee1": "Starting from stone tools, you reach the parts of a thinking machine."
+ },
+ "B-12": {
+  "name": "Solar cell",
+  "hee1": "A solar cell uses the same p-n junction as a transistor."
+ },
+ "B-13": {
+  "name": "Mauveine",
+  "hee1": "The chemical industry began from a failed experiment to make a medicine."
+ },
+ "B-14": {
+  "name": "Acetylene lamp",
+  "hee1": "A stone that gives off a burnable gas when you drip water on it"
+ },
+ "B-15": {
+  "name": "Tofu",
+  "hee1": "From nigari, which sets tofu, you can get magnesium metal ([1-39])."
+ },
+ "B-16": {
+  "name": "Personal computer",
+  "hee1": "Computers that sit on a desk all went on sale at once in 1977."
+ },
+ "B-17": {
+  "name": "GPS",
+  "hee1": "From the time differences of signals sent by satellites in the sky, you can tell where you are."
+ },
+ "B-18": {
+  "name": "Liquid crystal display",
+  "hee1": "Liquid crystal doesn't glow by itself; electricity turns it to open and close the path for light (added in S-002. Sources: Wikipedia \"Liquid crystal\", \"Twisted nematic field effect\", KIT \"100 Objekte\")"
+ },
+ "B-19": {
+  "name": "TFT LCD",
+  "hee1": "Behind each pixel of a screen is one thin transistor, and millions of them are lined up on glass. (Added in S-002. Sources: Wikipedia \"Thin-film transistor\", IEEE Milestones \"Amorphous Silicon TFT Switches\")"
+ },
+ "B-20": {
+  "name": "White LED backlight",
+  "hee1": "A white LED is really a blue LED covered with a powder that glows yellow; blue and yellow mix to look white. (Added in S-002. Sources: Semiconductor History Museum of Japan (SSIS) \"White LED\", LEDinside)"
+ },
+ "B-21": {
+  "name": "Ball mouse",
+  "hee1": "The first mouse was a wooden box with two wheels, not a ball. (Added in S-002. Sources: Computer History Museum \"Revolution: Input & Output\", Wikipedia \"Bill English\")"
+ },
+ "B-22": {
+  "name": "Optical mouse",
+  "hee1": "An optical mouse takes more than 1000 pictures of the desk surface per second and works out motion from how the pattern shifts (added in S-002. Sources: Wikipedia \"Optical mouse\", \"IntelliMouse\")"
+ },
+ "B-23": {
+  "name": "Dissolved acetylene and the automatic lighthouse flasher",
+  "hee1": "Old lighthouses had a device that sensed daylight and put out the flame automatically during the day. (Added in O-008. Sources: Nobel Prize \"Physics 1912 Award Ceremony Speech\", Wikipedia \"Agamassan\", Linda Hall Library \"Gustaf Dalén\")"
+ },
+ "I-01": {
+  "name": "Electromagnetic induction",
+  "hee1": "Electricity flows only while you are moving a magnet inside a coil. Stop, and it stops."
+ },
+ "I-02": {
+  "name": "Thermodynamics",
+  "hee1": "An engine's power depends not on \"how hot\" but on \"the difference between the hot side and the cold side\""
+ },
+ "I-03": {
+  "name": "Periodic table",
+  "hee1": "Mendeleev predicted the weight and properties of germanium before it was discovered."
+ },
+ "I-04": {
+  "name": "Resolution limit of light",
+  "hee1": "With light, you cannot tell apart things finer than about half its wavelength. That is why the semiconductor world kept searching for \"shorter light.\""
+ },
+ "I-05": {
+  "name": "Perceptron",
+  "hee1": "The first \"learning machine\" got smarter just by correcting itself a little each time it made a mistake."
+ },
+ "I-06": {
+  "name": "Segregation",
+  "hee1": "Sea ice has much less salt than the seawater around it. When it freezes, the salt is pushed out into the remaining water"
+ },
+ "I-07": {
+  "name": "How the electric arc works",
+  "hee1": "The hissing sound of an arc turned out to be carbon reacting with oxygen in the air."
+ },
+ "I-08": {
+  "name": "Program",
+  "hee1": "Without rebuilding the machine, you can make it do a different job just by changing its instructions (the program)."
+ },
+ "I-09": {
+  "name": "Defining units by constants of nature",
+  "hee1": "One kilogram is no longer a lump in a vault; it is set by a \"constant\" that is the same anywhere in the universe."
+ },
+ "I-10": {
+  "name": "Logarithms",
+  "hee1": "A table of numbers that turns multiplication into addition"
+ },
+ "I-11": {
+  "name": "Creating accuracy without a reference",
+  "hee1": "The flattest plate can be made without an even flatter plate. You just need three."
+ },
+ "I-12": {
+  "name": "Three primary colors of light",
+  "hee1": "Look at a screen with a magnifying glass, and even the white parts are just tiny red, green and blue dots glowing."
+ },
+ "I-13": {
+  "name": "Separation of design and manufacturing",
+  "hee1": "The brain chip of a smartphone is often designed by one company and made in another company's factory."
+ },
+ "I-14": {
+  "name": "Standards",
+  "hee1": "A USB cable fits no matter where you bought it, because many companies follow the same rules"
+ },
+ "I-15": {
+  "name": "Patents and licensing",
+  "hee1": "A patent doesn't hide an invention; it is a promise of protection in exchange for making it public."
+ },
+ "I-16": {
+  "name": "Supply chain",
+  "hee1": "One smartphone contains materials taken from many different places around the world."
+ },
+ "I-17": {
+  "name": "CFCs and ozone depletion",
+  "hee1": "Because countries around the world kept their promise and stopped using CFCs, the ozone layer is slowly starting to recover."
+ },
+ "I-18": {
+  "name": "Coandă effect",
+  "hee1": "When you bring the back of a spoon near tap water, the water is pulled toward the spoon. That is the Coandă effect."
+ },
+ "I-19": {
+  "name": "Diesel exhaust, air pollution, and countermeasures",
+  "hee1": "Today's diesel buses have a filter that catches soot, and the collected soot is burned off."
+ },
+ "I-20": {
+  "name": "Discovery of superconductivity",
+  "hee1": "Some metals, as they are cooled, suddenly lose everything that blocks the flow of electricity."
+ },
+ "I-21": {
+  "name": "Ionic theory and electrode potential",
+  "hee1": "Electricity flows through salt water because salt splits into plus and minus particles in water."
+ },
+ "I-22": {
+  "name": "Catalysts and surface chemistry",
+  "hee1": "A catalyst is still there after the reaction, without being used up"
+ },
+ "I-23": {
+  "name": "Macromolecular theory",
+  "hee1": "Inside plastic, tens of thousands of small molecules hold hands to form long chains."
+ },
+ "I-24": {
+  "name": "Discovery of oxygen and the theory of combustion",
+  "hee1": "Fire burns because the burning thing combines with the oxygen in the air."
+ },
+ "I-25": {
+  "name": "Discovery of the electron and the elementary charge",
+  "hee1": "Electricity is really made of tiny particles called \"electrons\", much smaller and lighter than atoms."
+ },
+ "I-26": {
+  "name": "Thermionic emission",
+  "hee1": "Inside a vacuum tube, electrons fly out of hot glowing metal like steam"
+ },
+ "I-27": {
+  "name": "Photoelectric effect and the photon",
+  "hee1": "Light is a wave, and also grains of energy of a fixed size."
+ },
+ "I-28": {
+  "name": "X-ray diffraction and crystal structure analysis",
+  "hee1": "Shine X-rays on a crystal, and the invisible arrangement of atoms shows up as a pattern of dots."
+ },
+ "I-29": {
+  "name": "Band theory of solids",
+  "hee1": "A semiconductor is a material whose electrons sit right at the edge, needing just a little more energy to move."
+ },
+ "I-30": {
+  "name": "Noble gas compounds",
+  "hee1": "Even xenon, said to \"react with nothing\", bonds with fluorine and its relatives"
+ },
+ "I-31": {
+  "name": "Laws of thermal radiation and the energy quantum",
+  "hee1": "The color inside a furnace goes from red to dazzling white because as the temperature rises, more light of short wavelengths appears."
+ },
+ "I-32": {
+  "name": "Franck-Hertz experiment",
+  "hee1": "Atoms accept only exact, fixed amounts of energy."
+ },
+ "I-33": {
+  "name": "Tunneling in semiconductors",
+  "hee1": "Electrons sometimes slip through a thin wall they should not be able to cross."
+ },
+ "I-34": {
+  "name": "Superconducting tunneling and the quantum voltage standard",
+  "hee1": "The standard for \"1 volt\" is made with tiny superconducting devices and the frequency of microwaves"
+ },
+ "I-35": {
+  "name": "Quantum Hall effect",
+  "hee1": "The standard for \"1 ohm\" of electrical resistance is made with a cooled transistor and a magnet."
+ },
+ "I-36": {
+  "name": "Energy-based neural networks",
+  "hee1": "AI research uses ideas from the physics of heat and magnets."
+ },
+ "I-37": {
+  "name": "Giant magnetoresistance",
+  "hee1": "A hard disk read head has stacked films only a few dozen atoms thick."
+ },
+ "I-38": {
+  "name": "Van der Waals equation of state",
+  "hee1": "A squeezed gas shrinks less than expected because molecules have size too"
+ },
+ "I-39": {
+  "name": "Chemical equilibrium and chemical thermodynamics",
+  "hee1": "Ammonia plants use high pressure because the harder you push, the more the reaction moves toward ammonia."
+ },
+ "I-40": {
+  "name": "Radioactivity and transmutation of elements",
+  "hee1": "The helium in balloons was made by uranium in underground rocks over hundreds of millions of years."
+ },
+ "I-41": {
+  "name": "Chain reaction",
+  "hee1": "An explosion happens all at once because one reaction sets off two, then four, and so on."
+ },
+ "I-42": {
+  "name": "Characteristic X-rays and Moseley's law",
+  "hee1": "The order of the periodic table is set not by atomic weight but by the electric charge of the nucleus"
+ },
+ "I-43": {
+  "name": "Fermi–Dirac statistics",
+  "hee1": "Like a packed train, electrons can sit only one per seat."
+ },
+ "I-44": {
+  "name": "Wave nature of electrons and electron diffraction",
+  "hee1": "Electrons are particles, yet they make diffraction patterns like waves."
+ },
+ "I-45": {
+  "name": "Quantum theory of chemical bonds",
+  "hee1": "In a silicon crystal, every atom holds hands with its four neighbors using its four hands."
+ },
+ "I-46": {
+  "name": "Computational chemistry",
+  "hee1": "We can now search for new materials by computer calculation before doing experiments"
+ },
+ "I-47": {
+  "name": "Quantum dots",
+  "hee1": "Even with the same material, just making the grains smaller changes the color of light."
+ },
+ "I-48": {
+  "name": "Onsager reciprocal relations",
+  "hee1": "Electricity arising from a temperature difference and electricity carrying heat are two sides of the same phenomenon."
+ },
+ "I-49": {
+  "name": "The field of artificial intelligence",
+  "hee1": "The term \"artificial intelligence\" was first used in a 1955 proposal for a research workshop."
+ },
+ "I-50": {
+  "name": "Moore's law",
+  "hee1": "Moore's law is not a law of nature but more like a \"promise\" the whole industry aimed for"
+ },
+ "I-51": {
+  "name": "Iron–carbon phase diagram and metallography",
+  "hee1": "Polish steel and look at it under a microscope, and you see different patterns depending on how much carbon it has."
+ },
+ "I-52": {
+  "name": "Dislocation theory",
+  "hee1": "Metals bend because \"slips\" in the arrangement of atoms in the crystal move little by little."
+ },
+ "P-01": {
+  "name": "Crane",
+  "hee1": "The stones of Greek temples still have holes and grooves for cranes to grab."
+ },
+ "P-02": {
+  "name": "Liquid-fuel rocket",
+  "hee1": "The first liquid-fuel rocket flew for only about 2.5 seconds."
+ },
+ "P-03": {
+  "name": "Electric car",
+  "hee1": "Cars powered by electricity were already running in 1881, before gasoline cars"
+ },
+ "P-04": {
+  "name": "3D printer",
+  "hee1": "The first paper on 3D printing was written by a Japanese researcher."
+ },
+ "P-05": {
+  "name": "3D printer",
+  "hee1": "The 3D printer was born from making a toy with a glue gun."
+ },
+ "P-06": {
+  "name": "Your computer",
+  "hee1": "The computer in front of you holds inventions from many eras, from the typewriter of 150 years ago to the GPU of 1999."
+ },
+ "P-07": {
+  "name": "Monitor",
+  "hee1": "Screen colors are made only by mixing the brightness of red, green and blue dots"
+ },
+ "P-08": {
+  "name": "Mouse",
+  "hee1": "The first mouse was a wooden box with two wheels."
+ },
+ "P-09": {
+  "name": "Keyboard",
+  "hee1": "The key layout is still that of typewriters from 150 years ago."
+ },
+ "P-10": {
+  "name": "Cooling",
+  "hee1": "Without cooling, a computer's chip would reach a dangerous temperature in a few seconds."
+ },
+ "P-11": {
+  "name": "Power supply unit",
+  "hee1": "A power supply box is small because it switches the electricity on and off tens of thousands of times a second"
+ },
+ "P-12": {
+  "name": "CPU",
+  "hee1": "Today's CPUs have millions of times more transistors than the 4004."
+ },
+ "P-13": {
+  "name": "GPU",
+  "hee1": "The shadows and light on Minecraft blocks are calculated at the same time by thousands of calculators in the GPU."
+ },
+ "P-14": {
+  "name": "Memory",
+  "hee1": "Memory rewrites itself dozens of times a second so it does not forget."
+ },
+ "P-15": {
+  "name": "SSD",
+  "hee1": "Your Minecraft world save is remembered by electrons trapped inside an SSD"
+ },
+ "P-16": {
+  "name": "Smartphone screen",
+  "hee1": "A smartphone screen is a sandwich of many layers: glass, invisible electrodes, and the display."
+ },
+ "P-17": {
+  "name": "Smartphone camera",
+  "hee1": "A smartphone camera and the eye of an optical mouse are the same kind of chip."
+ },
+ "P-18": {
+  "name": "Motion sensor",
+  "hee1": "The screen turns when you tip your smartphone sideways because a tiny weight inside moves."
+ },
+ "P-19": {
+  "name": "Vibration motor",
+  "hee1": "The buzz in silent mode is an off-center weight spinning inside"
+ },
+ "P-20": {
+  "name": "Smartphone speaker",
+  "hee1": "Even the tiny speaker in a smartphone has a strong neodymium magnet inside."
+ },
+ "P-21": {
+  "name": "Radio chips and antennas",
+  "hee1": "A smartphone's GPS only \"listens\" to radio waves; it sends nothing to the satellites."
+ },
+ "P-22": {
+  "name": "Battery",
+  "hee1": "In a smartphone battery, lithium moves in and out of the gaps in graphite."
+ },
+ "P-23": {
+  "name": "Memory chip",
+  "hee1": "Photos on your phone are remembered by the number of electrons trapped inside a chip"
+ },
+ "P-24": {
+  "name": "Humanoid robot",
+  "hee1": "The humanoid robot built at Waseda University in 1973 could not only walk but also speak simple Japanese."
+ },
+ "P-25": {
+  "name": "Robot arm",
+  "hee1": "The first factory robot arm was moved not by electric motors but by oil pressure."
+ },
+ "P-26": {
+  "name": "Self-driving car",
+  "hee1": "The car that won the 2005 driverless car race finished the desert course in about 7 hours with no one aboard."
+ },
+ "P-27": {
+  "name": "Digital camera",
+  "hee1": "The first digital camera prototype (1975) recorded pictures on a cassette tape"
+ },
+ "P-28": {
+  "name": "Microphone",
+  "hee1": "A karaoke microphone works the same way as a speaker used in reverse."
+ },
+ "P-29": {
+  "name": "Air conditioner",
+  "hee1": "An air conditioner does not make cold; it carries the room's heat outside."
+ },
+ "P-30": {
+  "name": "Refrigerator",
+  "hee1": "A refrigerator dumps the heat from inside out into the room from its back and sides (that is why the back of a fridge is warm)."
+ },
+ "P-31": {
+  "name": "Coffee machine",
+  "hee1": "Espresso is made by forcing hot water through coffee grounds at about 9 atmospheres, about 4 times the air pressure in a tire."
+ },
+ "P-32": {
+  "name": "Robot vacuum",
+  "hee1": "Early Roombas had no map of the room; they cleaned the whole floor just by bumping into things and changing direction, again and again."
+ },
+ "P-33": {
+  "name": "Tower fan",
+  "hee1": "A bladeless fan really has blades inside its base, and the air from the ring pulls the surrounding air along, multiplying the flow many times."
+ },
+ "P-34": {
+  "name": "Elevator",
+  "hee1": "Otis did not invent the elevator; what Otis made was a catch mechanism that keeps it from falling even if the rope breaks."
+ },
+ "P-35": {
+  "name": "Escalator",
+  "hee1": "The first escalator was an amusement park ride, a slanted moving belt instead of stairs."
+ },
+ "P-36": {
+  "name": "Automatic door",
+  "hee1": "The automatic sliding door was born in a town where strong winds quickly broke swinging doors."
+ },
+ "P-37": {
+  "name": "City bus",
+  "hee1": "A turbo uses the force of exhaust gas that would have been thrown away to push air into the engine."
+ }
+}

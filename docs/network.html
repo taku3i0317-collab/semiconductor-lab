@@ -114,6 +114,7 @@ small.term { color: var(--sub); font-weight: 400; }
   <label><input type="checkbox" id="all"> すべての技術</label>
   <label><input type="checkbox" id="now"> 今すぐ作れるだけ</label>
   <label><input type="checkbox" id="und" checked> なぜ動くかの線</label>
+  <button type="button" id="langBtn" class="btn" lang="en">English</button>
   <span class="stat" id="stat"></span>
 </header>
 <div class="intro" id="intro">石器から AI まで、約400の技術・モノ・発見が「何が無いと何が作れないか」でつながる地図です。<b>まず、モノ（大きな丸）を押してみよう。</b></div>
@@ -144,6 +145,26 @@ small.term { color: var(--sub); font-weight: 400; }
   // カード・検索で本物やへえ・人物が要るときに、重いデータ（tech_network_detail.js）を読み込む（NET-05）
   const G = window.TECH_GRAPH;
   const nodes = G.nodes, byId = new Map(nodes.map(n => [n.id, n]));
+  // 日本語／英語（O-021）：選んだ言語は次も（保存できない環境では毎回日本語）。英語はノードの名前とへえ①、見出しのボタンだけ
+  let LANG = 'ja';
+  try { LANG = localStorage.getItem('tn-lang') === 'en' ? 'en' : 'ja'; } catch (e) { /* 保存できない環境 */ }
+  const EN_UI = { 'つながりで見る': 'Network view', '時間で見る': 'Timeline view', 'AI までの道': 'Road to AI', '人物の一覧': 'People',
+    'すべての分野': 'All fields', ' すべての技術': ' All technologies', ' 今すぐ作れるだけ': ' Buildable now', ' なぜ動くかの線': ' "Why it works" lines',
+    '？ 図の見方': '? How to read', 'すべての技術を表示中': 'Showing all technologies', 'ズームすると技術が見えます（モノを選んでも）': 'Zoom in (or pick a product) to see technologies' };
+  const tr = ja => LANG === 'en' && EN_UI[ja] ? EN_UI[ja] : ja;
+  document.documentElement.lang = LANG;
+  document.getElementById('langBtn').textContent = LANG === 'en' ? '日本語' : 'English';
+  document.getElementById('langBtn').addEventListener('click', () => { try { localStorage.setItem('tn-lang', LANG === 'en' ? 'ja' : 'en'); } catch (e) { /* 保存できない */ } location.reload(); });
+  if (LANG === 'en') {
+    for (const n of nodes) { n.name_ja = n.name; if (n.name_en) n.name = n.name_en; }
+    document.querySelector('h1').textContent = 'Technology network';
+    document.getElementById('q').placeholder = 'Search (technology, product, person, number)';
+    document.getElementById('intro').innerHTML = 'A map of how about 600 technologies, products and discoveries connect, from stone tools to AI: "what cannot be made without what". <b>Start by clicking a product (a big circle).</b> <small>(Only names and the first fun fact are in English for now; other text is Japanese.)</small>';
+    for (const id of ['aiBtn', 'legendBtn', 'layoutBtn']) { const b = document.getElementById(id); b.textContent = tr(b.textContent); }
+    document.querySelector('a[href="people.html"]').textContent = tr('人物の一覧');
+    document.querySelector('#trunk option').textContent = tr('すべての分野');
+    for (const l of document.querySelectorAll('header label')) { const tx = l.lastChild; if (tx && tx.nodeType === 3) tx.textContent = tr(tx.textContent); }
+  }
   const isProd = n => n.kind === 'product';
   // 発見・考え方（ideas.md）：ひし形。モノと同じく遠くからでも見える目印
   const isIdea = n => n.kind === 'idea', isLand = n => isProd(n) || isIdea(n);
@@ -454,7 +475,7 @@ small.term { color: var(--sub); font-weight: 400; }
     layoutMode = mode;
     placeLabels();
     // 表示の切り替えのボタン：今の表示ではない方の名前を出す。一度切り替えた人は次もその表示（保存できない環境でも動く）
-    document.getElementById('layoutBtn').textContent = mode === 'net' ? '時間で見る' : 'つながりで見る';
+    document.getElementById('layoutBtn').textContent = tr(mode === 'net' ? '時間で見る' : 'つながりで見る');
     try { localStorage.setItem('tn-layout', mode); } catch (e) { /* 保存できない環境 */ }
     const from = nodes.map(n => [n.x, n.y]), to = nodes.map(n => mode === 'net' ? [n.netX, n.netY] : [n.timeX, n.timeY]);
     if (layoutTimer) layoutTimer.stop();
@@ -499,6 +520,7 @@ small.term { color: var(--sub); font-weight: 400; }
       const D = window.TECH_DETAIL;
       for (const n of nodes) {
         Object.assign(n, D.nodes[n.id]);
+        if (LANG === 'en' && n.hee1_en) n.hee1 = n.hee1_en;
         n.real = Array.from((n.real_full || '').split('\n')[0].trim()).slice(0, 400).join('');   // カードの「本物」は全文の1行目の400字
         for (const p of n.people || []) if (p.pi != null) p.portrait = D.portraits[p.pi];
       }
@@ -527,7 +549,7 @@ small.term { color: var(--sub); font-weight: 400; }
     const y = d.year < 0 ? `前${(-d.year).toLocaleString()}年` : `${d.year}年`;
     return y + (d.year_range ? `（${d.year_range}）` : '') + (d.year_uncertain ? ' ⚠️' : '');
   }
-  const hay = d => (d.name + ' ' + (d.real || '') + ' ' + (d.hee1 || '')).toLowerCase();
+  const hay = d => (d.name + ' ' + (d.name_ja || '') + ' ' + (d.real || '') + ' ' + (d.hee1 || '')).toLowerCase();
   function matches(d, q) { const id = q.replace(/[\[\]]/g, ''); return d.id.toLowerCase() === id || hay(d).includes(q); }
   function visibleBase(d) {
     if (state.trunk && d.trunk !== state.trunk && !isLand(d)) return false;
@@ -580,7 +602,7 @@ small.term { color: var(--sub); font-weight: 400; }
     const hits = q ? nodes.filter(d => matches(d, q)).length : 0;
     document.getElementById('stat').textContent = (q ? `「${state.q.trim()}」${hits} 件・` : '') +
       `モノ ${prods.length}・発見 ${nodes.filter(isIdea).length}・技術 ${nodes.length - prods.length - nodes.filter(isIdea).length}・つながり ${edges.length} 本・前提より古い技術（年の逆転）${G.inversions} 件`;
-    document.getElementById('hint').textContent = det ? 'すべての技術を表示中' : 'ズームすると技術が見えます（モノを選んでも）';
+    document.getElementById('hint').textContent = tr(det ? 'すべての技術を表示中' : 'ズームすると技術が見えます（モノを選んでも）');
   }
 
   // ---- カード ----

@@ -28,6 +28,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "docs" / "TECH_TREE.md"
 EXTRA_SRC = [ROOT / "docs" / "products.md", ROOT / "docs" / "ideas.md"]
+# 英語（O-021）：ノードの名前とへえ①の英訳。docs/network_en.json（{番号: {name, hee1}}）。図とページで日本語／英語を切り替える
+EN_SRC = ROOT / "docs" / "network_en.json"
+EN = {k: v for k, v in json.loads(EN_SRC.read_text(encoding="utf-8")).items() if not k.startswith("_")} if EN_SRC.exists() else {}
 OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
 JSON_OUT = ROOT / "docs" / "tech_network.json"
 JS_OUT = ROOT / "docs" / "tech_network.js"          # 以前の全部入り（NET-05 で分けたので消す）
@@ -524,6 +527,7 @@ def export_json(nodes):
                           "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
                           "understanding": n["understand"], "buildable_now": i in now,
                           "real": field(n["body"], r"本物"), "hee1": field(n["body"], r"へえ①?"),
+                          "name_en": EN.get(i, {}).get("name"), "hee1_en": EN.get(i, {}).get("hee1") or None,
                           "kind": kind_of(n["body"]),
                           "play": field(n["body"], r"遊び方"), "missing": field(n["body"], r"足りない"),
                           "sources": [clean_url(u) for u in re.findall(r"https?://[^\s／]+", field_all(n["body"], r"出典"))],
@@ -585,7 +589,7 @@ def export_json(nodes):
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
     # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
-    light_keys = ("id", "name", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
+    light_keys = ("id", "name", "name_en", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
                   "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
     kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p", "tool": "t", "same": "s"}

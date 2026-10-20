@@ -91,6 +91,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     <a href="people.html">人物の一覧</a>
     <a href="#10-16">AI までの道</a>
     <input type="search" id="go" placeholder="番号か名前で移動（例 9-07）" aria-label="ノードへ移動">
+    <button type="button" id="langBtn" class="btn" lang="en">English</button>
   </nav>
   <main id="page"><p class="muted">読み込み中…</p></main>
 </div>
@@ -107,6 +108,13 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
   };
   const REPO = 'https://github.com/taku3i0317-collab/semiconductor-lab';
   const nodes = data.nodes, byId = new Map(nodes.map(n => [n.id, n]));
+  // 日本語／英語（O-021）：network.html と同じ保存（tn-lang）。英語はノードの名前とへえ①だけ
+  let LANG = 'ja';
+  try { LANG = localStorage.getItem('tn-lang') === 'en' ? 'en' : 'ja'; } catch (e) { /* 保存できない環境 */ }
+  document.documentElement.lang = LANG;
+  document.getElementById('langBtn').textContent = LANG === 'en' ? '日本語' : 'English';
+  document.getElementById('langBtn').addEventListener('click', () => { try { localStorage.setItem('tn-lang', LANG === 'en' ? 'ja' : 'en'); } catch (e) { /* 保存できない */ } location.reload(); });
+  if (LANG === 'en') for (const n of nodes) { n.name_ja = n.name; if (n.name_en) n.name = n.name_en; }
   const isProd = n => n.kind === 'product', isIdea = n => n.kind === 'idea';
   const kids = new Map(), parentsOf = new Map();
   for (const e of data.edges) if (e.kind === 'requires') {
@@ -224,7 +232,7 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
 
     // へえ①〜④：ゲームの説明（lang）→ 参考文献（REFERENCES）→ TECH_TREE の順に探す
     const ref = d.refs[0];
-    const hee = k => d.hee_game['note' + k] || (ref && ref.hee[k]) || (k === '1' ? d.hee1 : d.hee_tree[k]) || '';
+    const hee = k => (LANG === 'en' && k === '1' && d.hee1_en) || d.hee_game['note' + k] || (ref && ref.hee[k]) || (k === '1' ? d.hee1 : d.hee_tree[k]) || '';
     const levels = [['1', '①子ども'], ['2', '②学生'], ['3', '③大人'], ['4', '④ガチ']];
     const heeHtml = levels.map(([k, lv]) => hee(k) ? `<div class="lv">${lv}</div><div>${rich(hee(k))}</div>` : '').join('');
 
@@ -297,7 +305,9 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
     const issue = (template, tag) => `${REPO}/issues/new?` + new URLSearchParams({
       template, title: `[${tag}] [${d.id}] ${d.name}`, node: d.id
     }).toString();
-    const issues = [['1-year-person.yml', '年・人物', '年・人物の誤り'], ['2-prerequisite.yml', 'つながり', '前提（つながり）の誤り'], ['3-source.yml', '出典', '出典の追加']]
+    const issues = (LANG === 'en'
+      ? [['1-year-person.yml', 'year/person', 'Wrong year or person'], ['2-prerequisite.yml', 'link', 'Wrong prerequisite (link)'], ['3-source.yml', 'source', 'Add a source']]
+      : [['1-year-person.yml', '年・人物', '年・人物の誤り'], ['2-prerequisite.yml', 'つながり', '前提（つながり）の誤り'], ['3-source.yml', '出典', '出典の追加']])
       .map(([t, tag, label]) => `<a class="btn" href="${issue(t, tag)}" target="_blank" rel="noopener">${label}</a>`).join(' ');
     const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span class="muted">または</span> ')).join('<br>');
 
