@@ -409,6 +409,35 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-22] 反射防止膜（IMP2-01）：蒸着装置でレンズ＋蛍石 CaF2 → 反射防止膜付きレンズ。1/4 波長の膜で反射 約4.3% → 約2.2%（式で確かめる） */
+    @GameTest
+    public void antiReflectionCoating(GameTestHelper h) {
+        var E = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.class;
+        var r1 = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.CROWN_LENS), new ItemStack(Metallurgy.FLUORITE));
+        var r2 = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.FLINT_LENS), new ItemStack(Metallurgy.FLUORITE));
+        h.assertTrue(r1 != null && r1.product() == Optics.COATED_CROWN_LENS, "crown lens + CaF2 -> coated crown lens");
+        h.assertTrue(r2 != null && r2.product() == Optics.COATED_FLINT_LENS, "flint lens + CaF2 -> coated flint lens");
+        h.assertTrue(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.CROWN_GLASS), new ItemStack(Metallurgy.SILVER_NUGGET)).product() == Optics.HALF_SILVERED_MIRROR, "half mirror still");
+        // 物理の確かめ：ガラス n=1.52 の裸の面 R0、CaF2 n=1.43 を 1/4 波長付けた面 R1（空気 n=1）
+        double ng = 1.52, nf = 1.43;
+        double r0 = Math.pow((ng - 1) / (ng + 1), 2), rq = Math.pow((ng - nf * nf) / (ng + nf * nf), 2);
+        h.assertTrue(Math.abs(r0 - 0.0426) < 0.001 && Math.abs(rq - 0.0217) < 0.001, "R: bare " + r0 + " -> coated " + rq);
+        // 機械で：0.004Pa でコートができる
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), ep = p(2, 1, 1);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(ep, com.taku3.semiconductorlab.content.Vacuum.EVAPORATOR.block);
+        var c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        var e = h.getBlockEntity(ep, E);
+        e.getContainer().setItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_SUBSTRATE, new ItemStack(Optics.CROWN_LENS));
+        e.getContainer().setItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_METAL, new ItemStack(Metallurgy.FLUORITE));
+        c.setPressure(0.004);
+        tickConsumer(h, ep, e, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS));
+        h.assertTrue(e.getContainer().getItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_OUT).is(Optics.COATED_CROWN_LENS), "evaporator coats the lens");
+        LOG.info("[LAB] anti-reflection [7-22]: lens + CaF2 (quarter wave) -> coated lens; R {} -> {}", String.format("%.3f", r0), String.format("%.3f", rq));
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),

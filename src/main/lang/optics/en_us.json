@@ -181,5 +181,17 @@
   "item.semiconductor-lab.interferometer.count": "  Moving the mirror %s mm with the screw, %s fringes passed",
   "item.semiconductor-lab.interferometer.length": "  Length = %s fringes x %s nm / 2 = %s mm (light waves as the ruler)",
   "item.semiconductor-lab.interferometer.white": "Flame light is a mixture of colors, so only a few fringes show where the two paths are equal, and they wash out. Point it at a lit mercury lamp",
-  "item.semiconductor-lab.interferometer.hint": "Needs light of one color: right-click a lit mercury lamp"
+  "item.semiconductor-lab.interferometer.hint": "Needs light of one color: right-click a lit mercury lamp",
+  "item.semiconductor-lab.coated_crown_lens": "Coated Crown Lens",
+  "item.semiconductor-lab.coated_crown_lens.note1": "A lens with an invisibly thin film on its surface that reduces reflection. It glints slightly purple.",
+  "item.semiconductor-lab.coated_crown_lens.note2": "Vacuum evaporator: crown lens + fluorite (CaF2). With the film a quarter wavelength thick, light reflected from its top and bottom cancels. Reflection per surface about 4.3% -> about 2.2%.",
+  "item.semiconductor-lab.coated_crown_lens.note3": "In 1936 John Strong published a way to reduce reflection with vacuum-evaporated CaF2 films. In 1938 Katharine Blodgett stacked monolayers of a soap-like compound to make 'invisible glass'.",
+  "item.semiconductor-lab.coated_crown_lens.note4": "4% per surface means over half the light is lost with 20 surfaces, turning into glaring ghosts (stray light). A projection lens [7-19] with dozens of elements could not be made without coatings. The ideal film index is sqrt(glass index) ~ 1.23; MgF2 (1.38) is closer than CaF2 (1.43).",
+  "item.semiconductor-lab.coated_crown_lens.placeholder": "Approximation: a single layer only. CaF2 films are soft and scratch easily (in reality they were used only on inner lens surfaces).",
+  "item.semiconductor-lab.coated_flint_lens": "Coated Flint Lens",
+  "item.semiconductor-lab.coated_flint_lens.note1": "A flint concave lens with an anti-reflection coating.",
+  "item.semiconductor-lab.coated_flint_lens.note2": "Vacuum evaporator: flint lens + fluorite (CaF2). Flint has a higher index (about 1.6), so its bare surface reflects more than crown (about 5%).",
+  "item.semiconductor-lab.coated_flint_lens.note3": "Around World War II, coated binoculars and periscopes stayed bright even at dusk.",
+  "item.semiconductor-lab.coated_flint_lens.note4": "A quarter-wave film works best for one color only. To cut reflection across colors, several films of different index are stacked (multilayers). EUV mirrors [7-17] use multilayers the other way round, to reflect strongly.",
+  "item.semiconductor-lab.coated_flint_lens.placeholder": "Approximation: a single layer only. CaF2 films are soft and scratch easily."
 }

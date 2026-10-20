@@ -617,6 +617,20 @@
 - Wikipedia「Michelson–Morley experiment」：https://en.wikipedia.org/wiki/Michelson%E2%80%93Morley_experiment
 - NobelPrize.org「Albert A. Michelson – Facts」：https://www.nobelprize.org/prizes/physics/1907/michelson/facts/
 
+## O18. 薄い膜で反射を消す（反射防止膜）［7-22］
+**答え**：レンズの表面に光の波長の 1/4 の厚さの膜を付けると、膜の表と裏ではね返った光の山と谷が打ち消し合い、反射が減る。1936年ジョン・ストロングが真空蒸着した CaF2 の膜で発表し、1938年にはブロジェットの単分子膜（見えないガラス）も現れた。
+
+- へえ①：薄い膜を重ねると、ガラスが「見えなく」なる。
+- へえ②：レンズの面1つで約4% はね返る。20面あれば光の半分以上が失われ、まぶしいゴーストになる。
+- へえ③：理想の膜の屈折率は √(ガラスの屈折率)≈1.23。CaF2（1.43）より MgF2（1.38）が近く、のちの定番になった。
+- へえ④：何十枚も重ねる露光装置の投影レンズは、反射防止膜がなければ成り立たない。EUV の鏡は多層膜を逆に「よく反射する」ように使う。
+
+確かさ：1/4 波長膜の原理と反射率の式 ◎／ストロング 1936 の論文 ○（JOSA 26:73、特許文献の引用）／CaF2 膜の実用 1938・内側の面 ○（キングレイク 1951 の記述として）／ブロジェット 1938 ◎
+根拠：
+- Optica「John D. Strong」：https://www.optica.org/History/Biographies/bios/John-D--Strong
+- APS「This Month in Physics History: Katharine Blodgett」：https://www.aps.org/apsnews/2007/03/this-month-in-physics-history
+- Wikipedia「Anti-reflective coating」：https://en.wikipedia.org/wiki/Anti-reflective_coating
+
 ---
 
 # 冶金と熱（タスク15〜）

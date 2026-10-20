@@ -16,7 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * 隣の真空容器（ベルジャー）を使い、圧力が {@link #MAX_PA} 以下のときだけ動く（平均自由行程 ≈ 6.6mm·Pa ÷ p。
  * 0.01Pa なら約 0.66m で、ベルジャーより長い＝蒸発した原子が途中でぶつからずに、まっすぐ基板に付く）。
  * 1回ごとにベルジャーを開けて基板を入れ替えるので、空気が少し戻る（{@link #VENT_FRACTION}）。
- * 何に何を付けると何になるかは {@link #recipe} に1行ずつ（今は クラウンガラス＋銀 → 半透明鏡）。
+ * 何に何を付けると何になるかは {@link #RECIPES} に1行ずつ（クラウンガラス＋銀 → 半透明鏡、[7-22] レンズ＋蛍石 CaF2 → 反射防止膜付きレンズ）。
  */
 public class EvaporatorBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 300;
@@ -29,14 +29,20 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
     /** 蒸着の組み合わせ：基板＋金属（count 個）→ 製品 */
     public record Recipe(Item substrate, Item metal, int count, Item product) {}
 
-    /** 基板と金属から、使う組み合わせを探す（なければ null） */
+    /** 蒸着の組み合わせの表（基板・付ける物・個数・製品）。足すときはここに1行 */
+    public static final java.util.List<Recipe> RECIPES = java.util.List.of(
+            new Recipe(Optics.CROWN_GLASS, Metallurgy.SILVER_NUGGET, 1, Optics.HALF_SILVERED_MIRROR),
+            // [7-22] 反射防止膜（ストロング 1936）：CaF2（蛍石 [1-21]）を波長の 1/4 の厚さに付ける
+            new Recipe(Optics.CROWN_LENS, Metallurgy.FLUORITE, 1, Optics.COATED_CROWN_LENS),
+            new Recipe(Optics.FLINT_LENS, Metallurgy.FLUORITE, 1, Optics.COATED_FLINT_LENS));
+
+    /** 基板と付ける物から、使う組み合わせを探す（なければ null） */
     public static Recipe recipe(ItemStack substrate, ItemStack metal) {
-        if (substrate.is(Optics.CROWN_GLASS) && metal.is(Metallurgy.SILVER_NUGGET))
-            return new Recipe(Optics.CROWN_GLASS, Metallurgy.SILVER_NUGGET, 1, Optics.HALF_SILVERED_MIRROR);
+        for (Recipe r : RECIPES) if (substrate.is(r.substrate()) && metal.is(r.metal())) return r;
         return null;
     }
-    public static boolean isSubstrate(ItemStack s) { return s.is(Optics.CROWN_GLASS); }
-    public static boolean isMetal(ItemStack s) { return s.is(Metallurgy.SILVER_NUGGET); }
+    public static boolean isSubstrate(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.substrate())); }
+    public static boolean isMetal(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.metal())); }
 
     private final ContainerData menuData = new ContainerData() {
         @Override public int get(int i) {

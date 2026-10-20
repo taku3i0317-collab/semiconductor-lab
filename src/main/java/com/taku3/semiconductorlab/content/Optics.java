@@ -57,6 +57,9 @@ public final class Optics {
     public static final Item HALF_SILVERED_MIRROR  = Reg.item("half_silvered_mirror");
     // [7-09] マイケルソン干渉計（IMP2-01）：半透明鏡＋スペキュラム鏡×2＋送りねじ（動く鏡）＋鉄の台。水銀の緑線 546.1nm で長さを測る
     public static final Item INTERFEROMETER        = Reg.item("interferometer", InterferometerItem::new, new Item.Properties().stacksTo(1));
+    // [7-22] 反射防止膜（IMP2-01）：真空蒸着装置でレンズに CaF2 を 1/4 波長の厚さ付けたもの（表面の反射 約4% → 約2%）。投影レンズ [7-19] の材料
+    public static final Item COATED_CROWN_LENS     = Reg.item("coated_crown_lens");
+    public static final Item COATED_FLINT_LENS     = Reg.item("coated_flint_lens");
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
