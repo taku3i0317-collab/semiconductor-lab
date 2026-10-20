@@ -291,5 +291,15 @@
   "item.semiconductor-lab.malachite.note2": "塩基性炭酸銅 Cu2CO3(OH)2。かまど（溶鉱炉なら速い）で銅インゴット。熱で CuO・CO2・H2O に分かれ、燃料の炭素（CO）が CuO から酸素を取る：CuO + C → Cu + CO。",
   "item.semiconductor-lab.malachite.note3": "セルビアのベロヴォデ遺跡では、約7000年前（紀元前5000年ごろ）に銅を製錬した跡（スラグ）が見つかっている。製錬にはマンガンを含む緑黒い銅の酸化鉱を使い、きれいな孔雀石はビーズにしていた。古代エジプトでは、すりつぶして目のまわりの化粧にもした。",
   "item.semiconductor-lab.malachite.note4": "孔雀石は約300℃で分解して黒い酸化銅になり、炭火の中の一酸化炭素で約800℃から還元が進む。銅の融点は 1085℃なので、溶かして固まりにするにはふいごで風を送る炉が要った。硫黄を含まないので、硫化鉱より簡単で、最初に使われた銅鉱石になった。",
-  "item.semiconductor-lab.malachite.placeholder": "近似：かまど（≈1000℃）で還元と溶解をまとめて行う（燃料の C/CO で還元。CHEMISTRY #38 と同じ扱い）。CO2・水蒸気は回収しない。"
+  "item.semiconductor-lab.malachite.placeholder": "近似：かまど（≈1000℃）で還元と溶解をまとめて行う（燃料の C/CO で還元。CHEMISTRY #38 と同じ扱い）。CO2・水蒸気は回収しない。",
+  "block.semiconductor-lab.cassiterite_ore": "錫石の鉱石",
+  "block.semiconductor-lab.cassiterite_ore.note1": "花こう岩の中に、黒っぽい重い粒が入った岩。スズの鉱石。",
+  "block.semiconductor-lab.cassiterite_ore.note2": "花こう岩の中だけにできる（y−10〜70、鉄マンガン重石と同じ帯）。鉄のツルハシ以上で錫石が落ちる。",
+  "block.semiconductor-lab.cassiterite_ore.note3": "スズとタングステンは、花こう岩が冷えるときに最後に残った熱い水から、同じ鉱脈にいっしょに沈殿することが多い。イギリスのコーンウォールは青銅器時代からのスズの産地。",
+  "block.semiconductor-lab.cassiterite_ore.note4": "錫石はとても重く（密度 約7）、さびない。岩が風化しても川の砂の中に残って集まる（漂砂鉱床）。マレーシアやインドネシアの大きなスズ鉱山は、この川や海の砂を掘っている（ゲームでは花こう岩の中だけ）。",
+  "item.semiconductor-lab.cassiterite": "錫石",
+  "item.semiconductor-lab.cassiterite.note1": "黒っぽくて重い石。炭と焼くとスズが出てくる。",
+  "item.semiconductor-lab.cassiterite.note2": "酸化スズ(IV) SnO2。モース硬度 6〜7 と固い。かまどで木炭（燃料の炭素）と焼くとスズのインゴット [1-30]。",
+  "item.semiconductor-lab.cassiterite.note3": "名前はギリシャ語の「スズ（kassiteros）」から。銅にまぜて青銅を作るため、古代の人はスズを遠くまで運んで取り引きした。",
+  "item.semiconductor-lab.cassiterite.note4": "SnO2 は水にも酸にもほとんど溶けない、とても安定な酸化物。だから地表で風化しても残る。透明な SnO2 の薄い膜は電気を通すので、今は窓ガラスの断熱膜や太陽電池の電極（FTO）にも使われる。"
 }

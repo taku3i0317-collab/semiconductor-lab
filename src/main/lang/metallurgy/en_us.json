@@ -291,5 +291,15 @@
   "item.semiconductor-lab.malachite.note2": "Basic copper carbonate Cu2CO3(OH)2. Furnace (faster in a blast furnace) -> copper ingot. Heat splits it into CuO, CO2 and H2O, and carbon (CO) from the fuel takes the oxygen: CuO + C -> Cu + CO.",
   "item.semiconductor-lab.malachite.note3": "At Belovode in Serbia, slag from copper smelting about 7000 years ago (around 5000 BC) has been found. The smelters used a manganese-rich, greenish-black oxidized copper ore, and kept pure malachite for beads. In ancient Egypt malachite was also ground and worn as eye paint.",
   "item.semiconductor-lab.malachite.note4": "Malachite decomposes into black copper oxide at about 300 C, and carbon monoxide in a charcoal fire reduces it from about 800 C. Copper melts at 1085 C, so a furnace blown with bellows was needed to melt it into a lump. Having no sulfur, it is easier than sulfide ore and became the first copper ore used.",
-  "item.semiconductor-lab.malachite.placeholder": "Approximation: the furnace (~1000 C) does reduction and melting in one step (reduced by the fuel's C/CO, as in CHEMISTRY #38). CO2 and steam are not collected."
+  "item.semiconductor-lab.malachite.placeholder": "Approximation: the furnace (~1000 C) does reduction and melting in one step (reduced by the fuel's C/CO, as in CHEMISTRY #38). CO2 and steam are not collected.",
+  "block.semiconductor-lab.cassiterite_ore": "Cassiterite Ore",
+  "block.semiconductor-lab.cassiterite_ore.note1": "Granite with dark, heavy grains in it. Tin ore.",
+  "block.semiconductor-lab.cassiterite_ore.note2": "Only in granite (y-10-70, the same belt as wolframite). An iron pickaxe or better drops cassiterite.",
+  "block.semiconductor-lab.cassiterite_ore.note3": "Tin and tungsten often settle together in the same veins from the last hot water left as granite cools. Cornwall in England has produced tin since the Bronze Age.",
+  "block.semiconductor-lab.cassiterite_ore.note4": "Cassiterite is very heavy (density about 7) and does not weather. When rock breaks down it stays behind and gathers in river sand (placer deposits). Big tin mines in Malaysia and Indonesia dig such river and sea sands (in the game it is only in granite).",
+  "item.semiconductor-lab.cassiterite": "Cassiterite",
+  "item.semiconductor-lab.cassiterite.note1": "A dark, heavy stone. Bake it with charcoal and tin comes out.",
+  "item.semiconductor-lab.cassiterite.note2": "Tin(IV) oxide SnO2. Hard (Mohs 6-7). Bake it in a furnace with charcoal (the fuel's carbon) for a tin ingot [1-30].",
+  "item.semiconductor-lab.cassiterite.note3": "The name comes from the Greek for tin (kassiteros). To make bronze with copper, ancient people carried tin long distances and traded it.",
+  "item.semiconductor-lab.cassiterite.note4": "SnO2 hardly dissolves in water or acids; it is a very stable oxide, so it survives weathering at the surface. Thin transparent SnO2 films conduct electricity, and are used today for insulating window coatings and solar cell electrodes (FTO)."
 }

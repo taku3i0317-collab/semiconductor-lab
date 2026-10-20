@@ -1,1 +1,1 @@
-{ "replace": false, "values": [ "semiconductor-lab:sphalerite_ore", "semiconductor-lab:magnetite_ore", "semiconductor-lab:wolframite_ore", "semiconductor-lab:galena_ore" ] }
+{"replace": false, "values": ["semiconductor-lab:sphalerite_ore", "semiconductor-lab:magnetite_ore", "semiconductor-lab:wolframite_ore", "semiconductor-lab:galena_ore", "semiconductor-lab:cassiterite_ore"]}

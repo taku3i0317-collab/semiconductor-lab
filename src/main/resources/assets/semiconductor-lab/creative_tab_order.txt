@@ -10,6 +10,8 @@ galena  # Metallurgy [1-27] -3500
 litharge  # Metallurgy [1-27] -3500
 lead_ingot  # Metallurgy [1-27] -3500
 galena_ore  # Metallurgy [1-27] -3500
+cassiterite  # Metallurgy [1-22] -3000
+cassiterite_ore  # Metallurgy [1-22] -3000
 vein_quartz  # Metallurgy [1-46] -2500
 quartz_vein  # Metallurgy [1-46] -2500
 magnetite  # Metallurgy [1-47] -600

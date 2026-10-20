@@ -29,6 +29,7 @@ public final class Metallurgy {
     // --- 第1章：入手 ---
     public static final Item MAGNETITE             = Reg.item("magnetite");
     public static final Item WOLFRAMITE            = Reg.item("wolframite");
+    public static final Item CASSITERITE           = Reg.item("cassiterite");      // [1-22] 錫石 SnO2（IMP2-01。花崗岩の鉱脈、鉄マンガン重石と同じ帯）
     public static final Item MALACHITE             = Reg.item("malachite");        // [1-03] 孔雀石 Cu2CO3(OH)2（IMP2-01。銅鉱床の上の酸化帯）
     public static final Item GALENA                = Reg.item("galena");
     public static final Item GRAPHITE              = Reg.item("graphite");
@@ -90,6 +91,8 @@ public final class Metallurgy {
     public static final Block WOLFRAMITE_ORE = Reg.ore("wolframite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.5f, 3.0f).sound(SoundType.STONE));
     // [1-03] 孔雀石（IMP2-01）：銅鉱床の上の、地表に近い酸化帯。浅い石の中（y40〜110）。モース硬度 3.5〜4
     public static final Block MALACHITE_ORE  = Reg.ore("malachite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
+    // [1-22] 錫石（IMP2-01）：花崗岩の熱水鉱脈（鉄マンガン重石といっしょ）。固い（モース硬度 6〜7）
+    public static final Block CASSITERITE_ORE = Reg.ore("cassiterite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().strength(3.5f, 3.0f).sound(SoundType.STONE));
     public static final Block GALENA_ORE     = Reg.ore("galena_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     // [2-03] トロナ堆積（干上がった塩湖の蒸発岩 Na2CO3·NaHCO3·2H2O）。砂漠の地表〜浅い地下の砂・砂岩に生成。軟らかい（モース硬度 2.5〜3）
     public static final Block BORAX_DEPOSIT  = Reg.ore("borax_deposit", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.0f).sound(SoundType.STONE));   // [1-33] ホウ砂（砂漠の塩湖の蒸発岩）
