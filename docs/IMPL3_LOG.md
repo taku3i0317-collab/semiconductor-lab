@@ -47,3 +47,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [0-17] 家畜化（O-004-2、②＋①、遊び方: 実験）：新しい動物は作らない。繁殖させた牛・羊・山羊の子に世代タグ semilab_gen_N（親の大きい方＋1、mixin/AnimalBreedingMixin → entity/Domestication）、最初の繁殖で進捗「家畜化のはじまり」、3世代目で「牛／羊／山羊の家畜化」（新しい進捗タブ domestication、説明がへえ）。バニラの牛・羊・山羊のスポーンエッグに へえ①〜④（lang の vanilla 部品）。GameTest domestication（本当の繁殖で mixin が世代を付けるのも確認）、CHEMISTRY S22、REFERENCES S11。テスト 131/131
   - 共通ファイル：mixins.json に "AnimalBreedingMixin" を1行
 - ✅ [0-13] 荷車（O-002 の続き、決定どおり進捗のみ）：進捗 domestication/cart（「牛の家畜化」の下、木の車輪を手に入れると達成、説明がへえ①）。テストは domestication に1つ足した
+- 幹0 は [0-01]〜[0-19] の全ノードが ✅（INBOX O-001〜O-004 完了）。INBOX の新しい指示を待つ（2026-10-20 16:20〜）
