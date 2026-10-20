@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:vinegar",
+    "semiconductor-lab:vinegar",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sodium_acetate",
+    "count": 1
+  }
+}

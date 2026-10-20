@@ -4,5 +4,17 @@
   "block.semiconductor-lab.refrigerator.note2": "圧縮機＋銅×2＋鉄×6。電気 1kW・20秒。冷媒の入口にアンモニア水を1つ（減らない）、水バケツ → 氷（バケツは戻る）。",
   "block.semiconductor-lab.refrigerator.note3": "1876年、ドイツのリンデはアンモニアを使う圧縮式の冷凍機を作り、ビール工場で冬でなくても冷やせるようになった。リンデはのちに空気を液化して酸素と窒素を分けた（[6-07] 空気分離）。",
   "block.semiconductor-lab.refrigerator.note4": "圧縮すると熱くなった冷媒を外で冷やして液にし、細い所から一気に広げると蒸発してまわりの熱をうばう。熱を低い所から高い所へ運ぶので「ヒートポンプ」とも言う。半導体工場の空調・恒温（[12-12]・[8-07]）も、この仕組みで温度をそろえる。",
-  "block.semiconductor-lab.refrigerator.placeholder": "近似：冷媒は本物は無水アンモニア（ここではアンモニア水）。食べ物の腐敗はバニラにないので、冷蔵庫の働きは作らない。"
+  "block.semiconductor-lab.refrigerator.placeholder": "近似：冷媒は本物は無水アンモニア（ここではアンモニア水）。食べ物の腐敗はバニラにないので、冷蔵庫の働きは作らない。",
+  "item.semiconductor-lab.vinegar": "酢",
+  "item.semiconductor-lab.vinegar.note1": "お酒を空気にさらしておくとできる、すっぱい液。",
+  "item.semiconductor-lab.vinegar.note2": "発酵した液（酒）を発酵のかめに入れて待つと2つ。酢2＋水酸化ナトリウム → 酢酸ナトリウム。酢酸は約5%。",
+  "item.semiconductor-lab.vinegar.note3": "空気の中の酢酸菌が、アルコールを酸素で酢酸にする：C2H5OH + O2 → CH3COOH + H2O。",
+  "item.semiconductor-lab.vinegar.note4": "1864年パスツールが、酢は酢酸菌（ミコデルマ・アセチ）が作ることを示した。酢は、木酢液 [2-23] の酢酸より何千年も古い、人類の最初の酸。",
+  "item.semiconductor-lab.vinegar.placeholder": "近似：酢酸の濃さは固定。",
+  "item.semiconductor-lab.pasteurized_wine": "低温殺菌した酒",
+  "item.semiconductor-lab.pasteurized_wine.note1": "少し温めて、中の菌を減らしたお酒。かめに入れても酢にならない。",
+  "item.semiconductor-lab.pasteurized_wine.note2": "発酵した液をたき火で少し温めて作る。発酵のかめに入れようとしても入らない（菌がいないので酢にならない）。温めていない酒とくらべよう。",
+  "item.semiconductor-lab.pasteurized_wine.note3": "約60℃で数分温めると、味を変えずに、酢にする菌や腐らせる菌を減らせる。煮立てるとアルコールが飛んで味が変わる。",
+  "item.semiconductor-lab.pasteurized_wine.note4": "1864年パスツールが、フランスのワインが酸っぱくなる病気を、この方法で防げると示した。牛乳パックの「殺菌」の英語（パスチャライズ）は彼の名前から。",
+  "item.semiconductor-lab.pasteurized_wine.placeholder": "近似：温度はたき火で表した。"
 }

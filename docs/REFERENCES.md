@@ -2864,6 +2864,19 @@
 - Wikipedia「Voltaic pile」：https://en.wikipedia.org/wiki/Voltaic_pile
 - Wikipedia「Daniell cell」：https://en.wikipedia.org/wiki/Daniell_cell
 
+## C49. お酒が酢になるわけと、それを防ぐ方法（酢・低温殺菌）［11-10］［11-15］
+**答え**：お酒を空気にさらしておくと、空気の中の酢酸菌がアルコールを酢酸にして酢になる（C2H5OH + O2 → CH3COOH + H2O）。1864年パスツールがこれを示し、フランスのワインが酸っぱくなる「病気」は、約60℃で数分温めて菌を減らせば防げることを見つけた（低温殺菌、パスチャライゼーション）。今は牛乳などにも使われる。ビール・ワインは紀元前数千年から作られてきた（ジョージアのワインは紀元前6000年ごろ）。
+
+- へえ①：お酒を空気にさらしておくと酢になる。
+- へえ②：牛乳パックの「殺菌」の英語はパスツールの名前から。
+- へえ③：酢は、人類が最初に使った酸。
+- へえ④：煮立てずに少し温めるだけで、味を変えずに菌を減らせる。
+
+確かさ：パスツール 1864（酢酸菌・低温殺菌）◎／ジョージアのワイン 紀元前6000年ごろ ○
+根拠：
+- Wikipedia「Vinegar」/「Acetobacter」：https://en.wikipedia.org/wiki/Vinegar
+- Wikipedia「Pasteurization」：https://en.wikipedia.org/wiki/Pasteurization
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

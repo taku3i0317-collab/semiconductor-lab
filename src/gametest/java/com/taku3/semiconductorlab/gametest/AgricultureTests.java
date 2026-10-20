@@ -34,4 +34,21 @@ public class AgricultureTests extends LabTestBase {
         LOG.info("[LAB] refrigerator [11-13]: ammonia compression, water bucket -> ice in 20 s at 1 kW, refrigerant kept");
         h.succeed();
     }
+
+    /** [11-10] 酢・[11-15] 低温殺菌（IMP3、S-005）：酒をかめに入れて3段 → 酢2。たき火で温めた酒はかめに入らない（酢にならない） */
+    @GameTest
+    public void vinegarPasteurization(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Chemistry.FERMENTED_WASH).is(Agriculture.PASTEURIZED_WINE), "gently heated -> pasteurized");
+        floor(h, 3);
+        BlockPos rel = p(1, 1, 1); BlockPos pos = h.absolutePos(rel);
+        h.setBlock(rel, Chemistry.FERMENTATION_CROCK);
+        var level = h.getLevel(); var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertFalse(com.taku3.semiconductorlab.block.FermentationCrockBlock.fill(level, pos, player, new ItemStack(Agriculture.PASTEURIZED_WINE)), "pasteurized wine does not sour");
+        h.assertTrue(com.taku3.semiconductorlab.block.FermentationCrockBlock.fill(level, pos, player, new ItemStack(Chemistry.FERMENTED_WASH)), "wine in the open crock");
+        for (int i = 0; i < 3; i++) com.taku3.semiconductorlab.block.FermentationCrockBlock.ferment(level, pos);
+        h.assertTrue(com.taku3.semiconductorlab.block.FermentationCrockBlock.collect(level, pos, player), "done");
+        h.assertTrue(player.getInventory().countItem(Agriculture.VINEGAR) == 2 && player.getInventory().countItem(Chemistry.WILD_YEAST) == 0, "acetic acid bacteria -> 2 vinegar");
+        h.assertTrue(recipeUses(h, "sodium_acetate_from_vinegar", Agriculture.VINEGAR), "vinegar -> sodium acetate");
+        h.succeed();
+    }
 }

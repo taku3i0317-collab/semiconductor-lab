@@ -4,5 +4,17 @@
   "block.semiconductor-lab.refrigerator.note2": "Compressor + 2 copper + 6 iron. 1 kW, 20 s. One ammonia water in the refrigerant slot (not used up); water bucket -> ice (the bucket returns).",
   "block.semiconductor-lab.refrigerator.note3": "In 1876 the German Linde built an ammonia compression refrigerating machine, letting breweries cool without winter ice. Linde later liquefied air to separate oxygen and nitrogen ([6-07] air separation).",
   "block.semiconductor-lab.refrigerator.note4": "The compressed, heated refrigerant is cooled outside into a liquid, then expanded suddenly through a narrow opening so it evaporates and draws heat from around it. It moves heat from cold to hot, so it is also called a heat pump. Semiconductor fab air conditioning and constant temperature ([12-12], [8-07]) work the same way.",
-  "block.semiconductor-lab.refrigerator.placeholder": "Approximation: the real refrigerant is anhydrous ammonia (ammonia water here). Vanilla has no food spoilage, so there is no refrigerator function."
+  "block.semiconductor-lab.refrigerator.placeholder": "Approximation: the real refrigerant is anhydrous ammonia (ammonia water here). Vanilla has no food spoilage, so there is no refrigerator function.",
+  "item.semiconductor-lab.vinegar": "Vinegar",
+  "item.semiconductor-lab.vinegar.note1": "A sour liquid you get by leaving alcohol open to the air.",
+  "item.semiconductor-lab.vinegar.note2": "Put fermented wash (alcohol) in a fermentation crock and wait for 2. 2 vinegar + sodium hydroxide -> sodium acetate. About 5% acetic acid.",
+  "item.semiconductor-lab.vinegar.note3": "Acetic acid bacteria from the air turn alcohol into acetic acid with oxygen: C2H5OH + O2 -> CH3COOH + H2O.",
+  "item.semiconductor-lab.vinegar.note4": "In 1864 Pasteur showed that vinegar is made by acetic acid bacteria (Mycoderma aceti). Vinegar is humanity's first acid, thousands of years older than acetic acid from wood vinegar [2-23].",
+  "item.semiconductor-lab.vinegar.placeholder": "Approximation: acetic acid strength is fixed.",
+  "item.semiconductor-lab.pasteurized_wine": "Pasteurized Wine",
+  "item.semiconductor-lab.pasteurized_wine.note1": "Alcohol warmed a little to cut down the germs in it. It will not turn to vinegar in the crock.",
+  "item.semiconductor-lab.pasteurized_wine.note2": "Warm fermented wash briefly on a campfire. The fermentation crock refuses it (no germs, so no vinegar). Compare with unheated wash.",
+  "item.semiconductor-lab.pasteurized_wine.note3": "A few minutes at about 60 C reduces the souring and spoiling germs without changing the taste. Boiling would drive off the alcohol and change the flavour.",
+  "item.semiconductor-lab.pasteurized_wine.note4": "In 1864 Pasteur showed this prevents the 'disease' that soured French wine. 'Pasteurize' on milk cartons is his name.",
+  "item.semiconductor-lab.pasteurized_wine.placeholder": "Approximation: the temperature is represented by a campfire."
 }
