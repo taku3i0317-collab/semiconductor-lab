@@ -742,6 +742,23 @@
 - Wikipedia「Sodium thiosulfate」（写真の定着）：https://en.wikipedia.org/wiki/Sodium_thiosulfate
 - Wikipedia「Photomask」：https://en.wikipedia.org/wiki/Photomask
 
+## O23. 波長が短いほど細かく描ける（露光の方法と解像度、アッベの限界）［7-10］［9-20］［9-39］［7-20］［7-16］［9-40］（LITHO_DESIGN §3 の出典）
+**答え**：レンズで写せるいちばん細かい線は、光の波長 λ とレンズの開口数 NA で決まる（アッベ 1873：d ≈ λ／2NA。露光ではレイリーの式 CD ＝ k1 × λ ÷ NA、k1 は工程の工夫で 0.25〜0.8 ほど）。だから露光の歴史は「短い波長・大きい NA」の歴史：水銀の g線 436nm → i線 365nm → KrF 248nm → ArF 193nm → 水を入れて NA を 1 より大きく（液浸）→ EUV 13.5nm。
+
+- へえ①：光の顕微鏡では、光の波長より細かい物は見えない（アッベ）。
+- へえ②：最初の密着露光（1960年ごろ）はマスクをウェハーにじかに押し当てた。マスクがすぐ傷むので、1973年にパーキンエルマーのマイクラライン（等倍の投影、鏡を使う）、1978年に GCA の DSW4800（g線、10分の1に縮める最初のステッパー）が出た。
+- へえ③：液浸は、レンズとウェハーのあいだを水（屈折率 1.44）で満たして NA を 1.35 まで上げた。
+- へえ④：EUV（13.5nm）はどんな物質にも吸われるのでレンズが作れず、多層膜の鏡で光を集める。
+
+ゲームでの使い方（LITHO_DESIGN §3）：方眼の1辺のマス数 N は CD から決める。CD のめやす：密着 約10µm（N 8）・等倍投影 約3µm（N 12）・g線ステッパー 約1µm（N 16）・i線 約0.35µm（N 24）・KrF 約0.13µm（N 36）・ArF 約65nm（N 44）・ArF 液浸 約38nm（N 52）・EUV 約13nm（N 72）。
+
+確かさ：アッベの限界・レイリーの式 ◎／マイクラライン 1973（最初の投影アライナー）○（Wikipedia・SHMJ）／DSW4800 1978（最初のステッパー、g線、10:1）○（SHMJ。1975 とする資料もある）／各方法の CD の値 △（世代のめやす。とくに密着 10µm・等倍投影 3µm・DSW の 1µm は製品資料で未確認）→ ゲーム内は ⚠️
+根拠：
+- Wikipedia「Micralign」：https://en.wikipedia.org/wiki/Micralign
+- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper
+- 半導体産業人協会 日本半導体歴史館（SHMJ）「露光装置の歴史」：https://www.shmj.or.jp/english/pdf/process/exhibi421E.pdf
+- SHMJ「GCA DSW4800」：https://shmj.or.jp/english/pdf/em/exhibi2446E.pdf
+
 ---
 
 # 冶金と熱（タスク15〜）
