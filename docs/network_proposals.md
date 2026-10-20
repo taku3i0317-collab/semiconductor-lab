@@ -34,3 +34,40 @@
 | T-2 | [15-14] 情報理論 に「種類: 発見」を付ける（同上） | 「解説のみ」のノードで、作るモノではない | ✅ 採用（IMP-24）。**反映済み（IMP-24、TECH_TREE [15-14] ❓）** |
 | T-3 | [14-15] ロケット（年 1903＝ツィオルコフスキーのロケット方程式）を「ロケットの原理（発見）」と分けるか検討 | 年が方程式（考え方）の年で、モノの液体燃料ロケット 1926 は [P-02] にした | ✅ 採用（IMP-24）。**反映済み（IMP-24、TECH_TREE [14-15] ❓）** |
 | T-4 | [9-01] Ge 帯域精製 の「理解:」に偏析の考え方を、[9-39]・[9-40] にアッベの限界を書くかどうか | 今は ideas.md 側の「前提になる／説明する」だけでつないでいる | ✖ 不採用：理解のつながりは ideas.md だけに置く |
+
+## ⚠️ の裏取り（NET-03：公開前の自己監査）
+TECH_TREE の ⚠️ が付いた年・人物を、出典で1つずつ確かめた結果。古い順・本線（[10-16] AI までの道）を先にする。TECH_TREE の ⚠️ を外す・年を直すのは実装担当。
+判定：◎ ⚠️ を外してよい（信頼できる出典2つ以上）／○ ○ にしてよい（出典1つ）／△ ⚠️ を残す（理由つき）／✖ 間違い（「正しくは…」）
+対象：⚠️ のあるノード 145（うち本線 102）。第1弾は本線の古い順に 20 ノード・26 件。
+
+### 第1弾（2026-10-20）
+| # | ノード | 主張 | 判定 | 結果 | 出典 |
+|---|---|---|---|---|---|
+| V-01 | [0-02] 火起こし | 年 -1000000、火の利用は約100万年前（ワンダーワーク洞窟） | ◎ | ⚠️ を外してよい。ただし証拠は「火を使った」までで「火をおこした」ではないので、文は「火の利用」のままに | https://pmc.ncbi.nlm.nih.gov/articles/PMC3356665 , https://www.bu.edu/articles/2012/playing-with-fire-2/ , https://www.sciencenews.org/article/ashes-oldest-controlled-fire |
+| V-02 | [3-01] たき火 | 年 -1000000、火の利用は約100万年前 | ◎ | 同上。「炉を使い続けた」とまでは言えない | https://pmc.ncbi.nlm.nih.gov/articles/PMC3356665 , https://www.sciencenews.org/article/ashes-oldest-controlled-fire |
+| V-03 | [0-12] 木炭 | 洞窟壁画の顔料として約3万年前（年 -30000） | ◎ | ショーヴェ洞窟の木炭画が約3万〜3万2000年前。燃えさしの炭で、炭焼きで作った炭ではない | https://www.scientificamerican.com/article/scientists-confirm-great , https://whc.unesco.org/document/152648 |
+| V-04 | [0-12] 木炭 | 製錬用の大量生産は紀元前4000年頃 | △ | この年を示す出典なし。最古の銅製錬（セルビア・ベロヴォデ）が紀元前5000年頃なので、「銅の製錬（紀元前5000年頃〜）とともに燃料として重要に」と書き直す案 | https://discovery.ucl.ac.uk/id/eprint/1470180/ , https://www.penn.museum/sites/expedition/fuel-for-the-metal-worker/ |
+| V-05 | [0-08] 木工 | ほぞ組みの木製井戸枠 約7000年前（ドイツ） | ◎ | ライプツィヒ近郊の線帯文土器文化の井戸、オーク材は年輪で紀元前5206〜5098年 | https://www.sciencedaily.com/releases/2012/12/121220080130.htm , https://kommunikation.uni-freiburg.de/pm-en/press-releases-2012/pm.2012-12-19.366-en |
+| V-06 | [0-08] 木工 | 年 -9000（磨製石斧の始まり） | △ | 第1弾では未確認。第2弾で調べる | — |
+| V-07 | [0-10] 石灰焼成 | 石灰しっくいは紀元前9000〜7000年頃（ギョベクリ・テペ、チャタル・ヒュユク） | ✖（一部） | 正しくは「焼いた石灰は約1万2000年前のナトゥーフ文化（イスラエル、ナハル・エイン・ゲヴ II）が最古級、ギョベクリ・テペ（紀元前9600年頃〜）にも焼いた石灰のテラゾー床。レバントの先土器新石器B期（約1万年前）に広まる」。チャタル・ヒュユクの壁は主に泥灰土（マール）で例に向かない。年 -9000 はギョベクリ・テペを例にすれば合う | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10427327/ , https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe , https://discovery-pp.ucl.ac.uk/1521981/1/Camurcuoglu%26Siddall16.pdf |
+| V-08 | [0-06] 織物 | 亜麻繊維の痕跡は約3万年前（ズズアナ洞窟） | ◎ | Science 2009（Kvavadze ら）、約3.6万〜3.1万年前 | https://dash.harvard.edu/handle/1/4270521 , https://www.npr.org/2009/09/10/112726804/these-vintage-threads-are-30-000-years-old |
+| V-09 | [0-06] 織物 | 亜麻布は約9000年前（ナハル・ヘマル） | ○（年を直す） | 場所は正しい。年代は紀元前8210〜7300年で「約1万年前」が近い。年 -7000 → -8000 の候補 | https://pmc.ncbi.nlm.nih.gov/articles/PMC4977467/ |
+| V-10 | [0-11] 消石灰・漆喰 | 年 -7000 | ◎ | アイン・ガザルの石灰しっくい像（紀元前7200〜6250年、スミソニアン：紀元前6500年頃） | https://en.wikipedia.org/wiki/Ayn_Ghazal_statues , https://mci.si.edu/ain-ghazal-statues |
+| V-11 | [0-15] 窯 | 年 -6000（最古の窯） | ◎ | イラク・ヤリム・テペ（ハッスーナ文化）、紀元前6000年頃 | https://en.wikipedia.org/wiki/Pit_fired_pottery , https://www.guinnessworldrecords.com/world-records/first-pottery-kilns |
+| V-12 | [0-15] 窯 | 焼成レンガは紀元前3500年頃 | ✖ | 正しくは「最古の焼成レンガは中国・城頭山（大渓文化）の紀元前4400年頃」。紀元前3500年を残すなら「西アジアでは」と書く。出典は Wikipedia だけなので、直したあとも ⚠️ は残す | https://en.wikipedia.org/wiki/Brick , https://en.wikipedia.org/wiki/Chengtoushan |
+| V-13 | [0-16] 塩田 | 年 -6000（製塩の始まり） | ◎ | ルーマニア・ポイアナ・スラティネイで紀元前6050〜5500年に塩泉の水を土器で煮詰めた（Antiquity 2005） | https://www.antiquity.ac.uk/projgall/weller306/ , https://en.wikipedia.org/wiki/Briquetage |
+| V-14 | [11-10] 酒と酢 | 年 -6000（酒の始まり） | ◎（範囲を広げる案） | ジョージアのワイン 紀元前6000〜5800年（PNAS 2017）。中国・賈湖の発酵酒は紀元前7000年頃なので、範囲の始まりを -7000 にする候補 | https://www.ift.org/news-and-publications/scientific-journals/news/2017/november/21/earliest-evidence-of-winemaking-dates-to-about-6000-bc , https://nationalgeographic.com/history/article/oldest-winemaking-grapes-georgia-archaeology |
+| V-15 | [11-10] 酒と酢 | 1864 パスツールが酢は酢酸菌が作ると示した | ◎ | 1864年の論文で Mycoderma aceti。1861〜62 にも発表、本『酢の研究』は1868 | https://collections.nlm.nih.gov/ocr/nlm:nlmuid-101237604-bk , https://lpsn.dsmz.de/species/mycoderma-aceti |
+| V-16 | [0-07] 羊毛と紡錘車 | 羊毛用の品種は紀元前4000年頃 | △ | 紀元前6000年頃説から紀元前4000〜3500年の定説まで幅がある。⚠️ を残す | https://en.wikipedia.org/wiki/Sheep , https://publications.dainst.org/journals/efb/article/view/1945/6085 |
+| V-17 | [1-27] 鉛 | 年 -3500（古代の鉛製錬） | ✖ | 正しくは「方鉛鉱の処理は紀元前4400〜4300年（ルーマニア・ピエトレレ）、最古の鉛の像はアビドスの紀元前3800年頃」。年を -4000 前後（範囲つき）に | https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6457500/ , https://en.wikipedia.org/wiki/Metals_of_antiquity |
+| V-18 | [1-05] 青銅 | 青銅より前はヒ素銅 | ◎ | 近東・イラン高原では銅器時代（紀元前4500〜3000年頃）の主な金属がヒ素銅。セルビア・プロチュニクに紀元前4650年頃の錫青銅の箔があるので「近東では」と付けると正確 | https://journals.ut.ac.ir/article_82711.html , https://discovery-pp.ucl.ac.uk/id/eprint/1529309 |
+| V-19 | [1-22] 錫石 | 年 -3000（錫の利用の始まり） | ○ | 錫青銅の最初の証拠は紀元前3000年頃の近東・バルカン。どこで錫を掘ったかは未解明 | https://en.wikipedia.org/wiki/Tin_mine , https://research.brighton.ac.uk/en/publications/beaker-and-early-bronze-age-tin-exploitation-in-cornwall-cassiter/ |
+| V-20 | [1-43] アンチモン | 年 -3000（輝安鉱のアイシャドウ） | ◎ | 輝安鉱は少なくとも紀元前3000年からコールに使われた | https://en.wikipedia.org/wiki/Stibnite , https://www.chemeurope.com/en/encyclopedia/Antimony.html |
+| V-21 | [1-43] アンチモン | 1540 ビリングッチョ『ピロテクニア』 | ◎（年と書名）／△（鉄で還元） | 1540 ヴェネツィア刊、アンチモンの取り出し方を書いた欧州最古の本は確認。「鉄で硫黄を奪う」方法が書いてあるかは未確認なので、その部分だけ ⚠️ を残す | https://en.wikipedia.org/wiki/De_la_pirotechnia , https://aimehq.org/themes/custom/aime/doclibrary/library/pirotechnia-of-vannoccio-biringuccio-1943.html |
+| V-22 | [2-02] カリ | 年 -3000 | △（年を直す案） | -3000 を直接支える出典なし。シュメール（ギルス）の粘土板に約4500年前、羊毛を洗った記録 → -2500 にして ⚠️ を残す案 | https://en.wikipedia.org/wiki/Potash , https://www.earthdate.org/files/000/002/734/EarthDate_274_C.pdf |
+| V-23 | [2-09] 石けん | 紀元前2800年頃バビロニアの粘土板に処方 | ✖（一部） | 正しくは「紀元前2800年頃のバビロンの粘土の円筒から石けんのような物質（刻文は『灰を脂と煮た』）。処方の粘土板はもっと後（紀元前2500年頃とも2200年頃とも）」。年 -2800 はそのまま、粘土板の年代は ⚠️ を残す | https://en.wikipedia.org/wiki/Soap |
+| V-24 | [1-46] 珪石 | 年 -2500 | △ | 何の出来事の年か本文から読めない。水晶の利用は中石器時代の刃物や青銅器時代のビーズ・印章までさかのぼる。年が何を指すかを決めて書き直す | https://www.iranicaonline.org/articles/crystal-rock-bolur-bolur-e-kuhi/ |
+| V-25 | [2-03] 天然ソーダ | ナトロンでミイラ作り・年 -2500 | ○（年を直す） | 最初の証拠は古王国第4王朝（紀元前2600年頃、ヘテプヘレス1世の内臓箱）。「第4王朝（紀元前2600年頃）」と書けば ○、年 -2600 | https://www.spurlock.illinois.edu/exhibits/online/mummification/history2.html , https://giza.fas.harvard.edu/objects/54956/full/ |
+| V-26 | [2-14] ソーダ石灰ガラス | 紀元前2500年頃メソポタミア（最初のガラス） | △ | コーニングガラス美術館は約4000年前（紀元前2000年頃）、Wikipedia などは紀元前2500年頃のビーズ。「紀元前2500〜2000年頃、メソポタミアのビーズ」として ⚠️ を残す | https://whatson.cmog.org/exhibitions-galleries/origins-glassmaking , https://en.wikipedia.org/wiki/History_of_glass |
+
+まとめ（第1弾、26 件）：◎ 12・○ 3・△ 6・✖ 4・◎と△の混在 1（[1-43] ビリングッチョ）（[0-10] 石灰の例、[0-15] 焼成レンガ、[1-27] 鉛の年、[2-09] 石けんの粘土板）。年を直す候補：[0-06] -8000、[1-27] -4000 前後、[2-03] -2600、[2-02] -2500、[11-10] 範囲 -7000〜。
