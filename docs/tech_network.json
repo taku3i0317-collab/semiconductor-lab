@@ -5493,7 +5493,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "理科室のビーカーが火にかけても割れないのはホウ素のおかげ",
    "kind": "tech",
    "play": "",
@@ -7649,7 +7649,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "M3. 風を送ると火はもっと熱くなる（ふいご）［3-04］",
+     "answer": "火に風を送って酸素を多く入れると、木炭がよく燃えて約1200〜1300℃になる。ふつうのたき火（約800℃）では鉄鉱石から鉄はとれないが、ふいごを使う炉ならとれる。エジプトのレクミラの墓（TT100、第18王朝、紀元前1450年ごろ）の壁画には、足で踏むふいごで金属を溶かす職人が描かれている。",
+     "hee": {
+      "1": "風を送ると火はもっと熱くなる。",
+      "2": "西暦31年、中国・後漢の杜詩は水車でふいごを動かした（「水排」）。人の足のかわりに川の力で風を送り続けられる。",
+      "3": "日本のたたら製鉄の「たたら（踏鞴）」は、もともと足で踏む大きなふいごの名前。",
+      "4": "高炉［1-09］は、強い風をずっと送り続けないと鉄が溶けて流れ出ない。だから水車ふいごが高炉の前提になる。"
+     },
+     "certainty": "ふいご＋木炭で約1200〜1300℃（TECH_TREE の決定）○／レクミラの墓の壁画の年代 ○／杜詩 31年の水排 ○（ニーダム『中国の科学と文明』第4巻2部）／たたら＝踏鞴 ○",
+     "basis": "TECH_TREE［3-04］、ニーダム『Science and Civilisation in China』Vol. 4 Part 2（機械工学、水排）、テーベの貴族の墓 TT100（レクミラ）の壁画"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -7659,7 +7672,7 @@
    "name": "ふいご",
    "trunk": "3",
    "trunk_name": "熱",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -1450,
    "year_range": null,
@@ -7677,10 +7690,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "風を送ると火はもっと熱くなる。日本のたたらの名前は、このふいごのこと",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -7754,7 +7767,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "コークスを燃やし強い風を送る高い炉で、鉄が液体で流れ出る",
    "kind": "tech",
    "play": "",
@@ -7891,7 +7904,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "るつぼに入れて溶かすと、燃料や炎が中身を汚さない",
    "kind": "tech",
    "play": "",
@@ -22827,7 +22840,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ポートランド島の石に色が似ていたので名前が付いた",
    "kind": "tech",
    "play": "",
