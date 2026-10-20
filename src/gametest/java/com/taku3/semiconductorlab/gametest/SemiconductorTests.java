@@ -508,7 +508,7 @@ public class SemiconductorTests extends LabTestBase {
         tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS + 5, feed);
         h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT).isEmpty(), "no nitric acid -> nothing");
         lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
-        LOG.info("[LAB] cleaning [9-14] stage 1: nitric + HF + distilled water clean 8 wafers to dirt 0 after every layer (max dirt {}); NOT example -> 4 discoveries", maxDirt);
+        LOG.info("[LAB] cleaning [9-14] stage 1: nitric + HF + distilled water clean 8 wafers to dirt 0 after every layer (max dirt {}); NOT example -> all discoveries", maxDirt);
         h.succeed();
     }
 
@@ -665,7 +665,7 @@ public class SemiconductorTests extends LabTestBase {
         ItemStack again = coat.apply(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out());
         h.assertTrue(again.isEmpty(), "already coated -> cannot coat again");
         lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
-        LOG.info("[LAB] resist [2-32] + spin coater [9-19]: novolac + DNQ + xylene -> resist (spoils in sunlight); coater coats 8 wafers per layer; NOT example -> 4 discoveries");
+        LOG.info("[LAB] resist [2-32] + spin coater [9-19]: novolac + DNQ + xylene -> resist (spoils in sunlight); coater coats 8 wafers per layer; NOT example -> all discoveries");
         h.succeed();
     }
 
@@ -705,7 +705,7 @@ public class SemiconductorTests extends LabTestBase {
         h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "NOT example with the stripper -> all discoveries");
         h.assertTrue(com.taku3.semiconductorlab.block.ResistStripperBlockEntity.product(w).isEmpty(), "no resist -> nothing to strip");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
-        LOG.info("[LAB] resist stripper: H2SO4 + H2O2 strips 8 wafers per run (rework too); NOT example -> 4 discoveries");
+        LOG.info("[LAB] resist stripper: H2SO4 + H2O2 strips 8 wafers per run (rework too); NOT example -> all discoveries");
         h.succeed();
     }
 
@@ -750,7 +750,7 @@ public class SemiconductorTests extends LabTestBase {
         }
         h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "coater -> develop -> strip machines: NOT example -> all discoveries");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(p(2, 1, 2))).inflate(4)).forEach(net.minecraft.world.entity.Entity::discard);
-        LOG.info("[LAB] developer [9-21]: dilute NaOH develops exposed wafers (8 per run); coater + developer + stripper machines -> NOT example 4 discoveries");
+        LOG.info("[LAB] developer [9-21]: dilute NaOH develops exposed wafers (8 per run); coater + developer + stripper machines -> NOT example all discoveries");
         h.succeed();
     }
 
