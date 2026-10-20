@@ -18,7 +18,12 @@ public class NoteTooltip {
             if (battery != null) lines.add(Component.translatable("tooltip.semiconductor-lab.battery_energy",
                     com.taku3.semiconductorlab.energy.EnergyStorage.format(battery), com.taku3.semiconductorlab.energy.EnergyStorage.format(com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY)).withStyle(ChatFormatting.AQUA));
             String ph = key(id, "placeholder");
-            if (ph != null) lines.add(Component.translatable(ph).withStyle(ChatFormatting.YELLOW));
+            // 「省略：」（en は Omitted / Simplified）は Shift のときだけ。「近似：」「未実装」はいつも出す（化学ルール1：本物と違うところは隠さない）
+            boolean omittedHidden = false;
+            if (ph != null) {
+                Component phc = Component.translatable(ph).withStyle(ChatFormatting.YELLOW);
+                if (!isOmitted(phc.getString()) || shiftDown()) lines.add(phc); else omittedHidden = true;
+            }
             // へえ①（子ども）は常に表示、へえ②（学生）は Shift。旧 .note は .note2 扱い。.note3/.note4 はガイドブック用
             String note1 = key(id, "note1");
             if (note1 != null) lines.add(Component.translatable(note1).withStyle(ChatFormatting.GRAY));
@@ -34,8 +39,32 @@ public class NoteTooltip {
                                 preview(Language.getInstance().getOrDefault(k))).withStyle(ChatFormatting.DARK_AQUA));
                     }
                 } else lines.add(Component.translatable("tooltip.semiconductor-lab.shift").withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC));
-            }
+            } else if (omittedHidden) lines.add(Component.translatable("tooltip.semiconductor-lab.shift").withStyle(ChatFormatting.DARK_GRAY, ChatFormatting.ITALIC));
+            wrap(lines);
         });
+    }
+
+    /** ツールチップの1行の幅（px）。これより長い行は折り返す（バニラの長い説明と同じくらい、IMP-30） */
+    public static final int WIDTH = 200;
+
+    /** 「省略：」の行か（ja・en） */
+    static boolean isOmitted(String s) { return s.startsWith("省略") || s.startsWith("Omitted") || s.startsWith("Simplified"); }
+
+    /** 1行目（アイテムの名前）より後ろの長い行を WIDTH で折り返す。色・書式は行の中でもそのまま */
+    static void wrap(java.util.List<Component> lines) {
+        var font = Minecraft.getInstance().font;
+        java.util.List<Component> out = new java.util.ArrayList<>();
+        for (int i = 0; i < lines.size(); i++) {
+            Component c = lines.get(i);
+            if (i == 0 || font.width(c) <= WIDTH) { out.add(c); continue; }
+            for (var ft : font.getSplitter().splitLines(c, WIDTH, net.minecraft.network.chat.Style.EMPTY)) {
+                var m = Component.empty();
+                ft.visit((style, text) -> { m.append(Component.literal(text).setStyle(style)); return java.util.Optional.empty(); }, net.minecraft.network.chat.Style.EMPTY);
+                out.add(m);
+            }
+        }
+        lines.clear();
+        lines.addAll(out);
     }
 
     /** 画面の自動チェック（IMP-30 ScreenChecks）用：null ならキーボードの Shift、true/false ならそのふりをする */

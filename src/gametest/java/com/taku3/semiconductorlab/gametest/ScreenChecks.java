@@ -173,36 +173,49 @@ public class ScreenChecks implements FabricClientGameTest {
         int[] invLabel = {8, s.panelHeight() - 94, font.width(Component.translatable("container.inventory")), LINE_H};
         List<int[]> slots = new ArrayList<>();
         for (MachineLayout.SlotDef d : m.layout.slots()) slots.add(new int[] {d.x() - 1, d.y() - 1, 18, 18});
-        Map<String, Integer> allowed = new HashMap<>();   // 文のキーの頭 → その列に入る幅
+        // 文のキーの頭 → その文を描いた場所（最初の行の x・y）。状態で切り替わるほかの文も、ここに入るかを後で調べる
+        Map<String, int[]> slotOfText = new HashMap<>();
         for (int i = 0; i < draws.size(); i++) {
             var d = draws.get(i);
-            int[] r = {d.x(), d.y(), d.width(), LINE_H};
+            int[] r = {d.x(), d.y(), d.width(), d.height()};
             String what = where + " \"" + d.text().getString() + "\"";
             if (d.x() < EDGE || d.x() + d.width() > w - EDGE) problems.add(what + " sticks out (x " + d.x() + "〜" + (d.x() + d.width()) + ", panel 0〜" + w + ")");
-            if (d.y() < EDGE || d.y() + LINE_H > INV_TOP) problems.add(what + " is outside the upper part (y " + d.y() + ")");
+            if (d.y() < EDGE || d.y() + d.height() > INV_TOP) problems.add(what + " is outside the upper part (y " + d.y() + "〜" + (d.y() + d.height()) + ")");
+            if (d.scale() < MachineScreen.MIN_SCALE - 1e-3f) problems.add(what + " is shrunk below " + MachineScreen.MIN_SCALE);
             if (overlap(r, title)) problems.add(what + " overlaps the title");
             if (overlap(r, invLabel)) problems.add(what + " overlaps the inventory label");
             for (int[] sl : slots) if (overlap(r, sl)) { problems.add(what + " overlaps a slot at (" + (sl[0] + 1) + "," + (sl[1] + 1) + ")"); break; }
             for (int j = i + 1; j < draws.size(); j++) {
                 var e = draws.get(j);
-                if (overlap(r, new int[] {e.x(), e.y(), e.width(), LINE_H})) problems.add(what + " overlaps \"" + e.text().getString() + "\"");
+                if (overlap(r, new int[] {e.x(), e.y(), e.width(), e.height()})) problems.add(what + " overlaps \"" + e.text().getString() + "\"");
             }
-            if (d.text().getContents() instanceof TranslatableContents tc && tc.getKey().startsWith("gui." + NS + ".")) {
-                String prefix = tc.getKey().substring(0, tc.getKey().lastIndexOf('.') + 1);
-                boolean centered = Math.abs(d.x() * 2 + d.width() - w) <= 2;
-                int room = centered ? w - 2 * EDGE : w - EDGE - d.x();
-                allowed.merge(prefix, room, Math::min);
+            if (d.key() != null && d.key().startsWith("gui." + NS + ".") && !d.formula() && Math.abs(d.x() * 2 + d.width() - w) > 2) {
+                String prefix = d.key().substring(0, d.key().lastIndexOf('.') + 1);
+                slotOfText.merge(prefix, new int[] {d.x(), d.y()}, (a, b) -> a[1] <= b[1] ? a : b);
             }
-            report.add(where + " text \"" + d.text().getString() + "\" x=" + d.x() + " y=" + d.y() + " w=" + d.width());
+            report.add(where + " text \"" + d.text().getString() + "\" x=" + d.x() + " y=" + d.y() + " w=" + d.width() + " h=" + d.height()
+                    + (d.scale() < 1 ? " scale=" + d.scale() : "") + (d.formula() ? " (formula line)" : ""));
         }
-        // まだ描かれていない文（状態で切り替わる表示）も、同じ列に入るか
-        for (var e : allowed.entrySet()) {
+        // まだ描かれていない文（状態で切り替わる表示）も、同じ場所で折り返し・縮小（MIN_SCALE まで）すれば入るか。画面と同じ計算
+        boolean hasFormula = strings.containsKey("gui." + NS + "." + m.name + ".recipe");
+        int limit = (hasFormula ? s.panelHeight() - 94 : s.panelHeight() - 84) - 1;
+        Object[] args = {SAMPLE_ARG, SAMPLE_ARG, SAMPLE_ARG, SAMPLE_ARG};
+        for (var e : slotOfText.entrySet()) {
+            int x = e.getValue()[0], top = e.getValue()[1], room = Math.max(8, w - EDGE - x);
             for (String key : strings.keySet()) {
-                if (!key.startsWith(e.getKey())) continue;
-                Object[] args = {SAMPLE_ARG, SAMPLE_ARG, SAMPLE_ARG, SAMPLE_ARG};
-                int tw = font.width(Component.translatable(key, args));
-                if (tw > e.getValue()) problems.add(where + " lang " + key + " is " + tw + " px wide, room " + e.getValue() + " px (\"" + Component.translatable(key, args).getString() + "\")");
+                if (!key.startsWith(e.getKey()) || key.endsWith(".recipe")) continue;
+                var c = Component.translatable(key, args);
+                int n = font.split(c, (int) (room / MachineScreen.MIN_SCALE)).size();
+                float h = ((n - 1) * MachineScreen.LINE + font.lineHeight) * MachineScreen.MIN_SCALE;
+                if (top + h > limit + 1) problems.add(where + " lang " + key + " does not fit even when wrapped and shrunk (" + n + " lines from y " + top + ", bottom " + limit + "): \"" + c.getString() + "\"");
             }
+        }
+        // 反応式（….recipe）は「持ち物」の右の行に、MIN_SCALE まで縮めて入るか
+        int fRoom = (w - 8) - (8 + font.width(Component.translatable("container.inventory")) + 6);
+        for (String key : strings.keySet()) {
+            if (!key.equals("gui." + NS + "." + m.name + ".recipe")) continue;
+            int fw = font.width(Component.translatable(key));
+            if (fw * MachineScreen.MIN_SCALE > fRoom) problems.add(where + " formula " + key + " is " + fw + " px, does not fit " + fRoom + " px even shrunk");
         }
     }
 
