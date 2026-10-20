@@ -17,6 +17,15 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.DOUBLE)
                     .build());
 
+    // [9-35] プローバー（O-017）：ウェハーのチップごとの良否（ビット i＝チップ i が良品）。ダイシングで印の付いたチップは捨てる
+    public static final DataComponentType<Integer> DIE_MAP = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("die_map"),
+            DataComponentType.<Integer>builder()
+                    .persistent(Codec.INT)
+                    .networkSynchronized(ByteBufCodecs.INT)
+                    .build());
+
     // 鉛蓄電池 [4-07] の残量（J）。壊してもアイテムに残り、置き直すと戻る（タスク06）
     public static final DataComponentType<Long> BATTERY_ENERGY = Registry.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE,

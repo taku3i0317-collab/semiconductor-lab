@@ -26,6 +26,10 @@ public class NoteTooltip {
                 lines.add(Component.translatable("tooltip.semiconductor-lab.contamination", chip.contamination()).withStyle(ChatFormatting.GOLD));
             if (chip != null && chip.overlayNm() > 0)
                 lines.add(Component.translatable("tooltip.semiconductor-lab.overlay", String.format("%.1f", chip.overlayNm() / 1000.0)).withStyle(ChatFormatting.GOLD));
+            // [9-35] プローバーの結果（ウェハー：良品の数、チップ：良品の印）
+            Integer dies = stack.get(com.taku3.semiconductorlab.ModDataComponents.DIE_MAP);
+            if (dies != null) lines.add((dies < 0 ? Component.translatable("tooltip.semiconductor-lab.die_good")
+                    : Component.translatable("tooltip.semiconductor-lab.die_map", Integer.bitCount(dies & 0xFF), com.taku3.semiconductorlab.item.DiamondScribeItem.CHIPS_PER_WAFER)).withStyle(ChatFormatting.GREEN));
             // ブロックのアイテムは block.<id>.… に書いてあるので、item. → block. の順で探す
             Language lang = Language.getInstance();
             String base = lang.has("item." + id) || !lang.has("block." + id) ? "item." + id : "block." + id;

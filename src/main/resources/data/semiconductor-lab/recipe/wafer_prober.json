@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WMW",
+    "SBS",
+    "SCS"
+  ],
+  "key": {
+    "W": "semiconductor-lab:tungsten_wire",
+    "M": "semiconductor-lab:compound_microscope",
+    "S": "semiconductor-lab:steel_ingot",
+    "B": "semiconductor-lab:ball_screw",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:wafer_prober",
+    "count": 1
+  }
+}

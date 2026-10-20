@@ -216,5 +216,7 @@
   "litho.semiconductor-lab.challenge.half_adder.hint4": "④ In 1937 George Stibitz built a 1-bit binary adder from telephone relays on his kitchen table (the 'Model K').",
   "litho.semiconductor-lab.challenge.half_adder.history": "A half adder: the same job as Stibitz's relay 'Model K' of 1937, now on one chip.",
   "advancement.semiconductor-lab.self.root.title": "Found on your own",
-  "advancement.semiconductor-lab.self.root.description": "Challenges solved without opening any hint."
+  "advancement.semiconductor-lab.self.root.description": "Challenges solved without opening any hint.",
+  "tooltip.semiconductor-lab.die_map": "Probed: %s of %s chips good",
+  "tooltip.semiconductor-lab.die_good": "Probed: good chip"
 }

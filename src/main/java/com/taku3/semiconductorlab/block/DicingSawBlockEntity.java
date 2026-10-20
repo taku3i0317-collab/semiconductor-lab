@@ -46,7 +46,7 @@ public class DicingSawBlockEntity extends ConsumerBlockEntity {
     /** 1枚を切ったチップ（欠けた数を引く）。chip_state をそのまま写す */
     public static ItemStack saw(ItemStack wafer, int grade, RandomSource random) {
         ItemStack chips = DiamondScribeItem.scribe(wafer, random);   // 形と chip_state はけがき針と同じ
-        chips.setCount(DiamondScribeItem.CHIPS_PER_WAFER - (random.nextFloat() < BREAK_CHANCE[Math.min(3, grade)] ? 1 : 0));
+        chips.setCount(Math.max(0, DiamondScribeItem.good(wafer) - (random.nextFloat() < BREAK_CHANCE[Math.min(3, grade)] ? 1 : 0)));   // プローバーの印のチップは捨てる
         return chips;
     }
 
@@ -66,6 +66,7 @@ public class DicingSawBlockEntity extends ConsumerBlockEntity {
         ItemStack w = container.getItem(SLOT_WAFER);
         ItemStack chips = saw(w, stageGrade(), level == null ? RandomSource.create() : level.getRandom());
         w.shrink(1);
+        if (chips.isEmpty()) { container.setChanged(); return; }   // 全部に印が付いていた
         ItemStack blade = container.getItem(SLOT_BLADE);
         blade.setDamageValue(blade.getDamageValue() + 1);
         if (blade.getDamageValue() >= blade.getMaxDamage()) container.setItem(SLOT_BLADE, ItemStack.EMPTY);   // 刃がすり減った

@@ -37,10 +37,17 @@ public class DiamondScribeItem extends Item {
 
     /** ウェハー1枚を割ったチップ（欠けた数を引いたもの）。chip_state をそのまま写す */
     public static ItemStack scribe(ItemStack wafer, RandomSource random) {
-        int n = CHIPS_PER_WAFER - (random.nextFloat() < BREAK_CHANCE ? 1 : 0);
+        int n = good(wafer) - (random.nextFloat() < BREAK_CHANCE ? 1 : 0);
         ItemStack chips = new ItemStack(Semiconductor.CHIP, n);
         chips.set(ModDataComponents.CHIP_STATE, wafer.get(ModDataComponents.CHIP_STATE));
+        if (wafer.has(ModDataComponents.DIE_MAP)) chips.set(ModDataComponents.DIE_MAP, -1);   // プローバーを通った良品（ツールチップ）
         return chips;
+    }
+
+    /** 割って使うチップの数：プローバー [9-35] で調べたウェハーは良品だけ（インクの印のチップは捨てる）、調べていなければ全部 */
+    public static int good(ItemStack wafer) {
+        Integer map = wafer.get(ModDataComponents.DIE_MAP);
+        return map == null ? CHIPS_PER_WAFER : Integer.bitCount(map & ((1 << CHIPS_PER_WAFER) - 1));
     }
 
     @Override
@@ -51,11 +58,12 @@ public class DiamondScribeItem extends Item {
         if (!wafer.is(Semiconductor.PROCESS_WAFER)) { p.sendSystemMessage(Component.translatable(K + "hold")); return InteractionResult.SUCCESS; }
         if (!finished(wafer)) { p.sendSystemMessage(Component.translatable(K + "not_finished")); return InteractionResult.SUCCESS; }
         ItemStack chips = scribe(wafer, level.getRandom());
-        int got = chips.getCount();
+        int got = chips.getCount(), inked = CHIPS_PER_WAFER - good(wafer);
         wafer.shrink(1);
-        if (!p.getInventory().add(chips)) net.minecraft.world.level.block.Block.popResource(level, p.blockPosition(), chips);
+        if (got > 0 && !p.getInventory().add(chips)) net.minecraft.world.level.block.Block.popResource(level, p.blockPosition(), chips);
         p.getItemInHand(hand).hurtAndBreak(1, p, hand);
-        p.sendSystemMessage(Component.translatable(K + "done", got, CHIPS_PER_WAFER - got));
+        p.sendSystemMessage(Component.translatable(K + "done", got, CHIPS_PER_WAFER - got - inked));
+        if (inked > 0) p.sendSystemMessage(Component.translatable(K + "inked", inked));
         return InteractionResult.SUCCESS;
     }
 }

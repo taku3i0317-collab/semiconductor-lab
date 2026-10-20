@@ -482,6 +482,7 @@ chip  # Semiconductor [9-32] 1960
 diamond_blade  # Semiconductor [9-32] 1960
 rubylith  # Semiconductor [7-11] 1960
 spin_coater  # Semiconductor [9-19] 1960
+wafer_prober  # Semiconductor [9-35] 1960
 dicing_saw  # Semiconductor [9-32] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
 cleaning_bench  # Semiconductor [9-14] 1965

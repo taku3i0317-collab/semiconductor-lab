@@ -1721,6 +1721,48 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-35] プローバー段階1（O-017）：きれいなウェハーは 8個とも良品、とても汚れたウェハーは悪いチップが出る。台のボールねじがないと動かない。
+     * 調べたウェハーをダイシングすると良品だけが出る（印のチップは捨てる）
+     */
+    @GameTest(maxTicks = 200)
+    public void waferProber(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER, 2); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack clean = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        clean = com.taku3.semiconductorlab.litho.ChipOps.clean(clean, 0).out();
+        var rnd = net.minecraft.util.RandomSource.create(7);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaferProberBlockEntity.test(clean, rnd), 0xFF, "a clean wafer: all 8 chips good");
+        ItemStack dirty = com.taku3.semiconductorlab.litho.ChipOps.addDust(clean.copy(), 35);
+        int bad = 0;
+        for (int i = 0; i < 20; i++) bad += 8 - Integer.bitCount(com.taku3.semiconductorlab.block.WaferProberBlockEntity.test(dirty, rnd));
+        h.assertTrue(bad > 0, "a very dirty wafer has bad chips (leakage), " + bad + " of 160");
+        // 機械：台がないと動かない、あれば 4秒で die_map
+        h.setBlock(p(1, 1, 1), Semiconductor.WAFER_PROBER.block);
+        var be = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.WaferProberBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.WaferProberBlockEntity.SLOT_WAFER, clean.copy());
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.WaferProberBlockEntity.WATTS);
+        tickConsumer(h, p(1, 1, 1), be, com.taku3.semiconductorlab.block.WaferProberBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferProberBlockEntity.SLOT_OUT).isEmpty(), "no stage -> no probing");
+        ItemStack screw = new ItemStack(com.taku3.semiconductorlab.content.Precision.BALL_SCREW);
+        screw.set(com.taku3.semiconductorlab.content.Precision.BEARING_GRADE, 1);
+        c.setItem(com.taku3.semiconductorlab.block.WaferProberBlockEntity.SLOT_STAGE, screw);
+        tickConsumer(h, p(1, 1, 1), be, com.taku3.semiconductorlab.block.WaferProberBlockEntity.TICKS + 5, feed);
+        ItemStack probed = c.getItem(com.taku3.semiconductorlab.block.WaferProberBlockEntity.SLOT_OUT);
+        h.assertTrue(probed.getCount() == 1 && probed.get(ModDataComponents.DIE_MAP) != null, "probed wafer carries the die map, got " + probed);
+        // ダイシング：印のチップは捨てる
+        ItemStack marked = clean.copyWithCount(1);
+        marked.set(ModDataComponents.DIE_MAP, 0b00111111);   // 6個良品
+        h.assertValueEqual(com.taku3.semiconductorlab.item.DiamondScribeItem.good(marked), 6, "6 good chips on the map");
+        int max = 0;
+        for (int i = 0; i < 20; i++) max = Math.max(max, com.taku3.semiconductorlab.item.DiamondScribeItem.scribe(marked, rnd).getCount());
+        h.assertValueEqual(max, 6, "dicing a probed wafer gives only the good chips");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.DiamondScribeItem.scribe(marked, rnd).get(ModDataComponents.DIE_MAP), -1, "chips from a probed wafer are marked good");
+        h.assertTrue(com.taku3.semiconductorlab.block.DicingSawBlockEntity.saw(marked, 3, rnd).getCount() <= 6, "the saw also drops inked chips");
+        LOG.info("[LAB] wafer prober [9-35]: clean wafer 8/8 good, dirty wafer {} bad of 160, die map -> only good chips diced", bad);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

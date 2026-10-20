@@ -216,5 +216,7 @@
   "litho.semiconductor-lab.challenge.half_adder.hint4": "④1937年、ジョージ・スティビッツが電話のリレーで1けたの2進数の足し算器を台所のテーブルで作った（モデルK）。",
   "litho.semiconductor-lab.challenge.half_adder.history": "半加算器：1937年のスティビッツのリレーの「モデルK」と同じ仕事を、1枚のチップで。",
   "advancement.semiconductor-lab.self.root.title": "自力で発見",
-  "advancement.semiconductor-lab.self.root.description": "ヒントを開かずに解いたお題。"
+  "advancement.semiconductor-lab.self.root.description": "ヒントを開かずに解いたお題。",
+  "tooltip.semiconductor-lab.die_map": "プローバー済み：%s / %s 個が良品",
+  "tooltip.semiconductor-lab.die_good": "プローバー済み：良品"
 }

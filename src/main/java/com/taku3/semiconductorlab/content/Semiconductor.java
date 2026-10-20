@@ -99,6 +99,8 @@ public final class Semiconductor {
     // [9-19] レジスト塗布機（スピンコーター、IMP4-01）：回して薄く広げ、温めて溶剤を飛ばす（ChipOps.coat）。500W
     public static final Machine<SpinCoaterBlockEntity> SPIN_COATER = Machine.electric("spin_coater", SpinCoaterBlockEntity::new, SpinCoaterBlockEntity.LAYOUT, metal(3.0f));
     // レジストはがし槽（[9-21] の続き、IMP4-01）：熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。500W
+    // [9-35] テスト（ウェハープローバー）段階1（A、O-017）
+    public static final Machine<WaferProberBlockEntity> WAFER_PROBER = Machine.electric("wafer_prober", WaferProberBlockEntity::new, WaferProberBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<DicingSawBlockEntity> DICING_SAW = Machine.electric("dicing_saw", DicingSawBlockEntity::new, DicingSawBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<ResistStripperBlockEntity> RESIST_STRIPPER = Machine.electric("resist_stripper", ResistStripperBlockEntity::new, ResistStripperBlockEntity.LAYOUT, metal(3.0f));
     // [9-21] 現像槽（IMP4-01）：薄いアルカリで光の当たったレジストを溶かし、熱板で固める（ChipOps.develop）。300W

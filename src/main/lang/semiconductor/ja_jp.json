@@ -423,5 +423,11 @@
   "item.semiconductor-lab.stamp.note1": "見つけた回路。製図台で何度でも押せる。",
   "item.semiconductor-lab.stamp.note2": "検査台でお題を解くと、その回路のハンコがもらえる。製図台のハンコの所に入れて、方眼を左クリック。",
   "item.semiconductor-lab.stamp.note3": "▣で押したハンコを記号で見る。記号をクリックすると中身をのぞける。設計の歴史も同じ：トランジスタを1回描いたら記号にして使い回し、記号を組み合わせてもっと大きな部品にした。",
-  "item.semiconductor-lab.stamp.note4": "これが抽象化（階層設計）。記号の下にはいつも本物のマスクの形があり、検査台は記号ではなく形で判定する。"
+  "item.semiconductor-lab.stamp.note4": "これが抽象化（階層設計）。記号の下にはいつも本物のマスクの形があり、検査台は記号ではなく形で判定する。",
+  "block.semiconductor-lab.wafer_prober": "ウェハープローバー",
+  "block.semiconductor-lab.wafer_prober.note1": "仕上がったウェハーのチップを全部、自動で調べ、悪いチップにインクの印を付ける。ダイシングすると良品だけが出る。",
+  "block.semiconductor-lab.wafer_prober.note2": "ウェハー＋ボールねじの台（減らない）＋500W、1チップ 0.5秒。漏れの強さが変わっても汚れのないときと同じ動きなら良品（汚れが多いと悪いチップが出る）。",
+  "block.semiconductor-lab.wafer_prober.note3": "プローブカードのタングステンの細い針が各チップのパッドにふれ、精密な台がチップからチップへ送る。検査台は手で1個ずつ、電流まで見せる。プローバーは良いか悪いかだけだが、ウェハー全部を速く調べる。",
+  "block.semiconductor-lab.wafer_prober.note4": "割る前に調べると、悪いチップをパッケージに入れる無駄がなくなる。良品の割合が歩留まり、だいたい Y＝e^(−D×A)（欠陥の密度×チップの面積）。⚠️ 最初の自動プローバーの年（1960年代）は確かめていない、時間はゲームの値。",
+  "item.semiconductor-lab.diamond_scribe.inked": "インクの印の付いたチップ %s 個は捨てた"
 }
