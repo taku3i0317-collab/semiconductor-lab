@@ -65,3 +65,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ 現像槽のネガ型：A の ChipOps（tone・develop(w, Developer)）に合わせ、現像液にキシレン（D の物、有機溶剤）を受け付ける。型と合わなければ「現像液が型と合わない」。GameTest developer_bench_negative。ネガ型レジスト（KPR）の液と塗布機の対応は D のポリケイ皮酸ビニル待ち
 - ✅ [2-30] ネガ型レジスト KPR：作業台で ポリケイ皮酸ビニル（D）＋キシレン＋瓶 → negative_resist（日なたで感光）。塗布機が KPR ならネガ型で塗る（ChipOps.coat NEGATIVE）。GameTest v03_chain_negative（A の v03_chain を写し、レジストと現像液だけ KPR・キシレンに）で NOT が見つかる。CHEMISTRY F43、REFERENCES F21。O-009 完了
 - A（O-014）の依頼：フッ酸の判定を Chemistry.HF_TAG に（洗浄槽・エッチング槽・cryolite.json・silicon_etch.json）。鉛のレトルトは空の PE の瓶も受け付けて hydrofluoric_acid_pe を詰める（瓶で決まる）。GameTest lead_retort_hf に PE の確認を追加
+- ✅ [9-14] 段階2 RCA 洗浄台 rca_bench（block/RcaBenchBlockEntity、画面 RcaBenchScreen、1.5kW）：NH3水＋HCl＋H2O2 2＋脱イオン水（D の [2-17]）か超純水 → ChipOps.clean(w, 0)。段階1 の洗浄槽のすすぎに脱イオン水・超純水も。[9-14] を ✅ に。GameTest rca_bench、CHEMISTRY F44

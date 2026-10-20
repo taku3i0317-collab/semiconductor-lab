@@ -787,6 +787,40 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-14] 段階2 RCA 洗浄台（IMP4-01）：汚れたウェハー＋NH3水＋HCl＋H2O2 2＋脱イオン水 → 汚れ0。蒸留水では動かない（RCA は脱イオン水）、レジストがあると洗えない */
+    @GameTest(maxTicks = 100)
+    public void rcaBench(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.RCA_BENCH.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.RcaBenchBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.WATTS);
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        w = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.etchOxide(com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out()).out()).out();
+        int dirt = com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination();
+        h.assertTrue(dirt > 0, "wafer is dirty after etch and strip");
+        h.assertTrue(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.product(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out()).isEmpty(), "resist on -> cannot clean");
+        c.setItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_WAFER, w.copy());
+        c.setItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_AMMONIA, new ItemStack(Chemistry.AMMONIA_WATER));
+        c.setItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_HCL, new ItemStack(com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID));
+        c.setItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_PEROXIDE, new ItemStack(Chemistry.HYDROGEN_PEROXIDE, 2));
+        h.assertFalse(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.isRinse(new ItemStack(Chemistry.DISTILLED_WATER)), "RCA rinses with deionised water, not distilled");
+        c.setItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_WATER, new ItemStack(Chemistry.DEIONIZED_WATER));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.RcaBenchBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.RcaBenchBlockEntity.TICKS, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_OUT);
+        h.assertTrue(out.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(out).contamination() == 0, "8 wafers cleaned to 0, got " + out);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_PEROXIDE).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_AMMONIA).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_HCL).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.RcaBenchBlockEntity.SLOT_WATER).isEmpty(), "SC-1 + SC-2 + rinse used");
+        h.assertTrue(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.isRinse(new ItemStack(Chemistry.DEIONIZED_WATER)), "stage 1 bench also rinses with deionised water");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] RCA clean [9-14] stage 2: NH3 water + HCl + 2 H2O2 + DI water clean 8 wafers (dirt {} -> 0)", dirt);
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================

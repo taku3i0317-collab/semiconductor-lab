@@ -448,9 +448,10 @@ rubylith  # Semiconductor [7-11] 1960
 spin_coater  # Semiconductor [9-19] 1960
 dicing_saw  # Semiconductor [9-32] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
+cleaning_bench  # Semiconductor [9-14] 1965
+rca_bench  # Semiconductor [9-14] 1965
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
-cleaning_bench  # Semiconductor [None] None
 refrigerator  # Agriculture [11-13] 1876
 theodolite  # Construction [12-11] 1615
 air_conditioner  # Construction [12-12] 1902

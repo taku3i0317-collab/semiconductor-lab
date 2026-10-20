@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "Q Q",
+    "QCQ",
+    "SSS"
+  ],
+  "key": {
+    "Q": "semiconductor-lab:quartz_tube",
+    "C": "semiconductor-lab:copper_cable",
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:rca_bench",
+    "count": 1
+  }
+}

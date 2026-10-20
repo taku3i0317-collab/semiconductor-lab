@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 470（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 471（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -899,6 +899,8 @@ en_us resist_stripper lines=3
 en_us resist_stripper shift lines=16
 en_us developer_bench lines=3
 en_us developer_bench shift lines=23
+en_us rca_bench lines=5
+en_us rca_bench shift lines=19
 en_us crystal_puller lines=3
 en_us crystal_puller shift lines=16
 en_us refrigerator lines=8
@@ -1839,6 +1841,8 @@ ja_jp resist_stripper lines=3
 ja_jp resist_stripper shift lines=16
 ja_jp developer_bench lines=3
 ja_jp developer_bench shift lines=21
+ja_jp rca_bench lines=4
+ja_jp rca_bench shift lines=17
 ja_jp crystal_puller lines=3
 ja_jp crystal_puller shift lines=15
 ja_jp refrigerator lines=6

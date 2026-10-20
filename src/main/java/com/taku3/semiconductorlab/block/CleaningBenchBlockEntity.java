@@ -29,7 +29,7 @@ public class CleaningBenchBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_WAFER, 8, 26, ChipOps::isProcessWafer)
             .in(SLOT_NITRIC, 26, 17, s -> s.is(Gas.NITRIC_ACID))
             .in(SLOT_HF, 26, 35, s -> s.is(Chemistry.HF_TAG))
-            .in(SLOT_WATER, 26, 53, s -> s.is(Chemistry.DISTILLED_WATER))
+            .in(SLOT_WATER, 26, 53, CleaningBenchBlockEntity::isRinse)
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.cleaning_bench.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.cleaning_bench.need_input", "gui.semiconductor-lab.cleaning_bench.resist_on",
@@ -40,6 +40,9 @@ public class CleaningBenchBlockEntity extends ConsumerBlockEntity {
     public CleaningBenchBlockEntity(BlockPos pos, BlockState state) {
         super(Semiconductor.CLEANING_BENCH.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
+
+    /** すすぎの水：蒸留水・脱イオン水（[2-17]、1950年代の工場の主流）・超純水 */
+    public static boolean isRinse(ItemStack s) { return s.is(Chemistry.DISTILLED_WATER) || s.is(Chemistry.DEIONIZED_WATER) || s.is(Chemistry.ULTRAPURE_WATER); }
 
     /** 洗ったあとのウェハー（1〜8枚）。洗えなければ EMPTY */
     public static ItemStack product(ItemStack w) {
@@ -54,7 +57,7 @@ public class CleaningBenchBlockEntity extends ConsumerBlockEntity {
     @Override protected boolean canWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER));
         return !out.isEmpty() && container.getItem(SLOT_NITRIC).is(Gas.NITRIC_ACID) && container.getItem(SLOT_HF).is(Chemistry.HF_TAG)
-                && container.getItem(SLOT_WATER).is(Chemistry.DISTILLED_WATER) && canMerge(container.getItem(SLOT_OUT), out);
+                && isRinse(container.getItem(SLOT_WATER)) && canMerge(container.getItem(SLOT_OUT), out);
     }
 
     @Override protected void finishWork() {

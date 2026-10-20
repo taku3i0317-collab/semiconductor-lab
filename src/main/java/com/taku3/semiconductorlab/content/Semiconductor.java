@@ -101,6 +101,8 @@ public final class Semiconductor {
     public static final Machine<ResistStripperBlockEntity> RESIST_STRIPPER = Machine.electric("resist_stripper", ResistStripperBlockEntity::new, ResistStripperBlockEntity.LAYOUT, metal(3.0f));
     // [9-21] 現像槽（IMP4-01）：薄いアルカリで光の当たったレジストを溶かし、熱板で固める（ChipOps.develop）。300W
     public static final Machine<DeveloperBenchBlockEntity> DEVELOPER_BENCH = Machine.electric("developer_bench", DeveloperBenchBlockEntity::new, DeveloperBenchBlockEntity.LAYOUT, metal(3.0f));
+    // [9-14] RCA 洗浄台 段階2（IMP4-01）：SC-1（アンモニア水＋過酸化水素）・SC-2（塩酸＋過酸化水素）、脱イオン水ですすぐ（ChipOps.clean）。1.5kW
+    public static final Machine<RcaBenchBlockEntity> RCA_BENCH = Machine.electric("rca_bench", RcaBenchBlockEntity::new, RcaBenchBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

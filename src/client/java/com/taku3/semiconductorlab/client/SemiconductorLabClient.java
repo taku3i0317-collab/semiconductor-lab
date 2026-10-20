@@ -77,6 +77,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.ETCH_TANK, EtchTankScreen::new);
 		screen(Semiconductor.WAFER_POLISHER, WaferPolisherScreen::new);
 		screen(Semiconductor.CLEANING_BENCH, CleaningBenchScreen::new);
+		screen(Semiconductor.RCA_BENCH, RcaBenchScreen::new);
 		screen(Semiconductor.FZ_PULLER, FzPullerScreen::new);
 		screen(Semiconductor.SPIN_COATER, SpinCoaterScreen::new);
 		screen(Semiconductor.RESIST_STRIPPER, ResistStripperScreen::new);
