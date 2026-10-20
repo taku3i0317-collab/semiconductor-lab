@@ -296,6 +296,9 @@ gas_holder_en_us gas gui.semiconductor-lab.gas_holder.gas.oxygen w=52 lines=1/1
 gas_holder_en_us gas gui.semiconductor-lab.gas_holder.gas.chlorine w=60 lines=1/1
 gas_holder_en_us gas gui.semiconductor-lab.gas_holder.gas.nitrogen w=58 lines=1/1
 gas_holder_en_us gas gui.semiconductor-lab.gas_holder.gas.argon w=46 lines=1/1
+gas_holder_en_us gas gui.semiconductor-lab.gas_holder.gas.neon w=24 lines=1/1
+gas_holder_en_us gas gui.semiconductor-lab.gas_holder.gas.krypton w=40 lines=1/1
+gas_holder_en_us gas gui.semiconductor-lab.gas_holder.gas.xenon w=30 lines=1/1
 gas_holder_en_us amount =1000/1000 mol w=73 lines=1/1
 gas_holder_en_us volume =≈24.0 m³ w=42 lines=1/1
 gas_holder_en_us bang gui.semiconductor-lab.gas_holder.bang w=96 lines=1/1
@@ -310,6 +313,14 @@ hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_h2 w=82 lines=2/2
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_cl2 w=75 lines=2/2
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_bottle w=99 lines=2/2 scale=0.74999994
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.out_full w=53 lines=2/2
+rare_gas_column_en_us kr =Kr w=12 lines=1/1
+rare_gas_column_en_us xe =Xe w=12 lines=1/1
+rare_gas_column_en_us ne =Ne w=12 lines=1/1
+rare_gas_column_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+rare_gas_column_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
+rare_gas_column_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
+rare_gas_column_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+rare_gas_column_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
 air_separation_unit_en_us n2 =N2 w=12 lines=1/1
 air_separation_unit_en_us o2 =O2 w=12 lines=1/1
 air_separation_unit_en_us ar =Ar w=12 lines=1/1
@@ -895,6 +906,9 @@ gas_holder_ja_jp gas gui.semiconductor-lab.gas_holder.gas.oxygen w=34 lines=1/1
 gas_holder_ja_jp gas gui.semiconductor-lab.gas_holder.gas.chlorine w=37 lines=1/1
 gas_holder_ja_jp gas gui.semiconductor-lab.gas_holder.gas.nitrogen w=34 lines=1/1
 gas_holder_ja_jp gas gui.semiconductor-lab.gas_holder.gas.argon w=52 lines=1/1
+gas_holder_ja_jp gas gui.semiconductor-lab.gas_holder.gas.neon w=27 lines=1/1
+gas_holder_ja_jp gas gui.semiconductor-lab.gas_holder.gas.krypton w=45 lines=1/1
+gas_holder_ja_jp gas gui.semiconductor-lab.gas_holder.gas.xenon w=36 lines=1/1
 gas_holder_ja_jp amount =1000/1000 mol w=73 lines=1/1
 gas_holder_ja_jp volume =≈24.0 m³ w=42 lines=1/1
 gas_holder_ja_jp bang gui.semiconductor-lab.gas_holder.bang w=54 lines=1/1
@@ -909,6 +923,14 @@ hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_h2 w=45 lines=1/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_cl2 w=45 lines=1/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_bottle w=63 lines=2/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.out_full w=45 lines=1/2
+rare_gas_column_ja_jp kr =Kr w=12 lines=1/1
+rare_gas_column_ja_jp xe =Xe w=12 lines=1/1
+rare_gas_column_ja_jp ne =Ne w=12 lines=1/1
+rare_gas_column_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+rare_gas_column_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
+rare_gas_column_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
+rare_gas_column_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+rare_gas_column_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
 air_separation_unit_ja_jp n2 =N2 w=12 lines=1/1
 air_separation_unit_ja_jp o2 =O2 w=12 lines=1/1
 air_separation_unit_ja_jp ar =Ar w=12 lines=1/1
