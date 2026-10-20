@@ -24,6 +24,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "docs" / "TECH_TREE.md"
 OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
 JSON_OUT = ROOT / "docs" / "tech_network.json"
+JS_OUT = ROOT / "docs" / "tech_network.js"
 YEAR_RE = re.compile(r"(?:^|／|\s)年:\s*(-?\d+)(?:（([^）]*)）)?(\s*⚠️)?")
 
 ID_RE = re.compile(r"\[(\d+|B)-(\d+[a-z]?)\]")
@@ -96,7 +97,7 @@ def fill(n):
     # groups: 項目ごとに「代替案のリスト」、代替案は ID の AND
     groups = []
     if m:
-        for item in re.split(r",(?![^（(]*[）)])|、", m.group(1)):
+        for item in re.split(r"[,、](?![^（(]*[）)])", m.group(1)):   # 括弧の中の , と 、 では分けない
             alts = [[nid(x) for x in ID_RE.findall(a)] for a in re.split(r"\s+or\s+|\s*/\s*(?=\[)", item)]
             alts = [a for a in alts if a]
             if alts:
@@ -304,13 +305,18 @@ def export_json(nodes):
                     seen.add(w)
                     q.append(w)
         return seen
+    def field(body, pat):
+        m = re.search(pat + r"[:：]\s*(.*?)(?:／|\n|$)", body, re.S)
+        return re.sub(r"\*\*|`", "", m.group(1)).strip()[:400] if m else ""
+    now = set(buildable(nodes))
     out_nodes, edges = [], []
     for i in sorted(nodes, key=sort_key):
         n = nodes[i]
         out_nodes.append({"id": i, "name": n["name"], "trunk": trunk_of(i), "trunk_name": TRUNK_NAMES.get(trunk_of(i), ""),
                           "status": n["st"], "branch": n["branch"], "year": n["year"], "year_range": n["year_range"],
                           "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
-                          "understanding": n["understand"],
+                          "understanding": n["understand"], "buildable_now": i in now,
+                          "real": field(n["body"], r"本物"), "hee1": field(n["body"], r"へえ①?"),
                           "descendants": len(descendants(i))})
         for gi, alts in enumerate(n["groups"]):
             for a in alts:
@@ -327,6 +333,9 @@ def export_json(nodes):
             "nodes": out_nodes, "edges": edges, "year_inversions": [
                 {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d} for a, y, p, py, d in year_inversions(nodes)]}
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    # docs/network.html はファイルを直接開いても読めるように、同じ中身を JS としても書く（file:// では fetch できないため）
+    JS_OUT.write_text("// 自動生成：tools/gen_tree_views.py（tech_network.json と同じ中身）\nwindow.TECH_NETWORK = "
+                      + json.dumps(data, ensure_ascii=False) + ";\n", encoding="utf-8")
     return data
 
 

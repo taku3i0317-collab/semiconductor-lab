@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技術ネットワーク</title>
+<!-- データ：tools/gen_tree_views.py が書き出す tech_network.js（＝tech_network.json と同じ中身）。実行すれば図も最新になる -->
+<style>
+:root {
+  --bg: #f7f6f2; --panel: #ffffff; --ink: #1f2328; --sub: #5b6470; --line: #d9d6cc; --band-a: #efede6; --band-b: #f7f6f2;
+  --accent: #2f6fdd; --dim: 0.12; --hl: #ff9f1c;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #15171b; --panel: #1e2127; --ink: #e8e6e1; --sub: #a0a7b2; --line: #343842; --band-a: #1b1e23; --band-b: #15171b;
+    --accent: #7aa7ff; --hl: #ffb347;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #15171b; --panel: #1e2127; --ink: #e8e6e1; --sub: #a0a7b2; --line: #343842; --band-a: #1b1e23; --band-b: #15171b;
+  --accent: #7aa7ff; --hl: #ffb347;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.5 system-ui, -apple-system, "Hiragino Sans", "Yu Gothic UI", "Noto Sans JP", sans-serif; display: flex; flex-direction: column; }
+header { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--line); background: var(--panel); }
+header h1 { font-size: 16px; margin: 0 8px 0 0; white-space: nowrap; }
+header .stat { color: var(--sub); font-size: 12px; white-space: nowrap; }
+header input[type=search], header select { font: inherit; padding: 5px 8px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); color: var(--ink); min-width: 0; }
+header input[type=search] { width: 200px; max-width: 100%; }
+header label { display: inline-flex; gap: 4px; align-items: center; color: var(--sub); white-space: nowrap; cursor: pointer; }
+main { flex: 1; position: relative; overflow: hidden; display: flex; min-height: 0; }
+#chart { flex: 1; min-width: 0; position: relative; }
+svg { width: 100%; height: 100%; display: block; touch-action: none; }
+.band-label { font-size: 11px; fill: var(--sub); font-weight: 600; }
+.era-label { font-size: 10px; fill: var(--sub); }
+.era-line { stroke: var(--line); stroke-dasharray: 2 4; }
+.edge { fill: none; stroke-width: 0.9; }
+.edge.hot { stroke-width: 1.8; }
+.edge.understanding { stroke-dasharray: 3 3; }
+.node circle { stroke-width: 1.6; cursor: pointer; }
+.node text { font-size: 9px; fill: var(--ink); pointer-events: none; paint-order: stroke; stroke: var(--bg); stroke-width: 3px; }
+.dimmed { opacity: var(--dim); }
+.node.match circle { stroke: var(--hl); stroke-width: 3; }
+.node.selected circle { stroke: var(--hl); stroke-width: 4; }
+aside#card { width: 340px; max-width: 100%; border-left: 1px solid var(--line); background: var(--panel); overflow: auto; padding: 14px 16px; display: none; }
+aside#card.open { display: block; }
+#card h2 { font-size: 16px; margin: 0 0 4px; }
+#card .meta { color: var(--sub); font-size: 12px; margin-bottom: 8px; }
+#card .sec { margin: 10px 0; }
+#card .sec h3 { font-size: 12px; color: var(--sub); margin: 0 0 4px; font-weight: 600; }
+#card .chips { display: flex; flex-wrap: wrap; gap: 4px; }
+#card .chip { border: 1px solid var(--line); border-radius: 999px; padding: 1px 8px; font-size: 12px; cursor: pointer; background: var(--bg); color: var(--ink); }
+#card .chip:hover { border-color: var(--accent); }
+#card .close { float: right; border: 0; background: none; color: var(--sub); font-size: 18px; cursor: pointer; }
+#card .big { font-size: 22px; font-weight: 700; color: var(--accent); }
+.legend { position: absolute; left: 12px; bottom: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; font-size: 11px; color: var(--sub); display: flex; gap: 12px; flex-wrap: wrap; max-width: calc(100% - 24px); }
+.legend span { display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.sw { display: inline-block; width: 18px; height: 3px; border-radius: 2px; }
+@media (max-width: 700px) {
+  aside#card { position: absolute; left: 0; right: 0; bottom: 0; width: auto; max-height: 48vh; border-left: 0; border-top: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(0,0,0,.15); z-index: 5; }
+  header input[type=search] { width: 100%; }
+  .legend { display: none; }
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>技術ネットワーク</h1>
+  <input type="search" id="q" placeholder="検索（名前・番号）" aria-label="検索">
+  <select id="trunk" aria-label="幹で絞り込み"><option value="">すべての幹</option></select>
+  <label><input type="checkbox" id="now"> 今すぐ作れるだけ</label>
+  <label><input type="checkbox" id="und" checked> 理解の線</label>
+  <span class="stat" id="stat"></span>
+</header>
+<main>
+  <div id="chart">
+    <svg id="svg" role="img" aria-label="技術ネットワーク図"></svg>
+    <div class="legend">
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="#888" stroke="#888"/></svg>✅ 作った</span>
+      <span><svg width="14" height="14"><circle cx="7" cy="7" r="5" fill="none" stroke="#888" stroke-width="1.6"/></svg>❓ まだ</span>
+      <span>点の大きさ＝そこから生まれる技術の数</span>
+      <span><i class="sw" style="background:#d9d0b0"></i>年の差 小</span>
+      <span><i class="sw" style="background:#e8590c"></i>年の差 大</span>
+      <span><svg width="18" height="6"><line x1="0" y1="3" x2="18" y2="3" stroke="#888" stroke-dasharray="3 3"/></svg>理解</span>
+    </div>
+  </div>
+  <aside id="card" aria-live="polite"></aside>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="tech_network.js"></script>
+<script>
+(async function () {
+  const data = window.TECH_NETWORK || await fetch('tech_network.json').then(r => r.json());
+  const nodes = data.nodes, byId = new Map(nodes.map(n => [n.id, n]));
+  const trunks = [...new Set(nodes.map(n => n.trunk))].sort((a, b) => (a === 'B') - (b === 'B') || (+a) - (+b));
+  const trunkName = t => (nodes.find(n => n.trunk === t) || {}).trunk_name || t;
+  const palette = ['#8c6d31', '#b5651d', '#2e8b57', '#d1495b', '#e09f3e', '#6a4c93', '#1982c4', '#4f772d', '#7d8597', '#c44569',
+                   '#00798c', '#a7c957', '#bc6c25', '#9d4edd', '#3a86ff', '#ff6d00', '#6c757d'];
+  const color = t => palette[trunks.indexOf(t) % palette.length];
+
+  // ---- 横軸：おおまかな年（古い時代は詰め、近代を広げる） ----
+  const xs = d3.scaleLinear()
+    .domain([-3400000, -100000, -10000, -3000, 0, 1000, 1500, 1700, 1800, 1850, 1900, 1930, 1950, 1970, 1990, 2030])
+    .range([0, 50, 120, 200, 260, 320, 380, 470, 580, 690, 820, 930, 1040, 1170, 1300, 1460]).clamp(true);
+  const eras = [[-3000000, '300万年前'], [-10000, '1万年前'], [-3000, '前3000'], [0, '0'], [1000, '1000'], [1500, '1500'],
+                [1700, '1700'], [1800, '1800'], [1850, '1850'], [1900, '1900'], [1950, '1950'], [1970, '1970'], [2000, '2000']];
+  const LEFT = 110, R = n => 3 + 1.3 * Math.sqrt(n.descendants);
+
+  // ---- 縦：幹ごとの帯。帯の中は重ならないように段に分ける ----
+  let y0 = 30; const band = new Map();
+  for (const t of trunks) {
+    const ns = nodes.filter(n => n.trunk === t).sort((a, b) => (a.year ?? 0) - (b.year ?? 0));
+    const lanes = [];
+    for (const n of ns) {
+      n.x = LEFT + xs(n.year ?? 0); const r = R(n);
+      let li = lanes.findIndex(last => n.x - last.x >= r + R(last) + 3);
+      if (li < 0) { lanes.push(n); li = lanes.length - 1; } else lanes[li] = n;
+      n.lane = li;
+    }
+    const laneH = 20, h = Math.max(1, lanes.length) * laneH + 18;
+    ns.forEach(n => n.y = y0 + 14 + n.lane * laneH + 4);
+    band.set(t, { y: y0, h }); y0 += h;
+  }
+  const W = LEFT + xs.range()[xs.range().length - 1] + 40, H = y0 + 20;
+
+  const svg = d3.select('#svg'), root = svg.append('g');
+  const bands = root.append('g');
+  trunks.forEach((t, i) => {
+    const b = band.get(t);
+    bands.append('rect').attr('x', 0).attr('y', b.y).attr('width', W).attr('height', b.h).attr('fill', i % 2 ? 'var(--band-b)' : 'var(--band-a)');
+    bands.append('text').attr('class', 'band-label').attr('x', 8).attr('y', b.y + 14).attr('fill', color(t)).text(`${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}`);
+  });
+  const eraG = root.append('g');
+  for (const [yr, lab] of eras) {
+    const x = LEFT + xs(yr);
+    eraG.append('line').attr('class', 'era-line').attr('x1', x).attr('x2', x).attr('y1', 18).attr('y2', H);
+    eraG.append('text').attr('class', 'era-label').attr('x', x + 2).attr('y', 14).text(lab);
+  }
+
+  // ---- 線：前提（実線）と理解（点線）。年の差が大きいほど目立つ色 ----
+  const gapColor = g => d3.interpolateRgb('#d9d0b0', '#e8590c')(Math.min(1, Math.log10(1 + Math.abs(g)) / 3.3));
+  const edges = data.edges.filter(e => byId.has(e.from) && byId.has(e.to)).map(e => {
+    const a = byId.get(e.from), b = byId.get(e.to);
+    return { ...e, a, b, gap: (b.year ?? 0) - (a.year ?? 0) };
+  });
+  const baseOpacity = d => 0.08 + 0.3 * Math.min(1, Math.log10(1 + Math.abs(d.gap)) / 3.3);
+  const edgeG = root.append('g');
+  const edgeSel = edgeG.selectAll('path').data(edges).join('path')
+    .attr('class', d => 'edge ' + d.kind)
+    .attr('d', d => { const mx = (d.a.x + d.b.x) / 2; return `M${d.a.x},${d.a.y} C${mx},${d.a.y} ${mx},${d.b.y} ${d.b.x},${d.b.y}`; })
+    .attr('stroke', d => gapColor(d.gap))
+    .attr('stroke-opacity', baseOpacity);
+
+  // ---- 点 ----
+  const nodeG = root.append('g');
+  const nodeSel = nodeG.selectAll('g').data(nodes).join('g').attr('class', 'node').attr('transform', d => `translate(${d.x},${d.y})`);
+  nodeSel.append('circle').attr('r', R)
+    .attr('fill', d => d.status === '✅' ? color(d.trunk) : 'var(--bg)')
+    .attr('stroke', d => color(d.trunk))
+    .attr('stroke-dasharray', d => d.status === '⛔' || d.status === '➖' ? '2 2' : null)
+    .append('title').text(d => `[${d.id}] ${d.name}（${yearText(d)}）`);
+  nodeSel.append('text').attr('x', d => R(d) + 2).attr('y', 3).text(d => d.descendants >= 8 ? d.name : '');
+  nodeSel.on('click', (ev, d) => { ev.stopPropagation(); select(d.id); });
+  svg.on('click', () => select(null));
+
+  // ---- ズームと移動（スマホは2本指） ----
+  const zoom = d3.zoom().scaleExtent([0.2, 6]).on('zoom', ev => root.attr('transform', ev.transform));
+  svg.call(zoom);
+  const box = document.getElementById('chart').getBoundingClientRect();
+  const k0 = Math.min(box.width / W, 1);
+  svg.call(zoom.transform, d3.zoomIdentity.translate(4, 4).scale(Math.max(k0, 0.35)));
+
+  // ---- 「これが無いと作れなくなる技術」：ある技術を除いたとき、OR の別ルートも含めて作れなくなるもの ----
+  function makeable(without) {
+    const ok = new Set(); let grew = true;
+    while (grew) {
+      grew = false;
+      for (const n of nodes) {
+        if (ok.has(n.id) || n.id === without) continue;
+        if (n.requires.every(alts => alts.some(a => a.every(i => i !== without && (ok.has(i) || !byId.has(i)))))) { ok.add(n.id); grew = true; }
+      }
+    }
+    return ok;
+  }
+  const ALL = makeable(null);
+  function lineage(id) {
+    const up = new Set(), down = new Set(), q1 = [id], q2 = [id];
+    while (q1.length) { const u = q1.pop(); for (const alts of byId.get(u).requires) for (const a of alts) for (const p of a) if (byId.has(p) && !up.has(p)) { up.add(p); q1.push(p); } }
+    const kids = new Map(); edges.forEach(e => { if (e.kind === 'requires') (kids.get(e.from) || kids.set(e.from, []).get(e.from)).push(e.to); });
+    while (q2.length) { const u = q2.pop(); for (const c of kids.get(u) || []) if (!down.has(c)) { down.add(c); q2.push(c); } }
+    return { up, down };
+  }
+
+  // ---- 表示の状態 ----
+  const state = { sel: null, q: '', trunk: '', now: false, und: true };
+  function yearText(d) {
+    if (d.year == null) return '年 ?';
+    const y = d.year < 0 ? `前${(-d.year).toLocaleString()}年` : `${d.year}年`;
+    return y + (d.year_range ? `（${d.year_range}）` : '') + (d.year_uncertain ? ' ⚠️' : '');
+  }
+  function visibleBase(d) {
+    if (state.trunk && d.trunk !== state.trunk) return false;
+    if (state.now && !d.buildable_now) return false;
+    return true;
+  }
+  function render() {
+    let focus = null;
+    if (state.sel) { const { up, down } = lineage(state.sel); focus = new Set([state.sel, ...up, ...down]); }
+    const q = state.q.trim().toLowerCase();
+    nodeSel.classed('dimmed', d => !visibleBase(d) || (focus && !focus.has(d.id)))
+      .classed('match', d => q && (d.name.toLowerCase().includes(q) || d.id.toLowerCase() === q || ('[' + d.id + ']') === q))
+      .classed('selected', d => d.id === state.sel);
+    edgeSel.style('display', d => d.kind === 'understanding' && !state.und ? 'none' : null)
+      .classed('dimmed', d => !(visibleBase(d.a) && visibleBase(d.b)) || (focus && !(focus.has(d.a.id) && focus.has(d.b.id))))
+      .classed('hot', d => focus && focus.has(d.a.id) && focus.has(d.b.id))
+      .attr('stroke-opacity', d => focus && focus.has(d.a.id) && focus.has(d.b.id) ? 0.95 : baseOpacity(d));
+    const n = nodes.filter(visibleBase).length;
+    document.getElementById('stat').textContent = `${n} / ${nodes.length} 技術・つながり ${edges.length} 本・年の逆転 ${data.year_inversions.length} 件`;
+  }
+
+  function chip(id) { const n = byId.get(id); return `<button class="chip" data-id="${id}">${id} ${n ? esc(n.name) : ''}</button>`; }
+  function esc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+  function select(id) {
+    state.sel = id; render();
+    const card = document.getElementById('card');
+    if (!id) { card.classList.remove('open'); card.innerHTML = ''; return; }
+    const d = byId.get(id), still = makeable(id), lost = [...ALL].filter(x => x !== id && !still.has(x));
+    const req = d.requires.map(alts => alts.map(a => a.map(chip).join(' + ')).join(' <span style="color:var(--sub)">or</span> ')).join('<br>');
+    const kids = edges.filter(e => e.from === id && e.kind === 'requires').map(e => e.to);
+    card.innerHTML = `<button class="close" aria-label="閉じる">×</button>
+      <h2>[${d.id}] ${esc(d.name)} ${d.status}</h2>
+      <div class="meta"><span style="color:${color(d.trunk)}">●</span> ${d.trunk === 'B' ? '枝' : '幹' + d.trunk} ${esc(d.trunk_name)}・${yearText(d)}${d.buildable_now ? '・<b>今すぐ作れる</b>' : ''}</div>
+      ${d.hee1 ? `<div class="sec"><h3>へえ①</h3>${esc(d.hee1)}</div>` : ''}
+      ${d.real ? `<div class="sec"><h3>本物</h3>${esc(d.real)}</div>` : ''}
+      <div class="sec"><h3>これが無いと作れなくなる技術（別ルートも考えたうえで）</h3><div class="big">${lost.length}</div><div class="chips">${lost.map(chip).join('')}</div></div>
+      <div class="sec"><h3>前提（全部そろう＝AND、or は別ルート）</h3>${req || 'なし'}</div>
+      ${d.understanding.length ? `<div class="sec"><h3>理解（後で分かった科学）</h3><div class="chips">${d.understanding.map(chip).join('')}</div></div>` : ''}
+      <div class="sec"><h3>すぐ次の技術（${kids.length}）</h3><div class="chips">${kids.map(chip).join('')}</div></div>`;
+    card.classList.add('open');
+    card.querySelector('.close').onclick = () => select(null);
+    card.querySelectorAll('.chip').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
+  }
+  function center(id) {
+    const d = byId.get(id), b = document.getElementById('chart').getBoundingClientRect(), t = d3.zoomTransform(svg.node()), k = Math.max(t.k, 1);
+    svg.transition().duration(500).call(zoom.transform, d3.zoomIdentity.translate(b.width / 2 - d.x * k, b.height / 2 - d.y * k).scale(k));
+  }
+
+  // ---- 操作 ----
+  const sel = document.getElementById('trunk');
+  trunks.forEach(t => sel.insertAdjacentHTML('beforeend', `<option value="${t}">${t === 'B' ? '枝' : '幹' + t} ${trunkName(t)}</option>`));
+  sel.onchange = () => { state.trunk = sel.value; render(); };
+  document.getElementById('now').onchange = e => { state.now = e.target.checked; render(); };
+  document.getElementById('und').onchange = e => { state.und = e.target.checked; render(); };
+  const qi = document.getElementById('q');
+  qi.oninput = () => { state.q = qi.value; render(); };
+  qi.onkeydown = e => {
+    if (e.key !== 'Enter') return;
+    const q = qi.value.trim().toLowerCase().replace(/[\[\]]/g, '');
+    const hit = nodes.find(n => n.id.toLowerCase() === q) || nodes.find(n => n.name.toLowerCase().includes(q));
+    if (hit) { select(hit.id); center(hit.id); }
+  };
+  const fromHash = () => { const h = decodeURIComponent(location.hash.slice(1)); if (byId.has(h)) { select(h); center(h); } };
+  window.addEventListener('hashchange', fromHash);
+  render();
+  fromHash();
+})();
+</script>
+</body>
+</html>
