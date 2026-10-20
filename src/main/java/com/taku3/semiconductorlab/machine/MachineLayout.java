@@ -107,12 +107,12 @@ public final class MachineLayout {
         public Builder formula(String id, int x, int y, int width, String... keys) { return add(id, x, y, width, 1, Align.RIGHT, true, keys); }
         /** 短い名札（翻訳しない文字。例「SO2」「H2」）。幅はその文字の幅 */
         public Builder label(String id, int x, int y, int width, String literal) { return add(id, x, y, width, 1, Align.LEFT, false, "=" + literal); }
-        /** ふつうの画面（SimpleMachineScreen）の3つ：電力・蓄積・状態（右の列 x=100） */
+        /** ふつうの画面（SimpleMachineScreen）の3つ：電力・蓄積・状態（右の列 x=97・幅75。最大 500.0 kW まで入る） */
         public Builder standardTexts() {
             String k = "gui.semiconductor-lab.machine.";
-            return text("power", 100, 18, 72, 1, k + "power").samples("500.0 kW")
-                    .text("stored", 100, 30, 72, 1, k + "stored").samples("50 kJ")
-                    .text("hint", 100, 42, 72, 3, k + "need_input", k + "need_power", k + "running");
+            return right("power", 17, 1, k + "power").samples("500.0 kW")
+                    .right("stored", 27, 1, k + "stored").samples("50 kJ")
+                    .right("hint", 38, 3, k + "need_input", k + "need_power", k + "running");
         }
         /** 直前の文を「折り返しても入らなければ縮める」にする（混んだ画面だけ。MIN_SCALE まで） */
         public Builder fit() {
