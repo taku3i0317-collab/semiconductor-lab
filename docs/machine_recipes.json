@@ -271,6 +271,29 @@
       "note": "送風の動力を電力で代表"
     },
     {
+      "machine": "semiconductor-lab:bloomery",
+      "process": "鉄鉱石を還元（ブルーム）",
+      "inputs": [
+        {
+          "item": "minecraft:raw_iron",
+          "count": 1
+        },
+        {
+          "item": "minecraft:charcoal",
+          "count": 1.5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:iron_bloom",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 30.0,
+      "note": "1100℃以上（ふいごで送風）。電気なし"
+    },
+    {
       "machine": "semiconductor-lab:bridgman_furnace",
       "process": "CaF2 の単結晶を育てる",
       "inputs": [

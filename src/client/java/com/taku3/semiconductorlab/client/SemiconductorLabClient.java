@@ -30,6 +30,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		SurvivalClient.register();   // IMP3-01 丸木舟 [0-14] の描画
 		// 幹1 冶金
 		screen(Metallurgy.BESSEMER_CONVERTER, BessemerConverterScreen::new);
+		screen(Metallurgy.BLOOMERY, BloomeryScreen::new);   // [1-06] 塊鉄炉
 		screen(Metallurgy.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);
 		screen(Metallurgy.SIEMENS_REACTOR, SiemensReactorScreen::new);
 		screen(Metallurgy.TRICHLOROSILANE_REACTOR, TrichlorosilaneReactorScreen::new);

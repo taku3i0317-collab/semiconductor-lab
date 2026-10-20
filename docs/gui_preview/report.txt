@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 84（ja・en）、文字の置き場所 318、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 86（ja・en）、文字の置き場所 326、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -57,6 +57,14 @@ bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_liquor w=112
 bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_power w=90 lines=2/3
 bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.running w=121 lines=2/3
 bayer_digester_en_us recipe gui.semiconductor-lab.bayer_digester.recipe w=136 lines=1/1 scale=0.79999995
+bloomery_en_us temp gui.semiconductor-lab.bloomery.temp w=67 lines=1/1
+bloomery_en_us air gui.semiconductor-lab.bloomery.air w=42 lines=1/1
+bloomery_en_us hint gui.semiconductor-lab.bloomery.need_ore w=132 lines=2/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.need_fuel w=67 lines=1/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.need_air w=153 lines=3/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.reducing w=44 lines=1/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.out_full w=94 lines=2/3
+bloomery_en_us formula =Fe2O3 + 3CO → 2Fe + 3CO2 w=134 lines=1/1 scale=0.79999995
 hall_heroult_cell_en_us power gui.semiconductor-lab.hall_heroult_cell.power w=75 lines=1/1
 hall_heroult_cell_en_us bath gui.semiconductor-lab.hall_heroult_cell.bath w=68 lines=1/1
 hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_alumina w=79 lines=2/3
@@ -400,6 +408,14 @@ bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_liquor w=100
 bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_power w=63 lines=1/3
 bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.running w=103 lines=2/3
 bayer_digester_ja_jp recipe gui.semiconductor-lab.bayer_digester.recipe w=136 lines=1/1 scale=0.79999995
+bloomery_ja_jp temp gui.semiconductor-lab.bloomery.temp w=50 lines=1/1
+bloomery_ja_jp air gui.semiconductor-lab.bloomery.air w=46 lines=1/1
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_ore w=90 lines=2/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_fuel w=54 lines=1/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_air w=136 lines=2/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.reducing w=27 lines=1/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.out_full w=81 lines=2/3
+bloomery_ja_jp formula =Fe2O3 + 3CO → 2Fe + 3CO2 w=134 lines=1/1 scale=0.79999995
 hall_heroult_cell_ja_jp power gui.semiconductor-lab.hall_heroult_cell.power w=63 lines=1/1
 hall_heroult_cell_ja_jp bath gui.semiconductor-lab.hall_heroult_cell.bath w=60 lines=1/1
 hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_alumina w=69 lines=1/3

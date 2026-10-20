@@ -348,3 +348,6 @@
 ## O-003 [3-04] ふいご（2026-10-20）
 - ふいご bellows（Heat.BELLOWS、block/BellowsBlock・BellowsBlockEntity）：素手で右クリック＝踏む → 約1秒ぶん送風 100%（ゲームの値）、横に回る水車があれば水車ふいご（ずっと 100%）。炉は BellowsBlockEntity.airflow(level, 炉の位置) で読む。WaterWheelBlockEntity.turning を足した
 - E から相談（[9-14] 洗浄）：ChipState に「洗った」印を足し coat などの条件にしたい → A の案：int contamination（工程ごとに +1、clean で 0）を足し、失敗にはせずツールチップと v0.5 の歩留まりで効かせる。**「洗わないと塗れない」にするかはユーザーの判断（質問）**。O-002 方針2（ストレスを減らす）と合うのは A の案と考える
+## O-003 [1-06] 塊鉄炉（2026-10-20）
+- 塊鉄炉 bloomery（Metallurgy.BLOOMERY、block/BloomeryBlockEntity、client/BloomeryScreen）：鉄の原石か砂鉄＋木炭、火だけでは約800℃、ふいごを踏みつづけて 1100℃ 以上の間だけ還元 → ブルーム iron_bloom。ブルーム＋たき石 → 鉄インゴット。温度計（赤い線＝1100℃）。石炭は不可
+- O-003 の指示どおり：年は紀元前1400〜1200年、起源は「アナトリア周辺など」とぼかし、ヒッタイトの発明・独占説はどこにも書いていない（TECH_TREE・lang・REFERENCES を確認）

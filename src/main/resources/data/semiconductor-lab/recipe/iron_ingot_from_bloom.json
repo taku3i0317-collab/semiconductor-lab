@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:iron_bloom",
+    "semiconductor-lab:hammerstone"
+  ],
+  "result": {
+    "id": "minecraft:iron_ingot",
+    "count": 1
+  }
+}

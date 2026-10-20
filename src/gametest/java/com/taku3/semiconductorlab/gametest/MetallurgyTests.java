@@ -755,7 +755,41 @@ public class MetallurgyTests extends LabTestBase {
     }
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
+
+    /**
+     * [1-06] 塊鉄炉：木炭の火だけでは約 800℃ で還元しない。横のふいごを踏みつづけると 1100℃ を超えてブルームができる。
+     * ブルーム＋たき石 → 鉄インゴット（錬鉄）
+     */
+    @GameTest(maxTicks = 100)
+    public void bloomery(GameTestHelper h) {
+        var lv = h.getLevel();
+        BlockPos pos = h.absolutePos(p(2, 1, 2)), bpos = h.absolutePos(p(3, 1, 2));
+        h.setBlock(p(2, 1, 2), Metallurgy.BLOOMERY.block);
+        var be = h.getBlockEntity(p(2, 1, 2), com.taku3.semiconductorlab.block.BloomeryBlockEntity.class);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.BloomeryBlockEntity.SLOT_ORE, new ItemStack(Items.RAW_IRON, 2));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.BloomeryBlockEntity.SLOT_FUEL, new ItemStack(Items.CHARCOAL, 16));
+        for (int i = 0; i < 400; i++) com.taku3.semiconductorlab.block.BloomeryBlockEntity.tick(lv, pos, lv.getBlockState(pos), be);
+        h.assertTrue(Math.abs(be.temperature() - com.taku3.semiconductorlab.block.BloomeryBlockEntity.T_DRAFT) < 10 && be.progress() == 0, "fire alone ~800 C, no reduction: " + be.temperature());
+        h.setBlock(p(3, 1, 2), Heat.BELLOWS.block);
+        var bel = h.getBlockEntity(p(3, 1, 2), com.taku3.semiconductorlab.block.BellowsBlockEntity.class);
+        int t = 0;
+        while (be.getContainer().getItem(com.taku3.semiconductorlab.block.BloomeryBlockEntity.SLOT_OUT).isEmpty() && t < 3000) {
+            if (t % 15 == 0) bel.pump();   // 踏みつづける
+            com.taku3.semiconductorlab.block.BellowsBlockEntity.tick(lv, bpos, lv.getBlockState(bpos), bel);
+            com.taku3.semiconductorlab.block.BloomeryBlockEntity.tick(lv, pos, lv.getBlockState(pos), be);
+            t++;
+        }
+        h.assertTrue(be.getContainer().getItem(com.taku3.semiconductorlab.block.BloomeryBlockEntity.SLOT_OUT).is(Metallurgy.IRON_BLOOM), "pumping the bellows -> bloom (after " + t + " ticks, " + be.temperature() + " C)");
+        h.assertTrue(be.temperature() >= com.taku3.semiconductorlab.block.BloomeryBlockEntity.T_REDUCE, "above 1100 C while pumping");
+        h.assertTrue(recipeUses(h, "iron_ingot_from_bloom", Metallurgy.IRON_BLOOM) && recipeUses(h, "iron_ingot_from_bloom", Survival.HAMMERSTONE), "bloom + hammerstone -> iron ingot");
+        h.assertFalse(com.taku3.semiconductorlab.block.BloomeryBlockEntity.isFuel(new ItemStack(Items.COAL)), "coal is not used (sulfur makes iron brittle)");
+        LOG.info("[LAB] bloomery: fire alone {} C; with bellows a bloom after {} ticks", com.taku3.semiconductorlab.block.BloomeryBlockEntity.T_DRAFT, t);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Metallurgy.BLOOMERY.block, "鉄鉱石を還元（ブルーム）", L(io(Items.RAW_IRON, 1), io(Items.CHARCOAL, (double) com.taku3.semiconductorlab.block.BloomeryBlockEntity.REDUCE_TICKS / com.taku3.semiconductorlab.block.BloomeryBlockEntity.FUEL_TICKS)),
+            L(io(Metallurgy.IRON_BLOOM, 1)), 0, com.taku3.semiconductorlab.block.BloomeryBlockEntity.REDUCE_TICKS / 20.0, "1100℃以上（ふいごで送風）。電気なし");
         rec(a, Metallurgy.HALL_HEROULT_CELL.block, "ホール・エルー法", L(io(Metallurgy.ALUMINA, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.ALUMINA_PER_RUN), perRuns(io(Metallurgy.CRYOLITE, 1), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.RUNS_PER_CRYOLITE), perRuns(io(com.taku3.semiconductorlab.content.Power.GRAPHITE_ROD, 1), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.RUNS_PER_ANODE)),
             L(io(Metallurgy.ALUMINIUM_INGOT, 1)), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS / 20.0, "約960℃の氷晶石にアルミナを溶かして電解。2Al2O3 + 3C → 4Al + 3CO2。15kWh/個");
         rec(a, Metallurgy.BAYER_DIGESTER.block, "バイヤー法", L(io(Metallurgy.BAUXITE, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.BAUXITE_PER_RUN), perRuns(io(com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR)),

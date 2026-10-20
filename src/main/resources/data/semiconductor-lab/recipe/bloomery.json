@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CBC",
+    "C C",
+    "CCC"
+  ],
+  "key": {
+    "C": "minecraft:clay_ball",
+    "B": "minecraft:bricks"
+  },
+  "result": {
+    "id": "semiconductor-lab:bloomery",
+    "count": 1
+  }
+}

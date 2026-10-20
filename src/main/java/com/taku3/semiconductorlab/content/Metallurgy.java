@@ -100,6 +100,8 @@ public final class Metallurgy {
     public static final Item BORON_TRIOXIDE        = Reg.item("boron_trioxide");
     // --- 水銀（[1-45] 辰砂 HgS の焙焼。HgS + O2 → Hg + SO2）---
     // 容器（IMP-33）：鉄のフラスコ（水銀）・鉛の瓶（フッ酸 [2-10]、ガラスを溶かすので）。中身入りより上に書く
+    // [1-06] 塊鉄炉の海綿鉄（ブルーム：溶けずにできたスポンジ状の鉄、スラグ入り）。たき石で叩くと錬鉄（鉄インゴット）
+    public static final Item IRON_BLOOM            = Reg.item("iron_bloom");
     public static final Item IRON_FLASK            = Reg.item("iron_flask");
     public static final Item LEAD_BOTTLE           = Reg.item("lead_bottle");
     public static final Item CINNABAR_DUST         = Reg.item("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉
@@ -142,6 +144,9 @@ public final class Metallurgy {
 
     // バイヤー法の溶解釜 [1-14]（IMP4-01）：ボーキサイト＋NaOH の液 → 水酸化アルミニウム＋赤泥（2kW）
     public static final Machine<BayerDigesterBlockEntity> BAYER_DIGESTER = Machine.electric("bayer_digester", BayerDigesterBlockEntity::new, BayerDigesterBlockEntity.LAYOUT, metal(3.5f));
+    // [1-06] 塊鉄炉（ブルーマリー）：木炭＋鉄鉱石・砂鉄 → ブルーム。横のふいご [3-04] で風を送らないと還元の温度に届かない
+    public static final Machine<BloomeryBlockEntity> BLOOMERY = Machine.builder("bloomery", BloomeryBlockEntity::new)
+            .ticker(BloomeryBlockEntity::tick).layout(BloomeryBlockEntity.LAYOUT).props(lit(stone(3.0f), 12)).build();
     // ホール・エルー電解槽 [1-29]（IMP4-01）：アルミナ＋氷晶石の浴＋炭素の陽極 → アルミニウム（100kW、15kWh/個）
     public static final Machine<HallHeroultCellBlockEntity> HALL_HEROULT_CELL = Machine.electric("hall_heroult_cell", HallHeroultCellBlockEntity::new, HallHeroultCellBlockEntity.LAYOUT, lit(metal(4.0f), 7));
 

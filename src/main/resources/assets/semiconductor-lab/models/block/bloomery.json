@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/bloomery_front",
+    "side": "semiconductor-lab:block/bloomery_side",
+    "top": "semiconductor-lab:block/bloomery_top"
+  }
+}
