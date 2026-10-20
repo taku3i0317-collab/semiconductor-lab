@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NNN",
+    "N N",
+    "SKS"
+  ],
+  "key": {
+    "N": "semiconductor-lab:nickel",
+    "S": "semiconductor-lab:steel_ingot",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:fluorination_reactor",
+    "count": 1
+  }
+}

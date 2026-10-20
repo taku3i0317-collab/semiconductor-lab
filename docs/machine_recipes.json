@@ -789,6 +789,32 @@
       "note": "ドーパントが表面からしみ込む（1954：n型＋ホウ素）"
     },
     {
+      "machine": "semiconductor-lab:dry_etcher",
+      "process": "ドライエッチング",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "現像したレジスト 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:carbon_tetrafluoride",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "窓を開けた（真下だけ）"
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 15.0,
+      "energy_kj": 45,
+      "note": "CF4 のプラズマ（RIE）。隣の真空容器 0.1Pa 以下"
+    },
+    {
       "machine": "semiconductor-lab:electric_furnace",
       "process": "電気で焼く",
       "inputs": [
@@ -947,6 +973,37 @@
       "watts": 0.0,
       "seconds": 6.25,
       "note": "SiO2 + 6HF → H2SiF6 + 2H2O。シリコンは溶けない。室温・電気なし（125nm の膜の時間）"
+    },
+    {
+      "machine": "semiconductor-lab:fluorination_reactor",
+      "process": "CF4 を作る",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:graphite",
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:synthetic_graphite"
+          ]
+        },
+        {
+          "item": "semiconductor-lab:fluorine_cylinder",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:carbon_tetrafluoride",
+          "count": 8
+        },
+        {
+          "item": "semiconductor-lab:empty_gas_cylinder",
+          "count": 1
+        }
+      ],
+      "watts": 500.0,
+      "seconds": 10.0,
+      "energy_kj": 5,
+      "note": "C + 2F2 → CF4。ニッケルの管で冷やしながら"
     },
     {
       "machine": "semiconductor-lab:gas_retort",

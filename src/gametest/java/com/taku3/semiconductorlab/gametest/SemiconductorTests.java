@@ -1012,6 +1012,52 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-27] ドライエッチング（IMP4-01）：黒鉛＋F2 → CF4、CF4 のプラズマで現像したウェハーに窓。真空が悪いと動かない */
+    @GameTest(maxTicks = 100)
+    public void dryEtcher(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos fp = p(3, 1, 3);
+        h.setBlock(fp, Semiconductor.FLUORINATION_REACTOR.block);
+        var fr = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.class);
+        var fc = fr.getContainer();
+        fc.setItem(com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.SLOT_CARBON, new ItemStack(com.taku3.semiconductorlab.content.Heat.SYNTHETIC_GRAPHITE));
+        fc.setItem(com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.SLOT_F2, new ItemStack(Gas.FLUORINE_CYLINDER));
+        tickConsumer(h, fp, fr, com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.WATTS));
+        h.assertTrue(fc.getItem(com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.SLOT_OUT).is(Semiconductor.CARBON_TETRAFLUORIDE) && fc.getItem(com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.SLOT_OUT).getCount() == com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.CF4_PER_RUN && fc.getItem(com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.SLOT_CYL).is(Gas.EMPTY_GAS_CYLINDER), "C + 2F2 -> CF4, cylinder back");
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+        BlockPos cp = p(1, 1, 1), ep = p(2, 1, 1);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(ep, Semiconductor.DRY_ETCHER.block);
+        var ch = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class);
+        var be = h.getBlockEntity(ep, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.SLOT_WAFER, w.copy());
+        c.setItem(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.SLOT_GAS, fc.getItem(com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.SLOT_OUT).copy());
+        ch.setPressure(20);
+        tickConsumer(h, ep, be, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.SLOT_OUT).isEmpty(), "20 Pa: no clean plasma -> nothing");
+        ch.setPressure(0.05);
+        tickConsumer(h, ep, be, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.TICKS, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.SLOT_OUT);
+        h.assertTrue(out.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(out).hasWindows(), "8 wafers with windows, got " + out);
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(out).windows().equals(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w).out()).windows()), "windows exactly where the resist was opened");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.SLOT_GAS).getCount(), com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.CF4_PER_RUN - 1, "1 CF4 per run");
+        h.assertTrue(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(new ItemStack(Semiconductor.OXIDIZED_WAFER)).isEmpty(), "no resist pattern -> refused");
+        // 細い方眼（ステッパー g 線、36）の1マスの窓：ドライ装置は1マス、液（エッチング槽と同じ etchOxide(w)）は5マスに太る
+        int n = com.taku3.semiconductorlab.litho.ChipOps.WET_LIMIT_GRID;
+        var mask = new com.taku3.semiconductorlab.litho.MaskData(n, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(n).with(n / 2, n / 2, true), "", 0);
+        ItemStack fine = new ItemStack(Semiconductor.OXIDIZED_WAFER); fine.set(ModDataComponents.DOPANT, "boron");
+        fine = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(com.taku3.semiconductorlab.litho.ChipOps.coat(fine).out(), mask, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G, 900, 0).out()).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(fine)).windows().count(), 1, "dry etcher: fine line stays 1 cell");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.etchOxide(fine).out()).windows().count(), 5, "wet HF: the same line widens to 5 cells");
+        LOG.info("[LAB] dry etcher [9-27]: graphite + F2 -> 8 CF4; CF4 plasma at <= 0.1 Pa opens windows where the resist is open; on a 36 grid dry keeps 1 cell, wet widens to 5");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2311,6 +2357,10 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WAFERS_PER_RUN), "注入した層が働く")), com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.TICKS / 20.0, "N2/Ar の中で約1000℃。隣のガスホルダーから補充");
         rec(a, Semiconductor.SPUTTER.block, "Al の膜", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "窓を開けた 1〜8枚"), io(Metallurgy.ALUMINIUM_INGOT, 1), io(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.SputterBlockEntity.AR_PER_RUN)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "Al を一面に")), com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS / 20.0, "Ar⁺ で的をたたく。隣の真空容器 0.01Pa 以下、Ar はホルダーから");
+        rec(a, Semiconductor.FLUORINATION_REACTOR.block, "CF4 を作る", L(alt(io(Metallurgy.GRAPHITE, 1), com.taku3.semiconductorlab.content.Heat.SYNTHETIC_GRAPHITE), io(Gas.FLUORINE_CYLINDER, 1)),
+            L(io(Semiconductor.CARBON_TETRAFLUORIDE, com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.CF4_PER_RUN), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.TICKS / 20.0, "C + 2F2 → CF4。ニッケルの管で冷やしながら");
+        rec(a, Semiconductor.DRY_ETCHER.block, "ドライエッチング", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "現像したレジスト 1〜8枚"), io(Semiconductor.CARBON_TETRAFLUORIDE, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.CF4_PER_RUN)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "窓を開けた（真下だけ）")), com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WATTS, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.TICKS / 20.0, "CF4 のプラズマ（RIE）。隣の真空容器 0.1Pa 以下");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

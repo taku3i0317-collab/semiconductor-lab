@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/fluorination_reactor_front_on",
+    "side": "semiconductor-lab:block/fluorination_reactor_side",
+    "top": "semiconductor-lab:block/fluorination_reactor_top"
+  }
+}

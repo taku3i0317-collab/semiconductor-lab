@@ -56,6 +56,8 @@ public final class Semiconductor {
     public static final Item MESA_TRANSISTOR       = Reg.item("mesa_transistor", MesaTransistorItem::new, new Item.Properties().stacksTo(16));
     // 露光とマスク（O-002、docs/LITHO_DESIGN.md）：加工中のウェハー（chip_state つき。レジストを塗ると酸化膜つきの板がこれになる）
     public static final Item PROCESS_WAFER         = Reg.item("process_wafer");
+    // [9-27] 四フッ化炭素（IMP4-01）：ドライエッチングのガス。フッ素化の反応器で 黒鉛＋F2
+    public static final Item CARBON_TETRAFLUORIDE  = Reg.contained("carbon_tetrafluoride", com.taku3.semiconductorlab.machine.Vessel.GAS_BAG);
     // [9-32] ダイシング 段階1（A、O-013）：ダイヤモンドのけがき針で傷を付けて割る（1960ごろ）→ チップ（chip_state を引き継ぐ）
     public static final Item DIAMOND_SCRIBE        = Reg.item("diamond_scribe", com.taku3.semiconductorlab.item.DiamondScribeItem::new, new Item.Properties().durability(64));
     public static final Item CHIP                  = Reg.item("chip");
@@ -129,6 +131,10 @@ public final class Semiconductor {
     public static final Machine<AnnealFurnaceBlockEntity> ANNEAL_FURNACE = Machine.electric("anneal_furnace", AnnealFurnaceBlockEntity::new, AnnealFurnaceBlockEntity.LAYOUT, metal(4.0f));
     // [9-26] スパッタ装置（IMP4-01）：Ar⁺ で Al の的をたたいて膜にする。隣の真空容器 0.01Pa 以下＋アルゴン。5kW
     public static final Machine<SputterBlockEntity> SPUTTER = Machine.electric("sputter", SputterBlockEntity::new, SputterBlockEntity.LAYOUT, lit(metal(4.0f), 9));
+    // [9-27] フッ素化の反応器（IMP4-01）：黒鉛＋フッ素のボンベ → CF4 8袋。500W
+    public static final Machine<FluorinationReactorBlockEntity> FLUORINATION_REACTOR = Machine.electric("fluorination_reactor", FluorinationReactorBlockEntity::new, FluorinationReactorBlockEntity.LAYOUT, metal(3.5f));
+    // [9-27] ドライエッチング装置 RIE（IMP4-01）：CF4 のプラズマで真下だけ削る。隣の真空容器 0.1Pa 以下。3kW
+    public static final Machine<DryEtcherBlockEntity> DRY_ETCHER = Machine.electric("dry_etcher", DryEtcherBlockEntity::new, DryEtcherBlockEntity.LAYOUT, lit(metal(4.0f), 9));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
