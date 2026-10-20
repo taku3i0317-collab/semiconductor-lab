@@ -149,7 +149,7 @@
      "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
     }
    ],
-   "descendants": 446
+   "descendants": 450
   },
   {
    "real_full": "火の利用は約100万年前（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -200,7 +200,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 430
+   "descendants": 434
   },
   {
    "real_full": "約2万年前（中国・仙人洞）、縄文土器 約1万6500年前。粘土鉱物（カオリナイト等）は約500〜600℃で結晶水が抜け、二度と水で戻らない（不可逆な脱水）",
@@ -274,7 +274,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 421
+   "descendants": 425
   },
   {
    "real_full": "約1万1500年前、肥沃な三日月地帯でヒトツブコムギ・エンマーコムギ・大麦を栽培化（穂が落ちない変異株を選び続けた）",
@@ -852,7 +852,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 397
+   "descendants": 400
   },
   {
    "real_full": "紀元前3500〜3000年、牛に引かせる四輪車（メソポタミア・中欧）。車軸と車輪の摩擦が課題（獣脂で潤滑）",
@@ -1018,7 +1018,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 410
+   "descendants": 414
   },
   {
    "real_full": "海水（塩分約3.5%）を砂に撒いて天日で濃くし（揚げ浜式・入浜式）、かん水を釜で煮詰めると NaCl が先に結晶する。残った母液が「にがり（苦汁）」＝ MgCl2 が主成分（ほかに MgSO4・KCl）。日本では縄文晩期の製塩土器から、能登の揚げ浜式は今も続く",
@@ -1079,7 +1079,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 294
+   "descendants": 295
   },
   {
    "real_full": "約1万年前、肥沃な三日月地帯で羊・山羊、続いて野生のオーロックスから牛が家畜になった。囲って育て、乳・肉・毛・力（犂や荷車を引く）を得る",
@@ -1481,7 +1481,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 301
+   "descendants": 302
   },
   {
    "real_full": "CuFeS2 を焙焼→硫化銅の「マット」→空気を吹いて Fe を酸化しスラグへ、S を SO2 へ（1880 マネス転炉）。現代の銅の大半はこの硫化鉱から",
@@ -1667,7 +1667,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 348
+   "descendants": 349
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛。黒鉛るつぼは1840年代に普及（ディクソン、米墨戦争のころ）、特許は1850年）",
@@ -1829,7 +1829,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 341
+   "descendants": 342
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -1888,7 +1888,7 @@
     }
    ],
    "media": [],
-   "descendants": 281
+   "descendants": 282
   },
   {
    "real_full": "1740頃 ベンジャミン・ハンツマン（シェフィールド）。鉄を密閉るつぼで完全に溶かし、炭素量の均一な鋼に（時計ばね用）。それ以前のウーツ鋼（インド）も同系統",
@@ -2075,7 +2075,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 292
+   "descendants": 294
   },
   {
    "real_full": "1888 カール・ヨーゼフ・バイヤー。Al(OH)3+NaOH→NaAl(OH)4 で溶かし、鉄分（赤泥）をろ過、冷やして Al(OH)3 を析出→焼いて Al2O3",
@@ -2257,6 +2257,18 @@
      },
      "certainty": "反応と沸点 ◎（化学の標準値）／1段で不純物 1/10 △（ゲームの値。本物は塔の段数・還流比で変わる）",
      "basis": "PV-Manufacturing.org「ポリシリコン製造」（英語）、Fraunhofer ISE の解説（英語）"
+    },
+    {
+     "title": "O28. 薬品から作る純粋なガラス（合成石英、SiCl4 の炎加水分解）［7-15］［1-16］",
+     "answer": "トリクロロシランを作ると副産物の四塩化ケイ素 SiCl4 もたくさんできる。これを酸水素炎に吹きこむと、炎の中の水と反応して（SiCl4 + 2H2O → SiO2 + 4HCl）とても細かい SiO2 の粉になり、溶かし固めると不純物の極めて少ない合成石英になる（1934 コーニングのハイド）。紫外線をよく通すので、ArF の投影レンズやフォトマスクの板、光ファイバーの材料になる。",
+     "hee": {
+      "1": "天然の水晶より、薬品から作ったガラスのほうが純粋。",
+      "2": "多結晶シリコンの工場の「ゴミ」だった SiCl4 が、合成石英や光ファイバーの原料になる。",
+      "3": "光ファイバー（1970 コーニング）もこの炎の加水分解の方法で作られた。",
+      "4": "わずかな鉄や水（OH）でも紫外線を吸って熱くなり、レンズがゆがむ。だから露光装置のレンズの材料は純度で決まる。"
+     },
+     "certainty": "反応式・副産物としての SiCl4 ◎／ハイド 1934（米国特許 2,272,342）◎（TECH_TREE の記述）／光ファイバー 1970 コーニング ◎／TCS 合成の SiCl4 の割合 1〜2割 ○",
+     "basis": "- Wikipedia「Silicon tetrachloride」：https://en.wikipedia.org/wiki/Silicon_tetrachloride"
     }
    ],
    "item": null,
@@ -2888,7 +2900,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 311
+   "descendants": 312
   },
   {
    "real_full": "焙焼 2PbS+3O2→2PbO+2SO2 → 炭素還元 PbO+C→Pb+CO。融点327℃で古代から製錬。ヨーロッパ最古の方鉛鉱の処理は紀元前4400〜4300年（ルーマニア・ピエトレレ）。近東ではそれ以前（後期新石器）から鉛利用の例があり、最古の鉛の像はアビドスの紀元前3800年頃",
@@ -3581,7 +3593,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 121
+   "descendants": 122
   },
   {
    "real_full": "天然氷晶石はグリーンランド・イヴィグトゥートのみ（1987枯渇）。合成: 6HF+Al(OH)3+3NaOH→Na3AlF6+6H2O",
@@ -4053,7 +4065,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 167
+   "descendants": 168
   },
   {
    "real_full": "熱水が岩の割れ目に SiO2 を沈めた石英脈。人が水晶（石英の結晶）を使った歴史は古く、中石器時代末の刃物、紀元前4千年紀・3千年紀のビーズ（イラン）までさかのぼる。年 -2500 は紀元前3千年紀のビーズ・印章の代表値⚠️。地殻の約12%が石英。高純度の石英（水晶・ペグマタイトの石英、スプルースパインは不純物100ppm未満）が溶融石英・石英るつぼの原料",
@@ -4438,6 +4450,118 @@
    "descendants": 1
   },
   {
+   "real_full": "鉄の酸化物に亜鉛・マンガン・ニッケルなどの酸化物を混ぜて焼き固めた、電気を通しにくい磁性体。1930年、東京工業大学の加藤与五郎と武井武が発明した（特許出願1930・登録1932）。1935年に作られた TDK が1937年ごろ磁心として製品にし、最初は無線機の高周波のコイル・トランスに使われた（IEEE マイルストーン「フェライトの開発と応用 1930-1945」）。電気を通しにくいので、高い周波数でも渦電流（鉄心の中をぐるぐる流れて熱になる電流）が少ない。コアメモリの小さな輪（[10-08]）、ラジオのアンテナ棒、磁気テープの仲間。磁石になるしくみ（フェリ磁性）はルイ・ネールが説明した（1970年ノーベル物理学賞）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "未定（実装の前に相談）",
+   "id": "1-53",
+   "name": "フェライト",
+   "trunk": "1",
+   "trunk_name": "冶金",
+   "status": "❓",
+   "branch": false,
+   "year": 1930,
+   "year_range": "1930〜1937",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "1-13"
+     ]
+    ],
+    [
+     [
+      "3-12"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "冷蔵庫に貼る黒いマグネットも、焼き物でできたフェライトの磁石（O-005 で追加。出典：IEEE Milestones、東京工業大学「フェライトの発明」、Wikipedia「Ferrite (magnet)」）",
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "⛏️",
+   "people": [],
+   "media": [],
+   "descendants": 1
+  },
+  {
+   "real_full": "鉄に約36% のニッケルを混ぜると、温度が変わってもほとんど伸び縮みしない合金になる。1896年、国際度量衡局（BIPM）のシャルル・エドゥアール・ギヨームが、メートル原器（[8-22]）の安い写しになる金属を探すうちに見つけた（1920年ノーベル物理学賞）。測量の基線尺や巻尺、温度で狂わない時計の部品（ギヨームてんぷ）に使われた。温度による伸びを小さくするという考えは、超低膨張ガラス（[7-21]）と同じ",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "未定（実装の前に相談）",
+   "id": "1-54",
+   "name": "インバー",
+   "trunk": "1",
+   "trunk_name": "冶金",
+   "status": "❓",
+   "branch": false,
+   "year": 1896,
+   "year_range": null,
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "1-37"
+     ]
+    ],
+    [
+     [
+      "1-26"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "鉄にニッケルを混ぜるだけで、夏も冬も長さがほとんど変わらない金属になる（O-005 で追加。出典：Nobel Prize「Physics 1920」）",
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "⛏️",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
    "real_full": "接触法 2SO2+O2→2SO3, SO3+H2O→H2SO4",
    "hee_tree": {
     "2": "",
@@ -4762,7 +4886,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "塩とアンモニアと二酸化炭素からソーダを作る。アンモニアは回収してまた使う",
    "kind": "tech",
    "play": "",
@@ -5463,7 +5587,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-21"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -5525,7 +5651,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-21"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -5669,7 +5797,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F11. ガス工場のついでのアンモニア（アンモニア水）［2-21］（［9-14］洗浄の前提）",
+     "answer": "19世紀のアンモニアは、石炭ガス工場で出る安水から取った。安水を熱して溶けているアンモニアを追い出し、残った塩化アンモニウムなどは消石灰を加えて追い出し（2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃ + 2H₂O）、水に吸わせてアンモニア水にした。1913年からはハーバー・ボッシュ法で空気の窒素から作る。",
+     "hee": {
+      "1": "アンモニアは、昔はガス工場のついでに取れた。",
+      "2": "アンモニアは水にとてもよく溶ける（20℃で水1Lに約500Lの気体）。",
+      "3": "ハーバー・ボッシュ法の肥料が世界の人口を支える一方、同じアンモニアが火薬の原料になった。",
+      "4": "ウェハーの RCA 洗浄の SC-1 は、アンモニア水・過酸化水素・水を 1:1:5 で混ぜて約75℃。"
+     },
+     "certainty": "ガス工場の安水とアンモニア蒸留器（遊離・固定アンモニア、石灰）◎（ブリタニカ・ガス工場の技術書）／溶解度 ◎／SC-1 の配合 ◎（Kern 1990 の回顧）",
+     "basis": "ブリタニカ「ammonia」https://www.britannica.com/science/ammonia 、Kern, W. \"The Evolution of Silicon Wafer Cleaning Technology\", J. Electrochem. Soc. 137, 1887 (1990)（英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -5679,7 +5820,7 @@
    "name": "アンモニア水",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1850,
    "year_range": null,
@@ -5695,10 +5836,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "アンモニアは、昔はガス工場のついでに取れた",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -6095,7 +6236,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-23"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -6140,7 +6283,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-23"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -6196,7 +6341,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-23"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -6369,7 +6516,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-23"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -6535,7 +6684,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-23"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -6754,7 +6905,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-23"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
@@ -7946,7 +8099,7 @@
    "symbol": "🔥",
    "people": [],
    "media": [],
-   "descendants": 254
+   "descendants": 255
   },
   {
    "real_full": "珪藻土＝珪藻の殻（微小な穴だらけの SiO2）、1867 ノーベルがニトログリセリンを吸わせてダイナマイトに。石綿（アスベスト、Mg3Si2O5(OH)4 など）は優れた断熱材だったが中皮腫・肺がんの原因で、日本は2006年に原則禁止⚠️。代替のロックウールは玄武岩を約1500℃で溶かして繊維にしたもの（ハワイの火山の「ペレの毛」が天然の例）",
@@ -8800,7 +8953,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 322
+   "descendants": 323
   },
   {
    "real_full": "I²R損失。太線と高電圧で減らす。1882年9月4日 エジソンのパール街発電所が、銅の導体を地下の管に通して送電を始めた",
@@ -9193,7 +9346,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-21"
+   ],
    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB20lEQVR4nKWTO4/VMBCFj5+xk1xtTUGBVgs9BRIF//8v0K7YbSngJn7baCb3EmjBUqI4sY+/c2YiPn3+MvAfQ9Pt3eN75JSglEIfHd7P/HGMgVoKjLUoOaO2Cuc8YtgxBvD68nwI0ELnHISUkEohp4haK5blgt4bQtiBAf5Gz/O8YozOh0i60aKcM5TSTELqRLNvVxbnhUpinmcWaq3ynlOgNSzrSiyMTIPE7DQhpwwpJM9ba/AkwkOcGUzOY7te+ZTX718xrzPiHnmutELJBb11Jnt6+xEpRiitTwF1C8/qCcYa3mCdRbgGaKMxuQklFSijjmzWyx0AbIHQLpcHxBhQS+X56AN+8UghodUGqSU/s3cBjP5HiDEG9n9UBLCT5fDCfhDQRqIkOipjLRkxxlNAa4N922CNhV8ccsxorcN5xxnQuxgSi/VOQVcYY84MJNVfawgh+GQKjxbfe4QEyQ6hC8LHgLX2FNDGIMXAHfjm4QPjUq0FBPeHvCgWLyVDCAljLEIIp4UUwuGZOu42CFMZw74Jt9bCnUkUJPQXgV+WI9WDD1IKtkBdSSffq5JS5Pk0Obb9m2D7+eNIdQy0WrDvG4dFp5Ad6nutNVMQKV3l1rFM8PLt+Z9/51+GMx4B8vV78QAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚡",
@@ -9259,7 +9414,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 320
+   "descendants": 321
   },
   {
    "real_full": "真空管発振回路（1910年代）。誘導加熱の電源",
@@ -9584,7 +9739,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-21"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "⚡",
@@ -9617,7 +9774,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 291
+   "descendants": 292
   },
   {
    "real_full": "1882 エジソンのパール・ストリート発電所（ニューヨーク）とホルボーン高架橋発電所（ロンドン）で、蒸気機関で回したダイナモの電気を街に配った",
@@ -11504,7 +11661,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-22"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "🫙",
@@ -11597,7 +11756,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-21"
+   ],
    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVDhPY+jqn/afWHzAwABDjAFEnHj0HowNEg7AMUwMhkGaYRgmhmEAIYysGacB2tp6YIyuGZs49QyImn8CjmEKkcVwiY8aMGoATgNIwXADKMEA93+jnUFPXtIAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💨",
@@ -11843,7 +12004,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-21"
+   ],
    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR4nGNgGPKAEV1gxmqX//g0ZITuQdHDiE2zkho/Vs33bn3EMISJWM3IcsiuZCJWMy5DmBgoBEzDxIAMaLTAogkfQI9KJpgEMYZgSwcUp8SBBwDBsysU6/wh2wAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💨",
@@ -12094,7 +12257,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-22"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "💨",
@@ -12342,7 +12507,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-22"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "💨",
@@ -12464,7 +12631,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 0
+   "descendants": 1
   },
   {
    "real_full": "古い壁・洞窟・家畜小屋の床の土には、尿や糞が細菌で分解されてできた硝酸カリウム（硝石 KNO3）が白くふき出す。土を水に浸して煮つめ、木灰（K2CO3）を加えて結晶にした。中国で9〜10世紀ごろの火薬（808年の道教の文書が最古の処方とされ、1044年『武経総要』がまとまった処方の最古）、ヨーロッパでは13世紀ごろから（ロジャー・ベーコンの処方、1250〜1267年頃）。18世紀に人工の硝石床 [6-10] で増産、のちにチリ硝石・ハーバー・ボッシュ法 [6-09]",
@@ -13550,6 +13717,18 @@
      },
      "certainty": "ブリッジマン法 1925 ◎／ストックバーガーの CaF2・LiF ○（年は資料で違う ⚠️）／CaF2 の物性（融点・透過・アッベ数）◎／アッベの蛍石アポクロマート ○／157nm の中止 ○（EE Times、監査 V-162）",
      "basis": "- Wikipedia「Bridgman–Stockbarger method」：https://en.wikipedia.org/wiki/Bridgman%E2%80%93Stockbarger_method"
+    },
+    {
+     "title": "O28. 薬品から作る純粋なガラス（合成石英、SiCl4 の炎加水分解）［7-15］［1-16］",
+     "answer": "トリクロロシランを作ると副産物の四塩化ケイ素 SiCl4 もたくさんできる。これを酸水素炎に吹きこむと、炎の中の水と反応して（SiCl4 + 2H2O → SiO2 + 4HCl）とても細かい SiO2 の粉になり、溶かし固めると不純物の極めて少ない合成石英になる（1934 コーニングのハイド）。紫外線をよく通すので、ArF の投影レンズやフォトマスクの板、光ファイバーの材料になる。",
+     "hee": {
+      "1": "天然の水晶より、薬品から作ったガラスのほうが純粋。",
+      "2": "多結晶シリコンの工場の「ゴミ」だった SiCl4 が、合成石英や光ファイバーの原料になる。",
+      "3": "光ファイバー（1970 コーニング）もこの炎の加水分解の方法で作られた。",
+      "4": "わずかな鉄や水（OH）でも紫外線を吸って熱くなり、レンズがゆがむ。だから露光装置のレンズの材料は純度で決まる。"
+     },
+     "certainty": "反応式・副産物としての SiCl4 ◎／ハイド 1934（米国特許 2,272,342）◎（TECH_TREE の記述）／光ファイバー 1970 コーニング ◎／TCS 合成の SiCl4 の割合 1〜2割 ○",
+     "basis": "- Wikipedia「Silicon tetrachloride」：https://en.wikipedia.org/wiki/Silicon_tetrachloride"
     }
    ],
    "item": null,
@@ -15855,7 +16034,9 @@
    "parts": [],
    "materials": [],
    "frontier": false,
-   "enabled_by": [],
+   "enabled_by": [
+    "I-20"
+   ],
    "explained_by": [],
    "icon": null,
    "emoji": null,
@@ -17126,7 +17307,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F11. ガス工場のついでのアンモニア（アンモニア水）［2-21］（［9-14］洗浄の前提）",
+     "answer": "19世紀のアンモニアは、石炭ガス工場で出る安水から取った。安水を熱して溶けているアンモニアを追い出し、残った塩化アンモニウムなどは消石灰を加えて追い出し（2NH₄Cl + Ca(OH)₂ → CaCl₂ + 2NH₃ + 2H₂O）、水に吸わせてアンモニア水にした。1913年からはハーバー・ボッシュ法で空気の窒素から作る。",
+     "hee": {
+      "1": "アンモニアは、昔はガス工場のついでに取れた。",
+      "2": "アンモニアは水にとてもよく溶ける（20℃で水1Lに約500Lの気体）。",
+      "3": "ハーバー・ボッシュ法の肥料が世界の人口を支える一方、同じアンモニアが火薬の原料になった。",
+      "4": "ウェハーの RCA 洗浄の SC-1 は、アンモニア水・過酸化水素・水を 1:1:5 で混ぜて約75℃。"
+     },
+     "certainty": "ガス工場の安水とアンモニア蒸留器（遊離・固定アンモニア、石灰）◎（ブリタニカ・ガス工場の技術書）／溶解度 ◎／SC-1 の配合 ◎（Kern 1990 の回顧）",
+     "basis": "ブリタニカ「ammonia」https://www.britannica.com/science/ammonia 、Kern, W. \"The Evolution of Silicon Wafer Cleaning Technology\", J. Electrochem. Soc. 137, 1887 (1990)（英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -18319,7 +18513,9 @@
    "materials": [],
    "frontier": false,
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-22"
+   ],
    "icon": null,
    "emoji": null,
    "symbol": "💠",
@@ -19815,6 +20011,7 @@
    "requires": [
     [
      [
+      "1-53",
       "1-26"
      ]
     ],
@@ -21852,7 +22049,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "冷蔵庫と液体空気は同じ人が作った",
    "kind": "product",
    "play": "",
@@ -32012,6 +32209,239 @@
    "people": [],
    "media": [],
    "descendants": 0
+  },
+  {
+   "real_full": "1908年にヘリウムを液体にしたライデン（オランダ）のヘイケ・カメルリング・オネスのチームが、1911年4月8日、水銀を約3K（−270℃）まで冷やすと電気抵抗がほぼゼロになることを見つけた（1913年ノーベル物理学賞）。測定はヒレス・ホルスト、低温の装置はコルネリス・ドルスマンとヘリット・ヤン・フリムが担った（IEEE マイルストーン「超伝導の発見 1911」）。水銀が選ばれたのは、純度を上げやすかったから。のちに超伝導の素子（ジョセフソン接合）が、電圧の標準やワット天秤（[8-25]）に使われる",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-20",
+   "name": "超伝導の発見",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1911,
+   "year_range": null,
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "6-15"
+     ]
+    ],
+    [
+     [
+      "1-45"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "冷やしていくと、電気の流れをじゃまするものが突然まったく無くなる金属がある",
+   "kind": "idea",
+   "play": "実験：水銀の線を少しずつ冷やし、ある温度で電気抵抗が急に 0 になるのを見る",
+   "missing": "",
+   "sources": [
+    "https://ethw.org/Milestones:Discovery_of_Superconductivity",
+    "https://www.nobelprize.org/prizes/physics/1913/summary/"
+   ],
+   "enables": [
+    "8-25"
+   ],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": "🧊",
+   "symbol": "●",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "塩などが水に溶けると、プラスとマイナスの電気を持つ粒（イオン）に分かれ、それが動いて電気を運ぶ。スウェーデンのスヴァンテ・アレニウスが1884年の学位論文で考え、1887年に電離説として発表した（1903年ノーベル化学賞）。オストワルトが支え（1909年ノーベル化学賞の一部）、1889年にネルンストが電池の電圧を電極とイオンの濃さから計算する式を出した。電気分解で食塩水から塩素と水素が出る理由、電池の電圧、超純水の純度を電気の通りにくさで測る理由を説明する",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-21",
+   "name": "電離説と電極電位",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1887,
+   "year_range": "1884〜1889",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "4-13"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "塩水に電気が流れるのは、塩が水の中でプラスとマイナスの粒に分かれているから",
+   "kind": "idea",
+   "play": "実験：真水と塩水に電池と豆電球をつなぎ、塩水だけ光るのをくらべる",
+   "missing": "",
+   "sources": [
+    "https://www.nobelprize.org/prizes/chemistry/1903/summary/",
+    "https://www.nobelprize.org/prizes/chemistry/1909/summary/",
+    "https://www.nobelprize.org/prizes/chemistry/1920/summary/"
+   ],
+   "enables": [],
+   "explains": [
+    "2-17",
+    "2-18",
+    "4-07",
+    "4-13",
+    "6-01",
+    "6-05"
+   ],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": "⚡",
+   "symbol": "●",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "自分は変わらずに、反応を速くする物が触媒。1835年にベルセリウスが「触媒」という言葉を作り、1894年にオストワルトが「反応の速さを変えるが、行き着く先（平衡）は変えない」と定めた（1909年ノーベル化学賞）。GE の研究所のアーヴィング・ラングミュアは電球の研究から、気体の分子が固体の表面に1層だけくっつくようすを式にした（1916〜18年、1932年ノーベル化学賞）。のちに鉄の触媒の表面でアンモニアができる各段階が、超高真空の実験で解き明かされた（2007年ノーベル化学賞）",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-22",
+   "name": "触媒と表面化学",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1916,
+   "year_range": "1835〜1918",
+   "year_uncertain": false,
+   "requires": [],
+   "understanding": [],
+   "buildable_now": true,
+   "hee1": "触媒は、反応のあとも自分は減らずに残っている",
+   "kind": "idea",
+   "play": "実験：同じ気体を、触媒の金属があるときとないときで反応させ、速さをくらべる",
+   "missing": "",
+   "sources": [
+    "https://www.nobelprize.org/prizes/chemistry/1909/summary/",
+    "https://www.nobelprize.org/prizes/chemistry/1932/summary/",
+    "https://www.nobelprize.org/prizes/chemistry/2007/summary/"
+   ],
+   "enables": [],
+   "explains": [
+    "5-16",
+    "6-09",
+    "6-13",
+    "9-30"
+   ],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": "⚗️",
+   "symbol": "●",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "1920年、ドイツのヘルマン・シュタウディンガーが、ゴムやプラスチックは小さな分子が何千・何万もつながった長い鎖（高分子）だと論文で主張した。小さな分子の集まりだと考える人が多く、1920年代に大きな論争になった。1929年からデュポンのウォーレス・カロザースが、設計どおりの長さの鎖を作ってみせ（ナイロンなど）、高分子説を実証した（カロザースは1937年に亡くなり受賞していない）。シュタウディンガーは1953年にノーベル化学賞。フォトレジストが光で溶けなくなるのも、鎖どうしが橋でつながるから",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-23",
+   "name": "高分子説",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1920,
+   "year_range": "1920〜1930年代",
+   "year_uncertain": false,
+   "requires": [],
+   "understanding": [],
+   "buildable_now": true,
+   "hee1": "プラスチックの中では、小さな分子が何万個も手をつないで長い鎖になっている",
+   "kind": "idea",
+   "play": "実験：短い鎖と長い鎖の模型をくらべ、長い鎖ほどからまって硬くなるのを見る",
+   "missing": "",
+   "sources": [
+    "https://www.nobelprize.org/prizes/chemistry/1953/summary/",
+    "https://www.nobelprize.org/prizes/chemistry/1974/summary/",
+    "https://en.wikipedia.org/wiki/National_Historic_Chemical_Landmarks"
+   ],
+   "enables": [],
+   "explains": [
+    "2-28",
+    "2-29",
+    "2-30",
+    "2-33",
+    "2-37",
+    "2-41"
+   ],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": "🧬",
+   "symbol": "●",
+   "people": [],
+   "media": [],
+   "descendants": 0
   }
  ],
  "edges": [
@@ -32753,6 +33183,34 @@
   {
    "from": "1-26",
    "to": "1-52",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "1-13",
+   "to": "1-53",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "3-12",
+   "to": "1-53",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "1-37",
+   "to": "1-54",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "1-26",
+   "to": "1-54",
    "kind": "requires",
    "group": 1,
    "or": false
@@ -37427,6 +37885,13 @@
    "or": false
   },
   {
+   "from": "1-53",
+   "to": "10-08",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
    "from": "1-26",
    "to": "10-08",
    "kind": "requires",
@@ -41744,6 +42209,112 @@
   {
    "from": "I-19",
    "to": "P-37",
+   "kind": "understanding"
+  },
+  {
+   "from": "6-15",
+   "to": "I-20",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "1-45",
+   "to": "I-20",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "I-20",
+   "to": "8-25",
+   "kind": "enables"
+  },
+  {
+   "from": "4-13",
+   "to": "I-21",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "I-21",
+   "to": "2-17",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-21",
+   "to": "2-18",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-21",
+   "to": "4-07",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-21",
+   "to": "4-13",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-21",
+   "to": "6-01",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-21",
+   "to": "6-05",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-22",
+   "to": "5-16",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-22",
+   "to": "6-09",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-22",
+   "to": "6-13",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-22",
+   "to": "9-30",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-23",
+   "to": "2-28",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-23",
+   "to": "2-29",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-23",
+   "to": "2-30",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-23",
+   "to": "2-33",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-23",
+   "to": "2-37",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-23",
+   "to": "2-41",
    "kind": "understanding"
   }
  ],
