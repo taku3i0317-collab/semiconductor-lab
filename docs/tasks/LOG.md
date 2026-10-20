@@ -383,4 +383,8 @@
 - DECISIONS.md に「2026-10-20 ユーザーの決定」の表（日付・ノード・決定・理由、13行）。出どころは各担当の LOG・TECH_TREE・INBOX（決定だけ書き写した）
 - DECISIONS_PENDING.md：今日答えの出た物（Q3-1〜4、Q-IMP2-2・5、SiCl4 など）は PENDING に無かったので移す物なし。まだの物（Q3-5 加圧加熱釜・Q3-6 ビスアジド）を担当・案・詳しい場所つきで1行ずつ足した。空の「タスク12」見出しを消した
 - DESIGN に短いまとめの節（DECISIONS への道しるべ）
+## O-008 今日の人間の確認を1枚に（2026-10-20）
+- tools/gen_human_check.py → docs/HUMAN_CHECK_TODAY.md：docs/test_queue/ の「- [ ] 人間：」のうち、その日に足された行（git blame -M -C -C で、IMP-32 で部品に分けた行も元の日付）を、試験場（/function semiconductor-lab:testworld）の区画の順（看板の [ノード]・機械の場所＝東へ x・南へ z）に並べる。今日は 155 項目
+- v0.3 の本線（製図台 → 縮小カメラ → 酸化炉 → …→ 検査台）は通しの1つの手順に、関わる16項目をその下に。塗布・露光・現像・はがしは「まだ機械がない」と書いた
+- 試験場は D の gen_testworld.py を実行し直した（変わりなし＝新しい機械も入っていた）。テスト：177/177 PASSED
 
