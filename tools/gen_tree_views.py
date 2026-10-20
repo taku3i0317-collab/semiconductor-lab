@@ -9,7 +9,10 @@
 - 状態 = 見出しの ✅ / 🔧 / ⛔ / ❓（"⛔→❓" は ❓ 扱い＝新鉱石で解決予定）
 - 前提 = 本文の "前提:" から次の "／" まで。"," で区切った1項目に " or " があれば OR
 - "移動" "を参照（ここにはノードを作らない）" の見出しは別名として無視
+- 年 = "年: 1866（1866〜67） ⚠️" の項目（西暦、紀元前はマイナス、括弧は範囲、⚠️ は諸説・未確認）。無ければ本物欄から推定
+書き出し：docs/TECH_TREE_VIEW.md ／ docs/tech_network.json（技術ネットワーク図の元データ：ノードとつながり）
 """
+import json
 import re
 import sys
 from collections import defaultdict, deque
@@ -18,6 +21,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "docs" / "TECH_TREE.md"
 OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
+JSON_OUT = ROOT / "docs" / "tech_network.json"
+YEAR_RE = re.compile(r"(?:^|／|\s)年:\s*(-?\d+)(?:（([^）]*)）)?(\s*⚠️)?")
 
 ID_RE = re.compile(r"\[(\d+|B)-(\d+[a-z]?)\]")
 HEAD_RE = re.compile(r"^###\s+\[(\d+|B)-(\d+[a-z]?)\]\s*(.*)$")
@@ -98,8 +103,12 @@ def fill(n):
     n["pre"] = sorted({i for alts in groups for a in alts for i in a}, key=sort_key)
     if "回避" in status_zone:
         n["st"] = "➖"
-    real = re.search(r"本物[:：](.*?)(?:／|$)", n["body"], re.S)
-    n["year"] = year_of(real.group(1) if real else n["body"])
+    ym = YEAR_RE.search(n["body"])
+    if ym:
+        n["year"], n["year_range"], n["year_uncertain"], n["year_src"] = int(ym.group(1)), ym.group(2), bool(ym.group(3)), "field"
+    else:
+        real = re.search(r"本物[:：](.*?)(?:／|$)", n["body"], re.S)
+        n["year"], n["year_range"], n["year_uncertain"], n["year_src"] = year_of(real.group(1) if real else n["body"]), None, True, "guess"
 
 
 def year_of(text):
@@ -250,6 +259,68 @@ def topo(nodes, subset):
     return out + sorted(set(subset) - set(out), key=sort_key)  # 循環が残れば末尾
 
 
+def year_inversions(nodes):
+    """年の逆転：ノードの年が、必ず要る前提（AND の項目。OR はいちばん新しくない代替案）の年より古いもの。
+    本物の歴史では「前提より先に生まれた」技術（例：後の別ルートでゲームでは作る）を見つけるための一覧。直さずに報告だけ"""
+    out, seen = [], set()
+    for n in nodes.values():
+        y = n["year"]
+        if y is None:
+            continue
+        for alts in n["groups"]:
+            def alt_year(a):
+                ys = [nodes[i]["year"] for i in a if i in nodes and nodes[i]["year"] is not None]
+                return max(ys) if ys else None
+            cands = [(alt_year(a), a) for a in alts]
+            cands = [c for c in cands if c[0] is not None]
+            if not cands:
+                continue
+            py, a = min(cands, key=lambda c: c[0])   # OR なら、いちばん古い代替案で足りる
+            if py > y:
+                late = max((i for i in a if i in nodes and nodes[i]["year"] is not None), key=lambda i: nodes[i]["year"])
+                if (n["id"], late) not in seen:   # 同じ前提が2つの項目に出ても1件
+                    seen.add((n["id"], late))
+                    out.append((n["id"], y, late, nodes[late]["year"], py - y))
+    return sorted(out, key=lambda r: -r[4])
+
+
+def export_json(nodes):
+    """技術ネットワーク図（ROADMAP 技術ネットワーク ②）の元データ。ノード・つながり・子孫の数"""
+    succ = defaultdict(set)
+    for n in nodes.values():
+        for p in n["pre"]:
+            if p in nodes:
+                succ[p].add(n["id"])
+    def descendants(u):
+        seen, q = set(), deque([u])
+        while q:
+            v = q.popleft()
+            for w in succ[v]:
+                if w not in seen:
+                    seen.add(w)
+                    q.append(w)
+        return seen
+    out_nodes, edges = [], []
+    for i in sorted(nodes, key=sort_key):
+        n = nodes[i]
+        out_nodes.append({"id": i, "name": n["name"], "trunk": trunk_of(i), "trunk_name": TRUNK_NAMES.get(trunk_of(i), ""),
+                          "status": n["st"], "branch": n["branch"], "year": n["year"], "year_range": n["year_range"],
+                          "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
+                          "descendants": len(descendants(i))})
+        for gi, alts in enumerate(n["groups"]):
+            for a in alts:
+                for p in a:
+                    if p in nodes:
+                        edges.append({"from": p, "to": i, "group": gi, "or": len(alts) > 1})
+    data = {"generated_by": "tools/gen_tree_views.py", "source": "docs/TECH_TREE.md", "start": START, "goal": GOAL,
+            "year_note": "西暦。紀元前はマイナス。year_uncertain=true は諸説・未確認（⚠️）",
+            "requires_note": "requires はノードを作るのに要る項目の並び（全部そろう＝AND）。1項目の中の複数案は OR、案の中は AND",
+            "nodes": out_nodes, "edges": edges, "year_inversions": [
+                {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d} for a, y, p, py, d in year_inversions(nodes)]}
+    JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return data
+
+
 def mid(i):
     return "n" + i.replace("-", "_")
 
@@ -348,6 +419,13 @@ def render(nodes, dups):
     L.append(f"- ノード0個の幹: {', '.join(empty) or 'なし'}")
     L.append(f"- 重複定義: {', '.join(dups) or 'なし'}")
     L.append(f"- 背骨 [{START}]→[{GOAL}]: {'つながっている' if sc else '切れている'}")
+    guessed = sorted((n["id"] for n in nodes.values() if n["year_src"] != "field"), key=sort_key)
+    L.append(f"- 「年:」の項目: {len(nodes) - len(guessed)} / {len(nodes)}（⚠️ {sum(1 for n in nodes.values() if n['year_uncertain'] and n['year_src'] == 'field')}）" + (f"。項目なし: {' '.join(guessed)}" if guessed else ""))
+    inv = year_inversions(nodes)
+    L += ["", f"### 年の逆転（ノードの年が、必ず要る前提の年より古い：{len(inv)} 件。直さずに報告だけ）", "",
+          "| ノード | 年 | 前提（いちばん新しい） | 前提の年 | 差 |", "|---|---|---|---|---|"]
+    for a, y, p, py, d in inv:
+        L.append(f"| [{a}] {nodes[a]['name']} | {y} | [{p}] {nodes[p]['name']} | {py} | {d} |")
     return L, (undefined, cycles, empty, dups, sc, bl, todo)
 
 
@@ -373,9 +451,14 @@ def main():
         print("spine:", " > ".join(sc) if sc else "CUT")
         print("buildable:", bl)
         print("todo:", len(todo))
+        inv = year_inversions(nodes)
+        print(f"year inversions: {len(inv)}")
+        for a, y, p, py, d in inv:
+            print(f"  [{a}] {y} < [{p}] {py} (gap {d})")
         return
     OUT.write_text("\n".join(L) + "\n", encoding="utf-8")
-    print(f"wrote {OUT} ({len(nodes)} nodes)")
+    data = export_json(nodes)
+    print(f"wrote {OUT} ({len(nodes)} nodes), {JSON_OUT.name} ({len(data['nodes'])} nodes, {len(data['edges'])} edges, {len(data['year_inversions'])} year inversions)")
 
 
 if __name__ == "__main__":

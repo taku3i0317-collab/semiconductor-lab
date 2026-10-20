@@ -18,6 +18,7 @@
 | ROADMAP.md | 全体計画とバージョン（v0.1 / v0.2a / v0.2b…）ごとのチェックリスト |
 | TECH_TREE.md | 技術ツリー本体（347ノード）。ノード＝作業単位（前提/本物/入出力/ゲーム/省略/へえ/テスト） |
 | TECH_TREE_VIEW.md | TECH_TREE から自動生成した進捗表・背骨・依存図（tools/gen_tree_views.py。手で編集しない） |
+| tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
 | CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき） |
 | API_26X.md | javap で確認した Minecraft 26.3 API の形。コードはここにある形で書く |
