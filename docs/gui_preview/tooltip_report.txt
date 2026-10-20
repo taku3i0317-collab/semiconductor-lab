@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 181（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 183（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -19,6 +19,10 @@ en_us slaked_lime lines=4
 en_us slaked_lime shift lines=14
 en_us bittern lines=3
 en_us bittern shift lines=10
+en_us wild_einkorn lines=9
+en_us wild_einkorn shift lines=19
+en_us einkorn lines=7
+en_us einkorn shift lines=16
 en_us salt_pan lines=6
 en_us salt_pan shift lines=16
 en_us magnetite lines=3
@@ -381,6 +385,10 @@ ja_jp slaked_lime lines=3
 ja_jp slaked_lime shift lines=12
 ja_jp bittern lines=3
 ja_jp bittern shift lines=10
+ja_jp wild_einkorn lines=7
+ja_jp wild_einkorn shift lines=15
+ja_jp einkorn lines=6
+ja_jp einkorn shift lines=13
 ja_jp salt_pan lines=5
 ja_jp salt_pan shift lines=13
 ja_jp magnetite lines=3
