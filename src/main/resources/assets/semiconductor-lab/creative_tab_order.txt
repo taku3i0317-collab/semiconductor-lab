@@ -520,9 +520,12 @@ waxed_wafer  # Semiconductor [9-17] 1957
 mesa_wafer  # Semiconductor [9-17] 1957
 mesa_transistor  # Semiconductor [9-17] 1957
 process_wafer  # Semiconductor [9-06] 1957
+chip_header  # Semiconductor [9-33] 1957
+bonded_chip  # Semiconductor [9-33] 1957
 etch_tank  # Semiconductor [9-06] 1957
 resist_stripper  # Semiconductor [9-21] 1957
 developer_bench  # Semiconductor [9-21] 1957
+wire_bonder  # Semiconductor [9-33] 1957
 probe_station  # Semiconductor [9-22] 1958
 diamond_scribe  # Semiconductor [9-32] 1960
 chip  # Semiconductor [9-32] 1960

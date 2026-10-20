@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/wire_bonder_front",
+    "side": "semiconductor-lab:block/wire_bonder_side",
+    "top": "semiconductor-lab:block/wire_bonder_top"
+  }
+}

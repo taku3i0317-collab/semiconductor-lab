@@ -59,6 +59,9 @@ public final class Semiconductor {
     // [9-32] ダイシング 段階1（A、O-013）：ダイヤモンドのけがき針で傷を付けて割る（1960ごろ）→ チップ（chip_state を引き継ぐ）
     public static final Item DIAMOND_SCRIBE        = Reg.item("diamond_scribe", com.taku3.semiconductorlab.item.DiamondScribeItem::new, new Item.Properties().durability(64));
     public static final Item CHIP                  = Reg.item("chip");
+    // [9-33] ワイヤーボンディング（IMP4-01）：ヘッダー（鋼の台にガラスで封じた足）、線をつないだチップ（CHIP_STATE を写す）
+    public static final Item CHIP_HEADER           = Reg.item("chip_header");
+    public static final Item BONDED_CHIP           = Reg.item("bonded_chip");
     // v0.3b（A、O-016 ③）：ハンコ。お題を解いたチップの形（成分 chip_design、切り抜き）。製図台で何度でも押せる（減らない）
     public static final Item STAMP                 = Reg.item("stamp", new Item.Properties().stacksTo(1));
     // [9-32] 段階2（A、O-014）：ダイシングソーの刃（ダイヤモンドの粒を青銅で固めた薄い円盤、32枚で減る）
@@ -109,6 +112,8 @@ public final class Semiconductor {
     public static final Machine<DeveloperBenchBlockEntity> DEVELOPER_BENCH = Machine.electric("developer_bench", DeveloperBenchBlockEntity::new, DeveloperBenchBlockEntity.LAYOUT, metal(3.0f));
     // [9-14] RCA 洗浄台 段階2（IMP4-01）：SC-1（アンモニア水＋過酸化水素）・SC-2（塩酸＋過酸化水素）、脱イオン水ですすぐ（ChipOps.clean）。1.5kW
     public static final Machine<RcaBenchBlockEntity> RCA_BENCH = Machine.electric("rca_bench", RcaBenchBlockEntity::new, RcaBenchBlockEntity.LAYOUT, metal(3.0f));
+    // [9-33] ワイヤーボンダー（IMP4-01）：金の細い線を熱と圧力でパッドと足にくっつける。パッド1つに1本。200W
+    public static final Machine<WireBonderBlockEntity> WIRE_BONDER = Machine.electric("wire_bonder", WireBonderBlockEntity::new, WireBonderBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

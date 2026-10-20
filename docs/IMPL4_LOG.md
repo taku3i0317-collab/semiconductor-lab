@@ -77,3 +77,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 
 ## S-001（2026-10-20）[1-58] 伸線 → [9-33] → [9-34]（答え①）
 - ✅ [1-58] 伸線：引き板・ダイヤモンドのダイス（ReusableToolItem）、金線・金のボンディング線・銅線。GameTest wire_drawing、CHEMISTRY F45、REFERENCES F22、DECISIONS に1行
+- ✅ [9-33] ワイヤーボンディング：ヘッダー（鋼＋ガラス＋銅線）、ボンダー wire_bonder（block/WireBonderBlockEntity、画面 WireBonderScreen、200W）。パッドの数は A の Netlist で数える（読むだけ）、CHIP_STATE は transmuteCopy で写す。GameTest wire_bonder、CHEMISTRY F46、REFERENCES F23

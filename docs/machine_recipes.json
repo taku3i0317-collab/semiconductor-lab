@@ -1860,6 +1860,36 @@
       "note": "1面あたり。止まった水では回らない"
     },
     {
+      "machine": "semiconductor-lab:wire_bonder",
+      "process": "ワイヤーボンディング",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "1〜8個"
+        },
+        {
+          "item": "semiconductor-lab:gold_bonding_wire",
+          "count": 4,
+          "cond": "パッドの数だけ（NOT の例は4）"
+        },
+        {
+          "item": "semiconductor-lab:chip_header",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:bonded_chip",
+          "count": 1
+        }
+      ],
+      "watts": 200.0,
+      "seconds": 15.0,
+      "energy_kj": 3,
+      "note": "金の細い線をパッドと足に熱圧着（チップの中身を写す）"
+    },
+    {
       "machine": "semiconductor-lab:wood_retort",
       "process": "木を乾留する",
       "inputs": [

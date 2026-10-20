@@ -826,6 +826,41 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-33] ワイヤーボンディング・[9-34] 封止（IMP4-01、S-001）
+    // =====================================================================
+
+    /** NOT のチップ（パッド4）4個＋金のボンディング線16＋ヘッダー4 → 線をつないだチップ4（中身を写す）。線が15本なら3個、パッドのないチップは不可 */
+    @GameTest(maxTicks = 100)
+    public void wireBonder(GameTestHelper h) {
+        ItemStack wafer = new ItemStack(Semiconductor.OXIDIZED_WAFER, 1);
+        wafer.set(ModDataComponents.DOPANT, "boron");
+        ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(wafer, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        ItemStack chips = done.transmuteCopy(Semiconductor.CHIP, 4);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WireBonderBlockEntity.padsOf(chips), 4, "the NOT chip has 4 pads");
+        ItemStack bare = new ItemStack(Semiconductor.CHIP, 4);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WireBonderBlockEntity.padsOf(bare), 0, "chip without contents has no pads");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.WIRE_BONDER.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.WireBonderBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.WireBonderBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_CHIP, chips.copy());
+        c.setItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_WIRE, new ItemStack(Metallurgy.GOLD_BONDING_WIRE, 15));
+        c.setItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_HEADER, new ItemStack(Semiconductor.CHIP_HEADER, 8));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WireBonderBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WireBonderBlockEntity.TICKS, feed);
+        ItemStack b = c.getItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_OUT);
+        h.assertTrue(b.is(Semiconductor.BONDED_CHIP) && b.getCount() == 3, "15 wires / 4 pads -> 3 chips bonded, got " + b);
+        h.assertTrue(b.get(ModDataComponents.CHIP_STATE) != null && b.get(ModDataComponents.CHIP_STATE).equals(done.get(ModDataComponents.CHIP_STATE)), "chip contents copied");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_WIRE).getCount() == 3 && c.getItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_HEADER).getCount() == 5 && c.getItem(com.taku3.semiconductorlab.block.WireBonderBlockEntity.SLOT_CHIP).getCount() == 1, "12 wires, 3 headers, 3 chips used");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WireBonderBlockEntity.batch(bare, new ItemStack(Metallurgy.GOLD_BONDING_WIRE, 64), new ItemStack(Semiconductor.CHIP_HEADER, 8)), 0, "no pads -> nothing");
+        LOG.info("[LAB] wire bonder [9-33]: NOT chips have 4 pads; 15 gold wires bond 3 chips onto headers (contents kept)");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 
@@ -1922,6 +1957,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WAFERS_PER_RUN), "レジストなし")), com.taku3.semiconductorlab.block.ResistStripperBlockEntity.WATTS, com.taku3.semiconductorlab.block.ResistStripperBlockEntity.TICKS / 20.0, "熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。塗り直しにも");
         rec(a, Semiconductor.DEVELOPER_BENCH.block, "現像", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WAFERS_PER_RUN), "露光した 1〜8枚"), io(Chemistry.DEVELOPER, 1)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WAFERS_PER_RUN), "現像した（DEVELOPED）")), com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WATTS, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.TICKS / 20.0, "薄い NaOH で光の当たったレジストを溶かし、熱板で固める（ChipOps.develop）");
+        rec(a, Semiconductor.WIRE_BONDER.block, "ワイヤーボンディング", L(cond(io(Semiconductor.CHIP, 1), "1〜8個"), cond(io(Metallurgy.GOLD_BONDING_WIRE, 4), "パッドの数だけ（NOT の例は4）"), io(Semiconductor.CHIP_HEADER, 1)),
+            L(io(Semiconductor.BONDED_CHIP, 1)), com.taku3.semiconductorlab.block.WireBonderBlockEntity.WATTS, com.taku3.semiconductorlab.block.WireBonderBlockEntity.TICKS / 20.0, "金の細い線をパッドと足に熱圧着（チップの中身を写す）");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),
