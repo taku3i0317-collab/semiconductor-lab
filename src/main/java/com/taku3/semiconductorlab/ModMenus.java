@@ -52,6 +52,9 @@ public class ModMenus {
     public static final MenuType<com.taku3.semiconductorlab.block.WaferSawMenu> WAFER_SAW = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("wafer_saw"),
             new MenuType<>(com.taku3.semiconductorlab.block.WaferSawMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<com.taku3.semiconductorlab.block.DiffusionFurnaceMenu> DIFFUSION_FURNACE = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("diffusion_furnace"),
+            new MenuType<>(com.taku3.semiconductorlab.block.DiffusionFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
     public static final MenuType<ArcFurnaceMenu> ARC_FURNACE = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("arc_furnace"),
             new MenuType<>(ArcFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));

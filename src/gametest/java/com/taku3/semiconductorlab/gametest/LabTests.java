@@ -1458,6 +1458,8 @@ public class LabTests {
 
     /** 後から足した機械（タスク22 [1-16][1-17] など）。exportMachineRecipes から呼ぶ */
     private static void exportExtraMachines(com.google.gson.JsonArray a) {
+        rec(a, ModBlocks.DIFFUSION_FURNACE, "p-n 接合", L(cond(io(ModItems.SILICON_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN), "n型 か p型"), cond(alt(io(ModItems.BORON_TRIOXIDE, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SOURCE_PER_RUN), ModItems.PHOSPHORUS), "板と反対の型")),
+            L(io(ModItems.PN_JUNCTION_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN)), com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS / 20.0, "ドーパントが表面からしみ込む（1954：n型＋ホウ素）");
         rec(a, ModBlocks.WAFER_SAW, "板に切る", L(io(ModItems.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(ModItems.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(ModItems.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, ModBlocks.HCL_BURNER, "乾いた塩化水素", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER)),
@@ -1474,6 +1476,54 @@ public class LabTests {
             L(io(ModItems.SILICON_SEED_CRYSTAL, 1)), com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.SEED_TICKS / 20.0, "細く絞って引くと1つの粒だけが残る");
         rec(a, ModBlocks.CZ_PULLER, "単結晶", L(kept(io(ModItems.SILICON_SEED_CRYSTAL, 1)), io(ModItems.POLYSILICON, com.taku3.semiconductorlab.block.CzPullerBlockEntity.POLY_PER_INGOT), io(ModItems.QUARTZ_CRUCIBLE, 1), mol(ModItems.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_INGOT), cond(alt(io(ModItems.BORON_TRIOXIDE, 1), ModItems.PHOSPHORUS), "入れなくてもよい（真性）")),
             L(cond(io(ModItems.SILICON_SINGLE_CRYSTAL, 1), "B2O3 で p型・リンで n型、純度は多結晶シリコンと同じ")), com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.GROW_TICKS / 20.0, "約1420℃の融液から回しながら引き上げる。17.4kWh/kg");
+    }
+
+    // =====================================================================
+    // [9-16] 熱拡散（IMP-25）
+    // =====================================================================
+
+    /** n型の板8＋B2O3 → p-n 接合の板8（1954 と同じ向き）。p型＋リンも可。同じ型・真性・数が足りない・電力不足では動かない */
+    @GameTest
+    public void diffusionFurnace(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModBlocks.ELECTRIC_FURNACE.asItem(), ModItems.QUARTZ_TUBE, ModItems.REFRACTORY_BRICK})
+            h.assertTrue(recipeUses(h, "diffusion_furnace", it), "diffusion furnace = electric furnace [4-12] + quartz tube [7-02]: " + it);
+        java.util.function.Function<String, ItemStack> wafer = dp -> {
+            ItemStack s = new ItemStack(ModItems.SILICON_WAFER, 16);
+            s.set(com.taku3.semiconductorlab.ModDataComponents.PURITY, com.taku3.semiconductorlab.Purity.NINE_N);
+            if (dp != null) s.set(com.taku3.semiconductorlab.ModDataComponents.DOPANT, dp);
+            return s;
+        };
+        h.assertTrue(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(wafer.apply("phosphorus"), new ItemStack(ModItems.BORON_TRIOXIDE)), "n + B -> junction");
+        h.assertTrue(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(wafer.apply("boron"), new ItemStack(ModItems.PHOSPHORUS)), "p + P -> junction");
+        h.assertFalse(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(wafer.apply("boron"), new ItemStack(ModItems.BORON_TRIOXIDE)), "same type -> no junction");
+        h.assertFalse(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(wafer.apply(null), new ItemStack(ModItems.BORON_TRIOXIDE)), "intrinsic -> no junction");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, ModBlocks.DIFFUSION_FURNACE);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS);
+        ItemStack few = wafer.apply("phosphorus"); few.setCount(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN - 1);
+        c.setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_WAFER, few);
+        c.setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_SOURCE, new ItemStack(ModItems.BORON_TRIOXIDE, 2));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS + 10, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT).isEmpty(), "7 slices are not a full batch");
+        c.setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_WAFER, wafer.apply("phosphorus"));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT).isEmpty(), "half power cannot hold the temperature");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS, feed);
+        ItemStack j = c.getItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(j.is(ModItems.PN_JUNCTION_WAFER) && j.getCount() == com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN, "8 n-type + B2O3 -> 8 p-n slices, got " + j);
+        h.assertValueEqual(j.get(com.taku3.semiconductorlab.ModDataComponents.DOPANT), "phosphorus", "base type kept (n base, p top as in 1954)");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_WAFER).getCount(), 8, "8 slices used");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_SOURCE).getCount(), 1, "1 B2O3 used");
+        c.setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_WAFER, wafer.apply("boron"));
+        c.setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_SOURCE, new ItemStack(ModItems.BORON_TRIOXIDE, 1));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS + 10, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT).isEmpty(), "p-type + boron -> nothing");
+        LOG.info("[LAB] diffusion [9-16]: 8 n-type slices + B2O3 -> 8 p-n junction slices ({} s, {} kW); p + P also; same type / intrinsic rejected", com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS / 20, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS / 1000);
+        h.succeed();
     }
 
     // =====================================================================

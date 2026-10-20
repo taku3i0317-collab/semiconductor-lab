@@ -775,6 +775,35 @@
       "note": "充電・放電とも最大の電力"
     },
     {
+      "machine": "semiconductor-lab:diffusion_furnace",
+      "process": "p-n 接合",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8,
+          "cond": "n型 か p型"
+        },
+        {
+          "item": "semiconductor-lab:boron_trioxide",
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:phosphorus"
+          ],
+          "cond": "板と反対の型"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:pn_junction_wafer",
+          "count": 8
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 120.0,
+      "energy_kj": 600,
+      "note": "ドーパントが表面からしみ込む（1954：n型＋ホウ素）"
+    },
+    {
       "machine": "semiconductor-lab:wafer_saw",
       "process": "板に切る",
       "inputs": [
