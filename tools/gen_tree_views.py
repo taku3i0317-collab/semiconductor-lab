@@ -199,6 +199,11 @@ def build_terms(out_nodes):
     for f in amb:
         if f not in exact:
             ja.pop(f, None)
+    meta_alias = json.loads(META.read_text(encoding="utf-8")).get("aliases", {}) if META.exists() else {}
+    for nid, words in meta_alias.items():
+        if not nid.startswith("_"):
+            for f in words:
+                ja.setdefault(f, nid)   # network_meta.json の aliases（O-023：論理ゲート → [10-05] など）
     for k, v in GLOSSARY.items():
         for f in [k] + v.get("aliases", []):
             ja.setdefault(f, "g:" + k)
