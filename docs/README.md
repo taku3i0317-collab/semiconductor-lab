@@ -28,6 +28,7 @@
 | tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
 | CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき）。組み立て結果：書くのは chemistry/<幹>.md（tools/docs_build.py） |
+| LITHO_DESIGN.md | 露光とマスク（v0.3 の中心）の仕様：チップ・マスク・層のデータの形、工程の関数（ChipOps）、判定と回路の計算、C・E がつなぐ所 |
 | API_26X.md | javap で確認した Minecraft 26.3 API の形。コードはここにある形で書く |
 | SOURCES.md | 出典と要確認リスト |
 | REFERENCES.md | 参考文献のまとめ（答え→へえ①〜④→確かさ→根拠）。v0.2b シリコンの試作版 |

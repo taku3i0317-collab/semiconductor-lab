@@ -313,4 +313,8 @@
 - 画面：< > で製品を選ぶ・役目つきのスロット 4×2（使わない所は隠す、薄い見本と赤い枠）・役目の説明の行・「組立」ボタン（clickMenuButton）。共通の部品に MachineLayout.Ctx・lazyText・MachineBE.onButton を足した
 - 画面の検査が最初に「役目の文が2行に入らない・製品名と重なる」を見つけた → 配置を変え、文を短くして 0 件
 - GameTest assembly_bench、ラジオ・発振器のテストを組立レシピに。machine_recipes.json に組立台の行（cond＝役目）。テスト：116/116 PASSED
+## O-002 ① 露光とマスクの設計（2026-10-20、INBOX O-002）
+- DESIGN に「露光とマスク（v0.3 の中心）」（ユーザーの決定6つ）、仕様は docs/LITHO_DESIGN.md：層（DIFF_N・DIFF_P・CONTACT・METAL）、方眼の大きさ N＝8×(10µm÷CD)^(1/3)（g線密着 8 → EUV 72）、データ（BitGrid・chip_design・mask・chip_state）、工程の関数 ChipOps（coat・expose・develop・etchOxide・etchMetal・strip・diffuse・depositMetal・reoxidize・reclaim、失敗はウェハーを失わない）、判定（ChipModel → Netlist → Circuit → Discoveries）、C・E がつなぐ所
+- **質問（設計担当へ）**：①「1〜2層」を金属の層の数と読み、拡散は3回までとしてよいか（拡散2回だと NOT のトランジスタと抵抗を分ける島が作れない）②設計図・原図の材料（紙 [15-01]・ルビリス＝プラスチック）が未実装。製図台で材料なしに描けるようにしてよいか ③面抵抗・CD の値は REFERENCES で確定する
+- 答えを待つあいだは、答えに左右されない所（データ・ChipOps・判定・回路の計算）から ② を進める
 
