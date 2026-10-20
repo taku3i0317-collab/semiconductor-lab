@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 46（ja・en）、文字の置き場所 186、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 48（ja・en）、文字の置き場所 186、問題 0
 bessemer_converter_en_us power gui.semiconductor-lab.bessemer_converter.power w=69 lines=1/1
 bessemer_converter_en_us stored gui.semiconductor-lab.bessemer_converter.stored w=65 lines=1/1
 bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_iron w=120 lines=1/1
