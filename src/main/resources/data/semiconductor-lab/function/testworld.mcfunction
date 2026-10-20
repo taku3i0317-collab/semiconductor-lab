@@ -626,9 +626,11 @@ setblock ~93 ~0 ~74 semiconductor-lab:cleaning_bench
 setblock ~94 ~0 ~74 semiconductor-lab:rca_bench
 setblock ~95 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitric_acid",count:16},{Slot:2b,id:"semiconductor-lab:hydrofluoric_acid",count:16},{Slot:3b,id:"semiconductor-lab:distilled_water",count:16}]}
 setblock ~98 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-27] ドライエッチン","2台の GUI（「隣の","真空容器を 0.1Pa"," 以下に」「現像したレ"]}}
+setblock ~98 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~98 ~0 ~74 semiconductor-lab:fluorination_reactor
+setblock ~99 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~99 ~0 ~74 semiconductor-lab:dry_etcher
-setblock ~100 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_tetrafluoride",count:16}]}
+setblock ~100 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_tetrafluoride",count:16},{Slot:1b,id:"semiconductor-lab:graphite",count:16},{Slot:2b,id:"semiconductor-lab:fluorine_cylinder",count:16},{Slot:3b,id:"semiconductor-lab:process_wafer",count:16}]}
 setblock ~103 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-26] スパッタリング","スパッタ装置の GUI","（「隣の真空容器を 0",".01Pa 以下に」）"]}}
 setblock ~103 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~103 ~0 ~74 semiconductor-lab:sputter
