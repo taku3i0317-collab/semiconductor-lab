@@ -192,6 +192,11 @@ public final class Chemistry {
     public static final Item CELLULOSE_ACETATE     = Reg.item("cellulose_acetate");
     public static final Item RO_MEMBRANE           = Reg.item("ro_membrane");
     public static final Item ULTRAPURE_WATER       = Reg.contained("ultrapure_water", Vessel.POLYETHYLENE_BOTTLE);
+    // [2-12] 硫酸塩と銅めっき（IMP3、O-013）：孔雀石＋硫酸＋水 → 硫酸銅2、消石灰＋硫酸 → 石こう。蜜ろう＋黒鉛 → 黒鉛を塗ったろうの型（1840 マレー）。
+    //   めっき槽：銅の陽極＋硫酸銅の液＋型 → 銅の電鋳（1838 ヤコビ）。くっつく銅は電気の量に比例（ファラデーの法則）
+    public static final Item COPPER_SULFATE        = Reg.item("copper_sulfate");
+    public static final Item GRAPHITE_WAX_MOULD    = Reg.item("graphite_wax_mould", new Item.Properties().stacksTo(16));
+    public static final Item COPPER_ELECTROTYPE    = Reg.item("copper_electrotype", new Item.Properties().stacksTo(16));
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
     public static final net.minecraft.tags.TagKey<Item> HF_TAG = net.minecraft.tags.TagKey.create(Registries.ITEM, SemiconductorLab.id("hydrofluoric_acid"));
@@ -259,6 +264,9 @@ public final class Chemistry {
 
     // 超純水装置 [2-18]（IMP3、S-002）：脱イオン水＋ポリエチレンの瓶 → 超純水（RO 膜＋紫外線）。1kW
     public static final Machine<UltrapureWaterSystemBlockEntity> ULTRAPURE_WATER_SYSTEM = Machine.electric("ultrapure_water_system", UltrapureWaterSystemBlockEntity::new, UltrapureWaterSystemBlockEntity.LAYOUT, metal(3.0f));
+
+    // めっき槽 [2-12]（IMP3、O-013）：硫酸銅の液で銅を型に電着。2kW（約1V・2000A）、1 mol（63.5g）ごとに電鋳1
+    public static final Machine<ElectroplatingBathBlockEntity> ELECTROPLATING_BATH = Machine.electric("electroplating_bath", ElectroplatingBathBlockEntity::new, ElectroplatingBathBlockEntity.LAYOUT, metal(2.0f));
 
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
     private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {

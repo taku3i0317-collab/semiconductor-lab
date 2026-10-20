@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:malachite",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:sulfuric_acid",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:copper_sulfate",
+    "count": 2
+  }
+}

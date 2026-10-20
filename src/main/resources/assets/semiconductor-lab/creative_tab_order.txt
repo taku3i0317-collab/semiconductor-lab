@@ -191,6 +191,10 @@ methanol  # Chemistry [2-26] 1834
 carbolic_oil  # Chemistry [2-25] 1834
 sodium_phenolate  # Chemistry [2-25] 1834
 phenol  # Chemistry [2-25] 1834
+copper_sulfate  # Chemistry [2-12] 1838
+graphite_wax_mould  # Chemistry [2-12] 1838
+copper_electrotype  # Chemistry [2-12] 1838
+electroplating_bath  # Chemistry [2-12] 1838
 rubber_log  # Chemistry [2-29] 1839
 rubber_leaves  # Chemistry [2-29] 1839
 rubber_sapling  # Chemistry [2-29] 1839

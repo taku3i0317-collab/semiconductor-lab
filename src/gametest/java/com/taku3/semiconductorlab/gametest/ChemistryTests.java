@@ -946,6 +946,40 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-12] 硫酸塩と銅めっき（IMP3、O-013）
+    // =====================================================================
+
+    /** 孔雀石＋硫酸 → 硫酸銅、石灰＋硫酸 → 石こう。めっき槽：硫酸銅なし → 何も起きない。ファラデー：半分の電気で半分の銅。2F で電鋳1、陽極の銅1が減り、硫酸銅は減らない */
+    @GameTest(maxTicks = 200)
+    public void electroplating(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "copper_sulfate", com.taku3.semiconductorlab.content.Metallurgy.MALACHITE) && recipeUses(h, "copper_sulfate", Chemistry.SULFURIC_ACID), "malachite + H2SO4 -> CuSO4");
+        h.assertTrue(recipeUses(h, "calcium_sulfate_from_lime", com.taku3.semiconductorlab.content.Survival.SLAKED_LIME), "lime + H2SO4 -> gypsum");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.copperGrams(2 * 96485) - 63.55) < 0.01, "Faraday: 2F -> 63.55 g Cu");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.ELECTROPLATING_BATH.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.WATTS);
+        int full = (int) Math.ceil(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.COULOMBS_PER_COPY / (com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.WATTS / com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.VOLTS) * 20);
+        c.setItem(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.SLOT_ANODE, new ItemStack(Items.COPPER_INGOT, 2));
+        c.setItem(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.SLOT_MOULD, new ItemStack(Chemistry.GRAPHITE_WAX_MOULD, 2));
+        tickConsumer(h, fp, be, 40, feed);
+        h.assertTrue(be.getCoulombs() == 0, "no copper sulfate -> no ions -> no current");
+        c.setItem(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.SLOT_ELECTROLYTE, new ItemStack(Chemistry.COPPER_SULFATE, 1));
+        tickConsumer(h, fp, be, full / 2, feed);
+        double g = com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.copperGrams(be.getCoulombs());
+        h.assertTrue(Math.abs(g - 31.8) < 1.0, "half the charge -> half the copper (~31.8 g), got " + g);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.SLOT_OUT).isEmpty(), "not done yet");
+        tickConsumer(h, fp, be, full / 2 + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.SLOT_OUT).is(Chemistry.COPPER_ELECTROTYPE), "2F -> one electrotype");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.SLOT_ANODE).getCount(), 1, "anode copper dissolved by the same amount");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.SLOT_ELECTROLYTE).getCount(), 1, "copper sulfate is not used up");
+        LOG.info("[LAB] electroplating [2-12]: no CuSO4 -> no current; m = Q M / 2F (half charge -> half copper); 2F -> electrotype, anode -1, CuSO4 stays");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
@@ -961,6 +995,9 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         rec(a, Chemistry.AUTOCLAVE.block, "PTFE", L(mol(Chemistry.TETRAFLUOROETHYLENE_GAS, 4)), L(io(Chemistry.PTFE, 1)), com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS, 30.0, "TFE を水の中で温めて重合：n C2F4 → (C2F4)n（1938 プランケット）");
         rec(a, Chemistry.ULTRAPURE_WATER_SYSTEM.block, "超純水", L(io(Chemistry.DEIONIZED_WATER, 1), io(Chemistry.POLYETHYLENE_BOTTLE, 1)),
             L(io(Chemistry.ULTRAPURE_WATER, 1), io(Chemistry.GLASS_BOTTLE, 1)), com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.WATTS, com.taku3.semiconductorlab.block.UltrapureWaterSystemBlockEntity.TICKS / 20.0, "イオン交換した水を逆浸透膜でこし、紫外線で殺菌。18.2 MΩ·cm（25℃）");
+        rec(a, Chemistry.ELECTROPLATING_BATH.block, "銅の電鋳", L(io(Items.COPPER_INGOT, 1), io(Chemistry.GRAPHITE_WAX_MOULD, 1)), L(io(Chemistry.COPPER_ELECTROTYPE, 1)),
+            com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.WATTS, com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.COULOMBS_PER_COPY / (com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.WATTS / com.taku3.semiconductorlab.block.ElectroplatingBathBlockEntity.VOLTS),
+            "硫酸銅の液（減らない）で、陽極の銅を型へ運ぶ。2F（193 kC）で銅 63.5 g（ファラデーの法則）");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
             L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
             "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");

@@ -747,6 +747,30 @@
       "note": "2NaCl + 2H2O → Cl2 + H2 + 2NaOH"
     },
     {
+      "machine": "semiconductor-lab:electroplating_bath",
+      "process": "銅の電鋳",
+      "inputs": [
+        {
+          "item": "minecraft:copper_ingot",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:graphite_wax_mould",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:copper_electrotype",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 96.485,
+      "energy_kj": 193,
+      "note": "硫酸銅の液（減らない）で、陽極の銅を型へ運ぶ。2F（193 kC）で銅 63.5 g（ファラデーの法則）"
+    },
+    {
       "machine": "semiconductor-lab:etch_tank",
       "process": "酸化膜をはがす",
       "inputs": [

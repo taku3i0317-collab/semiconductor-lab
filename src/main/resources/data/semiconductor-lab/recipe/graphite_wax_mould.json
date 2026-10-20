@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:honeycomb",
+    "semiconductor-lab:graphite"
+  ],
+  "result": {
+    "id": "semiconductor-lab:graphite_wax_mould",
+    "count": 1
+  }
+}

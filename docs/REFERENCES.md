@@ -2065,6 +2065,21 @@
 - Wikipedia「Reverse osmosis」（ローブとスリラージャン）：https://en.wikipedia.org/wiki/Reverse_osmosis
 - Wikipedia「Cellulose acetate」：https://en.wikipedia.org/wiki/Cellulose_acetate
 
+## C25. 電気で銅を写しとる（硫酸銅と電鋳、ファラデーの法則）［2-12］
+**答え**：硫酸銅の液に銅の陽極と型（陰極）を入れて直流を流すと、陰極に銅がくっついて型の形を写しとる。1838年にヤコビ（ドイツ生まれ、ロシアで研究）が電鋳を発表し、1840年ごろマレーがろうの型に黒鉛を塗る方法を考えた ⚠️。くっつく量は流した電気の量に比例する（ファラデーの法則、1834）：銅 1 mol（63.5 g）に 2F（約19.3万クーロン）。1840年にエルキントン兄弟が銀めっきの特許をとり、1997年 IBM はチップの配線を硫酸銅のめっきの銅に替えた（ダマシン法）。
+
+- へえ①：硫酸銅の液に電気を流すと、銅が型の形にくっつく。
+- へえ②：くっつく銅の重さは、流した電気の量にきっちり比例する。
+- へえ③：陽極の銅が同じだけ溶けるので、液はなかなか減らない。
+- へえ④：最先端のチップの銅配線も、同じ硫酸銅のめっきで作っている。
+
+確かさ：反応・ファラデーの法則 ◎／ヤコビ 1838 ◎／マレーの黒鉛塗り（1840ごろ）○⚠️／エルキントン 1840 ◎／IBM 1997 ◎
+根拠：
+- Wikipedia「Electrotyping」（ヤコビ・マレー）：https://en.wikipedia.org/wiki/Electrotyping
+- Wikipedia「Faraday's laws of electrolysis」：https://en.wikipedia.org/wiki/Faraday%27s_laws_of_electrolysis
+- Wikipedia「Copper interconnects」（IBM 1997）：https://en.wikipedia.org/wiki/Copper_interconnects
+- Wikipedia「Copper(II) sulfate」：https://en.wikipedia.org/wiki/Copper(II)_sulfate
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
