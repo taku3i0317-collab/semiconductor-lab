@@ -29,6 +29,28 @@
           ]
         }
       ]
+    },
+    {
+      "rolls": 1,
+      "condition": {
+        "type": "minecraft:all_of",
+        "terms": [
+          {
+            "type": "minecraft:inverted",
+            "term": "minecraft:tool/can_silk_touch"
+          },
+          {
+            "type": "minecraft:random_chance",
+            "chance": 0.03
+          }
+        ]
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "semiconductor-lab:platinum_grain"
+        }
+      ]
     }
   ]
 }

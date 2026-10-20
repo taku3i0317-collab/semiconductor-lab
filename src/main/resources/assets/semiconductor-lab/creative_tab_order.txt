@@ -65,6 +65,7 @@ zinc_ingot  # Metallurgy [1-13] 1150
 sphalerite_ore  # Metallurgy [1-13] 1150
 fluorite  # Metallurgy [1-21] 1530
 fluorite_ore  # Metallurgy [1-21] 1530
+platinum_grain  # Metallurgy [1-20] 1748
 coke  # Metallurgy [2-20] 1792
 borax  # Metallurgy [1-33] 1808
 boric_acid  # Metallurgy [1-33] 1808

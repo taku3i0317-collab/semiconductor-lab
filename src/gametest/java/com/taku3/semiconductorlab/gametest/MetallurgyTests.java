@@ -90,6 +90,25 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
 
+    /** [1-20] 砂白金（IMP4-01）：砂鉄を掘るとまれに（約3%）白金の粒。シルクタッチでは出ない */
+    @GameTest
+    public void placerPlatinum(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        BlockPos at = h.absolutePos(p(1, 1, 1));
+        ItemStack shovel = new ItemStack(Items.IRON_SHOVEL);
+        ItemStack silk = new ItemStack(Items.IRON_SHOVEL);
+        silk.enchant(lv.registryAccess().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(net.minecraft.world.item.enchantment.Enchantments.SILK_TOUCH), 1);
+        int pt = 0, ptSilk = 0, n = 2000;
+        for (int i = 0; i < n; i++) {
+            pt += Block.getDrops(Metallurgy.IRON_SAND.defaultBlockState(), lv, at, null, null, shovel).stream().filter(st -> st.is(Metallurgy.PLATINUM_GRAIN)).mapToInt(ItemStack::getCount).sum();
+            ptSilk += Block.getDrops(Metallurgy.IRON_SAND.defaultBlockState(), lv, at, null, null, silk).stream().filter(st -> st.is(Metallurgy.PLATINUM_GRAIN)).mapToInt(ItemStack::getCount).sum();
+        }
+        h.assertTrue(pt > n * 0.01 && pt < n * 0.06, "about 3% platinum grains from iron sand, got " + pt + "/" + n);
+        h.assertValueEqual(ptSilk, 0, "silk touch keeps the sand block (no grain)");
+        LOG.info("[LAB] placer platinum [1-20]: {} grains in {} iron sand blocks (3%), none with silk touch", pt, n);
+        h.succeed();
+    }
+
     /** [1-29] ホール・エルー法（IMP4-01）：アルミナ2 → Al 1（15kWh）。浴（氷晶石）・陽極（黒鉛棒）・電気がないと止まる。陽極は2回、浴は16回 */
     @GameTest
     public void hallHeroult(GameTestHelper h) {
@@ -245,7 +264,7 @@ public class MetallurgyTests extends LabTestBase {
             net.minecraft.world.item.Item raw = (net.minecraft.world.item.Item) o[1];
             List<ItemStack> normal = Block.getDrops(b.defaultBlockState(), lv, at, null, null, pick);
             List<ItemStack> silky = Block.getDrops(b.defaultBlockState(), lv, at, null, null, silk);
-            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw)), b + " with a pickaxe should drop " + raw + ", got " + normal);
+            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw) || (b == Metallurgy.IRON_SAND && s.is(Metallurgy.PLATINUM_GRAIN))), b + " with a pickaxe should drop " + raw + ", got " + normal);   // 砂鉄はまれに砂白金も [1-20]
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
         for (Block m : new Block[] {Power.STEAM_ENGINE.block, Power.STEAM_TURBINE.block, Power.LEAD_ACID_BATTERY.block, Power.WATER_WHEEL.block, Gas.ELECTROLYZER.block, Gas.GAS_HOLDER.block,
