@@ -488,7 +488,7 @@ aside#card.open { display: block; }
     if (!people.length && !anon.length) return '';
     const tile = (img, name, sub, to, title) => `<button class="wtile" data-id="${to}" title="${esc(title)}">${img}<b>${esc(name)}</b><small>${esc(sub)}</small></button>`;
     const anonTile = anon.length ? tile(crowd, '名前の残っていない、無数の人たち', `${anon.length} の技術`, anon[0], `${ANON_BEFORE}年より前で、発明した人の名前が残っていない技術：` + anon.map(i => byId.get(i).name).join('、')) : '';
-    return `<details class="wall sec"><summary>この技術の裏にいる人：<b>${people.length}</b> 人${anon.length ? `＋名前の残っていない人たち` : ''}</summary>
+    return `<details class="wall sec"><summary>この技術の裏にいる人：<b>${people.length}</b> 人${anon.length ? `＋名前の残っていない人たち（${anon.length} の技術）` : ''}</summary>
       <div class="wgrid">${anonTile}${people.map(({ p, techs }) => tile(p.portrait ? `<img src="${p.portrait}" alt="">` : silhouette, p.name, techs.map(i => byId.get(i).name).join('・'), techs[0], `${p.name}（${p.year}）`)).join('')}</div></details>`;
   }
   function select(id) {
