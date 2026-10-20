@@ -69,7 +69,7 @@ public final class ChipModel {
     public boolean edge(int x, int y) { return x == 0 || y == 0 || x == size - 1 || y == size - 1; }
 
     /**
-     * 面抵抗（Ω/□、ゲームの値 ⚠️ LITHO_DESIGN §6.2）：板はうすい（高い）、あとの拡散ほど濃い（低い）
+     * 面抵抗（Ω/□、REFERENCES L3）：1960年代のバイポーラ IC の典型値（島 約1 kΩ/□・ベース 約200・エミッタ 約10）。板の 5 kΩ/□ だけゲームの値 ⚠️
      */
     public double sheetOhms(int x, int y) {
         return switch (level(x, y)) { case 0 -> 5000; case 1 -> 1000; case 2 -> 200; default -> 10; };
