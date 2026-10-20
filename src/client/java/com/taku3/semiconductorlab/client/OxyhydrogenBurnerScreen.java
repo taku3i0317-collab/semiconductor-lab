@@ -27,8 +27,8 @@ public class OxyhydrogenBurnerScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.literal("H2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_H2)), OxyhydrogenBurnerBlockEntity.H2_X - 2, OxyhydrogenBurnerBlockEntity.GAS_Y - 10, TEXT_COLOR, false);
-        g.text(font, Component.literal("O2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_O2)), OxyhydrogenBurnerBlockEntity.O2_X - 2, OxyhydrogenBurnerBlockEntity.GAS_Y - 10, TEXT_COLOR, false);
+        text(g, Component.literal("H2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_H2)), OxyhydrogenBurnerBlockEntity.H2_X - 2, OxyhydrogenBurnerBlockEntity.GAS_Y - 10);
+        text(g, Component.literal("O2 " + menu.get(OxyhydrogenBurnerBlockEntity.DATA_O2)), OxyhydrogenBurnerBlockEntity.O2_X - 2, OxyhydrogenBurnerBlockEntity.GAS_Y - 10);
         ItemStack in = menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_IN).getItem();
         String hint;
         if (in.isEmpty()) hint = "need_input";
@@ -36,6 +36,6 @@ public class OxyhydrogenBurnerScreen extends MachineScreen {
         else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_H2) < OxyhydrogenBurnerBlockEntity.H2_PER && menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_H2).getItem().isEmpty()) hint = "need_h2";
         else if (menu.get(OxyhydrogenBurnerBlockEntity.DATA_O2) < OxyhydrogenBurnerBlockEntity.O2_PER && menu.getSlot(OxyhydrogenBurnerBlockEntity.SLOT_O2).getItem().isEmpty()) hint = "need_o2";
         else hint = "out_full";
-        g.text(font, Component.translatable(K + hint), 80, 22, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), 80, 22);
     }
 }

@@ -150,6 +150,41 @@ public class CommonTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * 画面のスロットの位置（IMP-30 ①）。全部の機械の MachineLayout で：
+     * スロットの枠（18×18、左上は (x-1, y-1)）が画面（176×166）の内側の縁（4px）より内にある／題名の帯（y &lt; 16）にかからない／
+     * プレイヤーの持ち物（y ≥ 83）と「持ち物」の文字（左下 x 7〜77・y 71〜81）に重ならない／ほかのスロットと重ならない。
+     * 文字の幅・バーとの重なりは画面を描かないと分からないので、クライアントのテスト（ScreenChecks）で見る。
+     */
+    @GameTest
+    public void machineSlotLayout(GameTestHelper h) {
+        final int W = 176, EDGE = 4, TITLE_BOTTOM = 16, INV_TOP = 83;
+        List<String> bad = new ArrayList<>();
+        int n = 0;
+        for (var m : com.taku3.semiconductorlab.machine.Machine.all()) {
+            if (m.layout == null) continue;
+            var ss = m.layout.slots();
+            for (int i = 0; i < ss.size(); i++) {
+                var s = ss.get(i);
+                int x0 = s.x() - 1, y0 = s.y() - 1, x1 = x0 + 18, y1 = y0 + 18;
+                String id = m.name + " slot#" + s.index() + " (" + s.x() + "," + s.y() + ")";
+                if (x0 < EDGE || x1 > W - EDGE) bad.add(id + " sticks out left/right");
+                if (y0 < TITLE_BOTTOM) bad.add(id + " overlaps the title band");
+                if (y1 > INV_TOP) bad.add(id + " overlaps the player inventory");
+                if (x0 < 77 && x1 > 7 && y0 < 81 && y1 > 71) bad.add(id + " overlaps the inventory label");
+                for (int j = i + 1; j < ss.size(); j++) {
+                    var t = ss.get(j);
+                    if (Math.abs(s.x() - t.x()) < 18 && Math.abs(s.y() - t.y()) < 18) bad.add(id + " overlaps slot#" + t.index() + " (" + t.x() + "," + t.y() + ")");
+                }
+                n++;
+            }
+        }
+        LOG.info("[LAB] slot layout: {} slots checked, {} problems (IMP-30)", n, bad.size());
+        bad.forEach(b -> LOG.warn("[LAB] slot layout: {}", b));
+        h.assertTrue(bad.isEmpty(), "slot layout problems: " + bad);
+        h.succeed();
+    }
+
     @GameTest
     public void exportMachineRecipes(GameTestHelper h) {
         var a = new com.google.gson.JsonArray();

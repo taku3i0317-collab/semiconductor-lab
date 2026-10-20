@@ -27,7 +27,7 @@ public class ZoneRefiningFurnaceScreen extends MachineScreen {
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
         Component power = Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()), String.format("%.0f kW", ZoneRefiningFurnaceBlockEntity.WATTS / 1000));
-        g.text(font, power, (imageWidth - font.width(power)) / 2, 18, 0xFF404040, false);
+        text(g, power, (imageWidth - font.width(power)) / 2, 18);
         Component line;
         int n = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_NINES), cap = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_BOAT_CAP);
         boolean working = menu.get(ZoneRefiningFurnaceBlockEntity.DATA_MODE) != ZoneRefiningFurnaceBlockEntity.MODE_IDLE;
@@ -46,6 +46,6 @@ public class ZoneRefiningFurnaceScreen extends MachineScreen {
             String cur = n <= 0 ? Component.translatable(K + "unrefined").getString() : n + "N";
             line = Component.translatable(K + "purity", cur, (n <= 0 ? 6 : 9) + "N");
         }
-        g.text(font, line, (imageWidth - font.width(line)) / 2, 66, 0xFF404040, false);
+        text(g, line, (imageWidth - font.width(line)) / 2, 66);
     }
 }

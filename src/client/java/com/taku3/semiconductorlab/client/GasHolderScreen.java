@@ -35,11 +35,11 @@ public class GasHolderScreen extends MachineScreen {
         super.extractLabels(g, mouseX, mouseY);
         GasType t = GasType.byIndex(menu.get(GasHolderBlockEntity.DATA_TYPE));
         int amount = menu.get(GasHolderBlockEntity.DATA_AMOUNT);
-        g.text(font, Component.translatable(K + "gas." + t.key), TEXT_X, 30, TEXT_COLOR, false);
-        g.text(font, Component.literal(amount + "/" + GasHolderBlockEntity.CAPACITY + " mol"), TEXT_X, 41, TEXT_COLOR, false);
-        g.text(font, Component.literal(String.format("≈%.1f m³", amount * LITERS_PER_MOL / 1000)), TEXT_X, 52, TEXT_COLOR, false);
-        if ((menu.get(GasHolderBlockEntity.DATA_BANG) > 0)) g.text(font, Component.translatable(K + "bang"), TEXT_X, 63, 0xFFC03030, false);
-        g.text(font, Component.translatable(K + "in"), 22, 54, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "out"), 130, 54, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "gas." + t.key), TEXT_X, 30);
+        text(g, Component.literal(amount + "/" + GasHolderBlockEntity.CAPACITY + " mol"), TEXT_X, 41);
+        text(g, Component.literal(String.format("≈%.1f m³", amount * LITERS_PER_MOL / 1000)), TEXT_X, 52);
+        if ((menu.get(GasHolderBlockEntity.DATA_BANG) > 0)) text(g, Component.translatable(K + "bang"), TEXT_X, 63, 0xFFC03030);
+        text(g, Component.translatable(K + "in"), 22, 54);
+        text(g, Component.translatable(K + "out"), 130, 54);
     }
 }

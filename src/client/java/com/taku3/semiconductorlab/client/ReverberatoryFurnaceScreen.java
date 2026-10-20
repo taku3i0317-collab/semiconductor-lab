@@ -41,7 +41,7 @@ public class ReverberatoryFurnaceScreen extends MachineScreen {
         else if (menu.get(ReverberatoryFurnaceBlockEntity.DATA_BURN) <= 0 && fuel.isEmpty()) hint = "need_fuel";
         else if (menu.get(ReverberatoryFurnaceBlockEntity.DATA_PROGRESS) > 0) hint = "roasting";
         else hint = "out_full";   // 鉱石も燃料もあるのに進まない＝出口のどれかが満杯
-        g.text(font, Component.translatable(K + hint), 64, 63, TEXT_COLOR, false);   // 燃料スロットの右・出口の下
-        g.text(font, Component.literal("SO2"), ReverberatoryFurnaceBlockEntity.OUT_X + 22 + 18, ReverberatoryFurnaceBlockEntity.OUT_Y + 4, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), 64, 63);   // 燃料スロットの右・出口の下
+        text(g, Component.literal("SO2"), ReverberatoryFurnaceBlockEntity.OUT_X + 22 + 18, ReverberatoryFurnaceBlockEntity.OUT_Y + 4);
     }
 }

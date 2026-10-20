@@ -28,13 +28,13 @@ public class SteamEngineScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable(K + "output", String.format("%.1f kW", (menu.get(SteamEngineBlockEntity.DATA_DECI_KW) / 10.0))), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "stored", menu.get(SteamEngineBlockEntity.DATA_KJ) + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
-        g.text(font, menu.get(SteamEngineBlockEntity.DATA_WATER) < 0 ? Component.translatable(K + "water_intake") : Component.translatable(K + "water", menu.get(SteamEngineBlockEntity.DATA_WATER)), TEXT_X, 44, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "output", String.format("%.1f kW", (menu.get(SteamEngineBlockEntity.DATA_DECI_KW) / 10.0))), TEXT_X, 20);
+        text(g, Component.translatable(K + "stored", menu.get(SteamEngineBlockEntity.DATA_KJ) + " kJ"), TEXT_X, 32);
+        text(g, menu.get(SteamEngineBlockEntity.DATA_WATER) < 0 ? Component.translatable(K + "water_intake") : Component.translatable(K + "water", menu.get(SteamEngineBlockEntity.DATA_WATER)), TEXT_X, 44);
         Component hint = null;
         if (menu.get(SteamEngineBlockEntity.DATA_BURN) > 0) hint = Component.translatable(K + "running");
         else if (menu.get(SteamEngineBlockEntity.DATA_WATER) == 0 && !menu.getSlot(1).getItem().is(Items.WATER_BUCKET)) hint = Component.translatable(K + "need_water");
         else if (menu.getSlot(0).getItem().isEmpty()) hint = Component.translatable(K + "need_coal");
-        if (hint != null) g.text(font, hint, TEXT_X, 58, TEXT_COLOR, false);
+        if (hint != null) text(g, hint, TEXT_X, 58);
     }
 }

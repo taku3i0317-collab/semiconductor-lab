@@ -28,8 +28,8 @@ public class CrystalPullerScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
         ItemStack seed = menu.getSlot(CrystalPullerBlockEntity.SLOT_SEED).getItem();
         var mode = CrystalPullerBlockEntity.modeOf(seed);
         String hint;
@@ -38,7 +38,7 @@ public class CrystalPullerScreen extends MachineScreen {
         else if (!menu.isReady()) hint = "need_ge";
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = "running";
-        g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
-        if (mode != CrystalPullerBlockEntity.Mode.NONE) g.text(font, Component.translatable(K + "mode." + mode.name().toLowerCase()), TEXT_X, 60, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 48);
+        if (mode != CrystalPullerBlockEntity.Mode.NONE) text(g, Component.translatable(K + "mode." + mode.name().toLowerCase()), TEXT_X, 60);
     }
 }

@@ -7,6 +7,9 @@
 	"license": "CC0-1.0",
 	"environment": "*",
 	"entrypoints": {
+		"fabric-client-gametest": [
+			"com.taku3.semiconductorlab.gametest.ScreenChecks"
+		],
 		"fabric-gametest": [
 			"com.taku3.semiconductorlab.gametest.CommonTests",
 			"com.taku3.semiconductorlab.gametest.SurvivalTests",

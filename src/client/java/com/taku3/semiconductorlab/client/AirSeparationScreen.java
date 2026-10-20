@@ -26,11 +26,11 @@ public class AirSeparationScreen extends MachineScreen {
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
         String[] gas = {"N2", "O2", "Ar"};
-        for (int i = 0; i < gas.length; i++) g.text(font, gas[i], 44, 21 + i * 18, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
+        for (int i = 0; i < gas.length; i++) text(g, gas[i], 44, 21 + i * 18);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
         String hint = !menu.isReady() ? "output_full" : menu.getKw() <= 0 ? "need_power" : "running";
-        g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "air"), TEXT_X, 60, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 48);
+        text(g, Component.translatable(K + "air"), TEXT_X, 60);
     }
 }

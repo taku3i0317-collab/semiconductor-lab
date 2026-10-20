@@ -27,8 +27,8 @@ public class ElectrolyzerScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
         // 状態：足りないものを1つだけ表示（上から順に確認）
         String hint;
         var second = menu.getSlot(ElectrolyzerBlockEntity.SLOT_ACID).getItem();
@@ -38,12 +38,12 @@ public class ElectrolyzerScreen extends MachineScreen {
         else if (!menu.isReady()) hint = "output_full";
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = "running";
-        g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 48);
         // モード（水の電気分解／クロルアルカリ）と出口ラベル。陽極は酸素か塩素
         boolean brine = menu.get(ElectrolyzerBlockEntity.DATA_MODE) == ElectrolyzerBlockEntity.MODE_BRINE;
-        g.text(font, Component.translatable(K + (brine ? "mode_brine" : "mode_water")), TEXT_X, 62, TEXT_COLOR, false);
-        g.text(font, Component.literal("H2"), 62, 21, TEXT_COLOR, false);
-        g.text(font, Component.literal(brine ? "Cl2" : "O2"), 58, 39, TEXT_COLOR, false);
-        g.text(font, Component.literal("NaOH"), 52, 57, TEXT_COLOR, false);
+        text(g, Component.translatable(K + (brine ? "mode_brine" : "mode_water")), TEXT_X, 62);
+        text(g, Component.literal("H2"), 62, 21);
+        text(g, Component.literal(brine ? "Cl2" : "O2"), 58, 39);
+        text(g, Component.literal("NaOH"), 52, 57);
     }
 }

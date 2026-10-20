@@ -29,9 +29,9 @@ public class SealingStationScreen extends MachineScreen {
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
         double pa = SealingStationBlockEntity.decodePa(menu.get(SealingStationBlockEntity.DATA_PRESSURE));
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "pressure", pa < 0 ? "-" : VacuumChamberBlockEntity.formatPa(pa)), TEXT_X, 32, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "target", VacuumChamberBlockEntity.formatPa(SealingStationBlockEntity.SEAL_MAX_PA)), TEXT_X, 44, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable(K + "pressure", pa < 0 ? "-" : VacuumChamberBlockEntity.formatPa(pa)), TEXT_X, 32);
+        text(g, Component.translatable(K + "target", VacuumChamberBlockEntity.formatPa(SealingStationBlockEntity.SEAL_MAX_PA)), TEXT_X, 44);
         String hint;
         if (!menu.getSlot(SealingStationBlockEntity.SLOT_IN).getItem().is(Vacuum.VACUUM_TUBE_ASSEMBLY)) hint = "need_input";
         else if (pa < 0) hint = "need_chamber";
@@ -39,6 +39,6 @@ public class SealingStationScreen extends MachineScreen {
         else if (!menu.isReady()) hint = "output_full";
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = "sealing";
-        g.text(font, Component.translatable(K + hint), TEXT_X, 60, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 60);
     }
 }

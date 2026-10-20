@@ -50,5 +50,30 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     }
 
     /** 文字1行（extractLabels の中で使う。位置は画面の左上から） */
-    protected void text(GuiGraphicsExtractor g, Component c, int x, int y) { g.text(font, c, x, y, TEXT_COLOR, false); }
+    protected void text(GuiGraphicsExtractor g, Component c, int x, int y) { text(g, c, x, y, TEXT_COLOR); }
+
+    /** 文字1行（色つき） */
+    protected void text(GuiGraphicsExtractor g, Component c, int x, int y, int color) {
+        g.text(font, c, x, y, color, false);
+        if (recording != null) recording.add(new TextDraw(c, x, y, font.width(c)));
+    }
+
+    /** 文字1行（翻訳しない文字。例：「SO2」） */
+    protected void text(GuiGraphicsExtractor g, String s, int x, int y) { text(g, Component.literal(s), x, y, TEXT_COLOR); }
+
+    // ===== 画面の自動チェック用（IMP-30。クライアントのテスト ScreenChecks だけが使う。ふだんは null で何もしない） =====
+
+    /** 描いた文字1つ：位置（画面の左上から）と幅（px） */
+    public record TextDraw(Component text, int x, int y, int width) {}
+
+    private static java.util.List<TextDraw> recording;
+
+    /** 文字を描くたびに list に足す（null で止める） */
+    public static void recordTextInto(java.util.List<TextDraw> list) { recording = list; }
+
+    public int panelLeft() { return leftPos; }
+    public int panelTop() { return topPos; }
+    public int panelWidth() { return imageWidth; }
+    public int panelHeight() { return imageHeight; }
+    public net.minecraft.client.gui.Font font() { return font; }
 }

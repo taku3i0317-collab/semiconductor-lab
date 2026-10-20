@@ -2,6 +2,9 @@
 # and submitted pull request. This can help catch issues that only occur on
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
+#
+# IMP-30：GameTest（サーバー）と、画面の自動チェック（クライアント、ScreenChecks）も走らせる。
+# クライアントは画面のない機械なので xvfb（仮の画面）で動かす。スクリーンショット・見本の画像・screen_checks.txt は成果物 "screen-checks" に入る。
 
 name: build
 on: [pull_request, push]
@@ -28,3 +31,24 @@ jobs:
         with:
           name: Artifacts
           path: build/libs/
+      - name: lang check
+        run: python3 tools/lang_build.py --check
+      - name: gametest (server)
+        run: ./gradlew runGameTest
+      - name: install xvfb
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri
+      - name: screen checks (client gametest, xvfb)
+        run: xvfb-run -a -s "-screen 0 1280x720x24" ./gradlew runClientGameTest
+      - name: capture screen checks
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: screen-checks
+          path: |
+            build/run/**/screenshots/
+            build/run/**/screen_checks.txt
+            build/run/**/logs/latest.log
+            run/**/screenshots/
+            run/**/screen_checks.txt
+            src/gametest/resources/templates/
+          if-no-files-found: warn

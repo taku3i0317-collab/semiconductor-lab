@@ -25,14 +25,22 @@ loom {
 // 自動テスト（GameTest）。Loom 1.18 の fabricApi.configureTests を使う（javap 確認、docs/API_26X.md）
 // - src/gametest/ ソースセットを作る（本体の jar には入らない）
 // - タスク runGameTest：専用サーバーを起動してテストを全部走らせ、終わったら自動で閉じる（画面なし）
-// - クライアントのテスト（画面を開く）は使わない（遠隔作業中のため）
+// - クライアントのテスト（画面を開く、IMP-30）：タスク runClientGameTest。ウィンドウが開くので手元では実行しない。
+//   GitHub の自動ビルド（.github/workflows/build.yml）が画面なし（xvfb）で実行する
 fabricApi {
 	configureTests {
 		createSourceSet = true
 		modId = "semiconductor-lab-gametest"
 		enableGameTests = true
-		enableClientGameTests = false
+		enableClientGameTests = true
 		eula = true
+	}
+}
+
+// 画面のスクリーンショット比較（IMP-30）：見本の画像（src/gametest/resources/templates/*.png）が無いときは、ここへ書き出す
+loom {
+	runs.matching { it.name == "clientGameTest" }.configureEach {
+		vmArg "-Dfabric.client.gametest.testModResourcesPath=${project.file('src/gametest/resources').absolutePath}"
 	}
 }
 

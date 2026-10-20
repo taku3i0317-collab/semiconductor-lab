@@ -43,9 +43,9 @@ public class AchesonFurnaceScreen extends MachineScreen {
         double kw = menu.getKw(), needKw = REQUIRED_WATTS / 1000;
         int t = menu.get(AchesonFurnaceBlockEntity.DATA_TEMP);
         boolean under = kw < needKw * 0.97;
-        g.text(font, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.0f kW", kw)), TEXT_X, 16, under ? WARN_COLOR : TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "need", String.format("%.0f kW", needKw)), TEXT_X, 26, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "temp", t + "℃"), TEXT_X, 38, TEXT_COLOR, false);
+        text(g, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.0f kW", kw)), TEXT_X, 16, under ? WARN_COLOR : TEXT_COLOR);
+        text(g, Component.translatable(K + "need", String.format("%.0f kW", needKw)), TEXT_X, 26);
+        text(g, Component.translatable(K + "temp", t + "℃"), TEXT_X, 38);
         ItemStack carbon = menu.getSlot(SLOT_CARBON).getItem(), sand = menu.getSlot(SLOT_SAND).getItem();
         String hint;
         Object arg = null;
@@ -57,9 +57,9 @@ public class AchesonFurnaceScreen extends MachineScreen {
         else if (t < GRAPHITIZE_C) hint = "heating";
         else hint = "graphitizing";
         Component line = Component.translatable(K + hint);
-        g.text(font, line, TEXT_X, 50, hint.equals("underpowered") ? WARN_COLOR : TEXT_COLOR, false);
-        if (hint.equals("underpowered")) g.text(font, Component.translatable(K + "underpowered2", arg), TEXT_X, 60, WARN_COLOR, false);
-        g.text(font, Component.literal("C"), 28, 21, TEXT_COLOR, false);
-        g.text(font, Component.literal("SiO2"), 28, 57, TEXT_COLOR, false);
+        text(g, line, TEXT_X, 50, hint.equals("underpowered") ? WARN_COLOR : TEXT_COLOR);
+        if (hint.equals("underpowered")) text(g, Component.translatable(K + "underpowered2", arg), TEXT_X, 60, WARN_COLOR);
+        text(g, Component.literal("C"), 28, 21);
+        text(g, Component.literal("SiO2"), 28, 57);
     }
 }

@@ -31,8 +31,8 @@ public class HydrogenFurnaceScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
         ItemStack h2 = menu.getSlot(HydrogenFurnaceBlockEntity.SLOT_H2).getItem();
         String hint;
         HydrogenFurnaceBlockEntity.Mode m = mode();
@@ -41,7 +41,7 @@ public class HydrogenFurnaceScreen extends MachineScreen {
         else if (!menu.isReady()) hint = "not_enough";   // 量が足りない or 出口が満杯
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = switch (m) { case SINTER -> "sintering"; case REDUCE_GE -> "reducing_ge"; default -> "reducing"; };
-        g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
-        g.text(font, Component.literal("H2"), 28, 57, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 48);
+        text(g, Component.literal("H2"), 28, 57);
     }
 }

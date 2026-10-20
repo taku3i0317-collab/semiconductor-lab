@@ -28,8 +28,8 @@ public class CompressorScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
         ItemStack empty = menu.getSlot(CompressorBlockEntity.SLOT_EMPTY).getItem();
         ItemStack out = menu.getSlot(CompressorBlockEntity.SLOT_OUT).getItem();
         String hint;
@@ -37,7 +37,7 @@ public class CompressorScreen extends MachineScreen {
         else if (!menu.isReady()) hint = !out.isEmpty() && out.getCount() >= out.getMaxStackSize() ? "output_full" : "need_gas";
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = "running";
-        g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "mol", CompressorBlockEntity.MOL_PER_CYLINDER), TEXT_X, 60, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 48);
+        text(g, Component.translatable(K + "mol", CompressorBlockEntity.MOL_PER_CYLINDER), TEXT_X, 60);
     }
 }

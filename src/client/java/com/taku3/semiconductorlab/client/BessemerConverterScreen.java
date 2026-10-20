@@ -34,14 +34,14 @@ public class BessemerConverterScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 32, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 43, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 32);
+        text(g, Component.translatable(K + "stored", menu.getStoredKj() + " kJ"), TEXT_X, 43);
         // 下の行：動いていれば炎の段階、止まっていれば足りないもの
         String line;
         if (!BessemerConverterBlockEntity.isPigIron(menu.getSlot(BessemerConverterBlockEntity.SLOT_IN).getItem())) line = "need_iron";
         else if (!menu.isReady()) line = "output_full";
         else if (menu.getKw() <= 0) line = "need_power";
         else line = "stage." + BessemerConverterBlockEntity.stageOf(menu.getProgress(), menu.getTotal()).name().toLowerCase();
-        g.text(font, Component.translatable(K + line), 8, 60, running() ? 0xFF803010 : TEXT_COLOR, false);
+        text(g, Component.translatable(K + line), 8, 60, running() ? 0xFF803010 : TEXT_COLOR);
     }
 }

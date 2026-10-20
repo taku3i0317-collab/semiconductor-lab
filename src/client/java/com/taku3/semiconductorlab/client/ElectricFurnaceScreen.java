@@ -26,13 +26,13 @@ public class ElectricFurnaceScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.stored", menu.getStoredKj() + " kJ"), TEXT_X, 32, TEXT_COLOR, false);
+        text(g, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable("gui.semiconductor-lab.hydrogen_furnace.stored", menu.getStoredKj() + " kJ"), TEXT_X, 32);
         String hint;
         if (!ElectricFurnaceBlockEntity.isInput(menu.getSlot(ElectricFurnaceBlockEntity.SLOT_IN).getItem())) hint = "need_input";
         else if (!menu.isReady()) hint = "output_full";
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = "heating";
-        g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 48);
     }
 }

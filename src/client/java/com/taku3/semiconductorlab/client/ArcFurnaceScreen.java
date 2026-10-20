@@ -26,10 +26,10 @@ public class ArcFurnaceScreen extends MachineScreen {
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         super.extractLabels(g, mouseX, mouseY);
-        g.text(font, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "need", String.format("%.0f kW", ArcFurnaceBlockEntity.WATTS / 1000)), TEXT_X, 32, TEXT_COLOR, false);
+        text(g, Component.translatable(K + "power", String.format("%.1f kW", menu.getKw())), TEXT_X, 20);
+        text(g, Component.translatable(K + "need", String.format("%.0f kW", ArcFurnaceBlockEntity.WATTS / 1000)), TEXT_X, 32);
         String hint = !menu.isReady() ? "need_input" : menu.getKw() <= 0 ? "need_power" : "running";
-        g.text(font, Component.translatable(K + hint), TEXT_X, 48, TEXT_COLOR, false);
-        g.text(font, Component.translatable(K + "recipe"), TEXT_X, 60, TEXT_COLOR, false);
+        text(g, Component.translatable(K + hint), TEXT_X, 48);
+        text(g, Component.translatable(K + "recipe"), TEXT_X, 60);
     }
 }
