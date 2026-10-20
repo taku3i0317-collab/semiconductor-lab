@@ -272,11 +272,15 @@ public class SurvivalTests extends LabTestBase {
 
         // 水に浸ける（本当の tick、mixin 経由）
         floor(h, 4);
-        BlockPos water = p(1, 1, 1), land = p(3, 1, 1);
-        for (BlockPos wall : new BlockPos[] {p(0, 1, 1), p(2, 1, 1), p(1, 1, 0), p(1, 1, 2)}) h.setBlock(wall, Blocks.STONE);  // 水が流れ出ないよう囲む
+        BlockPos water = p(1, 1, 1);
+        for (int y = 1; y <= 3; y++)   // 水が流れ出ず、浮いた茎も外へ出ないよう、3段の壁で囲む
+            for (BlockPos wall : new BlockPos[] {p(0, y, 1), p(2, y, 1), p(1, y, 0), p(1, y, 2)}) h.setBlock(wall, Blocks.STONE);
         h.setBlock(water, Blocks.WATER);
-        var wet = h.spawnItem(Survival.FLAX_STALKS, water);
-        var onLand = h.spawnItem(Survival.FLAX_STALKS, land);
+        // ブロックの中央に、勢いなしで置く（spawnItem(BlockPos) は角に出て壁にめり込み、押し出されることがある）
+        var wet = h.spawnItem(Survival.FLAX_STALKS, new net.minecraft.world.phys.Vec3(1.5, 1.3, 1.5));
+        var onLand = h.spawnItem(Survival.FLAX_STALKS, new net.minecraft.world.phys.Vec3(3.5, 1.1, 3.5));
+        wet.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
+        onLand.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
         com.taku3.semiconductorlab.item.Retting.ticksForRetting = 20;
         h.runAfterDelay(80, () -> {
             com.taku3.semiconductorlab.item.Retting.ticksForRetting = com.taku3.semiconductorlab.item.Retting.RETTING_TICKS;
