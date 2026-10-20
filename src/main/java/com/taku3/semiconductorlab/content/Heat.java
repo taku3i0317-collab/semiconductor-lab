@@ -27,6 +27,8 @@ public final class Heat {
 
     // ===== アイテム =====
     public static final Item ZINC_OXIDE            = Reg.item("zinc_oxide");    // [3-06] 閃亜鉛鉱を反射炉で焙焼した ZnO（亜鉛華）
+    // [3-25] カーバイド（炭化カルシウム、A、D のお願い）：アーク炉で CaO + 3C → CaC2 + CO（1892）。水をかけるとアセチレン（D の幹2）
+    public static final Item CALCIUM_CARBIDE       = Reg.item("calcium_carbide");
     public static final Item SYNTHETIC_GRAPHITE    = Reg.item("synthetic_graphite"); // [3-10] 人造黒鉛（アチソン炉、炭素を約2500℃以上で黒鉛化）
     // --- 熱（[3-12] 耐火れんが＝珪石れんが・ディナス 1822）---
     public static final Item REFRACTORY_BRICK_BLANK = Reg.item("refractory_brick_blank"); // 成形しただけ（未焼成）

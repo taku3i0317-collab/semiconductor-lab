@@ -216,6 +216,17 @@ public class HeatTests extends LabTestBase {
         tickConsumer(h, fp, be, T, feed);
         h.assertTrue(c.getItem(E).isEmpty(), "the 9th run takes the second electrode");
         h.assertValueEqual(c.getItem(CB).getCount(), 1, "1 charcoal per run");
+        // [3-25] カーバイド：生石灰1＋炭素3（コークスも可）＋3kWh → CaC2
+        double kwhC = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.WATTS * com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.TICKS_CARBIDE / 20.0 / 3.6e6;
+        h.assertTrue(kwhC >= 2.5 && kwhC <= 3.5, "about 3 kWh per kg of carbide, got " + kwhC);
+        c.setItem(OUT, ItemStack.EMPTY);
+        c.setItem(Q, new ItemStack(com.taku3.semiconductorlab.content.Survival.QUICKLIME, 2));
+        c.setItem(CB, new ItemStack(Metallurgy.COKE, 6));
+        c.setItem(E, new ItemStack(Power.GRAPHITE_ROD, 1));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.TICKS_CARBIDE, feed);
+        h.assertTrue(c.getItem(OUT).is(Heat.CALCIUM_CARBIDE) && c.getItem(OUT).getCount() == 1, "quicklime + 3 coke -> calcium carbide, got " + c.getItem(OUT));
+        h.assertValueEqual(c.getItem(Q).getCount(), 1, "CaO: 1 quicklime per run");
+        h.assertValueEqual(c.getItem(CB).getCount(), 3, "3C: 3 carbon per run");
         LOG.info("[LAB] arc furnace [3-15] -> metallurgical Si [1-15]: 2 quartz + charcoal + {} kWh -> Si 98%, half power stalls, 8 runs per electrode", String.format("%.1f", kwh));
         h.succeed();
     }

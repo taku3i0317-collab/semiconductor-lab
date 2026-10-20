@@ -30,7 +30,7 @@ public class ArcFurnaceScreen extends MachineScreen {
             case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
             case "need" -> Component.translatable(K + "need", String.format("%.0f kW", ArcFurnaceBlockEntity.WATTS / 1000));
             case "hint" -> Component.translatable(K + (!menu.isReady() ? "need_input" : menu.getKw() <= 0 ? "need_power" : "running"));
-            case "recipe" -> Component.translatable(K + "recipe");
+            case "recipe" -> Component.translatable(K + (ArcFurnaceBlockEntity.isLime(menu.getSlot(ArcFurnaceBlockEntity.SLOT_QUARTZ).getItem()) ? "recipe_carbide" : "recipe"));   // 入口1が生石灰ならカーバイドの式
             default -> null;
         };
     }
