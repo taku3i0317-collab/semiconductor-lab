@@ -79,6 +79,15 @@ aside#card.open { display: block; }
 .band-zoom { font-size: 13px; fill: var(--sub); }
 #card .more { display: inline-block; margin-top: 6px; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 3px 10px; text-decoration: none; font-size: 13px; }
 .hint { position: absolute; right: 12px; top: 10px; background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 4px 10px; font-size: 12px; color: var(--sub); }
+/* 人の壁（NET-04） */
+#card details.wall summary { cursor: pointer; font-size: 13px; }
+#card details.wall summary b { color: var(--accent); font-size: 18px; }
+#card .wgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 6px; margin-top: 6px; max-height: 360px; overflow: auto; }
+#card .wtile { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1px; padding: 4px 2px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); cursor: pointer; font: inherit; }
+#card .wtile:hover { border-color: var(--accent); }
+#card .wtile img, #card .wtile svg { width: 40px; height: 40px; image-rendering: pixelated; }
+#card .wtile b { font-size: 11px; line-height: 1.25; }
+#card .wtile small { font-size: 10px; color: var(--sub); line-height: 1.25; }
 .sw { display: inline-block; width: 18px; height: 3px; border-radius: 2px; }
 @media (max-width: 700px) {
   aside#card { position: absolute; left: 0; right: 0; bottom: 0; width: auto; max-height: 50vh; border-left: 0; border-top: 1px solid var(--line); box-shadow: 0 -6px 20px rgba(0,0,0,.15); z-index: 5; }
@@ -385,6 +394,36 @@ aside#card.open { display: block; }
   const chip = id => { const n = byId.get(id); return `<button class="chip" data-id="${id}">${id} ${n ? esc(n.name) : ''}</button>`; };
   // 人物：自作のドット絵の肖像（tools/gen_portraits.py、特徴だけの記号的な絵）＋名前＋ゆかりの道具。肖像がなければシルエット
   const silhouette = `<svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><circle cx="17" cy="11" r="7" fill="var(--sub)"/><path d="M4 33c0-8 6-13 13-13s13 5 13 13z" fill="var(--sub)"/></svg>`;
+  // ---- この技術の裏にいる人たち（NET-04）：自分と祖先に付いている人物（重複なし）を年代順に。node.html と同じ数え方 ----
+  const personYear = (p, n) => {
+    const s = String(p.year || ''), c = s.match(/(\d+)\s*(?:〜\d+)?\s*世紀/);
+    if (c) return (+c[1] - 1) * 100 + 50;
+    const m = s.match(/\d+/);
+    return m ? (s.includes('前') ? -m[0] : +m[0]) : (n.year ?? 9999);
+  };
+  const ANON_BEFORE = 1500;   // これより古く、人物の記録がない技術を「名前の残っていない人たち」として数える
+  function peopleBehind(id) {
+    const seen = new Map(), anon = [];
+    for (const i of [id, ...anc.get(id)]) {
+      const n = byId.get(i); if (!n) continue;
+      if (!n.people.length && n.year != null && n.year < ANON_BEFORE) anon.push(i);
+      for (const p of n.people) {
+        const o = seen.get(p.name);
+        if (o) { if (!o.techs.includes(i)) o.techs.push(i); } else seen.set(p.name, { p, techs: [i], y: personYear(p, n) });
+      }
+    }
+    return { people: [...seen.values()].sort((a, b) => a.y - b.y), anon };
+  }
+  const crowd = `<svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><g fill="var(--sub)" opacity=".55"><circle cx="11" cy="17" r="5"/><path d="M2 40c0-7 4-11 9-11s9 4 9 11z"/><circle cx="37" cy="17" r="5"/><path d="M28 40c0-7 4-11 9-11s9 4 9 11z"/></g><g fill="var(--sub)"><circle cx="24" cy="14" r="6"/><path d="M13 44c0-8 5-13 11-13s11 5 11 13z"/></g></svg>`;
+  // 最初は閉じた <details>（数字だけ）。開くと肖像の壁、肖像を押すとその技術へ
+  function wallHtml(id) {
+    const { people, anon } = peopleBehind(id);
+    if (!people.length && !anon.length) return '';
+    const tile = (img, name, sub, to, title) => `<button class="wtile" data-id="${to}" title="${esc(title)}">${img}<b>${esc(name)}</b><small>${esc(sub)}</small></button>`;
+    const anonTile = anon.length ? tile(crowd, '名前の残っていない、無数の人たち', `${anon.length} の技術`, anon[0], `${ANON_BEFORE}年より前で、発明した人の名前が残っていない技術：` + anon.map(i => byId.get(i).name).join('、')) : '';
+    return `<details class="wall sec"><summary>この技術の裏にいる人：<b>${people.length}</b> 人${anon.length ? `＋名前の残っていない人たち` : ''}</summary>
+      <div class="wgrid">${anonTile}${people.map(({ p, techs }) => tile(p.portrait ? `<img src="${p.portrait}" alt="">` : silhouette, p.name, techs.map(i => byId.get(i).name).join('・'), techs[0], `${p.name}（${p.year}）`)).join('')}</div></details>`;
+  }
   function select(id) {
     state.sel = id; render();
     const card = document.getElementById('card');
@@ -399,6 +438,7 @@ aside#card.open { display: block; }
       <h2>${head}<span>[${d.id}] ${esc(d.name)} ${d.status}</span></h2>
       <a class="more" href="node.html#${encodeURIComponent(d.id)}">詳しく見る →</a>
       <div class="meta"><span style="color:${isIdea(d) ? '#8e5bd6' : color(d.trunk)}">${isIdea(d) ? '◆' : '●'}</span> ${isProd(d) ? '<b>モノ</b>・' : ''}${d.trunk === 'P' || d.trunk === 'I' ? '' : (d.trunk === 'B' ? '枝' : '幹' + d.trunk) + ' '}${esc(d.trunk_name)}・${yearText(d)}${d.buildable_now ? '・<b>今すぐ作れる</b>' : ''}</div>
+      ${wallHtml(id)}
       ${d.hee1 ? `<div class="sec"><h3>へえ①</h3>${esc(d.hee1)}</div>` : ''}
       ${d.play ? `<div class="sec"><h3>遊び方</h3>${esc(d.play)}</div>` : ''}
       ${d.enables.length ? `<div class="sec"><h3>この考え方で作れるようになった技術</h3>${chips(d.enables)}</div>` : ''}
@@ -415,6 +455,7 @@ aside#card.open { display: block; }
       <div class="sec"><h3>すぐ次の技術（${next.length}）</h3><div class="chips">${next.map(chip).join('')}</div></div>`;
     card.classList.add('open');
     card.querySelector('.close').onclick = () => select(null);
+    card.querySelectorAll('.wtile').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
     card.querySelectorAll('.chip').forEach(b => b.onclick = () => { select(b.dataset.id); center(b.dataset.id); });
   }
   function center(id) {
