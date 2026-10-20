@@ -351,12 +351,28 @@ def node_details(nodes, icons):
     mfile = ROOT / "docs" / "machine_recipes.json"
     machine = json.loads(mfile.read_text(encoding="utf-8")).get("recipes", []) if mfile.exists() else []
     def thing(x):
+        """量の数字の項目から表示の文を作る（例：「黒鉛棒 8回で1本」「水素ガス 4 mol」「水入りバケツ 1/4」）"""
         name = ja_name(x["item"]) if ":" in x["item"] else x["item"]
-        amt = x.get("count", x.get("note", ""))
-        m = re.match(r"^(\d+)(.*)$", str(amt)) if isinstance(amt, str) else None
-        if m:   # 「1（石炭も可）」→「木炭×1（石炭も可）」
-            return f"{name}×{m.group(1)}{m.group(2)}"
-        return f"{name}×{amt}" if isinstance(amt, (int, float)) and amt != 1 else (f"{name}（{amt}）" if amt not in ("", 1) else name)
+        c = x.get("count", 1)
+        frac = {0.25: "1/4", 0.5: "1/2", 0.75: "3/4"}
+        if x.get("per_runs"):
+            s = f"{name} {x['per_runs']}回で{c:g}" + ("本" if "棒" in name else "個")
+        elif x.get("unit"):
+            s = f"{name} {c:g} {x['unit']}"
+        elif c in frac:
+            s = f"{name} {frac[c]}"
+        else:
+            s = f"{name}×{c:g}" if c != 1 else name
+        extra = []
+        if x.get("max"):
+            extra.append(f"最大{x['max']}")
+        if x.get("alt"):
+            extra.append("・".join(ja_name(a) for a in x["alt"]) + "も可")
+        if x.get("consumed") is False:
+            extra.append("減らない")
+        if x.get("cond"):
+            extra.append(x["cond"])
+        return s + (f"（{'、'.join(extra)}）" if extra else "")
     def power(r):
         w, s = r["watts"], r["seconds"]
         if w < 0:

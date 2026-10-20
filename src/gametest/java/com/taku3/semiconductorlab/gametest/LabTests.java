@@ -1334,23 +1334,29 @@ public class LabTests {
     }
 
     // =====================================================================
-    // 機械のレシピの書き出し（タスク24）：docs/machine_recipes.json
+    // 機械のレシピの書き出し（タスク24・25）：docs/machine_recipes.json
     // 各機械の定数（電力・時間・量）とアイテムの登録から作るので、コードを変えれば表も変わる。node.html の「ゲームでの作り方」の元データ
+    // 量は数字の項目で持つ：count（1回あたり）・unit（"mol" など）・per_runs（N回で count 個へる）・consumed（false＝減らない）・
+    //   max（1回に入れられる上限）・alt（代わりに使えるアイテム）・cond（条件の短い説明）。表示の文は gen_tree_views.py が作る
     // =====================================================================
 
     private static String iid(net.minecraft.world.item.Item it) { return BuiltInRegistries.ITEM.getKey(it).toString(); }
-    private static com.google.gson.JsonArray items(Object... pairs) {
-        var a = new com.google.gson.JsonArray();
-        for (int i = 0; i < pairs.length; i += 2) {
-            var o = new com.google.gson.JsonObject();
-            Object k = pairs[i];
-            o.addProperty("item", k instanceof net.minecraft.world.item.Item it ? iid(it) : String.valueOf(k));
-            Object c = pairs[i + 1];
-            if (c instanceof Number n) o.addProperty("count", n); else o.addProperty("note", String.valueOf(c));
-            a.add(o);
-        }
-        return a;
+    /** 材料・生成物1つ。item はアイテムか、アイテムでない物（空気・電気など）の名前 */
+    private static com.google.gson.JsonObject io(Object item, double count) {
+        var o = new com.google.gson.JsonObject();
+        o.addProperty("item", item instanceof net.minecraft.world.item.Item it ? iid(it) : String.valueOf(item));
+        if (count == Math.rint(count)) o.addProperty("count", (long) count); else o.addProperty("count", count);
+        return o;
     }
+    private static com.google.gson.JsonObject mol(Object item, double n) { var o = io(item, n); o.addProperty("unit", "mol"); return o; }
+    private static com.google.gson.JsonObject kept(com.google.gson.JsonObject o) { o.addProperty("consumed", false); return o; }
+    private static com.google.gson.JsonObject perRuns(com.google.gson.JsonObject o, int runs) { o.addProperty("per_runs", runs); return o; }
+    private static com.google.gson.JsonObject max(com.google.gson.JsonObject o, int m) { o.addProperty("max", m); return o; }
+    private static com.google.gson.JsonObject alt(com.google.gson.JsonObject o, net.minecraft.world.item.Item... its) {
+        var a = new com.google.gson.JsonArray(); for (var it : its) a.add(iid(it)); o.add("alt", a); return o;
+    }
+    private static com.google.gson.JsonObject cond(com.google.gson.JsonObject o, String c) { o.addProperty("cond", c); return o; }
+    private static com.google.gson.JsonArray L(com.google.gson.JsonObject... xs) { var a = new com.google.gson.JsonArray(); for (var x : xs) a.add(x); return a; }
     private static void rec(com.google.gson.JsonArray out, net.minecraft.world.level.block.Block machine, String process,
                             com.google.gson.JsonArray in, com.google.gson.JsonArray res, double watts, double seconds, String note) {
         var o = new com.google.gson.JsonObject();
@@ -1368,84 +1374,72 @@ public class LabTests {
     @GameTest
     public void exportMachineRecipes(GameTestHelper h) {
         var a = new com.google.gson.JsonArray();
-        // 帯域精製炉
-        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）", items(ModItems.RAW_GERMANIUM, "最大8", ModItems.GRAPHITE_BOAT, "減らない（粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで）"),
-            items(ModItems.REFINED_GERMANIUM, "同じ数"), ZoneRefiningFurnaceBlockEntity.WATTS, ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, "GeCl4 経由でない Ge は 9N まで");
-        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "ゾーンレベリング（n型）", items(ModItems.REFINED_GERMANIUM, "9N 以上・最大8", ModItems.PHOSPHORUS, 1),
-            items(ModItems.N_TYPE_GERMANIUM, "同じ数"), ZoneRefiningFurnaceBlockEntity.WATTS, ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, null);
-        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "ゾーンレベリング（p型）", items(ModItems.REFINED_GERMANIUM, "9N 以上・最大8", ModItems.INDIUM, 1),
-            items(ModItems.P_TYPE_GERMANIUM, "同じ数"), ZoneRefiningFurnaceBlockEntity.WATTS, ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, null);
-        // 電解槽
-        rec(a, ModBlocks.ELECTROLYZER, "水の電気分解", items(Items.WATER_BUCKET, 1, ModItems.SULFURIC_ACID, "減らない（電解質）"),
-            items(ModItems.HYDROGEN_GAS, 2, ModItems.OXYGEN_GAS, 1, Items.BUCKET, 1), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.TOTAL_TICKS / 20.0, "2H2O → 2H2 + O2");
-        rec(a, ModBlocks.ELECTROLYZER, "塩水の電気分解（クロルアルカリ）", items(Items.WATER_BUCKET, 1, ModItems.SALT, ElectrolyzerBlockEntity.SALT_PER_RUN),
-            items(ModItems.HYDROGEN_GAS, 1, ModItems.CHLORINE_GAS, 1, ModItems.SODIUM_HYDROXIDE, 2, Items.BUCKET, 1), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.BRINE_TICKS / 20.0, "2NaCl + 2H2O → Cl2 + H2 + 2NaOH");
-        // 転炉
-        rec(a, ModBlocks.BESSEMER_CONVERTER, "ベッセマー転炉", items(Items.IRON_INGOT, "1（銑鉄の近似）"), items(ModItems.STEEL_INGOT, 1),
+        double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
+        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
+            L(max(io(ModItems.RAW_GERMANIUM, 1), 8), kept(cond(io(ModItems.GRAPHITE_BOAT, 1), "粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで"))),
+            L(io(ModItems.REFINED_GERMANIUM, 1)), zw, zt, "入れた数だけ出る。GeCl4 経由でない Ge は 9N まで");
+        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "ゾーンレベリング（n型）", L(max(cond(io(ModItems.REFINED_GERMANIUM, 1), "9N 以上"), 8), io(ModItems.PHOSPHORUS, 1)),
+            L(io(ModItems.N_TYPE_GERMANIUM, 1)), zw, zt, "入れた数だけ出る");
+        rec(a, ModBlocks.ZONE_REFINING_FURNACE, "ゾーンレベリング（p型）", L(max(cond(io(ModItems.REFINED_GERMANIUM, 1), "9N 以上"), 8), io(ModItems.INDIUM, 1)),
+            L(io(ModItems.P_TYPE_GERMANIUM, 1)), zw, zt, "入れた数だけ出る");
+        rec(a, ModBlocks.ELECTROLYZER, "水の電気分解", L(io(Items.WATER_BUCKET, 1), kept(io(ModItems.SULFURIC_ACID, 1))),
+            L(io(ModItems.HYDROGEN_GAS, 2), io(ModItems.OXYGEN_GAS, 1), io(Items.BUCKET, 1)), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.TOTAL_TICKS / 20.0, "2H2O → 2H2 + O2。硫酸は電解質");
+        rec(a, ModBlocks.ELECTROLYZER, "塩水の電気分解（クロルアルカリ）", L(io(Items.WATER_BUCKET, 1), io(ModItems.SALT, ElectrolyzerBlockEntity.SALT_PER_RUN)),
+            L(io(ModItems.HYDROGEN_GAS, 1), io(ModItems.CHLORINE_GAS, 1), io(ModItems.SODIUM_HYDROXIDE, 2), io(Items.BUCKET, 1)), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.BRINE_TICKS / 20.0, "2NaCl + 2H2O → Cl2 + H2 + 2NaOH");
+        rec(a, ModBlocks.BESSEMER_CONVERTER, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(ModItems.STEEL_INGOT, 1)),
             BessemerConverterBlockEntity.WATTS, BessemerConverterBlockEntity.TOTAL_TICKS / 20.0, "送風の動力を電力で代表");
-        // 水素炉
-        rec(a, ModBlocks.HYDROGEN_FURNACE, "WO3 の水素還元", items(ModItems.TUNGSTEN_TRIOXIDE, 1, ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.REDUCE_H2),
-            items(ModItems.TUNGSTEN_POWDER, 1), HydrogenFurnaceBlockEntity.REDUCE_WATTS, HydrogenFurnaceBlockEntity.REDUCE_TICKS / 20.0, "WO3 + 3H2 → W + 3H2O");
-        rec(a, ModBlocks.HYDROGEN_FURNACE, "タングステン粉の焼結", items(ModItems.TUNGSTEN_POWDER, HydrogenFurnaceBlockEntity.SINTER_POWDER, ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.SINTER_H2),
-            items(ModItems.TUNGSTEN_BAR, 1), HydrogenFurnaceBlockEntity.SINTER_WATTS, HydrogenFurnaceBlockEntity.SINTER_TICKS / 20.0, null);
-        rec(a, ModBlocks.HYDROGEN_FURNACE, "GeO2 の水素還元", items(ModItems.GERMANIUM_DIOXIDE, "1（高純度 GeO2 も可）", ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.GE_REDUCE_H2),
-            items(ModItems.RAW_GERMANIUM, 1), HydrogenFurnaceBlockEntity.REDUCE_WATTS, HydrogenFurnaceBlockEntity.GE_REDUCE_TICKS / 20.0, "GeO2 + 2H2 → Ge + 2H2O");
-        // 圧縮機
-        rec(a, ModBlocks.COMPRESSOR, "ボンベに詰める", items(ModItems.EMPTY_GAS_CYLINDER, 1, "隣のガスホルダーのガス", CompressorBlockEntity.MOL_PER_CYLINDER + " mol"),
-            items("ガスの種類のボンベ（H2・O2・Cl2・N2・Ar）", 1), CompressorBlockEntity.WATTS, CompressorBlockEntity.TOTAL_TICKS / 20.0, "約150気圧");
-        // 封止台
-        rec(a, ModBlocks.SEALING_STATION, "真空管の封止", items(ModItems.VACUUM_TUBE_ASSEMBLY, 1, "隣の真空容器", "≤ " + SealingStationBlockEntity.SEAL_MAX_PA + " Pa"),
-            items(ModItems.VACUUM_TUBE, 1), SealingStationBlockEntity.WATTS, SealingStationBlockEntity.TICKS / 20.0, "封じるたびに容器へ空気がもどる");
-        // 電気炉
+        rec(a, ModBlocks.HYDROGEN_FURNACE, "WO3 の水素還元", L(io(ModItems.TUNGSTEN_TRIOXIDE, 1), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.REDUCE_H2)),
+            L(io(ModItems.TUNGSTEN_POWDER, 1)), HydrogenFurnaceBlockEntity.REDUCE_WATTS, HydrogenFurnaceBlockEntity.REDUCE_TICKS / 20.0, "WO3 + 3H2 → W + 3H2O");
+        rec(a, ModBlocks.HYDROGEN_FURNACE, "タングステン粉の焼結", L(io(ModItems.TUNGSTEN_POWDER, HydrogenFurnaceBlockEntity.SINTER_POWDER), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.SINTER_H2)),
+            L(io(ModItems.TUNGSTEN_BAR, 1)), HydrogenFurnaceBlockEntity.SINTER_WATTS, HydrogenFurnaceBlockEntity.SINTER_TICKS / 20.0, null);
+        rec(a, ModBlocks.HYDROGEN_FURNACE, "GeO2 の水素還元", L(alt(io(ModItems.GERMANIUM_DIOXIDE, 1), ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE), io(ModItems.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.GE_REDUCE_H2)),
+            L(io(ModItems.RAW_GERMANIUM, 1)), HydrogenFurnaceBlockEntity.REDUCE_WATTS, HydrogenFurnaceBlockEntity.GE_REDUCE_TICKS / 20.0, "GeO2 + 2H2 → Ge + 2H2O");
+        rec(a, ModBlocks.COMPRESSOR, "ボンベに詰める", L(io(ModItems.EMPTY_GAS_CYLINDER, 1), mol("隣のガスホルダーのガス", CompressorBlockEntity.MOL_PER_CYLINDER)),
+            L(io("そのガスのボンベ", 1)), CompressorBlockEntity.WATTS, CompressorBlockEntity.TOTAL_TICKS / 20.0, "約150気圧。H2・O2・Cl2・N2・Ar");
+        rec(a, ModBlocks.SEALING_STATION, "真空管の封止", L(io(ModItems.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),
+            L(io(ModItems.VACUUM_TUBE, 1)), SealingStationBlockEntity.WATTS, SealingStationBlockEntity.TICKS / 20.0, "封じるたびに容器へ空気がもどる");
         for (var e : ElectricFurnaceBlockEntity.recipes().entrySet())
-            rec(a, ModBlocks.ELECTRIC_FURNACE, "電気で焼く", items(e.getKey(), 1), items(e.getValue(), 1), ElectricFurnaceBlockEntity.WATTS, ElectricFurnaceBlockEntity.TICKS / 20.0, null);
-        // アチソン炉
-        rec(a, ModBlocks.ACHESON_FURNACE, "人造黒鉛", items(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH + "（木炭も可）", Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH),
-            items(ModItems.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");
-        // 反射炉（燃料式）
+            rec(a, ModBlocks.ELECTRIC_FURNACE, "電気で焼く", L(io(e.getKey(), 1)), L(io(e.getValue(), 1)), ElectricFurnaceBlockEntity.WATTS, ElectricFurnaceBlockEntity.TICKS / 20.0, null);
+        rec(a, ModBlocks.ACHESON_FURNACE, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
+            L(io(ModItems.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");
+        double fuelS = ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS;
         for (var it : new net.minecraft.world.item.Item[] {ModItems.GALENA, ModItems.CINNABAR_DUST, ModItems.SPHALERITE}) {
             var main = ReverberatoryFurnaceBlockEntity.mainProduct(new ItemStack(it)).getItem();
             var out = it == ModItems.SPHALERITE
-                    ? items(main, 1, ModItems.SULFUR_DIOXIDE, 1, ModItems.GERMANIUM_CONCENTRATE, "4回に1個", ModItems.INDIUM, "8回に1個")
-                    : items(main, 1, ModItems.SULFUR_DIOXIDE, 1);
-            rec(a, ModBlocks.REVERBERATORY_FURNACE, "焙焼", items(it, 1, Items.COAL, "燃料（1個で" + ReverberatoryFurnaceBlockEntity.FUEL_TICKS / 20 + "秒）"), out, 0, ReverberatoryFurnaceBlockEntity.ROAST_TICKS / 20.0, "電気なし");
+                    ? L(io(main, 1), io(ModItems.SULFUR_DIOXIDE, 1), perRuns(io(ModItems.GERMANIUM_CONCENTRATE, 1), ReverberatoryFurnaceBlockEntity.GE_EVERY), perRuns(io(ModItems.INDIUM, 1), ReverberatoryFurnaceBlockEntity.IN_EVERY))
+                    : L(io(main, 1), io(ModItems.SULFUR_DIOXIDE, 1));
+            rec(a, ModBlocks.REVERBERATORY_FURNACE, "焙焼", L(io(it, 1), perRuns(io(Items.COAL, 1), (int) fuelS)), out, 0, ReverberatoryFurnaceBlockEntity.ROAST_TICKS / 20.0, "燃料式（電気なし）");
         }
-        // 酸水素バーナー・塩酸合成炉（電気なし）
-        rec(a, ModBlocks.OXYHYDROGEN_BURNER, "石英を溶かす", items(ModItems.VEIN_QUARTZ, 1, ModItems.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER + " mol", ModItems.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER + " mol"),
-            items(ModItems.FUSED_QUARTZ, 1), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "2H2 + O2 → 2H2O（約2800℃）。電気なし");
-        rec(a, ModBlocks.HCL_BURNER, "塩酸を作る", items(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER + " mol", ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER + " mol", Items.WATER_BUCKET, "1/" + HclBurnerBlockEntity.ACID_PER_BUCKET),
-            items(ModItems.HYDROCHLORIC_ACID, 1), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "H2 + Cl2 → 2HCl。電気なし");
-        // 塩田
-        rec(a, ModBlocks.SALT_PAN, "天日で塩", items("海辺の水と日光", "雨の日は止まる"), items(ModItems.SALT, 1, ModItems.BITTERN, "塩" + SaltPanBlockEntity.SALT_PER_BITTERN + "個ごとに1"),
+        rec(a, ModBlocks.OXYHYDROGEN_BURNER, "石英を溶かす", L(io(ModItems.VEIN_QUARTZ, 1), mol(ModItems.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(ModItems.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
+            L(io(ModItems.FUSED_QUARTZ, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "2H2 + O2 → 2H2O（約2800℃）。電気なし");
+        rec(a, ModBlocks.HCL_BURNER, "塩酸を作る", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER), io(Items.WATER_BUCKET, 1.0 / HclBurnerBlockEntity.ACID_PER_BUCKET)),
+            L(io(ModItems.HYDROCHLORIC_ACID, 1)), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "H2 + Cl2 → 2HCl を水に溶かす。電気なし");
+        rec(a, ModBlocks.SALT_PAN, "天日で塩", L(kept(cond(io("海辺の水と日光", 1), "雨の日は止まる"))), L(io(ModItems.SALT, 1), perRuns(io(ModItems.BITTERN, 1), SaltPanBlockEntity.SALT_PER_BITTERN)),
             0, SaltPanBlockEntity.TICKS_PER_SALT / 20.0, "電気なし");
-        // シュプレンゲルポンプ（電気なし）
-        rec(a, ModBlocks.SPRENGEL_PUMP, "真空にする", items(ModItems.MERCURY, SprengelPumpBlockEntity.MERCURY_NEEDED + "（減らない）", "隣の真空容器", "1気圧から"),
-            items("真空容器の圧力", "1秒ごとに残り " + (int) (SprengelPumpBlockEntity.RATIO * 100) + "%、" + SprengelPumpBlockEntity.LIMIT_PA + " Pa まで"), 0, 1, "電気なし");
-        // 空気分離
-        rec(a, ModBlocks.AIR_SEPARATION_UNIT, "空気分離", items("空気", AirSeparationBlockEntity.AIR_MOL + " mol"),
-            items(ModItems.NITROGEN_GAS, AirSeparationBlockEntity.N2_PER_RUN / 1000.0 + " mol", ModItems.OXYGEN_GAS, AirSeparationBlockEntity.O2_PER_RUN / 1000.0 + " mol", ModItems.ARGON_GAS, AirSeparationBlockEntity.AR_PER_RUN / 1000.0 + " mol"),
-            AirSeparationBlockEntity.WATTS, AirSeparationBlockEntity.TICKS / 20.0, "端数は持ち越して袋にする");
-        // 引き上げ機
-        rec(a, ModBlocks.CRYSTAL_PULLER, "種結晶づくり", items(ModItems.TUNGSTEN_WIRE, 1, ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_SEED, ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN),
-            items(ModItems.GERMANIUM_SEED_CRYSTAL, 1), CrystalPullerBlockEntity.WATTS, CrystalPullerBlockEntity.SEED_TICKS / 20.0, "粒の選択。線は消える");
-        rec(a, ModBlocks.CRYSTAL_PULLER, "単結晶の引き上げ", items(ModItems.GERMANIUM_SEED_CRYSTAL, "減らない", ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_INGOT, ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN),
-            items(ModItems.GERMANIUM_SINGLE_CRYSTAL, 1), CrystalPullerBlockEntity.WATTS, CrystalPullerBlockEntity.GROW_TICKS / 20.0, "純度と経路を受け継ぐ");
-        // アーク炉
-        rec(a, ModBlocks.ARC_FURNACE, "金属シリコン", items(ModItems.VEIN_QUARTZ, ArcFurnaceBlockEntity.QUARTZ_PER_RUN, Items.CHARCOAL, ArcFurnaceBlockEntity.CARBON_PER_RUN + "（石炭も可）", ModItems.GRAPHITE_ROD, ArcFurnaceBlockEntity.RUNS_PER_ELECTRODE + "回で1本"),
-            items(ModItems.METALLURGICAL_SILICON, 1), ArcFurnaceBlockEntity.WATTS, ArcFurnaceBlockEntity.TICKS / 20.0, "SiO2 + 2C → Si + 2CO、純度98%");
-        // 発電機と電池
-        rec(a, ModBlocks.STEAM_ENGINE, "蒸気で発電", items(Items.COAL, 1, Items.WATER_BUCKET, "水"), items("電気", (int) (com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.WATTS / 1000) + " kW"),
+        rec(a, ModBlocks.SPRENGEL_PUMP, "真空にする", L(kept(io(ModItems.MERCURY, SprengelPumpBlockEntity.MERCURY_NEEDED)), kept(io("隣の真空容器", 1))),
+            L(cond(io("真空容器の圧力", 1), "1秒ごとに残り " + (int) (SprengelPumpBlockEntity.RATIO * 100) + "%、" + SprengelPumpBlockEntity.LIMIT_PA + " Pa まで")), 0, 1, "電気なし");
+        rec(a, ModBlocks.AIR_SEPARATION_UNIT, "空気分離", L(mol("空気", AirSeparationBlockEntity.AIR_MOL)),
+            L(mol(ModItems.NITROGEN_GAS, AirSeparationBlockEntity.N2_PER_RUN / 1000.0), mol(ModItems.OXYGEN_GAS, AirSeparationBlockEntity.O2_PER_RUN / 1000.0), mol(ModItems.ARGON_GAS, AirSeparationBlockEntity.AR_PER_RUN / 1000.0)),
+            AirSeparationBlockEntity.WATTS, AirSeparationBlockEntity.TICKS / 20.0, "端数は持ち越して袋（1 mol）にする");
+        rec(a, ModBlocks.CRYSTAL_PULLER, "種結晶づくり", L(io(ModItems.TUNGSTEN_WIRE, 1), io(ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_SEED), io(ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN)),
+            L(io(ModItems.GERMANIUM_SEED_CRYSTAL, 1)), CrystalPullerBlockEntity.WATTS, CrystalPullerBlockEntity.SEED_TICKS / 20.0, "粒の選択。線は結晶に埋まる");
+        rec(a, ModBlocks.CRYSTAL_PULLER, "単結晶の引き上げ", L(kept(io(ModItems.GERMANIUM_SEED_CRYSTAL, 1)), io(ModItems.REFINED_GERMANIUM, CrystalPullerBlockEntity.GE_PER_INGOT), io(ModItems.HYDROGEN_GAS, CrystalPullerBlockEntity.H2_PER_RUN)),
+            L(io(ModItems.GERMANIUM_SINGLE_CRYSTAL, 1)), CrystalPullerBlockEntity.WATTS, CrystalPullerBlockEntity.GROW_TICKS / 20.0, "純度と経路を受け継ぐ");
+        rec(a, ModBlocks.ARC_FURNACE, "金属シリコン", L(io(ModItems.VEIN_QUARTZ, ArcFurnaceBlockEntity.QUARTZ_PER_RUN), alt(io(Items.CHARCOAL, ArcFurnaceBlockEntity.CARBON_PER_RUN), Items.COAL), perRuns(io(ModItems.GRAPHITE_ROD, 1), ArcFurnaceBlockEntity.RUNS_PER_ELECTRODE)),
+            L(io(ModItems.METALLURGICAL_SILICON, 1)), ArcFurnaceBlockEntity.WATTS, ArcFurnaceBlockEntity.TICKS / 20.0, "SiO2 + 2C → Si + 2CO、純度98%");
+        rec(a, ModBlocks.STEAM_ENGINE, "蒸気で発電", L(io(Items.COAL, 1), cond(io(Items.WATER_BUCKET, 1), "バケツ1杯で石炭2個分")), L(io("電気", 1)),
             -com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.WATTS, com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.COAL_TICKS / 20.0, "石炭1個の熱は 30 MJ（ゲームの約束）。自励式ダイナモで2倍");
-        rec(a, ModBlocks.STEAM_TURBINE, "蒸気タービンで発電", items(Items.COAL, 1, Items.WATER_BUCKET, "水"), items("電気", (int) (com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity.WATTS / 1000) + " kW"),
+        rec(a, ModBlocks.STEAM_TURBINE, "蒸気タービンで発電", L(io(Items.COAL, 1), cond(io(Items.WATER_BUCKET, 1), "バケツ1杯で石炭2個分")), L(io("電気", 1)),
             -com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity.WATTS, com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity.COAL_TICKS / 20.0, "熱効率30%");
-        rec(a, ModBlocks.WATER_WHEEL, "水車で発電", items("横に流れる水", "1面ごと"), items("電気", (int) com.taku3.semiconductorlab.energy.WaterWheelBlockEntity.WATTS_PER_FLOW + " W / 面"),
-            -com.taku3.semiconductorlab.energy.WaterWheelBlockEntity.WATTS_PER_FLOW, 0, "止まった水では回らない");
-        rec(a, ModBlocks.LEAD_ACID_BATTERY, "電気をためる", items("電気", "最大 " + (int) (com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.MAX_WATTS / 1000) + " kW"),
-            items("電気", (com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY / 1_000_000) + " MJ まで（充電は " + com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CHARGE_EFFICIENCY_PERCENT + "% がたまる）"),
-            com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.MAX_WATTS, 0, null);
+        rec(a, ModBlocks.WATER_WHEEL, "水車で発電", L(kept(cond(io("横に流れる水", 1), "1面ごと"))), L(io("電気", 1)),
+            -com.taku3.semiconductorlab.energy.WaterWheelBlockEntity.WATTS_PER_FLOW, 0, "1面あたり。止まった水では回らない");
+        rec(a, ModBlocks.LEAD_ACID_BATTERY, "電気をためる", L(io("電気", 1)), L(cond(io("電気", 1), (com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY / 1_000_000) + " MJ まで、充電は "
+            + com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CHARGE_EFFICIENCY_PERCENT + "% がたまる")), com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.MAX_WATTS, 0, "充電・放電とも最大の電力");
+        exportExtraMachines(a);
 
         var root = new com.google.gson.JsonObject();
-        root.addProperty("_note", "自動生成：GameTest exportMachineRecipes（tools/test.ps1 で更新）。各機械の定数とアイテムの登録から作る。watts が負＝発電、0＝電気なし");
+        root.addProperty("_note", "自動生成：GameTest exportMachineRecipes（tools/test.ps1 で更新）。各機械の定数とアイテムの登録から作る。watts が負＝発電、0＝電気なし。"
+            + "量：count（1回あたり）・unit・per_runs（N回で count 個へる）・consumed=false（減らない）・max（1回の上限）・alt（代わり）・cond（条件）");
         root.add("recipes", a);
         java.nio.file.Path dir = java.nio.file.Paths.get("").toAbsolutePath();
         while (dir != null && !java.nio.file.Files.exists(dir.resolve("docs").resolve("TECH_TREE.md"))) dir = dir.getParent();
@@ -1454,10 +1448,16 @@ public class LabTests {
             java.nio.file.Files.writeString(dir.resolve("docs").resolve("machine_recipes.json"),
                     new com.google.gson.GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(root) + "\n", java.nio.charset.StandardCharsets.UTF_8);
         } catch (java.io.IOException e) { throw new RuntimeException(e); }
-        // 書き出した機械が全部登録されていて、どれも何かを出す
+        // 量は全部数字の項目になっている（説明文の量がない）
+        for (var r : a) for (String side : new String[] {"inputs", "outputs"})
+            for (var x : r.getAsJsonObject().getAsJsonArray(side)) h.assertTrue(x.getAsJsonObject().get("count").isJsonPrimitive(), "every amount is a number");
         h.assertTrue(a.size() >= 25, "machine recipes: " + a.size());
         LOG.info("[LAB] machine recipes: {} entries written to docs/machine_recipes.json", a.size());
         h.succeed();
+    }
+
+    /** 後から足した機械（タスク25 [1-16][1-17] など）。exportMachineRecipes から呼ぶ */
+    private static void exportExtraMachines(com.google.gson.JsonArray a) {
     }
 
     // =====================================================================

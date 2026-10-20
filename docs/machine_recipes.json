@@ -1,5 +1,5 @@
 {
-  "_note": "自動生成：GameTest exportMachineRecipes（tools/test.ps1 で更新）。各機械の定数とアイテムの登録から作る。watts が負＝発電、0＝電気なし",
+  "_note": "自動生成：GameTest exportMachineRecipes（tools/test.ps1 で更新）。各機械の定数とアイテムの登録から作る。watts が負＝発電、0＝電気なし。量：count（1回あたり）・unit・per_runs（N回で count 個へる）・consumed=false（減らない）・max（1回の上限）・alt（代わり）・cond（条件）",
   "recipes": [
     {
       "machine": "semiconductor-lab:zone_refining_furnace",
@@ -7,23 +7,26 @@
       "inputs": [
         {
           "item": "semiconductor-lab:raw_germanium",
-          "note": "最大8"
+          "count": 1,
+          "max": 8
         },
         {
           "item": "semiconductor-lab:graphite_boat",
-          "note": "減らない（粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで）"
+          "count": 1,
+          "cond": "粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで",
+          "consumed": false
         }
       ],
       "outputs": [
         {
           "item": "semiconductor-lab:refined_germanium",
-          "note": "同じ数"
+          "count": 1
         }
       ],
       "watts": 3000.0,
       "seconds": 30.0,
       "energy_kj": 90,
-      "note": "GeCl4 経由でない Ge は 9N まで"
+      "note": "入れた数だけ出る。GeCl4 経由でない Ge は 9N まで"
     },
     {
       "machine": "semiconductor-lab:zone_refining_furnace",
@@ -31,7 +34,9 @@
       "inputs": [
         {
           "item": "semiconductor-lab:refined_germanium",
-          "note": "9N 以上・最大8"
+          "count": 1,
+          "cond": "9N 以上",
+          "max": 8
         },
         {
           "item": "semiconductor-lab:phosphorus",
@@ -41,12 +46,13 @@
       "outputs": [
         {
           "item": "semiconductor-lab:n_type_germanium",
-          "note": "同じ数"
+          "count": 1
         }
       ],
       "watts": 3000.0,
       "seconds": 30.0,
-      "energy_kj": 90
+      "energy_kj": 90,
+      "note": "入れた数だけ出る"
     },
     {
       "machine": "semiconductor-lab:zone_refining_furnace",
@@ -54,7 +60,9 @@
       "inputs": [
         {
           "item": "semiconductor-lab:refined_germanium",
-          "note": "9N 以上・最大8"
+          "count": 1,
+          "cond": "9N 以上",
+          "max": 8
         },
         {
           "item": "semiconductor-lab:indium",
@@ -64,12 +72,13 @@
       "outputs": [
         {
           "item": "semiconductor-lab:p_type_germanium",
-          "note": "同じ数"
+          "count": 1
         }
       ],
       "watts": 3000.0,
       "seconds": 30.0,
-      "energy_kj": 90
+      "energy_kj": 90,
+      "note": "入れた数だけ出る"
     },
     {
       "machine": "semiconductor-lab:electrolyzer",
@@ -81,7 +90,8 @@
         },
         {
           "item": "semiconductor-lab:sulfuric_acid",
-          "note": "減らない（電解質）"
+          "count": 1,
+          "consumed": false
         }
       ],
       "outputs": [
@@ -101,7 +111,7 @@
       "watts": 5000.0,
       "seconds": 115.0,
       "energy_kj": 575,
-      "note": "2H2O → 2H2 + O2"
+      "note": "2H2O → 2H2 + O2。硫酸は電解質"
     },
     {
       "machine": "semiconductor-lab:electrolyzer",
@@ -145,7 +155,8 @@
       "inputs": [
         {
           "item": "minecraft:iron_ingot",
-          "note": "1（銑鉄の近似）"
+          "count": 1,
+          "cond": "銑鉄の近似"
         }
       ],
       "outputs": [
@@ -212,7 +223,10 @@
       "inputs": [
         {
           "item": "semiconductor-lab:germanium_dioxide",
-          "note": "1（高純度 GeO2 も可）"
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:high_purity_germanium_dioxide"
+          ]
         },
         {
           "item": "semiconductor-lab:hydrogen_gas",
@@ -240,19 +254,20 @@
         },
         {
           "item": "隣のガスホルダーのガス",
-          "note": "50 mol"
+          "count": 50,
+          "unit": "mol"
         }
       ],
       "outputs": [
         {
-          "item": "ガスの種類のボンベ（H2・O2・Cl2・N2・Ar）",
+          "item": "そのガスのボンベ",
           "count": 1
         }
       ],
       "watts": 5000.0,
       "seconds": 124.0,
       "energy_kj": 620,
-      "note": "約150気圧"
+      "note": "約150気圧。H2・O2・Cl2・N2・Ar"
     },
     {
       "machine": "semiconductor-lab:sealing_station",
@@ -264,7 +279,9 @@
         },
         {
           "item": "隣の真空容器",
-          "note": "≤ 0.1 Pa"
+          "count": 1,
+          "cond": "0.1 Pa 以下",
+          "consumed": false
         }
       ],
       "outputs": [
@@ -277,25 +294,6 @@
       "seconds": 10.0,
       "energy_kj": 5,
       "note": "封じるたびに容器へ空気がもどる"
-    },
-    {
-      "machine": "semiconductor-lab:electric_furnace",
-      "process": "電気で焼く",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:refractory_brick_blank",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:refractory_brick",
-          "count": 1
-        }
-      ],
-      "watts": 5000.0,
-      "seconds": 10.0,
-      "energy_kj": 50
     },
     {
       "machine": "semiconductor-lab:electric_furnace",
@@ -317,12 +315,34 @@
       "energy_kj": 50
     },
     {
+      "machine": "semiconductor-lab:electric_furnace",
+      "process": "電気で焼く",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:refractory_brick_blank",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:refractory_brick",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 10.0,
+      "energy_kj": 50
+    },
+    {
       "machine": "semiconductor-lab:acheson_furnace",
       "process": "人造黒鉛",
       "inputs": [
         {
           "item": "minecraft:coal",
-          "note": "4（木炭も可）"
+          "count": 4,
+          "alt": [
+            "minecraft:charcoal"
+          ]
         },
         {
           "item": "minecraft:sand",
@@ -350,7 +370,8 @@
         },
         {
           "item": "minecraft:coal",
-          "note": "燃料（1個で80秒）"
+          "count": 1,
+          "per_runs": 8
         }
       ],
       "outputs": [
@@ -365,7 +386,7 @@
       ],
       "watts": 0.0,
       "seconds": 10.0,
-      "note": "電気なし"
+      "note": "燃料式（電気なし）"
     },
     {
       "machine": "semiconductor-lab:reverberatory_furnace",
@@ -377,7 +398,8 @@
         },
         {
           "item": "minecraft:coal",
-          "note": "燃料（1個で80秒）"
+          "count": 1,
+          "per_runs": 8
         }
       ],
       "outputs": [
@@ -392,7 +414,7 @@
       ],
       "watts": 0.0,
       "seconds": 10.0,
-      "note": "電気なし"
+      "note": "燃料式（電気なし）"
     },
     {
       "machine": "semiconductor-lab:reverberatory_furnace",
@@ -404,7 +426,8 @@
         },
         {
           "item": "minecraft:coal",
-          "note": "燃料（1個で80秒）"
+          "count": 1,
+          "per_runs": 8
         }
       ],
       "outputs": [
@@ -418,16 +441,18 @@
         },
         {
           "item": "semiconductor-lab:germanium_concentrate",
-          "note": "4回に1個"
+          "count": 1,
+          "per_runs": 4
         },
         {
           "item": "semiconductor-lab:indium",
-          "note": "8回に1個"
+          "count": 1,
+          "per_runs": 8
         }
       ],
       "watts": 0.0,
       "seconds": 10.0,
-      "note": "電気なし"
+      "note": "燃料式（電気なし）"
     },
     {
       "machine": "semiconductor-lab:oxyhydrogen_burner",
@@ -439,11 +464,13 @@
         },
         {
           "item": "semiconductor-lab:hydrogen_cylinder",
-          "note": "4 mol"
+          "count": 4,
+          "unit": "mol"
         },
         {
           "item": "semiconductor-lab:oxygen_cylinder",
-          "note": "2 mol"
+          "count": 2,
+          "unit": "mol"
         }
       ],
       "outputs": [
@@ -462,15 +489,17 @@
       "inputs": [
         {
           "item": "semiconductor-lab:hydrogen_gas",
-          "note": "1 mol"
+          "count": 1,
+          "unit": "mol"
         },
         {
           "item": "semiconductor-lab:chlorine_gas",
-          "note": "1 mol"
+          "count": 1,
+          "unit": "mol"
         },
         {
           "item": "minecraft:water_bucket",
-          "note": "1/4"
+          "count": 0.25
         }
       ],
       "outputs": [
@@ -481,7 +510,7 @@
       ],
       "watts": 0.0,
       "seconds": 5.0,
-      "note": "H2 + Cl2 → 2HCl。電気なし"
+      "note": "H2 + Cl2 → 2HCl を水に溶かす。電気なし"
     },
     {
       "machine": "semiconductor-lab:salt_pan",
@@ -489,7 +518,9 @@
       "inputs": [
         {
           "item": "海辺の水と日光",
-          "note": "雨の日は止まる"
+          "count": 1,
+          "cond": "雨の日は止まる",
+          "consumed": false
         }
       ],
       "outputs": [
@@ -499,7 +530,8 @@
         },
         {
           "item": "semiconductor-lab:bittern",
-          "note": "塩8個ごとに1"
+          "count": 1,
+          "per_runs": 8
         }
       ],
       "watts": 0.0,
@@ -512,17 +544,20 @@
       "inputs": [
         {
           "item": "semiconductor-lab:mercury",
-          "note": "4（減らない）"
+          "count": 4,
+          "consumed": false
         },
         {
           "item": "隣の真空容器",
-          "note": "1気圧から"
+          "count": 1,
+          "consumed": false
         }
       ],
       "outputs": [
         {
           "item": "真空容器の圧力",
-          "note": "1秒ごとに残り 90%、0.05 Pa まで"
+          "count": 1,
+          "cond": "1秒ごとに残り 90%、0.05 Pa まで"
         }
       ],
       "watts": 0.0,
@@ -535,27 +570,31 @@
       "inputs": [
         {
           "item": "空気",
-          "note": "10 mol"
+          "count": 10,
+          "unit": "mol"
         }
       ],
       "outputs": [
         {
           "item": "semiconductor-lab:nitrogen_gas",
-          "note": "7.808 mol"
+          "count": 7.808,
+          "unit": "mol"
         },
         {
           "item": "semiconductor-lab:oxygen_gas",
-          "note": "2.095 mol"
+          "count": 2.095,
+          "unit": "mol"
         },
         {
           "item": "semiconductor-lab:argon_gas",
-          "note": "0.093 mol"
+          "count": 0.093,
+          "unit": "mol"
         }
       ],
       "watts": 5000.0,
       "seconds": 16.0,
       "energy_kj": 80,
-      "note": "端数は持ち越して袋にする"
+      "note": "端数は持ち越して袋（1 mol）にする"
     },
     {
       "machine": "semiconductor-lab:crystal_puller",
@@ -583,7 +622,7 @@
       "watts": 3000.0,
       "seconds": 30.0,
       "energy_kj": 90,
-      "note": "粒の選択。線は消える"
+      "note": "粒の選択。線は結晶に埋まる"
     },
     {
       "machine": "semiconductor-lab:crystal_puller",
@@ -591,7 +630,8 @@
       "inputs": [
         {
           "item": "semiconductor-lab:germanium_seed_crystal",
-          "note": "減らない"
+          "count": 1,
+          "consumed": false
         },
         {
           "item": "semiconductor-lab:refined_germanium",
@@ -623,11 +663,15 @@
         },
         {
           "item": "minecraft:charcoal",
-          "note": "1（石炭も可）"
+          "count": 1,
+          "alt": [
+            "minecraft:coal"
+          ]
         },
         {
           "item": "semiconductor-lab:graphite_rod",
-          "note": "8回で1本"
+          "count": 1,
+          "per_runs": 8
         }
       ],
       "outputs": [
@@ -651,13 +695,14 @@
         },
         {
           "item": "minecraft:water_bucket",
-          "note": "水"
+          "count": 1,
+          "cond": "バケツ1杯で石炭2個分"
         }
       ],
       "outputs": [
         {
           "item": "電気",
-          "note": "50 kW"
+          "count": 1
         }
       ],
       "watts": -50000.0,
@@ -674,13 +719,14 @@
         },
         {
           "item": "minecraft:water_bucket",
-          "note": "水"
+          "count": 1,
+          "cond": "バケツ1杯で石炭2個分"
         }
       ],
       "outputs": [
         {
           "item": "電気",
-          "note": "500 kW"
+          "count": 1
         }
       ],
       "watts": -500000.0,
@@ -693,18 +739,20 @@
       "inputs": [
         {
           "item": "横に流れる水",
-          "note": "1面ごと"
+          "count": 1,
+          "cond": "1面ごと",
+          "consumed": false
         }
       ],
       "outputs": [
         {
           "item": "電気",
-          "note": "500 W / 面"
+          "count": 1
         }
       ],
       "watts": -500.0,
       "seconds": 0.0,
-      "note": "止まった水では回らない"
+      "note": "1面あたり。止まった水では回らない"
     },
     {
       "machine": "semiconductor-lab:lead_acid_battery",
@@ -712,17 +760,19 @@
       "inputs": [
         {
           "item": "電気",
-          "note": "最大 10 kW"
+          "count": 1
         }
       ],
       "outputs": [
         {
           "item": "電気",
-          "note": "1 MJ まで（充電は 85% がたまる）"
+          "count": 1,
+          "cond": "1 MJ まで、充電は 85% がたまる"
         }
       ],
       "watts": 10000.0,
-      "seconds": 0.0
+      "seconds": 0.0,
+      "note": "充電・放電とも最大の電力"
     }
   ]
 }
