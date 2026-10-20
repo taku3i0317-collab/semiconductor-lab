@@ -134,3 +134,12 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [2-60] ポリビニルアルコール・[2-61] ポリケイ皮酸ビニル（新ノード）：カーバイド（A の [3-25]）＋水 → アセチレン、水銀＋硫酸2 → 硫酸水銀（触媒、作業台に戻る item/CatalystItem）、アセチレン＋酢酸＋硫酸水銀 → 酢酸ビニル、4＋過酸化水素 → ポリ酢酸ビニル2、＋メタノール＋NaOH → PVA、PVA＋塩化シンナモイル2 → ポリケイ皮酸ビニル semiconductor-lab:polyvinyl_cinnamate。水俣病を硫酸水銀の note4 に教訓として（DESIGN 9）。ビスアジドの話は polyvinyl_cinnamate.note4 に「作らない理由」として。GameTest polyvinyl_cinnamate、CHEMISTRY P22、REFERENCES C20。テスト 200/200
   - **E へ**：KPR の材料ポリケイ皮酸ビニル semiconductor-lab:polyvinyl_cinnamate ができた（[2-30] ネガ型レジストにまとめるのは E。溶剤のキシレン semiconductor-lab:xylene もある。増感剤は E の工程で）。TECH_TREE [2-30] の感光剤の欄を「ビスアジドは作らない、KPR で」に直した
 - O-010 完了
+
+## S-002（相談役：アンチモン → PTFE、パルプ → 超純水）
+- ✅ [1-43] アンチモン（幹1、S-002 で D が作ってよいと決定）：輝安鉱 stibnite_ore（方鉛鉱と同じ帯、半分の数）→ 焙焼 → Sb2O3 → 還元 → アンチモン。鉄で硫黄を奪う道は入れない（V-21 不明 ⚠️）。GameTest ore_stibnite・antimony_from_stibnite、CHEMISTRY SB1、REFERENCES C21（a0b8c7c）
+- ✅ [2-38] PTFE の後半：アンチモン＋塩素3 → 五塩化アンチモン（触媒、戻る）。クロロホルム＋フッ酸2＋SbCl5 → R-22。熱分解炉 pyrolysis_furnace（鋼6＋白金＋銅ケーブル、8kW）：R-22 2 → TFE＋塩化水素2。加圧加熱釜の表に1行：TFE 4 → PTFE（80℃以上、⚠️ TFE 自身の圧力と過硫酸は扱わない）。プランケット 1938 の発見を へえ に。GameTest ptfe、CHEMISTRY P23、REFERENCES C22（85e34b2）
+- ✅ [15-01] 紙（パルプ）（幹15、誰の担当でもないので D）：SO2＋消石灰＋水 → 亜硫酸の蒸解液、原木2＋液 → 仕込み → 加圧加熱釜（130℃・3気圧以上、表に1行を Communication.init から足した＝表の使い方の見本）→ パルプ2、パルプ3 → 紙3。docs の部品 15_communication.md を新しく作った。GameTest wood_pulp、REFERENCES C23（f1708a7）
+- ✅ [2-18] 超純水：パルプ＋無水酢酸2＋酢酸＋硫酸 → 酢酸セルロース、2＋アセトン＋水 → RO 膜。超純水装置 ultrapure_water_system（PE4＋水銀ランプの管＋イオン交換塔2＋RO 膜＋銅ケーブル、1kW）：脱イオン水＋空の PE の瓶 → 超純水（PE の瓶、18.2 MΩ·cm）＋ガラス瓶。蒸留水そのままは入らない。GameTest ultrapure_water、CHEMISTRY P24、REFERENCES C24。テスト 211/211（814f344）
+  - **E へ**：超純水 semiconductor-lab:ultrapure_water（A の PE の瓶 Vessel.POLYETHYLENE_BOTTLE 入り）ができた。[9-14] RCA 洗浄のすすぎに使える
+  - **A へ**：超純水も PE の瓶に入れた（ガラスからイオンが溶け出すため）。相性表 ALLOWED に「ultrapure_water は PE か PTFE だけ」を足すかは A の判断で
+- S-002 完了。判断待ちは無し
