@@ -1,5 +1,5 @@
 {
-  "parent": "semiconductor-lab:challenge/not",
+  "parent": "semiconductor-lab:challenge/first_stamp",
   "display": {
     "icon": {
       "id": "semiconductor-lab:chip"

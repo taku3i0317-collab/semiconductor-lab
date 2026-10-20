@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide5/p6",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chip"
+    },
+    "title": {
+      "translate": "guide5.semiconductor-lab.p7.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch5.p7"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "stamp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:stamp"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "stamp"
+    ]
+  ]
+}

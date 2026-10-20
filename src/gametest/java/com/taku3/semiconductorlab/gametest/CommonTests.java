@@ -357,6 +357,21 @@ public class CommonTests extends LabTestBase {
         h.succeed();
     }
 
+    /** O-019：ガイド第5巻「論理回路」（guide5/）の11個と give_guidebook5、進捗のつながり（NOT → 最初のハンコ → NOR） */
+    @GameTest
+    public void guide5Logic(GameTestHelper h) {
+        MinecraftServer server = h.getLevel().getServer();
+        String[] adv = {"root", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"};
+        List<String> missing = new ArrayList<>();
+        for (String a : adv) if (server.getAdvancements().get(SemiconductorLab.id("guide5/" + a)) == null) missing.add("guide5/" + a);
+        if (server.getFunctions().get(SemiconductorLab.id("give_guidebook5")).isEmpty()) missing.add("function give_guidebook5");
+        h.assertTrue(missing.isEmpty(), "not registered: " + missing);
+        var nor = server.getAdvancements().get(SemiconductorLab.id("challenge/nor"));
+        h.assertTrue(nor != null && nor.value().parent().map(p -> p.getPath().equals("challenge/first_stamp")).orElse(false), "NOR comes after the first stamp");
+        LOG.info("[LAB] guide5 (logic): {} advancements + give_guidebook5, challenge chain NOT -> first stamp -> NOR", adv.length);
+        h.succeed();
+    }
+
     /** O-011：ガイド第4巻「IC」（guide4/）の11個と give_guidebook4 が登録されている。ページは en・ja の両方にある */
     @GameTest
     public void guide4Ic(GameTestHelper h) {

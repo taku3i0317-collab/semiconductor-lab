@@ -1,0 +1,29 @@
+{
+  "parent": "semiconductor-lab:challenge/not",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:stamp"
+    },
+    "title": {
+      "translate": "advancement.semiconductor-lab.challenge.first_stamp.title"
+    },
+    "description": {
+      "translate": "advancement.semiconductor-lab.challenge.first_stamp.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "stamp": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:stamp"
+          }
+        ]
+      }
+    }
+  }
+}

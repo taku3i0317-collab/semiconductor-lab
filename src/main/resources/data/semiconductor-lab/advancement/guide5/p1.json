@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide5/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:book"
+    },
+    "title": {
+      "translate": "guide5.semiconductor-lab.p1.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch5.p1"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "probe_station": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:probe_station"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "probe_station"
+    ]
+  ]
+}
