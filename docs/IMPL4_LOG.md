@@ -90,3 +90,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [9-29] アニール炉 anneal_furnace（block/AnnealFurnaceBlockEntity、画面 AnnealFurnaceScreen、3kW、N2/Ar をホルダーから）：A の ChipOps.anneal。注入しただけでは層が同じ。GameTest anneal_furnace、CHEMISTRY F51、REFERENCES F29
 - ✅ [5-04]③ シリコーン油（block/SiliconeReactorBlockEntity、3つの反応）・[5-06] 油拡散ポンプ（block/OilDiffusionPumpBlockEntity、水銀拡散ポンプを継承：C の了承どおり DiffusionPumpBlockEntity に protected の入口1つだけ追加。RotaryPump・Turbo は instanceof のまま変更なし）。GameTest silicone_oil・oil_diffusion_pump、CHEMISTRY F52〜F53、REFERENCES F30
 - ✅ [9-26] スパッタ装置 sputter（block/SputterBlockEntity、画面 SputterScreen、5kW、Ar をホルダーから）：A の答え（4bdc43ad）で案②：ChipOps.depositMetal(w, true)＝conformalMetal の印、回路は蒸着と同じ（v0.5 の歩留まりで使う）。GameTest sputter、CHEMISTRY F54、REFERENCES F31
+- O-011 完了（2ddd5452 まで、274/274）。次は INBOX の新しい項目を待つ
