@@ -349,6 +349,7 @@ small.term { color: var(--sub); font-weight: 400; }
     ctx.setLineDash([]); ctx.globalAlpha = 1;
     // 点（丸の中に 16×16 のドット絵。無いものは幹の記号・モノの絵文字。発見はひし形）
     const ps = pinScale();
+    if (placedFor !== labelBucket() + layoutMode + (state.sel || '')) placeLabels();
     for (const d of ordered) {
       if (d.hidden) continue;
       const land = isLand(d), r = R(d), sr = (land ? ps : 1) * r * 1.3;
@@ -380,11 +381,14 @@ small.term { color: var(--sub); font-weight: 400; }
           `${Math.round((land ? (isIdea(d) ? 13 : 17) : Math.max(5, r * 1.05)) * 10) / 10}px ${FONT}`, 'center', 'middle', '#000', 0, 0, land ? ps : 1);
         ctx.globalAlpha = a;
       }
-      if (land || d.descendants >= 8) {   // 名前（背景色のふちどり付き）
-        const lx = land ? 0 : r + 2, ly = land ? (d.labelUp ? -r * (isIdea(d) ? 1.25 : 1) - 5 : r * (isIdea(d) ? 1.25 : 1) + 13) : 3;
-        text(d.name, land ? `700 12px ${LABEL_FONT}` : `9px ${FONT}`, land ? 'center' : 'left', 'alphabetic', C.ink, lx, ly, land ? ps : 1, C.bg, 3);
-      }
+      if (!land && d.descendants >= 8) text(d.name, `9px ${FONT}`, 'left', 'alphabetic', C.ink, r + 2, 3, 1, C.bg, 3);   // 技術の名前（背景色のふちどり付き）
       ctx.restore();
+      // モノ・発見の名前（O-004 U-2）：placeLabels が重ならない場所（下・上・その外側）を選ぶ。置けない名前は、
+      // 選んだ・検索で当たったときと、拡大して場所が空いたときだけ出す（名前は画面で 12px より大きくしない）
+      if (land && (!d.labelOff || d.sel || d.match)) {
+        ctx.globalAlpha = a;
+        text(d.name, `700 12px ${LABEL_FONT}`, 'center', 'alphabetic', C.ink, d.x + d.labelDx, d.y + d.labelDy, labelScale(K), C.bg, 3);
+      }
     }
   }
 
@@ -417,13 +421,30 @@ small.term { color: var(--sub); font-weight: 400; }
 
   const state = { sel: null, q: '', trunk: '', now: false, und: true, all: false, path: null };
   // ---- 表示の切り替え：「時間軸」（年と幹の帯）と「ネットワーク」（年を使わず、つながりだけの力学レイアウト。ハブが中央に集まる） ----
-  // 近くのモノ・発見と名前が重なるときは、片方の名前を丸の上に出す（U-2）
+  // モノ・発見の名前の場所（U-2、O-004）：倍率（√2 ごとの段）ごとに、子孫の多いモノから順に、丸の下・上・その外側の
+  // 4か所のうち、ほかの名前とモノの丸に重ならない所へ置く。どこにも置けない名前は labelOff（拡大すると空いて出る）
+  // 名前の大きさ：遠いときは今までどおり（ピンと一緒に拡大）、近づいたときは画面で 12px のまま（拡大しても大きくしない）
+  const labelScale = k => Math.max(0.7 / k, Math.min(1, 1 / k));
+  const labelBucket = () => 2 ** (Math.round(Math.log2(K) * 2) / 2);
+  let placedFor = null;
   function placeLabels() {
-    const L = nodes.filter(isLand).map(n => ({ n, x: layoutMode === 'net' ? n.netX : n.timeX, y: layoutMode === 'net' ? n.netY : n.timeY, w: n.name.length * 12 }));
-    L.sort((a, b) => a.x - b.x);
-    for (const a of L) a.n.labelUp = false;
-    for (let i = 0; i < L.length; i++) for (let j = i - 1; j >= 0 && L[i].x - L[j].x < (L[i].w + L[j].w) / 2 + 6; j--) {
-      if (Math.abs(L[i].y - L[j].y) < 30 && !L[j].n.labelUp && !L[i].n.labelUp) L[i].n.labelUp = true;
+    const kb = labelBucket(), ps = Math.max(1, 0.7 / kb), ls = labelScale(kb), h = 13 * ls;
+    placedFor = kb + layoutMode + (state.sel || '');
+    // 選んでいるときは、薄くなったモノの名前は出さず、選んだモノと光った祖先の名前を先に置く
+    for (const n of nodes) if (isLand(n)) n.labelOff = true;
+    const L = nodes.filter(n => isLand(n) && !(state.sel && n.dim)).map(n => ({ n, x: layoutMode === 'net' ? n.netX : n.timeX, y: layoutMode === 'net' ? n.netY : n.timeY,
+      rr: R(n) * (isIdea(n) ? 1.25 : 1) * ps, w: ([...n.name].reduce((t, c) => t + (c.charCodeAt(0) < 0x2000 ? 7 : 12), 0) + 6) * ls }));
+    const boxes = L.map(a => [a.x - a.rr, a.y - a.rr, a.x + a.rr, a.y + a.rr]);   // モノの丸にも名前を重ねない
+    L.sort((a, b) => b.n.sel - a.n.sel || b.n.lit - a.n.lit || isProd(b.n) - isProd(a.n) || b.n.descendants - a.n.descendants);
+    const hit = b => boxes.some(o => o[0] < b[2] && b[0] < o[2] && o[1] < b[3] && b[1] < o[3]);
+    for (const a of L) {
+      const side = a.rr + a.w / 2 + 3 * ls, mid = 5 * ls;   // 右・左：丸の横に、丸の真ん中の高さで
+      const cands = [[0, a.rr + 13 * ls], [0, -(a.rr + 4 * ls)], [side, mid], [-side, mid], [0, a.rr + 26 * ls], [0, -(a.rr + 17 * ls)]];
+      a.n.labelOff = true; [a.n.labelDx, a.n.labelDy] = cands[0];
+      for (const [dx, dy] of cands) {
+        const b = [a.x + dx - a.w / 2, a.y + dy - h + 2 * ls, a.x + dx + a.w / 2, a.y + dy + 3 * ls];
+        if (!hit(b)) { a.n.labelDx = dx; a.n.labelDy = dy; a.n.labelOff = false; boxes.push(b); break; }
+      }
     }
   }
   let layoutTimer = null;
@@ -541,7 +562,10 @@ small.term { color: var(--sub); font-weight: 400; }
       e.hidden = (e.kind === 'understanding' && !state.und) || !(shown(e.a) && shown(e.b));
       e.dim = !(visibleBase(e.a) && visibleBase(e.b));
       e.hot = !!state.sel && (e.a.id === state.sel || e.b.id === state.sel);
+      // 遠い祖先（O-004 U-4）：3層より前の線は、選んだノードへいちばん近い道の1本だけ（ほかは消す）。1・2層の線と道の太線はそのまま
+      const farExtra = curLayers && e.kind !== 'understanding' && (curLayers.dist.get(e.b.id) ?? 0) >= 2 && curLayers.via.get(e.a.id) !== e.b.id;
       e.op = !focus ? (det ? baseOpacity(e) : 0)
+        : farExtra && !onPathEdge(e) ? 0
         : (e.a.id === state.sel || e.b.id === state.sel) ? 0.95
         : (focus.has(e.a.id) && focus.has(e.b.id)) ? (det ? 0.3 : 0.45) * layerAlpha(e.a.layer) : 0.015;
       if (onPathEdge(e)) { e.hot = true; e.op = 0.95; }
