@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/electron_microscope_front",
+    "side": "semiconductor-lab:block/electron_microscope_side",
+    "top": "semiconductor-lab:block/electron_microscope_top"
+  }
+}

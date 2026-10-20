@@ -15,6 +15,36 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-11] 電子顕微鏡（IMP2 O-017）：電子の波長は光の 10 万分の1。光学顕微鏡（306nm）で見えない KrF 以降の細かい方眼も見える。高真空がないと電子線が出ない */
+    @GameTest
+    public void electron_microscope(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "electron_microscope", com.taku3.semiconductorlab.content.Power.TRANSFORMER.block.asItem())
+                && recipeUses(h, "electron_microscope", com.taku3.semiconductorlab.content.Power.RECTIFIER.block.asItem())
+                && recipeUses(h, "electron_microscope", Metallurgy.TUNGSTEN_WIRE), "electron gun (W) + tens of kV (transformer + rectifier) + coil lenses");
+        double lam = com.taku3.semiconductorlab.block.ElectronMicroscopeBlockEntity.electronWavelengthNm(com.taku3.semiconductorlab.block.ElectronMicroscopeBlockEntity.KV);
+        h.assertTrue(lam > 0.005 && lam < 0.006, "50 kV electrons: 0.0055 nm (light 550 nm)");
+        int krf = com.taku3.semiconductorlab.litho.ExposureTool.KRF.grid, iLine = com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_I.grid;
+        h.assertTrue(((com.taku3.semiconductorlab.item.MicroscopeItem) Precision.COMPOUND_MICROSCOPE).canResolve(iLine), "the optical microscope still sees i-line lines (350 nm)");
+        h.assertFalse(((com.taku3.semiconductorlab.item.MicroscopeItem) Precision.COMPOUND_MICROSCOPE).canResolve(krf), "but not KrF lines (130 nm)");
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectronMicroscopeBlockEntity.canResolve(krf) && com.taku3.semiconductorlab.block.ElectronMicroscopeBlockEntity.canResolve(com.taku3.semiconductorlab.litho.ExposureTool.EUV.grid), "the electron microscope sees KrF and even EUV lines");
+        // 高真空なしでは電子線が出ない、あれば電気を使う
+        BlockPos at = p(1, 1, 1), ch = p(2, 1, 1);
+        h.setBlock(at, Precision.ELECTRON_MICROSCOPE.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.ElectronMicroscopeBlockEntity.class);
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ElectronMicroscopeBlockEntity.WATTS);
+        tickConsumer(h, at, be, 3, feed);
+        h.assertFalse(be.on(), "no vacuum -> no beam");
+        h.setBlock(ch, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.getBlockEntity(ch, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(0.001);
+        tickConsumer(h, at, be, 3, feed);
+        h.assertTrue(be.on(), "0.001 Pa next door -> beam on");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"power", "limit", "optical", "cell", "need_vacuum", "need_power", "need_sample", "em_only", "both", "neither"})
+            h.assertTrue(ja.has("gui.semiconductor-lab.electron_microscope." + k), "lang " + k);
+        LOG.info("[LAB] electron_microscope [8-11]: 50 kV -> 0.0055 nm, resolution 10 nm; optical 306 nm sees i-line but not KrF; vacuum needed");
+        h.succeed();
+    }
+
     /** [8-12] 刻線機（IMP2 O-016）：1mm に 600 本・30000 本の格子は D 線（R≈982）も水銀の黄2本も分けられる。針金の格子（246本）では1本。揺れ・温度でゴースト */
     @GameTest(maxTicks = 3000)
     public void ruling_engine(GameTestHelper h) {
@@ -432,7 +462,7 @@ public class PrecisionTests extends LabTestBase {
         mask.set(com.taku3.semiconductorlab.ModDataComponents.MASK, design.mask(0));
         h.assertValueEqual(com.taku3.semiconductorlab.item.MicroscopeItem.sizeOf(mask), 8, "reads the mask grid size");
         h.assertValueEqual(com.taku3.semiconductorlab.item.MicroscopeItem.sizeOf(new ItemStack(Items.STONE)), 0, "stone is not a pattern");
-        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.MicroscopeItem.cellNm(20) - 10_000 * Math.pow(0.4, 3)) < 1e-6, "grid not in the table -> inverse of the N formula");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.MicroscopeItem.cellNm(20) - 10_000 * Math.pow(16.0 / 20, 3)) < 1e-6, "grid not in the table -> inverse of the N formula (A S-008: factor 16)");
         // 使う：手に顕微鏡、もう片方にマスク → SUCCESS
         var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
         player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(Precision.COMPOUND_MICROSCOPE));

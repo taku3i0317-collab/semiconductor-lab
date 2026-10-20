@@ -33,7 +33,7 @@ public class MicroscopeItem extends Item {
     /** 方眼の1辺のマス数から、1マスの細さ（nm）。表にあればその値、なければ N＝8×(10µm÷CD)^(1/3) を逆に解く */
     public static double cellNm(int size) {
         for (ExposureTool t : ExposureTool.values()) if (t.grid == size) return t.cdNm;
-        return 10_000.0 * Math.pow(8.0 / size, 3);
+        return 10_000.0 * Math.pow(16.0 / size, 3);   // A の S-008 で係数 8→16
     }
 
     /** 見る物の方眼の大きさ（マスク・設計図・加工中のウェハー）。見る物でなければ 0 */

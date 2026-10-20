@@ -483,6 +483,7 @@ diamond_saw  # Precision [8-15] 1921
 quartz_blank  # Precision [8-15] 1921
 crystal_resonator  # Precision [8-15] 1921
 isolation_table  # Precision [8-07] 1931
+electron_microscope  # Precision [8-11] 1931
 ball_screw  # Precision [8-08] 1939
 hydrothermal_charge  # Precision [8-18] 1948
 cultured_quartz  # Precision [8-18] 1948

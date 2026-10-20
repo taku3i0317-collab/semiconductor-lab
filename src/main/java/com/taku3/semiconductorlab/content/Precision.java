@@ -117,6 +117,8 @@ public final class Precision {
     // 旋盤 [8-01]（IMP2-01、モーズリー 1797〜1800頃）：モーターで材料を回し、送りねじの刃物台で削る。750W
     // 刻線機 [8-12]（IMP2 O-016）：鏡＋ダイヤモンド（減らない）＋送りねじ → 刻線した格子（300W・60秒）
     public static final Machine<RulingEngineBlockEntity> RULING_ENGINE = Machine.electric("ruling_engine", RulingEngineBlockEntity::new, RulingEngineBlockEntity.LAYOUT, metal(3.5f));
+    // 電子顕微鏡 [8-11]（IMP2 O-017、1931 ルスカとクノール）：隣の真空容器 0.01Pa 以下で、マスク・ウェハーの細かい線を光学顕微鏡と見比べる（2kW）
+    public static final Machine<ElectronMicroscopeBlockEntity> ELECTRON_MICROSCOPE = Machine.electric("electron_microscope", ElectronMicroscopeBlockEntity::new, ElectronMicroscopeBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));
     // 研削盤 [8-31]（IMP2 O-013）：焼入れした鋼球＋砥石＋測る道具 → そろえた鋼球（1kW）
     public static final Machine<GrinderBlockEntity> GRINDER = Machine.electric("grinder", GrinderBlockEntity::new, GrinderBlockEntity.LAYOUT, metal(3.5f));

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SWS",
+    "CTC",
+    "SRS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "W": "semiconductor-lab:tungsten_wire",
+    "C": "semiconductor-lab:copper_cable",
+    "T": "semiconductor-lab:transformer",
+    "R": "semiconductor-lab:rectifier"
+  },
+  "result": {
+    "id": "semiconductor-lab:electron_microscope",
+    "count": 1
+  }
+}

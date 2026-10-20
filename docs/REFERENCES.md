@@ -1611,6 +1611,19 @@
 - Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper
 - Wikipedia「Photolithography」（Light sources）：https://en.wikipedia.org/wiki/Photolithography
 
+## O57. 電子の波で見る（電子顕微鏡）［8-11］
+**答え**：電子も波の性質を持ち（ド・ブロイ 1924）、数万V で速めると波長は光の 10 万分の1ほどになる。1931年、ルスカとクノールは銅のコイルの電磁レンズで電子の像を結び、1933年に光学顕微鏡の分解能（光の波長の半分ほど＝約0.2〜0.3µm）を超えた。電子は空気で散るので、鏡筒の中は高真空にする。
+
+- へえ①：光の顕微鏡では、光の波長より細かい物はぼやけて見えない。
+- へえ②：ルスカは発明から55年後の1986年にノーベル物理学賞を受けた。
+- へえ③：実際の分解能は、レンズのゆがみ（収差）で決まる。今は原子1個が見えるほど。
+- へえ④：半導体工場では、走査型電子顕微鏡（SEM）で回路の線幅を毎日測っている。
+
+確かさ：ルスカとクノール 1931・1933 光学を超える ◎／1986 ノーベル賞 ◎／1930年代末の分解能 約10nm ○
+根拠：
+- Wikipedia「Electron microscope」：https://en.wikipedia.org/wiki/Electron_microscope
+- Wikipedia「Ernst Ruska」：https://en.wikipedia.org/wiki/Ernst_Ruska
+
 ---
 
 # 冶金と熱（タスク15〜）
