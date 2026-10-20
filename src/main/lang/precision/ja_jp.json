@@ -66,5 +66,11 @@
   "item.semiconductor-lab.cast_iron_plate.curve": "そり：%s µm（%s）",
   "item.semiconductor-lab.cast_iron_plate.flat": "平ら",
   "item.semiconductor-lab.cast_iron_plate.convex": "凸",
-  "item.semiconductor-lab.cast_iron_plate.concave": "凹"
+  "item.semiconductor-lab.cast_iron_plate.concave": "凹",
+  "block.semiconductor-lab.isolation_table": "除振台",
+  "block.semiconductor-lab.isolation_table.note1": "ゴムの上に重い定盤をのせた台。まわりで動物が歩いても、上の物はほとんど揺れない。",
+  "block.semiconductor-lab.isolation_table.note2": "定盤＋加硫ゴム。上に置いた物の揺れが 1/20 になる。干渉計で水銀灯を測るとき、近くで動物やトロッコが動いたりピストンが動いたりすると縞がゆれる。水銀灯を除振台にのせると落ち着く。",
+  "block.semiconductor-lab.isolation_table.note3": "精密な測定は、足音や車の振動（µm ほど）と温度で狂う。重い台をばねで浮かせると、細かい揺れが伝わりにくい。長さを測る標準の温度は 20℃（1931年に国際度量衡委員会が決めた）。鋼は 1℃で 1m あたり約 11µm 伸びる。",
+  "block.semiconductor-lab.isolation_table.note4": "今の露光装置は、空気ばねで浮かせ、揺れを打ち消すように動く「アクティブ除振」の上に置かれ、部屋の温度は 0.01℃ 単位でそろえる。精密な工場は、トラックが通るだけで仕事が止まる。",
+  "block.semiconductor-lab.isolation_table.placeholder": "近似：揺れの大きさはゲームの値。空気ばね（圧縮空気）と恒温（20℃の部屋、空調）はまだ無い。"
 }

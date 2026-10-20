@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "pattern": [
+    "P",
+    "R"
+  ],
+  "key": {
+    "P": "semiconductor-lab:surface_plate",
+    "R": "semiconductor-lab:vulcanized_rubber"
+  },
+  "result": {
+    "id": "semiconductor-lab:isolation_table",
+    "count": 1
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "semiconductor-lab:block/surface_plate_top",
+    "side": "semiconductor-lab:block/isolation_table_side",
+    "bottom": "semiconductor-lab:block/isolation_table_side"
+  }
+}

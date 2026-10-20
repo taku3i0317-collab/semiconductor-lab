@@ -15,6 +15,32 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-07] 除振（IMP2）：まわりで動く物・ピストンで床が揺れ、干渉縞がゆれる。除振台（定盤＋ゴム）の上なら 1/20 */
+    @GameTest
+    public void vibration_isolation(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "isolation_table", Precision.SURFACE_PLATE.asItem()) && recipeUses(h, "isolation_table", com.taku3.semiconductorlab.content.Chemistry.VULCANIZED_RUBBER),
+                "isolation table = surface plate on rubber");
+        var V = com.taku3.semiconductorlab.block.Vibration.class;
+        BlockPos at = p(1, 2, 1);
+        h.assertTrue(com.taku3.semiconductorlab.block.Vibration.nm(h.getLevel(), h.absolutePos(at), null) < 1, "quiet floor");
+        var pig = h.spawn(net.minecraft.world.entity.EntityTypes.PIG, p(3, 1, 1));
+        pig.setDeltaMovement(0.2, 0, 0);
+        double floor = com.taku3.semiconductorlab.block.Vibration.nm(h.getLevel(), h.absolutePos(at), null);
+        h.assertTrue(floor > 100, "a walking animal 2 m away shakes the floor: " + floor + " nm");
+        double j = com.taku3.semiconductorlab.block.Vibration.fringeJitter(floor, com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM);
+        h.assertTrue(j >= 0.5, "fringes jitter by half a fringe or more -> cannot count: " + j);
+        h.setBlock(at.below(), Precision.ISOLATION_TABLE);
+        double table = com.taku3.semiconductorlab.block.Vibration.nm(h.getLevel(), h.absolutePos(at), null);
+        h.assertTrue(Math.abs(table * com.taku3.semiconductorlab.block.Vibration.TABLE_FACTOR - floor) < 1e-6, "on the isolation table: 1/20");
+        h.assertTrue(com.taku3.semiconductorlab.block.Vibration.fringeJitter(table, com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM) < 0.5, "steady fringes on the table");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"vibration", "steady", "shaky", "on_table", "on_floor"})
+            h.assertTrue(ja.has("item.semiconductor-lab.interferometer." + k), "lang interferometer." + k);
+        pig.discard();
+        LOG.info("[LAB] vibration_isolation [8-07]: walking pig " + Math.round(floor) + " nm -> jitter " + String.format("%.2f", j) + " fringes; isolation table 1/20 -> steady");
+        h.succeed();
+    }
+
     /** [8-03] 平面と定盤（IMP2 O-009）：2枚だけでは凸と凹で合ってしまう。3枚を順にすり合わせると、基準なしに3枚とも平面（定盤）になる */
     @GameTest
     public void surface_plates(GameTestHelper h) {

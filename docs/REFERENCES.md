@@ -1096,6 +1096,20 @@
 - Wikipedia「Flatness (manufacturing)」：https://en.wikipedia.org/wiki/Flatness_(manufacturing)
 - Wikipedia「Joseph Whitworth」：https://en.wikipedia.org/wiki/Joseph_Whitworth
 
+## O35. 揺れと温度が精密さを奪う（除振と恒温）［8-07］
+**答え**：精密な測定は、足音や車の振動（µm ほど）と温度の変化で狂う。重い定盤をばね・ゴム・空気ばねで浮かせると細かい揺れが伝わりにくくなり、部屋の温度をそろえると物の伸び縮みが止まる。長さの標準の温度は 20℃（1931年に国際度量衡委員会が採用）。
+
+- へえ①：精密な工場は、トラックが通るだけで仕事が止まる。
+- へえ②：鋼は 1℃ で 1m あたり約 11µm 伸びる。だから長さには「何℃で測ったか」が要る。
+- へえ③：光の干渉縞は、波長の半分（約 0.27µm）の揺れで1本動いてしまう。
+- へえ④：今の露光装置は空気ばねと揺れを打ち消すアクティブ除振の上にあり、温度は 0.01℃ 単位でそろえる。
+
+確かさ：標準温度 20℃ を 1931 CIPM が採用 ◎（ISO/R 1 は 1951）／鋼の線膨張 約 11〜12µm/(m·℃) ◎／露光装置の温度管理 0.01℃ 級 ○
+根拠：
+- Wikipedia「Standard conditions for temperature and pressure」（長さの標準温度）：https://en.wikipedia.org/wiki/Standard_temperature_and_pressure
+- Doiron, T.「20 °C—A Short History of the Standard Reference Temperature for Industrial Dimensional Measurements」J. Res. NIST 112 (2007)：https://nvlpubs.nist.gov/nistpubs/jres/112/1/V112.N01.A01.pdf
+- Wikipedia「Vibration isolation」：https://en.wikipedia.org/wiki/Vibration_isolation
+
 ---
 
 # 冶金と熱（タスク15〜）

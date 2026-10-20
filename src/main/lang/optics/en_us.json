@@ -273,5 +273,10 @@
   "item.semiconductor-lab.synthetic_quartz.note2": "Put silicon tetrachloride in the oxyhydrogen burner: SiCl4 + 2H2O (water in the flame) -> SiO2 + 4HCl. Far fewer impurities (iron, aluminum...) than fused quartz made by melting natural vein quartz.",
   "item.semiconductor-lab.synthetic_quartz.note3": "In 1934 Hyde at Corning in the USA invented making pure glass by hydrolyzing SiCl4 in a flame (the patent says 'an oxygen flame'). Optical fibres (1970) were later made this way too.",
   "item.semiconductor-lab.synthetic_quartz.note4": "In ArF (193 nm) lithography, most of the projection lens and the photomask plate are synthetic quartz. Even traces of iron or water (OH) absorb UV, heat up and distort the lens, so purity decides performance.",
-  "item.semiconductor-lab.synthetic_quartz.placeholder": "Approximation: the HCl gas produced is not collected (real plants recover and reuse it)."
+  "item.semiconductor-lab.synthetic_quartz.placeholder": "Approximation: the HCl gas produced is not collected (real plants recover and reuse it).",
+  "item.semiconductor-lab.interferometer.vibration": "  Floor vibration %s nm -> fringes jitter by +-%s: %s (%s)",
+  "item.semiconductor-lab.interferometer.steady": "steady enough to count",
+  "item.semiconductor-lab.interferometer.shaky": "too shaky, you will miscount. Put the mercury lamp on an isolation table",
+  "item.semiconductor-lab.interferometer.on_table": "on an isolation table",
+  "item.semiconductor-lab.interferometer.on_floor": "on the floor"
 }

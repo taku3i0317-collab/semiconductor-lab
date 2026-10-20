@@ -62,6 +62,10 @@ public final class Precision {
             net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().mapColor(net.minecraft.world.level.material.MapColor.METAL)
                     .strength(5.0f, 6.0f).sound(net.minecraft.world.level.block.SoundType.METAL).requiresCorrectToolForDrops());
 
+    // [8-07] 除振（IMP2）：定盤をゴムで浮かせた台。上に置いた物の揺れが 1/20 に（block/Vibration）。恒温（20℃の部屋）は空調 [12-12] のあと
+    public static final Block ISOLATION_TABLE = Reg.block("isolation_table", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(5.0f, 6.0f).sound(SoundType.METAL).requiresCorrectToolForDrops());
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 旋盤 [8-01]（IMP2-01、モーズリー 1797〜1800頃）：モーターで材料を回し、送りねじの刃物台で削る。750W
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));

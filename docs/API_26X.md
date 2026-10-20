@@ -869,3 +869,8 @@ public int countItem(Item);
 // net.minecraft.world.entity.player.Abilities
 public boolean instabuild;                         // クリエイティブ（減らさない）
 ```
+
+## エンティティの種類の定数（IMP2 [8-07]、javap 26.3）
+- 26.3 では `EntityType.PIG` などの定数は **`net.minecraft.world.entity.EntityTypes`** に移った（`EntityTypes.PIG`、`EntityTypes.ARMOR_STAND`）
+- `Entity.getDeltaMovement()`・`Vec3.horizontalDistance()`・`Level.getEntities(Entity except, AABB, Predicate)`
+- トロッコ：`net.minecraft.world.entity.vehicle.minecart.AbstractMinecart`

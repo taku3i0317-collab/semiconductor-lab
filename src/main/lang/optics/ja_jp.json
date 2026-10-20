@@ -273,5 +273,10 @@
   "item.semiconductor-lab.synthetic_quartz.note2": "酸水素バーナーに四塩化ケイ素を入れる：SiCl4 + 2H2O（炎の中の水）→ SiO2 + 4HCl。天然の珪石を溶かした溶融石英より不純物（鉄・アルミなど）がずっと少ない。",
   "item.semiconductor-lab.synthetic_quartz.note3": "1934年、アメリカのコーニングのハイドが、SiCl4 を炎の中で加水分解して純粋なガラスを作る方法を発明した（特許の言葉は「酸素の炎」）。のちに光ファイバー（1970年）もこの方法で作られた。",
   "item.semiconductor-lab.synthetic_quartz.note4": "ArF（193nm）の露光装置では、投影レンズのほとんどと、フォトマスクの板がこの合成石英。わずかな鉄や水（OH）でも紫外線を吸って熱くなり、レンズがゆがむので、不純物の少なさが性能を決める。",
-  "item.semiconductor-lab.synthetic_quartz.placeholder": "近似：出てくる HCl のガスは回収しない（本物は回収して使い回す）。"
+  "item.semiconductor-lab.synthetic_quartz.placeholder": "近似：出てくる HCl のガスは回収しない（本物は回収して使い回す）。",
+  "item.semiconductor-lab.interferometer.vibration": "  床の揺れ %s nm → 縞のゆれ ±%s 本：%s（%s）",
+  "item.semiconductor-lab.interferometer.steady": "落ち着いて数えられる",
+  "item.semiconductor-lab.interferometer.shaky": "ゆれて数え間違える。水銀灯を除振台に置こう",
+  "item.semiconductor-lab.interferometer.on_table": "除振台の上",
+  "item.semiconductor-lab.interferometer.on_floor": "床の上"
 }

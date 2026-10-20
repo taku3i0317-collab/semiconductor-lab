@@ -17,6 +17,7 @@ import java.util.Locale;
  * 光源は点灯中の水銀灯 [7-10] の緑の線 546.1nm（[6-15] と整合する決定。He-Ne レーザー 633nm は解説だけ）。
  * 使い方：点灯中の水銀灯を右クリック → 送りねじを1回転（{@link #SCREW_MM} mm）回したときの縞の数と、そこから求めた長さ。
  * 炎（たき火・火）では色が混ざって縞がすぐ消える、と出る。
+ * [8-07]：まわりの揺れ（block/Vibration）で縞がゆれる。水銀灯を除振台の上に置くと 1/20。
  */
 public class InterferometerItem extends Item {
     /** 光源の波長（水銀の緑の線） */
@@ -45,6 +46,12 @@ public class InterferometerItem extends Item {
                 p.sendSystemMessage(Component.translatable(K + "count", String.format(Locale.ROOT, "%.1f", SCREW_MM), n));
                 p.sendSystemMessage(Component.translatable(K + "length", n, String.format(Locale.ROOT, "%.1f", HG_GREEN_NM),
                         String.format(Locale.ROOT, "%.4f", lengthMm(n, HG_GREEN_NM))));
+                // [8-07] 床の揺れ：縞が半分（±0.5本）以上ゆれると数え間違える
+                double v = com.taku3.semiconductorlab.block.Vibration.nm(level, ctx.getClickedPos(), p);
+                double j = com.taku3.semiconductorlab.block.Vibration.fringeJitter(v, HG_GREEN_NM);
+                p.sendSystemMessage(Component.translatable(K + "vibration", String.format(Locale.ROOT, "%.0f", v), String.format(Locale.ROOT, "%.2f", j),
+                        Component.translatable(K + (j < 0.5 ? "steady" : "shaky")),
+                        Component.translatable(K + (com.taku3.semiconductorlab.block.Vibration.onTable(level, ctx.getClickedPos()) ? "on_table" : "on_floor"))));
             }
             return InteractionResult.SUCCESS;
         }

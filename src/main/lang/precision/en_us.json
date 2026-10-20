@@ -66,5 +66,11 @@
   "item.semiconductor-lab.cast_iron_plate.curve": "Warp: %s um (%s)",
   "item.semiconductor-lab.cast_iron_plate.flat": "flat",
   "item.semiconductor-lab.cast_iron_plate.convex": "convex",
-  "item.semiconductor-lab.cast_iron_plate.concave": "concave"
+  "item.semiconductor-lab.cast_iron_plate.concave": "concave",
+  "block.semiconductor-lab.isolation_table": "Isolation Table",
+  "block.semiconductor-lab.isolation_table.note1": "A heavy surface plate resting on rubber. Animals walking nearby hardly shake what sits on it.",
+  "block.semiconductor-lab.isolation_table.note2": "Surface plate + vulcanized rubber. Whatever sits on it shakes 1/20 as much. When you measure a mercury lamp with the interferometer, animals, minecarts or pistons moving nearby make the fringes jitter; put the lamp on an isolation table to calm them.",
+  "block.semiconductor-lab.isolation_table.note3": "Precise measurement is spoiled by footsteps and traffic (around a micrometre) and by temperature. A heavy table floated on springs passes little of the fine shaking. The standard temperature for length is 20 C (chosen by the CIPM in 1931); steel grows about 11 um per metre per degree.",
+  "block.semiconductor-lab.isolation_table.note4": "Today's lithography tools sit on air springs with active isolation that moves to cancel shaking, in rooms held to a hundredth of a degree. A precise factory can stop work just because a truck goes by.",
+  "block.semiconductor-lab.isolation_table.placeholder": "Approximation: vibration sizes are game values. No air springs (compressed air) or constant temperature (20 C room, air conditioning) yet."
 }
