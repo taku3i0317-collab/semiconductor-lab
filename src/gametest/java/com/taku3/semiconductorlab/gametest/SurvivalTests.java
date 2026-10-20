@@ -543,7 +543,7 @@ public class SurvivalTests extends LabTestBase {
 
     /**
      * 試験場の関数が読み込まれ、最後まで動き、testworld_layout.json のとおりに置かれるか（機械・試験用の電源・チェスト・看板）。
-     * ほかのテストとぶつからないよう、テストの場所の 100 ブロック上に建て、そのあいだチャンクを読み込んだままにする
+     * ほかのテストとぶつからないよう、テストの場所から東と南へ 2000 ブロック離れた所に建て、そのあいだチャンクを読み込んだままにする
      */
     @GameTest(maxTicks = 40)
     public void testworld(GameTestHelper h) {
@@ -555,7 +555,7 @@ public class SurvivalTests extends LabTestBase {
             layout = com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();
         } catch (Exception e) { throw new RuntimeException("testworld_layout.json", e); }
         int w = layout.get("width").getAsInt(), d = layout.get("depth").getAsInt();
-        BlockPos base = h.absolutePos(p(0, 0, 0)).above(100);
+        BlockPos base = h.absolutePos(p(0, 0, 0)).offset(2000, 0, 2000);   // 上に建てると、塩田など「空が見えるか」のテストの屋根になる
         List<long[]> forced = new ArrayList<>();
         for (int cx = (base.getX() - 2) >> 4; cx <= (base.getX() + w + 2) >> 4; cx++)
             for (int cz = (base.getZ() - 3) >> 4; cz <= (base.getZ() + d + 2) >> 4; cz++)
