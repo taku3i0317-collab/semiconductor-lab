@@ -1,0 +1,52 @@
+/* 技術ネットワークのウェブの共通デザイン（docs/DESIGN_SYSTEM.md の「案 A：シンプル・白基調」）。
+   network.html と node.html の両方が読む。色・文字・部品の大きさはここで決め、ページの中では変数を使う。
+   文字は BIZ UDPゴシック（Google Fonts から読む。フォントのファイルはリポジトリに入れない：SIL OFL で CC0 とは別のため） */
+:root {
+  /* 色：意味のある所だけ */
+  --bg: #ffffff; --panel: #ffffff; --ink: #1a1a1a; --sub: #5f6368; --line: #e3e3e3;
+  --band-a: #f6f7f8; --band-b: #ffffff;
+  --accent: #1f5fbf;      /* リンク・ボタン・数字 */
+  --hl: #e8710a;          /* 選んだ・光っている・道 */
+  --prod: #ffffff;        /* モノ・発見の丸の中 */
+  --ok: #2e7d32; --warn: #b26b00;
+  --node-tech: #5f6368;   /* 技術（幹の区別は色でなく、帯の名前とアイコンの形） */
+  --node-done: #3c4043;   /* ✅ 作った技術は塗る（❓ は輪だけ） */
+  --node-prod: #1f5fbf;   /* モノ */
+  --node-idea: #7b3fbf;   /* 発見・考え方（ひし形） */
+  --edge: #9aa0a6;        /* つながりの線（1色） */
+  --icon: #3c4043;        /* 単色のドット絵のアイコン */
+  /* 文字 */
+  --font: "BIZ UDPGothic", system-ui, sans-serif;
+  /* 形・余白（4・8・12・16・24 の段） */
+  --radius: 8px; --gap-1: 4px; --gap-2: 8px; --gap-3: 12px; --gap-4: 16px; --gap-5: 24px;
+  color-scheme: light;
+}
+body { font-family: var(--font); background: var(--bg); color: var(--ink); }
+a { color: var(--accent); }
+
+/* 見出し：ページ 20px／節 16px／小見出し 13px */
+header h1 { font-size: 18px; }
+header.top h1 { font-size: 20px; }
+section h2, #card h2 { font-size: 16px; }
+section h2 { margin: 0 0 var(--gap-3); }
+#card .sec h3, .layers .layer h3 { font-size: 13px; letter-spacing: .02em; }
+
+/* 入力・ボタン：高さ 36px */
+header input[type=search], header select, nav input { min-height: 36px; border-radius: var(--radius); font-size: 14px; font-family: var(--font); }
+.btn, #card .more { min-height: 36px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: var(--radius); font-size: 14px; font-weight: 700; text-decoration: none; }
+
+/* カード：枠 1px・角 12px・内側 16px */
+section, header.top { border: 1px solid var(--line); border-radius: calc(var(--radius) * 1.5); padding: var(--gap-4); margin-top: var(--gap-3); box-shadow: none; }
+#card { padding: var(--gap-4); }
+section, #card { overflow-wrap: anywhere; }   /* 長い URL・英単語でスマホの幅からはみ出さない */
+
+/* チップ（ノードの小さなボタン） */
+.chip, #card .chip { border-radius: var(--radius); padding: 2px 10px; font-size: 13px; font-family: var(--font); }
+
+/* 図の上に浮く箱 */
+.legend, .hint { border-radius: var(--radius); border: 1px solid var(--line); }
+.legend .sw { background: var(--edge) !important; }   /* 線は1色 */
+
+/* アイコンは単色のドット絵（絵文字・テクスチャは形だけを1色に） */
+#card h2 img, header.top .ic img { image-rendering: pixelated; filter: grayscale(1) contrast(1.4); }
+#card h2 .em, header.top .ic { filter: grayscale(1); }
