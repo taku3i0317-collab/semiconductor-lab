@@ -12,6 +12,10 @@ public interface EnergyStorage {
     default boolean canExtract() { return true; }
     /** 電圧（V）。v0.2a では未使用。変圧器・高電圧は v0.4〜 */
     default int getVoltage() { return 0; }
+    /** 電流の種類（v0.4、S-007）：DC・AC・ANY（既定＝どちらでもよい） */
+    default Current current() { return Current.ANY; }
+    /** 電圧の段（v0.4、S-007）：0＝低圧（銅ケーブル）、1＝高圧（高圧の電線、10倍）。既定は低圧 */
+    default int voltageClass() { return 0; }
 
     /** W → J/tick（20 tick = 1 秒） */
     static long wattsToJoulesPerTick(double watts) { return Math.round(watts / 20.0); }

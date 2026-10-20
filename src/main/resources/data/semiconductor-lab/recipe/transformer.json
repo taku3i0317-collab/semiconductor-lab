@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "KWK",
+    "SSS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "K": "semiconductor-lab:induction_coil",
+    "W": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:transformer",
+    "count": 1
+  }
+}

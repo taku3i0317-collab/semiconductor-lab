@@ -34,7 +34,9 @@ public final class Power {
     // --- 電気の部品（v0.2a）---
     public static final Item MAGNET                = Reg.item("magnet");   // 天然磁石（磁鉄鉱のうち磁化したもの＝ロードストーン）
     public static final Item DYNAMO                = Reg.item("dynamo");   // 磁石＋銅コイル＋鉄：ファラデーの電磁誘導
-    public static final Item SELF_EXCITED_DYNAMO   = Reg.item("self_excited_dynamo"); // [4-05] ジーメンス1866：鋼の鉄心＋コイル×4、磁石不要（残留磁気で自分を励磁）
+    public static final Item SELF_EXCITED_DYNAMO   = Reg.item("self_excited_dynamo");
+    // [4-20] 交流発電機（v0.4、S-007、A）：発電機に持って右クリックで積み替え → 交流を出す（出力は自励式と同じ）
+    public static final Item ALTERNATOR            = Reg.item("alternator"); // [4-05] ジーメンス1866：鋼の鉄心＋コイル×4、磁石不要（残留磁気で自分を励磁）
     // --- 電気炉（[4-12] 抵抗加熱の発熱体）---
     public static final Item GRAPHITE_ROD          = Reg.item("graphite_rod");      // 黒鉛棒（電気炉の発熱体・アチソン炉の電極）
 
@@ -52,6 +54,15 @@ public final class Power {
     public static final Machine<CableBlockEntity> COPPER_CABLE = Machine.builder("copper_cable", CableBlockEntity::new)
             .block(CableBlock::new).ticker(CableBlockEntity::tick)
             .props(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_ORANGE).strength(1.0f).sound(SoundType.COPPER).noOcclusion()).build();
+
+    // v0.4（S-007、A）：高圧の電線（段1）・変圧器 [4-10]（交流の電圧を変える）・整流器 [4-11]（交流 → 直流、水銀整流器）
+    public static final Machine<HighVoltageLineBlockEntity> HIGH_VOLTAGE_LINE = Machine.builder("high_voltage_line", HighVoltageLineBlockEntity::new)
+            .block(CableBlock::new).ticker(CableBlockEntity::tick)
+            .props(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).strength(1.5f).sound(SoundType.COPPER).noOcclusion()).build();
+    public static final Machine<TransformerBlockEntity> TRANSFORMER = Machine.builder("transformer", TransformerBlockEntity::new)
+            .ticker(PowerConverterBlockEntity::tick).energy((be, dir) -> be.storageFor(dir)).props(metal(3.5f)).build();
+    public static final Machine<RectifierBlockEntity> RECTIFIER = Machine.builder("rectifier", RectifierBlockEntity::new)
+            .ticker(PowerConverterBlockEntity::tick).energy((be, dir) -> be.storageFor(dir)).props(metal(2.5f)).build();
 
     /** 発電機（GeneratorBlockEntity を継承）：ブロックは GeneratorBlock、全面から電気を取り出せる */
     public static <T extends GeneratorBlockEntity> Machine.Builder<T> generator(String name, net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder.Factory<T> f, BlockBehaviour.Properties props) {

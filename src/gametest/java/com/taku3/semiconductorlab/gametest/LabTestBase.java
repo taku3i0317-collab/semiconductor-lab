@@ -168,6 +168,7 @@ public abstract class LabTestBase {
                 case CableBlockEntity c -> CableBlockEntity.tick(lv, a, s, c);
                 case ConsumerBlockEntity c -> ConsumerBlockEntity.tick(lv, a, s, c);
                 case LeadAcidBatteryBlockEntity b -> LeadAcidBatteryBlockEntity.tick(lv, a, s, b);
+                case com.taku3.semiconductorlab.energy.PowerConverterBlockEntity c -> com.taku3.semiconductorlab.energy.PowerConverterBlockEntity.tick(lv, a, s, c);
                 case null, default -> {}
             }
         }

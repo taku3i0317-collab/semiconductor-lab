@@ -55,6 +55,9 @@ public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements GasS
             .label("h2", 62, 21, 12, "H2").text("anode", 58, 39, 18, 1, "=O2", "=Cl2").label("naoh", 52, 57, 24, "NaOH")
             .build();
 
+    /** 電気分解は直流だけ（v0.4、S-007）：交流だと電極の＋−が1秒に何十回も入れかわり、H2 と O2 が分かれて出てこない */
+    @Override protected com.taku3.semiconductorlab.energy.Current acceptsCurrent() { return com.taku3.semiconductorlab.energy.Current.DC; }
+
     public ElectrolyzerBlockEntity(BlockPos pos, BlockState state) {
         super(Gas.ELECTROLYZER.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }

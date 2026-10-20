@@ -26,6 +26,9 @@ public class CableBlock extends MachineEntityBlock {
             if (net != null) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.cable.network",
                     net.cables.size(), net.longestPath, net.lossPercent(), net.sourceCount(), net.sinkCount(), net.batteryCount(),
                     String.format("%.1f kW", net.lastDeliveredW(level) / 1000)));
+            if (net != null) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.cable.kind",
+                    Component.translatable("message.semiconductor-lab.cable.class" + net.voltageClass), Component.translatable("message.semiconductor-lab.cable.current_" + (net.mixed ? "mixed" : net.current.name().toLowerCase())),
+                    String.format("%.2f", net.lossFraction() * 100), net.mismatched));
         }
         return InteractionResult.SUCCESS;
     }

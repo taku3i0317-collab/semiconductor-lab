@@ -33,6 +33,7 @@ public class LeadAcidBatteryBlockEntity extends BlockEntity {
     private final EnergyStorage terminal = new EnergyStorage() {
         @Override public long getStoredJ() { return cell.getStoredJ(); }
         @Override public long getCapacityJ() { return CAPACITY; }
+        @Override public Current current() { return Current.DC; }   // 電池は直流だけ（v0.4：交流の網では充電・放電しない）
         @Override public long insert(long j, boolean simulate) {
             long room = (CAPACITY - cell.getStoredJ()) * 100 / CHARGE_EFFICIENCY_PERCENT;   // 貯まる余地を「入力側の J」に直す
             long n = Math.max(0, Math.min(Math.min(j, MAX_PER_TICK - chargedThisTick), room));

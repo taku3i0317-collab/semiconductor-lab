@@ -47,12 +47,15 @@ public abstract class ConsumerBlockEntity extends BlockEntity implements Machine
      */
     protected ConsumerBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, int slots, long bufferJ, double maxWatts) {
         super(type, pos, state);
-        storage = new SimpleEnergyStorage(bufferJ, EnergyStorage.wattsToJoulesPerTick(maxWatts) * 4, 0, 0, this::setChanged);
+        storage = new SimpleEnergyStorage(bufferJ, EnergyStorage.wattsToJoulesPerTick(maxWatts) * 4, 0, 0, this::setChanged).withCurrent(this::acceptsCurrent);
         container = new SimpleContainer(slots) { @Override public void setChanged() { super.setChanged(); ConsumerBlockEntity.this.setChanged(); } };
     }
 
     /** 動作中に使う電力（W） */
     protected abstract double workWatts();
+
+    /** 受けられる電流（v0.4、S-007）：ふつうの機械（電熱・モーター）は ANY。電気分解など直流しか使えない機械は DC を返す（交流の網からはもらえない＝整流器 [4-11] を通す） */
+    protected Current acceptsCurrent() { return Current.ANY; }
 
     // ===== [8-20] 玉軸受（IMP2 O-013、A と合意）：モーターで回す機械だけ。ここ1か所に機械の ID を並べる =====
     /** 玉軸受を入れられる機械（ブロックエンティティの ID）。炉・槽は入れない */

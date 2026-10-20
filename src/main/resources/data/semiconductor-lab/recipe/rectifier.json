@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GRG",
+    "GMG",
+    " W "
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "R": "semiconductor-lab:graphite_rod",
+    "M": "semiconductor-lab:mercury",
+    "W": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:rectifier",
+    "count": 1
+  }
+}

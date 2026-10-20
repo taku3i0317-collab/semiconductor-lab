@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    " G "
+  ],
+  "key": {
+    "C": "semiconductor-lab:copper_cable",
+    "G": "semiconductor-lab:soda_lime_glass"
+  },
+  "result": {
+    "id": "semiconductor-lab:high_voltage_line",
+    "count": 3
+  }
+}

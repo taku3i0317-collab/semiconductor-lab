@@ -297,11 +297,15 @@ water_wheel  # Power [4-01] 1878
 steam_engine  # Power [4-14] 1882
 copper_cable  # Power [4-03] 1882
 steam_turbine  # Power [4-06] 1884
+transformer  # Power [4-10] 1885
 graphite_rod  # Power [4-12] 1890
 electric_furnace  # Power [4-12] 1890
+rectifier  # Power [4-11] 1902
 induction_coil  # Power [4-09] 1913
 hf_oscillator  # Power [4-09] 1913
 leyden_jar  # Power [4-09] 1913
+alternator  # Power [4-34] None
+high_voltage_line  # Power [4-35] None
 hand_vacuum_pump  # Vacuum [5-01] 1650
 vacuum_chamber  # Vacuum [5-11] 1850
 sprengel_pump  # Vacuum [5-15] 1865

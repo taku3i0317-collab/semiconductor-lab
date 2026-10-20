@@ -27,6 +27,19 @@ public class GeneratorBlock extends MachineEntityBlock {
     }
     /** [4-05] 自励式ダイナモを手に持って右クリック：永久磁石のダイナモと積み替える（出力2倍）。それ以外は素手と同じ */
     @Override protected InteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
+        if (stack.is(com.taku3.semiconductorlab.content.Power.ALTERNATOR) && level.getBlockEntity(pos) instanceof GeneratorBlockEntity ab) {   // v0.4：交流発電機に積み替え
+            if (level.isClientSide()) return InteractionResult.SUCCESS;
+            boolean had = ab.isSelfExcited();
+            if (!ab.supportsAlternator()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.alternator.not_possible"));
+            else if (ab.hasAlternator()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.alternator.already"));
+            else if (ab.installAlternator()) {
+                if (!player.getAbilities().instabuild) stack.shrink(1);
+                if (had && !player.getInventory().add(new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Power.SELF_EXCITED_DYNAMO)))
+                    net.minecraft.world.level.block.Block.popResource(level, pos, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Power.SELF_EXCITED_DYNAMO));
+                player.sendSystemMessage(Component.translatable("message.semiconductor-lab.alternator.installed"));
+            }
+            return InteractionResult.SUCCESS;
+        }
         if (!stack.is(com.taku3.semiconductorlab.content.Power.SELF_EXCITED_DYNAMO) || !(level.getBlockEntity(pos) instanceof GeneratorBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (level.isClientSide()) return InteractionResult.SUCCESS;
         if (!be.supportsDynamoUpgrade()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.self_excited_dynamo.not_needed"));

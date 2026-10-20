@@ -24,6 +24,8 @@ import java.util.WeakHashMap;
  *   <li>損失：ネットワークの「いちばん長い経路」のケーブル本数 × 1%（本物は I²R。経路ごとに計算せず最長で近似）</li>
  *   <li>通過上限：ネットワーク全体で 1tick に取り出せるのは 1本分（1MW）まで。要求が多いときは要求の大きさに比例して按分</li>
  *   <li>順番：①発電機 → 機械 ②足りなければ 電池 → 機械（放電） ③余れば 発電機 → 電池（充電）。電池どうしでは流さない（行ったり来たりを防ぐ）</li>
+ *   <li>v0.4（S-007）：電圧の段はケーブルの種類で決まり（段のちがうケーブルはつながらない）、同じ段の受け口だけを集める。損失は 1本 1% ÷ 10^(2×段)、通過上限は 1MW × 10^段。
+ *       交流／直流は発電機（なければ電池）で決まり、合わない機械・電池は入れない。交流と直流の発電機が混ざった網は配らない</li>
  * </ul>
  */
 public final class CableNetwork {
@@ -34,16 +36,27 @@ public final class CableNetwork {
 
     public final List<BlockPos> cables;
     public final int longestPath;
+    /** 電圧の段（0＝低圧・1＝高圧）と、交流／直流（発電機が無い網は電池で、両方無ければ DC） */
+    public final int voltageClass;
+    public Current current = Current.DC;
+    /** 交流と直流の発電機が混ざっている（配らない） */
+    public boolean mixed;
+    /** 電流が合わずに入れなかった機械・電池の数（ケーブルの右クリックで見せる） */
+    public int mismatched;
     final List<EnergyStorage> sources = new ArrayList<>(), sinks = new ArrayList<>(), batteries = new ArrayList<>();
     /** 直近の tick に「取り出した」量と「届けた」量（J） */
     public long lastTakenJ, lastDeliveredJ;
     private final BlockPos leader;
 
-    private CableNetwork(List<BlockPos> cables, int longestPath, BlockPos leader) {
-        this.cables = cables; this.longestPath = longestPath; this.leader = leader;
+    private CableNetwork(List<BlockPos> cables, int longestPath, BlockPos leader, int voltageClass) {
+        this.cables = cables; this.longestPath = longestPath; this.leader = leader; this.voltageClass = voltageClass;
     }
 
-    public int lossPercent() { return Math.min(100, longestPath * LOSS_PERCENT_PER_HOP); }
+    /** 損失の割合（0〜1）：1本 1% を 電圧の段ごとに 1/100（電圧が10倍で電流 1/10、I²R は 1/100） */
+    public double lossFraction() { return Math.min(1.0, longestPath * LOSS_PERCENT_PER_HOP / 100.0 / Math.pow(100, voltageClass)); }
+    public int lossPercent() { return (int) Math.round(lossFraction() * 100); }
+    /** 1 tick に通せる量：1MW × 10^段 */
+    public long maxTransfer() { return MAX_TRANSFER * (long) Math.pow(10, voltageClass); }
     public boolean isLeader(BlockPos pos) { return leader.equals(pos); }
     public int sourceCount() { return sources.size(); }
     public int sinkCount() { return sinks.size(); }
@@ -76,32 +89,49 @@ public final class CableNetwork {
     }
 
     private static boolean isCable(Level level, BlockPos p) { return level.isLoaded(p) && level.getBlockEntity(p) instanceof CableBlockEntity; }
+    private static boolean isCable(Level level, BlockPos p, int cls) { return level.isLoaded(p) && level.getBlockEntity(p) instanceof CableBlockEntity c && c.voltageClass() == cls; }
+    private static int classOf(Level level, BlockPos p) { return level.getBlockEntity(p) instanceof CableBlockEntity c ? c.voltageClass() : 0; }
 
     private static CableNetwork build(Level level, BlockPos start) {
         if (!isCable(level, start)) return null;
         List<BlockPos> cables = new ArrayList<>();
-        Map<BlockPos, Integer> dist = bfs(level, start, cables);
+        int cls = classOf(level, start);
+        Map<BlockPos, Integer> dist = bfs(level, start, cables, cls);
         // いちばん長い経路の近似：start から最も遠い A → A から最も遠い B の距離（木の形なら正確）。本数＝辺の数＋1
         BlockPos far = farthest(dist);
-        Map<BlockPos, Integer> fromFar = bfs(level, far, null);
+        Map<BlockPos, Integer> fromFar = bfs(level, far, null, cls);
         int longest = Collections.max(fromFar.values()) + 1;
         BlockPos leader = cables.get(0);
         for (BlockPos p : cables) if (p.asLong() < leader.asLong()) leader = p;
-        CableNetwork n = new CableNetwork(cables, longest, leader);
+        CableNetwork n = new CableNetwork(cables, longest, leader, cls);
         // つながった機械を集める（同じ機械が2本のケーブルに触れていても1回だけ数える）
         Set<EnergyStorage> seen = Collections.newSetFromMap(new IdentityHashMap<>());
         for (BlockPos p : cables) for (Direction d : Direction.values()) {
             BlockPos np = p.relative(d);
             if (!level.isLoaded(np) || dist.containsKey(np) || level.getBlockEntity(np) instanceof CableBlockEntity) continue;
             EnergyStorage s = EnergyApi.ENERGY.find(level, np, d.getOpposite());
-            if (s == null || !seen.add(s)) continue;
+            if (s == null || s.voltageClass() != cls || !seen.add(s)) continue;   // ちがう電圧の段の受け口は、この網には入らない
             boolean in = s.canInsert(), out = s.canExtract();
             if (in && out) n.batteries.add(s); else if (out) n.sources.add(s); else if (in) n.sinks.add(s);
         }
+        n.decideCurrent();
         return n;
     }
 
-    private static Map<BlockPos, Integer> bfs(Level level, BlockPos start, List<BlockPos> order) {
+    /** 交流／直流を決め、合わない機械・電池を外す（発電機で決まる。発電機が無ければ電池＝直流） */
+    private void decideCurrent() {
+        boolean ac = false, dc = false;
+        for (EnergyStorage s : sources) { if (s.current() == Current.AC) ac = true; else if (s.current() == Current.DC) dc = true; }
+        if (ac && dc) { mixed = true; return; }
+        if (!ac && !dc) for (EnergyStorage s : batteries) { if (s.current() == Current.AC) ac = true; else if (s.current() == Current.DC) dc = true; }
+        current = ac ? Current.AC : Current.DC;
+        int before = sinks.size() + batteries.size();
+        sinks.removeIf(s -> !Current.compatible(s.current(), current));
+        batteries.removeIf(s -> !Current.compatible(s.current(), current));
+        mismatched = before - sinks.size() - batteries.size();
+    }
+
+    private static Map<BlockPos, Integer> bfs(Level level, BlockPos start, List<BlockPos> order, int cls) {
         Map<BlockPos, Integer> dist = new HashMap<>();
         ArrayDeque<BlockPos> q = new ArrayDeque<>();
         dist.put(start, 0); q.add(start);
@@ -110,7 +140,7 @@ public final class CableNetwork {
             if (order != null) order.add(p);
             for (Direction d : Direction.values()) {
                 BlockPos np = p.relative(d);
-                if (!dist.containsKey(np) && isCable(level, np)) { dist.put(np, dist.get(p) + 1); q.add(np); }
+                if (!dist.containsKey(np) && isCable(level, np, cls)) { dist.put(np, dist.get(p) + 1); q.add(np); }
             }
         }
         if (order != null) while (!q.isEmpty()) order.add(q.poll());
@@ -127,10 +157,10 @@ public final class CableNetwork {
 
     /** この tick の配電をする（リーダーのケーブルが1回だけ呼ぶ） */
     public void distribute() {
-        int lossPct = lossPercent();
+        double lossPct = lossFraction() * 100;
         lastTakenJ = 0; lastDeliveredJ = 0;
-        if (lossPct >= 100) return;
-        long budget = MAX_TRANSFER;   // 取り出し側で数える通過上限
+        if (lossPct >= 100 || mixed) return;
+        long budget = maxTransfer();   // 取り出し側で数える通過上限
         // ① 発電機 → 機械
         long genAvail = available(sources);
         long sinkDemand = demand(sinks);
@@ -153,9 +183,9 @@ public final class CableNetwork {
      * from から最大 maxTake を取り出し、損失を引いて to に配る（to の要求の大きさに比例）。実際に取り出した量を返す。
      * 先に「届けられる量」を決めて入れ、入った量から逆算した分だけ取り出す（受け手がいっぱいなら取り出さない）。
      */
-    private long transfer(List<EnergyStorage> from, List<EnergyStorage> to, long maxTake, long wanted, int lossPct) {
+    private long transfer(List<EnergyStorage> from, List<EnergyStorage> to, long maxTake, long wanted, double lossPct) {
         if (maxTake <= 0 || wanted <= 0 || from.isEmpty() || to.isEmpty()) return 0;
-        long deliverable = Math.min(wanted, maxTake * (100 - lossPct) / 100);
+        long deliverable = Math.min(wanted, (long) (maxTake * (100 - lossPct) / 100));
         if (deliverable <= 0) return 0;
         // 受け手へ按分
         long[] want = new long[to.size()]; long sumWant = 0;
@@ -168,7 +198,7 @@ public final class CableNetwork {
         }
         if (delivered <= 0) return 0;
         // 届いた量 ÷ (1 − 損失) を送り手から按分して取り出す（切り上げ）
-        long take = Math.min(maxTake, (delivered * 100 + (99 - lossPct)) / (100 - lossPct));
+        long take = Math.min(maxTake, (long) Math.ceil(delivered * 100 / (100 - lossPct)));
         long[] avail = new long[from.size()]; long sumAvail = 0;
         for (int i = 0; i < from.size(); i++) { avail[i] = from.get(i).extract(Long.MAX_VALUE / 4, true); sumAvail += avail[i]; }
         long taken = 0;

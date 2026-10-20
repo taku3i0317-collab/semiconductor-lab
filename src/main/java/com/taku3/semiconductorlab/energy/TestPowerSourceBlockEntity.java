@@ -17,5 +17,8 @@ public class TestPowerSourceBlockEntity extends GeneratorBlockEntity {
         super(Testing.TEST_POWER_SOURCE.type, pos, state, 1_000_000, WATTS);
     }
 
+    @Override protected Current baseCurrent() { return Current.ANY; }   // 試験用：交流の網にも直流の網にも入る
+    @Override public boolean supportsAlternator() { return false; }
+
     @Override protected double produceWatts(Level level, BlockPos pos, BlockState state) { return WATTS; }
 }

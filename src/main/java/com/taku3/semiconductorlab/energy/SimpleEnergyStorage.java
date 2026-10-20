@@ -10,6 +10,8 @@ public class SimpleEnergyStorage implements EnergyStorage {
     private final int voltage;
     private long stored;
     private final Runnable onChange;
+    /** 電流の種類（v0.4）。持ち主が決める（発電機：交流発電機を積んだら AC） */
+    private java.util.function.Supplier<Current> currentFn = () -> Current.ANY;
 
     public SimpleEnergyStorage(long capacity, long maxInsert, long maxExtract, int voltage, Runnable onChange) {
         this.capacity = capacity; this.maxInsert = maxInsert; this.maxExtract = maxExtract; this.voltage = voltage; this.onChange = onChange;
@@ -17,6 +19,9 @@ public class SimpleEnergyStorage implements EnergyStorage {
     @Override public long getStoredJ() { return stored; }
     @Override public long getCapacityJ() { return capacity; }
     @Override public int getVoltage() { return voltage; }
+    @Override public Current current() { return currentFn.get(); }
+    /** 電流の種類を決める（作ったあとに1回呼ぶ） */
+    public SimpleEnergyStorage withCurrent(java.util.function.Supplier<Current> f) { currentFn = f; return this; }
     @Override public boolean canInsert()  { return maxInsert > 0; }
     @Override public boolean canExtract() { return maxExtract > 0; }
 

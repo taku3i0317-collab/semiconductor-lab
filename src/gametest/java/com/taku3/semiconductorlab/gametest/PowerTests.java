@@ -250,7 +250,7 @@ public class PowerTests extends LabTestBase {
             EnergyStorage s = EnergyApi.ENERGY.find(lv, a, d);
             h.assertTrue(s != null && s.canInsert() && s.canExtract(), "every face charges and discharges: " + d);
         }
-        EnergyStorage side = EnergyApi.ENERGY.find(lv, a, net.minecraft.core.Direction.EAST);
+        EnergyStorage side = EnergyApi.ENERGY.find(lv, a, DIR_E);
         long per = LeadAcidBatteryBlockEntity.MAX_PER_TICK;
 
         // 充電：毎 tick たっぷり入れても 10kW（500 J/tick）まで、貯まるのはその 85%
@@ -395,6 +395,101 @@ public class PowerTests extends LabTestBase {
             h.assertTrue(Math.abs(w - expectEach) < expectEach * 0.01, "furnace " + x + " gets an equal share ~" + Math.round(expectEach) + " W, got " + w);
         }
         LOG.info("[LAB] cable limit: 1.5 MW supply, 1 MW taken, {} W delivered to 3 furnaces (shared equally)", Math.round(sum));
+        h.succeed();
+    }
+
+    // =====================================================================
+    // v0.4 電気の土台（S-007）：交流／直流・電圧の段・変圧器・整流器
+    // =====================================================================
+
+    /** 東向き（テストの中の変数 net と名前がぶつからないように） */
+    private static final net.minecraft.core.Direction DIR_E = net.minecraft.core.Direction.EAST;
+
+    private static void turbine(GameTestHelper h, BlockPos t, boolean ac) {
+        h.setBlock(t.north(), Blocks.WATER);
+        h.setBlock(t, Power.STEAM_TURBINE.block);
+        var be = h.getBlockEntity(t, SteamTurbineBlockEntity.class);
+        be.getContainer().setItem(SteamEngineBlockEntity.SLOT_COAL, new ItemStack(Items.COAL, 64));
+        if (ac) h.assertTrue(be.installAlternator(), "alternator on the turbine");
+    }
+
+    private static void facing(GameTestHelper h, BlockPos p, net.minecraft.world.level.block.Block b, net.minecraft.core.Direction d) {
+        h.setBlock(p, b.defaultBlockState().setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING, d));
+    }
+
+    /**
+     * ①なぜ交流か・③なぜ整流器か：交流の網では電熱の機械は動くが、電解槽（直流だけ）はもらえない。整流器を通すと直流の網になり、電解槽に届く。
+     * 直流の網では変圧器は働かない（入力が交流だけ）。交流と直流の発電機が混ざった網は配らない
+     */
+    @GameTest(maxTicks = 300)
+    public void acDcAndRectifier(GameTestHelper h) {
+        turbine(h, p(1, 1, 2), true);
+        for (int x = 2; x <= 4; x++) h.setBlock(p(x, 1, 2), Power.COPPER_CABLE.block);
+        h.setBlock(p(3, 1, 3), Power.ELECTRIC_FURNACE.block);
+        h.setBlock(p(4, 1, 3), Gas.ELECTROLYZER.block);
+        BlockPos[] order = concat(new BlockPos[] {p(1, 1, 2)}, line(2, 4, 1, 2), new BlockPos[] {p(3, 1, 3), p(4, 1, 3)});
+        tickAll(h, 5, order);
+        CableNetwork net = CableNetwork.get(h.getLevel(), h.absolutePos(p(2, 1, 2)));
+        h.assertValueEqual(net.current, com.taku3.semiconductorlab.energy.Current.AC, "a turbine with an alternator makes an AC network");
+        h.assertValueEqual(net.mismatched, 1, "the electrolyser (DC only) cannot take AC");
+        h.assertValueEqual(net.sinkCount(), 1, "the electric furnace (heating) takes AC");
+        // 整流器：交流の網 → 整流器 → 直流のケーブル → 電解槽
+        h.setBlock(p(4, 1, 3), Blocks.AIR);
+        facing(h, p(5, 1, 2), Power.RECTIFIER.block, DIR_E);   // 後ろ（西）が交流の網、前（東）へ直流
+        h.setBlock(p(6, 1, 2), Power.COPPER_CABLE.block);
+        h.setBlock(p(6, 1, 3), Gas.ELECTROLYZER.block);
+        BlockPos[] order2 = concat(new BlockPos[] {p(1, 1, 2)}, line(2, 4, 1, 2), new BlockPos[] {p(5, 1, 2), p(6, 1, 2), p(3, 1, 3), p(6, 1, 3)});
+        tickAll(h, 20, order2);
+        CableNetwork dc = CableNetwork.get(h.getLevel(), h.absolutePos(p(6, 1, 2)));
+        h.assertValueEqual(dc.current, com.taku3.semiconductorlab.energy.Current.DC, "the rectifier output makes a DC network");
+        h.assertTrue(dc.sinkCount() == 1 && dc.mismatched == 0, "the electrolyser is on the DC side");
+        var el = h.getBlockEntity(p(6, 1, 3), com.taku3.semiconductorlab.energy.ConsumerBlockEntity.class);
+        h.assertTrue(el.getStorage().getStoredJ() > 0, "DC from the rectifier reaches the electrolyser");
+        h.assertTrue(h.getBlockEntity(p(5, 1, 2), com.taku3.semiconductorlab.energy.PowerConverterBlockEntity.class).getLastWatts() > 0, "power passes the rectifier");
+        // 直流の網に変圧器：働かない（入力は交流だけ）
+        turbine(h, p(1, 1, 6), false);
+        for (int x = 2; x <= 3; x++) h.setBlock(p(x, 1, 6), Power.COPPER_CABLE.block);
+        facing(h, p(4, 1, 6), Power.TRANSFORMER.block, DIR_E);
+        tickAll(h, 5, concat(new BlockPos[] {p(1, 1, 6)}, line(2, 3, 1, 6), new BlockPos[] {p(4, 1, 6)}));
+        CableNetwork dcNet = CableNetwork.get(h.getLevel(), h.absolutePos(p(2, 1, 6)));
+        h.assertTrue(dcNet.current == com.taku3.semiconductorlab.energy.Current.DC && dcNet.mismatched == 1, "a transformer cannot work on DC (no changing flux)");
+        // 交流と直流の発電機が混ざると流れない
+        turbine(h, p(2, 2, 6), true);
+        tickAll(h, 3, concat(new BlockPos[] {p(1, 1, 6), p(2, 2, 6)}, line(2, 3, 1, 6)));
+        h.assertTrue(CableNetwork.get(h.getLevel(), h.absolutePos(p(2, 1, 6))).mixed, "AC and DC generators on one network -> nothing flows");
+        LOG.info("[LAB] AC/DC: AC network runs the furnace but not the electrolyser; rectifier -> DC reaches it; transformer idle on DC; mixed AC+DC stops");
+        h.succeed();
+    }
+
+    /**
+     * ②なぜ高い電圧で送るか：同じ 7本でも、銅ケーブル（低圧）は 7% 失い、高圧の電線はその 1/100（0.07%）。変圧器で上げて下げると届く。
+     * 高圧の電線と銅ケーブルはつながらない、機械は高圧の網に直接は入らない
+     */
+    @GameTest(maxTicks = 400)
+    public void highVoltageTransmission(GameTestHelper h) {
+        turbine(h, p(1, 1, 2), true);
+        h.setBlock(p(2, 1, 2), Power.COPPER_CABLE.block);
+        facing(h, p(3, 1, 2), Power.TRANSFORMER.block, DIR_E);       // 昇圧：後ろ＝低圧、前＝高圧
+        for (int x = 4; x <= 10; x++) h.setBlock(p(x, 1, 2), Power.HIGH_VOLTAGE_LINE.block);
+        facing(h, p(11, 1, 2), Power.TRANSFORMER.block, DIR_E);      // 降圧：後ろ＝高圧、前＝低圧
+        h.setBlock(p(12, 1, 2), Power.COPPER_CABLE.block);
+        h.setBlock(p(12, 1, 3), Power.ELECTRIC_FURNACE.block);
+        h.setBlock(p(7, 1, 3), Power.ELECTRIC_FURNACE.block);   // 高圧の電線の横の機械：つながらない
+        BlockPos[] order = concat(new BlockPos[] {p(1, 1, 2), p(2, 1, 2), p(3, 1, 2)}, line(4, 10, 1, 2), new BlockPos[] {p(11, 1, 2), p(12, 1, 2), p(12, 1, 3), p(7, 1, 3)});
+        tickAll(h, 40, order);
+        CableNetwork hv = CableNetwork.get(h.getLevel(), h.absolutePos(p(7, 1, 2)));
+        h.assertValueEqual(hv.voltageClass, 1, "the line is a high-voltage network");
+        h.assertValueEqual(hv.cables.size(), 7, "the copper cables are not part of the HV network");
+        h.assertTrue(hv.sourceCount() == 1 && hv.sinkCount() == 1, "only the two transformers are on the HV network (the furnace beside it is not)");
+        h.assertTrue(Math.abs(hv.lossFraction() - 0.0007) < 1e-9, "7 HV lines lose 0.07% (copper would lose 7%), got " + hv.lossFraction());
+        h.assertTrue(hv.maxTransfer() == CableNetwork.MAX_TRANSFER * 10, "10x voltage carries 10x power");
+        var far = h.getBlockEntity(p(12, 1, 3), com.taku3.semiconductorlab.energy.ConsumerBlockEntity.class);
+        h.assertTrue(far.getStorage().getStoredJ() > 0, "power reaches the furnace 7 lines away through two transformers");
+        // 比べ：同じ 20本を銅ケーブルにすると 20% 失う
+        for (int x = 4; x <= 10; x++) h.setBlock(p(x, 1, 5), Power.COPPER_CABLE.block);
+        CableNetwork lv = CableNetwork.get(h.getLevel(), h.absolutePos(p(4, 1, 5)));
+        h.assertValueEqual(lv.lossPercent(), 7, "7 copper cables lose 7%");
+        LOG.info("[LAB] HV: 7 lines lose {}% vs copper 7%; 2 transformers (98% each) carry AC to a furnace far away", String.format("%.2f", hv.lossFraction() * 100));
         h.succeed();
     }
 

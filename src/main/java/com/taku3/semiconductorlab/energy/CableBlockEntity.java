@@ -19,6 +19,10 @@ public class CableBlockEntity extends BlockEntity {
     private long lastDeliveredJ;
 
     public CableBlockEntity(BlockPos pos, BlockState state) { super(Power.COPPER_CABLE.type, pos, state); }
+    protected CableBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state) { super(type, pos, state); }
+
+    /** 電圧の段（v0.4）：銅ケーブル＝0（低圧）。高圧の電線は 1 */
+    public int voltageClass() { return 0; }
 
     public static void tick(Level level, BlockPos pos, BlockState state, CableBlockEntity be) {
         if (level.isClientSide()) return;
@@ -32,6 +36,7 @@ public class CableBlockEntity extends BlockEntity {
 
     /** from → to へ直接送る（ケーブルなしで隣り合った発電機・電池 → 機械）。接触 1% の損失 */
     static void move(EnergyStorage from, EnergyStorage to, long amount) {
+        if (!Current.compatible(from.current(), to.current()) || from.voltageClass() != to.voltageClass()) return;   // v0.4：交流と直流・ちがう電圧はつながない
         amount = Math.min(amount, MAX_TRANSFER);
         if (amount <= 0) return;
         long accepted = to.insert(amount, true);

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "CDC",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "C": "semiconductor-lab:induction_coil",
+    "D": "semiconductor-lab:self_excited_dynamo"
+  },
+  "result": {
+    "id": "semiconductor-lab:alternator",
+    "count": 1
+  }
+}

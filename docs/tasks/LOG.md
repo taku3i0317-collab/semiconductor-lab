@@ -444,3 +444,11 @@
 - dicing_saw（block/DicingSawBlockEntity、1.5kW×10秒、Machine.electric）・diamond_blade（ダイヤモンド＋青銅×4 → 2、耐久32）。台のボールねじ（C の ball_screw、段階 1〜3）が入口にないと動かない。欠ける確率 4%・2%・1%（けがき針は 10%）
 - TECH_TREE [9-32] 段階1・2、CHEMISTRY S-D2、REFERENCES L7、test_queue、GameTest dicing に足した。年（1960年代の終わり〜70年代）は ⚠️
 
+## S-007 v0.4 の電気の土台（2026-10-20、ユーザー「おすすめで」＝1-A・2-A・3-A）
+- ① DESIGN（決定と実装の計画）・DECISIONS に記録
+- ② 実装：energy/Current（DC・AC・ANY）、EnergyStorage.current()・voltageClass()。CableNetwork：段のちがうケーブルはつながらない・同じ段の受け口だけ、損失 1本 1% ÷ 100^段、通過上限 1MW×10^段、交流／直流は発電機（なければ電池）で決まり合わない物は外す、混ざると配らない。ケーブルの右クリックに段・電流・損失・もらえない機械の数
+- 新しく：交流発電機 alternator [4-34]（発電機に積み替え）、高圧の電線 high_voltage_line [4-35]、変圧器 transformer [4-10] ✅、水銀整流器 rectifier [4-11] ✅（前提を 1902 水銀整流器 or 真空管に＝Y-2）。電解槽は直流だけ、鉛蓄電池は直流、太陽電池は直流、試験用の電源は ANY
+- 今の網・機械は「低圧の直流」のまま全部動く（前からの GameTest 全部 PASS）。新しい GameTest：acDcAndRectifier・highVoltageTransmission。CHEMISTRY E1〜E4、REFERENCES L8、test_queue。test.ps1 215/215
+- 遊び方の1行（TECH_TREE）：高圧＝損失 1/100、交流＝変圧器が使える、整流器＝電気分解は直流だけ
+- **ネットワーク担当へ**：network_proposals Y-2（[4-11] の前提）は A が「水銀整流器 or 真空管」で解いた
+

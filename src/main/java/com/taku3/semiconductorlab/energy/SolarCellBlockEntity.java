@@ -20,6 +20,9 @@ public class SolarCellBlockEntity extends GeneratorBlockEntity {
 
     public SolarCellBlockEntity(BlockPos pos, BlockState state) { super(Branches.SOLAR_CELL.type, pos, state, 2_000, WATTS); }
 
+    /** 太陽電池は直流だけ（回らないので交流発電機は積めない） */
+    @Override public boolean supportsAlternator() { return false; }
+
     /** 空・昼・雨から出力を決める（GameTest からも呼ぶ） */
     public static double watts(boolean openSky, boolean bright, boolean raining) {
         if (!openSky || !bright) return 0;

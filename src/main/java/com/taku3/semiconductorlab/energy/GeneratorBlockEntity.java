@@ -15,11 +15,13 @@ public abstract class GeneratorBlockEntity extends BlockEntity {
     private double lastWatts;
     /** [4-05] 自励式ダイナモ（ジーメンス1866）に積み替えたか。true なら出力2倍（燃料も2倍の速さで使う） */
     private boolean selfExcited;
+    /** 交流発電機（v0.4、S-007）を積んだか。true なら交流を出す（出力は自励式と同じ2倍：界磁は自分の直流の励磁機） */
+    private boolean alternator;
 
     protected GeneratorBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state, long bufferJ, double maxWatts) {
         super(type, pos, state);
         long perTick = EnergyStorage.wattsToJoulesPerTick(maxWatts);
-        storage = new SimpleEnergyStorage(bufferJ, 0, perTick * 4, 0, this::setChanged);
+        storage = new SimpleEnergyStorage(bufferJ, 0, perTick * 4, 0, this::setChanged).withCurrent(() -> alternator ? Current.AC : baseCurrent());
     }
 
     /** 今この tick に作れる電力（W）。0 なら停止中 */
@@ -31,7 +33,20 @@ public abstract class GeneratorBlockEntity extends BlockEntity {
     public boolean supportsDynamoUpgrade() { return false; }
     public boolean isSelfExcited() { return selfExcited; }
     /** ダイナモの倍率。永久磁石＝1、自励式（電磁石）＝2 */
-    public int dynamoFactor() { return selfExcited ? 2 : 1; }
+    public int dynamoFactor() { return selfExcited || alternator ? 2 : 1; }
+    /** 交流発電機を積んでいないときの電流（ダイナモ・太陽電池＝直流。試験用の電源は ANY） */
+    protected Current baseCurrent() { return Current.DC; }
+    /** 交流発電機を積めるか（回る発電機だけ。太陽電池・試験用の電源は false） */
+    public boolean supportsAlternator() { return true; }
+    public boolean hasAlternator() { return alternator; }
+    /** 交流発電機を積む。積めたら true。自励式ダイナモが積んであれば外れる（戻すのは呼ぶ側、wasSelfExcited で分かる） */
+    public boolean installAlternator() {
+        if (!supportsAlternator() || alternator) return false;
+        alternator = true;
+        selfExcited = false;
+        setChanged();
+        return true;
+    }
     /** 自励式ダイナモを取り付ける。取り付けられたら true（アイテムを1個減らすのは呼ぶ側） */
     public boolean installSelfExcitedDynamo() {
         if (!supportsDynamoUpgrade() || selfExcited) return false;
@@ -49,11 +64,12 @@ public abstract class GeneratorBlockEntity extends BlockEntity {
             if (n != null && n.canInsert()) CableBlockEntity.move(be.storage, n, be.storage.getStoredJ());
         }
     }
-    @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); storage.save(out); out.putBoolean("SelfExcited", selfExcited); }
-    @Override protected void loadAdditional(ValueInput in)   { super.loadAdditional(in); storage.load(in); selfExcited = in.getBooleanOr("SelfExcited", false); }
+    @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); storage.save(out); out.putBoolean("SelfExcited", selfExcited); out.putBoolean("Alternator", alternator); }
+    @Override protected void loadAdditional(ValueInput in)   { super.loadAdditional(in); storage.load(in); selfExcited = in.getBooleanOr("SelfExcited", false); alternator = in.getBooleanOr("Alternator", false); }
     /** 壊したら、取り付けた自励式ダイナモを落とす（ブロック本体はふつうのルートテーブルで落ちる） */
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) {
         if (selfExcited && level != null) net.minecraft.world.level.block.Block.popResource(level, pos, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Power.SELF_EXCITED_DYNAMO));
+        if (alternator && level != null) net.minecraft.world.level.block.Block.popResource(level, pos, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Power.ALTERNATOR));
         super.preRemoveSideEffects(pos, state);
     }
 }
