@@ -22,7 +22,7 @@
    "year_uncertain": false,
    "requires": [],
    "understanding": [],
-   "descendants": 301
+   "descendants": 316
   },
   {
    "id": "0-02",
@@ -42,7 +42,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 284
+   "descendants": 299
   },
   {
    "id": "0-03",
@@ -62,7 +62,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 275
+   "descendants": 290
   },
   {
    "id": "0-04",
@@ -82,7 +82,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 142
+   "descendants": 144
   },
   {
    "id": "0-05",
@@ -182,7 +182,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 3
+   "descendants": 2
   },
   {
    "id": "0-10",
@@ -250,7 +250,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 257
+   "descendants": 270
   },
   {
    "id": "0-13",
@@ -270,7 +270,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 1
+   "descendants": 0
   },
   {
    "id": "0-14",
@@ -310,7 +310,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 269
+   "descendants": 283
   },
   {
    "id": "0-16",
@@ -330,7 +330,27 @@
     ]
    ],
    "understanding": [],
-   "descendants": 152
+   "descendants": 200
+  },
+  {
+   "id": "0-17",
+   "name": "家畜化",
+   "trunk": "0",
+   "trunk_name": "生存・道具",
+   "status": "❓",
+   "branch": false,
+   "year": -8000,
+   "year_range": "-9000〜-8000",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "0-04"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "descendants": 1
   },
   {
    "id": "1-01",
@@ -389,7 +409,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 202
+   "descendants": 203
   },
   {
    "id": "1-04",
@@ -459,7 +479,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 194
+   "descendants": 229
   },
   {
    "id": "1-07",
@@ -493,7 +513,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 148
+   "descendants": 147
   },
   {
    "id": "1-09",
@@ -513,7 +533,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 187
+   "descendants": 225
   },
   {
    "id": "1-10",
@@ -533,7 +553,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 179
+   "descendants": 178
   },
   {
    "id": "1-11",
@@ -566,7 +586,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 143
+   "descendants": 142
   },
   {
    "id": "1-12",
@@ -611,7 +631,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 0
+   "descendants": 198
   },
   {
    "id": "1-14",
@@ -793,7 +813,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 74
+   "descendants": 5
   },
   {
    "id": "1-20",
@@ -877,7 +897,7 @@
    "year_uncertain": true,
    "requires": [],
    "understanding": [],
-   "descendants": 75
+   "descendants": 6
   },
   {
    "id": "1-26",
@@ -898,7 +918,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 204
+   "descendants": 203
   },
   {
    "id": "1-27",
@@ -1357,6 +1377,20 @@
    "requires": [],
    "understanding": [],
    "descendants": 89
+  },
+  {
+   "id": "1-47",
+   "name": "天然磁石",
+   "trunk": "1",
+   "trunk_name": "冶金",
+   "status": "❓",
+   "branch": false,
+   "year": -600,
+   "year_range": "-600〜1088",
+   "year_uncertain": true,
+   "requires": [],
+   "understanding": [],
+   "descendants": 1
   },
   {
    "id": "2-01",
@@ -2386,6 +2420,46 @@
    "descendants": 33
   },
   {
+   "id": "2-43",
+   "name": "ばん油",
+   "trunk": "2",
+   "trunk_name": "化学",
+   "status": "❓",
+   "branch": false,
+   "year": 1300,
+   "year_range": "900〜1300",
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "0-15"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "descendants": 92
+  },
+  {
+   "id": "2-44",
+   "name": "赤リン",
+   "trunk": "2",
+   "trunk_name": "化学",
+   "status": "❓",
+   "branch": false,
+   "year": 1847,
+   "year_range": null,
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "0-15"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "descendants": 76
+  },
+  {
    "id": "3-01",
    "name": "たき火",
    "trunk": "3",
@@ -2469,6 +2543,9 @@
     [
      [
       "3-12"
+     ],
+     [
+      "3-20"
      ]
     ]
    ],
@@ -2489,6 +2566,9 @@
     [
      [
       "3-12"
+     ],
+     [
+      "3-20"
      ]
     ]
    ],
@@ -2599,8 +2679,10 @@
     ],
     [
      [
-      "4-06",
-      "4-02"
+      "4-06"
+     ],
+     [
+      "4-14"
      ]
     ],
     [
@@ -2823,6 +2905,26 @@
    "descendants": 149
   },
   {
+   "id": "3-20",
+   "name": "耐火粘土",
+   "trunk": "3",
+   "trunk_name": "熱",
+   "status": "❓",
+   "branch": false,
+   "year": -3000,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "0-03"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "descendants": 6
+  },
+  {
    "id": "4-01",
    "name": "水車発電機",
    "trunk": "4",
@@ -2840,27 +2942,27 @@
     ]
    ],
    "understanding": [],
-   "descendants": 197
+   "descendants": 199
   },
   {
    "id": "4-02",
-   "name": "蒸気機関発電機",
+   "name": "蒸気機関",
    "trunk": "4",
    "trunk_name": "動力・電気",
    "status": "✅",
    "branch": false,
    "year": 1776,
-   "year_range": null,
+   "year_range": "1712〜1776",
    "year_uncertain": false,
    "requires": [
     [
      [
-      "4-04"
+      "1-09"
      ]
     ]
    ],
    "understanding": [],
-   "descendants": 208
+   "descendants": 209
   },
   {
    "id": "4-03",
@@ -2888,7 +2990,7 @@
    "year_uncertain": false,
    "requires": [],
    "understanding": [],
-   "descendants": 234
+   "descendants": 208
   },
   {
    "id": "4-05",
@@ -2943,7 +3045,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 130
+   "descendants": 129
   },
   {
    "id": "4-07",
@@ -2982,7 +3084,7 @@
    "year_uncertain": true,
    "requires": [],
    "understanding": [],
-   "descendants": 205
+   "descendants": 204
   },
   {
    "id": "4-09",
@@ -3060,14 +3162,75 @@
    "requires": [
     [
      [
-      "1-07",
-      "4-06",
-      "4-02"
+      "1-07"
+     ]
+    ],
+    [
+     [
+      "4-14"
+     ],
+     [
+      "4-01"
      ]
     ]
    ],
    "understanding": [],
    "descendants": 51
+  },
+  {
+   "id": "4-13",
+   "name": "ボルタ電池",
+   "trunk": "4",
+   "trunk_name": "動力・電気",
+   "status": "❓",
+   "branch": false,
+   "year": 1800,
+   "year_range": null,
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "1-13"
+     ]
+    ],
+    [
+     [
+      "1-03"
+     ]
+    ],
+    [
+     [
+      "0-16"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "descendants": 197
+  },
+  {
+   "id": "4-14",
+   "name": "蒸気発電",
+   "trunk": "4",
+   "trunk_name": "動力・電気",
+   "status": "✅",
+   "branch": false,
+   "year": 1882,
+   "year_range": "1880〜1882",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "4-02"
+     ]
+    ],
+    [
+     [
+      "4-04"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "descendants": 52
   },
   {
    "id": "5-01",
@@ -3522,6 +3685,9 @@
     [
      [
       "1-39"
+     ],
+     [
+      "2-44"
      ]
     ]
    ],
@@ -3542,6 +3708,9 @@
     [
      [
       "4-01"
+     ],
+     [
+      "4-13"
      ]
     ],
     [
@@ -3766,6 +3935,10 @@
       "2-01"
      ],
      [
+      "6-10",
+      "2-43"
+     ],
+     [
       "6-09"
      ]
     ]
@@ -3954,16 +4127,6 @@
      ],
      [
       "2-20"
-     ]
-    ],
-    [
-     [
-      "1-19"
-     ]
-    ],
-    [
-     [
-      "8-01"
      ]
     ]
    ],
@@ -4606,7 +4769,7 @@
     ]
    ],
    "understanding": [],
-   "descendants": 142
+   "descendants": 141
   },
   {
    "id": "8-02",
@@ -6400,6 +6563,9 @@
     ],
     [
      [
+      "4-13"
+     ],
+     [
       "4-01"
      ]
     ]
@@ -6819,7 +6985,7 @@
     ],
     [
      [
-      "0-13"
+      "0-17"
      ]
     ],
     [
@@ -7938,7 +8104,7 @@
    "requires": [
     [
      [
-      "4-04"
+      "1-47"
      ]
     ]
    ],
@@ -9295,6 +9461,13 @@
    "or": false
   },
   {
+   "from": "0-04",
+   "to": "0-17",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
    "from": "0-01",
    "to": "1-02",
    "kind": "requires",
@@ -10541,6 +10714,20 @@
    "or": false
   },
   {
+   "from": "0-15",
+   "to": "2-43",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "0-15",
+   "to": "2-44",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
    "from": "0-02",
    "to": "3-01",
    "kind": "requires",
@@ -10580,14 +10767,28 @@
    "to": "3-05",
    "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "3-20",
+   "to": "3-05",
+   "kind": "requires",
+   "group": 1,
+   "or": true
   },
   {
    "from": "3-12",
    "to": "3-06",
    "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "3-20",
+   "to": "3-06",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "1-07",
@@ -10664,14 +10865,14 @@
    "to": "3-10",
    "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
   },
   {
-   "from": "4-02",
+   "from": "4-14",
    "to": "3-10",
    "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
   },
   {
    "from": "1-07",
@@ -10821,6 +11022,13 @@
    "or": false
   },
   {
+   "from": "0-03",
+   "to": "3-20",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
    "from": "4-04",
    "to": "4-01",
    "kind": "requires",
@@ -10828,7 +11036,7 @@
    "or": false
   },
   {
-   "from": "4-04",
+   "from": "1-09",
    "to": "4-02",
    "kind": "requires",
    "group": 0,
@@ -10919,17 +11127,52 @@
    "or": false
   },
   {
-   "from": "4-06",
+   "from": "4-14",
    "to": "4-12",
+   "kind": "requires",
+   "group": 1,
+   "or": true
+  },
+  {
+   "from": "4-01",
+   "to": "4-12",
+   "kind": "requires",
+   "group": 1,
+   "or": true
+  },
+  {
+   "from": "1-13",
+   "to": "4-13",
    "kind": "requires",
    "group": 0,
    "or": false
   },
   {
+   "from": "1-03",
+   "to": "4-13",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "0-16",
+   "to": "4-13",
+   "kind": "requires",
+   "group": 2,
+   "or": false
+  },
+  {
    "from": "4-02",
-   "to": "4-12",
+   "to": "4-14",
    "kind": "requires",
    "group": 0,
+   "or": false
+  },
+  {
+   "from": "4-04",
+   "to": "4-14",
+   "kind": "requires",
+   "group": 1,
    "or": false
   },
   {
@@ -11322,14 +11565,28 @@
    "to": "5-16",
    "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "2-44",
+   "to": "5-16",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "4-01",
    "to": "6-01",
    "kind": "requires",
    "group": 0,
-   "or": false
+   "or": true
+  },
+  {
+   "from": "4-13",
+   "to": "6-01",
+   "kind": "requires",
+   "group": 0,
+   "or": true
   },
   {
    "from": "1-07",
@@ -11445,6 +11702,20 @@
   },
   {
    "from": "2-01",
+   "to": "6-11",
+   "kind": "requires",
+   "group": 0,
+   "or": true
+  },
+  {
+   "from": "6-10",
+   "to": "6-11",
+   "kind": "requires",
+   "group": 0,
+   "or": true
+  },
+  {
+   "from": "2-43",
    "to": "6-11",
    "kind": "requires",
    "group": 0,
@@ -11589,20 +11860,6 @@
    "kind": "requires",
    "group": 1,
    "or": true
-  },
-  {
-   "from": "1-19",
-   "to": "7-03",
-   "kind": "requires",
-   "group": 2,
-   "or": false
-  },
-  {
-   "from": "8-01",
-   "to": "7-03",
-   "kind": "requires",
-   "group": 3,
-   "or": false
   },
   {
    "from": "7-01",
@@ -13579,11 +13836,18 @@
    "or": true
   },
   {
+   "from": "4-13",
+   "to": "10-01",
+   "kind": "requires",
+   "group": 1,
+   "or": true
+  },
+  {
    "from": "4-01",
    "to": "10-01",
    "kind": "requires",
    "group": 1,
-   "or": false
+   "or": true
   },
   {
    "from": "10-01",
@@ -13817,7 +14081,7 @@
    "or": false
   },
   {
-   "from": "0-13",
+   "from": "0-17",
    "to": "11-02",
    "kind": "requires",
    "group": 1,
@@ -14464,7 +14728,7 @@
    "or": true
   },
   {
-   "from": "4-04",
+   "from": "1-47",
    "to": "14-02",
    "kind": "requires",
    "group": 0,
@@ -15292,74 +15556,11 @@
  ],
  "year_inversions": [
   {
-   "node": "14-02",
-   "year": 1088,
-   "requires": "4-04",
-   "requires_year": 1831,
-   "gap": 743
-  },
-  {
    "node": "6-11",
    "year": 1300,
-   "requires": "2-01",
-   "requires_year": 1831,
-   "gap": 531
-  },
-  {
-   "node": "11-02",
-   "year": -4000,
-   "requires": "0-13",
-   "requires_year": -3500,
-   "gap": 500
-  },
-  {
-   "node": "7-03",
-   "year": 1650,
-   "requires": "1-19",
-   "requires_year": 1940,
-   "gap": 290
-  },
-  {
-   "node": "7-03",
-   "year": 1650,
-   "requires": "8-01",
-   "requires_year": 1797,
-   "gap": 147
-  },
-  {
-   "node": "3-06",
-   "year": 1690,
-   "requires": "3-12",
-   "requires_year": 1822,
-   "gap": 132
-  },
-  {
-   "node": "3-05",
-   "year": 1709,
-   "requires": "3-12",
-   "requires_year": 1822,
-   "gap": 113
-  },
-  {
-   "node": "6-01",
-   "year": 1800,
-   "requires": "4-01",
-   "requires_year": 1878,
-   "gap": 78
-  },
-  {
-   "node": "10-01",
-   "year": 1820,
-   "requires": "4-01",
-   "requires_year": 1878,
-   "gap": 58
-  },
-  {
-   "node": "4-02",
-   "year": 1776,
-   "requires": "4-04",
-   "requires_year": 1831,
-   "gap": 55
+   "requires": "6-10",
+   "requires_year": 1750,
+   "gap": 450
   },
   {
    "node": "2-13",
@@ -15367,13 +15568,6 @@
    "requires": "2-06",
    "requires_year": 1861,
    "gap": 53
-  },
-  {
-   "node": "5-16",
-   "year": 1890,
-   "requires": "1-39",
-   "requires_year": 1941,
-   "gap": 51
   },
   {
    "node": "1-36",
