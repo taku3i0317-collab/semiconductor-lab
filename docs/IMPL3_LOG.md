@@ -17,3 +17,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - REFERENCES の「生存」節を「# 第1章 ゲルマニウム」の直前へ移した（光学担当が「# 冶金と熱」の直前に足すたびに混ざるため。中身は同じ）
 - ✅ [0-06] 織物（遊び方: 実験＋軽）：亜麻 flax（作物、草から 4%）→ 茎×2＋種。茎を水に投げこむと 1分で浸水した茎（mixin/ItemEntityRettingMixin → item/Retting。浮いて上下しても足元が水なら浸かっている扱い、水から出てもたまった時間は残る）。浸水した茎＋たたき石 → 繊維 → ×2 糸 → ×4 リネン。GameTest flax_to_linen（実際の tick、テスト中だけ浸水 20tick）、CHEMISTRY S9〜S11、REFERENCES S5。テスト 106/106
   - 共通ファイルの変更：src/main/resources/semiconductor-lab.mixins.json に "ItemEntityRettingMixin" を1行
+- IMP-32（docs の部品化）に合わせ、幹0 の CHEMISTRY・TEST_QUEUE の節は docs/chemistry/0_survival.md・docs/test_queue/0_survival.md に書く（docs_build.py --adopt で移した。取り込みで幹8 の表に紛れた S7・S8 の重複は幹8 の部品から外した）
