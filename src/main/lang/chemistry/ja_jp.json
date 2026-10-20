@@ -668,5 +668,17 @@
   "block.semiconductor-lab.high_pressure_reactor.note2": "鋼8＋圧縮機で作る。エチレン4袋＋酸素（1袋で16回）→ ポリエチレン1（20秒、5kW）。酸素がないと始まらない。",
   "block.semiconductor-lab.high_pressure_reactor.note3": "とても高い圧力（約1400気圧）でエチレンの分子をぎゅうぎゅうに近づけ、ほんの少しの酸素がきっかけ（開始剤）になって、二重結合が開いて次々につながる。",
   "block.semiconductor-lab.high_pressure_reactor.note4": "1933年 ICI のフォーセットとギブソンは別の反応を調べていて、釜の中に白いろうのような物を見つけた。もれて入った酸素がきっかけだったとわかったのは1935年。",
-  "block.semiconductor-lab.high_pressure_reactor.placeholder": "近似：圧力・温度は数字で扱わない。反応しなかったエチレンの回収、低密度と高密度の違いは扱わない。"
+  "block.semiconductor-lab.high_pressure_reactor.placeholder": "近似：圧力・温度は数字で扱わない。反応しなかったエチレンの回収、低密度と高密度の違いは扱わない。",
+  "item.semiconductor-lab.bleaching_powder": "さらし粉",
+  "item.semiconductor-lab.bleaching_powder.note1": "塩素のにおいのする白い粉。布を白くしたり、水を消毒したりする。",
+  "item.semiconductor-lab.bleaching_powder.note2": "消石灰＋塩素の袋で作る。エタノールと合わせるとクロロホルム。⚠ GHS：酸化性・皮膚腐食性・水生環境有害。酸と混ぜると塩素が出る（混ぜるな危険）。",
+  "item.semiconductor-lab.bleaching_powder.note3": "消石灰が塩素を吸って、次亜塩素酸カルシウムを含む粉になる。次亜塩素酸のイオン ClO- が色や菌の分子を酸化してこわす。",
+  "item.semiconductor-lab.bleaching_powder.note4": "1799年スコットランドのテナントが特許をとった。それまで布を白くするには何か月も日に当てていたが、数日でできるようになった。",
+  "item.semiconductor-lab.bleaching_powder.placeholder": "近似：塩素を吸わせる部屋（さらし室）は扱わない。",
+  "item.semiconductor-lab.chloroform": "クロロホルム",
+  "item.semiconductor-lab.chloroform.note1": "あまいにおいの重い液。昔は手術の麻酔に使われたが、体に悪いので今は使わない。",
+  "item.semiconductor-lab.chloroform.note2": "エタノール＋さらし粉2＋石英の蒸留器（戻る）＋空のガラス瓶で作る（エタノールの瓶も戻る）。PTFE [2-38] の原料（次の段はまだ作れない）、溶剤。⚠ GHS：急性毒性・皮膚刺激性・発がん性（区分2）・生殖毒性・特定標的臓器毒性。工業の材料としてだけ扱う。",
+  "item.semiconductor-lab.chloroform.note3": "さらし粉の塩素がエタノールを酸化して塩素を付け、最後に炭素1つの CHCl3 が切りはなされる（ハロホルム反応）。",
+  "item.semiconductor-lab.chloroform.note4": "1831年、アメリカのガスリー・フランスのスーベラン・ドイツのリービッヒが、それぞれ別々に作った。1847年にシンプソンが麻酔に使った。今はフロン・テフロンの原料。",
+  "item.semiconductor-lab.chloroform.placeholder": "近似：条件は書かない（DESIGN）。副産物（ギ酸カルシウム・塩化カルシウム）は出さない。"
 }

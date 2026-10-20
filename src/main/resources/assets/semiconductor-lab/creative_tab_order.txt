@@ -231,6 +231,8 @@ developer  # Chemistry [9-21] 1957
 phosphoric_acid  # Chemistry [9-25] 1959
 sodium_silicate  # Chemistry [9-13] 1963
 colloidal_silica  # Chemistry [9-13] 1963
+bleaching_powder  # Chemistry [None] None
+chloroform  # Chemistry [None] None
 bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690

@@ -783,6 +783,20 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-38] PTFE の前半：さらし粉・クロロホルム（IMP3、O-009）
+    // =====================================================================
+
+    /** 消石灰＋塩素 → さらし粉。エタノール＋さらし粉2＋蒸留器＋瓶 → クロロホルム（ガラス瓶） */
+    @GameTest
+    public void chloroform(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "bleaching_powder", com.taku3.semiconductorlab.content.Survival.SLAKED_LIME) && recipeUses(h, "bleaching_powder", com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS), "lime + chlorine -> bleaching powder");
+        h.assertTrue(recipeUses(h, "chloroform", Chemistry.ETHANOL) && recipeUses(h, "chloroform", Chemistry.BLEACHING_POWDER), "ethanol + bleaching powder -> chloroform");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.CHLOROFORM) == com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE, "chloroform in a glass bottle");
+        LOG.info("[LAB] chloroform [2-38 first half]: slaked lime + Cl2 -> bleaching powder; ethanol + 2 bleaching powder -> chloroform (Swarts step waits for [1-43] antimony)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

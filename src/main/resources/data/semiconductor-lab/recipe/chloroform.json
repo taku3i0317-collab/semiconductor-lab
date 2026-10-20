@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ethanol",
+    "semiconductor-lab:bleaching_powder",
+    "semiconductor-lab:bleaching_powder",
+    "semiconductor-lab:quartz_still",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:chloroform",
+    "count": 1
+  }
+}

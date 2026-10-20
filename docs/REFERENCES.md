@@ -1777,6 +1777,21 @@
 - Science History Institute ほか「ICI polyethylene 1933」：https://en.wikipedia.org/wiki/Imperial_Chemical_Industries
 - Wikipedia「Low-density polyethylene」：https://en.wikipedia.org/wiki/Low-density_polyethylene
 
+## C17. 布を白くする粉と、甘いにおいの麻酔（さらし粉・クロロホルム）［2-38 の前半］
+**答え**：消石灰に塩素を吸わせると、次亜塩素酸カルシウムを含むさらし粉になる（1799 テナントの特許）。さらし粉でエタノールを酸化・塩素化すると、炭素1つのクロロホルム CHCl3 が切りはなされる（ハロホルム反応）。クロロホルムは1831年に3人が別々に作り、1847年にシンプソンが麻酔に使った。今はフロンや PTFE の原料。PTFE の次の段（CHCl3 + 2HF → CHClF2）は五塩化アンチモンの触媒が要る（スワーツ反応、1890年代）。
+
+- へえ①：さらし粉のおかげで、布を白くするのに何か月も日に当てなくてよくなった。
+- へえ②：クロロホルムは昔の手術の麻酔。体に悪いので今は使わない。
+- へえ③：同じ年（1831）に、アメリカ・フランス・ドイツの3人が別々に作った。
+- へえ④：フッ素を付けるスワーツ反応は、アンチモンの化合物がフッ素を運ぶ役をする。
+
+確かさ：反応 ◎／テナント 1799・1831 の3人・シンプソン 1847 ◎／スワーツ反応の SbCl5 触媒 ◎
+根拠：
+- Wikipedia「Bleaching powder」/「Calcium hypochlorite」：https://en.wikipedia.org/wiki/Calcium_hypochlorite
+- Wikipedia「Chloroform」（歴史・ハロホルム反応）：https://en.wikipedia.org/wiki/Chloroform
+- Wikipedia「Chlorodifluoromethane」（製法）：https://en.wikipedia.org/wiki/Chlorodifluoromethane
+- Wikipedia「Swarts fluorination」：https://en.wikipedia.org/wiki/Swarts_fluorination
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
