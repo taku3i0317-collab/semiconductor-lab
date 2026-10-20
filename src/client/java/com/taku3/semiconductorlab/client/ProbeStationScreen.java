@@ -38,6 +38,7 @@ public class ProbeStationScreen extends MachineScreen {
         addRenderableWidget(Button.builder(Component.translatable("gui.semiconductor-lab.probe_station.probe"),
                 b -> press(BTN_PROBE)).bounds(leftPos + RIGHT_X, topPos + PROBE_Y, 78, 14).build());
         addRenderableWidget(Button.builder(Component.literal("▶"), b -> press(BTN_CHALLENGE)).bounds(leftPos + CHIP_X, topPos + 134, 16, 14).build());   // 次のお題
+        addRenderableWidget(Button.builder(Component.literal("?"), b -> press(BTN_HINT)).bounds(leftPos + CHIP_X, topPos + 150, 16, 12).build());   // ヒントを1段開く
     }
 
     private void press(int id) {

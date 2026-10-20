@@ -400,8 +400,8 @@ probe_station_en_us challenge litho.semiconductor-lab.challenge.nand.goal w=217 
 probe_station_en_us challenge litho.semiconductor-lab.challenge.and.goal w=215 lines=2/2
 probe_station_en_us challenge litho.semiconductor-lab.challenge.xor.goal w=250 lines=2/2
 probe_station_en_us challenge litho.semiconductor-lab.challenge.half_adder.goal w=232 lines=2/2
-probe_station_en_us result gui.semiconductor-lab.probe_station.result_none w=169 lines=1/1 scale=0.9
-probe_station_en_us result gui.semiconductor-lab.probe_station.result_missing w=188 lines=1/1 scale=0.84999996
+probe_station_en_us result gui.semiconductor-lab.probe_station.result_none w=169 lines=1/1 scale=0.84999996
+probe_station_en_us result gui.semiconductor-lab.probe_station.result_missing w=188 lines=1/1 scale=0.74999994
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_rows w=91 lines=1/1
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_pass w=87 lines=1/1
 wafer_saw_en_us power gui.semiconductor-lab.wafer_saw.power w=75 lines=1/1
@@ -919,7 +919,7 @@ probe_station_ja_jp challenge litho.semiconductor-lab.challenge.and.goal w=177 l
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.xor.goal w=252 lines=2/2
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.half_adder.goal w=231 lines=2/2
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_none w=117 lines=1/1
-probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_missing w=163 lines=1/1 scale=0.95
+probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_missing w=163 lines=1/1 scale=0.84999996
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_rows w=93 lines=1/1
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_pass w=54 lines=1/1
 wafer_saw_ja_jp power gui.semiconductor-lab.wafer_saw.power w=63 lines=1/1

@@ -8,7 +8,13 @@
       "translate": "litho.semiconductor-lab.challenge.not"
     },
     "description": {
-      "translate": "litho.semiconductor-lab.challenge.not.goal"
+      "translate": "litho.semiconductor-lab.challenge.not.goal",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "litho.semiconductor-lab.challenge.not.history"
+        }
+      ]
     },
     "frame": "goal",
     "show_toast": true,

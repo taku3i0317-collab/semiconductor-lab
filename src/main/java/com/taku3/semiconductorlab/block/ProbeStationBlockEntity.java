@@ -43,7 +43,9 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     /** 数値：0〜11＝パッドの状態、12＝このチップで見つかった発見（ビット）、13＝調べたか、14＝お題の番号、15＝お題の結果（{@link #encodeResult}） */
     public static final int DATA_FOUND = MAX_PADS, DATA_PROBED = MAX_PADS + 1, DATA_CHALLENGE = MAX_PADS + 2, DATA_RESULT = MAX_PADS + 3, DATA_COUNT = MAX_PADS + 4;
     /** ボタン：パッド i の状態を順に変える（0〜11）、調べる、次のお題 */
-    public static final int BTN_PROBE = 20, BTN_CHALLENGE = 21;
+    public static final int BTN_PROBE = 20, BTN_CHALLENGE = 21, BTN_HINT = 22;
+    /** ヒントの段（①どう動けばいいか ②大事な考え方 ③形の一部 ④歴史の本物の回路図） */
+    public static final int HINTS = 4;
     /** お題の結果の数値：0＝まだ、1＝パッドの役目が足りない、2 以上＝2 + 合った行×16 + 全部の行 */
     public static final int RESULT_NONE = 0, RESULT_MISSING = 1;
     public static int encodeResult(com.taku3.semiconductorlab.litho.Challenge.Result r) { return r.missingRoles() ? RESULT_MISSING : 2 + r.rowsOk() * 16 + r.rows(); }
@@ -65,7 +67,8 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                 // お題（v0.3b、S-005）：左下にボタン、その右に動きの説明（2行）、下に結果
                 .area("challenge_button", CHIP_X, 134, 16, 14)
                 .lazyText("challenge", CHIP_X + 20, 134, 144, 2, () -> com.taku3.semiconductorlab.litho.Challenge.all().stream().map(com.taku3.semiconductorlab.litho.Challenge.Def::goalKey).toList()).fit()
-                .text("result", CHIP_X, 153, 160, 1, MachineLayout.keys("gui.semiconductor-lab.probe_station.", "result_none", "result_missing", "result_rows", "result_pass")).samples("4", "4").fit()
+                .area("hint_button", CHIP_X, 150, 16, 12)
+                .text("result", CHIP_X + 20, 153, 144, 1, MachineLayout.keys("gui.semiconductor-lab.probe_station.", "result_none", "result_missing", "result_rows", "result_pass")).samples("4", "4").fit()
                 .build();
     }
 
@@ -74,6 +77,8 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     };
     private final int[] pads = new int[MAX_PADS];
     private int found, probed, challenge, result;
+    /** 今のお題で開いたヒントの段（0＝まだ）。お題を変えると 0 */
+    private int hintLevel;
     /** パッドの状態を合わせたウェハーの中身（変わったらパッドを元に戻す） */
     private ChipState lastState;
 
@@ -91,6 +96,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     public int found() { return found; }
     public int challenge() { return challenge; }
     public int result() { return result; }
+    public int hintLevel() { return hintLevel; }
 
     private void changed() {
         ChipState s = container.getItem(SLOT_WAFER).get(ModDataComponents.CHIP_STATE);
@@ -173,6 +179,19 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
             if (player instanceof ServerPlayer sp && !unlocked(sp, next)) next = 0;
             challenge = next;
             result = RESULT_NONE;
+            hintLevel = 0;
+            setChanged();
+            return true;
+        }
+        if (id == BTN_HINT) {   // ヒントを1段ずつ自分で開く（§11.4）。開いたことは進捗 hint/<id> に残る（自力の発見ではなくなる）
+            var def = com.taku3.semiconductorlab.litho.Challenge.byIndex(challenge);
+            if (def == null || hintLevel >= HINTS) return false;
+            hintLevel++;
+            if (player instanceof ServerPlayer sp && level != null && level.getServer() != null) {
+                sp.sendSystemMessage(Component.translatable(def.langKey() + ".hint" + hintLevel));
+                AdvancementHolder used = level.getServer().getAdvancements().get(SemiconductorLab.id("hint/" + def.id()));
+                if (used != null && !sp.getAdvancements().getOrStartProgress(used).isDone()) sp.getAdvancements().award(used, "opened");
+            }
             setChanged();
             return true;
         }
@@ -206,6 +225,14 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                     if (adv != null && !sp.getAdvancements().getOrStartProgress(adv).isDone()) {
                         sp.getAdvancements().award(adv, "solved");
                         sp.sendSystemMessage(Component.translatable("litho.semiconductor-lab.challenge.solved", Component.translatable(def.langKey())));
+                        AdvancementHolder used = level.getServer().getAdvancements().get(SemiconductorLab.id("hint/" + def.id()));
+                        boolean self = used == null || !sp.getAdvancements().getOrStartProgress(used).isDone();
+                        if (self) {   // ヒントを見ずに解いた＝自力で発見（§11.4）
+                            AdvancementHolder own = level.getServer().getAdvancements().get(SemiconductorLab.id("self/" + def.id()));
+                            if (own != null) sp.getAdvancements().award(own, "self");
+                            sp.sendSystemMessage(Component.translatable("litho.semiconductor-lab.challenge.self", Component.translatable(def.langKey())));
+                        }
+                        sp.sendSystemMessage(Component.translatable(def.langKey() + ".history"));   // 歴史とつなぐ（§11.5）
                         ItemStack stamp = stampOf(container.getItem(SLOT_WAFER), def.id());   // 見つけた物はハンコになる（§11.3）
                         if (!stamp.isEmpty() && !sp.getInventory().add(stamp)) net.minecraft.world.level.block.Block.popResource(level, worldPosition.above(), stamp);
                     }
@@ -220,7 +247,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     @Override protected void saveAdditional(ValueOutput out) {
         super.saveAdditional(out);
         ContainerHelper.saveAllItems(out, container.getItems());
-        out.putIntArray("Pads", pads.clone()); out.putInt("Found", found); out.putInt("Probed", probed); out.putInt("Challenge", challenge); out.putInt("Result", result);
+        out.putIntArray("Pads", pads.clone()); out.putInt("Found", found); out.putInt("Probed", probed); out.putInt("Challenge", challenge); out.putInt("Result", result); out.putInt("HintLevel", hintLevel);
     }
     @Override protected void loadAdditional(ValueInput in) {
         super.loadAdditional(in);
@@ -228,7 +255,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
         ContainerHelper.loadAllItems(in, container.getItems());
         int[] p = in.getIntArray("Pads").orElse(new int[0]);
         for (int i = 0; i < MAX_PADS; i++) pads[i] = i < p.length ? p[i] : OPEN;
-        found = in.getIntOr("Found", 0); probed = in.getIntOr("Probed", 0); challenge = in.getIntOr("Challenge", 0); result = in.getIntOr("Result", 0);
+        found = in.getIntOr("Found", 0); probed = in.getIntOr("Probed", 0); challenge = in.getIntOr("Challenge", 0); result = in.getIntOr("Result", 0); hintLevel = in.getIntOr("HintLevel", 0);
         lastState = container.getItem(SLOT_WAFER).get(ModDataComponents.CHIP_STATE);
     }
 }

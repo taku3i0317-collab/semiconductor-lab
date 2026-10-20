@@ -8,7 +8,13 @@
       "translate": "litho.semiconductor-lab.challenge.half_adder"
     },
     "description": {
-      "translate": "litho.semiconductor-lab.challenge.half_adder.goal"
+      "translate": "litho.semiconductor-lab.challenge.half_adder.goal",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "litho.semiconductor-lab.challenge.half_adder.history"
+        }
+      ]
     },
     "frame": "goal",
     "show_toast": true,

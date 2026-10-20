@@ -1665,6 +1665,16 @@ public class SemiconductorTests extends LabTestBase {
         int res = probe.result();
         h.assertTrue(res >= 2 && (res - 2) / 16 == (res - 2) % 16, "the probe station solves the NOT challenge, result " + res);
         h.assertTrue(h.getLevel().getServer().getAdvancements().get(com.taku3.semiconductorlab.SemiconductorLab.id("challenge/not")) != null, "advancement challenge/not exists");
+        // ヒント（§11.4）：? で1段ずつ、4段まで。自力の発見・ヒントを開いた記録の進捗がそろっている。歴史の文（§11.5）
+        var ja = langJson("ja_jp");
+        for (var cd : com.taku3.semiconductorlab.litho.Challenge.all()) {
+            for (String s : new String[] {"self/", "hint/", "challenge/"})
+                h.assertTrue(h.getLevel().getServer().getAdvancements().get(com.taku3.semiconductorlab.SemiconductorLab.id(s + cd.id())) != null, "advancement " + s + cd.id());
+            for (int k = 1; k <= com.taku3.semiconductorlab.block.ProbeStationBlockEntity.HINTS; k++) h.assertTrue(ja.has(cd.langKey() + ".hint" + k), "hint " + k + " of " + cd.id());
+            h.assertTrue(ja.has(cd.langKey() + ".history"), "history of " + cd.id());
+        }
+        for (int k = 0; k < 6; k++) probe.onButton(player, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_HINT);
+        h.assertValueEqual(probe.hintLevel(), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.HINTS, "hints open one step at a time, up to 4");
         LOG.info("[LAB] challenges: NOT solved by the NOT example (2/2 rows), NOR needs input B, swapped pins fail some rows; {} challenges defined", com.taku3.semiconductorlab.litho.Challenge.all().size());
         h.succeed();
     }
