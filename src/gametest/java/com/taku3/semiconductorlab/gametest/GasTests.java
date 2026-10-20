@@ -80,6 +80,27 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class GasTests extends LabTestBase {
+    /** [6-08] 希ガスの精留塔（IMP2 O-018）：酸素・窒素の袋を1つずつ → 32回で Kr 1袋、16回で Ne 1袋（Xe はもっと少ない）。新しいガスはボンベにも詰められる */
+    @GameTest(maxTicks = 300)
+    public void rare_gases(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "rare_gas_column", Gas.AIR_SEPARATION_UNIT.block.asItem()), "rare gas column after the air separation unit");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Gas.RARE_GAS_COLUMN.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.SLOT_O2, new ItemStack(Gas.OXYGEN_GAS, 64));
+        c.setItem(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.SLOT_N2, new ItemStack(Gas.NITROGEN_GAS, 64));
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.WATTS);
+        tickConsumer(h, at, be, (com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.TICKS + 1) * 33, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.SLOT_KR).is(Gas.KRYPTON_GAS) && c.getItem(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.SLOT_NE).getCount() >= 2, "33 runs -> 1 Kr, 2 Ne: " + c.getItem(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.SLOT_KR) + " " + c.getItem(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.SLOT_NE));
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.RareGasColumnBlockEntity.SLOT_XE).isEmpty(), "xenon is much rarer");
+        h.assertTrue(GasType.of(new ItemStack(Gas.KRYPTON_GAS)) == GasType.KRYPTON && GasType.NEON.cylinderItem() == Gas.NEON_CYLINDER && GasType.XENON.bagItem() == Gas.XENON_GAS, "new gas types with bags and cylinders");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"neon", "krypton", "xenon"}) h.assertTrue(ja.has("gui.semiconductor-lab.gas_holder.gas." + k), "gas holder name " + k);
+        LOG.info("[LAB] rare_gases [6-08]: 33 runs (33 O2 + 33 N2) -> Kr 1, Ne 2, Xe 0 (game-concentrated; air has Kr 1.1 ppm, Ne 18 ppm, Xe 0.09 ppm)");
+        h.succeed();
+    }
+
     // =====================================================================
     // 電解槽 [6-01]
     // =====================================================================

@@ -407,6 +407,13 @@ argon_gas  # Gas [6-07] 1895
 nitrogen_cylinder  # Gas [6-07] 1895
 argon_cylinder  # Gas [6-07] 1895
 air_separation_unit  # Gas [6-07] 1895
+neon_gas  # Gas [6-08] 1898
+krypton_gas  # Gas [6-08] 1898
+xenon_gas  # Gas [6-08] 1898
+neon_cylinder  # Gas [6-08] 1898
+krypton_cylinder  # Gas [6-08] 1898
+xenon_cylinder  # Gas [6-08] 1898
+rare_gas_column  # Gas [6-08] 1898
 hydrochloric_acid  # Gas [6-06] 1900
 hcl_burner  # Gas [6-06] 1900
 achromatic_lens  # Optics [7-04] 1608

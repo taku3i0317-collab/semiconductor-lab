@@ -53,6 +53,13 @@ public final class Gas {
     public static final Item ARGON_GAS             = Reg.contained("argon_gas", Vessel.GAS_BAG);         // アルゴン Ar。1袋＝約1mol
     public static final Item NITROGEN_CYLINDER     = Reg.contained("nitrogen_cylinder", Vessel.STEEL_CYLINDER); // 塗色はねずみ色（日本の規格「その他のガス」）
     public static final Item ARGON_CYLINDER        = Reg.contained("argon_cylinder", Vessel.STEEL_CYLINDER);    // 同じくねずみ色
+    // [6-08] 希ガス（IMP2 O-018）：希ガスの精留塔で液体空気の酸素・窒素のたまりから。1袋＝約1mol
+    public static final Item NEON_GAS              = Reg.contained("neon_gas", Vessel.GAS_BAG);
+    public static final Item KRYPTON_GAS           = Reg.contained("krypton_gas", Vessel.GAS_BAG);
+    public static final Item XENON_GAS             = Reg.contained("xenon_gas", Vessel.GAS_BAG);
+    public static final Item NEON_CYLINDER         = Reg.contained("neon_cylinder", Vessel.STEEL_CYLINDER);
+    public static final Item KRYPTON_CYLINDER      = Reg.contained("krypton_cylinder", Vessel.STEEL_CYLINDER);
+    public static final Item XENON_CYLINDER        = Reg.contained("xenon_cylinder", Vessel.STEEL_CYLINDER);
     // --- 塩（[6-04] 岩塩・[0-16] 塩田）。岩塩でも海水でも同じ NaCl ---
     public static final Item ROCK_SALT             = Reg.item("rock_salt");         // 岩塩の原石（蒸発岩、NaCl 95〜99%）
     public static final Item SALT                  = Reg.item("salt");              // 塩 NaCl（クロルアルカリ電解 [6-05] の原料）
@@ -70,6 +77,8 @@ public final class Gas {
     // 塩酸合成炉 [6-06]（酸水素バーナーの派生。石英の火口で水素を塩素中で燃やし H2 + Cl2 → 2HCl、吸収塔で水に溶かす）。ガス式（電気の受け口なし）。燃焼中は光る
     public static final Machine<HclBurnerBlockEntity> HCL_BURNER = Machine.builder("hcl_burner", HclBurnerBlockEntity::new)
             .ticker(HclBurnerBlockEntity::tick).layout(HclBurnerBlockEntity.LAYOUT).props(lit(metal(3.5f).sound(SoundType.GLASS), 10)).build();
+    // [6-08] 希ガスの精留塔（IMP2 O-018）：酸素1袋＋窒素1袋 → Kr・Xe・Ne を少しずつ（2kW）
+    public static final Machine<RareGasColumnBlockEntity> RARE_GAS_COLUMN = Machine.electric("rare_gas_column", RareGasColumnBlockEntity::new, RareGasColumnBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<AirSeparationBlockEntity> AIR_SEPARATION_UNIT = Machine.electric("air_separation_unit", AirSeparationBlockEntity::new, AirSeparationBlockEntity.LAYOUT, metal(3.5f));
     // 圧縮機 [6-03]（電動モーターのピストン圧縮機。隣のガスホルダーのガスを鋼のボンベに 50mol ずつ詰める）
     public static final Machine<CompressorBlockEntity> COMPRESSOR = Machine.electric("compressor", CompressorBlockEntity::new, CompressorBlockEntity.LAYOUT, metal(3.5f));

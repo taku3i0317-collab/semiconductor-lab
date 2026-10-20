@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SCS",
+    "SAS",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "C": "minecraft:copper_ingot",
+    "A": "semiconductor-lab:air_separation_unit"
+  },
+  "result": {
+    "id": "semiconductor-lab:rare_gas_column",
+    "count": 1
+  }
+}

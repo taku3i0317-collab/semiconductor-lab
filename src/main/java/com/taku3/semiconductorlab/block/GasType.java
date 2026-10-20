@@ -15,7 +15,11 @@ public enum GasType {
     OXYGEN(() -> Gas.OXYGEN_GAS, () -> Gas.OXYGEN_CYLINDER, "oxygen"),
     CHLORINE(() -> Gas.CHLORINE_GAS, () -> Gas.CHLORINE_CYLINDER, "chlorine"),
     NITROGEN(() -> Gas.NITROGEN_GAS, () -> Gas.NITROGEN_CYLINDER, "nitrogen"),
-    ARGON(() -> Gas.ARGON_GAS, () -> Gas.ARGON_CYLINDER, "argon");
+    ARGON(() -> Gas.ARGON_GAS, () -> Gas.ARGON_CYLINDER, "argon"),
+    // [6-08] 希ガス（IMP2 O-018）
+    NEON(() -> Gas.NEON_GAS, () -> Gas.NEON_CYLINDER, "neon"),
+    KRYPTON(() -> Gas.KRYPTON_GAS, () -> Gas.KRYPTON_CYLINDER, "krypton"),
+    XENON(() -> Gas.XENON_GAS, () -> Gas.XENON_CYLINDER, "xenon");
 
     private final java.util.function.Supplier<Item> bag;
     private final java.util.function.Supplier<Item> cylinder;

@@ -1665,6 +1665,20 @@
 - Wikipedia「Turbomolecular pump」：https://en.wikipedia.org/wiki/Turbomolecular_pump
 - Wikipedia「Diffusion pump」（Backstreaming）：https://en.wikipedia.org/wiki/Diffusion_pump
 
+## O59. 空気の中の「隠れたもの」（希ガス）［6-08］
+**答え**：空気の中にはネオン 18ppm・クリプトン 1.1ppm・キセノン 0.09ppm がほんの少しだけ入っている。1898年、ラムゼーとトラヴァースは液体空気をゆっくり蒸発させて、ネオン（新しい）・クリプトン（隠れた）・キセノン（よそ者）を見つけた。今は空気分離装置の副産物として、液体酸素の底（Kr・Xe）と窒素の上（Ne）から取り出す。
+
+- へえ①：エキシマレーザーのガスの大部分はネオン。
+- へえ②：1960〜1983年、1メートルはクリプトン86の光の波長で決められていた。
+- へえ③：希ガスはふつう何とも結びつかないが、放電で励起するとフッ素と一瞬だけ分子（KrF*）を作る。
+- へえ④：2022年、ネオンの供給不足が半導体工場の心配ごとになった。
+
+確かさ：1898 の発見 ◎／空気中の濃度 ◎／空気分離の副産物 ◎
+根拠：
+- Wikipedia「Krypton」：https://en.wikipedia.org/wiki/Krypton
+- Wikipedia「Neon」：https://en.wikipedia.org/wiki/Neon
+- Wikipedia「Xenon」：https://en.wikipedia.org/wiki/Xenon
+
 ---
 
 # 冶金と熱（タスク15〜）

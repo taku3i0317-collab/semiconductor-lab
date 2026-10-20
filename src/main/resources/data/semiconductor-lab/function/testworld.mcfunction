@@ -421,9 +421,12 @@ setblock ~28 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-07]
 setblock ~28 ~-1 ~50 semiconductor-lab:test_power_source
 setblock ~28 ~0 ~50 semiconductor-lab:air_separation_unit
 setblock ~29 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nitrogen_gas",count:16},{Slot:1b,id:"semiconductor-lab:argon_gas",count:16},{Slot:2b,id:"semiconductor-lab:nitrogen_cylinder",count:16},{Slot:3b,id:"semiconductor-lab:argon_cylinder",count:16}]}
-setblock ~32 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-06] 塩酸","（人間の確認項目なし）","",""]}}
-setblock ~32 ~0 ~50 semiconductor-lab:hcl_burner
-setblock ~33 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hydrochloric_acid",count:16},{Slot:1b,id:"semiconductor-lab:hydrogen_gas",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"minecraft:water_bucket",count:1},{Slot:4b,id:"semiconductor-lab:glass_bottle",count:16}]}
+setblock ~32 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-08] 希ガス精製","空気分離装置の酸素・窒","素の袋を希ガスの精留塔","に入れて、Kr・Ne "]}}
+setblock ~32 ~0 ~50 semiconductor-lab:rare_gas_column
+setblock ~33 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:neon_gas",count:16},{Slot:1b,id:"semiconductor-lab:krypton_gas",count:16},{Slot:2b,id:"semiconductor-lab:xenon_gas",count:16},{Slot:3b,id:"semiconductor-lab:neon_cylinder",count:16},{Slot:4b,id:"semiconductor-lab:krypton_cylinder",count:16},{Slot:5b,id:"semiconductor-lab:xenon_cylinder",count:16}]}
+setblock ~36 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-06] 塩酸","（人間の確認項目なし）","",""]}}
+setblock ~36 ~0 ~50 semiconductor-lab:hcl_burner
+setblock ~37 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hydrochloric_acid",count:16},{Slot:1b,id:"semiconductor-lab:hydrogen_gas",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"minecraft:water_bucket",count:1},{Slot:4b,id:"semiconductor-lab:glass_bottle",count:16}]}
 setblock ~0 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹7 光学","↓ この列","",""]}}
 setblock ~2 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-04] 屈折望遠鏡と色","屈折望遠鏡を右クリック","で押している間、バニラ","の望遠鏡と同じように視"]}}
 setblock ~2 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:achromatic_lens",count:16},{Slot:1b,id:"semiconductor-lab:refracting_telescope",count:1}]}
