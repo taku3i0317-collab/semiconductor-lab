@@ -458,6 +458,61 @@ public class SemiconductorTests extends LabTestBase {
     private static ItemStack withDopant(ItemStack s, String d) { s.set(ModDataComponents.DOPANT, d); return s; }
 
     // =====================================================================
+    // [9-14] 洗浄 段階1（IMP4-01）
+    // =====================================================================
+
+    /** NOT の例を、層ごとに「はがす → 洗浄槽で洗う」を入れて通す（汚れは毎回 0 に戻る）→ 4つの発見。レジストが付いていると洗えない、薬品・電気がないと止まる */
+    @GameTest(maxTicks = 300)
+    public void cleaningBench(GameTestHelper h) {
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.CLEANING_BENCH.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WATTS);
+        ServerLevel lv = h.getLevel();
+        java.util.function.UnaryOperator<ItemStack> wash = wf -> {
+            c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+            c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WAFER, wf.copy());
+            c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_NITRIC, new ItemStack(com.taku3.semiconductorlab.content.Gas.NITRIC_ACID));
+            c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_HF, new ItemStack(Chemistry.HYDROFLUORIC_ACID));
+            c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WATER, new ItemStack(Chemistry.DISTILLED_WATER));
+            tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS, feed);
+            return c.getItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT).copy();
+        };
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        int maxDirt = 0;
+        for (int i = 0; i < d.layers().size(); i++) {
+            var k = d.layers().get(i).kind();
+            w = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+            if (i == 0) h.assertTrue(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.product(w).isEmpty(), "resist on -> cannot clean");
+            w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(w, d.mask(i), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+            if (k == com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.etchMetal(w).out(); else w = com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.strip(w).out();
+            if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
+            else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
+            maxDirt = Math.max(maxDirt, com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination());
+            ItemStack cleaned = wash.apply(w);
+            h.assertTrue(cleaned.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(cleaned).contamination() == 0, "layer " + i + ": bench cleans 8 wafers to 0, got " + cleaned);
+            w = cleaned;
+        }
+        h.assertTrue(maxDirt > 0, "dirt builds up between cleanings");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), 4, "cleaned NOT example still gives 4 discoveries");
+        // 薬品なしでは動かない
+        c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        ItemStack dirty = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out()).out();
+        c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_WAFER, dirty.copy());
+        c.setItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_NITRIC, ItemStack.EMPTY);
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.SLOT_OUT).isEmpty(), "no nitric acid -> nothing");
+        lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] cleaning [9-14] stage 1: nitric + HF + distilled water clean 8 wafers to dirt 0 after every layer (max dirt {}); NOT example -> 4 discoveries", maxDirt);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 
@@ -873,6 +928,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WAFERS_PER_RUN), "膜 約660nm（1100℃・1時間）"), io(Items.BUCKET, 1)), com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS / 20.0, "Si + 2H2O → SiO2 + 2H2。水蒸気は膜を速く通る");
         rec(a, Semiconductor.ETCH_TANK.block, "酸化膜をはがす", L(cond(io(Semiconductor.OXIDIZED_WAFER, com.taku3.semiconductorlab.block.EtchTankBlockEntity.WAFERS_PER_RUN), "時間は膜の厚さ（1秒に20nm）"), io(Chemistry.HYDROFLUORIC_ACID, 1)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.EtchTankBlockEntity.WAFERS_PER_RUN), "純度とドーパントを受け継ぐ"), io(Metallurgy.LEAD_BOTTLE, 1)), 0, com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(125) / 20.0, "SiO2 + 6HF → H2SiF6 + 2H2O。シリコンは溶けない。室温・電気なし（125nm の膜の時間）");
+        rec(a, Semiconductor.CLEANING_BENCH.block, "洗浄（段階1）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WAFERS_PER_RUN), "1〜8枚、レジストなし"), io(com.taku3.semiconductorlab.content.Gas.NITRIC_ACID, 1), io(Chemistry.HYDROFLUORIC_ACID, 1), io(Chemistry.DISTILLED_WATER, 1)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WAFERS_PER_RUN), "汚れ 0")), com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.WATTS, com.taku3.semiconductorlab.block.CleaningBenchBlockEntity.TICKS / 20.0, "熱い硝酸で煮る → フッ酸 → 蒸留水ですすぐ（1950年代）");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

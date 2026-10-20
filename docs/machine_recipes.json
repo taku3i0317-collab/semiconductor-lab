@@ -318,6 +318,40 @@
       "note": "アルゴンの中で溶かし（1418℃）、ゆっくり下げて下から結晶化"
     },
     {
+      "machine": "semiconductor-lab:cleaning_bench",
+      "process": "洗浄（段階1）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "1〜8枚、レジストなし"
+        },
+        {
+          "item": "semiconductor-lab:nitric_acid",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrofluoric_acid",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:distilled_water",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "汚れ 0"
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 40.0,
+      "energy_kj": 40,
+      "note": "熱い硝酸で煮る → フッ酸 → 蒸留水ですすぐ（1950年代）"
+    },
+    {
       "machine": "semiconductor-lab:compressor",
       "process": "ボンベに詰める",
       "inputs": [

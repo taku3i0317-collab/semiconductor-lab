@@ -73,6 +73,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(com.taku3.semiconductorlab.content.Metallurgy.HALL_HEROULT_CELL, HallHeroultCellScreen::new);
 		screen(Semiconductor.ETCH_TANK, EtchTankScreen::new);
 		screen(Semiconductor.WAFER_POLISHER, WaferPolisherScreen::new);
+		screen(Semiconductor.CLEANING_BENCH, CleaningBenchScreen::new);
 		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);
 		screen(Semiconductor.CZ_PULLER, CzPullerScreen::new);
 		// 専用の画面を書いていない機械は、ふつうの画面（電力・進み具合・状態）

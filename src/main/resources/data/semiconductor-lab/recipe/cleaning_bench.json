@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "L L",
+    "LCL",
+    "LLL"
+  ],
+  "key": {
+    "L": "semiconductor-lab:lead_ingot",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:cleaning_bench",
+    "count": 1
+  }
+}

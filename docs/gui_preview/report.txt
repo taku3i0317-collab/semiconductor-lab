@@ -341,6 +341,13 @@ wafer_polisher_en_us hint gui.semiconductor-lab.wafer_polisher.need_power w=90 l
 wafer_polisher_en_us hint gui.semiconductor-lab.wafer_polisher.running w=43 lines=1/4
 wafer_polisher_en_us hint gui.semiconductor-lab.wafer_polisher.too_many w=131 lines=3/4
 wafer_polisher_en_us recipe gui.semiconductor-lab.wafer_polisher.recipe w=161 lines=1/1 scale=0.6499999
+cleaning_bench_en_us power gui.semiconductor-lab.cleaning_bench.power w=75 lines=1/1
+cleaning_bench_en_us hint gui.semiconductor-lab.cleaning_bench.need_input w=153 lines=3/4
+cleaning_bench_en_us hint gui.semiconductor-lab.cleaning_bench.resist_on w=105 lines=2/4
+cleaning_bench_en_us hint gui.semiconductor-lab.cleaning_bench.no_dirt w=70 lines=1/4
+cleaning_bench_en_us hint gui.semiconductor-lab.cleaning_bench.need_power w=90 lines=2/4
+cleaning_bench_en_us hint gui.semiconductor-lab.cleaning_bench.running w=41 lines=1/4
+cleaning_bench_en_us recipe gui.semiconductor-lab.cleaning_bench.recipe w=96 lines=1/1
 crystal_puller_en_us power gui.semiconductor-lab.crystal_puller.power w=69 lines=1/1
 crystal_puller_en_us stored gui.semiconductor-lab.crystal_puller.stored w=65 lines=1/1
 crystal_puller_en_us hint gui.semiconductor-lab.crystal_puller.need_seed w=197 lines=3/3
@@ -691,6 +698,13 @@ wafer_polisher_ja_jp hint gui.semiconductor-lab.wafer_polisher.need_power w=63 l
 wafer_polisher_ja_jp hint gui.semiconductor-lab.wafer_polisher.running w=54 lines=1/4
 wafer_polisher_ja_jp hint gui.semiconductor-lab.wafer_polisher.too_many w=78 lines=2/4
 wafer_polisher_ja_jp recipe gui.semiconductor-lab.wafer_polisher.recipe w=124 lines=1/1 scale=0.84999996
+cleaning_bench_ja_jp power gui.semiconductor-lab.cleaning_bench.power w=63 lines=1/1
+cleaning_bench_ja_jp hint gui.semiconductor-lab.cleaning_bench.need_input w=162 lines=3/4
+cleaning_bench_ja_jp hint gui.semiconductor-lab.cleaning_bench.resist_on w=90 lines=2/4
+cleaning_bench_ja_jp hint gui.semiconductor-lab.cleaning_bench.no_dirt w=45 lines=1/4
+cleaning_bench_ja_jp hint gui.semiconductor-lab.cleaning_bench.need_power w=63 lines=1/4
+cleaning_bench_ja_jp hint gui.semiconductor-lab.cleaning_bench.running w=45 lines=1/4
+cleaning_bench_ja_jp recipe gui.semiconductor-lab.cleaning_bench.recipe w=122 lines=1/1 scale=0.9
 crystal_puller_ja_jp power gui.semiconductor-lab.crystal_puller.power w=57 lines=1/1
 crystal_puller_ja_jp stored gui.semiconductor-lab.crystal_puller.stored w=49 lines=1/1
 crystal_puller_ja_jp hint gui.semiconductor-lab.crystal_puller.need_seed w=114 lines=2/3

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/cleaning_bench_front",
+    "side": "semiconductor-lab:block/cleaning_bench_side",
+    "top": "semiconductor-lab:block/cleaning_bench_top"
+  }
+}
