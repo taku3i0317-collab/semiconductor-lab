@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:chromium_oxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ruby_feed",
+    "count": 8
+  }
+}

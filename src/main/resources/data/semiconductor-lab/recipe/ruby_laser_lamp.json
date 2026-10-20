@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ruby_laser",
+    "semiconductor-lab:xenon_flashlamp"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ruby_laser",
+    "count": 1
+  }
+}

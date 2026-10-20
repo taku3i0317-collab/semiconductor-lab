@@ -1775,6 +1775,20 @@
 - Wikipedia「Excimer laser」：https://en.wikipedia.org/wiki/Excimer_laser
 - Wikipedia「Photolithography」（Excimer laser lithography）：https://en.wikipedia.org/wiki/Photolithography
 
+## O62. 宝石が光った最初のレーザー（ルビーレーザー）［7-13］
+**答え**：1960年、ヒューズ研究所のセオドア・メイマンは、クロムを少し含むルビーの棒にらせん形のキセノン閃光ランプを巻きつけ、強い閃光で照らして、694nm の赤い光のパルスを出した。これが最初のレーザー。考え方の元は1917年のアインシュタインの「誘導放出」と、1954年のタウンズのメーザー（マイクロ波）。人工ルビーは1902年のベルヌーイの炎溶融法で作れた。
+
+- へえ①：最初のレーザーは宝石のルビーで光った。
+- へえ②：レーザーの光は色の幅がとても狭く、波がそろったまま遠くまで続く（干渉の縞がずっと見える）。
+- へえ③：発明したときは「使い道を探している発明」と言われたが、今はバーコード・光通信・手術・半導体の露光にまで使う。
+- へえ④：ルビーは3準位なので、原子の半分以上を上の状態に上げる強い閃光が要った（反転分布）。
+
+確かさ：1960 メイマン・694nm ◎／1917 アインシュタイン・1954 タウンズ ◎／1902 ベルヌーイ ◎／コヒーレンス長の数字 △（ゲームの値）
+根拠：
+- Wikipedia「Ruby laser」：https://en.wikipedia.org/wiki/Ruby_laser
+- Wikipedia「Verneuil method」：https://en.wikipedia.org/wiki/Verneuil_method
+- Wikipedia「Theodore Maiman」：https://en.wikipedia.org/wiki/Theodore_Maiman
+
 ---
 
 # 冶金と熱（タスク15〜）

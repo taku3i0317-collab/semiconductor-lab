@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LFL",
+    "MRM",
+    "ITI"
+  ],
+  "key": {
+    "L": "semiconductor-lab:leyden_jar",
+    "F": "semiconductor-lab:xenon_flashlamp",
+    "M": "semiconductor-lab:silvered_mirror",
+    "R": "semiconductor-lab:ruby_rod",
+    "I": "minecraft:iron_ingot",
+    "T": "semiconductor-lab:transformer"
+  },
+  "result": {
+    "id": "semiconductor-lab:ruby_laser",
+    "count": 1
+  }
+}

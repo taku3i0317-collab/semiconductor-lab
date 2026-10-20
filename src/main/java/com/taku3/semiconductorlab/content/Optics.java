@@ -93,6 +93,14 @@ public final class Optics {
     public static final Item KRF_LASER             = Reg.item("krf_laser", new Item.Properties().durability(KRF_LASER_SHOTS));
     // KrF の投影レンズ：248nm を通すのは石英と CaF2 だけ。NA 0.8・解像度を上げる工夫（位相シフトマスクなど）で k1 0.35⚠️
     public static final Item PROJECTION_LENS_KRF   = Reg.item("projection_lens_krf", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.KRF, 0.8, 0.35), new Item.Properties().stacksTo(1));
+    // [7-13] ルビーレーザー（IMP2 O-019、1960 メイマン）：アルミナ＋少しの酸化クロム → 酸水素炎で溶かして落とす（ベルヌーイ法 1902）→ ルビーの単結晶
+    // → 両端に銀の鏡 → ルビーの棒。キセノンの閃光ランプ（石英管＋Xe＋W電極）で照らして 694.3nm の赤いパルス。耐久＝閃光ランプの残り
+    public static final Item RUBY_FEED             = Reg.item("ruby_feed");        // アルミナ＋酸化クロムの粉（Al2O3:Cr）
+    public static final Item RUBY_BOULE            = Reg.item("ruby_boule");       // 炎で育てたルビーの単結晶（ブール）
+    public static final Item RUBY_ROD              = Reg.item("ruby_rod", new Item.Properties().stacksTo(1));
+    public static final Item XENON_FLASHLAMP       = Reg.item("xenon_flashlamp", new Item.Properties().stacksTo(16));
+    public static final int RUBY_LAMP_SHOTS = 100;
+    public static final Item RUBY_LASER            = Reg.item("ruby_laser", RubyLaserItem::new, new Item.Properties().durability(RUBY_LAMP_SHOTS));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));

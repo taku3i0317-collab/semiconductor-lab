@@ -629,6 +629,43 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-13] ルビーレーザー（IMP2 O-019）：Al2O3:Cr を炎で単結晶に → 銀の鏡 → キセノン閃光ランプ。1発ごとに電池から 1kJ。干渉計で水銀灯と比べる。反射は事故 */
+    @GameTest(maxTicks = 100)
+    public void ruby_laser(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "ruby_feed", Metallurgy.ALUMINA) && recipeUses(h, "ruby_feed", Metallurgy.CHROMIUM_OXIDE), "ruby = alumina + a little chromium oxide");
+        h.assertTrue(OxyhydrogenBurnerBlockEntity.productOf(new ItemStack(Optics.RUBY_FEED)).is(Optics.RUBY_BOULE), "Verneuil: powder through the oxyhydrogen flame -> ruby boule");
+        h.assertTrue(recipeUses(h, "xenon_flashlamp", com.taku3.semiconductorlab.content.Gas.XENON_GAS) && recipeUses(h, "ruby_laser", Optics.XENON_FLASHLAMP)
+                && recipeUses(h, "ruby_laser", Optics.RUBY_ROD) && recipeUses(h, "ruby_laser", com.taku3.semiconductorlab.content.Power.LEYDEN_JAR), "laser = ruby rod + xenon flashlamp + capacitors");
+        double hg = com.taku3.semiconductorlab.item.RubyLaserItem.mirrorRangeMm(com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM, com.taku3.semiconductorlab.item.RubyLaserItem.HG_WIDTH_NM), ruby = com.taku3.semiconductorlab.item.RubyLaserItem.mirrorRangeMm(com.taku3.semiconductorlab.item.RubyLaserItem.RUBY_NM, com.taku3.semiconductorlab.item.RubyLaserItem.RUBY_WIDTH_NM);
+        h.assertTrue(ruby > 50 * hg, "laser light stays coherent far longer than the mercury lamp: " + ruby + " mm vs " + hg + " mm");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack laser = new ItemStack(Optics.RUBY_LASER);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, laser);
+        player.getInventory().setItem(9, new ItemStack(com.taku3.semiconductorlab.content.Power.LEAD_ACID_BATTERY.block.asItem()));
+        ItemStack bat = player.getInventory().getItem(9);
+        bat.set(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY, com.taku3.semiconductorlab.item.RubyLaserItem.PULSE_J + 500);
+        Optics.RUBY_LASER.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertValueEqual(bat.get(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY), 500L, "one pulse = 1 kJ from the battery");
+        h.assertValueEqual(laser.getDamageValue(), 1, "one flash of the lamp");
+        Optics.RUBY_LASER.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertValueEqual(laser.getDamageValue(), 1, "battery too low -> no pulse");
+        // 事故：ガラスに当てると反射が目に入る（撃った本人だけ）。石では起きない
+        bat.set(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY, com.taku3.semiconductorlab.item.RubyLaserItem.PULSE_J * 3);
+        BlockPos glass = p(2, 1, 2), stone = p(4, 1, 2);
+        h.setBlock(glass, net.minecraft.world.level.block.Blocks.GLASS);
+        h.setBlock(stone, net.minecraft.world.level.block.Blocks.STONE);
+        for (BlockPos rel : new BlockPos[]{stone, glass}) {
+            BlockPos a = h.absolutePos(rel);
+            Optics.RUBY_LASER.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND,
+                    new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(a), net.minecraft.core.Direction.NORTH, a, false)));
+            boolean blind = player.hasEffect(net.minecraft.world.effect.MobEffects.BLINDNESS);
+            h.assertTrue(rel == glass ? blind : !blind, rel == glass ? "reflection from glass -> blinded for a few seconds" : "matt stone -> no reflection");
+        }
+        h.assertValueEqual(laser.getDamageValue(), 3, "each shot uses the lamp");
+        LOG.info("[LAB] ruby laser [7-13]: Verneuil ruby + xenon flashlamp, 1 kJ per pulse; fringes over " + Math.round(ruby) + " mm (laser) vs " + String.format(java.util.Locale.ROOT, "%.2f", hg) + " mm (Hg lamp); glass reflection blinds the shooter");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "合成石英を作る", L(io(Metallurgy.SILICON_TETRACHLORIDE, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
@@ -637,6 +674,8 @@ public class OpticsTests extends LabTestBase {
             L(io(Optics.PHOTOMASK, 1)), com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.WATTS, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.TICKS / 20.0, "照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）");
         rec(a, Optics.BRIDGMAN_FURNACE.block, "CaF2 の単結晶を育てる", L(io(Metallurgy.FLUORITE, 4), io(com.taku3.semiconductorlab.content.Gas.ARGON_GAS, 1)),
             L(io(Optics.CAF2_CRYSTAL, 1)), com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.BridgmanFurnaceBlockEntity.TICKS / 20.0, "アルゴンの中で溶かし（1418℃）、ゆっくり下げて下から結晶化");
+        rec(a, Optics.OXYHYDROGEN_BURNER.block, "ルビーの単結晶を育てる", L(io(Optics.RUBY_FEED, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
+            L(io(Optics.RUBY_BOULE, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "Al2O3:Cr の粉を炎に落として溶かし、種の上に積もらせる（ベルヌーイ法 1902、約2050℃）");
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
             L(io(Optics.FUSED_QUARTZ, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "2H2 + O2 → 2H2O（約2800℃）。電気なし");
     }

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "M",
+    "B",
+    "M"
+  ],
+  "key": {
+    "M": "semiconductor-lab:silvered_mirror",
+    "B": "semiconductor-lab:ruby_boule"
+  },
+  "result": {
+    "id": "semiconductor-lab:ruby_rod",
+    "count": 1
+  }
+}

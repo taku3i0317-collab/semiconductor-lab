@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:quartz_tube",
+    "semiconductor-lab:xenon_gas",
+    "semiconductor-lab:tungsten_wire",
+    "semiconductor-lab:tungsten_wire"
+  ],
+  "result": {
+    "id": "semiconductor-lab:xenon_flashlamp",
+    "count": 1
+  }
+}

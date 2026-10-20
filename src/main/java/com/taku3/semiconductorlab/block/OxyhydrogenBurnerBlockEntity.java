@@ -87,6 +87,7 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
     public static ItemStack productOf(ItemStack in) {
         if (in.is(Metallurgy.VEIN_QUARTZ)) return new ItemStack(Optics.FUSED_QUARTZ);
         if (in.is(Metallurgy.SILICON_TETRACHLORIDE)) return new ItemStack(Optics.SYNTHETIC_QUARTZ);
+        if (in.is(Optics.RUBY_FEED)) return new ItemStack(Optics.RUBY_BOULE);   // [7-13] ベルヌーイ法 1902：粉を炎に落として溶かし、下の種の上に積もらせて単結晶に
         return ItemStack.EMPTY;
     }
 

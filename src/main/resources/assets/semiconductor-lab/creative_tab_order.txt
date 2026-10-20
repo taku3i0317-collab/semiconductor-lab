@@ -483,6 +483,11 @@ ferrous_sulfate  # Optics [7-11] 1960
 hypo_liquor  # Optics [7-11] 1960
 sodium_thiosulfate  # Optics [7-11] 1960
 photomask  # Optics [7-11] 1960
+ruby_feed  # Optics [7-13] 1960
+ruby_boule  # Optics [7-13] 1960
+ruby_rod  # Optics [7-13] 1960
+xenon_flashlamp  # Optics [7-13] 1960
+ruby_laser  # Optics [7-13] 1960
 reduction_camera  # Optics [7-11] 1960
 chrome_blank  # Optics [7-12] 1970
 chrome_photomask  # Optics [7-12] 1970
