@@ -860,7 +860,7 @@
    "name": "荷車",
    "trunk": "0",
    "trunk_name": "生存・道具",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -3500,
    "year_range": "-3500〜-3000",
@@ -873,10 +873,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "牛に引かせた四輪の車。車軸には動物の脂を塗ってすべらせた",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -2961,7 +2961,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F8. 金より高かった金属を電気で（ホール・エルー法・アルミニウム）［1-29］（［9-25］Al 配線の前提）",
+     "answer": "約960℃で溶かした氷晶石にアルミナを溶かし、炭素の電極で直流の大電流を流すと、アルミニウムが槽の底にたまる（2Al₂O₃ + 3C → 4Al + 3CO₂）。陽極の炭素は燃えて減る。アルミ1kg に約13〜15kWh。1886年にホールとエルーが別々に発明した。",
+     "hee": {
+      "1": "それまでアルミは金より高く、ナポレオン3世が来賓用の食器にした（と伝えられる）。",
+      "2": "ホール（米）とエルー（仏）は同じ1886年に同じ方法を見つけ、二人とも1863年生まれ・1914年没。",
+      "3": "アルミは「電気の缶詰」。工場は水力発電の近くに建てられ、リサイクルは新しく作る電気の約5%ですむ。",
+      "4": "1959年のノイスの IC はアルミを蒸着して配線した。1990年代に銅に変わるまで IC の配線はアルミ。"
+     },
+     "certainty": "反応・浴・陽極・電力量 ◎（ブリタニカ、International Aluminium Institute）／ホールとエルーの生没年 ◎／ナポレオン3世の食器 ○（よく引かれる逸話）／リサイクル約5% ◎",
+     "basis": "ブリタニカ「Hall–Héroult process」https://www.britannica.com/technology/Hall-Heroult-process 、ACS National Historic Chemical Landmark「Production of Aluminum: The Hall-Héroult Process」https://www.acs.org/education/whatischemistry/landmarks/aluminumprocess.html 、International Aluminium Institute https://international-aluminium.org/ （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -2971,7 +2984,7 @@
    "name": "アルミニウム",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1886,
    "year_range": null,
@@ -2999,10 +3012,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "それまでアルミは金より高く、ナポレオン3世が来賓用の食器にした",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -4334,7 +4347,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ところてんのように押し出すと、同じ形の長いアルミの棒ができる（S-001 で追加。出典：Wikipedia「Extrusion」、Grace's Guide「Extruded Metal Co」）",
    "kind": "tech",
    "play": "",
@@ -6963,7 +6976,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "大きな原子を小さなすき間に押しこむと、ガラスの表面が締まって割れにくくなる（S-003 で追加。出典：Corning「Innovations」、WIRED「The Glass That Saved Corning」、Wikipedia「Chemically strengthened glass」）",
    "kind": "tech",
    "play": "",
@@ -16611,7 +16624,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F8. 金より高かった金属を電気で（ホール・エルー法・アルミニウム）［1-29］（［9-25］Al 配線の前提）",
+     "answer": "約960℃で溶かした氷晶石にアルミナを溶かし、炭素の電極で直流の大電流を流すと、アルミニウムが槽の底にたまる（2Al₂O₃ + 3C → 4Al + 3CO₂）。陽極の炭素は燃えて減る。アルミ1kg に約13〜15kWh。1886年にホールとエルーが別々に発明した。",
+     "hee": {
+      "1": "それまでアルミは金より高く、ナポレオン3世が来賓用の食器にした（と伝えられる）。",
+      "2": "ホール（米）とエルー（仏）は同じ1886年に同じ方法を見つけ、二人とも1863年生まれ・1914年没。",
+      "3": "アルミは「電気の缶詰」。工場は水力発電の近くに建てられ、リサイクルは新しく作る電気の約5%ですむ。",
+      "4": "1959年のノイスの IC はアルミを蒸着して配線した。1990年代に銅に変わるまで IC の配線はアルミ。"
+     },
+     "certainty": "反応・浴・陽極・電力量 ◎（ブリタニカ、International Aluminium Institute）／ホールとエルーの生没年 ◎／ナポレオン3世の食器 ○（よく引かれる逸話）／リサイクル約5% ◎",
+     "basis": "ブリタニカ「Hall–Héroult process」https://www.britannica.com/technology/Hall-Heroult-process 、ACS National Historic Chemical Landmark「Production of Aluminum: The Hall-Héroult Process」https://www.acs.org/education/whatischemistry/landmarks/aluminumprocess.html 、International Aluminium Institute https://international-aluminium.org/ （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
