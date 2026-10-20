@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:wood_vinegar",
+    "semiconductor-lab:wood_vinegar",
+    "semiconductor-lab:wood_vinegar",
+    "semiconductor-lab:wood_vinegar",
+    "semiconductor-lab:slaked_lime"
+  ],
+  "result": {
+    "id": "semiconductor-lab:limed_wood_liquor",
+    "count": 4
+  }
+}

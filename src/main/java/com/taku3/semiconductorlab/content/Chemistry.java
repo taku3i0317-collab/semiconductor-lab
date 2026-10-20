@@ -111,6 +111,10 @@ public final class Chemistry {
     public static final Item CYCLIZED_RUBBER_MIX   = Reg.item("cyclized_rubber_mix"); // 環化前の液（生ゴム＋硫酸＋テレビン油）
     public static final Item CYCLIZED_RUBBER       = Reg.item("cyclized_rubber");     // 環化ゴム
 
+    // --- IMP3（O-006）[2-26] メタノール：木酢液に消石灰を入れて酢酸を酢酸カルシウムにし、残りを蒸留して木精（1834 デュマとペリゴが確認） ---
+    public static final Item LIMED_WOOD_LIQUOR     = Reg.item("limed_wood_liquor", new Item.Properties().stacksTo(16)); // 石灰を入れた木酢液
+    public static final Item METHANOL              = Reg.item("methanol", new Item.Properties().stacksTo(16));          // メタノール（木精）。飲むと失明
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）
     public static final Machine<WoodRetortBlockEntity> WOOD_RETORT = Machine.builder("wood_retort", WoodRetortBlockEntity::new)

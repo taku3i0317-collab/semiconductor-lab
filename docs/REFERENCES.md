@@ -1406,6 +1406,20 @@
 - スリランカ国立科学財団の資料（環化ゴムの歴史と触媒：Harries 1919、Brusion 1927、Stolka 1964、Stevens and Miller 1938）：https://dl.nsf.gov.lk/bitstreams/f0025022-abd5-4868-9d43-824a22aa5b18/download
 - Google Patents GB773352A「Improvements in the preparation of cyclised rubber」（スルホン酸での環化）：https://patents.google.com/patent/GB773352A/en
 
+## C4. 木を焼いた液からメタノール（木精）［2-26］
+**答え**：木を乾留して出る木酢液には、酢酸（約5〜10%）とメタノール（数%）が溶けている。消石灰を入れると酢酸が酢酸カルシウム（塩）になって蒸発しなくなるので、蒸留するとメタノール（木精）がとれる。1923年からは CO＋2H2 → CH3OH の高圧合成（BASF）。
+
+- へえ①：木を焼いた液を蒸留すると、メタノール（木精）がとれる。
+- へえ②：メタノールは体の中でホルムアルデヒドとギ酸に変わり、目の神経を傷つける（飲むと失明）。
+- へえ③：1834年デュマとペリゴが木精を確かめた。「メチル」はギリシャ語の「酒」＋「木」。
+- へえ④：残りの酢酸カルシウムはアセトンの原料。第一次世界大戦でアセトンが足りなくなった。
+
+確かさ：木酢液の成分と石灰を使う精製 ○／デュマとペリゴ 1834 ○／BASF 1923 ○（TECH_TREE の本物欄と一致）／GHS 区分 ○
+根拠：
+- Wikipedia「Methanol」：https://en.wikipedia.org/wiki/Methanol
+- Wikipedia「Pyroligneous acid」（木酢液の成分）：https://en.wikipedia.org/wiki/Pyroligneous_acid
+- Wikipedia「Wood distillation」（酢酸石灰・木精）：https://en.wikipedia.org/wiki/Wood_distillation
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

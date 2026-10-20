@@ -478,6 +478,22 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-26] メタノール（IMP3、O-006）
+    // =====================================================================
+
+    /** 木酢液4＋消石灰 → 石灰を入れた木酢液4 → かまど（蒸留）→ メタノール。石灰なしの木酢液はメタノールにならない */
+    @GameTest
+    public void methanol(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "limed_wood_liquor", Chemistry.WOOD_VINEGAR) && recipeUses(h, "limed_wood_liquor", Survival.SLAKED_LIME), "wood vinegar + slaked lime");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.LIMED_WOOD_LIQUOR).is(Chemistry.METHANOL), "distilled -> methanol");
+        h.assertFalse(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.WOOD_VINEGAR).is(Chemistry.METHANOL), "without lime the acetic acid comes over too -> no methanol");
+        var ja = langJson("ja_jp");
+        h.assertTrue(ja.get("item.semiconductor-lab.methanol.note2").getAsString().contains("GHS"), "methanol shows the GHS hazards");
+        LOG.info("[LAB] methanol [2-26]: 4 wood vinegar + slaked lime -> limed liquor -> furnace -> methanol");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

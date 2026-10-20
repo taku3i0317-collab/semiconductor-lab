@@ -68,3 +68,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
   - 共通ファイル：ModWorldGen の OreRule に「生成の段階」を任意で足した（2引数の書き方はそのまま鉱石の段階）＋ゴムの木の1行、MetallurgyTests.ore_biome_rules に期待値1行、minecraft のタグ（logs・logs_that_burn・leaves・saplings・mineable/axe・mineable/hoe、item 側も）に足した
   - 分かったこと：GameTest の世界では木の成長（TreeGrower.growTree）がバニラのジャングルの木でも false になる → 木が育つかは人間の確認に回した（TEST_QUEUE）
 - ✅ 環化ゴム（O-005-3、[2-29] の続き。TECH_TREE に専用ノードが無いので [2-29] の行に書いた）：生ゴム＋硫酸＋テレビン油 → 環化前の液 →かまど → 環化ゴム。加硫ゴムは不可（溶けない）。出典：Harries 1919 の硫酸法（スリランカ国立科学財団の資料）、KTFR は [2-30] の本物欄。感光剤を混ぜるのは担当 E。CHEMISTRY R4、REFERENCES C3。テスト 163/163
+
+## O-006 フェノール樹脂までの鎖
+- ✅ [2-26] メタノール（遊び方: 軽）：木酢液4＋消石灰 → 石灰を入れた木酢液4 →かまど → メタノール（石灰なしは不可）。GHS を note2 に。GameTest methanol、CHEMISTRY P1、REFERENCES C4。テスト 165/165

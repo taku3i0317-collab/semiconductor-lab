@@ -159,6 +159,8 @@ heliograph  # Chemistry [2-31] 1826
 sulfur_powder  # Chemistry [2-01] 1831
 sulfur_dioxide  # Chemistry [2-01] 1831
 sulfuric_acid  # Chemistry [2-01] 1831
+limed_wood_liquor  # Chemistry [2-26] 1834
+methanol  # Chemistry [2-26] 1834
 rubber_log  # Chemistry [2-29] 1839
 rubber_leaves  # Chemistry [2-29] 1839
 rubber_sapling  # Chemistry [2-29] 1839
