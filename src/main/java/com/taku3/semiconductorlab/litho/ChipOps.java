@@ -93,10 +93,22 @@ public final class ChipOps {
      * 露光（ずれつき、[8-17] C のマスクアライナー）：overlayNm＝この層の重ね合わせのずれ（nm）。1層目（まだ何も焼いていない板）は合わせる相手がないので記録しない。
      * ずれは失敗にしない（ChipState.overlayNm に最大を残す。ツールチップ、v0.5 の歩留まり）
      */
-    public static Result expose(ItemStack w, MaskData mask, ExposureTool tool, int overlayNm) {
+    /**
+     * 露光（レイリーの式、S-010 Q20-1 案A）：レンズの解像度 CD（＝k1·λ/NA、C の投影レンズ）から方眼の大きさ N を出し（{@link ExposureTool#gridFor}、4刻み）、
+     * それより細かいマスクは焼けない。光源を短い波長に・レンズを良く（NA を大きく、収差を小さく）すると細かく描ける。
+     * baseTool＝光の当て方の種類（密着か投影か、波長）。表の方眼の数は「基準のレンズ」の値として残る
+     */
+    public static Result exposeAtCd(ItemStack w, MaskData mask, ExposureTool baseTool, int cdNm, int overlayNm) {
+        if (cdNm <= 0 || mask.size() > ExposureTool.gridFor(cdNm)) return Result.fail("too_fine");
+        return exposeGrid(w, mask, baseTool, Math.max(mask.size(), 1), overlayNm);
+    }
+
+    public static Result expose(ItemStack w, MaskData mask, ExposureTool tool, int overlayNm) { return exposeGrid(w, mask, tool, tool.grid, overlayNm); }
+
+    private static Result exposeGrid(ItemStack w, MaskData mask, ExposureTool tool, int grid, int overlayNm) {
         ChipState s = state(w);
         if (s == null || s.resist() != ChipState.Resist.COATED) return Result.fail("no_resist");
-        if (mask.size() > tool.grid) return Result.fail("too_fine");
+        if (mask.size() > grid) return Result.fail("too_fine");
         if (s.sized() && s.size() != mask.size()) return Result.fail("size_mismatch");
         if (!s.sized()) s = s.withSize(mask.size()).withParts(mask.parts());   // 1枚目：設計図に押したハンコの記録もチップへ（v0.3b）
         else if (overlayNm > 0) s = s.overlay(overlayNm);   // 2層目から

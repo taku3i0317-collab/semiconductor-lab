@@ -2132,6 +2132,27 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * S-010（Q20-1 案A）：レイリーの式で方眼が決まる。CD＝k1·λ/NA を N＝16×(10µm÷CD)^(1/3)（4刻み）へ。
+     * g線 NA0.35：k1 0.6〜0.8 → 36、k1 1.0 → 32。i線 NA0.7：k1 0.6 → 52、0.7 → 48。同じ 40 のマスクは、i線の良いレンズでは焼け、g線では焼けない
+     */
+    @GameTest(maxTicks = 50)
+    public void rayleighGrid(GameTestHelper h) {
+        java.util.function.BiFunction<Double, Double, Integer> cd = (k1, lna) -> (int) Math.round(k1 * lna);
+        int g06 = cd.apply(0.6, 436 / 0.35), g10 = cd.apply(1.0, 436 / 0.35), i06 = cd.apply(0.6, 365 / 0.7), i07 = cd.apply(0.7, 365 / 0.7);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(g06), 36, "g-line NA 0.35, k1 0.6");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(g10), 32, "g-line NA 0.35, k1 1.0 (worse lens)");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(i06), 52, "i-line NA 0.7, k1 0.6");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(i07), 48, "i-line NA 0.7, k1 0.7");
+        var mask40 = new com.taku3.semiconductorlab.litho.MaskData(40, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(40), "", 0);
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER); w.set(ModDataComponents.DOPANT, "boron");
+        ItemStack c = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(c, mask40, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G, g06, 0).reason(), "too_fine", "a 40 mask is too fine for the best g-line lens");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(c, mask40, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_I, i06, 0).ok(), "the same mask prints with a good i-line lens (shorter wavelength, larger NA)");
+        LOG.info("[LAB] Rayleigh grid: g-line CD {} nm -> 36, {} nm -> 32; i-line {} nm -> 52, {} nm -> 48", g06, g10, i06, i07);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
