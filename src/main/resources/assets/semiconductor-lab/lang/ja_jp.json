@@ -1932,7 +1932,6 @@
   "item.semiconductor-lab.process_wafer.note3": "1959年、ヘルニは酸化膜を残したまま窓だけ開けてしみ込ませる「プレーナ法」を考えた。表面が平らなので、部品をいくつも並べて金属でつなげる。",
   "item.semiconductor-lab.process_wafer.note4": "1960年ごろの IC は、しみ込ませる工程が3回（分離・ベース・エミッタ）とアルミの配線1層でできていた。ゲームもこれと同じ。本物は先に n型の層を結晶として育てる（エピタキシー）⚠️ が、ゲームはまだないので、n型の島をしみ込ませて代わりにしている。",
   "gui.semiconductor-lab.etch_tank.recipe_metal": "2Al + 2H3PO4 → 2AlPO4 + 3H2",
-<<<<<<< HEAD
   "block.semiconductor-lab.drafting_table": "製図台",
   "block.semiconductor-lab.drafting_table.note1": "方眼にチップの模様を描く机。描き方は自由。",
   "block.semiconductor-lab.drafting_table.note2": "層を選んで左クリックで塗る・右クリックで消す。下の断面図で、横から見た形がわかる。✂ で選んだ層を原図に切り出す。",
@@ -1954,7 +1953,6 @@
   "gui.semiconductor-lab.drafting_table.need_sheet": "＋で新しい方眼紙",
   "gui.semiconductor-lab.drafting_table.draw": "左で塗る・右で消す",
   "gui.semiconductor-lab.drafting_table.out_full": "原図を取り出す",
-=======
   "block.semiconductor-lab.wafer_polisher": "研磨機",
   "block.semiconductor-lab.wafer_polisher.note1": "ウェハーを回る台に押し当てて、鏡のようにみがく機械。作った回路を全部けずって、最初からやり直せる。",
   "block.semiconductor-lab.wafer_polisher.note2": "電気 1kW。加工中のウェハー1〜8枚＋砥粒1（アルミナかベンガラ）＋コロイダルシリカ1（空のガラス瓶は上に戻る）→ 層を全部けずったウェハー（60秒）。やり直しは1枚につき2回まで（再生ウェハー）。",
@@ -1967,7 +1965,6 @@
   "gui.semiconductor-lab.wafer_polisher.running": "みがいている",
   "gui.semiconductor-lab.wafer_polisher.too_many": "やり直しは2回まで",
   "gui.semiconductor-lab.wafer_polisher.recipe": "砥粒で平らに → シリカで鏡面",
->>>>>>> 844713b (IMP4-01 [9-13]: lapping and mirror polishing (O-003, LITHO_DESIGN reclaim) - wafer polisher (steel + lead screw + motor + copper cable, 1 kW): 1-8 process wafers + abrasive (alumina or rouge) + colloidal silica -> layers removed via ChipOps.reclaim (twice at most); water glass (sand + 2 NaOH) and colloidal silica (water glass + sulfuric acid + bottle); GameTest wafer_polisher, CHEMISTRY F20-F22, REFERENCES F10, TEST_QUEUE, tab order, IMPL4_LOG (139/139))
   "item.semiconductor-lab.transistor_radio": "トランジスタラジオ",
   "item.semiconductor-lab.transistor_radio.note1": "電池で動く、ポケットに入るラジオ。",
   "item.semiconductor-lab.transistor_radio.note2": "合金接合型トランジスタ×3（増幅）＋黒鉛（炭素の抵抗）＋銅ケーブル（同調・アンテナのコイル）＋ライデン瓶（コンデンサ）＋磁石（スピーカー）＋亜鉛インゴットと黒鉛棒（乾電池＝亜鉛の缶と炭素の棒）。第1章のゴール。レッドストーンは使わない：全部、本物のラジオの部品。",

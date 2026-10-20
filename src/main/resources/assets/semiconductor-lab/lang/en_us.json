@@ -1932,7 +1932,6 @@
   "item.semiconductor-lab.process_wafer.note3": "In 1959 Hoerni had the idea of the planar process: keep the oxide and only open windows to diffuse through. The surface stays flat, so many parts can sit side by side and be wired with metal.",
   "item.semiconductor-lab.process_wafer.note4": "Around 1960 an IC took three diffusions (isolation, base, emitter) and one layer of aluminium wiring, just like in the game. The real process first grew an n-type layer as a crystal (epitaxy) ⚠️; the game doesn't have that yet, so it diffuses n-type islands instead.",
   "gui.semiconductor-lab.etch_tank.recipe_metal": "2Al + 2H3PO4 → 2AlPO4 + 3H2",
-<<<<<<< HEAD
   "block.semiconductor-lab.drafting_table": "Drafting Table",
   "block.semiconductor-lab.drafting_table.note1": "A desk for drawing chip patterns on a grid. Draw whatever you like.",
   "block.semiconductor-lab.drafting_table.note2": "Pick a layer, left-click to paint and right-click to erase. The cross-section below shows it from the side. ✂ cuts the chosen layer out as artwork.",
@@ -1954,7 +1953,6 @@
   "gui.semiconductor-lab.drafting_table.need_sheet": "+ for a new sheet",
   "gui.semiconductor-lab.drafting_table.draw": "Left paint, right erase",
   "gui.semiconductor-lab.drafting_table.out_full": "Take the artwork out",
-=======
   "block.semiconductor-lab.wafer_polisher": "Wafer Polisher",
   "block.semiconductor-lab.wafer_polisher.note1": "Presses wafers onto a spinning plate and polishes them like a mirror. It grinds off every circuit layer so you can start over.",
   "block.semiconductor-lab.wafer_polisher.note2": "1 kW. 1–8 process wafers + 1 abrasive (alumina or rouge) + 1 colloidal silica (the empty glass bottle pops out on top) → wafers with all layers removed (60 s). Each wafer can be reclaimed twice at most.",
@@ -1967,7 +1965,6 @@
   "gui.semiconductor-lab.wafer_polisher.running": "Polishing",
   "gui.semiconductor-lab.wafer_polisher.too_many": "Only 2 reclaims per wafer",
   "gui.semiconductor-lab.wafer_polisher.recipe": "Grit to flatten → silica to mirror",
->>>>>>> 844713b (IMP4-01 [9-13]: lapping and mirror polishing (O-003, LITHO_DESIGN reclaim) - wafer polisher (steel + lead screw + motor + copper cable, 1 kW): 1-8 process wafers + abrasive (alumina or rouge) + colloidal silica -> layers removed via ChipOps.reclaim (twice at most); water glass (sand + 2 NaOH) and colloidal silica (water glass + sulfuric acid + bottle); GameTest wafer_polisher, CHEMISTRY F20-F22, REFERENCES F10, TEST_QUEUE, tab order, IMPL4_LOG (139/139))
   "item.semiconductor-lab.transistor_radio": "Transistor Radio",
   "item.semiconductor-lab.transistor_radio.note1": "A battery radio that fits in your pocket.",
   "item.semiconductor-lab.transistor_radio.note2": "Alloy-junction transistor ×3 (amplify) + graphite (carbon resistor) + copper cable (tuning/antenna coil) + Leyden jar (capacitor) + magnet (speaker) + zinc ingot and graphite rod (zinc-carbon battery: zinc can and carbon rod). The goal of chapter 1. No redstone: every part is a real radio part.",

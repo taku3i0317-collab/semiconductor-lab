@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 268（ja・en、Shift なし・あり）、問題 0
-=======
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 266（ja・en、Shift なし・あり）、問題 0
->>>>>>> 844713b (IMP4-01 [9-13]: lapping and mirror polishing (O-003, LITHO_DESIGN reclaim) - wafer polisher (steel + lead screw + motor + copper cable, 1 kW): 1-8 process wafers + abrasive (alumina or rouge) + colloidal silica -> layers removed via ChipOps.reclaim (twice at most); water glass (sand + 2 NaOH) and colloidal silica (water glass + sulfuric acid + bottle); GameTest wafer_polisher, CHEMISTRY F20-F22, REFERENCES F10, TEST_QUEUE, tab order, IMPL4_LOG (139/139))
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 271（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4

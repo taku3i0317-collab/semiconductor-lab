@@ -265,13 +265,10 @@ oxidized_wafer  # Semiconductor [9-15] 1955
 oxidation_furnace  # Semiconductor [9-15] 1955
 process_wafer  # Semiconductor [9-06] 1957
 etch_tank  # Semiconductor [9-06] 1957
-<<<<<<< HEAD
 rubylith  # Semiconductor [7-11] 1960
+wafer_polisher  # Semiconductor [9-13] 1963
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
-=======
-wafer_polisher  # Semiconductor [9-13] 1963
->>>>>>> 844713b (IMP4-01 [9-13]: lapping and mirror polishing (O-003, LITHO_DESIGN reclaim) - wafer polisher (steel + lead screw + motor + copper cable, 1 kW): 1-8 process wafers + abrasive (alumina or rouge) + colloidal silica -> layers removed via ChipOps.reclaim (twice at most); water glass (sand + 2 NaOH) and colloidal silica (water glass + sulfuric acid + bottle); GameTest wafer_polisher, CHEMISTRY F20-F22, REFERENCES F10, TEST_QUEUE, tab order, IMPL4_LOG (139/139))
 transistor_radio  # Communication [15-10] 1954
 solar_cell  # Branches [B-12] 1954
 test_power_source  # Testing [None] None

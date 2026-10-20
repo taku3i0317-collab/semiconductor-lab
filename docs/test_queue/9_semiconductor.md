@@ -36,13 +36,11 @@
 ## [9-25] 金属配線（IMP4-01）
 - [x] 自動✅ 骨灰＋硫酸3＋瓶2 → リン酸2（硫酸の瓶3本が戻る）、窓まで ChipOps → 真空蒸着装置で8枚に Al（50Pa では付かない・0.004Pa で付く、Al 1個、depositMetal と同じ）→ 塗布・露光・現像 → フッ酸では削れない → リン酸のエッチング槽で配線が残る → NOT の例で4つの発見 `(aluminium_wiring)`
 - [ ] 人間：真空蒸着装置に加工中のウェハーとアルミを入れたときの画面（入口に入るか）、エッチング槽のリン酸の反応式の表示、リン酸のツールチップ
-<<<<<<< HEAD
 ## 製図台（O-002、A）
 - [x] 自動✅ ＋で白紙の方眼紙（8×8・5層）、画面と同じボタンで 8×8 の NOT の例を塗ると例と同じ設計図、ひと筆ずつ元に戻す・やり直す、右で消す、✂ で選んだ層を原図（mask つき）に、方眼の大きさの切りかえ（元に戻せる）`(drafting_table)`。画面（高さ 222、方眼・断面図の場所）`(gui_layout)`
 - [ ] 人間：方眼を左ドラッグで塗り・右ドラッグで消せるか。層の行をクリックで選べ、黄色い枠がその層の所に出るか。下の断面図がマウスのある行に変わり、拡散が入れ子（島＞ベース＞エミッタ）に見えるか。← → で1筆ずつ戻るか。✂ の原図を C の縮小カメラでフォトマスクにできるか。製図台は斧で早く壊せるか
-=======
+
 
 ## [9-13] ラッピング・鏡面研磨（IMP4-01）
 - [x] 自動✅ 水ガラス・コロイダルシリカのレシピ、NOT のチップ3枚：シリカなし・電力半分では進まない → 層が消えて reclaims=1（ChipOps.reclaim と同じ）、砥粒とシリカが1ずつ減る、3回目は断る `(wafer_polisher)`
 - [ ] 人間：研磨機の GUI（左にウェハー・砥粒・シリカ、銀色のバー、「やり直しは2回まで」の表示）、コロイダルシリカのガラス瓶が上に出る
->>>>>>> 844713b (IMP4-01 [9-13]: lapping and mirror polishing (O-003, LITHO_DESIGN reclaim) - wafer polisher (steel + lead screw + motor + copper cable, 1 kW): 1-8 process wafers + abrasive (alumina or rouge) + colloidal silica -> layers removed via ChipOps.reclaim (twice at most); water glass (sand + 2 NaOH) and colloidal silica (water glass + sulfuric acid + bottle); GameTest wafer_polisher, CHEMISTRY F20-F22, REFERENCES F10, TEST_QUEUE, tab order, IMPL4_LOG (139/139))
