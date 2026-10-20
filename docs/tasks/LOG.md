@@ -129,3 +129,9 @@
 - テスト：GameTest 64→66本（ore_quartz_vein, quartz_vein_drops）＋ oxyhydrogen_fused_quartz を珪石に。1回失敗→修正（FAILED.md：GameTest のワールドは砂漠だけなので、オーバーワールドの鉱石は砂漠でしか確かめられない）
 - 解放ノード：なし（[1-15] 金属シリコンはまだ [3-15] アーク炉待ち）。ROADMAP v0.2b「4. 珪石の入手」✅
 - 保留判断：Q1346-1（鉱脈は1ブロック）、Q1346-2（水晶振動子の水晶）
+
+## タスク14：決定の記録＋鉱石のバイオーム条件テストの強化（2026-10-20、対話で実行）
+- Q1346-1（鉱脈は1ブロックのまま、仕上げで分ける）採用、Q1346-2（水晶は珪石と別アイテム・鉱脈からまれに）仮決定 → DECISIONS.md。PENDING は空
+- ModWorldGen の生成条件を RULES（OreRule の一覧）にまとめ、GameTest ore_biome_rules がレジストリの全67バイオームで直接判定（偽の BiomeSelectionContext。foundInOverworld＝canGenerateIn(OVERWORLD) を javap -c で確認）
+- テスト：GameTest 66→67本、全部 PASSED。FAILED.md の「弱い確認」を解決済みに
+- 手順1（docs/REFERENCES.md の commit と CLAUDE.md の1行）は、ファイルがリポジトリに無かったので保留

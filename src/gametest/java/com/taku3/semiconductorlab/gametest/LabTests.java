@@ -54,6 +54,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import net.minecraft.tags.BiomeTags;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -1785,6 +1786,76 @@ public class LabTests {
     @GameTest public void oreRockSalt(GameTestHelper h) { oreFeature(h, "rock_salt_ore", Blocks.STONE, Blocks.DEEPSLATE, ModBlocks.ROCK_SALT_ORE, s -> s.is(Blocks.STONE)); }
 
     /** 生成するバイオームに placed feature id が入っているか */
+    /**
+     * バイオームの選び方を「ワールドに頼らず」調べるための偽の文脈。canGenerateIn は本物のワールドと同じ答え
+     * （オーバーワールド＝#minecraft:is_overworld、ネザー＝#is_nether、エンド＝#is_end のバイオーム）を返す。
+     * GameTest のワールドは砂漠だけなので、本物の BiomeModifications の結果では「砂漠以外のオーバーワールド」を確かめられない（FAILED.md タスク13）
+     */
+    private static net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext fakeContext(net.minecraft.core.RegistryAccess ra, net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome> b) {
+        return new net.fabricmc.fabric.api.biome.v1.BiomeSelectionContext() {
+            @Override public ResourceKey<net.minecraft.world.level.biome.Biome> getBiomeKey() { return b.key(); }
+            @Override public net.minecraft.world.level.biome.Biome getBiome() { return b.value(); }
+            @Override public net.minecraft.core.Holder<net.minecraft.world.level.biome.Biome> getBiomeHolder() { return b; }
+            @Override public net.minecraft.core.RegistryAccess getRegistryAccess() { return ra; }
+            @Override public java.util.Optional<ResourceKey<net.minecraft.world.level.levelgen.feature.Feature>> getFeatureKey(net.minecraft.world.level.levelgen.feature.Feature f) { return java.util.Optional.empty(); }
+            @Override public java.util.Optional<ResourceKey<net.minecraft.world.level.levelgen.placement.PlacedFeature>> getPlacedFeatureKey(net.minecraft.world.level.levelgen.placement.PlacedFeature f) { return java.util.Optional.empty(); }
+            @Override public boolean validForStructure(ResourceKey<net.minecraft.world.level.levelgen.structure.Structure> s) { return false; }
+            @Override public java.util.Optional<ResourceKey<net.minecraft.world.level.levelgen.structure.Structure>> getStructureKey(net.minecraft.world.level.levelgen.structure.Structure s) { return java.util.Optional.empty(); }
+            @Override public boolean canGenerateIn(ResourceKey<net.minecraft.world.level.dimension.LevelStem> stem) {
+                if (stem == net.minecraft.world.level.dimension.LevelStem.OVERWORLD) return b.is(BiomeTags.IS_OVERWORLD);
+                if (stem == net.minecraft.world.level.dimension.LevelStem.NETHER) return b.is(BiomeTags.IS_NETHER);
+                if (stem == net.minecraft.world.level.dimension.LevelStem.END) return b.is(BiomeTags.IS_END);
+                return false;
+            }
+            @Override public boolean hasTag(net.minecraft.tags.TagKey<net.minecraft.world.level.biome.Biome> tag) { return b.is(tag); }
+        };
+    }
+
+    /**
+     * タスク14：全部の鉱石の生成条件（ModWorldGen.RULES）を、レジストリの全バイオームに対して直接調べる。
+     * 期待値はここに別に書く（仕様）：オーバーワールド全体／浜辺だけ／砂漠だけ／砂漠＋荒野。MOD の placed feature は全部ルールを持つ
+     */
+    @GameTest
+    public void oreBiomeRules(GameTestHelper h) {
+        var ra = h.getLevel().registryAccess();
+        var biomes = ra.lookupOrThrow(Registries.BIOME);
+        java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "quartz_vein"})
+            expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
+        expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
+        expect.put("trona_deposit", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT));
+        expect.put("borax_deposit", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT));
+        expect.put("rock_salt_ore", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT) || b.is(BiomeTags.IS_BADLANDS));
+        List<String> wrong = new ArrayList<>();
+        java.util.Map<String, Integer> count = new java.util.TreeMap<>();
+        java.util.Set<String> ruled = new java.util.HashSet<>();
+        for (var rule : com.taku3.semiconductorlab.ModWorldGen.RULES) {
+            String id = rule.feature().identifier().getPath();
+            ruled.add(id);
+            var want = expect.get(id);
+            if (want == null) { wrong.add(id + ": no expectation written in the test"); continue; }
+            int n = 0;
+            for (var b : biomes.listElements().toList()) {
+                boolean got = rule.biomes().test(fakeContext(ra, b)), exp = want.test(b);
+                if (got) n++;
+                if (got != exp) wrong.add(id + " @ " + b.key().identifier() + ": got " + got + ", expected " + exp);
+            }
+            count.put(id, n);
+        }
+        for (String id : expect.keySet()) if (!ruled.contains(id)) wrong.add(id + ": no rule in ModWorldGen.RULES");
+        for (var pf : ra.lookupOrThrow(Registries.PLACED_FEATURE).listElementIds().toList())
+            if (pf.identifier().getNamespace().equals(SemiconductorLab.MOD_ID) && !ruled.contains(pf.identifier().getPath())) wrong.add(pf.identifier() + ": placed feature without a biome rule");
+        h.assertTrue(wrong.isEmpty(), "biome rules wrong (" + wrong.size() + "): " + wrong.subList(0, Math.min(10, wrong.size())));
+        // 目で見て分かる数の確認：砂漠専用は1つ、オーバーワールドは数十、ネザー・エンドのバイオームには入らない
+        h.assertValueEqual(count.get("trona_deposit"), 1, "trona: desert only");
+        h.assertValueEqual(count.get("borax_deposit"), 1, "borax: desert only");
+        h.assertTrue(count.get("rock_salt_ore") >= 2, "rock salt: desert + badlands (" + count.get("rock_salt_ore") + ")");
+        h.assertTrue(count.get("quartz_vein") >= 40, "quartz veins in every overworld biome (" + count.get("quartz_vein") + ")");
+        h.assertFalse(com.taku3.semiconductorlab.ModWorldGen.RULES.get(0).biomes().test(fakeContext(ra, biomes.getOrThrow(net.minecraft.world.level.biome.Biomes.NETHER_WASTES))), "no overworld ore in the nether");
+        LOG.info("[LAB] ore biome rules vs all {} biomes: {}", biomes.listElements().count(), count);
+        h.succeed();
+    }
+
     private static boolean biomeHas(GameTestHelper h, ResourceKey<net.minecraft.world.level.biome.Biome> biome, String id) {
         var b = h.getLevel().registryAccess().lookupOrThrow(Registries.BIOME).getOrThrow(biome).value();
         return b.getGenerationSettings().features().stream()
