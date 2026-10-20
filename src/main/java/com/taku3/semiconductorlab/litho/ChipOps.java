@@ -44,6 +44,15 @@ public final class ChipOps {
         return null;
     }
 
+    /**
+     * ほこり（クリーンルーム [12-14]、C と決めた形）：工程の機械が、部屋の等級に合わせて汚れを n 足す。失敗にはしない（ツールチップ・検査台の漏れ・v0.5 の歩留まり）。
+     * 目安：クリーンルームの外 +2、クラス1000 相当 +1、クラス100 相当 0。加工中のウェハーでなければそのまま返す
+     */
+    public static ItemStack addDust(ItemStack w, int n) {
+        ChipState s = state(w);
+        return s == null || n <= 0 ? w : write(w, s.dirtier(n));
+    }
+
     // ===== レジスト =====
 
     public static boolean canCoat(ItemStack w) { return coat(w).ok(); }
