@@ -1,0 +1,48 @@
+{
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:metallurgical_silicon"
+    },
+    "title": {
+      "translate": "guide3.semiconductor-lab.root.title"
+    },
+    "description": {
+      "translate": "guide3.semiconductor-lab.root.description"
+    },
+    "background": "minecraft:block/quartz_block_side",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "vein_quartz": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:vein_quartz"
+          }
+        ]
+      }
+    },
+    "metallurgical_silicon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:metallurgical_silicon"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "vein_quartz",
+      "metallurgical_silicon"
+    ]
+  ],
+  "rewards": {
+    "function": "semiconductor-lab:give_guidebook3"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide3/p7",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:pn_junction_wafer"
+    },
+    "title": {
+      "translate": "guide3.semiconductor-lab.p8.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch3.p8"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "pn_junction_wafer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:pn_junction_wafer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "pn_junction_wafer"
+    ]
+  ]
+}

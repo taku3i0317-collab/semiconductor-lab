@@ -2355,6 +2355,23 @@ public class LabTests {
         h.succeed();
     }
 
+    private static final String[] GUIDE3_ADV = {"root", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9"};
+
+    /** IMP-26：ガイド第3巻「シリコン」（guide3/）の10個と give_guidebook3 が登録されている */
+    @GameTest
+    public void guide3Silicon(GameTestHelper h) {
+        MinecraftServer server = h.getLevel().getServer();
+        List<String> missing = new ArrayList<>();
+        for (String a : GUIDE3_ADV) if (server.getAdvancements().get(SemiconductorLab.id("guide3/" + a)) == null) missing.add("guide3/" + a);
+        if (server.getFunctions().get(SemiconductorLab.id("give_guidebook3")).isEmpty()) missing.add("function give_guidebook3");
+        h.assertTrue(missing.isEmpty(), "not registered: " + missing);
+        long n = server.getAdvancements().getAllAdvancements().stream()
+                .filter(x -> x.id().getNamespace().equals(SemiconductorLab.MOD_ID) && x.id().getPath().startsWith("guide3/")).count();
+        h.assertValueEqual(n, (long) GUIDE3_ADV.length, "number of guide3 advancements");
+        LOG.info("[LAB] guide3 (silicon): {} advancements + give_guidebook3 registered", n);
+        h.succeed();
+    }
+
     private static com.google.gson.JsonObject langJson(String code) {
         try (var in = SemiconductorLab.class.getResourceAsStream("/assets/" + SemiconductorLab.MOD_ID + "/lang/" + code + ".json")) {
             return com.google.gson.JsonParser.parseReader(new java.io.InputStreamReader(in, java.nio.charset.StandardCharsets.UTF_8)).getAsJsonObject();

@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide3/p2",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:metallurgical_silicon"
+    },
+    "title": {
+      "translate": "guide3.semiconductor-lab.p3.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch3.p3"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "metallurgical_silicon": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:metallurgical_silicon"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "metallurgical_silicon"
+    ]
+  ]
+}

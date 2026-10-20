@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide3/p6",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:silicon_wafer"
+    },
+    "title": {
+      "translate": "guide3.semiconductor-lab.p7.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch3.p7"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "silicon_wafer": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:silicon_wafer"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "silicon_wafer"
+    ]
+  ]
+}
