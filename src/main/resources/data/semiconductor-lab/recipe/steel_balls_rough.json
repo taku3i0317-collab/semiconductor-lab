@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:steel_ingot",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:steel_balls_rough",
+    "count": 4
+  }
+}

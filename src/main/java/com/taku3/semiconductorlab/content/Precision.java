@@ -77,9 +77,24 @@ public final class Precision {
     public static final Item LENS_BARREL           = Reg.item("lens_barrel", LensBarrelItem::new, new Item.Properties().stacksTo(1));          // 組んだままの鏡筒
     public static final Item CENTERED_LENS_BARREL  = Reg.item("centered_lens_barrel", LensBarrelItem::new, new Item.Properties().stacksTo(1)); // 心出し済みの鏡筒
 
+    // [8-31] 研削盤・[8-20] 玉軸受（IMP2 O-013）：焼入れした鋼球を砥石で研削し、測る道具でそろえる → 玉軸受の段階（1＝手で丸めた、2＝マイクロメータ、3＝ゲージブロック）
+    public static final Item STEEL_BALLS_ROUGH     = Reg.item("steel_balls_rough");     // 鋼を丸めて焼入れした球（大きさがばらばら）
+    public static final Item RAW_GRINDING_WHEEL    = Reg.item("raw_grinding_wheel");    // アルミナ＋粘土を固めただけ
+    public static final Item GRINDING_WHEEL        = Reg.item("grinding_wheel", new Item.Properties().stacksTo(1)); // 焼いた砥石（減らない）
+    public static final Item STEEL_BALLS_GROUND    = Reg.item("steel_balls_ground");    // 研削してマイクロメータでそろえた球（±10µm）
+    public static final Item STEEL_BALLS_PRECISE   = Reg.item("steel_balls_precise");   // 研削してゲージブロックでそろえた球（±1µm）
+    /** 玉軸受の段階（1〜3） */
+    public static final net.minecraft.core.component.DataComponentType<Integer> BEARING_GRADE = net.minecraft.core.Registry.register(
+            net.minecraft.core.registries.BuiltInRegistries.DATA_COMPONENT_TYPE, com.taku3.semiconductorlab.SemiconductorLab.id("bearing_grade"),
+            net.minecraft.core.component.DataComponentType.<Integer>builder().persistent(com.mojang.serialization.Codec.INT)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT).build());
+    public static final Item BALL_BEARING          = Reg.item("ball_bearing", BallBearingItem::new, new Item.Properties());
+
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 旋盤 [8-01]（IMP2-01、モーズリー 1797〜1800頃）：モーターで材料を回し、送りねじの刃物台で削る。750W
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));
+    // 研削盤 [8-31]（IMP2 O-013）：焼入れした鋼球＋砥石＋測る道具 → そろえた鋼球（1kW）
+    public static final Machine<GrinderBlockEntity> GRINDER = Machine.electric("grinder", GrinderBlockEntity::new, GrinderBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

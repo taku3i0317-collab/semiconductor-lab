@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:alumina",
+    "minecraft:clay_ball",
+    "minecraft:clay_ball"
+  ],
+  "result": {
+    "id": "semiconductor-lab:raw_grinding_wheel",
+    "count": 1
+  }
+}

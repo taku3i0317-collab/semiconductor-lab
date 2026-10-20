@@ -348,6 +348,13 @@ lathe  # Precision [8-01] 1797
 metre_bar  # Precision [8-22] 1799
 cast_iron_plate  # Precision [8-03] 1830
 surface_plate  # Precision [8-03] 1830
+grinder  # Precision [8-31] 1876
+steel_balls_rough  # Precision [8-20] 1883
+raw_grinding_wheel  # Precision [8-20] 1883
+grinding_wheel  # Precision [8-20] 1883
+steel_balls_ground  # Precision [8-20] 1883
+steel_balls_precise  # Precision [8-20] 1883
+ball_bearing  # Precision [8-20] 1883
 gauge_block_set  # Precision [8-05] 1896
 isolation_table  # Precision [8-07] 1931
 lens_barrel  # Precision [8-14] 1950

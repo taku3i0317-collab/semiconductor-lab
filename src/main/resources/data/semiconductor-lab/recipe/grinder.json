@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SWS",
+    "SMS",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "W": "semiconductor-lab:grinding_wheel",
+    "M": "semiconductor-lab:electric_motor",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:grinder",
+    "count": 1
+  }
+}

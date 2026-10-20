@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_balls_precise"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ball_bearing",
+    "count": 1,
+    "components": {
+      "semiconductor-lab:bearing_grade": 3
+    }
+  }
+}

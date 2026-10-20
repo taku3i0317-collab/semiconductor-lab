@@ -394,12 +394,16 @@ setblock ~15 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~18 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-03] 平面と定盤","鋳鉄の板を3枚作り、利","き手と左手に1枚ずつ持","って右クリック → チ"]}}
 setblock ~18 ~0 ~66 semiconductor-lab:surface_plate
 setblock ~19 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cast_iron_plate",count:1}]}
-setblock ~22 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-05] ゲージブロック","ゲージブロックのセット","を空中で右クリック →"," チャットの組み合わせ"]}}
-setblock ~22 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:gauge_block_set",count:1}]}
-setblock ~25 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-07] 除振と恒温","点灯中の水銀灯を干渉計","で右クリック → チャ","ットに「床の揺れ・縞の"]}}
-setblock ~25 ~0 ~66 semiconductor-lab:isolation_table
-setblock ~29 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-14] 鏡筒の精密組立","鏡筒を利き手、複式顕微","鏡を左手で右クリックを","何回か → チャットの"]}}
-setblock ~29 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:lens_barrel",count:1},{Slot:1b,id:"semiconductor-lab:centered_lens_barrel",count:1}]}
+setblock ~22 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-31] 研削盤","研削盤に鋼球・砥石・マ","イクロメータ／ゲージブ","ロックを入れて動かす。"]}}
+setblock ~22 ~0 ~66 semiconductor-lab:grinder
+setblock ~26 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-20] 玉軸受","研削盤に鋼球・砥石・マ","イクロメータ／ゲージブ","ロックを入れて動かす。"]}}
+setblock ~26 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:steel_balls_rough",count:16},{Slot:1b,id:"semiconductor-lab:raw_grinding_wheel",count:16},{Slot:2b,id:"semiconductor-lab:grinding_wheel",count:1},{Slot:3b,id:"semiconductor-lab:steel_balls_ground",count:16},{Slot:4b,id:"semiconductor-lab:steel_balls_precise",count:16},{Slot:5b,id:"semiconductor-lab:ball_bearing",count:16}]}
+setblock ~29 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-05] ゲージブロック","ゲージブロックのセット","を空中で右クリック →"," チャットの組み合わせ"]}}
+setblock ~29 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:gauge_block_set",count:1}]}
+setblock ~32 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-07] 除振と恒温","点灯中の水銀灯を干渉計","で右クリック → チャ","ットに「床の揺れ・縞の"]}}
+setblock ~32 ~0 ~66 semiconductor-lab:isolation_table
+setblock ~36 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-14] 鏡筒の精密組立","鏡筒を利き手、複式顕微","鏡を左手で右クリックを","何回か → チャットの"]}}
+setblock ~36 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:lens_barrel",count:1},{Slot:1b,id:"semiconductor-lab:centered_lens_barrel",count:1}]}
 setblock ~0 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹9 半導体（Ge・Si）","↓ この列","",""]}}
 setblock ~2 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-03] 点接触トランジ","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:transistor",count:16}]}

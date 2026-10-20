@@ -1294,6 +1294,20 @@
 - Wikipedia「Tollens' reagent」：https://en.wikipedia.org/wiki/Tollens%27_reagent
 - Wikipedia「Léon Foucault」：https://en.wikipedia.org/wiki/L%C3%A9on_Foucault
 
+## O43. 転がすと軽く回る（玉軸受と研削盤）［8-20］［8-31］
+**答え**：軸と受けの間に鋼の球をはさむと、こすれる代わりに転がるので摩擦がずっと小さくなる。1794年ヴォーンの馬車の軸受、1869年の自転車を経て、1883年ドイツのフィッシャーが焼入れした鋼球を研削で同じ大きさの真球にそろえる機械を作り、量産が始まった。硬い鋼を仕上げる研削盤は1876年ブラウン＆シャープ社の万能研削盤から広まった。
+
+- へえ①：球の大きさがそろっていないと、大きい球だけに力がかかってすぐ傷む。そろえることが発明の核心だった。
+- へえ②：焼入れした鋼は刃物で削れないので、砥石で少しずつ削る。
+- へえ③：シュヴァインフルトは「軸受の町」になり、1907年スウェーデンでは SKF が自動調心玉軸受を作った。
+- へえ④：モーター・ハードディスク・露光装置のステージも、正確な球に支えられている。
+
+確かさ：ヴォーン 1794 の特許 ◎／フィッシャー 1883 の鋼球研削機 ○（Schaeffler の資料）／ブラウン＆シャープ 1876 の万能研削盤 ◎／摩擦係数のめやす ○
+根拠：
+- Wikipedia「Ball bearing」：https://en.wikipedia.org/wiki/Ball_bearing
+- Wikipedia「Grinding machine」：https://en.wikipedia.org/wiki/Grinding_machine
+- Schaeffler「Friedrich Fischer」：https://www.schaeffler.com/
+
 ---
 
 # 冶金と熱（タスク15〜）

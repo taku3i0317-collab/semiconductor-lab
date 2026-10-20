@@ -53,6 +53,28 @@ public abstract class ConsumerBlockEntity extends BlockEntity implements Machine
 
     /** 動作中に使う電力（W） */
     protected abstract double workWatts();
+
+    // ===== [8-20] 玉軸受（IMP2 O-013、A と合意）：モーターで回す機械だけ。ここ1か所に機械の ID を並べる =====
+    /** 玉軸受を入れられる機械（ブロックエンティティの ID）。炉・槽は入れない */
+    public static final java.util.Set<String> BEARING_MACHINES = java.util.Set.of("lathe", "compressor", "wafer_saw", "wafer_polisher", "spin_coater", "cz_puller");
+    /** 入っている玉軸受の段階（0＝なし＝すべり軸受。保存キー "Bearing"） */
+    private int bearingGrade;
+
+    /** 玉軸受を入れられるか（BEARING_MACHINES を見る） */
+    public boolean acceptsBearing() {
+        var key = net.minecraft.core.registries.BuiltInRegistries.BLOCK_ENTITY_TYPE.getKey(getType());
+        return key != null && BEARING_MACHINES.contains(key.getPath());
+    }
+    public int bearingGrade() { return bearingGrade; }
+    /** 玉軸受を入れる（前の物は返す。入れられなければ false） */
+    public boolean installBearing(int grade) {
+        if (!acceptsBearing() || grade <= 0) return false;
+        bearingGrade = grade;
+        setChanged();
+        return true;
+    }
+    /** 実際に使う電力（W）：仕事の電力 × 玉軸受の倍率。仕事の時間は変えない */
+    protected double drawWatts() { return workWatts() * com.taku3.semiconductorlab.item.BallBearingItem.powerFactor(bearingGrade); }
     /** 1回の処理にかかる tick 数（電気が足りている tick だけ数える） */
     protected abstract int workTicks();
     /** 材料がそろい、出口に空きがあるか */
@@ -88,10 +110,10 @@ public abstract class ConsumerBlockEntity extends BlockEntity implements Machine
         be.ready = be.canWork();
         double used = 0;
         if (be.ready) {
-            long need = EnergyStorage.wattsToJoulesPerTick(be.workWatts());
+            long need = EnergyStorage.wattsToJoulesPerTick(be.drawWatts());
             if (be.storage.getStoredJ() >= need) {
                 be.storage.extractRaw(need);
-                used = be.workWatts();
+                used = be.drawWatts();
                 if (++be.progress >= be.workTicks()) { be.progress = 0; be.finishWork(); }
                 be.setChanged();
             }
@@ -118,7 +140,13 @@ public abstract class ConsumerBlockEntity extends BlockEntity implements Machine
         else { out.grow(add.getCount()); container.setChanged(); }
     }
 
-    @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) { if (level != null) Containers.dropContents(level, pos, container.getItems()); super.preRemoveSideEffects(pos, state); }
-    @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); storage.save(out); ContainerHelper.saveAllItems(out, container.getItems()); out.putInt("Progress", progress); }
-    @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); storage.load(in); container.getItems().replaceAll(s -> ItemStack.EMPTY); ContainerHelper.loadAllItems(in, container.getItems()); progress = in.getIntOr("Progress", 0); }
+    @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        if (level != null) {
+            Containers.dropContents(level, pos, container.getItems());
+            if (bearingGrade > 0) Containers.dropItemStack(level, pos.getX(), pos.getY(), pos.getZ(), com.taku3.semiconductorlab.item.BallBearingItem.of(bearingGrade));   // [8-20] 玉軸受も落とす
+        }
+        super.preRemoveSideEffects(pos, state);
+    }
+    @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); storage.save(out); ContainerHelper.saveAllItems(out, container.getItems()); out.putInt("Progress", progress); if (bearingGrade > 0) out.putInt("Bearing", bearingGrade); }
+    @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); storage.load(in); container.getItems().replaceAll(s -> ItemStack.EMPTY); ContainerHelper.loadAllItems(in, container.getItems()); progress = in.getIntOr("Progress", 0); bearingGrade = in.getIntOr("Bearing", 0); }
 }

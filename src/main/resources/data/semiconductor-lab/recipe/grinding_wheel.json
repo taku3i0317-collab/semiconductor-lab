@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:raw_grinding_wheel",
+  "result": {
+    "id": "semiconductor-lab:grinding_wheel"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

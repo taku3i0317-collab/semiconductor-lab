@@ -15,6 +15,58 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-31] 研削盤・[8-20] 玉軸受（IMP2 O-013）：測る道具で玉の段階が決まり、回る機械に入れると段階ごとに消費電力が下がる（炉には入らない） */
+    @GameTest
+    public void ball_bearings(GameTestHelper h) {
+        var G = com.taku3.semiconductorlab.block.GrinderBlockEntity.class;
+        h.assertTrue(recipeUses(h, "steel_balls_rough", Metallurgy.STEEL_INGOT) && recipeUses(h, "raw_grinding_wheel", Metallurgy.ALUMINA), "rough balls from steel, wheel from alumina + clay");
+        h.assertTrue(com.taku3.semiconductorlab.block.GrinderBlockEntity.product(ItemStack.EMPTY).isEmpty(), "no gauge -> nothing");
+        h.assertTrue(com.taku3.semiconductorlab.block.GrinderBlockEntity.product(new ItemStack(Precision.VERNIER_CALIPER)).isEmpty(), "vernier caliper too coarse");
+        h.assertTrue(com.taku3.semiconductorlab.block.GrinderBlockEntity.product(new ItemStack(Precision.MICROMETER)).is(Precision.STEEL_BALLS_GROUND), "micrometer -> ground balls");
+        h.assertTrue(com.taku3.semiconductorlab.block.GrinderBlockEntity.product(new ItemStack(Precision.GAUGE_BLOCK_SET)).is(Precision.STEEL_BALLS_PRECISE), "gauge blocks -> precise balls");
+        // 研削盤を回す
+        BlockPos gp = p(1, 1, 1);
+        h.setBlock(gp, Precision.GRINDER.block);
+        var gb = h.getBlockEntity(gp, com.taku3.semiconductorlab.block.GrinderBlockEntity.class);
+        gb.getContainer().setItem(com.taku3.semiconductorlab.block.GrinderBlockEntity.SLOT_IN, new ItemStack(Precision.STEEL_BALLS_ROUGH));
+        gb.getContainer().setItem(com.taku3.semiconductorlab.block.GrinderBlockEntity.SLOT_WHEEL, new ItemStack(Precision.GRINDING_WHEEL));
+        gb.getContainer().setItem(com.taku3.semiconductorlab.block.GrinderBlockEntity.SLOT_GAUGE, new ItemStack(Precision.GAUGE_BLOCK_SET));
+        tickConsumer(h, gp, gb, com.taku3.semiconductorlab.block.GrinderBlockEntity.TICKS + 5, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.GrinderBlockEntity.WATTS));
+        h.assertTrue(gb.getContainer().getItem(com.taku3.semiconductorlab.block.GrinderBlockEntity.SLOT_OUT).is(Precision.STEEL_BALLS_PRECISE), "grinder makes precise balls");
+        // 玉軸受のレシピで段階が付く
+        int[] got = new int[4];
+        for (int g = 1; g <= 3; g++) {
+            var in = net.minecraft.world.item.crafting.CraftingInput.of(3, 1, java.util.List.of(new ItemStack(Metallurgy.STEEL_INGOT), new ItemStack(Metallurgy.STEEL_INGOT),
+                    new ItemStack(g == 1 ? Precision.STEEL_BALLS_ROUGH : g == 2 ? Precision.STEEL_BALLS_GROUND : Precision.STEEL_BALLS_PRECISE)));
+            ItemStack b = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in, h.getLevel())
+                    .map(r -> r.value().assemble(in)).orElse(ItemStack.EMPTY);
+            got[g] = com.taku3.semiconductorlab.item.BallBearingItem.grade(b);
+        }
+        h.assertTrue(got[1] == 1 && got[2] == 2 && got[3] == 3, "bearing grades from the recipes: " + java.util.Arrays.toString(got));
+        // 旋盤：段階ごとに消費電力が下がる（仕事の時間は同じ）
+        double prev = Double.MAX_VALUE;
+        for (int g = 0; g <= 3; g++) {
+            BlockPos lp = p(3 + g, 1, 3);
+            h.setBlock(lp, Precision.LATHE.block);
+            var lb = h.getBlockEntity(lp, LatheBlockEntity.class);
+            if (g > 0) h.assertTrue(lb.installBearing(g), "lathe takes a bearing");
+            lb.getContainer().setItem(LatheBlockEntity.SLOT_IN, new ItemStack(Metallurgy.STEEL_INGOT));
+            tickConsumer(h, lp, lb, 1, EnergyStorage.wattsToJoulesPerTick(LatheBlockEntity.WATTS));
+            double w = lb.getLastWatts();
+            h.assertTrue(Math.abs(w - LatheBlockEntity.WATTS * com.taku3.semiconductorlab.item.BallBearingItem.powerFactor(g)) < 1e-6 && w < prev, "grade " + g + ": " + w + " W");
+            prev = w;
+        }
+        // 炉には入らない
+        h.setBlock(p(1, 1, 5), com.taku3.semiconductorlab.content.Power.ELECTRIC_FURNACE.block);
+        var furnace = (com.taku3.semiconductorlab.energy.ConsumerBlockEntity) h.getLevel().getBlockEntity(h.absolutePos(p(1, 1, 5)));
+        h.assertFalse(furnace.acceptsBearing() || furnace.installBearing(3), "a furnace has no rotating shaft");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"grade1", "grade2", "grade3", "factor", "installed", "not_rotating"})
+            h.assertTrue(ja.has("item.semiconductor-lab.ball_bearing." + k), "lang ball_bearing." + k);
+        LOG.info("[LAB] ball_bearings [8-20][8-31]: grinder + gauge blocks -> precise balls; lathe 750 -> 712.5 / 637.5 / 525 W by grade; furnace refuses");
+        h.succeed();
+    }
+
     /** [8-06] 光波干渉測長（IMP2 O-012）：干渉計で縞を数え、ゲージブロック・メートル原器の長さを光の波長で測る。揺れていると数えられない */
     @GameTest
     public void light_wave_length(GameTestHelper h) {
