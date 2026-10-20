@@ -2576,6 +2576,20 @@
 - Wikipedia「Titanium」（歴史）：https://en.wikipedia.org/wiki/Titanium
 - Wikipedia「Ilmenite」：https://en.wikipedia.org/wiki/Ilmenite
 
+## C42. 金属の上で1つずつつなぐ（チーグラー・ナッタ触媒）［2-50］
+**答え**：それまでのポリエチレンは約1400気圧が要った（1933）。1951年、フィリップス石油のホーガンとバンクスが酸化クロムの触媒で硬い高密度ポリエチレンを作り、1953年にドイツのチーグラーがチタンとアルミの触媒（TiCl4＋トリエチルアルミニウム）でほぼふつうの圧力でポリエチレンを、1954年にイタリアのナッタが向きのそろったポリプロピレンを作った（1963年ノーベル化学賞）。触媒の上でエチレンが1つずつ差しこまれるので、枝分かれのないまっすぐな鎖になり、密度が高く硬い。
+
+- へえ①：ペットボトルのふたのプラスチックは、金属の触媒の上で分子を1つずつつないで作っている。
+- へえ②：高圧で作るとやわらかいポリ袋、触媒で作ると硬いバケツになる。
+- へえ③：チーグラーは、まざっていたニッケルで反応が変わったことから、触媒の金属を探し始めた。
+- へえ④：トリエチルアルミニウムは空気にふれただけで燃える。
+
+確かさ：チーグラー 1953・ナッタ 1954・ノーベル賞 1963 ◎／フィリップス 1951（ACS 化学遺産）◎／ニッケル効果 ○
+根拠：
+- Nobel Prize「Chemistry 1963」：https://www.nobelprize.org/prizes/chemistry/1963/summary/
+- ACS「Polypropylene and High-Density Polyethylene」：https://www.acs.org/education/whatischemistry/landmarks/polypropylene.html
+- Wikipedia「Ziegler–Natta catalyst」：https://en.wikipedia.org/wiki/Ziegler%E2%80%93Natta_catalyst
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

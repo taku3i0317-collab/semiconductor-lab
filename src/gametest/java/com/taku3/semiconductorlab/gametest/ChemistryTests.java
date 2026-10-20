@@ -1294,6 +1294,26 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         });
     }
 
+    // =====================================================================
+    // [2-50] 配位重合触媒（IMP3、O-018）
+    // =====================================================================
+
+    /** Al＋H2＋エチレン3 → AlEt3、＋TiCl4 → 触媒（戻る）。エチレン4＋触媒 → HDPE。触媒なしでは作業台でポリエチレンにならない（高圧の反応釜が要る） */
+    @GameTest
+    public void zieglerNatta(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "triethylaluminium", com.taku3.semiconductorlab.content.Metallurgy.ALUMINIUM_INGOT) && recipeUses(h, "triethylaluminium", Chemistry.ETHYLENE_GAS), "Ziegler direct process");
+        h.assertTrue(recipeUses(h, "ziegler_natta_catalyst", com.taku3.semiconductorlab.content.Metallurgy.TITANIUM_TETRACHLORIDE) && recipeUses(h, "ziegler_natta_catalyst", Chemistry.TRIETHYLALUMINIUM), "TiCl4 + AlEt3");
+        var rem = Chemistry.ZIEGLER_NATTA_CATALYST.getCraftingRemainder(new ItemStack(Chemistry.ZIEGLER_NATTA_CATALYST));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.ZIEGLER_NATTA_CATALYST), "catalyst stays");
+        h.assertTrue(recipeUses(h, "hdpe", Chemistry.ETHYLENE_GAS) && recipeUses(h, "hdpe", Chemistry.ZIEGLER_NATTA_CATALYST), "ethylene on the catalyst -> HDPE");
+        var g = net.minecraft.core.NonNullList.withSize(4, ItemStack.EMPTY);
+        for (int i = 0; i < 4; i++) g.set(i, new ItemStack(Chemistry.ETHYLENE_GAS));
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(2, 2, g);
+        h.assertTrue(h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in, h.getLevel()).isEmpty(), "without the catalyst nothing happens at ordinary pressure");
+        LOG.info("[LAB] Ziegler-Natta [2-50]: Al + H2 + C2H4 -> AlEt3; + TiCl4 -> catalyst (stays); 4 ethylene -> HDPE; no catalyst -> nothing");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

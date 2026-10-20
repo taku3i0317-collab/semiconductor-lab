@@ -355,7 +355,7 @@ public class MetallurgyTests extends LabTestBase {
             net.minecraft.world.item.Item raw = (net.minecraft.world.item.Item) o[1];
             List<ItemStack> normal = Block.getDrops(b.defaultBlockState(), lv, at, null, null, pick);
             List<ItemStack> silky = Block.getDrops(b.defaultBlockState(), lv, at, null, null, silk);
-            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw) || (b == Metallurgy.IRON_SAND && s.is(Metallurgy.PLATINUM_GRAIN))), b + " with a pickaxe should drop " + raw + ", got " + normal);   // 砂鉄はまれに砂白金も [1-20]
+            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw) || (b == Metallurgy.IRON_SAND && (s.is(Metallurgy.PLATINUM_GRAIN) || s.is(Metallurgy.ILMENITE)))), b + " with a pickaxe should drop " + raw + ", got " + normal);   // 砂鉄はまれに砂白金 [1-20]・チタン鉄鉱 [1-41] も
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
         for (Block m : new Block[] {Power.STEAM_ENGINE.block, Power.STEAM_TURBINE.block, Power.LEAD_ACID_BATTERY.block, Power.WATER_WHEEL.block, Gas.ELECTROLYZER.block, Gas.GAS_HOLDER.block,

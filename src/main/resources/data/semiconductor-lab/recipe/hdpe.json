@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ethylene_gas",
+    "semiconductor-lab:ethylene_gas",
+    "semiconductor-lab:ethylene_gas",
+    "semiconductor-lab:ethylene_gas",
+    "semiconductor-lab:ziegler_natta_catalyst"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hdpe",
+    "count": 1
+  }
+}

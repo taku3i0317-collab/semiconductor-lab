@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:titanium_tetrachloride",
+    "semiconductor-lab:triethylaluminium"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ziegler_natta_catalyst",
+    "count": 1
+  }
+}

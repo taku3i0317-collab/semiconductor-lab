@@ -266,6 +266,11 @@ public final class Chemistry {
     public static final Item PYRITE                = Reg.item("pyrite");
     public static final Item COLCOTHAR             = Reg.item("colcothar");
     public static final Item GREEN_VITRIOL         = Reg.item("green_vitriol", new Item.Properties().craftRemainder(COLCOTHAR));
+    // [2-50] 配位重合触媒（IMP3、O-018）：アルミ＋水素＋エチレン3 → トリエチルアルミニウム（チーグラーの直接法）、＋四塩化チタン [1-41] → チーグラー・ナッタ触媒（作業台で減らない）。
+    //   エチレン4＋触媒 → 高密度ポリエチレン（ふつうの圧力、1953 チーグラー）。[2-37] の高圧法（5kW の反応釜）との違い
+    public static final Item TRIETHYLALUMINIUM     = Reg.item("triethylaluminium", new Item.Properties().stacksTo(16));
+    public static final Item ZIEGLER_NATTA_CATALYST = Reg.item("ziegler_natta_catalyst", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item HDPE                  = Reg.item("hdpe");
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [2-43] 黄鉄鉱（IMP3）
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける

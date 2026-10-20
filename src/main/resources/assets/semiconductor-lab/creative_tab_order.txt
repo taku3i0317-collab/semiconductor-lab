@@ -317,6 +317,7 @@ leaf_pigment_extract  # Chemistry [2-54] 1952
 carotene  # Chemistry [2-54] 1952
 chlorophyll  # Chemistry [2-54] 1952
 chromatography_column  # Chemistry [2-54] 1952
+hdpe  # Chemistry [2-50] 1953
 negative_resist  # Chemistry [2-30] 1954
 indium_tin_alloy  # Chemistry [2-46] 1954
 ito_glass  # Chemistry [2-46] 1954
@@ -354,6 +355,8 @@ glycerol_triacrylate  # Chemistry [None] None
 aluminium_chloride  # Chemistry [None] None
 carbon_tetrachloride  # Chemistry [None] None
 benzophenone  # Chemistry [None] None
+triethylaluminium  # Chemistry [None] None
+ziegler_natta_catalyst  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 bellows  # Heat [3-04] -1450
