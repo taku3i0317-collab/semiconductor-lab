@@ -2,15 +2,21 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "iii",
     "ttt",
-    "cRc"
+    "GCL",
+    "MZR"
   ],
   "key": {
-    "i": "minecraft:iron_ingot",
     "t": "semiconductor-lab:junction_transistor",
-    "c": "minecraft:copper_ingot",
-    "R": "minecraft:redstone"
+    "G": "semiconductor-lab:graphite",
+    "C": "semiconductor-lab:copper_cable",
+    "L": "semiconductor-lab:leyden_jar",
+    "M": "semiconductor-lab:magnet",
+    "Z": "semiconductor-lab:zinc_ingot",
+    "R": "semiconductor-lab:graphite_rod"
   },
-  "result": { "id": "semiconductor-lab:transistor_radio", "count": 1 }
+  "result": {
+    "id": "semiconductor-lab:transistor_radio",
+    "count": 1
+  }
 }

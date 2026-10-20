@@ -1667,6 +1667,38 @@ public class LabTests {
     }
 
     // =====================================================================
+    // レッドストーンは使わない（DESIGN、2026-10-20）・トランジスタラジオの本物の部品
+    // =====================================================================
+
+    /** MOD のレシピに、レッドストーン（粉・ブロック・たいまつ・反復装置・比較装置・ランプ）が1つも入っていない */
+    @GameTest
+    public void noRedstoneInRecipes(GameTestHelper h) {
+        net.minecraft.world.item.Item[] rs = {Items.REDSTONE, Items.REDSTONE_BLOCK, Items.REDSTONE_TORCH, Items.REPEATER, Items.COMPARATOR, Items.REDSTONE_LAMP};
+        java.util.List<String> bad = new java.util.ArrayList<>();
+        int n = 0;
+        for (var r : h.getLevel().getServer().getRecipeManager().getRecipes()) {
+            if (!r.id().identifier().getNamespace().equals(SemiconductorLab.MOD_ID)) continue;
+            n++;
+            for (var ing : r.value().placementInfo().ingredients())
+                for (var it : rs) if (ing.test(new ItemStack(it))) bad.add(r.id().identifier().getPath() + ":" + it);
+        }
+        h.assertTrue(n > 50, "MOD recipes found: " + n);
+        h.assertTrue(bad.isEmpty(), "redstone must not be a material: " + bad);
+        LOG.info("[LAB] no redstone in {} MOD recipes", n);
+        h.succeed();
+    }
+
+    /** トランジスタラジオ [15-10]：合金接合型3＋炭素抵抗（黒鉛）＋コイル（銅ケーブル）＋コンデンサ（ライデン瓶）＋スピーカー（磁石）＋乾電池（亜鉛・黒鉛棒） */
+    @GameTest
+    public void transistorRadioParts(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.JUNCTION_TRANSISTOR, ModItems.GRAPHITE, ModBlocks.COPPER_CABLE.asItem(), ModItems.LEYDEN_JAR, ModItems.MAGNET, ModItems.ZINC_INGOT, ModItems.GRAPHITE_ROD})
+            h.assertTrue(recipeUses(h, "transistor_radio", it), "radio part: " + it);
+        h.assertFalse(recipeUses(h, "transistor_radio", Items.REDSTONE), "no redstone in the radio");
+        h.assertFalse(recipeUses(h, "transistor_radio", Items.IRON_INGOT), "the plain iron chassis was removed");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-11] ドーパント源（タスク23）
     // =====================================================================
 
