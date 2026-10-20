@@ -1584,6 +1584,19 @@
 - Wikipedia「Diffraction grating」：https://en.wikipedia.org/wiki/Diffraction_grating
 - Wikipedia「Jesse Ramsden」（dividing engine）：https://en.wikipedia.org/wiki/Jesse_Ramsden
 
+## O56. もっと短い光で、もっと細かく（i線ステッパー）［9-39］
+**答え**：水銀灯には g線（436nm）・h線（405nm）・i線（365nm）がある。1980年代後半、フィルターで i線だけを取り出し、紫外でも透明な硝材・石英でレンズを作り直した i線ステッパーが広まり、0.35µm ほどの線が描けるようになった。CD＝k1×λ÷NA なので、波長を短く・NA を大きくすると細かくなるが、レンズのわずかなずれも大きく効くようになる。
+
+- へえ①：ふつうのガラスは紫外の光を吸うので、レンズの材料から変えなければならない。
+- へえ②：その次は KrF（248nm）・ArF（193nm）のエキシマレーザー、そして EUV（13.5nm）。
+- へえ③：波長が短いほど、同じレンズのずれでもぼけ方が大きい。
+- へえ④：i線の露光装置は、今も線の太い層の露光に使われている。
+
+確かさ：水銀の i線 365nm ◎／i線ステッパーの普及 1980年代後半〜1990年代 ○／NA 0.5〜0.65 ○
+根拠：
+- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper
+- Wikipedia「Photolithography」（Light sources）：https://en.wikipedia.org/wiki/Photolithography
+
 ---
 
 # 冶金と熱（タスク15〜）
