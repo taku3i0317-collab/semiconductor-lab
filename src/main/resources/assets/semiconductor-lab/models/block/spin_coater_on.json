@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/spin_coater_front_on",
+    "side": "semiconductor-lab:block/spin_coater_side",
+    "top": "semiconductor-lab:block/spin_coater_top"
+  }
+}

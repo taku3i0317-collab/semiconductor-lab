@@ -76,6 +76,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.WAFER_POLISHER, WaferPolisherScreen::new);
 		screen(Semiconductor.CLEANING_BENCH, CleaningBenchScreen::new);
 		screen(Semiconductor.FZ_PULLER, FzPullerScreen::new);
+		screen(Semiconductor.SPIN_COATER, SpinCoaterScreen::new);
 		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);
 		screen(Semiconductor.CZ_PULLER, CzPullerScreen::new);
 		// 専用の画面を書いていない機械は、ふつうの画面（電力・進み具合・状態）

@@ -304,5 +304,18 @@
   "gui.semiconductor-lab.fz_puller.need_ar": "アルゴンが必要",
   "gui.semiconductor-lab.fz_puller.need_power": "電気が足りない",
   "gui.semiconductor-lab.fz_puller.running": "帯を動かしている（約1420℃）",
-  "gui.semiconductor-lab.fz_puller.recipe": "るつぼなし：表面張力で宙に"
+  "gui.semiconductor-lab.fz_puller.recipe": "るつぼなし：表面張力で宙に",
+  "block.semiconductor-lab.spin_coater": "レジスト塗布機（スピンコーター）",
+  "block.semiconductor-lab.spin_coater.note1": "ウェハーをくるくる速く回して、レジストをうすく均一に広げる機械。",
+  "block.semiconductor-lab.spin_coater.note2": "電気 500W。酸化膜つきの板・加工中のウェハー1〜8枚＋ポジ型レジスト1（空の瓶は上に戻る）→ レジストを塗ったウェハー（20秒）。感光したレジストは使えない。塗ったあと温めて溶剤を飛ばす（プリベーク）まで行う。",
+  "block.semiconductor-lab.spin_coater.note3": "真ん中にたらした液は、毎分数千回転の遠心力で外へ広がり、余った分は飛んでいく。回転が速いほど膜はうすくなる（約1µm）。ピザ生地を回して広げるのと同じ。",
+  "block.semiconductor-lab.spin_coater.note4": "回転塗布は1960年代に広まった。⚠️ 始まりの年は資料で確かめていない。今の工場でも、ウェハーに液を塗るのはほとんどこの方法。",
+  "block.semiconductor-lab.spin_coater.placeholder": "省略：⚠️ 電力・時間はゲームの値。膜の厚さ・回転数は表さない。",
+  "gui.semiconductor-lab.spin_coater.power": "電力 %s",
+  "gui.semiconductor-lab.spin_coater.need_input": "ウェハーとレジストが必要",
+  "gui.semiconductor-lab.spin_coater.spoiled": "レジストが感光している",
+  "gui.semiconductor-lab.spin_coater.cannot": "このウェハーには塗れない",
+  "gui.semiconductor-lab.spin_coater.need_power": "電気が足りない",
+  "gui.semiconductor-lab.spin_coater.running": "回して塗っている",
+  "gui.semiconductor-lab.spin_coater.recipe": "回して広げる → 温めて乾かす"
 }

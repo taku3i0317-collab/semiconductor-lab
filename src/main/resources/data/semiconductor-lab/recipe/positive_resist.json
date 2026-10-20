@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:novolac",
+    "semiconductor-lab:dnq",
+    "semiconductor-lab:xylene",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:positive_resist",
+    "count": 1
+  }
+}

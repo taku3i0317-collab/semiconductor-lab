@@ -46,3 +46,9 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - O-006（レジスト・塗布・現像は E、材料は D）は材料待ち（環化ゴムはあるが感光剤ビスアジド・キシレンがまだ、ノボラックもまだ）。O-007 を先に
 - ✅ [9-17] メサトランジスタ：蒸着装置（C）の分岐に「p-n 接合の板＋アルミ → Al の点の板」を足した（自分が足した分岐の中、既存は変えない）。かまどで合金、ハニカムでろう、混酸（フッ酸＋硝酸、鉛の瓶）でエッチング槽、金の粒で4個。item/MesaTransistorItem：持ち物の中で β が下がる（inventoryTick、データコンポーネント current_gain）。API_26X に inventoryTick・appendHoverText・transmuteCopy を記録。GameTest mesa_transistor、CHEMISTRY F33〜F36、REFERENCES F17、遊び方: 実験
 - ✅ [9-09] FZ 法：FZ 炉 fz_puller（block/FzPullerBlockEntity、画面 FzPullerScreen、20kW）。るつぼなし、酸素 0.05 ppma（新しいデータコンポーネント oxygen_ppma、ウェハー切断で受け継ぐ＝WaferSawBlockEntity に2行）。ツールチップ（PurityTooltip）に酸素。年と人を出典で確かめ ⚠️ を外した。GameTest fz_puller、CHEMISTRY F37、REFERENCES F18、遊び方: 重
+
+## O-006（2026-10-20）レジストと塗る・焼く工程（E の担当に確定）
+- 材料（D）：ノボラック・DNQ・キシレン・環化ゴムはそろった。ネガ型の感光剤ビスアジドは D の判断待ち（Q3-6）→ ネガ型 [2-30] は止めて、ポジ型から
+- ✅ [2-32] ポジ型レジスト：作業台で ノボラック＋DNQ＋キシレン＋瓶 → positive_resist（ガラス瓶、Chemistry の containedItem＝Reg.contained と同じことを専用クラスで）。日なたで感光（item/PositiveResistItem、D の DnqItem と同じしくみ）
+- ✅ [9-19] レジスト塗布機 spin_coater（block/SpinCoaterBlockEntity、画面 SpinCoaterScreen、500W）：1〜8枚＋レジスト → ChipOps.coat。GameTest spin_coater（NOT の例の全部の塗布を塗布機で → 4つの発見）、CHEMISTRY F38〜F39、REFERENCES F19
+- **止まっている所（判断・前提待ち）**：[9-21] 現像は前提 [9-20] 露光が未実装。[9-20] 密着露光（「C か E」）は前提 [8-17] アライメント（← [8-10][8-08][8-06]、幹8＝IMP2）が ❓。LITHO_DESIGN では v0.3 は合わせのずれなし。案：①[9-20] の前提から [8-17] を外し「顕微鏡で手で合わせる」1960年の形にする（ずれは v0.5）②IMP2 が [8-17] を作るのを待つ。ユーザー（設計担当）の判断を LOG と Discord で聞く。その間は ③現像液（薄い NaOH 水溶液）だけ先に作る、などで止まらない

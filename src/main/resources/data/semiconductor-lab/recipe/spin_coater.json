@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SGS",
+    "SMS",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "G": "semiconductor-lab:soda_lime_glass",
+    "M": "semiconductor-lab:electric_motor",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:spin_coater",
+    "count": 1
+  }
+}

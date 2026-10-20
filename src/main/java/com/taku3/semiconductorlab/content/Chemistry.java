@@ -76,6 +76,8 @@ public final class Chemistry {
     public static final Item HYDROFLUORIC_ACID     = Reg.contained("hydrofluoric_acid", Vessel.LEAD_BOTTLE);
     public static final Item CALCIUM_SULFATE       = Reg.item("calcium_sulfate");   // 石こう CaSO4（無水。焼いた石こう）
     public static final Item SILICON_ETCH          = Reg.contained("silicon_etch", Vessel.LEAD_BOTTLE); // [9-17] シリコンを溶かす混酸（フッ酸＋硝酸、鉛の瓶。IMP4-01）
+    // [2-32] ポジ型レジスト（IMP4-01、O-006）：ノボラック＋DNQ をキシレンに溶かした液（ガラス瓶）。日なたで持つと感光して使えなくなる（item/PositiveResistItem）
+    public static final Item POSITIVE_RESIST       = containedItem("positive_resist", com.taku3.semiconductorlab.item.PositiveResistItem::new, Vessel.GLASS_BOTTLE, 16);
     // [9-25] リン酸（IMP4-01）：骨灰＋硫酸（シェーレの時代からの湿式法）。Al のエッチング液
     public static final Item PHOSPHORIC_ACID       = Reg.contained("phosphoric_acid", Vessel.GLASS_BOTTLE);
     // [9-13] 研磨のコロイダルシリカ（IMP4-01）：砂＋NaOH → 水ガラス（ケイ酸ナトリウム）→ 硫酸で中和 → シリカの微粒子が水に分散した液（ガラス瓶）
@@ -160,6 +162,15 @@ public final class Chemistry {
 
     // 過酸化水素の電解槽 [2-19]（IMP4-01）：白金の陽極で硫酸を電解 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。3kW
     public static final Machine<PeroxideCellBlockEntity> PEROXIDE_CELL = Machine.electric("peroxide_cell", PeroxideCellBlockEntity::new, PeroxideCellBlockEntity.LAYOUT, metal(3.0f));
+
+    /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */
+    private static Item containedItem(String name, java.util.function.Function<Item.Properties, Item> factory, Vessel v, int stack) {
+        Item.Properties props = new Item.Properties().stacksTo(Math.min(stack, v.stack));
+        if (v.empty() != null) props.craftRemainder(v.empty());
+        Item item = Reg.item(name, factory, props);
+        Vessel.register(item, v);
+        return item;
+    }
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

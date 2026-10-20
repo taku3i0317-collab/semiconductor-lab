@@ -471,5 +471,13 @@
   "item.semiconductor-lab.dnq.note3": "In light, DNQ loses N2 and rearranges (Wolff rearrangement) into an indene carboxylic acid, which dissolves in alkaline water. So a film of novolac + DNQ dissolves only where light fell: a positive resist.",
   "item.semiconductor-lab.dnq.note4": "Invented by Suss at Kalle in the 1940s for diazo copying paper. Clean-room lights in chip fabs are yellow because they leave out the UV-to-blue light that DNQ and other sensitizers react to.",
   "item.semiconductor-lab.dnq.placeholder": "Approximation: converting it to the sulfonyl chloride and binding it to novolac is omitted. Decomposition shows only in the name (uses do not change).",
-  "message.semiconductor-lab.dnq.decomposed": "Sunlight decomposed the DNQ! (nitrogen escaped) Carry sensitizers in the shade"
+  "message.semiconductor-lab.dnq.decomposed": "Sunlight decomposed the DNQ! (nitrogen escaped) Carry sensitizers in the shade",
+  "item.semiconductor-lab.positive_resist": "Positive Photoresist",
+  "item.semiconductor-lab.positive_resist.note1": "A liquid that, where light hits it, later dissolves in alkaline developer. Carrying it in sunlight ruins it.",
+  "item.semiconductor-lab.positive_resist.note2": "In a glass bottle (the bottle comes back). Crafting: 1 novolac + 1 DNQ + 1 xylene + 1 empty glass bottle → 1. Spread on wafers with the spin coater [9-19]. Holding it in sunlight (daytime, open sky above) exposes it and spoils it (chests and indoors are safe). GHS: flammable (solvent).",
+  "item.semiconductor-lab.positive_resist.note3": "Novolac resin alone dissolves a little in alkali, but DNQ mixed in holds it back. Ultraviolet light breaks DNQ down into an acid, so exposed areas dissolve readily: what light touches disappears, hence 'positive'.",
+  "item.semiconductor-lab.positive_resist.note4": "Süs at Kalle devised it in the 1940s for diazo copying paper. It became the main IC resist only in the late 1970s with projection printing (before that, negative KPR and KTFR). ⚠️ The game uses positive resist first to match the v0.3 lithography flow (LITHO_DESIGN). Fab lighting is yellow so the resist is not exposed.",
+  "item.semiconductor-lab.positive_resist.placeholder": "Approximation: the solvent is xylene (real positive resists use cellosolve acetate and others). Resist made from exposed DNQ is not told apart at the crafting table.",
+  "item.semiconductor-lab.positive_resist.spoiled": "Light-Spoiled Resist",
+  "message.semiconductor-lab.positive_resist.spoiled": "Sunlight exposed the resist! (keep it indoors or in a chest)"
 }

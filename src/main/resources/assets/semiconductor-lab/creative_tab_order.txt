@@ -184,6 +184,7 @@ novolac_mix  # Chemistry [2-28] 1907
 novolac  # Chemistry [2-28] 1907
 resol_mix  # Chemistry [2-28] 1907
 bakelite  # Chemistry [2-28] 1907
+positive_resist  # Chemistry [2-32] 1940
 phosphorus  # Chemistry [9-11] 1955
 silicon_etch  # Chemistry [9-17] 1957
 phosphoric_acid  # Chemistry [9-25] 1959
@@ -314,6 +315,7 @@ metre_bar  # Precision [8-06] 1892
 isolation_table  # Precision [8-07] 1931
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
+spin_coater  # Semiconductor [2-32] 1940
 transistor  # Semiconductor [9-03] 1947
 germanium_seed_crystal  # Semiconductor [9-07] 1950
 germanium_single_crystal  # Semiconductor [9-07] 1950

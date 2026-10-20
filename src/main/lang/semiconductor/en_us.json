@@ -304,5 +304,18 @@
   "gui.semiconductor-lab.fz_puller.need_ar": "Needs argon",
   "gui.semiconductor-lab.fz_puller.need_power": "Not enough power",
   "gui.semiconductor-lab.fz_puller.running": "Moving the zone (about 1420 °C)",
-  "gui.semiconductor-lab.fz_puller.recipe": "No crucible, floating zone"
+  "gui.semiconductor-lab.fz_puller.recipe": "No crucible, floating zone",
+  "block.semiconductor-lab.spin_coater": "Spin Coater",
+  "block.semiconductor-lab.spin_coater.note1": "Spins wafers fast to spread photoresist into a thin, even layer.",
+  "block.semiconductor-lab.spin_coater.note2": "500 W. 1–8 oxidized slices or process wafers + 1 positive resist (the empty bottle pops out on top) → resist-coated wafers (20 s). Spoiled resist cannot be used. Includes warming to drive off the solvent (prebake).",
+  "block.semiconductor-lab.spin_coater.note3": "Liquid dropped in the centre spreads outward under the force of thousands of turns per minute and the excess flies off. The faster the spin, the thinner the film (about 1 µm): like spinning pizza dough.",
+  "block.semiconductor-lab.spin_coater.note4": "Spin coating spread in the 1960s. ⚠️ The exact start date is not yet checked. Almost every liquid coating on wafers is still applied this way.",
+  "block.semiconductor-lab.spin_coater.placeholder": "Omitted: ⚠️ power and time are game values. Film thickness and spin speed are not modelled.",
+  "gui.semiconductor-lab.spin_coater.power": "Power %s",
+  "gui.semiconductor-lab.spin_coater.need_input": "Needs wafers and resist",
+  "gui.semiconductor-lab.spin_coater.spoiled": "The resist is spoiled",
+  "gui.semiconductor-lab.spin_coater.cannot": "Cannot coat this wafer",
+  "gui.semiconductor-lab.spin_coater.need_power": "Not enough power",
+  "gui.semiconductor-lab.spin_coater.running": "Spinning and coating",
+  "gui.semiconductor-lab.spin_coater.recipe": "Spin to spread → bake dry"
 }
