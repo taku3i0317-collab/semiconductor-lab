@@ -414,6 +414,50 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-13] ラッピング・鏡面研磨（やり直し）（IMP4-01）
+    // =====================================================================
+
+    /** 砂＋NaOH2 → 水ガラス、＋硫酸＋瓶 → コロイダルシリカ。研磨機：加工中のウェハー＋砥粒＋シリカ → 層を消してやり直し（2回まで） */
+    @GameTest(maxTicks = 200)
+    public void waferPolisher(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "sodium_silicate", Items.SAND) && recipeUses(h, "sodium_silicate", com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE), "water glass = sand + NaOH");
+        h.assertTrue(recipeUses(h, "colloidal_silica", Chemistry.SODIUM_SILICATE) && recipeUses(h, "colloidal_silica", Chemistry.SULFURIC_ACID), "silica sol = water glass + acid");
+        ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(withDopant(new ItemStack(Semiconductor.OXIDIZED_WAFER, 3), "boron"), com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Semiconductor.WAFER_POLISHER.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_WAFER, done.copy());
+        c.setItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_ABRASIVE, new ItemStack(Metallurgy.ALUMINA, 3));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_OUT).isEmpty(), "no colloidal silica -> nothing");
+        c.setItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_SILICA, new ItemStack(Chemistry.COLLOIDAL_SILICA, 3));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.TICKS, feed);
+        ItemStack r1 = c.getItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_OUT);
+        h.assertTrue(r1.getCount() == 3 && com.taku3.semiconductorlab.litho.ChipOps.state(r1).done().isEmpty() && com.taku3.semiconductorlab.litho.ChipOps.state(r1).reclaims() == 1, "3 wafers reclaimed once, got " + r1);
+        h.assertTrue(ItemStack.isSameItemSameComponents(r1, com.taku3.semiconductorlab.litho.ChipOps.reclaim(done).out()), "polisher = ChipOps.reclaim");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_ABRASIVE).getCount() == 2 && c.getItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_SILICA).getCount() == 2, "1 abrasive + 1 silica per run");
+        // 2回目でおしまい
+        c.setItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_WAFER, r1.copy());
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.TICKS, feed);
+        ItemStack r2 = c.getItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_OUT);
+        c.setItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_WAFER, r2.copy());
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferPolisherBlockEntity.SLOT_OUT).isEmpty(), "third reclaim refused");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] polisher [9-13]: NOT chip -> lapping (alumina) + colloidal silica -> layers removed (reclaim), twice at most");
+        h.succeed();
+    }
+
+    private static ItemStack withDopant(ItemStack s, String d) { s.set(ModDataComponents.DOPANT, d); return s; }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 

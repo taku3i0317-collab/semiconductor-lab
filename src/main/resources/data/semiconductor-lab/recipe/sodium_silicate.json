@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sand",
+    "semiconductor-lab:sodium_hydroxide",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sodium_silicate",
+    "count": 1
+  }
+}

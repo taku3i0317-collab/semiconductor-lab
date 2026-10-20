@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sodium_silicate",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:colloidal_silica",
+    "count": 1
+  }
+}

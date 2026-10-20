@@ -72,6 +72,8 @@ public final class Semiconductor {
     // [9-06] エッチング槽（IMP4-01）：鉛張りの槽にフッ酸。酸化膜だけを溶かす（室温、電気なし）
     public static final Machine<EtchTankBlockEntity> ETCH_TANK = Machine.builder("etch_tank", EtchTankBlockEntity::new)
             .ticker(EtchTankBlockEntity::tick).layout(EtchTankBlockEntity.LAYOUT).props(metal(3.0f)).build();
+    // [9-13] 研磨機（IMP4-01）：砥粒でラッピング → コロイダルシリカで鏡面。加工中のウェハーを最初からやり直す（ChipOps.reclaim）。1kW
+    public static final Machine<WaferPolisherBlockEntity> WAFER_POLISHER = Machine.electric("wafer_polisher", WaferPolisherBlockEntity::new, WaferPolisherBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

@@ -145,5 +145,17 @@
   "item.semiconductor-lab.phosphoric_acid.note2": "H3PO4（ガラス瓶入り、使うと瓶が戻る）。作業台で 骨灰1＋硫酸3＋空のガラス瓶2 → リン酸2。エッチング槽 [9-06] に入れると、現像したウェハーのアルミ（レジストのない所）だけを溶かす [9-25]。GHS：腐食性。",
   "item.semiconductor-lab.phosphoric_acid.note3": "Ca3(PO4)2 + 3H2SO4 → 2H3PO4 + 3CaSO4。骨の灰（リン酸カルシウム）に硫酸をかけると取れる。2Al + 2H3PO4 → 2AlPO4 + 3H2 で、アルミは溶けるが、酸化膜とシリコンはほとんど溶けない。",
   "item.semiconductor-lab.phosphoric_acid.note4": "1960年代の IC 工場は、リン酸に少しの硝酸と酢酸を混ぜた液を温めてアルミを削った。リン酸はコーラの酸っぱさ、肥料、さび取りにも使われる。",
-  "item.semiconductor-lab.phosphoric_acid.placeholder": "近似：副産物の石こうは出ない。硝酸・酢酸を混ぜたエッチング液ではなくリン酸だけ。"
+  "item.semiconductor-lab.phosphoric_acid.placeholder": "近似：副産物の石こうは出ない。硝酸・酢酸を混ぜたエッチング液ではなくリン酸だけ。",
+  "item.semiconductor-lab.sodium_silicate": "水ガラス（ケイ酸ナトリウム）",
+  "item.semiconductor-lab.sodium_silicate.note1": "砂と苛性ソーダから作る、水にとけるガラス。",
+  "item.semiconductor-lab.sodium_silicate.note2": "Na2SiO3。作業台で 砂1＋水酸化ナトリウム2 → 水ガラス1（2NaOH + SiO2 → Na2SiO3 + H2O）。硫酸で中和するとコロイダルシリカになる。",
+  "item.semiconductor-lab.sodium_silicate.note3": "ふつうのガラスは水にとけないが、ナトリウムが多いガラスは水にとける。とかした液は「水ガラス」と呼ばれ、接着剤や、卵を長持ちさせる液にも使われた。",
+  "item.semiconductor-lab.sodium_silicate.note4": "シリカゲル（お菓子の袋の乾燥剤）も、水ガラスを酸で固めて作る。",
+  "item.semiconductor-lab.sodium_silicate.placeholder": "近似：作業台で混ぜる（本物は砂とソーダ灰を約1300℃でとかすか、圧力釜で苛性ソーダにとかす）。",
+  "item.semiconductor-lab.colloidal_silica": "コロイダルシリカ",
+  "item.semiconductor-lab.colloidal_silica.note1": "目に見えないほど小さいガラスの粒が、水の中にちらばった液。ウェハーをみがくのに使う。",
+  "item.semiconductor-lab.colloidal_silica.note2": "SiO2 の微粒子（数〜100nm）の水分散液（ガラス瓶入り、使うと瓶が戻る）。作業台で 水ガラス1＋硫酸1（瓶は戻る）＋空のガラス瓶1 → 1。研磨機 [9-13] の仕上げに使う。",
+  "item.semiconductor-lab.colloidal_silica.note3": "粒がとても小さいので沈まず、牛乳のように白くにごった液になる。粒はシリコンより柔らかいので、傷をつけずにみがける。",
+  "item.semiconductor-lab.colloidal_silica.note4": "1941年、デュポンがイオン交換で水ガラスからナトリウムを取りのぞいて安定なシリカのゾル（ルドックス）を作った。今のチップ工場の CMP でも同じ種類の液を使う。⚠️ 副産物の硫酸ナトリウムは表さない。",
+  "item.semiconductor-lab.colloidal_silica.placeholder": "近似：本物はイオン交換でナトリウムを取りのぞく。ゲームは硫酸で中和するだけで、硫酸ナトリウムは出ない。"
 }

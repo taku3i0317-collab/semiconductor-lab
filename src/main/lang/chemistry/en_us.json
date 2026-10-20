@@ -145,5 +145,17 @@
   "item.semiconductor-lab.phosphoric_acid.note2": "H3PO4 (in a glass bottle; the bottle comes back). Crafting: 1 bone ash + 3 sulfuric acid + 2 empty glass bottles → 2 phosphoric acid. In the etching tank [9-06] it dissolves only the aluminium where a developed wafer has no resist [9-25]. GHS: corrosive.",
   "item.semiconductor-lab.phosphoric_acid.note3": "Ca3(PO4)2 + 3H2SO4 → 2H3PO4 + 3CaSO4: sulfuric acid on bone ash (calcium phosphate). 2Al + 2H3PO4 → 2AlPO4 + 3H2 dissolves aluminium but hardly touches oxide or silicon.",
   "item.semiconductor-lab.phosphoric_acid.note4": "1960s chip plants etched aluminium with warm phosphoric acid mixed with a little nitric and acetic acid. Phosphoric acid also gives cola its tang and is used in fertiliser and rust removers.",
-  "item.semiconductor-lab.phosphoric_acid.placeholder": "Approximation: the gypsum by-product does not appear. Plain phosphoric acid instead of the nitric/acetic etching mixture."
+  "item.semiconductor-lab.phosphoric_acid.placeholder": "Approximation: the gypsum by-product does not appear. Plain phosphoric acid instead of the nitric/acetic etching mixture.",
+  "item.semiconductor-lab.sodium_silicate": "Water Glass (Sodium Silicate)",
+  "item.semiconductor-lab.sodium_silicate.note1": "Glass made from sand and caustic soda that dissolves in water.",
+  "item.semiconductor-lab.sodium_silicate.note2": "Na2SiO3. Crafting: 1 sand + 2 sodium hydroxide → 1 water glass (2NaOH + SiO2 → Na2SiO3 + H2O). Neutralised with sulfuric acid it becomes colloidal silica.",
+  "item.semiconductor-lab.sodium_silicate.note3": "Ordinary glass does not dissolve in water, but glass with a lot of sodium does. The solution is called 'water glass' and was used as glue and to preserve eggs.",
+  "item.semiconductor-lab.sodium_silicate.note4": "Silica gel (the drying sachets in snack bags) is also made by setting water glass with acid.",
+  "item.semiconductor-lab.sodium_silicate.placeholder": "Approximation: mixed at the crafting table (really sand and soda ash are melted at about 1300 °C, or sand is dissolved in caustic soda in a pressure vessel).",
+  "item.semiconductor-lab.colloidal_silica": "Colloidal Silica",
+  "item.semiconductor-lab.colloidal_silica.note1": "A liquid with invisibly tiny glass particles spread through water. Used to polish wafers.",
+  "item.semiconductor-lab.colloidal_silica.note2": "SiO2 particles (a few to 100 nm) dispersed in water (glass bottle; the bottle comes back). Crafting: 1 water glass + 1 sulfuric acid (bottle back) + 1 empty glass bottle → 1. Used for the final polish in the wafer polisher [9-13].",
+  "item.semiconductor-lab.colloidal_silica.note3": "The particles are so small that they do not settle, giving a milky liquid. They are softer than silicon, so they polish without scratching.",
+  "item.semiconductor-lab.colloidal_silica.note4": "In 1941 DuPont removed sodium from water glass by ion exchange to make a stable silica sol (Ludox). Today's chip plants use the same kind of liquid for CMP. ⚠️ The sodium sulfate by-product is not modelled.",
+  "item.semiconductor-lab.colloidal_silica.placeholder": "Approximation: really sodium is removed by ion exchange. Here it is just neutralised with sulfuric acid, and no sodium sulfate comes out."
 }

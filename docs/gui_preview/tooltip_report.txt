@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # 自動生成：GameTest tooltip_text（IMP-30）。アイテム 268（ja・en、Shift なし・あり）、問題 0
+=======
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 266（ja・en、Shift なし・あり）、問題 0
+>>>>>>> 844713b (IMP4-01 [9-13]: lapping and mirror polishing (O-003, LITHO_DESIGN reclaim) - wafer polisher (steel + lead screw + motor + copper cable, 1 kW): 1-8 process wafers + abrasive (alumina or rouge) + colloidal silica -> layers removed via ChipOps.reclaim (twice at most); water glass (sand + 2 NaOH) and colloidal silica (water glass + sulfuric acid + bottle); GameTest wafer_polisher, CHEMISTRY F20-F22, REFERENCES F10, TEST_QUEUE, tab order, IMPL4_LOG (139/139))
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -255,6 +259,10 @@ en_us calcium_sulfate lines=3
 en_us calcium_sulfate shift lines=9
 en_us phosphoric_acid lines=8
 en_us phosphoric_acid shift lines=18
+en_us sodium_silicate lines=8
+en_us sodium_silicate shift lines=15
+en_us colloidal_silica lines=9
+en_us colloidal_silica shift lines=19
 en_us trona_deposit lines=4
 en_us trona_deposit shift lines=14
 en_us wood_retort lines=5
@@ -529,6 +537,8 @@ en_us oxidation_furnace lines=4
 en_us oxidation_furnace shift lines=26
 en_us etch_tank lines=4
 en_us etch_tank shift lines=25
+en_us wafer_polisher lines=5
+en_us wafer_polisher shift lines=18
 en_us crystal_puller lines=3
 en_us crystal_puller shift lines=16
 en_us transistor_radio lines=14
@@ -793,6 +803,10 @@ ja_jp calcium_sulfate lines=2
 ja_jp calcium_sulfate shift lines=8
 ja_jp phosphoric_acid lines=6
 ja_jp phosphoric_acid shift lines=14
+ja_jp sodium_silicate lines=5
+ja_jp sodium_silicate shift lines=12
+ja_jp colloidal_silica lines=7
+ja_jp colloidal_silica shift lines=15
 ja_jp trona_deposit lines=3
 ja_jp trona_deposit shift lines=13
 ja_jp wood_retort lines=4
@@ -1067,6 +1081,8 @@ ja_jp oxidation_furnace lines=3
 ja_jp oxidation_furnace shift lines=22
 ja_jp etch_tank lines=3
 ja_jp etch_tank shift lines=20
+ja_jp wafer_polisher lines=4
+ja_jp wafer_polisher shift lines=17
 ja_jp crystal_puller lines=3
 ja_jp crystal_puller shift lines=15
 ja_jp transistor_radio lines=11
