@@ -797,6 +797,26 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-58] 無水酢酸・[2-59] ケイ皮酸（IMP3、O-010、KPR の材料）
+    // =====================================================================
+
+    /** P＋Cl2 → PCl3、酢酸＋PCl3 → 塩化アセチル、＋酢酸ナトリウム → 無水酢酸。軽油 → トルエン → 塩化ベンザル → ベンズアルデヒド。パーキン → かまど → ケイ皮酸 → 塩化シンナモイル */
+    @GameTest
+    public void cinnamicAcid(GameTestHelper h) {
+        var CL = com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS;
+        h.assertTrue(recipeUses(h, "phosphorus_trichloride", Chemistry.PHOSPHORUS) && recipeUses(h, "phosphorus_trichloride", CL), "P + Cl2 -> PCl3");
+        h.assertTrue(recipeUses(h, "acetyl_chloride", Chemistry.ACETIC_ACID) && recipeUses(h, "acetyl_chloride", Chemistry.PHOSPHORUS_TRICHLORIDE), "acetic acid + PCl3 -> acetyl chloride");
+        h.assertTrue(recipeUses(h, "acetic_anhydride", Chemistry.ACETYL_CHLORIDE) && recipeUses(h, "acetic_anhydride", Chemistry.SODIUM_ACETATE), "Gerhardt: acetyl chloride + sodium acetate");
+        h.assertTrue(recipeUses(h, "toluene", Chemistry.LIGHT_OIL) && recipeUses(h, "benzal_chloride", Chemistry.TOLUENE) && recipeUses(h, "benzaldehyde", Chemistry.BENZAL_CHLORIDE), "toluene -> benzal chloride -> benzaldehyde");
+        h.assertTrue(recipeUses(h, "perkin_mix", Chemistry.BENZALDEHYDE) && recipeUses(h, "perkin_mix", Chemistry.ACETIC_ANHYDRIDE) && recipeUses(h, "perkin_mix", Chemistry.SODIUM_ACETATE), "Perkin: benzaldehyde + anhydride + acetate");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.PERKIN_MIX).is(Chemistry.CINNAMIC_ACID), "heated -> cinnamic acid");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.BENZALDEHYDE).isEmpty(), "benzaldehyde alone does not become cinnamic acid");
+        h.assertTrue(recipeUses(h, "cinnamoyl_chloride", Chemistry.CINNAMIC_ACID), "cinnamic acid -> cinnamoyl chloride");
+        LOG.info("[LAB] cinnamic acid [2-58][2-59]: PCl3 -> acetyl chloride -> acetic anhydride; toluene -> benzal chloride -> benzaldehyde; Perkin -> cinnamic acid -> cinnamoyl chloride");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

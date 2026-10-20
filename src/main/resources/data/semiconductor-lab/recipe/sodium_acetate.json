@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetic_acid",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sodium_acetate",
+    "count": 1
+  }
+}

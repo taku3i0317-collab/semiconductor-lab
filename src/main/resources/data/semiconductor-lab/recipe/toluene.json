@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:light_oil",
+    "semiconductor-lab:light_oil",
+    "semiconductor-lab:quartz_still"
+  ],
+  "result": {
+    "id": "semiconductor-lab:toluene",
+    "count": 1
+  }
+}

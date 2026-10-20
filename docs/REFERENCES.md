@@ -1836,6 +1836,22 @@
 - Wikipedia「Chlorodifluoromethane」（製法）：https://en.wikipedia.org/wiki/Chlorodifluoromethane
 - Wikipedia「Swarts fluorination」：https://en.wikipedia.org/wiki/Swarts_fluorination
 
+## C18. 光でくっつく分子の材料（無水酢酸・ケイ皮酸）［2-58］［2-59］
+**答え**：無水酢酸は 1852年ジェラールが塩化アセチルと酢酸の塩から初めて作った。ケイ皮酸は 1868年パーキンの反応（ベンズアルデヒド＋無水酢酸＋酢酸ナトリウム）で作れる。ベンズアルデヒドはトルエンの側鎖を塩素化して加水分解して作る。ケイ皮酸の C=C は紫外線で [2+2] 二量化する（となりどうしが4つの炭素の輪でつながる）。この性質をポリビニルアルコールの鎖に付けたのが、1950年代コダックのネガ型レジスト KPR（ポリケイ皮酸ビニル）。
+
+- へえ①：シナモンのにおいの仲間（ケイ皮酸）は、光が当たるとくっつく。
+- へえ②：パーキンは18歳で紫の染料モーブを見つけ、のちにこの反応で香料クマリンを作った。
+- へえ③：トルエンの名前は南米のトルーバルサムから。
+- へえ④：酢酸ナトリウムの過冷却は、くり返し使えるカイロに使われている。
+
+確かさ：反応 ◎／ジェラール 1852・パーキン 1868 ◎（パーキン反応の発表は 1868〜1877）／KPR の年（1950年代、ミンスクの特許 1954 前後）○⚠️
+根拠：
+- Wikipedia「Acetic anhydride」（歴史）：https://en.wikipedia.org/wiki/Acetic_anhydride
+- Wikipedia「Perkin reaction」：https://en.wikipedia.org/wiki/Perkin_reaction
+- Wikipedia「Benzaldehyde」/「Benzal chloride」：https://en.wikipedia.org/wiki/Benzal_chloride
+- Wikipedia「Cinnamic acid」（光二量化）：https://en.wikipedia.org/wiki/Cinnamic_acid
+- Wikipedia「Polyvinyl cinnamate」：https://en.wikipedia.org/wiki/Polyvinyl_cinnamate
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

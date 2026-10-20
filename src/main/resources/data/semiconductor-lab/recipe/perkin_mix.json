@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:benzaldehyde",
+    "semiconductor-lab:acetic_anhydride",
+    "semiconductor-lab:sodium_acetate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:perkin_mix",
+    "count": 1
+  }
+}

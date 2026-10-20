@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:benzal_chloride",
+    "semiconductor-lab:slaked_lime",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:benzaldehyde",
+    "count": 1
+  }
+}

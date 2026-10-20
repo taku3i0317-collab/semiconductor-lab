@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:cinnamic_acid",
+    "semiconductor-lab:cinnamic_acid",
+    "semiconductor-lab:cinnamic_acid",
+    "semiconductor-lab:phosphorus_trichloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cinnamoyl_chloride",
+    "count": 3
+  }
+}

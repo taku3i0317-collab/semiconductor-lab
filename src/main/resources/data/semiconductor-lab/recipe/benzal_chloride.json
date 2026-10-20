@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:toluene",
+    "semiconductor-lab:chlorine_gas",
+    "semiconductor-lab:chlorine_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:benzal_chloride",
+    "count": 1
+  }
+}

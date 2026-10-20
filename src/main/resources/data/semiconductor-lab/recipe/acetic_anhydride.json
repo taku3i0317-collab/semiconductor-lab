@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetyl_chloride",
+    "semiconductor-lab:sodium_acetate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:acetic_anhydride",
+    "count": 1
+  }
+}

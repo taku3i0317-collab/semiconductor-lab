@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phosphorus",
+    "semiconductor-lab:chlorine_gas",
+    "semiconductor-lab:chlorine_gas",
+    "semiconductor-lab:chlorine_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:phosphorus_trichloride",
+    "count": 1
+  }
+}

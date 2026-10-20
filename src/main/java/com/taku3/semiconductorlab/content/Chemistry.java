@@ -186,6 +186,19 @@ public final class Chemistry {
     //   後半（クロロホルム＋HF → CHClF2）は SbCl5 触媒＝[1-43] アンチモン待ち（IMPL3_LOG Q3-7）
     public static final Item BLEACHING_POWDER      = Reg.item("bleaching_powder");
     public static final Item CHLOROFORM            = Reg.contained("chloroform", Vessel.GLASS_BOTTLE);
+    // [2-58] 無水酢酸（IMP3、O-010）：白リン＋塩素 → 三塩化リン、酢酸3＋PCl3 → 塩化アセチル3、酢酸＋NaOH → 酢酸ナトリウム、塩化アセチル＋酢酸ナトリウム → 無水酢酸（1852 ジェラール）
+    public static final Item PHOSPHORUS_TRICHLORIDE = Reg.item("phosphorus_trichloride", new Item.Properties().stacksTo(16));
+    public static final Item ACETYL_CHLORIDE       = Reg.item("acetyl_chloride", new Item.Properties().stacksTo(16));
+    public static final Item SODIUM_ACETATE        = Reg.item("sodium_acetate");
+    public static final Item ACETIC_ANHYDRIDE      = Reg.item("acetic_anhydride", new Item.Properties().stacksTo(16));
+    // [2-59] ケイ皮酸（IMP3、O-010）：軽油を精留 → トルエン、＋塩素2（側鎖）→ 塩化ベンザル、＋消石灰＋水 → ベンズアルデヒド。
+    //   ベンズアルデヒド＋無水酢酸＋酢酸ナトリウム → かまど → ケイ皮酸（1868 パーキン反応）、＋PCl3 → 塩化シンナモイル（KPR の材料）
+    public static final Item TOLUENE               = Reg.item("toluene", new Item.Properties().stacksTo(16));
+    public static final Item BENZAL_CHLORIDE       = Reg.item("benzal_chloride", new Item.Properties().stacksTo(16));
+    public static final Item BENZALDEHYDE          = Reg.item("benzaldehyde", new Item.Properties().stacksTo(16));
+    public static final Item PERKIN_MIX            = Reg.item("perkin_mix", new Item.Properties().stacksTo(16));
+    public static final Item CINNAMIC_ACID         = Reg.item("cinnamic_acid");
+    public static final Item CINNAMOYL_CHLORIDE    = Reg.item("cinnamoyl_chloride", new Item.Properties().stacksTo(16));
     /** 獣脂を落とす確率（1頭あたり） */
     public static final float TALLOW_CHANCE = 0.6f;
 

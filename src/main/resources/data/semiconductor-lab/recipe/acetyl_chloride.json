@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetic_acid",
+    "semiconductor-lab:acetic_acid",
+    "semiconductor-lab:acetic_acid",
+    "semiconductor-lab:phosphorus_trichloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:acetyl_chloride",
+    "count": 3
+  }
+}
