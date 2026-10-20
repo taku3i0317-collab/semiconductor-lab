@@ -104,7 +104,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "川原の丸くてかたい石。これで火打ち石をたたくと、するどいかけらが取れる。",
+    "note2": "砂利をこわすと、ときどき出てくる。もう片方の手に火打ち石を持って右クリックすると、剥片が2つ取れる。黒曜石ブロックを右クリックすると黒曜石の剥片が取れる（ブロックは残る）。ふつうの石をたたいても刃にはならない。作業台で使っても手元に戻る。",
+    "note3": "石を石で打ち欠く「直接打撃」は、人類のいちばん古い技術。確実な最古の例は約260万年前、エチオピアのゴナで見つかったオルドワン石器。ケニアのロメクウィでは約330万年前とされる石器も見つかっているが、年代や人の手によるものかはまだ議論がある ⚠️。",
+    "note4": "たたき石には、割れにくく粘り強い石（珪岩・玄武岩の川原石など）が選ばれた。打つ角度（打撃面と縁の角度が90度より小さいこと）と打つ場所が大事で、うまく打つと衝撃が円すい状に広がって剥片がはがれる（ヘルツ円すい）。剥片の内側には、打った点の印（打瘤＝バルブ）が残る。"
+   },
    "refs": [
     {
      "title": "S1. 石を石で打ち欠くと刃になる（打製石器）［0-01］",
@@ -119,10 +124,10 @@
      "basis": "- Harmand ほか 2015「3.3-million-year-old stone tools from Lomekwi 3」Nature 521：https://www.nature.com/articles/nature14464"
     }
    ],
-   "item": null,
+   "item": "hammerstone",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：剥片の大きさ・打つ角度・失敗の割れはない。たたき石は砂利から出る（本物は河原の丸石を拾う）。",
    "game_text": "MOD の打製石器（柄なし）＋バニラの石の道具＝柄付き",
    "id": "0-01",
    "name": "打製石器",
@@ -148,7 +153,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABqklEQVR4nMWSb0tUQRTGn5k79153148SZChiyAYR9KKSFJKFWOrThUTqC1Nsqeh1RKIp9DG8a9zdO39PnBNedjF867y4c+7MPM/5nTkD3PVQt20OtjepKAqklPBuZ/e/Z9Xsz/D1NimlQCmB50f9hxiP/yDGiNNfF9h5v3/DRF0Hb4YDevK4j6oag7NqrVFPJuh1u2JweVnh+48THBx+mjMxbUQkWfM8h3UOWil45zH2V1D63/rqygMQEX08GrUm+jrwIaCuJwghiJAFZVkgzw2cdUK1sFBi6f49vHj2lOYI3g4H1F9fg9Ia3nssLvZkZpJMa3Q6HfjgYRuLIs8lyZyBdQ4EwqSuJeZbl83MwFoLIsfoci9Snm7BIRHXXlVXmE4blEUp+CFEWGfhvBcxr8WUxHzWwPCHkbjGojBi0jRRhIzPXeAOdLqQ9mZZ1hK2Bh/2DpTJDK0sLyFRkrZ555D3upg2DSPKRcYU8fPkDKPP39ouqNmebr18Tmury4LMuMF7MVBQIj6/+I3j0dc5zY2X9WprgxgxEYmRtQ7GZIgx4Xj05danfzfjL9Xz6xSGqRKCAAAAAElFTkSuQmCC",
    "emoji": "🪨",
    "symbol": "🪓",
    "people": [],
@@ -232,7 +237,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "粘土をこねて形にした入れもの。まだ焼いていないので、水につけるとまた粘土にもどる。",
+    "note2": "粘土玉5つで作る。たき火で30秒（野焼き）か、かまどで10秒焼くと土器になる。水バケツといっしょに作業台に置くと粘土玉5つにもどる（焼いた土器はもどらない）。",
+    "note3": "粘土は、とても細かい板のような結晶（粘土鉱物）が水をはさんで重なったもの。水があると板どうしがすべるので、こねて自由な形にできる。乾かしただけなら、水を吸ってまたやわらかくなる。",
+    "note4": "縄文土器の「縄文」は、生乾きの表面に縄を転がしてつけた模様。焼く前によく乾かさないと、中の水が焼くときに水蒸気になって割れる。"
+   },
    "refs": [
     {
      "title": "S2. 粘土は焼くと水で戻らない（土器）［0-03］",
@@ -247,10 +257,12 @@
      "basis": "- Wu ほか 2012「Early pottery at 20,000 years ago in Xianrendong Cave, China」Science 336：https://www.science.org/doi/10.1126/science.1218643"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "raw_clay_pot",
+   "recipes": [
+    "作業台：粘土玉×5 → 生の土器"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：乾かす工程（生乾きで焼くと割れる）はない。",
    "game_text": "バニラの粘土玉→レンガ・植木鉢・飾り壺で可",
    "id": "0-03",
    "name": "土器",
@@ -282,7 +294,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABeElEQVR4nGNgGGjACGPUN3f9d3ByY/jz+zfD7z+/wfSfP38YfoNpCP/3nz9g+sSxwwwL5s0A62WBGfD163eGiX2dRNnKzsEBZ7PAGK9fv2CIT8oE23r37k0GaWk5MPvBvdsMEpIyYFc8eniPQUxckuHM6eNwA5hgDFFRCTD98MFdBnl5ZTD78aP7DDJyCmD206ePGKSk5cDsD+/fYRoAAg/u32GQV4BoBtkmK6cIZj958hDsIhB49uwJg4CgEAOGAa9fv2BQUFQBsx8+vMsgJ68E0fzoAYOMjDxEM8gVUjIMWGMBBEoqGv9Ly8gyyMgqgP1/7+5NsLNB/n9w/y6DhIQUw6kTRxgWL5jJiNULr4lwxfv3b5G1MKAYQExACgoK4/YCCMQnZ/4PCIrEGp2PHz1kmDd7MiNOFzAguQIEYK4AAZgr0AE8IcFAT0c9yIb/1raOKOInjh3CsB0EMARgIDAk6r+mth7D379/Ga5eOs+wZdManGopAgB2BLAB7K0HMwAAAABJRU5ErkJggg==",
    "emoji": "🏺",
    "symbol": "🪓",
    "people": [],
@@ -306,7 +318,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "野生の麦。熟すと穂がばらばらに落ちてしまう。ときどき「穂が落ちない」種がまざるので、それを選んで植えよう。",
+    "note2": "草をこわすと、ときどき出る（種）。耕した土に植える。熟したまま放っておくと穂が落ちて芽からやり直し（収穫なし）。熟したうちに刈ると、10%で「穂が落ちない」変異の種（ヒトツブコムギ・栽培種）がまざる。",
+    "note3": "野生の麦の穂の軸はもろく、熟すと小さな穂（小穂）が1つずつ外れて地面にこぼれる。これは種をまき散らすための野生の仕組み。まれに軸がもろくならない変異株があり、人が刈り取って持ち帰り、その種をまくと、この変異株ばかりが増えていく。人は知らないうちに麦を「選んで」いた。",
+    "note4": "ヒトツブコムギの栽培化は約1万1000年前ごろ、遺伝子の比較からトルコ南東部のカラジャダー山のあたりとされる。遺跡の穂の軸を調べると、穂が落ちない麦が多数派になるまで1000〜2000年かかったらしい ⚠️（実験では、刈り方しだいで20〜200年でも起こりうると計算された）。"
+   },
    "refs": [
     {
      "title": "S4. 穂が落ちない麦を選ぶ（栽培化）［0-04］",
@@ -321,10 +338,10 @@
      "basis": "- Heun ほか 1997「Site of einkorn wheat domestication identified by DNA fingerprinting」Science 278：https://www.science.org/doi/10.1126/science.278.5341.1312"
     }
    ],
-   "item": null,
+   "item": "wild_einkorn",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：種は草から出る（本物は肥沃な三日月地帯の草原）。変異の種は 10%（本物はずっとまれ）。",
    "game_text": "バニラの小麦で可",
    "id": "0-04",
    "name": "農耕",
@@ -356,7 +373,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiklEQVR4nGNgoBWYVuH2n2IN0waNIUsznXAawoRNEFkDyMCP338xVPgY/CfKgKyOXYwf+VngGkB8BgkunC5mwursF98Y5HTEUAxF5mMF05AMgbHR/Y4vLLAaMi3B5j+y39H5GGGQ1bGLEWYLIb/jBNPQbCHkbCZCBuKLQhBgQRfIWnCEkTi3DhYAAFOCT+wMSBHCAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -370,7 +387,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "豆を育てたあとの畑。次に植えた作物がよく育つ。",
+    "note2": "エンドウが熟すと、その下の耕地がこれになる。上の作物（豆以外）が速く育ち、作物が熟すたびに窒素を1回分使って、3回でふつうの耕地にもどる。水で湿るのも、踏むと土にもどるのも、ふつうの耕地と同じ。",
+    "note3": "作物は、体のたんぱく質や葉緑素を作るのに窒素がたくさん要る。麦を同じ畑で作り続けると土の窒素が減ってやせる。豆と麦を交代で植える（輪作）と、豆が残した窒素で麦がよく育つ。ローマ時代の農書にも、豆の後に麦をまけと書かれている。",
+    "note4": "18世紀イギリスのノーフォーク農法は、小麦・カブ・大麦・クローバー（マメ科）を4年で回して収穫を大きく増やした。1913年からはハーバー・ボッシュ法 [6-09] で、空気の窒素から工場でアンモニアを作れるようになった。"
+   },
    "refs": [
     {
      "title": "S8. 豆の根が空気の窒素を肥料にする（窒素固定と輪作）［0-05］",
@@ -385,10 +407,10 @@
      "basis": "- Wikipedia「Nitrogen fixation」：https://en.wikipedia.org/wiki/Nitrogen_fixation"
     }
    ],
-   "item": null,
+   "item": "nitrogen_farmland",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：窒素の量は「作物が熟す3回分」の数え方にした。豆自身は速くならない。",
    "game_text": "バニラに豆類なし → 新規作物（エンドウ等）が必要",
    "id": "0-05",
    "name": "豆",
@@ -420,7 +442,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACQklEQVR4nD1TS2sTYRQ932semaRpayMtWIobQURBcOtCUMSNP8CdG8GFG4sVFcFYkEKhigj+QjeCgsQkk/lecu4kDoSZzHfvedxzRz26fZRjyuCVcoZWCvxfFwY+JhitkXNGiAmlM3LG58pZKAXYw70h2i6icAadj1LQVBYx9qAsejk9wecP51j5CKUUtAJ46kOCev7wZiYz38xXHgqANRpaK2FHzqLEWYOVD6KQIM5oUaIXq4AQEmZth7ef3qAqLLqQhI3NqxDx6vS1AJfOiqouRHlPYPX4ztW86AIG0hiFlez0Tba0UbBmpBLW0WrlDOywctgdVqhLi7YLUsyLas7enaGwRjxTNkEJyJlvBq6e3b/BCfRy1v7JRBt10YPS1qLzGBRO2JmGWASg6YVolEOWeetFLouWXeiV+QCj+jgLqyUZsjelg/3xey7NlGG0Evaff5YYlFaef836ODkbkrGRP9mFwkAfTUbY32kwGdfYbkoc7Db4+v0Uk60al8cDXHz7iP3tBnujClcuDcG94f1gp8HWoIB6eu96ptzZ0suwmsqJGtpqfQSH/OL9Mb5Mz6GgZFconeecmXpy91rWUBjVhRxycPS4iY53y4VabyVBYs6IKeF4egL14NahKGCuLCZAWn8bnInsfkryjt5ZyzrOgEotvTA6xkO5TOLvshMgFjJCFjMRyi6Mkfumx9IPGfpGL1tYl04khpQlVoKRjQqoTRTlLBYtM2Y84hH96jJvLgqb+FnTM4croDFhXJf/v4l/CAVoawhjSmQAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -434,7 +456,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "青い花がさく草。茎の中に、布になる長い糸がかくれている。",
+    "note2": "草をこわすと、ときどき出る。耕した土に植えると亜麻が育ち、熟すと亜麻の茎2つと種がとれる。種は亜麻仁（あまに）ともいう。",
+    "note3": "亜麻の茎の皮のすぐ内側には、細長い細胞がつながった「靱皮（じんぴ）繊維」の束がある。長さ数十cmにもなる丈夫な繊維で、これをとり出して糸にしたのが亜麻布（リネン）。",
+    "note4": "亜麻の種をしぼった亜麻仁油は、空気にふれると固まる（乾性油）。油絵の具やリノリウム（亜麻仁油＋コルクなど。名前は linum＝亜麻 から）に使われてきた。"
+   },
    "refs": [
     {
      "title": "S5. 茎を水で腐らせて糸を取る（亜麻とリネン）［0-06］",
@@ -449,10 +476,10 @@
      "basis": "- Kvavadze ほか 2009「30,000-year-old wild flax fibers」Science 325：https://www.science.org/doi/10.1126/science.1175404"
     }
    ],
-   "item": null,
+   "item": "flax",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：種は草から出る（本物の祖先は野生の亜麻）。",
    "game_text": "バニラの糸はクモ由来なので代用不可 → 新規作物「亜麻」＋亜麻繊維・リネン",
    "id": "0-06",
    "name": "織物",
@@ -484,7 +511,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOklEQVR4nGNgGAX0ARUBGv+nZZr/J1tDiqMy8ZrJ0kAzUIHmFZLDIgXNK0R5rYJUWxgI2Ep1AwcfAADD6COD1mFb7wAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -498,7 +525,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "粘土を丸く平らにして、まん中に穴をあけた物。焼くと紡錘車になる。",
+    "note2": "粘土玉1つで作る。たき火（30秒）かかまど（10秒）で焼くと土の紡錘車。",
+    "note3": "焼く前の粘土は、水でもどってしまう（[0-03] 土器と同じ）。紡錘車は重さが大事なので、焼いて固くしてから使う。",
+    "note4": "土器のかけらを丸く削って穴をあけ、紡錘車にすることもあった。"
+   },
    "refs": [
     {
      "title": "S6. 人類最古のはずみ車（紡錘車と羊毛）［0-07］",
@@ -513,10 +545,12 @@
      "basis": "- 2024年 PLOS ONE のナハル・エイン・ゲヴⅡの穴あき小石の研究（報道：https://news.artnet.com/art-world/holey-pebbles-earliest-evidence-of-wheel-2570155 ）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "raw_clay_whorl",
+   "recipes": [
+    "作業台：粘土玉 → 生の紡錘車"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：乾燥の工程。",
    "game_text": "バニラの羊・羊毛で可。紡錘車は新規アイテム（任意）",
    "id": "0-07",
    "name": "羊毛と紡錘車",
@@ -548,7 +582,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqUlEQVR4nGNgGAWM2IKgobX/P1bx6kIM9YzInJqGrv+mFtZ4g/X0iaMMLQ1lcH2MMEZ5Tet/E1NLouLkzOnjDJ0t1WC9LDBBXT0jhp8/f6IojAnzBCtasmo7ipdAamGABcb49QtVMzLAJ8cCd9apYwx6+sYokjPmrgTb/AvNZZcunsUeiKmZhf919AwY8IErly4wzJ7ejxmIyCAxNQdrNM6fPQWreoYRDgCl6DYWzjh5dQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -562,7 +596,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "石の斧を砂と水でみがくと、欠けにくい刃になる。木の柄を付けた。",
+    "note2": "ハンドアックス＋砂＋水バケツ（戻る）＋棒で作る。打ち欠いたままの斧より長もちして速く切れる（耐久200、石の斧より少し速い）。火打ち石か黒曜石で直せる。",
+    "note3": "打ち欠いた刃の表面には、剥がしたあとの小さな段や傷がたくさんあり、そこからひびが広がって欠ける。砂（石英、とても硬い）と水で何時間もこすって傷を消すと、木を切っても欠けにくい刃になる。新石器時代の人はこの斧で森を切りひらき、畑と家を作った。",
+    "note4": "ドイツ・ライプツィヒ近郊の井戸の木枠は、年輪から紀元前5206〜5098年の伐採とわかり、ほぞ組みで組まれていた。磨製石斧で板を作ったと考えられている。刃の一部だけを研いだ斧は、日本の旧石器時代（約3万8000年前）にも見つかっていて、世界でもかなり古い ⚠️。"
+   },
    "refs": [
     {
      "title": "S3. 研いだ石の刃は欠けにくい（磨製石斧）［0-08］",
@@ -577,10 +616,12 @@
      "basis": "- Tegel ほか 2012「Early Neolithic water wells reveal the world's oldest wood architecture」PLOS ONE：https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051374"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "polished_stone_axe",
+   "recipes": [
+    "作業台：ハンドアックス ＋ 砂 ＋ 水入りバケツ ＋ 棒 → 磨製石斧"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：研ぐ時間（実際は何時間〜何日）と、斧に向いた石（緑色岩・ひすいなど）の選び方。",
    "game_text": "バニラの作業台・板材・木の道具で可",
    "id": "0-08",
    "name": "木工",
@@ -612,7 +653,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVR4nGNgoCdIK8//jy7GSIzG3Pqy/79//2b4/es3w59fvxhA7IriUgY9FS1GJkKa8xsr/v/9+5fh75+/DGAayoYBJkIGIGv+9+cP3BDSDPgLMuQPimFEGzC9tY8RbPtf7F4gCOqizP4nuGiCQz80OQYjFojWTDKoG9U8hAAAt/90nG3GX4kAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -626,7 +667,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "板を円く削った車輪。まん中の穴に車軸を通して、荷車にする。",
+    "note2": "板材3＋磨製石斧で作る（斧は戻るが少し傷む）。荷車 [0-13] に使う予定。",
+    "note3": "最初の車輪は、板をつないで円く削った重い円盤だった。転がすと、地面とこすれ合うのは車輪の外側ではなく、車軸と穴のところだけになる。だから引きずるより、ずっと小さい力で重い物を運べる。",
+    "note4": "メソポタミアのウルクの絵文字に紀元前3500〜3350年ごろの車が描かれている。現物で最古級は、スロベニアのリュブリャナ湿原で見つかった木の車輪（紀元前3130年ごろ）⚠️ で、車輪と車軸がいっしょに回る作りだった。"
+   },
    "refs": [
     {
      "title": "S9. 車輪より先にろくろ（回る物の流れ）［0-19］［0-09］",
@@ -641,10 +687,12 @@
      "basis": "- Wikipedia「Potter's wheel」：https://en.wikipedia.org/wiki/Potter%27s_wheel"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "wooden_wheel",
+   "recipes": [
+    "作業台：木材×3 ＋ 磨製石斧 → 木の車輪"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：板をつなぐ桟（さん）や、車軸の穴をあける手間はない。",
    "game_text": "新規アイテム「木の車輪」",
    "id": "0-09",
    "name": "車輪",
@@ -681,7 +729,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsklEQVR4nGNgoBAwogtkemv9v/vsE4OUMCeDlpwgWOzao/cMz95+Z9BSEGKYsP4Sih4mdM26ikIMcqI8cM0gAGKDxAyURRgKAvX+YzUgE6qZEEA3hIkUzdgMYWKgEDDhk9x07BEYEzRAF4vzkTViMwTkDYIuIAYwgYjL999hSPhZyWFlw8CFu2/ANAs+07FpxOoCSgATiJi+9RojNm/gAiDnw5I03AXEGoKsGQQozkwUAwC7WE050jv0VwAAAABJRU5ErkJggg==",
    "emoji": "🛞",
    "symbol": "🪓",
    "people": [],
@@ -935,7 +983,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "重い石や荷物は、陸よりも水に浮かべて運ぶほうがずっと楽。",
+    "note2": "原木5＋磨製石斧（戻るが少し傷む）で作る。水に置いて乗れる。荷物入れがあり、石材の荷を積める。石材の荷を持って歩くと遅くなるが、舟に乗っていれば遅くならない。同じ荷を陸と水で運んで比べてみよう。",
+    "note3": "1本の太い丸太を、火で焦がしては石の斧や手斧で削ってくりぬいた舟。水は舟と荷の重さと同じだけ押し上げる（浮力）ので、重い荷も水が支えてくれる。陸のように地面とこすれないので、小さな力で進む。",
+    "note4": "オランダのペッセで見つかった丸木舟は、紀元前8040〜7510年ごろに作られた、知られているなかで最古の舟 ⚠️。日本でも縄文時代の丸木舟が各地で見つかっている。古代エジプトはナイル川の舟でピラミッドの巨石を運んだ。"
+   },
    "refs": [
     {
      "title": "S10. 重い物は水に浮かべて運ぶ（丸木舟）［0-14］",
@@ -950,10 +1003,12 @@
      "basis": "- Wikipedia「Pesse canoe」：https://en.wikipedia.org/wiki/Pesse_canoe"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "dugout_canoe",
+   "recipes": [
+    "作業台：logs×5 ＋ 磨製石斧 → 丸木舟"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：形と動きはバニラのチェスト付きボートと同じ（荷物入れ＝くりぬいた中の空間）。",
    "game_text": "決定：バニラのボートを「本物」として認める（丸木舟・帆の近似。新規不要）",
    "id": "0-14",
    "name": "水運",
@@ -985,7 +1040,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQElEQVR4nGNgGAWjgIGBETkQ3Azk/hMTKLsuPILrYyRFIzaDWEAMIzUxsmJj14VHDEwMFAIWEPHi3RdKzRnKAACYkQ2xg7zgJAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -1175,7 +1230,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "細い糸も、よりあわせると重い物をつれる太い綱になる。",
+    "note2": "リネンの糸3つで作る（3本の糸を撚りあわせる）。のちに滑車やクレーンで重い物をつり上げるのに使う予定。",
+    "note3": "繊維を撚って糸にし、その糸を何本か「逆向き」に撚りあわせる。逆向きにすると、ほどけようとする力どうしがつり合って、ロープがほどけない。引っぱると撚りが締まり、繊維どうしの摩擦で力を分けあう。",
+    "note4": "フランスのアブリ・デュ・マラ遺跡で、約4万1000〜5万2000年前の石器に、3本の撚った束をさらに撚りあわせたひもの切れはしがついていた（ネアンデルタール人、2020年発表）⚠️。古代エジプトではパピルスやヤシの繊維で太いロープを作り、大きな石を運んだ。"
+   },
    "refs": [
     {
      "title": "S7. 逆向きに撚るとほどけない（ロープ）［0-18］",
@@ -1190,10 +1250,12 @@
      "basis": "- Hardy ほか 2020「Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications」Scientific Reports 10, 4889：https://doi.org/10.1038/s41598-020-61839-w"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "rope",
+   "recipes": [
+    "作業台：リネンの糸×3 → ロープ"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：撚りの段（糸 → ストランド → ロープ）を1回にまとめた。",
    "game_text": "繊維 → ロープ（作業台）。滑車 [8-19]・クレーン（[P-01]）に使う",
    "id": "0-18",
    "name": "ロープ",
@@ -1219,7 +1281,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9klEQVR4nGNgoBAwYhOcXB/1H0Q/ffoSzJeWFgfTuY3LMNQzInMqUpz/gxQbassx3LnzCCymoiIHpkH8G/degg1DNogRWbOPmylcMbpmZP6WXacZOubsBetlgRkAcyay4vNXH4G9oaEkjmEYDLDA/Izs7M8/GRhswjpQvAdSw8sOYYNcKi0t/h/kFSaYAmSbsQUWTAzmElgAMyFzYM7GBUAuQ/cGE4yBbjIuANMMCzMm9AAEBRguAAsDmGUoLriDFAawhIQMQNGMzaWM+NIBzM/oNhOdDhjw8GEAIymDaFwpEmQzCMBsxzAABkBhgJ6RQHxkjVQDADW1jGQTr1sBAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🪓",
    "people": [],
@@ -1444,7 +1506,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "緑のしま模様の石が混じった岩。銅がさびたのと同じ緑色。",
+    "note2": "地表に近い石の中（y40〜110）。石のツルハシ以上で孔雀石が落ちる。銅の鉱床の上の方で、雨水と空気にさらされた「酸化帯」にできる。",
+    "note3": "地下深くの銅の鉱石（黄銅鉱、バニラの銅鉱石）は、地表近くで水と二酸化炭素にふれると、緑の孔雀石や青い藍銅鉱に変わる。昔の人はこの目立つ緑を目印に銅を探した。",
+    "note4": "酸化帯の下には、溶けた銅が沈んでたまった「富化帯」があり、さらに下に元の硫化鉱がある。古代の鉱山は地表の孔雀石を掘りつくすと、溶かしにくい硫化鉱 [1-04] にぶつかった。"
+   },
    "refs": [
     {
      "title": "O7. 緑の石から最初の銅（孔雀石の製錬）［1-03］（［7-07］の前提）",
@@ -1459,7 +1526,7 @@
      "basis": "- UCL Discovery「On the origins of extractive metallurgy: new evidence from Europe」（Radivojević ら 2010）：https://discovery.ucl.ac.uk/id/eprint/1380193/"
     }
    ],
-   "item": null,
+   "item": "malachite_ore",
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
@@ -1501,7 +1568,7 @@
    "explained_by": [
     "I-24"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACYklEQVR4nD1TSY8SQRh9FMUOw2YDYVNMxpMXry6JJzXeTDwZEy/6A/g7evTgzcucjBn9BXr1MCxhwtIQaNKsDd005n0jdtIUVf3V+95SFWg2m8dAIIBwOIxsNotoNArXdTGfz5FOpxEMBmFZFmzbRqVSkdHzPBSLRYRCIejD4YBUKgWOjuOAYLvdDoVCAePxGEopGIYhIx+uD4dDaUAgRdRcLicF0+lURnZhV9/3BXi1WiESicj3j/4vXBgDXD7X0lBxg2maMslkMvjk/8aPhwd8vW0ikUjI+na7lc1k8qJvIBgPw7meolqtQlEvGdCDfD6P94EHWF+ZCOeTiMfjonW/30sNgejLG/scr9oFkaAXi4V4wLfb7QrVl24JxiEPndDo9/sii+byP0fWsJ6AihrZiR/K5bIkoLUWM+lDMpmUNTJsNBrSle96vRYjNQE4IeJsNkO9Xhe3SZubmAjpTyYTLJdLxGIxaUB/KEdTI5GYKSkdj0dxn90ZGYv5UAa/kRFj5JxgarPZCAN24sIpPs6pmSkQhGy4zlpKZi1ZatKmfur6/vQI17Lh2SbC52d4/NMTL041TIkN2J2glK1OR5dob/+U4G/38F0P3nIruYvTSkkx3SeDUqkkHshJdP4dX4406p1170ZzJIQvZ1e4uDvFtycePt+5xmAwELB2uy0yhA1NYXyn+0CQ15M6gtEQovVb+LC5j017DKdvyWWr1WpCv9PpyD7Nn16vJ5PRaCRp8HA9uvTFtFluhmfLzI3jaSW1JxPJQPPGEZURURONYifqbbVa/08dLxi94mFiQqxl3V+AcXRftp8qYAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -1566,7 +1633,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "銅にスズを1割まぜた、溶けやすいのに固い金属。",
+    "note2": "Cu-Sn 約11%。純銅よりずっと固く、さびにくい。c:ingots/bronze。スズを多くしたスペキュラム合金は鏡になる [7-05]。",
+    "note3": "紀元前3000年ごろから、人類は青銅で道具・武器・鏡・鐘を作った（青銅器時代）。それより前には、ヒ素をふくむ銅（ヒ素銅）も使われていた（⚠️ 時期と広がりは地域で違う）。",
+    "note4": "大きなスズ原子が銅の結晶の中に入ると、原子の並びがゆがみ、結晶がずれて変形するのをじゃまする（固溶強化）。だから合金は元の金属より固くなる。「青」銅という名は、さびたときの青緑色から。"
+   },
    "refs": [
     {
      "title": "O9. 銅にスズを1割（青銅）［1-05］（スペキュラム鏡の前提）",
@@ -1581,10 +1653,13 @@
      "basis": "- Wikipedia「Bronze」：https://en.wikipedia.org/wiki/Bronze"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "bronze_ingot",
+   "recipes": [
+    "かまど：青銅の地金（調合） を焼く → 青銅インゴット",
+    "溶鉱炉：青銅の地金（調合） を焼く → 青銅インゴット"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：かまどでの溶解をるつぼ炉の近似として扱う（CHEMISTRY #38）。",
    "game_text": "合金化（銅インゴット+錫）",
    "id": "1-05",
    "name": "青銅",
@@ -1621,7 +1696,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABBElEQVR4nO2QPU4DMRCFP//srrMJF4KKDiqOAUfgDpwAcQ0K6KiQuAA1NyBhNyFrr23kQYsCKWnzJGvmjWfePA0c8G+ov4WXu/Pc1JpuHVi0Fas+0DrDGLP8H18+/JpRu+T59kyGQ0gopdAaxjGTcnkwd4bPIXJy9fgzp6bk/uY0G63wIWGMIqZMbTXL3kucOcuq97SNlf6L6yeZtbsOuk2QaLMWoRgzR23FEBKDj8ydRWtFWTTBTklKmdZZsVryxcxijea988waQxiT1GNC+J7A1ifgW6SqtNzgYx2k2dWFgzVKbrAZxn2B17elbCwoDrc+Cm9qgw+RnMGVzRnGYuMAJnwBnSltzvUTwzEAAAAASUVORK5CYII=",
    "emoji": "🔔",
    "symbol": "⛏️",
    "people": [],
@@ -1645,7 +1720,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "粘土で作った炉。木炭で鉄鉱石を焼くと、溶けない鉄のかたまりができる。",
+    "note2": "鉄鉱石（か砂鉄）と木炭を入れ、横のふいごを踏みつづけて 1100℃ 以上に。火だけでは約800℃で止まる。できたブルームはかまどで赤く熱し、たき石で叩くと鍛鉄（鉄インゴット）。",
+    "note3": "木炭が燃えてできる一酸化炭素が、鉄鉱石の酸素を奪う（Fe2O3 + 3CO → 2Fe + 3CO2）。約1200℃では鉄（融点1538℃）は溶けず、スラグの混じったスポンジ状のかたまりになる。",
+    "note4": "鉄の製錬は紀元前1400〜1200年ごろに始まった。最初の場所はアナトリア周辺などの説があるが、決め手はない。叩いてスラグを押し出した鉄は、炭素が少なくやわらかい（錬鉄）。"
+   },
    "refs": [
     {
      "title": "M4. 溶かさずに鉄をとる（塊鉄炉・ブルーム）［1-06］",
@@ -1660,10 +1740,14 @@
      "basis": "TECH_TREE［1-06］、ブリタニカ「iron processing」の製錬の歴史の節 https://www.britannica.com/technology/iron-processing"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "bloomery",
+   "recipes": [
+    "作業台：粘土玉×7 ＋ bricks → 塊鉄炉（ブルーマリー）"
+   ],
+   "machine_recipes": [
+    "塊鉄炉（ブルーマリー）「鉄鉱石を還元（ブルーム）」：raw_iron ＋ 木炭×1.5 → ブルーム（海綿鉄）（30 秒）。1100℃以上（ふいごで送風）。電気なし"
+   ],
+   "placeholder": "近似：温度・時間はゲームの値。バニラの鉄の原石＝赤鉄鉱 Fe2O3 とする",
    "game_text": "決定：バニラ鉄鉱石＝赤鉄鉱 Fe2O3 の近似（CHEMISTRY #35）、砂鉄✅（たたら製鉄も同系統）。バニラかまどでの鉄精錬＝塊鉄炉の近似（本物も約1200℃で海綿鉄が得られる、CHEMISTRY #38）",
    "id": "1-06",
    "name": "塊鉄炉",
@@ -1700,7 +1784,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB5UlEQVR4nKWTu5ITQQxFbz+n7bGB3SKjiiIigYCIjyCDP+UrICTfTUg2hMXr8fRblDRjO4eu8tjdI92+OpLVl49vCf+xLD/evXqJ/cbLgTManQgKCrV3lNrgrUEjwikV7IPHYc4S//3+AZqTvNVonXCMGbk2lNYxpSxizhoYLWG43W0wl4rn2wGnXORMLwJG1G/GIAkspJUSsSkVPMUMq7Xs+WPZZadrCcdYMDiDx1OCAjBYA6W4BMI+OMTS0HoXoeAsHk8RW++uAs5osf1s4/H1x08orZBKBYgweCfJtTZorfH5wxvsjMMh5msJBJKgP6ck4KaYxAVzYYgpV4Cxsj0AuXWYdaPlobVY4qPaOgZnwdHMg4WDt5LMYsdUJIZFLgK9swdg4bLcykF8Lu1sfdkTBDR3gr8vAsEZ9N7lkOlz25aaV8/rYidTzHjBbUzlCnEulXkJC7UKWMPJBCJaSyFQJ+kWr8iQzwL74EUxlYZP719jHCx+T0kCbsZBynuaM4xW8pths4tLCcdYMAaP7eDk5l9TxO0urPCUjPYueJkLHigu8+xgaSMRDnMSUAxtHBxSbTIfbJ1vL62Jg/MwzdLaVWAMDvvBCwtW5pd8E1PgUeZR51vPs7HxVt5fGHy7e/jnv/NfFZYgay7MYssAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -1764,7 +1848,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "赤く光るまで熱したブルーム。今なら叩ける。",
+    "note2": "たき石と一緒に作業台に置くと、叩いてスラグを絞り出した鍛鉄（鉄インゴット）になる。たき石は戻る。",
+    "note3": "約1000℃以上に熱すると、すきまのスラグがやわらかくなる。叩くと鉄のつぶがくっつき合い、スラグが外へ絞り出される。できた鍛鉄（錬鉄）は炭素0.1%未満で、柔らかく粘る。",
+    "note4": "鍛鉄に木炭をまぶして長く熱すると、表面に炭素がしみこんで硬くなる（浸炭）。それを水で急に冷やす（焼入れ）と刃物になる。鍛鉄の始まりは製鉄と同じ紀元前1400〜1200年ごろ⚠️。"
+   },
    "refs": [
     {
      "title": "M6. 赤く焼けた鉄をたたくと、かすが絞り出される（鍛鉄・錬鉄）［1-08］",
@@ -1779,10 +1868,12 @@
      "basis": "TECH_TREE［1-08］、ブリタニカ「wrought iron」https://www.britannica.com/technology/wrought-iron"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "hot_iron_bloom",
+   "recipes": [
+    "かまど：ブルーム（海綿鉄） を焼く → 赤熱したブルーム"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：1回熱して1回叩く（本物は熱しては叩くを何度もくり返す）",
    "game_text": "ブルーム→ハンマー作業→鍛鉄",
    "id": "1-08",
    "name": "鍛鉄",
@@ -1817,7 +1908,7 @@
     "I-51",
     "I-52"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABYklEQVR4nOWRy07bYBCFv9+JcUhCoBBxFRdFQJsdbGg3XbBESFzWIHg2JB6AJUgsEBskeoFKtFwiWEA3pDUJIXZsY3sQXnGJHwBxdmdG82nmDLwPXcwXJa6XbFaUlUkJ/JCqF6CAjb+3yPKEqPXDR/tM2svC5nRBjkybsuPz3bTpaEnwtTtLGApHsx9fbaKemtJcUUbbDAIRKl5Al5Fg99rivO7yJZ/hrOZEwOntc9X0hOGMzq9Kg95UMgLsXNfRNUWLpjitOSwOf+C40ojPwHQDBlp18mmdC6vO3X3ASqETPxROai5l2yNE4gFlxyepKb7d2Mz05xhK6/wwbUp3LguD7TiB8LvqxAMOKg1Wx/P0tSbZ+29RzBlM9WSZ6s5GcWcEPucz8QBfhK3LKkZC8SmXinL45/qMtRlYXoimFCMbf54Fr16+5VGyNCFXlkdOT+CFwr5pRZDxzjRq7WfTmTesBz6PjsYiEy1TAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -1831,7 +1922,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "れんがを高く積んだ炉の、いちばん下の口。ここから溶けた鉄が流れ出る。",
+    "note2": "これを正面の下の真ん中に置き、まわりをれんがで 3×3×4 に積む。2段目の4面は羽口、中は空ける。羽口の外に水車ふいごを置いて、ずっと風を送る。画面を開くと足りない場所が光る。",
+    "note3": "炉を高くして風を強く送りつづけると約1500℃になる。炭素が鉄に溶けこんで融点が約1150℃に下がり、鉄が液体で流れ出る（銑鉄、炭素約4%）。石灰石は鉱石の土をスラグにして、鉄から分ける。",
+    "note4": "中国では紀元前5世紀ごろから高炉で銑鉄を作り、型に流して鋳物にした。ヨーロッパに広まったのは14世紀ごろ。1709年のダービーは木炭のかわりにコークスを使い、森の木を切らずにすむようにした（この炉もコークスで動く）。"
+   },
    "refs": [
     {
      "title": "M5. 高くして風を送ると、鉄が溶けて流れ出る（高炉・銑鉄）［1-09］",
@@ -1846,10 +1942,14 @@
      "basis": "TECH_TREE［1-09］［3-05］［1-10］、ブリタニカ「blast furnace」https://www.britannica.com/technology/blast-furnace 、ブリタニカ「iron processing」https://www.britannica.com/technology/iron-processing"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "blast_furnace_hearth",
+   "recipes": [
+    "作業台：bricks×7 ＋ 鉄インゴット → 高炉の炉床（湯口）"
+   ],
+   "machine_recipes": [
+    "高炉の炉床（湯口）「高炉で銑鉄」：raw_iron ＋ 木炭×1.33333 ＋ 方解石 4回で1個 → 銑鉄 ＋ 高炉スラグ 4回に1個できる（20 秒）。マルチブロック 3×3×4。1400℃以上（羽口の外の水車ふいご）。電気なし"
+   ],
+   "placeholder": "近似：温度・時間・石灰石の量はゲームの値。炉のれんがは焼いたれんが（耐火れんがは [3-12] でのちの炉に）",
    "game_text": "マルチブロック炉（幹3）。石灰石[0-10]をフラックス（スラグ化剤）に",
    "id": "1-09",
    "name": "高炉",
@@ -1883,7 +1983,7 @@
    "explained_by": [
     "I-51"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB1UlEQVR4nKVTy2pUQRA9Xd33MRlFiW5cBUQQQfAD/Alx7//lO1y6dpWNi0BAEDTJJHP7WXKqb2ayFQtu9/S91afOOVXjPr9/rfiPCFw+nr3CUipOxoBdzLbn2uzZDAHiYL/vc4E4h9IaXpzM+PrjqgN4cQjicL2PeL6ZDNkHj7uU4QAMXjAFjyCCWCtG77FL+cjg192C7RgwhWBVllyt6pNxQFU1dgSwQioYRFCU0IBweTaPaNqZxFKNDY3hw2SC/NlH/N5H7HPp4lfnAhfqm4JY5fPvF3AORp05BKXu2hSqii8f3iG3hqZ6ZDCa3mJa5dHl1hSlqp1ra3bBPBHBfSpHgIcggKe+pvCuVx7DepaeyupE2QzezsKFurZr6xRqEhg8xdVQSmAXSI2tZnsZgQu10cTbmI02E0279Cp8x3P3ytt+s6Qjg6fTaCCkRRm8QOe5M1nYldU0ekUDt9PwiAHIQE3zp7dvELzDHAJuY8LpZrbZYOWlFKTSLG9Z2ylmTG02LM65g/7eNvRLtdoccLDoFfMIcgDgC37k6FLO5L3Joe5Um8l6uZ2NPgeNd8noIIH0ycLBYRcT2HEayj/MTUxIpSKKGGhTbzkPYQDfLn8eXvxr/AUyqA2EH1cZywAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -1907,7 +2007,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "石炭を蒸し焼きにした残り。軽くて穴だらけの、灰色の炭。",
+    "note2": "ガス工場のレトルト [2-20] で、石炭4個からコークス3個。レトルトと高炉 [1-09] の燃料になる（木炭のかわり＝コークス高炉 [1-10]）。",
+    "note3": "石炭のままだと煙や硫黄が多く、鉄をもろくする。蒸し焼きにして揮発分をとばすと、ほぼ炭素だけの強い燃料になる。1709年、ダービーがコークスで鉄を作り、森の木を使い切る心配がなくなった。",
+    "note4": "コークスは高炉の中で、燃料・鉄鉱石を還元する炭素・上の材料を支える骨組みの3役をこなす。穴だらけなので、下から吹き込む風が通り抜けられる。"
+   },
    "refs": [
     {
      "title": "M7. 森の木のかわりに石炭を（コークス高炉）［1-10］",
@@ -1922,9 +2027,11 @@
      "basis": "TECH_TREE［1-10］［2-20］、ブリタニカ「Abraham Darby」https://www.britannica.com/biography/Abraham-Darby-English-ironmaker-1678-1717 、ブリタニカ「blast furnace」"
     }
    ],
-   "item": null,
+   "item": "coke",
    "recipes": [],
-   "machine_recipes": [],
+   "machine_recipes": [
+    "ガス工場のレトルト「石炭を乾留する」：石炭×8 ＋ 石炭 → コークス×6 ＋ 安水×2 ＋ コールタール（80 秒）。空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない"
+   ],
    "placeholder": null,
    "game_text": "バニラ石炭→新規「コークス」。副産物コールタール → [2-20]（回収には[3-19]副産物回収式コークス炉）",
    "id": "1-10",
@@ -1957,7 +2064,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABT0lEQVR4nNWSwU7CQBCG/3Z3W2rbCBEI1VQ0xOfQiAGjiR6868Un00Q8m4gvI4khMQskgJQCpaVdw54ELXfntjOTb/9/ZoB/H0pa4fikKjRNA6UMb82X1D7lr+Tt3b1QVRVJEmPQ74NQAsPYwnPj8Ve/up44rdZEu/2BbpcjjmOEUQTGNFiWjfr5pdgIqNUvhOvuo1I5QhAEyGQyKBSK2M5m0elwBLMZqmf1FQj9+WCMIQxDEELhOHvgnINSAiESmKYJ27alqlQFQRDA930IIcD5JxijEhbHibQwHA6wnM1GwGj0JX8sHxwiCiMsFgtYloler4tisSRtpVpwnF0QQtBqvcN1y6BsWVYwnU4xmfhyK7nczgpAWZ/q1fWN8P0xDMNAPl+ApusYex4URZHqmq+rN0HXAbquI5zP4XkjOY+lZE3TUSo5aDw9pB7UP45vAbZ+/Ip05vkAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [
@@ -1979,7 +2086,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "鉄が溶けるほど熱くしても割れない、粘土のつぼ。",
+    "note2": "生のるつぼを溶鉱炉で焼いた物。鍛鉄×2と木炭を入れて、るつぼの仕込みにする。",
+    "note3": "鉄は 1500℃ ほどで溶ける。ふつうの土器はその前に柔らかくなるので、熱に強い耐火粘土が必要だった。",
+    "note4": "本物のるつぼは3回ほど使えたが、中の鋼を流し出すたびに傷み、最後は割れた。"
+   },
    "refs": [
     {
      "title": "O39. ふたをしたるつぼで鋼を完全に溶かす（るつぼ鋼）［1-11］",
@@ -1994,8 +2106,10 @@
      "basis": "- Wikipedia「Crucible steel」：https://en.wikipedia.org/wiki/Crucible_steel"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "clay_crucible",
+   "recipes": [
+    "溶鉱炉：生のるつぼ を焼く → 耐火粘土のるつぼ"
+   ],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "少量・高品質の鋼。精密部品（幹8）向け",
@@ -2044,7 +2158,7 @@
    "explained_by": [
     "I-51"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUklEQVR4nGNgGAWMyEGwoCfvPzFBklAyCa6PBV1SQ0MDr+YbN26g8JkojQQmqhqQUDKJEd2JyAAkh+x/6rtgcBiQgCMcsPmfKi7ASEjINtIFAADQbhle3fQR9AAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [
@@ -2181,7 +2295,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ボーキサイトを熱い苛性ソーダの液で溶かし、アルミの成分だけを取り出す釜。",
+    "note2": "電気 2kW。ボーキサイト2 → 水酸化アルミニウム1＋赤泥1（30秒）。液は水酸化ナトリウム1を水バケツ1に溶かして作り、4回くり返し使える（空のバケツは出口へ）。水酸化アルミニウムをかまどで焼くとアルミナ。",
+    "note3": "Al(OH)3 + NaOH → NaAl(OH)4。アルミの成分は液に溶けるが、鉄さびは溶けずに赤い泥として残る。泥をこした液を冷やして種を入れると、水酸化アルミニウムがまた出てくる。液は何度も使い回す。",
+    "note4": "1888年、カール・ヨーゼフ・バイヤーがロシアの繊維工場向けの研究から考えた。2年前のホール・エルー法と組になり、今も世界のアルミのほとんどがこの2つの方法で作られている。母液にはガリウムがたまり、今のガリウムの大半はここから取れる。"
+   },
    "refs": [
     {
      "title": "F6. 赤い土から白い粉（バイヤー法・アルミナ）［1-14］",
@@ -2196,10 +2315,14 @@
      "basis": "ブリタニカ「Bayer process」https://www.britannica.com/technology/Bayer-process 、International Aluminium Institute「Bauxite residue」https://international-aluminium.org/ 、BBC News 2010-10「Hungary toxic sludge」（英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "bayer_digester",
+   "recipes": [
+    "作業台：鋼インゴット×6 ＋ 銅ケーブル → バイヤー法の溶解釜"
+   ],
+   "machine_recipes": [
+    "バイヤー法の溶解釜「バイヤー法」：ボーキサイト×2 ＋ 水酸化ナトリウム 4回で1個 ＋ 水入りバケツ 4回で1個 → 水酸化アルミニウム ＋ 赤泥（2 kW × 30 秒＝60 kJ）。Al(OH)3 + NaOH → NaAl(OH)4 → こして冷やすと Al(OH)3。鉄は赤泥に。液は使い回す"
+   ],
+   "placeholder": "省略：加熱は電気ヒーター（本物は蒸気で熱した圧力釜、約150〜250℃）。量は記号的（本物はボーキサイト約2〜3トンでアルミナ1トン）。母液のガリウムは取り出さない。",
    "game_text": "ボーキサイト+NaOH → アルミナ+赤泥（＋母液から副産物 [1-44]ガリウム）。[1-29]の前段",
    "id": "1-14",
    "name": "バイヤー法",
@@ -2236,7 +2359,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGklEQVR4nKWTO4/UMBSFPzuO89zJLNoKiR4KOkpaCiQafuy20FIgGgoQDR3FFrszyeTpF7J3NdNDotiJc++55x4fi/cfPgb+41JxePnqNYFHnKIoCd5TlBXHwz1Xu45t2xCAsYa23QGB0zDw88f3RwDnHfv99Rl1HE84Z9l114zjQNO0GLNRVTXWGoQQ54IqDk3TMAw9IYQUpHWBlJK+P6TkuC7iLSTeGaRSdE8FVRwixbpuUqCUGcs8sXiHyhRm2/DeU1YV42lAZpKckN7PAFoXLMuc5je/bznMG/tK40Mgl5L7eaXVCiUln27eUtVNYhMv+chgpW2v0EXBah27Msc4z7hZVCZS4uY8/WqSVsEHQvAXBnUSyWCNoSt1+rE5hxAwLIZMCGqdJRDnHFkmsZYLg8PDffoQUnJ3WqjyDOMChcpYnacpFP1i2JeaeZpYliXpdQYoyyotlGWZ6P/pZ26aguO88aKrU1vP6oLZOnKtU+y2rheAqqpS//M802hFJmA2jqsi525cGVaLFCK1Ms9T6l8X+qJBCIFTf6SuWz4/f8cSgZo2mSYaSuWaX96n6tW6pvgsyy4MjDHJwnFvx6GnbVuOx4ckavTFNJ5QKsdZyzSN2Kf5DOCdQ2tN3bZE6fv+SNddY51NlaI/or1jUrRxjI0mOwNEatFtsXqc48GJbOKWxRaiuPGJbCLTaRxTzlmDb1+//PNx/gt7xCkLss1+fQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2341,7 +2464,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "シリコンを液体に変えたもの。お風呂くらいの温度で沸くので、蒸留できれいにしやすい。",
+    "note2": "SiHCl3。トリクロロシラン反応器で作る：できたては 99%。蒸留のスロットに戻すと、1段ごとに「9」が1つ増える（最大 11N）。シーメンス炉 [1-17] で多結晶シリコンにする。",
+    "note3": "沸点 32℃の色のない液体。湿った空気の中でけむる（水と反応して HCl を出す）ので、密閉して乾いたまま扱う。",
+    "note4": "固いシリコンは蒸留できないが、その塩化物ならできる。「液体にして、蒸留して、また戻す」——これが超高純度シリコンの鍵。ゲルマニウムの GeCl4 と同じ考え方。"
+   },
    "refs": [
     {
      "title": "2. 液体にして蒸留する（トリクロロシラン）［1-16］",
@@ -2368,10 +2496,13 @@
      "basis": "- Wikipedia「Silicon tetrachloride」：https://en.wikipedia.org/wiki/Silicon_tetrachloride"
     }
    ],
-   "item": null,
+   "item": "trichlorosilane",
    "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "machine_recipes": [
+    "トリクロロシラン反応器「合成」：金属シリコン ＋ 塩化水素ガス 3 mol → トリクロロシラン ＋ 水素ガス（袋詰め） 1 mol（10 kW × 60 秒＝600 kJ）。Si + 3HCl → SiHCl3 + H2（約300℃）。できたては 99%",
+    "トリクロロシラン反応器「蒸留（1段）」：トリクロロシラン → トリクロロシラン（「9」が1つ増える（最大 11N））（20 kW × 30 秒＝600 kJ）。沸点の差で B・P の塩化物を分ける"
+   ],
+   "placeholder": "近似：1個は記号的な量（シリコン約1kg 分）。⚠️ 粗トリクロロシランの純度 99% はゲームの段階。",
    "game_text": "蒸留塔ブロック（[1-34]と共通化を検討）",
    "id": "1-16",
    "name": "トリクロロシラン合成・蒸留",
@@ -2408,7 +2539,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVUlEQVR4nGNgoBAw4pJ4/fr1f2S+qKgoVrWM2AQlJSVRNMPA8+fPMdSz4HLB/WfPepH5ilJSxdjUMTFQCJgG3AAWXBLnrr0qposLmEYNYKA4KQ88AABtARMdWrjbRgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2422,7 +2553,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "人がたくさん作るものの中で一番きれいなもの。シリコン以外がほとんど入っていない。",
+    "note2": "シーメンス炉 [1-17] で作る：純度はトリクロロシランと同じ（9N〜11N）。小さな結晶の集まり。次は1つの大きな結晶（CZ [9-08]・FZ [9-09]）にしてウェハーへ。",
+    "note3": "「多結晶」＝たくさんの結晶。棒に積もったシリコンは、向きのばらばらな小さな粒としてできる。トランジスタにするには、溶かして1つの結晶に育て直す。",
+    "note4": "多結晶シリコンの多くは太陽電池に使われる（純度は少し低くてよい）。一番きれいなものが半導体のチップへ。世界では毎年100万トン以上作られ ⚠️、その大半がシーメンス法。"
+   },
    "refs": [
     {
      "title": "3. 超高純度のシリコンを育てる（シーメンス法）［1-17］",
@@ -2437,10 +2573,12 @@
      "basis": "PV-Manufacturing.org「ポリシリコン製造」（英語）、米国特許 US 8,398,946（英語）、ドイツ特許 DE 1061593 https://patents.google.com/patent/DE1061593B/de （ドイツ語）、ワッカーの資料 https://cdn.ihs.com/Connect/Content/ChemWeek/pdf/Wacker.pdf （英語）"
     }
    ],
-   "item": null,
+   "item": "polysilicon",
    "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "machine_recipes": [
+    "シーメンス炉「多結晶シリコン」：トリクロロシラン（9N 以上に蒸留したもの） ＋ 水素ガス（袋詰め） 1 mol → 多結晶シリコン（純度はトリクロロシランと同じ（9N〜11N）） ＋ 塩化水素ガス 3 mol（500 kW × 648 秒＝324,000 kJ）。SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる"
+   ],
+   "placeholder": "近似：1個≈1kg（量は記号的、Q22-1）。本物は棒を砕いて塊にし、るつぼに入れる。",
    "game_text": "多結晶シリコン → CZ結晶[9-08]・FZ[9-09]・ウェハー[9-12]へ。副産物 HCl は[1-16]に戻せる",
    "id": "1-17",
    "name": "シーメンス法",
@@ -2482,7 +2620,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaUlEQVR4nNWSTUsCcRDGH3NbV6UVNd3NVozSW4REEfSVOiiUJOWhgiIKguoSnTz2ccJ8KYkwNXLd1U1t3XzBf2gdUtO7z23mmfkxMwww8dKNM2+jd0SWilCUEs5PDv+t1Q0mAtthYrXZwXE8NE2DLEtot9v40jRcXZwO1U8NJab0kEQR+XwOyXgMdfUTrWYT/tU1XN9EyVhAOHJEKIqCSxAgiQUsr/ghuD2YYVk8pRIwm80Ihvb6INTfgHfNg2UtACFQVRWEENTrKhwODrlsBtM0/eOPAkhFERVFQa1WRaPRwJLXB37O1fMYhkGr1YLJZB69QrkkQ5aLsM86QNN0DyIW3pFKxtEhHbzlsnBy/GiA8/fyuddMD2CgDUgmHmA0mmAwMFj0+qCUS30A3eBVj88uSbXyAZfgxstzGusbm4jH7ntxd8KD/VBfj24Q0NVWYIdYrTa4PQtIP6bAWizQ6ylEdoNjH29C9Q1O3IsOWe0AZAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2496,7 +2634,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "すきまだらけのスポンジのような白金のかたまり。",
+    "note2": "黄色い沈殿をかまどで焼くと残る。2つを押し固めて（白金の圧粉）、溶鉱炉の白熱で鍛えると白金のインゴット。",
+    "note3": "表面積がとても大きいので、触媒としてよく働く（水素と酸素をふれさせると、ひとりでに燃えだす。1823年のデーベライナーのライター）。",
+    "note4": "白金の融点は約1768℃で、19世紀はじめの炉では溶かせなかった。だから粉のまま固めて鍛える方法が考えられた。"
+   },
    "refs": [
     {
      "title": "F13. 王水で溶かし、粉から鍛える（白金の精製・ウォラストン）［1-18］",
@@ -2511,8 +2654,10 @@
      "basis": "ブリタニカ「William Hyde Wollaston」https://www.britannica.com/biography/William-Hyde-Wollaston 、Johnson Matthey Technology Review（旧 Platinum Metals Review）「Wollaston and the platinum」https://technology.matthey.com/ 、BIPM「The kilogram」https://www.bipm.org/ （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "platinum_sponge",
+   "recipes": [
+    "かまど：塩化白金酸アンモニウム を焼く → 白金海綿"
+   ],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "砂白金→白金インゴット",
@@ -2560,7 +2705,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABZUlEQVR4nN1Rv0sCcRx9X/EQ79RBPdPDBAkzwSQJpEGaWpxb/FOCi/BPEAKHXNpc2l0Kp/xBiCHpkifoIMLZCd3RocN9425KTfd62+d9Pu/xPp8P8OdBdjVLpTva7/eQzZ4jn7/8dZasE8XiLTVpl8uFyWQCRflAOLwPTdNQKFxvzNvWiWj0AJqmotd7gyAIiMePkEgk4Ha7Uak80J0GonhDdf0LgcCeJVTVT3g8HtTrz4jFDsEwdpTL93SrQSp1AkmSIMsyGIaBqmoghIDnA+h02pjP5xgOpZUE9p+FKTLjZzJnWC6XiEQiaLWaVnxCbAgGQ+B5frtBu/0CXdcxGLyDUsMSOBwOGIYBQQhhNpMxHo+3GywWCySTx5hOp1Z08/Lm7ia8Xi+azQY4jlsxIOtXrVYfqaIo6HZf4XQ64ffz1jdqtScrkShekZ1vzOUuCMuy8Pl8SKdPrVVGoxFYltsQ/xN8A1N8fatpHuyyAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2633,7 +2778,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "川や浜の砂にまじっている、白金の小さな粒。とてもめずらしい。",
+    "note2": "自然白金（Pt にパラジウム・イリジウム・鉄などがまざる）。浜辺の砂鉄をシャベルで掘ると、まれに（約3%）出る（シルクタッチでは出ない）。王水で溶かして精製する [1-18]。",
+    "note3": "白金は重く、さびないので、岩がこわれて川に流されても金属のまま残り、砂鉄や砂金といっしょに川底や浜にたまる（漂砂鉱床）。コロンビアやウラル山脈の川で取れた。",
+    "note4": "コロンビアの金を掘る人たちは、溶けにくくて役に立たない白い粒を「platina（小さな銀）」と呼んで捨てていた。1748年、ウジョアの旅行記がヨーロッパで最初に紹介した。"
+   },
    "refs": [
     {
      "title": "F12. 川の砂の中の白い金属（砂白金）［1-20］（［2-19］過酸化水素の白金電極の前提）",
@@ -2648,10 +2798,10 @@
      "basis": "ブリタニカ「platinum」https://www.britannica.com/science/platinum 、USGS「Platinum-Group Metals Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/platinum-group-metals-statistics-and-information （英語）"
     }
    ],
-   "item": null,
+   "item": "platinum_grain",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：ゲームでは浜の砂鉄から出る（本物はおもにコロンビア・ウラルの川の砂）。",
    "game_text": "砂鉄のドロップに低確率で白金粒",
    "id": "1-20",
    "name": "白金",
@@ -2677,7 +2827,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABE0lEQVR4nO1RzUrDYBDc5BUS8jYeeshF6NVDH60liJdahJZgjAQ8taAFc0vBpCRFDFRJ268xNqQJ0YzkEwTFHzx4Eeeys7vMMOwS/eMvQ9MO4Lo+RqMLxHGKH4l1/YQLanFdHefqUwPx/SCK1lBVlfPp1KOiqGDbl7zvdPa/TmJZZ8jzJ5imhW73CKtVAsM4BWMPGA7P4fvXGI9tfJhgNrsBY4yyLKM0TanV2hNq3mzuCus1o6qqSFEUCgKf5vMIbwwGg2N4nktFUZAoClSWJV+apkH9vg5ZlqnR2BF6vUOSJIkcx6F2W3sxmUxcTsLw7tW1jrvdPvI+STJ4XoAwvEUUMSwWMZbLe2w2Oep7ff+S38YzdnCsKGFt8yAAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2691,7 +2841,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "石の中に紫や緑のつぶが入った鉱石。掘ると蛍石が出る。",
+    "note2": "方鉛鉱と同じ深さ（Y −16〜64）の石・深層岩に出る。方鉛鉱より少ない。石のツルハシ以上。シルクタッチなら鉱石のブロックのまま。",
+    "note3": "蛍石は、熱い水が岩の割れ目を通ってできた鉱脈（熱水鉱脈）に、方鉛鉱・閃亜鉛鉱といっしょに出ることが多い。鉛や亜鉛の鉱山で蛍石も取れる。",
+    "note4": "今の蛍石の多くはフッ酸の原料になり、フッ素の化学（フッ素樹脂・冷媒・半導体のエッチングガス）のほとんどがここから始まる。"
+   },
    "refs": [
     {
      "title": "F1. フッ素のはじまりの石（蛍石）［1-21］（［2-10］フッ酸の前提）",
@@ -2706,10 +2861,10 @@
      "basis": "USGS「Fluorspar Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/fluorspar-statistics-and-information 、Stokes, \"On the Change of Refrangibility of Light\", Phil. Trans. 142 (1852)、ブリタニカ「fluorite」https://www.britannica.com/science/fluorite （英語）"
     }
    ],
-   "item": null,
+   "item": "fluorite_ore",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：本物は方鉛鉱・閃亜鉛鉱と同じ鉱脈の形で出るが、ゲームでは同じ深さにばらばらに出る。",
    "game_text": "方鉛鉱と同じ帯",
    "id": "1-21",
    "name": "蛍石 CaF2",
@@ -2735,7 +2890,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCUlEQVR4nE2TuUpkURCGq0+f3vcdzAQDxcBIMBP6CRTjiQfmCcZ+g2HyCXwLEQxFxMxIMBHBTLD3fe++V74azsUDlz731l/1/1V/dajRaPiRSEQGg4GEQiGJx+P6zGYzSSaTsl6vpd/vS7ValV6vpzHf9zXOMXxcLpf6QsCd6XQqnU5HrLWa1G63JRaLyXg8lt2PCzns/1ACW6vVFEwwkUhoMoyooiDFPc+T7XarasC5M5/PxRIgkV9kGWMUSAGYh8OhFItFyeVy0mq1pFKpyGf2VlarlZiZEUvCZDJRFhKZAwnhcFi63a62gApUUhTcYrHQHDCG3tLptAJRkc1mVR79IzeVSukTjUblbP+31Hd+qVKKkWNQQEUYAPFsNhsNckdqs9nUdtzhDjvHlsvlwBYYONevfwIQ7LQwGo3kzvunZBDk83kltfhPgUwmEzCQwCwYIEBaoSBq3Z1ZoNICLhQKyvDQutKFYohIJ5lC0ZcT8bDt6En3IP9eV6Lx3r0YJ5HhOSeYMN95p4A72P39HUstCQSQxlaWSiVVQ588KPH2H3XqZvN/icLHz4rxF0kxyATkGNhCloZ+YWM2zk42j/8ExWhblwkWdtqt6/nBpZzWfgYOONvonQSKgGVWtG2YJHZQ6Ht/2IW1xGgNVWAdLrARq9hEEpB98/Y38JkE1pk7m8mvW2/U0N4XmNZW3TKq8/cAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2749,7 +2904,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "花こう岩の中に、黒っぽい重い粒が入った岩。スズの鉱石。",
+    "note2": "花こう岩の中だけにできる（y−10〜70、鉄マンガン重石と同じ帯）。鉄のツルハシ以上で錫石が落ちる。",
+    "note3": "スズとタングステンは、花こう岩が冷えるときに最後に残った熱い水から、同じ鉱脈にいっしょに沈殿することが多い。イギリスのコーンウォールは青銅器時代からのスズの産地。",
+    "note4": "錫石はとても重く（密度 約7）、さびない。岩が風化しても川の砂の中に残って集まる（漂砂鉱床）。マレーシアやインドネシアの大きなスズ鉱山は、この川や海の砂を掘っている（ゲームでは花こう岩の中だけ）。"
+   },
    "refs": [
     {
      "title": "O8. 花こう岩の黒い石からスズ（錫石とスズの製錬）［1-22］［1-30］（青銅・スペキュラムの前提）",
@@ -2764,7 +2924,7 @@
      "basis": "- Wikipedia「Cassiterite」：https://en.wikipedia.org/wiki/Cassiterite"
     }
    ],
-   "item": null,
+   "item": "cassiterite_ore",
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
@@ -2793,7 +2953,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC8UlEQVR4nD2TS4scVRiGn6o6dem6dE9fZpJMMjMm6EIluHGrC80moChRUYImG0GTrRrQLCJZSDauRFwJroKXjRcIiL/ChRocDGbavsz09L26614l5wgeqMU5fKe+932+92j3br9XAfTGU8Io5vGdbXRNwzIFg8mMOMsQukGSZbiOTZ4X6LqGbZoIQ0domsZ+b0jDq6nLi3VEu+7z4Vdfk2Q5VQWfvn2ZwXSO3BRViWVY2KbgwXCEkF33ttqkeUF/PKVV9/ntYY9bl1/hznc/qC6rJKUoS9Isp9MIuPPtj2ovlWifXXurcm35R5Msz8nLkpPNBus4IUozTrUalFWFa1nc/2eArC3Kii/u/aJUaHdvXKuWUaS8nt87wzpJsS0Toev0xzOEMKiqiqDm0B1NVN1TZ3eQ4FZRjO7XbDzHphX4/NEdcLwIMQ2Dvw+PcWyTyTJEGAZRmpLmOU3foz+ZUZYVSV4g5KHsGqeZ8iuhyk7LKFaflNwOPMaLUIE+3d5QNZKT5KA9/dhuVbNNRfzGqy8qmEVR4No2nbqvSIdxwk6nxcFozPlHzigmWV7gWCb6OxefJ4ykvILhZM4sXKsLrcBjvo7YO9FhZ7Olijd8l18fHPDX4EixyIsCIalfvfCszJIay7lTm4znodpLyve7AzzHIui0aLgulhAqcJPlit7xFCEBbjXqjOZLdrfafPLN9wqQVPTR6y8R1Gxl5/0v79Kpe+RFybsXL2AYOpYw0CVA6U2uP3tDbr/5mpIrocq13W4yXoZ8cOkFVnGq/K+SBN9x1OS0z69fqfyao0L06PYJNa793iGuY6nOnm1xNF/SDnzqrqMmdjRbqLdiC4G+tVFXtDc36oq4zIAEp6HR9FyVB/m4uqOxmr9kICcmFQync4QG7PcPeXL3NB//9DOGrpFmBTffeFkVSguyo1zysgTdDLz/Yqxp6N3jCU/sbhPGMVeee0YFpxW4jGYLxUKO89zJTRqei7T6+0Gf6XL1f8j+BXkcdLtaT8HrAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -2852,7 +3012,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ジャングルやサバンナの地面の近くにある、赤茶色の鉱石。",
+    "note2": "ジャングル・サバンナだけ、Y 56〜90 の土・粗い土・石を置き換えて出る。ツルハシで掘る（木でもよい）。シルクタッチなら鉱石のブロックのまま。",
+    "note3": "ボーキサイトは地下深くではなく、地表の近くに毛布のように広がっていることが多い。だから露天掘り（地面をはがして掘る）で取る。",
+    "note4": "アルミを取り出したあとに残る「赤泥」は、強いアルカリを含む。ため池の決壊（2010年ハンガリー・アイカの事故）のように、捨て方が大きな課題になっている。"
+   },
    "refs": [
     {
      "title": "F5. 熱い国の赤い土（ボーキサイト）［1-24］（アルミ → Al 配線の前提）",
@@ -2867,10 +3032,10 @@
      "basis": "USGS「Bauxite and Alumina Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/bauxite-and-alumina-statistics-and-information 、ブリタニカ「bauxite」https://www.britannica.com/science/bauxite （英語）"
     }
    ],
-   "item": null,
+   "item": "bauxite_ore",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：本物の地表に広がる層（ラテライト）ではなく、土・石の中の塊として出る。",
    "game_text": "ジャングル/サバンナの地表付近",
    "id": "1-24",
    "name": "ボーキサイト",
@@ -2896,7 +3061,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACR0lEQVR4nE1Ty27UQBCsednedZYkbFgQsAQOEOUUgbghJL6DA1dOcOAT+BeO/EA+ggPiCNyAkAd52mvPw4Oql0RYsqxpd3dVV9eoDy+f5ZEz4JOGjJPOYzouEdKASWnRxwFtSGhCxMgaOKOxCAkpZxilYEurceEjro8KnMWAlcLieOFhtJIkJjPmtMbYGWnG+K2VSkD1kDO0WqITtbQGWinkDDnP6lIaWK0wZGARkzQ67YLU6JCy/Piz8FgfFXBaoTAaceAIDmHI2LvoBO20D/Il6FrlcNx5aHZ7tDmTIJEP2h59WtJuQ5RxVisHnwbcnlQSL43B76YTTfRJF/D52y/U/2Z/8eYdrCaDjMoa/Pj6E+d9FHZkQr0yMiaFE5HVx1fPM0WpnZUiqs35K6uFfmm0xMiARSweOyviiogpZzx9/VYOR4texOLTp0Ga8D+LZ3UluhDkoOkxvzOVs3r/5F5+vPMAmd2UQheTNKHKa1VxxagujHiCY1Ej/r9WOuiH23PZ7X7TXyEQcev+TRF0lUkKUqwUcNYHAaLZaCrNlRGRriISZ2b33d1PojIbUovNuxtofJJivhScPrFUnPst/hOLitfbc2nGdRHgy/c9YcL9kxmdytc6o8Q8RCGL9arAYduLJg0gLDgrG3FTjLMJmZGFpguJylm5IhbTgZcXZzou5IJder/xEUetly8F1ftNJwhMWuqx1IQIvAc0zo26FKcyRtob41LWTBdrdj73UdCIytvJZCZyM/TIYevRxUGYUjhui2Cs+wtW7nphX3j0wQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3146,7 +3311,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "溶けた氷晶石にアルミナを溶かし、電気でアルミニウムを取り出す槽。とても電気を食う。",
+    "note2": "電気 100kW。アルミナ2 → アルミニウム1（約1kg、540秒＝15kWh）。氷晶石1で16回ぶんの浴、黒鉛棒1（陽極）で2回。2Al2O3 + 3C → 4Al + 3CO2。浴は電流の熱で約960℃に保たれる。",
+    "note3": "1886年、アメリカのチャールズ・マーティン・ホール（22歳）とフランスのポール・エルー（23歳）が、別々に同じ方法を見つけた。二人は同じ1863年に生まれ、同じ1914年に亡くなった。それまでアルミは金や銀より高く、ナポレオン3世は特別な客にだけアルミの食器を出したという。",
+    "note4": "アルミ1kg に約13〜15kWh（家庭の1日分ほど）の電気を使うので、アルミの工場は水力発電の近く（ナイアガラ・ノルウェー・カナダ）に建てられた。アルミは「電気の缶詰」と呼ばれ、リサイクルすると新しく作る電気の約5%ですむ。"
+   },
    "refs": [
     {
      "title": "F8. 金より高かった金属を電気で（ホール・エルー法・アルミニウム）［1-29］（［9-25］Al 配線の前提）",
@@ -3161,10 +3331,14 @@
      "basis": "ブリタニカ「Hall–Héroult process」https://www.britannica.com/technology/Hall-Heroult-process 、ACS National Historic Chemical Landmark「Production of Aluminum: The Hall-Héroult Process」https://www.acs.org/education/whatischemistry/landmarks/aluminumprocess.html 、International Aluminium Institute https://international-aluminium.org/ （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "hall_heroult_cell",
+   "recipes": [
+    "作業台：鋼インゴット×5 ＋ 黒鉛棒 ＋ 耐火れんが（珪石れんが）×2 ＋ 銅ケーブル → ホール・エルー電解槽"
+   ],
+   "machine_recipes": [
+    "ホール・エルー電解槽「ホール・エルー法」：アルミナ×2 ＋ 氷晶石 16回で1個 ＋ 黒鉛棒 2回で1本 → アルミニウムのインゴット（100 kW × 540 秒＝54,000 kJ）。約960℃の氷晶石にアルミナを溶かして電解。2Al2O3 + 3C → 4Al + 3CO2。15kWh/個"
+   ],
+   "placeholder": "省略：CO2 とフッ化物の排ガスは表さない。電流・電圧（本物は約4〜5V・数万〜数十万A の直流）も表さない。1つのブロックで、槽を何十台も並べた工場（ポットライン）を表す。",
    "game_text": "",
    "id": "1-29",
    "name": "アルミニウム",
@@ -3211,7 +3385,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABzElEQVR4nKWTy87UMAyFTy5NL2n/DRI7xAIJCcEaseH9nwAJWIGAF2CapuklQcelfxmxQlhqpkkd+zu2R719977gP8xyefnqDbZ1QZoTjDVwrkYpBcuSACjkvN9d8r6X388fP0DzRQFY0iIvJReUkmGrCkppeO/RNC2MNlBKyeV1XaG1vghCGNF5j33fYa1FzhnbuqLrOoRxRNO2gFKoXYM5Rtmfui0XYyxinCRTjPE3shIJne8xhRFKayGiNJKE8XYFcM5J9mkK+P7lE9q2xbZt4khUIpOM9vzFawlibXUF2PdNDqmTwc6LlCJO1soZn3kmYRZampZFW5QCVM7JYUpJnE8jDRPQuq4/imrMHzWwBjEG5HxgnthHKxc5Y1aSbNsqe36/ujDe0PfDI/KJy8xVVUk2Piww92Rhlx4lOOekgMxMR2blGTOexQshCJFQpfl+DmjUNYWAJ0+foR8epN/aGBkq4no/COm6LjJ0zjX3c5DSjFwy6qbFON5EAqcxpQVV5ZDmCFfX0j7VaozjTwkgHMSnsGF4kGBt28nH478A1HUt9eCeHaLPXxKYPU6TzMQxdUrqse9ZiHw/yEQeU1quGeHy49vXM84/2y92Jf93/0xYnAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [
@@ -3240,7 +3414,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "銀色のやわらかい金属。銅にまぜると青銅になる。",
+    "note2": "錫石 →かまど（溶鉱炉なら速い）。SnO2 + 2C → Sn + 2CO（燃料の炭素で還元）。融点 232℃ととても低い。青銅 [1-05]・スペキュラム合金 [7-05] の材料。",
+    "note3": "スズの棒を曲げると「ギシッ」と音がする（スズ鳴き）。中の結晶どうしがこすれる音。寒い所に長く置くと、ぼろぼろの灰色の粉に変わる（スズペスト、13℃より下で起こる変化）。",
+    "note4": "5000年前に青銅の材料だったスズは、今は電子部品のはんだの主成分で、さらに最先端の EUV 露光装置の光源 [7-18] にもなる。直径 約30μm の溶けたスズの粒に毎秒数万回レーザーを当て、プラズマにして 13.5nm の光を出す。"
+   },
    "refs": [
     {
      "title": "O8. 花こう岩の黒い石からスズ（錫石とスズの製錬）［1-22］［1-30］（青銅・スペキュラムの前提）",
@@ -3255,10 +3434,13 @@
      "basis": "- Wikipedia「Cassiterite」：https://en.wikipedia.org/wiki/Cassiterite"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "tin_ingot",
+   "recipes": [
+    "かまど：錫石 を焼く → スズのインゴット",
+    "溶鉱炉：錫石 を焼く → スズのインゴット"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：かまど（≈1000℃）で還元と溶解をまとめて行う（燃料の C/CO で還元。CHEMISTRY #38 と同じ扱い）。CO2 は回収しない。",
    "game_text": "",
    "id": "1-30",
    "name": "錫",
@@ -3290,7 +3472,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7ElEQVR4nO1RuY7DIBB94BOD5RSuU+T/P2KV/0ixvRuILAMBs5qRHGU35bZ5FHO/OQA++DfEX4ddbWnbFqUU0Isx4qRPuG93GGUghfxVU78acY9cFnxAr3oICOz7zjGlFNs++dLX/ZNEHMrt+1accxiGAVJKrOsKYwycddBGs69pGmzbhq7rcDlfuFYeBBQcx5FHphUoKYSAuqnZxyuVwjaRHJCHQkGC1hrLsqCqKiYhUiEEx0k+4oPl2w1CCLwvJUzThJQSdyIfFeSU4b1HzhnzPL8TXL+ufBHqaK19rkBkdBsz8g8w6esE+AA/mll2lclBwRoAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3360,7 +3542,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "白く光る金属。電気と熱を一番よく通す。",
+    "note2": "銀の粒×9（インゴット1つ → 粒9つにも戻せる）。c:ingots/silver。",
+    "note3": "写真の感光材（臭化銀・ヨウ化銀）、鏡、電気の接点に使われてきた。",
+    "note4": "電気伝導率は全金属で一番（銅よりわずかに上）。それでも配線の主役が銅なのは、ずっと安いから。IC の配線もアルミ → 銅へ移ったが、銀はほとんど使われない。"
+   },
    "refs": [
     {
      "title": "O13. 鉛から銀を取り出す（灰吹法）［1-32］（蒸着の金属）",
@@ -3375,8 +3562,10 @@
      "basis": "- Wikipedia「Cupellation」：https://en.wikipedia.org/wiki/Cupellation"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "silver_ingot",
+   "recipes": [
+    "作業台：銀の粒×9 → 銀インゴット"
+   ],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "",
@@ -3410,7 +3599,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6UlEQVR4nO1QS07DMBQc23FSEidqlQ2rSr3/AZDgQiygiurEwX/0LIooLSuWMNKTbGtmPPOAf/wa7PtDyDmLG0SfgYoBnLELDf96yT+Iy08MCB+cmwmeX07ZGIPtdgetT3DOERspZ4zjiOPxFUJU6LoOqzE47O+LtjobTNMEKSXW1UAphRgjlmVB3/eY5xlK9UgplXHefyaozodhGMA5RwgBIUZ45wqZKltrywghUNc1mqa5Nths7uC9QwyBehYSCbTWaNu2mJOYkqYUrw2eHh/AuYC1b5CyLkk4Z8WYklA9EtKeLteIP493Cil19QvXBl0AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -3734,7 +3923,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "氷のように白くすきとおった石。アルミニウムを作るときの「お湯」になる。",
+    "note2": "Na3AlF6。作業台で フッ酸3（鉛の瓶は戻る）＋水酸化アルミニウム1＋水酸化ナトリウム3 → 氷晶石1（6HF + Al(OH)3 + 3NaOH → Na3AlF6 + 6H2O）。ホール・エルー法 [1-29] の電解浴。",
+    "note3": "アルミナは約2050℃でないと溶けないが、約1000℃で溶けた氷晶石の中にはよく溶ける。だから約960℃で電気分解できる。これがホール・エルー法の一番のアイデア。",
+    "note4": "天然の氷晶石は、グリーンランドのイヴィグトゥートでしかまとまって取れず、1987年に掘りつくされた。今は全部化学で作る（この作り方）。⚠️ 合成の工業化の年は確かめていない。"
+   },
    "refs": [
     {
      "title": "F7. アルミを溶かす「お湯」（氷晶石）［1-38］",
@@ -3749,10 +3943,12 @@
      "basis": "ブリタニカ「cryolite」https://www.britannica.com/science/cryolite 、ブリタニカ「Hall–Héroult process」https://www.britannica.com/technology/Hall-Heroult-process （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "cryolite",
+   "recipes": [
+    "作業台：フッ酸×3 ＋ 水酸化アルミニウム ＋ 水酸化ナトリウム×3 → 氷晶石"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：作業台で混ぜる（本物は鉛やゴムを張った槽で反応させ、沈んだ結晶をこして乾かす）。",
    "game_text": "[1-29]ホール・エルー法の電解浴",
    "id": "1-38",
    "name": "氷晶石の合成",
@@ -3794,7 +3990,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABRUlEQVR4nN1QTUsCURQ9T6IZo1UrFdoUkQlBqzZtWlVY0J9MqCjBaCqVrE3QohYRpH04qOOYU88CbXSmdG7Ms0BFg5Z14PHuB/fccy7wf6EkTqjEq+JFtqL0q+GNzR2q2UTJ0zPaO0ySi7d36kvi6S2oxSeangnBNE1IkgSfzw9etVEuG9iNHfysJLIdJSWeIs14pfPLa7GV12yhwnKI8o8VurhKDybJlThVXO1Ewvc32pW2JRcDLdTrJjLpGxGvhFfFv390jGQ8JWJZlmH37Pd0JrIkwx8IiHhsdBiZrAbviBfNVhMv5gc4f8bdbbaLYKgz0fUiLMuCVijAcRwsLswj+3CP9fCSIGvUG5gNTnYRsN47uB5jSkJ0yCGE15ahqpogngtNgTHGBiqAy8gYcy+u6wbyuRw4ryI4MY7WV6/v9f82PgGJMsm5lNRG8QAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
@@ -5984,7 +6180,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "木をたき火で燃やしきった後の灰。水に溶ける塩（炭酸カリウム）が入っている。",
+    "note2": "原木をたき火にのせて30秒。木の中のカリウムやカルシウムが、燃えたあと炭酸塩・酸化物として残る。4個＋水バケツで灰汁。",
+    "note3": "灰は昔から畑にまく肥料で、洗剤でもあった。灰を溶かした水で布を洗ったり、山菜の「あく抜き」をしたりする。",
+    "note4": "木灰の主な成分は炭酸カルシウムと炭酸カリウム。炭酸カリウムは水によく溶けるが、炭酸カルシウムはほとんど溶けない。だから水に浸して上澄みを取ると、カリウムの塩だけを分けられる。"
+   },
    "refs": [
     {
      "title": "O3. 灰から取ったアルカリ（カリ・炭酸カリウム）［2-02］（フリントガラスの融剤）",
@@ -5999,7 +6200,7 @@
      "basis": "- USPTO「The history of presidentially signed patents」（最初の特許 X1、1790年、カリの製法）：https://www.uspto.gov/about-us/history/freedom-250/history-presidentially-signed-patents"
     }
    ],
-   "item": null,
+   "item": "wood_ash",
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
@@ -6035,7 +6236,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQUlEQVR4nO1QsUsCYRx939mU3w15mbhl3VQHIYoQ/gNubW4h3BA1NwgtGhFyQ0SDQijhYNBg2OCg+A9IozRIV8OXFxh3fDUKHn7RQUFg0dQQvenxe7/fe48f8I8/APKVUCjsC85fkEjEIMsyUqmNqbvStGG5XBTxeAyEECiKgn7/FsXisfixwWBgod3uYDKZwDTv4PfPIhicR7V6Kr41aLWuRLN5KZLJdWjaKlR1yTu0bRvp9CYxzXvU6+efTMg7qdXOBGMMlMoIh0MYDp9AqR8+nw/jsQvbdhAKLUDXt0k2uysM44h8NOh0mqLXu/FSHccBYw+glELXd0gms0U45xiNRggE5lCplEQ0ugbDOPCazDQaF6LbvYamrYCxAVR1Ga7rIhJZ9JrlcnvijXP+DEmSYFmPyOcPvfRS6WTqY38Xr8kPda44qHjhAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6099,7 +6300,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "昆布を燃やした灰。水に溶かすとソーダがとれ、その液からヨウ素も取り出せる。",
+    "note2": "乾燥昆布をたき火で焼く（30秒）。4つ＋水バケツで海藻灰の浸出液。",
+    "note3": "18世紀のスコットランドでは、浜の海藻を集めて燃やす「ケルプ産業」がさかえ、灰をガラスや石けんの原料として売った。スペインではオカヒジキの仲間の灰「バリラ」が有名だった。",
+    "note4": "陸の木の灰はカリウム（K2CO3）が多いが、海の植物の灰はナトリウム（Na2CO3）が多い。海水のナトリウムを取りこんでいるから。昆布はさらに海水のヨウ素を何千倍にも濃くためている。"
+   },
    "refs": [
     {
      "title": "O29. 海藻の灰からソーダとヨウ素［2-04］（ダゲレオタイプの前提）",
@@ -6114,7 +6320,7 @@
      "basis": "- Wikipedia「Iodine」（歴史）：https://en.wikipedia.org/wiki/Iodine"
     }
    ],
-   "item": null,
+   "item": "kelp_ash",
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
@@ -6149,7 +6355,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABKUlEQVR4nO1RQUsCYRB9s9/u6roqq7soFetPiU5mXRK95KEI1oMIon/FHxDePIRIFwmELv2YtTporLplBhPfBp1W6NQheoeBmXnz5jED/OMPgHY1Go0z3m4/kMmY2GzeMRzexnKVuGK363E+b4EIGAxuaLF4QadzxT9yUKkcsRAChYKN2ewZyWQCMnfdPTAD/f417XRQLh+yaaYwmdxTEKyimmVlIcQXLQxf4XnnHCvQbDZ4On2gYtFBrXbCclDXNSyXa6iqCmaG7z9GYu325bcIyVCtHrPr7sP3n0BEGI0mVK+f8mq1hqZpUFUB6SybzWA+X0BRlOiw4/EdKb2ex7quRxsMIwHTNCJlx8nBtnNIp1MolQ4gPxIEAcLwLeLK77RaF7GH/V18AkruYpI/osWSAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6407,7 +6613,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "油と強いアルカリをまぜると、石けんができる。油汚れを水で流せるようにする。",
+    "note2": "けん化した脂＋塩で3つ（水酸化ナトリウムで作ったので固い石けん。水酸化カリウムなら柔らかい石けんになる）。装置を洗う洗浄の入口。",
+    "note3": "石けんの分子は、水になじむ頭（-COO-）と、油になじむ長いしっぽを持つ。しっぽが油汚れを囲んで小さな粒（ミセル）にし、水に浮かせて流す。",
+    "note4": "石けんのような物の最古の証拠は紀元前2800年ごろのバビロン ⚠️。半導体工場のウェハーは、石けんではなく、RCA 洗浄（1965、アンモニアと過酸化水素など）で洗う（[9-14]）。"
+   },
    "refs": [
     {
      "title": "C12. 油と強いアルカリで石けん、残りの液からグリセリン［2-09］",
@@ -6422,10 +6633,12 @@
      "basis": "- Wikipedia「Soap」：https://en.wikipedia.org/wiki/Soap"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "soap",
+   "recipes": [
+    "作業台：けん化した脂 ＋ 塩 → 石けん×3"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：香料・色はなし。",
    "game_text": "鍋で煮る。KOH なら軟らかい石けん、NaOH なら固い石けん",
    "id": "2-09",
    "name": "石けん",
@@ -6460,7 +6673,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVR4nGNgGAUUA0Zkzp8fz/4To4mFQwqujwVZ4se3D3D2pw/vGPgEhDA0g8SRARM2G/BpRhdnokQzhgGfSNSMYQAfiZqxeoEUzaOAAQwAbtck7tj8WUAAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6474,7 +6687,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "蛍石と硫酸を鉛の釜で熱して、フッ酸を作る装置。フッ酸はガラスを溶かすので、全部が鉛でできている。",
+    "note2": "蛍石1＋硫酸1（ガラス瓶は上に戻る）＋空の鉛の瓶1 → フッ酸（鉛の瓶）1＋石こう1（10秒、燃料1個で8回、電気なし）。出てくる気体を受け器の水に吸わせる：水バケツ1杯で4回（空のバケツは出口へ）。CaF2 + H2SO4 → CaSO4 + 2HF。",
+    "note3": "1771年、シェーレは蛍石を硫酸といっしょにガラスのレトルトで熱し、新しい酸を見つけた。レトルトのガラスが内側から溶けて曇ったことで、この酸がガラスを溶かすと分かった。だから工場の釜・管・瓶は鉛（のちにろう・ゴム・ポリエチレン）で作られた。",
+    "note4": "今の工場は、約200〜250℃のゆっくり回る長い窯（ロータリーキルン）で反応させ、出てきたフッ化水素を冷やして液にする。副産物の石こうは、1トンのフッ化水素あたり約3.6トンも出る。"
+   },
    "refs": [
     {
      "title": "F1. フッ素のはじまりの石（蛍石）［1-21］（［2-10］フッ酸の前提）",
@@ -6501,10 +6719,14 @@
      "basis": "ブリタニカ「hydrogen fluoride」https://www.britannica.com/science/hydrogen-fluoride 、CDC NIOSH「Hydrogen Fluoride」https://www.cdc.gov/niosh/ershdb/emergencyresponsecard_29750030.html 、Royal Society of Chemistry「Fluorine」https://www.rsc.org/periodic-table/element/9/fluorine （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "lead_retort",
+   "recipes": [
+    "作業台：鉛インゴット×4 ＋ 空の鉛の瓶 ＋ furnace ＋ れんが×3 → 鉛のレトルト（フッ酸）"
+   ],
+   "machine_recipes": [
+    "鉛のレトルト（フッ酸）「フッ酸」：蛍石 ＋ 硫酸 ＋ 空の鉛の瓶 ＋ 水入りバケツ 4回で1個 ＋ 石炭×0.125 → フッ酸 ＋ 石こう（硫酸カルシウム） ＋ 空のガラス瓶（電気なし・10 秒）。CaF2 + H2SO4 → CaSO4 + 2HF（約200℃）。HF を受け器の水に吸わせる。釜も瓶も鉛（ガラスは溶ける）"
+   ],
+   "placeholder": "省略：量は記号的（本物は蛍石1つから HF が2つ）。フッ酸の濃さ（本物は約40〜70%）と吸収塔は表さない。",
    "game_text": "加熱型の反応ブロック（既存の炉 BE を参考、クラス構成は着手時に決定）。フッ酸はガラス瓶に入れられない→鉛の容器アイテム（[1-27]が前提）",
    "id": "2-10",
    "name": "フッ酸",
@@ -6549,7 +6771,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABx0lEQVR4nKVTu47UMBQ9dhzHSWagotmGBiRERYVExf+3ICS0BQXiC9jJw290bjJearCUKLHvPa/cqI+fPlf8xzK8vXv/AaVkbNsK1Ao7OBhjEEI4ikyPdXlC13UwfS97PPv18wc0X9gcY0QpBYMbAVSklKC1PoEXXK4v0NsB8QQlEZfmbVluqLVKQwgepVQopaS47y3m+YJ1uUkDQdh7EJ0AWmmkFKGg0HVGmjtjkEVZgFJaGnTXNXbaaRkorTBYB607PH77AudGUeH9fvg2RoD3fcPrN2/lnEobQN9bKSbAUbjL3jhO8H6TYqWiZFNrkVpm0wBC8MLCEJmDtQNyTtJ8t0QbfM8pQfWH1ZaBcxNSTBIkF33zGgYnoHe5VDROF8mKJA1g31f5viy++yYWn8lOa0o9Dw/rbrfff4WolHia5yumaZYDa60AcR6oBjhyisEzCbHcAIbBYVtX8f3q4UFSZvFd5hFaafskBNSzhZQi3DidQ1SQc5ZisnOMmQ3VkZVtPGPYDSDnAr+v4pWfj4ecToItyxNqKdj5n0Bhmq9IMYqSZsE5J2ObchI7wXtcry+FmerITFUCVquoOGycAI/fv/7z7/wHrQEVZ6pJY9gAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -6867,7 +7089,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "水をわかして、湯気を冷やして集めた、塩の入っていない水。",
+    "note2": "ガラス瓶入り（使うと瓶が戻る）。作業台で 水バケツ1＋石英の蒸留器（戻る）＋空のガラス瓶3 → 蒸留水3（バケツも戻る）。ウェハーを洗ったあとのすすぎに使う [9-14]。",
+    "note3": "水は100℃で湯気になるが、溶けている塩や鉱物は湯気にならずに残る。湯気を冷やすと、それらを含まない水が取れる。純すいな水は電気をほとんど通さない。",
+    "note4": "1〜3世紀のアレクサンドリアには3本の腕を持つ蒸留器の記録がある（マリアの発明と伝えられるが確かではない）。⚠️ 1950年代の半導体工場では、蒸留より安く大量に作れるイオン交換の脱イオン水が使われるようになった。"
+   },
    "refs": [
     {
      "title": "F15. 湯気を冷やした水（蒸留水）［2-16］（［9-14］洗浄のすすぎ）",
@@ -6882,10 +7109,12 @@
      "basis": "日本半導体歴史館「超純水」https://www.shmj.or.jp/english/pdf/em/exhibi2414E.pdf 、Kern 1990（J. Electrochem. Soc. 137, 1887）、ECS Interface 2010 春号 https://www.electrochem.org/dl/interface/spr/spr10/spr10_p044-046.pdf （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "distilled_water",
+   "recipes": [
+    "作業台：水入りバケツ ＋ 石英の蒸留器 ＋ 空のガラス瓶×3 → 蒸留水×3"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：熱は石英の蒸留器を使うことで表す（かまどの火は描かない）。",
    "game_text": "水入りガラス瓶＋熱 → 蒸留水。[2-39]の蒸留と同じ装置",
    "id": "2-16",
    "name": "蒸留水",
@@ -6911,7 +7140,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVR4nGNgoBAw4pI48+r/f2S+iRgjVrWM2AQrpm1B0QwDHVk+GOpZcLnALdC7F5m/a/3WYmzqmBgoBEwDbgALTplPt4vp4gKmUQMYcMbCrr23KA0eOgEA5TAQsEcuhlwAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [
@@ -6943,7 +7172,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "塩もイオンもほとんど入っていない、とてもきれいな水。",
+    "note2": "イオン交換塔に蒸留水を通して作る（ガラス瓶入り）。超純水 [2-18] やウェハー洗浄の元。",
+    "note3": "純粋な水は電気をほとんど通さない。水の中のイオンが減るほど電気抵抗が上がり、25℃で 18.2 MΩ·cm が理論上の上限（水自身がわずかに H+ と OH- に分かれるため）。",
+    "note4": "半導体工場では、ナトリウムなどのイオンが1つでもトランジスタの性能を狂わせるので、大量の超純水でウェハーを洗う。"
+   },
    "refs": [
     {
      "title": "C10. ベークライトの親戚が水をきれいにする（イオン交換）［2-17］",
@@ -6958,10 +7192,10 @@
      "basis": "- Wikipedia「Ion-exchange resin」：https://en.wikipedia.org/wiki/Ion-exchange_resin"
     }
    ],
-   "item": null,
+   "item": "deionized_water",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：電気抵抗（純度）は扱わない。",
    "game_text": "樹脂を詰めた塔ブロック。使うと飽和→酸・アルカリで再生",
    "id": "2-17",
    "name": "イオン交換",
@@ -7006,7 +7240,7 @@
    "explained_by": [
     "I-21"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARUlEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZcEn4AIfVzANGoAA8VhQDEAAOQFC96o48hWAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7084,7 +7318,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "硫酸を白金の電極で電気分解して、過酸化水素を作る槽。ウェハーの洗浄に使う。",
+    "note2": "電気 3kW。空のガラス瓶1 → 過酸化水素（約30%）1＋水素1袋（60秒）。水バケツ1杯で4回、硫酸1で8回（ほとんど戻る、瓶は上へ）、白金のインゴット（陽極）1で32回。全体では 2H2O → H2O2 + H2。",
+    "note3": "冷やした濃い硫酸を、白金の陽極で強く電気分解すると、酸素の代わりに過硫酸（S2O8^2-）ができる。これを水と温めると過酸化水素になり、硫酸はもとにもどる。炭素や鉛の電極では過硫酸にならず、白金でないとできない。",
+    "note4": "1818年、テナールが過酸化バリウムに酸をかけて過酸化水素を見つけた。1908年にオーストリアのヴァイセンシュタインに電解法の工場ができ、1930年代からはアントラキノン法に代わった。⚠️ 工場の年（1908〜1910）は資料で少しずれる。"
+   },
    "refs": [
     {
      "title": "F12. 川の砂の中の白い金属（砂白金）［1-20］（［2-19］過酸化水素の白金電極の前提）",
@@ -7111,10 +7350,14 @@
      "basis": "ブリタニカ「hydrogen peroxide」https://www.britannica.com/science/hydrogen-peroxide 、Ullmann's Encyclopedia of Industrial Chemistry「Hydrogen Peroxide」（英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "peroxide_cell",
+   "recipes": [
+    "作業台：鉛インゴット×7 ＋ 銅ケーブル ＋ ソーダ石灰ガラス → 過酸化水素の電解槽"
+   ],
+   "machine_recipes": [
+    "過酸化水素の電解槽「過酸化水素」：空のガラス瓶 ＋ 水入りバケツ 4回で1個 ＋ 硫酸 8回で1個 ＋ 白金のインゴット 32回で1個 → 過酸化水素 ＋ 水素ガス（袋詰め） 1 mol（3 kW × 60 秒＝180 kJ）。白金の陽極で硫酸 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。全体 2H2O → H2O2 + H2"
+   ],
+   "placeholder": "省略：⚠️ 電力・時間はゲームの値。電解液の冷却と、過酸化水素を分ける真空蒸留の段は表さない。テナールの過酸化バリウム法はバリウムがないので使わない。",
    "game_text": "硫酸の電解 → 過酸化水素",
    "id": "2-19",
    "name": "過酸化水素",
@@ -7156,7 +7399,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFklEQVR4nKVTO47UQBB97rb75/EMYrQasQkxBFwBiYiMk2zAFTgECWcigIBkg00QWu0wu2uPx7+2u1GVGW+MKMnt7nLXq1dVz8nbd+8j/sNSWl69foM0zSCEQNc1EEJCKY2mqZFlir/FGJAkCUKI7I8h4ubmegbww4BpmuCHngNkJnE6Hf8G05XIwd57TpLnK96TCVqU1hiGHtpYGOswjiOkTKGUApCg73v0fcdnAqJzDOEJoG0bppxlVEbCYCFMfDkiQmvNDGd/gDEGfpwZpLQ4lzOlvutw8eETLnc5Hm+PyLRDU+6h3BovLx0mD/z4fIWiWHOyhUHfdTDWQkiJVGnU9wM2uwJN+RuJEHAbh/JuwOHngdnEGPlZGIQYuCaqkai31T3CtOFLm4sdurqHTBWevdjiKFNIKbnBCwOyrmtR10eYXENmCsXWYfV8h7aqoZ3G2LeIAQxKTaReLABCCJ6vtQ7kd+stqn2NTCcY2hqPt79g1w71oWIAGvvZ0nMTCZE+KgOcHgYU2xWqfYXM5LBFAWXp5hoHqj0Bpml8AhhHj2HwCNOE6y8fmcmd96w+mg6Jid4kIGstyrJnnSwlBK4nIlMKxjieObGhPTWWkpJOSGDkL4oNRj+XMcNwGSsWDkmYAChDVT5AaYMkmfs0J4to2xOPd2Fw/nEomGiS0qgMCj4LZtb+/CNpzQ15YvD929fF8a/2BzOEG9sN4FsGAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7170,7 +7413,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "石炭を空気なしで蒸し焼きにする炉。コークスと、黒いコールタールと、アンモニアのにおいの水がとれる。",
+    "note2": "石炭を入れて、石炭・木炭・コークスを燃やす（1個で8個ぶん、1個10秒、電気なし）。石炭4個 → コークス3、4個ごとに安水1、8個ごとにコールタール1。耐火れんがの釜（レトルト）を外から約1000℃に熱し、出てくるガスを銅の管で冷やす。",
+    "note3": "1792年、マードックは石炭を蒸し焼きにして出るガスで家に明かりをともした。1812年にはロンドンにガス会社ができ、町にガス灯が並んだ。そのとき大量に出て困ったのがコールタールで、1850年ごろから染料や薬の原料として使われるようになった。",
+    "note4": "石炭1トンから、コークス 約700kg、コールタール 約50kg、安水 約100L、石炭ガス 約300m³（水素とメタンが主）。ガスを売るのが本業で、コークスやタールは「ついで」だった。のちにコークス炉 [3-19] も同じ副産物を回収するようになる。"
+   },
    "refs": [
     {
      "title": "F2. 石炭を蒸し焼きにする（ガス工場・コールタール・コークス）［2-20］（レジストの材料の入口）",
@@ -7185,10 +7433,14 @@
      "basis": "ブリタニカ「coal tar」https://www.britannica.com/science/coal-tar 、ブリタニカ「William Murdock」https://www.britannica.com/biography/William-Murdock 、Science History Institute「William Henry Perkin」https://www.sciencehistory.org/education/scientific-biographies/william-henry-perkin/ 、日本病理学会／Yamagiwa & Ichikawa 1915（英訳 CA Cancer J Clin 1977）（英語・日本語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "gas_retort",
+   "recipes": [
+    "作業台：耐火れんが（珪石れんが）×5 ＋ 銅インゴット ＋ furnace ＋ 鉄インゴット×2 → ガス工場のレトルト"
+   ],
+   "machine_recipes": [
+    "ガス工場のレトルト「石炭を乾留する」：石炭×8 ＋ 石炭 → コークス×6 ＋ 安水×2 ＋ コールタール（80 秒）。空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない"
+   ],
+   "placeholder": "省略：石炭ガスは回収しない（本物はガス灯の燃料にするのが目的）。ガスの洗浄（タールと安水を分ける装置）・石炭の種類による収率の差もない。",
    "game_text": "コークス炉の副産物（タール・安水→[2-21]・石炭ガス）→ 分留でベンゼン[2-24]・フェノール[2-25]・ナフタレン（[2-32]）・キシレン（[2-30]）",
    "id": "2-20",
    "name": "コールタール",
@@ -7228,7 +7480,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB2klEQVR4nKVTu24UQRCs6XntnvEJkZgAJ8Tk/AMi4j/5FiR+gAiEBCYwvru9eTWq3vWZGEba0Uyrp7qrutZ9ePNa8R8rcHt7ewPnHFofmFPAr+OCHLzdn88ZPw8LnuWIPgbmGDBU8XCu+Pz9DkIAJkexI5bacJ0TggiS9ziUhil6iHOofVjO/VIRvbezcOtjY+GAror7pWAMtfPSmnXSBj9F6QMiDqfanig453AoRBVMwQMK1DGwnxKg0YCPpdndAdjniKX1JwBVNe6s+vHLVwTxOJUK52CxFD1K7ZhzxLtXN3Z+BBDjdC5YamdhWxQrBjHgtHWUYzAq7JQt6ZYs3K5zZB8mJJMIwMpMcuJWbRhTxT4n04NTuQAcSzNV744LphQRg0cKxs6qUyMCdAq4TYOTu2hQiV4JImitWwUDiX6lpdQJmFM0Xbw4nP/WYBcjvHNmEj4gdy4b5RimPAHpEdKgPx49EbiVvlbdxYD3ty8NhHcmztGbE1dwxUNpyF7MaJcOhiqmsFanefiYMZqItr5KwYrQcPTAqbLg2uVGIVgyydrsVS3GB8ELvAiuUrQJMPZil3G2/A2A9qQORGUC9Ti1bmLxzi95we/Nray9S+sYTYNP33788+/8B9zPJ+vsBfu2AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7242,7 +7494,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ガス工場の安水を熱して、アンモニアを追い出し、水に吸わせてアンモニア水を作る装置。",
+    "note2": "電気 1kW。安水4＋消石灰1＋空のガラス瓶1 → アンモニア水1（20秒）。吸わせる水は水バケツ1杯で4回（空のバケツは出口へ）。2NH4Cl + Ca(OH)2 → CaCl2 + 2NH3 + 2H2O。",
+    "note3": "安水には、そのまま溶けているアンモニアと、塩になって溶けているアンモニアがある。熱すると前のほうが出てくる。後のほうは消石灰を入れて強いアルカリにすると、アンモニアの気体になって出てくる。",
+    "note4": "19世紀のアンモニアは、ほとんどがガス工場のついでだった。1913年にハーバー・ボッシュ法で空気の窒素から作れるようになり、肥料が大量に作られて世界の人口を支えるようになった（同じアンモニアが火薬の原料にもなり、第一次世界大戦を長引かせたことも知られている）。"
+   },
    "refs": [
     {
      "title": "F11. ガス工場のついでのアンモニア（アンモニア水）［2-21］（［9-14］洗浄の前提）",
@@ -7257,10 +7514,14 @@
      "basis": "ブリタニカ「ammonia」https://www.britannica.com/science/ammonia 、Kern, W. \"The Evolution of Silicon Wafer Cleaning Technology\", J. Electrochem. Soc. 137, 1887 (1990)（英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "ammonia_still",
+   "recipes": [
+    "作業台：鉄インゴット×6 ＋ 銅インゴット ＋ ソーダ石灰ガラス ＋ furnace → アンモニア蒸留器"
+   ],
+   "machine_recipes": [
+    "アンモニア蒸留器「アンモニア水」：安水×4 ＋ 消石灰 ＋ 空のガラス瓶 ＋ 水入りバケツ 4回で1個 → アンモニア水（1 kW × 20 秒＝20 kJ）。安水を熱し、消石灰で塩のアンモニアも追い出して水に吸わせる"
+   ],
+   "placeholder": "省略：加熱は電気（本物は蒸気を吹き込む塔）。塩化カルシウムの廃液は出さない。",
    "game_text": "[3-19]副産物回収式コークス炉の出力が先、ハーバー法で量産",
    "id": "2-21",
    "name": "アンモニア水",
@@ -7295,7 +7556,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFUlEQVR4nKVSS47UMBSs2HH+naan+WhmhRA7VmzYsuYMnARuwZJjcA52iA0DI4FgepDQiOnOx/EnMXov091iC5YcK4lfvap6Fb14/izgP1ZMj6dPHkOpGDhABWybDlmaIIoi3oOxmEJAEseQUkDFMd5/+ARB14WIoLVBQEDT9ZimgBAAYx3vTg9YlAWWVQEhBLp+QKALVAsAejCMGgFcPE4TEjV3ShPFzPw4coEfPTMzzh0B8ixFrwfs2h5RNHcmNOdH7lgWGaQQsM5DCslgYQpHD2gVeca67r98DSEldNtCJQmysoKMFbKyxObiM3bv3sB6z00PDAbjWBPRcsagWq5Q1DVM36Ool1Bpil/fvzHwrulY6l8eAAHOezjnUa/vwhqDen0P+WLBE+h2N3jw8BFipZBnGaoihzb2KEHc6pumaUYOwObLOWRMUhr02y100zA4GXvTtIiYxy1ALOVsipSoVie4vvyBk9MzpHkB7yyDrk/P2AsaOTMYzFGCH0fEsWRzfv+8Ao1CSgk7DCyBPLjeXMJbi7bT3JBGeWCQJQptPzCpi7evWBL5QaCUA8oGjfHKGP5mrJ2Tu2fg/IhEKaZGFhD6OE7cqdeGi8m0/T0K2n4KDEM5p+R12nKhtY5ZDBSoELiYwEQUsXZi1bT6yIB+UhZI7+rOggHrqmBpVZnD+5Fp06jpnZJK54HBx/Ovcxz+Yf0BM1cazkpwCSAAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7368,7 +7629,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "木を空気なしで蒸し焼きにして、出てくる煙を冷やす炉。木炭のほかに、酢のにおいの液と黒いタールがとれる。",
+    "note2": "原木を入れて石炭か木炭を燃やす（1個で8本、1本10秒、電気なし）。原木1本 → 木炭1、2本ごとに木酢液1、4本ごとに木タール1。鉄の釜（レトルト）を外から熱し、煙を銅の管で冷やして液にする。",
+    "note3": "炭焼きの煙は、昔はただ逃がしていた。19世紀には鉄の釜で木を乾留し、煙から酢酸・メタノール（木精）・アセトンを取る「木材化学工業」が栄えた。1920年代に石炭や天然ガスから合成する方法に置きかわった。",
+    "note4": "木は約270℃をこえると自分で熱を出しながら分解する（セルロース・ヘミセルロース・リグニンが壊れる）。乾いた木1トンから、木炭 約300kg、酢酸 約50kg・メタノール 約16kg を含む水っぽい液、タール 約240kg（FAO の広葉樹の値）。残りは燃えるガスで、本物の炉はこれを燃料にも使った。"
+   },
    "refs": [
     {
      "title": "O2. 木を蒸し焼きにしてタールとピッチ（木材乾留）［2-23］（［7-03］の前提）",
@@ -7383,10 +7649,14 @@
      "basis": "- FAO「Simple technologies for charcoal making」（副産物の収率）：https://www.fao.org/4/x5328E/x5328e0d.htm"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "wood_retort",
+   "recipes": [
+    "作業台：鉄インゴット×4 ＋ 銅インゴット ＋ furnace ＋ れんが×3 → 乾留炉（木材）"
+   ],
+   "machine_recipes": [
+    "乾留炉（木材）「木を乾留する」：oak_log×4 ＋ 石炭 1/2 → 木炭×4 ＋ 木酢液×2 ＋ 木タール（40 秒）。空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）"
+   ],
+   "placeholder": "省略：燃えるガス（CO・メタンなど）は回収しない。木の種類による収率の差もない。",
    "game_text": "炭窯に凝縮器を付けると副産物が出る",
    "id": "2-23",
    "name": "木材乾留",
@@ -7418,7 +7688,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABv0lEQVR4nKVSW2rcQBCsnodG0tonMARyg4CDnft/O+Q7AYPv4JW0mmeonvUK/yYNI8FMd3VVdcvz47eG/wjHz9cvDzDGoDXAWoMYE4w1CMOAWqu+LcsK6yzQAGMEzjn8eX3rANZaPUwupSCEQYvOywoRYAwBp3nCul0gRtCaIKV0MGit3TrxEITJjMH7flcrIMA0jsrQe38ApJThnNXDx1IqvLOaRGA2YI41BjkX7V5rOQAgPKKFv36+wFn60b31zqG2ipQ70Pen5xtThulJXh/ZYQqkLCi1KaNcippLRgxKYS5NPCTkpO4iiP5YQBYpFQUjCD7uYsI0jZ/HOFy10rzLntR5I6LFHCujtqYSGxpyzjq1wwP0UV72HcFTc1Nb+CcLFtGLWLOOVKWUenjAYHdrrGpMuUCuppIBvek+iwJxIt7bzxJKrdhjxOPTD6VICdSi+9Aa7u5OdEelctEIdgN4XxZdEIFg2y5qUowRKWfMV8PoPIu4iXHfEVPWe5XAkex7VORxHPB+XiBiYKTT1xUGsKyrSmXcn+YDYHAO3jus26YjZFAG6RIsDF67n+ZZjaa553U9JPx+fetV/xB/AfWhCb3pGn8RAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7432,7 +7702,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "6つの炭素が輪になった分子。たくさんの薬や染料の元。とても体に悪い。",
+    "note2": "軽油をたき火で、低い温度で蒸留して作る（沸点 80℃で、いちばん先に出る）。⚠ GHS：引火性・発がん性（区分1A）・変異原性・特定標的臓器毒性（血液）・吸引性呼吸器有害性。工業の材料としてだけ扱う。",
+    "note3": "ベンゼン C6H6 は、6つの炭素が正六角形の輪になり、電子が輪全体に広がっている（芳香族）。この形はケクレが1865年に考えた（ヘビが自分の尾をかむ夢を見たという話がある）。",
+    "note4": "1825年ファラデーがガス灯の油から見つけた。長く溶剤に使われたが、白血病の原因になると分かり、今はトルエンやキシレンなどに置き換えられた。1856年パーキンはタールの成分から初めての合成染料モーブを作り、化学工業が始まった。"
+   },
    "refs": [
     {
      "title": "C8. 温度で分ける（分留）：タールからベンゼンとキシレン［2-24］",
@@ -7447,10 +7722,10 @@
      "basis": "- Wikipedia「Benzene」：https://en.wikipedia.org/wiki/Benzene"
     }
    ],
-   "item": null,
+   "item": "benzene",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：純度は扱わない。",
    "game_text": "タール分留の軽油留分",
    "id": "2-24",
    "name": "ベンゼン",
@@ -7482,7 +7757,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEitA3FP45WrmAadQABorDgGIAAEdTDaY+47d6AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7496,7 +7771,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "石炭のタールから見つかったフェノールは、手術の消毒に使われた。皮膚につくとやけどする危ない物。",
+    "note2": "フェノールのナトリウム塩の液＋硫酸で作る。ホルマリンと反応させるとフェノール樹脂（[2-28]）。⚠ GHS：急性毒性・皮膚腐食性・変異原性・特定標的臓器毒性。工業の材料としてだけ扱う。",
+    "note3": "フェノール C6H5OH は、ベンゼンの環に OH が1つ付いた分子。酸を入れると塩から戻って、水に溶けにくいフェノールが分かれて出てくる（白い針状の結晶、約41℃でとける）。",
+    "note4": "1834年ルンゲがコールタールから見つけた。1867年リスターが手術の消毒に使い、手術のあとの死亡がぐっと減った。今は主にクメン法（1940年代）で作る。"
+   },
    "refs": [
     {
      "title": "C6. 石炭のタールから消毒薬（フェノール）［2-25］",
@@ -7511,10 +7791,12 @@
      "basis": "- Wikipedia「Phenol」：https://en.wikipedia.org/wiki/Phenol"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "phenol",
+   "recipes": [
+    "作業台：フェノールのナトリウム塩の液 ＋ 硫酸 → フェノール（石炭酸）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：硫酸ナトリウム（副産物）は省略。純度は扱わない。",
    "game_text": "タールの中油留分（先）、ベンゼンのスルホン化（後）",
    "id": "2-25",
    "name": "フェノール",
@@ -7551,7 +7833,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVR4nGNgGPKAEZ/km2vX/nOJiTF8e/UKzAexuUREGPEa8AaqCVkhMQZhAJCmb2/e/IfRDJSCN6Qa9IYWNr+hlive0MU7bwYs9BmGHAAAmWZjT/6I+IwAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7565,7 +7847,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "木を焼いた液を蒸留すると、メタノール（木精）がとれる。飲むと目が見えなくなる危ない物。",
+    "note2": "石灰を入れた木酢液をかまどで蒸留して作る。熱した銅の網で酸化するとホルムアルデヒド（[2-27]）。⚠ GHS：引火性・急性毒性・特定標的臓器毒性（視神経）。飲まない（ゲームでも飲めない）。工業の材料としてだけ扱う。",
+    "note3": "メタノール CH3OH はいちばん小さいアルコール。体の中でホルムアルデヒドとギ酸に変わり、目の神経を傷つける。お酒のエタノールとそっくりなので、昔から間違えて飲む事故があった。",
+    "note4": "1834年、デュマとペリゴが木精の成分を確かめ、メチル基の名もここから（ギリシャ語の「酒」＋「木」）。1923年からは BASF が一酸化炭素と水素から高圧で合成するようになった。"
+   },
    "refs": [
     {
      "title": "C4. 木を焼いた液からメタノール（木精）［2-26］",
@@ -7580,10 +7867,12 @@
      "basis": "- Wikipedia「Methanol」：https://en.wikipedia.org/wiki/Methanol"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "methanol",
+   "recipes": [
+    "かまど：石灰を入れた木酢液 を焼く → メタノール（木精）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：木精の粗い蒸留を1回にまとめた（本物は何度も蒸留して純度を上げる）。",
    "game_text": "木酢液の蒸留 → メタノール",
    "id": "2-26",
    "name": "メタノール",
@@ -7615,7 +7904,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeElAAXCv8crVzANGoAA8VhQDEAAGmHDK55LGY6AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7629,7 +7918,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "熱した銅の網の上で、メタノールを空気と反応させる。網そのものは減らない。",
+    "note2": "銅インゴット4つで作る。火のついたたき火の上に置き、メタノールを持って右クリックするとホルマリンができる。冷たい網（火の上でない）では反応しない。網は何度でも使える（触媒）。",
+    "note3": "熱い銅の表面に、メタノールと酸素がくっついて反応し、ホルムアルデヒドと水になって離れていく：2CH3OH + O2 → 2HCHO + 2H2O。銅は反応を速めるだけで、自分は変わらない。これが触媒。",
+    "note4": "1867年ホフマンが、熱した白金のらせんでメタノールを酸化してホルムアルデヒドを確かめた。工場ではのちに銀の網（約600℃）が主になった。"
+   },
    "refs": [
     {
      "title": "C5. 熱い銅の網は減らない（触媒とホルムアルデヒド）［2-27］",
@@ -7644,10 +7938,12 @@
      "basis": "- Wikipedia「Formaldehyde」：https://en.wikipedia.org/wiki/Formaldehyde"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "copper_gauze",
+   "recipes": [
+    "作業台：銅インゴット×4 → 銅の網（触媒）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：網の温度・空気の量は扱わない（たき火の上なら反応する）。",
    "game_text": "触媒ブロック（銅網）",
    "id": "2-27",
    "name": "ホルムアルデヒド",
@@ -7679,7 +7975,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKklEQVR4nGM8kuf2n4EScATJAHLYTBTZzsDAwDjqBYbRWHAbTUgMVMgLAIOnWM2XD7+YAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7693,7 +7989,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "熱で溶ける、黄色っぽいフェノール樹脂。光で模様を写すレジストの主な材料になる。",
+    "note2": "ノボラックの反応液をかまどで熱して作る。DNQ（感光剤）と混ぜるとポジ型フォトレジスト（[2-32]）。熱しても固まらない（くり返し溶かせる）。",
+    "note3": "ノボラックはフェノールが CH2 でつながった短い鎖。OH がたくさん残っているので、アルカリの水に少し溶ける。DNQ がこれを溶けにくくし、光が当たると逆に溶けやすくする＝ポジ型レジストのしくみ。",
+    "note4": "1970年代後半から、ノボラック/DNQ のポジ型レジストが IC 作りの主役になり、g線・i線の時代（線幅 約0.35μm まで）を支えた。"
+   },
    "refs": [
     {
      "title": "C7. 触媒と配合で、溶ける樹脂と溶けない樹脂（ノボラックとベークライト）［2-28］",
@@ -7708,10 +8009,12 @@
      "basis": "- Wikipedia「Phenol formaldehyde resin」（ノボラック・レゾール）：https://en.wikipedia.org/wiki/Phenol_formaldehyde_resin"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "novolac",
+   "recipes": [
+    "かまど：ノボラックの反応液 を焼く → ノボラック（フェノール樹脂）×2"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：分子量の分布は扱わない。",
    "game_text": "加圧釜ブロック",
    "id": "2-28",
    "name": "フェノール樹脂",
@@ -7750,7 +8053,7 @@
    "explained_by": [
     "I-23"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABKElEQVR4nO2SvUrDUBiGn5OTNDbGVEm1aBHddBMFQS/Bi3ESBBcHBwfBzVvpDbgJitJdir8YaBNSk7RN0xxXW0roKviOH8/78v3Bv0TRCu4b10ojw9Jyto/OprJiWtFrXKiWzNmSKzwvR9R6Kb4Y0ZM2B/snYx5t0ty8vVGeKlEycnpLIZZnY5IzkoJ6FPL4dKl+8/pkwGI5YmDPIWJBNxtSFR10r0SlYqFkm83OeNPaZIDf7tNNY9ATnMBBlCT+poOpEkTq8mnqxQF2rcqa0hgOqqisS2too7+kZDLhI5FI36RwBOV/48UW9fkBKnfRtC8Cw8AybNY3AsJohivcPVyphTQFXyd3bFy9jwzKvK/G7O2eipn/4K15rsJXk5HrsHN4XMj+Yf0AOkpqHVVat2MAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7764,7 +8067,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ジャングルに生えるゴムの木。幹に傷をつけると白い樹液が出る。",
+    "note2": "ジャングルに生える。フリントか黒曜石の剥片で右クリックすると ラテックスが採れる（剥片が少し傷む）。燃料や木炭にもなる。",
+    "note3": "パラゴムノキ（Hevea brasiliensis）は南米アマゾンの木。樹皮の内側の管に、ゴムの粒が水に浮いた白い乳液（ラテックス）が流れていて、傷をつけるとにじみ出る。",
+    "note4": "1876年、イギリスのウィッカムがブラジルから種を持ち出し、キュー植物園で育てた苗が東南アジアに植えられた。今の天然ゴムの大部分は東南アジアの農園で作られている。"
+   },
    "refs": [
     {
      "title": "C2. 硫黄で橋をかけると暑くてもべたつかない（加硫ゴム）［2-29］",
@@ -7791,10 +8099,10 @@
      "basis": "- スリランカ国立科学財団の資料（環化ゴムの歴史と触媒：Harries 1919、Brusion 1927、Stolka 1964、Stevens and Miller 1938）：https://dl.nsf.gov.lk/bitstreams/f0025022-abd5-4868-9d43-824a22aa5b18/download"
     }
    ],
-   "item": null,
+   "item": "rubber_log",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：ラテックスはすぐ採れる（本物は斜めの切り込みから何時間もかけて器にためる）。",
    "game_text": "決定：新規の木「ゴムの木」をジャングルに生成。幹から樹液（ラテックス）を採取→ 酸で凝固 → 生ゴム → 硫黄と加熱で加硫ゴム",
    "id": "2-29",
    "name": "ゴム",
@@ -7822,7 +8130,7 @@
    "explained_by": [
     "I-23"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACg0lEQVR4nD1Ty27TUBQc32vHceJHnBehBX6nP8CaNSwQCyqBeAlQERIVICFW/F1RK9o0zcOJ47cvmlOEV/b1uXPmzMyxHj08MuNRhCjoY7XZwu04+H0xx+FsjHgQ4OJygb7Xxdn5Fe4dTDCOI1wv1/C6Ls7OL6EcW0MrhevlBrZto2la9Htdeb+cLzEcBKjqBq7roK4bLNcJwqAvdV23AwULsG0tDIwx6HQcwADJLsWdSYx9VqCqa+R5AVtrpFmOXZqhaRq0bQtVlJV05MMDoramlRHKssYoDqGUBa01RsNQmgxCH1HoY5tmUEVRwhjITK9Pvko3y7KwuNngarFCus8xGQ7kUrLdS+18sUKyTWV0m7PwwPNcYbFcJVLoODZm0+E/fdbIixIHvS7yooBSCoHfg9/3oCjIMA6l8NOb5/jw5YfoQRbsQtHIgABlVcFxHCjLwm6fiSaKhRRlu9vDoqKACHT/7lTex8NIwFhMZmVZYRAFIi4BFSWnkHXTwPM6eHv8FKc/f8HAiDs3qwR/5jfyX2sl4AQJ/R4sS0Ftdxm0snA4m2CxTP5rcXW9QlFU6HkumBWy4OwcoTVGGFkWoCajCGVVY7Hc4MHhVJBfPHuMd5+/o2lbcWE0jASIFtJy6sWcbJIUiuliPOPIl47Jbi954DObxKgqUq5l5jgKhA0jn+eljKQYEAaFdq6TncSVl04/vsST4/cSKl4iKEXb0H+tcTAbSyYUKfJAM84h7buNtmmNsJiOBhIuBinLC1RVLaOwkd/nzmglqB3HFga0kgDpPsO3k1dCnQ6QYejfLhFBsqIQW5XrdqSYFCkOhXNsW1aZ31HQk30gCO2WnTFGdoaB+wu3o3HWk5lMTgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7907,7 +8215,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "地面にしみ出した、黒くねばる石。昔の人は接着や防水に使った。",
+    "note2": "荒野と砂漠の地表近く（Y56〜90）の砂・砂岩・テラコッタの中にある。ツルハシで掘ると瀝青（アスファルト）が出る（シルクタッチならブロックのまま）。",
+    "note3": "地下の油が地表近くまで上がり、軽い成分が蒸発して重い成分だけ残った物が天然アスファルト（瀝青）。死海（昔はアスファルト湖と呼ばれた）、トリニダード島のピッチ湖、ロサンゼルスのラ・ブレア・タール坑が有名。",
+    "note4": "メソポタミアでは5000年以上前から、瀝青を れんがの目地や船の防水に使った。ラ・ブレアのタール坑には、マンモスやサーベルタイガーが はまって化石になって残っている。"
+   },
    "refs": [
     {
      "title": "C1. 光で固まる瀝青＝レジストの一番古い祖先（ニエプスのヘリオグラフ）［2-31］",
@@ -7922,10 +8235,10 @@
      "basis": "- Wikipedia「View from the Window at Le Gras」：https://en.wikipedia.org/wiki/View_from_the_Window_at_Le_Gras"
     }
    ],
-   "item": null,
+   "item": "natural_asphalt",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：原油・石油の蒸留は作らない（地表の天然アスファルトだけ）。",
    "game_text": "ゼラチン＋重クロム酸 → 感光膜（枝[B-02]写真と共通）",
    "id": "2-31",
    "name": "光で固まる膜：アスファルトと重クロム酸ゼラチン",
@@ -7958,7 +8271,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACEklEQVR4nD2TWWsVQRCFq/vu++5DomgkAbfcxHhRyCI3Pui/FkUhiUQRwUD0QR98vfu+jnwH5hbMTE9X1alzqrpdOZ8NstmsjUYj895bpVKxdrttq9XKIpGIpdNpm06ntlwutZ7P5xaLxfQfBIH5Wq2mZJzOOTt6tmUAAgQgQPl83t4267Zer+VLpVICxxcdDodWLBYNIwDD2el0LB6PK7jf79v7zzeWTCa1D3CpVBILz2swGCg5kUjYp6vfcvAPADShHQKRCEC327U3p0/M7e3cDwCgKhXQh43HYyWyh0E3ZAlYyMSTTCUCwuZQ6fTlrtWPXguEJmYyGTt7tWdPD04M2YDQJ1crFQJohpoA6fV6AkTSZDIRCxpMdfyLxUL+XC5nHlrValVVMALD8YUgs9lMyecnjzf+w0ZTfXA797YDnNDCkEPSceOhXXz9s9nDYPpg99B+3XxR45HloUMF7N35gYIBvPz2V198L/a3xYamfb/+oFh6ABu3dacaoKXVakkfSeEI+YcZPYBVOGpOaqFQ0KSioIJEH2DDGgcGAMlQpQDaObUUZE2858WomABrKjaPH4kuOgFRs5xTIsaUYMOeAHhAZoPT9fHiVlNBRgjOfWCk5XJZcYCz59VJ723/+ZmArn/8U8MIQi8AoX7YAByNRvXoBqOFgNufV+pso35XmkGnMrQ5E7q63mu8mwk4Z/8BwsJUHkn3oyYAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -7972,7 +8285,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "光が当たった所だけが、あとでアルカリの液に溶けるようになる液。日なたで持ち歩くとだめになる。",
+    "note2": "ガラス瓶入り（使うと瓶が戻る）。作業台で ノボラック1＋DNQ1＋キシレン1＋空のガラス瓶1 → 1。レジスト塗布機 [9-19] でウェハーに塗る。日なた（昼・真上が空）で持つと感光して使えなくなる（チェストや屋内なら大丈夫）。GHS：引火性（溶剤）。",
+    "note3": "ノボラック樹脂はそのままでもアルカリに少し溶けるが、DNQ がまざると溶けにくくなる。光（紫外線）が当たると DNQ が分解して酸になり、そこだけがアルカリに溶けやすくなる。だから光の当たった所が消える＝ポジ型。",
+    "note4": "1940年代、カレ社のズースが複写用のジアゾ感光紙として考えた。IC の主力になったのは、1970年代後半に投影露光へ移ってから（それまではネガ型の KPR・KTFR）。⚠️ ゲームでは v0.3 の露光の流れ（LITHO_DESIGN）に合わせて先にポジ型を使う。工場の照明が黄色いのは、レジストが感光しないため。"
+   },
    "refs": [
     {
      "title": "F19. 光で溶けるようになる液とスピンコート（ポジ型レジスト・塗布）［2-32］［9-19］",
@@ -7987,10 +8305,12 @@
      "basis": "Wikipedia「Photoresist」https://en.wikipedia.org/wiki/Photoresist 、Wikipedia「Diazonaphthoquinone」https://en.wikipedia.org/wiki/Diazonaphthoquinone 、Wikipedia「Spin coating」https://en.wikipedia.org/wiki/Spin_coating （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "positive_resist",
+   "recipes": [
+    "作業台：ノボラック（フェノール樹脂） ＋ DNQ（ジアゾナフトキノン） ＋ キシレン ＋ 空のガラス瓶 → ポジ型フォトレジスト"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：溶剤はキシレン（本物のポジ型は酢酸セロソルブなど）。感光した DNQ から作っても、作業台では見分けない。",
    "game_text": "感光液アイテム（第3章の露光→現像で使う）",
    "id": "2-32",
    "name": "ポジ型フォトレジスト",
@@ -8036,7 +8356,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWElEQVR4nGNgoBAw4pL4v9vtP4pC111Y1TJiE2wPYkfRDAOV635iqGfB5YLMNNdeZP70WbuLsaljYqAQMA24ASw4Zd7fKKaLC5hGDWDAGQvTVz+mNHjoBACdgRB+FU8nsgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8154,18 +8474,38 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
-   "refs": [],
-   "item": null,
-   "recipes": [],
+   "hee_game": {
+    "note1": "熱した白い粉（アルミナ）にアルコールの蒸気を通すと、エチレンというガスになる。",
+    "note2": "鉄6＋アルミナ3で作る。火のついたたき火の上に置き、エタノールを持って右クリック → エチレン1袋（瓶は戻る）。管（触媒）は減らない。冷たい管では反応しない。",
+    "note3": "熱いアルミナの表面がエタノールから水を引き抜く（脱水）：C2H5OH → C2H4 + H2O。アルミナは反応を助けるだけで、なくならない（触媒）。",
+    "note4": "石油が安くなる前、エチレンはこの方法でアルコールから作られていた。今もブラジルやインドではサトウキビのアルコールから「バイオエチレン」を作っている。"
+   },
+   "refs": [
+    {
+     "title": "C15. アルコールから水を取るとエチレン［2-36］",
+     "answer": "エタノールの蒸気を熱したアルミナ（Al2O3）に通すと、水が抜けてエチレンになる（C2H5OH → C2H4 + H2O）。アルミナは触媒で減らない。石油化学が広まる前の工業エチレンはこの方法で、今もブラジル・インドではサトウキビのエタノールから「バイオエチレン」を作っている。1795年にオランダの化学者たちが「油生ガス」と呼んだ（塩素と油状の液を作るため）。",
+     "hee": {
+      "1": "アルコールから水を取ると、エチレンというガスになる。",
+      "2": "触媒は反応を助けるだけで、なくならない。",
+      "3": "エチレンは果物を熟させる植物ホルモン。バナナの追熟に使われる。",
+      "4": "「オレフィン」という言葉は、この「油を作るガス（gaz oléfiant）」から来た。"
+     },
+     "certainty": "反応・アルミナ触媒 ◎／1795 オランダの化学者 ○⚠️（年は資料で 1794〜1795）／バイオエチレンの工業化 ○",
+     "basis": "- Wikipedia「Ethylene」（歴史・製法）：https://en.wikipedia.org/wiki/Ethylene"
+    }
+   ],
+   "item": "alumina_catalyst_tube",
+   "recipes": [
+    "作業台：鉄インゴット×6 ＋ アルミナ×3 → アルミナの触媒管"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：温度は「火の上」かどうかだけ。水（副産物）は回収しない。濃い硫酸で脱水する古い方法は未実装。",
    "game_text": "ガスアイテム → [2-37]",
    "id": "2-36",
    "name": "エチレン",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1795,
    "year_range": null,
@@ -8195,7 +8535,7 @@
    "buildable_now": false,
    "hee1": "アルコールから水を取ると、エチレンというガスになる",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -8205,7 +8545,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACWklEQVR4nCWTO44kRRQAI19+q2p6hIS1K4w9GDYWZ0ZrgIG0DtNdXfl7+VDPXiCkkCLc73/8ad++fOWuTw6NqAR+/P0PX77+Qo+ZaZO9Rr7/951vv/7G020ceXA2x78//kLsevK4Ku+W6BN8W1xhcM4D90y4PrhSwLqhC1x0PFqlpItYI+IlEQLUPtG8GG+VYJ7NC8Ig7G8kUYTE0ztkDoITvG6gE1lO+Qkp7LEj50FkIjJpeML1pPuGX5GYHX1NZouo65+KsmJGm1LzpNuBt0rzxmmdHE7WthEeYKWz3ZUQjIJgdeFRZLsmkiebXdh9QdyJakjytLHT74pkxTfhGZRcA+72BFk4A7nocO2YHOSbgFs4t1OuAt7Y98HQgysOdDtgN2RkXNpZMhGfMy4bqz8xAvRKtSfzmMg20XogoxFaRJqhVZgYww1cLMh0irjKtBv1VGb0+BZZWlHdsAT9tqPm2V0nlovuF2UU5jkJmw18UhInLKUFwYeBX47iTqoZtync5WcHYpkNz7MvtmLI1TMPA9ehBkeeHu8LYWS6ZrwUHkGoQekrgHqaC8RoqM+f0iSMOW/4bdFwNKCaJ/mLPg2fIkUUjcoIla15ri3Q5vkKLBIf78ytUeadGDsrGHlXnAplHviH+wTZcMT1Th8BPtIrM8TmZBwfyIiM8I49HKUpzjVOE1aqRBZqO0WFiwdrqwSvBHOElI1YHTPeGSNQLOJSZJw7m368bkBxlFdcZWBTSd2hBtoHInim7qwGpQfme6QpOHfi3sCXQEqvLx6sYbzJa/k3wt5IOfM/FtdsVQ3cqP4AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8248,7 +8588,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ポリエチレンは、とても高い圧力をかけた実験の中で偶然見つかった",
    "kind": "tech",
    "play": "",
@@ -8307,7 +8647,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "マンハッタン計画で UF6（腐食性ガス）を扱うのに使われた",
    "kind": "tech",
    "play": "",
@@ -8334,18 +8674,38 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
-   "refs": [],
-   "item": null,
-   "recipes": [],
+   "hee_game": {
+    "note1": "お酒のアルコール。消毒や、ほかの薬品を作る材料になる。よく燃える。",
+    "note2": "発酵した液3＋石英の蒸留器（戻る）＋空のガラス瓶で作る。エチレン [2-36]・クロロホルム [2-38] の原料、溶剤。⚠ GHS：引火性・眼刺激性。",
+    "note3": "エタノール C2H5OH は水（100℃）より低い78℃で沸くので、蒸留で集められる。でも 95.6％ になると、液と同じ割合の蒸気が出る（共沸）ので、それ以上は蒸留では濃くならない。",
+    "note4": "100％ のエタノールを作るには、水だけを取る物（生石灰・モレキュラーシーブ）を使うか、ベンゼンなどを足して蒸留する。"
+   },
+   "refs": [
+    {
+     "title": "C14. お酒は酵母が作る、でも 95.6％ で止まる（エタノール）［2-39］",
+     "answer": "酵母は酸素の少ない所で糖をエタノールと二酸化炭素に分ける（C6H12O6 → 2C2H5OH + 2CO2）。果物の皮には野生の酵母が付いている。1857年パスツールが発酵は生きた酵母のはたらきだと示し、1897年ブフナーが細胞なしの抽出液でも発酵することを見つけた（酵素）。蒸留するとエタノール（沸点 78℃）が濃くなるが、95.6％ で液と蒸気の割合が同じになる（共沸）ので、それ以上は濃くならない。",
+     "hee": {
+      "1": "お酒ができるのは酵母という小さな生き物のはたらき。泡は二酸化炭素。",
+      "2": "いくら蒸留しても 95.6％ より濃くならない（共沸）。",
+      "3": "ブフナーは酵母をすりつぶした汁でも発酵することを見つけ、「酵素」の研究が始まった（1907 ノーベル化学賞）。",
+      "4": "ジョージアの紀元前6000年ごろの土のかめにワインの跡。ブラジルは今もサトウキビから燃料のエタノールを作る。"
+     },
+     "certainty": "反応式・共沸 95.6％ ◎／パスツール 1857・ブフナー 1897 ◎／ジョージアの紀元前6000年 ○",
+     "basis": "- Wikipedia「Ethanol fermentation」：https://en.wikipedia.org/wiki/Ethanol_fermentation"
+    }
+   ],
+   "item": "ethanol",
+   "recipes": [
+    "作業台：発酵した液×3 ＋ 石英の蒸留器 ＋ 空のガラス瓶 → エタノール（95.6％）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：100％（無水）にする方法は未実装。",
    "game_text": "発酵樽ブロック → 蒸留",
    "id": "2-39",
    "name": "エタノール",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1857,
    "year_range": null,
@@ -8358,10 +8718,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "お酒ができるのは酵母のはたらき。でも蒸留しても 95.6% より濃くならない",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -8371,7 +8731,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEipgACv8crVzANGoAA8VhQDEAAJP/DMT2KS99AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8385,12 +8745,19 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "マニキュアを落とす液の成分。いろいろな物をよく溶かし、すぐ乾く。",
+    "note2": "酢酸カルシウムをかまどで焼いて作る。ビスフェノールA（エポキシ樹脂 [2-41]）の原料、レジスト除去・器具洗浄の溶剤。⚠ GHS：引火性・眼刺激性・特定標的臓器毒性（眠気）。",
+    "note3": "酢酸カルシウムを熱すると分解して、炭酸カルシウムとアセトンになる：Ca(CH3COO)2 → CaCO3 + (CH3)2CO。アセトンはいちばん小さいケトンで、水とも油ともよく混ざる。",
+    "note4": "第一次世界大戦で無煙火薬（コルダイト）の溶剤のアセトンが足りなくなり、ワイツマンが菌の発酵（ABE 発酵）で作る方法を開発した（1915）。彼はのちにイスラエルの初代大統領になった。"
+   },
    "refs": [],
-   "item": null,
-   "recipes": [],
+   "item": "acetone",
+   "recipes": [
+    "かまど：酢酸カルシウム（酢酸石灰） を焼く → アセトン"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：炭酸カルシウム（副産物）は回収しない。",
    "game_text": "酢酸カルシウムの乾留",
    "id": "2-40",
    "name": "アセトン",
@@ -8423,7 +8790,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASUlEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBacANYMEloSMlgsI/d45GLmAa+gZQDAAzpg2ipAX3mQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8437,7 +8804,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "まだ固まっていない、ねばねばの樹脂。硬化剤を混ぜて熱すると固くなる（2液の接着剤と同じ）。",
+    "note2": "ビスフェノールA＋エピクロロヒドリン2＋水酸化ナトリウムで2つ。ノボラック（硬化剤）と合わせると成形材料。これだけ熱しても固まらない。⚠ GHS：皮膚刺激性・皮膚感作性。",
+    "note3": "ビスフェノールA の両端にエポキシ基が付いた分子。硬化剤のフェノールの OH やアミンの NH2 がエポキシ基の輪を開いてつながり、網の目になる。",
+    "note4": "1936年ごろスイスのカスタン（歯の詰め物の研究）とアメリカのグリーンリーが、別々に作った。接着剤・塗料・電子部品の封止に使われる。"
+   },
    "refs": [
     {
      "title": "C13. 2つの液を混ぜて熱すると固まる（エポキシ樹脂と IC の封止）［2-41］",
@@ -8452,10 +8824,12 @@
      "basis": "- Wikipedia「Epoxy」（歴史・硬化剤）：https://en.wikipedia.org/wiki/Epoxy"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "epoxy_resin",
+   "recipes": [
+    "作業台：ビスフェノールA ＋ エピクロロヒドリン×2 ＋ 水酸化ナトリウム → エポキシ樹脂（未硬化）×2"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：分子量（重合度）は扱わない。",
    "game_text": "2液（樹脂＋硬化剤）アイテム",
    "id": "2-41",
    "name": "エポキシ樹脂",
@@ -8497,7 +8871,7 @@
    "explained_by": [
     "I-23"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEyItJaCI2tHEB06gBDBSHAcUAAPMODXbsd2uKAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -8511,7 +8885,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "お酢のすっぱい成分を濃くした物。少し寒いだけで凍るので「氷」酢酸という。",
+    "note2": "酢酸カルシウム＋硫酸で2つ（瓶は戻る）。寒い所（雪の地方・山の上など）に持っていくと「凍った氷酢酸」になり、暖かい所でとける。⚠ GHS：引火性・皮膚腐食性。",
+    "note3": "強い酸の硫酸が、弱い酸の酢酸を塩から追い出す：Ca(CH3COO)2 + H2SO4 → 2CH3COOH + CaSO4（石こう）。水をほとんど含まない酢酸は約17℃で固まる。",
+    "note4": "お酢は酢酸が約4〜5%。酢酸セルロース（[2-18] の逆浸透膜・写真フィルム）や、酢酸ビニル（接着剤）の原料。今は主にメタノールと一酸化炭素から作る（1960年代 モンサント法）。"
+   },
    "refs": [
     {
      "title": "C11. 少し寒いだけで凍る酸（氷酢酸）［2-42］",
@@ -8526,10 +8905,12 @@
      "basis": "- Wikipedia「Acetic acid」：https://en.wikipedia.org/wiki/Acetic_acid"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "acetic_acid",
+   "recipes": [
+    "作業台：酢酸カルシウム（酢酸石灰） ＋ 硫酸 → 氷酢酸×2"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：石こう（副産物）は回収しない。凍る温度はバイオームの気温で表した。",
    "game_text": "酢（or 木酢液）+消石灰+硫酸 → 酢酸",
    "id": "2-42",
    "name": "酢酸",
@@ -8579,7 +8960,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGNgGNRgWp7bfxDGp4aJUkuYKDWAEZvgtFVb/hsZGaGInTt3jiErzIdx8HmBBZeEiggfCv8crVzANGoAA8VhQDEAAIxJDMDZBrhDAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -9385,7 +9766,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "光が当たると分解する黄色い粉。光で模様を写すレジストの「目」になる。日なたに持ち出すと分解してしまう。",
+    "note2": "トビアス酸＋亜硝酸カリウム＋塩酸＋氷（冷やしてジアゾ化）で作る。持ったまま日なた（昼・真上が空）にいると「光で分解した DNQ」に変わる。チェストや屋内なら大丈夫。ノボラックと混ぜるとポジ型レジスト（[2-32]）。⚠ GHS：自己反応性（熱や光で分解しやすい）・皮膚感作性。工業の材料（感光剤）としてだけ扱う。",
+    "note3": "光を受けると DNQ から窒素 N2 が抜け、形が組み変わって（ヴォルフ転位）インデンカルボン酸になる。これはアルカリの水に溶けるので、ノボラックと混ぜた膜は「光の当たった所だけ」溶ける＝ポジ型。",
+    "note4": "1940年代にカレ社のズースが、ジアゾ感光紙のために発明した。半導体工場のクリーンルームの照明が黄色いのは、DNQ などの感光剤が反応する紫外〜青い光を除いているから。"
+   },
    "refs": [
     {
      "title": "C9. 光で窒素が抜けてアルカリに溶ける（DNQ 感光剤）［2-57］",
@@ -9400,10 +9786,12 @@
      "basis": "- Wikipedia「Diazonaphthoquinone」：https://en.wikipedia.org/wiki/Diazonaphthoquinone"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "dnq",
+   "recipes": [
+    "作業台：トビアス酸 ＋ 亜硝酸カリウム ＋ 塩酸 ＋ ice → DNQ（ジアゾナフトキノン）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：スルホン酸クロリドにしてノボラックなどと結びつける工程は省略。分解は名前だけ（使い道は変わらない）。",
    "game_text": "",
    "id": "2-57",
    "name": "ジアゾナフトキノン",
@@ -9460,7 +9848,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3klEQVR4nO2Rz0sCURSFv/dmnJEZUxENXJQLFUYEN0K4KZj/uFXbIAqkVQWaaFCbyYUo/ujpqDGvbcKkyxb17c6991wO98I/fwF9ea739UVc8XlwplOByfHkk9eswyoUnFpbTAsyF7c7Hhm3YP3kMisKDEcS5j4olyOGKmJQiOhcNXcSmd9F77qlqwuYe4rRQ5JuYUtuYvMyVWQqFvXumreiy48JPL8tZGhz9OhSPVnR8O/FyNEY0mYxNgiyCdRmefgG83ZTT9/TmCWFkBaJpCRfu4mdPUj/zt/7hd/nCzwJQ3o60E/RAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
@@ -9578,7 +9966,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "炉の横に置いて踏むと、風を送って火を熱くする。",
+    "note2": "素手で右クリックするたびに約1秒ぶんの風。横で水車が回っていれば、水車ふいごになってずっと風を送る。塊鉄炉・高炉の横に置く。",
+    "note3": "風で酸素をたくさん送ると、木炭がよく燃えて約1200〜1300℃になる。ふつうのたき火（約800℃）では鉄はとれない。エジプトのレクミラの墓の壁画（紀元前1450年ごろ）には、足で踏むふいごが描かれている。",
+    "note4": "西暦31年、中国・後漢の杜詩は水車でふいごを動かした。日本のたたら製鉄の「たたら（踏鞴）」は、もともと足で踏む大きなふいごの名前。"
+   },
    "refs": [
     {
      "title": "M3. 風を送ると火はもっと熱くなる（ふいご）［3-04］",
@@ -9593,10 +9986,12 @@
      "basis": "TECH_TREE［3-04］、ニーダム『Science and Civilisation in China』Vol. 4 Part 2（機械工学、水排）、テーベの貴族の墓 TT100（レクミラ）の壁画"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "bellows",
+   "recipes": [
+    "作業台：木材×5 ＋ 革×3 ＋ 棒 → ふいご"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：1回踏むと約1秒ぶんの風（ゲームの値）",
    "game_text": "かまど/窯の横に置く新ブロック。手押し→水車駆動（[4-01]の軸）で連続",
    "id": "3-04",
    "name": "ふいご",
@@ -9633,7 +10028,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4nGOsCFD4z0ABYAERGhoaZGm+ceMGAxMDhYBp1ACG0TBgGA0DBmhuBOUqcgEAZeEHk86H3aMAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔥",
    "people": [
@@ -13378,7 +13773,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "モーターでローターを回して、空気をどんどん追い出すポンプ。真空容器のとなりに置く。",
+    "note2": "電気 250W。隣の真空容器を 1Pa まで引く（1気圧から約17秒）。隣の拡散ポンプの向こうの容器も引ける（拡散ポンプの前段ポンプ）。作り方：ローター＋鋼×2＋モーター＋水銀×2。",
+    "note3": "1905年、ゲーデは回転する部品と水銀で空気を区切って運ぶ「回転水銀ポンプ」を作り、真空ポンプを手で動かす道具から、モーターで回る機械にした。その後すぐ、油で封じる回転ポンプが作られた（⚠️ 1907年ごろ）。",
+    "note4": "軸からずれた（偏心）ローターが回ると、ケースとのあいだの部屋が広がって気体を吸い、狭くなって押し出す。すき間を液体（水銀・油）でふさぐのが大事。実験室の「ブーン」という音はこのポンプ。"
+   },
    "refs": [
     {
      "title": "O15. 機械のポンプと、蒸気の風のポンプ（回転ポンプ・水銀拡散ポンプ）［5-04］［5-05］",
@@ -13393,10 +13793,12 @@
      "basis": "- Wikipedia「Diffusion pump」：https://en.wikipedia.org/wiki/Diffusion_pump"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "rotary_pump",
+   "recipes": [
+    "作業台：ポンプのローター ＋ 鋼インゴット×2 ＋ 電動モーター ＋ 水銀×2 → 回転ポンプ（水銀封止）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：段階①（水銀封止）。ゲーデの回転水銀ポンプは別の前段ポンプも使ったが、ここでは大気圧から直接引ける。到達 1Pa はゲームの値。油（ひまし油・シリコーン油）の段階は後日。",
    "game_text": "",
    "id": "5-04",
    "name": "油回転ポンプ",
@@ -13438,7 +13840,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABzElEQVR4nKVTW27bMBAckiIpyXLQMxgtkBMk7U/vf4AiCBAU6BWa2BYpvopZyXK/WwEUJXFndnZ2pZ6+fW/4j6vj7fTlETkndJ3FskT0/YBSyvYeYIyEIeeMWgqGcURKC379fIPmQWtVgnlIMEmstYhhhrVOgGlZUEsWcK1V4nYFpRQoVSW41ZXserlAGw2tNTPgME2IMUosY9JWguaNbK1BgKUWxBjgvEfJWQCm64SQqrQxUFrL912BUgp934v0l5dXFPphHUK4ypn3A6DWjJ9PJ3TWwjl3V6CURghBjExLFDDr1Nps5i3iAajS0qssxDvBPF/hvUctdc2kIO4zWHxho1vbOtWRB2Ge7wTeezSJIlZJ7c71kiWnBOuc1L12rGEcJ/i+v3sQQ4DSSpb1XqTSD+kAu5SzPBPMPaWItKS/PNBrPeN4QJivNEWyEsDM3Dk43FcSgyaFbApo2DCM8uH5+SsulzMOh0kGiHKokKTH4wNSSrLoxV0BFEKYhYg7+329nEUuwceHTxL88f6+llLrPt7rKIscJcy30fXbqDLz+eM3DtMRxph9gG7X1oVhq7mK68wgHdjMs85jiWtbuejZzWDR8fb6459/5z9GIQ0RJijd3wAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -13452,7 +13854,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "水銀の蒸気の風で、残った空気をたたき落とすポンプ。動く部品がない。",
+    "note2": "ヒーター 400W。真空容器と、回っている回転ポンプ（前段）の両方のとなりに置く。容器が 10Pa 以下になってから動き、漏れとつり合う 約0.004Pa まで下げる（真空蒸着に足りる高真空）。作り方：ソーダ石灰ガラス×3＋鉄×2＋水銀×2＋タングステン線（ヒーター）。",
+    "note3": "1915年、ゲーデは鉄の釜で水銀を沸かし、ガラスの管の中で蒸気を吹く拡散ポンプを作った。1916年、ラングミュアは壁を水で冷やして蒸気を凝縮させる形（凝縮ポンプ）にして、ずっと速くした。これで真空管や電球を高真空にできるようになった。",
+    "note4": "水銀の蒸気の噴流が下向きに速く流れ、そこに迷いこんだ気体分子を下へはね飛ばす。大気圧では分子が多すぎて噴流が乱れるので、先に前段ポンプで下げておく必要がある。1928年からは水銀の代わりに蒸気圧の低い油が使われた [5-06]。"
+   },
    "refs": [
     {
      "title": "O15. 機械のポンプと、蒸気の風のポンプ（回転ポンプ・水銀拡散ポンプ）［5-04］［5-05］",
@@ -13467,10 +13874,12 @@
      "basis": "- Wikipedia「Diffusion pump」：https://en.wikipedia.org/wiki/Diffusion_pump"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "diffusion_pump",
+   "recipes": [
+    "作業台：ソーダ石灰ガラス×3 ＋ 鉄インゴット×2 ＋ 水銀×2 ＋ タングステン線 → 水銀拡散ポンプ"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：ゲーデはブンゼンバーナーで加熱した（ここは電気のヒーター）。水銀の蒸気が容器にもどるのを防ぐ冷却トラップ・冷却水・暖まるまでの時間は省略。",
    "game_text": "",
    "id": "5-05",
    "name": "水銀拡散ポンプ",
@@ -13512,7 +13921,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACGklEQVR4nKVTyY7UMBB9cWJn6S09vUzD/A0nJD5hNDeuzYWPQnBD4sQHIC58BzMD9JKks3iJUVX3dGuuEMmJY1e98nv1HLx9997jP56IXq9ev0GaZdht/sBai3x6xd/9boswDDEYjlCVJbIs4/Wua9H3PX58/3YE6J1DVRboug6z+YLnFEjztmmQJCmCIOCKYRShbWosltf8L+g1HI25wnx5zRUpmABoaK3R1AccqgpSKVhjkGYD1IfDhULT1Fi9vMF+u4VzFlIqrF7coPc9hBA8mqZhcKJKybR3BoiTBL8fHzjgw8dPzO+YGOJQFpBxDKs7hJHE3e0tSPXBcHgBqMoScZKi7x3qsgQCQKoYUSSZM1GKpIIIQ/Tew/cOztoLgFKKg7z3CITgJEog3WjNao04TdFUFYQIYJ2HMeYCoE9CheGxGgF0TY1IStZDd82RilRQcQLnHLLB4NIFdTrB1XzOSdZoJFnG1Y3uOFCpmNdJ5Ek+fd4F7z2mszl+PdzznHzR1jVzftKA9AkCwZ4gkUnwM4Ald7UtZosl1us1rHOQUnJnyEzFfoe+9whDgWK341aS6c4AURRhOBoxiLUGRhsUxrAmbduytUk02vfoYJ3lNj9rIx37yWlJmmKc53i8/4nJdArvgd1mg3w2w2g8gTH6fJkYZpLnbM9iv2dbE7ruOg4WgeC7sVitGJxcy+KeQPgEX798/ufr/BfGxyuVhm9ywwAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -13994,7 +14403,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "真空の中で金属を熱して蒸気にし、ガラスに薄くくっつける機械。",
+    "note2": "電気 300W（タングステン線のヒーター）。真空容器のとなりに置き、容器が 0.01Pa 以下（拡散ポンプ [5-05] が要る）のときだけ動く（20秒）。クラウンガラス＋銀の粒 → 半透明鏡、レンズ＋蛍石 → 反射防止膜付きレンズ [7-22]。1回ごとに容器を開けるので、圧力が少し上がる。作り方：W線×2＋鉄×2＋銅ケーブル＋ソーダ石灰ガラス。",
+    "note3": "1912年、ポールとプリングスハイムは真空の中で金属を蒸発させて鏡の膜を作った（それより前にも試みはあった）。1930年代、ジョン・ストロングは望遠鏡の鏡にアルミニウムを蒸着し、曇りにくい鏡にした。1960年代の IC のアルミ配線もこの方法。",
+    "note4": "空気が残っていると、蒸発した金属原子が気体分子にぶつかって散らばる。気体分子が次にぶつかるまでに飛ぶ距離（平均自由行程）は、およそ 6.6mm÷圧力（Pa）。0.01Pa なら約 66cm で、ベルジャーより長いので、原子はまっすぐ飛んで基板に付く。"
+   },
    "refs": [
     {
      "title": "O16. 真空の中で金属を蒸気にして付ける（真空蒸着）［5-14］",
@@ -14009,10 +14423,12 @@
      "basis": "- Wikipedia「Evaporation (deposition)」：https://en.wikipedia.org/wiki/Evaporation_(deposition)"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "evaporator",
+   "recipes": [
+    "作業台：タングステン線×2 ＋ 鉄インゴット×2 ＋ 銅ケーブル ＋ ソーダ石灰ガラス → 真空蒸着装置"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：膜の厚さの管理（のちの水晶振動子の膜厚計 [8-15]）、スパッタリング。今つけられるのは銀と CaF2（アルミ・クロムなどは前提ができたら）。",
    "game_text": "",
    "id": "5-14",
    "name": "真空蒸着",
@@ -14065,7 +14481,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+klEQVR4nKVTy47TQBCsedqJHWcXxFcgceBPuHDObbnxIRxXfBRCQsBfIJZN/H6MZxp1S4nv0NJYsqe7uqq6rd69PxH+Iyw/Xr95i7KsoJRC29QoygOyLMfT71/wWQatNVJK8N6DCLDOYRx6/Pj2BZoBquoexlqsa0CW55jnCTFGWGthrbuBhxBARFJ8DS00rIVWGkPfS3cuCGEWEO8zDEMPYyyMNljmCc55hLBsAESErmsABXRtg7a5wLkMeb6D0grj0MEYg2WZsS9KjOOAw+G4edD3rXSNKeLz4yckSgIQlgnO50KfI8YVp9MDt7wxsPxY5hlhWZBSBJSCczliWKCNlXdmyP4w9biuYjDX3CRkeb6ZojXWZYY2BkpprGGRzjIJSigPlXjD58Ygy3fYFwe09RlKa1jvsTIjSlLIyVobUFyFDYOMZtgAQCTu8kYxRdZ4DWbBuyDySMuIeSfY1JuEGKPMmCPFKEculRYpLCkxsFLi/sq5vFFXBl3b4MXLVyAQHj58lAs2lQs4sbq7ByVCU59xfn6C815kbxJAmOcRXdviyMkEGaNzDkRJ1ps/MhteLD5tW28SdvsC8zShOt7JuFiv1kq0MlEenxQ7LyPkKIpyA2C61nlBZbenaZRtu5z/YBpH0cymMe368iyM+67dJPz8/vWff+e/jMMd8Hdg0uAAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🫙",
    "people": [],
@@ -15195,7 +15611,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "鍾乳洞の奥にある、白い結晶がまじったやわらかい土。",
+    "note2": "鍾乳石の洞窟だけにできる（鍾乳石ブロックの中）。シャベルで掘ると硝石土が2つ。シルクタッチでブロックのまま。",
+    "note3": "1812年の米英戦争のころ、アメリカのマンモスケーブでは洞窟の土を掘って硝石を取っていた。洞窟の中には、そのときの木の樋（とい）や桶が今も残っている。",
+    "note4": "洞窟の硝酸塩は、コウモリのふんなどの窒素が細菌に分解されてできる（硝化）。雨に流されない乾いた洞窟の土に、何百年もかけてたまる。"
+   },
    "refs": [
     {
      "title": "O19. 洞窟の土から硝石（天然硝石の採取）［6-16］（硝酸の前提）",
@@ -15210,10 +15631,10 @@
      "basis": "- 米国国立公園局「Mammoth Cave: Saltpeter Mining」：https://www.nps.gov/maca/learn/historyculture/saltpeter-mining.htm"
     }
    ],
-   "item": null,
+   "item": "nitre_earth_block",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：鍾乳石の洞窟だけに置いた（本物は古い家畜小屋・壁の土からも取れた。家畜化 [0-17]・硝石床 [6-10] は後日）。",
    "game_text": "",
    "id": "6-16",
    "name": "天然硝石の採取",
@@ -15239,7 +15660,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADAklEQVR4nB2TW08bVxSFvxkPeOwZ2xB8wRg7YGwuJUBD41RVX/pQ9aW/oP8yD5H6hipFpVEuSigyuA5xIBgbDPaMbYzj61RnjzTSHJ0ze6/9rXW0N69eehv5LMXTMv3+N+YiYdbzWcqfKuRzq7jtDj5dJxIJ8+X8q6wfZ5YJmCaVLxfo6uf6dQPbtsikU2xu5HCcNslkQg6k88/pTU2s6DqN2ya6rhOybW7vmqzn19AnkwlXtWseHvoYhsFxscRkOhUlo/GEbqNEPv8E9TzZ3iC3vU+l3mbr6S84rouhaRqJeJR4PMpwMJQxer0Hqld14rEFDl+/I5e9k/2zz+dYVoP9579JQaXG8Pv9VGvXpJYWabVcwiFbNpaSCcbjMc/29zg6PqFx1yQSDpFbW6F9fcJ970E46Dc3t+iahmmamH4/4bDNo/mIQC2elLms1ij8sCeqFLy/Xr1mdnaGkG0JVK19feKpw9mVDKPxmOl0SjAQwHXbXFxe8WPhKY7bxrYsvg0GGD4fpfIZy6kk8egCxoejojAIBgMoHu1Ol4//Fvn19z/I7UCn06DVuuDysiYF1Gjf725TKn+Wb93zpiQX42Ld2/dHIn9ne5PDgxdcXVUIh+ekQTQ6TzqVZDgaCdjN9TWOjk/RPM/zYIjrtqieFbGtoABzHFfCMxgM2dvZEqvHk4k0U5Dr9YbwMlQnO5pid7dAZfQBM/CI4XDIzz8VJCw+3ScZyWVXpMCbdx8JBky2NvM0Ww7aeekfb34uwul/Z2JLp9sVFtPJVAKlOpqmX0ZUtqrE+v2zkoNut4fus2L0sbAXUmTSSyJvPJ6wu/MdkUiI84tL8V+pUSyaTYdEPCYFlJ3a4cELTw/OUyg8o1n9JPdC0zXCtk270xEVylIVuF6vL3OPRmOyqxk6nS66HbLw+i5/H/zJxdcqMzMGiViUh36fltMmv7ZKJr3MjGGIbWrMuUgIS8G+vUNzakVPdVDXVL2Kx+NMipvGnRS5v++RWkqSXIwhfg1HtFqOjJRcTPA/XZZ4e8bb/XgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💨",
    "people": [],
@@ -15253,7 +15674,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "鉛が入った重くてキラキラしたガラス。光を大きく曲げ、虹色に分ける力が強い。",
+    "note2": "光学ガラスのフリント（鉛ガラス、PbO 約4割）。屈折率 約1.6、分散が大きい（アッベ数 約36〜41）。クラウンガラスと組み合わせると色消しレンズ[7-04]になる。鉛は体に悪いので、なめない。",
+    "note3": "1674年、イギリスのジョージ・レイヴンズクロフトが曇らない透明なガラスの特許を取り、のちの鉛クリスタルの始まりとされる（⚠️ 当時のガラスに本当に鉛が入っていたかは研究者の間で議論がある）。18世紀には鉛ガラスがフリントガラスとしてレンズに使われた。",
+    "note4": "単レンズは色ごとに焦点がずれる（色収差）。分散の小さいクラウンの凸レンズと、分散の大きいフリントの凹レンズを貼り合わせると、曲げる力は残したまま色のずれだけを打ち消せる（ホール 1733ごろ、ドロンド 1758）。露光装置の投影レンズも、何種類ものガラスを組み合わせて色と形のゆがみを消している。"
+   },
    "refs": [
     {
      "title": "O1. 光を曲げる2種類のガラス（クラウンとフリント）［7-01］",
@@ -15268,10 +15694,12 @@
      "basis": "- スイス歴史辞典「Guinand, Pierre-Louis」：https://hls-dhs-dss.ch/fr/articles/025963"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "flint_glass",
+   "recipes": [
+    "溶鉱炉：フリントガラスの調合原料 を焼く → フリントガラス"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：泡・脈理（にじみ）を取る工程。溶鉱炉で長く溶かす時間（20秒）で表す。",
    "game_text": "",
    "id": "7-01",
    "name": "光学ガラス",
@@ -15311,7 +15739,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWklEQVR4nN2R3S+CARSHn5cXw6aE1cQyLhiz4QLjwrIZ/2+br6nZmMwmpah5fZbykV5lpN7UsTJbWxnXfjdnZ+ec5+ycH/xvBbWEpHMi0ces/Hkokxfx+iJy+5SThG5I5DopZfnDUVlze2tADdVJubGjGS60M2xdLUTCJww7ugmexQkGjkilkjUL1erkMHRFOv1MSYRGwDk3gXvXx0smTY/VyujoeGWJoijK94xSDVjzeMVkMmO19SJSYsBuroD0LDQ0Qu79g/BpiMX5SaXuCQ7HIFNTI9zfxbm/S2AAWkzH0gZvr3lsZhV7X//PJxwHfDwl7eh6ik5LF03A5bnG1aXC0sI06559DMP4GZDP5ygWixQKhfJHK8Vl5wzb3gAHfo2VxVl+VUhLSCyZla2dQ3Ft7FQsdG1+xVX3Xo2NSj3IzcOb7O1uMzwyhqqqDA7ZaS8/EWitcuCf6BODUrBaU5PxIAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -15393,7 +15821,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "鉄を焼いてできた赤い粉。とても細かいので、ガラスをつやつやに磨ける。",
+    "note2": "鉄の粒 →かまど（空気中で焼く）→ 酸化鉄(III) Fe2O3。ピッチの研磨皿といっしょに、削ったレンズを透明に磨く。",
+    "note3": "赤い酸化鉄は大昔から顔料（ベンガラ、弁柄）で、宝石や金属を磨く「ジュエラーズ・ルージュ」でもあった。ニュートンは酸化スズ（パテ）で鏡を磨いたが、19世紀のロス卿は赤い酸化鉄を使った（⚠️ レンズ磨きに使い始めた時期は未確認）。",
+    "note4": "1940年代からは酸化セリウム CeO2 が主役になった（⚠️）。CeO2 はこするだけでなく、ガラスの SiO2 と化学的にくっついて表面をはぎ取るので、速く平らに磨ける（化学機械研磨＝CMP の考え方。今の半導体の平坦化も同じ）。"
+   },
    "refs": [
     {
      "title": "O2. 木を蒸し焼きにしてタールとピッチ（木材乾留）［2-23］（［7-03］の前提）",
@@ -15420,10 +15853,12 @@
      "basis": "- Wikipedia「Newton's reflector」：https://en.wikipedia.org/wiki/Newton%27s_reflector"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "rouge",
+   "recipes": [
+    "かまど：鉄の粒 を焼く → ベンガラ（研磨用）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：本物のジュエラーズ・ルージュは緑ばん（硫酸鉄）を焼いて作ることが多い。ここでは鉄を空気中で焼く（「クロクス・マルティス」と呼ばれた古い作り方）。",
    "game_text": "",
    "id": "7-03",
    "name": "レンズ研磨",
@@ -15466,7 +15901,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABI0lEQVR4nO1QPUsDURCcfXn37kwwICJITgkJUZSAioW/wkIFwX/hT7ATBXtbf4BWgrWl2KgBCwmJKQQ/iJiT8/R4727lDi2iUawsxCmWhZmdGRb4xx8AfUVsjbuclxlU+mzcaY2VWqunVnx3bBFw0PbgmxibYwX+UYOdapHDOIYSAkoQJFEqSgyDKMbSWbPrRn40aDyHmO3PYvFNuF4p8JCSuA41Vi+uPgXS+7I/U2Yiwk2o0dYGRUehHoQwzBhxFB5NhImcg/mTRpcJJWN7cpRd20orH3kB5vJZHD74YDBcWyHhlmuXtFYeZtdRyAAYVBILp02ivekSD1gSHR2ljvfawI9iVHMOpCB0tMGxF2CjdZuG7U6VOAJDgHD+9NLrr7+MVy5gYvdvZ5V3AAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -15480,7 +15915,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "2種類のガラスのレンズを重ねたもの。虹色のにじみが消えて、くっきり見える。",
+    "note2": "クラウンレンズ（凸）＋フリントレンズ（凹）＋銅インゴット（レンズの枠）。分散の小さいクラウンと大きいフリントで、色ごとの焦点のずれ（色収差）を打ち消す。屈折望遠鏡の対物レンズになる。",
+    "note3": "ニュートンは「色のにじみはレンズでは消せない」と考え、鏡の望遠鏡を作った。1733年ごろホールが色消しレンズを作り、1758年にドロンドが特許を取って広めた。",
+    "note4": "色消しは「2つの色（ふつう赤と青）の焦点を1つにそろえる」こと。残る小さな色ずれ（二次スペクトル）は、蛍石などの特別な材料でさらに減らす（アポクロマート）。露光装置の投影レンズ [7-19] は、もっと多くのガラスを組み合わせ、たった1つの波長の光で使って色の問題を避けている。"
+   },
    "refs": [
     {
      "title": "O5. 2種類のガラスで色のにじみを消す（色消しレンズ・屈折望遠鏡）［7-04］",
@@ -15495,10 +15935,12 @@
      "basis": "- Wikipedia「John Dollond」：https://en.wikipedia.org/wiki/John_Dollond"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "achromatic_lens",
+   "recipes": [
+    "作業台：クラウンレンズ（凸） ＋ フリントレンズ（凹） ＋ 銅インゴット → 色消しレンズ"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：2枚を貼り合わせる接着剤（19世紀からカナダバルサム）。本物の枠は真ちゅう。",
    "game_text": "",
    "id": "7-04",
    "name": "屈折望遠鏡と色消しレンズ",
@@ -15538,7 +15980,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABO0lEQVR4nN2Q3UvCYBTGjykR7SKvLLswraRA6rY/N0Eo+rCMCgqCIopKdGM4Na3cjJxNV5NQ8qP2xF5SvFij2/rdvM/zcs7DOYfo/yLcK7CwdP/9NSW9wZq3Do9g6QtRQrr4gFg84RwUi+/CBHCVyaPeMdEGmLfoAcg+qs4Bje9iWW9A7wKXYpb5lx6QzBWxc3wCvWv+HPIBILoZxzkvwtLD3FY0FNSac8Dqxja0d2tYQHl9w1lKYLoF4DTJ4yZXGBy2j2vYVFsdTI2PMr2W2KfZcJjcI24yzU9aiSyy/2K1TgvTvkGfZzhASKcosrRMZVmmQDBIobl50qoqhUMBksoV0us1mvB6He9ITQBqsw3+roRrKc/GX987QBew3d9lF5JRnvCsVsgwDOI4jib9fgrMBMk35rGt/+N8Aeva+KBOd8iwAAAAAElFTkSuQmCC",
    "emoji": "🔭",
    "symbol": "🔍",
    "people": [
@@ -15586,7 +16028,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "銅とスズを2対1で混ぜたもの。溶かすと白く光る合金になる。",
+    "note2": "銅インゴット×2＋スズのインゴット×1 → 3個（スズ 約33%）。かまどで溶かすとスペキュラム合金。",
+    "note3": "ニュートンは銅6・スズ2に少しヒ素を加えた合金で、自分の望遠鏡の鏡を作った。配合は鏡職人それぞれの秘密だった。",
+    "note4": "スズが3割をこえると、青銅は赤銅色から銀白色に変わる。Cu-Sn の金属間化合物（δ相など）が増えるためで、そのぶんとても固く、もろくなる。"
+   },
    "refs": [
     {
      "title": "O10. 金属を磨いた鏡と反射望遠鏡（スペキュラム）［7-05］",
@@ -15601,8 +16048,10 @@
      "basis": "- Wikipedia「Speculum metal」：https://en.wikipedia.org/wiki/Speculum_metal"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "speculum_charge",
+   "recipes": [
+    "作業台：銅インゴット×2 ＋ スズのインゴット → スペキュラムの地金（調合）×3"
+   ],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "",
@@ -15645,7 +16094,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABNklEQVR4nGNgGAXDADDikpiY4fJfXJCbQU1akIGNlZlBJ30uVrVM2ATX1gT+z5+xh1FPQZSBh5ON4dSN5wynJsb9J8oFq6r8/0sJ8zJ8+/mbgZONBS7+5+8/hvsvPjIk9W9jxOmC5RV+/19//MbAwcbCIMrHxfDj1x+Gt5+/M+goiDLcevqOgZ+bneHG7NT/WA042hfzP7JjE6OPuQrDuTsvGDjYWRhuPnnHENC4jnHn2fsMLExMDPZ6sgwgCyZnusANYYQFGBc7C4O9nhyDCB8nw6pDNxjkRPnAtoOc/uvPXwZxAW6wah15UYaXH74y3H32gSGuZwsj46NFWf/ff/kB9vPP338ZLt57xWCqJgnmC/JwMDx69YmBlYWJwVBZnEE6Zirjm5V5/5++/cJw59l7sAUDDwBTaXdgO8ymtAAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -15659,7 +16108,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "光を虹の色に分ける三角のガラス。",
+    "note2": "フリントガラス＋砂＋研削皿＋ベンガラ＋ピッチの研磨皿（道具は戻る）。平らな面を3つ削って磨く。分散の大きいフリントは、色を広く分ける。分光器の心臓部。",
+    "note3": "1666年、ニュートンは暗い部屋の窓の穴から入れた日光をプリズムに通し、白い光が虹の色の集まりだと示した。2つめのプリズムで1色だけを通しても、それ以上は分かれなかった。",
+    "note4": "色によって屈折率が違う（分散）から光が分かれる。紫ほど強く曲がる。ふつうのガラスは紫外線（約350nm より短い）を吸ってしまうので、紫外の分光には石英や蛍石のプリズムを使う [7-15]。"
+   },
    "refs": [
     {
      "title": "O6. 光を虹に分けて元素を当てる（プリズム分光）［7-06］",
@@ -15674,8 +16128,10 @@
      "basis": "- NIST Atomic Spectra Database（線の波長）：https://physics.nist.gov/PhysRefData/ASD/lines_form.html"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "prism",
+   "recipes": [
+    "作業台：フリントガラス ＋ 砂 ＋ 研削皿（鋳鉄） ＋ ベンガラ（研磨用） ＋ ピッチの研磨皿 → プリズム（フリントガラス）"
+   ],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "",
@@ -15714,7 +16170,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQklEQVR4nN2RTU/CQBCG322N8WIUjOEAkYPB1PgXvHnx4MmD/1ETVESRiCRiRA8qMSFBCFEhlVYqVmnF8lXHuHhoQ/Guz2X2nZ3ZmdkB/jcdInrUTPpmVAzzchbKMs2FQ9C0F5iGgWr1AW3Lwsb6mme8i73DNK/49kFkdogSqQzp7zY1LaJY4nhkJ5yd+BEP3to+oN39FN3LDcpkr/mDFUWn2rNJRnv0OMiXqiTXm+Sk5zhvRuND/yE4RTAYQr/XR7lSx2vrk/sKxQq3pxc5TPv8OMleuYoyp3jSLQr4JnB5cwvbtiGKIk+KhAP8vnhXgzQfBGOMeXYgiiKURguqqiCyIKHb7fJkuW4gmT6Dz+8fGltwitmpcVYqFiAIAmYmxyAtLg06UxWsrixD0zRXdU/oh2gsyW3mfLCFXL78+wr/Ll8q1dF0jw5k5wAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -15728,7 +16184,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "細い銅線をすき間をそろえてたくさん並べたもの。光を通すと虹ができる。",
+    "note2": "送りねじ×2＋銅インゴット。2本のねじのみぞに細い銅線を巻き、間隔 d＝0.004 インチ（101.6μm）の格子にする。分光器と組み合わせると波長を測れる格子分光器。",
+    "note3": "1821年ごろ、フラウンホーファーは太さ 0.002 インチの針金をこの間隔で並べた格子で、太陽の暗線（D線）の波長を初めて測った。誤差は約1000分の1だった。",
+    "note4": "すき間を通った光の波が重なり、ある角度でだけ強め合う（干渉）。d·sinθ = λ（1次）なので、d と角度 θ がわかれば、波長 λ が長さの物差しで決まる。CD の裏の虹色も、間隔 1.6μm の溝が作る回折格子。"
+   },
    "refs": [
     {
      "title": "O7. 緑の石から最初の銅（孔雀石の製錬）［1-03］（［7-07］の前提）",
@@ -15755,10 +16216,12 @@
      "basis": "- Physics Today「The master of dispersion」（フラウンホーファー）：https://physicstoday.aip.org/opinion/the-master-of-dispersion"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "wire_grating",
+   "recipes": [
+    "作業台：送りねじ×2 ＋ 銅インゴット → 針金の回折格子"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：反射格子（金属に溝を刻む、刻線機 [8-12] が要る）はまだ。針金の太さ・本数のむらも省略。",
    "game_text": "",
    "id": "7-07",
    "name": "回折格子",
@@ -15805,7 +16268,7 @@
    "explained_by": [
     "I-28"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkElEQVR4nGNgGGjAiC6wIFHvPz4NCfMvYehB0YzPAGzyjMiSMBtOVFlhNcSi7RgjsjoM0xkYGBhAmrEZgCyO7AoWXDZ9mOSKYohA3m6sLmPC5V+YJhDGp4aJgUgAcxG6N5gIaYJphLkE5D3kQGTCphFkC7LzcfmfutEIAtgSCrJheBMSMsCXGvEmZVINowoAACWkaRbda86qAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -15819,7 +16282,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "光を2つに分けてまた重ね、光の波を物差しにして、髪の毛の100分の1より小さい長さを測る道具。",
+    "note2": "半透明鏡＋スペキュラム鏡×2＋送りねじ＋鉄×2。点灯中の水銀灯を右クリック → 緑の線（546.1nm）で、送りねじを1回転（0.5mm）回すと縞が何本流れるかと、そこから求めた長さが出る。",
+    "note3": "1881年、マイケルソンはこの干渉計を作り、1887年にモーリーと「エーテルの風」を測ろうとしたが見つからなかった。これがのちの相対性理論の手がかりになった。1907年、マイケルソンはアメリカ人で初めてノーベル物理学賞を受けた。",
+    "note4": "鏡を d 動かすと光の道は往復で 2d 変わり、縞が 2d÷λ 本流れる。縞1本＝波長の半分（約0.27μm）。今の露光装置のステージは、レーザー干渉計で nm の位置を測りながら動く。重力波を見つけた LIGO も、長さ 4km の巨大なマイケルソン干渉計。"
+   },
    "refs": [
     {
      "title": "O17. 光の波を物差しにする（マイケルソン干渉計）［7-09］",
@@ -15834,10 +16302,12 @@
      "basis": "- Wikipedia「Michelson interferometer」：https://en.wikipedia.org/wiki/Michelson_interferometer"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "interferometer",
+   "recipes": [
+    "作業台：半透明鏡 ＋ スペキュラム鏡×2 ＋ 送りねじ ＋ 鉄インゴット×2 → マイケルソン干渉計"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：緑の線だけを取り出すフィルター（色ガラス）は省略。送りねじ1回転＝0.5mm はゲームの値。マイケルソンの半透明鏡は化学の銀めっきだったが、ここでは真空蒸着で作る（年が後になる⚠️）。",
    "game_text": "",
    "id": "7-09",
    "name": "干渉計",
@@ -15884,7 +16354,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA/ElEQVR4nO2QPU4DMRCFn//WdqRlOREdTc5BhcSBKKhoEVIoQBQcArhINvLGu+tdD/JEkRJCR5tpRjP2+96zgXP9u8TvxdPqjax1u4EIMUZcNA2GYYAxBsvrqyONPBxWrx8kxW4lhQABqOsa8zyj73sGPr+8058J7h8e2TnGLaxz2HYdO+acobVGVVVIKTGIcsbd7Q1r9R6glMJm03JXUrKoANiOCCEEPrPWMnRf+jBO01xy3C4EEBEmKbkXgfee0xVISXPyB8YYtO2aL0sl4RcL/rgyM2yaIERJZjCO42mC769PpDTCOc8CIcAApTS7DkMP5xymaT56As6FH51weaVZCqapAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -15898,7 +16368,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "石英の管に水銀と電極を入れたもの。まだ空気が入っていて光らない。",
+    "note2": "石英管＋水銀＋タングステン線×2（電極）。封止台で 0.1Pa 以下まで空気を抜いて封じると水銀灯の管（真空管と同じ。シュプレンゲル水銀ポンプ [5-15] が要る）。",
+    "note3": "空気が残っていると、放電のエネルギーが窒素や酸素に取られ、水銀の線がきれいに出ない。初期の水銀灯は、電球と同じ水銀ポンプで排気した（油回転ポンプは 1905 年から）。",
+    "note4": "ふつうのガラスは 300nm より短い紫外線を通さない。石英は約 160nm まで通すので、紫外線を使う水銀灯は石英の管にする。キューヒは酸水素炎で水晶を溶かして泡のない石英ガラスを作った [7-02]。"
+   },
    "refs": [
     {
      "title": "O12. 水銀の蒸気を光らせる（水銀灯、g線・i線）［7-10］",
@@ -15925,8 +16400,10 @@
      "basis": "- Wikipedia「Micralign」：https://en.wikipedia.org/wiki/Micralign"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "mercury_lamp_assembly",
+   "recipes": [
+    "作業台：石英管 ＋ 水銀 ＋ タングステン線×2 → 水銀灯の組立品（未排気）"
+   ],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "",
@@ -15956,7 +16433,7 @@
    "explained_by": [
     "I-32"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAALUlEQVR4nGNgGAiw9+ip/xRpvv/i3X+KNIPAqGYiwN7RACMdkJ3CYIAizZQAAJdFg8WnWA7LAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -15970,7 +16447,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "大きく描いた回路の原図を、写真で小さく縮めてガラスの板に写す大きなカメラ。",
+    "note2": "電気 1kW（照明）。原図（減らない）＋感光乾板＋現像液（硫酸鉄(II)）＋定着液（ハイポ）→ フォトマスク（30秒）。作り方：色消しレンズ×2＋水銀灯の管＋送りねじ＋鉄×3＋銅ケーブル。",
+    "note3": "1960年ごろ、IC の原図は大きな台の上で赤いフィルム（ルビリス）を手で切り抜いて作り、それを写真で何百分の一にも縮めてマスクにした。最初の IC の回路図は、手でフィルムを切り抜いて作った。",
+    "note4": "本物は2段で縮めた：原図を写真で縮めて「レチクル」にし、それをステップ・アンド・リピートのカメラで縦横に何百回も焼きつけて、ウェハー1枚分のマスクにした。レンズのゆがみと色のにじみがそのままマスクの誤差になるので、色消しの専用レンズを使った。"
+   },
    "refs": [
     {
      "title": "O22. 写真乾板の化学（ゼラチン乳剤・現像・定着）［7-11］の材料",
@@ -15997,10 +16479,14 @@
      "basis": "- Wikipedia「Rubylith」：https://en.wikipedia.org/wiki/Rubylith"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "reduction_camera",
+   "recipes": [
+    "作業台：色消しレンズ×2 ＋ 水銀灯の管 ＋ 送りねじ ＋ 鉄インゴット×3 ＋ 銅ケーブル → 縮小カメラ"
+   ],
+   "machine_recipes": [
+    "縮小カメラ「原図をフォトマスクに写す」：原図（ルビリス）（減らない） ＋ 感光乾板 ＋ 硫酸鉄(II)（緑ばん） ＋ チオ硫酸ナトリウム（ハイポ） → フォトマスク（乳剤）（1 kW × 30 秒＝30 kJ）。照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）"
+   ],
+   "placeholder": "近似：縮めるのは1段だけ、並べて焼くステップ・アンド・リピートは省略（チップは1つ分の中身を並べた扱い）。現像・定着も同じ機械の中で行う。",
    "game_text": "",
    "id": "7-11",
    "name": "銀塩フォトマスク",
@@ -16042,7 +16528,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABtklEQVR4nKVTS2/WQAwcex/5Qv8CEhIHLqWF//9DygmJAxIS4trmZe9W4/0e5QqJklW83rFnxpFP9187/uPKfL3/8BFmB3rv8eRcsG0r5nd3cLOINfc4oClBVWP9+eM7lMF2PsgkgURiyQV2HJE8wBtENfK42r7fOgAB2rl6qQxEhWPfA7SUCndHzjlyjm2DJr0BmBlKrbG5ri+otcLNA0REoMq2E45jR2Ls3MkVoNYJ7Nz3HU9P3yAy0HtziA6Qjh7xh8/30VFrfgPovcEPg6iM5N5ik5X47U4tElqz0IO6/OVCaw25kjuCcyqk00JQrjwMAjePbkn5AqJ8HfuG9eV5uKAKt6Ew2wyuItQ1gNgRdUg53wDqdMJpvhs90abzTRH53dzCmYs2BFaCXgBEBOvyHEOjRD7r0NvQYtjcIrauS1hN2lcN3Awpl+D15fExaNBrdsZqtI/TGYAisLAzvwHwwdU4QBQn+Cq2bQnRmMwi4YgZptMcul0BuMGqHCCOL0eEDFVS/BPcJ9C2rmE1ZyL0eWvjNM9YlyUSqDKtIvdSp+jG3ZBLCWCKmvOwPQD+/P71z7/zKyEODOD6bDweAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16267,7 +16753,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "薬品から作った、とても純粋な石英ガラス。目に見えない紫外線もよく通す。",
+    "note2": "酸水素バーナーに四塩化ケイ素を入れる：SiCl4 + 2H2O（炎の中の水）→ SiO2 + 4HCl。天然の珪石を溶かした溶融石英より不純物（鉄・アルミなど）がずっと少ない。",
+    "note3": "1934年、アメリカのコーニングのハイドが、SiCl4 を炎の中で加水分解して純粋なガラスを作る方法を発明した（特許の言葉は「酸素の炎」）。のちに光ファイバー（1970年）もこの方法で作られた。",
+    "note4": "ArF（193nm）の露光装置では、投影レンズのほとんどと、フォトマスクの板がこの合成石英。わずかな鉄や水（OH）でも紫外線を吸って熱くなり、レンズがゆがむので、不純物の少なさが性能を決める。"
+   },
    "refs": [
     {
      "title": "O21. 蛍石をとかして1つの結晶に（CaF2 単結晶、ブリッジマン法）［7-15］",
@@ -16294,10 +16785,12 @@
      "basis": "- Wikipedia「Silicon tetrachloride」：https://en.wikipedia.org/wiki/Silicon_tetrachloride"
     }
    ],
-   "item": null,
+   "item": "synthetic_quartz",
    "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "machine_recipes": [
+    "酸水素バーナー「合成石英を作る」：四塩化ケイ素 ＋ 水素ボンベ 4 mol ＋ 酸素ボンベ 2 mol → 合成石英（電気なし・10 秒）。SiCl4 + 2H2O → SiO2 + 4HCl（炎の中で加水分解、ハイド 1934）"
+   ],
+   "placeholder": "近似：出てくる HCl のガスは回収しない（本物は回収して使い回す）。",
    "game_text": "",
    "id": "7-15",
    "name": "紫外光学材料",
@@ -16349,7 +16842,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJklEQVR4nN1QYUvCUBQ9G7VGSuHQgvVhkN/TfkAE/eBAFLVSWpMi+iAag0qCXGXOrNWMclvQjfdqEeGjz3Xgcnj3vXPvOQ/433gaR8Rgn3ZI9Eae1GSizUKRkuo0P3ueh2K5OnGI9LPxRkS7ew2EYQhFUXilUhr0JR3aXBKSJElCB822Tex2JZdHLr8K3/chyzIMw+Di2J0ws3v3wDObjQOK8UpE1v4hFUoVzoP7RxI6OG63OEdR+BEHwBSAdCYDVZ1BEIyxoM0LDYBtrO7UqW5afLvT63M+O7/g3HOHVDMtsYNrd4jlbBYb62vwnwOM/BHvO06Xs76YRmI2IXbAEGe/vBnQd1z1b8k+6dBRsyX+RHyisl2j0Uv4JS6Vt/gAVr+K/x7eAWGIyaCRL93jAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16596,7 +17089,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "マスクの模様を 1/5 に小さくしてウェハーに写すレンズ。何枚ものレンズを積んだ「ガラスの塔」。",
+    "note2": "心出し済みの鏡筒＋反射防止膜のクラウンレンズ。鏡筒のレンズのずれを引き継ぎ、ずれが小さいほど細かく写せる（CD＝k1·λ/NA）。点灯中の水銀灯を右クリックでテスト露光、左手に干渉計を持つと波面のゆがみも測る。",
+    "note3": "1978年、GCA の DSW（g線、マスクを縮小して1チップずつ写すステッパー）が発売され、のちにニコン・キヤノンが続いた。マスクを大きく作れるので、マスクの小さなごみや誤差も 1/5 になる。",
+    "note4": "解像度は CD＝k1×λ÷NA（アッベの限界から）。λ を短く（g線 436nm → i線 365nm → KrF 248nm → ArF 193nm）、NA を大きく、k1 を小さくして微細化が進んだ。今の投影レンズは 20〜30枚、重さ1トンを超え、EUV ではレンズの代わりに鏡で組む。"
+   },
    "refs": [
     {
      "title": "O37. マスクを縮めて写す「ガラスの塔」（投影レンズ）［7-19］",
@@ -16611,10 +17109,10 @@
      "basis": "- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper"
     }
    ],
-   "item": null,
+   "item": "projection_lens",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：レンズは5枚（本物は 20〜30枚）。NA 0.35 は1980年代前半の値（1978 の GCA は約0.28）。ずれから収差への換算はゲームの値。露光装置そのものはまだ。",
    "game_text": "",
    "id": "7-19",
    "name": "投影レンズ",
@@ -16664,7 +17162,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaklEQVR4nGNgoBAwYhO0sXP7r6yihiJ2984thiOHdmGoZ6LUBUyUGsCCzfkBVk0YCnXFwNR/dG+wYDP18qslRLuAiWiVtDKABVv06YrF4FC+BCMcWIZ+GDDCGMjJF1cYwLyGnKwHPgwoBgB4xyVFPBSLJgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🔍",
    "people": [],
@@ -16828,7 +17326,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "表面に見えないほど薄い膜を付けて、光のはね返りを減らしたレンズ。少し紫っぽく光る。",
+    "note2": "真空蒸着装置で、クラウンレンズ＋蛍石（CaF2）。膜の厚さを光の波長の 1/4 にすると、表と裏ではね返った光が打ち消し合う。1面の反射 約4.3% → 約2.2%。",
+    "note3": "1936年、ジョン・ストロングは真空蒸着した CaF2 の膜で反射を減らす方法を発表した。1938年にはキャサリン・ブロジェットが石けんの仲間の単分子膜を重ねて「見えないガラス」を作った。",
+    "note4": "1面で4%でも、20面あれば光の半分以上がはね返って失われ、まぶしいゴースト（迷光）になる。何十枚もレンズを重ねる投影レンズ [7-19] は、反射防止膜がなければ作れない。膜の屈折率は √(ガラスの屈折率)≈1.23 が理想で、CaF2（1.43）より MgF2（1.38）のほうが近い。"
+   },
    "refs": [
     {
      "title": "O18. 薄い膜で反射を消す（反射防止膜）［7-22］",
@@ -16843,10 +17346,10 @@
      "basis": "- Optica「John D. Strong」：https://www.optica.org/History/Biographies/bios/John-D--Strong"
     }
    ],
-   "item": null,
+   "item": "coated_crown_lens",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：膜は1層だけ。CaF2 の膜は柔らかく傷つきやすい（本物はレンズの内側の面だけに使った）。",
    "game_text": "レンズ [7-19] と太陽電池 [B-12] の表面に。光を多く取り込める。アップグレード案（Q25-2）：置いた太陽電池に塗ると出力が上がる（上がり方は、反射率の値を出典で確かめてから決める）。[B-12] の前提にはしない",
    "id": "7-22",
    "name": "反射防止膜",
@@ -16886,7 +17389,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgklEQVR4nN2SzSvDcRzHX78fzZqnSNuopSSsTZoQkqU8UzsoTq7+AX+Dg5sLNyflIicuJGGUg6d5GtMkD2vMbLQHm/GV30Foc+d9+Xy/n3q/Pp/vuy/8X81Pn4iPOjYyK6Ym7Mo5maRkzZnJbXF548ba2EPw0U8g6KMgX8/Z+QFDw53fPOk/zfurCVGoSyMcqSY3B2IxDfEXAysb61SUWX7fYGn2UoTCj1QazQSfohydbKFSqfHde+hutREIhvEH7ujoL/n0yV8BQrxhNprxeH34H27JyswlEg3R225TgM6zXYr0xaR8guNokwyVGp1Wx6HzhvLSKrx31yyuLJBIvCiZhMJPqQFt1j5lipyWrpidrl30WgN1lhb8gVtkWcLlPvgGkL9ePN4LrI21SjDaAonmhmqOXTtsO9YwlRvY2rPzHIukDvFD46NzospUT052HhdXp0SjEVqaarBvOtBosugaKJV+BewsP4trzzm1FiOyBK+v4Dh2E4/HsA2akv6bP653CwKXEvXe4tkAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🔍",
    "people": [
@@ -16998,7 +17501,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "「ピントが自動で合うカメラ」を世界で初めて量産したのは日本のコニカで、1977年のこと（S-004 で追加。出典：en.wikipedia.org、en.wikipedia.org、en.wikipedia.org、Camera-wiki「Konica C35 AF」・Fstoppers「Autofocus Turns 50」（https://camera-wiki.org/wiki/Konica_C35_AF））",
    "kind": "tech",
    "play": "",
@@ -17145,7 +17648,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "材料をぐるぐる回して、刃物でけずって丸い部品を作る機械。",
+    "note2": "電気 750W。鋼のインゴット → ポンプのローター（30秒）。左下の「親ねじ」の入口に送りねじを入れておくと、鋼 → 規格ねじ×4 [8-02]（送りねじは減らない）。作った部品には、この旋盤のくせの寸法の誤差が付く。作り方：鋼×2＋送りねじ＋鉄×2＋モーター。",
+    "note3": "1797〜1800年ごろ、イギリスのヘンリー・モーズリーは、全部を金属で作り、刃物台を送りねじで動かす旋盤を作った。人の手のふるえがなくなり、同じ寸法のねじや部品をいくつでも作れるようになった。「工作機械の母」と呼ばれる。",
+    "note4": "旋盤は自分の送りねじを、自分でより正確に作り直せる（よいねじ → よい部品 → もっとよいねじ）。この「自分より正確な機械を作る」くり返しが、精密機械から露光装置のステージ（nm の位置決め）までつながっている。"
+   },
    "refs": [
     {
      "title": "O14. 手のふるえを機械が消した（旋盤）［8-01］（回転ポンプの前提）",
@@ -17160,10 +17668,15 @@
      "basis": "- Wikipedia「Henry Maudslay」：https://en.wikipedia.org/wiki/Henry_Maudslay"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "lathe",
+   "recipes": [
+    "作業台：鋼インゴット×2 ＋ 送りねじ ＋ 鉄インゴット×2 ＋ 電動モーター → 旋盤"
+   ],
+   "machine_recipes": [
+    "旋盤「ローターを削る」：鋼インゴット → ポンプのローター（0.75 kW × 30 秒＝23 kJ）。送りねじの刃物台で削る（モーズリー型）",
+    "旋盤「規格ねじを切る」：鋼インゴット ＋ 送りねじ（減らない） → 規格ねじ×4（0.75 kW × 30 秒＝23 kJ）。親ねじと同じねじ山を何本でも（ホイットワースの規格 55°）"
+   ],
+   "placeholder": "近似：モーズリーの旋盤は人力や水車・蒸気の動力。ここでは電気のモーター。今けずれるのは回転ポンプのローターだけ。",
    "game_text": "",
    "id": "8-01",
    "name": "旋盤",
@@ -17198,7 +17711,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB0ElEQVR4nKVTy27UQBCseXj8Wu9+RCJOKFdyQ0J8PHBGcAN+IcHyYzyeQVXEzh1a2nltd1d1ddu8//Cx4D/Mc7m7f4Ou77HMM0rJyHvGZRgwTRN6vi8zmqbVvWkaxHWFdQ7fv32FZYKu67CnpL0UKHhdFoQQMM8zrHXYtg37npQsxoh938XAchnH37qUUmCtRc4Zvqp0ZxLuRL1cBjjrBGCMeS2hqRsFEjXnXQmWZWFKhCrAeS9EBoW6xrqu8jsTbNsmxKZt8fnTlxN9ixEwQAg1eIhxwePjO71TszOB816oNCIxuAo1mrYTKn/rSkYGKSWwbYe/5cL6vPcwxqLtehhr1Q2WldKGbYs613UtsdUJsjsYXG+3F5V3Odd1cwYe6M55MSNbCnuYPdQng0Mctsr7Sm+0qgoSj+hkQqDjP89lniaJwja9apFEk6XoTuptK6YshfuZIJeCcRzhnMPDw1tNorFGQ3W93qR+zkUlEZ0TS98zgXcOPgQNyTg+Y7hexYQlabRzkXCkz3I5I/ZlEv8WYgzSFhFzQd9fhBLjiq7rdSZlfgcsi0YRj0mUiFS5bTs5EkWTl3Y8Pz0pAXvPYAo7DDfiicnJ4NfPH//8Of8BJ1QwfVpRm8wAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [
@@ -17230,7 +17743,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "どれも同じ形に切られたねじ。どの機械のナットにも合う。",
+    "note2": "旋盤の「親ねじ」の入口に送りねじを入れて、鋼を削ると4本（送りねじは減らない）。旋盤のくせの寸法の誤差を持つ（ノギス・マイクロメータ [8-04] で測れる）。",
+    "note3": "昔は工房ごとにねじの形がばらばらで、ねじとナットは1組ずつ合わせて作った。1841年、ホイットワースはねじ山の角度を 55° に、太さごとの山の数を決めることを提案し、イギリス中のねじがそろった。",
+    "note4": "モーズリーの旋盤は、刃物台を「親ねじ」で動かすので、親ねじと同じピッチ（山の間かく）のねじを何本でも正確に切れた。部品の形が決まっていれば、どの部品を取っても組める（互換性部品）。のちの大量生産・自動車の組立ラインの土台になった。"
+   },
    "refs": [
     {
      "title": "O26. 同じねじを何本でも（親ねじ付き旋盤とねじの規格）［8-02］",
@@ -17245,10 +17763,12 @@
      "basis": "- Wikipedia「British Standard Whitworth」：https://en.wikipedia.org/wiki/British_Standard_Whitworth"
     }
    ],
-   "item": null,
+   "item": "standard_screw",
    "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "machine_recipes": [
+    "旋盤「規格ねじを切る」：鋼インゴット ＋ 送りねじ（減らない） → 規格ねじ×4（0.75 kW × 30 秒＝23 kJ）。親ねじと同じねじ山を何本でも（ホイットワースの規格 55°）"
+   ],
+   "placeholder": "近似：誤差の幅（±25µm）はゲームの値。ねじ山の形（55° など）の違いは区別しない。",
    "game_text": "新アイテム「規格ねじ」。以後の機械レシピの共通部品（既存 lead_screw✅ の上位）",
    "id": "8-02",
    "name": "ねじ切りと互換性部品",
@@ -17288,7 +17808,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkklEQVR4nGNgGGjAiC7Q0Nz2H5+GhtoqDD0omvEZgE2eEVkSTNdWMS5YsgKrIQkxEYzI6jBMZ2BgYABpxmYAsjiyK1hw2XTgyEkUQxxszLG6jAmXf2GaQBifGiYGIgHMRejeYCKkCaYR5hKQ95ADkQmbRpAtyM7H5X/qRiMIYEsoyIbhTUjIAG9qxJeUSTWMKgAA7Z9ucj+DP6YAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -17302,7 +17822,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "銑鉄を砂の型に流して作った板。少しそっている。3枚をこすり合わせると、まっ平らになる。",
+    "note2": "銑鉄×4＋砂 → 1枚。利き手にこの板、もう片方の手に別の板を持って右クリック → ルージュを1つ使って2枚をすり合わせる。2枚だけでは凸と凹のまま合ってしまう。3枚を A-B・B-C・C-A と順に合わせると、3枚とも平らになり、そりが 1µm 以下で定盤になる。",
+    "note3": "1830〜40年代、ホイットワースは「3枚の板を互いにすり合わせると、ほかの基準なしに3枚とも平面になる」方法を広めた。A と B が合い、A と C が合えば、B と C は同じ形。その B と C も合うなら、どちらも平らしかない。",
+    "note4": "もっと平らな物がなくても、平らな物は作れる。ホイットワースは研磨剤ですり合わせるより、赤い塗料（光明丹）を付けてこすり、当たって色の付いた高い所を「きさげ」で少しずつ削る方法をすすめた。平面・直角・ねじ・物差しが、機械を作る機械（マザーマシン）の出発点になった。"
+   },
    "refs": [
     {
      "title": "O34. 基準なしに「まっ平ら」を作る（3枚すり合わせ）［8-03］",
@@ -17317,10 +17842,12 @@
      "basis": "- Wikipedia「Surface plate」：https://en.wikipedia.org/wiki/Surface_plate"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "cast_iron_plate",
+   "recipes": [
+    "作業台：銑鉄×4 ＋ 砂 → 鋳鉄の板"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：本物はきさげで削ることが多い（ここではルージュですり合わせる）。鋳込み（溶かして砂型に流す）はレシピにまとめた。",
    "game_text": "新ブロック「定盤」。精密機械のクラフトに隣接が必要、の条件に使う",
    "id": "8-03",
    "name": "平面と定盤",
@@ -17359,7 +17886,7 @@
    "explained_by": [
     "I-11"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAARElEQVR4nGNgGAUUA0YQkZKU8J8czXPmLWBkgXEkJSRI0vz8xQswzcRAIWAacANYYIyTp04xyMnJgdmPHj0iyB4FVAQAUxQSx/h0wtgAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -17373,7 +17900,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "2本のあごで物をはさんで、長さや太さを測る道具。小さな目盛りで細かいところまで読める。",
+    "note2": "青銅×2。もう片方の手に旋盤の部品を持って右クリック → 0.05mm まで読める。部品の等級（0.01mm の差）は決められない（マイクロメータが要る）。",
+    "note3": "1631年、フランスのピエール・ヴェルニエは、主尺と少しずれた目盛り（副尺）をならべて、目盛りの間の端数を読む方法を考えた。今の形のノギスは 1851年ごろアメリカのブラウン＆シャープが売り出した。",
+    "note4": "副尺の 20 目盛りが主尺の 19mm にあたるようにすると、1目盛りの差は 0.05mm。主尺と副尺の線がぴったりそろう所を探すと、その差の分だけ読める（目は線のずれにとても敏感）。"
+   },
    "refs": [
     {
      "title": "O27. 0.01mm を測る（ノギスとマイクロメータ）［8-04］",
@@ -17388,10 +17920,12 @@
      "basis": "- Wikipedia「Vernier scale」：https://en.wikipedia.org/wiki/Vernier_scale"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "vernier_caliper",
+   "recipes": [
+    "作業台：青銅インゴット×2 → ノギス"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：本物の材料は真ちゅう（銅＋亜鉛）。ここでは青銅で作る。",
    "game_text": "計器アイテム：部品の「寸法」を表示（部品の等級判定に使う）",
    "id": "8-04",
    "name": "ノギスとマイクロメータ",
@@ -17427,7 +17961,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVR4nGNgGAgwtdjsP4zNRI5maVEuBrIMmArVLCXCSboBU5E0m6VsZyTJgKk4NBNlwFQ8mgkaMJWAZrwGTCVCM04DphKpGasBU0nQjGHAVBI1oxgwlQzNKAaQoxkFnJrjCc8gdAUAIY4v7PpgHvkAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -17441,7 +17975,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "長さがぴったり決まった鋼の小さな板の箱。何個か重ねると、好きな長さの物差しになる。",
+    "note2": "るつぼ鋼×4＋水バケツ（焼入れ）＋ルージュ（仕上げ）。空中で右クリック → 目標の長さを何個で作るか。左手にマイクロメータを持って旋盤を右クリック → 旋盤の狂いを ±1µm に合わせる（ノギスでは粗すぎる）。",
+    "note3": "1896年、スウェーデンのヨハンソンは、少ない数のブロックを組み合わせて何万通りの長さを µm の精度で作れるセットを考えた。ヘンリー・フォードが買い入れ、アメリカの工場の互換性部品を支えた。",
+    "note4": "表面が平らすぎて、押しつけて少しずらすと吸い付いて離れない（リンギング）。重ねても誤差がほとんど増えないので、組み合わせて使える。工場の測定具は、ゲージブロックと比べて合わせる。"
+   },
    "refs": [
     {
      "title": "O40. 少ない数の鋼の板で何万通りの長さ（ゲージブロック）［8-05］",
@@ -17456,10 +17995,12 @@
      "basis": "- Wikipedia「Gauge block」：https://en.wikipedia.org/wiki/Gauge_block"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "gauge_block_set",
+   "recipes": [
+    "作業台：るつぼ鋼×4 ＋ 水入りバケツ ＋ ベンガラ（研磨用） → ゲージブロックのセット"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：セットは111個（ヨハンソンの最初のセットとは個数が違う）。定盤の上での仕上げはレシピにまとめた。",
    "game_text": "基準器アイテム。工作機械の「精度等級」を上げる素材",
    "id": "8-05",
    "name": "ゲージブロック",
@@ -17501,7 +18042,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAV0lEQVR4nGNgGAWMoCCoCDD6T05QdGw4x8gC4xzhEiFJs823NwhORYDR/xNnr/+3iXJDofGxYa5mojQWmYa+ASzoAiW9+QzEiGGkgyNkRCNKOkCJ1yEFAOIZOctvPqwGAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -17581,7 +18122,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ゴムの上に重い定盤をのせた台。まわりで動物が歩いても、上の物はほとんど揺れない。",
+    "note2": "定盤＋加硫ゴム。上に置いた物の揺れが 1/20 になる。干渉計で水銀灯を測るとき、近くで動物やトロッコが動いたりピストンが動いたりすると縞がゆれる。水銀灯を除振台にのせると落ち着く。",
+    "note3": "精密な測定は、足音や車の振動（µm ほど）と温度で狂う。重い台をばねで浮かせると、細かい揺れが伝わりにくい。長さを測る標準の温度は 20℃（1931年に国際度量衡委員会が決めた）。鋼は 1℃で 1m あたり約 11µm 伸びる。",
+    "note4": "今の露光装置は、空気ばねで浮かせ、揺れを打ち消すように動く「アクティブ除振」の上に置かれ、部屋の温度は 0.01℃ 単位でそろえる。精密な工場は、トラックが通るだけで仕事が止まる。"
+   },
    "refs": [
     {
      "title": "O35. 揺れと温度が精密さを奪う（除振と恒温）［8-07］",
@@ -17596,10 +18142,12 @@
      "basis": "- Wikipedia「Standard conditions for temperature and pressure」（長さの標準温度）：https://en.wikipedia.org/wiki/Standard_temperature_and_pressure"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "isolation_table",
+   "recipes": [
+    "作業台：定盤 ＋ 加硫ゴム → 除振台"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：揺れの大きさはゲームの値。空気ばね（圧縮空気）と恒温（20℃の部屋、空調）はまだ無い。",
    "game_text": "露光装置・干渉計の設置条件（下に除振台。近くで爆発・ピストンがあると精度低下）",
    "id": "8-07",
    "name": "除振と恒温",
@@ -17646,7 +18194,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASElEQVR4nGOMj43+z0ABYKJE86gBEMDy/PlzBkoAy8fPPxjevHkD5oiIiBClCVk9E0XWj6YDMKA4EFkkJSUYQJgUgKyeYhcAAH85Dqtn2gtUAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -17797,7 +18345,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "小さな丸いレンズ1つで、目に見えないほど小さな物を大きく見る道具。",
+    "note2": "クラウンレンズ＋銅×2。もう片方の手にマスク・原図・ウェハーを持って右クリック → 模様の1マスが見えるか。NA 0.2 なので、見分けられる線は約1.4µm（密着露光・等倍投影のマスクまで）。",
+    "note3": "1670年代、オランダの織物商レーウェンフックは、自分で磨いた小さな球のようなレンズ1つの顕微鏡（約270倍）で、水の中の小さな生き物や細菌を初めて見た。",
+    "note4": "レンズが小さく強く曲がっているほど倍率は上がるが、目を近づけないと見えない。レーウェンフックのレンズの作り方は秘密にされ、その性能は長いあいだ他の人には出せなかった。"
+   },
    "refs": [
     {
      "title": "O25. 光の波長より細かい物は見えない（光学顕微鏡とアッベの限界）［8-10］",
@@ -17812,10 +18365,12 @@
      "basis": "- Wikipedia「Diffraction-limited system」（アッベの限界）：https://en.wikipedia.org/wiki/Diffraction-limited_system"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "simple_microscope",
+   "recipes": [
+    "作業台：クラウンレンズ（凸） ＋ 銅インゴット×2 → 単レンズ顕微鏡"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：NA 0.2 はゲームの値（⚠️ レーウェンフックの一番よいレンズは約1µm まで見えたとされる）。本物の枠は真ちゅう。",
    "game_text": "検査台ブロック：ウェハー・マスクの欠陥・線幅を表示",
    "id": "8-10",
    "name": "光学顕微鏡",
@@ -17852,7 +18407,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVR4nGNgGAiwKt3wP4zNRI5mOWFOBrIMWAXVLCvEQboBq5A0S5fsYyTJgFU4NBNlwCo8mgkasIqAZrwGrCJCM04DVhGpGasBq0jQjGHAKhI1oxiwigzNKAaQoxkFPO1xgmcQugIASwwv+H91dcYAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -18065,7 +18620,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "レンズを4枚入れた金属の筒。レンズの中心が少しずつずれていて、このままでは像がぼやける。",
+    "note2": "色消しレンズ×4＋鋼×2＋規格ねじ×2。利き手に鏡筒、もう片方の手に顕微鏡を持って右クリック → 回して像の揺れを見て、いちばんずれたレンズを寄せる。全部のずれが 1µm 以下で心出し済み。単レンズ顕微鏡では細かいずれが見えない。近くでピストンが動くと揺れで見えない（除振台の上に立とう）。",
+    "note3": "レンズの中心（光軸）がずれていると、鏡筒を回したときに像がくるくる回るように揺れる。熟練工は、揺れが消える所までレンズを軽くたたいて寄せ、押さえ環で固定した。ニコン・キヤノン・ツァイスの職人の技だった。",
+    "note4": "最高のレンズも、0.001mm ずれて組むとぼやける。今の露光装置の投影レンズは 20〜30枚のレンズを数十nm の精度でそろえ、干渉計で波面のゆがみを測りながら組み立てる。"
+   },
    "refs": [
     {
      "title": "O36. レンズの中心をそろえる（鏡筒の心出し）［8-14］",
@@ -18080,10 +18640,12 @@
      "basis": "- Wikipedia「Optical lens design」：https://en.wikipedia.org/wiki/Optical_lens_design"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "lens_barrel",
+   "recipes": [
+    "作業台：色消しレンズ×4 ＋ 鋼インゴット×2 ＋ 規格ねじ×2 → 鏡筒（組んだまま）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：レンズは4枚（本物の投影レンズは 20〜30枚）。1回で 4割に寄るのはゲームの値。1950年は目安の年。",
    "game_text": "[7-19]投影レンズの組立台",
    "id": "8-14",
    "name": "鏡筒の精密組立",
@@ -18130,7 +18692,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVR4nGNgoBAwYhPMKyj7rxFRgCJ2Y8UEhkkTujDUs+Ay+duxdUS5gAWboIaaKlFiOA24ces2g5ycHIrYo0ePsBrAxEAhYKLUABZsgqNhwDDSwoCBUgAABEoc7dtfPFIAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -18576,7 +19138,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "「1メートル」の見本になる白金の棒。ブロックを2つ右クリックすると、間の長さが分かる。",
+    "note2": "白金インゴット×3＋セオドライト（戻る）。ブロックを右クリックで1つ目の印、別のブロックを右クリックで長さ（m）と、昔の単位（尺・トワーズ）。マイクラでは1ブロック＝1m。",
+    "note3": "フランス革命のあと、国ごと・町ごとにばらばらだった長さの単位をやめ、「北極から赤道までの子午線の1000万分の1」を1メートルと決めた。ドランブルとメシャンが1792〜98年にダンケルクからバルセロナまでを三角測量し、1799年、その長さの白金の棒が国立公文書館に納められた。",
+    "note4": "原器は、両はしの面の間が1mの「端度器」。さびず形が変わりにくい白金が選ばれた。1889年に白金イリジウムの国際原器（目盛りの線の間が1m）に代わり、1893年マイケルソンはこれを光の波長で測った（カドミウムの赤い光の約155万波長）。1960年に光の波長、1983年に光の速さでメートルが決め直された。日本の尺は1891年に「1メートルの33分の10」と決めた。"
+   },
    "refs": [
     {
      "title": "O32. 1メートルは地球から決めた（メートル原器）［8-22］",
@@ -18591,10 +19158,12 @@
      "basis": "- Wikipedia「Mètre des Archives」：https://en.wikipedia.org/wiki/M%C3%A8tre_des_Archives"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "metre_bar",
+   "recipes": [
+    "作業台：セオドライト（測量器） ＋ 白金のインゴット×3 → メートル原器（白金）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：子午線の測量の手間は、セオドライトをレシピに入れるだけ。長さはブロックの中心の間で測る。",
    "game_text": "実装（IMP2 O-007）：metre_bar（白金インゴット×3＋セオドライト（戻る）、item/MetreBarItem）。ブロックを右クリックで印 → 別のブロックで長さを m（小数3桁）と尺・トワーズで（1ブロック＝1m）。のちの [8-06] 光波干渉測長は、この棒を光の波長で測る（マイケルソンとブノワ 1893：1m＝カドミウム赤線の約155万波長）。⚠️ 子午線の測量の手間はセオドライトをレシピに入れるだけ（省略）。キログラム原器は [8-23]",
    "id": "8-22",
    "name": "メートル原器",
@@ -18631,7 +19200,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAASUlEQVR4nGNgIBO8fv3hP4hmJFfzwsXLwGwmcjTfvf8IzC4pymIkWfOJU5f+9/RNAzt/VDMB8Ho0wEgDlAQYC4iAZQyS0zY1AABhjICo5fLkBgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "📏",
    "people": [],
@@ -20208,7 +20777,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "フッ酸の入った鉛の槽。シリコンの板のガラスの膜（酸化膜）だけを溶かす。",
+    "note2": "酸1で1回（空の瓶は上に戻る）。フッ酸：現像ずみの加工中のウェハー1〜8枚 → レジストのない所だけ酸化膜が溶けて「窓」が開く。酸化膜つきの板8 → 膜を全部はがす。時間は膜の厚さで決まる（125nm で約6秒）。リン酸：Al を付けて現像したウェハー1〜8枚 → レジストの残っている所だけ Al が残り、配線になる（10秒）。室温で、電気も燃料もいらない。",
+    "note3": "SiO2 + 6HF → H2SiF6 + 2H2O。フッ酸は酸化膜をよく溶かすが、シリコンそのものはほとんど溶かさない（選択性）。膜が溶けきると表面が水をはじくようになるので、終わりが目で分かる。",
+    "note4": "1957年、ラスロップとナル（米陸軍の研究所）は、レジストで守った所を残して酸化膜に穴を開けた。のちの工場では、フッ化アンモニウムで薄めた緩衝フッ酸（BHF）を使い、溶ける速さを一定にした。⚠️ 1955年からのベル研の窓開けにフッ酸を使ったかは未確認。"
+   },
    "refs": [
     {
      "title": "F3. ガラスを溶かす酸（フッ酸）［2-10］（［9-06］酸化膜エッチングの前提）",
@@ -20235,10 +20809,14 @@
      "basis": "コンピュータ歴史博物館「1955: Photolithography Techniques Are Used to Make Silicon Devices」https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/ 、Jaeger『Introduction to Microelectronic Fabrication』の湿式エッチングの章（英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "etch_tank",
+   "recipes": [
+    "作業台：鉛インゴット×7 → エッチング槽"
+   ],
+   "machine_recipes": [
+    "エッチング槽「酸化膜をはがす」：酸化膜つきの板×8（時間は膜の厚さ（1秒に20nm）） ＋ フッ酸 → シリコンの板×8（純度とドーパントを受け継ぐ） ＋ 空の鉛の瓶（6.25 秒）。SiO2 + 6HF → H2SiF6 + 2H2O。シリコンは溶けない。室温・電気なし（125nm の膜の時間）"
+   ],
+   "placeholder": "省略：⚠️ 溶ける速さ（1秒に20nm）はゲームの値（本物の薄めたフッ酸は1分に数十〜100nm 程度）。横にも溶ける（アンダーカット）ことは表さない。槽はポリエチレンではなく鉛。",
    "game_text": "第3章のウェハー状態機械の1工程（酸化→レジスト→露光→現像→エッチング）",
    "id": "9-06",
    "name": "酸化膜エッチング",
@@ -20270,7 +20848,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDElEQVR4nKVTzW7UMBgc/zvZJNuiFg7wEHDgjMSJO2/B89C36PNwoBJcKiQkRLP5ceLEsZG/rXbpFSLFSuzvG49nxuzd+w8J//HIPLx+8xYpJczzDKUUxnEAUgJjHDFFWGuxrgFCCPoexxExbvj+7e4I0LYP2O8vACQCkoKmYaxFCCuEUOBcEMC6rkgxnhhwGhiH9552DCEgbAGM0xKEkGAMkFJmUpgmh3K3g9b6DFA3e6JujEFKEVXVUMG6LgQwzxPtnGkXRQHOOeIjC5mHvj9Aa0Mgrz5+gt01CIvHMjtIpeHdAGVLKG1wf/sZzo1UfwJAAryf6Yyu/Q1b1vBjj8VPcI87V5dXmIaONMp6ZEYnAMYZ4nakFLeNGm29p3fqWxJxC4GckUpBSImhO5w1EFygqmowxlBfPYcylmgtbsAyOZhdDWULeDcirCs1V3VzZqC0JlG2bcPw8Au8a8mZ/YuXkNoSw7k/oHp2jY4x0sWN4xnAuRFKaSyLR3V5DVPsyI2wzOBS4vDzB2zdEP2swbaFp0nU2pBt1ha4v70BF8fQZEBjLP0PMZJwR2sFiqI8a1AUBS04N5BAOSzrslCoxqGn5OW57H/ORVlWT13IKaQEhkAu1HVDxcxzotv3HcU7pzHPZ8uz4CcG1BgjUTO2IDGdc1SQtcnHKKsK3aGliGdQbf4K0t3XL/98nf8AVkYY5sd6SoAAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -20387,7 +20965,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "とてもきれいなシリコンを溶かし、綿あめのように1つの大きな結晶をゆっくり引き上げる。",
+    "note2": "電気 150kW（黒鉛ヒーター）。種：種のスロットに多結晶シリコン＋石英るつぼ＋アルゴン1 → シリコン種結晶（60秒）。単結晶：種結晶（減らない）＋多結晶シリコン2＋石英るつぼ＋アルゴン2（＋B2O3 で p型、リンで n型、入れなければ真性）→ シリコン単結晶（835秒＝17.4kWh/kg）。るつぼは毎回使い捨て。隣のガスホルダーからアルゴンを吸う。本物は B や P を多く含むシリコンの小片（母合金）で入れる。",
+    "note3": "シリコンは 1414℃で溶け、黒鉛と反応して SiC になるので、るつぼは石英。石英が少しずつ融液に溶けるので、CZ の結晶には酸素が入る（1cm³ に約10¹⁸個）。アルゴンは空気を入れず、出てくる SiO を運び去る。ホウ素は結晶にほぼ均一に入るが（偏析係数 約0.8）、リンは融液に残りやすく（約0.35）、n型のインゴットは下ほど濃くなる。",
+    "note4": "方法は1916年、ポーランドのチョクラルスキーが金属の結晶化の速さを測っていて見つけた。いまのインゴットは直径300mm・長さ約2m・数百kg。1959年ダッシュが、最初に細い「首」を引くと転位（結晶のずれ）が抜けることを示した ⚠️。世界のシリコンウェハーの大半はこの方法。"
+   },
    "refs": [
     {
      "title": "4. 1つの大きな結晶にする（CZ 法・単結晶の引き上げ）［9-07］［9-08］",
@@ -20402,10 +20985,15 @@
      "basis": "IEEE Milestone「Czochralski Process, 1916」、コンピュータ歴史博物館「1951 成長接合トランジスタ」、全米工学アカデミーのティール追悼文、チョクラルスキーの伝記サイト https://janczochralski.com/en/method/ ・Wikipedia「Czochralski method」https://en.wikipedia.org/wiki/Czochralski_method（すべて英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "cz_puller",
+   "recipes": [
+    "作業台：鋼インゴット×4 ＋ 送りねじ ＋ 黒鉛棒×2 ＋ 単結晶引き上げ機 ＋ 電動モーター → CZ 引き上げ機（シリコン）"
+   ],
+   "machine_recipes": [
+    "CZ 引き上げ機（シリコン）「種結晶」：多結晶シリコン（種のスロットに） ＋ 石英るつぼ ＋ 袋詰めアルゴン 1 mol → シリコン種結晶（150 kW × 60 秒＝9,000 kJ）。細く絞って引くと1つの粒だけが残る",
+    "CZ 引き上げ機（シリコン）「単結晶」：シリコン種結晶（減らない） ＋ 多結晶シリコン×2 ＋ 石英るつぼ ＋ 袋詰めアルゴン 2 mol ＋ 三酸化二ホウ素（白リンも可、入れなくてもよい（真性）） → シリコン単結晶（B2O3 で p型・リンで n型、純度は多結晶シリコンと同じ）（150 kW × 835.2 秒＝125,280 kJ）。約1420℃の融液から回しながら引き上げる。17.4kWh/kg"
+   ],
+   "placeholder": "⚠️ 近似：引き上げは本物（1分に約1mm）の約8倍速い（電力量は 17.4kWh/kg で本物どおり）。アルゴンの量は記号的（本物は 1kg に数十 mol）。ドーパントは B2O3・リンを直接入れる（本物は B や P を濃く入れたシリコンの小片＝母合金を入れる ⚠️）。直径の制御と酸素の量は省略。",
    "game_text": "CZ 引き上げ機（ROADMAP v0.2b #6）。直径とドーパントがパラメータ",
    "id": "9-08",
    "name": "CZ 法",
@@ -20465,7 +21053,7 @@
     "I-06",
     "I-52"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACM0lEQVR4nKWTzYrUQBDH/93p7qSTzEd2xlkXXEVY8SUEwScRvOzNh/FNPAiCICw+gCev4mldd4bdyUcnnaQ7khqZ4FVzaBJS9atfV1ez128uB/zHI8blxctXCAIOKRWMqWAqg0hrcMYglURZlNCxRl3XCIIAnHEslhk+fnh/ALTWwnmH+XyBvuspWOsYjHFUZQHGGJIkhXMeWmvUxqCuzWSQpClB2rZFGEUYhgHGGIRhiMY2yLIT+lebihKVVHBNTQA+LkWRk7KpKnRdRwBgoMqnp2ewtkGR58hOVmBgAGOIIj0ZYACqqoKOYzz/9m78xKMsIsC+7pDXPeZaYLYTuDq/RFWV4DyeDBbL5Qilylki6X1MvsktYhXgyUojCQV+7AzFpOkM93d3E6BtW1hrRwIlrRIFzg4Wu7LF961B2fQ4W0ZwzlH8erP5uwer1Rq966EER2l7+nlbtMhiiYtNAtM6shoNOOd0nEfAbDbHbrtFqELMIoGi6SEDTkmjkfMDJf7cNzQvSincXF9PTfTeYf1gQ3rrVMF2Hm3vKfHxKiZIlij0ziMIBBlIpSaAUiGsrekIvzx9i236iwYnfpbi6801FudLmpM4SYGupR4Mg58AXdfBNg0iHSHP9/DeU1+ElFSN9iwE9vd3ZMk4o20fAWVZ0HRxHoBzj9l8cVAcBrIbmzee/WbzkO6K/AM+NpHuQN+hKktIedjjWE0IQTNB456k2O1uaSqFkBR7NLj6/Omfr/Nvvwcawf1M5eQAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [
@@ -20487,7 +21075,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "るつぼを使わずに、シリコンの棒の一部だけを溶かして単結晶にする炉。溶けた所は宙にうかんでいる。",
+    "note2": "電気 20kW（誘導加熱）。多結晶シリコン2＋シリコン種結晶（減らない）＋アルゴン2（隣のガスホルダーから補充）＋ドーパント（なくてもよい）→ シリコン単結晶1（300秒）。CZ と違って石英るつぼを使わない（減らない）。できた結晶は酸素が約0.05 ppma と少ない。",
+    "note3": "縦にした棒をコイルで部分的に溶かすと、溶けた帯は表面張力で落ちずに棒のあいだに保たれる。帯を動かしていくと、通ったあとが単結晶になる。何も触れないので、るつぼから溶けこむ酸素や汚れがない。",
+    "note4": "1952年、ベル研のテウラーが帯域精製を縦にした方法を考え（特許は1952年12月出願・1962年成立）、1953年に米陸軍のキックとゴレイ、1953〜54年にシーメンスのエマイスも別々に作った。酸素の少ない高い抵抗のシリコンは、電力用の素子や放射線の検出器に使われる。 ⚠️ シーメンス法（1956〜）より FZ のほうが古いのは、最初は四塩化ケイ素を亜鉛で還元したシリコン（デュポン）を使ったため。ゲームではシーメンス法の多結晶を使う。"
+   },
    "refs": [
     {
      "title": "5. るつぼを使わない（FZ 法・浮遊帯域溶融）［9-09］",
@@ -20514,10 +21107,12 @@
      "basis": "Wikipedia「Float-zone silicon」https://en.wikipedia.org/wiki/Float-zone_silicon 、コンピュータ歴史博物館「1951: Development of Zone Refining」https://www.computerhistory.org/siliconengine/development-of-zone-refining/ （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "fz_puller",
+   "recipes": [
+    "作業台：鋼インゴット×4 ＋ 石英管 ＋ 誘導コイル×2 ＋ 高周波発振器 ＋ 送りねじ → FZ 炉（浮遊帯域溶融）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：⚠️ 電力・時間はゲームの値。本物の FZ は太い結晶を作るのが難しい（大きなウェハーは CZ が主）ことは表さない。",
    "game_text": "帯域精製炉の縦型上位",
    "id": "9-09",
    "name": "FZ 法",
@@ -20565,7 +21160,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACJklEQVR4nKVTuY7UQBSsvtweHzP2wiIQEt+AhAhIIUJEfA8JOX9FQAJIiHQDEiSWhd3xzPho92GjfgNjYrBly21V16t69Zo9f/Fyxn9cMr4ePX4C7z2MGZDnBawdaR18QFGWx+8QkOU5ds0WnHMUxRof3787EvwBKJVASolpmuhRK4Wh78GFgFIKdhxRlmvCxiInBX3XHvUwRgRCSGjNIISAMQZhChCCU2UpFaJn59xCsK5qMACcC2KWUqBtB8zzhCTRsKNBkqTY7xsid3aE1ulCwOLNGLrugDcP38J3Hu0YUGgBFyasMglIjraxeP3lGeGVoq3gZKFvyQZnHN8ue8g6wWYl0I0Bq1Jhu7MENm4i6TpNsb25XgiC95BK0Y97DwpEk6zS2JxpXF4ZVJlEczPidpVAySMuL8qFoCjXGIYezjt8/9rBNSPMTwNwhrt3VmCCobql8aMZKZGYUKL10gNrLXU4xhOrq0xCmoC5c7B+xugnWp/fz6FvUrLb/U6OkzczUDxZlpNcpJIs2DBDJxzr8xSjm9BeGXCKWiFRyaIgzwuKa7u9xquLp5gvZorLe4cpTKjqGj4EHPY7cNYgywu0ZlgIvHdo2wPSNCUbkTBeu2bApqrhnCdMTCkmEBXHUT5ZiKMc5yDLCrJxOOwxzzMl03UdOGfH/rAjNmLk33MQ5VfVGTHHjXHK9lEuF1S57zsa5c2mRgieGh7PxcnC508f/vk4/wI4zxoMCYvXWQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -20721,7 +21316,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ふちにダイヤモンドを付けた鋼の円盤を回して、シリコンの結晶を薄い板に切る。",
+    "note2": "電気 1kW（モーター）。シリコン単結晶1 → シリコンの板8（60秒）。純度とドーパントは板に受け継ぐ。ダイヤモンドの刃1枚でインゴット4本。",
+    "note3": "シリコンは固くてもろいので、一番固いダイヤモンドでけずって切る。刃の幅の分は粉になって消える（切りしろ）ので、インゴットのかなりの部分がなくなる。",
+    "note4": "1954年、ベル研は結晶から細長い板を切り出して、最初の実用的な太陽電池を作った。のちに内周刃（1970年代）、一度に数百枚切るワイヤーソー（1980年ごろ試作、広まったのは1990年代〜2000年代初め ⚠️）が生まれた。これらには精密なステージが要る。"
+   },
    "refs": [
     {
      "title": "7. 薄い板に切る（ウェハー切断）［9-12］",
@@ -20736,10 +21336,14 @@
      "basis": "PV-Manufacturing.org「Wafering」（英語）、ETHW「IEEE マイルストーン：最初の実用太陽電池 1954」（英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "wafer_saw",
+   "recipes": [
+    "作業台：鋼インゴット×6 ＋ 送りねじ ＋ 電動モーター ＋ 銅ケーブル → ウェハー切断機"
+   ],
+   "machine_recipes": [
+    "ウェハー切断機「板に切る」：シリコン単結晶 ＋ ダイヤモンドの刃 4回で1個 → シリコンの板×8（純度とドーパントを受け継ぐ）（1 kW × 60 秒＝60 kJ）。ダイヤモンドの円盤刃（1954 の作り方）"
+   ],
+   "placeholder": "省略：⚠️ 電力（1kW）・時間（60秒）・1本8枚・刃の寿命はゲームの値（出典なし）。板の厚さと粉は表示しない。",
    "game_text": "ワイヤーソー（ROADMAP v0.2b #7）。切りしろでインゴットの一部が粉になる",
    "id": "9-12",
    "name": "ウェハー切断",
@@ -20781,7 +21385,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACEklEQVR4nKWTy47UMBBFb95OppNO093zKQiJFQv4ABZs+EmExAcgoZFYjBASa2A7MMN0bMd5+YGqmukWW7Dyku3cOreqHL189TrgP0ZKj8dPniJJEmRZBq0Uf/emR57lyIsCzlk452GXBYUQqKoLSHnA50/XRwH6cZ5neO+RZhnyvICoKhitOUocJzw3ICBNU8zzxGK8BgDOOQzGIHiPaRr5RgiI4pjXrLVIEo4FY3oURcEkJwvTNOLRdscTPgSmWJYFpu/RbjZMplTHb8In0bKszgJJksJ7h8P9PV48f4a2bTEMA8qqguw61E2D4APGccDVx2v+Xpb5bCGOYxhj0KzXvInwRFni+7evGMcROedowu3tT/be95oTfSLQWiHLcizzjKIQ6A4HSCmxWtUs2nUdQgjY7faQ3TUQRXSdCdbrDZI4BqJjRaTssN/vYe3CidVaoyxL9l6IkoXHYTgTOGf/ZNhACMF4SilOGg0iI4rtdsd56bVC027OAiF4bpg4SSBEiV93d7DO8YYfNzfYX15ynxARlZdyRmQnAWst+r5Hnud48/YdtJIsRs1DjWPtF6ai0pIVKiEl+yRQVRdY1Q2ctYxNEaIoYq9EN00Te6aeoDwQDe05CVDNH7xTpzXrliujZAc6aTQfspT3URCiexgsQz/TIO8UmSiO52NiZKKg8tZ1zW1MJf3LwtWH9/98nH8DfNUwg5RZEw4AAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -20795,7 +21399,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ウェハーを回る台に押し当てて、鏡のようにみがく機械。作った回路を全部けずって、最初からやり直せる。",
+    "note2": "電気 1kW。加工中のウェハー1〜8枚＋砥粒1（アルミナかベンガラ）＋コロイダルシリカ1（空のガラス瓶は上に戻る）→ 層を全部けずったウェハー（60秒）。やり直しは1枚につき2回まで（再生ウェハー）。",
+    "note3": "まず固い砥粒でけずって平らにし（ラッピング）、傷の層を取ってから、コロイダルシリカでみがく。シリカの粒は柔らかく、アルカリの液がシリコンの表面を少しだけ溶かすので、化学と機械の両方で傷のない鏡の面になる。",
+    "note4": "1963年、モンサントのウォルシュとハーゾグがコロイダルシリカでシリコンを鏡面にみがく方法を特許に出した（US 3,170,273）。これが、何層も重ねる今のチップを平らにする CMP [9-31] の祖先。"
+   },
    "refs": [
     {
      "title": "F10. 鏡のようにみがく（ラッピング・コロイダルシリカ研磨）［9-13］",
@@ -20810,10 +21419,12 @@
      "basis": "Google Patents「US3170273A」https://patents.google.com/patent/US3170273A/en 、Jaeger『Introduction to Microelectronic Fabrication』のウェハー作りの章（英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "wafer_polisher",
+   "recipes": [
+    "作業台：鋼インゴット×6 ＋ 送りねじ ＋ 電動モーター ＋ 銅ケーブル → 研磨機"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：⚠️ 電力・時間はゲームの値。ウェハーの平らさ（平坦度）はまだ表さない。ラッピングと鏡面研磨を1回にまとめた。",
    "game_text": "研磨機（ROADMAP v0.2b #7）。ウェハーの平坦度",
    "id": "9-13",
    "name": "ラッピング・鏡面研磨",
@@ -20855,7 +21466,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACI0lEQVR4nKVT0W7TMBQ9sR03iZMmbaeOwgTiE0C8Iu0bkHjhI/cyHnhCAiHBb8A2JNZ13dIkTeIkRveuavcMlhw7zvW595xz4717/8HhP4aix6vXb5AkKfL8DtZaTCYzVFUJKSWvcA5hZNB1Fm3bIk0z+L6Pr18+QxCAMQn6voPva3ieh2HoEccxlFKIIgOpFJ8nyRjGGAghYW13qKAsNhBS8kcKBDxUVcV7yhoEIe9XqxsGqcoCnhAHAKkU9GiE9foWSvno+x5CCK7AOQdrWwal0VnL8XS+BwAcqrKEkgpvT09xvFjg99UljImxulliFIR4dnKCsizx8ewM/dBz7B7AI3TnEKcpJ6L3o6M5ri4v8PzFSxbMdhYhURECWim0bXMAGJyDrzU2eY4sm6BpG1xf/0GaZbj49RNBGOwEBjtDAgMJAwh6EEfiHYYhTBxjk99zhiAIEEUROzGfH3OtWmteb29XB4AsmzAF8ti2lieJREI+WTzlrMvlNTtRFgXW64fLewoOYArElcqfzo6QTSYYBseNRPaN9IiBgjBE09TcC3uAervFMAyswafzc/Rdx4DkTDIec3dSdqqQGk5KBfm4D4ZhQL2tME5TztJLyeWbOMHd3Rpaj3YdKDiWtCGwPcCDMECe37P3dKFptnw2nc5Q1/VubqF9jaauERlzEJEEI2Qa5EZR5NyRVHpRFKwDXSAayvfR9R087xGFH9+//fPv/BfHyf2cj3mlCgAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -20989,7 +21600,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "シリコンの板を酸素か水蒸気の中で焼いて、表面にうすいガラス（SiO2）の膜を作る炉。",
+    "note2": "電気 5kW。シリコンの板8（酸化膜つきの板も可）＋酸素1袋（ドライ）か水バケツ1（ウェット、空のバケツが戻る）→ 酸化膜つきの板8（120秒＝本物の1100℃・1時間ぶん）。膜の厚さは Deal–Grove の式：ドライ約125nm、ウェット約660nm。加工中のウェハー（窓が開いている）1〜8枚を入れると、窓を閉じ直す（開けまちがいのやり直し）。隣のガスホルダーから酸素をもらう。",
+    "note3": "酸素は、できた膜の中をしみ通ってシリコンにたどり着く。だから膜が厚くなるほど伸びが遅くなる（厚さの2乗が時間に比例）。水蒸気は酸素よりずっと速く膜を通るので、ウェットは厚い膜が早くできる。ドライはゆっくりだが、きめの細かい良い膜になる。",
+    "note4": "1955年、ベル研のフロッシュとデリックは、水素の中でシリコンに拡散をしていたとき、水素に火がついて水蒸気ができ、板が酸化膜でおおわれた（⚠️ きっかけは管のもれだったという回想もある）。調べると、この膜はドーパントを通さない「マスク」になった（1957年発表）。ゲルマニウムの酸化物 GeO2 は水に溶けるのでマスクに使えない。これがシリコンが勝った理由の1つ。"
+   },
    "refs": [
     {
      "title": "8. シリコンが勝った理由（熱酸化・酸化膜マスク）［9-15］［9-16］",
@@ -21004,10 +21620,15 @@
      "basis": "コンピュータ歴史博物館「1955: Development of Oxide Masking」https://www.computerhistory.org/siliconengine/development-of-oxide-masking/ 、ECS Interface 2007 秋号 https://www.electrochem.org/dl/interface/fal/fal07/fall07_p36-41.pdf 、Howard Huff「Transistors to integrated circuits」https://www.chiphistory.org/exhibits/ex_howard_huff_transitors_integrated_circuits/howard_huff_section2.pdf 、Mason Clark「Silicon Burns」https://smecc.org/silicon_burns_-_by_mason_clark.htm 、Deal & Grove, J. Appl. Phys. 36, 3770 (1965)、Pliskin & Conrad, IBM J. Res. Dev. 8, 43 (1964)（すべて英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "oxidation_furnace",
+   "recipes": [
+    "作業台：石英管×3 ＋ 耐火れんが（珪石れんが）×4 ＋ 電気炉 ＋ 銅ケーブル → 酸化炉"
+   ],
+   "machine_recipes": [
+    "酸化炉「ドライ酸化」：シリコンの板×8（酸化膜つきの板も可、酸化膜つきなら続きから） ＋ 酸素ガス（袋詰め） 1 mol → 酸化膜つきの板×8（膜 約125nm（1100℃・1時間））（5 kW × 120 秒＝600 kJ）。Si + O2 → SiO2。Deal–Grove の式",
+    "酸化炉「ウェット酸化」：シリコンの板×8（酸化膜つきの板も可、酸化膜つきなら続きから） ＋ 水入りバケツ → 酸化膜つきの板×8（膜 約660nm（1100℃・1時間）） ＋ バケツ（5 kW × 120 秒＝600 kJ）。Si + 2H2O → SiO2 + 2H2。水蒸気は膜を速く通る"
+   ],
+   "placeholder": "省略：⚠️ 電力（5kW）・時間（120秒＝本物の1時間）はゲームの値。温度は 1100℃ に固定（本物は 900〜1200℃ を選ぶ）。膜の厚さは <111> シリコンの値で、板の向き・ドーパントの濃さ・塩素を混ぜる方法の違いは表さない。",
    "game_text": "酸化炉（ROADMAP v0.2b #8）。膜厚は時間と温度で",
    "id": "9-15",
    "name": "熱酸化",
@@ -21057,7 +21678,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDklEQVR4nKVTvc7UMBCcOLHzf5e7T/ACvAA1BaL5XgCJipeloACEaHgEJET13eWS2E4c22j3jotowUUsxzuzs7Pr5O279xH/sTL6vH7ziHG8YJkXhOCRCIGqrIAkwWwNVF4AiCiKEuM4MFCpHF8+fbwS9P0J+/0Ba+GwLDOESCGEQJplcMuCebZIRYrenjlBJiWsNUwk6NO2exijESMlFQymoNUtyLIMXXdERIRUEofjA6RU/O9OMM+W5RHAGs0ERk8IIULlOd8TaLYWWmtWofW4eZAkCR8oy/cPPyDET8gsh8wU34UYMc8TpCzw8rHDNI1o292mwBjN5pAxRV4z1eIs0lRC2wExBDZUmwumcUDTtPDebwRNs0PdNBiGC8w8QckSTXVACAF12cGHFbmqUBYNA8+nJyilNoIYA8bhwgAqJsYIH9zVCzugzGsYOzJR0+6uBq9+88B7z50gkjJvWHqWSZz6X+QQVu+4NCK2xqCqapzPT38rGIYLO05SyeVRn9lIkkT74gxyWcCtDs45dIfjpiBGMIjYX7zaw681RCq4bTRMpIazCcFxtOP2AMSfC+oALQq4rySBlBLOLbwXZcnl0plm405AQ0KDQ0E0xmQUZajrhgcszwuuf+h7+HXlhFT2vQRrNR6ePUe49TbEwA9KTyMD0zRFWdXYdweewNWtqGqalxvBt6+f//k5/waNRBslfT+vygAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21071,7 +21692,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "シリコンの板を焼いて、表面にホウ素やリンを少しだけしみ込ませる炉。",
+    "note2": "電気 5kW。シリコンの板8（n型 か p型）＋反対の型のドーパント源1 → p-n 接合の板8（120秒）。n型の板には B2O3（ホウ素で表面が薄い p型、1954年の電池と同じ）、p型の板にはリン。ドーパントなし・同じ型の板では接合ができないので動かない。（本物の 1954年の土台はヒ素の n型。ゲームは同じ V族のリン）",
+    "note3": "高温では、ドーパントの原子が表面から固体の中へ少しずつ歩いていく（拡散、フィックの法則）。表面に反対の型の薄い層ができ、土台との境目が p-n 接合になる。太陽電池とトランジスタの心臓部。",
+    "note4": "1954年、フラーはヒ素で n型にしたシリコンにホウ素を拡散して、最初の実用的な太陽電池を作った。それより前のリチウムで作った電池は、リチウムが室温でも動いてしまい不安定だった。1955年からは酸化膜のマスクで、決めた窓だけにドーパントを入れられるようになった。"
+   },
    "refs": [
     {
      "title": "8. シリコンが勝った理由（熱酸化・酸化膜マスク）［9-15］［9-16］",
@@ -21098,10 +21724,14 @@
      "basis": "ETHW「IEEE マイルストーン：最初の実用太陽電池 1954」、PVEducation「Early Silicon Cells」、コンピュータ歴史博物館「1954 拡散法の開発」https://www.computerhistory.org/siliconengine/diffusion-process-developed-for-transistors/（すべて英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "diffusion_furnace",
+   "recipes": [
+    "作業台：耐火れんが（珪石れんが）×6 ＋ 石英管 ＋ 電気炉 ＋ 銅ケーブル → 拡散炉"
+   ],
+   "machine_recipes": [
+    "拡散炉「p-n 接合」：シリコンの板×8（n型 か p型） ＋ 三酸化二ホウ素（白リンも可、板と反対の型） → p-n 接合の板×8（5 kW × 120 秒＝600 kJ）。ドーパントが表面からしみ込む（1954：n型＋ホウ素）"
+   ],
+   "placeholder": "省略：⚠️ 温度（約1000℃）・電力（5kW）・時間（120秒、本物は何時間も）は出典で未確認のゲームの値。1954年の土台はヒ素の n型だが、ヒ素はまだないので同じ V族のリンを使う。運び役のガスは省略。",
    "game_text": "拡散炉（ROADMAP v0.2b #8）",
    "id": "9-16",
    "name": "熱拡散",
@@ -21151,7 +21781,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCElEQVR4nKWTzYoUMRSFvySVSlVXdzMKiqK4cCfM2lcQX3MexUdwIbgSQRQclZme6apUKj9y03T3rDWLkITk3HPOPVHv314W/mM0Mr159RytFTkXjNb0zrIbPVqpum9tgwJiyqScyeVQ89PX72hZHB8OnUMpuJ9mNn1H71oao9lPnlIflbqXOwJ0YrDu5aFiN044ayuYDKk6zoG+bZnCUkFSLmyHjpQOAFqmvQ8YrbgYVuScaRvDElMFXHeOJSX61tIYw8W6Z5oDPixnBpuV43bvcdbwbv7MPBaMgsfO0CyKax/RXvGkN1yNrxENm1V3BhjnUHX5ECvtF0ODKJ5i5sYnWq3oG00usHItWmtu7qczQFgi677DNoZHk2EXDvrGmHm2agi5sJszPmXiNqNyZujaswdGWtUY/tztuQ2JtdU4oyrA9ZRwWiG+Pu0P7ZT7Rw90BTC6utwaw8ZqfvlIaxQvB1t1/xhjlfHbJ2KWLJTa8hOANYZ5iVW3XBKtdyHzc4rcLRmjFDEXfCrVg8IhNycPlpjYrnruJ8+H7SUxpcpo2LYVzA2mpmLpE7ZAZy2pPMiBUooQI842tSMSWem/RFjORx9qiGQtMRYZRwYHCY2p5ggTa3TtcYjp1CoZwkgK1AiXwvwwSBLLOcZ6IH6IBKkoqTu6Laz2fkYrXQtKYk8AH798++fv/BfqfRwNinAuqQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21165,7 +21795,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "p-n 接合の板の表面に、小さなアルミの点をならべて付けたもの。",
+    "note2": "真空蒸着装置 [5-14] で p-n 接合の板（p の板に n の表面）＋アルミ1 → 1〜8枚。n の板に p の表面の板は断られる（アルミも p 型なので接合ができない）。かまどで焼くと合金になる。",
+    "note3": "穴をあけた金属の板（メタルマスク）を重ねて蒸着すると、穴の形の点だけが付く。写真の技術（レジスト）を使わない、いちばん古い付け方。",
+    "note4": "アルミはシリコンの中では p 型のドーパントになる。n の表面に溶けこむと、その下に薄い p の層（エミッタ）ができる。"
+   },
    "refs": [
     {
      "title": "F17. 台地の形のトランジスタ（メサトランジスタ）［9-17］",
@@ -21180,7 +21815,7 @@
      "basis": "コンピュータ歴史博物館「1959: Invention of the \"Planar\" Manufacturing Process」https://www.computerhistory.org/siliconengine/invention-of-the-planar-manufacturing-process/ 、同「1958: Silicon Mesa Transistors Enter Commercial Production」https://www.computerhistory.org/siliconengine/silicon-mesa-transistors-enter-commercial-production/ （英語）"
     }
    ],
-   "item": null,
+   "item": "al_dotted_wafer",
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
@@ -21225,7 +21860,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQElEQVR4nO1QvUoDQRic29vd7CWRgC8gNmJhYW1jp42tr2AtVgEFEQQlhQh2PodgI4hoY2Nl4w9qQAIiGO6Su9vb+4nkC7ca8gqZZr+db2eYHWAKp6xgZXV9UFEKiY7BmAvGGJRXQxT2UK3VEYV9OI4DWVHIUoObqwvS8tKgPtPA4tIyzc3tLTqPT89txf+5h/tby/NyyLIUfvcHxmi77AU+dBxSohLfXx1KMfGFtY3Nwdz8ArSOUOQ50iyFEJJ2dE8NXJfDq9bw+vSIu+tL0rK/BBmiqD9yd0a+RZHD5Rx5kRPHhUDYD6C8qk3AymFYXhyHVJSOI+KGZlJISqCUB5NoEg/fTnQgpESjMYvA7+Ls5Ii4neY+wjRARXloHe4Rt3vQGuuAWwMh8fH2DGMSu+x8tjEoirHI7fcXSjQFLH4BnTZ+SzqgfJwAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21252,6 +21887,18 @@
      },
      "certainty": "ヘルニ・ノイスの特許 1959 ◎、最初のプレーナ IC 1960年5月（溝とエポキシで分離）・マイクロロジックのフリップフロップ 1961年3月・ゲート 1962 ◎（コンピュータ歴史博物館）／接合分離に変えた・レホヴェックの特許（1959年出願）◎／「拡散3回＋アルミ1層」○／最初の製品がエピタキシーを使っていたか・配線の交差の工夫 △",
      "basis": "コンピュータ歴史博物館「1959: Practical Monolithic Integrated Circuit Concept Patented」https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/ 、「1960: First Planar Integrated Circuit is Fabricated」https://www.computerhistory.org/siliconengine/first-planar-integrated-circuit-is-fabricated/ 、「1959: Invention of the 'Planar' Manufacturing Process」https://www.computerhistory.org/siliconengine/invention-of-the-planar-manufacturing-process/"
+    },
+    {
+     "title": "L4. 最初の IC は2つある（キルビーのゲルマニウムとノイスのプレーナ）［9-18］［9-22］（O-010、検査台の発見 monolithic_ic）",
+     "answer": "IC（集積回路）＝1つの板の中に、トランジスタ・抵抗・コンデンサをまとめて作り、つないだもの。最初のものは2つの形がある。",
+     "hee": {
+      "1": "キルビーの IC は金の線が空中にはみ出していて、写真では「髪の毛が生えた小さなかけら」に見える。",
+      "2": "特許はキルビー（TI）とノイス（フェアチャイルド）で争いになり、最後は両社がたがいに使えるように取り決めた（1966年）。",
+      "3": "たくさん作れる形になったのはノイスの方（平らなので、写真の方法で配線まで一度に作れる）。今の IC はすべてこの子孫。",
+      "4": "2000年のノーベル物理学賞はキルビーが受けた。ノイスは1990年に亡くなっていて、ノーベル賞は亡くなった人には贈られない。"
+     },
+     "certainty": "キルビー 1958.9.12・Ge・金線 ◎／ノイスの 1959 年のノートと特許（US 2,981,877、1961年に認められた）◎／ルホヴェックの接合分離 1959 ◎／フェアチャイルドの最初の動くプレーナ IC が 1960 年 ○／両社の取り決めが 1966 年 ○",
+     "basis": "Computer History Museum「1958 – All semiconductor \"Solid Circuit\" is demonstrated」「1959 – Practical monolithic integrated circuit concept patented」、J. S. Kilby, \"Invention of the integrated circuit\", IEEE Trans. Electron Devices 23 (1976) 648、Nobel Prize in Physics 2000（nobelprize.org）"
     }
    ],
    "item": null,
@@ -21263,7 +21910,7 @@
    "name": "プレーナ技術",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1959,
    "year_range": null,
@@ -21288,7 +21935,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "「平らなまま作る」というアイデアが IC の始まり",
    "kind": "tech",
    "play": "",
@@ -21315,7 +21962,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ウェハーをくるくる速く回して、レジストをうすく均一に広げる機械。",
+    "note2": "電気 500W。酸化膜つきの板・加工中のウェハー1〜8枚＋ポジ型レジスト1（空の瓶は上に戻る）→ レジストを塗ったウェハー（20秒）。感光したレジストは使えない。塗ったあと温めて溶剤を飛ばす（プリベーク）まで行う。",
+    "note3": "真ん中にたらした液は、毎分数千回転の遠心力で外へ広がり、余った分は飛んでいく。回転が速いほど膜はうすくなる（約1µm）。ピザ生地を回して広げるのと同じ。",
+    "note4": "回転塗布は1960年代に広まった。⚠️ 始まりの年は資料で確かめていない。今の工場でも、ウェハーに液を塗るのはほとんどこの方法。"
+   },
    "refs": [
     {
      "title": "F19. 光で溶けるようになる液とスピンコート（ポジ型レジスト・塗布）［2-32］［9-19］",
@@ -21330,10 +21982,14 @@
      "basis": "Wikipedia「Photoresist」https://en.wikipedia.org/wiki/Photoresist 、Wikipedia「Diazonaphthoquinone」https://en.wikipedia.org/wiki/Diazonaphthoquinone 、Wikipedia「Spin coating」https://en.wikipedia.org/wiki/Spin_coating （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
-   "machine_recipes": [],
-   "placeholder": null,
+   "item": "spin_coater",
+   "recipes": [
+    "作業台：鋼インゴット×6 ＋ ソーダ石灰ガラス ＋ 電動モーター ＋ 銅ケーブル → レジスト塗布機（スピンコーター）"
+   ],
+   "machine_recipes": [
+    "レジスト塗布機（スピンコーター）「レジストを塗る」：酸化膜つきの板×8（酸化膜つきの板か加工中のウェハー 1〜8枚） ＋ ポジ型フォトレジスト（感光していない物） → 加工中のウェハー×8（レジストを塗った（COATED））（0.5 kW × 20 秒＝10 kJ）。毎分数千回転で広げ、温めて溶剤を飛ばす（ChipOps.coat）"
+   ],
+   "placeholder": "省略：⚠️ 電力・時間はゲームの値。膜の厚さ・回転数は表さない。",
    "game_text": "塗布機（ROADMAP v0.3 #4）",
    "id": "9-19",
    "name": "レジスト塗布",
@@ -21378,7 +22034,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACKElEQVR4nKVTyW7VMBQ98ZD3Mr1Bj4KeKrEAxA9Q8R8gsUGs+DD2fACfgUCoYlN1gRgkVLVvimMnsR10b2kKW7ASJ7bvPecOx8nzFy8H/MdQND05eYosyxFjhNIazlqkaQrvPbTWaNuW/7MsgzE1uq6DSBKcnn66BtA6RQgB+/2OUcuyYiPnHJIkgZQCrWuBYaCHyQiMhqCJHKVUzKqUZra2dciyKXzfQwgJnWpIpaCkZCAiHFNYLJbY7TZI0wk79X3HQKY2yPIc0yxDYyKC94hDZIJIodwAhBAwm80hhMDr9Vuc/WjwaJ3DtAGX+x73j6bQSqB2Hm++PUNZzdAYcwsgpbyuwW6HczQop5JBhmHAw3WOpg0oRYKvF47rZerD2AXBKEqz8Xyx5M17ywk7PljncF3kKDaHnvdoUIEp3TEC73s4d926u4sJDo2HFAlaH+HDgHmh0IcBZ98NlJJYrY7QNOY2gq7reGGtRddHbI2H6yOGCByvpliUGhMl8Pi4gDEGdX3AQIc3AM5ZZFmBvu+ZSQrAuIBlpdnoy0+Li33HZ2RbliVrYUyhqmawtkFRFHhnX7HylFLYfd5yrsQ2mUzRnjus7iyx3Vz9LSRrLfK8wHazwdXVJTuRZKm11HNSI73UgRjib9A/ukBopDxSGwawM3WGdEGFpa+pa7aJMYzrMQUKP0kEp0J6oMNqNsN+u0UiEhRFyazkSAUsiorVOQJ8/PD+n6/zLyyyJ2MVS0KjAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21392,7 +22048,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "レジストを塗ったウェハーにマスクを重ねて、水銀ランプの光で模様を焼きつける機械。",
+    "note2": "鋼×4＋複式顕微鏡＋送りねじ×2＋水銀灯の管＋銅ケーブル。電気 500W・10秒。レジストを塗った板＋フォトマスク → 露光した板。ボタンですき間を切りかえ：密着はくっきりだがマスクが板1枚ごとに傷む（耐久10）、近接 20µm はマスクが傷まないが少しぼける、80µm はぼけすぎて焼けない。",
+    "note3": "1955〜57年、ベル研究所のアンドラスとボンド、アメリカ陸軍のラスロップとナルが、写真製版の方法をトランジスタづくりに使った。マスクを板にぴったり押しつけて等倍で焼く「密着露光」から始まった。",
+    "note4": "密着ではマスクと板がこすれて、ごみや傷が増え、マスクを何回か使うと取りかえた。少し浮かす「近接露光」はマスクが長持ちするが、光が回りこんで（回折）ぼける：ぼけ ≒ √(波長×すき間)。この弱点を両方なくしたのが、レンズで写す投影露光（[7-19]）。"
+   },
    "refs": [
     {
      "title": "O23. 波長が短いほど細かく描ける（露光の方法と解像度、アッベの限界）［7-10］［9-20］［9-39］［7-20］［7-16］［9-40］（LITHO_DESIGN §3 の出典）",
@@ -21419,10 +22080,12 @@
      "basis": "- Wikipedia「Photolithography」（History）：https://en.wikipedia.org/wiki/Photolithography"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "mask_aligner",
+   "recipes": [
+    "作業台：鋼インゴット×4 ＋ 複式顕微鏡 ＋ 送りねじ×2 ＋ 水銀灯の管 ＋ 銅ケーブル → マスクアライナー（密着・近接露光）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：位置合わせ（[8-17] アライメント）はまだ無く、自動で合う。ぼけの式は単純化（√(λ×すき間)）。",
    "game_text": "コンタクト露光機（ROADMAP v0.3 #5、マスク耐久が減る）",
    "id": "9-20",
    "name": "密着・近接露光",
@@ -21472,7 +22135,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACFUlEQVR4nKWTTavUMBSG3yRt2ul0ms4dLoI794IIglt/g+DKv+rKhbgTxT8heufe6UeaNF+SM9CrW21pGnKSN895c8Levnuf8B9PkZsXL19BiAL7fYvh8gDV91iWBYwxVHWN1Vrqcy5weTijrncopcTnTx+vAjFGSMnpv2saWqz1DM74tlOOjeOATvVwbsU0DjTOc9N1CikBnHOUZYmiKCBlhYQEaw2klBBC4ObmBO89tNZEsAnEmFCWEutq4X0g3MOhQ1XVNGmeJyIYhguC91DqSHM2D4xZsG9beOPw9cMAzgukFCF4Qf3FjGhqATCJZ68dlmVG07SPBECCnifCr2WLWZ9RlXs4bzHOd2h2PRjjMHaCcw4pps2DIjc5rxACiqJETAHH7im0uUCWNew6QS/3NJ5Fj8cexhgi3AgYY1Cqh55nClymH8gpZoKufUJp+OCwegNrLZZF06YbgVJXxJwCYwIpJciyITGWX8bQ7W+vvgiB3S4ftf7zFCIFffAY55/kyWIHEgMDVreQoT6sWNeVRJpm/0gQYiSkPPj8DajSvHdIKUDKAsYckKKG6k94uD8jBE91sgkUQiCyjMrJyHys2en2cCC6LH463WKaRnT9Ed65vwW4EFRE1liqQiok1dGCXJ20eBxoTgwBMUWi3Dw43/2inQ5KQVYVBV3OlV8NizFQWed7kr/85HuxEXz/9uWfr/Nv9DclVy8dX7YAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21486,7 +22149,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "光が当たったレジストだけを溶かす、うすいアルカリの水。",
+    "note2": "水酸化ナトリウム 約1% の水溶液（ガラス瓶入り、使うと瓶が戻る）。作業台で 水酸化ナトリウム1＋水バケツ1＋空のガラス瓶3 → 3（バケツは戻る）。現像槽 [9-21] で使う。GHS：腐食性（目・皮膚）。",
+    "note3": "光が当たったポジ型レジストは、DNQ が分解して酸になっているので、アルカリと反応して溶ける。光が当たっていない所は溶けずに残る。",
+    "note4": "ナトリウムは酸化膜に入りこむと MOSFET の特性を狂わせるので、のちの工場は金属を含まない TMAH（2.38% の水溶液が標準）に変えた。"
+   },
    "refs": [
     {
      "title": "F20. 写真と同じ手順で模様を出す（現像・ポストベーク）［9-21］",
@@ -21501,10 +22169,12 @@
      "basis": "コンピュータ歴史博物館「1955: Photolithography Techniques Are Used to Make Silicon Devices」https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/ 、Wikipedia「Photolithography」https://en.wikipedia.org/wiki/Photolithography （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "developer",
+   "recipes": [
+    "作業台：水酸化ナトリウム ＋ 水入りバケツ ＋ 空のガラス瓶×3 → 現像液（ポジ型）×3"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：水は水バケツ（本物は純水で作る）。",
    "game_text": "現像槽（ROADMAP v0.3 #4）",
    "id": "9-21",
    "name": "現像・ポストベーク",
@@ -21547,7 +22217,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVR4nGNgoBAw4pI4//bxf2S+obAsVrWM2ATTWqpQNMPArJo2DPUsuFwQkVbci8xfMau3GJs6JgYKAdOAG8CCU+b9vmK6uIBp1AAGnLGwYvV5SoOHTgAAex8QYW9ubRcAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -21561,7 +22231,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "焼き上がったチップに針を当てて、電気が流れるか調べる台。",
+    "note2": "ふちのパッドをクリックして 0 V・5 V・つながない を決めると、電流の流れが黄色く光る。「調べる」で中の回路を判定する。汚れたチップは電流がもれて、動いたり動かなかったりする（洗うと直る）。",
+    "note3": "本物の工場では、ウェハーの上のチップ1つずつに細い針を当てて、良いか悪いかを調べる。悪いチップには印を付けて、あとで捨てる。",
+    "note4": "全部のチップが動くわけではない。良いチップの割合（歩留まり）は、ごみや欠陥の多さとチップの広さで決まる（Y ≈ e^(−D·A)）。"
+   },
    "refs": [
     {
      "title": "L1. 平らなまま作って、金属でつなぐ（プレーナ IC の層）［9-18］［9-22］（露光とマスクの中心、O-002）",
@@ -21574,18 +22249,32 @@
      },
      "certainty": "ヘルニ・ノイスの特許 1959 ◎、最初のプレーナ IC 1960年5月（溝とエポキシで分離）・マイクロロジックのフリップフロップ 1961年3月・ゲート 1962 ◎（コンピュータ歴史博物館）／接合分離に変えた・レホヴェックの特許（1959年出願）◎／「拡散3回＋アルミ1層」○／最初の製品がエピタキシーを使っていたか・配線の交差の工夫 △",
      "basis": "コンピュータ歴史博物館「1959: Practical Monolithic Integrated Circuit Concept Patented」https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/ 、「1960: First Planar Integrated Circuit is Fabricated」https://www.computerhistory.org/siliconengine/first-planar-integrated-circuit-is-fabricated/ 、「1959: Invention of the 'Planar' Manufacturing Process」https://www.computerhistory.org/siliconengine/invention-of-the-planar-manufacturing-process/"
+    },
+    {
+     "title": "L4. 最初の IC は2つある（キルビーのゲルマニウムとノイスのプレーナ）［9-18］［9-22］（O-010、検査台の発見 monolithic_ic）",
+     "answer": "IC（集積回路）＝1つの板の中に、トランジスタ・抵抗・コンデンサをまとめて作り、つないだもの。最初のものは2つの形がある。",
+     "hee": {
+      "1": "キルビーの IC は金の線が空中にはみ出していて、写真では「髪の毛が生えた小さなかけら」に見える。",
+      "2": "特許はキルビー（TI）とノイス（フェアチャイルド）で争いになり、最後は両社がたがいに使えるように取り決めた（1966年）。",
+      "3": "たくさん作れる形になったのはノイスの方（平らなので、写真の方法で配線まで一度に作れる）。今の IC はすべてこの子孫。",
+      "4": "2000年のノーベル物理学賞はキルビーが受けた。ノイスは1990年に亡くなっていて、ノーベル賞は亡くなった人には贈られない。"
+     },
+     "certainty": "キルビー 1958.9.12・Ge・金線 ◎／ノイスの 1959 年のノートと特許（US 2,981,877、1961年に認められた）◎／ルホヴェックの接合分離 1959 ◎／フェアチャイルドの最初の動くプレーナ IC が 1960 年 ○／両社の取り決めが 1966 年 ○",
+     "basis": "Computer History Museum「1958 – All semiconductor \"Solid Circuit\" is demonstrated」「1959 – Practical monolithic integrated circuit concept patented」、J. S. Kilby, \"Invention of the integrated circuit\", IEEE Trans. Electron Devices 23 (1976) 648、Nobel Prize in Physics 2000（nobelprize.org）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "probe_station",
+   "recipes": [
+    "作業台：クラウンレンズ（凸） ＋ タングステン線×2 ＋ 銅ケーブル ＋ 鉄インゴット×3 → 検査台（プローブ）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：測定の電源（電池・電源装置）と、針の位置合わせ",
    "game_text": "チップアイテム（design / grade、ROADMAP v0.3 #7）",
    "id": "9-22",
    "name": "集積回路",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1958,
    "year_range": "1958〜59",
@@ -21616,7 +22305,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACG0lEQVR4nKVT3W7TMBg9Thw7P00bUW6gKzwAEhe8AjdcbO85nqAvgjQxrdsEGkVoUpu/xomdFH1fWDtuIVKsfLa/43OOT8THT+cH/McjaXj3/gMXw9AjjGI4a7GvKxwOBwjPg1YaSmsYYxCGIeq6wjAMWF9fwaPG3jm0rYHneSjzHPt9jUk6hS8lg+gwhBACURyj73tIGcD3/BMD1ztoHeIwDAijiIHoBJpTSjG4tZZrYxokSYq9qxjAo4HQTdOg6zqWUZUFhr6Hcw51XcP3JYTgrYiTCYp8y9KODIQQUFohihJcXJxjlmX4udkwSJwkTJ20V1WFz5eXkEGAIAhODAI5FkSbGu7Wa+zrmus0naIqS9zf3SJJJnwYmayUPjEIlIbwBIp8h7IosDhbIt9t0Q/DMwkC97c3bOB0lrEXRwatadht2jifv2Q5jWkQRRGaZo84jrF885b1l0XO7MjcIwCE4BughqIocHP9Fa8XSxR5jrIssPnxAM/z2WSSGCiFrmtPAF1rWC8F5PHxF4fm4fs3vFqccYhezOdojUGWZbC2G7X/8U3SoMPx7oNAYbVajaGJYpZF8xQe3/f5qq2zmM0yvuK/clCVJaSU3EBu267jlxppnegTEIWJgtX3IwAzIDqTVDIInUpyyBcCeKqf4kzNlAlrnzFompqjmk6nI1XTcFAo1vRNIMVuy820rnUE5+yJwfXVl3/+nX8DkmwlItrgPUIAAAAASUVORK5CYII=",
    "emoji": "🔲",
    "symbol": "💠",
    "people": [
@@ -21765,7 +22454,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "真空の中で金属を熱して蒸気にし、ガラスに薄くくっつける機械。",
+    "note2": "電気 300W（タングステン線のヒーター）。真空容器のとなりに置き、容器が 0.01Pa 以下（拡散ポンプ [5-05] が要る）のときだけ動く（20秒）。クラウンガラス＋銀の粒 → 半透明鏡、レンズ＋蛍石 → 反射防止膜付きレンズ [7-22]。1回ごとに容器を開けるので、圧力が少し上がる。作り方：W線×2＋鉄×2＋銅ケーブル＋ソーダ石灰ガラス。",
+    "note3": "1912年、ポールとプリングスハイムは真空の中で金属を蒸発させて鏡の膜を作った（それより前にも試みはあった）。1930年代、ジョン・ストロングは望遠鏡の鏡にアルミニウムを蒸着し、曇りにくい鏡にした。1960年代の IC のアルミ配線もこの方法。",
+    "note4": "空気が残っていると、蒸発した金属原子が気体分子にぶつかって散らばる。気体分子が次にぶつかるまでに飛ぶ距離（平均自由行程）は、およそ 6.6mm÷圧力（Pa）。0.01Pa なら約 66cm で、ベルジャーより長いので、原子はまっすぐ飛んで基板に付く。"
+   },
    "refs": [
     {
      "title": "F8. 金より高かった金属を電気で（ホール・エルー法・アルミニウム）［1-29］（［9-25］Al 配線の前提）",
@@ -21792,10 +22486,12 @@
      "basis": "コンピュータ歴史博物館「1959: Practical Monolithic Integrated Circuit Concept Patented」https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/ 、IBM「Copper interconnects」https://www.ibm.com/history/copper-interconnects （英語）"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "evaporator",
+   "recipes": [
+    "作業台：タングステン線×2 ＋ 鉄インゴット×2 ＋ 銅ケーブル ＋ ソーダ石灰ガラス → 真空蒸着装置"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "省略：膜の厚さの管理（のちの水晶振動子の膜厚計 [8-15]）、スパッタリング。今つけられるのは銀と CaF2（アルミ・クロムなどは前提ができたら）。",
    "game_text": "配線層（ROADMAP v0.3 #6）",
    "id": "9-25",
    "name": "金属配線",
@@ -21837,7 +22533,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+klEQVR4nKVTy47TQBCsedqJHWcXxFcgceBPuHDObbnxIRxXfBRCQsBfIJZN/H6MZxp1S4nv0NJYsqe7uqq6rd69PxH+Iyw/Xr95i7KsoJRC29QoygOyLMfT71/wWQatNVJK8N6DCLDOYRx6/Pj2BZoBquoexlqsa0CW55jnCTFGWGthrbuBhxBARFJ8DS00rIVWGkPfS3cuCGEWEO8zDEMPYyyMNljmCc55hLBsAESErmsABXRtg7a5wLkMeb6D0grj0MEYg2WZsS9KjOOAw+G4edD3rXSNKeLz4yckSgIQlgnO50KfI8YVp9MDt7wxsPxY5hlhWZBSBJSCczliWKCNlXdmyP4w9biuYjDX3CRkeb6ZojXWZYY2BkpprGGRzjIJSigPlXjD58Ygy3fYFwe09RlKa1jvsTIjSlLIyVobUFyFDYOMZtgAQCTu8kYxRdZ4DWbBuyDySMuIeSfY1JuEGKPMmCPFKEculRYpLCkxsFLi/sq5vFFXBl3b4MXLVyAQHj58lAs2lQs4sbq7ByVCU59xfn6C815kbxJAmOcRXdviyMkEGaNzDkRJ1ps/MhteLD5tW28SdvsC8zShOt7JuFiv1kq0MlEenxQ7LyPkKIpyA2C61nlBZbenaZRtu5z/YBpH0cymMe368iyM+67dJPz8/vWff+e/jMMd8Hdg0uAAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "💠",
    "people": [],
@@ -27147,7 +27843,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "遠くの物までの距離を、そこへ行かずに測る道具。2か所から同じ目印をのぞくと、三角形の形から距離が分かる。",
+    "note2": "望遠鏡＋ノギス（副尺の目盛り）＋青銅×2＋棒×2。右クリックを押してのぞき、離すと向きを読む。①目印をのぞいて離す（測点A）→ ②横に3m以上歩いて、同じ目印をのぞいて離す（測点B）→ 底辺と2つの角から距離が出る。スニーク＋右クリックで測点A を消す。",
+    "note3": "1615年、オランダのスネルは、三角形をつないで町と町の距離を測った（三角測量）。底辺を1本だけていねいに測れば、あとは角度だけで国じゅうを測れる。18世紀には、望遠鏡と目盛り円を組み合わせたセオドライトが作られた。",
+    "note4": "正弦定理：底辺 c、両はしの角 α・β なら、Bから目標まで＝c・sin α／sin(α＋β)。細長い三角形（目標が遠いのに底辺が短い）ほど、角度の少しのずれが大きな誤差になる。伊能忠敬（1800〜1821）は、歩いた距離（導線法）と、山の頂上をいろいろな場所からのぞく方法（交会法）を組み合わせて日本地図を作った。"
+   },
    "refs": [
     {
      "title": "O31. 行かずに距離を測る（三角測量）［12-11］",
@@ -27162,10 +27863,12 @@
      "basis": "- Wikipedia「Triangulation (surveying)」：https://en.wikipedia.org/wiki/Triangulation_(surveying)"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "theodolite",
+   "recipes": [
+    "作業台：屈折望遠鏡 ＋ 青銅インゴット×2 ＋ ノギス ＋ 棒×2 → セオドライト（測量器）"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：底辺の長さは、2つの測点の間の長さをそのまま使う（本物は測鎖や物差しで地面を測る）。地図アイテムとのつながりはまだ無い。",
    "game_text": "実装（IMP2 O-007）：theodolite（セオドライト＝屈折望遠鏡＋ノギスの副尺＋青銅＋棒、item/TheodoliteItem）。のぞいて離すと向きを 1分（1/60°）まで読む。測点A → 3m 以上横へ → 測点B で同じ目印 → 底辺・角A・角B から正弦定理で距離と目標の場所。のぞいた先のブロックまでの実際の距離とずれも出る（細長い三角形ほど誤差が大きいのが分かる）。⚠️ 底辺はそのままの長さ（測鎖は省略）。地図アイテムの精度向上は後で",
    "id": "12-11",
    "name": "測量",
@@ -27202,7 +27905,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbUlEQVR4nGNgGPKAEcaYduLZf6k9UURpCqg5ANfHgiyx78wL6jovL0DjPwjjU8OIS2JDi8N/XM5GBiy4DKCKd3pSbP6DMD41TJRbQ4Tt+FzBxIAHlMw5wkjICwy4bEe3GZdB1HcBPg3Y5CiOBQC6TjBvJNihwQAAAABJRU5ErkJggg==",
    "emoji": null,
    "symbol": "🧱",
    "people": [
@@ -27742,7 +28445,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "世界初の全身麻酔手術は日本で行われた",
    "kind": "tech",
    "play": "",
@@ -28959,7 +29662,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "エンジンの4拍子は「吸って、縮めて、燃やして、吐く」",
    "kind": "tech",
    "play": "",
@@ -30761,7 +31464,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "指が近づくだけで、画面の下の見えない電極が「ここに指がある」と気づく（S-003 で追加。出典：Electronics Letters（1965）、CERN「The first touchscreens」、Google Patents US3482241）",
    "kind": "tech",
    "play": "",
@@ -31709,7 +32412,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "レンズのついた暗い箱。中の板に外の景色の光が当たって、写真が写る。",
+    "note2": "色消しレンズ＋板材×4。もう片方の手に感光板を持って、右クリックを押している間シャッターが開く。銀板（ダゲレオタイプ）は昼の空の下で 60秒、ゼラチン乾板は 1秒がちょうどよい（雨だと光が 3割、屋根の下や夜は写らない）。短いと「うすい」、長すぎると「黒い」。",
+    "note3": "1839年、ダゲールの写真の発表に合わせて、シュヴァリエの色消しレンズをつけたカメラが売り出された。最初は露光に何分もかかり、動く人は写らなかった（だから昔の街の写真には人がいない）。",
+    "note4": "1840年、ペッツヴァールが計算で設計した明るいレンズを作り、露光は十数倍短くなった。レンズの明るさ（F 値）と板の感度の両方が、露光時間を決める。露光装置でも、光の強さと露光時間の積（露光量）で、レジストの写り方が決まる。"
+   },
    "refs": [
     {
      "title": "O30. 銀の板に光を写す（ダゲレオタイプ）［B-02a］",
@@ -31724,10 +32432,12 @@
      "basis": "- Wikipedia「Daguerreotype」：https://en.wikipedia.org/wiki/Daguerreotype"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "camera",
+   "recipes": [
+    "作業台：色消しレンズ ＋ 木材×4 → 暗箱カメラ"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：ちょうどよい露光を 銀板 60秒・乾板 1秒にした（本物は 1839年の銀板が数分〜15分、1878年ごろの乾板が 1/25秒ほど）。景色の絵は写らない（写真の中身は場所・時刻・写りのデータ。絵は仕上げのときに）。",
    "game_text": "",
    "id": "B-02a",
    "name": "ダゲレオタイプ",
@@ -31769,7 +32479,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA40lEQVR4nO1QsVEDQQxc6XSmHUeeIXPogAoogICa7MhVmIAGCGjDoQMC4E4SI/2fMQwZqXfm/ySNdrUScMW/Qb8Lj3e33rqCidDVUJhARHB3qDl2Ty8/OHSZPGxWXqVkc8DcIYVhNpHVLOvbw7cIjeB+vXRhzsoQiD8hnCi6WboKQgzZP78mV4ZAU81JVTjzj6YpUZhzhZsq6N1ywHvrZ9cygkI8k6cpsbsjvtmmAyLTOotF/UOAKfeMzrRKlLUgprvI58NeHk5GcDy9ZcNnV1B2EGphNDVIIbQeL+dhQ/wKnPEFhV9h9kM/WDEAAAAASUVORK5CYII=",
    "emoji": null,
    "symbol": "🌿",
    "people": [
@@ -31791,7 +32501,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "ガラス板に写真乳剤を塗ったもの。光を当てて現像すると、当たった所が黒くなる。",
+    "note2": "ソーダ石灰ガラス＋写真乳剤。[7-11] の縮小カメラで原図を写してフォトマスクにする。",
+    "note3": "1960年代の IC のマスクは、高解像度の写真乾板で作った（エマルジョンマスク）。やわらかい乳剤は密着露光ですぐ傷つき、何回か使うと取りかえた。",
+    "note4": "マスクのガラスは平らさが大切。ウェハーにぴったり重ねるので、反りがあるとすき間ができて像がぼける。のちに石英の板（クロムマスク [7-12]）に変わった。"
+   },
    "refs": [
     {
      "title": "O33. ネガから何枚も焼ける（ゼラチン乾板）［B-02b］",
@@ -31806,8 +32521,10 @@
      "basis": "- Wikipedia「Dry plate」：https://en.wikipedia.org/wiki/Dry_plate"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "photo_plate",
+   "recipes": [
+    "作業台：ソーダ石灰ガラス ＋ 写真乳剤（塩化銀） → 感光乾板"
+   ],
    "machine_recipes": [],
    "placeholder": null,
    "game_text": "",
@@ -31847,7 +32564,7 @@
    "frontier": false,
    "enabled_by": [],
    "explained_by": [],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABdElEQVR4nN1Rv0sCART+LqTz1MOILk9LQUkNCRwadHDNBsGhFof+pYZGB6GGptAhaKigpbAhEMyfi2j+uOuoPAXNFOUFTmnqXt/2vvfxvfe9B/x5MIua0egxuVxb4Dgt/P79mVpmFqkoBWIYBoryDllW4PG4wLIsBMH1S780TcRiJ8TzPGo1Cfl8EYGAD5VKDa1WG/H4KS3MUyg8Ujb7QJeX5zQYyNTpVCmROKNM5p76fZmIPuj6+oLmbpBKPUNR3tBsqkgkrqDXG2C325DNFlGvS8jlChDF9fkRrNYNlMsvcLu3oNWyuL29QzqdQyi0B1VtwWIRkUw+TRhofhY+3y70em6c2eNxo9v9hNe7g2q1gdFohF7vC9vbzvkGGo0GDocd9bqM1dUVDIcjEBEaDWlsznEcTKbJCMz0IW9u4lQqlcGyyxCENRiN/Hiyqrah02kRDh8xC98YDB4yTqcDkcgBeN4ASXqFzbYJURRgNovT8v+Ab7Q6k1f3NocHAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🌿",
    "people": [],
@@ -32445,7 +33162,12 @@
     "3": "",
     "4": ""
    },
-   "hee_game": {},
+   "hee_game": {
+    "note1": "日の光をそのまま電気に変えるシリコンのパネル。第2章のゴール！",
+    "note2": "p-n 接合の板8＋銅ケーブル。昼、真上に空があれば（ガラスは通す）60W。雨・曇りの日も雲を通った散らばった光（散乱光）で晴れの約2割＝12W。夜・屋根の下は0。右クリックで出力を見られる。ほかの発電機と同じように銅ケーブルでつなぐ。本物の 1954年の電池の土台はヒ素の n型（ゲームはリン）。",
+    "note3": "真昼の日光は 1m² に約1000W。効率6% なら 1m² のブロックで 60W。1954年、ベル研は「1平方ヤードあたり約50W」と発表した。ちょうど合う。",
+    "note4": "1954年4月25日、チェイピン・フラー・ピアソンは「ベル太陽電池」でおもちゃの観覧車を回して見せた。1954年の電池は、くもった樹脂の膜で反射を減らし、電極は2つとも裏側。1958年には人工衛星ヴァンガード1号の電源になった。いまの家庭用は 20% を超える。"
+   },
    "refs": [
     {
      "title": "9. 章のゴール：太陽電池［B-12］",
@@ -32460,10 +33182,12 @@
      "basis": "米国物理学会 APS News「1954年4月25日 ベル研がシリコン太陽電池を発表」（英語）。原論文（J. Appl. Phys. 25, 676, 1954）は有料"
     }
    ],
-   "item": null,
-   "recipes": [],
+   "item": "solar_cell",
+   "recipes": [
+    "作業台：p-n 接合の板×8 ＋ 銅ケーブル → 太陽電池"
+   ],
    "machine_recipes": [],
-   "placeholder": null,
+   "placeholder": "近似：太陽の高さや雲の厚さで出力は変えない（昼か夜か・雨かだけ。雨は2割 ⚠️、本物の曇りの日の光は雲で変わる）。土台の n型は 1954年のヒ素ではなくリン ⚠️。電極は銅ケーブル（1954年の電極の金属は未確認 ⚠️）。反射を減らす膜は省略。",
    "game_text": "発電ブロック（日中のみ。energy/GeneratorBlockEntity）",
    "id": "B-12",
    "name": "太陽電池",
@@ -32513,7 +33237,7 @@
     "I-27",
     "I-29"
    ],
-   "icon": null,
+   "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVR4nGPcd/jEfwYKAAuIyKrcwMAvIsfw8c0jhmntAQyVvefAbBAA8UHyIABS015shKKeCSYB0wACMDZIHAaQ1SCzmUjVgK6eiVQN6OqZhr4XGKmWDnDFM6F0wQRmjexYYBpwLwAAL327GmAnUOQAAAAASUVORK5CYII=",
    "emoji": "☀️",
    "symbol": "🌿",
    "people": [],
@@ -38756,7 +39480,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ムーアの法則は自然の法則ではなく、業界みんなが目標にした「約束」のようなもの",
    "kind": "idea",
    "play": "実験：これまでに作ったチップのトランジスタの数を年ごとにグラフにして、まっすぐな線（倍々）になるのを見る",
