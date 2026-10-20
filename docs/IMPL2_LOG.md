@@ -58,3 +58,6 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - gui.semiconductor-lab.pump.* は lang の common 部品に入った（lang_add の自動振り分け）
 - ✅ [5-14] 真空蒸着（熱した W 線で銀を蒸発、いちばん古い方法）：block/EvaporatorBlockEntity・client/EvaporatorScreen。隣の容器 0.01Pa 以下（拡散ポンプが要る、シュプレンゲル 0.05Pa では不可）、クラウンガラス＋銀 → 半透明鏡。組み合わせは EvaporatorBlockEntity.recipe に1行ずつ足す。GameTest vacuum_evaporation、CHEMISTRY V4〜V5、REFERENCES O16。テスト 109/109
   - IMP-32 から CHEMISTRY.md・TEST_QUEUE.md は部品（docs/chemistry/・docs/test_queue/）に書いて tools/docs_build.py で組み立てる。[5-04][5-05] の節は --adopt で部品へ移した
+- ✅ [7-09] マイケルソン干渉計：item/InterferometerItem。点灯中の水銀灯の緑線 546.1nm で、ねじ1回転 0.5mm → 縞 1831 本 → 0.5000mm。炎では縞が消える。GameTest interferometer、CHEMISTRY O21、REFERENCES O17、遊び方: 実験。テスト 110/110
+  - 年の注意⚠️：マイケルソン（1881）の半透明鏡は化学の銀めっき。ゲームでは [5-14] 真空蒸着（1912〜）で作るので年が逆。[7-05] 段階2（銀鏡反応、[6-11] 硝酸・[2-21] アンモニアが要る）ができたら、そちらでも作れるようにする。TECH_TREE [7-09] に書いた
+- 次の一手（露光へ）：[7-11] 銀塩フォトマスク（[B-02] 写真＝銀✅・ゼラチン、[7-04]✅ 縮小カメラ）／[7-19] 投影レンズ（[7-09]✅・[8-14] 鏡筒の精密組立）／[7-22] 反射防止膜（蒸着✅）

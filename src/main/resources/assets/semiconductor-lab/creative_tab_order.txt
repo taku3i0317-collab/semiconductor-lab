@@ -169,6 +169,7 @@ grating_spectroscope  # Optics [7-07] 1821
 fused_quartz  # Optics [7-02] 1839
 quartz_tube  # Optics [7-02] 1839
 oxyhydrogen_burner  # Optics [7-02] 1839
+interferometer  # Optics [7-09] 1881
 mercury_lamp_assembly  # Optics [7-10] 1901
 mercury_lamp_tube  # Optics [7-10] 1901
 mercury_lamp  # Optics [7-10] 1901

@@ -376,6 +376,39 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-09] マイケルソン干渉計（IMP2-01）：半透明鏡＋鏡2＋送りねじ＋鉄2。水銀の緑 546.1nm、ねじ1回転 0.5mm で縞 1831 本 → 0.5000mm。炎では縞が消える */
+    @GameTest
+    public void interferometer(GameTestHelper h) {
+        h.assertTrue(craft(h, Optics.HALF_SILVERED_MIRROR, Optics.SPECULUM_MIRROR, Optics.SPECULUM_MIRROR, com.taku3.semiconductorlab.content.Precision.LEAD_SCREW, Items.IRON_INGOT, Items.IRON_INGOT)[0].is(Optics.INTERFEROMETER),
+                "beam splitter + 2 mirrors + lead screw + base -> interferometer");
+        h.assertTrue(craft(h, Optics.CROWN_GLASS, Optics.SPECULUM_MIRROR, Optics.SPECULUM_MIRROR, com.taku3.semiconductorlab.content.Precision.LEAD_SCREW, Items.IRON_INGOT, Items.IRON_INGOT)[0].isEmpty(),
+                "plain glass does not split the beam");
+        double n = com.taku3.semiconductorlab.item.InterferometerItem.fringes(0.5, 546.1);
+        h.assertTrue(Math.abs(n - 1831.17) < 0.01, "2 x 0.5 mm / 546.1 nm = 1831.2 fringes, got " + n);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.InterferometerItem.lengthMm(1831, 546.1) - 0.49996) < 1e-4, "1831 fringes x 546.1/2 nm = 0.5000 mm");
+        // 点灯中の水銀灯：反応、炎：反応（縞が消えると出る）、石：PASS
+        BlockPos lp = p(1, 1, 1), fp = p(3, 1, 1), sp = p(5, 1, 1);
+        h.setBlock(lp, Optics.MERCURY_LAMP.block);
+        var lamp = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.MercuryLampBlockEntity.class);
+        tickConsumer(h, lp, lamp, 5, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.MercuryLampBlockEntity.WATTS));
+        h.setBlock(fp, Blocks.CAMPFIRE.defaultBlockState().setValue(BlockStateProperties.LIT, true));
+        h.setBlock(sp, Blocks.STONE);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack it = new ItemStack(Optics.INTERFEROMETER);
+        boolean[] want = {true, true, false};
+        BlockPos[] at = {lp, fp, sp};
+        for (int i = 0; i < 3; i++) {
+            BlockPos a2 = h.absolutePos(at[i]);
+            var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(a2), net.minecraft.core.Direction.UP, a2, false);
+            boolean r = it.getItem().useOn(new net.minecraft.world.item.context.UseOnContext(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND, it, hit)).consumesAction();
+            h.assertValueEqual(r, want[i], "use on " + at[i]);
+        }
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"lamp", "count", "length", "white", "hint"}) h.assertTrue(ja.has("item.semiconductor-lab.interferometer." + k), "lang " + k);
+        LOG.info("[LAB] interferometer [7-09]: Hg green 546.1 nm, screw 0.5 mm -> 1831 fringes -> 0.5000 mm; flame -> fringes wash out");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),

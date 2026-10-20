@@ -584,6 +584,20 @@
 - Wikipedia「Mean free path」：https://en.wikipedia.org/wiki/Mean_free_path
 - Wikipedia「John Strong (physicist)」：https://en.wikipedia.org/wiki/John_Strong_(physicist)
 
+## O17. 光の波を物差しにする（マイケルソン干渉計）［7-09］
+**答え**：半透明鏡で光を2つの道に分け、2枚の鏡で返して重ねると、道の長さの差で明暗の縞ができる。片方の鏡を d 動かすと往復で 2d 変わり、縞が 2d÷λ 本流れる。波長 λ を知っていれば、縞を数えるだけで長さが分かる（縞1本＝λ/2）。
+
+- へえ①：光の波を物差しにすると、髪の毛の100分の1が測れる。
+- へえ②：1887年のマイケルソン・モーリーの実験は「エーテルの風」を見つけられず、相対性理論の手がかりになった。
+- へえ③：1907年、マイケルソンはアメリカ人で初めてノーベル物理学賞（精密な光学機器と、それによる計測）。
+- へえ④：露光装置のステージはレーザー干渉計で nm の位置を測りながら動く。重力波の LIGO も腕 4km のマイケルソン干渉計。
+
+確かさ：干渉の式 ◎／マイケルソン 1881・マイケルソン・モーリー 1887・ノーベル賞 1907 ◎／LIGO の腕 4km ◎／マイケルソンの半透明鏡が化学の銀めっき ○（当時の銀めっきの普及から）
+根拠：
+- Wikipedia「Michelson interferometer」：https://en.wikipedia.org/wiki/Michelson_interferometer
+- Wikipedia「Michelson–Morley experiment」：https://en.wikipedia.org/wiki/Michelson%E2%80%93Morley_experiment
+- NobelPrize.org「Albert A. Michelson – Facts」：https://www.nobelprize.org/prizes/physics/1907/michelson/facts/
+
 ---
 
 # 冶金と熱（タスク15〜）

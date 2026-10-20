@@ -170,5 +170,16 @@
   "item.semiconductor-lab.half_silvered_mirror.note1": "光の半分を映して、半分を通すガラス。のぞくと向こうも見えて、自分も映る。",
   "item.semiconductor-lab.half_silvered_mirror.note2": "真空蒸着装置で、クラウンガラスに銀をとても薄く（数十nm⚠️）付けたもの。干渉計 [7-09] で光を2つの道に分け、またもどす板（ビームスプリッター）。",
   "item.semiconductor-lab.half_silvered_mirror.note3": "取調室の「マジックミラー」も同じしくみ。明るい側からは鏡に、暗い側からは窓に見える。",
-  "item.semiconductor-lab.half_silvered_mirror.note4": "銀の膜が厚いほどよく反射し、薄いほどよく通す。半分ずつにするには数十nm の厚さにそろえる必要がある。マイケルソンの時代（1881）は、化学反応の銀めっきを薄く付けて作った。"
+  "item.semiconductor-lab.half_silvered_mirror.note4": "銀の膜が厚いほどよく反射し、薄いほどよく通す。半分ずつにするには数十nm の厚さにそろえる必要がある。マイケルソンの時代（1881）は、化学反応の銀めっきを薄く付けて作った。",
+  "item.semiconductor-lab.interferometer": "マイケルソン干渉計",
+  "item.semiconductor-lab.interferometer.note1": "光を2つに分けてまた重ね、光の波を物差しにして、髪の毛の100分の1より小さい長さを測る道具。",
+  "item.semiconductor-lab.interferometer.note2": "半透明鏡＋スペキュラム鏡×2＋送りねじ＋鉄×2。点灯中の水銀灯を右クリック → 緑の線（546.1nm）で、送りねじを1回転（0.5mm）回すと縞が何本流れるかと、そこから求めた長さが出る。",
+  "item.semiconductor-lab.interferometer.note3": "1881年、マイケルソンはこの干渉計を作り、1887年にモーリーと「エーテルの風」を測ろうとしたが見つからなかった。これがのちの相対性理論の手がかりになった。1907年、マイケルソンはアメリカ人で初めてノーベル物理学賞を受けた。",
+  "item.semiconductor-lab.interferometer.note4": "鏡を d 動かすと光の道は往復で 2d 変わり、縞が 2d÷λ 本流れる。縞1本＝波長の半分（約0.27μm）。今の露光装置のステージは、レーザー干渉計で nm の位置を測りながら動く。重力波を見つけた LIGO も、長さ 4km の巨大なマイケルソン干渉計。",
+  "item.semiconductor-lab.interferometer.placeholder": "近似：緑の線だけを取り出すフィルター（色ガラス）は省略。送りねじ1回転＝0.5mm はゲームの値。マイケルソンの半透明鏡は化学の銀めっきだったが、ここでは真空蒸着で作る（年が後になる⚠️）。",
+  "item.semiconductor-lab.interferometer.lamp": "🌈 水銀の緑の線（546.1nm）で干渉縞が見える",
+  "item.semiconductor-lab.interferometer.count": "  送りねじで鏡を %s mm 動かすと、縞が %s 本流れた",
+  "item.semiconductor-lab.interferometer.length": "  長さ = %s 本 × %s nm ÷ 2 = %s mm（光の波が物差し）",
+  "item.semiconductor-lab.interferometer.white": "炎の光は色が混ざっているので、縞は道の長さがそろった所の数本しか見えず、すぐ消える。点灯中の水銀灯に向けよう",
+  "item.semiconductor-lab.interferometer.hint": "1色の光が要る：点灯中の水銀灯を右クリックしよう"
 }
