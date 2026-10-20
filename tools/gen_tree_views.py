@@ -164,6 +164,49 @@ def year_of(text):
     return best[1] if best else None
 
 
+GLOSSARY_SRC = ROOT / "docs" / "glossary.json"
+GLOSSARY_JS = ROOT / "docs" / "glossary.js"
+GLOSSARY = {k: v for k, v in json.loads(GLOSSARY_SRC.read_text(encoding="utf-8")).items() if not k.startswith("_")} if GLOSSARY_SRC.exists() else {}
+
+
+def build_terms(out_nodes):
+    """言葉の辞書（S-009）：文の中の言葉 → リンク先。ノードの名前（かっこを外した形・かっこの中の別名も）・人物の名前（→ その人のノード）・用語集の言葉（→ "g:言葉"）。
+    同じ言葉が別のノードを指すとき（あいまい）は、ノードの正式な名前以外は使わない。2文字より短い言葉は入れない"""
+    def forms(name):
+        base = re.sub(r"[（(].*?[）)]", "", name).strip()
+        inner = [x.strip() for m in re.findall(r"[（(](.*?)[）)]", name) for x in re.split(r"[・、，,＝/／]", m)]
+        return [name, base] + [x for x in inner if not re.fullmatch(r"[\d\s.〜~ー-]*", x)]
+    ja, en, amb = {}, {}, set()
+    for n in out_nodes:
+        ja.setdefault(n["name"], n["id"])
+    for n in out_nodes:
+        for f in forms(n["name"])[1:]:
+            if len(f) < 2 or f == n["name"]:
+                continue
+            if f in ja and ja[f] != n["id"]:
+                amb.add(f)
+            ja.setdefault(f, n["id"])
+        for p in n.get("people", []):
+            nm = p.get("name", "")
+            for f in {nm, re.split(r"[・＝]", nm)[-1]}:
+                if len(f) >= 3 or (f == nm and len(f) == 2 and not re.fullmatch(r"[ァ-ヶー]+", f)):   # 2文字のカタカナの名前（ベルなど）は別の言葉に入りやすいので使わない
+                    ja.setdefault(f, n["id"])
+        if n.get("name_en"):
+            for f in {n["name_en"], re.sub(r"\s*\(.*?\)", "", n["name_en"]).strip()}:
+                if len(f) >= 3:
+                    en.setdefault(f, n["id"])
+    exact = {n["name"] for n in out_nodes}
+    for f in amb:
+        if f not in exact:
+            ja.pop(f, None)
+    for k, v in GLOSSARY.items():
+        for f in [k] + v.get("aliases", []):
+            ja.setdefault(f, "g:" + k)
+        if v.get("en"):
+            en.setdefault(v["en"], "g:" + k)
+    return sorted(ja.items(), key=lambda kv: -len(kv[0])), sorted(en.items(), key=lambda kv: -len(kv[0]))
+
+
 def clean_url(u):
     """本文から取った URL の後ろの句読点・閉じかっこを外す（URL の中の「(computer)」や「,_1911」は残す）"""
     u = u.rstrip(",.、。）")
@@ -603,6 +646,9 @@ def export_json(nodes):
               "portraits": portraits, "year_inversions": data["year_inversions"],
               "materials": {k: v for k, v in meta.get("materials", {}).items() if not k.startswith("_")},
               "extra_links": [x for x in meta.get("extra_links", []) if "from" in x]}
+    detail["terms"], detail["terms_en"] = build_terms(out_nodes)
+    GLOSSARY_JS.write_text("// 自動生成：tools/gen_tree_views.py（元は docs/glossary.json）。用語集（S-009）\nwindow.GLOSSARY = "
+                           + json.dumps(GLOSSARY, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
     for path, var, obj, what in ((GRAPH_JS, "TECH_GRAPH", graph, "図に要る軽いデータ（番号・名前・年・幹・状態・種類・アイコン・位置・つながり・子孫の数）"),
                                  (DETAIL_JS, "TECH_DETAIL", detail, "カード・詳細ページ用の重いデータ（本物・へえ・出典・レシピ・人物）")):
         path.write_text(f"// 自動生成：tools/gen_tree_views.py。{what}\nwindow.{var} = "

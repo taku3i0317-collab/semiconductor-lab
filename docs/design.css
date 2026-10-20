@@ -51,3 +51,10 @@ section, #card { overflow-wrap: anywhere; }   /* 長い URL・英単語でスマ
 
 /* アイコンは単色のドット絵（絵文字・テクスチャは形だけを1色に） */
 #card h2 img, header.top .ic img { image-rendering: pixelated; }   /* S-008：アイコンは色付き（素材の色） */
+
+/* 自動リンク（S-009）：文の中の言葉のリンクは、色を増やさず点線の下線で。プレビューは小さなカード */
+a.al { color: inherit; text-decoration: underline dotted var(--accent); text-underline-offset: 3px; }
+a.al:hover { color: var(--accent); }
+.alprev { position: fixed; z-index: 50; background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius, 6px); padding: 8px 10px; display: flex; gap: 8px; align-items: flex-start; box-shadow: 0 2px 8px rgba(0,0,0,.12); font-size: 13px; color: var(--ink); pointer-events: none; }
+.alprev img { width: 32px; height: 32px; image-rendering: pixelated; flex: none; }
+.alprev p { margin: 4px 0 0; color: var(--sub); }
