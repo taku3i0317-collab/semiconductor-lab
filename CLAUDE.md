@@ -60,7 +60,7 @@
 - 実装後：ノードの状態を ✅ に、docs/chemistry/<幹>.md に本物/省略の行、docs/test_queue/<幹>.md にテスト行（どちらも python tools/docs_build.py で組み立て）、
   lang の .note に「へえ」、ROADMAP のチェックを更新。commit メッセージに [X-NN] を入れる
 - ノードを実装したら docs/REFERENCES.md に同じ形式（答え→へえ①〜④→確かさ◎○△→根拠リンク）で1項目を足す（既にあれば更新）。△ の内容はゲーム内（lang の note）でも ⚠️ を付ける
-- ユーザーから指示されたタスクが終わったら、毎回 Discord の Webhook に完了通知を送る（大きな見出し「# ✅🔔 作業完了 🔔✅」・色付きの埋め込み（embeds、成功＝緑 3066993）・読み上げ（"tts": true）。テストが失敗して止まったときも「# ❌ 停止」・赤 15158332 で送る）。@everyone は付けない。URL はリポジトリ直下の .discord_webhook（git に入らない、.gitignore 済み）から読む：`curl ... "$(cat .discord_webhook)"`。URL はこのファイルにもチャットにも書かない。JSON は Write でファイルにしてから curl --data-binary で送る
+- ユーザーから指示されたタスクが終わったら、毎回 Discord の Webhook に完了通知を送る（大きな見出し「# ✅🔔 作業完了 🔔✅」・色付きの埋め込み（embeds、成功＝緑 3066993）・読み上げ（"tts": true）。テストが失敗して止まったときも「# ❌ 停止」・赤 15158332 で送る）。@everyone は付けない。URL はリポジトリ直下の .discord_webhook（git に入らない、.gitignore 済み）から読む。URL はこのファイルにもチャットにも書かない。JSON は Write でファイルにしてから `python tools/discord_notify.py <JSON>` で送る（.claude/settings.json で聞かずに実行できる。curl は毎回聞かれる）
 - 「次に作れるノードを列挙して」と言われたら、前提が全部 ✅ の ❓ ノードを幹ごとに一覧にする
 
 ## 現在地
