@@ -258,7 +258,7 @@ public final class Circuit {
     public static final double VCC = 5.0, HIGH = 2.5;
 
     /** パッドの役目（v0.3b のお題、検査台で決める） */
-    public enum Role { GROUND, VCC, IN_A, IN_B, OUT_1, OUT_2 }
+    public enum Role { GROUND, VCC, IN_A, IN_B, OUT_1, OUT_2, IN_C }
 
     /**
      * 論理の計算（§6.2 の 7、v0.3b）：0 V・電源（5 V）・入力（0 V か 5 V）をかけて回路を解き、出力の線の電圧が {@link #HIGH} より上なら 1。
@@ -266,6 +266,13 @@ public final class Circuit {
      * 出力のパッドには何もつながない（測るだけ）
      */
     public static int logic(Netlist nl, Map<Integer, Role> roles, boolean a, boolean b, int inputs, int outputs, double leakScale) {
+        return logic(nl, roles, (a ? 4 : 0) | (b ? 2 : 0), inputs, outputs, leakScale);
+    }
+
+    /** 入力をビットで（bit2＝A、bit1＝B、bit0＝C）。入力Cは全加算器のけた上がりの入力など（O-018） */
+    public static int logic(Netlist nl, Map<Integer, Role> roles, int in, int inputs, int outputs, double leakScale) {
+        boolean a = (in & 4) != 0, b = (in & 2) != 0, c = (in & 1) != 0;
+        boolean inC = false;
         Map<Integer, Double> d = new HashMap<>();
         int out1 = -1, out2 = -1;
         boolean gnd = false, vcc = false, inA = false, inB = false;
@@ -274,10 +281,11 @@ public final class Circuit {
             case VCC -> { d.put(e.getKey(), VCC); vcc = true; }
             case IN_A -> { d.put(e.getKey(), a ? VCC : 0.0); inA = true; }
             case IN_B -> { d.put(e.getKey(), b ? VCC : 0.0); inB = true; }
+            case IN_C -> { d.put(e.getKey(), c ? VCC : 0.0); inC = true; }
             case OUT_1 -> out1 = e.getKey();
             case OUT_2 -> out2 = e.getKey();
         }
-        if (!gnd || !vcc || !inA || (inputs >= 2 && !inB) || out1 < 0 || (outputs >= 2 && out2 < 0)) return -1;
+        if (!gnd || !vcc || !inA || (inputs >= 2 && !inB) || (inputs >= 3 && !inC) || out1 < 0 || (outputs >= 2 && out2 < 0)) return -1;
         Solution sol = solve(nl, d, leakScale);
         int bits = sol.netVolts(nl, out1) > HIGH ? 1 : 0;
         if (outputs >= 2 && sol.netVolts(nl, out2) > HIGH) bits |= 2;

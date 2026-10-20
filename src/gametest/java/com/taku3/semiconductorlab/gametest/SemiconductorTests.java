@@ -1694,6 +1694,10 @@ public class SemiconductorTests extends LabTestBase {
         h.assertTrue(!nv.equals("solved"), "near-miss: power reversed is not solved, hint " + nv);
         var and = com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals("and")).findFirst().orElseThrow();
         h.assertTrue(and.inputs() == 2 && java.util.Arrays.equals(and.table(), new int[] {0, 0, 0, 1}), "AND: light only when both get power");
+        // O-018 全加算器：3入力（入力C）・2出力。表は A+B+C の2けた
+        var fa = com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals("full_adder")).findFirst().orElseThrow();
+        for (int row = 0; row < 8; row++) h.assertValueEqual(fa.table()[row], Integer.bitCount(row), "full adder row " + row + " = A+B+C");
+        h.assertTrue(com.taku3.semiconductorlab.litho.Challenge.check(fa, nl, roles, 1.0).missingRoles(), "the full adder needs input B, input C and output 2");
         // 検査台：パッドを決めて「調べる」→ 結果は合格
         ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
         ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);

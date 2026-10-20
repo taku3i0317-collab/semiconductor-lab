@@ -24,7 +24,7 @@ import static com.taku3.semiconductorlab.block.ProbeStationBlockEntity.*;
 public class ProbeStationScreen extends MachineScreen {
     private static final int P = 0xFFE89A9A, N = 0xFF92B4EE, P_SUB = 0xFFF2C4C4, N_SUB = 0xFFC4D6F4, METAL = 0x90707078;
     /** つながない・0 V・5 V・入力A・入力B・出力1・出力2 */
-    private static final int[] PAD_COLOR = {0xFFA0A0A0, 0xFF3060D0, 0xFFE08020, 0xFF30B040, 0xFF20A0A0, 0xFFD040C0, 0xFF9050E0};
+    private static final int[] PAD_COLOR = {0xFFA0A0A0, 0xFF3060D0, 0xFFE08020, 0xFF30B040, 0xFF20A0A0, 0xFFD040C0, 0xFF9050E0, 0xFF80C020};
 
     private ItemStack cachedWafer = ItemStack.EMPTY;
     private Netlist nl;

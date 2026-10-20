@@ -1,0 +1,28 @@
+{
+  "parent": "semiconductor-lab:challenge/half_adder",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chip"
+    },
+    "title": {
+      "translate": "litho.semiconductor-lab.challenge.full_adder"
+    },
+    "description": {
+      "translate": "litho.semiconductor-lab.challenge.full_adder.goal",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "litho.semiconductor-lab.challenge.full_adder.history"
+        }
+      ]
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "solved": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

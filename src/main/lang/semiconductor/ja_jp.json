@@ -448,5 +448,6 @@
   "gui.semiconductor-lab.stepper.output_full": "できた板を取り出す",
   "gui.semiconductor-lab.stepper.press": "ボタンで1チップずつ送る",
   "gui.semiconductor-lab.stepper.need_power": "電気が来ていない",
-  "gui.semiconductor-lab.stepper.running": "露光中…"
+  "gui.semiconductor-lab.stepper.running": "露光中…",
+  "gui.semiconductor-lab.probe_station.role7": "入力C"
 }

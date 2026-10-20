@@ -24,12 +24,14 @@ public final class NearMiss {
         boolean flows = false;
         for (int row = 0; row < d.rows() && !flows; row++) {
             Map<Integer, Double> drive = new HashMap<>();
-            boolean a = d.inputs() == 1 ? row == 1 : (row & 2) != 0, b = d.inputs() == 2 && (row & 1) != 0;
+            int in = Challenge.bits(d, row);
+            boolean a = (in & 4) != 0, b = (in & 2) != 0, c = (in & 1) != 0;
             for (var e : roles.entrySet()) switch (e.getValue()) {
                 case GROUND -> drive.put(e.getKey(), 0.0);
                 case VCC -> drive.put(e.getKey(), Circuit.VCC);
                 case IN_A -> drive.put(e.getKey(), a ? Circuit.VCC : 0.0);
                 case IN_B -> drive.put(e.getKey(), b ? Circuit.VCC : 0.0);
+                case IN_C -> drive.put(e.getKey(), c ? Circuit.VCC : 0.0);
                 default -> {}
             }
             Double amps = Circuit.solve(nl, drive, leakScale).padAmps().get(vcc);
@@ -40,13 +42,12 @@ public final class NearMiss {
         if (nl.transistors.isEmpty()) return unwiredRegion(nl) ? "almost_transistor" : "no_switch";
         // ③ 入力のパッドが、どのトランジスタのベースにも（直接か抵抗1本で）つながっていない
         Set<Integer> inputs = new HashSet<>();
-        for (var e : roles.entrySet()) if (e.getValue() == Circuit.Role.IN_A || e.getValue() == Circuit.Role.IN_B) inputs.add(e.getKey());
+        for (var e : roles.entrySet()) if (e.getValue() == Circuit.Role.IN_A || e.getValue() == Circuit.Role.IN_B || e.getValue() == Circuit.Role.IN_C) inputs.add(e.getKey());
         for (int in : inputs) if (!reachesBase(nl, in)) return "input_not_base";
         // ④ 出力が入力で変わらない
         Set<Integer> outs = new HashSet<>();
         for (int row = 0; row < d.rows(); row++) {
-            boolean a = d.inputs() == 1 ? row == 1 : (row & 2) != 0, b = d.inputs() == 2 && (row & 1) != 0;
-            outs.add(Circuit.logic(nl, roles, a, b, d.inputs(), d.outputs(), leakScale));
+            outs.add(Circuit.logic(nl, roles, Challenge.bits(d, row), d.inputs(), d.outputs(), leakScale));
         }
         if (outs.size() <= 1) return "output_stuck";
         // ⑤ いくつかの行は合っている

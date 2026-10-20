@@ -448,5 +448,6 @@
   "gui.semiconductor-lab.stepper.output_full": "Take out the wafer",
   "gui.semiconductor-lab.stepper.press": "Press to step one chip",
   "gui.semiconductor-lab.stepper.need_power": "No power",
-  "gui.semiconductor-lab.stepper.running": "Exposing..."
+  "gui.semiconductor-lab.stepper.running": "Exposing...",
+  "gui.semiconductor-lab.probe_station.role7": "input C"
 }

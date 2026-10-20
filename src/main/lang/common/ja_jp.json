@@ -218,5 +218,12 @@
   "advancement.semiconductor-lab.self.root.title": "自力で発見",
   "advancement.semiconductor-lab.self.root.description": "ヒントを開かずに解いたお題。",
   "tooltip.semiconductor-lab.die_map": "プローバー済み：%s / %s 個が良品",
-  "tooltip.semiconductor-lab.die_good": "プローバー済み：良品"
+  "tooltip.semiconductor-lab.die_good": "プローバー済み：良品",
+  "litho.semiconductor-lab.challenge.full_adder": "全加算器",
+  "litho.semiconductor-lab.challenge.full_adder.goal": "AとBと下のけたからのけた上がりCを足す回路を作れ：出力1＝和、出力2＝けた上がり",
+  "litho.semiconductor-lab.challenge.full_adder.hint1": "①1けたの数を3つ足して、答えは2けた：1＋1＋1＝11。",
+  "litho.semiconductor-lab.challenge.full_adder.hint2": "②半加算器を2つつなぎ、2つのけた上がりを OR でまとめる。",
+  "litho.semiconductor-lab.challenge.full_adder.hint3": "③和＝A XOR B XOR C、けた上がり＝(A AND B) OR (C AND (A XOR B))。16×16 には入らない：ハンコを組み合わせて、ステッパーの方眼（24 以上）で。",
+  "litho.semiconductor-lab.challenge.full_adder.hint4": "④全加算器を4つつなぐと4ビットの加算器。1960年代の TTL のチップと同じ ⚠️（品番と年は確かめていない）。1971年の電卓のチップ（ビジコンとインテルの 4004）も、こういう回路で足し算した。",
+  "litho.semiconductor-lab.challenge.full_adder.history": "全加算器：4つつなぐと1960年代の TTL の4ビット加算器。1971年の電卓のチップの一歩手前。⚠️ 品番と年は確かめていない。"
 }

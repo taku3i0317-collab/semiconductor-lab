@@ -39,7 +39,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     /** パッドの数の上限（v0.3 の 8×8 には十分） */
     public static final int MAX_PADS = 12;
     /** パッドの状態：つながない・0 V・5 V・入力A・入力B・出力1・出力2（v0.3b のお題、S-005） */
-    public static final int OPEN = 0, GROUND = 1, VCC = 2, IN_A = 3, IN_B = 4, OUT_1 = 5, OUT_2 = 6, PAD_STATES = 7;
+    public static final int OPEN = 0, GROUND = 1, VCC = 2, IN_A = 3, IN_B = 4, OUT_1 = 5, OUT_2 = 6, IN_C = 7, PAD_STATES = 8;   // 入力C は O-018（全加算器）
     /** 数値：0〜11＝パッドの状態、12＝このチップで見つかった発見（ビット）、13＝調べたか、14＝お題の番号、15＝お題の結果（{@link #encodeResult}） */
     public static final int DATA_FOUND = MAX_PADS, DATA_PROBED = MAX_PADS + 1, DATA_CHALLENGE = MAX_PADS + 2, DATA_RESULT = MAX_PADS + 3, DATA_COUNT = MAX_PADS + 4;
     /** ボタン：パッド i の状態を順に変える（0〜11）、調べる、次のお題 */
@@ -123,7 +123,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
         List<Netlist.Net> p = nl.pads();
         for (int i = 0; i < p.size() && i < MAX_PADS; i++) {
             int st = padState.applyAsInt(i);
-            if (st == GROUND || st == IN_A || st == IN_B) d.put(p.get(i).id(), 0.0);   // 画面では入力は 0 V で見せる
+            if (st == GROUND || st == IN_A || st == IN_B || st == IN_C) d.put(p.get(i).id(), 0.0);   // 画面では入力は 0 V で見せる
             else if (st == VCC) d.put(p.get(i).id(), com.taku3.semiconductorlab.litho.Circuit.VCC);
         }
         return d;
@@ -139,6 +139,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                 case VCC -> com.taku3.semiconductorlab.litho.Circuit.Role.VCC;
                 case IN_A -> com.taku3.semiconductorlab.litho.Circuit.Role.IN_A;
                 case IN_B -> com.taku3.semiconductorlab.litho.Circuit.Role.IN_B;
+                case IN_C -> com.taku3.semiconductorlab.litho.Circuit.Role.IN_C;
                 case OUT_1 -> com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1;
                 case OUT_2 -> com.taku3.semiconductorlab.litho.Circuit.Role.OUT_2;
                 default -> null;
