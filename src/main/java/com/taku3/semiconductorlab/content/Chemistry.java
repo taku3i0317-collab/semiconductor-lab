@@ -56,6 +56,7 @@ public final class Chemistry {
     public static final Item COAL_TAR              = Reg.item("coal_tar", new Item.Properties().stacksTo(16));
     public static final Item AMMONIACAL_LIQUOR     = Reg.item("ammoniacal_liquor", new Item.Properties().stacksTo(16)); // 安水（NH3 約1〜2% の水）
     public static final Item AMMONIA_WATER         = Reg.contained("ammonia_water", Vessel.GLASS_BOTTLE); // [2-21] アンモニア水（NH3 約25%、IMP4-01）
+    public static final Item HYDROGEN_PEROXIDE     = Reg.contained("hydrogen_peroxide", Vessel.GLASS_BOTTLE); // [2-19] 過酸化水素（約30%、IMP4-01）
     public static final Item AMMONIUM_CHLORIDE     = Reg.item("ammonium_chloride"); // 塩化アンモニウム NH4Cl（塩安、ろう付けのフラックス。[1-18] 白金の沈殿に使う、IMP4-01）
     // [1-18] 塩化白金酸の液（ガラス瓶）。Metallurgy に置くと、クラスの初期化の順でフッ酸の鉛の瓶（Metallurgy.LEAD_BOTTLE）がまだ null になるので、液は Chemistry に置く
     public static final Item CHLOROPLATINIC_ACID   = Reg.contained("chloroplatinic_acid", Vessel.GLASS_BOTTLE);
@@ -86,6 +87,9 @@ public final class Chemistry {
 
     // アンモニア蒸留器 [2-21]（IMP4-01）：安水＋消石灰 → アンモニアを追い出して水に吸わせる（1kW）
     public static final Machine<AmmoniaStillBlockEntity> AMMONIA_STILL = Machine.electric("ammonia_still", AmmoniaStillBlockEntity::new, AmmoniaStillBlockEntity.LAYOUT, metal(3.0f));
+
+    // 過酸化水素の電解槽 [2-19]（IMP4-01）：白金の陽極で硫酸を電解 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。3kW
+    public static final Machine<PeroxideCellBlockEntity> PEROXIDE_CELL = Machine.electric("peroxide_cell", PeroxideCellBlockEntity::new, PeroxideCellBlockEntity.LAYOUT, metal(3.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

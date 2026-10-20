@@ -32,3 +32,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [1-20] 砂白金：砂鉄のルートテーブルに約3%の砂白金（シルクタッチなし）。block_drops テストは砂鉄だけ砂白金も許す形に。GameTest placer_platinum、CHEMISTRY F24、REFERENCES F12、遊び方: 軽
 - ✅ [1-18] 白金の精製：塩化アンモニウム、王水で塩化白金酸、沈殿、海綿、圧粉、溶鉱炉でインゴット（作業台・かまど・溶鉱炉、硝酸は IMP2 の物）。GameTest platinum_refining、CHEMISTRY F25〜F29、REFERENCES F13、遊び方: 軽
   - 注意（全担当向け）：Metallurgy に Vessel.GLASS_BOTTLE 入りの物を置くと、Chemistry が先に初期化されて Chemistry.HYDROFLUORIC_ACID の鉛の瓶（Metallurgy.LEAD_BOTTLE）が null になり、GameTest vessels が落ちた。中身入りの液は Chemistry に置く
+- ✅ [2-19] 過酸化水素：電解槽 peroxide_cell（block/PeroxideCellBlockEntity、画面 PeroxideCellScreen、3kW）。白金の陽極＋硫酸（8回で1）＋水（4回で1）＋空の瓶 → H2O2（ガラス瓶）＋水素。TECH_TREE の前提に [1-18] 白金を足した。GameTest peroxide_cell、CHEMISTRY F30、REFERENCES F14、遊び方: 重

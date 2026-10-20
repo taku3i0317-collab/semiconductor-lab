@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LCL",
+    "LGL",
+    "LLL"
+  ],
+  "key": {
+    "L": "semiconductor-lab:lead_ingot",
+    "C": "semiconductor-lab:copper_cable",
+    "G": "semiconductor-lab:soda_lime_glass"
+  },
+  "result": {
+    "id": "semiconductor-lab:peroxide_cell",
+    "count": 1
+  }
+}

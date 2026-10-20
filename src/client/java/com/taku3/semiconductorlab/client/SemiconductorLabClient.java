@@ -37,7 +37,8 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Chemistry.WOOD_RETORT, WoodRetortScreen::new);
 		screen(Chemistry.GAS_RETORT, GasRetortScreen::new);
 		screen(Chemistry.LEAD_RETORT, HfRetortScreen::new);
-		screen(Chemistry.AMMONIA_STILL, AmmoniaStillScreen::new);   // [2-23] IMP2-01
+		screen(Chemistry.AMMONIA_STILL, AmmoniaStillScreen::new);
+		screen(Chemistry.PEROXIDE_CELL, PeroxideCellScreen::new);   // [2-23] IMP2-01
 		// 幹3 熱
 		screen(Heat.ARC_FURNACE, ArcFurnaceScreen::new);
 		screen(Heat.ACHESON_FURNACE, AchesonFurnaceScreen::new);

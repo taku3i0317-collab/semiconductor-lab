@@ -1039,6 +1039,46 @@
       "note": "2H2 + O2 → 2H2O（約2800℃）。電気なし"
     },
     {
+      "machine": "semiconductor-lab:peroxide_cell",
+      "process": "過酸化水素",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "per_runs": 4
+        },
+        {
+          "item": "semiconductor-lab:sulfuric_acid",
+          "count": 1,
+          "per_runs": 8
+        },
+        {
+          "item": "semiconductor-lab:platinum_ingot",
+          "count": 1,
+          "per_runs": 32
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_peroxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 60.0,
+      "energy_kj": 180,
+      "note": "白金の陽極で硫酸 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。全体 2H2O → H2O2 + H2"
+    },
+    {
       "machine": "semiconductor-lab:reduction_camera",
       "process": "原図をフォトマスクに写す",
       "inputs": [

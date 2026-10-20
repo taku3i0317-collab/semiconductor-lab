@@ -138,6 +138,8 @@ ammoniacal_liquor  # Chemistry [2-20] 1792
 gas_retort  # Chemistry [2-20] 1792
 ammonium_chloride  # Chemistry [1-18] 1800
 chloroplatinic_acid  # Chemistry [1-18] 1800
+hydrogen_peroxide  # Chemistry [2-19] 1818
+peroxide_cell  # Chemistry [2-19] 1818
 sulfur_powder  # Chemistry [2-01] 1831
 sulfur_dioxide  # Chemistry [2-01] 1831
 sulfuric_acid  # Chemistry [2-01] 1831

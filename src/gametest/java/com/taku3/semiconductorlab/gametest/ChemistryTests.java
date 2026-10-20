@@ -283,6 +283,39 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** [2-19] 過酸化水素の電解槽（IMP4-01）：白金の陽極なしでは動かない。瓶1 → H2O2（ガラス瓶）＋H2。水4回・硫酸8回・白金32回 */
+    @GameTest(maxTicks = 100)
+    public void peroxideCell(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Chemistry.PEROXIDE_CELL.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_ACID, new ItemStack(Chemistry.SULFURIC_ACID, 2));
+        c.setItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        c.setItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_BOTTLE, new ItemStack(Chemistry.GLASS_BOTTLE, 8));
+        c.setItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_ANODE, new ItemStack(Items.IRON_INGOT));
+        h.assertFalse(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.LAYOUT.slots().stream().anyMatch(sl -> sl.index() == com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_ANODE && sl.accepts().test(new ItemStack(com.taku3.semiconductorlab.content.Power.GRAPHITE_ROD))), "graphite is not a persulfate anode");
+        c.setItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_ANODE, ItemStack.EMPTY);
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_OUT).isEmpty(), "no platinum anode -> nothing");
+        c.setItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_ANODE, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        for (int i = 0; i < 4; i++) tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_OUT).is(Chemistry.HYDROGEN_PEROXIDE) && c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_OUT).getCount() == 4, "4 bottles of H2O2, got " + c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_OUT));
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_H2).is(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS) && c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_H2).getCount() == 4, "and 4 bags of hydrogen (2H2O -> H2O2 + H2)");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_ACID).getCount() == 1 && be.getAcid() == com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID - 4, "sulfuric acid mostly recovered (1 bottle per 8 runs)");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_ANODE).isEmpty() && be.getAnode() == com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE - 4, "platinum anode lasts 32 runs");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_BUCKET).is(Items.BUCKET), "1 water bucket = 4 runs");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS + 5, feed);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.SLOT_OUT).getCount(), 4, "no water left -> stops");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] peroxide cell [2-19]: Pt anode + H2SO4 (recovered) + water + bottle -> H2O2 + H2 ({} kW x {} s)", com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.WATTS / 1000, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS / 20);
+        h.succeed();
+    }
+
     /** [2-02] カリ（IMP2-01）：原木 →たき火→ 木灰、木灰4＋水バケツ → 灰汁（バケツは戻る）、灰汁 →かまど→ 炭酸カリウム */
     @GameTest
     public void potash(GameTestHelper h) {
@@ -315,6 +348,8 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
+            L(io(Chemistry.HYDROGEN_PEROXIDE, 1), mol(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS, 1)), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS / 20.0, "白金の陽極で硫酸 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。全体 2H2O → H2O2 + H2");
         rec(a, Chemistry.AMMONIA_STILL.block, "アンモニア水", L(io(Chemistry.AMMONIACAL_LIQUOR, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.LIQUOR_PER_RUN), io(com.taku3.semiconductorlab.content.Survival.SLAKED_LIME, 1), io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.RUNS_PER_WATER)),
             L(io(Chemistry.AMMONIA_WATER, 1)), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.WATTS, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.TICKS / 20.0, "安水を熱し、消石灰で塩のアンモニアも追い出して水に吸わせる");
         rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),

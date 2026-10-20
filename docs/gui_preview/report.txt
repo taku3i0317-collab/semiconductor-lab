@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 82（ja・en）、文字の置き場所 310、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 84（ja・en）、文字の置き場所 318、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -86,6 +86,13 @@ ammonia_still_en_us hint gui.semiconductor-lab.ammonia_still.need_water w=169 li
 ammonia_still_en_us hint gui.semiconductor-lab.ammonia_still.need_power w=90 lines=2/3
 ammonia_still_en_us hint gui.semiconductor-lab.ammonia_still.running w=96 lines=2/3
 ammonia_still_en_us recipe gui.semiconductor-lab.ammonia_still.recipe w=98 lines=1/1
+peroxide_cell_en_us power gui.semiconductor-lab.peroxide_cell.power w=75 lines=1/1
+peroxide_cell_en_us water gui.semiconductor-lab.peroxide_cell.water w=68 lines=1/1
+peroxide_cell_en_us hint gui.semiconductor-lab.peroxide_cell.need_input w=155 lines=3/3
+peroxide_cell_en_us hint gui.semiconductor-lab.peroxide_cell.need_anode w=117 lines=2/3
+peroxide_cell_en_us hint gui.semiconductor-lab.peroxide_cell.need_power w=90 lines=2/3
+peroxide_cell_en_us hint gui.semiconductor-lab.peroxide_cell.running w=124 lines=2/3
+peroxide_cell_en_us recipe gui.semiconductor-lab.peroxide_cell.recipe w=90 lines=1/1
 acheson_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=67 lines=1/1
 acheson_furnace_en_us need gui.semiconductor-lab.acheson_furnace.need w=61 lines=1/1
 acheson_furnace_en_us temp gui.semiconductor-lab.acheson_furnace.temp w=56 lines=1/1
@@ -422,6 +429,13 @@ ammonia_still_ja_jp hint gui.semiconductor-lab.ammonia_still.need_water w=99 lin
 ammonia_still_ja_jp hint gui.semiconductor-lab.ammonia_still.need_power w=63 lines=1/3
 ammonia_still_ja_jp hint gui.semiconductor-lab.ammonia_still.running w=117 lines=2/3
 ammonia_still_ja_jp recipe gui.semiconductor-lab.ammonia_still.recipe w=91 lines=1/1
+peroxide_cell_ja_jp power gui.semiconductor-lab.peroxide_cell.power w=63 lines=1/1
+peroxide_cell_ja_jp water gui.semiconductor-lab.peroxide_cell.water w=54 lines=1/1
+peroxide_cell_ja_jp hint gui.semiconductor-lab.peroxide_cell.need_input w=99 lines=2/3
+peroxide_cell_ja_jp hint gui.semiconductor-lab.peroxide_cell.need_anode w=72 lines=1/3
+peroxide_cell_ja_jp hint gui.semiconductor-lab.peroxide_cell.need_power w=63 lines=1/3
+peroxide_cell_ja_jp hint gui.semiconductor-lab.peroxide_cell.running w=99 lines=2/3
+peroxide_cell_ja_jp recipe gui.semiconductor-lab.peroxide_cell.recipe w=90 lines=1/1
 acheson_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=55 lines=1/1
 acheson_furnace_ja_jp need gui.semiconductor-lab.acheson_furnace.need w=55 lines=1/1
 acheson_furnace_ja_jp temp gui.semiconductor-lab.acheson_furnace.temp w=50 lines=1/1
