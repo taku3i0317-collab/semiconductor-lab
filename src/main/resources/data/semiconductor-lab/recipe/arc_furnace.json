@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GGG",
+    "BCB",
+    "BSB"
+  ],
+  "key": {
+    "G": "semiconductor-lab:graphite_rod",
+    "B": "semiconductor-lab:refractory_brick",
+    "C": "semiconductor-lab:copper_cable",
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:arc_furnace",
+    "count": 1
+  }
+}

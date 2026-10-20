@@ -1,6 +1,7 @@
 package com.taku3.semiconductorlab;
 
 import com.taku3.semiconductorlab.block.AirSeparationMenu;
+import com.taku3.semiconductorlab.block.ArcFurnaceMenu;
 import com.taku3.semiconductorlab.block.BessemerConverterMenu;
 import com.taku3.semiconductorlab.block.CrystalPullerMenu;
 import com.taku3.semiconductorlab.block.CompressorMenu;
@@ -39,6 +40,9 @@ public class ModMenus {
     public static final MenuType<AirSeparationMenu> AIR_SEPARATION = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("air_separation_unit"),
             new MenuType<>(AirSeparationMenu::new, FeatureFlags.DEFAULT_FLAGS));
+    public static final MenuType<ArcFurnaceMenu> ARC_FURNACE = Registry.register(
+            BuiltInRegistries.MENU, SemiconductorLab.id("arc_furnace"),
+            new MenuType<>(ArcFurnaceMenu::new, FeatureFlags.DEFAULT_FLAGS));
     public static final MenuType<CrystalPullerMenu> CRYSTAL_PULLER = Registry.register(
             BuiltInRegistries.MENU, SemiconductorLab.id("crystal_puller"),
             new MenuType<>(CrystalPullerMenu::new, FeatureFlags.DEFAULT_FLAGS));

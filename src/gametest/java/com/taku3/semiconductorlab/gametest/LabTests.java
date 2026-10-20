@@ -935,7 +935,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate", "glass_batch", "soda_lime_glass", "soda_lime_glass_from_blasting",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "crystal_puller", "boric_acid", "boron_trioxide", "self_excited_dynamo", "steam_engine", "steam_turbine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "crystal_puller", "arc_furnace", "boric_acid", "boron_trioxide", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner",
@@ -1325,6 +1325,52 @@ public class LabTests {
             LOG.info("[LAB] Sprengel pump: 4 Hg, 1 atm -> 0.1 Pa in {} s, from 1 kPa in {} s, steady {} with leak, breaking drops the mercury", fromAtm, fromRough, VacuumChamberBlockEntity.formatPa(eq));
             h.succeed();
         });
+    }
+
+    // =====================================================================
+    // [3-15] アーク炉 → [1-15] 金属シリコン（タスク15）
+    // =====================================================================
+
+    /** 珪石2＋木炭1＋500kW×86.4秒（12kWh）→ 金属シリコン（98%）。電力が半分なら進まない。電極は8回で1本。石炭は不可 */
+    @GameTest
+    public void arcFurnaceSilicon(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.GRAPHITE_ROD, ModItems.REFRACTORY_BRICK, ModBlocks.COPPER_CABLE.asItem()})
+            h.assertTrue(recipeUses(h, "arc_furnace", it), "arc furnace = graphite electrodes + refractory lining + heavy cable: " + it);
+        var A = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.class;
+        double kwh = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.WATTS * com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.TICKS / 20.0 / 3.6e6;
+        h.assertTrue(kwh >= 10 && kwh <= 14, "about 12 kWh per kg of silicon (real: over 10 kWh), got " + kwh);
+        floor(h, 5);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, ModBlocks.ARC_FURNACE);
+        var be = h.getBlockEntity(fp, A);
+        var c = be.getContainer();
+        int Q = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_QUARTZ, CB = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_CARBON,
+            E = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_ELECTRODE, OUT = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.SLOT_OUT;
+        int T = com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.WATTS);
+        h.assertFalse(com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity.isCarbon(new ItemStack(Items.COAL)), "charcoal only (node spec)");
+        c.setItem(Q, new ItemStack(ModItems.VEIN_QUARTZ, 20));
+        c.setItem(CB, new ItemStack(Items.CHARCOAL, 10));
+        tickConsumer(h, fp, be, T + 10, feed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no electrode -> no arc");
+        c.setItem(E, new ItemStack(ModItems.GRAPHITE_ROD, 2));
+        tickConsumer(h, fp, be, T, feed / 2);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "half power cannot hold 2000 C -> nothing");
+        c.setItem(Q, new ItemStack(ModItems.VEIN_QUARTZ, 20));
+        tickConsumer(h, fp, be, T, feed);
+        ItemStack si = c.getItem(OUT);
+        h.assertTrue(si.is(ModItems.METALLURGICAL_SILICON) && si.getCount() == 1, "2 quartz + 1 charcoal -> 1 silicon, got " + si);
+        h.assertValueEqual(si.get(com.taku3.semiconductorlab.ModDataComponents.PURITY), com.taku3.semiconductorlab.Purity.METALLURGICAL, "metallurgical grade 98%");
+        h.assertValueEqual(c.getItem(Q).getCount(), 18, "SiO2 + 2C: 2 quartz per run");
+        h.assertValueEqual(c.getItem(E).getCount(), 1, "first run takes a fresh electrode");
+        for (int i = 0; i < 7; i++) tickConsumer(h, fp, be, T, feed);
+        h.assertValueEqual(c.getItem(E).getCount(), 1, "8 runs per electrode");
+        h.assertValueEqual(c.getItem(OUT).getCount(), 8, "8 silicon");
+        tickConsumer(h, fp, be, T, feed);
+        h.assertTrue(c.getItem(E).isEmpty(), "the 9th run takes the second electrode");
+        h.assertValueEqual(c.getItem(CB).getCount(), 1, "1 charcoal per run");
+        LOG.info("[LAB] arc furnace [3-15] -> metallurgical Si [1-15]: 2 quartz + charcoal + {} kWh -> Si 98%, half power stalls, 8 runs per electrode", String.format("%.1f", kwh));
+        h.succeed();
     }
 
     // =====================================================================

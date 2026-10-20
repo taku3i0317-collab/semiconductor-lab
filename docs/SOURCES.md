@@ -52,3 +52,8 @@
 - arXiv 1907.05067（Ge 単結晶、直径45mm）：回転 15〜20rpm、引き上げ 20〜25mm/h
 - 特許 US2703296（ベル研、ゲルマニウムの種から棒状の結晶を引き上げる）（https://patents.google.com/patent/US2703296）
 - ゲームの値：1本 60秒（本物は数時間）、3kW（帯域精製炉の発振器と同じ）、H2 1袋/回。❓ 1950年の装置の引き上げ速度・回転数は原論文で要確認
+
+## [3-15] アーク炉・[1-15] 金属シリコン（タスク15、2026-10-20）
+- docs/REFERENCES.md §1（USGS シリコン統計 https://www.usgs.gov/centers/national-minerals-information-center/silicon-statistics-and-information 、PV-Manufacturing.org https://pv-manufacturing.org/silicon-production/）：SiO2 + 2C → Si + 2CO、約2000℃、98〜99%、1kg あたり 10kWh 以上
+- ゲームの値：12kWh/kg（現代の炉の 11〜13kWh の中ほど）、500kW、電極は8回で1本
+- ❓ 要確認：モアッサン（1892）の電気炉は直流ダイナモで動いたか、電気炉による金属シリコンの工業生産が始まった年（1900年ごろ）
