@@ -1,0 +1,8 @@
+{
+  "item.semiconductor-lab.transistor_radio": "Transistor Radio",
+  "item.semiconductor-lab.transistor_radio.note1": "A battery radio that fits in your pocket.",
+  "item.semiconductor-lab.transistor_radio.note2": "Alloy-junction transistor ×3 (amplify) + graphite (carbon resistor) + copper cable (tuning/antenna coil) + Leyden jar (capacitor) + magnet (speaker) + zinc ingot and graphite rod (zinc-carbon battery: zinc can and carbon rod). The goal of chapter 1. No redstone: every part is a real radio part.",
+  "item.semiconductor-lab.transistor_radio.note3": "It picks one station out of the weak signals from the antenna (tuning), extracts the audio (detection) and amplifies it with transistors to drive the speaker. Unlike tubes there is no warm-up, so it plays at once and the battery lasts.",
+  "item.semiconductor-lab.transistor_radio.note4": "The Regency TR-1 (USA, 1954, four transistors) was the first commercial transistor radio. Tokyo Tsushin Kogyo (later Sony) released the TR-55 in 1955, and its 1957 TR-63 sold worldwide as a 'pocketable' radio.",
+  "item.semiconductor-lab.transistor_radio.placeholder": "⚠️ Approximation: the capacitor is a Leyden jar (real radios use small paper, ceramic or electrolytic capacitors). The battery is only its zinc can and carbon rod (the real zinc-carbon cell also needs MnO2 and an ammonium chloride paste, not in the game yet). The speaker cone, ferrite antenna rod and plastic case are omitted. The TR-1 had 4 transistors; here 3."
+}

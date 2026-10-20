@@ -1,7 +1,9 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Chemistry;
+import com.taku3.semiconductorlab.content.Metallurgy;
+import com.taku3.semiconductorlab.content.Semiconductor;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.*;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -40,18 +42,18 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public ZoneRefiningFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.ZONE_REFINING_FURNACE.type, pos, state, SLOT_COUNT, 30_000, WATTS);
+        super(Semiconductor.ZONE_REFINING_FURNACE.type, pos, state, SLOT_COUNT, 30_000, WATTS);
     }
 
-    public static boolean isGermanium(ItemStack s) { return s.is(ModItems.RAW_GERMANIUM) || s.is(ModItems.REFINED_GERMANIUM); }
-    public static boolean isDopant(ItemStack s) { return s.is(ModItems.PHOSPHORUS) || s.is(ModItems.INDIUM); }
-    public static boolean isBoat(ItemStack s) { return s.is(ModItems.GRAPHITE_BOAT) || s.is(ModItems.SYNTHETIC_GRAPHITE_BOAT); }
-    public static boolean isTransistorGrade(ItemStack s) { Double p = s.get(ModDataComponents.PURITY); return s.is(ModItems.REFINED_GERMANIUM) && p != null && p >= Purity.NINE_N; }
+    public static boolean isGermanium(ItemStack s) { return s.is(Metallurgy.RAW_GERMANIUM) || s.is(Semiconductor.REFINED_GERMANIUM); }
+    public static boolean isDopant(ItemStack s) { return s.is(Chemistry.PHOSPHORUS) || s.is(Metallurgy.INDIUM); }
+    public static boolean isBoat(ItemStack s) { return s.is(Semiconductor.GRAPHITE_BOAT) || s.is(Semiconductor.SYNTHETIC_GRAPHITE_BOAT); }
+    public static boolean isTransistorGrade(ItemStack s) { Double p = s.get(ModDataComponents.PURITY); return s.is(Semiconductor.REFINED_GERMANIUM) && p != null && p >= Purity.NINE_N; }
 
     /** ボートで届く純度の上限。ボートがなければ 0 */
     public static double boatCap(ItemStack boat) {
-        if (boat.is(ModItems.SYNTHETIC_GRAPHITE_BOAT)) return Purity.TEN_N;
-        if (boat.is(ModItems.GRAPHITE_BOAT)) return Purity.NINE_N;
+        if (boat.is(Semiconductor.SYNTHETIC_GRAPHITE_BOAT)) return Purity.TEN_N;
+        if (boat.is(Semiconductor.GRAPHITE_BOAT)) return Purity.NINE_N;
         return 0;
     }
 
@@ -69,7 +71,7 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity {
 
     /** 次の純度段階。上がらないなら -1 */
     public static double nextPurity(ItemStack s) {
-        if (s.is(ModItems.RAW_GERMANIUM)) return Purity.SIX_N;
+        if (s.is(Metallurgy.RAW_GERMANIUM)) return Purity.SIX_N;
         Double p = s.get(ModDataComponents.PURITY);
         if (p == null) return -1;
         if (p < Purity.NINE_N) return Purity.NINE_N;
@@ -104,13 +106,13 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity {
     @Override protected void finishWork() {
         ItemStack ge = container.getItem(GE_SLOT);
         if (mode() == MODE_REFINE) {
-            ItemStack out = new ItemStack(ModItems.REFINED_GERMANIUM, ge.getCount());
+            ItemStack out = new ItemStack(Semiconductor.REFINED_GERMANIUM, ge.getCount());
             out.set(ModDataComponents.PURITY, nextPurity(ge));
             if (isChlorideRoute(ge)) out.set(ModDataComponents.CHLORIDE_ROUTE, true);   // 経路は受け継ぐ
             container.setItem(GE_SLOT, out);
         } else {
             ItemStack dp = container.getItem(DOPANT_SLOT);
-            ItemStack out = new ItemStack(dp.is(ModItems.PHOSPHORUS) ? ModItems.N_TYPE_GERMANIUM : ModItems.P_TYPE_GERMANIUM, ge.getCount());
+            ItemStack out = new ItemStack(dp.is(Chemistry.PHOSPHORUS) ? Semiconductor.N_TYPE_GERMANIUM : Semiconductor.P_TYPE_GERMANIUM, ge.getCount());
             dp.shrink(1);
             container.setItem(DOPANT_SLOT, dp.isEmpty() ? ItemStack.EMPTY : dp);
             container.setItem(GE_SLOT, out);

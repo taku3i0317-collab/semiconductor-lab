@@ -1,7 +1,7 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.machine.MachineMenu;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.block.CompressorBlockEntity;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
@@ -33,7 +33,7 @@ public class CompressorScreen extends MachineScreen {
         ItemStack empty = menu.getSlot(CompressorBlockEntity.SLOT_EMPTY).getItem();
         ItemStack out = menu.getSlot(CompressorBlockEntity.SLOT_OUT).getItem();
         String hint;
-        if (!empty.is(ModItems.EMPTY_GAS_CYLINDER)) hint = "need_cylinder";
+        if (!empty.is(Gas.EMPTY_GAS_CYLINDER)) hint = "need_cylinder";
         else if (!menu.isReady()) hint = !out.isEmpty() && out.getCount() >= out.getMaxStackSize() ? "output_full" : "need_gas";
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = "running";

@@ -1,8 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.machine.MachineBE;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -64,7 +64,7 @@ public class GasHolderBlockEntity extends BlockEntity implements MachineBE {
             .build();
 
     public GasHolderBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.GAS_HOLDER.type, pos, state);
+        super(Gas.GAS_HOLDER.type, pos, state);
     }
 
     public GasType getGasType() { return type; }

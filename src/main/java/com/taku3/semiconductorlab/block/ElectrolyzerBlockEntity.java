@@ -1,8 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Chemistry;
+import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -51,11 +51,11 @@ public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements GasS
             .build();
 
     public ElectrolyzerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.ELECTROLYZER.type, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(Gas.ELECTROLYZER.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
-    public static boolean isElectrolyte(ItemStack s) { return s.is(ModItems.SULFURIC_ACID); }
-    public static boolean isSalt(ItemStack s) { return s.is(ModItems.SALT); }
+    public static boolean isElectrolyte(ItemStack s) { return s.is(Chemistry.SULFURIC_ACID); }
+    public static boolean isSalt(ItemStack s) { return s.is(Gas.SALT); }
     /** 左下のスロットに置けるもの（硫酸 or 塩） */
     public static boolean isSecondInput(ItemStack s) { return isElectrolyte(s) || isSalt(s); }
 
@@ -66,9 +66,9 @@ public class ElectrolyzerBlockEntity extends ConsumerBlockEntity implements GasS
     }
     public int mode() { return modeOf(container.getItem(SLOT_ACID)); }
 
-    private ItemStack cathode() { return new ItemStack(ModItems.HYDROGEN_GAS, mode() == MODE_BRINE ? 1 : 2); }
-    private ItemStack anode() { return new ItemStack(mode() == MODE_BRINE ? ModItems.CHLORINE_GAS : ModItems.OXYGEN_GAS, 1); }
-    private static ItemStack naoh() { return new ItemStack(ModItems.SODIUM_HYDROXIDE, 2); }
+    private ItemStack cathode() { return new ItemStack(Gas.HYDROGEN_GAS, mode() == MODE_BRINE ? 1 : 2); }
+    private ItemStack anode() { return new ItemStack(mode() == MODE_BRINE ? Gas.CHLORINE_GAS : Gas.OXYGEN_GAS, 1); }
+    private static ItemStack naoh() { return new ItemStack(Gas.SODIUM_HYDROXIDE, 2); }
 
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return mode() == MODE_BRINE ? BRINE_TICKS : TOTAL_TICKS; }

@@ -1,8 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.machine.MachineEntityBlock;
-import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
@@ -23,7 +23,7 @@ public class SprengelPumpBlock extends MachineEntityBlock {
     public SprengelPumpBlock(Properties props, Machine<?> machine) { super(props, machine); }
 
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!stack.is(ModItems.MERCURY) || !(level.getBlockEntity(pos) instanceof SprengelPumpBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
+        if (!stack.is(Metallurgy.MERCURY) || !(level.getBlockEntity(pos) instanceof SprengelPumpBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (level.isClientSide()) return InteractionResult.SUCCESS;
         if (be.addMercury()) { if (!player.getAbilities().instabuild) stack.shrink(1); }
         player.sendOverlayMessage(status(be));

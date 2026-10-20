@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModItems;
+import com.taku3.semiconductorlab.content.Gas;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -11,11 +11,11 @@ import net.minecraft.world.item.ItemStack;
  */
 public enum GasType {
     NONE(null, null, "none"),
-    HYDROGEN(() -> ModItems.HYDROGEN_GAS, () -> ModItems.HYDROGEN_CYLINDER, "hydrogen"),
-    OXYGEN(() -> ModItems.OXYGEN_GAS, () -> ModItems.OXYGEN_CYLINDER, "oxygen"),
-    CHLORINE(() -> ModItems.CHLORINE_GAS, () -> ModItems.CHLORINE_CYLINDER, "chlorine"),
-    NITROGEN(() -> ModItems.NITROGEN_GAS, () -> ModItems.NITROGEN_CYLINDER, "nitrogen"),
-    ARGON(() -> ModItems.ARGON_GAS, () -> ModItems.ARGON_CYLINDER, "argon");
+    HYDROGEN(() -> Gas.HYDROGEN_GAS, () -> Gas.HYDROGEN_CYLINDER, "hydrogen"),
+    OXYGEN(() -> Gas.OXYGEN_GAS, () -> Gas.OXYGEN_CYLINDER, "oxygen"),
+    CHLORINE(() -> Gas.CHLORINE_GAS, () -> Gas.CHLORINE_CYLINDER, "chlorine"),
+    NITROGEN(() -> Gas.NITROGEN_GAS, () -> Gas.NITROGEN_CYLINDER, "nitrogen"),
+    ARGON(() -> Gas.ARGON_GAS, () -> Gas.ARGON_CYLINDER, "argon");
 
     private final java.util.function.Supplier<Item> bag;
     private final java.util.function.Supplier<Item> cylinder;

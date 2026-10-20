@@ -2,83 +2,338 @@
   "_note": "自動生成：GameTest exportMachineRecipes（tools/test.ps1 で更新）。各機械の定数とアイテムの登録から作る。watts が負＝発電、0＝電気なし。量：count（1回あたり）・unit・per_runs（N回で count 個へる）・consumed=false（減らない）・max（1回の上限）・alt（代わり）・cond（条件）",
   "recipes": [
     {
-      "machine": "semiconductor-lab:zone_refining_furnace",
-      "process": "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
+      "machine": "semiconductor-lab:acheson_furnace",
+      "process": "人造黒鉛",
       "inputs": [
         {
-          "item": "semiconductor-lab:raw_germanium",
-          "count": 1,
-          "max": 8
+          "item": "minecraft:coal",
+          "count": 4,
+          "alt": [
+            "minecraft:charcoal"
+          ]
         },
+        {
+          "item": "minecraft:sand",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:synthetic_graphite",
+          "count": 2
+        }
+      ],
+      "watts": 500000.0,
+      "seconds": 60.0,
+      "energy_kj": 30000,
+      "note": "2500℃ 以上で進む（電力が足りないと届かない）"
+    },
+    {
+      "machine": "semiconductor-lab:air_separation_unit",
+      "process": "空気分離",
+      "inputs": [
+        {
+          "item": "空気",
+          "count": 10,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:nitrogen_gas",
+          "count": 7.808,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_gas",
+          "count": 2.095,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "count": 0.093,
+          "unit": "mol"
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 16.0,
+      "energy_kj": 80,
+      "note": "端数は持ち越して袋（1 mol）にする"
+    },
+    {
+      "machine": "semiconductor-lab:arc_furnace",
+      "process": "金属シリコン",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vein_quartz",
+          "count": 2
+        },
+        {
+          "item": "minecraft:charcoal",
+          "count": 1,
+          "alt": [
+            "minecraft:coal"
+          ]
+        },
+        {
+          "item": "semiconductor-lab:graphite_rod",
+          "count": 1,
+          "per_runs": 8
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:metallurgical_silicon",
+          "count": 1
+        }
+      ],
+      "watts": 500000.0,
+      "seconds": 86.4,
+      "energy_kj": 43200,
+      "note": "SiO2 + 2C → Si + 2CO、純度98%"
+    },
+    {
+      "machine": "semiconductor-lab:bessemer_converter",
+      "process": "ベッセマー転炉",
+      "inputs": [
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 1,
+          "cond": "銑鉄の近似"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:steel_ingot",
+          "count": 1
+        }
+      ],
+      "watts": 20000.0,
+      "seconds": 20.0,
+      "energy_kj": 400,
+      "note": "送風の動力を電力で代表"
+    },
+    {
+      "machine": "semiconductor-lab:compressor",
+      "process": "ボンベに詰める",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:empty_gas_cylinder",
+          "count": 1
+        },
+        {
+          "item": "隣のガスホルダーのガス",
+          "count": 50,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "そのガスのボンベ",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 124.0,
+      "energy_kj": 620,
+      "note": "約150気圧。H2・O2・Cl2・N2・Ar"
+    },
+    {
+      "machine": "semiconductor-lab:crystal_puller",
+      "process": "種結晶づくり",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:tungsten_wire",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:germanium_seed_crystal",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90,
+      "note": "粒の選択。線は結晶に埋まる"
+    },
+    {
+      "machine": "semiconductor-lab:crystal_puller",
+      "process": "単結晶の引き上げ",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:germanium_seed_crystal",
+          "count": 1,
+          "consumed": false
+        },
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:germanium_single_crystal",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 60.0,
+      "energy_kj": 180,
+      "note": "純度と経路を受け継ぐ"
+    },
+    {
+      "machine": "semiconductor-lab:cz_puller",
+      "process": "種結晶",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:polysilicon",
+          "count": 1,
+          "cond": "種のスロットに"
+        },
+        {
+          "item": "semiconductor-lab:quartz_crucible",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silicon_seed_crystal",
+          "count": 1
+        }
+      ],
+      "watts": 150000.0,
+      "seconds": 60.0,
+      "energy_kj": 9000,
+      "note": "細く絞って引くと1つの粒だけが残る"
+    },
+    {
+      "machine": "semiconductor-lab:cz_puller",
+      "process": "単結晶",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:silicon_seed_crystal",
+          "count": 1,
+          "consumed": false
+        },
+        {
+          "item": "semiconductor-lab:polysilicon",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:quartz_crucible",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "count": 2,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:boron_trioxide",
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:phosphorus"
+          ],
+          "cond": "入れなくてもよい（真性）"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silicon_single_crystal",
+          "count": 1,
+          "cond": "B2O3 で p型・リンで n型、純度は多結晶シリコンと同じ"
+        }
+      ],
+      "watts": 150000.0,
+      "seconds": 835.2,
+      "energy_kj": 125280,
+      "note": "約1420℃の融液から回しながら引き上げる。17.4kWh/kg"
+    },
+    {
+      "machine": "semiconductor-lab:diffusion_furnace",
+      "process": "p-n 接合",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8,
+          "cond": "n型 か p型"
+        },
+        {
+          "item": "semiconductor-lab:boron_trioxide",
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:phosphorus"
+          ],
+          "cond": "板と反対の型"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:pn_junction_wafer",
+          "count": 8
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 120.0,
+      "energy_kj": 600,
+      "note": "ドーパントが表面からしみ込む（1954：n型＋ホウ素）"
+    },
+    {
+      "machine": "semiconductor-lab:electric_furnace",
+      "process": "電気で焼く",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:graphite_boat_blank",
+          "count": 1
+        }
+      ],
+      "outputs": [
         {
           "item": "semiconductor-lab:graphite_boat",
-          "count": 1,
-          "cond": "粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで",
-          "consumed": false
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:refined_germanium",
           "count": 1
         }
       ],
-      "watts": 3000.0,
-      "seconds": 30.0,
-      "energy_kj": 90,
-      "note": "入れた数だけ出る。GeCl4 経由でない Ge は 9N まで"
+      "watts": 5000.0,
+      "seconds": 10.0,
+      "energy_kj": 50
     },
     {
-      "machine": "semiconductor-lab:zone_refining_furnace",
-      "process": "ゾーンレベリング（n型）",
+      "machine": "semiconductor-lab:electric_furnace",
+      "process": "電気で焼く",
       "inputs": [
         {
-          "item": "semiconductor-lab:refined_germanium",
-          "count": 1,
-          "cond": "9N 以上",
-          "max": 8
-        },
-        {
-          "item": "semiconductor-lab:phosphorus",
+          "item": "semiconductor-lab:refractory_brick_blank",
           "count": 1
         }
       ],
       "outputs": [
         {
-          "item": "semiconductor-lab:n_type_germanium",
+          "item": "semiconductor-lab:refractory_brick",
           "count": 1
         }
       ],
-      "watts": 3000.0,
-      "seconds": 30.0,
-      "energy_kj": 90,
-      "note": "入れた数だけ出る"
-    },
-    {
-      "machine": "semiconductor-lab:zone_refining_furnace",
-      "process": "ゾーンレベリング（p型）",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:refined_germanium",
-          "count": 1,
-          "cond": "9N 以上",
-          "max": 8
-        },
-        {
-          "item": "semiconductor-lab:indium",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:p_type_germanium",
-          "count": 1
-        }
-      ],
-      "watts": 3000.0,
-      "seconds": 30.0,
-      "energy_kj": 90,
-      "note": "入れた数だけ出る"
+      "watts": 5000.0,
+      "seconds": 10.0,
+      "energy_kj": 50
     },
     {
       "machine": "semiconductor-lab:electrolyzer",
@@ -150,25 +405,59 @@
       "note": "2NaCl + 2H2O → Cl2 + H2 + 2NaOH"
     },
     {
-      "machine": "semiconductor-lab:bessemer_converter",
-      "process": "ベッセマー転炉",
+      "machine": "semiconductor-lab:hcl_burner",
+      "process": "塩酸を作る",
       "inputs": [
         {
-          "item": "minecraft:iron_ingot",
+          "item": "semiconductor-lab:hydrogen_gas",
           "count": 1,
-          "cond": "銑鉄の近似"
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 1,
+          "unit": "mol"
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 0.25
         }
       ],
       "outputs": [
         {
-          "item": "semiconductor-lab:steel_ingot",
+          "item": "semiconductor-lab:hydrochloric_acid",
           "count": 1
         }
       ],
-      "watts": 20000.0,
-      "seconds": 20.0,
-      "energy_kj": 400,
-      "note": "送風の動力を電力で代表"
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "H2 + Cl2 → 2HCl を水に溶かす。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:hcl_burner",
+      "process": "乾いた塩化水素",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydrogen_chloride_gas",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし"
     },
     {
       "machine": "semiconductor-lab:hydrogen_furnace",
@@ -245,120 +534,53 @@
       "note": "GeO2 + 2H2 → Ge + 2H2O"
     },
     {
-      "machine": "semiconductor-lab:compressor",
-      "process": "ボンベに詰める",
+      "machine": "semiconductor-lab:lead_acid_battery",
+      "process": "電気をためる",
       "inputs": [
         {
-          "item": "semiconductor-lab:empty_gas_cylinder",
+          "item": "電気",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "電気",
+          "count": 1,
+          "cond": "1 MJ まで、充電は 85% がたまる"
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 0.0,
+      "note": "充電・放電とも最大の電力"
+    },
+    {
+      "machine": "semiconductor-lab:oxyhydrogen_burner",
+      "process": "石英を溶かす",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vein_quartz",
           "count": 1
         },
         {
-          "item": "隣のガスホルダーのガス",
-          "count": 50,
+          "item": "semiconductor-lab:hydrogen_cylinder",
+          "count": 4,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_cylinder",
+          "count": 2,
           "unit": "mol"
         }
       ],
       "outputs": [
         {
-          "item": "そのガスのボンベ",
+          "item": "semiconductor-lab:fused_quartz",
           "count": 1
         }
       ],
-      "watts": 5000.0,
-      "seconds": 124.0,
-      "energy_kj": 620,
-      "note": "約150気圧。H2・O2・Cl2・N2・Ar"
-    },
-    {
-      "machine": "semiconductor-lab:sealing_station",
-      "process": "真空管の封止",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:vacuum_tube_assembly",
-          "count": 1
-        },
-        {
-          "item": "隣の真空容器",
-          "count": 1,
-          "cond": "0.1 Pa 以下",
-          "consumed": false
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:vacuum_tube",
-          "count": 1
-        }
-      ],
-      "watts": 500.0,
+      "watts": 0.0,
       "seconds": 10.0,
-      "energy_kj": 5,
-      "note": "封じるたびに容器へ空気がもどる"
-    },
-    {
-      "machine": "semiconductor-lab:electric_furnace",
-      "process": "電気で焼く",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:graphite_boat_blank",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:graphite_boat",
-          "count": 1
-        }
-      ],
-      "watts": 5000.0,
-      "seconds": 10.0,
-      "energy_kj": 50
-    },
-    {
-      "machine": "semiconductor-lab:electric_furnace",
-      "process": "電気で焼く",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:refractory_brick_blank",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:refractory_brick",
-          "count": 1
-        }
-      ],
-      "watts": 5000.0,
-      "seconds": 10.0,
-      "energy_kj": 50
-    },
-    {
-      "machine": "semiconductor-lab:acheson_furnace",
-      "process": "人造黒鉛",
-      "inputs": [
-        {
-          "item": "minecraft:coal",
-          "count": 4,
-          "alt": [
-            "minecraft:charcoal"
-          ]
-        },
-        {
-          "item": "minecraft:sand",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:synthetic_graphite",
-          "count": 2
-        }
-      ],
-      "watts": 500000.0,
-      "seconds": 60.0,
-      "energy_kj": 30000,
-      "note": "2500℃ 以上で進む（電力が足りないと届かない）"
+      "note": "2H2 + O2 → 2H2O（約2800℃）。電気なし"
     },
     {
       "machine": "semiconductor-lab:reverberatory_furnace",
@@ -455,64 +677,6 @@
       "note": "燃料式（電気なし）"
     },
     {
-      "machine": "semiconductor-lab:oxyhydrogen_burner",
-      "process": "石英を溶かす",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:vein_quartz",
-          "count": 1
-        },
-        {
-          "item": "semiconductor-lab:hydrogen_cylinder",
-          "count": 4,
-          "unit": "mol"
-        },
-        {
-          "item": "semiconductor-lab:oxygen_cylinder",
-          "count": 2,
-          "unit": "mol"
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:fused_quartz",
-          "count": 1
-        }
-      ],
-      "watts": 0.0,
-      "seconds": 10.0,
-      "note": "2H2 + O2 → 2H2O（約2800℃）。電気なし"
-    },
-    {
-      "machine": "semiconductor-lab:hcl_burner",
-      "process": "塩酸を作る",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:hydrogen_gas",
-          "count": 1,
-          "unit": "mol"
-        },
-        {
-          "item": "semiconductor-lab:chlorine_gas",
-          "count": 1,
-          "unit": "mol"
-        },
-        {
-          "item": "minecraft:water_bucket",
-          "count": 0.25
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:hydrochloric_acid",
-          "count": 1
-        }
-      ],
-      "watts": 0.0,
-      "seconds": 5.0,
-      "note": "H2 + Cl2 → 2HCl を水に溶かす。電気なし"
-    },
-    {
       "machine": "semiconductor-lab:salt_pan",
       "process": "天日で塩",
       "inputs": [
@@ -539,6 +703,64 @@
       "note": "電気なし"
     },
     {
+      "machine": "semiconductor-lab:sealing_station",
+      "process": "真空管の封止",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vacuum_tube_assembly",
+          "count": 1
+        },
+        {
+          "item": "隣の真空容器",
+          "count": 1,
+          "cond": "0.1 Pa 以下",
+          "consumed": false
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:vacuum_tube",
+          "count": 1
+        }
+      ],
+      "watts": 500.0,
+      "seconds": 10.0,
+      "energy_kj": 5,
+      "note": "封じるたびに容器へ空気がもどる"
+    },
+    {
+      "machine": "semiconductor-lab:siemens_reactor",
+      "process": "多結晶シリコン",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:trichlorosilane",
+          "count": 1,
+          "cond": "9N 以上に蒸留したもの"
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:polysilicon",
+          "count": 1,
+          "cond": "純度はトリクロロシランと同じ（9N〜11N）"
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_chloride_gas",
+          "count": 3,
+          "unit": "mol"
+        }
+      ],
+      "watts": 500000.0,
+      "seconds": 648.0,
+      "energy_kj": 324000,
+      "note": "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる"
+    },
+    {
       "machine": "semiconductor-lab:sprengel_pump",
       "process": "真空にする",
       "inputs": [
@@ -563,127 +785,6 @@
       "watts": 0.0,
       "seconds": 1.0,
       "note": "電気なし"
-    },
-    {
-      "machine": "semiconductor-lab:air_separation_unit",
-      "process": "空気分離",
-      "inputs": [
-        {
-          "item": "空気",
-          "count": 10,
-          "unit": "mol"
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:nitrogen_gas",
-          "count": 7.808,
-          "unit": "mol"
-        },
-        {
-          "item": "semiconductor-lab:oxygen_gas",
-          "count": 2.095,
-          "unit": "mol"
-        },
-        {
-          "item": "semiconductor-lab:argon_gas",
-          "count": 0.093,
-          "unit": "mol"
-        }
-      ],
-      "watts": 5000.0,
-      "seconds": 16.0,
-      "energy_kj": 80,
-      "note": "端数は持ち越して袋（1 mol）にする"
-    },
-    {
-      "machine": "semiconductor-lab:crystal_puller",
-      "process": "種結晶づくり",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:tungsten_wire",
-          "count": 1
-        },
-        {
-          "item": "semiconductor-lab:refined_germanium",
-          "count": 1
-        },
-        {
-          "item": "semiconductor-lab:hydrogen_gas",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:germanium_seed_crystal",
-          "count": 1
-        }
-      ],
-      "watts": 3000.0,
-      "seconds": 30.0,
-      "energy_kj": 90,
-      "note": "粒の選択。線は結晶に埋まる"
-    },
-    {
-      "machine": "semiconductor-lab:crystal_puller",
-      "process": "単結晶の引き上げ",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:germanium_seed_crystal",
-          "count": 1,
-          "consumed": false
-        },
-        {
-          "item": "semiconductor-lab:refined_germanium",
-          "count": 4
-        },
-        {
-          "item": "semiconductor-lab:hydrogen_gas",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:germanium_single_crystal",
-          "count": 1
-        }
-      ],
-      "watts": 3000.0,
-      "seconds": 60.0,
-      "energy_kj": 180,
-      "note": "純度と経路を受け継ぐ"
-    },
-    {
-      "machine": "semiconductor-lab:arc_furnace",
-      "process": "金属シリコン",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:vein_quartz",
-          "count": 2
-        },
-        {
-          "item": "minecraft:charcoal",
-          "count": 1,
-          "alt": [
-            "minecraft:coal"
-          ]
-        },
-        {
-          "item": "semiconductor-lab:graphite_rod",
-          "count": 1,
-          "per_runs": 8
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:metallurgical_silicon",
-          "count": 1
-        }
-      ],
-      "watts": 500000.0,
-      "seconds": 86.4,
-      "energy_kj": 43200,
-      "note": "SiO2 + 2C → Si + 2CO、純度98%"
     },
     {
       "machine": "semiconductor-lab:steam_engine",
@@ -732,128 +833,6 @@
       "watts": -500000.0,
       "seconds": 18.0,
       "note": "熱効率30%"
-    },
-    {
-      "machine": "semiconductor-lab:water_wheel",
-      "process": "水車で発電",
-      "inputs": [
-        {
-          "item": "横に流れる水",
-          "count": 1,
-          "cond": "1面ごと",
-          "consumed": false
-        }
-      ],
-      "outputs": [
-        {
-          "item": "電気",
-          "count": 1
-        }
-      ],
-      "watts": -500.0,
-      "seconds": 0.0,
-      "note": "1面あたり。止まった水では回らない"
-    },
-    {
-      "machine": "semiconductor-lab:lead_acid_battery",
-      "process": "電気をためる",
-      "inputs": [
-        {
-          "item": "電気",
-          "count": 1
-        }
-      ],
-      "outputs": [
-        {
-          "item": "電気",
-          "count": 1,
-          "cond": "1 MJ まで、充電は 85% がたまる"
-        }
-      ],
-      "watts": 10000.0,
-      "seconds": 0.0,
-      "note": "充電・放電とも最大の電力"
-    },
-    {
-      "machine": "semiconductor-lab:diffusion_furnace",
-      "process": "p-n 接合",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:silicon_wafer",
-          "count": 8,
-          "cond": "n型 か p型"
-        },
-        {
-          "item": "semiconductor-lab:boron_trioxide",
-          "count": 1,
-          "alt": [
-            "semiconductor-lab:phosphorus"
-          ],
-          "cond": "板と反対の型"
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:pn_junction_wafer",
-          "count": 8
-        }
-      ],
-      "watts": 5000.0,
-      "seconds": 120.0,
-      "energy_kj": 600,
-      "note": "ドーパントが表面からしみ込む（1954：n型＋ホウ素）"
-    },
-    {
-      "machine": "semiconductor-lab:wafer_saw",
-      "process": "板に切る",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:silicon_single_crystal",
-          "count": 1
-        },
-        {
-          "item": "semiconductor-lab:diamond_saw_blade",
-          "count": 1,
-          "per_runs": 4
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:silicon_wafer",
-          "count": 8,
-          "cond": "純度とドーパントを受け継ぐ"
-        }
-      ],
-      "watts": 1000.0,
-      "seconds": 60.0,
-      "energy_kj": 60,
-      "note": "ダイヤモンドの円盤刃（1954 の作り方）"
-    },
-    {
-      "machine": "semiconductor-lab:hcl_burner",
-      "process": "乾いた塩化水素",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:hydrogen_gas",
-          "count": 1,
-          "unit": "mol"
-        },
-        {
-          "item": "semiconductor-lab:chlorine_gas",
-          "count": 1,
-          "unit": "mol"
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:hydrogen_chloride_gas",
-          "count": 2,
-          "unit": "mol"
-        }
-      ],
-      "watts": 0.0,
-      "seconds": 5.0,
-      "note": "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし"
     },
     {
       "machine": "semiconductor-lab:trichlorosilane_reactor",
@@ -907,109 +886,130 @@
       "note": "沸点の差で B・P の塩化物を分ける"
     },
     {
-      "machine": "semiconductor-lab:siemens_reactor",
-      "process": "多結晶シリコン",
+      "machine": "semiconductor-lab:wafer_saw",
+      "process": "板に切る",
       "inputs": [
-        {
-          "item": "semiconductor-lab:trichlorosilane",
-          "count": 1,
-          "cond": "9N 以上に蒸留したもの"
-        },
-        {
-          "item": "semiconductor-lab:hydrogen_gas",
-          "count": 1,
-          "unit": "mol"
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:polysilicon",
-          "count": 1,
-          "cond": "純度はトリクロロシランと同じ（9N〜11N）"
-        },
-        {
-          "item": "semiconductor-lab:hydrogen_chloride_gas",
-          "count": 3,
-          "unit": "mol"
-        }
-      ],
-      "watts": 500000.0,
-      "seconds": 648.0,
-      "energy_kj": 324000,
-      "note": "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる"
-    },
-    {
-      "machine": "semiconductor-lab:cz_puller",
-      "process": "種結晶",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:polysilicon",
-          "count": 1,
-          "cond": "種のスロットに"
-        },
-        {
-          "item": "semiconductor-lab:quartz_crucible",
-          "count": 1
-        },
-        {
-          "item": "semiconductor-lab:argon_gas",
-          "count": 1,
-          "unit": "mol"
-        }
-      ],
-      "outputs": [
-        {
-          "item": "semiconductor-lab:silicon_seed_crystal",
-          "count": 1
-        }
-      ],
-      "watts": 150000.0,
-      "seconds": 60.0,
-      "energy_kj": 9000,
-      "note": "細く絞って引くと1つの粒だけが残る"
-    },
-    {
-      "machine": "semiconductor-lab:cz_puller",
-      "process": "単結晶",
-      "inputs": [
-        {
-          "item": "semiconductor-lab:silicon_seed_crystal",
-          "count": 1,
-          "consumed": false
-        },
-        {
-          "item": "semiconductor-lab:polysilicon",
-          "count": 2
-        },
-        {
-          "item": "semiconductor-lab:quartz_crucible",
-          "count": 1
-        },
-        {
-          "item": "semiconductor-lab:argon_gas",
-          "count": 2,
-          "unit": "mol"
-        },
-        {
-          "item": "semiconductor-lab:boron_trioxide",
-          "count": 1,
-          "alt": [
-            "semiconductor-lab:phosphorus"
-          ],
-          "cond": "入れなくてもよい（真性）"
-        }
-      ],
-      "outputs": [
         {
           "item": "semiconductor-lab:silicon_single_crystal",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:diamond_saw_blade",
           "count": 1,
-          "cond": "B2O3 で p型・リンで n型、純度は多結晶シリコンと同じ"
+          "per_runs": 4
         }
       ],
-      "watts": 150000.0,
-      "seconds": 835.2,
-      "energy_kj": 125280,
-      "note": "約1420℃の融液から回しながら引き上げる。17.4kWh/kg"
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8,
+          "cond": "純度とドーパントを受け継ぐ"
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 60.0,
+      "energy_kj": 60,
+      "note": "ダイヤモンドの円盤刃（1954 の作り方）"
+    },
+    {
+      "machine": "semiconductor-lab:water_wheel",
+      "process": "水車で発電",
+      "inputs": [
+        {
+          "item": "横に流れる水",
+          "count": 1,
+          "cond": "1面ごと",
+          "consumed": false
+        }
+      ],
+      "outputs": [
+        {
+          "item": "電気",
+          "count": 1
+        }
+      ],
+      "watts": -500.0,
+      "seconds": 0.0,
+      "note": "1面あたり。止まった水では回らない"
+    },
+    {
+      "machine": "semiconductor-lab:zone_refining_furnace",
+      "process": "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:raw_germanium",
+          "count": 1,
+          "max": 8
+        },
+        {
+          "item": "semiconductor-lab:graphite_boat",
+          "count": 1,
+          "cond": "粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで",
+          "consumed": false
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90,
+      "note": "入れた数だけ出る。GeCl4 経由でない Ge は 9N まで"
+    },
+    {
+      "machine": "semiconductor-lab:zone_refining_furnace",
+      "process": "ゾーンレベリング（n型）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "count": 1,
+          "cond": "9N 以上",
+          "max": 8
+        },
+        {
+          "item": "semiconductor-lab:phosphorus",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:n_type_germanium",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90,
+      "note": "入れた数だけ出る"
+    },
+    {
+      "machine": "semiconductor-lab:zone_refining_furnace",
+      "process": "ゾーンレベリング（p型）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:refined_germanium",
+          "count": 1,
+          "cond": "9N 以上",
+          "max": 8
+        },
+        {
+          "item": "semiconductor-lab:indium",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:p_type_germanium",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 30.0,
+      "energy_kj": 90,
+      "note": "入れた数だけ出る"
     }
   ]
 }

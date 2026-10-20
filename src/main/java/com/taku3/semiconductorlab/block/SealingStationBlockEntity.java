@@ -1,8 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Vacuum;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -45,12 +44,12 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
 
     /** 画面のスロットの並び（IMP-28：前の SealingStationMenu の代わり） */
     public static final MachineLayout LAYOUT = MachineLayout.builder(MENU_DATA_COUNT)
-            .in(SLOT_IN, 8, 35, s -> s.is(com.taku3.semiconductorlab.ModItems.VACUUM_TUBE_ASSEMBLY))
+            .in(SLOT_IN, 8, 35, s -> s.is(com.taku3.semiconductorlab.content.Vacuum.VACUUM_TUBE_ASSEMBLY))
             .out(SLOT_OUT, 78, 35)
             .build();
 
     public SealingStationBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.SEALING_STATION.type, pos, state, SLOT_COUNT, 20_000, 2_000);
+        super(Vacuum.SEALING_STATION.type, pos, state, SLOT_COUNT, 20_000, 2_000);
     }
 
     /**
@@ -69,14 +68,14 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
     @Override protected int workTicks() { return TICKS; }
 
     @Override protected boolean canWork() {
-        if (!container.getItem(SLOT_IN).is(ModItems.VACUUM_TUBE_ASSEMBLY)) return false;
+        if (!container.getItem(SLOT_IN).is(Vacuum.VACUUM_TUBE_ASSEMBLY)) return false;
         VacuumChamberBlockEntity c = chamber();
-        return c != null && c.getPressure() <= SEAL_MAX_PA && canMerge(container.getItem(SLOT_OUT), new ItemStack(ModItems.VACUUM_TUBE));
+        return c != null && c.getPressure() <= SEAL_MAX_PA && canMerge(container.getItem(SLOT_OUT), new ItemStack(Vacuum.VACUUM_TUBE));
     }
 
     @Override protected void finishWork() {
         container.getItem(SLOT_IN).shrink(1);
-        merge(SLOT_OUT, new ItemStack(ModItems.VACUUM_TUBE));
+        merge(SLOT_OUT, new ItemStack(Vacuum.VACUUM_TUBE));
         container.setChanged();
         VacuumChamberBlockEntity c = chamber();
         if (c != null) c.vent(VENT_FRACTION);

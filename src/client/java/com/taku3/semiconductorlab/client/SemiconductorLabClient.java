@@ -1,6 +1,12 @@
 package com.taku3.semiconductorlab.client;
 
-import com.taku3.semiconductorlab.ModMachines;
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Heat;
+import com.taku3.semiconductorlab.content.Metallurgy;
+import com.taku3.semiconductorlab.content.Optics;
+import com.taku3.semiconductorlab.content.Power;
+import com.taku3.semiconductorlab.content.Semiconductor;
+import com.taku3.semiconductorlab.content.Vacuum;
 import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.machine.MachineMenu;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,29 +22,36 @@ public class SemiconductorLabClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		PurityTooltip.register();
 		NoteTooltip.register();
-		// 専用の画面を持つ機械（IMP-28：画面は MachineScreen を継承）
-		screen(ModMachines.ZONE_REFINING_FURNACE, ZoneRefiningFurnaceScreen::new);
-		screen(ModMachines.STEAM_ENGINE, SteamEngineScreen::new);
-		screen(ModMachines.STEAM_TURBINE, SteamEngineScreen::new);   // 蒸気機関と同じ画面
-		screen(ModMachines.ELECTROLYZER, ElectrolyzerScreen::new);
-		screen(ModMachines.GAS_HOLDER, GasHolderScreen::new);
-		screen(ModMachines.BESSEMER_CONVERTER, BessemerConverterScreen::new);
-		screen(ModMachines.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);
-		screen(ModMachines.COMPRESSOR, CompressorScreen::new);
-		screen(ModMachines.AIR_SEPARATION_UNIT, AirSeparationScreen::new);
-		screen(ModMachines.CRYSTAL_PULLER, CrystalPullerScreen::new);
-		screen(ModMachines.ARC_FURNACE, ArcFurnaceScreen::new);
-		screen(ModMachines.DIFFUSION_FURNACE, DiffusionFurnaceScreen::new);
-		screen(ModMachines.WAFER_SAW, WaferSawScreen::new);
-		screen(ModMachines.CZ_PULLER, CzPullerScreen::new);
-		screen(ModMachines.SIEMENS_REACTOR, SiemensReactorScreen::new);
-		screen(ModMachines.TRICHLOROSILANE_REACTOR, TrichlorosilaneReactorScreen::new);
-		screen(ModMachines.SEALING_STATION, SealingStationScreen::new);
-		screen(ModMachines.ELECTRIC_FURNACE, ElectricFurnaceScreen::new);
-		screen(ModMachines.ACHESON_FURNACE, AchesonFurnaceScreen::new);
-		screen(ModMachines.REVERBERATORY_FURNACE, ReverberatoryFurnaceScreen::new);
-		screen(ModMachines.OXYHYDROGEN_BURNER, OxyhydrogenBurnerScreen::new);
-		screen(ModMachines.HCL_BURNER, HclBurnerScreen::new);
+		// 専用の画面を持つ機械（IMP-28：画面は MachineScreen を継承）。幹ごとにまとめる（自分の幹の段にだけ足す）
+		// 幹1 冶金
+		screen(Metallurgy.BESSEMER_CONVERTER, BessemerConverterScreen::new);
+		screen(Metallurgy.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);
+		screen(Metallurgy.SIEMENS_REACTOR, SiemensReactorScreen::new);
+		screen(Metallurgy.TRICHLOROSILANE_REACTOR, TrichlorosilaneReactorScreen::new);
+		// 幹3 熱
+		screen(Heat.ARC_FURNACE, ArcFurnaceScreen::new);
+		screen(Heat.ACHESON_FURNACE, AchesonFurnaceScreen::new);
+		screen(Heat.REVERBERATORY_FURNACE, ReverberatoryFurnaceScreen::new);
+		// 幹4 動力・電気
+		screen(Power.STEAM_ENGINE, SteamEngineScreen::new);
+		screen(Power.STEAM_TURBINE, SteamEngineScreen::new);   // 蒸気機関と同じ画面
+		screen(Power.ELECTRIC_FURNACE, ElectricFurnaceScreen::new);
+		// 幹5 真空
+		screen(Vacuum.SEALING_STATION, SealingStationScreen::new);
+		// 幹6 ガス・電解
+		screen(Gas.ELECTROLYZER, ElectrolyzerScreen::new);
+		screen(Gas.GAS_HOLDER, GasHolderScreen::new);
+		screen(Gas.COMPRESSOR, CompressorScreen::new);
+		screen(Gas.AIR_SEPARATION_UNIT, AirSeparationScreen::new);
+		screen(Gas.HCL_BURNER, HclBurnerScreen::new);
+		// 幹7 光学
+		screen(Optics.OXYHYDROGEN_BURNER, OxyhydrogenBurnerScreen::new);
+		// 幹9 半導体プロセス
+		screen(Semiconductor.ZONE_REFINING_FURNACE, ZoneRefiningFurnaceScreen::new);
+		screen(Semiconductor.CRYSTAL_PULLER, CrystalPullerScreen::new);
+		screen(Semiconductor.DIFFUSION_FURNACE, DiffusionFurnaceScreen::new);
+		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);
+		screen(Semiconductor.CZ_PULLER, CzPullerScreen::new);
 		// 専用の画面を書いていない機械は、ふつうの画面（電力・進み具合・状態）
 		for (Machine<?> m : Machine.all())
 			if (m.menu != null && !CUSTOM.contains(m)) MenuScreens.register(m.menu, SimpleMachineScreen::new);

@@ -53,7 +53,7 @@ public abstract class GeneratorBlockEntity extends BlockEntity {
     @Override protected void loadAdditional(ValueInput in)   { super.loadAdditional(in); storage.load(in); selfExcited = in.getBooleanOr("SelfExcited", false); }
     /** 壊したら、取り付けた自励式ダイナモを落とす（ブロック本体はふつうのルートテーブルで落ちる） */
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        if (selfExcited && level != null) net.minecraft.world.level.block.Block.popResource(level, pos, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.ModItems.SELF_EXCITED_DYNAMO));
+        if (selfExcited && level != null) net.minecraft.world.level.block.Block.popResource(level, pos, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Power.SELF_EXCITED_DYNAMO));
         super.preRemoveSideEffects(pos, state);
     }
 }

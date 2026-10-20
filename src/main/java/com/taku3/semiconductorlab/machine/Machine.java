@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.machine;
 
-import com.taku3.semiconductorlab.ModBlocks;
+import com.taku3.semiconductorlab.content.Reg;
 import com.taku3.semiconductorlab.SemiconductorLab;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyApi;
@@ -56,7 +56,7 @@ public final class Machine<T extends BlockEntity> {
         this.factory = b.factory;
         this.ticker = b.ticker;
         this.layout = b.layout;
-        this.block = ModBlocks.register(name, p -> b.block.apply(p, this), b.props, true);
+        this.block = Reg.block(name, p -> b.block.apply(p, this), b.props);
         this.type = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id(name), FabricBlockEntityTypeBuilder.create(factory, block).build());
         this.menu = layout == null ? null : Registry.register(BuiltInRegistries.MENU, SemiconductorLab.id(name),
                 new MenuType<>((id, inv) -> new MachineMenu(this, id, inv), FeatureFlags.DEFAULT_FLAGS));

@@ -1,8 +1,8 @@
 package com.taku3.semiconductorlab.energy;
 
+import com.taku3.semiconductorlab.content.Power;
 import com.taku3.semiconductorlab.machine.MachineBE;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.MenuProvider;
@@ -55,7 +55,7 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Mach
             .texture("steam_engine")
             .build();
 
-    public SteamEngineBlockEntity(BlockPos pos, BlockState state) { this(ModMachines.STEAM_ENGINE.type, pos, state, 200_000, WATTS, COAL_TICKS); }
+    public SteamEngineBlockEntity(BlockPos pos, BlockState state) { this(Power.STEAM_ENGINE.type, pos, state, 200_000, WATTS, COAL_TICKS); }
     protected SteamEngineBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state, long bufferJ, double watts, int coalTicks) {
         super(type, pos, state, bufferJ, watts * 2);   // ×2 は自励式ダイナモの分
         this.watts = watts; this.coalTicks = coalTicks;

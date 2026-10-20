@@ -1,7 +1,6 @@
 package com.taku3.semiconductorlab.client;
 
 import com.taku3.semiconductorlab.machine.MachineMenu;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.block.CzPullerBlockEntity;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;

@@ -1,7 +1,7 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.machine.MachineMenu;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.block.CrystalPullerBlockEntity;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
@@ -34,7 +34,7 @@ public class CrystalPullerScreen extends MachineScreen {
         var mode = CrystalPullerBlockEntity.modeOf(seed);
         String hint;
         if (mode == CrystalPullerBlockEntity.Mode.NONE) hint = "need_seed";
-        else if (!menu.getSlot(CrystalPullerBlockEntity.SLOT_H2).getItem().is(ModItems.HYDROGEN_GAS)) hint = "need_h2";
+        else if (!menu.getSlot(CrystalPullerBlockEntity.SLOT_H2).getItem().is(Gas.HYDROGEN_GAS)) hint = "need_h2";
         else if (!menu.isReady()) hint = "need_ge";
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = "running";

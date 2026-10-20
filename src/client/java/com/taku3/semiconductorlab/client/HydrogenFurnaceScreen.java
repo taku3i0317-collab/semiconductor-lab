@@ -1,7 +1,7 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.machine.MachineMenu;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.network.chat.Component;
@@ -37,7 +37,7 @@ public class HydrogenFurnaceScreen extends MachineScreen {
         String hint;
         HydrogenFurnaceBlockEntity.Mode m = mode();
         if (m == HydrogenFurnaceBlockEntity.Mode.NONE) hint = "need_input";
-        else if (!h2.is(ModItems.HYDROGEN_GAS)) hint = "need_h2";
+        else if (!h2.is(Gas.HYDROGEN_GAS)) hint = "need_h2";
         else if (!menu.isReady()) hint = "not_enough";   // 量が足りない or 出口が満杯
         else if (menu.getKw() <= 0) hint = "need_power";
         else hint = switch (m) { case SINTER -> "sintering"; case REDUCE_GE -> "reducing_ge"; default -> "reducing"; };

@@ -1,7 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
+import com.taku3.semiconductorlab.content.Metallurgy;
+import com.taku3.semiconductorlab.content.Vacuum;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -29,7 +29,7 @@ public class SprengelPumpBlockEntity extends BlockEntity {
 
     private int mercury;
 
-    public SprengelPumpBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.SPRENGEL_PUMP.type, pos, state); }
+    public SprengelPumpBlockEntity(BlockPos pos, BlockState state) { super(Vacuum.SPRENGEL_PUMP.type, pos, state); }
 
     public int getMercury() { return mercury; }
     public boolean isReady() { return mercury >= MERCURY_NEEDED; }
@@ -57,7 +57,7 @@ public class SprengelPumpBlockEntity extends BlockEntity {
 
     /** 壊したら入れた水銀を落とす */
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        if (level != null && mercury > 0) Block.popResource(level, pos, new ItemStack(ModItems.MERCURY, mercury));
+        if (level != null && mercury > 0) Block.popResource(level, pos, new ItemStack(Metallurgy.MERCURY, mercury));
         super.preRemoveSideEffects(pos, state);
     }
 

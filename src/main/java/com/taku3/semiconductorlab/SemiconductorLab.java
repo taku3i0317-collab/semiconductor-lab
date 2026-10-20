@@ -18,9 +18,7 @@ public class SemiconductorLab implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModDataComponents.initialize();
-		ModBlocks.initialize();
-		ModMachines.initialize();   // 機械（ブロック＋BE＋画面＋電気の受け口、IMP-28）
-		ModItems.initialize();
+		com.taku3.semiconductorlab.content.Content.initialize();   // 幹ごとのアイテム・ブロック・機械（IMP-28、content/）
 		ModWorldGen.initialize();
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.

@@ -1,0 +1,7 @@
+{
+  "item.semiconductor-lab.lead_screw": "送りねじ",
+  "item.semiconductor-lab.lead_screw.note": "コイルを棒に沿ってゆっくり動かす。速すぎると不純物が追いつかない。",
+  "item.semiconductor-lab.lead_screw.note1": "回すと、まっすぐ進む長いねじの棒。",
+  "item.semiconductor-lab.lead_screw.note3": "ねじ1回転で進む距離をリード（ピッチ）という。進む速さ＝リード×回転数。リード1mmのねじを毎分1回転させれば1時間に6cm。モーターの回転を、ゆっくり正確なまっすぐの動きに変える。",
+  "item.semiconductor-lab.lead_screw.note4": "1800年ごろ、イギリスのヘンリー・モーズリーが送りねじで刃物台を動かす全金属の旋盤を作り、正確なねじを何本でも同じに作れるようになった。半導体の露光装置のステージ（ボールねじ）も、この子孫。"
+}

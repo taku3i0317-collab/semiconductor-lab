@@ -1,0 +1,14 @@
+{
+  "tooltip.semiconductor-lab.purity": "Purity: %s",
+  "tooltip.semiconductor-lab.purity.percent": "%s pure",
+  "tooltip.semiconductor-lab.purity.ratio": "About 1 impurity atom per %s atoms",
+  "tooltip.semiconductor-lab.purity.hint": "Transistors need 9N or better. Zone refining raises purity one step at a time (up to 10N for Ge).",
+  "tooltip.semiconductor-lab.shift": "Hold Shift for details",
+  "tooltip.semiconductor-lab.note3_locked": "Adult: %s ▶ more in Encyclopedia",
+  "tooltip.semiconductor-lab.note4_locked": "Deep dive: %s ▶ more in Encyclopedia",
+  "gui.semiconductor-lab.machine.power": "Power %s",
+  "gui.semiconductor-lab.machine.stored": "Stored %s",
+  "gui.semiconductor-lab.machine.need_input": "Needs input (or output is full)",
+  "gui.semiconductor-lab.machine.need_power": "Not enough power",
+  "gui.semiconductor-lab.machine.running": "Running"
+}

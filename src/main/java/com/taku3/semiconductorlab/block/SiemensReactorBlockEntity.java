@@ -1,9 +1,9 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
@@ -42,16 +42,16 @@ public class SiemensReactorBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public SiemensReactorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.SIEMENS_REACTOR.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(Metallurgy.SIEMENS_REACTOR.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean isTcs(ItemStack s) { return s.is(ModItems.TRICHLOROSILANE); }
-    public static boolean isHydrogen(ItemStack s) { return s.is(ModItems.HYDROGEN_GAS); }
+    public static boolean isTcs(ItemStack s) { return s.is(Metallurgy.TRICHLOROSILANE); }
+    public static boolean isHydrogen(ItemStack s) { return s.is(Gas.HYDROGEN_GAS); }
     /** 9N 以上に蒸留したトリクロロシランだけ */
     public static boolean pureEnough(ItemStack s) { return isTcs(s) && Purity.nines(TrichlorosilaneReactorBlockEntity.purityOf(s)) >= MIN_NINES; }
 
     public static ItemStack polysilicon(double purity) {
-        ItemStack s = new ItemStack(ModItems.POLYSILICON);
+        ItemStack s = new ItemStack(Metallurgy.POLYSILICON);
         s.set(ModDataComponents.PURITY, purity);
         return s;
     }
@@ -65,7 +65,7 @@ public class SiemensReactorBlockEntity extends ConsumerBlockEntity {
         return pureEnough(t) && t.getCount() >= TCS_PER_RUN
                 && isHydrogen(container.getItem(SLOT_H2)) && container.getItem(SLOT_H2).getCount() >= H2_PER_RUN
                 && canMerge(container.getItem(SLOT_OUT), product())
-                && canMerge(container.getItem(SLOT_HCL), new ItemStack(ModItems.HYDROGEN_CHLORIDE_GAS, HCL_OUT));
+                && canMerge(container.getItem(SLOT_HCL), new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS, HCL_OUT));
     }
 
     @Override protected void finishWork() {
@@ -73,7 +73,7 @@ public class SiemensReactorBlockEntity extends ConsumerBlockEntity {
         container.getItem(SLOT_TCS).shrink(TCS_PER_RUN);
         container.getItem(SLOT_H2).shrink(H2_PER_RUN);
         merge(SLOT_OUT, si);
-        merge(SLOT_HCL, new ItemStack(ModItems.HYDROGEN_CHLORIDE_GAS, HCL_OUT));
+        merge(SLOT_HCL, new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS, HCL_OUT));
         container.setChanged();
     }
 

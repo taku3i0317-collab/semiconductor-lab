@@ -1,9 +1,10 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Chemistry;
+import com.taku3.semiconductorlab.content.Heat;
+import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.MachineBE;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
@@ -74,7 +75,7 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
             .out(SLOT_BY_IN, OUT_X + 22, OUT_Y + 22)
             .build();
 
-    public ReverberatoryFurnaceBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.REVERBERATORY_FURNACE.type, pos, state); }
+    public ReverberatoryFurnaceBlockEntity(BlockPos pos, BlockState state) { super(Heat.REVERBERATORY_FURNACE.type, pos, state); }
 
     @Override public SimpleContainer getContainer() { return container; }
     @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
@@ -86,9 +87,9 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
     /** 焙焼の主生成物（金属酸化物 or 金属）。焼けない物は EMPTY */
     public static ItemStack mainProduct(ItemStack in) {
         Item out = null;
-        if (in.is(ModItems.GALENA)) out = ModItems.LITHARGE;
-        else if (in.is(ModItems.CINNABAR_DUST)) out = ModItems.MERCURY;
-        else if (in.is(ModItems.SPHALERITE)) out = ModItems.ZINC_OXIDE;
+        if (in.is(Metallurgy.GALENA)) out = Metallurgy.LITHARGE;
+        else if (in.is(Metallurgy.CINNABAR_DUST)) out = Metallurgy.MERCURY;
+        else if (in.is(Metallurgy.SPHALERITE)) out = Heat.ZINC_OXIDE;
         return out == null ? ItemStack.EMPTY : new ItemStack(out);
     }
 
@@ -108,10 +109,10 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
         ItemStack main = mainProduct(in);
         if (main.isEmpty()) return false;
         if (!canMerge(container.getItem(SLOT_OUT), main)) return false;
-        if (!canMerge(container.getItem(SLOT_SO2), new ItemStack(ModItems.SULFUR_DIOXIDE))) return false;
-        if (in.is(ModItems.SPHALERITE)) {
-            return canMerge(container.getItem(SLOT_BY_GE), new ItemStack(ModItems.GERMANIUM_CONCENTRATE))
-                    && canMerge(container.getItem(SLOT_BY_IN), new ItemStack(ModItems.INDIUM));
+        if (!canMerge(container.getItem(SLOT_SO2), new ItemStack(Chemistry.SULFUR_DIOXIDE))) return false;
+        if (in.is(Metallurgy.SPHALERITE)) {
+            return canMerge(container.getItem(SLOT_BY_GE), new ItemStack(Metallurgy.GERMANIUM_CONCENTRATE))
+                    && canMerge(container.getItem(SLOT_BY_IN), new ItemStack(Metallurgy.INDIUM));
         }
         return true;
     }
@@ -119,14 +120,14 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
     private void finishRoast() {
         ItemStack in = container.getItem(SLOT_IN);
         ItemStack main = mainProduct(in);
-        boolean sphalerite = in.is(ModItems.SPHALERITE);
+        boolean sphalerite = in.is(Metallurgy.SPHALERITE);
         in.shrink(1);
         merge(SLOT_OUT, main);
-        merge(SLOT_SO2, new ItemStack(ModItems.SULFUR_DIOXIDE));   // 硫黄1つ分 → SO2 1つ（煙道で集める）
+        merge(SLOT_SO2, new ItemStack(Chemistry.SULFUR_DIOXIDE));   // 硫黄1つ分 → SO2 1つ（煙道で集める）
         if (sphalerite) {
             sphaleriteRoasted++;
-            if (sphaleriteRoasted % GE_EVERY == 0) merge(SLOT_BY_GE, new ItemStack(ModItems.GERMANIUM_CONCENTRATE));
-            if (sphaleriteRoasted % IN_EVERY == 0) merge(SLOT_BY_IN, new ItemStack(ModItems.INDIUM));
+            if (sphaleriteRoasted % GE_EVERY == 0) merge(SLOT_BY_GE, new ItemStack(Metallurgy.GERMANIUM_CONCENTRATE));
+            if (sphaleriteRoasted % IN_EVERY == 0) merge(SLOT_BY_IN, new ItemStack(Metallurgy.INDIUM));
         }
         container.setChanged();
     }

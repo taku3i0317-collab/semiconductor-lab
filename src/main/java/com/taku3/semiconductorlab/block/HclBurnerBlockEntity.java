@@ -1,9 +1,9 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.MachineBE;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -73,7 +73,7 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
             .out(SLOT_BUCKET, BUCKET_X, EMPTIES_Y)
             .build();
 
-    public HclBurnerBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.HCL_BURNER.type, pos, state); }
+    public HclBurnerBlockEntity(BlockPos pos, BlockState state) { super(Gas.HCL_BURNER.type, pos, state); }
 
     @Override public SimpleContainer getContainer() { return container; }
     @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
@@ -81,8 +81,8 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
     public int getCl2() { return cl2Mol; }
     public int getWater() { return water; }
 
-    public static boolean isHydrogen(ItemStack s) { return s.is(ModItems.HYDROGEN_GAS) || s.is(ModItems.HYDROGEN_CYLINDER); }
-    public static boolean isChlorine(ItemStack s) { return s.is(ModItems.CHLORINE_GAS) || s.is(ModItems.CHLORINE_CYLINDER); }
+    public static boolean isHydrogen(ItemStack s) { return s.is(Gas.HYDROGEN_GAS) || s.is(Gas.HYDROGEN_CYLINDER); }
+    public static boolean isChlorine(ItemStack s) { return s.is(Gas.CHLORINE_GAS) || s.is(Gas.CHLORINE_CYLINDER); }
 
     private static boolean canMerge(ItemStack out, ItemStack add) {
         if (out.isEmpty()) return true;
@@ -97,16 +97,16 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
     /** スロットにガスがあるか（袋 or ボンベ） */
     private boolean hasGasItem(int slot, Item bag, Item cylinder) {
         ItemStack s = container.getItem(slot);
-        return s.is(bag) || (s.is(cylinder) && canMerge(container.getItem(SLOT_EMPTY), new ItemStack(ModItems.EMPTY_GAS_CYLINDER)));
+        return s.is(bag) || (s.is(cylinder) && canMerge(container.getItem(SLOT_EMPTY), new ItemStack(Gas.EMPTY_GAS_CYLINDER)));
     }
 
     /** スロットのガスを1つ開ける（袋は 1mol、ボンベは 50mol で空ボンベが出る）。開けた mol を返す */
     private int open(int slot, Item bag, Item cylinder) {
         ItemStack s = container.getItem(slot);
         if (s.is(bag)) { s.shrink(1); container.setChanged(); return 1; }
-        if (s.is(cylinder) && canMerge(container.getItem(SLOT_EMPTY), new ItemStack(ModItems.EMPTY_GAS_CYLINDER))) {
+        if (s.is(cylinder) && canMerge(container.getItem(SLOT_EMPTY), new ItemStack(Gas.EMPTY_GAS_CYLINDER))) {
             s.shrink(1);
-            merge(SLOT_EMPTY, new ItemStack(ModItems.EMPTY_GAS_CYLINDER));
+            merge(SLOT_EMPTY, new ItemStack(Gas.EMPTY_GAS_CYLINDER));
             return MOL_PER_CYLINDER;
         }
         return 0;
@@ -133,14 +133,14 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
         }
         // 水があれば塩酸、水がなければ乾いた塩化水素ガス（2mol）
         boolean dry = be.water <= 0 && !be.container.getItem(SLOT_WATER).is(Items.WATER_BUCKET);
-        ItemStack product = dry ? new ItemStack(ModItems.HYDROGEN_CHLORIDE_GAS, 2) : new ItemStack(ModItems.HYDROCHLORIC_ACID);
+        ItemStack product = dry ? new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS, 2) : new ItemStack(Gas.HYDROCHLORIC_ACID);
         boolean can = (dry || be.water > 0) && canMerge(be.container.getItem(SLOT_OUT), product);
         // 両方のガスがそろうときだけ開ける（片方だけでは炎が立たない）
-        boolean h2Ready = be.h2Mol >= H2_PER || be.hasGasItem(SLOT_H2, ModItems.HYDROGEN_GAS, ModItems.HYDROGEN_CYLINDER);
-        boolean cl2Ready = be.cl2Mol >= CL2_PER || be.hasGasItem(SLOT_CL2, ModItems.CHLORINE_GAS, ModItems.CHLORINE_CYLINDER);
+        boolean h2Ready = be.h2Mol >= H2_PER || be.hasGasItem(SLOT_H2, Gas.HYDROGEN_GAS, Gas.HYDROGEN_CYLINDER);
+        boolean cl2Ready = be.cl2Mol >= CL2_PER || be.hasGasItem(SLOT_CL2, Gas.CHLORINE_GAS, Gas.CHLORINE_CYLINDER);
         if (can && h2Ready && cl2Ready) {
-            if (be.h2Mol < H2_PER) be.h2Mol += be.open(SLOT_H2, ModItems.HYDROGEN_GAS, ModItems.HYDROGEN_CYLINDER);
-            if (be.cl2Mol < CL2_PER) be.cl2Mol += be.open(SLOT_CL2, ModItems.CHLORINE_GAS, ModItems.CHLORINE_CYLINDER);
+            if (be.h2Mol < H2_PER) be.h2Mol += be.open(SLOT_H2, Gas.HYDROGEN_GAS, Gas.HYDROGEN_CYLINDER);
+            if (be.cl2Mol < CL2_PER) be.cl2Mol += be.open(SLOT_CL2, Gas.CHLORINE_GAS, Gas.CHLORINE_CYLINDER);
         }
         boolean burning = can && be.h2Mol >= H2_PER && be.cl2Mol >= CL2_PER;
         if (burning) {

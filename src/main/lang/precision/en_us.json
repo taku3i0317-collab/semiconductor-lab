@@ -1,0 +1,7 @@
+{
+  "item.semiconductor-lab.lead_screw": "Lead Screw",
+  "item.semiconductor-lab.lead_screw.note": "Moves the coil slowly along the bar. Too fast and impurities cannot keep up.",
+  "item.semiconductor-lab.lead_screw.note1": "A long threaded rod: turn it and things move in a straight line.",
+  "item.semiconductor-lab.lead_screw.note3": "The distance moved per turn is the lead (pitch). Speed = lead × revolutions. A 1 mm lead screw turned once a minute moves 6 cm an hour, turning a motor's spin into a slow, precise straight-line motion.",
+  "item.semiconductor-lab.lead_screw.note4": "Around 1800 Henry Maudslay in England built an all-metal lathe whose tool carriage was driven by a lead screw, so accurate screws could be made identical again and again. The stages of today's chip lithography machines (ball screws) are its descendants."
+}

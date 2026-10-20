@@ -1,9 +1,10 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Metallurgy;
+import com.taku3.semiconductorlab.content.Optics;
 import com.taku3.semiconductorlab.machine.MachineBE;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
@@ -63,13 +64,13 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
     public static final int IN_X = 44, IN_Y = 17, H2_X = 26, O2_X = 62, GAS_Y = 53, OUT_X = 116, OUT_Y = 35, EMPTY_X = 148, EMPTY_Y = 53;
     public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
             .in(SLOT_IN, IN_X, IN_Y, OxyhydrogenBurnerBlockEntity::isInput)
-            .in(SLOT_H2, H2_X, GAS_Y, s -> s.is(com.taku3.semiconductorlab.ModItems.HYDROGEN_CYLINDER))
-            .in(SLOT_O2, O2_X, GAS_Y, s -> s.is(com.taku3.semiconductorlab.ModItems.OXYGEN_CYLINDER))
+            .in(SLOT_H2, H2_X, GAS_Y, s -> s.is(com.taku3.semiconductorlab.content.Gas.HYDROGEN_CYLINDER))
+            .in(SLOT_O2, O2_X, GAS_Y, s -> s.is(com.taku3.semiconductorlab.content.Gas.OXYGEN_CYLINDER))
             .out(SLOT_OUT, OUT_X, OUT_Y)
             .out(SLOT_EMPTY, EMPTY_X, EMPTY_Y)
             .build();
 
-    public OxyhydrogenBurnerBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.OXYHYDROGEN_BURNER.type, pos, state); }
+    public OxyhydrogenBurnerBlockEntity(BlockPos pos, BlockState state) { super(Optics.OXYHYDROGEN_BURNER.type, pos, state); }
 
     @Override public SimpleContainer getContainer() { return container; }
     @Override public net.minecraft.world.inventory.ContainerData getMenuData() { return data; }
@@ -77,7 +78,7 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
     public int getO2() { return o2Mol; }
 
     /** 入力は珪石 [1-46]（石英鉱脈の SiO2）。ネザークォーツは現実に無い素材なので受け付けない（化学ルール1、タスク13） */
-    public static boolean isInput(ItemStack s) { return s.is(ModItems.VEIN_QUARTZ); }
+    public static boolean isInput(ItemStack s) { return s.is(Metallurgy.VEIN_QUARTZ); }
 
     private static boolean canMerge(ItemStack out, ItemStack add) {
         if (out.isEmpty()) return true;
@@ -93,22 +94,22 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
     private void connect(int slot, net.minecraft.world.item.Item full, boolean hydrogen) {
         ItemStack cyl = container.getItem(slot);
         if (!cyl.is(full)) return;
-        if (!canMerge(container.getItem(SLOT_EMPTY), new ItemStack(ModItems.EMPTY_GAS_CYLINDER))) return;
+        if (!canMerge(container.getItem(SLOT_EMPTY), new ItemStack(Gas.EMPTY_GAS_CYLINDER))) return;
         cyl.shrink(1);
-        merge(SLOT_EMPTY, new ItemStack(ModItems.EMPTY_GAS_CYLINDER));
+        merge(SLOT_EMPTY, new ItemStack(Gas.EMPTY_GAS_CYLINDER));
         if (hydrogen) h2Mol += MOL_PER_CYLINDER; else o2Mol += MOL_PER_CYLINDER;
         container.setChanged();
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, OxyhydrogenBurnerBlockEntity be) {
         if (level.isClientSide()) return;
-        boolean can = isInput(be.container.getItem(SLOT_IN)) && canMerge(be.container.getItem(SLOT_OUT), new ItemStack(ModItems.FUSED_QUARTZ));
+        boolean can = isInput(be.container.getItem(SLOT_IN)) && canMerge(be.container.getItem(SLOT_OUT), new ItemStack(Optics.FUSED_QUARTZ));
         // 両方のガスがそろうときだけボンベを開ける（片方だけ開けても炎は出ない）
-        boolean h2Ready = be.h2Mol >= H2_PER || be.container.getItem(SLOT_H2).is(ModItems.HYDROGEN_CYLINDER);
-        boolean o2Ready = be.o2Mol >= O2_PER || be.container.getItem(SLOT_O2).is(ModItems.OXYGEN_CYLINDER);
+        boolean h2Ready = be.h2Mol >= H2_PER || be.container.getItem(SLOT_H2).is(Gas.HYDROGEN_CYLINDER);
+        boolean o2Ready = be.o2Mol >= O2_PER || be.container.getItem(SLOT_O2).is(Gas.OXYGEN_CYLINDER);
         if (can && h2Ready && o2Ready) {
-            if (be.h2Mol < H2_PER) be.connect(SLOT_H2, ModItems.HYDROGEN_CYLINDER, true);
-            if (be.o2Mol < O2_PER) be.connect(SLOT_O2, ModItems.OXYGEN_CYLINDER, false);
+            if (be.h2Mol < H2_PER) be.connect(SLOT_H2, Gas.HYDROGEN_CYLINDER, true);
+            if (be.o2Mol < O2_PER) be.connect(SLOT_O2, Gas.OXYGEN_CYLINDER, false);
         }
         boolean burning = can && be.h2Mol >= H2_PER && be.o2Mol >= O2_PER;
         if (burning) {
@@ -117,7 +118,7 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
                 be.h2Mol -= H2_PER;   // 2H2 + O2 → 2H2O（水蒸気になって出ていく）
                 be.o2Mol -= O2_PER;
                 be.container.getItem(SLOT_IN).shrink(1);
-                be.merge(SLOT_OUT, new ItemStack(ModItems.FUSED_QUARTZ));
+                be.merge(SLOT_OUT, new ItemStack(Optics.FUSED_QUARTZ));
                 be.container.setChanged();
             }
             be.setChanged();

@@ -158,11 +158,24 @@
 - 結果：Java は差し引き約 1,400 行へった（Menu 22 個・ブロック 6 個・ModBlockEntities・ModMenus を削除）
 
 **新しい機械を足す手順（電気で動くふつうの機械）**
-1. BE：`ConsumerBlockEntity` を継承し、`workWatts`・`workTicks`・`canWork`・`finishWork` の4つと `LAYOUT`（スロット1つ＝1行）を書く。コンストラクタは `super(ModMachines.X.type, …)`
-2. 登録：ModMachines に1行 `public static final Machine<XBlockEntity> X = Machine.electric("x", XBlockEntity::new, XBlockEntity.LAYOUT, metal(3.5f));`
+1. BE：`ConsumerBlockEntity` を継承し、`workWatts`・`workTicks`・`canWork`・`finishWork` の4つと `LAYOUT`（スロット1つ＝1行）を書く。コンストラクタは `super(幹.X.type, …)`（例 `Semiconductor.WAFER_SAW.type`）
+2. 登録：そのノードの幹のファイル content/<幹>.java に1行 `public static final Machine<XBlockEntity> X = Machine.electric("x", XBlockEntity::new, XBlockEntity.LAYOUT, metal(3.5f));`
 3. 画面：書かなければ SimpleMachineScreen になる。温度などを見せたいときだけ MachineScreen を継承した画面（約20行）を書き、クライアントで `screen(X, XScreen::new)` の1行
 4. JSON・テクスチャ：`python tools/new_machine.py <id> …`、画面の背景 `python tools/gen_gui.py`、lang は `tools/lang_add.py`
 - 前は：BE（＋画面を開く2メソッド）・Menu クラス（約60行）・Screen（約45行）・ModBlocks／ModBlockEntities／ModMenus／電気の登録／クライアントの登録／クリエイティブタブに各1〜3行、の8か所
+## ファイルの分け方（幹ごと）✅（2026-10-20 IMP-28）
+ノードを1つ足すとき、**そのノードの幹のファイルだけ**を書き換えればよいようにした（実装担当が2人になっても、違う幹ならぶつからない）。幹＝ノード番号の頭（[9-08] → 幹9）。
+| 中身 | 幹ごとの場所 | 例（幹9 半導体プロセス） |
+|---|---|---|
+| アイテム・ブロック・機械の登録 | src/main/java/.../content/<幹>.java（`Reg.item`・`Reg.ore`・`Machine.electric` を1行ずつ） | content/Semiconductor.java |
+| lang（en・ja） | src/main/lang/<幹>/en_us.json・ja_jp.json | src/main/lang/semiconductor/ |
+| GameTest | src/gametest/java/.../<幹>Tests.java（共通の道具は LabTestBase） | SemiconductorTests.java |
+| 機械のレシピの書き出し | <幹>Tests.machineRecipes（docs/machine_recipes.json は機械の ID 順に並べて書く） | SemiconductorTests.machineRecipes |
+| 専用の画面のつなぎ | SemiconductorLabClient の「幹9」の段に1行 | `screen(Semiconductor.CZ_PULLER, CzPullerScreen::new)` |
+- 幹のファイル：Survival 幹0・Metallurgy 1・Chemistry 2・Heat 3・Power 4・Vacuum 5・Gas 6・Optics 7・Precision 8・Semiconductor 9・Communication 15・Branches 枝🌿。幹10〜14 はその幹の最初のノードのときに作り、content/Content.java（と lang_build.py の ORDER、gametest の fabric.mod.json）に1行足す
+- lang：ゲームが読む assets/semiconductor-lab/lang/en_us.json・ja_jp.json は **tools/lang_build.py が部品から作る**（ネットワーク担当が読む場所・中身はそのまま）。手では直さない。tools/lang_add.py はキーの ID から幹の部品へ自動で振り分ける。tools/test.ps1 は最初に `lang_build.py --check` で部品とまとめたファイルが同じかを確かめる。部品を2人が同時に直して、まとめたファイルだけがぶつかったら、`python tools/lang_build.py` で作り直せばよい
+- 分けたときの確認（IMP-28）：まとめた lang は分ける前と**キーと文が完全に同じ**（en 1025・ja 1025、並び順だけ変わった）。machine_recipes.json も同じ 37 件（並びは機械の ID 順になった）。GameTest 82 本はそのまま全部通る
+- 共有のまま残るもの：docs（TECH_TREE・CHEMISTRY・REFERENCES・TEST_QUEUE など）と、新しい幹を足すときの Content.java。クリエイティブタブは幹の順（Survival → … → Branches）に並ぶ
 
 ## レッドストーンは使わない ✅（2026-10-20 決定）
 - **レッドストーンは電力にも材料にもしない**（化学ルール1：バニラの架空の素材で本物の部品を代用しない）。電気は MOD の電気（energy/、J と W）だけ

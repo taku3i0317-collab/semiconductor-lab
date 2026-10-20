@@ -1,8 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -45,7 +44,7 @@ public class AirSeparationBlockEntity extends ConsumerBlockEntity implements Gas
             .build();
 
     public AirSeparationBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.AIR_SEPARATION_UNIT.type, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(Gas.AIR_SEPARATION_UNIT.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
     @Override public int[] gasOutputSlots() { return new int[] {SLOT_N2, SLOT_O2, SLOT_AR}; }
@@ -55,17 +54,17 @@ public class AirSeparationBlockEntity extends ConsumerBlockEntity implements Gas
 
     /** 空気はどこにでもあるので、出口に次の1回分の袋が入る空きがあれば動く */
     @Override protected boolean canWork() {
-        return fits(SLOT_N2, ModItems.NITROGEN_GAS, (n2 + N2_PER_RUN) / 1000)
-                && fits(SLOT_O2, ModItems.OXYGEN_GAS, (o2 + O2_PER_RUN) / 1000)
-                && fits(SLOT_AR, ModItems.ARGON_GAS, (ar + AR_PER_RUN) / 1000);
+        return fits(SLOT_N2, Gas.NITROGEN_GAS, (n2 + N2_PER_RUN) / 1000)
+                && fits(SLOT_O2, Gas.OXYGEN_GAS, (o2 + O2_PER_RUN) / 1000)
+                && fits(SLOT_AR, Gas.ARGON_GAS, (ar + AR_PER_RUN) / 1000);
     }
 
     private boolean fits(int slot, Item item, int n) { return n == 0 || canMerge(container.getItem(slot), new ItemStack(item, n)); }
 
     @Override protected void finishWork() {
-        n2 = emit(SLOT_N2, ModItems.NITROGEN_GAS, n2 + N2_PER_RUN);
-        o2 = emit(SLOT_O2, ModItems.OXYGEN_GAS, o2 + O2_PER_RUN);
-        ar = emit(SLOT_AR, ModItems.ARGON_GAS, ar + AR_PER_RUN);
+        n2 = emit(SLOT_N2, Gas.NITROGEN_GAS, n2 + N2_PER_RUN);
+        o2 = emit(SLOT_O2, Gas.OXYGEN_GAS, o2 + O2_PER_RUN);
+        ar = emit(SLOT_AR, Gas.ARGON_GAS, ar + AR_PER_RUN);
         setChanged();
     }
 

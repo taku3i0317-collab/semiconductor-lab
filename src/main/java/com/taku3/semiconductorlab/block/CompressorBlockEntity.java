@@ -1,8 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -34,12 +33,12 @@ public class CompressorBlockEntity extends ConsumerBlockEntity {
 
     /** 画面のスロットの並び（IMP-28：前の CompressorMenu の代わり） */
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
-            .in(SLOT_EMPTY, 8, 35, s -> s.is(com.taku3.semiconductorlab.ModItems.EMPTY_GAS_CYLINDER))
+            .in(SLOT_EMPTY, 8, 35, s -> s.is(com.taku3.semiconductorlab.content.Gas.EMPTY_GAS_CYLINDER))
             .out(SLOT_OUT, 78, 35)
             .build();
 
     public CompressorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.COMPRESSOR.type, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(Gas.COMPRESSOR.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
     @Override protected double workWatts() { return WATTS; }
@@ -62,7 +61,7 @@ public class CompressorBlockEntity extends ConsumerBlockEntity {
     }
 
     @Override protected boolean canWork() {
-        return container.getItem(SLOT_EMPTY).is(ModItems.EMPTY_GAS_CYLINDER) && source != null && !source.isRemoved();
+        return container.getItem(SLOT_EMPTY).is(Gas.EMPTY_GAS_CYLINDER) && source != null && !source.isRemoved();
     }
 
     @Override protected void finishWork() {

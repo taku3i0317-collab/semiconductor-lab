@@ -1,9 +1,10 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Metallurgy;
+import com.taku3.semiconductorlab.content.Semiconductor;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,26 +41,26 @@ public class CrystalPullerBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_GE, 8, 17, CrystalPullerBlockEntity::isGermanium)
             .in(SLOT_SEED, 8, 35, s -> modeOf(s) != Mode.NONE)
-            .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.ModItems.HYDROGEN_GAS))
+            .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS))
             .out(SLOT_OUT, 78, 35)
             .build();
 
     public CrystalPullerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.CRYSTAL_PULLER.type, pos, state, SLOT_COUNT, 100_000, WATTS);
+        super(Semiconductor.CRYSTAL_PULLER.type, pos, state, SLOT_COUNT, 100_000, WATTS);
     }
 
     /** 種のスロットの中身で決まる：タングステン線＝種結晶づくり、種結晶＝引き上げ */
     public static Mode modeOf(ItemStack seed) {
-        if (seed.is(ModItems.TUNGSTEN_WIRE)) return Mode.SEED;
-        if (seed.is(ModItems.GERMANIUM_SEED_CRYSTAL)) return Mode.GROW;
+        if (seed.is(Metallurgy.TUNGSTEN_WIRE)) return Mode.SEED;
+        if (seed.is(Semiconductor.GERMANIUM_SEED_CRYSTAL)) return Mode.GROW;
         return Mode.NONE;
     }
     public Mode mode() { return modeOf(container.getItem(SLOT_SEED)); }
 
-    public static boolean isGermanium(ItemStack s) { return s.is(ModItems.REFINED_GERMANIUM); }
+    public static boolean isGermanium(ItemStack s) { return s.is(Semiconductor.REFINED_GERMANIUM); }
 
     private ItemStack product(Mode m) {
-        ItemStack out = new ItemStack(m == Mode.SEED ? ModItems.GERMANIUM_SEED_CRYSTAL : ModItems.GERMANIUM_SINGLE_CRYSTAL);
+        ItemStack out = new ItemStack(m == Mode.SEED ? Semiconductor.GERMANIUM_SEED_CRYSTAL : Semiconductor.GERMANIUM_SINGLE_CRYSTAL);
         if (m == Mode.GROW) {
             ItemStack ge = container.getItem(SLOT_GE);
             Double p = ge.get(ModDataComponents.PURITY);
@@ -77,7 +78,7 @@ public class CrystalPullerBlockEntity extends ConsumerBlockEntity {
         if (m == Mode.NONE) return false;
         ItemStack ge = container.getItem(SLOT_GE), h2 = container.getItem(SLOT_H2);
         int need = m == Mode.SEED ? GE_PER_SEED : GE_PER_INGOT;
-        return isGermanium(ge) && ge.getCount() >= need && h2.is(ModItems.HYDROGEN_GAS) && h2.getCount() >= H2_PER_RUN
+        return isGermanium(ge) && ge.getCount() >= need && h2.is(Gas.HYDROGEN_GAS) && h2.getCount() >= H2_PER_RUN
                 && canMerge(container.getItem(SLOT_OUT), product(m));
     }
 
@@ -95,13 +96,13 @@ public class CrystalPullerBlockEntity extends ConsumerBlockEntity {
     @Override protected void beforeWork(Level level, BlockPos pos) {
         if (level.getGameTime() % PULL_INTERVAL != 0) return;
         ItemStack h2 = container.getItem(SLOT_H2);
-        if (!h2.isEmpty() && !h2.is(ModItems.HYDROGEN_GAS)) return;
+        if (!h2.isEmpty() && !h2.is(Gas.HYDROGEN_GAS)) return;
         for (Direction d : Direction.values()) {
             int want = H2_TARGET - container.getItem(SLOT_H2).getCount();
             if (want <= 0) return;
             if (!(level.getBlockEntity(pos.relative(d)) instanceof GasHolderBlockEntity holder)) continue;
             int n = holder.extract(GasType.HYDROGEN, want);
-            if (n > 0) merge(SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, n));
+            if (n > 0) merge(SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, n));
         }
     }
 

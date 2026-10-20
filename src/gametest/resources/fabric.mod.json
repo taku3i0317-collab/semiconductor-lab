@@ -8,7 +8,18 @@
 	"environment": "*",
 	"entrypoints": {
 		"fabric-gametest": [
-			"com.taku3.semiconductorlab.gametest.LabTests"
+			"com.taku3.semiconductorlab.gametest.CommonTests",
+			"com.taku3.semiconductorlab.gametest.SurvivalTests",
+			"com.taku3.semiconductorlab.gametest.MetallurgyTests",
+			"com.taku3.semiconductorlab.gametest.ChemistryTests",
+			"com.taku3.semiconductorlab.gametest.HeatTests",
+			"com.taku3.semiconductorlab.gametest.PowerTests",
+			"com.taku3.semiconductorlab.gametest.VacuumTests",
+			"com.taku3.semiconductorlab.gametest.GasTests",
+			"com.taku3.semiconductorlab.gametest.OpticsTests",
+			"com.taku3.semiconductorlab.gametest.SemiconductorTests",
+			"com.taku3.semiconductorlab.gametest.CommunicationTests",
+			"com.taku3.semiconductorlab.gametest.BranchesTests"
 		]
 	},
 	"depends": {

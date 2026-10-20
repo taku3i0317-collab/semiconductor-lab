@@ -17,6 +17,10 @@ Set-Location $root
 $log = Join-Path $root 'build\gametest.log'
 New-Item -ItemType Directory -Force (Join-Path $root 'build') | Out-Null
 
+# lang のまとめたファイルが部品（src/main/lang/<幹>/）と同じか（IMP-28。違えば python tools/lang_build.py）
+python (Join-Path $root 'tools\lang_build.py') --check
+if ($LASTEXITCODE -ne 0) { Write-Host '== 失敗：lang が部品と違う（python tools/lang_build.py を実行）' -ForegroundColor Red; exit 1 }
+
 Write-Host '== runGameTest を実行中（1〜3分）...' -ForegroundColor Cyan
 $start = Get-Date
 # PowerShell 5.1 で native の stderr を 2>&1 すると赤いエラー扱いになるので、

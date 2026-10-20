@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """向き＋LIT の機械ブロック（machine/MachineBlock）の JSON 一式と仮テクスチャを作る。
-Java 側は BE（LAYOUT つき）と ModMachines の1行だけ（docs/DESIGN.md「機械の共通化」の手順）。
+Java 側は BE（LAYOUT つき）と幹のファイル content/<幹>.java の1行だけ（docs/DESIGN.md「機械の共通化」の手順）。
 
 使い方:  python tools/new_machine.py <id> <本体色 #rrggbb> <窓の色 #rrggbb> <窓の色・点灯 #rrggbb> <レシピ解放のきっかけアイテムID>
 作るもの: blockstates / models/block（通常・_on）/ items / loot_table / mineable/pickaxe タグ追加 /

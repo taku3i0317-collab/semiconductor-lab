@@ -1,9 +1,10 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Heat;
+import com.taku3.semiconductorlab.content.Metallurgy;
+import com.taku3.semiconductorlab.content.Power;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
@@ -47,17 +48,17 @@ public class ArcFurnaceBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public ArcFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.ARC_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(Heat.ARC_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean isQuartz(ItemStack s) { return s.is(ModItems.VEIN_QUARTZ); }
+    public static boolean isQuartz(ItemStack s) { return s.is(Metallurgy.VEIN_QUARTZ); }
     /** 炭素は木炭か石炭（どちらでも出力は同じ。DECISIONS Q1515-2）。本物は石炭・コークス・木片も混ぜる */
     public static boolean isCarbon(ItemStack s) { return s.is(Items.CHARCOAL) || s.is(Items.COAL); }
-    public static boolean isElectrode(ItemStack s) { return s.is(ModItems.GRAPHITE_ROD); }
+    public static boolean isElectrode(ItemStack s) { return s.is(Power.GRAPHITE_ROD); }
     public int getElectrodeRuns() { return electrodeRuns; }
 
     private static ItemStack silicon() {
-        ItemStack s = new ItemStack(ModItems.METALLURGICAL_SILICON);
+        ItemStack s = new ItemStack(Metallurgy.METALLURGICAL_SILICON);
         s.set(ModDataComponents.PURITY, Purity.METALLURGICAL);
         return s;
     }

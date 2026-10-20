@@ -1,8 +1,9 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Heat;
+import com.taku3.semiconductorlab.content.Power;
+import com.taku3.semiconductorlab.content.Semiconductor;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -30,8 +31,8 @@ public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity {
     /** 入れる物 → 焼き上がり（1個ずつ） */
     public static Map<Item, Item> recipes() {
         return Map.of(
-                ModItems.REFRACTORY_BRICK_BLANK, ModItems.REFRACTORY_BRICK,
-                ModItems.GRAPHITE_BOAT_BLANK, ModItems.GRAPHITE_BOAT);
+                Heat.REFRACTORY_BRICK_BLANK, Heat.REFRACTORY_BRICK,
+                Semiconductor.GRAPHITE_BOAT_BLANK, Semiconductor.GRAPHITE_BOAT);
     }
 
     /** 画面のスロットの並び（IMP-28：前の ElectricFurnaceMenu の代わり） */
@@ -41,7 +42,7 @@ public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public ElectricFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.ELECTRIC_FURNACE.type, pos, state, SLOT_COUNT, 50_000, WATTS);
+        super(Power.ELECTRIC_FURNACE.type, pos, state, SLOT_COUNT, 50_000, WATTS);
     }
 
     public static boolean isInput(ItemStack s) { return recipes().containsKey(s.getItem()); }

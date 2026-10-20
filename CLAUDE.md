@@ -23,12 +23,15 @@
    （GuiGraphics は廃止→GuiGraphicsExtractor、Block の CODEC 廃止、configured_feature→feature など既知の変更あり）
 3. 変更後は `./gradlew.bat compileJava compileClientJava` で必ずコンパイル確認。runClient は実行しない（ユーザーが遠隔作業中のため）
    機械の動作・レシピ・ルートテーブル・worldgen など「データやロジック」に関わる変更なら `tools/test.ps1`（GameTest。画面なしの専用サーバー、約20秒）も実行し、
-   全部 PASSED を確認する。新しい機械や挙動を足したら src/gametest/java/.../LabTests.java にテストを足す
+   全部 PASSED を確認する。新しい機械や挙動を足したら src/gametest/java/.../<幹>Tests.java（MetallurgyTests など、共通の道具は LabTestBase）にテストを足す
 4. ゲーム内で確認が必要な項目は docs/TEST_QUEUE.md に追記する
 5. 1ステップごとに `git add -A; git commit -m "..."`。push もする
 6. 新しいバニラ要素（26.2 の硫黄など）をレシピに使う前に、名前の実在をユーザーに確認する
-7. 既存の構造を踏襲する：アイテムは ModItems、ブロックは ModBlocks、BE を持つブロック（機械）は ModMachines（Machine 1行、IMP-28）、
-   機械は block/ パッケージ、電気は energy/ パッケージ、機械の共通部分は machine/、クライアント描画は src/client
+7. 既存の構造を踏襲する（IMP-28 から**幹ごとに分ける**）：アイテム・ブロック・機械（Machine 1行）の登録は content/<幹>.java
+   （Survival＝幹0、Metallurgy＝1、Chemistry＝2、Heat＝3、Power＝4、Vacuum＝5、Gas＝6、Optics＝7、Precision＝8、Semiconductor＝9、
+   Communication＝15、Branches＝枝🌿。まだない幹は最初のノードのときに作り content/Content.java に1行）、lang は src/main/lang/<幹>/、
+   テストは gametest/<幹>Tests.java。ノードの幹＝番号の頭（[9-08] なら Semiconductor）。1ノードで触るのはその幹のファイルだけ。
+   機械は block/、電気は energy/、機械の共通部分は machine/、クライアント描画は src/client
 
 ## 担当の分け方（2026-10-20〜）
 - **共通ルール：タスク番号**は、実装担当（このフォルダ）＝ **IMP-番号**、ネットワーク担当（semilab-network）＝ **NET-番号**。commit メッセージ・LOG・Discord の通知・報告の最初の行に付ける。これまでのタスク22・23 は IMP-22・IMP-23 と読む
@@ -38,7 +41,7 @@
 
 ## コードの慣習
 - Mojang 公式マッピング（Yarn ではない）。Identifier.fromNamespaceAndPath / ResourceKey / setId(key) の登録パターン
-- lang は en_us.json と ja_jp.json の両方を必ず更新。解説は item/block.<id>.note1（子ども・通常表示）.note2（学生・Shift）.note3（大人・ガイド）.note4（ガチ・深掘り）。旧 .note は .note2 扱い。仮は .placeholder
+- lang は en_us と ja_jp の両方を必ず更新。書くのは部品 src/main/lang/<部品>/en_us.json・ja_jp.json（tools/lang_add.py が ID から幹の部品へ自動で振り分ける）。ゲームが読む assets/.../lang/*.json は tools/lang_build.py が作る（手で直さない、test.ps1 が --check で確かめる）。解説は item/block.<id>.note1（子ども・通常表示）.note2（学生・Shift）.note3（大人・ガイド）.note4（ガチ・深掘り）。旧 .note は .note2 扱い。仮は .placeholder
 - 仮テクスチャは 16x16 PNG を自動生成でよい（System.Drawing）。本番差し替えは仕上げフェーズ
 - 機械は ZoneRefiningFurnace（BE/Menu/Screen）を参考に。発電機は energy/GeneratorBlockEntity を継承
 

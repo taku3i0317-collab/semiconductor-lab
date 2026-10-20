@@ -1,7 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Survival;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.tags.BiomeTags;
@@ -39,7 +39,7 @@ public class SaltPanBlockEntity extends BlockEntity {
     /** テスト専用：バイオーム判定を「海」とみなす（GameTest の世界は平原なので） */
     private boolean forceSeaForTest;
 
-    public SaltPanBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.SALT_PAN.type, pos, state); }
+    public SaltPanBlockEntity(BlockPos pos, BlockState state) { super(Survival.SALT_PAN.type, pos, state); }
 
     public int getSalt() { return salt; }
     public int getBittern() { return bittern; }
@@ -105,8 +105,8 @@ public class SaltPanBlockEntity extends BlockEntity {
     /** たまった塩とにがりをプレイヤーに渡す（持ちきれない分は足元に落とす）。渡した個数の合計を返す */
     public int collect(Player player) {
         int n = salt + bittern;
-        give(player, new ItemStack(ModItems.SALT, salt));
-        give(player, new ItemStack(ModItems.BITTERN, bittern));
+        give(player, new ItemStack(Gas.SALT, salt));
+        give(player, new ItemStack(Survival.BITTERN, bittern));
         salt = 0;
         bittern = 0;
         setChanged();
@@ -121,8 +121,8 @@ public class SaltPanBlockEntity extends BlockEntity {
     /** 壊したら、たまっていた塩とにがりを落とす */
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) {
         if (level != null) {
-            if (salt > 0) Block.popResource(level, pos, new ItemStack(ModItems.SALT, salt));
-            if (bittern > 0) Block.popResource(level, pos, new ItemStack(ModItems.BITTERN, bittern));
+            if (salt > 0) Block.popResource(level, pos, new ItemStack(Gas.SALT, salt));
+            if (bittern > 0) Block.popResource(level, pos, new ItemStack(Survival.BITTERN, bittern));
         }
         super.preRemoveSideEffects(pos, state);
     }

@@ -1,9 +1,9 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.Purity;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
@@ -49,15 +49,15 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public TrichlorosilaneReactorBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.TRICHLOROSILANE_REACTOR.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(DISTILL_WATTS) * 4, DISTILL_WATTS);
+        super(Metallurgy.TRICHLOROSILANE_REACTOR.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(DISTILL_WATTS) * 4, DISTILL_WATTS);
     }
 
-    public static boolean isSilicon(ItemStack s) { return s.is(ModItems.METALLURGICAL_SILICON); }
-    public static boolean isHcl(ItemStack s) { return s.is(ModItems.HYDROGEN_CHLORIDE_GAS); }
-    public static boolean isTcs(ItemStack s) { return s.is(ModItems.TRICHLOROSILANE); }
+    public static boolean isSilicon(ItemStack s) { return s.is(Metallurgy.METALLURGICAL_SILICON); }
+    public static boolean isHcl(ItemStack s) { return s.is(Metallurgy.HYDROGEN_CHLORIDE_GAS); }
+    public static boolean isTcs(ItemStack s) { return s.is(Metallurgy.TRICHLOROSILANE); }
 
     public static ItemStack tcs(double purity) {
-        ItemStack s = new ItemStack(ModItems.TRICHLOROSILANE);
+        ItemStack s = new ItemStack(Metallurgy.TRICHLOROSILANE);
         s.set(ModDataComponents.PURITY, purity);
         return s;
     }
@@ -78,7 +78,7 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
         return isSilicon(container.getItem(SLOT_SI)) && container.getItem(SLOT_SI).getCount() >= SI_PER_RUN
                 && isHcl(container.getItem(SLOT_HCL)) && container.getItem(SLOT_HCL).getCount() >= HCL_PER_RUN
                 && canMerge(container.getItem(SLOT_OUT), tcs(CRUDE))
-                && canMerge(container.getItem(SLOT_H2), new ItemStack(ModItems.HYDROGEN_GAS, H2_PER_RUN));
+                && canMerge(container.getItem(SLOT_H2), new ItemStack(Gas.HYDROGEN_GAS, H2_PER_RUN));
     }
 
     @Override protected void finishWork() {
@@ -91,7 +91,7 @@ public class TrichlorosilaneReactorBlockEntity extends ConsumerBlockEntity {
             container.getItem(SLOT_SI).shrink(SI_PER_RUN);
             container.getItem(SLOT_HCL).shrink(HCL_PER_RUN);
             merge(SLOT_OUT, tcs(CRUDE));
-            merge(SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, H2_PER_RUN));
+            merge(SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, H2_PER_RUN));
         }
         container.setChanged();
     }

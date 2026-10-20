@@ -1,5 +1,7 @@
 package com.taku3.semiconductorlab;
 
+import com.taku3.semiconductorlab.content.Chemistry;
+import com.taku3.semiconductorlab.content.Metallurgy;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
@@ -22,7 +24,7 @@ public enum Dopant {
     Dopant(String id, char type, double k) { this.id = id; this.type = type; this.k = k; }
 
     /** そのドーパントの原料アイテム */
-    public Item source() { return this == BORON ? ModItems.BORON_TRIOXIDE : ModItems.PHOSPHORUS; }
+    public Item source() { return this == BORON ? Metallurgy.BORON_TRIOXIDE : Chemistry.PHOSPHORUS; }
 
     /** アイテムがドーパント源なら、その元素。違えば null */
     public static Dopant of(ItemStack s) {

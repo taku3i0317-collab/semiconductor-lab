@@ -1,8 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -38,33 +38,33 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
     /** 画面のスロットの並び（IMP-28：前の HydrogenFurnaceMenu の代わり） */
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_IN, 8, 17, HydrogenFurnaceBlockEntity::isInput)
-            .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.ModItems.HYDROGEN_GAS))
+            .in(SLOT_H2, 8, 53, s -> s.is(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS))
             .out(SLOT_OUT, 78, 35)
             .build();
 
     public HydrogenFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.HYDROGEN_FURNACE.type, pos, state, SLOT_COUNT, 100_000, SINTER_WATTS);
+        super(Metallurgy.HYDROGEN_FURNACE.type, pos, state, SLOT_COUNT, 100_000, SINTER_WATTS);
     }
 
     public static boolean isInput(ItemStack s) { return modeOf(s) != Mode.NONE; }
 
     /** 入っている材料から、どちらの工程か（材料がそろっていなくても種類で決める。GUI 表示用） */
     public static Mode modeOf(ItemStack in) {
-        if (in.is(ModItems.TUNGSTEN_TRIOXIDE)) return Mode.REDUCE;
-        if (in.is(ModItems.TUNGSTEN_POWDER)) return Mode.SINTER;
-        if (in.is(ModItems.GERMANIUM_DIOXIDE) || in.is(ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE)) return Mode.REDUCE_GE;
+        if (in.is(Metallurgy.TUNGSTEN_TRIOXIDE)) return Mode.REDUCE;
+        if (in.is(Metallurgy.TUNGSTEN_POWDER)) return Mode.SINTER;
+        if (in.is(Metallurgy.GERMANIUM_DIOXIDE) || in.is(Metallurgy.HIGH_PURITY_GERMANIUM_DIOXIDE)) return Mode.REDUCE_GE;
         return Mode.NONE;
     }
 
     private Mode mode() { return modeOf(container.getItem(SLOT_IN)); }
     private ItemStack product(Mode m) {
         if (m == Mode.REDUCE_GE) {
-            ItemStack ge = new ItemStack(ModItems.RAW_GERMANIUM);
+            ItemStack ge = new ItemStack(Metallurgy.RAW_GERMANIUM);
             // GeCl4 蒸留を経た高純度 GeO2 から還元した Ge は「経路」を持つ（帯域精製で 10N まで）
-            if (container.getItem(SLOT_IN).is(ModItems.HIGH_PURITY_GERMANIUM_DIOXIDE)) ge.set(com.taku3.semiconductorlab.ModDataComponents.CHLORIDE_ROUTE, true);
+            if (container.getItem(SLOT_IN).is(Metallurgy.HIGH_PURITY_GERMANIUM_DIOXIDE)) ge.set(com.taku3.semiconductorlab.ModDataComponents.CHLORIDE_ROUTE, true);
             return ge;
         }
-        return m == Mode.REDUCE ? new ItemStack(ModItems.TUNGSTEN_POWDER) : new ItemStack(ModItems.TUNGSTEN_BAR);
+        return m == Mode.REDUCE ? new ItemStack(Metallurgy.TUNGSTEN_POWDER) : new ItemStack(Metallurgy.TUNGSTEN_BAR);
     }
     private static int h2For(Mode m) { return switch (m) { case SINTER -> SINTER_H2; case REDUCE_GE -> GE_REDUCE_H2; default -> REDUCE_H2; }; }
 
@@ -76,7 +76,7 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
         if (m == Mode.NONE) return false;
         ItemStack in = container.getItem(SLOT_IN), h2 = container.getItem(SLOT_H2);
         int needIn = m == Mode.SINTER ? SINTER_POWDER : 1, needH2 = h2For(m);
-        return in.getCount() >= needIn && h2.is(ModItems.HYDROGEN_GAS) && h2.getCount() >= needH2
+        return in.getCount() >= needIn && h2.is(Gas.HYDROGEN_GAS) && h2.getCount() >= needH2
                 && canMerge(container.getItem(SLOT_OUT), product(m));
     }
 
@@ -93,13 +93,13 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
     @Override protected void beforeWork(Level level, BlockPos pos) {
         if (level.getGameTime() % PULL_INTERVAL != 0) return;
         ItemStack h2 = container.getItem(SLOT_H2);
-        if (!h2.isEmpty() && !h2.is(ModItems.HYDROGEN_GAS)) return;
+        if (!h2.isEmpty() && !h2.is(Gas.HYDROGEN_GAS)) return;
         for (Direction d : Direction.values()) {
             int want = H2_TARGET - container.getItem(SLOT_H2).getCount();
             if (want <= 0) return;
             if (!(level.getBlockEntity(pos.relative(d)) instanceof GasHolderBlockEntity holder)) continue;
             int n = holder.extract(GasType.HYDROGEN, want);
-            if (n > 0) merge(SLOT_H2, new ItemStack(ModItems.HYDROGEN_GAS, n));
+            if (n > 0) merge(SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, n));
         }
     }
 

@@ -1,9 +1,8 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Semiconductor;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -41,16 +40,16 @@ public class WaferSawBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public WaferSawBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.WAFER_SAW.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(Semiconductor.WAFER_SAW.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean isCrystal(ItemStack s) { return s.is(ModItems.SILICON_SINGLE_CRYSTAL); }
-    public static boolean isBlade(ItemStack s) { return s.is(ModItems.DIAMOND_SAW_BLADE); }
+    public static boolean isCrystal(ItemStack s) { return s.is(Semiconductor.SILICON_SINGLE_CRYSTAL); }
+    public static boolean isBlade(ItemStack s) { return s.is(Semiconductor.DIAMOND_SAW_BLADE); }
     public int getBladeRuns() { return bladeRuns; }
 
     /** 板：インゴットの純度とドーパントを受け継ぐ */
     public static ItemStack slices(ItemStack crystal) {
-        ItemStack s = new ItemStack(ModItems.SILICON_WAFER, SLICES_PER_INGOT);
+        ItemStack s = new ItemStack(Semiconductor.SILICON_WAFER, SLICES_PER_INGOT);
         Double p = crystal.get(ModDataComponents.PURITY);
         if (p != null) s.set(ModDataComponents.PURITY, p);
         String d = crystal.get(ModDataComponents.DOPANT);

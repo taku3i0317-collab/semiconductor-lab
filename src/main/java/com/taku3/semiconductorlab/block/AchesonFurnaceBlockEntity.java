@@ -1,8 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Heat;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -49,7 +48,7 @@ public class AchesonFurnaceBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public AchesonFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.ACHESON_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(REQUIRED_WATTS) * 4, REQUIRED_WATTS);
+        super(Heat.ACHESON_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(REQUIRED_WATTS) * 4, REQUIRED_WATTS);
     }
 
     public static boolean isCarbon(ItemStack s) { return s.is(Items.COAL) || s.is(Items.CHARCOAL); }
@@ -67,13 +66,13 @@ public class AchesonFurnaceBlockEntity extends ConsumerBlockEntity {
 
     @Override protected boolean canWork() {
         return hasCharge() && isSand(container.getItem(SLOT_SAND)) && container.getItem(SLOT_SAND).getCount() >= SAND_PER_BATCH
-                && canMerge(container.getItem(SLOT_OUT), new ItemStack(ModItems.SYNTHETIC_GRAPHITE, GRAPHITE_PER_BATCH));
+                && canMerge(container.getItem(SLOT_OUT), new ItemStack(Heat.SYNTHETIC_GRAPHITE, GRAPHITE_PER_BATCH));
     }
 
     @Override protected void finishWork() {
         container.getItem(SLOT_CARBON).shrink(CARBON_PER_BATCH);   // 揮発分（石炭のガス・タール）は燃えて出ていく
         container.getItem(SLOT_SAND).shrink(SAND_PER_BATCH);       // SiO2 → SiC → Si が蒸発（アチソンの考えた触媒のはたらき）
-        merge(SLOT_OUT, new ItemStack(ModItems.SYNTHETIC_GRAPHITE, GRAPHITE_PER_BATCH));
+        merge(SLOT_OUT, new ItemStack(Heat.SYNTHETIC_GRAPHITE, GRAPHITE_PER_BATCH));
         container.setChanged();
     }
 

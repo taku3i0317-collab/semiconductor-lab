@@ -27,7 +27,7 @@ public class GeneratorBlock extends MachineEntityBlock {
     }
     /** [4-05] 自励式ダイナモを手に持って右クリック：永久磁石のダイナモと積み替える（出力2倍）。それ以外は素手と同じ */
     @Override protected InteractionResult useItemOn(net.minecraft.world.item.ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, net.minecraft.world.InteractionHand hand, BlockHitResult hit) {
-        if (!stack.is(com.taku3.semiconductorlab.ModItems.SELF_EXCITED_DYNAMO) || !(level.getBlockEntity(pos) instanceof GeneratorBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
+        if (!stack.is(com.taku3.semiconductorlab.content.Power.SELF_EXCITED_DYNAMO) || !(level.getBlockEntity(pos) instanceof GeneratorBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (level.isClientSide()) return InteractionResult.SUCCESS;
         if (!be.supportsDynamoUpgrade()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.self_excited_dynamo.not_needed"));
         else if (be.isSelfExcited()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.self_excited_dynamo.already"));

@@ -1,10 +1,9 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Semiconductor;
 import com.taku3.semiconductorlab.machine.MachineLayout;
 import com.taku3.semiconductorlab.Dopant;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -39,10 +38,10 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public DiffusionFurnaceBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.DIFFUSION_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(Semiconductor.DIFFUSION_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean isWafer(ItemStack s) { return s.is(ModItems.SILICON_WAFER); }
+    public static boolean isWafer(ItemStack s) { return s.is(Semiconductor.SILICON_WAFER); }
     public static Dopant baseOf(ItemStack wafer) { return Dopant.byId(wafer.getOrDefault(ModDataComponents.DOPANT, "")); }
 
     /** 板の型と反対の型のドーパント源なら true（n型の板＋ホウ素、p型の板＋リン） */
@@ -53,7 +52,7 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
 
     /** p-n 接合の板：元の板の純度と、土台（板）のドーパントを受け継ぐ */
     public static ItemStack junction(ItemStack wafer, int count) {
-        ItemStack s = new ItemStack(ModItems.PN_JUNCTION_WAFER, count);
+        ItemStack s = new ItemStack(Semiconductor.PN_JUNCTION_WAFER, count);
         Double p = wafer.get(ModDataComponents.PURITY);
         if (p != null) s.set(ModDataComponents.PURITY, p);
         String d = wafer.get(ModDataComponents.DOPANT);

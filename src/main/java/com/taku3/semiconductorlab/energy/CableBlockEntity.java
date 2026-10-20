@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.energy;
 
-import com.taku3.semiconductorlab.ModMachines;
+import com.taku3.semiconductorlab.content.Power;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -18,7 +18,7 @@ public class CableBlockEntity extends BlockEntity {
     /** 直近の配電でネットワークを流れた量（右クリック表示用。リーダー以外は0のことがある） */
     private long lastDeliveredJ;
 
-    public CableBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.COPPER_CABLE.type, pos, state); }
+    public CableBlockEntity(BlockPos pos, BlockState state) { super(Power.COPPER_CABLE.type, pos, state); }
 
     public static void tick(Level level, BlockPos pos, BlockState state, CableBlockEntity be) {
         if (level.isClientSide()) return;

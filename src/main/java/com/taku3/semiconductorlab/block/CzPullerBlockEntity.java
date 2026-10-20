@@ -1,10 +1,11 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Gas;
+import com.taku3.semiconductorlab.content.Metallurgy;
+import com.taku3.semiconductorlab.content.Semiconductor;
 import com.taku3.semiconductorlab.machine.MachineLayout;
 import com.taku3.semiconductorlab.Dopant;
-import com.taku3.semiconductorlab.ModMachines;
 import com.taku3.semiconductorlab.ModDataComponents;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
 import net.minecraft.core.BlockPos;
@@ -53,24 +54,24 @@ public class CzPullerBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public CzPullerBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.CZ_PULLER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+        super(Semiconductor.CZ_PULLER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     /** 種のスロットの中身で決まる：多結晶シリコン＝種結晶づくり、シリコン種結晶＝引き上げ */
     public static Mode modeOf(ItemStack seed) {
-        if (seed.is(ModItems.POLYSILICON)) return Mode.SEED;
-        if (seed.is(ModItems.SILICON_SEED_CRYSTAL)) return Mode.GROW;
+        if (seed.is(Metallurgy.POLYSILICON)) return Mode.SEED;
+        if (seed.is(Semiconductor.SILICON_SEED_CRYSTAL)) return Mode.GROW;
         return Mode.NONE;
     }
     public Mode mode() { return modeOf(container.getItem(SLOT_SEED)); }
 
-    public static boolean isPoly(ItemStack s) { return s.is(ModItems.POLYSILICON); }
-    public static boolean isCrucible(ItemStack s) { return s.is(ModItems.QUARTZ_CRUCIBLE); }
-    public static boolean isArgon(ItemStack s) { return s.is(ModItems.ARGON_GAS); }
+    public static boolean isPoly(ItemStack s) { return s.is(Metallurgy.POLYSILICON); }
+    public static boolean isCrucible(ItemStack s) { return s.is(Semiconductor.QUARTZ_CRUCIBLE); }
+    public static boolean isArgon(ItemStack s) { return s.is(Gas.ARGON_GAS); }
 
     private ItemStack product(Mode m) {
-        if (m == Mode.SEED) return new ItemStack(ModItems.SILICON_SEED_CRYSTAL);
-        ItemStack out = new ItemStack(ModItems.SILICON_SINGLE_CRYSTAL);
+        if (m == Mode.SEED) return new ItemStack(Semiconductor.SILICON_SEED_CRYSTAL);
+        ItemStack out = new ItemStack(Semiconductor.SILICON_SINGLE_CRYSTAL);
         Double p = container.getItem(SLOT_POLY).get(ModDataComponents.PURITY);
         if (p != null) out.set(ModDataComponents.PURITY, p);
         Dopant d = Dopant.of(container.getItem(SLOT_DOPANT));
@@ -120,7 +121,7 @@ public class CzPullerBlockEntity extends ConsumerBlockEntity {
             if (want <= 0) return;
             if (!(level.getBlockEntity(pos.relative(d)) instanceof GasHolderBlockEntity holder)) continue;
             int n = holder.extract(GasType.ARGON, want);
-            if (n > 0) merge(SLOT_AR, new ItemStack(ModItems.ARGON_GAS, n));
+            if (n > 0) merge(SLOT_AR, new ItemStack(Gas.ARGON_GAS, n));
         }
     }
 

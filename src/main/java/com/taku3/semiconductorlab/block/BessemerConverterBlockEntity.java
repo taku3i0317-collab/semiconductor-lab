@@ -1,8 +1,7 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.MachineLayout;
-import com.taku3.semiconductorlab.ModMachines;
-import com.taku3.semiconductorlab.ModItems;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -44,12 +43,12 @@ public class BessemerConverterBlockEntity extends ConsumerBlockEntity {
             .build();
 
     public BessemerConverterBlockEntity(BlockPos pos, BlockState state) {
-        super(ModMachines.BESSEMER_CONVERTER.type, pos, state, SLOT_COUNT, 100_000, WATTS);
+        super(Metallurgy.BESSEMER_CONVERTER.type, pos, state, SLOT_COUNT, 100_000, WATTS);
     }
 
     /** 銑鉄として受け付けるもの（今はバニラの鉄インゴット＝銑鉄の近似。[1-09]高炉の銑鉄が来たら置き換え） */
     public static boolean isPigIron(ItemStack s) { return s.is(Items.IRON_INGOT); }
-    private static ItemStack steel() { return new ItemStack(ModItems.STEEL_INGOT, 1); }
+    private static ItemStack steel() { return new ItemStack(Metallurgy.STEEL_INGOT, 1); }
 
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return TOTAL_TICKS; }

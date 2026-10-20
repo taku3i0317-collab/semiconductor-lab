@@ -1,6 +1,6 @@
 package com.taku3.semiconductorlab.energy;
 
-import com.taku3.semiconductorlab.ModMachines;
+import com.taku3.semiconductorlab.content.Power;
 import com.taku3.semiconductorlab.ModDataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -46,7 +46,7 @@ public class LeadAcidBatteryBlockEntity extends BlockEntity {
         }
     };
 
-    public LeadAcidBatteryBlockEntity(BlockPos pos, BlockState state) { super(ModMachines.LEAD_ACID_BATTERY.type, pos, state); }
+    public LeadAcidBatteryBlockEntity(BlockPos pos, BlockState state) { super(Power.LEAD_ACID_BATTERY.type, pos, state); }
 
     public Direction front() { return getBlockState().getValue(HorizontalDirectionalBlock.FACING); }
     /** どの面も同じ受け口（充放電とも可） */
