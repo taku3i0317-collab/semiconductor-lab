@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 200（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 201（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -333,6 +333,8 @@ en_us mercury_lamp_tube lines=3
 en_us mercury_lamp_tube shift lines=9
 en_us half_silvered_mirror lines=4
 en_us half_silvered_mirror shift lines=12
+en_us interferometer lines=12
+en_us interferometer shift lines=22
 en_us prism lines=3
 en_us prism shift lines=12
 en_us spectroscope lines=9
@@ -733,6 +735,8 @@ ja_jp mercury_lamp_tube lines=3
 ja_jp mercury_lamp_tube shift lines=8
 ja_jp half_silvered_mirror lines=3
 ja_jp half_silvered_mirror shift lines=10
+ja_jp interferometer lines=9
+ja_jp interferometer shift lines=17
 ja_jp prism lines=2
 ja_jp prism shift lines=9
 ja_jp spectroscope lines=7
