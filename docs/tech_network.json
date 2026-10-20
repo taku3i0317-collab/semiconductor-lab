@@ -2437,7 +2437,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "白金の粉を押し固めてたたくと、加工できる金属になった",
    "kind": "tech",
    "play": "",
@@ -2524,7 +2524,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F12. 川の砂の中の白い金属（砂白金）［1-20］（［2-19］過酸化水素の白金電極の前提）",
+     "answer": "白金は重く、さびないので、岩がこわれても金属のまま残り、砂鉄や砂金といっしょに川底や浜にたまる（漂砂鉱床）。コロンビアやウラルの川砂から取れた。1748年のウジョアの旅行記がヨーロッパで最初の記述。",
+     "hee": {
+      "1": "白金は川の砂の中に、金属のまま少しだけまじっている。",
+      "2": "コロンビアの金掘りは、溶けにくい白い粒を「platina（小さな銀）」と呼んで捨てていた。",
+      "3": "自然白金にはパラジウム・イリジウム・オスミウムなどの仲間がまざっている（あとで分けられた）。",
+      "4": "白金は酸素が出る電気分解の電極にも負けないので、過酸化水素や過硫酸の電解に欠かせなかった。"
+     },
+     "certainty": "漂砂鉱床・コロンビアとウラル ◎（USGS・ブリタニカ）／ウジョア 1748 ◎／platina の由来 ◎",
+     "basis": "ブリタニカ「platinum」https://www.britannica.com/science/platinum 、USGS「Platinum-Group Metals Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/platinum-group-metals-statistics-and-information （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -2534,17 +2547,17 @@
    "name": "白金",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1748,
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "白金は川の砂の中に、金属のまま少しだけまじっている",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -4736,7 +4749,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O29. 海藻の灰からソーダとヨウ素［2-04］（ダゲレオタイプの前提）",
+     "answer": "海の植物の灰は炭酸ナトリウム（ソーダ）が多く、18世紀にはガラス・石けんの原料として売られた（スコットランドのケルプ、スペインのバリラ）。1811年クールトアは、海藻灰の液に濃硫酸を加えると紫の蒸気が出て黒い結晶がつくのを見つけた＝ヨウ素の発見。",
+     "hee": {
+      "1": "海藻の灰からソーダがとれた。その灰の液からヨウ素も見つかった。",
+      "2": "ヨウ素はギリシャ語の「すみれ色」。紫の蒸気から名付けられた。",
+      "3": "昆布は海水のヨウ素を何千倍にも濃くためている。",
+      "4": "日本は千葉県の地下のかん水からヨウ素を取り、世界有数の産出国。"
+     },
+     "certainty": "クールトア 1811 ◎／ケルプ産業・バリラ ◎／昆布のヨウ素の濃縮 ○／日本の生産 ◎",
+     "basis": "- Wikipedia「Iodine」（歴史）：https://en.wikipedia.org/wiki/Iodine"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -4746,7 +4772,7 @@
    "name": "海藻灰ソーダ",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1750,
    "year_range": null,
@@ -4759,10 +4785,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "海藻の灰からソーダがとれた。その灰の液からヨウ素も見つかった",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -5669,7 +5695,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F12. 川の砂の中の白い金属（砂白金）［1-20］（［2-19］過酸化水素の白金電極の前提）",
+     "answer": "白金は重く、さびないので、岩がこわれても金属のまま残り、砂鉄や砂金といっしょに川底や浜にたまる（漂砂鉱床）。コロンビアやウラルの川砂から取れた。1748年のウジョアの旅行記がヨーロッパで最初の記述。",
+     "hee": {
+      "1": "白金は川の砂の中に、金属のまま少しだけまじっている。",
+      "2": "コロンビアの金掘りは、溶けにくい白い粒を「platina（小さな銀）」と呼んで捨てていた。",
+      "3": "自然白金にはパラジウム・イリジウム・オスミウムなどの仲間がまざっている（あとで分けられた）。",
+      "4": "白金は酸素が出る電気分解の電極にも負けないので、過酸化水素や過硫酸の電解に欠かせなかった。"
+     },
+     "certainty": "漂砂鉱床・コロンビアとウラル ◎（USGS・ブリタニカ）／ウジョア 1748 ◎／platina の由来 ◎",
+     "basis": "ブリタニカ「platinum」https://www.britannica.com/science/platinum 、USGS「Platinum-Group Metals Statistics and Information」https://www.usgs.gov/centers/national-minerals-information-center/platinum-group-metals-statistics-and-information （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -27094,7 +27133,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "1枚きりで複製できない（ネガがない）",
    "kind": "tech",
    "play": "",
@@ -27395,7 +27434,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "液晶画面の前には、ヨウ素で染めたフィルムが貼ってある",
    "kind": "tech",
    "play": "",
