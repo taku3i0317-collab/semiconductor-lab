@@ -1328,6 +1328,23 @@ public class LabTests {
     }
 
     // =====================================================================
+    // [0-12] 木炭（タスク15）：バニラの木炭＝乾留した木の炭
+    // =====================================================================
+
+    /** 原木→かまど→木炭（バニラ）。MOD の還元（GeO2）とリンづくりが木炭を炭素として使う。木炭には へえ と省略の注記がある */
+    @GameTest
+    public void charcoal(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.OAK_LOG).is(Items.CHARCOAL), "log -> furnace -> charcoal (dry distillation)");
+        h.assertTrue(recipeUses(h, "raw_germanium", Items.CHARCOAL), "GeO2 + C -> Ge uses charcoal as the reductant");
+        h.assertTrue(recipeUses(h, "phosphorus", Items.CHARCOAL), "Wohler's phosphorus uses charcoal");
+        var ja = langJson("ja_jp");
+        for (String s : new String[] {"note1", "note2", "note3", "note4", "placeholder"})
+            h.assertTrue(ja.has("item.minecraft.charcoal." + s), "charcoal should have " + s);
+        LOG.info("[LAB] charcoal [0-12]: log -> furnace -> charcoal; used by GeO2 reduction and phosphorus; notes present");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-07] Ge 単結晶の引き上げ（タスク14）
     // =====================================================================
 
