@@ -1266,6 +1266,20 @@
 - Wikipedia「Gauge block」：https://en.wikipedia.org/wiki/Gauge_block
 - Wikipedia「Carl Edvard Johansson」：https://en.wikipedia.org/wiki/Carl_Edvard_Johansson
 
+## O41. 光の波を物差しにする（光波干渉測長）［8-06］
+**答え**：干渉計で鏡を動かすと、波長の半分ごとに縞が1本流れる。縞の本数を数えれば、長さを光の波長で測れる。1892〜93年、マイケルソンとブノワはカドミウムの赤い光で国際メートル原器を測り、1m＝1,553,163.5 波長と決めた。1960年にメートルはクリプトン86の光の波長で定義し直された。
+
+- へえ①：1メートルの定義は、金属の棒から光の波へと変わった。
+- へえ②：何百万本の縞は一度に数えられないので、長さを倍々にした中間の基準（エタロン）を使って数えた。
+- へえ③：縞1本は 0.3µm ほど。床の揺れや温度の変化で、縞はすぐに動いてしまう。
+- へえ④：今の露光装置のステージも、レーザー干渉計で nm 単位の位置を測っている。
+
+確かさ：マイケルソンとブノワ 1892〜93・1,553,163.5 波長 ◎（Cd 赤 643.8nm）／1960 Kr-86 による定義 ◎／エタロンの倍々の方法 ○
+根拠：
+- Wikipedia「History of the metre」：https://en.wikipedia.org/wiki/History_of_the_metre
+- Wikipedia「Michelson interferometer」：https://en.wikipedia.org/wiki/Michelson_interferometer
+- BIPM「The metre」：https://www.bipm.org/en/si-base-units/metre
+
 ---
 
 # 冶金と熱（タスク15〜）

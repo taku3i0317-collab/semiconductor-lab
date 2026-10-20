@@ -384,7 +384,7 @@ setblock ~12 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~15 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-03] 平面と定盤","鋳鉄の板を3枚作り、利","き手と左手に1枚ずつ持","って右クリック → チ"]}}
 setblock ~15 ~0 ~66 semiconductor-lab:surface_plate
 setblock ~16 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cast_iron_plate",count:1}]}
-setblock ~19 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-06] 光波干渉測長","（人間の確認項目なし）","",""]}}
+setblock ~19 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-06] 光波干渉測長","水銀灯を除振台にのせて","点灯、干渉計を右手・ゲ","ージブロックかメートル"]}}
 setblock ~19 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:metre_bar",count:1}]}
 setblock ~22 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-05] ゲージブロック","ゲージブロックのセット","を空中で右クリック →"," チャットの組み合わせ"]}}
 setblock ~22 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:gauge_block_set",count:1}]}
@@ -442,16 +442,17 @@ setblock ~54 ~0 ~74 semiconductor-lab:resist_stripper
 setblock ~55 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~55 ~0 ~74 semiconductor-lab:developer_bench
 setblock ~56 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:sulfuric_acid",count:16},{Slot:2b,id:"semiconductor-lab:hydrogen_peroxide",count:16},{Slot:3b,id:"semiconductor-lab:developer",count:16}]}
-setblock ~59 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-11] 銀塩フォトマス","レシピ本に乾板までの流","れが出るか。アイテムの","見た目"]}}
-setblock ~59 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:rubylith",count:1}]}
-setblock ~62 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-13] ラッピング・鏡","研磨機の GUI（左に","ウェハー・砥粒・シリカ","、銀色のバー、「やり直"]}}
-setblock ~62 ~0 ~74 semiconductor-lab:wafer_polisher
-setblock ~66 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] layout_she","（人間の確認項目なし）","",""]}}
-setblock ~66 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~67 ~0 ~74 semiconductor-lab:probe_station
-setblock ~68 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~68 ~0 ~74 semiconductor-lab:cleaning_bench
-setblock ~69 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:layout_sheet",count:1},{Slot:1b,id:"semiconductor-lab:process_wafer",count:16},{Slot:2b,id:"semiconductor-lab:nitric_acid",count:16},{Slot:3b,id:"semiconductor-lab:hydrofluoric_acid",count:16},{Slot:4b,id:"semiconductor-lab:distilled_water",count:16}]}
+setblock ~59 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-22] 集積回路","検査台で NOT の例","を「調べる」と、右の欄","に5行（最後まで読める"]}}
+setblock ~59 ~0 ~74 semiconductor-lab:probe_station
+setblock ~63 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-11] 銀塩フォトマス","レシピ本に乾板までの流","れが出るか。アイテムの","見た目"]}}
+setblock ~63 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:rubylith",count:1}]}
+setblock ~66 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-13] ラッピング・鏡","研磨機の GUI（左に","ウェハー・砥粒・シリカ","、銀色のバー、「やり直"]}}
+setblock ~66 ~0 ~74 semiconductor-lab:wafer_polisher
+setblock ~70 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] layout_she","（人間の確認項目なし）","",""]}}
+setblock ~70 ~0 ~74 semiconductor-lab:drafting_table
+setblock ~71 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~71 ~0 ~74 semiconductor-lab:cleaning_bench
+setblock ~72 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:layout_sheet",count:1},{Slot:1b,id:"semiconductor-lab:process_wafer",count:16},{Slot:2b,id:"semiconductor-lab:nitric_acid",count:16},{Slot:3b,id:"semiconductor-lab:hydrofluoric_acid",count:16},{Slot:4b,id:"semiconductor-lab:distilled_water",count:16}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹12 建設・測量","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-11] 測量","セオドライトで遠くの木","や塔をのぞいて離す →"," チャットに方位。横に"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:theodolite",count:1}]}

@@ -18,6 +18,7 @@ import java.util.Locale;
  * 使い方：点灯中の水銀灯を右クリック → 送りねじを1回転（{@link #SCREW_MM} mm）回したときの縞の数と、そこから求めた長さ。
  * 炎（たき火・火）では色が混ざって縞がすぐ消える、と出る。
  * [8-07]：まわりの揺れ（block/Vibration）で縞がゆれる。水銀灯を除振台の上に置くと 1/20。
+ * [8-06]：もう片方の手にゲージブロック・メートル原器を持つと、縞を数えて光の波長でその長さを測る（マイケルソン 1892〜93）。
  */
 public class InterferometerItem extends Item {
     /** 光源の波長（水銀の緑の線） */
@@ -30,6 +31,12 @@ public class InterferometerItem extends Item {
 
     /** 鏡を mm 動かしたときに流れる縞の本数 N = 2d/λ */
     public static double fringes(double mm, double nm) { return 2 * mm * 1e6 / nm; }
+
+    /** ゲージブロック1個の本当のずれの幅（nm）。⚠️ ゲームの値（ヨハンソンのブロックで 0.1〜0.3µm ほど） */
+    public static final int GAUGE_ERR_NM = 200;
+
+    /** 長さ（mm）の中に入る波の数 L/λ */
+    public static double wavelengths(double mm, double nm) { return mm * 1e6 / nm; }
 
     /** 縞の本数から長さ（mm）に戻す d = N·λ/2 */
     public static double lengthMm(long n, double nm) { return n * nm / 2 / 1e6; }
@@ -52,6 +59,22 @@ public class InterferometerItem extends Item {
                 p.sendSystemMessage(Component.translatable(K + "vibration", String.format(Locale.ROOT, "%.0f", v), String.format(Locale.ROOT, "%.2f", j),
                         Component.translatable(K + (j < 0.5 ? "steady" : "shaky")),
                         Component.translatable(K + (com.taku3.semiconductorlab.block.Vibration.onTable(level, ctx.getClickedPos()) ? "on_table" : "on_floor"))));
+                // [8-06] 光波干渉測長：もう片方の手のゲージブロック・メートル原器を、縞を数えて光の波長で測る（揺れていると数えられない）
+                var other = p.getItemInHand(ctx.getHand() == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
+                if (other.getItem() instanceof GaugeBlockSetItem || other.getItem() instanceof MetreBarItem) {
+                    if (j >= 0.5) p.sendSystemMessage(Component.translatable(K + "measure_shaky"));
+                    else if (other.getItem() instanceof MetreBarItem) {
+                        long w = Math.round(wavelengths(1000, HG_GREEN_NM));
+                        p.sendSystemMessage(Component.translatable(K + "measure_metre", w, String.format(Locale.ROOT, "%.1f", HG_GREEN_NM)));
+                    } else {
+                        int target = level.getRandom().nextIntBetweenInclusive(GaugeBlockSetItem.MIN_UM, 25_000);
+                        int errNm = level.getRandom().nextIntBetweenInclusive(-GAUGE_ERR_NM, GAUGE_ERR_NM);   // そのブロックの本当のずれ
+                        long fr = Math.round(fringes((target + errNm / 1000.0) / 1000.0, HG_GREEN_NM));
+                        double got = lengthMm(fr, HG_GREEN_NM);
+                        p.sendSystemMessage(Component.translatable(K + "measure_gauge", String.format(Locale.ROOT, "%.3f", target / 1000.0), fr,
+                                String.format(Locale.ROOT, "%.5f", got), String.format(Locale.ROOT, "%+.2f", (got * 1000 - target))));
+                    }
+                }
             }
             return InteractionResult.SUCCESS;
         }

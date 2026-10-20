@@ -289,5 +289,8 @@
   "item.semiconductor-lab.projection_lens.test": "🔦 テスト露光：CD = k1 %s × %s nm ÷ NA %s = %s µm",
   "item.semiconductor-lab.projection_lens.ok": "  g線ステッパーの目標 %s µm に届く",
   "item.semiconductor-lab.projection_lens.blurred": "  ぼけて g線ステッパーの目標 %s µm に届かない（鏡筒の心出しをやり直そう）",
-  "item.semiconductor-lab.projection_lens.spec": "縮小 1/%s、NA %s、g線で CD %s µm"
+  "item.semiconductor-lab.projection_lens.spec": "縮小 1/%s、NA %s、g線で CD %s µm",
+  "item.semiconductor-lab.interferometer.measure_metre": "📏 メートル原器：1 m ＝ 水銀の緑の光（%2$s nm）の %1$s 波長（マイケルソンとブノワ 1893 はカドミウムの赤で 1,553,163.5 波長）",
+  "item.semiconductor-lab.interferometer.measure_gauge": "📏 ゲージブロック %s mm → 縞 %s 本 → %s mm（表示とのずれ %s µm）",
+  "item.semiconductor-lab.interferometer.measure_shaky": "縞がゆれて数えられない。水銀灯を除振台にのせよう"
 }

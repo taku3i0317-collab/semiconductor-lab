@@ -15,6 +15,31 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-06] 光波干渉測長（IMP2 O-012）：干渉計で縞を数え、ゲージブロック・メートル原器の長さを光の波長で測る。揺れていると数えられない */
+    @GameTest
+    public void light_wave_length(GameTestHelper h) {
+        h.assertValueEqual(Math.round(com.taku3.semiconductorlab.item.InterferometerItem.wavelengths(1000, com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM)), 1_831_166L, "1 m = 1,831,166 waves of mercury green");
+        long fr = Math.round(com.taku3.semiconductorlab.item.InterferometerItem.fringes(37.415, com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM));
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.InterferometerItem.lengthMm(fr, com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM) - 37.415) < 0.0003, "37.415 mm gauge block -> " + fr + " fringes -> back within 0.3 um");
+        h.assertTrue(com.taku3.semiconductorlab.item.InterferometerItem.lengthMm(1, com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM) * 1e6 < com.taku3.semiconductorlab.item.InterferometerItem.GAUGE_ERR_NM * 2, "one fringe (273 nm) is finer than the gauge block error");
+        // 点灯した水銀灯＋左手にメートル原器 / ゲージブロック：メッセージが出る（エラーなく動く）
+        BlockPos lamp = p(1, 1, 1);
+        h.setBlock(lamp, com.taku3.semiconductorlab.content.Optics.MERCURY_LAMP.block.defaultBlockState().setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT, true));
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(com.taku3.semiconductorlab.content.Optics.INTERFEROMETER));
+        var hit = new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(h.absolutePos(lamp)), net.minecraft.core.Direction.UP, h.absolutePos(lamp), false);
+        for (var other : new net.minecraft.world.item.Item[] {Precision.METRE_BAR, Precision.GAUGE_BLOCK_SET}) {
+            player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new ItemStack(other));
+            h.assertTrue(com.taku3.semiconductorlab.content.Optics.INTERFEROMETER.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND, hit)).consumesAction(),
+                    "interferometer measures " + other);
+        }
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"measure_metre", "measure_gauge", "measure_shaky"})
+            h.assertTrue(ja.has("item.semiconductor-lab.interferometer." + k), "lang interferometer." + k);
+        LOG.info("[LAB] light_wave_length [8-06]: 1 m = 1,831,166 Hg-green waves; 37.415 mm gauge = " + fr + " fringes");
+        h.succeed();
+    }
+
     /** [8-05] ゲージブロック（IMP2 O-010）：焼入れしたるつぼ鋼。何個かを重ねて好きな長さ、マイクロメータと比べて旋盤のくせを ±1µm に */
     @GameTest
     public void gauge_blocks(GameTestHelper h) {

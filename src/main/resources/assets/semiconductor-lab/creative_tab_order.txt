@@ -383,11 +383,11 @@ process_wafer  # Semiconductor [9-06] 1957
 etch_tank  # Semiconductor [9-06] 1957
 resist_stripper  # Semiconductor [9-21] 1957
 developer_bench  # Semiconductor [9-21] 1957
+probe_station  # Semiconductor [9-22] 1958
 rubylith  # Semiconductor [7-11] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
-probe_station  # Semiconductor [None] None
 cleaning_bench  # Semiconductor [None] None
 theodolite  # Construction [12-11] 1615
 transistor_radio  # Communication [15-10] 1954
