@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:silicon_tetrachloride",
+    "semiconductor-lab:titanium_tetrachloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ule_feed",
+    "count": 8
+  }
+}

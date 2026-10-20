@@ -392,5 +392,21 @@
   "gui.semiconductor-lab.co2_laser.need_input": "珪石を入れて",
   "gui.semiconductor-lab.co2_laser.output_full": "出口が満杯",
   "gui.semiconductor-lab.co2_laser.need_power": "電気が来ていない",
-  "gui.semiconductor-lab.co2_laser.running": "石英を溶かしている"
+  "gui.semiconductor-lab.co2_laser.running": "石英を溶かしている",
+  "item.semiconductor-lab.ule_feed": "ULE の原料液（SiCl4＋TiCl4）",
+  "item.semiconductor-lab.ule_feed.note1": "ガラスの元の液に、チタンの元の液を少しだけ混ぜたもの。",
+  "item.semiconductor-lab.ule_feed.note2": "四塩化ケイ素×8＋四塩化チタン×1 → 8個。酸水素バーナーで超低膨張ガラス。⚠ GHS：腐食性（空気の湿気で塩化水素の煙が出る）。",
+  "item.semiconductor-lab.ule_feed.note3": "コーニング社は合成石英と同じ炎の加水分解で、チタンを混ぜたガラスを作った（1960年代）。",
+  "item.semiconductor-lab.ule_feed.note4": "SiCl4 + 2H2O → SiO2 + 4HCl、TiCl4 + 2H2O → TiO2 + 4HCl。どちらも炎の中の水で酸化物の細かい粉になり、積もって固まる。",
+  "item.semiconductor-lab.ule_feed.placeholder": "近似：混ぜる割合はゲームの値（本物は TiO2 約7%）。",
+  "item.semiconductor-lab.ule_glass": "超低膨張ガラス（ULE）",
+  "item.semiconductor-lab.ule_glass.note1": "温めても冷やしても、長さがほとんど変わらないガラス。",
+  "item.semiconductor-lab.ule_glass.note2": "ULE の原料液を酸水素バーナーで。干渉計を水銀灯に使うとき、もう片方の手に持つと熱で伸びる量を縞で見られる（石英・ガラス・鋼・鉄・銅とも比べられる）。",
+  "item.semiconductor-lab.ule_glass.note3": "1960年代、コーニング社が作った。宇宙望遠鏡の鏡、EUV 露光の鏡やマスクの土台に使う。",
+  "item.semiconductor-lab.ule_glass.note4": "TiO2 を約7%入れると、温度が上がると縮む向きの働きが石英の膨張を打ち消し、室温で熱膨張が ±0.03×10⁻⁶/K ほどになる。打ち消す温度（ゼロクロス）は TiO2 の量で決まる。",
+  "item.semiconductor-lab.ule_glass.placeholder": "近似：膨張ゼロの温度（ゼロクロス）の調整は作らない。",
+  "item.semiconductor-lab.interferometer.thermal": "🌡 %s（%s×10⁻⁶/K）：%s mm の棒、温度のゆれ ±%s℃ → 長さ ±%s nm → 縞 ±%s 本：%s",
+  "item.semiconductor-lab.interferometer.thermal_still": "ほとんど動かない",
+  "item.semiconductor-lab.interferometer.thermal_small": "少しゆれる",
+  "item.semiconductor-lab.interferometer.thermal_big": "縞が流れてしまう"
 }

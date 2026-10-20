@@ -103,6 +103,9 @@ public final class Optics {
     public static final Item RUBY_LASER            = Reg.item("ruby_laser", RubyLaserItem::new, new Item.Properties().durability(RUBY_LAMP_SHOTS));
     // [7-14] CO2 レーザー（IMP2 O-019）：10.6µm の赤外線はガラスを通らないので、窓は岩塩 NaCl の結晶（湿気で曇る＝耐久）
     public static final Item SALT_WINDOW           = Reg.item("salt_window", new Item.Properties().durability(64));
+    // [7-21] 超低膨張ガラス ULE（IMP2 O-019、1960年代 コーニング）：SiCl4 と TiCl4 を混ぜて酸水素炎で加水分解 → SiO2 に TiO2 約7%。室温で熱膨張ほぼ 0
+    public static final Item ULE_FEED              = Reg.item("ule_feed", new Item.Properties().stacksTo(16)); // SiCl4＋TiCl4 の混ぜた液
+    public static final Item ULE_GLASS             = Reg.item("ule_glass");
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));

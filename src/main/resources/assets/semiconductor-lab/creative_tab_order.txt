@@ -494,6 +494,8 @@ ruby_boule  # Optics [7-13] 1960
 ruby_rod  # Optics [7-13] 1960
 xenon_flashlamp  # Optics [7-13] 1960
 ruby_laser  # Optics [7-13] 1960
+ule_feed  # Optics [7-21] 1960
+ule_glass  # Optics [7-21] 1960
 reduction_camera  # Optics [7-11] 1960
 salt_window  # Optics [7-14] 1964
 co2_laser  # Optics [7-14] 1964

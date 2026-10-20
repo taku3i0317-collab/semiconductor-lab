@@ -1458,6 +1458,35 @@
     },
     {
       "machine": "semiconductor-lab:oxyhydrogen_burner",
+      "process": "超低膨張ガラスを作る",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:ule_feed",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_cylinder",
+          "count": 4,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_cylinder",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:ule_glass",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "SiCl4 と TiCl4 を炎の中で加水分解 → SiO2 に TiO2 約7%（コーニング ULE）"
+    },
+    {
+      "machine": "semiconductor-lab:oxyhydrogen_burner",
       "process": "石英を溶かす",
       "inputs": [
         {

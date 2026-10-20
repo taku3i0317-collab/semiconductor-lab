@@ -1858,6 +1858,19 @@
 - Wikipedia「Carbon-dioxide laser」：https://en.wikipedia.org/wiki/Carbon-dioxide_laser
 - Wikipedia「C. Kumar N. Patel」：https://en.wikipedia.org/wiki/C._Kumar_N._Patel
 
+## O64. 温めても伸びないガラス（超低膨張ガラス ULE）［7-21］
+**答え**：1960年代、アメリカのコーニング社は、合成石英と同じ火炎加水分解で SiCl4 に TiCl4 を混ぜ、SiO2 に TiO2 を約7%入れたガラスを作った。TiO2 の入った網目は温まると縮む向きに働くので、石英のわずかな膨張を打ち消し、室温で熱膨張がほぼ 0（±0.03×10⁻⁶/K ほど）になる。宇宙望遠鏡の鏡や、EUV 露光の鏡・マスクの土台になっている。
+
+- へえ①：温めても冷やしても長さがほとんど変わらないガラス。
+- へえ②：10cm の鋼の棒は 3℃ で約 3.6µm 伸びるが、ULE は約 0.01µm。
+- へえ③：ハッブル宇宙望遠鏡の主鏡も ULE。
+- へえ④：膨張がちょうど 0 になる温度（ゼロクロス）は TiO2 の量で決まり、使う温度に合わせて作る。
+
+確かさ：コーニング・TiO2 約7%・±0.03×10⁻⁶/K ◎／ハッブルの主鏡 ◎／各材料の膨張係数 ○（代表値）
+根拠：
+- Wikipedia「Ultra low expansion glass」：https://en.wikipedia.org/wiki/Ultra_low_expansion_glass
+- Wikipedia「Thermal expansion」（係数の表）：https://en.wikipedia.org/wiki/Thermal_expansion
+
 ---
 
 # 冶金と熱（タスク15〜）

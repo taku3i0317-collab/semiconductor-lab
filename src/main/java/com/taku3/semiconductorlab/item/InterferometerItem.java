@@ -19,6 +19,8 @@ import java.util.Locale;
  * 炎（たき火・火）では色が混ざって縞がすぐ消える、と出る。
  * [8-07]：まわりの揺れ（block/Vibration）で縞がゆれる。水銀灯を除振台の上に置くと 1/20。
  * [8-06]：もう片方の手にゲージブロック・メートル原器を持つと、縞を数えて光の波長でその長さを測る（マイケルソン 1892〜93）。
+ * [7-21]：もう片方の手に材料（ULE ガラス・石英・ガラス・鋼・鉄・銅）を持つと、長さ {@value #SAMPLE_MM} mm の棒が部屋の温度のゆれ
+ * （空調 [12-12] がなければ ±3℃、あれば ±0.1℃）で伸び縮みして、縞が何本ゆれるかを見る。
  */
 public class InterferometerItem extends Item {
     /** 光源の波長（水銀の緑の線） */
@@ -34,6 +36,22 @@ public class InterferometerItem extends Item {
 
     /** ゲージブロック1個の本当のずれの幅（nm）。⚠️ ゲームの値（ヨハンソンのブロックで 0.1〜0.3µm ほど） */
     public static final int GAUGE_ERR_NM = 200;
+
+    /** [7-21] 熱膨張を見る棒の長さ（mm） */
+    public static final double SAMPLE_MM = 100;
+
+    /** 材料の線膨張係数（×10⁻⁶/K、室温）。熱膨張を見られない物は -1 */
+    public static double expansionPpm(net.minecraft.world.item.ItemStack s) {
+        if (s.is(com.taku3.semiconductorlab.content.Optics.ULE_GLASS)) return 0.03;      // コーニング ULE：±0.03
+        if (s.is(com.taku3.semiconductorlab.content.Optics.FUSED_QUARTZ) || s.is(com.taku3.semiconductorlab.content.Optics.SYNTHETIC_QUARTZ)) return 0.55;
+        if (s.is(com.taku3.semiconductorlab.content.Optics.CROWN_GLASS) || s.is(net.minecraft.world.item.Items.GLASS)) return 9;   // ソーダ石灰ガラス
+        if (s.is(com.taku3.semiconductorlab.content.Metallurgy.STEEL_INGOT) || s.is(net.minecraft.world.item.Items.IRON_INGOT)) return 12;
+        if (s.is(net.minecraft.world.item.Items.COPPER_INGOT)) return 17;
+        return -1;
+    }
+
+    /** 温度が ±c ℃ ゆれたとき、{@value #SAMPLE_MM} mm の棒の長さのゆれ（nm）ΔL = α·L·ΔT */
+    public static double thermalNm(double ppm, double c) { return ppm * 1e-6 * SAMPLE_MM * 1e6 * c; }
 
     /** 長さ（mm）の中に入る波の数 L/λ */
     public static double wavelengths(double mm, double nm) { return mm * 1e6 / nm; }
@@ -61,6 +79,14 @@ public class InterferometerItem extends Item {
                         Component.translatable(K + (com.taku3.semiconductorlab.block.Vibration.onTable(level, ctx.getClickedPos()) ? "on_table" : "on_floor"))));
                 // [8-06] 光波干渉測長：もう片方の手のゲージブロック・メートル原器を、縞を数えて光の波長で測る（揺れていると数えられない）
                 var other = p.getItemInHand(ctx.getHand() == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
+                double ppm = expansionPpm(other);
+                if (ppm >= 0) {   // [7-21] 熱で伸び縮みする長さを縞で見る
+                    double c = com.taku3.semiconductorlab.block.AirConditionerBlockEntity.swingC(level, ctx.getClickedPos());
+                    double nm = thermalNm(ppm, c), fr = 2 * nm / HG_GREEN_NM;
+                    p.sendSystemMessage(Component.translatable(K + "thermal", other.getHoverName(), String.format(Locale.ROOT, "%.2f", ppm),
+                            String.format(Locale.ROOT, "%.0f", SAMPLE_MM), String.format(Locale.ROOT, "%.1f", c), String.format(Locale.ROOT, "%.0f", nm),
+                            String.format(Locale.ROOT, "%.2f", fr), Component.translatable(K + (fr < 0.1 ? "thermal_still" : fr < 1 ? "thermal_small" : "thermal_big"))));
+                }
                 if (other.getItem() instanceof GaugeBlockSetItem || other.getItem() instanceof MetreBarItem) {
                     if (j >= 0.5) p.sendSystemMessage(Component.translatable(K + "measure_shaky"));
                     else if (other.getItem() instanceof MetreBarItem) {

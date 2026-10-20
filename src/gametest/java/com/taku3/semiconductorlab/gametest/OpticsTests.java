@@ -697,6 +697,21 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-21] 超低膨張ガラス ULE（IMP2 O-019）：SiCl4＋TiCl4 を酸水素炎で → ULE。干渉計で 100mm の棒の熱膨張を見ると、ULE は縞がほとんど動かない */
+    @GameTest
+    public void ule_glass(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "ule_feed", Metallurgy.SILICON_TETRACHLORIDE) && recipeUses(h, "ule_feed", Metallurgy.TITANIUM_TETRACHLORIDE), "ULE = SiCl4 + a little TiCl4");
+        h.assertTrue(OxyhydrogenBurnerBlockEntity.productOf(new ItemStack(Optics.ULE_FEED)).is(Optics.ULE_GLASS), "flame hydrolysis of the mixed chlorides -> ULE glass");
+        double c = com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SWING_OFF_C;
+        double ule = 2 * com.taku3.semiconductorlab.item.InterferometerItem.thermalNm(com.taku3.semiconductorlab.item.InterferometerItem.expansionPpm(new ItemStack(Optics.ULE_GLASS)), c) / com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM;
+        double silica = 2 * com.taku3.semiconductorlab.item.InterferometerItem.thermalNm(com.taku3.semiconductorlab.item.InterferometerItem.expansionPpm(new ItemStack(Optics.SYNTHETIC_QUARTZ)), c) / com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM;
+        double steel = 2 * com.taku3.semiconductorlab.item.InterferometerItem.thermalNm(com.taku3.semiconductorlab.item.InterferometerItem.expansionPpm(new ItemStack(Metallurgy.STEEL_INGOT)), c) / com.taku3.semiconductorlab.item.InterferometerItem.HG_GREEN_NM;
+        h.assertTrue(ule < 0.1 && silica > ule * 10 && steel > 10, "fringe drift over +-3 C: ULE " + ule + ", silica " + silica + ", steel " + steel);
+        h.assertTrue(com.taku3.semiconductorlab.item.InterferometerItem.expansionPpm(new ItemStack(net.minecraft.world.item.Items.STONE)) < 0, "stone is not a sample");
+        LOG.info("[LAB] ULE glass [7-21]: SiCl4 + TiCl4 in the oxyhydrogen flame; 100 mm bar at +-3 C drifts " + String.format(java.util.Locale.ROOT, "%.2f / %.2f / %.1f", ule, silica, steel) + " fringes (ULE / silica / steel)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "合成石英を作る", L(io(Metallurgy.SILICON_TETRACHLORIDE, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
@@ -709,6 +724,8 @@ public class OpticsTests extends LabTestBase {
             L(io(Optics.RUBY_BOULE, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "Al2O3:Cr の粉を炎に落として溶かし、種の上に積もらせる（ベルヌーイ法 1902、約2050℃）");
         rec(a, Optics.CO2_LASER.block, "赤外線で石英を溶かす", L(kept(io(Optics.SALT_WINDOW, 1)), io(Metallurgy.VEIN_QUARTZ, 1)),
             L(io(Optics.FUSED_QUARTZ, 1)), com.taku3.semiconductorlab.block.Co2LaserBlockEntity.WATTS, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.TICKS / 20.0, "CO2＋N2 の放電で 10.6µm（CO2・N2 の袋1つずつで 8 回）。石英は赤外線をよく吸う");
+        rec(a, Optics.OXYHYDROGEN_BURNER.block, "超低膨張ガラスを作る", L(io(Optics.ULE_FEED, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
+            L(io(Optics.ULE_GLASS, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "SiCl4 と TiCl4 を炎の中で加水分解 → SiO2 に TiO2 約7%（コーニング ULE）");
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
             L(io(Optics.FUSED_QUARTZ, 1)), 0, OxyhydrogenBurnerBlockEntity.MELT_TICKS / 20.0, "2H2 + O2 → 2H2O（約2800℃）。電気なし");
     }
