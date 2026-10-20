@@ -3,6 +3,7 @@ package com.taku3.semiconductorlab.block;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.content.Chemistry;
 import com.taku3.semiconductorlab.content.Semiconductor;
+import com.taku3.semiconductorlab.litho.ChipOps;
 import com.taku3.semiconductorlab.machine.MachineBE;
 import com.taku3.semiconductorlab.machine.MachineLayout;
 import com.taku3.semiconductorlab.machine.Vessel;
@@ -23,7 +24,8 @@ import net.minecraft.world.level.storage.ValueOutput;
  * シリコンはほとんど溶けない（選択性）。膜が溶けきると表面が水をはじく（撥水）ので、終わりが目で分かる。電気・熱は使わない（室温）。
  * 酸化膜つきの板 ×{@link #WAFERS_PER_RUN} ＋ フッ酸 1（空の鉛の瓶は機械の上に戻る）→ シリコンの板 ×{@link #WAFERS_PER_RUN}（純度・ドーパントを受け継ぐ）。
  * 時間は膜の厚さ ÷ 溶ける速さ（ゲームでは 1秒に {@link #NM_PER_SECOND} nm。本物の薄めたフッ酸は 1分に数十〜100nm 程度）。
- * レジスト（[2-30][2-32]）で守った所だけを残す「窓開け」は、露光 [9-20] ができてから。今は膜を全部はがす。
+ * 加工中のウェハー（process_wafer、現像ずみ）を入れると、レジストのない所だけ膜が溶けて「窓」が開く（ChipOps.etchOxide、LITHO_DESIGN §5）。1回に1〜8枚。
+ * 酸化膜つきの板（レジストなし）を入れると、膜を全部はがす。
  * スロット：0＝酸化膜つきの板、1＝フッ酸、2＝出口
  */
 public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
@@ -45,7 +47,7 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
     };
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
-            .in(SLOT_WAFER, 8, 26, s -> s.is(Semiconductor.OXIDIZED_WAFER))
+            .in(SLOT_WAFER, 8, 26, EtchTankBlockEntity::isInput)
             .in(SLOT_HF, 8, 50, s -> s.is(Chemistry.HYDROFLUORIC_ACID))
             .out(SLOT_OUT, 78, 35)
             .right("hint", 17, 4, "gui.semiconductor-lab.etch_tank.need_input", "gui.semiconductor-lab.etch_tank.running", "gui.semiconductor-lab.etch_tank.out_full")
@@ -56,6 +58,21 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
 
     @Override public SimpleContainer getContainer() { return container; }
     @Override public ContainerData getMenuData() { return data; }
+
+    /** 入れてよい物：酸化膜つきの板（全部はがす）か、窓を開けられる加工中のウェハー */
+    public static boolean isInput(ItemStack s) { return s.is(Semiconductor.OXIDIZED_WAFER) || ChipOps.canEtchOxide(s); }
+
+    /** 1回の枚数：板は8枚ちょうど、加工中のウェハーは1〜8枚 */
+    public static int batch(ItemStack w) {
+        if (ChipOps.isProcessWafer(w)) return Math.min(w.getCount(), WAFERS_PER_RUN);
+        return w.is(Semiconductor.OXIDIZED_WAFER) && w.getCount() >= WAFERS_PER_RUN ? WAFERS_PER_RUN : 0;
+    }
+
+    /** 出てくる物：加工中のウェハーは窓が開いたもの、板は膜をはがしたシリコンの板 */
+    public static ItemStack product(ItemStack w, int n) {
+        if (ChipOps.isProcessWafer(w)) { ChipOps.Result r = ChipOps.etchOxide(w.copyWithCount(n)); return r.ok() ? r.out() : ItemStack.EMPTY; }
+        return stripped(w, n);
+    }
 
     /** この厚さの膜が溶けきるまでの tick（最低 1秒） */
     public static int ticksFor(int oxideNm) { return Math.max(20, (int) Math.ceil(oxideNm * 20.0 / NM_PER_SECOND)); }
@@ -72,8 +89,10 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
 
     private boolean canEtch() {
         ItemStack w = container.getItem(SLOT_WAFER), out = container.getItem(SLOT_OUT);
-        if (!w.is(Semiconductor.OXIDIZED_WAFER) || w.getCount() < WAFERS_PER_RUN || !container.getItem(SLOT_HF).is(Chemistry.HYDROFLUORIC_ACID)) return false;
-        ItemStack add = stripped(w, WAFERS_PER_RUN);
+        int n = batch(w);
+        if (n == 0 || !container.getItem(SLOT_HF).is(Chemistry.HYDROFLUORIC_ACID)) return false;
+        ItemStack add = product(w, n);
+        if (add.isEmpty()) return false;
         return out.isEmpty() || (ItemStack.isSameItemSameComponents(out, add) && out.getCount() + add.getCount() <= out.getMaxStackSize());
     }
 
@@ -83,8 +102,9 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
         be.total = ticksFor(OxidationFurnaceBlockEntity.oxideOf(be.container.getItem(SLOT_WAFER)));
         if (++be.progress >= be.total) {
             be.progress = 0;
-            ItemStack add = stripped(be.container.getItem(SLOT_WAFER), WAFERS_PER_RUN);
-            be.container.getItem(SLOT_WAFER).shrink(WAFERS_PER_RUN);
+            int n = batch(be.container.getItem(SLOT_WAFER));
+            ItemStack add = product(be.container.getItem(SLOT_WAFER), n);
+            be.container.getItem(SLOT_WAFER).shrink(n);
             ItemStack hf = be.container.getItem(SLOT_HF);
             Vessel.returnEmpty(level, pos, hf, 1);   // 空の鉛の瓶は上に戻る
             hf.shrink(1);

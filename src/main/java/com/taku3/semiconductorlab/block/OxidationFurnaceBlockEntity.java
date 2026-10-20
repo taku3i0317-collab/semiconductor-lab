@@ -5,6 +5,7 @@ import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.content.Semiconductor;
 import com.taku3.semiconductorlab.energy.ConsumerBlockEntity;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
+import com.taku3.semiconductorlab.litho.ChipOps;
 import com.taku3.semiconductorlab.machine.MachineLayout;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * シリコンの板 ×{@link #WAFERS_PER_RUN}（または酸化膜つきの板）＋ 酸素1袋（ドライ）か 水バケツ1（ウェット、空のバケツが戻る）
  * → 酸化膜つきの板 ×{@link #WAFERS_PER_RUN}。膜の厚さ（nm）は Deal–Grove の式（1965）で、1回＝1100℃で1時間ぶん。
  * もう一度入れると、今の厚さから続けて育つ（厚いほど酸素が膜を通りにくく、伸びが遅くなる）。
+ * 加工中のウェハー（process_wafer、LITHO_DESIGN）も入る：開いている窓を閉じ直す（ChipOps.reoxidize、窓の開けまちがいのやり直し）。1回に1〜8枚。
  * ⚠️ 電力（5kW）・時間（120秒＝本物の1時間）はゲームの値（拡散炉と同じ）。
  */
 public class OxidationFurnaceBlockEntity extends ConsumerBlockEntity {
@@ -53,7 +55,13 @@ public class OxidationFurnaceBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.OXIDATION_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean isWafer(ItemStack s) { return s.is(Semiconductor.SILICON_WAFER) || s.is(Semiconductor.OXIDIZED_WAFER); }
+    public static boolean isWafer(ItemStack s) { return s.is(Semiconductor.SILICON_WAFER) || s.is(Semiconductor.OXIDIZED_WAFER) || ChipOps.canReoxidize(s); }
+
+    /** 1回に焼く枚数：板は8枚ちょうど、加工中のウェハーは1〜8枚（あれば全部） */
+    public static int batch(ItemStack w) {
+        if (ChipOps.isProcessWafer(w)) return Math.min(w.getCount(), WAFERS_PER_RUN);
+        return w.getCount() >= WAFERS_PER_RUN ? WAFERS_PER_RUN : 0;
+    }
 
     public static Mode modeOf(ItemStack oxidant) {
         if (oxidant.is(Gas.OXYGEN_GAS)) return Mode.DRY;
@@ -87,6 +95,13 @@ public class OxidationFurnaceBlockEntity extends ConsumerBlockEntity {
 
     /** 酸化膜つきの板：元の板の純度・ドーパントを受け継ぎ、膜を育てる */
     public static ItemStack oxidized(ItemStack wafer, Mode m, int count) {
+        if (ChipOps.isProcessWafer(wafer)) {   // 加工中のウェハー：窓を閉じ、膜をその分育てる
+            ChipOps.Result r = ChipOps.reoxidize(wafer.copyWithCount(count));
+            if (!r.ok()) return ItemStack.EMPTY;
+            ItemStack out = r.out();
+            out.set(ModDataComponents.OXIDE_NM, grow(oxideOf(wafer), m, HOURS_PER_RUN));
+            return out;
+        }
         ItemStack s = new ItemStack(Semiconductor.OXIDIZED_WAFER, count);
         Double p = wafer.get(ModDataComponents.PURITY);
         if (p != null) s.set(ModDataComponents.PURITY, p);
@@ -102,15 +117,18 @@ public class OxidationFurnaceBlockEntity extends ConsumerBlockEntity {
     @Override protected boolean canWork() {
         Mode m = mode();
         ItemStack w = container.getItem(SLOT_WAFER);
-        if (m == Mode.NONE || !isWafer(w) || w.getCount() < WAFERS_PER_RUN) return false;
+        int n = batch(w);
+        if (m == Mode.NONE || !isWafer(w) || n == 0) return false;
         if (m == Mode.WET && !canMerge(container.getItem(SLOT_BUCKET), new ItemStack(Items.BUCKET))) return false;
-        return canMerge(container.getItem(SLOT_OUT), oxidized(w, m, WAFERS_PER_RUN));
+        ItemStack out = oxidized(w, m, n);
+        return !out.isEmpty() && canMerge(container.getItem(SLOT_OUT), out);
     }
 
     @Override protected void finishWork() {
         Mode m = mode();
-        ItemStack out = oxidized(container.getItem(SLOT_WAFER), m, WAFERS_PER_RUN);
-        container.getItem(SLOT_WAFER).shrink(WAFERS_PER_RUN);
+        int n = batch(container.getItem(SLOT_WAFER));
+        ItemStack out = oxidized(container.getItem(SLOT_WAFER), m, n);
+        container.getItem(SLOT_WAFER).shrink(n);
         container.getItem(SLOT_OXIDANT).shrink(1);
         if (m == Mode.WET) merge(SLOT_BUCKET, new ItemStack(Items.BUCKET));
         merge(SLOT_OUT, out);

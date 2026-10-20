@@ -299,6 +299,51 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-06]・[9-15] を露光の工程につなぐ（IMP4-01、LITHO_DESIGN §5）：現像ずみの加工中ウェハー → エッチング槽で窓が開く（ChipOps.etchOxide と同じ）→ はがす → 酸化炉で窓が閉じる（reoxidize）。8×8 の NOT の例は槽を通しても4つの発見になる */
+    @GameTest(maxTicks = 200)
+    public void etchAndReoxidizeWindows(GameTestHelper h) {
+        var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack wafer = new ItemStack(Semiconductor.OXIDIZED_WAFER, 4);
+        wafer.set(ModDataComponents.DOPANT, "boron");
+        wafer.set(ModDataComponents.OXIDE_NM, 600);
+        ItemStack dev = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(wafer).out(), design.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+        h.assertTrue(com.taku3.semiconductorlab.block.EtchTankBlockEntity.isInput(dev) && com.taku3.semiconductorlab.block.EtchTankBlockEntity.batch(dev) == 4, "developed wafers go into the etching tank (1-8 at a time)");
+        h.assertFalse(com.taku3.semiconductorlab.block.EtchTankBlockEntity.isInput(com.taku3.semiconductorlab.litho.ChipOps.coat(wafer).out()), "coated but not developed -> refused");
+        floor(h, 3);
+        BlockPos tp = p(1, 1, 1);
+        h.setBlock(tp, Semiconductor.ETCH_TANK.block);
+        var tank = h.getBlockEntity(tp, com.taku3.semiconductorlab.block.EtchTankBlockEntity.class);
+        var tc = tank.getContainer();
+        ServerLevel lv = h.getLevel();
+        BlockPos ta = h.absolutePos(tp);
+        tc.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_WAFER, dev.copy());
+        tc.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF, new ItemStack(Chemistry.HYDROFLUORIC_ACID, 1));
+        for (int i = 0; i < com.taku3.semiconductorlab.block.EtchTankBlockEntity.ticksFor(600) + 2; i++) com.taku3.semiconductorlab.block.EtchTankBlockEntity.tick(lv, ta, lv.getBlockState(ta), tank);
+        ItemStack etched = tc.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT);
+        h.assertTrue(etched.getCount() == 4 && ItemStack.isSameItemSameComponents(etched, com.taku3.semiconductorlab.litho.ChipOps.etchOxide(dev).out()), "tank = ChipOps.etchOxide, got " + etched);
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(etched).hasWindows(), "windows are open");
+        h.assertTrue(tc.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF).isEmpty() && tc.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_WAFER).isEmpty(), "1 HF for the batch");
+        lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(ta).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        // はがして酸化炉へ：窓が閉じ、膜が育つ
+        ItemStack stripped = com.taku3.semiconductorlab.litho.ChipOps.strip(etched).out();
+        h.assertTrue(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.isWafer(stripped) && com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.batch(stripped) == 4, "stripped wafer with windows goes into the oxidation furnace");
+        BlockPos fp = p(1, 1, 2);
+        h.setBlock(fp, Semiconductor.OXIDATION_FURNACE.block);
+        var furnace = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.class);
+        var fc = furnace.getContainer();
+        fc.setItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_WAFER, stripped.copy());
+        fc.setItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OXIDANT, new ItemStack(com.taku3.semiconductorlab.content.Gas.OXYGEN_GAS, 1));
+        tickConsumer(h, fp, furnace, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.WATTS));
+        ItemStack closed = fc.getItem(com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(closed.is(Semiconductor.PROCESS_WAFER) && closed.getCount() == 4 && !com.taku3.semiconductorlab.litho.ChipOps.state(closed).hasWindows(), "reoxidize closes the windows, got " + closed);
+        h.assertTrue(closed.get(ModDataComponents.OXIDE_NM) > 600, "and the oxide grows");
+        // 全部の工程（エッチングはこの槽と同じ ChipOps）で NOT の例が4つの発見になる
+        ItemStack done = com.taku3.semiconductorlab.litho.LithoExamples.process(wafer, design, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(done.get(ModDataComponents.CHIP_STATE)))).size(), 4, "NOT example through all steps");
+        LOG.info("[LAB] litho hookup [9-06]/[9-15]: etching tank opens windows on 4 developed wafers (= ChipOps.etchOxide), oxidation furnace closes them (reoxidize) and grows the oxide");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================

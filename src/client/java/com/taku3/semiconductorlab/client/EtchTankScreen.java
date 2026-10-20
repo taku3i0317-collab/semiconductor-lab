@@ -26,7 +26,7 @@ public class EtchTankScreen extends MachineScreen {
         return switch (id) {
             case "hint" -> {
                 ItemStack w = menu.machineItem(EtchTankBlockEntity.SLOT_WAFER), hf = menu.machineItem(EtchTankBlockEntity.SLOT_HF);
-                String k = w.getCount() < EtchTankBlockEntity.WAFERS_PER_RUN || hf.isEmpty() ? "need_input"
+                String k = EtchTankBlockEntity.batch(w) == 0 || hf.isEmpty() ? "need_input"
                         : menu.get(EtchTankBlockEntity.DATA_PROGRESS) > 0 ? "running" : "out_full";
                 yield Component.translatable(K + k);
             }
