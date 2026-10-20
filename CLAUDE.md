@@ -9,9 +9,9 @@
 - docs/REFERENCES.md … 参考文献のまとめ（答え→へえ①〜④→確かさ→根拠）
 - docs/ROADMAP.md … 全体計画と「今どこか」。各ステップのチェックボックスを更新する
 - docs/DESIGN.md … 決定事項・化学ルール・データモデル・26.x の変更点メモ
-- docs/CHEMISTRY.md … 全レシピの化学的根拠と「省略」ラベル。レシピを足したら必ず行を追加
+- docs/CHEMISTRY.md … 全レシピの化学的根拠と「省略」ラベル。レシピを足したら必ず行を追加（**書くのは docs/chemistry/<幹>.md**。CHEMISTRY.md は組み立て結果、IMP-32）
 - docs/API_26X.md … javap で確認済みの 26.3 API の形。ここにある形を使う
-- docs/TEST_QUEUE.md … ゲーム内テスト待ち行列。実装後に項目を追記
+- docs/TEST_QUEUE.md … ゲーム内テスト待ち行列。実装後に項目を追記（**書くのは docs/test_queue/<幹>.md**。TEST_QUEUE.md は組み立て結果、IMP-32）
 - docs/SOURCES.md … 出典と要確認リスト
 - docs/TECH_TREE.md … 依存関係の技術ツリー。新しい機械・材料を足すときは対応ノードを追記し、前提が未実装なら「仮」にせずユーザーに相談
 
@@ -26,7 +26,12 @@
    全部 PASSED を確認する。新しい機械や挙動を足したら src/gametest/java/.../<幹>Tests.java（MetallurgyTests など、共通の道具は LabTestBase）にテストを足す
    **画面（MachineLayout の文字・スロット）・lang の画面の文・ツールチップを変えたら、必ず test.ps1 で画面の検査（GameTest gui_layout・tooltip_text、ゲームなし）を通す**。
    画面の文字は MachineLayout にデータで書き、画面のコードでは直接描かない（DESIGN「画面の文字と自動チェック」）。設計図は docs/gui_preview/
-4. ゲーム内で確認が必要な項目は docs/TEST_QUEUE.md に追記する
+4. ゲーム内で確認が必要な項目は docs/test_queue/<幹>.md に追記する（TEST_QUEUE.md に組み立てられる）
+   **部品ファイルの決まり（全担当共通、IMP-32）**：追記の多い docs は幹ごとの部品に書き、スクリプトで1つに組み立てる。組み立て結果は手で直さない
+   - docs/chemistry/<幹>.md → docs/CHEMISTRY.md、docs/test_queue/<幹>.md → docs/TEST_QUEUE.md（`python tools/docs_build.py`）
+   - src/main/lang/<幹>/ → assets/.../lang/*.json（`python tools/lang_build.py`、`tools/lang_add.py` で足す）
+   - <幹>＝ノード番号の頭：0_survival・1_metallurgy・2_chemistry・3_heat・4_power・5_vacuum・6_gas・7_optics・8_precision・9_semiconductor・10_control・11_agriculture・12_construction・13_medicine・14_transport・15_communication・B_branches。ノードでない節は general.md
+   - 節は「## [幹-番号] 題（担当）」で、その幹の部品の末尾に足す。test.ps1 が最初に --check で組み立て結果と部品が同じかを確かめる。組み立て結果がぶつかったら、スクリプトを実行し直せばよい
 5. 1ステップごとに `git add -A; git commit -m "..."`。push もする
 6. 新しいバニラ要素（26.2 の硫黄など）をレシピに使う前に、名前の実在をユーザーに確認する
 7. 既存の構造を踏襲する（IMP-28 から**幹ごとに分ける**）：アイテム・ブロック・機械（Machine 1行）の登録は content/<幹>.java
@@ -52,7 +57,7 @@
 - docs/TECH_TREE.md のノードが「作業単位」。指示が「[X-NN] を実装して」なら、そのノードの
   前提/本物/入力出力/ゲーム/省略/へえ/テスト の各行をそのまま仕様として使う
 - 前提ノードに ❓ や ⛔ が残っていたら実装せず、「前提 [..] が未実装」とユーザーに報告する
-- 実装後：ノードの状態を ✅ に、CHEMISTRY.md に本物/省略の行、TEST_QUEUE.md にテスト行、
+- 実装後：ノードの状態を ✅ に、docs/chemistry/<幹>.md に本物/省略の行、docs/test_queue/<幹>.md にテスト行（どちらも python tools/docs_build.py で組み立て）、
   lang の .note に「へえ」、ROADMAP のチェックを更新。commit メッセージに [X-NN] を入れる
 - ノードを実装したら docs/REFERENCES.md に同じ形式（答え→へえ①〜④→確かさ◎○△→根拠リンク）で1項目を足す（既にあれば更新）。△ の内容はゲーム内（lang の note）でも ⚠️ を付ける
 - ユーザーから指示されたタスクが終わったら、毎回 Discord の Webhook に完了通知を送る（大きな見出し「# ✅🔔 作業完了 🔔✅」・色付きの埋め込み（embeds、成功＝緑 3066993）・読み上げ（"tts": true）。テストが失敗して止まったときも「# ❌ 停止」・赤 15158332 で送る）。@everyone は付けない。URL はリポジトリ直下の .discord_webhook（git に入らない、.gitignore 済み）から読む：`curl ... "$(cat .discord_webhook)"`。URL はこのファイルにもチャットにも書かない。JSON は Write でファイルにしてから curl --data-binary で送る

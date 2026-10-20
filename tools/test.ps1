@@ -21,6 +21,10 @@ New-Item -ItemType Directory -Force (Join-Path $root 'build') | Out-Null
 python (Join-Path $root 'tools\lang_build.py') --check
 if ($LASTEXITCODE -ne 0) { Write-Host '== 失敗：lang が部品と違う（python tools/lang_build.py を実行）' -ForegroundColor Red; exit 1 }
 
+# CHEMISTRY.md・TEST_QUEUE.md が部品（docs/chemistry/・docs/test_queue/）と同じか（IMP-32。違えば python tools/docs_build.py）
+python (Join-Path $root 'tools\docs_build.py') --check
+if ($LASTEXITCODE -ne 0) { Write-Host '== 失敗：CHEMISTRY.md / TEST_QUEUE.md が部品と違う（python tools/docs_build.py を実行）' -ForegroundColor Red; exit 1 }
+
 Write-Host '== runGameTest を実行中（1〜3分）...' -ForegroundColor Cyan
 $start = Get-Date
 # PowerShell 5.1 で native の stderr を 2>&1 すると赤いエラー扱いになるので、

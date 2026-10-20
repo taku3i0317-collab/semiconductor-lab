@@ -27,11 +27,11 @@
 | tech_network_detail.js | カード・詳細用の重いデータ（本物・へえ・出典・レシピ・人物）。network.html はカードを開くか検索したときに読み、node.html は最初から読む |
 | tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
-| CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき） |
+| CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき）。組み立て結果：書くのは chemistry/<幹>.md（tools/docs_build.py） |
 | API_26X.md | javap で確認した Minecraft 26.3 API の形。コードはここにある形で書く |
 | SOURCES.md | 出典と要確認リスト |
 | REFERENCES.md | 参考文献のまとめ（答え→へえ①〜④→確かさ→根拠）。v0.2b シリコンの試作版 |
-| TEST_QUEUE.md | テスト待ち行列：自動✅（GameTest）と、人間がゲーム内で見る項目 |
+| TEST_QUEUE.md | テスト待ち行列：自動✅（GameTest）と、人間がゲーム内で見る項目。組み立て結果：書くのは test_queue/<幹>.md |
 | TEST_RESULTS.md | 自動テスト（GameTest）の実行方法と結果 |
 | tasks/queue/ | これからやるタスク（NN_*.md）。tasks/done/ は終わったタスク |
 | tasks/next.md | 単発のタスク指示 |
