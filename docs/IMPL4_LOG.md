@@ -93,3 +93,9 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - O-011 完了（2ddd5452 まで、274/274）。次は INBOX の新しい項目を待つ
 - O-012 開始。A へ相談（SendMessage）：[9-27] の液とドライの差（案α：方眼 36 以上で液は窓が1マス太る／案β：記録だけ）、多層化の案（A＝作らない／B＝METAL2＋VIA の最小2層／C＝一般化）
 - ✅ [9-27] フッ素化の反応器（黒鉛＋F2 → CF4 8袋）・ドライエッチング装置（block/DryEtcherBlockEntity、3kW、0.1Pa 以下、A の答えで案α：ChipOps.etchOxide(w, true)、液は方眼 36 以上で1マス太る）。GameTest dry_etcher、CHEMISTRY F55〜F56、REFERENCES F32
+- **O-012 の2 多層化：ユーザーの決定待ち（作らない）**。A と相談した案：
+  - 案A：作らない（v0.4 も金属1層のまま。2層目は v0.5 の CMP の後）
+  - 案B：最小の2層（A の見立てでは自然）。LayerKind に VIA・METAL2 を足し、層間膜（ChipOps.depositInterlayer）→ VIA の窓 → METAL2 → 削る。Netlist は METAL と METAL2 が VIA でつながる、を足すだけ。判定・お題・ハンコはそのまま。製図台の層の並びは Q21-3（工程ごとの切りかえ）と同じ仕組みで2層を足す。手間：A が ChipOps・Netlist・ChipModel に半日ほど、E が層間膜（CVD の SiO2）の機械
+  - 案C：層を一般化（METAL[n]・VIA[n]）。A の見立てでは v0.5 まで要らない
+  - 年：2層の金属配線は 1960年代の終わりから ⚠️（出典で確かめる）
+  - Discord でユーザーに質問した。答えが来たら、ChipOps・Netlist は A、層間膜の機械と VIA のエッチングは E
