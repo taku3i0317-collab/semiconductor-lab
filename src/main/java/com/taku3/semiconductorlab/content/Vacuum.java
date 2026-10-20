@@ -48,6 +48,8 @@ public final class Vacuum {
     // 回転ポンプ [5-04] 段階①（IMP2-01、ゲーデの回転水銀ポンプ 1905）：モーター 250W、1Pa まで。拡散ポンプの前段にもなる
     public static final Machine<RotaryPumpBlockEntity> ROTARY_PUMP = Machine.electric("rotary_pump", RotaryPumpBlockEntity::new, RotaryPumpBlockEntity.LAYOUT, lit(metal(3.5f), 0));
     // 水銀拡散ポンプ [5-05]（IMP2-01、ゲーデ 1915、ガラスと鉄）：ヒーター 400W、前段の回転ポンプと 10Pa 以下が要る。10⁻⁴Pa 級
+    // [5-07] ターボ分子ポンプ（IMP2 O-017、1958 ベッカー）：精密な玉軸受（段階2以上）で高速回転、10⁻⁶Pa、蒸気が戻らない
+    public static final Machine<TurboPumpBlockEntity> TURBO_PUMP = Machine.electric("turbo_pump", TurboPumpBlockEntity::new, TurboPumpBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<DiffusionPumpBlockEntity> DIFFUSION_PUMP = Machine.electric("diffusion_pump", DiffusionPumpBlockEntity::new, DiffusionPumpBlockEntity.LAYOUT, lit(metal(2.0f).sound(SoundType.GLASS), 4));
     // 真空蒸着装置 [5-14]（IMP2-01）：W 線のヒーター 300W で金属を蒸発。隣の容器が 0.01Pa 以下のときだけ。クラウンガラス＋銀 → 半透明鏡
     public static final Machine<EvaporatorBlockEntity> EVAPORATOR = Machine.electric("evaporator", EvaporatorBlockEntity::new, EvaporatorBlockEntity.LAYOUT, lit(metal(3.0f), 9));

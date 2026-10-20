@@ -41,13 +41,14 @@ public class RotaryPumpBlockEntity extends ConsumerBlockEntity {
         super(Vacuum.ROTARY_PUMP.type, pos, state, 0, EnergyStorage.wattsToJoulesPerTick(WATTS) * 40, 2_000);
     }
 
-    /** 引く相手の容器：隣の容器、なければ隣の拡散ポンプの向こうの容器 */
+    /** 引く相手の容器：隣の容器、なければ隣の拡散ポンプかターボ分子ポンプ [5-07] の向こうの容器 */
     public VacuumChamberBlockEntity target() {
         if (level == null) return null;
         VacuumChamberBlockEntity c = VacuumChamberBlockEntity.findAdjacent(level, worldPosition);
         if (c != null) return c;
         for (Direction d : Direction.values())
-            if (level.getBlockEntity(worldPosition.relative(d)) instanceof DiffusionPumpBlockEntity dp) {
+            if (level.getBlockEntity(worldPosition.relative(d)) instanceof DiffusionPumpBlockEntity || level.getBlockEntity(worldPosition.relative(d)) instanceof TurboPumpBlockEntity) {
+                var dp = level.getBlockEntity(worldPosition.relative(d));
                 VacuumChamberBlockEntity cc = VacuumChamberBlockEntity.findAdjacent(level, dp.getBlockPos());
                 if (cc != null) return cc;
             }

@@ -253,5 +253,6 @@
   "litho.semiconductor-lab.challenge.register.hint1": "① Two memories that only change when the clock rises.",
   "litho.semiconductor-lab.challenge.register.hint2": "② One edge-triggered flip-flop per bit, all sharing one clock.",
   "litho.semiconductor-lab.challenge.register.hint3": "③ Stamp the same flip-flop twice and join their clock inputs; use symbols to keep the wiring readable.",
-  "litho.semiconductor-lab.challenge.register.hint4": "④ A CPU is mostly registers and adders. The Intel 4004 (1971) held its numbers in sixteen 4-bit registers."
+  "litho.semiconductor-lab.challenge.register.hint4": "④ A CPU is mostly registers and adders. The Intel 4004 (1971) held its numbers in sixteen 4-bit registers.",
+  "gui.semiconductor-lab.pump.no_bearing": "Needs bearing grade 2+"
 }

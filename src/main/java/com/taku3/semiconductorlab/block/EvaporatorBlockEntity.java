@@ -114,6 +114,10 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
     @Override protected void finishWork() {
         runs++;
         ItemStack chip = chipProduct(container.getItem(SLOT_SUBSTRATE), container.getItem(SLOT_METAL));
+        // [5-07] 隣の水銀拡散ポンプの蒸気が戻ると膜にほこり（ターボ分子ポンプならきれい、IMP2 O-017。A の ChipOps.addDust）
+        VacuumChamberBlockEntity ch0 = chamber();
+        if (!chip.isEmpty() && level != null && ch0 != null && TurboPumpBlockEntity.backstreams(level, ch0.getBlockPos()))
+            chip = com.taku3.semiconductorlab.litho.ChipOps.addDust(chip, 1);
         if (!chip.isEmpty()) {
             container.getItem(SLOT_SUBSTRATE).shrink(chip.getCount());
             container.getItem(SLOT_METAL).shrink(1);

@@ -80,6 +80,40 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class VacuumTests extends LabTestBase {
+    /** [5-07] ターボ分子ポンプ（IMP2 O-017）：精密な玉軸受（段階2以上）がないと回せない。回転ポンプを前段に 10⁻⁵Pa 以下まで。拡散ポンプは水銀の蒸気が容器に戻る */
+    @GameTest(maxTicks = 2000)
+    public void turbo_pump(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "turbo_pump", Metallurgy.ALUMINIUM_INGOT), "aluminium rotor blades");
+        BlockPos c = p(2, 1, 1), t = p(1, 1, 1), r2 = p(0, 1, 1), d = p(3, 1, 1), r = p(4, 1, 1);
+        h.setBlock(c, Vacuum.VACUUM_CHAMBER.block);
+        var ch = h.getBlockEntity(c, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class);
+        ch.setPressure(1.0);
+        h.setBlock(t, Vacuum.TURBO_PUMP.block);
+        h.setBlock(r2, Vacuum.ROTARY_PUMP.block);
+        var tp = h.getBlockEntity(t, com.taku3.semiconductorlab.block.TurboPumpBlockEntity.class);
+        var rp2 = h.getBlockEntity(r2, com.taku3.semiconductorlab.block.RotaryPumpBlockEntity.class);
+        long ft = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.TurboPumpBlockEntity.WATTS), fr = EnergyStorage.wattsToJoulesPerTick(1000);
+        for (int k = 0; k < 40; k++) { tickConsumer(h, r2, rp2, 1, fr); tickConsumer(h, t, tp, 1, ft); }
+        h.assertValueEqual(tp.status(), com.taku3.semiconductorlab.block.TurboPumpBlockEntity.STATUS_NO_BEARING, "no precise bearing -> cannot spin at tens of thousands rpm");
+        h.assertFalse(tp.installBearing(0), "nothing to install");
+        tp.installBearing(1);
+        h.assertValueEqual(tp.status(), com.taku3.semiconductorlab.block.TurboPumpBlockEntity.STATUS_NO_BEARING, "hand-rounded balls are too rough");
+        tp.installBearing(2);
+        for (int k = 0; k < 1200; k++) { tickConsumer(h, r2, rp2, 1, fr); tickConsumer(h, t, tp, 1, ft); }
+        h.assertTrue(ch.getPressure() < 1e-5, "turbo pump with a ground-ball bearing -> high vacuum: " + ch.getPressure() + " Pa");
+        h.assertFalse(com.taku3.semiconductorlab.block.TurboPumpBlockEntity.backstreams(h.getLevel(), h.absolutePos(c)), "no vapour comes back from a turbo pump");
+        // 拡散ポンプを動かすと水銀の蒸気が戻る
+        h.setBlock(d, Vacuum.DIFFUSION_PUMP.block);
+        h.setBlock(r, Vacuum.ROTARY_PUMP.block);
+        var dp = h.getBlockEntity(d, com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.class);
+        var rp = h.getBlockEntity(r, com.taku3.semiconductorlab.block.RotaryPumpBlockEntity.class);
+        for (int k = 0; k < 40; k++) { tickConsumer(h, r, rp, 1, fr); tickConsumer(h, d, dp, 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DiffusionPumpBlockEntity.WATTS)); }
+        h.assertTrue(com.taku3.semiconductorlab.block.TurboPumpBlockEntity.backstreams(h.getLevel(), h.absolutePos(c)), "a running mercury diffusion pump backstreams vapour into the chamber");
+        h.assertTrue(langJson("ja_jp").has("gui.semiconductor-lab.pump.no_bearing"), "lang no_bearing");
+        LOG.info("[LAB] turbo_pump [5-07]: needs bearing grade 2+, rotary backing -> " + ch.getPressure() + " Pa; diffusion pump backstreams mercury");
+        h.succeed();
+    }
+
     // =====================================================================
     // [5-01] 手押しピストンポンプ ＋ [5-11] 真空容器
     // =====================================================================

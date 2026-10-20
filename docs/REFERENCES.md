@@ -1638,6 +1638,19 @@
 - Wikipedia「Electron microscope」：https://en.wikipedia.org/wiki/Electron_microscope
 - Wikipedia「Ernst Ruska」：https://en.wikipedia.org/wiki/Ernst_Ruska
 
+## O58. 羽根車で分子をはじく（ターボ分子ポンプ）［5-07］
+**答え**：ターボ分子ポンプは、何十段もの羽根車を毎分数万回転させ、羽根の先が気体分子の速さ（数百m/s）に近い速さで分子を下へはじき出す。1958年、ファイファー社のベッカーが発表した（祖先は1913年ゲーデの分子ポンプ）。油や水銀の蒸気を使わないので、蒸気が容器に戻って膜を汚すことがない。
+
+- へえ①：羽根の先は、音より速いくらいの速さで回っている。
+- へえ②：高速回転を支える精密な玉軸受（のちに磁気軸受）があって初めて作れた。
+- へえ③：拡散ポンプの油や水銀の蒸気は、冷却トラップで止めないと装置を汚した。
+- へえ④：今の半導体装置の真空は、ほとんどがターボ分子ポンプとドライポンプ。
+
+確かさ：ベッカー 1958・ゲーデ 1913 ◎／毎分数万回転 ◎
+根拠：
+- Wikipedia「Turbomolecular pump」：https://en.wikipedia.org/wiki/Turbomolecular_pump
+- Wikipedia「Diffusion pump」（Backstreaming）：https://en.wikipedia.org/wiki/Diffusion_pump
+
 ---
 
 # 冶金と熱（タスク15〜）

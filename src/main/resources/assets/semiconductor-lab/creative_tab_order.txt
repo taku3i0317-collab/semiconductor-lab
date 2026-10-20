@@ -380,6 +380,7 @@ vacuum_tube  # Vacuum [5-02] 1904
 sealing_station  # Vacuum [5-02] 1904
 rotary_pump  # Vacuum [5-04] 1905
 diffusion_pump  # Vacuum [5-05] 1915
+turbo_pump  # Vacuum [5-07] 1958
 evaporator  # Vacuum [9-25] 1959
 rock_salt  # Gas [6-04] -1500
 salt  # Gas [6-04] -1500

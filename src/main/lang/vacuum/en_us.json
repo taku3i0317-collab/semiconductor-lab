@@ -84,5 +84,11 @@
   "gui.semiconductor-lab.evaporator.need_vacuum": "Pump lower (diffusion)",
   "gui.semiconductor-lab.evaporator.output_full": "Output full",
   "gui.semiconductor-lab.evaporator.need_power": "Not enough power",
-  "gui.semiconductor-lab.evaporator.running": "Evaporating"
+  "gui.semiconductor-lab.evaporator.running": "Evaporating",
+  "block.semiconductor-lab.turbo_pump": "Turbomolecular Pump",
+  "block.semiconductor-lab.turbo_pump.note1": "A pump that spins a bladed rotor extremely fast to bat gas molecules away. No oil or mercury, so the vacuum stays clean.",
+  "block.semiconductor-lab.turbo_pump.note2": "6 aluminium + 2 steel + motor. 300 W. With an adjacent vacuum chamber, a running rotary pump next to it (backing), the chamber at 10 Pa or less and a precise ball bearing (grade 2+, right-click with a bearing), it pumps down to 1e-6 Pa.",
+  "block.semiconductor-lab.turbo_pump.note3": "In 1958 Becker at Pfeiffer in Germany presented the turbine-type molecular pump (its ancestor is Gaede's 1913 molecular pump). It needed precise ball bearings to carry blades spinning tens of thousands of times a minute.",
+  "block.semiconductor-lab.turbo_pump.note4": "The blade tips move nearly as fast as the molecules (hundreds of m/s) and knock them downward. With no oil or mercury vapor backstreaming to dirty films, most semiconductor tool vacuums became turbomolecular.",
+  "block.semiconductor-lab.turbo_pump.placeholder": "Approximation: blade stages and speed are skipped. No cold trap (which would stop a diffusion pump's vapor)."
 }

@@ -27,7 +27,7 @@ public class PumpScreen extends MachineScreen {
             }
             case "hint" -> {
                 int s = menu.get(RotaryPumpBlockEntity.DATA_STATUS);
-                yield s == 4 ? Component.translatable("gui.semiconductor-lab.machine.need_power") : Component.translatable(K + STATUS[Math.max(0, Math.min(3, s))]);
+                yield s == 4 ? Component.translatable("gui.semiconductor-lab.machine.need_power") : s == 5 ? Component.translatable(K + "no_bearing") : Component.translatable(K + STATUS[Math.max(0, Math.min(3, s))]);
             }
             default -> null;
         };

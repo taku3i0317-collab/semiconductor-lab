@@ -59,7 +59,7 @@ public abstract class ConsumerBlockEntity extends BlockEntity implements Machine
 
     // ===== [8-20] 玉軸受（IMP2 O-013、A と合意）：モーターで回す機械だけ。ここ1か所に機械の ID を並べる =====
     /** 玉軸受を入れられる機械（ブロックエンティティの ID）。炉・槽は入れない */
-    public static final java.util.Set<String> BEARING_MACHINES = java.util.Set.of("lathe", "compressor", "wafer_saw", "wafer_polisher", "spin_coater", "cz_puller");
+    public static final java.util.Set<String> BEARING_MACHINES = java.util.Set.of("lathe", "compressor", "wafer_saw", "wafer_polisher", "spin_coater", "cz_puller", "turbo_pump");   // turbo_pump は IMP2 O-017（高速回転の軸受が要る）
     /** 入っている玉軸受の段階（0＝なし＝すべり軸受。保存キー "Bearing"） */
     private int bearingGrade;
 

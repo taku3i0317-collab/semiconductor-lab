@@ -392,8 +392,10 @@ setblock ~21 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-04]
 setblock ~21 ~0 ~42 semiconductor-lab:rotary_pump
 setblock ~25 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-05] 水銀拡散ポンプ","真空容器｜拡散ポンプ｜","回転ポンプ と並べて電","気をつなぐ → 回転ポ"]}}
 setblock ~25 ~0 ~42 semiconductor-lab:diffusion_pump
-setblock ~29 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
-setblock ~29 ~0 ~42 semiconductor-lab:evaporator
+setblock ~29 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-07] ターボ分子ポン","ターボ分子ポンプを真空","容器と回転ポンプの間に","置き、研削した玉の玉軸"]}}
+setblock ~29 ~0 ~42 semiconductor-lab:turbo_pump
+setblock ~33 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
+setblock ~33 ~0 ~42 semiconductor-lab:evaporator
 setblock ~0 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹6 ガス・電解","↓ この列","",""]}}
 setblock ~2 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-04] 岩塩鉱","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~50 semiconductor-lab:rock_salt_ore
