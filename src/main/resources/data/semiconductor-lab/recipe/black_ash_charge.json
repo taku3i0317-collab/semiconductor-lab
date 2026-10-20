@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:salt_cake",
+    "minecraft:calcite",
+    "minecraft:charcoal"
+  ],
+  "result": {
+    "id": "semiconductor-lab:black_ash_charge",
+    "count": 1
+  }
+}

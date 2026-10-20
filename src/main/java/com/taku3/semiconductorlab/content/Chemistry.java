@@ -211,6 +211,12 @@ public final class Chemistry {
     public static final Item LEAF_PIGMENT_EXTRACT  = Reg.contained("leaf_pigment_extract", Vessel.GLASS_BOTTLE);
     public static final Item CAROTENE              = Reg.item("carotene");
     public static final Item CHLOROPHYLL           = Reg.item("chlorophyll");
+    // [2-05] ルブラン法（IMP3、O-014、ソルベー法より古い道）：塩2＋硫酸 → 芒硝の仕込み →かまど → 芒硝（塩化水素は空へ＝公害）、
+    //   または ＋水＋瓶（吸収塔、1836 ゴセージ・1863 アルカリ法）→ 塩酸（芒硝は作業台に残る）。芒硝＋方解石＋木炭 →かまど → 黒灰 → ＋水 → 炭酸ナトリウム
+    public static final Item SALT_CAKE             = Reg.item("salt_cake");
+    public static final Item SALT_CAKE_CHARGE      = Reg.item("salt_cake_charge", new Item.Properties().stacksTo(16).craftRemainder(SALT_CAKE));
+    public static final Item BLACK_ASH_CHARGE      = Reg.item("black_ash_charge");
+    public static final Item BLACK_ASH             = Reg.item("black_ash");
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);

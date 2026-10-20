@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:black_ash",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sodium_carbonate",
+    "count": 1
+  }
+}

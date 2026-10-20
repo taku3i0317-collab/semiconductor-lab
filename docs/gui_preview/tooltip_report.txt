@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 496（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 500（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -511,6 +511,14 @@ en_us carotene lines=5
 en_us carotene shift lines=10
 en_us chlorophyll lines=5
 en_us chlorophyll shift lines=10
+en_us salt_cake lines=6
+en_us salt_cake shift lines=13
+en_us salt_cake_charge lines=7
+en_us salt_cake_charge shift lines=19
+en_us black_ash_charge lines=6
+en_us black_ash_charge shift lines=11
+en_us black_ash lines=6
+en_us black_ash shift lines=13
 en_us chromatography_column lines=8
 en_us chromatography_column shift lines=19
 en_us hydrofluoric_acid_pe lines=4
@@ -1503,6 +1511,14 @@ ja_jp carotene lines=5
 ja_jp carotene shift lines=10
 ja_jp chlorophyll lines=5
 ja_jp chlorophyll shift lines=10
+ja_jp salt_cake lines=4
+ja_jp salt_cake shift lines=9
+ja_jp salt_cake_charge lines=5
+ja_jp salt_cake_charge shift lines=12
+ja_jp black_ash_charge lines=4
+ja_jp black_ash_charge shift lines=7
+ja_jp black_ash lines=5
+ja_jp black_ash shift lines=11
 ja_jp chromatography_column lines=5
 ja_jp chromatography_column shift lines=14
 ja_jp hydrofluoric_acid_pe lines=4

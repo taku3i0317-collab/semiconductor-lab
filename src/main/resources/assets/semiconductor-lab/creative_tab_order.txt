@@ -166,6 +166,9 @@ iodine  # Chemistry [2-04] 1750
 hydrofluoric_acid  # Chemistry [2-10] 1771
 calcium_sulfate  # Chemistry [2-10] 1771
 lead_retort  # Chemistry [2-10] 1771
+salt_cake  # Chemistry [2-05] 1791
+salt_cake_charge  # Chemistry [2-05] 1791
+black_ash  # Chemistry [2-05] 1791
 coal_tar  # Chemistry [2-20] 1792
 ammoniacal_liquor  # Chemistry [2-20] 1792
 gas_retort  # Chemistry [2-20] 1792
@@ -289,6 +292,7 @@ ro_membrane  # Chemistry [2-18] 1970
 ultrapure_water  # Chemistry [2-18] 1970
 ultrapure_water_system  # Chemistry [2-18] 1970
 polyethylene_bottle  # Chemistry [None] None
+black_ash_charge  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 bellows  # Heat [3-04] -1450

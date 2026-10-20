@@ -2176,6 +2176,20 @@
 - Wikipedia「Mikhail Tsvet」：https://en.wikipedia.org/wiki/Mikhail_Tsvet
 - Nobel Prize 1952 Chemistry（Martin, Synge）：https://www.nobelprize.org/prizes/chemistry/1952/summary/
 
+## C30. 空に捨てられた塩酸のガス（ルブラン法）［2-05］
+**答え**：1791年フランスのニコラ・ルブランが、塩と硫酸からソーダを作る方法を考えた：2NaCl + H2SO4 → Na2SO4 + 2HCl、Na2SO4 + 2C + CaCO3 → Na2CO3 + CaS + 2CO2。19世紀のソーダ工業の中心になったが、塩化水素のガスを空に捨て、硫化カルシウムのかす（ガリグー）を山積みにした。1836年ゴセージの吸収塔、1863年イギリスのアルカリ法（初期の大気汚染の法律）でガスの回収が義務になった。のちにソルベー法（1861〜）に置きかわった。
+
+- へえ①：塩と硫酸からソーダを作る方法。出てきた塩酸のガスは、はじめ空に捨てられた。
+- へえ②：捨てていたガスを水に吸わせると、売れる塩酸になった。
+- へえ③：ルブランは革命で工場を取り上げられ、貧しさの中で亡くなった。
+- へえ④：アルカリ法は、世界で最初の頃の公害を取りしまる法律の一つ。
+
+確かさ：反応 ◎／ルブラン 1791・ゴセージ 1836・アルカリ法 1863 ◎／ルブランの最期（1806）◎
+根拠：
+- Wikipedia「Leblanc process」（歴史・公害）：https://en.wikipedia.org/wiki/Leblanc_process
+- Wikipedia「Alkali Act 1863」：https://en.wikipedia.org/wiki/Alkali_Act_1863
+- Wikipedia「Nicolas Leblanc」：https://en.wikipedia.org/wiki/Nicolas_Leblanc
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

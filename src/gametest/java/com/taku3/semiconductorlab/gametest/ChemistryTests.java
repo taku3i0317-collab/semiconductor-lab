@@ -1082,6 +1082,26 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-05] ルブラン法（IMP3、O-014）
+    // =====================================================================
+
+    /** 塩2＋硫酸 → 仕込み →かまど → 芒硝（HCl は空へ）、または吸収塔で塩酸＋芒硝が残る。芒硝＋方解石＋木炭 →かまど → 黒灰 → ＋水 → ソーダ */
+    @GameTest
+    public void leblanc(GameTestHelper h) {
+        var SMELT = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(recipeUses(h, "salt_cake_charge", com.taku3.semiconductorlab.content.Gas.SALT) && recipeUses(h, "salt_cake_charge", Chemistry.SULFURIC_ACID), "2 NaCl + H2SO4");
+        h.assertTrue(cook(h, SMELT, Chemistry.SALT_CAKE_CHARGE).is(Chemistry.SALT_CAKE), "roasted -> salt cake (HCl vented)");
+        h.assertTrue(recipeUses(h, "hydrochloric_acid_from_salt_cake_charge", Chemistry.SALT_CAKE_CHARGE), "absorption tower captures HCl");
+        var rem = Chemistry.SALT_CAKE_CHARGE.getCraftingRemainder(new ItemStack(Chemistry.SALT_CAKE_CHARGE));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.SALT_CAKE), "salt cake stays in the grid");
+        h.assertTrue(recipeUses(h, "black_ash_charge", Items.CALCITE) && recipeUses(h, "black_ash_charge", Items.CHARCOAL), "salt cake + limestone + charcoal");
+        h.assertTrue(cook(h, SMELT, Chemistry.BLACK_ASH_CHARGE).is(Chemistry.BLACK_ASH), "-> black ash");
+        h.assertTrue(recipeUses(h, "sodium_carbonate_from_black_ash", Chemistry.BLACK_ASH), "leach -> soda");
+        LOG.info("[LAB] leblanc [2-05]: NaCl + H2SO4 -> salt cake (+HCl vented or absorbed); + CaCO3 + C -> black ash -> leach -> Na2CO3");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
