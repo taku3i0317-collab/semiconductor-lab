@@ -90,6 +90,36 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
 
+    /** [1-18] 白金の精製（IMP4-01）：NH4Cl、王水で溶かす（瓶が戻る）、沈殿、焼いて海綿、圧粉を溶鉱炉で → インゴット（c:ingots/platinum） */
+    @GameTest
+    public void platinumRefining(GameTestHelper h) {
+        var CH = com.taku3.semiconductorlab.content.Chemistry.class;
+        java.util.function.BiFunction<List<ItemStack>, Integer, net.minecraft.world.item.crafting.CraftingInput> grid = (items, wdt) -> {
+            List<ItemStack> g = new ArrayList<>(items); while (g.size() < 9) g.add(ItemStack.EMPTY);
+            return net.minecraft.world.item.crafting.CraftingInput.of(3, 3, g);
+        };
+        var rm = h.getLevel().getServer().getRecipeManager();
+        var in1 = grid.apply(List.of(new ItemStack(com.taku3.semiconductorlab.content.Chemistry.AMMONIA_WATER), new ItemStack(com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID)), 3);
+        var r1 = rm.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in1, h.getLevel()).orElseThrow().value();
+        h.assertTrue(r1.assemble(in1).is(com.taku3.semiconductorlab.content.Chemistry.AMMONIUM_CHLORIDE), "NH3 + HCl -> NH4Cl");
+        h.assertValueEqual((int) r1.getRemainingItems(in1).stream().filter(st -> st.is(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE)).count(), 2, "both bottles back");
+        List<ItemStack> aq = new ArrayList<>();
+        aq.add(new ItemStack(Metallurgy.PLATINUM_GRAIN)); aq.add(new ItemStack(Metallurgy.PLATINUM_GRAIN));
+        for (int i = 0; i < 3; i++) aq.add(new ItemStack(com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID));
+        aq.add(new ItemStack(com.taku3.semiconductorlab.content.Gas.NITRIC_ACID)); aq.add(new ItemStack(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE));
+        var in2 = grid.apply(aq, 3);
+        var r2 = rm.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in2, h.getLevel()).orElseThrow().value();
+        h.assertTrue(r2.assemble(in2).is(com.taku3.semiconductorlab.content.Chemistry.CHLOROPLATINIC_ACID), "Pt + aqua regia (3 HCl : 1 HNO3) -> H2PtCl6");
+        h.assertValueEqual((int) r2.getRemainingItems(in2).stream().filter(st -> st.is(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE)).count(), 4, "4 acid bottles back");
+        h.assertTrue(recipeUses(h, "ammonium_chloroplatinate", com.taku3.semiconductorlab.content.Chemistry.AMMONIUM_CHLORIDE), "precipitate with NH4Cl");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.AMMONIUM_CHLOROPLATINATE).is(Metallurgy.PLATINUM_SPONGE), "baked -> platinum sponge");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.PLATINUM_COMPACT).is(Metallurgy.PLATINUM_INGOT), "compact at white heat -> ingot");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.PLATINUM_GRAIN).isEmpty() && cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.PLATINUM_GRAIN).isEmpty(), "crude grains cannot be melted (1768 C)");
+        h.assertTrue(new ItemStack(Metallurgy.PLATINUM_INGOT).is(net.minecraft.tags.TagKey.create(net.minecraft.core.registries.Registries.ITEM, net.minecraft.resources.Identifier.fromNamespaceAndPath("c", "ingots/platinum"))), "c:ingots/platinum");
+        LOG.info("[LAB] platinum [1-18]: NH4Cl; 2 grains + aqua regia -> H2PtCl6; + 2 NH4Cl -> (NH4)2PtCl6; furnace -> sponge; 2 sponge -> compact; blast furnace -> ingot (Wollaston)");
+        h.succeed();
+    }
+
     /** [1-20] 砂白金（IMP4-01）：砂鉄を掘るとまれに（約3%）白金の粒。シルクタッチでは出ない */
     @GameTest
     public void placerPlatinum(GameTestHelper h) {

@@ -67,6 +67,10 @@ fluorite  # Metallurgy [1-21] 1530
 fluorite_ore  # Metallurgy [1-21] 1530
 platinum_grain  # Metallurgy [1-20] 1748
 coke  # Metallurgy [2-20] 1792
+ammonium_chloroplatinate  # Metallurgy [1-18] 1800
+platinum_sponge  # Metallurgy [1-18] 1800
+platinum_compact  # Metallurgy [1-18] 1800
+platinum_ingot  # Metallurgy [1-18] 1800
 borax  # Metallurgy [1-33] 1808
 boric_acid  # Metallurgy [1-33] 1808
 boron_trioxide  # Metallurgy [1-33] 1808
@@ -132,6 +136,8 @@ lead_retort  # Chemistry [2-10] 1771
 coal_tar  # Chemistry [2-20] 1792
 ammoniacal_liquor  # Chemistry [2-20] 1792
 gas_retort  # Chemistry [2-20] 1792
+ammonium_chloride  # Chemistry [1-18] 1800
+chloroplatinic_acid  # Chemistry [1-18] 1800
 sulfur_powder  # Chemistry [2-01] 1831
 sulfur_dioxide  # Chemistry [2-01] 1831
 sulfuric_acid  # Chemistry [2-01] 1831

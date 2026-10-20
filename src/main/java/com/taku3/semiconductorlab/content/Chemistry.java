@@ -56,6 +56,9 @@ public final class Chemistry {
     public static final Item COAL_TAR              = Reg.item("coal_tar", new Item.Properties().stacksTo(16));
     public static final Item AMMONIACAL_LIQUOR     = Reg.item("ammoniacal_liquor", new Item.Properties().stacksTo(16)); // 安水（NH3 約1〜2% の水）
     public static final Item AMMONIA_WATER         = Reg.contained("ammonia_water", Vessel.GLASS_BOTTLE); // [2-21] アンモニア水（NH3 約25%、IMP4-01）
+    public static final Item AMMONIUM_CHLORIDE     = Reg.item("ammonium_chloride"); // 塩化アンモニウム NH4Cl（塩安、ろう付けのフラックス。[1-18] 白金の沈殿に使う、IMP4-01）
+    // [1-18] 塩化白金酸の液（ガラス瓶）。Metallurgy に置くと、クラスの初期化の順でフッ酸の鉛の瓶（Metallurgy.LEAD_BOTTLE）がまだ null になるので、液は Chemistry に置く
+    public static final Item CHLOROPLATINIC_ACID   = Reg.contained("chloroplatinic_acid", Vessel.GLASS_BOTTLE);
     // [2-10] フッ酸（IMP4-01）：鉛の瓶入り（ガラスを溶かすのでガラス瓶は不可＝Vessel.ALLOWED）。副産物は石こう（硫酸カルシウム）
     public static final Item HYDROFLUORIC_ACID     = Reg.contained("hydrofluoric_acid", Vessel.LEAD_BOTTLE);
     public static final Item CALCIUM_SULFATE       = Reg.item("calcium_sulfate");   // 石こう CaSO4（無水。焼いた石こう）

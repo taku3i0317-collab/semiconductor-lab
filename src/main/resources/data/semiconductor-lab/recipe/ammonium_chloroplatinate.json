@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:chloroplatinic_acid",
+    "semiconductor-lab:ammonium_chloride",
+    "semiconductor-lab:ammonium_chloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ammonium_chloroplatinate",
+    "count": 1
+  }
+}

@@ -52,6 +52,11 @@ public final class Metallurgy {
     public static final Item CRYOLITE              = Reg.item("cryolite");         // [1-38] 氷晶石 Na3AlF6（IMP4-01、合成。ホール・エルー法の電解浴）
     public static final Item ALUMINIUM_INGOT       = Reg.item("aluminium_ingot");  // [1-29] アルミニウム（IMP4-01、ホール・エルー法。c:ingots/aluminum）
     public static final Item PLATINUM_GRAIN        = Reg.item("platinum_grain");   // [1-20] 砂白金（IMP4-01：砂鉄を掘るとまれに。自然白金の粒、Pd・Ir などを含む）
+    // [1-18] 白金の精製（IMP4-01、ウォラストン 1800 年ごろ）：王水で溶かす → 塩化アンモニウムで黄色い沈殿 → 焼いて白金海綿 → 押し固めて白熱で鍛える
+    public static final Item AMMONIUM_CHLOROPLATINATE = Reg.item("ammonium_chloroplatinate");
+    public static final Item PLATINUM_SPONGE       = Reg.item("platinum_sponge");
+    public static final Item PLATINUM_COMPACT      = Reg.item("platinum_compact");
+    public static final Item PLATINUM_INGOT        = Reg.item("platinum_ingot");   // c:ingots/platinum
     public static final Item GRAPHITE              = Reg.item("graphite");
     public static final Item SPHALERITE            = Reg.item("sphalerite");
     public static final Item COAL_ASH              = Reg.item("coal_ash");

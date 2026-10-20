@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:platinum_grain",
+    "semiconductor-lab:platinum_grain",
+    "semiconductor-lab:hydrochloric_acid",
+    "semiconductor-lab:hydrochloric_acid",
+    "semiconductor-lab:hydrochloric_acid",
+    "semiconductor-lab:nitric_acid",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:chloroplatinic_acid",
+    "count": 1
+  }
+}

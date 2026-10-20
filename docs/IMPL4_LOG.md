@@ -30,3 +30,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - 調べた結果：[2-19] 過酸化水素の電解法（1908 ヴァイセンシュタイン）は、硫酸を白金の陽極で電解して過硫酸にする（高い電流密度で O2 より先に S2O8 ができるのは白金だけ）。白金 [1-20][1-18] が未実装なので、前提から作る：[1-20] 砂白金 → [1-18] 王水で精製（塩酸✅・硝酸✅ IMP2・塩化アンモニウム＝[2-21]＋塩酸）→ [2-19]。TECH_TREE の [2-19] の前提に白金を足す
 - ✅ [2-21] アンモニア水：アンモニア蒸留器 ammonia_still（block/AmmoniaStillBlockEntity、画面 AmmoniaStillScreen、1kW）。安水4＋消石灰＋瓶 → アンモニア水（ガラス瓶）、水バケツ1杯で4回。GameTest ammonia_still、CHEMISTRY F23、REFERENCES F11、遊び方: 軽
 - ✅ [1-20] 砂白金：砂鉄のルートテーブルに約3%の砂白金（シルクタッチなし）。block_drops テストは砂鉄だけ砂白金も許す形に。GameTest placer_platinum、CHEMISTRY F24、REFERENCES F12、遊び方: 軽
+- ✅ [1-18] 白金の精製：塩化アンモニウム、王水で塩化白金酸、沈殿、海綿、圧粉、溶鉱炉でインゴット（作業台・かまど・溶鉱炉、硝酸は IMP2 の物）。GameTest platinum_refining、CHEMISTRY F25〜F29、REFERENCES F13、遊び方: 軽
+  - 注意（全担当向け）：Metallurgy に Vessel.GLASS_BOTTLE 入りの物を置くと、Chemistry が先に初期化されて Chemistry.HYDROFLUORIC_ACID の鉛の瓶（Metallurgy.LEAD_BOTTLE）が null になり、GameTest vessels が落ちた。中身入りの液は Chemistry に置く

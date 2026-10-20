@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:ammonium_chloroplatinate",
+  "result": {
+    "id": "semiconductor-lab:platinum_sponge"
+  },
+  "experience": 0.5,
+  "cookingtime": 200
+}

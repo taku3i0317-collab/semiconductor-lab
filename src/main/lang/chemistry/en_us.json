@@ -191,5 +191,10 @@
   "item.semiconductor-lab.iodine.note1": "Dark violet crystals. Warmed, they give off violet vapor. ⚠ Do not breathe it or get it on skin.",
   "item.semiconductor-lab.iodine.note2": "Kelp-ash liquor + sulfuric acid. A daguerreotype [B-02a] silver plate held over its vapor gains a light-sensitive silver iodide film. ⚠ GHS: harmful if inhaled or on skin, toxic to aquatic life.",
   "item.semiconductor-lab.iodine.note3": "Iodine is familiar from wound disinfectant (tincture of iodine) and the blue-black starch test. Japan extracts it from underground brine (ancient seawater) in Chiba and is one of the world's top iodine producers.",
-  "item.semiconductor-lab.iodine.note4": "Iodine readily turns straight from solid to gas (sublimation). This let a thin, even silver iodide film form on a silver plate. In the body it is needed to make thyroid hormone."
+  "item.semiconductor-lab.iodine.note4": "Iodine readily turns straight from solid to gas (sublimation). This let a thin, even silver iodide film form on a silver plate. In the body it is needed to make thyroid hormone.",
+  "item.semiconductor-lab.ammonium_chloride": "Ammonium Chloride",
+  "item.semiconductor-lab.ammonium_chloride.note1": "A white salt used when extracting platinum.",
+  "item.semiconductor-lab.ammonium_chloride.note2": "NH4Cl (sal ammoniac). Crafting: 1 ammonia water + 1 hydrochloric acid → 1 (both bottles come back). NH3 + HCl → NH4Cl. Makes the yellow precipitate in platinum refining [1-18].",
+  "item.semiconductor-lab.ammonium_chloride.note3": "Long known as sal ammoniac; it dissolves metal oxides, so it was a flux for soldering and brazing.",
+  "item.semiconductor-lab.ammonium_chloride.note4": "The paste inside old zinc–carbon dry cells also contained ammonium chloride."
 }

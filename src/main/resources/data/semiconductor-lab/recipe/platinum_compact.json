@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:platinum_sponge",
+    "semiconductor-lab:platinum_sponge"
+  ],
+  "result": {
+    "id": "semiconductor-lab:platinum_compact",
+    "count": 1
+  }
+}

@@ -191,5 +191,10 @@
   "item.semiconductor-lab.iodine.note1": "黒っぽい紫の結晶。温めると紫色のけむりになる。⚠ 吸いこんだり、肌につけたりしない。",
   "item.semiconductor-lab.iodine.note2": "海藻灰の浸出液＋硫酸。ダゲレオタイプ [B-02a] の銀板をこの蒸気にあてると、光に敏感なヨウ化銀の膜になる。⚠ GHS：吸入・皮膚に有害、水生生物に毒性。",
   "item.semiconductor-lab.iodine.note3": "ヨウ素は傷の消毒薬（ヨードチンキ）や、でんぷんを青紫に変える反応（ヨウ素でんぷん反応）でおなじみ。日本は千葉県の地下のかん水（大昔の海水）から取り、世界でも有数のヨウ素の産出国。",
-  "item.semiconductor-lab.iodine.note4": "ヨウ素は固体から液体にならずに直接気体になりやすい（昇華）。この性質で、銀の板の表面にむらなく薄いヨウ化銀の膜を作れた。人の体では甲状腺ホルモンの材料になる。"
+  "item.semiconductor-lab.iodine.note4": "ヨウ素は固体から液体にならずに直接気体になりやすい（昇華）。この性質で、銀の板の表面にむらなく薄いヨウ化銀の膜を作れた。人の体では甲状腺ホルモンの材料になる。",
+  "item.semiconductor-lab.ammonium_chloride": "塩化アンモニウム",
+  "item.semiconductor-lab.ammonium_chloride.note1": "白い塩。白金を取り出すときに使う。",
+  "item.semiconductor-lab.ammonium_chloride.note2": "NH4Cl（塩安）。作業台で アンモニア水1＋塩酸1 → 1（瓶は2本とも戻る）。NH3 + HCl → NH4Cl。白金の精製 [1-18] で黄色い沈殿を作る。",
+  "item.semiconductor-lab.ammonium_chloride.note3": "古くから「塩安（サルアンモニアク）」と呼ばれ、金属のさびを溶かすので、はんだ付け・ろう付けのフラックスに使われた。",
+  "item.semiconductor-lab.ammonium_chloride.note4": "乾電池（マンガン電池）の中のねり物にも塩化アンモニウムが入っていた。"
 }
