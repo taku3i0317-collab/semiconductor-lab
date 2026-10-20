@@ -6491,7 +6491,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C2. 硫黄で橋をかけると暑くてもべたつかない（加硫ゴム）［2-29］",
+     "answer": "天然ゴムはパラゴムノキの樹液（ラテックス）に浮いたポリイソプレンの粒。酸を入れると粒がくっついて生ゴムになる。生ゴムは長い分子がからまっているだけなので、暑いと流れてべたつき、寒いと硬くなる。硫黄を混ぜて熱すると、硫黄が分子どうしを橋でつなぎ（加硫）、網の目になって温度で変わりにくい弾性のあるゴムになる（1839 グッドイヤー）。",
+     "hee": {
+      "1": "ゴムに硫黄を入れて熱すると、暑くてもべたつかない丈夫なゴムになる。",
+      "2": "1830年代のアメリカのゴム製品は、夏に溶けてにおい、ブームがすぐ終わった。",
+      "3": "中南米の人々は3500年以上前、ラテックスに朝顔の汁を混ぜて弾むボールを作った（一種の加硫）⚠️。",
+      "4": "1876 ウィッカムが種を持ち出し、東南アジアの農園が今の天然ゴムの大部分を作る。"
+     },
+     "certainty": "加硫のしくみ・グッドイヤー 1839（特許 1844）◎／ハンコックの特許 1843 ○／中南米のゴムボール（朝顔の汁）○、年代 △ → ⚠️／ウィッカム 1876 ○",
+     "basis": "- Wikipedia「Vulcanization」：https://en.wikipedia.org/wiki/Vulcanization"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -6501,17 +6514,17 @@
    "name": "ゴム",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1839,
    "year_range": null,
    "year_uncertain": false,
    "requires": [],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ゴムに硫黄を入れて熱すると、暑くてもべたつかない丈夫なゴムになる",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -6566,7 +6579,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "光が当たったところだけ固まる材料。IC の模様をうつすのに使われた",
    "kind": "tech",
    "play": "",
@@ -26009,7 +26022,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "空気入りタイヤは獣医さんが子どものために作った",
    "kind": "tech",
    "play": "",
