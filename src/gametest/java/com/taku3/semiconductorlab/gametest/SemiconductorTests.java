@@ -754,6 +754,39 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** 現像槽のネガ型（O-009）：ネガ型（ChipOps.coat NEGATIVE）はキシレンで現像、アルカリでは "wrong_developer"。ポジ型にキシレンも同じ。NOT の例をネガ型で → 全部の発見 */
+    @GameTest(maxTicks = 300)
+    public void developerBenchNegative(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos dp = p(1, 1, 1);
+        h.setBlock(dp, Semiconductor.DEVELOPER_BENCH.block);
+        var dev = h.getBlockEntity(dp, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.class);
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        ItemStack negExposed = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+        ItemStack posExposed = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.result(negExposed, new ItemStack(Chemistry.DEVELOPER)).reason(), "wrong_developer", "negative resist + alkali -> wrong developer");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.result(posExposed, new ItemStack(Chemistry.XYLENE)).reason(), "wrong_developer", "positive resist + xylene -> wrong developer");
+        h.assertTrue(!com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.product(negExposed, new ItemStack(Chemistry.XYLENE)).isEmpty(), "negative resist + xylene -> developed");
+        java.util.function.UnaryOperator<ItemStack> develop = wf -> {
+            var c = dev.getContainer(); c.setItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_OUT, ItemStack.EMPTY); c.setItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_WAFER, wf.copy()); c.setItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_DEV, new ItemStack(Chemistry.XYLENE));
+            tickConsumer(h, dp, dev, com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.WATTS)); return c.getItem(com.taku3.semiconductorlab.block.DeveloperBenchBlockEntity.SLOT_OUT).copy(); };
+        for (int i = 0; i < d.layers().size(); i++) {
+            var k = d.layers().get(i).kind();
+            ItemStack exposed = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE).out(), d.mask(i), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+            ItemStack developed = develop.apply(exposed);
+            h.assertTrue(developed.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(developed).resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.DEVELOPED, "layer " + i + ": negative resist developed in xylene, got " + developed);
+            w = k == com.taku3.semiconductorlab.litho.LayerKind.METAL ? com.taku3.semiconductorlab.litho.ChipOps.etchMetal(developed).out() : com.taku3.semiconductorlab.litho.ChipOps.etchOxide(developed).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.strip(w).out();
+            if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
+            else if (k != com.taku3.semiconductorlab.litho.LayerKind.METAL) w = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
+        }
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(w.get(ModDataComponents.CHIP_STATE)))).size(), com.taku3.semiconductorlab.litho.Discoveries.all().size(), "NOT example with negative resist -> all discoveries");
+        LOG.info("[LAB] developer bench negative (O-009): xylene develops negative resist, alkali refused (wrong_developer), and vice versa; NOT example -> all discoveries");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================

@@ -27,10 +27,11 @@ public class DeveloperBenchScreen extends MachineScreen {
         return switch (id) {
             case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
             case "hint" -> {
-                ItemStack w = menu.machineItem(DeveloperBenchBlockEntity.SLOT_WAFER);
+                ItemStack w = menu.machineItem(DeveloperBenchBlockEntity.SLOT_WAFER), dev = menu.machineItem(DeveloperBenchBlockEntity.SLOT_DEV);
                 String k;
-                if (ChipOps.isProcessWafer(w) && DeveloperBenchBlockEntity.product(w).isEmpty()) k = "not_exposed";
-                else if (w.isEmpty() || menu.machineItem(DeveloperBenchBlockEntity.SLOT_DEV).isEmpty()) k = "need_input";
+                if (w.isEmpty() || dev.isEmpty()) k = "need_input";
+                else if (ChipOps.isProcessWafer(w) && !DeveloperBenchBlockEntity.result(w, dev).ok())
+                    k = "wrong_developer".equals(DeveloperBenchBlockEntity.result(w, dev).reason()) ? "wrong_developer" : "not_exposed";
                 else if (menu.getKw() <= 0) k = "need_power";
                 else k = "running";
                 yield Component.translatable(K + k);
