@@ -80,6 +80,35 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class GasTests extends LabTestBase {
+    /** [6-14] フッ素の電解槽（IMP2 O-018）：KF（減らない）＋黒鉛の陽極＋フッ酸5本 → フッ素のボンベ1本＋水素5袋。水素の出口がいっぱいだと事故（フッ素を失って止まる） */
+    @GameTest(maxTicks = 400)
+    public void fluorine_cell(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "potassium_fluoride", Chemistry.POTASH) && recipeUses(h, "potassium_fluoride", Chemistry.HYDROFLUORIC_ACID), "KF = potash + HF");
+        h.assertTrue(recipeUses(h, "fluorine_cell", Metallurgy.NICKEL), "monel-like cell (nickel + copper)");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Gas.FLUORINE_CELL.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.FluorineCellBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_KF, new ItemStack(Chemistry.POTASSIUM_FLUORIDE));
+        c.setItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_ANODE, new ItemStack(Metallurgy.GRAPHITE));
+        c.setItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_HF, new ItemStack(Chemistry.HYDROFLUORIC_ACID, 6));
+        c.setItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_CYL, new ItemStack(Gas.EMPTY_GAS_CYLINDER, 2));
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.WATTS);
+        tickConsumer(h, at, be, (com.taku3.semiconductorlab.block.FluorineCellBlockEntity.TICKS + 1) * com.taku3.semiconductorlab.block.FluorineCellBlockEntity.F2_PER_CYLINDER, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_F2).is(Gas.FLUORINE_CYLINDER) && c.getItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_H2).getCount() == com.taku3.semiconductorlab.block.FluorineCellBlockEntity.F2_PER_CYLINDER, "5 HF -> 1 F2 cylinder + 5 H2 bags");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_KF).is(Chemistry.POTASSIUM_FLUORIDE) && c.getItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_ANODE).is(Metallurgy.GRAPHITE), "KF and the anode stay");
+        // 事故：水素の出口をいっぱいに
+        c.setItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, 64));
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.FluorineCellBlockEntity.TICKS + 1, feed);
+        h.assertTrue(be.hadAccident() && be.f2Runs() == 0, "hydrogen cannot escape -> the gases mix: accident, fluorine lost");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.FluorineCellBlockEntity.SLOT_F2).getCount() == 1, "the finished cylinder is unharmed");
+        var ja = langJson("ja_jp");
+        for (String k : new String[] {"power", "f2", "need_kf", "need_anode", "need_hf", "need_cylinder", "output_full", "need_power", "running", "accident"})
+            h.assertTrue(ja.has("gui.semiconductor-lab.fluorine_cell." + k), "lang " + k);
+        LOG.info("[LAB] fluorine_cell [6-14]: KF + graphite anode, 5 HF -> F2 cylinder + 5 H2; H2 outlet full -> accident (F2 lost, no block damage)");
+        h.succeed();
+    }
+
     /** [6-08] 希ガスの精留塔（IMP2 O-018）：酸素・窒素の袋を1つずつ → 32回で Kr 1袋、16回で Ne 1袋（Xe はもっと少ない）。新しいガスはボンベにも詰められる */
     @GameTest(maxTicks = 300)
     public void rare_gases(GameTestHelper h) {

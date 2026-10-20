@@ -64,6 +64,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Gas.COMPRESSOR, CompressorScreen::new);
 		screen(Gas.AIR_SEPARATION_UNIT, AirSeparationScreen::new);
 		screen(Gas.HCL_BURNER, HclBurnerScreen::new);
+		screen(Gas.FLUORINE_CELL, FluorineCellScreen::new);   // [6-14] IMP2 O-018
 		// 幹7 光学
 		screen(Optics.REDUCTION_CAMERA, ReductionCameraScreen::new);   // [7-11] IMP2-03
 		screen(Optics.OXYHYDROGEN_BURNER, OxyhydrogenBurnerScreen::new);

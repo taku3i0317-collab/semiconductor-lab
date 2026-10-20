@@ -267,6 +267,7 @@ benzal_chloride  # Chemistry [2-59] 1868
 benzaldehyde  # Chemistry [2-59] 1868
 perkin_mix  # Chemistry [2-59] 1868
 cinnamoyl_chloride  # Chemistry [2-59] 1868
+potassium_fluoride  # Chemistry [6-14] 1886
 borosilicate_batch  # Chemistry [2-15] 1893
 borosilicate_glass  # Chemistry [2-15] 1893
 cracked_glass  # Chemistry [2-15] 1893
@@ -410,6 +411,8 @@ empty_gas_cylinder  # Gas [6-03] 1880
 hydrogen_cylinder  # Gas [6-03] 1880
 oxygen_cylinder  # Gas [6-03] 1880
 compressor  # Gas [6-03] 1880
+fluorine_cylinder  # Gas [6-14] 1886
+fluorine_cell  # Gas [6-14] 1886
 chlorine_gas  # Gas [6-05] 1890
 chlorine_cylinder  # Gas [6-05] 1890
 sodium_hydroxide  # Gas [6-05] 1890

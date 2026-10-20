@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NCN",
+    "N N",
+    "NKN"
+  ],
+  "key": {
+    "N": "semiconductor-lab:nickel",
+    "C": "minecraft:copper_ingot",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:fluorine_cell",
+    "count": 1
+  }
+}

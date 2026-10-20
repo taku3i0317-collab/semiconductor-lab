@@ -59,6 +59,8 @@ public final class Gas {
     public static final Item XENON_GAS             = Reg.contained("xenon_gas", Vessel.GAS_BAG);
     public static final Item NEON_CYLINDER         = Reg.contained("neon_cylinder", Vessel.STEEL_CYLINDER);
     public static final Item KRYPTON_CYLINDER      = Reg.contained("krypton_cylinder", Vessel.STEEL_CYLINDER);
+    // [6-14] フッ素（IMP2 O-018）：袋（ゴム）はフッ素に侵されるので、表面がフッ化物の膜で守られる鋼のボンベに直接詰める
+    public static final Item FLUORINE_CYLINDER     = Reg.contained("fluorine_cylinder", Vessel.STEEL_CYLINDER);
     public static final Item XENON_CYLINDER        = Reg.contained("xenon_cylinder", Vessel.STEEL_CYLINDER);
     // --- 塩（[6-04] 岩塩・[0-16] 塩田）。岩塩でも海水でも同じ NaCl ---
     public static final Item ROCK_SALT             = Reg.item("rock_salt");         // 岩塩の原石（蒸発岩、NaCl 95〜99%）
@@ -77,6 +79,8 @@ public final class Gas {
     // 塩酸合成炉 [6-06]（酸水素バーナーの派生。石英の火口で水素を塩素中で燃やし H2 + Cl2 → 2HCl、吸収塔で水に溶かす）。ガス式（電気の受け口なし）。燃焼中は光る
     public static final Machine<HclBurnerBlockEntity> HCL_BURNER = Machine.builder("hcl_burner", HclBurnerBlockEntity::new)
             .ticker(HclBurnerBlockEntity::tick).layout(HclBurnerBlockEntity.LAYOUT).props(lit(metal(3.5f).sound(SoundType.GLASS), 10)).build();
+    // [6-14] フッ素の電解槽（IMP2 O-018、1886 モアッサン）：KF＋フッ酸を黒鉛の陽極で電解 → F2 のボンベ・H2 の袋（2kW）
+    public static final Machine<FluorineCellBlockEntity> FLUORINE_CELL = Machine.electric("fluorine_cell", FluorineCellBlockEntity::new, FluorineCellBlockEntity.LAYOUT, metal(3.5f));
     // [6-08] 希ガスの精留塔（IMP2 O-018）：酸素1袋＋窒素1袋 → Kr・Xe・Ne を少しずつ（2kW）
     public static final Machine<RareGasColumnBlockEntity> RARE_GAS_COLUMN = Machine.electric("rare_gas_column", RareGasColumnBlockEntity::new, RareGasColumnBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<AirSeparationBlockEntity> AIR_SEPARATION_UNIT = Machine.electric("air_separation_unit", AirSeparationBlockEntity::new, AirSeparationBlockEntity.LAYOUT, metal(3.5f));

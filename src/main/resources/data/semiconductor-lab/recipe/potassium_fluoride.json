@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:potash",
+    "semiconductor-lab:hydrofluoric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:potassium_fluoride",
+    "count": 1
+  }
+}

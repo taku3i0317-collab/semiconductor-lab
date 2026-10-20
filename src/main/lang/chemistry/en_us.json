@@ -1226,5 +1226,10 @@
   "item.semiconductor-lab.colcothar.note2": "Left in the crafting grid when green vitriol is roasted for oil of vitriol.",
   "item.semiconductor-lab.colcothar.note3": "Fe2O3. Its very fine, hard grains polish glass and metal to a shine (jeweller's rouge).",
   "item.semiconductor-lab.colcothar.note4": "In Japanese it is called 'bengara', after a red pigment from Bengal; it coloured the red houses of Fukiya.",
-  "item.semiconductor-lab.colcothar.placeholder": "Approximation: it has no polishing use yet."
+  "item.semiconductor-lab.colcothar.placeholder": "Approximation: it has no polishing use yet.",
+  "item.semiconductor-lab.potassium_fluoride": "Potassium Fluoride",
+  "item.semiconductor-lab.potassium_fluoride.note1": "A white powder that lets current flow in the electrolysis that frees fluorine.",
+  "item.semiconductor-lab.potassium_fluoride.note2": "Potassium carbonate + hydrofluoric acid (the lead bottle returns). Electrolyte of the fluorine cell (not used up). ⚠ GHS: acute toxicity, eye irritation.",
+  "item.semiconductor-lab.potassium_fluoride.note3": "Hydrogen fluoride alone barely conducts electricity. Moissan dissolved potassium fluoride in it so current could flow.",
+  "item.semiconductor-lab.potassium_fluoride.note4": "Plants today electrolyse a molten KF and HF salt (KF·2HF) at about 100 C."
 }
