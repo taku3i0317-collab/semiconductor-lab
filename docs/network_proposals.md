@@ -110,3 +110,41 @@ TECH_TREE の ⚠️ が付いた年・人物を、出典で1つずつ確かめ�
 
 まとめ（第2弾、32 件）：◎ 11・○ 6・△ 12・✖ 3（[6-04] 最古の岩塩採掘、[1-21] 蛍石は1530年、[7-05] アルミ蒸着は1930年頃）。
 ネットワーク担当のファイルで直したもの：network_meta.json のジャービルの人物カード（V-36 に合わせて「9〜10世紀のジャービル文書」、道具をアランビックから錬金術の文書に）。
+
+### 第3弾（2026-10-20）本線の続き 20 ノード・27 件
+| # | ノード | 主張 | 判定 | 結果 | 出典 |
+|---|---|---|---|---|---|
+| V-59 | [8-02] ねじ切りと互換性部品 | 互換性部品はブラン（1780年代）と米国の兵器工場（1820年代〜） | ◎ | ブランは1785年ヴァンセンヌで実演。ハーパーズ・フェリーのホール M1819 ライフル最初の1000丁が1824年、1826年の検査で部品を混ぜても組めた。「1824 ホール」を補うとよい | https://en.wikipedia.org/wiki/Honor%C3%A9_Blanc , https://www.nramuseum.org/the-museum/the-galleries/the-prospering-new-republic/case-34-the-mexican-war/us-hall-model-1819-breechloading-percussion-rifle.aspx |
+| V-60 | [6-01] 電解槽 | 年 1800（ボルタ電堆で水を電気分解） | ◎ | 1800年5月、ニコルソンとカーライル | https://en.wikipedia.org/wiki/William_Nicholson_(chemist) , https://beeld.teylersmuseum.nl/digital_library/Emags/Van_Marum%27s_Scientific_Instruments/page_112.html |
+| V-61 | [2-19] 過酸化水素 | 1908 ヴァイセンシュタインで電解法を工業化 | △ | 場所は正しい。Evonik の資料どうしで年が食い違い、「1908 建設・1910 生産開始」と書けば外せる（独立した2つ目の出典なし） | https://www.evonik.com/en/company/worldwide-locations/europe/austria/weissenstein.html , https://history.evonik.com/en/inventions/hydrogen-peroxide |
+| V-62 | [1-24] ボーキサイト | 年 1821（ベルティエがレ・ボー近くで発見） | ◎ | 名前は村から。1847 beauxite、1861 bauxite | https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Bauxite , https://www.earthmagazine.org/article/march-23-1821-bauxite-discovered/ |
+| V-63 | [4-08] 電動モーター | 年 1821（1821〜1873） | ◎ | 1821年9月 ファラデーの電磁回転、1873年ウィーン万博でグラムの発電機がモーターとして回った。「最初のモーター」という呼び方は誇張という指摘あり | https://blog.sciencemuseum.org.uk/a-small-revolution-michael-faraday-and-the-origins-of-the-electric-motor/ , https://britannica.com/technology/Gramme-dynamo |
+| V-64 | [3-12] 耐火れんが | 年 1822、珪石れんが（ディナス）は W・W・ヤング | ◎ | 1822年に特許（No.5047）、ディナスの珪石＋石灰約1%（Scottish Brick History はヤング説に「?」） | https://croydoncavingclub.org.uk/node/574 , https://www.scottishbrickhistory.co.uk/early-references-to-fire-brick-manufacture-in-the-uk/ |
+| V-65 | [1-25] モナザイト | 年 1829 | ◎ | 1829年ブライトハウプトが命名、模式産地はウラルのイリメニ山地 | https://www.typmineral.uni-hamburg.de/tables/en/monazite-ce.html , https://en.wikipedia.org/wiki/Monazite |
+| V-66 | [I-01] 電磁誘導 | ジョセフ・ヘンリーもほぼ同じころ独立に発見 | ○（ideas.md を直した） | 独立の発見は確か。ただし発表は1832年で、主な発見は自己誘導。ideas.md の本物を「1832年、ジョセフ・ヘンリーが独立に（とくに自己誘導を）見つけた」に直した | https://siarchives.si.edu/collections/siris_sic_12470 , https://en.wikipedia.org/wiki/Joseph_Henry |
+| V-67 | [2-25] フェノール | クメン法は1944年ホック | ○ | 1944年ホック（ラングと共同）は正しい。1942年にソ連のウドリスとセルゲーエフが先に発明。「1942 ウドリスら、1944 ホックが独立に」 | https://en.wikipedia.org/wiki/Cumene_process , https://www.gophotonics.com/whitepapers/details/5319-ft-nir-analysis-of-the-hock-process-for-the-production-of-phenol-and-acetone |
+| V-68 | [2-26] メタノール | 1923 BASF のピア・ミッタシュらが合成を工業化 | ◎ | 1923年7月ロイナで生産開始。触媒・圧力の数字は出典で食い違うので書かない | https://en.wikipedia.org/wiki/Alwin_Mittasch , https://www.deutsche-biographie.de/sfz95868.html |
+| V-69 | [7-02] 溶融石英 | 1839 ゴーダンが酸水素炎で石英を溶かした | △ | ゴーダンが溶かして糸にしたことは19世紀の記述で確認。「1839年」の原典は見つからない | https://www.biblio.liuc.it/opere_cattaneo/politecnico/pdf/FusioneDellAcidoSilicico.pdf , https://www.nature.com/articles/143826a0.pdf |
+| V-70 | [7-02] 溶融石英 | 1899 ヘレウス社が工業化 | ◎ | 1899年 Küch／ヘレウスが泡のない石英ガラス（部門の設立は1901年） | https://www.heraeus-group.com/en/about-heraeus/history , https://en.wikipedia.org/wiki/Heraeus |
+| V-71 | [2-44] 赤リン | 真空管のゲッター（1894 マリニャーニ） | △ | 導入1893・伊特許1894・米特許1895年4月で食い違う。「1893〜1895（伊特許1894）」と幅で | https://lamptech.co.uk/Documents/IN%20Getters.htm , https://forumeditrice.it/percorsi/storia-e-societa/varia/arturo-malignani.-con-il-futuro-negli-occhi/luomo-che-con-i-suoi-bulbi-bianchi-incanto-edison/file |
+| V-72 | [1-07] 黒鉛 | 年 1850（19世紀からるつぼ材） | △ | 1850年の出来事は見つからない。黒鉛るつぼはディクソン1827年（米）、モーガン兄弟1856年（英）。年を1827年か「1827〜1856」に | https://en.wikipedia.org/wiki/Joseph_Dixon_(inventor) , https://www.britannica.com/biography/Joseph-Dixon |
+| V-73 | [2-42] 酢酸 | 年 1850（木酢液→酢酸カルシウム→硫酸） | △ | 流れは確認、1850年の根拠なし（代表の年） | https://www.encyclopedia.com/science-and-technology/chemistry/organic-chemistry/acetic-acid , https://www.chemeurope.com/en/encyclopedia/Acetic_acid.html |
+| V-74 | [2-42] 酢酸 | 酢酸セルロースは無水酢酸＋硫酸触媒 | ◎ | 1865年シュッツェンベルガーが合成、今の工業法は硫酸などの触媒 | https://en.wikipedia.org/wiki/Cellulose_acetate , https://www.britannica.com/print/article/101663 |
+| V-75 | [5-12] 真空シール | O リングは1937 クリステンセンの特許 | ○ | 1937年は米国の出願年（特許は1938〜39年）。「1937年出願」と書く | https://en.wikipedia.org/wiki/Niels_Christensen , https://www.inventionandtech.com/node/86858 |
+| V-76 | [5-12] 真空シール | 1962頃 バリアンのコンフラット | △ | ウィーラーが1960年にバリアンに入って開発、特許は1960年代初め。「1960年代初め」なら ○ | https://avs.org/awards/awards/awardee-interviews/william-r-wheeler/bio/ , https://en.wikipedia.org/wiki/Vacuum_flange |
+| V-77 | [5-12] 真空シール | 1910年代のジュメット線 | ○ | GE のフィンクのジュメット線が1913年から白金線に代わった。年を示すのは同じ電球史サイトだけ | https://lamptech.co.uk/Documents/People%20-%20Fink%20CG.htm , https://wirenet.org/the-book-of-terms/dumet-wire |
+| V-78 | [5-12] 真空シール | 年 1850（1850〜1937） | △ | すり合わせガラス＋グリースの1850年の根拠なし（終わりの1937年は O リング出願と合う） | — |
+| V-79 | [4-05] 自励式発電機 | 年 1866（1866〜67） | ◎ | ヴァーリーの出願1866年12月、ジーメンスとホイートストンの発表1867年 | https://en.wikipedia.org/wiki/Dynamo , https://www.gracesguide.co.uk/S._A._Varley |
+| V-80 | [4-05] 自励式発電機 | ジーメンス・ホイートストンら、ほぼ同時 | ◎ | 「ら」にヴァーリーを名前で入れるとよい | https://www.nature.com/articles/145772c0.pdf , https://www.vde.com/de/geschichte/chronik/generatoren |
+| V-81 | [4-01] 水車発電機 | 年 1878（初期の発電所は水力） | ◎ | 1878年 英国クラッグサイドでアームストロングが水力の電気でアーク灯。「世界初の水力発電所」とは言わない | https://www.nationaltrust.org.uk/visit/north-east/cragside/history-of-cragside , https://collection.sciencemuseumgroup.org.uk/people/ap29986 |
+| V-82 | [3-19] 副産物回収式コークス炉 | 年 1881 | ○ | ドイツ最初の大きな副産物回収コークス工場が1881年5月（ヒュッセナー） | https://gracesguide.co.uk/Albert_Hussener , https://ausimm.com/publications/conference-proceedings/the-ausimm-proceedings-1928/modern-by-product-coke-oven-practice |
+| V-83 | [3-19] 副産物回収式コークス炉 | 1881頃 オットーとホフマンが実用化 | △ | オットー・ホフマン炉は確認、1881年との結びつきなし。「1881 ドイツで実用化（ヒュッセナーら）、まもなくオットー・ホフマン炉」 | https://www.gracesguide.co.uk/Otto-Hoffmann , https://gracesguide.co.uk/Albert_Hussener |
+| V-84 | [4-03] 銅ケーブル | 年 1882 | ◎ | 1882年9月4日パール街発電所、銅の導体を地下の管で配線 | https://ethw.org/Milestones:Pearl_Street_Station , https://ethw.org/w/images/a/ae/Edison_and_Pearl_Street,_Text,_031410.pdf |
+| V-85 | [4-10] 変圧器 | 年 1885 | ◎ | 1885年ガンツ社のジペルノフスキー・ブラーティ・デーリが閉じた鉄心の変圧器（ZBD）を出願 | https://en.wikipedia.org/wiki/Ott%C3%B3_Bl%C3%A1thy , https://pp.bme.hu/ee/article/view/4637 |
+
+まとめ（第3弾、27 件）：◎ 14・○ 5・△ 8・✖ 0。年を書き直す候補：[1-07] 1827（〜1856）、[2-44] 1893〜1895、[5-12] コンフラット「1960年代初め」・ジュメット線 1913、[2-19]「1908 建設・1910 生産」。
+
+## DESIGN への提案
+| # | 内容 | 理由 | 状態 |
+|---|---|---|---|
+| D-1 | ゲーム内でモノを作ったとき、その裏にいる人たちの肖像が並ぶ演出（例：画面の下を肖像が年代順に流れ、最後に「名前の残っていない、無数の人たち」のシルエットと「N 人の発明の上に、いま君が作った」） | ウェブの「人の壁」（NET-04）と同じ数え方・同じ肖像（network_meta.json）を使える。技術は一人ではなく大勢の積み重ねだと伝わる。モノ（種類: モノ・products.md）を作った節目だけにして、毎回は出さない（うるさくしない） | 提案（NET-04） |

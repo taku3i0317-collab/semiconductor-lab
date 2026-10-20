@@ -511,6 +511,69 @@ def export_json(nodes):
     return data
 
 
+AUDIT_OUT = ROOT / "docs" / "AUDIT_QUEUE.md"
+PROPOSALS = ROOT / "docs" / "network_proposals.md"
+AUDIT_HEAD = """# AUDIT_QUEUE.md — 監査の待ち行列（自動生成：tools/gen_tree_views.py。手で編集しない）
+
+元データは docs/network_proposals.md の「⚠️ の裏取り」の表（V-番号）。技術ネットワーク担当（NET-03）が出典で確かめた結果を、あとで別の監査者にまとめて見てもらうための一覧。
+
+## 監査する人への説明
+- **このプロジェクト**：Minecraft の教育 MOD「Semiconductor Lab」。石器から EUV 露光装置・AI まで、本物の技術の歴史を遊びながら学ぶ。技術どうしのつながり（前提・別ルート・後で分かった科学）を「技術ネットワーク」として公開し、世界中の人に監査してもらう予定（docs/network.html・docs/node.html）
+- **確かさの基準**：◎＝信頼できる出典2つ以上で一致／○＝1つで確認／△＝未確認・出典どうしが食い違う。**Wikipedia だけの場合は ○ 止まり**（この一覧では自動で ○ に下げ、「Wikipedia のみ」と書く）
+- **見てほしいこと**：①年・場所・人物が正しいか ②因果関係（「A があったから B ができた」）が言いすぎていないか ③出典が主張を本当に支えているか（URL を開いて、その文が本当に書いてあるか）④「正しくは…」の訂正そのものが正しいか
+- **結果の書き方**：項目ごとに「V-番号｜同意 / 修正 / 不明｜理由（1〜2文）｜出典 URL」。修正のときは正しい文も書く
+- **優先順**：✖（訂正）→ △（未確認）→ ○（出典1つ・Wikipedia のみ）→ ◎（本線の年・人物、念のため）。どれも [10-16] AI までの道（本線）のノード
+
+"""
+
+
+def write_audit_queue():
+    """network_proposals.md の V- 行から AUDIT_QUEUE.md を作る（判定の厳しい順）"""
+    if not PROPOSALS.exists():
+        return 0
+    rows = []
+    for line in PROPOSALS.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"\|\s*(V-\d+)\s*\|(.*)\|\s*$", line)
+        if not m:
+            continue
+        cells = [c.strip() for c in m.group(2).split("|")]
+        if len(cells) < 5:
+            continue
+        node, claim, verdict, result, src = cells[:5]
+        urls = re.findall(r"https?://[^\s,|]+", src)
+        wiki_only = bool(urls) and all("wikipedia.org" in u or "wikipedia.com" in u for u in urls)
+        if not urls and src.strip() == "同上":
+            urls, wiki_only = rows[-1]["urls"], rows[-1]["wiki_only"]
+        v = verdict
+        if v.startswith("◎") and wiki_only:
+            v = "○（Wikipedia のみ。元は ◎）"
+        rank = 0 if "✖" in v else 1 if "△" in v else 2 if v.startswith("○") else 3
+        if "✖" in v:
+            ask = "訂正（「正しくは…」）が出典で本当に支えられているか"
+        elif "△" in v:
+            ask = "食い違い・未確認の点を、より確かな出典で決められるか"
+        elif wiki_only:
+            ask = "Wikipedia 以外の独立した出典で確かめられるか"
+        elif v.startswith("○"):
+            ask = "2つ目の独立した出典があるか"
+        else:
+            ask = "出典が主張（年・人物・場所）をそのまま支えているか"
+        rows.append({"id": m.group(1), "node": node, "claim": claim, "v": v, "result": result, "urls": urls,
+                     "wiki_only": wiki_only, "rank": rank, "ask": ask})
+    rows.sort(key=lambda r: (r["rank"], int(r["id"][2:])))
+    names = ["✖ 訂正した項目", "△ 未確認のまま残った項目", "○ 出典1つ・Wikipedia のみの項目", "◎ 本線の年・人物（念のため）"]
+    L = [AUDIT_HEAD.rstrip(), "", f"全 {len(rows)} 件（" + "・".join(f"{n.split()[0]} {sum(1 for r in rows if r['rank'] == k)}" for k, n in enumerate(names)) + "）"]
+    for k, n in enumerate(names):
+        rs = [r for r in rows if r["rank"] == k]
+        if not rs:
+            continue
+        L += ["", f"## {n}（{len(rs)}）", "", "| 番号 | ノード | 主張 | 今の判定 | NET-03 の結果 | 出典 | 特に確かめてほしい点 |", "|---|---|---|---|---|---|---|"]
+        for r in rs:
+            L.append(f"| {r['id']} | {r['node']} | {r['claim']} | {r['v']} | {r['result']} | {' , '.join(r['urls']) or '—'} | {r['ask']} |")
+    AUDIT_OUT.write_text("\n".join(L) + "\n", encoding="utf-8")
+    return len(rows)
+
+
 def mid(i):
     return "n" + i.replace("-", "_")
 
@@ -655,6 +718,7 @@ def main():
             print(f"warning: {src.name} の重複 {clash}")
         nodes.update({k: v for k, v in extra.items() if k not in nodes})
     data = export_json(nodes)
+    print(f"wrote {AUDIT_OUT.name} ({write_audit_queue()} items)")
     print(f"wrote {OUT} ({len(nodes)} nodes), {JSON_OUT.name} ({len(data['nodes'])} nodes, {len(data['edges'])} edges, {len(data['year_inversions'])} year inversions)")
 
 

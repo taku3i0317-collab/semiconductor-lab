@@ -1,7 +1,7 @@
 # NETWORK_LOG.md — 技術ネットワーク担当（NET-番号）の作業記録
 
 技術ネットワーク担当が書く（HANDOFF.md は実装担当が書くので触らない）。タスクが終わるたびに下へ追記する。
-担当ファイル：docs/network.html・docs/node.html・tools/gen_tree_views.py・tools/gen_portraits.py・docs/network_meta.json・docs/products.md・docs/ideas.md・docs/network_proposals.md・docs/NETWORK_LOG.md と、その生成物（tech_network.json/.js・TECH_TREE_VIEW.md）
+担当ファイル：docs/network.html・docs/node.html・tools/gen_tree_views.py・tools/gen_portraits.py・docs/network_meta.json・docs/products.md・docs/ideas.md・docs/network_proposals.md・docs/NETWORK_LOG.md と、その生成物（tech_network.json/.js・TECH_TREE_VIEW.md・AUDIT_QUEUE.md）
 
 ## NET-01（2026-10-20）表示の確認・モノ・発見　commit 7bb3303
 - 表示：node.html の「ゲームでの作り方」の量は machine_recipes.json の数字から正しく出ている。直したのは2つ：出てくる物は「N回に1個できる」（材料は「N回で1個」）、説明に「電気なし」があるとき二重に書かない
@@ -33,3 +33,16 @@
 - ◎ 11・○ 6・△ 12・✖ 3。間違い：[6-04] 最古の岩塩採掘は紀元前4500年頃のドゥズダグ（-1500 はハルシュタット）、[1-21] 蛍石の初出は1530年『Bermannus』、[7-05] ストロングのアルミ蒸着は1930年頃
 - ジャービルの人物カード（network_meta.json）を V-36 に合わせて直した（9〜10世紀の文書、アランビックとの結びつきは出典なし）
 - 累計：58 件（◎ 23・○ 9・△ 18・✖ 7・混在 1）。本線の残り ⚠️ ノード 約62（[6-01] 電解槽 1800 から）
+
+## NET-03 第3弾（2026-10-20）⚠️ の裏取り：本線の続き 20 ノード・27 件
+- 対象：[8-02] ねじ切り 〜 [4-10] 変圧器（[I-01] 電磁誘導を含む）。結果は network_proposals.md の V-59〜V-85
+- ◎ 14・○ 5・△ 8・✖ 0。年を書き直す候補：[1-07] 黒鉛 1827（〜1856）、[2-44] ゲッター 1893〜1895、[5-12] コンフラット「1960年代初め」・ジュメット線 1913、[2-19]「1908 建設・1910 生産」
+- ideas.md [I-01] のジョセフ・ヘンリーの文を「1832年、独立に（とくに自己誘導を）」に直した
+- 累計：85 件（◎ 37・○ 14・△ 26・✖ 7・混在 1）。本線の残り ⚠️ ノード 約43（[4-12] 電気炉 1890 から）
+- docs/AUDIT_QUEUE.md を追加（gen_tree_views.py が V- 行から自動生成。✖→△→○→◎ の順、Wikipedia だけの ◎ は ○ に下げる）
+
+## NET-04（2026-10-20）この技術の裏にいる人たち
+- network.html のカードと node.html に「この技術の裏にいる人：N 人」（自分と祖先＝前提・発見→技術のつながりに付いている人物、重複なし）。最初は閉じた状態で数字だけ
+- 開くと「人の壁」：肖像を年代順に並べ、下に名前と関わった技術。肖像を押すとその技術へ
+- 壁の先頭に「名前の残っていない、無数の人たち」（シルエット）。1500年より前で人物の記録がない祖先の技術の数を出す（例：[10-16] AI は 33 人＋35 の技術）
+- proposals に DESIGN への提案 D-1「ゲーム内でモノを作ったとき、その裏にいる人たちの肖像が並ぶ演出」
