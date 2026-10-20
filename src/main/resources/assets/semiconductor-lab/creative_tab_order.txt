@@ -445,6 +445,10 @@ xenon_cylinder  # Gas [6-08] 1898
 rare_gas_column  # Gas [6-08] 1898
 hydrochloric_acid  # Gas [6-06] 1900
 hcl_burner  # Gas [6-06] 1900
+iron_catalyst  # Gas [6-09] 1913
+ammonia_gas  # Gas [6-09] 1913
+ammonium_sulfate  # Gas [6-09] 1913
+haber_bosch_reactor  # Gas [6-09] 1913
 carbon_dioxide_gas  # Gas [7-14] 1964
 achromatic_lens  # Optics [7-04] 1608
 refracting_telescope  # Optics [7-04] 1608

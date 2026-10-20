@@ -453,8 +453,11 @@ setblock ~37 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~40 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-06] 塩酸","（人間の確認項目なし）","",""]}}
 setblock ~40 ~0 ~50 semiconductor-lab:hcl_burner
 setblock ~41 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hydrochloric_acid",count:16},{Slot:1b,id:"semiconductor-lab:hydrogen_gas",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"minecraft:water_bucket",count:1},{Slot:4b,id:"semiconductor-lab:glass_bottle",count:16}]}
-setblock ~44 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-14] CO2 レーザ","反射炉の煙道の表示（「","煙道」）、方解石で C","O2 の袋が出るか。C"]}}
-setblock ~44 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_dioxide_gas",count:16}]}
+setblock ~44 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-09] ハーバー・ボッ","反応塔の画面（ふつうの","画面）、肥料を耕地に使","ったときの音とメッセー"]}}
+setblock ~44 ~0 ~50 semiconductor-lab:haber_bosch_reactor
+setblock ~45 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:iron_catalyst",count:1},{Slot:1b,id:"semiconductor-lab:ammonia_gas",count:16},{Slot:2b,id:"semiconductor-lab:ammonium_sulfate",count:16}]}
+setblock ~48 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-14] CO2 レーザ","反射炉の煙道の表示（「","煙道」）、方解石で C","O2 の袋が出るか。C"]}}
+setblock ~48 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_dioxide_gas",count:16}]}
 setblock ~0 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹7 光学","↓ この列","",""]}}
 setblock ~2 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-04] 屈折望遠鏡と色","屈折望遠鏡を右クリック","で押している間、バニラ","の望遠鏡と同じように視"]}}
 setblock ~2 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:achromatic_lens",count:16},{Slot:1b,id:"semiconductor-lab:refracting_telescope",count:1}]}

@@ -2837,6 +2837,20 @@
 - Wikipedia「Dobson unit」/「Dobson ozone spectrophotometer」：https://en.wikipedia.org/wiki/Dobson_unit
 - WMO/UNEP「Scientific Assessment of Ozone Depletion: 2022」
 
+## C47. 空気からパンを作る（ハーバー・ボッシュ法）［6-09］
+**答え**：空気の8割は窒素だが、植物は N≡N の強い結びつきを切れないので使えない。1909年ハーバーが、窒素と水素を高い圧力で鉄の触媒の上に通すとアンモニアになることを実験室で示し、1913年 BASF のボッシュが約200気圧・約450℃の工場にした（ミタッシュが約2万回の実験で触媒を選んだ）。アンモニアから肥料を作れるようになり、今は世界の人のおよそ半分の食べ物がこの肥料で育っているといわれる。一方、ハーバーは第一次世界大戦で塩素ガスの攻撃を指導した（1915 イーペル）。
+
+- へえ①：空気の窒素から、肥料ができる（「空気からパンを作る」）。
+- へえ②：マメの根粒菌がしていることを、工場でできるようにした。
+- へえ③：高圧の水素は鋼をもろくするので、ボッシュは二重の壁の塔を考えた。
+- へえ④：同じ科学者が、多くの人を養う肥料と、多くの人を殺した毒ガスの両方にかかわった。
+
+確かさ：ハーバー 1909・ボッシュ 1913・ミタッシュ ◎／世界の人口の約半分を支える（推定）○／イーペル 1915 ◎
+根拠：
+- Wikipedia「Haber process」：https://en.wikipedia.org/wiki/Haber_process
+- Wikipedia「Fritz Haber」：https://en.wikipedia.org/wiki/Fritz_Haber
+- Wikipedia「Alwin Mittasch」：https://en.wikipedia.org/wiki/Alwin_Mittasch
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

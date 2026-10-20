@@ -93,5 +93,12 @@ public final class Gas {
     public static final Block NITRE_EARTH_BLOCK = Reg.ore("nitre_earth_block", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.8f).sound(SoundType.GRAVEL));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
+    // [6-09] ハーバー・ボッシュ法（IMP3、S-005）：磁鉄鉱＋カリ＋アルミナ → 鉄の触媒（ミタッシュ）。反応塔：窒素1＋水素3 → アンモニア2（触媒は減らない）。
+    //   アンモニア2＋硫酸 → 硫酸アンモニウム（化学肥料：耕地を窒素の多い耕地に）、アンモニア＋水＋瓶 → アンモニア水
+    public static final Item IRON_CATALYST         = Reg.item("iron_catalyst", new Item.Properties().stacksTo(1));
+    public static final Item AMMONIA_GAS           = Reg.contained("ammonia_gas", Vessel.GAS_BAG);
+    public static final Item AMMONIUM_SULFATE      = Reg.item("ammonium_sulfate", com.taku3.semiconductorlab.item.FertilizerItem::new, new Item.Properties());
+    public static final Machine<HaberBoschReactorBlockEntity> HABER_BOSCH_REACTOR = Machine.electric("haber_bosch_reactor", HaberBoschReactorBlockEntity::new, HaberBoschReactorBlockEntity.LAYOUT, metal(5.0f));
+
     static void init() {}
 }

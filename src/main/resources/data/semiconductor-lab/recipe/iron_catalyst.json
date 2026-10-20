@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:magnetite",
+    "semiconductor-lab:magnetite",
+    "semiconductor-lab:potash",
+    "semiconductor-lab:alumina"
+  ],
+  "result": {
+    "id": "semiconductor-lab:iron_catalyst",
+    "count": 1
+  }
+}

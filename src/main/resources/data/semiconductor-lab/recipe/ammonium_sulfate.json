@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ammonia_gas",
+    "semiconductor-lab:ammonia_gas",
+    "semiconductor-lab:sulfuric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ammonium_sulfate",
+    "count": 4
+  }
+}

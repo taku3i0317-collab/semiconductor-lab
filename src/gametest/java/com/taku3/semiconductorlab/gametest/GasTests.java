@@ -616,4 +616,33 @@ public class GasTests extends LabTestBase {
         rec(a, Gas.HCL_BURNER.block, "乾いた塩化水素", L(mol(Gas.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(Gas.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER)),
             L(mol(Metallurgy.HYDROGEN_CHLORIDE_GAS, 2)), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし");
     }
+
+    /** [6-09] ハーバー・ボッシュ（IMP3、S-005）：触媒なしでは動かない、N2＋3H2 → 2NH3（触媒は減らない）、硫酸で肥料、耕地 → 窒素の多い耕地 */
+    @GameTest(maxTicks = 100)
+    public void haberBosch(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "iron_catalyst", com.taku3.semiconductorlab.content.Metallurgy.MAGNETITE) && recipeUses(h, "iron_catalyst", Chemistry.POTASH), "Mittasch catalyst: magnetite + potash + alumina");
+        h.assertTrue(recipeUses(h, "ammonium_sulfate", Gas.AMMONIA_GAS) && recipeUses(h, "ammonium_sulfate", Chemistry.SULFURIC_ACID), "NH3 + H2SO4 -> fertilizer");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Gas.HABER_BOSCH_REACTOR.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.class);
+        var c = be.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.WATTS);
+        int T = com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.TICKS;
+        c.setItem(com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.SLOT_N2, new ItemStack(Gas.NITROGEN_GAS, 2));
+        c.setItem(com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, 6));
+        tickConsumer(h, fp, be, T + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.SLOT_OUT).isEmpty(), "no catalyst -> no ammonia");
+        c.setItem(com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.SLOT_CATALYST, new ItemStack(Gas.IRON_CATALYST));
+        for (int i = 0; i < 2; i++) tickConsumer(h, fp, be, T, feed);
+        ItemStack nh3 = c.getItem(com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.SLOT_OUT);
+        h.assertTrue(nh3.is(Gas.AMMONIA_GAS) && nh3.getCount() == 4, "2 N2 + 6 H2 -> 4 NH3, got " + nh3);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.SLOT_CATALYST).is(Gas.IRON_CATALYST), "catalyst stays");
+        BlockPos field = p(3, 1, 1);
+        h.setBlock(field, net.minecraft.world.level.block.Blocks.FARMLAND);
+        h.assertTrue(com.taku3.semiconductorlab.item.FertilizerItem.fertilize(h.getLevel(), h.absolutePos(field)), "fertilize farmland");
+        h.assertTrue(h.getLevel().getBlockState(h.absolutePos(field)).is(com.taku3.semiconductorlab.content.Survival.NITROGEN_FARMLAND), "-> nitrogen-rich farmland");
+        LOG.info("[LAB] Haber-Bosch [6-09]: no catalyst -> nothing; N2 + 3H2 -> 2NH3 on iron; NH3 + H2SO4 -> ammonium sulfate -> nitrogen-rich farmland");
+        h.succeed();
+    }
 }
