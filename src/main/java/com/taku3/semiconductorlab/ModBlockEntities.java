@@ -31,6 +31,7 @@ public class ModBlockEntities {
     public static final BlockEntityType<com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity> TRICHLOROSILANE_REACTOR = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("trichlorosilane_reactor"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity::new, ModBlocks.TRICHLOROSILANE_REACTOR).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.block.SiemensReactorBlockEntity> SIEMENS_REACTOR = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("siemens_reactor"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.SiemensReactorBlockEntity::new, ModBlocks.SIEMENS_REACTOR).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.block.CzPullerBlockEntity> CZ_PULLER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("cz_puller"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.CzPullerBlockEntity::new, ModBlocks.CZ_PULLER).build());
+    public static final BlockEntityType<com.taku3.semiconductorlab.block.WaferSawBlockEntity> WAFER_SAW = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("wafer_saw"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.WaferSawBlockEntity::new, ModBlocks.WAFER_SAW).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity> ARC_FURNACE = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("arc_furnace"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.ArcFurnaceBlockEntity::new, ModBlocks.ARC_FURNACE).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.block.CrystalPullerBlockEntity> CRYSTAL_PULLER = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("crystal_puller"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.CrystalPullerBlockEntity::new, ModBlocks.CRYSTAL_PULLER).build());
     public static final BlockEntityType<com.taku3.semiconductorlab.block.AirSeparationBlockEntity> AIR_SEPARATION = Registry.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, SemiconductorLab.id("air_separation_unit"), FabricBlockEntityTypeBuilder.create(com.taku3.semiconductorlab.block.AirSeparationBlockEntity::new, ModBlocks.AIR_SEPARATION_UNIT).build());
@@ -60,6 +61,7 @@ public class ModBlockEntities {
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), AIR_SEPARATION);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), CRYSTAL_PULLER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), ARC_FURNACE);
+        EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), WAFER_SAW);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), CZ_PULLER);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), SIEMENS_REACTOR);
         EnergyApi.ENERGY.registerForBlockEntity((be, dir) -> be.getStorage(), TRICHLOROSILANE_REACTOR);

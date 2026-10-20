@@ -1458,6 +1458,8 @@ public class LabTests {
 
     /** 後から足した機械（タスク22 [1-16][1-17] など）。exportMachineRecipes から呼ぶ */
     private static void exportExtraMachines(com.google.gson.JsonArray a) {
+        rec(a, ModBlocks.WAFER_SAW, "板に切る", L(io(ModItems.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(ModItems.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
+            L(cond(io(ModItems.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, ModBlocks.HCL_BURNER, "乾いた塩化水素", L(mol(ModItems.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(ModItems.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER)),
             L(mol(ModItems.HYDROGEN_CHLORIDE_GAS, 2)), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "水のスロットが空のとき。H2 + Cl2 → 2HCl を水に溶かさず袋に。電気なし");
         rec(a, ModBlocks.TRICHLOROSILANE_REACTOR, "合成", L(io(ModItems.METALLURGICAL_SILICON, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.SI_PER_RUN), mol(ModItems.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.TrichlorosilaneReactorBlockEntity.HCL_PER_RUN)),
@@ -1472,6 +1474,47 @@ public class LabTests {
             L(io(ModItems.SILICON_SEED_CRYSTAL, 1)), com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.SEED_TICKS / 20.0, "細く絞って引くと1つの粒だけが残る");
         rec(a, ModBlocks.CZ_PULLER, "単結晶", L(kept(io(ModItems.SILICON_SEED_CRYSTAL, 1)), io(ModItems.POLYSILICON, com.taku3.semiconductorlab.block.CzPullerBlockEntity.POLY_PER_INGOT), io(ModItems.QUARTZ_CRUCIBLE, 1), mol(ModItems.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_INGOT), cond(alt(io(ModItems.BORON_TRIOXIDE, 1), ModItems.PHOSPHORUS), "入れなくてもよい（真性）")),
             L(cond(io(ModItems.SILICON_SINGLE_CRYSTAL, 1), "B2O3 で p型・リンで n型、純度は多結晶シリコンと同じ")), com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.GROW_TICKS / 20.0, "約1420℃の融液から回しながら引き上げる。17.4kWh/kg");
+    }
+
+    // =====================================================================
+    // [9-12] ウェハー切断（IMP-25）
+    // =====================================================================
+
+    /** 単結晶1 → 板8（純度・ドーパントを受け継ぐ）。刃がないと切れない、刃は4本で1枚。電力が足りないと進まない */
+    @GameTest
+    public void waferSaw(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.STEEL_INGOT, ModItems.ELECTRIC_MOTOR, ModItems.LEAD_SCREW})
+            h.assertTrue(recipeUses(h, "wafer_saw", it), "wafer saw parts: " + it);
+        h.assertTrue(recipeUses(h, "diamond_saw_blade", Items.DIAMOND) && recipeUses(h, "diamond_saw_blade", ModItems.STEEL_INGOT), "blade = steel disc + diamond");
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, ModBlocks.WAFER_SAW);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.WaferSawBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS);
+        ItemStack ing = new ItemStack(ModItems.SILICON_SINGLE_CRYSTAL, 6);
+        ing.set(com.taku3.semiconductorlab.ModDataComponents.PURITY, com.taku3.semiconductorlab.Purity.ELEVEN_N);
+        ing.set(com.taku3.semiconductorlab.ModDataComponents.DOPANT, "phosphorus");
+        c.setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_CRYSTAL, ing);
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS + 10, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT).isEmpty(), "no blade -> no cut");
+        c.setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_BLADE, new ItemStack(ModItems.DIAMOND_SAW_BLADE, 2));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS, feed);
+        ItemStack s = c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT);
+        h.assertTrue(s.is(ModItems.SILICON_WAFER) && s.getCount() == com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT, "1 ingot -> 8 slices, got " + s);
+        h.assertValueEqual(s.get(com.taku3.semiconductorlab.ModDataComponents.DOPANT), "phosphorus", "dopant kept (n-type)");
+        h.assertValueEqual(com.taku3.semiconductorlab.Purity.nines(s.get(com.taku3.semiconductorlab.ModDataComponents.PURITY)), 11, "purity kept");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_BLADE).getCount(), 1, "first cut takes a blade");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_CRYSTAL).getCount(), 5, "1 ingot used");
+        c.setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        for (int i = 0; i < 3; i++) { tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS, feed); c.setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT, ItemStack.EMPTY); }
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_BLADE).getCount(), 1, "one blade lasts 4 ingots");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS, feed);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_BLADE).getCount(), 0, "5th ingot takes the next blade");
+        LOG.info("[LAB] wafer saw [9-12]: 1 ingot -> {} slices (purity, dopant kept), blade lasts {} ingots", com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT, com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE);
+        h.succeed();
     }
 
     // =====================================================================

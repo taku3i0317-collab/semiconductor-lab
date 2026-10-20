@@ -19,6 +19,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		MenuScreens.register(ModMenus.AIR_SEPARATION, AirSeparationScreen::new);
 		MenuScreens.register(ModMenus.CRYSTAL_PULLER, CrystalPullerScreen::new);
 		MenuScreens.register(ModMenus.ARC_FURNACE, ArcFurnaceScreen::new);
+		MenuScreens.register(ModMenus.WAFER_SAW, WaferSawScreen::new);
 		MenuScreens.register(ModMenus.CZ_PULLER, CzPullerScreen::new);
 		MenuScreens.register(ModMenus.SIEMENS_REACTOR, SiemensReactorScreen::new);
 		MenuScreens.register(ModMenus.TRICHLOROSILANE_REACTOR, TrichlorosilaneReactorScreen::new);

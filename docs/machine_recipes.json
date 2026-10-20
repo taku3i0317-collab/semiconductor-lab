@@ -775,6 +775,32 @@
       "note": "充電・放電とも最大の電力"
     },
     {
+      "machine": "semiconductor-lab:wafer_saw",
+      "process": "板に切る",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:silicon_single_crystal",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:diamond_saw_blade",
+          "count": 1,
+          "per_runs": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8,
+          "cond": "純度とドーパントを受け継ぐ"
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 60.0,
+      "energy_kj": 60,
+      "note": "ダイヤモンドの円盤刃（1954 の作り方）"
+    },
+    {
       "machine": "semiconductor-lab:hcl_burner",
       "process": "乾いた塩化水素",
       "inputs": [

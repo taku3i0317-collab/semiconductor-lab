@@ -71,3 +71,8 @@
 - 国立台湾大学の論文（太陽電池用 CZ のホットゾーン改良）https://scholars.lib.ntu.edu.tw/bitstream/123456789/64459/1/35.pdf ：電力 59.1 → 17.4 kWh/kg、引き上げ速度 0.8 → 1.32 mm/分、Ar 93.3 → 27.1 立方フィート/kg（⚠️ 要確認：原文の条件）
 - 引き上げ機の仕様例（ロシアのメーカー、250mm 用）https://en.gkmp32.com/rost/ustanovki-metodom-Chohralskogo/ ：引き上げ 0.1〜8 mm/分、種の回転 1〜30rpm、るつぼの回転 1〜20rpm、ヒーター最大 150kW
 - Si の融点 1414℃（標準値）。融液は約1420℃に保つ
+
+## [9-12] ウェハー切断・[9-16] 熱拡散・[B-12] 太陽電池（IMP-25、2026-10-20）
+- ETHW「Milestones: First Practical Photovoltaic Solar Cell」https://ethw.org/Milestones:First_Practical_Photovoltaic_Solar_Cell （John Perlin『From Space to Earth』3章の要約）：1954年、結晶から細長い板を切る、ヒ素で n型、ホウ素で薄い p型の表面層、光る表面の反射をくもった樹脂の膜で減らす、効率約6%、1平方ヤードあたり約50W。リチウムで作った最初の電池は接合が動いて不安定だった。フラーは以前リンを蒸着した試料も作った
+- PVEducation「Early Silicon Cells」https://www.pveducation.org/pvcdrom/manufacturing-si-cells/early-silicon-cells ：1954年の電池は結晶成長と拡散による接合で作られ、電極は2つとも裏側、効率6%。原論文 Chapin, Fuller, Pearson, J. Appl. Phys. 25, 676 (1954)
+- 要確認：1954年の電極の金属・拡散の温度と時間（原論文は有料で未確認）

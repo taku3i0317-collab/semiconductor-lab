@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " D ",
+    "DSD",
+    " D "
+  ],
+  "key": {
+    "D": "minecraft:diamond",
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:diamond_saw_blade",
+    "count": 1
+  }
+}

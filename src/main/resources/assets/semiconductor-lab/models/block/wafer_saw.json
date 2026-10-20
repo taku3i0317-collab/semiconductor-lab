@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/wafer_saw_front",
+    "side": "semiconductor-lab:block/wafer_saw_side",
+    "top": "semiconductor-lab:block/wafer_saw_top"
+  }
+}

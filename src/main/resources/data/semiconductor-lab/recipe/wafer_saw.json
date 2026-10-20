@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "LMC",
+    "SSS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "L": "semiconductor-lab:lead_screw",
+    "M": "semiconductor-lab:electric_motor",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:wafer_saw",
+    "count": 1
+  }
+}
