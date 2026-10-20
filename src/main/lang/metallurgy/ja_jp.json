@@ -344,5 +344,16 @@
   "item.semiconductor-lab.silver_ingot.note1": "白く光る金属。電気と熱を一番よく通す。",
   "item.semiconductor-lab.silver_ingot.note2": "銀の粒×9（インゴット1つ → 粒9つにも戻せる）。c:ingots/silver。",
   "item.semiconductor-lab.silver_ingot.note3": "写真の感光材（臭化銀・ヨウ化銀）、鏡、電気の接点に使われてきた。",
-  "item.semiconductor-lab.silver_ingot.note4": "電気伝導率は全金属で一番（銅よりわずかに上）。それでも配線の主役が銅なのは、ずっと安いから。IC の配線もアルミ → 銅へ移ったが、銀はほとんど使われない。"
+  "item.semiconductor-lab.silver_ingot.note4": "電気伝導率は全金属で一番（銅よりわずかに上）。それでも配線の主役が銅なのは、ずっと安いから。IC の配線もアルミ → 銅へ移ったが、銀はほとんど使われない。",
+  "item.semiconductor-lab.fluorite": "蛍石",
+  "item.semiconductor-lab.fluorite.note1": "紫や緑の、ガラスのような石。フッ素がふくまれている。",
+  "item.semiconductor-lab.fluorite.note2": "フッ化カルシウム CaF2。蛍石の鉱石を石のツルハシ以上で掘ると出る。フッ酸 [2-10]（蛍石＋硫酸）の原料。",
+  "item.semiconductor-lab.fluorite.note3": "1530年、アグリコラが本に書いた「fluores」が最初の記録。炉に入れると鉱石が溶けて流れやすくなる「融剤」で、ラテン語の「流れる（fluere）」から。元素のフッ素（fluorine）の名前もここから来た。",
+  "item.semiconductor-lab.fluorite.note4": "紫外線を当てると青く光る蛍石があり、1852年にストークスはこの光を「蛍光（fluorescence）」と名づけた。日本語の「蛍石」は、熱するとホタルのように光ることから。蛍石の大きな結晶は、のちにエキシマレーザー露光のレンズ・窓 [7-20] にも使われる。",
+  "block.semiconductor-lab.fluorite_ore": "蛍石の鉱石",
+  "block.semiconductor-lab.fluorite_ore.note1": "石の中に紫や緑のつぶが入った鉱石。掘ると蛍石が出る。",
+  "block.semiconductor-lab.fluorite_ore.note2": "方鉛鉱と同じ深さ（Y −16〜64）の石・深層岩に出る。方鉛鉱より少ない。石のツルハシ以上。シルクタッチなら鉱石のブロックのまま。",
+  "block.semiconductor-lab.fluorite_ore.note3": "蛍石は、熱い水が岩の割れ目を通ってできた鉱脈（熱水鉱脈）に、方鉛鉱・閃亜鉛鉱といっしょに出ることが多い。鉛や亜鉛の鉱山で蛍石も取れる。",
+  "block.semiconductor-lab.fluorite_ore.note4": "今の蛍石の多くはフッ酸の原料になり、フッ素の化学（フッ素樹脂・冷媒・半導体のエッチングガス）のほとんどがここから始まる。",
+  "block.semiconductor-lab.fluorite_ore.placeholder": "近似：本物は方鉛鉱・閃亜鉛鉱と同じ鉱脈の形で出るが、ゲームでは同じ深さにばらばらに出る。"
 }

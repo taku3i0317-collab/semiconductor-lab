@@ -344,5 +344,16 @@
   "item.semiconductor-lab.silver_ingot.note1": "A shining white metal. It conducts electricity and heat best of all.",
   "item.semiconductor-lab.silver_ingot.note2": "9 silver nuggets (an ingot can be split back into 9). c:ingots/silver.",
   "item.semiconductor-lab.silver_ingot.note3": "Used for photographic emulsions (silver bromide and iodide), mirrors and electrical contacts.",
-  "item.semiconductor-lab.silver_ingot.note4": "Silver has the highest electrical conductivity of all metals (slightly above copper), yet copper is the main wiring metal because it is far cheaper. Chip wiring moved from aluminum to copper, and silver is hardly used."
+  "item.semiconductor-lab.silver_ingot.note4": "Silver has the highest electrical conductivity of all metals (slightly above copper), yet copper is the main wiring metal because it is far cheaper. Chip wiring moved from aluminum to copper, and silver is hardly used.",
+  "item.semiconductor-lab.fluorite": "Fluorite",
+  "item.semiconductor-lab.fluorite.note1": "A glassy purple or green stone. It contains fluorine.",
+  "item.semiconductor-lab.fluorite.note2": "Calcium fluoride CaF2. Mined from fluorite ore with a stone pickaxe or better. Raw material for hydrofluoric acid [2-10] (fluorite + sulfuric acid).",
+  "item.semiconductor-lab.fluorite.note3": "The first record is 'fluores' in Agricola's 1530 book: a flux that made ores melt and flow more easily in the furnace, from Latin fluere, to flow. The element fluorine is named after it.",
+  "item.semiconductor-lab.fluorite.note4": "Some fluorite glows blue under ultraviolet light; in 1852 Stokes named this glow 'fluorescence' after it. The Japanese name means 'firefly stone' because it glows when heated. Large fluorite crystals later became lenses and windows for excimer laser lithography [7-20].",
+  "block.semiconductor-lab.fluorite_ore": "Fluorite Ore",
+  "block.semiconductor-lab.fluorite_ore.note1": "Stone with purple and green grains in it. Mining it gives fluorite.",
+  "block.semiconductor-lab.fluorite_ore.note2": "Found in stone and deepslate at the same depth as galena (Y −16 to 64), less often than galena. Stone pickaxe or better. Silk Touch keeps the ore block.",
+  "block.semiconductor-lab.fluorite_ore.note3": "Fluorite usually forms in veins left by hot water flowing through cracks in rock (hydrothermal veins), together with galena and sphalerite. Lead and zinc mines often produce fluorite too.",
+  "block.semiconductor-lab.fluorite_ore.note4": "Most fluorite today becomes hydrofluoric acid, the starting point of almost all fluorine chemistry (fluoropolymers, refrigerants, etching gases for chips).",
+  "block.semiconductor-lab.fluorite_ore.placeholder": "Approximation: real fluorite occurs in veins with galena and sphalerite; in the game it is scattered at the same depth."
 }

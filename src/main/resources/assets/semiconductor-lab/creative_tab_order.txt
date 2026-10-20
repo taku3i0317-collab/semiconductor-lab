@@ -45,6 +45,8 @@ mercury  # Metallurgy [1-45] -500
 sphalerite  # Metallurgy [1-13] 1150
 zinc_ingot  # Metallurgy [1-13] 1150
 sphalerite_ore  # Metallurgy [1-13] 1150
+fluorite  # Metallurgy [1-21] 1530
+fluorite_ore  # Metallurgy [1-21] 1530
 borax  # Metallurgy [1-33] 1808
 boric_acid  # Metallurgy [1-33] 1808
 boron_trioxide  # Metallurgy [1-33] 1808
