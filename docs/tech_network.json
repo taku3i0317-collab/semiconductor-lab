@@ -8404,7 +8404,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C11. 少し寒いだけで凍る酸（氷酢酸）［2-42］",
+     "answer": "木酢液に石灰を入れると酢酸が酢酸カルシウム（灰色の酢酸石灰）になる。これに硫酸を加えると、強い酸が弱い酸を塩から追い出して酢酸が出てくる（Ca(CH3COO)2 + H2SO4 → 2CH3COOH + CaSO4）。水をほとんど含まない酢酸は約17℃で凍るので「氷酢酸」とよぶ。",
+     "hee": {
+      "1": "お酢のすっぱい成分を濃くすると、少し寒いだけで凍る。",
+      "2": "19世紀の工業の酢酸は、木の乾留から作った（1850ごろ ターンブル）。",
+      "3": "酢酸セルロースは写真フィルムや逆浸透膜（[2-18]）の材料。",
+      "4": "今の酢酸は主にメタノールと一酸化炭素から（1960年代 モンサント法）。"
+     },
+     "certainty": "反応式・融点 16.6℃ ◎／ターンブル 1850ごろ ○（TECH_TREE の本物欄と一致）／モンサント法 ○",
+     "basis": "- Wikipedia「Acetic acid」：https://en.wikipedia.org/wiki/Acetic_acid"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -8414,7 +8427,7 @@
    "name": "酢酸",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1850,
    "year_range": null,
@@ -8445,10 +8458,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "純粋な酢酸は、少し寒い部屋で氷のように凍る",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
