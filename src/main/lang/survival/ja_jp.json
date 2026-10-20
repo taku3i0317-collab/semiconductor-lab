@@ -206,5 +206,18 @@
   "item.semiconductor-lab.wooden_wheel.note4": "メソポタミアのウルクの絵文字に紀元前3500〜3350年ごろの車が描かれている。現物で最古級は、スロベニアのリュブリャナ湿原で見つかった木の車輪（紀元前3130年ごろ）⚠️ で、車輪と車軸がいっしょに回る作りだった。",
   "item.semiconductor-lab.wooden_wheel.placeholder": "近似：板をつなぐ桟（さん）や、車軸の穴をあける手間はない。",
   "message.semiconductor-lab.potters_wheel.thrown": "ろくろを回して、粘土玉 %s つで生の土器を引き上げた（手なら5つ）",
-  "message.semiconductor-lab.potters_wheel.need_clay": "粘土玉が %s つ要る"
+  "message.semiconductor-lab.potters_wheel.need_clay": "粘土玉が %s つ要る",
+  "item.semiconductor-lab.dugout_canoe": "丸木舟",
+  "item.semiconductor-lab.dugout_canoe.note1": "重い石や荷物は、陸よりも水に浮かべて運ぶほうがずっと楽。",
+  "item.semiconductor-lab.dugout_canoe.note2": "原木5＋磨製石斧（戻るが少し傷む）で作る。水に置いて乗れる。荷物入れがあり、石材の荷を積める。石材の荷を持って歩くと遅くなるが、舟に乗っていれば遅くならない。同じ荷を陸と水で運んで比べてみよう。",
+  "item.semiconductor-lab.dugout_canoe.note3": "1本の太い丸太を、火で焦がしては石の斧や手斧で削ってくりぬいた舟。水は舟と荷の重さと同じだけ押し上げる（浮力）ので、重い荷も水が支えてくれる。陸のように地面とこすれないので、小さな力で進む。",
+  "item.semiconductor-lab.dugout_canoe.note4": "オランダのペッセで見つかった丸木舟は、紀元前8040〜7510年ごろに作られた、知られているなかで最古の舟 ⚠️。日本でも縄文時代の丸木舟が各地で見つかっている。古代エジプトはナイル川の舟でピラミッドの巨石を運んだ。",
+  "item.semiconductor-lab.dugout_canoe.placeholder": "近似：形と動きはバニラのチェスト付きボートと同じ（荷物入れ＝くりぬいた中の空間）。",
+  "item.semiconductor-lab.stone_load": "石材の荷",
+  "item.semiconductor-lab.stone_load.note1": "ロープでしばった切り石。持って歩くと、とても重くて遅くなる。",
+  "item.semiconductor-lab.stone_load.note2": "石4＋ロープで作る。持ち物に入れていると歩くのが遅くなる（1つで1段、4つ以上で4段）。舟や乗り物に乗っている間は遅くならない。丸木舟の荷物入れに積んで運ぼう。",
+  "item.semiconductor-lab.stone_load.note3": "人が背負って運べる重さは、長い距離なら体重の半分ほどまで。重い荷ほど一歩ごとに持ち上げる力が要り、すぐ疲れる。水の上なら、荷の重さは浮力が支えるので、こぐ力は水をかき分ける分だけで済む。",
+  "item.semiconductor-lab.stone_load.note4": "鉄道ができるまで、重い物（石材・木材・穀物・のちに石炭）を遠くへ運ぶいちばん安い方法は川と運河だった。18世紀イギリスの運河では、馬1頭が引ける荷の重さが、荷車の数十倍になったといわれる ⚠️。",
+  "item.semiconductor-lab.stone_load.placeholder": "近似：重さは数で数えた（本物は石の量と、背負う人の体力しだい）。",
+  "entity.semiconductor-lab.dugout_canoe": "丸木舟"
 }

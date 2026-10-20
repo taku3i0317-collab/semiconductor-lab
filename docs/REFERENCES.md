@@ -922,6 +922,20 @@
 - Wikipedia「Wheel」（ウルク、リュブリャナ湿原、初期の円盤の車輪）：https://en.wikipedia.org/wiki/Wheel
 - Wikipedia「Ljubljana Marshes Wheel」：https://en.wikipedia.org/wiki/Ljubljana_Marshes_Wheel
 
+## S10. 重い物は水に浮かべて運ぶ（丸木舟）［0-14］
+**答え**：水は、沈んだ部分の体積の水の重さだけ押し上げる（浮力）。舟と荷の重さは水が支え、地面とこすれる摩擦もないので、こぐ力は水をかき分ける分だけで済む。だから鉄道ができるまで、重い物を遠くへ運ぶいちばん安い方法は川と運河だった。最初の舟は1本の丸太をくりぬいた丸木舟。
+
+- へえ①：重い石や鉱石は、陸よりも水に浮かべて運ぶほうがずっと楽。
+- へえ②：丸木舟は、丸太を火で焦がしては石の斧で削ってくりぬいた。
+- へえ③：知られている最古の舟はオランダのペッセの丸木舟（紀元前8040〜7510年ごろ）⚠️。
+- へえ④：古代エジプトはナイルの舟で巨石を運び、18世紀イギリスの運河では馬1頭が荷車の数十倍を運んだといわれる⚠️。
+
+確かさ：浮力のしくみ ◎／ペッセの丸木舟の年代（放射性炭素）○、「最古」は見つかり方しだい → ⚠️／運河の輸送力の倍率 △ → ⚠️
+根拠：
+- Wikipedia「Pesse canoe」：https://en.wikipedia.org/wiki/Pesse_canoe
+- Wikipedia「Dugout canoe」：https://en.wikipedia.org/wiki/Dugout_canoe
+- Wikipedia「Canal」（運河の輸送）：https://en.wikipedia.org/wiki/Canal
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

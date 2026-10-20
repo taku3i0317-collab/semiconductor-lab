@@ -18,6 +18,8 @@ retted_flax  # Survival [0-06] -8000
 flax_fiber  # Survival [0-06] -8000
 linen_thread  # Survival [0-06] -8000
 linen_cloth  # Survival [0-06] -8000
+dugout_canoe  # Survival [0-14] -8000
+stone_load  # Survival [0-14] -8000
 flax  # Survival [0-06] -8000
 slaked_lime  # Survival [0-11] -7000
 bittern  # Survival [0-16] -6000

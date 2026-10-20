@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LAL",
+    "LLL"
+  ],
+  "key": {
+    "L": "#minecraft:logs",
+    "A": "semiconductor-lab:polished_stone_axe"
+  },
+  "result": {
+    "id": "semiconductor-lab:dugout_canoe",
+    "count": 1
+  }
+}

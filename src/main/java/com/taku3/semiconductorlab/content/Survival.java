@@ -13,6 +13,13 @@ import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
+import com.taku3.semiconductorlab.entity.DugoutCanoe;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -75,6 +82,13 @@ public final class Survival {
     public static final Item ROPE                  = Reg.item("rope");
     // --- [0-09] 車輪（板材を磨製石斧で削って円盤に。ろくろ [0-19] の後） ---
     public static final Item WOODEN_WHEEL          = Reg.item("wooden_wheel");
+    // --- [0-14] 水運：丸木舟（荷物入れつき）と石材の荷（持って歩くと遅い、舟なら速い） ---
+    public static final ResourceKey<EntityType<?>> DUGOUT_CANOE_KEY = ResourceKey.create(Registries.ENTITY_TYPE, SemiconductorLab.id("dugout_canoe"));
+    public static final EntityType<DugoutCanoe> DUGOUT_CANOE_ENTITY = Registry.register(BuiltInRegistries.ENTITY_TYPE, DUGOUT_CANOE_KEY,
+            EntityType.Builder.<DugoutCanoe>of((type, level) -> new DugoutCanoe(type, level, () -> Survival.DUGOUT_CANOE), MobCategory.MISC)
+                    .noLootTable().sized(1.375f, 0.5625f).eyeHeight(0.5625f).clientTrackingRange(10).build(DUGOUT_CANOE_KEY));
+    public static final Item DUGOUT_CANOE          = Reg.item("dugout_canoe", p -> new BoatItem(DUGOUT_CANOE_ENTITY, p), new Item.Properties().stacksTo(1));
+    public static final Item STONE_LOAD            = Reg.item("stone_load", HeavyLoadItem::new, new Item.Properties().stacksTo(16));
     /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
     public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
 

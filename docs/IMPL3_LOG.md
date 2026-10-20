@@ -41,3 +41,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ [0-19] ろくろ（新ノード、O-003-2）＋ [0-09] 車輪：ろくろ potters_wheel（石3＋紡錘の棒＋板材3、block/PottersWheelBlock）で粘土玉3つ → 生の土器（手は5つ）。木の車輪＝板材3＋磨製石斧（戻るが耐久 −10、item/PolishedStoneAxeItem）。年：ろくろ 紀元前4500年ごろ⚠️（ククテニ・トリピリア）、車輪 紀元前3500〜3350（ウルク）・リュブリャナ 紀元前3130ごろ⚠️。TECH_TREE に [0-19] を追加、[0-09] の前提に [0-19]。network_proposals E-2 に「[0-19] 追加済み」と書き足した。GameTest potters_wheel_and_wheel、CHEMISTRY S18〜S19、REFERENCES S9。テスト 125/125
   - タブの並び：[0-19] は docs/tech_network.json にまだ無いので幹0 の最後（ネットワーク担当が作り直すと年の順になる）
   - 共通ファイル：data/minecraft/tags/block/mineable/axe.json に potters_wheel を1つ追加
+- ✅ [0-14] 水運（O-004-1、案③、遊び方: 実験＋作品）：丸木舟 dugout_canoe（原木5＋磨製石斧、entity/DugoutCanoe＝ChestBoat 継承、荷物入れ27、client/SurvivalClient で BoatRenderer＋自前テクスチャ。テクスチャはバニラの透明部分の形だけを使い色は自前）。石材の荷 stone_load（石4＋ロープ）を持つと鈍化1〜4段（歩く速さ 0.10 → 0.04）、乗り物に乗ると鈍化なし。バニラのボートは変えていない。GameTest dugout_canoe、CHEMISTRY S20〜S21、REFERENCES S10。テスト 128/128
+  - 共通ファイル：SemiconductorLabClient の「幹0」の段に SurvivalClient.register() を1行
+  - 失敗から：レシピの category "transportation" は 26.3 に無く、全レシピの読み込みが止まった → misc（API_26X に追記）

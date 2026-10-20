@@ -27,6 +27,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		// 専用の画面を持つ機械（IMP-28：画面は MachineScreen を継承）。幹ごとにまとめる（自分の幹の段にだけ足す）
 		// 幹0 生存・道具
 		screen(Survival.ASSEMBLY_BENCH, AssemblyBenchScreen::new);   // IMP-33 組立台
+		SurvivalClient.register();   // IMP3-01 丸木舟 [0-14] の描画
 		// 幹1 冶金
 		screen(Metallurgy.BESSEMER_CONVERTER, BessemerConverterScreen::new);
 		screen(Metallurgy.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);

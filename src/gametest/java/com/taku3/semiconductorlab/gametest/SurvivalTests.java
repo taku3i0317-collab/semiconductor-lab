@@ -454,6 +454,49 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-14] 水運（IMP3-01、O-004）：丸木舟と石材の荷
+    // =====================================================================
+
+    /** 石材の荷を持って歩くと遅い（荷の数で1〜4段）。丸木舟に乗ると遅くならない。丸木舟には荷物入れ（27マス）があり荷を積める */
+    @GameTest
+    public void dugoutCanoe(GameTestHelper h) {
+        var lv = h.getLevel();
+        var SLOW = net.minecraft.world.effect.MobEffects.SLOWNESS;
+        var SPEED = net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED;
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        double free = player.getAttributeValue(SPEED);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.HeavyLoadItem.burden(player), 0, "no load -> not slowed");
+        player.getInventory().add(new ItemStack(Survival.STONE_LOAD, 2));
+        h.assertValueEqual(com.taku3.semiconductorlab.item.HeavyLoadItem.burden(player), 2, "2 loads -> slowness level 2");
+        h.assertTrue(player.hasEffect(SLOW) && player.getEffect(SLOW).getAmplifier() == 1, "slowness II");
+        player.getInventory().add(new ItemStack(Survival.STONE_LOAD, 5));
+        h.assertValueEqual(com.taku3.semiconductorlab.item.HeavyLoadItem.burden(player), com.taku3.semiconductorlab.item.HeavyLoadItem.MAX_LEVEL, "capped at level 4");
+        double loaded = player.getAttributeValue(SPEED);
+        h.assertTrue(loaded < free, "walking speed drops with the load: " + loaded + " < " + free);
+
+        // 丸木舟：置ける、荷物入れ、乗ると遅くならない
+        floor(h, 4);
+        var canoe = Survival.DUGOUT_CANOE_ENTITY.create(lv, net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
+        h.assertTrue(canoe != null, "canoe entity");
+        BlockPos at = h.absolutePos(p(1, 1, 1));
+        canoe.setPos(at.getX() + 0.5, at.getY(), at.getZ() + 0.5);
+        lv.addFreshEntity(canoe);
+        h.assertValueEqual(canoe.getContainerSize(), 27, "the hold has 27 slots");
+        canoe.setItem(0, new ItemStack(Survival.STONE_LOAD, 16));
+        h.assertTrue(canoe.getItem(0).is(Survival.STONE_LOAD), "stone loads go into the hold");
+        player.removeEffect(SLOW);
+        h.assertTrue(player.startRiding(canoe, true, false), "ride the canoe");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.HeavyLoadItem.burden(player), 0, "in the canoe the water carries the load -> not slowed");
+        h.assertTrue(Survival.DUGOUT_CANOE instanceof net.minecraft.world.item.BoatItem, "the canoe item places a boat");
+        h.assertTrue(recipeUses(h, "dugout_canoe", Survival.POLISHED_STONE_AXE), "dugout = logs hollowed with a polished stone axe");
+        h.assertTrue(recipeUses(h, "stone_load", Survival.ROPE), "stone load is tied with rope");
+        player.stopRiding();
+        canoe.discard();
+        LOG.info("[LAB] dugout canoe [0-14]: walking speed {} -> {} with loads; riding -> no slowness; hold 27 slots", free, loaded);
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 

@@ -845,3 +845,4 @@ FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registri
 - `AbstractContainerScreen.hoveredSlot`（protected）、`containerTick()`
 - `ValueOutput.putBoolean` / `ValueInput.getBooleanOr`、`SimpleContainer.removeItemNoUpdate(int)`
 
+- レシピの category に "transportation" は使えない（26.3 の crafting は building / redstone / equipment / misc。間違えると全レシピの読み込みが止まる）（IMP3-01）
