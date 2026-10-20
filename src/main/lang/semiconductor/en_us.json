@@ -202,5 +202,5 @@
   "item.semiconductor-lab.process_wafer.note1": "A silicon wafer getting its mask patterns printed one by one.",
   "item.semiconductor-lab.process_wafer.note2": "Coat resist → expose → develop → etch → diffuse, once per mask. If something goes wrong, strip the resist and try again.",
   "item.semiconductor-lab.process_wafer.note3": "In 1959 Hoerni had the idea of the planar process: keep the oxide and only open windows to diffuse through. The surface stays flat, so many parts can sit side by side and be wired with metal.",
-  "item.semiconductor-lab.process_wafer.note4": "A real wafer carries many copies of the same chip (step and repeat). In the game one wafer holds one chip's worth of pattern and the copies are assumed."
+  "item.semiconductor-lab.process_wafer.note4": "Around 1960 an IC took three diffusions (isolation, base, emitter) and one layer of aluminium wiring, just like in the game. The real process first grew an n-type layer as a crystal (epitaxy) ⚠️; the game doesn't have that yet, so it diffuses n-type islands instead."
 }
