@@ -23,6 +23,11 @@ cassiterite  # Metallurgy [1-22] -3000
 tin_ingot  # Metallurgy [1-30] -3000
 bronze_charge  # Metallurgy [1-05] -3000
 bronze_ingot  # Metallurgy [1-05] -3000
+bone_ash  # Metallurgy [1-32] -3000
+cupel  # Metallurgy [1-32] -3000
+cupel_charge  # Metallurgy [1-32] -3000
+silver_nugget  # Metallurgy [1-32] -3000
+silver_ingot  # Metallurgy [1-32] -3000
 cassiterite_ore  # Metallurgy [1-22] -3000
 vein_quartz  # Metallurgy [1-46] -2500
 quartz_vein  # Metallurgy [1-46] -2500

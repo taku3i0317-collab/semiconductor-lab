@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:cupel_charge",
+  "result": {
+    "id": "semiconductor-lab:silver_nugget"
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}

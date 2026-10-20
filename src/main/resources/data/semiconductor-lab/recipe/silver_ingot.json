@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget",
+    "semiconductor-lab:silver_nugget"
+  ],
+  "result": {
+    "id": "semiconductor-lab:silver_ingot",
+    "count": 1
+  }
+}

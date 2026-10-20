@@ -530,6 +530,19 @@
 - Lamptech「Küch & Retschinsky」：https://www.lamptech.co.uk/Documents/M7%20Kuch%20%26%20Retschinsky.htm
 - Deutsche Biographie「Küch, Richard」：https://www.deutsche-biographie.de/sfz46546.html
 
+## O13. 鉛から銀を取り出す（灰吹法）［1-32］（蒸着の金属）
+**答え**：銀をふくむ鉛を骨灰の皿にのせ、空気を当てて約1000℃に熱すると、鉛は一酸化鉛 PbO になって溶け、皿にしみこむ。酸化しにくい銀だけが皿の上に玉になって残る（灰吹法、キューペレーション）。
+
+- へえ①：石見銀山も灰吹法で銀を取り出していた（1533年に朝鮮半島から伝わった）。
+- へえ②：鉛が全部なくなる瞬間、銀の玉がぱっと輝く（「銀のひらめき」）。
+- へえ③：同じ皿で金や銀の純度を調べる「試金」も行われてきた。
+- へえ④：銀は可視光の反射率が金属で一番高く（95%以上）、真空蒸着で鏡や半透明鏡にする [5-14]。
+
+確かさ：灰吹法の化学 ◎／紀元前3000年ごろから ○／石見銀山 1533・灰吹法 ◎（世界遺産の説明）／世界の銀産出に占める割合 △ → ゲーム内は ⚠️
+根拠：
+- Wikipedia「Cupellation」：https://en.wikipedia.org/wiki/Cupellation
+- UNESCO「Iwami Ginzan Silver Mine and its Cultural Landscape」：https://whc.unesco.org/en/list/1246/
+
 ---
 
 # 冶金と熱（タスク15〜）

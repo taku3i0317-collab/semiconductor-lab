@@ -607,6 +607,24 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-32] 銀（灰吹法、IMP2-01）：骨粉 → 骨灰 → 灰吹き皿、鉛8＋皿 → 調合 →溶鉱炉→ 銀の粒（かまどでは不可＝空気の吹きつけが要る）、粒9 ⇔ インゴット */
+    @GameTest
+    public void silverCupellation(GameTestHelper h) {
+        var SM = net.minecraft.world.item.crafting.RecipeType.SMELTING; var BL = net.minecraft.world.item.crafting.RecipeType.BLASTING;
+        h.assertTrue(cook(h, SM, Items.BONE_MEAL).is(Metallurgy.BONE_ASH), "bone meal calcined -> bone ash");
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("cupel_charge"));
+        var ings = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value().placementInfo().ingredients();
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Metallurgy.LEAD_INGOT))).count(), 8L, "8 lead (argentiferous)");
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Metallurgy.CUPEL))).count(), 1L, "1 bone-ash cupel");
+        h.assertTrue(cook(h, BL, Metallurgy.CUPEL_CHARGE).is(Metallurgy.SILVER_NUGGET), "cupellation with an air blast -> silver");
+        h.assertTrue(cook(h, SM, Metallurgy.CUPEL_CHARGE).isEmpty(), "plain furnace: no air blast -> no cupellation");
+        h.assertTrue(recipeUses(h, "silver_ingot", Metallurgy.SILVER_NUGGET) && recipeUses(h, "silver_nugget_from_ingot", Metallurgy.SILVER_INGOT), "9 nuggets <-> ingot");
+        var tag = net.minecraft.tags.TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "ingots/silver"));
+        h.assertTrue(new ItemStack(Metallurgy.SILVER_INGOT).is(tag), "c:ingots/silver");
+        LOG.info("[LAB] silver [1-32]: bone ash cupel + 8 lead -> blast furnace -> silver nugget");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Metallurgy.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(Metallurgy.STEEL_INGOT, 1)),

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:bone_ash",
+    "semiconductor-lab:bone_ash",
+    "semiconductor-lab:bone_ash",
+    "semiconductor-lab:bone_ash"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cupel",
+    "count": 1
+  }
+}

@@ -33,6 +33,12 @@ public final class Metallurgy {
     public static final Item TIN_INGOT             = Reg.item("tin_ingot");        // [1-30] スズ（IMP2-01。SnO2 + 2C → Sn + 2CO、融点 232℃）
     public static final Item BRONZE_CHARGE         = Reg.item("bronze_charge");    // [1-05] 青銅の地金の調合（銅8＋スズ1。るつぼに入れて溶かす）
     public static final Item BRONZE_INGOT          = Reg.item("bronze_ingot");     // [1-05] 青銅（Cu-Sn 約11%、IMP2-01）
+    // [1-32] 銀（灰吹法、IMP2-01）：骨粉 →かまど→ 骨灰 ×4 → 灰吹き皿。鉛8＋皿 → 灰吹きの調合 →溶鉱炉（空気を吹く）→ 銀の粒（PbO は皿に吸われる）
+    public static final Item BONE_ASH              = Reg.item("bone_ash");          // 骨灰（リン酸カルシウム）
+    public static final Item CUPEL                 = Reg.item("cupel");             // 灰吹き皿
+    public static final Item CUPEL_CHARGE          = Reg.item("cupel_charge");      // 鉛（銀入り）を皿にのせたもの
+    public static final Item SILVER_NUGGET         = Reg.item("silver_nugget");
+    public static final Item SILVER_INGOT          = Reg.item("silver_ingot");
     public static final Item MALACHITE             = Reg.item("malachite");        // [1-03] 孔雀石 Cu2CO3(OH)2（IMP2-01。銅鉱床の上の酸化帯）
     public static final Item GALENA                = Reg.item("galena");
     public static final Item GRAPHITE              = Reg.item("graphite");
