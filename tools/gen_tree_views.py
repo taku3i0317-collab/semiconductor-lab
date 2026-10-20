@@ -21,7 +21,7 @@ OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
 
 ID_RE = re.compile(r"\[(\d+|B)-(\d+[a-z]?)\]")
 HEAD_RE = re.compile(r"^###\s+\[(\d+|B)-(\d+[a-z]?)\]\s*(.*)$")
-START, GOAL = "0-01", "9-40"
+START, GOAL = "0-01", "10-16"   # 最終目的は AI（DESIGN「MOD の最終目的」、2026-10-20）。EUV [9-40] はその手前の最後の機械
 GOALS = [GOAL]
 TRUNK_NAMES = {
     "0": "生存・道具", "1": "冶金", "2": "化学", "3": "熱", "4": "動力・電気",
@@ -299,10 +299,10 @@ def render(nodes, dups):
         if xs:
             L.append(f"- 幹{t} {TRUNK_NAMES[t]}: " + "、".join(f"[{i}] {nodes[i]['name']}" for i in xs))
     # 2) 背骨
-    L += ["", "## 2. 背骨（石器→EUV）", ""]
+    L += ["", "## 2. 背骨（石器→EUV→AI）", ""]
     sc = shortest_chain(nodes, START, GOAL)
     if sc:
-        L.append(f"最短の鎖（[{START}] から [{GOAL}] EUV露光装置まで {len(sc)} ノード）")
+        L.append(f"最短の鎖（[{START}] から [{GOAL}] AI まで {len(sc)} ノード）")
         L += mermaid_chain(nodes, sc)
     else:
         L.append(f"⚠️ [{START}] から [{GOAL}] へ前提をたどる鎖が見つからない（背骨が切れている）")
@@ -333,10 +333,10 @@ def render(nodes, dups):
             xs = [n["id"] for n in by.get(t, []) if n["year"] is not None and lo <= n["year"] <= hi]
             cells.append(" ".join(sorted(xs, key=sort_key)) or "")
         L.append(f"| {t} {TRUNK_NAMES[t]} | " + " | ".join(cells) + " |")
-    # 5) EUV までの残り
+    # 5) AI（EUV の先）までの残り
     anc = ancestors(nodes, GOALS)
     todo = [u for u in topo(nodes, anc) if nodes[u]["st"] in ("❓", "⛔", "🔧")]
-    L += ["", f"## 5. EUV までの残り ToDo（{' '.join('['+g+']' for g in GOALS)} の祖先のうち未完成、トポロジカル順）", "",
+    L += ["", f"## 5. AI までの残り ToDo（{' '.join('['+g+']' for g in GOALS)} の祖先のうち未完成、トポロジカル順）", "",
           f"{len(todo)} / {len(anc)} ノードが未完成", ""]
     for k, u in enumerate(todo, 1):
         n = nodes[u]
