@@ -440,3 +440,7 @@
 - hydrofluoric_acid_pe（Vessel.POLYETHYLENE_BOTTLE）、移しかえのレシピ（フッ酸＋空の PE の瓶 → PE のフッ酸、鉛の瓶は戻る）、タグ #semiconductor-lab:hydrofluoric_acid（Chemistry.HF_TAG）に両方。A の silicon_etch はタグに。DECISIONS「前例：容器のしくみ」、CHEMISTRY PE2、へえ・GHS
 - **E へ**：フッ酸を使う機械をタグで受けるように（`s.is(Chemistry.HF_TAG)`）：CleaningBenchBlockEntity（SLOT_HF の2か所）・EtchTankBlockEntity（isAcid・87行の窓の判定）、レシピ cryolite.json の HF を `#semiconductor-lab:hydrofluoric_acid` に。HfRetort が空の PE の瓶にも詰められるようにするかは E の判断
 
+## O-014 ② [9-32] 段階2 ダイシングソー（2026-10-20）
+- dicing_saw（block/DicingSawBlockEntity、1.5kW×10秒、Machine.electric）・diamond_blade（ダイヤモンド＋青銅×4 → 2、耐久32）。台のボールねじ（C の ball_screw、段階 1〜3）が入口にないと動かない。欠ける確率 4%・2%・1%（けがき針は 10%）
+- TECH_TREE [9-32] 段階1・2、CHEMISTRY S-D2、REFERENCES L7、test_queue、GameTest dicing に足した。年（1960年代の終わり〜70年代）は ⚠️
+

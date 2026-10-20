@@ -1552,6 +1552,27 @@ public class SemiconductorTests extends LabTestBase {
         probe.onButton(h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE);
         h.assertValueEqual(probe.found(), (1 << com.taku3.semiconductorlab.litho.Discoveries.all().size()) - 1, "a chip gives the same discoveries as its wafer");
         h.assertTrue(recipeUses(h, "diamond_scribe", net.minecraft.world.item.Items.DIAMOND), "the scribe has a real diamond point");
+        // 段階2：ダイシングソー（ボールねじの台、刃は32枚で減る）。欠けは段階1 より少ない
+        int sawTotal = 0;
+        for (int i = 0; i < 200; i++) sawTotal += com.taku3.semiconductorlab.block.DicingSawBlockEntity.saw(done, 3, rnd).getCount();
+        h.assertTrue(sawTotal > 200 * 8 - 10, "the saw with a grade-3 stage rarely breaks a chip: " + sawTotal + " of " + 200 * 8);
+        h.setBlock(p(3, 1, 1), Semiconductor.DICING_SAW.block);
+        var saw = h.getBlockEntity(p(3, 1, 1), com.taku3.semiconductorlab.block.DicingSawBlockEntity.class);
+        var sc = saw.getContainer();
+        sc.setItem(com.taku3.semiconductorlab.block.DicingSawBlockEntity.SLOT_WAFER, done.copyWithCount(2));
+        sc.setItem(com.taku3.semiconductorlab.block.DicingSawBlockEntity.SLOT_BLADE, new ItemStack(Semiconductor.DIAMOND_BLADE));
+        long sawFeed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DicingSawBlockEntity.WATTS);
+        tickConsumer(h, p(3, 1, 1), saw, com.taku3.semiconductorlab.block.DicingSawBlockEntity.TICKS + 5, sawFeed);
+        h.assertTrue(sc.getItem(com.taku3.semiconductorlab.block.DicingSawBlockEntity.SLOT_OUT).isEmpty(), "no ball-screw stage -> the saw does not cut");
+        ItemStack screw = new ItemStack(com.taku3.semiconductorlab.content.Precision.BALL_SCREW);
+        screw.set(com.taku3.semiconductorlab.content.Precision.BEARING_GRADE, 3);
+        sc.setItem(com.taku3.semiconductorlab.block.DicingSawBlockEntity.SLOT_STAGE, screw);
+        tickConsumer(h, p(3, 1, 1), saw, com.taku3.semiconductorlab.block.DicingSawBlockEntity.TICKS + 5, sawFeed);
+        ItemStack sawn = sc.getItem(com.taku3.semiconductorlab.block.DicingSawBlockEntity.SLOT_OUT);
+        h.assertTrue(sawn.is(Semiconductor.CHIP) && sawn.getCount() >= 7 && sawn.get(ModDataComponents.CHIP_STATE).equals(done.get(ModDataComponents.CHIP_STATE)), "saw: wafer -> chips with the chip state, got " + sawn);
+        h.assertValueEqual(sc.getItem(com.taku3.semiconductorlab.block.DicingSawBlockEntity.SLOT_BLADE).getDamageValue(), 1, "the blade wears by one wafer");
+        h.assertTrue(!sc.getItem(com.taku3.semiconductorlab.block.DicingSawBlockEntity.SLOT_STAGE).isEmpty(), "the stage is not used up");
+        LOG.info("[LAB] dicing [9-32] stage 2 (saw, grade-3 stage): {} chips of {}", sawTotal, 200 * 8);
         LOG.info("[LAB] dicing [9-32] stage 1: wafer -> {} chips over 50 wafers (8 each, ~10% lose one), chip state kept, probe finds all", total);
         h.succeed();
     }

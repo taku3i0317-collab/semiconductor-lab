@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/dicing_saw_front",
+    "side": "semiconductor-lab:block/dicing_saw_side",
+    "top": "semiconductor-lab:block/dicing_saw_top"
+  }
+}

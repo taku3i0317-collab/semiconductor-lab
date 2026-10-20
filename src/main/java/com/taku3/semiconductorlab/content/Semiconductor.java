@@ -59,6 +59,8 @@ public final class Semiconductor {
     // [9-32] ダイシング 段階1（A、O-013）：ダイヤモンドのけがき針で傷を付けて割る（1960ごろ）→ チップ（chip_state を引き継ぐ）
     public static final Item DIAMOND_SCRIBE        = Reg.item("diamond_scribe", com.taku3.semiconductorlab.item.DiamondScribeItem::new, new Item.Properties().durability(64));
     public static final Item CHIP                  = Reg.item("chip");
+    // [9-32] 段階2（A、O-014）：ダイシングソーの刃（ダイヤモンドの粒を青銅で固めた薄い円盤、32枚で減る）
+    public static final Item DIAMOND_BLADE         = Reg.item("diamond_blade", new Item.Properties().durability(com.taku3.semiconductorlab.block.DicingSawBlockEntity.BLADE_USES));
     // 製図台の設計図（方眼紙、成分 chip_design）と原図（ルビリス、成分 mask）。⚠️ 材料なしで製図台から出る（INBOX S-001）
     public static final Item LAYOUT_SHEET          = Reg.item("layout_sheet", new Item.Properties().stacksTo(1));
     public static final Item RUBYLITH              = Reg.item("rubylith", new Item.Properties().stacksTo(1));
@@ -95,6 +97,7 @@ public final class Semiconductor {
     // [9-19] レジスト塗布機（スピンコーター、IMP4-01）：回して薄く広げ、温めて溶剤を飛ばす（ChipOps.coat）。500W
     public static final Machine<SpinCoaterBlockEntity> SPIN_COATER = Machine.electric("spin_coater", SpinCoaterBlockEntity::new, SpinCoaterBlockEntity.LAYOUT, metal(3.0f));
     // レジストはがし槽（[9-21] の続き、IMP4-01）：熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。500W
+    public static final Machine<DicingSawBlockEntity> DICING_SAW = Machine.electric("dicing_saw", DicingSawBlockEntity::new, DicingSawBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<ResistStripperBlockEntity> RESIST_STRIPPER = Machine.electric("resist_stripper", ResistStripperBlockEntity::new, ResistStripperBlockEntity.LAYOUT, metal(3.0f));
     // [9-21] 現像槽（IMP4-01）：薄いアルカリで光の当たったレジストを溶かし、熱板で固める（ChipOps.develop）。300W
     public static final Machine<DeveloperBenchBlockEntity> DEVELOPER_BENCH = Machine.electric("developer_bench", DeveloperBenchBlockEntity::new, DeveloperBenchBlockEntity.LAYOUT, metal(3.0f));

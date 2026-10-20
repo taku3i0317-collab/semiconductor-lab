@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "pattern": [
+    " B ",
+    "BDB",
+    " B "
+  ],
+  "key": {
+    "B": "semiconductor-lab:bronze_ingot",
+    "D": "minecraft:diamond"
+  },
+  "result": {
+    "id": "semiconductor-lab:diamond_blade",
+    "count": 2
+  }
+}

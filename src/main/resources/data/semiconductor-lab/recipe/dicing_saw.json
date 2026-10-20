@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SMS",
+    "SCS",
+    "SBS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "M": "semiconductor-lab:electric_motor",
+    "C": "semiconductor-lab:copper_cable",
+    "B": "semiconductor-lab:ball_screw"
+  },
+  "result": {
+    "id": "semiconductor-lab:dicing_saw",
+    "count": 1
+  }
+}

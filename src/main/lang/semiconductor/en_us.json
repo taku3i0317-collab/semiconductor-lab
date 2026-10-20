@@ -376,5 +376,15 @@
   "item.semiconductor-lab.chip.note1": "One small piece cut from the wafer. Put it on the probe station to test it.",
   "item.semiconductor-lab.chip.note2": "Every chip from one wafer has the same circuit, because the same masks were printed over the whole wafer.",
   "item.semiconductor-lab.chip.note3": "The first ICs were a few millimetres across. Next the chip is bonded with thin gold wires and sealed in a package (later nodes).",
-  "item.semiconductor-lab.chip.note4": "In industry 'die' is the word for one chip (plural dice). The share of good dice per wafer is the yield, which decides the cost of every chip."
+  "item.semiconductor-lab.chip.note4": "In industry 'die' is the word for one chip (plural dice). The share of good dice per wafer is the yield, which decides the cost of every chip.",
+  "block.semiconductor-lab.dicing_saw": "Dicing Saw",
+  "block.semiconductor-lab.dicing_saw.note1": "Cuts a finished wafer into chips with a spinning diamond blade. Fewer chips break than when you snap them by hand.",
+  "block.semiconductor-lab.dicing_saw.note2": "Wafer + diamond blade + ball screw (the stage, not used up) + 1.5 kW for 10 s -> 8 chips. Chance one breaks: 4% / 2% / 1% by ball-screw grade (hand scribing: 10%).",
+  "block.semiconductor-lab.dicing_saw.note3": "A thin disc with diamond grit spins very fast under running water and cuts straight grooves; a precise stage moves the wafer. Saws replaced scribe-and-break as chips grew and wafers got thicker. ⚠️ the year it became common (late 1960s-70s) is not confirmed.",
+  "block.semiconductor-lab.dicing_saw.note4": "The cut (kerf) is only a few tens of micrometres wide, so little silicon is lost. Today the wafer is first stuck on tape so the chips do not scatter. ⚠️ power, time and break chances are game values.",
+  "item.semiconductor-lab.diamond_blade": "Diamond Dicing Blade",
+  "item.semiconductor-lab.diamond_blade.note1": "A thin metal disc with diamond grit. Put it in the dicing saw.",
+  "item.semiconductor-lab.diamond_blade.note2": "Diamond grit held in bronze (a metal bond). It wears a little with every wafer: 32 wafers per blade.",
+  "item.semiconductor-lab.diamond_blade.note3": "Blades are only about 20-50 µm thick. Metal-bonded (bronze or nickel) and resin-bonded blades are used. ⚠️ the bronze bond and the wear are game simplifications.",
+  "item.semiconductor-lab.diamond_blade.note4": "Diamond is the hardest material, so it can cut silicon (and sapphire, glass) cleanly; the grit size sets how smooth the cut edge is."
 }
