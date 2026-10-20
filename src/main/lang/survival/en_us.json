@@ -66,5 +66,11 @@
   "item.semiconductor-lab.earthenware_pot.note2": "Fire an unfired clay pot on a campfire (open firing) or in a furnace. Water no longer turns it back into clay. Can be used as the boiling pot of a salt pan (instead of a cauldron).",
   "item.semiconductor-lab.earthenware_pot.note3": "Clay minerals such as kaolinite lose the water (OH) inside their crystals at about 500-600 C and become something else (metakaolin). The change only goes one way: adding water will not make clay again. Open firing reaches about 600-900 C.",
   "item.semiconductor-lab.earthenware_pot.note4": "Among the oldest pottery is from Xianren Cave, Jiangxi, China (about 20,000 years ago). In Japan, sherds about 16,500 years old come from Odai Yamamoto, Aomori ⚠️. Hunter-gatherers made pottery before farming began. Late Jomon people also had pots for boiling seawater into salt.",
-  "item.semiconductor-lab.earthenware_pot.placeholder": "Omitted: uneven firing, cracking and leaky unglazed pots."
+  "item.semiconductor-lab.earthenware_pot.placeholder": "Omitted: uneven firing, cracking and leaky unglazed pots.",
+  "item.semiconductor-lab.polished_stone_axe": "Polished Stone Axe",
+  "item.semiconductor-lab.polished_stone_axe.note1": "Grind a stone axe with sand and water and its edge stops chipping. Now it has a wooden handle.",
+  "item.semiconductor-lab.polished_stone_axe.note2": "Hand axe + sand + water bucket (returned) + stick. Lasts longer and cuts faster than a knapped axe (200 durability, a little faster than a stone axe). Repair with flint or obsidian.",
+  "item.semiconductor-lab.polished_stone_axe.note3": "A knapped edge is covered with small steps and scars where flakes came off, and cracks start there. Rubbing it for hours with sand (quartz, very hard) and water removes them, giving an edge that does not chip when chopping wood. Neolithic people cleared forests with these axes to make fields and houses.",
+  "item.semiconductor-lab.polished_stone_axe.note4": "A well lining near Leipzig, Germany, was cut in 5206-5098 BC (dated by tree rings) and joined with mortise-and-tenon joints, probably shaped with polished stone axes. Axes with only the edge ground have been found in Palaeolithic Japan (about 38,000 years ago), among the oldest in the world ⚠️.",
+  "item.semiconductor-lab.polished_stone_axe.placeholder": "Omitted: the grinding time (really hours to days) and choosing a good axe stone (greenstone, jadeite)."
 }

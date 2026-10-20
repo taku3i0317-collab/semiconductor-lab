@@ -52,6 +52,9 @@ public final class Survival {
     // --- [0-03] 土器（約2万年前〜）。粘土は約500〜600℃で結晶水が抜け、もう水で戻らない ---
     public static final Item RAW_CLAY_POT          = Reg.item("raw_clay_pot", new Item.Properties().stacksTo(16));
     public static final Item EARTHENWARE_POT       = Reg.item("earthenware_pot", new Item.Properties().stacksTo(16));
+    // --- [0-08] 木工（新石器時代の磨製石斧）。打ち欠いた斧を砂と水で研ぐと、剥離の傷が消えて欠けにくい刃になる。柄を付ける ---
+    public static final ToolMaterial POLISHED_STONE_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_STONE_TOOL, 200, 4.5f, 1.0f, 5, KNAPPING_STONES);
+    public static final Item POLISHED_STONE_AXE    = Reg.item("polished_stone_axe", new Item.Properties().axe(POLISHED_STONE_MATERIAL, 6.0f, -3.1f));
     /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
     public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
 

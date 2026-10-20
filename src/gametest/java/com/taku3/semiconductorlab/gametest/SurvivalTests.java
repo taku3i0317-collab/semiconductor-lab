@@ -187,6 +187,31 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-08] 木工（IMP3-01）：磨製石斧
+    // =====================================================================
+
+    /** ハンドアックス＋砂＋水（バケツは戻る）＋棒 → 磨製石斧。打ち欠いた斧より長もちで速い。砂なし・水なしでは研げない */
+    @GameTest
+    public void polishedStoneAxe(GameTestHelper h) {
+        var mgr = h.getLevel().getServer().getRecipeManager();
+        var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        java.util.function.Function<List<ItemStack>, java.util.Optional<net.minecraft.world.item.crafting.RecipeHolder<net.minecraft.world.item.crafting.CraftingRecipe>>> find =
+                l -> mgr.getRecipeFor(CRAFT, net.minecraft.world.item.crafting.CraftingInput.of(2, 2, l), h.getLevel());
+        var full = List.of(new ItemStack(Survival.HAND_AXE), new ItemStack(Items.SAND), new ItemStack(Items.WATER_BUCKET), new ItemStack(Items.STICK));
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(2, 2, full);
+        var r = find.apply(full).orElseThrow().value();
+        h.assertTrue(r.assemble(input).is(Survival.POLISHED_STONE_AXE), "hand axe + sand + water + stick -> polished stone axe");
+        h.assertTrue(r.getRemainingItems(input).stream().anyMatch(s -> s.is(Items.BUCKET)), "the bucket comes back");
+        h.assertTrue(find.apply(List.of(new ItemStack(Survival.HAND_AXE), ItemStack.EMPTY, new ItemStack(Items.WATER_BUCKET), new ItemStack(Items.STICK))).isEmpty(), "no sand (abrasive) -> no polishing");
+        h.assertTrue(find.apply(List.of(new ItemStack(Survival.HAND_AXE), new ItemStack(Items.SAND), ItemStack.EMPTY, new ItemStack(Items.STICK))).isEmpty(), "no water -> no polishing");
+        BlockState log = Blocks.OAK_LOG.defaultBlockState();
+        h.assertTrue(new ItemStack(Survival.POLISHED_STONE_AXE).getDestroySpeed(log) > new ItemStack(Survival.HAND_AXE).getDestroySpeed(log), "polished axe cuts faster than a knapped one");
+        h.assertTrue(new ItemStack(Survival.POLISHED_STONE_AXE).getMaxDamage() > new ItemStack(Survival.HAND_AXE).getMaxDamage(), "polished edge does not chip as fast");
+        LOG.info("[LAB] polished stone axe [0-08]: hand axe + sand + water + stick; speed {} vs hand axe {}", new ItemStack(Survival.POLISHED_STONE_AXE).getDestroySpeed(log), new ItemStack(Survival.HAND_AXE).getDestroySpeed(log));
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-10] 生石灰・[0-11] 消石灰
     // =====================================================================
 

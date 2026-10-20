@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "semiconductor-lab:hand_axe",
+    "minecraft:sand",
+    "minecraft:water_bucket",
+    "minecraft:stick"
+  ],
+  "result": {
+    "id": "semiconductor-lab:polished_stone_axe",
+    "count": 1
+  }
+}

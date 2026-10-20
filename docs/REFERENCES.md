@@ -501,6 +501,20 @@
 - Wikipedia「Newton's reflector」：https://en.wikipedia.org/wiki/Newton%27s_reflector
 - Wikipedia「Leviathan of Parsonstown」：https://en.wikipedia.org/wiki/Leviathan_of_Parsonstown
 
+## O11. 細い針金の格子で光の波長を測る（回折格子）［7-07］
+**答え**：等しい間隔 d のすき間をたくさん通った光は、d·sinθ = λ（1次）を満たす角度でだけ強め合う。d と角度 θ を測れば、波長 λ が長さとして決まる。1821年ごろフラウンホーファーは、2本の細いねじに針金を巻いた格子で、太陽の D線の波長を約1000分の1の精度で初めて測った。
+
+- へえ①：CD の裏の虹色も回折格子（溝の間隔 1.6μm）。
+- へえ②：プリズムは紫ほど強く曲げるが、格子は赤ほど大きく曲げる。
+- へえ③：フラウンホーファーの格子は、太さ 0.002 インチの針金を 0.004 インチ間隔で並べたもの。
+- へえ④：1882年ローランドは刻線機で金属に細かい溝を刻んだ格子を作り、太陽スペクトルの精密な地図を作った [8-12]。
+
+確かさ：格子の式 ◎／フラウンホーファーの針金格子と D線の測定 ○（年は 1820〜1821 で資料により違う）／針金の太さ・間隔 ○（一つの資料）／ローランド 1882 ○
+根拠：
+- Physics Today「The master of dispersion」（フラウンホーファー）：https://physicstoday.aip.org/opinion/the-master-of-dispersion
+- Kenyon College「Diffraction Grating」（初期の格子）：https://physics.kenyon.edu/EarlyApparatus/Optics/Diffraction_Grating/Diffraction_Grating.html
+- EBSCO「Fraunhofer Invents the Spectroscope」：https://ebsco.com/research-starters/history/fraunhofer-invents-spectroscope
+
 ---
 
 # 生存（IMP3-01〜）
@@ -537,19 +551,18 @@
 - Wikipedia「Kaolinite」（加熱による変化）：https://en.wikipedia.org/wiki/Kaolinite
 - Wikipedia「Jōmon pottery」：https://en.wikipedia.org/wiki/J%C5%8Dmon_pottery
 
-## O11. 細い針金の格子で光の波長を測る（回折格子）［7-07］
-**答え**：等しい間隔 d のすき間をたくさん通った光は、d·sinθ = λ（1次）を満たす角度でだけ強め合う。d と角度 θ を測れば、波長 λ が長さとして決まる。1821年ごろフラウンホーファーは、2本の細いねじに針金を巻いた格子で、太陽の D線の波長を約1000分の1の精度で初めて測った。
+## S3. 研いだ石の刃は欠けにくい（磨製石斧）［0-08］
+**答え**：打ち欠いた刃には剥離の段や小さな傷が多く、そこからひびが広がって欠ける。砂（石英）と水で砥石の上を長くこすって傷を消すと、木を切っても欠けにくい刃になる。新石器時代の人は、柄を付けた磨製石斧で森を切りひらいた。
 
-- へえ①：CD の裏の虹色も回折格子（溝の間隔 1.6μm）。
-- へえ②：プリズムは紫ほど強く曲げるが、格子は赤ほど大きく曲げる。
-- へえ③：フラウンホーファーの格子は、太さ 0.002 インチの針金を 0.004 インチ間隔で並べたもの。
-- へえ④：1882年ローランドは刻線機で金属に細かい溝を刻んだ格子を作り、太陽スペクトルの精密な地図を作った [8-12]。
+- へえ①：石の斧を研ぐと、欠けにくい刃になる。
+- へえ②：研ぐには、斧の石より硬い砂（石英）が要る。水は削りかすを流し、熱を逃がす。
+- へえ③：ライプツィヒ近郊の井戸の木枠は、年輪で紀元前5206〜5098年に切られた木で、ほぞ組みだった。
+- へえ④：刃の部分だけを研いだ斧は、日本の旧石器時代（約3万8000年前）にも見つかっている⚠️。
 
-確かさ：格子の式 ◎／フラウンホーファーの針金格子と D線の測定 ○（年は 1820〜1821 で資料により違う）／針金の太さ・間隔 ○（一つの資料）／ローランド 1882 ○
+確かさ：研磨で欠けにくくなるしくみ ○／ライプツィヒの井戸枠の年輪年代 ○（Tegel ほか 2012）／日本の局部磨製石斧の年代 △ → ゲーム内は ⚠️
 根拠：
-- Physics Today「The master of dispersion」（フラウンホーファー）：https://physicstoday.aip.org/opinion/the-master-of-dispersion
-- Kenyon College「Diffraction Grating」（初期の格子）：https://physics.kenyon.edu/EarlyApparatus/Optics/Diffraction_Grating/Diffraction_Grating.html
-- EBSCO「Fraunhofer Invents the Spectroscope」：https://ebsco.com/research-starters/history/fraunhofer-invents-spectroscope
+- Tegel ほか 2012「Early Neolithic water wells reveal the world's oldest wood architecture」PLOS ONE：https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051374
+- Wikipedia「Stone axe」：https://en.wikipedia.org/wiki/Stone_axe
 
 ---
 
