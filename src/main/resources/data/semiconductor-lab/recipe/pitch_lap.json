@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:pitch",
+    "semiconductor-lab:pitch",
+    "semiconductor-lab:pitch",
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:pitch_lap",
+    "count": 1
+  }
+}

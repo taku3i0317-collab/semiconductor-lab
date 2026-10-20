@@ -165,6 +165,43 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** 作業台で並べたときの {出力, 戻る物} */
+    private static ItemStack[] craft(GameTestHelper h, net.minecraft.world.item.Item... items) {
+        List<ItemStack> list = new ArrayList<>();
+        for (int i = 0; i < 9; i++) list.add(i < items.length ? new ItemStack(items[i]) : ItemStack.EMPTY);
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(3, 3, list);
+        var r = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel());
+        if (r.isEmpty()) return new ItemStack[] {ItemStack.EMPTY, ItemStack.EMPTY};
+        ItemStack back = r.get().value().getRemainingItems(input).stream().filter(s -> !s.isEmpty()).findFirst().orElse(ItemStack.EMPTY);
+        return new ItemStack[] {r.get().value().assemble(input), back};
+    }
+
+    /** [7-03] レンズ研磨（IMP2-01）：光学ガラス＋砂＋研削皿 → すりガラスの素材、素材＋ベンガラ＋ピッチの研磨皿 → レンズ。道具は戻る */
+    @GameTest
+    public void lensGrinding(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Items.IRON_NUGGET).is(Optics.ROUGE), "iron roasted in air -> rouge Fe2O3");
+        h.assertTrue(craft(h, Items.IRON_INGOT, Items.IRON_INGOT, Items.IRON_INGOT)[0].is(Optics.GRINDING_TOOL), "3 iron -> cast iron grinding tool");
+        h.assertTrue(craft(h, Chemistry.PITCH, Chemistry.PITCH, Chemistry.PITCH, Items.IRON_INGOT)[0].is(Optics.PITCH_LAP), "pitch on an iron dish -> pitch lap");
+        net.minecraft.world.item.Item[][] g = {{Optics.CROWN_GLASS, Optics.CROWN_LENS_BLANK, Optics.CROWN_LENS}, {Optics.FLINT_GLASS, Optics.FLINT_LENS_BLANK, Optics.FLINT_LENS}};
+        for (var row : g) {
+            var ground = craft(h, row[0], Items.SAND, Optics.GRINDING_TOOL);
+            h.assertTrue(ground[0].is(row[1]), row[0] + " + sand + grinding tool -> ground blank");
+            h.assertTrue(ground[1].is(Optics.GRINDING_TOOL), "grinding tool comes back");
+            var pol = craft(h, row[1], Optics.ROUGE, Optics.PITCH_LAP);
+            h.assertTrue(pol[0].is(row[2]), row[1] + " + rouge + pitch lap -> lens");
+            h.assertTrue(pol[1].is(Optics.PITCH_LAP), "pitch lap comes back");
+            // 段を飛ばせない：研削せずに磨けない、磨き粉なし・皿なしでは磨けない
+            h.assertTrue(craft(h, row[0], Optics.ROUGE, Optics.PITCH_LAP)[0].isEmpty(), "unground glass cannot be polished");
+            h.assertTrue(craft(h, row[1], Items.SAND, Optics.PITCH_LAP)[0].isEmpty(), "sand does not polish (scratches)");
+            h.assertTrue(craft(h, row[1], Optics.ROUGE)[0].isEmpty(), "no lap -> no polish");
+        }
+        // バニラのガラス・ソーダ石灰ガラスからはレンズにしない（光学ガラス [7-01] だけ）
+        h.assertTrue(craft(h, Items.GLASS, Items.SAND, Optics.GRINDING_TOOL)[0].isEmpty(), "vanilla glass is not lens glass");
+        h.assertTrue(craft(h, Chemistry.SODA_LIME_GLASS, Items.SAND, Optics.GRINDING_TOOL)[0].isEmpty(), "soda-lime glass must be remelted to crown first");
+        LOG.info("[LAB] lens grinding [7-03]: glass + sand + grinding tool -> blank; blank + rouge + pitch lap -> crown/flint lens; tools come back");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),

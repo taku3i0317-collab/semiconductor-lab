@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crown_glass",
+    "minecraft:sand",
+    "semiconductor-lab:grinding_tool"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crown_lens_blank",
+    "count": 1
+  }
+}

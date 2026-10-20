@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:flint_lens_blank",
+    "semiconductor-lab:rouge",
+    "semiconductor-lab:pitch_lap"
+  ],
+  "result": {
+    "id": "semiconductor-lab:flint_lens",
+    "count": 1
+  }
+}

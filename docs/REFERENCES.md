@@ -400,6 +400,20 @@
 - Wikipedia「Patent Act of 1790」（発明者の取り違えの話）：https://en.wikipedia.org/wiki/Patent_Act_of_1790
 - ユニヴェルサリス「Fraunhofer」：https://www.universalis.fr/encyclopedie/joseph-von-fraunhofer/2-un-savant-et-experimentateur-renomme/
 
+## O4. 砂で削り、ピッチで磨く（レンズ研磨）［7-03］
+**答え**：ガラスを鉄の皿の上で水と砂（エメリー）でこすってレンズの形に削り（研削）、すりガラスになった面を、やわらかいピッチの皿と細かい研磨剤（パテ＝酸化スズ、ベンガラ、今は酸化セリウム）で透明に磨く（研磨）。
+
+- へえ①：レンズは固い道具ではなく、柔らかい「やに」（ピッチ）で磨く。ピッチがゆっくり流れてレンズの形になじむ。
+- へえ②：2枚の面をいろいろな向きにこすり合わせると、自然に球面になる。だから昔のレンズはほとんど球面。
+- へえ③：ニュートンは反射望遠鏡の鏡をピッチの上で磨いた（ピッチの研磨皿を最初に使った人かもしれない）。19世紀のロス卿は研磨剤に赤い酸化鉄を使った。
+- へえ④：磨いた面の形はニュートンリング（干渉縞）で確かめる。縞1本は波長の半分（約0.3μm）。今の CeO2 の研磨は化学反応も使い、半導体の CMP（化学機械研磨）と同じ考え方。
+
+確かさ：研削→ピッチ研磨の工程 ◎／ニュートンのピッチ研磨 ○（「最初」かは不確か）／ロス卿の酸化鉄 ○／ベンガラのレンズ研磨の開始時期・CeO2 の1940年代 △ → ゲーム内は ⚠️
+根拠：
+- Wikipedia「Newton's reflector」：https://en.wikipedia.org/wiki/Newton%27s_reflector
+- Science Museum ブログ「Looking at the mirror」（ハーシェルのエメリー研削、ニュートン・ハドリーのピッチ）：https://blog.sciencemuseum.org.uk/looking-at-the-mirror
+- Science Museum Group 所蔵 ハーシェルのピッチ研磨皿（1770〜1820）：https://collection.sciencemuseumgroup.org.uk/objects/co56270
+
 ---
 
 # 冶金と熱（タスク15〜）
