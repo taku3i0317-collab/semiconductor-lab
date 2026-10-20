@@ -34,3 +34,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - へえの訂正：ベロヴォデの製錬はマンガンを含む銅鉱石（きれいな孔雀石はビーズ）→ lang を合わせた
 - ✅ [1-22] 錫石：新しい鉱石 cassiterite_ore（花崗岩だけ、鉄マンガン重石と同じ帯）→ 錫石。GameTest ore_cassiterite、CHEMISTRY M3。テスト 93/93（REFERENCES は [1-30] とまとめて O8）
 - ✅ [1-30] スズ：錫石 → かまど/溶鉱炉 → tin_ingot（c:ingots/tin）。GameTest tin_from_cassiterite、CHEMISTRY M4、REFERENCES O8（[1-22] と共通）。テスト 94/94
+- ✅ [1-05] 青銅：銅8＋スズ1 → 調合9 → かまど/溶鉱炉 → bronze_ingot（c:ingots/bronze）。GameTest bronze、CHEMISTRY M5〜M6、REFERENCES O9。テスト 95/95

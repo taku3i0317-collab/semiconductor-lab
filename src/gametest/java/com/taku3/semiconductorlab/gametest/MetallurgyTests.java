@@ -592,6 +592,21 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-05] 青銅（IMP2-01）：銅8＋スズ1 → 地金の調合9 →かまど/溶鉱炉→ 青銅（Sn 約11%）。c:ingots/bronze */
+    @GameTest
+    public void bronze(GameTestHelper h) {
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("bronze_charge"));
+        var ings = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value().placementInfo().ingredients();
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Items.COPPER_INGOT))).count(), 8L, "8 copper");
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Metallurgy.TIN_INGOT))).count(), 1L, "1 tin (~11% Sn)");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.BRONZE_CHARGE).is(Metallurgy.BRONZE_INGOT), "melts in a furnace (~950 C)");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.BRONZE_CHARGE).is(Metallurgy.BRONZE_INGOT), "blast furnace too");
+        var tag = net.minecraft.tags.TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "ingots/bronze"));
+        h.assertTrue(new ItemStack(Metallurgy.BRONZE_INGOT).is(tag), "bronze ingot is c:ingots/bronze");
+        LOG.info("[LAB] bronze [1-05]: 8 copper + 1 tin -> 9 charge -> furnace -> bronze (Sn ~11%)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Metallurgy.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(Metallurgy.STEEL_INGOT, 1)),

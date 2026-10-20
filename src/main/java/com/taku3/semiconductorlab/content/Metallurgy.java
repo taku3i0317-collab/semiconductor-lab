@@ -31,6 +31,8 @@ public final class Metallurgy {
     public static final Item WOLFRAMITE            = Reg.item("wolframite");
     public static final Item CASSITERITE           = Reg.item("cassiterite");      // [1-22] 錫石 SnO2（IMP2-01。花崗岩の鉱脈、鉄マンガン重石と同じ帯）
     public static final Item TIN_INGOT             = Reg.item("tin_ingot");        // [1-30] スズ（IMP2-01。SnO2 + 2C → Sn + 2CO、融点 232℃）
+    public static final Item BRONZE_CHARGE         = Reg.item("bronze_charge");    // [1-05] 青銅の地金の調合（銅8＋スズ1。るつぼに入れて溶かす）
+    public static final Item BRONZE_INGOT          = Reg.item("bronze_ingot");     // [1-05] 青銅（Cu-Sn 約11%、IMP2-01）
     public static final Item MALACHITE             = Reg.item("malachite");        // [1-03] 孔雀石 Cu2CO3(OH)2（IMP2-01。銅鉱床の上の酸化帯）
     public static final Item GALENA                = Reg.item("galena");
     public static final Item GRAPHITE              = Reg.item("graphite");

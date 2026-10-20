@@ -16,6 +16,8 @@ lead_ingot  # Metallurgy [1-27] -3500
 galena_ore  # Metallurgy [1-27] -3500
 cassiterite  # Metallurgy [1-22] -3000
 tin_ingot  # Metallurgy [1-30] -3000
+bronze_charge  # Metallurgy [1-05] -3000
+bronze_ingot  # Metallurgy [1-05] -3000
 cassiterite_ore  # Metallurgy [1-22] -3000
 vein_quartz  # Metallurgy [1-46] -2500
 quartz_vein  # Metallurgy [1-46] -2500

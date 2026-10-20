@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:bronze_charge",
+  "result": {
+    "id": "semiconductor-lab:bronze_ingot"
+  },
+  "experience": 0.2,
+  "cookingtime": 200
+}

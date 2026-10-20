@@ -472,6 +472,20 @@
 - Wikipedia「Tin」（スズペスト・スズ鳴き・歴史）：https://en.wikipedia.org/wiki/Tin
 - Wikipedia「Extreme ultraviolet lithography」（スズのプラズマ光源）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
 
+## O9. 銅にスズを1割（青銅）［1-05］（スペキュラム鏡の前提）
+**答え**：銅にスズを約1割まぜた合金が青銅。純銅より融点が低く（約950℃）鋳造しやすいのに、ずっと固い。大きなスズ原子が結晶をゆがめ、原子の面がすべるのをじゃまする（固溶強化）。
+
+- へえ①：銅にスズを1割まぜると、溶けやすいのに硬い青銅になる。
+- へえ②：鐘はスズを2割以上入れた「鐘青銅」。固く、よく響く。
+- へえ③：スズを3割ほどにすると白く光る合金（スペキュラム）になり、ガラスの鏡が広まる前は鏡の材料だった [7-05]。
+- へえ④：青銅の前には、ヒ素をふくむ銅（ヒ素銅）も使われた（⚠️ 時期と広がりは地域で違う）。
+
+確かさ：組成・融点・固溶強化・鐘青銅 ◎／青銅器時代 紀元前3000年ごろ ○（地域差あり）／ヒ素銅の先行 △ → ゲーム内は ⚠️
+根拠：
+- Wikipedia「Bronze」：https://en.wikipedia.org/wiki/Bronze
+- Wikipedia「Bell metal」：https://en.wikipedia.org/wiki/Bell_metal
+- Wikipedia「Arsenical bronze」：https://en.wikipedia.org/wiki/Arsenical_bronze
+
 ---
 
 # 生存（IMP3-01〜）
