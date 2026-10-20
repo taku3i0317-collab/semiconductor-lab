@@ -30,7 +30,7 @@ NODE = {
     "tungstic_acid": "1-28", "tungsten_trioxide": "1-28", "tungsten_powder": "1-28", "tungsten_bar": "1-28",
     "borax": "1-33", "indium": "9-02", "bessemer_converter": "1-26",
     # 幹2 化学
-    "sulfur_powder": "2-01", "sulfur_dioxide": "2-01",
+    "sulfur_powder": "2-01", "sulfur_dioxide": "2-01", "wood_vinegar": "2-23", "wood_tar": "2-23", "pitch": "2-23",
     # 幹3 熱
     "zinc_oxide": "3-06",
     # 幹4 電気
@@ -41,7 +41,7 @@ NODE = {
     "empty_gas_cylinder": "6-03", "hydrogen_cylinder": "6-03", "oxygen_cylinder": "6-03", "chlorine_cylinder": "6-05",
     "nitrogen_gas": "6-07", "argon_gas": "6-07", "nitrogen_cylinder": "6-07", "argon_cylinder": "6-07", "sodium_hydroxide": "6-05",
     # 幹7 光学
-    "quartz_tube": "7-02",
+    "quartz_tube": "7-02", "flint_glass_batch": "7-01",
     # 幹9 半導体
     "zone_refining_furnace": "9-01", "graphite_boat_blank": "9-01", "graphite_boat": "9-01", "synthetic_graphite_boat": "9-01",
     "p_type_germanium": "9-02", "germanium_seed_crystal": "9-07", "silicon_seed_crystal": "9-08", "junction_transistor_blank": "9-04",
