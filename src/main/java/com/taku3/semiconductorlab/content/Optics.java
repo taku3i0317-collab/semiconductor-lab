@@ -63,6 +63,14 @@ public final class Optics {
     // [7-15] 紫外光学材料・CaF2（IMP2-02）：ブリッジマン炉で蛍石を溶かして単結晶に → 削って磨いて CaF2 レンズ（紫外を通す。色消しのアポクロマートにも）
     public static final Item CAF2_CRYSTAL          = Reg.item("caf2_crystal");
     public static final Item CAF2_LENS             = Reg.item("caf2_lens");
+    // [7-11] 銀塩フォトマスクの材料（IMP2-03。乾板の化学：1871 マドックスのゼラチン乾板の流れ）
+    public static final Item HIDE_BROTH            = Reg.item("hide_broth", new Item.Properties().stacksTo(16)); // 皮の煮汁（革×2＋水）
+    public static final Item GELATIN               = Reg.item("gelatin");           // ゼラチン（煮汁を煮つめて乾かす）
+    public static final Item PHOTO_EMULSION        = Reg.item("photo_emulsion", new Item.Properties().stacksTo(16)); // 塩化銀ゼラチン乳剤
+    public static final Item PHOTO_PLATE           = Reg.item("photo_plate");       // 感光乾板（ガラス板＋乳剤）
+    public static final Item FERROUS_SULFATE       = Reg.item("ferrous_sulfate");   // 硫酸鉄(II)＝緑ばん（現像液）
+    public static final Item HYPO_LIQUOR           = Reg.item("hypo_liquor", new Item.Properties().stacksTo(16)); // チオ硫酸の煮汁
+    public static final Item SODIUM_THIOSULFATE    = Reg.item("sodium_thiosulfate"); // チオ硫酸ナトリウム＝ハイポ（定着液）
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));

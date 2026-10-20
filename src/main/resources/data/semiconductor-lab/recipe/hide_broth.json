@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:leather",
+    "minecraft:leather",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hide_broth",
+    "count": 1
+  }
+}

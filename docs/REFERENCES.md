@@ -728,6 +728,20 @@
 - Wikipedia「Calcium fluoride」：https://en.wikipedia.org/wiki/Calcium_fluoride
 - Wikipedia「Apochromat」：https://en.wikipedia.org/wiki/Apochromat
 
+## O22. 写真乾板の化学（ゼラチン乳剤・現像・定着）［7-11］の材料
+**答え**：ゼラチンの中に硝酸銀と塩から作った細かい塩化銀の粒をちらし（乳剤）、ガラスに塗ると感光乾板になる（マドックス 1871 のゼラチン乾板）。光が当たった粒は現像液（硫酸鉄(II) など）で銀に変わって黒くなり、当たらなかった粒は定着液（チオ硫酸ナトリウム＝ハイポ）で溶かして取る。1960年代の IC のマスクは、この高解像度の乾板で作った。
+
+- へえ①：最初の IC のマスクは「写真」だった。
+- へえ②：ハイポ（チオ硫酸ナトリウム）は 1819年にハーシェルが銀塩を溶かすことを見つけ、1839年に定着に使うことをすすめた。
+- へえ③：ゼラチンの中のごく少しの硫黄の化合物が、感度を上げていた（化学増感）。
+- へえ④：やわらかい乳剤のマスクは密着露光ですぐ傷つき、のちに硬いクロムのマスク [7-12] に変わった。
+
+確かさ：乳剤・現像・定着の化学 ◎／マドックス 1871 ◎／ハーシェル 1819・1839 ◎／1960年代のエマルジョンマスク ○（TECH_TREE の記述）／マスク用は主に臭化銀 ○
+根拠：
+- Wikipedia「Dry plate」：https://en.wikipedia.org/wiki/Dry_plate
+- Wikipedia「Sodium thiosulfate」（写真の定着）：https://en.wikipedia.org/wiki/Sodium_thiosulfate
+- Wikipedia「Photomask」：https://en.wikipedia.org/wiki/Photomask
+
 ---
 
 # 冶金と熱（タスク15〜）

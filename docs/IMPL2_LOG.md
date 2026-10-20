@@ -93,3 +93,8 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - 前提で足りない物：ヨウ素（[2-04] 海藻灰 → ヨウ素、1811 クールトア）。コロジオン（ニトロセルロース＝綿＋硝酸＋硫酸）は綿がないので仮⚠️（ノード仕様どおり）。臭化物（乾板 1871）は臭素が未実装
 - ✅ [7-15] 紫外光学材料の CaF2 の半分：ブリッジマン炉（block/BridgmanFurnaceBlockEntity、3kW、蛍石4＋Ar → CaF2 単結晶）→ CaF2 レンズ。GameTest bridgman_ca_f2、CHEMISTRY O23〜O24、REFERENCES O21。テスト 125/125
   - **Q-IMP2-4**：合成石英（SiCl4 を酸水素炎で加水分解、ハイド 1934）は SiCl4 がまだ無いので保留。SiCl4 は [9-30] エピタキシー（IMP の本線）でも使う。①トリクロロシラン反応器 [1-16] の副産物として出す（本物も SiCl4 ができる）か、②金属シリコン＋塩素の直接塩素化の機械を作るか、③IMP 側で作るのを待つか。決まれば酸水素バーナー [7-02] に SiCl4 の入口を足して合成石英にする
+
+## IMP2-03（INBOX O-003、2026-10-20）フォトマスク（物としての原板）と露光の光学
+- A と分担を確認（cross-session）：rubylith（原図）と ExposureTool は A の litho、photomask アイテムと [7-11] 縮小カメラは IMP2（rubylith の成分 ModDataComponents.MASK をそのまま写す）。密着露光でマスクが傷む回数も photomask 側で決める。ExposureTool の λ・CD・N を出典に合わせて直すのは IMP2 でよい（直したら A に知らせる）。光源・投影レンズのノード・REFERENCES の CD/NA・ガイドの「アッベの限界」は IMP2
+- SiCl4（Q-IMP2-4）：A は作る予定なし。作るならトリクロロシラン反応器 [1-16] に副産物の出口を足すのが自然（A の意見）。誰が作るかは設計担当へ
+- ✅ [7-11] の材料（litho のデータに依存しない化学）：ゼラチン・塩化銀ゼラチン乳剤・感光乾板・硫酸鉄(II) 現像液・チオ硫酸ナトリウム定着液。GameTest photo_plate_chemistry、CHEMISTRY O25〜O28、REFERENCES O22。テスト 128/128。縮小カメラと photomask は A の litho の push を待って作る

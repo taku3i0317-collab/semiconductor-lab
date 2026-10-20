@@ -468,6 +468,25 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-11] 銀塩マスクの材料（IMP2-03）：ゼラチン・塩化銀ゼラチン乳剤・感光乾板・現像液（緑ばん）・定着液（ハイポ） */
+    @GameTest
+    public void photoPlateChemistry(GameTestHelper h) {
+        var SM = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        var broth = craft(h, Items.LEATHER, Items.LEATHER, Items.WATER_BUCKET);
+        h.assertTrue(broth[0].is(Optics.HIDE_BROTH) && broth[1].is(Items.BUCKET), "2 leather + water -> hide broth (bucket back)");
+        h.assertTrue(cook(h, SM, Optics.HIDE_BROTH).is(Optics.GELATIN), "broth boiled down -> gelatin");
+        h.assertTrue(craft(h, Optics.GELATIN, com.taku3.semiconductorlab.content.Gas.SILVER_NITRATE, com.taku3.semiconductorlab.content.Gas.SALT)[0].is(Optics.PHOTO_EMULSION), "gelatin + AgNO3 + NaCl -> AgCl emulsion");
+        h.assertTrue(craft(h, Chemistry.SODA_LIME_GLASS, Optics.PHOTO_EMULSION)[0].is(Optics.PHOTO_PLATE), "glass + emulsion -> photo plate");
+        h.assertTrue(craft(h, Items.GLASS, Optics.PHOTO_EMULSION)[0].isEmpty(), "vanilla glass is not a plate");
+        var fe = craft(h, Items.IRON_NUGGET, Chemistry.SULFURIC_ACID);
+        h.assertTrue(fe[0].is(Optics.FERROUS_SULFATE) && fe[1].is(Chemistry.GLASS_BOTTLE), "Fe + H2SO4 -> FeSO4 (developer), bottle back");
+        var hy = craft(h, Chemistry.SODIUM_CARBONATE, Chemistry.SULFUR_DIOXIDE, Chemistry.SULFUR_POWDER, Items.WATER_BUCKET);
+        h.assertTrue(hy[0].is(Optics.HYPO_LIQUOR), "Na2CO3 + SO2 + S + water -> hypo liquor");
+        h.assertTrue(cook(h, SM, Optics.HYPO_LIQUOR).is(Optics.SODIUM_THIOSULFATE), "boiled down -> hypo (fixer)");
+        LOG.info("[LAB] photo plate [7-11 materials]: gelatin, AgCl emulsion, plate, FeSO4 developer, hypo fixer");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.BRIDGMAN_FURNACE.block, "CaF2 の単結晶を育てる", L(io(Metallurgy.FLUORITE, 4), io(com.taku3.semiconductorlab.content.Gas.ARGON_GAS, 1)),

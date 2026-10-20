@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sodium_carbonate",
+    "semiconductor-lab:sulfur_dioxide",
+    "semiconductor-lab:sulfur_powder",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hypo_liquor",
+    "count": 1
+  }
+}

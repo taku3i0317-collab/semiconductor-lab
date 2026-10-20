@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:gelatin",
+    "semiconductor-lab:silver_nitrate",
+    "semiconductor-lab:salt"
+  ],
+  "result": {
+    "id": "semiconductor-lab:photo_emulsion",
+    "count": 1
+  }
+}
