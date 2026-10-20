@@ -1,6 +1,13 @@
 {
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
-  "ingredients": [ "semiconductor-lab:sulfur_dioxide", "minecraft:water_bucket" ],
-  "result": { "id": "semiconductor-lab:sulfuric_acid", "count": 1 }
+  "ingredients": [
+    "semiconductor-lab:sulfur_dioxide",
+    "minecraft:water_bucket",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sulfuric_acid",
+    "count": 1
+  }
 }

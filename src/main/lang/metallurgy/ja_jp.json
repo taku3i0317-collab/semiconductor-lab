@@ -355,5 +355,20 @@
   "block.semiconductor-lab.fluorite_ore.note2": "方鉛鉱と同じ深さ（Y −16〜64）の石・深層岩に出る。方鉛鉱より少ない。石のツルハシ以上。シルクタッチなら鉱石のブロックのまま。",
   "block.semiconductor-lab.fluorite_ore.note3": "蛍石は、熱い水が岩の割れ目を通ってできた鉱脈（熱水鉱脈）に、方鉛鉱・閃亜鉛鉱といっしょに出ることが多い。鉛や亜鉛の鉱山で蛍石も取れる。",
   "block.semiconductor-lab.fluorite_ore.note4": "今の蛍石の多くはフッ酸の原料になり、フッ素の化学（フッ素樹脂・冷媒・半導体のエッチングガス）のほとんどがここから始まる。",
-  "block.semiconductor-lab.fluorite_ore.placeholder": "近似：本物は方鉛鉱・閃亜鉛鉱と同じ鉱脈の形で出るが、ゲームでは同じ深さにばらばらに出る。"
+  "block.semiconductor-lab.fluorite_ore.placeholder": "近似：本物は方鉛鉱・閃亜鉛鉱と同じ鉱脈の形で出るが、ゲームでは同じ深さにばらばらに出る。",
+  "item.semiconductor-lab.iron_flask": "空の鉄のフラスコ",
+  "item.semiconductor-lab.iron_flask.note1": "水銀を入れる鉄のびん。水銀は鉄を溶かさない。",
+  "item.semiconductor-lab.iron_flask.note2": "辰砂の粉といっしょに焼くと、出てきた水銀がこのフラスコにたまる。",
+  "item.semiconductor-lab.iron_flask.note3": "水銀は金・銀・銅・亜鉛などとまざって「アマルガム」になるが、鉄とはほとんどまざらない。だから水銀の入れ物は鉄。",
+  "item.semiconductor-lab.iron_flask.note4": "水銀の取引の単位は今も「フラスコ」：1本 76 ポンド（約 34.5kg）。値段もフラスコ1本あたりで決まる。",
+  "item.semiconductor-lab.lead_bottle": "空の鉛の瓶",
+  "item.semiconductor-lab.lead_bottle.note1": "フッ酸を入れるための鉛の瓶。",
+  "item.semiconductor-lab.lead_bottle.note2": "フッ酸はガラスを溶かすので、ガラス瓶には入れられない。",
+  "item.semiconductor-lab.lead_bottle.note3": "⚠️ 昔のフッ酸は鉛・ろう（セレシン）・ガタパーチャ（木の樹脂）の容器に入れた。今はポリエチレンの瓶。",
+  "item.semiconductor-lab.lead_bottle.note4": "鉛はフッ酸の表面にフッ化鉛（PbF2）のうすい膜ができ、それ以上溶けにくい。硫酸でも硫酸鉛の膜ができるので、鉛は硫酸の部屋（鉛室法）にも使われた。",
+  "item.semiconductor-lab.cinnabar_retort_charge": "辰砂のレトルト仕込み",
+  "item.semiconductor-lab.cinnabar_retort_charge.note1": "辰砂の粉と空の鉄のフラスコのセット。焼くと水銀が集まる。",
+  "item.semiconductor-lab.cinnabar_retort_charge.note2": "かまどや反射炉で焼くと、水銀入りの鉄のフラスコになる（反射炉では SO2 も出る）。",
+  "item.semiconductor-lab.cinnabar_retort_charge.note3": "HgS + O2 → Hg（気体）+ SO2。水銀は 357℃ で沸騰するので、焼くと気体になって出てくる。冷やして液体にもどし、フラスコで受ける。",
+  "item.semiconductor-lab.cinnabar_retort_charge.note4": "スペインのアルマデン鉱山では、何百年も「アルデル」という焼き窯と土管の列で水銀の蒸気を冷やして集めた。水銀の蒸気はとても毒なので、働く人の体をこわした。"
 }

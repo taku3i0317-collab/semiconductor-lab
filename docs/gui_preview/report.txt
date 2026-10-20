@@ -144,6 +144,7 @@ hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.burning w=85 lines=2/2
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_water w=62 lines=2/2
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_h2 w=82 lines=2/2
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_cl2 w=75 lines=2/2
+hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.need_bottle w=99 lines=2/2 scale=0.74999994
 hcl_burner_en_us hint gui.semiconductor-lab.hcl_burner.out_full w=53 lines=2/2
 air_separation_unit_en_us n2 =N2 w=12 lines=1/1
 air_separation_unit_en_us o2 =O2 w=12 lines=1/1
@@ -374,6 +375,7 @@ hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.burning w=63 lines=2/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_water w=36 lines=1/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_h2 w=45 lines=1/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_cl2 w=45 lines=1/2
+hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.need_bottle w=63 lines=2/2
 hcl_burner_ja_jp hint gui.semiconductor-lab.hcl_burner.out_full w=45 lines=1/2
 air_separation_unit_ja_jp n2 =N2 w=12 lines=1/1
 air_separation_unit_ja_jp o2 =O2 w=12 lines=1/1

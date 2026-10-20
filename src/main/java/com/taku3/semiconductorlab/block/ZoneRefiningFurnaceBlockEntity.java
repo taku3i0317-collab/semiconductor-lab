@@ -115,6 +115,7 @@ public class ZoneRefiningFurnaceBlockEntity extends ConsumerBlockEntity {
         } else {
             ItemStack dp = container.getItem(DOPANT_SLOT);
             ItemStack out = new ItemStack(dp.is(Chemistry.PHOSPHORUS) ? Semiconductor.N_TYPE_GERMANIUM : Semiconductor.P_TYPE_GERMANIUM, ge.getCount());
+            com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, dp, 1);   // 白リンの瓶（水入り）が空いて戻る（IMP-33）
             dp.shrink(1);
             container.setItem(DOPANT_SLOT, dp.isEmpty() ? ItemStack.EMPTY : dp);
             container.setItem(GE_SLOT, out);

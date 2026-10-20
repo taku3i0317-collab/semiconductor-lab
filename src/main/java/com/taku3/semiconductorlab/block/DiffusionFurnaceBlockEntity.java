@@ -76,6 +76,7 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
     @Override protected void finishWork() {
         ItemStack out = junction(container.getItem(SLOT_WAFER), WAFERS_PER_RUN);
         container.getItem(SLOT_WAFER).shrink(WAFERS_PER_RUN);
+        com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, container.getItem(SLOT_SOURCE), SOURCE_PER_RUN);   // 空の瓶は上に出る（IMP-33）
         container.getItem(SLOT_SOURCE).shrink(SOURCE_PER_RUN);
         merge(SLOT_OUT, out);
         container.setChanged();

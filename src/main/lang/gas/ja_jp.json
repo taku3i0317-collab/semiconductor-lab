@@ -146,5 +146,6 @@
   "item.semiconductor-lab.argon_cylinder.note1": "アルゴンのボンベもねずみ色。中身は書いてある文字で見分ける。",
   "item.semiconductor-lab.argon_cylinder.note2": "圧縮機 [6-03] でガスホルダーの Ar を 50mol 詰めたもの。",
   "item.semiconductor-lab.argon_cylinder.note3": "アルゴンの臨界温度は −122℃。窒素と同じく、室温のボンベの中は液体ではなく高圧の気体。溶接で金属を空気から守る「シールドガス」として、いちばんよく使われる。",
-  "item.semiconductor-lab.argon_cylinder.note4": "アルゴンは空気分離で酸素・窒素のついでに取れるので、貴ガスの中では飛びぬけて安い。電球の中にも入っている：フィラメントのタングステンが蒸発しにくくなる（1913年、ラングミュアが窒素、のちにアルゴンを封入）。"
+  "item.semiconductor-lab.argon_cylinder.note4": "アルゴンは空気分離で酸素・窒素のついでに取れるので、貴ガスの中では飛びぬけて安い。電球の中にも入っている：フィラメントのタングステンが蒸発しにくくなる（1913年、ラングミュアが窒素、のちにアルゴンを封入）。",
+  "gui.semiconductor-lab.hcl_burner.need_bottle": "空の瓶を入れる"
 }

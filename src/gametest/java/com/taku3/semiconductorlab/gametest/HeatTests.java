@@ -132,7 +132,7 @@ public class HeatTests extends LabTestBase {
 
         // 辰砂の粉 → 水銀 ＋ SO2（木炭でも燃える）
         c.setItem(OUT, ItemStack.EMPTY); c.setItem(SO2, ItemStack.EMPTY);
-        c.setItem(IN, new ItemStack(Metallurgy.CINNABAR_DUST, 1));
+        c.setItem(IN, new ItemStack(Metallurgy.CINNABAR_RETORT_CHARGE, 1));
         c.setItem(FUEL, new ItemStack(Items.CHARCOAL, 1));
         tickRoaster(h, pos, be, T);
         h.assertTrue(c.getItem(OUT).is(Metallurgy.MERCURY), "cinnabar -> mercury (HgS + O2 -> Hg + SO2)");
@@ -276,7 +276,7 @@ public class HeatTests extends LabTestBase {
         rec(a, Heat.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(Heat.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");
         double fuelS = ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS;
-        for (var it : new net.minecraft.world.item.Item[] {Metallurgy.GALENA, Metallurgy.CINNABAR_DUST, Metallurgy.SPHALERITE}) {
+        for (var it : new net.minecraft.world.item.Item[] {Metallurgy.GALENA, Metallurgy.CINNABAR_RETORT_CHARGE, Metallurgy.SPHALERITE}) {
             var main = ReverberatoryFurnaceBlockEntity.mainProduct(new ItemStack(it)).getItem();
             var out = it == Metallurgy.SPHALERITE
                     ? L(io(main, 1), io(Chemistry.SULFUR_DIOXIDE, 1), perRuns(io(Metallurgy.GERMANIUM_CONCENTRATE, 1), ReverberatoryFurnaceBlockEntity.GE_EVERY), perRuns(io(Metallurgy.INDIUM, 1), ReverberatoryFurnaceBlockEntity.IN_EVERY))

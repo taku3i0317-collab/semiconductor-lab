@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab.block;
 
+import com.taku3.semiconductorlab.content.Chemistry;
 import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.content.Metallurgy;
 import com.taku3.semiconductorlab.machine.MachineBE;
@@ -37,10 +38,11 @@ import net.minecraft.world.level.storage.ValueOutput;
  * 水はバケツ1杯で塩酸4本分。空ボンベ・空バケツは右下の出口へ。
  * 水がない（水のスロットも空）ときは、吸わせずに乾いた塩化水素ガスのまま袋に詰める：H2 1mol ＋ Cl2 1mol → 袋詰め塩化水素 ×2（2mol）。
  * トリクロロシラン [1-16] は水と反応してしまうので、塩酸ではなくこの乾いたガスを使う（タスク22）。
- * スロット：0＝水素、1＝塩素、2＝水バケツ、3＝塩酸、4＝空ボンベ、5＝空バケツ
+ * 塩酸は空のガラス瓶に詰める（IMP-33：容器のしくみ。1本に瓶1つ）。瓶がないと塩酸は作らない（乾いたガスは袋なので瓶はいらない）。
+ * スロット：0＝水素、1＝塩素、2＝水バケツ、3＝塩酸、4＝空ボンベ、5＝空バケツ、6＝空のガラス瓶（番号は前のセーブと合わせて末尾に足した）
  */
 public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
-    public static final int SLOT_H2 = 0, SLOT_CL2 = 1, SLOT_WATER = 2, SLOT_OUT = 3, SLOT_EMPTY = 4, SLOT_BUCKET = 5, SLOT_COUNT = 6;
+    public static final int SLOT_H2 = 0, SLOT_CL2 = 1, SLOT_WATER = 2, SLOT_OUT = 3, SLOT_EMPTY = 4, SLOT_BUCKET = 5, SLOT_BOTTLE = 6, SLOT_COUNT = 7;
     public static final int BURN_TICKS = 100;
     /** 塩酸1本あたり：H2 1mol ＋ Cl2 1mol → HCl 2mol。水バケツ1杯（1L）で4本＝HCl 8mol/L */
     public static final int H2_PER = 1, CL2_PER = 1, ACID_PER_BUCKET = 4;
@@ -63,18 +65,19 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
 
     /** 画面のスロットの並び（IMP-28：前の HclBurnerMenu の代わり） */
     /** 画面の中のスロットの位置（画面の絵と合わせる） */
-    public static final int H2_X = 26, CL2_X = 62, GAS_Y = 53, WATER_X = 44, WATER_Y = 17, OUT_X = 116, OUT_Y = 35, EMPTY_X = 134, BUCKET_X = 152, EMPTIES_Y = 59;
+    public static final int H2_X = 26, CL2_X = 62, GAS_Y = 53, WATER_X = 44, WATER_Y = 17, OUT_X = 116, OUT_Y = 35, EMPTY_X = 134, BUCKET_X = 152, EMPTIES_Y = 59, BOTTLE_X = 116, BOTTLE_Y = 17;
     public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
             .in(SLOT_H2, H2_X, GAS_Y, HclBurnerBlockEntity::isHydrogen)
             .in(SLOT_CL2, CL2_X, GAS_Y, HclBurnerBlockEntity::isChlorine)
             .in(SLOT_WATER, WATER_X, WATER_Y, s -> s.is(net.minecraft.world.item.Items.WATER_BUCKET))
+            .in(SLOT_BOTTLE, BOTTLE_X, BOTTLE_Y, s -> s.is(Chemistry.GLASS_BOTTLE))
             .out(SLOT_OUT, OUT_X, OUT_Y)
             .out(SLOT_EMPTY, EMPTY_X, EMPTIES_Y)
             .out(SLOT_BUCKET, BUCKET_X, EMPTIES_Y)
             .text("h2", H2_X - 2, GAS_Y - 10, 34, 1, "=H2 00")
             .text("cl2", CL2_X - 2, GAS_Y - 10, 34, 1, "=Cl2 00")
-            .text("water", WATER_X + 20, WATER_Y + 1, 108, 1, "gui.semiconductor-lab.hcl_burner.water").samples("4")
-            .text("hint", 82, 53, 48, 2, "gui.semiconductor-lab.hcl_burner.burning", "gui.semiconductor-lab.hcl_burner.need_water", "gui.semiconductor-lab.hcl_burner.need_h2", "gui.semiconductor-lab.hcl_burner.need_cl2", "gui.semiconductor-lab.hcl_burner.out_full").fit()
+            .text("water", WATER_X + 20, WATER_Y + 1, 50, 1, "gui.semiconductor-lab.hcl_burner.water").samples("4")
+            .text("hint", 82, 53, 48, 2, "gui.semiconductor-lab.hcl_burner.burning", "gui.semiconductor-lab.hcl_burner.need_water", "gui.semiconductor-lab.hcl_burner.need_h2", "gui.semiconductor-lab.hcl_burner.need_cl2", "gui.semiconductor-lab.hcl_burner.need_bottle", "gui.semiconductor-lab.hcl_burner.out_full").fit()
             .build();
 
     public HclBurnerBlockEntity(BlockPos pos, BlockState state) { super(Gas.HCL_BURNER.type, pos, state); }
@@ -138,7 +141,8 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
         // 水があれば塩酸、水がなければ乾いた塩化水素ガス（2mol）
         boolean dry = be.water <= 0 && !be.container.getItem(SLOT_WATER).is(Items.WATER_BUCKET);
         ItemStack product = dry ? new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS, 2) : new ItemStack(Gas.HYDROCHLORIC_ACID);
-        boolean can = (dry || be.water > 0) && canMerge(be.container.getItem(SLOT_OUT), product);
+        boolean bottle = dry || be.container.getItem(SLOT_BOTTLE).is(Chemistry.GLASS_BOTTLE);   // 塩酸は瓶に詰める
+        boolean can = (dry || be.water > 0) && bottle && canMerge(be.container.getItem(SLOT_OUT), product);
         // 両方のガスがそろうときだけ開ける（片方だけでは炎が立たない）
         boolean h2Ready = be.h2Mol >= H2_PER || be.hasGasItem(SLOT_H2, Gas.HYDROGEN_GAS, Gas.HYDROGEN_CYLINDER);
         boolean cl2Ready = be.cl2Mol >= CL2_PER || be.hasGasItem(SLOT_CL2, Gas.CHLORINE_GAS, Gas.CHLORINE_CYLINDER);
@@ -152,7 +156,7 @@ public class HclBurnerBlockEntity extends BlockEntity implements MachineBE {
                 be.progress = 0;
                 be.h2Mol -= H2_PER;    // H2 + Cl2 → 2HCl
                 be.cl2Mol -= CL2_PER;
-                if (!dry) be.water--;  // HCl を水に吸わせる（乾いたガスのときは水を使わない）
+                if (!dry) { be.water--; be.container.getItem(SLOT_BOTTLE).shrink(1); }  // HCl を水に吸わせて瓶に詰める（乾いたガスのときは水も瓶も使わない）
                 be.merge(SLOT_OUT, product);
             }
             be.setChanged();

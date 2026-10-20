@@ -6,6 +6,7 @@ import com.taku3.semiconductorlab.block.*;
 import com.taku3.semiconductorlab.energy.*;
 import com.taku3.semiconductorlab.item.*;
 import com.taku3.semiconductorlab.machine.Machine;
+import com.taku3.semiconductorlab.machine.Vessel;
 import com.taku3.semiconductorlab.machine.MachineBlock;
 import com.taku3.semiconductorlab.machine.MachineEntityBlock;
 import net.minecraft.world.item.Item;
@@ -27,10 +28,12 @@ public final class Chemistry {
 
     // ===== アイテム =====
     // --- 試薬 ---
+    // 容器（IMP-33、DESIGN「容器のしくみ」）：ガラス瓶はソーダ石灰ガラス [2-14] から。中身入りのアイテムより上に書く
+    public static final Item GLASS_BOTTLE          = Reg.item("glass_bottle");      // 空のガラス瓶（硫酸・塩酸・水を張って白リン）
     public static final Item SULFUR_POWDER         = Reg.item("sulfur_powder");
-    public static final Item SULFUR_DIOXIDE        = Reg.item("sulfur_dioxide"); // 硫黄を燃やした気体
-    public static final Item SULFURIC_ACID         = Reg.item("sulfuric_acid", new Item.Properties().stacksTo(16));
-    public static final Item PHOSPHORUS            = Reg.item("phosphorus");
+    public static final Item SULFUR_DIOXIDE        = Reg.contained("sulfur_dioxide", Vessel.GAS_BAG); // 硫黄を燃やした気体
+    public static final Item SULFURIC_ACID         = Reg.contained("sulfuric_acid", Vessel.GLASS_BOTTLE);   // ガラス瓶入り（使うと瓶が戻る）
+    public static final Item PHOSPHORUS            = Reg.contained("phosphorus", Vessel.WATER_JAR);   // 白リン：水を張ったガラス瓶の中（空気中で自然発火するため）
     // --- ソーダ（[2-03] 天然ソーダ：トロナを焼く 2(Na2CO3·NaHCO3·2H2O) → 3Na2CO3 + CO2 + 5H2O）---
     public static final Item TRONA                 = Reg.item("trona");             // トロナ（天然ソーダの鉱物）
     public static final Item SODIUM_CARBONATE      = Reg.item("sodium_carbonate");  // 炭酸ナトリウム（ソーダ灰）

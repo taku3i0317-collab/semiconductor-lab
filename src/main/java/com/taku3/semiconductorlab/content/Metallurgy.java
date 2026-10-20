@@ -6,6 +6,7 @@ import com.taku3.semiconductorlab.block.*;
 import com.taku3.semiconductorlab.energy.*;
 import com.taku3.semiconductorlab.item.*;
 import com.taku3.semiconductorlab.machine.Machine;
+import com.taku3.semiconductorlab.machine.Vessel;
 import com.taku3.semiconductorlab.machine.MachineBlock;
 import com.taku3.semiconductorlab.machine.MachineEntityBlock;
 import net.minecraft.world.item.Item;
@@ -70,7 +71,7 @@ public final class Metallurgy {
     public static final Item TUNGSTEN_BAR          = Reg.item("tungsten_bar");      // 焼結棒（水素中で通電焼結）
     public static final Item TUNGSTEN_WIRE         = Reg.item("tungsten_wire");     // 線引きした延性タングステン線
     // [1-16] 塩化水素ガス（乾いたもの、塩酸合成炉に水がないとき）→ トリクロロシラン SiHCl3（純度つき、蒸留で上がる）→ [1-17] 多結晶シリコン（純度つき）
-    public static final Item HYDROGEN_CHLORIDE_GAS = Reg.item("hydrogen_chloride_gas");
+    public static final Item HYDROGEN_CHLORIDE_GAS = Reg.contained("hydrogen_chloride_gas", Vessel.GAS_BAG);
     public static final Item TRICHLOROSILANE       = Reg.item("trichlorosilane");
     public static final Item POLYSILICON           = Reg.item("polysilicon");
     // [1-15] 金属シリコン（アーク炉で SiO2 + 2C → Si + 2CO、純度 98%＝冶金グレード。1個 ≈ 1kg）
@@ -82,8 +83,13 @@ public final class Metallurgy {
     public static final Item BORIC_ACID            = Reg.item("boric_acid");
     public static final Item BORON_TRIOXIDE        = Reg.item("boron_trioxide");
     // --- 水銀（[1-45] 辰砂 HgS の焙焼。HgS + O2 → Hg + SO2）---
+    // 容器（IMP-33）：鉄のフラスコ（水銀）・鉛の瓶（フッ酸 [2-10]、ガラスを溶かすので）。中身入りより上に書く
+    public static final Item IRON_FLASK            = Reg.item("iron_flask");
+    public static final Item LEAD_BOTTLE           = Reg.item("lead_bottle");
     public static final Item CINNABAR_DUST         = Reg.item("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉
-    public static final Item MERCURY               = Reg.item("mercury", new Item.Properties().stacksTo(16)); // 液体の金属（容器入り）
+    public static final Item MERCURY               = Reg.contained("mercury", Vessel.IRON_FLASK);
+    // レトルトの仕込み：辰砂の粉＋空の鉄のフラスコ（受け器）。焼くと水銀がフラスコに集まる（かまど・反射炉）
+    public static final Item CINNABAR_RETORT_CHARGE = Reg.item("cinnabar_retort_charge"); // 液体の金属（容器入り）
 
     // ===== ブロック =====
     // [1-46] 石英鉱脈（熱水が岩の割れ目に SiO2 を沈めた白い脈）。石英はモース硬度7なので石のツルハシ以上

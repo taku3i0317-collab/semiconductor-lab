@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:cinnabar_dust",
+    "semiconductor-lab:iron_flask"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cinnabar_retort_charge",
+    "count": 1
+  }
+}

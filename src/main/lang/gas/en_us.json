@@ -146,5 +146,6 @@
   "item.semiconductor-lab.argon_cylinder.note1": "Argon cylinders are grey too - read the lettering to tell them apart.",
   "item.semiconductor-lab.argon_cylinder.note2": "50 mol of Ar from a gas holder, filled by the compressor [6-03].",
   "item.semiconductor-lab.argon_cylinder.note3": "Argon's critical temperature is -122 °C, so like nitrogen it is high-pressure gas, not liquid, in a room-temperature cylinder. It is the most common shielding gas that protects metal from air during welding.",
-  "item.semiconductor-lab.argon_cylinder.note4": "Argon comes out of air separation alongside oxygen and nitrogen, so it is by far the cheapest noble gas. It is inside light bulbs too: it slows the evaporation of the tungsten filament (Langmuir filled bulbs with nitrogen in 1913, later argon)."
+  "item.semiconductor-lab.argon_cylinder.note4": "Argon comes out of air separation alongside oxygen and nitrogen, so it is by far the cheapest noble gas. It is inside light bulbs too: it slows the evaporation of the tungsten filament (Langmuir filled bulbs with nitrogen in 1913, later argon).",
+  "gui.semiconductor-lab.hcl_burner.need_bottle": "Add an empty bottle"
 }

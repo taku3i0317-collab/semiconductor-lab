@@ -30,5 +30,12 @@
   "tooltip.semiconductor-lab.oxide.color.red_violet": "red-violet",
   "tooltip.semiconductor-lab.oxide.color.green": "green",
   "tooltip.semiconductor-lab.oxide.color.pink": "pink",
-  "tooltip.semiconductor-lab.oxide.color.blue_green": "blue-green"
+  "tooltip.semiconductor-lab.oxide.color.blue_green": "blue-green",
+  "vessel.semiconductor-lab.gas_bag": "rubberised bag",
+  "vessel.semiconductor-lab.steel_cylinder": "steel cylinder",
+  "vessel.semiconductor-lab.glass_bottle": "glass bottle",
+  "vessel.semiconductor-lab.water_jar": "glass bottle under water",
+  "vessel.semiconductor-lab.iron_flask": "iron flask",
+  "vessel.semiconductor-lab.lead_bottle": "lead bottle",
+  "tooltip.semiconductor-lab.vessel": "Container: %s"
 }

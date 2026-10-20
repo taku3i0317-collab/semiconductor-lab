@@ -4,7 +4,12 @@
   "ingredients": [
     "minecraft:bone_meal",
     "minecraft:sand",
-    "minecraft:charcoal"
+    "minecraft:charcoal",
+    "semiconductor-lab:glass_bottle",
+    "minecraft:water_bucket"
   ],
-  "result": { "id": "semiconductor-lab:phosphorus", "count": 1 }
+  "result": {
+    "id": "semiconductor-lab:phosphorus",
+    "count": 1
+  }
 }

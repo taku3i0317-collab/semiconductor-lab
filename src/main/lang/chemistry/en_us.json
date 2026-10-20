@@ -89,5 +89,10 @@
   "item.semiconductor-lab.potash.note2": "Lye -> furnace (10 s) -> K2CO3. In glass it lowers the melting point (a flux). Used in the flint glass batch (Ravenscroft's lead glass used potash too).",
   "item.semiconductor-lab.potash.note3": "It was made by boiling lye down in iron pots, so 'pot ash'. In 1807 Davy extracted a new metal from it by electrolysis and named it potassium.",
   "item.semiconductor-lab.potash.note4": "In the 18th and 19th centuries forests in North America and Russia were burned in huge amounts and potash was exported (for glass, soap and gunpowder). The first US patent (1790) was for a way of making potash. Today potash comes from mined potassium chloride.",
-  "item.semiconductor-lab.potash.placeholder": "Not yet: causticizing with slaked lime to potassium hydroxide KOH (added when something needs it)."
+  "item.semiconductor-lab.potash.placeholder": "Not yet: causticizing with slaked lime to potassium hydroxide KOH (added when something needs it).",
+  "item.semiconductor-lab.glass_bottle": "Empty Glass Bottle",
+  "item.semiconductor-lab.glass_bottle.note1": "A bottle for acids. Glass does not dissolve in most acids.",
+  "item.semiconductor-lab.glass_bottle.note2": "Holds sulfuric and hydrochloric acid. Filled with water it can also store white phosphorus. The bottle comes back after use.",
+  "item.semiconductor-lab.glass_bottle.note3": "Glass (mostly SiO2) resists hydrochloric, sulfuric and nitric acid, so chemicals have long been kept in glass. Only hydrofluoric acid dissolves it.",
+  "item.semiconductor-lab.glass_bottle.note4": "4HF + SiO2 → SiF4 + 2H2O. This reaction is used to etch patterns into glass, and later to clean semiconductor wafers."
 }

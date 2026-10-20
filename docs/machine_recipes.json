@@ -421,6 +421,10 @@
         {
           "item": "minecraft:water_bucket",
           "count": 0.25
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
         }
       ],
       "outputs": [
@@ -698,7 +702,7 @@
       "process": "焙焼",
       "inputs": [
         {
-          "item": "semiconductor-lab:cinnabar_dust",
+          "item": "semiconductor-lab:cinnabar_retort_charge",
           "count": 1
         },
         {

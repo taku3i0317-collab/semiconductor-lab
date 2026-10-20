@@ -157,7 +157,7 @@ public class VacuumTests extends LabTestBase {
     @GameTest
     public void mercuryGauge(GameTestHelper h) {
         h.assertTrue(recipeUses(h, "cinnabar_dust", Items.CINNABAR), "cinnabar dust is crushed from the vanilla cinnabar block");
-        ItemStack hg = cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.CINNABAR_DUST);
+        ItemStack hg = cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.CINNABAR_RETORT_CHARGE);
         h.assertTrue(hg.is(Metallurgy.MERCURY), "roasting cinnabar dust should give mercury, got " + hg);
         h.assertTrue(recipeUses(h, "mercury_vacuum_gauge", Metallurgy.MERCURY), "the gauge needs mercury");
         double atm = MercuryVacuumGaugeItem.mmHg(VacuumChamberBlockEntity.ATM);

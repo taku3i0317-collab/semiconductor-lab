@@ -830,3 +830,9 @@ FabricCreativeModeTab.builder()（fabric-creative-tab-api-v1 5.0.22）; Registri
 - GitHub の自動ビルド（ubuntu・xvfb）：OpenGL の窓は「Couldn't find matching GLX visual」で作れないが、ゲームが Vulkan（Mesa の llvmpipe、mesa-vulkan-drivers）に切り替えて動く
 - 16色のブロック・アイテムは `Items.WHITE_WOOL` などの定数が無く、`Items.WOOL`（`ColorCollection<Item>`、`.asList()` で16個）。タグは `ItemTags.WOOL`（IMP3-01）
 - 押し続けて使う道具：`Item.getUseDuration(ItemStack, LivingEntity)`・`getUseAnimation(ItemStack)`→`ItemUseAnimation.BRUSH` など・`finishUsingItem(ItemStack, Level, LivingEntity)`・`releaseUsing(ItemStack, Level, LivingEntity, int remaining)` は boolean を返す。`player.startUsingItem(hand)`、`getUsedItemHand()`（IMP3-01 紡錘）
+
+## IMP-33 容器（2026-10-20、javap で確認）
+- `Inventory.add(ItemStack)` → boolean（入らなければ false）。`placeItemBackInInventory(ItemStack, Prediction)` は Prediction が要るので使わない
+- `Block.popResource(Level, BlockPos, ItemStack)`（機械の上に空の容器を出す）
+- `Item.getCraftingRemainder()` → `ItemStackTemplate`（record）。中のアイテムは `.create().getItem()`
+- `GameTestHelper.assertItemEntityPresent(Item, BlockPos, double)`

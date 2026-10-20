@@ -90,7 +90,7 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
     public static ItemStack mainProduct(ItemStack in) {
         Item out = null;
         if (in.is(Metallurgy.GALENA)) out = Metallurgy.LITHARGE;
-        else if (in.is(Metallurgy.CINNABAR_DUST)) out = Metallurgy.MERCURY;
+        else if (in.is(Metallurgy.CINNABAR_RETORT_CHARGE)) out = Metallurgy.MERCURY;   // 辰砂＋空の鉄のフラスコ（受け器）→ 水銀入りのフラスコ（IMP-33）
         else if (in.is(Metallurgy.SPHALERITE)) out = Heat.ZINC_OXIDE;
         return out == null ? ItemStack.EMPTY : new ItemStack(out);
     }

@@ -439,7 +439,8 @@ public class GasTests extends LabTestBase {
         int T = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.BURN_TICKS;
         int H2 = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_H2, CL = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_CL2,
                 W = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_WATER, OUT = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_OUT,
-                EMPTY = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_EMPTY, BUCKET = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_BUCKET;
+                EMPTY = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_EMPTY, BUCKET = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_BUCKET,
+                BOTTLE = com.taku3.semiconductorlab.block.HclBurnerBlockEntity.SLOT_BOTTLE;
         BlockPos pos = p(1, 1, 1);
         h.setBlock(pos, Gas.HCL_BURNER.block);
         var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.HclBurnerBlockEntity.class);
@@ -451,8 +452,13 @@ public class GasTests extends LabTestBase {
         h.assertTrue(c.getItem(OUT).isEmpty(), "hydrogen without chlorine -> no flame");
         h.assertValueEqual(c.getItem(H2).getCount(), 3, "H2 bags not opened without chlorine");
         h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
-        // 塩素の袋を足す：100 tick で塩酸1、バケツは空になって出る（水は残り3本分）
+        // 塩素の袋を足しても、空のガラス瓶がなければ塩酸は作らない（IMP-33：容器）
         c.setItem(CL, new ItemStack(Gas.CHLORINE_GAS, 3));
+        tickHcl(h, pos, be, T + 10);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no glass bottle -> no hydrochloric acid");
+        h.assertValueEqual(c.getItem(CL).getCount(), 3, "no bottle -> chlorine bags not opened");
+        // 瓶を入れる：100 tick で塩酸1、バケツは空になって出る（水は残り3本分）
+        c.setItem(BOTTLE, new ItemStack(Chemistry.GLASS_BOTTLE, 4));
         tickHcl(h, pos, be, T - 1);
         h.assertTrue(c.getItem(OUT).isEmpty(), "not finished 1 tick early");
         h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
@@ -468,6 +474,7 @@ public class GasTests extends LabTestBase {
         tickHcl(h, pos, be, T * 3);
         h.assertValueEqual(c.getItem(OUT).getCount(), 4, "4 acids from 1 bucket");
         h.assertValueEqual(c.getItem(EMPTY).getCount(), 2, "H2 and Cl2 cylinders opened -> 2 empties");
+        h.assertTrue(c.getItem(BOTTLE).isEmpty(), "1 glass bottle per acid (4 used)");
         h.assertValueEqual(be.getCl2(), 47, "Cl2 50 - 3 mol");
         // 水がなくなると止まる
         tickHcl(h, pos, be, T * 2);
@@ -507,7 +514,7 @@ public class GasTests extends LabTestBase {
             L(io(Gas.HYDROGEN_GAS, 1), io(Gas.CHLORINE_GAS, 1), io(Gas.SODIUM_HYDROXIDE, 2), io(Items.BUCKET, 1)), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.BRINE_TICKS / 20.0, "2NaCl + 2H2O → Cl2 + H2 + 2NaOH");
         rec(a, Gas.COMPRESSOR.block, "ボンベに詰める", L(io(Gas.EMPTY_GAS_CYLINDER, 1), mol("隣のガスホルダーのガス", CompressorBlockEntity.MOL_PER_CYLINDER)),
             L(io("そのガスのボンベ", 1)), CompressorBlockEntity.WATTS, CompressorBlockEntity.TOTAL_TICKS / 20.0, "約150気圧。H2・O2・Cl2・N2・Ar");
-        rec(a, Gas.HCL_BURNER.block, "塩酸を作る", L(mol(Gas.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(Gas.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER), io(Items.WATER_BUCKET, 1.0 / HclBurnerBlockEntity.ACID_PER_BUCKET)),
+        rec(a, Gas.HCL_BURNER.block, "塩酸を作る", L(mol(Gas.HYDROGEN_GAS, HclBurnerBlockEntity.H2_PER), mol(Gas.CHLORINE_GAS, HclBurnerBlockEntity.CL2_PER), io(Items.WATER_BUCKET, 1.0 / HclBurnerBlockEntity.ACID_PER_BUCKET), io(Chemistry.GLASS_BOTTLE, 1)),
             L(io(Gas.HYDROCHLORIC_ACID, 1)), 0, HclBurnerBlockEntity.BURN_TICKS / 20.0, "H2 + Cl2 → 2HCl を水に溶かす。電気なし");
         rec(a, Gas.AIR_SEPARATION_UNIT.block, "空気分離", L(mol("空気", AirSeparationBlockEntity.AIR_MOL)),
             L(mol(Gas.NITROGEN_GAS, AirSeparationBlockEntity.N2_PER_RUN / 1000.0), mol(Gas.OXYGEN_GAS, AirSeparationBlockEntity.O2_PER_RUN / 1000.0), mol(Gas.ARGON_GAS, AirSeparationBlockEntity.AR_PER_RUN / 1000.0)),

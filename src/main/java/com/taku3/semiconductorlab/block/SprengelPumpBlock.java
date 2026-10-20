@@ -25,7 +25,10 @@ public class SprengelPumpBlock extends MachineEntityBlock {
     @Override protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!stack.is(Metallurgy.MERCURY) || !(level.getBlockEntity(pos) instanceof SprengelPumpBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (level.isClientSide()) return InteractionResult.SUCCESS;
-        if (be.addMercury()) { if (!player.getAbilities().instabuild) stack.shrink(1); }
+        if (be.addMercury()) {
+            com.taku3.semiconductorlab.machine.Vessel.returnEmpty(player, pos, stack);   // 空の鉄のフラスコが手もとに戻る（IMP-33）
+            if (!player.getAbilities().instabuild) stack.shrink(1);
+        }
         player.sendOverlayMessage(status(be));
         return InteractionResult.SUCCESS;
     }

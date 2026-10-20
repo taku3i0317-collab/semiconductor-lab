@@ -356,4 +356,44 @@ public class CommonTests extends LabTestBase {
                 .forEach(i -> LOG.info("[LAB] [VANILLA] registry item {} (block={})", i, BuiltInRegistries.BLOCK.containsKey(i)));
         h.succeed();
     }
+
+    // =====================================================================
+    // 容器（IMP-33、DESIGN「容器のしくみ」）
+    // =====================================================================
+
+    /**
+     * 中身入りのアイテムは容器が1つ決まっていて、作業台で使うと空の容器が戻り、重なる数は容器の数。
+     * 相性表（Vessel.ALLOWED：フッ酸×ガラス瓶はだめ、など）に合っているか。機械で使ったら空の容器が上に出るか。
+     */
+    @GameTest
+    public void vessels(GameTestHelper h) {
+        List<String> problems = new ArrayList<>();
+        var all = com.taku3.semiconductorlab.machine.Vessel.all();
+        for (var e : all.entrySet()) {
+            var item = e.getKey(); var v = e.getValue();
+            String id = BuiltInRegistries.ITEM.getKey(item).getPath();
+            var rem = item.getCraftingRemainder();
+            var remItem = rem == null ? null : rem.create().getItem();
+            if (v.empty() != null && remItem != v.empty()) problems.add(id + ": crafting remainder " + remItem + " != " + v.empty());
+            if (v.empty() == null && remItem != null) problems.add(id + ": bag must not leave a remainder");
+            if (item.getDefaultMaxStackSize() != v.stack) problems.add(id + ": stack " + item.getDefaultMaxStackSize() + " != " + v.stack);
+            var ok = com.taku3.semiconductorlab.machine.Vessel.ALLOWED.get(id);
+            if (ok != null && !ok.contains(v)) problems.add(id + ": " + v + " is not allowed (" + ok + ")");
+        }
+        h.assertTrue(problems.isEmpty(), "vessel problems: " + problems);
+        h.assertTrue(all.size() >= 16, "gas bags, cylinders, acids, phosphorus, mercury are all in containers: " + all.size());
+        h.assertTrue(all.get(Chemistry.PHOSPHORUS) == com.taku3.semiconductorlab.machine.Vessel.WATER_JAR, "white phosphorus is kept under water");
+        h.assertTrue(all.get(Metallurgy.MERCURY) == com.taku3.semiconductorlab.machine.Vessel.IRON_FLASK, "mercury in an iron flask");
+        h.assertTrue(!com.taku3.semiconductorlab.machine.Vessel.ALLOWED.get("hydrofluoric_acid").contains(com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE), "HF dissolves glass");
+        h.assertTrue(recipeUses(h, "cinnabar_retort_charge", Metallurgy.IRON_FLASK) && recipeUses(h, "sulfuric_acid", Chemistry.GLASS_BOTTLE)
+                && recipeUses(h, "phosphorus", Chemistry.GLASS_BOTTLE), "filling recipes use the empty container");
+        // 機械で使う：空の容器が機械の上に出る（袋は何も出ない）
+        BlockPos pos = p(1, 1, 1);
+        com.taku3.semiconductorlab.machine.Vessel.returnEmpty(h.getLevel(), h.absolutePos(pos), new ItemStack(Chemistry.PHOSPHORUS), 1);
+        com.taku3.semiconductorlab.machine.Vessel.returnEmpty(h.getLevel(), h.absolutePos(pos), new ItemStack(Gas.HYDROGEN_GAS), 1);
+        h.assertItemEntityPresent(Chemistry.GLASS_BOTTLE, pos.above(), 1.5);
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.emptyOf(new ItemStack(Gas.HYDROGEN_GAS)).isEmpty(), "bags are not returned");
+        LOG.info("[LAB] vessels: {} filled items checked (remainder, stack size, compatibility table)", all.size());
+        h.succeed();
+    }
 }

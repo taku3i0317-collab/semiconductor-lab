@@ -24,8 +24,9 @@ public class NoteTooltip {
             Language lang = Language.getInstance();
             String base = lang.has("item." + id) || !lang.has("block." + id) ? "item." + id : "block." + id;
             var font = Minecraft.getInstance().font;
-            for (TooltipText.Line l : TooltipText.lines(base, shiftDown(), k -> lang.has(k) ? lang.getOrDefault(k) : null, font::width)) {
+            for (TooltipText.Line l : TooltipText.lines(base, vesselKey(stack), shiftDown(), k -> lang.has(k) ? lang.getOrDefault(k) : null, font::width)) {
                 ChatFormatting[] style = switch (l.tone()) {
+                    case VESSEL -> new ChatFormatting[] {ChatFormatting.BLUE};
                     case PLACEHOLDER -> new ChatFormatting[] {ChatFormatting.YELLOW};
                     case NOTE -> new ChatFormatting[] {ChatFormatting.GRAY};
                     case DEEP -> new ChatFormatting[] {ChatFormatting.DARK_AQUA};
@@ -34,6 +35,11 @@ public class NoteTooltip {
                 lines.add(Component.literal(l.text()).withStyle(style));
             }
         });
+    }
+
+    static String vesselKey(net.minecraft.world.item.ItemStack s) {
+        var v = com.taku3.semiconductorlab.machine.Vessel.of(s.getItem());
+        return v == null ? null : v.langKey();
     }
 
     /** 画面の自動チェック用：null ならキーボードの Shift、true/false ならそのふりをする */

@@ -108,7 +108,10 @@ public class CzPullerBlockEntity extends ConsumerBlockEntity {
         } else {
             container.getItem(SLOT_POLY).shrink(POLY_PER_INGOT);
             container.getItem(SLOT_AR).shrink(AR_PER_INGOT);
-            if (!container.getItem(SLOT_DOPANT).isEmpty()) container.getItem(SLOT_DOPANT).shrink(1);
+            if (!container.getItem(SLOT_DOPANT).isEmpty()) {
+                com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, container.getItem(SLOT_DOPANT), 1);   // 空の瓶は上に出る（IMP-33）
+                container.getItem(SLOT_DOPANT).shrink(1);
+            }
         }
         container.getItem(SLOT_CRUCIBLE).shrink(CRUCIBLE_PER_RUN);   // 冷えると割れる（使い捨て）
         merge(SLOT_OUT, out);

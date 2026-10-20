@@ -51,6 +51,20 @@ public final class Reg {
         return item;
     }
 
+    /**
+     * 容器に入った物（IMP-33、DESIGN「容器のしくみ」）。作業台で使うと空の容器が戻る・重なる数は容器で決まる・ツールチップに「容器：…」。
+     * 空の容器のアイテムは先に登録しておく（同じ幹のファイルなら上に書く）
+     */
+    public static Item contained(String name, com.taku3.semiconductorlab.machine.Vessel v) { return contained(name, v, new Item.Properties()); }
+
+    public static Item contained(String name, com.taku3.semiconductorlab.machine.Vessel v, Item.Properties props) {
+        props.stacksTo(v.stack);
+        if (v.empty() != null) props.craftRemainder(v.empty());
+        Item item = item(name, props);
+        com.taku3.semiconductorlab.machine.Vessel.register(item, v);
+        return item;
+    }
+
     /** ブロック＋ブロックのアイテム */
     public static Block block(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties props) {
         ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, SemiconductorLab.id(name));

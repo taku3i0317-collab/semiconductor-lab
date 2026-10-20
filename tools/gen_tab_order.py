@@ -45,6 +45,8 @@ NODE = {
     # 幹9 半導体
     "zone_refining_furnace": "9-01", "graphite_boat_blank": "9-01", "graphite_boat": "9-01", "synthetic_graphite_boat": "9-01",
     "p_type_germanium": "9-02", "germanium_seed_crystal": "9-07", "silicon_seed_crystal": "9-08", "junction_transistor_blank": "9-04",
+    # 容器（IMP-33）：中身のノードの年に並べる
+    "glass_bottle": "2-14", "iron_flask": "1-45", "cinnabar_retort_charge": "1-45", "lead_bottle": "1-27",
 }
 
 

@@ -89,5 +89,10 @@
   "item.semiconductor-lab.potash.note2": "灰汁 →かまど（10秒）→ K2CO3。ガラスに入れると融点が下がる（融剤）。フリントガラスの調合原料に使う（レイヴンズクロフトの鉛ガラスもカリ）。",
   "item.semiconductor-lab.potash.note3": "灰汁を鉄の鍋（pot）で煮詰めて作ったので「pot ash（鍋の灰）」。1807年、デービーはこれから電気分解で新しい金属を取り出し、potassium（カリウム）と名付けた。",
   "item.semiconductor-lab.potash.note4": "18〜19世紀、北アメリカやロシアの森は大量に燃やされ、カリが輸出された（ガラス・石けん・火薬の原料）。アメリカ最初の特許（1790年）もカリの作り方。今のカリは鉱山の塩化カリウムから作る。",
-  "item.semiconductor-lab.potash.placeholder": "未実装：消石灰を加えて水酸化カリウム KOH にする苛性化（使い道が出たときに作る）。"
+  "item.semiconductor-lab.potash.placeholder": "未実装：消石灰を加えて水酸化カリウム KOH にする苛性化（使い道が出たときに作る）。",
+  "item.semiconductor-lab.glass_bottle": "空のガラス瓶",
+  "item.semiconductor-lab.glass_bottle.note1": "酸を入れる瓶。ガラスはたいていの酸に溶けない。",
+  "item.semiconductor-lab.glass_bottle.note2": "硫酸・塩酸を入れる。水を張れば白リンもしまえる。使うと瓶は戻ってくる。",
+  "item.semiconductor-lab.glass_bottle.note3": "ガラス（SiO2 が主）は塩酸・硫酸・硝酸に強いので、昔から薬品の瓶はガラス。ただしフッ酸だけはガラスを溶かす。",
+  "item.semiconductor-lab.glass_bottle.note4": "4HF + SiO2 → SiF4 + 2H2O。この反応は、ガラスに模様を彫る「エッチング」や、のちの半導体のウェハー洗浄にも使う。"
 }

@@ -31,6 +31,7 @@ malachite_ore  # Metallurgy [1-03] -5000
 galena  # Metallurgy [1-27] -4000
 litharge  # Metallurgy [1-27] -4000
 lead_ingot  # Metallurgy [1-27] -4000
+lead_bottle  # Metallurgy [1-27] -4000
 galena_ore  # Metallurgy [1-27] -4000
 cassiterite  # Metallurgy [1-22] -3000
 tin_ingot  # Metallurgy [1-30] -3000
@@ -47,8 +48,10 @@ quartz_vein  # Metallurgy [1-46] -2500
 magnetite  # Metallurgy [1-47] -600
 magnetite_ore  # Metallurgy [1-47] -600
 iron_sand  # Metallurgy [1-47] -600
+iron_flask  # Metallurgy [1-45] -500
 cinnabar_dust  # Metallurgy [1-45] -500
 mercury  # Metallurgy [1-45] -500
+cinnabar_retort_charge  # Metallurgy [1-45] -500
 sphalerite  # Metallurgy [1-13] 1150
 zinc_ingot  # Metallurgy [1-13] 1150
 sphalerite_ore  # Metallurgy [1-13] 1150
@@ -90,6 +93,7 @@ siemens_reactor  # Metallurgy [1-17] 1956
 trona  # Chemistry [2-03] -2600
 sodium_carbonate  # Chemistry [2-03] -2600
 trona_deposit  # Chemistry [2-03] -2600
+glass_bottle  # Chemistry [2-14] -2500
 glass_batch  # Chemistry [2-14] -2500
 soda_lime_glass  # Chemistry [2-14] -2500
 wood_ash  # Chemistry [2-02] -2500

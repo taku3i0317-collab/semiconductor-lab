@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "category": "misc",
-  "ingredient": "semiconductor-lab:cinnabar_dust",
+  "ingredient": "semiconductor-lab:cinnabar_retort_charge",
   "result": {
     "id": "semiconductor-lab:mercury"
   },

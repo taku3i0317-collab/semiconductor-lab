@@ -8,7 +8,7 @@ import java.util.function.ToIntFunction;
 /**
  * アイテムの説明（ツールチップ）の行を作る（IMP-30）。ゲーム（client/NoteTooltip、本物のフォント）と
  * 自動チェック（GameTest tooltip_text、フォント画像の幅の表）が同じこの計算を使う。
- * 出す物：placeholder（近似・省略・未実装）・note1（へえ①、いつも）・note2（へえ②、Shift）・note3/note4 の冒頭（Shift）・「Shift で詳しく」。
+ * 出す物：容器（IMP-33、中身入りのアイテムだけ）・placeholder（近似・省略・未実装）・note1（へえ①、いつも）・note2（へえ②、Shift）・note3/note4 の冒頭（Shift）・「Shift で詳しく」。
  */
 public final class TooltipText {
     private TooltipText() {}
@@ -19,7 +19,7 @@ public final class TooltipText {
     public static final int PREVIEW = 18;
 
     /** 行の色（ゲームでは ChatFormatting に直す） */
-    public enum Tone { PLACEHOLDER, NOTE, DEEP, HINT }
+    public enum Tone { VESSEL, PLACEHOLDER, NOTE, DEEP, HINT }
     public record Line(String text, Tone tone) {}
 
     /**
@@ -28,7 +28,15 @@ public final class TooltipText {
      * @param width 文の幅（px）
      */
     public static List<Line> lines(String base, boolean shift, Function<String, String> lang, ToIntFunction<String> width) {
+        return lines(base, null, shift, lang, width);
+    }
+
+    /** @param vesselKey 入っている容器の lang キー（Vessel.langKey()、容器に入っていない物は null） */
+    public static List<Line> lines(String base, String vesselKey, boolean shift, Function<String, String> lang, ToIntFunction<String> width) {
         List<Line> out = new ArrayList<>();
+        // 「容器：ガラス瓶」はいつも出す（作業台で使うと空の容器が戻る、IMP-33）
+        String vfmt = lang.apply("tooltip.semiconductor-lab.vessel"), vname = vesselKey == null ? null : lang.apply(vesselKey);
+        if (vfmt != null && vname != null) out.add(new Line(vfmt.replace("%s", vname), Tone.VESSEL));
         // 「省略：」（en は Omitted / Simplified）は Shift のときだけ。「近似：」「未実装」はいつも出す（化学ルール1：本物と違うところは隠さない）
         String ph = lang.apply(base + ".placeholder");
         boolean omittedHidden = ph != null && isOmitted(ph) && !shift;
