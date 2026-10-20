@@ -370,6 +370,22 @@
 - コーニングガラス美術館「Ravenscroft Salver」：https://glasscollection.cmog.org/objects/175/ravenscroft-salver
 - Historic England「Investigation of Late 17th Century Crystal Glass」（鉛の有無の議論）：https://historicengland.org.uk/research/results/reports/21-2005
 
+## O2. 木を蒸し焼きにしてタールとピッチ（木材乾留）［2-23］（［7-03］の前提）
+**答え**：木を空気なしで約400〜500℃に熱する（乾留）と、木炭が残り、煙を冷やすと水っぽい木酢液（酢酸・メタノール）と黒い木タールがとれる。タールを煮詰めると固いピッチになる。
+
+- へえ①：ネアンデルタール人は約20万年前（イタリア・カンピテッロ）に、白樺の皮から作ったタールを石器に付けていた。
+- へえ②：わざと作ったのか、たき火でたまたまできたのかは議論がある。2019年の実験では、くすぶる火のそばの石に付くだけの簡単な方法でも作れた。
+- へえ③：北欧では斜面に掘った円すい形の穴で松を焼いてタールを集め（タール窯）、17世紀から船の防水用に大量に作った（「ストックホルム・タール」）。
+- へえ④：乾いた広葉樹1トンから、木炭 約300kg、酢酸 約50kg・メタノール 約16kg、タール 約240kg がとれる。19世紀の木材化学工業はこれで酢酸・メタノール・アセトンを作った。
+
+確かさ：乾留の生成物と収率 ◎（FAO）／カンピテッロ約20万年前 ○（二次資料。Mazza ら 2006 の原論文は未確認）／タール窯とストックホルム・タール ○／2019年の実験 ○
+根拠：
+- FAO「Simple technologies for charcoal making」（副産物の収率）：https://www.fao.org/4/x5328E/x5328e0d.htm
+- Wikipedia「Birch bark tar」（カンピテッロ・ケーニヒスアウエ）：https://en.wikipedia.org/wiki/Birch_bark_tar
+- Cosmos「Lifting the veil from Neanderthal technology」：https://cosmosmagazine.com/palaeontology/lifting-the-veil-from-neanderthal-technology
+- Smithsonian「Making Neanderthal birch tar isn't complex」（2019年の実験）：https://www.smithsonianmag.com/smart-news/making-neanderthal-birch-tar-isnt-complex-thought-180972994/
+- Antiquity「Early tar production in Sweden」：https://doi.org/10.15184/aqy.2018.22
+
 ---
 
 # 冶金と熱（タスク15〜）

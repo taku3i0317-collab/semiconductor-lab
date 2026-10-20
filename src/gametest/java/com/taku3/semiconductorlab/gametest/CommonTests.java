@@ -191,6 +191,7 @@ public class CommonTests extends LabTestBase {
         // 幹ごとのテストクラスが自分の機械の分を足す（IMP-28）。並びは機械の ID 順（同じ機械の中は書いた順）に固定する
         SurvivalTests.machineRecipes(a);
         MetallurgyTests.machineRecipes(a);
+        ChemistryTests.machineRecipes(a);
         HeatTests.machineRecipes(a);
         PowerTests.machineRecipes(a);
         VacuumTests.machineRecipes(a);

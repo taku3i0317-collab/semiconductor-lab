@@ -9,3 +9,6 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - 判断（小）：クラウンはソーダ石灰ガラスから（ノードの本物欄「クラウン＝ソーダ石灰・ホウケイ酸系」に沿う）。ホウケイ酸クラウンは [2-15] の後。フリントの融剤は本物はカリだが [2-02] 未実装なのでソーダ（placeholder に明記）
   - 確かさ：レイヴンズクロフト 1674 の鉛は議論あり（Historic England）→ △、lang に ⚠️
   - ROADMAP.md に幹7 の行がないのでチェックは付けていない。TECH_TREE_VIEW.md は gen_tree_views.py（ネットワーク担当）の生成物なので触っていない
+- ✅ [2-23] 木材乾留（ユーザーの指示で [7-03] の前提として実装）：乾留炉 wood_retort（燃料式、block/WoodRetortBlockEntity、画面 WoodRetortScreen）、木酢液・木タール・ピッチ。GameTest wood_retort、CHEMISTRY W1〜W3、REFERENCES O2、遊び方: 重。テスト 85/85
+  - 共通ファイルの変更：CommonTests.exportMachineRecipes に ChemistryTests.machineRecipes の1行（幹2 の機械が初めてなので）。SemiconductorLabClient に「幹2 化学」の段
+  - へえ：ネアンデルタール人の白樺タール（カンピテッロ約20万年前）は二次資料で確認 → ○

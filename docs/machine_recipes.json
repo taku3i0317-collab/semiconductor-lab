@@ -933,6 +933,37 @@
       "note": "1面あたり。止まった水では回らない"
     },
     {
+      "machine": "semiconductor-lab:wood_retort",
+      "process": "木を乾留する",
+      "inputs": [
+        {
+          "item": "minecraft:oak_log",
+          "count": 4
+        },
+        {
+          "item": "minecraft:coal",
+          "count": 0.5
+        }
+      ],
+      "outputs": [
+        {
+          "item": "minecraft:charcoal",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:wood_vinegar",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:wood_tar",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 40.0,
+      "note": "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）"
+    },
+    {
       "machine": "semiconductor-lab:zone_refining_furnace",
       "process": "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
       "inputs": [

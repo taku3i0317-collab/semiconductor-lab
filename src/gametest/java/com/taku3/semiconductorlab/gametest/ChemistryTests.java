@@ -130,4 +130,58 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         LOG.info("[LAB] soda-lime glass: 6 sand + soda + lime -> 6 batch -> glass; vacuum chamber / gauge / Leyden jar / electrolyzer / tube assembly / lead-acid battery need it");
         h.succeed();
     }
+
+    /** [2-23] 乾留炉（IMP2-01）：原木1 → 木炭1、2本ごとに木酢液、4本ごとに木タール。燃料なし・ネザーの幹は不可。木タール →かまど→ ピッチ */
+    @GameTest
+    public void woodRetort(GameTestHelper h) {
+        int T = com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS;
+        var W = com.taku3.semiconductorlab.block.WoodRetortBlockEntity.class;
+        int IN = com.taku3.semiconductorlab.block.WoodRetortBlockEntity.SLOT_IN, FUEL = com.taku3.semiconductorlab.block.WoodRetortBlockEntity.SLOT_FUEL;
+        int CH = com.taku3.semiconductorlab.block.WoodRetortBlockEntity.SLOT_CHARCOAL, VI = com.taku3.semiconductorlab.block.WoodRetortBlockEntity.SLOT_VINEGAR, TA = com.taku3.semiconductorlab.block.WoodRetortBlockEntity.SLOT_TAR;
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Chemistry.WOOD_RETORT.block);
+        var be = h.getBlockEntity(pos, W);
+        var c = be.getContainer();
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(pos);
+        Runnable tick = () -> com.taku3.semiconductorlab.block.WoodRetortBlockEntity.tick(lv, a, lv.getBlockState(a), be);
+
+        // ネザーの幹（キノコ）は木ではない
+        h.assertTrue(com.taku3.semiconductorlab.block.WoodRetortBlockEntity.isInput(new ItemStack(Items.OAK_LOG)), "oak log is wood");
+        h.assertTrue(com.taku3.semiconductorlab.block.WoodRetortBlockEntity.isInput(new ItemStack(Items.BIRCH_LOG)), "birch log is wood");
+        h.assertFalse(com.taku3.semiconductorlab.block.WoodRetortBlockEntity.isInput(new ItemStack(Items.CRIMSON_STEM)), "crimson stem is a fungus, not wood");
+        // 燃料なし：進まない
+        c.setItem(IN, new ItemStack(Items.OAK_LOG, 8));
+        for (int i = 0; i < T + 10; i++) tick.run();
+        h.assertTrue(c.getItem(CH).isEmpty(), "no fuel -> no distillation");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, false);
+        // 石炭1個で8本：木炭8・木酢液4・木タール2
+        c.setItem(FUEL, new ItemStack(Items.COAL, 1));
+        for (int i = 0; i < T - 1; i++) tick.run();
+        h.assertTrue(c.getItem(CH).isEmpty(), "not finished 1 tick early");
+        h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
+        tick.run();
+        h.assertValueEqual(c.getItem(CH).getCount(), 1, "1 log -> 1 charcoal");
+        h.assertTrue(c.getItem(VI).isEmpty() && c.getItem(TA).isEmpty(), "1 log alone gives no vinegar/tar item yet");
+        for (int i = 0; i < T * 7; i++) tick.run();
+        h.assertTrue(c.getItem(CH).is(Items.CHARCOAL), "charcoal");
+        h.assertValueEqual(c.getItem(CH).getCount(), 8, "8 charcoal");
+        h.assertTrue(c.getItem(VI).is(Chemistry.WOOD_VINEGAR), "wood vinegar");
+        h.assertValueEqual(c.getItem(VI).getCount(), 4, "4 wood vinegar (1 per 2 logs)");
+        h.assertTrue(c.getItem(TA).is(Chemistry.WOOD_TAR), "wood tar");
+        h.assertValueEqual(c.getItem(TA).getCount(), 2, "2 wood tar (1 per 4 logs)");
+        h.assertTrue(c.getItem(IN).isEmpty() && c.getItem(FUEL).isEmpty(), "8 logs per coal");
+        // タール → かまど → ピッチ。乾留炉のレシピは鉄の釜＋銅の冷却管＋かまど＋れんが
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.WOOD_TAR).is(Chemistry.PITCH), "tar boiled down -> pitch");
+        h.assertTrue(recipeUses(h, "wood_retort", Items.IRON_INGOT) && recipeUses(h, "wood_retort", Items.COPPER_INGOT), "iron retort + copper condenser");
+        LOG.info("[LAB] wood retort [2-23]: 8 logs + 1 coal -> 8 charcoal + 4 wood vinegar + 2 wood tar; tar -> furnace -> pitch");
+        h.succeed();
+    }
+
+    /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
+    static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Chemistry.WOOD_RETORT.block, "木を乾留する", L(io(Items.OAK_LOG, 4), io(Items.COAL, 0.5)),
+            L(io(Items.CHARCOAL, 4), io(Chemistry.WOOD_VINEGAR, 2), io(Chemistry.WOOD_TAR, 1)), 0, 4 * com.taku3.semiconductorlab.block.WoodRetortBlockEntity.DISTILL_TICKS / 20.0,
+            "空気なしで約450℃（石炭・木炭1個で原木8本、電気なし）");
+    }
 }

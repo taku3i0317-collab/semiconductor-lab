@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.content.Chemistry;
 import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.content.Heat;
 import com.taku3.semiconductorlab.content.Metallurgy;
@@ -28,6 +29,8 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Metallurgy.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);
 		screen(Metallurgy.SIEMENS_REACTOR, SiemensReactorScreen::new);
 		screen(Metallurgy.TRICHLOROSILANE_REACTOR, TrichlorosilaneReactorScreen::new);
+		// 幹2 化学
+		screen(Chemistry.WOOD_RETORT, WoodRetortScreen::new);   // [2-23] IMP2-01
 		// 幹3 熱
 		screen(Heat.ARC_FURNACE, ArcFurnaceScreen::new);
 		screen(Heat.ACHESON_FURNACE, AchesonFurnaceScreen::new);

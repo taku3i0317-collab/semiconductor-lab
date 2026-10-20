@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:wood_tar",
+  "result": {
+    "id": "semiconductor-lab:pitch"
+  },
+  "experience": 0.1,
+  "cookingtime": 200
+}
