@@ -1259,7 +1259,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 211
+   "descendants": 212
   },
   {
    "real_full": "赤熱したブルームを叩いてスラグを絞り出す。炭素0.1%未満で柔らかく粘る。浸炭（木炭と加熱して表面に炭素を入れる）＋焼入れで刃物に",
@@ -2643,7 +2643,7 @@
    },
    "hee_game": {
     "note1": "ホウ素と酸素のガラスのような固まり。シリコンを p型にする材料。",
-    "note2": "ホウ酸をかまどで焼くとできる。1個＝1mol。シリコンに入れる p型ドーパント（v0.2b のシリコンの章で使う）。耐熱ガラス（ホウケイ酸ガラス [2-15]）の材料にもなる。",
+    "note2": "ホウ酸をかまどで焼くとできる。1個＝1mol。シリコンに入れる p型ドーパント（v0.2b のシリコンの章で使う）。耐熱ガラス（ホウケイ酸ガラス [2-15]）の材料にもなる。シリコンでは CZ 引き上げ機 [9-08] のドーパントのスロットに入れる（p型）。",
     "note3": "B2O3 は約450℃で溶けてガラスになる。ホウ素は13族で電子が3つ。シリコン（14族、4つ）に入ると手が1本足りず正孔ができて p型になる。シリコン中のホウ素の偏析係数は約0.8と1に近いので、結晶を引き上げても濃さがほとんど変わらない＝シリコンの p型にはホウ素が選ばれる。",
     "note4": "単体のホウ素は1808年にゲイ=リュサックとテナール、デービーがほぼ同時に取り出したが、純粋なものは1909年のワイントラウブまでできなかった。1950年代、ベル研はシリコンの表面からホウ素を熱で拡散させて p型の層を作り（拡散法）、のちの集積回路の作り方の土台になった。"
    },
@@ -4320,7 +4320,15 @@
    "icon": null,
    "emoji": null,
    "symbol": "⚗️",
-   "people": [],
+   "people": [
+    {
+     "name": "ジャービル・イブン・ハイヤーン",
+     "tool": "⚗️ アランビック（蒸留器）",
+     "year": "8〜9世紀 ⚠️",
+     "intro": "8〜9世紀の錬金術師とされる。その名で伝わる本には後の時代の人が書いたものも多いと考えられ、人物像には諸説がある ⚠️",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACdklEQVR42rVWTWjUQBh9KaFu3eL+NFktrBFtKXbBXgqtevYiVZCeSi9eVulBUMRLUTwUpSAiHovk4qV4EmEVQXpeUakHhbYs3ZamC+puujXCYq2FeJpsdjLZzGTjd0rel8x73/tmPkZCiJh/cNemsZq5gydPFyTRtWTeD2/fmrFVpQ8AMD016eAbm1s4dfIEAEBV+hxhs/cecomReCt2k9LELHzxxUsuEV2i5BubWwDgIafx6alJZquEBLjJeYndOI+IQAfCELPw0AI6Ja6ZO+EEhO09jd+8ca1tG6SgPXB2fLTtbg/Cg05D4DHJaaqdVY6EmVeomL+wYtSkjvaAO+byE5jLTwQ+5y+f516T2wFCwBPGj13ohSKXA7KIA/f1Ny1u+OUic+D6pXH7wugQAEA7mhJygMTScgnPXn+QInHgzNV5jAwP48vqKr4+n/XNGY9monNg6HgGWibpOGBaDSiJeEu1dI44YFR/orRdbetA4CnQMknohaLTYzc5HSSnF4rQC0VomWTno3hpueTBYt3NzplWg4n7/Su0B4h1OU21U70xB9/bPwAArBlVHI51e3AyhN59LkuR3IhWjJqU01SbdeToQcU7AYVuRKyRfEUbaMm/MspCI1hYAC2isbePuMv+MOTCAoiIP38PMNCf9hCTdomsJyyA5YZo1cICtLFBz4Xi8cVzLe933r73juSP61JHAgixMnisOWzWvrVd0Dzd33xe/x4oROYlDhOu/20/IbIocbn3EBLZNDNnVepICAqRo6w4jCNdjKRvWJW6b/UAkMimYVXqIkLE7oT/I2R6x/rF790GelLxwO8AYPtTGT2pOJeAf/27Q0SR/NjbAAAAAElFTkSuQmCC"
+    }
+   ],
    "descendants": 53
   },
   {
@@ -5886,7 +5894,15 @@
    "icon": null,
    "emoji": null,
    "symbol": "🔥",
-   "people": [],
+   "people": [
+    {
+     "name": "杜詩",
+     "tool": "💨 水車ふいご",
+     "year": "31",
+     "intro": "31年（後漢）、水車の力で動くふいごを作った",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACE0lEQVR42t1XPUvDUBQ9KanaD4yGBkWlYOnkIg6Ki1NFHNwcFH+CFhHBXyFIEfEniA5uHYq4dREdRASn2oK2UjXEttTPDnHQhLx8NO+1gYp3St59751zz73v5YYDgwmCqBrfR0fjAIBCIUfMq1YVjnZPjpVAMBhuOuftrc5EwIcOG8civVv0RhVoU0GtAC0469yOp+Dv18BgRFQ5f7ilzdVGHWW5eR3wVEUYaC26SuO/1UAmlUQmlXR93t9a8rYG+nrDOgCN5UvPWN0+QqXmUQ1oNr+xR6jh5PNMgc2VOXVhZhwAEBuWmBTQLJ29ws7BCedJDUiJNSSSe5ASa0y+thQYiw0hNizpCjwqNQyIvUS0Zp+mQL70jJv8Q3sKmKU3gpvN7KNJmyuBdPbKMtbT7defn5Sa7bjTWqZTYJBOXV+e1cc/Pn+uuOtcEaFAt2WcpviYjuHvRjoJ45EzX1Qs4Mz3gAaeSSVxeXxBjE8sTuo+zzsi46lwUkED3j08pY6eWQEtFZE+6+f5IHMGuVJnAmdWwO4bAYDqzm+LQHQqrlr6PvmLbEQjXZZ1d+e59k6BBhyJD5I/HkUFAEnA39MFYUS0NEVuRHgWYEKB6agNKdIM6x2JcKzA1aJiF6mrDwDkXNmSGp4W2AuzU8Rn42wpegAQRkTbVDQh0vmmlDfnx8neX14R6A+5zgOA+4tbBPpDVAS+AbLr6gOtjdG5AAAAAElFTkSuQmCC"
+    }
+   ],
    "descendants": 126
   },
   {
@@ -6601,7 +6617,9 @@
    "enables": [],
    "explains": [],
    "enabled_by": [],
-   "explained_by": [],
+   "explained_by": [
+    "I-07"
+   ],
    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACCklEQVR4nKVTXWoUQRis7ume7p7sJLIhDysJiC8eQBA8hMfwCoJnEDyFl/AE3sAHkYAIBgybhM389fSffN+EjM86MNPszFfVVV214tXL1wX/cSl6XJw/Q04JlVJIMaI2BiUXlLJwxxjgXIOqqpBSQogBprb49v0rJA0QuGmOoJXmFQVIKTKglAytNf/23mOaRjjr4P3E5JIem02LOcyoZMVg2lEpAiVWQUQQAkIIVjmMA5xzqwU/e+SckXJCjBHGWF5piFzQrvSdbOScWM08zyuBqQ36oUdMEW8+fGJQd3sDISvU1qHd1jjsPeaxx5eP7zD5Cda41UJKCQICMQTcXV9DG2D3fIvm+ORBNqCNwenTLSsgWzGFlWAOM5RSsNbh7PwMUgDDATjsf2Pq75EjYBsgeDB4c9RCCrkSlFKYgK77W/ILjN2EkjOa9gl+XV7BNIAfA8/2fYdc8noGzi6HQ9HUxoHCsBuLUk6grcTFix38AJzuNFviaJVeFfRDxwlIKdn//uoWtaXkBMKU0d8trTvcgA9Q65qTeFSg6JQKOL7P799y0yhaslDXhmUT+Tx7SFZALRWrAq0131QY2oFSoSwpdwItjVwOb+lIYOK1SH56YC1o22N0ffe4KwFoJRJSRbboXQh/FUnKilMg0DgO/IF80lCIEVWSPENgauhS7yVGJvjx8/Kf/85/ACdSLZF2zCzNAAAAAElFTkSuQmCC",
    "emoji": null,
    "symbol": "🔥",
@@ -12507,7 +12525,7 @@
       "3": "半導体に使ったのはベル研究所のティールとリトルで、1950年（ゲルマニウム）。当時は「多結晶で十分」という意見が強く、ティールは反対されながら続けた。単結晶にしたらトランジスタの性能が一気にそろった。",
       "4": "るつぼは石英（SiO₂）。シリコンを溶かすと石英が少しずつ溶け出し、結晶に酸素が入る。これが CZ 結晶の弱点で、次の FZ 法が生まれた理由。ホウ素は結晶の上から下までほぼ均一に入るが（偏析係数 約0.8）、リンは下のほうに多くたまる（約0.35）。"
      },
-     "certainty": "1916年・1950年 ◎（IEEE 公式認定＋コンピュータ歴史博物館＋全米工学アカデミー）",
+     "certainty": "1916年・1950年 ◎（IEEE 公式認定＋コンピュータ歴史博物館＋全米工学アカデミー）／偏析係数 B 0.8・P 0.35 ◎／電力 17.4kWh/kg ○（1つの論文の改良後の値）／ネッキング（ダッシュ 1959）△",
      "basis": "IEEE Milestone「Czochralski Process, 1916」、コンピュータ歴史博物館「1951 成長接合トランジスタ」、全米工学アカデミーのティール追悼文（すべて英語）"
     }
    ],
@@ -12602,7 +12620,7 @@
       "3": "半導体に使ったのはベル研究所のティールとリトルで、1950年（ゲルマニウム）。当時は「多結晶で十分」という意見が強く、ティールは反対されながら続けた。単結晶にしたらトランジスタの性能が一気にそろった。",
       "4": "るつぼは石英（SiO₂）。シリコンを溶かすと石英が少しずつ溶け出し、結晶に酸素が入る。これが CZ 結晶の弱点で、次の FZ 法が生まれた理由。ホウ素は結晶の上から下までほぼ均一に入るが（偏析係数 約0.8）、リンは下のほうに多くたまる（約0.35）。"
      },
-     "certainty": "1916年・1950年 ◎（IEEE 公式認定＋コンピュータ歴史博物館＋全米工学アカデミー）",
+     "certainty": "1916年・1950年 ◎（IEEE 公式認定＋コンピュータ歴史博物館＋全米工学アカデミー）／偏析係数 B 0.8・P 0.35 ◎／電力 17.4kWh/kg ○（1つの論文の改良後の値）／ネッキング（ダッシュ 1959）△",
      "basis": "IEEE Milestone「Czochralski Process, 1916」、コンピュータ歴史博物館「1951 成長接合トランジスタ」、全米工学アカデミーのティール追悼文（すべて英語）"
     }
    ],
@@ -12615,7 +12633,7 @@
    "name": "CZ 法",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1954,
    "year_range": "1916〜1954",
@@ -12657,7 +12675,7 @@
    "real": "1916 ヤン・チョクラルスキー（ペンをインク壺でなく溶けたスズに浸した逸話⚠️）。Si では1950年代〜。現在は直径300mm・長さ約2m のインゴット。石英るつぼから O が溶け込む",
    "hee1": "世界のシリコンの大半は、100年前の偶然から生まれた方法で作られている",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -15017,7 +15035,9 @@
    "sources": [],
    "enables": [],
    "explains": [],
-   "enabled_by": [],
+   "enabled_by": [
+    "I-08"
+   ],
    "explained_by": [],
    "icon": null,
    "emoji": null,
@@ -17028,7 +17048,15 @@
    "icon": null,
    "emoji": null,
    "symbol": "🧱",
-   "people": [],
+   "people": [
+    {
+     "name": "伊能忠敬",
+     "tool": "🗺️ 歩いて測る測量",
+     "year": "1800〜1821",
+     "intro": "1800年から日本中を歩いて測り、日本地図を作った（地図の完成は1821年）",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACJ0lEQVR42mNkIANERUX9xya+bNkyRlLNYmEgE9jY2KDwjxw5QpY5TAwDDAbcAYzkxD168KNHAylpgWiFBQUF/729vTHEb9++jdUhxDqCkVif4/I1LkCsI5hoYTksmnBl19FcQLYDvGS+MHjJfCHI1mC8T30HwCwglk2TonjbEx6cliHLaTC+pk5BVBTl9t/HVp+BgYGBQUlalGhD7z1FOGDL4YsMfct2MVIlDYg6ZzM450xhEHXOJkmOohDQUpJiUJIWhYfAy3efGMSF+FB8iy4HC4F7T18zXLv3jLIQQA96ZMvRAbocMdFG0AFbDl/EEONgZ4WzX737hFUcl16ScgFS0P3Pi3CBi//4+ZuBgYGB4fKdJwzcnOwY4sQkPpJrw6IoNxRH4AOTVuwhynKKmmTn155G4RsGm9K+QUJMKJDie5IdAHOEiAAPQ5SHBWqLeMcJhjcfvpBkOUWgKMrt/4NNXf8fbOr6XxTl9p+Blm1CCTkzuAWl+SGQOOdCLe/Pf4Pk+e6Ja+BiLx6dYqQoEcIsFhBRgYvFxcVAsuCafhS1MPHZSy8gC/8n5BBGYi1GBod39jAwMDAw2LqXYOWjgw9v7uAMERZSLGZgYGD48vEJXjkefhkMcSTzMEKEkViL0S2B+RoGbN1LcDoAX4gwYXElyT6EAR5+GbwhhM0ushulyPGNK+5JKophwYIL/Pj+noGDUxBF3aJFS7DqffH4NAMHpyBRDgAAqtP0y2Qp7MgAAAAASUVORK5CYII="
+    }
+   ],
    "descendants": 0
   },
   {
@@ -17393,7 +17421,15 @@
    "icon": null,
    "emoji": null,
    "symbol": "💊",
-   "people": [],
+   "people": [
+    {
+     "name": "華岡青洲",
+     "tool": "🌿 通仙散（麻酔薬）",
+     "year": "1804",
+     "intro": "1804年、薬草から作った麻酔薬・通仙散で全身麻酔をして手術をした ⚠️",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACLklEQVR42mNkIANIiAj9xyb+4s07RlLNYmEgEwjw8aDwP3z6QpY5TAwDDAbcAYzkxD168KNHAylpgWiFcpJi/0UE+THEv/34idUhxDqCkVif4/I1LkCsI5hoYTksmnBl19FcQLYDdkzIYdgxIYcge1ppOPWyISwNwCwgBtx7+pohq3slUQmRpKLYo2AKSmjgkqNaCBRFuf33sdVnYGBgYFCSFiUpBGBgy+GLDH3LdjFSJQ2IOmczOOdMYRB1ziZJjqIQ0FKSYlCSFoWHwMt3nxjEhfhQfIsuBwuBe09fM1y794yyEEAPemTL0QG6HDHRRtABWw5fxBDjYGeFs1+9+4RVHJdeknIBUtD9z4twgYv/+PmbgYGBgeHynScM3JzsGOLEJD6Sa8OiKDcUR+ADk1bsIcpyippk59eeRuEbBpvSvkFCTCiQ4nuSHQBzhIgAD0OUhwWK+LIdJxjefPhCkuUUgaIot/8PNnX9f7Cp639RlNt/Blq2CW20pOEWBCbnQ+Kc6zVqmvgGyfPr506Eix259pSRokQIs1hDRgguFhcXA8mCa/pR1MLEr+9cjCz8n5BDGIm1GBm0L93JwMDAwFAZ7Y6Vjw5uPHmHM0RYSLGYgYGB4dHrT3jl5EQxi2ok8zBChJFYi9EtgfkaBiqj3XE6AF+IMGFxJck+hPcdRPnwhhA2u8hulCLHN664J6kohgULLvDu83cGIV5OFHWLFi3BqvfY9acMQrycRDkAADyL/N8esC7TAAAAAElFTkSuQmCC"
+    }
+   ],
    "descendants": 0
   },
   {
@@ -18066,7 +18102,15 @@
    "icon": null,
    "emoji": null,
    "symbol": "🚂",
-   "people": [],
+   "people": [
+    {
+     "name": "喬維岳",
+     "tool": "🚢 閘門",
+     "year": "984",
+     "intro": "984年（宋）、2つの水門で水の高さを上げ下げする閘門を作った ⚠️",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACHElEQVR42tVWQUvjQBT+IlFjN9RQWra0tx6LIB4EL54qSw/eXNhlz3vaFhFhf4UgRYo/QRTUk4ci3rwIe5Ci9CQ9bUt2lRJDKNU9ZC8mJDMTZyYNVL9T8t7MvG++N2/mKYiBfDbjsuzmw0CRXUtFTBhpPfRv2U6sdbiM5+fp3aZSOnPscEiTeHx8XRUhBaIC8saxCJGYwoQxcQIKK8dx5I8CLw0TV0DlndK5abhkyYnCsh1uFbyvQ9hq1NFq1Lnf+z+/JHcR5bMZ10jrfgARdHv3+LFzBMt2uNez1FVc3WqG1IjyJabA9rdP7vrqIgCgVMxJKeDh7LKN3YNzJZEzkKvUUKk3kavUpHxjKVAuFVAq5nwF/gxsfMykQ7slfZ4C3d49Ot3+eAqQ0geDkyB9ImnjEji7bFM2bXba//47sJn2qLlSVRCQzt38uubbR0//AAA3d7/xYW6WsoscPqkyfFnIJxEsOfKikgkeqyWrbjXRatRxffIrZF/aWPZ9ibZkZFVEqeAF3ju8EN69tAJeKrIG/ToetK7wYDlSwaUVYL0R3rMbpyUXJvA5n6e6ptvUTOh/YfhMzTs2zfGqwAu8Yhghe8eh26y0qqKsU6lxeURUmcBBfJ9JhUk906QC8yOJKLKBO47D2inXBwBXlkWlRhUNnARYikwxnLF2DwBlXWeej1eIvIG2nMxPFPqjEQqaxh0HAKemiYKmCRH4D28V6gHd8SlNAAAAAElFTkSuQmCC"
+    }
+   ],
    "descendants": 0
   },
   {
@@ -18987,6 +19031,13 @@
      "year": "1450ごろ",
      "intro": "1450年ごろ、鉛・錫・アンチモンの合金で活字を作り、活版印刷を始めた",
      "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTklEQVR42u1Xv2vUUBz/5EyvptceZ+hBoGkGT6QNRXAqQqf6D+jg4lRwdhGHG+SGUqSznYU3ZelgdddJPHSpyJE7pIKkKZwcxlDbO3oW4tAmzWvz4yX3pIuf6fG+33y/n+/nfd83iQAG3FEUDznQ7HaFNB+RNdjNSiVT8q+uy+QnsFSdNfl5EklKFNKqzpuclXgBl4z/BBKviS7Lnjo5mTu4fXAA03GE3NfQdBxBUYregpqvEY/tIUxnhCNY1pXcyQFgQa1gWU8eYpl6oNGoo9Gop64frqzw6YGwAn4CFuxYXRiEAABatot3ZvwgErMosLq6TqkRZ+OmQP3Rfe/e3UUAwA1NyaSAj623H7H+8hUfBaTbD3Brfh5f2m0MtjdjbbA2+A2ib7tn1Qy2N/H6xRMquV9tlC38bG4CtVkFBiHBGSvT8dfStxmEwCAEtVnl34xiabwYrH/8dCP3WZHYA5+aTfR32wCAX4fDs6M4Oll/7nxHSbp6Yd+HQQhatsvni+haqRh55QDgTczV5DqIWraL8Fiem9Ao307fCtZhXy6DKBQkINTs7VCqJPlyOQIAQeDDo2Ms1qYvJA758GnCBBIojYseq8wjE7iuVjHEFeq1+vzZY8rn6dqGRz8jA/gzWhMu6TPenCpTexMpQfsYo5vTdvDe3MvWhEv6jAcA55PnwWkMD0AkETFr4k5vAK1ajrRZvX1o1bE4EpFERN4VM6hBESlEGGNxUmE51q5Vy7B6+1mIXP5/gRju1iQ4vweQp6RUPwD40N6DPCUxEfgL1UP8yGnwvVcAAAAASUVORK5CYII="
+    },
+    {
+     "name": "畢昇",
+     "tool": "🔤 焼き物の活字",
+     "year": "1040年代",
+     "intro": "1040年代の中国（宋）で、焼き物で作った活字で印刷した",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACGUlEQVR42u1Wu0oDQRQ9G1ZifERdsr4iKVKJTbAQLEwVCSnSWSj7CRpEAv6EggQJfoJoIYJYLGKniGihIj4KCSEYUSOLrOIDi7Fxl+zLndlE0niq2Xtn55577r3DcPCA3pBA7Oz3TwrHehYPj+gMthm+n9VXT+f40GA0nADnpfZm+c1lYOkF6o2Rvm4S6uqw2N8+Pm2J0JLgaDN3ytoJtCR8fxFcK5PTuP5PgWcCci4DOZdxXa/MT9ZvDLUe0ALQoFCuYHpxnaoRma7i1FzeoIaTr24KZKUkScdjAIBoWGRSQMP23hmWVne4uvSAmJhBIpOHmJhh8tWkwFC0H9GwqCvwoKjoEYKGbM0+TYFCuYLLwl1tCpilrw5uhtlHUzZXAtt7ZxZbs79JXz8qqq3d6V+mKaiSjsxOjev2j88vAMD5zS1aA36Lnab5mMbw5yCdRPXImS8qluCenmSpuTzkXAYnG8cG+/DEiO77swdJVkoaSmGH5bVd6uyZCWgkQp1tkFKjBvuqfIin51em4DUhKyVJcWuBFLcWSFZKEq/nUPXA2FDYEiAdj+kXTjoew9HphWXP/mW5tinQAg8OCAZ7qaJa9rb4eUREyyVF3IjwLIENNd+UXZWr+t+RCMcauFRR7TJ19QHA9a1iKQ1PG7gesFPEZ+P0lD0ARMSgbX/8QqTxj1LeXB8nKC/vENoDrvsA4OCqDKE9QEXgG8cF8HjuXacPAAAAAElFTkSuQmCC"
     }
    ],
    "descendants": 0
@@ -19486,7 +19537,15 @@
    "icon": null,
    "emoji": "📺",
    "symbol": "📡",
-   "people": [],
+   "people": [
+    {
+     "name": "高柳健次郎",
+     "tool": "📺 ブラウン管",
+     "year": "1926",
+     "intro": "1926年、ブラウン管にカタカナの「イ」の字を映した",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACRklEQVR42mNgGAUjHTCSolhCROg/MepevHlHtLksxCqUkxT7LyLIjyH+7cdPbMr/E+sIRmJ9LsDHQ1LQfvj0haiQYKKF5QwMDAwCfDxERRnTQCfCoeWAHRNyGHZMyCHInlYaTr1sCEsDMAuIAfeevmbI6l5JVEJkISUEPAqmoIQGLjmqhUBRlNt/H1t9BgYGBobKBWcw5FdWezIwMDAwhLdux5BrTzBhYGBgYNhy+CJD37JdjFRJA/v2bWF48/wuw759W+AWwyxHl6NaIrz39DWc7eTkwyAiqczg5OQDDwGYT9Hl0PWSnQaUpEVRghsbQJeDWawkLcpw7d4zykJgy+GLGGIc7Kxw9qt3n7CK49JLUgggJZ7/eREucPEfP38zMDAwMFy+84SBm5MdQ5yYxEdydVwU5YbiCHxg0oo9RFlOcjmADM6vPY3CNww2pX2DhJhQIMX3JDsA5ggRAR6GKA8LFPFlO04wvPnwhSTLKQJFUW7/H2zq+v9gU9f/oii3/+SaQ1QacHLywLDAx1aXgdsyBsJ++prhwgum/5gl5w5GihwAs1hHxwBF/P79OwwMDAwMprZJDBxcQgzTUqUZuLl5GBQVVTDahoQcwkKKxchAN6SQgWN2CZzNsC0PQw2SfpwOYSHV4vv372DzKYOiogpOOXwOYSHWYmRQW5uHVSwpKQ+vPmwOYcIiSbLv0UOBEEC2i+RGKTbfEyNHMBFeuXIBr8I3b14xiIiIMSxatATR+XgD8S2y2NevXxgOHNjFICIiRpQDABRr92Teg3UiAAAAAElFTkSuQmCC"
+    }
+   ],
    "descendants": 1
   },
   {
@@ -19597,7 +19656,15 @@
    "icon": null,
    "emoji": null,
    "symbol": "📡",
-   "people": [],
+   "people": [
+    {
+     "name": "チャールズ・カオ",
+     "tool": "💡 光ファイバー",
+     "year": "1966",
+     "intro": "1966年、不純物を取り除いたガラスなら光を遠くまで送れると示した（2009 ノーベル物理学賞）",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACWElEQVR42mNgGAUjHTCSojgqKuo/MeqWLVtGtLksxCosKCj47+3tjSF++/ZtbMr/E+sIRmJ9bmNjA+d7yXzBqm7bEx44+8iRI0SFBBO1LEeXs7GxISrKmEhJA/gsJ0UN2Q6gBSDaARqM9xlooZZoByhJi9IkBFhIUYycytHjGllOg/E1dQqioii3/yo2AQwMDAwMCxeuxpBfWe3JwMDAwBDeuh1DLj4+lIGBgYHhzpENDH3LdjFSJRHu27eF4c3zuwz79m2BWwyzHF2OammA7dkpeKJycvJhEJFUZnBy8oGHQHuCCVY5Dcb7DGzPTlGeBmCJDxbc2AC63L2nr+F6r917RlkIbDl8EUOMg50Vzn717hNWcVx6SQoBpMTzPy/CBS7+4+dvBgYGBobLd54wcHOyY4jDLMeX+Eiujoui3FAcgQ9MWrGHKMtJLgeQwfm1p1H4hsGmtG+QEBMKpPieZAfAHCEiwMMQ5WGB2gracYLhzYcvJFlOESiKcvv/YFPX/webuv4XRbn9Z6BlXSAhZ4ZhgY+tPgO3ZQyE/fQ1w7IjHzDUvHh0ipEiB8AsFhBRQRH/8vEJAwMDA0OrqRWDDAcHg1G+LwMLKwcDD78MRtuQkEOYcFksIWf2X0BEBcNyGNANKWSQ4eCAs7EBmH6YeQRDAJeP0X2PxacMPPwyOOWQzMMIERZiLUYGh3f2YBUztIjAqw+bQ5iwSJLse/RQIASQ7SK5UYrN98TIEcwFH97cwavwx/f3DBycggyLFi2Bi5348AFSmiGJ/fn9g+HF49MMHJyCRDkAAIKe6oigD4/gAAAAAElFTkSuQmCC"
+    }
+   ],
    "descendants": 2
   },
   {
@@ -20244,7 +20311,15 @@
    "icon": null,
    "emoji": "🔆",
    "symbol": "🌿",
-   "people": [],
+   "people": [
+    {
+     "name": "赤崎勇",
+     "tool": "💙 窒化ガリウムの結晶",
+     "year": "1986〜1989",
+     "intro": "天野浩とともに、窒化ガリウムのきれいな結晶（1986）と p型（1989）を作り、青色 LED への道を開いた（2014 ノーベル物理学賞）",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACUUlEQVR42u1WMWgTURj+Ek6qJIPDtYNdmtBJWlRU0KFLsaEFN6WVR4dSaMaUZjukiyAHHQRLl9SlBDlsoUsJtQQJBRdBpS2W4JBeSui1JQki0oLi8Bzkzsu9l8t7JjfpP737/v+97/u/e/fuAf/jX4+QTLGu61SkTtM04XUV0cJMJkOTySSDVyoVXjkVFRES7ZwQ8mf1vVX+YtcmnLFhGEJOhDtF7s0RQoReWVhmD/iRy9T8tYAgQljAweYSgqgVFhDv7Q7EAUXq0HDtcu+7dudgLXXmIEqTBJ3VXwAAxsenmPzq4zEAwMTT10xubW0FAPBcm8EzIx/qyCYsFHKonxygUMg5xDa5N9cxB67GryDe2w1t5QPXAdOqcXP61C2YVg1F89jXAUV089l288KbM62aM7doHrf3FeTe7jHYxa4Lzrj65RsXbzZXygGXdTT16J6Df//xEwDwqXSEyKUuBrfJ/ayX/h2nSaJBhF8svnojRC59DrhjZ/19w/ONB7eDv5CIuCDTvbQAW4R6OQoyeqcBN7beof71TIq8rUiTBD3cWKCHGws0TRIUQf4LhodHGYL7Q4OI3J38PbZq2D0NU/bk3Aq1JcAmHhi43oCXyyUAwMjMMqJqH57cBCKRKGKxfuZ+0kqIIkPsjsGHc4h+zDtjbKaYGtf8pkIUWeJyucTrFLFYf9OcnxBFlNgd8/MpLjY9nfKdxxMS5iSlu/e60CrcXNKXUl73IrmWm3B/f9e3sF6vQlV7kM2+dLDTz0UAQDZbdbDz8zNsb+ehqj1CAn4BjXL7Te6/vu4AAAAASUVORK5CYII="
+    }
+   ],
    "descendants": 3
   },
   {
@@ -21408,6 +21483,122 @@
    "emoji": "🧊",
    "symbol": "●",
    "people": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "ハータ・エアトンが 1895〜96年に雑誌『The Electrician』で、炭素の電極で作るアーク（アーク灯）のシューという音は炭素と空気の酸素の反応が原因で、酸素を断つと安定したアークになると示した。1899年、この研究「電気アークのシュー音」をイギリス電気技術者協会（IEE）で発表（女性で初めて）し、同じ年に IEE 初の女性会員になった。1902年に本『The Electric Arc』、1906年に王立協会のヒューズ・メダル",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-07",
+   "name": "電気アークのしくみ",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1899,
+   "year_range": "1895〜1902",
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "1-07"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": true,
+   "real": "ハータ・エアトンが 1895〜96年に雑誌『The Electrician』で、炭素の電極で作るアーク（アーク灯）のシューという音は炭素と空気の酸素の反応が原因で、酸素を断つと安定したアークになると示した。1899年、この研究「電気アークのシュー音」をイギリス電気技術者協会（IEE）で発表（女性で初めて）し、同じ年に IEE 初の女性会員になった。1902年に本『The Electric Arc』、1906年に王立協会のヒューズ・メダル",
+   "hee1": "アークのシューという音は、炭素が空気の酸素と反応する音だった",
+   "kind": "idea",
+   "play": "実験：2本の炭素棒の間にアークを飛ばし、まわりの空気（酸素）を止めると、音が消えてアークが安定する",
+   "missing": "",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hertha_Ayrton",
+    "https://english-heritage.org.uk/visit/blue-plaques/hertha-ayrton"
+   ],
+   "enables": [],
+   "explains": [
+    "3-15"
+   ],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "●",
+   "people": [
+    {
+     "name": "ハータ・エアトン",
+     "tool": "⚡ 炭素のアーク",
+     "year": "1895〜1902",
+     "intro": "アークのシューという音は炭素と酸素の反応だと突き止めた。1899年、イギリス電気技術者協会（IEE）の初の女性会員",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACH0lEQVR42mNkIBFoyYn+52JnwSr37ecfhmuPXjOSYh4LAxlAiJcLhwM+kWwWE8MAg6HlAC050f8yInw45WVE+Bi05ET/k2Im0QnGRFXyv7KkEIb4+y8/MMSevPlEdGJkpIbPsQFiHcFEC8tJiY7BnQjJ9T0poUBSCCybVMuwbFItQXZTSSp1cgFyCMAsIAbcefSCoa5nNlGJkaSiOCqvGSU0cMlRLQQqkgP/BzibMzAwMDCoyEmQFAIwsGHvSYaOueupEwKchqEMepqaDJeuX2f4fn41TjmGR5OpVxTffYzwzffzqxk2TipCsRzmW2xyyHrJdoCyLGrQS4gI4FSLLoeulywHbNh7EjMq2Nng7JdvP2AVx6WXpDSAlHj+lyT6I6Li5y8GBgYGhgs3HjBwc3JgiBOT+EiuDSuSA1EcgQ/0zN9IlOVkN8kYGBgYDs/eisK3TfUmyxySGpDEhAIpvifZATBHiArxM8T7O6CIL9x4gOH1u48kWU4RqEgO/P/myIL/b44s+F+RHPifXHOIcq2oqATcgoqKIgYGBgaGuLgYFDWLFi2B5JyOPrjY69cvKMsFMIv5+BAFzIkT+/AaaGHhBGd/+vSBoENYiLWYHICk/z8uhzCSavHXr18YuLl5MELCwsIJLocLYAsRFmr6mJwQYYQ5gBjLCfmQWDWw0Hj9+gXjgLeKWdDjBxf4+fMHAzs7B0F10KBlYGfnIMoBACzg9SRmSIiiAAAAAElFTkSuQmCC"
+    }
+   ],
+   "descendants": 0
+  },
+  {
+   "real_full": "1843年、エイダ・ラブレスがバベッジの解析機関（設計だけで作られなかった）についての論文を英訳し、元の論文より長い注を付けて出版した。注G にはベルヌーイ数を計算する手順の表があり、計算機のために出版された最初のアルゴリズムとよく言われる。注G をどこまでラブレスが書いたかには諸説がある ⚠️。のちのプログラム式計算機の作り手に直接伝わったかは別の問題 ⚠️",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "I-08",
+   "name": "プログラム",
+   "trunk": "I",
+   "trunk_name": "発見・考え方",
+   "status": "❓",
+   "branch": false,
+   "year": 1843,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [],
+   "understanding": [],
+   "buildable_now": true,
+   "real": "1843年、エイダ・ラブレスがバベッジの解析機関（設計だけで作られなかった）についての論文を英訳し、元の論文より長い注を付けて出版した。注G にはベルヌーイ数を計算する手順の表があり、計算機のために出版された最初のアルゴリズムとよく言われる。注G をどこまでラブレスが書いたかには諸説がある ⚠️。のちのプログラム式計算機の作り手に直接伝わったかは別の問題 ⚠️",
+   "hee1": "機械を作り変えなくても、手順書（プログラム）を変えるだけで別の仕事をさせられる",
+   "kind": "idea",
+   "play": "実験：命令カードの並びを変えて同じ機械に入れると、違う計算をする → プログラム",
+   "missing": "解析機関（バベッジ）",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Note_G",
+    "https://en.wikipedia.org/wiki/Ada_Lovelace"
+   ],
+   "enables": [
+    "10-06"
+   ],
+   "explains": [],
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "●",
+   "people": [
+    {
+     "name": "エイダ・ラブレス",
+     "tool": "📜 注G（計算の手順表）",
+     "year": "1843",
+     "intro": "1843年、バベッジの解析機関の論文を英訳し、計算の手順を書いた長い注を付けた",
+     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTElEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCdCJlr4npRQICkElk2qZVg2qZYgu6kklTrZEDkEYBYQA+48esFQ1zObqMTIQkoIROU1o4QGLjmqhUBFcuD/AGdzBgYGBgYVOQmSQgAGNuw9ydAxdz11QoDTMJRBT1OT4dL16wzfz6/GKcfwaDJ1cgEDAwPD3ccI33w/v5ph46QiFMthvsUmh6yXbAcoy6IGvYSIAE616HLoeqlWEHGys8HZL99+wCpOlSjYtPsIPDshg+8/fzEwMDAwXLjxgIGbkwNDHAbqemYzbNp9hPIQqOuZjZKyYcBAQ4HBQEMBpx6qVscb9p5kKEn0h/MPz96KIm+b6o2ilqrtgSdvPjHsguTl/zBHIFuIDHrmb2TomLuekdh6hKRyAFqg/BcV4meI93dAkVu48QDD63cf8RY6FDsAyREMr999hIcGzNfk5CiiHGAgF8nAw3YFpVoNcDaHJ8wAZ3OGfQc/osirSOgwvPm2lTIH8LDpMohw6cANhKeJd/cx1HKwcTPICCmiiIlweTN8YLvCwMCwjzQHmKk4/Ue3FB1MmvaMqCCGmvGfgYGB4dSdfYx4a0NiLH7y7j6GT4mRY2BgYLjz4goDukNYiLWYGgDJfHiIMGGRJMv3DAwMDDJCiljTBx6HDHyrmAU9fnCB91/fMAhyixBUx8DAwHD67gEGQW4RohwAAD3k6m6wk1W3AAAAAElFTkSuQmCC"
+    }
+   ],
    "descendants": 0
   }
  ],
@@ -27881,6 +28072,23 @@
    "from": "I-06",
    "to": "9-08",
    "kind": "understanding"
+  },
+  {
+   "from": "1-07",
+   "to": "I-07",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "I-07",
+   "to": "3-15",
+   "kind": "understanding"
+  },
+  {
+   "from": "I-08",
+   "to": "10-06",
+   "kind": "enables"
   }
  ],
  "year_inversions": [

@@ -21,7 +21,8 @@ CLOTH = {"navy": (40, 50, 90), "black": (35, 35, 40), "brown": (100, 70, 45), "r
          "grey": (110, 110, 120), "blue": (60, 100, 160), "white": (220, 220, 215), "purple": (90, 60, 110)}
 
 # 名前 → 特徴。skin / hair（色）/ style（short・bald・side・long・wig・curly・tied）/ beard（none・full・moustache・sideburns・goatee）
-# hat（none・official＝中国の官帽・futou・tophat・cap・beret）/ glasses / cloth / tie（white＝白い襟、red など）
+# hat（none・official＝中国の官帽・futou・tophat・cap・beret・turban）/ glasses / cloth / tie（white＝白い襟、kimono＝和服の合わせ襟、red など）
+# style の bun は後ろでまとめた髪（頭の上にまげ）。顔は男女とも同じ形で、髪型と服で描き分ける
 TRAITS = {
     "蔡倫": dict(skin="b", hair="black", style="tied", beard="none", hat="official", cloth="red"),
     "グーテンベルク": dict(skin="a", hair="brown", style="long", beard="full", hat="beret", cloth="brown"),
@@ -71,6 +72,18 @@ TRAITS = {
     "マカロック": dict(skin="a", hair="white", style="side", beard="full", hat="none", cloth="brown", tie="white"),
     "ピッツ": dict(skin="a", hair="dark", style="short", beard="none", hat="none", cloth="grey", tie="navy", glasses=True),
     "ローゼンブラット": dict(skin="a", hair="dark", style="curly", beard="none", hat="none", cloth="navy", tie="white"),
+    # NET-02（2026-10-20）：TECH_TREE の本物欄にいて亡くなっている西洋以外の人と、女性
+    "華岡青洲": dict(skin="b", hair="black", style="tied", beard="none", hat="none", cloth="brown", tie="kimono"),
+    "高柳健次郎": dict(skin="b", hair="black", style="short", beard="none", hat="none", cloth="grey", tie="navy", glasses=True),
+    "伊能忠敬": dict(skin="b", hair="grey", style="tied", beard="none", hat="none", cloth="navy", tie="kimono"),
+    "畢昇": dict(skin="b", hair="black", style="tied", beard="moustache", hat="none", cloth="brown"),
+    "杜詩": dict(skin="b", hair="black", style="tied", beard="goatee", hat="official", cloth="green"),
+    "喬維岳": dict(skin="b", hair="black", style="tied", beard="goatee", hat="futou", cloth="red"),
+    "チャールズ・カオ": dict(skin="b", hair="grey", style="side", beard="none", hat="none", cloth="navy", tie="red", glasses=True),
+    "赤崎勇": dict(skin="b", hair="white", style="side", beard="none", hat="none", cloth="grey", tie="blue", glasses=True),
+    "ジャービル・イブン・ハイヤーン": dict(skin="c", hair="dark", style="short", beard="full", hat="turban", cloth="green"),
+    "ハータ・エアトン": dict(skin="a", hair="dark", style="bun", beard="none", hat="none", cloth="black", tie="white"),
+    "エイダ・ラブレス": dict(skin="a", hair="dark", style="long", beard="none", hat="none", cloth="purple"),
 }
 
 
@@ -104,6 +117,8 @@ def draw(t):
     # 長い髪・かつらは顔より後ろ（先に描く）
     if st == "long":
         rect(7, 9, 9, 27, hair); rect(22, 9, 24, 27, hair)
+    if st == "bun":   # 後ろでまとめた髪：耳の後ろに少し見える
+        rect(7, 9, 8, 16, hair); rect(23, 9, 24, 16, hair)
     if st == "wig":
         for y in range(9, 24):
             for x in (5, 6, 7, 8, 23, 24, 25, 26):
@@ -117,7 +132,11 @@ def draw(t):
         put(16 - 3 - (y - 25) // 2, y, shade(cloth, 0.7)); put(15 + 3 + (y - 25) // 2, y, shade(cloth, 0.7))
     rect(14, 22, 17, 25, dark_skin)   # 首
     tie = t.get("tie")
-    if tie == "white":   # 白い襟巻き（クラバット）
+    if tie == "kimono":   # 和服の合わせ襟（左右から白い襟が V 字に重なる）
+        for y in range(24, 32):
+            d = (y - 24) // 2
+            for x in (12 + d, 13 + d, 18 - d, 19 - d): put(x, y, (235, 235, 230))
+    elif tie == "white":   # 白い襟巻き（クラバット）
         rect(12, 24, 19, 26, (235, 235, 230)); rect(14, 27, 17, 28, (235, 235, 230))
     elif tie:
         for y in range(24, 32):
@@ -164,6 +183,8 @@ def draw(t):
             rect(6, 6, 7, 13, hair); rect(24, 6, 25, 13, hair)
         if st == "tied":   # まげ
             rect(13, 0, 18, 3, hair)
+        if st == "bun":    # 頭の上のまとめ髪
+            rect(12, 0, 19, 3, hair); rect(13, 0, 18, 0, hair_hi)
         if st == "wig":
             rect(7, 3, 24, 6, hair)
         for x in range(10, 16): put(x, 5, hair_hi)   # 髪のつや
@@ -194,6 +215,12 @@ def draw(t):
         rect(8, 2, 23, 7, K); rect(0, 6, 31, 7, K)
     if h == "beret":
         rect(6, 2, 24, 6, (95, 40, 40)); rect(9, 0, 22, 1, (95, 40, 40)); rect(7, 7, 23, 7, (70, 30, 30))
+    if h == "turban":     # 白い布を巻いた頭
+        Wt = (225, 220, 205)
+        for y in range(0, 9):
+            for x in range(6, 26):
+                if ((x - cx) / 9.5) ** 2 + ((y - 7) / 7.5) ** 2 <= 1.0:
+                    put(x, y, Wt if (x + 2 * y) % 6 else shade(Wt, 0.85))
     if h == "cap":
         rect(8, 3, 23, 7, (120, 110, 95)); rect(5, 8, 22, 8, (90, 80, 70))
     # 輪郭：透明に接する点を暗く
