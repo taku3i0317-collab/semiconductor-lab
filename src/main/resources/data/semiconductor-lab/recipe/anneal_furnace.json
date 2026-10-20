@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BQB",
+    "BFB",
+    "SCS"
+  ],
+  "key": {
+    "B": "semiconductor-lab:refractory_brick",
+    "Q": "semiconductor-lab:quartz_tube",
+    "F": "semiconductor-lab:electric_furnace",
+    "S": "semiconductor-lab:steel_ingot",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:anneal_furnace",
+    "count": 1
+  }
+}

@@ -94,6 +94,35 @@
       "note": "安水を熱し、消石灰で塩のアンモニアも追い出して水に吸わせる"
     },
     {
+      "machine": "semiconductor-lab:anneal_furnace",
+      "process": "アニール",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "注入した 1〜8枚（レジストなし）"
+        },
+        {
+          "item": "semiconductor-lab:nitrogen_gas",
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:argon_gas"
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "注入した層が働く"
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "N2/Ar の中で約1000℃。隣のガスホルダーから補充"
+    },
+    {
       "machine": "semiconductor-lab:arc_furnace",
       "process": "金属シリコン",
       "inputs": [

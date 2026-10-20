@@ -534,5 +534,18 @@
   "gui.semiconductor-lab.ion_implanter.need_vacuum": "隣の真空容器を 0.01Pa 以下に",
   "gui.semiconductor-lab.ion_implanter.need_power": "電気が足りない",
   "gui.semiconductor-lab.ion_implanter.running": "イオンを打ちこんでいる",
-  "gui.semiconductor-lab.ion_implanter.recipe": "イオン源→磁石→加速"
+  "gui.semiconductor-lab.ion_implanter.recipe": "イオン源→磁石→加速",
+  "block.semiconductor-lab.anneal_furnace": "アニール炉",
+  "block.semiconductor-lab.anneal_furnace.note1": "イオンを打ちこんだウェハーを熱して、きずを直す炉。直すまで、打ちこんだ原子は働かない。",
+  "block.semiconductor-lab.anneal_furnace.note2": "電気 3kW。注入したウェハー1〜8枚＋窒素かアルゴン1袋 → アニールしたウェハー（20秒）。隣のガスホルダーから窒素・アルゴンをもらう。レジストが付いたままは入れられない（先にはがす）。注入していないウェハーは変わらない。",
+  "block.semiconductor-lab.anneal_furnace.note3": "打ちこんだイオンは結晶の原子をはじき飛ばし、自分もすき間に止まる。約1000℃ に熱すると原子が並び直し（焼きなまし）、ドーパントが格子の位置に入って電気を運ぶようになる（活性化）。空気だと表面が酸化するので、窒素かアルゴンで守る。",
+  "block.semiconductor-lab.anneal_furnace.note4": "鉄の焼きなましと同じ考え。1980年代からは、ランプの光で数秒だけ熱する RTA（急速熱処理）が使われる。炉で長く熱すると、せっかく決めた場所からドーパントが広がってしまうため。⚠️ 炉の温度・時間は代表的な値。",
+  "block.semiconductor-lab.anneal_furnace.placeholder": "省略：⚠️ 電力・時間はゲームの値（本物の炉は約30分）。ランプの RTA は作らず、炉だけ。熱でドーパントが広がるようすは表さない。",
+  "gui.semiconductor-lab.anneal_furnace.power": "電力 %s",
+  "gui.semiconductor-lab.anneal_furnace.need_input": "注入したウェハーと N2/Ar が必要",
+  "gui.semiconductor-lab.anneal_furnace.nothing": "注入した層がない",
+  "gui.semiconductor-lab.anneal_furnace.resist_on": "レジストを先にはがす",
+  "gui.semiconductor-lab.anneal_furnace.need_power": "電気が足りない",
+  "gui.semiconductor-lab.anneal_furnace.running": "熱して結晶を直している",
+  "gui.semiconductor-lab.anneal_furnace.recipe": "N2/Ar の中で約1000℃"
 }

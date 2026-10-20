@@ -939,6 +939,39 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** 注入したウェハーはアニールまで回路に効かない。レジストを付けたままは入らない。N2 はホルダーからもらう。アニールで拡散と同じ層に */
+    @GameTest(maxTicks = 100)
+    public void annealFurnace(GameTestHelper h) {
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 4);
+        w.set(ModDataComponents.DOPANT, "boron");
+        w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+        ItemStack imp = com.taku3.semiconductorlab.block.IonImplanterBlockEntity.product(w, new ItemStack(Chemistry.PHOSPHORUS));
+        h.assertTrue(!imp.isEmpty() && com.taku3.semiconductorlab.litho.ChipOps.state(imp).done().equals(com.taku3.semiconductorlab.litho.ChipOps.state(w).done()), "implanted but not annealed = same circuit as before");
+        floor(h, 5);
+        BlockPos gp = p(1, 1, 1), fp = p(2, 1, 1);
+        h.setBlock(gp, Gas.GAS_HOLDER.block);
+        h.setBlock(fp, Semiconductor.ANNEAL_FURNACE.block);
+        h.getBlockEntity(gp, com.taku3.semiconductorlab.block.GasHolderBlockEntity.class).setContentsForTest(com.taku3.semiconductorlab.block.GasType.NITROGEN, 5);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.SLOT_WAFER, imp.copy());
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.SLOT_OUT).isEmpty(), "resist still on: it would burn -> refused");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.reason(imp), "resist_on", "reason resist_on");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.SLOT_GAS).is(Gas.NITROGEN_GAS), "nitrogen pulled from the holder");
+        c.setItem(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.litho.ChipOps.strip(imp).out());
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.TICKS, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.SLOT_OUT);
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(out);
+        h.assertTrue(out.getCount() == 4 && st.implanted().isEmpty() && st.diffusions() == 1 && st.has(com.taku3.semiconductorlab.litho.LayerKind.DIFF_N), "annealed: implant became an n layer, got " + out);
+        c.setItem(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.SLOT_WAFER, out.copy());
+        h.assertTrue(com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.product(out).isEmpty(), "nothing left to anneal");
+        LOG.info("[LAB] anneal furnace [9-29]: implant inactive until anneal; resist must be stripped; N2 from holder; anneal -> DIFF_N");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2136,6 +2169,8 @@ public class SemiconductorTests extends LabTestBase {
             L(io(Semiconductor.PLASTIC_PACKAGED_CHIP, com.taku3.semiconductorlab.block.PackageSealerBlockEntity.CHIPS_PER_COMPOUND)), com.taku3.semiconductorlab.block.PackageSealerBlockEntity.WATTS, com.taku3.semiconductorlab.block.PackageSealerBlockEntity.TICKS / 20.0, "温めた型にエポキシを押しこむ（トランスファー成形）");
         rec(a, Semiconductor.ION_IMPLANTER.block, "イオン注入", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WAFERS_PER_RUN), "現像したレジストか窓 1〜8枚"), cond(alt(io(Metallurgy.BORON_TRIOXIDE, 1), Chemistry.PHOSPHORUS), "B＝p型・P＝n型")),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WAFERS_PER_RUN), "注入した（アニール前は効かない）")), com.taku3.semiconductorlab.block.IonImplanterBlockEntity.WATTS, com.taku3.semiconductorlab.block.IonImplanterBlockEntity.TICKS / 20.0, "イオン源 → 質量分析の磁石 → 加速。隣の真空容器 0.01Pa 以下");
+        rec(a, Semiconductor.ANNEAL_FURNACE.block, "アニール", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WAFERS_PER_RUN), "注入した 1〜8枚（レジストなし）"), alt(io(Gas.NITROGEN_GAS, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.GAS_PER_RUN), Gas.ARGON_GAS)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WAFERS_PER_RUN), "注入した層が働く")), com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.AnnealFurnaceBlockEntity.TICKS / 20.0, "N2/Ar の中で約1000℃。隣のガスホルダーから補充");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),
