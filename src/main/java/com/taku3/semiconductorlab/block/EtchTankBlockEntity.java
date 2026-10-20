@@ -26,6 +26,8 @@ import net.minecraft.world.level.storage.ValueOutput;
  * 時間は膜の厚さ ÷ 溶ける速さ（ゲームでは 1秒に {@link #NM_PER_SECOND} nm。本物の薄めたフッ酸は 1分に数十〜100nm 程度）。
  * 加工中のウェハー（process_wafer、現像ずみ）を入れると、レジストのない所だけ膜が溶けて「窓」が開く（ChipOps.etchOxide、LITHO_DESIGN §5）。1回に1〜8枚。
  * 酸化膜つきの板（レジストなし）を入れると、膜を全部はがす。
+ * リン酸（[9-25]）を入れると Al を削る：Al を一面に付けて現像した加工中のウェハー → レジストの残っている所だけ Al が残る（ChipOps.etchMetal）。
+ * 2Al + 2H3PO4 → 2AlPO4 + 3H2。リン酸は酸化膜もシリコンもほとんど溶かさない。
  * スロット：0＝酸化膜つきの板、1＝フッ酸、2＝出口
  */
 public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
@@ -33,6 +35,8 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
     public static final int WAFERS_PER_RUN = 8;
     /** ゲームの溶ける速さ（nm/秒）。⚠️ 本物より速い（etch_tank.placeholder） */
     public static final int NM_PER_SECOND = 20;
+    /** Al（約1µm）を削る時間。⚠️ ゲームの値（本物の温めたリン酸系で数分） */
+    public static final int METAL_TICKS = 20 * 10;
     public static final int DATA_PROGRESS = 0, DATA_TOTAL = 1, DATA_COUNT = 2;
 
     private final SimpleContainer container = new SimpleContainer(SLOT_COUNT) {
@@ -48,10 +52,10 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(DATA_COUNT)
             .in(SLOT_WAFER, 8, 26, EtchTankBlockEntity::isInput)
-            .in(SLOT_HF, 8, 50, s -> s.is(Chemistry.HYDROFLUORIC_ACID))
+            .in(SLOT_HF, 8, 50, EtchTankBlockEntity::isAcid)
             .out(SLOT_OUT, 78, 35)
             .right("hint", 17, 4, "gui.semiconductor-lab.etch_tank.need_input", "gui.semiconductor-lab.etch_tank.running", "gui.semiconductor-lab.etch_tank.out_full")
-            .bottom("recipe", "gui.semiconductor-lab.etch_tank.recipe")
+            .bottom("recipe", "gui.semiconductor-lab.etch_tank.recipe", "gui.semiconductor-lab.etch_tank.recipe_metal")
             .build();
 
     public EtchTankBlockEntity(BlockPos pos, BlockState state) { super(Semiconductor.ETCH_TANK.type, pos, state); }
@@ -59,8 +63,10 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
     @Override public SimpleContainer getContainer() { return container; }
     @Override public ContainerData getMenuData() { return data; }
 
-    /** 入れてよい物：酸化膜つきの板（全部はがす）か、窓を開けられる加工中のウェハー */
-    public static boolean isInput(ItemStack s) { return s.is(Semiconductor.OXIDIZED_WAFER) || ChipOps.canEtchOxide(s); }
+    /** 入れてよい物：酸化膜つきの板（全部はがす）か、窓を開けられる／Al を削れる加工中のウェハー */
+    public static boolean isInput(ItemStack s) { return s.is(Semiconductor.OXIDIZED_WAFER) || ChipOps.canEtchOxide(s) || ChipOps.canEtchMetal(s); }
+    /** 酸：フッ酸（酸化膜）かリン酸（Al） */
+    public static boolean isAcid(ItemStack s) { return s.is(Chemistry.HYDROFLUORIC_ACID) || s.is(Chemistry.PHOSPHORIC_ACID); }
 
     /** 1回の枚数：板は8枚ちょうど、加工中のウェハーは1〜8枚 */
     public static int batch(ItemStack w) {
@@ -68,8 +74,13 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
         return w.is(Semiconductor.OXIDIZED_WAFER) && w.getCount() >= WAFERS_PER_RUN ? WAFERS_PER_RUN : 0;
     }
 
-    /** 出てくる物：加工中のウェハーは窓が開いたもの、板は膜をはがしたシリコンの板 */
-    public static ItemStack product(ItemStack w, int n) {
+    /** 出てくる物：フッ酸なら窓が開いたもの（板は膜をはがしたシリコンの板）、リン酸なら Al を削ったもの。できなければ EMPTY */
+    public static ItemStack product(ItemStack w, int n, ItemStack acid) {
+        if (acid.is(Chemistry.PHOSPHORIC_ACID)) {
+            if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
+            ChipOps.Result r = ChipOps.etchMetal(w.copyWithCount(n)); return r.ok() ? r.out() : ItemStack.EMPTY;
+        }
+        if (!acid.is(Chemistry.HYDROFLUORIC_ACID)) return ItemStack.EMPTY;
         if (ChipOps.isProcessWafer(w)) { ChipOps.Result r = ChipOps.etchOxide(w.copyWithCount(n)); return r.ok() ? r.out() : ItemStack.EMPTY; }
         return stripped(w, n);
     }
@@ -90,8 +101,8 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
     private boolean canEtch() {
         ItemStack w = container.getItem(SLOT_WAFER), out = container.getItem(SLOT_OUT);
         int n = batch(w);
-        if (n == 0 || !container.getItem(SLOT_HF).is(Chemistry.HYDROFLUORIC_ACID)) return false;
-        ItemStack add = product(w, n);
+        if (n == 0 || !isAcid(container.getItem(SLOT_HF))) return false;
+        ItemStack add = product(w, n, container.getItem(SLOT_HF));
         if (add.isEmpty()) return false;
         return out.isEmpty() || (ItemStack.isSameItemSameComponents(out, add) && out.getCount() + add.getCount() <= out.getMaxStackSize());
     }
@@ -99,14 +110,14 @@ public class EtchTankBlockEntity extends BlockEntity implements MachineBE {
     public static void tick(Level level, BlockPos pos, BlockState state, EtchTankBlockEntity be) {
         if (level.isClientSide()) return;
         if (!be.canEtch()) { if (be.progress != 0) { be.progress = 0; be.setChanged(); } return; }
-        be.total = ticksFor(OxidationFurnaceBlockEntity.oxideOf(be.container.getItem(SLOT_WAFER)));
+        be.total = be.container.getItem(SLOT_HF).is(Chemistry.PHOSPHORIC_ACID) ? METAL_TICKS : ticksFor(OxidationFurnaceBlockEntity.oxideOf(be.container.getItem(SLOT_WAFER)));
         if (++be.progress >= be.total) {
             be.progress = 0;
             int n = batch(be.container.getItem(SLOT_WAFER));
-            ItemStack add = product(be.container.getItem(SLOT_WAFER), n);
+            ItemStack add = product(be.container.getItem(SLOT_WAFER), n, be.container.getItem(SLOT_HF));
             be.container.getItem(SLOT_WAFER).shrink(n);
             ItemStack hf = be.container.getItem(SLOT_HF);
-            Vessel.returnEmpty(level, pos, hf, 1);   // 空の鉛の瓶は上に戻る
+            Vessel.returnEmpty(level, pos, hf, 1);   // 空の瓶（フッ酸＝鉛、リン酸＝ガラス）は上に戻る
             hf.shrink(1);
             ItemStack out = be.container.getItem(SLOT_OUT);
             if (out.isEmpty()) be.container.setItem(SLOT_OUT, add); else out.grow(add.getCount());

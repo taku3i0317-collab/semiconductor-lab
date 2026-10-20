@@ -345,6 +345,75 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [9-25] 金属配線（Al 蒸着・リン酸で削る）（IMP4-01）
+    // =====================================================================
+
+    /** NOT の例を、拡散と窓までは ChipOps で、Al を付ける工程は真空蒸着装置、Al を削る工程はエッチング槽（リン酸）で通す → 4つの発見。リン酸は骨灰＋硫酸 */
+    @GameTest(maxTicks = 200)
+    public void aluminiumWiring(GameTestHelper h) {
+        // リン酸：骨灰1＋硫酸3＋空のガラス瓶2 → リン酸2（硫酸の瓶3本が戻る）
+        List<ItemStack> grid = new ArrayList<>(List.of(new ItemStack(Metallurgy.BONE_ASH), new ItemStack(Chemistry.SULFURIC_ACID), new ItemStack(Chemistry.SULFURIC_ACID),
+                new ItemStack(Chemistry.SULFURIC_ACID), new ItemStack(Chemistry.GLASS_BOTTLE), new ItemStack(Chemistry.GLASS_BOTTLE), ItemStack.EMPTY, ItemStack.EMPTY, ItemStack.EMPTY));
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(3, 3, grid);
+        var rr = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel()).orElseThrow().value();
+        ItemStack acid = rr.assemble(input);
+        h.assertTrue(acid.is(Chemistry.PHOSPHORIC_ACID) && acid.getCount() == 2, "bone ash + 3 H2SO4 + 2 bottles -> 2 H3PO4, got " + acid);
+        h.assertValueEqual((int) rr.getRemainingItems(input).stream().filter(st -> st.is(Chemistry.GLASS_BOTTLE)).count(), 3, "3 sulfuric acid bottles come back");
+        // 窓（CONTACT）まで：ChipOps
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.notGate();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        for (int i = 0; i < 4; i++) {
+            w = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.expose(w, d.mask(i), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.develop(w).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.strip(w).out();
+            if (d.layers().get(i).kind().isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, d.layers().get(i).kind().dopes).out();
+        }
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w).hasWindows() && com.taku3.semiconductorlab.block.EvaporatorBlockEntity.isSubstrate(w), "contact windows open -> goes into the evaporator");
+        // Al を一面に：真空蒸着装置（0.004Pa）
+        floor(h, 5);
+        BlockPos cp = p(1, 1, 1), ep = p(2, 1, 1), tp = p(3, 1, 3);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(ep, com.taku3.semiconductorlab.content.Vacuum.EVAPORATOR.block);
+        var ch = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class);
+        var ev = h.getBlockEntity(ep, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.class);
+        ev.getContainer().setItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_SUBSTRATE, w.copy());
+        ev.getContainer().setItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_METAL, new ItemStack(Metallurgy.ALUMINIUM_INGOT, 2));
+        ch.setPressure(50);
+        tickConsumer(h, ep, ev, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS + 5, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS));
+        h.assertTrue(ev.getContainer().getItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_OUT).isEmpty(), "50 Pa: atoms collide, no film");
+        ch.setPressure(0.004);
+        tickConsumer(h, ep, ev, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS));
+        ItemStack metal = ev.getContainer().getItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_OUT);
+        h.assertTrue(metal.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(metal).metalFilm(), "8 wafers covered with Al in one run, got " + metal);
+        h.assertValueEqual(ev.getContainer().getItem(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.SLOT_METAL).getCount(), 1, "1 aluminium per run");
+        h.assertTrue(ItemStack.isSameItemSameComponents(metal, com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out()), "evaporator = ChipOps.depositMetal");
+        // 配線の模様：塗布・露光・現像 → エッチング槽（リン酸）
+        ItemStack m = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(metal).out(), d.mask(4), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+        h.assertTrue(com.taku3.semiconductorlab.block.EtchTankBlockEntity.isInput(m), "developed Al wafer goes into the etching tank");
+        h.setBlock(tp, Semiconductor.ETCH_TANK.block);
+        var tank = h.getBlockEntity(tp, com.taku3.semiconductorlab.block.EtchTankBlockEntity.class);
+        var tc = tank.getContainer();
+        ServerLevel lv = h.getLevel();
+        BlockPos ta = h.absolutePos(tp);
+        tc.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_WAFER, m.copy());
+        tc.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF, new ItemStack(Chemistry.HYDROFLUORIC_ACID));
+        h.assertTrue(com.taku3.semiconductorlab.block.EtchTankBlockEntity.product(m, 8, new ItemStack(Chemistry.HYDROFLUORIC_ACID)).isEmpty(), "HF cannot etch the Al pattern (metal on)");
+        tc.setItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_HF, new ItemStack(Chemistry.PHOSPHORIC_ACID));
+        for (int i = 0; i < com.taku3.semiconductorlab.block.EtchTankBlockEntity.METAL_TICKS; i++) com.taku3.semiconductorlab.block.EtchTankBlockEntity.tick(lv, ta, lv.getBlockState(ta), tank);
+        ItemStack wired = tc.getItem(com.taku3.semiconductorlab.block.EtchTankBlockEntity.SLOT_OUT);
+        h.assertTrue(wired.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(wired).has(com.taku3.semiconductorlab.litho.LayerKind.METAL), "phosphoric acid leaves the Al wiring, got " + wired);
+        lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(ta).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        ItemStack chip = com.taku3.semiconductorlab.litho.ChipOps.strip(wired).out();
+        var found = com.taku3.semiconductorlab.litho.Discoveries.match(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(chip.get(ModDataComponents.CHIP_STATE))));
+        h.assertValueEqual(found.size(), 4, "wired chip = NOT example (4 discoveries)");
+        LOG.info("[LAB] Al wiring [9-25]: bone ash + H2SO4 -> H3PO4; evaporator puts Al on 8 wafers (0.004 Pa, not 50 Pa); H3PO4 in the etching tank leaves the wiring; NOT example -> {} discoveries", found.size());
+        h.succeed();
+    }
+
+    // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:bone_ash",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:glass_bottle",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:phosphoric_acid",
+    "count": 2
+  }
+}

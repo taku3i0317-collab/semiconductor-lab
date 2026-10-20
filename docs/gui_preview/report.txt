@@ -282,6 +282,7 @@ etch_tank_en_us hint gui.semiconductor-lab.etch_tank.need_input w=109 lines=2/4
 etch_tank_en_us hint gui.semiconductor-lab.etch_tank.running w=99 lines=2/4
 etch_tank_en_us hint gui.semiconductor-lab.etch_tank.out_full w=53 lines=1/4
 etch_tank_en_us recipe gui.semiconductor-lab.etch_tank.recipe w=138 lines=1/1 scale=0.74999994
+etch_tank_en_us recipe gui.semiconductor-lab.etch_tank.recipe_metal w=146 lines=1/1 scale=0.74999994
 crystal_puller_en_us power gui.semiconductor-lab.crystal_puller.power w=69 lines=1/1
 crystal_puller_en_us stored gui.semiconductor-lab.crystal_puller.stored w=65 lines=1/1
 crystal_puller_en_us hint gui.semiconductor-lab.crystal_puller.need_seed w=197 lines=3/3
@@ -573,6 +574,7 @@ etch_tank_ja_jp hint gui.semiconductor-lab.etch_tank.need_input w=102 lines=2/4
 etch_tank_ja_jp hint gui.semiconductor-lab.etch_tank.running w=90 lines=2/4
 etch_tank_ja_jp hint gui.semiconductor-lab.etch_tank.out_full w=45 lines=1/4
 etch_tank_ja_jp recipe gui.semiconductor-lab.etch_tank.recipe w=138 lines=1/1 scale=0.74999994
+etch_tank_ja_jp recipe gui.semiconductor-lab.etch_tank.recipe_metal w=146 lines=1/1 scale=0.74999994
 crystal_puller_ja_jp power gui.semiconductor-lab.crystal_puller.power w=57 lines=1/1
 crystal_puller_ja_jp stored gui.semiconductor-lab.crystal_puller.stored w=49 lines=1/1
 crystal_puller_ja_jp hint gui.semiconductor-lab.crystal_puller.need_seed w=114 lines=2/3

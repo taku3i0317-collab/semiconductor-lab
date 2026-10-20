@@ -131,6 +131,7 @@ sulfur_powder  # Chemistry [2-01] 1831
 sulfur_dioxide  # Chemistry [2-01] 1831
 sulfuric_acid  # Chemistry [2-01] 1831
 phosphorus  # Chemistry [9-11] 1955
+phosphoric_acid  # Chemistry [9-25] 1959
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690
 refractory_brick_blank  # Heat [3-12] 1822

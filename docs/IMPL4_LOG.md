@@ -19,3 +19,7 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [1-38] 氷晶石の合成：作業台で フッ酸3＋Al(OH)3＋NaOH3 → 氷晶石（鉛の瓶3本が戻る）。GameTest cryolite_synthesis、CHEMISTRY F15、REFERENCES F7、遊び方: 軽
 - ✅ [1-29] アルミニウム：ホール・エルー電解槽 hall_heroult_cell（block/HallHeroultCellBlockEntity、画面 HallHeroultCellScreen、100kW）。アルミナ2 → アルミ1（15kWh）、氷晶石1で16回・黒鉛棒1で2回。c:ingots/aluminum。GameTest hall_heroult、CHEMISTRY F16、REFERENCES F8、遊び方: 重
 - ✅ 露光の工程へのつなぎ（A の litho/ChipOps）：エッチング槽に現像ずみの process_wafer（1〜8枚）→ ChipOps.etchOxide で窓開け、酸化炉に窓の開いた process_wafer → ChipOps.reoxidize で閉じ直し＋膜が育つ。GameTest etch_and_reoxidize_windows
+
+## O-003（2026-10-20）IC の工程で層を作る部分（INBOX、LITHO_DESIGN）
+- O-001 は完了（2244e9c まで）、O-002 は作業なし（硝酸は IMP2 の Gas.NITRIC_ACID を使う）
+- ✅ [9-25] 金属配線：①真空蒸着装置（IMP2 の EvaporatorBlockEntity に分岐を追記：process_wafer 1〜8枚＋アルミ1 → ChipOps.depositMetal。RECIPES と既存の動きはそのまま。C が不在だったので A に了承をもらって追記）②リン酸（骨灰1＋硫酸3＋瓶2 → 2）③エッチング槽がリン酸で ChipOps.etchMetal。GameTest aluminium_wiring（NOT の例が蒸着装置・槽を通って4つの発見）、CHEMISTRY F17〜F19、REFERENCES F9、遊び方: 重

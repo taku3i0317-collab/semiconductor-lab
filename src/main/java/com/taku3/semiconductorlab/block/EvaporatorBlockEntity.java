@@ -16,6 +16,8 @@ import net.minecraft.world.level.block.state.BlockState;
  * 隣の真空容器（ベルジャー）を使い、圧力が {@link #MAX_PA} 以下のときだけ動く（平均自由行程 ≈ 6.6mm·Pa ÷ p。
  * 0.01Pa なら約 0.66m で、ベルジャーより長い＝蒸発した原子が途中でぶつからずに、まっすぐ基板に付く）。
  * 1回ごとにベルジャーを開けて基板を入れ替えるので、空気が少し戻る（{@link #VENT_FRACTION}）。
+ * [9-25]（IMP4-01 が追記）：加工中のウェハー（process_wafer）1〜8枚＋アルミニウム1 → Al を一面に付ける（ChipOps.depositMetal、LITHO_DESIGN §5）。
+ *   ウェハーのデータを書き換えるので RECIPES の表ではなく {@link #chipProduct} で扱う。
  * 何に何を付けると何になるかは {@link #RECIPES} に1行ずつ（クラウンガラス＋銀 → 半透明鏡、[7-22] レンズ＋蛍石 CaF2 → 反射防止膜付きレンズ）。
  */
 public class EvaporatorBlockEntity extends ConsumerBlockEntity {
@@ -41,8 +43,16 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
         for (Recipe r : RECIPES) if (substrate.is(r.substrate()) && metal.is(r.metal())) return r;
         return null;
     }
-    public static boolean isSubstrate(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.substrate())); }
-    public static boolean isMetal(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.metal())); }
+    public static boolean isSubstrate(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.substrate())) || com.taku3.semiconductorlab.litho.ChipOps.canDepositMetal(s); }
+    public static boolean isMetal(ItemStack s) { return RECIPES.stream().anyMatch(r -> s.is(r.metal())) || s.is(Metallurgy.ALUMINIUM_INGOT); }
+
+    /** [9-25] 加工中のウェハーに Al を付けたもの（1回に1〜8枚、Al 1個）。当てはまらなければ EMPTY */
+    public static ItemStack chipProduct(ItemStack substrate, ItemStack metal) {
+        if (!com.taku3.semiconductorlab.litho.ChipOps.isProcessWafer(substrate) || !metal.is(Metallurgy.ALUMINIUM_INGOT)) return ItemStack.EMPTY;
+        var r = com.taku3.semiconductorlab.litho.ChipOps.depositMetal(substrate.copyWithCount(Math.min(substrate.getCount(), CHIP_BATCH)));
+        return r.ok() ? r.out() : ItemStack.EMPTY;
+    }
+    public static final int CHIP_BATCH = 8;
 
     private final ContainerData menuData = new ContainerData() {
         @Override public int get(int i) {
@@ -76,6 +86,11 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
     @Override protected int workTicks() { return TICKS; }
 
     @Override protected boolean canWork() {
+        ItemStack chip = chipProduct(container.getItem(SLOT_SUBSTRATE), container.getItem(SLOT_METAL));
+        if (!chip.isEmpty()) {
+            VacuumChamberBlockEntity c = chamber();
+            return c != null && c.getPressure() <= MAX_PA && canMerge(container.getItem(SLOT_OUT), chip);
+        }
         Recipe r = recipe(container.getItem(SLOT_SUBSTRATE), container.getItem(SLOT_METAL));
         if (r == null || container.getItem(SLOT_METAL).getCount() < r.count()) return false;
         VacuumChamberBlockEntity c = chamber();
@@ -83,6 +98,16 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
     }
 
     @Override protected void finishWork() {
+        ItemStack chip = chipProduct(container.getItem(SLOT_SUBSTRATE), container.getItem(SLOT_METAL));
+        if (!chip.isEmpty()) {
+            container.getItem(SLOT_SUBSTRATE).shrink(chip.getCount());
+            container.getItem(SLOT_METAL).shrink(1);
+            merge(SLOT_OUT, chip);
+            container.setChanged();
+            VacuumChamberBlockEntity c = chamber();
+            if (c != null) c.vent(VENT_FRACTION);
+            return;
+        }
         Recipe r = recipe(container.getItem(SLOT_SUBSTRATE), container.getItem(SLOT_METAL));
         if (r == null) return;
         container.getItem(SLOT_SUBSTRATE).shrink(1);

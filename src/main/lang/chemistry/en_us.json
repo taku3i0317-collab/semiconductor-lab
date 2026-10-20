@@ -139,5 +139,11 @@
   "gui.semiconductor-lab.lead_retort.need_water": "Needs a water bucket (absorber)",
   "gui.semiconductor-lab.lead_retort.need_fuel": "Needs fuel (coal, charcoal, coke)",
   "gui.semiconductor-lab.lead_retort.running": "Reacting, about 200 °C",
-  "gui.semiconductor-lab.lead_retort.out_full": "Output full"
+  "gui.semiconductor-lab.lead_retort.out_full": "Output full",
+  "item.semiconductor-lab.phosphoric_acid": "Phosphoric Acid",
+  "item.semiconductor-lab.phosphoric_acid.note1": "A syrupy acid. Used to cut the aluminium wiring of chips into shape.",
+  "item.semiconductor-lab.phosphoric_acid.note2": "H3PO4 (in a glass bottle; the bottle comes back). Crafting: 1 bone ash + 3 sulfuric acid + 2 empty glass bottles → 2 phosphoric acid. In the etching tank [9-06] it dissolves only the aluminium where a developed wafer has no resist [9-25]. GHS: corrosive.",
+  "item.semiconductor-lab.phosphoric_acid.note3": "Ca3(PO4)2 + 3H2SO4 → 2H3PO4 + 3CaSO4: sulfuric acid on bone ash (calcium phosphate). 2Al + 2H3PO4 → 2AlPO4 + 3H2 dissolves aluminium but hardly touches oxide or silicon.",
+  "item.semiconductor-lab.phosphoric_acid.note4": "1960s chip plants etched aluminium with warm phosphoric acid mixed with a little nitric and acetic acid. Phosphoric acid also gives cola its tang and is used in fertiliser and rust removers.",
+  "item.semiconductor-lab.phosphoric_acid.placeholder": "Approximation: the gypsum by-product does not appear. Plain phosphoric acid instead of the nitric/acetic etching mixture."
 }

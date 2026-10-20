@@ -139,5 +139,11 @@
   "gui.semiconductor-lab.lead_retort.need_water": "吸収用の水バケツが必要",
   "gui.semiconductor-lab.lead_retort.need_fuel": "燃料（石炭・木炭・コークス）が必要",
   "gui.semiconductor-lab.lead_retort.running": "反応中 約200℃",
-  "gui.semiconductor-lab.lead_retort.out_full": "出口が満杯"
+  "gui.semiconductor-lab.lead_retort.out_full": "出口が満杯",
+  "item.semiconductor-lab.phosphoric_acid": "リン酸",
+  "item.semiconductor-lab.phosphoric_acid.note1": "とろりとした酸。チップのアルミの配線を形にけずるのに使う。",
+  "item.semiconductor-lab.phosphoric_acid.note2": "H3PO4（ガラス瓶入り、使うと瓶が戻る）。作業台で 骨灰1＋硫酸3＋空のガラス瓶2 → リン酸2。エッチング槽 [9-06] に入れると、現像したウェハーのアルミ（レジストのない所）だけを溶かす [9-25]。GHS：腐食性。",
+  "item.semiconductor-lab.phosphoric_acid.note3": "Ca3(PO4)2 + 3H2SO4 → 2H3PO4 + 3CaSO4。骨の灰（リン酸カルシウム）に硫酸をかけると取れる。2Al + 2H3PO4 → 2AlPO4 + 3H2 で、アルミは溶けるが、酸化膜とシリコンはほとんど溶けない。",
+  "item.semiconductor-lab.phosphoric_acid.note4": "1960年代の IC 工場は、リン酸に少しの硝酸と酢酸を混ぜた液を温めてアルミを削った。リン酸はコーラの酸っぱさ、肥料、さび取りにも使われる。",
+  "item.semiconductor-lab.phosphoric_acid.placeholder": "近似：副産物の石こうは出ない。硝酸・酢酸を混ぜたエッチング液ではなくリン酸だけ。"
 }

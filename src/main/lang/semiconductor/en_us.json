@@ -190,7 +190,7 @@
   "gui.semiconductor-lab.oxidation_furnace.recipe": "Oxygen = dry / water = wet",
   "block.semiconductor-lab.etch_tank": "Etching Tank",
   "block.semiconductor-lab.etch_tank.note1": "A lead tank of hydrofluoric acid. It dissolves only the glass film (oxide) on silicon slices.",
-  "block.semiconductor-lab.etch_tank.note2": "1 hydrofluoric acid per run (the empty lead bottle pops out on top). 1–8 developed process wafers → the oxide dissolves only where there is no resist, opening 'windows'. 8 oxidized slices → bare silicon slices with all oxide stripped. Time depends on film thickness (125 nm about 6 s). Room temperature; no power or fuel.",
+  "block.semiconductor-lab.etch_tank.note2": "1 acid per run (the empty bottle pops out on top). Hydrofluoric acid: 1–8 developed process wafers → oxide dissolves only where there is no resist, opening 'windows'; 8 oxidized slices → all oxide stripped. Time depends on film thickness (125 nm about 6 s). Phosphoric acid: 1–8 aluminium-coated, developed wafers → aluminium stays only under the resist and becomes wiring (10 s). Room temperature; no power or fuel.",
   "block.semiconductor-lab.etch_tank.note3": "SiO2 + 6HF → H2SiF6 + 2H2O. HF dissolves oxide readily but hardly touches silicon itself (selectivity). When the film is gone, the surface starts to repel water, so you can see when it is done.",
   "block.semiconductor-lab.etch_tank.note4": "In 1957 Lathrop and Nall (US Army laboratory) opened holes in oxide, keeping the parts protected by resist. Later factories used buffered HF (BHF), diluted with ammonium fluoride, to keep the etch rate steady. ⚠️ Whether Bell Labs' window opening from 1955 used HF is not confirmed.",
   "block.semiconductor-lab.etch_tank.placeholder": "Omitted: ⚠️ The etch rate (20 nm per second) is a game value (real diluted HF etches some tens to 100 nm per minute). Sideways etching (undercut) is not modelled. The tank is lead, not polyethylene.",
@@ -202,5 +202,6 @@
   "item.semiconductor-lab.process_wafer.note1": "A silicon wafer getting its mask patterns printed one by one.",
   "item.semiconductor-lab.process_wafer.note2": "Coat resist → expose → develop → etch → diffuse, once per mask. If something goes wrong, strip the resist and try again.",
   "item.semiconductor-lab.process_wafer.note3": "In 1959 Hoerni had the idea of the planar process: keep the oxide and only open windows to diffuse through. The surface stays flat, so many parts can sit side by side and be wired with metal.",
-  "item.semiconductor-lab.process_wafer.note4": "Around 1960 an IC took three diffusions (isolation, base, emitter) and one layer of aluminium wiring, just like in the game. The real process first grew an n-type layer as a crystal (epitaxy) ⚠️; the game doesn't have that yet, so it diffuses n-type islands instead."
+  "item.semiconductor-lab.process_wafer.note4": "Around 1960 an IC took three diffusions (isolation, base, emitter) and one layer of aluminium wiring, just like in the game. The real process first grew an n-type layer as a crystal (epitaxy) ⚠️; the game doesn't have that yet, so it diffuses n-type islands instead.",
+  "gui.semiconductor-lab.etch_tank.recipe_metal": "2Al + 2H3PO4 → 2AlPO4 + 3H2"
 }
