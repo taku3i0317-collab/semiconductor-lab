@@ -414,5 +414,11 @@
   "gui.semiconductor-lab.bayer_digester.need_liquor": "Needs NaOH and water",
   "gui.semiconductor-lab.bayer_digester.need_power": "Not enough power",
   "gui.semiconductor-lab.bayer_digester.running": "Digesting (about 200 °C)",
-  "gui.semiconductor-lab.bayer_digester.recipe": "Al(OH)3 + NaOH → NaAl(OH)4"
+  "gui.semiconductor-lab.bayer_digester.recipe": "Al(OH)3 + NaOH → NaAl(OH)4",
+  "item.semiconductor-lab.cryolite": "Cryolite",
+  "item.semiconductor-lab.cryolite.note1": "An icy, white, see-through mineral. It becomes the 'hot bath' for making aluminium.",
+  "item.semiconductor-lab.cryolite.note2": "Na3AlF6. At the crafting table: 3 hydrofluoric acid (lead bottles come back) + 1 aluminium hydroxide + 3 sodium hydroxide → 1 cryolite (6HF + Al(OH)3 + 3NaOH → Na3AlF6 + 6H2O). The bath for the Hall–Héroult process [1-29].",
+  "item.semiconductor-lab.cryolite.note3": "Alumina only melts at about 2050 °C, but it dissolves well in cryolite melted at about 1000 °C, so it can be electrolysed at about 960 °C. That is the key idea of the Hall–Héroult process.",
+  "item.semiconductor-lab.cryolite.note4": "Natural cryolite was mined in quantity only at Ivittuut, Greenland, and ran out in 1987. Today it is all made chemically (this way). ⚠️ The year synthetic production became industrial is not yet checked.",
+  "item.semiconductor-lab.cryolite.placeholder": "Approximation: mixed at the crafting table (really reacted in lead- or rubber-lined tanks, then the crystals are filtered and dried)."
 }

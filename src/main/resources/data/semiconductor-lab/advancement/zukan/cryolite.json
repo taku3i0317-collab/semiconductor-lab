@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:cryolite"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.cryolite"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.cryolite.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.cryolite.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:cryolite"
+          }
+        ]
+      }
+    }
+  }
+}

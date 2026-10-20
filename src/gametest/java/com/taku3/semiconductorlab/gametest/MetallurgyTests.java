@@ -90,6 +90,24 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
 
+    /** [1-38] 氷晶石の合成（IMP4-01）：フッ酸3＋Al(OH)3＋NaOH3 → 氷晶石（6HF + Al(OH)3 + 3NaOH）。フッ酸の鉛の瓶が3本戻る */
+    @GameTest
+    public void cryoliteSynthesis(GameTestHelper h) {
+        List<ItemStack> grid = new ArrayList<>();
+        for (int i = 0; i < 3; i++) grid.add(new ItemStack(com.taku3.semiconductorlab.content.Chemistry.HYDROFLUORIC_ACID));
+        grid.add(new ItemStack(Metallurgy.ALUMINIUM_HYDROXIDE));
+        for (int i = 0; i < 3; i++) grid.add(new ItemStack(com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE));
+        grid.add(ItemStack.EMPTY); grid.add(ItemStack.EMPTY);
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(3, 3, grid);
+        var r = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel()).orElseThrow().value();
+        h.assertTrue(r.assemble(input).is(Metallurgy.CRYOLITE), "3 HF + Al(OH)3 + 3 NaOH -> cryolite");
+        long bottles = r.getRemainingItems(input).stream().filter(st -> st.is(Metallurgy.LEAD_BOTTLE)).count();
+        h.assertValueEqual((int) bottles, 3, "3 lead bottles come back");
+        h.assertFalse(recipeUses(h, "cryolite", Metallurgy.ALUMINA), "made from the hydroxide, not alumina");
+        LOG.info("[LAB] cryolite [1-38]: 3 HF + Al(OH)3 + 3 NaOH -> Na3AlF6 (6:1:3 if 1 HF bottle = 2 HF), 3 lead bottles returned");
+        h.succeed();
+    }
+
     /** [1-14] バイヤー法（IMP4-01）：ボーキサイト2 → Al(OH)3＋赤泥。NaOH＋水の液は4回、液・電気がないと止まる。Al(OH)3 →かまど→ アルミナ */
     @GameTest
     public void bayerProcess(GameTestHelper h) {

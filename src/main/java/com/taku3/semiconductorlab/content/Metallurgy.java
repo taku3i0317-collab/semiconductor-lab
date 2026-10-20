@@ -49,6 +49,7 @@ public final class Metallurgy {
     public static final Item ALUMINIUM_HYDROXIDE   = Reg.item("aluminium_hydroxide");
     public static final Item ALUMINA               = Reg.item("alumina");
     public static final Item RED_MUD               = Reg.item("red_mud");
+    public static final Item CRYOLITE              = Reg.item("cryolite");         // [1-38] 氷晶石 Na3AlF6（IMP4-01、合成。ホール・エルー法の電解浴）
     public static final Item GRAPHITE              = Reg.item("graphite");
     public static final Item SPHALERITE            = Reg.item("sphalerite");
     public static final Item COAL_ASH              = Reg.item("coal_ash");

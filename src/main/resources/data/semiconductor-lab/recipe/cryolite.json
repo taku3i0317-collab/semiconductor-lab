@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:aluminium_hydroxide",
+    "semiconductor-lab:sodium_hydroxide",
+    "semiconductor-lab:sodium_hydroxide",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cryolite",
+    "count": 1
+  }
+}

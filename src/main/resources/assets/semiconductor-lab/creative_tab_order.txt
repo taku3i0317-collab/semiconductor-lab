@@ -76,6 +76,7 @@ graphite  # Metallurgy [1-07] 1850
 graphite_ore  # Metallurgy [1-07] 1850
 steel_ingot  # Metallurgy [1-26] 1856
 bessemer_converter  # Metallurgy [1-26] 1856
+cryolite  # Metallurgy [1-38] 1886
 aluminium_hydroxide  # Metallurgy [1-14] 1888
 alumina  # Metallurgy [1-14] 1888
 red_mud  # Metallurgy [1-14] 1888
