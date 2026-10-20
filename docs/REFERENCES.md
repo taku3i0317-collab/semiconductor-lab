@@ -1435,6 +1435,19 @@
 - Wikipedia「Carl von Linde」：https://en.wikipedia.org/wiki/Carl_von_Linde
 - Wikipedia「Vapor-compression refrigeration」：https://en.wikipedia.org/wiki/Vapor-compression_refrigeration
 
+## O49. エアコンは紙のために生まれた（空調）［12-12］
+**答え**：1902年、アメリカのウィリス・キャリアは、湿気で紙が伸び縮みして色がずれる印刷工場のために、冷やす仕組みで温度と湿度をそろえる空調を作った。精密な機械も温度で伸び縮みする（鋼は 1℃・1m で約 11µm）ので、測定室や半導体工場は温度をそろえた部屋で動かす。
+
+- へえ①：エアコンは人のためではなく、紙のために生まれた。
+- へえ②：長さの標準の温度は 20℃（1931年に国際度量衡委員会が採用）。
+- へえ③：1m の鋼の物差しは、夏と冬で十分の数 mm も長さが変わる。
+- へえ④：今の露光装置の部屋は、温度を 0.01℃ 単位でそろえる。
+
+確かさ：キャリア 1902 ◎／鋼の線膨張 ◎／20℃ の標準温度 1931 ◎
+根拠：
+- Wikipedia「Willis Carrier」：https://en.wikipedia.org/wiki/Willis_Carrier
+- Wikipedia「Air conditioning」：https://en.wikipedia.org/wiki/Air_conditioning
+
 ---
 
 # 冶金と熱（タスク15〜）

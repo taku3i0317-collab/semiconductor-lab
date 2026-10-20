@@ -1322,9 +1322,9 @@ public class SemiconductorTests extends LabTestBase {
         be.getContainer().setItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_STAGE, ball3);
         tickConsumer(h, at, be, com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.TICKS + 10, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.WATTS));
         var st = com.taku3.semiconductorlab.litho.ChipOps.state(be.getContainer().getItem(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.SLOT_OUT));
-        h.assertTrue(st != null && st.overlayNm() == 1_000, "layer 2 overlay recorded on the chip: " + (st == null ? "none" : st.overlayNm()));
+        h.assertTrue(st != null && st.overlayNm() == 3_300, "layer 2 overlay recorded on the chip (no air conditioning: thermal 3.3 um wins over the 1 um screw): " + (st == null ? "none" : st.overlayNm()));
         h.assertTrue(langJson("ja_jp").has("gui.semiconductor-lab.mask_aligner.overlay"), "lang overlay");
-        LOG.info("[LAB] alignment [8-17]: overlay hand 20 / lead 10 / ball screw 1 um (microscope 0.31 um, vibration); layer 2 records 1 um on the chip");
+        LOG.info("[LAB] alignment [8-17]: overlay hand 20 / lead 10 / ball screw 1 um (microscope 0.31 um, vibration); layer 2 records 3.3 um on the chip (thermal, no air conditioning)");
         h.succeed();
     }
 

@@ -10,5 +10,11 @@
   "item.semiconductor-lab.theodolite.no_cross": "2本の視線が前で交わらない。同じ目印をのぞいたか確かめよう（測点A はそのまま）",
   "item.semiconductor-lab.theodolite.result": "📐 底辺 %s m、角A %s°、角B %s° → ここから目標まで %s m（目標の場所 %s, %s）",
   "item.semiconductor-lab.theodolite.real": "のぞいた先のブロックまで実際は %s m（ずれ %s m）",
-  "item.semiconductor-lab.theodolite.cleared": "測点A を消した"
+  "item.semiconductor-lab.theodolite.cleared": "測点A を消した",
+  "block.semiconductor-lab.air_conditioner": "空調機",
+  "block.semiconductor-lab.air_conditioner.note1": "部屋の温度と湿度をそろえる機械。精密な機械は温度が変わると伸び縮みするので、空調が大事。",
+  "block.semiconductor-lab.air_conditioner.note2": "冷凍機＋モーター＋銅ケーブル＋鉄×6。電気 2kW を動いている間ずっと使う。8 ブロック以内の温度のゆれが ±3℃ → ±0.1℃ になり、マスクアライナーの重ね合わせのずれ（温度で台が伸び縮みする分）が 3.3µm → 0.1µm に減る。",
+  "block.semiconductor-lab.air_conditioner.note3": "1902年、アメリカのキャリアは、湿気で紙が伸び縮みして色がずれる印刷工場のために、温度と湿度をそろえる空調を作った。エアコンは人のためではなく、紙のために生まれた。",
+  "block.semiconductor-lab.air_conditioner.note4": "鋼は 1℃・1m で約 11µm 伸びる。長さの標準の温度 20℃（1931年 CIPM）にそろえた部屋で測るのはそのため。今の露光装置の部屋は 0.01℃ 単位で温度をそろえる。",
+  "block.semiconductor-lab.air_conditioner.placeholder": "近似：温度のゆれ（±3℃・±0.1℃）と届く範囲（8 ブロック）はゲームの値。湿度の制御は省略。"
 }

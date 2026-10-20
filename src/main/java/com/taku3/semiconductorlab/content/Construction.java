@@ -1,6 +1,8 @@
 package com.taku3.semiconductorlab.content;
 
+import com.taku3.semiconductorlab.block.AirConditionerBlockEntity;
 import com.taku3.semiconductorlab.item.SurveyStation;
+import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.item.TheodoliteItem;
 import net.minecraft.world.item.Item;
 
@@ -18,6 +20,9 @@ public final class Construction {
             net.minecraft.core.component.DataComponentType.<SurveyStation>builder().persistent(SurveyStation.CODEC)
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.fromCodec(SurveyStation.CODEC)).build());
     public static final Item THEODOLITE            = Reg.item("theodolite", TheodoliteItem::new, new Item.Properties().stacksTo(1)); // 望遠鏡＋副尺つきの目盛り円
+
+    // ===== [12-12] 換気・空調（IMP2 S-003、1902 キャリア）：冷凍機＋送風機。動いている間 8 ブロック以内の温度のゆれ ±3℃ → ±0.1℃ =====
+    public static final Machine<AirConditionerBlockEntity> AIR_CONDITIONER = Machine.electric("air_conditioner", AirConditionerBlockEntity::new, AirConditionerBlockEntity.LAYOUT, Machine.metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

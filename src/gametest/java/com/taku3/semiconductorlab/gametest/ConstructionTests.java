@@ -14,6 +14,26 @@ import net.minecraft.world.item.ItemStack;
  * GameTest：幹12 建設・測量（IMP2 O-007 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class ConstructionTests extends LabTestBase {
+    /** [12-12] 空調（IMP2 S-003）：動いている空調機の近くは温度のゆれ ±3℃ → ±0.1℃。マスクアライナーの重ね合わせの「温度のずれ」が 3.3µm → 0.11µm */
+    @GameTest
+    public void air_conditioning(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "air_conditioner", com.taku3.semiconductorlab.content.Agriculture.REFRIGERATOR.block.asItem()), "air conditioner = refrigerator + fan motor");
+        net.minecraft.core.BlockPos aligner = p(4, 1, 1), ac = p(1, 1, 1);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.swingC(h.getLevel(), h.absolutePos(aligner)) - 3.0) < 1e-9, "no air conditioning: +-3 C");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.thermalNm(3.0) - 3300) < 1e-6, "100 mm steel stage x 11 um/m/C x 3 C = 3.3 um");
+        h.setBlock(ac, Construction.AIR_CONDITIONER.block);
+        var be = h.getBlockEntity(ac, com.taku3.semiconductorlab.block.AirConditionerBlockEntity.class);
+        h.assertTrue(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.swingC(h.getLevel(), h.absolutePos(aligner)) == 3.0, "an unpowered air conditioner does nothing");
+        tickConsumer(h, ac, be, 2, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.WATTS));
+        h.assertTrue(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.swingC(h.getLevel(), h.absolutePos(aligner)) == com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SWING_ON_C, "running air conditioner: +-0.1 C");
+        ItemStack ball3 = com.taku3.semiconductorlab.item.BallBearingItem.of(3).transmuteCopy(com.taku3.semiconductorlab.content.Precision.BALL_SCREW);
+        int off = com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.overlayNm(ball3, 0, com.taku3.semiconductorlab.block.AirConditionerBlockEntity.thermalNm(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SWING_OFF_C));
+        int on = com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.overlayNm(ball3, 0, com.taku3.semiconductorlab.block.AirConditionerBlockEntity.thermalNm(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SWING_ON_C));
+        h.assertTrue(off == 3_300 && on == 1_000, "overlay with the ball screw: " + off + " nm without, " + on + " nm with air conditioning");
+        LOG.info("[LAB] air_conditioning [12-12]: +-3 C -> +-0.1 C near a running unit; aligner overlay 3.3 um -> 1.0 um");
+        h.succeed();
+    }
+
     /** yaw（Minecraft の向き）：A から (tx, tz) をのぞく向き */
     private static float yawTo(double ax, double az, double tx, double tz) { return (float) Math.toDegrees(Math.atan2(-(tx - ax), tz - az)); }
 

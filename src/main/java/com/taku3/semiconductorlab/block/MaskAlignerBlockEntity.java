@@ -79,7 +79,14 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
      * [8-17] アライメント（IMP2 O-014）：前の層のマークを、中の複式顕微鏡（NA 0.9）で見て台のねじで動かして合わせる。
      * 重ね合わせのずれ（nm）＝ 台の送りの細かさ・顕微鏡の分解能・床の揺れ [8-07] の一番大きいもの。台のねじ：なし＝手 20µm、送りねじ 10µm、ボールねじ 5・2・1µm [8-08]
      */
-    public static int overlayNm(ItemStack stage, double vibrationNm) {
+    public static int overlayNm(ItemStack stage, double vibrationNm) { return overlayNm(stage, vibrationNm, 0); }
+
+    /** [12-12] 温度のずれ（nm）も入れたずれ：空調がないと台が ±3℃ で伸び縮みする（AirConditionerBlockEntity） */
+    public static int overlayNm(ItemStack stage, double vibrationNm, double thermalNm) {
+        return Math.max(overlayCore(stage, vibrationNm), (int) Math.round(thermalNm));
+    }
+
+    private static int overlayCore(ItemStack stage, double vibrationNm) {
         double feed = stage.isEmpty() ? HAND_FEED_UM * 1000.0 : com.taku3.semiconductorlab.item.BallScrewItem.feedUm(stage) * 1000.0;
         return (int) Math.round(Math.max(Math.max(feed, com.taku3.semiconductorlab.item.MicroscopeItem.resolutionNm(0.9)), vibrationNm));
     }
@@ -98,7 +105,7 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
         return switch (i) {
             case DATA_GAP -> gapUm();
             case DATA_MASK_LEFT -> usesLeft(container.getItem(SLOT_MASK));
-            case DATA_OVERLAY -> overlayNm(container.getItem(SLOT_STAGE), level == null ? 0 : Vibration.nm(level, worldPosition, null));
+            case DATA_OVERLAY -> overlayNm(container.getItem(SLOT_STAGE), level == null ? 0 : Vibration.nm(level, worldPosition, null), level == null ? 0 : AirConditionerBlockEntity.thermalNm(AirConditionerBlockEntity.swingC(level, worldPosition)));
             default -> 0;
         };
     }
@@ -115,7 +122,7 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
     @Override protected void finishWork() {
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         MaskData mask = m.get(ModDataComponents.MASK);
-        ChipOps.Result r = ChipOps.expose(w, mask, TOOL, overlayNm(container.getItem(SLOT_STAGE), level == null ? 0 : Vibration.nm(level, worldPosition, null)));
+        ChipOps.Result r = ChipOps.expose(w, mask, TOOL, overlayNm(container.getItem(SLOT_STAGE), level == null ? 0 : Vibration.nm(level, worldPosition, null), level == null ? 0 : AirConditionerBlockEntity.thermalNm(AirConditionerBlockEntity.swingC(level, worldPosition))));
         if (!r.ok()) return;
         container.setItem(SLOT_OUT, r.out());
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);

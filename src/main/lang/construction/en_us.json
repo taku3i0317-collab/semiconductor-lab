@@ -10,5 +10,11 @@
   "item.semiconductor-lab.theodolite.no_cross": "The two sight lines do not cross ahead. Did you sight the same mark? (station A kept)",
   "item.semiconductor-lab.theodolite.result": "📐 Base %s m, angle A %s°, angle B %s° -> %s m from here to the target (at %s, %s)",
   "item.semiconductor-lab.theodolite.real": "The block you sighted is really %s m away (off by %s m)",
-  "item.semiconductor-lab.theodolite.cleared": "Station A cleared"
+  "item.semiconductor-lab.theodolite.cleared": "Station A cleared",
+  "block.semiconductor-lab.air_conditioner": "Air Conditioner",
+  "block.semiconductor-lab.air_conditioner.note1": "A machine that holds a room's temperature and humidity steady. Precise machines grow and shrink with temperature, so air conditioning matters.",
+  "block.semiconductor-lab.air_conditioner.note2": "Refrigerating machine + motor + copper cable + 6 iron. Uses 2 kW the whole time it runs. Within 8 blocks the temperature swing drops from +-3 C to +-0.1 C, cutting the mask aligner's thermal overlay error (the stage growing and shrinking) from 3.3 um to 0.1 um.",
+  "block.semiconductor-lab.air_conditioner.note3": "In 1902 the American Carrier built air conditioning that held temperature and humidity for a printing plant where damp paper stretched and colors misregistered. Air conditioning was born for paper, not people.",
+  "block.semiconductor-lab.air_conditioner.note4": "Steel grows about 11 um per metre per degree, which is why lengths are measured in rooms held at the standard 20 C (CIPM 1931). Today's lithography rooms hold temperature to a hundredth of a degree.",
+  "block.semiconductor-lab.air_conditioner.placeholder": "Approximation: the temperature swings (+-3 C, +-0.1 C) and range (8 blocks) are game values. Humidity control is skipped."
 }
