@@ -45,6 +45,10 @@ public final class Metallurgy {
     public static final Item FLUORITE              = Reg.item("fluorite");         // [1-21] 蛍石 CaF2（IMP4-01、[2-10] フッ酸の原料。方鉛鉱・閃亜鉛鉱と同じ熱水鉱脈）
     public static final Item COKE                  = Reg.item("coke");             // [1-10] コークス（IMP4-01：[2-20] ガス工場のレトルトで石炭を乾留した残り。高炉での使い道は [1-10] で）
     public static final Item BAUXITE               = Reg.item("bauxite");          // [1-24] ボーキサイト（IMP4-01、アルミの原料。熱帯の風化残留土＝ジャングル・サバンナの地表近く）
+    // [1-14] バイヤー法（IMP4-01）：水酸化アルミニウム →かまど→ アルミナ。赤泥は残りかす（強いアルカリ）
+    public static final Item ALUMINIUM_HYDROXIDE   = Reg.item("aluminium_hydroxide");
+    public static final Item ALUMINA               = Reg.item("alumina");
+    public static final Item RED_MUD               = Reg.item("red_mud");
     public static final Item GRAPHITE              = Reg.item("graphite");
     public static final Item SPHALERITE            = Reg.item("sphalerite");
     public static final Item COAL_ASH              = Reg.item("coal_ash");
@@ -125,6 +129,9 @@ public final class Metallurgy {
     // 第2章 シリコン（[1-16] [1-17] [9-08] [9-12] [9-16] [3-15]）
     public static final Machine<TrichlorosilaneReactorBlockEntity> TRICHLOROSILANE_REACTOR = Machine.electric("trichlorosilane_reactor", TrichlorosilaneReactorBlockEntity::new, TrichlorosilaneReactorBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<SiemensReactorBlockEntity> SIEMENS_REACTOR = Machine.electric("siemens_reactor", SiemensReactorBlockEntity::new, SiemensReactorBlockEntity.LAYOUT, metal(4.0f));
+
+    // バイヤー法の溶解釜 [1-14]（IMP4-01）：ボーキサイト＋NaOH の液 → 水酸化アルミニウム＋赤泥（2kW）
+    public static final Machine<BayerDigesterBlockEntity> BAYER_DIGESTER = Machine.electric("bayer_digester", BayerDigesterBlockEntity::new, BayerDigesterBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

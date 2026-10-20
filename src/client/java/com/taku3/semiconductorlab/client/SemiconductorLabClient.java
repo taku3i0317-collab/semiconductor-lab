@@ -63,6 +63,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.CRYSTAL_PULLER, CrystalPullerScreen::new);
 		screen(Semiconductor.DIFFUSION_FURNACE, DiffusionFurnaceScreen::new);
 		screen(Semiconductor.OXIDATION_FURNACE, OxidationFurnaceScreen::new);
+		screen(com.taku3.semiconductorlab.content.Metallurgy.BAYER_DIGESTER, BayerDigesterScreen::new);
 		screen(Semiconductor.ETCH_TANK, EtchTankScreen::new);
 		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);
 		screen(Semiconductor.CZ_PULLER, CzPullerScreen::new);

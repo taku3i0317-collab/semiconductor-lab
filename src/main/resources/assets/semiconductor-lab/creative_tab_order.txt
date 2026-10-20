@@ -76,6 +76,10 @@ graphite  # Metallurgy [1-07] 1850
 graphite_ore  # Metallurgy [1-07] 1850
 steel_ingot  # Metallurgy [1-26] 1856
 bessemer_converter  # Metallurgy [1-26] 1856
+aluminium_hydroxide  # Metallurgy [1-14] 1888
+alumina  # Metallurgy [1-14] 1888
+red_mud  # Metallurgy [1-14] 1888
+bayer_digester  # Metallurgy [1-14] 1888
 metallurgical_silicon  # Metallurgy [1-15] 1900
 wolframite  # Metallurgy [1-28] 1910
 wolframite_soda_charge  # Metallurgy [1-28] 1910

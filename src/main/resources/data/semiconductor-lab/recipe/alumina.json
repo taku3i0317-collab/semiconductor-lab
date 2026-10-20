@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:aluminium_hydroxide",
+  "result": {
+    "id": "semiconductor-lab:alumina"
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

@@ -89,6 +89,35 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreCassiterite(GameTestHelper h) { oreFeature(h, "cassiterite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.CASSITERITE_ORE, s -> s.is(Blocks.GRANITE)); }
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
+
+    /** [1-14] バイヤー法（IMP4-01）：ボーキサイト2 → Al(OH)3＋赤泥。NaOH＋水の液は4回、液・電気がないと止まる。Al(OH)3 →かまど→ アルミナ */
+    @GameTest
+    public void bayerProcess(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Metallurgy.BAYER_DIGESTER.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_BAUXITE, new ItemStack(Metallurgy.BAUXITE, 12));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS + 10, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_OUT).isEmpty(), "no caustic liquor -> nothing");
+        c.setItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_NAOH, new ItemStack(com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE, 1));
+        c.setItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS, feed / 2);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_OUT).isEmpty(), "half power -> not finished");
+        for (int i = 0; i < 4; i++) tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_OUT).is(Metallurgy.ALUMINIUM_HYDROXIDE) && c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_OUT).getCount() == 4, "8 bauxite -> 4 Al(OH)3, got " + c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_OUT));
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_MUD).is(Metallurgy.RED_MUD) && c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_MUD).getCount() == 4, "4 red mud");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_BUCKET).is(Items.BUCKET) && c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_NAOH).isEmpty(), "1 NaOH + 1 water = 4 runs, bucket back");
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS + 10, feed);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_OUT).getCount(), 4, "liquor used up -> stops");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.ALUMINIUM_HYDROXIDE).is(Metallurgy.ALUMINA), "Al(OH)3 calcined -> alumina");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.BAUXITE).isEmpty(), "bauxite cannot be smelted straight to aluminium");
+        LOG.info("[LAB] Bayer [1-14]: 2 bauxite -> Al(OH)3 + red mud ({} s, {} kW), NaOH liquor lasts {} runs; Al(OH)3 -> furnace -> alumina", com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS / 20, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.WATTS / 1000, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR);
+        h.succeed();
+    }
+
     @GameTest public void oreIronSand(GameTestHelper h)   { oreFeature(h, "iron_sand", Blocks.SAND, Blocks.SANDSTONE, Metallurgy.IRON_SAND, s -> s.is(Blocks.SAND)); }
 
     @GameTest public void oreQuartzVein(GameTestHelper h) { oreFeature(h, "quartz_vein", Blocks.STONE, Blocks.DEEPSLATE, Metallurgy.QUARTZ_VEIN, LabTestBase::stoneOrDeepslate); }
@@ -631,6 +660,8 @@ public class MetallurgyTests extends LabTestBase {
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Metallurgy.BAYER_DIGESTER.block, "バイヤー法", L(io(Metallurgy.BAUXITE, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.BAUXITE_PER_RUN), perRuns(io(com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR)),
+            L(io(Metallurgy.ALUMINIUM_HYDROXIDE, 1), io(Metallurgy.RED_MUD, 1)), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.WATTS, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS / 20.0, "Al(OH)3 + NaOH → NaAl(OH)4 → こして冷やすと Al(OH)3。鉄は赤泥に。液は使い回す");
         rec(a, Metallurgy.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(Metallurgy.STEEL_INGOT, 1)),
             BessemerConverterBlockEntity.WATTS, BessemerConverterBlockEntity.TOTAL_TICKS / 20.0, "送風の動力を電力で代表");
         rec(a, Metallurgy.HYDROGEN_FURNACE.block, "WO3 の水素還元", L(io(Metallurgy.TUNGSTEN_TRIOXIDE, 1), io(Gas.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.REDUCE_H2)),

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/bayer_digester_front_on",
+    "side": "semiconductor-lab:block/bayer_digester_side",
+    "top": "semiconductor-lab:block/bayer_digester_top"
+  }
+}

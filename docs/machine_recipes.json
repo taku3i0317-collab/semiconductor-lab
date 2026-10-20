@@ -183,6 +183,40 @@
       "note": "部品表で組み立てる。電気なし"
     },
     {
+      "machine": "semiconductor-lab:bayer_digester",
+      "process": "バイヤー法",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:bauxite",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:sodium_hydroxide",
+          "count": 1,
+          "per_runs": 4
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1,
+          "per_runs": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:aluminium_hydroxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:red_mud",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 30.0,
+      "energy_kj": 60,
+      "note": "Al(OH)3 + NaOH → NaAl(OH)4 → こして冷やすと Al(OH)3。鉄は赤泥に。液は使い回す"
+    },
+    {
       "machine": "semiconductor-lab:bessemer_converter",
       "process": "ベッセマー転炉",
       "inputs": [
