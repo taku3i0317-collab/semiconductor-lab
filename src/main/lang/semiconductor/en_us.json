@@ -475,5 +475,9 @@
   "gui.semiconductor-lab.wire_bonder.need_wire": "Not enough gold wire",
   "gui.semiconductor-lab.wire_bonder.need_power": "Not enough power",
   "gui.semiconductor-lab.wire_bonder.running": "Bonding wires",
-  "gui.semiconductor-lab.wire_bonder.recipe": "Thermocompression bond"
+  "gui.semiconductor-lab.wire_bonder.recipe": "Thermocompression bond",
+  "gui.semiconductor-lab.probe_station.role8": "input D",
+  "gui.semiconductor-lab.probe_station.role9": "clock",
+  "gui.semiconductor-lab.probe_station.role10": "output 3",
+  "gui.semiconductor-lab.probe_station.role11": "output 4"
 }

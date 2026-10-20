@@ -1928,6 +1928,36 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * S-009（Q18-1 案A）：覚える回路の判定。24×24 の SR ラッチの例を投影の等倍露光で焼き（洗浄のあと）、手順の列（前の手の電圧から計算を始める）で
+     * SR ラッチのお題に合格。同じチップを「前の手を覚えない」計算（毎回 0 V から）で見ると、そのままの手で合わない＝記憶は前の電圧の中にある
+     */
+    @GameTest(maxTicks = 200)
+    public void srLatchSequence(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.srLatch(), com.taku3.semiconductorlab.litho.ExposureTool.PROJECTION_1X);
+        chip = com.taku3.semiconductorlab.litho.ChipOps.clean(chip, 0).out();
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(chip.get(ModDataComponents.CHIP_STATE)));
+        h.assertValueEqual(nl.transistors.size(), 2, "two cross-coupled transistors");
+        int n = nl.model.size;
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        java.util.function.BiConsumer<int[], com.taku3.semiconductorlab.litho.Circuit.Role> at = (xy, r) -> roles.put(nl.netOf[xy[1] * n + xy[0]], r);
+        at.accept(new int[] {0, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        at.accept(new int[] {17, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        at.accept(new int[] {7, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        at.accept(new int[] {20, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        at.accept(new int[] {23, 8}, com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+        at.accept(new int[] {1, 23}, com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        at.accept(new int[] {16, 23}, com.taku3.semiconductorlab.litho.Circuit.Role.IN_B);
+        h.assertValueEqual(roles.size(), 7, "seven separate pads");
+        var sr = com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals("sr_latch")).findFirst().orElseThrow();
+        var r = com.taku3.semiconductorlab.litho.Challenge.check(sr, nl, roles, 1.0);
+        h.assertTrue(r.passed(), "the SR latch chip solves the SR latch challenge step by step: " + r);
+        h.assertFalse(com.taku3.semiconductorlab.litho.Challenge.check(com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals("nor")).findFirst().orElseThrow(), nl, roles, 1.0).passed(), "it is not a plain NOR");
+        LOG.info("[LAB] S-009: 24x24 SR latch made by 1:1 projection remembers its bit ({} steps)", r.rows());
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

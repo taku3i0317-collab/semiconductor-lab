@@ -475,5 +475,9 @@
   "gui.semiconductor-lab.wire_bonder.need_wire": "金の線が足りない",
   "gui.semiconductor-lab.wire_bonder.need_power": "電気が足りない",
   "gui.semiconductor-lab.wire_bonder.running": "線をつないでいる",
-  "gui.semiconductor-lab.wire_bonder.recipe": "金線を熱と圧力でつなぐ"
+  "gui.semiconductor-lab.wire_bonder.recipe": "金線を熱と圧力でつなぐ",
+  "gui.semiconductor-lab.probe_station.role8": "入力D",
+  "gui.semiconductor-lab.probe_station.role9": "クロック",
+  "gui.semiconductor-lab.probe_station.role10": "出力3",
+  "gui.semiconductor-lab.probe_station.role11": "出力4"
 }

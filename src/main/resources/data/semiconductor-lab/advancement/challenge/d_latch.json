@@ -1,0 +1,28 @@
+{
+  "parent": "semiconductor-lab:challenge/sr_latch",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chip"
+    },
+    "title": {
+      "translate": "litho.semiconductor-lab.challenge.d_latch"
+    },
+    "description": {
+      "translate": "litho.semiconductor-lab.challenge.d_latch.goal",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "litho.semiconductor-lab.challenge.d_latch.history"
+        }
+      ]
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "solved": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

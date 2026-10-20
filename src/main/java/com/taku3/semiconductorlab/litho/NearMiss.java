@@ -22,17 +22,14 @@ public final class NearMiss {
         int vcc = -1;
         for (var e : roles.entrySet()) if (e.getValue() == Circuit.Role.VCC) vcc = e.getKey();
         boolean flows = false;
-        for (int row = 0; row < d.rows() && !flows; row++) {
+        for (int row = 0; row < (1 << d.inputs()) && !flows; row++) {   // 入力の組み合わせを全部（順序回路も）
             Map<Integer, Double> drive = new HashMap<>();
-            int in = Challenge.bits(d, row);
-            boolean a = (in & 4) != 0, b = (in & 2) != 0, c = (in & 1) != 0;
+            Map<Circuit.Role, Boolean> ins = d.inputsOf(row);
             for (var e : roles.entrySet()) switch (e.getValue()) {
                 case GROUND -> drive.put(e.getKey(), 0.0);
                 case VCC -> drive.put(e.getKey(), Circuit.VCC);
-                case IN_A -> drive.put(e.getKey(), a ? Circuit.VCC : 0.0);
-                case IN_B -> drive.put(e.getKey(), b ? Circuit.VCC : 0.0);
-                case IN_C -> drive.put(e.getKey(), c ? Circuit.VCC : 0.0);
-                default -> {}
+                case OUT_1, OUT_2, OUT_3, OUT_4 -> {}
+                default -> drive.put(e.getKey(), Boolean.TRUE.equals(ins.get(e.getValue())) ? Circuit.VCC : 0.0);
             }
             Double amps = Circuit.solve(nl, drive, leakScale).padAmps().get(vcc);
             flows = amps != null && Math.abs(amps) > FLOWING;
@@ -42,12 +39,13 @@ public final class NearMiss {
         if (nl.transistors.isEmpty()) return unwiredRegion(nl) ? "almost_transistor" : "no_switch";
         // ③ 入力のパッドが、どのトランジスタのベースにも（直接か抵抗1本で）つながっていない
         Set<Integer> inputs = new HashSet<>();
-        for (var e : roles.entrySet()) if (e.getValue() == Circuit.Role.IN_A || e.getValue() == Circuit.Role.IN_B || e.getValue() == Circuit.Role.IN_C) inputs.add(e.getKey());
+        for (var e : roles.entrySet()) if (e.getValue() != Circuit.Role.GROUND && e.getValue() != Circuit.Role.VCC && java.util.Arrays.stream(Circuit.OUTS).noneMatch(o -> o == e.getValue())) inputs.add(e.getKey());
         for (int in : inputs) if (!reachesBase(nl, in)) return "input_not_base";
         // ④ 出力が入力で変わらない
         Set<Integer> outs = new HashSet<>();
-        for (int row = 0; row < d.rows(); row++) {
-            outs.add(Circuit.logic(nl, roles, Challenge.bits(d, row), d.inputs(), d.outputs(), leakScale));
+        for (int row = 0; row < (1 << d.inputs()); row++) {
+            Circuit.Eval e = Circuit.evaluate(nl, roles, d.inputsOf(row), d.outputs(), leakScale, null);
+            outs.add(e == null ? -1 : e.bits());
         }
         if (outs.size() <= 1) return "output_stuck";
         // ⑤ いくつかの行は合っている

@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 132（ja・en）、文字の置き場所 500、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 130（ja・en）、文字の置き場所 492、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -373,6 +373,10 @@ drafting_table_en_us symbol litho.semiconductor-lab.challenge.and w=18 lines=1/2
 drafting_table_en_us symbol litho.semiconductor-lab.challenge.xor w=18 lines=1/2
 drafting_table_en_us symbol litho.semiconductor-lab.challenge.half_adder w=54 lines=1/2
 drafting_table_en_us symbol litho.semiconductor-lab.challenge.full_adder w=52 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.sr_latch w=41 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.d_latch w=35 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.counter w=68 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.register w=70 lines=1/2
 probe_station_en_us pad gui.semiconductor-lab.probe_station.pad w=56 lines=1/1
 probe_station_en_us amps gui.semiconductor-lab.probe_station.amps w=92 lines=1/1 scale=0.79999995
 probe_station_en_us found0 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
@@ -412,6 +416,10 @@ probe_station_en_us challenge litho.semiconductor-lab.challenge.and.goal w=215 l
 probe_station_en_us challenge litho.semiconductor-lab.challenge.xor.goal w=250 lines=2/2
 probe_station_en_us challenge litho.semiconductor-lab.challenge.half_adder.goal w=232 lines=2/2
 probe_station_en_us challenge litho.semiconductor-lab.challenge.full_adder.goal w=334 lines=2/2 scale=0.79999995
+probe_station_en_us challenge litho.semiconductor-lab.challenge.sr_latch.goal w=580 lines=3/2 scale=0.6499999
+probe_station_en_us challenge litho.semiconductor-lab.challenge.d_latch.goal w=488 lines=3/2 scale=0.6499999
+probe_station_en_us challenge litho.semiconductor-lab.challenge.counter.goal w=446 lines=2/2 scale=0.6499999
+probe_station_en_us challenge litho.semiconductor-lab.challenge.register.goal w=514 lines=3/2 scale=0.6499999
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_none w=169 lines=1/1 scale=0.84999996
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_missing w=188 lines=1/1 scale=0.74999994
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_rows w=91 lines=1/1
@@ -484,7 +492,6 @@ stepper_en_us room gui.semiconductor-lab.mask_aligner.room_100 w=49 lines=1/1
 stepper_en_us hint gui.semiconductor-lab.stepper.need_wafer w=149 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.need_mask w=69 lines=1/3
 stepper_en_us hint gui.semiconductor-lab.stepper.need_lens w=125 lines=3/3
-stepper_en_us hint gui.semiconductor-lab.stepper.lens_wrong w=141 lines=2/3
 stepper_en_us hint gui.semiconductor-lab.stepper.blurred w=143 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.cannot w=188 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.output_full w=96 lines=2/3
@@ -532,14 +539,6 @@ rca_bench_en_us hint gui.semiconductor-lab.rca_bench.no_dirt w=70 lines=1/4
 rca_bench_en_us hint gui.semiconductor-lab.rca_bench.need_power w=90 lines=2/4
 rca_bench_en_us hint gui.semiconductor-lab.rca_bench.running w=125 lines=2/4
 rca_bench_en_us recipe gui.semiconductor-lab.rca_bench.recipe w=106 lines=1/1
-wire_bonder_en_us power gui.semiconductor-lab.wire_bonder.power w=75 lines=1/1
-wire_bonder_en_us pads gui.semiconductor-lab.wire_bonder.pads w=42 lines=1/1
-wire_bonder_en_us hint gui.semiconductor-lab.wire_bonder.need_input w=128 lines=2/3
-wire_bonder_en_us hint gui.semiconductor-lab.wire_bonder.no_pads w=86 lines=2/3
-wire_bonder_en_us hint gui.semiconductor-lab.wire_bonder.need_wire w=105 lines=2/3
-wire_bonder_en_us hint gui.semiconductor-lab.wire_bonder.need_power w=90 lines=2/3
-wire_bonder_en_us hint gui.semiconductor-lab.wire_bonder.running w=68 lines=1/3
-wire_bonder_en_us recipe gui.semiconductor-lab.wire_bonder.recipe w=126 lines=1/1 scale=0.84999996
 crystal_puller_en_us power gui.semiconductor-lab.crystal_puller.power w=69 lines=1/1
 crystal_puller_en_us stored gui.semiconductor-lab.crystal_puller.stored w=65 lines=1/1
 crystal_puller_en_us hint gui.semiconductor-lab.crystal_puller.need_seed w=197 lines=3/3
@@ -932,6 +931,10 @@ drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.and w=18 lines=1/2
 drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.xor w=18 lines=1/2
 drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.half_adder w=36 lines=1/2
 drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.full_adder w=36 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.sr_latch w=43 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.d_latch w=37 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.counter w=78 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.register w=78 lines=1/2
 probe_station_ja_jp pad gui.semiconductor-lab.probe_station.pad w=68 lines=1/1
 probe_station_ja_jp amps gui.semiconductor-lab.probe_station.amps w=70 lines=1/1
 probe_station_ja_jp found0 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1
@@ -971,6 +974,10 @@ probe_station_ja_jp challenge litho.semiconductor-lab.challenge.and.goal w=177 l
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.xor.goal w=252 lines=2/2
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.half_adder.goal w=231 lines=2/2
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.full_adder.goal w=354 lines=2/2 scale=0.79999995
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.sr_latch.goal w=459 lines=3/2 scale=0.6499999
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.d_latch.goal w=441 lines=3/2 scale=0.6499999
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.counter.goal w=466 lines=3/2 scale=0.6499999
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.register.goal w=384 lines=2/2 scale=0.6999999
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_none w=117 lines=1/1
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_missing w=163 lines=1/1 scale=0.84999996
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_rows w=93 lines=1/1
@@ -1042,7 +1049,6 @@ stepper_ja_jp room gui.semiconductor-lab.mask_aligner.room_100 w=45 lines=1/1
 stepper_ja_jp hint gui.semiconductor-lab.stepper.need_wafer w=117 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.need_mask w=63 lines=1/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.need_lens w=81 lines=2/3
-stepper_ja_jp hint gui.semiconductor-lab.stepper.lens_wrong w=117 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.blurred w=126 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.cannot w=153 lines=3/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.output_full w=81 lines=2/3
@@ -1090,14 +1096,6 @@ rca_bench_ja_jp hint gui.semiconductor-lab.rca_bench.no_dirt w=45 lines=1/4
 rca_bench_ja_jp hint gui.semiconductor-lab.rca_bench.need_power w=63 lines=1/4
 rca_bench_ja_jp hint gui.semiconductor-lab.rca_bench.running w=122 lines=2/4
 rca_bench_ja_jp recipe gui.semiconductor-lab.rca_bench.recipe w=107 lines=1/1
-wire_bonder_ja_jp power gui.semiconductor-lab.wire_bonder.power w=63 lines=1/1
-wire_bonder_ja_jp pads gui.semiconductor-lab.wire_bonder.pads w=56 lines=1/1
-wire_bonder_ja_jp hint gui.semiconductor-lab.wire_bonder.need_input w=99 lines=2/3
-wire_bonder_ja_jp hint gui.semiconductor-lab.wire_bonder.no_pads w=81 lines=2/3
-wire_bonder_ja_jp hint gui.semiconductor-lab.wire_bonder.need_wire w=72 lines=1/3
-wire_bonder_ja_jp hint gui.semiconductor-lab.wire_bonder.need_power w=63 lines=1/3
-wire_bonder_ja_jp hint gui.semiconductor-lab.wire_bonder.running w=72 lines=1/3
-wire_bonder_ja_jp recipe gui.semiconductor-lab.wire_bonder.recipe w=99 lines=1/1
 crystal_puller_ja_jp power gui.semiconductor-lab.crystal_puller.power w=57 lines=1/1
 crystal_puller_ja_jp stored gui.semiconductor-lab.crystal_puller.stored w=49 lines=1/1
 crystal_puller_ja_jp hint gui.semiconductor-lab.crystal_puller.need_seed w=114 lines=2/3

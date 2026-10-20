@@ -24,12 +24,13 @@ import static com.taku3.semiconductorlab.block.ProbeStationBlockEntity.*;
 public class ProbeStationScreen extends MachineScreen {
     private static final int P = 0xFFE89A9A, N = 0xFF92B4EE, P_SUB = 0xFFF2C4C4, N_SUB = 0xFFC4D6F4, METAL = 0x90707078;
     /** つながない・0 V・5 V・入力A・入力B・出力1・出力2 */
-    private static final int[] PAD_COLOR = {0xFFA0A0A0, 0xFF3060D0, 0xFFE08020, 0xFF30B040, 0xFF20A0A0, 0xFFD040C0, 0xFF9050E0, 0xFF80C020};
+    private static final int[] PAD_COLOR = {0xFFA0A0A0, 0xFF3060D0, 0xFFE08020, 0xFF30B040, 0xFF20A0A0, 0xFFD040C0, 0xFF9050E0, 0xFF80C020, 0xFF208060, 0xFFF0E040, 0xFFB03080, 0xFF6040A0};
 
     private ItemStack cachedWafer = ItemStack.EMPTY;
     private Netlist nl;
     private Circuit.Solution sol;
-    private int cachedPads = -1, hoverPad = -1;
+    private long cachedPads = -1;
+    private int hoverPad = -1;
 
     public ProbeStationScreen(MachineMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
 
@@ -48,7 +49,7 @@ public class ProbeStationScreen extends MachineScreen {
     /** ウェハーかパッドが変わったら回路を計算し直す */
     private void refresh() {
         ItemStack w = menu.machineItem(SLOT_WAFER);
-        int padsKey = 0;
+        long padsKey = 0;
         for (int i = 0; i < MAX_PADS; i++) padsKey = padsKey * PAD_STATES + menu.get(i);
         if (!ItemStack.isSameItemSameComponents(w, cachedWafer)) {
             cachedWafer = w.copy();

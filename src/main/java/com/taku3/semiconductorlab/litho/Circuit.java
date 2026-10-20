@@ -48,7 +48,10 @@ public final class Circuit {
     public static Solution solve(Netlist nl, Map<Integer, Double> drive) { return solve(nl, drive, 1.0); }
 
     /** leakScale：漏れの強さの倍率（検査台で「調べる」たびに少し変わる＝汚れたチップは動いたり動かなかったりする） */
-    public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale) {
+    public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale) { return solve(nl, drive, leakScale, null); }
+
+    /** start＝計算を始める電圧（前の手の答え。順序回路の記憶、S-009）。長さがちがえば無視 */
+    public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale, double[] start) {
         ChipModel m = nl.model;
         double leak = LEAK_PER_DIRT * m.contamination * leakScale;
         int n = m.size, cells = n * n, nodes = cells + nl.nets.size();
@@ -81,7 +84,7 @@ public final class Circuit {
             }
         }
         // 固定の点（パッド）と、解く点
-        double[] v = new double[nodes];
+        double[] v = start != null && start.length == nodes ? start.clone() : new double[nodes];
         boolean[] fixed = new boolean[nodes];
         for (var e : drive.entrySet()) { int k = cells + e.getKey(); fixed[k] = true; v[k] = e.getValue(); }
         int[] idx = new int[nodes];
@@ -257,39 +260,64 @@ public final class Circuit {
     /** 電源・入力の電圧 */
     public static final double VCC = 5.0, HIGH = 2.5;
 
-    /** パッドの役目（v0.3b のお題、検査台で決める） */
-    public enum Role { GROUND, VCC, IN_A, IN_B, OUT_1, OUT_2, IN_C }
+    /** パッドの役目（v0.3b のお題、検査台で決める）。入力C は O-018、入力D・クロック・出力3/4 は S-009（Q18-2） */
+    public enum Role { GROUND, VCC, IN_A, IN_B, OUT_1, OUT_2, IN_C, IN_D, CLK, OUT_3, OUT_4 }
+    /** 出力の役目（ビット順：bit0＝出力1 …） */
+    public static final Role[] OUTS = {Role.OUT_1, Role.OUT_2, Role.OUT_3, Role.OUT_4};
+
+    /** 論理の計算の結果：出力のビットと、全部の点の電圧（次の手の計算の始まりに使う＝記憶、S-009） */
+    public record Eval(int bits, double[] volts) {}
 
     /**
-     * 論理の計算（§6.2 の 7、v0.3b）：0 V・電源（5 V）・入力（0 V か 5 V）をかけて回路を解き、出力の線の電圧が {@link #HIGH} より上なら 1。
-     * 返り値＝出力のビット（bit0＝出力1、bit1＝出力2）。0 V・電源・要る入力・要る出力の役目がそろっていなければ −1。
-     * 出力のパッドには何もつながない（測るだけ）
+     * 論理の計算（§6.2 の 7、v0.3b・S-009）：0 V・電源・入力（役目 → 1/0、1＝5 V）をかけて回路を解き、出力の線の電圧が {@link #HIGH} より上なら 1。
+     * start＝前の手の電圧（順序回路は前の状態から計算を始めると、その状態を覚えている）。null なら 0 V から。
+     * 役目の決まっていない入力のパッドは 0 V。0 V・電源・要る入力・要る出力の役目がそろっていなければ null
      */
+    public static Eval evaluate(Netlist nl, Map<Integer, Role> roles, Map<Role, Boolean> inputs, int outputs, double leakScale, double[] start) {
+        Map<Role, Double> v = new java.util.EnumMap<>(Role.class);
+        for (var e : inputs.entrySet()) v.put(e.getKey(), e.getValue() ? VCC : 0.0);
+        return evaluateVolts(nl, roles, v, outputs, leakScale, start);
+    }
+
+    /** 入力を電圧で（手から手へ入力をなめらかに変えるとき、S-009） */
+    public static Eval evaluateVolts(Netlist nl, Map<Integer, Role> roles, Map<Role, Double> inputs, int outputs, double leakScale, double[] start) {
+        Map<Integer, Double> d = new HashMap<>();
+        int[] outNet = {-1, -1, -1, -1};
+        java.util.EnumSet<Role> seen = java.util.EnumSet.noneOf(Role.class);
+        for (var e : roles.entrySet()) {
+            Role r = e.getValue();
+            seen.add(r);
+            switch (r) {
+                case GROUND -> d.put(e.getKey(), 0.0);
+                case VCC -> d.put(e.getKey(), VCC);
+                case OUT_1 -> outNet[0] = e.getKey();
+                case OUT_2 -> outNet[1] = e.getKey();
+                case OUT_3 -> outNet[2] = e.getKey();
+                case OUT_4 -> outNet[3] = e.getKey();
+                default -> d.put(e.getKey(), inputs.getOrDefault(r, 0.0));
+            }
+        }
+        if (!seen.contains(Role.GROUND) || !seen.contains(Role.VCC)) return null;
+        for (Role r : inputs.keySet()) if (!seen.contains(r)) return null;
+        for (int i = 0; i < outputs; i++) if (outNet[i] < 0) return null;
+        Solution sol = solve(nl, d, leakScale, start);
+        int bits = 0;
+        for (int i = 0; i < outputs; i++) if (sol.netVolts(nl, outNet[i]) > HIGH) bits |= 1 << i;
+        return new Eval(bits, sol.volts());
+    }
+
+    /** 2入力の形（前からの呼び方） */
     public static int logic(Netlist nl, Map<Integer, Role> roles, boolean a, boolean b, int inputs, int outputs, double leakScale) {
         return logic(nl, roles, (a ? 4 : 0) | (b ? 2 : 0), inputs, outputs, leakScale);
     }
 
-    /** 入力をビットで（bit2＝A、bit1＝B、bit0＝C）。入力Cは全加算器のけた上がりの入力など（O-018） */
+    /** 入力をビットで（bit2＝A、bit1＝B、bit0＝C）。返り値＝出力のビット、役目がそろっていなければ −1 */
     public static int logic(Netlist nl, Map<Integer, Role> roles, int in, int inputs, int outputs, double leakScale) {
-        boolean a = (in & 4) != 0, b = (in & 2) != 0, c = (in & 1) != 0;
-        boolean inC = false;
-        Map<Integer, Double> d = new HashMap<>();
-        int out1 = -1, out2 = -1;
-        boolean gnd = false, vcc = false, inA = false, inB = false;
-        for (var e : roles.entrySet()) switch (e.getValue()) {
-            case GROUND -> { d.put(e.getKey(), 0.0); gnd = true; }
-            case VCC -> { d.put(e.getKey(), VCC); vcc = true; }
-            case IN_A -> { d.put(e.getKey(), a ? VCC : 0.0); inA = true; }
-            case IN_B -> { d.put(e.getKey(), b ? VCC : 0.0); inB = true; }
-            case IN_C -> { d.put(e.getKey(), c ? VCC : 0.0); inC = true; }
-            case OUT_1 -> out1 = e.getKey();
-            case OUT_2 -> out2 = e.getKey();
-        }
-        if (!gnd || !vcc || !inA || (inputs >= 2 && !inB) || (inputs >= 3 && !inC) || out1 < 0 || (outputs >= 2 && out2 < 0)) return -1;
-        Solution sol = solve(nl, d, leakScale);
-        int bits = sol.netVolts(nl, out1) > HIGH ? 1 : 0;
-        if (outputs >= 2 && sol.netVolts(nl, out2) > HIGH) bits |= 2;
-        return bits;
+        Map<Role, Boolean> ins = new java.util.EnumMap<>(Role.class);
+        Role[] order = {Role.IN_A, Role.IN_B, Role.IN_C};
+        for (int i = 0; i < Math.min(3, inputs); i++) ins.put(order[i], (in & (4 >> i)) != 0);
+        Eval e = evaluate(nl, roles, ins, outputs, leakScale, null);
+        return e == null ? -1 : e.bits();
     }
 
     /**
