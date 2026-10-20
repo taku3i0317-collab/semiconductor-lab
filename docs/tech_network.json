@@ -17442,7 +17442,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O40. 少ない数の鋼の板で何万通りの長さ（ゲージブロック）［8-05］",
+     "answer": "1896年、スウェーデンのカール・エドヴァルド・ヨハンソンは、焼入れした鋼の直方体を µm の精度で仕上げ、数十〜百個ほどの組み合わせで何万通りもの長さを作れるセットを考えた。表面が平らすぎて押しつけると吸い付く（リンギング）ので、重ねても誤差がほとんど増えない。工場の測定具はゲージブロックと比べて合わせる。",
+     "hee": {
+      "1": "平らな2枚の鋼は、押しつけて少しずらすと吸い付いて離れない。",
+      "2": "ヘンリー・フォードがヨハンソンのセットを買い入れ、アメリカの大量生産の互換性部品を支えた。",
+      "3": "少ない数の組み合わせで何万通り——数字の位ごとにブロックを選ぶ。",
+      "4": "ゲージブロックも、のちに光の波長（干渉計）で測られるようになった（[8-06]）。"
+     },
+     "certainty": "ヨハンソン 1896 ◎／フォードが買い入れ（1923年に会社ごと）○／リンギング ◎",
+     "basis": "- Wikipedia「Gauge block」：https://en.wikipedia.org/wiki/Gauge_block"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -17452,7 +17465,7 @@
    "name": "ゲージブロック",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1896,
    "year_range": null,
@@ -17475,10 +17488,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "平らすぎる金属どうしは、のりなしでくっつく",
    "kind": "tech",
-   "play": "",
+   "play": "実験（重ねて長さを作る・旋盤を合わせる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -17541,7 +17554,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "1メートルの定義は、金属の棒から光へと変わった",
    "kind": "tech",
    "play": "",
@@ -17964,7 +17977,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "何日もかけて刻む間に温度が変わると失敗した",
    "kind": "tech",
    "play": "",
@@ -50318,609 +50331,696 @@
    "year": -4500,
    "requires": "0-07",
    "requires_year": -4000,
-   "gap": 500
+   "gap": 500,
+   "explained": null
   },
   {
    "node": "2-13",
    "year": 1808,
    "requires": "2-06",
    "requires_year": 1861,
-   "gap": 53
+   "gap": 53,
+   "explained": null
   },
   {
    "node": "1-36",
    "year": 1892,
    "requires": "1-39",
    "requires_year": 1941,
-   "gap": 49
+   "gap": 49,
+   "explained": null
   },
   {
    "node": "8-12",
    "year": 1882,
    "requires": "8-07",
    "requires_year": 1931,
-   "gap": 49
+   "gap": 49,
+   "explained": null
   },
   {
    "node": "10-03",
    "year": 1837,
    "requires": "4-03",
    "requires_year": 1882,
-   "gap": 45
+   "gap": 45,
+   "explained": null
   },
   {
    "node": "1-42",
    "year": 1817,
    "requires": "2-06",
    "requires_year": 1861,
-   "gap": 44
+   "gap": 44,
+   "explained": null
   },
   {
    "node": "2-12",
    "year": 1838,
    "requires": "4-03",
    "requires_year": 1882,
-   "gap": 44
+   "gap": 44,
+   "explained": null
   },
   {
    "node": "B-13",
    "year": 1856,
    "requires": "6-06",
    "requires_year": 1900,
-   "gap": 44
+   "gap": 44,
+   "explained": null
   },
   {
    "node": "4-16",
    "year": 1808,
    "requires": "1-07",
    "requires_year": 1850,
-   "gap": 42
+   "gap": 42,
+   "explained": null
   },
   {
    "node": "7-04",
    "year": 1608,
    "requires": "7-03",
    "requires_year": 1650,
-   "gap": 42
+   "gap": 42,
+   "explained": null
   },
   {
    "node": "2-05",
    "year": 1791,
    "requires": "2-01",
    "requires_year": 1831,
-   "gap": 40
+   "gap": 40,
+   "explained": null
   },
   {
    "node": "14-03",
    "year": 1761,
    "requires": "8-02",
    "requires_year": 1797,
-   "gap": 36
+   "gap": 36,
+   "explained": null
   },
   {
    "node": "B-01",
    "year": 1879,
    "requires": "5-05",
    "requires_year": 1915,
-   "gap": 36
+   "gap": 36,
+   "explained": null
   },
   {
    "node": "14-13",
    "year": 1906,
    "requires": "1-39",
    "requires_year": 1941,
-   "gap": 35
+   "gap": 35,
+   "explained": null
   },
   {
    "node": "15-12",
    "year": 1898,
    "requires": "2-37",
    "requires_year": 1933,
-   "gap": 35
+   "gap": 35,
+   "explained": null
   },
   {
    "node": "2-07",
    "year": 1797,
    "requires": "2-01",
    "requires_year": 1831,
-   "gap": 34
+   "gap": 34,
+   "explained": null
   },
   {
    "node": "2-31",
    "year": 1826,
    "requires": "2-35",
    "requires_year": 1859,
-   "gap": 33
+   "gap": 33,
+   "explained": null
   },
   {
    "node": "7-15",
    "year": 1920,
    "requires": "1-16",
    "requires_year": 1953,
-   "gap": 33
+   "gap": 33,
+   "explained": null
   },
   {
    "node": "7-09",
    "year": 1881,
    "requires": "5-14",
    "requires_year": 1912,
-   "gap": 31
+   "gap": 31,
+   "explained": null
   },
   {
    "node": "B-01",
    "year": 1879,
    "requires": "1-28",
    "requires_year": 1910,
-   "gap": 31
+   "gap": 31,
+   "explained": null
   },
   {
    "node": "5-10",
    "year": 1874,
    "requires": "5-02",
    "requires_year": 1904,
-   "gap": 30
+   "gap": 30,
+   "explained": null
   },
   {
    "node": "3-18",
    "year": 1856,
    "requires": "3-19",
    "requires_year": 1881,
-   "gap": 25
+   "gap": 25,
+   "explained": null
   },
   {
    "node": "8-16",
    "year": 1981,
    "requires": "8-13",
    "requires_year": 2006,
-   "gap": 25
+   "gap": 25,
+   "explained": null
   },
   {
    "node": "7-03",
    "year": 1650,
    "requires": "7-01",
    "requires_year": 1674,
-   "gap": 24
+   "gap": 24,
+   "explained": null
   },
   {
    "node": "1-33",
    "year": 1808,
    "requires": "2-01",
    "requires_year": 1831,
-   "gap": 23
+   "gap": 23,
+   "explained": null
   },
   {
    "node": "13-02",
    "year": 1867,
    "requires": "6-05",
    "requires_year": 1890,
-   "gap": 23
+   "gap": 23,
+   "explained": null
   },
   {
    "node": "15-08",
    "year": 1874,
    "requires": "15-07",
    "requires_year": 1895,
-   "gap": 21
+   "gap": 21,
+   "explained": null
   },
   {
    "node": "10-16",
    "year": 1998,
    "requires": "9-40",
    "requires_year": 2019,
-   "gap": 21
+   "gap": 21,
+   "explained": null
   },
   {
    "node": "7-09",
    "year": 1881,
    "requires": "7-10",
    "requires_year": 1901,
-   "gap": 20
+   "gap": 20,
+   "explained": null
   },
   {
    "node": "B-03",
    "year": 1895,
    "requires": "5-05",
    "requires_year": 1915,
-   "gap": 20
+   "gap": 20,
+   "explained": null
   },
   {
    "node": "1-31",
    "year": 1781,
    "requires": "6-01",
    "requires_year": 1800,
-   "gap": 19
+   "gap": 19,
+   "explained": null
   },
   {
    "node": "15-06",
    "year": 1864,
    "requires": "4-03",
    "requires_year": 1882,
-   "gap": 18
+   "gap": 18,
+   "explained": null
   },
   {
    "node": "1-44",
    "year": 1871,
    "requires": "1-14",
    "requires_year": 1888,
-   "gap": 17
+   "gap": 17,
+   "explained": null
   },
   {
    "node": "12-11",
    "year": 1615,
    "requires": "8-04",
    "requires_year": 1631,
-   "gap": 16
+   "gap": 16,
+   "explained": null
   },
   {
    "node": "B-03",
    "year": 1895,
    "requires": "1-28",
    "requires_year": 1910,
-   "gap": 15
+   "gap": 15,
+   "explained": null
   },
   {
    "node": "1-42",
    "year": 1817,
    "requires": "2-01",
    "requires_year": 1831,
-   "gap": 14
+   "gap": 14,
+   "explained": null
   },
   {
    "node": "2-11",
    "year": 1777,
    "requires": "2-05",
    "requires_year": 1791,
-   "gap": 14
+   "gap": 14,
+   "explained": null
   },
   {
    "node": "8-12",
    "year": 1882,
    "requires": "8-05",
    "requires_year": 1896,
-   "gap": 14
+   "gap": 14,
+   "explained": null
   },
   {
    "node": "9-35",
    "year": 1960,
    "requires": "10-14",
    "requires_year": 1974,
-   "gap": 14
+   "gap": 14,
+   "explained": null
   },
   {
    "node": "2-19",
    "year": 1818,
    "requires": "2-01",
    "requires_year": 1831,
-   "gap": 13
+   "gap": 13,
+   "explained": null
   },
   {
    "node": "13-03",
    "year": 1844,
    "requires": "2-39",
    "requires_year": 1857,
-   "gap": 13
+   "gap": 13,
+   "explained": null
   },
   {
    "node": "14-10",
    "year": 1893,
    "requires": "5-04",
    "requires_year": 1905,
-   "gap": 12
+   "gap": 12,
+   "explained": null
   },
   {
    "node": "B-02",
    "year": 1839,
    "requires": "B-02b",
    "requires_year": 1851,
-   "gap": 12
+   "gap": 12,
+   "explained": null
   },
   {
    "node": "5-02",
    "year": 1904,
    "requires": "5-05",
    "requires_year": 1915,
-   "gap": 11
+   "gap": 11,
+   "explained": null
   },
   {
    "node": "7-03",
    "year": 1650,
    "requires": "2-23",
    "requires_year": 1661,
-   "gap": 11
+   "gap": 11,
+   "explained": null
   },
   {
    "node": "10-17",
    "year": 1963,
    "requires": "10-14",
    "requires_year": 1974,
-   "gap": 11
+   "gap": 11,
+   "explained": null
   },
   {
    "node": "9-05",
    "year": 1940,
    "requires": "9-07",
    "requires_year": 1950,
-   "gap": 10
+   "gap": 10,
+   "explained": null
   },
   {
    "node": "B-11",
    "year": 2012,
    "requires": "9-38",
    "requires_year": 2022,
-   "gap": 10
+   "gap": 10,
+   "explained": null
   },
   {
    "node": "3-11",
    "year": 1901,
    "requires": "1-28",
    "requires_year": 1910,
-   "gap": 9
+   "gap": 9,
+   "explained": null
   },
   {
    "node": "8-06",
    "year": 1892,
    "requires": "7-10",
    "requires_year": 1901,
-   "gap": 9
+   "gap": 9,
+   "explained": null
   },
   {
    "node": "10-04",
    "year": 1788,
    "requires": "8-01",
    "requires_year": 1797,
-   "gap": 9
+   "gap": 9,
+   "explained": null
   },
   {
    "node": "5-10",
    "year": 1874,
    "requires": "4-03",
    "requires_year": 1882,
-   "gap": 8
+   "gap": 8,
+   "explained": null
   },
   {
    "node": "7-06",
    "year": 1666,
    "requires": "7-01",
    "requires_year": 1674,
-   "gap": 8
+   "gap": 8,
+   "explained": null
   },
   {
    "node": "15-08",
    "year": 1874,
    "requires": "4-03",
    "requires_year": 1882,
-   "gap": 8
+   "gap": 8,
+   "explained": null
   },
   {
    "node": "9-37",
    "year": 1999,
    "requires": "7-16",
    "requires_year": 2006,
-   "gap": 7
+   "gap": 7,
+   "explained": null
   },
   {
    "node": "B-03",
    "year": 1895,
    "requires": "4-11",
    "requires_year": 1902,
-   "gap": 7
+   "gap": 7,
+   "explained": null
   },
   {
    "node": "B-11",
    "year": 2012,
    "requires": "9-40",
    "requires_year": 2019,
-   "gap": 7
+   "gap": 7,
+   "explained": null
   },
   {
    "node": "5-02",
    "year": 1904,
    "requires": "1-28",
    "requires_year": 1910,
-   "gap": 6
+   "gap": 6,
+   "explained": null
   },
   {
    "node": "9-23",
    "year": 1959,
    "requires": "9-14",
    "requires_year": 1965,
-   "gap": 6
+   "gap": 6,
+   "explained": null
   },
   {
    "node": "B-09",
    "year": 1972,
    "requires": "9-39",
    "requires_year": 1978,
-   "gap": 6
+   "gap": 6,
+   "explained": null
   },
   {
    "node": "9-03",
    "year": 1947,
    "requires": "9-02",
    "requires_year": 1952,
-   "gap": 5
+   "gap": 5,
+   "explained": null
   },
   {
    "node": "9-08",
    "year": 1951,
    "requires": "1-17",
    "requires_year": 1956,
-   "gap": 5
+   "gap": 5,
+   "explained": "Y-1"
   },
   {
    "node": "9-14",
    "year": 1965,
    "requires": "2-18",
    "requires_year": 1970,
-   "gap": 5
+   "gap": 5,
+   "explained": null
   },
   {
    "node": "9-19",
    "year": 1960,
    "requires": "9-14",
    "requires_year": 1965,
-   "gap": 5
+   "gap": 5,
+   "explained": null
   },
   {
    "node": "9-20",
    "year": 1955,
    "requires": "9-19",
    "requires_year": 1960,
-   "gap": 5
+   "gap": 5,
+   "explained": null
   },
   {
    "node": "9-20",
    "year": 1955,
    "requires": "7-11",
    "requires_year": 1960,
-   "gap": 5
+   "gap": 5,
+   "explained": null
   },
   {
    "node": "9-20",
    "year": 1955,
    "requires": "8-17",
    "requires_year": 1960,
-   "gap": 5
+   "gap": 5,
+   "explained": null
   },
   {
    "node": "15-15",
    "year": 1969,
    "requires": "10-14",
    "requires_year": 1974,
-   "gap": 5
+   "gap": 5,
+   "explained": null
   },
   {
    "node": "1-29",
    "year": 1886,
    "requires": "6-05",
    "requires_year": 1890,
-   "gap": 4
+   "gap": 4,
+   "explained": null
   },
   {
    "node": "1-38",
    "year": 1886,
    "requires": "6-05",
    "requires_year": 1890,
-   "gap": 4
+   "gap": 4,
+   "explained": null
   },
   {
    "node": "8-06",
    "year": 1892,
    "requires": "8-05",
    "requires_year": 1896,
-   "gap": 4
+   "gap": 4,
+   "explained": null
   },
   {
    "node": "9-08",
    "year": 1951,
    "requires": "9-11",
    "requires_year": 1955,
-   "gap": 4
+   "gap": 4,
+   "explained": "Y-1"
   },
   {
    "node": "9-09",
    "year": 1952,
    "requires": "1-17",
    "requires_year": 1956,
-   "gap": 4
+   "gap": 4,
+   "explained": "Y-1"
   },
   {
    "node": "9-10",
    "year": 1951,
    "requires": "9-11",
    "requires_year": 1955,
-   "gap": 4
+   "gap": 4,
+   "explained": null
   },
   {
    "node": "11-13",
    "year": 1876,
    "requires": "6-03",
    "requires_year": 1880,
-   "gap": 4
+   "gap": 4,
+   "explained": null
   },
   {
    "node": "5-14",
    "year": 1912,
    "requires": "5-05",
    "requires_year": 1915,
-   "gap": 3
+   "gap": 3,
+   "explained": null
   },
   {
    "node": "9-33",
    "year": 1957,
    "requires": "9-32",
    "requires_year": 1960,
-   "gap": 3
+   "gap": 3,
+   "explained": null
   },
   {
    "node": "4-11",
    "year": 1902,
    "requires": "5-02",
    "requires_year": 1904,
-   "gap": 2
+   "gap": 2,
+   "explained": null
   },
   {
    "node": "1-14",
    "year": 1888,
    "requires": "6-05",
    "requires_year": 1890,
-   "gap": 2
+   "gap": 2,
+   "explained": null
   },
   {
    "node": "1-38",
    "year": 1886,
    "requires": "1-14",
    "requires_year": 1888,
-   "gap": 2
+   "gap": 2,
+   "explained": null
   },
   {
    "node": "9-07",
    "year": 1950,
    "requires": "9-01",
    "requires_year": 1952,
-   "gap": 2
+   "gap": 2,
+   "explained": null
   },
   {
    "node": "1-41",
    "year": 1940,
    "requires": "1-39",
    "requires_year": 1941,
-   "gap": 1
+   "gap": 1,
+   "explained": null
   },
   {
    "node": "9-16",
    "year": 1954,
    "requires": "9-11",
    "requires_year": 1955,
-   "gap": 1
+   "gap": 1,
+   "explained": null
   },
   {
    "node": "9-18",
    "year": 1959,
    "requires": "9-19",
    "requires_year": 1960,
-   "gap": 1
+   "gap": 1,
+   "explained": null
   },
   {
    "node": "9-22",
    "year": 1958,
    "requires": "9-18",
    "requires_year": 1959,
-   "gap": 1
+   "gap": 1,
+   "explained": null
   },
   {
    "node": "9-22",
    "year": 1958,
    "requires": "9-25",
    "requires_year": 1959,
-   "gap": 1
+   "gap": 1,
+   "explained": null
   },
   {
    "node": "9-28",
    "year": 1954,
    "requires": "9-11",
    "requires_year": 1955,
-   "gap": 1
+   "gap": 1,
+   "explained": null
   }
  ]
 }

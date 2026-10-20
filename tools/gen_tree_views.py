@@ -315,6 +315,20 @@ def topo(nodes, subset):
     return out + sorted(set(subset) - set(out), key=sort_key)  # 循環が残れば末尾
 
 
+def explained_inversions():
+    """network_proposals.md の「年の逆転」の表で、状態が「説明ずみ」の行（Y-番号）に書かれた「[a] … ＜ … [b]」の組（O-017）。
+    実装担当が「前提は変えず、本物の別の道を注で書いた」などと説明した逆転は、自動チェックで区別して数える"""
+    out = {}
+    if not PROPOSALS.exists():
+        return out
+    for line in PROPOSALS.read_text(encoding="utf-8").splitlines():
+        m = re.match(r"\| (Y-\d+) \|(.*)\|", line)
+        if m and "説明ずみ" in line.split("|")[-2]:
+            for a, b in re.findall(r"\[([^\]]+)\][^＜\[]*＜[^\[]*\[([^\]]+)\]", line.split("|")[2]):
+                out[(a, b)] = m.group(1)
+    return out
+
+
 def year_inversions(nodes):
     """年の逆転：ノードの年が、必ず要る前提（AND の項目。OR はいちばん新しくない代替案）の年より古いもの。
     本物の歴史では「前提より先に生まれた」技術（例：後の別ルートでゲームでは作る）を見つけるための一覧。直さずに報告だけ"""
@@ -562,7 +576,8 @@ def export_json(nodes):
                            "part": "部品→モノ（そのモノを形づくる部品のモノ。作れるかの判定には数えない）"},
             "kinds": {"tech": "技術", "product": "モノ（TECH_TREE の「種類: モノ」と products.md）", "idea": "発見・考え方（ideas.md）"},
             "nodes": out_nodes, "edges": edges, "year_inversions": [
-                {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d} for a, y, p, py, d in year_inversions(nodes)]}
+                {"node": a, "year": y, "requires": p, "requires_year": py, "gap": d, "explained": explained_inversions().get((a, p))}
+                for a, y, p, py, d in year_inversions(nodes)]}
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
     # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
@@ -570,7 +585,7 @@ def export_json(nodes):
                   "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
     kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p"}
-    graph = {"goal": GOAL, "start": START, "inversions": len(data["year_inversions"]),
+    graph = {"goal": GOAL, "start": START, "inversions": sum(1 for x in data["year_inversions"] if not x["explained"]),
              "nodes": [{k: n[k] for k in light_keys} for n in out_nodes],
              "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout}
     detail = {"nodes": {n["id"]: {k: v for k, v in n.items() if k not in light_keys} for n in out_nodes},
@@ -899,8 +914,9 @@ def render(nodes, dups):
     inv = year_inversions(nodes)
     L += ["", f"### 年の逆転（ノードの年が、必ず要る前提の年より古い：{len(inv)} 件。直さずに報告だけ）", "",
           "| ノード | 年 | 前提（いちばん新しい） | 前提の年 | 差 |", "|---|---|---|---|---|"]
+    ex = explained_inversions()
     for a, y, p, py, d in inv:
-        L.append(f"| [{a}] {nodes[a]['name']} | {y} | [{p}] {nodes[p]['name']} | {py} | {d} |")
+        L.append(f"| [{a}] {nodes[a]['name']} | {y} | [{p}] {nodes[p]['name']} | {py} | {d}" + (f"（説明ずみ {ex[(a, p)]}）" if (a, p) in ex else "") + " |")
     return L, (undefined, cycles, empty, dups, sc, bl, todo)
 
 
@@ -927,9 +943,10 @@ def main():
         print("buildable:", bl)
         print("todo:", len(todo))
         inv = year_inversions(nodes)
-        print(f"year inversions: {len(inv)}")
+        ex = explained_inversions()
+        print(f"year inversions: {len(inv)}（うち説明ずみ {sum(1 for r in inv if (r[0], r[2]) in ex)}）")
         for a, y, p, py, d in inv:
-            print(f"  [{a}] {y} < [{p}] {py} (gap {d})")
+            print(f"  [{a}] {y} < [{p}] {py} (gap {d})" + (f"  説明ずみ {ex[(a, p)]}" if (a, p) in ex else ""))
         allnodes = dict(nodes)
         for src in EXTRA_SRC:
             allnodes.update({k: v for k, v in parse(src)[0].items() if k not in allnodes})
