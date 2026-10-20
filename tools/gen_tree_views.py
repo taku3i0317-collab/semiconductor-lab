@@ -14,6 +14,7 @@
 - 年 = "年: 1866（1866〜67） ⚠️" の項目（西暦、紀元前はマイナス、括弧は範囲、⚠️ は諸説・未確認）。無ければ本物欄から推定
 書き出し：docs/TECH_TREE_VIEW.md ／ docs/tech_network.json（技術ネットワーク図の元データ：ノードとつながり）
 """
+import base64
 import json
 import re
 import sys
@@ -25,6 +26,8 @@ SRC = ROOT / "docs" / "TECH_TREE.md"
 OUT = ROOT / "docs" / "TECH_TREE_VIEW.md"
 JSON_OUT = ROOT / "docs" / "tech_network.json"
 JS_OUT = ROOT / "docs" / "tech_network.js"
+META = ROOT / "docs" / "network_meta.json"
+TEX = ROOT / "src" / "main" / "resources" / "assets" / "semiconductor-lab" / "textures"
 YEAR_RE = re.compile(r"(?:^|／|\s)年:\s*(-?\d+)(?:（([^）]*)）)?(\s*⚠️)?")
 
 ID_RE = re.compile(r"\[(\d+|B)-(\d+[a-z]?)\]")
@@ -309,6 +312,13 @@ def export_json(nodes):
         m = re.search(pat + r"[:：]\s*(.*?)(?:／|\n|$)", body, re.S)
         return re.sub(r"\*\*|`", "", m.group(1)).strip()[:400] if m else ""
     now = set(buildable(nodes))
+    # 見た目の情報（アイコン・モノの絵文字・人物）。docs/network_meta.json を手で編集する
+    meta = json.loads(META.read_text(encoding="utf-8")) if META.exists() else {}
+    icons, people = meta.get("icons", {}), meta.get("people", {})
+    emoji, symbols = meta.get("products", {}), meta.get("trunk_symbols", {})
+    def icon_uri(rel):
+        p = TEX / (rel + ".png")
+        return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode() if p.exists() else None
     out_nodes, edges = [], []
     for i in sorted(nodes, key=sort_key):
         n = nodes[i]
@@ -317,6 +327,9 @@ def export_json(nodes):
                           "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
                           "understanding": n["understand"], "buildable_now": i in now,
                           "real": field(n["body"], r"本物"), "hee1": field(n["body"], r"へえ①?"),
+                          "kind": "product" if re.search(r"種類[:：]\s*モノ", n["body"]) else "tech",
+                          "icon": icon_uri(icons[i]) if i in icons else None, "emoji": emoji.get(i),
+                          "symbol": symbols.get(trunk_of(i), "●"), "people": people.get(i, []),
                           "descendants": len(descendants(i))})
         for gi, alts in enumerate(n["groups"]):
             for a in alts:

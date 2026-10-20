@@ -1,0 +1,440 @@
+{
+ "_note": "技術ネットワーク図（docs/network.html）の見た目の情報。手で編集する。tools/gen_tree_views.py が読み、tech_network.json に混ぜる（アイコンの PNG は data URI で埋め込む）。モノ（kind: product）の印は TECH_TREE.md の各ノードの「種類: モノ」",
+ "icons": {
+  "_note": "ノード → 代表アイテム/ブロックのテクスチャ（src/main/resources/assets/semiconductor-lab/textures/ からの相対パス）。無いノードは幹の記号",
+  "0-10": "item/quicklime",
+  "0-11": "item/slaked_lime",
+  "0-16": "block/salt_pan_top",
+  "1-01": "item/coal_ash",
+  "1-07": "item/graphite",
+  "1-13": "item/zinc_ingot",
+  "1-15": "item/metallurgical_silicon",
+  "1-26": "item/steel_ingot",
+  "1-27": "item/lead_ingot",
+  "1-28": "item/tungsten_wire",
+  "1-33": "item/boron_trioxide",
+  "1-34": "item/germanium_tetrachloride",
+  "1-45": "item/mercury",
+  "1-46": "item/vein_quartz",
+  "1-47": "item/magnet",
+  "2-01": "item/sulfuric_acid",
+  "2-03": "item/trona",
+  "2-14": "item/soda_lime_glass",
+  "3-06": "block/reverberatory_furnace_front",
+  "3-08": "block/bessemer_converter_front",
+  "3-10": "block/acheson_furnace_front",
+  "3-12": "item/refractory_brick",
+  "3-14": "block/zone_refining_furnace_front",
+  "3-15": "block/arc_furnace_front",
+  "4-01": "block/water_wheel",
+  "4-02": "block/steam_engine",
+  "4-03": "block/copper_cable",
+  "4-04": "item/dynamo",
+  "4-05": "item/self_excited_dynamo",
+  "4-06": "block/steam_turbine_side",
+  "4-07": "block/lead_acid_battery_front",
+  "4-08": "item/electric_motor",
+  "4-09": "item/hf_oscillator",
+  "4-12": "block/electric_furnace_front",
+  "4-14": "block/steam_engine",
+  "5-01": "block/hand_vacuum_pump_side",
+  "5-02": "item/vacuum_tube",
+  "5-10": "item/mercury_vacuum_gauge",
+  "5-11": "block/vacuum_chamber_side",
+  "5-15": "block/sprengel_pump_side",
+  "6-01": "block/electrolyzer_front",
+  "6-02": "block/gas_holder_side",
+  "6-03": "block/compressor_front",
+  "6-04": "block/rock_salt_ore",
+  "6-05": "item/chlorine_gas",
+  "6-06": "item/hydrochloric_acid",
+  "6-07": "block/air_separation_unit_front",
+  "7-02": "item/fused_quartz",
+  "9-01": "item/refined_germanium",
+  "9-02": "item/n_type_germanium",
+  "9-03": "item/transistor",
+  "9-04": "item/junction_transistor",
+  "9-07": "item/germanium_single_crystal",
+  "15-10": "item/transistor_radio"
+ },
+ "trunk_symbols": {
+  "0": "🪓",
+  "1": "⛏️",
+  "2": "⚗️",
+  "3": "🔥",
+  "4": "⚡",
+  "5": "🫙",
+  "6": "💨",
+  "7": "🔍",
+  "8": "📏",
+  "9": "💠",
+  "10": "🧮",
+  "11": "🌾",
+  "12": "🧱",
+  "13": "💊",
+  "14": "🚂",
+  "15": "📡",
+  "B": "🌿"
+ },
+ "products": {
+  "_note": "モノ（ランドマーク）の大きなアイコン（テクスチャが無いときの絵文字）。どれがモノかは TECH_TREE.md の「種類: モノ」",
+  "0-01": "🪨",
+  "0-03": "🏺",
+  "0-09": "🛞",
+  "1-05": "🔔",
+  "15-01": "📜",
+  "15-02": "📖",
+  "14-02": "🧭",
+  "7-04": "🔭",
+  "4-02": "🚂",
+  "14-05": "🚃",
+  "14-04": "🚢",
+  "10-03": "📟",
+  "B-02": "📷",
+  "15-04": "☎️",
+  "B-01": "💡",
+  "15-05": "🎵",
+  "14-11": "🚗",
+  "14-12": "✈️",
+  "15-09": "📻",
+  "15-11": "📺",
+  "11-13": "❄️",
+  "B-04": "♨️",
+  "9-03": "🔌",
+  "15-10": "📻",
+  "B-12": "☀️",
+  "9-22": "🔲",
+  "B-07": "🔆",
+  "B-08": "🧮",
+  "B-09": "🎮",
+  "B-16": "💻",
+  "B-17": "🛰️",
+  "B-10": "📱",
+  "9-40": "🌀",
+  "10-16": "🤖"
+ },
+ "people": {
+  "_note": "人物は似顔絵にしない：シルエット＋名前＋ゆかりの道具。存命の人は載せない（DESIGN「遊びの要素」）。名前と年は TECH_TREE の本物欄から",
+  "15-01": [
+   {
+    "name": "蔡倫",
+    "tool": "📜 紙すき",
+    "year": "105"
+   }
+  ],
+  "15-02": [
+   {
+    "name": "グーテンベルク",
+    "tool": "🔤 金属の活字",
+    "year": "1450ごろ"
+   }
+  ],
+  "14-02": [
+   {
+    "name": "沈括",
+    "tool": "🧭 磁針",
+    "year": "1088"
+   }
+  ],
+  "7-04": [
+   {
+    "name": "リッペルハイ",
+    "tool": "🔭 筒とレンズ",
+    "year": "1608"
+   },
+   {
+    "name": "ガリレオ",
+    "tool": "🔭 望遠鏡",
+    "year": "1609"
+   }
+  ],
+  "5-03": [
+   {
+    "name": "トリチェリ",
+    "tool": "🧪 水銀を満たしたガラス管",
+    "year": "1643"
+   }
+  ],
+  "5-01": [
+   {
+    "name": "ゲーリケ",
+    "tool": "⚪ マクデブルクの半球",
+    "year": "1650ごろ"
+   }
+  ],
+  "4-02": [
+   {
+    "name": "ニューコメン",
+    "tool": "⛏️ 炭鉱の排水ポンプ",
+    "year": "1712"
+   },
+   {
+    "name": "ワット",
+    "tool": "⚙️ 分離凝縮器",
+    "year": "1776"
+   }
+  ],
+  "1-10": [
+   {
+    "name": "エイブラハム・ダービー1世",
+    "tool": "🔥 コークス",
+    "year": "1709"
+   }
+  ],
+  "1-11": [
+   {
+    "name": "ハンツマン",
+    "tool": "🏺 るつぼ",
+    "year": "1740ごろ"
+   }
+  ],
+  "8-01": [
+   {
+    "name": "モーズリー",
+    "tool": "🔩 送りねじ",
+    "year": "1797ごろ"
+   }
+  ],
+  "4-13": [
+   {
+    "name": "ヴォルタ",
+    "tool": "🪙 銅と亜鉛の円板",
+    "year": "1800"
+   }
+  ],
+  "10-01": [
+   {
+    "name": "エルステッド",
+    "tool": "🧭 電流で振れる方位磁針",
+    "year": "1820"
+   }
+  ],
+  "4-04": [
+   {
+    "name": "ファラデー",
+    "tool": "🧲 コイルと磁石",
+    "year": "1831"
+   }
+  ],
+  "14-05": [
+   {
+    "name": "トレビシック",
+    "tool": "🚂 蒸気機関車",
+    "year": "1804"
+   }
+  ],
+  "10-03": [
+   {
+    "name": "モールス",
+    "tool": "📟 電鍵（トン・ツー）",
+    "year": "1837〜44"
+   }
+  ],
+  "B-02a": [
+   {
+    "name": "ダゲール",
+    "tool": "📷 銀板",
+    "year": "1839"
+   }
+  ],
+  "1-26": [
+   {
+    "name": "ベッセマー",
+    "tool": "🏭 空気を吹き込む転炉",
+    "year": "1856"
+   }
+  ],
+  "4-07": [
+   {
+    "name": "プランテ",
+    "tool": "🔋 鉛の板と硫酸",
+    "year": "1859"
+   }
+  ],
+  "5-15": [
+   {
+    "name": "シュプレンゲル",
+    "tool": "💧 水銀のしずく",
+    "year": "1865"
+   }
+  ],
+  "15-04": [
+   {
+    "name": "ベル",
+    "tool": "☎️ 電話",
+    "year": "1876"
+   }
+  ],
+  "15-05": [
+   {
+    "name": "エジソン",
+    "tool": "🎵 錫はくの円筒",
+    "year": "1877"
+   }
+  ],
+  "B-01": [
+   {
+    "name": "エジソン",
+    "tool": "💡 炭素フィラメント",
+    "year": "1879"
+   },
+   {
+    "name": "スワン",
+    "tool": "💡 炭素フィラメント",
+    "year": "1879"
+   }
+  ],
+  "1-29": [
+   {
+    "name": "ホール",
+    "tool": "⚡ 溶けた氷晶石の電解",
+    "year": "1886"
+   },
+   {
+    "name": "エルー",
+    "tool": "⚡ 溶けた氷晶石の電解",
+    "year": "1886"
+   }
+  ],
+  "3-10": [
+   {
+    "name": "アチソン",
+    "tool": "⚫ 人造黒鉛",
+    "year": "1896"
+   }
+  ],
+  "6-07": [
+   {
+    "name": "リンデ",
+    "tool": "🧊 液体空気",
+    "year": "1895"
+   }
+  ],
+  "13-11": [
+   {
+    "name": "レントゲン",
+    "tool": "🦴 手の骨の写真",
+    "year": "1895"
+   }
+  ],
+  "15-07": [
+   {
+    "name": "マルコーニ",
+    "tool": "📡 アンテナ",
+    "year": "1895"
+   }
+  ],
+  "5-02": [
+   {
+    "name": "フレミング",
+    "tool": "💡 二極管",
+    "year": "1904"
+   },
+   {
+    "name": "ド・フォレスト",
+    "tool": "📻 三極管",
+    "year": "1906"
+   }
+  ],
+  "6-09": [
+   {
+    "name": "ハーバー",
+    "tool": "🧪 高圧の反応管",
+    "year": "1913"
+   },
+   {
+    "name": "ボッシュ",
+    "tool": "🏭 アンモニア工場",
+    "year": "1913"
+   }
+  ],
+  "14-12": [
+   {
+    "name": "ライト兄弟",
+    "tool": "✈️ 自作の飛行機",
+    "year": "1903"
+   }
+  ],
+  "9-08": [
+   {
+    "name": "チョクラルスキー",
+    "tool": "🏺 溶けた金属と種",
+    "year": "1916"
+   }
+  ],
+  "13-10": [
+   {
+    "name": "フレミング（アレクサンダー）",
+    "tool": "🧫 青カビの皿",
+    "year": "1928"
+   }
+  ],
+  "9-03": [
+   {
+    "name": "バーディーン",
+    "tool": "🔌 金の接点とゲルマニウム",
+    "year": "1947"
+   },
+   {
+    "name": "ブラッテン",
+    "tool": "🔌 プラスチックのくさび",
+    "year": "1947"
+   }
+  ],
+  "15-14": [
+   {
+    "name": "シャノン",
+    "tool": "0️⃣1️⃣ ビット",
+    "year": "1948"
+   }
+  ],
+  "9-07": [
+   {
+    "name": "ティール",
+    "tool": "💎 種結晶",
+    "year": "1950"
+   },
+   {
+    "name": "リトル",
+    "tool": "💎 種結晶",
+    "year": "1950"
+   }
+  ],
+  "9-01": [
+   {
+    "name": "プファン",
+    "tool": "🔥 動く溶けた帯",
+    "year": "1952"
+   }
+  ],
+  "9-22": [
+   {
+    "name": "キルビー",
+    "tool": "🔲 ゲルマニウム上の回路",
+    "year": "1958"
+   },
+   {
+    "name": "ノイス",
+    "tool": "🔲 平らなシリコンの回路",
+    "year": "1959"
+   }
+  ],
+  "10-16": [
+   {
+    "name": "マカロック",
+    "tool": "🧠 人工ニューロン",
+    "year": "1943"
+   },
+   {
+    "name": "ピッツ",
+    "tool": "🧠 人工ニューロン",
+    "year": "1943"
+   },
+   {
+    "name": "ローゼンブラット",
+    "tool": "🧠 パーセプトロン",
+    "year": "1958"
+   }
+  ]
+ }
+}

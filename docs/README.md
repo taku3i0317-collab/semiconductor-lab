@@ -19,6 +19,7 @@
 | TECH_TREE.md | 技術ツリー本体（347ノード）。ノード＝作業単位（前提/本物/入出力/ゲーム/省略/へえ/テスト） |
 | TECH_TREE_VIEW.md | TECH_TREE から自動生成した進捗表・背骨・依存図（tools/gen_tree_views.py。手で編集しない） |
 | network.html | 技術ネットワーク図（ブラウザで開く。点＝技術、横＝年、縦＝幹。クリックでカード）。データは tech_network.js |
+| network_meta.json | ネットワーク図の見た目（ノード→アイコンのテクスチャ、幹の記号、モノの絵文字、人物＝シルエット＋名前＋ゆかりの道具）。手で編集する |
 | tech_network.js | tech_network.json と同じ中身の JS（network.html をファイルから直接開いても読めるように） |
 | tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
