@@ -1375,11 +1375,11 @@ public class SemiconductorTests extends LabTestBase {
     @GameTest(maxTicks = 100)
     public void stepper(GameTestHelper h) {
         h.assertTrue(recipeUses(h, "stepper", Semiconductor.MASK_ALIGNER.block.asItem()), "stepper grows out of the mask aligner");
-        var fine = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(16), "stepper_test", 0);
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid), "stepper_test", 0);   // g線ステッパーの方眼（S-008 で 36）
         ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
         mask.set(ModDataComponents.MASK, fine);
         h.assertFalse(com.taku3.semiconductorlab.litho.ChipOps.canExpose(ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"), fine, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G),
-                "a 16-grid mask is too fine for contact printing");
+                "a g-line stepper mask is too fine for contact printing");
         ItemStack lens = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS);
         lens.set(Precision.LENS_DECENTER, java.util.List.of(5, 5, 5, 5));
         h.assertFalse(com.taku3.semiconductorlab.block.StepperBlockEntity.lensOk(new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS)), "an uncentred lens is too blurred");
@@ -1399,7 +1399,7 @@ public class SemiconductorTests extends LabTestBase {
         }
         ItemStack out = be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT);
         var st = com.taku3.semiconductorlab.litho.ChipOps.state(out);
-        h.assertTrue(st != null && st.resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.EXPOSED && st.size() == 16, "4 hand steps -> wafer exposed at grid 16");
+        h.assertTrue(st != null && st.resist() == com.taku3.semiconductorlab.litho.ChipState.Resist.EXPOSED && st.size() == com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid, "4 hand steps -> wafer exposed at the stepper grid");
         h.assertValueEqual(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK).getDamageValue(), 0, "projection: the mask is never touched");
         var ja = langJson("ja_jp");
         for (String k : new String[] {"power", "steps", "cd", "step", "need_wafer", "need_mask", "need_lens", "blurred", "cannot", "output_full", "press", "need_power", "running"})
