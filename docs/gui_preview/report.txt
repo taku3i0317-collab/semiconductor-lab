@@ -297,6 +297,7 @@ drafting_table_en_us layer4 litho.semiconductor-lab.role.metal w=85 lines=1/1 sc
 drafting_table_en_us arrow =→ w=8 lines=1/1
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.need_sheet w=91 lines=1/1 scale=0.84999996
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.draw w=113 lines=1/1 scale=0.6499999
+drafting_table_en_us hint gui.semiconductor-lab.drafting_table.zoom w=112 lines=1/1 scale=0.6499999
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.out_full w=106 lines=1/1 scale=0.6999999
 probe_station_en_us pad gui.semiconductor-lab.probe_station.pad w=56 lines=1/1
 probe_station_en_us amps gui.semiconductor-lab.probe_station.amps w=92 lines=1/1 scale=0.79999995
@@ -666,6 +667,7 @@ drafting_table_ja_jp layer4 litho.semiconductor-lab.role.metal w=64 lines=1/1
 drafting_table_ja_jp arrow =→ w=8 lines=1/1
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.need_sheet w=69 lines=1/1
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.draw w=81 lines=1/1 scale=0.95
+drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.zoom w=108 lines=1/1 scale=0.6999999
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.out_full w=63 lines=1/1
 probe_station_ja_jp pad gui.semiconductor-lab.probe_station.pad w=68 lines=1/1
 probe_station_ja_jp amps gui.semiconductor-lab.probe_station.amps w=70 lines=1/1

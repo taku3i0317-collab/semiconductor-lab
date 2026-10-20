@@ -291,5 +291,6 @@
   "item.semiconductor-lab.mesa_transistor.note3": "Made by diffusion, mesa transistors were fast (high frequencies); Bell Labs, TI and Fairchild built them in 1957–58. But the junction lay bare on the surface and drifted with dirt and moisture.",
   "item.semiconductor-lab.mesa_transistor.note4": "In 1959 Hoerni at Fairchild devised the planar process [9-18], keeping the junction hidden under oxide. Protected junctions could be laid out in large numbers on a flat surface, and the IC was born.",
   "item.semiconductor-lab.mesa_transistor.placeholder": "Omitted: ⚠️ The rate of decline is a game value (really days to months depending on humidity and temperature). Sealing in a metal can with dry nitrogen (hermetic packaging) is not available yet.",
-  "gui.semiconductor-lab.etch_tank.recipe_silicon": "HNO3 oxidises Si → HF dissolves"
+  "gui.semiconductor-lab.etch_tank.recipe_silicon": "HNO3 oxidises Si → HF dissolves",
+  "gui.semiconductor-lab.drafting_table.zoom": "Wheel zoom, middle pan"
 }

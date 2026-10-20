@@ -36,8 +36,8 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
     public static final int DATA_UNDO = 0, DATA_REDO = 1, DATA_COUNT = 2;
     /** ボタン：新しい方眼紙・元に戻す・やり直す・ひと筆の始まり（元に戻す単位）、方眼の大きさ（+i）、原図を切る（+層）、層を消す（+層） */
     public static final int BTN_NEW = 1, BTN_UNDO = 2, BTN_REDO = 3, BTN_STROKE = 4, BTN_SIZE = 10, BTN_CUT = 100, BTN_CLEAR = 200;
-    /** 選べる方眼の大きさ（v0.3 の露光は 8。12・16 はのちの露光の方法の予習：焼くと too_fine） */
-    public static final int[] SIZES = {8, 12, 16};
+    /** 選べる方眼の大きさ（露光の方法ごと、ExposureTool と同じ。v0.3 の密着露光は 8、より細かい物はその方法ができてから焼ける） */
+    public static final int[] SIZES = java.util.Arrays.stream(com.taku3.semiconductorlab.litho.ExposureTool.values()).mapToInt(t -> t.grid).toArray();
     private static final int MAX_HISTORY = 64;
 
     /** 塗る（on）・消す（off）のボタンの番号：100000×(1 か 2) ＋ 10000×層 ＋ マス */
@@ -67,7 +67,7 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
         for (int i = 0; i < ROLES.length; i++)
             b.text("layer" + i, LAYER_X + 10, LAYER_Y + 1 + LAYER_ROW * i, 68, 1, "litho.semiconductor-lab.role." + ROLES[i]).fit();
         LAYOUT = b.label("arrow", SHEET_X + 22, SHEET_Y + 4, 28, "→")
-                .text("hint", LAYER_X, 122, 78, 1, MachineLayout.keys("gui.semiconductor-lab.drafting_table.", "need_sheet", "draw", "out_full")).fit()
+                .text("hint", LAYER_X, 122, 78, 1, MachineLayout.keys("gui.semiconductor-lab.drafting_table.", "need_sheet", "draw", "zoom", "out_full")).fit()
                 .build();
     }
 

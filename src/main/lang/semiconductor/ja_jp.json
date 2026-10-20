@@ -291,5 +291,6 @@
   "item.semiconductor-lab.mesa_transistor.note3": "メサトランジスタは、拡散で作るので速く（高い周波数まで）動き、1957〜58年にベル研・TI・フェアチャイルドが作った。でも接合が表面にむき出しで、汚れや湿気で特性が変わりやすかった。",
   "item.semiconductor-lab.mesa_transistor.note4": "1959年、フェアチャイルドのヘルニは、接合を酸化膜の下にかくしたまま作るプレーナ技術 [9-18] を考えた。接合が守られ、平らな表面にたくさん並べられるようになり、IC が生まれた。",
   "item.semiconductor-lab.mesa_transistor.placeholder": "省略：⚠️ 性能が落ちる速さはゲームの値（本物は湿度・温度で数日〜数か月）。金属のかんに乾いた窒素と封じる方法（気密封止）はまだない。",
-  "gui.semiconductor-lab.etch_tank.recipe_silicon": "Si を HNO3 で酸化 → HF で溶かす"
+  "gui.semiconductor-lab.etch_tank.recipe_silicon": "Si を HNO3 で酸化 → HF で溶かす",
+  "gui.semiconductor-lab.drafting_table.zoom": "ホイールで拡大・中で移動"
 }

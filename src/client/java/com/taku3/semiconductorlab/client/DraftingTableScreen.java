@@ -26,6 +26,12 @@ public class DraftingTableScreen extends MachineScreen {
 
     private int layer = 0, sectionRow = 0, lastCell = -1;
     private boolean painting, paintOn;
+    /** 見え方（O-006）：1マスの px（0＝全部が入る大きさ）・左上に見えているマス・中ボタンで動かしている途中 */
+    private int zoom = 0, ox = 0, oy = 0, lastSize = 0;
+    private boolean panning;
+    private double panX, panY;
+    /** 拡大の上限（1マスの px） */
+    private static final int MAX_ZOOM = 16;
 
     public DraftingTableScreen(MachineMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
 
@@ -52,7 +58,7 @@ public class DraftingTableScreen extends MachineScreen {
             case 2 -> press(BTN_CUT + layer);
             case 3 -> press(BTN_CLEAR + layer);
             case 4 -> press(BTN_NEW);
-            default -> {   // 方眼の大きさを順に（8 → 12 → 16）
+            default -> {   // 方眼の大きさを順に（8 → 12 → 16 → 24 → … → 72、露光の方法ごと）
                 if (d == null) return;
                 int i = 0;
                 while (i < SIZES.length && SIZES[i] != d.size()) i++;
@@ -63,10 +69,47 @@ public class DraftingTableScreen extends MachineScreen {
 
     // ===== マウス：方眼に描く・層を選ぶ =====
 
+    /** 全部が入る 1マスの px */
+    private static int fit(ChipDesign d) { return Math.max(1, GRID_W / d.size()); }
+    /** 今の 1マスの px */
+    private int cs(ChipDesign d) { return zoom <= 0 ? fit(d) : Math.max(fit(d), zoom); }
+    /** 見えている1辺のマス数 */
+    private int view(ChipDesign d) { return Math.min(d.size(), GRID_W / cs(d)); }
+
+    /** 大きさが変わったら見え方を元に戻し、はみ出さないように左上をおさえる */
+    private void clampView(ChipDesign d) {
+        if (d.size() != lastSize) { lastSize = d.size(); zoom = 0; ox = 0; oy = 0; }
+        int max = d.size() - view(d);
+        ox = Math.max(0, Math.min(max, ox));
+        oy = Math.max(0, Math.min(max, oy));
+    }
+
     private int cellAt(double mx, double my, ChipDesign d) {
-        int cs = GRID_W / d.size();
-        int x = (int) Math.floor((mx - leftPos - GRID_X) / cs), y = (int) Math.floor((my - topPos - GRID_Y) / cs);
-        return x >= 0 && y >= 0 && x < d.size() && y < d.size() ? y * d.size() + x : -1;
+        clampView(d);
+        int cs = cs(d), v = view(d);
+        int lx = (int) Math.floor((mx - leftPos - GRID_X) / cs), ly = (int) Math.floor((my - topPos - GRID_Y) / cs);
+        if (lx < 0 || ly < 0 || lx >= v || ly >= v) return -1;
+        return (oy + ly) * d.size() + (ox + lx);
+    }
+
+    /** ホイール：マウスの下のマスを中心に拡大・縮小（大きな方眼のとき） */
+    @Override public boolean mouseScrolled(double mx, double my, double sx, double sy) {
+        ChipDesign d = design();
+        if (d != null && sy != 0) {
+            int c = cellAt(mx, my, d);
+            if (c >= 0) {
+                int old = cs(d), next = Math.max(fit(d), Math.min(MAX_ZOOM, old + (sy > 0 ? 2 : -2)));
+                if (next != old) {
+                    double localX = (mx - leftPos - GRID_X) / next, localY = (my - topPos - GRID_Y) / next;
+                    zoom = next == fit(d) ? 0 : next;
+                    ox = (int) Math.round(c % d.size() - localX);
+                    oy = (int) Math.round(c / d.size() - localY);
+                    clampView(d);
+                }
+                return true;
+            }
+        }
+        return super.mouseScrolled(mx, my, sx, sy);
     }
 
     @Override public boolean mouseClicked(MouseButtonEvent e, boolean doubleClick) {
@@ -74,6 +117,10 @@ public class DraftingTableScreen extends MachineScreen {
         double rx = e.x() - leftPos, ry = e.y() - topPos;
         if (rx >= LAYER_X && rx < LAYER_X + 78 && ry >= LAYER_Y && ry < LAYER_Y + LAYER_ROW * ROLES.length) {
             layer = (int) ((ry - LAYER_Y) / LAYER_ROW);
+            return true;
+        }
+        if (d != null && cellAt(e.x(), e.y(), d) >= 0 && e.button() == 2) {   // 中ボタン：動かす
+            panning = true; panX = 0; panY = 0;
             return true;
         }
         if (d != null && cellAt(e.x(), e.y(), d) >= 0 && (e.button() == 0 || e.button() == 1)) {
@@ -90,10 +137,18 @@ public class DraftingTableScreen extends MachineScreen {
     @Override public boolean mouseDragged(MouseButtonEvent e, double dx, double dy) {
         ChipDesign d = design();
         if (painting && d != null) { paint(e.x(), e.y(), d); return true; }
+        if (panning && d != null) {
+            int cs = cs(d);
+            panX -= dx; panY -= dy;
+            int mx = (int) (panX / cs), my = (int) (panY / cs);
+            if (mx != 0 || my != 0) { ox += mx; oy += my; panX -= mx * cs; panY -= my * cs; clampView(d); }
+            return true;
+        }
         return super.mouseDragged(e, dx, dy);
     }
 
     @Override public boolean mouseReleased(MouseButtonEvent e) {
+        if (panning) { panning = false; return true; }
         if (painting) { painting = false; lastCell = -1; return true; }
         return super.mouseReleased(e);
     }
@@ -121,18 +176,26 @@ public class DraftingTableScreen extends MachineScreen {
         g.fill(leftPos + SECTION_X, topPos + SECTION_Y, leftPos + SECTION_X + GRID_W, topPos + SECTION_Y + SECTION_H, 0xFFDADADA);
         if (d == null) return;
         ChipModel m = ChipModel.of(d, "p");   // v0.3 の板は p型で予想（LITHO_DESIGN §2）
-        int cs = GRID_W / d.size();
+        clampView(d);
+        int cs = cs(d), v = view(d);
         int hover = cellAt(mouseX, mouseY, d);
         if (hover >= 0) sectionRow = hover / d.size();
-        for (int y = 0; y < d.size(); y++) for (int x = 0; x < d.size(); x++) {
-            int x0 = gx + x * cs, y0 = gy + y * cs;
+        for (int vy = 0; vy < v; vy++) for (int vx = 0; vx < v; vx++) {
+            int x = ox + vx, y = oy + vy;
+            int x0 = gx + vx * cs, y0 = gy + vy * cs;
             g.fill(x0, y0, x0 + cs, y0 + cs, color(m, x, y));
             if (m.metal(x, y)) g.fill(x0, y0, x0 + cs, y0 + cs, METAL);
-            if (m.contact(x, y)) g.fill(x0 + cs / 2 - 1, y0 + cs / 2 - 1, x0 + cs / 2 + 1, y0 + cs / 2 + 1, 0xFF202020);
-            if (layer < d.layers().size() && d.layers().get(layer).cells().get(x, y)) g.outline(x0, y0, cs, cs, HILITE);
-            else g.outline(x0, y0, cs, cs, GRIDLINE);
+            if (m.contact(x, y)) { int d2 = Math.max(1, cs / 4); g.fill(x0 + cs / 2 - d2, y0 + cs / 2 - d2, x0 + cs / 2 + d2, y0 + cs / 2 + d2, 0xFF202020); }
+            boolean on = layer < d.layers().size() && d.layers().get(layer).cells().get(x, y);
+            if (cs >= 3) g.outline(x0, y0, cs, cs, on ? HILITE : GRIDLINE);
+            else if (on) g.fill(x0, y0, x0 + cs, y0 + cs, 0x80FFD030);   // 小さいマスは枠のかわりに色
         }
-        g.outline(gx - 1, gy + sectionRow * cs - 1, GRID_W + 2, cs + 2, 0xFF000000);   // 断面図の行
+        if (sectionRow >= oy && sectionRow < oy + v) g.outline(gx - 1, gy + (sectionRow - oy) * cs - 1, v * cs + 2, cs + 2, 0xFF000000);   // 断面図の行
+        if (v < d.size()) {   // 全体のどこを見ているか（右下の小さな枠）
+            int mw = 14, mx0 = gx + GRID_W - mw - 1, my0 = gy + GRID_W - mw - 1;
+            g.fill(mx0, my0, mx0 + mw, my0 + mw, 0x80000000);
+            g.outline(mx0 + ox * mw / d.size(), my0 + oy * mw / d.size(), Math.max(2, v * mw / d.size()), Math.max(2, v * mw / d.size()), 0xFFFFFFFF);
+        }
         section(g, d, m, sectionRow);
     }
 
@@ -144,11 +207,11 @@ public class DraftingTableScreen extends MachineScreen {
 
     /** 断面図：上から 金属（4px）・酸化膜（2px、窓は抜ける）・シリコン（18px。拡散は順に深い→浅い） */
     private void section(GuiGraphicsExtractor g, ChipDesign d, ChipModel m, int row) {
-        int sx = leftPos + SECTION_X, sy = topPos + SECTION_Y, cs = GRID_W / d.size();
+        int sx = leftPos + SECTION_X, sy = topPos + SECTION_Y, cs = cs(d), v = view(d);
         int si = sy + 6, sh = SECTION_H - 6;
         int[] depth = {0, 16, 10, 5};   // 1回目・2回目・3回目の拡散の深さ（px、あとほど浅い）
-        for (int x = 0; x < d.size(); x++) {
-            int x0 = sx + x * cs;
+        for (int vx = 0; vx < v; vx++) {   // 方眼と同じ所だけ（はみ出さない）
+            int x = ox + vx, x0 = sx + vx * cs;
             g.fill(x0, si, x0 + cs, si + sh, m.substrate == 'p' ? P_SUB : N_SUB);
             int k = 0;
             for (ChipDesign.Layer l : d.layers()) {
@@ -168,7 +231,7 @@ public class DraftingTableScreen extends MachineScreen {
             String k = "gui.semiconductor-lab.drafting_table.";
             if (design() == null) return Component.translatable(k + "need_sheet");
             if (!menu.machineItem(SLOT_OUT).isEmpty()) return Component.translatable(k + "out_full");
-            return Component.translatable(k + "draw");
+            return Component.translatable(k + (design().size() > SIZES[0] ? "zoom" : "draw"));
         }
         if (id.startsWith("layer")) return Component.translatable("litho.semiconductor-lab.role." + ROLES[id.charAt(5) - '0']);
         return null;

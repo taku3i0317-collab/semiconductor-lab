@@ -2489,6 +2489,7 @@
   "item.semiconductor-lab.mesa_transistor.note4": "In 1959 Hoerni at Fairchild devised the planar process [9-18], keeping the junction hidden under oxide. Protected junctions could be laid out in large numbers on a flat surface, and the IC was born.",
   "item.semiconductor-lab.mesa_transistor.placeholder": "Omitted: ⚠️ The rate of decline is a game value (really days to months depending on humidity and temperature). Sealing in a metal can with dry nitrogen (hermetic packaging) is not available yet.",
   "gui.semiconductor-lab.etch_tank.recipe_silicon": "HNO3 oxidises Si → HF dissolves",
+  "gui.semiconductor-lab.drafting_table.zoom": "Wheel zoom, middle pan",
   "item.semiconductor-lab.theodolite": "Theodolite",
   "item.semiconductor-lab.theodolite.note1": "Measures how far away something is without going there. Sight the same mark from two places and the triangle tells you the distance.",
   "item.semiconductor-lab.theodolite.note2": "Telescope + vernier caliper (vernier scale) + 2 bronze + 2 sticks. Hold right-click to look, release to read the direction. 1) sight a mark and release (station A) -> 2) walk at least 3 m sideways, sight the same mark and release (station B) -> the base and two angles give the distance. Sneak + right-click clears station A.",

@@ -1075,6 +1075,44 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+
+    /**
+     * 大きな方眼の回路の計算（O-006）：疎な解き方（BiCGSTAB）でも 8×8 の NOT の答えは密な解き方と同じ。
+     * 24×24・72×72 に1本の長い抵抗の帯：電流は 5 V ÷（1 kΩ/□ ×（長さ−1）＋窓2つ）、どちらも速く解ける
+     */
+    @GameTest(maxTicks = 200)
+    public void largeCircuit(GameTestHelper h) {
+        var nl8 = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.LithoExamples.notGate(), "p"));
+        int[] pins = com.taku3.semiconductorlab.litho.Circuit.notPins(nl8);
+        double denseHi = com.taku3.semiconductorlab.litho.Circuit.notOutput(nl8, pins, false), denseLo = com.taku3.semiconductorlab.litho.Circuit.notOutput(nl8, pins, true);
+        int keep = com.taku3.semiconductorlab.litho.Circuit.DENSE_MAX;
+        double sparseHi, sparseLo;
+        try { com.taku3.semiconductorlab.litho.Circuit.DENSE_MAX = 0; sparseHi = com.taku3.semiconductorlab.litho.Circuit.notOutput(nl8, pins, false); sparseLo = com.taku3.semiconductorlab.litho.Circuit.notOutput(nl8, pins, true); }
+        finally { com.taku3.semiconductorlab.litho.Circuit.DENSE_MAX = keep; }
+        h.assertTrue(Math.abs(denseHi - sparseHi) < 1e-3 && Math.abs(denseLo - sparseLo) < 1e-3,
+                String.format("sparse = dense on the 8x8 NOT: %.4f/%.4f vs %.4f/%.4f", denseHi, denseLo, sparseHi, sparseLo));
+        for (int n : new int[] {24, 72}) {
+            var strip = com.taku3.semiconductorlab.litho.BitGrid.empty(n); var contact = com.taku3.semiconductorlab.litho.BitGrid.empty(n); var metal = com.taku3.semiconductorlab.litho.BitGrid.empty(n);
+            for (int x = 0; x < n; x++) strip = strip.with(x, 1, true);
+            contact = contact.with(0, 1, true).with(n - 1, 1, true);
+            metal = metal.with(0, 1, true).with(n - 1, 1, true);
+            var d = new com.taku3.semiconductorlab.litho.ChipDesign(n, "strip", java.util.List.of(new com.taku3.semiconductorlab.litho.ChipDesign.Layer(com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, strip),
+                    new com.taku3.semiconductorlab.litho.ChipDesign.Layer(com.taku3.semiconductorlab.litho.LayerKind.CONTACT, contact), new com.taku3.semiconductorlab.litho.ChipDesign.Layer(com.taku3.semiconductorlab.litho.LayerKind.METAL, metal)));
+            var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(d, "p"));
+            h.assertValueEqual(nl.pads().size(), 2, n + "x" + n + ": two pads");
+            var drive = new java.util.HashMap<Integer, Double>();
+            drive.put(nl.pads().get(0).id(), 5.0); drive.put(nl.pads().get(1).id(), 0.0);
+            long t0 = System.nanoTime();
+            var sol = com.taku3.semiconductorlab.litho.Circuit.solve(nl, drive);
+            long ms = (System.nanoTime() - t0) / 1_000_000;
+            double expect = 5.0 / (1000.0 * (n - 1) + 2 * 20.0), got = Math.abs(sol.padAmps().get(nl.pads().get(0).id()));
+            h.assertTrue(sol.converged() && Math.abs(got - expect) / expect < 0.02, String.format("%dx%d strip: %.4f mA (expect %.4f mA)", n, n, got * 1e3, expect * 1e3));
+            h.assertTrue(ms < 5000, n + "x" + n + " solved in " + ms + " ms");
+            LOG.info("[LAB] large circuit {}x{}: {} unknowns, {} ms, {} mA", n, n, n * n + nl.nets.size(), ms, String.format("%.4f", got * 1e3));
+        }
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

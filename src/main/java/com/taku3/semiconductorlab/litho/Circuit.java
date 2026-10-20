@@ -12,7 +12,7 @@ import java.util.Map;
  * 型のちがうとなりのマスは pn 接合（ショックレーの式 I = Is(e^(V/Vt) − 1)）。
  * トランジスタ（入れ子）は、ベース・エミッタの接合を流れる電流の α 倍をコレクタが受け持つ（エバース・モルの順方向だけ）。
  * </pre>
- * ニュートン法で解く。v0.3 の 8×8（点 100 個ほど）を考えた密な行列。大きな方眼（24×24 より上）は後で疎な解き方に（⚠️）。
+ * ニュートン法で解く。点が {@link #DENSE_MAX} 個までは密な行列（ガウスの消去法、v0.3 の 8×8）、それより多いと疎な行列と BiCGSTAB（O-006）。
  */
 public final class Circuit {
     private Circuit() {}
@@ -89,9 +89,9 @@ public final class Circuit {
         for (int k = 0; k < nodes; k++) idx[k] = fixed[k] ? -1 : u++;
         boolean ok = false;
         for (int it = 0; it < 200 && u > 0; it++) {
-            double[][] J = new double[u][u];
+            Mat J = u <= DENSE_MAX ? new Dense(u) : new Sparse(u);
             double[] F = new double[u];
-            for (int k = 0; k < nodes; k++) if (idx[k] >= 0) { F[idx[k]] += GMIN * v[k]; J[idx[k]][idx[k]] += GMIN; }
+            for (int k = 0; k < nodes; k++) if (idx[k] >= 0) { F[idx[k]] += GMIN * v[k]; J.add(idx[k], idx[k], GMIN); }
             for (Res r : res) stampG(J, F, idx, v, r.a, r.b, r.g);
             for (Dio d : dio) {
                 double vd = v[d.anode] - v[d.cathode], i = id(vd), g = gd(vd);
@@ -105,7 +105,7 @@ public final class Circuit {
                 addJ(J, idx, s.from, s.anode, g); addJ(J, idx, s.from, s.cathode, -g);
                 addJ(J, idx, s.to, s.anode, -g); addJ(J, idx, s.to, s.cathode, g);
             }
-            double[] dv = gauss(J, F);
+            double[] dv = J.solve(F);
             double max = 0;
             for (int k = 0; k < nodes; k++) if (idx[k] >= 0) {
                 double step = Math.max(-0.3, Math.min(0.3, -dv[idx[k]]));
@@ -142,13 +142,88 @@ public final class Circuit {
         return out;
     }
 
-    private static void stampG(double[][] J, double[] F, int[] idx, double[] v, int a, int b, double g) {
+    private static void stampG(Mat J, double[] F, int[] idx, double[] v, int a, int b, double g) {
         double i = g * (v[a] - v[b]);
         addI(F, idx, a, i); addI(F, idx, b, -i);
         addJ(J, idx, a, a, g); addJ(J, idx, a, b, -g); addJ(J, idx, b, a, -g); addJ(J, idx, b, b, g);
     }
     private static void addI(double[] F, int[] idx, int k, double i) { if (idx[k] >= 0) F[idx[k]] += i; }
-    private static void addJ(double[][] J, int[] idx, int r, int c, double g) { if (idx[r] >= 0 && idx[c] >= 0) J[idx[r]][idx[c]] += g; }
+    private static void addJ(Mat J, int[] idx, int r, int c, double g) { if (idx[r] >= 0 && idx[c] >= 0) J.add(idx[r], idx[c], g); }
+
+    // ===== 連立一次方程式（O-006）：小さい回路は密な行列（v0.3 の 8×8 はこれ＝結果は前と同じ）、大きい回路は疎な行列 =====
+
+    /** これより多い点の数は疎な行列（24×24＝576 マスより上で重くならないように） */
+    public static int DENSE_MAX = 400;   // テストで疎な解き方を試すときだけ変える
+
+    interface Mat {
+        void add(int r, int c, double g);
+        double[] solve(double[] b);
+    }
+
+    /** 密な行列：ガウスの消去法（部分ピボット） */
+    static final class Dense implements Mat {
+        final double[][] a;
+        Dense(int n) { a = new double[n][n]; }
+        @Override public void add(int r, int c, double g) { a[r][c] += g; }
+        @Override public double[] solve(double[] b) { return gauss(a, b); }
+    }
+
+    /**
+     * 疎な行列：行ごとに「列 → 値」。解き方は BiCGSTAB（非対称でもよい反復法）に、対角で割る前処理（ヤコビ）。
+     * 1マスは上下左右と窓・接合にしかつながらないので、1行の中身は数個。点が数千でも1回の掛け算は速い
+     */
+    static final class Sparse implements Mat {
+        final int n;
+        final java.util.HashMap<Integer, Double>[] rows;
+        @SuppressWarnings("unchecked")
+        Sparse(int n) { this.n = n; rows = new java.util.HashMap[n]; for (int i = 0; i < n; i++) rows[i] = new java.util.HashMap<>(8); }
+        @Override public void add(int r, int c, double g) { rows[r].merge(c, g, Double::sum); }
+
+        private int[][] cols; private double[][] vals; private double[] diag;
+        private void freeze() {
+            cols = new int[n][]; vals = new double[n][]; diag = new double[n];
+            for (int i = 0; i < n; i++) {
+                cols[i] = new int[rows[i].size()]; vals[i] = new double[rows[i].size()];
+                int k = 0;
+                for (var e : rows[i].entrySet()) { cols[i][k] = e.getKey(); vals[i][k] = e.getValue(); k++; if (e.getKey() == i) diag[i] = e.getValue(); }
+                if (diag[i] == 0) diag[i] = 1;
+            }
+        }
+        private void mul(double[] x, double[] out) {
+            for (int i = 0; i < n; i++) { double s = 0; int[] c = cols[i]; double[] v = vals[i]; for (int k = 0; k < c.length; k++) s += v[k] * x[c[k]]; out[i] = s; }
+        }
+        private void precond(double[] r, double[] out) { for (int i = 0; i < n; i++) out[i] = r[i] / diag[i]; }
+        private static double dot(double[] a, double[] b) { double s = 0; for (int i = 0; i < a.length; i++) s += a[i] * b[i]; return s; }
+
+        @Override public double[] solve(double[] b) {
+            freeze();
+            double[] x = new double[n], r = b.clone(), r0 = b.clone(), p = new double[n], v = new double[n], s = new double[n], t = new double[n], y = new double[n], z = new double[n];
+            double bn = Math.sqrt(dot(b, b));
+            if (bn == 0) return x;
+            double rho = 1, alpha = 1, omega = 1;
+            for (int it = 0; it < 20 * n + 100; it++) {
+                double rho1 = dot(r0, r);
+                if (rho1 == 0) break;
+                double beta = (rho1 / rho) * (alpha / omega);
+                for (int i = 0; i < n; i++) p[i] = r[i] + beta * (p[i] - omega * v[i]);
+                precond(p, y);
+                mul(y, v);
+                double r0v = dot(r0, v);
+                if (r0v == 0) break;
+                alpha = rho1 / r0v;
+                for (int i = 0; i < n; i++) s[i] = r[i] - alpha * v[i];
+                if (Math.sqrt(dot(s, s)) < 1e-13 * bn) { for (int i = 0; i < n; i++) x[i] += alpha * y[i]; break; }
+                precond(s, z);
+                mul(z, t);
+                double tt = dot(t, t);
+                omega = tt == 0 ? 0 : dot(t, s) / tt;
+                for (int i = 0; i < n; i++) { x[i] += alpha * y[i] + omega * z[i]; r[i] = s[i] - omega * t[i]; }
+                rho = rho1;
+                if (Math.sqrt(dot(r, r)) < 1e-13 * bn || omega == 0) break;
+            }
+            return x;
+        }
+    }
 
     /** ガウスの消去法（部分ピボット）で J x = F を解く */
     private static double[] gauss(double[][] a, double[] b) {
