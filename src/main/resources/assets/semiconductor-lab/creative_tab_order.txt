@@ -311,6 +311,8 @@ cellulose_acetate  # Chemistry [2-18] 1970
 ro_membrane  # Chemistry [2-18] 1970
 ultrapure_water  # Chemistry [2-18] 1970
 ultrapure_water_system  # Chemistry [2-18] 1970
+photopolymer_resin  # Chemistry [2-45] 1981
+cured_photopolymer  # Chemistry [2-45] 1981
 polyethylene_bottle  # Chemistry [None] None
 black_ash_charge  # Chemistry [None] None
 aluminosilicate_batch  # Chemistry [None] None
@@ -326,6 +328,11 @@ hexamethylenediamine  # Chemistry [None] None
 nylon_salt  # Chemistry [None] None
 nylon_66  # Chemistry [None] None
 nylon_fiber  # Chemistry [None] None
+acrylic_acid  # Chemistry [None] None
+glycerol_triacrylate  # Chemistry [None] None
+aluminium_chloride  # Chemistry [None] None
+carbon_tetrachloride  # Chemistry [None] None
+benzophenone  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 bellows  # Heat [3-04] -1450

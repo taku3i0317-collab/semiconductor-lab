@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:chlorine_gas",
+    "semiconductor-lab:chlorine_gas",
+    "semiconductor-lab:chlorine_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:aluminium_chloride",
+    "count": 1
+  }
+}

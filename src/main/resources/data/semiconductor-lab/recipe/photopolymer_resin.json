@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:glycerol_triacrylate",
+    "semiconductor-lab:glycerol_triacrylate",
+    "semiconductor-lab:glycerol_triacrylate",
+    "semiconductor-lab:benzophenone",
+    "semiconductor-lab:hexamethylenediamine"
+  ],
+  "result": {
+    "id": "semiconductor-lab:photopolymer_resin",
+    "count": 3
+  }
+}

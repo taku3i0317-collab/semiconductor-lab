@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:carbon_monoxide_gas",
+    "semiconductor-lab:carbon_monoxide_gas",
+    "semiconductor-lab:carbon_monoxide_gas",
+    "minecraft:water_bucket",
+    "semiconductor-lab:nickel_carbonyl_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:acrylic_acid",
+    "count": 3
+  }
+}

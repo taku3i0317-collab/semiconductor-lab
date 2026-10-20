@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:chloroform",
+    "semiconductor-lab:chlorine_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:carbon_tetrachloride",
+    "count": 1
+  }
+}

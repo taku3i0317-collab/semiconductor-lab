@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:glycerin",
+    "semiconductor-lab:acrylic_acid",
+    "semiconductor-lab:acrylic_acid",
+    "semiconductor-lab:acrylic_acid",
+    "semiconductor-lab:sulfuric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:glycerol_triacrylate",
+    "count": 1
+  }
+}

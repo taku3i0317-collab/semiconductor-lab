@@ -1244,6 +1244,27 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-45] 光で固まる樹脂（IMP3、S-004）
+    // =====================================================================
+
+    /** レッペ法でアクリル酸 → トリアクリレート。AlCl3・CCl4 → ベンゾフェノン。樹脂は光で固まる（cure） */
+    @GameTest
+    public void photopolymer(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "acrylic_acid", Chemistry.ACETYLENE_GAS) && recipeUses(h, "acrylic_acid", com.taku3.semiconductorlab.content.Metallurgy.CARBON_MONOXIDE_GAS) && recipeUses(h, "acrylic_acid", com.taku3.semiconductorlab.content.Metallurgy.NICKEL_CARBONYL_GAS), "Reppe: acetylene + CO + water (Ni carbonyl)");
+        h.assertTrue(recipeUses(h, "glycerol_triacrylate", Chemistry.GLYCERIN) && recipeUses(h, "glycerol_triacrylate", Chemistry.ACRYLIC_ACID), "three-armed monomer");
+        h.assertTrue(recipeUses(h, "benzophenone", Chemistry.BENZENE) && recipeUses(h, "benzophenone", Chemistry.ALUMINIUM_CHLORIDE) && recipeUses(h, "benzophenone", Chemistry.CARBON_TETRACHLORIDE), "Friedel-Crafts -> benzophenone");
+        h.assertTrue(recipeUses(h, "photopolymer_resin", Chemistry.BENZOPHENONE) && recipeUses(h, "photopolymer_resin", Chemistry.HEXAMETHYLENEDIAMINE), "photoinitiator + amine");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.getInventory().add(new ItemStack(Chemistry.PHOTOPOLYMER_RESIN, 2));
+        ItemStack inInv = ItemStack.EMPTY;
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) if (player.getInventory().getItem(i).is(Chemistry.PHOTOPOLYMER_RESIN)) inInv = player.getInventory().getItem(i);
+        com.taku3.semiconductorlab.item.PhotopolymerResinItem.cure(inInv, player);
+        h.assertTrue(player.getInventory().countItem(Chemistry.PHOTOPOLYMER_RESIN) == 0 && player.getInventory().countItem(Chemistry.CURED_PHOTOPOLYMER) == 2, "light cures the resin");
+        LOG.info("[LAB] photopolymer [2-45]: Reppe acrylic acid -> glycerol triacrylate; benzophenone (Friedel-Crafts) + amine; light cures it");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

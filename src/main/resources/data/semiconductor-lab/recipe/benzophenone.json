@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:benzene",
+    "semiconductor-lab:benzene",
+    "semiconductor-lab:carbon_tetrachloride",
+    "semiconductor-lab:aluminium_chloride",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:benzophenone",
+    "count": 1
+  }
+}

@@ -2342,6 +2342,21 @@
 - ACS「Foundations of Polymer Science: Wallace Carothers and the Development of Nylon」：https://www.acs.org/education/whatischemistry/landmarks/carotherspolymers.html
 - Wikipedia「Nylon 66」/「Adipic acid」/「Raney nickel」：https://en.wikipedia.org/wiki/Nylon_66
 
+## C38. 光を当てた所だけ固まる（光で固まる樹脂）［2-45］
+**答え**：アクリルの単量体（手が3本のトリアクリレートなど）に光開始剤（ベンゾフェノン＋アミン）を混ぜた液は、紫外線を受けるとラジカルができて C=C が次々につながり、網になって固まる。チップのネガ型フォトレジスト（光の当たった所がつながって溶けなくなる）と同じしくみ。1981年に名古屋の小玉秀男が層ごとに光で固めて立体を作る方法を発表し、1984年にハルが光造形の特許を出した ⚠️。アクリル酸は1930年代ドイツのレッペが、アセチレンと一酸化炭素と水から（ニッケルカルボニルで）作る方法を開いた。
+
+- へえ①：チップの回路を描く樹脂と、3D プリンターの樹脂は同じしくみ。
+- へえ②：手が3本の単量体を使うと、つながって固い網になる。
+- へえ③：ベンゾフェノンは紫外線を吸うので、日焼け止めにも使われる。
+- へえ④：歯の詰め物やネイルも、光で固まる樹脂。
+
+確かさ：ラジカル光重合のしくみ ◎／レッペ法 1930年代 ○／小玉 1981・ハル 1984 ○⚠️（TECH_TREE の本物欄、ASME の資料）／フリーデル・クラフツ 1877 ◎
+根拠：
+- Wikipedia「Stereolithography」（小玉・ハル）：https://en.wikipedia.org/wiki/Stereolithography
+- Wikipedia「Photopolymer」：https://en.wikipedia.org/wiki/Photopolymer
+- Wikipedia「Walter Reppe」/「Acrylic acid」：https://en.wikipedia.org/wiki/Acrylic_acid
+- Wikipedia「Benzophenone」：https://en.wikipedia.org/wiki/Benzophenone
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -250,6 +250,15 @@ public final class Chemistry {
     public static final Item NYLON_SALT            = Reg.item("nylon_salt");
     public static final Item NYLON_66              = Reg.item("nylon_66");
     public static final Item NYLON_FIBER           = Reg.item("nylon_fiber");
+    // [2-45] 光で固まる樹脂（IMP3、S-004、Q3-9(a)）：アセチレン3＋一酸化炭素3＋水＋ニッケルカルボニル → アクリル酸3（1939 レッペ法）、グリセリン＋アクリル酸3＋硫酸 → グリセリンのトリアクリレート。
+    //   アルミ＋塩素3 → 塩化アルミニウム、クロロホルム＋塩素 → 四塩化炭素、ベンゼン2＋四塩化炭素＋塩化アルミニウム＋水 → ベンゾフェノン（光開始剤）。トリアクリレート3＋ベンゾフェノン＋HMDA（アミン）→ 光で固まる樹脂3 → 日なたで固まる
+    public static final Item ACRYLIC_ACID          = Reg.item("acrylic_acid", new Item.Properties().stacksTo(16));
+    public static final Item GLYCEROL_TRIACRYLATE  = Reg.item("glycerol_triacrylate", new Item.Properties().stacksTo(16));
+    public static final Item ALUMINIUM_CHLORIDE    = Reg.item("aluminium_chloride");
+    public static final Item CARBON_TETRACHLORIDE  = Reg.item("carbon_tetrachloride", new Item.Properties().stacksTo(16));
+    public static final Item BENZOPHENONE          = Reg.item("benzophenone");
+    public static final Item PHOTOPOLYMER_RESIN    = Reg.item("photopolymer_resin", com.taku3.semiconductorlab.item.PhotopolymerResinItem::new, new Item.Properties().stacksTo(16));
+    public static final Item CURED_PHOTOPOLYMER    = Reg.item("cured_photopolymer");
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
