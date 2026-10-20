@@ -1603,6 +1603,19 @@
 - Wikipedia「Ion exchange」（歴史：Adams and Holmes 1935）：https://en.wikipedia.org/wiki/Ion_exchange
 - Wikipedia「Ultrapure water」：https://en.wikipedia.org/wiki/Ultrapure_water
 
+## C11. 少し寒いだけで凍る酸（氷酢酸）［2-42］
+**答え**：木酢液に石灰を入れると酢酸が酢酸カルシウム（灰色の酢酸石灰）になる。これに硫酸を加えると、強い酸が弱い酸を塩から追い出して酢酸が出てくる（Ca(CH3COO)2 + H2SO4 → 2CH3COOH + CaSO4）。水をほとんど含まない酢酸は約17℃で凍るので「氷酢酸」とよぶ。
+
+- へえ①：お酢のすっぱい成分を濃くすると、少し寒いだけで凍る。
+- へえ②：19世紀の工業の酢酸は、木の乾留から作った（1850ごろ ターンブル）。
+- へえ③：酢酸セルロースは写真フィルムや逆浸透膜（[2-18]）の材料。
+- へえ④：今の酢酸は主にメタノールと一酸化炭素から（1960年代 モンサント法）。
+
+確かさ：反応式・融点 16.6℃ ◎／ターンブル 1850ごろ ○（TECH_TREE の本物欄と一致）／モンサント法 ○
+根拠：
+- Wikipedia「Acetic acid」：https://en.wikipedia.org/wiki/Acetic_acid
+- Wikipedia「Calcium acetate」：https://en.wikipedia.org/wiki/Calcium_acetate
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

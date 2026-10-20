@@ -148,6 +148,9 @@ public final class Chemistry {
     public static final Item ANION_EXCHANGE_RESIN  = Reg.item("anion_exchange_resin");
     public static final Item DEIONIZED_WATER       = Reg.contained("deionized_water", Vessel.GLASS_BOTTLE);
     public static final Block ION_EXCHANGE_COLUMN  = Reg.functional("ion_exchange_column", IonExchangeColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.8f).sound(SoundType.GLASS).noOcclusion());
+    // [2-42] 酢酸（IMP3、O-008）：石灰を入れた木酢液を煮詰める → 酢酸カルシウム（灰色の酢酸石灰）、＋硫酸 → 氷酢酸（1850ごろ ターンブル）。[2-40] アセトンは酢酸カルシウムを焼く
+    public static final Item CALCIUM_ACETATE       = Reg.item("calcium_acetate");
+    public static final Item ACETIC_ACID           = Reg.item("acetic_acid", GlacialAceticAcidItem::new, new Item.Properties().stacksTo(16));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 乾留炉 [2-23]（IMP2-01）：鉄のレトルト＋銅の冷却管。原木 → 木炭＋木酢液＋木タール。石炭・木炭を燃やす（電気なし）

@@ -635,6 +635,23 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    // =====================================================================
+    // [2-42] 酢酸（IMP3、O-008）
+    // =====================================================================
+
+    /** 石灰を入れた木酢液：かまど → メタノール、たき火（煮つめ）→ 酢酸カルシウム。＋硫酸 → 氷酢酸2。氷酢酸は寒い所で凍り、暖かい所でとける */
+    @GameTest
+    public void aceticAcid(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Chemistry.LIMED_WOOD_LIQUOR).is(Chemistry.CALCIUM_ACETATE), "boiled down -> calcium acetate");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.LIMED_WOOD_LIQUOR).is(Chemistry.METHANOL), "distilled -> still methanol");
+        h.assertTrue(recipeUses(h, "acetic_acid", Chemistry.CALCIUM_ACETATE) && recipeUses(h, "acetic_acid", Chemistry.SULFURIC_ACID), "calcium acetate + sulfuric acid -> acetic acid");
+        ItemStack aa = new ItemStack(Chemistry.ACETIC_ACID);
+        h.assertTrue(com.taku3.semiconductorlab.item.GlacialAceticAcidItem.applyTemperature(aa, 0.0f) && com.taku3.semiconductorlab.item.GlacialAceticAcidItem.frozen(aa), "freezes in the cold");
+        h.assertTrue(com.taku3.semiconductorlab.item.GlacialAceticAcidItem.applyTemperature(aa, 0.8f) && !com.taku3.semiconductorlab.item.GlacialAceticAcidItem.frozen(aa), "melts again where it is warm");
+        LOG.info("[LAB] acetic acid [2-42]: limed liquor campfire -> calcium acetate (furnace -> methanol); + H2SO4 -> glacial acetic acid (freezes in the cold)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),

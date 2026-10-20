@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:calcium_acetate",
+    "semiconductor-lab:sulfuric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:acetic_acid",
+    "count": 2
+  }
+}
