@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QSQ",
+    "MGM",
+    "CPC"
+  ],
+  "key": {
+    "Q": "semiconductor-lab:quartz_tube",
+    "S": "semiconductor-lab:lead_screw",
+    "M": "semiconductor-lab:electric_motor",
+    "G": "semiconductor-lab:graphite",
+    "C": "semiconductor-lab:induction_coil",
+    "P": "semiconductor-lab:hf_oscillator"
+  },
+  "result": { "id": "semiconductor-lab:crystal_puller", "count": 1 }
+}

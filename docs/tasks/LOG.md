@@ -135,3 +135,10 @@
 - ModWorldGen の生成条件を RULES（OreRule の一覧）にまとめ、GameTest ore_biome_rules がレジストリの全67バイオームで直接判定（偽の BiomeSelectionContext。foundInOverworld＝canGenerateIn(OVERWORLD) を javap -c で確認）
 - テスト：GameTest 66→67本、全部 PASSED。FAILED.md の「弱い確認」を解決済みに
 - docs/REFERENCES.md（ユーザー作成、v0.2b シリコンの参考文献まとめ）を commit。CLAUDE.md の必読リストと docs/README.md に1行ずつ追加
+
+## タスク14：[9-07] Ge 単結晶の引き上げ（2026-10-20、対話で実行）
+- 単結晶引き上げ機 crystal_puller（3kW、黒鉛るつぼ・誘導加熱・水素雰囲気）。W線＋Ge1 → 種結晶（粒の選択）、種結晶＋Ge4 → 単結晶インゴット（種は戻る、純度・経路を受け継ぐ）
+- 文献値：Haller（osti 922705、水素・黒鉛サセプター・高周波、ティールの説得）、arXiv の Ge 引き上げ（10〜40mm/h、3〜20rpm）、特許 US2703296 → SOURCES。へえは REFERENCES §4 を元に
+- テスト：GameTest 67→68本（crystal_puller）、全部 PASSED
+- 解放ノード：[9-05] Ge ダイオード（今すぐ作れる 39 のまま、完成 50→51）
+- 保留判断：Q1407-1（効果は新アイテム＋説明だけ）、Q1407-2（最初の種）、Q1407-3（量と時間）

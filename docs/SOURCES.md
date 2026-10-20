@@ -44,3 +44,11 @@
 - 脈石英を高純度石英の原料として評価した研究：Fenkina-Lampi 鉱床（カレリア）の脈石英の選鉱（https://zrmo.org/archives/2021/issue-6/mineral-processing-of-vein-quartz-from-the-fenkina-lampi-deposit-karelia.html）、ペシャワール盆地の石英脈（https://ejm.copernicus.org/articles/37/151/2025/）
 - 地殻の鉱物組成（石英 約12%、長石に次ぐ）：鉱物学の標準的な値
 - ゲームの値（y−56〜96・大きさ12・10回）は「どこにでもあるが掘りに行く必要がある」量として決めた（産状の厳密な再現ではない）
+
+## [9-07] Ge 単結晶の引き上げ（タスク14、2026-10-20）
+- G. K. Teal, J. B. Little, Phys. Rev. 78, 647 (1950)：原論文（ゲルマニウム単結晶の成長）。本文は未確認 ❓
+- E. E. Haller「Germanium: From Its Discovery to SiGe Devices」（https://www.osti.gov/servlets/purl/922705）：ティールが「多結晶で十分」という反対を1年以上かけて説得、1950 年に報告、チョクラルスキーの考えに沿った装置。超高純度 Ge の引き上げでは純水素の雰囲気だけがよい結果、黒鉛のサセプターを高周波で加熱
+- arXiv 2511.20879（高純度 Ge の偏析係数）：回転 3rpm、引き上げ 40mm/h（ネッキング）→ 20mm/h（本体）
+- arXiv 1907.05067（Ge 単結晶、直径45mm）：回転 15〜20rpm、引き上げ 20〜25mm/h
+- 特許 US2703296（ベル研、ゲルマニウムの種から棒状の結晶を引き上げる）（https://patents.google.com/patent/US2703296）
+- ゲームの値：1本 60秒（本物は数時間）、3kW（帯域精製炉の発振器と同じ）、H2 1袋/回。❓ 1950年の装置の引き上げ速度・回転数は原論文で要確認

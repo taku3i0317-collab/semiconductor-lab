@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "semiconductor-lab:item/germanium_single_crystal"
+  }
+}

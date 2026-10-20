@@ -13,7 +13,7 @@ public class PurityTooltip {
     public static void register() {
         ItemTooltipCallback.EVENT.register((stack, context, flag, lines) -> {
             // [1-34] ゲルマニウムの経路：GeCl4 蒸留経由なら 10N まで、硫酸経由（蒸留なし）は 9N まで
-            if (stack.is(com.taku3.semiconductorlab.ModItems.RAW_GERMANIUM) || stack.is(com.taku3.semiconductorlab.ModItems.REFINED_GERMANIUM))
+            if (stack.is(com.taku3.semiconductorlab.ModItems.RAW_GERMANIUM) || stack.is(com.taku3.semiconductorlab.ModItems.REFINED_GERMANIUM) || stack.is(com.taku3.semiconductorlab.ModItems.GERMANIUM_SINGLE_CRYSTAL))
                 lines.add(Component.translatable(K + (Boolean.TRUE.equals(stack.get(ModDataComponents.CHLORIDE_ROUTE)) ? "route.chloride" : "route.sulfate"))
                         .withStyle(ChatFormatting.GRAY));
             Double p = stack.get(ModDataComponents.PURITY);

@@ -935,7 +935,7 @@ public class LabTests {
             "acheson_furnace", "bessemer_converter", "cinnabar_dust", "coal_ash", "compressor", "copper_cable", "dynamo", "electric_furnace", "electric_motor", "electrolyzer", "empty_gas_cylinder", "oxyhydrogen_burner", "sodium_carbonate", "glass_batch", "soda_lime_glass", "soda_lime_glass_from_blasting",
             "gas_holder", "germanium_concentrate_from_ash", "germanium_dioxide",
             "graphite_boat", "graphite_boat_blank", "graphite_rod", "synthetic_graphite_boat", "hand_vacuum_pump", "hf_oscillator", "hydrogen_furnace", "induction_coil", "junction_transistor",
-            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "boric_acid", "boron_trioxide", "self_excited_dynamo", "steam_engine", "steam_turbine",
+            "junction_transistor_blank", "lead_ingot", "lead_screw", "lead_acid_battery", "leyden_jar", "litharge", "magnet", "mercury", "mercury_vacuum_gauge", "phosphorus", "quartz_tube", "quicklime", "quicklime_from_blasting", "slaked_lime", "raw_germanium", "refractory_brick", "refractory_brick_blank", "sealing_station", "sprengel_pump", "air_separation_unit", "crystal_puller", "boric_acid", "boron_trioxide", "self_excited_dynamo", "steam_engine", "steam_turbine",
             "sulfuric_acid", "sulfur_dioxide", "sulfur_powder_from_block", "sulfur_powder_from_potent", "sulfur_powder_from_spike", "transistor",
             "transistor_radio", "wolframite_soda_charge", "sodium_tungstate", "tungstic_acid", "tungsten_trioxide_from_acid", "tungsten_wire", "vacuum_chamber", "vacuum_tube_assembly", "water_wheel", "zinc_ingot", "zinc_from_oxide", "reverberatory_furnace", "zone_refining_furnace",
             "salt_from_rock_salt", "salt_pan", "hcl_burner",
@@ -1325,6 +1325,57 @@ public class LabTests {
             LOG.info("[LAB] Sprengel pump: 4 Hg, 1 atm -> 0.1 Pa in {} s, from 1 kPa in {} s, steady {} with leak, breaking drops the mercury", fromAtm, fromRough, VacuumChamberBlockEntity.formatPa(eq));
             h.succeed();
         });
+    }
+
+    // =====================================================================
+    // [9-07] Ge 単結晶の引き上げ（タスク14）
+    // =====================================================================
+
+    /** 種がない・水素がない・未精製では動かない。W線＋Ge1→種結晶（線は消える）、種結晶＋Ge4→単結晶（種は残る・純度と経路を受け継ぐ） */
+    @GameTest
+    public void crystalPuller(GameTestHelper h) {
+        for (var it : new net.minecraft.world.item.Item[] {ModItems.HF_OSCILLATOR, ModItems.INDUCTION_COIL, ModItems.GRAPHITE, ModItems.QUARTZ_TUBE, ModItems.LEAD_SCREW})
+            h.assertTrue(recipeUses(h, "crystal_puller", it), "puller = induction heating + graphite crucible + pulling screw: " + it);
+        floor(h, 5);
+        BlockPos pp = p(1, 1, 1);
+        h.setBlock(pp, ModBlocks.CRYSTAL_PULLER);
+        var be = h.getBlockEntity(pp, com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.class);
+        var c = be.getContainer();
+        int GE = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.SLOT_GE, SEED = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.SLOT_SEED,
+            H2 = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.SLOT_H2, OUT = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.SLOT_OUT;
+        int TS = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.SEED_TICKS, TG = com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.GROW_TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.WATTS);
+        ItemStack ge = new ItemStack(ModItems.REFINED_GERMANIUM, 9);
+        ge.set(com.taku3.semiconductorlab.ModDataComponents.PURITY, com.taku3.semiconductorlab.Purity.TEN_N);
+        ge.set(com.taku3.semiconductorlab.ModDataComponents.CHLORIDE_ROUTE, true);
+        h.assertFalse(com.taku3.semiconductorlab.block.CrystalPullerBlockEntity.isGermanium(new ItemStack(ModItems.RAW_GERMANIUM)), "unrefined germanium is not accepted");
+        c.setItem(GE, ge);
+        c.setItem(H2, new ItemStack(ModItems.HYDROGEN_GAS, 2));
+        tickConsumer(h, pp, be, TG + 10, feed);
+        h.assertTrue(c.getItem(OUT).isEmpty(), "no seed -> nothing grows");
+        // ① 最初の種：タングステン線から（粒の選択）
+        c.setItem(SEED, new ItemStack(ModItems.TUNGSTEN_WIRE, 1));
+        tickConsumer(h, pp, be, TS, feed);
+        h.assertTrue(c.getItem(OUT).is(ModItems.GERMANIUM_SEED_CRYSTAL), "W wire + 1 Ge -> seed crystal, got " + c.getItem(OUT));
+        h.assertTrue(c.getItem(SEED).isEmpty(), "the wire is grown into the crystal");
+        h.assertValueEqual(c.getItem(GE).getCount(), 8, "1 Ge used for the seed");
+        h.assertValueEqual(c.getItem(H2).getCount(), 1, "1 bag of hydrogen per run");
+        // ② 単結晶：種は戻る
+        c.setItem(SEED, c.getItem(OUT).copy());
+        c.setItem(OUT, ItemStack.EMPTY);
+        tickConsumer(h, pp, be, TG, feed);
+        ItemStack ingot = c.getItem(OUT);
+        h.assertTrue(ingot.is(ModItems.GERMANIUM_SINGLE_CRYSTAL), "seed + 4 Ge -> single crystal, got " + ingot);
+        h.assertValueEqual(ingot.get(com.taku3.semiconductorlab.ModDataComponents.PURITY), com.taku3.semiconductorlab.Purity.TEN_N, "purity carried over");
+        h.assertTrue(Boolean.TRUE.equals(ingot.get(com.taku3.semiconductorlab.ModDataComponents.CHLORIDE_ROUTE)), "GeCl4 route carried over");
+        h.assertTrue(c.getItem(SEED).is(ModItems.GERMANIUM_SEED_CRYSTAL), "the seed comes back");
+        h.assertValueEqual(c.getItem(GE).getCount(), 4, "4 Ge per ingot");
+        h.assertTrue(c.getItem(H2).isEmpty(), "hydrogen used up");
+        // 水素がなければ止まる（酸化を防ぐ雰囲気）
+        tickConsumer(h, pp, be, TG + 10, feed);
+        h.assertValueEqual(ingot.getCount(), 1, "no hydrogen -> no second ingot");
+        LOG.info("[LAB] crystal puller: W wire + Ge -> seed ({} ticks), seed + 4 Ge + H2 -> single crystal ({} ticks, 10N + route kept, seed returned), no H2 -> stop", TS, TG);
+        h.succeed();
     }
 
     // =====================================================================
