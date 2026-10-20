@@ -71,6 +71,8 @@ public final class Survival {
     public static final Item SPINDLE               = Reg.item("spindle", p -> new SpindleItem(p, 80), new Item.Properties().stacksTo(1));
     public static final Item CARDED_WOOL           = Reg.item("carded_wool");
     public static final Item WOOLEN_YARN           = Reg.item("woolen_yarn");
+    // --- [0-18] ロープ（糸を撚り合わせ、さらに逆向きに撚り合わせる） ---
+    public static final Item ROPE                  = Reg.item("rope");
     /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
     public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
 

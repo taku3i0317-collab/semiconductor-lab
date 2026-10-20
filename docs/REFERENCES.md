@@ -738,6 +738,20 @@
 - DAI e-Forschungsberichte（羊毛用の羊の出現時期、AUDIT V-16）：https://publications.dainst.org/journals/efb/article/view/1945/6085
 - Antiquity 2016「The earliest Near Eastern wooden spinning implements」（後期銅石器時代の木の紡錘、紡錘車つきで残る最古）：https://resolve.cambridge.org/core/journals/antiquity/article/earliest-near-eastern-wooden-spinning-implements/62EB94470A7D6D9DC2EF10E2B2D62F19
 
+## S7. 逆向きに撚るとほどけない（ロープ）［0-18］
+**答え**：繊維を撚って糸にし、その糸を何本か逆向きに撚りあわせると、ほどけようとする力がつり合ってロープになる。引くと撚りが締まり、繊維どうしの摩擦で力を分けあう。
+
+- へえ①：細い繊維も、より合わせると重い物を吊れる。
+- へえ②：撚りの向きを段ごとに逆にするのがほどけない秘密。
+- へえ③：アブリ・デュ・マラ（フランス）の石器についていた3本撚りのひもの切れはし（約4万1000〜5万2000年前、ネアンデルタール人）⚠️。
+- へえ④：古代エジプトはパピルスやヤシの繊維の太いロープで巨石を運んだ。
+
+確かさ：撚りのしくみ ◎／アブリ・デュ・マラのひも ○（Hardy ほか 2020、1研究・小さな断片なので ⚠️）／エジプトのロープ ○
+根拠：
+- Hardy ほか 2020「Direct evidence of Neanderthal fibre technology and its cognitive and behavioral implications」Scientific Reports 10, 4889：https://doi.org/10.1038/s41598-020-61839-w
+- CNRS プレスリリース「Neanderthal cord weaver」：https://www.cnrs.fr/en/press/neanderthal-cord-weaver
+- Wikipedia「Rope」：https://en.wikipedia.org/wiki/Rope
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

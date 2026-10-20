@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:linen_thread",
+    "semiconductor-lab:linen_thread",
+    "semiconductor-lab:linen_thread"
+  ],
+  "result": {
+    "id": "semiconductor-lab:rope",
+    "count": 1
+  }
+}

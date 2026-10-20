@@ -16,6 +16,7 @@ flax_fiber  # Survival [0-06] -8000
 linen_thread  # Survival [0-06] -8000
 linen_cloth  # Survival [0-06] -8000
 flax  # Survival [0-06] -8000
+rope  # Survival [0-18] -7000
 slaked_lime  # Survival [0-11] -7000
 bittern  # Survival [0-16] -6000
 salt_pan  # Survival [0-16] -6000

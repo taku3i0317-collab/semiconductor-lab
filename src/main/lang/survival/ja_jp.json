@@ -164,5 +164,11 @@
   "item.semiconductor-lab.woolen_yarn.note4": "羊毛はケラチンというたんぱく質でできている。亜麻（植物、セルロース）とは材料がまったく違う。中世のイギリスでは羊毛の輸出が国の大きな財源だった。",
   "item.semiconductor-lab.woolen_yarn.placeholder": "近似：撚りの強さ・太さの違いはない。",
   "message.semiconductor-lab.spindle.spun": "%s 秒まわって、糸が %s 本できた",
-  "message.semiconductor-lab.spindle.no_fibre": "もう片方の手に、亜麻の繊維かほぐした羊毛を2つ以上持とう"
+  "message.semiconductor-lab.spindle.no_fibre": "もう片方の手に、亜麻の繊維かほぐした羊毛を2つ以上持とう",
+  "item.semiconductor-lab.rope": "ロープ",
+  "item.semiconductor-lab.rope.note1": "細い糸も、よりあわせると重い物をつれる太い綱になる。",
+  "item.semiconductor-lab.rope.note2": "リネンの糸3つで作る（3本の糸を撚りあわせる）。のちに滑車やクレーンで重い物をつり上げるのに使う予定。",
+  "item.semiconductor-lab.rope.note3": "繊維を撚って糸にし、その糸を何本か「逆向き」に撚りあわせる。逆向きにすると、ほどけようとする力どうしがつり合って、ロープがほどけない。引っぱると撚りが締まり、繊維どうしの摩擦で力を分けあう。",
+  "item.semiconductor-lab.rope.note4": "フランスのアブリ・デュ・マラ遺跡で、約4万1000〜5万2000年前の石器に、3本の撚った束をさらに撚りあわせたひもの切れはしがついていた（ネアンデルタール人、2020年発表）⚠️。古代エジプトではパピルスやヤシの繊維で太いロープを作り、大きな石を運んだ。",
+  "item.semiconductor-lab.rope.placeholder": "近似：撚りの段（糸 → ストランド → ロープ）を1回にまとめた。"
 }

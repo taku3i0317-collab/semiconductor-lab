@@ -347,6 +347,24 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-18] ロープ（IMP3-01）
+    // =====================================================================
+
+    /** リネンの糸×3 → ロープ（毛糸では作らない） */
+    @GameTest
+    public void rope(GameTestHelper h) {
+        var lv = h.getLevel();
+        var mgr = lv.getServer().getRecipeManager();
+        var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(3, 1, List.of(new ItemStack(Survival.LINEN_THREAD), new ItemStack(Survival.LINEN_THREAD), new ItemStack(Survival.LINEN_THREAD)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, in, lv).orElseThrow().value().assemble(in).is(Survival.ROPE), "3 linen thread -> rope");
+        var wool = net.minecraft.world.item.crafting.CraftingInput.of(3, 1, List.of(new ItemStack(Survival.WOOLEN_YARN), new ItemStack(Survival.WOOLEN_YARN), new ItemStack(Survival.WOOLEN_YARN)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, wool, lv).isEmpty(), "woolen yarn is not made into rope (stretchy)");
+        LOG.info("[LAB] rope [0-18]: 3 linen thread -> rope");
+        h.succeed();
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 

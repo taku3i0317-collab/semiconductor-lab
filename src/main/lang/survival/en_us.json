@@ -164,5 +164,11 @@
   "item.semiconductor-lab.woolen_yarn.note4": "Wool is made of a protein, keratin - a completely different material from flax (a plant, cellulose). In medieval England, wool exports were a major source of the kingdom's wealth.",
   "item.semiconductor-lab.woolen_yarn.placeholder": "Approximation: twist and thickness are not modelled.",
   "message.semiconductor-lab.spindle.spun": "Spun for %s s: %s thread(s)",
-  "message.semiconductor-lab.spindle.no_fibre": "Hold at least 2 flax fibre or carded wool in your other hand"
+  "message.semiconductor-lab.spindle.no_fibre": "Hold at least 2 flax fibre or carded wool in your other hand",
+  "item.semiconductor-lab.rope": "Rope",
+  "item.semiconductor-lab.rope.note1": "Twist thin threads together and they become a thick rope that can lift heavy things.",
+  "item.semiconductor-lab.rope.note2": "3 linen threads (twisted together). To be used later with pulleys and cranes for lifting heavy loads.",
+  "item.semiconductor-lab.rope.note3": "Fibres are twisted into yarns, then several yarns are twisted together the opposite way. The opposite twists balance each other, so the rope does not unravel. Under load the twist tightens and friction shares the force among the fibres.",
+  "item.semiconductor-lab.rope.note4": "At Abri du Maras, France, a stone tool about 41,000-52,000 years old carried a fragment of cord: three twisted bundles plied together (Neanderthals, published 2020) ⚠️. Ancient Egyptians made thick ropes of papyrus and palm fibre to haul huge stones.",
+  "item.semiconductor-lab.rope.placeholder": "Approximation: the twisting stages (yarn -> strand -> rope) are merged into one."
 }
