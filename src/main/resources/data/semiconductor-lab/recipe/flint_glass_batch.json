@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sand",
+    "minecraft:sand",
+    "minecraft:sand",
+    "minecraft:sand",
+    "minecraft:sand",
+    "semiconductor-lab:litharge",
+    "semiconductor-lab:sodium_carbonate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:flint_glass_batch",
+    "count": 5
+  }
+}

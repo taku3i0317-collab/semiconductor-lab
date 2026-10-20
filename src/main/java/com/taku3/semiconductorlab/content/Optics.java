@@ -28,6 +28,11 @@ public final class Optics {
     // ===== アイテム =====
     public static final Item FUSED_QUARTZ          = Reg.item("fused_quartz");
     public static final Item QUARTZ_TUBE           = Reg.item("quartz_tube");
+    // [7-01] 光学ガラス（IMP2-01）。クラウン＝ソーダ石灰ガラスを溶鉱炉で長く溶かしてかき混ぜたもの（分散が小さい）、
+    // フリント＝一酸化鉛 PbO を約4割入れた鉛ガラス（レイヴンズクロフト 1674。屈折率が高く、分散が大きい）
+    public static final Item FLINT_GLASS_BATCH     = Reg.item("flint_glass_batch"); // 調合原料（砂5＋一酸化鉛1＋ソーダ1）
+    public static final Item FLINT_GLASS           = Reg.item("flint_glass");
+    public static final Item CROWN_GLASS           = Reg.item("crown_glass");
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 酸水素バーナー [7-02]（ヘアの吹管 1801、ゴーダン 1839。水素＋酸素ボンベの炎 約2800℃で石英を溶かす）。ガスボンベ式（電気の受け口なし）。炎が出ている間は光る

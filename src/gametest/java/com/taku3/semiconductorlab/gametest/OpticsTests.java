@@ -137,6 +137,33 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-01] 光学ガラス（IMP2-01）：フリント＝砂5＋PbO1＋ソーダ1 →調合原料5 →溶鉱炉→ フリント。クラウン＝ソーダ石灰ガラス →溶鉱炉（かき混ぜ）→ クラウン */
+    @GameTest
+    public void opticalGlass(GameTestHelper h) {
+        ResourceKey<Recipe<?>> key = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id("flint_glass_batch"));
+        var r = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value();
+        var ings = r.placementInfo().ingredients();
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Items.SAND))).count(), 5L, "5 sand (SiO2 ~51%)");
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Metallurgy.LITHARGE))).count(), 1L, "1 litharge (PbO ~38%)");
+        h.assertValueEqual(ings.stream().filter(i -> i.test(new ItemStack(Chemistry.SODIUM_CARBONATE))).count(), 1L, "1 soda (Na2O ~11%)");
+        h.assertValueEqual(ings.size(), 7, "nothing else in the batch");
+        // 溶鉱炉（長く溶かしてかき混ぜる）でだけ光学ガラスになる。かまどでは泡と脈理が残る＝作れない
+        var BL = net.minecraft.world.item.crafting.RecipeType.BLASTING;
+        var SM = net.minecraft.world.item.crafting.RecipeType.SMELTING;
+        h.assertTrue(cook(h, BL, Optics.FLINT_GLASS_BATCH).is(Optics.FLINT_GLASS), "flint batch -> blast furnace -> flint glass");
+        h.assertTrue(cook(h, BL, Chemistry.SODA_LIME_GLASS).is(Optics.CROWN_GLASS), "soda-lime glass -> blast furnace (stirred) -> crown glass");
+        h.assertTrue(cook(h, SM, Optics.FLINT_GLASS_BATCH).isEmpty(), "no optical flint from a plain furnace");
+        h.assertTrue(cook(h, SM, Chemistry.SODA_LIME_GLASS).isEmpty(), "no optical crown from a plain furnace");
+        // バニラのガラスは光学ガラスにならない（化学ルール1：近似のガラスから光学ガラスを作らない）
+        h.assertTrue(cook(h, BL, Items.GLASS).isEmpty(), "vanilla glass is not optical glass");
+        for (String id : new String[] {"flint_glass", "crown_glass"}) {
+            var rk = ResourceKey.create(Registries.RECIPE, SemiconductorLab.id(id));
+            h.assertTrue(h.getLevel().getServer().getRecipeManager().byKey(rk).isPresent(), "recipe " + id);
+        }
+        LOG.info("[LAB] optical glass: 5 sand + PbO + soda -> 5 flint batch -> blast -> flint; soda-lime glass -> blast -> crown");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
