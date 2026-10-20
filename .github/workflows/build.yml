@@ -32,7 +32,14 @@ jobs:
           name: Artifacts
           path: build/libs/
       - name: lang check
-        run: python3 tools/lang_build.py --check
+        run: |
+          python3 tools/lang_build.py --check
+          python3 tools/docs_build.py --check
+      - name: font width table (from the game's fonts, not kept in git)
+        run: |
+          ./gradlew downloadAssets
+          pip install pillow
+          python3 tools/gen_font_widths.py
       - name: gametest (server)
         run: ./gradlew runGameTest
       - name: install xvfb

@@ -13,7 +13,8 @@
   （どちらもゲームの実測 105 本と一致することを確かめた。GameTest font_widths_match_game）
 同じ文字は先に書いてあるものが勝つ（space → default の絵 → unifont）。
 
-書き出す先：src/gametest/resources/font_widths.json（[開始コードポイント, 個数, 送り幅] の並び）
+書き出す先：src/gametest/resources/font_widths.json（[開始コードポイント, 個数, 送り幅] の並び）。
+Mojang のフォントから作るので git には入れない（.gitignore）。tools/test.ps1 と GitHub の自動ビルドがテストの前に毎回作る
 使い方:  python tools/gen_font_widths.py
 """
 import io
@@ -37,7 +38,10 @@ def client_jar():
 
 
 def asset(name):
-    idx = sorted((LOOM / "indexes").glob("26.3*.json"))[-1]
+    idx = sorted((LOOM / "indexes").glob("26.3*.json"))
+    if not idx:
+        raise SystemExit("ゲームの素材がない（先に ./gradlew.bat downloadAssets）")
+    idx = idx[-1]
     h = json.loads(idx.read_text(encoding="utf-8"))["objects"][name]["hash"]
     return (LOOM / "objects" / h[:2] / h).read_bytes()
 

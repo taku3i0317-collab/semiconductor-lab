@@ -180,7 +180,7 @@
 ## 画面の文字と自動チェック ✅（2026-10-20 IMP-30、ゲームを起動せずに検査する形）
 - **文字もレイアウトのデータ**：MachineLayout に `text(id, x, y, 幅, 行数, lang キー…)`・`right(id, y, 行数, …)`（右の列 x=97・幅75）・`bottom(id, …)`（下の専用の行：「持ち物」の右 x=62・y=72・幅110。反応式・モードなど、入らなければ縮める）・`label`（「SO2」などの名札）・`center`・`.fit()`（混んだ画面だけ：折り返しても入らなければ縮める、0.6 倍まで）・`.samples("500.0 kW")`（%s の見本）。画面のコードは `text(String id)` で「今どの文を出すか」だけを返し、自分では描かない（MachineScreen が描く）
 - **折り返しは1つの計算**：machine/TextWrap（入らなくなった所の最後の空白で切る。空白がなければ文字の間）。画面（本物のフォント）とテスト（幅の表）が同じものを使う。長い題名（Reverberatory Furnace (Roaster) など）は画面が縮めて描く
-- **文字の幅をゲームなしで**：`python tools/gen_font_widths.py` がゲームのフォント（ASCII などの絵と unifont の .hex）から1文字ずつの送り幅の表 src/gametest/resources/font_widths.json を作る（数字の表だけ。フォントの絵はリポジトリに入れない）。ゲームの中で測った 105 本の文（font_samples.json）と全部一致（GameTest font_widths_match_game）
+- **文字の幅をゲームなしで**：`python tools/gen_font_widths.py` がゲームのフォント（ASCII などの絵と unifont の .hex）から1文字ずつの送り幅の表 src/gametest/resources/font_widths.json を作る（数字の表だけ。Mojang の素材から作るので git にも入れず、tools/test.ps1 と GitHub の自動ビルドがテストの前に毎回作る。2026-10-20）。ゲームの中で測った 105 本の文（font_samples.json）と全部一致（GameTest font_widths_match_game）
 - **検査（GameTest、手元の test.ps1 で毎回）**：gui_layout＝全部の機械の ja・en で、スロット・文字の箱の重なり、枠・題名の帯・持ち物の段からのはみ出し、出るかもしれない全部の文（lang キーの候補×見本の値）が箱に入るか。tooltip_text＝MOD の全部のアイテム（ja・en、Shift なし・あり）で、説明の1行が 200px 以内か・「省略：」が Shift なしで出ていないか。machine_slot_layout＝スロットだけの検査
 - **設計図**：同じデータから docs/gui_preview/<機械>_<言語>.png（緑＝入口・橙＝出口・青＝文字の箱・赤＝問題。文字は描かず、各行の幅を棒で）と report.txt・tooltip_report.txt
 - **ツールチップ**：machine/TooltipText（ゲームとテストで共通）。200px で折り返す。「省略：」（en は Omitted / Simplified）は Shift のときだけ。「近似：」「未実装」はいつも出す（化学ルール1）
@@ -190,7 +190,7 @@
 ## 専用のクリエイティブタブ ✅（2026-10-20 IMP-31）
 - タブ「Semiconductor Lab」（名前は MOD の名前なので翻訳しない）。アイコンは点接触トランジスタ（1947、半導体の始まり）
 - 並び：技術ネットワークの順＝幹の順（content/Content.java の順）→ 同じ幹の中はノードの年の順。表は src/main/resources/assets/semiconductor-lab/creative_tab_order.txt（`python tools/gen_tab_order.py` が作る。年は docs/tech_network.json）。アイテムを足したら作り直す（GameTest creative_tab が見張る）
-- バニラのタブ（材料・自然ブロック・機能的ブロック）にも今は残している。おすすめは「外す」（報告と DECISIONS_PENDING Q31-1）
+- バニラのタブ（材料・自然ブロック・機能的ブロック）には入れない（Q31-1 採用）。検索タブには出る
 ## 組立台（作り方の3段の2段目）📝 設計（2026-10-20 IMP-28。実装はまだ・v0.3 の最初に）
 **ねらい**：作業台の3×3 は「形」を覚える遊びで、中身が学べない。組立台は**部品表（BOM＝Bill of Materials、製品を作る部品の一覧）**で組み立て、
 「ラジオはトランジスタ3個・抵抗・コイル・コンデンサ・スピーカー・電池でできていて、それぞれ何の役目か」を見せる。

@@ -25,6 +25,11 @@ if ($LASTEXITCODE -ne 0) { Write-Host '== 失敗：lang が部品と違う（pyt
 python (Join-Path $root 'tools\docs_build.py') --check
 if ($LASTEXITCODE -ne 0) { Write-Host '== 失敗：CHEMISTRY.md / TEST_QUEUE.md が部品と違う（python tools/docs_build.py を実行）' -ForegroundColor Red; exit 1 }
 
+# フォントの幅の表（画面の検査用）を作る。Mojang の素材から作るので git には入れない（2026-10-20）。ゲームの素材がまだなければ先に取ってくる
+if (-not (Test-Path (Join-Path $env:USERPROFILE '.gradle\caches\fabric-loom\assets\indexes'))) { & (Join-Path $root 'gradlew.bat') downloadAssets -q }
+python (Join-Path $root 'tools\gen_font_widths.py')
+if ($LASTEXITCODE -ne 0) { Write-Host '== 失敗：フォントの幅の表を作れない（python と Pillow、./gradlew.bat downloadAssets）' -ForegroundColor Red; exit 1 }
+
 Write-Host '== runGameTest を実行中（1〜3分）...' -ForegroundColor Cyan
 $start = Get-Date
 # PowerShell 5.1 で native の stderr を 2>&1 すると赤いエラー扱いになるので、

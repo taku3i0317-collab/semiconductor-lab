@@ -44,3 +44,6 @@ docs/tasks/night_output.txt
 
 # Discord の webhook URL（秘密。git に入れない）
 .discord_webhook
+
+# IMP-30/Q: フォントの幅の表は Mojang のフォント画像から作るので git に入れない（テストの前に tools/gen_font_widths.py が毎回作る）
+src/gametest/resources/font_widths.json

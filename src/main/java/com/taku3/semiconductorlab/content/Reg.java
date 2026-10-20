@@ -24,7 +24,7 @@ import java.util.function.Function;
 
 /**
  * 登録の道具（IMP-28）。幹ごとのファイル（Metallurgy・Power…）は、ここを使ってアイテム・ブロックを1行ずつ登録する。
- * 登録した順にクリエイティブタブへ並ぶ（材料タブ＝アイテム、自然タブ＝鉱石、機能タブ＝機械と道具のブロック）。
+ * クリエイティブでは専用タブ「Semiconductor Lab」に技術の順で並ぶ（IMP-31。バニラのタブには入れない：Q31-1）。
  */
 public final class Reg {
     private static final List<Item> ITEMS = new ArrayList<>();
@@ -51,7 +51,7 @@ public final class Reg {
         return item;
     }
 
-    /** ブロック＋ブロックのアイテム（タブには入れない。機械は Machine が機能タブに入れる） */
+    /** ブロック＋ブロックのアイテム */
     public static Block block(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties props) {
         ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, SemiconductorLab.id(name));
         Block block = factory.apply(props.setId(key));
@@ -63,14 +63,14 @@ public final class Reg {
         return block;
     }
 
-    /** 鉱石・堆積物（自然ブロックのタブ） */
+    /** 鉱石・堆積物 */
     public static Block ore(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties props) {
         Block b = block(name, factory, props);
         NATURAL.add(b);
         return b;
     }
 
-    /** 機械ではない道具のブロック（機能ブロックのタブ。例：手押しポンプ） */
+    /** 機械ではない道具のブロック（例：手押しポンプ） */
     public static Block functional(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties props) {
         Block b = block(name, factory, props);
         FUNCTIONAL.add(b);
@@ -107,11 +107,6 @@ public final class Reg {
                 .icon(() -> new ItemStack(Semiconductor.TRANSISTOR))
                 .displayItems((params, out) -> tabOrder().forEach(out::accept))
                 .build());
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.INGREDIENTS).register(tab -> ITEMS.forEach(tab::accept));
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(tab -> NATURAL.forEach(tab::accept));
-        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(tab -> {
-            Machine.all().forEach(m -> tab.accept(m.block));
-            FUNCTIONAL.forEach(tab::accept);
-        });
+        // バニラのタブ（材料・自然ブロック・機能的ブロック）には入れない（Q31-1、2026-10-20）。検索タブには自動で出る
     }
 }
