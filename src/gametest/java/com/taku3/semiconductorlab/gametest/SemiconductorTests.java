@@ -1529,7 +1529,8 @@ public class SemiconductorTests extends LabTestBase {
                 "a g-line stepper mask is too fine for contact printing");
         ItemStack lens = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS);
         lens.set(Precision.LENS_DECENTER, java.util.List.of(5, 5, 5, 5));
-        h.assertFalse(com.taku3.semiconductorlab.block.StepperBlockEntity.lensOk(new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS)), "an uncentred lens is too blurred");
+        h.assertFalse(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"), fine, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G,
+                com.taku3.semiconductorlab.block.StepperBlockEntity.cdOf(new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS)), 0).ok(), "an uncentred lens is too blurred for this mask (S-010: grid from the lens CD)");
         BlockPos at = p(1, 1, 1);
         h.setBlock(at, Semiconductor.STEPPER.block);
         var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.StepperBlockEntity.class);
@@ -1629,6 +1630,8 @@ public class SemiconductorTests extends LabTestBase {
         var st = com.taku3.semiconductorlab.litho.ChipOps.state(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT));
         h.assertTrue(st != null && st.size() == g, "KrF stepper prints grid " + g);
         h.assertValueEqual(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER).getDamageValue(), com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS, "one gas shot per chip");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.block.StepperBlockEntity.cdOf(good))
+                > com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.block.StepperBlockEntity.cdOf(rough)), "a better-centred lens prints finer masks (S-010)");
         LOG.info("[LAB] stepper KrF [7-20]: laser + quartz lens NA 0.8 k1 0.35 -> CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm, grid " + g + "; gas used " + com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS + "/" + com.taku3.semiconductorlab.content.Optics.KRF_LASER_SHOTS);
         h.succeed();
     }

@@ -165,3 +165,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - E からの相談（[8-33] 質量分析・[5-06] 油拡散ポンプ）：どちらも E が作ってよいと返事した（C は O-018 で手がいっぱい）
 - ✅ O-018 3. [7-20] KrF エキシマレーザー：Optics に krf_laser（耐久＝ガス 64）・projection_lens_krf（NA 0.8・k1 0.35、ProjectionLensItem に k1Base を足した）。ステッパーの光源の入口に KrF レーザー（ExposureTool.KRF、方眼68、1チップでガス1）。詰め替え krf_laser_refill。GameTest stepper_krf、CHEMISTRY O36、REFERENCES O61。テスト 260/260。O-018 はこれで全部（ArF・液浸・[7-13] ルビーレーザーは後）
 - ✅ O-019 1. [7-13] ルビーレーザー：ruby_feed（アルミナ＋Cr2O3）→酸水素バーナー → ruby_boule → ＋銀の鏡×2 → ruby_rod。xenon_flashlamp（石英管＋Xe＋W線）。ruby_laser（item/RubyLaserItem、耐久＝ランプ 100）：1発で持ち物の鉛蓄電池から 1kJ。干渉計をもう片方の手に → 水銀灯とコヒーレンスの比べっこ。ガラス・氷・金属ブロックに当てると反射の事故（本人に盲目4秒）。GameTest ruby_laser、CHEMISTRY O37〜39、REFERENCES O62
+- ✅ A の S-010 の依頼：ステッパーを ChipOps.exposeAtCd（レンズの CD → 方眼）に。lensOk はレンズの有無だけ、画面の「ぼけ」はマスクの方眼 > gridFor(CD)。stepper_krf に「心出しの良いレンズほど方眼が細かい」を足した

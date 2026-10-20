@@ -1327,6 +1327,35 @@
     },
     {
       "machine": "semiconductor-lab:oxyhydrogen_burner",
+      "process": "ルビーの単結晶を育てる",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:ruby_feed",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_cylinder",
+          "count": 4,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:oxygen_cylinder",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:ruby_boule",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "Al2O3:Cr の粉を炎に落として溶かし、種の上に積もらせる（ベルヌーイ法 1902、約2050℃）"
+    },
+    {
+      "machine": "semiconductor-lab:oxyhydrogen_burner",
       "process": "石英を溶かす",
       "inputs": [
         {
