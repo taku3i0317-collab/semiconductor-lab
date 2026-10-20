@@ -62,6 +62,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.Feature;
@@ -337,7 +338,7 @@ public class MetallurgyTests extends LabTestBase {
         h.setBlock(pos, Metallurgy.BESSEMER_CONVERTER.block);
         BessemerConverterBlockEntity be = h.getBlockEntity(pos, BessemerConverterBlockEntity.class);
         var c = be.getContainer();
-        c.setItem(BessemerConverterBlockEntity.SLOT_IN, new ItemStack(Items.IRON_INGOT, 3));
+        c.setItem(BessemerConverterBlockEntity.SLOT_IN, new ItemStack(Metallurgy.PIG_IRON, 3));
 
         tickConsumer(h, pos, be, BessemerConverterBlockEntity.TOTAL_TICKS + 100, 0);
         h.assertTrue(c.getItem(BessemerConverterBlockEntity.SLOT_OUT).isEmpty(), "no power (no blast) -> no steel");
@@ -356,7 +357,7 @@ public class MetallurgyTests extends LabTestBase {
         h.assertValueEqual(c.getItem(BessemerConverterBlockEntity.SLOT_OUT).getCount(), 1, "gold must not become steel");
 
         // 送風中は炉口が光る（LIT）
-        c.setItem(BessemerConverterBlockEntity.SLOT_IN, new ItemStack(Items.IRON_INGOT, 1));
+        c.setItem(BessemerConverterBlockEntity.SLOT_IN, new ItemStack(Metallurgy.PIG_IRON, 1));
         tickConsumer(h, pos, be, 1, feed);
         h.assertBlockProperty(pos, BlockStateProperties.LIT, true);
         // 出口が満杯（鋼 64）→ 止まる
@@ -788,14 +789,67 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+
+    /**
+     * [1-09] 高炉（最初のマルチブロック）：形が足りないと動かず「あと何か所」。れんが 3×3×4・羽口4つ・中は空気で組み上がる。
+     * 羽口の外のふいごで風を送りつづけると 1400℃ を超え、鉄鉱石＋木炭＋石灰石 → 銑鉄＋スラグ。転炉は銑鉄だけを受け付ける（#46 を消した）
+     */
+    @GameTest(maxTicks = 100)
+    public void blastFurnace(GameTestHelper h) {
+        var lv = h.getLevel();
+        BlockPos ctl = h.absolutePos(p(3, 1, 2));
+        h.setBlock(p(3, 1, 2), Metallurgy.BLAST_FURNACE.block);
+        var be = h.getBlockEntity(p(3, 1, 2), com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.class);
+        var shape = com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.shape();
+        var r = be.recheck();
+        h.assertTrue(!r.formed() && r.missingCounts().get("tuyere") == 4, "nothing built -> not formed, 4 tuyeres missing: " + r.missingCounts());
+        // 形どおりに積む（北向き）
+        for (int y = 0; y < shape.height(); y++) for (int z = 0; z < shape.depth(); z++) for (int x = 0; x < shape.width(); x++) {
+            char c = shape.layers().get(y)[z].charAt(x);
+            if (c == 'B') lv.setBlockAndUpdate(shape.worldPos(ctl, Direction.NORTH, x, y, z), Blocks.BRICKS.defaultBlockState());
+            if (c == 'T') lv.setBlockAndUpdate(shape.worldPos(ctl, Direction.NORTH, x, y, z), Metallurgy.TUYERE.defaultBlockState());
+        }
+        h.assertTrue(be.recheck().formed(), "built 3x3x4 -> formed: " + be.lastCheck().problems());
+        // 正面の羽口の外にふいご
+        BlockPos front = shape.worldPos(ctl, Direction.NORTH, 1, 1, 0), bpos = front.north();
+        lv.setBlockAndUpdate(bpos, Heat.BELLOWS.block.defaultBlockState());
+        var bel = (com.taku3.semiconductorlab.block.BellowsBlockEntity) lv.getBlockEntity(bpos);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_ORE, new ItemStack(Items.RAW_IRON, 4));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_FUEL, new ItemStack(Items.CHARCOAL, 32));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_FLUX, new ItemStack(Items.CALCITE, 2));
+        int t = 0;
+        while (be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_OUT).isEmpty() && t < 6000) {
+            if (t % 15 == 0) bel.pump();
+            com.taku3.semiconductorlab.block.BellowsBlockEntity.tick(lv, bpos, lv.getBlockState(bpos), bel);
+            com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.tick(lv, ctl, lv.getBlockState(ctl), be);
+            t++;
+        }
+        h.assertTrue(be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_OUT).is(Metallurgy.PIG_IRON), "blast -> pig iron after " + t + " ticks at " + be.temperature() + " C");
+        h.assertTrue(be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_SLAG).is(Metallurgy.BLAST_FURNACE_SLAG) && be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_FLUX).getCount() == 1, "limestone -> slag");
+        h.assertTrue(be.temperature() >= com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.T_MELT, "above 1400 C");
+        // 1か所こわすと止まる、中身は残る
+        lv.setBlockAndUpdate(shape.worldPos(ctl, Direction.NORTH, 0, 3, 2), Blocks.AIR.defaultBlockState());
+        var broken = be.recheck();
+        h.assertTrue(!broken.formed() && broken.problems().size() == 1 && "lining".equals(broken.problems().get(0).expected()), "one brick missing -> not formed, 1 lining");
+        h.assertTrue(!be.getContainer().getItem(com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SLOT_ORE).isEmpty(), "contents stay");
+        h.assertTrue(com.taku3.semiconductorlab.block.BessemerConverterBlockEntity.isPigIron(new ItemStack(Metallurgy.PIG_IRON))
+                && !com.taku3.semiconductorlab.block.BessemerConverterBlockEntity.isPigIron(new ItemStack(Items.IRON_INGOT)), "converter takes pig iron only");
+        LOG.info("[LAB] blast furnace: 3x3x4 formed; pig iron after {} ticks of blast; one brick missing -> stops", t);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Metallurgy.BLAST_FURNACE.block, "高炉で銑鉄", L(io(Items.RAW_IRON, 1), io(Items.CHARCOAL, (double) com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SMELT_TICKS / com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.FUEL_TICKS),
+                perRuns(io(Items.CALCITE, 1), com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.FLUX_EVERY)),
+            L(io(Metallurgy.PIG_IRON, 1), perRuns(io(Metallurgy.BLAST_FURNACE_SLAG, 1), com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.FLUX_EVERY)), 0,
+            com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SMELT_TICKS / 20.0, "マルチブロック 3×3×4。1400℃以上（羽口の外の水車ふいご）。電気なし");
         rec(a, Metallurgy.BLOOMERY.block, "鉄鉱石を還元（ブルーム）", L(io(Items.RAW_IRON, 1), io(Items.CHARCOAL, (double) com.taku3.semiconductorlab.block.BloomeryBlockEntity.REDUCE_TICKS / com.taku3.semiconductorlab.block.BloomeryBlockEntity.FUEL_TICKS)),
             L(io(Metallurgy.IRON_BLOOM, 1)), 0, com.taku3.semiconductorlab.block.BloomeryBlockEntity.REDUCE_TICKS / 20.0, "1100℃以上（ふいごで送風）。電気なし");
         rec(a, Metallurgy.HALL_HEROULT_CELL.block, "ホール・エルー法", L(io(Metallurgy.ALUMINA, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.ALUMINA_PER_RUN), perRuns(io(Metallurgy.CRYOLITE, 1), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.RUNS_PER_CRYOLITE), perRuns(io(com.taku3.semiconductorlab.content.Power.GRAPHITE_ROD, 1), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.RUNS_PER_ANODE)),
             L(io(Metallurgy.ALUMINIUM_INGOT, 1)), com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.HallHeroultCellBlockEntity.TICKS / 20.0, "約960℃の氷晶石にアルミナを溶かして電解。2Al2O3 + 3C → 4Al + 3CO2。15kWh/個");
         rec(a, Metallurgy.BAYER_DIGESTER.block, "バイヤー法", L(io(Metallurgy.BAUXITE, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.BAUXITE_PER_RUN), perRuns(io(com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR)),
             L(io(Metallurgy.ALUMINIUM_HYDROXIDE, 1), io(Metallurgy.RED_MUD, 1)), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.WATTS, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS / 20.0, "Al(OH)3 + NaOH → NaAl(OH)4 → こして冷やすと Al(OH)3。鉄は赤泥に。液は使い回す");
-        rec(a, Metallurgy.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(Metallurgy.STEEL_INGOT, 1)),
+        rec(a, Metallurgy.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(io(Metallurgy.PIG_IRON, 1)), L(io(Metallurgy.STEEL_INGOT, 1)),
             BessemerConverterBlockEntity.WATTS, BessemerConverterBlockEntity.TOTAL_TICKS / 20.0, "送風の動力を電力で代表");
         rec(a, Metallurgy.HYDROGEN_FURNACE.block, "WO3 の水素還元", L(io(Metallurgy.TUNGSTEN_TRIOXIDE, 1), io(Gas.HYDROGEN_GAS, HydrogenFurnaceBlockEntity.REDUCE_H2)),
             L(io(Metallurgy.TUNGSTEN_POWDER, 1)), HydrogenFurnaceBlockEntity.REDUCE_WATTS, HydrogenFurnaceBlockEntity.REDUCE_TICKS / 20.0, "WO3 + 3H2 → W + 3H2O");

@@ -111,5 +111,18 @@
   "item.semiconductor-lab.photo.good": "just right",
   "item.semiconductor-lab.photo.dark": "dark: overexposed",
   "litho.semiconductor-lab.fail.no_dirt": "Already clean",
-  "tooltip.semiconductor-lab.contamination": "Contamination: %s (washing removes it)"
+  "tooltip.semiconductor-lab.contamination": "Contamination: %s (washing removes it)",
+  "multiblock.semiconductor-lab.lining": "brick",
+  "multiblock.semiconductor-lab.tuyere": "tuyere",
+  "multiblock.semiconductor-lab.inside": "empty inside",
+  "gui.semiconductor-lab.blast_furnace.temp": "Temp %s °C",
+  "gui.semiconductor-lab.blast_furnace.air": "Air %s%%",
+  "gui.semiconductor-lab.blast_furnace.not_formed": "Furnace not complete",
+  "gui.semiconductor-lab.blast_furnace.need_ore": "Add iron ore or iron sand",
+  "gui.semiconductor-lab.blast_furnace.need_fuel": "Add charcoal",
+  "gui.semiconductor-lab.blast_furnace.need_flux": "Add limestone",
+  "gui.semiconductor-lab.blast_furnace.need_air": "Blow air in through a tuyere",
+  "gui.semiconductor-lab.blast_furnace.smelting": "Pig iron is flowing",
+  "gui.semiconductor-lab.blast_furnace.out_full": "Take out pig iron and slag",
+  "gui.semiconductor-lab.blast_furnace.missing": "%s more (%s)"
 }

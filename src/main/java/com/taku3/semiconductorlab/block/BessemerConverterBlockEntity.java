@@ -50,7 +50,8 @@ public class BessemerConverterBlockEntity extends ConsumerBlockEntity {
     }
 
     /** 銑鉄として受け付けるもの（今はバニラの鉄インゴット＝銑鉄の近似。[1-09]高炉の銑鉄が来たら置き換え） */
-    public static boolean isPigIron(ItemStack s) { return s.is(Items.IRON_INGOT); }
+    /** 銑鉄（高炉 [1-09] の。IMP-33・O-003 で、バニラの鉄インゴットを銑鉄とみなす近似 #46 を消した） */
+    public static boolean isPigIron(ItemStack s) { return s.is(Metallurgy.PIG_IRON); }
     private static ItemStack steel() { return new ItemStack(Metallurgy.STEEL_INGOT, 1); }
 
     @Override protected double workWatts() { return WATTS; }

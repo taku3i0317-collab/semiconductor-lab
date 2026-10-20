@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "semiconductor-lab:item/blast_furnace_slag"
+  }
+}

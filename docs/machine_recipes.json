@@ -254,9 +254,8 @@
       "process": "ベッセマー転炉",
       "inputs": [
         {
-          "item": "minecraft:iron_ingot",
-          "count": 1,
-          "cond": "銑鉄の近似"
+          "item": "semiconductor-lab:pig_iron",
+          "count": 1
         }
       ],
       "outputs": [
@@ -269,6 +268,39 @@
       "seconds": 20.0,
       "energy_kj": 400,
       "note": "送風の動力を電力で代表"
+    },
+    {
+      "machine": "semiconductor-lab:blast_furnace_hearth",
+      "process": "高炉で銑鉄",
+      "inputs": [
+        {
+          "item": "minecraft:raw_iron",
+          "count": 1
+        },
+        {
+          "item": "minecraft:charcoal",
+          "count": 1.3333333333333333
+        },
+        {
+          "item": "minecraft:calcite",
+          "count": 1,
+          "per_runs": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:pig_iron",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:blast_furnace_slag",
+          "count": 1,
+          "per_runs": 4
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 20.0,
+      "note": "マルチブロック 3×3×4。1400℃以上（羽口の外の水車ふいご）。電気なし"
     },
     {
       "machine": "semiconductor-lab:bloomery",

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "semiconductor-lab:block/tuyere_side",
+    "top": "semiconductor-lab:block/tuyere_top",
+    "bottom": "semiconductor-lab:block/tuyere_bottom"
+  }
+}

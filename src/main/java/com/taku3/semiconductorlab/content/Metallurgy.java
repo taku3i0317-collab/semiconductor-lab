@@ -102,6 +102,9 @@ public final class Metallurgy {
     // 容器（IMP-33）：鉄のフラスコ（水銀）・鉛の瓶（フッ酸 [2-10]、ガラスを溶かすので）。中身入りより上に書く
     // [1-06] 塊鉄炉の海綿鉄（ブルーム：溶けずにできたスポンジ状の鉄、スラグ入り）。たき石で叩くと錬鉄（鉄インゴット）
     public static final Item IRON_BLOOM            = Reg.item("iron_bloom");
+    // [1-09] 高炉の銑鉄（炭素約4%、溶けて流れ出た鉄。硬いがもろい → 転炉 [1-26] で鋼に）とスラグ（ケイ酸カルシウム）
+    public static final Item PIG_IRON              = Reg.item("pig_iron");
+    public static final Item BLAST_FURNACE_SLAG    = Reg.item("blast_furnace_slag");
     public static final Item IRON_FLASK            = Reg.item("iron_flask");
     public static final Item LEAD_BOTTLE           = Reg.item("lead_bottle");
     public static final Item CINNABAR_DUST         = Reg.item("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉
@@ -122,6 +125,8 @@ public final class Metallurgy {
     // v0.2a 鉱石（産状の近似）：磁鉄鉱=深層岩／砂鉄=浜辺の砂／鉄マンガン重石=花崗岩／方鉛鉱=閃亜鉛鉱と同じ帯
     public static final Block MAGNETITE_ORE  = Reg.ore("magnetite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops().strength(4.5f, 3.0f).sound(SoundType.DEEPSLATE));
     public static final Block IRON_SAND      = Reg.ore("iron_sand", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).strength(0.5f).sound(SoundType.SAND));
+    // [1-09] 高炉の羽口（焼いた粘土の管。ここからふいごの風を炉の中へ吹き込む。高炉の形の一部）
+    public static final Block TUYERE         = Reg.block("tuyere", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).strength(2.0f, 6.0f).sound(SoundType.STONE).requiresCorrectToolForDrops());
     public static final Block WOLFRAMITE_ORE = Reg.ore("wolframite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.5f, 3.0f).sound(SoundType.STONE));
     // [1-03] 孔雀石（IMP2-01）：銅鉱床の上の、地表に近い酸化帯。浅い石の中（y40〜110）。モース硬度 3.5〜4
     public static final Block MALACHITE_ORE  = Reg.ore("malachite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GREEN).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
@@ -147,6 +152,9 @@ public final class Metallurgy {
     // [1-06] 塊鉄炉（ブルーマリー）：木炭＋鉄鉱石・砂鉄 → ブルーム。横のふいご [3-04] で風を送らないと還元の温度に届かない
     public static final Machine<BloomeryBlockEntity> BLOOMERY = Machine.builder("bloomery", BloomeryBlockEntity::new)
             .ticker(BloomeryBlockEntity::tick).layout(BloomeryBlockEntity.LAYOUT).props(lit(stone(3.0f), 12)).build();
+    // [1-09] 高炉（最初のマルチブロック）：この制御ブロック（炉床の湯口）のまわりに れんが 3×3×4・2段目に羽口4つ。羽口の外に水車ふいご
+    public static final Machine<BlastFurnaceBlockEntity> BLAST_FURNACE = Machine.builder("blast_furnace_hearth", BlastFurnaceBlockEntity::new)
+            .ticker(BlastFurnaceBlockEntity::tick).layout(BlastFurnaceBlockEntity.LAYOUT).props(lit(stone(3.5f), 14)).build();
     // ホール・エルー電解槽 [1-29]（IMP4-01）：アルミナ＋氷晶石の浴＋炭素の陽極 → アルミニウム（100kW、15kWh/個）
     public static final Machine<HallHeroultCellBlockEntity> HALL_HEROULT_CELL = Machine.electric("hall_heroult_cell", HallHeroultCellBlockEntity::new, HallHeroultCellBlockEntity.LAYOUT, lit(metal(4.0f), 7));
 

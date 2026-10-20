@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/blast_furnace_hearth_front",
+    "side": "semiconductor-lab:block/blast_furnace_hearth_side",
+    "top": "semiconductor-lab:block/blast_furnace_hearth_top"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "B B",
+    "BIB"
+  ],
+  "key": {
+    "B": "minecraft:bricks",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:blast_furnace_hearth",
+    "count": 1
+  }
+}

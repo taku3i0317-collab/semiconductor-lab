@@ -111,5 +111,18 @@
   "item.semiconductor-lab.photo.good": "ちょうどよい",
   "item.semiconductor-lab.photo.dark": "黒い：露光しすぎ",
   "litho.semiconductor-lab.fail.no_dirt": "もうきれい",
-  "tooltip.semiconductor-lab.contamination": "汚れ：%s（洗うと落ちる）"
+  "tooltip.semiconductor-lab.contamination": "汚れ：%s（洗うと落ちる）",
+  "multiblock.semiconductor-lab.lining": "れんが",
+  "multiblock.semiconductor-lab.tuyere": "羽口",
+  "multiblock.semiconductor-lab.inside": "中を空ける",
+  "gui.semiconductor-lab.blast_furnace.temp": "温度 %s℃",
+  "gui.semiconductor-lab.blast_furnace.air": "送風 %s%%",
+  "gui.semiconductor-lab.blast_furnace.not_formed": "炉が組み上がっていない",
+  "gui.semiconductor-lab.blast_furnace.need_ore": "鉄鉱石か砂鉄を入れる",
+  "gui.semiconductor-lab.blast_furnace.need_fuel": "木炭を入れる",
+  "gui.semiconductor-lab.blast_furnace.need_flux": "石灰石を入れる",
+  "gui.semiconductor-lab.blast_furnace.need_air": "羽口の外のふいごで風を",
+  "gui.semiconductor-lab.blast_furnace.smelting": "銑鉄が流れ出ている",
+  "gui.semiconductor-lab.blast_furnace.out_full": "銑鉄とスラグを取り出す",
+  "gui.semiconductor-lab.blast_furnace.missing": "あと %s か所（%s）"
 }

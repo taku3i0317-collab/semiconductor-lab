@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:blast_furnace_hearth"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.blast_furnace_hearth"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.blast_furnace_hearth.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.blast_furnace_hearth.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:blast_furnace_hearth"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -31,6 +31,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		// 幹1 冶金
 		screen(Metallurgy.BESSEMER_CONVERTER, BessemerConverterScreen::new);
 		screen(Metallurgy.BLOOMERY, BloomeryScreen::new);   // [1-06] 塊鉄炉
+		screen(Metallurgy.BLAST_FURNACE, BlastFurnaceScreen::new);   // [1-09] 高炉
 		screen(Metallurgy.HYDROGEN_FURNACE, HydrogenFurnaceScreen::new);
 		screen(Metallurgy.SIEMENS_REACTOR, SiemensReactorScreen::new);
 		screen(Metallurgy.TRICHLOROSILANE_REACTOR, TrichlorosilaneReactorScreen::new);

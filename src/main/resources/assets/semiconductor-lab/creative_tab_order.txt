@@ -62,6 +62,9 @@ iron_flask  # Metallurgy [1-45] -500
 cinnabar_dust  # Metallurgy [1-45] -500
 mercury  # Metallurgy [1-45] -500
 cinnabar_retort_charge  # Metallurgy [1-45] -500
+pig_iron  # Metallurgy [1-09] -450
+tuyere  # Metallurgy [1-09] -450
+blast_furnace_hearth  # Metallurgy [1-09] -450
 sphalerite  # Metallurgy [1-13] 1150
 zinc_ingot  # Metallurgy [1-13] 1150
 sphalerite_ore  # Metallurgy [1-13] 1150
@@ -116,6 +119,7 @@ trichlorosilane  # Metallurgy [1-16] 1953
 trichlorosilane_reactor  # Metallurgy [1-16] 1953
 polysilicon  # Metallurgy [1-17] 1956
 siemens_reactor  # Metallurgy [1-17] 1956
+blast_furnace_slag  # Metallurgy [None] None
 wood_ash  # Chemistry [2-02] -2800
 lye  # Chemistry [2-02] -2800
 potash  # Chemistry [2-02] -2800
