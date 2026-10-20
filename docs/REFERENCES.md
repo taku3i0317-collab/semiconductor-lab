@@ -674,6 +674,21 @@
 - Wikipedia「Einkorn wheat」：https://en.wikipedia.org/wiki/Einkorn_wheat
 - Wikipedia「Shattering (agriculture)」：https://en.wikipedia.org/wiki/Shattering_(agriculture)
 
+## S5. 茎を水で腐らせて糸を取る（亜麻とリネン）［0-06］
+**答え**：亜麻の茎の皮の内側には長い靱皮繊維の束があり、ペクチンで皮や芯にくっついている。茎を水に浸けると微生物がペクチンを分解し（レッティング）、たたいて芯を落とすと繊維が取れる。繊維を撚って糸にし、織ると亜麻布（リネン）になる。
+
+- へえ①：亜麻の茎を水につけて腐らせると、布にする糸がとれる。
+- へえ②：繊維は主にセルロースで、ぬれるとかえって強くなる。
+- へえ③：イスラエルのナハル・ヘマル洞窟で約9000年前の亜麻の布・網。ジョージアのズズアナ洞窟では約3万年前の野生の亜麻の繊維が報告されている⚠️。
+- へえ④：line・lining・lingerie・linoleum はラテン語 linum（亜麻）から。日本は大麻・苧麻から同じように布を作った。
+
+確かさ：レッティングのしくみ ◎／ナハル・ヘマル 約9000年前 ○／ズズアナ 約3万年前 △（人の利用かに議論）→ ゲーム内は ⚠️／エジプトの S 撚り △ → ⚠️／語源 ◎
+根拠：
+- Kvavadze ほか 2009「30,000-year-old wild flax fibers」Science 325：https://www.science.org/doi/10.1126/science.1175404
+- Wikipedia「Retting」：https://en.wikipedia.org/wiki/Retting
+- Wikipedia「Linen」（歴史・ナハル・ヘマル）：https://en.wikipedia.org/wiki/Linen
+- Wikipedia「Flax」：https://en.wikipedia.org/wiki/Flax
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

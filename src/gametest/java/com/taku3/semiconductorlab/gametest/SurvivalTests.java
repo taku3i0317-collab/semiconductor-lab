@@ -244,6 +244,50 @@ public class SurvivalTests extends LabTestBase {
     }
 
     // =====================================================================
+    // [0-06] 織物（IMP3-01）：亜麻 → 水に浸ける → 繊維 → 糸 → リネン
+    // =====================================================================
+
+    /**
+     * 熟した亜麻 → 茎2＋種。水の中の茎だけが浸水した茎になる（陸の上はそのまま）。浸水した茎＋たたき石 → 繊維（浸けていない茎は不可）。
+     * 繊維2 → 糸、糸4 → リネン。浸水は本当の tick（mixin）で確かめるため、テストの間だけ時間を 20tick に縮める
+     */
+    @GameTest(maxTicks = 120)
+    public void flaxToLinen(GameTestHelper h) {
+        ServerLevel lv = h.getLevel();
+        var F = (net.minecraft.world.level.block.CropBlock) Survival.FLAX;
+        var ripe = Block.getDrops(F.getStateForAge(F.getMaxAge()), lv, h.absolutePos(p(1, 1, 1)), null);
+        h.assertTrue(ripe.stream().filter(s -> s.is(Survival.FLAX_STALKS)).mapToInt(ItemStack::getCount).sum() == 2, "ripe flax -> 2 stalks");
+        h.assertTrue(ripe.stream().anyMatch(s -> s.is(F.asItem())), "ripe flax -> seeds");
+        h.assertTrue(Block.getDrops(F.getStateForAge(2), lv, h.absolutePos(p(1, 1, 1)), null).stream().noneMatch(s -> s.is(Survival.FLAX_STALKS)), "unripe -> no stalks");
+
+        // 作業台：浸水した茎だけが繊維になる
+        var mgr = lv.getServer().getRecipeManager();
+        var CRAFT = net.minecraft.world.item.crafting.RecipeType.CRAFTING;
+        var retted = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(Survival.RETTED_FLAX), new ItemStack(Survival.HAMMERSTONE)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, retted, lv).orElseThrow().value().assemble(retted).is(Survival.FLAX_FIBER), "retted flax + hammerstone -> fibre");
+        var dry = net.minecraft.world.item.crafting.CraftingInput.of(2, 1, List.of(new ItemStack(Survival.FLAX_STALKS), new ItemStack(Survival.HAMMERSTONE)));
+        h.assertTrue(mgr.getRecipeFor(CRAFT, dry, lv).isEmpty(), "unretted stalks give no fibre (pectin still glues it)");
+        h.assertTrue(recipeUses(h, "linen_thread", Survival.FLAX_FIBER), "fibre -> thread");
+        h.assertTrue(recipeUses(h, "linen_cloth", Survival.LINEN_THREAD), "thread -> linen");
+
+        // 水に浸ける（本当の tick、mixin 経由）
+        floor(h, 4);
+        BlockPos water = p(1, 1, 1), land = p(3, 1, 1);
+        for (BlockPos wall : new BlockPos[] {p(0, 1, 1), p(2, 1, 1), p(1, 1, 0), p(1, 1, 2)}) h.setBlock(wall, Blocks.STONE);  // 水が流れ出ないよう囲む
+        h.setBlock(water, Blocks.WATER);
+        var wet = h.spawnItem(Survival.FLAX_STALKS, water);
+        var onLand = h.spawnItem(Survival.FLAX_STALKS, land);
+        com.taku3.semiconductorlab.item.Retting.ticksForRetting = 20;
+        h.runAfterDelay(80, () -> {
+            com.taku3.semiconductorlab.item.Retting.ticksForRetting = com.taku3.semiconductorlab.item.Retting.RETTING_TICKS;
+            h.assertTrue(wet.getItem().is(Survival.RETTED_FLAX), "stalks in water -> retted (got " + wet.getItem() + ", wet=" + com.taku3.semiconductorlab.item.Retting.wet(wet) + ")");
+            h.assertTrue(onLand.getItem().is(Survival.FLAX_STALKS), "stalks on land stay unretted");
+            LOG.info("[LAB] flax [0-06]: ripe -> 2 stalks; in water -> retted, on land -> unchanged; retted + hammerstone -> fibre -> thread -> linen");
+            h.succeed();
+        });
+    }
+
+    // =====================================================================
     // [0-08] 木工（IMP3-01）：磨製石斧
     // =====================================================================
 

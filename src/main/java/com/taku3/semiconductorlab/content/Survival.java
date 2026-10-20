@@ -55,6 +55,12 @@ public final class Survival {
     // --- [0-08] 木工（新石器時代の磨製石斧）。打ち欠いた斧を砂と水で研ぐと、剥離の傷が消えて欠けにくい刃になる。柄を付ける ---
     public static final ToolMaterial POLISHED_STONE_MATERIAL = new ToolMaterial(BlockTags.INCORRECT_FOR_STONE_TOOL, 200, 4.5f, 1.0f, 5, KNAPPING_STONES);
     public static final Item POLISHED_STONE_AXE    = Reg.item("polished_stone_axe", new Item.Properties().axe(POLISHED_STONE_MATERIAL, 6.0f, -3.1f));
+    // --- [0-06] 亜麻の茎・浸水した茎・繊維・リネンの糸・リネン ---
+    public static final Item FLAX_STALKS           = Reg.item("flax_stalks");
+    public static final Item RETTED_FLAX           = Reg.item("retted_flax");
+    public static final Item FLAX_FIBER            = Reg.item("flax_fiber");
+    public static final Item LINEN_THREAD          = Reg.item("linen_thread");
+    public static final Item LINEN_CLOTH           = Reg.item("linen_cloth");
     /** 砂利を壊したとき（火打ち石が出なかったとき）に、たたき石（河原の丸石）が混ざる確率 */
     public static final float HAMMERSTONE_FROM_GRAVEL = 0.1f;
 
@@ -69,6 +75,10 @@ public final class Survival {
     public static final Block EINKORN      = Reg.block("einkorn", p -> new EinkornCropBlock(p, false), BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
     /** 草（短い草・背の高い草）を刈ったとき、種が出なかったら野生のヒトツブコムギの種が混ざる確率 */
     public static final float WILD_EINKORN_FROM_GRASS = 0.05f;
+    // --- [0-06] 織物：亜麻（茎 → 水に浸ける＝レッティング → たたいて繊維 → 撚って糸 → 織ってリネン） ---
+    public static final Block FLAX         = Reg.block("flax", FlaxCropBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT));
+    /** 同じく、亜麻の種が混ざる確率（ヒトツブコムギが出なかったとき） */
+    public static final float FLAX_FROM_GRASS = 0.04f;
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // [0-16] 塩田（揚げ浜式。海水を砂にまいて天日で濃くし、釜で煮詰める）。海・浜バイオームで、横に水があり、空が見えて晴れているときだけ塩がたまる
@@ -81,7 +91,10 @@ public final class Survival {
         // [0-04] 草むらの中に野生の麦がまじっている
         LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
             if (!table.is(Blocks.SHORT_GRASS.getLootTable().orElseThrow()) && !table.is(Blocks.TALL_GRASS.getLootTable().orElseThrow())) return;
-            if (drops.isEmpty() && ctx.getRandom().nextFloat() < WILD_EINKORN_FROM_GRASS) drops.add(new ItemStack(WILD_EINKORN));
+            if (!drops.isEmpty()) return;
+            float r = ctx.getRandom().nextFloat();
+            if (r < WILD_EINKORN_FROM_GRASS) drops.add(new ItemStack(WILD_EINKORN));
+            else if (r < WILD_EINKORN_FROM_GRASS + FLAX_FROM_GRASS) drops.add(new ItemStack(FLAX));
         });
         // [0-01] 砂利の中にはときどき丸く硬い河原石がある → たたき石
         LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {

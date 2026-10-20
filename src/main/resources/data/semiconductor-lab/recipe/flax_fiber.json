@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:retted_flax",
+    "semiconductor-lab:hammerstone"
+  ],
+  "result": {
+    "id": "semiconductor-lab:flax_fiber",
+    "count": 1
+  }
+}

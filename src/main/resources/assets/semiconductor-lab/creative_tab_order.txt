@@ -10,6 +10,12 @@ wild_einkorn  # Survival [0-04] -9500
 einkorn  # Survival [0-04] -9500
 polished_stone_axe  # Survival [0-08] -9000
 quicklime  # Survival [0-10] -9000
+flax_stalks  # Survival [0-06] -8000
+retted_flax  # Survival [0-06] -8000
+flax_fiber  # Survival [0-06] -8000
+linen_thread  # Survival [0-06] -8000
+linen_cloth  # Survival [0-06] -8000
+flax  # Survival [0-06] -8000
 slaked_lime  # Survival [0-11] -7000
 bittern  # Survival [0-16] -6000
 salt_pan  # Survival [0-16] -6000

@@ -15,3 +15,5 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - 取り込みで気づいたこと：REFERENCES の IMP2 の O10 が「生存」節の中に入ったので、消さずに光学の節の末尾へ移した。TECH_TREE の [0-02]・[0-03] はネットワーク担当の直しを残し、[0-03] は実装の記述＋直った元の記述にした
 - ✅ [0-04] 農耕（遊び方: 実験、ユーザーが案A を選択）：野生のヒトツブコムギ wild_einkorn（草から 5%）→ 熟したまま放置で穂が落ちて芽に戻る、熟したうちに刈ると 10% で栽培種 einkorn の種。栽培種は落ちず、刈ると小麦（バニラ）＋種。block/EinkornCropBlock、作物のテクスチャは自作の仮。API_26X に作物・描画層・斧・MODIFY_DROPS を追記。GameTest einkorn_domestication、CHEMISTRY S7〜S8、REFERENCES S4。テスト 101/101
 - REFERENCES の「生存」節を「# 第1章 ゲルマニウム」の直前へ移した（光学担当が「# 冶金と熱」の直前に足すたびに混ざるため。中身は同じ）
+- ✅ [0-06] 織物（遊び方: 実験＋軽）：亜麻 flax（作物、草から 4%）→ 茎×2＋種。茎を水に投げこむと 1分で浸水した茎（mixin/ItemEntityRettingMixin → item/Retting。浮いて上下しても足元が水なら浸かっている扱い、水から出てもたまった時間は残る）。浸水した茎＋たたき石 → 繊維 → ×2 糸 → ×4 リネン。GameTest flax_to_linen（実際の tick、テスト中だけ浸水 20tick）、CHEMISTRY S9〜S11、REFERENCES S5。テスト 106/106
+  - 共通ファイルの変更：src/main/resources/semiconductor-lab.mixins.json に "ItemEntityRettingMixin" を1行
