@@ -641,5 +641,8 @@
     "portrait": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTElEQVR42mNgGAUjHTCSolhLTvQ/MequPXpNtLksxCo0UZX8rywphCH+/ssPbMr/E+sIRmJ9LiPCR1LQPnnziaiQYKKF5QwMDAwyInxERRnTQCdCJlr4npRQICkElk2qZVg2qZYgu6kklTrZEDkEYBYQA+48esFQ1zObqMTIQkoIROU1o4QGLjmqhUBFcuD/AGdzBgYGBgYVOQmSQgAGNuw9ydAxdz11QoDTMJRBT1OT4dL16wzfz6/GKcfwaDJ1cgEDAwPD3ccI33w/v5ph46QiFMthvsUmh6yXbAcoy6IGvYSIAE616HLoeqlWEHGys8HZL99+wCpOlSjYtPsIPDshg+8/fzEwMDAwXLjxgIGbkwNDHAbqemYzbNp9hPIQqOuZjZKyYcBAQ4HBQEMBpx6qVscb9p5kKEn0h/MPz96KIm+b6o2ilqrtgSdvPjHsguTl/zBHIFuIDHrmb2TomLuekdh6hKRyAFqg/BcV4meI93dAkVu48QDD63cf8RY6FDsAyREMr999hIcGzNfk5CiiHGAgF8nAw3YFpVoNcDaHJ8wAZ3OGfQc/osirSOgwvPm2lTIH8LDpMohw6cANhKeJd/cx1HKwcTPICCmiiIlweTN8YLvCwMCwjzQHmKk4/Ue3FB1MmvaMqCCGmvGfgYGB4dSdfYx4a0NiLH7y7j6GT4mRY2BgYLjz4goDukNYiLWYGgDJfHiIMGGRJMv3DAwMDDJCiljTBx6HDHyrmAU9fnCB91/fMAhyixBUx8DAwHD67gEGQW4RohwAAD3k6m6wk1W3AAAAAElFTkSuQmCC"
    }
   ]
+ },
+ "media": {
+  "_note": "ノードの画像・動画（NET-10、docs/MEDIA.md）。ファイルはリポジトリに入れずリンクだけ。各項目：url（表示する画像・動画）・page（出典のページ）・kind（画像／動画）・author（作者）・license（ライセンス）・description（説明）・verified（いつ何で確かめたか）"
  }
 }

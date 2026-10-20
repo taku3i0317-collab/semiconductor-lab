@@ -125,7 +125,8 @@
    "emoji": "🪨",
    "symbol": "🪓",
    "people": [],
-   "descendants": 345
+   "media": [],
+   "descendants": 344
   },
   {
    "real_full": "火の利用は約100万年前（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -172,7 +173,8 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 324
+   "media": [],
+   "descendants": 323
   },
   {
    "real_full": "約2万年前（中国・仙人洞）、縄文土器 約1万6500年前。粘土鉱物（カオリナイト等）は約500〜600℃で結晶水が抜け、二度と水で戻らない（不可逆な脱水）",
@@ -182,7 +184,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "S2. 粘土は焼くと水で戻らない（土器）［0-03］",
+     "answer": "粘土は細かい板状の結晶（粘土鉱物）が水をはさんで重なったもので、ぬれていると形を変えられ、乾かしただけなら水で元に戻る。約500〜600℃に熱すると結晶の中の OH が水として抜け（カオリナイト → メタカオリン）、この変化は戻らない。だから焼いた土器は水を入れても溶けない。",
+     "hee": {
+      "1": "粘土は焼くと、もう水で元に戻らない。2万年前の人もそれを知っていた。",
+      "2": "土器は農耕より前、狩りや漁をする人たちが作り始めた（東アジア）。",
+      "3": "最古級の土器は中国・仙人洞の約2万年前。日本の大平山元遺跡の土器片は約1万6500年前⚠️。",
+      "4": "縄文晩期には海水を煮つめる製塩土器があった。生乾きで焼くと中の水が水蒸気になって割れる。"
+     },
+     "certainty": "カオリナイトの脱水（約500〜600℃、不可逆）◎／仙人洞 約2万年前 ○（Wu ほか 2012）／大平山元 約1万6500年前 △（較正年代の幅あり）→ ゲーム内は ⚠️／製塩土器 ○",
+     "basis": "- Wu ほか 2012「Early pottery at 20,000 years ago in Xianrendong Cave, China」Science 336：https://www.science.org/doi/10.1126/science.1218643"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -192,7 +207,7 @@
    "name": "土器",
    "trunk": "0",
    "trunk_name": "生存・道具",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -20000,
    "year_range": null,
@@ -205,10 +220,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "粘土は焼くと、もう水で元に戻らない。2万年前の人もそれを知っていた",
    "kind": "product",
-   "play": "",
+   "play": "軽＋実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -219,7 +234,8 @@
    "emoji": "🏺",
    "symbol": "🪓",
    "people": [],
-   "descendants": 315
+   "media": [],
+   "descendants": 314
   },
   {
    "real_full": "約1万1500年前、肥沃な三日月地帯でヒトツブコムギ・エンマーコムギ・大麦を栽培化（穂が落ちない変異株を選び続けた）",
@@ -229,7 +245,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "S4. 穂が落ちない麦を選ぶ（栽培化）［0-04］",
+     "answer": "野生の麦は穂の軸がもろく、熟すと小穂がこぼれて自分で種をまく。まれに軸がもろくならない変異株があり、人が刈り取って持ち帰った種をまく、を繰り返すと、この変異株が増えていく（無意識の選抜）。ヒトツブコムギは約1万1000年前ごろ、トルコ南東部のカラジャダー山付近で栽培化されたとされる。",
+     "hee": {
+      "1": "穂が落ちにくい麦を選んで育て続けたのが、畑の始まり。",
+      "2": "穂が落ちる性質は、野生では種をまく仕組み。人にとっては収穫を逃す困りもの。",
+      "3": "遺跡の穂軸から、非脱粒の麦が多数派になるまで1000〜2000年かかったらしい⚠️。実験からは、刈り方しだいで20〜200年という計算もある。",
+      "4": "ヒトツブコムギは2倍体、パン小麦は6倍体（エンマー×タルホコムギ、約8000〜9000年前）。アイスマン（約5300年前）の腸にもヒトツブコムギ。"
+     },
+     "certainty": "脱粒・非脱粒と選抜のしくみ ◎／カラジャダー山付近（Heun ほか 1997）○／1000〜2000年（Tanno & Willcox 2006）△ → ゲーム内は ⚠️／20〜200年（Hillman & Davies 1990）○／アイスマンのヒトツブコムギ ○",
+     "basis": "- Heun ほか 1997「Site of einkorn wheat domestication identified by DNA fingerprinting」Science 278：https://www.science.org/doi/10.1126/science.278.5341.1312"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -239,7 +268,7 @@
    "name": "農耕",
    "trunk": "0",
    "trunk_name": "生存・道具",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -9500,
    "year_range": null,
@@ -252,10 +281,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "穂が落ちにくい麦を選んで育て続けたのが、畑の始まり",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -266,6 +295,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 165
   },
   {
@@ -299,7 +329,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "豆の根には空気の中の窒素を肥料に変える菌がいて、畑がやせにくい",
    "kind": "tech",
    "play": "",
@@ -313,6 +343,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -346,7 +377,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "亜麻の茎を水につけて腐らせると、布にする糸がとれる",
    "kind": "tech",
    "play": "",
@@ -360,6 +391,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 148
   },
   {
@@ -407,6 +439,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 140
   },
   {
@@ -417,7 +450,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "S3. 研いだ石の刃は欠けにくい（磨製石斧）［0-08］",
+     "answer": "打ち欠いた刃には剥離の段や小さな傷が多く、そこからひびが広がって欠ける。砂（石英）と水で砥石の上を長くこすって傷を消すと、木を切っても欠けにくい刃になる。新石器時代の人は、柄を付けた磨製石斧で森を切りひらいた。",
+     "hee": {
+      "1": "石の斧を研ぐと、欠けにくい刃になる。",
+      "2": "研ぐには、斧の石より硬い砂（石英）が要る。水は削りかすを流し、熱を逃がす。",
+      "3": "ライプツィヒ近郊の井戸の木枠は、年輪で紀元前5206〜5098年に切られた木で、ほぞ組みだった。",
+      "4": "刃の部分だけを研いだ斧は、日本の旧石器時代（約3万8000年前）にも見つかっている⚠️。"
+     },
+     "certainty": "研磨で欠けにくくなるしくみ ○／ライプツィヒの井戸枠の年輪年代 ○（Tegel ほか 2012）／日本の局部磨製石斧の年代 △ → ゲーム内は ⚠️",
+     "basis": "- Tegel ほか 2012「Early Neolithic water wells reveal the world's oldest wood architecture」PLOS ONE：https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0051374"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -427,7 +473,7 @@
    "name": "木工",
    "trunk": "0",
    "trunk_name": "生存・道具",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -9000,
    "year_range": "-9000〜-5000",
@@ -440,10 +486,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "石の斧を研ぐと、欠けにくい刃になる",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -454,6 +500,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 156
   },
   {
@@ -487,7 +534,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "車輪より先に、焼き物を作る回転台（ろくろ）があった",
    "kind": "product",
    "play": "",
@@ -501,6 +548,7 @@
    "emoji": "🛞",
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -564,7 +612,8 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 227
+   "media": [],
+   "descendants": 226
   },
   {
    "real_full": "CaO+H2O→Ca(OH)2（強く発熱）、空気中で Ca(OH)2+CO2→CaCO3 に戻って固まる。ローマはポッツォラーナ（火山灰）を混ぜて水中でも固まるコンクリートに",
@@ -618,7 +667,8 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 213
+   "media": [],
+   "descendants": 212
   },
   {
    "real_full": "木を空気を絞って加熱（乾留、約400〜700℃）すると水分・揮発分が抜け炭素80〜90%に。洞窟壁画の顔料として約3万年前から（ショーヴェ洞窟）、銅の製錬（紀元前5000年頃〜、セルビア・ベロヴォデ）とともに燃料として重要に⚠️",
@@ -678,7 +728,8 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 295
+   "media": [],
+   "descendants": 294
   },
   {
    "real_full": "紀元前3500〜3000年、牛に引かせる四輪車（メソポタミア・中欧）。車軸と車輪の摩擦が課題（獣脂で潤滑）",
@@ -725,6 +776,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -758,7 +810,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "重い石や鉱石は、陸よりも水に浮かべて運ぶほうがずっと楽",
    "kind": "tech",
    "play": "",
@@ -772,6 +824,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -819,7 +872,8 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 308
+   "media": [],
+   "descendants": 307
   },
   {
    "real_full": "海水（塩分約3.5%）を砂に撒いて天日で濃くし（揚げ浜式・入浜式）、かん水を釜で煮詰めると NaCl が先に結晶する。残った母液が「にがり（苦汁）」＝ MgCl2 が主成分（ほかに MgSO4・KCl）。日本では縄文晩期の製塩土器から、能登の揚げ浜式は今も続く",
@@ -830,14 +884,15 @@
    },
    "hee_game": {
     "note1": "お日さまの力で海水から塩を作る。浜辺の水のとなりに置こう。",
-    "note2": "海・浜バイオームで、横に水があり、真上に空が見えて雨が降っていないときだけ動く。1分で塩1個、塩8個ごとににがり1個。右クリックで受け取る（塩64・にがり16までためる）。",
+    "note2": "海・浜バイオームで、横に水があり、真上に空が見えて雨が降っていないときだけ動く。1分で塩1個、塩8個ごとににがり1個。右クリックで受け取る（塩64・にがり16までためる）。煮つめ釜は大釜でも土器 [0-03] でもよい。",
     "note3": "揚げ浜式：砂をしいた浜に海水をまき、天日で乾かす。塩のついた砂を海水で洗って濃い塩水（かん水）を取り、釜で煮つめる。能登では今もこのやり方が続いている。",
     "note4": "日本では縄文晩期の製塩土器が見つかっている。江戸時代は瀬戸内の入浜式塩田（潮の満ち引きで海水を引き込む）がさかんだった。1972年からはイオン交換膜による電気透析で作るのが主流。"
    },
    "refs": [],
    "item": "salt_pan",
    "recipes": [
-    "作業台：砂×3 ＋ 粘土玉×2 ＋ 大釜 → 塩田"
+    "作業台：砂×3 ＋ 粘土玉×2 ＋ 大釜 → 塩田",
+    "作業台：砂×3 ＋ 粘土玉×2 ＋ 土器 → 塩田"
    ],
    "machine_recipes": [
     "塩田「天日で塩」：海辺の水と日光（減らない、雨の日は止まる） → 塩 ＋ にがり 8回に1個できる（60 秒）。電気なし"
@@ -875,7 +930,8 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
-   "descendants": 219
+   "media": [],
+   "descendants": 218
   },
   {
    "real_full": "約1万年前、肥沃な三日月地帯で羊・山羊、続いて野生のオーロックスから牛が家畜になった。囲って育て、乳・肉・毛・力（犂や荷車を引く）を得る",
@@ -908,7 +964,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "牛のご先祖は、肩の高さ2m近い野生のオーロックス",
    "kind": "tech",
    "play": "",
@@ -922,6 +978,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -969,6 +1026,7 @@
    "emoji": null,
    "symbol": "🪓",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -1056,6 +1114,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 62
   },
   {
@@ -1103,6 +1162,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -1168,7 +1228,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 222
+   "media": [],
+   "descendants": 221
   },
   {
    "real_full": "CuFeS2 を焙焼→硫化銅の「マット」→空気を吹いて Fe を酸化しスラグへ、S を SO2 へ（1880 マネス転炉）。現代の銅の大半はこの硫化鉱から",
@@ -1215,6 +1276,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 48
   },
   {
@@ -1280,6 +1342,7 @@
    "emoji": "🔔",
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 116
   },
   {
@@ -1332,7 +1395,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 250
+   "media": [],
+   "descendants": 249
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛。黒鉛るつぼは1840年代に普及（ディクソン、米墨戦争のころ）、特許は1850年）",
@@ -1378,7 +1442,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 227
+   "media": [],
+   "descendants": 226
   },
   {
    "real_full": "赤熱したブルームを叩いてスラグを絞り出す。炭素0.1%未満で柔らかく粘る。浸炭（木炭と加熱して表面に炭素を入れる）＋焼入れで刃物に",
@@ -1425,7 +1490,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 163
+   "media": [],
+   "descendants": 162
   },
   {
    "real_full": "中国は紀元前5世紀頃、欧州は14世紀。炉を高くし強く送風すると、炭素が溶け込んで融点が約1150℃に下がり鉄が液体で出る（銑鉄、C約4%）。硬いが脆い→鋳物",
@@ -1472,7 +1538,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 246
+   "media": [],
+   "descendants": 245
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -1527,7 +1594,8 @@
      "pi": 0
     }
    ],
-   "descendants": 198
+   "media": [],
+   "descendants": 197
   },
   {
    "real_full": "1740頃 ベンジャミン・ハンツマン（シェフィールド）。鉄を密閉るつぼで完全に溶かし、炭素量の均一な鋼に（時計ばね用）。それ以前のウーツ鋼（インド）も同系統",
@@ -1595,7 +1663,8 @@
      "pi": 1
     }
    ],
-   "descendants": 158
+   "media": [],
+   "descendants": 157
   },
   {
    "real_full": "1864 ピエール・マルタン（仏）が、シーメンスの蓄熱式炉[3-18]（設備＝1856 ジーメンス）を使って銑鉄とくず鉄を一緒に溶かし鋼にする「工程」を確立。くず鉄も溶かせ、成分を時間をかけて調整できる",
@@ -1647,6 +1716,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -1702,7 +1772,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 217
+   "media": [],
+   "descendants": 216
   },
   {
    "real_full": "1888 カール・ヨーゼフ・バイヤー。Al(OH)3+NaOH→NaAl(OH)4 で溶かし、鉄分（赤泥）をろ過、冷やして Al(OH)3 を析出→焼いて Al2O3",
@@ -1754,6 +1825,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 13
   },
   {
@@ -1841,6 +1913,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 60
   },
   {
@@ -1906,6 +1979,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 59
   },
   {
@@ -1976,6 +2050,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 45
   },
   {
@@ -2037,6 +2112,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -2092,6 +2168,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 6
   },
   {
@@ -2133,6 +2210,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 101
   },
   {
@@ -2174,6 +2252,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 85
   },
   {
@@ -2228,6 +2307,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 122
   },
   {
@@ -2269,6 +2349,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 58
   },
   {
@@ -2310,6 +2391,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 84
   },
   {
@@ -2351,6 +2433,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 7
   },
   {
@@ -2414,7 +2497,8 @@
      "pi": 2
     }
    ],
-   "descendants": 222
+   "media": [],
+   "descendants": 221
   },
   {
    "real_full": "焙焼 2PbS+3O2→2PbO+2SO2 → 炭素還元 PbO+C→Pb+CO。融点327℃で古代から製錬。ヨーロッパ最古の方鉛鉱の処理は紀元前4400〜4300年（ルーマニア・ピエトレレ）。近東ではそれ以前（後期新石器）から鉛利用の例があり、最古の鉛の像はアビドスの紀元前3800年頃",
@@ -2462,6 +2546,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 132
   },
   {
@@ -2516,7 +2601,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 102
+   "media": [],
+   "descendants": 101
   },
   {
    "real_full": "1886 ホール（米）とエルー（仏）が独立に発明。約960℃で溶かした氷晶石にアルミナを溶かして電解 2Al2O3+3C→4Al+3CO2（陽極の炭素が燃えて減る）。1kg に約15kWh",
@@ -2593,6 +2679,7 @@
      "pi": 4
     }
    ],
+   "media": [],
    "descendants": 76
   },
   {
@@ -2653,6 +2740,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 121
   },
   {
@@ -2705,6 +2793,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 57
   },
   {
@@ -2752,6 +2841,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 61
   },
   {
@@ -2819,6 +2909,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 136
   },
   {
@@ -2886,6 +2977,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -2938,6 +3030,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 5
   },
   {
@@ -2990,6 +3083,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 48
   },
   {
@@ -3037,6 +3131,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 71
   },
   {
@@ -3094,6 +3189,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -3148,6 +3244,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 90
   },
   {
@@ -3203,6 +3300,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 71
   },
   {
@@ -3266,6 +3364,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 8
   },
   {
@@ -3318,6 +3417,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -3359,6 +3459,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 49
   },
   {
@@ -3408,6 +3509,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 4
   },
   {
@@ -3464,7 +3566,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 111
+   "media": [],
+   "descendants": 110
   },
   {
    "real_full": "熱水が岩の割れ目に SiO2 を沈めた石英脈。人が水晶（石英の結晶）を使った歴史は古く、中石器時代末の刃物、紀元前4千年紀・3千年紀のビーズ（イラン）までさかのぼる。年 -2500 は紀元前3千年紀のビーズ・印章の代表値⚠️。地殻の約12%が石英。高純度の石英（水晶・ペグマタイトの石英、スプルースパインは不純物100ppm未満）が溶融石英・石英るつぼの原料",
@@ -3510,7 +3613,8 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
-   "descendants": 105
+   "media": [],
+   "descendants": 103
   },
   {
    "real_full": "磁鉄鉱 Fe3O4 の一部は自然に磁石になっている（雷の大電流で磁化したと考えられている）。紀元前6世紀ごろギリシャのタレスが鉄を引きつける石を記した⚠️、中国の司南（漢代⚠️）、1088 沈括の磁針",
@@ -3558,6 +3662,7 @@
    "emoji": null,
    "symbol": "⛏️",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -3606,7 +3711,8 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 219
+   "media": [],
+   "descendants": 218
   },
   {
    "real_full": "木灰を水に浸して上澄み（灰汁＝あく）を取り、鍋で煮詰めると K2CO3（\"pot ash\"＝鍋の灰、potassium の語源）。古代から石けん・ガラスの原料（シュメール・ギルスの粘土板に、約4500年前に羊毛を洗った記録⚠️）。これに消石灰を加えると K2CO3 + Ca(OH)2 → 2KOH + CaCO3↓（苛性化）で KOH ができ、古代〜中世の石けん作りでも使われた",
@@ -3667,7 +3773,8 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
-   "descendants": 203
+   "media": [],
+   "descendants": 202
   },
   {
    "real_full": "干上がった塩湖の蒸発岩。トロナ Na2CO3·NaHCO3·2H2O を加熱 2(Na2CO3·NaHCO3·2H2O)→3Na2CO3+CO2+5H2O。古代エジプトはナトロンをミイラ作り（最初の証拠は古王国第4王朝、紀元前2600年頃のヘテプヘレス1世の内臓箱）とガラスに使い、大プリニウス『博物誌』（77年）が記録",
@@ -3713,6 +3820,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 141
   },
   {
@@ -3760,6 +3868,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 159
   },
   {
@@ -3822,6 +3931,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 160
   },
   {
@@ -3879,6 +3989,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 126
   },
   {
@@ -3934,6 +4045,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 74
   },
   {
@@ -3988,6 +4100,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 99
   },
   {
@@ -4038,6 +4151,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 89
   },
   {
@@ -4098,6 +4212,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 84
   },
   {
@@ -4154,6 +4269,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -4206,6 +4322,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -4259,6 +4376,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -4325,6 +4443,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 140
   },
   {
@@ -4382,6 +4501,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 132
   },
   {
@@ -4431,6 +4551,7 @@
      "pi": 5
     }
    ],
+   "media": [],
    "descendants": 55
   },
   {
@@ -4489,6 +4610,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 39
   },
   {
@@ -4547,6 +4669,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 38
   },
   {
@@ -4599,6 +4722,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 37
   },
   {
@@ -4654,6 +4778,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 162
   },
   {
@@ -4704,6 +4829,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 131
   },
   {
@@ -4759,6 +4885,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -4819,6 +4946,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 98
   },
   {
@@ -4866,6 +4994,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 50
   },
   {
@@ -4918,6 +5047,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 47
   },
   {
@@ -4965,6 +5095,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 45
   },
   {
@@ -5012,6 +5143,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 44
   },
   {
@@ -5064,6 +5196,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 43
   },
   {
@@ -5105,6 +5238,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 97
   },
   {
@@ -5157,6 +5291,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 37
   },
   {
@@ -5205,6 +5340,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -5266,6 +5402,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 38
   },
   {
@@ -5318,6 +5455,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -5359,6 +5497,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -5420,6 +5559,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -5472,6 +5612,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -5525,6 +5666,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 11
   },
   {
@@ -5572,6 +5714,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 25
   },
   {
@@ -5620,6 +5763,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -5675,6 +5819,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -5740,6 +5885,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 39
   },
   {
@@ -5787,6 +5933,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 103
   },
   {
@@ -5834,6 +5981,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 85
   },
   {
@@ -5881,6 +6029,7 @@
    "emoji": null,
    "symbol": "⚗️",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -5928,7 +6077,8 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 229
+   "media": [],
+   "descendants": 228
   },
   {
    "real_full": "火を囲うと放射が壁で戻り約1000℃。土器窯・鍛冶炉の原型",
@@ -5975,6 +6125,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -6035,6 +6186,7 @@
      "pi": 6
     }
    ],
+   "media": [],
    "descendants": 139
   },
   {
@@ -6090,6 +6242,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 4
   },
   {
@@ -6164,6 +6317,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -6219,6 +6373,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -6285,6 +6440,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -6340,6 +6496,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -6430,6 +6587,7 @@
      "pi": 7
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -6488,6 +6646,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -6544,6 +6703,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 180
   },
   {
@@ -6591,6 +6751,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -6656,6 +6817,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 71
   },
   {
@@ -6745,7 +6907,8 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
-   "descendants": 135
+   "media": [],
+   "descendants": 134
   },
   {
    "real_full": "空気を抜いて加熱すると酸化せず、気体が出る反応が進む（Mg 蒸留[1-39]、W/Mo の焼結[1-28][1-31]、ウェハーのアニール）。1929年にレイセオンが最初の真空炉を発注（イプセン社史）、工業的な普及は1950年代末〜60年代⚠️",
@@ -6810,6 +6973,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 45
   },
   {
@@ -6862,6 +7026,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -6914,6 +7079,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 171
   },
   {
@@ -6947,7 +7113,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "るつぼや炉の内側は、昔から熱に強い粘土で作った",
    "kind": "tech",
    "play": "",
@@ -6961,6 +7127,7 @@
    "emoji": null,
    "symbol": "🔥",
    "people": [],
+   "media": [],
    "descendants": 6
   },
   {
@@ -7032,7 +7199,8 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 217
+   "media": [],
+   "descendants": 216
   },
   {
    "real_full": "1712 ニューコメンの大気圧機関（炭鉱の排水）、ワット1776。熱効率は約2〜5%（ニューコメン機関は約1%、ワットの分離凝縮器で数倍に改善）",
@@ -7118,7 +7286,8 @@
      "pi": 8
     }
    ],
-   "descendants": 229
+   "media": [],
+   "descendants": 228
   },
   {
    "real_full": "I²R損失。太線と高電圧で減らす。1882年9月4日 エジソンのパール街発電所が、銅の導体を地下の管に通して送電を始めた",
@@ -7179,6 +7348,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
+   "media": [],
    "descendants": 91
   },
   {
@@ -7250,7 +7420,8 @@
      "pi": 9
     }
    ],
-   "descendants": 227
+   "media": [],
+   "descendants": 226
   },
   {
    "real_full": "1866年12月 ヴァーリーが特許出願、1867年1月 ジーメンスとホイートストンが王立協会で発表（ほぼ同時）。鉄心の残留磁気で自分を励磁、永久磁石不要",
@@ -7322,7 +7493,8 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 139
+   "media": [],
+   "descendants": 138
   },
   {
    "real_full": "パーソンズ1884。回転が速く発電に最適、MW級。現代の復水式蒸気タービン火力で熱効率30%級（最新鋭は40%超）",
@@ -7403,7 +7575,8 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 137
+   "media": [],
+   "descendants": 136
   },
   {
    "real_full": "プランテ1859。Pb+PbO2+H2SO4。極板の格子は純鉛だと柔らかいので [1-43]アンチモンを数%混ぜて硬くした（任意の上位素材）",
@@ -7485,6 +7658,7 @@
      "pi": 4
     }
    ],
+   "media": [],
    "descendants": 2
   },
   {
@@ -7533,7 +7707,8 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 223
+   "media": [],
+   "descendants": 222
   },
   {
    "real_full": "真空管発振回路（1910年代）。誘導加熱の電源",
@@ -7612,6 +7787,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
+   "media": [],
    "descendants": 75
   },
   {
@@ -7659,7 +7835,8 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
-   "descendants": 137
+   "media": [],
+   "descendants": 136
   },
   {
    "real_full": "交流→直流。1902年 クーパー・ヒューイットの水銀整流器が最初の電力用の静止形整流器（真空管の整流器はフレミングの二極管 1904）。電解・イオン注入の高電圧直流に必要",
@@ -7709,6 +7886,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
+   "media": [],
    "descendants": 19
   },
   {
@@ -7787,6 +7965,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
+   "media": [],
    "descendants": 58
   },
   {
@@ -7852,7 +8031,8 @@
      "pi": 10
     }
    ],
-   "descendants": 216
+   "media": [],
+   "descendants": 215
   },
   {
    "real_full": "1882 エジソンのパール・ストリート発電所（ニューヨーク）とホルボーン高架橋発電所（ロンドン）で、蒸気機関で回したダイナモの電気を街に配った",
@@ -7915,6 +8095,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
+   "media": [],
    "descendants": 59
   },
   {
@@ -7972,6 +8153,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -8027,6 +8209,7 @@
    "emoji": null,
    "symbol": "⚡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -8110,6 +8293,7 @@
      "pi": 11
     }
    ],
+   "media": [],
    "descendants": 91
   },
   {
@@ -8213,6 +8397,7 @@
      "pi": 13
     }
    ],
+   "media": [],
    "descendants": 83
   },
   {
@@ -8273,6 +8458,7 @@
      "pi": 14
     }
    ],
+   "media": [],
    "descendants": 1
   },
   {
@@ -8330,7 +8516,8 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
-   "descendants": 107
+   "media": [],
+   "descendants": 106
   },
   {
    "real_full": "1915 ゲーデの拡散ポンプ、1916 ラングミュアの凝縮ポンプ。水銀を沸かして蒸気の噴流を下向きに吹き、気体分子をたたき落として前段ポンプへ送る。可動部がない。10⁻⁴Pa 級",
@@ -8387,6 +8574,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 102
   },
   {
@@ -8444,6 +8632,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 60
   },
   {
@@ -8512,6 +8701,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 10
   },
   {
@@ -8577,6 +8767,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -8629,6 +8820,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -8714,6 +8906,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -8774,6 +8967,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 70
   },
   {
@@ -8827,6 +9021,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 85
   },
   {
@@ -8895,6 +9090,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 56
   },
   {
@@ -8977,6 +9173,7 @@
      "pi": 15
     }
    ],
+   "media": [],
    "descendants": 85
   },
   {
@@ -9027,6 +9224,7 @@
    "emoji": null,
    "symbol": "🫙",
    "people": [],
+   "media": [],
    "descendants": 84
   },
   {
@@ -9116,7 +9314,8 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
-   "descendants": 202
+   "media": [],
+   "descendants": 201
   },
   {
    "real_full": "19世紀のガス灯用ガスタンク（水封式）。水を張った槽に底なしの鉄のベルをかぶせ、ガスが入るとベルが浮く。ガス圧＝ベルの重さ÷面積（数kPa）で圧縮不要。1812 ロンドンのガス・ライト・アンド・コーク社",
@@ -9164,6 +9363,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 13
   },
   {
@@ -9225,6 +9425,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 167
   },
   {
@@ -9271,6 +9472,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 193
   },
   {
@@ -9346,6 +9548,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 140
   },
   {
@@ -9413,6 +9616,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 104
   },
   {
@@ -9477,6 +9681,7 @@
      "pi": 16
     }
    ],
+   "media": [],
    "descendants": 164
   },
   {
@@ -9524,6 +9729,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 15
   },
   {
@@ -9596,6 +9802,7 @@
      "pi": 18
     }
    ],
+   "media": [],
    "descendants": 158
   },
   {
@@ -9637,6 +9844,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 103
   },
   {
@@ -9700,6 +9908,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 102
   },
   {
@@ -9752,6 +9961,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 93
   },
   {
@@ -9800,6 +10010,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -9867,6 +10078,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 12
   },
   {
@@ -9908,6 +10120,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -9949,6 +10162,7 @@
    "emoji": null,
    "symbol": "💨",
    "people": [],
+   "media": [],
    "descendants": 103
   },
   {
@@ -10017,6 +10231,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 84
   },
   {
@@ -10079,7 +10294,8 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
-   "descendants": 98
+   "media": [],
+   "descendants": 96
   },
   {
    "real_full": "粗い研削（砂・エメリー）→ 柔らかいピッチの皿に研磨剤を付けてこする。17世紀からベンガラ（ジュエラーズルージュ）⚠️、1940年代から CeO2（化学的にも SiO2 と反応して速く平らに削れる）。形の検査はニュートンリング・干渉[7-09]",
@@ -10162,6 +10378,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 83
   },
   {
@@ -10245,6 +10462,7 @@
      "pi": 20
     }
    ],
+   "media": [],
    "descendants": 62
   },
   {
@@ -10314,6 +10532,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 51
   },
   {
@@ -10379,6 +10598,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -10401,6 +10621,18 @@
      },
      "certainty": "孔雀石の化学・分解・還元 ◎／ベロヴォデ 約7000年前・最古の製錬の証拠 ○（Radivojević ら 2010、UCL）／マンガンを含む鉱石とビーズの話 ○",
      "basis": "- UCL Discovery「On the origins of extractive metallurgy: new evidence from Europe」（Radivojević ら 2010）：https://discovery.ucl.ac.uk/id/eprint/1380193/"
+    },
+    {
+     "title": "O11. 細い針金の格子で光の波長を測る（回折格子）［7-07］",
+     "answer": "等しい間隔 d のすき間をたくさん通った光は、d·sinθ = λ（1次）を満たす角度でだけ強め合う。d と角度 θ を測れば、波長 λ が長さとして決まる。1821年ごろフラウンホーファーは、2本の細いねじに針金を巻いた格子で、太陽の D線の波長を約1000分の1の精度で初めて測った。",
+     "hee": {
+      "1": "CD の裏の虹色も回折格子（溝の間隔 1.6μm）。",
+      "2": "プリズムは紫ほど強く曲げるが、格子は赤ほど大きく曲げる。",
+      "3": "フラウンホーファーの格子は、太さ 0.002 インチの針金を 0.004 インチ間隔で並べたもの。",
+      "4": "1882年ローランドは刻線機で金属に細かい溝を刻んだ格子を作り、太陽スペクトルの精密な地図を作った [8-12]。"
+     },
+     "certainty": "格子の式 ◎／フラウンホーファーの針金格子と D線の測定 ○（年は 1820〜1821 で資料により違う）／針金の太さ・間隔 ○（一つの資料）／ローランド 1882 ○",
+     "basis": "- Physics Today「The master of dispersion」（フラウンホーファー）：https://physicstoday.aip.org/opinion/the-master-of-dispersion"
     }
    ],
    "item": null,
@@ -10412,7 +10644,7 @@
    "name": "回折格子",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1821,
    "year_range": null,
@@ -10438,10 +10670,10 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "CD の裏の虹色も回折格子",
    "kind": "tech",
-   "play": "",
+   "play": "実験（波長を測る）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -10452,6 +10684,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -10514,6 +10747,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 45
   },
   {
@@ -10524,7 +10758,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O12. 水銀の蒸気を光らせる（水銀灯、g線・i線）［7-10］",
+     "answer": "空気を抜いた管に水銀を入れ、両端の電極に電流を流すと、水銀の蒸気の中で放電が起き、水銀原子が決まった波長の光を出す（黄 577/579nm、緑 546nm、g線 436nm、h線 405nm、i線 365nm ほか）。1901年クーパー・ヒューイットの水銀灯、1903〜04年キューヒ（ヘレウス）の石英水銀灯は、どちらも直流で動いた。",
+     "hee": {
+      "1": "半導体工場が黄色い光なのは、レジストが反応しない色だから。",
+      "2": "最初の水銀灯は、管をかたむけて水銀で電極をつないで点灯した。110V・3.5A＝385W で、白熱電球より効率がよかったが光は青緑だった。",
+      "3": "キューヒは酸水素炎で水晶を溶かして泡のない石英ガラスを作り、その管で紫外線をたくさん出す水銀灯を作った（のちに医療・殺菌に）。",
+      "4": "水銀の g線・i線は 1980〜90年代の露光装置（ステッパー）の光源になった。"
+     },
+     "certainty": "水銀の線の波長 ◎（NIST）／クーパー・ヒューイット 1901・直流・かたむけて点灯 ○（Wikipedia）／385W・110V・3.5A ○（lamptech の一資料）／キューヒの石英灯 1903〜04・直流 ○（Deutsche Biographie・lamptech）／g線・i線ステッパー ◎",
+     "basis": "- Wikipedia「Mercury-vapor lamp」：https://en.wikipedia.org/wiki/Mercury-vapor_lamp"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -10534,43 +10781,17 @@
    "name": "水銀ランプ",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1901,
    "year_range": null,
-   "year_uncertain": false,
-   "requires": [
-    [
-     [
-      "1-45"
-     ]
-    ],
-    [
-     [
-      "7-02"
-     ]
-    ],
-    [
-     [
-      "1-28"
-     ]
-    ],
-    [
-     [
-      "5-04"
-     ]
-    ],
-    [
-     [
-      "4-10"
-     ]
-    ]
-   ],
+   "year_uncertain": true,
+   "requires": [],
    "understanding": [],
    "buildable_now": false,
    "hee1": "半導体工場が黄色い光なのは、レジストが反応しない色だから",
    "kind": "tech",
-   "play": "",
+   "play": "作品（直流で光る明かり）＋実験（分光器で水銀の線）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -10581,6 +10802,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 47
   },
   {
@@ -10638,6 +10860,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 36
   },
   {
@@ -10709,6 +10932,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 35
   },
   {
@@ -10768,6 +10992,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -10835,6 +11060,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 5
   },
   {
@@ -10902,6 +11128,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 44
   },
   {
@@ -10961,6 +11188,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 5
   },
   {
@@ -11036,6 +11264,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 5
   },
   {
@@ -11110,6 +11339,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 4
   },
   {
@@ -11175,6 +11405,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 9
   },
   {
@@ -11247,6 +11478,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 10
   },
   {
@@ -11304,6 +11536,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 6
   },
   {
@@ -11359,6 +11592,7 @@
    "emoji": null,
    "symbol": "🔍",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -11417,7 +11651,8 @@
      "pi": 21
     }
    ],
-   "descendants": 157
+   "media": [],
+   "descendants": 156
   },
   {
    "real_full": "1797〜1800頃 モーズリーが親ねじ（送りねじ）付き旋盤で同じねじを何本でも切れるように。1841 ジョセフ・ホイットワースがねじ山の角度55°・インチあたりの山数を標準化。互換性部品はフランスのブラン（1785年頃、部品を混ぜて銃を組み立てた）・米国の兵器工場（1824 ハーパーズ・フェリーでホールの M1819 ライフル1000丁、1826年の検査で部品を混ぜても組めた）",
@@ -11472,6 +11707,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 63
   },
   {
@@ -11526,6 +11762,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 60
   },
   {
@@ -11577,6 +11814,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 60
   },
   {
@@ -11634,6 +11872,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 50
   },
   {
@@ -11696,6 +11935,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 39
   },
   {
@@ -11758,6 +11998,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 14
   },
   {
@@ -11820,6 +12061,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 36
   },
   {
@@ -11887,6 +12129,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -11939,6 +12182,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 46
   },
   {
@@ -11997,6 +12241,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 7
   },
   {
@@ -12054,6 +12299,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -12111,6 +12357,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 6
   },
   {
@@ -12173,6 +12420,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 10
   },
   {
@@ -12230,6 +12478,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 22
   },
   {
@@ -12287,6 +12536,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -12344,6 +12594,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 35
   },
   {
@@ -12406,6 +12657,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -12453,6 +12705,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -12513,6 +12766,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 45
   },
   {
@@ -12570,6 +12824,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -12622,6 +12877,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 48
   },
   {
@@ -12674,6 +12930,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -12731,6 +12988,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -12796,6 +13054,7 @@
    "emoji": null,
    "symbol": "📏",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -12873,6 +13132,7 @@
      "pi": 22
     }
    ],
+   "media": [],
    "descendants": 61
   },
   {
@@ -12943,6 +13203,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 25
   },
   {
@@ -13025,6 +13286,7 @@
      "pi": 24
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -13092,6 +13354,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 23
   },
   {
@@ -13145,6 +13408,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 20
   },
   {
@@ -13192,6 +13456,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 23
   },
   {
@@ -13291,6 +13556,7 @@
      "pi": 26
     }
    ],
+   "media": [],
    "descendants": 55
   },
   {
@@ -13386,6 +13652,7 @@
      "pi": 27
     }
    ],
+   "media": [],
    "descendants": 41
   },
   {
@@ -13459,6 +13726,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -13511,6 +13779,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -13589,6 +13858,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 47
   },
   {
@@ -13659,6 +13929,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 40
   },
   {
@@ -13716,6 +13987,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 35
   },
   {
@@ -13783,6 +14055,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 36
   },
   {
@@ -13861,6 +14134,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 32
   },
   {
@@ -13951,6 +14225,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 35
   },
   {
@@ -14008,6 +14283,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 22
   },
   {
@@ -14067,6 +14343,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 31
   },
   {
@@ -14127,6 +14404,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 35
   },
   {
@@ -14192,6 +14470,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 34
   },
   {
@@ -14250,6 +14529,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 33
   },
   {
@@ -14317,6 +14597,7 @@
      "pi": 29
     }
    ],
+   "media": [],
    "descendants": 24
   },
   {
@@ -14374,6 +14655,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 24
   },
   {
@@ -14429,6 +14711,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 6
   },
   {
@@ -14486,6 +14769,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 25
   },
   {
@@ -14550,6 +14834,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 7
   },
   {
@@ -14608,6 +14893,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 5
   },
   {
@@ -14671,6 +14957,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 8
   },
   {
@@ -14731,6 +15018,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -14793,6 +15081,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 8
   },
   {
@@ -14845,6 +15134,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -14897,6 +15187,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -14949,6 +15240,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -15004,6 +15296,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -15061,6 +15354,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -15118,6 +15412,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -15180,6 +15475,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 4
   },
   {
@@ -15238,6 +15534,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -15315,6 +15612,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 4
   },
   {
@@ -15394,6 +15692,7 @@
    "emoji": "🌀",
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -15446,6 +15745,7 @@
    "emoji": null,
    "symbol": "💠",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -15512,6 +15812,7 @@
      "pi": 30
     }
    ],
+   "media": [],
    "descendants": 39
   },
   {
@@ -15559,6 +15860,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 27
   },
   {
@@ -15619,6 +15921,7 @@
      "pi": 16
     }
    ],
+   "media": [],
    "descendants": 2
   },
   {
@@ -15671,6 +15974,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 7
   },
   {
@@ -15718,6 +16022,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 24
   },
   {
@@ -15767,6 +16072,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -15814,6 +16120,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -15866,6 +16173,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -15921,6 +16229,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 21
   },
   {
@@ -15973,6 +16282,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 20
   },
   {
@@ -16020,6 +16330,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 18
   },
   {
@@ -16077,6 +16388,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 17
   },
   {
@@ -16139,6 +16451,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 16
   },
   {
@@ -16186,6 +16499,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 13
   },
   {
@@ -16248,6 +16562,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 6
   },
   {
@@ -16320,6 +16635,7 @@
      "pi": 33
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16367,6 +16683,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16414,6 +16731,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16461,6 +16779,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16508,6 +16827,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16541,7 +16861,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "掛け算を「長さの足し算」に変える物差し。電卓が出るまで、技術者のポケットにはいつもこれがあった（NET-06 で追加。出典：Oughtred Society「History」、Smithsonian「Slide Rules」、Britannica「slide rule」、ETHW「HP-35 Milestone」）",
    "kind": "tech",
    "play": "",
@@ -16557,6 +16877,7 @@
    "emoji": null,
    "symbol": "🧮",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16595,7 +16916,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "水をやりすぎると畑が塩でだめになる",
    "kind": "tech",
    "play": "",
@@ -16609,6 +16930,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16669,6 +16991,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16721,6 +17044,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16773,6 +17097,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16806,7 +17131,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "落ち葉を食べる小さな生き物が肥料を作る",
    "kind": "tech",
    "play": "",
@@ -16820,6 +17145,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16867,6 +17193,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16922,6 +17249,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -16960,7 +17288,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "粉ひきは、人類が最初に機械にやらせた仕事の一つ",
    "kind": "tech",
    "play": "",
@@ -16974,6 +17302,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -17023,6 +17352,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17063,7 +17393,7 @@
    "understanding": [
     "2-39"
    ],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "お酒を空気にさらしておくと酢になる",
    "kind": "tech",
    "play": "",
@@ -17077,6 +17407,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 44
   },
   {
@@ -17132,6 +17463,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17188,6 +17520,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17245,6 +17578,7 @@
    "emoji": "❄️",
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 8
   },
   {
@@ -17288,7 +17622,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "白い砂糖は茶色の汁を炭で白くしたもの",
    "kind": "tech",
    "play": "",
@@ -17302,6 +17636,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17354,6 +17689,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17406,6 +17742,7 @@
    "emoji": null,
    "symbol": "🌾",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17453,6 +17790,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -17508,6 +17846,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -17560,6 +17899,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17610,6 +17950,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -17662,6 +18003,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17714,6 +18056,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -17766,6 +18109,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17818,6 +18162,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17870,6 +18215,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17921,6 +18267,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -17981,6 +18328,7 @@
      "pi": 34
     }
    ],
+   "media": [],
    "descendants": 49
   },
   {
@@ -18033,6 +18381,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 7
   },
   {
@@ -18085,6 +18434,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 6
   },
   {
@@ -18137,6 +18487,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 5
   },
   {
@@ -18187,6 +18538,7 @@
    "emoji": null,
    "symbol": "🧱",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18234,6 +18586,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18286,6 +18639,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18347,6 +18701,7 @@
      "pi": 35
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18394,6 +18749,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 4
   },
   {
@@ -18441,6 +18797,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -18488,6 +18845,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18535,6 +18893,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18587,6 +18946,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18634,6 +18994,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18694,6 +19055,7 @@
      "pi": 36
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18749,6 +19111,7 @@
      "pi": 4
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18796,6 +19159,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18848,6 +19212,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18895,6 +19260,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -18947,6 +19313,7 @@
    "emoji": null,
    "symbol": "💊",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19015,6 +19382,7 @@
      "pi": 37
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19070,6 +19438,7 @@
      "pi": 38
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19127,6 +19496,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19179,6 +19549,7 @@
    "emoji": "🚢",
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19239,6 +19610,7 @@
      "pi": 39
     }
    ],
+   "media": [],
    "descendants": 1
   },
   {
@@ -19291,6 +19663,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19338,6 +19711,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -19400,6 +19774,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19460,6 +19835,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 7
   },
   {
@@ -19512,6 +19888,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19564,6 +19941,7 @@
    "emoji": "🚗",
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -19624,6 +20002,7 @@
      "pi": 40
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19676,6 +20055,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19728,6 +20108,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19785,6 +20166,7 @@
    "emoji": null,
    "symbol": "🚂",
    "people": [],
+   "media": [],
    "descendants": 2
   },
   {
@@ -19845,6 +20227,7 @@
      "pi": 41
     }
    ],
+   "media": [],
    "descendants": 40
   },
   {
@@ -19927,6 +20310,7 @@
      "pi": 43
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -19979,6 +20363,7 @@
    "emoji": null,
    "symbol": "📡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20039,6 +20424,7 @@
      "pi": 44
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20099,6 +20485,7 @@
      "pi": 45
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20151,6 +20538,7 @@
    "emoji": null,
    "symbol": "📡",
    "people": [],
+   "media": [],
    "descendants": 3
   },
   {
@@ -20206,6 +20594,7 @@
      "pi": 46
     }
    ],
+   "media": [],
    "descendants": 2
   },
   {
@@ -20258,6 +20647,7 @@
    "emoji": null,
    "symbol": "📡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20310,6 +20700,7 @@
    "emoji": "📻",
    "symbol": "📡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20364,6 +20755,7 @@
    "emoji": "📻",
    "symbol": "📡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20424,6 +20816,7 @@
      "pi": 47
     }
    ],
+   "media": [],
    "descendants": 1
   },
   {
@@ -20481,6 +20874,7 @@
    "emoji": null,
    "symbol": "📡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20541,6 +20935,7 @@
      "pi": 48
     }
    ],
+   "media": [],
    "descendants": 2
   },
   {
@@ -20596,6 +20991,7 @@
      "pi": 29
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20651,6 +21047,7 @@
    "emoji": null,
    "symbol": "📡",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20729,6 +21126,7 @@
      "pi": 16
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -20781,6 +21179,7 @@
    "emoji": "📷",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 37
   },
   {
@@ -20846,6 +21245,7 @@
      "pi": 49
     }
    ],
+   "media": [],
    "descendants": 39
   },
   {
@@ -20899,6 +21299,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 38
   },
   {
@@ -20962,6 +21363,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -21019,6 +21421,7 @@
    "emoji": "♨️",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21066,6 +21469,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21119,6 +21523,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21185,6 +21590,7 @@
      "pi": 50
     }
    ],
+   "media": [],
    "descendants": 3
   },
   {
@@ -21238,6 +21644,7 @@
    "emoji": "🧮",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21295,6 +21702,7 @@
    "emoji": "🎮",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21362,6 +21770,7 @@
    "emoji": "📱",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21419,6 +21828,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 1
   },
   {
@@ -21494,6 +21904,7 @@
    "emoji": "☀️",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21556,6 +21967,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21603,6 +22015,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21655,6 +22068,7 @@
    "emoji": null,
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21712,6 +22126,7 @@
    "emoji": "💻",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21774,6 +22189,7 @@
    "emoji": "🛰️",
    "symbol": "🌿",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21830,6 +22246,7 @@
    "emoji": "🏗️",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21889,6 +22306,7 @@
    "emoji": "🚀",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -21964,6 +22382,7 @@
    "emoji": "🚗",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22019,6 +22438,7 @@
    "emoji": "🖨️",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22081,6 +22501,7 @@
    "emoji": "🧲",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22135,6 +22556,7 @@
    "emoji": "🌡️",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22183,6 +22605,7 @@
    "emoji": "🧪",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22238,6 +22661,7 @@
    "emoji": "🔬",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22290,6 +22714,7 @@
    "emoji": "🧠",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22342,6 +22767,7 @@
    "emoji": "🧊",
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22402,6 +22828,7 @@
      "pi": 51
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22456,6 +22883,7 @@
      "pi": 52
     }
    ],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22513,6 +22941,7 @@
    "emoji": null,
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22559,6 +22988,7 @@
    "emoji": null,
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   },
   {
@@ -22605,6 +23035,7 @@
    "emoji": null,
    "symbol": "●",
    "people": [],
+   "media": [],
    "descendants": 0
   }
  ],
@@ -25337,41 +25768,6 @@
    "to": "7-09",
    "kind": "requires",
    "group": 3,
-   "or": false
-  },
-  {
-   "from": "1-45",
-   "to": "7-10",
-   "kind": "requires",
-   "group": 0,
-   "or": false
-  },
-  {
-   "from": "7-02",
-   "to": "7-10",
-   "kind": "requires",
-   "group": 1,
-   "or": false
-  },
-  {
-   "from": "1-28",
-   "to": "7-10",
-   "kind": "requires",
-   "group": 2,
-   "or": false
-  },
-  {
-   "from": "5-04",
-   "to": "7-10",
-   "kind": "requires",
-   "group": 3,
-   "or": false
-  },
-  {
-   "from": "4-10",
-   "to": "7-10",
-   "kind": "requires",
-   "group": 4,
    "or": false
   },
   {
@@ -29774,13 +30170,6 @@
    "gap": 9
   },
   {
-   "node": "7-10",
-   "year": 1901,
-   "requires": "1-28",
-   "requires_year": 1910,
-   "gap": 9
-  },
-  {
    "node": "8-06",
    "year": 1892,
    "requires": "7-10",
@@ -29932,13 +30321,6 @@
    "year": 1886,
    "requires": "6-05",
    "requires_year": 1890,
-   "gap": 4
-  },
-  {
-   "node": "7-10",
-   "year": 1901,
-   "requires": "5-04",
-   "requires_year": 1905,
    "gap": 4
   },
   {

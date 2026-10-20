@@ -483,6 +483,7 @@ def export_json(nodes):
                           "explained_by": [k for k, o in nodes.items() if i in o["explains"]],
                           "icon": icon_uri(icons[i]) if i in icons else None, "emoji": emoji.get(i),
                           "symbol": symbols.get(trunk_of(i), "●"), "people": people.get(i, []),
+                          "media": [x for x in meta.get("media", {}).get(i, []) if isinstance(x, dict)],
                           "descendants": len(descendants(i))})
         for gi, alts in enumerate(n["groups"]):
             for a in alts:
