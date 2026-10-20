@@ -983,6 +983,20 @@
 - Wikipedia「Bernard Courtois」：https://en.wikipedia.org/wiki/Bernard_Courtois
 - Wikipedia「Kelp」（ケルプ産業）：https://en.wikipedia.org/wiki/Kelp
 
+## O30. 銀の板に光を写す（ダゲレオタイプ）［B-02a］
+**答え**：磨いた銀の板をヨウ素の蒸気にあててヨウ化銀の膜を作り、カメラで数分間光を当てる（露光）。見えない潜像を、温めた水銀の蒸気で白いアマルガムの粒にして見えるようにし（現像）、食塩水やハイポで残りの銀塩を取る（定着）。1839年ダゲールが発表し、フランス政府が買い取って世界に無料で公開した。
+
+- へえ①：1枚きりで複製できない（ネガがない）。
+- へえ②：最初は露光に数分かかり、動く人は写らなかった。だから昔の街の写真には人がいない。
+- へえ③：1840〜41年、ペッツヴァールの明るいレンズと臭素の増感で、露光は十数秒になり肖像写真が広まった。
+- へえ④：感光材・露光・現像・定着は、IC のフォトリソグラフィにそのまま受け継がれた。
+
+確かさ：ダゲレオタイプの工程（ヨウ素・水銀・食塩）◎／1839 の公開とフランス政府 ◎／露光時間 数分〜15分 ○（条件で大きく違う）／偶然の水銀の発見の話 △ → ゲーム内は ⚠️
+根拠：
+- Wikipedia「Daguerreotype」：https://en.wikipedia.org/wiki/Daguerreotype
+- Wikipedia「Louis Daguerre」：https://en.wikipedia.org/wiki/Louis_Daguerre
+- Wikipedia「Petzval lens」：https://en.wikipedia.org/wiki/Petzval_lens
+
 ---
 
 # 冶金と熱（タスク15〜）
