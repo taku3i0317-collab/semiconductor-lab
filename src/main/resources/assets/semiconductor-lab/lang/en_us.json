@@ -391,6 +391,8 @@
   "advancement.semiconductor-lab.domestication.goat.description": "You raised 3 generations of goats. Goats, with sheep, were among the very first livestock (about 10,000 years ago, around the Zagros Mountains ⚠️), giving milk, meat, hair and hides",
   "message.semiconductor-lab.domestication.generation": "Generation %s is born (%s more to domestication - breed this one too)",
   "message.semiconductor-lab.domestication.done": "Generation %s! They are now tame livestock",
+  "advancement.semiconductor-lab.domestication.cart.title": "An Ox Cart",
+  "advancement.semiconductor-lab.domestication.cart.description": "You made a wooden wheel. Four-wheeled carts pulled by oxen appeared around 3500-3000 BC (Mesopotamia and central Europe); axles were greased with animal fat",
   "tooltip.semiconductor-lab.route.chloride": "Route: GeCl4 distillation (up to 10N)",
   "tooltip.semiconductor-lab.route.sulfate": "Route: sulfuric acid, not distilled (up to 9N)",
   "item.semiconductor-lab.coal_ash": "Coal Ash",

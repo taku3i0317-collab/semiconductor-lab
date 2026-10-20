@@ -527,7 +527,7 @@ public class SurvivalTests extends LabTestBase {
         var pig = h.spawn(net.minecraft.world.entity.EntityTypes.PIG, p(3, 1, 3));
         h.assertValueEqual(com.taku3.semiconductorlab.entity.Domestication.onBred(lv, cowA, cowB, pig, null), 0, "pigs are not part of [0-17]");
         h.assertValueEqual(com.taku3.semiconductorlab.entity.Domestication.species(net.minecraft.world.entity.EntityTypes.GOAT), "goat", "goats count");
-        for (String a : new String[] {"root", "cow", "sheep", "goat"})
+        for (String a : new String[] {"root", "cow", "sheep", "goat", "cart"})   // cart＝[0-13] 荷車（決定：進捗のみ、車輪を作ると達成）
             h.assertTrue(lv.getServer().getAdvancements().get(SemiconductorLab.id("domestication/" + a)) != null, "advancement domestication/" + a);
         var ja = langJson("ja_jp");
         for (String egg : new String[] {"cow", "sheep", "goat"})

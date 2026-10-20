@@ -229,5 +229,7 @@
   "advancement.semiconductor-lab.domestication.goat.title": "山羊の家畜化",
   "advancement.semiconductor-lab.domestication.goat.description": "山羊を3世代育てた。山羊は羊と並んで最初期の家畜（約1万年前、ザグロス山脈のあたり ⚠️）。乳・肉・毛・皮をくれる",
   "message.semiconductor-lab.domestication.generation": "第%s世代の子が生まれた（家畜化まであと%s世代。この子もまた繁殖させよう）",
-  "message.semiconductor-lab.domestication.done": "第%s世代！ 人に慣れた家畜になった"
+  "message.semiconductor-lab.domestication.done": "第%s世代！ 人に慣れた家畜になった",
+  "advancement.semiconductor-lab.domestication.cart.title": "牛が引く荷車",
+  "advancement.semiconductor-lab.domestication.cart.description": "木の車輪ができた。家畜の牛に引かせる四輪の荷車は紀元前3500〜3000年ごろ（メソポタミア・中欧）。車軸には動物の脂を塗ってすべらせた"
 }
