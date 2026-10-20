@@ -180,6 +180,8 @@ public final class Chemistry {
     public static final Item ETHYLENE_GAS          = Reg.contained("ethylene_gas", Vessel.GAS_BAG);
     // [2-37] ポリエチレン（IMP3、O-009）：高圧の反応釜でエチレン＋ほんの少しの酸素 → ポリエチレン（1933 ICI）
     public static final Item POLYETHYLENE          = Reg.item("polyethylene");
+    // S-006（A、D のお願い）：ポリエチレンの瓶。フッ酸を入れられる（1950年代から鉛・ろうの容器に代わった⚠️）
+    public static final Item POLYETHYLENE_BOTTLE   = Reg.item("polyethylene_bottle");
     // [2-38] PTFE の前半（IMP3、O-009）：消石灰＋塩素 → さらし粉（1799 テナント）、エタノール＋さらし粉 → クロロホルム（1831）。
     //   後半（クロロホルム＋HF → CHClF2）は SbCl5 触媒＝[1-43] アンチモン待ち（IMPL3_LOG Q3-7）
     public static final Item BLEACHING_POWDER      = Reg.item("bleaching_powder");

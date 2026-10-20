@@ -681,5 +681,10 @@
   "item.semiconductor-lab.chloroform.note3": "Chlorine from the bleaching powder oxidizes ethanol and adds chlorine to it; at the end, the one-carbon CHCl3 is split off (the haloform reaction).",
   "item.semiconductor-lab.chloroform.note4": "In 1831 Guthrie (USA), Soubeiran (France) and Liebig (Germany) each made it independently. Simpson used it as an anaesthetic in 1847. Today it is a raw material for refrigerants and Teflon.",
   "item.semiconductor-lab.chloroform.placeholder": "Approximation: conditions are not described (DESIGN). By-products (calcium formate, calcium chloride) are not produced.",
-  "item.semiconductor-lab.kelp_ash.placeholder": "Approximation: real Scottish kelp ash held only a few percent sodium carbonate, mostly potassium salts (here the liquor yields soda). ⚠️"
+  "item.semiconductor-lab.kelp_ash.placeholder": "Approximation: real Scottish kelp ash held only a few percent sodium carbonate, mostly potassium salts (here the liquor yields soda). ⚠️",
+  "item.semiconductor-lab.polyethylene_bottle": "Empty Polyethylene Bottle",
+  "item.semiconductor-lab.polyethylene_bottle.note1": "A plastic bottle that hydrofluoric acid cannot eat through.",
+  "item.semiconductor-lab.polyethylene_bottle.note2": "HF dissolves glass, but polyethylene (a chain of -CH2- only) has nothing for it to attack.",
+  "item.semiconductor-lab.polyethylene_bottle.note3": "Before polyethylene, HF was kept in lead, wax (ceresin) or gutta-percha bottles. Polyethylene was found at ICI in 1933; HF bottles of it came in the 1950s. ⚠️ the exact year is not confirmed.",
+  "item.semiconductor-lab.polyethylene_bottle.note4": "Polyethylene resists most acids and bases at room temperature, but strong oxidisers (hot concentrated nitric acid) and some solvents soften it. Today very pure HF for chips is shipped in PTFE or high-purity PE."
 }

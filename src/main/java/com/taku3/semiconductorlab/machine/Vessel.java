@@ -26,7 +26,9 @@ public enum Vessel {
     /** 鉄のフラスコ。水銀（本物は 76 ポンド＝約 34.5kg 入りが取引の単位） */
     IRON_FLASK(() -> com.taku3.semiconductorlab.content.Metallurgy.IRON_FLASK, 16),
     /** 鉛の瓶。フッ酸（ガラスを溶かすので、昔は鉛・ろう・ガタパーチャの瓶。今はポリエチレン） */
-    LEAD_BOTTLE(() -> com.taku3.semiconductorlab.content.Metallurgy.LEAD_BOTTLE, 16);
+    LEAD_BOTTLE(() -> com.taku3.semiconductorlab.content.Metallurgy.LEAD_BOTTLE, 16),
+    /** ポリエチレンの瓶（[2-37]、S-006）。フッ酸も入る：PE は HF に侵されない。1950年代からフッ酸の瓶は鉛・ろうからこれに代わった⚠️ */
+    POLYETHYLENE_BOTTLE(() -> com.taku3.semiconductorlab.content.Chemistry.POLYETHYLENE_BOTTLE, 16);
 
     private final Supplier<Item> empty;
     /** 1スロットに重なる数 */
@@ -76,7 +78,7 @@ public enum Vessel {
 
     /** ここに載っていない中身はどの容器でもよい。載っていれば、この中からだけ */
     public static final Map<String, Set<Vessel>> ALLOWED = Map.of(
-            "hydrofluoric_acid", Set.of(LEAD_BOTTLE),          // HF は SiO2 を溶かす（4HF + SiO2 → SiF4 + 2H2O）。ガラス瓶は不可
+            "hydrofluoric_acid", Set.of(LEAD_BOTTLE, POLYETHYLENE_BOTTLE),   // HF は SiO2 を溶かす（4HF + SiO2 → SiF4 + 2H2O）。ガラス瓶は不可。鉛か PE（S-006）
             "phosphorus", Set.of(WATER_JAR),                   // 白リンは空気に触れさせない
             "mercury", Set.of(IRON_FLASK, GLASS_BOTTLE),       // 水銀は鉄を溶かさない（アマルガムを作らない）。銅・亜鉛・金の容器は不可
             "sulfuric_acid", Set.of(GLASS_BOTTLE),

@@ -681,5 +681,10 @@
   "item.semiconductor-lab.chloroform.note3": "さらし粉の塩素がエタノールを酸化して塩素を付け、最後に炭素1つの CHCl3 が切りはなされる（ハロホルム反応）。",
   "item.semiconductor-lab.chloroform.note4": "1831年、アメリカのガスリー・フランスのスーベラン・ドイツのリービッヒが、それぞれ別々に作った。1847年にシンプソンが麻酔に使った。今はフロン・テフロンの原料。",
   "item.semiconductor-lab.chloroform.placeholder": "近似：条件は書かない（DESIGN）。副産物（ギ酸カルシウム・塩化カルシウム）は出さない。",
-  "item.semiconductor-lab.kelp_ash.placeholder": "近似：本物のスコットランドの海藻灰は炭酸ナトリウムが数%しかなく、大半はカリウムの塩（ここでは浸出液からソーダが取れる）。⚠️"
+  "item.semiconductor-lab.kelp_ash.placeholder": "近似：本物のスコットランドの海藻灰は炭酸ナトリウムが数%しかなく、大半はカリウムの塩（ここでは浸出液からソーダが取れる）。⚠️",
+  "item.semiconductor-lab.polyethylene_bottle": "空のポリエチレンの瓶",
+  "item.semiconductor-lab.polyethylene_bottle.note1": "フッ酸でも溶けないプラスチックの瓶。",
+  "item.semiconductor-lab.polyethylene_bottle.note2": "フッ酸はガラスを溶かすが、ポリエチレン（-CH2- だけの鎖）には溶かす所がない。",
+  "item.semiconductor-lab.polyethylene_bottle.note3": "ポリエチレンより前は、フッ酸は鉛・ろう（セレシン）・ガタパーチャの瓶に入れた。ポリエチレンは1933年に ICI で見つかり、フッ酸の瓶になったのは1950年代。⚠️ はっきりした年は確かめていない。",
+  "item.semiconductor-lab.polyethylene_bottle.note4": "ポリエチレンは常温ならたいていの酸・アルカリに強いが、強い酸化剤（熱い濃硝酸）や一部の溶剤ではやわらかくなる。今のチップ用のとても純粋なフッ酸は、PTFE や高純度の PE の容器で運ぶ。"
 }

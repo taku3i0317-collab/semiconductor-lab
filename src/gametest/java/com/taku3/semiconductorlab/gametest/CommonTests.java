@@ -454,6 +454,8 @@ public class CommonTests extends LabTestBase {
         h.assertTrue(all.get(Chemistry.PHOSPHORUS) == com.taku3.semiconductorlab.machine.Vessel.WATER_JAR, "white phosphorus is kept under water");
         h.assertTrue(all.get(Metallurgy.MERCURY) == com.taku3.semiconductorlab.machine.Vessel.IRON_FLASK, "mercury in an iron flask");
         h.assertTrue(!com.taku3.semiconductorlab.machine.Vessel.ALLOWED.get("hydrofluoric_acid").contains(com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE), "HF dissolves glass");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.ALLOWED.get("hydrofluoric_acid").contains(com.taku3.semiconductorlab.machine.Vessel.POLYETHYLENE_BOTTLE)
+                && com.taku3.semiconductorlab.machine.Vessel.POLYETHYLENE_BOTTLE.empty() == Chemistry.POLYETHYLENE_BOTTLE && recipeUses(h, "polyethylene_bottle", Chemistry.POLYETHYLENE), "HF may go in a polyethylene bottle (S-006)");
         h.assertTrue(recipeUses(h, "cinnabar_retort_charge", Metallurgy.IRON_FLASK) && recipeUses(h, "sulfuric_acid", Chemistry.GLASS_BOTTLE)
                 && recipeUses(h, "phosphorus", Chemistry.GLASS_BOTTLE), "filling recipes use the empty container");
         // 機械で使う：空の容器が機械の上に出る（袋は何も出ない）
