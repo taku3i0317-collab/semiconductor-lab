@@ -13,3 +13,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - 共通ファイル：SemiconductorLabClient に screen の1行
 - ✅ [2-10] フッ酸（IMP-33 の容器を使用）：鉛のレトルト lead_retort（block/HfRetortBlockEntity、画面 HfRetortScreen、燃料式）。蛍石＋硫酸＋空の鉛の瓶 → フッ酸（Reg.contained で鉛の瓶）＋石こう、水バケツ1杯で4回、硫酸のガラス瓶は Vessel.returnEmpty で上に出る。GameTest lead_retort_hf、CHEMISTRY F9〜F10、REFERENCES F3、遊び方: 重
 - ✅ [9-06] 酸化膜エッチング：エッチング槽 etch_tank（block/EtchTankBlockEntity、画面 EtchTankScreen、室温・電気なし）。酸化膜つきの板8＋フッ酸 → シリコンの板8、時間は膜の厚さ÷20nm/秒、鉛の瓶が上に戻る。窓開けは露光の後。GameTest etch_tank、CHEMISTRY F11、REFERENCES F4、遊び方: 軽
+- A（IMP）と相談：LITHO_DESIGN §8 の未定のうち [9-25] Al 配線（とその前提の鎖）と [9-13] 研磨（reclaim）は E（IMP4）が担当。エッチング槽・酸化炉は ChipOps（etchOxide・reoxidize）が push されたらつなぐ。レジスト（[2-30]/[2-32]）は C（IMP2）
+- ✅ [1-24] ボーキサイト：鉱石 bauxite_ore（ジャングル・サバンナ、Y 56〜90 の土・石）→ ボーキサイト。ModWorldGen.RULES に1行。GameTest ore_bauxite・ore_biome_rules、CHEMISTRY F12、REFERENCES F5、遊び方: 軽

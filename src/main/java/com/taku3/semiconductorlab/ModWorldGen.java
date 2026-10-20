@@ -19,7 +19,7 @@ public class ModWorldGen {
             MAGNETITE_ORE = key("magnetite_ore"), WOLFRAMITE_ORE = key("wolframite_ore"), GALENA_ORE = key("galena_ore"), IRON_SAND = key("iron_sand"),
             TRONA_DEPOSIT = key("trona_deposit"), ROCK_SALT_ORE = key("rock_salt_ore"), BORAX_DEPOSIT = key("borax_deposit"), QUARTZ_VEIN = key("quartz_vein"),
             MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"),
-            FLUORITE_ORE = key("fluorite_ore"),
+            FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"),
             NITRE_EARTH = key("nitre_earth_block");
 
     /** 鉱石1つぶんの生成ルール：どの placed feature を、どのバイオームの選び方で入れるか（GameTest が全バイオームに対して直接調べる） */
@@ -41,6 +41,8 @@ public class ModWorldGen {
             new OreRule(NITRE_EARTH, BiomeSelectors.includeByKey(Biomes.DRIPSTONE_CAVES)),
             // [1-21] 蛍石（IMP4-01）：方鉛鉱と同じ帯（熱水鉱脈で方鉛鉱・閃亜鉛鉱といっしょに出る）。方鉛鉱より少ない
             new OreRule(FLUORITE_ORE, BiomeSelectors.foundInOverworld()),
+            // [1-24] ボーキサイト（IMP4-01）：ジャングル・サバンナだけ（熱帯で岩が風化して残った土）。地表近くの土・石を置き換える
+            new OreRule(BAUXITE_ORE, BiomeSelectors.tag(BiomeTags.IS_JUNGLE).or(BiomeSelectors.tag(BiomeTags.IS_SAVANNA))),
             // 砂鉄：浜辺だけ（漂砂鉱床）
             new OreRule(IRON_SAND, BiomeSelectors.tag(BiomeTags.IS_BEACH)),
             // [2-03] トロナ：砂漠だけ（干上がった塩湖の蒸発岩）。地表〜浅い地下の砂・砂岩を置き換える

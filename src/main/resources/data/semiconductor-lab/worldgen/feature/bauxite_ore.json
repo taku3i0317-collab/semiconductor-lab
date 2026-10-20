@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:ore",
+  "discard_chance_on_air_exposure": 0.0,
+  "size": 14,
+  "targets": [
+    {
+      "state": "semiconductor-lab:bauxite_ore",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:dirt"
+      }
+    },
+    {
+      "state": "semiconductor-lab:bauxite_ore",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:coarse_dirt"
+      }
+    },
+    {
+      "state": "semiconductor-lab:bauxite_ore",
+      "target": {
+        "predicate_type": "minecraft:block_match",
+        "block": "minecraft:stone"
+      }
+    }
+  ]
+}

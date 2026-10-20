@@ -375,5 +375,16 @@
   "item.semiconductor-lab.coke.note1": "石炭を蒸し焼きにした残り。軽くて穴だらけの、灰色の炭。",
   "item.semiconductor-lab.coke.note2": "ガス工場のレトルト [2-20] で、石炭4個からコークス3個。レトルトの燃料にもなる（本物もコークスで釜を熱した）。高炉 [1-10] での使い道は、高炉ができてから。",
   "item.semiconductor-lab.coke.note3": "石炭のままだと煙や硫黄が多く、鉄をもろくする。蒸し焼きにして揮発分をとばすと、ほぼ炭素だけの強い燃料になる。1709年、ダービーがコークスで鉄を作り、森の木を使い切る心配がなくなった。",
-  "item.semiconductor-lab.coke.note4": "コークスは高炉の中で、燃料・鉄鉱石を還元する炭素・上の材料を支える骨組みの3役をこなす。穴だらけなので、下から吹き込む風が通り抜けられる。"
+  "item.semiconductor-lab.coke.note4": "コークスは高炉の中で、燃料・鉄鉱石を還元する炭素・上の材料を支える骨組みの3役をこなす。穴だらけなので、下から吹き込む風が通り抜けられる。",
+  "item.semiconductor-lab.bauxite": "ボーキサイト",
+  "item.semiconductor-lab.bauxite.note1": "赤茶色の土のような石。アルミニウムの原料。",
+  "item.semiconductor-lab.bauxite.note2": "アルミニウムの水酸化物（ギブサイト Al(OH)3 など）と、赤い鉄さび（酸化鉄）のまざりもの。ボーキサイトの鉱石を掘ると出る。水酸化ナトリウムで溶かしてアルミナを取り出す（バイヤー法 [1-14]）。",
+  "item.semiconductor-lab.bauxite.note3": "暑くて雨の多い土地で、岩が長いあいだ雨に洗われると、溶けやすい成分が流れ去り、アルミと鉄が残る（風化残留）。赤い色は鉄さびの色。",
+  "item.semiconductor-lab.bauxite.note4": "1821年、ベルティエが南フランスのレ・ボー村の近くで見つけ、村の名前から名づけた。今はオーストラリア・ギニアなどの熱帯・亜熱帯の国が大産地。",
+  "block.semiconductor-lab.bauxite_ore": "ボーキサイトの鉱石",
+  "block.semiconductor-lab.bauxite_ore.note1": "ジャングルやサバンナの地面の近くにある、赤茶色の鉱石。",
+  "block.semiconductor-lab.bauxite_ore.note2": "ジャングル・サバンナだけ、Y 56〜90 の土・粗い土・石を置き換えて出る。ツルハシで掘る（木でもよい）。シルクタッチなら鉱石のブロックのまま。",
+  "block.semiconductor-lab.bauxite_ore.note3": "ボーキサイトは地下深くではなく、地表の近くに毛布のように広がっていることが多い。だから露天掘り（地面をはがして掘る）で取る。",
+  "block.semiconductor-lab.bauxite_ore.note4": "アルミを取り出したあとに残る「赤泥」は、強いアルカリを含む。ため池の決壊（2010年ハンガリー・アイカの事故）のように、捨て方が大きな課題になっている。",
+  "block.semiconductor-lab.bauxite_ore.placeholder": "近似：本物の地表に広がる層（ラテライト）ではなく、土・石の中の塊として出る。"
 }

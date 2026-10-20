@@ -68,6 +68,8 @@ borax  # Metallurgy [1-33] 1808
 boric_acid  # Metallurgy [1-33] 1808
 boron_trioxide  # Metallurgy [1-33] 1808
 borax_deposit  # Metallurgy [1-33] 1808
+bauxite  # Metallurgy [1-24] 1821
+bauxite_ore  # Metallurgy [1-24] 1821
 graphite  # Metallurgy [1-07] 1850
 graphite_ore  # Metallurgy [1-07] 1850
 steel_ingot  # Metallurgy [1-26] 1856
