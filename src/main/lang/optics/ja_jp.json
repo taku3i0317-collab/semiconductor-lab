@@ -297,5 +297,17 @@
   "item.semiconductor-lab.silvered_mirror.note1": "ガラスに銀をうすく付けた、よく映る鏡。",
   "item.semiconductor-lab.silvered_mirror.note2": "半透明鏡＋硝酸銀＋アンモニア水＋砂糖（もう一度銀をのせる）。反射率 約9割。反射望遠鏡・干渉計の鏡に使える。",
   "item.semiconductor-lab.silvered_mirror.note3": "1835年、リービッヒは硝酸銀のアンモニア水に糖などを入れると、銀がガラスに鏡のように付くことを見つけた（銀鏡反応）。1857年、フーコーはガラスに銀めっきした望遠鏡の鏡を作り、重くて曇りやすいスペキュラム合金の鏡をおきかえた。",
-  "item.semiconductor-lab.silvered_mirror.note4": "砂糖（還元剤）が銀イオンに電子を渡して銀の原子にする。銀はくもったら、はがしてめっきし直せる。のちに望遠鏡の鏡は、さびないアルミの真空蒸着（1930年ごろ）に変わった。"
+  "item.semiconductor-lab.silvered_mirror.note4": "砂糖（還元剤）が銀イオンに電子を渡して銀の原子にする。銀はくもったら、はがしてめっきし直せる。のちに望遠鏡の鏡は、さびないアルミの真空蒸着（1930年ごろ）に変わった。",
+  "gui.semiconductor-lab.reduction_camera.too_fine": "乳剤では細かすぎる（クロムを使う）",
+  "item.semiconductor-lab.chrome_blank": "クロムのブランク",
+  "item.semiconductor-lab.chrome_blank.note1": "透明な石英の板に、うすいクロムを付けた板。これに回路の形を写して削るとマスクになる。",
+  "item.semiconductor-lab.chrome_blank.note2": "真空蒸着装置で 合成石英＋クロム。縮小カメラの乾板の入口に入れ、現像の入口にポジ型レジスト、定着の入口に塩酸 → クロムマスク。",
+  "item.semiconductor-lab.chrome_blank.note3": "1970年ごろ、ガラスや石英の板にクロムを付けた「マスクブランクス」が作られるようになった（日本では ULVAC が1970年に開発）。",
+  "item.semiconductor-lab.chrome_blank.note4": "クロムの膜は厚さ 0.1µm ほどで光をほぼ全部止める。紫外の光（KrF・ArF）ではガラスが光を吸うので、合成石英の板を使う。",
+  "item.semiconductor-lab.chrome_photomask": "クロムマスク",
+  "item.semiconductor-lab.chrome_photomask.note1": "石英の板にクロムで回路の形を描いた、硬いマスク。傷に強く、何回も使える。",
+  "item.semiconductor-lab.chrome_photomask.note2": "縮小カメラで原図をクロムのブランクに写して作る（レジスト＋塩酸で Cr を削る）。耐久100（銀塩マスクの10倍）。銀塩の乳剤では描けない細かい原図（方眼12より細かい）も描ける。マスクアライナーで使える。",
+  "item.semiconductor-lab.chrome_photomask.note3": "1960年代の銀塩（エマルジョン）マスクはやわらかく、密着露光ですぐ傷んだ。1970年代、硬いクロムマスクに変わって、何千回も使えるようになった。",
+  "item.semiconductor-lab.chrome_photomask.note4": "乳剤は銀の粒（数µm）でできているので、それより細かい線は描けない。クロムは金属の膜なので、のちに電子線で描くと 1µm より細かい線が描ける。今のマスクも石英にクロム（とその仲間）を付けた物。",
+  "item.semiconductor-lab.chrome_photomask.placeholder": "近似：本物の Cr のエッチング液は硝酸セリウムアンモニウム（ここでは塩酸）。反射防止の酸化クロム層・電子線描画は省略。"
 }

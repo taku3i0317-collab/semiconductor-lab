@@ -27,9 +27,11 @@ public class ReductionCameraScreen extends MachineScreen {
             case "hint" -> {
                 String hint;
                 if (!ReductionCameraBlockEntity.isOriginal(menu.getSlot(ReductionCameraBlockEntity.SLOT_ORIGINAL).getItem())) hint = "need_original";
-                else if (!menu.getSlot(ReductionCameraBlockEntity.SLOT_PLATE).getItem().is(Optics.PHOTO_PLATE)) hint = "need_plate";
-                else if (!menu.getSlot(ReductionCameraBlockEntity.SLOT_DEVELOPER).getItem().is(Optics.FERROUS_SULFATE)
-                        || !menu.getSlot(ReductionCameraBlockEntity.SLOT_FIXER).getItem().is(Optics.SODIUM_THIOSULFATE)) hint = "need_chemicals";
+                else if (!ReductionCameraBlockEntity.isPlate(menu.getSlot(ReductionCameraBlockEntity.SLOT_PLATE).getItem())) hint = "need_plate";
+                else if (!ReductionCameraBlockEntity.chemicalsMatch(menu.getSlot(ReductionCameraBlockEntity.SLOT_PLATE).getItem(),
+                        menu.getSlot(ReductionCameraBlockEntity.SLOT_DEVELOPER).getItem(), menu.getSlot(ReductionCameraBlockEntity.SLOT_FIXER).getItem())) hint = "need_chemicals";
+                else if (!ReductionCameraBlockEntity.fineEnough(menu.getSlot(ReductionCameraBlockEntity.SLOT_PLATE).getItem(),
+                        menu.getSlot(ReductionCameraBlockEntity.SLOT_ORIGINAL).getItem())) hint = "too_fine";
                 else if (!menu.getSlot(ReductionCameraBlockEntity.SLOT_OUT).getItem().isEmpty()) hint = "output_full";
                 else if (menu.getKw() <= 0) hint = "need_power";
                 else hint = "running";

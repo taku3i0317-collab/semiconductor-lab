@@ -78,6 +78,10 @@ public final class Optics {
     // [7-11] フォトマスク（IMP2-03、LITHO_DESIGN §4.3）：縮小カメラで原図の mask 成分を写した乾板。密着露光で傷むので耐久 PHOTOMASK_USES 回
     public static final int PHOTOMASK_USES = 10;
     public static final Item PHOTOMASK             = Reg.item("photomask", new Item.Properties().durability(PHOTOMASK_USES));
+    // [7-12] クロムマスク（IMP2 O-015）：合成石英にクロムを蒸着したブランク → 縮小カメラでレジストに写して塩酸で Cr を削る。傷に強く（耐久 CHROME_MASK_USES）、乳剤の粒より細かく描ける
+    public static final int CHROME_MASK_USES = 100;
+    public static final Item CHROME_BLANK          = Reg.item("chrome_blank");     // クロムを蒸着した合成石英の板（マスクブランクス）
+    public static final Item CHROME_PHOTOMASK      = Reg.item("chrome_photomask", new Item.Properties().durability(CHROME_MASK_USES));
     // [7-19] 投影レンズ（IMP2 O-010）：心出し済みの鏡筒 [8-14]＋反射防止膜のレンズ [7-22] → g線の 1/5 縮小レンズ（鏡筒のずれを引き継いで CD が決まる）
     public static final Item PROJECTION_LENS       = Reg.item("projection_lens", ProjectionLensItem::new, new Item.Properties().stacksTo(1));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）

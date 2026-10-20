@@ -80,6 +80,34 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class OpticsTests extends LabTestBase {
+    /** [7-12] クロムマスク（IMP2 O-015）：合成石英＋クロム（蒸着）→ ブランク。縮小カメラでポジ型レジスト＋塩酸 → クロムマスク。乳剤より細かい方眼が描け、耐久10倍 */
+    @GameTest
+    public void chrome_mask(GameTestHelper h) {
+        var r = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.SYNTHETIC_QUARTZ), new ItemStack(Metallurgy.CHROMIUM));
+        h.assertTrue(r != null && r.product() == Optics.CHROME_BLANK, "evaporator: synthetic quartz + chromium -> chrome blank");
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(16), "chrome_test", 0);
+        ItemStack original = new ItemStack(net.minecraft.world.item.Items.PAPER);
+        original.set(ModDataComponents.MASK, fine);
+        h.assertFalse(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.fineEnough(new ItemStack(Optics.PHOTO_PLATE), original), "16-grid original is finer than the emulsion grain");
+        h.assertTrue(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.fineEnough(new ItemStack(Optics.CHROME_BLANK), original), "chrome draws it");
+        h.assertTrue(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.chemicalsMatch(new ItemStack(Optics.CHROME_BLANK), new ItemStack(Chemistry.POSITIVE_RESIST), new ItemStack(Gas.HYDROCHLORIC_ACID)), "chrome: resist + HCl etch");
+        h.assertFalse(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.chemicalsMatch(new ItemStack(Optics.CHROME_BLANK), new ItemStack(Optics.FERROUS_SULFATE), new ItemStack(Optics.SODIUM_THIOSULFATE)), "silver chemistry does not etch chrome");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Optics.REDUCTION_CAMERA.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.class);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_ORIGINAL, original);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_PLATE, new ItemStack(Optics.CHROME_BLANK));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_DEVELOPER, new ItemStack(Chemistry.POSITIVE_RESIST));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_FIXER, new ItemStack(Gas.HYDROCHLORIC_ACID));
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.TICKS + 10, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.WATTS));
+        ItemStack out = be.getContainer().getItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Optics.CHROME_PHOTOMASK) && fine.equals(out.get(ModDataComponents.MASK)), "reduction camera -> chrome mask with the original's pattern");
+        h.assertTrue(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.isMask(out), "the mask aligner takes chrome masks");
+        h.assertTrue(out.getMaxDamage() == Optics.CHROME_MASK_USES && Optics.CHROME_MASK_USES >= 10 * Optics.PHOTOMASK_USES, "chrome lasts 10x longer than emulsion");
+        LOG.info("[LAB] chrome_mask [7-12]: quartz + Cr -> blank; resist + HCl -> chrome mask (16-grid OK, emulsion max 12), {} uses", Optics.CHROME_MASK_USES);
+        h.succeed();
+    }
+
     /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
     @GameTest
     public void silvering(GameTestHelper h) {

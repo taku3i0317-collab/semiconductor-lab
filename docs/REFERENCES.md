@@ -1409,6 +1409,19 @@
 - Wikipedia「Sodium chromate」：https://en.wikipedia.org/wiki/Sodium_chromate
 - Wikipedia「Hexavalent chromium」：https://en.wikipedia.org/wiki/Hexavalent_chromium
 
+## O47. 石英に貼った薄い金属の影絵（クロムマスク）［7-12］
+**答え**：1970年ごろから、IC の原版（マスク）は、合成石英やガラスの板にクロムを 0.1µm ほど付け、レジストで回路を描いてクロムを削った「クロムマスク」になった。やわらかい銀塩（乳剤）マスクは密着露光ですぐ傷み、銀の粒の大きさより細かい線は描けなかったが、クロムの膜は傷に強く何千回も使え、細かい線も描ける。
+
+- へえ①：回路の「原版」は、透明な石英に貼った薄い金属の影絵。
+- へえ②：紫外の光ではガラスが光を吸うので、石英の板を使う。
+- へえ③：日本では ULVAC が1970年にクロムのマスクブランクスを開発した。
+- へえ④：今のマスクも、石英にクロムやその仲間の膜を付け、電子線で描いて作る。
+
+確かさ：1960年代は乳剤マスクが主流 ○／1970 ULVAC のクロムマスクブランクス ○／Cr 約50〜100nm ○／エッチング液 硝酸セリウムアンモニウム ◎
+根拠：
+- Wikipedia「Photomask」：https://en.wikipedia.org/wiki/Photomask
+- ULVAC「沿革」：https://www.ulvac.co.jp/
+
 ---
 
 # 冶金と熱（タスク15〜）

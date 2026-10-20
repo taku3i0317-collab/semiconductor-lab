@@ -297,5 +297,17 @@
   "item.semiconductor-lab.silvered_mirror.note1": "A bright mirror made by laying a thin coat of silver on glass.",
   "item.semiconductor-lab.silvered_mirror.note2": "Half-silvered mirror + silver nitrate + ammonia water + sugar (a second coat of silver). About 90% reflective. Used for reflecting telescope and interferometer mirrors.",
   "item.semiconductor-lab.silvered_mirror.note3": "In 1835 Liebig found that adding sugars to ammoniacal silver nitrate makes silver deposit on glass like a mirror (the silver mirror reaction). In 1857 Foucault made silvered-glass telescope mirrors, replacing heavy speculum metal that tarnished easily.",
-  "item.semiconductor-lab.silvered_mirror.note4": "The sugar (a reducing agent) gives electrons to silver ions, turning them into silver atoms. Tarnished silver can be stripped and redone. Later, telescope mirrors moved to vacuum-evaporated aluminium (around 1930), which does not tarnish."
+  "item.semiconductor-lab.silvered_mirror.note4": "The sugar (a reducing agent) gives electrons to silver ions, turning them into silver atoms. Tarnished silver can be stripped and redone. Later, telescope mirrors moved to vacuum-evaporated aluminium (around 1930), which does not tarnish.",
+  "gui.semiconductor-lab.reduction_camera.too_fine": "Too fine for emulsion (use chrome)",
+  "item.semiconductor-lab.chrome_blank": "Chrome Blank",
+  "item.semiconductor-lab.chrome_blank.note1": "A clear quartz plate with a thin chromium coat. Copy a circuit onto it and etch it to make a mask.",
+  "item.semiconductor-lab.chrome_blank.note2": "Synthetic quartz + chromium in the vacuum evaporator. Put it in the reduction camera's plate slot, positive resist in the developer slot and hydrochloric acid in the fixer slot -> chrome mask.",
+  "item.semiconductor-lab.chrome_blank.note3": "Around 1970, glass and quartz 'mask blanks' coated with chromium came into use (in Japan, ULVAC developed them in 1970).",
+  "item.semiconductor-lab.chrome_blank.note4": "About 0.1 um of chromium blocks nearly all light. Glass absorbs ultraviolet (KrF, ArF), so synthetic quartz plates are used.",
+  "item.semiconductor-lab.chrome_photomask": "Chrome Mask",
+  "item.semiconductor-lab.chrome_photomask.note1": "A hard mask with the circuit drawn in chromium on quartz. Scratch-resistant and reusable many times.",
+  "item.semiconductor-lab.chrome_photomask.note2": "Made by copying an original onto a chrome blank in the reduction camera (resist + hydrochloric acid etch the Cr). 100 uses (10x an emulsion mask). It can also take originals finer than emulsion can (finer than grid 12). Works in the mask aligner.",
+  "item.semiconductor-lab.chrome_photomask.note3": "1960s silver emulsion masks were soft and quickly damaged by contact printing. In the 1970s hard chrome masks took over and could be used thousands of times.",
+  "item.semiconductor-lab.chrome_photomask.note4": "Emulsion is made of silver grains a few micrometres across, so it cannot draw finer lines. Chromium is a metal film, and later electron-beam writing drew lines finer than 1 um. Today's masks are still quartz with chromium (and its relatives).",
+  "item.semiconductor-lab.chrome_photomask.placeholder": "Approximation: the real Cr etchant is ceric ammonium nitrate (hydrochloric acid here). The anti-reflective chromium oxide layer and electron-beam writing are skipped."
 }
