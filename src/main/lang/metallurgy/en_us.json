@@ -301,5 +301,11 @@
   "item.semiconductor-lab.cassiterite.note1": "A dark, heavy stone. Bake it with charcoal and tin comes out.",
   "item.semiconductor-lab.cassiterite.note2": "Tin(IV) oxide SnO2. Hard (Mohs 6-7). Bake it in a furnace with charcoal (the fuel's carbon) for a tin ingot [1-30].",
   "item.semiconductor-lab.cassiterite.note3": "The name comes from the Greek for tin (kassiteros). To make bronze with copper, ancient people carried tin long distances and traded it.",
-  "item.semiconductor-lab.cassiterite.note4": "SnO2 hardly dissolves in water or acids; it is a very stable oxide, so it survives weathering at the surface. Thin transparent SnO2 films conduct electricity, and are used today for insulating window coatings and solar cell electrodes (FTO)."
+  "item.semiconductor-lab.cassiterite.note4": "SnO2 hardly dissolves in water or acids; it is a very stable oxide, so it survives weathering at the surface. Thin transparent SnO2 films conduct electricity, and are used today for insulating window coatings and solar cell electrodes (FTO).",
+  "item.semiconductor-lab.tin_ingot": "Tin Ingot",
+  "item.semiconductor-lab.tin_ingot.note1": "A soft, silvery metal. Mixed with copper it makes bronze.",
+  "item.semiconductor-lab.tin_ingot.note2": "Cassiterite -> furnace (faster in a blast furnace). SnO2 + 2C -> Sn + 2CO (reduced by the fuel's carbon). Melts at only 232 C. A material for bronze [1-05] and speculum metal [7-05].",
+  "item.semiconductor-lab.tin_ingot.note3": "Bend a tin bar and it creaks (the 'tin cry'): crystals rubbing against each other. Left in the cold for a long time it crumbles into grey powder (tin pest, a change that happens below 13 C).",
+  "item.semiconductor-lab.tin_ingot.note4": "Tin, a bronze material 5000 years ago, is now the main part of electronic solder and even the light source of cutting-edge EUV lithography [7-18]: droplets of molten tin about 30 um across are hit by a laser tens of thousands of times a second, becoming a plasma that emits 13.5 nm light.",
+  "item.semiconductor-lab.tin_ingot.placeholder": "Approximation: the furnace (~1000 C) does reduction and melting in one step (reduced by the fuel's C/CO, as in CHEMISTRY #38). CO2 is not collected."
 }

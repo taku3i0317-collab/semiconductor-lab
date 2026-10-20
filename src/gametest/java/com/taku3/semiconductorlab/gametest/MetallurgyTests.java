@@ -581,6 +581,17 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-30] 錫の製錬（IMP2-01）：錫石 →かまど/溶鉱炉→ スズのインゴット（SnO2 + 2C → Sn + 2CO）。c:ingots/tin */
+    @GameTest
+    public void tinFromCassiterite(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.CASSITERITE).is(Metallurgy.TIN_INGOT), "cassiterite + charcoal fire -> tin");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.CASSITERITE).is(Metallurgy.TIN_INGOT), "blast furnace too");
+        var tag = net.minecraft.tags.TagKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath("c", "ingots/tin"));
+        h.assertTrue(new ItemStack(Metallurgy.TIN_INGOT).is(tag), "tin ingot is c:ingots/tin");
+        LOG.info("[LAB] tin [1-30]: cassiterite -> furnace -> tin ingot (c:ingots/tin)");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Metallurgy.BESSEMER_CONVERTER.block, "ベッセマー転炉", L(cond(io(Items.IRON_INGOT, 1), "銑鉄の近似")), L(io(Metallurgy.STEEL_INGOT, 1)),

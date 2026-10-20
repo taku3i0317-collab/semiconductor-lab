@@ -457,6 +457,20 @@
 - UCL Discovery「On the origins of extractive metallurgy: new evidence from Europe」（Radivojević ら 2010）：https://discovery.ucl.ac.uk/id/eprint/1380193/
 - UCL「Key Debate 3: How was early metal production organised」：https://www.ucl.ac.uk/archaeology/research/rise-metallurgy-eurasia/project-debates/key-project-debates/production
 
+## O8. 花こう岩の黒い石からスズ（錫石とスズの製錬）［1-22］［1-30］（青銅・スペキュラムの前提）
+**答え**：スズの鉱石は錫石 SnO2。花こう岩が冷えるときの熱水からタングステンの鉱石といっしょに鉱脈にでき、重くてさびないので川の砂にも集まる。木炭で焼くと SnO2 + 2C → Sn + 2CO でスズが出る。融点 232℃ のやわらかい金属。
+
+- へえ①：5000年前の青銅の材料が、最先端の EUV の光源になる。
+- へえ②：スズの棒を曲げると「スズ鳴き」の音がする。寒いと灰色の粉になる（スズペスト、13.2℃より下）。
+- へえ③：コーンウォール（イギリス）は青銅器時代からのスズの産地。今の大産地は東南アジアの漂砂鉱床。
+- へえ④：EUV 露光装置は、溶けたスズの小さな粒にレーザーを当ててプラズマにし、13.5nm の光を出す。
+
+確かさ：錫石の産状・還元・融点・スズペスト ◎／コーンウォールの青銅器時代の採掘 ○／EUV のスズ液滴（粒の大きさ・回数）○
+根拠：
+- Wikipedia「Cassiterite」：https://en.wikipedia.org/wiki/Cassiterite
+- Wikipedia「Tin」（スズペスト・スズ鳴き・歴史）：https://en.wikipedia.org/wiki/Tin
+- Wikipedia「Extreme ultraviolet lithography」（スズのプラズマ光源）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
+
 ---
 
 # 冶金と熱（タスク15〜）

@@ -33,3 +33,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ [1-03] 銅の製錬（孔雀石）：新しい鉱石 malachite_ore（浅い石）→ 孔雀石 → かまど/溶鉱炉 → 銅インゴット。共通ファイル ModWorldGen.RULES に1行。GameTest ore_malachite・copper_from_malachite（ore_biome_rules にも追加）、CHEMISTRY M1〜M2、REFERENCES O7。テスト 92/92
   - へえの訂正：ベロヴォデの製錬はマンガンを含む銅鉱石（きれいな孔雀石はビーズ）→ lang を合わせた
 - ✅ [1-22] 錫石：新しい鉱石 cassiterite_ore（花崗岩だけ、鉄マンガン重石と同じ帯）→ 錫石。GameTest ore_cassiterite、CHEMISTRY M3。テスト 93/93（REFERENCES は [1-30] とまとめて O8）
+- ✅ [1-30] スズ：錫石 → かまど/溶鉱炉 → tin_ingot（c:ingots/tin）。GameTest tin_from_cassiterite、CHEMISTRY M4、REFERENCES O8（[1-22] と共通）。テスト 94/94
