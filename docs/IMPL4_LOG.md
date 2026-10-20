@@ -33,3 +33,9 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [1-18] 白金の精製：塩化アンモニウム、王水で塩化白金酸、沈殿、海綿、圧粉、溶鉱炉でインゴット（作業台・かまど・溶鉱炉、硝酸は IMP2 の物）。GameTest platinum_refining、CHEMISTRY F25〜F29、REFERENCES F13、遊び方: 軽
   - 注意（全担当向け）：Metallurgy に Vessel.GLASS_BOTTLE 入りの物を置くと、Chemistry が先に初期化されて Chemistry.HYDROFLUORIC_ACID の鉛の瓶（Metallurgy.LEAD_BOTTLE）が null になり、GameTest vessels が落ちた。中身入りの液は Chemistry に置く
 - ✅ [2-19] 過酸化水素：電解槽 peroxide_cell（block/PeroxideCellBlockEntity、画面 PeroxideCellScreen、3kW）。白金の陽極＋硫酸（8回で1）＋水（4回で1）＋空の瓶 → H2O2（ガラス瓶）＋水素。TECH_TREE の前提に [1-18] 白金を足した。GameTest peroxide_cell、CHEMISTRY F30、REFERENCES F14、遊び方: 重
+
+## O-005（2026-10-20）[9-14] 洗浄
+- ✅ [2-16] 蒸留水（段階1 のすすぎ）：作業台で 水バケツ＋石英の蒸留器＋瓶3 → 蒸留水3。GameTest distilled_water、CHEMISTRY F31、REFERENCES F15、遊び方: 軽
+- 出典で確かめた：Kern 1990（J. Electrochem. Soc. 137, 1887）は 1950年代初めからの洗浄の歴史を扱い、RCA 以前はクロム酸混液などで汚染・廃液の問題があったと書く。日本半導体歴史館は、イオン交換の超純水が 1950年代に始まった半導体工業を支えたと書く（樹脂 1935、工業化 1938、スチレン系 1944）
+- 結論（TECH_TREE [9-14] に書いた）：段階1＝1950年代の酸洗浄（硝酸で煮る → フッ酸 → 水すすぎ。水はまず蒸留水、[2-17] ができたら脱イオン水）、段階2＝RCA（SC-1・SC-2、脱イオン水）。[9-19] の前提は段階1
+- **判断待ち（A と設計担当へ）**：洗浄の効き目をチップのデータにどう残すか。案：ChipState に「洗った」印（または汚れの度合い）を足し、ChipOps.coat（と拡散・酸化の前）がそれを条件にする／削る・はがす・拡散のあとは印が消える（本物も炉に入れる前に毎回洗う）。印を足すのは A の litho のファイルなので A に頼んだ。返事が来るまで洗浄の機械は作らない（ほかの項目を先に進める）

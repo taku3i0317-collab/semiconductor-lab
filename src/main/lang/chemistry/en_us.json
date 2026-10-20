@@ -214,5 +214,11 @@
   "gui.semiconductor-lab.peroxide_cell.need_anode": "Needs a platinum anode",
   "gui.semiconductor-lab.peroxide_cell.need_power": "Not enough power",
   "gui.semiconductor-lab.peroxide_cell.running": "Electrolysing (kept cold)",
-  "gui.semiconductor-lab.peroxide_cell.recipe": "2H2O → H2O2 + H2"
+  "gui.semiconductor-lab.peroxide_cell.recipe": "2H2O → H2O2 + H2",
+  "item.semiconductor-lab.distilled_water": "Distilled Water",
+  "item.semiconductor-lab.distilled_water.note1": "Water boiled into steam and cooled back, leaving no salt behind.",
+  "item.semiconductor-lab.distilled_water.note2": "In a glass bottle (the bottle comes back). Crafting: 1 water bucket + quartz still (kept) + 3 empty glass bottles → 3 distilled water (the bucket comes back). Used to rinse wafers after cleaning [9-14].",
+  "item.semiconductor-lab.distilled_water.note3": "Water turns to steam at 100 °C, but dissolved salts and minerals do not. Cooling the steam gives water without them. Very pure water hardly conducts electricity.",
+  "item.semiconductor-lab.distilled_water.note4": "Alexandria in the 1st–3rd centuries had three-armed stills (traditionally credited to Maria, though this is uncertain). ⚠️ 1950s semiconductor plants moved to ion-exchange deionised water, cheaper in large amounts than distillation.",
+  "item.semiconductor-lab.distilled_water.placeholder": "Approximation: the heat is represented by using the quartz still (no furnace fire shown)."
 }

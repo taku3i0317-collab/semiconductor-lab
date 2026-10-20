@@ -316,6 +316,22 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** [2-16] 蒸留水（IMP4-01）：水バケツ＋石英の蒸留器＋瓶3 → 蒸留水3（蒸留器・バケツが戻る） */
+    @GameTest
+    public void distilledWater(GameTestHelper h) {
+        List<ItemStack> g = new java.util.ArrayList<>(List.of(new ItemStack(Items.WATER_BUCKET), new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.QUARTZ_STILL),
+                new ItemStack(Chemistry.GLASS_BOTTLE), new ItemStack(Chemistry.GLASS_BOTTLE), new ItemStack(Chemistry.GLASS_BOTTLE)));
+        while (g.size() < 9) g.add(ItemStack.EMPTY);
+        var in = net.minecraft.world.item.crafting.CraftingInput.of(3, 3, g);
+        var r = h.getLevel().getServer().getRecipeManager().getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, in, h.getLevel()).orElseThrow().value();
+        ItemStack out = r.assemble(in);
+        h.assertTrue(out.is(Chemistry.DISTILLED_WATER) && out.getCount() == 3, "bucket + still + 3 bottles -> 3 distilled water, got " + out);
+        var rem = r.getRemainingItems(in);
+        h.assertTrue(rem.stream().anyMatch(st -> st.is(Items.BUCKET)) && rem.stream().anyMatch(st -> st.is(com.taku3.semiconductorlab.content.Metallurgy.QUARTZ_STILL)), "bucket and still come back");
+        LOG.info("[LAB] distilled water [2-16]: water bucket + quartz still + 3 bottles -> 3 distilled water (still, bucket back)");
+        h.succeed();
+    }
+
     /** [2-02] カリ（IMP2-01）：原木 →たき火→ 木灰、木灰4＋水バケツ → 灰汁（バケツは戻る）、灰汁 →かまど→ 炭酸カリウム */
     @GameTest
     public void potash(GameTestHelper h) {

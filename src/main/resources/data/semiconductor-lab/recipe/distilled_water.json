@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:water_bucket",
+    "semiconductor-lab:quartz_still",
+    "semiconductor-lab:glass_bottle",
+    "semiconductor-lab:glass_bottle",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:distilled_water",
+    "count": 3
+  }
+}

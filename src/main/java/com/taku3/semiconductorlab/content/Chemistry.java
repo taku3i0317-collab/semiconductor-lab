@@ -57,6 +57,7 @@ public final class Chemistry {
     public static final Item AMMONIACAL_LIQUOR     = Reg.item("ammoniacal_liquor", new Item.Properties().stacksTo(16)); // 安水（NH3 約1〜2% の水）
     public static final Item AMMONIA_WATER         = Reg.contained("ammonia_water", Vessel.GLASS_BOTTLE); // [2-21] アンモニア水（NH3 約25%、IMP4-01）
     public static final Item HYDROGEN_PEROXIDE     = Reg.contained("hydrogen_peroxide", Vessel.GLASS_BOTTLE); // [2-19] 過酸化水素（約30%、IMP4-01）
+    public static final Item DISTILLED_WATER       = Reg.contained("distilled_water", Vessel.GLASS_BOTTLE); // [2-16] 蒸留水（IMP4-01、洗浄のすすぎ）
     public static final Item AMMONIUM_CHLORIDE     = Reg.item("ammonium_chloride"); // 塩化アンモニウム NH4Cl（塩安、ろう付けのフラックス。[1-18] 白金の沈殿に使う、IMP4-01）
     // [1-18] 塩化白金酸の液（ガラス瓶）。Metallurgy に置くと、クラスの初期化の順でフッ酸の鉛の瓶（Metallurgy.LEAD_BOTTLE）がまだ null になるので、液は Chemistry に置く
     public static final Item CHLOROPLATINIC_ACID   = Reg.contained("chloroplatinic_acid", Vessel.GLASS_BOTTLE);

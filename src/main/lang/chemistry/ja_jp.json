@@ -214,5 +214,11 @@
   "gui.semiconductor-lab.peroxide_cell.need_anode": "白金の陽極が必要",
   "gui.semiconductor-lab.peroxide_cell.need_power": "電気が足りない",
   "gui.semiconductor-lab.peroxide_cell.running": "電解中（冷やしながら）",
-  "gui.semiconductor-lab.peroxide_cell.recipe": "2H2O → H2O2 + H2"
+  "gui.semiconductor-lab.peroxide_cell.recipe": "2H2O → H2O2 + H2",
+  "item.semiconductor-lab.distilled_water": "蒸留水",
+  "item.semiconductor-lab.distilled_water.note1": "水をわかして、湯気を冷やして集めた、塩の入っていない水。",
+  "item.semiconductor-lab.distilled_water.note2": "ガラス瓶入り（使うと瓶が戻る）。作業台で 水バケツ1＋石英の蒸留器（戻る）＋空のガラス瓶3 → 蒸留水3（バケツも戻る）。ウェハーを洗ったあとのすすぎに使う [9-14]。",
+  "item.semiconductor-lab.distilled_water.note3": "水は100℃で湯気になるが、溶けている塩や鉱物は湯気にならずに残る。湯気を冷やすと、それらを含まない水が取れる。純すいな水は電気をほとんど通さない。",
+  "item.semiconductor-lab.distilled_water.note4": "1〜3世紀のアレクサンドリアには3本の腕を持つ蒸留器の記録がある（マリアの発明と伝えられるが確かではない）。⚠️ 1950年代の半導体工場では、蒸留より安く大量に作れるイオン交換の脱イオン水が使われるようになった。",
+  "item.semiconductor-lab.distilled_water.placeholder": "近似：熱は石英の蒸留器を使うことで表す（かまどの火は描かない）。"
 }
