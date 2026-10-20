@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#minecraft:logs_that_burn",
+    "#minecraft:logs_that_burn",
+    "semiconductor-lab:sulfite_liquor"
+  ],
+  "result": {
+    "id": "semiconductor-lab:pulp_charge",
+    "count": 1
+  }
+}

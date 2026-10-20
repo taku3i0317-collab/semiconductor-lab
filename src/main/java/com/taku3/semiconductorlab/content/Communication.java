@@ -27,9 +27,18 @@ public final class Communication {
 
     // ===== アイテム =====
     public static final Item TRANSISTOR_RADIO      = Reg.item("transistor_radio", new Item.Properties().stacksTo(1));
+    // [15-01] 紙（パルプ）（IMP3、S-002）：SO2＋消石灰＋水 → 亜硫酸の蒸解液、原木2＋蒸解液 → 蒸解釜の仕込み →加圧加熱釜（約130℃以上・3気圧以上）→ 木材パルプ2（1867 ティルマン）。
+    //   パルプ3 → 紙3。パルプのセルロースは [2-18] 酢酸セルロース（RO 膜）の材料
+    public static final Item SULFITE_LIQUOR        = Reg.item("sulfite_liquor", new Item.Properties().stacksTo(16));
+    public static final Item PULP_CHARGE           = Reg.item("pulp_charge", new Item.Properties().stacksTo(16));
+    public static final Item WOOD_PULP             = Reg.item("wood_pulp");
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
-    static void init() {}
+    static void init() {
+        // [15-01] 亜硫酸法の蒸解は圧力釜で煮る（加圧加熱釜の表に1行、IMP3）。圧力が足りないとリグニンが溶けず、仕込みがそのまま戻る
+        AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("wood_pulp", st -> st.is(PULP_CHARGE), 1,
+                () -> new net.minecraft.world.item.ItemStack(WOOD_PULP, 2), () -> new net.minecraft.world.item.ItemStack(PULP_CHARGE), 130, 3, 20 * 30));
+    }
 
     /** 組立台のレシピ（IMP-33。Content.initialize が全部の幹のあとで呼ぶ） */
     static void assemblies() {

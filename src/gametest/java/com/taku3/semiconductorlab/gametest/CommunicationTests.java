@@ -91,4 +91,30 @@ public class CommunicationTests extends LabTestBase {
         h.assertValueEqual(assemblyCount(Communication.TRANSISTOR_RADIO, Items.IRON_INGOT), 0, "the plain iron chassis was removed");
         h.succeed();
     }
+
+    /** [15-01] 紙（パルプ）（IMP3、S-002）：SO2＋石灰＋水 → 蒸解液、原木2＋蒸解液 → 仕込み、加圧加熱釜で水あり → パルプ2、水なし → 仕込みのまま。パルプ3 → 紙3 */
+    @GameTest(maxTicks = 2000)
+    public void woodPulp(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "sulfite_liquor", Chemistry.SULFUR_DIOXIDE) && recipeUses(h, "sulfite_liquor", Survival.SLAKED_LIME), "SO2 + lime -> cooking liquor");
+        h.assertTrue(recipeUses(h, "pulp_charge", Items.OAK_LOG) && recipeUses(h, "pulp_charge", Communication.SULFITE_LIQUOR), "logs + liquor -> charge");
+        h.assertTrue(recipeUses(h, "paper_from_wood_pulp", Communication.WOOD_PULP), "pulp -> paper");
+        floor(h, 3);
+        BlockPos ap = p(1, 1, 1);
+        h.setBlock(ap, Chemistry.AUTOCLAVE.block);
+        var ac = h.getBlockEntity(ap, com.taku3.semiconductorlab.block.AutoclaveBlockEntity.class);
+        var c = ac.getContainer();
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, new ItemStack(Communication.PULP_CHARGE, 1));
+        ac.setTemperatureForTest(200);
+        tickConsumer(h, ap, ac, 20 * 30 + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT).is(Communication.PULP_CHARGE), "no water (1 atm) -> not cooked, charge comes back");
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_IN, c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT).copy());
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        c.setItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_WATER, new ItemStack(Items.WATER_BUCKET));
+        ac.setTemperatureForTest(200);
+        tickConsumer(h, ap, ac, 20 * 30 + 5, feed);
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.AutoclaveBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Communication.WOOD_PULP) && out.getCount() == 2, "under pressure -> 2 wood pulp, got " + out);
+        h.succeed();
+    }
 }

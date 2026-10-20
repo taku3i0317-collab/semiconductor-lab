@@ -1998,6 +1998,20 @@
 - Wikipedia「Tetrafluoroethylene」（製法）：https://en.wikipedia.org/wiki/Tetrafluoroethylene
 - Wikipedia「Swarts fluorination」：https://en.wikipedia.org/wiki/Swarts_fluorination
 
+## C23. 紙は昔はぼろ布、今は木（パルプ）［15-01］
+**答え**：105年に蔡倫が紙の製法を改良してから、紙の原料は長くぼろ布や樹皮だった。1840年代にドイツのケラーが木をすりつぶす砕木パルプを、1867年にアメリカのティルマンが亜硫酸法（SO2 と石灰の液でリグニンを溶かし、セルロースの繊維だけを取り出す）を考え、1874年にスウェーデンのエクマンが最初の工場を動かした。蒸解は圧力釜で煮る。
+
+- へえ①：紙の原料は、昔はぼろ布、今は木。
+- へえ②：木は、セルロースの繊維をリグニンという「のり」で固めた物。のりだけを溶かすと紙の原料になる。
+- へえ③：ぼろ布が足りなくなって、19世紀には紙の値段が上がり、木から作る方法が求められた。
+- へえ④：亜硫酸法の純度の高いパルプ（溶解パルプ）は、酢酸セルロースやレーヨンの原料にもなる。
+
+確かさ：蔡倫 105 ◎／ケラー 1840年代 ○／ティルマン 1867・エクマン 1874 ○／蒸解の温度（約130〜140℃）○
+根拠：
+- Wikipedia「Sulfite process」（歴史）：https://en.wikipedia.org/wiki/Sulfite_process
+- Wikipedia「Pulp (paper)」：https://en.wikipedia.org/wiki/Pulp_(paper)
+- Wikipedia「Cai Lun」：https://en.wikipedia.org/wiki/Cai_Lun
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -444,6 +444,9 @@ layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
 cleaning_bench  # Semiconductor [None] None
 theodolite  # Construction [12-11] 1615
+sulfite_liquor  # Communication [15-01] 105
+pulp_charge  # Communication [15-01] 105
+wood_pulp  # Communication [15-01] 105
 transistor_radio  # Communication [15-10] 1954
 silvered_plate  # Branches [B-02] 1839
 daguerreotype_plate  # Branches [B-02] 1839
