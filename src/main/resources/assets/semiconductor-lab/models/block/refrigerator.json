@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/refrigerator_front",
+    "side": "semiconductor-lab:block/refrigerator_side",
+    "top": "semiconductor-lab:block/refrigerator_top"
+  }
+}

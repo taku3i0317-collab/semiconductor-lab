@@ -1422,6 +1422,19 @@
 - Wikipedia「Photomask」：https://en.wikipedia.org/wiki/Photomask
 - ULVAC「沿革」：https://www.ulvac.co.jp/
 
+## O48. 熱を運んで氷を作る（冷凍機）［11-13］
+**答え**：冷媒を圧縮して熱くし、外で冷やして液にしてから、細い所で一気に広げて蒸発させると、まわりの熱をうばう。1876年、リンデはアンモニアを冷媒にした圧縮式冷凍機を作り、ビール工場や製氷工場で季節を問わず冷やせるようになった。
+
+- へえ①：冷蔵庫もエアコンも、熱を「くみ上げて」外に捨てている（ヒートポンプ）。
+- へえ②：リンデはのちに空気を冷やして液にし、酸素と窒素を分けた。
+- へえ③：アンモニアは今も大きな冷凍倉庫の冷媒。毒性があるので家庭ではフロン類に置き換わり、そのフロンはオゾン層を壊すとして規制された。
+- へえ④：半導体工場は、空調で温度を 0.1℃ 単位でそろえる。
+
+確かさ：リンデ 1876 のアンモニア冷凍機 ◎／製氷・醸造での利用 ◎／フロンの規制（モントリオール議定書 1987）◎
+根拠：
+- Wikipedia「Carl von Linde」：https://en.wikipedia.org/wiki/Carl_von_Linde
+- Wikipedia「Vapor-compression refrigeration」：https://en.wikipedia.org/wiki/Vapor-compression_refrigeration
+
 ---
 
 # 冶金と熱（タスク15〜）

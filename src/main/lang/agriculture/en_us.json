@@ -1,0 +1,8 @@
+{
+  "block.semiconductor-lab.refrigerator": "Refrigerating Machine (ammonia compression)",
+  "block.semiconductor-lab.refrigerator.note1": "A machine that runs on electricity and freezes water. A relative of refrigerators and air conditioners.",
+  "block.semiconductor-lab.refrigerator.note2": "Compressor + 2 copper + 6 iron. 1 kW, 20 s. One ammonia water in the refrigerant slot (not used up); water bucket -> ice (the bucket returns).",
+  "block.semiconductor-lab.refrigerator.note3": "In 1876 the German Linde built an ammonia compression refrigerating machine, letting breweries cool without winter ice. Linde later liquefied air to separate oxygen and nitrogen ([6-07] air separation).",
+  "block.semiconductor-lab.refrigerator.note4": "The compressed, heated refrigerant is cooled outside into a liquid, then expanded suddenly through a narrow opening so it evaporates and draws heat from around it. It moves heat from cold to hot, so it is also called a heat pump. Semiconductor fab air conditioning and constant temperature ([12-12], [8-07]) work the same way.",
+  "block.semiconductor-lab.refrigerator.placeholder": "Approximation: the real refrigerant is anhydrous ammonia (ammonia water here). Vanilla has no food spoilage, so there is no refrigerator function."
+}

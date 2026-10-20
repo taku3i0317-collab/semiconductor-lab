@@ -138,3 +138,10 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ O-015 1・2. [1-40] クロム・[2-07] 重クロム酸カリウム：新鉱石 chromite_ore（深層岩だけ Y−64〜0、ModWorldGen.RULES・ore_biome_rules・oreChromite に1行ずつ）。焙焼の仕込み →溶鉱炉→ クロム酸ナトリウム → ＋硫酸＋炭酸カリウム → 重クロム酸カリウム（Chemistry に1行）→かまど→ Cr2O3 → ＋アルミ×2＋るつぼ →溶鉱炉→ クロム×2。GHS（6価クロム）と1975 の六価クロム鉱さい問題を教訓として note4 に。工程が作業台・炉だけなので、その場の機械の「事故」はなし（機械にする時に考える）。GameTest chromium・oreChromite、CHEMISTRY CR1〜CR4、REFERENCES O46。テスト 203/203
   - **D へ**：[2-07] 重クロム酸カリウムは C が作った（Chemistry.POTASSIUM_DICHROMATE、recipe potassium_dichromate）。触らないでください。重クロム酸ゼラチン [2-31] で使うときはこのアイテムをそのまま使えます
 - ✅ O-015 3. [7-12] クロムマスク：蒸着の組み合わせに 合成石英＋クロム → chrome_blank（EvaporatorBlockEntity.RECIPES に1行）。縮小カメラ（ReductionCameraBlockEntity）：乾板の入口にブランク、薬はレジスト＋塩酸 → chrome_photomask（耐久100）、乳剤は方眼12まで（EMULSION_MAX_GRID、画面に「乳剤では細かすぎる」）、瓶は機械の上に落とす。マスクアライナーの isMask に追加。photomask の形・A の litho はそのまま。GameTest chrome_mask、CHEMISTRY O35、REFERENCES O47。テスト 207/207。O-015 はこれで全部
+
+## S-003（2026-10-20）[9-39] 縮小投影露光の担当
+- [9-39] は C が担当（ユーザーの答え「おすすめで」、S-003）
+- 前提の確認：[9-20]✅・[7-19]✅（部品）・[8-08]✅・光源 [7-10]✅ はそろった。未実装：**[12-14] 層流クリーンルーム**（← [12-13] HEPA ← [12-12] 空調 ← [11-13] 冷凍機）と **[10-15] 露光装置の制御**（← [10-14] マイコン ← [10-13] CPU。「密着露光で作った IC → CPU → 制御 → ステッパー」のブートストラップ）
+- **Q-IMP2-6（質問）**：[10-15] は自作 CPU が前提で、ゲームの大きな山（第3〜4章の目標）なので、C が仮で代わりを作るのは避けたい。案：①[10-15] ができるまで [9-39] は作らない（クリーンルームの道だけ先に作る）、②[9-39] を「制御は人の手（ハンドル）で1チップずつ送る」近似で先に作り、[10-15] ができたら自動送り（速さ）を足す（⚠️ を TECH_TREE とゲームに）、③[10-13]〜[10-15] の担当を決めてから
+- 答えが来るまで：[9-39] の前提のうち C の範囲で作れるクリーンルームの道（[11-13] 冷凍機 → [12-12] 空調 → [12-13] HEPA → [12-14] クリーンルーム）を順に作る。[12-14] の「クリーンルーム判定」（ROADMAP v0.5 #5、第5章の前提）は A の歩留まりとつながるので、作る前に A に形を確かめる
+- ✅ S-003 の前提 [11-13] 冷凍機：幹11 の最初のノードなので content/Agriculture.java・lang 部品 agriculture・AgricultureTests を作成（Content.java・lang_build.py の ORDER・gen_testworld.py の幹名・gametest の fabric.mod.json に1行ずつ）。block/RefrigeratorBlockEntity：冷媒アンモニア水（減らない）＋水バケツ → 氷＋バケツ、1kW・20秒。GameTest refrigerator、CHEMISTRY A1、REFERENCES O48。テスト 211/211

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ICI",
+    "IKI",
+    "ICI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "C": "minecraft:copper_ingot",
+    "K": "semiconductor-lab:compressor"
+  },
+  "result": {
+    "id": "semiconductor-lab:refrigerator",
+    "count": 1
+  }
+}
