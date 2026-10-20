@@ -236,5 +236,17 @@
   "gui.semiconductor-lab.wafer_polisher.need_power": "Not enough power",
   "gui.semiconductor-lab.wafer_polisher.running": "Polishing",
   "gui.semiconductor-lab.wafer_polisher.too_many": "Only 2 reclaims per wafer",
-  "gui.semiconductor-lab.wafer_polisher.recipe": "Grit to flatten → silica to mirror"
+  "gui.semiconductor-lab.wafer_polisher.recipe": "Grit to flatten → silica to mirror",
+  "block.semiconductor-lab.probe_station": "Probe Station",
+  "block.semiconductor-lab.probe_station.note1": "A stand for touching a finished chip with needles to see if current flows.",
+  "block.semiconductor-lab.probe_station.note2": "Click the pads on the edge to choose 0 V, 5 V or open; current glows yellow. Press Probe to identify the circuit inside.",
+  "block.semiconductor-lab.probe_station.note3": "In a real fab, fine needles touch every chip on the wafer to sort good from bad. Bad chips are marked and thrown away later.",
+  "block.semiconductor-lab.probe_station.note4": "Not every chip works. The share of good chips (yield) depends on dust and defects and on chip area (Y ≈ e^(−D·A)).",
+  "block.semiconductor-lab.probe_station.placeholder": "Omitted: the measuring power supply (battery) and needle alignment",
+  "gui.semiconductor-lab.probe_station.probe": "Probe",
+  "gui.semiconductor-lab.probe_station.pad": "Pad %s: %s",
+  "gui.semiconductor-lab.probe_station.amps": "Current %s",
+  "gui.semiconductor-lab.probe_station.need_wafer": "Place a wafer in process",
+  "gui.semiconductor-lab.probe_station.set_pads": "Click pads to switch",
+  "gui.semiconductor-lab.probe_station.nothing": "No known circuit"
 }

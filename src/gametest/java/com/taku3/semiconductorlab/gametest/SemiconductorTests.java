@@ -801,6 +801,46 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+
+    /**
+     * 検査台（O-002）：焼いた 8×8 の NOT を置き、パッドをボタンで 0 V・5 V にすると、画面と同じ計算で NOT として動く。
+     * 「調べる」で4つの発見（ビット）。発見の進捗（discovery/…）が読み込まれている。ウェハーを替えるとパッドは元に戻る
+     */
+    @GameTest
+    public void probeStation(GameTestHelper h) {
+        var pos = p(1, 1, 1);
+        h.setBlock(pos, Semiconductor.PROBE_STATION.block);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack wafer = new ItemStack(Semiconductor.OXIDIZED_WAFER);
+        wafer.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(wafer, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE), "nothing to probe without a wafer");
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, chip);
+        var nl = be.netlist();
+        h.assertValueEqual(nl.pads().size(), 4, "4 pads on the 8x8 NOT");
+        int[] pins = com.taku3.semiconductorlab.litho.Circuit.notPins(nl);   // 入力・出力・電源・0 V の線
+        java.util.function.IntUnaryOperator padIndex = net -> { for (int i = 0; i < nl.pads().size(); i++) if (nl.pads().get(i).id() == net) return i; return -1; };
+        be.onButton(player, padIndex.applyAsInt(pins[3]));                                              // 0 V
+        be.onButton(player, padIndex.applyAsInt(pins[2])); be.onButton(player, padIndex.applyAsInt(pins[2]));   // 5 V
+        be.onButton(player, padIndex.applyAsInt(pins[0]));                                              // 入力 0 V
+        var lo = com.taku3.semiconductorlab.litho.Circuit.solve(nl, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.drive(nl, be::padState)).netVolts(nl, pins[1]);
+        be.onButton(player, padIndex.applyAsInt(pins[0]));                                              // 入力 5 V
+        var sol = com.taku3.semiconductorlab.litho.Circuit.solve(nl, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.drive(nl, be::padState));
+        var hiIn = sol.netVolts(nl, pins[1]);
+        h.assertTrue(lo > 4.5 && hiIn < 1.5, String.format("probe: in 0 V -> out %.2f V, in 5 V -> out %.2f V", lo, hiIn));
+        h.assertTrue(sol.padAmps().get(pins[2]) > 1e-4, "current flows from the 5 V pad when the transistor is on");
+        h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE), "probe");
+        h.assertValueEqual(be.found(), 0b1111, "four discoveries on this chip");
+        for (var d : com.taku3.semiconductorlab.litho.Discoveries.all())
+            h.assertTrue(h.getLevel().getServer().getAdvancements().get(com.taku3.semiconductorlab.SemiconductorLab.id("discovery/" + d.id())) != null, "advancement discovery/" + d.id());
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.SLOT_WAFER, ItemStack.EMPTY);
+        h.assertValueEqual(be.padState(0), com.taku3.semiconductorlab.block.ProbeStationBlockEntity.OPEN, "pads reset when the wafer changes");
+        h.assertValueEqual(be.found(), 0, "result reset when the wafer changes");
+        LOG.info("[LAB] probe station: NOT out {} V / {} V, found 4", String.format("%.2f", lo), String.format("%.2f", hiIn));
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

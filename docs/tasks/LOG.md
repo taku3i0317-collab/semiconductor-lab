@@ -334,3 +334,6 @@
 - Semiconductor.DRAFTING_TABLE（block/DraftingTableBlockEntity、client/DraftingTableScreen）：方眼に塗る・消す（左右クリック、ドラッグ）、層を選ぶ、← → 元に戻す・やり直す（ひと筆ずつ）、✂ 原図、× 層を消す、＋ 新しい方眼紙、# 方眼の大きさ（8・12・16）。方眼には完成の予想の色、下に断面図（マウスの行）。正解の名前は出さない
 - アイテム layout_sheet（成分 chip_design）・rubylith（成分 mask。C の縮小カメラがそのまま受け付ける）。⚠️ 材料なし（S-001）＝placeholder「近似：」
 - メモリ不足で一度止まった → 再開時に lock なし・変更は無事を確かめ、作りかけの BE をよけて共通部分だけ先に commit、pull --rebase。テスト：138/138 PASSED
+## O-002 ② の3・③：検査台と発見（2026-10-20）
+- Semiconductor.PROBE_STATION（block/ProbeStationBlockEntity、client/ProbeStationScreen、高さ 222）：パッドをクリックで つながない→0 V→5 V、チップの色の上に電流の明るさ（Circuit をこの画面で計算）、パッドの電圧・電流、「調べる」で判定 → 見つかった発見の名前を右に、新しい発見はチャットで「あなたは 〇〇 年の「…」を自分で作った！」と進捗 discovery/<id>（タブ「発見」、impossible を award）。省略：測定の電源・針の位置合わせ
+- REFERENCES L2（キルビー 1958・オール 1940 をコンピュータ歴史博物館で確かめた）。テスト：141/141 PASSED

@@ -66,6 +66,9 @@ public final class Semiconductor {
     public static final Machine<DraftingTableBlockEntity> DRAFTING_TABLE = Machine.builder("drafting_table", DraftingTableBlockEntity::new)
             .layout(DraftingTableBlockEntity.LAYOUT)
             .props(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().mapColor(net.minecraft.world.level.material.MapColor.WOOD).strength(2.5f).sound(net.minecraft.world.level.block.SoundType.WOOD)).build();
+    // 検査台（プローブ、O-002）：パッドに電圧をかけて電流を見る、つながり方を判定して「発見」を知らせる
+    public static final Machine<ProbeStationBlockEntity> PROBE_STATION = Machine.builder("probe_station", ProbeStationBlockEntity::new)
+            .layout(ProbeStationBlockEntity.LAYOUT).props(metal(3.0f)).build();
     public static final Machine<WaferSawBlockEntity> WAFER_SAW = Machine.electric("wafer_saw", WaferSawBlockEntity::new, WaferSawBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<DiffusionFurnaceBlockEntity> DIFFUSION_FURNACE = Machine.electric("diffusion_furnace", DiffusionFurnaceBlockEntity::new, DiffusionFurnaceBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<OxidationFurnaceBlockEntity> OXIDATION_FURNACE = Machine.electric("oxidation_furnace", OxidationFurnaceBlockEntity::new, OxidationFurnaceBlockEntity.LAYOUT, metal(4.0f));

@@ -97,5 +97,11 @@
   "item.semiconductor-lab.gauge.no_grade": "  This scale cannot read 0.01 mm differences -> grade with a micrometer",
   "item.semiconductor-lab.gauge.grade_a": "  Grade A (error %s um, within 10 um)",
   "item.semiconductor-lab.gauge.grade_b": "  Grade B (error %s um, within 20 um)",
-  "item.semiconductor-lab.gauge.grade_c": "  Grade C (error %s um, over 20 um)"
+  "item.semiconductor-lab.gauge.grade_c": "  Grade C (error %s um, over 20 um)",
+  "litho.semiconductor-lab.discovery.diffused_resistor.note": "A thin diffused strip resists current: a resistor. Kilby's first IC of 1958 (germanium) already had resistors made from the wafer itself.",
+  "litho.semiconductor-lab.discovery.junction_diode.note": "The border between p-type and n-type lets current through one way only. In 1940 Ohl found such a border by chance inside a silicon crystal.",
+  "litho.semiconductor-lab.discovery.planar_transistor.note": "Open windows in the oxide and diffuse n, p, n nested inside each other: a transistor. Hoerni's 1959 method keeps the surface flat.",
+  "litho.semiconductor-lab.discovery.rtl_not.note": "A circuit of just a transistor and resistors that outputs 0 for input 1 and 1 for input 0 (RTL). One of the logic circuits announced as ICs in 1961.",
+  "advancement.semiconductor-lab.discovery.root.title": "Discoveries",
+  "advancement.semiconductor-lab.discovery.root.description": "Inventions from history hide in the chips you draw. Press Probe at the probe station."
 }

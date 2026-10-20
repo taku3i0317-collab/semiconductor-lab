@@ -1,0 +1,23 @@
+{
+  "parent": "semiconductor-lab:discovery/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:pn_junction_wafer"
+    },
+    "title": {
+      "translate": "litho.semiconductor-lab.discovery.junction_diode"
+    },
+    "description": {
+      "translate": "litho.semiconductor-lab.discovery.junction_diode.note"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "found": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
