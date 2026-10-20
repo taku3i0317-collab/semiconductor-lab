@@ -1669,6 +1669,48 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * v0.3b ハンコ（S-005、LITHO_DESIGN §11.3）：お題を解いたチップからハンコ（切り抜いた設計図）。製図台で押すと層が重なり、押した記録（Part）が残る。
+     * 押した設計図の原図 → チップにも記録が写る（中身をのぞける）。判定は層から（記号ではない）
+     */
+    @GameTest(maxTicks = 200)
+    public void stamps(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        ItemStack stamp = com.taku3.semiconductorlab.block.ProbeStationBlockEntity.stampOf(chip, "not");
+        var sd = stamp.get(ModDataComponents.CHIP_DESIGN);
+        h.assertTrue(stamp.is(Semiconductor.STAMP) && sd != null && sd.name().equals("not"), "a stamp named after the challenge");
+        var sNl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(sd, "p"));
+        h.assertTrue(com.taku3.semiconductorlab.litho.Circuit.worksAsNot(sNl), "the stamp still works as NOT");
+        h.setBlock(p(1, 1, 1), Semiconductor.DRAFTING_TABLE.block);
+        var dt = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.DraftingTableBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_NEW);
+        int i16 = 0;
+        while (com.taku3.semiconductorlab.block.DraftingTableBlockEntity.SIZES[i16] != 16) i16++;
+        dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_SIZE + i16);
+        dt.getContainer().setItem(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.SLOT_STAMP, stamp);
+        h.assertTrue(dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_STAMP + 3 * 16 + 4), "press the stamp at (4, 3)");
+        var d = dt.design();
+        h.assertValueEqual(d.parts().size(), 1, "one part recorded");
+        h.assertTrue(d.parts().get(0).x() == 4 && d.parts().get(0).y() == 3 && d.parts().get(0).name().equals("not"), "part at (4, 3) named not");
+        h.assertTrue(!dt.getContainer().getItem(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.SLOT_STAMP).isEmpty(), "the stamp is not used up");
+        var nl16 = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(d, "p"));
+        h.assertTrue(!nl16.transistors.isEmpty(), "the stamped layers make a transistor (judged from the shapes)");
+        var mask = d.mask(0);
+        h.assertValueEqual(mask.parts().size(), 1, "the mask carries the part record");
+        ItemStack w2 = new ItemStack(Semiconductor.OXIDIZED_WAFER); w2.set(ModDataComponents.DOPANT, "boron");
+        var exposed = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w2).out(), mask, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(exposed).parts().size(), 1, "the chip remembers the stamp it was drawn with");
+        var nested = com.taku3.semiconductorlab.litho.ChipDesign.fromState(com.taku3.semiconductorlab.litho.ChipOps.state(exposed), "nested").crop();
+        h.assertTrue(nested.parts().size() == 1 && nested.parts().get(0).stamp().name().equals("not"), "a stamp made from it keeps the inner stamp (hierarchy)");
+        var enc = com.taku3.semiconductorlab.litho.ChipDesign.CODEC.encodeStart(com.mojang.serialization.JsonOps.INSTANCE, nested).getOrThrow();
+        var dec = com.taku3.semiconductorlab.litho.ChipDesign.CODEC.parse(com.mojang.serialization.JsonOps.INSTANCE, enc).getOrThrow();
+        h.assertValueEqual(dec, nested, "nested stamps survive saving");
+        LOG.info("[LAB] stamps: NOT chip -> stamp ({}x{}), pressed on a 16x16 sheet, part kept on the mask and chip, nested stamp round-trips", sd.size(), sd.size());
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

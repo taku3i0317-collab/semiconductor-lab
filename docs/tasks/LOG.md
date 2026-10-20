@@ -471,4 +471,5 @@
 - 先に進める物（どの案でも同じ）：お題の仕組み（Challenge・真理値表・Circuit.logic・検査台のパッドの役目 入力A/B・出力）、NOT のお題
 - ① お題 ✅：litho/Challenge（NOT・NOR・OR・NAND・AND・XOR・半加算器の真理値表）、Circuit.logic（0V・5V・入力をかけて出力 > 2.5V）、検査台のパッドの役目 7つ・▶ でお題・結果（合った行）・進捗 challenge/<id>（順に開く）。画面の高さ 256。GameTest challenges
 - ② あと少し ✅：litho/NearMiss（役目・電流が流れない・スイッチがない・あと1か所でトランジスタ・入力がベースに届かない・出力が変わらない・いくつかの行は合っている）。検査台の「調べる」で合わなかったらチャットに1行。GameTest challenges に足した
+- ③ ハンコと記号 ✅：お題を解くとチップの形がハンコ（stamp）に。製図台にハンコの口（押しても減らない）・▣ で記号（色の箱、名前は下の欄）と中身のぞき（入れ子、中身は見るだけ）。記録 Part は設計図 → 原図（MaskData.parts）→ チップ（ChipState.parts）→ ハンコ と続く。判定はいつも層から。画面の高さ 256。GameTest stamps
 

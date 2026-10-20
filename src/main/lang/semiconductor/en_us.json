@@ -413,5 +413,15 @@
   "gui.semiconductor-lab.probe_station.result_none": "Probe to check the challenge too",
   "gui.semiconductor-lab.probe_station.result_missing": "Set pads: 0 V, 5 V, inputs and outputs",
   "gui.semiconductor-lab.probe_station.result_rows": "%s of %s rows match",
-  "gui.semiconductor-lab.probe_station.result_pass": "Challenge solved!"
+  "gui.semiconductor-lab.probe_station.result_pass": "Challenge solved!",
+  "gui.semiconductor-lab.drafting_table.stamp_slot": "Stamp",
+  "gui.semiconductor-lab.drafting_table.stamp": "Click: press stamp",
+  "gui.semiconductor-lab.drafting_table.symbol_off": "▣: show stamps as symbols",
+  "gui.semiconductor-lab.drafting_table.symbol_on": "Symbols on. Click one to look inside",
+  "gui.semiconductor-lab.drafting_table.inside": "Inside: %s (▣ to go back)",
+  "item.semiconductor-lab.stamp": "Stamp",
+  "item.semiconductor-lab.stamp.note1": "A circuit you found, ready to press again and again on the drafting table.",
+  "item.semiconductor-lab.stamp.note2": "Solve a challenge at the probe station and you get its stamp. Put it in the drafting table's stamp slot and left-click the grid.",
+  "item.semiconductor-lab.stamp.note3": "Press the square button to see pressed stamps as symbols; click a symbol to look inside it. Designers did the same: draw transistors once, reuse them as symbols, then build bigger blocks from the symbols.",
+  "item.semiconductor-lab.stamp.note4": "This is abstraction (hierarchical design): every symbol still stands for real mask shapes, and the probe always judges the shapes, never the symbol."
 }

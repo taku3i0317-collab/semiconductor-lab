@@ -96,7 +96,7 @@ public final class ChipOps {
         if (s == null || s.resist() != ChipState.Resist.COATED) return Result.fail("no_resist");
         if (mask.size() > tool.grid) return Result.fail("too_fine");
         if (s.sized() && s.size() != mask.size()) return Result.fail("size_mismatch");
-        if (!s.sized()) s = s.withSize(mask.size());
+        if (!s.sized()) s = s.withSize(mask.size()).withParts(mask.parts());   // 1枚目：設計図に押したハンコの記録もチップへ（v0.3b）
         else if (overlayNm > 0) s = s.overlay(overlayNm);   // 2層目から
         BitGrid lit = mask.kind().window ? mask.cells() : mask.cells().invert();
         if (s.tone() == ChipState.Tone.NEGATIVE) lit = lit.invert();   // ネガ型：残したい所に光を当てる（マスクの白黒が逆＝ネガ型用のマスク。遊ぶ人は今までどおり「ある所」を描く）

@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 122（ja・en）、文字の置き場所 460、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 122（ja・en）、文字の置き場所 464、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -346,10 +346,22 @@ drafting_table_en_us layer2 litho.semiconductor-lab.role.emitter w=54 lines=1/1
 drafting_table_en_us layer3 litho.semiconductor-lab.role.contact w=83 lines=1/1 scale=0.79999995
 drafting_table_en_us layer4 litho.semiconductor-lab.role.metal w=85 lines=1/1 scale=0.79999995
 drafting_table_en_us arrow =→ w=8 lines=1/1
+drafting_table_en_us stamp_label gui.semiconductor-lab.drafting_table.stamp_slot w=28 lines=1/1
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.need_sheet w=91 lines=1/1 scale=0.84999996
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.draw w=113 lines=1/1 scale=0.6499999
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.zoom w=112 lines=1/1 scale=0.6499999
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.out_full w=106 lines=1/1 scale=0.6999999
+drafting_table_en_us hint gui.semiconductor-lab.drafting_table.stamp w=90 lines=1/1 scale=0.84999996
+drafting_table_en_us symbol gui.semiconductor-lab.drafting_table.symbol_off w=131 lines=2/2
+drafting_table_en_us symbol gui.semiconductor-lab.drafting_table.symbol_on w=175 lines=2/2 scale=0.95
+drafting_table_en_us symbol gui.semiconductor-lab.drafting_table.inside w=115 lines=2/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.not w=18 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.nor w=18 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.or w=12 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.nand w=24 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.and w=18 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.xor w=18 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.half_adder w=54 lines=1/2
 probe_station_en_us pad gui.semiconductor-lab.probe_station.pad w=56 lines=1/1
 probe_station_en_us amps gui.semiconductor-lab.probe_station.amps w=92 lines=1/1 scale=0.79999995
 probe_station_en_us found0 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
@@ -852,10 +864,22 @@ drafting_table_ja_jp layer2 litho.semiconductor-lab.role.emitter w=61 lines=1/1
 drafting_table_ja_jp layer3 litho.semiconductor-lab.role.contact w=46 lines=1/1
 drafting_table_ja_jp layer4 litho.semiconductor-lab.role.metal w=64 lines=1/1
 drafting_table_ja_jp arrow =→ w=8 lines=1/1
+drafting_table_ja_jp stamp_label gui.semiconductor-lab.drafting_table.stamp_slot w=27 lines=1/1
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.need_sheet w=69 lines=1/1
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.draw w=81 lines=1/1 scale=0.95
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.zoom w=108 lines=1/1 scale=0.6999999
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.out_full w=63 lines=1/1
+drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.stamp w=72 lines=1/1
+drafting_table_ja_jp symbol gui.semiconductor-lab.drafting_table.symbol_off w=121 lines=2/2
+drafting_table_ja_jp symbol gui.semiconductor-lab.drafting_table.symbol_on w=126 lines=2/2
+drafting_table_ja_jp symbol gui.semiconductor-lab.drafting_table.inside w=82 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.not w=18 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.nor w=18 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.or w=12 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.nand w=24 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.and w=18 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.xor w=18 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.half_adder w=36 lines=1/2
 probe_station_ja_jp pad gui.semiconductor-lab.probe_station.pad w=68 lines=1/1
 probe_station_ja_jp amps gui.semiconductor-lab.probe_station.amps w=70 lines=1/1
 probe_station_ja_jp found0 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1

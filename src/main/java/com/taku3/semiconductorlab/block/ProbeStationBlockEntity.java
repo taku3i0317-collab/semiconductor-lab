@@ -142,6 +142,15 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
         return r;
     }
 
+    /** チップ（加工中のウェハー）からハンコを作る：層を設計図に戻し、描いてある所で切り抜く。名前＝お題の id */
+    public static ItemStack stampOf(ItemStack wafer, String name) {
+        ChipState s = wafer.get(ModDataComponents.CHIP_STATE);
+        if (s == null || !s.sized()) return ItemStack.EMPTY;
+        ItemStack st = new ItemStack(Semiconductor.STAMP);
+        st.set(ModDataComponents.CHIP_DESIGN, com.taku3.semiconductorlab.litho.ChipDesign.fromState(s, name).crop());
+        return st;
+    }
+
     /** お題 i は開いているか（最初のお題、または前のお題の進捗 challenge/&lt;前&gt; が済んでいる） */
     public static boolean unlocked(ServerPlayer sp, int i) {
         if (i <= 0) return true;
@@ -197,6 +206,8 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                     if (adv != null && !sp.getAdvancements().getOrStartProgress(adv).isDone()) {
                         sp.getAdvancements().award(adv, "solved");
                         sp.sendSystemMessage(Component.translatable("litho.semiconductor-lab.challenge.solved", Component.translatable(def.langKey())));
+                        ItemStack stamp = stampOf(container.getItem(SLOT_WAFER), def.id());   // 見つけた物はハンコになる（§11.3）
+                        if (!stamp.isEmpty() && !sp.getInventory().add(stamp)) net.minecraft.world.level.block.Block.popResource(level, worldPosition.above(), stamp);
                     }
                 }
             }

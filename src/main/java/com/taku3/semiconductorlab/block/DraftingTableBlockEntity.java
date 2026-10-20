@@ -32,10 +32,12 @@ import java.util.List;
  * ボタンの番号：{@link #BTN_NEW} など、塗る＝{@link #paintId}。
  */
 public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
-    public static final int SLOT_SHEET = 0, SLOT_OUT = 1, SLOT_COUNT = 2;
+    public static final int SLOT_SHEET = 0, SLOT_OUT = 1, SLOT_STAMP = 2, SLOT_COUNT = 3;
     public static final int DATA_UNDO = 0, DATA_REDO = 1, DATA_COUNT = 2;
     /** ボタン：新しい方眼紙・元に戻す・やり直す・ひと筆の始まり（元に戻す単位）、方眼の大きさ（+i）、原図を切る（+層）、層を消す（+層） */
     public static final int BTN_NEW = 1, BTN_UNDO = 2, BTN_REDO = 3, BTN_STROKE = 4, BTN_SIZE = 10, BTN_CUT = 100, BTN_CLEAR = 200;
+    /** ハンコを押す（v0.3b）：300000 ＋ マス（押す所の左上） */
+    public static final int BTN_STAMP = 300_000;
     /** 選べる方眼の大きさ（露光の方法ごと、ExposureTool と同じ。v0.3 の密着露光は 8、より細かい物はその方法ができてから焼ける） */
     public static final int[] SIZES = java.util.Arrays.stream(com.taku3.semiconductorlab.litho.ExposureTool.values()).mapToInt(t -> t.grid).toArray();
     private static final int MAX_HISTORY = 64;
@@ -52,14 +54,17 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
     }
 
     /** 画面の中の位置（画面のクラス DraftingTableScreen も同じ数字を使う） */
-    public static final int H = 222, GRID_X = 8, GRID_Y = 18, GRID_W = 80, LAYER_X = 94, LAYER_Y = 18, LAYER_ROW = 12,
-            BTN_Y = 80, SECTION_X = 8, SECTION_Y = 102, SECTION_H = 24, SHEET_X = 96, SHEET_Y = 102, OUT_X = 152, OUT_Y = 102;
+    public static final int H = 256, GRID_X = 8, GRID_Y = 18, GRID_W = 80, LAYER_X = 94, LAYER_Y = 18, LAYER_ROW = 12,
+            BTN_Y = 80, SECTION_X = 8, SECTION_Y = 102, SECTION_H = 24, SHEET_X = 96, SHEET_Y = 102, OUT_X = 152, OUT_Y = 102,
+            STAMP_X = 152, STAMP_Y = 124, SYMBOL_BTN_X = 96, SYMBOL_BTN_Y = 124;
 
     public static final MachineLayout LAYOUT;
     static {
         var b = MachineLayout.builder(DATA_COUNT).height(H)
                 .in(SLOT_SHEET, SHEET_X, SHEET_Y, s -> s.is(Semiconductor.LAYOUT_SHEET))
                 .out(SLOT_OUT, OUT_X, OUT_Y)
+                .in(SLOT_STAMP, STAMP_X, STAMP_Y, s -> s.is(Semiconductor.STAMP), 1)   // ハンコ（v0.3b）：入れている間は左クリックで押す
+                .area("symbol_button", SYMBOL_BTN_X, SYMBOL_BTN_Y, 16, 14)
                 .area("grid", GRID_X, GRID_Y, GRID_W, GRID_W)
                 .area("swatch", LAYER_X, LAYER_Y, 8, LAYER_ROW * ROLES.length - 1)
                 .area("buttons", LAYER_X, BTN_Y, 78, 14)
@@ -67,7 +72,11 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
         for (int i = 0; i < ROLES.length; i++)
             b.text("layer" + i, LAYER_X + 10, LAYER_Y + 1 + LAYER_ROW * i, 68, 1, "litho.semiconductor-lab.role." + ROLES[i]).fit();
         LAYOUT = b.label("arrow", SHEET_X + 22, SHEET_Y + 4, 28, "→")
-                .text("hint", LAYER_X, 122, 78, 1, MachineLayout.keys("gui.semiconductor-lab.drafting_table.", "need_sheet", "draw", "zoom", "out_full")).fit()
+                .text("stamp_label", STAMP_X - 34, STAMP_Y + 4, 32, 1, "gui.semiconductor-lab.drafting_table.stamp_slot").fit()
+                .text("hint", LAYER_X, 144, 78, 1, MachineLayout.keys("gui.semiconductor-lab.drafting_table.", "need_sheet", "draw", "zoom", "out_full", "stamp")).fit()
+                .lazyText("symbol", SECTION_X, SECTION_Y + SECTION_H + 4, 84, 2, () -> java.util.stream.Stream.concat(
+                        java.util.stream.Stream.of("gui.semiconductor-lab.drafting_table.symbol_off", "gui.semiconductor-lab.drafting_table.symbol_on", "gui.semiconductor-lab.drafting_table.inside"),
+                        com.taku3.semiconductorlab.litho.Challenge.all().stream().map(com.taku3.semiconductorlab.litho.Challenge.Def::langKey)).toList()).fit()
                 .build();
     }
 
@@ -142,6 +151,14 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
         if (id >= BTN_CLEAR && id < BTN_CLEAR + d.layers().size()) {
             remember(d);
             setDesign(d.withLayer(id - BTN_CLEAR, BitGrid.empty(d.size())));
+            return true;
+        }
+        if (id >= BTN_STAMP && id < BTN_STAMP + 10_000) {   // ハンコを押す（左上のマス）
+            ChipDesign st = container.getItem(SLOT_STAMP).get(ModDataComponents.CHIP_DESIGN);
+            int cell = id - BTN_STAMP;
+            if (st == null || cell >= d.size() * d.size()) return false;
+            remember(d);
+            setDesign(d.stamp(st, cell % d.size(), cell / d.size()));
             return true;
         }
         if (id >= 100_000 && id < 300_000) {

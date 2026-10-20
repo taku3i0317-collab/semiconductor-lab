@@ -32,10 +32,24 @@ public class DraftingTableScreen extends MachineScreen {
     private double panX, panY;
     /** 拡大の上限（1マスの px） */
     private static final int MAX_ZOOM = 16;
+    /** 記号で見せるか（v0.3b）・中身をのぞいている途中のハンコ（null＝自分の設計図）・マウスの下の記号 */
+    private boolean symbols;
+    private final java.util.Deque<ChipDesign> inside = new java.util.ArrayDeque<>();
+    private com.taku3.semiconductorlab.litho.Part hoverPart;
 
     public DraftingTableScreen(MachineMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
 
-    private ChipDesign design() { return menu.machineItem(SLOT_SHEET).get(ModDataComponents.CHIP_DESIGN); }
+    /** 見せる設計図：中身をのぞいていればそのハンコ、ふだんは置いてある設計図 */
+    private ChipDesign design() { return inside.isEmpty() ? sheet() : inside.peek(); }
+    private ChipDesign sheet() { return menu.machineItem(SLOT_SHEET).get(ModDataComponents.CHIP_DESIGN); }
+    private boolean stamping() { return inside.isEmpty() && menu.machineItem(SLOT_STAMP).has(ModDataComponents.CHIP_DESIGN); }
+
+    /** マス (x, y) を含む、いちばん外側の押したハンコ（なければ null） */
+    private static com.taku3.semiconductorlab.litho.Part partAt(ChipDesign d, int x, int y) {
+        com.taku3.semiconductorlab.litho.Part hit = null;
+        for (var p : d.parts()) if (x >= p.x() && y >= p.y() && x < p.x() + p.stamp().size() && y < p.y() + p.stamp().size()) hit = p;
+        return hit;
+    }
 
     private void press(int id) {
         if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, id);
@@ -48,6 +62,9 @@ public class DraftingTableScreen extends MachineScreen {
             final int k = i;
             addRenderableWidget(Button.builder(Component.literal(labels[i]), b -> button(k)).bounds(leftPos + LAYER_X + 13 * i, topPos + BTN_Y, 12, 14).build());
         }
+        // 記号の切りかえ（v0.3b）：押したハンコを記号（色の箱）で見せる。中身をのぞいているときは1段もどる
+        addRenderableWidget(Button.builder(Component.literal("▣"), b -> { if (!inside.isEmpty()) inside.pop(); else symbols = !symbols; })
+                .bounds(leftPos + SYMBOL_BTN_X, topPos + SYMBOL_BTN_Y, 16, 14).build());
     }
 
     private void button(int k) {
@@ -123,6 +140,13 @@ public class DraftingTableScreen extends MachineScreen {
             panning = true; panX = 0; panY = 0;
             return true;
         }
+        int cl = d == null ? -1 : cellAt(e.x(), e.y(), d);
+        if (cl >= 0 && e.button() == 0 && (symbols || !inside.isEmpty())) {   // 記号をクリック → 中身をのぞく（v0.3b）
+            var pt = partAt(d, cl % d.size(), cl / d.size());
+            if (pt != null) { inside.push(pt.stamp()); zoom = 0; ox = 0; oy = 0; lastSize = 0; return true; }
+        }
+        if (!inside.isEmpty() && cl >= 0) return true;   // 中身は見るだけ（描けない）
+        if (cl >= 0 && e.button() == 0 && stamping()) { press(BTN_STAMP + cl); return true; }   // ハンコを押す
         if (d != null && cellAt(e.x(), e.y(), d) >= 0 && (e.button() == 0 || e.button() == 1)) {
             painting = true;
             paintOn = e.button() == 0;
@@ -190,6 +214,16 @@ public class DraftingTableScreen extends MachineScreen {
             if (cs >= 3) g.outline(x0, y0, cs, cs, on ? HILITE : GRIDLINE);
             else if (on) g.fill(x0, y0, x0 + cs, y0 + cs, 0x80FFD030);   // 小さいマスは枠のかわりに色
         }
+        hoverPart = null;
+        if (symbols || !inside.isEmpty()) for (var pt : d.parts()) {   // 記号：押したハンコを色の箱で（名前は下の文字の欄）
+            int px0 = gx + (pt.x() - ox) * cs, py0 = gy + (pt.y() - oy) * cs, w = pt.stamp().size() * cs;
+            int x1 = Math.max(gx, px0), y1 = Math.max(gy, py0), x2 = Math.min(gx + v * cs, px0 + w), y2 = Math.min(gy + v * cs, py0 + w);
+            if (x2 <= x1 || y2 <= y1) continue;
+            int col = 0x60000000 | (pt.name().hashCode() * 0x9E3779B1 >>> 8 & 0xFFFFFF);
+            g.fill(x1, y1, x2, y2, col);
+            g.outline(x1, y1, x2 - x1, y2 - y1, 0xFF000000);
+            if (hover >= 0 && pt == partAt(d, hover % d.size(), hover / d.size())) { hoverPart = pt; g.outline(x1 - 1, y1 - 1, x2 - x1 + 2, y2 - y1 + 2, HILITE); }
+        }
         if (sectionRow >= oy && sectionRow < oy + v) g.outline(gx - 1, gy + (sectionRow - oy) * cs - 1, v * cs + 2, cs + 2, 0xFF000000);   // 断面図の行
         if (v < d.size()) {   // 全体のどこを見ているか（右下の小さな枠）
             int mw = 14, mx0 = gx + GRID_W - mw - 1, my0 = gy + GRID_W - mw - 1;
@@ -197,6 +231,12 @@ public class DraftingTableScreen extends MachineScreen {
             g.outline(mx0 + ox * mw / d.size(), my0 + oy * mw / d.size(), Math.max(2, v * mw / d.size()), Math.max(2, v * mw / d.size()), 0xFFFFFFFF);
         }
         section(g, d, m, sectionRow);
+    }
+
+    /** ハンコの名前（お題の id → lang。知らない名前はそのまま） */
+    private static Component partName(String n) {
+        String key = "litho.semiconductor-lab.challenge." + n;
+        return net.minecraft.locale.Language.getInstance().has(key) ? Component.translatable(key) : Component.literal(n.isEmpty() ? "?" : n);
     }
 
     /** マスの色（拡散の濃さで少し変える：板はうすい色） */
@@ -227,12 +267,20 @@ public class DraftingTableScreen extends MachineScreen {
 
     @Override
     protected Component text(String id) {
+        String k0 = "gui.semiconductor-lab.drafting_table.";
+        if (id.equals("symbol")) {
+            if (!inside.isEmpty()) return Component.translatable(k0 + "inside", partName(inside.peek().name()));
+            if (symbols && hoverPart != null) return partName(hoverPart.name());
+            return Component.translatable(k0 + (symbols ? "symbol_on" : "symbol_off"));
+        }
         if (id.equals("hint")) {
             String k = "gui.semiconductor-lab.drafting_table.";
             if (design() == null) return Component.translatable(k + "need_sheet");
+            if (stamping()) return Component.translatable(k + "stamp");
             if (!menu.machineItem(SLOT_OUT).isEmpty()) return Component.translatable(k + "out_full");
             return Component.translatable(k + (design().size() > SIZES[0] ? "zoom" : "draw"));
         }
+        if (id.equals("stamp_label")) return Component.translatable(k0 + "stamp_slot");
         if (id.startsWith("layer")) return Component.translatable("litho.semiconductor-lab.role." + ROLES[id.charAt(5) - '0']);
         return null;
     }
