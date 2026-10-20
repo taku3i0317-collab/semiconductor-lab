@@ -4,6 +4,8 @@ quicklime  # Survival [0-10] -9000
 slaked_lime  # Survival [0-11] -7000
 bittern  # Survival [0-16] -6000
 salt_pan  # Survival [0-16] -6000
+malachite  # Metallurgy [1-03] -5000
+malachite_ore  # Metallurgy [1-03] -5000
 galena  # Metallurgy [1-27] -3500
 litharge  # Metallurgy [1-27] -3500
 lead_ingot  # Metallurgy [1-27] -3500

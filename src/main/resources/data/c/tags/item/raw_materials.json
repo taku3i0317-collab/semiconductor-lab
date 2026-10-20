@@ -1,1 +1,1 @@
-{ "replace": false, "values": [ "#c:raw_materials/germanium" ] }
+{"replace": false, "values": ["#c:raw_materials/germanium", "#c:raw_materials/malachite"]}

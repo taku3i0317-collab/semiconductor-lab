@@ -444,6 +444,19 @@
 - Wikipedia「Flame test」：https://en.wikipedia.org/wiki/Flame_test
 - Wikipedia「Helium」（歴史）：https://en.wikipedia.org/wiki/Helium
 
+## O7. 緑の石から最初の銅（孔雀石の製錬）［1-03］（［7-07］の前提）
+**答え**：銅の鉱床の地表に近い部分は、雨水と空気で緑の孔雀石 Cu2CO3(OH)2 などの酸化鉱に変わっている。これを炭火で焼くと、分解して酸化銅になり、炭（一酸化炭素）が酸素を奪って銅が出てくる。硫黄を含まないので、人類が最初に製錬した銅鉱石になった。
+
+- へえ①：緑色の石を炭と焼くと、銅が出てくる。
+- へえ②：セルビアのベロヴォデ遺跡で、約7000年前（紀元前5000年ごろ）の銅のスラグが見つかった。今わかっている最古の製錬の直接の証拠。
+- へえ③：ベロヴォデでは、製錬にはマンガンを含む銅鉱石を使い、きれいな孔雀石はビーズにしていた。
+- へえ④：地表の酸化鉱を掘りつくすと、下の硫化鉱（黄銅鉱）にぶつかる。硫化鉱は焼いて硫黄を飛ばす手間がいる [1-04]。
+
+確かさ：孔雀石の化学・分解・還元 ◎／ベロヴォデ 約7000年前・最古の製錬の証拠 ○（Radivojević ら 2010、UCL）／マンガンを含む鉱石とビーズの話 ○
+根拠：
+- UCL Discovery「On the origins of extractive metallurgy: new evidence from Europe」（Radivojević ら 2010）：https://discovery.ucl.ac.uk/id/eprint/1380193/
+- UCL「Key Debate 3: How was early metal production organised」：https://www.ucl.ac.uk/archaeology/research/rise-metallurgy-eurasia/project-debates/key-project-debates/production
+
 ---
 
 # 冶金と熱（タスク15〜）

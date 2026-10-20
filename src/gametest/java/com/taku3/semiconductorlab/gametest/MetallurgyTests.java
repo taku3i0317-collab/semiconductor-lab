@@ -85,6 +85,7 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreGraphite(GameTestHelper h)   { oreFeature(h, "graphite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.GRAPHITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreMagnetite(GameTestHelper h)  { oreFeature(h, "magnetite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.MAGNETITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreWolframite(GameTestHelper h) { oreFeature(h, "wolframite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.WOLFRAMITE_ORE, s -> s.is(Blocks.GRANITE)); }
+    @GameTest public void oreMalachite(GameTestHelper h)  { oreFeature(h, "malachite_ore", Blocks.STONE, Blocks.DIRT, Metallurgy.MALACHITE_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreIronSand(GameTestHelper h)   { oreFeature(h, "iron_sand", Blocks.SAND, Blocks.SANDSTONE, Metallurgy.IRON_SAND, s -> s.is(Blocks.SAND)); }
 
     @GameTest public void oreQuartzVein(GameTestHelper h) { oreFeature(h, "quartz_vein", Blocks.STONE, Blocks.DEEPSLATE, Metallurgy.QUARTZ_VEIN, LabTestBase::stoneOrDeepslate); }
@@ -452,7 +453,7 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "quartz_vein"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "quartz_vein", "malachite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("trona_deposit", b -> b.is(net.minecraft.world.level.biome.Biomes.DESERT));
@@ -562,6 +563,20 @@ public class MetallurgyTests extends LabTestBase {
         // 硫酸のルートも残っている
         h.assertTrue(recipeUses(h, "germanium_dioxide", Chemistry.SULFURIC_ACID), "concentrate + sulfuric acid -> GeO2 kept");
         LOG.info("[LAB] GeCl4: GeO2 + 2 HCl -> crude -> still (returned) -> GeCl4 -> + water -> HP GeO2 -> H2 furnace -> Ge(route); refining caps 10N (GeCl4) / 9N (sulfate)");
+        h.succeed();
+    }
+
+    /** [1-03] 銅の製錬（孔雀石、IMP2-01）：孔雀石 →かまど/溶鉱炉→ 銅インゴット（CuO + C → Cu + CO）。シルクタッチで鉱石ブロック、ふつうは孔雀石 */
+    @GameTest
+    public void copperFromMalachite(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.MALACHITE).is(Items.COPPER_INGOT), "malachite + charcoal fire -> copper");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.MALACHITE).is(Items.COPPER_INGOT), "blast furnace too");
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Metallurgy.MALACHITE_ORE);
+        var drops = net.minecraft.world.level.block.Block.getDrops(h.getBlockState(pos), h.getLevel(), h.absolutePos(pos), null, null, new ItemStack(Items.STONE_PICKAXE));
+        h.assertTrue(drops.size() == 1 && drops.get(0).is(Metallurgy.MALACHITE), "stone pickaxe -> malachite");
+        h.assertTrue(h.getBlockState(pos).is(net.minecraft.tags.BlockTags.NEEDS_STONE_TOOL), "needs a stone tool");
+        LOG.info("[LAB] copper [1-03]: malachite ore (shallow stone) -> malachite -> furnace -> copper ingot");
         h.succeed();
     }
 
