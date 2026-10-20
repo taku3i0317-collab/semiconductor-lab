@@ -225,5 +225,15 @@
   "item.semiconductor-lab.mass_spectrometer.line": "  %s: %s %%",
   "item.semiconductor-lab.mass_spectrometer.single": "  Only one isotope (all atoms weigh the same)",
   "item.semiconductor-lab.mass_spectrometer.no_sample": "Hold a sample in the other hand",
-  "item.semiconductor-lab.mass_spectrometer.unknown": "This sample cannot be analysed yet"
+  "item.semiconductor-lab.mass_spectrometer.unknown": "This sample cannot be analysed yet",
+  "item.semiconductor-lab.kilogram_prototype": "Kilogram Prototype",
+  "item.semiconductor-lab.kilogram_prototype.note1": "The model of one kilogram. Until 2019 the world's kilogram was the mass of one lump of metal like this.",
+  "item.semiconductor-lab.kilogram_prototype.note2": "Platinum ingot + rouge (polishing). Right-click with another prototype in the other hand to see the difference on a balance (ug). As days pass, surface contamination makes the gap grow.",
+  "item.semiconductor-lab.kilogram_prototype.note3": "In 1799 a platinum kilogram was deposited in the Paris Archives with the metre bar. In 1889 a 90% platinum, 10% iridium cylinder (about 39 mm high and wide) became the International Prototype, and copies went to each country (Japan has No. 6).",
+  "item.semiconductor-lab.kilogram_prototype.note4": "Over about 100 years the prototype and its copies drifted about 50 ug apart (50 parts per billion). Whether the prototype got lighter or the copies heavier, nobody could tell by definition. This led to the 2019 redefinition using the Kibble balance and Planck's constant.",
+  "item.semiconductor-lab.kilogram_prototype.placeholder": "Approximation: the real International Prototype is 90% Pt, 10% Ir (iridium cannot be made yet, so pure platinum = the 1799 kilogram). The drift rate is sped up for the game.",
+  "item.semiconductor-lab.kilogram_prototype.compare": "⚖ On the balance this one is %s ug (%s parts per billion). Ages %s and %s days",
+  "item.semiconductor-lab.kilogram_prototype.same": "Nearly equal: within the finishing tolerance",
+  "item.semiconductor-lab.kilogram_prototype.drift": "They have drifted apart. Which is the true 1 kg? By definition nobody can check the prototype itself",
+  "item.semiconductor-lab.kilogram_prototype.alone": "⚖ The prototype is exactly 1 kg by definition (made %s days ago). Hold another prototype in the other hand to compare"
 }

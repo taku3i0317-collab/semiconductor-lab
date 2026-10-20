@@ -51,6 +51,8 @@ public final class Precision {
             net.minecraft.core.component.DataComponentType.<net.minecraft.core.BlockPos>builder().persistent(net.minecraft.core.BlockPos.CODEC)
                     .networkSynchronized(net.minecraft.core.BlockPos.STREAM_CODEC).build());
     public static final Item METRE_BAR             = Reg.item("metre_bar", MetreBarItem::new, new Item.Properties().stacksTo(1));
+    // [8-23] キログラム原器（IMP2 O-020）：白金インゴットをベンガラで磨き上げた円柱（1799 アルシーヴのキログラム。1889 の国際原器は Pt90・Ir10%⚠️）。2つ持って比べると差が µg で出る
+    public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤
     /** 板のそり（0.1µm 単位、＋凸・−凹）。すり合わせ（item/CastPlateItem）で変わる */

@@ -1899,6 +1899,19 @@
 - Wikipedia「John Strong (physicist)」：https://en.wikipedia.org/wiki/John_Strong_(physicist)
 - Wikipedia「Silver」（光学的性質）：https://en.wikipedia.org/wiki/Silver
 
+## O66. 金庫の中の1キログラム（キログラム原器）［8-23］
+**答え**：1799年、フランスはメートル原器といっしょに白金の円柱を「1キログラム」としてパリの公文書館に納めた。1889年の第1回国際度量衡総会で、白金90%・イリジウム10%の円柱（高さ・直径 約39mm）が国際キログラム原器と決まり、パリ郊外の国際度量衡局の金庫にしまわれ、各国には複製が配られた（日本は No.6）。ところが100年ほど比べ続けると、原器と複製の差が約50µg まで広がっていた。原器は定義で「ちょうど1kg」なので、どちらが変わったのか確かめられない。2019年、キログラムはプランク定数で決め直された。
+
+- へえ①：2019年まで、1キログラムはパリの金庫にある金属のかたまり1個の重さだった。
+- へえ②：原器は3重のガラスのふたの中にあり、比べるときだけ取り出して決まった方法で洗った。
+- へえ③：50µg は指紋1つぶんくらい。10億分の50 のずれ。
+- へえ④：今はワット天秤（キッブル天秤）やシリコン球の原子の数でプランク定数から質量を決める。
+
+確かさ：1799・1889・Pt90/Ir10 ◎／約50µg の差 ◎／日本 No.6 ○
+根拠：
+- Wikipedia「International Prototype of the Kilogram」：https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram
+- Wikipedia「2019 revision of the SI」：https://en.wikipedia.org/wiki/2019_revision_of_the_SI
+
 ---
 
 # 冶金と熱（タスク15〜）

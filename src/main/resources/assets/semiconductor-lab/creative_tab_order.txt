@@ -528,6 +528,7 @@ grinding_wheel  # Precision [8-20] 1883
 steel_balls_ground  # Precision [8-20] 1883
 steel_balls_precise  # Precision [8-20] 1883
 ball_bearing  # Precision [8-20] 1883
+kilogram_prototype  # Precision [8-23] 1889
 gauge_block_set  # Precision [8-05] 1896
 mass_spectrometer  # Precision [8-33] 1919
 diamond_saw  # Precision [8-15] 1921

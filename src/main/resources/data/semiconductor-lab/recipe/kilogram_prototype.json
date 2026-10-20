@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:platinum_ingot",
+    "semiconductor-lab:rouge"
+  ],
+  "result": {
+    "id": "semiconductor-lab:kilogram_prototype",
+    "count": 1
+  }
+}

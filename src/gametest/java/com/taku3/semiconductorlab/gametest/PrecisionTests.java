@@ -504,6 +504,26 @@ public class PrecisionTests extends LabTestBase {
     }
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
+    /** [8-23] キログラム原器（IMP2 O-020）：白金＋ベンガラ → 原器。2つを比べると差が µg で出て、表面の汚れで年とともに広がる */
+    @GameTest
+    public void kilogram_prototype(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "kilogram_prototype", Metallurgy.PLATINUM_INGOT), "the kilogram is a platinum cylinder");
+        ItemStack a = new ItemStack(Precision.KILOGRAM_PROTOTYPE), b = new ItemStack(Precision.KILOGRAM_PROTOTYPE);
+        com.taku3.semiconductorlab.item.KilogramPrototypeItem.set(a, 10, 0, 0);    // 国際原器：汚れにくい
+        com.taku3.semiconductorlab.item.KilogramPrototypeItem.set(b, -5, 2, 0);    // 各国の複製：1日 2µg ずつ重くなる
+        h.assertValueEqual(com.taku3.semiconductorlab.item.KilogramPrototypeItem.massUg(a, 0) - com.taku3.semiconductorlab.item.KilogramPrototypeItem.massUg(b, 0), 15L, "freshly made: 15 ug apart");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.KilogramPrototypeItem.massUg(a, 30) - com.taku3.semiconductorlab.item.KilogramPrototypeItem.massUg(b, 30), -45L, "30 days later the copy has gained 60 ug");
+        ItemStack fresh = new ItemStack(Precision.KILOGRAM_PROTOTYPE);
+        com.taku3.semiconductorlab.item.KilogramPrototypeItem.ensure(fresh, h.getLevel());
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.KilogramPrototypeItem.massUg(fresh, h.getLevel().getGameTime() / com.taku3.semiconductorlab.item.KilogramPrototypeItem.DAY_TICKS)) <= com.taku3.semiconductorlab.item.KilogramPrototypeItem.FINISH_UG, "a new prototype is within the finishing tolerance");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, a);
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, b);
+        h.assertTrue(Precision.KILOGRAM_PROTOTYPE.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND) == net.minecraft.world.InteractionResult.SUCCESS, "compare on the balance");
+        LOG.info("[LAB] kilogram prototype [8-23]: platinum + rouge; copies drift apart by surface contamination (15 ug -> -45 ug in 30 days)");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");
