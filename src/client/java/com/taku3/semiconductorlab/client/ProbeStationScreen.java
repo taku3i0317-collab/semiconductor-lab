@@ -132,6 +132,10 @@ public class ProbeStationScreen extends MachineScreen {
                 Double a = sol == null ? null : sol.padAmps().get(nl.pads().get(hoverPad).id());
                 return a == null ? null : Component.translatable(k + "amps", amps(a));
             }
+            case "dirt" -> {
+                if (nl == null || nl.model.contamination == 0) return null;
+                return Component.translatable(k + "dirt", nl.model.contamination);
+            }
             case "hint" -> {
                 if (nl == null) return Component.translatable(k + "need_wafer");
                 if (menu.get(DATA_PROBED) != 0 && menu.get(DATA_FOUND) == 0) return Component.translatable(k + "nothing");

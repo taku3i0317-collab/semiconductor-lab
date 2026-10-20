@@ -204,6 +204,7 @@ p型の板。n の島（コレクタ）5×5 の中に p（ベース）3×3、そ
 
 ## 変更履歴
 - 2026-10-20 初版（O-002 ①）
+- 2026-10-20 S-003：汚れが効く。ChipModel.contamination、Circuit の pn 接合の辺ごとに漏れ（LEAK_PER_DIRT×汚れ）、検査台の「調べる」は漏れの強さを毎回 0.5〜1.5 倍で変える（汚れたチップは動いたり動かなかったりする）。洗わないと塗れない、にはしない。8×8 の例は工程の汚れ14で出力の高い方 約3.5 V（きれいなら約5 V）、汚れ200で動かない
 - 2026-10-20 ChipState に contamination、ChipOps.clean(w, target)（E の [9-14] 洗浄と相談して決めた。失敗にはしない、ツールチップと v0.5 の歩留まりで）
 - 2026-10-20 検査台（probe_station）：パッドの 0 V・5 V・つながない、Circuit で電流の明るさ、「調べる」で発見（ビット）と進捗 discovery/<id>（impossible を award）、REFERENCES L2
 - 2026-10-20 製図台（drafting_table・layout_sheet・rubylith）。画面の高さ 222（MachineLayout.height）、方眼・断面図は MachineLayout.area で自動チェック

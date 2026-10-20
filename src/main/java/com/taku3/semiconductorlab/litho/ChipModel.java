@@ -10,15 +10,18 @@ public final class ChipModel {
     public final int size;
     /** 板の型 'p' / 'n' */
     public final char substrate;
+    /** 汚れ（[9-14]、S-003）：pn 接合の漏れ電流になる。設計図からの予想では 0 */
+    public final int contamination;
     /** マスの型 'p' / 'n' */
     private final char[] type;
     /** マスの型を決めた拡散の番号（0＝板、1＝1回目の拡散…）。あとの拡散ほど濃い */
     private final int[] level;
     private final boolean[] contact, metal;
 
-    private ChipModel(int size, char substrate) {
+    private ChipModel(int size, char substrate, int contamination) {
         this.size = size;
         this.substrate = substrate;
+        this.contamination = contamination;
         type = new char[size * size];
         level = new int[size * size];
         contact = new boolean[size * size];
@@ -36,8 +39,8 @@ public final class ChipModel {
         }
     }
 
-    private static ChipModel build(int size, String substrate, List<? extends Object> layers) {
-        ChipModel m = new ChipModel(size, substrate.isEmpty() ? 'p' : substrate.charAt(0));
+    private static ChipModel build(int size, String substrate, List<? extends Object> layers, int contamination) {
+        ChipModel m = new ChipModel(size, substrate.isEmpty() ? 'p' : substrate.charAt(0), contamination);
         int d = 0;
         for (Object o : layers) {
             LayerKind k; BitGrid g;
@@ -50,10 +53,10 @@ public final class ChipModel {
     }
 
     /** 工程を終えたウェハーの中身から（まだ露光していなければ null） */
-    public static ChipModel of(ChipState s) { return s.sized() ? build(s.size(), s.substrate(), s.done()) : null; }
+    public static ChipModel of(ChipState s) { return s.sized() ? build(s.size(), s.substrate(), s.done(), s.contamination()) : null; }
 
     /** 設計図から（板の型は substrate） */
-    public static ChipModel of(ChipDesign d, String substrate) { return build(d.size(), substrate, d.layers()); }
+    public static ChipModel of(ChipDesign d, String substrate) { return build(d.size(), substrate, d.layers(), 0); }
 
     public boolean inside(int x, int y) { return x >= 0 && y >= 0 && x < size && y < size; }
     public char type(int x, int y) { return type[y * size + x]; }

@@ -894,8 +894,17 @@ public class SemiconductorTests extends LabTestBase {
         be.onButton(player, padIndex.applyAsInt(pins[0]));                                              // 入力 5 V
         var sol = com.taku3.semiconductorlab.litho.Circuit.solve(nl, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.drive(nl, be::padState));
         var hiIn = sol.netVolts(nl, pins[1]);
-        h.assertTrue(lo > 4.5 && hiIn < 1.5, String.format("probe: in 0 V -> out %.2f V, in 5 V -> out %.2f V", lo, hiIn));
+        h.assertTrue(lo > com.taku3.semiconductorlab.litho.Circuit.HIGH && hiIn < 1.5, String.format("probe: in 0 V -> out %.2f V, in 5 V -> out %.2f V (process dirt lowers the high side)", lo, hiIn));
         h.assertTrue(sol.padAmps().get(pins[2]) > 1e-4, "current flows from the 5 V pad when the transistor is on");
+        // 汚れ（S-003）：工程の汚れでも NOT として動くが、出力の高い方が下がる（漏れ）。とても汚れると動かない
+        var st = chip.get(ModDataComponents.CHIP_STATE);
+        var cleanNl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.ChipOps.clean(chip, 0).out().get(ModDataComponents.CHIP_STATE)));
+        double hiDirty = com.taku3.semiconductorlab.litho.Circuit.notOutput(nl, pins, false), hiClean = com.taku3.semiconductorlab.litho.Circuit.notOutput(cleanNl, pins, false);
+        h.assertTrue(st.contamination() > 0 && hiDirty < hiClean - 0.3 && hiDirty > com.taku3.semiconductorlab.litho.Circuit.HIGH,
+                String.format("dirt %d: out high %.2f V (clean %.2f V) - degraded but still a NOT", st.contamination(), hiDirty, hiClean));
+        var filthy = new com.taku3.semiconductorlab.litho.ChipState(st.size(), st.substrate(), st.done(), st.windows(), st.resist(), st.resistPattern(), st.metalFilm(), st.reclaims(), 200);
+        var filthyNl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(filthy));
+        h.assertFalse(com.taku3.semiconductorlab.litho.Circuit.worksAsNot(filthyNl), "very dirty chip does not work as a NOT");
         h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.ProbeStationBlockEntity.BTN_PROBE), "probe");
         h.assertValueEqual(be.found(), 0b1111, "four discoveries on this chip");
         for (var d : com.taku3.semiconductorlab.litho.Discoveries.all())

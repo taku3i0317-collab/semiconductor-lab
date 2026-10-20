@@ -57,7 +57,8 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                 .text("pad", RIGHT_X, 18, 78, 1, "gui.semiconductor-lab.probe_station.pad").samples("12", "5 V").fit()
                 .text("amps", RIGHT_X, 28, 78, 1, "gui.semiconductor-lab.probe_station.amps").samples("-123.4 mA").fit();
         for (int i = 0; i < 4; i++) b.lazyText("found" + i, RIGHT_X, 42 + 10 * i, 78, 1, () -> Discoveries.all().stream().map(Discoveries.Discovery::langKey).toList()).fit();
-        LAYOUT = b.text("hint", RIGHT_X, 122, 78, 1, MachineLayout.keys("gui.semiconductor-lab.probe_station.", "need_wafer", "set_pads", "nothing")).fit()
+        LAYOUT = b.text("dirt", WAFER_X + 22, WAFER_Y + 4, 54, 1, "gui.semiconductor-lab.probe_station.dirt").samples("200").fit()
+                .text("hint", RIGHT_X, 122, 78, 1, MachineLayout.keys("gui.semiconductor-lab.probe_station.", "need_wafer", "set_pads", "nothing")).fit()
                 .build();
     }
 
@@ -122,7 +123,8 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
             return true;
         }
         if (id == BTN_PROBE) {
-            List<Discoveries.Discovery> hits = Discoveries.match(nl);
+            double leakScale = level == null ? 1.0 : 0.5 + level.getRandom().nextDouble();   // 汚れの漏れは毎回少しちがう（S-003）
+            List<Discoveries.Discovery> hits = Discoveries.match(nl, leakScale);
             int mask = 0;
             for (Discoveries.Discovery d : hits) mask |= 1 << Discoveries.all().indexOf(d);
             found = mask;

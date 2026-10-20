@@ -21,6 +21,12 @@ public final class Circuit {
     static final double VT = 0.02585, IS = 1e-14, ALPHA = 0.99, CONTACT_OHMS = 20, GMIN = 1e-9;
     /** これより大きい順方向の電圧は直線でのばす（指数が大きくなりすぎないように） */
     static final double VMAX = 0.85;
+    /**
+     * 汚れ1つあたり、pn 接合の辺1つに並ぶ漏れのコンダクタンス（S、ゲームの値 ⚠️、S-003）。
+     * 金属の汚れ（Na・Fe など）は接合のまわりに漏れ道を作る。8×8 の NOT の例は工程の汚れ約14で出力の高い方が約3.7 Vに下がり、
+     * 汚れが200ほどになると動かない
+     */
+    public static final double LEAK_PER_DIRT = 3e-7;
 
     /** 解いた結果：点ごとの電圧、パッドから流れこむ電流（A）、マスごとの電流の大きさ（表示用） */
     public record Solution(double[] volts, Map<Integer, Double> padAmps, double[] cellAmps, boolean converged) {
@@ -39,8 +45,12 @@ public final class Circuit {
     private static double gd(double v) { return IS / VT * Math.exp(Math.min(v, VMAX) / VT); }
 
     /** drive：パッドの線の番号 → 電圧（つながないパッドは入れない） */
-    public static Solution solve(Netlist nl, Map<Integer, Double> drive) {
+    public static Solution solve(Netlist nl, Map<Integer, Double> drive) { return solve(nl, drive, 1.0); }
+
+    /** leakScale：漏れの強さの倍率（検査台で「調べる」たびに少し変わる＝汚れたチップは動いたり動かなかったりする） */
+    public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale) {
         ChipModel m = nl.model;
+        double leak = LEAK_PER_DIRT * m.contamination * leakScale;
         int n = m.size, cells = n * n, nodes = cells + nl.nets.size();
         List<Res> res = new ArrayList<>();
         List<Dio> dio = new ArrayList<>();
@@ -53,7 +63,10 @@ public final class Circuit {
                 if (!m.inside(a, b)) continue;
                 int j = b * n + a;
                 if (m.type(x, y) == m.type(a, b)) res.add(new Res(i, j, 2 / (m.sheetOhms(x, y) + m.sheetOhms(a, b))));
-                else if (m.type(x, y) == 'p') dio.add(new Dio(i, j)); else dio.add(new Dio(j, i));
+                else {
+                    if (m.type(x, y) == 'p') dio.add(new Dio(i, j)); else dio.add(new Dio(j, i));
+                    if (leak > 0) res.add(new Res(i, j, leak));   // 汚れの漏れ道
+                }
             }
         }
         for (Netlist.Transistor t : nl.transistors) {
@@ -193,17 +206,21 @@ public final class Circuit {
     private static boolean isPad(Netlist nl, int net) { return net >= 0 && nl.nets.get(net).isPad(); }
 
     /** NOT のパッドに 入力を与えて出力の電圧を計算（出力はつながない） */
-    public static double notOutput(Netlist nl, int[] pins, boolean input) {
+    public static double notOutput(Netlist nl, int[] pins, boolean input) { return notOutput(nl, pins, input, 1.0); }
+
+    public static double notOutput(Netlist nl, int[] pins, boolean input, double leakScale) {
         Map<Integer, Double> d = new HashMap<>();
         d.put(pins[0], input ? VCC : 0.0);
         d.put(pins[2], VCC);
         d.put(pins[3], 0.0);
-        return solve(nl, d).netVolts(nl, pins[1]);
+        return solve(nl, d, leakScale).netVolts(nl, pins[1]);
     }
 
     /** NOT として本当に動くか（入力 0 → 出力が高い、入力 1 → 出力が低い） */
-    public static boolean worksAsNot(Netlist nl) {
+    public static boolean worksAsNot(Netlist nl) { return worksAsNot(nl, 1.0); }
+
+    public static boolean worksAsNot(Netlist nl, double leakScale) {
         int[] p = notPins(nl);
-        return p != null && notOutput(nl, p, false) > HIGH && notOutput(nl, p, true) < HIGH;
+        return p != null && notOutput(nl, p, false, leakScale) > HIGH && notOutput(nl, p, true, leakScale) < HIGH;
     }
 }

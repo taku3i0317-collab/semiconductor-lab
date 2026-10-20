@@ -239,7 +239,7 @@
   "gui.semiconductor-lab.wafer_polisher.recipe": "Grit to flatten → silica to mirror",
   "block.semiconductor-lab.probe_station": "Probe Station",
   "block.semiconductor-lab.probe_station.note1": "A stand for touching a finished chip with needles to see if current flows.",
-  "block.semiconductor-lab.probe_station.note2": "Click the pads on the edge to choose 0 V, 5 V or open; current glows yellow. Press Probe to identify the circuit inside.",
+  "block.semiconductor-lab.probe_station.note2": "Click the pads on the edge to choose 0 V, 5 V or open; current glows yellow. Press Probe to identify the circuit. A dirty chip leaks current and sometimes works, sometimes not (washing fixes it).",
   "block.semiconductor-lab.probe_station.note3": "In a real fab, fine needles touch every chip on the wafer to sort good from bad. Bad chips are marked and thrown away later.",
   "block.semiconductor-lab.probe_station.note4": "Not every chip works. The share of good chips (yield) depends on dust and defects and on chip area (Y ≈ e^(−D·A)).",
   "block.semiconductor-lab.probe_station.placeholder": "Omitted: the measuring power supply (battery) and needle alignment",
@@ -261,5 +261,6 @@
   "gui.semiconductor-lab.cleaning_bench.no_dirt": "Already clean",
   "gui.semiconductor-lab.cleaning_bench.need_power": "Not enough power",
   "gui.semiconductor-lab.cleaning_bench.running": "Cleaning",
-  "gui.semiconductor-lab.cleaning_bench.recipe": "Nitric → HF → rinse"
+  "gui.semiconductor-lab.cleaning_bench.recipe": "Nitric → HF → rinse",
+  "gui.semiconductor-lab.probe_station.dirt": "Dirt %s"
 }
