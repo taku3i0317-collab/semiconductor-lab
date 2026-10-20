@@ -27,7 +27,10 @@ $start = Get-Date
 # Start-Process で標準出力・標準エラーを別々のファイルに書かせ、あとでつなげる
 $errLog = Join-Path $root 'build\gametest.err.log'
 $proc = Start-Process -FilePath (Join-Path $root 'gradlew.bat') -ArgumentList 'runGameTest', '--console=plain' `
-    -WorkingDirectory $root -RedirectStandardOutput $log -RedirectStandardError $errLog -NoNewWindow -Wait -PassThru
+    -WorkingDirectory $root -RedirectStandardOutput $log -RedirectStandardError $errLog -NoNewWindow -PassThru
+# -Wait は子のプロセス（新しく起きた Gradle デーモン）の終わりまで待って止まるので、gradlew 本体だけを待つ（IMP-30）
+$null = $proc.Handle   # これを先に読むと、あとで ExitCode が取れる（PowerShell 5.1）
+$proc.WaitForExit()
 $code = $proc.ExitCode
 if (Test-Path $errLog) { Get-Content $errLog -Encoding UTF8 | Add-Content $log -Encoding UTF8; Remove-Item $errLog }
 $sec = [int]((Get-Date) - $start).TotalSeconds

@@ -36,9 +36,14 @@ jobs:
       - name: gametest (server)
         run: ./gradlew runGameTest
       - name: install xvfb
-        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1-mesa-dri
+        run: sudo apt-get update && sudo apt-get install -y xvfb libgl1 libgl1-mesa-dri libglx-mesa0 libegl1 mesa-vulkan-drivers mesa-utils
       - name: screen checks (client gametest, xvfb)
-        run: xvfb-run -a -s "-screen 0 1280x720x24" ./gradlew runClientGameTest
+        timeout-minutes: 25
+        env:
+          LIBGL_ALWAYS_SOFTWARE: '1'
+        run: |
+          xvfb-run -a -s "-screen 0 1280x720x24 +extension GLX +render -noreset" glxinfo -B || true
+          xvfb-run -a -s "-screen 0 1280x720x24 +extension GLX +render -noreset" ./gradlew runClientGameTest
       - name: capture screen checks
         if: always()
         uses: actions/upload-artifact@v7
