@@ -190,6 +190,7 @@ cyclized_rubber_mix  # Chemistry [2-29] 1839
 cyclized_rubber  # Chemistry [2-29] 1839
 ammonia_water  # Chemistry [2-21] 1850
 calcium_acetate  # Chemistry [2-42] 1850
+acetic_acid  # Chemistry [2-42] 1850
 ammonia_still  # Chemistry [2-21] 1850
 wild_yeast  # Chemistry [2-39] 1857
 sugar_wash  # Chemistry [2-39] 1857
@@ -202,7 +203,6 @@ novolac_mix  # Chemistry [2-28] 1907
 novolac  # Chemistry [2-28] 1907
 resol_mix  # Chemistry [2-28] 1907
 bakelite  # Chemistry [2-28] 1907
-acetic_acid  # Chemistry [2-40] 1915
 acetone  # Chemistry [2-40] 1915
 cation_exchange_resin  # Chemistry [2-17] 1935
 anion_exchange_resin  # Chemistry [2-17] 1935
@@ -259,8 +259,8 @@ vacuum_tube_assembly  # Vacuum [5-02] 1904
 vacuum_tube  # Vacuum [5-02] 1904
 sealing_station  # Vacuum [5-02] 1904
 rotary_pump  # Vacuum [5-04] 1905
-evaporator  # Vacuum [5-14] 1912
 diffusion_pump  # Vacuum [5-05] 1915
+evaporator  # Vacuum [9-25] 1959
 rock_salt  # Gas [6-04] -1500
 salt  # Gas [6-04] -1500
 rock_salt_ore  # Gas [6-04] -1500
@@ -311,6 +311,7 @@ grating_spectroscope  # Optics [7-07] 1821
 fused_quartz  # Optics [7-02] 1839
 quartz_tube  # Optics [7-02] 1839
 oxyhydrogen_burner  # Optics [7-02] 1839
+photo_plate  # Optics [B-02b] 1851
 interferometer  # Optics [7-09] 1881
 mercury_lamp_assembly  # Optics [7-10] 1901
 mercury_lamp_tube  # Optics [7-10] 1901
@@ -325,7 +326,6 @@ coated_flint_lens  # Optics [7-22] 1938
 hide_broth  # Optics [7-11] 1960
 gelatin  # Optics [7-11] 1960
 photo_emulsion  # Optics [7-11] 1960
-photo_plate  # Optics [7-11] 1960
 ferrous_sulfate  # Optics [7-11] 1960
 hypo_liquor  # Optics [7-11] 1960
 sodium_thiosulfate  # Optics [7-11] 1960
@@ -340,14 +340,13 @@ lead_screw  # Precision [8-02] 1797
 standard_screw  # Precision [8-02] 1797
 pump_rotor  # Precision [8-01] 1797
 lathe  # Precision [8-01] 1797
+metre_bar  # Precision [8-22] 1799
 cast_iron_plate  # Precision [8-03] 1830
 surface_plate  # Precision [8-03] 1830
-metre_bar  # Precision [8-06] 1892
 gauge_block_set  # Precision [8-05] 1896
 isolation_table  # Precision [8-07] 1931
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
-spin_coater  # Semiconductor [2-32] 1940
 transistor  # Semiconductor [9-03] 1947
 germanium_seed_crystal  # Semiconductor [9-07] 1950
 germanium_single_crystal  # Semiconductor [9-07] 1950
@@ -385,6 +384,7 @@ resist_stripper  # Semiconductor [9-21] 1957
 developer_bench  # Semiconductor [9-21] 1957
 probe_station  # Semiconductor [9-22] 1958
 rubylith  # Semiconductor [7-11] 1960
+spin_coater  # Semiconductor [9-19] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
@@ -393,7 +393,7 @@ theodolite  # Construction [12-11] 1615
 transistor_radio  # Communication [15-10] 1954
 silvered_plate  # Branches [B-02] 1839
 daguerreotype_plate  # Branches [B-02] 1839
-camera  # Branches [B-02] 1839
+camera  # Branches [B-02a] 1839
 exposed_plate  # Branches [B-02] 1839
 developed_plate  # Branches [B-02] 1839
 daguerreotype  # Branches [B-02] 1839
