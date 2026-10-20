@@ -134,5 +134,17 @@
   "item.semiconductor-lab.reflecting_telescope.note2": "Speculum mirror (bottom of the tube) + 2 copper ingots (tube) + crown lens (eyepiece at the side). A small flat mirror in the tube sends the light out sideways, and you look in from the side. No color fringes.",
   "item.semiconductor-lab.reflecting_telescope.note3": "In 1671 Newton showed his self-made reflecting telescope to the Royal Society, and was elected a Fellow the following year.",
   "item.semiconductor-lab.reflecting_telescope.note4": "A mirror can be supported from behind, so it can be made much larger than a lens. That is why telescope apertures grew with mirrors (now several to tens of metres).",
-  "item.semiconductor-lab.reflecting_telescope.placeholder": "Approximation: the view is the same as the vanilla spyglass. The small diagonal flat mirror (a little speculum flat in reality) is counted as part of the tube."
+  "item.semiconductor-lab.reflecting_telescope.placeholder": "Approximation: the view is the same as the vanilla spyglass. The small diagonal flat mirror (a little speculum flat in reality) is counted as part of the tube.",
+  "item.semiconductor-lab.wire_grating": "Wire Diffraction Grating",
+  "item.semiconductor-lab.wire_grating.note1": "Many thin copper wires lined up at equal gaps. Light passing through makes rainbows.",
+  "item.semiconductor-lab.wire_grating.note2": "2 lead screws + copper ingot. Thin copper wire is wound in the threads of two screws to make a grating with spacing d = 0.004 inch (101.6 um). With a spectroscope it makes a grating spectroscope that measures wavelengths.",
+  "item.semiconductor-lab.wire_grating.note3": "Around 1821 Fraunhofer used wires 0.002 inch thick at this spacing to make the first measurement of the wavelength of the Sun's dark D lines, to about one part in a thousand.",
+  "item.semiconductor-lab.wire_grating.note4": "Light waves passing the gaps overlap and reinforce only at certain angles (interference). Since d sin(theta) = lambda (first order), knowing d and the angle fixes the wavelength with a ruler. The rainbow on the back of a CD is also a grating, with grooves 1.6 um apart.",
+  "item.semiconductor-lab.wire_grating.placeholder": "Omitted: reflection gratings (grooves ruled in metal, needing a ruling engine [8-12]) are not here yet. Variation in wire thickness and count is omitted.",
+  "item.semiconductor-lab.grating_spectroscope": "Grating Spectroscope",
+  "item.semiconductor-lab.grating_spectroscope.note1": "A spectroscope that measures the color of light as a wavelength number (nm).",
+  "item.semiconductor-lab.grating_spectroscope.note2": "Spectroscope + wire grating. Used like the spectroscope (sample in a flame, or the daytime sky). For each line it shows the first-order diffraction angle theta and the wavelength from lambda = d sin(theta).",
+  "item.semiconductor-lab.grating_spectroscope.note3": "A prism separates colors, but its angles depend on the glass, so it cannot give wavelength values. A grating fixes the wavelength from d and the angle alone, so it became a tool to measure them. In 1882 Rowland ruled gratings with about 570 grooves per mm using a ruling engine (⚠️ figures vary between sources).",
+  "item.semiconductor-lab.grating_spectroscope.note4": "The wavelengths of lithography light sources (mercury g-line 436 nm and i-line 365 nm [7-10], KrF 248 nm, ArF 193 nm) are told apart this way. Diffraction is also what limits the resolution of lithography (the Rayleigh formula).",
+  "item.semiconductor-lab.grating_spectroscope.measure": "    diffraction angle theta = %s deg (%s') -> lambda = d sin(theta) = %s nm (d = %s um)"
 }

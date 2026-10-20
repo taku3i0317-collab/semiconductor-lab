@@ -36,3 +36,6 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ [1-30] スズ：錫石 → かまど/溶鉱炉 → tin_ingot（c:ingots/tin）。GameTest tin_from_cassiterite、CHEMISTRY M4、REFERENCES O8（[1-22] と共通）。テスト 94/94
 - ✅ [1-05] 青銅：銅8＋スズ1 → 調合9 → かまど/溶鉱炉 → bronze_ingot（c:ingots/bronze）。GameTest bronze、CHEMISTRY M5〜M6、REFERENCES O9。テスト 95/95
 - ✅ [7-05] 反射鏡 段階1 スペキュラム：銅2＋スズ1 → 合金 → 研削・研磨で鏡 → ニュートン式反射望遠鏡（TelescopeItem でのぞける）。段階2（銀鏡）・3（Al 蒸着）は前提待ちで ❓ のまま。GameTest speculum_mirror、CHEMISTRY O13〜O15、REFERENCES O10、遊び方: 作品。テスト 97/97
+- ✅ [7-07] 回折格子（針金格子）：送りねじ2＋銅 → 針金格子（d = 101.6μm、フラウンホーファーの値）、分光器＋格子 → 格子分光器（SpectroscopeItem に gratingMicrons を足し、線ごとに回折角と λ = d·sinθ を表示）。GameTest grating、CHEMISTRY O16〜O17、REFERENCES O11、遊び方: 実験。テスト 98/98
+  - 反射格子（スペキュラムに刻む）は [8-12] 刻線機の後
+- 次の一手（光学）：[7-10] 水銀ランプ（[5-04]・[4-10] が要る）／[7-09] 干渉計（[7-05]✅ 段階1・[7-03]✅、半透明鏡 [5-14]・[7-10] が要る）／[7-05] 段階2 銀鏡（[1-32]・[6-11]・[2-21]）

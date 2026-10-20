@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lead_screw",
+    "semiconductor-lab:lead_screw",
+    "minecraft:copper_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:wire_grating",
+    "count": 1
+  }
+}

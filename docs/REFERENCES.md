@@ -537,6 +537,20 @@
 - Wikipedia「Kaolinite」（加熱による変化）：https://en.wikipedia.org/wiki/Kaolinite
 - Wikipedia「Jōmon pottery」：https://en.wikipedia.org/wiki/J%C5%8Dmon_pottery
 
+## O11. 細い針金の格子で光の波長を測る（回折格子）［7-07］
+**答え**：等しい間隔 d のすき間をたくさん通った光は、d·sinθ = λ（1次）を満たす角度でだけ強め合う。d と角度 θ を測れば、波長 λ が長さとして決まる。1821年ごろフラウンホーファーは、2本の細いねじに針金を巻いた格子で、太陽の D線の波長を約1000分の1の精度で初めて測った。
+
+- へえ①：CD の裏の虹色も回折格子（溝の間隔 1.6μm）。
+- へえ②：プリズムは紫ほど強く曲げるが、格子は赤ほど大きく曲げる。
+- へえ③：フラウンホーファーの格子は、太さ 0.002 インチの針金を 0.004 インチ間隔で並べたもの。
+- へえ④：1882年ローランドは刻線機で金属に細かい溝を刻んだ格子を作り、太陽スペクトルの精密な地図を作った [8-12]。
+
+確かさ：格子の式 ◎／フラウンホーファーの針金格子と D線の測定 ○（年は 1820〜1821 で資料により違う）／針金の太さ・間隔 ○（一つの資料）／ローランド 1882 ○
+根拠：
+- Physics Today「The master of dispersion」（フラウンホーファー）：https://physicstoday.aip.org/opinion/the-master-of-dispersion
+- Kenyon College「Diffraction Grating」（初期の格子）：https://physics.kenyon.edu/EarlyApparatus/Optics/Diffraction_Grating/Diffraction_Grating.html
+- EBSCO「Fraunhofer Invents the Spectroscope」：https://ebsco.com/research-starters/history/fraunhofer-invents-spectroscope
+
 ---
 
 # 冶金と熱（タスク15〜）

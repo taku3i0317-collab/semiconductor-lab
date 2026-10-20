@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "ingredients": [
+    "semiconductor-lab:spectroscope",
+    "semiconductor-lab:wire_grating"
+  ],
+  "result": {
+    "id": "semiconductor-lab:grating_spectroscope",
+    "count": 1
+  }
+}

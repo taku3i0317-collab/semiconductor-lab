@@ -147,6 +147,8 @@ reflecting_telescope  # Optics [7-05] 1668
 flint_glass_batch  # Optics [7-01] 1674
 flint_glass  # Optics [7-01] 1674
 crown_glass  # Optics [7-01] 1674
+wire_grating  # Optics [7-07] 1821
+grating_spectroscope  # Optics [7-07] 1821
 fused_quartz  # Optics [7-02] 1839
 quartz_tube  # Optics [7-02] 1839
 oxyhydrogen_burner  # Optics [7-02] 1839

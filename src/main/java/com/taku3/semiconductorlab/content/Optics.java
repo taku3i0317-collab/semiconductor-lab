@@ -53,6 +53,10 @@ public final class Optics {
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
+    // [7-07] 回折格子（IMP2-01）：フラウンホーファー 1821 の針金格子（2本の細いねじに銅線を巻く。間隔 0.004 インチ＝101.6μm）→ 波長を測れる分光器
+    public static final double WIRE_GRATING_MICRONS = 101.6;
+    public static final Item WIRE_GRATING          = Reg.item("wire_grating");
+    public static final Item GRATING_SPECTROSCOPE  = Reg.item("grating_spectroscope", p -> new SpectroscopeItem(p, WIRE_GRATING_MICRONS), new Item.Properties().stacksTo(1));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 酸水素バーナー [7-02]（ヘアの吹管 1801、ゴーダン 1839。水素＋酸素ボンベの炎 約2800℃で石英を溶かす）。ガスボンベ式（電気の受け口なし）。炎が出ている間は光る

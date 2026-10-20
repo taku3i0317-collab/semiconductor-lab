@@ -27,11 +27,45 @@ import java.util.List;
  *   <li>昼に空の下で空中を右クリック：太陽の連続スペクトルと暗線（フラウンホーファー線）</li>
  * </ul>
  * 線の波長は NIST の原子スペクトルの値（可視で強い線だけ）。どの試料にどの元素が入っているかは {@link #elementsOf} に1行ずつ。
+ * [7-07] 回折格子の分光器（IMP2-01）は同じクラスで gratingMicrons &gt; 0：線ごとに 1次の回折角 θ と λ = d·sinθ も出す（波長を測れる）。
  */
 public class SpectroscopeItem extends Item {
     private static final String K = "item.semiconductor-lab.spectroscope.";
 
-    public SpectroscopeItem(Properties properties) { super(properties); }
+    /** 回折格子の溝（針金）の間隔 d [μm]。0 ならプリズム（角度・波長は出さない） */
+    private final double gratingMicrons;
+
+    public SpectroscopeItem(Properties properties) { this(properties, 0); }
+    public SpectroscopeItem(Properties properties, double gratingMicrons) { super(properties); this.gratingMicrons = gratingMicrons; }
+
+    public double gratingMicrons() { return gratingMicrons; }
+
+    /** 1次の回折角 [度]：sinθ = λ / d */
+    public static double angleDeg(double nm, double dMicron) { return Math.toDegrees(Math.asin(nm * 1e-3 / dMicron)); }
+
+    /** 角度を測れる（目に見える 380〜780nm の、原子の細い）線の波長 [nm]。帯（CaOH・BO2）や紫外の線は入れない */
+    public static double[] measurableNm(String key) {
+        return switch (key) {
+            case "na" -> new double[] {589.0, 589.6};
+            case "k" -> new double[] {766.5, 769.9, 404.4};
+            case "ca" -> new double[] {422.7};
+            case "pb" -> new double[] {405.8};
+            case "sun" -> new double[] {656.3, 589.0, 518.4, 486.1, 396.8, 393.4};   // C・D・b1・F・H・K
+            default -> new double[0];
+        };
+    }
+
+    /** 格子の分光器なら、key の線ごとに「回折角 → 波長」を1行ずつ送る */
+    private void sendMeasure(Player p, String key) {
+        if (gratingMicrons <= 0) return;
+        for (double nm : measurableNm(key)) {
+            double deg = angleDeg(nm, gratingMicrons);
+            double measured = gratingMicrons * 1e3 * Math.sin(Math.toRadians(deg));
+            p.sendSystemMessage(Component.translatable("item.semiconductor-lab.grating_spectroscope.measure",
+                    String.format(java.util.Locale.ROOT, "%.4f", deg), String.format(java.util.Locale.ROOT, "%.1f", deg * 60),
+                    String.format(java.util.Locale.ROOT, "%.1f", measured), String.format(java.util.Locale.ROOT, "%.1f", gratingMicrons)));
+        }
+    }
 
     /** 炎として扱うブロック（火のついたたき火・火・魂の火） */
     public static boolean isFlame(BlockState s) {
@@ -74,6 +108,7 @@ public class SpectroscopeItem extends Item {
             p.sendSystemMessage(sample.isEmpty() ? Component.translatable(K + "flame")
                     : Component.translatable(K + "flame_with", sample.getHoverName()));
             for (String key : flameReport(sample)) p.sendSystemMessage(Component.translatable(K + key));
+            for (String e : elementsOf(sample)) sendMeasure(p, e);
         }
         return InteractionResult.SUCCESS;
     }
@@ -84,7 +119,7 @@ public class SpectroscopeItem extends Item {
             boolean sun = level.dimension() == Level.OVERWORLD && level.isBrightOutside()
                     && SaltPanBlockEntity.openSky(level, p.blockPosition().above());
             p.sendSystemMessage(Component.translatable(K + (sun ? "sun" : "no_sun")));
-            if (sun) p.sendSystemMessage(Component.translatable(K + "sun_lines"));
+            if (sun) { p.sendSystemMessage(Component.translatable(K + "sun_lines")); sendMeasure(p, "sun"); }
         }
         return InteractionResult.SUCCESS;
     }

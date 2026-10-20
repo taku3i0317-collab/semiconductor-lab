@@ -301,6 +301,27 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-07] 回折格子（IMP2-01）：送りねじ2＋銅 → 針金格子（d = 101.6μm）、分光器＋格子 → 格子分光器。sinθ = λ/d で角度から波長 */
+    @GameTest
+    public void grating(GameTestHelper h) {
+        h.assertTrue(craft(h, com.taku3.semiconductorlab.content.Precision.LEAD_SCREW, com.taku3.semiconductorlab.content.Precision.LEAD_SCREW, Items.COPPER_INGOT)[0].is(Optics.WIRE_GRATING),
+                "copper wire wound on two screws -> wire grating");
+        h.assertTrue(craft(h, Optics.SPECTROSCOPE, Optics.WIRE_GRATING)[0].is(Optics.GRATING_SPECTROSCOPE), "spectroscope + grating -> grating spectroscope");
+        var g = (com.taku3.semiconductorlab.item.SpectroscopeItem) Optics.GRATING_SPECTROSCOPE;
+        var prism = (com.taku3.semiconductorlab.item.SpectroscopeItem) Optics.SPECTROSCOPE;
+        h.assertTrue(g.gratingMicrons() == 101.6 && prism.gratingMicrons() == 0, "grating d = 0.004 in = 101.6 um; prism has none");
+        // Na D 589.0nm：sinθ = 0.5890/101.6 → θ ≈ 0.332°（約 19.9′）。角度から戻すと 589.0nm
+        double th = com.taku3.semiconductorlab.item.SpectroscopeItem.angleDeg(589.0, 101.6);
+        h.assertTrue(Math.abs(th - 0.3322) < 0.0005, "Na D first-order angle ~0.332 deg, got " + th);
+        h.assertTrue(Math.abs(101.6e3 * Math.sin(Math.toRadians(th)) - 589.0) < 1e-6, "lambda = d sin(theta) gives back 589.0 nm");
+        h.assertTrue(com.taku3.semiconductorlab.item.SpectroscopeItem.angleDeg(656.3, 101.6) > th, "red (C, 656 nm) bends more than yellow (opposite to a prism)");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpectroscopeItem.measurableNm("ge").length, 0, "Ge line is UV -> no angle shown");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SpectroscopeItem.measurableNm("sun").length, 6, "C, D, b1, F, H, K");
+        h.assertTrue(langJson("ja_jp").has("item.semiconductor-lab.grating_spectroscope.measure"), "lang measure line");
+        LOG.info("[LAB] grating [7-07]: wire grating d=101.6 um; Na D at {} deg; spectroscope + grating -> measures wavelengths", String.format("%.4f", th));
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Optics.OXYHYDROGEN_BURNER.block, "石英を溶かす", L(io(Metallurgy.VEIN_QUARTZ, 1), mol(Gas.HYDROGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.H2_PER), mol(Gas.OXYGEN_CYLINDER, OxyhydrogenBurnerBlockEntity.O2_PER)),
