@@ -410,6 +410,17 @@ triethylaluminium  # Chemistry [None] None
 ziegler_natta_catalyst  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
+acetaldehyde  # Chemistry [None] None
+crotonaldehyde  # Chemistry [None] None
+butanol  # Chemistry [None] None
+butyric_acid  # Chemistry [None] None
+butyryl_chloride  # Chemistry [None] None
+butyrophenone  # Chemistry [None] None
+butylbenzene  # Chemistry [None] None
+nitrobutylbenzene  # Chemistry [None] None
+butylaniline  # Chemistry [None] None
+anisole  # Chemistry [None] None
+anisaldehyde  # Chemistry [None] None
 bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690
@@ -767,6 +778,9 @@ gaasp_wafer  # Branches [B-07] 1962
 red_led  # Branches [B-07] 1962
 key_switch  # Branches [B-08] 1964
 calculator  # Branches [B-08] 1964
+mbba  # Branches [B-18] 1971
+rubbed_ito_glass  # Branches [B-18] 1971
+lcd_cell  # Branches [B-18] 1971
 game_console  # Branches [B-09] 1972
 camera_module  # Branches [9-45] 1976
 smartphone  # Branches [B-10] 2007

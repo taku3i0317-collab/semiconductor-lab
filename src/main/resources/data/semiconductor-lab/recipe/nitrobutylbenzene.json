@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:butylbenzene",
+    "semiconductor-lab:nitric_acid",
+    "semiconductor-lab:sulfuric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nitrobutylbenzene",
+    "count": 1
+  }
+}

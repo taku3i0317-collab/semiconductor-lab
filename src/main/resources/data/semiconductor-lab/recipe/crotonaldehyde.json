@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetaldehyde",
+    "semiconductor-lab:acetaldehyde",
+    "semiconductor-lab:sodium_hydroxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crotonaldehyde",
+    "count": 1
+  }
+}

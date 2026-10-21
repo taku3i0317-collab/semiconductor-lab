@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:nitrobutylbenzene",
+    "minecraft:iron_ingot",
+    "semiconductor-lab:hydrochloric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:butylaniline",
+    "count": 1
+  }
+}

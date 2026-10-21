@@ -322,4 +322,23 @@ public class BranchesTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [B-18] 液晶ディスプレイ（TN、IMP3、O-023）：MBBA の道のレシピ、液晶セルは電気なしで明るく（ねじれ 90 度）、電気ありで暗い（LIT） */
+    @GameTest(maxTicks = 100)
+    public void liquidCrystalCell(GameTestHelper h) {
+        var C = com.taku3.semiconductorlab.content.Chemistry.class;
+        h.assertTrue(recipeUses(h, "acetaldehyde", com.taku3.semiconductorlab.content.Chemistry.ACETYLENE_GAS) && recipeUses(h, "butanol", com.taku3.semiconductorlab.content.Chemistry.CROTONALDEHYDE), "acetylene -> acetaldehyde -> butanol");
+        h.assertTrue(recipeUses(h, "butylbenzene", com.taku3.semiconductorlab.content.Chemistry.BUTYROPHENONE) && recipeUses(h, "butylaniline", com.taku3.semiconductorlab.content.Chemistry.NITROBUTYLBENZENE), "Clemmensen, Bechamp");
+        h.assertTrue(recipeUses(h, "anisaldehyde", com.taku3.semiconductorlab.content.Chemistry.ANISOLE) && recipeUses(h, "mbba", com.taku3.semiconductorlab.content.Chemistry.BUTYLANILINE) && recipeUses(h, "mbba", com.taku3.semiconductorlab.content.Chemistry.ANISALDEHYDE), "MBBA = anisaldehyde + butylaniline");
+        h.assertTrue(recipeUses(h, "lcd_cell", com.taku3.semiconductorlab.content.Branches.POLARIZING_FILM) && recipeUses(h, "lcd_cell", com.taku3.semiconductorlab.content.Branches.RUBBED_ITO_GLASS), "cell = rubbed ITO glass + MBBA + polarizers");
+        h.assertTrue(com.taku3.semiconductorlab.block.LcdCellBlockEntity.brightness(false) > 49 && com.taku3.semiconductorlab.block.LcdCellBlockEntity.brightness(true) < 1, "normally white: off light, on dark");
+        floor(h, 3);
+        BlockPos cp = p(1, 1, 1);
+        h.setBlock(cp, com.taku3.semiconductorlab.content.Branches.LCD_CELL.block);
+        var be = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.LcdCellBlockEntity.class);
+        h.assertFalse(h.getBlockState(cp).getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT), "no power: light (not LIT)");
+        tickConsumer(h, cp, be, 30, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.LcdCellBlockEntity.WATTS) + 1);
+        h.assertTrue(h.getBlockState(cp).getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT), "powered: dark segment (LIT)");
+        LOG.info("[LAB] LCD cell [B-18]: off " + com.taku3.semiconductorlab.block.LcdCellBlockEntity.brightness(false) + "%, on " + com.taku3.semiconductorlab.block.LcdCellBlockEntity.brightness(true) + "% (" + C.getSimpleName() + ")");
+        h.succeed();
+    }
 }

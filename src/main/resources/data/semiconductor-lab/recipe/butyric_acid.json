@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:butanol",
+    "semiconductor-lab:potassium_dichromate",
+    "semiconductor-lab:sulfuric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:butyric_acid",
+    "count": 1
+  }
+}

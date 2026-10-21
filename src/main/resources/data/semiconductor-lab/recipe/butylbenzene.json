@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:butyrophenone",
+    "semiconductor-lab:zinc_ingot",
+    "semiconductor-lab:mercury",
+    "semiconductor-lab:hydrochloric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:butylbenzene",
+    "count": 1
+  }
+}

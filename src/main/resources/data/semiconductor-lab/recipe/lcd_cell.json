@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:rubbed_ito_glass",
+    "semiconductor-lab:rubbed_ito_glass",
+    "semiconductor-lab:mbba",
+    "semiconductor-lab:polarizing_film",
+    "semiconductor-lab:polarizing_film",
+    "semiconductor-lab:copper_cable"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lcd_cell",
+    "count": 1
+  }
+}

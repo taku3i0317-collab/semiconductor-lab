@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crotonaldehyde",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:raney_nickel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:butanol",
+    "count": 1
+  }
+}

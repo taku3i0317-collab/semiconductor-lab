@@ -3521,6 +3521,21 @@
 - Wikipedia「Herapathite」：https://en.wikipedia.org/wiki/Herapathite
 - Wikipedia「Malus's law」（Polarizer の節）：https://en.wikipedia.org/wiki/Polarizer#Malus's_law_and_other_properties
 
+## C61. 電気で向きを変えて光の通り道を開け閉めする（液晶ディスプレイ）［B-18］
+**答え**：1888年、オーストリアのライニッツァーは、安息香酸コレステリルが約145℃でにごった液体になり、約179℃で透明になる（融点が2つある）ことを見つけ、レーマンが液体と結晶の間の状態＝液晶と考えた。細長い棒の形の分子は、液体なのに向きがそろう。1969年には室温で液晶になる MBBA が作られ、1970〜71年、スイスのロシュ社の研究者たちが、ねじれた並び（TN）の液晶を直角の偏光フィルム2枚ではさみ、電圧をかけると並びがほどけて光が止まる方式を発表した。液晶は自分では光らず、光の通り道を開け閉めするだけなので、とても少ない電気で動く。1973年に英国のジョージ・グレイがこわれにくいシアノビフェニルを作り、同じ年のシャープの電卓 EL-805 は液晶と CMOS で電池が長くもつ薄い電卓になった。
+
+- へえ①：液晶はそれ自体は光らず、電気で向きを変えて光の通り道を開け閉めしている。
+- へえ②：ガラスを布で一方向にこするだけで、液晶の分子の向きがそろう（1911 モーガン）。
+- へえ③：最初の室温の液晶 MBBA は湿気でこわれやすく、これがシアノビフェニルを生んだ。
+- へえ④：材料のアセトアルデヒドを水銀の触媒で作った工場から、水俣病が起きた（失敗の記録）。
+
+確かさ：ライニッツァー 1888・MBBA 1969・TN 1971・グレイ 1973 ◎／TN の発明の順番（ヨーロッパとアメリカ）○
+根拠：
+- Wikipedia「Liquid crystal」：https://en.wikipedia.org/wiki/Liquid_crystal
+- Wikipedia「Twisted nematic field effect」：https://en.wikipedia.org/wiki/Twisted_nematic_field_effect
+- Wikipedia「MBBA」：https://en.wikipedia.org/wiki/MBBA
+- Wikipedia「4-Cyano-4'-pentylbiphenyl」：https://en.wikipedia.org/wiki/4-Cyano-4%27-pentylbiphenyl
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

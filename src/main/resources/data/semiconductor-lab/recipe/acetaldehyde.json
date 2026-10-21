@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetylene_gas",
+    "minecraft:water_bucket",
+    "semiconductor-lab:mercuric_sulfate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:acetaldehyde",
+    "count": 1
+  }
+}

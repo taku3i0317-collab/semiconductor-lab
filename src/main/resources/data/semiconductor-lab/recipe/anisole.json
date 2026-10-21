@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phenol",
+    "semiconductor-lab:methanol",
+    "semiconductor-lab:alumina"
+  ],
+  "result": {
+    "id": "semiconductor-lab:anisole",
+    "count": 1
+  }
+}

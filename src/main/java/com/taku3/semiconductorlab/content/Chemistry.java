@@ -386,6 +386,23 @@ public final class Chemistry {
     }
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
+    // [B-18] 液晶 MBBA の前提（IMP3、O-023。石油なしの道：アセチレン → アセトアルデヒド → ブタノール）
+    //   アセチレン＋水＋硫酸水銀（触媒）→ アセトアルデヒド（1881 クチェロフ）。2つ＋NaOH → クロトンアルデヒド（アルドール縮合）。＋H2 2（ラネーNi）→ 1-ブタノール
+    //   ＋重クロム酸カリウム＋硫酸 → 酪酸。3つ＋三塩化リン → 塩化ブチリル3。＋ベンゼン＋AlCl3 → ブチロフェノン（フリーデル・クラフツ）
+    //   ＋亜鉛＋水銀＋塩酸 → ブチルベンゼン（クレメンゼン還元 1913）。＋硝酸＋硫酸 → 4-ニトロブチルベンゼン。＋鉄＋塩酸 → 4-ブチルアニリン（ベシャン還元 1854）
+    //   フェノール＋メタノール＋アルミナ → アニソール。＋CO＋HCl＋AlCl3 → 4-メトキシベンズアルデヒド（アニスアルデヒド、ガッターマン・コッホ 1897）
+    public static final Item ACETALDEHYDE          = Reg.item("acetaldehyde", new Item.Properties().stacksTo(16));
+    public static final Item CROTONALDEHYDE        = Reg.item("crotonaldehyde", new Item.Properties().stacksTo(16));
+    public static final Item BUTANOL               = Reg.item("butanol", new Item.Properties().stacksTo(16));
+    public static final Item BUTYRIC_ACID          = Reg.item("butyric_acid", new Item.Properties().stacksTo(16));
+    public static final Item BUTYRYL_CHLORIDE      = Reg.item("butyryl_chloride", new Item.Properties().stacksTo(16));
+    public static final Item BUTYROPHENONE         = Reg.item("butyrophenone", new Item.Properties().stacksTo(16));
+    public static final Item BUTYLBENZENE          = Reg.item("butylbenzene", new Item.Properties().stacksTo(16));
+    public static final Item NITROBUTYLBENZENE     = Reg.item("nitrobutylbenzene", new Item.Properties().stacksTo(16));
+    public static final Item BUTYLANILINE          = Reg.item("butylaniline", new Item.Properties().stacksTo(16));
+    public static final Item ANISOLE               = Reg.item("anisole", new Item.Properties().stacksTo(16));
+    public static final Item ANISALDEHYDE          = Reg.item("anisaldehyde", new Item.Properties().stacksTo(16));
+
     static void init() {
         // [2-48] オゾンホールの日焼け（決定 Q3-11 ②、IMP3 S-006）
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(com.taku3.semiconductorlab.OzoneLayer::tick);

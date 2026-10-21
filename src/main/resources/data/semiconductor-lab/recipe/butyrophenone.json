@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:benzene",
+    "semiconductor-lab:butyryl_chloride",
+    "semiconductor-lab:aluminium_chloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:butyrophenone",
+    "count": 1
+  }
+}

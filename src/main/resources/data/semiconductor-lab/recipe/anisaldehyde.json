@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:anisole",
+    "semiconductor-lab:carbon_monoxide_gas",
+    "semiconductor-lab:hydrogen_chloride_gas",
+    "semiconductor-lab:aluminium_chloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:anisaldehyde",
+    "count": 1
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:butyric_acid",
+    "semiconductor-lab:butyric_acid",
+    "semiconductor-lab:butyric_acid",
+    "semiconductor-lab:phosphorus_trichloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:butyryl_chloride",
+    "count": 3
+  }
+}

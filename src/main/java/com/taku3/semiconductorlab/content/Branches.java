@@ -131,5 +131,11 @@ public final class Branches {
     public static final Item POTASSIUM_IODIDE      = Reg.item("potassium_iodide");
     public static final Item POLARIZING_FILM       = Reg.item("polarizing_film", PolarizerItem::new, new Item.Properties().stacksTo(16));
 
+    // [B-18] 液晶ディスプレイ（TN、IMP3、O-023）：アニスアルデヒド＋4-ブチルアニリン → 液晶 MBBA（1969、室温で液晶）。ITO ガラス＋白い羊毛 → こすった ITO ガラス（向きをそろえる、1911 モーガン）。
+    //   こすった ITO ガラス2＋MBBA＋偏光フィルム2＋銅ケーブル → 液晶セル（電気なしで明るく、電気ありで暗い）
+    public static final Item MBBA                  = Reg.item("mbba", new Item.Properties().stacksTo(16));
+    public static final Item RUBBED_ITO_GLASS      = Reg.item("rubbed_ito_glass");
+    public static final Machine<LcdCellBlockEntity> LCD_CELL = Machine.electric("lcd_cell", LcdCellBlockEntity::new, LcdCellBlockEntity.LAYOUT, metal(1.0f).sound(SoundType.GLASS));
+
     static void init() {}
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ito_glass",
+    "minecraft:white_wool"
+  ],
+  "result": {
+    "id": "semiconductor-lab:rubbed_ito_glass",
+    "count": 1
+  }
+}

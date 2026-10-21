@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 202（ja・en）、文字の置き場所 744、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 204（ja・en）、文字の置き場所 750、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
@@ -982,6 +982,11 @@ led_lamp_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 led_lamp_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
 led_lamp_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
 led_lamp_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
+lcd_cell_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+lcd_cell_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
+lcd_cell_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
+lcd_cell_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+lcd_cell_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
 assembly_bench_ja_jp index =1/2 w=18 lines=1/1
 assembly_bench_ja_jp product item.semiconductor-lab.hf_oscillator w=54 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.touch_panel w=99 lines=2/2
@@ -1962,3 +1967,8 @@ led_lamp_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 led_lamp_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
 led_lamp_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
 led_lamp_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
+lcd_cell_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+lcd_cell_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
+lcd_cell_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
+lcd_cell_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+lcd_cell_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
