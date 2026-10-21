@@ -1,0 +1,22 @@
+{
+  "parent": "semiconductor-lab:chapter1/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:blast_furnace_hearth"
+    },
+    "title": {
+      "translate": "advancement.semiconductor-lab.multiblock.formed.title"
+    },
+    "description": {
+      "translate": "advancement.semiconductor-lab.multiblock.formed.description"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "formed": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

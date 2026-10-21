@@ -1206,4 +1206,40 @@ public class MetallurgyTests extends LabTestBase {
         h.assertTrue(rem != null && rem.create().is(Metallurgy.VANADIUM_PENTOXIDE), "V2O5 is a catalyst (returned)");
         h.succeed();
     }
+
+    /**
+     * v1.0 #1 マルチブロックの土台（O-034 Q33-2）：高炉の囲いのれんがを1つ物の口に替えても組み上がり、口が制御ブロック（高炉）につながる。
+     * はじめて組み上がったとき1回だけ知らせる。見取り図の状態：組む前は羽口が「足りない」、ちがうブロックは「ちがう」、組んだら全部「合っている」
+     */
+    @GameTest(maxTicks = 100)
+    public void multiblockFoundation(GameTestHelper h) {
+        var lv = h.getLevel();
+        BlockPos ctl = h.absolutePos(p(3, 1, 2));
+        h.setBlock(p(3, 1, 2), Metallurgy.BLAST_FURNACE.block);
+        var be = h.getBlockEntity(p(3, 1, 2), com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.class);
+        var shape = com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.shape();
+        int[][] before = com.taku3.semiconductorlab.machine.Multiblock.status(lv, ctl, Direction.NORTH, shape, 1);
+        h.assertValueEqual(before[0][1], com.taku3.semiconductorlab.machine.Multiblock.MISSING, "a missing tuyere is red");
+        BlockPos portAt = null;
+        for (int y = 0; y < shape.height(); y++) for (int z = 0; z < shape.depth(); z++) for (int x = 0; x < shape.width(); x++) {
+            char c = shape.layers().get(y)[z].charAt(x);
+            BlockPos at = shape.worldPos(ctl, Direction.NORTH, x, y, z);
+            if (c == 'B') {
+                if (portAt == null && y == 2) { portAt = at; lv.setBlockAndUpdate(at, com.taku3.semiconductorlab.content.Semiconductor.ITEM_PORT.block.defaultBlockState()); }
+                else lv.setBlockAndUpdate(at, Blocks.BRICKS.defaultBlockState());
+            }
+            if (c == 'T') lv.setBlockAndUpdate(at, Metallurgy.TUYERE.defaultBlockState());
+        }
+        h.assertTrue(be.recheck().formed(), "formed with an item port in the lining");
+        var port = (com.taku3.semiconductorlab.machine.PortBlockEntity) lv.getBlockEntity(portAt);
+        h.assertTrue(port.controller() == be, "the item port leads to the blast furnace");
+        h.assertTrue(be.multiblock().announced() && be.multiblock().ports().size() == 1, "announced once, one port");
+        int[][] after = com.taku3.semiconductorlab.machine.Multiblock.status(lv, ctl, Direction.NORTH, shape, 1);
+        for (int[] row : after) for (int v : row) h.assertTrue(v == com.taku3.semiconductorlab.machine.Multiblock.OK || v == com.taku3.semiconductorlab.machine.Multiblock.FREE, "all green when built");
+        lv.setBlockAndUpdate(shape.worldPos(ctl, Direction.NORTH, 0, 1, 1), Blocks.DIRT.defaultBlockState());
+        h.assertValueEqual(com.taku3.semiconductorlab.machine.Multiblock.status(lv, ctl, Direction.NORTH, shape, 1)[1][0], com.taku3.semiconductorlab.machine.Multiblock.WRONG, "a wrong block is yellow");
+        h.assertFalse(be.recheck().formed(), "broken");
+        h.assertTrue(port.controller() == null, "the port is cut off when broken");
+        h.succeed();
+    }
 }

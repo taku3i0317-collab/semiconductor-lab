@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/energy_port_front_on",
+    "side": "semiconductor-lab:block/energy_port_side",
+    "top": "semiconductor-lab:block/energy_port_top"
+  }
+}

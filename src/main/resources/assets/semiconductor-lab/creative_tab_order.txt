@@ -785,6 +785,9 @@ foup  # Semiconductor [None] None
 hafnium_tetrachloride  # Semiconductor [None] None
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None
+energy_port  # Semiconductor [None] None
+item_port  # Semiconductor [None] None
+gas_port  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
 load_port  # Semiconductor [None] None
 electromagnet  # Control [10-01] 1820

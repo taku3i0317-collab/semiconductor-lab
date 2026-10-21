@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab.content;
 
+import com.taku3.semiconductorlab.machine.PortBlockEntity;
 import com.taku3.semiconductorlab.ModDataComponents;
 import com.taku3.semiconductorlab.Purity;
 import com.taku3.semiconductorlab.block.*;
@@ -113,6 +114,16 @@ public final class Semiconductor {
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 帯域精製炉（Pfann, 1952）。電気で動く（組み込みの高周波発振器 [4-09]）。点灯中は光る
     public static final Machine<ZoneRefiningFurnaceBlockEntity> ZONE_REFINING_FURNACE = Machine.electric("zone_refining_furnace", ZoneRefiningFurnaceBlockEntity::new, ZoneRefiningFurnaceBlockEntity.LAYOUT, lit(stone(3.5f), 13));
+    // マルチブロックの口（v1.0 #1、O-034）：電気・物・ガス。形の囲いの場所に置くと、組み上がったとき制御ブロックにつながる
+    public static final Machine<PortBlockEntity> ENERGY_PORT = Machine.builder("energy_port", (pos, st) -> new PortBlockEntity(PortBlockEntity.Kind.ENERGY, pos, st))
+            .energy((be, dir) -> be.energy(dir)).props(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().strength(3.0f).requiresCorrectToolForDrops()).build();
+    public static final Machine<PortBlockEntity> ITEM_PORT = Machine.builder("item_port", (pos, st) -> new PortBlockEntity(PortBlockEntity.Kind.ITEM, pos, st))
+            .props(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().strength(3.0f).requiresCorrectToolForDrops()).build();
+    public static final Machine<PortBlockEntity> GAS_PORT = Machine.builder("gas_port", (pos, st) -> new PortBlockEntity(PortBlockEntity.Kind.GAS, pos, st))
+            .props(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().strength(3.0f).requiresCorrectToolForDrops()).build();
+    /** マルチブロックの口ブロックか */
+    public static boolean isPort(net.minecraft.world.level.block.state.BlockState s) { return s.is(ENERGY_PORT.block) || s.is(ITEM_PORT.block) || s.is(GAS_PORT.block); }
+
     public static final Machine<CzPullerBlockEntity> CZ_PULLER = Machine.electric("cz_puller", CzPullerBlockEntity::new, CzPullerBlockEntity.LAYOUT, metal(4.0f));
     // 製図台（O-002、docs/LITHO_DESIGN §7）：方眼に層ごとの模様を描き、原図に切り出す。電気なし
     public static final Machine<DraftingTableBlockEntity> DRAFTING_TABLE = Machine.builder("drafting_table", DraftingTableBlockEntity::new)

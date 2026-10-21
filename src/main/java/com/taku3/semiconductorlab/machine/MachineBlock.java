@@ -51,6 +51,10 @@ public class MachineBlock extends HorizontalDirectionalBlock implements EntityBl
     }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (player.isShiftKeyDown() && level.getBlockEntity(pos) instanceof Multiblock.Host) {   // マルチブロックの見取り図（O-034）
+            if (level.isClientSide()) Multiblock.openView.accept(pos);
+            return InteractionResult.SUCCESS;
+        }
         if (!level.isClientSide() && level.getBlockEntity(pos) instanceof MenuProvider mp) player.openMenu(mp);
         return InteractionResult.SUCCESS;
     }

@@ -41,7 +41,7 @@ import java.util.List;
  * 判定は 20 tick に1回（MultiblockPattern）。組み上がっていないと動かない。画面を開くと足りない場所に粒子。
  * スロット：0＝鉄鉱石・砂鉄、1＝木炭、2＝石灰石、3＝銑鉄、4＝スラグ
  */
-public class BlastFurnaceBlockEntity extends BlockEntity implements MachineBE {
+public class BlastFurnaceBlockEntity extends BlockEntity implements MachineBE, com.taku3.semiconductorlab.machine.Multiblock.Host {
     public static final int SLOT_ORE = 0, SLOT_FUEL = 1, SLOT_FLUX = 2, SLOT_OUT = 3, SLOT_SLAG = 4, SLOT_COUNT = 5;
     /** 温度（℃）：室温・木炭だけ（風なし）・送風 100%・銑鉄が溶けて流れる下限 */
     public static final int T_ROOM = 20, T_DRAFT = 900, T_BLAST = 1500, T_MELT = 1400;
@@ -60,7 +60,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MachineBE {
                 .layer("BTB", "T T", "BTB")
                 .layer("BBB", "B B", "BBB")
                 .layer("BBB", "B B", "BBB")
-                .where('B', Blocks.BRICKS, "lining")
+                .where('B', s -> s.is(Blocks.BRICKS) || com.taku3.semiconductorlab.content.Semiconductor.isPort(s), "lining")   // 口ブロックは囲いの場所に置ける（O-034）
                 .where('T', Metallurgy.TUYERE, "tuyere")
                 .controller('C').build();
         return shape;
@@ -87,9 +87,12 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MachineBE {
         @Override public void setChanged() { super.setChanged(); BlastFurnaceBlockEntity.this.setChanged(); }
     };
     private int temp = T_ROOM, progress, burnTicks, air, made;
+    /** マルチブロックの土台（v1.0 #1、O-034）：形・口・はじめて組み上がった知らせ */
+    private final com.taku3.semiconductorlab.machine.Multiblock mb = new com.taku3.semiconductorlab.machine.Multiblock(BlastFurnaceBlockEntity::shape);
     private boolean formed;
     private int missing, missingKind;
     private MultiblockPattern.Result last;
+    @Override public com.taku3.semiconductorlab.machine.Multiblock multiblock() { return mb; }
 
     private final ContainerData data = new ContainerData() {
         @Override public int get(int i) { return switch (i) {
@@ -121,7 +124,7 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MachineBE {
     /** 形を調べ直す（20 tick に1回と、テストから） */
     public MultiblockPattern.Result recheck() {
         if (level == null) return null;
-        last = shape().check(level, worldPosition, facing());
+        last = mb.recheck(level, worldPosition, facing());
         formed = last.formed();
         missing = last.problems().size();
         missingKind = missing == 0 ? 0 : Math.max(0, NAMES.indexOf(last.problems().get(0).expected()));
@@ -206,12 +209,12 @@ public class BlastFurnaceBlockEntity extends BlockEntity implements MachineBE {
 
     @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) { if (level != null) Containers.dropContents(level, pos, container.getItems()); super.preRemoveSideEffects(pos, state); }
     @Override protected void saveAdditional(ValueOutput out) {
-        super.saveAdditional(out);
+        super.saveAdditional(out); mb.save(out);
         ContainerHelper.saveAllItems(out, container.getItems());
         out.putInt("Temp", temp); out.putInt("Progress", progress); out.putInt("Burn", burnTicks); out.putInt("Made", made);
     }
     @Override protected void loadAdditional(ValueInput in) {
-        super.loadAdditional(in);
+        super.loadAdditional(in); mb.load(in);
         container.getItems().replaceAll(s -> ItemStack.EMPTY);
         ContainerHelper.loadAllItems(in, container.getItems());
         temp = in.getIntOr("Temp", T_ROOM); progress = in.getIntOr("Progress", 0); burnTicks = in.getIntOr("Burn", 0); made = in.getIntOr("Made", 0);
