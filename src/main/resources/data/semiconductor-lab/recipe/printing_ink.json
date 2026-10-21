@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lamp_black",
+    "semiconductor-lab:lamp_black",
+    "semiconductor-lab:linseed_varnish"
+  ],
+  "result": {
+    "id": "semiconductor-lab:printing_ink",
+    "count": 2
+  }
+}

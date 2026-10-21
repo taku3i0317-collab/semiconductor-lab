@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:flax",
+    "semiconductor-lab:flax",
+    "semiconductor-lab:flax",
+    "semiconductor-lab:flax",
+    "semiconductor-lab:quern",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:linseed_oil",
+    "count": 1
+  }
+}

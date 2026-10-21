@@ -480,6 +480,10 @@ phthalic_anhydride  # Chemistry [None] None
 urea  # Chemistry [None] None
 cuprous_chloride  # Chemistry [None] None
 ammonium_molybdate  # Chemistry [None] None
+linseed_oil  # Chemistry [2-65] None
+linseed_varnish  # Chemistry [2-65] None
+lamp_black  # Chemistry [2-66] None
+printing_ink  # Chemistry [2-65] None
 fire_clay  # Heat [3-20] -3000
 fire_clay_crucible  # Heat [3-20] -3000
 bellows  # Heat [3-04] -1450
@@ -869,8 +873,8 @@ duralumin  # Transport [14-13] 1906
 quenched_duralumin  # Transport [14-13] 1906
 conveyor_belt  # Transport [14-22] 1913
 conveyor_drive  # Transport [14-22] 1913
-oht_rail  # Transport [14-23] None
-oht_drive  # Transport [14-23] None
+oht_rail  # Transport [14-23] 2000
+oht_drive  # Transport [14-23] 2000
 sulfite_liquor  # Communication [15-01] 105
 pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105

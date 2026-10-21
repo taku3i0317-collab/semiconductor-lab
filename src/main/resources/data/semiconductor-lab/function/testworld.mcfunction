@@ -1,38 +1,38 @@
 # 試験場（S-001、IMP3）：自動生成 python tools/gen_testworld.py。手で直さない
 # 使い方：新しいワールド（クリエイティブ・コマンド有効）の平らな所で /function semiconductor-lab:testworld
-# 大きさ：東へ 219・南へ 125 ブロック（足元から）。機械の真下のピンクと黒は試験用の無限電源
-fill ~-1 ~-1 ~-2 ~219 ~-1 ~5 minecraft:smooth_stone
-fill ~-1 ~ ~-2 ~219 ~5 ~5 minecraft:air
-fill ~-1 ~-1 ~6 ~219 ~-1 ~13 minecraft:smooth_stone
-fill ~-1 ~ ~6 ~219 ~5 ~13 minecraft:air
-fill ~-1 ~-1 ~14 ~219 ~-1 ~21 minecraft:smooth_stone
-fill ~-1 ~ ~14 ~219 ~5 ~21 minecraft:air
-fill ~-1 ~-1 ~22 ~219 ~-1 ~29 minecraft:smooth_stone
-fill ~-1 ~ ~22 ~219 ~5 ~29 minecraft:air
-fill ~-1 ~-1 ~30 ~219 ~-1 ~37 minecraft:smooth_stone
-fill ~-1 ~ ~30 ~219 ~5 ~37 minecraft:air
-fill ~-1 ~-1 ~38 ~219 ~-1 ~45 minecraft:smooth_stone
-fill ~-1 ~ ~38 ~219 ~5 ~45 minecraft:air
-fill ~-1 ~-1 ~46 ~219 ~-1 ~53 minecraft:smooth_stone
-fill ~-1 ~ ~46 ~219 ~5 ~53 minecraft:air
-fill ~-1 ~-1 ~54 ~219 ~-1 ~61 minecraft:smooth_stone
-fill ~-1 ~ ~54 ~219 ~5 ~61 minecraft:air
-fill ~-1 ~-1 ~62 ~219 ~-1 ~69 minecraft:smooth_stone
-fill ~-1 ~ ~62 ~219 ~5 ~69 minecraft:air
-fill ~-1 ~-1 ~70 ~219 ~-1 ~77 minecraft:smooth_stone
-fill ~-1 ~ ~70 ~219 ~5 ~77 minecraft:air
-fill ~-1 ~-1 ~78 ~219 ~-1 ~85 minecraft:smooth_stone
-fill ~-1 ~ ~78 ~219 ~5 ~85 minecraft:air
-fill ~-1 ~-1 ~86 ~219 ~-1 ~93 minecraft:smooth_stone
-fill ~-1 ~ ~86 ~219 ~5 ~93 minecraft:air
-fill ~-1 ~-1 ~94 ~219 ~-1 ~101 minecraft:smooth_stone
-fill ~-1 ~ ~94 ~219 ~5 ~101 minecraft:air
-fill ~-1 ~-1 ~102 ~219 ~-1 ~109 minecraft:smooth_stone
-fill ~-1 ~ ~102 ~219 ~5 ~109 minecraft:air
-fill ~-1 ~-1 ~110 ~219 ~-1 ~117 minecraft:smooth_stone
-fill ~-1 ~ ~110 ~219 ~5 ~117 minecraft:air
-fill ~-1 ~-1 ~118 ~219 ~-1 ~125 minecraft:smooth_stone
-fill ~-1 ~ ~118 ~219 ~5 ~125 minecraft:air
+# 大きさ：東へ 225・南へ 125 ブロック（足元から）。機械の真下のピンクと黒は試験用の無限電源
+fill ~-1 ~-1 ~-2 ~225 ~-1 ~5 minecraft:smooth_stone
+fill ~-1 ~ ~-2 ~225 ~5 ~5 minecraft:air
+fill ~-1 ~-1 ~6 ~225 ~-1 ~13 minecraft:smooth_stone
+fill ~-1 ~ ~6 ~225 ~5 ~13 minecraft:air
+fill ~-1 ~-1 ~14 ~225 ~-1 ~21 minecraft:smooth_stone
+fill ~-1 ~ ~14 ~225 ~5 ~21 minecraft:air
+fill ~-1 ~-1 ~22 ~225 ~-1 ~29 minecraft:smooth_stone
+fill ~-1 ~ ~22 ~225 ~5 ~29 minecraft:air
+fill ~-1 ~-1 ~30 ~225 ~-1 ~37 minecraft:smooth_stone
+fill ~-1 ~ ~30 ~225 ~5 ~37 minecraft:air
+fill ~-1 ~-1 ~38 ~225 ~-1 ~45 minecraft:smooth_stone
+fill ~-1 ~ ~38 ~225 ~5 ~45 minecraft:air
+fill ~-1 ~-1 ~46 ~225 ~-1 ~53 minecraft:smooth_stone
+fill ~-1 ~ ~46 ~225 ~5 ~53 minecraft:air
+fill ~-1 ~-1 ~54 ~225 ~-1 ~61 minecraft:smooth_stone
+fill ~-1 ~ ~54 ~225 ~5 ~61 minecraft:air
+fill ~-1 ~-1 ~62 ~225 ~-1 ~69 minecraft:smooth_stone
+fill ~-1 ~ ~62 ~225 ~5 ~69 minecraft:air
+fill ~-1 ~-1 ~70 ~225 ~-1 ~77 minecraft:smooth_stone
+fill ~-1 ~ ~70 ~225 ~5 ~77 minecraft:air
+fill ~-1 ~-1 ~78 ~225 ~-1 ~85 minecraft:smooth_stone
+fill ~-1 ~ ~78 ~225 ~5 ~85 minecraft:air
+fill ~-1 ~-1 ~86 ~225 ~-1 ~93 minecraft:smooth_stone
+fill ~-1 ~ ~86 ~225 ~5 ~93 minecraft:air
+fill ~-1 ~-1 ~94 ~225 ~-1 ~101 minecraft:smooth_stone
+fill ~-1 ~ ~94 ~225 ~5 ~101 minecraft:air
+fill ~-1 ~-1 ~102 ~225 ~-1 ~109 minecraft:smooth_stone
+fill ~-1 ~ ~102 ~225 ~5 ~109 minecraft:air
+fill ~-1 ~-1 ~110 ~225 ~-1 ~117 minecraft:smooth_stone
+fill ~-1 ~ ~110 ~225 ~5 ~117 minecraft:air
+fill ~-1 ~-1 ~118 ~225 ~-1 ~125 minecraft:smooth_stone
+fill ~-1 ~ ~118 ~225 ~5 ~125 minecraft:air
 setblock ~0 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹0 生存（石器時代）","↓ この列","",""]}}
 setblock ~2 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-01] 打製石器","右クリックでの打ち欠き","（メインにたたき石・オ","フハンドに火打ち石／逆"]}}
 setblock ~2 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hammerstone",count:1},{Slot:1b,id:"semiconductor-lab:flint_flake",count:1},{Slot:2b,id:"semiconductor-lab:obsidian_flake",count:1},{Slot:3b,id:"semiconductor-lab:hand_axe",count:1}]}
@@ -389,6 +389,10 @@ setblock ~212 ~0 ~18 semiconductor-lab:resist_reactor
 setblock ~213 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hydroxyacetophenone",count:16},{Slot:1b,id:"semiconductor-lab:acetoxyphenyl_ethanol",count:16},{Slot:2b,id:"semiconductor-lab:acetoxystyrene",count:16},{Slot:3b,id:"semiconductor-lab:poly_acetoxystyrene",count:16},{Slot:4b,id:"semiconductor-lab:polyhydroxystyrene",count:16},{Slot:5b,id:"semiconductor-lab:protected_phs",count:16},{Slot:6b,id:"semiconductor-lab:diphenyl_sulfoxide",count:16},{Slot:7b,id:"semiconductor-lab:photoacid_generator",count:16},{Slot:8b,id:"semiconductor-lab:potassium_hexafluoroantimonate",count:16},{Slot:9b,id:"semiconductor-lab:chemically_amplified_resist",count:16},{Slot:10b,id:"semiconductor-lab:tributylamine",count:16},{Slot:11b,id:"semiconductor-lab:euv_resist",count:16},{Slot:12b,id:"semiconductor-lab:phenol",count:16},{Slot:13b,id:"semiconductor-lab:acetic_anhydride",count:16},{Slot:14b,id:"semiconductor-lab:aluminium_chloride",count:16},{Slot:15b,id:"semiconductor-lab:hydrogen_gas",count:16},{Slot:16b,id:"semiconductor-lab:raney_nickel",count:1},{Slot:17b,id:"semiconductor-lab:ammonia_water",count:16},{Slot:18b,id:"semiconductor-lab:methanol",count:16},{Slot:19b,id:"semiconductor-lab:benzene",count:16},{Slot:20b,id:"semiconductor-lab:sulfur_dioxide",count:16},{Slot:21b,id:"semiconductor-lab:antimony_trioxide",count:16},{Slot:22b,id:"semiconductor-lab:potassium_fluoride",count:16},{Slot:23b,id:"semiconductor-lab:hydrofluoric_acid_pe",count:16},{Slot:24b,id:"semiconductor-lab:hydrogen_peroxide",count:16}]}
 setblock ~216 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] polyethyle","（人間の確認項目なし）","",""]}}
 setblock ~216 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:polyethylene_bottle",count:16},{Slot:1b,id:"semiconductor-lab:black_ash_charge",count:16},{Slot:2b,id:"semiconductor-lab:aluminosilicate_batch",count:16},{Slot:3b,id:"semiconductor-lab:glass_in_salt_bath",count:16},{Slot:4b,id:"semiconductor-lab:indium_tin_coated_glass",count:16},{Slot:5b,id:"semiconductor-lab:phosphorus_under_nitrogen",count:16},{Slot:6b,id:"semiconductor-lab:raney_alloy",count:16},{Slot:7b,id:"semiconductor-lab:cyclohexanol",count:16},{Slot:8b,id:"semiconductor-lab:adipic_acid",count:16},{Slot:9b,id:"semiconductor-lab:ammonium_adipate",count:16},{Slot:10b,id:"semiconductor-lab:adiponitrile",count:16},{Slot:11b,id:"semiconductor-lab:hexamethylenediamine",count:16},{Slot:12b,id:"semiconductor-lab:nylon_salt",count:16},{Slot:13b,id:"semiconductor-lab:nylon_66",count:16},{Slot:14b,id:"semiconductor-lab:nylon_fiber",count:16},{Slot:15b,id:"semiconductor-lab:acrylic_acid",count:16},{Slot:16b,id:"semiconductor-lab:glycerol_triacrylate",count:16},{Slot:17b,id:"semiconductor-lab:aluminium_chloride",count:16},{Slot:18b,id:"semiconductor-lab:carbon_tetrachloride",count:16},{Slot:19b,id:"semiconductor-lab:benzophenone",count:16},{Slot:20b,id:"semiconductor-lab:triethylaluminium",count:16},{Slot:21b,id:"semiconductor-lab:ziegler_natta_catalyst",count:1},{Slot:22b,id:"semiconductor-lab:hydrofluoric_acid_pe",count:16},{Slot:23b,id:"semiconductor-lab:bleaching_powder",count:16},{Slot:24b,id:"semiconductor-lab:acetaldehyde",count:16},{Slot:25b,id:"semiconductor-lab:crotonaldehyde",count:16},{Slot:26b,id:"semiconductor-lab:butanol",count:16}]}
+setblock ~219 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-65] アマニ油とワニ","たき火でアマニ油を煮る","・獣脂を燃やしてすすが","出るか、C の活版印刷"]}}
+setblock ~219 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:linseed_oil",count:16},{Slot:1b,id:"semiconductor-lab:linseed_varnish",count:16},{Slot:2b,id:"semiconductor-lab:printing_ink",count:16}]}
+setblock ~222 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-66] すすと印刷のイ","たき火でアマニ油を煮る","・獣脂を燃やしてすすが","出るか、C の活版印刷"]}}
+setblock ~222 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:lamp_black",count:16}]}
 setblock ~0 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹3 熱","↓ この列","",""]}}
 setblock ~2 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-20] 耐火粘土","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:fire_clay",count:16},{Slot:1b,id:"semiconductor-lab:fire_clay_crucible",count:16}]}

@@ -1476,4 +1476,14 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS), "HF leak -> brief weakness");
         h.succeed();
     }
+
+    /** [2-65][2-66] アマニ油・ワニス・すす・印刷のインク（IMP3、O-030）：亜麻の種＋石臼 → アマニ油 → たき火 → ワニス、獣脂 → たき火 → すす、すす＋ワニス → インク */
+    @GameTest
+    public void printingInk(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "linseed_oil", com.taku3.semiconductorlab.content.Survival.FLAX.asItem()) && recipeUses(h, "linseed_oil", com.taku3.semiconductorlab.content.Agriculture.QUERN), "press flax seed");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Chemistry.LINSEED_OIL).is(Chemistry.LINSEED_VARNISH), "boil -> varnish");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Chemistry.TALLOW).is(Chemistry.LAMP_BLACK), "smoky flame -> lamp black");
+        h.assertTrue(recipeUses(h, "printing_ink", Chemistry.LAMP_BLACK) && recipeUses(h, "printing_ink", Chemistry.LINSEED_VARNISH), "soot + varnish = ink");
+        h.succeed();
+    }
 }

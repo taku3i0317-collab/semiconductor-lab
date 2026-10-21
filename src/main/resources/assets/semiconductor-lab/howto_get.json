@@ -1380,6 +1380,9 @@
 "krypton_lamp": [
 "crafting"
 ],
+"lamp_black": [
+"campfire"
+],
 "latex": [
 "special"
 ],
@@ -1457,6 +1460,12 @@
 ],
 "linen_thread": [
 "crafting"
+],
+"linseed_oil": [
+"crafting"
+],
+"linseed_varnish": [
+"campfire"
 ],
 "litharge": [
 "smelting",
@@ -1972,6 +1981,9 @@
 "crafting"
 ],
 "print": [
+"crafting"
+],
+"printing_ink": [
 "crafting"
 ],
 "printing_paper": [

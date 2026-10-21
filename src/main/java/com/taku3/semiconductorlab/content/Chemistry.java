@@ -428,6 +428,13 @@ public final class Chemistry {
     public static final Item FKM_COMPOUND          = Reg.item("fkm_compound");
     public static final Item FKM_O_RING            = Reg.item("fkm_o_ring");
 
+    // [2-65] アマニ油とワニス（IMP3、O-030）：亜麻の種4＋石臼（戻る）＋ガラス瓶 → アマニ油 → たき火で煮る → 煮アマニ油のワニス（空気で固まる）
+    // [2-66] すすと印刷のインク（IMP3、O-030。C の [15-02] 活版印刷の材料）：獣脂 → たき火（空気を少なく燃やす）→ すす（ランプブラック）。すす2＋ワニス → 印刷のインク（瓶は戻る）
+    public static final Item LINSEED_OIL           = Reg.contained("linseed_oil", Vessel.GLASS_BOTTLE);
+    public static final Item LINSEED_VARNISH       = Reg.contained("linseed_varnish", Vessel.GLASS_BOTTLE);
+    public static final Item LAMP_BLACK            = Reg.item("lamp_black");
+    public static final Item PRINTING_INK          = Reg.item("printing_ink", new Item.Properties().stacksTo(16));
+
     static void init() {
         // [2-48] オゾンホールの日焼け（決定 Q3-11 ②、IMP3 S-006）
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(com.taku3.semiconductorlab.OzoneLayer::tick);
