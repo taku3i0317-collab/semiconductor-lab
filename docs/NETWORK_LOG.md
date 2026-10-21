@@ -773,3 +773,9 @@
 - tech-network のいちばん上のページ（https://taku3i0317-collab.github.io/tech-network/ ＝ index.html）の head に `google-site-verification` の1行を入れた。書き出しの道具（tools/export_tech_network.py）の側に入れたので、次の書き出しでも消えない。ついでに index.html に題・説明・canonical も
 - **公開されたページの元の HTML で確かめた**：content="lP8qobgUCL3mnbf0cKd4l2dH_m3H-Vr99uwRI9Eea1A" が出ている（tech-network 91a6719）。図のページの Dataset の構造化データと、?lang=en で英語になるのも公開先で確かめた
 - **ユーザーへ：Search Console で「確認」を押してください**。そのあと「サイトマップ」に `sitemap.xml`（https://taku3i0317-collab.github.io/tech-network/sitemap.xml 、公開済み・5 ページ×日英）を送る
+
+## S-053（2026-10-21、INBOX：ユーザー）semiconductor-lab の Pages にも Search Console の確認の1行
+- いちばん上のページ（https://taku3i0317-collab.github.io/semiconductor-lab/）は、GitHub Pages が docs/README.md から作るページ（index.html は無い）。index.html を置くと入口が別の物に変わってしまうので、**docs/_config.yml に webmaster_verifications を書き、GitHub Pages の SEO の道具（jekyll-seo-tag）に head へ出させた**（ページの見た目は今のまま）
+- network.html の head にも同じ1行（tech-network に書き出す network.html にも入るが、同じ1行なので問題なし）
+- **公開されたページの元の HTML で確かめた**：両方に content="lP8qobgUCL3mnbf0cKd4l2dH_m3H-Vr99uwRI9Eea1A"
+- ユーザーへ：Search Console で semiconductor-lab の方も「確認」を押せる
