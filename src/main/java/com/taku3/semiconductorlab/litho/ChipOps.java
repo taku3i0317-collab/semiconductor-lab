@@ -316,6 +316,21 @@ public final class ChipOps {
         return Result.ok(write(w, s.withMetalFilm(true).withExtras(s.extras().withCopperFilm(true)).dirtier(s.extras().barrier() ? 1 : 30)));
     }
 
+    public static boolean canFormFins(ItemStack w, boolean anisotropic) { return formFins(w, anisotropic).ok(); }
+
+    /**
+     * FinFET のフィンを立てる（[9-37]、E のドライエッチング、E と決めた形）：現像したレジストが残った所のシリコンを残し、まわりを深く削る＝細い板（フィン）。
+     * 液のエッチングでは横にも溶けて細い板が立たない（wet）。拡散や金属の前、1回だけ。レジストはそのまま（E がはがす）
+     */
+    public static Result formFins(ItemStack w, boolean anisotropic) {
+        ChipState s = state(w);
+        if (s == null || s.resist() != ChipState.Resist.DEVELOPED) return Result.fail("not_developed");
+        if (!anisotropic) return Result.fail("wet");
+        if (s.has(LayerKind.FIN)) return Result.fail("too_many");
+        if (s.diffusions() > 0 || s.has(LayerKind.METAL) || s.metalFilm()) return Result.fail("too_late");
+        return Result.ok(write(w, s.plus(LayerKind.FIN, s.resistPattern()).dirtier(1)));
+    }
+
     public static boolean canPassivate(ItemStack w) { return passivate(w).ok(); }
 
     /**

@@ -16,6 +16,8 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     public static final String BIPOLAR = "bipolar", MOS = "mos";
     /** CMOS（[9-24]、1963 ワンラスとサー）：n のウェル・p のソースとドレイン・n のソースとドレイン・ゲート酸化膜・窓・金属の6層 */
     public static final String CMOS = "cmos";
+    /** FinFET（[9-37]、2011）：フィン＋CMOS の6層＝7層 */
+    public static final String FINFET = "finfet";
     /** 1つの層（工程の順に並ぶ） */
     public record Layer(LayerKind kind, BitGrid cells) {
         public static final Codec<Layer> CODEC = RecordCodecBuilder.create(i -> i.group(
@@ -43,6 +45,7 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     public ChipDesign(int size, String name, List<Layer> layers, List<Part> parts) { this(size, name, layers, parts, BIPOLAR); }
     public boolean mos() { return MOS.equals(process); }
     public boolean cmos() { return CMOS.equals(process); }
+    public boolean finfet() { return FINFET.equals(process); }
 
     /** 層 i を書きかえた設計図 */
     public ChipDesign withLayer(int i, BitGrid cells) {
@@ -99,6 +102,8 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
                 ? List.of(LayerKind.DIFF_N, LayerKind.GATE_OX, LayerKind.CONTACT, LayerKind.METAL)
                 : CMOS.equals(process)
                 ? List.of(LayerKind.DIFF_N, LayerKind.DIFF_P, LayerKind.DIFF_N, LayerKind.GATE_OX, LayerKind.CONTACT, LayerKind.METAL)
+                : FINFET.equals(process)
+                ? List.of(LayerKind.FIN, LayerKind.DIFF_N, LayerKind.DIFF_P, LayerKind.DIFF_N, LayerKind.GATE_OX, LayerKind.CONTACT, LayerKind.METAL)
                 : List.of(LayerKind.DIFF_N, LayerKind.DIFF_P, LayerKind.DIFF_N, LayerKind.CONTACT, LayerKind.METAL));
         if (twoMetal) { k.add(LayerKind.VIA); k.add(LayerKind.METAL2); }
         return k;
@@ -113,7 +118,7 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     public static ChipDesign fromState(ChipState st, String name) {
         int n = st.size();
         boolean mos = st.has(LayerKind.GATE_OX), two = st.has(LayerKind.METAL2);
-        String process = !mos ? BIPOLAR : st.diffusions() >= 2 ? CMOS : MOS;   // ゲート酸化膜＋拡散2回以上＝ウェルのある CMOS
+        String process = st.has(LayerKind.FIN) ? FINFET : !mos ? BIPOLAR : st.diffusions() >= 2 ? CMOS : MOS;   // ゲート酸化膜＋拡散2回以上＝ウェルのある CMOS
         List<LayerKind> kinds = new ArrayList<>(kindsFor(process, two));
         BitGrid[] g = new BitGrid[kinds.size()];
         java.util.Arrays.fill(g, BitGrid.empty(n));

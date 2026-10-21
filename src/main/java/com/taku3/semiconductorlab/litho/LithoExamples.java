@@ -657,7 +657,10 @@ public final class LithoExamples {
     public static ItemStack process(ItemStack oxidizedWafer, ChipDesign d, ExposureTool tool) { return process(oxidizedWafer, d, tool, ChipState.Tone.POSITIVE); }
 
     /** レジストの型つき（ネガ型 KPR は有機溶剤で現像） */
-    public static ItemStack process(ItemStack oxidizedWafer, ChipDesign d, ExposureTool tool, ChipState.Tone tone) {
+    public static ItemStack process(ItemStack oxidizedWafer, ChipDesign d, ExposureTool tool, ChipState.Tone tone) { return process(oxidizedWafer, d, tool, tone, false); }
+
+    /** dry＝窓をドライエッチング（[9-27]、方眼 36 以上でも窓が広がらない）で開ける */
+    public static ItemStack process(ItemStack oxidizedWafer, ChipDesign d, ExposureTool tool, ChipState.Tone tone, boolean dry) {
         ItemStack w = oxidizedWafer;
         for (int i = 0; i < d.layers().size(); i++) {
             LayerKind k = d.layers().get(i).kind();
@@ -669,11 +672,14 @@ public final class LithoExamples {
             if (k == LayerKind.METAL || k == LayerKind.METAL2) {
                 w = step(ChipOps.etchMetal(w), "etchMetal " + i);
                 w = step(ChipOps.strip(w), "strip " + i);
+            } else if (k == LayerKind.FIN) {   // FinFET：ドライでフィンを立てる（[9-37]）
+                w = step(ChipOps.formFins(w, true), "formFins " + i);
+                w = step(ChipOps.strip(w), "strip " + i);
             } else if (k == LayerKind.GATE_OX) {   // MOS：開いた所の酸化膜を薄く育て直す（S-011）
                 w = step(ChipOps.gateOxide(w), "gateOxide " + i);
                 w = step(ChipOps.strip(w), "strip " + i);
             } else {
-                w = step(ChipOps.etchOxide(w), "etchOxide " + i);
+                w = step(ChipOps.etchOxide(w, dry), "etchOxide " + i);
                 w = step(ChipOps.strip(w), "strip " + i);
                 if (k.isDiffusion()) w = step(ChipOps.diffuse(w, k.dopes), "diffuse " + i);
                 else w = step(ChipOps.depositMetal(w), "depositMetal " + i);

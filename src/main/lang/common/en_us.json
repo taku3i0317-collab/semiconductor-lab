@@ -294,5 +294,7 @@
   "litho.semiconductor-lab.challenge.dram_cell.hint1": "1. You store an amount of charge. A MOS gate passes no current, so it can hold charge.",
   "litho.semiconductor-lab.challenge.dram_cell.hint2": "2. Three MOSFETs: a gate that lets data in on write, a MOSFET whose gate is the stored charge, and a gate that opens on read.",
   "litho.semiconductor-lab.challenge.dram_cell.hint3": "3. Pull the read line up to the supply through a resistor; put the storage and read MOSFETs in series to 0 V. A stored 1 pulls the line low (inverted).",
-  "litho.semiconductor-lab.challenge.dram_cell.hint4": "4. Charge leaks away in a few ms, faster on a dirty chip. A wider gate, or a capacitor (metal over gate oxide on an n region), holds it longer."
+  "litho.semiconductor-lab.challenge.dram_cell.hint4": "4. Charge leaks away in a few ms, faster on a dirty chip. A wider gate, or a capacitor (metal over gate oxide on an n region), holds it longer.",
+  "litho.semiconductor-lab.role.fin": "Fin",
+  "litho.semiconductor-lab.layer.fin": "fin"
 }

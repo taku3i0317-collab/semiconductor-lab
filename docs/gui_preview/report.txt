@@ -485,6 +485,7 @@ drafting_table_en_us layer0 litho.semiconductor-lab.role.gate_ox w=52 lines=1/1
 drafting_table_en_us layer0 litho.semiconductor-lab.role.n_well w=30 lines=1/1
 drafting_table_en_us layer0 litho.semiconductor-lab.role.p_source_drain w=78 lines=1/1 scale=0.84999996
 drafting_table_en_us layer0 litho.semiconductor-lab.role.n_source_drain w=78 lines=1/1 scale=0.84999996
+drafting_table_en_us layer0 litho.semiconductor-lab.role.fin w=14 lines=1/1
 drafting_table_en_us layer1 litho.semiconductor-lab.role.island w=104 lines=1/1 scale=0.6499999
 drafting_table_en_us layer1 litho.semiconductor-lab.role.base w=44 lines=1/1
 drafting_table_en_us layer1 litho.semiconductor-lab.role.emitter w=54 lines=1/1
@@ -497,6 +498,7 @@ drafting_table_en_us layer1 litho.semiconductor-lab.role.gate_ox w=52 lines=1/1
 drafting_table_en_us layer1 litho.semiconductor-lab.role.n_well w=30 lines=1/1
 drafting_table_en_us layer1 litho.semiconductor-lab.role.p_source_drain w=78 lines=1/1 scale=0.84999996
 drafting_table_en_us layer1 litho.semiconductor-lab.role.n_source_drain w=78 lines=1/1 scale=0.84999996
+drafting_table_en_us layer1 litho.semiconductor-lab.role.fin w=14 lines=1/1
 drafting_table_en_us layer2 litho.semiconductor-lab.role.island w=104 lines=1/1 scale=0.6499999
 drafting_table_en_us layer2 litho.semiconductor-lab.role.base w=44 lines=1/1
 drafting_table_en_us layer2 litho.semiconductor-lab.role.emitter w=54 lines=1/1
@@ -509,6 +511,7 @@ drafting_table_en_us layer2 litho.semiconductor-lab.role.gate_ox w=52 lines=1/1
 drafting_table_en_us layer2 litho.semiconductor-lab.role.n_well w=30 lines=1/1
 drafting_table_en_us layer2 litho.semiconductor-lab.role.p_source_drain w=78 lines=1/1 scale=0.84999996
 drafting_table_en_us layer2 litho.semiconductor-lab.role.n_source_drain w=78 lines=1/1 scale=0.84999996
+drafting_table_en_us layer2 litho.semiconductor-lab.role.fin w=14 lines=1/1
 drafting_table_en_us layer3 litho.semiconductor-lab.role.island w=104 lines=1/1 scale=0.6499999
 drafting_table_en_us layer3 litho.semiconductor-lab.role.base w=44 lines=1/1
 drafting_table_en_us layer3 litho.semiconductor-lab.role.emitter w=54 lines=1/1
@@ -521,6 +524,7 @@ drafting_table_en_us layer3 litho.semiconductor-lab.role.gate_ox w=52 lines=1/1
 drafting_table_en_us layer3 litho.semiconductor-lab.role.n_well w=30 lines=1/1
 drafting_table_en_us layer3 litho.semiconductor-lab.role.p_source_drain w=78 lines=1/1 scale=0.84999996
 drafting_table_en_us layer3 litho.semiconductor-lab.role.n_source_drain w=78 lines=1/1 scale=0.84999996
+drafting_table_en_us layer3 litho.semiconductor-lab.role.fin w=14 lines=1/1
 drafting_table_en_us layer4 litho.semiconductor-lab.role.island w=104 lines=1/1 scale=0.6499999
 drafting_table_en_us layer4 litho.semiconductor-lab.role.base w=44 lines=1/1
 drafting_table_en_us layer4 litho.semiconductor-lab.role.emitter w=54 lines=1/1
@@ -533,6 +537,7 @@ drafting_table_en_us layer4 litho.semiconductor-lab.role.gate_ox w=52 lines=1/1
 drafting_table_en_us layer4 litho.semiconductor-lab.role.n_well w=30 lines=1/1
 drafting_table_en_us layer4 litho.semiconductor-lab.role.p_source_drain w=78 lines=1/1 scale=0.84999996
 drafting_table_en_us layer4 litho.semiconductor-lab.role.n_source_drain w=78 lines=1/1 scale=0.84999996
+drafting_table_en_us layer4 litho.semiconductor-lab.role.fin w=14 lines=1/1
 drafting_table_en_us layer5 litho.semiconductor-lab.role.island w=104 lines=1/1 scale=0.6499999
 drafting_table_en_us layer5 litho.semiconductor-lab.role.base w=44 lines=1/1
 drafting_table_en_us layer5 litho.semiconductor-lab.role.emitter w=54 lines=1/1
@@ -545,6 +550,7 @@ drafting_table_en_us layer5 litho.semiconductor-lab.role.gate_ox w=52 lines=1/1
 drafting_table_en_us layer5 litho.semiconductor-lab.role.n_well w=30 lines=1/1
 drafting_table_en_us layer5 litho.semiconductor-lab.role.p_source_drain w=78 lines=1/1 scale=0.84999996
 drafting_table_en_us layer5 litho.semiconductor-lab.role.n_source_drain w=78 lines=1/1 scale=0.84999996
+drafting_table_en_us layer5 litho.semiconductor-lab.role.fin w=14 lines=1/1
 drafting_table_en_us layer6 litho.semiconductor-lab.role.island w=104 lines=1/1 scale=0.6499999
 drafting_table_en_us layer6 litho.semiconductor-lab.role.base w=44 lines=1/1
 drafting_table_en_us layer6 litho.semiconductor-lab.role.emitter w=54 lines=1/1
@@ -557,6 +563,7 @@ drafting_table_en_us layer6 litho.semiconductor-lab.role.gate_ox w=52 lines=1/1
 drafting_table_en_us layer6 litho.semiconductor-lab.role.n_well w=30 lines=1/1
 drafting_table_en_us layer6 litho.semiconductor-lab.role.p_source_drain w=78 lines=1/1 scale=0.84999996
 drafting_table_en_us layer6 litho.semiconductor-lab.role.n_source_drain w=78 lines=1/1 scale=0.84999996
+drafting_table_en_us layer6 litho.semiconductor-lab.role.fin w=14 lines=1/1
 drafting_table_en_us arrow =→ w=8 lines=1/1
 drafting_table_en_us stamp_label gui.semiconductor-lab.drafting_table.stamp_slot w=28 lines=1/1
 drafting_table_en_us hint gui.semiconductor-lab.drafting_table.need_sheet w=91 lines=1/1 scale=0.84999996
@@ -1348,6 +1355,7 @@ drafting_table_ja_jp layer0 litho.semiconductor-lab.role.gate_ox w=54 lines=1/1
 drafting_table_ja_jp layer0 litho.semiconductor-lab.role.n_well w=46 lines=1/1
 drafting_table_ja_jp layer0 litho.semiconductor-lab.role.p_source_drain w=91 lines=1/1 scale=0.6999999
 drafting_table_ja_jp layer0 litho.semiconductor-lab.role.n_source_drain w=91 lines=1/1 scale=0.6999999
+drafting_table_ja_jp layer0 litho.semiconductor-lab.role.fin w=27 lines=1/1
 drafting_table_ja_jp layer1 litho.semiconductor-lab.role.island w=70 lines=1/1 scale=0.95
 drafting_table_ja_jp layer1 litho.semiconductor-lab.role.base w=52 lines=1/1
 drafting_table_ja_jp layer1 litho.semiconductor-lab.role.emitter w=61 lines=1/1
@@ -1360,6 +1368,7 @@ drafting_table_ja_jp layer1 litho.semiconductor-lab.role.gate_ox w=54 lines=1/1
 drafting_table_ja_jp layer1 litho.semiconductor-lab.role.n_well w=46 lines=1/1
 drafting_table_ja_jp layer1 litho.semiconductor-lab.role.p_source_drain w=91 lines=1/1 scale=0.6999999
 drafting_table_ja_jp layer1 litho.semiconductor-lab.role.n_source_drain w=91 lines=1/1 scale=0.6999999
+drafting_table_ja_jp layer1 litho.semiconductor-lab.role.fin w=27 lines=1/1
 drafting_table_ja_jp layer2 litho.semiconductor-lab.role.island w=70 lines=1/1 scale=0.95
 drafting_table_ja_jp layer2 litho.semiconductor-lab.role.base w=52 lines=1/1
 drafting_table_ja_jp layer2 litho.semiconductor-lab.role.emitter w=61 lines=1/1
@@ -1372,6 +1381,7 @@ drafting_table_ja_jp layer2 litho.semiconductor-lab.role.gate_ox w=54 lines=1/1
 drafting_table_ja_jp layer2 litho.semiconductor-lab.role.n_well w=46 lines=1/1
 drafting_table_ja_jp layer2 litho.semiconductor-lab.role.p_source_drain w=91 lines=1/1 scale=0.6999999
 drafting_table_ja_jp layer2 litho.semiconductor-lab.role.n_source_drain w=91 lines=1/1 scale=0.6999999
+drafting_table_ja_jp layer2 litho.semiconductor-lab.role.fin w=27 lines=1/1
 drafting_table_ja_jp layer3 litho.semiconductor-lab.role.island w=70 lines=1/1 scale=0.95
 drafting_table_ja_jp layer3 litho.semiconductor-lab.role.base w=52 lines=1/1
 drafting_table_ja_jp layer3 litho.semiconductor-lab.role.emitter w=61 lines=1/1
@@ -1384,6 +1394,7 @@ drafting_table_ja_jp layer3 litho.semiconductor-lab.role.gate_ox w=54 lines=1/1
 drafting_table_ja_jp layer3 litho.semiconductor-lab.role.n_well w=46 lines=1/1
 drafting_table_ja_jp layer3 litho.semiconductor-lab.role.p_source_drain w=91 lines=1/1 scale=0.6999999
 drafting_table_ja_jp layer3 litho.semiconductor-lab.role.n_source_drain w=91 lines=1/1 scale=0.6999999
+drafting_table_ja_jp layer3 litho.semiconductor-lab.role.fin w=27 lines=1/1
 drafting_table_ja_jp layer4 litho.semiconductor-lab.role.island w=70 lines=1/1 scale=0.95
 drafting_table_ja_jp layer4 litho.semiconductor-lab.role.base w=52 lines=1/1
 drafting_table_ja_jp layer4 litho.semiconductor-lab.role.emitter w=61 lines=1/1
@@ -1396,6 +1407,7 @@ drafting_table_ja_jp layer4 litho.semiconductor-lab.role.gate_ox w=54 lines=1/1
 drafting_table_ja_jp layer4 litho.semiconductor-lab.role.n_well w=46 lines=1/1
 drafting_table_ja_jp layer4 litho.semiconductor-lab.role.p_source_drain w=91 lines=1/1 scale=0.6999999
 drafting_table_ja_jp layer4 litho.semiconductor-lab.role.n_source_drain w=91 lines=1/1 scale=0.6999999
+drafting_table_ja_jp layer4 litho.semiconductor-lab.role.fin w=27 lines=1/1
 drafting_table_ja_jp layer5 litho.semiconductor-lab.role.island w=70 lines=1/1 scale=0.95
 drafting_table_ja_jp layer5 litho.semiconductor-lab.role.base w=52 lines=1/1
 drafting_table_ja_jp layer5 litho.semiconductor-lab.role.emitter w=61 lines=1/1
@@ -1408,6 +1420,7 @@ drafting_table_ja_jp layer5 litho.semiconductor-lab.role.gate_ox w=54 lines=1/1
 drafting_table_ja_jp layer5 litho.semiconductor-lab.role.n_well w=46 lines=1/1
 drafting_table_ja_jp layer5 litho.semiconductor-lab.role.p_source_drain w=91 lines=1/1 scale=0.6999999
 drafting_table_ja_jp layer5 litho.semiconductor-lab.role.n_source_drain w=91 lines=1/1 scale=0.6999999
+drafting_table_ja_jp layer5 litho.semiconductor-lab.role.fin w=27 lines=1/1
 drafting_table_ja_jp layer6 litho.semiconductor-lab.role.island w=70 lines=1/1 scale=0.95
 drafting_table_ja_jp layer6 litho.semiconductor-lab.role.base w=52 lines=1/1
 drafting_table_ja_jp layer6 litho.semiconductor-lab.role.emitter w=61 lines=1/1
@@ -1420,6 +1433,7 @@ drafting_table_ja_jp layer6 litho.semiconductor-lab.role.gate_ox w=54 lines=1/1
 drafting_table_ja_jp layer6 litho.semiconductor-lab.role.n_well w=46 lines=1/1
 drafting_table_ja_jp layer6 litho.semiconductor-lab.role.p_source_drain w=91 lines=1/1 scale=0.6999999
 drafting_table_ja_jp layer6 litho.semiconductor-lab.role.n_source_drain w=91 lines=1/1 scale=0.6999999
+drafting_table_ja_jp layer6 litho.semiconductor-lab.role.fin w=27 lines=1/1
 drafting_table_ja_jp arrow =→ w=8 lines=1/1
 drafting_table_ja_jp stamp_label gui.semiconductor-lab.drafting_table.stamp_slot w=27 lines=1/1
 drafting_table_ja_jp hint gui.semiconductor-lab.drafting_table.need_sheet w=69 lines=1/1

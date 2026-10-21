@@ -2583,12 +2583,12 @@ public class SemiconductorTests extends LabTestBase {
         var dt = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.DraftingTableBlockEntity.class);
         var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
         dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_NEW);
-        int[] sizes = new int[5]; boolean[] mos = new boolean[5];
-        for (int k = 0; k < 5; k++) {
+        int[] sizes = new int[6]; boolean[] mos = new boolean[6];
+        for (int k = 0; k < 6; k++) {
             sizes[k] = dt.design().layers().size(); mos[k] = dt.design().mos();
             dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_PROCESS);
         }
-        h.assertTrue(java.util.Arrays.equals(sizes, new int[] {5, 7, 4, 6, 6}) && java.util.Arrays.equals(mos, new boolean[] {false, false, true, true, false}), "process cycle: " + java.util.Arrays.toString(sizes));
+        h.assertTrue(java.util.Arrays.equals(sizes, new int[] {5, 7, 4, 6, 6, 7}) && java.util.Arrays.equals(mos, new boolean[] {false, false, true, true, false, false}), "process cycle: " + java.util.Arrays.toString(sizes));
         h.assertValueEqual(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.role(com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter(), 1), "gate_ox", "MOS layer 1 is the gate oxide");
         ItemStack stamp = new ItemStack(Semiconductor.STAMP);
         stamp.set(ModDataComponents.CHIP_DESIGN, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter().crop());
@@ -2753,6 +2753,50 @@ public class SemiconductorTests extends LabTestBase {
         int n = nl.model.size;
         h.assertValueEqual(nl.netOf[12 * n + 15], nl.netOf[15 * n + 8], "the right pad and the bottom pad are one net through copper");
         LOG.info("[LAB] copper damascene [9-36]: via holes, trenches, barrier, plating, CMP -> metal 2 without etching");
+        h.succeed();
+    }
+
+    /**
+     * [9-37] FinFET（E と決めた形、S-013 案A）：16×16 の CMOS インバータを 100 の方眼（CD 約 40 nm 以下）に置いて ArF 液浸で焼くと、平らな MOS は漏れて NOT に合格しない。
+     * チャネルとソース・ドレインの下にフィンを立てた FinFET の工程（7層）なら合格。フィンは液のエッチングでは立たない
+     */
+    @GameTest(maxTicks = 400)
+    public void finfetShortChannel(GameTestHelper h) {
+        var c = com.taku3.semiconductorlab.litho.LithoExamples.cmosInverter();
+        int big = com.taku3.semiconductorlab.litho.Circuit.SHORT_CHANNEL_GRID;
+        java.util.function.Function<com.taku3.semiconductorlab.litho.BitGrid, com.taku3.semiconductorlab.litho.BitGrid> embed = g -> {
+            var o = com.taku3.semiconductorlab.litho.BitGrid.empty(big);
+            for (int y = 0; y < g.size(); y++) for (int x = 0; x < g.size(); x++) if (g.get(x, y)) o = o.with(x, y, true);
+            return o;
+        };
+        var flat = new java.util.ArrayList<com.taku3.semiconductorlab.litho.ChipDesign.Layer>();
+        for (var l : c.layers()) flat.add(new com.taku3.semiconductorlab.litho.ChipDesign.Layer(l.kind(), embed.apply(l.cells())));
+        var fin = com.taku3.semiconductorlab.litho.BitGrid.empty(big);
+        for (int i : new int[] {1, 2, 3}) { var g = flat.get(i).cells(); for (int y = 0; y < big; y++) for (int x = 0; x < big; x++) if (g.get(x, y)) fin = fin.with(x, y, true); }   // ソース・ドレインの所
+        var gox = flat.get(3).cells(); for (int y = 0; y < big; y++) for (int x = 0; x < big; x++) if (gox.get(x, y)) fin = fin.with(x, y, true);   // チャネル
+        var finLayers = new java.util.ArrayList<com.taku3.semiconductorlab.litho.ChipDesign.Layer>();
+        finLayers.add(new com.taku3.semiconductorlab.litho.ChipDesign.Layer(com.taku3.semiconductorlab.litho.LayerKind.FIN, fin));
+        finLayers.addAll(flat);
+        java.util.function.Function<com.taku3.semiconductorlab.litho.ChipDesign, Boolean> passes = d -> {
+            ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+            ItemStack chip = com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.litho.LithoExamples.process(ow, d, com.taku3.semiconductorlab.litho.ExposureTool.ARF_IMMERSION, com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE, true), 0).out();
+            var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.ChipOps.state(chip)));
+            int n = nl.model.size;
+            var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+            roles.put(nl.netOf[15 * n], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+            roles.put(nl.netOf[0], com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+            roles.put(nl.netOf[7 * n], com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+            roles.put(nl.netOf[8 * n + 15], com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+            return nl.mosfets.size() == 2 && com.taku3.semiconductorlab.litho.Challenge.check(com.taku3.semiconductorlab.litho.Challenge.byIndex(0), nl, roles, 1.0).passed();
+        };
+        h.assertFalse(passes.apply(new com.taku3.semiconductorlab.litho.ChipDesign(big, "flat", flat, java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.CMOS)), "a planar CMOS inverter leaks at about 40 nm");
+        var finDesign = new com.taku3.semiconductorlab.litho.ChipDesign(big, "fin", finLayers, java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.FINFET);
+        h.assertTrue(passes.apply(finDesign), "the FinFET version works");
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack dev = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out(), finDesign.mask(0), com.taku3.semiconductorlab.litho.ExposureTool.ARF_IMMERSION).out()).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.formFins(dev, false).reason(), "wet", "wet etching cannot stand fins up");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.role(finDesign, 0), "fin", "FinFET layer 0 is the fin");
+        LOG.info("[LAB] FinFET [9-37]: planar CMOS fails at grid {}, FinFET passes", big);
         h.succeed();
     }
 

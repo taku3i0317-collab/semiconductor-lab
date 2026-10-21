@@ -556,3 +556,4 @@
 - [10-12] DRAM：litho に時間（Circuit.solve の dt、MOS のゲートと MOS のコンデンサが電荷をため、手から手へ持ちこす、漏れる）。お題 dram_cell（1103 の3トランジスタ、書く → W を先に切る → 読む、2 ms ごとのリフレッシュ）、例 dramCell（24×24）が合格、20 ms で忘れる。CAP_PER_CELL は 1e-11 だと 2 ms もたなかったので 3e-11（約 4〜5 ms）。REFERENCES L15、TECH_TREE ✅
 
 - E の [9-36] 銅配線の受け口（S-003【2】、E と決めた形）：層間膜の1回目の窓＝ビアの穴（2回目の窓を開けるとき extras.viaHoles に覚える）、2回目＝溝。ChipOps.depositBarrier（Ta）・plateCopper（バリアなしは汚れ +30）・planarize が銅の膜のとき溝の中だけ残す（METAL2＝溝、VIA＝ビアの穴、Al のエッチングなし）。GameTest copperDamascene
+- E の [9-37] FinFET の A の分（S-013 案A）：LayerKind.FIN、ChipModel.fin、ChipOps.formFins(w, anisotropic)（現像したレジストの所を残して立てる、液は wet で断る、拡散・金属の前に1回）、Circuit の短チャネルの漏れ（方眼 SHORT_CHANNEL_GRID＝gridFor(40 nm)＝100 以上の平らな MOS は、ソースとドレインの間に 係数×W/L×3 V ⚠️ の漏れ、チャネルがみなフィンの上なら漏れない）、工程の種類 FINFET（フィン＋CMOS の7層、製図台の P の6番目）、LithoExamples.process に dry（方眼 36 以上で窓が広がらない）。GameTest finfetShortChannel：100 の方眼で平らな CMOS は NOT 不合格、FinFET は合格。high-k は E がユーザーに質問中

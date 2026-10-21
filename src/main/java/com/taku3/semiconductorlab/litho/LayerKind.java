@@ -20,7 +20,9 @@ public enum LayerKind {
     /** 層間膜の窓（S-011、2層目の金属）：1層目と2層目の金属をつなぐ所 */
     VIA("via", true, ' '),
     /** アルミの配線（2層目、S-011） */
-    METAL2("metal2", false, ' ');
+    METAL2("metal2", false, ' '),
+    /** FinFET のフィン（[9-37]、E と決めた形）：ドライエッチングで立てたシリコンの細い板。描いた所が残る（レジストが守る）。ゲートが3方向から包む */
+    FIN("fin", false, ' ');
 
     public final String id;
     /** 窓を開ける層か（ポジ型レジストでマスクの向きが決まる） */

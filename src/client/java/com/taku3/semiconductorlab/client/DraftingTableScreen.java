@@ -28,7 +28,7 @@ public class DraftingTableScreen extends MachineScreen {
     private static int swatch(com.taku3.semiconductorlab.litho.LayerKind k) {
         return switch (k) {
             case DIFF_N -> N; case DIFF_P -> P; case CONTACT -> 0xFF303030; case METAL -> 0xFF8A8A92;
-            case GATE_OX -> 0xFF60A060; case VIA -> 0xFF4040A0; case METAL2 -> 0xFF506090;
+            case GATE_OX -> 0xFF60A060; case VIA -> 0xFF4040A0; case METAL2 -> 0xFF506090; case FIN -> 0xFFB0B0C0;   // フィン（[9-37]）はシリコンの灰色
         };
     }
 
