@@ -42,6 +42,7 @@ hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.not_enough w=
 hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.need_power w=46 lines=1/3
 hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.sintering w=89 lines=2/3
 hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing_ge w=72 lines=1/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing_mo w=72 lines=1/3
 hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing w=66 lines=1/3
 hydrogen_furnace_en_us h2 =H2 w=12 lines=1/1
 trichlorosilane_reactor_en_us power gui.semiconductor-lab.trichlorosilane_reactor.power w=69 lines=1/1
@@ -921,6 +922,7 @@ hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.not_enough w=
 hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.need_power w=36 lines=1/3
 hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.sintering w=68 lines=1/3
 hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing_ge w=60 lines=1/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing_mo w=60 lines=1/3
 hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing w=54 lines=1/3
 hydrogen_furnace_ja_jp h2 =H2 w=12 lines=1/1
 trichlorosilane_reactor_ja_jp power gui.semiconductor-lab.trichlorosilane_reactor.power w=57 lines=1/1

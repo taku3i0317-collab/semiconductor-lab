@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:zircon",
+    "semiconductor-lab:sodium_hydroxide",
+    "semiconductor-lab:sodium_hydroxide",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crude_zirconia",
+    "count": 1
+  }
+}

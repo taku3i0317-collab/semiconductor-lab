@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crude_zirconium",
+    "semiconductor-lab:iodine",
+    "semiconductor-lab:tungsten_wire"
+  ],
+  "result": {
+    "id": "semiconductor-lab:zirconium_bar",
+    "count": 1
+  }
+}

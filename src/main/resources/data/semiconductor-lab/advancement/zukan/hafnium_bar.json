@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:hafnium_bar"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.hafnium_bar"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.hafnium_bar.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.hafnium_bar.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:hafnium_bar"
+          }
+        ]
+      }
+    }
+  }
+}

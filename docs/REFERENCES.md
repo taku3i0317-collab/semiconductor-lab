@@ -3276,6 +3276,20 @@
 - Wikipedia「Norfolk four-course system」：https://en.wikipedia.org/wiki/Norfolk_four-course_system
 - Wikipedia「Charles Townshend, 2nd Viscount Townshend」：https://en.wikipedia.org/wiki/Charles_Townshend,_2nd_Viscount_Townshend
 
+## C59. X線で見つかったそっくりな双子（ジルコニウム・ハフニウム）［1-70］
+**答え**：ジルコニウムとハフニウムは、原子の大きさも化学の性質もほとんど同じで、ジルコンの中にいつもいっしょに入っている（ハフニウムはジルコニウムの約2%）。化学では区別できず、1923年にコペンハーゲンのコスターとヘヴェシーが、X線の分光で新しい線を見つけて初めてハフニウムを発見した。分けるには、フッ化物の複塩の水へのとけやすさのわずかな差を使い、結晶させるのを何十回もくり返した（今は溶媒抽出）。1925年、ファン・アルケルとデ・ブールは、金属をヨウ素と気体にして熱したタングステン線の上で分ける「ヨウ化物法」で、とても純粋な金属を作った。2007年ごろから、チップのトランジスタのゲートの絶縁膜に酸化ハフニウム（high-k）が使われている。
+
+- へえ①：ハフニウムは、X線で元素を調べる方法ができてから、やっと見つかった。
+- へえ②：名前はコペンハーゲンのラテン語名「ハフニア」から。
+- へえ③：ジルコニウムは中性子をほとんど吸わず原子炉の燃料の入れ物に、ハフニウムはよく吸うので制御棒に使われる。
+- へえ④：オーストラリアで見つかった約44億年前のジルコンの粒は、地球でいちばん古い鉱物のかけら。
+
+確かさ：発見 1923・ヨウ化物法 1925・high-k 2007 ◎／分別結晶の回数 ○
+根拠：
+- Wikipedia「Hafnium」：https://en.wikipedia.org/wiki/Hafnium
+- Wikipedia「Crystal bar process」：https://en.wikipedia.org/wiki/Crystal_bar_process
+- Wikipedia「High-κ dielectric」：https://en.wikipedia.org/wiki/High-%CE%BA_dielectric
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:potassium_fluorozirconate",
+    "semiconductor-lab:sodium",
+    "semiconductor-lab:sodium"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crude_zirconium",
+    "count": 1
+  }
+}

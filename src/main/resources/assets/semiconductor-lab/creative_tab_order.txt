@@ -146,6 +146,17 @@ wolframite_ore  # Metallurgy [1-28] 1910
 hydrogen_furnace  # Metallurgy [1-28] 1910
 silicon_tetrachloride  # Metallurgy [7-15] 1920
 rock_crystal  # Metallurgy [8-15] 1921
+zircon  # Metallurgy [1-70] 1925
+crude_zirconia  # Metallurgy [1-70] 1925
+potassium_fluorozirconate  # Metallurgy [1-70] 1925
+crude_fluorozirconate  # Metallurgy [1-70] 1925
+potassium_fluorohafnate  # Metallurgy [1-70] 1925
+hafnium_hydroxide  # Metallurgy [1-70] 1925
+hafnium_oxide  # Metallurgy [1-70] 1925
+crude_zirconium  # Metallurgy [1-70] 1925
+crude_hafnium  # Metallurgy [1-70] 1925
+zirconium_bar  # Metallurgy [1-70] 1925
+hafnium_bar  # Metallurgy [1-70] 1925
 coal_ash  # Metallurgy [1-01] 1930
 germanium_concentrate  # Metallurgy [1-01] 1930
 germanium_dioxide  # Metallurgy [1-01] 1930

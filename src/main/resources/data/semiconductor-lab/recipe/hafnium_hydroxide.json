@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:potassium_fluorohafnate",
+    "semiconductor-lab:ammonia_water"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hafnium_hydroxide",
+    "count": 1
+  }
+}

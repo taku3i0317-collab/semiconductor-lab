@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crude_zirconia",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:potassium_fluoride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crude_fluorozirconate",
+    "count": 1
+  }
+}

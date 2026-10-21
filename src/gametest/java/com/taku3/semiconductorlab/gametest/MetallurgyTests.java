@@ -375,7 +375,7 @@ public class MetallurgyTests extends LabTestBase {
             net.minecraft.world.item.Item raw = (net.minecraft.world.item.Item) o[1];
             List<ItemStack> normal = Block.getDrops(b.defaultBlockState(), lv, at, null, null, pick);
             List<ItemStack> silky = Block.getDrops(b.defaultBlockState(), lv, at, null, null, silk);
-            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw) || (b == Metallurgy.IRON_SAND && (s.is(Metallurgy.PLATINUM_GRAIN) || s.is(Metallurgy.ILMENITE)))), b + " with a pickaxe should drop " + raw + ", got " + normal);   // 砂鉄はまれに砂白金 [1-20]・チタン鉄鉱 [1-41] も
+            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw) || (b == Metallurgy.IRON_SAND && (s.is(Metallurgy.PLATINUM_GRAIN) || s.is(Metallurgy.ILMENITE) || s.is(Metallurgy.ZIRCON)))), b + " with a pickaxe should drop " + raw + ", got " + normal);   // 砂鉄はまれに砂白金 [1-20]・チタン鉄鉱 [1-41] も
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
         for (Block m : new Block[] {Power.STEAM_ENGINE.block, Power.STEAM_TURBINE.block, Power.LEAD_ACID_BATTERY.block, Power.WATER_WHEEL.block, Gas.ELECTROLYZER.block, Gas.GAS_HOLDER.block,
@@ -1077,6 +1077,22 @@ public class MetallurgyTests extends LabTestBase {
         h.assertTrue(recipeUses(h, "lithium_sulfate", Metallurgy.BETA_SPODUMENE) && recipeUses(h, "lithium_sulfate", Chemistry.SULFURIC_ACID), "beta + H2SO4 -> Li2SO4");
         h.assertTrue(recipeUses(h, "lithium_carbonate", Metallurgy.LITHIUM_SULFATE) && recipeUses(h, "lithium_carbonate", Chemistry.SODIUM_CARBONATE), "Li2SO4 + Na2CO3 -> Li2CO3");
         LOG.info("[LAB] lithium [1-42]: spodumene -> (blast) beta -> + H2SO4 -> Li2SO4 -> + Na2CO3 -> Li2CO3");
+        h.succeed();
+    }
+
+    /** [1-70] ジルコニウム・ハフニウム（IMP3、S-007）：ジルコン（砂鉄の副産物）→ アルカリ融解 → フッ化物 → 分別結晶で Hf を分ける（Zr の塩が各マスに残る）→ HfO2、ナトリウム還元 → ヨウ化物法で結晶棒 */
+    @GameTest
+    public void zirconiumHafnium(GameTestHelper h) {
+        h.assertTrue(Metallurgy.ZIRCON_FROM_IRON_SAND > 0 && Metallurgy.ZIRCON_FROM_IRON_SAND < Metallurgy.ILMENITE_FROM_IRON_SAND, "zircon: rarer by-product of iron sand");
+        h.assertTrue(recipeUses(h, "crude_zirconia", Metallurgy.ZIRCON) && recipeUses(h, "crude_zirconia", com.taku3.semiconductorlab.content.Gas.SODIUM_HYDROXIDE), "caustic fusion");
+        h.assertTrue(recipeUses(h, "crude_fluorozirconate", Chemistry.HYDROFLUORIC_ACID) && recipeUses(h, "crude_fluorozirconate", Chemistry.POTASSIUM_FLUORIDE), "HF + KF -> fluoride double salt");
+        h.assertTrue(recipeUses(h, "potassium_fluorohafnate", Metallurgy.CRUDE_FLUOROZIRCONATE), "fractional crystallization");
+        var rem = Metallurgy.CRUDE_FLUOROZIRCONATE.getCraftingRemainder(new ItemStack(Metallurgy.CRUDE_FLUOROZIRCONATE));
+        h.assertTrue(rem != null && rem.create().is(Metallurgy.POTASSIUM_FLUOROZIRCONATE), "pure K2ZrF6 stays behind in each slot");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.HAFNIUM_HYDROXIDE).is(Metallurgy.HAFNIUM_OXIDE), "Hf(OH)4 -> HfO2");
+        h.assertTrue(recipeUses(h, "crude_hafnium", Metallurgy.SODIUM) && recipeUses(h, "hafnium_bar", Chemistry.IODINE) && recipeUses(h, "hafnium_bar", Metallurgy.TUNGSTEN_WIRE), "Na reduction, iodide process on W wire");
+        h.assertTrue(recipeUses(h, "zirconium_bar", Metallurgy.CRUDE_ZIRCONIUM), "zirconium crystal bar");
+        LOG.info("[LAB] zirconium/hafnium [1-70]: zircon -> NaOH fusion -> K2ZrF6(Hf) -> fractional crystallization -> K2HfF6 -> HfO2; Na reduction + iodide process -> crystal bars");
         h.succeed();
     }
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crude_fluorozirconate",
+    "semiconductor-lab:crude_fluorozirconate",
+    "semiconductor-lab:crude_fluorozirconate",
+    "semiconductor-lab:crude_fluorozirconate",
+    "semiconductor-lab:crude_fluorozirconate",
+    "semiconductor-lab:crude_fluorozirconate",
+    "semiconductor-lab:crude_fluorozirconate",
+    "semiconductor-lab:crude_fluorozirconate",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:potassium_fluorohafnate",
+    "count": 1
+  }
+}

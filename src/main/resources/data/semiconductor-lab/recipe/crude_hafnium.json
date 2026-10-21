@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:potassium_fluorohafnate",
+    "semiconductor-lab:sodium",
+    "semiconductor-lab:sodium"
+  ],
+  "result": {
+    "id": "semiconductor-lab:crude_hafnium",
+    "count": 1
+  }
+}

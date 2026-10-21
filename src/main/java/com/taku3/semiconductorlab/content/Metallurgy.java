@@ -72,6 +72,22 @@ public final class Metallurgy {
     //   ＋マグネシウム2＋アルゴンの袋 → クロールの仕込み →かまど → 塩の混ざったスポンジ →（真空で蒸留）→ スポンジチタン（塩化マグネシウムが作業台に残る＝[1-39] の電解へ戻る）
     public static final float ILMENITE_FROM_IRON_SAND = 0.1f;
     public static final Item ILMENITE              = Reg.item("ilmenite");
+    // [1-70] ジルコニウム・ハフニウム（IMP3、S-007）：ジルコン ZrSiO4（Hf を約2%ふくむ）は砂鉄の浜の重い砂に、チタン鉄鉱といっしょにまじる（ZIRCON_FROM_IRON_SAND）。
+    //   ジルコン＋水酸化ナトリウム2 →溶鉱炉→ 粗い酸化ジルコニウム（Hf 入り）→ ＋フッ酸2＋フッ化カリウム → 粗いフッ化ジルコニウムカリウム（Hf 入り）
+    //   → 8つ＋水で分別結晶（1924 ヘヴェシー）→ フッ化ハフニウムカリウム1（各マスに純粋なフッ化ジルコニウムカリウムが残る）
+    //   K2HfF6 ＋アンモニア水 → 水酸化ハフニウム →かまど→ 酸化ハフニウム HfO2（high-k）。K2ZrF6/K2HfF6 ＋ナトリウム → 粗い金属 → ＋ヨウ素＋W線 → 結晶棒（1925 ヨウ化物法）
+    public static final float ZIRCON_FROM_IRON_SAND = 0.05f;
+    public static final Item ZIRCON                = Reg.item("zircon");
+    public static final Item CRUDE_ZIRCONIA        = Reg.item("crude_zirconia");
+    public static final Item POTASSIUM_FLUOROZIRCONATE = Reg.item("potassium_fluorozirconate");
+    public static final Item CRUDE_FLUOROZIRCONATE = Reg.item("crude_fluorozirconate", new Item.Properties().craftRemainder(POTASSIUM_FLUOROZIRCONATE));
+    public static final Item POTASSIUM_FLUOROHAFNATE = Reg.item("potassium_fluorohafnate");
+    public static final Item HAFNIUM_HYDROXIDE     = Reg.item("hafnium_hydroxide");
+    public static final Item HAFNIUM_OXIDE         = Reg.item("hafnium_oxide");
+    public static final Item CRUDE_ZIRCONIUM       = Reg.item("crude_zirconium");
+    public static final Item CRUDE_HAFNIUM         = Reg.item("crude_hafnium");
+    public static final Item ZIRCONIUM_BAR         = Reg.item("zirconium_bar");
+    public static final Item HAFNIUM_BAR           = Reg.item("hafnium_bar");
     public static final Item CRUDE_TITANIUM_TETRACHLORIDE = Reg.item("crude_titanium_tetrachloride", new Item.Properties().stacksTo(16));
     public static final Item TITANIUM_TETRACHLORIDE = Reg.item("titanium_tetrachloride", new Item.Properties().stacksTo(16));
     public static final Item KROLL_CHARGE          = Reg.item("kroll_charge");
@@ -254,6 +270,12 @@ public final class Metallurgy {
             if (!table.is(IRON_SAND.getLootTable().orElseThrow())) return;
             if (drops.stream().anyMatch(st -> st.is(MAGNETITE)) && ctx.getRandom().nextFloat() < ILMENITE_FROM_IRON_SAND)
                 drops.add(new net.minecraft.world.item.ItemStack(ILMENITE));
+        });
+        // [1-70] 浜の重い砂には、ジルコンもまじっている（チタン鉄鉱の前例どおり、IMP3 S-007）
+        net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            if (!table.is(IRON_SAND.getLootTable().orElseThrow())) return;
+            if (drops.stream().anyMatch(st -> st.is(MAGNETITE)) && ctx.getRandom().nextFloat() < ZIRCON_FROM_IRON_SAND)
+                drops.add(new net.minecraft.world.item.ItemStack(ZIRCON));
         });
     }
 }

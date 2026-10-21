@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crude_hafnium",
+    "semiconductor-lab:iodine",
+    "semiconductor-lab:tungsten_wire"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hafnium_bar",
+    "count": 1
+  }
+}
