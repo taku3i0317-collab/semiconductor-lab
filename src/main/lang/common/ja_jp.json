@@ -296,5 +296,11 @@
   "litho.semiconductor-lab.challenge.dram_cell.hint3": "③読み出しの線は抵抗で電源へ引き上げ、ためる MOS と読む MOS を直列にして 0 V へ。覚えた1で線が下がる（逆の値）。",
   "litho.semiconductor-lab.challenge.dram_cell.hint4": "④電荷は数 ms で漏れる。汚れが多いともっと早い。ゲートを広くするか、ゲート酸化膜の上の金属を n の領域に重ねたコンデンサを足すと長くもつ。",
   "litho.semiconductor-lab.role.fin": "フィン",
-  "litho.semiconductor-lab.layer.fin": "フィン"
+  "litho.semiconductor-lab.layer.fin": "フィン",
+  "block.semiconductor-lab.inverter": "インバータ",
+  "block.semiconductor-lab.inverter.note1": "直流の電気を、半導体のスイッチで細かく切りかえて交流にする装置。",
+  "block.semiconductor-lab.inverter.note2": "後ろの面＝直流の入力、前の面＝交流の出力（電圧の段は変えない）。効率 95%。太陽電池や電池の直流を、変圧器や交流の網につなげる。⚠️ 前と後ろは別のケーブルの網にする（同じ網にすると網全部が交流になり、直流の機械が止まる）。",
+  "block.semiconductor-lab.inverter.note3": "スイッチを1秒に何百〜何千回もオン・オフして向きを入れかえ、交流の形にする（整流器の逆）。交流の周波数を変えると、交流モーターの回る速さが変わる。",
+  "block.semiconductor-lab.inverter.note4": "最初はサイリスタで作られ、1980年代からはパワー MOSFET・IGBT になった ⚠️（年は出典で確かめ中）。電気自動車・エアコン・電車は、電気を1秒に何千回も切りかえてモーターを回している。",
+  "block.semiconductor-lab.inverter.placeholder": "省略：⚠️ 周波数・モーターの速さは表さない。効率はゲームの値。"
 }

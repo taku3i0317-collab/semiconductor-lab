@@ -46,6 +46,9 @@ public final class Semiconductor {
     public static final Item SILICON_WAFER         = Reg.item("silicon_wafer");
     // [9-16] 熱拡散：p-n 接合の板（純度と土台のドーパントつき）
     public static final Item PN_JUNCTION_WAFER     = Reg.item("pn_junction_wafer");
+    // [9-49] サイリスタ（IMP4-01、O-015）：p-n 接合の板（実は両面 p＝p-n-p）にもう一度リン → p-n-p-n の板 → 素子
+    public static final Item THYRISTOR_WAFER       = Reg.item("thyristor_wafer");
+    public static final Item THYRISTOR             = Reg.item("thyristor");
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");
     // [9-17] メサトランジスタ（IMP4-01）：p-n 接合の板（p の板＋n の表面）→ Al の点を蒸着 → 焼いて合金（エミッタ）→ ろうで守る → 混酸で周りを削る（メサ）→ 金線でつなぐ
@@ -150,6 +153,9 @@ public final class Semiconductor {
     public static final Machine<EpitaxyReactorBlockEntity> EPITAXY_REACTOR = Machine.electric("epitaxy_reactor", EpitaxyReactorBlockEntity::new, EpitaxyReactorBlockEntity.LAYOUT, lit(metal(4.0f), 9));
     // [9-36] ウェハーの銅めっき装置（IMP4-01、S-003）：硫酸銅＋銅の陽極で溝と穴を銅で埋める（ダマシン）。1kW
     public static final Machine<CopperPlaterBlockEntity> COPPER_PLATER = Machine.electric("copper_plater", CopperPlaterBlockEntity::new, CopperPlaterBlockEntity.LAYOUT, metal(3.5f));
+    // [9-41] インバータ（IMP4-01、O-015）：直流 → 交流（整流器の逆、サイリスタのスイッチ）。後ろ＝直流、前＝交流、95%
+    public static final Machine<InverterBlockEntity> INVERTER = Machine.builder("inverter", InverterBlockEntity::new)
+            .ticker(com.taku3.semiconductorlab.energy.PowerConverterBlockEntity::tick).energy((be, dir) -> be.storageFor(dir)).props(metal(2.5f)).build();
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

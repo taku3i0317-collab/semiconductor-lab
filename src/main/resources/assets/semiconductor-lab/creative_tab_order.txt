@@ -609,6 +609,8 @@ ion_implanter  # Semiconductor [9-28] 1954
 oxidized_wafer  # Semiconductor [9-15] 1955
 oxidation_furnace  # Semiconductor [9-15] 1955
 mask_aligner  # Semiconductor [9-20] 1955
+thyristor_wafer  # Semiconductor [9-49] 1957
+thyristor  # Semiconductor [9-49] 1957
 al_dotted_wafer  # Semiconductor [9-17] 1957
 alloyed_wafer  # Semiconductor [9-17] 1957
 waxed_wafer  # Semiconductor [9-17] 1957
@@ -649,6 +651,7 @@ stepper  # Semiconductor [9-39] 1978
 scanner  # Semiconductor [9-39] 1978
 anneal_furnace  # Semiconductor [9-29] 1980
 cmp_polisher  # Semiconductor [9-31] 1980
+inverter  # Semiconductor [9-41] 1980
 copper_plater  # Semiconductor [9-36] 1997
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None

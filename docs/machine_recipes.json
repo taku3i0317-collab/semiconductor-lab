@@ -941,6 +941,31 @@
       "note": "ドーパントが表面からしみ込む（1954：n型＋ホウ素）"
     },
     {
+      "machine": "semiconductor-lab:diffusion_furnace",
+      "process": "サイリスタの板（p-n-p-n）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:pn_junction_wafer",
+          "count": 8,
+          "cond": "n の板にホウ素の p-n 接合"
+        },
+        {
+          "item": "semiconductor-lab:phosphorus",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:thyristor_wafer",
+          "count": 8
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 120.0,
+      "energy_kj": 600,
+      "note": "両面 p（p-n-p）にもう一度リン → p-n-p-n（1957 GE の SCR）"
+    },
+    {
       "machine": "semiconductor-lab:dry_etcher",
       "process": "ドライエッチング",
       "inputs": [

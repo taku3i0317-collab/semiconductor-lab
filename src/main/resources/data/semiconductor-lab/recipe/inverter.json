@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "TTT",
+    "KXK",
+    "SCS"
+  ],
+  "key": {
+    "T": "semiconductor-lab:thyristor",
+    "K": "semiconductor-lab:copper_cable",
+    "X": "semiconductor-lab:transformer",
+    "S": "semiconductor-lab:steel_ingot",
+    "C": "semiconductor-lab:leyden_jar"
+  },
+  "result": {
+    "id": "semiconductor-lab:inverter",
+    "count": 1
+  }
+}

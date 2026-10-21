@@ -296,5 +296,11 @@
   "litho.semiconductor-lab.challenge.dram_cell.hint3": "3. Pull the read line up to the supply through a resistor; put the storage and read MOSFETs in series to 0 V. A stored 1 pulls the line low (inverted).",
   "litho.semiconductor-lab.challenge.dram_cell.hint4": "4. Charge leaks away in a few ms, faster on a dirty chip. A wider gate, or a capacitor (metal over gate oxide on an n region), holds it longer.",
   "litho.semiconductor-lab.role.fin": "Fin",
-  "litho.semiconductor-lab.layer.fin": "fin"
+  "litho.semiconductor-lab.layer.fin": "fin",
+  "block.semiconductor-lab.inverter": "Inverter",
+  "block.semiconductor-lab.inverter.note1": "Turns direct current into alternating current by switching it rapidly with semiconductor switches.",
+  "block.semiconductor-lab.inverter.note2": "Back face = DC input, front face = AC output (same voltage class). 95% efficient. Lets solar cells and batteries feed transformers and AC networks. ⚠️ Keep the front and back on separate cable networks (on one network everything becomes AC and DC machines stop).",
+  "block.semiconductor-lab.inverter.note3": "Switches on and off hundreds or thousands of times a second, flipping the direction to shape AC (the reverse of a rectifier). Changing the AC frequency changes how fast an AC motor turns.",
+  "block.semiconductor-lab.inverter.note4": "First built with thyristors, then from the 1980s with power MOSFETs and IGBTs ⚠️ (date being checked). Electric cars, air conditioners and trains switch power thousands of times a second to drive their motors.",
+  "block.semiconductor-lab.inverter.placeholder": "Omitted: ⚠️ frequency and motor speed are not modelled. Efficiency is a game value."
 }

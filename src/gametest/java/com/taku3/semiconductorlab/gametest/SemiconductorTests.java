@@ -1264,6 +1264,46 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-49] サイリスタ・[9-41] インバータ（IMP4-01、O-015）：p-n 接合の板（n の板）＋白リン → サイリスタの板（拡散炉、今の分岐は変わらない）→ 作業台で素子。
+     * 直流の発電機 → インバータ → 前の網は交流（変圧器が働く）。後ろの網は直流のまま
+     */
+    @GameTest(maxTicks = 300)
+    public void thyristorInverter(GameTestHelper h) {
+        ItemStack pn = new ItemStack(Semiconductor.PN_JUNCTION_WAFER, 8); pn.set(ModDataComponents.DOPANT, "phosphorus");
+        h.assertTrue(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesThyristor(pn, new ItemStack(Chemistry.PHOSPHORUS)), "n-base p-n wafer + P -> p-n-p-n");
+        h.assertTrue(!com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesThyristor(pn, new ItemStack(Metallurgy.BORON_TRIOXIDE)), "boron again does not make a fourth layer");
+        ItemStack sw = new ItemStack(Semiconductor.SILICON_WAFER, 8); sw.set(ModDataComponents.DOPANT, "phosphorus");
+        h.assertTrue(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesJunction(sw, new ItemStack(Metallurgy.BORON_TRIOXIDE)) && !com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.makesThyristor(sw, new ItemStack(Chemistry.PHOSPHORUS)), "the old branch is unchanged");
+        floor(h, 9);
+        BlockPos fp = p(7, 1, 7);
+        h.setBlock(fp, Semiconductor.DIFFUSION_FURNACE.block);
+        var df = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.class);
+        df.getContainer().setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_WAFER, pn.copy());
+        df.getContainer().setItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_SOURCE, new ItemStack(Chemistry.PHOSPHORUS));
+        tickConsumer(h, fp, df, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS));
+        ItemStack tw = df.getContainer().getItem(com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(tw.is(Semiconductor.THYRISTOR_WAFER) && tw.getCount() == 8, "diffusion furnace: 8 thyristor wafers, got " + tw);
+        h.assertTrue(recipeUses(h, "thyristor", Semiconductor.THYRISTOR_WAFER) && recipeUses(h, "inverter", Semiconductor.THYRISTOR), "wafer -> thyristors -> inverter");
+        // 直流の発電機（交流発電機なしの蒸気タービン）→ ケーブル → インバータ（東向き）→ ケーブル → 変圧器
+        h.setBlock(p(1, 1, 2).north(), net.minecraft.world.level.block.Blocks.WATER);
+        h.setBlock(p(1, 1, 2), com.taku3.semiconductorlab.content.Power.STEAM_TURBINE.block);
+        h.getBlockEntity(p(1, 1, 2), com.taku3.semiconductorlab.energy.SteamTurbineBlockEntity.class).getContainer().setItem(com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.SLOT_COAL, new ItemStack(net.minecraft.world.item.Items.COAL, 64));
+        for (int x = 2; x <= 3; x++) h.setBlock(p(x, 1, 2), com.taku3.semiconductorlab.content.Power.COPPER_CABLE.block);
+        h.setBlock(p(4, 1, 2), Semiconductor.INVERTER.block.defaultBlockState().setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING, net.minecraft.core.Direction.EAST));
+        h.setBlock(p(5, 1, 2), com.taku3.semiconductorlab.content.Power.COPPER_CABLE.block);
+        h.setBlock(p(6, 1, 2), com.taku3.semiconductorlab.content.Power.TRANSFORMER.block.defaultBlockState().setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING, net.minecraft.core.Direction.EAST));
+        tickAll(h, 40, p(1, 1, 2), p(2, 1, 2), p(3, 1, 2), p(4, 1, 2), p(5, 1, 2), p(6, 1, 2));
+        var dcNet = com.taku3.semiconductorlab.energy.CableNetwork.get(h.getLevel(), h.absolutePos(p(2, 1, 2)));
+        var acNet = com.taku3.semiconductorlab.energy.CableNetwork.get(h.getLevel(), h.absolutePos(p(5, 1, 2)));
+        h.assertValueEqual(dcNet.current, com.taku3.semiconductorlab.energy.Current.DC, "the turbine side stays DC");
+        h.assertValueEqual(acNet.current, com.taku3.semiconductorlab.energy.Current.AC, "the inverter output makes an AC network");
+        h.assertTrue(acNet.mismatched == 0, "the transformer works on the inverter's AC");
+        h.assertTrue(h.getBlockEntity(p(4, 1, 2), com.taku3.semiconductorlab.energy.PowerConverterBlockEntity.class).getLastWatts() > 0, "power passes the inverter");
+        LOG.info("[LAB] thyristor [9-49] / inverter [9-41]: p-n wafer + P -> p-n-p-n; DC turbine -> inverter -> AC network, transformer works");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2978,6 +3018,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "バリア膜つき")), com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS / 20.0, "銅がシリコンへしみるのを止める（[9-36]）");
         rec(a, Semiconductor.DRY_ETCHER.block, "フィンを立てる（FinFET）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "フィンの形に現像した 1〜8枚"), io(Gas.CHLORINE_GAS, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.CF4_PER_RUN)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "フィン（FIN の層）")), com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WATTS, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.TICKS / 20.0, "Cl2 のプラズマでシリコンを真下に削る");
+        rec(a, Semiconductor.DIFFUSION_FURNACE.block, "サイリスタの板（p-n-p-n）", L(cond(io(Semiconductor.PN_JUNCTION_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN), "n の板にホウ素の p-n 接合"), io(Chemistry.PHOSPHORUS, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.SOURCE_PER_RUN)),
+            L(io(Semiconductor.THYRISTOR_WAFER, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WAFERS_PER_RUN)), com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.DiffusionFurnaceBlockEntity.TICKS / 20.0, "両面 p（p-n-p）にもう一度リン → p-n-p-n（1957 GE の SCR）");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

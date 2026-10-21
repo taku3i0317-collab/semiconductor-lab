@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:thyristor_wafer",
+    "semiconductor-lab:aluminium_ingot",
+    "minecraft:copper_ingot",
+    "semiconductor-lab:soda_lime_glass"
+  ],
+  "result": {
+    "id": "semiconductor-lab:thyristor",
+    "count": 4
+  }
+}

@@ -677,5 +677,16 @@
   "gui.semiconductor-lab.copper_plater.need_power": "電気が足りない",
   "gui.semiconductor-lab.copper_plater.running": "銅でうめている",
   "gui.semiconductor-lab.copper_plater.recipe": "Cu²⁺ + 2e⁻ → Cu",
-  "gui.semiconductor-lab.dry_etcher.running_fin": "Cl2 でフィンを立てている"
+  "gui.semiconductor-lab.dry_etcher.running_fin": "Cl2 でフィンを立てている",
+  "item.semiconductor-lab.thyristor_wafer": "サイリスタの板（p-n-p-n）",
+  "item.semiconductor-lab.thyristor_wafer.note1": "シリコンに p・n・p・n の4つの層を作った板。切って大電流のスイッチにする。",
+  "item.semiconductor-lab.thyristor_wafer.note2": "拡散炉で、p-n 接合の板（n の板にホウ素）8枚＋白リン1 → これ8枚。作業台で アルミ＋銅＋ソーダ石灰ガラス と → サイリスタ4個。",
+  "item.semiconductor-lab.thyristor_wafer.note3": "n の板にホウ素をマスクなしでしみ込ませると両面が p になる（p-n-p）。もう一度リンを片面にしみ込ませると p-n-p-n。",
+  "item.semiconductor-lab.thyristor_wafer.note4": "1956年ごろベル研究所で p-n-p-n のスイッチが研究され、1957年に GE が3本足の SCR（シリコン制御整流器）として売り出した（IEEE マイルストーン）。",
+  "item.semiconductor-lab.thyristor_wafer.placeholder": "省略：⚠️ 本物はリンを片面だけにしみ込ませる（もう片面は守る）。層の厚さ・濃さは表さない。",
+  "item.semiconductor-lab.thyristor": "サイリスタ（SCR）",
+  "item.semiconductor-lab.thyristor.note1": "ゲートに小さな電流を1回流すと、大きな電流を流し続ける半導体のスイッチ。",
+  "item.semiconductor-lab.thyristor.note2": "サイリスタの板＋アルミ（電極）＋銅（台）＋ガラス（封じ）→ 4個。インバータの材料。",
+  "item.semiconductor-lab.thyristor.note3": "p-n-p-n の中で、2つのトランジスタがおたがいを支えるように電流を流す（ラッチ）。止めるには電流を0にする。",
+  "item.semiconductor-lab.thyristor.note4": "水銀整流器やガス入りの管を置きかえ、電車や電力のインバータは最初サイリスタで作られた。新幹線の制御にも使われた。"
 }

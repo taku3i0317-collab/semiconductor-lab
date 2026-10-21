@@ -125,3 +125,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - **ユーザーに質問（Discord）**：FinFET の high-k。本物の FinFET（2011）は high-k（ハフニウムの酸化物）＋金属ゲートと組。[1-70] ハフニウムは ❓。案①[1-70] を先に作る／案②ゲートは SiO2 のまま「仮」（漏れの判定は SiO2 でも成り立つ。high-k はゲートの漏れの話で短チャネルの漏れとは別）。答えまで FinFET の high-k の部分は作らない（フィンの工程は進めてよいかも合わせて聞いた）
 - ✅ [9-36] 銅配線：スパッタに Ta の的（depositBarrier）、ウェハーの銅めっき装置（block/CopperPlaterBlockEntity、plateCopper）、CMP は既存。A の 1e6f067d。GameTest copper_wiring、CHEMISTRY F65、REFERENCES F39
 - ✅ [9-37] FinFET の E の分：ドライエッチング装置に Cl2 → ChipOps.formFins（A の 76d68bcd）。GameTest fin_etch、CHEMISTRY F66、REFERENCES F37 更新。STI は省略、high-k はユーザーの決定待ち
+- O-015 開始。[9-49] の MC 欄は「未定（実装の前に相談）」だったが、INBOX の指示どおり作る。いちばん軽い形＝インバータの部品にした（判断の記録）。拡散炉への分岐は A の了承
+- ✅ [9-49] サイリスタ（拡散炉の分岐：n の p-n 接合＋リン → thyristor_wafer、作業台で thyristor ×4）・[9-41] インバータ（energy/InverterBlockEntity、DC→AC 95%、網の決まりは A に確認）。GameTest thyristor_inverter、CHEMISTRY F67、REFERENCES F40。[4-26] は前提がそろってから

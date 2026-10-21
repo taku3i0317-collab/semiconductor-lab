@@ -47,7 +47,7 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.DIFFUSION_FURNACE.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean isWafer(ItemStack s) { return s.is(Semiconductor.SILICON_WAFER) || com.taku3.semiconductorlab.litho.ChipOps.isProcessWafer(s); }
+    public static boolean isWafer(ItemStack s) { return s.is(Semiconductor.SILICON_WAFER) || com.taku3.semiconductorlab.litho.ChipOps.isProcessWafer(s) || s.is(Semiconductor.PN_JUNCTION_WAFER); }
 
     /** 窓のある加工中のウェハーに、このドーパント源でしみ込ませられるか */
     public static boolean planar(ItemStack wafer, ItemStack source) {
@@ -72,14 +72,30 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
         return s;
     }
 
+    /**
+     * [9-49] サイリスタ（IMP4-01、O-015、A の了承）：n 型の板にホウ素をマスクなしでしみ込ませた p-n 接合の板は、本当は両面が p（p-n-p）。
+     * もう一度リンをしみ込ませると、片面の表面が n になり p-n-p-n の4層＝サイリスタの素子（1957 GE の SCR）
+     */
+    public static boolean makesThyristor(ItemStack wafer, ItemStack source) {
+        Dopant base = baseOf(wafer), add = Dopant.of(source);
+        return wafer.is(Semiconductor.PN_JUNCTION_WAFER) && base != null && base.type == 'n' && add != null && add.type == 'n';
+    }
+
+    /** p-n-p-n の板：純度と土台のドーパントを受け継ぐ */
+    public static ItemStack thyristor(ItemStack wafer, int count) {
+        return wafer.transmuteCopy(Semiconductor.THYRISTOR_WAFER, count);
+    }
+
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return TICKS; }
 
     @Override protected boolean canWork() {
         ItemStack w = container.getItem(SLOT_WAFER), src = container.getItem(SLOT_SOURCE);
         if (planar(w, src)) return src.getCount() >= SOURCE_PER_RUN && container.getItem(SLOT_OUT).isEmpty();
-        return w.getCount() >= WAFERS_PER_RUN && src.getCount() >= SOURCE_PER_RUN && makesJunction(w, src)
-                && canMerge(container.getItem(SLOT_OUT), junction(w, WAFERS_PER_RUN));
+        if (w.getCount() >= WAFERS_PER_RUN && src.getCount() >= SOURCE_PER_RUN && makesJunction(w, src)
+                && canMerge(container.getItem(SLOT_OUT), junction(w, WAFERS_PER_RUN))) return true;
+        return w.getCount() >= WAFERS_PER_RUN && src.getCount() >= SOURCE_PER_RUN && makesThyristor(w, src)   // [9-49] いまの分岐のあと（IMP4-01）
+                && canMerge(container.getItem(SLOT_OUT), thyristor(w, WAFERS_PER_RUN));
     }
 
     @Override protected void finishWork() {
@@ -93,7 +109,7 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
             container.setChanged();
             return;
         }
-        ItemStack out = junction(container.getItem(SLOT_WAFER), WAFERS_PER_RUN);
+        ItemStack out = makesThyristor(w, src) ? thyristor(w, WAFERS_PER_RUN) : junction(w, WAFERS_PER_RUN);
         container.getItem(SLOT_WAFER).shrink(WAFERS_PER_RUN);
         com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, container.getItem(SLOT_SOURCE), SOURCE_PER_RUN);   // 空の瓶は上に出る（IMP-33）
         container.getItem(SLOT_SOURCE).shrink(SOURCE_PER_RUN);
