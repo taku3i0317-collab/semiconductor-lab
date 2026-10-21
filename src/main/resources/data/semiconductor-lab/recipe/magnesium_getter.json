@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:magnesium",
+    "minecraft:iron_nugget"
+  ],
+  "result": {
+    "id": "semiconductor-lab:magnesium_getter",
+    "count": 4
+  }
+}

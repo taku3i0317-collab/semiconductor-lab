@@ -29,15 +29,16 @@ public class SealingStationScreen extends MachineScreen {
     @Override
     protected Component text(String id) {
         double pa = SealingStationBlockEntity.decodePa(menu.get(SealingStationBlockEntity.DATA_PRESSURE));
+        double max = SealingStationBlockEntity.sealMaxPa(menu.machineItem(SealingStationBlockEntity.SLOT_GETTER));   // ゲッター [5-16] があれば 1Pa
         return switch (id) {
             case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
             case "pressure" -> Component.translatable(K + "pressure", pa < 0 ? "-" : VacuumChamberBlockEntity.formatPa(pa));
-            case "target" -> Component.translatable(K + "target", VacuumChamberBlockEntity.formatPa(SealingStationBlockEntity.SEAL_MAX_PA));
+            case "target" -> Component.translatable(K + "target", VacuumChamberBlockEntity.formatPa(max));
             case "hint" -> {
                 String hint;
                 if (SealingStationBlockEntity.sealedProduct(menu.getSlot(SealingStationBlockEntity.SLOT_IN).getItem()).isEmpty()) hint = "need_input";
                 else if (pa < 0) hint = "need_chamber";
-                else if (pa > SealingStationBlockEntity.SEAL_MAX_PA) hint = "need_vacuum";
+                else if (pa > max) hint = "need_vacuum";
                 else if (!menu.isReady()) hint = "output_full";
                 else if (menu.getKw() <= 0) hint = "need_power";
                 else hint = "sealing";

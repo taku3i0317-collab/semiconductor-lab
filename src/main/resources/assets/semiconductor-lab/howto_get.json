@@ -1495,6 +1495,9 @@
 "magnesium_cell": [
 "crafting"
 ],
+"magnesium_getter": [
+"crafting"
+],
 "magnesium_oxide": [
 "smelting"
 ],

@@ -21,6 +21,8 @@ import net.minecraft.world.level.block.state.BlockState;
  * 1本封じるたびに、次の管を付け替えるときの空気が入り、容器の圧力が少し上がる（大気圧との差の {@link #VENT_FRACTION}）。
  * 閾値は初期の軟真空管（オーディオン 1906）の 0.1Pa（約 10⁻³ Torr）。手押しポンプ（1kPa まで）では届かず、
  * シュプレンゲル水銀ポンプ[5-15]（0.05Pa まで）が要る。高真空管（10⁻⁴Pa、ラングミュア 1913）は拡散ポンプ[5-05]で。
+ * ゲッター [5-16]（IMP4-01、O-030 案A、A の同意あり）：下のスロットにマグネシウムのゲッターを入れると、封じた後にゲッターが残りのガスを吸うので、
+ * 容器が {@link #GETTER_SEAL_MAX_PA}（1Pa ⚠️）まででも封じられる（1本ごとにゲッター1個を使う）。ゲッターが無いときは今までどおり。
  */
 public class SealingStationBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 500;
@@ -29,7 +31,9 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
     public static final double SEAL_MAX_PA = 0.1;
     /** 1本封じるごとに戻る空気の割合 */
     public static final double VENT_FRACTION = 0.05;
-    public static final int SLOT_IN = 0, SLOT_OUT = 1, SLOT_COUNT = 2;
+    /** ゲッター [5-16] があるときの上限（Pa ⚠️ ゲームの値）：封じた後にゲッターが残りのガスを吸い、中は 1/10 になる */
+    public static final double GETTER_SEAL_MAX_PA = 1.0;
+    public static final int SLOT_IN = 0, SLOT_OUT = 1, SLOT_GETTER = 2, SLOT_COUNT = 3;
     /** GUI へ送る追加の数値：隣の容器の圧力（{@link #encodePa}） */
     public static final int DATA_PRESSURE = ConsumerBlockEntity.DATA_COUNT, MENU_DATA_COUNT = ConsumerBlockEntity.DATA_COUNT + 1;
 
@@ -46,6 +50,7 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(MENU_DATA_COUNT)
             .in(SLOT_IN, 8, 35, s -> !sealedProduct(s).isEmpty())
             .out(SLOT_OUT, 78, 35)
+            .in(SLOT_GETTER, 30, 52, s -> s.is(Vacuum.MAGNESIUM_GETTER))
             .right("power", 17, 1, "gui.semiconductor-lab.sealing_station.power").samples("0.5 kW")
             .right("pressure", 27, 1, "gui.semiconductor-lab.sealing_station.pressure").samples("101 kPa").fit()
             .right("target", 37, 1, "gui.semiconductor-lab.sealing_station.target").samples("0.1 Pa")
@@ -81,16 +86,22 @@ public class SealingStationBlockEntity extends ConsumerBlockEntity {
         return ItemStack.EMPTY;
     }
 
+    /** ゲッターがあるか */
+    public static boolean hasGetter(ItemStack s) { return s.is(Vacuum.MAGNESIUM_GETTER); }
+    /** 封じてよい容器の圧力の上限（ゲッターがあれば 1Pa、なければ 0.1Pa） */
+    public static double sealMaxPa(ItemStack getter) { return hasGetter(getter) ? GETTER_SEAL_MAX_PA : SEAL_MAX_PA; }
+
     @Override protected boolean canWork() {
         ItemStack out = sealedProduct(container.getItem(SLOT_IN));
         if (out.isEmpty()) return false;
         VacuumChamberBlockEntity c = chamber();
-        return c != null && c.getPressure() <= SEAL_MAX_PA && canMerge(container.getItem(SLOT_OUT), out);
+        return c != null && c.getPressure() <= sealMaxPa(container.getItem(SLOT_GETTER)) && canMerge(container.getItem(SLOT_OUT), out);
     }
 
     @Override protected void finishWork() {
         ItemStack out = sealedProduct(container.getItem(SLOT_IN));
         container.getItem(SLOT_IN).shrink(1);
+        if (hasGetter(container.getItem(SLOT_GETTER))) container.getItem(SLOT_GETTER).shrink(1);   // ゲッターは管の中に残る（銀色の膜）
         merge(SLOT_OUT, out);
         container.setChanged();
         VacuumChamberBlockEntity c = chamber();

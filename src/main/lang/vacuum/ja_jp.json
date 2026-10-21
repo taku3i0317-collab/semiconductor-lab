@@ -141,5 +141,12 @@
   "block.semiconductor-lab.silicone_reactor.howto": "組み合わせで切りかわる：メタノール＋塩化水素（アルミナ）→ 塩化メチル、金属シリコン＋塩化メチル2（銅）＋瓶 → ジメチルジクロロシラン、それ＋蒸留水 → シリコーン油。電気 2kW。",
   "block.semiconductor-lab.diffusion_pump.howto": "真空容器と、回っている回転ポンプの両方の隣に置いて電気をつなぐ。回転ポンプで先に引いてからでないと動かない。材料は減らない。",
   "block.semiconductor-lab.rotary_pump.howto": "真空容器の隣に置いて電気をつなぐ。空気を少しずつ抜く。拡散ポンプ・ターボポンプの前段にもなる。",
-  "block.semiconductor-lab.turbo_pump.howto": "真空容器と回っている回転ポンプの隣に置き、精密な玉軸受で右クリックして入れてから電気をつなぐ。油や水銀を使わないきれいな真空。"
+  "block.semiconductor-lab.turbo_pump.howto": "真空容器と回っている回転ポンプの隣に置き、精密な玉軸受で右クリックして入れてから電気をつなぐ。油や水銀を使わないきれいな真空。",
+  "item.semiconductor-lab.magnesium_getter": "マグネシウムのゲッター",
+  "item.semiconductor-lab.magnesium_getter.note1": "真空管の中に入れる小さなマグネシウム。封じた後に熱すると、残りの空気を吸い取る。",
+  "item.semiconductor-lab.magnesium_getter.note2": "作業台：マグネシウム＋鉄の粒 → 4。封止台の中央下のスロットに入れると、容器が 1Pa ⚠️ まででも封じられる（ゲッターが無いと 0.1Pa）。1本ごとに1個使う。",
+  "item.semiconductor-lab.magnesium_getter.note3": "封じた後に高周波で熱すると、マグネシウムが蒸発してガラスの内側に銀色の膜を作り、残っていた酸素や窒素と結びついて固める。中の圧力は約10分の1になる ⚠️。",
+  "item.semiconductor-lab.magnesium_getter.note4": "1894年、イタリアのマリニャーニが、電球の残りのガスを薬剤の蒸気で固める方法の特許を取った（実際は赤リン）⚠️。1920年代の真空管はマグネシウム、のちにバリウムを使った。真空管の上の銀色の部分がゲッター。",
+  "item.semiconductor-lab.magnesium_getter.placeholder": "省略：⚠️ 封止の圧 1Pa はゲームの値。のちのバリウムのゲッターは作らない（マグネシウムで代表）。",
+  "block.semiconductor-lab.sealing_station.howto": "真空容器の隣に置き、左に組立品。容器が 0.1Pa 以下（下にゲッターを入れれば 1Pa ⚠️ 以下）になると 500W・10秒で封じる。1本ごとに容器に空気が少し戻る。"
 }

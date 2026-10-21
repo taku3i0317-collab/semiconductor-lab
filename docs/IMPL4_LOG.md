@@ -216,3 +216,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - [9-46] 人を感じるセンサー：案A（おすすめ）近くで動く人がいると隣の明かり（LED の明かりなど）を点ける（レッドストーンは使わない：明かりに直接）／案B 部品だけ（スマホ・自動ドアの材料）
 - ✅ O-030 [1-04] 銅の製錬＝案B（バニラの銅の原石に解説だけ、かまどの道は近似のまま）。GameTest copper_smelting、REFERENCES F65
 - ✅ O-030 [1-13] 亜鉛の蒸留＝案A（蒸留のかめ zinc_retort_charge → かまど → 亜鉛2、近道は残す）。GameTest zinc_retort、REFERENCES F66
+- ✅ O-030 [5-16] ゲッター＝案A（magnesium_getter、封止台の下のスロットで封止の圧 1Pa まで ⚠️、A の同意あり。封止台の howto も）。GameTest getter_seal、REFERENCES F67

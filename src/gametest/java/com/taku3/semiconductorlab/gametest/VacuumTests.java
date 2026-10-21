@@ -411,6 +411,32 @@ public class VacuumTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [5-16] ゲッター（IMP4-01、O-030 案A、A の同意あり）：容器 0.5Pa では、ゲッターなしは封じない・ゲッターありは封じてゲッターを1個使う */
+    @GameTest
+    public void getterSeal(GameTestHelper h) {
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), sp = p(2, 1, 1);
+        h.setBlock(cp, Vacuum.VACUUM_CHAMBER.block);
+        h.setBlock(sp, Vacuum.SEALING_STATION.block);
+        VacuumChamberBlockEntity c = h.getBlockEntity(cp, VacuumChamberBlockEntity.class);
+        SealingStationBlockEntity be = h.getBlockEntity(sp, SealingStationBlockEntity.class);
+        var box = be.getContainer();
+        int T = SealingStationBlockEntity.TICKS;
+        long feed = EnergyStorage.wattsToJoulesPerTick(SealingStationBlockEntity.WATTS);
+        box.setItem(SealingStationBlockEntity.SLOT_IN, new ItemStack(Vacuum.VACUUM_TUBE_ASSEMBLY, 2));
+        c.setPressure(0.5);
+        tickConsumer(h, sp, be, T + 20, feed);
+        h.assertTrue(box.getItem(SealingStationBlockEntity.SLOT_OUT).isEmpty(), "0.5 Pa without a getter: not sealed");
+        box.setItem(SealingStationBlockEntity.SLOT_GETTER, new ItemStack(Vacuum.MAGNESIUM_GETTER, 3));
+        c.setPressure(0.5);
+        tickConsumer(h, sp, be, T, feed);
+        h.assertTrue(box.getItem(SealingStationBlockEntity.SLOT_OUT).is(Vacuum.VACUUM_TUBE), "0.5 Pa with a getter: sealed");
+        h.assertValueEqual(box.getItem(SealingStationBlockEntity.SLOT_GETTER).getCount(), 2, "one getter used");
+        h.assertTrue(SealingStationBlockEntity.sealMaxPa(ItemStack.EMPTY) == SealingStationBlockEntity.SEAL_MAX_PA, "no getter: same as before (0.1 Pa)");
+        h.assertTrue(recipeUses(h, "magnesium_getter", Metallurgy.MAGNESIUM), "magnesium getter");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Vacuum.SEALING_STATION.block, "真空管の封止", L(io(Vacuum.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),
             L(io(Vacuum.VACUUM_TUBE, 1)), SealingStationBlockEntity.WATTS, SealingStationBlockEntity.TICKS / 20.0, "封じるたびに容器へ空気がもどる");

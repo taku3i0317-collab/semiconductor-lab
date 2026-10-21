@@ -529,6 +529,7 @@ hand_vacuum_pump  # Vacuum [5-01] 1650
 vacuum_chamber  # Vacuum [5-11] 1850
 sprengel_pump  # Vacuum [5-15] 1865
 mercury_vacuum_gauge  # Vacuum [5-10] 1874
+magnesium_getter  # Vacuum [5-16] 1894
 vacuum_tube_assembly  # Vacuum [5-02] 1904
 vacuum_tube  # Vacuum [5-02] 1904
 sealing_station  # Vacuum [5-02] 1904

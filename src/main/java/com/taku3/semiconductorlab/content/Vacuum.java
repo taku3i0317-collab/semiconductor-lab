@@ -26,6 +26,8 @@ public final class Vacuum {
     private Vacuum() {}
 
     // ===== アイテム =====
+    // [5-16] ゲッター（マグネシウム）（IMP4-01、S-009）
+    public static final Item MAGNESIUM_GETTER      = Reg.item("magnesium_getter");
     // --- 真空（[5-01] ポンプ・[5-10] 真空計）---
     public static final Item MERCURY_VACUUM_GAUGE  = Reg.item("mercury_vacuum_gauge", MercuryVacuumGaugeItem::new, new Item.Properties().stacksTo(1));
     // --- 真空管（[5-02] ド・フォレストの三極管 1906）---
