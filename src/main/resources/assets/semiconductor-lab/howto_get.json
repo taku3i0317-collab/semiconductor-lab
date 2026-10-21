@@ -75,6 +75,12 @@
 "alumina_catalyst_tube": [
 "crafting"
 ],
+"alumina_ceramic_plate": [
+"machine:electric_furnace"
+],
+"alumina_compact": [
+"crafting"
+],
 "aluminium_chloride": [
 "crafting"
 ],

@@ -88,6 +88,9 @@ public final class Metallurgy {
     public static final Item SINTERED_GEAR         = Reg.item("sintered_gear");
     // [1-62] ステンレス鋼（IMP3、O-029、仮決定 Q3-23）：鋼6＋クロム2＋ニッケル → 仕込み9 → 電気炉 → ステンレス鋼（18-8）の板。
     //   実験：鋼＋塩＋水 → さびた鋼（赤さび）。ステンレス鋼は塩水でもさびない（レシピが無い＝何も起きない）
+    // [3-26] 焼結したアルミナのセラミックス（IMP3、O-029、仮決定 Q3-23）：アルミナ4＋鋼の型 → 圧粉体 → 電気炉（約1600℃で焼結）→ アルミナのセラミックス板。C の静電チャックの材料
+    public static final Item ALUMINA_COMPACT       = Reg.item("alumina_compact");
+    public static final Item ALUMINA_CERAMIC_PLATE = Reg.item("alumina_ceramic_plate");
     public static final Item STAINLESS_CHARGE      = Reg.item("stainless_charge");
     public static final Item STAINLESS_STEEL       = Reg.item("stainless_steel");
     public static final Item RUSTED_STEEL          = Reg.item("rusted_steel");

@@ -1173,6 +1173,22 @@
 {
 "in": [
 [
+"semiconductor-lab:alumina_compact",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:alumina_ceramic_plate",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
 "semiconductor-lab:graphite_boat_blank",
 1
 ]
@@ -1244,22 +1260,6 @@
 "out": [
 [
 "semiconductor-lab:refractory_brick",
-1
-]
-],
-"watts": 5000.0,
-"seconds": 10.0
-},
-{
-"in": [
-[
-"semiconductor-lab:stainless_charge",
-1
-]
-],
-"out": [
-[
-"semiconductor-lab:stainless_steel",
 1
 ]
 ],

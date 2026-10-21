@@ -1287,4 +1287,12 @@ public class MetallurgyTests extends LabTestBase {
         h.assertTrue(mgr.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel()).isEmpty(), "stainless + brine: nothing happens");
         h.succeed();
     }
+
+    /** 焼結アルミナ（IMP3、O-029）：アルミナ4＋鋼の型 → 圧粉体 → 電気炉で焼結 → セラミックス板 */
+    @GameTest
+    public void aluminaCeramic(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "alumina_compact", Metallurgy.ALUMINA) && recipeUses(h, "alumina_compact", Metallurgy.STEEL_DIE), "pressed alumina");
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity.recipes().get(Metallurgy.ALUMINA_COMPACT) == Metallurgy.ALUMINA_CERAMIC_PLATE, "sintered in the electric furnace");
+        h.succeed();
+    }
 }

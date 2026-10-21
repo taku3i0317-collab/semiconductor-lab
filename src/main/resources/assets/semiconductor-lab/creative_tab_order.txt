@@ -218,6 +218,8 @@ nickel_carbonyl_gas  # Metallurgy [None] None
 bittern_under_hcl  # Metallurgy [None] None
 anhydrous_magnesium_chloride  # Metallurgy [None] None
 magnesium_oxide  # Metallurgy [None] None
+alumina_compact  # Metallurgy [3-26] None
+alumina_ceramic_plate  # Metallurgy [3-26] None
 light_rare_earth_oxalate  # Metallurgy [None] None
 neodymium_electrolysis_charge  # Metallurgy [None] None
 ferroboron_charge  # Metallurgy [None] None
