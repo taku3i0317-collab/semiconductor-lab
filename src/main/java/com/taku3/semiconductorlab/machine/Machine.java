@@ -61,6 +61,7 @@ public final class Machine<T extends BlockEntity> {
         this.menu = layout == null ? null : Registry.register(BuiltInRegistries.MENU, SemiconductorLab.id(name),
                 new MenuType<>((id, inv) -> new MachineMenu(this, id, inv), FeatureFlags.DEFAULT_FLAGS));
         if (b.energy != null) EnergyApi.ENERGY.registerForBlockEntity(b.energy, type);
+        if (layout != null) MachineItems.register(type, layout);   // ホッパー・ほかの MOD から入れる・取る（S-027 ①）
         BY_TYPE.put(type, this);
         ALL.add(this);
     }

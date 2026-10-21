@@ -121,6 +121,7 @@ public final class Semiconductor {
             .props(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().strength(3.0f).requiresCorrectToolForDrops()).build();
     public static final Machine<PortBlockEntity> GAS_PORT = Machine.builder("gas_port", (pos, st) -> new PortBlockEntity(PortBlockEntity.Kind.GAS, pos, st))
             .props(net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().strength(3.0f).requiresCorrectToolForDrops()).build();
+    static { com.taku3.semiconductorlab.machine.MachineItems.registerPort(ITEM_PORT.type); }
     /** マルチブロックの口ブロックか */
     public static boolean isPort(net.minecraft.world.level.block.state.BlockState s) { return s.is(ENERGY_PORT.block) || s.is(ITEM_PORT.block) || s.is(GAS_PORT.block); }
 

@@ -3691,4 +3691,33 @@ public class SemiconductorTests extends LabTestBase {
         rec(a, Semiconductor.CZ_PULLER.block, "単結晶", L(kept(io(Semiconductor.SILICON_SEED_CRYSTAL, 1)), io(Metallurgy.POLYSILICON, com.taku3.semiconductorlab.block.CzPullerBlockEntity.POLY_PER_INGOT), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_INGOT), cond(alt(io(Metallurgy.BORON_TRIOXIDE, 1), Chemistry.PHOSPHORUS), "入れなくてもよい（真性）")),
             L(cond(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), "B2O3 で p型・リンで n型、純度は多結晶シリコンと同じ")), com.taku3.semiconductorlab.block.CzPullerBlockEntity.WATTS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.GROW_TICKS / 20.0, "約1420℃の融液から回しながら引き上げる。17.4kWh/kg");
     }
+
+    /**
+     * S-027 ①：機械をホッパーにつなぐ（Fabric Transfer API、machine/MachineItems）。上のホッパーが入口に入れ、下のホッパーが出口から取る。
+     * 入口の物は下のホッパーに取られない。受け付けない物（土）は入らない
+     */
+    @GameTest(maxTicks = 200)
+    public void machineHoppers(GameTestHelper h) {
+        BlockPos sp = new BlockPos(1, 2, 1);
+        h.setBlock(sp, Semiconductor.WAFER_SAW.block);
+        var saw = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.WaferSawBlockEntity.class);
+        saw.getContainer().setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT, new ItemStack(Semiconductor.SILICON_WAFER, 3));
+        var st = net.fabricmc.fabric.api.transfer.v1.item.ItemStorage.SIDED.find(h.getLevel(), h.absolutePos(sp), net.minecraft.core.Direction.UP);
+        h.assertTrue(st != null, "the wafer saw has an item storage");
+        try (var tx = net.fabricmc.fabric.api.transfer.v1.transaction.Transaction.openOuter()) {
+            h.assertValueEqual(st.insert(net.fabricmc.fabric.api.transfer.v1.item.ItemVariant.of(net.minecraft.world.item.Items.DIRT), 1, tx), 0L, "dirt is refused");
+        }
+        h.setBlock(sp.above(), net.minecraft.world.level.block.Blocks.HOPPER);
+        h.setBlock(sp.below(), net.minecraft.world.level.block.Blocks.HOPPER);
+        var top = h.getBlockEntity(sp.above(), net.minecraft.world.level.block.entity.HopperBlockEntity.class);
+        top.setItem(0, new ItemStack(Semiconductor.DIAMOND_SAW_BLADE));
+        h.succeedWhen(() -> {
+            var c = saw.getContainer();
+            h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_BLADE).is(Semiconductor.DIAMOND_SAW_BLADE), "the top hopper put the blade in");
+            h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT).isEmpty(), "the bottom hopper took the wafers out");
+            var bottom = h.getBlockEntity(sp.below(), net.minecraft.world.level.block.entity.HopperBlockEntity.class);
+            h.assertValueEqual(bottom.countItem(Semiconductor.SILICON_WAFER.asItem()), 3, "three wafers in the bottom hopper");
+            h.assertValueEqual(bottom.countItem(Semiconductor.DIAMOND_SAW_BLADE.asItem()), 0, "the blade stays in the machine");
+        });
+    }
 }
