@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 734（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 737（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1103,6 +1103,12 @@ en_us mo_si_target lines=7
 en_us mo_si_target shift lines=14
 en_us multilayer_mirror lines=8
 en_us multilayer_mirror shift lines=18
+en_us annular_aperture lines=7
+en_us annular_aperture shift lines=13
+en_us quadrupole_aperture lines=7
+en_us quadrupole_aperture shift lines=13
+en_us phase_shift_mask lines=8
+en_us phase_shift_mask shift lines=17
 en_us prism lines=3
 en_us prism shift lines=12
 en_us spectroscope lines=9
@@ -2571,6 +2577,12 @@ ja_jp mo_si_target lines=5
 ja_jp mo_si_target shift lines=12
 ja_jp multilayer_mirror lines=7
 ja_jp multilayer_mirror shift lines=16
+ja_jp annular_aperture lines=6
+ja_jp annular_aperture shift lines=11
+ja_jp quadrupole_aperture lines=6
+ja_jp quadrupole_aperture shift lines=11
+ja_jp phase_shift_mask lines=6
+ja_jp phase_shift_mask shift lines=13
 ja_jp prism lines=2
 ja_jp prism shift lines=9
 ja_jp spectroscope lines=7

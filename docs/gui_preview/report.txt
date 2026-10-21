@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 196（ja・en）、文字の置き場所 718、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 196（ja・en）、文字の置き場所 722、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -735,6 +735,7 @@ stepper_en_us hint gui.semiconductor-lab.stepper.output_full w=96 lines=2/3
 stepper_en_us hint gui.semiconductor-lab.stepper.press w=116 lines=2/3
 stepper_en_us hint gui.semiconductor-lab.stepper.need_power w=46 lines=1/3
 stepper_en_us hint gui.semiconductor-lab.stepper.running w=50 lines=1/3
+stepper_en_us k1 gui.semiconductor-lab.stepper.k1 w=87 lines=1/1
 scanner_en_us power gui.semiconductor-lab.stepper.power w=63 lines=1/1
 scanner_en_us steps gui.semiconductor-lab.stepper.steps w=42 lines=1/1
 scanner_en_us cd gui.semiconductor-lab.stepper.cd w=52 lines=1/1
@@ -754,6 +755,7 @@ scanner_en_us hint gui.semiconductor-lab.stepper.output_full w=96 lines=2/3
 scanner_en_us hint gui.semiconductor-lab.stepper.press w=116 lines=2/3
 scanner_en_us hint gui.semiconductor-lab.stepper.need_power w=46 lines=1/3
 scanner_en_us hint gui.semiconductor-lab.stepper.running w=50 lines=1/3
+scanner_en_us k1 gui.semiconductor-lab.stepper.k1 w=87 lines=1/1
 fz_puller_en_us power gui.semiconductor-lab.fz_puller.power w=75 lines=1/1
 fz_puller_en_us hint gui.semiconductor-lab.fz_puller.need_input w=134 lines=3/4
 fz_puller_en_us hint gui.semiconductor-lab.fz_puller.need_ar w=64 lines=1/4
@@ -1655,6 +1657,7 @@ stepper_ja_jp hint gui.semiconductor-lab.stepper.output_full w=81 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.press w=105 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.need_power w=72 lines=1/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.running w=35 lines=1/3
+stepper_ja_jp k1 gui.semiconductor-lab.stepper.k1 w=87 lines=1/1
 scanner_ja_jp title shrunk to 0.93333334
 scanner_ja_jp power gui.semiconductor-lab.stepper.power w=51 lines=1/1
 scanner_ja_jp steps gui.semiconductor-lab.stepper.steps w=49 lines=1/1
@@ -1675,6 +1678,7 @@ scanner_ja_jp hint gui.semiconductor-lab.stepper.output_full w=81 lines=2/3
 scanner_ja_jp hint gui.semiconductor-lab.stepper.press w=105 lines=2/3
 scanner_ja_jp hint gui.semiconductor-lab.stepper.need_power w=72 lines=1/3
 scanner_ja_jp hint gui.semiconductor-lab.stepper.running w=35 lines=1/3
+scanner_ja_jp k1 gui.semiconductor-lab.stepper.k1 w=87 lines=1/1
 fz_puller_ja_jp power gui.semiconductor-lab.fz_puller.power w=63 lines=1/1
 fz_puller_ja_jp hint gui.semiconductor-lab.fz_puller.need_input w=108 lines=2/4
 fz_puller_ja_jp hint gui.semiconductor-lab.fz_puller.need_ar w=63 lines=1/4
