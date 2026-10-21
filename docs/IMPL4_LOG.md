@@ -189,3 +189,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ S-009 [3-20] 耐火粘土・耐火粘土のるつぼ（作業台）。GameTest fire_clay、REFERENCES F56
 - ✅ ロードポート × マルチブロックの物の口（A の O-034）：隣が Multiblock.ItemPort なら組み上がった本体を機械として見る。GameTest load_port_on_item_port
 - ✅ S-009 [3-01] たき火：バニラのたき火がそのまま当てはまるので ✅ に。GameTest campfire、REFERENCES F57
+- ✅ S-009 [3-13] ロックウール（溶鉱炉で玄武岩、石綿は作らない＝危ない物は歴史と警告だけ）。GameTest rock_wool、REFERENCES F58

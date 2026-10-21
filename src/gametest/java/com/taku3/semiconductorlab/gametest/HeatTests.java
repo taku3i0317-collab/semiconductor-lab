@@ -325,6 +325,13 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-13] ロックウール（IMP4-01、S-009）：溶鉱炉で玄武岩 → ロックウール */
+    @GameTest
+    public void rockWool(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, net.minecraft.world.item.Items.BASALT).is(Heat.ROCK_WOOL), "basalt -> rock wool");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Heat.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(Heat.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");

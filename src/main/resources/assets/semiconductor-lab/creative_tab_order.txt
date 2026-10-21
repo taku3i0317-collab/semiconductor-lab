@@ -475,6 +475,7 @@ reverberatory_furnace  # Heat [3-06] 1690
 refractory_brick_blank  # Heat [3-12] 1822
 refractory_brick  # Heat [3-12] 1822
 perkins_ice_machine  # Heat [3-22] 1834
+rock_wool  # Heat [3-13] 1867
 calcium_carbide  # Heat [3-25] 1892
 arc_furnace  # Heat [3-15] 1892
 synthetic_graphite  # Heat [3-10] 1896

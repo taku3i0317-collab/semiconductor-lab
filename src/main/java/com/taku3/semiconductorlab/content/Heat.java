@@ -26,6 +26,8 @@ public final class Heat {
     private Heat() {}
 
     // ===== アイテム =====
+    // [3-13] 断熱材（ロックウール。石綿は作らない）（IMP4-01、S-009）
+    public static final Item ROCK_WOOL             = Reg.item("rock_wool");
     // [3-20] 耐火粘土（水で洗って細かい粘土だけ集める）（IMP4-01、S-009）
     public static final Item FIRE_CLAY             = Reg.item("fire_clay");
     public static final Item FIRE_CLAY_CRUCIBLE    = Reg.item("fire_clay_crucible");

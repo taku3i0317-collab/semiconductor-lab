@@ -94,5 +94,11 @@
   "item.semiconductor-lab.fire_clay_crucible.note1": "A pot for melting things, made of fire clay.",
   "item.semiconductor-lab.fire_clay_crucible.note2": "Crafting: 7 fire clay. Melting in it keeps the contents away from flames and fuel, so no dirt gets in (the vessel for the crucible furnace [3-07]).",
   "item.semiconductor-lab.fire_clay_crucible.note3": "Crucibles with added graphite ([1-07]) are even more heat-resistant.",
-  "item.semiconductor-lab.fire_clay_crucible.note4": "Around 1740 Huntsman melted steel in crucibles to make uniform crucible steel."
+  "item.semiconductor-lab.fire_clay_crucible.note4": "Around 1740 Huntsman melted steel in crucibles to make uniform crucible steel.",
+  "item.semiconductor-lab.rock_wool": "Rock Wool",
+  "item.semiconductor-lab.rock_wool.note1": "Fluffy insulation made by melting rock and spinning it into fibres. Heat passes through it poorly.",
+  "item.semiconductor-lab.rock_wool.note2": "Blast basalt in a blast furnace (melted at about 1500 °C and blown into fibres).",
+  "item.semiconductor-lab.rock_wool.note3": "Air trapped between the fine fibres stops heat, and it does not burn. Hawaii's volcanoes make natural fibres of wind-stretched lava called Pele's hair.",
+  "item.semiconductor-lab.rock_wool.note4": "Asbestos was once the standard insulation, but it causes mesothelioma and lung cancer and was effectively banned in Japan in 2006 ⚠️; rock wool spread as its replacement. ⚠️ Asbestos cannot be made in this mod (history only).",
+  "item.semiconductor-lab.rock_wool.placeholder": "Omitted: ⚠️ melting and blowing are approximated by the blast furnace. Diatomaceous earth needs a new ore and is on hold."
 }
