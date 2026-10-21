@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>原子の図の中心図 見本</title>
+<!-- S-042 見本（本番には入れていない）：軌道 n に入るのは 2n² まで、軌道ごとの帯（電子雲）の中に置く。
+     ?id=番号、&w=sqrt（帯の幅 ∝ √n、ふつう）または lin（∝ n）、&film=1 でムービーから、&pack=1 で詰める形（前提は同じ軌道まではよい、内には来ない） -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
+<link rel="stylesheet" href="../design.css">
+<style>
+.atomNote { position: fixed; z-index: 1000; left: 12px; right: 12px; bottom: 132px; font-size: 12px; color: var(--sub, #666); text-align: center; pointer-events: none; }
+</style>
+</head>
+<body>
+<script>window.FILM_BASE = '../'; const q = new URLSearchParams(location.search); window.FILM_LAYOUT = 'atom'; window.FILM_ATOM_W = q.get('w') || 'sqrt'; window.FILM_ATOM_PACK = !!q.get('pack');</script>
+<script src="../tech_network_graph.js"></script>
+<script src="../film.js"></script>
+<script>(q.get('film') ? Film.play : Film.center)(q.get('id') || 'B-10', {});</script>
+<p class="atomNote">輪に入る数 2・8・18…は、原子の電子の殻に入る数と同じ（図の形をまねしただけで、技術の決まりではない）</p>
+</body>
+</html>
