@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 919（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 923（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=4
 en_us hammerstone shift lines=17
 en_us flint_flake lines=5
@@ -1727,6 +1727,14 @@ en_us duralumin lines=6
 en_us duralumin shift lines=12
 en_us quenched_duralumin lines=8
 en_us quenched_duralumin shift lines=16
+en_us conveyor_belt lines=5
+en_us conveyor_belt shift lines=14
+en_us conveyor_drive lines=5
+en_us conveyor_drive shift lines=17
+en_us oht_rail lines=5
+en_us oht_rail shift lines=13
+en_us oht_drive lines=6
+en_us oht_drive shift lines=21
 en_us touch_panel lines=5
 en_us touch_panel shift lines=23
 en_us transistor_radio lines=15
@@ -3565,6 +3573,14 @@ ja_jp duralumin lines=4
 ja_jp duralumin shift lines=9
 ja_jp quenched_duralumin lines=6
 ja_jp quenched_duralumin shift lines=13
+ja_jp conveyor_belt lines=4
+ja_jp conveyor_belt shift lines=11
+ja_jp conveyor_drive lines=4
+ja_jp conveyor_drive shift lines=15
+ja_jp oht_rail lines=4
+ja_jp oht_rail shift lines=12
+ja_jp oht_drive lines=5
+ja_jp oht_drive shift lines=19
 ja_jp touch_panel lines=4
 ja_jp touch_panel shift lines=19
 ja_jp transistor_radio lines=12
