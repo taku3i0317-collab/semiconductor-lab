@@ -2375,6 +2375,7 @@ public class SemiconductorTests extends LabTestBase {
             boolean wall = x == 0 || x == 8 || z == 0 || z == 6 || y == 1;
             h.setBlock(p(x, y, z), y == 6 ? com.taku3.semiconductorlab.content.Construction.HEPA_CEILING : wall ? net.minecraft.world.level.block.Blocks.STONE : net.minecraft.world.level.block.Blocks.AIR);
         }
+        h.assertTrue(recipeUses(h, "euv_casing", Metallurgy.STAINLESS_STEEL) && recipeUses(h, "euv_casing", Chemistry.FKM_O_RING) && recipeUses(h, "euv_wafer_stage", Metallurgy.ALUMINA_CERAMIC_PLATE), "real materials (D, O-029): stainless casing with FKM seals, alumina ceramic chucks");
         var shape = com.taku3.semiconductorlab.block.EuvScannerBlockEntity.shape();
         BlockPos at = p(4, 2, 2);
         h.setBlock(at, Semiconductor.EUV_SCANNER.block);

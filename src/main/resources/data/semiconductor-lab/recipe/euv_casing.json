@@ -2,11 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "semiconductor-lab:steel_ingot",
-    "semiconductor-lab:steel_ingot",
-    "semiconductor-lab:steel_ingot",
-    "semiconductor-lab:steel_ingot",
-    "minecraft:glass"
+    "semiconductor-lab:stainless_steel",
+    "semiconductor-lab:stainless_steel",
+    "semiconductor-lab:stainless_steel",
+    "semiconductor-lab:stainless_steel",
+    "minecraft:glass",
+    "semiconductor-lab:fkm_o_ring"
   ],
   "result": {
     "id": "semiconductor-lab:euv_casing",
