@@ -783,5 +783,10 @@
   "item.semiconductor-lab.mems_accelerometer.note3": "It senses the acceleration of being held up. Standing, the floor pushes you up: 1 g. Falling freely, nothing holds you: 0 g — the same weightlessness astronauts feel.",
   "item.semiconductor-lab.mems_accelerometer.note4": "Mass-produced for car airbags in 1993 and used in 2007 smartphones to turn the screen. ⚠️ Dates being checked.",
   "item.semiconductor-lab.mems_accelerometer.placeholder": "Omitted: ⚠️ this world's gravity is taken as 1 g and values come from position changes, so vehicles give rough readings.",
-  "item.semiconductor-lab.mems_accelerometer.reading": "Acceleration %s g  tilt %s°"
+  "item.semiconductor-lab.mems_accelerometer.reading": "Acceleration %s g  tilt %s°",
+  "item.semiconductor-lab.color_image_sensor": "Colour Image Sensor",
+  "item.semiconductor-lab.color_image_sensor.note1": "An image sensor with a Bayer colour filter on top, so it can tell red, green and blue apart.",
+  "item.semiconductor-lab.color_image_sensor.note2": "Image sensor + Bayer filter. Held in hand it shows electrons per pixel (same as the image sensor). Material for the camera module.",
+  "item.semiconductor-lab.color_image_sensor.note3": "Today's phone camera sensors carry red, green and blue filters and tiny microlenses over tens of millions of pixels.",
+  "item.semiconductor-lab.color_image_sensor.note4": "Colour filters pass only about a third of the light to each pixel. Back-side illuminated sensors (from about 2009) were made to do better in the dark."
 }

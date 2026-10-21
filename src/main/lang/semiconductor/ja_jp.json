@@ -783,5 +783,10 @@
   "item.semiconductor-lab.mems_accelerometer.note3": "センサーが感じるのは「支えられている分」の加速度。立っているときは床が押し上げるので 1g、自由に落ちると何も支えないので 0g（宇宙飛行士の無重量と同じ）。",
   "item.semiconductor-lab.mems_accelerometer.note4": "1993年に自動車のエアバッグ用に量産され、2007年のスマホで画面の向きを変えるのに使われた。⚠️ 年は出典で確かめ中。",
   "item.semiconductor-lab.mems_accelerometer.placeholder": "省略：⚠️ この世界の重力を 1g とし、位置の変化から計算するので乗り物などでは大まか。",
-  "item.semiconductor-lab.mems_accelerometer.reading": "加速度 %s g  傾き %s°"
+  "item.semiconductor-lab.mems_accelerometer.reading": "加速度 %s g  傾き %s°",
+  "item.semiconductor-lab.color_image_sensor": "色の分かる画像センサー",
+  "item.semiconductor-lab.color_image_sensor.note1": "画像センサーの上にベイヤーのカラーフィルターを載せた素子。赤・緑・青を見分けられる。",
+  "item.semiconductor-lab.color_image_sensor.note2": "画像センサー＋ベイヤーのフィルター。手に持つと1画素の電子の数（画像センサーと同じ）。カメラモジュールの材料。",
+  "item.semiconductor-lab.color_image_sensor.note3": "今のスマホのカメラの素子は、数千万の画素の上に赤・緑・青のフィルターと小さなレンズ（マイクロレンズ）が載っている。",
+  "item.semiconductor-lab.color_image_sensor.note4": "フィルターで色を分けるので、1画素に届く光は約3分の1になる。暗い所に強くするため、裏から光を当てる裏面照射型（2009年ごろ〜）も作られた。"
 }

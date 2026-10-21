@@ -87,5 +87,13 @@
   "item.semiconductor-lab.calculator.note1": "A calculator you built from your own chips. Right-click to add and subtract (4 digits).",
   "item.semiconductor-lab.calculator.note2": "Assembled from chips that passed the full adder, register and counter challenges, plus 14 keys, 4 Nixie tubes, a frame and wiring. Registers hold the numbers, the adder adds (subtracting = adding the complement), the counter reads the keys.",
   "item.semiconductor-lab.calculator.note3": "1964 Sharp CS-10A: the first all-transistor desktop calculator, about 25 kg. From 1967 Texas Instruments built a hand-held IC calculator prototype; in 1971 Busicom asked Intel for calculator chips, which led to the 4004. ⚠️ the dates of IC calculators are approximate.",
-  "item.semiconductor-lab.calculator.note4": "Only 4 digits, add and subtract (a game simplification). Overflow shows E; press C to clear, like real calculators."
+  "item.semiconductor-lab.calculator.note4": "Only 4 digits, add and subtract (a game simplification). Overflow shows E; press C to clear, like real calculators.",
+  "item.semiconductor-lab.camera_module": "Camera Module (Phone Camera)",
+  "item.semiconductor-lab.camera_module.note1": "A tiny camera that goes in a phone. You see the colour photo right after taking it.",
+  "item.semiconductor-lab.camera_module.note2": "2 camera lenses + IR-cut filter + colour image sensor + IC + dry cell. Right-click to take a photo (auto exposure; too dark is underexposed). Dry-plate cameras needed developing and fixing; this gives a photo at once.",
+  "item.semiconductor-lab.camera_module.note3": "In the 1990s CMOS image sensors became cheap and small, and from around 2000 mobile phones gained cameras. Today almost all photos in the world are taken with phone cameras.",
+  "item.semiconductor-lab.camera_module.note4": "With an F2 lens the diffraction blur for green light is about 2.7 um, larger than a ~1 um pixel, so adding pixels stops adding detail and image processing makes up the rest.",
+  "item.semiconductor-lab.camera_module.placeholder": "Approximation: lens, pixel and F-number are typical values. A photo records place, time and exposure (no picture is drawn).",
+  "item.semiconductor-lab.camera_module.shot": "📸 An instant colour photo (exposure %s%%: %s)",
+  "item.semiconductor-lab.camera_module.optics": "  F%s, %s um pixels, diffraction blur %s um (larger than a pixel = the lens limit)"
 }

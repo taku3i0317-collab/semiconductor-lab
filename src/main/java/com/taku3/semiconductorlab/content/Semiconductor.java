@@ -79,6 +79,8 @@ public final class Semiconductor {
     public static final Item GREEN_COLOR_RESIST    = Reg.item("green_color_resist", new Item.Properties().stacksTo(16));
     public static final Item BLUE_COLOR_RESIST     = Reg.item("blue_color_resist", new Item.Properties().stacksTo(16));
     public static final Item BAYER_FILTER          = Reg.item("bayer_filter");
+    // 色の分かる画像センサー（[9-45]、IMP2 O-031）：E の画像センサーの素子＋ベイヤーのフィルター。表示は E の ImageSensorItem と同じ
+    public static final Item COLOR_IMAGE_SENSOR    = Reg.item("color_image_sensor", com.taku3.semiconductorlab.item.ImageSensorItem::new, new Item.Properties().stacksTo(1));
     // [9-33] ワイヤーボンディング（IMP4-01）：ヘッダー（鋼の台にガラスで封じた足）、線をつないだチップ（CHIP_STATE を写す）
     public static final Item CHIP_HEADER           = Reg.item("chip_header");
     public static final Item BONDED_CHIP           = Reg.item("bonded_chip");

@@ -80,6 +80,20 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class BranchesTests extends LabTestBase {
+    /** [P-17] スマホのカメラ（IMP2 O-030・O-031）：色の分かる画像センサー（E の素子＋ベイヤー）＋小さなレンズ＋赤外線カット膜 → カメラモジュール。右クリックでその場でカラーの写真 */
+    @GameTest
+    public void camera_module(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "color_image_sensor", com.taku3.semiconductorlab.content.Semiconductor.IMAGE_SENSOR) && recipeUses(h, "color_image_sensor", com.taku3.semiconductorlab.content.Semiconductor.BAYER_FILTER), "colour sensor = sensor + Bayer filter");
+        h.assertTrue(recipeUses(h, "camera_module", com.taku3.semiconductorlab.content.Optics.CAMERA_LENS) && recipeUses(h, "camera_module", com.taku3.semiconductorlab.content.Optics.IR_CUT_FILTER)
+                && recipeUses(h, "camera_module", com.taku3.semiconductorlab.content.Semiconductor.COLOR_IMAGE_SENSOR), "camera module = lenses + IR-cut + colour sensor");
+        h.assertTrue(com.taku3.semiconductorlab.item.CameraModuleItem.autoExposure(15) == 100 && com.taku3.semiconductorlab.item.CameraModuleItem.autoExposure(4) == 100 && com.taku3.semiconductorlab.item.CameraModuleItem.autoExposure(0) == 0, "auto exposure works indoors, not in the dark");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.CameraModuleItem.airyUm(0.55, 2) - 2.684) < 0.01, "diffraction blur 2.7 um > 1 um pixel");
+        ItemStack photo = com.taku3.semiconductorlab.item.CameraModuleItem.shoot(h.getLevel(), h.absolutePos(p(1, 2, 1)));
+        h.assertTrue(photo.is(Branches.PRINT) && "digital".equals(photo.get(Branches.PHOTO).kind()), "an instant digital photo (no developing)");
+        LOG.info("[LAB] camera module [P-17]: instant colour photo, F2, Airy 2.7 um vs 1 um pixels");
+        h.succeed();
+    }
+
     // =====================================================================
     // [B-12] 太陽電池（IMP-25、v0.2b 第2章のゴール）
     // =====================================================================

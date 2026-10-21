@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:image_sensor",
+    "semiconductor-lab:bayer_filter"
+  ],
+  "result": {
+    "id": "semiconductor-lab:color_image_sensor",
+    "count": 1
+  }
+}

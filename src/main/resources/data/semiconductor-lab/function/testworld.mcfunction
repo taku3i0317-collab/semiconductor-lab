@@ -708,7 +708,7 @@ setblock ~115 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~115 ~0 ~74 semiconductor-lab:sputter
 setblock ~116 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:aluminium_ingot",count:16},{Slot:2b,id:"semiconductor-lab:argon_gas",count:16},{Slot:3b,id:"semiconductor-lab:tantalum",count:16}]}
 setblock ~119 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
-setblock ~119 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:red_color_resist",count:16},{Slot:1b,id:"semiconductor-lab:green_color_resist",count:16},{Slot:2b,id:"semiconductor-lab:blue_color_resist",count:16},{Slot:3b,id:"semiconductor-lab:bayer_filter",count:16}]}
+setblock ~119 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:red_color_resist",count:16},{Slot:1b,id:"semiconductor-lab:green_color_resist",count:16},{Slot:2b,id:"semiconductor-lab:blue_color_resist",count:16},{Slot:3b,id:"semiconductor-lab:bayer_filter",count:16},{Slot:4b,id:"semiconductor-lab:color_image_sensor",count:1}]}
 setblock ~122 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに電気をつな","ぎ、塗った板・クロムマ","スク・投影レンズ（・ボ"]}}
 setblock ~122 ~0 ~74 semiconductor-lab:stepper
 setblock ~123 ~0 ~74 semiconductor-lab:scanner
@@ -796,6 +796,8 @@ setblock ~16 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-24
 setblock ~16 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nixie_tube",count:16}]}
 setblock ~19 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-08] 電卓","合格したチップ（全加算","器・レジスタ×2・カウ","ンタ）とキー・ニキシー"]}}
 setblock ~19 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:key_switch",count:16},{Slot:1b,id:"semiconductor-lab:calculator",count:1}]}
+setblock ~22 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
+setblock ~22 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:camera_module",count:1}]}
 setblock ~0 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["本物の発電","↓ この列","",""]}}
 setblock ~2 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["蒸気機関で発電","石炭と水バケツ","を入れると","電気炉が動く"]}}
 setblock ~2 ~0 ~122 semiconductor-lab:steam_engine

@@ -87,5 +87,13 @@
   "item.semiconductor-lab.calculator.note1": "自分のチップで作った電卓。右クリックで足し算・引き算（4ケタ）。",
   "item.semiconductor-lab.calculator.note2": "全加算器・レジスタ・カウンタのお題に合格したチップ＋キー14＋ニキシー管4＋枠＋配線を組立台で。レジスタが数を覚え、加算器が足し（引き算は補数を足す）、カウンタがキーを読む。",
   "item.semiconductor-lab.calculator.note3": "1964年のシャープ CS-10A：最初のトランジスタだけの卓上電卓、約25kg。1967年からテキサス・インスツルメンツが手のひらの IC 電卓を試作し、1971年にビジコンがインテルに電卓のチップを頼んだことから 4004 が生まれた。⚠️ IC 電卓の年はおおよそ。",
-  "item.semiconductor-lab.calculator.note4": "4ケタ・足し算と引き算だけ（ゲームの近似）。あふれると E、C で消す（本物の電卓と同じ）。"
+  "item.semiconductor-lab.calculator.note4": "4ケタ・足し算と引き算だけ（ゲームの近似）。あふれると E、C で消す（本物の電卓と同じ）。",
+  "item.semiconductor-lab.camera_module": "カメラモジュール（スマホのカメラ）",
+  "item.semiconductor-lab.camera_module.note1": "スマホに入る小さなカメラ。撮ったその場でカラーの写真が見られる。",
+  "item.semiconductor-lab.camera_module.note2": "カメラの小さなレンズ×2＋赤外線カット膜＋色の分かる画像センサー＋IC＋乾電池。右クリックで写真（露出は自動、暗すぎると足りない）。乾板のカメラは現像・定着が要ったが、これはすぐ写真になる。",
+  "item.semiconductor-lab.camera_module.note3": "1990年代、CMOS 画像センサーが安く小さくなり、2000年ごろから携帯電話にカメラが入った。今は世界で撮られる写真のほとんどがスマホのカメラ。",
+  "item.semiconductor-lab.camera_module.note4": "F2 のレンズでは、緑の光の回折の円が約2.7µm で、画素（約1µm）より大きい。そこで画素の数を増やしても細かさは頭打ちになり、計算（画像処理）で補っている。",
+  "item.semiconductor-lab.camera_module.placeholder": "近似：レンズ・画素・F値は代表値。写真は場所・時刻・露光の量の記録（絵は作らない）。",
+  "item.semiconductor-lab.camera_module.shot": "📸 すぐ見られるカラーの写真（露光 %s%%：%s）",
+  "item.semiconductor-lab.camera_module.optics": "  F%s・画素 %s µm、回折の円 %s µm（画素より大きい＝レンズの限り）"
 }

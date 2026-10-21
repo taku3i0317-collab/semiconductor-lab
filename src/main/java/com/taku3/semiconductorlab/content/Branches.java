@@ -75,6 +75,8 @@ public final class Branches {
     public static final Item DEVELOPED_DRY_PLATE   = Reg.item("developed_dry_plate", PhotoItem::new, new Item.Properties().stacksTo(1)); // 現像した乾板（まだ定着前）
     public static final Item NEGATIVE              = Reg.item("negative", NegativeItem::new, new Item.Properties().stacksTo(1));         // ガラスのネガ（焼いても戻る）
     public static final Item PRINTING_PAPER        = Reg.item("printing_paper");     // 印画紙（紙＋塩＋硝酸銀＝塩化銀の紙、タルボット 1840）
+    // [P-17] スマホのカメラ（IMP2 O-030 仮決定の案A）：小さなレンズ×2＋赤外線カット膜＋色の分かる画像センサー＋IC＋乾電池。右クリックでその場でカラーの写真（化学の写真 → 電子の写真）
+    public static final Item CAMERA_MODULE         = Reg.item("camera_module", com.taku3.semiconductorlab.item.CameraModuleItem::new, new Item.Properties().stacksTo(1));
     public static final Item PRINT                 = Reg.item("print", PhotoItem::new, new Item.Properties().stacksTo(16));            // 写真（紙焼き）
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

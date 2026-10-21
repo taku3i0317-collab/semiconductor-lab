@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:camera_lens",
+    "semiconductor-lab:camera_lens",
+    "semiconductor-lab:ir_cut_filter",
+    "semiconductor-lab:color_image_sensor",
+    "semiconductor-lab:plastic_packaged_chip",
+    "semiconductor-lab:dry_cell"
+  ],
+  "result": {
+    "id": "semiconductor-lab:camera_module",
+    "count": 1
+  }
+}
