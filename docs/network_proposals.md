@@ -985,3 +985,48 @@ A（S-005、ユーザーの決定）からの依頼を司令塔へ上げる。�
   - アルミ電解コンデンサ（Aluminium electrolytic capacitor）：P-11 のため。Smooths the rectified DC in power supplies and switched-mode supplies; a main component of every PSU.　出典 https://en.wikipedia.org/wiki/Aluminum_electrolytic_capacitor
   - コバルト酸リチウム正極（Lithium cobalt oxide cathode）：P-22 のため。Goodenough's 1980 cathode used in the first commercial Li-ion battery; no cobalt or LiCoO2 node exists.　出典 https://en.wikipedia.org/wiki/Lithium-ion_battery
   - シリンダー中ぐり盤（Cylinder boring machine (Wilkinson, 1774)）：4-02 のため。ワットの1776年の機関は、ウィルキンソンが精密にくりぬいたシリンダーで初めて実用になった。旋盤[8-01]（1797）とは別で、年も前。　出典 https://en.wikipedia.org/wiki/Watt_steam_engine
+
+## S-059 途中4（2026-10-21）：本線（AI までの道）を調べて見つかった直したほうがよい所
+- ネットワークの側で外した物（dropped_requires）：[3-18] 蓄熱式炉（1856）← [3-19] 副産物回収式コークス炉（1881）＝年が逆。要るのは石炭ガス。逆向き（ホフマンのコークス炉がジーメンスの蓄熱室を使った、◎）を足した
+- **今の前提で、年が逆か出典の無い物**（TECH_TREE を確かめてほしい）：
+  - [2-08] 苛性ソーダ → [2-09] 石けん：Caustic soda node is 1892, soap is -2800 (anachronism). Babylonian soap used fat + wood ash (potash, already linked).
+  - [2-01] 硫酸 → [1-33] ホウ素：Sulfuric acid node (contact process) is 1831, boron 1808 (anachronism). Boron came from borax/boric acid reduced with potassium; if an acid link is wanted, 2-43 oil of vitriol (1300) fits the year.
+  - [6-05] クロルアルカリ電解 → [2-58] 無水酢酸：Chlor-alkali electrolysis is 1890, acetic anhydride 1852 (anachronism). Gerhardt used benzoyl chloride (missing node).
+  - [1-39] マグネシウム → [5-16] ゲッター：Magnesium node is 1941, getter 1894 (anachronism). The first getter (Malignani) was phosphorus; Wikipedia Getter says phosphorus was used before metallic getters.
+  - [2-11] 硫化水素と硫黄回収 → [2-29] ゴム：Year is fine, but 2-11 is 'H2S and sulfur recovery'; vulcanization really needs plain sulfur (missing node).
+  - [1-26] 鋼 → [8-01] 旋盤：Steel (Bessemer) is 1856, after Maudslay's lathe (1797); crucible steel 1-11 already covers it.
+  - [5-02] 真空管 → [4-11] 整流器：Vacuum tube (1904) is after the rectifier node year 1902 (Cooper Hewitt mercury-arc rectifier).
+  - [9-05] Geダイオード → [4-11] 整流器：Ge diode (1940) is after 1902; if 4-11 is meant to be the 1902 mercury-arc rectifier this is anachronistic.
+  - [6-05] クロルアルカリ電解 → [1-14] バイヤー法：Chlor-alkali electrolysis node is 1890, after the Bayer process (1888); NaOH then came from causticizing soda ash with slaked lime.
+  - [1-10] コークス高炉 → [1-37] ニッケル：Cronstedt isolated nickel (1751) from nickeline from a cobalt mine; no source ties it to the coke blast furnace.
+  - [0-10] 石灰焼成 → [2-02] カリ：Potash is made by leaching wood ash; lime is only needed to make caustic potash, not potash itself (not verified as wrong, just unsupported).
+  - [8-04] ノギスとマイクロメータ → [12-11] 測量：Year order: calipers/micrometers 1631 is after surveying 1615 (Snellius used a quadrant).
+  - [7-04] 屈折望遠鏡と色消しレンズ → [12-11] 測量：Snellius' 1615 survey is documented with a quadrant only; telescopic sights in surveying came later (Picard 1669-70). Weak as a prerequisite at 1615.
+  - [6-01] 電解槽 → [1-31] モリブデン製錬：Year order: electrolyzer 1800 is after molybdenum 1781; Hjelm reduced the oxide with carbon, not electrolysis.
+  - [6-09] ハーバー・ボッシュ法 → [2-21] アンモニア水：Year order: Haber-Bosch 1913 is after ammonia water 1850; 19th-century ammonia water came from gasworks liquor and hartshorn distillation.
+  - [1-39] マグネシウム → [1-36] 単体ホウ素：Year order: magnesium node is 1941 but elemental boron 1892; metallic Mg existed from 1808 (Davy) / 1831 (Bussy), so the Mg node year looks wrong rather than the link.
+- **足りないノードの案**（出典つき。作るかは担当と相談役）：
+  - 辰砂（Cinnabar (HgS)）：1-45 のため。Mercury is retorted (distilled) from cinnabar, its main ore.　出典 https://en.wikipedia.org/wiki/Cinnabar
+  - 閃亜鉛鉱（亜鉛の鉱石）（Sphalerite / zinc ore）：1-13 のため。Zawar zinc was distilled from roasted ore with charcoal in clay retorts.　出典 https://www.theweek.in/theweek/statescan/2021/12/16/the-lost-city-of-zawar.html
+  - なめし革（Leather / hide）：3-04 のため。Pot bellows were ceramic pots covered with a loose leather hide.　出典 https://en.wikipedia.org/wiki/Bellows
+  - 石炭とコークスづくり（Coal and coke making）：1-10 のため。Darby's 1709 furnace used coke ('charked' coal) from Shropshire coal; no coal/coke node exists before 3-19 (1881).　出典 https://en.wikipedia.org/wiki/Abraham_Darby_I
+  - 水車（動力）（Water wheel）：1-10 のため。The Coalbrookdale furnace blast came from a waterwheel driving bellows; 4-33 water turbine is 1827.　出典 https://en.wikipedia.org/wiki/Coalbrookdale
+  - 風車と遠心調速機（Windmill and Huygens' centrifugal governor）：10-04 のため。The centrifugal governor regulated windmills and water wheels a century before Watt adapted it in 1788.　出典 https://en.wikipedia.org/wiki/Centrifugal_governor
+  - 金属カリウム（Potassium metal）：1-33 のため。Boron was isolated in 1808 by heating borax/boric acid with potassium metal (Davy made potassium by electrolysis in 1807　出典 https://periodic-table.rsc.org/element/5/boron
+  - ホウ砂（Borax）：1-33 のため。Starting material for boron isolation (known as glaze/flux long before).　出典 https://en.wikipedia.org/wiki/Boron
+  - 硫黄（Sulfur）：2-01 のため。The contact process starts by burning sulfur to SO2; 2-11 (sulfur recovery, 1777) is not the same thing.　出典 https://en.wikipedia.org/wiki/Contact_process
+  - 天然ゴム（Natural rubber (latex)）：2-29 のため。Goodyear vulcanized India rubber with sulfur; the raw rubber has no node.　出典 https://en.wikipedia.org/wiki/Charles_Goodyear
+  - 塩化ベンゾイル（Benzoyl chloride）：2-58 のため。Gerhardt made acetic anhydride from potassium acetate and benzoyl chloride (1852).　出典 https://en.wikipedia.org/wiki/Acetic_anhydride
+  - インジウム（Indium）：9-04 のため。Indium beads formed the emitter/collector of PNP alloy-junction transistors (indium discovered 1863).　出典 https://en.wikipedia.org/wiki/Indium
+  - ヨウ素（Iodine）：1-70 のため。The van Arkel-de Boer crystal-bar process decomposes Hf/Zr iodide on a hot tungsten filament.　出典 https://en.wikipedia.org/wiki/Hafnium
+  - 充てん材（木粉・石綿）（Filler (wood flour / asbestos)）：2-28 のため。Moulded Bakelite was mixed with wood flour or asbestos filler.　出典 https://en.wikipedia.org/wiki/Bakelite
+  - 白リン（White phosphorus）：2-44 のため。Red phosphorus was first made (Schrötter 1847) by heating or illuminating white phosphorus (Brand 1669); no phosphorus n　出典 https://en.wikipedia.org/wiki/Red_phosphorus
+  - ジュール・トムソン効果（Joule–Thomson effect）：6-07 のため。The Hampson–Linde cycle relies solely on the Joule–Thomson effect plus a countercurrent heat exchanger.　出典 https://en.wikipedia.org/wiki/Hampson%E2%80%93Linde_cycle
+  - 光酸発生剤（オニウム塩）（Onium-salt photoacid generators）：2-33 のため。Chemically amplified resists need an acid released by light; triarylsulfonium/diaryliodonium salts (Crivello, GE, late 1　出典 https://acswebcontent.acs.org/prfar/2007/REPORTS/P7914.HTM
+  - ガタパーチャ（電線の被覆）（Gutta-percha cable insulation）：4-03 のため。19th-century telegraph and submarine cables were insulated with gutta-percha; no insulation node exists for copper cable　出典 https://en.wikipedia.org/wiki/Gutta-percha
+  - エーテル（ジエチルエーテル）（Diethyl ether）：3-22 のため。Perkins' 1834 vapor-compression machine used ether as its working fluid.　出典 https://en.wikipedia.org/wiki/Icemaker
+  - 測量用の四分儀（Surveying quadrant）：12-11 のため。Snellius' 1615 triangulation used a large quadrant to measure angles (now in Museum Boerhaave).　出典 https://en.wikipedia.org/wiki/Willebrord_Snellius
+  - ボルダの反復円（Borda repeating circle）：8-22 のため。Instrument used by Delambre and Mechain for the Dunkirk-Barcelona meridian survey that fixed the metre.　出典 https://en.wikipedia.org/wiki/Repeating_circle
+  - ガイスラー管（放電管）（Geissler tube (gas discharge tube)）：6-08 のため。Ramsay and Travers identified neon by its red glow in a Geissler tube (Geissler 1857).　出典 https://en.wikipedia.org/wiki/Neon_sign
+  - 砥石車（研削といし）（Bonded abrasive grinding wheel）：8-31 のため。The abrasive wheel is the cutting tool of a grinding machine; no abrasive node exists.　出典 https://en.wikipedia.org/wiki/Grinding_machine
+  - 浮動小数点コプロセッサ 8087（Intel 8087 floating-point coprocessor）：10-32 のため。First IC implementing the draft of IEEE 754 (1980); Kahan's draft was written for it.　出典 https://en.wikipedia.org/wiki/IEEE_754-1985

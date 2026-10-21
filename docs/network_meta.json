@@ -2486,6 +2486,432 @@
    ],
    "certainty": "○",
    "by": "S-059"
+  },
+  {
+   "from": "0-03",
+   "to": "3-04",
+   "kind": "part",
+   "note": "いちばん古いふいごは、土の壺に皮をかぶせたものだった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bellows"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-03",
+   "to": "1-13",
+   "kind": "part",
+   "note": "亜鉛は、さかさにした土の壺（レトルト）の中で蒸発させて集めた。",
+   "sources": [
+    "https://www.theweek.in/theweek/statescan/2021/12/16/the-lost-city-of-zawar.html"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-04",
+   "to": "1-10",
+   "kind": "part",
+   "note": "コークス高炉にも、水車で動かすふいごで風を送っていた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Coalbrookdale"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-11",
+   "to": "3-12",
+   "kind": "part",
+   "note": "ディナスれんがは、石英の粉を少しの石灰でつないでいた。",
+   "sources": [
+    "https://scottishbrickhistory.co.uk/early-references-to-fire-brick-manufacture-in-the-uk"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "5-03",
+   "to": "5-15",
+   "kind": "part",
+   "note": "ポンプには水銀の圧力計がついていて、どこまで空気がぬけたかを見た。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sprengel_pump"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-33",
+   "to": "4-01",
+   "kind": "part",
+   "note": "クラッグサイドでは、水のタービンが発電機を回した。",
+   "sources": [
+    "https://ietarchivesblog.org/2023/03/09/cragside-harnessing-the-power-of-water"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-05",
+   "to": "4-01",
+   "kind": "part",
+   "note": "回されたのはシーメンスの自励式の発電機だった。",
+   "sources": [
+    "https://ietarchivesblog.org/2023/03/09/cragside-harnessing-the-power-of-water"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-18",
+   "to": "3-19",
+   "kind": "part",
+   "note": "ホフマンは、ジーメンスの蓄熱室を足して、ガスの熱を使い回せるようにした。",
+   "sources": [
+    "https://www.gracesguide.co.uk/Otto-Hoffmann",
+    "https://www.deutsche-biographie.de/sfz74249.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "4-27",
+   "to": "4-10",
+   "kind": "tool",
+   "note": "誘導コイルは、広く使われた最初の変圧器のなかまだった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Transformer"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-07",
+   "to": "10-14",
+   "kind": "part",
+   "note": "アルテアの前面では、赤いLEDが光って答えを見せた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Altair_8800"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "6-06",
+   "to": "2-28",
+   "kind": "tool",
+   "note": "フェノールとホルマリンの反応を、塩酸などの触媒で進めた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bakelite"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-21",
+   "to": "2-28",
+   "kind": "tool",
+   "note": "アンモニアも、ベークライトの反応を進める触媒に使えた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bakelite"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-03",
+   "to": "1-32",
+   "kind": "tool",
+   "note": "はじめの灰吹きでは、土器のかけらを皿に使った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cupellation"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-08",
+   "to": "2-43",
+   "kind": "part",
+   "note": "緑ばんを焼く入れ物（レトルト）は鉄で作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sulfuric_acid"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-16",
+   "to": "2-24",
+   "kind": "tool",
+   "note": "ミッチャーリッヒは蒸留でベンゼンを取り出した。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Benzene"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-03",
+   "to": "4-04",
+   "kind": "part",
+   "note": "ファラデーの発電機は、磁石のあいだで銅の円板を回した。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Dynamo",
+    "https://en.wikipedia.org/wiki/Homopolar_generator"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-01",
+   "to": "4-05",
+   "kind": "part",
+   "note": "自分の電気で電磁石を動かし、永久磁石のかわりにした。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Dynamo"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-45",
+   "to": "4-11",
+   "kind": "part",
+   "note": "水銀の中で起きるアーク放電で、電気の向きをそろえる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mercury-arc_valve"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-12",
+   "to": "1-28",
+   "kind": "tool",
+   "note": "粉を固めた棒は、電気炉と電流で焼き固めた。",
+   "sources": [
+    "https://lamptech.co.uk/Documents/Factory - US - Cleveland Wire.htm"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-18",
+   "to": "12-13",
+   "kind": "part",
+   "note": "フィルターに空気を通すために送風機を使った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/HEPA"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-01",
+   "to": "12-13",
+   "kind": "part",
+   "note": "はじめのフィルターは、ひだをつけた特別な紙だった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/HEPA"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-07",
+   "to": "9-01",
+   "kind": "part",
+   "note": "ゲルマニウムを黒鉛の入れ物にのせて、コイルの中を動かす。",
+   "sources": [
+    "https://www.rfcafe.com/references/radio-electronics/99d99999999-percent-pure-crystals-radio-electronics-september-1959.htm",
+    "https://cpl.iphy.ac.cn/article/10.1088/0256-307X/33/5/058102"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "3-14",
+   "to": "9-01",
+   "kind": "tool",
+   "note": "電気のコイルで、ゲルマニウムの細い部分だけをとかす。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/development-of-zone-refining/",
+    "https://www.rfcafe.com/references/radio-electronics/99d99999999-percent-pure-crystals-radio-electronics-september-1959.htm"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "4-09",
+   "to": "9-01",
+   "kind": "part",
+   "note": "とかすコイルには高い周波数の電気を流す。",
+   "sources": [
+    "https://www.rfcafe.com/references/radio-electronics/99d99999999-percent-pure-crystals-radio-electronics-september-1959.htm"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-62",
+   "to": "1-72",
+   "kind": "part",
+   "note": "最初の装置はステンレスのくだにガスをつめて炉に入れた。",
+   "sources": [
+    "https://ethw.org/ASME-Landmark:First_Hot_Isostatic_Processing_Vessels"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-18",
+   "to": "12-14",
+   "kind": "part",
+   "note": "送風機で、こしたきれいな空気を部屋の上から下へ流しつづける。",
+   "sources": [
+    "https://newsreleases.sandia.gov/cleanroom_50th/",
+    "https://en.wikipedia.org/wiki/Cleanroom"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "3-20",
+   "to": "1-06",
+   "kind": "part",
+   "note": "炉のかべは熱にたえる土や粘土で作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bloomery"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-14",
+   "to": "2-16",
+   "kind": "tool",
+   "note": "水をじょうりゅうする道具（アランビック）はガラスの入れ物だった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Distillation"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-45",
+   "to": "4-08",
+   "kind": "part",
+   "note": "ファラデーの最初のモーターは、水銀のプールに電線をひたして回した。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electric_motor"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-47",
+   "to": "4-08",
+   "kind": "part",
+   "note": "水銀の中に置いた永久磁石のまわりを電線が回った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electric_motor"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-08",
+   "to": "4-27",
+   "kind": "part",
+   "note": "まん中に鉄の棒があり、そのまわりに電線をまいた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Nicholas_Callan"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-45",
+   "to": "4-27",
+   "kind": "part",
+   "note": "電流を切ったりつないだりするしかけに、水銀のカップを使った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Nicholas_Callan"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-20",
+   "to": "2-27",
+   "kind": "tool",
+   "note": "ホフマンは熱い白金の線にメタノールの蒸気を通して作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Formaldehyde"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "7-06",
+   "to": "6-08",
+   "kind": "tool",
+   "note": "光のスペクトルを見て、ネオンが新しい元素だとわかった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Neon",
+    "https://en.wikipedia.org/wiki/Argon"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-02",
+   "to": "8-33",
+   "kind": "part",
+   "note": "イオンが写真のかんぱんに当たってできた線で、重さのちがいを読んだ。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mass_spectrometry",
+    "https://en.wikipedia.org/wiki/Francis_William_Aston"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "3-14",
+   "to": "9-02",
+   "kind": "tool",
+   "note": "誘導コイルで細い帯だけをとかしながら動かす。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Zone_melting"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-20",
+   "to": "9-06",
+   "kind": "tool",
+   "note": "マスクを通して光を当てたレジストが、どこをけずるかを決める。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-38",
+   "to": "9-06",
+   "kind": "tool",
+   "note": "フッ酸はガラスをとかすので、テフロンなどの入れ物や管であつかう。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hydrofluoric_acid",
+    "https://en.wikipedia.org/wiki/Polytetrafluoroethylene"
+   ],
+   "certainty": "○",
+   "by": "S-059"
   }
  ],
  "aliases": {
@@ -3078,6 +3504,422 @@
    ],
    "certainty": "○",
    "by": "S-059"
+  },
+  {
+   "from": "0-12",
+   "to": "1-30",
+   "note": "すず石を木炭といっしょに焼くと、酸素がとれて錫になる。",
+   "sources": [
+    "https://repositum.tuwien.at/handle/20.500.12708/177197",
+    "https://en.wikipedia.org/wiki/Tin"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-13",
+   "to": "1-33",
+   "note": "ホウ素をとり出すカリウムは、電池の電気分解でつくられたばかりだった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Boron",
+    "https://periodic-table.rsc.org/element/5/boron"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-20",
+   "to": "3-12",
+   "note": "熱に強い粘土（耐火粘土）が、耐火れんがの材料になる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Fire_clay"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-46",
+   "to": "3-12",
+   "note": "1822年のディナスれんがは、ほとんど石英の岩（ケイ石）でできていた。",
+   "sources": [
+    "https://scottishbrickhistory.co.uk/early-references-to-fire-brick-manufacture-in-the-uk"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-02",
+   "to": "2-58",
+   "note": "最初の無水酢酸は、酢酸カリウム（カリと酢からつくる塩）からつくられた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Acetic_anhydride"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "I-01",
+   "to": "4-10",
+   "note": "変圧器は、ファラデーが見つけた電磁誘導そのもので動く。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Transformer",
+    "https://en.wikipedia.org/wiki/Electromagnetic_induction"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "I-42",
+   "to": "1-70",
+   "note": "ハフニウムは、X線の線の位置（モーズリーの法則）で見つかった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hafnium",
+    "https://periodic-table.rsc.org/element/72/hafnium"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-07",
+   "to": "9-04",
+   "note": "インジウムの粒をとかしこむ土台は、ゲルマニウムの単結晶だった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Gordon_Kidd_Teal",
+    "https://en.wikipedia.org/wiki/Alloy-junction_transistor"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-18",
+   "to": "10-10",
+   "note": "最初の売りもののIC論理は、プレーナ法でつくられた。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/first-planar-integrated-circuit-is-fabricated/"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-18",
+   "to": "0-06",
+   "note": "糸やひもをよる技が、布を織るより先にあった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Weaving"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-01",
+   "to": "2-02",
+   "note": "木を燃やした灰を水にとかして、カリをとった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Potash"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-04",
+   "to": "1-09",
+   "note": "高炉は、ふいごで強い風を送りこんで鉄をとかす。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Blast_furnace"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-12",
+   "to": "1-09",
+   "note": "昔の高炉の燃料はいつも木炭だった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Blast_furnace"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-16",
+   "to": "2-43",
+   "note": "緑ばんを入れ物で熱して出てくる気体を集める「蒸留」で作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sulfuric_acid"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-16",
+   "to": "2-23",
+   "note": "ボイルは木を蒸留してメタノールを取り出した。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Methanol"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "6-16",
+   "to": "6-12",
+   "note": "硫黄といっしょに硝石を燃やして、硫酸を作る手助けにした。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sulfuric_acid",
+    "https://en.wikipedia.org/wiki/Lead_chamber_process"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "2-20",
+   "to": "6-02",
+   "note": "ガスホルダーは、石炭から作ったガスをためるために生まれた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Gas_holder"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-13",
+   "to": "10-02",
+   "note": "電池の電気がないと電磁石のリレーは動かせなかった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electrical_telegraph"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "6-12",
+   "to": "2-39",
+   "note": "エチレンを硫酸にとかし、そこからアルコールを作る道が見つかった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Henry_Hennell",
+    "https://jimclifford.ca/philosophical-transactions-ocr-1665-1869/articles/jstor-107853/"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-08",
+   "to": "1-04",
+   "note": "鉄のベッセマー転炉を、銅のかわ（マット）用に作りかえた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Manh%C3%A8s%E2%80%93David_process",
+    "https://en.wikipedia.org/wiki/Pierre_Manh%C3%A8s"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-58",
+   "to": "4-03",
+   "note": "銅はのびやすく、引きのばして細い線にできる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Copper_conductor"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-11",
+   "to": "1-14",
+   "note": "昔のか性ソーダは、ソーダ灰に消石灰をまぜて作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sodium_hydroxide"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-06",
+   "to": "1-14",
+   "note": "か性ソーダのもとになるソーダ灰はソルベー法で作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sodium_hydroxide",
+    "https://en.wikipedia.org/wiki/Bayer_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "I-02",
+   "to": "6-07",
+   "note": "ガスをしぼって急にふくらますと冷える、という熱の法則を使う。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hampson%E2%80%93Linde_cycle"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "7-10",
+   "to": "4-11",
+   "note": "ヒューイットは水銀灯を作った次の年に、水銀整流器を作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Peter_Cooper_Hewitt",
+    "https://en.wikipedia.org/wiki/Mercury-arc_valve"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-58",
+   "to": "1-28",
+   "note": "焼き固めたタングステンをたたいて細くし、ダイヤの穴に通して線にした。",
+   "sources": [
+    "https://lamptech.co.uk/Documents/Factory - US - Cleveland Wire.htm"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "6-07",
+   "to": "1-72",
+   "note": "おしかためるガスはアルゴンで、空気を冷やして分けて取り出す。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Hot_isostatic_pressing",
+    "https://en.wikipedia.org/wiki/Argon"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-17",
+   "to": "0-07",
+   "note": "毛の長いヒツジを家畜にして選んで育てたから、羊毛で糸を作れるようになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Wool",
+    "https://en.wikipedia.org/wiki/Sheep"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-17",
+   "to": "11-05",
+   "note": "家畜のふんが、昔から畑のこやしに使われてきた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Manure"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-04",
+   "to": "1-06",
+   "note": "鉄をとかし出すには、ふいごで風を送って炉をとても熱くする必要があった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bellows",
+    "https://en.wikipedia.org/wiki/Bloomery"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "2-14",
+   "to": "8-10",
+   "note": "レーウェンフックはソーダ石灰ガラスの棒をとかして小さなレンズの玉を作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Antonie_van_Leeuwenhoek"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-02",
+   "to": "6-10",
+   "note": "硝石床でできた液に木の灰（カリ）を通すと、火薬に使える硝石に変わる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Nitre_bed",
+    "https://en.wikipedia.org/wiki/Saltpeter"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-17",
+   "to": "6-10",
+   "note": "硝石床には家畜のふんやおしっこを使った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Nitre_bed"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "6-11",
+   "to": "1-31",
+   "note": "シェーレは輝水鉛鉱に硝酸をかけて白い粉（モリブデン酸）をとり出した。",
+   "sources": [
+    "https://www.chemicool.com/elements/molybdenum.html"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-12",
+   "to": "1-31",
+   "note": "イェルムは白い粉を炭素とまぜて強く熱し、金属のモリブデンにした。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Molybdenum",
+    "https://www.chemicool.com/elements/molybdenum.html"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "I-01",
+   "to": "4-27",
+   "note": "ファラデーが見つけた電磁誘導のしくみを使って、高い電圧を作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Induction_coil",
+    "https://en.wikipedia.org/wiki/Nicholas_Callan"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-32",
+   "to": "2-27",
+   "note": "ブトレロフは銀の化合物（シュウ酸銀）を使う実験でホルムアルデヒドを見つけた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Formaldehyde"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-15",
+   "to": "9-06",
+   "note": "まずシリコンの上に酸化膜を作り、そこに窓をあける。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/photolithography-techniques-are-used-to-make-silicon-devices/"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-05",
+   "to": "10-11",
+   "note": "足し算の回路は、ANDやXORなどの論理の式でできている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Adder_(electronics)"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-07",
+   "to": "10-11",
+   "note": "カウンタやレジスタは、1ビットを覚えるフリップフロップを並べて作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Flip-flop_(electronics)"
+   ],
+   "certainty": "○",
+   "by": "S-059"
   }
  ],
  "added_requires_note": "S-025：TECH_TREE に書きもれていた本当の前提（担当が TECH_TREE に書くまで、ネットワークの側で補う。network_proposals.md の R- の行）。note は理由（「本物の欄」は、そのノードの本物の欄にもう書いてあること）",
@@ -3190,6 +4032,12 @@
    "to": "10-01",
    "note": "電磁石の電源の「または」の片方（水車発電機）。水車発電機は電磁誘導を通して電磁石を前提にしているので、前提の輪になる。本物の 1825 年の電磁石はボルタ電池で動いた（もう一方の「または」）ので、こちらだけ残す",
    "by": "S-039"
+  },
+  {
+   "from": "3-19",
+   "to": "3-18",
+   "note": "蓄熱式炉（1856）の前提に副産物回収式コークス炉（1881）が入っていた（年が逆）。要るのは石炭ガスで、コークス炉ではない。逆向き（ホフマンのコークス炉がジーメンスの蓄熱室を使った）は S-059 で足した",
+   "by": "S-059"
   }
  ],
  "dropped_requires_note": "S-036：TECH_TREE の前提の書き方がおかしい物を、担当が直すまでネットワークの側で外す（network_proposals.md に担当への頼み）",
