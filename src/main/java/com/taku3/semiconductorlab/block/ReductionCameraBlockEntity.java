@@ -44,17 +44,49 @@ public class ReductionCameraBlockEntity extends ConsumerBlockEntity {
         return m != null && (!plate.is(Optics.PHOTO_PLATE) || m.size() <= EMULSION_MAX_GRID);
     }
 
-    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
+    /** v0.5 マルチパターニング（IMP2 O-022）：原図を何枚のマスクに分けるか（1＝分けない、2＝LELE）。分けるときは列の番号を枚数で割った余りで振り分ける */
+    public static final int MAX_SPLIT = 2, BTN_SPLIT = 0;
+    public static final int DATA_SPLIT = ConsumerBlockEntity.DATA_COUNT, DATA_NEXT = ConsumerBlockEntity.DATA_COUNT + 1, EXTRA_DATA = 2;
+
+    public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA)
             .in(SLOT_ORIGINAL, 8, 17, ReductionCameraBlockEntity::isOriginal)
             .in(SLOT_PLATE, 8, 35, ReductionCameraBlockEntity::isPlate)
             .in(SLOT_DEVELOPER, 8, 53, ReductionCameraBlockEntity::isDeveloper)
             .in(SLOT_FIXER, 30, 53, ReductionCameraBlockEntity::isFixer)
             .out(SLOT_OUT, 78, 35)
+            .area("split_button", 30, 17, 40, 14)
             .right("power", 17, 1, "gui.semiconductor-lab.reduction_camera.power").samples("1.0 kW")
             .right("hint", 30, 3, "gui.semiconductor-lab.reduction_camera.need_original", "gui.semiconductor-lab.reduction_camera.need_plate",
                     "gui.semiconductor-lab.reduction_camera.need_chemicals", "gui.semiconductor-lab.reduction_camera.too_fine", "gui.semiconductor-lab.reduction_camera.output_full",
                     "gui.semiconductor-lab.reduction_camera.need_power", "gui.semiconductor-lab.reduction_camera.running")
+            .right("split", 61, 1, "gui.semiconductor-lab.reduction_camera.split_none", "gui.semiconductor-lab.reduction_camera.split_part").samples("2", "2")
             .build();
+
+    private int split = 1, nextPart;
+
+    public int split() { return split; }
+    public int nextPart() { return nextPart; }
+
+    /** 原図の k 枚目（0 から）：列 x を n で割った余りが k の所だけ。n＝1 ならそのまま */
+    public static com.taku3.semiconductorlab.litho.MaskData partOf(com.taku3.semiconductorlab.litho.MaskData m, int n, int k) {
+        if (n <= 1) return m;
+        var cells = com.taku3.semiconductorlab.litho.BitGrid.empty(m.size());
+        for (int x = 0; x < m.size(); x++)
+            for (int y = 0; y < m.size(); y++) if (x % n == k && m.cells().get(x, y)) cells = cells.with(x, y, true);
+        return new com.taku3.semiconductorlab.litho.MaskData(m.size(), m.kind(), cells, m.design() + " [" + (k + 1) + "/" + n + "]", m.index(), m.artworkMm(), m.reduction(), m.parts());
+    }
+
+    /** 画面のボタン：分ける枚数を 1 → 2 → 1 …（次に作るのは1枚目から） */
+    @Override public boolean onButton(net.minecraft.world.entity.player.Player player, int id) {
+        if (id != BTN_SPLIT) return false;
+        split = split >= MAX_SPLIT ? 1 : split + 1;
+        nextPart = 0;
+        setChanged();
+        return true;
+    }
+
+    @Override protected int extraDataCount() { return EXTRA_DATA; }
+    @Override protected int extraData(int i) { return i == DATA_SPLIT ? split : i == DATA_NEXT ? nextPart : 0; }
 
     public ReductionCameraBlockEntity(BlockPos pos, BlockState state) {
         super(Optics.REDUCTION_CAMERA.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
@@ -80,7 +112,12 @@ public class ReductionCameraBlockEntity extends ConsumerBlockEntity {
     }
 
     @Override protected void finishWork() {
-        container.setItem(SLOT_OUT, photomaskOf(container.getItem(SLOT_ORIGINAL), container.getItem(SLOT_PLATE)));   // 原図は減らない
+        ItemStack mask = photomaskOf(container.getItem(SLOT_ORIGINAL), container.getItem(SLOT_PLATE));   // 原図は減らない
+        if (split > 1) {   // 分けるときは k 枚目だけを写し、次は k+1 枚目
+            mask.set(ModDataComponents.MASK, partOf(mask.get(ModDataComponents.MASK), split, nextPart));
+            nextPart = (nextPart + 1) % split;
+        }
+        container.setItem(SLOT_OUT, mask);
         container.getItem(SLOT_PLATE).shrink(1);
         use(SLOT_DEVELOPER);
         use(SLOT_FIXER);
@@ -95,4 +132,7 @@ public class ReductionCameraBlockEntity extends ConsumerBlockEntity {
         if (rem != null && level != null)
             net.minecraft.world.Containers.dropItemStack(level, worldPosition.getX(), worldPosition.getY() + 1, worldPosition.getZ(), rem.create());
     }
+
+    @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput out) { super.saveAdditional(out); out.putInt("Split", split); out.putInt("NextPart", nextPart); }
+    @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput in) { super.loadAdditional(in); split = Math.max(1, in.getIntOr("Split", 1)); nextPart = in.getIntOr("NextPart", 0); }
 }

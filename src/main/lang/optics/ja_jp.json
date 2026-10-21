@@ -436,5 +436,8 @@
   "item.semiconductor-lab.projection_lens_immersion.note2": "ArF の投影レンズ＋合成石英（水にふれる最後の一枚）。ステッパーでは右下に超純水が要り、1チップで1本使う（空き瓶は上に）。NA 1.35。",
   "item.semiconductor-lab.projection_lens_immersion.note3": "1878年ごろ、アッベとツァイスが顕微鏡でレンズと試料の間を油で満たした（油浸）。2002年、台湾の TSMC の研究者が ArF で水を使う液浸を提案し、2006年ごろから量産に使われた。",
   "item.semiconductor-lab.projection_lens_immersion.note4": "水の屈折率は 193nm で 1.44。光は水の中で波長が 1.44分の1（約134nm）になったのと同じ働きをし、NA を 1.35 まで上げられる。水は泡・汚れ・温度で像が乱れるので、とても純粋な水を流し続ける。",
-  "item.semiconductor-lab.projection_lens_immersion.placeholder": "近似：NA 1.35・k1 0.3。水を流す仕組み（液浸フード）と泡・温度の管理は省く。"
+  "item.semiconductor-lab.projection_lens_immersion.placeholder": "近似：NA 1.35・k1 0.3。水を流す仕組み（液浸フード）と泡・温度の管理は省く。",
+  "gui.semiconductor-lab.reduction_camera.split_button": "分ける",
+  "gui.semiconductor-lab.reduction_camera.split_none": "1枚に写す",
+  "gui.semiconductor-lab.reduction_camera.split_part": "次は %s/%s 枚目"
 }

@@ -109,6 +109,42 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v0.5 マルチパターニング（IMP2 O-022、機械の側）：縮小カメラで原図を2枚に分ける（列の偶数・奇数）。2枚を重ねると元どおり、1枚ずつはとなりの列に光がない */
+    @GameTest(maxTicks = 300)
+    public void multipatterning_split(GameTestHelper h) {
+        int g = com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid;
+        var cells = com.taku3.semiconductorlab.litho.BitGrid.empty(g);
+        for (int x = 0; x < g; x++) for (int y = 0; y < g; y += 3) cells = cells.with(x, y, true);   // 横に詰まった線＝となりの列どうしが光る
+        var original = new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, cells, "dense_lines", 0);
+        var a = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.partOf(original, 2, 0); var b = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.partOf(original, 2, 1);
+        h.assertValueEqual(a.cells().count() + b.cells().count(), original.cells().count(), "the two halves add up to the original");
+        boolean adjacent = false;
+        for (var m : java.util.List.of(a, b))
+            for (int x = 0; x + 1 < g; x++) for (int y = 0; y < g; y++) adjacent |= m.cells().get(x, y) && m.cells().get(x + 1, y);
+        h.assertFalse(adjacent, "each half has no two lit neighbouring columns (pitch doubled)");
+        h.assertTrue(a.design().endsWith("[1/2]") && b.design().endsWith("[2/2]"), "halves are labelled 1/2 and 2/2");
+        ItemStack paper = new ItemStack(net.minecraft.world.item.Items.PAPER);
+        paper.set(ModDataComponents.MASK, original);
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Optics.REDUCTION_CAMERA.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.class);
+        var c = be.getContainer();
+        h.assertTrue(be.onButton(h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL), com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.BTN_SPLIT) && be.split() == 2, "the split button sets 2 masks");
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_ORIGINAL, paper);
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_PLATE, new ItemStack(Optics.CHROME_BLANK, 2));
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_DEVELOPER, new ItemStack(Chemistry.POSITIVE_RESIST, 2));
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_FIXER, new ItemStack(Gas.HYDROCHLORIC_ACID, 2));
+        long full = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.WATTS);
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.TICKS + 10, full);
+        ItemStack m1 = c.getItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_OUT).copy();
+        c.setItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.TICKS + 10, full);
+        ItemStack m2 = c.getItem(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.SLOT_OUT);
+        h.assertTrue(a.equals(m1.get(ModDataComponents.MASK)) && b.equals(m2.get(ModDataComponents.MASK)), "two runs give mask 1/2 then 2/2; the original stays");
+        LOG.info("[LAB] multipatterning [v0.5 #6]: reduction camera splits a dense original by column parity into masks 1/2 and 2/2 (pitch x2)");
+        h.succeed();
+    }
+
     /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
     @GameTest
     public void silvering(GameTestHelper h) {

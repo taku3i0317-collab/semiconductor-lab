@@ -436,5 +436,8 @@
   "item.semiconductor-lab.projection_lens_immersion.note2": "ArF projection lens + synthetic quartz (the last element, touching the water). In the stepper it needs ultrapure water in the lower-right slot, one bottle per chip (empty bottles pop out on top). NA 1.35.",
   "item.semiconductor-lab.projection_lens_immersion.note3": "Around 1878 Abbe and Zeiss filled the gap between microscope lens and sample with oil (oil immersion). In 2002 a researcher at TSMC proposed water immersion for ArF, and it entered production around 2006.",
   "item.semiconductor-lab.projection_lens_immersion.note4": "Water's refractive index at 193 nm is 1.44. Light in water acts as if its wavelength were 1.44 times shorter (about 134 nm), so NA can reach 1.35. Bubbles, dirt and temperature disturb the image, so very pure water flows constantly.",
-  "item.semiconductor-lab.projection_lens_immersion.placeholder": "Approximation: NA 1.35, k1 0.3. The water hood and bubble/temperature control are skipped."
+  "item.semiconductor-lab.projection_lens_immersion.placeholder": "Approximation: NA 1.35, k1 0.3. The water hood and bubble/temperature control are skipped.",
+  "gui.semiconductor-lab.reduction_camera.split_button": "Split",
+  "gui.semiconductor-lab.reduction_camera.split_none": "One mask",
+  "gui.semiconductor-lab.reduction_camera.split_part": "Next: mask %s/%s"
 }

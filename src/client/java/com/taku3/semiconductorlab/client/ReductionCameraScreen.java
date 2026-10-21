@@ -13,6 +13,13 @@ public class ReductionCameraScreen extends MachineScreen {
 
     public ReductionCameraScreen(MachineMenu menu, Inventory inv, Component title) { super(menu, inv, title); }
 
+    @Override protected void init() {
+        super.init();
+        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(Component.translatable(K + "split_button"), b -> {
+            if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, ReductionCameraBlockEntity.BTN_SPLIT);
+        }).bounds(leftPos + 30, topPos + 17, 40, 14).build());
+    }
+
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         super.extractBackground(g, mouseX, mouseY, partialTick);
@@ -24,6 +31,8 @@ public class ReductionCameraScreen extends MachineScreen {
     protected Component text(String id) {
         return switch (id) {
             case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
+            case "split" -> menu.get(ReductionCameraBlockEntity.DATA_SPLIT) <= 1 ? Component.translatable(K + "split_none")
+                    : Component.translatable(K + "split_part", menu.get(ReductionCameraBlockEntity.DATA_NEXT) + 1, menu.get(ReductionCameraBlockEntity.DATA_SPLIT));
             case "hint" -> {
                 String hint;
                 if (!ReductionCameraBlockEntity.isOriginal(menu.getSlot(ReductionCameraBlockEntity.SLOT_ORIGINAL).getItem())) hint = "need_original";
