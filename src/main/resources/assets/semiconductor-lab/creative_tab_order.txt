@@ -556,6 +556,7 @@ i_line_filter  # Optics [9-39] 1978
 mo_si_target  # Optics [7-17] 1985
 multilayer_mirror  # Optics [7-17] 1985
 projection_lens_immersion  # Optics [7-16] 2006
+euv_source  # Optics [7-18] 2010
 vernier_caliper  # Precision [8-04] 1631
 micrometer  # Precision [8-04] 1631
 simple_microscope  # Precision [8-10] 1670

@@ -38,10 +38,23 @@ public class MultilayerMirrorItem extends Item {
         return s;
     }
 
+    /** [7-18] 集光鏡に積もったスズ（nm）。1nm で反射が約1割減る（⚠️ ゲームの値） */
+    public static int tinNm(ItemStack s) {
+        CustomData d = s.get(DataComponents.CUSTOM_DATA);
+        return d == null ? 0 : d.copyTag().getIntOr("TinNm", 0);
+    }
+
+    public static void addTin(ItemStack s, int nm) {
+        CustomData d = s.get(DataComponents.CUSTOM_DATA);
+        CompoundTag t = d == null ? new CompoundTag() : d.copyTag();
+        t.putInt("TinNm", t.getIntOr("TinNm", 0) + nm);
+        s.set(DataComponents.CUSTOM_DATA, CustomData.of(t));
+    }
+
     /** 13.5nm での反射率（0〜1） */
     public static double reflectance(int pairs) { double t = Math.tanh(pairs / N0); return R_MAX * t * t; }
 
-    public static double reflectance(ItemStack s) { return reflectance(pairs(s)); }
+    public static double reflectance(ItemStack s) { return reflectance(pairs(s)) * Math.pow(0.9, tinNm(s)); }
 
     @Override
     public InteractionResult use(Level level, Player p, InteractionHand hand) {

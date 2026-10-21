@@ -173,6 +173,42 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-18] EUV 光源（IMP2 S-007）：隣の CO2 レーザー2台（N2 入り 60W ずつ）でスズの滴を撃つ → 120W×5%×集光鏡 約69% ≈ 4W。水素がないと集光鏡にスズが積もる */
+    @GameTest(maxTicks = 1000)
+    public void euv_source(GameTestHelper h) {
+        BlockPos at = p(2, 1, 2), ch = p(2, 1, 1), l1 = p(1, 1, 2), l2 = p(3, 1, 2);
+        h.setBlock(at, Optics.EUV_SOURCE.block);
+        h.setBlock(ch, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.getBlockEntity(ch, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(1);
+        for (BlockPos lp : new BlockPos[]{l1, l2}) {
+            h.setBlock(lp, Optics.CO2_LASER.block);
+            var lc = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.class).getContainer();
+            lc.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_WINDOW, new ItemStack(Optics.SALT_WINDOW));
+            lc.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_CO2, new ItemStack(Gas.CARBON_DIOXIDE_GAS));
+            lc.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_N2, new ItemStack(Gas.NITROGEN_GAS));
+        }
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.EuvSourceBlockEntity.class);
+        var c = be.getContainer();
+        ItemStack collector = com.taku3.semiconductorlab.item.MultilayerMirrorItem.withPairs(new ItemStack(Optics.MULTILAYER_MIRROR), 40);
+        c.setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_TIN, new ItemStack(Metallurgy.TIN_INGOT, 4));
+        c.setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_DROPLET, new ItemStack(com.taku3.semiconductorlab.content.Precision.DROPLET_GENERATOR));
+        c.setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_COLLECTOR, collector);
+        long full = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.WATTS);
+        for (BlockPos lp : new BlockPos[]{l1, l2}) h.getBlockEntity(lp, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.class).getStorage().insert(100_000, false);
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.EuvSourceBlockEntity.TICKS + 5, full);
+        double expect = 2 * 1000 * com.taku3.semiconductorlab.block.Co2LaserBlockEntity.EFF_N2 * com.taku3.semiconductorlab.block.EuvSourceBlockEntity.CE * com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(40);
+        h.assertTrue(be.lasers() == 2 && Math.abs(be.euvW() - expect) < 0.01, "2 lasers -> EUV " + be.euvW() + " W (expected " + expect + ")");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_TIN).getCount(), 3, "one tin per shot");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.MultilayerMirrorItem.tinNm(c.getItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_COLLECTOR)), 1, "no hydrogen -> tin debris on the collector");
+        c.setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, 2));
+        for (BlockPos lp : new BlockPos[]{l1, l2}) h.getBlockEntity(lp, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.class).getStorage().insert(100_000, false);
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.EuvSourceBlockEntity.TICKS + 5, full);
+        h.assertTrue(com.taku3.semiconductorlab.item.MultilayerMirrorItem.tinNm(c.getItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_COLLECTOR)) == 1 && c.getItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_H2).getCount() == 1, "hydrogen keeps the collector clean (SnH4)");
+        h.assertTrue(be.euvW() < expect, "the dirty collector reflects less: " + be.euvW() + " W");
+        LOG.info("[LAB] EUV source [7-18]: 2 CO2 lasers x 60 W x 5% x collector -> " + String.format(java.util.Locale.ROOT, "%.2f", expect) + " W EUV; hydrogen cleans tin debris");
+        h.succeed();
+    }
+
     /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
     @GameTest
     public void silvering(GameTestHelper h) {

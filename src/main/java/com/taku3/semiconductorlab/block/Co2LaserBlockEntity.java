@@ -120,6 +120,25 @@ public class Co2LaserBlockEntity extends ConsumerBlockEntity {
         container.setChanged();
     }
 
+    /**
+     * [7-18] EUV 光源の駆動（IMP2 S-007）：隣の EUV 光源が1回光るたびに呼ぶ。岩塩の窓・ガス・電気がそろっていれば、
+     * ガスを1回分と窓の曇り1を使って、赤外線の出力（W）を返す。そろっていなければ 0（窓がガラスなら割れる）
+     */
+    public double drive() {
+        ItemStack win = container.getItem(SLOT_WINDOW);
+        long tick = EnergyStorage.wattsToJoulesPerTick(WATTS);
+        if (!isWindow(win) || getStorage().getStoredJ() < tick) return 0;
+        if (!isSaltWindow(win)) { container.setItem(SLOT_WINDOW, ItemStack.EMPTY); accidentTicks = ACCIDENT_SHOW; container.setChanged(); return 0; }
+        double w = beamW();
+        if (w <= 0 || !fill()) return 0;
+        getStorage().extract(tick, false);
+        runs--;
+        win.setDamageValue(win.getDamageValue() + 1);
+        if (win.getDamageValue() >= win.getMaxDamage()) container.setItem(SLOT_WINDOW, ItemStack.EMPTY);
+        container.setChanged();
+        return w;
+    }
+
     @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); out.putInt("Runs", runs); out.putBoolean("N2", nitrogen); }
     @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); runs = in.getIntOr("Runs", 0); nitrogen = in.getBooleanOr("N2", false); }
 }

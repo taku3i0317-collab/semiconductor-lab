@@ -2211,6 +2211,19 @@
 - Wikipedia「Plateau-Rayleigh instability」：https://en.wikipedia.org/wiki/Plateau%E2%80%93Rayleigh_instability
 - Wikipedia「Piezoelectricity」：https://en.wikipedia.org/wiki/Piezoelectricity
 
+## O78. 落ちてくる錫の粒を撃ち抜く光（EUV 光源）［7-18］
+**答え**：13.5nm の EUV は、ふつうのランプやレーザーでは作れない。2000年代、アメリカのサイマー社などは、直径約30µm のスズの滴を1秒に約5万個落とし、CO2 レーザーで撃って数十万℃のプラズマにする光源（LPP）を開発した。光に変わるのは約5%なので、約250W の EUV に数十kW のレーザーが要る。出た光は Mo/Si の多層膜の集光鏡で集め、飛び散るスズは水素ガスで SnH4 の気体にして取り除く。2019年からこの光で最先端のチップの量産が始まった。
+
+- へえ①：落ちてくる錫の粒をレーザーで撃ち抜いて光らせる。
+- へえ②：1秒に5万回、1粒も外さずに撃つ。
+- へえ③：光に変わるのは約5%だけで、電気の大部分は熱になる。
+- へえ④：鏡を汚すスズは、水素と反応させて気体にして掃除する。
+
+確かさ：LPP・Sn・CO2 レーザー ◎／変換効率 約5%・約250W ○／2019 量産 ◎／数十万℃ ○
+根拠：
+- Wikipedia「Extreme ultraviolet lithography」（Light source）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
+- Wikipedia「Laser-produced plasma」：https://en.wikipedia.org/wiki/Laser-produced_plasma
+
 ---
 
 # 冶金と熱（タスク15〜）

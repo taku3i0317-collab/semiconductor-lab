@@ -547,6 +547,8 @@ setblock ~70 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-17]
 setblock ~70 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mo_si_target",count:16},{Slot:1b,id:"semiconductor-lab:multilayer_mirror",count:1}]}
 setblock ~73 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-16] 液浸光学","ステッパーの右下の超純","水の入口（ヒント「液浸","の超純水を入れて」）、"]}}
 setblock ~73 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens_immersion",count:1}]}
+setblock ~76 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-18] EUV 光源","EUV 光源の画面（電","力・EUV・レーザーの","台数・ヒント）、レーザ"]}}
+setblock ~76 ~0 ~58 semiconductor-lab:euv_source
 setblock ~0 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹8 精密","↓ この列","",""]}}
 setblock ~2 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-04] ノギスとマイク","旋盤で作ったローター・","規格ねじを左手、ノギス","／マイクロメータを右手"]}}
 setblock ~2 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vernier_caliper",count:1},{Slot:1b,id:"semiconductor-lab:micrometer",count:1}]}

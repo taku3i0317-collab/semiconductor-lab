@@ -142,6 +142,9 @@ public final class Optics {
     // CO2 レーザー [7-14]（IMP2 O-019、1964 ベル研究所）：CO2＋N2 に放電、10.6µm の赤外線。1kW、He なしの低出力版（決定）。珪石を溶かして溶融石英
     public static final Machine<Co2LaserBlockEntity> CO2_LASER = Machine.electric("co2_laser", Co2LaserBlockEntity::new, Co2LaserBlockEntity.LAYOUT, lit(metal(3.0f), 6));
 
+    // EUV 光源 [7-18]（IMP2 S-007、スズのプラズマ）：液滴発生器のスズの滴を隣の CO2 レーザーで撃ち、多層膜ミラーで 13.5nm を集める。2kW＋レーザー。水素がないと集光鏡が汚れる
+    public static final Machine<EuvSourceBlockEntity> EUV_SOURCE = Machine.electric("euv_source", EuvSourceBlockEntity::new, EuvSourceBlockEntity.LAYOUT, lit(metal(4.0f), 12));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }
