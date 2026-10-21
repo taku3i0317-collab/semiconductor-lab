@@ -291,7 +291,7 @@ public class MetallurgyTests extends LabTestBase {
         h.assertTrue(stone.isCorrectToolForDrops(st), "a stone pickaxe works");
         List<ItemStack> normal = Block.getDrops(st, lv, at, null, null, stone);
         List<ItemStack> silky = Block.getDrops(st, lv, at, null, null, silk);
-        h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(Metallurgy.VEIN_QUARTZ)), "pickaxe -> vein quartz, got " + normal);
+        h.assertTrue(!normal.isEmpty() && normal.stream().anyMatch(s -> s.is(Metallurgy.VEIN_QUARTZ)) && normal.stream().allMatch(s -> s.is(Metallurgy.VEIN_QUARTZ) || s.is(Metallurgy.ROCK_CRYSTAL)), "pickaxe -> vein quartz (rarely + rock crystal, [8-15]), got " + normal);
         h.assertTrue(silky.size() == 1 && silky.get(0).is(Metallurgy.QUARTZ_VEIN.asItem()), "silk touch -> block, got " + silky);
         // foundInOverworld は「そのワールドのオーバーワールドに出るバイオーム」に入る。GameTest のワールドは砂漠だけなので砂漠で確かめる（平原などは本物のワールドで TEST_QUEUE）
         h.assertTrue(biomeHas(h, net.minecraft.world.level.biome.Biomes.DESERT, "quartz_vein") && biomeHas(h, net.minecraft.world.level.biome.Biomes.DESERT, "sphalerite_ore"), "quartz veins go wherever the other overworld ores go");
