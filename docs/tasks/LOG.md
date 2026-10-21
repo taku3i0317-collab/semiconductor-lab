@@ -652,3 +652,4 @@
 ## S-022（ウィキのデータ、2026-10-21）
 - tools/wiki_export.py（手で書かない、ゲームなしで動く）→ **docs/wiki_export.json**（B はここから読む。machine_recipes.json と同じ docs/）：items 856（ID・日英の名前・幹・ノード・年・説明 note1〜4・仮・GHS の印〔説明の文の絵表示の名前から〕）、recipes 663（作業台・かまど：入る物・出る物・時間）、machine_recipes（docs/machine_recipes.json そのまま＝機械・組立台・電気 W・時間・条件）、machines 73（機械ごとの工程）、challenges 19（名前と開く条件＝前のお題だけ。動き・ヒント・真理値表は出さない）、guide 7巻（題・中身・開く物＝技術の手帳と同じ元）
 - 作り直し：先に tools/test.ps1（machine_recipes.json を最新に）→ python tools/wiki_export.py
+- S-023（B のウィキの絵）：wiki_export.json に block_models（ブロック 171 の blockstates と、それが使う MOD の models/block の JSON。テクスチャは名前だけ＝Mojang の絵は入れない）、multiblocks（GameTest exportMultiblocks → docs/multiblocks.json：下の層からの文字の絵・文字ごとのブロックの ID と名前。MultiblockPattern.Cell に block を足した。新しいマルチブロックは exportMultiblocks に1行）、gui_preview（docs/gui_preview の絵の一覧 213＝全部の機械の画面の en/ja、GameTest gui_layout が描く）。コマンド：powershell tools/test.ps1 → python tools/wiki_export.py

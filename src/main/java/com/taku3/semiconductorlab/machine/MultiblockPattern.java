@@ -29,7 +29,10 @@ import java.util.function.Predicate;
  */
 public final class MultiblockPattern {
     /** 文字1つの条件と名前（lang multiblock.semiconductor-lab.&lt;name&gt;） */
-    public record Cell(char symbol, Predicate<BlockState> ok, String name) {}
+    /** block＝ブロックで決めたときのその ID（ウィキの書き出し用、S-023。条件で決めたときは null） */
+    public record Cell(char symbol, Predicate<BlockState> ok, String name, String block) {
+        public Cell(char symbol, Predicate<BlockState> ok, String name) { this(symbol, ok, name, null); }
+    }
 
     /** 足りない・違う場所：位置・期待する名前・今のブロック（空気なら missing） */
     public record Problem(BlockPos pos, String expected, BlockState actual, boolean missing) {}
@@ -67,6 +70,7 @@ public final class MultiblockPattern {
     public static Builder builder() { return new Builder(); }
 
     /** 段の数・行の数（奥行き）・幅 */
+    public char controller() { return controller; }
     public int height() { return layers.size(); }
     public int depth() { return layers.get(0).length; }
     public int width() { return layers.get(0)[0].length(); }
@@ -131,7 +135,7 @@ public final class MultiblockPattern {
             return this;
         }
         public Builder where(char c, Predicate<BlockState> ok, String name) { cells.put(c, new Cell(c, ok, name)); return this; }
-        public Builder where(char c, Block block, String name) { return where(c, s -> s.is(block), name); }
+        public Builder where(char c, Block block, String name) { cells.put(c, new Cell(c, s -> s.is(block), name, net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(block).toString())); return this; }
         public Builder controller(char c) { controller = c; return this; }
 
         public MultiblockPattern build() {

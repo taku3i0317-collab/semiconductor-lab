@@ -515,4 +515,47 @@ public class CommonTests extends LabTestBase {
         LOG.info("[LAB] vessels: {} filled items checked (remainder, stack size, compatibility table)", all.size());
         h.succeed();
     }
+
+    /**
+     * S-023：マルチブロックの形をウィキのために書き出す（docs/multiblocks.json、tools/wiki_export.py がまとめる）。下の層から、文字の絵と、文字ごとのブロックの ID・名前（lang）。
+     * 新しいマルチブロックを作ったらここに1行足す
+     */
+    @GameTest
+    public void exportMultiblocks(GameTestHelper h) {
+        var all = new java.util.LinkedHashMap<String, com.taku3.semiconductorlab.machine.MultiblockPattern>();
+        all.put("semiconductor-lab:blast_furnace", com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.shape());
+        var root = new com.google.gson.JsonObject();
+        root.addProperty("_note", "自動生成：GameTest exportMultiblocks（tools/test.ps1 で更新）。layers は下の層から、各層は奥から手前の行。' '＝空気、'?'＝何でも、controller＝制御ブロックの文字");
+        var list = new com.google.gson.JsonArray();
+        for (var e : all.entrySet()) {
+            var p = e.getValue();
+            var o = new com.google.gson.JsonObject();
+            o.addProperty("controller_block", e.getKey());
+            o.addProperty("controller", String.valueOf(p.controller()));
+            o.addProperty("width", p.width()); o.addProperty("depth", p.depth()); o.addProperty("height", p.height());
+            var layers = new com.google.gson.JsonArray();
+            for (String[] layer : p.layers()) { var l = new com.google.gson.JsonArray(); for (String row : layer) l.add(row); layers.add(l); }
+            o.add("layers", layers);
+            var legend = new com.google.gson.JsonObject();
+            for (String[] layer : p.layers()) for (String row : layer) for (char c : row.toCharArray()) {
+                var cell = p.cell(c);
+                if (cell == null || legend.has(String.valueOf(c))) continue;
+                var cj = new com.google.gson.JsonObject();
+                cj.addProperty("name", cell.name());
+                cj.addProperty("lang", "multiblock.semiconductor-lab." + cell.name());
+                if (cell.block() != null) cj.addProperty("block", cell.block());
+                legend.add(String.valueOf(c), cj);
+            }
+            o.add("legend", legend);
+            list.add(o);
+        }
+        root.add("multiblocks", list);
+        java.nio.file.Path dir = java.nio.file.Paths.get("").toAbsolutePath();
+        while (dir != null && !java.nio.file.Files.exists(dir.resolve("docs").resolve("TECH_TREE.md"))) dir = dir.getParent();
+        h.assertTrue(dir != null, "project root not found");
+        try { java.nio.file.Files.writeString(dir.resolve("docs").resolve("multiblocks.json"), new com.google.gson.GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create().toJson(root) + "\n", java.nio.charset.StandardCharsets.UTF_8); }
+        catch (java.io.IOException ex) { h.fail("write failed: " + ex.getMessage()); }
+        h.assertTrue(list.size() >= 1 && list.get(0).getAsJsonObject().getAsJsonObject("legend").has("B"), "blast furnace shape with its legend");
+        h.succeed();
+    }
 }

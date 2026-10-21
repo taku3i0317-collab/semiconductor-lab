@@ -7,7 +7,9 @@
 - 機械・組立台のレシピ：docs/machine_recipes.json（GameTest exportMachineRecipes が作る＝ tools/test.ps1 で最新に）
 - お題：advancement/challenge/*.json（名前と、開く条件＝前のお題だけ）
 - ガイド本：advancement/guide*/（巻・ページ・題・中身。技術の手帳 S-021 と同じ元）
-使い方：python tools/wiki_export.py  →  docs/wiki_export.json（B は docs/ からこれを読む。machine_recipes.json と同じ置き場所）
+- ブロックのモデル（blockstates・models/block の JSON、テクスチャは名前だけ）、マルチブロックの形（docs/multiblocks.json＝GameTest exportMultiblocks）、
+  画面の絵の一覧（docs/gui_preview/*.png＝GameTest gui_layout が全部の機械の分を描く。tools/test.ps1 が1つのコマンド）（S-023）
+使い方：powershell tools/test.ps1（機械のレシピ・マルチブロック・画面の絵を最新に）→ python tools/wiki_export.py  →  docs/wiki_export.json（B は docs/ からこれを読む。machine_recipes.json と同じ置き場所）
 """
 import json, pathlib, re
 
@@ -100,11 +102,37 @@ def main():
         root = load(d / "root.json") if (d / "root.json").exists() else {}
         guide.append({"volume": d.name, "title": name(root.get("display", {}).get("title", {}).get("translate", "")), "pages": pages})
 
+    # S-023：ブロックのモデル（JSON。テクスチャは参照の名前だけ、Mojang の絵は入れない）とマルチブロックの形
+    models = {}
+    for it in items:
+        if it["kind"] != "block":
+            continue
+        bid = it["id"].split(":")[1]
+        bs = RES / f"assets/{NS}/blockstates/{bid}.json"
+        if not bs.exists():
+            continue
+        state = load(bs)
+        refs = set(re.findall(r'"model":\s*"([^"]+)"', json.dumps(state)))
+        ms = {}
+        for ref in sorted(refs):
+            ns, path = ref.split(":") if ":" in ref else ("minecraft", ref)
+            mp = RES / f"assets/{ns}/models/{path}.json"
+            if ns == NS and mp.exists():
+                ms[ref] = load(mp)
+        models[it["id"]] = {"blockstate": state, "models": ms}
+    mb_path = ROOT / "docs/multiblocks.json"
+    multiblocks = load(mb_path).get("multiblocks", []) if mb_path.exists() else []
+    for m in multiblocks:
+        for c in m.get("legend", {}).values():
+            c["name_text"] = name(c.get("lang", ""))
+    gui = sorted(p.name for p in (ROOT / "docs/gui_preview").glob("*.png"))
+
     out = {"_note": "自動生成：python tools/wiki_export.py（S-022）。手で直さない。機械のレシピは docs/machine_recipes.json（tools/test.ps1 で最新）から。お題の答え・ヒントは入れていない",
-           "license": "CC0-1.0", "items": items, "recipes": recipes, "machine_recipes": mr, "machines": machine_list, "challenges": challenges, "guide": guide}
+           "license": "CC0-1.0", "items": items, "recipes": recipes, "machine_recipes": mr, "machines": machine_list, "challenges": challenges, "guide": guide,
+           "block_models": models, "multiblocks": multiblocks, "gui_preview": gui}
     dst = ROOT / "docs/wiki_export.json"
     dst.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print(f"{dst.relative_to(ROOT)}: items {len(items)}, recipes {len(recipes)}, machine recipes {len(mr)}, machines {len(machine_list)}, challenges {len(challenges)}, guide volumes {len(guide)}")
+    print(f"{dst.relative_to(ROOT)}: items {len(items)}, recipes {len(recipes)}, machine recipes {len(mr)}, machines {len(machine_list)}, challenges {len(challenges)}, guide volumes {len(guide)}, block models {len(models)}, multiblocks {len(multiblocks)}, gui {len(gui)}")
 
 
 if __name__ == "__main__":

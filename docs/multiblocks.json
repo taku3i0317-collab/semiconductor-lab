@@ -1,0 +1,46 @@
+{
+  "_note": "自動生成：GameTest exportMultiblocks（tools/test.ps1 で更新）。layers は下の層から、各層は奥から手前の行。' '＝空気、'?'＝何でも、controller＝制御ブロックの文字",
+  "multiblocks": [
+    {
+      "controller_block": "semiconductor-lab:blast_furnace",
+      "controller": "C",
+      "width": 3,
+      "depth": 3,
+      "height": 4,
+      "layers": [
+        [
+          "BCB",
+          "BBB",
+          "BBB"
+        ],
+        [
+          "BTB",
+          "T T",
+          "BTB"
+        ],
+        [
+          "BBB",
+          "B B",
+          "BBB"
+        ],
+        [
+          "BBB",
+          "B B",
+          "BBB"
+        ]
+      ],
+      "legend": {
+        "B": {
+          "name": "lining",
+          "lang": "multiblock.semiconductor-lab.lining",
+          "block": "minecraft:bricks"
+        },
+        "T": {
+          "name": "tuyere",
+          "lang": "multiblock.semiconductor-lab.tuyere",
+          "block": "semiconductor-lab:tuyere"
+        }
+      }
+    }
+  ]
+}
