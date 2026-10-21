@@ -162,3 +162,7 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - A のスマホ [B-10] の組立台（Branches.TFT_ID）：E の [B-19] は ID tft_lcd、[B-20] は led_backlight で作る（作ったら A に知らせる）
 - 存命の人の名前（O-022 のきまり、D の指摘）：[2-33] の F72・REFERENCES F42・TECH_TREE・lang note4 から伊藤・ウィルソン・フレシェを消し「IBM の研究者たち」に
 - ✅ [B-07] 赤い LED（S-007 案A）：白ヒ素（A の反射炉、黄鉄鉱4個ごと）→ 化合物半導体の炉（block/CompoundFurnaceBlockEntity）でヒ素・GaAsP → 作業台で red_led → LED の明かり（block/LedLampBlockEntity、2W・明るさ7）。Branches.java に追記。GameTest red_led、CHEMISTRY B-L1〜L2、REFERENCES F46
+- O-022：D の [B-18] 液晶ができたので [B-19] TFT 液晶へ。TECH_TREE の MC 欄が「未定」なので案（仮決定を待つ）：
+  - 案A（おすすめ）：スマホの部品 tft_lcd（A の組立台の ID どおり）。作り方＝①TFT のガラス tft_array_glass：CVD 炉の新しいモード「ITO ガラス＋シラン（＋水素）→ 水素を含むアモルファスシリコンの膜」（1979 ダンディー大学の a-Si:H の TFT、本物はプラズマ CVD ⚠️）→ 露光・エッチングは省略（⚠️ 画素の並びは作らない）②組立台：TFT のガラス＋こすった ITO ガラス（D）＋MBBA（D）＋偏光フィルム2（D）＋NOT に合格したチップ（駆動）→ tft_lcd。手に持つと「画素ごとのトランジスタが電気をためて、次に書きかえるまで明るさを保つ」を一言で出す（説明だけ、表示の絵はなし）
+  - 案B：D の液晶セル（ブロック）の上位のブロック（4×4 の画素を順に書きかえて模様を出す）。体験は大きいが描画の手間が大きい
+  - 案C：部品 tft_lcd を作るだけ（手に持っても何もしない）
