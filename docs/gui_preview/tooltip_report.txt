@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 810（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 814（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -135,6 +135,14 @@ en_us magnesium lines=4
 en_us magnesium shift lines=13
 en_us ilmenite lines=5
 en_us ilmenite shift lines=12
+en_us steel_die lines=3
+en_us steel_die shift lines=11
+en_us iron_powder lines=5
+en_us iron_powder shift lines=10
+en_us iron_compact lines=2
+en_us iron_compact shift lines=8
+en_us sintered_gear lines=5
+en_us sintered_gear shift lines=10
 en_us bastnaesite lines=3
 en_us bastnaesite shift lines=8
 en_us roasted_bastnaesite lines=6
@@ -1755,6 +1763,14 @@ ja_jp magnesium lines=4
 ja_jp magnesium shift lines=11
 ja_jp ilmenite lines=3
 ja_jp ilmenite shift lines=8
+ja_jp steel_die lines=2
+ja_jp steel_die shift lines=9
+ja_jp iron_powder lines=4
+ja_jp iron_powder shift lines=8
+ja_jp iron_compact lines=2
+ja_jp iron_compact shift lines=7
+ja_jp sintered_gear lines=4
+ja_jp sintered_gear shift lines=8
 ja_jp bastnaesite lines=2
 ja_jp bastnaesite shift lines=7
 ja_jp roasted_bastnaesite lines=4
