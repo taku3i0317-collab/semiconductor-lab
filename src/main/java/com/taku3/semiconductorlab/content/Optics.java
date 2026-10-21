@@ -114,6 +114,9 @@ public final class Optics {
     // [7-21] 超低膨張ガラス ULE（IMP2 O-019、1960年代 コーニング）：SiCl4 と TiCl4 を混ぜて酸水素炎で加水分解 → SiO2 に TiO2 約7%。室温で熱膨張ほぼ 0
     public static final Item ULE_FEED              = Reg.item("ule_feed", new Item.Properties().stacksTo(16)); // SiCl4＋TiCl4 の混ぜた液
     public static final Item ULE_GLASS             = Reg.item("ule_glass");
+    // [7-17] 多層膜ミラー（IMP2 S-007、1985 Mo/Si）：スパッタ装置（E）で ULE ガラス[7-21]に Mo/Si の的を当てるたび10対ずつ重ねる。13.5nm の反射率は対の数で上がる（約40対で約70%）
+    public static final Item MO_SI_TARGET          = Reg.item("mo_si_target");    // モリブデンとケイ素の的（2つの的を交互に使う近似）
+    public static final Item MULTILAYER_MIRROR     = Reg.item("multilayer_mirror", MultilayerMirrorItem::new, new Item.Properties().stacksTo(1));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));

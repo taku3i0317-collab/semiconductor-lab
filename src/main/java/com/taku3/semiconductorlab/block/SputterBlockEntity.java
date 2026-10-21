@@ -33,8 +33,8 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
     private int pullTimer;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + 1)
-            .in(SLOT_WAFER, 8, 17, ChipOps::isProcessWafer)
-            .in(SLOT_TARGET, 8, 35, s -> s.is(Metallurgy.ALUMINIUM_INGOT) || s.is(Metallurgy.TANTALUM))
+            .in(SLOT_WAFER, 8, 17, s -> ChipOps.isProcessWafer(s) || isMirrorBase(s))
+            .in(SLOT_TARGET, 8, 35, s -> s.is(Metallurgy.ALUMINIUM_INGOT) || s.is(Metallurgy.TANTALUM) || s.is(com.taku3.semiconductorlab.content.Optics.MO_SI_TARGET))
             .in(SLOT_AR, 8, 53, s -> s.is(Gas.ARGON_GAS))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.sputter.power").samples("500.0 kW")
@@ -49,6 +49,7 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
 
     /** Al を付けたウェハー（1〜8枚）。付けられなければ EMPTY */
     public static ItemStack product(ItemStack w, ItemStack target) {
+        if (isMirrorBase(w)) return mirrorProduct(w, target);
         if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
         ItemStack in = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
         ChipOps.Result r;
@@ -56,6 +57,19 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
         else if (target.is(Metallurgy.ALUMINIUM_INGOT)) r = ChipOps.depositMetal(in, true);   // conformal＝段差によく付く（記録、A）
         else return ItemStack.EMPTY;
         return r.ok() ? r.out() : ItemStack.EMPTY;
+    }
+
+    /** [7-17] 多層膜ミラーの土台（ULE ガラス・重ねている途中の多層膜ミラー）（IMP2 S-007） */
+    public static boolean isMirrorBase(ItemStack s) {
+        return s.is(com.taku3.semiconductorlab.content.Optics.ULE_GLASS) || s.is(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR);
+    }
+
+    /** [7-17] Mo/Si の的を1つ当てると 10 対増える（最大 60）。それ以上・的が違うと EMPTY */
+    public static ItemStack mirrorProduct(ItemStack base, ItemStack target) {
+        if (!target.is(com.taku3.semiconductorlab.content.Optics.MO_SI_TARGET)) return ItemStack.EMPTY;
+        int n = com.taku3.semiconductorlab.item.MultilayerMirrorItem.pairs(base) + com.taku3.semiconductorlab.item.MultilayerMirrorItem.PAIRS_PER_RUN;
+        if (base.is(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR) && n > com.taku3.semiconductorlab.item.MultilayerMirrorItem.MAX_PAIRS) return ItemStack.EMPTY;
+        return com.taku3.semiconductorlab.item.MultilayerMirrorItem.withPairs(new ItemStack(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR), base.is(com.taku3.semiconductorlab.content.Optics.ULE_GLASS) ? com.taku3.semiconductorlab.item.MultilayerMirrorItem.PAIRS_PER_RUN : n);
     }
 
     public boolean vacuumOk() {

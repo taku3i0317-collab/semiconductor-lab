@@ -542,6 +542,8 @@ projection_lens_krf  # Optics [7-20] 1975
 projection_lens  # Optics [7-19] 1978
 projection_lens_i  # Optics [9-39] 1978
 i_line_filter  # Optics [9-39] 1978
+mo_si_target  # Optics [7-17] 1985
+multilayer_mirror  # Optics [7-17] 1985
 projection_lens_immersion  # Optics [7-16] 2006
 vernier_caliper  # Precision [8-04] 1631
 micrometer  # Precision [8-04] 1631

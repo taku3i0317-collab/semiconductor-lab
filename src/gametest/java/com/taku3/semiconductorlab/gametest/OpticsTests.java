@@ -145,6 +145,34 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-17] 多層膜ミラー（IMP2 S-007）：ULE ガラスに Mo/Si を10対ずつスパッタ。1回では 10%台、4回（40対）で約70%。10枚の鏡で光は数%しか残らない */
+    @GameTest(maxTicks = 2000)
+    public void multilayer_mirror(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "mo_si_target", Metallurgy.MOLYBDENUM) && recipeUses(h, "mo_si_target", Metallurgy.POLYSILICON), "target = Mo + Si");
+        h.assertTrue(com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(10) < 0.3 && Math.abs(com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(40) - 0.7) < 0.03 && com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(60) - com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(40) < 0.02, "R: 10 pairs " + com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(10) + ", 40 pairs " + com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(40) + ", saturates");
+        BlockPos at = p(1, 1, 1), ch = p(2, 1, 1);
+        h.setBlock(at, com.taku3.semiconductorlab.content.Semiconductor.SPUTTER.block);
+        h.setBlock(ch, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+        h.getBlockEntity(ch, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(1e-4);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.SputterBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_WAFER, new ItemStack(Optics.ULE_GLASS));
+        c.setItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_TARGET, new ItemStack(Optics.MO_SI_TARGET, 4));
+        c.setItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_AR, new ItemStack(Gas.ARGON_GAS, 4));
+        long full = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS);
+        for (int k = 1; k <= 4; k++) {
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS + 5, full);
+            ItemStack out = c.getItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_OUT);
+            h.assertTrue(out.is(Optics.MULTILAYER_MIRROR) && com.taku3.semiconductorlab.item.MultilayerMirrorItem.pairs(out) == 10 * k, "run " + k + " -> " + 10 * k + " pairs");
+            c.setItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_WAFER, out.copy());
+            c.setItem(com.taku3.semiconductorlab.block.SputterBlockEntity.SLOT_OUT, ItemStack.EMPTY);
+            h.getBlockEntity(ch, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(1e-4);
+        }
+        double r = com.taku3.semiconductorlab.item.MultilayerMirrorItem.reflectance(40);
+        LOG.info("[LAB] multilayer mirror [7-17]: 40 Mo/Si pairs on ULE -> R " + Math.round(r * 100) + "% at 13.5 nm; after 10 mirrors " + String.format(java.util.Locale.ROOT, "%.1f", Math.pow(r, 10) * 100) + "%");
+        h.succeed();
+    }
+
     /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
     @GameTest
     public void silvering(GameTestHelper h) {

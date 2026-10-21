@@ -439,5 +439,18 @@
   "item.semiconductor-lab.projection_lens_immersion.placeholder": "Approximation: NA 1.35, k1 0.3. The water hood and bubble/temperature control are skipped.",
   "gui.semiconductor-lab.reduction_camera.split_button": "Split",
   "gui.semiconductor-lab.reduction_camera.split_none": "One mask",
-  "gui.semiconductor-lab.reduction_camera.split_part": "Next: mask %s/%s"
+  "gui.semiconductor-lab.reduction_camera.split_part": "Next: mask %s/%s",
+  "item.semiconductor-lab.mo_si_target": "Mo/Si Target",
+  "item.semiconductor-lab.mo_si_target.note1": "A pair of molybdenum and silicon targets. The sputter tool hits them in turn to stack thin films.",
+  "item.semiconductor-lab.mo_si_target.note2": "Molybdenum + polysilicon. Goes in the sputter tool's target slot. Adds 10 layer pairs per run to ULE glass or a mirror in progress.",
+  "item.semiconductor-lab.mo_si_target.note3": "Real tools place two targets side by side and swing the substrate past each in turn, laying each layer a few dozen atoms thick.",
+  "item.semiconductor-lab.mo_si_target.note4": "One pair (the period) is about 6.9 nm (Mo about 2.8 nm + Si about 4.1 nm). A small thickness error shifts the reflected wavelength.",
+  "item.semiconductor-lab.mo_si_target.placeholder": "Approximation: two targets combined into one item. 10 pairs per run is a game value.",
+  "item.semiconductor-lab.multilayer_mirror": "Multilayer Mirror (EUV)",
+  "item.semiconductor-lab.multilayer_mirror.note1": "A mirror that bounces EUV light, which no single surface reflects, by stacking dozens of weak reflections.",
+  "item.semiconductor-lab.multilayer_mirror.note2": "Sputter tool (vacuum chamber at 0.01 Pa or less, argon): ULE glass + Mo/Si target -> 10 pairs. Sputtering the same mirror again adds 10 pairs (up to 60). Right-click for pair count, reflectance at 13.5 nm (about 70% at 40 pairs) and the light left after 10 mirrors.",
+  "item.semiconductor-lab.multilayer_mirror.note3": "W/C multilayers made soft-X-ray mirrors in 1981, and Mo/Si multilayers for EUV (up to about 78% reflectance) were reported in 1985. An EUV scanner carries its light on about ten such mirrors.",
+  "item.semiconductor-lab.multilayer_mirror.note4": "EUV is absorbed by every material, so lenses are impossible. Each interface reflects only a little, but with the period set to half the wavelength all reflections add up (Bragg reflection). The ULE base keeps its shape when heated, and the surface is polished smooth to about one atom (0.1 nm).",
+  "item.semiconductor-lab.multilayer_mirror.placeholder": "Approximation: reflectance R = 0.70 tanh^2(pairs/15) (⚠️ a game formula). Surface roughness and period accuracy are not modelled.",
+  "item.semiconductor-lab.multilayer_mirror.spec": "🪞 %s Mo/Si pairs: %s%% reflectance at 13.5 nm. After 10 mirrors %s%% of the light is left"
 }

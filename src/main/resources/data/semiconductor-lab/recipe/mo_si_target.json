@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:molybdenum",
+    "semiconductor-lab:polysilicon"
+  ],
+  "result": {
+    "id": "semiconductor-lab:mo_si_target",
+    "count": 1
+  }
+}

@@ -2171,6 +2171,19 @@
 - Wikipedia「Molybdenum」：https://en.wikipedia.org/wiki/Molybdenum
 - Wikipedia「Molybdenite」：https://en.wikipedia.org/wiki/Molybdenite
 
+## O76. 40回の弱い反射を重ねる鏡（多層膜ミラー）［7-17］
+**答え**：13.5nm の EUV の光はどんな物質にも吸われるので、レンズは作れず、ふつうの鏡も1%ほどしか反射しない。1981年にアンダーウッドとバービーが W/C の多層膜で軟X線を垂直に反射させ、1985年にバービーらが EUV 用の Mo/Si 多層膜（反射率 最大 約78%）を報告した。モリブデンとケイ素を約6.9nm の周期で約40対重ねると、境目ごとの弱い反射が全部強め合う（ブラッグ反射）。EUV 露光装置は約10枚のこの鏡で光を運ぶので、マスクに届く光はわずかになる。
+
+- へえ①：1枚では反射しない光を、40回の弱い反射を重ねて跳ね返す。
+- へえ②：鏡1枚で約70%、10枚通ると光は約3%しか残らない。
+- へえ③：土台は温まっても伸びない ULE ガラス、表面は原子1個ぶんまで滑らか。
+- へえ④：同じ考え（薄い膜の干渉）は、レンズの反射防止膜やシャボン玉の色と同じ。
+
+確かさ：1981 W/C・1985 Mo/Si ◎／最大 約78%・実用 約70% ○／周期 約6.9nm・約40対 ◎
+根拠：
+- Wikipedia「Extreme ultraviolet lithography」（Mirrors）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
+- Wikipedia「Multilayer optics」：https://en.wikipedia.org/wiki/Multilayer_optics
+
 ---
 
 # 冶金と熱（タスク15〜）
