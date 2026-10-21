@@ -611,3 +611,8 @@
 
 - S-017 の4（E の [B-07]）：反射炉で黄鉄鉱を焼くとベンガラ（Fe2O3）＋SO2、4個ごとに白ヒ素（煙道のちり、副産物スロット4）。錫石は焼いても錫石のまま（同じ物が出ると何度でも白ヒ素が取れてしまう）なので黄鉄鉱だけにした。CHEMISTRY（3_heat）、GameTest pyriteWhiteArsenic
 - E の tft_lcd・led_backlight がそろい、スマホのレシピ（8種）が現れた。GameTest smartphoneRecipe がそろった方の道で PASS（364）。lang の「まだない ⚠️」を直した。アプリの画面はこれから
+
+## O-030（スマホの部品がそろった、2026-10-21）
+- スマホのアプリ3つを今の表示で：右クリックで今のアプリ（電卓＝電卓の画面、写真＝CameraModuleItem.shoot の写真、傾き＝加速度計の前後の角度をチャット）、しゃがんで右クリックで切りかえ（データコンポーネント phone_app）。電池 40 kJ（battery_energy、ないときは満タン、電卓 200 J・写真 2 kJ・傾き 100 J）、足りないと「電池切れ」、リチウムイオン電池のブロックに使うと充電（RechargeableBatteryBlockEntity.registerCapacity でツールチップの容量）。新しい画面は作っていない（アイコンの画面はユーザーの答え待ち）
+- TECH_TREE [B-10] ✅⚠️、ROADMAP v0.5 #8 にスマホ、HUMAN_CHECK にゲーム機・マイコン・スマホ。GameTest smartphoneApps。tag はしない
+

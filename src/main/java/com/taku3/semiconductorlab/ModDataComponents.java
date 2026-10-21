@@ -71,6 +71,15 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.STRING_UTF8)
                     .build());
 
+    // [B-10] スマホの今のアプリ（0＝電卓・1＝写真・2＝傾き、O-030）
+    public static final DataComponentType<Integer> PHONE_APP = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("phone_app"),
+            DataComponentType.<Integer>builder()
+                    .persistent(Codec.INT)
+                    .networkSynchronized(ByteBufCodecs.VAR_INT)
+                    .build());
+
     // [9-15] 熱酸化の膜の厚さ（nm）。酸化膜つきの板に付く。Deal–Grove の式で育つ（IMP4-01）
     public static final DataComponentType<Integer> OXIDE_NM = Registry.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE,

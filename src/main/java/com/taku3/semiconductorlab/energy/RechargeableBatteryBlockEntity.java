@@ -40,6 +40,9 @@ public abstract class RechargeableBatteryBlockEntity extends BlockEntity {
     /** アイテムの ID（"semiconductor-lab:lead_acid_battery" など）から容量。知らない ID は 0 */
     public static long capacityOf(String itemId) { return CAPACITY_BY_ID.getOrDefault(itemId, 0L); }
 
+    /** 電池を中に持つアイテム（スマホ [B-10] など）の容量を登録（ツールチップの「残量 / 容量」） */
+    public static void registerCapacity(String itemId, long capacityJ) { CAPACITY_BY_ID.put(itemId, capacityJ); }
+
     /** 電池の機械の1行（ブロックは右クリックで残量、全面で充放電、向きと LIT＝放電中） */
     public static <T extends RechargeableBatteryBlockEntity> Machine<T> machine(String id, net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder.Factory<T> factory, Spec spec, BlockBehaviour.Properties props) {
         CAPACITY_BY_ID.put(SemiconductorLab.MOD_ID + ":" + id, spec.capacityJ());

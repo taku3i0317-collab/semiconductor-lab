@@ -387,4 +387,31 @@ public class BranchesTests extends LabTestBase {
         h.succeed();
     }
 
+
+    /**
+     * [B-10] スマホのアプリ3つ（O-030、O-029 案A 仮決定）：はじめは満タン 40 kJ、電卓 200 J・写真 2 kJ・傾き 100 J を使う、アプリを切りかえる、
+     * 足りないと使えない（減らない）、リチウムイオン電池のブロックから充電できる、写真のアプリはその場の写真
+     */
+    @GameTest
+    public void smartphoneApps(GameTestHelper h) {
+        var s = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Branches.SMARTPHONE);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SmartphoneItem.energy(s), 40_000L, "a new phone is full");
+        h.assertTrue(com.taku3.semiconductorlab.item.SmartphoneItem.drain(s) && com.taku3.semiconductorlab.item.SmartphoneItem.energy(s) == 39_800L, "the calculator uses 200 J");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SmartphoneItem.nextApp(s), 1, "next app: photo");
+        h.assertTrue(com.taku3.semiconductorlab.item.SmartphoneItem.drain(s) && com.taku3.semiconductorlab.item.SmartphoneItem.energy(s) == 37_800L, "a photo uses 2 kJ");
+        com.taku3.semiconductorlab.item.SmartphoneItem.nextApp(s);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SmartphoneItem.app(s), 2, "tilt");
+        s.set(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY, 50L);
+        h.assertFalse(com.taku3.semiconductorlab.item.SmartphoneItem.drain(s), "not enough for the tilt app");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SmartphoneItem.energy(s), 50L, "nothing is taken");
+        h.setBlock(p(1, 1, 1), com.taku3.semiconductorlab.content.Power.LITHIUM_ION_BATTERY.block);
+        var be = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.class);
+        be.setStoredForTest(1_000_000);
+        long got = com.taku3.semiconductorlab.item.SmartphoneItem.charge(s, be);
+        h.assertTrue(got > 0 && com.taku3.semiconductorlab.item.SmartphoneItem.energy(s) == 50 + got, "charged from the lithium-ion battery: " + got);
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.capacityOf("semiconductor-lab:smartphone"), 40_000L, "tooltip capacity");
+        var photo = com.taku3.semiconductorlab.item.CameraModuleItem.shoot(h.getLevel(), h.absolutePos(p(1, 2, 1)));
+        h.assertTrue(photo.has(com.taku3.semiconductorlab.content.Branches.PHOTO), "the photo app takes a digital photo");
+        h.succeed();
+    }
 }
