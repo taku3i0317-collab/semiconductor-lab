@@ -184,3 +184,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ S-009 [9-05] 点接触ダイオード（作業台）。GameTest point_contact_diode、REFERENCES F51
 - ✅ S-009 [4-16] アーク灯（block/ArcLampBlockEntity、450W・明るさ15・黒鉛が減る）。GameTest arc_lamp、REFERENCES F52
 - ✅ S-009 [5-03] 水銀柱の気圧計（block/MercuryBarometerBlock、右クリックで高さの気圧）。GameTest mercury_barometer、REFERENCES F53
+- ✅ S-009 [1-47] 天然磁石：v0.2a の磁石アイテム（磁鉄鉱4）がそのまま当てはまるので ✅ に（新しいアイテムなし）。GameTest natural_magnet、REFERENCES F54

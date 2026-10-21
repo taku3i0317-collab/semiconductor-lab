@@ -1074,6 +1074,13 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-47] 天然磁石（IMP4-01、S-009）：v0.2a の磁石アイテム（磁鉄鉱4）＝磁化した磁鉄鉱（ロードストーン） */
+    @GameTest
+    public void naturalMagnet(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "magnet", Metallurgy.MAGNETITE), "magnet = magnetised magnetite (lodestone)");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Metallurgy.GALLIUM_CELL.block, "ガリウム", L(io(Metallurgy.SPENT_BAYER_LIQUOR, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.LIQUOR_PER_RUN), io(Chemistry.POLYETHYLENE_BOTTLE, 1)),
             L(io(Metallurgy.GALLIUM, 1), io(Gas.SODIUM_HYDROXIDE, 1)), com.taku3.semiconductorlab.block.GalliumCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.TICKS / 20.0, "バイヤー法の使い終わった液を電解（液はバイヤー法の溶解釜が液を使い切るたびに1つ）");

@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 866（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 867（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1637,6 +1637,8 @@ en_us touch_panel lines=4
 en_us touch_panel shift lines=22
 en_us transistor_radio lines=14
 en_us transistor_radio shift lines=35
+en_us telephone lines=7
+en_us telephone shift lines=16
 en_us tube_radio lines=7
 en_us tube_radio shift lines=22
 en_us sulfite_liquor lines=6
@@ -3369,6 +3371,8 @@ ja_jp touch_panel lines=3
 ja_jp touch_panel shift lines=18
 ja_jp transistor_radio lines=11
 ja_jp transistor_radio shift lines=29
+ja_jp telephone lines=4
+ja_jp telephone shift lines=11
 ja_jp tube_radio lines=5
 ja_jp tube_radio shift lines=18
 ja_jp sulfite_liquor lines=4
