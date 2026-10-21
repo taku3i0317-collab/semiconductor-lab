@@ -1174,5 +1174,10 @@
   "item.semiconductor-lab.native_copper.note2": "銅の鉱石を掘ると時々出る（5% ⚠️）。かまどで溶かすと銅のインゴット。",
   "item.semiconductor-lab.native_copper.note3": "たたくと硬くなり（加工硬化）、熱すると柔らかく戻る（焼きなまし）。人がはじめて使った金属の一つ。",
   "item.semiconductor-lab.native_copper.note4": "紀元前8000年ごろのアナトリア（今のトルコ）で、自然銅をたたいて作ったビーズが見つかっている。北アメリカの五大湖のまわりでは大きな自然銅のかたまりが出た。",
-  "block.semiconductor-lab.magnesium_cell.howto": "無水の塩化マグネシウムを入れて電気をつなぐ。マグネシウムと塩素の袋が出る。にがりを乾かして無水にしてから入れる。"
+  "block.semiconductor-lab.magnesium_cell.howto": "無水の塩化マグネシウムを入れて電気をつなぐ。マグネシウムと塩素の袋が出る。にがりを乾かして無水にしてから入れる。",
+  "block.semiconductor-lab.bayer_digester.howto": "ボーキサイト・水酸化ナトリウム・水バケツを入れる → 水酸化アルミニウムと赤泥。電気 2kW。液を4回使い切るごとに右下にガリウムの液。",
+  "block.semiconductor-lab.castner_cell.howto": "水酸化ナトリウム4と空の鉄の容器を入れる → 金属ナトリウム。電気 2kW。",
+  "block.semiconductor-lab.gallium_cell.howto": "使い終わったバイヤー法の液4と空のポリエチレン瓶を入れる → ガリウムと水酸化ナトリウム。電気 1kW。",
+  "block.semiconductor-lab.hall_heroult_cell.howto": "アルミナ・氷晶石・黒鉛の棒（陽極）を入れる → アルミニウム。大きな電気が要る。陽極は少しずつ減る。",
+  "block.semiconductor-lab.tantalum_refinery.howto": "タンタル石＋フッ酸2＋フッ化カリウム → K2TaF7、それ＋金属ナトリウム → タンタル。電気 3kW。容器は上に出る。"
 }

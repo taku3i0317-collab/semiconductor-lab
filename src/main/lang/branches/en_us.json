@@ -245,5 +245,8 @@
   "item.semiconductor-lab.ai_chip.note4": "The net is 64-16-10, trained on our own CC0 digits. Each 4-bit multiply runs through the mul4 behaviour. If it misreads, pick the right bar and press teach (copper button) to retrain. Sneak + right-click reads a sample. ⚠️ The learning maths itself runs in Java",
   "item.semiconductor-lab.ai_chip.placeholder": "⚠️ Placeholder: learning maths runs in Java (multiplies use your multiplier behaviour)",
   "message.semiconductor-lab.ai_chip.demo": "AI chip: read a sample '%s' -> answer %s (%s multiplies, %s clocks with 4 multipliers)",
-  "block.semiconductor-lab.lcd_cell.howto": "Connect power (1 W) by copper cable: the front goes dark; cut it and it turns light again. Seven of them make a digit."
+  "block.semiconductor-lab.lcd_cell.howto": "Connect power (1 W) by copper cable: the front goes dark; cut it and it turns light again. Seven of them make a digit.",
+  "block.semiconductor-lab.compound_furnace.howto": "By combination: white arsenic + coke → arsenic; gallium + arsenic + red phosphorus → GaAsP; gallium + ammonia + magnesium → GaN; yttrium oxide + alumina + cerium oxide → phosphor. 3 kW.",
+  "block.semiconductor-lab.led_lamp.howto": "Supply 2 W to glow red (light level 7). Uses no materials.",
+  "block.semiconductor-lab.white_led_lamp.howto": "Supply 2 W to glow bright white (light level 15). Uses no materials."
 }

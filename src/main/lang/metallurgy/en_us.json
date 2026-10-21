@@ -1174,5 +1174,10 @@
   "item.semiconductor-lab.native_copper.note2": "Sometimes drops when mining copper ore (5% ⚠️). Smelt it for a copper ingot.",
   "item.semiconductor-lab.native_copper.note3": "Hammering hardens it (work hardening); heating softens it again (annealing). One of the first metals people used.",
   "item.semiconductor-lab.native_copper.note4": "Beads hammered from native copper around 8000 BC have been found in Anatolia (modern Turkey); big lumps came from around North America's Great Lakes.",
-  "block.semiconductor-lab.magnesium_cell.howto": "Put in anhydrous magnesium chloride and connect power. Out come magnesium and a chlorine bag. Dry the bittern salt first."
+  "block.semiconductor-lab.magnesium_cell.howto": "Put in anhydrous magnesium chloride and connect power. Out come magnesium and a chlorine bag. Dry the bittern salt first.",
+  "block.semiconductor-lab.bayer_digester.howto": "Insert bauxite, sodium hydroxide and a water bucket → aluminium hydroxide and red mud. 2 kW. Every 4 uses of the liquor, spent liquor (gallium) appears bottom right.",
+  "block.semiconductor-lab.castner_cell.howto": "Insert 4 sodium hydroxide and an empty iron flask → metallic sodium. 2 kW.",
+  "block.semiconductor-lab.gallium_cell.howto": "Insert 4 spent Bayer liquor and an empty polyethylene bottle → gallium and sodium hydroxide. 1 kW.",
+  "block.semiconductor-lab.hall_heroult_cell.howto": "Insert alumina, cryolite and graphite rods (anodes) → aluminium. Needs a lot of power. Anodes wear away.",
+  "block.semiconductor-lab.tantalum_refinery.howto": "Tantalite + 2 hydrofluoric acid + potassium fluoride → K2TaF7; that + metallic sodium → tantalum. 3 kW. Containers pop out."
 }

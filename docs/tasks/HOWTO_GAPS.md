@@ -2,6 +2,8 @@
 
 - ①入手の道が無いアイテム：**43** / 900
 - ②「?」の説明が無い機械（画面のある機械のうち、手書きの lang block.semiconductor-lab.<id>.howto も、自動のレシピの一覧＝machine_recipes も無い物）：**25** / 101
+- ①入手の道が無いアイテム：**71** / 895
+- ②「?」の説明（lang block.semiconductor-lab.<id>.howto）が無い機械：**71** / 113
 - ③見取り図の無いマルチブロック：**0**
 
 道の数え方：作業台・かまどのレシピ、機械・組立台のレシピ（docs/machine_recipes.json）、世界に生える鉱石とそのルート、ルートの書き換え（LootTableEvents）、例外の一覧（tools/check_howto.py の HOWTO_EXTRA）。ここに無いのに手に入る物は、HOWTO_EXTRA に理由を書いて足すか、machine_recipes の書き出しに足す
@@ -13,6 +15,12 @@
 ## ② 「?」の説明が無い機械（作った担当ごと）
 - **C**（17）：air_conditioner、diffusion_pump、electron_microscope、euv_scanner、euv_source、fluorine_cell、grinder、kibble_balance、mask_aligner、mercury_lamp、rare_gas_column、refrigerator、rotary_pump、ruling_engine、scanner、stepper、turbo_pump
 - **E**（8）：arc_lamp、compound_furnace、fz_puller、led_lamp、load_port、rca_bench、wafer_polisher、white_led_lamp
+- **D**（31）：alkali_waste（Chemistry）、ammonia_gas（Gas）、carotene（Chemistry）、chlorophyll（Chemistry）、colcothar（Chemistry）、cured_photopolymer（Chemistry）、deionized_water（Chemistry）、einkorn（Survival）、ethylene_gas（Chemistry）、fermented_wash（Chemistry）、flax_stalks（Survival）、formalin（Chemistry）、green_vitriol（Chemistry）、heliograph（Chemistry）、indium_tin_coated_glass（Chemistry）、latex（Chemistry）、light_rare_earth_liquor（Metallurgy）、magnesium（Metallurgy）、nitrogen_farmland（Survival）、obsidian_flake（Survival）、pine_resin（Chemistry）、potassium_fluorozirconate（Metallurgy）、retted_flax（Survival）、roman_concrete（Construction）、salty_farmland（Agriculture）、spent_aqua_regia（Chemistry）、spent_lye（Chemistry）、tired_farmland（Agriculture）、vinegar（Agriculture）、wood_pulp（Communication）、woolen_yarn（Survival）
+
+## ② 「?」の説明が無い機械（作った担当ごと）
+- **A**（38）：acheson_furnace、air_separation_unit、arc_furnace、assembly_bench、bellows、bessemer_converter、blast_furnace_hearth、bloomery、compressor、copper_cable、crystal_puller、cz_puller、dicing_saw、diffusion_furnace、drafting_table、electric_furnace、electrolyzer、energy_port、gas_holder、gas_port、hcl_burner、high_voltage_line、hydrogen_furnace、item_port、oxyhydrogen_burner、probe_station、rectifier、reverberatory_furnace、salt_pan、sealing_station、siemens_reactor、sprengel_pump、transformer、trichlorosilane_reactor、vacuum_chamber、wafer_prober、wafer_saw、zone_refining_furnace
+- **C**（23）：air_conditioner、bridgman_furnace、co2_laser、diffusion_pump、electron_microscope、euv_scanner、euv_source、evaporator、fluorine_cell、grinder、kibble_balance、lathe、mask_aligner、mercury_lamp、rare_gas_column、reduction_camera、refrigerator、rotary_pump、ruling_engine、scanner、stepper、turbo_pump、wood_retort
+- **D**（10）：autoclave、bottle_machine、electroplating_bath、haber_bosch_reactor、high_pressure_reactor、lcd_cell、magnesium_cell、pyrolysis_furnace、solvay_tower、ultrapure_water_system
 
 ## ③ 見取り図の無いマルチブロック
 - なし

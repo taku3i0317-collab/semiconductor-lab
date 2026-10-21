@@ -931,6 +931,27 @@
       "note": "Al(OH)3 + NaOH → NaAl(OH)4 → こして冷やすと Al(OH)3。鉄は赤泥に。液は使い回す"
     },
     {
+      "machine": "semiconductor-lab:bayer_digester",
+      "process": "使い終わった液（ガリウム）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:bauxite",
+          "count": 8,
+          "cond": "液を使い切るまで"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:spent_bayer_liquor",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 120.0,
+      "energy_kj": 240,
+      "note": "[1-44] 液を4回使うと1つ"
+    },
+    {
       "machine": "semiconductor-lab:bessemer_converter",
       "process": "ベッセマー転炉",
       "inputs": [
@@ -1164,6 +1185,114 @@
       "note": "CO2＋N2 の放電で 10.6µm（CO2・N2 の袋1つずつで 8 回）。石英は赤外線をよく吸う"
     },
     {
+      "machine": "semiconductor-lab:compound_furnace",
+      "process": "ヒ素",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:white_arsenic",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:coke",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:arsenic",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "As2O3 + 3C → 2As + 3CO（密閉した石英管）"
+    },
+    {
+      "machine": "semiconductor-lab:compound_furnace",
+      "process": "GaAsP",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:gallium",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:arsenic",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:red_phosphorus",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:gaasp_wafer",
+          "count": 4
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "[B-07] 赤い LED の板"
+    },
+    {
+      "machine": "semiconductor-lab:compound_furnace",
+      "process": "窒化ガリウム",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:gallium",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:ammonia_gas",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:magnesium",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:gan_wafer",
+          "count": 4
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "[B-20] 青い LED の板"
+    },
+    {
+      "machine": "semiconductor-lab:compound_furnace",
+      "process": "YAG:Ce の蛍光体",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:yttrium_oxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:alumina",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:cerium_oxide",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:yag_phosphor",
+          "count": 4
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "[B-20] 黄色い蛍光体"
+    },
+    {
       "machine": "semiconductor-lab:compressor",
       "process": "ボンベに詰める",
       "inputs": [
@@ -1274,6 +1403,38 @@
       "seconds": 60.0,
       "energy_kj": 180,
       "note": "純度と経路を受け継ぐ"
+    },
+    {
+      "machine": "semiconductor-lab:cvd_furnace",
+      "process": "TFT のガラス",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:ito_glass",
+          "count": 8
+        },
+        {
+          "item": "semiconductor-lab:silane_cylinder",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:tft_array_glass",
+          "count": 8
+        },
+        {
+          "item": "semiconductor-lab:empty_gas_cylinder",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 20.0,
+      "energy_kj": 40,
+      "note": "[B-19] アモルファスシリコン"
     },
     {
       "machine": "semiconductor-lab:cvd_furnace",
@@ -1495,6 +1656,30 @@
       "seconds": 120.0,
       "energy_kj": 600,
       "note": "両面 p（p-n-p）にもう一度リン → p-n-p-n（1957 GE の SCR）"
+    },
+    {
+      "machine": "semiconductor-lab:dry_etcher",
+      "process": "MEMS の板",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:mems_wafer",
+          "count": 8
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 15.0,
+      "energy_kj": 45,
+      "note": "[9-43] 深く削ってばねとおもり"
     },
     {
       "machine": "semiconductor-lab:dry_etcher",
@@ -1776,6 +1961,29 @@
       "seconds": 30.0,
       "energy_kj": 300,
       "note": "SiCl4 + 2H2 → Si + 4HCl を約1200℃。H2 はホルダーから"
+    },
+    {
+      "machine": "semiconductor-lab:etch_tank",
+      "process": "メサを削る",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:waxed_wafer",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:silicon_etch",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:mesa_wafer",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "[9-17] ろうで守った所だけ残る"
     },
     {
       "machine": "semiconductor-lab:etch_tank",
@@ -2704,6 +2912,33 @@
       "note": "照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）"
     },
     {
+      "machine": "semiconductor-lab:reduction_camera",
+      "process": "EUV のマスク",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:euv_mask_blank",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:positive_resist",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:euv_mask",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "C の縮小カメラ：模様を写して吸収体を塩素で削る（反射型）"
+    },
+    {
       "machine": "semiconductor-lab:resist_reactor",
       "process": "化学増幅レジスト：fries",
       "inputs": [
@@ -3105,6 +3340,25 @@
       "note": "燃料式（電気なし）"
     },
     {
+      "machine": "semiconductor-lab:reverberatory_furnace",
+      "process": "白ヒ素（煙道のちり）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:pyrite",
+          "count": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:white_arsenic",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 0.0,
+      "note": "A の反射炉：黄鉄鉱を4個焼くごとに副産物の口へ（ベンガラ・SO2 といっしょに）"
+    },
+    {
       "machine": "semiconductor-lab:salt_pan",
       "process": "天日で塩",
       "inputs": [
@@ -3411,6 +3665,35 @@
       "watts": 0.0,
       "seconds": 1.0,
       "note": "電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:sputter",
+      "process": "EUV のマスクの板",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:multilayer_mirror",
+          "count": 1,
+          "cond": "40対以上"
+        },
+        {
+          "item": "semiconductor-lab:tantalum",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:euv_mask_blank",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 20.0,
+      "energy_kj": 100,
+      "note": "タンタルの吸収体（反射型マスク）"
     },
     {
       "machine": "semiconductor-lab:sputter",

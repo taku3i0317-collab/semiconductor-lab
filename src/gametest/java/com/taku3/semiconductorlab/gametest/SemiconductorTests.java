@@ -3641,6 +3641,31 @@ public class SemiconductorTests extends LabTestBase {
     }
 
     static void machineRecipes(com.google.gson.JsonArray a) {
+        // O-027（S-026 入手の道）：E の機械のコードが作る物の書き出し（IMP4-01）
+        rec(a, com.taku3.semiconductorlab.content.Vacuum.EVAPORATOR.block, "アルミの点（メサ）", L(cond(io(Semiconductor.PN_JUNCTION_WAFER, 8), "ホウ素の p-n 接合"), io(Metallurgy.ALUMINIUM_INGOT, 1)),
+            L(io(Semiconductor.AL_DOTTED_WAFER, 8)), com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS / 20.0, "[9-17] 隣の真空容器 0.01Pa 以下");
+        rec(a, Semiconductor.ETCH_TANK.block, "メサを削る", L(io(Semiconductor.WAXED_WAFER, 1), io(Chemistry.SILICON_ETCH, 1)),
+            L(io(Semiconductor.MESA_WAFER, 1)), 0, 10, "[9-17] ろうで守った所だけ残る");
+        rec(a, com.taku3.semiconductorlab.content.Branches.COMPOUND_FURNACE.block, "ヒ素", L(io(Metallurgy.WHITE_ARSENIC, 1), io(Metallurgy.COKE, 1)),
+            L(io(com.taku3.semiconductorlab.content.Branches.ARSENIC, 1)), com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS / 20.0, "As2O3 + 3C → 2As + 3CO（密閉した石英管）");
+        rec(a, com.taku3.semiconductorlab.content.Branches.COMPOUND_FURNACE.block, "GaAsP", L(io(Metallurgy.GALLIUM, 1), io(com.taku3.semiconductorlab.content.Branches.ARSENIC, 1), io(Chemistry.RED_PHOSPHORUS, 1)),
+            L(io(com.taku3.semiconductorlab.content.Branches.GAASP_WAFER, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WAFERS_PER_RUN)), com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS / 20.0, "[B-07] 赤い LED の板");
+        rec(a, com.taku3.semiconductorlab.content.Branches.COMPOUND_FURNACE.block, "窒化ガリウム", L(io(Metallurgy.GALLIUM, 1), io(Gas.AMMONIA_GAS, 1), io(Metallurgy.MAGNESIUM, 1)),
+            L(io(com.taku3.semiconductorlab.content.Branches.GAN_WAFER, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WAFERS_PER_RUN)), com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS / 20.0, "[B-20] 青い LED の板");
+        rec(a, com.taku3.semiconductorlab.content.Branches.COMPOUND_FURNACE.block, "YAG:Ce の蛍光体", L(io(Metallurgy.YTTRIUM_OXIDE, 1), io(Metallurgy.ALUMINA, 1), io(Metallurgy.CERIUM_OXIDE, 1)),
+            L(io(com.taku3.semiconductorlab.content.Branches.YAG_PHOSPHOR, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WAFERS_PER_RUN)), com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS / 20.0, "[B-20] 黄色い蛍光体");
+        rec(a, Semiconductor.SPUTTER.block, "EUV のマスクの板", L(cond(io(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR, 1), "40対以上"), io(Metallurgy.TANTALUM, 1), io(Gas.ARGON_GAS, 1)),
+            L(io(Semiconductor.EUV_MASK_BLANK, 1)), com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS / 20.0, "タンタルの吸収体（反射型マスク）");
+        rec(a, com.taku3.semiconductorlab.content.Optics.REDUCTION_CAMERA.block, "EUV のマスク", L(io(Semiconductor.EUV_MASK_BLANK, 1), io(Chemistry.POSITIVE_RESIST, 1), io(Gas.CHLORINE_GAS, 1)),
+            L(io(Semiconductor.EUV_MASK, 1)), 0, 10, "C の縮小カメラ：模様を写して吸収体を塩素で削る（反射型）");
+        rec(a, Semiconductor.DRY_ETCHER.block, "MEMS の板", L(io(Semiconductor.SILICON_WAFER, 8), io(Gas.CHLORINE_GAS, 1)),
+            L(io(Semiconductor.MEMS_WAFER, 8)), com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WATTS, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.TICKS / 20.0, "[9-43] 深く削ってばねとおもり");
+        rec(a, Semiconductor.CVD_FURNACE.block, "TFT のガラス", L(io(Chemistry.ITO_GLASS, 8), io(Semiconductor.SILANE_CYLINDER, 1), io(Gas.HYDROGEN_GAS, 1)),
+            L(io(com.taku3.semiconductorlab.content.Branches.TFT_ARRAY_GLASS, 8), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS / 20.0, "[B-19] アモルファスシリコン");
+        rec(a, Metallurgy.BAYER_DIGESTER.block, "使い終わった液（ガリウム）", L(cond(io(Metallurgy.BAUXITE, 2 * com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR), "液を使い切るまで")),
+            L(io(Metallurgy.SPENT_BAYER_LIQUOR, 1)), com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.WATTS, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS * com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR / 20.0, "[1-44] 液を4回使うと1つ");
+        rec(a, com.taku3.semiconductorlab.content.Heat.REVERBERATORY_FURNACE.block, "白ヒ素（煙道のちり）", L(io(Chemistry.PYRITE, 4)),
+            L(io(Metallurgy.WHITE_ARSENIC, 1)), 0, 0, "A の反射炉：黄鉄鉱を4個焼くごとに副産物の口へ（ベンガラ・SO2 といっしょに）");
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
             L(max(io(Metallurgy.RAW_GERMANIUM, 1), 8), kept(cond(io(Semiconductor.GRAPHITE_BOAT, 1), "粘土黒鉛＝9Nまで、人造黒鉛＝10Nまで"))),

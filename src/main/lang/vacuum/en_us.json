@@ -136,5 +136,7 @@
   "block.semiconductor-lab.mercury_barometer.note3": "Mercury stops about 760 mm up the tube with a Torricellian vacuum above, where its weight balances the push of the air. 1 atm = 760 mmHg = 1013 hPa.",
   "block.semiconductor-lab.mercury_barometer.note4": "Torricelli made it in 1643; in 1648 Pascal's brother-in-law Périer showed the column is lower on a mountain. The hPa of weather forecasts honours Pascal. Mercury vapour is toxic, so such barometers fell out of use.",
   "block.semiconductor-lab.mercury_barometer.placeholder": "Omitted: ⚠️ weather and temperature changes are not modelled. The height scale (1/e per about 8400 blocks) is a game approximation.",
-  "block.semiconductor-lab.mercury_barometer.reading": "Mercury column %s mmHg (%s hPa)  height Y=%s"
+  "block.semiconductor-lab.mercury_barometer.reading": "Mercury column %s mmHg (%s hPa)  height Y=%s",
+  "block.semiconductor-lab.oil_diffusion_pump.howto": "Place next to both a vacuum chamber and a running rotary pump. Once the chamber is below 10 Pa it pumps to 10⁻⁵ Pa. 1 kW.",
+  "block.semiconductor-lab.silicone_reactor.howto": "By combination: methanol + hydrogen chloride (alumina) → methyl chloride; metallurgical silicon + 2 methyl chloride (copper) + bottle → dimethyldichlorosilane; that + distilled water → silicone oil. 2 kW."
 }

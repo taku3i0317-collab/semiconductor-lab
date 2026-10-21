@@ -1482,5 +1482,10 @@
   "block.semiconductor-lab.high_pressure_reactor.howto": "Put in ethylene bags and a little oxygen and connect power. At very high pressure you get polyethylene.",
   "block.semiconductor-lab.pyrolysis_furnace.howto": "Put in chlorodifluoromethane bags and connect power. Heat splits it into tetrafluoroethylene (the PTFE raw material) and hydrogen chloride.",
   "block.semiconductor-lab.solvay_tower.howto": "Put in salt, calcite and ammonia water and connect power. You get sodium carbonate (soda). The ammonia mostly goes round and comes back.",
-  "block.semiconductor-lab.ultrapure_water_system.howto": "Put in deionized water and a polyethylene bottle and connect power. You get ultrapure water for washing chips."
+  "block.semiconductor-lab.ultrapure_water_system.howto": "Put in deionized water and a polyethylene bottle and connect power. You get ultrapure water for washing chips.",
+  "block.semiconductor-lab.ammonia_still.howto": "Insert ammoniacal liquor, slaked lime, empty glass bottles and a water bucket → ammonia water (bottled). Electric heating.",
+  "block.semiconductor-lab.gas_retort.howto": "Insert coal and heat with fuel → coke, ammoniacal liquor and coal tar. No electricity.",
+  "block.semiconductor-lab.lead_retort.howto": "Insert fluorite, sulfuric acid, lead or polyethylene bottles, a water bucket and fuel → hydrofluoric acid (bottled). Fuel-heated.",
+  "block.semiconductor-lab.peroxide_cell.howto": "Insert sulfuric acid, platinum (anode, kept), a water bucket and empty glass bottles → hydrogen peroxide (bottled). Electric.",
+  "block.semiconductor-lab.resist_reactor.howto": "Four inputs for materials, catalyst below. The combination picks the reaction for the resist resin or photoacid generator. Anything extra stops it. 1.5 kW."
 }

@@ -191,3 +191,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ S-009 [3-01] たき火：バニラのたき火がそのまま当てはまるので ✅ に。GameTest campfire、REFERENCES F57
 - ✅ S-009 [3-13] ロックウール（溶鉱炉で玄武岩、石綿は作らない＝危ない物は歴史と警告だけ）。GameTest rock_wool、REFERENCES F58
 - ✅ S-009 [3-09] 熱電対（item/ThermocoupleItem、右クリックで温度と電圧、銅＋鉄は700℃ まで）。GameTest thermocouple、REFERENCES F59
+- ✅ O-027：E の分 0（入手の道 12＝機械のコードが作る物を machine_recipes に書き出し〔A の反射炉の白ヒ素・C の縮小カメラの EUV マスクも E の行で〕、「?」の howto を E の機械42台に）。check_howto: no way 71 / no help 71（E は 0）

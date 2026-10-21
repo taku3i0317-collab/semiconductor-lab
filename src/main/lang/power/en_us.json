@@ -195,5 +195,6 @@
   "gui.semiconductor-lab.arc_lamp.need_rod": "Insert a carbon rod (graphite)",
   "gui.semiconductor-lab.arc_lamp.need_power": "Not enough power",
   "gui.semiconductor-lab.arc_lamp.running": "Glowing with the arc",
-  "gui.semiconductor-lab.arc_lamp.recipe": "Carbon-rod arc → light"
+  "gui.semiconductor-lab.arc_lamp.recipe": "Carbon-rod arc → light",
+  "block.semiconductor-lab.arc_lamp.howto": "Insert graphite (carbon rods) and supply 450 W to glow brightly. One rod lasts 2 minutes."
 }

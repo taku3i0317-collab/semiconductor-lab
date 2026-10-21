@@ -136,5 +136,7 @@
   "block.semiconductor-lab.mercury_barometer.note3": "水銀は管の中で約 760mm で止まり、上はトリチェリの真空になる。まわりの空気が水銀を押し上げる力（気圧）とつり合う高さ。1気圧＝760mmHg＝1013hPa。",
   "block.semiconductor-lab.mercury_barometer.note4": "1643年にトリチェリが作り、1648年にパスカルの義兄ペリエが山の上では水銀柱が低いことを確かめた。天気予報の hPa（ヘクトパスカル）はパスカルの名前。水銀の蒸気は毒なので、今は使われなくなった。",
   "block.semiconductor-lab.mercury_barometer.placeholder": "省略：⚠️ 天気・温度での変化は表さない。高さの換算（約 8400 ブロックで 1/e）はゲームの近似。",
-  "block.semiconductor-lab.mercury_barometer.reading": "水銀柱 %s mmHg（%s hPa）  高さ Y=%s"
+  "block.semiconductor-lab.mercury_barometer.reading": "水銀柱 %s mmHg（%s hPa）  高さ Y=%s",
+  "block.semiconductor-lab.oil_diffusion_pump.howto": "真空容器と、動いている回転ポンプの両方の隣に置く。容器が 10Pa 以下になると 10⁻⁵Pa まで引く。電気 1kW。",
+  "block.semiconductor-lab.silicone_reactor.howto": "組み合わせで切りかわる：メタノール＋塩化水素（アルミナ）→ 塩化メチル、金属シリコン＋塩化メチル2（銅）＋瓶 → ジメチルジクロロシラン、それ＋蒸留水 → シリコーン油。電気 2kW。"
 }
