@@ -116,6 +116,7 @@ header.top .ic { display: none; }   /* 大きなアイコンを絵の欄に出�
     <a href="#10-16">AI までの道</a>
     <input type="search" id="go" placeholder="番号か名前で移動（例 9-07）" aria-label="ノードへ移動">
     <button type="button" id="langBtn" class="btn" lang="en">English</button>
+    <button type="button" id="furiBtn" class="btn" aria-pressed="false">ふりがな</button>
   </nav>
   <main id="page"><p class="muted">読み込み中…</p></main>
 </div>
@@ -465,5 +466,7 @@ header.top .ic { display: none; }   /* 大きなアイコンを絵の欄に出�
   render();
 })();
 </script>
+<script src="furigana.js"></script>
+<script>Furigana.init(document.getElementById('furiBtn'));</script>
 </body>
 </html>

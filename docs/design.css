@@ -62,3 +62,8 @@ a.al:hover { color: var(--accent); }
 a.al { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
 .alprev.touch { pointer-events: auto; padding-right: 30px; }
 .alprev .alclose { position: absolute; top: 2px; right: 4px; border: 0; background: none; font-size: 18px; color: var(--sub); cursor: pointer; padding: 4px 6px; }
+
+/* ふりがな（S-012 決定1）：furigana.js が <ruby class="fu"> を付ける。ボタンはオンのとき色を反転 */
+ruby.fu rt { font-size: 0.55em; font-weight: 400; letter-spacing: 0; color: var(--sub); }
+#furiBtn.on { background: var(--accent); color: var(--panel); }
+.alprev[hidden] { display: none; }   /* S-012：display:flex が hidden に勝って、左上に空のカードが残っていた */

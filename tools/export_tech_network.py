@@ -61,7 +61,7 @@ def main():
     # 図のページ（GitHub Pages は docs/ から）
     (OUT / "docs").mkdir()
     for f in ("network.html", "node.html", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
-              "tech_network_graph.js", "tech_network_detail.js"):
+              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js"):
         shutil.copy(ROOT / "docs" / f, OUT / "docs" / f)
     for f in ("node.html",):   # 誤りの報告はこのリポジトリの Issue へ
         p = OUT / "docs" / f

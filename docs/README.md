@@ -26,6 +26,7 @@
 | tech_network_graph.js | 図に要る軽いデータ（番号・名前・年・幹・状態・種類・アイコン・位置・つながり・子孫の数）。位置は gen_tree_views.py が先に計算。network.html が最初に読む（ファイルを直接開いても読めるように JS） |
 | tech_network_detail.js | カード・詳細用の重いデータ（本物・へえ・出典・レシピ・人物）。network.html はカードを開くか検索したときに読み、node.html は最初から読む |
 | tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
+| furigana.js・furigana_dict.js・furigana_fix.json | ふりがな（S-012）。ページの「ふりがな」ボタンでオン・オフ（設定は tn-furi）。辞書 furigana_dict.js は `python tools/gen_furigana.py`（pykakasi。-I なし）で作る。読みの誤りは furigana_fix.json に「言葉: 読み」で足す（表が優先） |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
 | CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき）。組み立て結果：書くのは chemistry/<幹>.md（tools/docs_build.py） |
 | HUMAN_CHECK_TODAY.md | 今日足された「人間の確認」を試験場の区画の順に並べた手順書（`python tools/gen_human_check.py [日付]` が作る。v0.3 の本線は通しの1つの手順） |
