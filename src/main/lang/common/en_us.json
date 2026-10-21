@@ -513,5 +513,10 @@
   "block.semiconductor-lab.oht_rail.note2": "Crafting: 3 steel → 8. Joins to neighbours (up and down too). A load port up to 4 blocks below a dead end is a drop-off point. The rail glows where the carriage is.",
   "block.semiconductor-lab.oht_rail.note3": "In today's 300 mm fabs kilometres of ceiling rail carry FOUPs between tools on hundreds of carriages; people hardly carry wafers at all ⚠️.",
   "block.semiconductor-lab.oht_rail.note4": "A FOUP weighs about 8 kg; carrying them all day is hard and a drop ruins 25 wafers. So 300 mm fabs were built with automated transport from the start ⚠️.",
-  "block.semiconductor-lab.oht_rail.howto": "Run it along the ceiling from a drive. A load port up to 4 blocks below a dead end is a drop-off point. It glows where the carriage is."
+  "block.semiconductor-lab.oht_rail.howto": "Run it along the ceiling from a drive. A load port up to 4 blocks below a dead end is a drop-off point. It glows where the carriage is.",
+  "block.minecraft.furnace.note1": "A fire walled in with stone. Heat bounces off the walls, so it gets hotter than a campfire (about 1000 °C).",
+  "block.minecraft.furnace.note2": "In this mod it is a ~1000 °C furnace. Silver (962 °C) and germanium (938 °C) melt, but above copper (1085 °C) you need bellows ([3-04]) or a hotter furnace. An optical pyrometer can read it.",
+  "block.minecraft.furnace.note3": "Walling in a fire sends its radiated heat back from the walls, so heat builds up inside. The ancestor of pottery kilns and smithing hearths.",
+  "block.minecraft.furnace.note4": "Pottery kilns were in use in West Asia about 8,000 years ago ⚠️. Smelting copper and iron ores in it is kept as an approximation of the bloomery and crucible furnace (real ones work at about 1100–1200 °C).",
+  "block.minecraft.furnace.placeholder": "Approximation: ⚠️ the furnace is fixed at about 1000 °C. Ore smelting stands in for the bloomery and crucible furnace."
 }

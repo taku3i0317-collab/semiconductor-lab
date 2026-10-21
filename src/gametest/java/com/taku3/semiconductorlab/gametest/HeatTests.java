@@ -352,6 +352,18 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-02] かまど（IMP4-01、S-009）：火の入ったバニラのかまどは約1000℃（熱電対の銅＋鉄では測れない、光高温計で読める）、火が消えると部屋の温度 */
+    @GameTest
+    public void furnaceTemperature(GameTestHelper h) {
+        var lit = net.minecraft.world.level.block.Blocks.FURNACE.defaultBlockState().setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT, true);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.ThermocoupleItem.temperatureC(lit), 1000, "lit furnace about 1000 C");
+        h.assertTrue(com.taku3.semiconductorlab.item.ThermocoupleItem.temperatureC(lit) > com.taku3.semiconductorlab.item.ThermocoupleItem.MAX_C, "beyond copper-iron thermocouple");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.OpticalPyrometerItem.glowC(lit), 1000, "the pyrometer reads it");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.ThermocoupleItem.temperatureC(net.minecraft.world.level.block.Blocks.FURNACE.defaultBlockState()), 20, "cold furnace");
+        h.assertTrue(com.taku3.semiconductorlab.item.ThermocoupleItem.FURNACE_C < 1085, "copper (1085 C) does not melt in it");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [2-43] 黄鉄鉱の焙焼（IMP3、O-028 で書き出しに足した）
         rec(a, Heat.REVERBERATORY_FURNACE.block, "焙焼（黄鉄鉱）", L(io(Chemistry.PYRITE, 1), perRuns(io(Items.COAL, 1), (int) (ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS))),

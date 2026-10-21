@@ -15,6 +15,8 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
  */
 public class ThermocoupleItem extends Item {
     public static final int MAX_C = 700;
+    /** 火の入ったかまど（バニラ furnace）の温度。[3-02] の決定：≈1000℃ と固定（銅の融点 1085℃ より上はふいご [3-04]） */
+    public static final int FURNACE_C = 1000;
     /** 銅−鉄の熱起電力（µV/℃、0〜数百℃ の平均 ⚠️） */
     public static final double MICROVOLT_PER_C = 13.0;
     private static final String K = "item.semiconductor-lab.thermocouple.";
@@ -27,7 +29,7 @@ public class ThermocoupleItem extends Item {
         if (s.is(Blocks.LAVA) || s.is(Blocks.LAVA_CAULDRON)) return 1150;
         if (s.is(Blocks.MAGMA_BLOCK)) return 900;
         if (s.is(Blocks.FIRE) || s.is(Blocks.SOUL_FIRE)) return 800;
-        if ((s.is(Blocks.FURNACE) || s.is(Blocks.BLAST_FURNACE) || s.is(Blocks.SMOKER)) && lit) return s.is(Blocks.BLAST_FURNACE) ? 1200 : 600;
+        if ((s.is(Blocks.FURNACE) || s.is(Blocks.BLAST_FURNACE) || s.is(Blocks.SMOKER)) && lit) return s.is(Blocks.BLAST_FURNACE) ? 1200 : s.is(Blocks.FURNACE) ? FURNACE_C : 250;   // かまど ≈1000℃ は [3-02] の決定
         if ((s.is(Blocks.CAMPFIRE) || s.is(Blocks.SOUL_CAMPFIRE)) && lit) return 650;
         if (s.is(Blocks.TORCH) || s.is(Blocks.WALL_TORCH)) return 500;
         if (s.is(Blocks.ICE) || s.is(Blocks.PACKED_ICE) || s.is(Blocks.BLUE_ICE) || s.is(Blocks.SNOW_BLOCK) || s.is(Blocks.POWDER_SNOW)) return 0;
