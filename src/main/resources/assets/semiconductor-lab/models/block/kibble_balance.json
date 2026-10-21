@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/kibble_balance_front",
+    "side": "semiconductor-lab:block/kibble_balance_side",
+    "top": "semiconductor-lab:block/kibble_balance_top"
+  }
+}

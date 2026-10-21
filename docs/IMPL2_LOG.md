@@ -176,3 +176,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - 決まったら INBOX に書いてください。それまで O-020 の 3 は手を付けない
 - 待機終了（2026-10-21 05:23）：O-020 の到着（10-20 23:21 ごろ）から6時間、INBOX に変化なし。O-020 の 3（[8-24]・[8-25]）は判断待ちのまま
 - ✅ S-005 1. [8-24] 国際単位系（案A）：krypton_lamp（石英管＋Kr＋W線×2、耐久64）。干渉計＋反対の手にランプ → ブロック2つで距離をクリプトンの波の数で（InterferometerItem.measureWithKrypton、印は custom_data）。1m で「1,650,763.73 波長」。空中で SI の説明。SI の7単位・接頭語は note3・REFERENCES。GameTest krypton_metre、CHEMISTRY P16、REFERENCES O67
+- ✅ S-005 2. [8-25] ワット天秤（案A 古典版、ヘリウム回避のまま）：cadmium（Metallurgy：酸化亜鉛×6＋木炭×2＋石英の蒸留器、亜鉛の副産物。**ネットワーク担当へ：カドミウムのノードがまだない**）、weston_cell・standard_resistor（Precision）、kibble_balance（block/KibbleBalanceBlockEntity・KibbleBalanceScreen、200W・30秒）：原器のずれ±あいまいさ（空調・真空容器で減る、最良 約4.6mg で 50µg は見えない＝量子標準は説明だけ）。イタイイタイ病を cadmium.note4・REFERENCES に。GameTest kibble_balance、CHEMISTRY P17〜19、REFERENCES O68

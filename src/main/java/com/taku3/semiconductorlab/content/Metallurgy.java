@@ -92,7 +92,9 @@ public final class Metallurgy {
     public static final Item AMMONIUM_CHLOROPLATINATE = Reg.item("ammonium_chloroplatinate");
     public static final Item PLATINUM_SPONGE       = Reg.item("platinum_sponge");
     public static final Item PLATINUM_COMPACT      = Reg.item("platinum_compact");
-    public static final Item PLATINUM_INGOT        = Reg.item("platinum_ingot");   // c:ingots/platinum
+    public static final Item PLATINUM_INGOT        = Reg.item("platinum_ingot");
+    // カドミウム（IMP2 S-005、[8-25] ウェストン標準電池の前提）：亜鉛鉱の中に 0.1〜0.5%（シュトロマイヤー 1817）。酸化亜鉛を炭で還元して蒸留すると、亜鉛（沸点 907℃）より先にカドミウム（767℃）が出る
+    public static final Item CADMIUM               = Reg.item("cadmium");   // c:ingots/platinum
     // [1-58] 伸線（IMP4-01、S-001 の答え①）：引き板（穴が段々に小さい鉄の板、戻る）で金・銅の線、ダイヤモンドのダイス（戻る）でボンディング用の細い金線
     public static final Item DRAW_PLATE            = Reg.item("draw_plate", com.taku3.semiconductorlab.item.ReusableToolItem::new, new Item.Properties().stacksTo(1));
     public static final Item DIAMOND_DIE           = Reg.item("diamond_die", com.taku3.semiconductorlab.item.ReusableToolItem::new, new Item.Properties().stacksTo(1));

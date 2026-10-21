@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:zinc_oxide",
+    "semiconductor-lab:zinc_oxide",
+    "semiconductor-lab:zinc_oxide",
+    "semiconductor-lab:zinc_oxide",
+    "semiconductor-lab:zinc_oxide",
+    "semiconductor-lab:zinc_oxide",
+    "minecraft:charcoal",
+    "minecraft:charcoal",
+    "semiconductor-lab:quartz_still"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cadmium",
+    "count": 1
+  }
+}

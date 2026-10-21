@@ -548,6 +548,34 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-25] ワット天秤（IMP2 S-005 古典版）：原器・ウェストン電池・標準抵抗・クリプトン86 ランプで原器の質量を測る。空調と真空であいまいさが減るが、原器の差 50µg までは見えない */
+    @GameTest(maxTicks = 1000)
+    public void kibble_balance(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "weston_cell", Metallurgy.CADMIUM) && recipeUses(h, "weston_cell", Metallurgy.MERCURY), "Weston cell = cadmium amalgam + mercury");
+        h.assertTrue(recipeUses(h, "cadmium", com.taku3.semiconductorlab.content.Heat.ZINC_OXIDE), "cadmium comes from zinc ore");
+        double air = com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.sigmaUg(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SWING_OFF_C, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.ATM);
+        double ac = com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.sigmaUg(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SWING_ON_C, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.ATM);
+        double best = com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.sigmaUg(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SWING_ON_C, 1e-3);
+        h.assertTrue(air > ac && ac > best && best > 50, "uncertainty: open room " + air + " ug > air conditioned " + ac + " ug > + vacuum " + best + " ug, still above the 50 ug drift");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Precision.KIBBLE_BALANCE.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.class);
+        var c = be.getContainer();
+        ItemStack mass = new ItemStack(Precision.KILOGRAM_PROTOTYPE);
+        com.taku3.semiconductorlab.item.KilogramPrototypeItem.set(mass, 20, 0, 0);
+        c.setItem(com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.SLOT_MASS, mass);
+        c.setItem(com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.SLOT_CELL, new ItemStack(Precision.WESTON_CELL));
+        c.setItem(com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.SLOT_RES, new ItemStack(Precision.STANDARD_RESISTOR));
+        c.setItem(com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.SLOT_LAMP, new ItemStack(Precision.KRYPTON_LAMP));
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.TICKS + 5, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.WATTS));
+        h.assertTrue(be.hasResult() && Math.abs(be.sigma() - Math.round(air)) <= 1, "one measurement in the open room: +-" + be.sigma() + " ug");
+        h.assertTrue(Math.abs(be.result() - 20) < 6 * be.sigma(), "the result scatters around the prototype's true offset");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.SLOT_LAMP).getDamageValue(), 1, "the krypton lamp is used once");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.KibbleBalanceBlockEntity.SLOT_CELL).is(Precision.WESTON_CELL), "a standard cell gives a reference voltage and is not used up");
+        LOG.info("[LAB] Kibble balance [8-25]: classical standards, uncertainty " + Math.round(air) + " / " + Math.round(ac) + " / " + Math.round(best) + " ug (open / AC / AC+vacuum); 50 ug drift needs quantum standards");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");

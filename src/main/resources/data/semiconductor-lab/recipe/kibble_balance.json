@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MCM",
+    "SIS",
+    "SSS"
+  ],
+  "key": {
+    "M": "semiconductor-lab:magnet",
+    "C": "minecraft:copper_ingot",
+    "I": "semiconductor-lab:interferometer",
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:kibble_balance",
+    "count": 1
+  }
+}

@@ -1940,6 +1940,20 @@
 - Wikipedia「History of the metre」：https://en.wikipedia.org/wiki/History_of_the_metre
 - Wikipedia「International System of Units」：https://en.wikipedia.org/wiki/International_System_of_Units
 
+## O68. 電気の力で量る1キログラム（ワット天秤）［8-25］
+**答え**：1975年、イギリス国立物理学研究所のブライアン・キッブルは、磁石の中のコイルに電流を流して、その力でおもりの重さを支える天秤を考えた。重さの段で電流 I、コイルを速さ v で動かす段で電圧 U を測ると、磁石の強さが消えて mgv = UI になる。電圧をジョセフソン効果、抵抗を量子ホール効果で測れば、質量はプランク定数で決まる。2019年5月20日、キログラムは金属の原器ではなく h = 6.62607015×10⁻³⁴ J·s で定義された。古い電気の基準（1893年のウェストン標準電池など）では 100万分の1 ほどが限界で、原器の 50µg のずれを確かめるには量子の基準が必要だった。
+
+- へえ①：いまの1キログラムは、金属のかたまりではなく、電気の力で決めている。
+- へえ②：1911〜1990年の「1ボルト」は、水銀とカドミウムでできた小さな電池で保たれていた。
+- へえ③：天秤の名前は、2016年に亡くなった発明者キッブルにちなんで「キッブル天秤」に変わった。
+- へえ④：カドミウムは富山のイタイイタイ病（1968年、日本で最初の公害病の認定）の原因にもなった金属。
+
+確かさ：1975 キッブル・mgv=UI ◎／2019 h の値 ◎／ウェストン 1893・1.0186V ◎／古典版のあいまいさの数字 △（ゲームの代表値）
+根拠：
+- Wikipedia「Kibble balance」：https://en.wikipedia.org/wiki/Kibble_balance
+- Wikipedia「Weston cell」：https://en.wikipedia.org/wiki/Weston_cell
+- Wikipedia「Itai-itai disease」：https://en.wikipedia.org/wiki/Itai-itai_disease
+
 ---
 
 # 冶金と熱（タスク15〜）

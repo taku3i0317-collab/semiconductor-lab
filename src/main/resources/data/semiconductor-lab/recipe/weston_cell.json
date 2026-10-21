@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:mercury",
+    "semiconductor-lab:cadmium",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:platinum_grain",
+    "semiconductor-lab:platinum_grain"
+  ],
+  "result": {
+    "id": "semiconductor-lab:weston_cell",
+    "count": 1
+  }
+}

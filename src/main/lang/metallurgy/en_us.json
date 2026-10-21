@@ -761,5 +761,11 @@
   "item.semiconductor-lab.titanium_sponge.note2": "Vacuum-distil the sponge with salt. Material for vacuum pumps and optics ([5-08], [7-21]).",
   "item.semiconductor-lab.titanium_sponge.note3": "Density 4.5 g/cm3 (about 60% of iron) yet as strong as steel. A thin oxide skin keeps it from rusting.",
   "item.semiconductor-lab.titanium_sponge.note4": "Used for aircraft frames, artificial bones and teeth, and spectacle frames. To make ingots it is remelted in a vacuum (vacuum arc remelting).",
-  "item.semiconductor-lab.titanium_sponge.placeholder": "Approximation: vacuum arc remelting into ingots is not implemented."
+  "item.semiconductor-lab.titanium_sponge.placeholder": "Approximation: vacuum arc remelting into ingots is not implemented.",
+  "item.semiconductor-lab.cadmium": "Cadmium",
+  "item.semiconductor-lab.cadmium.note1": "A soft silvery metal found in small amounts in zinc ore. It is poisonous, so it is used only as an industrial material.",
+  "item.semiconductor-lab.cadmium.note2": "6 zinc oxide + 2 charcoal + quartz still (returned). Material for the Weston standard cell. ⚠ GHS: acute toxicity, carcinogen, health hazard, aquatic hazard.",
+  "item.semiconductor-lab.cadmium.note3": "Discovered in 1817 by Stromeyer in Germany, in zinc carbonate. When zinc is distilled, cadmium, with its lower boiling point, comes off first.",
+  "item.semiconductor-lab.cadmium.note4": "Itai-itai disease along the Jinzu River in Toyama, Japan, was caused by cadmium washed down from a mine upstream (recognised in 1968 as Japan's first official pollution disease). It damaged kidneys and bones, and many people suffered for years. Since then cadmium has been dropped from many uses.",
+  "item.semiconductor-lab.cadmium.placeholder": "Approximation: the cadmium content of zinc (real: 0.1-0.5%) and the distillation are game values."
 }

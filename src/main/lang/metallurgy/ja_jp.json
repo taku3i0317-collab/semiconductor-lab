@@ -761,5 +761,11 @@
   "item.semiconductor-lab.titanium_sponge.note2": "塩の混ざったスポンジを真空で蒸留して作る。真空ポンプ・光学の材料（[5-08]・[7-21]）。",
   "item.semiconductor-lab.titanium_sponge.note3": "密度 4.5 g/cm3（鉄の約6割）なのに鋼くらい強い。表面に薄い酸化膜ができて、さびない。",
   "item.semiconductor-lab.titanium_sponge.note4": "飛行機の骨組み・人工の骨や歯・めがねのフレームに使われる。インゴットにするには、真空の中で溶かし直す（真空アーク再溶解）。",
-  "item.semiconductor-lab.titanium_sponge.placeholder": "近似：インゴットにする真空アーク再溶解は未実装。"
+  "item.semiconductor-lab.titanium_sponge.placeholder": "近似：インゴットにする真空アーク再溶解は未実装。",
+  "item.semiconductor-lab.cadmium": "カドミウム",
+  "item.semiconductor-lab.cadmium.note1": "亜鉛の鉱石に少しだけまじっている、銀色のやわらかい金属。毒があるので工業の材料としてだけ使う。",
+  "item.semiconductor-lab.cadmium.note2": "酸化亜鉛×6＋木炭×2＋石英の蒸留器（戻る）。ウェストン標準電池の材料。⚠ GHS：急性毒性・発がん性・健康有害性・水生環境有害性。",
+  "item.semiconductor-lab.cadmium.note3": "1817年、ドイツのシュトロマイヤーが炭酸亜鉛の中から見つけた。亜鉛を蒸留すると、沸点の低いカドミウムが先に出てくる。",
+  "item.semiconductor-lab.cadmium.note4": "富山県の神通川流域のイタイイタイ病は、上流の鉱山から流れたカドミウムが原因だった（1968年、日本で最初の公害病の認定）。腎臓と骨が冒され、多くの人が長く苦しんだ。この教訓から、今は多くの用途でカドミウムが使われなくなっている。",
+  "item.semiconductor-lab.cadmium.placeholder": "近似：亜鉛の中のカドミウムの量（本物は 0.1〜0.5%）と蒸留の工程はゲームの割合。"
 }

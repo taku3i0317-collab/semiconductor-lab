@@ -148,6 +148,7 @@ trichlorosilane  # Metallurgy [1-16] 1953
 trichlorosilane_reactor  # Metallurgy [1-16] 1953
 polysilicon  # Metallurgy [1-17] 1956
 siemens_reactor  # Metallurgy [1-17] 1956
+cadmium  # Metallurgy [8-25] 1975
 pentlandite  # Metallurgy [None] None
 matte_charge  # Metallurgy [None] None
 nickel_matte  # Metallurgy [None] None
@@ -549,6 +550,9 @@ cultured_quartz  # Precision [8-18] 1948
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
 krypton_lamp  # Precision [8-24] 1960
+weston_cell  # Precision [8-25] 1975
+standard_resistor  # Precision [8-25] 1975
+kibble_balance  # Precision [8-25] 1975
 cw_multiplier  # Semiconductor [9-47] 1932
 accelerator_tube  # Semiconductor [9-47] 1932
 transistor  # Semiconductor [9-03] 1947

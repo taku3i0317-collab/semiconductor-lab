@@ -54,6 +54,9 @@ public final class Precision {
     // [8-23] キログラム原器（IMP2 O-020）：白金インゴットをベンガラで磨き上げた円柱（1799 アルシーヴのキログラム。1889 の国際原器は Pt90・Ir10%⚠️）。2つ持って比べると差が µg で出る
     // [8-24] 国際単位系 1960（IMP2 S-005 案A）：クリプトン86 の放電ランプ（石英管＋Kr＋W電極）。干渉計のもう片方の手に持つと、2点の間をクリプトンの波長で測れる（1m＝1,650,763.73 波長）。耐久＝ランプの寿命
     public static final Item KRYPTON_LAMP          = Reg.item("krypton_lamp", new Item.Properties().durability(64));
+    // [8-25] ワット天秤の電気の基準（IMP2 S-005 案A＝古典版）：ウェストン標準電池（1893、Cd アマルガム｜CdSO4｜Hg2SO4｜Hg、1.0186V）、標準抵抗（Cu-Ni 線を油の缶に）
+    public static final Item WESTON_CELL           = Reg.item("weston_cell", new Item.Properties().stacksTo(1));
+    public static final Item STANDARD_RESISTOR     = Reg.item("standard_resistor", new Item.Properties().stacksTo(1));
     public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤
@@ -125,6 +128,8 @@ public final class Precision {
     public static final Machine<ElectronMicroscopeBlockEntity> ELECTRON_MICROSCOPE = Machine.electric("electron_microscope", ElectronMicroscopeBlockEntity::new, ElectronMicroscopeBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));
     // 研削盤 [8-31]（IMP2 O-013）：焼入れした鋼球＋砥石＋測る道具 → そろえた鋼球（1kW）
+    // ワット天秤 [8-25]（IMP2 S-005、1975 キッブル）：mgv = UI。原器の質量を電気（標準電池・標準抵抗）と光（クリプトンの干渉）で測る。200W・30秒
+    public static final Machine<KibbleBalanceBlockEntity> KIBBLE_BALANCE = Machine.electric("kibble_balance", KibbleBalanceBlockEntity::new, KibbleBalanceBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<GrinderBlockEntity> GRINDER = Machine.electric("grinder", GrinderBlockEntity::new, GrinderBlockEntity.LAYOUT, metal(3.5f));
 
     static {
