@@ -14,6 +14,11 @@ public final class Transport {
     //   1日の狂い ±0.5秒⚠️（H4 は81日で約5秒）。六分儀で南中を測るとき、もう片方の手に持つと経度が出る
     public static final Item MARINE_CHRONOMETER    = Reg.item("marine_chronometer", p -> new ChronometerItem(p, 0.5, "marine_chronometer"), new Item.Properties().stacksTo(1));
 
+    // [14-13] ジュラルミン（IMP2 S-010、1906 ヴィルム）：Al×6＋銅＋Mg → 調合 →かまど（焼入れ）→ 焼入れしたジュラルミン（やわらかい）→ 持ち物で1日⚠️ → ジュラルミン（時効硬化）
+    public static final Item DURALUMIN_CHARGE      = Reg.item("duralumin_charge");
+    public static final Item DURALUMIN             = Reg.item("duralumin");
+    public static final Item QUENCHED_DURALUMIN    = Reg.item("quenched_duralumin", p -> new com.taku3.semiconductorlab.item.QuenchedDuraluminItem(p, () -> DURALUMIN), new Item.Properties());
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

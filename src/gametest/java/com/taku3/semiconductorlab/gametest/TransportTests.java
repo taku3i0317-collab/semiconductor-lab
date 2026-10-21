@@ -14,6 +14,28 @@ import net.minecraft.world.item.ItemStack;
  * GameTest：幹14 交通・運輸（IMP2 O-023 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class TransportTests extends LabTestBase {
+    /** [14-13] ジュラルミン（IMP2 S-010）：Al＋Cu＋Mg を焼入れ → 放っておくと硬くなる（時効硬化）。1日で HV 60 → 120 近く、持ち物で硬いジュラルミンに変わる */
+    @GameTest(maxTicks = 100)
+    public void duralumin(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "duralumin_charge", com.taku3.semiconductorlab.content.Metallurgy.ALUMINIUM_INGOT) && recipeUses(h, "duralumin_charge", com.taku3.semiconductorlab.content.Metallurgy.MAGNESIUM)
+                && recipeUses(h, "quenched_duralumin", Transport.DURALUMIN_CHARGE), "Al + Cu + Mg, quenched in the furnace");
+        h.assertTrue(com.taku3.semiconductorlab.item.QuenchedDuraluminItem.hardness(0) == com.taku3.semiconductorlab.item.QuenchedDuraluminItem.HV_SOFT && com.taku3.semiconductorlab.item.QuenchedDuraluminItem.hardness(com.taku3.semiconductorlab.item.QuenchedDuraluminItem.AGE_TICKS) > 110 && com.taku3.semiconductorlab.item.QuenchedDuraluminItem.hardness(com.taku3.semiconductorlab.item.QuenchedDuraluminItem.AGE_TICKS / 4) < com.taku3.semiconductorlab.item.QuenchedDuraluminItem.hardness(com.taku3.semiconductorlab.item.QuenchedDuraluminItem.AGE_TICKS), "hardens with time: " + com.taku3.semiconductorlab.item.QuenchedDuraluminItem.hardness(0) + " -> " + com.taku3.semiconductorlab.item.QuenchedDuraluminItem.hardness(com.taku3.semiconductorlab.item.QuenchedDuraluminItem.AGE_TICKS));
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack q = new ItemStack(Transport.QUENCHED_DURALUMIN, 3);
+        net.minecraft.nbt.CompoundTag t = new net.minecraft.nbt.CompoundTag();
+        t.putLong("QuenchedAt", h.getLevel().getGameTime() - com.taku3.semiconductorlab.item.QuenchedDuraluminItem.AGE_TICKS - 20);
+        q.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA, net.minecraft.world.item.component.CustomData.of(t));
+        player.getInventory().setItem(5, q);
+        var item = (com.taku3.semiconductorlab.item.QuenchedDuraluminItem) Transport.QUENCHED_DURALUMIN;
+        h.assertTrue(item.tryAge(player, q, h.getLevel().getGameTime()), "a day has passed -> it turns");
+        h.assertTrue(player.getInventory().getItem(5).is(Transport.DURALUMIN) && player.getInventory().getItem(5).getCount() == 3, "aged in the inventory -> 3 hard duralumin");
+        ItemStack fresh = new ItemStack(Transport.QUENCHED_DURALUMIN);
+        player.getInventory().setItem(6, fresh);
+        h.assertFalse(item.tryAge(player, fresh, h.getLevel().getGameTime()), "just quenched: first records the time, stays soft");
+        LOG.info("[LAB] duralumin [14-13]: quenched HV " + com.taku3.semiconductorlab.item.QuenchedDuraluminItem.HV_SOFT + " -> aged HV " + com.taku3.semiconductorlab.item.QuenchedDuraluminItem.hardness(com.taku3.semiconductorlab.item.QuenchedDuraluminItem.AGE_TICKS) + " after a day in the inventory");
+        h.succeed();
+    }
+
     /** [14-03] クロノメーター（IMP2 O-023）：東経30°（x=30000）で南中はグリニッジ 10時。六分儀＋クロノメーターで経度 30°E。狂った時計は経度もずれる */
     @GameTest
     public void chronometer_longitude(GameTestHelper h) {

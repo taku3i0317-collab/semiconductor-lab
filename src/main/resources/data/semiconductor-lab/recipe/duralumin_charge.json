@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:aluminium_ingot",
+    "minecraft:copper_ingot",
+    "semiconductor-lab:magnesium"
+  ],
+  "result": {
+    "id": "semiconductor-lab:duralumin_charge",
+    "count": 6
+  }
+}
