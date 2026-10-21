@@ -11,7 +11,7 @@ import sys
 from pathlib import Path
 
 DOCS = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent / "docs"
-FILES = ["network.html", "node.html", "glossary.html", "people.html", "credits.html", "design.css",
+FILES = ["network.html", "node.html", "glossary.html", "people.html", "credits.html", "ranking.html", "design.css",
          "tech_network_graph.js", "tech_network_detail.js", "glossary.js", "autolink.js", "furigana.js", "furigana_dict.js",
          "linebreak.js", "vendor/budoux-ja.min.js", "ui_icons.js", "film.js", "share.js", "pwa.js",
          "manifest.webmanifest", "app_icon_192.png", "app_icon_512.png", "apple-touch-icon.png"]

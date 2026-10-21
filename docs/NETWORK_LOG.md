@@ -636,3 +636,14 @@
   1. huggingface.co にログインし、「New Dataset」で名前（案：tech-network）、Public、License は CC0 で作る
   2. ブラウザなら、作ったページの「Files → Add file → Upload files」に build/huggingface の中身（README.md と data フォルダ）をそのまま入れる。コマンドなら `pip install huggingface_hub` → `huggingface-cli login` → `huggingface-cli upload <名前>/tech-network build/huggingface . --repo-type dataset`
   3. INBOX に「Hugging Face を作った（<名前>/tech-network）」と書けば、カードの使い方の例の <user> を直して、以後の更新はネットワーク担当が書き出す
+
+## S-039（2026-10-21、INBOX：ユーザーの決定）中心図の並べ方の最終の決まり
+- **輪＝作る順番**：前提（requires・enables・part）は必ずその物より外の輪、いちばん外は原点だけ。tools/test_rings.mjs で全 630 ノードの中心図を作って確かめた：**逆向きの線 0、外の輪にいる原点でない物 0、1枚の計算は最長 7.8ms**（目安 30ms 以内）
+  - 理解のつながり（understanding）が作る輪（A が B を説明し、B が A を作るのに要る）は、輪の中の理解のつながりだけ外して高さを決めた。前提どうしの輪 4-01→10-01 は network_meta の dropped_requires で外した（担当へ proposals）
+- **種類は丸の色**（製品・部品 青／素子・装置 赤／工程・機械・道具 茶／材料 黄土／知恵 紫／原点 緑、凡例つき）。輪の中は同じ種類が隣どうし→使う物の角度の平均の順（線が交わりにくい）。丸の数が少ない輪は、使う物の近くの角度に置く（縦1列に並ばないように）
+- **PageRank**（ブリンとペイジ 1998。使う物→前提を「参照」、part 0.7・understanding 0.5、減衰 0.85、0〜100）：丸の大きさは3段（1.3／1／0.8 倍）、名前は点の高い物から
+- **PageRank の上位 10**：①打製石器 100 ②火起こし 99 ③土器 58 ④窯 51 ⑤銅の製錬（孔雀石） 38 ⑥木炭 36 ⑦高炉（銑鉄） 28 ⑧ボルタ電池 26 ⑨鋼 25 ⑩塊鉄炉 19
+  - ほとんどが石器・火・焼き物・金属。電気の始まりはボルタ電池（8位）だけ。半導体の物は上位に入らない（新しい物は「使われている」先がまだ少ないため）
+- **縁の下の力持ちランキング** docs/ranking.html（メニューに1行）：上位 20 と分野ごとの上位 5、それぞれ「〇〇個の物を支えている」・へえ①・「▶ これが生んだ物」・中心図。ふりがな・英語・スマホ対応
+- 写真 docs/mockups/S039_h_B-10.png（スマホ）・S039_h_B-08.png（電卓）・S039_h_15-01.png（紙）・S039_h_B-11.png（AI チップ）・S039_h_pc.png（パソコンの幅）・S039_rank.png（ランキング）・S039_pr_only.png（**比べる見本：PageRank だけで輪を決めた物**、mockups/S033.html?layout=pr）
+- 気になる所：作る順番の輪は 30 本ほどになり、真ん中近くの輪は丸が密。名前は外の「原点 N」だけにした（輪ごとの番号と「+N」は重なるので消した）

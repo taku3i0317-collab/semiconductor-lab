@@ -62,7 +62,7 @@ def main():
     # 図のページ（GitHub Pages は docs/ から）
     (OUT / "docs").mkdir()
     for f in ("network.html", "node.html", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
-              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js", "ui_icons.js", "film.js", "credits.html", "og_image.png", "share.js", "pwa.js", "manifest.webmanifest", "app_icon_192.png", "app_icon_512.png", "app_icon_maskable_512.png", "apple-touch-icon.png"):
+              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js", "ui_icons.js", "film.js", "credits.html", "ranking.html", "og_image.png", "share.js", "pwa.js", "manifest.webmanifest", "app_icon_192.png", "app_icon_512.png", "app_icon_maskable_512.png", "apple-touch-icon.png"):
         shutil.copy(ROOT / "docs" / f, OUT / "docs" / f)
     shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")   # BudouX（Apache-2.0。CC0 ではない。LICENSE-budoux.txt を一緒に）
     for f in ("node.html", "network.html"):   # 誤りの報告はこのリポジトリの Issue へ。リンクの見た目（OGP）の URL はこのリポジトリの GitHub Pages へ（S-023）

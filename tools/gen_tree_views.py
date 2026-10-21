@@ -627,6 +627,9 @@ def export_json(nodes):
                 unclear.append(n["id"])
     if gr:
         GRAN_REPORT.update({"unclear": unclear, "count": {g: sum(1 for n in out_nodes if n.get("gran") == g) for g in (1, 2, 3, 4)}})
+    # PageRank（S-039、ブリンとペイジ 1998）：「使う物 → 前提」を参照とみなし、多くの物に（間接にも）使われる物ほど点が高い。
+    # 重み：requires・enables 1、part 0.7、understanding 0.5。減衰 0.85、行き先の無い点は全体に配る。点は 0〜100（いちばん高い物＝100）
+    PR_W = {"requires": 1.0, "enables": 1.0, "part": 0.7, "understanding": 0.5}
     # 外した前提（S-036）：TECH_TREE の前提の書き方がおかしい物（考え方の前提に材料など）。担当が直すまでネットワークの側で外す（network_meta.json の dropped_requires）
     drop = {(x["from"], x["to"]) for x in meta.get("dropped_requires", [])}
     if drop:
@@ -655,6 +658,29 @@ def export_json(nodes):
                 print(f"warning: added_requires {f}->{t} は前提の輪になるので足さない")
                 continue
             edges.append({"from": f, "to": t, "kind": "requires", "added": True}); have.add((f, t)); adj.setdefault(f, set()).add(t)
+    ids = [n["id"] for n in out_nodes]; ix = {k: i for i, k in enumerate(ids)}; NN = len(ids)
+    outw = [dict() for _ in ids]
+    for e in edges:
+        w = PR_W.get(e["kind"])
+        if w and e["from"] in ix and e["to"] in ix:
+            u, v = ix[e["to"]], ix[e["from"]]   # 使う物 u が 前提 v を参照
+            outw[u][v] = max(outw[u].get(v, 0), w)
+    pr = [1.0 / NN] * NN
+    for _ in range(100):
+        nxt = [0.15 / NN] * NN; dang = 0.0
+        for u in range(NN):
+            tot = sum(outw[u].values())
+            if not tot:
+                dang += pr[u]; continue
+            for v, w in outw[u].items():
+                nxt[v] += 0.85 * pr[u] * w / tot
+        nxt = [x + 0.85 * dang / NN for x in nxt]
+        if sum(abs(a - b) for a, b in zip(nxt, pr)) < 1e-10:
+            pr = nxt; break
+        pr = nxt
+    top = max(pr)
+    for n in out_nodes:
+        n["pr"] = round(pr[ix[n["id"]]] / top * 100, 2)
     # 前提でも理解でもないつながり（O-019）：つくるのに使った道具（tool）・同じしくみ（same）。network_meta.json の extra_links から
     for x in meta.get("extra_links", []):
         if "from" in x and x["from"] in nodes and x["to"] in nodes:
@@ -689,7 +715,7 @@ def export_json(nodes):
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
     # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
-    light_keys = ("id", "name", "name_en", "gran", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
+    light_keys = ("id", "name", "name_en", "gran", "pr", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
                   "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
     kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p", "tool": "t", "same": "s"}

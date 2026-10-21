@@ -14,7 +14,7 @@ const out = process.argv[2] || 'build/layout';
 const base = (process.argv[3] || 'http://127.0.0.1:8791/').replace(/\/?$/, '/');
 const SIZES = [[360, 640, 'android_s'], [390, 844, 'iphone'], [430, 932, 'iphone_max'], [768, 1024, 'tablet'], [1366, 768, 'laptop']];
 const PAGES = [['map_start', 'network.html'], ['map_focus', 'network.html#9-23'], ['map_whole', 'network.html#map/9-23'],
-  ['node', 'node.html#9-23'], ['node_long', 'node.html#B-10'], ['glossary', 'glossary.html'], ['people', 'people.html']];
+  ['node', 'node.html#9-23'], ['node_long', 'node.html#B-10'], ['glossary', 'glossary.html'], ['people', 'people.html'], ['ranking', 'ranking.html']];
 const CHROME = process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const PORT = 9620 + Math.floor(Math.random() * 50);
 mkdirSync(out, { recursive: true });
