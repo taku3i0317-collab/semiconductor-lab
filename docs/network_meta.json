@@ -2912,6 +2912,485 @@
    ],
    "certainty": "○",
    "by": "S-059"
+  },
+  {
+   "from": "2-09",
+   "to": "2-05",
+   "kind": "demand",
+   "note": "せっけんを作るソーダが足りなくなり、塩からソーダを作るルブラン法が生まれた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Leblanc_process",
+    "https://www.madehow.com/inventorbios/22/Ernest-Solvay.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "2-14",
+   "to": "2-05",
+   "kind": "demand",
+   "note": "ガラス作りにもソーダがたくさん要り、ルブラン法の後押しになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Leblanc_process",
+    "https://www.madehow.com/inventorbios/22/Ernest-Solvay.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "2-04",
+   "to": "2-05",
+   "kind": "replaces",
+   "note": "海藻を焼いた灰のかわりに、塩からソーダを作るようになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Kelp",
+    "https://en.wikipedia.org/wiki/Leblanc_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-05",
+   "to": "6-06",
+   "kind": "byproduct",
+   "note": "ルブラン法ではソーダといっしょに塩化水素がたくさん出て、のちに塩酸として集められた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Leblanc_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-05",
+   "to": "2-06",
+   "kind": "replaces",
+   "note": "安くてよごれも少ないソルベー法が、ルブラン法にとってかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solvay_process",
+    "https://en.wikipedia.org/wiki/Leblanc_process",
+    "https://www.madehow.com/inventorbios/22/Ernest-Solvay.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "6-05",
+   "to": "2-08",
+   "kind": "byproduct",
+   "note": "食塩水を電気で分けると、塩素と苛性ソーダが同じだけできる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Chloralkali_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-43",
+   "to": "6-12",
+   "kind": "replaces",
+   "note": "ガラスの器で作っていた硫酸を、大きな鉛の部屋で安くたくさん作れるようになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sulfuric_acid",
+    "https://en.wikipedia.org/wiki/Lead_chamber_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-12",
+   "to": "1-10",
+   "kind": "replaces",
+   "note": "森が減って高くなった木炭のかわりに、石炭からのコークスで鉄を作るようになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Abraham_Darby_I",
+    "https://www.gracesguide.co.uk/Abraham_Darby_(1678-1717)"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-59",
+   "to": "3-08",
+   "kind": "replaces",
+   "note": "人がかきまぜるパドル法のかわりに、転炉で一気に鋼が作れるようになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Puddling_(metallurgy)",
+    "https://en.wikipedia.org/wiki/Bessemer_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-08",
+   "to": "1-26",
+   "kind": "replaces",
+   "note": "鋼が安くなると、鉄道などは鍛鉄から鋼に切りかえた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bessemer_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-08",
+   "to": "1-63",
+   "kind": "demand",
+   "note": "転炉の鋼はもろくなりやすく、マンガンを足す工夫が必要になった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bessemer_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-08",
+   "to": "1-12",
+   "kind": "replaces",
+   "note": "成分を調整しやすい平炉が、やがて転炉（ベッセマー法）にとってかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Open-hearth_furnace",
+    "https://en.wikipedia.org/wiki/Bessemer_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-12",
+   "to": "1-48",
+   "kind": "replaces",
+   "note": "純酸素を吹きこむ転炉が、時間のかかる平炉にとってかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Open-hearth_furnace"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-29",
+   "to": "1-38",
+   "kind": "demand",
+   "note": "天然の氷晶石は少ないので、アルミニウム作りのために人工の氷晶石が作られた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cryolite"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-29",
+   "to": "1-41",
+   "kind": "demand",
+   "note": "速いジェット機に軽くて強いチタンがたくさん使われるようになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Titanium"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-65",
+   "to": "1-74",
+   "kind": "replaces",
+   "note": "超硬合金の刃は高速度鋼より速く、熱に強く削れる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cemented_carbide"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "6-16",
+   "to": "6-09",
+   "kind": "replaces",
+   "note": "空気の窒素からアンモニアを作れるようになり、チリの天然硝石はあまり要らなくなった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Sodium_nitrate",
+    "https://en.wikipedia.org/wiki/Haber_process"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "7-10",
+   "to": "7-20",
+   "kind": "replaces",
+   "note": "水銀ランプの光では線を細くできなくなり、もっと波長の短いエキシマレーザーに替わった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Photolithography",
+    "https://en.wikipedia.org/wiki/Stepper"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-17",
+   "to": "9-18",
+   "kind": "improves",
+   "note": "メサトランジスタはつなぎ目がむき出しで壊れやすかったので、酸化膜でおおうプレーナ技術が生まれた。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/invention-of-the-planar-manufacturing-process/",
+    "https://en.wikipedia.org/wiki/Mesa_transistor"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-04",
+   "to": "9-18",
+   "kind": "replaces",
+   "note": "1つずつ手作りした合金接合トランジスタは、まとめて作れるプレーナ型に取って代わられた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Alloy-junction_transistor"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-16",
+   "to": "9-28",
+   "kind": "replaces",
+   "note": "高い熱で不純物をしみこませる代わりに、イオンを打ちこんで量を正確に決められるようになった。",
+   "sources": [
+    "https://www.computerhistory.org/collections/catalog/102722941"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-06",
+   "to": "9-27",
+   "kind": "replaces",
+   "note": "液でとかす削り方は横にも広がるので、ガスのプラズマでまっすぐ削るやり方に替わった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Etching_(microfabrication)",
+    "https://en.wikipedia.org/wiki/Photolithography"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-25",
+   "to": "9-36",
+   "kind": "replaces",
+   "note": "チップの中の配線はアルミから、電気をもっと通しやすい銅に替わった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Copper_interconnects"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-23",
+   "to": "9-37",
+   "kind": "improves",
+   "note": "平らなトランジスタは小さくすると電気がもれるので、ひれの形に立ててゲートで3方向からはさんだ。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/FinFET",
+    "https://en.wikipedia.org/wiki/Multigate_device"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-07",
+   "to": "10-09",
+   "kind": "replaces",
+   "note": "計算機の真空管は、小さくて熱を出さないトランジスタに置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Vacuum-tube_computer",
+    "https://en.wikipedia.org/wiki/Transistor_computer"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "10-08",
+   "to": "10-12",
+   "kind": "replaces",
+   "note": "小さな磁石の輪のメモリは、チップの DRAM に1970年代に置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Magnetic-core_memory"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-33",
+   "to": "10-24",
+   "kind": "replaces",
+   "note": "回る円盤のハードディスクは、動く部品のない SSD にだんだん置きかわっている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solid-state_drive"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-21",
+   "to": "B-22",
+   "kind": "replaces",
+   "note": "中のボールが転がるマウスは、光で机を見るマウスに置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Optical_mouse"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-02",
+   "to": "P-27",
+   "kind": "replaces",
+   "note": "フィルムのカメラは、光をセンサーで電気にするデジタルカメラにほとんど置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Digital_camera"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-24",
+   "to": "B-07",
+   "kind": "replaces",
+   "note": "数字を光らせるニキシー管は、低い電圧で光る LED の表示に1970年代に置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Nixie_tube"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-01",
+   "to": "B-07",
+   "kind": "replaces",
+   "note": "電気をたくさん使う白熱電球は、少ない電気で光る LED の電球に置きかわっている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/LED_lamp"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-08",
+   "to": "15-09",
+   "kind": "replaces",
+   "note": "音を大きくできない鉱石ラジオは、1920年ごろ真空管で音を大きくするラジオに替わった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Crystal_radio"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-05",
+   "to": "15-28",
+   "kind": "replaces",
+   "note": "レコードの音楽は、光で読む CD に1980年代の終わりに売り上げで抜かれた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Compact_disc"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-31",
+   "to": "15-28",
+   "kind": "replaces",
+   "note": "ビデオテープの映画は、光ディスクの DVD に置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/VHS"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-32",
+   "to": "10-03",
+   "kind": "replaces",
+   "note": "塔から塔へ腕木で知らせる通信は、夜でも雨でも使える電信に置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Semaphore_line"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-20",
+   "to": "B-10",
+   "kind": "improves",
+   "note": "電話するための携帯電話に、コンピューターの力を足したのがスマホ。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Smartphone"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "8-26",
+   "to": "B-16",
+   "kind": "replaces",
+   "note": "オフィスのタイプライターは、文書を書けるパソコンに置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Typewriter"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "P-38",
+   "to": "8-35",
+   "kind": "replaces",
+   "note": "ぜんまいで動く腕時計は、水晶で正確に動くクオーツ時計にほとんど置きかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Quartz_crisis"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "8-10",
+   "to": "8-11",
+   "kind": "improves",
+   "note": "光の顕微鏡より、電子を使う顕微鏡のほうが千倍以上こまかく見える。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electron_microscope"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "7-04",
+   "to": "7-05",
+   "kind": "improves",
+   "note": "レンズの望遠鏡は色がにじむので、鏡で光を集める望遠鏡が作られた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Reflecting_telescope"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-09",
+   "to": "10-25",
+   "kind": "demand",
+   "note": "ゲームの立体の絵をはやく描きたいという願いが、GPU を生んだ。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Graphics_processing_unit",
+    "https://en.wikipedia.org/wiki/GeForce_256"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-16",
+   "to": "B-11",
+   "kind": "demand",
+   "note": "ニューラルネットの計算をもっと速くするために、AI 専用のチップが作られた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tensor_Processing_Unit",
+    "https://en.wikipedia.org/wiki/AI_accelerator"
+   ],
+   "certainty": "○",
+   "by": "S-059"
   }
  ],
  "aliases": {
