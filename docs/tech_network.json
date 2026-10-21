@@ -837,7 +837,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 373,
+   "descendants": 374,
    "gran": 3
   },
   {
@@ -898,7 +898,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 350,
+   "descendants": 351,
    "gran": 3
   },
   {
@@ -1211,7 +1211,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 371,
+   "descendants": 372,
    "gran": 3
   },
   {
@@ -1346,7 +1346,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 4,
+   "descendants": 5,
    "gran": 3
   },
   {
@@ -1645,7 +1645,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 379,
+   "descendants": 380,
    "gran": 4
   },
   {
@@ -2388,7 +2388,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 371,
+   "descendants": 372,
    "gran": 4
   },
   {
@@ -3034,7 +3034,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 166,
+   "descendants": 167,
    "gran": 4
   },
   {
@@ -3227,7 +3227,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 163,
+   "descendants": 164,
    "gran": 4
   },
   {
@@ -3412,7 +3412,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 233,
+   "descendants": 234,
    "gran": 4
   },
   {
@@ -3581,7 +3581,7 @@
     }
    ],
    "media": [],
-   "descendants": 151,
+   "descendants": 152,
    "gran": 4
   },
   {
@@ -6634,7 +6634,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 367,
+   "descendants": 368,
    "gran": 4
   },
   {
@@ -6707,7 +6707,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 340,
+   "descendants": 341,
    "gran": 4
   },
   {
@@ -7330,7 +7330,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 165,
+   "descendants": 166,
    "gran": 4
   },
   {
@@ -9840,7 +9840,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 196,
+   "descendants": 197,
    "gran": 4
   },
   {
@@ -11412,7 +11412,7 @@
    "symbol": "🔥",
    "people": [],
    "media": [],
-   "descendants": 375,
+   "descendants": 376,
    "gran": 3
   },
   {
@@ -13023,7 +13023,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 366,
+   "descendants": 367,
    "gran": 2
   },
   {
@@ -13282,7 +13282,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 392,
+   "descendants": 393,
    "gran": 2
   },
   {
@@ -13459,7 +13459,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 250,
+   "descendants": 251,
    "gran": 2
   },
   {
@@ -14019,7 +14019,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 368,
+   "descendants": 369,
    "gran": 2
   },
   {
@@ -16921,7 +16921,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 339,
+   "descendants": 340,
    "gran": 4
   },
   {
@@ -17099,7 +17099,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 325,
+   "descendants": 326,
    "gran": 4
   },
   {
@@ -17183,7 +17183,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 257,
+   "descendants": 258,
    "gran": 4
   },
   {
@@ -17497,7 +17497,7 @@
     }
    ],
    "media": [],
-   "descendants": 285,
+   "descendants": 286,
    "gran": 4
   },
   {
@@ -17545,7 +17545,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 196,
+   "descendants": 197,
    "gran": 4
   },
   {
@@ -17628,7 +17628,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 195,
+   "descendants": 196,
    "gran": 4
   },
   {
@@ -17687,7 +17687,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 185,
+   "descendants": 186,
    "gran": 4
   },
   {
@@ -17950,7 +17950,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 197,
+   "descendants": 198,
    "gran": 4
   },
   {
@@ -38946,6 +38946,11 @@
      [
       "0-09"
      ]
+    ],
+    [
+     [
+      "0-18"
+     ]
     ]
    ],
    "understanding": [],
@@ -38959,7 +38964,8 @@
    "sources": [
     "https://en.wikipedia.org/wiki/Crane_(machine)",
     "https://resolve.cambridge.org/core/journals/journal-of-hellenic-studies/article/abs/lifting-in-early-greek-architecture/83AECC23A4CFF572B9B01B204832F222",
-    "https://www.cambridge.org/core/blog/?p=31049"
+    "https://www.cambridge.org/core/blog/?p=31049",
+    "https://en.wikipedia.org/wiki/Crane_(machine)"
    ],
    "enables": [],
    "explains": [],
@@ -39014,6 +39020,21 @@
      [
       "2-35"
      ]
+    ],
+    [
+     [
+      "1-26"
+     ]
+    ],
+    [
+     [
+      "1-29"
+     ]
+    ],
+    [
+     [
+      "4-06"
+     ]
     ]
    ],
    "understanding": [],
@@ -39025,7 +39046,9 @@
    "play": "作品：発射台に置いて点火すると、液体酸素と燃料の噴射の反動で真上に飛ぶ",
    "missing": "",
    "sources": [
-    "https://en.wikipedia.org/wiki/Robert_H._Goddard"
+    "https://en.wikipedia.org/wiki/Robert_H._Goddard",
+    "https://airandspace.si.edu/collection-objects/rocket-liquid-fuel-4-may-1926-goddard/nasm_A19850176000",
+    "https://pwg.gsfc.nasa.gov/stargaze/Sgoddard.htm"
    ],
    "enables": [],
    "explains": [],
@@ -53227,27 +53250,6 @@
    "or": false
   },
   {
-   "from": "6-07",
-   "to": "14-15",
-   "kind": "requires",
-   "group": 0,
-   "or": false
-  },
-  {
-   "from": "2-39",
-   "to": "14-15",
-   "kind": "requires",
-   "group": 1,
-   "or": false
-  },
-  {
-   "from": "14-09",
-   "to": "14-15",
-   "kind": "requires",
-   "group": 2,
-   "or": false
-  },
-  {
    "from": "14-11",
    "to": "14-16",
    "kind": "requires",
@@ -54551,6 +54553,13 @@
    "or": false
   },
   {
+   "from": "0-18",
+   "to": "P-01",
+   "kind": "requires",
+   "group": 2,
+   "or": false
+  },
+  {
    "from": "14-15",
    "to": "P-02",
    "kind": "requires",
@@ -54569,6 +54578,27 @@
    "to": "P-02",
    "kind": "requires",
    "group": 2,
+   "or": false
+  },
+  {
+   "from": "1-26",
+   "to": "P-02",
+   "kind": "requires",
+   "group": 3,
+   "or": false
+  },
+  {
+   "from": "1-29",
+   "to": "P-02",
+   "kind": "requires",
+   "group": 4,
+   "or": false
+  },
+  {
+   "from": "4-06",
+   "to": "P-02",
+   "kind": "requires",
+   "group": 5,
    "or": false
   },
   {
@@ -57199,6 +57229,24 @@
   {
    "from": "10-12",
    "to": "10-14",
+   "kind": "requires",
+   "added": true
+  },
+  {
+   "from": "I-10",
+   "to": "14-15",
+   "kind": "requires",
+   "added": true
+  },
+  {
+   "from": "0-10",
+   "to": "B-14",
+   "kind": "requires",
+   "added": true
+  },
+  {
+   "from": "3-01",
+   "to": "B-15",
    "kind": "requires",
    "added": true
   },

@@ -627,6 +627,10 @@ def export_json(nodes):
                 unclear.append(n["id"])
     if gr:
         GRAN_REPORT.update({"unclear": unclear, "count": {g: sum(1 for n in out_nodes if n.get("gran") == g) for g in (1, 2, 3, 4)}})
+    # 外した前提（S-036）：TECH_TREE の前提の書き方がおかしい物（考え方の前提に材料など）。担当が直すまでネットワークの側で外す（network_meta.json の dropped_requires）
+    drop = {(x["from"], x["to"]) for x in meta.get("dropped_requires", [])}
+    if drop:
+        edges[:] = [e for e in edges if not (e["kind"] == "requires" and (e["from"], e["to"]) in drop)]
     # 補った前提（S-025）：TECH_TREE に書きもれていた本当の前提。担当が TECH_TREE に書くまで、ネットワークの側で補う（network_meta.json の added_requires）。
     # TECH_TREE に同じ前提がもうあれば足さない（重複しない）
     have = {(e["from"], e["to"]) for e in edges if e["kind"] == "requires"}

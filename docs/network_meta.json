@@ -1796,6 +1796,33 @@
     "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/"
    ],
    "by": "S-031"
+  },
+  {
+   "from": "I-10",
+   "to": "14-15",
+   "note": "ロケット方程式は、届く速さが「燃料を積んだ重さ÷空の重さ」の対数（自然対数）で決まる式",
+   "sources": [
+    "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/ideal-rocket-equation/"
+   ],
+   "by": "S-036"
+  },
+  {
+   "from": "0-10",
+   "to": "B-14",
+   "note": "アセチレンを出すカーバイド（炭化カルシウム）は、石灰とコークスを電気炉で熱して作る（1892 ウィルソン）",
+   "sources": [
+    "https://www.acs.org/education/whatischemistry/landmarks/calciumcarbide.html"
+   ],
+   "by": "S-036"
+  },
+  {
+   "from": "3-01",
+   "to": "B-15",
+   "note": "豆をすりつぶした汁を煮て、にがりで固める（火が要る）",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tofu"
+   ],
+   "by": "S-036"
   }
  ],
  "added_requires_note": "S-025：TECH_TREE に書きもれていた本当の前提（担当が TECH_TREE に書くまで、ネットワークの側で補う。network_proposals.md の R- の行）。note は理由（「本物の欄」は、そのノードの本物の欄にもう書いてあること）",
@@ -1883,5 +1910,26 @@
    "9-47": 3,
    "4-14": 3
   }
- }
+ },
+ "dropped_requires": [
+  {
+   "from": "6-07",
+   "to": "14-15",
+   "note": "ロケット方程式（考え方）の前提に材料・機械が入っていた。これらは液体燃料ロケット（モノ）の前提で、式そのものには要らない",
+   "by": "S-036"
+  },
+  {
+   "from": "2-39",
+   "to": "14-15",
+   "note": "ロケット方程式（考え方）の前提に材料・機械が入っていた。これらは液体燃料ロケット（モノ）の前提で、式そのものには要らない",
+   "by": "S-036"
+  },
+  {
+   "from": "14-09",
+   "to": "14-15",
+   "note": "ロケット方程式（考え方）の前提に材料・機械が入っていた。これらは液体燃料ロケット（モノ）の前提で、式そのものには要らない",
+   "by": "S-036"
+  }
+ ],
+ "dropped_requires_note": "S-036：TECH_TREE の前提の書き方がおかしい物を、担当が直すまでネットワークの側で外す（network_proposals.md に担当への頼み）"
 }
