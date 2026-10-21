@@ -81,7 +81,17 @@ def main():
     (OUT / "tools").mkdir()
     (OUT / "tools" / "check.py").write_text(CHECK_PY, encoding="utf-8")
     fill = lambda t: t.replace("{REPO}", REPO).replace("{N}", str(len(data["nodes"]))).replace("{E}", str(len(data["edges"])))
-    (OUT / "README.md").write_text(fill(README), encoding="utf-8")
+    # S-051：応援（寄付）の入口。network_meta.json の support が空のあいだは何も出さない（FUNDING.yml も置かない）
+    sup = json.loads((ROOT / "docs" / "network_meta.json").read_text(encoding="utf-8")).get("support") or {}
+    readme = fill(README)
+    if sup.get("url"):
+        u = sup["url"]
+        readme = readme.replace("## Found a mistake?", "## Support\n\nFor grown-ups: if this map is useful to you, you can support its upkeep here: " + u + " (no ads, ever; everything stays CC0).\n\n## Found a mistake?", 1)
+        readme = readme.replace("## 誤りを見つけたら", "## 応援\n大人の方へ：この地図を続けるための応援を受け付けています：" + u + "（広告は付けません。全部 CC0 のまま）\n\n## 誤りを見つけたら", 1)
+        fy = "".join(k + ": " + v + "\n" for k, v in (("github", sup.get("github")), ("ko_fi", sup.get("ko_fi"))) if v)
+        if fy:
+            (OUT / ".github" / "FUNDING.yml").write_text(fy, encoding="utf-8")
+    (OUT / "README.md").write_text(readme, encoding="utf-8")
     # S-050：引用のしかた（CITATION.cff）と、検索のための sitemap.xml（日本語と英語 ?lang=en）
     import datetime
     (OUT / "CITATION.cff").write_text(fill(CITATION).replace("{DATE}", datetime.date.today().isoformat()), encoding="utf-8")

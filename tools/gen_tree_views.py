@@ -725,7 +725,8 @@ def export_json(nodes):
     graph = {"goal": GOAL, "start": START, "inversions": sum(1 for x in data["year_inversions"] if not x["explained"]),
              "nodes": [{k: n[k] for k in light_keys} for n in out_nodes],
              "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout,
-             "aha": {k: v for k, v in meta.get("aha", {}).items() if not k.startswith("_")}}
+             "aha": {k: v for k, v in meta.get("aha", {}).items() if not k.startswith("_")},
+             "support": (meta.get("support") or {}).get("url") or None}   # S-051：応援のリンク（空なら出さない）
     detail = {"nodes": {n["id"]: {k: v for k, v in n.items() if k not in light_keys} for n in out_nodes},
               "portraits": portraits, "year_inversions": data["year_inversions"],
               "materials": {k: v for k, v in meta.get("materials", {}).items() if not k.startswith("_")},

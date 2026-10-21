@@ -1970,5 +1970,11 @@
    "2-02": "木の灰（カリ）"
   },
   "chosen": {}
+ },
+ "support": {
+  "_note": "S-051：応援（寄付）の入口。url が空のあいだは、図のメニュー・README・FUNDING.yml のどこにも出ない。ユーザーが GitHub Sponsors（または Ko-fi など）に登録したら url と github（GitHub の名前）または ko_fi（Ko-fi の名前）を入れて python tools/gen_tree_views.py → python tools/export_tech_network.py。外の会社のボタンのスクリプトは読み込まない（ただのリンク）。広告は付けない（決定）",
+  "url": "",
+  "github": "",
+  "ko_fi": ""
  }
 }

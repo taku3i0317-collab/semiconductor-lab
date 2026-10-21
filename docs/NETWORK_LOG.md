@@ -753,3 +753,18 @@
 - **Software Heritage**（ソースコードの長期保存。だれでもできる）：https://archive.softwareheritage.org/save/ で「git」を選び、https://github.com/taku3i0317-collab/tech-network と https://github.com/taku3i0317-collab/semiconductor-lab を1つずつ送る
 - **Internet Archive（Wayback Machine）**：https://web.archive.org/save に https://taku3i0317-collab.github.io/tech-network/network.html と ranking.html を入れて「Save Page」
 - **Zenodo の DOI**（論文のように引用できる番号）：https://zenodo.org に GitHub のアカウントでログイン → 右上の名前 → GitHub → tech-network をオン → GitHub で tech-network の「Release」を作る（例：v1.0）→ Zenodo が DOI を付ける。付いた DOI を INBOX に書いてもらえれば README と CITATION.cff に入れる
+
+## S-051（2026-10-21、INBOX：ユーザーの決定）応援（寄付）の入口の準備（広告は付けない）
+- **設定1つで出る**：network_meta.json の `support`（url・github・ko_fi）。**空のあいだはどこにも出ない**
+  - url を入れると：図のメニューに1行「大人の方へ：この地図を続けるための応援」（英語は For grown-ups: support this map）、tech-network の README（日・英）に「応援」の節、github か ko_fi を入れると .github/FUNDING.yml（GitHub の「Sponsor」ボタン）
+  - ただのリンク（外の会社のボタンのスクリプトは読まない）。ポップアップ・くり返しの表示はしない。子どもにお金を迫らない書き方（「大人の方へ」）
+  - 試しに例の値を入れて書き出し → README の節と FUNDING.yml が出るのを確かめて、空に戻した（今は何も出ていない）
+- **ユーザーにお願い（急がない）— GitHub Sponsors**（GitHub の公式の案内で確かめた。**日本は受け取れる地域に入っている**）：
+  1. GitHub で2段階認証（2FA）をオンにする（必須）
+  2. https://github.com/sponsors で「Get sponsored」→ 自分のアカウント → 連絡先・受け取り方法を入れて申し込む
+  3. 受け取り：**Stripe Connect** のアカウントを作り、**日本の銀行口座**をつなぐ（住んでいる国と口座の国は同じでないといけない）
+  4. 税の書類：アメリカの外に住む人は **W-8BEN**（Sponsors のダッシュボードから記入・署名）
+  5. プロフィール（紹介文）を書いて審査を頼む（数日）。通ったら公開される
+  6. 公開されたら、INBOX に `https://github.com/sponsors/<名前>` を書いてもらえれば、support に入れて図・README・FUNDING.yml に出す
+  - 出典：https://docs.github.com/en/sponsors/getting-started-with-github-sponsors/about-github-sponsors 、https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account
+  - ダメなときは Ko-fi など（Ko-fi のページの URL を INBOX に。ko_fi に名前を入れる）
