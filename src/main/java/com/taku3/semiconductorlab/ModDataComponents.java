@@ -62,6 +62,15 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.STRING_UTF8)
                     .build());
 
+    // [9-30] エピタキシー（E の機械が付ける、A と決めた形）：素の板の上に育てた単結晶の層の型（"n"／"p"）。酸化しても残し、レジストを塗るとき ChipState の substrate になる
+    public static final DataComponentType<String> EPI = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("epi"),
+            DataComponentType.<String>builder()
+                    .persistent(Codec.STRING)
+                    .networkSynchronized(ByteBufCodecs.STRING_UTF8)
+                    .build());
+
     // [9-15] 熱酸化の膜の厚さ（nm）。酸化膜つきの板に付く。Deal–Grove の式で育つ（IMP4-01）
     public static final DataComponentType<Integer> OXIDE_NM = Registry.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE,

@@ -2624,6 +2624,30 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-30] エピタキシーと保護膜の受け口（E と決めた形、記録だけ）：DOPANT boron の板に EPI "n" があると、塗った時の substrate は n、下の板 p が記録される。
+     * 保護膜 passivate は金属のあと、レジストなしだけ、2回目は already。保存しても残る（Codec の16項目をこえる分は Extras）
+     */
+    @GameTest(maxTicks = 200)
+    public void epiAndPassivation(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron"); ow.set(ModDataComponents.EPI, "n");
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out());
+        h.assertTrue(st.substrate().equals("n") && st.extras().epiOn().equals("p"), "n epi on a p wafer: " + st.substrate() + " on " + st.extras().epiOn());
+        ItemStack plain = new ItemStack(Semiconductor.OXIDIZED_WAFER); plain.set(ModDataComponents.DOPANT, "boron");
+        h.assertTrue(!com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.coat(plain).out()).extras().epi(), "no epi without the component");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(plain, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        var r = com.taku3.semiconductorlab.litho.ChipOps.passivate(chip);
+        h.assertTrue(r.ok(), "passivate after the metal: " + r.reason());
+        var ps = com.taku3.semiconductorlab.litho.ChipOps.state(r.out());
+        h.assertTrue(ps.extras().passivated(), "passivated");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.passivate(r.out()).reason(), "already", "only once");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.passivate(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out()).reason(), "no_metal", "no passivation before the metal");
+        var json = com.taku3.semiconductorlab.litho.ChipState.CODEC.encodeStart(com.mojang.serialization.JsonOps.INSTANCE, ps).getOrThrow();
+        var back = com.taku3.semiconductorlab.litho.ChipState.CODEC.parse(com.mojang.serialization.JsonOps.INSTANCE, json).getOrThrow();
+        h.assertTrue(back.extras().passivated() && back.steps() == ps.steps() && back.done().size() == ps.done().size() && json.getAsJsonObject().has("passivated"), "saved flat with the old fields: " + json.getAsJsonObject().keySet());
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

@@ -40,6 +40,13 @@ public final class ChipOps {
 
     /** もとの板のドーパント → 板の型（'p' / 'n'）。ドーパントがなければ null */
     static String substrateOf(ItemStack w) {
+        String e = w.get(ModDataComponents.EPI);   // エピ層があれば、表面の型＝エピ層の型（[9-30]）
+        if ("n".equals(e) || "p".equals(e)) return baseOf(w) == null ? null : e;
+        return baseOf(w);
+    }
+
+    /** 板そのものの型（DOPANT から） */
+    static String baseOf(ItemStack w) {
         String d = w.get(ModDataComponents.DOPANT);
         if ("boron".equals(d)) return "p";
         if ("phosphorus".equals(d)) return "n";
@@ -76,6 +83,7 @@ public final class ChipOps {
             String sub = substrateOf(w);
             if (sub == null) return Result.fail("undoped");
             s = ChipState.fresh(sub, 0);
+            if (w.has(ModDataComponents.EPI)) s = s.withExtras(new ChipState.Extras(baseOf(w), false));   // エピの下の板の型を記録
         }
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("already_coated");
         return Result.ok(write(w, s.withTone(tone).withResist(ChipState.Resist.COATED, s.resistPattern())));
@@ -267,6 +275,21 @@ public final class ChipOps {
         if (s.metalFilm()) return Result.fail("metal_on");
         if (s.steps() == 0) return Result.fail("already_flat");
         return Result.ok(write(w, s.flattened().dirtier(2)));
+    }
+
+    public static boolean canPassivate(ItemStack w) { return passivate(w).ok(); }
+
+    /**
+     * 最後の保護膜（パッシベーション、[9-30] の窒化膜 Si3N4、E の CVD 炉、E と決めた形）：金属の配線を削ったあと、上一面を窒化膜でおおって湿気・Na イオンから守る（記録だけ）。
+     * 金属の配線があり、レジストも金属の膜もないときだけ。2回目は already
+     */
+    public static Result passivate(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || !(s.has(LayerKind.METAL) || s.has(LayerKind.METAL2))) return Result.fail("no_metal");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.metalFilm()) return Result.fail("metal_on");
+        if (s.extras().passivated()) return Result.fail("already");
+        return Result.ok(write(w, s.withExtras(new ChipState.Extras(s.extras().epiOn(), true))));
     }
 
     public static boolean canGateOxide(ItemStack w) { return gateOxide(w).ok(); }
