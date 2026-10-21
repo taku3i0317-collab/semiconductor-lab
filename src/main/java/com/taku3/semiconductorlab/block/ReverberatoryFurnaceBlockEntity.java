@@ -36,6 +36,8 @@ import net.minecraft.world.level.storage.ValueOutput;
  *   閃亜鉛鉱     → 酸化亜鉛 ＋ SO2        2ZnS + 3O2 → 2ZnO + 2SO2
  *   方解石       → 生石灰   ＋ CO2        CaCO3 → CaO + CO2（約900℃、IMP2 O-019：CO2 レーザー [7-14] の CO2。煙道のスロットに出る）
  *                  ＋ 4個ごとに Ge精鉱、8個ごとにインジウム（副産物スロット。#16 の「作業台で分割」を置換）
+ *   黄鉄鉱       → ベンガラ（Fe2O3）＋ SO2   4FeS2 + 11O2 → 2Fe2O3 + 8SO2（S-017・E の [B-07]）
+ *                  ＋ 4個ごとに白ヒ素 As2O3（混じっている硫砒鉄鉱のヒ素が煙道のちりに。副産物スロット4。⚠️ 毒・工業の材料だけ）
  * </pre>
  * スロット：0＝鉱石、1＝燃料、2＝主生成物、3＝SO2、4＝副産物（Ge精鉱）、5＝副産物（インジウム）
  */
@@ -47,6 +49,8 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
     public static final int FUEL_TICKS = 1600;
     /** 閃亜鉛鉱を何個焼くごとに副産物が1個出るか（作業台の旧レシピ ×4・×8 と同じ割合） */
     public static final int GE_EVERY = 4, IN_EVERY = 8;
+    /** 黄鉄鉱を何個焼くごとに白ヒ素（煙道のちり）が1個出るか（S-017、E の [B-07] LED のヒ素） */
+    public static final int AS_EVERY = 4;
     public static final int DATA_BURN = 0, DATA_BURN_TOTAL = 1, DATA_PROGRESS = 2, DATA_TOTAL = 3, DATA_COUNT = 4;
 
     private final SimpleContainer container = new SimpleContainer(SLOT_COUNT) {
@@ -55,6 +59,8 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
     private int burnTicks, progress;
     /** 焼いた閃亜鉛鉱の数（副産物の割合を決める。保存する） */
     private int sphaleriteRoasted;
+    /** 焼いた黄鉄鉱の数（白ヒ素の割合。保存する） */
+    private int pyriteRoasted;
 
     private final ContainerData data = new ContainerData() {
         @Override public int get(int i) { return switch (i) {
@@ -95,6 +101,7 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
         else if (in.is(Metallurgy.SPHALERITE)) out = Heat.ZINC_OXIDE;
         else if (in.is(net.minecraft.world.item.Items.CALCITE)) out = com.taku3.semiconductorlab.content.Survival.QUICKLIME;
         else if (in.is(Metallurgy.MOLYBDENITE)) out = Metallurgy.MOLYBDENUM_TRIOXIDE;   // [1-31] 2MoS2 + 7O2 → 2MoO3 + 4SO2（IMP2 S-007）
+        else if (in.is(Chemistry.PYRITE)) out = Chemistry.COLCOTHAR;   // 4FeS2 + 11O2 → 2Fe2O3 + 8SO2（S-017、煙道に白ヒ素）
         return out == null ? ItemStack.EMPTY : new ItemStack(out);
     }
 
@@ -124,13 +131,14 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
             return canMerge(container.getItem(SLOT_BY_GE), new ItemStack(Metallurgy.GERMANIUM_CONCENTRATE))
                     && canMerge(container.getItem(SLOT_BY_IN), new ItemStack(Metallurgy.INDIUM));
         }
+        if (in.is(Chemistry.PYRITE)) return canMerge(container.getItem(SLOT_BY_GE), new ItemStack(Metallurgy.WHITE_ARSENIC));
         return true;
     }
 
     private void finishRoast() {
         ItemStack in = container.getItem(SLOT_IN);
         ItemStack main = mainProduct(in);
-        boolean sphalerite = in.is(Metallurgy.SPHALERITE);
+        boolean sphalerite = in.is(Metallurgy.SPHALERITE), pyrite = in.is(Chemistry.PYRITE);
         ItemStack gas = flueGas(in);
         in.shrink(1);
         merge(SLOT_OUT, main);
@@ -140,6 +148,7 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
             if (sphaleriteRoasted % GE_EVERY == 0) merge(SLOT_BY_GE, new ItemStack(Metallurgy.GERMANIUM_CONCENTRATE));
             if (sphaleriteRoasted % IN_EVERY == 0) merge(SLOT_BY_IN, new ItemStack(Metallurgy.INDIUM));
         }
+        if (pyrite && ++pyriteRoasted % AS_EVERY == 0) merge(SLOT_BY_GE, new ItemStack(Metallurgy.WHITE_ARSENIC));   // 煙道のちり＝白ヒ素
         container.setChanged();
     }
 
@@ -169,12 +178,12 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
     @Override protected void saveAdditional(ValueOutput out) {
         super.saveAdditional(out);
         ContainerHelper.saveAllItems(out, container.getItems());
-        out.putInt("Burn", burnTicks); out.putInt("Progress", progress); out.putInt("SphaleriteRoasted", sphaleriteRoasted);
+        out.putInt("Burn", burnTicks); out.putInt("Progress", progress); out.putInt("SphaleriteRoasted", sphaleriteRoasted); out.putInt("PyriteRoasted", pyriteRoasted);
     }
     @Override protected void loadAdditional(ValueInput in) {
         super.loadAdditional(in);
         container.getItems().replaceAll(s -> ItemStack.EMPTY);
         ContainerHelper.loadAllItems(in, container.getItems());
-        burnTicks = in.getIntOr("Burn", 0); progress = in.getIntOr("Progress", 0); sphaleriteRoasted = in.getIntOr("SphaleriteRoasted", 0);
+        burnTicks = in.getIntOr("Burn", 0); progress = in.getIntOr("Progress", 0); sphaleriteRoasted = in.getIntOr("SphaleriteRoasted", 0); pyriteRoasted = in.getIntOr("PyriteRoasted", 0);
     }
 }

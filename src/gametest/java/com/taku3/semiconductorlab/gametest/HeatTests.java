@@ -344,4 +344,22 @@ public class HeatTests extends LabTestBase {
         h.assertFalse(level.getBlockState(pos).getValue(com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.WATER), "water used");
         h.succeed();
     }
+
+    /** S-017（E の [B-07] LED のヒ素）：反射炉で黄鉄鉱を焼くとベンガラ（Fe2O3）＋SO2、4個ごとに煙道のちりの白ヒ素（As2O3）が副産物スロットに */
+    @GameTest(maxTicks = 100)
+    public void pyriteWhiteArsenic(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Heat.REVERBERATORY_FURNACE.block);
+        ReverberatoryFurnaceBlockEntity be = h.getBlockEntity(pos, ReverberatoryFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(ReverberatoryFurnaceBlockEntity.SLOT_IN, new ItemStack(Chemistry.PYRITE, 4));
+        c.setItem(ReverberatoryFurnaceBlockEntity.SLOT_FUEL, new ItemStack(Items.COAL, 1));
+        tickRoaster(h, pos, be, ReverberatoryFurnaceBlockEntity.ROAST_TICKS * 3);
+        h.assertTrue(c.getItem(ReverberatoryFurnaceBlockEntity.SLOT_OUT).is(Chemistry.COLCOTHAR) && c.getItem(ReverberatoryFurnaceBlockEntity.SLOT_OUT).getCount() == 3, "pyrite -> colcothar (Fe2O3)");
+        h.assertTrue(c.getItem(ReverberatoryFurnaceBlockEntity.SLOT_BY_GE).isEmpty(), "no arsenic before the 4th");
+        tickRoaster(h, pos, be, ReverberatoryFurnaceBlockEntity.ROAST_TICKS);
+        h.assertTrue(c.getItem(ReverberatoryFurnaceBlockEntity.SLOT_BY_GE).is(com.taku3.semiconductorlab.content.Metallurgy.WHITE_ARSENIC), "every 4th pyrite leaves white arsenic in the flue");
+        h.assertValueEqual(c.getItem(ReverberatoryFurnaceBlockEntity.SLOT_SO2).getCount(), 4, "SO2 from each pyrite");
+        h.succeed();
+    }
 }
