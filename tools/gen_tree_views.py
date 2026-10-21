@@ -100,6 +100,8 @@ def fill(n):
     head = n["head"]
     first = re.split(r"\s{2,}|前提:|／", head)[0]
     n["name"] = re.sub(r"\s*→\s*$", "",re.sub(r"[✅❓⛔🔧🌿⚠️【】\"]|（.*", "", first).strip())[:24] or n["id"]
+    q = re.search(r"（([^）]{1,14})）", first)   # 名前のかっこ書き。同じ名前が2つあるときだけ付けて見分ける（S-015）
+    n["qual"] = q.group(1) if q else ""
     status_zone = re.split(r"前提:", head)[0]
     if "✅" in status_zone:
         n["st"] = "✅"
@@ -994,6 +996,26 @@ def mermaid_chain(nodes, chain):
     return out
 
 
+def dedupe_names(nodes):
+    """S-015：図に同じ名前が2回出ないように。同じ名前のノードには、見出しのかっこ書き（例「高炉（銑鉄）」）を付けて見分ける。
+    かっこ書きの無い物どうしが同じ名前なら warning を出す（products.md などの名前を直す）"""
+    by = {}
+    for i, n in nodes.items():
+        by.setdefault(n["name"], []).append(i)
+    for name, ids in by.items():
+        if len(ids) < 2:
+            continue
+        for i in ids:
+            if nodes[i].get("qual"):
+                nodes[i]["name"] = f"{name}（{nodes[i]['qual']}）"
+    left = {}
+    for i, n in nodes.items():
+        left.setdefault(n["name"], []).append(i)
+    for name, ids in left.items():
+        if len(ids) > 1:
+            print(f"warning: 同じ名前のノード {name} {ids}（かっこ書きで見分けられない。名前を直す）")
+
+
 def main():
     nodes, dups = parse()
     L, (undefined, cycles, empty, dups, sc, bl, todo) = render(nodes, dups)
@@ -1037,6 +1059,7 @@ def main():
         if clash:
             print(f"warning: {src.name} の重複 {clash}")
         nodes.update({k: v for k, v in extra.items() if k not in nodes})
+    dedupe_names(nodes)
     data = export_json(nodes)
     print(f"wrote {AUDIT_OUT.name} ({write_audit_queue()} items)")
     print(f"wrote {OUT} ({len(nodes)} nodes), {JSON_OUT.name} ({len(data['nodes'])} nodes, {len(data['edges'])} edges, {len(data['year_inversions'])} year inversions)")
