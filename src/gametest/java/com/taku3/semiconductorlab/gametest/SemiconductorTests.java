@@ -1459,6 +1459,19 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [15-18] タッチパネル（IMP4-01、O-021）：生き物（豚）に向けると静電容量が増え、体が大きいほど大きい（上限 2pF）。組立台のレシピ */
+    @GameTest
+    public void touchPanel(GameTestHelper h) {
+        var pig = h.spawn(net.minecraft.world.entity.EntityTypes.PIG, p(2, 2, 2));
+        var chicken = h.spawn(net.minecraft.world.entity.EntityTypes.CHICKEN, p(3, 2, 2));
+        double dp = com.taku3.semiconductorlab.item.TouchPanelItem.deltaPf(pig), dc = com.taku3.semiconductorlab.item.TouchPanelItem.deltaPf(chicken);
+        h.assertTrue(dp > 0 && dp <= 2.0 && dc > 0 && dc < dp, "living bodies change the capacitance; bigger body, bigger change (pig " + dp + ", chicken " + dc + ")");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Communication.TOUCH_PANEL) != null, "built at the assembly bench");
+        pig.discard(); chicken.discard();
+        LOG.info("[LAB] touch panel [15-18]: pig " + dp + " pF, chicken " + dc + " pF");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================

@@ -360,5 +360,11 @@
   "litho.semiconductor-lab.challenge.cpu8.hint1": "①4ビットの CPU と同じ形で、A・出力の口・加算器・選ぶ所を8ビットに（2倍）。番地は4ビットのまま。",
   "litho.semiconductor-lab.challenge.cpu8.hint2": "②全加算器を8つつなぐ。けた上がりは下の位から上の位へ順に。",
   "litho.semiconductor-lab.challenge.cpu8.hint3": "③命令の語は下の4ビットだけ見ればよい（LOAD・ADD・OUT・JUMP）。",
-  "litho.semiconductor-lab.challenge.cpu8.hint4": "④8ビットなら 0〜255。文字1つ（ASCII）も8ビットで、ここからコンピュータが文字を扱えるようになった。"
+  "litho.semiconductor-lab.challenge.cpu8.hint4": "④8ビットなら 0〜255。文字1つ（ASCII）も8ビットで、ここからコンピュータが文字を扱えるようになった。",
+  "assembly.semiconductor-lab.touch_panel.electrode": "透明な電極（ITO ガラス）",
+  "assembly.semiconductor-lab.touch_panel.electrode.short": "ITO 電極",
+  "assembly.semiconductor-lab.touch_panel.wiring": "配線",
+  "assembly.semiconductor-lab.touch_panel.wiring.short": "配線",
+  "assembly.semiconductor-lab.touch_panel.readout": "読み取りのチップ（NOT に合格）",
+  "assembly.semiconductor-lab.touch_panel.readout.short": "読み取り"
 }

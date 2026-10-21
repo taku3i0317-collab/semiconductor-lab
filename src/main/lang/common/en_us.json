@@ -360,5 +360,11 @@
   "litho.semiconductor-lab.challenge.cpu8.hint1": "1. Same shape as the 4-bit CPU, with A, the output port, the adders and the choosers doubled to 8 bits. The address stays 4 bits.",
   "litho.semiconductor-lab.challenge.cpu8.hint2": "2. Chain eight full adders, carry rippling from the low bit up.",
   "litho.semiconductor-lab.challenge.cpu8.hint3": "3. The instruction only needs the low 4 bits of the word (LOAD, ADD, OUT, JUMP).",
-  "litho.semiconductor-lab.challenge.cpu8.hint4": "4. 8 bits hold 0-255. One character (ASCII) is 8 bits too: computers could now handle text."
+  "litho.semiconductor-lab.challenge.cpu8.hint4": "4. 8 bits hold 0-255. One character (ASCII) is 8 bits too: computers could now handle text.",
+  "assembly.semiconductor-lab.touch_panel.electrode": "Transparent electrode (ITO glass)",
+  "assembly.semiconductor-lab.touch_panel.electrode.short": "ITO electrode",
+  "assembly.semiconductor-lab.touch_panel.wiring": "Wiring",
+  "assembly.semiconductor-lab.touch_panel.wiring.short": "Wiring",
+  "assembly.semiconductor-lab.touch_panel.readout": "Readout chip (passed NOT)",
+  "assembly.semiconductor-lab.touch_panel.readout.short": "Readout"
 }

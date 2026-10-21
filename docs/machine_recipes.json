@@ -230,6 +230,36 @@
     },
     {
       "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（touch_panel）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:ito_glass",
+          "count": 1,
+          "cond": "electrode"
+        },
+        {
+          "item": "minecraft:copper_ingot",
+          "count": 1,
+          "cond": "wiring"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "readout"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:touch_panel",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
       "process": "組み立て（transistor_radio）",
       "inputs": [
         {

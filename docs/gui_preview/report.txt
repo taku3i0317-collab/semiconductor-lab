@@ -1,6 +1,7 @@
 # 自動生成：GameTest gui_layout（IMP-30）。画面 198（ja・en）、文字の置き場所 732、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
+assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.calculator w=52 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.microcomputer w=100 lines=2/2 scale=0.74999994
@@ -11,6 +12,9 @@ assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.tank_coil w=2
 assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.tank_capacitor w=288 lines=2/2
 assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.wiring w=268 lines=2/2
 assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.frame w=239 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.touch_panel.electrode w=176 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.touch_panel.wiring w=28 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.touch_panel.readout w=134 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.amplify w=258 lines=2/2
 assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.resistor w=252 lines=2/2
 assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.tuning_coil w=276 lines=2/2
@@ -957,6 +961,7 @@ air_conditioner_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=1
 air_conditioner_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/2
 assembly_bench_ja_jp index =1/2 w=18 lines=1/1
 assembly_bench_ja_jp product item.semiconductor-lab.hf_oscillator w=54 lines=1/2
+assembly_bench_ja_jp product item.semiconductor-lab.touch_panel w=99 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.transistor_radio w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.calculator w=18 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.microcomputer w=78 lines=2/2
@@ -967,6 +972,9 @@ assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.tank_coil w=2
 assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.tank_capacitor w=234 lines=2/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.wiring w=207 lines=2/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.frame w=174 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.touch_panel.electrode w=110 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.touch_panel.wiring w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.touch_panel.readout w=139 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.amplify w=228 lines=2/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.resistor w=225 lines=2/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.tuning_coil w=207 lines=2/2

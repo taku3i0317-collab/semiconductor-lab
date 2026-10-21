@@ -22,5 +22,14 @@
   "item.semiconductor-lab.wood_pulp.note2": "Cook a digester charge in an autoclave. 3 -> 3 paper. Raw material for cellulose acetate (the [2-18] RO membrane).",
   "item.semiconductor-lab.wood_pulp.note3": "Cellulose is a chain of thousands of glucose units. The chains cling together by hydrogen bonds into strong fibres.",
   "item.semiconductor-lab.wood_pulp.note4": "From Cai Lun's improved papermaking (105 AD) onward, paper was long made from rags and bark. In the 1840s Keller in Germany ground wood into pulp, and in 1867 Tilghman devised the sulfite process, so paper could be made from wood in huge amounts.",
-  "item.semiconductor-lab.wood_pulp.placeholder": "Approximation: bleaching and leftover lignin are not modelled."
+  "item.semiconductor-lab.wood_pulp.placeholder": "Approximation: bleaching and leftover lignin are not modelled.",
+  "item.semiconductor-lab.touch_panel": "Capacitive Touch Panel",
+  "item.semiconductor-lab.touch_panel.note1": "A screen that reads how much charge it can hold when a finger touches it. Only living things set it off.",
+  "item.semiconductor-lab.touch_panel.note2": "Assembly bench: ITO glass (transparent electrode) + copper (wiring) + chip that passed NOT (readout). Right-click to read: aimed at a player or animal it shows the change in capacitance (pF); blocks and empty air give nothing.",
+  "item.semiconductor-lab.touch_panel.note3": "Transparent ITO electrodes run in rows and columns, each crossing holding a little charge. The body conducts through its water, so a nearby finger raises the crossing's capacitance. Gloves or sticks change nothing, so they do not register.",
+  "item.semiconductor-lab.touch_panel.note4": "Researchers at Britain's Royal Radar Establishment showed an air-traffic-control touch display in 1965; CERN used one in an accelerator control room in 1973. 2007 smartphones spread the multi-touch grid method. ⚠️ Dates being checked.",
+  "item.semiconductor-lab.touch_panel.placeholder": "Omitted: ⚠️ the size of the change (about 0.5–2 pF) and its dependence on body size are game values.",
+  "item.semiconductor-lab.touch_panel.touch": "Capacitance rose %s pF (touched by %s)",
+  "item.semiconductor-lab.touch_panel.no_touch": "No response (no body nearby)",
+  "item.semiconductor-lab.touch_panel.no_touch_block": "No response (blocks hold no charge)"
 }

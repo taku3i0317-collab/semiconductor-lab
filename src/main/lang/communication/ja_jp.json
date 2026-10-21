@@ -22,5 +22,14 @@
   "item.semiconductor-lab.wood_pulp.note2": "蒸解釜の仕込みを加圧加熱釜で煮て作る。3つ → 紙3。酢酸セルロース（[2-18] の RO 膜）の原料。",
   "item.semiconductor-lab.wood_pulp.note3": "セルロースはブドウ糖が何千もつながった鎖。鎖どうしが水素結合で寄り集まって、丈夫な繊維になる。",
   "item.semiconductor-lab.wood_pulp.note4": "紙の原料は、105年に蔡倫が製法を改良したころから、長くぼろ布や樹皮だった。1840年代にドイツのケラーが木をすりつぶすパルプを、1867年にティルマンが亜硫酸法を考え、木から大量に紙が作れるようになった。",
-  "item.semiconductor-lab.wood_pulp.placeholder": "近似：漂白・リグニンの残りは扱わない。"
+  "item.semiconductor-lab.wood_pulp.placeholder": "近似：漂白・リグニンの残りは扱わない。",
+  "item.semiconductor-lab.touch_panel": "静電容量式タッチパネル",
+  "item.semiconductor-lab.touch_panel.note1": "指で触ると、ためられる電気の量が変わるのを読む画面。生き物にだけ反応する。",
+  "item.semiconductor-lab.touch_panel.note2": "組立台：ITO ガラス（透明な電極）＋銅（配線）＋NOT に合格したチップ（読み取り）。右クリックで読む：プレイヤー・動物に向けると静電容量の変化（pF）が出る、ブロックや何もない所では反応しない。",
+  "item.semiconductor-lab.touch_panel.note3": "透明な ITO の電極を縦横に並べ、交点ごとに少し電気をためておく。体は水分で電気を通すので、指が近づくと交点の静電容量が増える。手袋や棒では変わらないので反応しない。",
+  "item.semiconductor-lab.touch_panel.note4": "1965年にイギリス王立レーダー研究所の研究者が航空管制用のタッチ画面を発表し、1973年に CERN が加速器の制御室で使った。2007年のスマホで、何本の指でも読める格子の方式が広まった。⚠️ 年は出典で確かめ中。",
+  "item.semiconductor-lab.touch_panel.placeholder": "省略：⚠️ 変化の大きさ（約 0.5〜2 pF）と体の大きさで変わる計算はゲームの値。",
+  "item.semiconductor-lab.touch_panel.touch": "静電容量が %s pF 増えた（%s に反応）",
+  "item.semiconductor-lab.touch_panel.no_touch": "反応なし（近くに体がない）",
+  "item.semiconductor-lab.touch_panel.no_touch_block": "反応なし（ブロックは電気をためない）"
 }
