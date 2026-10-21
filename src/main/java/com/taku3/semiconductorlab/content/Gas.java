@@ -49,6 +49,10 @@ public final class Gas {
     public static final Item PLATINUM_GAUZE        = Reg.item("platinum_gauze", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
     public static final Item SULFUR_TRIOXIDE       = Reg.item("sulfur_trioxide", new Item.Properties().stacksTo(16));
     public static final Item OLEUM                 = Reg.contained("oleum", com.taku3.semiconductorlab.machine.Vessel.IRON_FLASK);
+    // [6-12] 鉛室法（IMP3、O-027、仮決定 Q3-19 ①：今の「SO2＋水 → 硫酸」は置きかえず、別の道）：鉛8 → 鉛の部屋（戻る）。
+    //   SO2 2＋水＋硝石（窒素酸化物のもと）＋鉛の部屋＋ガラス瓶2 → 鉛室の酸2（約65%、ときどき NO2 がもれる事故）→ 1つずつ煮つめて硫酸
+    public static final Item LEAD_CHAMBER          = Reg.item("lead_chamber", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item CHAMBER_ACID          = Reg.item("chamber_acid", com.taku3.semiconductorlab.item.ChamberAcidItem::new, new Item.Properties().stacksTo(16));
     // [6-05] クロルアルカリ電解：2NaCl + 2H2O → Cl2 + H2 + 2NaOH
     public static final Item CHLORINE_GAS          = Reg.contained("chlorine_gas", Vessel.GAS_BAG);      // 塩素（黄緑色の有毒な気体）。1袋＝約1mol
     public static final Item CHLORINE_CYLINDER     = Reg.contained("chlorine_cylinder", Vessel.STEEL_CYLINDER); // 塗色は黄（日本の規格）

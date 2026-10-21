@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:chamber_acid",
+    "semiconductor-lab:quartz_still"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sulfuric_acid",
+    "count": 1
+  }
+}

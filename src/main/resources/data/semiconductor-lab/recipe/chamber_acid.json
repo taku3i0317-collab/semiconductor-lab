@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sulfur_dioxide",
+    "semiconductor-lab:sulfur_dioxide",
+    "minecraft:water_bucket",
+    "semiconductor-lab:saltpeter",
+    "semiconductor-lab:lead_chamber",
+    "semiconductor-lab:glass_bottle",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:chamber_acid",
+    "count": 2
+  }
+}

@@ -671,4 +671,18 @@ public class GasTests extends LabTestBase {
         h.assertBlockPresent(Gas.NITRE_EARTH_BLOCK, b);
         h.succeed();
     }
+
+    /** [6-12] 鉛室法（IMP3、O-027）：SO2 2＋水＋硝石＋鉛の部屋（戻る）＋瓶2 → 鉛室の酸2 → 蒸留器で硫酸。NO2 がもれる事故は一時的な吐き気 */
+    @GameTest
+    public void leadChamber(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "chamber_acid", Gas.LEAD_CHAMBER) && recipeUses(h, "chamber_acid", Gas.SALTPETER) && recipeUses(h, "chamber_acid", Chemistry.SULFUR_DIOXIDE), "SO2 + NOx in lead");
+        h.assertTrue(recipeUses(h, "sulfuric_acid", Chemistry.SULFUR_DIOXIDE), "the old SO2 + water route stays (Q3-19)");
+        h.assertTrue(recipeUses(h, "sulfuric_acid_from_chamber", Gas.CHAMBER_ACID), "boil down");
+        var rem = Gas.LEAD_CHAMBER.getCraftingRemainder(new ItemStack(Gas.LEAD_CHAMBER));
+        h.assertTrue(rem != null && rem.create().is(Gas.LEAD_CHAMBER), "lead chamber returned");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        com.taku3.semiconductorlab.item.ChamberAcidItem.leak(player);
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.NAUSEA), "NO2 leak -> brief nausea");
+        h.succeed();
+    }
 }

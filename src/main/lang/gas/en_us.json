@@ -293,5 +293,17 @@
   "block.semiconductor-lab.nitre_bed.note2": "Dirt + 2 rotten flesh + bone meal + slaked lime. Left alone, it slowly ripens into a nitre-earth block (dig with a shovel -> nitre earth -> saltpetre, as in [6-16]).",
   "block.semiconductor-lab.nitre_bed.note3": "Proteins from meat and urine rot to ammonia, and soil bacteria turn it into nitric acid with oxygen (nitrification). With calcium from the lime, calcium nitrate builds up in the soil; potash from wood ash turns it into potassium nitrate (saltpetre).",
   "block.semiconductor-lab.nitre_bed.note4": "Saltpetre was a gunpowder ingredient, so 18th-century European states had nitre beds built. In Gokayama and Shirakawa-go in Japan, saltpetre was cultured under house floors from silkworm droppings and grass. Saltpetre is made by bacteria.",
-  "block.semiconductor-lab.nitre_bed.placeholder": "Approximation: really months to over a year (tens of minutes in the game). Urine, straw and turning the heap are omitted."
+  "block.semiconductor-lab.nitre_bed.placeholder": "Approximation: really months to over a year (tens of minutes in the game). Urine, straw and turning the heap are omitted.",
+  "item.semiconductor-lab.lead_chamber": "Lead Chamber",
+  "item.semiconductor-lab.lead_chamber.note1": "A large room lined with lead, where sulfuric acid is made.",
+  "item.semiconductor-lab.lead_chamber.note2": "8 lead. Returned after crafting. 2 SO2 + water + saltpetre + this + 2 glass bottles -> 2 chamber acid. ⚠ GHS: lead is a health hazard (wash hands after handling).",
+  "item.semiconductor-lab.lead_chamber.note3": "Sulfuric acid eats iron and wood, but lead grows a thin film of lead sulfate and stops dissolving, so the rooms were built of lead sheet. Inside, nitrogen oxides carry oxygen to SO2 (a catalyst).",
+  "item.semiconductor-lab.lead_chamber.note4": "In 1746 John Roebuck in Britain made sulfuric acid in bulk in lead chambers, and sulfuric acid became cheap for the first time. Gay-Lussac (1827) and Glover (1859) towers later recovered the nitrogen oxides.",
+  "item.semiconductor-lab.chamber_acid": "Chamber Acid (Dilute Sulfuric Acid)",
+  "item.semiconductor-lab.chamber_acid.note1": "Dilute sulfuric acid from the lead chamber. Boiling it down makes it stronger.",
+  "item.semiconductor-lab.chamber_acid.note2": "Two come from the lead-chamber route. + quartz still (returned) -> sulfuric acid (boiled down). ⚠ GHS: corrosive. When made, brown fumes (nitrogen dioxide) sometimes leak and make you feel sick for a while.",
+  "item.semiconductor-lab.chamber_acid.note3": "2SO2 + O2 + 2H2O -> 2H2SO4, with NO and NO2 acting as oxygen-carrying catalysts. It reaches only about 65%; it cannot make concentrated acid or oleum like the contact process [6-13].",
+  "item.semiconductor-lab.chamber_acid.note4": "Nitrogen dioxide (NO2) is a brown toxic gas (GHS: acute toxicity, inhalation). Fumes leaking from lead-chamber works harmed nearby fields and homes.",
+  "item.semiconductor-lab.chamber_acid.placeholder": "Approximation: really the saltpetre's nitrogen oxides are recovered and reused (the game uses one). Glover and Gay-Lussac towers are omitted.",
+  "message.semiconductor-lab.chamber_acid.leak": "Brown fumes (nitrogen dioxide) leaked... you feel a little sick"
 }
