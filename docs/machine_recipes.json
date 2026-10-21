@@ -310,6 +310,46 @@
     },
     {
       "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（tft_lcd）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:tft_array_glass",
+          "count": 1,
+          "cond": "tft_glass"
+        },
+        {
+          "item": "semiconductor-lab:rubbed_ito_glass",
+          "count": 1,
+          "cond": "front_glass"
+        },
+        {
+          "item": "semiconductor-lab:mbba",
+          "count": 1,
+          "cond": "liquid_crystal"
+        },
+        {
+          "item": "semiconductor-lab:polarizing_film",
+          "count": 2,
+          "cond": "polarizer"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "driver"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:tft_lcd",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
       "process": "組み立て（calculator）",
       "inputs": [
         {
@@ -401,6 +441,61 @@
       ],
       "watts": 0.0,
       "seconds": 10.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（smartphone）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "soc"
+        },
+        {
+          "item": "semiconductor-lab:camera_module",
+          "count": 1,
+          "cond": "camera"
+        },
+        {
+          "item": "semiconductor-lab:mems_accelerometer",
+          "count": 1,
+          "cond": "motion"
+        },
+        {
+          "item": "semiconductor-lab:touch_panel",
+          "count": 1,
+          "cond": "touch"
+        },
+        {
+          "item": "semiconductor-lab:tft_lcd",
+          "count": 1,
+          "cond": "display"
+        },
+        {
+          "item": "semiconductor-lab:led_backlight",
+          "count": 1,
+          "cond": "backlight"
+        },
+        {
+          "item": "semiconductor-lab:lithium_ion_battery",
+          "count": 1,
+          "cond": "battery"
+        },
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 2,
+          "cond": "case"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:smartphone",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 20.0,
       "note": "部品表で組み立てる。電気なし"
     },
     {

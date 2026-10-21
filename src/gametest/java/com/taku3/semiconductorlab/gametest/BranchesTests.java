@@ -373,4 +373,18 @@ public class BranchesTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [B-19] TFT 液晶（IMP4-01、O-024）：CVD 炉で ITO ガラス＋H2 → TFT のガラス（O2 では作らない）、組立台のレシピ tft_lcd */
+    @GameTest
+    public void tftLcd(GameTestHelper h) {
+        ItemStack ito = new ItemStack(Chemistry.ITO_GLASS, 8);
+        ItemStack tg = com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.product(ito, new ItemStack(Gas.HYDROGEN_GAS));
+        h.assertTrue(tg.is(Branches.TFT_ARRAY_GLASS) && tg.getCount() == 8, "CVD: ITO glass + silane + H2 -> a-Si:H TFT glass");
+        h.assertTrue(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.product(ito, new ItemStack(Gas.OXYGEN_GAS)).isEmpty(), "with oxygen it is not a TFT film");
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(Branches.TFT_LCD);
+        h.assertTrue(a != null, "tft_lcd is built at the assembly bench");
+        h.assertValueEqual(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(Branches.TFT_LCD).getPath(), "tft_lcd", "ID matches A's smartphone recipe");
+        LOG.info("[LAB] TFT LCD [B-19]: CVD a-Si:H on ITO glass; assembly -> tft_lcd");
+        h.succeed();
+    }
+
 }

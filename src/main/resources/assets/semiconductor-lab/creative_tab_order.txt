@@ -793,11 +793,13 @@ rubbed_ito_glass  # Branches [B-18] 1971
 lcd_cell  # Branches [B-18] 1971
 game_console  # Branches [B-09] 1972
 camera_module  # Branches [9-45] 1976
+tft_array_glass  # Branches [B-19] 1979
 white_led_lamp  # Branches [B-20] 1996
 gan_wafer  # Branches [B-20] 1996
 blue_led  # Branches [B-20] 1996
 yag_phosphor  # Branches [B-20] 1996
 white_led  # Branches [B-20] 1996
+tft_lcd  # Branches [B-10] 2007
 led_backlight  # Branches [B-10] 2007
 smartphone  # Branches [B-10] 2007
 test_power_source  # Testing [None] None

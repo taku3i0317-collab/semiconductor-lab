@@ -3,8 +3,10 @@ assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
+assembly_bench_en_us product item.semiconductor-lab.tft_lcd w=40 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.calculator w=52 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.game_console w=134 lines=2/2 scale=0.79999995
+assembly_bench_en_us product item.semiconductor-lab.smartphone w=58 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.microcomputer w=100 lines=2/2 scale=0.74999994
 assembly_bench_en_us product item.semiconductor-lab.image_sensor w=86 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.mems_accelerometer w=101 lines=2/2 scale=0.6999999
@@ -23,6 +25,11 @@ assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.tuning_cap
 assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.speaker w=275 lines=2/2
 assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.battery_case w=240 lines=2/2
 assembly_bench_en_us role assembly.semiconductor-lab.transistor_radio.battery_rod w=249 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.tft_lcd.tft_glass w=83 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.tft_lcd.front_glass w=127 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.tft_lcd.liquid_crystal w=105 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.tft_lcd.polarizer w=69 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.tft_lcd.driver w=126 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.adder w=157 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.register w=166 lines=2/2
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.counter w=156 lines=1/2
@@ -36,6 +43,14 @@ assembly_bench_en_us role assembly.semiconductor-lab.game_console.register w=160
 assembly_bench_en_us role assembly.semiconductor-lab.game_console.knobs w=30 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.game_console.wiring w=28 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.game_console.case w=24 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.soc w=268 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.camera w=36 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.motion w=109 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.touch w=61 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.display w=111 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.backlight w=115 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.battery w=94 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.smartphone.case w=24 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.cpu w=140 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.rom w=112 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.clock w=72 lines=1/2
@@ -909,6 +924,7 @@ cvd_furnace_en_us hint gui.semiconductor-lab.cvd_furnace.need_power w=90 lines=2
 cvd_furnace_en_us hint gui.semiconductor-lab.cvd_furnace.running w=74 lines=1/4
 cvd_furnace_en_us hint gui.semiconductor-lab.cvd_furnace.cannot_nitride w=114 lines=2/4
 cvd_furnace_en_us hint gui.semiconductor-lab.cvd_furnace.running_nitride w=86 lines=2/4
+cvd_furnace_en_us hint gui.semiconductor-lab.cvd_furnace.running_tft w=120 lines=2/4
 cvd_furnace_en_us recipe gui.semiconductor-lab.cvd_furnace.recipe w=134 lines=1/1 scale=0.79999995
 cmp_polisher_en_us power gui.semiconductor-lab.cmp_polisher.power w=75 lines=1/1
 cmp_polisher_en_us hint gui.semiconductor-lab.cmp_polisher.need_input w=128 lines=2/4
@@ -998,8 +1014,10 @@ assembly_bench_ja_jp index =1/2 w=18 lines=1/1
 assembly_bench_ja_jp product item.semiconductor-lab.hf_oscillator w=54 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.touch_panel w=99 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.transistor_radio w=81 lines=2/2
+assembly_bench_ja_jp product item.semiconductor-lab.tft_lcd w=40 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.calculator w=18 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.game_console w=81 lines=2/2
+assembly_bench_ja_jp product item.semiconductor-lab.smartphone w=27 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.microcomputer w=78 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.image_sensor w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.mems_accelerometer w=91 lines=2/2 scale=0.84999996
@@ -1018,6 +1036,11 @@ assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.tuning_cap
 assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.speaker w=207 lines=2/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.battery_case w=216 lines=2/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.transistor_radio.battery_rod w=186 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.tft_lcd.tft_glass w=58 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.tft_lcd.front_glass w=137 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.tft_lcd.liquid_crystal w=60 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.tft_lcd.polarizer w=54 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.tft_lcd.driver w=121 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.adder w=144 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.register w=153 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.counter w=153 lines=1/2
@@ -1031,6 +1054,14 @@ assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.register w=153
 assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.knobs w=27 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.wiring w=18 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.case w=9 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.soc w=198 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.camera w=27 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.motion w=78 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.touch w=54 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.display w=117 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.backlight w=131 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.battery w=81 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.case w=27 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.cpu w=162 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.rom w=125 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.clock w=72 lines=1/2
@@ -1903,6 +1934,7 @@ cvd_furnace_ja_jp hint gui.semiconductor-lab.cvd_furnace.need_power w=63 lines=1
 cvd_furnace_ja_jp hint gui.semiconductor-lab.cvd_furnace.running w=78 lines=2/4
 cvd_furnace_ja_jp hint gui.semiconductor-lab.cvd_furnace.cannot_nitride w=90 lines=2/4
 cvd_furnace_ja_jp hint gui.semiconductor-lab.cvd_furnace.running_nitride w=81 lines=2/4
+cvd_furnace_ja_jp hint gui.semiconductor-lab.cvd_furnace.running_tft w=117 lines=2/4
 cvd_furnace_ja_jp recipe gui.semiconductor-lab.cvd_furnace.recipe w=131 lines=1/1 scale=0.79999995
 cmp_polisher_ja_jp power gui.semiconductor-lab.cmp_polisher.power w=63 lines=1/1
 cmp_polisher_ja_jp hint gui.semiconductor-lab.cmp_polisher.need_input w=108 lines=2/4

@@ -167,3 +167,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - 案B：D の液晶セル（ブロック）の上位のブロック（4×4 の画素を順に書きかえて模様を出す）。体験は大きいが描画の手間が大きい
   - 案C：部品 tft_lcd を作るだけ（手に持っても何もしない）
 - ✅ [B-20] 白色 LED（S-007 案A、D の [1-19] Y2O3・CeO2）：化合物半導体の炉に GaN・蛍光体のモード、作業台で blue_led → white_led → white_led_lamp（明るさ15）・led_backlight（A の ID）。GameTest white_led、CHEMISTRY B-L3〜L4、REFERENCES F47
+- ✅ [B-19] TFT 液晶（O-024 仮決定の案A）：CVD 炉に TFT モード（ITO＋シラン＋H2 → tft_array_glass）、組立台で tft_lcd（item/TftLcdItem）。GameTest tft_lcd、CHEMISTRY B-L5、REFERENCES F48、DECISIONS

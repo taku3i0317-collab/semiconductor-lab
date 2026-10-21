@@ -800,5 +800,6 @@
   "gui.semiconductor-lab.probe_station.role24": "出力13",
   "gui.semiconductor-lab.probe_station.role25": "出力14",
   "gui.semiconductor-lab.probe_station.role26": "出力15",
-  "gui.semiconductor-lab.probe_station.role27": "出力16"
+  "gui.semiconductor-lab.probe_station.role27": "出力16",
+  "gui.semiconductor-lab.cvd_furnace.running_tft": "アモルファスシリコンを積む"
 }

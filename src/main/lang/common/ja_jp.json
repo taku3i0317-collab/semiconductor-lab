@@ -394,5 +394,15 @@
   "assembly.semiconductor-lab.game_console.wiring": "配線",
   "assembly.semiconductor-lab.game_console.wiring.short": "配線",
   "assembly.semiconductor-lab.game_console.case": "箱",
-  "assembly.semiconductor-lab.game_console.case.short": "箱"
+  "assembly.semiconductor-lab.game_console.case.short": "箱",
+  "assembly.semiconductor-lab.tft_lcd.tft_glass": "TFT のガラス",
+  "assembly.semiconductor-lab.tft_lcd.tft_glass.short": "TFT ガラス",
+  "assembly.semiconductor-lab.tft_lcd.front_glass": "向かいのガラス（こすった ITO）",
+  "assembly.semiconductor-lab.tft_lcd.front_glass.short": "向かいのガラス",
+  "assembly.semiconductor-lab.tft_lcd.liquid_crystal": "液晶（MBBA）",
+  "assembly.semiconductor-lab.tft_lcd.liquid_crystal.short": "液晶",
+  "assembly.semiconductor-lab.tft_lcd.polarizer": "偏光フィルム",
+  "assembly.semiconductor-lab.tft_lcd.polarizer.short": "偏光フィルム",
+  "assembly.semiconductor-lab.tft_lcd.driver": "駆動のチップ（NOT に合格）",
+  "assembly.semiconductor-lab.tft_lcd.driver.short": "駆動"
 }

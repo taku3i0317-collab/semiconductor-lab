@@ -215,5 +215,18 @@
   "block.semiconductor-lab.white_led_lamp.note2": "Glows on 2 W (light level 15). 4 white LEDs + 4 glass + copper cable (crafting).",
   "block.semiconductor-lab.white_led_lamp.note3": "Most of the power becomes light, so it needs far less electricity than a bulb for the same brightness.",
   "block.semiconductor-lab.white_led_lamp.note4": "The 1996 white LED was dim, but efficiency rose and it became the main home light in the 2010s.",
-  "block.semiconductor-lab.white_led_lamp.placeholder": "Omitted: ⚠️ brightness and power are game values."
+  "block.semiconductor-lab.white_led_lamp.placeholder": "Omitted: ⚠️ brightness and power are game values.",
+  "item.semiconductor-lab.tft_array_glass": "TFT Array Glass",
+  "item.semiconductor-lab.tft_array_glass.note1": "Transparent-electrode glass coated with a thin silicon film that becomes a transistor for every pixel.",
+  "item.semiconductor-lab.tft_array_glass.note2": "CVD furnace: ITO glass + silane cylinder + hydrogen → this (1–8). Becomes a TFT LCD at the assembly bench.",
+  "item.semiconductor-lab.tft_array_glass.note3": "Breaking down silane in hydrogen gives hydrogenated amorphous (non-crystalline) silicon, so transistors can be made on large glass without a crystal wafer.",
+  "item.semiconductor-lab.tft_array_glass.note4": "In 1979 Spear and LeComber at the University of Dundee showed TFTs of hydrogenated amorphous silicon.",
+  "item.semiconductor-lab.tft_array_glass.placeholder": "Omitted: ⚠️ the real film is made by plasma CVD (about 300 °C). The pixel pattern is not exposed or etched.",
+  "item.semiconductor-lab.tft_lcd": "TFT LCD",
+  "item.semiconductor-lab.tft_lcd.note1": "A liquid-crystal screen with a transistor at every pixel. A smartphone part.",
+  "item.semiconductor-lab.tft_lcd.note2": "Assembly bench: TFT array glass + rubbed ITO glass + MBBA (liquid crystal) + 2 polarising films + chip that passed NOT (driver). Held, it explains how it works in one line. A smartphone part (paired with the backlight).",
+  "item.semiconductor-lab.tft_lcd.note3": "A plain TN panel fades earlier pixels while it writes many in turn. Each pixel's TFT holds its charge, keeping the brightness until the next update (active matrix).",
+  "item.semiconductor-lab.tft_lcd.note4": "Brody and colleagues at Westinghouse showed an LCD with a TFT per pixel in 1973–74; Sharp announced a 14-inch colour TFT LCD in 1988.",
+  "item.semiconductor-lab.tft_lcd.placeholder": "Omitted: ⚠️ no pixel pattern or colour filters, and no picture (explanation only).",
+  "item.semiconductor-lab.tft_lcd.holding": "Each pixel's TFT holds its charge until the next update (active matrix)"
 }

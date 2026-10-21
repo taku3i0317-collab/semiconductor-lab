@@ -823,11 +823,13 @@ setblock ~34 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-09
 setblock ~34 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:game_console",count:1}]}
 setblock ~37 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
 setblock ~37 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:camera_module",count:1}]}
-setblock ~40 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-20] 白色 LED ","白色 LED の明かり","（明るさ15）、LED"," の明かり（赤、明るさ"]}}
-setblock ~40 ~0 ~114 semiconductor-lab:white_led_lamp
-setblock ~41 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:gan_wafer",count:16},{Slot:1b,id:"semiconductor-lab:blue_led",count:16},{Slot:2b,id:"semiconductor-lab:yag_phosphor",count:16},{Slot:3b,id:"semiconductor-lab:white_led",count:16}]}
-setblock ~44 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-10] スマホ","スマホのアイテムを右ク","リックで「画面はまだ」","の文、ツールチップに "]}}
-setblock ~44 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:led_backlight",count:16},{Slot:1b,id:"semiconductor-lab:smartphone",count:1}]}
+setblock ~40 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-19] TFT 液晶","TFT 液晶を手に持つ","と画面の下に一言、スマ","ホの組立台に tft_"]}}
+setblock ~40 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tft_array_glass",count:16}]}
+setblock ~43 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-20] 白色 LED ","白色 LED の明かり","（明るさ15）、LED"," の明かり（赤、明るさ"]}}
+setblock ~43 ~0 ~114 semiconductor-lab:white_led_lamp
+setblock ~44 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:gan_wafer",count:16},{Slot:1b,id:"semiconductor-lab:blue_led",count:16},{Slot:2b,id:"semiconductor-lab:yag_phosphor",count:16},{Slot:3b,id:"semiconductor-lab:white_led",count:16}]}
+setblock ~47 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-10] スマホ","スマホのアイテムを右ク","リックで「画面はまだ」","の文、ツールチップに "]}}
+setblock ~47 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tft_lcd",count:16},{Slot:1b,id:"semiconductor-lab:led_backlight",count:16},{Slot:2b,id:"semiconductor-lab:smartphone",count:1}]}
 setblock ~0 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["本物の発電","↓ この列","",""]}}
 setblock ~2 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["蒸気機関で発電","石炭と水バケツ","を入れると","電気炉が動く"]}}
 setblock ~2 ~0 ~122 semiconductor-lab:steam_engine

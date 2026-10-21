@@ -34,6 +34,13 @@ public final class Branches {
     }
 
     static void assemblies() {
+        com.taku3.semiconductorlab.machine.Assembly.recipe("tft_lcd", TFT_LCD)   // [B-19] IMP4-01
+                .part("tft_glass", TFT_ARRAY_GLASS, 1)
+                .part("front_glass", RUBBED_ITO_GLASS, 1)
+                .part("liquid_crystal", MBBA, 1)
+                .part("polarizer", POLARIZING_FILM, 2)
+                .part("driver", st -> st.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(st, "not"), 1, Semiconductor.CHIP, Semiconductor::passedNot)
+                .seconds(5).build();
         com.taku3.semiconductorlab.machine.Assembly.recipe("calculator", CALCULATOR)
                 .part("adder", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "full_adder"), 1, Semiconductor.CHIP, () -> passedChip("full_adder"))
                 .part("register", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "register"), 2, Semiconductor.CHIP, () -> passedChip("register"))
@@ -94,6 +101,9 @@ public final class Branches {
     public static final Item BLUE_LED              = Reg.item("blue_led");         // 青い LED の素子
     public static final Item YAG_PHOSPHOR          = Reg.item("yag_phosphor");     // YAG:Ce の黄色い蛍光体
     public static final Item WHITE_LED             = Reg.item("white_led");        // 白色 LED の素子
+    // [B-19] TFT 液晶（IMP4-01、O-024 仮決定の案A）：CVD 炉で ITO ガラスにアモルファスシリコン → TFT のガラス → 組立台で tft_lcd（A のスマホの組立台の ID）
+    public static final Item TFT_ARRAY_GLASS       = Reg.item("tft_array_glass");
+    public static final Item TFT_LCD               = Reg.item("tft_lcd", com.taku3.semiconductorlab.item.TftLcdItem::new, new Item.Properties().stacksTo(16));
     public static final Item LED_BACKLIGHT         = Reg.item("led_backlight");    // 液晶の裏から照らすバックライト
     public static final Item NIXIE_TUBE            = Reg.item("nixie_tube");
     /** 電卓のキー（ばねで戻る押しボタンの接点） */

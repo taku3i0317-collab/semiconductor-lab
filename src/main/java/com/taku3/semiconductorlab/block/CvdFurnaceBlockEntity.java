@@ -20,6 +20,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * そのあと VIA の窓（塗布→露光→現像→エッチング→はがす）→ 2層目の Al → 削る（METAL2）。酸素は隣のガスホルダーから補充。
  * 窒化膜モード（O-013）：酸素の代わりにアンモニアを入れると、窒化ケイ素の保護膜（パッシベーション）を積む（3SiH4 + 4NH3 → Si3N4 + 12H2、約700〜800℃）。
  * 金属を削り終えたウェハー → ChipOps.passivate（A、記録だけ）。水分やナトリウムからチップを守る最後の膜。
+ * TFT モード（[B-19]、O-024）：ITO ガラス＋シラン＋水素 → 水素を含むアモルファスシリコンの膜のガラス（SiH4 → a-Si:H + H2、1979）。
  * ⚠️ 電力・時間はゲームの値。膜の厚さ・りん（PSG）を混ぜて流れやすくする工夫は省略（cvd_furnace.placeholder）。
  */
 public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
@@ -31,15 +32,15 @@ public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
     private int pullTimer;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
-            .in(SLOT_WAFER, 8, 17, ChipOps::isProcessWafer)
+            .in(SLOT_WAFER, 8, 17, s -> ChipOps.isProcessWafer(s) || s.is(com.taku3.semiconductorlab.content.Chemistry.ITO_GLASS))
             .in(SLOT_SILANE, 8, 35, s -> s.is(Semiconductor.SILANE_CYLINDER))
-            .in(SLOT_O2, 8, 53, s -> s.is(Gas.OXYGEN_GAS) || s.is(Gas.AMMONIA_GAS))
+            .in(SLOT_O2, 8, 53, s -> s.is(Gas.OXYGEN_GAS) || s.is(Gas.AMMONIA_GAS) || s.is(Gas.HYDROGEN_GAS))
             .out(SLOT_OUT, 78, 26)
             .out(SLOT_CYL, 78, 46)
             .right("power", 17, 1, "gui.semiconductor-lab.cvd_furnace.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.cvd_furnace.need_input", "gui.semiconductor-lab.cvd_furnace.cannot",
                     "gui.semiconductor-lab.cvd_furnace.need_power", "gui.semiconductor-lab.cvd_furnace.running",
-                    "gui.semiconductor-lab.cvd_furnace.cannot_nitride", "gui.semiconductor-lab.cvd_furnace.running_nitride")
+                    "gui.semiconductor-lab.cvd_furnace.cannot_nitride", "gui.semiconductor-lab.cvd_furnace.running_nitride", "gui.semiconductor-lab.cvd_furnace.running_tft")
             .bottom("recipe", "gui.semiconductor-lab.cvd_furnace.recipe")
             .build();
 
@@ -52,6 +53,8 @@ public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
 
     /** gas が酸素なら層間膜（SiO2）、アンモニアなら窒化膜の保護膜（Si3N4）。できなければ EMPTY */
     public static ItemStack product(ItemStack w, ItemStack gas) {
+        if (w.is(com.taku3.semiconductorlab.content.Chemistry.ITO_GLASS) && gas.is(Gas.HYDROGEN_GAS))   // [B-19] TFT：ITO ガラスに水素を含むアモルファスシリコンの膜（1979 ⚠️ 本物はプラズマ CVD、画素の並びは省略）
+            return w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)).transmuteCopy(com.taku3.semiconductorlab.content.Branches.TFT_ARRAY_GLASS);
         if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
         ItemStack in = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
         ChipOps.Result r = gas.is(Gas.AMMONIA_GAS) ? ChipOps.passivate(in) : gas.is(Gas.OXYGEN_GAS) ? ChipOps.depositInterlayer(in) : null;

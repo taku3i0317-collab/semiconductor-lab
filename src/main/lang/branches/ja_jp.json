@@ -215,5 +215,18 @@
   "block.semiconductor-lab.white_led_lamp.note2": "電気 2W で光る（明るさ15）。白色 LED 4個＋ガラス4＋銅ケーブル（作業台）。",
   "block.semiconductor-lab.white_led_lamp.note3": "電気の多くを光にするので、同じ明るさなら電球のずっと少ない電気でよい。",
   "block.semiconductor-lab.white_led_lamp.note4": "1996年の白色 LED は暗かったが、効率が上がって2010年代に家の明かりの主役になった。",
-  "block.semiconductor-lab.white_led_lamp.placeholder": "省略：⚠️ 明るさ・電力はゲームの値。"
+  "block.semiconductor-lab.white_led_lamp.placeholder": "省略：⚠️ 明るさ・電力はゲームの値。",
+  "item.semiconductor-lab.tft_array_glass": "TFT のガラス",
+  "item.semiconductor-lab.tft_array_glass.note1": "透明な電極のガラスに、薄いシリコンの膜を積んだ板。画素ごとのトランジスタになる。",
+  "item.semiconductor-lab.tft_array_glass.note2": "CVD 炉で ITO ガラス＋シランのボンベ＋水素 → これ（1〜8枚）。組立台で TFT 液晶に。",
+  "item.semiconductor-lab.tft_array_glass.note3": "シランを水素の中でこわすと、水素を含むアモルファス（結晶でない）シリコンの膜になる。結晶の板がなくても、大きなガラスの上にトランジスタを作れる。",
+  "item.semiconductor-lab.tft_array_glass.note4": "1979年、英国ダンディー大学のスピアとルカンバーが、水素を含むアモルファスシリコンの TFT を示した。",
+  "item.semiconductor-lab.tft_array_glass.placeholder": "省略：⚠️ 本物はプラズマ CVD（約300℃）。画素の並びの露光・エッチングは作らない。",
+  "item.semiconductor-lab.tft_lcd": "TFT 液晶",
+  "item.semiconductor-lab.tft_lcd.note1": "画素1つずつにトランジスタが付いた液晶の画面。スマホの部品。",
+  "item.semiconductor-lab.tft_lcd.note2": "組立台：TFT のガラス＋こすった ITO ガラス＋MBBA（液晶）＋偏光フィルム2＋NOT に合格したチップ（駆動）。手に持つとしくみを一言で出す。スマホの部品（バックライトと組む）。",
+  "item.semiconductor-lab.tft_lcd.note3": "TN の液晶だけだと、たくさんの画素を順に書くうちに前の画素が薄れる。画素ごとの TFT が電気をためておくので、次に書きかえるまで明るさを保てる（アクティブマトリクス）。",
+  "item.semiconductor-lab.tft_lcd.note4": "1973〜74年にウェスチングハウスのブロディらが画素ごとに TFT を付けた液晶を見せ、1988年にシャープが14型のカラー TFT 液晶を発表した。",
+  "item.semiconductor-lab.tft_lcd.placeholder": "省略：⚠️ 画素の並び・色のフィルターは作らない。表示の絵もない（説明だけ）。",
+  "item.semiconductor-lab.tft_lcd.holding": "画素ごとの TFT が電気をため、次に書きかえるまで明るさを保つ（アクティブマトリクス）"
 }

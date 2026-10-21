@@ -30,7 +30,7 @@ public class CvdFurnaceScreen extends MachineScreen {
                 if (w.isEmpty() || si.isEmpty() || o2.isEmpty()) k = "need_input";
                 else if (CvdFurnaceBlockEntity.product(w, o2).isEmpty()) k = o2.is(com.taku3.semiconductorlab.content.Gas.AMMONIA_GAS) ? "cannot_nitride" : "cannot";
                 else if (menu.getKw() <= 0) k = "need_power";
-                else k = o2.is(com.taku3.semiconductorlab.content.Gas.AMMONIA_GAS) ? "running_nitride" : "running";
+                else k = o2.is(com.taku3.semiconductorlab.content.Gas.AMMONIA_GAS) ? "running_nitride" : o2.is(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS) ? "running_tft" : "running";
                 yield Component.translatable(K + k);
             }
             case "recipe" -> Component.translatable(K + "recipe");

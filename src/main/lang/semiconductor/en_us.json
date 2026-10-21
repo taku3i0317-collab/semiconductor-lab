@@ -800,5 +800,6 @@
   "gui.semiconductor-lab.probe_station.role24": "output 13",
   "gui.semiconductor-lab.probe_station.role25": "output 14",
   "gui.semiconductor-lab.probe_station.role26": "output 15",
-  "gui.semiconductor-lab.probe_station.role27": "output 16"
+  "gui.semiconductor-lab.probe_station.role27": "output 16",
+  "gui.semiconductor-lab.cvd_furnace.running_tft": "Depositing amorphous Si"
 }
