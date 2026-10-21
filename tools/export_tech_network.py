@@ -61,8 +61,9 @@ def main():
     # 図のページ（GitHub Pages は docs/ から）
     (OUT / "docs").mkdir()
     for f in ("network.html", "node.html", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
-              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js"):
+              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js"):
         shutil.copy(ROOT / "docs" / f, OUT / "docs" / f)
+    shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")   # BudouX（Apache-2.0。CC0 ではない。LICENSE-budoux.txt を一緒に）
     for f in ("node.html",):   # 誤りの報告はこのリポジトリの Issue へ
         p = OUT / "docs" / f
         p.write_text(p.read_text(encoding="utf-8").replace("https://github.com/taku3i0317-collab/semiconductor-lab", f"https://github.com/{REPO}"), encoding="utf-8")
@@ -176,6 +177,7 @@ https://github.com/{REPO}/issues
 
 ## ライセンス / License
 CC0 1.0（パブリックドメイン）。名前を書かなくても、何にでも自由に使えます。/ CC0 1.0 (public domain dedication). Use it for anything, no attribution required.
+例外：docs/vendor/budoux-ja.min.js（日本語の折り返しの道具 BudouX、Google）は Apache License 2.0（docs/vendor/LICENSE-budoux.txt）。/ Exception: docs/vendor/budoux-ja.min.js (BudouX by Google, for Japanese line breaks) is under the Apache License 2.0 (docs/vendor/LICENSE-budoux.txt).
 元のリポジトリ / Source: https://github.com/taku3i0317-collab/semiconductor-lab
 """
 
@@ -190,6 +192,9 @@ Summary: https://creativecommons.org/publicdomain/zero/1.0/
 
 Links to third-party images (Wikimedia Commons, etc.) in data/nodes/*.json "media" are references only; those images keep
 their own licenses as listed with each link.
+
+Exception: docs/vendor/budoux-ja.min.js is BudouX (Copyright 2021 Google LLC), licensed under the Apache License,
+Version 2.0, not CC0. Its license text is in docs/vendor/LICENSE-budoux.txt.
 """
 
 if __name__ == "__main__":

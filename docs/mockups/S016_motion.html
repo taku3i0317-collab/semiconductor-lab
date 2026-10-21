@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>小さな動きの見本</title>
+<!-- S-016 の 4：マイクロインタラクション（押したときの小さな動き）の見本。まだ本物のページには入れていない（ユーザーが選ぶ）。
+     説明と一覧は docs/mockups/S016.md。どれも 150〜250ms、prefers-reduced-motion（「視差効果を減らす」など）では動かさない -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
+<link rel="stylesheet" href="../design.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 12px 16px 40px; max-width: 760px; }
+h1 { font-size: 20px; margin: 4px 0 6px; }
+.demo { border: 1px solid var(--line); border-radius: 12px; background: var(--panel); padding: 12px 14px; margin: 14px 0; }
+.demo h2 { font-size: 16px; margin: 0 0 4px; }
+.demo p { margin: 4px 0 10px; font-size: 14px; }
+.muted { color: var(--sub); font-size: 13px; }
+.row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.cmp { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.cmp > div { border: 1px dashed var(--line); border-radius: 10px; padding: 8px; }
+.cmp b { display: block; font-size: 12px; color: var(--sub); font-weight: 400; margin-bottom: 6px; }
+.rm { position: sticky; top: 0; z-index: 5; background: var(--bg); padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+
+/* ---- A 押したときの反応：少し沈んで（96%）色が変わる 120ms。離すと戻る ---- */
+.tile { display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); font: inherit; font-size: 14px; color: var(--ink); cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent; }
+.tile i { width: 28px; height: 28px; border-radius: 6px; background: var(--hl, #c87b1e); opacity: .8; }
+.motion .tile { transition: transform 120ms ease-out, background-color 120ms ease-out, border-color 120ms ease-out; }
+.tile:active, .tile.press { background: color-mix(in srgb, var(--accent) 14%, var(--bg)); border-color: var(--accent); }
+.motion .tile:active, .motion .tile.press { transform: scale(.96); }
+
+/* ---- B 選んだ丸：輪が1回だけ広がって消える 250ms（どれを選んだか目で追える） ---- */
+.dots { position: relative; height: 120px; }
+.dot { position: absolute; width: 36px; height: 36px; margin: -18px; border-radius: 50%; border: 2px solid var(--line); background: var(--bg); cursor: pointer; }
+.dot.sel { border: 4px solid var(--hl, #c87b1e); }
+.dot .ring { position: absolute; inset: -4px; border-radius: 50%; border: 3px solid var(--hl, #c87b1e); opacity: 0; pointer-events: none; }
+.motion .dot.sel .ring { animation: ring 250ms ease-out 1; }
+@keyframes ring { from { transform: scale(1); opacity: .9; } to { transform: scale(1.7); opacity: 0; } }
+
+/* ---- C 下の引き出し（カード）：下からすべって出る 220ms、閉じるときは 180ms ---- */
+.phone { position: relative; height: 260px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: var(--bg); }
+.phone .map { position: absolute; inset: 0; display: grid; place-items: center; color: var(--sub); font-size: 13px; }
+.sheet { position: absolute; left: 0; right: 0; bottom: 0; height: 55%; background: var(--panel); border-top: 1px solid var(--line); border-radius: 14px 14px 0 0; padding: 10px 12px; box-shadow: 0 -4px 14px rgba(0,0,0,.12); transform: translateY(105%); visibility: hidden; }
+.sheet.open { transform: none; visibility: visible; }
+.motion .sheet { transition: transform 180ms ease-in, visibility 0s 180ms; }
+.motion .sheet.open { transition: transform 220ms cubic-bezier(.2, 0, 0, 1), visibility 0s; }
+.sheet .grip { width: 36px; height: 4px; border-radius: 2px; background: var(--line); margin: 0 auto 8px; }
+
+/* ---- D ふりがなのボタン：押すと読みがふわっと出る 150ms ---- */
+ruby rt { font-size: .55em; color: var(--sub); }
+.furi-off rt { opacity: 0; }
+.motion rt { transition: opacity 150ms ease-out; }
+
+/* 「動きを減らす」の設定の人には動かさない（WCAG 2.3.3、C39） */
+@media (prefers-reduced-motion: reduce) { .motion * { transition: none !important; animation: none !important; } }
+</style>
+</head>
+<body>
+<h1>小さな動きの見本（マイクロインタラクション）</h1>
+<p class="muted">それぞれ「動きなし（今）」と「動きあり（案）」を並べた。押して比べてみてください。どれも 0.12〜0.25 秒で、飾りではなく「押せた」「どこが変わった」を知らせるためだけ。説明は S016.md。</p>
+<div class="rm"><label><input type="checkbox" id="rm"> 「動きを減らす」の設定の人の見え方にする</label></div>
+
+<section class="demo">
+  <h2>A 押したときの反応（ボタン・近所の図のマス）</h2>
+  <p>今は押しても見た目がほとんど変わらず、スマホでは「押せたか分からない」。押した瞬間に少し沈んで色が変わる（120ms）。</p>
+  <div class="cmp">
+    <div><b>動きなし（今）</b><button class="tile" type="button"><i></i>熱酸化<br>1955年</button></div>
+    <div class="motion"><b>動きあり（案）</b><button class="tile" type="button"><i></i>熱酸化<br>1955年</button></div>
+  </div>
+</section>
+
+<section class="demo">
+  <h2>B 選んだ丸の強調（図）</h2>
+  <p>丸を押すと枠が太くなるだけで、混んだ所では「どれが選ばれたか」を探してしまう。選んだ瞬間に輪が1回だけ広がって消える（250ms）。くり返さない。</p>
+  <div class="cmp">
+    <div><b>動きなし（今）</b><div class="dots" data-demo></div></div>
+    <div class="motion"><b>動きあり（案）</b><div class="dots" data-demo></div></div>
+  </div>
+</section>
+
+<section class="demo">
+  <h2>C 下の引き出し（カード）の出入り</h2>
+  <p>今はカードがいきなり現れて図が隠れ、何が起きたか分かりにくい。下からすべって出て（220ms）、閉じるときは少し速く下がる（180ms）。</p>
+  <div class="cmp">
+    <div><b>動きなし（今）</b><div class="phone"><div class="map">図（押すとカード）</div><div class="sheet"><div class="grip"></div><b>[9-23] MOSFET</b><span class="muted">1959年</span></div></div></div>
+    <div class="motion"><b>動きあり（案）</b><div class="phone"><div class="map">図（押すとカード）</div><div class="sheet"><div class="grip"></div><b>[9-23] MOSFET</b><span class="muted">1959年</span></div></div></div>
+  </div>
+</section>
+
+<section class="demo">
+  <h2>D ふりがなの切り替え</h2>
+  <p>押すと読みが一度に出て、文が上下にずれる。読みがふわっと出る（150ms）。ずれは残るので、効果は小さい（入れなくてもよい候補）。</p>
+  <div class="cmp">
+    <div class="furi-off" data-furi><b>動きなし（今）</b><button class="tile" type="button">ふりがな</button><p><ruby>半導体<rt>はんどうたい</rt></ruby>の<ruby>重<rt>かさ</rt></ruby>なり</p></div>
+    <div class="motion furi-off" data-furi><b>動きあり（案）</b><button class="tile" type="button">ふりがな</button><p><ruby>半導体<rt>はんどうたい</rt></ruby>の<ruby>重<rt>かさ</rt></ruby>なり</p></div>
+  </div>
+</section>
+
+<script>
+// B：丸を並べる。押すと選ぶ（動きありの側は、選ぶたびに輪のアニメーションをやり直す）
+document.querySelectorAll('[data-demo]').forEach(box => {
+  const pos = [[18, 30], [38, 70], [58, 25], [75, 65], [88, 35]];
+  box.innerHTML = pos.map(([x, y], i) => `<span class="dot${i === 2 ? ' sel' : ''}" style="left:${x}%;top:${y}%"><span class="ring"></span></span>`).join('');
+  box.addEventListener('click', e => {
+    const d = e.target.closest('.dot'); if (!d) return;
+    box.querySelectorAll('.dot').forEach(x => x.classList.remove('sel'));
+    void d.offsetWidth; d.classList.add('sel');
+  });
+});
+// C：図を押すと開く／閉じる
+document.querySelectorAll('.phone').forEach(ph => ph.addEventListener('click', () => ph.querySelector('.sheet').classList.toggle('open')));
+// D：ふりがな
+document.querySelectorAll('[data-furi]').forEach(b => b.querySelector('button').addEventListener('click', () => b.classList.toggle('furi-off')));
+// 「動きを減らす」をまねる：動きありの側から motion を外す
+const motionBoxes = [...document.querySelectorAll('.motion')];
+document.getElementById('rm').addEventListener('change', e => motionBoxes.forEach(m => m.classList.toggle('motion', !e.target.checked)));
+</script>
+</body>
+</html>

@@ -27,6 +27,10 @@
 | tech_network_detail.js | カード・詳細用の重いデータ（本物・へえ・出典・レシピ・人物）。network.html はカードを開くか検索したときに読み、node.html は最初から読む |
 | tech_network.json | 技術ネットワークのデータ（ノード・年・つながり・子孫の数・年の逆転）。gen_tree_views.py が書き出す。ネットワーク図（②）の元データ |
 | furigana.js・furigana_dict.js・furigana_fix.json | ふりがな（S-012）。ページの「ふりがな」ボタンでオン・オフ（設定は tn-furi）。辞書 furigana_dict.js は `python tools/gen_furigana.py`（pykakasi。-I なし）で作る。読みの誤りは furigana_fix.json に「言葉: 読み」で足す（表が優先） |
+| linebreak.js・vendor/budoux-ja.min.js | 日本語の折り返し（S-016）。言葉の途中で改行しないように、文節の切れ目でだけ折り返す。BudouX 0.10.0（Google）は **Apache License 2.0**（vendor/LICENSE-budoux.txt。ここだけ CC0 ではない） |
+| ui_glyphs.json | 画面の印（✅ ❓ ⚠️ など）を置き換えるドット絵の形（S-016、見本だけ）。tools/gen_ui_icons.py が mockups/S016_emoji.html を作る |
+| mockups/ | 見せ方の案・見本（S-012 図の見せ方、S-013 書体、S-014・S-015 前後の写真、S-016 絵文字と小さな動き） |
+| （道具）tools/check_layout.mjs | 画面のはみ出しの自動検査（S-016）。5つの画面の大きさ × 7 ページで、横スクロール・はみ出す要素が無いかを調べ、写真を残す。`node tools/check_layout.mjs build/layout`（docs をポート 8791 で出しておく） |
 | TECH_TREE_INSPECTION.md | ツリーの検査結果（背骨の切れ・幹ごとのノード数など） |
 | CHEMISTRY.md | 全レシピの本物の反応・工程と「省略／近似／仮」の判定（#番号つき）。組み立て結果：書くのは chemistry/<幹>.md（tools/docs_build.py） |
 | HUMAN_CHECK_TODAY.md | 今日足された「人間の確認」を試験場の区画の順に並べた手順書（`python tools/gen_human_check.py [日付]` が作る。v0.3 の本線は通しの1つの手順） |
