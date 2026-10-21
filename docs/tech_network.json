@@ -26846,7 +26846,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O82. 緑が2倍の市松模様（ベイヤー配列）［9-45］",
+     "answer": "画像センサーの画素は光の明るさしか分からない。1975年、コダックのブライス・ベイヤーは、画素の上に赤・緑・青の小さなフィルターを市松模様に並べ、半分を緑、残りを赤と青にする方法を考え、1976年に米国特許（3,971,065）になった。足りない色はまわりの画素から計算でおぎなう（デモザイク）。緑を多くしたのは、人の目が明るさを主に緑で感じるから。フィルターは色の顔料を混ぜたレジストを、色ごとに露光・現像して作る。今のデジカメやスマホのカメラのほとんどがこの並べ方。",
+     "hee": {
+      "1": "カメラの画素の半分は緑のフィルター。",
+      "2": "1画素は1色しか見ていない。残りの色は計算で作っている。",
+      "3": "フィルターは半導体と同じ露光の工程で、色ごとに作る。",
+      "4": "白黒のカメラのほうが、同じ画素数でもくっきり写る（色を計算でおぎなわないから）。"
+     },
+     "certainty": "1975 出願・1976 特許 3,971,065 ◎／緑が半分 ◎／顔料レジストで作る ○",
+     "basis": "- Wikipedia「Bayer filter」：https://en.wikipedia.org/wiki/Bayer_filter"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26856,7 +26869,7 @@
    "name": "ベイヤー配列のカラーフィルター",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1976,
    "year_range": "1975〜1976",
@@ -26874,7 +26887,7 @@
    "name_en": "Bayer filter",
    "hee1_en": "Half of a camera's pixels are green, because the human eye is most sensitive to green. (Added in S-004. Sources: patents.google.com, en.wikipedia.org)",
    "kind": "tech",
-   "play": "",
+   "play": "軽（色のレジストを並べる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -28037,7 +28050,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L16. 命令で動く部品（4ビット CPU・マイコン）［10-13］",
+     "answer": "マイクロプロセッサは、命令を順に読んで足し算や記憶をする回路を1つのチップにまとめたもの。1971年のインテル 4004 が最初で、約2300個のトランジスタ（10 µm の PMOS）、命令は46。日本のビジコン社の電卓のために、嶋正利・フェデリコ・ファジン・テッド・ホフ・スタン・メイザーが作った。4004 は ROM（4001）・RAM（4002）・シフトレジスタ（4003）と組む MCS-4 として売られた。",
+     "hee": {
+      "1": "最初のマイクロプロセッサは、日本の電卓のために生まれた。",
+      "2": "プログラムを入れる ROM の中身は、工場でマスク1枚に描いて焼きこんだ（お客ごとにその1枚だけ作り直した）。",
+      "3": "命令を変えれば同じチップが別の仕事をする＝「汎用の部品」。電卓だけでなく信号機やレジにも使われた。",
+      "4": "4004 のクロックは 740 kHz。今のスマホの CPU は数 GHz で、トランジスタは数十億個。"
+     },
+     "certainty": "4004 は1971年・約2300トランジスタ・10 µm・命令46 ◎／MCS-4 の4種類のチップ ◎／開発者と ビジコン 141-PF ◎／4001 はマスクで書きこむ ROM ◎",
+     "basis": "Intel「The Story of the Intel 4004」、Computer History Museum「1971 – Microprocessor Integrates CPU Function onto a Single Chip」、Wikipedia「Intel 4004」「MCS-4」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -28047,7 +28073,7 @@
    "name": "マイクロプロセッサ",
    "trunk": "10",
    "trunk_name": "制御・計算",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1971,
    "year_range": null,
@@ -28075,7 +28101,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "世界初のマイクロプロセッサは、日本の電卓のために生まれた",
    "name_en": "Microprocessor",
    "hee1_en": "The world's first microprocessor was born for a Japanese calculator",
@@ -28128,7 +28154,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "炊飯器にも洗濯機にも、小さなコンピュータが入っている",
    "name_en": "Microcomputer",
    "hee1_en": "Rice cookers and washing machines have small computers inside too.",
@@ -28448,7 +28474,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "何百万個のトランジスタも、決まったルールで並べれば設計できる （IMP-24 で追加、network_proposals W-5）",
    "name_en": "VLSI design methodology",
    "hee1_en": "Even millions of transistors can be designed if you arrange them by fixed rules. (Added in IMP-24, network_proposals W-5)",
@@ -29245,7 +29271,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "コンピュータで 0.1＋0.2 を計算すると、ほんの少しだけ 0.3 からずれることがある（O-010 で追加。出典：IEEE Milestones「IEEE Standard 754, 1985」「Intel 8087, 1980」、IEEE Milestone「IEEE Standard 754 for Binary Floating-Point Arithmetic, 1985」（https://ethw.org/Milestones:IEEE_Standard_754_for_Binary_Floating-Point_Arithmetic,_1985））",
    "name_en": "Floating-point standard",
    "hee1_en": "When a computer calculates 0.1 + 0.2, the answer can be just slightly off from 0.3. (Added in O-010. Sources: IEEE Milestones \"IEEE Standard 754, 1985\", \"Intel 8087, 1980\", IEEE Milestone \"IEEE Standard 754 for Binary Floating-Point Arithmetic, 1985\" (https://ethw.org/Milestones:IEEE_Standard_754_for_Binary_Floating-Point_Arithmetic,_1985))",
@@ -35313,7 +35339,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "USB の前のパソコンには、マウス用・キーボード用・プリンター用と形のちがう差し口がいくつもあった（S-002 で追加。出典：IEEE Milestones「Universal Serial Bus (USB)」、heise「30 years of USB 1.0」）",
    "name_en": "USB",
    "hee1_en": "Before USB, computers had several differently shaped ports: one for the mouse, one for the keyboard, one for the printer. (Added in S-002. Sources: IEEE Milestones \"Universal Serial Bus (USB)\", heise \"30 years of USB 1.0\")",
@@ -37148,7 +37174,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ファミコンの CPU は、電卓を生んだ技術の孫",
    "name_en": "Game console",
    "hee1_en": "The Famicom's CPU is a grandchild of the technology that gave birth to the calculator.",
@@ -39028,7 +39054,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "今の CPU のトランジスタの数は、4004 の数百万倍",
    "name_en": "CPU",
    "hee1_en": "Today's CPUs have millions of times more transistors than the 4004.",
@@ -44121,7 +44147,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "スマホのチップも、小さな回路をまとめた「記号」を何段も重ねて設計している",
    "name_en": null,
    "hee1_en": null,
