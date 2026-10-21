@@ -737,3 +737,19 @@
    - 地図アプリと同じ考え：縮めると国（分野）、広げると町（技術）の名前
 2. **「あ！」をやめた**：ムービーから「あ！」の場面を外した（分解 → 始まりの場面へそのまま）。データ（network_meta の aha）と docs/aha_candidates.md は消さずに残した（window.FILM_AHA を立てた見本でだけ出る）
 - **ユーザーに見てほしいこと**：ほどける泡を本番の中心図にしてよいか、直したい所
+
+## S-050（2026-10-21、INBOX：ユーザーの決定）世界のだれかが見つけられる・長く残る形に
+### やった物
+1. **英語の README**：tech-network（tools/export_tech_network.py が書き出す）は英語が先、最初の3行で「何か・だれのため・CC0」、図とランキングの URL、データの形（表）、**動く使い方の例**（スマホに要る物を数える Python。実行して 256 と出るのを確かめた）、正直な限界（AI が多く書いた・確かめ方・専門家の確認はまだ）、同じ中身の日本語。semiconductor-lab の README.md も先頭に英語と日本語の3行・図とデータの URL・限界の節を足し、古い「約400」を 630 に
+2. **CITATION.cff**（引用のしかた。GitHub の「Cite this repository」ボタンになる）：tech-network（dataset）と semiconductor-lab（software）。作者は GitHub の名前 taku3i0317-collab（本名は書いていない）
+3. **検索に見つけてもらう**：sitemap.xml（tech-network の Pages、日本語と英語）。図のページ 6 つに説明（日本語＋英語）・正しい URL（canonical＝tech-network のページ）・hreflang（ja／en／x-default）。英語の入り口として **?lang=en** で英語になるようにした（ボタンと同じ保存）。図のページに **Dataset の構造化データ**（JSON-LD、ライセンス CC0、データの URL）
+### ユーザーにお願い（どれも急がない。アカウントが要る物、外のサービスに出す物）
+- **GitHub のトピックと説明**（私の許可リストに gh が無いので）：ターミナルで
+  `gh repo edit taku3i0317-collab/tech-network --description "A CC0 map of technology: what cannot be made without what, from stone tools to EUV and AI" --homepage "https://taku3i0317-collab.github.io/tech-network/" --add-topic technology-history,history-of-technology,knowledge-graph,education,open-data,cc0,semiconductor,dataset`
+  `gh repo edit taku3i0317-collab/semiconductor-lab --description "Educational Minecraft mod: rebuild technology from stone tools to EUV and AI, the way it really happened (CC0)" --homepage "https://taku3i0317-collab.github.io/tech-network/" --add-topic minecraft-mod,fabric-mod,education,technology-history,semiconductor,cc0,knowledge-graph`
+  （ブラウザなら、リポジトリのページ右上の About の歯車から同じ物を入れる）
+- **Google Search Console**：https://search.google.com/search-console で「URL プレフィックス」に https://taku3i0317-collab.github.io/tech-network/ を登録 → 確かめ方は「HTML タグ」（出てきた meta タグを INBOX に貼ってもらえれば、network.html に入れて push する）→ 「サイトマップ」に sitemap.xml を送る
+  - robots.txt について：GitHub Pages の「プロジェクトのページ」（…github.io/tech-network/）では、robots.txt はサイトのいちばん上（taku3i0317-collab.github.io/robots.txt）にしか置けない。今は無くても全部のページを読んでもらえるので要らない（サイトマップは Search Console から送れる）
+- **Software Heritage**（ソースコードの長期保存。だれでもできる）：https://archive.softwareheritage.org/save/ で「git」を選び、https://github.com/taku3i0317-collab/tech-network と https://github.com/taku3i0317-collab/semiconductor-lab を1つずつ送る
+- **Internet Archive（Wayback Machine）**：https://web.archive.org/save に https://taku3i0317-collab.github.io/tech-network/network.html と ranking.html を入れて「Save Page」
+- **Zenodo の DOI**（論文のように引用できる番号）：https://zenodo.org に GitHub のアカウントでログイン → 右上の名前 → GitHub → tech-network をオン → GitHub で tech-network の「Release」を作る（例：v1.0）→ Zenodo が DOI を付ける。付いた DOI を INBOX に書いてもらえれば README と CITATION.cff に入れる

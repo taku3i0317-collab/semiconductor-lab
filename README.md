@@ -1,5 +1,16 @@
 # Semiconductor Lab（セミコンダクター・ラボ）
 
+**What:** an educational Minecraft mod (Fabric, Minecraft 26.3) where you rebuild civilization's technology the way it really happened — stone tools, fire, metals, chemistry, electricity, vacuum, optics — up to transistors, EUV lithography and a small AI on a chip you made yourself. Plus an open map of 630 technologies and what each one needs (1814 links).
+**For whom:** children and anyone curious how things are made, teachers, and people who want to know what it would take to build something like an EUV machine from scratch.
+**License:** CC0 1.0 (public domain) — code, data, text and images.
+
+**何か：** 本物の作り方の順に文明の技術を作り直す Minecraft の教育 MOD（石器・火・金属・化学・電気・真空・光学 → トランジスタ・EUV・自作チップの上の小さな AI）と、630 の技術の「何が無いと何が作れないか」の地図（1814 のつながり）。
+**だれのため：** 物の作られ方を知りたい子ども・大人、先生、EUV のような物をゼロから作るには何が要るかを知りたい人。 **ライセンス：** 全部 CC0 1.0。
+
+- Map / 図：https://taku3i0317-collab.github.io/tech-network/ （English: `?lang=en`）
+- Data / データ（CC0）：https://github.com/taku3i0317-collab/tech-network
+- Cite / 引用：`CITATION.cff`
+
 **日本語** ・ [English](#english)
 
 ## これは何？
@@ -10,7 +21,7 @@
 レシピは本物の化学・物理に合わせ、作れるようになった技術ごとに「へえ」と思える本当の話（年・人物・出典つき）が読めます。
 
 もう一つの柱が **技術ネットワーク** です。技術を「ツリー（木）」ではなく「網」として、
-「何が無いと何が作れないか」「どの考え方がどの技術を説明するか」を、年・人物・出典つきで約400個のノードにまとめています。
+「何が無いと何が作れないか」「どの考え方がどの技術を説明するか」を、年・人物・出典つきで 630 個のノードにまとめています（2026-10-21 の数）。
 
 - **技術ネットワーク図**：https://taku3i0317-collab.github.io/semiconductor-lab/network.html
   （点＝技術・モノ・発見、横＝年。押すとカード、「詳しく見る」で1ノードのページ。スマホでも見られます）
@@ -40,6 +51,11 @@
 科学の出典（事実の裏付け）とは別に、このプロジェクトが影響を受けた人・作品です。
 - 亜留間次郎さん（薬理凶室）— 配信・動画、『アリエナイ医学事典』（三才ブックス）ほか。いちばん影響を受けました。
 
+## 正直に書くこと（限界）
+- 文とデータの大部分は AI（Claude）が書いた（1人の人と複数の AI のセッション）。出典で確かめ、約 100 のノードは別の AI のモデルでも監査した。**人の専門家の確認はまだ**
+- 前提のつながりは教えるための単純化（出典をもとに「歴史の上で作るのに要った物」）。ゲームのレシピは化学的に正しいことを優先し、省いた所は「仮」と書いている
+- 危ない技術は理解のために書き、作り方の手順は書かない
+
 ## ライセンス
 
 **全部 CC0 1.0（パブリックドメイン）です。** コード・データ・文章・画像（テクスチャ・肖像のドット絵を含む）のすべてを、
@@ -63,7 +79,7 @@ up to transistors, integrated circuits, EUV lithography, and finally a small AI 
 Recipes follow real chemistry and physics, and each technology you unlock comes with true stories (with years, people and sources).
 
 The second pillar is the **Technology Network**: technology as a web, not a tree.
-About 400 nodes record what cannot be made without what, and which ideas explain which technologies, with years, people and sources.
+630 nodes (as of 2026-10-21) record what cannot be made without what, and which ideas explain which technologies, with years, people and sources.
 
 - **Technology Network map**: https://taku3i0317-collab.github.io/semiconductor-lab/network.html
   (dots are technologies, products and discoveries; the horizontal axis is time. Click for a card, "詳しく見る" for a full node page. Works on phones.)
@@ -91,6 +107,11 @@ Certainty marks: ◎ confirmed by two or more reliable sources / ○ one source 
 ## Inspirations
 Separate from the scientific sources, these are the people and works that inspired this project.
 - Jiro Aruma (Yakuri Kyoshitsu) — streams and videos, "Arienai Igaku Jiten" (Sansai Books) and more. Our biggest influence.
+
+## Honest limits
+- Most texts and data were written by AI (Claude), in a project run by one person with several AI sessions. Facts were checked against sources, and about 100 nodes were also audited by a second AI model. **No human expert has reviewed them yet.**
+- Prerequisites are a teaching simplification chosen with sources ("historically needed to make it"). Game recipes put chemical correctness first; simplified parts are marked as placeholders.
+- Dangerous technologies are described for understanding, not as step-by-step instructions.
 
 ## License
 

@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software or its data, please cite it as below (CC0: citation is welcome but not required)."
+title: "Semiconductor Lab: an educational Minecraft mod and a map of technology"
+type: software
+authors:
+  - alias: taku3i0317-collab
+license: CC0-1.0
+repository-code: "https://github.com/taku3i0317-collab/semiconductor-lab"
+url: "https://taku3i0317-collab.github.io/tech-network/"
+abstract: "An educational Minecraft mod (Fabric) that rebuilds technology in historical order from stone tools to EUV lithography and AI, with a CC0 map of 630 technologies and their prerequisites (1814 links). Most texts were written by AI and checked against sources; not yet reviewed by human experts."
+keywords:
+  - education
+  - minecraft-mod
+  - history of technology
+  - knowledge graph
+  - semiconductor
+date-released: "2026-10-21"
