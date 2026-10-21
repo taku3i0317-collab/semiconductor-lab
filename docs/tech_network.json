@@ -35167,7 +35167,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O83. 髪の毛より細いガラスで光を送る（光ファイバー）［15-13］",
+     "answer": "1960年代、ガラスは 1km で光が 1000dB 以上も弱くなり、通信には使えないと思われていた。1966年、チャールズ・カオは、光を吸っているのはガラスそのものではなく鉄・銅などの不純物と水であり、取り除けば 20dB/km より小さくできると示した（2009年ノーベル物理学賞）。1970年、コーニングの研究者が合成石英で 20dB/km を下回るファイバーを作った。中心（コア）の屈折率をゲルマニウムで少し上げると、光は境で全反射して曲がった糸の中を進む。今は 0.2dB/km ほどで、海の底の光ケーブルが世界のインターネットを運ぶ。",
+     "hee": {
+      "1": "海の底を通る光のケーブルが、世界のインターネットを運ぶ。",
+      "2": "光を止めていたのはガラスではなく、ほんの少しの鉄と水だった。",
+      "3": "今のファイバーは 50km 通しても光が10分の1になるだけ。",
+      "4": "光ファイバーの原料は、半導体のシリコンと同じ四塩化ケイ素（とゲルマニウムの塩化物）。"
+     },
+     "certainty": "1966 カオ・2009 ノーベル賞 ◎／1970 コーニング 20dB/km ◎／今 0.2dB/km ◎",
+     "basis": "- Wikipedia「Optical fiber」：https://en.wikipedia.org/wiki/Optical_fiber"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -35177,7 +35190,7 @@
    "name": "光ファイバー",
    "trunk": "15",
    "trunk_name": "通信・情報",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1966,
    "year_range": null,
@@ -35203,7 +35216,7 @@
    "name_en": "Optical fiber",
    "hee1_en": "Light cables running along the sea floor carry the world's internet.",
    "kind": "tech",
-   "play": "",
+   "play": "実験（純度で光の届き方がちがう）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -35328,7 +35341,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "最初のネット通信は「LO」の2文字で止まった（LOGIN の途中でダウン）",
    "name_en": "Computer networks",
    "hee1_en": "The first network message stopped after 2 letters, \"LO\" (it crashed partway through LOGIN)",
@@ -35488,7 +35501,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F45. 指は電気をためる（静電容量式タッチパネル）［15-18］",
+     "answer": "画面の下に透明な電極（ITO）を縦横に並べ、交点ごとに少し電気をためておく。体は水分で電気を通すので、指が近づくと交点がためられる電気の量（静電容量）がわずかに増え、読み取りの IC がその場所を知る。1965年にイギリス王立レーダー研究所の研究者が航空管制用のタッチ画面を発表し、2007年のスマホで、何本の指でも読める格子の方式が広まった。",
+     "hee": {
+      "1": "手袋をしているとスマホが反応しないのは、手袋が電気を通さないから。",
+      "2": "変化はほんの 1pF ほど（1兆分の1ファラッド）。それを何千回も読んで指の場所を決める。",
+      "3": "1973年には CERN が加速器の制御室で透明なタッチ画面を使っていた。",
+      "4": "電極の ITO は透明で電気を通す、めずらしい物質（インジウムとスズの酸化物）。"
+     },
+     "certainty": "1965 王立レーダー研究所 ○／CERN 1973 ○／2007 スマホの多点タッチ ◎（年は ⚠️ 出典で確かめ中）",
+     "basis": "Wikipedia「Touchscreen」（History／Capacitive）https://en.wikipedia.org/wiki/Touchscreen （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -35498,7 +35524,7 @@
    "name": "静電容量式タッチパネル",
    "trunk": "15",
    "trunk_name": "通信・情報",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1965,
    "year_range": "1965〜2007",
@@ -35516,12 +35542,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "指が近づくだけで、画面の下の見えない電極が「ここに指がある」と気づく（S-003 で追加。出典：Electronics Letters（1965）、CERN「The first touchscreens」、Google Patents US3482241）",
    "name_en": "Capacitive touchscreen",
    "hee1_en": "Just by bringing your finger close, invisible electrodes under the screen notice \"there is a finger here\". (Added in S-003. Sources: Electronics Letters (1965), CERN \"The first touchscreens\", Google Patents US3482241)",
    "kind": "tech",
-   "play": "",
+   "play": "軽（右クリックで体の静電容量）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -37266,7 +37292,7 @@
    "name": "スマホ",
    "trunk": "B",
    "trunk_name": "枝",
-   "status": "❓",
+   "status": "🔧",
    "branch": true,
    "year": 2007,
    "year_range": null,
