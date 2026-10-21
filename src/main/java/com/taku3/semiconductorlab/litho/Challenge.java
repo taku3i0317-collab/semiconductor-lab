@@ -71,9 +71,18 @@ public final class Challenge {
         seq("dram_cell", 3, 1, false, new int[][] {{0b110, -1}, {0b010, -1}, {0b000, -1}, {0b001, 0}, {0b000, -1}, {0b100, -1}, {0b000, -1}, {0b001, 1}, {0b000, -1},
                 {0b110, -1}, {0b010, -1}, {0b000, -1, 2000}, {0b110, -1}, {0b010, -1}, {0b000, -1, 2000}, {0b001, 0}});
         // ===== 4ビット CPU（[10-13]、S-014 全部案A）：入力A〜D＝ROM の語（A が下の位）、クロック、出力1〜4＝出力の口、出力5〜8＝読む番地。判定は論理の箱だけ（Cpu4） =====
+        // ROM（[10-13] の ROM、S-014 Q25-3 案A）：入力A・B・C＝番地の下の位から3ビット、出力1〜4＝その番地の語（プログラム 3＋5、Cpu4.ADD_3_5）
+        ALL.add(new Def("rom_program", 3, 4, romTable(Cpu4.ADD_3_5)));
         ALL.add(new Def("cpu4", 5, 8, new int[0], true, null, true));
     }
     private static void add(String id, int in, int out, int... table) { ALL.add(new Def(id, in, out, table)); }
+
+    /** ROM の真理値表：行（A が上の位）→ 番地（A が下の位）の語 */
+    static int[] romTable(int[] rom) {
+        int[] t = new int[8];
+        for (int row = 0; row < 8; row++) t[row] = rom[(row >> 2 & 1) | (row >> 1 & 1) << 1 | (row & 1) << 2];
+        return t;
+    }
     private static void seq(String id, int in, int out, boolean clock, int[][] steps) { ALL.add(new Def(id, in, out, new int[0], clock, steps)); }
 
     public static List<Def> all() { return List.copyOf(ALL); }

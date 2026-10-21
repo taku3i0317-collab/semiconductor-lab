@@ -119,6 +119,19 @@ public final class ChipOps {
      * それより細かいマスクは焼けない。光源を短い波長に・レンズを良く（NA を大きく、収差を小さく）すると細かく描ける。
      * baseTool＝光の当て方の種類（密着か投影か、波長）。表の方眼の数は「基準のレンズ」の値として残る
      */
+    /** 1段の段差の高さ（nm、v0.5 #1 焦点深度、C と決めた形・司令塔の仮決定 O-030、ゲームの値 ⚠️）。表面の段差＝steps()×これ */
+    public static final int STEP_NM = 80;
+
+    /**
+     * 焦点深度つき（v0.5 #1）：表面の段差（{@link ChipState#steps()}×{@link #STEP_NM}）がレンズの焦点深度 dofNm（k2·λ/NA²、C の ProjectionLensItem.dofNm）より大きいと、
+     * ピントが合わず焼けない（defocus、材料は失わない）。CMP（{@link #planarize}）で平らにすると焼ける
+     */
+    public static Result exposeAtCd(ItemStack w, MaskData mask, ExposureTool baseTool, int cdNm, int overlayNm, int dofNm) {
+        ChipState s = state(w);
+        if (s != null && dofNm > 0 && (long) s.steps() * STEP_NM > dofNm) return Result.fail("defocus");
+        return exposeAtCd(w, mask, baseTool, cdNm, overlayNm);
+    }
+
     public static Result exposeAtCd(ItemStack w, MaskData mask, ExposureTool baseTool, int cdNm, int overlayNm) {
         if (cdNm <= 0) return Result.fail("too_fine");
         int g = ExposureTool.gridFor(cdNm);

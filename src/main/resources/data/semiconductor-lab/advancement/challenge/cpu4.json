@@ -1,5 +1,5 @@
 {
-  "parent": "semiconductor-lab:challenge/dram_cell",
+  "parent": "semiconductor-lab:challenge/rom_program",
   "display": {
     "icon": {
       "id": "semiconductor-lab:chip"

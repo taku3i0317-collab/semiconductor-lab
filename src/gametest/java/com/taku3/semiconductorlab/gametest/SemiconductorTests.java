@@ -3191,6 +3191,62 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [10-13] ROM のチップ（S-014 Q25-3 案A、4001 の形）：48×48 の NMOS の ROM（番地の NOT 3・読み解きの NOR 8・行列）を i線ステッパーの方眼で焼くと、
+     * アナログで ROM のお題 rom_program（3＋5 のプログラム）に合格。ゲート酸化膜のマスクだけ変えて数えるプログラムにすると、ちがう中身になる（お題には合わない）
+     */
+    @GameTest(maxTicks = 400)
+    public void romChip(GameTestHelper h) {
+        java.util.function.Function<int[], Object[]> burn = rom -> {
+            ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+            var d = com.taku3.semiconductorlab.litho.LithoExamples.romChip(rom);
+            ItemStack chip = com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.litho.LithoExamples.process(ow, d, com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_I, com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE, true), 0).out();
+            var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.ChipOps.state(chip)));
+            int n = nl.model.size;
+            var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+            roles.put(nl.netOf[0], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+            roles.put(nl.netOf[2], com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+            roles.put(nl.netOf[18 * n + n - 1], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);   // 右のふちの 0 V
+            com.taku3.semiconductorlab.litho.Circuit.Role[] in = {com.taku3.semiconductorlab.litho.Circuit.Role.IN_A, com.taku3.semiconductorlab.litho.Circuit.Role.IN_B, com.taku3.semiconductorlab.litho.Circuit.Role.IN_C};
+            for (int i = 0; i < 3; i++) roles.put(nl.netOf[(n - 1) * n + 12 + 4 * i], in[i]);
+            for (int k = 0; k < 4; k++) roles.put(nl.netOf[(n - 1) * n + 28 + 4 * k], com.taku3.semiconductorlab.litho.Circuit.OUTS[k]);
+            return new Object[] {nl, roles};
+        };
+        var def = com.taku3.semiconductorlab.litho.Challenge.byId("rom_program");
+        Object[] a = burn.apply(com.taku3.semiconductorlab.litho.Cpu4.ADD_3_5);
+        var nl = (com.taku3.semiconductorlab.litho.Netlist) a[0];
+        @SuppressWarnings("unchecked") var roles = (java.util.Map<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>) a[1];
+        var r = com.taku3.semiconductorlab.litho.Challenge.check(def, nl, roles, 1.0);
+        h.assertTrue(r.passed(), "the mask-programmed ROM holds 3 + 5: " + r + " MOS " + nl.mosfets.size());
+        Object[] b = burn.apply(com.taku3.semiconductorlab.litho.Cpu4.COUNT);
+        @SuppressWarnings("unchecked") var roles2 = (java.util.Map<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>) b[1];
+        h.assertFalse(com.taku3.semiconductorlab.litho.Challenge.check(def, (com.taku3.semiconductorlab.litho.Netlist) b[0], roles2, 1.0).passed(), "another gate-oxide mask is another program");
+        LOG.info("[LAB] ROM [10-13]: 48x48 mask ROM passes rom_program, {} MOSFETs", nl.mosfets.size());
+        h.succeed();
+    }
+
+    /**
+     * v0.5 #1 焦点深度（C と決めた形、O-030）：KrF のレンズ（焦点深度 310 nm）で、MOS の4段（拡散・ゲート・窓・金属）＋層間膜のあとの VIA は 320 nm の段差で defocus。
+     * CMP で平らにすると焼ける。焦点深度の深い g線（2847 nm）なら CMP なしでも焼ける。5引数の exposeAtCd は今までどおり焦点深度を見ない
+     */
+    @GameTest(maxTicks = 200)
+    public void depthOfFocus(GameTestHelper h) {
+        var base = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal();
+        var one = new com.taku3.semiconductorlab.litho.ChipDesign(16, "one", base.layers().subList(0, 4), java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.MOS);
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack w = com.taku3.semiconductorlab.litho.ChipOps.depositInterlayer(com.taku3.semiconductorlab.litho.LithoExamples.process(ow, one, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G)).out();
+        ItemStack coated = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+        var mask = base.mask(4);
+        int cd = 130;
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(coated).steps() * com.taku3.semiconductorlab.litho.ChipOps.STEP_NM, 320, "four steps of 80 nm");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(coated, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF, cd, 0, 310).reason(), "defocus", "KrF depth of focus 310 nm < 320 nm step");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(coated, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF, cd, 0, 2847).ok(), "the deep g-line focus is fine");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(coated, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF, cd, 0).ok(), "the old call ignores the depth of focus");
+        ItemStack flat = com.taku3.semiconductorlab.litho.ChipOps.coat(com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.litho.ChipOps.planarize(w).out(), 0).out()).out();
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(flat, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF, cd, 0, 310).ok(), "after CMP it prints");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

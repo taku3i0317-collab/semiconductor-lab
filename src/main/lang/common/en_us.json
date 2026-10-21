@@ -310,5 +310,12 @@
   "litho.semiconductor-lab.challenge.cpu4.hint2": "2. The address always adds 1 (half adders), except on JUMP. Choose with NOT, AND and OR (a multiplexer).",
   "litho.semiconductor-lab.challenge.cpu4.hint3": "3. A takes the number on LOAD, A + number on ADD (four full adders). Split the clock with AND so registers store only then.",
   "litho.semiconductor-lab.challenge.cpu4.hint4": "4. Build only from stamps with wires between (checked as logic boxes). About 50 stamps; two metal layers keep wires from crossing.",
-  "litho.semiconductor-lab.near.program": "A CPU is checked as logic: only passed stamps and wires. Something is drawn outside the stamps, or it behaves differently."
+  "litho.semiconductor-lab.near.program": "A CPU is checked as logic: only passed stamps and wires. Something is drawn outside the stamps, or it behaves differently.",
+  "litho.semiconductor-lab.challenge.rom_program": "ROM (program)",
+  "litho.semiconductor-lab.challenge.rom_program.goal": "A, B, C = address (A is the low bit); outputs 1-4 give that word: 1,3,2,5,4,0,8,6 (the 3 + 5 program)",
+  "litho.semiconductor-lab.challenge.rom_program.history": "Intel 4001 (1971): the program ROM (256 words of 8 bits), written in the factory by one mask.",
+  "litho.semiconductor-lab.challenge.rom_program.hint1": "1. Decode the address: make lines that select exactly one of the 8 words (a NOR pulled low by any wrong address bit).",
+  "litho.semiconductor-lab.challenge.rom_program.hint2": "2. You need the opposite of each address bit too (NOT). Put a gate under the wrong one of each pair.",
+  "litho.semiconductor-lab.challenge.rom_program.hint3": "3. Run data lines down, pulled up to the supply. A MOS where a word line crosses makes that bit 0; none makes it 1.",
+  "litho.semiconductor-lab.challenge.rom_program.hint4": "4. Only the gate-oxide mask decides the contents. Each 4001 customer got that one mask redrawn."
 }

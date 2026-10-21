@@ -651,6 +651,75 @@ public final class LithoExamples {
     }
 
     /**
+     * 48×48 の ROM のチップ（[10-13] の ROM、S-014 Q25-3 案A：1971 インテル 4001 と同じく、マスクで書きこむ）。8語×4ビット、番地は3ビット（⚠️ 4001 は 256 語）。工程は MOS の4層。
+     * <pre>
+     * 左の列：0 V（x=0）・電源（x=2）。上の行：電源。下のふち：番地 A0・A1・A2（x=12・16・20）と、データ D0〜D3（x=28・32・36・40）
+     * 上：番地の反対を作る NOT 3つ（横の n の帯を電源から引き上げ、番地の線がゲート）→ 縦の線 !A0〜!A2（x=14・18・22）
+     * 中：番地を読み解く NOR 8つ（語ごとに横の n の帯、合わない番地の線の下にゲート酸化膜＝MOS で 0 V へ）→ 右の端で金属の語の線になる
+     * 右：ROM の行列。縦の n の帯＝データの線（上で電源に引き上げ）。語の線とデータの線の交わる所のとなりにゲート酸化膜を置くと MOS＝その語のそのビットは 0
+ * 引き上げは負荷の MOS。0 V の拡散の帯は2語ごとに2層目の金属（x=25 の縦と、行列の上の横の行、右のふちのパッド）へつなぐ（拡散は 1 マス 1 kΩ で長いと 0 まで下がらない）
+     * </pre>
+     * ゲート酸化膜のマスク1枚で中身が決まる（作り直すのはその1枚だけ）
+     */
+    public static ChipDesign romChip(int[] rom) {
+        final int n = 48, XA = 12, Y0 = 16, XM = 28;
+        boolean[][] diff = new boolean[n][n], gox = new boolean[n][n], cont = new boolean[n][n], met = new boolean[n][n], via = new boolean[n][n], met2 = new boolean[n][n];
+        final int XS = 25;   // 0 V のつなぎ（2層目の金属）の縦の列
+        java.util.function.BiConsumer<boolean[][], int[]> hl = (g, a) -> { for (int x = a[0]; x <= a[1]; x++) g[a[2]][x] = true; };   // {x0, x1, y}
+        java.util.function.BiConsumer<boolean[][], int[]> vl = (g, a) -> { for (int y = a[0]; y <= a[1]; y++) g[y][a[2]] = true; };   // {y0, y1, x}
+        int lastWord = Y0 + 6 * 3 + 4, LOAD = 7;
+        // 引き上げは負荷の MOS（ゲートを電源につないだ長いチャネル、W/L＝1/7。1970年代の NMOS と同じ。拡散の抵抗だけでは弱すぎて 0 まで下がらない）
+        java.util.function.IntConsumer loadRow = y -> {   // 横：x=2（電源の窓）→ x=3〜9 のチャネル → x=10 から帯
+            diff[y][2] = true; cont[y][2] = true;
+            for (int x = 3; x < 3 + LOAD; x++) { gox[y][x] = true; met[y][x] = true; }
+        };
+        vl.accept(met, new int[] {0, n - 1, 0});            // 0 V
+        vl.accept(met, new int[] {0, lastWord, 2});         // 電源（縦）
+        hl.accept(met, new int[] {2, XM + 14, 0});          // 電源（上の行）
+        for (int i = 0; i < 3; i++) {                       // 番地の反対（NOT）
+            int y = 2 + 4 * i, xa = XA + 4 * i, xn = xa + 2;
+            loadRow.accept(y); hl.accept(diff, new int[] {3 + LOAD, xn, y}); cont[y][xn] = true;   // 負荷の MOS → 帯、右の端が出力
+            hl.accept(diff, new int[] {0, XS, y + 2}); cont[y + 2][0] = true;               // 0 V の帯（右の端も2層目で 0 V へ）
+            cont[y + 2][XS] = true; met[y + 2][XS] = true; via[y + 2][XS] = true;
+            gox[y + 1][xa] = true;                                                           // 番地の線の下の MOS
+            vl.accept(met, new int[] {y + 1, n - 1, xa});                                     // 番地の線（下のふちから）
+            vl.accept(met, new int[] {y, lastWord, xn});                                      // 反対の線
+        }
+        for (int w = 0; w < 8; w++) {                       // 読み解き（NOR）と ROM の行列
+            int m = w / 2, ys = Y0 + 6 * m + (w % 2 == 0 ? 0 : 4), yc = w % 2 == 0 ? ys + 1 : ys - 1, yg = Y0 + 6 * m + 2;
+            loadRow.accept(ys); hl.accept(diff, new int[] {3 + LOAD, XA + 12, ys}); cont[ys][XA + 12] = true;
+            if (w % 2 == 0) {
+                hl.accept(diff, new int[] {0, XS, yg}); cont[yg][0] = true;
+                cont[yg][XS] = true; met[yg][XS] = true; via[yg][XS] = true;
+                hl.accept(met2, new int[] {XS, n - 1, yg});                                   // 2層目の 0 V の行（行列の 0 V の帯へ、右のふちまで）
+                for (int k = 0; k < 4; k++) { int xg = XM + 4 * k + 2; cont[yg][xg] = true; met[yg][xg] = true; via[yg][xg] = true; }
+            }
+            for (int i = 0; i < 3; i++) gox[yc][(w >> i & 1) != 0 ? XA + 4 * i + 2 : XA + 4 * i] = true;   // 合わない番地で 0 V へ
+            hl.accept(met, new int[] {XA + 12, XM + 14, ys});                                // 語の線
+            for (int k = 0; k < 4; k++) if ((rom[w] >> k & 1) == 0) gox[ys][XM + 4 * k + 1] = true;   // 0 のビットに MOS
+        }
+        for (int k = 0; k < 4; k++) {                       // データの線と、行列の 0 V
+            int xb = XM + 4 * k;
+            diff[1][xb] = true; cont[1][xb] = true; met[1][xb] = true;                        // 電源の窓 → 縦の負荷の MOS（y=2〜8）→ データの線
+            for (int y = 2; y < 2 + LOAD; y++) { gox[y][xb] = true; met[y][xb] = true; }
+            vl.accept(diff, new int[] {2 + LOAD, lastWord + 2, xb});
+            cont[lastWord + 2][xb] = true; vl.accept(met, new int[] {lastWord + 2, n - 1, xb});
+            vl.accept(diff, new int[] {Y0, lastWord + 2, xb + 2});   // 行列の 0 V の帯（2語ごとに2層目の 0 V へ＝長い拡散の抵抗を作らない）
+        }
+        vl.accept(met2, new int[] {2 + 4 * 0 + 2, Y0 + 6 * 3 + 2, XS});   // 2層目の縦：NOT・読み解き・行列の 0 V をつなぐ
+        met[Y0 + 2][n - 1] = true; via[Y0 + 2][n - 1] = true;               // 右のふちの 0 V のパッド
+        java.util.function.Function<boolean[][], BitGrid> g = a -> {
+            BitGrid o = BitGrid.empty(n);
+            for (int y = 0; y < n; y++) for (int x = 0; x < n; x++) if (a[y][x]) o = o.with(x, y, true);
+            return o;
+        };
+        return new ChipDesign(n, "rom_example", List.of(
+                new ChipDesign.Layer(LayerKind.DIFF_N, g.apply(diff)), new ChipDesign.Layer(LayerKind.GATE_OX, g.apply(gox)),
+                new ChipDesign.Layer(LayerKind.CONTACT, g.apply(cont)), new ChipDesign.Layer(LayerKind.METAL, g.apply(met)),
+                new ChipDesign.Layer(LayerKind.VIA, g.apply(via)), new ChipDesign.Layer(LayerKind.METAL2, g.apply(met2))), List.of(), ChipDesign.MOS);
+    }
+
+    /**
      * 論理の箱（合格したハンコ）だけで組んだ 4ビット CPU の見本（[10-13]、約50個）。形ではなく線の番号で直接つなぐ（{@link LogicSim#wired}）。お題 cpu4 が解けることの証明。
      * 2ビットのカウンタの下の位＝今が1語目（命令）か2語目（数）か。レジスタ（2ビット）×2 ずつ：命令・番地・A・出力の口。番地＋1 は半加算器、A＋数 は全加算器、
      * 選ぶ所（マルチプレクサ）は NOT・AND・OR。クロックは AND で分ける（1語目のとき命令へ、2語目のとき実行へ）。roles に パッドの役目を入れる

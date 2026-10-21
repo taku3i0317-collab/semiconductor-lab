@@ -572,3 +572,6 @@
 - E の [1-70] high-k の受け口（E と決めた形、S-004 の「SiO2 の仮 → [1-70] で入れ替え」）：ChipOps.highK（ゲート酸化膜のあと・レジストなし・金属の膜なし、記録 Extras.highK、判定は変えない）。GameTest highKRecord
 - 段2：命令と見本 litho/Cpu4（1語4ビット、1命令＝2語、ビット1つの命令 1＝LOAD・2＝ADD・4＝OUT・8＝JUMP ⚠️4004 の形とはちがう、ROM 16語。プログラム 3＋5→8・数える→1,2,3,4,5）。お題 cpu4（入力A〜D＝ROM の語〔A が下の位〕・クロック・出力1〜4＝出力の口・出力5〜8＝番地。論理の箱だけで調べる、アナログでは調べない）。役目に出力5〜8（検査台のパッドの状態 16）。見本 LithoExamples.cpu4Boxes：合格したハンコの箱 約50個（カウンタ1・NOT・AND・OR・半加算器4・全加算器4・レジスタ8）で2つのプログラムに合格、けた上がりなしは落ちる。GameTest cpu4Program。lang・進捗 cpu4・near.program
 - 次：段3 ROM のチップ（rom_program＝4入力・4出力の真理値表＝3＋5 のプログラム、製図台で MOS の行列を描く）、段4 組立台で CPU＋ROM → マイコン（画面に出力の口）、段5 ガイド・HUMAN_CHECK・REFERENCES・TECH_TREE ✅
+- 段3 ROM のチップ：お題 rom_program（入力A・B・C＝番地〔A が下の位〕、出力1〜4＝語、3＋5 のプログラム 1,3,2,5,4,0,8,6）。見本 LithoExamples.romChip(rom)：48×48 の NMOS のマスク ROM（番地の NOT 3・読み解きの NOR 8・行列 8語×4ビット、ゲート酸化膜のマスク1枚で中身、⚠️ 4001 は 256語）。引き上げは負荷の MOS（W/L＝1/7、拡散の抵抗では弱い）、0 V は2語ごとに2層目の金属へ（MOS の拡散は 1 マス 1 kΩ）。i線ステッパーの方眼でアナログで合格、別のマスクの中身は不合格。GameTest romChip
+- 回路の計算の改善：収束しないとき電源を 0.1→1.0 に少しずつ上げて解き直す（電源の階段）、BiCGSTAB の回数の上限 3000（ROM で 10 分止まった）
+- C の v0.5 #1 焦点深度（O-030 の仮決定）：ChipOps.STEP_NM＝80、exposeAtCd(…, dofNm)：steps()×80 ＞ dofNm なら defocus（材料は失わない）。5引数は今までどおり。GameTest depthOfFocus（KrF 310 nm：MOS 4段＋層間膜で defocus、CMP のあとは焼ける）

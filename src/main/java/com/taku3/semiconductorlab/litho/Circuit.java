@@ -118,6 +118,13 @@ public final class Circuit {
         int u = 0;
         for (int k = 0; k < nodes; k++) idx[k] = fixed[k] ? -1 : u++;
         boolean ok = false;
+        // 収束しなければ、電源を少しずつ上げて解き直す（電源の階段、SPICE と同じ工夫。大きな MOS の回路＝[10-13] の ROM など）
+        for (int pass = 0; pass < 2 && !ok && u > 0; pass++) {
+        double[] scales = pass == 0 ? new double[] {1.0} : new double[] {0.1, 0.25, 0.4, 0.55, 0.7, 0.85, 1.0};
+        if (pass == 1) for (int k = 0; k < nodes; k++) if (!fixed[k]) v[k] = 0;
+        for (double sc : scales) {
+        for (var e : drive.entrySet()) v[cells + e.getKey()] = e.getValue() * sc;
+        ok = false;
         for (int it = 0; it < 200 && u > 0; it++) {
             Mat J = u <= DENSE_MAX ? new Dense(u) : new Sparse(u);
             double[] F = new double[u];
@@ -169,6 +176,9 @@ public final class Circuit {
                 max = Math.max(max, Math.abs(step));
             }
             if (max < 1e-7) { ok = true; break; }
+        }
+        if (!ok && pass == 1) break;
+        }
         }
         if (u == 0) ok = true;
         // パッドの電流・マスの電流
@@ -276,7 +286,7 @@ public final class Circuit {
             double bn = Math.sqrt(dot(b, b));
             if (bn == 0) return x;
             double rho = 1, alpha = 1, omega = 1;
-            for (int it = 0; it < 20 * n + 100; it++) {
+            for (int it = 0; it < Math.min(20 * n + 100, 3000); it++) {   // 上限（収束しない行列で長く止まらないように）
                 double rho1 = dot(r0, r);
                 if (rho1 == 0) break;
                 double beta = (rho1 / rho) * (alpha / omega);
