@@ -318,6 +318,13 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-01] たき火（IMP4-01、S-009）：バニラのたき火（調理＝低い温度の加熱）がそのまま当てはまる */
+    @GameTest
+    public void campfire(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, net.minecraft.world.item.Items.BEEF).is(net.minecraft.world.item.Items.COOKED_BEEF), "vanilla campfire cooks (low-temperature heating)");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Heat.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(Heat.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");
