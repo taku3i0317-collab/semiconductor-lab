@@ -38050,7 +38050,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F47. 青い光と黄色い粉で白（白色 LED）［B-20］",
+     "answer": "長いあいだ作れなかった明るい青色 LED を、1990年代に日本の研究者たちが窒化ガリウムで実用にした（2014年ノーベル物理学賞）。1996年には日本の会社が、青色 LED に、青い光を黄色に変える蛍光体（YAG:Ce）をかぶせた白色 LED を製品にした。青と黄色が混ざって白く見える。液晶は自分で光らないので、白色 LED の光を透明な板で広げて裏から照らす（バックライト）。",
+     "hee": {
+      "1": "白い LED の中身は青い LED。黄色く光る粉で白に見せている。",
+      "2": "窒化ガリウムを p 型にするマグネシウムは、熱で処理して初めて働く。これが見つかって明るい青色 LED ができた。",
+      "3": "2000年代後半、画面の裏の光は水銀の入った蛍光管から白色 LED に置きかわった。",
+      "4": "YAG はイットリウム・アルミニウム・ガーネットという宝石のような結晶。少しのセリウムが光の色を変える。"
+     },
+     "certainty": "青色 LED の実用化 1993 前後・ノーベル賞 2014 ◎／白色 LED の製品 1996 ◎／LED バックライトへの置きかわり 2000年代後半 ○",
+     "basis": "Wikipedia「Light-emitting diode」（Blue and white LEDs）https://en.wikipedia.org/wiki/Light-emitting_diode 、Wikipedia「Yttrium aluminium garnet」https://en.wikipedia.org/wiki/Yttrium_aluminium_garnet （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -38060,7 +38073,7 @@
    "name": "白色 LED バックライト",
    "trunk": "B",
    "trunk_name": "枝",
-   "status": "❓",
+   "status": "✅",
    "branch": true,
    "year": 1996,
    "year_range": "1993〜1996",
@@ -38078,12 +38091,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "白い LED の中身は青い LED で、黄色く光る粉をかぶせて青と黄色を混ぜて白に見せている（S-002 で追加。出典：半導体産業人協会「白色 LED」、LEDinside）",
    "name_en": "White LED backlight",
    "hee1_en": "A white LED is really a blue LED covered with a powder that glows yellow; blue and yellow mix to look white. (Added in S-002. Sources: Semiconductor History Museum of Japan (SSIS) \"White LED\", LEDinside)",
    "kind": "tech",
-   "play": "",
+   "play": "軽（白い明かり）＋スマホの部品",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -56532,6 +56545,30 @@
   {
    "from": "4-14",
    "to": "7-10",
+   "kind": "requires",
+   "added": true
+  },
+  {
+   "from": "1-09",
+   "to": "1-26",
+   "kind": "requires",
+   "added": true
+  },
+  {
+   "from": "9-08",
+   "to": "9-23",
+   "kind": "requires",
+   "added": true
+  },
+  {
+   "from": "7-13",
+   "to": "7-14",
+   "kind": "requires",
+   "added": true
+  },
+  {
+   "from": "10-12",
+   "to": "10-14",
    "kind": "requires",
    "added": true
   },

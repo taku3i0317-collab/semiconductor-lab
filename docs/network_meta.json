@@ -1760,6 +1760,42 @@
    "note": "電気で放電させて光らせる",
    "sources": [],
    "by": "S-025"
+  },
+  {
+   "from": "1-09",
+   "to": "1-26",
+   "note": "ベッセマーの転炉は、高炉で作った溶けた銑鉄に空気を吹いて鋼にする（材料）",
+   "sources": [
+    "https://www.gracesguide.co.uk/Henry_Bessemer"
+   ],
+   "by": "S-031"
+  },
+  {
+   "from": "9-08",
+   "to": "9-23",
+   "note": "MOSFET はシリコンの単結晶の板の上に作る（材料。CZ 法で引き上げた結晶）",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/metal-oxide-semiconductor-mos-transistor-demonstrated/"
+   ],
+   "by": "S-031"
+  },
+  {
+   "from": "7-13",
+   "to": "7-14",
+   "note": "CO2 レーザーはレーザーの一つ（1964 年パテルの論文、知恵・原理）",
+   "sources": [
+    "https://doi.org/10.1103/PhysRev.136.A1187"
+   ],
+   "by": "S-031"
+  },
+  {
+   "from": "10-12",
+   "to": "10-14",
+   "note": "マイコンはマイクロプロセッサと、プログラムとデータを入れる記憶のチップを組み合わせて作る（4004 も ROM・RAM のチップと組で使った）",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/"
+   ],
+   "by": "S-031"
   }
  ],
  "added_requires_note": "S-025：TECH_TREE に書きもれていた本当の前提（担当が TECH_TREE に書くまで、ネットワークの側で補う。network_proposals.md の R- の行）。note は理由（「本物の欄」は、そのノードの本物の欄にもう書いてあること）"
