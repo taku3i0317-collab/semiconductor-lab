@@ -6,14 +6,20 @@
   let parser = null, obs = null;
   const isJa = () => document.documentElement.lang !== 'en';
   function getParser() {
-    if (!parser && window.customElements && customElements.get('budoux-ja')) parser = document.createElement('budoux-ja').parser;
+    if (!parser && window.customElements && customElements.get('budoux-ja')) { parser = document.createElement('budoux-ja').parser; if (parser.htmlProcessor) parser.htmlProcessor.className = 'bx'; }   // 済んだ箱に bx を付け、二度目は飛ばす（見えない空白が何重にも入らないように）
     return parser;
   }
   const SKIP = 'svg, canvas, script, style, input, textarea, select, button, code, pre, .results';
   function apply(root) {
     const p = getParser();
     if (!p || !isJa() || !root || root.nodeType !== 1 || root.closest(SKIP)) return;
+    // 文の途中の小さな箱（ふりがなの span など）なら、その段落の箱ごとやり直す
+    while (root.parentElement && root !== document.body && /^inline/.test(getComputedStyle(root).display)) root = root.parentElement;
     if (obs) obs.disconnect();
+    // 何度やっても同じになるように、前に入れた見えない空白と「済み」の印を消してから入れ直す
+    const w = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    while (w.nextNode()) { const t = w.currentNode; if (t.nodeValue.includes('​')) t.nodeValue = t.nodeValue.replace(/​/g, ''); }
+    root.classList.remove('bx'); root.querySelectorAll('.bx').forEach(e => e.classList.remove('bx'));
     try { p.applyToElement(root); } catch (e) { /* 折り返しは見た目だけなので、失敗しても先へ */ }
     watch();
   }
@@ -22,6 +28,7 @@
       const roots = new Set();
       for (const m of ms) for (const n of m.addedNodes) {
         const el = n.nodeType === 1 ? n : n.parentElement;
+        if (n.nodeType === 3 && el) el.classList.remove('bx');   // 済んだ箱に新しい文が入ったら、もう一度
         if (el && el.isConnected && !(el.tagName === 'RT')) roots.add(el);
       }
       for (const r of roots) apply(r);
