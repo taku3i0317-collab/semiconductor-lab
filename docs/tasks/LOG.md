@@ -631,3 +631,6 @@
 - E の [9-38] GAA・EUV のマスクとレジストの受け口（E と決めた形）：ModDataComponents.SUPERLATTICE（対の数）→ 塗るとき Extras.superlattice、ChipOps.releaseSheets（no_fin・no_superlattice・resist_on・already）→ Extras.gaa → ChipModel.gaa、Circuit.GAA_GRID＝gridFor(16 nm)＝136 以上はフィンでも漏れ GAA なら漏れない。MaskData.reflective（reflectiveCopy）：EUV は反射型でないと transmissive_mask、反射型は EUV でないと reflective_mask。RESIST_EUV（化学増幅と同じく加熱が要る）。GameTest gaaAndEuvMask
 - S-019 の1〜4 の準備（Q30 全部案A）：お題 mul4（Challenge.mulTable・checkCombinational、見本 LithoExamples.mul4Boxes＝AND 16・全加算器 12）。tools/gen_digits.py（CC0：見本 30 → 1200＋300、種 20261021）→ data/semiconductor-lab/ai/digits.json。ai/DigitNet（64→16→10、学習・4ビットの推論・学び直し・toJson）、同梱の重み data/semiconductor-lab/ai/digit_weights.json（GameTest が作り直して同じか確かめる。ちがえば build/digit_weights.json に書き出す）。正答率：実数 93.7%、4ビット 92%、1字 約320回の掛け算。GameTest aiDigitsAndMul4。AI チップ [B-11] と書く画面は前提（EUV＝C・GAA＝E・浮動小数点）のあと
 
+## O-031（[10-32] 浮動小数点、2026-10-21）
+- EUV（C）・GAA（E）はできた → 残る前提は [10-32]。ノードの MC が「未定（実装の前に相談）」なので案を書いた（LITHO_DESIGN §18）。**Q31**：案A 数値演算チップ（8087 の形：cpu8・mul4 のチップ＋レジスタを組立台で、右クリックで 0.1＋0.2 を 16・32・64ビットで見せる、AI チップの部品、学び直しはこのチップがあるとき）／案B 小さな浮動小数点の掛け算器のお題（むずかしい）／案C 知識だけ。おすすめ案A。答えまで作らない
+
