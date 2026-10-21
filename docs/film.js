@@ -12,6 +12,8 @@
   const byId = new Map(G.nodes.map(n => [n.id, n]));
   const parents = new Map();
   for (const [f, t, k] of G.edges) if (k === 'r' || k === 'e' || k === 'p') (parents.get(t) || parents.set(t, []).get(t)).push(f);
+  const partsOf = new Map(), undOf = new Map();   // S-029：部品（part）と、なぜ動くかを説明する知恵（understanding）
+  for (const [f, t, k] of G.edges) { if (k === 'p') (partsOf.get(t) || partsOf.set(t, []).get(t)).push(f); if (k === 'u' && byId.has(f) && byId.get(f).kind === 'idea') (undOf.get(t) || undOf.set(t, []).get(t)).push(f); }
   const EN = () => document.documentElement.lang === 'en';
   const nm = n => (EN() && n.name_en) || n.name;
   const T = {
@@ -61,18 +63,30 @@
     const dist = new Map([[id, 0]]), via = new Map();
     let q = [id];
     while (q.length) { const nq = []; for (const u of q) for (const p of parents.get(u) || []) if (!dist.has(p) && byId.has(p)) { dist.set(p, dist.get(u) + 1); via.set(p, u); nq.push(p); } q = nq; }
+    const LAY0 = window.FILM_LAYOUT || 'gen', und = new Set();
+    if (LAY0 === 'D') {
+      // 案D：一番内側の輪は部品（part を優先）、ほかのすぐ要る物はその外。そこから先は今と同じに前提をさかのぼる
+      dist.clear(); via.clear(); dist.set(id, 0);
+      const pp = (partsOf.get(id) || []).filter(k => byId.has(k)), bucket = [[id]];
+      const put = (k, d, v) => { if (dist.has(k)) return; dist.set(k, d); via.set(k, v); (bucket[d] || (bucket[d] = [])).push(k); };
+      for (const k of pp) put(k, 1, id);
+      for (const k of parents.get(id) || []) if (byId.has(k)) put(k, pp.length ? 2 : 1, id);
+      for (let d = 1; d < bucket.length; d++) for (const u of bucket[d] || []) for (const k of parents.get(u) || []) if (byId.has(k)) put(k, d + 1, u);
+      // 祖先の技術が持つ「なぜ動くか」の知恵（understanding）も知恵の扇に（線は点線）
+      for (const [k, d] of [...dist]) if (byId.get(k).kind !== 'idea') for (const i of undOf.get(k) || []) if (!dist.has(i)) { dist.set(i, d + 1); via.set(i, k); und.add(i); }
+    }
     const layers = [];
     for (const [k, d] of dist) (layers[d] || (layers[d] = [])).push(k);
     // S-027（見本）：並べ方。gen＝世代だけ（今）／A＝種類の扇3つ（材料・技術・知恵）／B＝分野（幹）ごとの扇／C＝知恵は外の別の帯
-    const LAY = window.FILM_LAYOUT || 'gen';
+    const LAY = LAY0;
     const kindOf = k => { const n = byId.get(k); return n.kind === 'idea' ? 'wisdom' : (n.kind === 'tech' && ['1', '2', '6'].includes(n.trunk)) ? 'material' : 'tech'; };
-    const sectorKey = LAY === 'A' ? kindOf : LAY === 'B' ? (k => byId.get(k).trunk) : null;
+    const sectorKey = LAY === 'A' || LAY === 'D' ? kindOf : LAY === 'B' ? (k => byId.get(k).trunk) : null;
     const ang = new Map([[id, -Math.PI / 2]]);
     let sectors = null;
     if (sectorKey) {
       // 扇：種類（または幹）ごとの数で広さを分ける（狭すぎないように最低 30°）。最初の扇を真上に
       const cnt = new Map(); for (const k of dist.keys()) if (k !== id) { const g = sectorKey(k); cnt.set(g, (cnt.get(g) || 0) + 1); }
-      const order = LAY === 'A' ? ['material', 'tech', 'wisdom'].filter(g => cnt.has(g)) : [...cnt.keys()].sort((a, b) => cnt.get(b) - cnt.get(a));
+      const order = LAY === 'A' || LAY === 'D' ? ['material', 'tech', 'wisdom'].filter(g => cnt.has(g)) : [...cnt.keys()].sort((a, b) => cnt.get(b) - cnt.get(a));
       const tot = [...cnt.values()].reduce((a, b) => a + b, 0), minS = Math.PI / 6;
       let spans = order.map(g => Math.max(minS, 2 * Math.PI * cnt.get(g) / tot)); const sum = spans.reduce((a, b) => a + b, 0); spans = spans.map(x => x * 2 * Math.PI / sum);
       let a0 = -Math.PI / 2 - spans[0] / 2; sectors = [];
@@ -93,7 +107,7 @@
     const nL = layers.length - 1;
     // 輪の間：その世代に並ぶ数（C では知恵を数えない）で広さを決める
     const ringN = d => LAY === 'C' ? layers[d].filter(k => kindOf(k) !== 'wisdom').length : layers[d].length;
-    const RAD = [0]; for (let d = 1; d <= nL; d++) RAD[d] = RAD[d - 1] + Math.max(d === 1 ? 64 : 34, Math.min(90, Math.max(1, ringN(d)) * (sectorKey ? 1.5 : 1.15)));
+    const RAD = [0]; for (let d = 1; d <= nL; d++) RAD[d] = RAD[d - 1] + Math.max(d === 1 ? (LAY === 'D' ? 92 : 64) : d === 2 && LAY === 'D' ? 84 : 34, Math.min(90, Math.max(1, ringN(d)) * (sectorKey ? 1.5 : 1.15)));
     const P = new Map([...dist.keys()].map(k => { const d = dist.get(k), a = ang.get(k); return [k, [Math.cos(a) * RAD[d], Math.sin(a) * RAD[d]]]; }));
     let band = null;
     if (LAY === 'C') {   // 知恵（考え方・発見）はいちばん外の帯にまとめる（年の順に1周）
@@ -120,7 +134,8 @@
       const v = Math.max(3, Math.min(15, 0.45 * span * r / ks.length));
       for (const k of ks) rk.set(k, v);
     }
-    return { id, dist, via, layers, ang, nL, RAD, P, roots, grp, groups, lit, hops, sectors, band, kindOf, LAY, rk, total: dist.size - 1, entries: [...dist.entries()] };
+    return { id, dist, via, layers, ang, nL, RAD, P, roots, grp, groups, lit, hops, sectors, band, kindOf, LAY, rk, und, sectorKey, open: new Set((window.FILM_OPEN || '').split(',').filter(Boolean)), badges: [],   // FILM_OPEN：見本で開いた扇を写す用
+      total: dist.size - 1, entries: [...dist.entries()] };
   }
   const nodeR = (S, d) => d === 0 ? 34 : Math.max(3, Math.min(15, 0.45 * (2 * Math.PI * S.RAD[d]) / S.layers[d].length));
   const nodeRk = (S, k) => S.rk.get(k) || nodeR(S, S.dist.get(k));
@@ -242,6 +257,11 @@
       const wasTap = ptrs.size === 1 && moved < 8; ptrs.delete(e.pointerId);
       if (!wasTap) return;
       if (mode === 'film') return next();
+      if (S.LAY === 'D') {   // 扇の「＋〇個」を押すと開く／とじる
+        const { cx, cy, sc } = view;
+        const b = S.badges.find(z => Math.abs(cx + z.x * sc - e.clientX) <= z.w * sc / 2 + 6 && Math.abs(cy + z.y * sc - e.clientY) <= z.h * sc / 2 + 6);
+        if (b) { if (S.open.has(b.g)) S.open.delete(b.g); else S.open.add(b.g); s = 0; zoom = 1; panX = panY = 0; req(); return; }
+      }
       const k = hit(e.clientX, e.clientY);
       if (k && k !== S.id) toCenter(k);
     };
@@ -251,6 +271,7 @@
     function hit(x, y) {
       const { cx, cy, sc } = view; let best = null, bd = 1e9;
       for (const [k, d] of S.entries) {
+        if (S.LAY === 'D' && d > 2 && !S.open.has(S.sectorKey(k))) continue;   // 閉じた扇の外の輪は押せない
         const [px, py] = S.P.get(k), sx = cx + px * sc, sy = cy + py * sc, r = Math.max(12, nodeRk(S, k) * sc);
         const dd = (sx - x) ** 2 + (sy - y) ** 2;
         if (dd <= r * r && dd < bd) { bd = dd; best = k; }
@@ -273,7 +294,7 @@
       ctx.fillStyle = C.bg; ctx.fillRect(0, 0, W, H);
       let shown = 0; for (let d = 1; d <= S.nL; d++) if (t >= layerStart(d)) shown = d;
       const ST = !!window.FILM_STORY;   // story：図を少し上に小さく（下の文と、上下の端を空ける）
-      const outer = film ? S.RAD[Math.max(1, shown)] + 18 : Math.max(...S.RAD) + (S.sectors || S.band ? 70 : 18);   // 中心図は外の帯・扇の名前まで入れる
+      const outer = film ? S.RAD[Math.max(1, shown)] + 18 : (S.LAY === 'D' && !S.open.size ? (S.RAD[Math.min(3, S.nL)] || 0) + 60 : Math.max(...S.RAD) + (S.sectors || S.band ? 70 : 18));   // 案D：閉じているときは内側3輪に合わせる   // 中心図は外の帯・扇の名前まで入れる
       const want = Math.min(1.6, (Math.min(W, H * (ST ? 0.56 : film ? 0.72 : 0.66)) / 2 - 24) / outer);
       s = s ? s + (want - s) * (film && still < 0 ? 0.06 : 1) : want;
       const sc = s * (film ? 1 : zoom), cx = W / 2 + (film ? 0 : panX), cy = H * (ST ? 0.41 : film ? 0.46 : 0.44) + (film ? 0 : panY);
@@ -284,13 +305,16 @@
       let arrived = 0;
       ctx.lineWidth = px; ctx.strokeStyle = C.sub; ctx.globalAlpha = film ? 0.25 : 0.3; ctx.beginPath();
       const runs = [], wl = [];
+      // 案D：外の輪（3つ目から）は、開いた扇の物だけ出す
+      const hid = k => S.LAY === 'D' && S.dist.get(k) > 2 && !S.open.has(S.sectorKey(k));
       for (const [k, d] of S.entries) {
         if (!d) continue;
         const ls = layerStart(d), p = film ? ease((t - ls) / 700) : 1;
         if (p <= 0) continue;
         if (p >= 1) arrived++;
         const [x, y] = S.P.get(k), [vx, vy] = S.P.get(S.via.get(k));
-        if ((S.LAY === 'A' || S.LAY === 'C') && S.kindOf(k) === 'wisdom') { if (S.LAY === 'A' || S.dist.get(k) <= 2) wl.push([x, y, vx, vy]); continue; }
+        if (!film && hid(k)) continue;
+        if ((S.LAY === 'A' || S.LAY === 'C' || S.LAY === 'D') && S.kindOf(k) === 'wisdom') { if (S.LAY !== 'C' || S.dist.get(k) <= 2) wl.push([x, y, vx, vy]); continue; }
         ctx.moveTo(vx, vy); ctx.lineTo(vx + (x - vx) * p, vy + (y - vy) * p);
         const r = (t - ls - 700) / 300;
         if (film && r > 0 && r < 1 && still < 0) runs.push([x + (vx - x) * r, y + (vy - y) * r]);
@@ -299,16 +323,31 @@
       if (wl.length) { ctx.setLineDash([3 * px, 3 * px]); ctx.strokeStyle = '#8e5bd6'; ctx.globalAlpha = 0.45; ctx.beginPath(); for (const [x, y, vx, vy] of wl) { ctx.moveTo(x, y); ctx.lineTo(vx, vy); } ctx.stroke(); ctx.setLineDash([]); ctx.strokeStyle = C.sub; }
       // S-027 の見本：扇の境と名前、外の帯
       if (S.sectors && !film) {
-        const R = S.RAD[S.nL] + 30;
+        const R = S.LAY === 'D' && !S.open.size ? (S.RAD[Math.min(3, S.nL)] || 0) + 34 : S.RAD[S.nL] + 30;
         ctx.globalAlpha = 0.5; ctx.strokeStyle = C.sub; ctx.lineWidth = px; ctx.setLineDash([4 * px, 4 * px]); ctx.beginPath();
         for (const x of S.sectors) { ctx.moveTo(Math.cos(x.a0) * 40, Math.sin(x.a0) * 40); ctx.lineTo(Math.cos(x.a0) * R, Math.sin(x.a0) * R); }
         ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
         ctx.font = `700 ${13 * px}px ${C.font}`; ctx.textAlign = 'center'; ctx.lineWidth = 4 * px; ctx.strokeStyle = C.bg; ctx.fillStyle = C.ink;
         for (const x of S.sectors) {
-          const a = (x.a0 + x.a1) / 2, nmx = S.LAY === 'A' ? ({ material: EN() ? 'Materials' : '材料', tech: EN() ? 'Techniques' : '技術', wisdom: EN() ? 'Ideas' : '知恵' })[x.g] : (G.nodes.find(n => n.trunk === x.g) || {}).trunk_name;
+          const a = (x.a0 + x.a1) / 2, nmx = S.LAY === 'A' || S.LAY === 'D' ? ({ material: EN() ? 'Materials' : '材料', tech: EN() ? 'Techniques' : '技術', wisdom: EN() ? 'Ideas' : '知恵' })[x.g] : (G.nodes.find(n => n.trunk === x.g) || {}).trunk_name;
           if (S.LAY === 'B' && x.a1 - x.a0 < 0.35) continue;   // 狭い扇は名前を出さない（拡大で見える）
           const t3 = `${nmx} ${x.n}`, lx = Math.cos(a) * (R + 14 * px), ly = Math.sin(a) * (R + 14 * px);
           ctx.strokeText(t3, lx, ly); ctx.fillText(t3, lx, ly);
+        }
+      }
+      if (S.LAY === 'D' && !film) {
+        S.badges = [];
+        const r3 = S.RAD[Math.min(3, S.nL)] || S.RAD[S.nL];
+        ctx.font = `700 ${13 * px}px ${C.font}`; ctx.textAlign = 'center';
+        for (const x of S.sectors) {
+          const n = S.entries.filter(([k, d]) => d > 2 && S.sectorKey(k) === x.g).length;
+          if (!n) continue;
+          const a = (x.a0 + x.a1) / 2, bx = Math.cos(a) * r3, by = Math.sin(a) * r3, op = S.open.has(x.g);
+          const t4 = op ? (EN() ? 'close' : 'とじる') : `+${n}`, w = ctx.measureText(t4).width + 16 * px, h = 24 * px;
+          ctx.globalAlpha = 1; ctx.fillStyle = op ? C.bg : C.ink; ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5 * px;
+          ctx.beginPath(); ctx.rect(bx - w / 2, by - h / 2, w, h); ctx.fill(); ctx.stroke();
+          ctx.fillStyle = op ? C.ink : C.bg; ctx.fillText(t4, bx, by + 5 * px);
+          S.badges.push({ g: x.g, x: bx, y: by, w, h });
         }
       }
       if (S.band && !film) {
@@ -351,13 +390,14 @@
         } else if (film) a = ease(t / 900);
         const r = nodeRk(S, k) * (film && !d ? 0.6 + 0.4 * a : 1), rs = r * sc;   // rs＝画面での半径
         ctx.globalAlpha = a;
+        if (!film && hid(k)) continue;
         if (!film && rs < 3 && d) { ctx.fillStyle = n.kind === 'product' ? C.prod : C.tech; ctx.fillRect(x - 2 * px, y - 2 * px, 4 * px, 4 * px); continue; }   // 混んだ輪は小さな点
         ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fillStyle = C.bg; ctx.fill();
         const glow = rootSet && rootSet.has(k);
         ctx.lineWidth = (glow ? 3.5 : d ? 1.5 : 3) * Math.min(px, 1 / Math.max(0.5, s * 0.8)); ctx.strokeStyle = glow ? GC[S.grp(k)] : n.kind === 'product' ? C.prod : C.tech; ctx.stroke();
         const sl = A.slot.get(k);
         if (sl && rs >= 3) ctx.drawImage(A.c, sl[0], sl[1], 16, 16, x - r * 0.7, y - r * 0.7, r * 1.4, r * 1.4);
-        if (!film && d && rs >= 9) labels.push([x, y + r + 13 * px, nm(n), d]);
+        if (!film && d && (rs >= 9 || (S.LAY === 'D' && d <= 2 && rs >= 4))) labels.push([x, y + r + 13 * px, nm(n), d]);
       }
       // 始まりの光（3 の場面）：全部の始まりに輪が1回だけ広がる
       if (film && t >= t2 && t < t3 + 400) {

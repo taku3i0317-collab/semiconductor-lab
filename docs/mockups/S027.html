@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="../design.css">
 </head>
 <body>
-<script>window.FILM_BASE = '../'; const q = new URLSearchParams(location.search); window.FILM_LAYOUT = q.get('layout') || 'A';</script>
+<script>window.FILM_BASE = '../'; const q = new URLSearchParams(location.search); window.FILM_LAYOUT = q.get('layout') || 'A'; window.FILM_OPEN = q.get('open') || '';</script>
 <script src="../tech_network_graph.js"></script>
 <script src="../film.js"></script>
 <script>Film.center(q.get('id') || 'B-10', {});</script>
