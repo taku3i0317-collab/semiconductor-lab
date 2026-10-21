@@ -38,11 +38,8 @@ public final class Content {
         Power.assemblies();
         Communication.assemblies();
         Branches.assemblies();   // [B-08] 電卓（S-010）
-<<<<<<< HEAD
         Control.assemblies();    // [10-13] マイコン（S-014）
-=======
         Semiconductor.assemblies();   // [9-42] 画像センサー・[9-43] MEMS（IMP4-01）
->>>>>>> 32072e68 (IMP4-01 [9-42] [9-43]: image sensor and MEMS accelerometer (O-019, provisional option A) - image_sensor (assembly: p-n junction wafer + chip that passed NOT + aluminium + glass): held, shows electrons in one pixel (dark current 5 to full well 6000, shot noise); mems_wafer (dry etcher: bare wafer + Cl2, Bosch process approximated) -> mems_accelerometer (assembly): held, shows g (1.00 standing, 0 falling) and tilt; no redstone; GameTest sensors, CHEMISTRY F73-F74, REFERENCES F43, DECISIONS, API_26X, TEST_QUEUE, tab order, testworld, IMPL4_LOG (343/343))
         Reg.registerTabs();
     }
 }

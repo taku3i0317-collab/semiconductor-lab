@@ -374,6 +374,76 @@
       "note": "部品表で組み立てる。電気なし"
     },
     {
+      "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（image_sensor）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:pn_junction_wafer",
+          "count": 1,
+          "cond": "photodiode"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "readout"
+        },
+        {
+          "item": "semiconductor-lab:aluminium_ingot",
+          "count": 1,
+          "cond": "wiring"
+        },
+        {
+          "item": "semiconductor-lab:soda_lime_glass",
+          "count": 1,
+          "cond": "window"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:image_sensor",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（mems_accelerometer）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:mems_wafer",
+          "count": 1,
+          "cond": "proof_mass"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "readout"
+        },
+        {
+          "item": "semiconductor-lab:aluminium_ingot",
+          "count": 1,
+          "cond": "wiring"
+        },
+        {
+          "item": "semiconductor-lab:can_cap",
+          "count": 1,
+          "cond": "seal"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:mems_accelerometer",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
       "machine": "semiconductor-lab:autoclave",
       "process": "ベークライト",
       "inputs": [
