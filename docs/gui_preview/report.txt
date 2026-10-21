@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 224（ja・en）、文字の置き場所 830、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 226（ja・en）、文字の置き場所 838、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
@@ -433,6 +433,11 @@ electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.need_input w=
 electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.output_full w=53 lines=1/3
 electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.need_power w=46 lines=1/3
 electric_furnace_en_us hint gui.semiconductor-lab.electric_furnace.heating w=81 lines=2/3
+electric_fan_en_us power gui.semiconductor-lab.electric_fan.power w=63 lines=1/1
+electric_fan_en_us reach gui.semiconductor-lab.electric_fan.reach w=66 lines=1/1
+electric_fan_en_us hint gui.semiconductor-lab.electric_fan.need_power w=90 lines=2/3
+electric_fan_en_us hint gui.semiconductor-lab.electric_fan.running w=35 lines=1/3
+electric_fan_en_us recipe gui.semiconductor-lab.electric_fan.recipe w=113 lines=1/1 scale=0.95
 rotary_pump_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
 rotary_pump_en_us pressure gui.semiconductor-lab.pump.pressure w=58 lines=1/1
 rotary_pump_en_us hint gui.semiconductor-lab.pump.running w=38 lines=1/3
@@ -1552,6 +1557,11 @@ electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.need_input w=
 electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.output_full w=45 lines=1/3
 electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.need_power w=36 lines=1/3
 electric_furnace_ja_jp hint gui.semiconductor-lab.electric_furnace.heating w=68 lines=1/3
+electric_fan_ja_jp power gui.semiconductor-lab.electric_fan.power w=51 lines=1/1
+electric_fan_ja_jp reach gui.semiconductor-lab.electric_fan.reach w=41 lines=1/1
+electric_fan_ja_jp hint gui.semiconductor-lab.electric_fan.need_power w=63 lines=1/3
+electric_fan_ja_jp hint gui.semiconductor-lab.electric_fan.running w=63 lines=1/3
+electric_fan_ja_jp recipe gui.semiconductor-lab.electric_fan.recipe w=95 lines=1/1
 rotary_pump_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
 rotary_pump_ja_jp pressure gui.semiconductor-lab.pump.pressure w=70 lines=1/1
 rotary_pump_ja_jp hint gui.semiconductor-lab.pump.running w=45 lines=1/3

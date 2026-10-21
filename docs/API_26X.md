@@ -911,3 +911,4 @@ public boolean instabuild;                         // クリエイティブ（�
 
 ### WrittenBookContent.craftCopy（IMP2 [15-02] で確かめた動き）
 - 26.3 では世代 2（写しの写し）にも null を返さず写す。「写しの写しは写せない」を守るなら generation() >= 2 を自分で止める（block/PrintingPressBlock.print）
+- `Entity.needsSync`（public boolean）：26.3 で `hurtMarked` の代わり。押した後に true にするとプレイヤーにも動きが送られる（IMP4-01 [4-18] 扇風機、javap で確認）

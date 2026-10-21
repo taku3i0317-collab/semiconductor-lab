@@ -128,6 +128,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		net.minecraft.client.renderer.blockentity.BlockEntityRenderers.register(com.taku3.semiconductorlab.content.Transport.CONVEYOR_BELT.type, ConveyorBeltRenderer::new);   // ベルトの上の物
 		screen(com.taku3.semiconductorlab.content.Transport.OHT_DRIVE, OhtDriveScreen::new);   // [14-23] 天井の搬送の駆動
 		screen(Power.ARC_LAMP, ArcLampScreen::new);
+		screen(Power.ELECTRIC_FAN, ElectricFanScreen::new);   // [4-18] 扇風機（IMP4-01）
 		screen(Chemistry.RESIST_REACTOR, ResistReactorScreen::new);
 		screen(Semiconductor.BAKE_PLATE, BakePlateScreen::new);
 		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);

@@ -514,6 +514,7 @@ water_wheel  # Power [4-01] 1878
 alternator  # Power [4-34] 1882
 steam_engine  # Power [4-14] 1882
 copper_cable  # Power [4-03] 1882
+electric_fan  # Power [4-18] 1882
 steam_turbine  # Power [4-06] 1884
 transformer  # Power [4-10] 1885
 high_voltage_line  # Power [4-35] 1886

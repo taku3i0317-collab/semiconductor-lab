@@ -611,6 +611,25 @@ public class PowerTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [4-18] 扇風機（IMP4-01、O-030 案A。冷やす効果は A の判断で説明だけ）：正面の落ちている物を押す、3マス目のブロックで風が止まる（届くのは2マス） */
+    @GameTest
+    public void electricFan(GameTestHelper h) {
+        var E = net.minecraft.core.Direction.EAST;
+        BlockPos fp = p(1, 1, 2);
+        h.setBlock(fp, Power.ELECTRIC_FAN.block.defaultBlockState().setValue(net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING, E));
+        BlockPos fan = h.absolutePos(fp);
+        var item = new net.minecraft.world.entity.item.ItemEntity(h.getLevel(), fan.getX() + 2.5, fan.getY() + 0.1, fan.getZ() + 0.5, new ItemStack(net.minecraft.world.item.Items.FEATHER));
+        item.setDeltaMovement(0, 0, 0);
+        h.getLevel().addFreshEntity(item);
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectricFanBlockEntity.blow(h.getLevel(), fan, E) >= 1, "the feather is pushed");
+        h.assertTrue(item.getDeltaMovement().x > 0, "pushed east (away from the fan)");
+        h.setBlock(p(4, 1, 2), net.minecraft.world.level.block.Blocks.STONE);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ElectricFanBlockEntity.reach(h.getLevel(), fan, E), 2, "the wind stops at the stone");
+        h.assertTrue(recipeUses(h, "electric_fan", Power.ELECTRIC_MOTOR), "motor and blades");
+        item.discard();
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // recipes() は順番のない Map なので、材料の ID 順に並べて毎回同じ順で書く（IMP-27）
         for (var e : ElectricFurnaceBlockEntity.recipes().entrySet().stream().sorted(java.util.Comparator.comparing(x -> iid(x.getKey()))).toList())

@@ -88,6 +88,9 @@ public final class Power {
         return Machine.builder(name, f).block(GeneratorBlock::new).ticker(GeneratorBlockEntity::tick).energy((be, dir) -> be.getStorage()).props(props);
     }
 
+    // [4-18] 電気のファン（扇風機）（IMP4-01、O-030 案A 仮決定、1882 ウィーラー）：50W ⚠️、正面5マスの物・生き物を押す。機械を冷やす効果は説明だけ（A の判断：速さは変えない）
+    public static final Machine<ElectricFanBlockEntity> ELECTRIC_FAN = Machine.electric("electric_fan", ElectricFanBlockEntity::new, ElectricFanBlockEntity.LAYOUT, Machine.metal(1.5f));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 

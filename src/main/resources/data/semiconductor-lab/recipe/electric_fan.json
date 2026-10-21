@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BIB",
+    "IMI",
+    " C "
+  ],
+  "key": {
+    "B": "minecraft:iron_nugget",
+    "I": "minecraft:iron_ingot",
+    "M": "semiconductor-lab:electric_motor",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:electric_fan",
+    "count": 1
+  }
+}

@@ -453,28 +453,30 @@ setblock ~37 ~0 ~34 semiconductor-lab:steam_engine
 setblock ~38 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
 setblock ~41 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-03] 銅ケーブル","（人間の確認項目なし）","",""]}}
 setblock ~41 ~0 ~34 semiconductor-lab:copper_cable
-setblock ~45 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-06] 蒸気タービン","（人間の確認項目なし）","",""]}}
-setblock ~45 ~0 ~34 semiconductor-lab:steam_turbine
-setblock ~46 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
-setblock ~49 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-10] 変圧器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~49 ~0 ~34 semiconductor-lab:transformer
-setblock ~53 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-35] 高圧送電","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~53 ~0 ~34 semiconductor-lab:high_voltage_line
-setblock ~57 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-12] 電気炉","電気炉の見た目（れんが","色、正面の窓が加熱中に","橙）、GUI（タイトル"]}}
-setblock ~57 ~-1 ~34 semiconductor-lab:test_power_source
-setblock ~57 ~0 ~34 semiconductor-lab:electric_furnace
-setblock ~58 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:alumina_compact",count:16},{Slot:2b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:3b,id:"semiconductor-lab:iron_compact",count:16},{Slot:4b,id:"semiconductor-lab:ndfeb_compact",count:16},{Slot:5b,id:"semiconductor-lab:neodymium_electrolysis_charge",count:16},{Slot:6b,id:"semiconductor-lab:refractory_brick_blank",count:16},{Slot:7b,id:"semiconductor-lab:stainless_charge",count:16}]}
-setblock ~61 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-28] 乾電池","軟マンガン鉱の鉱石が浅","い石の中に見つかるか（","黒い粒の見た目）。電池"]}}
-setblock ~61 ~0 ~34 semiconductor-lab:dry_cell_holder
-setblock ~62 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:dry_cell",count:16}]}
-setblock ~65 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-11] 整流器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
-setblock ~65 ~0 ~34 semiconductor-lab:rectifier
-setblock ~69 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-09] 高周波発振器","レシピ本で帯域精製炉の","右下が「高周波発振器」","になっている。発振器・"]}}
-setblock ~69 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:induction_coil",count:16},{Slot:1b,id:"semiconductor-lab:hf_oscillator",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16}]}
-setblock ~72 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-15] リチウムイオン","右クリックの表示（「リ","チウムイオン電池: …","」）、放電中に光るか、"]}}
-setblock ~72 ~0 ~34 semiconductor-lab:lithium_ion_battery
-setblock ~76 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stepping_m","（人間の確認項目なし）","",""]}}
-setblock ~76 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stepping_motor",count:16},{Slot:1b,id:"semiconductor-lab:lfp_charge",count:16},{Slot:2b,id:"semiconductor-lab:lithium_iron_phosphate",count:16},{Slot:3b,id:"semiconductor-lab:lithium_fluoride",count:16},{Slot:4b,id:"semiconductor-lab:lithium_hexafluorophosphate",count:16}]}
+setblock ~45 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-18] 電気のファン","扇風機の前に立つと押さ","れる・電気を切ると止ま","る"]}}
+setblock ~45 ~0 ~34 semiconductor-lab:electric_fan
+setblock ~49 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-06] 蒸気タービン","（人間の確認項目なし）","",""]}}
+setblock ~49 ~0 ~34 semiconductor-lab:steam_turbine
+setblock ~50 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"minecraft:coal",count:16},{Slot:1b,id:"minecraft:water_bucket",count:1}]}
+setblock ~53 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-10] 変圧器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~53 ~0 ~34 semiconductor-lab:transformer
+setblock ~57 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-35] 高圧送電","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~57 ~0 ~34 semiconductor-lab:high_voltage_line
+setblock ~61 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-12] 電気炉","電気炉の見た目（れんが","色、正面の窓が加熱中に","橙）、GUI（タイトル"]}}
+setblock ~61 ~-1 ~34 semiconductor-lab:test_power_source
+setblock ~61 ~0 ~34 semiconductor-lab:electric_furnace
+setblock ~62 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:alumina_compact",count:16},{Slot:2b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:3b,id:"semiconductor-lab:iron_compact",count:16},{Slot:4b,id:"semiconductor-lab:ndfeb_compact",count:16},{Slot:5b,id:"semiconductor-lab:neodymium_electrolysis_charge",count:16},{Slot:6b,id:"semiconductor-lab:refractory_brick_blank",count:16},{Slot:7b,id:"semiconductor-lab:stainless_charge",count:16}]}
+setblock ~65 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-28] 乾電池","軟マンガン鉱の鉱石が浅","い石の中に見つかるか（","黒い粒の見た目）。電池"]}}
+setblock ~65 ~0 ~34 semiconductor-lab:dry_cell_holder
+setblock ~66 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:dry_cell",count:16}]}
+setblock ~69 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-11] 整流器","タービンに交流発電機を","持って右クリック（メッ","セージ、自励式ダイナモ"]}}
+setblock ~69 ~0 ~34 semiconductor-lab:rectifier
+setblock ~73 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-09] 高周波発振器","レシピ本で帯域精製炉の","右下が「高周波発振器」","になっている。発振器・"]}}
+setblock ~73 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:induction_coil",count:16},{Slot:1b,id:"semiconductor-lab:hf_oscillator",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16}]}
+setblock ~76 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-15] リチウムイオン","右クリックの表示（「リ","チウムイオン電池: …","」）、放電中に光るか、"]}}
+setblock ~76 ~0 ~34 semiconductor-lab:lithium_ion_battery
+setblock ~80 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stepping_m","（人間の確認項目なし）","",""]}}
+setblock ~80 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stepping_motor",count:16},{Slot:1b,id:"semiconductor-lab:lfp_charge",count:16},{Slot:2b,id:"semiconductor-lab:lithium_iron_phosphate",count:16},{Slot:3b,id:"semiconductor-lab:lithium_fluoride",count:16},{Slot:4b,id:"semiconductor-lab:lithium_hexafluorophosphate",count:16}]}
 setblock ~0 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹5 真空","↓ この列","",""]}}
 setblock ~2 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-03] 水銀柱と圧力の","山の上と谷で右クリック","して値がちがう",""]}}
 setblock ~2 ~0 ~42 semiconductor-lab:mercury_barometer

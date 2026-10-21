@@ -836,6 +836,9 @@
 "loot",
 "special"
 ],
+"electric_fan": [
+"crafting"
+],
 "electric_furnace": [
 "crafting"
 ],
