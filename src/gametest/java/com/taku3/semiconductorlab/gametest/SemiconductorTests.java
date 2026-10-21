@@ -1362,15 +1362,20 @@ public class SemiconductorTests extends LabTestBase {
         };
         ItemStack hap = run.apply(new ItemStack[] {new ItemStack(Chemistry.PHENOL), new ItemStack(Chemistry.ACETIC_ANHYDRIDE), new ItemStack(Chemistry.ALUMINIUM_CHLORIDE)}, ItemStack.EMPTY);
         h.assertTrue(hap.is(Chemistry.HYDROXYACETOPHENONE) && c.getItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_OUT2).is(Chemistry.ACETIC_ACID), "Fries: -> 4-hydroxyacetophenone + acetic acid");
-        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYACETOPHENONE), new ItemStack(Gas.HYDROGEN_GAS)}, ItemStack.EMPTY).isEmpty(), "reduction needs Raney nickel");
-        ItemStack hs = run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYACETOPHENONE), new ItemStack(Gas.HYDROGEN_GAS)}, new ItemStack(Chemistry.RANEY_NICKEL));
-        h.assertTrue(hs.is(Chemistry.HYDROXYSTYRENE) && c.getItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_CAT).is(Chemistry.RANEY_NICKEL), "-> 4-hydroxystyrene, catalyst kept");
-        ItemStack phs = run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYSTYRENE, 4)}, ItemStack.EMPTY);
-        h.assertTrue(phs.is(Chemistry.PROTECTED_PHS), "4 monomers -> protected PHS");
-        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYSTYRENE, 4), new ItemStack(Chemistry.BENZENE)}, ItemStack.EMPTY).isEmpty(), "an extra ingredient stops the reactor");
+        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYACETOPHENONE), new ItemStack(Chemistry.ACETIC_ANHYDRIDE), new ItemStack(Gas.HYDROGEN_GAS)}, ItemStack.EMPTY).isEmpty(), "reduction needs Raney nickel");
+        ItemStack ae = run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYACETOPHENONE), new ItemStack(Chemistry.ACETIC_ANHYDRIDE), new ItemStack(Gas.HYDROGEN_GAS)}, new ItemStack(Chemistry.RANEY_NICKEL));
+        h.assertTrue(ae.is(Chemistry.ACETOXYPHENYL_ETHANOL) && c.getItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_CAT).is(Chemistry.RANEY_NICKEL), "acetylate + reduce, catalyst kept (S-008)");
+        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.ACETOXYPHENYL_ETHANOL)}, ItemStack.EMPTY).is(Chemistry.ACETOXYSTYRENE), "dehydrate -> 4-acetoxystyrene");
+        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.ACETOXYSTYRENE, 4)}, ItemStack.EMPTY).is(Chemistry.POLY_ACETOXYSTYRENE), "4 monomers -> poly(4-acetoxystyrene)");
+        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.POLY_ACETOXYSTYRENE), new ItemStack(Chemistry.AMMONIA_WATER), new ItemStack(Chemistry.METHANOL)}, ItemStack.EMPTY).is(Chemistry.POLYHYDROXYSTYRENE), "hydrolysis -> PHS");
+        ItemStack phs = run.apply(new ItemStack[] {new ItemStack(Chemistry.POLYHYDROXYSTYRENE)}, ItemStack.EMPTY);
+        h.assertTrue(phs.is(Chemistry.PROTECTED_PHS), "PHS -> protected PHS (t-BOC reagent omitted)");
+        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.ACETOXYSTYRENE, 4), new ItemStack(Chemistry.BENZENE)}, ItemStack.EMPTY).isEmpty(), "an extra ingredient stops the reactor");
         ItemStack dps = run.apply(new ItemStack[] {new ItemStack(Chemistry.BENZENE, 2), new ItemStack(Chemistry.SULFUR_DIOXIDE), new ItemStack(Chemistry.ALUMINIUM_CHLORIDE)}, ItemStack.EMPTY);
         h.assertTrue(dps.is(Chemistry.DIPHENYL_SULFOXIDE), "-> diphenyl sulfoxide");
-        ItemStack pag = run.apply(new ItemStack[] {new ItemStack(Chemistry.DIPHENYL_SULFOXIDE), new ItemStack(Chemistry.BENZENE), new ItemStack(Metallurgy.ANTIMONY), new ItemStack(Chemistry.HYDROFLUORIC_ACID_PE, 2)}, new ItemStack(Chemistry.POTASSIUM_FLUORIDE));
+        ItemStack ksb = run.apply(new ItemStack[] {new ItemStack(Metallurgy.ANTIMONY_TRIOXIDE), new ItemStack(Chemistry.POTASSIUM_FLUORIDE, 2), new ItemStack(Chemistry.HYDROFLUORIC_ACID_PE, 4), new ItemStack(Chemistry.HYDROGEN_PEROXIDE)}, ItemStack.EMPTY);
+        h.assertTrue(ksb.is(Chemistry.POTASSIUM_HEXAFLUOROANTIMONATE) && ksb.getCount() == 2, "Sb2O3 + KF + HF + H2O2 -> 2 KSbF6");
+        ItemStack pag = run.apply(new ItemStack[] {new ItemStack(Chemistry.DIPHENYL_SULFOXIDE), new ItemStack(Chemistry.BENZENE), new ItemStack(Chemistry.ALUMINIUM_CHLORIDE), new ItemStack(Chemistry.POTASSIUM_HEXAFLUOROANTIMONATE)}, ItemStack.EMPTY);
         h.assertTrue(pag.is(Chemistry.PHOTOACID_GENERATOR), "-> photoacid generator (Ph3S+ SbF6-)");
         h.assertTrue(recipeUses(h, "chemically_amplified_resist", Chemistry.PROTECTED_PHS) && recipeUses(h, "chemically_amplified_resist", Chemistry.PHOTOACID_GENERATOR), "CAR = resin + PAG + solvent");
         // 塗布機：DNQ（今のポジ型）は KrF で焼けない、CAR は焼ける。PEB なしは溶けない
@@ -1393,7 +1398,7 @@ public class SemiconductorTests extends LabTestBase {
         var dev = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.develop(baked).out());
         h.assertTrue(!dev.resistPattern().get(3, 3) && dev.resistPattern().get(0, 0), "after PEB the exposed cells dissolve");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(rp)).inflate(3)).forEach(net.minecraft.world.entity.Entity::discard);
-        LOG.info("[LAB] chemically amplified resist [2-33]: Fries, reduction, polymer; sulfoxide, PAG; DNQ opaque at KrF, CAR prints; PEB needed");
+        LOG.info("[LAB] chemically amplified resist [2-33]: Fries, acetylate/reduce, dehydrate, polymer, hydrolysis, protect; sulfoxide, KSbF6, PAG; DNQ opaque at KrF, CAR prints; PEB needed");
         h.succeed();
     }
 

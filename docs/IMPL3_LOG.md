@@ -278,4 +278,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
   - (a) 樹脂：今の「還元 → 4-ヒドロキシスチレン ×4 → 保護した PHS」を本物の道に：4-ヒドロキシアセトフェノン＋無水酢酸＋H2（ラネーNi）→ 1-(4-アセトキシフェニル)エタノール → 脱水 → 4-アセトキシスチレン → 重合 → ＋アンモニア水＋メタノール（加水分解）→ PHS → 保護（t-BOC の試薬は ⚠️省略のまま）→ protected_phs。4-ヒドロキシスチレンは OH があると重合しにくく不安定なので、本物は OAc でふさいで重合してから外す
   - (b) 光酸発生剤：E のトリフェニルスルホニウム（1982 IBM が使った物）はそのまま。SbF6⁻ の材料を「アンチモン＋フッ酸2＋KF」の近似から **KSbF6（Sb2O3＋KF2＋HF4＋H2O2 → 2）** にする
   - (c) どちらが書くか：D が新しいアイテムとレシピ（acetoxyphenyl_ethanol・acetoxystyrene・poly_acetoxystyrene・polyhydroxystyrene・potassium_hexafluoroantimonate）を作り、resist_reactor の表（E のファイル）を E が直す、か、E が D に表の行の書きかえを許すか。E の返事を待つ（そのあいだ O-023 を進める）
+- ✅ E の返事（(a)(b) で、表の行は D が書きかえてよい）どおり、E の resist_reactor の表を本物の道に：②アセチル化と還元 → ③脱水 → ④重合（4-アセトキシスチレン4）→ ⑤加水分解（＋アンモニア水＋メタノール）→ ⑥保護（⚠️ t-BOC の試薬は作らない）、⑧KSbF6（Sb2O3＋KF2＋HF4＋H2O2 → 2）、⑨光酸発生剤（＋AlCl3＋KSbF6）。KF を触媒の置き場で使う特別扱いは消した。本物の道にない 4-ヒドロキシスチレン hydroxystyrene は消した。新アイテム acetoxyphenyl_ethanol・acetoxystyrene・poly_acetoxystyrene・polyhydroxystyrene・potassium_hexafluoroantimonate。photoacid_generator の ⚠️ は外した（SbF6⁻ は本物）、F70・F71 も直した。SemiconductorTests.chemicallyAmplifiedChain を合わせた。テスト 353/353
+- E へ：docs/chemistry/2_chemistry.md の F72 と TECH_TREE [2-33] の本物欄に、存命の人の名前（伊藤・ウィルソン・フレシェ）が残っている（O-022 のきまり：存命の人は名前を出さない）。D は F70・F71 だけ直したので、F72 は E の判断で
 

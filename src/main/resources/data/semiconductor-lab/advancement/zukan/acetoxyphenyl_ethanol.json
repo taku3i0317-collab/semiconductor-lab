@@ -2,17 +2,17 @@
   "parent": "semiconductor-lab:zukan/root",
   "display": {
     "icon": {
-      "id": "semiconductor-lab:hydroxystyrene"
+      "id": "semiconductor-lab:acetoxyphenyl_ethanol"
     },
     "title": {
-      "translate": "item.semiconductor-lab.hydroxystyrene"
+      "translate": "item.semiconductor-lab.acetoxyphenyl_ethanol"
     },
     "description": {
-      "translate": "item.semiconductor-lab.hydroxystyrene.note3",
+      "translate": "item.semiconductor-lab.acetoxyphenyl_ethanol.note3",
       "extra": [
         "\n\n",
         {
-          "translate": "item.semiconductor-lab.hydroxystyrene.note4"
+          "translate": "item.semiconductor-lab.acetoxyphenyl_ethanol.note4"
         }
       ]
     },
@@ -27,7 +27,7 @@
       "conditions": {
         "items": [
           {
-            "items": "semiconductor-lab:hydroxystyrene"
+            "items": "semiconductor-lab:acetoxyphenyl_ethanol"
           }
         ]
       }

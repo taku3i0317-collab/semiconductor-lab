@@ -87,10 +87,14 @@ public final class Chemistry {
     public static final Item NEGATIVE_RESIST       = containedItem("negative_resist", com.taku3.semiconductorlab.item.PositiveResistItem::new, Vessel.GLASS_BOTTLE, 16);
     // [2-33] 化学増幅レジスト（IMP4-01、O-016）：保護したポリヒドロキシスチレン＋光酸発生剤（1982 IBM）。合成釜 resist_reactor で
     public static final Item HYDROXYACETOPHENONE   = Reg.item("hydroxyacetophenone");     // 4-ヒドロキシアセトフェノン（フリース転位）
-    public static final Item HYDROXYSTYRENE        = Reg.item("hydroxystyrene");          // 4-ヒドロキシスチレン（単量体）
+    public static final Item ACETOXYPHENYL_ETHANOL = Reg.item("acetoxyphenyl_ethanol", new Item.Properties().stacksTo(16));   // 1-(4-アセトキシフェニル)エタノール（S-008、D）
+    public static final Item ACETOXYSTYRENE        = Reg.item("acetoxystyrene", new Item.Properties().stacksTo(16));          // 4-アセトキシスチレン（単量体、OH をふさいだ形）
+    public static final Item POLY_ACETOXYSTYRENE   = Reg.item("poly_acetoxystyrene");                                      // ポリ(4-アセトキシスチレン)
+    public static final Item POLYHYDROXYSTYRENE    = Reg.item("polyhydroxystyrene");                                       // ポリヒドロキシスチレン（PHS、ふたなし）
     public static final Item PROTECTED_PHS         = Reg.item("protected_phs");           // 保護したポリヒドロキシスチレン（t-BOC、樹脂）
     public static final Item DIPHENYL_SULFOXIDE    = Reg.item("diphenyl_sulfoxide");      // ジフェニルスルホキシド
     public static final Item PHOTOACID_GENERATOR   = Reg.item("photoacid_generator");     // 光酸発生剤（トリフェニルスルホニウム SbF6⁻）
+    public static final Item POTASSIUM_HEXAFLUOROANTIMONATE = Reg.item("potassium_hexafluoroantimonate");   // KSbF6（SbF6⁻ の材料、S-008、D）
     public static final Item CHEMICALLY_AMPLIFIED_RESIST = Reg.contained("chemically_amplified_resist", Vessel.GLASS_BOTTLE);   // 化学増幅レジスト（液、ガラス瓶）
     // [9-25] リン酸（IMP4-01）：骨灰＋硫酸（シェーレの時代からの湿式法）。Al のエッチング液
     public static final Item PHOSPHORIC_ACID       = Reg.contained("phosphoric_acid", Vessel.GLASS_BOTTLE);

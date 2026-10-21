@@ -17,14 +17,18 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * 化学増幅レジストの合成釜 [2-33]（1982 IBM の化学増幅レジスト。IMP4-01、O-016）。入れた物の組み合わせで5つの反応を切りかえる（表 {@link #RECIPES}）。
- * 樹脂（保護したポリヒドロキシスチレン）：
+ * 化学増幅レジストの合成釜 [2-33]（1982 IBM の化学増幅レジスト。IMP4-01、O-016。樹脂の道と SbF6⁻ は S-008 で D が本物にした）。入れた物の組み合わせで反応を切りかえる（表 {@link #RECIPES}）。
+ * 樹脂（保護したポリヒドロキシスチレン）：4-ヒドロキシスチレンは OH があると重合しにくく不安定なので、本物は OH を酢酸でふさいで重合し、あとで外す
  *  ① フリース転位：フェノール＋無水酢酸＋塩化アルミニウム → 4-ヒドロキシアセトフェノン＋酢酸
- *  ② 還元と脱水：4-ヒドロキシアセトフェノン＋水素（ラネーニッケルの触媒、減らない）→ 4-ヒドロキシスチレン（水は捨てる）
- *  ③ 重合と保護：4-ヒドロキシスチレン 4 → 保護したポリヒドロキシスチレン（⚠️ 保護基 t-BOC の試薬は省略）
- * 光酸発生剤（トリフェニルスルホニウム ヘキサフルオロアンチモン酸塩、クリベロのオニウム塩）：
- *  ④ ベンゼン 2＋二酸化硫黄＋塩化アルミニウム → ジフェニルスルホキシド（⚠️ 本物は塩化チオニル）
- *  ⑤ ジフェニルスルホキシド＋ベンゼン＋アンチモン＋フッ化カリウム＋フッ酸 2 → 光酸発生剤（⚠️ SbF6⁻ の作り方は近似）。フッ酸の容器は上に戻る
+ *  ② アセチル化と還元：4-ヒドロキシアセトフェノン＋無水酢酸＋水素（ラネーニッケルの触媒、減らない）→ 1-(4-アセトキシフェニル)エタノール＋酢酸
+ *  ③ 脱水：→ 4-アセトキシスチレン（水は捨てる）
+ *  ④ 重合：4-アセトキシスチレン 4 → ポリ(4-アセトキシスチレン)
+ *  ⑤ 加水分解：＋アンモニア水＋メタノール → ポリヒドロキシスチレン（瓶は上に戻る）
+ *  ⑥ 保護：→ 保護したポリヒドロキシスチレン（⚠️ 保護基 t-BOC の試薬＝二炭酸ジ-tert-ブチルは作らない。材料にホスゲンが要るため、決定 Q3-16）
+ * 光酸発生剤（トリフェニルスルホニウム ヘキサフルオロアンチモン酸塩、1982 の IBM が使ったオニウム塩）：
+ *  ⑦ ベンゼン 2＋二酸化硫黄＋塩化アルミニウム → ジフェニルスルホキシド（⚠️ 本物は塩化チオニル）
+ *  ⑧ 三酸化アンチモン＋フッ化カリウム 2＋フッ酸 4＋過酸化水素 → 六フッ化アンチモン酸カリウム 2（Sb(III) を Sb(V) にして SbF6⁻）。フッ酸と過酸化水素の容器は上に戻る
+ *  ⑨ ジフェニルスルホキシド＋ベンゼン＋塩化アルミニウム＋六フッ化アンチモン酸カリウム → 光酸発生剤 Ph3S⁺ SbF6⁻（陰イオンの交換）
  * ⚠️ 電力・時間・量はゲームの値（resist_reactor.placeholder）。
  */
 public class ResistReactorBlockEntity extends ConsumerBlockEntity {
@@ -43,24 +47,31 @@ public class ResistReactorBlockEntity extends ConsumerBlockEntity {
     public static final List<Recipe> RECIPES = List.of(
             new Recipe("fries", List.of(Ing.of(Chemistry.PHENOL, 1), Ing.of(Chemistry.ACETIC_ANHYDRIDE, 1), Ing.of(Chemistry.ALUMINIUM_CHLORIDE, 1)), null,
                     Chemistry.HYDROXYACETOPHENONE, 1, Chemistry.ACETIC_ACID, 1),
-            new Recipe("reduce", List.of(Ing.of(Chemistry.HYDROXYACETOPHENONE, 1), Ing.of(Gas.HYDROGEN_GAS, 1)), Chemistry.RANEY_NICKEL,
-                    Chemistry.HYDROXYSTYRENE, 1, null, 0),
-            new Recipe("polymer", List.of(Ing.of(Chemistry.HYDROXYSTYRENE, 4)), null, Chemistry.PROTECTED_PHS, 1, null, 0),
+            new Recipe("reduce", List.of(Ing.of(Chemistry.HYDROXYACETOPHENONE, 1), Ing.of(Chemistry.ACETIC_ANHYDRIDE, 1), Ing.of(Gas.HYDROGEN_GAS, 1)), Chemistry.RANEY_NICKEL,
+                    Chemistry.ACETOXYPHENYL_ETHANOL, 1, Chemistry.ACETIC_ACID, 1),
+            new Recipe("dehydrate", List.of(Ing.of(Chemistry.ACETOXYPHENYL_ETHANOL, 1)), null, Chemistry.ACETOXYSTYRENE, 1, null, 0),
+            new Recipe("polymer", List.of(Ing.of(Chemistry.ACETOXYSTYRENE, 4)), null, Chemistry.POLY_ACETOXYSTYRENE, 1, null, 0),
+            new Recipe("hydrolyze", List.of(Ing.of(Chemistry.POLY_ACETOXYSTYRENE, 1), Ing.of(Chemistry.AMMONIA_WATER, 1), Ing.of(Chemistry.METHANOL, 1)), null,
+                    Chemistry.POLYHYDROXYSTYRENE, 1, null, 0),
+            new Recipe("protect", List.of(Ing.of(Chemistry.POLYHYDROXYSTYRENE, 1)), null, Chemistry.PROTECTED_PHS, 1, null, 0),
             new Recipe("sulfoxide", List.of(Ing.of(Chemistry.BENZENE, 2), Ing.of(Chemistry.SULFUR_DIOXIDE, 1), Ing.of(Chemistry.ALUMINIUM_CHLORIDE, 1)), null,
                     Chemistry.DIPHENYL_SULFOXIDE, 1, null, 0),
-            new Recipe("pag", List.of(Ing.of(Chemistry.DIPHENYL_SULFOXIDE, 1), Ing.of(Chemistry.BENZENE, 1), Ing.of(Metallurgy.ANTIMONY, 1), Ing.tag(Chemistry.HF_TAG, 2, Chemistry.HYDROFLUORIC_ACID_PE)),
-                    Chemistry.POTASSIUM_FLUORIDE, Chemistry.PHOTOACID_GENERATOR, 1, null, 0));
+            new Recipe("antimonate", List.of(Ing.of(Metallurgy.ANTIMONY_TRIOXIDE, 1), Ing.of(Chemistry.POTASSIUM_FLUORIDE, 2), Ing.tag(Chemistry.HF_TAG, 4, Chemistry.HYDROFLUORIC_ACID_PE), Ing.of(Chemistry.HYDROGEN_PEROXIDE, 1)), null,
+                    Chemistry.POTASSIUM_HEXAFLUOROANTIMONATE, 2, null, 0),
+            new Recipe("pag", List.of(Ing.of(Chemistry.DIPHENYL_SULFOXIDE, 1), Ing.of(Chemistry.BENZENE, 1), Ing.of(Chemistry.ALUMINIUM_CHLORIDE, 1), Ing.of(Chemistry.POTASSIUM_HEXAFLUOROANTIMONATE, 1)), null,
+                    Chemistry.PHOTOACID_GENERATOR, 1, null, 0));
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(0, 8, 17, ResistReactorBlockEntity::isIngredient).in(1, 26, 17, ResistReactorBlockEntity::isIngredient)
             .in(2, 8, 35, ResistReactorBlockEntity::isIngredient).in(3, 26, 35, ResistReactorBlockEntity::isIngredient)
-            .in(SLOT_CAT, 8, 53, s -> s.is(Chemistry.RANEY_NICKEL) || s.is(Chemistry.POTASSIUM_FLUORIDE))
+            .in(SLOT_CAT, 8, 53, s -> s.is(Chemistry.RANEY_NICKEL))
             .out(SLOT_OUT, 78, 26)
             .out(SLOT_OUT2, 78, 46)
             .right("power", 17, 1, "gui.semiconductor-lab.resist_reactor.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.resist_reactor.need_input", "gui.semiconductor-lab.resist_reactor.need_catalyst", "gui.semiconductor-lab.resist_reactor.need_power",
-                    "gui.semiconductor-lab.resist_reactor.fries", "gui.semiconductor-lab.resist_reactor.reduce", "gui.semiconductor-lab.resist_reactor.polymer",
-                    "gui.semiconductor-lab.resist_reactor.sulfoxide", "gui.semiconductor-lab.resist_reactor.pag")
+                    "gui.semiconductor-lab.resist_reactor.fries", "gui.semiconductor-lab.resist_reactor.reduce", "gui.semiconductor-lab.resist_reactor.dehydrate",
+                    "gui.semiconductor-lab.resist_reactor.polymer", "gui.semiconductor-lab.resist_reactor.hydrolyze", "gui.semiconductor-lab.resist_reactor.protect",
+                    "gui.semiconductor-lab.resist_reactor.sulfoxide", "gui.semiconductor-lab.resist_reactor.antimonate", "gui.semiconductor-lab.resist_reactor.pag")
             .bottom("recipe", "gui.semiconductor-lab.resist_reactor.recipe")
             .build();
 
@@ -117,7 +128,6 @@ public class ResistReactorBlockEntity extends ConsumerBlockEntity {
             Vessel.returnEmpty(level, worldPosition, s, r.in().get(k).count());   // フッ酸の容器などは上に戻る（容器のない物は何もしない）
             s.shrink(r.in().get(k).count());
         }
-        if (r.key().equals("pag")) container.getItem(SLOT_CAT).shrink(1);   // ⑤ のフッ化カリウムは材料（触媒の置き場に入れる）
         merge(SLOT_OUT, new ItemStack(r.out(), r.outCount()));
         if (r.out2() != null) merge(SLOT_OUT2, new ItemStack(r.out2(), r.out2Count()));
         container.setChanged();

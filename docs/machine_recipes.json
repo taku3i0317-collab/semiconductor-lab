@@ -2276,6 +2276,10 @@
           "count": 1
         },
         {
+          "item": "semiconductor-lab:acetic_anhydride",
+          "count": 1
+        },
+        {
           "item": "semiconductor-lab:hydrogen_gas",
           "count": 1
         },
@@ -2287,7 +2291,31 @@
       ],
       "outputs": [
         {
-          "item": "semiconductor-lab:hydroxystyrene",
+          "item": "semiconductor-lab:acetoxyphenyl_ethanol",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:acetic_acid",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：dehydrate",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:acetoxyphenyl_ethanol",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:acetoxystyrene",
           "count": 1
         }
       ],
@@ -2301,8 +2329,56 @@
       "process": "化学増幅レジスト：polymer",
       "inputs": [
         {
-          "item": "semiconductor-lab:hydroxystyrene",
+          "item": "semiconductor-lab:acetoxystyrene",
           "count": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:poly_acetoxystyrene",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：hydrolyze",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:poly_acetoxystyrene",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:ammonia_water",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:methanol",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:polyhydroxystyrene",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：protect",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:polyhydroxystyrene",
+          "count": 1
         }
       ],
       "outputs": [
@@ -2346,6 +2422,38 @@
     },
     {
       "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：antimonate",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:antimony_trioxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:potassium_fluoride",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:hydrofluoric_acid_pe",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_peroxide",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:potassium_hexafluoroantimonate",
+          "count": 2
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
       "process": "化学増幅レジスト：pag",
       "inputs": [
         {
@@ -2357,15 +2465,11 @@
           "count": 1
         },
         {
-          "item": "semiconductor-lab:antimony",
+          "item": "semiconductor-lab:aluminium_chloride",
           "count": 1
         },
         {
-          "item": "semiconductor-lab:hydrofluoric_acid_pe",
-          "count": 2
-        },
-        {
-          "item": "semiconductor-lab:potassium_fluoride",
+          "item": "semiconductor-lab:potassium_hexafluoroantimonate",
           "count": 1
         }
       ],

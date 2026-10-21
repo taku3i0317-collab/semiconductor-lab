@@ -201,9 +201,13 @@ resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.need_input w=139 
 resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.need_catalyst w=103 lines=2/4
 resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.need_power w=90 lines=2/4
 resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.fries w=106 lines=3/4
-resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.reduce w=130 lines=2/4
-resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.polymer w=125 lines=2/4
+resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.reduce w=109 lines=2/4
+resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.dehydrate w=110 lines=2/4
+resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.polymer w=53 lines=1/4
+resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.hydrolyze w=81 lines=2/4
+resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.protect w=72 lines=1/4
 resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.sulfoxide w=101 lines=2/4
+resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.antimonate w=94 lines=2/4
 resist_reactor_en_us hint gui.semiconductor-lab.resist_reactor.pag w=159 lines=3/4
 resist_reactor_en_us recipe gui.semiconductor-lab.resist_reactor.recipe w=156 lines=1/1 scale=0.6999999
 bottle_machine_en_us power gui.semiconductor-lab.machine.power w=75 lines=1/1
@@ -1162,8 +1166,12 @@ resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.need_catalyst w=9
 resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.need_power w=63 lines=1/4
 resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.fries w=54 lines=1/4
 resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.reduce w=72 lines=1/4
-resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.polymer w=54 lines=1/4
+resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.dehydrate w=81 lines=2/4
+resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.polymer w=18 lines=1/4
+resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.hydrolyze w=74 lines=1/4
+resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.protect w=91 lines=2/4
 resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.sulfoxide w=81 lines=2/4
+resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.antimonate w=73 lines=1/4
 resist_reactor_ja_jp hint gui.semiconductor-lab.resist_reactor.pag w=72 lines=1/4
 resist_reactor_ja_jp recipe gui.semiconductor-lab.resist_reactor.recipe w=72 lines=1/1
 bottle_machine_ja_jp power gui.semiconductor-lab.machine.power w=63 lines=1/1

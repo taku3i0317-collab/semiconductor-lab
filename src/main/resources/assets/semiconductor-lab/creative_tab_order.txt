@@ -375,10 +375,14 @@ continuity_tester  # Chemistry [2-55] 1977
 photopolymer_resin  # Chemistry [2-45] 1981
 cured_photopolymer  # Chemistry [2-45] 1981
 hydroxyacetophenone  # Chemistry [2-33] 1982
-hydroxystyrene  # Chemistry [2-33] 1982
+acetoxyphenyl_ethanol  # Chemistry [2-33] 1982
+acetoxystyrene  # Chemistry [2-33] 1982
+poly_acetoxystyrene  # Chemistry [2-33] 1982
+polyhydroxystyrene  # Chemistry [2-33] 1982
 protected_phs  # Chemistry [2-33] 1982
 diphenyl_sulfoxide  # Chemistry [2-33] 1982
 photoacid_generator  # Chemistry [2-33] 1982
+potassium_hexafluoroantimonate  # Chemistry [2-33] 1982
 chemically_amplified_resist  # Chemistry [2-33] 1982
 resist_reactor  # Chemistry [2-33] 1982
 polyethylene_bottle  # Chemistry [None] None
