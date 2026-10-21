@@ -61,12 +61,12 @@ def main():
     # 図のページ（GitHub Pages は docs/ から）
     (OUT / "docs").mkdir()
     for f in ("network.html", "node.html", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
-              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js", "ui_icons.js", "film.js", "credits.html"):
+              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js", "ui_icons.js", "film.js", "credits.html", "og_image.png"):
         shutil.copy(ROOT / "docs" / f, OUT / "docs" / f)
     shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")   # BudouX（Apache-2.0。CC0 ではない。LICENSE-budoux.txt を一緒に）
-    for f in ("node.html",):   # 誤りの報告はこのリポジトリの Issue へ
+    for f in ("node.html", "network.html"):   # 誤りの報告はこのリポジトリの Issue へ。リンクの見た目（OGP）の URL はこのリポジトリの GitHub Pages へ（S-023）
         p = OUT / "docs" / f
-        p.write_text(p.read_text(encoding="utf-8").replace("https://github.com/taku3i0317-collab/semiconductor-lab", f"https://github.com/{REPO}"), encoding="utf-8")
+        p.write_text(p.read_text(encoding="utf-8").replace("https://github.com/taku3i0317-collab/semiconductor-lab", f"https://github.com/{REPO}").replace("https://taku3i0317-collab.github.io/semiconductor-lab/", "https://{}.github.io/{}/".format(*REPO.split("/"))), encoding="utf-8")
     (OUT / "docs" / "index.html").write_text('<!doctype html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=network.html"><a href="network.html">Technology network</a>\n', encoding="utf-8")
 
     # Issue のひな形と自動チェック
