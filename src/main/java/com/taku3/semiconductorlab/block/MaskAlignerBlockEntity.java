@@ -127,7 +127,7 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
         ChipOps.Result r = ChipOps.expose(w, mask, TOOL, overlayNm(container.getItem(SLOT_STAGE), level == null ? 0 : Vibration.nm(level, worldPosition, null), level == null ? 0 : AirConditionerBlockEntity.thermalNm(AirConditionerBlockEntity.swingC(level, worldPosition))));
         if (!r.ok()) return;
         // [12-14] クリーンルームの外ではほこりが付く（A の ChipOps.addDust、失敗にはしない。洗浄台で落ちる）
-        container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.addDust(r.out(), CleanRoom.classAt(level, worldPosition).dust));
+        container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.inRoom(ChipOps.addDust(r.out(), CleanRoom.dustAt(level, worldPosition)), CleanRoom.defectDensity(level, worldPosition)));   // v0.5 #4 部屋の欠陥の密度を記録（A の歩留まり）
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);
         if (gapUm() == 0) {   // 密着：マスクがこすれて傷む（板1枚につき1）
             m.setDamageValue(m.getDamageValue() + w.getCount());

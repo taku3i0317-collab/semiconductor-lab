@@ -169,7 +169,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         ChipOps.Result r = ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), overlayNm(), ProjectionLensItem.dofNm(container.getItem(SLOT_LENS)));   // v0.5 #1 段差＞焦点深度なら焼けない（A）
         if (!r.ok()) return;
-        container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.addDust(r.out(), CleanRoom.classAt(level, worldPosition).dust));
+        container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.inRoom(ChipOps.addDust(r.out(), CleanRoom.dustAt(level, worldPosition)), CleanRoom.defectDensity(level, worldPosition)));   // v0.5 #4 部屋の欠陥の密度を記録（A の歩留まり）
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);   // マスクは触れないので傷まない
         if (immersion(container.getItem(SLOT_LENS))) {   // [7-16] 1チップ焼くごとに超純水を1本（空き瓶は上に）
             com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, container.getItem(SLOT_WATER), 1);

@@ -2161,6 +2161,7 @@ public class SemiconductorTests extends LabTestBase {
         var st = com.taku3.semiconductorlab.litho.ChipOps.state(c.getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT));
         h.assertTrue(st != null && st.size() == gWet, "ArF immersion prints grid " + gWet);
         h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WATER).getCount(), 1, "one bottle of ultrapure water per chip");
+        h.assertTrue(st.extras().defectD() == com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE.defectsPerCm2, "exposed outside a clean room -> the chip remembers D = " + st.extras().defectD() + " (A's yield)");
         LOG.info("[LAB] ArF [7-20] / immersion [7-16]: dry NA 0.85 CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(dry) + " nm grid " + gDry + "; water NA 1.35 CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(wet) + " nm grid " + gWet);
         h.succeed();
     }
