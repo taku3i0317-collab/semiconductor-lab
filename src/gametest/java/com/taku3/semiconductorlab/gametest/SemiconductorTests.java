@@ -2455,6 +2455,31 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-31] CMP の受け口（E と決めた形、記録だけ）：層間膜のあとで ChipOps.planarize すると段差の段数が 0、汚れ +2。
+     * 層間膜がない・レジストがある・もう平らなら断る。平らにしたあとに重ねた層はまた段差になる
+     */
+    @GameTest(maxTicks = 200)
+    public void planarizeRecord(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack one = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.planarize(one).reason(), "no_interlayer", "no CMP before the interlayer");
+        ItemStack il = com.taku3.semiconductorlab.litho.ChipOps.depositInterlayer(one).out();
+        var before = com.taku3.semiconductorlab.litho.ChipOps.state(il);
+        h.assertTrue(before.steps() > 0, "the surface has steps: " + before.steps());
+        var r = com.taku3.semiconductorlab.litho.ChipOps.planarize(il);
+        h.assertTrue(r.ok(), "CMP on the interlayer: " + r.reason());
+        var after = com.taku3.semiconductorlab.litho.ChipOps.state(r.out());
+        h.assertValueEqual(after.steps(), 0, "flat after CMP");
+        h.assertValueEqual(after.contamination(), before.contamination() + 2, "slurry particles left");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.planarize(r.out()).reason(), "already_flat", "already flat");
+        ItemStack coated = com.taku3.semiconductorlab.litho.ChipOps.coat(il).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.planarize(coated).reason(), "resist_on", "no CMP through resist");
+        var codec = com.taku3.semiconductorlab.litho.ChipState.CODEC.encodeStart(com.mojang.serialization.JsonOps.INSTANCE, after).getOrThrow();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipState.CODEC.parse(com.mojang.serialization.JsonOps.INSTANCE, codec).getOrThrow().steps(), 0, "planarized_at is saved");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

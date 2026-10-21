@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 170（ja・en）、文字の置き場所 628、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 172（ja・en）、文字の置き場所 636、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -418,6 +418,17 @@ lathe_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 lathe_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
 lathe_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
 lathe_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
+kibble_balance_en_us power gui.semiconductor-lab.kibble_balance.power w=63 lines=1/1
+kibble_balance_en_us result gui.semiconductor-lab.kibble_balance.result w=73 lines=1/1
+kibble_balance_en_us sigma gui.semiconductor-lab.kibble_balance.sigma w=58 lines=1/1
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.need_mass w=86 lines=2/3
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.need_cell w=114 lines=2/3
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.need_resistor w=88 lines=2/3
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.need_lamp w=101 lines=2/3
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.need_power w=46 lines=1/3
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.running w=47 lines=1/3
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.hidden w=171 lines=3/3
+kibble_balance_en_us hint gui.semiconductor-lab.kibble_balance.seen w=146 lines=2/3
 grinder_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
 grinder_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 grinder_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
@@ -1192,6 +1203,17 @@ lathe_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 lathe_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
 lathe_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
 lathe_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
+kibble_balance_ja_jp power gui.semiconductor-lab.kibble_balance.power w=51 lines=1/1
+kibble_balance_ja_jp result gui.semiconductor-lab.kibble_balance.result w=73 lines=1/1
+kibble_balance_ja_jp sigma gui.semiconductor-lab.kibble_balance.sigma w=52 lines=1/1
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.need_mass w=99 lines=2/3
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.need_cell w=72 lines=1/3
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.need_resistor w=72 lines=1/3
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.need_lamp w=91 lines=2/3
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.need_power w=72 lines=1/3
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.running w=72 lines=1/3
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.hidden w=172 lines=3/3
+kibble_balance_ja_jp hint gui.semiconductor-lab.kibble_balance.seen w=72 lines=1/3
 grinder_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
 grinder_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 grinder_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3

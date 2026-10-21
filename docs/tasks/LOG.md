@@ -540,3 +540,4 @@
 - E に API を知らせた（層間膜の CVD 炉・シランは E）。TECH_TREE [9-23] ✅、REFERENCES L13、test_queue
 - 次：[9-24] CMOS（p チャネル＋ウェル）、[10-12] DRAM（電荷が漏れる→手順の列に足す案が要る）
 
+- E の [9-31] CMP の受け口（E から相談）：ChipState.planarizedAt（保存 planarized_at）と steps()＝平らにしてから重ねた層の数、ChipOps.planarize（層間膜あり・レジストなし・金属の膜なしで steps→0、スラリーで汚れ +2）。記録だけ。焦点深度（DOF＝k2·λ/NA²、段差でピンぼけ）は v0.5 #1 で A が litho に入れる。GameTest planarizeRecord（291/291）

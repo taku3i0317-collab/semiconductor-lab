@@ -253,6 +253,22 @@ public final class ChipOps {
         return Result.ok(write(w, s.withInterlayer(true).withWindows(BitGrid.empty(s.size())).dirtier(1)));
     }
 
+    public static boolean canPlanarize(ItemStack w) { return planarize(w).ok(); }
+
+    /**
+     * CMP＝化学機械研磨（[9-31]、E の CMP 装置、E と決めた形）：層間膜の表面をコロイダルシリカのスラリーで削って平らにする（IBM 1980年代）。
+     * 段差の段数 steps() が 0 になる（記録だけ。v0.5 の焦点深度で、細いツールの露光に効く）。スラリーの粒が残るので汚れ +2（このあと洗浄）。
+     * 層間膜があり、レジストも金属の膜もないときだけ。もう平らなら already_flat
+     */
+    public static Result planarize(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || !s.interlayer()) return Result.fail("no_interlayer");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.metalFilm()) return Result.fail("metal_on");
+        if (s.steps() == 0) return Result.fail("already_flat");
+        return Result.ok(write(w, s.flattened().dirtier(2)));
+    }
+
     public static boolean canGateOxide(ItemStack w) { return gateOxide(w).ok(); }
 
     /**
