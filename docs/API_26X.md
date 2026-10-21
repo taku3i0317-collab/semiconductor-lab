@@ -908,3 +908,6 @@ public boolean instabuild;                         // クリエイティブ（�
 - 登録：`BlockEntityRenderers.register(type, Renderer::new)`（クライアント）
 - BE の中身をクライアントへ：`getUpdatePacket()` → `ClientboundBlockEntityDataPacket.create(this)`、`getUpdateTag(HolderLookup.Provider)` → `saveCustomOnly(p)`。変わったら `level.sendBlockUpdated(pos, state, state, 3)`
 - Fabric Transfer：`ItemStorage.SIDED.find(level, pos, side)`、`Transaction.openOuter()`（try で閉じる、`commit()`）、`Storage.insert/extract(ItemVariant, long, tx)`、`nonEmptyViews()`、`ItemVariant.of(stack)`・`toStack(int)`
+
+### WrittenBookContent.craftCopy（IMP2 [15-02] で確かめた動き）
+- 26.3 では世代 2（写しの写し）にも null を返さず写す。「写しの写しは写せない」を守るなら generation() >= 2 を自分で止める（block/PrintingPressBlock.print）

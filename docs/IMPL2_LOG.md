@@ -260,3 +260,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ S-010 7. [14-02] 羅針盤：magnetic_compass（item/CompassItem、持つと北の矢印・近くの鉄でくるう）。GameTest magnetic_compass、CHEMISTRY T3、REFERENCES O93。⏸ [15-02] 活版印刷はインク（すす・アマニ油）が無いので保留、D が司令塔の割り振り待ち（IMPL3_LOG「C の頼み」）
 - ⚠️ 00c5ded1 はコンパイルできない状態で push してしまった（CompassItem の Math.IEEE754remainder）。affa19fd で直した（429 テスト合格）。原因：自分の push 用スクリプトがコンパイル失敗でも止まらなかった → コンパイルに失敗したら commit しないように直した
 - ✅ S-010 8. [15-02] 活版印刷：type_metal・movable_type・typeset_form・printing_press（block/PrintingPressBlock、書いた本を組んで白い本に刷る、D の印刷インク [2-66] を使う。前提のインクを [2-66] につないだ）。GameTest letterpress、CHEMISTRY CO5、REFERENCES O94
+- ⚠️ [15-02] の最初の push（0dc4d2c7 まで）は GameTest letterpress が1つ落ちていた（写しの写しを刷れてしまう）。b7cdac4d で直した（434 テスト合格）。26.3 の WrittenBookContent.craftCopy は世代 2 でも写す（API_26X に追記）
