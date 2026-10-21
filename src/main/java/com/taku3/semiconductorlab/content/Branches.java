@@ -113,6 +113,9 @@ public final class Branches {
     /** [B-09] ゲーム機（A、S-017 Q27 案A ポン型）：合格したチップで組む、CPU なしの卓球。右クリックで画面 */
     public static final Item GAME_CONSOLE          = Reg.item("game_console", com.taku3.semiconductorlab.item.GameConsoleItem::new, new Item.Properties().stacksTo(1));
     /** [B-10] スマホ（A、O-029）：組立台で。アプリの画面はユーザーの答え待ち、TFT・バックライトがまだなので組めない ⚠️ */
+    /** スマホのホーム画面の入れ物（S-019 の5） */
+    public static final net.minecraft.world.inventory.MenuType<com.taku3.semiconductorlab.item.PhoneMenu> PHONE_MENU = net.minecraft.core.Registry.register(net.minecraft.core.registries.BuiltInRegistries.MENU,
+            com.taku3.semiconductorlab.SemiconductorLab.id("smartphone"), new net.minecraft.world.inventory.MenuType<>(com.taku3.semiconductorlab.item.PhoneMenu::new, net.minecraft.world.flag.FeatureFlags.DEFAULT_FLAGS));
     public static final Item SMARTPHONE            = Reg.item("smartphone", com.taku3.semiconductorlab.item.SmartphoneItem::new, new Item.Properties().stacksTo(1));
 
     // ===== [B-02a] ダゲレオタイプ（IMP2、S-002 案B：化学の工程を体験。写真の中身は場所・時刻・写りのデータ）=====

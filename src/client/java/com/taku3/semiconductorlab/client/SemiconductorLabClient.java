@@ -123,6 +123,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.BAKE_PLATE, BakePlateScreen::new);
 		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);
 		screen(Semiconductor.CZ_PULLER, CzPullerScreen::new);
+		MenuScreens.register(com.taku3.semiconductorlab.content.Branches.PHONE_MENU, SmartphoneScreen::new);   // [B-10] スマホのホーム画面
 		// 専用の画面を書いていない機械は、ふつうの画面（電力・進み具合・状態）
 		for (Machine<?> m : Machine.all())
 			if (m.menu != null && !CUSTOM.contains(m)) MenuScreens.register(m.menu, SimpleMachineScreen::new);

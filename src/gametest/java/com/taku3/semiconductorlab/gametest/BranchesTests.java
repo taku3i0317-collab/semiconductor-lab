@@ -414,4 +414,21 @@ public class BranchesTests extends LabTestBase {
         h.assertTrue(photo.has(com.taku3.semiconductorlab.content.Branches.PHOTO), "the photo app takes a digital photo");
         h.succeed();
     }
+
+    /** [B-10] スマホのホーム画面（S-019 の5）：アイコンを押す＝ボタン → そのアプリを選んで動かす（写真のボタンで写真が手に入り、電気が 2 kJ へる） */
+    @GameTest
+    public void smartphoneHome(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var s = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Branches.SMARTPHONE);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, s);
+        var menu = new com.taku3.semiconductorlab.item.PhoneMenu(1, player.getInventory());
+        h.assertTrue(menu.stillValid(player), "the home screen stays open while holding the phone");
+        h.assertTrue(menu.clickMenuButton(player, 1), "the photo icon");
+        var held = player.getItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SmartphoneItem.app(held), 1, "photo app selected");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SmartphoneItem.energy(held), 38_000L, "2 kJ used");
+        h.assertTrue(player.getInventory().contains(st -> st.is(com.taku3.semiconductorlab.content.Branches.PRINT)), "a photo is in the inventory");
+        h.assertFalse(menu.clickMenuButton(player, 7), "no such icon");
+        h.succeed();
+    }
 }

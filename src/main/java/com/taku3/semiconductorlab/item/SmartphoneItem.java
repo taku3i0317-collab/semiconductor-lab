@@ -12,7 +12,7 @@ import net.minecraft.world.level.Level;
 
 /**
  * スマホ（[B-10]、v0.5 のゴール、O-029 Q28 案A 仮決定：アプリ3つ＝電卓・写真・傾き、使うと電池が減る）。
- * 今ある表示で動かす（O-030：新しい画面はユーザーの答え待ち）：右クリックで今のアプリ、しゃがんで右クリックでアプリを切りかえ。
+ * 右クリックでホーム画面（自作のドット絵のアイコン、S-019 の5）→ アイコンを押すとそのアプリ。しゃがんで右クリックで今のアプリをすぐ動かす。
  * 電卓＝今の電卓の画面、写真＝カメラモジュールで撮ってすぐ見られる写真（CameraModuleItem.shoot）、傾き＝MEMS の加速度計：重力の向きから前後の傾き（チャット）。
  * 電池：中のリチウムイオン電池（{@link #CAPACITY_J}、データコンポーネント battery_energy、ないときは満タン）。アプリごとに使う電気が決まり、足りないと「電池切れ」。
  * リチウムイオン電池のブロックに使うと充電（1回にそのブロックが出せる分だけ）
@@ -53,19 +53,22 @@ public class SmartphoneItem extends Item {
     @Override
     public InteractionResult use(Level level, Player p, InteractionHand hand) {
         ItemStack s = p.getItemInHand(hand);
-        if (p.isShiftKeyDown()) {
-            if (!level.isClientSide()) {
-                int a = nextApp(s);
-                p.sendSystemMessage(Component.translatable("message.semiconductor-lab.smartphone.app", Component.translatable("message.semiconductor-lab.smartphone.app." + APPS[a])));
-            }
+        if (!p.isShiftKeyDown()) {   // ホーム画面（アイコンが並ぶ）
+            if (!level.isClientSide()) p.openMenu(new net.minecraft.world.SimpleMenuProvider((id, inv, pl) -> new PhoneMenu(id, inv), Component.translatable("item.semiconductor-lab.smartphone")));
             return InteractionResult.SUCCESS;
         }
-        int a = app(s);
         if (level.isClientSide()) {
-            if (a == 0 && energy(s) >= COST_J[0]) openCalculator.run();
+            if (app(s) == 0 && energy(s) >= COST_J[0]) openCalculator.run();
             return InteractionResult.SUCCESS;
         }
-        if (!drain(s)) { p.sendSystemMessage(Component.translatable("message.semiconductor-lab.smartphone.empty")); return InteractionResult.SUCCESS; }
+        runApp(level, p, s);
+        return InteractionResult.SUCCESS;
+    }
+
+    /** サーバーで今のアプリを1回動かす（電気を使い、写真・傾きはチャットへ。電卓の画面はクライアントが開く） */
+    public static void runApp(Level level, Player p, ItemStack s) {
+        int a = app(s);
+        if (!drain(s)) { p.sendSystemMessage(Component.translatable("message.semiconductor-lab.smartphone.empty")); return; }
         switch (a) {
             case 1 -> {   // 写真：カメラモジュールと同じ（その場ですぐ見られる電子の写真）
                 ItemStack photo = CameraModuleItem.shoot(level, p.blockPosition());
@@ -76,8 +79,6 @@ public class SmartphoneItem extends Item {
             default -> {}
         }
         p.sendSystemMessage(Component.translatable("message.semiconductor-lab.smartphone.battery", Math.round(100.0 * energy(s) / CAPACITY_J)));
-        p.getCooldowns().addCooldown(s, 10);
-        return InteractionResult.SUCCESS;
     }
 
     @Override
