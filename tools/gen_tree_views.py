@@ -715,13 +715,17 @@ def export_json(nodes):
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
     # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
-    light_keys = ("id", "name", "name_en", "gran", "pr", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
+    # S-047：出典のある丸（「あ！」の道に使える）：REFERENCES の確かさ ◎○ か、出典の URL がある
+    for n in out_nodes:
+        n["src"] = 1 if n.get("refs") or n.get("sources") or re.search(r"出典[:：]", (n.get("real_full") or "") + (n.get("hee1") or "")) else 0   # tools/provenance.py と同じ数え方
+    light_keys = ("id", "name", "name_en", "gran", "pr", "src", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
                   "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
     kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p", "tool": "t", "same": "s"}
     graph = {"goal": GOAL, "start": START, "inversions": sum(1 for x in data["year_inversions"] if not x["explained"]),
              "nodes": [{k: n[k] for k in light_keys} for n in out_nodes],
-             "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout}
+             "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout,
+             "aha": {k: v for k, v in meta.get("aha", {}).items() if not k.startswith("_")}}
     detail = {"nodes": {n["id"]: {k: v for k, v in n.items() if k not in light_keys} for n in out_nodes},
               "portraits": portraits, "year_inversions": data["year_inversions"],
               "materials": {k: v for k, v in meta.get("materials", {}).items() if not k.startswith("_")},
