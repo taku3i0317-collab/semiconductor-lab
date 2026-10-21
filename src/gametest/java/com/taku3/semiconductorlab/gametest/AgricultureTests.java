@@ -143,4 +143,25 @@ public class AgricultureTests extends LabTestBase {
         h.assertTrue(bread.nutrition() > new ItemStack(Items.BREAD).get(F).nutrition(), "more filling than vanilla bread");
         h.succeed();
     }
+
+    /** [11-05] 堆肥（IMP3、O-021）：コンポスターの骨粉を耕地に → 窒素・リン 1回分ずつ（化学肥料は3回分）。足していけて、両方いっぱいなら使えない */
+    @GameTest
+    public void compost(GameTestHelper h) {
+        var lv = h.getLevel();
+        var Nk = com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.NITROGEN;
+        var Pk = com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.PHOSPHORUS;
+        floor(h, 3);
+        BlockPos f = p(1, 1, 1), chem = p(3, 1, 1);
+        h.setBlock(f, Blocks.FARMLAND);
+        h.setBlock(chem, Blocks.FARMLAND);
+        h.assertTrue(com.taku3.semiconductorlab.item.FertilizerItem.compost(lv, h.absolutePos(f)), "compost on farmland");
+        h.assertTrue(h.getBlockState(f).getValue(Nk) == 1 && h.getBlockState(f).getValue(Pk) == 1, "a little N and P");
+        com.taku3.semiconductorlab.item.FertilizerItem.fertilize(lv, h.absolutePos(chem));
+        h.assertTrue(h.getBlockState(chem).getValue(Nk) == 3, "chemical fertilizer: 3 shares at once");
+        com.taku3.semiconductorlab.item.FertilizerItem.compost(lv, h.absolutePos(f));
+        com.taku3.semiconductorlab.item.FertilizerItem.compost(lv, h.absolutePos(f));
+        h.assertTrue(h.getBlockState(f).getValue(Nk) == 3 && h.getBlockState(f).getValue(Pk) == 3, "3 composts = full");
+        h.assertFalse(com.taku3.semiconductorlab.item.FertilizerItem.compost(lv, h.absolutePos(f)), "already full");
+        h.succeed();
+    }
 }

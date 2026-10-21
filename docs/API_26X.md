@@ -894,3 +894,4 @@ public boolean instabuild;                         // クリエイティブ（�
 ## 空が見えるか（IMP2 O-023 [8-21]、javap 26.3）
 - `Level.canSeeSky(BlockPos)` は `BlockAndLightGetter` の default（LevelReader には無い）。雨は `Level.isRaining()`、次元は `level.dimension() == Level.OVERWORLD`、時刻は `getOverworldClockTime()`
 - `CompoundTag.getBooleanOr(String, boolean)` / `putBoolean`、`remove(String)`、`contains(String)`
+- ブロックを右クリックしたときに割りこむのは Fabric `UseBlockCallback.EVENT`：`(Player, Level, InteractionHand, BlockHitResult) -> InteractionResult`（fabric-events-interaction-v0、javap で確認、IMP3 [11-05]）

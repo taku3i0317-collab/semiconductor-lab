@@ -61,6 +61,19 @@ public final class Agriculture {
     public static final Item LEAVENED_BREAD = Reg.item("leavened_bread", new Item.Properties().food(new FoodProperties(LEAVENED_NUTRITION, LEAVENED_SATURATION, false)));
 
     static void init() {
+        // [11-05] 堆肥（IMP3、O-021）：コンポスターの骨粉（＝堆肥の近似）を耕地に使うと、窒素とリンが1回分ずつ入る
+        net.fabricmc.fabric.api.event.player.UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
+            var stack = player.getItemInHand(hand);
+            if (!stack.is(net.minecraft.world.item.Items.BONE_MEAL)) return net.minecraft.world.InteractionResult.PASS;
+            var pos = hit.getBlockPos();
+            var st = level.getBlockState(pos);
+            if (!st.is(net.minecraft.world.level.block.Blocks.FARMLAND) && !st.is(Survival.NITROGEN_FARMLAND)) return net.minecraft.world.InteractionResult.PASS;
+            if (level.isClientSide()) return net.minecraft.world.InteractionResult.SUCCESS;
+            if (!com.taku3.semiconductorlab.item.FertilizerItem.compost(level, pos)) return net.minecraft.world.InteractionResult.PASS;
+            if (!player.getAbilities().instabuild) stack.shrink(1);
+            player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.semiconductor-lab.compost.fertilized"));
+            return net.minecraft.world.InteractionResult.SUCCESS;
+        });
         // [11-06] リンのある耕地の上で熟した作物を収穫すると、1つ多い
         net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
             var crop = ctx.getOptional(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_STATE);

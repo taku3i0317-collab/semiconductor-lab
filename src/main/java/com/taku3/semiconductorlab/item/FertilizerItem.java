@@ -48,6 +48,25 @@ public class FertilizerItem extends Item {
         return true;
     }
 
+    /** [11-05] 堆肥で耕地を肥やす（コンポスターの骨粉、テストからも呼ぶ）：窒素もリンも1回分ずつ（化学肥料の 1/3）。もう両方いっぱいなら false */
+    public static final int COMPOST_SHARE = 1;
+    public static boolean compost(Level level, BlockPos pos) {
+        BlockState s = level.getBlockState(pos);
+        BlockState rich;
+        if (s.is(Blocks.FARMLAND)) {
+            rich = Survival.NITROGEN_FARMLAND.defaultBlockState().setValue(NitrogenFarmlandBlock.NITROGEN, COMPOST_SHARE).setValue(NitrogenFarmlandBlock.PHOSPHORUS, COMPOST_SHARE)
+                    .setValue(FarmlandBlock.MOISTURE, s.getValue(FarmlandBlock.MOISTURE));
+        } else if (s.is(Survival.NITROGEN_FARMLAND)) {
+            int n = s.getValue(NitrogenFarmlandBlock.NITROGEN), p = s.getValue(NitrogenFarmlandBlock.PHOSPHORUS);
+            if (n >= NitrogenFarmlandBlock.MAX_NITROGEN && p >= NitrogenFarmlandBlock.MAX_PHOSPHORUS) return false;
+            rich = s.setValue(NitrogenFarmlandBlock.NITROGEN, Math.min(NitrogenFarmlandBlock.MAX_NITROGEN, n + COMPOST_SHARE))
+                    .setValue(NitrogenFarmlandBlock.PHOSPHORUS, Math.min(NitrogenFarmlandBlock.MAX_PHOSPHORUS, p + COMPOST_SHARE));
+        } else return false;
+        level.setBlock(pos, rich, 3);
+        level.playSound(null, pos, SoundEvents.BONE_MEAL_USE, SoundSource.BLOCKS, 0.6f, 0.8f);
+        return true;
+    }
+
     @Override
     public InteractionResult useOn(UseOnContext ctx) {
         Level level = ctx.getLevel();

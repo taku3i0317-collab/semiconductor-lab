@@ -112,5 +112,6 @@
   "item.semiconductor-lab.leavened_bread.note2": "パン生地を焼く。満腹度 7（バニラのパンは 5）。",
   "item.semiconductor-lab.leavened_bread.note3": "ふくらんだパンは消化しやすく、粉の量が同じでも大きくなる。紀元前4000年ごろ、エジプトで発酵パンが焼かれていたとされる ⚠️。",
   "item.semiconductor-lab.leavened_bread.note4": "なぜふくらむか（酵母という生き物のしわざ）がわかったのは、1857年のパスツールの研究から。それまで何千年も、わけを知らずに焼いていた。",
-  "item.semiconductor-lab.leavened_bread.placeholder": "近似：満腹度が多いのはゲームの約束（バニラのパンを、ふくらまないパンとして比べる）。"
+  "item.semiconductor-lab.leavened_bread.placeholder": "近似：満腹度が多いのはゲームの約束（バニラのパンを、ふくらまないパンとして比べる）。",
+  "message.semiconductor-lab.compost.fertilized": "堆肥（骨粉）をまいた：窒素とリンが少し入った（1回分ずつ）"
 }

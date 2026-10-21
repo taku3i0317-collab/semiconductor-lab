@@ -112,5 +112,6 @@
   "item.semiconductor-lab.leavened_bread.note2": "Bake bread dough. Hunger 7 (vanilla bread is 5).",
   "item.semiconductor-lab.leavened_bread.note3": "Risen bread is easier to digest and bigger from the same flour. Leavened bread is said to have been baked in Egypt around 4000 BC ⚠️.",
   "item.semiconductor-lab.leavened_bread.note4": "Why bread rises (the work of a living thing, yeast) became clear only with Pasteur's research in 1857. For thousands of years people baked it without knowing why.",
-  "item.semiconductor-lab.leavened_bread.placeholder": "Approximation: the extra hunger is a game rule (compare with vanilla bread as flat, unrisen bread)."
+  "item.semiconductor-lab.leavened_bread.placeholder": "Approximation: the extra hunger is a game rule (compare with vanilla bread as flat, unrisen bread).",
+  "message.semiconductor-lab.compost.fertilized": "Compost (bone meal) spread: a little nitrogen and phosphorus (1 share each)"
 }
