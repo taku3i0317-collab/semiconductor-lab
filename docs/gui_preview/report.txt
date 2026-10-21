@@ -9,6 +9,7 @@ assembly_bench_en_us product item.semiconductor-lab.calculator w=52 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.ai_chip w=34 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.game_console w=134 lines=2/2 scale=0.79999995
 assembly_bench_en_us product item.semiconductor-lab.smartphone w=58 lines=2/2
+assembly_bench_en_us product item.semiconductor-lab.mechanical_watch w=85 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.microcomputer w=100 lines=2/2 scale=0.74999994
 assembly_bench_en_us product item.semiconductor-lab.math_coprocessor w=170 lines=3/2 scale=0.6499999
 assembly_bench_en_us product item.semiconductor-lab.image_sensor w=86 lines=2/2
@@ -64,6 +65,13 @@ assembly_bench_en_us role assembly.semiconductor-lab.smartphone.display w=40 lin
 assembly_bench_en_us role assembly.semiconductor-lab.smartphone.backlight w=102 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.smartphone.battery w=94 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.smartphone.case w=24 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.mechanical_watch.mainspring w=52 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.mechanical_watch.gear_train w=52 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.mechanical_watch.escapement w=58 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.mechanical_watch.balance w=39 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.mechanical_watch.jewels w=136 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.mechanical_watch.crystal w=37 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.mechanical_watch.case w=24 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.cpu w=140 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.rom w=112 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.clock w=72 lines=1/2
@@ -1075,6 +1083,7 @@ assembly_bench_ja_jp product item.semiconductor-lab.calculator w=18 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.ai_chip w=41 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.game_console w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.smartphone w=27 lines=1/2
+assembly_bench_ja_jp product item.semiconductor-lab.mechanical_watch w=54 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.microcomputer w=78 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.math_coprocessor w=126 lines=2/2 scale=0.84999996
 assembly_bench_ja_jp product item.semiconductor-lab.image_sensor w=81 lines=2/2
@@ -1130,6 +1139,13 @@ assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.display w=40 lin
 assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.backlight w=112 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.battery w=81 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.smartphone.case w=27 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.mechanical_watch.mainspring w=36 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.mechanical_watch.gear_train w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.mechanical_watch.escapement w=27 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.mechanical_watch.balance w=27 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.mechanical_watch.jewels w=84 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.mechanical_watch.crystal w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.mechanical_watch.case w=27 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.cpu w=162 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.rom w=125 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.clock w=72 lines=1/2
