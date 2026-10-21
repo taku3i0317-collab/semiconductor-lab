@@ -194,6 +194,7 @@ crude_titanium_tetrachloride  # Metallurgy [None] None
 kroll_charge  # Metallurgy [None] None
 sponge_with_salt  # Metallurgy [None] None
 blast_furnace_slag  # Metallurgy [None] None
+white_arsenic  # Metallurgy [None] None
 wood_ash  # Chemistry [2-02] -2800
 lye  # Chemistry [2-02] -2800
 potash  # Chemistry [2-02] -2800

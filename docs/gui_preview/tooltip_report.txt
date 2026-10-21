@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 757（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 758（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -827,6 +827,8 @@ en_us bottle_machine lines=7
 en_us bottle_machine shift lines=17
 en_us gallium lines=4
 en_us gallium shift lines=10
+en_us white_arsenic lines=4
+en_us white_arsenic shift lines=12
 en_us cinnabar_retort_charge lines=3
 en_us cinnabar_retort_charge shift lines=10
 en_us quartz_vein lines=3
@@ -2341,6 +2343,8 @@ ja_jp bottle_machine lines=5
 ja_jp bottle_machine shift lines=13
 ja_jp gallium lines=3
 ja_jp gallium shift lines=9
+ja_jp white_arsenic lines=3
+ja_jp white_arsenic shift lines=9
 ja_jp cinnabar_retort_charge lines=3
 ja_jp cinnabar_retort_charge shift lines=8
 ja_jp quartz_vein lines=2

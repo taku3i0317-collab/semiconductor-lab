@@ -196,7 +196,9 @@ public final class Metallurgy {
     public static final Item TANTALUM              = Reg.item("tantalum");
     // [1-44] ガリウム（IMP4-01、O-020）：バイヤー法の液を使い回すとたまる → 使い終わった液を電解。融点約30℃、アルミを壊すのでポリエチレン瓶
     public static final Item SPENT_BAYER_LIQUOR    = Reg.item("spent_bayer_liquor", new Item.Properties().stacksTo(16));
-    public static final Item GALLIUM               = Reg.contained("gallium", Vessel.POLYETHYLENE_BOTTLE);                           // タンタル（還元した粉を固めた金属）
+    public static final Item GALLIUM               = Reg.contained("gallium", Vessel.POLYETHYLENE_BOTTLE);
+    // [B-07] の前提 ヒ素（IMP4-01、S-007）：金属の鉱石（黄鉄鉱・錫石）を焼いた煙道のちり＝白ヒ素 As2O3（反射炉の副産物、A）。毒、工業の材料としてだけ
+    public static final Item WHITE_ARSENIC         = Reg.item("white_arsenic");                           // タンタル（還元した粉を固めた金属）
     // レトルトの仕込み：辰砂の粉＋空の鉄のフラスコ（受け器）。焼くと水銀がフラスコに集まる（かまど・反射炉）
     public static final Item CINNABAR_RETORT_CHARGE = Reg.item("cinnabar_retort_charge"); // 液体の金属（容器入り）
 
