@@ -271,5 +271,5 @@
   "block.semiconductor-lab.haber_bosch_reactor.note3": "Nitrogen and hydrogen pass over the iron catalyst at about 200 atm and 450 C. Only about 15% reacts per pass, so the ammonia is cooled out as a liquid and the rest of the gas is sent round again.",
   "block.semiconductor-lab.haber_bosch_reactor.note4": "Haber succeeded in the lab in 1909 and Bosch at BASF built the plant in 1913 (high-pressure hydrogen makes steel brittle, so he designed a double-walled reactor). Lesson: in World War I Haber led the chlorine gas attack (Ypres, 1915), and many soldiers died. The scientist who helped feed billions was also a developer of poison gas (how to make it is not in this mod).",
   "block.semiconductor-lab.haber_bosch_reactor.placeholder": "Approximation: everything reacts in one pass; pressure and temperature are not given as numbers (standard screen).",
-  "message.semiconductor-lab.ammonium_sulfate.fertilized": "Fertilizer spread: it became nitrogen-rich farmland"
+  "message.semiconductor-lab.ammonium_sulfate.fertilized": "Nitrogen fertilizer spread: fertile farmland (3 shares of nitrogen)"
 }

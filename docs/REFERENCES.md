@@ -3097,6 +3097,20 @@
 - Wikipedia「Lithium-ion battery」：https://en.wikipedia.org/wiki/Lithium-ion_battery
 - Wikipedia「Lithium iron phosphate」：https://en.wikipedia.org/wiki/Lithium_iron_phosphate
 
+## C55. 骨を硫酸でとかすと肥料になる（過リン酸石灰・硝安）［11-06］［11-07］
+**答え**：植物が大きく育つには、窒素・リン・カリが要る。骨のリン酸カルシウムは水にとけず植物が吸えないが、1842年にイギリスのジョン・ベネット・ローズは、硫酸と反応させて水にとけるリン酸二水素カルシウムにする「過リン酸石灰」の特許を取り、世界初の化学肥料の工場を作った。窒素はマメの根粒菌が空気から取りこむほか、1913年からはハーバー・ボッシュ法のアンモニアから硫安や硝安が作られるようになった。窒素は葉や茎を、リンは花や実や根を育てる。
+
+- へえ①：骨を硫酸でとかすと肥料になる。
+- へえ②：ローズのロザムステッド農場では、1843年から同じ畑で肥料の効き目を比べ続けている（世界最古の農業実験）。
+- へえ③：硝安は窒素が重さの約34%。でも、大量に積んだ硝安の爆発事故がくり返された（1921 オッパウ、2020 ベイルート）。
+- へえ④：今の世界の人の約半分は、工場でつくった窒素肥料のおかげで食べられているとされる ⚠️。
+
+確かさ：ローズ 1842・反応式 ◎／「約半分」の割合 △
+根拠：
+- Wikipedia「Superphosphate」：https://en.wikipedia.org/wiki/Superphosphate
+- Wikipedia「John Bennet Lawes」：https://en.wikipedia.org/wiki/John_Bennet_Lawes
+- Wikipedia「Ammonium nitrate」：https://en.wikipedia.org/wiki/Ammonium_nitrate
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ammonia_gas",
+    "semiconductor-lab:nitric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ammonium_nitrate",
+    "count": 1
+  }
+}

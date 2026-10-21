@@ -63,5 +63,18 @@
   "item.semiconductor-lab.bordeaux_mixture.note2": "硫酸銅＋消石灰＋水 → 4つ（バケツは戻る）。今は作るだけで、作物の病気の仕組みはまだない。⚠ GHS：銅の化合物は水の生き物に有害。",
   "item.semiconductor-lab.bordeaux_mixture.note3": "1885年、フランスのピエール・ミラルデが、ブドウのべと病（カビの病気）を防ぐと発表した。銅のイオンがカビの胞子が芽を出すのを止める。石灰は、銅が葉にくっついて雨で流れにくくし、葉を傷めにくくする。",
   "item.semiconductor-lab.bordeaux_mixture.note4": "ボルドーの農家が、道ばたのブドウを盗まれないように青い薬をぬっていたら、そのブドウだけ病気にならなかった。これが発見のきっかけ。",
-  "item.semiconductor-lab.bordeaux_mixture.placeholder": "近似：作るだけ。作物の病気と、まいて防ぐ効き目はゲームにない（決定 Q3-14 ②）。"
+  "item.semiconductor-lab.bordeaux_mixture.placeholder": "近似：作るだけ。作物の病気と、まいて防ぐ効き目はゲームにない（決定 Q3-14 ②）。",
+  "item.semiconductor-lab.superphosphate": "過リン酸石灰（リン肥料）",
+  "item.semiconductor-lab.superphosphate.note1": "骨から作るリンの肥料。畑にまくと、とれる作物が増える。",
+  "item.semiconductor-lab.superphosphate.note2": "骨粉3＋硫酸2（瓶は戻る）→ 3。耕地に使うと「肥えた耕地」（リン3回分）：熟した作物を収穫すると1つ多くとれる。窒素の肥料（豆・硫安・硝安）は育つ速さ、リンは実の多さ。両方まくと両方効く。",
+  "item.semiconductor-lab.superphosphate.note3": "骨のリン酸カルシウム Ca3(PO4)2 は水にとけず、植物はほとんど吸えない。硫酸と反応させると、水にとけるリン酸二水素カルシウム Ca(H2PO4)2 になる（残りは石こう CaSO4）。Ca3(PO4)2 + 2H2SO4 → Ca(H2PO4)2 + 2CaSO4。",
+  "item.semiconductor-lab.superphosphate.note4": "1842年、イギリスのジョン・ベネット・ローズが特許を取り、世界初の化学肥料の工場を作った。彼のロザムステッド農場は、肥料の効き目を同じ畑で150年以上比べ続けている（世界最古の農業実験）。",
+  "item.semiconductor-lab.superphosphate.placeholder": "近似：リンの量は「収穫3回分」、効き目は「収穫が1つ多い」にした。リン鉱石の代わりに骨粉（本物もはじめは骨）。",
+  "message.semiconductor-lab.superphosphate.fertilized": "リン肥料をまいた：収穫が増える（3回分）",
+  "item.semiconductor-lab.ammonium_nitrate": "硝酸アンモニウム（硝安、窒素肥料）",
+  "item.semiconductor-lab.ammonium_nitrate.note1": "窒素の肥料。畑にまくと作物が速く育つ。",
+  "item.semiconductor-lab.ammonium_nitrate.note2": "アンモニア＋硝酸（袋と瓶は戻る）。耕地に使うと窒素3回分（硫安・豆と同じ）。⚠ GHS：酸化性の固体。燃える物から離す。",
+  "item.semiconductor-lab.ammonium_nitrate.note3": "NH3 + HNO3 → NH4NO3。窒素が重さの約34%（硫安は約21%）で、同じ重さでより多くの窒素を運べる。窒素の半分はアンモニウム、半分は硝酸の形で、植物がすぐ吸える。",
+  "item.semiconductor-lab.ammonium_nitrate.note4": "失敗の記録：たくさん積んだ硝安が爆発する事故がくり返された（1921 ドイツ・オッパウ、1947 アメリカ・テキサスシティ、2020 レバノン・ベイルート）。今は保管のきまりがきびしい。空気の窒素がパンになり、使い方をまちがえると災害にもなる。",
+  "item.semiconductor-lab.ammonium_nitrate.placeholder": "近似：ゲームでは硫安と同じ効き目（窒素の多さは説明だけ）。"
 }

@@ -63,5 +63,18 @@
   "item.semiconductor-lab.bordeaux_mixture.note2": "Copper sulfate + slaked lime + water -> 4 (bucket returned). For now it is only crafted; there is no crop disease yet. ⚠ GHS: copper compounds harm aquatic life.",
   "item.semiconductor-lab.bordeaux_mixture.note3": "In 1885 Pierre-Marie-Alexis Millardet in France reported that it prevents downy mildew of grapes (a mould). Copper ions stop the spores from sprouting; the lime makes the copper stick to the leaves against rain and spares the leaves.",
   "item.semiconductor-lab.bordeaux_mixture.note4": "Bordeaux farmers painted the roadside vines with a blue mixture so passers-by would not steal the grapes - and only those vines escaped the disease. That was the clue.",
-  "item.semiconductor-lab.bordeaux_mixture.placeholder": "Approximation: craft only. Crop disease and spraying to prevent it are not in the game (decision Q3-14 ②)."
+  "item.semiconductor-lab.bordeaux_mixture.placeholder": "Approximation: craft only. Crop disease and spraying to prevent it are not in the game (decision Q3-14 ②).",
+  "item.semiconductor-lab.superphosphate": "Superphosphate (Phosphate Fertilizer)",
+  "item.semiconductor-lab.superphosphate.note1": "A phosphorus fertilizer made from bones. Spread on a field, it gives bigger harvests.",
+  "item.semiconductor-lab.superphosphate.note2": "3 bone meal + 2 sulfuric acid (bottles returned) -> 3. Use on farmland to make 'fertile farmland' (3 shares of phosphorus): each ripe crop harvested gives 1 extra. Nitrogen fertilizers (peas, ammonium sulfate/nitrate) speed growth; phosphorus adds yield. Spread both and both work.",
+  "item.semiconductor-lab.superphosphate.note3": "The calcium phosphate in bone, Ca3(PO4)2, does not dissolve in water, so plants can hardly take it up. Sulfuric acid turns it into water-soluble calcium dihydrogen phosphate Ca(H2PO4)2 (plus gypsum CaSO4). Ca3(PO4)2 + 2H2SO4 -> Ca(H2PO4)2 + 2CaSO4.",
+  "item.semiconductor-lab.superphosphate.note4": "John Bennet Lawes patented it in England in 1842 and built the world's first chemical fertilizer factory. His Rothamsted farm has compared fertilizers on the same fields for over 150 years - the oldest agricultural experiment in the world.",
+  "item.semiconductor-lab.superphosphate.placeholder": "Approximation: phosphorus is counted as '3 harvests' and works as '1 extra item per harvest'. Bone meal instead of phosphate rock (the real thing also started with bones).",
+  "message.semiconductor-lab.superphosphate.fertilized": "Phosphate spread: bigger harvests (3 times)",
+  "item.semiconductor-lab.ammonium_nitrate": "Ammonium Nitrate (Nitrogen Fertilizer)",
+  "item.semiconductor-lab.ammonium_nitrate.note1": "A nitrogen fertilizer. Spread on a field, crops grow faster.",
+  "item.semiconductor-lab.ammonium_nitrate.note2": "Ammonia + nitric acid (bag and bottle returned). On farmland it gives 3 shares of nitrogen (like ammonium sulfate or peas). ⚠ GHS: oxidizing solid. Keep away from things that burn.",
+  "item.semiconductor-lab.ammonium_nitrate.note3": "NH3 + HNO3 -> NH4NO3. About 34% of its weight is nitrogen (ammonium sulfate: about 21%), so it carries more nitrogen per kilogram. Half is ammonium and half nitrate, both quickly taken up by plants.",
+  "item.semiconductor-lab.ammonium_nitrate.note4": "Failure record: large stores of ammonium nitrate have exploded again and again (Oppau, Germany 1921; Texas City, USA 1947; Beirut, Lebanon 2020). Storage rules are strict today. Nitrogen from the air becomes bread - and, mishandled, a disaster.",
+  "item.semiconductor-lab.ammonium_nitrate.placeholder": "Approximation: in the game it works the same as ammonium sulfate (the higher nitrogen content is explained only)."
 }

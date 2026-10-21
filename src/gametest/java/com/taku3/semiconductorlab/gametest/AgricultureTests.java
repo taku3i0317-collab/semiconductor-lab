@@ -10,6 +10,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.block.Blocks;
 
 /**
  * GameTest：幹11 農業・食品（IMP2 S-003 で作成）。共通の道具は {@link LabTestBase}。
@@ -75,6 +76,52 @@ public class AgricultureTests extends LabTestBase {
         var beef = new ItemStack(net.minecraft.world.item.Items.COOKED_BEEF).get(net.minecraft.core.component.DataComponents.FOOD);
         h.assertTrue(food != null && food.nutrition() > beef.nutrition() && food.saturation() > beef.saturation(), "a little more filling than cooked beef");
         h.assertTrue(recipeUses(h, "bordeaux_mixture", com.taku3.semiconductorlab.content.Chemistry.COPPER_SULFATE) && recipeUses(h, "bordeaux_mixture", com.taku3.semiconductorlab.content.Survival.SLAKED_LIME), "CuSO4 + Ca(OH)2 -> Bordeaux");
+        h.succeed();
+    }
+
+    /**
+     * [11-06] 過リン酸石灰・[11-07] 硝安（IMP3、O-020）：骨粉＋硫酸 → リン肥料、NH3＋HNO3 → 窒素肥料。
+     * 豆の輪作 [0-05] とくらべる：窒素（豆・硝安）は速さ、リンは収穫が1つ多い（3回分）。リンだけの耕地は速くならない。両方なくなればふつうの耕地
+     */
+    @GameTest
+    public void fertilizers(GameTestHelper h) {
+        var lv = h.getLevel();
+        var NF = com.taku3.semiconductorlab.content.Survival.NITROGEN_FARMLAND;
+        var Nk = com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.NITROGEN;
+        var Pk = com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.PHOSPHORUS;
+        var P = com.taku3.semiconductorlab.item.FertilizerItem.Nutrient.PHOSPHORUS;
+        h.assertTrue(recipeUses(h, "superphosphate", Items.BONE_MEAL) && recipeUses(h, "superphosphate", Chemistry.SULFURIC_ACID), "bone + H2SO4 -> superphosphate");
+        h.assertTrue(recipeUses(h, "ammonium_nitrate", Gas.AMMONIA_GAS) && recipeUses(h, "ammonium_nitrate", Gas.NITRIC_ACID), "NH3 + HNO3 -> ammonium nitrate");
+        floor(h, 5);
+        BlockPos nOnly = p(1, 1, 1), pOnly = p(3, 1, 1), both = p(5, 1, 1);
+        for (BlockPos b : new BlockPos[] {nOnly, pOnly, both}) h.setBlock(b, Blocks.FARMLAND);
+        h.assertTrue(com.taku3.semiconductorlab.item.FertilizerItem.fertilize(lv, h.absolutePos(nOnly)), "nitrogen on farmland");
+        h.assertTrue(com.taku3.semiconductorlab.item.FertilizerItem.fertilize(lv, h.absolutePos(pOnly), P), "phosphate on farmland");
+        com.taku3.semiconductorlab.item.FertilizerItem.fertilize(lv, h.absolutePos(both));
+        h.assertTrue(com.taku3.semiconductorlab.item.FertilizerItem.fertilize(lv, h.absolutePos(both), P), "phosphate on top of nitrogen");
+        h.assertTrue(h.getBlockState(nOnly).getValue(Nk) == 3 && h.getBlockState(nOnly).getValue(Pk) == 0, "N 3, P 0");
+        h.assertTrue(h.getBlockState(pOnly).is(NF) && h.getBlockState(pOnly).getValue(Nk) == 0 && h.getBlockState(pOnly).getValue(Pk) == 3, "N 0, P 3");
+        h.assertTrue(h.getBlockState(both).getValue(Nk) == 3 && h.getBlockState(both).getValue(Pk) == 3, "N 3, P 3");
+        // 速さ：リンだけの耕地は麦を速くしない
+        var wheat = (net.minecraft.world.level.block.CropBlock) Blocks.WHEAT;
+        h.setBlock(pOnly.above(), wheat.getStateForAge(0));
+        net.minecraft.util.RandomSource rnd = net.minecraft.util.RandomSource.create(3);
+        for (int i = 0; i < 10; i++) h.getBlockState(pOnly).randomTick(lv, h.absolutePos(pOnly), rnd);
+        h.assertValueEqual(wheat.getAge(h.getBlockState(pOnly.above())), 0, "phosphorus alone does not speed growth");
+        // 収穫：熟した麦の落とし物が1つ多い、3回で使い切ってふつうの耕地
+        int extra = 0;
+        for (int i = 0; i < 4; i++) {
+            java.util.List<ItemStack> drops = new java.util.ArrayList<>(java.util.List.of(new ItemStack(Items.WHEAT), new ItemStack(Items.WHEAT_SEEDS)));
+            if (com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.harvestBonus(lv, h.absolutePos(pOnly.above()), wheat.getStateForAge(wheat.getMaxAge()), drops)) {
+                extra++;
+                h.assertTrue(drops.size() == 3 && drops.get(2).is(Items.WHEAT), "one more wheat");
+            }
+        }
+        h.assertValueEqual(extra, 3, "3 bigger harvests");
+        h.assertTrue(h.getBlockState(pOnly).is(Blocks.FARMLAND), "phosphorus used up -> ordinary farmland");
+        java.util.List<ItemStack> young = new java.util.ArrayList<>(java.util.List.of(new ItemStack(Items.WHEAT_SEEDS)));
+        h.assertFalse(com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.harvestBonus(lv, h.absolutePos(both.above()), wheat.getStateForAge(3), young), "unripe crop: no bonus");
+        LOG.info("[LAB] fertilizers [11-06][11-07]: N (peas/AS/AN) -> faster, P (superphosphate) -> +1 per harvest x3, P alone not faster");
         h.succeed();
     }
 }

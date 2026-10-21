@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 180（ja・en）、文字の置き場所 666、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 180（ja・en）、文字の置き場所 668、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -280,6 +280,8 @@ reduction_camera_en_us hint gui.semiconductor-lab.reduction_camera.too_fine w=17
 reduction_camera_en_us hint gui.semiconductor-lab.reduction_camera.output_full w=90 lines=2/3
 reduction_camera_en_us hint gui.semiconductor-lab.reduction_camera.need_power w=90 lines=2/3
 reduction_camera_en_us hint gui.semiconductor-lab.reduction_camera.running w=38 lines=1/3
+reduction_camera_en_us split gui.semiconductor-lab.reduction_camera.split_none w=45 lines=1/1
+reduction_camera_en_us split gui.semiconductor-lab.reduction_camera.split_part w=73 lines=1/1
 bridgman_furnace_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
 bridgman_furnace_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 bridgman_furnace_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
@@ -1127,6 +1129,8 @@ reduction_camera_ja_jp hint gui.semiconductor-lab.reduction_camera.too_fine w=15
 reduction_camera_ja_jp hint gui.semiconductor-lab.reduction_camera.output_full w=81 lines=2/3
 reduction_camera_ja_jp hint gui.semiconductor-lab.reduction_camera.need_power w=63 lines=1/3
 reduction_camera_ja_jp hint gui.semiconductor-lab.reduction_camera.running w=45 lines=1/3
+reduction_camera_ja_jp split gui.semiconductor-lab.reduction_camera.split_none w=42 lines=1/1
+reduction_camera_ja_jp split gui.semiconductor-lab.reduction_camera.split_part w=62 lines=1/1
 bridgman_furnace_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
 bridgman_furnace_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 bridgman_furnace_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3

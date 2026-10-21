@@ -41,5 +41,18 @@ public final class Agriculture {
     // [11-16] ボルドー液（IMP3、S-006、決定 Q3-14 ②）：硫酸銅＋消石灰＋水 → 青い液（1885 ミラルデ、ブドウのべと病）。作るだけ（作物の病気の仕組みはまだない）
     public static final Item BORDEAUX_MIXTURE = Reg.item("bordeaux_mixture", new Item.Properties().stacksTo(16));
 
-    static void init() {}
+    // [11-06] 過リン酸石灰（IMP3、O-020）：骨粉3＋硫酸2 → 3（1842 ローズ）。耕地にまくとリン3回分＝熟した作物の収穫が1つ増える
+    public static final Item SUPERPHOSPHATE = Reg.item("superphosphate", p -> new com.taku3.semiconductorlab.item.FertilizerItem(p, com.taku3.semiconductorlab.item.FertilizerItem.Nutrient.PHOSPHORUS), new Item.Properties());
+    // [11-07] 硝酸アンモニウム（IMP3、O-020）：アンモニア＋硝酸 → 窒素肥料（硫安と同じく耕地に窒素3回分）。⚠ 酸化性の物質
+    public static final Item AMMONIUM_NITRATE = Reg.item("ammonium_nitrate", com.taku3.semiconductorlab.item.FertilizerItem::new, new Item.Properties());
+
+    static void init() {
+        // [11-06] リンのある耕地の上で熟した作物を収穫すると、1つ多い
+        net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            var crop = ctx.getOptional(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_STATE);
+            var origin = ctx.getOptional(net.minecraft.world.level.storage.loot.parameters.LootContextParams.ORIGIN);
+            if (crop == null || origin == null || !(crop.getBlock() instanceof net.minecraft.world.level.block.CropBlock)) return;
+            com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.harvestBonus(ctx.getLevel(), net.minecraft.core.BlockPos.containing(origin), crop, drops);
+        });
+    }
 }

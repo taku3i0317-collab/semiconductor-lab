@@ -271,5 +271,5 @@
   "block.semiconductor-lab.haber_bosch_reactor.note3": "約200気圧・約450℃で、鉄の触媒の上に窒素と水素を通す。1回で反応するのは15%ほどなので、できたアンモニアを冷やして液にして取り、残りのガスをまた回す。",
   "block.semiconductor-lab.haber_bosch_reactor.note4": "1909年ハーバーが実験室で成功し、1913年 BASF のボッシュが工場にした（高圧の水素が鋼をもろくするので、二重の壁の塔を考えた）。教訓：ハーバーは第一次世界大戦で塩素ガスの攻撃（1915 イーペル）を指導し、多くの兵士が死んだ。肥料で多くの人を養った科学者が、毒ガスの開発者でもあった（作り方はこの MOD には入れない）。",
   "block.semiconductor-lab.haber_bosch_reactor.placeholder": "近似：1回で全部反応する。圧力・温度は数字で扱わない（ふつうの画面）。",
-  "message.semiconductor-lab.ammonium_sulfate.fertilized": "肥料をまいた：窒素の多い耕地になった"
+  "message.semiconductor-lab.ammonium_sulfate.fertilized": "窒素肥料をまいた：肥えた耕地になった（窒素3回分）"
 }

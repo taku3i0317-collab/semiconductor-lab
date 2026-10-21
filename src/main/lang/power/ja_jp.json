@@ -152,7 +152,7 @@
   "gui.semiconductor-lab.chemical_cell.need_dry_cell": "乾電池を入れてください",
   "block.semiconductor-lab.lithium_ion_battery": "リチウムイオン電池",
   "block.semiconductor-lab.lithium_ion_battery.note1": "軽くてたくさん貯められる、充電できる電池。スマホや電気自動車の電池。",
-  "block.semiconductor-lab.lithium_ion_battery.note2": "4MJ（鉛蓄電池の4倍）、充電・放電とも 20kW、充電は 95% が貯まる（鉛蓄電池は 85%）。どの面からも充放電、隣の機械へ直接放電もする。直流だけ。壊しても残量はアイテムに残る。",
+  "block.semiconductor-lab.lithium_ion_battery.note2": "4MJ（鉛蓄電池の4倍）、充電・放電とも 20kW、充電は 95% が貯まる（鉛蓄電池は 85%）。どの面からも充放電、隣の機械へ直接放電もする。直流だけ。壊しても残量はアイテムに残る。本物の軽さ：同じ電気を貯めるのに、鉛蓄電池（1kg で約 35Wh）の約 1/3〜1/4 の重さ（LFP の電池 1kg で約 90〜160Wh）。",
   "block.semiconductor-lab.lithium_ion_battery.note3": "充電すると、リチウムのイオンが正極から出て、電解液を通り、黒鉛の層のすき間にしまい込まれる。放電でもどる。金属のリチウムを使わないので、昔のリチウム電池より安全になった。1985年に吉野彰が原型を作り、1991年にソニーが売り出した（2019年ノーベル化学賞：グッドイナフ・ウィッティンガム・吉野）。",
   "block.semiconductor-lab.lithium_ion_battery.note4": "⚠️ 1991年の電池の正極はコバルト酸リチウム LiCoO2。このゲームではコバルトがまだ無いので、1997年にグッドイナフの研究室が出したリン酸鉄リチウム LiFePO4 を使う（燃えにくく長持ちで、今の電気自動車にも多い）。⚠ 本物は、こわしたり熱したりすると発火することがある。",
   "block.semiconductor-lab.lithium_ion_battery.placeholder": "近似：容量・電力・効率はゲームの値。電解液の溶媒（炭酸エチレンなど）と、巻いて缶に入れる工程は省略。正極は年が後の LiFePO4（決定 Q3-13 ②）。",
