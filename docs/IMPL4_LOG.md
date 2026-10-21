@@ -181,3 +181,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - A にお願いする所：案A・B とも、マルチブロック（v1.0 #1）の「物の口」と FOUP／ロードポートの受け渡しの形をそろえる
 - ✅ v1.0 #4 自動搬送（O-026 仮決定の案A）：FOUP（item/FoupItem、データ部品 foup_contents）・ロードポート（block/LoadPortBlockEntity、Machine.of(type).layout の入口・出口を読む、A の了承）。GameTest load_port、ROADMAP v1.0 #4、DECISIONS
 - ✅ S-009 [1-36] 単体ホウ素（混ぜ物 → 溶鉱炉 → 塩酸）。GameTest elemental_boron、REFERENCES F50
+- ✅ S-009 [9-05] 点接触ダイオード（作業台）。GameTest point_contact_diode、REFERENCES F51

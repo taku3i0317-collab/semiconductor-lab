@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:point_contact_diode"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.point_contact_diode"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.point_contact_diode.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.point_contact_diode.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:point_contact_diode"
+          }
+        ]
+      }
+    }
+  }
+}

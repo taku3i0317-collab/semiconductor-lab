@@ -26,6 +26,8 @@ public final class Semiconductor {
     private Semiconductor() {}
 
     // ===== アイテム =====
+    // [9-05] 点接触の Ge ダイオード（1940年代のレーダーの検波器）（IMP4-01、S-009）
+    public static final Item POINT_CONTACT_DIODE   = Reg.item("point_contact_diode");
     public static final Item REFINED_GERMANIUM     = Reg.item("refined_germanium", new Item.Properties().component(ModDataComponents.PURITY, Purity.SIX_N));   // 帯域精製後
     // --- ドーピング ---
     public static final Item N_TYPE_GERMANIUM      = Reg.item("n_type_germanium");

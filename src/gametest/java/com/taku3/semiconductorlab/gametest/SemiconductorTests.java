@@ -3606,6 +3606,13 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-05] 点接触ダイオード（IMP4-01、S-009）：n 型 Ge＋W 線＋ガラス → 4個 */
+    @GameTest
+    public void pointContactDiode(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "point_contact_diode", Semiconductor.N_TYPE_GERMANIUM) && recipeUses(h, "point_contact_diode", Metallurgy.TUNGSTEN_WIRE), "Ge crystal + W needle");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

@@ -681,6 +681,7 @@ kibble_balance  # Precision [8-25] 1975
 droplet_generator  # Precision [8-13] 2006
 cw_multiplier  # Semiconductor [9-47] 1932
 accelerator_tube  # Semiconductor [9-47] 1932
+point_contact_diode  # Semiconductor [9-05] 1940
 transistor  # Semiconductor [9-03] 1947
 germanium_seed_crystal  # Semiconductor [9-07] 1950
 germanium_single_crystal  # Semiconductor [9-07] 1950

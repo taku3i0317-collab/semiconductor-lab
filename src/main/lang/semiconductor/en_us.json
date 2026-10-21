@@ -845,5 +845,10 @@
   "gui.semiconductor-lab.load_port.need_power": "Not enough power",
   "gui.semiconductor-lab.load_port.running": "Loading and unloading wafers",
   "gui.semiconductor-lab.load_port.recipe": "In FOUP → machine → out FOUP",
-  "gui.semiconductor-lab.euv_scanner.high_na_rough": "High-NA: barrel too rough"
+  "gui.semiconductor-lab.euv_scanner.high_na_rough": "High-NA: barrel too rough",
+  "item.semiconductor-lab.point_contact_diode": "Point-Contact Diode (germanium)",
+  "item.semiconductor-lab.point_contact_diode.note1": "A tiny germanium crystal touched by a fine metal needle. It lets current through one way only.",
+  "item.semiconductor-lab.point_contact_diode.note2": "Crafting: n-type germanium + W wire (needle) + soda-lime glass (seal) → 4.",
+  "item.semiconductor-lab.point_contact_diode.note3": "The needle-to-germanium contact passes current in one direction (rectification), pulling sound or signals out of radio waves (detection).",
+  "item.semiconductor-lab.point_contact_diode.note4": "Mass-produced as radar detectors in the 1940s; the point-contact transistor of 1947 grew out of this work."
 }
