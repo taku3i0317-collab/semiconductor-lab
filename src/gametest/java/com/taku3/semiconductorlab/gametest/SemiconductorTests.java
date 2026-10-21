@@ -3642,6 +3642,31 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-46] 人を感じるセンサー（IMP4-01、O-030 案A）：だれもいない → 隣の LED は点かない。豚が入ってくる → センサーが光り LED が点く。じっとしたまま10秒 → 消える */
+    @GameTest(maxTicks = 100)
+    public void pirSensor(GameTestHelper h) {
+        BlockPos sp = p(1, 1, 1), lp = p(2, 1, 1);
+        h.setBlock(sp, Semiconductor.PIR_SENSOR.block);
+        h.setBlock(lp, com.taku3.semiconductorlab.content.Branches.LED_LAMP.block);
+        var s = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.PirSensorBlockEntity.class);
+        var lamp = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.LedLampBlockEntity.class);
+        long feed = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.LedLampBlockEntity.WATTS);
+        var LIT = net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT;
+        h.assertFalse(s.sense(h.getLevel()), "nobody there");
+        tickConsumer(h, lp, lamp, 25, feed);
+        h.assertFalse(h.getBlockState(lp).getValue(LIT), "no motion -> the LED stays off");
+        var pig = h.spawn(net.minecraft.world.entity.EntityTypes.PIG, p(1, 1, 3));
+        pig.setNoAi(true);
+        h.assertTrue(s.sense(h.getLevel()), "a pig walks in -> motion");
+        h.assertTrue(h.getBlockState(sp).getValue(LIT), "the sensor glows");
+        tickConsumer(h, lp, lamp, 25, feed);
+        h.assertTrue(h.getBlockState(lp).getValue(LIT), "the LED comes on");
+        for (int i = 0; i <= com.taku3.semiconductorlab.block.PirSensorBlockEntity.HOLD / com.taku3.semiconductorlab.block.PirSensorBlockEntity.CHECK; i++) s.sense(h.getLevel());
+        h.assertFalse(h.getBlockState(sp).getValue(LIT), "standing still for 10 s -> off");
+        h.assertTrue(recipeUses(h, "pir_sensor", com.taku3.semiconductorlab.content.Heat.THERMOCOUPLE), "thermocouple stands in for the pyroelectric crystal");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // O-027（S-026 入手の道）：E の機械のコードが作る物の書き出し（IMP4-01）
         rec(a, com.taku3.semiconductorlab.content.Vacuum.EVAPORATOR.block, "アルミの点（メサ）", L(cond(io(Semiconductor.PN_JUNCTION_WAFER, 8), "ホウ素の p-n 接合"), io(Metallurgy.ALUMINIUM_INGOT, 1)),

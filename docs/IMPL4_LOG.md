@@ -218,3 +218,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ O-030 [1-13] 亜鉛の蒸留＝案A（蒸留のかめ zinc_retort_charge → かまど → 亜鉛2、近道は残す）。GameTest zinc_retort、REFERENCES F66
 - ✅ O-030 [5-16] ゲッター＝案A（magnesium_getter、封止台の下のスロットで封止の圧 1Pa まで ⚠️、A の同意あり。封止台の howto も）。GameTest getter_seal、REFERENCES F67
 - ✅ O-030 [3-24] ニクロム線ヒーター＝案A（nichrome_wire、電気こんろ electric_stove 500W・約800℃・燻製器のレシピ）。GameTest electric_stove、REFERENCES F68
+- ✅ O-030 [9-46] 人を感じるセンサー＝案A（pir_sensor、5マスで動く生き物 → 10秒光る、隣の LED の明かりはその間だけ）。GameTest pir_sensor、REFERENCES F69

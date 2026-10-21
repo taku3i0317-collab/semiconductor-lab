@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:pir_sensor"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.pir_sensor"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.pir_sensor.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.pir_sensor.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:pir_sensor"
+          }
+        ]
+      }
+    }
+  }
+}

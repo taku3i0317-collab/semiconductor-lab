@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 220（ja・en）、文字の置き場所 816、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 222（ja・en）、文字の置き場所 822、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
@@ -545,6 +545,11 @@ electron_microscope_en_us hint gui.semiconductor-lab.electron_microscope.need_sa
 electron_microscope_en_us hint gui.semiconductor-lab.electron_microscope.em_only w=155 lines=1/2
 electron_microscope_en_us hint gui.semiconductor-lab.electron_microscope.both w=196 lines=2/2
 electron_microscope_en_us hint gui.semiconductor-lab.electron_microscope.neither w=143 lines=1/2
+nc_lathe_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
+nc_lathe_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
+nc_lathe_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
+nc_lathe_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+nc_lathe_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
 lathe_en_us power gui.semiconductor-lab.machine.power w=63 lines=1/1
 lathe_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 lathe_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
@@ -1651,6 +1656,11 @@ electron_microscope_ja_jp hint gui.semiconductor-lab.electron_microscope.need_sa
 electron_microscope_ja_jp hint gui.semiconductor-lab.electron_microscope.em_only w=117 lines=1/2
 electron_microscope_ja_jp hint gui.semiconductor-lab.electron_microscope.both w=108 lines=1/2
 electron_microscope_ja_jp hint gui.semiconductor-lab.electron_microscope.neither w=108 lines=1/2
+nc_lathe_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
+nc_lathe_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
+nc_lathe_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
+nc_lathe_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+nc_lathe_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
 lathe_ja_jp power gui.semiconductor-lab.machine.power w=51 lines=1/1
 lathe_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 lathe_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3

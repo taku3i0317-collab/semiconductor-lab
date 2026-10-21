@@ -24,6 +24,7 @@ public class LedLampBlockEntity extends ConsumerBlockEntity {
 
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return 20; }
-    @Override protected boolean canWork() { return true; }
+    /** 隣に人を感じるセンサー [9-46] があれば、センサーが人を感じている間だけ点く（IMP4-01、O-030） */
+    @Override protected boolean canWork() { return !PirSensorBlock.holdsOff(level, worldPosition); }
     @Override protected void finishWork() {}
 }

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    " M ",
+    "CTC",
+    " I "
+  ],
+  "key": {
+    "M": "semiconductor-lab:silvered_mirror",
+    "T": "semiconductor-lab:thermocouple",
+    "C": "semiconductor-lab:copper_cable",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:pir_sensor",
+    "count": 1
+  }
+}

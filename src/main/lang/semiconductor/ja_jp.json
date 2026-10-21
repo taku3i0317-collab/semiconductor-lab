@@ -911,5 +911,12 @@
   "block.semiconductor-lab.euv_scanner.howto": "5×3×3 の形に組む（しゃがんで右クリックで図）。クラス100 の部屋の中で、光源に CO2 レーザーとスズ、真空容器を低い圧力に。EUV レジストのウェハー・EUV マスク・EUV 投影光学・送りねじを入れ、ボタンで焼く。",
   "block.semiconductor-lab.mask_aligner.howto": "レジストを塗ったウェハーとフォトマスクを入れ、電気をつなぐ。ボタンですき間を選んで焼く。台に送りねじを入れると前の層に合わせられる。",
   "block.semiconductor-lab.scanner.howto": "ステッパーと同じ材料に、マスクの台の送りねじを足す。マスクとウェハーを一緒に動かして焼くので、レンズの狂いが小さくなる。",
-  "block.semiconductor-lab.stepper.howto": "レジストを塗ったウェハー・マスク・投影レンズ・光（水銀灯の i線フィルターやレーザー）・台の送りねじを入れ、電気をつないでボタン。チップごとに送って焼く。"
+  "block.semiconductor-lab.stepper.howto": "レジストを塗ったウェハー・マスク・投影レンズ・光（水銀灯の i線フィルターやレーザー）・台の送りねじを入れ、電気をつないでボタン。チップごとに送って焼く。",
+  "block.semiconductor-lab.pir_sensor": "人を感じるセンサー",
+  "block.semiconductor-lab.pir_sensor.note1": "近くで人や動物が動くと光り、となりの LED の明かりを点ける。じっとしていると消える。",
+  "block.semiconductor-lab.pir_sensor.note2": "作業台：銀の鏡＋熱電対＋銅ケーブル2＋鉄。5マス以内で生き物が動くと10秒 ⚠️ 光る。となりの LED の明かり（赤・白）は、このセンサーが光っている間だけ点く。レッドストーンは使わない。",
+  "block.semiconductor-lab.pir_sensor.note3": "体温の体からは赤外線が出ている。焦電体という結晶は、温度が変わったときだけ電気を出すので、人が動いて届く赤外線が変わると気づく。鏡やレンズで見る所を細かく区切り、体が区切りを横切ると信号になる。",
+  "block.semiconductor-lab.pir_sensor.note4": "1970年ごろ、区切った鏡で視野を分けて、人が横切ると信号を出すしくみが作られたとされる ⚠️。トイレや玄関の明かり、防犯ライトに使われる。",
+  "block.semiconductor-lab.pir_sensor.placeholder": "省略：⚠️ 焦電体の結晶（タンタル酸リチウムなど）と、MOSFET の増幅は熱電対と銅線で代表。点いている時間 10秒・届く距離 5マスはゲームの値。",
+  "block.semiconductor-lab.pir_sensor.howto": "LED の明かりのとなりに置く。5マス以内で人や動物が動くと10秒光り、その間だけ明かりが点く。じっとしていると感じない。"
 }

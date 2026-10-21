@@ -203,6 +203,9 @@ public final class Semiconductor {
     // [2-33] ホットプレート（露光後の加熱 PEB、IMP4-01）：化学増幅レジストの酸を働かせる。300W
     public static final Machine<BakePlateBlockEntity> BAKE_PLATE = Machine.electric("bake_plate", BakePlateBlockEntity::new, BakePlateBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<LoadPortBlockEntity> LOAD_PORT = Machine.electric("load_port", LoadPortBlockEntity::new, LoadPortBlockEntity.LAYOUT, metal(3.0f));
+    // [9-46] 人を感じるセンサー（IMP4-01、O-030 案A 仮決定）：5マス以内で動く生き物を感じると光り（10秒）、隣の LED の明かりはその間だけ点く。レッドストーンなし
+    public static final Machine<PirSensorBlockEntity> PIR_SENSOR = Machine.builder("pir_sensor", PirSensorBlockEntity::new)
+            .block(PirSensorBlock::new).ticker(PirSensorBlockEntity::tick).props(lit(metal(1.0f).noOcclusion(), 4)).build();
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

@@ -785,52 +785,54 @@ setblock ~118 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-26
 setblock ~118 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~118 ~0 ~74 semiconductor-lab:sputter
 setblock ~119 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:multilayer_mirror",count:1},{Slot:1b,id:"semiconductor-lab:tantalum",count:16},{Slot:2b,id:"semiconductor-lab:argon_gas",count:16},{Slot:3b,id:"semiconductor-lab:process_wafer",count:16},{Slot:4b,id:"semiconductor-lab:aluminium_ingot",count:16}]}
-setblock ~122 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
-setblock ~122 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:red_color_resist",count:16},{Slot:1b,id:"semiconductor-lab:green_color_resist",count:16},{Slot:2b,id:"semiconductor-lab:blue_color_resist",count:16},{Slot:3b,id:"semiconductor-lab:bayer_filter",count:16},{Slot:4b,id:"semiconductor-lab:color_image_sensor",count:1}]}
-setblock ~125 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに電気をつな","ぎ、塗った板・クロムマ","スク・投影レンズ（・ボ"]}}
-setblock ~125 ~0 ~74 semiconductor-lab:stepper
-setblock ~126 ~0 ~74 semiconductor-lab:scanner
-setblock ~130 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-29] アニール","アニール炉の GUI（","「レジストを先にはがす","」「注入した層がない」"]}}
-setblock ~130 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~130 ~0 ~74 semiconductor-lab:anneal_furnace
-setblock ~131 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitrogen_gas",count:16}]}
-setblock ~134 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-31] CMP","CMP 装置の GUI","（「層間膜がない」「も","う平ら」など）、瓶が上"]}}
+setblock ~122 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-46] 人を感じるセン","センサーのとなりに白色"," LED の明かり、歩","いて近づくと点く・止ま"]}}
+setblock ~122 ~0 ~74 semiconductor-lab:pir_sensor
+setblock ~126 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
+setblock ~126 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:red_color_resist",count:16},{Slot:1b,id:"semiconductor-lab:green_color_resist",count:16},{Slot:2b,id:"semiconductor-lab:blue_color_resist",count:16},{Slot:3b,id:"semiconductor-lab:bayer_filter",count:16},{Slot:4b,id:"semiconductor-lab:color_image_sensor",count:1}]}
+setblock ~129 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに電気をつな","ぎ、塗った板・クロムマ","スク・投影レンズ（・ボ"]}}
+setblock ~129 ~0 ~74 semiconductor-lab:stepper
+setblock ~130 ~0 ~74 semiconductor-lab:scanner
+setblock ~134 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-29] アニール","アニール炉の GUI（","「レジストを先にはがす","」「注入した層がない」"]}}
 setblock ~134 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~134 ~0 ~74 semiconductor-lab:cmp_polisher
-setblock ~135 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
-setblock ~138 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-41] パワー半導体と","インバータの向き（後ろ","＝直流、前＝交流）、前","と後ろを同じ網にすると"]}}
-setblock ~138 ~0 ~74 semiconductor-lab:inverter
-setblock ~142 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-33] 化学増幅レジス","合成釜の画面（反応ごと","の文・「下の置き場の物","が要る」）、ホットプレ"]}}
-setblock ~142 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~142 ~0 ~74 semiconductor-lab:bake_plate
-setblock ~143 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16}]}
-setblock ~146 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-43] MEMS","画像センサーを持って昼","・夜・洞窟・たいまつの","近くで数が変わる、加速"]}}
-setblock ~146 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mems_wafer",count:16},{Slot:1b,id:"semiconductor-lab:mems_accelerometer",count:1}]}
-setblock ~149 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-36] 銅配線","めっき装置の GUI（","「⚠ バリア膜なし」）","、スパッタに Ta の"]}}
-setblock ~149 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~149 ~0 ~74 semiconductor-lab:copper_plater
-setblock ~150 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:copper_sulfate",count:16},{Slot:2b,id:"minecraft:copper_ingot",count:16}]}
-setblock ~153 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-37] FinFET","ドライエッチング装置に"," Cl2 を入れたとき","「Cl2 でフィンを立"]}}
+setblock ~134 ~0 ~74 semiconductor-lab:anneal_furnace
+setblock ~135 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitrogen_gas",count:16}]}
+setblock ~138 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-31] CMP","CMP 装置の GUI","（「層間膜がない」「も","う平ら」など）、瓶が上"]}}
+setblock ~138 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~138 ~0 ~74 semiconductor-lab:cmp_polisher
+setblock ~139 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
+setblock ~142 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-41] パワー半導体と","インバータの向き（後ろ","＝直流、前＝交流）、前","と後ろを同じ網にすると"]}}
+setblock ~142 ~0 ~74 semiconductor-lab:inverter
+setblock ~146 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-33] 化学増幅レジス","合成釜の画面（反応ごと","の文・「下の置き場の物","が要る」）、ホットプレ"]}}
+setblock ~146 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~146 ~0 ~74 semiconductor-lab:bake_plate
+setblock ~147 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16}]}
+setblock ~150 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-43] MEMS","画像センサーを持って昼","・夜・洞窟・たいまつの","近くで数が変わる、加速"]}}
+setblock ~150 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mems_wafer",count:16},{Slot:1b,id:"semiconductor-lab:mems_accelerometer",count:1}]}
+setblock ~153 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-36] 銅配線","めっき装置の GUI（","「⚠ バリア膜なし」）","、スパッタに Ta の"]}}
 setblock ~153 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~153 ~0 ~74 semiconductor-lab:hafnium_chlorinator
-setblock ~154 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~154 ~0 ~74 semiconductor-lab:ald_reactor
-setblock ~155 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hafnium_oxide",count:16},{Slot:1b,id:"semiconductor-lab:coke",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:4b,id:"semiconductor-lab:process_wafer",count:16},{Slot:5b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:6b,id:"semiconductor-lab:distilled_water",count:16}]}
-setblock ~158 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-40] EUV 露光装","EUV 光源・真空容器","を隣に置いて、画面の「","EUV ○mW」とヒン"]}}
-setblock ~158 ~0 ~74 semiconductor-lab:euv_scanner
-setblock ~159 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask",count:1}]}
-setblock ~162 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] euv_mask_b","（人間の確認項目なし）","",""]}}
-setblock ~162 ~0 ~74 semiconductor-lab:energy_port
-setblock ~163 ~0 ~74 semiconductor-lab:item_port
-setblock ~164 ~0 ~74 semiconductor-lab:gas_port
-setblock ~165 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~166 ~0 ~74 semiconductor-lab:euv_casing
-setblock ~167 ~0 ~74 semiconductor-lab:euv_illuminator
-setblock ~168 ~0 ~74 semiconductor-lab:euv_reticle_stage
-setblock ~169 ~0 ~74 semiconductor-lab:euv_projection_box
-setblock ~170 ~0 ~74 semiconductor-lab:euv_wafer_stage
-setblock ~171 ~0 ~74 semiconductor-lab:load_port
-setblock ~172 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:foup",count:1},{Slot:2b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:stamp",count:1},{Slot:4b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~153 ~0 ~74 semiconductor-lab:copper_plater
+setblock ~154 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:copper_sulfate",count:16},{Slot:2b,id:"minecraft:copper_ingot",count:16}]}
+setblock ~157 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-37] FinFET","ドライエッチング装置に"," Cl2 を入れたとき","「Cl2 でフィンを立"]}}
+setblock ~157 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~157 ~0 ~74 semiconductor-lab:hafnium_chlorinator
+setblock ~158 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~158 ~0 ~74 semiconductor-lab:ald_reactor
+setblock ~159 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hafnium_oxide",count:16},{Slot:1b,id:"semiconductor-lab:coke",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:4b,id:"semiconductor-lab:process_wafer",count:16},{Slot:5b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:6b,id:"semiconductor-lab:distilled_water",count:16}]}
+setblock ~162 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-40] EUV 露光装","EUV 光源・真空容器","を隣に置いて、画面の「","EUV ○mW」とヒン"]}}
+setblock ~162 ~0 ~74 semiconductor-lab:euv_scanner
+setblock ~163 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask",count:1}]}
+setblock ~166 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] euv_mask_b","（人間の確認項目なし）","",""]}}
+setblock ~166 ~0 ~74 semiconductor-lab:energy_port
+setblock ~167 ~0 ~74 semiconductor-lab:item_port
+setblock ~168 ~0 ~74 semiconductor-lab:gas_port
+setblock ~169 ~0 ~74 semiconductor-lab:drafting_table
+setblock ~170 ~0 ~74 semiconductor-lab:euv_casing
+setblock ~171 ~0 ~74 semiconductor-lab:euv_illuminator
+setblock ~172 ~0 ~74 semiconductor-lab:euv_reticle_stage
+setblock ~173 ~0 ~74 semiconductor-lab:euv_projection_box
+setblock ~174 ~0 ~74 semiconductor-lab:euv_wafer_stage
+setblock ~175 ~0 ~74 semiconductor-lab:load_port
+setblock ~176 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:foup",count:1},{Slot:2b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:stamp",count:1},{Slot:4b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-08] 製粉","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quern",count:1},{Slot:1b,id:"semiconductor-lab:flour",count:16}]}

@@ -792,6 +792,7 @@ carbon_tetrafluoride  # Semiconductor [9-27] 1970
 sputter  # Semiconductor [9-26] 1970
 fluorination_reactor  # Semiconductor [9-27] 1970
 dry_etcher  # Semiconductor [9-27] 1970
+pir_sensor  # Semiconductor [9-46] 1970
 red_color_resist  # Semiconductor [9-45] 1976
 green_color_resist  # Semiconductor [9-45] 1976
 blue_color_resist  # Semiconductor [9-45] 1976

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "semiconductor-lab:block/pir_sensor"
+    },
+    "lit=true": {
+      "model": "semiconductor-lab:block/pir_sensor_on"
+    }
+  }
+}
