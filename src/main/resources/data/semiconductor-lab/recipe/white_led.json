@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:blue_led",
+    "semiconductor-lab:yag_phosphor"
+  ],
+  "result": {
+    "id": "semiconductor-lab:white_led",
+    "count": 1
+  }
+}

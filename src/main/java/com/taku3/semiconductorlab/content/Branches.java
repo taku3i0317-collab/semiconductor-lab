@@ -80,6 +80,7 @@ public final class Branches {
     // [B-07] 化合物半導体の炉（ヒ素の還元・GaAsP、3kW）と赤い LED の明かり（2W、明るさ7）（IMP4-01）
     public static final Machine<CompoundFurnaceBlockEntity> COMPOUND_FURNACE = Machine.electric("compound_furnace", CompoundFurnaceBlockEntity::new, CompoundFurnaceBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<LedLampBlockEntity> LED_LAMP = Machine.electric("led_lamp", LedLampBlockEntity::new, LedLampBlockEntity.LAYOUT, lit(metal(1.0f).sound(SoundType.GLASS), 7));
+    public static final Machine<WhiteLedLampBlockEntity> WHITE_LED_LAMP = Machine.electric("white_led_lamp", WhiteLedLampBlockEntity::new, LedLampBlockEntity.LAYOUT, lit(metal(1.0f).sound(SoundType.GLASS), 15));
     public static final Machine<SolarCellBlockEntity> SOLAR_CELL = Power.generator("solar_cell", SolarCellBlockEntity::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(2.0f).sound(SoundType.GLASS)).build();
 
     // ===== [B-24] ニキシー管・[B-08] 電卓（A、S-010） =====
@@ -88,6 +89,12 @@ public final class Branches {
     public static final Item ARSENIC               = Reg.item("arsenic");          // ヒ素（灰色の結晶）。毒、工業の材料としてだけ
     public static final Item GAASP_WAFER           = Reg.item("gaasp_wafer");      // ガリウムヒ素リンの板
     public static final Item RED_LED               = Reg.item("red_led");          // 赤い LED の素子
+    // [B-20] 白色 LED（IMP4-01、S-007 案A）：GaN の青色 LED＋YAG:Ce の黄色い蛍光体 → 白。スマホのバックライト led_backlight（A の組立台の ID）
+    public static final Item GAN_WAFER             = Reg.item("gan_wafer");        // 窒化ガリウムの板（Mg で p 型の層）
+    public static final Item BLUE_LED              = Reg.item("blue_led");         // 青い LED の素子
+    public static final Item YAG_PHOSPHOR          = Reg.item("yag_phosphor");     // YAG:Ce の黄色い蛍光体
+    public static final Item WHITE_LED             = Reg.item("white_led");        // 白色 LED の素子
+    public static final Item LED_BACKLIGHT         = Reg.item("led_backlight");    // 液晶の裏から照らすバックライト
     public static final Item NIXIE_TUBE            = Reg.item("nixie_tube");
     /** 電卓のキー（ばねで戻る押しボタンの接点） */
     public static final Item KEY_SWITCH            = Reg.item("key_switch");

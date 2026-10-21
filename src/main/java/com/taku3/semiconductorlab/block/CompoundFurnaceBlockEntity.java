@@ -16,6 +16,8 @@ import net.minecraft.world.level.block.state.BlockState;
  * ① ヒ素：白ヒ素（As2O3）＋コークスを熱すると、ヒ素が気体になって冷えた所に灰色の結晶でつく（As2O3 + 3C → 2As + 3CO）。
  * ② GaAsP：ガリウム＋ヒ素＋赤リンを熱すると、ガリウム・ヒ素・リンの結晶の層（ガリウムヒ素リン）ができる → GaAsP の板 {@link #WAFERS_PER_RUN} 枚。ガリウムのポリエチレン瓶は上に戻る。
  *   リンを混ぜるほどすき間（バンドギャップ）が広がり、赤い光が出る（GaAs だけだと目に見えない赤外）。
+ * ③ 窒化ガリウム（[B-20]、青色 LED、1993〜 日本の研究者たち）：ガリウム＋アンモニア＋マグネシウム（p 型）→ GaN の板 4（瓶は戻る）。⚠️ 本物はサファイアの上に有機金属の気体（MOCVD）、Mg の p 型は熱処理で働かせる。
+ * ④ 蛍光体（[B-20]）：酸化イットリウム＋アルミナ＋酸化セリウムを焼く → YAG:Ce の黄色い蛍光体 4（Y3Al5O12 に少しの Ce）。
  * ⚠️ 本物の GaAsP は GaAs の板の上に、気体（アルシン・ホスフィン・塩化ガリウム）から育てる（気相エピタキシー）。ここは固体の材料で近似。量・電力・時間はゲームの値（compound_furnace.placeholder）。
  */
 public class CompoundFurnaceBlockEntity extends ConsumerBlockEntity {
@@ -23,16 +25,17 @@ public class CompoundFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final int TICKS = 20 * 20;
     public static final int WAFERS_PER_RUN = 4;
     public static final int SLOT_A = 0, SLOT_B = 1, SLOT_C = 2, SLOT_OUT = 3, SLOT_COUNT = 4;
-    public static final int MODE_NONE = 0, MODE_ARSENIC = 1, MODE_GAASP = 2;
+    public static final int MODE_NONE = 0, MODE_ARSENIC = 1, MODE_GAASP = 2, MODE_GAN = 3, MODE_PHOSPHOR = 4;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
-            .in(SLOT_A, 8, 17, s -> s.is(Metallurgy.WHITE_ARSENIC) || s.is(Metallurgy.GALLIUM))
-            .in(SLOT_B, 8, 35, s -> s.is(Metallurgy.COKE) || s.is(Branches.ARSENIC))
-            .in(SLOT_C, 8, 53, s -> s.is(Chemistry.RED_PHOSPHORUS))
+            .in(SLOT_A, 8, 17, s -> s.is(Metallurgy.WHITE_ARSENIC) || s.is(Metallurgy.GALLIUM) || s.is(Metallurgy.YTTRIUM_OXIDE))
+            .in(SLOT_B, 8, 35, s -> s.is(Metallurgy.COKE) || s.is(Branches.ARSENIC) || s.is(com.taku3.semiconductorlab.content.Gas.AMMONIA_GAS) || s.is(Metallurgy.ALUMINA))
+            .in(SLOT_C, 8, 53, s -> s.is(Chemistry.RED_PHOSPHORUS) || s.is(Metallurgy.MAGNESIUM) || s.is(Metallurgy.CERIUM_OXIDE))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.compound_furnace.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.compound_furnace.need_input", "gui.semiconductor-lab.compound_furnace.need_power",
-                    "gui.semiconductor-lab.compound_furnace.arsenic", "gui.semiconductor-lab.compound_furnace.gaasp")
+                    "gui.semiconductor-lab.compound_furnace.arsenic", "gui.semiconductor-lab.compound_furnace.gaasp",
+                    "gui.semiconductor-lab.compound_furnace.gan", "gui.semiconductor-lab.compound_furnace.phosphor")
             .bottom("recipe", "gui.semiconductor-lab.compound_furnace.recipe")
             .build();
 
@@ -43,11 +46,19 @@ public class CompoundFurnaceBlockEntity extends ConsumerBlockEntity {
     public static int mode(ItemStack a, ItemStack b, ItemStack c) {
         if (a.is(Metallurgy.WHITE_ARSENIC) && b.is(Metallurgy.COKE) && c.isEmpty()) return MODE_ARSENIC;
         if (a.is(Metallurgy.GALLIUM) && b.is(Branches.ARSENIC) && c.is(Chemistry.RED_PHOSPHORUS)) return MODE_GAASP;
+        if (a.is(Metallurgy.GALLIUM) && b.is(com.taku3.semiconductorlab.content.Gas.AMMONIA_GAS) && c.is(Metallurgy.MAGNESIUM)) return MODE_GAN;
+        if (a.is(Metallurgy.YTTRIUM_OXIDE) && b.is(Metallurgy.ALUMINA) && c.is(Metallurgy.CERIUM_OXIDE)) return MODE_PHOSPHOR;
         return MODE_NONE;
     }
 
     private static ItemStack product(int m) {
-        return m == MODE_ARSENIC ? new ItemStack(Branches.ARSENIC) : m == MODE_GAASP ? new ItemStack(Branches.GAASP_WAFER, WAFERS_PER_RUN) : ItemStack.EMPTY;
+        return switch (m) {
+            case MODE_ARSENIC -> new ItemStack(Branches.ARSENIC);
+            case MODE_GAASP -> new ItemStack(Branches.GAASP_WAFER, WAFERS_PER_RUN);
+            case MODE_GAN -> new ItemStack(Branches.GAN_WAFER, WAFERS_PER_RUN);
+            case MODE_PHOSPHOR -> new ItemStack(Branches.YAG_PHOSPHOR, WAFERS_PER_RUN);
+            default -> ItemStack.EMPTY;
+        };
     }
 
     @Override protected double workWatts() { return WATTS; }
@@ -63,10 +74,10 @@ public class CompoundFurnaceBlockEntity extends ConsumerBlockEntity {
         if (m == MODE_NONE) return;
         ItemStack out = product(m);
         ItemStack a = container.getItem(SLOT_A);
-        if (m == MODE_GAASP) Vessel.returnEmpty(level, worldPosition, a, 1);   // ガリウムのポリエチレン瓶は上に戻る
+        if (m == MODE_GAASP || m == MODE_GAN) Vessel.returnEmpty(level, worldPosition, a, 1);   // ガリウムのポリエチレン瓶は上に戻る
         a.shrink(1);
         container.getItem(SLOT_B).shrink(1);
-        if (m == MODE_GAASP) container.getItem(SLOT_C).shrink(1);
+        if (m != MODE_ARSENIC) container.getItem(SLOT_C).shrink(1);
         merge(SLOT_OUT, out);
         container.setChanged();
     }

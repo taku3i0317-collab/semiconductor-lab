@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/white_led_lamp_front",
+    "side": "semiconductor-lab:block/white_led_lamp_side",
+    "top": "semiconductor-lab:block/white_led_lamp_top"
+  }
+}

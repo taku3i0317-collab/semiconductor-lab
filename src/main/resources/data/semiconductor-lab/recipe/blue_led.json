@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:gan_wafer",
+    "semiconductor-lab:aluminium_ingot",
+    "semiconductor-lab:soda_lime_glass"
+  ],
+  "result": {
+    "id": "semiconductor-lab:blue_led",
+    "count": 4
+  }
+}

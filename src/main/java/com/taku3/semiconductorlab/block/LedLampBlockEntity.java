@@ -17,7 +17,10 @@ public class LedLampBlockEntity extends ConsumerBlockEntity {
             .text("stored", 100, 30, 72, 1, "gui.semiconductor-lab.machine.stored").samples("20 kJ")
             .text("hint", 100, 42, 72, 3, "gui.semiconductor-lab.machine.need_input", "gui.semiconductor-lab.machine.need_power", "gui.semiconductor-lab.machine.running").build();
 
-    public LedLampBlockEntity(BlockPos pos, BlockState state) { super(Branches.LED_LAMP.type, pos, state, 0, 2_000, 200); }
+    public LedLampBlockEntity(BlockPos pos, BlockState state) { this(Branches.LED_LAMP.type, pos, state); }
+
+    /** 白色 LED の明かり [B-20] も同じ（ブロックの種類だけちがう、明るさは登録の lit で決まる） */
+    protected LedLampBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state) { super(type, pos, state, 0, 2_000, 200); }
 
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return 20; }

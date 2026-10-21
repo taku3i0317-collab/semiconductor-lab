@@ -166,3 +166,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - 案A（おすすめ）：スマホの部品 tft_lcd（A の組立台の ID どおり）。作り方＝①TFT のガラス tft_array_glass：CVD 炉の新しいモード「ITO ガラス＋シラン（＋水素）→ 水素を含むアモルファスシリコンの膜」（1979 ダンディー大学の a-Si:H の TFT、本物はプラズマ CVD ⚠️）→ 露光・エッチングは省略（⚠️ 画素の並びは作らない）②組立台：TFT のガラス＋こすった ITO ガラス（D）＋MBBA（D）＋偏光フィルム2（D）＋NOT に合格したチップ（駆動）→ tft_lcd。手に持つと「画素ごとのトランジスタが電気をためて、次に書きかえるまで明るさを保つ」を一言で出す（説明だけ、表示の絵はなし）
   - 案B：D の液晶セル（ブロック）の上位のブロック（4×4 の画素を順に書きかえて模様を出す）。体験は大きいが描画の手間が大きい
   - 案C：部品 tft_lcd を作るだけ（手に持っても何もしない）
+- ✅ [B-20] 白色 LED（S-007 案A、D の [1-19] Y2O3・CeO2）：化合物半導体の炉に GaN・蛍光体のモード、作業台で blue_led → white_led → white_led_lamp（明るさ15）・led_backlight（A の ID）。GameTest white_led、CHEMISTRY B-L3〜L4、REFERENCES F47

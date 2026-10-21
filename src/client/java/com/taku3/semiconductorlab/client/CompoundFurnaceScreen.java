@@ -25,7 +25,7 @@ public class CompoundFurnaceScreen extends MachineScreen {
             case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
             case "hint" -> {
                 int m = CompoundFurnaceBlockEntity.mode(menu.machineItem(CompoundFurnaceBlockEntity.SLOT_A), menu.machineItem(CompoundFurnaceBlockEntity.SLOT_B), menu.machineItem(CompoundFurnaceBlockEntity.SLOT_C));
-                yield Component.translatable(K + (m == CompoundFurnaceBlockEntity.MODE_NONE ? "need_input" : menu.getKw() <= 0 ? "need_power" : m == CompoundFurnaceBlockEntity.MODE_ARSENIC ? "arsenic" : "gaasp"));
+                yield Component.translatable(K + (m == CompoundFurnaceBlockEntity.MODE_NONE ? "need_input" : menu.getKw() <= 0 ? "need_power" : m == CompoundFurnaceBlockEntity.MODE_ARSENIC ? "arsenic" : m == CompoundFurnaceBlockEntity.MODE_GAASP ? "gaasp" : m == CompoundFurnaceBlockEntity.MODE_GAN ? "gan" : "phosphor"));
             }
             case "recipe" -> Component.translatable(K + "recipe");
             default -> null;

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LLL",
+    "GGG",
+    "PKP"
+  ],
+  "key": {
+    "L": "semiconductor-lab:white_led",
+    "G": "semiconductor-lab:soda_lime_glass",
+    "P": "semiconductor-lab:polarizing_film",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:led_backlight",
+    "count": 1
+  }
+}

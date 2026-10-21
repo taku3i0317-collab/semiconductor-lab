@@ -341,4 +341,36 @@ public class BranchesTests extends LabTestBase {
         LOG.info("[LAB] LCD cell [B-18]: off " + com.taku3.semiconductorlab.block.LcdCellBlockEntity.brightness(false) + "%, on " + com.taku3.semiconductorlab.block.LcdCellBlockEntity.brightness(true) + "% (" + C.getSimpleName() + ")");
         h.succeed();
     }
+    /** [B-20] 白色 LED（IMP4-01、S-007 案A）：Ga＋NH3＋Mg → GaN 4、Y2O3＋Al2O3＋CeO2 → YAG:Ce 4、作業台で青 → 白 → 明かり・バックライト、白い明かりは明るさ15 */
+    @GameTest(maxTicks = 200)
+    public void whiteLed(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos fp = p(2, 1, 2);
+        h.setBlock(fp, Branches.COMPOUND_FURNACE.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_A, new ItemStack(Metallurgy.GALLIUM));
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_B, new ItemStack(Gas.AMMONIA_GAS));
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_C, new ItemStack(Metallurgy.MAGNESIUM));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT).is(Branches.GAN_WAFER) && c.getItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT).getCount() == 4, "Ga + NH3 + Mg -> 4 GaN wafers");
+        c.removeItemNoUpdate(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT);
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_A, new ItemStack(Metallurgy.YTTRIUM_OXIDE));
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_B, new ItemStack(Metallurgy.ALUMINA));
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_C, new ItemStack(Metallurgy.CERIUM_OXIDE));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT).is(Branches.YAG_PHOSPHOR), "Y2O3 + Al2O3 + CeO2 -> YAG:Ce");
+        h.assertTrue(recipeUses(h, "blue_led", Branches.GAN_WAFER) && recipeUses(h, "white_led", Branches.BLUE_LED) && recipeUses(h, "white_led", Branches.YAG_PHOSPHOR), "blue + phosphor -> white");
+        h.assertTrue(recipeUses(h, "led_backlight", Branches.WHITE_LED) && recipeUses(h, "white_led_lamp", Branches.WHITE_LED), "white LED -> backlight and lamp");
+        BlockPos lp = p(4, 1, 4);
+        h.setBlock(lp, Branches.WHITE_LED_LAMP.block);
+        var lamp = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.WhiteLedLampBlockEntity.class);
+        tickConsumer(h, lp, lamp, 25, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.LedLampBlockEntity.WATTS));
+        h.assertTrue(h.getBlockState(lp).getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT), "white LED lamp lights");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] white LED [B-20]: GaN blue + YAG:Ce -> white; lamp and backlight");
+        h.succeed();
+    }
+
 }
