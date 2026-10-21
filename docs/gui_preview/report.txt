@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 174（ja・en）、文字の置き場所 642、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 176（ja・en）、文字の置き場所 648、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -681,6 +681,7 @@ stepper_en_us hint gui.semiconductor-lab.stepper.need_wafer w=149 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.need_mask w=69 lines=1/3
 stepper_en_us hint gui.semiconductor-lab.stepper.need_lens w=125 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.lens_wrong w=141 lines=2/3
+stepper_en_us hint gui.semiconductor-lab.stepper.need_water w=117 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.blurred w=143 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.cannot w=188 lines=3/3
 stepper_en_us hint gui.semiconductor-lab.stepper.output_full w=96 lines=2/3
@@ -1499,6 +1500,7 @@ stepper_ja_jp hint gui.semiconductor-lab.stepper.need_wafer w=117 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.need_mask w=63 lines=1/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.need_lens w=81 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.lens_wrong w=117 lines=2/3
+stepper_ja_jp hint gui.semiconductor-lab.stepper.need_water w=90 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.blurred w=126 lines=2/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.cannot w=153 lines=3/3
 stepper_ja_jp hint gui.semiconductor-lab.stepper.output_full w=81 lines=2/3
