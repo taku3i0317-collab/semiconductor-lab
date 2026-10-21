@@ -557,3 +557,8 @@
 
 - E の [9-36] 銅配線の受け口（S-003【2】、E と決めた形）：層間膜の1回目の窓＝ビアの穴（2回目の窓を開けるとき extras.viaHoles に覚える）、2回目＝溝。ChipOps.depositBarrier（Ta）・plateCopper（バリアなしは汚れ +30）・planarize が銅の膜のとき溝の中だけ残す（METAL2＝溝、VIA＝ビアの穴、Al のエッチングなし）。GameTest copperDamascene
 - E の [9-37] FinFET の A の分（S-013 案A）：LayerKind.FIN、ChipModel.fin、ChipOps.formFins(w, anisotropic)（現像したレジストの所を残して立てる、液は wet で断る、拡散・金属の前に1回）、Circuit の短チャネルの漏れ（方眼 SHORT_CHANNEL_GRID＝gridFor(40 nm)＝100 以上の平らな MOS は、ソースとドレインの間に 係数×W/L×3 V ⚠️ の漏れ、チャネルがみなフィンの上なら漏れない）、工程の種類 FINFET（フィン＋CMOS の7層、製図台の P の6番目）、LithoExamples.process に dry（方眼 36 以上で窓が広がらない）。GameTest finfetShortChannel：100 の方眼で平らな CMOS は NOT 不合格、FinFET は合格。high-k は E がユーザーに質問中
+
+## O-025（[10-13] 4ビット CPU の案、2026-10-21）
+- [10-11] は O-018・S-009 で全部済み（加算器・ラッチ・カウンタ・レジスタ）なので ✅ に
+- **質問 Q25-1〜5（LITHO_DESIGN §13）**：① お題＝決まった小さなプログラム（3＋5 など）が動けば合格（案A）／命令を1つずつ（案B）／電卓を CPU で（案C）② 命令＝4つ（LOAD・ADD・OUT・JUMP、案A）／8つ（案B）／4004 の46（案C）③ プログラム＝製図台で描く ROM のチップ（4001、案A）／スイッチ（案B）／紙のアイテム（案C）④ 重さの逃げ道＝合格したハンコを論理の箱にして速く計算（案A）／全部アナログ（案B）⑤ 大きさ＝ MCS-4 のように数枚のチップを組立台で組む（案A）／つなぎ露光の大きなダイ（案B）／細い方眼で1チップ（案C ⚠️年）。おすすめ全部案A。答えまで CPU は作らない
+
