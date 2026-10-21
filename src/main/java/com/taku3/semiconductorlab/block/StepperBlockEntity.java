@@ -61,9 +61,18 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     private int stepsDone;
     private boolean stepping;
 
-    public StepperBlockEntity(BlockPos pos, BlockState state) {
-        super(Semiconductor.STEPPER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
+    public StepperBlockEntity(BlockPos pos, BlockState state) { this(Semiconductor.STEPPER.type, pos, state, SLOT_COUNT); }
+
+    /** スキャナー（ScannerBlockEntity）が入口を足して使う */
+    protected StepperBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state, int slots) {
+        super(type, pos, state, slots, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
+
+    /** この機械で使うときのレンズの CD（ステッパーはレンズ全体、スキャナーはスリットだけで小さくなる） */
+    public int lensCd() { return cdOf(container.getItem(SLOT_LENS)); }
+
+    /** 送りの台がそろっているか（スキャナーはマスクの台も要る） */
+    protected boolean stagesReady() { return true; }
 
     public int stepsDone() { return stepsDone; }
 
@@ -99,8 +108,8 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     public boolean canStep() {
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         ItemStack lens = container.getItem(SLOT_LENS);
-        return MaskAlignerBlockEntity.isMask(m) && lensOk(lens) && lensMatches(lens, container.getItem(SLOT_FILTER)) && waterOk() && container.getItem(SLOT_OUT).isEmpty()
-                && ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), cdOf(lens), 0).ok();
+        return MaskAlignerBlockEntity.isMask(m) && lensOk(lens) && lensMatches(lens, container.getItem(SLOT_FILTER)) && waterOk() && stagesReady() && container.getItem(SLOT_OUT).isEmpty()
+                && ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), 0).ok();
     }
 
     /** 画面のボタン：1チップ送って焼く（段階1＝人の手で送る） */
@@ -120,7 +129,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     @Override protected int extraData(int i) {
         return switch (i) {
             case DATA_STEPS -> stepsDone;
-            case DATA_CD -> cdOf(container.getItem(SLOT_LENS));
+            case DATA_CD -> lensCd();
             case DATA_OVERLAY -> overlayNm();
             case DATA_ROOM -> level == null ? 0 : CleanRoom.classAt(level, worldPosition).ordinal();
             default -> 0;
@@ -141,7 +150,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
         if (++stepsDone < STEPS) { setChanged(); return; }
         stepsDone = 0;
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
-        ChipOps.Result r = ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), cdOf(container.getItem(SLOT_LENS)), overlayNm());
+        ChipOps.Result r = ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), overlayNm());
         if (!r.ok()) return;
         container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.addDust(r.out(), CleanRoom.classAt(level, worldPosition).dust));
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);   // マスクは触れないので傷まない

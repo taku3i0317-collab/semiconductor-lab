@@ -380,7 +380,7 @@
   "block.semiconductor-lab.co2_laser": "CO2 Laser",
   "block.semiconductor-lab.co2_laser.note1": "A device that passes electricity through carbon dioxide to give invisible, hot infrared light.",
   "block.semiconductor-lab.co2_laser.note2": "2 silvered mirrors + quartz tube + 2 tungsten wires + transformer + 3 iron. 1 kW. Window (salt window), CO2 bag, N2 bag and vein quartz -> fused quartz. One CO2 and one N2 bag last 8 runs. Without N2 it is too weak to melt. Glass or quartz windows absorb the infrared and crack. ⚠ Invisible light that burns.",
-  "block.semiconductor-lab.co2_laser.note3": "Invented in 1964 by Kumar Patel at Bell Labs. Vibrations of CO2 molecules give 10.6 um infrared. The next year he found that adding N2 made it stronger; it still cuts metal and acrylic today.",
+  "block.semiconductor-lab.co2_laser.note3": "Invented in 1964 at Bell Labs. Vibrations of CO2 molecules give 10.6 um infrared. The next year it was found that adding N2 made it stronger; it still cuts metal and acrylic today.",
   "block.semiconductor-lab.co2_laser.note4": "N2 shaken by the discharge vibrates at nearly the same energy as CO2's upper level, so collisions hand the energy to CO2. Adding He raises efficiency to 10-20%. Later EUV sources fire CO2 lasers at tin droplets.",
   "block.semiconductor-lab.co2_laser.placeholder": "Approximation: a low-power version without He (as decided). Efficiency, power and the power needed to melt are game values.",
   "gui.semiconductor-lab.co2_laser.power": "Power %s",
@@ -434,7 +434,7 @@
   "item.semiconductor-lab.projection_lens_immersion": "Immersion Projection Lens",
   "item.semiconductor-lab.projection_lens_immersion.note1": "A lens that fills the gap between lens and wafer with water to print finer patterns.",
   "item.semiconductor-lab.projection_lens_immersion.note2": "ArF projection lens + synthetic quartz (the last element, touching the water). In the stepper it needs ultrapure water in the lower-right slot, one bottle per chip (empty bottles pop out on top). NA 1.35.",
-  "item.semiconductor-lab.projection_lens_immersion.note3": "Around 1878 Abbe and Zeiss filled the gap between microscope lens and sample with oil (oil immersion). In 2002 Burn Lin of TSMC proposed water immersion for ArF, and it entered production around 2006.",
+  "item.semiconductor-lab.projection_lens_immersion.note3": "Around 1878 Abbe and Zeiss filled the gap between microscope lens and sample with oil (oil immersion). In 2002 a researcher at TSMC proposed water immersion for ArF, and it entered production around 2006.",
   "item.semiconductor-lab.projection_lens_immersion.note4": "Water's refractive index at 193 nm is 1.44. Light in water acts as if its wavelength were 1.44 times shorter (about 134 nm), so NA can reach 1.35. Bubbles, dirt and temperature disturb the image, so very pure water flows constantly.",
   "item.semiconductor-lab.projection_lens_immersion.placeholder": "Approximation: NA 1.35, k1 0.3. The water hood and bubble/temperature control are skipped."
 }

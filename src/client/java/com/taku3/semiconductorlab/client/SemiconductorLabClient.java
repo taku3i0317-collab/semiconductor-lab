@@ -80,6 +80,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.DRAFTING_TABLE, DraftingTableScreen::new);   // O-002 製図台
 		screen(Semiconductor.PROBE_STATION, ProbeStationScreen::new);   // O-002 検査台
 		screen(Semiconductor.MASK_ALIGNER, MaskAlignerScreen::new);   // [9-20] IMP2 O-011
+		screen(Semiconductor.SCANNER, ScannerScreen::new);   // [9-39] スキャナー IMP2 O-021
 		screen(Semiconductor.STEPPER, StepperScreen::new);   // [9-39] IMP2 S-004
 		screen(com.taku3.semiconductorlab.content.Precision.ELECTRON_MICROSCOPE, ElectronMicroscopeScreen::new);   // [8-11] IMP2 O-017
 		screen(Semiconductor.ZONE_REFINING_FURNACE, ZoneRefiningFurnaceScreen::new);

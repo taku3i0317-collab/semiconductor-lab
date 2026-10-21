@@ -58,10 +58,13 @@ public class ProjectionLensItem extends Item {
     public static double k1(double w) { return 0.6 + 2 * w; }
 
     /** 解像度 CD（nm）＝ k1·λ/NA */
-    public static int cdNm(ItemStack s) {
+    public static int cdNm(ItemStack s) { return cdNm(s, 1.0); }
+
+    /** スキャナー [9-39] 段階2：細いスリットの部分だけを使うと、収差が aberration 倍に減る（レンズ全体を使うステッパーは 1） */
+    public static int cdNm(ItemStack s, double aberration) {
         ProjectionLensItem l = s.getItem() instanceof ProjectionLensItem p ? p : null;
         double lambda = l == null ? LAMBDA_NM : l.tool.wavelengthNm, na = l == null ? NA : l.na, base = l == null ? 0.6 : l.k1Base;
-        return (int) Math.round((base + 2 * wavefrontWaves(s)) * lambda / na);
+        return (int) Math.round((base + 2 * wavefrontWaves(s) * aberration) * lambda / na);
     }
 
     /** このレンズの露光の方法の CD（g線なら 1µm、i線なら 0.35µm）に届くか */

@@ -625,6 +625,7 @@ sputter  # Semiconductor [9-26] 1970
 fluorination_reactor  # Semiconductor [9-27] 1970
 dry_etcher  # Semiconductor [9-27] 1970
 stepper  # Semiconductor [9-39] 1978
+scanner  # Semiconductor [9-39] 1978
 anneal_furnace  # Semiconductor [9-29] 1980
 cmp_polisher  # Semiconductor [9-31] 1980
 stamp  # Semiconductor [None] None

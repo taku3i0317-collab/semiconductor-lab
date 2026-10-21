@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IMI",
+    "BSB",
+    "ICI"
+  ],
+  "key": {
+    "I": "semiconductor-lab:steel_ingot",
+    "M": "semiconductor-lab:electric_motor",
+    "S": "semiconductor-lab:stepper",
+    "B": "semiconductor-lab:ball_screw",
+    "C": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:scanner",
+    "count": 1
+  }
+}

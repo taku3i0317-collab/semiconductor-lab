@@ -1870,6 +1870,41 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-39] スキャナー（IMP2 O-021）：スリットでレンズの細い帯だけを使うので、同じレンズでステッパーより CD が細く、細かいマスクが焼ける。マスクの台のねじが要る */
+    @GameTest(maxTicks = 200)
+    public void scanner(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "scanner", Semiconductor.STEPPER.block.asItem()) && recipeUses(h, "scanner", Precision.BALL_SCREW), "scanner = stepper + ball screws for the mask stage");
+        ItemStack lens = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_ARF);
+        lens.set(Precision.LENS_DECENTER, java.util.List.of(20, 20, 20, 20));
+        int stepCd = com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens), scanCd = com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens, com.taku3.semiconductorlab.block.ScannerBlockEntity.SLIT_ABERRATION);
+        int gStep = com.taku3.semiconductorlab.litho.ExposureTool.gridFor(stepCd), gScan = com.taku3.semiconductorlab.litho.ExposureTool.gridFor(scanCd);
+        h.assertTrue(scanCd < stepCd && gScan > gStep, "same lens: stepper CD " + stepCd + " nm (grid " + gStep + "), scanner slit " + scanCd + " nm (grid " + gScan + ")");
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(gScan, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(gScan), "scanner_test", 0);
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        mask.set(ModDataComponents.MASK, fine);
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.SCANNER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.ScannerBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.ScannerBlockEntity.SLOT_WAFER, ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"));
+        c.setItem(com.taku3.semiconductorlab.block.ScannerBlockEntity.SLOT_MASK, mask);
+        c.setItem(com.taku3.semiconductorlab.block.ScannerBlockEntity.SLOT_LENS, lens);
+        c.setItem(com.taku3.semiconductorlab.block.ScannerBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Optics.ARF_LASER));
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.ScannerBlockEntity.BTN_STEP), "no mask stage -> cannot scan");
+        c.setItem(com.taku3.semiconductorlab.block.ScannerBlockEntity.SLOT_MASK_STAGE, new ItemStack(Precision.LEAD_SCREW));
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ScannerBlockEntity.WATTS);
+        for (int k = 1; k <= com.taku3.semiconductorlab.block.ScannerBlockEntity.STEPS; k++) {
+            h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.ScannerBlockEntity.BTN_STEP), "scan " + k);
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.ScannerBlockEntity.STEP_TICKS + 2, full);
+        }
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(c.getItem(com.taku3.semiconductorlab.block.ScannerBlockEntity.SLOT_OUT));
+        h.assertTrue(st != null && st.size() == gScan, "the scanner prints grid " + gScan + " that the stepper cannot with this lens");
+        h.assertTrue(be.overlayNm() >= com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.overlayNm(new ItemStack(Precision.LEAD_SCREW), 0) / com.taku3.semiconductorlab.block.ScannerBlockEntity.REDUCTION, "mask-stage error enters at 1/4");
+        LOG.info("[LAB] scanner [9-39]: slit uses a thin band of the lens, CD " + stepCd + " -> " + scanCd + " nm, grid " + gStep + " -> " + gScan);
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

@@ -111,6 +111,8 @@ public final class Semiconductor {
     public static final Machine<MaskAlignerBlockEntity> MASK_ALIGNER = Machine.electric("mask_aligner", MaskAlignerBlockEntity::new, MaskAlignerBlockEntity.LAYOUT, metal(3.5f));
     // [9-39] 縮小投影露光（ステッパー、IMP2 S-003・S-004）：投影レンズで 1/5 に縮めて1チップずつ送って焼く（段階1＝手で送る、段階2＝[10-15] の自動送り）。g線、方眼16
     public static final Machine<StepperBlockEntity> STEPPER = Machine.electric("stepper", StepperBlockEntity::new, StepperBlockEntity.LAYOUT, metal(4.0f));
+    // スキャナー [9-39] の続き（IMP2 O-021、ステップ・アンド・スキャン 1990年代）：ステッパー＋ボールねじ×2（マスクの台）。細いスリットでマスクと板を一緒に動かすので、同じレンズで CD が細くなる
+    public static final Machine<ScannerBlockEntity> SCANNER = Machine.electric("scanner", ScannerBlockEntity::new, ScannerBlockEntity.LAYOUT, metal(4.0f));
     // [9-09] FZ 炉（IMP4-01）：るつぼなしで帯を宙に保つ。酸素が少ない単結晶（20kW、誘導加熱、Ar）
     public static final Machine<FzPullerBlockEntity> FZ_PULLER = Machine.electric("fz_puller", FzPullerBlockEntity::new, FzPullerBlockEntity.LAYOUT, metal(4.0f));
     // [9-19] レジスト塗布機（スピンコーター、IMP4-01）：回して薄く広げ、温めて溶剤を飛ばす（ChipOps.coat）。500W

@@ -14,8 +14,8 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 
 /**
- * CO2 レーザー [7-14]（IMP2 O-019、1964 パテル）。CO2 の気体に放電をかけると、分子の振動のエネルギーで 10.6µm の赤外線が出る。
- * N2 を混ぜると、放電で揺れた N2 が CO2 にエネルギーを渡して強くなる（パテル 1965）。決定どおり He は入れない低出力版。
+ * CO2 レーザー [7-14]（IMP2 O-019、1964 ベル研究所）。CO2 の気体に放電をかけると、分子の振動のエネルギーで 10.6µm の赤外線が出る。
+ * N2 を混ぜると、放電で揺れた N2 が CO2 にエネルギーを渡して強くなる（1965）。決定どおり He は入れない低出力版。
  * <ul>
  * <li>入口：窓（{@link #isSaltWindow 岩塩の窓}。ガラス・石英は 10.6µm を吸って割れる）・CO2 の袋・N2 の袋（なくても弱く光る）・溶かす物（珪石）</li>
  * <li>CO2 1袋（＋N2 1袋）で {@value #RUNS_PER_FILL} 回。放電で CO2 が少しずつ壊れるので詰め替える</li>

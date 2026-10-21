@@ -136,7 +136,7 @@ public final class Optics {
     public static final Machine<OxyhydrogenBurnerBlockEntity> OXYHYDROGEN_BURNER = Machine.builder("oxyhydrogen_burner", OxyhydrogenBurnerBlockEntity::new)
             .ticker(OxyhydrogenBurnerBlockEntity::tick).layout(OxyhydrogenBurnerBlockEntity.LAYOUT).props(lit(metal(3.5f), 12)).build();
 
-    // CO2 レーザー [7-14]（IMP2 O-019、1964 パテル）：CO2＋N2 に放電、10.6µm の赤外線。1kW、He なしの低出力版（決定）。珪石を溶かして溶融石英
+    // CO2 レーザー [7-14]（IMP2 O-019、1964 ベル研究所）：CO2＋N2 に放電、10.6µm の赤外線。1kW、He なしの低出力版（決定）。珪石を溶かして溶融石英
     public static final Machine<Co2LaserBlockEntity> CO2_LASER = Machine.electric("co2_laser", Co2LaserBlockEntity::new, Co2LaserBlockEntity.LAYOUT, lit(metal(3.0f), 6));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

@@ -667,17 +667,18 @@ setblock ~108 ~0 ~74 semiconductor-lab:sputter
 setblock ~109 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:aluminium_ingot",count:16},{Slot:2b,id:"semiconductor-lab:argon_gas",count:16}]}
 setblock ~112 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに電気をつな","ぎ、塗った板・クロムマ","スク・投影レンズ（・ボ"]}}
 setblock ~112 ~0 ~74 semiconductor-lab:stepper
-setblock ~116 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-29] アニール","アニール炉の GUI（","「レジストを先にはがす","」「注入した層がない」"]}}
-setblock ~116 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~116 ~0 ~74 semiconductor-lab:anneal_furnace
-setblock ~117 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitrogen_gas",count:16}]}
-setblock ~120 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-31] CMP","CMP 装置の GUI","（「層間膜がない」「も","う平ら」など）、瓶が上"]}}
-setblock ~120 ~-1 ~74 semiconductor-lab:test_power_source
-setblock ~120 ~0 ~74 semiconductor-lab:cmp_polisher
-setblock ~121 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
-setblock ~124 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stamp","（人間の確認項目なし）","",""]}}
-setblock ~124 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~125 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stamp",count:1},{Slot:1b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~113 ~0 ~74 semiconductor-lab:scanner
+setblock ~117 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-29] アニール","アニール炉の GUI（","「レジストを先にはがす","」「注入した層がない」"]}}
+setblock ~117 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~117 ~0 ~74 semiconductor-lab:anneal_furnace
+setblock ~118 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:nitrogen_gas",count:16}]}
+setblock ~121 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-31] CMP","CMP 装置の GUI","（「層間膜がない」「も","う平ら」など）、瓶が上"]}}
+setblock ~121 ~-1 ~74 semiconductor-lab:test_power_source
+setblock ~121 ~0 ~74 semiconductor-lab:cmp_polisher
+setblock ~122 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
+setblock ~125 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stamp","（人間の確認項目なし）","",""]}}
+setblock ~125 ~0 ~74 semiconductor-lab:drafting_table
+setblock ~126 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stamp",count:1},{Slot:1b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-10] 酒と酢","かめに酒を入れて数分で","酢になるか、殺菌した酒","のメッセージ"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vinegar",count:16}]}

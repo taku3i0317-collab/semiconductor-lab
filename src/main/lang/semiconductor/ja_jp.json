@@ -642,5 +642,12 @@
   "gui.semiconductor-lab.cmp_polisher.need_power": "電気が足りない",
   "gui.semiconductor-lab.cmp_polisher.running": "スラリーでみがいている",
   "gui.semiconductor-lab.cmp_polisher.recipe": "スラリー＋パッドで平らに",
-  "gui.semiconductor-lab.stepper.need_water": "液浸の超純水を入れて"
+  "gui.semiconductor-lab.stepper.need_water": "液浸の超純水を入れて",
+  "block.semiconductor-lab.scanner": "スキャナー（ステップ・アンド・スキャン）",
+  "block.semiconductor-lab.scanner.note1": "細いすき間の光で、マスクと板を一緒に動かしながら焼く露光装置。今の工場の露光装置はほとんどこれ。",
+  "block.semiconductor-lab.scanner.note2": "ステッパー＋ボールねじ×2＋モーター＋鋼×4＋銅ケーブル。入口はステッパーと同じ＋右下にマスクの台のねじ（送りねじ／ボールねじ）。レンズの細い帯だけを使うので、同じレンズでもステッパーより細い線が焼ける。マスクの台のずれは 1/4 になって重ね合わせに入る。",
+  "block.semiconductor-lab.scanner.note3": "1990年代、ステッパーの次の世代として、1チップの中をスリットでなぞって焼く「ステップ・アンド・スキャン」の装置が広まった。マスクの台と板の台が逆向きに、4:1 の速さでぴったりそろって動く。",
+  "block.semiconductor-lab.scanner.note4": "チップ全体を一度に写すには、大きく完全なレンズが要る。スリットならレンズの中心の細い帯だけを使えばよく、収差の少ないところだけで像を作れる。そのかわり、2つの台をナノメートルの精度で同時に動かす制御が要る。",
+  "block.semiconductor-lab.scanner.placeholder": "近似：スリットでレンズの収差の効きが半分になる（ゲームの値）。台の動きは人の手で1チップずつ（自動の制御は [10-15] のあと）。",
+  "gui.semiconductor-lab.stepper.need_mask_stage": "マスクの台のねじを入れて"
 }

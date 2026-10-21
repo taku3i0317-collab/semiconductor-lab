@@ -642,5 +642,12 @@
   "gui.semiconductor-lab.cmp_polisher.need_power": "Not enough power",
   "gui.semiconductor-lab.cmp_polisher.running": "Polishing with slurry",
   "gui.semiconductor-lab.cmp_polisher.recipe": "Slurry + pad → flat",
-  "gui.semiconductor-lab.stepper.need_water": "Insert ultrapure water"
+  "gui.semiconductor-lab.stepper.need_water": "Insert ultrapure water",
+  "block.semiconductor-lab.scanner": "Scanner (Step-and-Scan)",
+  "block.semiconductor-lab.scanner.note1": "An exposure tool that prints through a thin slit while moving the mask and the wafer together. Almost every fab exposure tool today is one.",
+  "block.semiconductor-lab.scanner.note2": "Stepper + 2 ball screws + motor + 4 steel + copper cable. Same slots as the stepper plus a mask-stage screw (lead or ball screw) lower right. It uses only a thin band of the lens, so the same lens prints finer lines than in the stepper. Mask-stage error enters the overlay at 1/4.",
+  "block.semiconductor-lab.scanner.note3": "In the 1990s step-and-scan tools, which sweep a slit across each chip, took over from steppers. The mask stage and wafer stage move in opposite directions in perfect 4:1 step.",
+  "block.semiconductor-lab.scanner.note4": "Printing a whole chip at once needs a large, perfect lens. With a slit only a thin central band of the lens is used, where aberrations are smallest. In exchange, two stages must move together to nanometre accuracy.",
+  "block.semiconductor-lab.scanner.placeholder": "Approximation: the slit halves the effect of lens aberrations (game value). Stepping is by hand, one chip at a time (automatic control after [10-15]).",
+  "gui.semiconductor-lab.stepper.need_mask_stage": "Insert a mask-stage screw"
 }

@@ -49,9 +49,9 @@ public class StepperScreen extends MachineScreen {
                 else if (com.taku3.semiconductorlab.item.ProjectionLensItem.toolOf(lens) == null) hint = "need_lens";
                 else if (!StepperBlockEntity.lensMatches(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem())) hint = "lens_wrong";
                 else if (StepperBlockEntity.immersion(lens) && !menu.getSlot(StepperBlockEntity.SLOT_WATER).getItem().is(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER)) hint = "need_water";
-                else if (m.get(ModDataComponents.MASK).size() > com.taku3.semiconductorlab.litho.ExposureTool.gridFor(StepperBlockEntity.cdOf(lens))) hint = "blurred";   // レンズの CD より細かいマスク（S-010）
+                else if (m.get(ModDataComponents.MASK).size() > com.taku3.semiconductorlab.litho.ExposureTool.gridFor(menu.get(StepperBlockEntity.DATA_CD))) hint = "blurred";   // レンズの CD より細かいマスク（S-010）
                 else if (!ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), StepperBlockEntity.toolWith(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem()),
-                        StepperBlockEntity.cdOf(lens), 0).ok()) hint = "cannot";
+                        menu.get(StepperBlockEntity.DATA_CD), 0).ok()) hint = "cannot";
                 else if (!menu.getSlot(StepperBlockEntity.SLOT_OUT).getItem().isEmpty()) hint = "output_full";
                 else if (menu.getKw() <= 0 && menu.getProgress() == 0) hint = "press";
                 else if (menu.getKw() <= 0) hint = "need_power";
