@@ -544,6 +544,9 @@ def field_all(body, pat):
     return re.sub(r"\*\*|`", "", m.group(1)).strip()[:600] if m else ""
 
 
+GRAN_REPORT = {}
+
+
 def export_json(nodes):
     """技術ネットワーク図（ROADMAP 技術ネットワーク ②）の元データ。ノード・つながり・子孫の数"""
     succ = defaultdict(set)
@@ -608,6 +611,22 @@ def export_json(nodes):
         for t in n["parts"]:
             if t in nodes:
                 edges.append({"from": t, "to": i, "kind": "part"})
+    # 粒度（S-035）：中心図の輪の意味。network_meta.json の granularity から（モノ＝1、発見＝3、そのほかは幹の決まり、迷う物は手で）
+    gr = meta.get("granularity", {})
+    unclear = []
+    for n in out_nodes:
+        if n["kind"] == "product":
+            n["gran"] = 1
+        elif n["kind"] == "idea":
+            n["gran"] = 3
+        elif n["id"] in gr.get("nodes", {}):
+            n["gran"] = gr["nodes"][n["id"]]
+        else:
+            n["gran"] = gr.get("trunk", {}).get(n["trunk"], 3)
+            if n["trunk"] in gr.get("unclear_trunks", []):
+                unclear.append(n["id"])
+    if gr:
+        GRAN_REPORT.update({"unclear": unclear, "count": {g: sum(1 for n in out_nodes if n.get("gran") == g) for g in (1, 2, 3, 4)}})
     # 補った前提（S-025）：TECH_TREE に書きもれていた本当の前提。担当が TECH_TREE に書くまで、ネットワークの側で補う（network_meta.json の added_requires）。
     # TECH_TREE に同じ前提がもうあれば足さない（重複しない）
     have = {(e["from"], e["to"]) for e in edges if e["kind"] == "requires"}
@@ -666,7 +685,7 @@ def export_json(nodes):
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
     # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
-    light_keys = ("id", "name", "name_en", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
+    light_keys = ("id", "name", "name_en", "gran", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
                   "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
     kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p", "tool": "t", "same": "s"}

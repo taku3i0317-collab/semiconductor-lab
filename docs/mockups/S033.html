@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>中心図の輪 見本</title>
+<!-- S-033・S-035 見本：?layout=height（始まりからの高さ）・gran（粒度）・gen（今）、&id=番号。&film=1 でムービーから -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
+<link rel="stylesheet" href="../design.css">
+</head>
+<body>
+<script>window.FILM_BASE = '../'; const q = new URLSearchParams(location.search); window.FILM_LAYOUT = q.get('layout') || 'gran';</script>
+<script src="../tech_network_graph.js"></script>
+<script src="../film.js"></script>
+<script>(q.get('film') ? Film.play : Film.center)(q.get('id') || 'B-10', {});</script>
+</body>
+</html>
