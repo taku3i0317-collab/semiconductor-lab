@@ -1382,6 +1382,25 @@
       "process": "電気で焼く",
       "inputs": [
         {
+          "item": "semiconductor-lab:iron_compact",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:sintered_gear",
+          "count": 1
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 10.0,
+      "energy_kj": 50
+    },
+    {
+      "machine": "semiconductor-lab:electric_furnace",
+      "process": "電気で焼く",
+      "inputs": [
+        {
           "item": "semiconductor-lab:refractory_brick_blank",
           "count": 1
         }

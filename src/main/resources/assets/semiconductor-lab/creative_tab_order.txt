@@ -182,6 +182,10 @@ indium  # Metallurgy [9-02] 1952
 hydrogen_chloride_gas  # Metallurgy [1-16] 1953
 trichlorosilane  # Metallurgy [1-16] 1953
 trichlorosilane_reactor  # Metallurgy [1-16] 1953
+steel_die  # Metallurgy [1-72] 1955
+iron_powder  # Metallurgy [1-72] 1955
+iron_compact  # Metallurgy [1-72] 1955
+sintered_gear  # Metallurgy [1-72] 1955
 polysilicon  # Metallurgy [1-17] 1956
 siemens_reactor  # Metallurgy [1-17] 1956
 white_arsenic  # Metallurgy [B-07] 1962

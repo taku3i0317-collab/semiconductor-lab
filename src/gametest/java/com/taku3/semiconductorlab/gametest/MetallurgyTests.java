@@ -1140,4 +1140,15 @@ public class MetallurgyTests extends LabTestBase {
         LOG.info("[LAB] rare earths [1-19]: bastnaesite -> roast -> HCl -> CeO2; ion-adsorption clay -> (NH4)2SO4 -> oxalate -> mixed oxide -> ion exchange -> Y2O3");
         h.succeed();
     }
+
+    /** [1-72] 粉末冶金（IMP3、O-024）：磁鉄鉱＋H2 → 鉄の粉、粉4＋鋼の型（戻る）→ 圧粉体 → 電気炉で焼結 → 歯車 */
+    @GameTest
+    public void powderMetallurgy(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "iron_powder", Metallurgy.MAGNETITE) && recipeUses(h, "iron_powder", com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS), "sponge iron powder");
+        h.assertTrue(recipeUses(h, "iron_compact", Metallurgy.IRON_POWDER) && recipeUses(h, "iron_compact", Metallurgy.STEEL_DIE), "press in the die");
+        var rem = Metallurgy.STEEL_DIE.getCraftingRemainder(new ItemStack(Metallurgy.STEEL_DIE));
+        h.assertTrue(rem != null && rem.create().is(Metallurgy.STEEL_DIE), "the die comes back");
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity.recipes().get(Metallurgy.IRON_COMPACT) == Metallurgy.SINTERED_GEAR, "electric furnace sinters the compact");
+        h.succeed();
+    }
 }

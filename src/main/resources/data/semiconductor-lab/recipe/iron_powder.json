@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:magnetite",
+    "semiconductor-lab:hydrogen_gas",
+    "semiconductor-lab:hydrogen_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:iron_powder",
+    "count": 2
+  }
+}

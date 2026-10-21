@@ -3618,6 +3618,20 @@
 - Wikipedia「Extreme ultraviolet lithography」：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
 - Wikipedia「Photoresist」：https://en.wikipedia.org/wiki/Photoresist
 
+## C64. 溶かさずに粉を焼き固める（粉末冶金）［1-72］
+**答え**：金属の粉を型に入れて押し固め、溶けない温度で焼くと、粉どうしがふれている所で原子が動いてつながり、かたまりになる（焼結）。溶かせないほど融点の高い金属でも形にできる。1820年代にイギリスのウォラストンが白金の粉から延ばせる白金を作り、1910年にはアメリカのクーリッジがタングステンの粉から電球の線を作った。同じ年、スウェーデンのヘガネス社が鉄鉱石を溶かさずに還元した鉄の粉を作りはじめた。1955年、アメリカのバテル研究所が、高温で四方から同じ圧力をかけてすき間をなくす熱間静水圧プレス（HIP）を作った。ネオジム磁石も粉を磁場の中で押し固めて焼結して作る。
+
+- へえ①：とても溶けにくい金属は、粉を固めて焼いて形にする。
+- へえ②：車の歯車の多くは、鉄の粉を型で押して焼いた物で、削らなくてよい。
+- へえ③：焼結の部品のすき間に油をしみこませると、油のいらない軸受になる。
+- へえ④：HIP は、ガスで四方から同じ力をかける「圧力なべ」のような装置。
+
+確かさ：ウォラストン・クーリッジ 1910・HIP 1955 ◎／ヘガネスの年 ○
+根拠：
+- Wikipedia「Powder metallurgy」：https://en.wikipedia.org/wiki/Powder_metallurgy
+- Wikipedia「Hot isostatic pressing」：https://en.wikipedia.org/wiki/Hot_isostatic_pressing
+- Wikipedia「Höganäs AB」：https://en.wikipedia.org/wiki/H%C3%B6gan%C3%A4s_AB
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * 電気炉 [4-12]（抵抗加熱）。耐火れんがの箱の中で黒鉛棒に電流を流し、ジュール熱（電気抵抗で出る熱、P = I²R）で約1500℃まで熱する。
  * 燃料を燃やさないので、煙・灰・硫黄が中身に入らない。
- * 今できること：耐火れんがの焼成（≈1450℃）、粘土黒鉛ボートの焼成。水素炉 [1-28] はこの炉に水素の管を足したもの（レシピで電気炉を使う）。
+ * 今できること：耐火れんがの焼成（≈1450℃）、粘土黒鉛ボートの焼成、鉄の圧粉体の焼結（[1-72]、約1100℃、溶かさずに粉どうしをくっつける）。水素炉 [1-28] はこの炉に水素の管を足したもの（レシピで電気炉を使う）。
  */
 public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 5_000;
@@ -32,7 +32,8 @@ public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity {
     public static Map<Item, Item> recipes() {
         return Map.of(
                 Heat.REFRACTORY_BRICK_BLANK, Heat.REFRACTORY_BRICK,
-                Semiconductor.GRAPHITE_BOAT_BLANK, Semiconductor.GRAPHITE_BOAT);
+                Semiconductor.GRAPHITE_BOAT_BLANK, Semiconductor.GRAPHITE_BOAT,
+                com.taku3.semiconductorlab.content.Metallurgy.IRON_COMPACT, com.taku3.semiconductorlab.content.Metallurgy.SINTERED_GEAR);   // [1-72] 焼結（IMP3、O-024）
     }
 
     /** 画面のスロットの並び（IMP-28：前の ElectricFurnaceMenu の代わり） */

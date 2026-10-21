@@ -72,6 +72,12 @@ public final class Metallurgy {
     //   ＋マグネシウム2＋アルゴンの袋 → クロールの仕込み →かまど → 塩の混ざったスポンジ →（真空で蒸留）→ スポンジチタン（塩化マグネシウムが作業台に残る＝[1-39] の電解へ戻る）
     public static final float ILMENITE_FROM_IRON_SAND = 0.1f;
     public static final Item ILMENITE              = Reg.item("ilmenite");
+    // [1-72] 粉末冶金（IMP3、O-024）：鋼の型（作業台で戻る道具）。磁鉄鉱＋水素2 → 鉄の粉2（ヘガネス 1910 の海綿鉄の粉）。鉄の粉4＋型 → 鉄の圧粉体 →電気炉（焼結）→ 焼結の歯車
+    //   タングステンの粉 → 水素炉の焼結 → タングステンの棒（[1-28]、1910 クーリッジ）も粉末冶金
+    public static final Item STEEL_DIE             = Reg.item("steel_die", CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item IRON_POWDER           = Reg.item("iron_powder");
+    public static final Item IRON_COMPACT          = Reg.item("iron_compact");
+    public static final Item SINTERED_GEAR         = Reg.item("sintered_gear");
     // [1-19] 希土類（イットリウム・セリウム、IMP3、S-009。E の白色 LED の蛍光体 YAG:Ce のため）。放射性のトリウムが少ない鉱石を選んだ（モナズ石は説明だけ）
     //   Ce：バストネス石 →かまど（焙焼、Ce を CeO2 に）→ ＋塩酸2（ほかの希土類がとける）→ 酸化セリウム
     //   Y ：イオン吸着型の粘土4＋硫酸アンモニウム＋水 → 希土類の浸出液 → ＋シュウ酸 → シュウ酸塩 →かまど→ 希土類の酸化物（Y が多い）
