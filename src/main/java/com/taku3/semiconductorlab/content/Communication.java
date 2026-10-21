@@ -29,6 +29,8 @@ public final class Communication {
     // [15-18] 静電容量式タッチパネル（IMP4-01、O-021 仮決定の案A）：右クリックで体の静電容量の変化を読む（生き物だけ反応）。組立台で
     public static final Item TOUCH_PANEL           = Reg.item("touch_panel", com.taku3.semiconductorlab.item.TouchPanelItem::new, new Item.Properties().stacksTo(1));
     public static final Item TRANSISTOR_RADIO      = Reg.item("transistor_radio", new Item.Properties().stacksTo(1));
+    // [15-04] 電話（IMP2 S-010、1876）：電磁石（受話器）＋木炭の粒（炭素マイク）＋鉄（振動板）＋銅線。2台を両手で結び、持ってチャットすると同じ回線の電話に届く
+    public static final Item TELEPHONE             = Reg.item("telephone", com.taku3.semiconductorlab.item.TelephoneItem::new, new Item.Properties().stacksTo(1));
     // [15-09] 真空管ラジオ（IMP2 S-010、1920）：三極真空管3（増幅）＋同調コイル・コンデンサ＋スピーカー＋木の箱。右クリックで聞くと鉛蓄電池から 40W×10秒（ヒーター）
     public static final Item TUBE_RADIO            = Reg.item("tube_radio", com.taku3.semiconductorlab.item.TubeRadioItem::new, new Item.Properties().stacksTo(1));
     // [15-01] 紙（パルプ）（IMP3、S-002）：SO2＋消石灰＋水 → 亜硫酸の蒸解液、原木2＋蒸解液 → 蒸解釜の仕込み →加圧加熱釜（約130℃以上・3気圧以上）→ 木材パルプ2（1867 ティルマン）。
@@ -45,6 +47,9 @@ public final class Communication {
     public static final Item OPTICAL_FIBER         = Reg.item("optical_fiber", com.taku3.semiconductorlab.item.OpticalFiberItem::new, new Item.Properties());
 
     static void init() {
+        // [15-04] 電話を手に持って話すと、同じ回線の電話を持つ人に届く（IMP2 S-010）
+        net.fabricmc.fabric.api.message.v1.ServerMessageEvents.CHAT_MESSAGE.register((msg, sender, params) ->
+                com.taku3.semiconductorlab.item.TelephoneItem.relay(msg.signedContent(), sender));
         // [15-01] 亜硫酸法の蒸解は圧力釜で煮る（加圧加熱釜の表に1行、IMP3）。圧力が足りないとリグニンが溶けず、仕込みがそのまま戻る
         AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("wood_pulp", st -> st.is(PULP_CHARGE), 1,
                 () -> new net.minecraft.world.item.ItemStack(WOOD_PULP, 2), () -> new net.minecraft.world.item.ItemStack(PULP_CHARGE), 130, 3, 20 * 30));

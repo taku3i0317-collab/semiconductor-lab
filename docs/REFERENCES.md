@@ -2575,6 +2575,19 @@
 - Wikipedia「KDKA (AM)」：https://en.wikipedia.org/wiki/KDKA_(AM)
 - Wikipedia「Vacuum tube」：https://en.wikipedia.org/wiki/Vacuum_tube
 
+## O89. マイクは炭の粒だった（電話）［15-04］
+**答え**：1876年、アレクサンダー・グラハム・ベルが電話の特許をとった（同じ日にイライシャ・グレイも出願した）。声で振動板をふるわせて電流を強弱させ、遠くの受話器の電磁石で別の振動板を同じようにふるわせて声に戻す。1877〜78年、エジソンやデビッド・ヒューズが、押されると電気の流れやすさが変わる炭の粒のマイクを作り、声を大きく遠くへ送れるようにした。炭素マイクは100年近く電話に使われた。
+
+- へえ①：電話のマイクは炭の粒でできていた。
+- へえ②：ベルとグレイは同じ日に特許を出した。
+- へえ③：受話器は、電磁石と鉄の板の小さなスピーカー。
+- へえ④：のちに電話の信号は、真空管・トランジスタで増幅され、光ファイバーで送られるようになった。
+
+確かさ：1876 ベル・同じ日のグレイ ◎／炭素マイク 1877〜78 ◎
+根拠：
+- Wikipedia「Telephone」：https://en.wikipedia.org/wiki/Telephone
+- Wikipedia「Carbon microphone」：https://en.wikipedia.org/wiki/Carbon_microphone
+
 ---
 
 # 冶金と熱（タスク15〜）

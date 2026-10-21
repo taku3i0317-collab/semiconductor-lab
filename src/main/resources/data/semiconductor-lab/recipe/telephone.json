@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:electromagnet",
+    "minecraft:charcoal",
+    "minecraft:iron_ingot",
+    "semiconductor-lab:copper_wire"
+  ],
+  "result": {
+    "id": "semiconductor-lab:telephone",
+    "count": 1
+  }
+}

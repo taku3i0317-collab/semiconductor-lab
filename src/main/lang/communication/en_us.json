@@ -58,5 +58,15 @@
   "item.semiconductor-lab.tube_radio.note4": "Tubes heat their cathodes red-hot to release electrons, so they take time to warm up and use a lot of power. Transistors need no heating, so radios became small and ran for tens of hours on batteries.",
   "item.semiconductor-lab.tube_radio.placeholder": "Approximation: there are no broadcast stations, so listening just shows a message. 40 W is a typical value.",
   "item.semiconductor-lab.tube_radio.listen": "📻 The tubes warm up and you hear the broadcast (heaters %s W x %s s = %s J from the battery)",
-  "item.semiconductor-lab.tube_radio.no_power": "Silent: the tube heaters need %s J from a lead-acid battery in your inventory"
+  "item.semiconductor-lab.tube_radio.no_power": "Silent: the tube heaters need %s J from a lead-acid battery in your inventory",
+  "item.semiconductor-lab.telephone": "Telephone",
+  "item.semiconductor-lab.telephone.note1": "A device that turns your voice into electricity, sends it far away and turns it back into a voice.",
+  "item.semiconductor-lab.telephone.note2": "Electromagnet (receiver) + charcoal (carbon microphone) + iron (diaphragm) + copper wire. Hold two and right-click to put them on one line. Chat while holding a phone and people holding a phone on the same line hear you.",
+  "item.semiconductor-lab.telephone.note3": "In 1876 Alexander Graham Bell patented the telephone (Elisha Gray filed on the same day). In 1877-78 Edison and Hughes made carbon-granule microphones that sent voices louder and further.",
+  "item.semiconductor-lab.telephone.note4": "Pressed carbon granules touch more closely and conduct better. As the voice pushes the diaphragm the current rises and falls, and the receiver's electromagnet shakes another diaphragm the same way.",
+  "item.semiconductor-lab.telephone.placeholder": "Approximation: no wire joins the two phones (they reach anywhere). Chat text stands in for the voice.",
+  "item.semiconductor-lab.telephone.linked": "📞 The two phones are on one line. Chat while holding one and the holder of the other hears you",
+  "item.semiconductor-lab.telephone.unlinked": "Not connected yet. Hold two phones and right-click to link them",
+  "item.semiconductor-lab.telephone.hint": "Chat while holding the phone to reach phones on the same line",
+  "item.semiconductor-lab.telephone.voice": "📞 %s: %s"
 }

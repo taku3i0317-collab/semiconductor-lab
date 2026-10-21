@@ -81,6 +81,22 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class CommunicationTests extends LabTestBase {
+    /** [15-04] 電話（IMP2 S-010）：両手の2台を結ぶと同じ回線。回線のない電話・別の回線には届かない */
+    @GameTest
+    public void telephone(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "telephone", com.taku3.semiconductorlab.content.Control.ELECTROMAGNET) && recipeUses(h, "telephone", net.minecraft.world.item.Items.CHARCOAL), "receiver electromagnet + carbon microphone");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack a = new ItemStack(com.taku3.semiconductorlab.content.Communication.TELEPHONE), b = new ItemStack(com.taku3.semiconductorlab.content.Communication.TELEPHONE), c = new ItemStack(com.taku3.semiconductorlab.content.Communication.TELEPHONE);
+        h.assertFalse(com.taku3.semiconductorlab.item.TelephoneItem.sameLine(a, b), "new phones are not connected");
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, a);
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, b);
+        com.taku3.semiconductorlab.content.Communication.TELEPHONE.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertTrue(com.taku3.semiconductorlab.item.TelephoneItem.sameLine(a, b) && !com.taku3.semiconductorlab.item.TelephoneItem.sameLine(a, c), "linked pair shares a line, a third phone does not");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.TelephoneItem.lineOf(player), com.taku3.semiconductorlab.item.TelephoneItem.line(a), "holding the phone puts you on its line");
+        LOG.info("[LAB] telephone [15-04]: two phones paired on one line; chat while holding relays to the other");
+        h.succeed();
+    }
+
     /** [15-09] 真空管ラジオ（IMP2 S-010）：聞くたびに鉛蓄電池から 400J（ヒーター 40W×10秒）。電池が足りないと鳴らない */
     @GameTest
     public void tube_radio(GameTestHelper h) {

@@ -819,6 +819,7 @@ quenched_duralumin  # Transport [14-13] 1906
 sulfite_liquor  # Communication [15-01] 105
 pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105
+telephone  # Communication [15-04] 1876
 tube_radio  # Communication [15-09] 1920
 transistor_radio  # Communication [15-10] 1954
 touch_panel  # Communication [15-18] 1965
