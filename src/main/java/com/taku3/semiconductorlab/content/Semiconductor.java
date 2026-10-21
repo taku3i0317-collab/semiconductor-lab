@@ -49,6 +49,8 @@ public final class Semiconductor {
     // [9-49] サイリスタ（IMP4-01、O-015）：p-n 接合の板（実は両面 p＝p-n-p）にもう一度リン → p-n-p-n の板 → 素子
     public static final Item THYRISTOR_WAFER       = Reg.item("thyristor_wafer");
     public static final Item THYRISTOR             = Reg.item("thyristor");
+    // high-k（IMP4-01、S-004）：ALD の原料 HfCl4（D の HfO2 を炭素塩素化）。湿気で HCl を出すので瓶に密封
+    public static final Item HAFNIUM_TETRACHLORIDE = Reg.contained("hafnium_tetrachloride", com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE);
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");
     // [9-17] メサトランジスタ（IMP4-01）：p-n 接合の板（p の板＋n の表面）→ Al の点を蒸着 → 焼いて合金（エミッタ）→ ろうで守る → 混酸で周りを削る（メサ）→ 金線でつなぐ
@@ -156,6 +158,9 @@ public final class Semiconductor {
     // [9-41] インバータ（IMP4-01、O-015）：直流 → 交流（整流器の逆、サイリスタのスイッチ）。後ろ＝直流、前＝交流、95%
     public static final Machine<InverterBlockEntity> INVERTER = Machine.builder("inverter", InverterBlockEntity::new)
             .ticker(com.taku3.semiconductorlab.energy.PowerConverterBlockEntity::tick).energy((be, dir) -> be.storageFor(dir)).props(metal(2.5f)).build();
+    // high-k（IMP4-01、S-004）：ハフニウムの塩素化炉（HfO2 + 2C + 2Cl2 → HfCl4 + 2CO、3kW）と ALD 装置（HfCl4 と水を交互に、2kW）
+    public static final Machine<HafniumChlorinatorBlockEntity> HAFNIUM_CHLORINATOR = Machine.electric("hafnium_chlorinator", HafniumChlorinatorBlockEntity::new, HafniumChlorinatorBlockEntity.LAYOUT, metal(4.0f));
+    public static final Machine<AldReactorBlockEntity> ALD_REACTOR = Machine.electric("ald_reactor", AldReactorBlockEntity::new, AldReactorBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

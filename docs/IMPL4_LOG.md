@@ -129,3 +129,6 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [9-49] サイリスタ（拡散炉の分岐：n の p-n 接合＋リン → thyristor_wafer、作業台で thyristor ×4）・[9-41] インバータ（energy/InverterBlockEntity、DC→AC 95%、網の決まりは A に確認）。GameTest thyristor_inverter、CHEMISTRY F67、REFERENCES F40。[4-26] は前提がそろってから
 - S-004 の1：FinFET のゲートは SiO2 の「仮」と明記（TECH_TREE・CHEMISTRY F66・REFERENCES F37・dry_etcher.placeholder・DECISIONS）。[1-70]（D）ができたら HfO2 に入れ替え
 - **S-004 の2 は質問（Discord）**：「v0.6 に進んでよい（ROADMAP の順）」とあるが、ROADMAP に v0.6 の章がない（v0.5 の次は v1.0 EUV）。v1.0 のことか、ほかの意味かを確かめるまで、新しい章には入らない
+- O-016（訂正：v0.6＝v1.0 EUV）を読んだ。分担：C が [7-17] 多層膜ミラー → [8-13] 液滴発生器 → [7-18] EUV 光源（sputter に Mo/Si の的の分岐を C が足す）、E が [2-33] 化学増幅レジスト（A に litho の形を相談中）。[9-38] GAA は [7-18] 待ち
+- [2-33] の材料の道（案、出典で確かめながら）：ポリヒドロキシスチレン＝フェノール＋無水酢酸 → 酢酸フェニル →（AlCl3、フリース転位）→ 4-ヒドロキシアセトフェノン → 水素化 → 脱水 → 4-ヒドロキシスチレン → 重合。保護基（t-BOC）は ⚠️ 近似を検討。光酸発生剤＝トリフェニルスルホニウム塩（1982 の IBM は Ph3S⁺ SbF6⁻、クリベロのオニウム塩）：アンチモン（IMP3）＋フッ酸で SbF6⁻
+- ✅ high-k（S-004 の「あとで①」）：D の HfO2 → ハフニウムの塩素化炉（HfCl4）→ ALD 装置（ChipOps.highK、A）。GameTest high_k_gate、CHEMISTRY F68〜F69、REFERENCES F41

@@ -522,7 +522,9 @@ GameTest `testworld` が「関数が最後まで動き、置いた物が正し�
   - 見ること：インバータの向き（後ろ＝直流、前＝交流）、前と後ろを同じ網にすると直流の機械が止まる
 - [9-36] 銅配線：ブロック copper_plater／チェスト 3 種
   - 見ること：めっき装置の GUI（「⚠ バリア膜なし」）、スパッタに Ta の的を入れたとき
-- [-] stamp：ブロック drafting_table／チェスト 2 種
+- [9-37] FinFET：ブロック hafnium_chlorinator, ald_reactor／チェスト 7 種
+  - 見ること：ドライエッチング装置に Cl2 を入れたとき「Cl2 でフィンを立てている」
+- [-] hafnium_tetrachloride：ブロック drafting_table／チェスト 3 種
 
 ### 幹11 農業・食品（南へ 82 ブロックの列）
 

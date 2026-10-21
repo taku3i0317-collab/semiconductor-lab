@@ -61,6 +61,40 @@
       "note": "端数は持ち越して袋（1 mol）にする"
     },
     {
+      "machine": "semiconductor-lab:ald_reactor",
+      "process": "high-k のゲート（ALD）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "ゲート酸化の済んだ 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:hafnium_tetrachloride",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:distilled_water",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "HfO2 のゲート（記録）"
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 2
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 30.0,
+      "energy_kj": 60,
+      "note": "HfCl4 と水を交互に、1層ずつ（約300℃）"
+    },
+    {
       "machine": "semiconductor-lab:ammonia_still",
       "process": "アンモニア水",
       "inputs": [
@@ -1279,6 +1313,42 @@
       "watts": 0.0,
       "seconds": 80.0,
       "note": "空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない"
+    },
+    {
+      "machine": "semiconductor-lab:hafnium_chlorinator",
+      "process": "四塩化ハフニウム",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:hafnium_oxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:coke",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hafnium_tetrachloride",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:carbon_monoxide_gas",
+          "count": 2
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "HfO2 + 2C + 2Cl2 → HfCl4 + 2CO（約900℃）"
     },
     {
       "machine": "semiconductor-lab:hall_heroult_cell",

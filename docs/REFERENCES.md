@@ -910,7 +910,7 @@
 - へえ④：次の世代はフィンを横に寝かせて重ね、ゲートで4方向から囲む（GAA、[9-38]）。
 
 確かさ：1999 の発表（IEDM の論文）◎／2011 インテルの 22nm 量産 ◎／TSMC・サムスンの採用 2015ごろ ○
-ゲーム（2026-10-21 IMP4-01・A で実装、S-003 案A）：ドライエッチング装置に Cl2 → フィン。方眼 100（CD 約40nm）以上の平らな MOS は漏れてお題に落ち、FinFET は合格。⚠️ ゲートは SiO2 の「仮」（本物は high-k＋金属ゲート。[1-70] ハフニウムができたら入れ替え、S-004）
+ゲーム（2026-10-21 IMP4-01・A で実装、S-003 案A）：ドライエッチング装置に Cl2 → フィン。方眼 100（CD 約40nm）以上の平らな MOS は漏れてお題に落ち、FinFET は合格。high-k のゲートは ALD 装置で HfO2（F41、金属ゲートは省略 ⚠️）
 根拠：Wikipedia「FinFET」https://en.wikipedia.org/wiki/FinFET 、Intel のニュースリリース「Intel Reinvents Transistors Using New 3-D Structure」（2011年5月）、Wikipedia「Multigate device」https://en.wikipedia.org/wiki/Multigate_device （英語）
 
 ---
@@ -954,6 +954,20 @@
 確かさ：SCR 1957（IEEE マイルストーン）◎／インバータでモーターの速さを変える ◎／IGBT への移り変わりの年 △
 ゲーム（2026-10-21 IMP4-01 で実装）：拡散炉で p-n-p-n の板 → サイリスタ → インバータ（直流 → 交流、95%）
 根拠：ETHW「Milestones:SCR/Thyristor, 1957」https://ethw.org/Milestones:SCR/Thyristor,_1957 、Wikipedia「Power inverter」https://en.wikipedia.org/wiki/Power_inverter （英語）
+
+---
+
+## F41. 原子1層ずつ積む（ALD と high-k のゲート）［1-70］［9-37］
+**答え**：トランジスタを小さくするとゲートの絶縁膜（SiO2）も薄くなり、電子がすり抜けて漏れる（トンネル効果）。そこで誘電率が約6倍高い酸化ハフニウム（high-k）に替え、厚いままでも同じ効き目にした。膜は ALD（原子層堆積）で、四塩化ハフニウムと水の蒸気を交互に流し、原子1層ずつ積む。2007年にインテルの 45nm の世代で量産に入った。
+
+- へえ①：ALD は1回で1層だけ付いて自分で止まる。だから厚さを原子の数で決められる。
+- へえ②：HfCl4 は、酸化ハフニウムを炭素と塩素で熱して作る（チタンのクロール法と同じ）。
+- へえ③：ジルコニウムとハフニウムはとても似ていて、原子炉の材料のためにわざわざ分ける（ハフニウムは中性子をよく吸う）。
+- へえ④：ALD の考えは 1960年代のソ連と、1970年代のフィンランドで別々に生まれた。
+
+確かさ：インテル 45nm の high-k／金属ゲート（2007）◎／HfO2 の誘電率 約25 ○／ALD の起源 ○
+ゲーム（2026-10-21 IMP4-01 で実装）：ハフニウムの塩素化炉（HfCl4）→ ALD 装置でゲート酸化のウェハーに high-k（記録）
+根拠：Wikipedia「High-κ dielectric」https://en.wikipedia.org/wiki/High-%CE%BA_dielectric 、Wikipedia「Atomic layer deposition」https://en.wikipedia.org/wiki/Atomic_layer_deposition （英語）
 
 ---
 

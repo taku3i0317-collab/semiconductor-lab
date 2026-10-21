@@ -670,6 +670,9 @@ anneal_furnace  # Semiconductor [9-29] 1980
 cmp_polisher  # Semiconductor [9-31] 1980
 inverter  # Semiconductor [9-41] 1980
 copper_plater  # Semiconductor [9-36] 1997
+hafnium_chlorinator  # Semiconductor [9-37] 1999
+ald_reactor  # Semiconductor [9-37] 1999
+hafnium_tetrachloride  # Semiconductor [None] None
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
