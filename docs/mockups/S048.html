@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>分野の泡 見本</title>
+<!-- S-048 見本（本番には入れていない）：B が自由に考えた中心図「分野の泡」。説明は S048.md。
+     ?id=番号（はじめはスマホ B-10）。本物のデータ（tech_network_graph.js）から数える。くわしい文（へえ）は後から読む -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
+<link rel="stylesheet" href="../design.css">
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); overscroll-behavior: none; }
+body { display: flex; flex-direction: column; font-family: "BIZ UDPGothic", sans-serif; }
+header.bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px 4px; }
+header.bar .ttl { flex: 1; min-width: 0; font-family: var(--font-pixel); font-size: clamp(18px, 5vw, 24px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ib { flex: none; min-width: 40px; height: 40px; border: 1px solid var(--accent); border-radius: 10px; background: var(--panel); color: var(--accent); font: inherit; font-weight: 700; font-size: 14px; padding: 0 10px; cursor: pointer; }
+.ib:disabled { opacity: .35; cursor: default; }
+.ib[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.seg { display: flex; border: 1px solid var(--accent); border-radius: 10px; overflow: hidden; flex: none; }
+.seg button { border: 0; background: var(--panel); color: var(--accent); font: inherit; font-weight: 700; font-size: 13px; padding: 0 10px; height: 38px; cursor: pointer; }
+.seg button[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.sum { padding: 0 12px; font-size: 14px; color: var(--sub); font-weight: 700; }
+.how { margin: 2px 12px 0; font-size: 12px; color: var(--sub); }
+#wrap { position: relative; flex: 1; min-height: 0; }
+svg#map { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: manipulation; }
+svg text { font-family: "BIZ UDPGothic", sans-serif; }
+.bub { cursor: pointer; }
+.bub circle.b { transition: r .35s ease, stroke-width .2s; }
+.bub:focus { outline: none; }
+.bub:focus-visible circle.b, .bub.on circle.b { stroke-width: 4; }
+.lk { transition: opacity .3s; }
+#sheet { position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; max-height: 72vh; display: flex; flex-direction: column; background: var(--panel); border-top: 1px solid var(--line); border-radius: 16px 16px 0 0; box-shadow: 0 -6px 20px rgba(0,0,0,.08); transform: translateY(0); transition: transform .3s ease; }
+#sheet[hidden] { display: flex; transform: translateY(105%); visibility: hidden; }
+#sheet .hd { display: flex; align-items: center; gap: 8px; padding: 10px 12px 6px; border-bottom: 1px solid var(--line); }
+#sheet .hd h2 { flex: 1; min-width: 0; margin: 0; font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#sheet .bd { overflow-y: auto; padding: 8px 12px 16px; -webkit-overflow-scrolling: touch; }
+.row { display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 2px 10px; width: 100%; padding: 6px 4px; border: 0; border-bottom: 1px solid var(--line); background: none; font: inherit; color: inherit; text-align: left; cursor: pointer; }
+.row img, .big img, .path img { image-rendering: pixelated; }
+.row img { width: 32px; height: 32px; }
+.row .nm { font-weight: 700; }
+.row .yr { font-size: 12px; color: var(--sub); }
+.chip { display: inline-block; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 0 5px; margin-left: 4px; }
+.chip.o { background: #dff0e2; color: #2f6f3f; }
+.chip.d { background: #fde9d3; color: #8a4a12; }
+.big { display: flex; gap: 12px; align-items: center; }
+.big img { width: 56px; height: 56px; }
+.big h3 { margin: 0; font-size: 20px; }
+.hee { font-size: 15px; line-height: 1.7; margin: 10px 0; }
+.path { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 8px 0; padding: 8px; background: color-mix(in srgb, #e8a33d 12%, var(--panel)); border-radius: 10px; font-size: 13px; }
+.path span.n { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; }
+.path img { width: 22px; height: 22px; }
+.path .ar { color: #c9861e; font-weight: 700; }
+.acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.acts .ib { flex: 1 1 auto; }
+@media (min-width: 900px) {
+  #sheet { left: auto; top: 56px; width: 380px; max-height: none; border-radius: 0; border-top: 0; border-left: 1px solid var(--line); }
+  #sheet[hidden] { transform: translateX(105%); }
+  body.sheetOn #wrap { margin-right: 380px; }
+}
+@media (prefers-reduced-motion: reduce) { #sheet, .bub circle.b, .lk { transition: none; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <button type="button" class="ib" id="back" aria-label="もどる" disabled>←</button>
+  <div class="ttl" id="ttl"></div>
+  <div class="seg" role="group" aria-label="見え方"><button type="button" id="mEasy" aria-pressed="true">わかる</button><button type="button" id="mAll" aria-pressed="false">全部</button></div>
+</header>
+<div class="sum" id="sum"></div>
+<p class="how" id="how"></p>
+<div id="wrap"><svg id="map" role="img"></svg></div>
+<section id="sheet" hidden aria-live="polite"><div class="hd"><h2 id="shT"></h2><button type="button" class="ib" id="lang" lang="en">EN</button><button type="button" class="ib" id="furi" aria-pressed="false">ふりがな</button><button type="button" class="ib" id="shX" aria-label="とじる">✕</button></div><div class="bd" id="shB"></div></section>
+<script>window.FILM_BASE = '../';</script>
+<script src="../tech_network_graph.js"></script>
+<script src="../film.js"></script>
+<script>
+(function () {
+  let EN = false; try { EN = localStorage.getItem('tn-lang') === 'en'; } catch (e) { /* 保存できない */ }
+  document.documentElement.lang = EN ? 'en' : 'ja';
+  const T = EN ? {
+    sum: (a, b, c) => `${a} technologies · ${b} starting points · ${c} fields`, how: 'Tap a bubble to look inside. Clockwise = further back in history.',
+    make: n => `To make: ${n}`, order: 'In making order (starting points first)', origin: 'start', direct: 'needed directly', path: 'How it connects', center: '◎ Put in the middle', watch: '▶ Watch', more: 'Details', fields: { I: 'Ideas', P: 'Products & parts', B: 'Products & parts' }, loading: '…', back: 'Back', close: 'Close'
+  } : {
+    sum: (a, b, c) => `${a} の技術・${b} 個の始まり・${c} の分野`, how: '泡を押すと中が見える。時計回りに昔へ',
+    make: n => `${n} を作るには`, order: '作る順（始まりが先）', origin: '始まり', direct: 'すぐ要る', path: 'つながり', center: '◎ これを真ん中に', watch: '▶ できるまで', more: '詳しく', fields: { I: '知恵（考え方・発見）', P: '製品・部品', B: '製品・部品' }, loading: '…', back: 'もどる', close: 'とじる'
+  };
+  const G = window.TECH_GRAPH, byId = new Map(G.nodes.map(n => [n.id, n]));
+  const nm = n => (EN && n.name_en) || n.name;
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const yr = y => y == null ? '' : y < 0 ? (EN ? `${-y} BC` : `紀元前 ${-y}`) : `${y}`;
+  const svg = document.getElementById('map'), sheet = document.getElementById('sheet'), shB = document.getElementById('shB');
+  document.getElementById('how').textContent = T.how;
+  let D = null;   // くわしい文（へえ）は、最初の絵を出した後に読む（1.5MB）
+  const loadDetail = () => new Promise(ok => { if (D || window.TECH_DETAIL) { D = window.TECH_DETAIL.nodes; return ok(); } const s = document.createElement('script'); s.src = '../tech_network_detail.js'; s.onload = () => { D = window.TECH_DETAIL.nodes; ok(); }; document.head.appendChild(s); });
+  const q = new URLSearchParams(location.search);
+  let id = byId.has(q.get('id')) ? q.get('id') : 'B-10', hist = [], S, groups, openG = null;
+  const groupOf = k => { const n = byId.get(k); return n.kind === 'idea' ? 'I' : ['P', 'B'].includes(n.trunk) ? 'P' : n.trunk; };
+  const gName = (g, k) => T.fields[g] || (byId.get(k).trunk_name || g);
+  // ---- データ：真ん中の物の祖先を分野ごとの泡に（数は全部データから数える） ----
+  function build() {
+    S = Film.scene(id);
+    const direct = new Set(G.edges.filter(e => e[1] === id && e[2] !== 'u' && S.dist.has(e[0])).map(e => e[0]));
+    const roots = new Set(S.roots), m = new Map();
+    for (const k of S.dist.keys()) if (k !== id) { const g = groupOf(k); (m.get(g) || m.set(g, []).get(g)).push(k); }
+    groups = [...m].map(([g, ks]) => {
+      const ys = ks.map(k => byId.get(k).year).filter(y => y != null).sort((a, b) => a - b);
+      const top = ks.slice().sort((a, b) => (byId.get(b).pr || 0) - (byId.get(a).pr || 0))[0];
+      return { g, ks, name: gName(g, ks[0]), med: ys.length ? ys[ys.length >> 1] : 0, top, nO: ks.filter(k => roots.has(k)).length, nD: ks.filter(k => direct.has(k)).length };
+    }).sort((a, b) => b.med - a.med);   // 新しい分野が上、時計回りに昔へ
+    const gi = new Map(); groups.forEach((x, i) => x.ks.forEach(k => gi.set(k, i)));
+    const L = new Map();
+    for (const [f, t, k] of G.edges) if (k !== 'u' && gi.has(f) && gi.has(t) && gi.get(f) !== gi.get(t)) { const a = Math.min(gi.get(f), gi.get(t)), b = Math.max(gi.get(f), gi.get(t)), key = a + '-' + b; L.set(key, (L.get(key) || 0) + 1); }
+    S.gl = [...L].map(([key, c]) => { const [a, b] = key.split('-').map(Number); return { a, b, c }; });
+    S.direct = direct; S.rootSet = roots;
+    document.getElementById('ttl').textContent = T.make(nm(byId.get(id)));
+    document.getElementById('sum').textContent = T.sum(S.total, S.roots.length, groups.length);
+    document.getElementById('back').disabled = !hist.length;
+  }
+  // ---- 絵：真ん中の物のまわりに泡（大きさ＝数、中の絵＝いちばん大事な物） ----
+  function draw() {
+    const W = svg.clientWidth, H = svg.clientHeight, n = groups.length, cx = W / 2, cy = H / 2;
+    // 画面の縦も使うように、だ円の上に並べる（泡の大きさは、となりとの間から決める）
+    let rmax = 40, Rx, Ry;
+    for (let it = 0; it < 3; it++) { Rx = W / 2 - rmax - 8; Ry = H / 2 - rmax - 20; const per = 2 * Math.PI * Math.sqrt((Rx * Rx + Ry * Ry) / 2); rmax = Math.max(20, Math.min(62, per / Math.max(3, n) * 0.4)); }
+    const cmax = Math.max(...groups.map(x => x.ks.length));
+    const pos = groups.map((x, i) => { const a = -Math.PI / 2 + i / n * Math.PI * 2; return { x: cx + Math.cos(a) * Rx, y: cy + Math.sin(a) * Ry, r: 15 + (rmax - 15) * Math.sqrt(x.ks.length / cmax) }; });
+    const hue = i => Math.round(i / n * 360), C = byId.get(id);
+    let h = '';
+    for (const { a, b, c } of S.gl) h += `<line class="lk" data-a="${a}" data-b="${b}" x1="${pos[a].x}" y1="${pos[a].y}" x2="${pos[b].x}" y2="${pos[b].y}" stroke="#8a8278" stroke-width="${(0.6 + Math.log2(1 + c) * 0.7).toFixed(1)}" opacity="${openG == null || openG === a || openG === b ? 0.22 : 0.05}"/>`;
+    groups.forEach((x, i) => { if (x.nD) h += `<line class="lk" x1="${cx}" y1="${cy}" x2="${pos[i].x}" y2="${pos[i].y}" stroke="#c9861e" stroke-width="${(1 + Math.log2(1 + x.nD)).toFixed(1)}" opacity="${openG == null || openG === i ? 0.7 : 0.15}"/>`; });
+    h += `<circle cx="${cx}" cy="${cy}" r="${Math.min(52, Rx * 0.32)}" fill="var(--panel)" stroke="#2f6f8f" stroke-width="3"/>` + (C.icon ? `<image href="${C.icon}" x="${cx - 32}" y="${cy - 32}" width="64" height="64" style="image-rendering:pixelated"/>` : '');
+    groups.forEach((x, i) => {
+      const p = pos[i], tp = byId.get(x.top), is = Math.min(36, p.r * 1.05), on = openG === i;
+      h += `<g class="bub${on ? ' on' : ''}" data-i="${i}" tabindex="0" role="button" aria-label="${esc(x.name)} ${x.ks.length}">
+        <circle class="b" cx="${p.x}" cy="${p.y}" r="${p.r}" fill="hsl(${hue(i)} 60% 94%)" stroke="hsl(${hue(i)} 45% 45%)" stroke-width="${on ? 4 : 2}"/>
+        ${tp.icon ? `<image href="${tp.icon}" x="${p.x - is / 2}" y="${p.y - is / 2 - (p.r > 26 ? 6 : 0)}" width="${is}" height="${is}" style="image-rendering:pixelated"/>` : ''}
+        ${p.r > 26 ? `<text x="${p.x}" y="${p.y + is / 2 + 6}" text-anchor="middle" font-size="12" font-weight="700" fill="hsl(${hue(i)} 45% 30%)">${x.ks.length}</text>` : ''}
+        ${x.nO ? `<g><circle cx="${p.x + p.r * 0.72}" cy="${p.y - p.r * 0.72}" r="9" fill="#3f8f4f"/><text x="${p.x + p.r * 0.72}" y="${p.y - p.r * 0.72 + 4}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">${x.nO}</text></g>` : ''}
+        <text x="${p.x}" y="${p.y + p.r + 14}" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink)" paint-order="stroke" stroke="var(--bg)" stroke-width="3">${esc(x.name.length > 9 ? x.name.slice(0, 8) + '…' : x.name)}${p.r <= 26 ? ' ' + x.ks.length : ''}</text></g>`;
+    });
+    svg.innerHTML = h;
+    svg.setAttribute('aria-label', document.getElementById('sum').textContent);
+  }
+  // ---- 下のシート：泡の中（作る順）と、選んだ物（へえ・真ん中までの道） ----
+  function openGroup(i) {
+    openG = i; draw();
+    const x = groups[i], ks = x.ks.slice().sort((a, b) => S.dist.get(b) - S.dist.get(a) || (byId.get(a).year ?? 0) - (byId.get(b).year ?? 0));
+    document.getElementById('shT').textContent = `${x.name}　${x.ks.length}`;
+    shB.innerHTML = `<p class="how" style="margin:0 0 6px">${T.order}</p>` + ks.map(k => { const n = byId.get(k); return `<button type="button" class="row" data-k="${k}">${n.icon ? `<img src="${n.icon}" alt="">` : '<span></span>'}<span><span class="nm">${esc(nm(n))}</span>${S.rootSet.has(k) ? `<span class="chip o">${T.origin}</span>` : ''}${S.direct.has(k) ? `<span class="chip d">${T.direct}</span>` : ''}</span><span class="yr">${yr(n.year)}</span></button>`; }).join('');
+    showSheet();
+  }
+  function openNode(k) {
+    const n = byId.get(k), path = [k]; let u = k; while (S.via.has(u) && u !== id) { u = S.via.get(u); path.push(u); }
+    const chain = path.reverse();   // 真ん中 ← … ← 選んだ物
+    document.getElementById('shT').textContent = nm(n);
+    const body = hee => `<div class="big">${n.icon ? `<img src="${n.icon}" alt="">` : ''}<div><h3>${esc(nm(n))}</h3><div class="yr">${yr(n.year)}${S.rootSet.has(k) ? `<span class="chip o">${T.origin}</span>` : ''}</div></div></div>
+      <p class="hee">${esc(hee)}</p>
+      <div class="how" style="margin:0">${T.path}</div>
+      <div class="path">${chain.map(c => `<span class="n">${byId.get(c).icon ? `<img src="${byId.get(c).icon}" alt="">` : ''}${esc(nm(byId.get(c)))}</span>`).join('<span class="ar">←</span>')}</div>
+      <div class="acts"><button type="button" class="ib" data-c="${k}">${T.center}</button>${Film.countOf(k, 'down') ? `<button type="button" class="ib" data-w="${k}">${T.watch}</button>` : ''}<a class="ib" style="display:inline-flex;align-items:center;justify-content:center;text-decoration:none" href="../node.html#${k}">${T.more}</a></div>`;
+    shB.innerHTML = body(T.loading);
+    loadDetail().then(() => { if (document.getElementById('shT').textContent !== nm(n)) return; const d = D[k] || {}; shB.innerHTML = body(((EN && d.hee1_en) || d.hee1 || '').replace(/（[^（）]*出典[:：][^）]*）/g, '')); furi(); });
+    showSheet();
+  }
+  const furi = () => { if (window.Furigana && window.FURI_DICT) Furigana.apply(sheet); };
+  const showSheet = () => { const was = sheet.hidden; sheet.hidden = false; document.body.classList.add('sheetOn'); if (was && innerWidth >= 900) draw(); furi(); };
+  const hideSheet = () => { sheet.hidden = true; document.body.classList.remove('sheetOn'); openG = null; draw(); };
+  function go(k, push = true) {
+    if (k === id) return;
+    if (push) hist.push(id);
+    id = k; openG = null; sheet.hidden = true; document.body.classList.remove('sheetOn'); history.replaceState(null, '', '?id=' + k);
+    build(); svg.style.opacity = 0; draw(); requestAnimationFrame(() => { svg.style.transition = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'none' : 'opacity .35s'; svg.style.opacity = 1; });
+  }
+  svg.addEventListener('click', e => { const b = e.target.closest('.bub'); if (b) openGroup(+b.dataset.i); else if (!sheet.hidden) hideSheet(); });
+  svg.addEventListener('keydown', e => { const b = e.target.closest('.bub'); if (b && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openGroup(+b.dataset.i); } });
+  shB.addEventListener('click', e => {
+    const r = e.target.closest('.row'); if (r) return openNode(r.dataset.k);
+    const c = e.target.closest('[data-c]'); if (c) return go(c.dataset.c);
+    const w = e.target.closest('[data-w]'); if (w) Film.play(w.dataset.w, { base: '../' });
+  });
+  document.getElementById('shX').onclick = hideSheet;
+  document.getElementById('back').onclick = () => { if (hist.length) go(hist.pop(), false); };
+  document.getElementById('mAll').onclick = () => { Film.center(id, { base: '../', onCenter: () => {}, onClose: () => {} }); };
+  document.getElementById('lang').textContent = EN ? '日本語' : 'EN';
+  document.getElementById('lang').onclick = () => { try { localStorage.setItem('tn-lang', EN ? 'ja' : 'en'); } catch (e) { /* 保存できない */ } location.reload(); };
+  addEventListener('resize', draw);
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !sheet.hidden) hideSheet(); });
+  build(); draw();
+  window.S048_READY = performance.now();
+  setTimeout(loadDetail, 400);
+  // ふりがな：辞書はこのページの1つ上（../furigana_dict.js）。押したときに先に読んでから
+  const fb = document.getElementById('furi');
+  fb.addEventListener('click', e => { if (window.FURI_DICT) return; e.stopImmediatePropagation(); const s = document.createElement('script'); s.src = '../furigana_dict.js'; s.onload = () => fb.click(); document.head.appendChild(s); }, true);
+})();
+</script>
+<script src="../furigana.js"></script>
+<script>
+(function () { let on = false; try { on = localStorage.getItem('tn-furi') === '1'; } catch (e) { /* 保存できない */ }
+  const init = () => Furigana.init(document.getElementById('furi'));
+  if (on) { const s = document.createElement('script'); s.src = '../furigana_dict.js'; s.onload = init; document.head.appendChild(s); } else init(); })();
+</script>
+</body>
+</html>
