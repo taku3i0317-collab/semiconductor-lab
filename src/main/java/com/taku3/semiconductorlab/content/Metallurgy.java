@@ -78,12 +78,32 @@ public final class Metallurgy {
     public static final Item IRON_POWDER           = Reg.item("iron_powder");
     public static final Item IRON_COMPACT          = Reg.item("iron_compact");
     public static final Item SINTERED_GEAR         = Reg.item("sintered_gear");
+    // [1-35] ネオジム磁石（IMP3、O-024、Q3-17 ①）：La・Pr・Nd の液＋シュウ酸 → シュウ酸塩 →かまど→ 軽い希土類の酸化物 → 4つ＋塩酸＋陽イオン交換樹脂 → 酸化ネオジム
+    //   ＋フッ酸2 → フッ化ネオジム。酸化ネオジム＋フッ化ネオジム＋黒鉛棒 → 電解の仕込み →電気炉（溶融塩電解の近似）→ ネオジム
+    //   B2O3＋磁鉄鉱＋木炭2 →溶鉱炉→ フェロボロン。ネオジム2＋鉄の粉4＋フェロボロン → NdFeB 合金 → ＋水素 → 粉2（水素で砕く）
+    //   着磁のヨーク（電磁石＋鋼4、戻る）。粉4＋鋼の型＋ヨーク（磁場で向きをそろえる）→ 圧粉体 →電気炉（焼結）→ 焼結した NdFeB → ＋ヨーク → ネオジム磁石
+    public static final Item LIGHT_RARE_EARTH_OXALATE = Reg.item("light_rare_earth_oxalate");
+    public static final Item LIGHT_RARE_EARTH_OXIDE = Reg.item("light_rare_earth_oxide");
+    public static final Item NEODYMIUM_OXIDE       = Reg.item("neodymium_oxide");
+    public static final Item NEODYMIUM_FLUORIDE    = Reg.item("neodymium_fluoride");
+    public static final Item NEODYMIUM_ELECTROLYSIS_CHARGE = Reg.item("neodymium_electrolysis_charge");
+    public static final Item NEODYMIUM            = Reg.item("neodymium");
+    public static final Item FERROBORON_CHARGE     = Reg.item("ferroboron_charge");
+    public static final Item FERROBORON            = Reg.item("ferroboron");
+    public static final Item NDFEB_ALLOY           = Reg.item("ndfeb_alloy");
+    public static final Item NDFEB_POWDER          = Reg.item("ndfeb_powder");
+    public static final Item MAGNETIZING_YOKE      = Reg.item("magnetizing_yoke", CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item NDFEB_COMPACT         = Reg.item("ndfeb_compact");
+    public static final Item SINTERED_NDFEB        = Reg.item("sintered_ndfeb");
+    public static final Item NEODYMIUM_MAGNET      = Reg.item("neodymium_magnet");
     // [1-19] 希土類（イットリウム・セリウム、IMP3、S-009。E の白色 LED の蛍光体 YAG:Ce のため）。放射性のトリウムが少ない鉱石を選んだ（モナズ石は説明だけ）
     //   Ce：バストネス石 →かまど（焙焼、Ce を CeO2 に）→ ＋塩酸2（ほかの希土類がとける）→ 酸化セリウム
     //   Y ：イオン吸着型の粘土4＋硫酸アンモニウム＋水 → 希土類の浸出液 → ＋シュウ酸 → シュウ酸塩 →かまど→ 希土類の酸化物（Y が多い）
     //       → 4つ＋塩酸＋陽イオン交換樹脂 → 酸化イットリウム2（1947 スペディングのイオン交換）。シュウ酸＝砂糖＋硝酸2（1776 シェーレ）
     public static final Item BASTNAESITE           = Reg.item("bastnaesite");
-    public static final Item ROASTED_BASTNAESITE   = Reg.item("roasted_bastnaesite");
+    // [1-35] 塩酸で CeO2 を残したあとの液（La・Pr・Nd）。焼いたバストネス石を作業台で使うと、その場に残る（IMP3、O-024）
+    public static final Item LIGHT_RARE_EARTH_LIQUOR = Reg.item("light_rare_earth_liquor", new Item.Properties().stacksTo(16));
+    public static final Item ROASTED_BASTNAESITE   = Reg.item("roasted_bastnaesite", new Item.Properties().craftRemainder(LIGHT_RARE_EARTH_LIQUOR));
     public static final Item CERIUM_OXIDE          = Reg.item("cerium_oxide");
     public static final Item OXALIC_ACID           = Reg.item("oxalic_acid");
     public static final Item RARE_EARTH_LEACHATE   = Reg.item("rare_earth_leachate", new Item.Properties().stacksTo(16));

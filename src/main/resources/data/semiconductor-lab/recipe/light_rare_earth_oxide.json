@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "ingredient": "semiconductor-lab:light_rare_earth_oxalate",
+  "result": {
+    "id": "semiconductor-lab:light_rare_earth_oxide"
+  }
+}

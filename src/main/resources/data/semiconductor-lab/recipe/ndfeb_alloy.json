@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:neodymium",
+    "semiconductor-lab:neodymium",
+    "semiconductor-lab:iron_powder",
+    "semiconductor-lab:iron_powder",
+    "semiconductor-lab:iron_powder",
+    "semiconductor-lab:iron_powder",
+    "semiconductor-lab:ferroboron"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ndfeb_alloy",
+    "count": 1
+  }
+}

@@ -1151,4 +1151,23 @@ public class MetallurgyTests extends LabTestBase {
         h.assertTrue(com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity.recipes().get(Metallurgy.IRON_COMPACT) == Metallurgy.SINTERED_GEAR, "electric furnace sinters the compact");
         h.succeed();
     }
+
+    /** [1-35] ネオジム磁石（IMP3、O-024）：CeO2 の残りの液 → シュウ酸塩 → 酸化物 → イオン交換 → Nd2O3 → NdF3 → 溶融塩電解（電気炉）→ Nd。Nd＋鉄の粉＋フェロボロン → 粉 → 型と磁場で圧粉体 → 焼結 → 着磁 */
+    @GameTest
+    public void neodymiumMagnet(GameTestHelper h) {
+        var rem = Metallurgy.ROASTED_BASTNAESITE.getCraftingRemainder(new ItemStack(Metallurgy.ROASTED_BASTNAESITE));
+        h.assertTrue(rem != null && rem.create().is(Metallurgy.LIGHT_RARE_EARTH_LIQUOR), "La/Pr/Nd liquor stays after taking CeO2");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.LIGHT_RARE_EARTH_OXALATE).is(Metallurgy.LIGHT_RARE_EARTH_OXIDE), "calcine oxalate");
+        h.assertTrue(recipeUses(h, "neodymium_oxide", Metallurgy.LIGHT_RARE_EARTH_OXIDE) && recipeUses(h, "neodymium_oxide", Chemistry.CATION_EXCHANGE_RESIN), "ion exchange -> Nd2O3");
+        var ef = com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity.recipes();
+        h.assertTrue(ef.get(Metallurgy.NEODYMIUM_ELECTROLYSIS_CHARGE) == Metallurgy.NEODYMIUM && ef.get(Metallurgy.NDFEB_COMPACT) == Metallurgy.SINTERED_NDFEB, "electric furnace: electrolysis (approx.) and sintering");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.FERROBORON_CHARGE).is(Metallurgy.FERROBORON), "ferroboron");
+        h.assertTrue(recipeUses(h, "ndfeb_alloy", Metallurgy.NEODYMIUM) && recipeUses(h, "ndfeb_alloy", Metallurgy.IRON_POWDER) && recipeUses(h, "ndfeb_alloy", Metallurgy.FERROBORON), "Nd + Fe + B");
+        h.assertTrue(recipeUses(h, "ndfeb_compact", Metallurgy.STEEL_DIE) && recipeUses(h, "ndfeb_compact", Metallurgy.MAGNETIZING_YOKE), "pressed in a field in the die");
+        h.assertTrue(recipeUses(h, "neodymium_magnet", Metallurgy.SINTERED_NDFEB), "magnetize");
+        var y = Metallurgy.MAGNETIZING_YOKE.getCraftingRemainder(new ItemStack(Metallurgy.MAGNETIZING_YOKE));
+        h.assertTrue(y != null && y.create().is(Metallurgy.MAGNETIZING_YOKE), "the yoke comes back");
+        LOG.info("[LAB] neodymium magnet [1-35]: bastnaesite liquor -> Nd2O3 -> NdF3 -> Nd; Nd2Fe14B -> H2 powder -> aligned compact -> sinter -> magnetize");
+        h.succeed();
+    }
 }

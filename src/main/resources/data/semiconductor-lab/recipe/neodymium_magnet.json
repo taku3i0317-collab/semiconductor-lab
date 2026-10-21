@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sintered_ndfeb",
+    "semiconductor-lab:magnetizing_yoke"
+  ],
+  "result": {
+    "id": "semiconductor-lab:neodymium_magnet",
+    "count": 1
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:neodymium_oxide",
+    "semiconductor-lab:neodymium_fluoride",
+    "semiconductor-lab:graphite_rod"
+  ],
+  "result": {
+    "id": "semiconductor-lab:neodymium_electrolysis_charge",
+    "count": 1
+  }
+}

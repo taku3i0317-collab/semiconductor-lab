@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ndfeb_alloy",
+    "semiconductor-lab:hydrogen_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ndfeb_powder",
+    "count": 2
+  }
+}

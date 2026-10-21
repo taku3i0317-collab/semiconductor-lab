@@ -33,7 +33,9 @@ public class ElectricFurnaceBlockEntity extends ConsumerBlockEntity {
         return Map.of(
                 Heat.REFRACTORY_BRICK_BLANK, Heat.REFRACTORY_BRICK,
                 Semiconductor.GRAPHITE_BOAT_BLANK, Semiconductor.GRAPHITE_BOAT,
-                com.taku3.semiconductorlab.content.Metallurgy.IRON_COMPACT, com.taku3.semiconductorlab.content.Metallurgy.SINTERED_GEAR);   // [1-72] 焼結（IMP3、O-024）
+                com.taku3.semiconductorlab.content.Metallurgy.IRON_COMPACT, com.taku3.semiconductorlab.content.Metallurgy.SINTERED_GEAR,   // [1-72] 焼結（IMP3、O-024）
+                com.taku3.semiconductorlab.content.Metallurgy.NDFEB_COMPACT, com.taku3.semiconductorlab.content.Metallurgy.SINTERED_NDFEB,   // [1-35] ネオジム磁石の焼結
+                com.taku3.semiconductorlab.content.Metallurgy.NEODYMIUM_ELECTROLYSIS_CHARGE, com.taku3.semiconductorlab.content.Metallurgy.NEODYMIUM);   // [1-35] 溶融塩電解の近似 ⚠️
     }
 
     /** 画面のスロットの並び（IMP-28：前の ElectricFurnaceMenu の代わり） */

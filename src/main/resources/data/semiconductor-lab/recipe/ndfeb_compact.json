@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ndfeb_powder",
+    "semiconductor-lab:ndfeb_powder",
+    "semiconductor-lab:ndfeb_powder",
+    "semiconductor-lab:ndfeb_powder",
+    "semiconductor-lab:steel_die",
+    "semiconductor-lab:magnetizing_yoke"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ndfeb_compact",
+    "count": 1
+  }
+}

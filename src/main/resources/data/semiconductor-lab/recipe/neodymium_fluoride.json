@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:neodymium_oxide",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:hydrofluoric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:neodymium_fluoride",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "S S",
+    "SES",
+    "   "
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "E": "semiconductor-lab:electromagnet"
+  },
+  "result": {
+    "id": "semiconductor-lab:magnetizing_yoke",
+    "count": 1
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:light_rare_earth_oxide",
+    "semiconductor-lab:light_rare_earth_oxide",
+    "semiconductor-lab:light_rare_earth_oxide",
+    "semiconductor-lab:light_rare_earth_oxide",
+    "semiconductor-lab:hydrochloric_acid",
+    "semiconductor-lab:cation_exchange_resin"
+  ],
+  "result": {
+    "id": "semiconductor-lab:neodymium_oxide",
+    "count": 1
+  }
+}

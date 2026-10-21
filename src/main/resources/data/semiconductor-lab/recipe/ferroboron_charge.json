@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:boron_trioxide",
+    "semiconductor-lab:magnetite",
+    "minecraft:charcoal",
+    "minecraft:charcoal"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ferroboron_charge",
+    "count": 1
+  }
+}
