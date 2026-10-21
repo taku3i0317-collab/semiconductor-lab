@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 194（ja・en）、文字の置き場所 710、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 196（ja・en）、文字の置き場所 718、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -409,6 +409,17 @@ co2_laser_en_us hint gui.semiconductor-lab.co2_laser.need_input w=94 lines=2/3
 co2_laser_en_us hint gui.semiconductor-lab.co2_laser.output_full w=53 lines=1/3
 co2_laser_en_us hint gui.semiconductor-lab.co2_laser.need_power w=46 lines=1/3
 co2_laser_en_us hint gui.semiconductor-lab.co2_laser.running w=71 lines=1/3
+euv_source_en_us power gui.semiconductor-lab.euv_source.power w=63 lines=1/1
+euv_source_en_us euv gui.semiconductor-lab.euv_source.euv w=58 lines=1/1
+euv_source_en_us lasers gui.semiconductor-lab.euv_source.lasers w=46 lines=1/1
+euv_source_en_us hint gui.semiconductor-lab.euv_source.need_tin w=48 lines=1/3
+euv_source_en_us hint gui.semiconductor-lab.euv_source.need_droplet w=139 lines=3/3
+euv_source_en_us hint gui.semiconductor-lab.euv_source.need_collector w=144 lines=3/3
+euv_source_en_us hint gui.semiconductor-lab.euv_source.need_vacuum w=172 lines=3/3
+euv_source_en_us hint gui.semiconductor-lab.euv_source.need_laser w=136 lines=3/3
+euv_source_en_us hint gui.semiconductor-lab.euv_source.need_power w=46 lines=1/3
+euv_source_en_us hint gui.semiconductor-lab.euv_source.running w=105 lines=2/3
+euv_source_en_us hint gui.semiconductor-lab.euv_source.dirty w=126 lines=3/3
 evaporator_en_us power gui.semiconductor-lab.evaporator.power w=63 lines=1/1
 evaporator_en_us pressure gui.semiconductor-lab.evaporator.pressure w=53 lines=1/1
 evaporator_en_us target gui.semiconductor-lab.evaporator.target w=61 lines=1/1
@@ -1319,6 +1330,17 @@ co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.need_input w=54 lines=1/3
 co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.output_full w=45 lines=1/3
 co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.need_power w=72 lines=1/3
 co2_laser_ja_jp hint gui.semiconductor-lab.co2_laser.running w=81 lines=2/3
+euv_source_ja_jp power gui.semiconductor-lab.euv_source.power w=51 lines=1/1
+euv_source_ja_jp euv gui.semiconductor-lab.euv_source.euv w=58 lines=1/1
+euv_source_ja_jp lasers gui.semiconductor-lab.euv_source.lasers w=59 lines=1/1
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.need_tin w=54 lines=1/3
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.need_droplet w=81 lines=2/3
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.need_collector w=108 lines=2/3
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.need_vacuum w=118 lines=2/3
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.need_laser w=107 lines=2/3
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.need_power w=72 lines=1/3
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.running w=90 lines=2/3
+euv_source_ja_jp hint gui.semiconductor-lab.euv_source.dirty w=126 lines=2/3
 evaporator_ja_jp power gui.semiconductor-lab.evaporator.power w=51 lines=1/1
 evaporator_ja_jp pressure gui.semiconductor-lab.evaporator.pressure w=61 lines=1/1
 evaporator_ja_jp target gui.semiconductor-lab.evaporator.target w=58 lines=1/1

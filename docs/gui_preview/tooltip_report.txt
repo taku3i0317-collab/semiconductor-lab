@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 733（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 734（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1121,6 +1121,8 @@ en_us oxyhydrogen_burner lines=9
 en_us oxyhydrogen_burner shift lines=21
 en_us co2_laser lines=8
 en_us co2_laser shift lines=19
+en_us euv_source lines=10
+en_us euv_source shift lines=23
 en_us evaporator lines=4
 en_us evaporator shift lines=24
 en_us sealing_station lines=6
@@ -2587,6 +2589,8 @@ ja_jp oxyhydrogen_burner lines=7
 ja_jp oxyhydrogen_burner shift lines=17
 ja_jp co2_laser lines=6
 ja_jp co2_laser shift lines=16
+ja_jp euv_source lines=8
+ja_jp euv_source shift lines=19
 ja_jp evaporator lines=3
 ja_jp evaporator shift lines=22
 ja_jp sealing_station lines=5
