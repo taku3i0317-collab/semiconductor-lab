@@ -46,6 +46,9 @@ public class ScannerBlockEntity extends StepperBlockEntity {
 
     public ScannerBlockEntity(BlockPos pos, BlockState state) { super(Semiconductor.SCANNER.type, pos, state, SCANNER_SLOT_COUNT); }
 
+    /** EUV 露光装置 [9-40] が使う */
+    protected ScannerBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state) { super(type, pos, state, SCANNER_SLOT_COUNT); }
+
     @Override public int lensCd() {
         ItemStack lens = container.getItem(SLOT_LENS);
         return lensOk(lens) ? ProjectionLensItem.cdNm(lens, SLIT_ABERRATION, tricks()) : 0;

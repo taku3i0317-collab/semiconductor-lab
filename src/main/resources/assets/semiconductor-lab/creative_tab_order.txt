@@ -600,6 +600,8 @@ mo_si_target  # Optics [7-17] 1985
 multilayer_mirror  # Optics [7-17] 1985
 projection_lens_immersion  # Optics [7-16] 2006
 euv_source  # Optics [7-18] 2010
+euv_mirror_set  # Optics [9-40] 2019
+euv_projection_optics  # Optics [9-40] 2019
 vernier_caliper  # Precision [8-04] 1631
 micrometer  # Precision [8-04] 1631
 simple_microscope  # Precision [8-10] 1670
@@ -725,8 +727,9 @@ mems_accelerometer  # Semiconductor [9-43] 1993
 copper_plater  # Semiconductor [9-36] 1997
 hafnium_chlorinator  # Semiconductor [9-37] 1999
 ald_reactor  # Semiconductor [9-37] 1999
+euv_mask  # Semiconductor [9-40] 2019
+euv_scanner  # Semiconductor [9-40] 2019
 euv_mask_blank  # Semiconductor [None] None
-euv_mask  # Semiconductor [None] None
 hafnium_tetrachloride  # Semiconductor [None] None
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None

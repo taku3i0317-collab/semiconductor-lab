@@ -500,5 +500,17 @@
   "item.semiconductor-lab.ir_cut_filter.note2": "Vacuum evaporator: crown glass + 3 fluorite (many stacked layers). Part of the phone camera.",
   "item.semiconductor-lab.ir_cut_filter.note3": "Silicon image sensors also respond to near infrared (about 0.7-1.1 um) that eyes cannot see, which would spoil the colours.",
   "item.semiconductor-lab.ir_cut_filter.note4": "Stacking dozens of thin films of alternating refractive index strongly reflects a chosen band (an interference filter), the same idea as anti-reflection coatings and the i-line filter.",
-  "item.semiconductor-lab.ir_cut_filter.placeholder": "Approximation: real filters use dozens of SiO2/TiO2 layers; three fluorite stand in here."
+  "item.semiconductor-lab.ir_cut_filter.placeholder": "Approximation: real filters use dozens of SiO2/TiO2 layers; three fluorite stand in here.",
+  "item.semiconductor-lab.euv_mirror_set": "EUV Mirror Set",
+  "item.semiconductor-lab.euv_mirror_set.note1": "A set of six multilayer mirrors that carry EUV light.",
+  "item.semiconductor-lab.euv_mirror_set.note2": "6 multilayer mirrors. With a centred lens barrel it makes the EUV projection optics.",
+  "item.semiconductor-lab.euv_mirror_set.note3": "An EUV scanner's projection optics have six mirrors, with a few more in the illuminator: about ten in all.",
+  "item.semiconductor-lab.euv_mirror_set.note4": "The mirror shapes are polished to within a few atoms (under 0.1 nm) and kept at constant temperature in vacuum so they do not deform.",
+  "item.semiconductor-lab.euv_mirror_set.placeholder": "Approximation: the assembly does not keep each mirror's pair count; mirrors count as 40 pairs.",
+  "item.semiconductor-lab.euv_projection_optics": "EUV Projection Optics",
+  "item.semiconductor-lab.euv_projection_optics.note1": "Optics that shrink the pattern four times with mirrors alone, without a single lens.",
+  "item.semiconductor-lab.euv_projection_optics.note2": "Centred lens barrel + EUV mirror set (keeps the offsets). 13.5 nm, NA 0.33. Goes in the EUV scanner's lens slot.",
+  "item.semiconductor-lab.euv_projection_optics.note3": "13.5 nm EUV is absorbed by every glass, so no lens can be made. The EUV scanners that entered production in 2019 use mirrors for both projection and illumination.",
+  "item.semiconductor-lab.euv_projection_optics.note4": "Because the mirrors work at an angle, the mask is reflective too and light strikes it slightly tilted. High-NA EUV with NA 0.55 is now being built.",
+  "item.semiconductor-lab.euv_projection_optics.placeholder": "Approximation: NA 0.33, k1 base 0.6 (reducible with tricks). Mirror figure and oblique illumination effects are not modelled."
 }

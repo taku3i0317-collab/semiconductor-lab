@@ -500,5 +500,17 @@
   "item.semiconductor-lab.ir_cut_filter.note2": "真空蒸着装置：クラウンガラス＋蛍石×3（膜を何層も重ねる）。スマホのカメラの部品。",
   "item.semiconductor-lab.ir_cut_filter.note3": "シリコンの画像センサーは人の目に見えない近赤外線（約0.7〜1.1µm）にも反応するので、そのままだと色がおかしくなる。",
   "item.semiconductor-lab.ir_cut_filter.note4": "屈折率のちがう薄い膜を交互に何十層も重ねると、決まった波長だけを強くはね返す（干渉フィルター）。反射防止膜・i線フィルターと同じ考え。",
-  "item.semiconductor-lab.ir_cut_filter.placeholder": "近似：本物は SiO2 と TiO2 などを何十層。ここでは蛍石3つで代わり。"
+  "item.semiconductor-lab.ir_cut_filter.placeholder": "近似：本物は SiO2 と TiO2 などを何十層。ここでは蛍石3つで代わり。",
+  "item.semiconductor-lab.euv_mirror_set": "EUV の鏡の組",
+  "item.semiconductor-lab.euv_mirror_set.note1": "EUV の光を運ぶ、多層膜の鏡を6枚そろえた組。",
+  "item.semiconductor-lab.euv_mirror_set.note2": "多層膜ミラー×6。心出し済みの鏡筒と合わせると EUV の投影光学。",
+  "item.semiconductor-lab.euv_mirror_set.note3": "EUV 露光装置の投影光学は6枚の鏡、照明の側にも数枚の鏡があり、合わせて約10枚。",
+  "item.semiconductor-lab.euv_mirror_set.note4": "鏡の形は原子数個ぶん（0.1nm 以下）の正確さで磨き、真空の中で温度を一定にして形が変わらないようにする。",
+  "item.semiconductor-lab.euv_mirror_set.placeholder": "近似：組み立てで鏡の対の数は引き継がず、40対の鏡とみなす。",
+  "item.semiconductor-lab.euv_projection_optics": "EUV の投影光学",
+  "item.semiconductor-lab.euv_projection_optics.note1": "レンズを1枚も使わず、鏡だけで模様を4分の1に縮めて写す光学。",
+  "item.semiconductor-lab.euv_projection_optics.note2": "心出し済みの鏡筒＋EUV の鏡の組（ずれを引き継ぐ）。13.5nm・NA 0.33。EUV 露光装置のレンズの入口へ。",
+  "item.semiconductor-lab.euv_projection_optics.note3": "13.5nm の EUV はどんなガラスにも吸われるので、レンズが作れない。2019年に量産が始まった EUV 露光装置は、投影も照明も全部が鏡。",
+  "item.semiconductor-lab.euv_projection_optics.note4": "鏡は斜めに使うので、マスクも反射型になり、光は少し傾いてマスクに当たる。NA を 0.55 に上げた「High-NA EUV」も作られている。",
+  "item.semiconductor-lab.euv_projection_optics.placeholder": "近似：NA 0.33・k1 の土台 0.6（工夫で下げられる）。鏡の形・斜めの照明の影響は作らない。"
 }

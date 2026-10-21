@@ -51,6 +51,9 @@ public class EuvSourceBlockEntity extends ConsumerBlockEntity {
     }
 
     public double euvW() { return euvMilliW / 1000.0; }
+
+    /** [9-40] 光っていられるか（スズ・液滴発生器・集光鏡・真空・隣の CO2 レーザーがそろっている）。EUV の露光装置が読む */
+    public boolean ready() { return canWork(); }
     public int lasers() { return lasers; }
 
     /** 隣（6方向）の CO2 レーザー */

@@ -812,5 +812,16 @@
   "item.semiconductor-lab.euv_mask.note1": "A patterned reflective mask for the EUV exposure tool.",
   "item.semiconductor-lab.euv_mask.note2": "Made by printing a pattern on an EUV mask blank in the reduction camera (C). The EUV exposure tool [9-40] (C) accepts only this mask.",
   "item.semiconductor-lab.euv_mask.note3": "Light reflects off the mirror pattern and all-mirror projection optics (NA 0.33) shrink it fourfold onto the wafer.",
-  "item.semiconductor-lab.euv_mask.note4": "One costs a fortune. Even the thin dust cover (pellicle) was hard to make for EUV and took years of development."
+  "item.semiconductor-lab.euv_mask.note4": "One costs a fortune. Even the thin dust cover (pellicle) was hard to make for EUV and took years of development.",
+  "block.semiconductor-lab.euv_scanner": "EUV Scanner",
+  "block.semiconductor-lab.euv_scanner.note1": "The exposure tool that prints the finest patterns. The light and all the mirrors are in vacuum.",
+  "block.semiconductor-lab.euv_scanner.note2": "Scanner + 2 turbo pumps + electromagnet + 4 steel + copper cable. Slots as in the scanner (wafer, reflective EUV mask, EUV projection optics, stage screw, mask-stage screw, aperture). Needs an EUV source and a vacuum chamber (1 Pa or less) beside it. Ten mirrors and the mask leave about 2% of the light, and each chip needs 0.2 J, so less light means slower printing (more source lasers make it faster).",
+  "block.semiconductor-lab.euv_scanner.note3": "Built by a Dutch company after a long development, it began volume production of 7 nm chips in 2019 ⚠️. Each machine is bigger than a house, and only one company in the world can make them.",
+  "block.semiconductor-lab.euv_scanner.note4": "Even with about 250 W of EUV at the source, each of about ten mirrors loses some 30%, so only a few watts reach the wafer. Source power therefore set how many wafers per hour could be printed.",
+  "block.semiconductor-lab.euv_scanner.placeholder": "Approximation: a single block, not a multiblock. Light levels and the dose per chip (0.2 J) are game values. Pellicles, oblique mask illumination and stage speed are not modelled.",
+  "gui.semiconductor-lab.euv_scanner.power": "EUV %smW",
+  "gui.semiconductor-lab.euv_scanner.need_mask": "Insert a reflective EUV mask",
+  "gui.semiconductor-lab.euv_scanner.need_optics": "Insert EUV projection optics",
+  "gui.semiconductor-lab.euv_scanner.need_source": "The EUV source beside it is not lit",
+  "gui.semiconductor-lab.euv_scanner.need_vacuum": "Vacuum chamber (1 Pa) beside it"
 }

@@ -2284,6 +2284,50 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-40] EUV 露光装置（IMP2 S-009）：全部が鏡の投影光学（NA 0.33）は細かく、光は隣の EUV 光源から。鏡10枚＋マスクで届く光は数％、届く光が少ないほど遅い。ふつうのマスクは使えない */
+    @GameTest(maxTicks = 1000)
+    public void euv_scanner(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "euv_projection_optics", com.taku3.semiconductorlab.content.Optics.EUV_MIRROR_SET) && recipeUses(h, "euv_mirror_set", com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR), "EUV optics are all mirrors");
+        ItemStack optics = new ItemStack(com.taku3.semiconductorlab.content.Optics.EUV_PROJECTION_OPTICS);
+        optics.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        int cd = com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(optics), g = com.taku3.semiconductorlab.litho.ExposureTool.gridFor(cd);
+        h.assertTrue(cd < 30 && g > com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(withDecenter(new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_IMMERSION)))), "EUV CD " + cd + " nm, grid " + g + " finer than immersion");
+        h.assertTrue(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.throughput() < 0.03, "10 mirrors + mask leave " + com.taku3.semiconductorlab.block.EuvScannerBlockEntity.throughput() * 100 + "% of the light");
+        h.assertTrue(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(0.05) > com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(0.2) && com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(0.2) >= com.taku3.semiconductorlab.block.EuvScannerBlockEntity.STEP_TICKS, "less light -> slower");
+        BlockPos at = p(2, 1, 2), src = p(3, 1, 2), ch1 = p(2, 1, 1), ch2 = p(3, 1, 1), l1 = p(4, 1, 2), l2 = p(3, 1, 3);
+        h.setBlock(at, Semiconductor.EUV_SCANNER.block);
+        h.setBlock(src, com.taku3.semiconductorlab.content.Optics.EUV_SOURCE.block);
+        for (BlockPos c : new BlockPos[]{ch1, ch2}) {
+            h.setBlock(c, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
+            h.getBlockEntity(c, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(0.5);
+        }
+        for (BlockPos lp : new BlockPos[]{l1, l2}) {
+            h.setBlock(lp, com.taku3.semiconductorlab.content.Optics.CO2_LASER.block);
+            var lc = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.class).getContainer();
+            lc.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_WINDOW, new ItemStack(com.taku3.semiconductorlab.content.Optics.SALT_WINDOW));
+            lc.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_CO2, new ItemStack(Gas.CARBON_DIOXIDE_GAS));
+            lc.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_N2, new ItemStack(Gas.NITROGEN_GAS));
+            h.getBlockEntity(lp, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.class).getStorage().insert(100_000, false);
+        }
+        var s = h.getBlockEntity(src, com.taku3.semiconductorlab.block.EuvSourceBlockEntity.class);
+        s.getContainer().setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_TIN, new ItemStack(Metallurgy.TIN_INGOT, 8));
+        s.getContainer().setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_DROPLET, new ItemStack(Precision.DROPLET_GENERATOR));
+        s.getContainer().setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_COLLECTOR, com.taku3.semiconductorlab.item.MultilayerMirrorItem.withPairs(new ItemStack(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR), 40));
+        s.getContainer().setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, 8));
+        tickConsumer(h, src, s, com.taku3.semiconductorlab.block.EuvSourceBlockEntity.TICKS + 5, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.WATTS));
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.EuvScannerBlockEntity.class);
+        double d = be.deliveredW();
+        h.assertTrue(s.euvW() > 0 && d > 0 && Math.abs(d - s.euvW() * com.taku3.semiconductorlab.block.EuvScannerBlockEntity.throughput()) < 1e-9, "source " + s.euvW() + " W -> wafer " + d + " W");
+        var mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        int mg = com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid;
+        mask.set(ModDataComponents.MASK, new com.taku3.semiconductorlab.litho.MaskData(mg, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(mg), "euv_test", 0));
+        h.assertFalse(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.isEuvMask(mask), "a chrome (transmissive) mask does not work for EUV");
+        LOG.info("[LAB] EUV scanner [9-40]: all-mirror NA 0.33 CD " + cd + " nm grid " + g + "; source " + String.format(java.util.Locale.ROOT, "%.2f", s.euvW()) + " W -> wafer " + String.format(java.util.Locale.ROOT, "%.3f", d) + " W, step " + com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(d) / 20.0 + " s");
+        h.succeed();
+    }
+
+    private static ItemStack withDecenter(ItemStack s) { s.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4)); return s; }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

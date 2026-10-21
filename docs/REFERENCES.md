@@ -2429,6 +2429,18 @@
 - Wikipedia「Optical fiber」：https://en.wikipedia.org/wiki/Optical_fiber
 - Wikipedia「Charles K. Kao」：https://en.wikipedia.org/wiki/Charles_K._Kao
 
+## O84. レンズの無い露光装置（EUV 露光装置）［9-40］
+**答え**：13.5nm の EUV はどんなガラスにも吸われるので、レンズで像を作れない。EUV 露光装置は、マスクから鏡の投影光学まで全部が反射で、光の通り道は真空。Mo/Si の多層膜の鏡は1枚で約7割しか反射しないので、照明と投影の約10枚と反射型のマスクを通ると、光源の光の数％しかウェハーに届かない。だから光源の強さ（約250W）が、1時間に焼ける枚数を決めた。オランダの ASML が長い開発の末に作り、2019年に 7nm 世代のチップの量産に使われた。
+
+- へえ①：世界で1社しか作れない、家1軒より大きな「カメラ」。
+- へえ②：レンズを1枚も使わず、鏡だけで模様を4分の1に縮める。
+- へえ③：光源の光の約2%しかウェハーに届かない。
+- へえ④：NA を 0.55 に上げた High-NA EUV も作られている。
+
+確かさ：全部が鏡・反射型マスク・真空 ◎／2019 量産 ○⚠️（7nm 世代）／届く光の割合 △（鏡の枚数と反射率による）
+根拠：
+- Wikipedia「Extreme ultraviolet lithography」：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
+
 ---
 
 # 冶金と熱（タスク15〜）

@@ -85,6 +85,12 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     /** この機械で使うときのレンズの CD（ステッパーはレンズ全体、スキャナーはスリットだけで小さくなる） */
     public int lensCd() { ItemStack l = container.getItem(SLOT_LENS); return lensOk(l) ? ProjectionLensItem.cdNm(l, 1, tricks()) : 0; }
 
+    /** 光の準備：レンズが光源の波長に合い、液浸なら水がある（EUV の露光装置は上書き＝隣の EUV 光源と真空） */
+    protected boolean lightReady(ItemStack lens) { return lensMatches(lens, container.getItem(SLOT_FILTER)) && waterOk(); }
+
+    /** 使えるマスク（EUV の露光装置は反射型の EUV マスクだけ） */
+    protected boolean maskOk(ItemStack m) { return MaskAlignerBlockEntity.isMask(m); }
+
     /** 送りの台がそろっているか（スキャナーはマスクの台も要る） */
     protected boolean stagesReady() { return true; }
 
@@ -122,7 +128,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     public boolean canStep() {
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         ItemStack lens = container.getItem(SLOT_LENS);
-        return MaskAlignerBlockEntity.isMask(m) && lensOk(lens) && lensMatches(lens, container.getItem(SLOT_FILTER)) && waterOk() && stagesReady() && container.getItem(SLOT_OUT).isEmpty()
+        return maskOk(m) && lensOk(lens) && lightReady(lens) && stagesReady() && container.getItem(SLOT_OUT).isEmpty()
                 && ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), 0, ProjectionLensItem.dofNm(lens)).ok();
     }
 

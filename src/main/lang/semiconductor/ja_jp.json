@@ -812,5 +812,16 @@
   "item.semiconductor-lab.euv_mask.note1": "EUV の露光装置で使う、模様を付けた反射型のマスク。",
   "item.semiconductor-lab.euv_mask.note2": "縮小カメラ（C）で EUV のマスクの板に模様を写して作る。EUV 露光装置 [9-40]（C）はこのマスクだけを受け付ける。",
   "item.semiconductor-lab.euv_mask.note3": "光は鏡の模様で反射し、全部が鏡の投影光学（NA 0.33）で 1/4 に縮めてウェハーに写る。",
-  "item.semiconductor-lab.euv_mask.note4": "1枚が何億円もする。マスクの上のごみを防ぐ薄い膜（ペリクル）も EUV では難しく、長く開発が続いた。"
+  "item.semiconductor-lab.euv_mask.note4": "1枚が何億円もする。マスクの上のごみを防ぐ薄い膜（ペリクル）も EUV では難しく、長く開発が続いた。",
+  "block.semiconductor-lab.euv_scanner": "EUV 露光装置",
+  "block.semiconductor-lab.euv_scanner.note1": "いちばん細かい模様を焼く露光装置。光も鏡も、全部が真空の中。",
+  "block.semiconductor-lab.euv_scanner.note2": "スキャナー＋ターボ分子ポンプ×2＋電磁石＋鋼×4＋銅ケーブル。入口はスキャナーと同じ（板・反射型の EUV マスク・EUV の投影光学・台のねじ・マスクの台のねじ・照明の絞り）。隣に EUV 光源と真空容器（1Pa 以下）。鏡10枚とマスクで光は約2%に減り、1チップに 0.2J 当てるので、届く光が少ないほど時間がかかる（光源のレーザーを増やすと速い）。",
+  "block.semiconductor-lab.euv_scanner.note3": "オランダの会社が長い開発の末に作り、2019年に7nm 世代のチップの量産が始まった⚠️。1台が家1軒より大きく、世界で1社しか作れない。",
+  "block.semiconductor-lab.euv_scanner.note4": "光源で 約250W の EUV を作っても、約10枚の鏡で1枚ごとに約3割失い、ウェハーに届くのは数W。だから光源の強さが、1時間に焼ける枚数を決めた。",
+  "block.semiconductor-lab.euv_scanner.placeholder": "近似：マルチブロックではなく1ブロック。光の量・1チップの量（0.2J）はゲームの値。ペリクル・マスクの斜め照明・ステージの速さは作らない。",
+  "gui.semiconductor-lab.euv_scanner.power": "EUV %smW",
+  "gui.semiconductor-lab.euv_scanner.need_mask": "反射型の EUV マスクを入れて",
+  "gui.semiconductor-lab.euv_scanner.need_optics": "EUV の投影光学を入れて",
+  "gui.semiconductor-lab.euv_scanner.need_source": "隣の EUV 光源が光っていない",
+  "gui.semiconductor-lab.euv_scanner.need_vacuum": "隣に真空容器（1Pa 以下）"
 }

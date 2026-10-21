@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/euv_scanner_front",
+    "side": "semiconductor-lab:block/euv_scanner_side",
+    "top": "semiconductor-lab:block/euv_scanner_top"
+  }
+}

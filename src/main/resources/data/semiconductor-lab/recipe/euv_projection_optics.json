@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:centered_lens_barrel",
+  "material": "semiconductor-lab:euv_mirror_set",
+  "result": {
+    "id": "semiconductor-lab:euv_projection_optics"
+  }
+}

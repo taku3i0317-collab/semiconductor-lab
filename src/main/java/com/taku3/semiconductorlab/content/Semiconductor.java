@@ -132,6 +132,8 @@ public final class Semiconductor {
     // [9-39] 縮小投影露光（ステッパー、IMP2 S-003・S-004）：投影レンズで 1/5 に縮めて1チップずつ送って焼く（段階1＝手で送る、段階2＝[10-15] の自動送り）。g線、方眼16
     public static final Machine<StepperBlockEntity> STEPPER = Machine.electric("stepper", StepperBlockEntity::new, StepperBlockEntity.LAYOUT, metal(4.0f));
     // スキャナー [9-39] の続き（IMP2 O-021、ステップ・アンド・スキャン 1990年代）：ステッパー＋ボールねじ×2（マスクの台）。細いスリットでマスクと板を一緒に動かすので、同じレンズで CD が細くなる
+    // EUV 露光装置 [9-40]（IMP2 S-009、2019 量産）：スキャナー＋ターボ分子ポンプ×2＋電磁石。隣の EUV 光源・真空容器、EUV の投影光学と反射型マスク（E）。届く光が少ないほど遅い
+    public static final Machine<EuvScannerBlockEntity> EUV_SCANNER = Machine.electric("euv_scanner", EuvScannerBlockEntity::new, EuvScannerBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<ScannerBlockEntity> SCANNER = Machine.electric("scanner", ScannerBlockEntity::new, ScannerBlockEntity.LAYOUT, metal(4.0f));
     // [9-09] FZ 炉（IMP4-01）：るつぼなしで帯を宙に保つ。酸素が少ない単結晶（20kW、誘導加熱、Ar）
     public static final Machine<FzPullerBlockEntity> FZ_PULLER = Machine.electric("fz_puller", FzPullerBlockEntity::new, FzPullerBlockEntity.LAYOUT, metal(4.0f));

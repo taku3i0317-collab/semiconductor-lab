@@ -563,6 +563,8 @@ setblock ~73 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-16]
 setblock ~73 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens_immersion",count:1}]}
 setblock ~76 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-18] EUV 光源","EUV 光源の画面（電","力・EUV・レーザーの","台数・ヒント）、レーザ"]}}
 setblock ~76 ~0 ~58 semiconductor-lab:euv_source
+setblock ~80 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-40] EUV 露光装","EUV 光源・真空容器","を隣に置いて、画面の「","EUV ○mW」とヒン"]}}
+setblock ~80 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mirror_set",count:1},{Slot:1b,id:"semiconductor-lab:euv_projection_optics",count:1}]}
 setblock ~0 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹8 精密","↓ この列","",""]}}
 setblock ~2 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-04] ノギスとマイク","旋盤で作ったローター・","規格ねじを左手、ノギス","／マイクロメータを右手"]}}
 setblock ~2 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vernier_caliper",count:1},{Slot:1b,id:"semiconductor-lab:micrometer",count:1}]}
@@ -748,9 +750,12 @@ setblock ~150 ~0 ~74 semiconductor-lab:hafnium_chlorinator
 setblock ~151 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~151 ~0 ~74 semiconductor-lab:ald_reactor
 setblock ~152 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hafnium_oxide",count:16},{Slot:1b,id:"semiconductor-lab:coke",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:4b,id:"semiconductor-lab:process_wafer",count:16},{Slot:5b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:6b,id:"semiconductor-lab:distilled_water",count:16}]}
-setblock ~155 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] euv_mask_b","（人間の確認項目なし）","",""]}}
-setblock ~155 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~156 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:euv_mask",count:1},{Slot:2b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:stamp",count:1},{Slot:4b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~155 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-40] EUV 露光装","EUV 光源・真空容器","を隣に置いて、画面の「","EUV ○mW」とヒン"]}}
+setblock ~155 ~0 ~74 semiconductor-lab:euv_scanner
+setblock ~156 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask",count:1}]}
+setblock ~159 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] euv_mask_b","（人間の確認項目なし）","",""]}}
+setblock ~159 ~0 ~74 semiconductor-lab:drafting_table
+setblock ~160 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:2b,id:"semiconductor-lab:stamp",count:1},{Slot:3b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-08] 製粉","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quern",count:1},{Slot:1b,id:"semiconductor-lab:flour",count:16}]}

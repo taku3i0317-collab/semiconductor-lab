@@ -127,6 +127,9 @@ public final class Optics {
     // [P-17] スマホのカメラの光学の部品（IMP2 O-030 仮決定）：小さなレンズ（焦点距離 約4mm・F2）と赤外線カット膜。組み立ては E の画像センサー [9-42]・ベイヤー [9-45] のあと
     public static final Item CAMERA_LENS           = Reg.item("camera_lens");
     public static final Item IR_CUT_FILTER         = Reg.item("ir_cut_filter");
+    // [9-40] EUV 露光装置の投影光学（IMP2 S-009）：多層膜ミラー6枚 → 鏡の組 → 心出し済みの鏡筒に組む（鏡筒のずれを引き継ぐ）。13.5nm・NA 0.33、全部が鏡
+    public static final Item EUV_MIRROR_SET        = Reg.item("euv_mirror_set", new Item.Properties().stacksTo(1));
+    public static final Item EUV_PROJECTION_OPTICS = Reg.item("euv_projection_optics", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.EUV, 0.33), new Item.Properties().stacksTo(1));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
