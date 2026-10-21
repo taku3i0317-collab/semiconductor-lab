@@ -232,7 +232,8 @@ details.wall summary b { color: var(--accent); font-size: 18px; }
   }
 
   function render() {
-    const id = decodeURIComponent(location.hash.slice(1)) || data.goal;
+    // 番号は #番号 でも ?id=番号 でも（S-012：?id= を無視して [10-16] が出ていた）。両方あれば # を使う
+    const id = decodeURIComponent(location.hash.slice(1)) || new URLSearchParams(location.search).get('id') || data.goal;
     const d = byId.get(id);
     const page = document.getElementById('page');
     document.getElementById('back').href = 'network.html#' + encodeURIComponent(id);
