@@ -1,0 +1,10 @@
+{
+  "item.semiconductor-lab.mercury_thermometer": "水銀の体温計",
+  "item.semiconductor-lab.mercury_thermometer.note1": "ガラスの細い管に水銀が入った温度計。右クリックで空気の温度、しゃがんで右クリックで体温。",
+  "item.semiconductor-lab.mercury_thermometer.note2": "ソーダ石灰ガラス2＋水銀（鉄のびんは戻る）。⚠ GHS：水銀は急性毒性・臓器への害（割れたら蒸気を吸わない）。",
+  "item.semiconductor-lab.mercury_thermometer.note3": "温まると水銀がふくらんで細い管をのぼる。管がとても細いので、少しふくらむだけで目に見えるほど動く。体温計は管にくびれがあり、測ったあとも目もりが下がらない。",
+  "item.semiconductor-lab.mercury_thermometer.note4": "1714年、ファーレンハイトが水銀の温度計を作った。1866年、イギリスのトーマス・オールバットが短い体温計を作るまで、医者の体温計は約30cmもあって、測るのに20分かかった。今は水銀を使わない電子式（サーミスタ）が多い。",
+  "item.semiconductor-lab.mercury_thermometer.placeholder": "近似：空気の温度はバイオームの温度から出したゲームの値。体温は 36.5〜37.0℃ の近似。",
+  "message.semiconductor-lab.mercury_thermometer.air": "空気の温度：約 %s℃",
+  "message.semiconductor-lab.mercury_thermometer.body": "体温：%s℃（ふつう）"
+}

@@ -3826,6 +3826,19 @@
 - Wikipedia「Lightning rod」：https://en.wikipedia.org/wiki/Lightning_rod
 - Wikipedia「Georg Wilhelm Richmann」：https://en.wikipedia.org/wiki/Georg_Wilhelm_Richmann
 
+## C72. 30cm で20分かかった体温計（水銀の体温計）［13-13］
+**答え**：水銀は温まるとふくらむので、とても細いガラスの管に入れると、少しの温度の変化で目に見えるほど管をのぼる。1714年にファーレンハイトが水銀の温度計を作った。19世紀の医者の体温計は約30cm もあり、測るのに20分かかったが、1866年にイギリスのトーマス・オールバットが持ち運べる短い体温計を作った。体温計の管には細いくびれがあり、測ったあとも目もりが下がらない。水銀は毒なので、今は電子式（サーミスタ）が多い。
+
+- へえ①：昔の体温計は30cm もあった。
+- へえ②：体温計を振って目もりを下げるのは、くびれで止まった水銀を戻すため。
+- へえ③：水銀の温度計は、割れると毒の蒸気が出るので、今は使われなくなった。
+- へえ④：華氏（°F）はファーレンハイトの名前から。
+
+確かさ：ファーレンハイト 1714・オールバット 1866 ◎
+根拠：
+- Wikipedia「Medical thermometer」：https://en.wikipedia.org/wiki/Medical_thermometer
+- Wikipedia「Thomas Clifford Allbutt」：https://en.wikipedia.org/wiki/Thomas_Clifford_Allbutt
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:mercury"
+  ],
+  "result": {
+    "id": "semiconductor-lab:mercury_thermometer",
+    "count": 1
+  }
+}

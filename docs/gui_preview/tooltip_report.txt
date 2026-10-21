@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 860（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 862（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1617,6 +1617,8 @@ en_us reinforced_concrete lines=6
 en_us reinforced_concrete shift lines=12
 en_us tin_bath lines=6
 en_us tin_bath shift lines=12
+en_us mercury_thermometer lines=9
+en_us mercury_thermometer shift lines=16
 en_us marine_chronometer lines=8
 en_us marine_chronometer shift lines=21
 en_us duralumin_charge lines=6
@@ -3339,6 +3341,8 @@ ja_jp reinforced_concrete lines=4
 ja_jp reinforced_concrete shift lines=10
 ja_jp tin_bath lines=5
 ja_jp tin_bath shift lines=10
+ja_jp mercury_thermometer lines=5
+ja_jp mercury_thermometer shift lines=12
 ja_jp marine_chronometer lines=7
 ja_jp marine_chronometer shift lines=17
 ja_jp duralumin_charge lines=4

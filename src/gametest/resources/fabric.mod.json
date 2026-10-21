@@ -26,6 +26,7 @@
 			"com.taku3.semiconductorlab.gametest.ControlTests",
 			"com.taku3.semiconductorlab.gametest.AgricultureTests",
 			"com.taku3.semiconductorlab.gametest.ConstructionTests",
+			"com.taku3.semiconductorlab.gametest.MedicineTests",
 			"com.taku3.semiconductorlab.gametest.TransportTests",
 			"com.taku3.semiconductorlab.gametest.CommunicationTests",
 			"com.taku3.semiconductorlab.gametest.BranchesTests"
