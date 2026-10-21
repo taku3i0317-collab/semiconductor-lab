@@ -134,3 +134,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ high-k（S-004 の「あとで①」）：D の HfO2 → ハフニウムの塩素化炉（HfCl4）→ ALD 装置（ChipOps.highK、A）。GameTest high_k_gate、CHEMISTRY F68〜F69、REFERENCES F41
 - ✅ [2-33] 化学増幅レジスト：合成釜（block/ResistReactorBlockEntity、5つの反応の表）・ホットプレート（block/BakePlateBlockEntity、ChipOps.bake）・塗布機がレジストの種類を記録（DNQ/KPR/CAR、A の 55cfe13b）。GameTest chemically_amplified_chain、CHEMISTRY F70〜F72、REFERENCES F42
 - C から（O-025 仮決定）：CleanRoom.dustAt を E の工程の機械で ChipOps.addDust に使う入口ができた（576eca44）。E の INBOX かユーザーの決定が来るまで入れない（候補：塗布機・CVD 炉・スパッタ・CMP・めっき・ALD）
+- S-005（ユーザーの決定：v0.5 を全部終えてから v1.0）：v1.0 はユーザーの決定で後回し。E は v1.0 のノードを始めていない（[2-33] 化学増幅レジストは TECH_TREE で「v0.4〜、KrF/ArF 用」、[9-38] GAA は未着手。C の [7-17] 以降は C の判断）。**待機中（v0.4・v0.5 の残り待ち）**。E の候補：v0.5 #7 FinFET の残り（STI のうめ・CMP・頭出し）、#4 歩留まり（A と）
+- S-006：[2-33] は E の版が正。D がホスゲンを使わない部分（PHS 樹脂の本物の道・光酸発生剤の材料）を ⚠️ の所に入れに来る → D と分担を相談（SendMessage）。t-BOC の試薬は省略のまま
