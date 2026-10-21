@@ -1035,7 +1035,36 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-44] ガリウム（IMP4-01、O-020）：バイヤー法の液を使い切ると使い終わった液が1つ、4つ＋PE 瓶を電解 → ガリウム＋NaOH */
+    @GameTest(maxTicks = 400)
+    public void gallium(GameTestHelper h) {
+        floor(h, 7);
+        BlockPos bp = p(1, 1, 1), gp = p(4, 1, 4);
+        h.setBlock(bp, Metallurgy.BAYER_DIGESTER.block);
+        var bd = h.getBlockEntity(bp, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.class);
+        var c = bd.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_BAUXITE, new ItemStack(Metallurgy.BAUXITE, 2 * com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR));
+        c.setItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_NAOH, new ItemStack(Gas.SODIUM_HYDROXIDE));
+        c.setItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_WATER, new ItemStack(net.minecraft.world.item.Items.WATER_BUCKET));
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.WATTS);
+        tickConsumer(h, bp, bd, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS * (com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.RUNS_PER_LIQUOR - 1) + 3, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_SPENT).isEmpty(), "liquor still in use: no spent liquor yet");
+        tickConsumer(h, bp, bd, com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.TICKS + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_SPENT).is(Metallurgy.SPENT_BAYER_LIQUOR) && c.getItem(com.taku3.semiconductorlab.block.BayerDigesterBlockEntity.SLOT_SPENT).getCount() == 1, "liquor used up -> 1 spent liquor (gallium accumulated)");
+        h.setBlock(gp, Metallurgy.GALLIUM_CELL.block);
+        var gc = h.getBlockEntity(gp, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.class);
+        var g = gc.getContainer();
+        g.setItem(com.taku3.semiconductorlab.block.GalliumCellBlockEntity.SLOT_LIQUOR, new ItemStack(Metallurgy.SPENT_BAYER_LIQUOR, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.LIQUOR_PER_RUN));
+        g.setItem(com.taku3.semiconductorlab.block.GalliumCellBlockEntity.SLOT_BOTTLE, new ItemStack(Chemistry.POLYETHYLENE_BOTTLE));
+        tickConsumer(h, gp, gc, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.GalliumCellBlockEntity.WATTS));
+        h.assertTrue(g.getItem(com.taku3.semiconductorlab.block.GalliumCellBlockEntity.SLOT_OUT).is(Metallurgy.GALLIUM) && g.getItem(com.taku3.semiconductorlab.block.GalliumCellBlockEntity.SLOT_NAOH).is(Gas.SODIUM_HYDROXIDE), "electrolysis -> gallium (PE bottle) + NaOH back");
+        LOG.info("[LAB] gallium [1-44]: Bayer liquor used up -> spent liquor; 4 + PE bottle -> Ga + NaOH");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Metallurgy.GALLIUM_CELL.block, "ガリウム", L(io(Metallurgy.SPENT_BAYER_LIQUOR, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.LIQUOR_PER_RUN), io(Chemistry.POLYETHYLENE_BOTTLE, 1)),
+            L(io(Metallurgy.GALLIUM, 1), io(Gas.SODIUM_HYDROXIDE, 1)), com.taku3.semiconductorlab.block.GalliumCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.TICKS / 20.0, "バイヤー法の使い終わった液を電解（液はバイヤー法の溶解釜が液を使い切るたびに1つ）");
         rec(a, Metallurgy.CASTNER_CELL.block, "金属ナトリウム", L(io(Gas.SODIUM_HYDROXIDE, com.taku3.semiconductorlab.block.CastnerCellBlockEntity.NAOH_PER_RUN), io(Metallurgy.IRON_FLASK, 1)),
             L(io(Metallurgy.SODIUM, 1)), com.taku3.semiconductorlab.block.CastnerCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.CastnerCellBlockEntity.TICKS / 20.0, "4NaOH → 4Na + O2 + 2H2O（溶けた NaOH の電解、1886）");
         rec(a, Metallurgy.TANTALUM_REFINERY.block, "マリニャック法", L(io(Metallurgy.TANTALITE, 1), cond(io(Chemistry.HYDROFLUORIC_ACID_PE, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.HF_PER_RUN), "フッ酸（鉛かポリエチレンの容器）"), io(Chemistry.POTASSIUM_FLUORIDE, 1)),

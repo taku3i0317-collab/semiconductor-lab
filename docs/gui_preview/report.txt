@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 196（ja・en）、文字の置き場所 726、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 198（ja・en）、文字の置き場所 732、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
@@ -43,89 +43,6 @@ assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.need_parts w=96 l
 assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.ready w=93 lines=1/1
 assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.assembling w=81 lines=1/1
 assembly_bench_en_us hint gui.semiconductor-lab.assembly_bench.out_full w=107 lines=1/1
-bessemer_converter_en_us power gui.semiconductor-lab.bessemer_converter.power w=69 lines=1/1
-bessemer_converter_en_us stored gui.semiconductor-lab.bessemer_converter.stored w=65 lines=1/1
-bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_iron w=120 lines=1/1
-bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.output_full w=53 lines=1/1
-bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_power w=135 lines=1/1
-bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.stage.silicon w=138 lines=1/1
-bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.stage.carbon w=140 lines=1/1
-bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.stage.drop w=136 lines=1/1
-hydrogen_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=69 lines=1/1
-hydrogen_furnace_en_us stored gui.semiconductor-lab.hydrogen_furnace.stored w=65 lines=1/1
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.need_input w=150 lines=3/3
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.need_h2 w=82 lines=2/3
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.not_enough w=107 lines=2/3
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.need_power w=46 lines=1/3
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.sintering w=89 lines=2/3
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing_ge w=72 lines=1/3
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing_mo w=72 lines=1/3
-hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing w=66 lines=1/3
-hydrogen_furnace_en_us h2 =H2 w=12 lines=1/1
-trichlorosilane_reactor_en_us power gui.semiconductor-lab.trichlorosilane_reactor.power w=69 lines=1/1
-trichlorosilane_reactor_en_us need gui.semiconductor-lab.trichlorosilane_reactor.need w=61 lines=1/1
-trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.need_input w=194 lines=3/3
-trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.need_power w=90 lines=2/3
-trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.distilling w=120 lines=2/3
-trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.running w=119 lines=2/3
-trichlorosilane_reactor_en_us recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe w=114 lines=1/1 scale=0.95
-trichlorosilane_reactor_en_us recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe_distill w=136 lines=1/1 scale=0.79999995
-siemens_reactor_en_us power gui.semiconductor-lab.siemens_reactor.power w=75 lines=1/1
-siemens_reactor_en_us need gui.semiconductor-lab.siemens_reactor.need w=67 lines=1/1
-siemens_reactor_en_us hint gui.semiconductor-lab.siemens_reactor.need_input w=128 lines=2/3
-siemens_reactor_en_us hint gui.semiconductor-lab.siemens_reactor.need_power w=90 lines=2/3
-siemens_reactor_en_us hint gui.semiconductor-lab.siemens_reactor.running w=113 lines=2/3
-siemens_reactor_en_us recipe gui.semiconductor-lab.siemens_reactor.recipe w=114 lines=1/1 scale=0.95
-bayer_digester_en_us power gui.semiconductor-lab.bayer_digester.power w=75 lines=1/1
-bayer_digester_en_us liquor gui.semiconductor-lab.bayer_digester.liquor w=72 lines=1/1
-bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_input w=80 lines=2/3
-bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_liquor w=112 lines=2/3
-bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_power w=90 lines=2/3
-bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.running w=121 lines=2/3
-bayer_digester_en_us recipe gui.semiconductor-lab.bayer_digester.recipe w=136 lines=1/1 scale=0.79999995
-bloomery_en_us temp gui.semiconductor-lab.bloomery.temp w=67 lines=1/1
-bloomery_en_us air gui.semiconductor-lab.bloomery.air w=42 lines=1/1
-bloomery_en_us hint gui.semiconductor-lab.bloomery.need_ore w=132 lines=2/3
-bloomery_en_us hint gui.semiconductor-lab.bloomery.need_fuel w=67 lines=1/3
-bloomery_en_us hint gui.semiconductor-lab.bloomery.need_air w=153 lines=3/3
-bloomery_en_us hint gui.semiconductor-lab.bloomery.reducing w=44 lines=1/3
-bloomery_en_us hint gui.semiconductor-lab.bloomery.out_full w=94 lines=2/3
-bloomery_en_us formula =Fe2O3 + 3CO → 2Fe + 3CO2 w=134 lines=1/1 scale=0.79999995
-blast_furnace_hearth_en_us temp gui.semiconductor-lab.blast_furnace.temp w=67 lines=1/1
-blast_furnace_hearth_en_us air gui.semiconductor-lab.blast_furnace.air w=42 lines=1/1
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.not_formed w=109 lines=2/3
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_ore w=132 lines=2/3
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_fuel w=110 lines=2/3
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_flux w=67 lines=1/3
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_air w=143 lines=3/3
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.smelting w=88 lines=2/3
-blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.out_full w=132 lines=2/3
-blast_furnace_hearth_en_us missing gui.semiconductor-lab.blast_furnace.missing w=112 lines=1/1 scale=0.95
-hall_heroult_cell_en_us power gui.semiconductor-lab.hall_heroult_cell.power w=75 lines=1/1
-hall_heroult_cell_en_us bath gui.semiconductor-lab.hall_heroult_cell.bath w=68 lines=1/1
-hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_alumina w=79 lines=2/3
-hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_bath w=107 lines=2/3
-hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_anode w=150 lines=3/3
-hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_power w=90 lines=2/3
-hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.running w=143 lines=2/3
-hall_heroult_cell_en_us recipe gui.semiconductor-lab.hall_heroult_cell.recipe w=128 lines=1/1 scale=0.84999996
-castner_cell_en_us power gui.semiconductor-lab.castner_cell.power w=75 lines=1/1
-castner_cell_en_us hint gui.semiconductor-lab.castner_cell.need_input w=159 lines=3/4
-castner_cell_en_us hint gui.semiconductor-lab.castner_cell.need_power w=90 lines=2/4
-castner_cell_en_us hint gui.semiconductor-lab.castner_cell.running w=74 lines=1/4
-castner_cell_en_us recipe gui.semiconductor-lab.castner_cell.recipe w=128 lines=1/1 scale=0.84999996
-tantalum_refinery_en_us power gui.semiconductor-lab.tantalum_refinery.power w=75 lines=1/1
-tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.need_input w=139 lines=3/4
-tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.need_kf w=126 lines=3/4
-tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.need_power w=90 lines=2/4
-tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.marignac w=102 lines=2/4
-tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.reduce w=102 lines=2/4
-tantalum_refinery_en_us recipe gui.semiconductor-lab.tantalum_refinery.recipe w=138 lines=1/1 scale=0.74999994
-magnesium_cell_en_us power gui.semiconductor-lab.machine.power w=75 lines=1/1
-magnesium_cell_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
-magnesium_cell_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
-magnesium_cell_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
-magnesium_cell_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_input w=57 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.need_fuel w=106 lines=1/2
 wood_retort_en_us hint gui.semiconductor-lab.wood_retort.running w=79 lines=1/2
@@ -290,6 +207,94 @@ bottle_machine_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
 bottle_machine_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
 bottle_machine_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
 bottle_machine_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
+bessemer_converter_en_us power gui.semiconductor-lab.bessemer_converter.power w=69 lines=1/1
+bessemer_converter_en_us stored gui.semiconductor-lab.bessemer_converter.stored w=65 lines=1/1
+bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_iron w=120 lines=1/1
+bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.output_full w=53 lines=1/1
+bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.need_power w=135 lines=1/1
+bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.stage.silicon w=138 lines=1/1
+bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.stage.carbon w=140 lines=1/1
+bessemer_converter_en_us line gui.semiconductor-lab.bessemer_converter.stage.drop w=136 lines=1/1
+hydrogen_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=69 lines=1/1
+hydrogen_furnace_en_us stored gui.semiconductor-lab.hydrogen_furnace.stored w=65 lines=1/1
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.need_input w=150 lines=3/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.need_h2 w=82 lines=2/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.not_enough w=107 lines=2/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.need_power w=46 lines=1/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.sintering w=89 lines=2/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing_ge w=72 lines=1/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing_mo w=72 lines=1/3
+hydrogen_furnace_en_us hint gui.semiconductor-lab.hydrogen_furnace.reducing w=66 lines=1/3
+hydrogen_furnace_en_us h2 =H2 w=12 lines=1/1
+trichlorosilane_reactor_en_us power gui.semiconductor-lab.trichlorosilane_reactor.power w=69 lines=1/1
+trichlorosilane_reactor_en_us need gui.semiconductor-lab.trichlorosilane_reactor.need w=61 lines=1/1
+trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.need_input w=194 lines=3/3
+trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.need_power w=90 lines=2/3
+trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.distilling w=120 lines=2/3
+trichlorosilane_reactor_en_us hint gui.semiconductor-lab.trichlorosilane_reactor.running w=119 lines=2/3
+trichlorosilane_reactor_en_us recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe w=114 lines=1/1 scale=0.95
+trichlorosilane_reactor_en_us recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe_distill w=136 lines=1/1 scale=0.79999995
+siemens_reactor_en_us power gui.semiconductor-lab.siemens_reactor.power w=75 lines=1/1
+siemens_reactor_en_us need gui.semiconductor-lab.siemens_reactor.need w=67 lines=1/1
+siemens_reactor_en_us hint gui.semiconductor-lab.siemens_reactor.need_input w=128 lines=2/3
+siemens_reactor_en_us hint gui.semiconductor-lab.siemens_reactor.need_power w=90 lines=2/3
+siemens_reactor_en_us hint gui.semiconductor-lab.siemens_reactor.running w=113 lines=2/3
+siemens_reactor_en_us recipe gui.semiconductor-lab.siemens_reactor.recipe w=114 lines=1/1 scale=0.95
+bayer_digester_en_us power gui.semiconductor-lab.bayer_digester.power w=75 lines=1/1
+bayer_digester_en_us liquor gui.semiconductor-lab.bayer_digester.liquor w=72 lines=1/1
+bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_input w=80 lines=2/3
+bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_liquor w=112 lines=2/3
+bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.need_power w=90 lines=2/3
+bayer_digester_en_us hint gui.semiconductor-lab.bayer_digester.running w=121 lines=2/3
+bayer_digester_en_us recipe gui.semiconductor-lab.bayer_digester.recipe w=136 lines=1/1 scale=0.79999995
+bloomery_en_us temp gui.semiconductor-lab.bloomery.temp w=67 lines=1/1
+bloomery_en_us air gui.semiconductor-lab.bloomery.air w=42 lines=1/1
+bloomery_en_us hint gui.semiconductor-lab.bloomery.need_ore w=132 lines=2/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.need_fuel w=67 lines=1/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.need_air w=153 lines=3/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.reducing w=44 lines=1/3
+bloomery_en_us hint gui.semiconductor-lab.bloomery.out_full w=94 lines=2/3
+bloomery_en_us formula =Fe2O3 + 3CO → 2Fe + 3CO2 w=134 lines=1/1 scale=0.79999995
+blast_furnace_hearth_en_us temp gui.semiconductor-lab.blast_furnace.temp w=67 lines=1/1
+blast_furnace_hearth_en_us air gui.semiconductor-lab.blast_furnace.air w=42 lines=1/1
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.not_formed w=109 lines=2/3
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_ore w=132 lines=2/3
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_fuel w=110 lines=2/3
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_flux w=67 lines=1/3
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.need_air w=143 lines=3/3
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.smelting w=88 lines=2/3
+blast_furnace_hearth_en_us hint gui.semiconductor-lab.blast_furnace.out_full w=132 lines=2/3
+blast_furnace_hearth_en_us missing gui.semiconductor-lab.blast_furnace.missing w=112 lines=1/1 scale=0.95
+hall_heroult_cell_en_us power gui.semiconductor-lab.hall_heroult_cell.power w=75 lines=1/1
+hall_heroult_cell_en_us bath gui.semiconductor-lab.hall_heroult_cell.bath w=68 lines=1/1
+hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_alumina w=79 lines=2/3
+hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_bath w=107 lines=2/3
+hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_anode w=150 lines=3/3
+hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.need_power w=90 lines=2/3
+hall_heroult_cell_en_us hint gui.semiconductor-lab.hall_heroult_cell.running w=143 lines=2/3
+hall_heroult_cell_en_us recipe gui.semiconductor-lab.hall_heroult_cell.recipe w=128 lines=1/1 scale=0.84999996
+castner_cell_en_us power gui.semiconductor-lab.castner_cell.power w=75 lines=1/1
+castner_cell_en_us hint gui.semiconductor-lab.castner_cell.need_input w=159 lines=3/4
+castner_cell_en_us hint gui.semiconductor-lab.castner_cell.need_power w=90 lines=2/4
+castner_cell_en_us hint gui.semiconductor-lab.castner_cell.running w=74 lines=1/4
+castner_cell_en_us recipe gui.semiconductor-lab.castner_cell.recipe w=128 lines=1/1 scale=0.84999996
+tantalum_refinery_en_us power gui.semiconductor-lab.tantalum_refinery.power w=75 lines=1/1
+tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.need_input w=139 lines=3/4
+tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.need_kf w=126 lines=3/4
+tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.need_power w=90 lines=2/4
+tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.marignac w=102 lines=2/4
+tantalum_refinery_en_us hint gui.semiconductor-lab.tantalum_refinery.reduce w=102 lines=2/4
+tantalum_refinery_en_us recipe gui.semiconductor-lab.tantalum_refinery.recipe w=138 lines=1/1 scale=0.74999994
+gallium_cell_en_us power gui.semiconductor-lab.gallium_cell.power w=75 lines=1/1
+gallium_cell_en_us hint gui.semiconductor-lab.gallium_cell.need_input w=132 lines=2/4
+gallium_cell_en_us hint gui.semiconductor-lab.gallium_cell.need_power w=90 lines=2/4
+gallium_cell_en_us hint gui.semiconductor-lab.gallium_cell.running w=92 lines=2/4
+gallium_cell_en_us recipe gui.semiconductor-lab.gallium_cell.recipe w=121 lines=1/1 scale=0.9
+magnesium_cell_en_us power gui.semiconductor-lab.machine.power w=75 lines=1/1
+magnesium_cell_en_us stored gui.semiconductor-lab.machine.stored w=65 lines=1/1
+magnesium_cell_en_us hint gui.semiconductor-lab.machine.need_input w=151 lines=3/3
+magnesium_cell_en_us hint gui.semiconductor-lab.machine.need_power w=90 lines=2/3
+magnesium_cell_en_us hint gui.semiconductor-lab.machine.running w=38 lines=1/3
 acheson_furnace_en_us power gui.semiconductor-lab.hydrogen_furnace.power w=67 lines=1/1
 acheson_furnace_en_us need gui.semiconductor-lab.acheson_furnace.need w=61 lines=1/1
 acheson_furnace_en_us temp gui.semiconductor-lab.acheson_furnace.temp w=56 lines=1/1
@@ -990,89 +995,6 @@ assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.need_parts w=108 
 assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.ready w=90 lines=1/1
 assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.assembling w=73 lines=1/1
 assembly_bench_ja_jp hint gui.semiconductor-lab.assembly_bench.out_full w=72 lines=1/1
-bessemer_converter_ja_jp power gui.semiconductor-lab.bessemer_converter.power w=57 lines=1/1
-bessemer_converter_ja_jp stored gui.semiconductor-lab.bessemer_converter.stored w=49 lines=1/1
-bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.need_iron w=126 lines=1/1
-bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.output_full w=45 lines=1/1
-bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.need_power w=135 lines=1/1
-bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.stage.silicon w=122 lines=1/1
-bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.stage.carbon w=122 lines=1/1
-bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.stage.drop w=113 lines=1/1
-hydrogen_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=57 lines=1/1
-hydrogen_furnace_ja_jp stored gui.semiconductor-lab.hydrogen_furnace.stored w=49 lines=1/1
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.need_input w=111 lines=2/3
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.need_h2 w=45 lines=1/3
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.not_enough w=69 lines=1/3
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.need_power w=36 lines=1/3
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.sintering w=68 lines=1/3
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing_ge w=60 lines=1/3
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing_mo w=60 lines=1/3
-hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing w=54 lines=1/3
-hydrogen_furnace_ja_jp h2 =H2 w=12 lines=1/1
-trichlorosilane_reactor_ja_jp power gui.semiconductor-lab.trichlorosilane_reactor.power w=57 lines=1/1
-trichlorosilane_reactor_ja_jp need gui.semiconductor-lab.trichlorosilane_reactor.need w=49 lines=1/1
-trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.need_input w=131 lines=2/3
-trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.need_power w=63 lines=1/3
-trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.distilling w=79 lines=2/3
-trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.running w=76 lines=2/3
-trichlorosilane_reactor_ja_jp recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe w=114 lines=1/1 scale=0.95
-trichlorosilane_reactor_ja_jp recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe_distill w=97 lines=1/1
-siemens_reactor_ja_jp power gui.semiconductor-lab.siemens_reactor.power w=63 lines=1/1
-siemens_reactor_ja_jp need gui.semiconductor-lab.siemens_reactor.need w=55 lines=1/1
-siemens_reactor_ja_jp hint gui.semiconductor-lab.siemens_reactor.need_input w=131 lines=2/3
-siemens_reactor_ja_jp hint gui.semiconductor-lab.siemens_reactor.need_power w=63 lines=1/3
-siemens_reactor_ja_jp hint gui.semiconductor-lab.siemens_reactor.running w=55 lines=1/3
-siemens_reactor_ja_jp recipe gui.semiconductor-lab.siemens_reactor.recipe w=114 lines=1/1 scale=0.95
-bayer_digester_ja_jp power gui.semiconductor-lab.bayer_digester.power w=63 lines=1/1
-bayer_digester_ja_jp liquor gui.semiconductor-lab.bayer_digester.liquor w=54 lines=1/1
-bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_input w=87 lines=2/3
-bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_liquor w=100 lines=2/3
-bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_power w=63 lines=1/3
-bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.running w=103 lines=2/3
-bayer_digester_ja_jp recipe gui.semiconductor-lab.bayer_digester.recipe w=136 lines=1/1 scale=0.79999995
-bloomery_ja_jp temp gui.semiconductor-lab.bloomery.temp w=50 lines=1/1
-bloomery_ja_jp air gui.semiconductor-lab.bloomery.air w=46 lines=1/1
-bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_ore w=90 lines=2/3
-bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_fuel w=54 lines=1/3
-bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_air w=136 lines=2/3
-bloomery_ja_jp hint gui.semiconductor-lab.bloomery.reducing w=27 lines=1/3
-bloomery_ja_jp hint gui.semiconductor-lab.bloomery.out_full w=81 lines=2/3
-bloomery_ja_jp formula =Fe2O3 + 3CO → 2Fe + 3CO2 w=134 lines=1/1 scale=0.79999995
-blast_furnace_hearth_ja_jp temp gui.semiconductor-lab.blast_furnace.temp w=50 lines=1/1
-blast_furnace_hearth_ja_jp air gui.semiconductor-lab.blast_furnace.air w=46 lines=1/1
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.not_formed w=99 lines=2/3
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_ore w=90 lines=2/3
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_fuel w=99 lines=2/3
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_flux w=63 lines=1/3
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_air w=99 lines=2/3
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.smelting w=81 lines=2/3
-blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.out_full w=99 lines=2/3
-blast_furnace_hearth_ja_jp missing gui.semiconductor-lab.blast_furnace.missing w=134 lines=1/1 scale=0.79999995
-hall_heroult_cell_ja_jp power gui.semiconductor-lab.hall_heroult_cell.power w=63 lines=1/1
-hall_heroult_cell_ja_jp bath gui.semiconductor-lab.hall_heroult_cell.bath w=60 lines=1/1
-hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_alumina w=69 lines=1/3
-hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_bath w=81 lines=2/3
-hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_anode w=90 lines=2/3
-hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_power w=63 lines=1/3
-hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.running w=76 lines=2/3
-hall_heroult_cell_ja_jp recipe gui.semiconductor-lab.hall_heroult_cell.recipe w=128 lines=1/1 scale=0.84999996
-castner_cell_ja_jp power gui.semiconductor-lab.castner_cell.power w=63 lines=1/1
-castner_cell_ja_jp hint gui.semiconductor-lab.castner_cell.need_input w=128 lines=3/4
-castner_cell_ja_jp hint gui.semiconductor-lab.castner_cell.need_power w=63 lines=1/4
-castner_cell_ja_jp hint gui.semiconductor-lab.castner_cell.running w=117 lines=2/4
-castner_cell_ja_jp recipe gui.semiconductor-lab.castner_cell.recipe w=128 lines=1/1 scale=0.84999996
-tantalum_refinery_ja_jp power gui.semiconductor-lab.tantalum_refinery.power w=63 lines=1/1
-tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.need_input w=99 lines=2/4
-tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.need_kf w=90 lines=2/4
-tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.need_power w=63 lines=1/4
-tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.marignac w=112 lines=2/4
-tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.reduce w=108 lines=2/4
-tantalum_refinery_ja_jp recipe gui.semiconductor-lab.tantalum_refinery.recipe w=138 lines=1/1 scale=0.74999994
-magnesium_cell_ja_jp power gui.semiconductor-lab.machine.power w=63 lines=1/1
-magnesium_cell_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
-magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
-magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
-magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_input w=54 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.need_fuel w=72 lines=1/2
 wood_retort_ja_jp hint gui.semiconductor-lab.wood_retort.running w=62 lines=1/2
@@ -1237,6 +1159,94 @@ bottle_machine_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
 bottle_machine_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
 bottle_machine_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
 bottle_machine_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
+bessemer_converter_ja_jp power gui.semiconductor-lab.bessemer_converter.power w=57 lines=1/1
+bessemer_converter_ja_jp stored gui.semiconductor-lab.bessemer_converter.stored w=49 lines=1/1
+bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.need_iron w=126 lines=1/1
+bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.output_full w=45 lines=1/1
+bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.need_power w=135 lines=1/1
+bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.stage.silicon w=122 lines=1/1
+bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.stage.carbon w=122 lines=1/1
+bessemer_converter_ja_jp line gui.semiconductor-lab.bessemer_converter.stage.drop w=113 lines=1/1
+hydrogen_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=57 lines=1/1
+hydrogen_furnace_ja_jp stored gui.semiconductor-lab.hydrogen_furnace.stored w=49 lines=1/1
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.need_input w=111 lines=2/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.need_h2 w=45 lines=1/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.not_enough w=69 lines=1/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.need_power w=36 lines=1/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.sintering w=68 lines=1/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing_ge w=60 lines=1/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing_mo w=60 lines=1/3
+hydrogen_furnace_ja_jp hint gui.semiconductor-lab.hydrogen_furnace.reducing w=54 lines=1/3
+hydrogen_furnace_ja_jp h2 =H2 w=12 lines=1/1
+trichlorosilane_reactor_ja_jp power gui.semiconductor-lab.trichlorosilane_reactor.power w=57 lines=1/1
+trichlorosilane_reactor_ja_jp need gui.semiconductor-lab.trichlorosilane_reactor.need w=49 lines=1/1
+trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.need_input w=131 lines=2/3
+trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.need_power w=63 lines=1/3
+trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.distilling w=79 lines=2/3
+trichlorosilane_reactor_ja_jp hint gui.semiconductor-lab.trichlorosilane_reactor.running w=76 lines=2/3
+trichlorosilane_reactor_ja_jp recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe w=114 lines=1/1 scale=0.95
+trichlorosilane_reactor_ja_jp recipe gui.semiconductor-lab.trichlorosilane_reactor.recipe_distill w=97 lines=1/1
+siemens_reactor_ja_jp power gui.semiconductor-lab.siemens_reactor.power w=63 lines=1/1
+siemens_reactor_ja_jp need gui.semiconductor-lab.siemens_reactor.need w=55 lines=1/1
+siemens_reactor_ja_jp hint gui.semiconductor-lab.siemens_reactor.need_input w=131 lines=2/3
+siemens_reactor_ja_jp hint gui.semiconductor-lab.siemens_reactor.need_power w=63 lines=1/3
+siemens_reactor_ja_jp hint gui.semiconductor-lab.siemens_reactor.running w=55 lines=1/3
+siemens_reactor_ja_jp recipe gui.semiconductor-lab.siemens_reactor.recipe w=114 lines=1/1 scale=0.95
+bayer_digester_ja_jp power gui.semiconductor-lab.bayer_digester.power w=63 lines=1/1
+bayer_digester_ja_jp liquor gui.semiconductor-lab.bayer_digester.liquor w=54 lines=1/1
+bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_input w=87 lines=2/3
+bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_liquor w=100 lines=2/3
+bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.need_power w=63 lines=1/3
+bayer_digester_ja_jp hint gui.semiconductor-lab.bayer_digester.running w=103 lines=2/3
+bayer_digester_ja_jp recipe gui.semiconductor-lab.bayer_digester.recipe w=136 lines=1/1 scale=0.79999995
+bloomery_ja_jp temp gui.semiconductor-lab.bloomery.temp w=50 lines=1/1
+bloomery_ja_jp air gui.semiconductor-lab.bloomery.air w=46 lines=1/1
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_ore w=90 lines=2/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_fuel w=54 lines=1/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.need_air w=136 lines=2/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.reducing w=27 lines=1/3
+bloomery_ja_jp hint gui.semiconductor-lab.bloomery.out_full w=81 lines=2/3
+bloomery_ja_jp formula =Fe2O3 + 3CO → 2Fe + 3CO2 w=134 lines=1/1 scale=0.79999995
+blast_furnace_hearth_ja_jp temp gui.semiconductor-lab.blast_furnace.temp w=50 lines=1/1
+blast_furnace_hearth_ja_jp air gui.semiconductor-lab.blast_furnace.air w=46 lines=1/1
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.not_formed w=99 lines=2/3
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_ore w=90 lines=2/3
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_fuel w=99 lines=2/3
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_flux w=63 lines=1/3
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.need_air w=99 lines=2/3
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.smelting w=81 lines=2/3
+blast_furnace_hearth_ja_jp hint gui.semiconductor-lab.blast_furnace.out_full w=99 lines=2/3
+blast_furnace_hearth_ja_jp missing gui.semiconductor-lab.blast_furnace.missing w=134 lines=1/1 scale=0.79999995
+hall_heroult_cell_ja_jp power gui.semiconductor-lab.hall_heroult_cell.power w=63 lines=1/1
+hall_heroult_cell_ja_jp bath gui.semiconductor-lab.hall_heroult_cell.bath w=60 lines=1/1
+hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_alumina w=69 lines=1/3
+hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_bath w=81 lines=2/3
+hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_anode w=90 lines=2/3
+hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.need_power w=63 lines=1/3
+hall_heroult_cell_ja_jp hint gui.semiconductor-lab.hall_heroult_cell.running w=76 lines=2/3
+hall_heroult_cell_ja_jp recipe gui.semiconductor-lab.hall_heroult_cell.recipe w=128 lines=1/1 scale=0.84999996
+castner_cell_ja_jp power gui.semiconductor-lab.castner_cell.power w=63 lines=1/1
+castner_cell_ja_jp hint gui.semiconductor-lab.castner_cell.need_input w=128 lines=3/4
+castner_cell_ja_jp hint gui.semiconductor-lab.castner_cell.need_power w=63 lines=1/4
+castner_cell_ja_jp hint gui.semiconductor-lab.castner_cell.running w=117 lines=2/4
+castner_cell_ja_jp recipe gui.semiconductor-lab.castner_cell.recipe w=128 lines=1/1 scale=0.84999996
+tantalum_refinery_ja_jp power gui.semiconductor-lab.tantalum_refinery.power w=63 lines=1/1
+tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.need_input w=99 lines=2/4
+tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.need_kf w=90 lines=2/4
+tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.need_power w=63 lines=1/4
+tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.marignac w=112 lines=2/4
+tantalum_refinery_ja_jp hint gui.semiconductor-lab.tantalum_refinery.reduce w=108 lines=2/4
+tantalum_refinery_ja_jp recipe gui.semiconductor-lab.tantalum_refinery.recipe w=138 lines=1/1 scale=0.74999994
+gallium_cell_ja_jp power gui.semiconductor-lab.gallium_cell.power w=63 lines=1/1
+gallium_cell_ja_jp hint gui.semiconductor-lab.gallium_cell.need_input w=114 lines=2/4
+gallium_cell_ja_jp hint gui.semiconductor-lab.gallium_cell.need_power w=63 lines=1/4
+gallium_cell_ja_jp hint gui.semiconductor-lab.gallium_cell.running w=108 lines=2/4
+gallium_cell_ja_jp recipe gui.semiconductor-lab.gallium_cell.recipe w=105 lines=1/1
+magnesium_cell_ja_jp power gui.semiconductor-lab.machine.power w=63 lines=1/1
+magnesium_cell_ja_jp stored gui.semiconductor-lab.machine.stored w=49 lines=1/1
+magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.need_input w=117 lines=2/3
+magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.need_power w=63 lines=1/3
+magnesium_cell_ja_jp hint gui.semiconductor-lab.machine.running w=27 lines=1/3
 acheson_furnace_ja_jp power gui.semiconductor-lab.hydrogen_furnace.power w=55 lines=1/1
 acheson_furnace_ja_jp need gui.semiconductor-lab.acheson_furnace.need w=55 lines=1/1
 acheson_furnace_ja_jp temp gui.semiconductor-lab.acheson_furnace.temp w=50 lines=1/1

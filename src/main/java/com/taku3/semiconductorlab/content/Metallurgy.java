@@ -193,7 +193,10 @@ public final class Metallurgy {
     public static final Item SODIUM                = Reg.contained("sodium", Vessel.IRON_FLASK);   // 金属ナトリウム（水で燃えるので鉄の容器に密封）
     public static final Item TANTALITE             = Reg.item("tantalite");                          // タンタル石（コルンブ石）(Fe,Mn)(Ta,Nb)2O6
     public static final Item POTASSIUM_FLUOROTANTALATE = Reg.item("potassium_fluorotantalate");      // K2TaF7（マリニャック法の結晶）
-    public static final Item TANTALUM              = Reg.item("tantalum");                           // タンタル（還元した粉を固めた金属）
+    public static final Item TANTALUM              = Reg.item("tantalum");
+    // [1-44] ガリウム（IMP4-01、O-020）：バイヤー法の液を使い回すとたまる → 使い終わった液を電解。融点約30℃、アルミを壊すのでポリエチレン瓶
+    public static final Item SPENT_BAYER_LIQUOR    = Reg.item("spent_bayer_liquor", new Item.Properties().stacksTo(16));
+    public static final Item GALLIUM               = Reg.contained("gallium", Vessel.POLYETHYLENE_BOTTLE);                           // タンタル（還元した粉を固めた金属）
     // レトルトの仕込み：辰砂の粉＋空の鉄のフラスコ（受け器）。焼くと水銀がフラスコに集まる（かまど・反射炉）
     public static final Item CINNABAR_RETORT_CHARGE = Reg.item("cinnabar_retort_charge"); // 液体の金属（容器入り）
 
@@ -254,6 +257,8 @@ public final class Metallurgy {
     public static final Machine<CastnerCellBlockEntity> CASTNER_CELL = Machine.electric("castner_cell", CastnerCellBlockEntity::new, CastnerCellBlockEntity.LAYOUT, metal(4.0f));
     // [1-66] タンタルの精製槽（IMP4-01）：マリニャック法（フッ酸＋KF → K2TaF7）とナトリウム還元。3kW
     public static final Machine<TantalumRefineryBlockEntity> TANTALUM_REFINERY = Machine.electric("tantalum_refinery", TantalumRefineryBlockEntity::new, TantalumRefineryBlockEntity.LAYOUT, metal(4.0f));
+    // [1-44] ガリウムの電解槽（IMP4-01）：使い終わったバイヤー法の液 4 → ガリウム＋NaOH。1kW
+    public static final Machine<GalliumCellBlockEntity> GALLIUM_CELL = Machine.electric("gallium_cell", GalliumCellBlockEntity::new, GalliumCellBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<MagnesiumCellBlockEntity> MAGNESIUM_CELL = Machine.electric("magnesium_cell", MagnesiumCellBlockEntity::new, MagnesiumCellBlockEntity.LAYOUT, metal(4.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

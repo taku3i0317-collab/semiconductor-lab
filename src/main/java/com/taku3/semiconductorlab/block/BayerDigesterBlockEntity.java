@@ -27,7 +27,7 @@ public class BayerDigesterBlockEntity extends ConsumerBlockEntity {
     public static final int TICKS = 20 * 30;
     public static final int BAUXITE_PER_RUN = 2, RUNS_PER_LIQUOR = 4;
     public static final int DATA_LIQUOR = DATA_COUNT, EXTRA_DATA = 1;
-    public static final int SLOT_BAUXITE = 0, SLOT_NAOH = 1, SLOT_WATER = 2, SLOT_OUT = 3, SLOT_MUD = 4, SLOT_BUCKET = 5, SLOT_COUNT = 6;
+    public static final int SLOT_BAUXITE = 0, SLOT_NAOH = 1, SLOT_WATER = 2, SLOT_OUT = 3, SLOT_MUD = 4, SLOT_BUCKET = 5, SLOT_SPENT = 6, SLOT_COUNT = 7;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA)
             .in(SLOT_BAUXITE, 8, 17, s -> s.is(Metallurgy.BAUXITE))
@@ -36,6 +36,7 @@ public class BayerDigesterBlockEntity extends ConsumerBlockEntity {
             .out(SLOT_OUT, 56, 17)
             .out(SLOT_MUD, 56, 35)
             .out(SLOT_BUCKET, 56, 53)
+            .out(SLOT_SPENT, 78, 53)   // [1-44] 使い終わった液（ガリウムがたまる、IMP4-01 O-020）
             .right("power", 17, 1, "gui.semiconductor-lab.bayer_digester.power").samples("500.0 kW")
             .right("liquor", 27, 1, "gui.semiconductor-lab.bayer_digester.liquor").samples("4")
             .right("hint", 38, 3, "gui.semiconductor-lab.bayer_digester.need_input", "gui.semiconductor-lab.bayer_digester.need_liquor", "gui.semiconductor-lab.bayer_digester.need_power", "gui.semiconductor-lab.bayer_digester.running")
@@ -66,7 +67,8 @@ public class BayerDigesterBlockEntity extends ConsumerBlockEntity {
         ItemStack b = container.getItem(SLOT_BAUXITE);
         return b.is(Metallurgy.BAUXITE) && b.getCount() >= BAUXITE_PER_RUN && hasLiquor()
                 && canMerge(container.getItem(SLOT_OUT), new ItemStack(Metallurgy.ALUMINIUM_HYDROXIDE))
-                && canMerge(container.getItem(SLOT_MUD), new ItemStack(Metallurgy.RED_MUD));
+                && canMerge(container.getItem(SLOT_MUD), new ItemStack(Metallurgy.RED_MUD))
+                && canMerge(container.getItem(SLOT_SPENT), new ItemStack(Metallurgy.SPENT_BAYER_LIQUOR));
     }
 
     @Override protected void finishWork() {
@@ -80,6 +82,8 @@ public class BayerDigesterBlockEntity extends ConsumerBlockEntity {
         container.getItem(SLOT_BAUXITE).shrink(BAUXITE_PER_RUN);
         merge(SLOT_OUT, new ItemStack(Metallurgy.ALUMINIUM_HYDROXIDE));
         merge(SLOT_MUD, new ItemStack(Metallurgy.RED_MUD));
+        // [1-44] ボーキサイトの微量のガリウムは、アルミニウムと似ているので液に溶けたまま残り、使い回すうちにたまる。液を使い切ったら取り出す（IMP4-01、O-020）
+        if (liquor == 0) merge(SLOT_SPENT, new ItemStack(Metallurgy.SPENT_BAYER_LIQUOR));
         container.setChanged();
     }
 

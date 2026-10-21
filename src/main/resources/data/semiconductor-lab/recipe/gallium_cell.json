@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SKS",
+    "P P",
+    "PPP"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "K": "semiconductor-lab:copper_cable",
+    "P": "semiconductor-lab:polyethylene_bottle"
+  },
+  "result": {
+    "id": "semiconductor-lab:gallium_cell",
+    "count": 1
+  }
+}

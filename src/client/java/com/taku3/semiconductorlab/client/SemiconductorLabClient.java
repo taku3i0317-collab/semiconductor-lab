@@ -111,6 +111,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.EPITAXY_REACTOR, EpitaxyReactorScreen::new);
 		screen(Metallurgy.CASTNER_CELL, CastnerCellScreen::new);
 		screen(Metallurgy.TANTALUM_REFINERY, TantalumRefineryScreen::new);
+		screen(Metallurgy.GALLIUM_CELL, GalliumCellScreen::new);
 		screen(Semiconductor.COPPER_PLATER, CopperPlaterScreen::new);
 		screen(Semiconductor.HAFNIUM_CHLORINATOR, HafniumChlorinatorScreen::new);
 		screen(Semiconductor.ALD_REACTOR, AldReactorScreen::new);

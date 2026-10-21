@@ -150,3 +150,9 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - C の指摘（DESIGN 404行「レッドストーンは使わない」）で [9-42] 案A のレッドストーン出力をやめ、手に持って数を見るアイテムに直した。C の [9-45] フィルターは「素子＋フィルター」のレシピで載せる形で合意
 - ✅ A の焦点深度（O-030）に合わせ GameTest cmp_rescues_depth_of_focus：CVD → 塗布機（CAR）→ KrF は defocus、CMP 装置＋洗浄 → 焼ける
 - ✅ O-019（仮決定の案A）：[9-42] 画像センサーの素子（item/ImageSensorItem）・[9-43] MEMS 加速度センサー（item/MemsAccelerometerItem、ドライエッチング装置に素の板＋Cl2 → MEMS の板）。どちらも組立台（Semiconductor.assemblies、Content に1行）。GameTest sensors、CHEMISTRY F73〜F74、REFERENCES F43、DECISIONS 2行
+- ✅ [1-44] ガリウム：バイヤー法の溶解釜に使い終わった液のスロット（SLOT_SPENT）、ガリウムの電解槽（block/GalliumCellBlockEntity）。GameTest gallium、CHEMISTRY F75、REFERENCES F44
+- ✅ v0.5 #4 歩留まり（A の 7c135282）：E の工程の機械6台の出口のほこりに、ChipOps.inRoom(CleanRoom.defectDensity) も足した（部屋の欠陥の密度を残す。失敗にはしない）
+- **O-020 の案（遊び方・前提の選択。仮決定を待つ）**：
+  - [B-07] LED：前提 [9-11] のヒ素が未実装（B・P だけ）。案A（おすすめ）：GaAsP の赤（1962）を本物どおり。ヒ素は金属の鉱石を焼いた煙道のちり（白ヒ素 As2O3）を集めて、炭素で還元（昔の方法）。反射炉（A）の煙道の副産物に1行が要る。毒（GHS：どくろ・健康有害性・環境）、工業の材料としてだけ。LED の素子（作業台かエピタキシャル炉の分岐で GaAsP の層 → 素子）は置くと光るブロック（電気 0.1W ほど、明るさ 7⚠️）。案B：ヒ素を使わない GaP の赤・緑の LED（1960年代後半）から始める（年はやや後、INBOX の「GaAsP の赤から」とはちがう）。案C：ヒ素は今は作らず LED は後
+  - [B-20] 白色 LED バックライト：MC 未定。案A（おすすめ）：青色 LED（GaN、窒化ガリウム：ガリウム＋アンモニアのエピ ⚠️）＋黄色の蛍光体（YAG:Ce＝イットリウム・アルミ・セリウム ❓ 前提が要る）→ 白色 LED のブロック（明るさ 15）と、スマホの部品のバックライト。蛍光体の前提（Y・Ce）が無いので、先に前提を相談。案B：部品だけ
+  - [15-18] 静電容量式タッチパネル：MC 未定。案A（おすすめ）：部品 touch_panel（ITO ガラス＋銅の電極＋NOT に合格したチップ）。手に持って右クリックすると「指の静電容量の変化」を読み、近くのプレイヤー・動物（体に電気をためられる物）に向けると反応、棒・ブロックでは反応しない（静電容量式の特徴）。スマホの部品 [P-?]。案B：部品だけ

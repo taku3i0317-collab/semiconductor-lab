@@ -113,8 +113,8 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
     @Override protected int extraDataCount() { return 1; }
     @Override protected int extraData(int i) { return i == DATA_VACUUM && vacuumOk() ? 1 : 0; }
 
-    /** クリーンルームの等級のほこり（O-017、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
+    /** クリーンルームの等級のほこりと欠陥の密度（O-017・歩留まり、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
     private ItemStack dust(ItemStack out) {
-        return level == null ? out : ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition));
+        return level == null ? out : ChipOps.inRoom(ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition)), CleanRoom.defectDensity(level, worldPosition));   // v0.5 #4 歩留まり：部屋の欠陥の密度も残す（A）
     }
 }

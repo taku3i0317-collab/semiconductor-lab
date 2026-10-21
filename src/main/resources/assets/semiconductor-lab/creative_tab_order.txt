@@ -124,6 +124,9 @@ graphite  # Metallurgy [1-07] 1850
 graphite_ore  # Metallurgy [1-07] 1850
 steel_ingot  # Metallurgy [1-26] 1856
 bessemer_converter  # Metallurgy [1-26] 1856
+spent_bayer_liquor  # Metallurgy [1-44] 1871
+gallium  # Metallurgy [1-44] 1871
+gallium_cell  # Metallurgy [1-44] 1871
 cryolite  # Metallurgy [1-38] 1886
 aluminium_ingot  # Metallurgy [1-29] 1886
 hall_heroult_cell  # Metallurgy [1-29] 1886

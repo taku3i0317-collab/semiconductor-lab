@@ -1421,6 +1421,34 @@
       "note": "C + 2F2 → CF4。ニッケルの管で冷やしながら"
     },
     {
+      "machine": "semiconductor-lab:gallium_cell",
+      "process": "ガリウム",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:spent_bayer_liquor",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:polyethylene_bottle",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:gallium",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sodium_hydroxide",
+          "count": 1
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 20.0,
+      "energy_kj": 20,
+      "note": "バイヤー法の使い終わった液を電解（液はバイヤー法の溶解釜が液を使い切るたびに1つ）"
+    },
+    {
       "machine": "semiconductor-lab:gas_retort",
       "process": "石炭を乾留する",
       "inputs": [
