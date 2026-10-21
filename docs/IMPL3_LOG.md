@@ -386,3 +386,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - **C へ**：semiconductor-lab:printing_ink（Chemistry.PRINTING_INK）。メッセージでも知らせた
 - テスト 428/428
 
+
+## 待機終了（2026-10-22 01:38）
+- INBOX が 6 時間変わらなかったので止める。判断待ち：Q3-20（MC 未定のノード）・Q3-21（医療の解説のみ）・Q3-22（上水道）・[11-04] 品種改良（ユーザーに聞いている）
