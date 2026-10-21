@@ -431,7 +431,7 @@ setblock ~49 ~0 ~34 semiconductor-lab:high_voltage_line
 setblock ~53 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-12] 電気炉","電気炉の見た目（れんが","色、正面の窓が加熱中に","橙）、GUI（タイトル"]}}
 setblock ~53 ~-1 ~34 semiconductor-lab:test_power_source
 setblock ~53 ~0 ~34 semiconductor-lab:electric_furnace
-setblock ~54 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:2b,id:"semiconductor-lab:iron_compact",count:16},{Slot:3b,id:"semiconductor-lab:refractory_brick_blank",count:16}]}
+setblock ~54 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:1b,id:"semiconductor-lab:graphite_boat_blank",count:16},{Slot:2b,id:"semiconductor-lab:iron_compact",count:16},{Slot:3b,id:"semiconductor-lab:ndfeb_compact",count:16},{Slot:4b,id:"semiconductor-lab:neodymium_electrolysis_charge",count:16},{Slot:5b,id:"semiconductor-lab:refractory_brick_blank",count:16}]}
 setblock ~57 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-28] 乾電池","軟マンガン鉱の鉱石が浅","い石の中に見つかるか（","黒い粒の見た目）。電池"]}}
 setblock ~57 ~0 ~34 semiconductor-lab:dry_cell_holder
 setblock ~58 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:dry_cell",count:16}]}
@@ -759,7 +759,8 @@ setblock ~155 ~0 ~74 semiconductor-lab:euv_scanner
 setblock ~156 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask",count:1}]}
 setblock ~159 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] euv_mask_b","（人間の確認項目なし）","",""]}}
 setblock ~159 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~160 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:2b,id:"semiconductor-lab:stamp",count:1},{Slot:3b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~160 ~0 ~74 semiconductor-lab:load_port
+setblock ~161 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:foup",count:1},{Slot:2b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:stamp",count:1},{Slot:4b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-08] 製粉","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quern",count:1},{Slot:1b,id:"semiconductor-lab:flour",count:16}]}

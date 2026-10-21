@@ -57,6 +57,8 @@ public final class Semiconductor {
     // EUV のマスク（IMP4-01、S-008）：反射型。C の多層膜ミラー（40対以上）にスパッタでタンタルの吸収体 → マスクの板。模様は C の縮小カメラ（A の MaskData）→ euv_mask
     public static final Item EUV_MASK_BLANK        = Reg.item("euv_mask_blank", new Item.Properties().stacksTo(1));
     public static final Item EUV_MASK              = Reg.item("euv_mask", new Item.Properties().stacksTo(1));
+    // v1.0 #4 自動搬送（IMP4-01、O-026 仮決定の案A）：FOUP（ウェハー25枚の密閉の箱）とロードポート（機械の隣で FOUP から入れて出す）
+    public static final Item FOUP                  = Reg.item("foup", com.taku3.semiconductorlab.item.FoupItem::new, new Item.Properties().stacksTo(1));
     public static final Item HAFNIUM_TETRACHLORIDE = Reg.contained("hafnium_tetrachloride", com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE);
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");
@@ -180,6 +182,7 @@ public final class Semiconductor {
     public static final Machine<AldReactorBlockEntity> ALD_REACTOR = Machine.electric("ald_reactor", AldReactorBlockEntity::new, AldReactorBlockEntity.LAYOUT, metal(4.0f));
     // [2-33] ホットプレート（露光後の加熱 PEB、IMP4-01）：化学増幅レジストの酸を働かせる。300W
     public static final Machine<BakePlateBlockEntity> BAKE_PLATE = Machine.electric("bake_plate", BakePlateBlockEntity::new, BakePlateBlockEntity.LAYOUT, metal(3.0f));
+    public static final Machine<LoadPortBlockEntity> LOAD_PORT = Machine.electric("load_port", LoadPortBlockEntity::new, LoadPortBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

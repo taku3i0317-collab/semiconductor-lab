@@ -1534,6 +1534,36 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v1.0 #4 自動搬送（IMP4-01、O-026）：FOUP（25枚、同じ種類だけ）、ロードポートが塗布機に8枚入れ、塗ったウェハーを出す FOUP へ。同じ機械にまた入らない */
+    @GameTest(maxTicks = 200)
+    public void loadPort(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack in = new ItemStack(Semiconductor.FOUP), out = new ItemStack(Semiconductor.FOUP);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.FoupItem.add(in, ow), 8, "8 wafers into the FOUP");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.FoupItem.add(in, new ItemStack(Semiconductor.SILICON_WAFER, 4)), 0, "one kind per FOUP");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.FoupItem.add(in, new ItemStack(net.minecraft.world.item.Items.DIRT)), 0, "wafers only");
+        floor(h, 5);
+        BlockPos cp = p(2, 1, 2), lp = p(3, 1, 2);
+        h.setBlock(cp, Semiconductor.SPIN_COATER.block);
+        h.setBlock(lp, Semiconductor.LOAD_PORT.block);
+        var coater = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.class);
+        var port = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.LoadPortBlockEntity.class);
+        coater.getContainer().setItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_RESIST, new ItemStack(Chemistry.POSITIVE_RESIST, 2));
+        port.getContainer().setItem(com.taku3.semiconductorlab.block.LoadPortBlockEntity.SLOT_IN_FOUP, in);
+        port.getContainer().setItem(com.taku3.semiconductorlab.block.LoadPortBlockEntity.SLOT_OUT_FOUP, out);
+        tickConsumer(h, lp, port, 21, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.LoadPortBlockEntity.WATTS));
+        h.assertValueEqual(coater.getContainer().getItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_WAFER).getCount(), 8, "load port fed 8 wafers into the coater");
+        h.assertTrue(com.taku3.semiconductorlab.item.FoupItem.contents(port.getContainer().getItem(com.taku3.semiconductorlab.block.LoadPortBlockEntity.SLOT_IN_FOUP)).isEmpty(), "input FOUP emptied");
+        tickConsumer(h, cp, coater, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WATTS));
+        tickConsumer(h, lp, port, 21, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.LoadPortBlockEntity.WATTS));
+        ItemStack got = com.taku3.semiconductorlab.item.FoupItem.contents(port.getContainer().getItem(com.taku3.semiconductorlab.block.LoadPortBlockEntity.SLOT_OUT_FOUP));
+        h.assertTrue(got.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.isProcessWafer(got), "coated wafers went into the output FOUP, got " + got);
+        h.assertTrue(coater.getContainer().getItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_WAFER).isEmpty() && coater.getContainer().getItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_OUT).isEmpty(), "nothing loops back into the coater");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(cp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] load port (v1.0 #4): FOUP -> coater -> FOUP, 8 wafers each way");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================

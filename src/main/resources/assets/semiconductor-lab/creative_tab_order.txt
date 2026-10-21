@@ -749,10 +749,12 @@ ald_reactor  # Semiconductor [9-37] 1999
 euv_mask  # Semiconductor [9-40] 2019
 euv_scanner  # Semiconductor [9-40] 2019
 euv_mask_blank  # Semiconductor [None] None
+foup  # Semiconductor [None] None
 hafnium_tetrachloride  # Semiconductor [None] None
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
+load_port  # Semiconductor [None] None
 electromagnet  # Control [10-01] 1820
 microcomputer  # Control [10-13] 1971
 quern  # Agriculture [11-08] -9500

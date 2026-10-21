@@ -139,5 +139,14 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.DOUBLE)
                     .build());
 
+    // v1.0 #4 FOUP の中身（IMP4-01、O-026）：同じ種類のウェハーを25枚まで（数は ItemStack の個数）
+    public static final DataComponentType<net.minecraft.world.item.ItemStack> FOUP_CONTENTS = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("foup_contents"),
+            DataComponentType.<net.minecraft.world.item.ItemStack>builder()
+                    .persistent(net.minecraft.world.item.ItemStack.OPTIONAL_CODEC)
+                    .networkSynchronized(net.minecraft.world.item.ItemStack.OPTIONAL_STREAM_CODEC)
+                    .build());
+
     public static void initialize() {}
 }

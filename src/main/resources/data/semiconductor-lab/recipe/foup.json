@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "HHH",
+    "H H",
+    "HHH"
+  ],
+  "key": {
+    "H": "semiconductor-lab:hdpe"
+  },
+  "result": {
+    "id": "semiconductor-lab:foup",
+    "count": 1
+  }
+}
