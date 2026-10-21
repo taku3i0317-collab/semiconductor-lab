@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/cvd_furnace_front",
+    "side": "semiconductor-lab:block/cvd_furnace_side",
+    "top": "semiconductor-lab:block/cvd_furnace_top"
+  }
+}

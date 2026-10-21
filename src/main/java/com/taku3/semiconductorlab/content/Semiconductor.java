@@ -140,6 +140,8 @@ public final class Semiconductor {
     public static final Machine<DryEtcherBlockEntity> DRY_ETCHER = Machine.electric("dry_etcher", DryEtcherBlockEntity::new, DryEtcherBlockEntity.LAYOUT, lit(metal(4.0f), 9));
     // [9-30] シランの発生器（IMP4-01、S-002）：Mg + Si → Mg2Si、Mg2Si + 4HCl → SiH4。1kW
     public static final Machine<SilaneGeneratorBlockEntity> SILANE_GENERATOR = Machine.electric("silane_generator", SilaneGeneratorBlockEntity::new, SilaneGeneratorBlockEntity.LAYOUT, metal(3.5f));
+    // [9-30] CVD 炉（層間膜、IMP4-01 S-002）：SiH4 + O2 → SiO2 を約400℃。2層目の金属の前。2kW
+    public static final Machine<CvdFurnaceBlockEntity> CVD_FURNACE = Machine.electric("cvd_furnace", CvdFurnaceBlockEntity::new, CvdFurnaceBlockEntity.LAYOUT, lit(metal(4.0f), 9));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

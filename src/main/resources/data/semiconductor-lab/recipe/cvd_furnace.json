@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BQB",
+    "SFS",
+    "SKS"
+  ],
+  "key": {
+    "B": "semiconductor-lab:refractory_brick",
+    "Q": "semiconductor-lab:quartz_tube",
+    "S": "semiconductor-lab:steel_ingot",
+    "F": "semiconductor-lab:electric_furnace",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:cvd_furnace",
+    "count": 1
+  }
+}

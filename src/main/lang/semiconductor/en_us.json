@@ -614,5 +614,17 @@
   "gui.semiconductor-lab.silane_generator.need_power": "Not enough power",
   "gui.semiconductor-lab.silane_generator.silicide": "Heating Mg with Si",
   "gui.semiconductor-lab.silane_generator.silane": "Filling silane",
-  "gui.semiconductor-lab.silane_generator.recipe": "Mg2Si + 4HCl → SiH4"
+  "gui.semiconductor-lab.silane_generator.recipe": "Mg2Si + 4HCl → SiH4",
+  "block.semiconductor-lab.cvd_furnace": "CVD Furnace (Interlayer)",
+  "block.semiconductor-lab.cvd_furnace.note1": "Grows a film on wafers from reacting gases. Covers the first wiring layer with insulation.",
+  "block.semiconductor-lab.cvd_furnace.note2": "2 kW. 1–8 wafers with patterned first metal + 1 silane cylinder + 1 oxygen → wafers with an interlayer film + empty cylinder (20 s). Oxygen comes from an adjacent gas holder. Then via windows (resist → etch) → second Al → etch gives the second wiring layer (METAL2).",
+  "block.semiconductor-lab.cvd_furnace.note3": "SiH4 + O2 → SiO2 + 2H2O at about 400 °C. Thermal oxidation (about 1000 °C) cannot be done over aluminium (melts at 660 °C), so insulation over metal is deposited by CVD. Vias (vertical holes) join the two metal layers.",
+  "block.semiconductor-lab.cvd_furnace.note4": "Two wiring layers let lines cross over each other, so chips get smaller. ⚠️ Two-level metal spread in production around the 1970s (sources being checked). Today's chips have more than ten layers.",
+  "block.semiconductor-lab.cvd_furnace.placeholder": "Omitted: ⚠️ power and time are game values. Film thickness, phosphorus doping for reflow (PSG) and planarisation (CMP) are omitted.",
+  "gui.semiconductor-lab.cvd_furnace.power": "Power %s",
+  "gui.semiconductor-lab.cvd_furnace.need_input": "Needs wafers, silane and O2",
+  "gui.semiconductor-lab.cvd_furnace.cannot": "Pattern the first metal first",
+  "gui.semiconductor-lab.cvd_furnace.need_power": "Not enough power",
+  "gui.semiconductor-lab.cvd_furnace.running": "Depositing SiO2",
+  "gui.semiconductor-lab.cvd_furnace.recipe": "SiH4 + O2 → SiO2 (~400 °C)"
 }

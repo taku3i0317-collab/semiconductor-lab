@@ -605,6 +605,7 @@ wafer_prober  # Semiconductor [9-35] 1960
 dicing_saw  # Semiconductor [9-32] 1960
 package_sealer  # Semiconductor [9-34] 1960
 silane_generator  # Semiconductor [9-30] 1960
+cvd_furnace  # Semiconductor [9-30] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
 cleaning_bench  # Semiconductor [9-14] 1965
 rca_bench  # Semiconductor [9-14] 1965

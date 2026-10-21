@@ -1083,6 +1083,58 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-30] CVD 炉と2層配線（IMP4-01、S-002 案B）：NMOS インバータ＋2層目の例を、層間膜は CVD 炉（シラン＋O2 はホルダーから）、
+     * VIA の窓はドライエッチング装置、2層目の Al はスパッタ装置の product で通す → 右と下のパッドが METAL2 で同じ線
+     */
+    @GameTest(maxTicks = 200)
+    public void v03ChainTwoMetal(GameTestHelper h) {
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal();
+        int n = d.size();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        floor(h, 5);
+        BlockPos fp = p(2, 1, 2), gp = p(3, 1, 2);
+        h.setBlock(fp, Semiconductor.CVD_FURNACE.block);
+        h.setBlock(gp, Gas.GAS_HOLDER.block);
+        h.getBlockEntity(gp, com.taku3.semiconductorlab.block.GasHolderBlockEntity.class).setContentsForTest(com.taku3.semiconductorlab.block.GasType.OXYGEN, 4);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WATTS);
+        boolean cvdTried = false;
+        for (int i = 0; i < d.layers().size(); i++) {
+            var k = d.layers().get(i).kind();
+            if (k == com.taku3.semiconductorlab.litho.LayerKind.VIA) {
+                // CVD 炉：シランのボンベ＋O2（ホルダーから）→ 層間膜。レジストが付いていると断る
+                c.setItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.litho.ChipOps.coat(w).out());
+                c.setItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_SILANE, new ItemStack(Semiconductor.SILANE_CYLINDER));
+                tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS + 5, feed);
+                h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_OUT).isEmpty(), "resist on: no interlayer");
+                c.setItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_WAFER, w.copy());
+                tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS, feed);
+                h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_OUT).getCount() == 8 && c.getItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_CYL).is(Gas.EMPTY_GAS_CYLINDER), "CVD: 8 wafers get the interlayer, cylinder back");
+                w = c.removeItemNoUpdate(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_OUT);
+                h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w).interlayer(), "interlayer recorded");
+                cvdTried = true;
+            }
+            w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), d.mask(i), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+            if (k == com.taku3.semiconductorlab.litho.LayerKind.METAL || k == com.taku3.semiconductorlab.litho.LayerKind.METAL2) w = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.etchMetal(w).out()).out();
+            else if (k == com.taku3.semiconductorlab.litho.LayerKind.GATE_OX) w = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.gateOxide(w).out()).out();
+            else {
+                w = com.taku3.semiconductorlab.litho.ChipOps.strip(k == com.taku3.semiconductorlab.litho.LayerKind.VIA ? com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(w) : com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w).out()).out();
+                if (k.isDiffusion()) w = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, k.dopes).out();
+                else w = k == com.taku3.semiconductorlab.litho.LayerKind.VIA ? com.taku3.semiconductorlab.block.SputterBlockEntity.product(w, new ItemStack(Metallurgy.ALUMINIUM_INGOT)) : com.taku3.semiconductorlab.litho.ChipOps.depositMetal(w).out();
+            }
+            h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.isProcessWafer(w), "layer " + i + " " + k + " went through");
+        }
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(w);
+        h.assertTrue(cvdTried && st.has(com.taku3.semiconductorlab.litho.LayerKind.VIA) && st.has(com.taku3.semiconductorlab.litho.LayerKind.METAL2), "vias and a second metal");
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st));
+        h.assertValueEqual(nl.netOf[12 * n + 15], nl.netOf[15 * n + 8], "right pad and bottom pad are one net through metal 2");
+        LOG.info("[LAB] two-metal chain [9-30]: CVD interlayer (silane + O2 from holder), dry-etched vias, sputtered metal 2 -> pads joined");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2452,6 +2504,8 @@ public class SemiconductorTests extends LabTestBase {
             L(io(Semiconductor.MAGNESIUM_SILICIDE, 1)), com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS / 20.0, "2Mg + Si → Mg2Si");
         rec(a, Semiconductor.SILANE_GENERATOR.block, "シラン", L(io(Semiconductor.MAGNESIUM_SILICIDE, 1), io(Gas.HYDROCHLORIC_ACID, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.HCL_PER_RUN), io(Gas.EMPTY_GAS_CYLINDER, 1)),
             L(io(Semiconductor.SILANE_CYLINDER, 1)), com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS / 20.0, "Mg2Si + 4HCl → SiH4 + 2MgCl2（塩酸の瓶は戻る）");
+        rec(a, Semiconductor.CVD_FURNACE.block, "層間膜", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "1層目の金属を削った 1〜8枚"), io(Semiconductor.SILANE_CYLINDER, 1), io(Gas.OXYGEN_GAS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.O2_PER_RUN)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "層間膜（このあと VIA・METAL2）"), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS / 20.0, "SiH4 + O2 → SiO2 を約400℃。O2 はホルダーから");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

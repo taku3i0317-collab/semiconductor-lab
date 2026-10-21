@@ -614,5 +614,17 @@
   "gui.semiconductor-lab.silane_generator.need_power": "電気が足りない",
   "gui.semiconductor-lab.silane_generator.silicide": "Mg と Si を熱している",
   "gui.semiconductor-lab.silane_generator.silane": "シランを詰めている",
-  "gui.semiconductor-lab.silane_generator.recipe": "Mg2Si + 4HCl → SiH4"
+  "gui.semiconductor-lab.silane_generator.recipe": "Mg2Si + 4HCl → SiH4",
+  "block.semiconductor-lab.cvd_furnace": "CVD 炉（層間膜）",
+  "block.semiconductor-lab.cvd_furnace.note1": "気体どうしを反応させて、ウェハーの上に膜を積む炉。1層目の配線の上に絶縁膜をかぶせる。",
+  "block.semiconductor-lab.cvd_furnace.note2": "電気 2kW。1層目の金属を削ったウェハー1〜8枚＋シランのボンベ1＋酸素1 → 層間膜を付けたウェハー＋空のボンベ（20秒）。酸素は隣のガスホルダーから。そのあと VIA の窓（レジスト→エッチング）→ 2層目の Al → 削ると、2層目の配線（METAL2）。",
+  "block.semiconductor-lab.cvd_furnace.note3": "SiH4 + O2 → SiO2 + 2H2O を約400℃ で。熱酸化（約1000℃）はアルミ（660℃ で溶ける）の上ではできないので、金属の上の絶縁膜は CVD で積む。VIA（縦の穴）で1層目と2層目をつなぐ。",
+  "block.semiconductor-lab.cvd_furnace.note4": "配線を2層にすると、線がまたいで交差できるので、チップを小さくできる。⚠️ 2層配線が量産で広まった年は 1970年代ごろ（出典で確かめ中）。今のチップは10層をこえる。",
+  "block.semiconductor-lab.cvd_furnace.placeholder": "省略：⚠️ 電力・時間はゲームの値。膜の厚さ、りんを混ぜて流れやすくする（PSG のリフロー）工夫、平らにする（CMP）は省略。",
+  "gui.semiconductor-lab.cvd_furnace.power": "電力 %s",
+  "gui.semiconductor-lab.cvd_furnace.need_input": "ウェハー・シラン・酸素が必要",
+  "gui.semiconductor-lab.cvd_furnace.cannot": "1層目の金属を先に削る",
+  "gui.semiconductor-lab.cvd_furnace.need_power": "電気が足りない",
+  "gui.semiconductor-lab.cvd_furnace.running": "SiO2 を積んでいる",
+  "gui.semiconductor-lab.cvd_furnace.recipe": "SiH4 + O2 → SiO2（約400℃）"
 }

@@ -102,3 +102,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - 待機終了（2026-10-21 05:29、INBOX が6時間変化なし。O-012 の2 多層化はユーザーの決定待ちのまま）
 - S-002 開始（ユーザーの決定：多層化＝案B）。A へ分担の相談（SendMessage）：A＝ChipOps.depositInterlayer・VIA・METAL2・Netlist・2層の例、E＝CVD 炉（SiH4 + O2 → SiO2、約400℃）とシラン
 - ✅ [9-30] の一部：シランの発生器（block/SilaneGeneratorBlockEntity、Mg2Si → SiH4）。GameTest silane_generator、CHEMISTRY F57。CVD 炉は A の depositInterlayer を待つ
+- ✅ [9-30] CVD 炉（block/CvdFurnaceBlockEntity、2kW、ChipOps.depositInterlayer）と2層配線の通し（GameTest v03_chain_two_metal：CVD → ドライで VIA → スパッタで2層目 → METAL2、パッドが同じ線）。CHEMISTRY F58、REFERENCES F33。2層配線の年 1970年代は △

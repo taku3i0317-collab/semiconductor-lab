@@ -661,6 +661,40 @@
       "note": "純度と経路を受け継ぐ"
     },
     {
+      "machine": "semiconductor-lab:cvd_furnace",
+      "process": "層間膜",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "1層目の金属を削った 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:silane_cylinder",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:oxygen_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "層間膜（このあと VIA・METAL2）"
+        },
+        {
+          "item": "semiconductor-lab:empty_gas_cylinder",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 20.0,
+      "energy_kj": 40,
+      "note": "SiH4 + O2 → SiO2 を約400℃。O2 はホルダーから"
+    },
+    {
       "machine": "semiconductor-lab:cz_puller",
       "process": "種結晶",
       "inputs": [
