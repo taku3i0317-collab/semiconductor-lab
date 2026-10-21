@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:fkm_raw_rubber",
+    "semiconductor-lab:magnesium_oxide",
+    "semiconductor-lab:bisphenol_a"
+  ],
+  "result": {
+    "id": "semiconductor-lab:fkm_compound",
+    "count": 4
+  }
+}

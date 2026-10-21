@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:difluoroethane_gas",
+    "semiconductor-lab:chlorine_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:chlorodifluoroethane_gas",
+    "count": 1
+  }
+}

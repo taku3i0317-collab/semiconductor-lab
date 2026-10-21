@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:vinylidene_fluoride_gas",
+    "semiconductor-lab:vinylidene_fluoride_gas",
+    "semiconductor-lab:vinylidene_fluoride_gas",
+    "semiconductor-lab:hexafluoropropylene_gas",
+    "semiconductor-lab:hydrogen_peroxide",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:fkm_raw_rubber",
+    "count": 1
+  }
+}

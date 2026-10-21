@@ -416,6 +416,18 @@ public final class Chemistry {
     public static final Item AMMONIUM_MOLYBDATE    = Reg.item("ammonium_molybdate", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(16));
     public static final Item COPPER_PHTHALOCYANINE = Reg.item("copper_phthalocyanine");
 
+    // [2-64] フッ素ゴム（FKM、IMP3、O-029、仮決定 Q3-23。C の EUV の囲いの封止の O リング）
+    //   アセチレン＋フッ酸2＋五塩化アンチモン（触媒）→ 1,1-ジフルオロエタン（HF がもれる事故）→ ＋塩素 → 1-クロロ-1,1-ジフルオロエタン（塩素がもれる事故）
+    //   →かまど（熱分解、HCl が抜ける）→ フッ化ビニリデン。テトラフルオロエチレン →かまど（熱分解）→ ヘキサフルオロプロピレン
+    //   フッ化ビニリデン3＋ヘキサフルオロプロピレン＋過酸化水素（開始剤）＋水 → フッ素ゴムの生ゴム（乳化重合）→ ＋酸化マグネシウム＋ビスフェノールA → 配合ゴム4 →かまど（加硫）→ O リング
+    public static final Item DIFLUOROETHANE_GAS    = Reg.item("difluoroethane_gas", p -> new com.taku3.semiconductorlab.item.CraftLeakItem(p, net.minecraft.world.effect.MobEffects.WEAKNESS, 20 * 6, 0.15f, "message.semiconductor-lab.difluoroethane_gas.leak"), new Item.Properties().stacksTo(16));
+    public static final Item CHLORODIFLUOROETHANE_GAS = Reg.item("chlorodifluoroethane_gas", p -> new com.taku3.semiconductorlab.item.CraftLeakItem(p, net.minecraft.world.effect.MobEffects.NAUSEA, 20 * 6, 0.15f, "message.semiconductor-lab.chlorodifluoroethane_gas.leak"), new Item.Properties().stacksTo(16));
+    public static final Item VINYLIDENE_FLUORIDE_GAS = Reg.item("vinylidene_fluoride_gas", new Item.Properties().stacksTo(16));
+    public static final Item HEXAFLUOROPROPYLENE_GAS = Reg.item("hexafluoropropylene_gas", new Item.Properties().stacksTo(16));
+    public static final Item FKM_RAW_RUBBER        = Reg.item("fkm_raw_rubber");
+    public static final Item FKM_COMPOUND          = Reg.item("fkm_compound");
+    public static final Item FKM_O_RING            = Reg.item("fkm_o_ring");
+
     static void init() {
         // [2-48] オゾンホールの日焼け（決定 Q3-11 ②、IMP3 S-006）
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(com.taku3.semiconductorlab.OzoneLayer::tick);

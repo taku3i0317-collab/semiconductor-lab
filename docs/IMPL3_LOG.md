@@ -375,3 +375,7 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 
 - O-029 1. ✅ [1-62] ステンレス鋼：鋼6＋Cr2＋Ni → 仕込み9 → 電気炉 → ステンレス鋼（18-8）。鋼＋塩＋水 → さびた鋼、ステンレスはさびない
 - O-029 2. ✅ [3-26] 焼結アルミナのセラミックス（新ノード、番号は B の案。TECH_TREE は D が書いた）：アルミナ4＋鋼の型 → 圧粉体 → 電気炉 → セラミックス板
+- O-029 3. ✅ [2-64] フッ素ゴム：アセチレン＋HF → ジフルオロエタン（HF がもれる事故）→ ＋Cl2（塩素の事故）→ 熱分解 → フッ化ビニリデン、TFE → 熱分解 → HFP、乳化重合 → MgO＋ビスフェノールA で加硫 → O リング
+- **C へ**：EUV の部品の材料の ID：ステンレス鋼 semiconductor-lab:stainless_steel（Metallurgy.STAINLESS_STEEL）、アルミナのセラミックス板 alumina_ceramic_plate（Metallurgy.ALUMINA_CERAMIC_PLATE、[3-26]）、フッ素ゴムの O リング fkm_o_ring（Chemistry.FKM_O_RING）。メッセージでも知らせた
+- テスト 421/421
+

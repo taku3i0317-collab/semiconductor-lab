@@ -167,6 +167,8 @@ crude_zirconium  # Metallurgy [1-70] 1925
 crude_hafnium  # Metallurgy [1-70] 1925
 zirconium_bar  # Metallurgy [1-70] 1925
 hafnium_bar  # Metallurgy [1-70] 1925
+alumina_compact  # Metallurgy [3-26] 1930
+alumina_ceramic_plate  # Metallurgy [3-26] 1930
 coal_ash  # Metallurgy [1-01] 1930
 germanium_concentrate  # Metallurgy [1-01] 1930
 germanium_dioxide  # Metallurgy [1-01] 1930
@@ -218,8 +220,6 @@ nickel_carbonyl_gas  # Metallurgy [None] None
 bittern_under_hcl  # Metallurgy [None] None
 anhydrous_magnesium_chloride  # Metallurgy [None] None
 magnesium_oxide  # Metallurgy [None] None
-alumina_compact  # Metallurgy [3-26] None
-alumina_ceramic_plate  # Metallurgy [3-26] None
 light_rare_earth_oxalate  # Metallurgy [None] None
 neodymium_electrolysis_charge  # Metallurgy [None] None
 ferroboron_charge  # Metallurgy [None] None
@@ -405,6 +405,13 @@ ito_glass  # Chemistry [2-46] 1954
 phosphorus  # Chemistry [9-11] 1955
 silicon_etch  # Chemistry [9-17] 1957
 developer  # Chemistry [9-21] 1957
+difluoroethane_gas  # Chemistry [2-64] 1957
+chlorodifluoroethane_gas  # Chemistry [2-64] 1957
+vinylidene_fluoride_gas  # Chemistry [2-64] 1957
+hexafluoropropylene_gas  # Chemistry [2-64] 1957
+fkm_raw_rubber  # Chemistry [2-64] 1957
+fkm_compound  # Chemistry [2-64] 1957
+fkm_o_ring  # Chemistry [2-64] 1957
 phosphoric_acid  # Chemistry [9-25] 1959
 aluminosilicate_glass  # Chemistry [2-47] 1962
 strengthened_glass  # Chemistry [2-47] 1962

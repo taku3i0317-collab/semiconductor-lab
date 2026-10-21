@@ -494,6 +494,9 @@
 "chloroauric_acid": [
 "crafting"
 ],
+"chlorodifluoroethane_gas": [
+"crafting"
+],
 "chlorodifluoromethane_gas": [
 "crafting"
 ],
@@ -761,6 +764,9 @@
 "diffusion_pump": [
 "crafting"
 ],
+"difluoroethane_gas": [
+"crafting"
+],
 "dimethyldichlorosilane": [
 "machine:silicone_reactor"
 ],
@@ -941,6 +947,15 @@
 "crafting"
 ],
 "fire_clay_crucible": [
+"crafting"
+],
+"fkm_compound": [
+"crafting"
+],
+"fkm_o_ring": [
+"smelting"
+],
+"fkm_raw_rubber": [
 "crafting"
 ],
 "flax": [
@@ -1179,6 +1194,9 @@
 ],
 "hepa_filter": [
 "crafting"
+],
+"hexafluoropropylene_gas": [
+"smelting"
 ],
 "hexamethylenediamine": [
 "crafting"
@@ -1478,6 +1496,9 @@
 "machine:silane_generator"
 ],
 "magnet": [
+"crafting"
+],
+"magnetic_tape": [
 "crafting"
 ],
 "magnetite": [
@@ -2449,6 +2470,9 @@
 "steel_ingot": [
 "machine:bessemer_converter"
 ],
+"steel_wire_spool": [
+"crafting"
+],
 "stepper": [
 "crafting"
 ],
@@ -2522,6 +2546,9 @@
 "crafting"
 ],
 "tarmac": [
+"crafting"
+],
+"telegraphone": [
 "crafting"
 ],
 "telephone": [
@@ -2684,6 +2711,9 @@
 ],
 "vinyl_acetate": [
 "crafting"
+],
+"vinylidene_fluoride_gas": [
+"smelting"
 ],
 "voltaic_pile": [
 "crafting"

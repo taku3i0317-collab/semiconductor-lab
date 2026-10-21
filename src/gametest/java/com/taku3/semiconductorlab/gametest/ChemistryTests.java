@@ -1461,4 +1461,19 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
             L(io(Chemistry.HYDROFLUORIC_ACID, 1), io(Chemistry.CALCIUM_SULFATE, 1), io(Chemistry.GLASS_BOTTLE, 1)), 0, com.taku3.semiconductorlab.block.HfRetortBlockEntity.REACT_TICKS / 20.0,
             "CaF2 + H2SO4 → CaSO4 + 2HF（約200℃）。HF を受け器の水に吸わせる。釜も瓶も鉛（ガラスは溶ける）");
     }
+
+    /** [2-64] フッ素ゴム（IMP3、O-029）：アセチレン＋HF → ＋Cl2 → 熱分解 → VDF、TFE → 熱分解 → HFP、乳化重合 → MgO で加硫 → O リング。HF・塩素の事故 */
+    @GameTest
+    public void fluororubber(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "difluoroethane_gas", Chemistry.ACETYLENE_GAS) && recipeUses(h, "difluoroethane_gas", Chemistry.HYDROFLUORIC_ACID), "C2H2 + 2HF");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.CHLORODIFLUOROETHANE_GAS).is(Chemistry.VINYLIDENE_FLUORIDE_GAS), "crack -> VDF");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.TETRAFLUOROETHYLENE_GAS).is(Chemistry.HEXAFLUOROPROPYLENE_GAS), "TFE -> HFP");
+        h.assertTrue(recipeUses(h, "fkm_raw_rubber", Chemistry.VINYLIDENE_FLUORIDE_GAS) && recipeUses(h, "fkm_raw_rubber", Chemistry.HEXAFLUOROPROPYLENE_GAS), "copolymer");
+        h.assertTrue(recipeUses(h, "fkm_compound", com.taku3.semiconductorlab.content.Metallurgy.MAGNESIUM_OXIDE), "MgO cure");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Chemistry.FKM_COMPOUND).is(Chemistry.FKM_O_RING), "bake -> O-ring");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ((com.taku3.semiconductorlab.item.CraftLeakItem) Chemistry.DIFLUOROETHANE_GAS).leak(player);
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS), "HF leak -> brief weakness");
+        h.succeed();
+    }
 }

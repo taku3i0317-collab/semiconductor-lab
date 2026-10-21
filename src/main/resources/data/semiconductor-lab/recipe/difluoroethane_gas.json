@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:acetylene_gas",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:antimony_pentachloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:difluoroethane_gas",
+    "count": 1
+  }
+}

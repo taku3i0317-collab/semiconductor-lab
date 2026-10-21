@@ -4130,6 +4130,19 @@
 - Wikipedia「Aluminium oxide」（Applications）：https://en.wikipedia.org/wiki/Aluminium_oxide
 - Wikipedia「Electrostatic chuck」：https://en.wikipedia.org/wiki/Electrostatic_chuck
 
+## C82. 熱と油に強いゴム（フッ素ゴム）［2-64］
+**答え**：ふつうのゴムは、熱や油でふくらんだり固くなったりして、すき間をふさげなくなる。フッ素をたくさんふくむ合成ゴム（フッ素ゴム）は、200〜250℃でも、油・燃料・多くの薬品にふれても長くもつ。フッ化ビニリデンとヘキサフルオロプロピレンという2つのつぶ（モノマー）を水の中でまぜてつなぎ（乳化共重合）、ビスフェノールと酸化マグネシウムで鎖どうしをつないで（加硫）作る。1957年にデュポンが「バイトン」として出した（1958年とする資料もある）。エンジン・化学工場・半導体装置の真空の O リングに使われる。
+
+- へえ①：フライパンのテフロンの親せき。フッ素の力で熱と油に強くなったゴム。
+- へえ②：CF3 の出っぱりが鎖をきれいに並ばせないので、プラスチックでなくゴムになる。
+- へえ③：真空の装置の O リングは、ガスを出しにくいフッ素ゴムがよく使われる。
+- へえ④：作るときにフッ化水素や塩素を使うので、工場では漏れを厳しく管理する。
+
+確かさ：フッ素ゴムの組成・加硫 ◎／バイトンの年（1957/58）△
+根拠：
+- Wikipedia「FKM」：https://en.wikipedia.org/wiki/FKM
+- Wikipedia「Vinylidene fluoride」：https://en.wikipedia.org/wiki/1,1-Difluoroethylene
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
