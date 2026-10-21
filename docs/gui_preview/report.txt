@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 214（ja・en）、文字の置き場所 792、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 216（ja・en）、文字の置き場所 800、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
