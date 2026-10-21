@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 743（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 747（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1283,6 +1283,14 @@ en_us diamond_scribe lines=4
 en_us diamond_scribe shift lines=12
 en_us chip lines=3
 en_us chip shift lines=9
+en_us red_color_resist lines=7
+en_us red_color_resist shift lines=12
+en_us green_color_resist lines=7
+en_us green_color_resist shift lines=12
+en_us blue_color_resist lines=7
+en_us blue_color_resist shift lines=12
+en_us bayer_filter lines=6
+en_us bayer_filter shift lines=14
 en_us chip_header lines=6
 en_us chip_header shift lines=14
 en_us bonded_chip lines=4
@@ -2769,6 +2777,14 @@ ja_jp diamond_scribe lines=3
 ja_jp diamond_scribe shift lines=9
 ja_jp chip lines=3
 ja_jp chip shift lines=8
+ja_jp red_color_resist lines=5
+ja_jp red_color_resist shift lines=10
+ja_jp green_color_resist lines=4
+ja_jp green_color_resist shift lines=9
+ja_jp blue_color_resist lines=5
+ja_jp blue_color_resist shift lines=10
+ja_jp bayer_filter lines=5
+ja_jp bayer_filter shift lines=12
 ja_jp chip_header lines=4
 ja_jp chip_header shift lines=11
 ja_jp bonded_chip lines=3
