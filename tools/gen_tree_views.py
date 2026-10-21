@@ -778,7 +778,8 @@ def compute_layout(out_nodes, edges):
     bias = [count[s] / (count[s] + count[t]) for s, t in links]
     maxd = max((n["descendants"] for n in out_nodes), default=1) or 1
     radial = np.array([60 + 520 * (1 - math.sqrt(n["descendants"] / maxd)) for n in out_nodes])
-    rad2 = np.where(isl, 18, Rr) + 2
+    # S-014：モノ・発見の丸は、スマホで 1.6 倍に拡大して描いても重ならない間（15×1.6＋名前の分）。技術も少し広く
+    rad2 = np.where(isl, 28, Rr + 4) + 2
     nx, ny = x - W / 2, y - H / 2
     vx, vy = np.zeros(N), np.zeros(N)
     alpha = 1.0
