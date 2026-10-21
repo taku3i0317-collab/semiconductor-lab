@@ -127,3 +127,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [9-37] FinFET の E の分：ドライエッチング装置に Cl2 → ChipOps.formFins（A の 76d68bcd）。GameTest fin_etch、CHEMISTRY F66、REFERENCES F37 更新。STI は省略、high-k はユーザーの決定待ち
 - O-015 開始。[9-49] の MC 欄は「未定（実装の前に相談）」だったが、INBOX の指示どおり作る。いちばん軽い形＝インバータの部品にした（判断の記録）。拡散炉への分岐は A の了承
 - ✅ [9-49] サイリスタ（拡散炉の分岐：n の p-n 接合＋リン → thyristor_wafer、作業台で thyristor ×4）・[9-41] インバータ（energy/InverterBlockEntity、DC→AC 95%、網の決まりは A に確認）。GameTest thyristor_inverter、CHEMISTRY F67、REFERENCES F40。[4-26] は前提がそろってから
+- S-004 の1：FinFET のゲートは SiO2 の「仮」と明記（TECH_TREE・CHEMISTRY F66・REFERENCES F37・dry_etcher.placeholder・DECISIONS）。[1-70]（D）ができたら HfO2 に入れ替え
+- **S-004 の2 は質問（Discord）**：「v0.6 に進んでよい（ROADMAP の順）」とあるが、ROADMAP に v0.6 の章がない（v0.5 の次は v1.0 EUV）。v1.0 のことか、ほかの意味かを確かめるまで、新しい章には入らない

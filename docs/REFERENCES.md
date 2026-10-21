@@ -910,7 +910,7 @@
 - へえ④：次の世代はフィンを横に寝かせて重ね、ゲートで4方向から囲む（GAA、[9-38]）。
 
 確かさ：1999 の発表（IEDM の論文）◎／2011 インテルの 22nm 量産 ◎／TSMC・サムスンの採用 2015ごろ ○
-ゲーム（2026-10-21 IMP4-01・A で実装、S-003 案A）：ドライエッチング装置に Cl2 → フィン。方眼 100（CD 約40nm）以上の平らな MOS は漏れてお題に落ち、FinFET は合格。⚠️ ゲートは SiO2 のまま（high-k はユーザーの決定待ち）
+ゲーム（2026-10-21 IMP4-01・A で実装、S-003 案A）：ドライエッチング装置に Cl2 → フィン。方眼 100（CD 約40nm）以上の平らな MOS は漏れてお題に落ち、FinFET は合格。⚠️ ゲートは SiO2 の「仮」（本物は high-k＋金属ゲート。[1-70] ハフニウムができたら入れ替え、S-004）
 根拠：Wikipedia「FinFET」https://en.wikipedia.org/wiki/FinFET 、Intel のニュースリリース「Intel Reinvents Transistors Using New 3-D Structure」（2011年5月）、Wikipedia「Multigate device」https://en.wikipedia.org/wiki/Multigate_device （英語）
 
 ---

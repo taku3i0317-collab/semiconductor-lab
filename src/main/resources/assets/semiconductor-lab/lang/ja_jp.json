@@ -4852,7 +4852,7 @@
   "block.semiconductor-lab.dry_etcher.note2": "電気 3kW。現像したレジストの付いたウェハー1〜8枚＋CF4 1 → 窓を開けたウェハー（15秒）。隣の真空容器が 0.1Pa 以下でないと動かない。そのあとはレジストをはがす。　塩素（Cl2）を入れると、酸化膜ではなくシリコンを真下に削り、レジストの残った所に細い板（フィン）が立つ（FinFET [9-37]）。",
   "block.semiconductor-lab.dry_etcher.note3": "CF4 を高周波で放電させると F がばらばらに出て、SiO2 を SiF4 の気体にする。ウェハーを置いた電極にマイナスの電圧がたまり、イオンが真上から当たる＝縦にだけ削れる（異方性、反応性イオンエッチング RIE）。",
   "block.semiconductor-lab.dry_etcher.note4": "1970年代から。液は横にも同じだけ溶けるので、線が細くなると（約2〜3µm 以下）太ってくっつく。今のチップの細い線は、全部ドライで削る。",
-  "block.semiconductor-lab.dry_etcher.placeholder": "省略：⚠️ ゲームでは方眼 36 以上（ステッパー g 線から）で液の窓が1マス太り、ドライは太らない。電力・時間はゲームの値。O2 を混ぜること・放電中の圧力は省略。",
+  "block.semiconductor-lab.dry_etcher.placeholder": "省略：⚠️ ゲームでは方眼 36 以上（ステッパー g 線から）で液の窓が1マス太り、ドライは太らない。電力・時間はゲームの値。O2 を混ぜること・放電中の圧力は省略。　FinFET のゲートの絶縁膜は SiO2 の「仮」（本物は 2007年ごろから high-k の HfO2＋金属ゲート）。",
   "gui.semiconductor-lab.dry_etcher.power": "電力 %s",
   "gui.semiconductor-lab.dry_etcher.need_input": "ウェハーと CF4 が必要",
   "gui.semiconductor-lab.dry_etcher.cannot": "現像したレジストがない",

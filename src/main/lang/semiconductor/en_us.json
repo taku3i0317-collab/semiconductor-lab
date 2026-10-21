@@ -583,7 +583,7 @@
   "block.semiconductor-lab.dry_etcher.note2": "3 kW. 1–8 wafers with developed resist + 1 CF4 → wafers with windows (15 s). Works only when a vacuum chamber next to it is at 0.1 Pa or below. Strip the resist afterwards. With chlorine (Cl2) it cuts the silicon itself straight down, leaving thin fins under the resist (FinFET [9-37]).",
   "block.semiconductor-lab.dry_etcher.note3": "A radio-frequency discharge breaks CF4 into F, which turns SiO2 into gaseous SiF4. The wafer electrode charges negative, so ions strike from straight above and etch only downward (anisotropic: reactive ion etching, RIE).",
   "block.semiconductor-lab.dry_etcher.note4": "From the 1970s. Liquids dissolve sideways as much as down, so lines below about 2–3 µm widen and merge. Every fine line in today's chips is dry-etched.",
-  "block.semiconductor-lab.dry_etcher.placeholder": "Omitted: ⚠️ in game, on grids of 36 or finer (from the g-line stepper) wet windows widen by one cell; dry ones do not. Power and time are game values. Added O2 and discharge pressure are omitted.",
+  "block.semiconductor-lab.dry_etcher.placeholder": "Omitted: ⚠️ in game, on grids of 36 or finer (from the g-line stepper) wet windows widen by one cell; dry ones do not. Power and time are game values. Added O2 and discharge pressure are omitted. The FinFET gate insulator is a SiO2 stand-in (real ones use high-k HfO2 with metal gates, from about 2007).",
   "gui.semiconductor-lab.dry_etcher.power": "Power %s",
   "gui.semiconductor-lab.dry_etcher.need_input": "Needs wafers and CF4",
   "gui.semiconductor-lab.dry_etcher.cannot": "No developed resist",
