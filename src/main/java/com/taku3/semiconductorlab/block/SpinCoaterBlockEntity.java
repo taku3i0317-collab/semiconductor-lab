@@ -62,7 +62,7 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
 
     @Override protected boolean canWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER), container.getItem(SLOT_RESIST));
-        return !out.isEmpty() && goodResist(container.getItem(SLOT_RESIST)) && canMerge(container.getItem(SLOT_OUT), out);
+        return !out.isEmpty() && goodResist(container.getItem(SLOT_RESIST)) && canMerge(container.getItem(SLOT_OUT), dust(out));
     }
 
     @Override protected void finishWork() {
@@ -71,7 +71,12 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
         ItemStack r = container.getItem(SLOT_RESIST);
         Vessel.returnEmpty(level, worldPosition, r, 1);
         r.shrink(1);
-        merge(SLOT_OUT, out);
+        merge(SLOT_OUT, dust(out));
         container.setChanged();
+    }
+
+    /** クリーンルームの等級のほこり（O-017、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
+    private ItemStack dust(ItemStack out) {
+        return level == null ? out : ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition));
     }
 }

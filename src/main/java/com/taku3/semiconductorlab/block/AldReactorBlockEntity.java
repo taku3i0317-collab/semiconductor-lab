@@ -52,7 +52,7 @@ public class AldReactorBlockEntity extends ConsumerBlockEntity {
     @Override protected boolean canWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER));
         return !out.isEmpty() && container.getItem(SLOT_HFCL4).is(Semiconductor.HAFNIUM_TETRACHLORIDE) && container.getItem(SLOT_WATER).is(Chemistry.DISTILLED_WATER)
-                && canMerge(container.getItem(SLOT_OUT), out);
+                && canMerge(container.getItem(SLOT_OUT), dust(out));
     }
 
     @Override protected void finishWork() {
@@ -63,7 +63,12 @@ public class AldReactorBlockEntity extends ConsumerBlockEntity {
             Vessel.returnEmpty(level, worldPosition, b, 1);   // 瓶は上に戻る
             b.shrink(1);
         }
-        merge(SLOT_OUT, out);
+        merge(SLOT_OUT, dust(out));
         container.setChanged();
+    }
+
+    /** クリーンルームの等級のほこり（O-017、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
+    private ItemStack dust(ItemStack out) {
+        return level == null ? out : ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition));
     }
 }

@@ -64,7 +64,7 @@ public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
     @Override protected boolean canWork() {
         ItemStack o2 = container.getItem(SLOT_O2), out = product(container.getItem(SLOT_WAFER), o2);
         return !out.isEmpty() && container.getItem(SLOT_SILANE).is(Semiconductor.SILANE_CYLINDER) && o2.getCount() >= O2_PER_RUN
-                && canMerge(container.getItem(SLOT_OUT), out) && canMerge(container.getItem(SLOT_CYL), new ItemStack(Gas.EMPTY_GAS_CYLINDER));
+                && canMerge(container.getItem(SLOT_OUT), dust(out)) && canMerge(container.getItem(SLOT_CYL), new ItemStack(Gas.EMPTY_GAS_CYLINDER));
     }
 
     @Override protected void finishWork() {
@@ -72,7 +72,7 @@ public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
         container.getItem(SLOT_WAFER).shrink(out.getCount());
         container.getItem(SLOT_SILANE).shrink(1);
         container.getItem(SLOT_O2).shrink(O2_PER_RUN);
-        merge(SLOT_OUT, out);
+        merge(SLOT_OUT, dust(out));
         merge(SLOT_CYL, new ItemStack(Gas.EMPTY_GAS_CYLINDER));
         container.setChanged();
     }
@@ -90,5 +90,10 @@ public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
             int n = holder.extract(GasType.OXYGEN, want);
             if (n > 0) merge(SLOT_O2, new ItemStack(Gas.OXYGEN_GAS, n));
         }
+    }
+
+    /** クリーンルームの等級のほこり（O-017、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
+    private ItemStack dust(ItemStack out) {
+        return level == null ? out : ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition));
     }
 }

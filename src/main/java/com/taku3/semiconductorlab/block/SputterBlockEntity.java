@@ -82,7 +82,7 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
 
     @Override protected boolean canWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER), container.getItem(SLOT_TARGET)), ar = container.getItem(SLOT_AR);
-        return !out.isEmpty() && ar.is(Gas.ARGON_GAS) && ar.getCount() >= AR_PER_RUN && vacuumOk() && canMerge(container.getItem(SLOT_OUT), out);
+        return !out.isEmpty() && ar.is(Gas.ARGON_GAS) && ar.getCount() >= AR_PER_RUN && vacuumOk() && canMerge(container.getItem(SLOT_OUT), dust(out));
     }
 
     @Override protected void finishWork() {
@@ -90,7 +90,7 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
         container.getItem(SLOT_WAFER).shrink(out.getCount());
         container.getItem(SLOT_TARGET).shrink(1);
         container.getItem(SLOT_AR).shrink(AR_PER_RUN);
-        merge(SLOT_OUT, out);
+        merge(SLOT_OUT, dust(out));
         container.setChanged();
     }
 
@@ -112,4 +112,9 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
     /** 画面に出す：真空がよいか（1/0） */
     @Override protected int extraDataCount() { return 1; }
     @Override protected int extraData(int i) { return i == DATA_VACUUM && vacuumOk() ? 1 : 0; }
+
+    /** クリーンルームの等級のほこり（O-017、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
+    private ItemStack dust(ItemStack out) {
+        return level == null ? out : ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition));
+    }
 }

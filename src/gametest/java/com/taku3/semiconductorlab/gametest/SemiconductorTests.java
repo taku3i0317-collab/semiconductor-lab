@@ -1170,7 +1170,7 @@ public class SemiconductorTests extends LabTestBase {
         ItemStack out = c.getItem(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.SLOT_OUT);
         var st = com.taku3.semiconductorlab.litho.ChipOps.state(out);
         h.assertTrue(out.getCount() == 8 && st.steps() == 0, "CMP: steps -> 0, got " + out);
-        h.assertValueEqual(st.contamination(), before.contamination() + 2, "slurry particles: dirt +2");
+        h.assertValueEqual(st.contamination(), before.contamination() + 2 + com.taku3.semiconductorlab.block.CleanRoom.dustAt(h.getLevel(), h.absolutePos(cp)), "slurry particles: dirt +2 (+ room dust, O-017)");
         h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.SLOT_SLURRY).getCount(), 1, "1 slurry per run");
         h.assertValueEqual(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.reason(out), "already_flat", "second pass: already flat");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(cp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
@@ -1394,6 +1394,28 @@ public class SemiconductorTests extends LabTestBase {
         h.assertTrue(!dev.resistPattern().get(3, 3) && dev.resistPattern().get(0, 0), "after PEB the exposed cells dissolve");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(rp)).inflate(3)).forEach(net.minecraft.world.entity.Entity::discard);
         LOG.info("[LAB] chemically amplified resist [2-33]: Fries, reduction, polymer; sulfoxide, PAG; DNQ opaque at KrF, CAR prints; PEB needed");
+        h.succeed();
+    }
+
+    /** O-017：クリーンルームの外で動かした E の工程の機械（塗布機）は、ほこりで汚れ +2（C の CleanRoom.dustAt）。失敗にはならない */
+    @GameTest(maxTicks = 100)
+    public void processDustOutside(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos sp = p(2, 1, 2);
+        h.setBlock(sp, Semiconductor.SPIN_COATER.block);
+        var be = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.class);
+        var c = be.getContainer();
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8); ow.set(ModDataComponents.DOPANT, "boron");
+        int expect = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.product(ow, new ItemStack(Chemistry.POSITIVE_RESIST))).contamination() + com.taku3.semiconductorlab.block.CleanRoom.dustAt(h.getLevel(), h.absolutePos(sp));
+        h.assertValueEqual(com.taku3.semiconductorlab.block.CleanRoom.dustAt(h.getLevel(), h.absolutePos(sp)), 2, "outside a clean room: dust 2");
+        c.setItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_WAFER, ow);
+        c.setItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_RESIST, new ItemStack(Chemistry.POSITIVE_RESIST));
+        tickConsumer(h, sp, be, com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.WATTS));
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.SLOT_OUT);
+        h.assertTrue(out.getCount() == 8, "still works outside (dust is not a failure)");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(out).contamination(), expect, "coated outside: dust +2");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(sp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] process dust (O-017): spin coater outside a clean room adds 2 dirt, still works");
         h.succeed();
     }
 

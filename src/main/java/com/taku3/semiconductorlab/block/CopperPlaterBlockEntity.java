@@ -58,7 +58,7 @@ public class CopperPlaterBlockEntity extends ConsumerBlockEntity {
     @Override protected boolean canWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER));
         return !out.isEmpty() && container.getItem(SLOT_SULFATE).is(Chemistry.COPPER_SULFATE) && container.getItem(SLOT_ANODE).is(Items.COPPER_INGOT)
-                && canMerge(container.getItem(SLOT_OUT), out);
+                && canMerge(container.getItem(SLOT_OUT), dust(out));
     }
 
     @Override protected void finishWork() {
@@ -66,7 +66,12 @@ public class CopperPlaterBlockEntity extends ConsumerBlockEntity {
         container.getItem(SLOT_WAFER).shrink(out.getCount());
         container.getItem(SLOT_SULFATE).shrink(1);
         container.getItem(SLOT_ANODE).shrink(1);
-        merge(SLOT_OUT, out);
+        merge(SLOT_OUT, dust(out));
         container.setChanged();
+    }
+
+    /** クリーンルームの等級のほこり（O-017、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
+    private ItemStack dust(ItemStack out) {
+        return level == null ? out : ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition));
     }
 }

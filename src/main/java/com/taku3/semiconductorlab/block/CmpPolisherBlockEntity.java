@@ -56,7 +56,7 @@ public class CmpPolisherBlockEntity extends ConsumerBlockEntity {
 
     @Override protected boolean canWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER));
-        return !out.isEmpty() && container.getItem(SLOT_SLURRY).is(Chemistry.COLLOIDAL_SILICA) && canMerge(container.getItem(SLOT_OUT), out);
+        return !out.isEmpty() && container.getItem(SLOT_SLURRY).is(Chemistry.COLLOIDAL_SILICA) && canMerge(container.getItem(SLOT_OUT), dust(out));
     }
 
     @Override protected void finishWork() {
@@ -65,7 +65,12 @@ public class CmpPolisherBlockEntity extends ConsumerBlockEntity {
         ItemStack slurry = container.getItem(SLOT_SLURRY);
         Vessel.returnEmpty(level, worldPosition, slurry, 1);   // スラリーの瓶は上に戻る
         slurry.shrink(1);
-        merge(SLOT_OUT, out);
+        merge(SLOT_OUT, dust(out));
         container.setChanged();
+    }
+
+    /** クリーンルームの等級のほこり（O-017、C の CleanRoom.dustAt：外 +2・クラス1000 +1・クラス100 0）。失敗にはしない＝汚れは検査台の漏れ・歩留まりに効く */
+    private ItemStack dust(ItemStack out) {
+        return level == null ? out : ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition));
     }
 }
