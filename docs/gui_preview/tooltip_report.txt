@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 857（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 860（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1619,6 +1619,12 @@ en_us tin_bath lines=6
 en_us tin_bath shift lines=12
 en_us marine_chronometer lines=8
 en_us marine_chronometer shift lines=21
+en_us duralumin_charge lines=6
+en_us duralumin_charge shift lines=12
+en_us duralumin lines=4
+en_us duralumin shift lines=10
+en_us quenched_duralumin lines=7
+en_us quenched_duralumin shift lines=15
 en_us touch_panel lines=4
 en_us touch_panel shift lines=22
 en_us transistor_radio lines=14
@@ -3335,6 +3341,12 @@ ja_jp tin_bath lines=5
 ja_jp tin_bath shift lines=10
 ja_jp marine_chronometer lines=7
 ja_jp marine_chronometer shift lines=17
+ja_jp duralumin_charge lines=4
+ja_jp duralumin_charge shift lines=9
+ja_jp duralumin lines=3
+ja_jp duralumin shift lines=8
+ja_jp quenched_duralumin lines=5
+ja_jp quenched_duralumin shift lines=12
 ja_jp touch_panel lines=3
 ja_jp touch_panel shift lines=18
 ja_jp transistor_radio lines=11

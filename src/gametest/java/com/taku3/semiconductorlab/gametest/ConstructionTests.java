@@ -194,4 +194,14 @@ public class ConstructionTests extends LabTestBase {
         h.assertTrue(rem != null && rem.create().is(Construction.TIN_BATH), "the tin bath comes back");
         h.succeed();
     }
+
+    /** [12-15] 避雷針（IMP3、S-011）：バニラの避雷針は銅＝本物どおり（新しいアイテムなし、説明だけ） */
+    @GameTest
+    public void lightningRod(GameTestHelper h) {
+        var key = net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, net.minecraft.resources.Identifier.withDefaultNamespace("lightning_rod"));
+        boolean copper = h.getLevel().getServer().getRecipeManager().byKey(key)
+                .map(r -> r.value().placementInfo().ingredients().stream().anyMatch(i -> i.test(new ItemStack(net.minecraft.world.item.Items.COPPER_INGOT)))).orElse(false);
+        h.assertTrue(copper, "the vanilla lightning rod is made of copper");
+        h.succeed();
+    }
 }
