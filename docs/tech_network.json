@@ -23901,7 +23901,8 @@
     "作業台：耐火れんが（珪石れんが）×6 ＋ 石英管 ＋ 電気炉 ＋ 銅ケーブル → 拡散炉"
    ],
    "machine_recipes": [
-    "拡散炉「p-n 接合」：シリコンの板×8（n型 か p型） ＋ 三酸化二ホウ素（白リンも可、板と反対の型） → p-n 接合の板×8（5 kW × 120 秒＝600 kJ）。ドーパントが表面からしみ込む（1954：n型＋ホウ素）"
+    "拡散炉「p-n 接合」：シリコンの板×8（n型 か p型） ＋ 三酸化二ホウ素（白リンも可、板と反対の型） → p-n 接合の板×8（5 kW × 120 秒＝600 kJ）。ドーパントが表面からしみ込む（1954：n型＋ホウ素）",
+    "拡散炉「サイリスタの板（p-n-p-n）」：p-n 接合の板×8（n の板にホウ素の p-n 接合） ＋ 白リン → サイリスタの板（p-n-p-n）×8（5 kW × 120 秒＝600 kJ）。両面 p（p-n-p）にもう一度リン → p-n-p-n（1957 GE の SCR）"
    ],
    "placeholder": "省略：⚠️ 温度（約1000℃）・電力（5kW）・時間（120秒、本物は何時間も）は出典で未確認のゲームの値。1954年の土台はヒ素の n型だが、ヒ素はまだないので同じ V族のリンを使う。運び役のガスは省略。",
    "game_text": "拡散炉（ROADMAP v0.2b #8）",
@@ -25694,7 +25695,7 @@
    "hee_game": {},
    "refs": [
     {
-     "title": "F37. 平屋のトランジスタを「立てた板」に（FinFET）［9-37］（案の段階、まだゲームにない）",
+     "title": "F37. 平屋のトランジスタを「立てた板」に（FinFET）［9-37］",
      "answer": "トランジスタを小さくすると、ゲートで電流を止めきれず、スイッチを切っても電流が漏れる（短チャネル効果）。そこでシリコンを細い板（フィン＝魚のひれ）にして立て、ゲートで上と両横の3方向から囲むと、電流をしっかり止められる。1999年にカリフォルニア大学バークレー校のチームが発表し、2011年にインテルが 22nm の世代で量産を始めた（トライゲート）。2015年ごろから TSMC・サムスンも使っている。",
      "hee": {
       "1": "フィンは幅が数nm〜十数nm。原子で数えると数十個ぶん。",
@@ -25715,7 +25716,7 @@
    "name": "FinFET",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1999,
    "year_range": "1999〜2011",
@@ -26074,7 +26075,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F40. 直流を交流にする半導体のスイッチ（サイリスタとインバータ）［9-49］［9-41］",
+     "answer": "シリコンに p・n・p・n の4つの層を作ると、ゲートに小さな電流を1回流すだけで大きな電流を流し続けるスイッチになる（サイリスタ、1957年に GE が SCR として発売）。このスイッチで直流を細かく切りかえて向きを入れかえると交流ができる（インバータ）。交流の周波数を変えれば交流モーターの速さが変わるので、電車・エアコン・電気自動車に使われる。",
+     "hee": {
+      "1": "電車のモーターの速さを変える装置は、最初はサイリスタで作られた。",
+      "2": "サイリスタは一度オンになると自分では止まらない（ラッチ）。止めるには電流を0にする。",
+      "3": "1980年代からは、ゲートの電圧だけでオン・オフできるパワー MOSFET・IGBT に代わった ⚠️（年は出典で確かめ中）。",
+      "4": "電気自動車は電気を1秒に何千回もオン・オフしてモーターを回している。"
+     },
+     "certainty": "SCR 1957（IEEE マイルストーン）◎／インバータでモーターの速さを変える ◎／IGBT への移り変わりの年 △",
+     "basis": "ETHW「Milestones:SCR/Thyristor, 1957」https://ethw.org/Milestones:SCR/Thyristor,_1957 、Wikipedia「Power inverter」https://en.wikipedia.org/wiki/Power_inverter （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26084,7 +26098,7 @@
    "name": "パワー半導体とインバータ",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1980,
    "year_range": null,
@@ -26602,7 +26616,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F40. 直流を交流にする半導体のスイッチ（サイリスタとインバータ）［9-49］［9-41］",
+     "answer": "シリコンに p・n・p・n の4つの層を作ると、ゲートに小さな電流を1回流すだけで大きな電流を流し続けるスイッチになる（サイリスタ、1957年に GE が SCR として発売）。このスイッチで直流を細かく切りかえて向きを入れかえると交流ができる（インバータ）。交流の周波数を変えれば交流モーターの速さが変わるので、電車・エアコン・電気自動車に使われる。",
+     "hee": {
+      "1": "電車のモーターの速さを変える装置は、最初はサイリスタで作られた。",
+      "2": "サイリスタは一度オンになると自分では止まらない（ラッチ）。止めるには電流を0にする。",
+      "3": "1980年代からは、ゲートの電圧だけでオン・オフできるパワー MOSFET・IGBT に代わった ⚠️（年は出典で確かめ中）。",
+      "4": "電気自動車は電気を1秒に何千回もオン・オフしてモーターを回している。"
+     },
+     "certainty": "SCR 1957（IEEE マイルストーン）◎／インバータでモーターの速さを変える ◎／IGBT への移り変わりの年 △",
+     "basis": "ETHW「Milestones:SCR/Thyristor, 1957」https://ethw.org/Milestones:SCR/Thyristor,_1957 、Wikipedia「Power inverter」https://en.wikipedia.org/wiki/Power_inverter （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26612,7 +26639,7 @@
    "name": "サイリスタ",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1957,
    "year_range": "1956〜1957",
@@ -26630,12 +26657,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "電車のモーターの速さを変える装置は、最初はサイリスタという半導体のスイッチで作られた（O-011 で追加。出典：IEEE Milestones「SCR/Thyristor, 1957」、ETHW IEEE Milestones 'SCR/Thyristor, 1957' / IEEE Spectrum（https://ethw.org/Milestones:SCR/Thyristor,_1957））",
    "name_en": "Thyristor",
    "hee1_en": "The devices that change the speed of train motors were first made with semiconductor switches called thyristors. (Added in O-011. Sources: IEEE Milestones \"SCR/Thyristor, 1957\", ETHW IEEE Milestones 'SCR/Thyristor, 1957' / IEEE Spectrum (https://ethw.org/Milestones:SCR/Thyristor,_1957))",
    "kind": "tech",
-   "play": "",
+   "play": "軽（インバータの部品）",
    "missing": "",
    "sources": [],
    "enables": [],
