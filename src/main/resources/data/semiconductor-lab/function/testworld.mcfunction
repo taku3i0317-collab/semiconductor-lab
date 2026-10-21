@@ -154,8 +154,9 @@ setblock ~110 ~-1 ~10 semiconductor-lab:test_power_source
 setblock ~110 ~0 ~10 semiconductor-lab:bessemer_converter
 setblock ~111 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:steel_ingot",count:16},{Slot:1b,id:"semiconductor-lab:pig_iron",count:16}]}
 setblock ~114 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-44] ガリウム","バイヤー法の溶解釜の右","下のスロット、ガリウム","の電解槽の GUI"]}}
+setblock ~114 ~-1 ~10 semiconductor-lab:test_power_source
 setblock ~114 ~0 ~10 semiconductor-lab:gallium_cell
-setblock ~115 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:spent_bayer_liquor",count:16},{Slot:1b,id:"semiconductor-lab:gallium",count:16}]}
+setblock ~115 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:spent_bayer_liquor",count:16},{Slot:1b,id:"semiconductor-lab:gallium",count:16},{Slot:2b,id:"semiconductor-lab:polyethylene_bottle",count:16}]}
 setblock ~118 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-38] 氷晶石の合成","作業台で作ったとき鉛の","瓶が3本手元に戻る",""]}}
 setblock ~118 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cryolite",count:16}]}
 setblock ~121 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-29] アルミニウム","電解槽の GUI（左に","アルミナ・氷晶石・黒鉛","棒、オレンジのバー、浴"]}}
