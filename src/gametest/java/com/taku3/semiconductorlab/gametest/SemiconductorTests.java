@@ -2001,6 +2001,42 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v0.5 マルチパターニング（IMP2 O-022、A の判定 4e30fd22）：ArF のレンズでは焼けない細かい原図も、縮小カメラで2つに分けると1枚ずつステッパーで焼ける（LELE） */
+    @GameTest(maxTicks = 200)
+    public void stepper_lele(GameTestHelper h) {
+        ItemStack lens = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_ARF);
+        lens.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        int gLens = com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens)), g = gLens + 24;
+        var cells = com.taku3.semiconductorlab.litho.BitGrid.empty(g);
+        for (int x = 0; x < g; x++) for (int y = 0; y < g; y += 3) cells = cells.with(x, y, true);
+        var dense = new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, cells, "lele_test", 0);
+        var half1 = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.partOf(dense, 2, 0); var half2 = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.partOf(dense, 2, 1);
+        int cd = com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(lens);
+        h.assertFalse(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"), dense, com.taku3.semiconductorlab.litho.ExposureTool.ARF, cd, 0).ok(), "the dense original (grid " + g + ") is too fine for grid " + gLens);
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"), half1, com.taku3.semiconductorlab.litho.ExposureTool.ARF, cd, 0).ok()
+                && com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"), half2, com.taku3.semiconductorlab.litho.ExposureTool.ARF, cd, 0).ok(), "each half (pitch doubled) prints");
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        mask.set(ModDataComponents.MASK, half1);
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.STEPPER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.StepperBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER, ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"));
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK, mask);
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, lens);
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Optics.ARF_LASER));
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.StepperBlockEntity.WATTS);
+        for (int k = 1; k <= com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS; k++) {
+            h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "LELE step " + k);
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.StepperBlockEntity.STEP_TICKS + 2, full);
+        }
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(c.getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT));
+        h.assertTrue(st != null && st.size() == g, "the stepper prints half 1/2 at grid " + g + " (lens alone: " + gLens + ")");
+        LOG.info("[LAB] LELE [v0.5 #6]: ArF lens grid " + gLens + ", dense original grid " + g + " splits into 1/2 + 2/2 that each print");
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

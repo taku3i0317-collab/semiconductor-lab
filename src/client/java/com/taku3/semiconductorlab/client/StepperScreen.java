@@ -49,9 +49,11 @@ public class StepperScreen extends MachineScreen {
                 else if (com.taku3.semiconductorlab.item.ProjectionLensItem.toolOf(lens) == null) hint = "need_lens";
                 else if (!StepperBlockEntity.lensMatches(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem())) hint = "lens_wrong";
                 else if (StepperBlockEntity.immersion(lens) && !menu.getSlot(StepperBlockEntity.SLOT_WATER).getItem().is(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER)) hint = "need_water";
-                else if (m.get(ModDataComponents.MASK).size() > com.taku3.semiconductorlab.litho.ExposureTool.gridFor(menu.get(StepperBlockEntity.DATA_CD))) hint = "blurred";   // レンズの CD より細かいマスク（S-010）
                 else if (!ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), StepperBlockEntity.toolWith(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem()),
-                        menu.get(StepperBlockEntity.DATA_CD), 0).ok()) hint = "cannot";
+                        menu.get(StepperBlockEntity.DATA_CD), 0).ok())
+                    // レンズの CD より細かいマスク（S-010。縮小カメラで2つに分けたマスクは方眼の2倍まで＝A の v0.5 #6）は「ぼけ」、ほかは「焼けない」
+                    hint = "too_fine".equals(ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), StepperBlockEntity.toolWith(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem()),
+                            menu.get(StepperBlockEntity.DATA_CD), 0).reason()) ? "blurred" : "cannot";
                 else if (!menu.getSlot(StepperBlockEntity.SLOT_OUT).getItem().isEmpty()) hint = "output_full";
                 else if (menu.getKw() <= 0 && menu.getProgress() == 0) hint = "press";
                 else if (menu.getKw() <= 0) hint = "need_power";
