@@ -345,5 +345,6 @@
   "assembly.semiconductor-lab.mems_accelerometer.wiring": "Wiring",
   "assembly.semiconductor-lab.mems_accelerometer.wiring.short": "Wiring",
   "assembly.semiconductor-lab.mems_accelerometer.seal": "Seal",
-  "assembly.semiconductor-lab.mems_accelerometer.seal.short": "Seal"
+  "assembly.semiconductor-lab.mems_accelerometer.seal.short": "Seal",
+  "tooltip.semiconductor-lab.yield": "Defects %s /cm², area %s cm² → yield about %s%% (e^(−D·A))"
 }

@@ -102,6 +102,10 @@ public class DiffusionFurnaceBlockEntity extends ConsumerBlockEntity {
         ItemStack w = container.getItem(SLOT_WAFER), src = container.getItem(SLOT_SOURCE);
         if (planar(w, src)) {   // 窓からだけ（プレーナ法）：束ごと
             ItemStack done = com.taku3.semiconductorlab.litho.ChipOps.diffuse(w, Dopant.of(src).type).out();
+            if (level != null) {   // 部屋の欠陥とほこり（v0.5 #4、C の CleanRoom）
+                done = com.taku3.semiconductorlab.litho.ChipOps.inRoom(done, CleanRoom.defectDensity(level, worldPosition));
+                done = com.taku3.semiconductorlab.litho.ChipOps.addDust(done, CleanRoom.dustAt(level, worldPosition));
+            }
             container.setItem(SLOT_WAFER, ItemStack.EMPTY);
             com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, src, SOURCE_PER_RUN);
             src.shrink(SOURCE_PER_RUN);

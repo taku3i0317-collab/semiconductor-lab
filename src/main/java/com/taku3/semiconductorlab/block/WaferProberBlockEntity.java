@@ -41,7 +41,10 @@ public class WaferProberBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.WAFER_PROBER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    /** チップごとの良否（ビット i＝チップ i が良品）。汚れたウェハーほど悪いチップが出る */
+    /**
+     * チップごとの良否（ビット i＝チップ i が良品）。汚れたウェハーほど悪いチップが出る（漏れ）。
+     * さらに、工程の部屋の欠陥（v0.5 #4）：チップごとに Y＝e^(−D·A)（ChipOps.expectedYield）の確率で欠陥がない＝良品になれる。失敗にはしない（良品の数に効く）
+     */
     public static int test(ItemStack wafer, RandomSource random) {
         Netlist nl = ProbeStationBlockEntity.netlistOf(wafer);
         if (nl == null) return 0;
@@ -50,7 +53,8 @@ public class WaferProberBlockEntity extends ConsumerBlockEntity {
         int nominal = Discoveries.match(ref, 1.0).size(), map = 0;
         for (int i = 0; i < DiamondScribeItem.CHIPS_PER_WAFER; i++) {
             double leak = 0.5 + random.nextDouble();   // 同じ1枚の中でもチップごとに少しずつちがう
-            if (Discoveries.match(nl, leak).size() == nominal) map |= 1 << i;
+            boolean noDefect = random.nextDouble() < com.taku3.semiconductorlab.litho.ChipOps.expectedYield(com.taku3.semiconductorlab.litho.ChipOps.state(wafer));
+            if (noDefect && Discoveries.match(nl, leak).size() == nominal) map |= 1 << i;
         }
         return map;
     }

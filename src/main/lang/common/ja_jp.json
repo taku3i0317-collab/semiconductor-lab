@@ -345,5 +345,6 @@
   "assembly.semiconductor-lab.mems_accelerometer.wiring": "配線",
   "assembly.semiconductor-lab.mems_accelerometer.wiring.short": "配線",
   "assembly.semiconductor-lab.mems_accelerometer.seal": "封止",
-  "assembly.semiconductor-lab.mems_accelerometer.seal.short": "封止"
+  "assembly.semiconductor-lab.mems_accelerometer.seal.short": "封止",
+  "tooltip.semiconductor-lab.yield": "欠陥 %s 個/cm²・面積 %s cm² → 歩留まり 約 %s%%（e^(−D·A)）"
 }

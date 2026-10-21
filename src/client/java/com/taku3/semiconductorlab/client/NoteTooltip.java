@@ -24,6 +24,9 @@ public class NoteTooltip {
             var chip = stack.get(com.taku3.semiconductorlab.ModDataComponents.CHIP_STATE);
             if (chip != null && chip.contamination() > 0)
                 lines.add(Component.translatable("tooltip.semiconductor-lab.contamination", chip.contamination()).withStyle(ChatFormatting.GOLD));
+            if (chip != null && chip.sized() && chip.extras().defectD() > 0)   // 歩留まりの目安（v0.5 #4）
+                lines.add(Component.translatable("tooltip.semiconductor-lab.yield", String.format("%.1f", chip.extras().defectD()), String.format("%.3f", com.taku3.semiconductorlab.litho.ChipOps.areaCm2(chip.size())),
+                        String.format("%.0f", 100 * com.taku3.semiconductorlab.litho.ChipOps.expectedYield(chip))).withStyle(ChatFormatting.GOLD));
             if (chip != null && chip.overlayNm() > 0)
                 lines.add(Component.translatable("tooltip.semiconductor-lab.overlay", String.format("%.1f", chip.overlayNm() / 1000.0)).withStyle(ChatFormatting.GOLD));
             // [B-08] 合格したお題（S-010）

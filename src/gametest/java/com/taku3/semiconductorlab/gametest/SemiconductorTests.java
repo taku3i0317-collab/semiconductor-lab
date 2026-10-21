@@ -3334,6 +3334,28 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * v0.5 #4 歩留まり（O-026、C の CleanRoom と決めた形）：Y＝e^(−D·A)。部屋の記録がなければ今までどおり（汚れのない NOT は8個とも良品）。
+     * 欠陥の密度を大きく記録すると良品がほとんど出ない。いちばん悪い部屋が残る。面積は方眼の2乗
+     */
+    @GameTest(maxTicks = 200)
+    public void yieldPoisson(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.notGate(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G), 0).out();
+        ItemStack diced = chip;   // 金属まで済んだウェハー（プローバーに入る）
+        h.assertValueEqual(Integer.bitCount(com.taku3.semiconductorlab.block.WaferProberBlockEntity.test(diced, net.minecraft.util.RandomSource.create(1))), com.taku3.semiconductorlab.item.DiamondScribeItem.CHIPS_PER_WAFER, "no room record: all good");
+        ItemStack bad = com.taku3.semiconductorlab.litho.ChipOps.inRoom(diced, 5000);
+        int good = Integer.bitCount(com.taku3.semiconductorlab.block.WaferProberBlockEntity.test(bad, net.minecraft.util.RandomSource.create(1)));
+        double y = com.taku3.semiconductorlab.litho.ChipOps.expectedYield(com.taku3.semiconductorlab.litho.ChipOps.state(bad));
+        h.assertTrue(y < 0.01 && good <= 1, "a dirty room ruins almost every die: Y " + y + " good " + good);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.inRoom(bad, 1.0)).extras().defectD(), 5000.0, "the worst room stays");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.litho.ChipOps.areaCm2(16) - 0.01) < 1e-9 && Math.abs(com.taku3.semiconductorlab.litho.ChipOps.areaCm2(32) - 0.04) < 1e-9, "area grows with the square of the grid");
+        double y5 = Math.exp(-5.0 * com.taku3.semiconductorlab.litho.ChipOps.areaCm2(148)), y02 = Math.exp(-0.2 * com.taku3.semiconductorlab.litho.ChipOps.areaCm2(148));
+        h.assertTrue(y5 < 0.05 && y02 > 0.8, "a big chip needs a clean room: outside " + y5 + ", class 100 " + y02);
+        LOG.info("[LAB] yield v0.5 #4: Y = exp(-D A), big chip outside {} vs class 100 {}", y5, y02);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

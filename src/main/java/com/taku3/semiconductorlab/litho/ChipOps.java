@@ -406,6 +406,24 @@ public final class ChipOps {
         return Result.ok(write(w, s.withExtras(s.extras().withHighK(true))));
     }
 
+    // ===== 歩留まり（v0.5 #4、C の CleanRoom と決めた形・O-026） =====
+
+    /**
+     * 工程を通した部屋の欠陥の密度 D（個/cm²、C の CleanRoom.defectDensity）を記録する。どの機械も仕上げで呼んでよい（いちばん悪い部屋が残る）。
+     * 加工中のウェハーでなければそのまま
+     */
+    public static ItemStack inRoom(ItemStack w, double defectsPerCm2) {
+        ChipState s = state(w);
+        if (s == null || defectsPerCm2 <= s.extras().defectD()) return w;
+        return write(w, s.withExtras(s.extras().withDefectD(defectsPerCm2)));
+    }
+
+    /** チップ1個の面積（cm²、ゲームの値 ⚠️）：方眼 16 で 1 mm²、方眼の2乗に比例（方眼 148 で約 0.86 cm²、今の大きなチップくらい） */
+    public static double areaCm2(int size) { return 0.01 * (size / 16.0) * (size / 16.0); }
+
+    /** 歩留まりの目安 Y＝e^(−D·A)（ポアソンの式。マーフィーなどの式もある ⚠️）。記録がなければ 1 */
+    public static double expectedYield(ChipState s) { return s == null || !s.sized() ? 1 : Math.exp(-s.extras().defectD() * areaCm2(s.size())); }
+
     public static boolean canPassivate(ItemStack w) { return passivate(w).ok(); }
 
     /**

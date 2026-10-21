@@ -46,7 +46,7 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
     private static final int UNSET = BitGrid.MIN;
 
     /** あとから足した記録（S-012 前後、E と決めた形）。epiOn＝エピ層の下の板の型（""＝エピなし）、passivated＝窒化膜の保護膜を付けたか */
-    public record Extras(String epiOn, boolean passivated, boolean barrier, boolean copperFilm, BitGrid viaHoles, String resistKind, boolean baked, boolean highK) {
+    public record Extras(String epiOn, boolean passivated, boolean barrier, boolean copperFilm, BitGrid viaHoles, String resistKind, boolean baked, boolean highK, double defectD) {
         /** 何もない方眼（大きさの決まっていない印） */
         static final BitGrid NO_GRID = BitGrid.empty(BitGrid.MIN);
         public static final Extras NONE = new Extras("", false);
@@ -58,20 +58,23 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
                 BitGrid.CODEC.optionalFieldOf("via_holes", NO_GRID).forGetter(Extras::viaHoles),
                 Codec.STRING.optionalFieldOf("resist_kind", "").forGetter(Extras::resistKind),
                 Codec.BOOL.optionalFieldOf("baked", false).forGetter(Extras::baked),
-                Codec.BOOL.optionalFieldOf("high_k", false).forGetter(Extras::highK)
+                Codec.BOOL.optionalFieldOf("high_k", false).forGetter(Extras::highK),
+                Codec.DOUBLE.optionalFieldOf("defect_d", 0.0).forGetter(Extras::defectD)
         ).apply(i, Extras::new));
-        public Extras(String epiOn, boolean passivated) { this(epiOn, passivated, false, false, NO_GRID, "", false, false); }
+        public Extras(String epiOn, boolean passivated) { this(epiOn, passivated, false, false, NO_GRID, "", false, false, 0); }
         public boolean epi() { return !epiOn.isEmpty(); }
         /** 銅のダマシン（[9-36]）：ビアの穴を覚えているか */
         public boolean hasViaHoles() { return !viaHoles.isEmpty(); }
-        Extras withPassivated(boolean p) { return new Extras(epiOn, p, barrier, copperFilm, viaHoles, resistKind, baked, highK); }
-        Extras withBarrier(boolean b) { return new Extras(epiOn, passivated, b, copperFilm, viaHoles, resistKind, baked, highK); }
-        Extras withCopperFilm(boolean c) { return new Extras(epiOn, passivated, barrier, c, viaHoles, resistKind, baked, highK); }
-        Extras withViaHoles(BitGrid g) { return new Extras(epiOn, passivated, barrier, copperFilm, g, resistKind, baked, highK); }
+        Extras withPassivated(boolean p) { return new Extras(epiOn, p, barrier, copperFilm, viaHoles, resistKind, baked, highK, defectD); }
+        Extras withBarrier(boolean b) { return new Extras(epiOn, passivated, b, copperFilm, viaHoles, resistKind, baked, highK, defectD); }
+        Extras withCopperFilm(boolean c) { return new Extras(epiOn, passivated, barrier, c, viaHoles, resistKind, baked, highK, defectD); }
+        Extras withViaHoles(BitGrid g) { return new Extras(epiOn, passivated, barrier, copperFilm, g, resistKind, baked, highK, defectD); }
+        /** 欠陥の密度 D（個/cm²、v0.5 #4 歩留まり）：工程の部屋（クリーンルームの等級）のうち一番悪いもの */
+        Extras withDefectD(double d) { return new Extras(epiOn, passivated, barrier, copperFilm, viaHoles, resistKind, baked, highK, d); }
         /** high-k のゲート（[1-70] HfO2、ALD、2007 インテル 45 nm、E と決めた形、記録だけ） */
-        Extras withHighK(boolean k) { return new Extras(epiOn, passivated, barrier, copperFilm, viaHoles, resistKind, baked, k); }
+        Extras withHighK(boolean k) { return new Extras(epiOn, passivated, barrier, copperFilm, viaHoles, resistKind, baked, k, defectD); }
         /** レジストの種類（[2-33]、E と決めた形）："dnq"（ノボラック、ポジ型）・"kpr"（ネガ型）・"car"（化学増幅）。""＝前からの塗り方（決めていない） */
-        Extras withResist(String kind, boolean b) { return new Extras(epiOn, passivated, barrier, copperFilm, viaHoles, kind, b, highK); }
+        Extras withResist(String kind, boolean b) { return new Extras(epiOn, passivated, barrier, copperFilm, viaHoles, kind, b, highK, defectD); }
     }
 
     private static final com.mojang.serialization.MapCodec<ChipState> BASE_CODEC = RecordCodecBuilder.mapCodec(i -> i.group(

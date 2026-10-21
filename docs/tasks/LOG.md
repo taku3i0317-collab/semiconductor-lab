@@ -578,3 +578,7 @@
 - 段4 マイコン：Control.MICROCOMPUTER（item/MicrocomputerItem、右クリックで ROM のプログラムを動かして出力の口をチャットに）、組立台のレシピ（cpu4 に合格したチップ・rom_program に合格したチップ・水晶の振動子・ニキシー管・鉄2・銅線）。GameTest microcomputer（ControlTests）
 - 段5：TECH_TREE [10-13] ✅（ID: microcomputer）、REFERENCES L16、LITHO_DESIGN §13、test_queue、HUMAN_CHECK、HANDOFF。**S-014 完了**
 
+## O-026（2026-10-21）
+- 1・2 の案（LITHO_DESIGN §14・§15）：**Q26-1** [10-14] ワンチップマイコン＝お題 mcu4（cpu4 と rom_program のハンコを1チップに、入力はクロックだけ、案A）／レシピだけ（案B）。**Q26-2** 8ビット CPU＝4命令のまま語を8ビット（100＋55、案A）／8命令（案B）／作らず先に [10-14]・ゲーム機（案C）。**Q26-3** パッド＝入力 E〜H・出力9〜16 を足す（案A）／4ビットのバスを時間で分ける（案B）。**Q27** ゲーム機＝ポン型（合格したチップで組み、画面で卓球、案A）／カートリッジ型（案B、8ビットのあと）／オデッセイ型（案C）。A のおすすめは全部案A（Q26 は 1 → 2・3 の順）。答えまで作らない
+- 3 歩留まり（v0.5 #4、C の CleanRoom）：ChipOps.inRoom(w, D)（工程の部屋の欠陥の密度、いちばん悪いものを ChipState.Extras.defectD に）、areaCm2(方眼)＝0.01×(方眼/16)²（16 で 1 mm²、148 で約 0.86 cm² ⚠️）、expectedYield＝e^(−D·A)。ウェハープローバーは、チップごとに Y の確率で欠陥なし（今までの漏れの判定と両方で良品）。記録がなければ今までどおり。A の拡散炉は仕上げで部屋の D と CleanRoom.dustAt の汚れを付ける。ツールチップに「欠陥・面積 → 歩留まり 約 %」。GameTest yieldPoisson（大きなチップは外で約 1%、クラス100 で約 84%）。C・E に inRoom を各自の機械（露光・CVD など）の仕上げで呼ぶよう連絡
+
