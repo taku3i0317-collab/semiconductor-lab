@@ -406,6 +406,11 @@ rectifier  # Power [4-11] 1902
 induction_coil  # Power [4-09] 1913
 hf_oscillator  # Power [4-09] 1913
 leyden_jar  # Power [4-09] 1913
+lithium_ion_battery  # Power [4-15] 1991
+lfp_charge  # Power [None] None
+lithium_iron_phosphate  # Power [None] None
+lithium_fluoride  # Power [None] None
+lithium_hexafluorophosphate  # Power [None] None
 hand_vacuum_pump  # Vacuum [5-01] 1650
 vacuum_chamber  # Vacuum [5-11] 1850
 sprengel_pump  # Vacuum [5-15] 1865

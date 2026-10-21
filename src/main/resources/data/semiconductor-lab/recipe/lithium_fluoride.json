@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lithium_carbonate",
+    "semiconductor-lab:hydrofluoric_acid",
+    "semiconductor-lab:hydrofluoric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lithium_fluoride",
+    "count": 2
+  }
+}

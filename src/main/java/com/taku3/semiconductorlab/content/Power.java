@@ -55,6 +55,14 @@ public final class Power {
     // [4-28] 乾電池（ガスナー 1886、コロンビア乾電池 1896。IMP3 S-006）：亜鉛の缶＋MnO2＋塩化アンモニウムの糊＋炭素棒。電池入れに入れて 8 W
     public static final Item DRY_CELL              = Reg.item("dry_cell");
     public static final Machine<ChemicalCellBlockEntity> DRY_CELL_HOLDER = Power.generator("dry_cell_holder", (pos, st) -> new ChemicalCellBlockEntity(ChemicalCellBlockEntity.Kind.DRY, pos, st), metal(1.5f)).layout(ChemicalCellBlockEntity.DRY_LAYOUT).build();
+    // [4-15] リチウムイオン電池（IMP3 S-006、決定 Q3-13 ②：正極は LiFePO4 ⚠️）。正極：炭酸リチウム＋鉄2＋リン酸2＋木炭 → 仕込み →溶鉱炉→ LiFePO4×2。
+    //   電解質：炭酸リチウム＋フッ酸2 → フッ化リチウム2、＋赤リン＋フッ素 → LiPF6。アルミ（正極の箔・缶）＋黒鉛（負極）＋銅（負極の箔）＋ポリエチレン（仕切り）で組む
+    public static final Item LFP_CHARGE            = Reg.item("lfp_charge");
+    public static final Item LITHIUM_IRON_PHOSPHATE = Reg.item("lithium_iron_phosphate");
+    public static final Item LITHIUM_FLUORIDE      = Reg.item("lithium_fluoride");
+    public static final Item LITHIUM_HEXAFLUOROPHOSPHATE = Reg.item("lithium_hexafluorophosphate", new Item.Properties().stacksTo(16));
+    public static final Machine<LiIonBatteryBlockEntity> LITHIUM_ION_BATTERY = RechargeableBatteryBlockEntity.machine("lithium_ion_battery", LiIonBatteryBlockEntity::new, LiIonBatteryBlockEntity.SPEC,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_LIGHT_GRAY).requiresCorrectToolForDrops().strength(2.5f).sound(SoundType.METAL));
     // 電気炉 [4-12]（耐火れんがの箱＋黒鉛棒の発熱体。抵抗加熱で約1500℃）。加熱中は光る
     public static final Machine<ElectricFurnaceBlockEntity> ELECTRIC_FURNACE = Machine.electric("electric_furnace", ElectricFurnaceBlockEntity::new, ElectricFurnaceBlockEntity.LAYOUT, lit(stone(3.5f), 12));
     // 銅ケーブル（v0.2a）。受け口を持たない（タスク06：導体。CableNetwork がまとめて配電する）

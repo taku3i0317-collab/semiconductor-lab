@@ -3083,6 +3083,20 @@
 - Wikipedia「Spodumene」：https://en.wikipedia.org/wiki/Spodumene
 - Wikipedia「Lithium carbonate」：https://en.wikipedia.org/wiki/Lithium_carbonate
 
+## C54. 充電とは、イオンを黒鉛のすき間にしまうこと（リチウムイオン電池）［4-15］
+**答え**：リチウムイオン電池では、充電するとリチウムのイオンが正極から出て、電解液（LiPF6 を有機の溶媒にとかした液）を通り、負極の黒鉛の層のすき間に入る。放電でもとにもどる。金属のリチウムを使わないので、それまでのリチウム電池より安全になった。1980年にグッドイナフ・水島公一らが正極のコバルト酸リチウムを見つけ、1985年に吉野彰が炭素の負極と組み合わせた原型を作り、1991年にソニーが売り出した（2019年ノーベル化学賞）。1997年にはグッドイナフの研究室が、燃えにくく長持ちのリン酸鉄リチウム LiFePO4 を発表し、今の電気自動車でも多く使われている。
+
+- へえ①：充電とは、リチウムのイオンを黒鉛のすき間にしまい込むこと。
+- へえ②：LiFePO4 は電気をほとんど通さないが、粒を小さくして炭素でおおうと使えるようになった。
+- へえ③：電解質の LiPF6 は湿気で分解するので、電池の工場はとても乾いた部屋で組み立てる。
+- へえ④：ノーベル賞を受けたとき、グッドイナフは97歳で、最年長の受賞者だった。
+
+確かさ：1980 LiCoO2・1985 吉野・1991 ソニー・1997 LiFePO4 ◎／2019 ノーベル化学賞 ◎
+根拠：
+- Nobel Prize「The Nobel Prize in Chemistry 2019」：https://www.nobelprize.org/prizes/chemistry/2019/summary/
+- Wikipedia「Lithium-ion battery」：https://en.wikipedia.org/wiki/Lithium-ion_battery
+- Wikipedia「Lithium iron phosphate」：https://en.wikipedia.org/wiki/Lithium_iron_phosphate
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

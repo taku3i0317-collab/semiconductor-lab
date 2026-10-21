@@ -662,4 +662,30 @@ public class PowerTests extends LabTestBase {
         LOG.info("[LAB] dry cell [4-28]: none -> 0 W; dry cell steady " + w0 + " W");
         h.succeed();
     }
+
+    /** [4-15] リチウムイオン電池（IMP3、S-006、A の充電池の親）：4MJ・20kW・充電 95%（鉛蓄電池より多く・速く・むだが少ない）、隣の機械へ放電。材料は LFP・黒鉛・LiPF6 */
+    @GameTest
+    public void lithiumIonBattery(GameTestHelper h) {
+        BlockPos pos = p(1, 1, 1);
+        h.setBlock(pos, Power.LITHIUM_ION_BATTERY.block);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.energy.LiIonBatteryBlockEntity.class);
+        ServerLevel lv = h.getLevel();
+        BlockPos a = h.absolutePos(pos);
+        EnergyStorage side = EnergyApi.ENERGY.find(lv, a, DIR_E);
+        long per = com.taku3.semiconductorlab.energy.LiIonBatteryBlockEntity.SPEC.maxPerTick();
+        for (int i = 0; i < 100; i++) { side.insert(10_000_000, false); com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.tickBattery(lv, a, lv.getBlockState(a), be); }
+        h.assertValueEqual(be.getStoredJ(), 100 * per * 95 / 100, "100 ticks x 1000 J x 95%");
+        h.assertTrue(be.getLastChargeWatts() == 20_000 && be.getCapacityJ() == 4 * LeadAcidBatteryBlockEntity.CAPACITY, "20 kW, 4x lead-acid capacity");
+        h.assertTrue(com.taku3.semiconductorlab.energy.LiIonBatteryBlockEntity.SPEC.chargeEfficiencyPercent() > LeadAcidBatteryBlockEntity.CHARGE_EFFICIENCY_PERCENT, "less loss than lead-acid");
+        long stored = be.getStoredJ();
+        h.setBlock(p(2, 1, 1), Power.ELECTRIC_FURNACE.block);
+        for (int i = 0; i < 10; i++) com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.tickBattery(lv, a, lv.getBlockState(a), be);
+        h.assertValueEqual(stored - be.getStoredJ(), 10 * per, "discharges 20 kW into the adjacent furnace");
+        h.assertTrue(com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.capacityOf("semiconductor-lab:lithium_ion_battery") == 4_000_000, "tooltip capacity by id");
+        h.assertTrue(recipeUses(h, "lithium_ion_battery", Power.LITHIUM_IRON_PHOSPHATE) && recipeUses(h, "lithium_ion_battery", Metallurgy.GRAPHITE) && recipeUses(h, "lithium_ion_battery", Power.LITHIUM_HEXAFLUOROPHOSPHATE), "LFP + graphite + LiPF6");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Power.LFP_CHARGE).is(Power.LITHIUM_IRON_PHOSPHATE), "roast the mix -> LiFePO4");
+        h.assertTrue(recipeUses(h, "lfp_charge", Metallurgy.LITHIUM_CARBONATE) && recipeUses(h, "lithium_fluoride", Metallurgy.LITHIUM_CARBONATE), "both from lithium carbonate");
+        LOG.info("[LAB] lithium-ion battery [4-15]: 4 MJ, 20 kW, 95% charge (lead-acid 1 MJ, 10 kW, 85%); LFP cathode, graphite anode, LiPF6");
+        h.succeed();
+    }
 }

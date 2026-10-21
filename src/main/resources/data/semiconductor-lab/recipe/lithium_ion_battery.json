@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "ALA",
+    "GPE",
+    "ACA"
+  ],
+  "key": {
+    "A": "semiconductor-lab:aluminium_ingot",
+    "L": "semiconductor-lab:lithium_iron_phosphate",
+    "G": "semiconductor-lab:graphite",
+    "P": "semiconductor-lab:polyethylene",
+    "E": "semiconductor-lab:lithium_hexafluorophosphate",
+    "C": "minecraft:copper_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:lithium_ion_battery",
+    "count": 1
+  }
+}

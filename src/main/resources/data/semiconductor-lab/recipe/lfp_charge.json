@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lithium_carbonate",
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "semiconductor-lab:phosphoric_acid",
+    "semiconductor-lab:phosphoric_acid",
+    "minecraft:charcoal"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lfp_charge",
+    "count": 1
+  }
+}

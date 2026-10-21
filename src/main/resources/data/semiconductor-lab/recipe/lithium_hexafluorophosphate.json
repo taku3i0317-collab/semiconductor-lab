@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lithium_fluoride",
+    "semiconductor-lab:red_phosphorus",
+    "semiconductor-lab:fluorine_cylinder"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lithium_hexafluorophosphate",
+    "count": 1
+  }
+}
