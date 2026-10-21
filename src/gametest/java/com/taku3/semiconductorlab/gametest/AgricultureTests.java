@@ -207,4 +207,17 @@ public class AgricultureTests extends LabTestBase {
         LOG.info("[LAB] crop rotation [11-03]: wheat x4 -> " + java.util.Arrays.toString(wheatGot) + "; carrot resets; compost/peas/fallow restore");
         h.succeed();
     }
+
+    /** [11-02] 犂（IMP3、S-011）：土・草の 3×3 を一度に耕地に。上がふさがった所は耕さない */
+    @GameTest
+    public void plow(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "plow", net.minecraft.world.item.Items.IRON_INGOT), "iron share");
+        for (int x = 0; x <= 4; x++) for (int z = 0; z <= 4; z++) h.setBlock(p(x, 0, z), (x + z) % 2 == 0 ? Blocks.DIRT : Blocks.GRASS_BLOCK);
+        h.setBlock(p(3, 1, 3), Blocks.STONE);   // 上がふさがっている
+        int n = com.taku3.semiconductorlab.item.PlowItem.till(h.getLevel(), h.absolutePos(p(2, 0, 2)));
+        h.assertValueEqual(n, 8, "3x3 minus the covered one");
+        h.assertTrue(h.getBlockState(p(1, 0, 1)).is(Blocks.FARMLAND) && h.getBlockState(p(3, 0, 3)).is(Blocks.DIRT), "tilled around, covered one untouched");
+        h.assertTrue(Agriculture.PLOW.getDefaultInstance().isDamageableItem(), "wears out");
+        h.succeed();
+    }
 }

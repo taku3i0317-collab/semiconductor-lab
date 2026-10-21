@@ -119,5 +119,11 @@
   "block.semiconductor-lab.tired_farmland.note2": "Harvesting a ripe crop on ordinary farmland makes it remember which crop and how many times in a row. After 3 of the same crop (wheat, einkorn, carrots, potatoes, beetroot), each harvest gives 1 less. To recover: grow a different crop, grow peas, spread compost or fertilizer, or leave it empty for a while (fallow).",
   "block.semiconductor-lab.tired_farmland.note3": "The same crop keeps using the same nutrients, and its pests and diseases build up in the soil (continuous-cropping injury). Medieval Europe's three-field system rotated winter crop, spring crop and fallow; livestock grazed the fallow and manured it.",
   "block.semiconductor-lab.tired_farmland.note4": "The Norfolk four-course rotation, spread by Charles Townshend in the 1730s, cycled wheat, turnips, barley and clover and did away with fallow. Turnips fed livestock in winter; clover, a legume, added nitrogen. With more animals kept through winter, there was more manure too.",
-  "block.semiconductor-lab.tired_farmland.placeholder": "Approximation: wear is counted as '3 of the same crop -> harvest -1' (decision Q3-15 ①). There are no turnips or clover (explained only)."
+  "block.semiconductor-lab.tired_farmland.placeholder": "Approximation: wear is counted as '3 of the same crop -> harvest -1' (decision Q3-15 ①). There are no turnips or clover (explained only).",
+  "item.semiconductor-lab.plow": "Plow",
+  "item.semiconductor-lab.plow.note1": "A farm tool that cuts and turns the soil. Tills a wide area at once.",
+  "item.semiconductor-lab.plow.note2": "2 iron + 3 planks + 2 sticks (durability 250). Used on dirt or grass, it turns the 3x3 around into farmland (a hoe does one block).",
+  "item.semiconductor-lab.plow.note3": "The pointed share cuts the soil and the curved mouldboard turns it over, burying weeds and letting in air. Pulled by oxen or horses, it prepares far more land than people with hoes.",
+  "item.semiconductor-lab.plow.note4": "Around 4000 BC, wooden scratch ploughs (ards) were used in Mesopotamia. In 1837 John Deere in America made a steel plough that sticky prairie soil would not cling to, and the North American prairies became farmland.",
+  "item.semiconductor-lab.plow.placeholder": "Approximation: no oxen or horses (the player uses it)."
 }

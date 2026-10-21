@@ -119,5 +119,11 @@
   "block.semiconductor-lab.tired_farmland.note2": "ふつうの耕地で熟した作物を収穫すると、何を何回続けたか覚える。同じ作物（小麦・ヒトツブコムギ・ニンジン・ジャガイモ・ビートルート）を3回続けると、その収穫から1つ少ない。戻し方：違う作物を育てる・豆を育てる・堆肥や肥料をまく・何も植えずに休ませる（休閑）。",
   "block.semiconductor-lab.tired_farmland.note3": "同じ作物は同じ養分ばかり使い、その作物につく病気や虫も土に増える（連作障害）。中世ヨーロッパの三圃式は、畑を3つに分けて冬作・夏作・休閑を回した。休ませた畑は家畜を放して、ふんで肥えさせた。",
   "block.semiconductor-lab.tired_farmland.note4": "1730年代、イギリスのチャールズ・タウンゼンドが広めたノーフォーク四輪作は、小麦・カブ・大麦・クローバーを4年で回して休閑地をなくした。カブは冬の家畜のえさ、クローバーはマメ科で窒素を入れる。家畜が冬を越せるので、ふん（肥料）も増えた。",
-  "block.semiconductor-lab.tired_farmland.placeholder": "近似：やせ方は「同じ作物3回で収穫 −1」の数え方（決定 Q3-15 ①）。カブ・クローバーは無い（説明だけ）。"
+  "block.semiconductor-lab.tired_farmland.placeholder": "近似：やせ方は「同じ作物3回で収穫 −1」の数え方（決定 Q3-15 ①）。カブ・クローバーは無い（説明だけ）。",
+  "item.semiconductor-lab.plow": "犂（すき）",
+  "item.semiconductor-lab.plow.note1": "土を切って裏返す農具。一度に広く耕せる。",
+  "item.semiconductor-lab.plow.note2": "鉄2＋板材3＋棒2（耐久 250）。土・草に使うと、まわり 3×3 を一度に耕地にする（くわは1マス）。",
+  "item.semiconductor-lab.plow.note3": "とがった刃（犂先）が土を切り、曲がった板（はつ土板）が土を裏返して、草を土の下にうめ、空気を入れる。牛や馬に引かせると、人がくわで耕すよりずっと広い畑を作れる。",
+  "item.semiconductor-lab.plow.note4": "紀元前4000年ごろ、メソポタミアで木の掻き犂（アード）が使われた。1837年、アメリカのジョン・ディアが、粘る草原の土がくっつかない鋼の犂を作り、北アメリカの大草原が畑に変わった。",
+  "item.semiconductor-lab.plow.placeholder": "近似：牛や馬に引かせるのは省略（プレイヤーが使う）。"
 }

@@ -64,6 +64,9 @@ public final class Agriculture {
     // [11-03] 輪作（IMP3、S-007）：同じ作物を3回続けた耕地は収穫 −1（やせた耕地）。違う作物・豆・肥料・休閑で戻る
     public static final Block TIRED_FARMLAND = Reg.block("tired_farmland", com.taku3.semiconductorlab.block.TiredFarmlandBlock::new, net.minecraft.world.level.block.state.BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.FARMLAND));
 
+    // [11-02] 犂（IMP3、S-011）：鉄2＋板材3＋棒2 → 犂（耐久 250）。土・草に使うと 3×3 を一度に耕地にする
+    public static final Item PLOW = Reg.item("plow", com.taku3.semiconductorlab.item.PlowItem::new, new Item.Properties().durability(250));
+
     static void init() {
         // [11-05] 堆肥（IMP3、O-021）：コンポスターの骨粉（＝堆肥の近似）を耕地に使うと、窒素とリンが1回分ずつ入る
         net.fabricmc.fabric.api.event.player.UseBlockCallback.EVENT.register((player, level, hand, hit) -> {

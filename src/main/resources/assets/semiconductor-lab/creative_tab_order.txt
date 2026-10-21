@@ -801,6 +801,7 @@ flour  # Agriculture [11-08] -9500
 vinegar  # Agriculture [11-10] -6000
 bread_dough  # Agriculture [11-09] -4000
 leavened_bread  # Agriculture [11-09] -4000
+plow  # Agriculture [11-02] -4000
 salted_meat  # Agriculture [11-11] -3000
 smoked_meat  # Agriculture [11-11] -3000
 cane_juice  # Agriculture [11-14] 0
