@@ -395,6 +395,8 @@ diphenyl_sulfoxide  # Chemistry [2-33] 1982
 photoacid_generator  # Chemistry [2-33] 1982
 potassium_hexafluoroantimonate  # Chemistry [2-33] 1982
 chemically_amplified_resist  # Chemistry [2-33] 1982
+tributylamine  # Chemistry [2-33] 1982
+euv_resist  # Chemistry [2-33] 1982
 resist_reactor  # Chemistry [2-33] 1982
 polyethylene_bottle  # Chemistry [None] None
 black_ash_charge  # Chemistry [None] None

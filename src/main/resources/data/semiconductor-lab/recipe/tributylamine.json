@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:butanol",
+    "semiconductor-lab:butanol",
+    "semiconductor-lab:butanol",
+    "semiconductor-lab:ammonia_gas",
+    "semiconductor-lab:raney_nickel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:tributylamine",
+    "count": 1
+  }
+}

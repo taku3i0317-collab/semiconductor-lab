@@ -1388,6 +1388,17 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** EUV 用の化学増幅レジスト（IMP3、S-010）：トリブチルアミン（クエンチャー）＝ブタノール3＋NH3（Ni）。EUV レジスト＝保護 PHS＋光酸発生剤2＋クエンチャー＋キシレン＋瓶（ガラス瓶入り） */
+    @GameTest
+    public void euvResist(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "tributylamine", Chemistry.BUTANOL) && recipeUses(h, "tributylamine", com.taku3.semiconductorlab.content.Gas.AMMONIA_GAS) && recipeUses(h, "tributylamine", Chemistry.RANEY_NICKEL), "quencher from butanol + NH3");
+        h.assertTrue(recipeUses(h, "euv_resist", Chemistry.PROTECTED_PHS) && recipeUses(h, "euv_resist", Chemistry.PHOTOACID_GENERATOR) && recipeUses(h, "euv_resist", Chemistry.TRIBUTYLAMINE), "EUV CAR = resin + PAG + quencher");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Chemistry.EUV_RESIST) == com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE, "in a glass bottle");
+        double euvEv = 1239.84 / 13.5, arfEv = 1239.84 / 193;
+        h.assertTrue(euvEv / arfEv > 13 && euvEv / arfEv < 15, "an EUV photon has ~14x the energy of ArF -> ~1/14 the photons per dose");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         for (var r : com.taku3.semiconductorlab.block.ResistReactorBlockEntity.RECIPES) {

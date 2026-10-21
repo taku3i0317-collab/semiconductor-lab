@@ -96,6 +96,10 @@ public final class Chemistry {
     public static final Item PHOTOACID_GENERATOR   = Reg.item("photoacid_generator");     // 光酸発生剤（トリフェニルスルホニウム SbF6⁻）
     public static final Item POTASSIUM_HEXAFLUOROANTIMONATE = Reg.item("potassium_hexafluoroantimonate");   // KSbF6（SbF6⁻ の材料、S-008、D）
     public static final Item CHEMICALLY_AMPLIFIED_RESIST = Reg.contained("chemically_amplified_resist", Vessel.GLASS_BOTTLE);   // 化学増幅レジスト（液、ガラス瓶）
+    // EUV 用の化学増幅レジスト（IMP3、S-010。v1.0 の [9-40] の前提）：1-ブタノール3＋アンモニア＋ラネーニッケル（触媒）→ トリブチルアミン（クエンチャー＝酸を止める塩基）。
+    //   保護した PHS＋光酸発生剤2＋トリブチルアミン＋キシレン＋ガラス瓶 → EUV レジスト（ポジ型・アルカリ現像。塗布・現像は E）
+    public static final Item TRIBUTYLAMINE         = Reg.item("tributylamine", new Item.Properties().stacksTo(16));
+    public static final Item EUV_RESIST            = Reg.contained("euv_resist", Vessel.GLASS_BOTTLE);
     // [9-25] リン酸（IMP4-01）：骨灰＋硫酸（シェーレの時代からの湿式法）。Al のエッチング液
     public static final Item PHOSPHORIC_ACID       = Reg.contained("phosphoric_acid", Vessel.GLASS_BOTTLE);
     // [9-13] 研磨のコロイダルシリカ（IMP4-01）：砂＋NaOH → 水ガラス（ケイ酸ナトリウム）→ 硫酸で中和 → シリカの微粒子が水に分散した液（ガラス瓶）

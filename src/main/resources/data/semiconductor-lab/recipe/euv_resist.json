@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:protected_phs",
+    "semiconductor-lab:photoacid_generator",
+    "semiconductor-lab:photoacid_generator",
+    "semiconductor-lab:tributylamine",
+    "semiconductor-lab:xylene",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:euv_resist",
+    "count": 1
+  }
+}

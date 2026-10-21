@@ -3579,6 +3579,19 @@
 - Wikipedia「Ion-adsorption clay」（Rare-earth element の節）：https://en.wikipedia.org/wiki/Rare-earth_element#Ion_adsorption_clays
 - Wikipedia「Frank Spedding」：https://en.wikipedia.org/wiki/Frank_Spedding
 
+## C63. 光の粒が少なすぎる光で焼く（EUV レジスト）［2-33］
+**答え**：EUV（13.5nm）の光の粒（光子）1つのエネルギーは約92eV で、ArF（193nm）の約14倍ある。そのため同じ量の光でも光子の数は約14分の1しかなく、場所によって当たる数がばらつく（ショットノイズ）。EUV のレジストは化学増幅レジストを使い、光子がたたき出した電子が光酸発生剤をこわして酸を出す。光酸発生剤を多めに入れ、加熱のあいだに横へ広がる酸は、塩基のクエンチャーで止めて線をシャープに保つ。それでもたまに線が切れたりつながったりする「確率的な欠陥」が EUV のいちばんの悩みで、2010年代からはスズなどの金属酸化物のレジスト（EUV をよく吸う）も研究されている。
+
+- へえ①：EUV の光子は少なすぎて、1つの点に何個当たるかがばらつく。
+- へえ②：レジストに、わざと酸を止める塩基（クエンチャー）を入れる。
+- へえ③：本物の EUV レジストの光酸発生剤は、チップを汚さないように金属を含まない物を使う。
+- へえ④：EUV の光源もスズ、新しいレジストの候補もスズ。
+
+確かさ：光子のエネルギー・ショットノイズ・クエンチャー ◎／金属酸化物レジストの実用化の時期 △
+根拠：
+- Wikipedia「Extreme ultraviolet lithography」：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
+- Wikipedia「Photoresist」：https://en.wikipedia.org/wiki/Photoresist
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

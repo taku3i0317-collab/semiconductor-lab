@@ -1434,5 +1434,17 @@
   "item.semiconductor-lab.anisaldehyde.note1": "アニスの香りの液体。液晶の分子の半分。",
   "item.semiconductor-lab.anisaldehyde.note2": "アニソール＋一酸化炭素（袋）＋塩化水素（袋）＋塩化アルミニウム。＋4-ブチルアニリン → MBBA。",
   "item.semiconductor-lab.anisaldehyde.note3": "CO と HCl と AlCl3 で環に CHO をつける（ガッターマン・コッホ反応、1897）。メトキシの反対側（4位）につく。",
-  "item.semiconductor-lab.anisaldehyde.note4": "香水やお菓子の香料にも使われる。"
+  "item.semiconductor-lab.anisaldehyde.note4": "香水やお菓子の香料にも使われる。",
+  "item.semiconductor-lab.tributylamine": "トリブチルアミン（クエンチャー）",
+  "item.semiconductor-lab.tributylamine.note1": "酸を止める塩基の液体。EUV レジストに少し入れる。",
+  "item.semiconductor-lab.tributylamine.note2": "1-ブタノール3＋アンモニア（袋）＋ラネーニッケル（触媒、戻る）。EUV レジストの材料。⚠ GHS：急性毒性、腐食性。",
+  "item.semiconductor-lab.tributylamine.note3": "(C4H9)3N。アンモニアの H 3つがブチル基にかわった物（アルコールとアンモニアを水素とニッケルの上で反応させる）。レジストの中では、光の当たらなかった所へ広がってきた酸を中和して止める（クエンチャー）。",
+  "item.semiconductor-lab.tributylamine.note4": "酸は加熱のあいだに少しずつ横へ動く（数 nm）。線の幅が十数 nm の EUV では、その広がりが線をぼかすので、塩基で止める量の調節が大事になる。",
+  "item.semiconductor-lab.tributylamine.placeholder": "近似：本物は水素も入れて約200℃で反応させる。副産物の水は省略。",
+  "item.semiconductor-lab.euv_resist": "EUV レジスト（化学増幅）",
+  "item.semiconductor-lab.euv_resist.note1": "EUV（13.5nm）の光で焼くレジスト。光の粒が少なくても焼けるように作ってある。",
+  "item.semiconductor-lab.euv_resist.note2": "保護したポリヒドロキシスチレン＋光酸発生剤2＋トリブチルアミン＋キシレン＋ガラス瓶。ポジ型・アルカリで現像（塗布機・露光後の加熱・現像は E の工程）。",
+  "item.semiconductor-lab.euv_resist.note3": "EUV の光の粒（光子）1つのエネルギーは約92eV で、ArF（193nm、約6.4eV）の約14倍。同じ量の光でも、光子の数は約14分の1しかない。光子は膜の中で電子をたたき出し、その電子が光酸発生剤をこわして酸を出す。光酸発生剤を多めに入れ、広がりすぎた酸はクエンチャー（塩基）で止める。",
+  "item.semiconductor-lab.euv_resist.note4": "光子が少ないと、場所によって当たる数がばらつき（ショットノイズ）、たまに線が切れたりつながったりする（確率的な欠陥）。これが EUV のいちばんの悩みで、2010年代からスズなどの金属の酸化物のレジスト（光をよく吸う）も研究されている。",
+  "item.semiconductor-lab.euv_resist.placeholder": "近似：⚠️ 本物の EUV レジストの光酸発生剤は、チップを汚さないように金属をふくまない物（フッ素系のスルホン酸など）を使う。ゲームではアンチモンの塩のまま。溶剤はキシレン（本物は PGMEA など）。"
 }
