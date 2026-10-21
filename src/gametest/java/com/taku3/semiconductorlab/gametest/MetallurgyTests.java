@@ -283,6 +283,23 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreQuartzVein(GameTestHelper h) { oreFeature(h, "quartz_vein", Blocks.STONE, Blocks.DEEPSLATE, Metallurgy.QUARTZ_VEIN, LabTestBase::stoneOrDeepslate); }
 
     /** [1-46] 石英鉱脈：石のツルハシ以上（木では落ちない）で珪石、シルクタッチでブロック。オーバーワールド全体（ほかの鉱石と同じ選び方）。MOD のレシピにネザークォーツは無い */
+    /** [1-23]・[1-31] モリブデン（IMP2 S-007）：輝水鉛鉱 →反射炉で焙焼 → MoO3（＋SO2）→水素炉 → Mo */
+    @GameTest(maxTicks = 1000)
+    public void molybdenum(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity.mainProduct(new ItemStack(Metallurgy.MOLYBDENITE)).is(Metallurgy.MOLYBDENUM_TRIOXIDE)
+                && com.taku3.semiconductorlab.block.ReverberatoryFurnaceBlockEntity.flueGas(new ItemStack(Metallurgy.MOLYBDENITE)).is(com.taku3.semiconductorlab.content.Chemistry.SULFUR_DIOXIDE), "roasting MoS2 -> MoO3 + SO2");
+        h.assertTrue(com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.modeOf(new ItemStack(Metallurgy.MOLYBDENUM_TRIOXIDE)) == com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.Mode.REDUCE_MO, "MoO3 goes to the hydrogen furnace");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Metallurgy.HYDROGEN_FURNACE.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.class);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.SLOT_IN, new ItemStack(Metallurgy.MOLYBDENUM_TRIOXIDE));
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.SLOT_H2, new ItemStack(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS, 3));
+        tickConsumer(h, at, be, com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.REDUCE_TICKS + 10, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.REDUCE_WATTS));
+        h.assertTrue(be.getContainer().getItem(com.taku3.semiconductorlab.block.HydrogenFurnaceBlockEntity.SLOT_OUT).is(Metallurgy.MOLYBDENUM), "MoO3 + 3H2 -> Mo");
+        LOG.info("[LAB] molybdenum [1-31]: copper ore sometimes gives molybdenite; roast -> MoO3 + SO2; H2 -> Mo");
+        h.succeed();
+    }
+
     @GameTest
     public void quartzVeinDrops(GameTestHelper h) {
         ServerLevel lv = h.getLevel();

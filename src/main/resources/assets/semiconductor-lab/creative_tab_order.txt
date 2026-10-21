@@ -88,6 +88,9 @@ crucible_steel  # Metallurgy [1-11] 1740
 platinum_grain  # Metallurgy [1-20] 1748
 nickel  # Metallurgy [1-37] 1751
 pentlandite_ore  # Metallurgy [1-37] 1751
+molybdenite  # Metallurgy [1-23] 1778
+molybdenum  # Metallurgy [1-23] 1778
+molybdenum_trioxide  # Metallurgy [1-31] 1781
 chromite  # Metallurgy [1-40] 1797
 chromite_roast_charge  # Metallurgy [1-40] 1797
 sodium_chromate  # Metallurgy [1-40] 1797

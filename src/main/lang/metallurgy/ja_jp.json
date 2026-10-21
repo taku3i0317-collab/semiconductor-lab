@@ -857,5 +857,22 @@
   "gui.semiconductor-lab.tantalum_refinery.need_power": "電気が足りない",
   "gui.semiconductor-lab.tantalum_refinery.marignac": "K2TaF7 を結晶にしている",
   "gui.semiconductor-lab.tantalum_refinery.reduce": "ナトリウムで還元している",
-  "gui.semiconductor-lab.tantalum_refinery.recipe": "HF＋KF → K2TaF7 → Na → Ta"
+  "gui.semiconductor-lab.tantalum_refinery.recipe": "HF＋KF → K2TaF7 → Na → Ta",
+  "item.semiconductor-lab.molybdenite": "輝水鉛鉱",
+  "item.semiconductor-lab.molybdenite.note1": "黒鉛にそっくりな、やわらかい銀色の鉱石。銅の鉱山のついでに取れる。",
+  "item.semiconductor-lab.molybdenite.note2": "銅の鉱石を掘るとまれに（5%）出る。反射炉で焼くと三酸化モリブデン＋二酸化硫黄。",
+  "item.semiconductor-lab.molybdenite.note3": "1778年、スウェーデンのシェーレが、黒鉛（炭素）でも鉛の鉱石でもないことを示し、新しい元素の酸化物を取り出した。名前のモリブデンはギリシャ語の「鉛」から。",
+  "item.semiconductor-lab.molybdenite.note4": "MoS2 は層の形の結晶で、黒鉛と同じようにすべるので、今も潤滑剤に使う。今のモリブデンの多くは斑岩銅鉱床（銅の大きな鉱山）の副産物。",
+  "item.semiconductor-lab.molybdenite.placeholder": "近似：出る割合（5%）はゲームの値。",
+  "item.semiconductor-lab.molybdenum_trioxide": "三酸化モリブデン",
+  "item.semiconductor-lab.molybdenum_trioxide.note1": "輝水鉛鉱を空気の中で焼いてできた、白っぽい粉。",
+  "item.semiconductor-lab.molybdenum_trioxide.note2": "輝水鉛鉱を反射炉で焙焼（2MoS2 + 7O2 → 2MoO3 + 4SO2）。水素炉で還元するとモリブデン。⚠ GHS：健康有害性（吸い込まない）。",
+  "item.semiconductor-lab.molybdenum_trioxide.note3": "1781年、イェルムが炭素で還元して初めて金属のモリブデンを得た。",
+  "item.semiconductor-lab.molybdenum_trioxide.note4": "MoO3 は約700℃で昇華しやすい。工業では焙焼した精鉱を水素で2段に還元してモリブデンの粉にする。",
+  "item.semiconductor-lab.molybdenum": "モリブデン",
+  "item.semiconductor-lab.molybdenum.note1": "とても高い温度でも溶けにくい、銀色の金属。EUV の鏡の材料になる。",
+  "item.semiconductor-lab.molybdenum.note2": "三酸化モリブデン＋水素の袋×3 → 水素炉（3kW・30秒）。真空蒸着装置で ULE ガラスにケイ素と交互に重ねると多層膜ミラー。",
+  "item.semiconductor-lab.molybdenum.note3": "融点は約2620℃。ステンレス鋼や工具の鋼に混ぜて強くし、電球や真空管の部品にも使った。",
+  "item.semiconductor-lab.molybdenum.note4": "13.5nm の EUV の光にとって、モリブデンとケイ素は屈折率の差が大きく吸収が小さい組み合わせなので、約7nm の周期で重ねると強く反射する。",
+  "gui.semiconductor-lab.hydrogen_furnace.reducing_mo": "MoO3を還元中"
 }

@@ -131,6 +131,12 @@ public final class Metallurgy {
     public static final Item SODIUM_TUNGSTATE      = Reg.item("sodium_tungstate");  // タングステン酸ナトリウム Na2WO4（水に溶ける）
     public static final Item TUNGSTIC_ACID         = Reg.item("tungstic_acid");     // タングステン酸 H2WO4（黄色の沈殿）
     public static final Item TUNGSTEN_TRIOXIDE     = Reg.item("tungsten_trioxide"); // WO3（黄色）
+    // [1-23] 輝水鉛鉱・[1-31] モリブデン（IMP2 S-007、[7-17] 多層膜ミラーの前提）：銅の鉱石を掘るとまれに輝水鉛鉱 MoS2（斑岩銅鉱床の副産物）。
+    //   反射炉で焙焼 2MoS2 + 7O2 → 2MoO3 + 4SO2 → 水素炉で還元 MoO3 + 3H2 → Mo + 3H2O（イェルム 1781 は炭素で還元）
+    public static final float MOLYBDENITE_FROM_COPPER = 0.05f;
+    public static final Item MOLYBDENITE           = Reg.item("molybdenite");
+    public static final Item MOLYBDENUM_TRIOXIDE   = Reg.item("molybdenum_trioxide");
+    public static final Item MOLYBDENUM            = Reg.item("molybdenum");
     public static final Item TUNGSTEN_POWDER       = Reg.item("tungsten_powder");   // 水素還元した W 粉
     public static final Item TUNGSTEN_BAR          = Reg.item("tungsten_bar");      // 焼結棒（水素中で通電焼結）
     public static final Item TUNGSTEN_WIRE         = Reg.item("tungsten_wire");     // 線引きした延性タングステン線
@@ -236,6 +242,13 @@ public final class Metallurgy {
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {
+        // [1-23] 銅の鉱石（ふつう・深層）を掘ると、まれに輝水鉛鉱（IMP2 S-007。決定どおり「銅の鉱山のついで」）
+        net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            if (!table.is(net.minecraft.world.level.block.Blocks.COPPER_ORE.getLootTable().orElseThrow())
+                    && !table.is(net.minecraft.world.level.block.Blocks.DEEPSLATE_COPPER_ORE.getLootTable().orElseThrow())) return;
+            if (drops.stream().anyMatch(st -> st.is(net.minecraft.world.item.Items.RAW_COPPER)) && ctx.getRandom().nextFloat() < MOLYBDENITE_FROM_COPPER)
+                drops.add(new net.minecraft.world.item.ItemStack(MOLYBDENITE));
+        });
         // [1-41] 浜の砂鉄には、黒い粒のチタン鉄鉱がまじっている（決定：砂鉄の副産物、IMP3 O-018）
         net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
             if (!table.is(IRON_SAND.getLootTable().orElseThrow())) return;

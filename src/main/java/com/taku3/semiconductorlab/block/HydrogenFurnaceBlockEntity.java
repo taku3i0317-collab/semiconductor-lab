@@ -33,7 +33,7 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
     /** 隣のホルダーから水素を補充する間隔（tick）と、スロットに貯める上限 */
     private static final int PULL_INTERVAL = 10, H2_TARGET = 16;
 
-    public enum Mode { NONE, REDUCE, SINTER, REDUCE_GE }
+    public enum Mode { NONE, REDUCE, SINTER, REDUCE_GE, REDUCE_MO }
 
     /** 画面のスロットの並び（IMP-28：前の HydrogenFurnaceMenu の代わり） */
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
@@ -42,7 +42,7 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.hydrogen_furnace.power").samples("10.0 kW")
             .right("stored", 27, 1, "gui.semiconductor-lab.hydrogen_furnace.stored").samples("50 kJ")
-            .right("hint", 38, 3, "gui.semiconductor-lab.hydrogen_furnace.need_input", "gui.semiconductor-lab.hydrogen_furnace.need_h2", "gui.semiconductor-lab.hydrogen_furnace.not_enough", "gui.semiconductor-lab.hydrogen_furnace.need_power", "gui.semiconductor-lab.hydrogen_furnace.sintering", "gui.semiconductor-lab.hydrogen_furnace.reducing_ge", "gui.semiconductor-lab.hydrogen_furnace.reducing")
+            .right("hint", 38, 3, "gui.semiconductor-lab.hydrogen_furnace.need_input", "gui.semiconductor-lab.hydrogen_furnace.need_h2", "gui.semiconductor-lab.hydrogen_furnace.not_enough", "gui.semiconductor-lab.hydrogen_furnace.need_power", "gui.semiconductor-lab.hydrogen_furnace.sintering", "gui.semiconductor-lab.hydrogen_furnace.reducing_ge", "gui.semiconductor-lab.hydrogen_furnace.reducing_mo", "gui.semiconductor-lab.hydrogen_furnace.reducing")
             .label("h2", 28, 57, 12, "H2")
             .build();
 
@@ -56,6 +56,7 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
     public static Mode modeOf(ItemStack in) {
         if (in.is(Metallurgy.TUNGSTEN_TRIOXIDE)) return Mode.REDUCE;
         if (in.is(Metallurgy.TUNGSTEN_POWDER)) return Mode.SINTER;
+        if (in.is(Metallurgy.MOLYBDENUM_TRIOXIDE)) return Mode.REDUCE_MO;   // [1-31] MoO3 + 3H2 → Mo + 3H2O（IMP2 S-007、WO3 と同じ3）
         if (in.is(Metallurgy.GERMANIUM_DIOXIDE) || in.is(Metallurgy.HIGH_PURITY_GERMANIUM_DIOXIDE)) return Mode.REDUCE_GE;
         return Mode.NONE;
     }
@@ -68,6 +69,7 @@ public class HydrogenFurnaceBlockEntity extends ConsumerBlockEntity {
             if (container.getItem(SLOT_IN).is(Metallurgy.HIGH_PURITY_GERMANIUM_DIOXIDE)) ge.set(com.taku3.semiconductorlab.ModDataComponents.CHLORIDE_ROUTE, true);
             return ge;
         }
+        if (m == Mode.REDUCE_MO) return new ItemStack(Metallurgy.MOLYBDENUM);
         return m == Mode.REDUCE ? new ItemStack(Metallurgy.TUNGSTEN_POWDER) : new ItemStack(Metallurgy.TUNGSTEN_BAR);
     }
     private static int h2For(Mode m) { return switch (m) { case SINTER -> SINTER_H2; case REDUCE_GE -> GE_REDUCE_H2; default -> REDUCE_H2; }; }

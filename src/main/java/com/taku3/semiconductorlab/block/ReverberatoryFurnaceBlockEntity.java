@@ -94,6 +94,7 @@ public class ReverberatoryFurnaceBlockEntity extends BlockEntity implements Mach
         else if (in.is(Metallurgy.CINNABAR_RETORT_CHARGE)) out = Metallurgy.MERCURY;   // 辰砂＋空の鉄のフラスコ（受け器）→ 水銀入りのフラスコ（IMP-33）
         else if (in.is(Metallurgy.SPHALERITE)) out = Heat.ZINC_OXIDE;
         else if (in.is(net.minecraft.world.item.Items.CALCITE)) out = com.taku3.semiconductorlab.content.Survival.QUICKLIME;
+        else if (in.is(Metallurgy.MOLYBDENITE)) out = Metallurgy.MOLYBDENUM_TRIOXIDE;   // [1-31] 2MoS2 + 7O2 → 2MoO3 + 4SO2（IMP2 S-007）
         return out == null ? ItemStack.EMPTY : new ItemStack(out);
     }
 

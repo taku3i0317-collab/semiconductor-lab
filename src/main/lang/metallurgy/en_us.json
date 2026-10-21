@@ -857,5 +857,22 @@
   "gui.semiconductor-lab.tantalum_refinery.need_power": "Not enough power",
   "gui.semiconductor-lab.tantalum_refinery.marignac": "Crystallising K2TaF7",
   "gui.semiconductor-lab.tantalum_refinery.reduce": "Reducing with sodium",
-  "gui.semiconductor-lab.tantalum_refinery.recipe": "HF+KF → K2TaF7 → Na → Ta"
+  "gui.semiconductor-lab.tantalum_refinery.recipe": "HF+KF → K2TaF7 → Na → Ta",
+  "item.semiconductor-lab.molybdenite": "Molybdenite",
+  "item.semiconductor-lab.molybdenite.note1": "A soft silvery ore that looks just like graphite. It comes up as a by-product of copper mines.",
+  "item.semiconductor-lab.molybdenite.note2": "Mining copper ore rarely (5%) gives it. Roasting in the reverberatory furnace gives molybdenum trioxide + sulfur dioxide.",
+  "item.semiconductor-lab.molybdenite.note3": "In 1778 Scheele in Sweden showed it was neither graphite (carbon) nor a lead ore, and extracted the oxide of a new element. The name molybdenum comes from the Greek for lead.",
+  "item.semiconductor-lab.molybdenite.note4": "MoS2 forms layered crystals that slide like graphite, so it is still used as a lubricant. Most molybdenum today is a by-product of porphyry copper mines.",
+  "item.semiconductor-lab.molybdenite.placeholder": "Approximation: the drop rate (5%) is a game value.",
+  "item.semiconductor-lab.molybdenum_trioxide": "Molybdenum Trioxide",
+  "item.semiconductor-lab.molybdenum_trioxide.note1": "A pale powder made by roasting molybdenite in air.",
+  "item.semiconductor-lab.molybdenum_trioxide.note2": "Molybdenite roasted in the reverberatory furnace (2MoS2 + 7O2 -> 2MoO3 + 4SO2). Reduced in the hydrogen furnace to molybdenum. ⚠ GHS: health hazard (do not inhale).",
+  "item.semiconductor-lab.molybdenum_trioxide.note3": "In 1781 Hjelm reduced it with carbon and obtained metallic molybdenum for the first time.",
+  "item.semiconductor-lab.molybdenum_trioxide.note4": "MoO3 sublimes easily around 700 C. Industry reduces roasted concentrate with hydrogen in two stages to molybdenum powder.",
+  "item.semiconductor-lab.molybdenum": "Molybdenum",
+  "item.semiconductor-lab.molybdenum.note1": "A silvery metal that hardly melts even at very high temperatures. It goes into EUV mirrors.",
+  "item.semiconductor-lab.molybdenum.note2": "Molybdenum trioxide + 3 hydrogen bags in the hydrogen furnace (3 kW, 30 s). Stacked alternately with silicon on ULE glass in the vacuum evaporator, it makes a multilayer mirror.",
+  "item.semiconductor-lab.molybdenum.note3": "It melts at about 2620 C. It strengthens stainless and tool steels and was used in lamp and vacuum-tube parts.",
+  "item.semiconductor-lab.molybdenum.note4": "For 13.5 nm EUV light, molybdenum and silicon differ strongly in refractive index and absorb little, so layers with a period of about 7 nm reflect strongly.",
+  "gui.semiconductor-lab.hydrogen_furnace.reducing_mo": "Reducing MoO3"
 }

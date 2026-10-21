@@ -2158,6 +2158,19 @@
 - 日本機械学会「機械遺産 No.066」：https://www.jsme.or.jp/kikaiisan/heritage_066.html
 - Wikipedia「Quartz clock」：https://en.wikipedia.org/wiki/Quartz_clock
 
+## O75. 黒鉛そっくりの鉱石から（モリブデン）［1-23・1-31］
+**答え**：輝水鉛鉱（MoS2）は黒鉛によく似たやわらかい鉱石で、昔は黒鉛や鉛の鉱石とまちがえられた。1778年、スウェーデンのシェーレがそのどちらでもないことを示して新しい元素の酸化物を取り出し、1781年にイェルムが炭素で還元して金属を得た。工業では焙焼して三酸化モリブデンにし、水素で還元する。今のモリブデンの多くは大きな銅の鉱山の副産物。EUV 露光の鏡は、モリブデンとケイ素を交互に重ねて作る。
+
+- へえ①：モリブデンの鉱石は、銅の鉱山のついでに取れる。
+- へえ②：名前はギリシャ語の「鉛（molybdos）」から。
+- へえ③：MoS2 は黒鉛と同じようにすべるので、潤滑剤になる。
+- へえ④：融点は約2620℃で、鋼に混ぜると高温でも強い。
+
+確かさ：シェーレ 1778・イェルム 1781 ◎／斑岩銅鉱床の副産物 ◎／融点 ◎
+根拠：
+- Wikipedia「Molybdenum」：https://en.wikipedia.org/wiki/Molybdenum
+- Wikipedia「Molybdenite」：https://en.wikipedia.org/wiki/Molybdenite
+
 ---
 
 # 冶金と熱（タスク15〜）
