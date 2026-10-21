@@ -81,6 +81,27 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class CommunicationTests extends LabTestBase {
+    /** [15-12] 磁気記録（IMP2 S-010）：鋼線は短く・テープは長く記録できる。何度再生しても消えない。しゃがんで右クリックで消して記録し直せる */
+    @GameTest
+    public void magnetic_recording(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "magnetic_tape", com.taku3.semiconductorlab.content.Optics.ROUGE) && recipeUses(h, "telegraphone", com.taku3.semiconductorlab.content.Control.ELECTROMAGNET), "tape = iron oxide on paper, head = electromagnet");
+        var t = (com.taku3.semiconductorlab.item.TelegraphoneItem) com.taku3.semiconductorlab.content.Communication.TELEGRAPHONE;
+        ItemStack wire = new ItemStack(com.taku3.semiconductorlab.content.Communication.STEEL_WIRE_SPOOL), tape = new ItemStack(com.taku3.semiconductorlab.content.Communication.MAGNETIC_TAPE);
+        String longText = "x".repeat(100);
+        h.assertTrue(t.record(wire, longText) && com.taku3.semiconductorlab.item.TelegraphoneItem.recording(wire).length() == com.taku3.semiconductorlab.item.TelegraphoneItem.WIRE_CHARS, "steel wire holds " + com.taku3.semiconductorlab.item.TelegraphoneItem.WIRE_CHARS + " chars");
+        h.assertTrue(!t.record(tape, longText) && com.taku3.semiconductorlab.item.TelegraphoneItem.recording(tape).length() == 100, "tape holds more");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(com.taku3.semiconductorlab.content.Communication.TELEGRAPHONE));
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, tape);
+        for (int i = 0; i < 10; i++) com.taku3.semiconductorlab.content.Communication.TELEGRAPHONE.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.TelegraphoneItem.recording(tape).length(), 100, "magnetic: 10 plays and still there (tin foil wears out)");
+        player.setShiftKeyDown(true);
+        com.taku3.semiconductorlab.content.Communication.TELEGRAPHONE.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertTrue(com.taku3.semiconductorlab.item.TelegraphoneItem.recording(tape).isEmpty(), "sneak + use erases, ready to record again");
+        LOG.info("[LAB] magnetic recording [15-12]: wire " + com.taku3.semiconductorlab.item.TelegraphoneItem.WIRE_CHARS + " chars, tape " + com.taku3.semiconductorlab.item.TelegraphoneItem.TAPE_CHARS + " chars, no wear, erasable");
+        h.succeed();
+    }
+
     /** [15-05] 蓄音機（IMP2 S-010）：錫はくの筒に録音した文を再生できる。3回でつぶれて聞こえなくなる */
     @GameTest
     public void phonograph(GameTestHelper h) {

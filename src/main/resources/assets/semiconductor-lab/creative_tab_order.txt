@@ -861,6 +861,9 @@ wood_pulp  # Communication [15-01] 105
 telephone  # Communication [15-04] 1876
 tin_foil_cylinder  # Communication [15-05] 1877
 phonograph  # Communication [15-05] 1877
+steel_wire_spool  # Communication [15-12] 1898
+magnetic_tape  # Communication [15-12] 1898
+telegraphone  # Communication [15-12] 1898
 tube_radio  # Communication [15-09] 1920
 transistor_radio  # Communication [15-10] 1954
 touch_panel  # Communication [15-18] 1965

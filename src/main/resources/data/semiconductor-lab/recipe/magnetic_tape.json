@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:paper",
+    "minecraft:paper",
+    "semiconductor-lab:rouge"
+  ],
+  "result": {
+    "id": "semiconductor-lab:magnetic_tape",
+    "count": 2
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:electromagnet",
+    "semiconductor-lab:copper_wire",
+    "semiconductor-lab:standard_screw",
+    "#minecraft:planks"
+  ],
+  "result": {
+    "id": "semiconductor-lab:telegraphone",
+    "count": 1
+  }
+}

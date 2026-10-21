@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_ingot",
+    "#minecraft:planks"
+  ],
+  "result": {
+    "id": "semiconductor-lab:steel_wire_spool",
+    "count": 2
+  }
+}

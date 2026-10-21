@@ -31,6 +31,10 @@ public final class Communication {
     public static final Item TRANSISTOR_RADIO      = Reg.item("transistor_radio", new Item.Properties().stacksTo(1));
     // [15-04] 電話（IMP2 S-010、1876）：電磁石（受話器）＋木炭の粒（炭素マイク）＋鉄（振動板）＋銅線。2台を両手で結び、持ってチャットすると同じ回線の電話に届く
     // [15-05] 蓄音機（IMP2 S-010、1877 エジソン）：錫はくを巻いた筒に針で溝を刻んで録音・再生。錫はくは3回ほどで聞こえなくなる
+    // [15-12] 磁気記録（IMP2 S-010、1898 ポールセンの鋼線・1928 プフロイマーの磁気テープ）：磁気なので何度聞いても消えず、消して記録し直せる
+    public static final Item STEEL_WIRE_SPOOL      = Reg.item("steel_wire_spool", new Item.Properties().stacksTo(1));
+    public static final Item MAGNETIC_TAPE         = Reg.item("magnetic_tape", new Item.Properties().stacksTo(1));
+    public static final Item TELEGRAPHONE          = Reg.item("telegraphone", p -> new com.taku3.semiconductorlab.item.TelegraphoneItem(p, () -> STEEL_WIRE_SPOOL, () -> MAGNETIC_TAPE), new Item.Properties().stacksTo(1));
     public static final Item TIN_FOIL_CYLINDER     = Reg.item("tin_foil_cylinder", new Item.Properties().stacksTo(1));
     public static final Item PHONOGRAPH            = Reg.item("phonograph", p -> new com.taku3.semiconductorlab.item.PhonographItem(p, () -> TIN_FOIL_CYLINDER), new Item.Properties().stacksTo(1));
     public static final Item TELEPHONE             = Reg.item("telephone", com.taku3.semiconductorlab.item.TelephoneItem::new, new Item.Properties().stacksTo(1));
@@ -55,6 +59,7 @@ public final class Communication {
                 {
                     com.taku3.semiconductorlab.item.TelephoneItem.relay(msg.signedContent(), sender);
                     com.taku3.semiconductorlab.item.PhonographItem.onChat(msg.signedContent(), sender);   // [15-05] 蓄音機の録音
+                    com.taku3.semiconductorlab.item.TelegraphoneItem.onChat(msg.signedContent(), sender);   // [15-12] 磁気記録
                 });
         // [15-01] 亜硫酸法の蒸解は圧力釜で煮る（加圧加熱釜の表に1行、IMP3）。圧力が足りないとリグニンが溶けず、仕込みがそのまま戻る
         AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("wood_pulp", st -> st.is(PULP_CHARGE), 1,
