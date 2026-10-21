@@ -544,3 +544,9 @@
   - 作り直し：`node tools/make_story.mjs <番号> <出力>`（docs をポート 8791 で出しておく。ムービーの時計を1コマずつ進めて写し、ffmpeg でつなぐ。ほかのモノでも作れる）
 - **リンクの見た目（OGP）**：network.html に og:title「技術ネットワーク — スマホを作るには、254 の技術が要った」・og:description・og:image（docs/og_image.png、中心図の絵 1200×630・日本語の題）・twitter:card（大きな絵）。URL は semiconductor-lab は https://taku3i0317-collab.github.io/semiconductor-lab/ 、tech-network は書き出しのときに https://taku3i0317-collab.github.io/tech-network/ に書きかえる
 - 次：S-024（シェアボタン）
+
+## S-024（2026-10-21、INBOX：ユーザーの決定）シェアボタン
+- 図のカード・スマホの近所の図・中心図（ミニムービーの最後も）・詳しいページに「🔗 シェア」（絵は自作のドット絵、押すと小さな動き A）。docs/share.js
+- スマホ（Web Share API が使える指で触る機器）は機器のシェアの画面（LINE・インスタ・X など）。送る物：今見ている物の URL（中心図は #center/番号、詳しいページは node.html#番号、図のカードは #map/番号。開くと同じ所が出る）と短い文「スマホを作るには、254 の技術が要った。」（数はデータから。前提の無い物は「〇〇——ここから始まった。」）
+- 使えないとき（パソコンなど）は小さな窓に「リンクをコピー」「X」「LINE」。X・LINE はただのリンクの URL（外の会社のシェア用のスクリプトは読み込まない）。コピーできたら「コピーしました」、コピーできない環境では URL を見せる
+- 写真：docs/mockups/s024_share.png（左から 中心図の下のシェア・詳しいページのシェア・パソコンなどの小さな窓）。画面のはみ出しの検査 0
