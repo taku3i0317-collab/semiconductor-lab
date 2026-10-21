@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ion_adsorption_clay",
+    "semiconductor-lab:ion_adsorption_clay",
+    "semiconductor-lab:ion_adsorption_clay",
+    "semiconductor-lab:ion_adsorption_clay",
+    "semiconductor-lab:ammonium_sulfate",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:rare_earth_leachate",
+    "count": 1
+  }
+}

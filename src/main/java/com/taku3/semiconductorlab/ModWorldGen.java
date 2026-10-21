@@ -19,7 +19,7 @@ public class ModWorldGen {
             MAGNETITE_ORE = key("magnetite_ore"), WOLFRAMITE_ORE = key("wolframite_ore"), GALENA_ORE = key("galena_ore"), STIBNITE_ORE = key("stibnite_ore"), PENTLANDITE_ORE = key("pentlandite_ore"), PYRITE_ORE = key("pyrite_ore"), PYROLUSITE_ORE = key("pyrolusite_ore"), IRON_SAND = key("iron_sand"),
             TRONA_DEPOSIT = key("trona_deposit"), ROCK_SALT_ORE = key("rock_salt_ore"), BORAX_DEPOSIT = key("borax_deposit"), QUARTZ_VEIN = key("quartz_vein"),
             MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"), SPODUMENE_ORE = key("spodumene_ore"), TANTALITE_ORE = key("tantalite_ore"),
-            FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"), CHROMITE_ORE = key("chromite_ore"),
+            FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"), BASTNAESITE_ORE = key("bastnaesite_ore"), ION_ADSORPTION_CLAY = key("ion_adsorption_clay"), CHROMITE_ORE = key("chromite_ore"),
             NITRE_EARTH = key("nitre_earth_block"),
             NATURAL_ASPHALT = key("natural_asphalt"),
             RUBBER_TREES = key("rubber_trees");
@@ -58,6 +58,10 @@ public class ModWorldGen {
             new OreRule(CHROMITE_ORE, BiomeSelectors.foundInOverworld()),
             // [1-24] ボーキサイト（IMP4-01）：ジャングル・サバンナだけ（熱帯で岩が風化して残った土）。地表近くの土・石を置き換える
             new OreRule(BAUXITE_ORE, BiomeSelectors.tag(BiomeTags.IS_JUNGLE).or(BiomeSelectors.tag(BiomeTags.IS_SAVANNA))),
+            // [1-19] イオン吸着型の粘土（IMP3、S-009）：暖かく雨の多い所で花崗岩が風化した粘土に希土類のイオンがくっついた物（中国南部）。ボーキサイトと同じ場所
+            new OreRule(ION_ADSORPTION_CLAY, BiomeSelectors.tag(BiomeTags.IS_JUNGLE).or(BiomeSelectors.tag(BiomeTags.IS_SAVANNA))),
+            // [1-19] バストネス石（IMP3、S-009）：炭酸塩の岩（カーボナタイト）の鉱床。オーバーワールドの石の中にまれに
+            new OreRule(BASTNAESITE_ORE, BiomeSelectors.foundInOverworld()),
             // 砂鉄：浜辺だけ（漂砂鉱床）
             new OreRule(IRON_SAND, BiomeSelectors.tag(BiomeTags.IS_BEACH)),
             // [2-03] トロナ：砂漠だけ（干上がった塩湖の蒸発岩）。地表〜浅い地下の砂・砂岩を置き換える

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:rare_earth_leachate",
+    "semiconductor-lab:oxalic_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:rare_earth_oxalate",
+    "count": 1
+  }
+}

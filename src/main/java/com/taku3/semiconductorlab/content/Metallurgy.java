@@ -72,6 +72,18 @@ public final class Metallurgy {
     //   ＋マグネシウム2＋アルゴンの袋 → クロールの仕込み →かまど → 塩の混ざったスポンジ →（真空で蒸留）→ スポンジチタン（塩化マグネシウムが作業台に残る＝[1-39] の電解へ戻る）
     public static final float ILMENITE_FROM_IRON_SAND = 0.1f;
     public static final Item ILMENITE              = Reg.item("ilmenite");
+    // [1-19] 希土類（イットリウム・セリウム、IMP3、S-009。E の白色 LED の蛍光体 YAG:Ce のため）。放射性のトリウムが少ない鉱石を選んだ（モナズ石は説明だけ）
+    //   Ce：バストネス石 →かまど（焙焼、Ce を CeO2 に）→ ＋塩酸2（ほかの希土類がとける）→ 酸化セリウム
+    //   Y ：イオン吸着型の粘土4＋硫酸アンモニウム＋水 → 希土類の浸出液 → ＋シュウ酸 → シュウ酸塩 →かまど→ 希土類の酸化物（Y が多い）
+    //       → 4つ＋塩酸＋陽イオン交換樹脂 → 酸化イットリウム2（1947 スペディングのイオン交換）。シュウ酸＝砂糖＋硝酸2（1776 シェーレ）
+    public static final Item BASTNAESITE           = Reg.item("bastnaesite");
+    public static final Item ROASTED_BASTNAESITE   = Reg.item("roasted_bastnaesite");
+    public static final Item CERIUM_OXIDE          = Reg.item("cerium_oxide");
+    public static final Item OXALIC_ACID           = Reg.item("oxalic_acid");
+    public static final Item RARE_EARTH_LEACHATE   = Reg.item("rare_earth_leachate", new Item.Properties().stacksTo(16));
+    public static final Item RARE_EARTH_OXALATE    = Reg.item("rare_earth_oxalate");
+    public static final Item MIXED_RARE_EARTH_OXIDE = Reg.item("mixed_rare_earth_oxide");
+    public static final Item YTTRIUM_OXIDE         = Reg.item("yttrium_oxide");
     // [1-70] ジルコニウム・ハフニウム（IMP3、S-007）：ジルコン ZrSiO4（Hf を約2%ふくむ）は砂鉄の浜の重い砂に、チタン鉄鉱といっしょにまじる（ZIRCON_FROM_IRON_SAND）。
     //   ジルコン＋水酸化ナトリウム2 →溶鉱炉→ 粗い酸化ジルコニウム（Hf 入り）→ ＋フッ酸2＋フッ化カリウム → 粗いフッ化ジルコニウムカリウム（Hf 入り）
     //   → 8つ＋水で分別結晶（1924 ヘヴェシー）→ フッ化ハフニウムカリウム1（各マスに純粋なフッ化ジルコニウムカリウムが残る）
@@ -230,6 +242,8 @@ public final class Metallurgy {
     public static final Block PYROLUSITE_ORE = Reg.ore("pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // 軟マンガン鉱（浅い石の中、IMP3 S-006）
     public static final Block FLUORITE_ORE   = Reg.ore("fluorite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     public static final Block BAUXITE_ORE    = Reg.ore("bauxite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().strength(1.5f, 3.0f).sound(SoundType.GRAVEL));
+    public static final Block BASTNAESITE_ORE = Reg.ore("bastnaesite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [1-19] バストネス石（IMP3 S-009）
+    public static final Block ION_ADSORPTION_CLAY = Reg.ore("ion_adsorption_clay", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).strength(0.8f, 1.0f).sound(SoundType.GRAVEL));   // [1-19] イオン吸着型の粘土（ジャングル・サバンナ、IMP3 S-009）
     public static final Block CHROMITE_ORE   = Reg.ore("chromite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.DEEPSLATE));
     // [2-03] トロナ堆積（干上がった塩湖の蒸発岩 Na2CO3·NaHCO3·2H2O）。砂漠の地表〜浅い地下の砂・砂岩に生成。軟らかい（モース硬度 2.5〜3）
     public static final Block BORAX_DEPOSIT  = Reg.ore("borax_deposit", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.SAND).requiresCorrectToolForDrops().strength(1.0f).sound(SoundType.STONE));   // [1-33] ホウ砂（砂漠の塩湖の蒸発岩）

@@ -131,6 +131,8 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreChromite(GameTestHelper h)   { oreFeature(h, "chromite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.CHROMITE_ORE, st -> st.is(Blocks.DEEPSLATE)); }   // [1-40] IMP2 O-015
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
+    @GameTest public void oreIonAdsorptionClay(GameTestHelper h) { oreFeature(h, "ion_adsorption_clay", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.ION_ADSORPTION_CLAY, x -> x.is(Blocks.DIRT) || x.is(Blocks.COARSE_DIRT) || x.is(Blocks.STONE)); }   // [1-19] IMP3 S-009
+    @GameTest public void oreBastnaesite(GameTestHelper h) { oreFeature(h, "bastnaesite_ore", Blocks.STONE, Blocks.COBBLESTONE, Metallurgy.BASTNAESITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-19] IMP3 S-009
 
     /** [1-58] 伸線（IMP4-01）：引き板（戻る）で金線・銅線、ダイヤモンドのダイス（戻る）で金のボンディング線。金の粒はボンディング線にならない */
     @GameTest
@@ -726,10 +728,11 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "pyrolusite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "spodumene_ore", "tantalite_ore", "fluorite_ore", "chromite_ore"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "pyrolusite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "spodumene_ore", "tantalite_ore", "bastnaesite_ore", "fluorite_ore", "chromite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));
+        expect.put("ion_adsorption_clay", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));   // [1-19] IMP3 S-009
         expect.put("nitre_earth_block", b -> b.is(net.minecraft.world.level.biome.Biomes.DRIPSTONE_CAVES));   // [6-16] IMP2-02
         expect.put("natural_asphalt", b -> b.is(BiomeTags.IS_BADLANDS) || b.is(net.minecraft.world.level.biome.Biomes.DESERT));   // [2-31] IMP3
         expect.put("rubber_trees", b -> b.is(BiomeTags.IS_JUNGLE));   // [2-29] IMP3（木。植生の段階）
@@ -1122,6 +1125,19 @@ public class MetallurgyTests extends LabTestBase {
         h.assertTrue(recipeUses(h, "crude_hafnium", Metallurgy.SODIUM) && recipeUses(h, "hafnium_bar", Chemistry.IODINE) && recipeUses(h, "hafnium_bar", Metallurgy.TUNGSTEN_WIRE), "Na reduction, iodide process on W wire");
         h.assertTrue(recipeUses(h, "zirconium_bar", Metallurgy.CRUDE_ZIRCONIUM), "zirconium crystal bar");
         LOG.info("[LAB] zirconium/hafnium [1-70]: zircon -> NaOH fusion -> K2ZrF6(Hf) -> fractional crystallization -> K2HfF6 -> HfO2; Na reduction + iodide process -> crystal bars");
+        h.succeed();
+    }
+
+    /** [1-19] 希土類 Y・Ce（IMP3、S-009）：バストネス石を焼いて塩酸 → CeO2。イオン吸着型の粘土 → 硫酸アンモニウムで浸出 → シュウ酸で沈殿 → 焼く → イオン交換 → Y2O3 */
+    @GameTest
+    public void rareEarthsYCe(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.BASTNAESITE).is(Metallurgy.ROASTED_BASTNAESITE), "roast bastnaesite");
+        h.assertTrue(recipeUses(h, "cerium_oxide", Metallurgy.ROASTED_BASTNAESITE) && recipeUses(h, "cerium_oxide", com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID), "HCl leaves CeO2");
+        h.assertTrue(recipeUses(h, "rare_earth_leachate", Metallurgy.ION_ADSORPTION_CLAY.asItem()) && recipeUses(h, "rare_earth_leachate", com.taku3.semiconductorlab.content.Gas.AMMONIUM_SULFATE), "ammonium sulfate leaching (ion exchange)");
+        h.assertTrue(recipeUses(h, "oxalic_acid", net.minecraft.world.item.Items.SUGAR) && recipeUses(h, "rare_earth_oxalate", Metallurgy.OXALIC_ACID), "oxalic acid from sugar; oxalate precipitation");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.RARE_EARTH_OXALATE).is(Metallurgy.MIXED_RARE_EARTH_OXIDE), "calcine -> mixed oxide");
+        h.assertTrue(recipeUses(h, "yttrium_oxide", Metallurgy.MIXED_RARE_EARTH_OXIDE) && recipeUses(h, "yttrium_oxide", Chemistry.CATION_EXCHANGE_RESIN), "ion exchange -> Y2O3");
+        LOG.info("[LAB] rare earths [1-19]: bastnaesite -> roast -> HCl -> CeO2; ion-adsorption clay -> (NH4)2SO4 -> oxalate -> mixed oxide -> ion exchange -> Y2O3");
         h.succeed();
     }
 }

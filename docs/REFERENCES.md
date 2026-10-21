@@ -3536,6 +3536,21 @@
 - Wikipedia「MBBA」：https://en.wikipedia.org/wiki/MBBA
 - Wikipedia「4-Cyano-4'-pentylbiphenyl」：https://en.wikipedia.org/wiki/4-Cyano-4%27-pentylbiphenyl
 
+## C62. そっくりなレアアースを分ける（イットリウム・セリウム）［1-19］
+**答え**：レアアース（希土類）は 17 の元素の仲間で、化学の性質がとてもよく似ているため、分けるのがむずかしい。セリウムは、バストネス石を空気中で焼くと自分だけ +4 の CeO2 になり、ほかの希土類（+3）がうすい酸にとけるのを使って分けられる。イットリウムなどの重い希土類は、中国南部の花崗岩が風化した粘土の表面にイオンとしてくっついていて、硫酸アンモニウムの液でイオン交換して洗い出し、シュウ酸で沈めて焼く。1947年、アメリカのエイムズ研究所のスペディングは、イオン交換樹脂の塔で希土類を1つずつ分けることに成功した。今は溶媒抽出で分ける。モナズ石は希土類が多いが放射性のトリウムをふくみ、その残りかすの扱いが問題になる。
+
+- へえ①：イットリウムの名前は、スウェーデンのイッテルビー村から。この村の石から4つの元素が見つかった。
+- へえ②：「レア」アースだが、セリウムは地殻の中で銅と同じくらい多い。
+- へえ③：白い LED の黄色い光は、イットリウムとアルミニウムのガーネット（YAG）に少しだけ入れたセリウムが出している。
+- へえ④：イオン吸着型の鉱床の掘り方によっては、山や川が汚された。
+
+確かさ：焙焼による Ce の分離・イオン吸着型鉱床・スペディング 1947 ◎／セリウムの量（銅と同じくらい）○
+根拠：
+- Wikipedia「Rare-earth element」：https://en.wikipedia.org/wiki/Rare-earth_element
+- Wikipedia「Bastnäsite」：https://en.wikipedia.org/wiki/Bastn%C3%A4site
+- Wikipedia「Ion-adsorption clay」（Rare-earth element の節）：https://en.wikipedia.org/wiki/Rare-earth_element#Ion_adsorption_clays
+- Wikipedia「Frank Spedding」：https://en.wikipedia.org/wiki/Frank_Spedding
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

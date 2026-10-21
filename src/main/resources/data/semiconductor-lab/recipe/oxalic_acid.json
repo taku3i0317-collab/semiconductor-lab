@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:sugar",
+    "semiconductor-lab:nitric_acid",
+    "semiconductor-lab:nitric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:oxalic_acid",
+    "count": 1
+  }
+}

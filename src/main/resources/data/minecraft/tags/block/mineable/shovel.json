@@ -5,6 +5,7 @@
     "semiconductor-lab:salt_pan",
     "semiconductor-lab:nitre_earth_block",
     "semiconductor-lab:nitrogen_farmland",
-    "semiconductor-lab:tired_farmland"
+    "semiconductor-lab:tired_farmland",
+    "semiconductor-lab:ion_adsorption_clay"
   ]
 }
