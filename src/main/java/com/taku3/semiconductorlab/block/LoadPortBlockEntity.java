@@ -37,11 +37,18 @@ public class LoadPortBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.LOAD_PORT.type, pos, state, SLOT_COUNT, 2_000, 200);
     }
 
-    /** 隣の工程の機械（スロットの並びを持つ MachineBE、ロードポートどうしは除く）。なければ null */
+    /**
+     * 隣の工程の機械（スロットの並びを持つ MachineBE、ロードポートどうしは除く）。なければ null。
+     * 隣がマルチブロックの物の口（Multiblock.ItemPort、A の O-034）なら、その本体（組み上がっていなければ使わない）
+     */
     public BlockEntity machine() {
         if (level == null) return null;
         for (Direction d : Direction.values()) {
             BlockEntity be = level.getBlockEntity(worldPosition.relative(d));
+            if (be instanceof com.taku3.semiconductorlab.machine.Multiblock.ItemPort port) {
+                MachineBE c = port.controller();
+                be = c instanceof BlockEntity cb ? cb : null;
+            }
             if (be instanceof MachineBE && !(be instanceof LoadPortBlockEntity)) {
                 Machine<?> m = Machine.of(be.getType());
                 if (m != null && m.layout != null) return be;

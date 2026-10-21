@@ -1242,4 +1242,35 @@ public class MetallurgyTests extends LabTestBase {
         h.assertTrue(port.controller() == null, "the port is cut off when broken");
         h.succeed();
     }
+    /** v1.0 #4 ロードポート × マルチブロックの物の口（IMP4-01、A の O-034）：物の口の隣のロードポートは、組み上がった本体（高炉）を機械として見る。崩すと見ない */
+    @GameTest
+    public void loadPortOnItemPort(GameTestHelper h) {
+        var lv = h.getLevel();
+        BlockPos ctl = h.absolutePos(p(3, 1, 2));
+        h.setBlock(p(3, 1, 2), Metallurgy.BLAST_FURNACE.block);
+        var be = h.getBlockEntity(p(3, 1, 2), com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.class);
+        var shape = com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.shape();
+        BlockPos portAt = null;
+        for (int y = 0; y < shape.height(); y++) for (int z = 0; z < shape.depth(); z++) for (int x = 0; x < shape.width(); x++) {
+            char c = shape.layers().get(y)[z].charAt(x);
+            BlockPos at = shape.worldPos(ctl, Direction.NORTH, x, y, z);
+            if (c == 'B') {
+                if (portAt == null && y == 2) { portAt = at; lv.setBlockAndUpdate(at, com.taku3.semiconductorlab.content.Semiconductor.ITEM_PORT.block.defaultBlockState()); }
+                else lv.setBlockAndUpdate(at, Blocks.BRICKS.defaultBlockState());
+            }
+            if (c == 'T') lv.setBlockAndUpdate(at, Metallurgy.TUYERE.defaultBlockState());
+        }
+        h.assertTrue(be.recheck().formed(), "blast furnace formed");
+        BlockPos lp = null;
+        for (Direction d : Direction.values()) { BlockPos q = portAt.relative(d); if (lv.getBlockState(q).isAir()) { lp = q; break; } }
+        h.assertTrue(lp != null, "room next to the item port");
+        lv.setBlockAndUpdate(lp, com.taku3.semiconductorlab.content.Semiconductor.LOAD_PORT.block.defaultBlockState());
+        var port = (com.taku3.semiconductorlab.block.LoadPortBlockEntity) lv.getBlockEntity(lp);
+        h.assertTrue(port.machine() == be, "the load port sees the multiblock through its item port");
+        lv.setBlockAndUpdate(shape.worldPos(ctl, Direction.NORTH, 0, 1, 1), Blocks.DIRT.defaultBlockState());
+        be.recheck();
+        h.assertTrue(port.machine() != be, "broken multiblock: no longer fed");
+        h.succeed();
+    }
+
 }

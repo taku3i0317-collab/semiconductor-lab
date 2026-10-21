@@ -187,3 +187,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ S-009 [1-47] 天然磁石：v0.2a の磁石アイテム（磁鉄鉱4）がそのまま当てはまるので ✅ に（新しいアイテムなし）。GameTest natural_magnet、REFERENCES F54
 - ✅ S-009 [1-02] 自然銅（銅の鉱石から 5%、かまどで銅）。GameTest native_copper、REFERENCES F55
 - ✅ S-009 [3-20] 耐火粘土・耐火粘土のるつぼ（作業台）。GameTest fire_clay、REFERENCES F56
+- ✅ ロードポート × マルチブロックの物の口（A の O-034）：隣が Multiblock.ItemPort なら組み上がった本体を機械として見る。GameTest load_port_on_item_port
