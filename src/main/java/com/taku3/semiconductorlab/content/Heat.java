@@ -26,6 +26,8 @@ public final class Heat {
     private Heat() {}
 
     // ===== アイテム =====
+    // [3-09] 熱電対（銅＋鉄、ゼーベック効果）（IMP4-01、S-009）
+    public static final Item THERMOCOUPLE          = Reg.item("thermocouple", com.taku3.semiconductorlab.item.ThermocoupleItem::new, new Item.Properties().stacksTo(1));
     // [3-13] 断熱材（ロックウール。石綿は作らない）（IMP4-01、S-009）
     public static final Item ROCK_WOOL             = Reg.item("rock_wool");
     // [3-20] 耐火粘土（水で洗って細かい粘土だけ集める）（IMP4-01、S-009）

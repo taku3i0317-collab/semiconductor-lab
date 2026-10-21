@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " C ",
+    " I ",
+    " G "
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "I": "minecraft:iron_ingot",
+    "G": "semiconductor-lab:soda_lime_glass"
+  },
+  "result": {
+    "id": "semiconductor-lab:thermocouple",
+    "count": 1
+  }
+}

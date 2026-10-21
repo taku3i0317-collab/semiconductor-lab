@@ -332,6 +332,17 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-09] 熱電対（IMP4-01、S-009）：溶岩は範囲外、水 15℃・氷 0℃、電圧は温度差に比例 */
+    @GameTest
+    public void thermocouple(GameTestHelper h) {
+        var tc = com.taku3.semiconductorlab.item.ThermocoupleItem.class;
+        h.assertTrue(com.taku3.semiconductorlab.item.ThermocoupleItem.temperatureC(net.minecraft.world.level.block.Blocks.LAVA.defaultBlockState()) > com.taku3.semiconductorlab.item.ThermocoupleItem.MAX_C, "lava is beyond copper-iron");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.ThermocoupleItem.temperatureC(net.minecraft.world.level.block.Blocks.ICE.defaultBlockState()), 0, "ice 0 C");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.ThermocoupleItem.millivolts(20)) < 1e-9 && com.taku3.semiconductorlab.item.ThermocoupleItem.millivolts(520) > 6, "voltage grows with the temperature difference");
+        h.assertTrue(recipeUses(h, "thermocouple", net.minecraft.world.item.Items.COPPER_INGOT) && recipeUses(h, "thermocouple", net.minecraft.world.item.Items.IRON_INGOT), "two metals");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Heat.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(Heat.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");

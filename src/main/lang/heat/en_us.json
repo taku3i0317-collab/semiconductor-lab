@@ -100,5 +100,13 @@
   "item.semiconductor-lab.rock_wool.note2": "Blast basalt in a blast furnace (melted at about 1500 °C and blown into fibres).",
   "item.semiconductor-lab.rock_wool.note3": "Air trapped between the fine fibres stops heat, and it does not burn. Hawaii's volcanoes make natural fibres of wind-stretched lava called Pele's hair.",
   "item.semiconductor-lab.rock_wool.note4": "Asbestos was once the standard insulation, but it causes mesothelioma and lung cancer and was effectively banned in Japan in 2006 ⚠️; rock wool spread as its replacement. ⚠️ Asbestos cannot be made in this mod (history only).",
-  "item.semiconductor-lab.rock_wool.placeholder": "Omitted: ⚠️ melting and blowing are approximated by the blast furnace. Diatomaceous earth needs a new ore and is on hold."
+  "item.semiconductor-lab.rock_wool.placeholder": "Omitted: ⚠️ melting and blowing are approximated by the blast furnace. Diatomaceous earth needs a new ore and is on hold.",
+  "item.semiconductor-lab.thermocouple": "Thermocouple (copper–iron)",
+  "item.semiconductor-lab.thermocouple.note1": "A thermometer of two different metal wires joined at the tip. Right-click a block to read its temperature.",
+  "item.semiconductor-lab.thermocouple.note2": "Crafting: copper + iron + soda-lime glass (glass sheath). Right-click a block for temperature (°C) and the voltage produced (mV). Copper–iron works up to about 700 °C.",
+  "item.semiconductor-lab.thermocouple.note3": "A temperature difference across the junction of two metals produces a small voltage (Seebeck effect); copper–iron gives about 0.013 mV per °C ⚠️. Measure the voltage and you know the temperature.",
+  "item.semiconductor-lab.thermocouple.note4": "Seebeck found it in 1821; Le Chatelier's platinum–platinum-rhodium thermocouple (1886) reached about 1600 °C. Before that, Wedgwood (1782) judged kiln heat by how much clay shrank.",
+  "item.semiconductor-lab.thermocouple.placeholder": "Omitted: ⚠️ temperatures are typical values by block type and whether it is lit. The high-temperature Pt–Rh type is not made (no rhodium).",
+  "item.semiconductor-lab.thermocouple.reading": "%s °C (%s mV)",
+  "item.semiconductor-lab.thermocouple.over": "Above %s °C — cannot measure (the copper oxidises)"
 }

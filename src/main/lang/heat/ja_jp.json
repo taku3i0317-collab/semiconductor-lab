@@ -100,5 +100,13 @@
   "item.semiconductor-lab.rock_wool.note2": "溶鉱炉で玄武岩を焼く（約1500℃ で溶かして吹き飛ばし、糸にする）。",
   "item.semiconductor-lab.rock_wool.note3": "細い糸のすき間に空気がとじこめられ、熱が伝わりにくい。燃えない。ハワイの火山では、風で引き伸ばされた溶岩の糸「ペレの毛」が自然にできる。",
   "item.semiconductor-lab.rock_wool.note4": "昔は石綿（アスベスト）が断熱材だったが、中皮腫や肺がんの原因になり、日本では2006年に原則禁止された ⚠️。ロックウールはその代わりに広まった。⚠️ 石綿はこの MOD では作れない（歴史の説明だけ）。",
-  "item.semiconductor-lab.rock_wool.placeholder": "省略：⚠️ 溶かして吹き飛ばす工程は溶鉱炉で近似。珪藻土は新しい鉱石が要るので保留。"
+  "item.semiconductor-lab.rock_wool.placeholder": "省略：⚠️ 溶かして吹き飛ばす工程は溶鉱炉で近似。珪藻土は新しい鉱石が要るので保留。",
+  "item.semiconductor-lab.thermocouple": "熱電対（銅と鉄）",
+  "item.semiconductor-lab.thermocouple.note1": "2種類の金属の線の先を合わせた温度計。ブロックを右クリックすると温度が分かる。",
+  "item.semiconductor-lab.thermocouple.note2": "作業台：銅＋鉄＋ソーダ石灰ガラス（ガラスの管で包む）。ブロックを右クリックで温度（℃）と出た電圧（mV）。銅＋鉄は約700℃ まで。",
+  "item.semiconductor-lab.thermocouple.note3": "2種類の金属の接点に温度差があると、小さな電圧が出る（ゼーベック効果）。銅と鉄なら 1℃ あたり約 0.013mV ⚠️。電圧を測れば温度が分かる。",
+  "item.semiconductor-lab.thermocouple.note4": "1821年にゼーベックが見つけ、1886年にル・シャトリエの白金−白金ロジウム熱電対で約1600℃ まで測れるようになった。それ以前は、ウェッジウッド（1782）が粘土の縮み具合で窯の温度を測っていた。",
+  "item.semiconductor-lab.thermocouple.placeholder": "省略：⚠️ 温度はブロックの種類と火が付いているかで決めた代表の値。白金−ロジウムの高温用はロジウムが無いので作らない。",
+  "item.semiconductor-lab.thermocouple.reading": "%s ℃（電圧 %s mV）",
+  "item.semiconductor-lab.thermocouple.over": "%s ℃ をこえて測れない（銅が酸化する）"
 }

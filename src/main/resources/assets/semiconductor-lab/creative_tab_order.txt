@@ -472,6 +472,7 @@ fire_clay_crucible  # Heat [3-20] -3000
 bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690
+thermocouple  # Heat [3-09] 1821
 refractory_brick_blank  # Heat [3-12] 1822
 refractory_brick  # Heat [3-12] 1822
 perkins_ice_machine  # Heat [3-22] 1834
