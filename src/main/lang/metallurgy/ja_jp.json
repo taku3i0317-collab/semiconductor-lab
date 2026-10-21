@@ -767,5 +767,16 @@
   "item.semiconductor-lab.cadmium.note2": "酸化亜鉛×6＋木炭×2＋石英の蒸留器（戻る）。ウェストン標準電池の材料。⚠ GHS：急性毒性・発がん性・健康有害性・水生環境有害性。",
   "item.semiconductor-lab.cadmium.note3": "1817年、ドイツのシュトロマイヤーが炭酸亜鉛の中から見つけた。亜鉛を蒸留すると、沸点の低いカドミウムが先に出てくる。",
   "item.semiconductor-lab.cadmium.note4": "富山県の神通川流域のイタイイタイ病は、上流の鉱山から流れたカドミウムが原因だった（1968年、日本で最初の公害病の認定）。腎臓と骨が冒され、多くの人が長く苦しんだ。この教訓から、今は多くの用途でカドミウムが使われなくなっている。",
-  "item.semiconductor-lab.cadmium.placeholder": "近似：亜鉛の中のカドミウムの量（本物は 0.1〜0.5%）と蒸留の工程はゲームの割合。"
+  "item.semiconductor-lab.cadmium.placeholder": "近似：亜鉛の中のカドミウムの量（本物は 0.1〜0.5%）と蒸留の工程はゲームの割合。",
+  "item.semiconductor-lab.pyrolusite": "軟マンガン鉱（二酸化マンガン）",
+  "item.semiconductor-lab.pyrolusite.note1": "黒くて、さわると手が黒くなる石。乾電池の中身になる。",
+  "item.semiconductor-lab.pyrolusite.note2": "軟マンガン鉱の鉱石を掘ると出る。浅い石の中にある。亜鉛＋これ2つ＋塩化アンモニウム＋黒鉛棒 → 乾電池2本。",
+  "item.semiconductor-lab.pyrolusite.note3": "MnO2。乾電池では、正極（炭素棒）のまわりで、出てくる水素を水に変えて、泡がたまって電気が弱くなる（分極）のを防ぐ（「減極剤」）。昔はガラスの色消しにも使われた。",
+  "item.semiconductor-lab.pyrolusite.note4": "マンガンの鉱石の多くは、昔の海や湖の底で、水にとけていたマンガンが酸素とくっついてたまった層。初期のルクランシェ電池は、天然の軟マンガン鉱をくだいて使った。今の乾電池は電気分解で作った純度の高い MnO2（EMD）を使う。",
+  "item.semiconductor-lab.pyrolusite.placeholder": "近似：ゲームでは浅い石の中の鉱石（本物は堆積層や鉱床の酸化帯）。",
+  "block.semiconductor-lab.pyrolusite_ore": "軟マンガン鉱の鉱石",
+  "block.semiconductor-lab.pyrolusite_ore.note1": "黒い粒が入った石。掘ると軟マンガン鉱が出る。",
+  "block.semiconductor-lab.pyrolusite_ore.note2": "オーバーワールドの浅い石の中（高さ 0〜96）。石のつるはし以上で掘れる。",
+  "block.semiconductor-lab.pyrolusite_ore.note3": "二酸化マンガン MnO2 の鉱石。マンガンは鋼をねばり強くする材料（[1-63]）にもなる。",
+  "block.semiconductor-lab.pyrolusite_ore.note4": "海の底には、マンガンが玉のように固まった「マンガン団塊」がたくさん転がっている。"
 }

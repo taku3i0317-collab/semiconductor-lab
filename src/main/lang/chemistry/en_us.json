@@ -1298,5 +1298,6 @@
   "item.semiconductor-lab.hfc23_gas.note2": "Chloroform + 3 hydrofluoric acid (lead bottles returned) + antimony pentachloride (catalyst, returned). Works as a refrigerant in the hand-cranked ice machine and does not lower the ozone (compare with CFC). ⚠ GHS: gas under pressure. A strong greenhouse gas.",
   "item.semiconductor-lab.hfc23_gas.note3": "CHF3. With no chlorine, it releases none in the stratosphere and does not destroy ozone. But it absorbs infrared strongly, warming the Earth over ten thousand times more than the same amount of carbon dioxide.",
   "item.semiconductor-lab.hfc23_gas.note4": "Lesson: HFCs replaced CFCs to save the ozone layer, then turned out to drive global warming. The 2016 Kigali Amendment set HFCs to be cut too (in force 2019). HFC-23 is also a large by-product of making R-22, which was a problem in itself.",
-  "item.semiconductor-lab.hfc23_gas.placeholder": "Approximation: the greenhouse effect is not tracked as a number in the game (explained only)."
+  "item.semiconductor-lab.hfc23_gas.placeholder": "Approximation: the greenhouse effect is not tracked as a number in the game (explained only).",
+  "message.semiconductor-lab.ozone.sunburn": "Strong UV through the ozone hole... you got sunburned (weakness)"
 }

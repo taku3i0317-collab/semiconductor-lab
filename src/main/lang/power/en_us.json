@@ -137,5 +137,17 @@
   "gui.semiconductor-lab.chemical_cell.left": "Zinc left %s",
   "gui.semiconductor-lab.chemical_cell.need_zinc": "Add zinc and liquid",
   "gui.semiconductor-lab.chemical_cell.running": "Generating",
-  "gui.semiconductor-lab.chemical_cell.polarized": "Bubbles lowered output (polarization)"
+  "gui.semiconductor-lab.chemical_cell.polarized": "Bubbles lowered output (polarization)",
+  "item.semiconductor-lab.dry_cell": "Dry Cell (Zinc-Carbon)",
+  "item.semiconductor-lab.dry_cell.note1": "A battery that does not spill and can be carried. Put it in a cell holder to get electricity.",
+  "item.semiconductor-lab.dry_cell.note2": "Zinc + 2 pyrolusite + ammonium chloride + graphite rod -> 2. In a cell holder: 8 W for 2 minutes. The manganese dioxide takes up hydrogen, so unlike the voltaic pile it hardly weakens.",
+  "item.semiconductor-lab.dry_cell.note3": "The zinc can is negative, the carbon rod in the middle positive, with a paste of manganese dioxide and ammonium chloride between. Leclanché's wet cell (1866) was turned into a non-spilling paste by Gassner (1886); the Columbia dry cell (1896) brought it into homes. About 1.5 V.",
+  "item.semiconductor-lab.dry_cell.note4": "A 'dry' cell is not completely dry inside (the paste is moist). In Japan, Sakizo Yai is said to have made a dry cell on his own around 1887 ⚠️ (sources differ on the year). Heavy use lowers the voltage a little; resting lets it recover.",
+  "item.semiconductor-lab.dry_cell.placeholder": "Approximation: power and time are game values (a real cell gives about 1.5 V). The plaster thickener, pitch seal and paper separator are left out. No spent can is left over.",
+  "block.semiconductor-lab.dry_cell_holder": "Dry Cell Holder",
+  "block.semiconductor-lab.dry_cell_holder.note1": "A box that gives electricity when you put a dry cell in it.",
+  "block.semiconductor-lab.dry_cell_holder.note2": "Made from planks and copper. One dry cell gives 8 W for 2 minutes, then it uses the next. Connect it to machines with copper cable. Direct current; it does not rotate, so no alternator or dynamo.",
+  "block.semiconductor-lab.dry_cell_holder.note3": "Copper plates (contacts) press on the cell's positive end (carbon rod) and negative can (zinc).",
+  "block.semiconductor-lab.dry_cell_holder.note4": "The flashlight (around 1899) was born once dry cells could be carried around.",
+  "gui.semiconductor-lab.chemical_cell.need_dry_cell": "Insert a dry cell"
 }

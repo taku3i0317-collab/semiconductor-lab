@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/dry_cell_holder_front",
+    "side": "semiconductor-lab:block/dry_cell_holder_side",
+    "top": "semiconductor-lab:block/dry_cell_holder_top"
+  }
+}

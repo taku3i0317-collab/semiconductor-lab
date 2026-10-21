@@ -137,5 +137,17 @@
   "gui.semiconductor-lab.chemical_cell.left": "亜鉛の残り %s",
   "gui.semiconductor-lab.chemical_cell.need_zinc": "亜鉛と液を入れる",
   "gui.semiconductor-lab.chemical_cell.running": "電気を出している",
-  "gui.semiconductor-lab.chemical_cell.polarized": "水素の泡で出力が下がった（分極）"
+  "gui.semiconductor-lab.chemical_cell.polarized": "水素の泡で出力が下がった（分極）",
+  "item.semiconductor-lab.dry_cell": "乾電池（マンガン乾電池）",
+  "item.semiconductor-lab.dry_cell.note1": "液がこぼれない、持ち運べる電池。電池入れに入れると電気が出る。",
+  "item.semiconductor-lab.dry_cell.note2": "亜鉛＋軟マンガン鉱2＋塩化アンモニウム＋黒鉛棒 → 2本。電池入れに入れると 8 W で2分。二酸化マンガンが水素を取るので、ボルタの電堆とちがって力が落ちにくい。",
+  "item.semiconductor-lab.dry_cell.note3": "亜鉛の缶がマイナス、まん中の炭素棒がプラス。あいだに二酸化マンガンと塩化アンモニウムの糊。1866年ルクランシェの液の電池を、1886年ガスナーが糊にしてこぼれなくし、1896年コロンビア乾電池が家庭に広まった。約1.5V。",
+  "item.semiconductor-lab.dry_cell.note4": "「乾」電池でも中は完全に乾いていない（しめった糊）。日本では屋井先蔵が1887年ごろ独自に乾電池を作ったとされる ⚠️（年は資料で揺れる）。強く長く使うと少し電圧が下がり、休ませると戻る。",
+  "item.semiconductor-lab.dry_cell.placeholder": "近似：電力・時間はゲームの値（本物は約1.5V）。糊を固める石こう・封じる松やに・紙の仕切りは省略。使い終わった缶は残らない。",
+  "block.semiconductor-lab.dry_cell_holder": "電池入れ（乾電池）",
+  "block.semiconductor-lab.dry_cell_holder.note1": "乾電池を入れると電気が出る箱。",
+  "block.semiconductor-lab.dry_cell_holder.note2": "板材＋銅で作る。乾電池1本で 8 W・2分、尽きたら次の1本を使う。銅ケーブルで機械につなぐ。直流で、回らないので交流発電機・ダイナモは積めない。",
+  "block.semiconductor-lab.dry_cell_holder.note3": "銅の板（接点）で乾電池のプラス（炭素棒）とマイナス（亜鉛の缶）をはさむ。",
+  "block.semiconductor-lab.dry_cell_holder.note4": "懐中電灯（1899年ごろ）は、乾電池が持ち運べるようになって生まれた。",
+  "gui.semiconductor-lab.chemical_cell.need_dry_cell": "乾電池を入れてください"
 }

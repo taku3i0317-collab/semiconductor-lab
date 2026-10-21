@@ -119,6 +119,7 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreGalena(GameTestHelper h)     { oreFeature(h, "galena_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.GALENA_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreStibnite(GameTestHelper h)   { oreFeature(h, "stibnite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.STIBNITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-43] IMP3
     @GameTest public void orePyrite(GameTestHelper h)     { oreFeature(h, "pyrite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, com.taku3.semiconductorlab.content.Chemistry.PYRITE_ORE, LabTestBase::stoneOrDeepslate); }   // [2-43] IMP3
+    @GameTest public void orePyrolusite(GameTestHelper h) { oreFeature(h, "pyrolusite_ore", Blocks.STONE, Blocks.COBBLESTONE, Metallurgy.PYROLUSITE_ORE, LabTestBase::stoneOrDeepslate); }   // [4-28] IMP3 S-006
     @GameTest public void orePentlandite(GameTestHelper h) { oreFeature(h, "pentlandite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.PENTLANDITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-37] IMP3
     @GameTest public void oreGraphite(GameTestHelper h)   { oreFeature(h, "graphite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.GRAPHITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
     @GameTest public void oreMagnetite(GameTestHelper h)  { oreFeature(h, "magnetite_ore", Blocks.DEEPSLATE, Blocks.STONE, Metallurgy.MAGNETITE_ORE, s -> s.is(BlockTags.DEEPSLATE_ORE_REPLACEABLES)); }
@@ -706,7 +707,7 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore", "chromite_ore"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "pyrolusite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore", "chromite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));

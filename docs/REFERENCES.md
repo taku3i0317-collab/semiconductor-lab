@@ -2975,6 +2975,20 @@
 - Wikipedia「Sugar beet」：https://en.wikipedia.org/wiki/Sugar_beet
 - Wikipedia「Bone char」：https://en.wikipedia.org/wiki/Bone_char
 
+## C51. こぼれない電池（乾電池と軟マンガン鉱）［4-28］
+**答え**：1866年、フランスのルクランシェが、亜鉛と、二酸化マンガン（軟マンガン鉱）を炭素棒のまわりにつめた物を、塩化アンモニウムの液に入れた電池を作った。二酸化マンガンは正極で出る水素を水に変えるので、ボルタの電堆のように泡がたまって弱くなりにくい。1886年、ドイツのガスナーが液を石こうなどで糊にして、こぼれない「乾電池」にした。1896年、アメリカのナショナル・カーボン社のコロンビア乾電池が家庭に広まった。亜鉛の缶がマイナス、まん中の炭素棒がプラスで、約1.5V。
+
+- へえ①：「乾」電池でも、中はしめった糊で、完全に乾いてはいない。
+- へえ②：二酸化マンガンは「減極剤」：水素の泡がたまって電気が弱くなるのを防ぐ。
+- へえ③：日本でも屋井先蔵が1887年ごろ独自に乾電池を作ったとされる ⚠️（年は資料で揺れる）。
+- へえ④：乾電池が持ち運べるようになって、懐中電灯（1899年ごろ）が生まれた。
+
+確かさ：ルクランシェ 1866・ガスナー 1886・コロンビア 1896 ◎／屋井先蔵の年 △
+根拠：
+- ACS「Columbia Dry Cell Battery」（化学遺産）：https://www.acs.org/education/whatischemistry/landmarks/drycellbattery.html
+- Wikipedia「Leclanché cell」：https://en.wikipedia.org/wiki/Leclanch%C3%A9_cell
+- Wikipedia「Zinc–carbon battery」：https://en.wikipedia.org/wiki/Zinc%E2%80%93carbon_battery
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

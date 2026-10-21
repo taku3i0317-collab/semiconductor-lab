@@ -628,4 +628,27 @@ public class PowerTests extends LabTestBase {
         LOG.info("[LAB] chemical cells [4-13][4-36]: no zinc -> 0 W; volta " + v0 + " -> " + v.getLastWatts() + " W (polarization); daniell steady " + d.getLastWatts() + " W");
         h.succeed();
     }
+
+    /** [4-28] 乾電池（IMP3、S-006）：電池入れは乾電池がないと 0 W、入れると 8 W で一定（MnO2 が分極を防ぐ）。1本ずつ使う。レシピは亜鉛＋軟マンガン鉱 */
+    @GameTest(maxTicks = 100)
+    public void dryCell(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos cp = p(1, 1, 1);
+        h.setBlock(cp, Power.DRY_CELL_HOLDER.block);
+        var c = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.ChemicalCellBlockEntity.class);
+        var lv = h.getLevel();
+        com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(cp), lv.getBlockState(h.absolutePos(cp)), c);
+        h.assertTrue(c.getLastWatts() == 0, "no dry cell -> no current");
+        c.getContainer().setItem(0, new ItemStack(Power.DRY_CELL, 2));
+        com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(cp), lv.getBlockState(h.absolutePos(cp)), c);
+        double w0 = c.getLastWatts();
+        h.assertTrue(w0 > 7.9, "dry cell gives " + w0 + " W");
+        h.assertValueEqual(c.getContainer().getItem(0).getCount(), 1, "one dry cell in use");
+        for (int i = 0; i < 1200; i++) com.taku3.semiconductorlab.energy.GeneratorBlockEntity.tick(lv, h.absolutePos(cp), lv.getBlockState(h.absolutePos(cp)), c);
+        h.assertTrue(Math.abs(c.getLastWatts() - w0) < 0.01, "MnO2 depolarizes: steady " + c.getLastWatts() + " W");
+        h.assertTrue(recipeUses(h, "dry_cell", Metallurgy.PYROLUSITE) && recipeUses(h, "dry_cell", Metallurgy.ZINC_INGOT) && recipeUses(h, "dry_cell", Chemistry.AMMONIUM_CHLORIDE), "Zn + MnO2 + NH4Cl");
+        h.assertFalse(c.supportsAlternator() || c.supportsDynamoUpgrade(), "no alternator, no dynamo");
+        LOG.info("[LAB] dry cell [4-28]: none -> 0 W; dry cell steady " + w0 + " W");
+        h.succeed();
+    }
 }

@@ -49,6 +49,7 @@ public final class Metallurgy {
     // [1-37] ニッケル（IMP3、S-004）：ペントランド鉱 (Fe,Ni)9S8 ＋砂（鉄をスラグに）→ かまど → ニッケルのかわ（硫化物）→ かまど（焙焼）→ 酸化ニッケル
     //   → ＋水素 → 粗ニッケル → ＋一酸化炭素4（約50℃）→ ニッケルカルボニル（猛毒の気体）→ かまど（約200℃で分解）→ ニッケル（1890 モンド法）
     public static final Item PENTLANDITE           = Reg.item("pentlandite");
+    public static final Item PYROLUSITE            = Reg.item("pyrolusite");   // 軟マンガン鉱 MnO2（[4-28] 乾電池の正極、決定 Q3-12 ①、IMP3 S-006）
     public static final Item MATTE_CHARGE          = Reg.item("matte_charge");
     public static final Item NICKEL_MATTE          = Reg.item("nickel_matte");
     public static final Item NICKEL_OXIDE          = Reg.item("nickel_oxide");
@@ -187,6 +188,7 @@ public final class Metallurgy {
     public static final Block GALENA_ORE     = Reg.ore("galena_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     public static final Block STIBNITE_ORE   = Reg.ore("stibnite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.5f, 3.0f).sound(SoundType.STONE));   // [1-43] 輝安鉱（方鉛鉱と同じ熱水鉱脈の帯）
     public static final Block PENTLANDITE_ORE = Reg.ore("pentlandite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.DEEPSLATE));   // [1-37] ペントランド鉱（深い所、IMP3）
+    public static final Block PYROLUSITE_ORE = Reg.ore("pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // 軟マンガン鉱（浅い石の中、IMP3 S-006）
     public static final Block FLUORITE_ORE   = Reg.ore("fluorite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     public static final Block BAUXITE_ORE    = Reg.ore("bauxite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().strength(1.5f, 3.0f).sound(SoundType.GRAVEL));
     public static final Block CHROMITE_ORE   = Reg.ore("chromite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.DEEPSLATE));

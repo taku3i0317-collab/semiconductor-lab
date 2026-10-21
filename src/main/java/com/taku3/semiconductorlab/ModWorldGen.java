@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 public class ModWorldGen {
     private static ResourceKey<PlacedFeature> key(String n) { return ResourceKey.create(Registries.PLACED_FEATURE, SemiconductorLab.id(n)); }
     public static final ResourceKey<PlacedFeature> SPHALERITE_ORE = key("sphalerite_ore"), GRAPHITE_ORE = key("graphite_ore"),
-            MAGNETITE_ORE = key("magnetite_ore"), WOLFRAMITE_ORE = key("wolframite_ore"), GALENA_ORE = key("galena_ore"), STIBNITE_ORE = key("stibnite_ore"), PENTLANDITE_ORE = key("pentlandite_ore"), PYRITE_ORE = key("pyrite_ore"), IRON_SAND = key("iron_sand"),
+            MAGNETITE_ORE = key("magnetite_ore"), WOLFRAMITE_ORE = key("wolframite_ore"), GALENA_ORE = key("galena_ore"), STIBNITE_ORE = key("stibnite_ore"), PENTLANDITE_ORE = key("pentlandite_ore"), PYRITE_ORE = key("pyrite_ore"), PYROLUSITE_ORE = key("pyrolusite_ore"), IRON_SAND = key("iron_sand"),
             TRONA_DEPOSIT = key("trona_deposit"), ROCK_SALT_ORE = key("rock_salt_ore"), BORAX_DEPOSIT = key("borax_deposit"), QUARTZ_VEIN = key("quartz_vein"),
             MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"),
             FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"), CHROMITE_ORE = key("chromite_ore"),
@@ -40,6 +40,7 @@ public class ModWorldGen {
             new OreRule(STIBNITE_ORE, BiomeSelectors.foundInOverworld()),   // [1-43] 方鉛鉱と同じ帯（IMP3、S-002）
             new OreRule(PENTLANDITE_ORE, BiomeSelectors.foundInOverworld()),   // [1-37] 深い所（深層岩の中、IMP3、S-004）
             new OreRule(PYRITE_ORE, BiomeSelectors.foundInOverworld()),   // [2-43] 黄鉄鉱（どこにでもある、IMP3、S-004）
+            new OreRule(PYROLUSITE_ORE, BiomeSelectors.foundInOverworld()),   // 軟マンガン鉱 MnO2：水の底にたまった層や鉱床の酸化帯。浅い石の中（[4-28]、IMP3、S-006）
             new OreRule(QUARTZ_VEIN, BiomeSelectors.foundInOverworld()),
             // [1-03] 孔雀石（IMP2-01）：銅鉱床の上部の酸化帯。浅い石の中
             new OreRule(MALACHITE_ORE, BiomeSelectors.foundInOverworld()),

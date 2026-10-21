@@ -25,17 +25,22 @@ import java.util.function.Predicate;
  * <ul>
  * <li>{@link Kind#VOLTA} ボルタの電堆 [4-13]（1800）：銅と亜鉛を塩水の布ではさんで積む。正極（銅）に水素の泡がたまって電圧が下がっていく（分極）＝出力がだんだん落ちる</li>
  * <li>{@link Kind#DANIELL} ダニエル電池 [4-36]（1836）：亜鉛は硫酸亜鉛、銅は硫酸銅の液に入れ、素焼きの筒で分ける。正極で銅が出る（Cu2+ + 2e- → Cu）ので水素がたまらず、出力が落ちない</li>
+ * <li>{@link Kind#DRY} 乾電池 [4-28]（1886〜1896）：亜鉛の缶（負極）＋二酸化マンガン（正極側、水素を水に変えて分極を防ぐ）＋塩化アンモニウムの糊＋炭素棒。
+ *     亜鉛と液が缶の中にあるので、乾電池1本だけを電池入れに入れる（決定 Q3-12 ①、IMP3 S-006）</li>
  * </ul>
  * ⚠️ 電力はゲームの値（本物の1組は約1V・数十mA）。電圧は扱わない。
  */
 public class ChemicalCellBlockEntity extends GeneratorBlockEntity implements MachineBE {
     public enum Kind {
-        VOLTA(5, true, s -> s.is(Gas.SALT)),
-        DANIELL(10, false, s -> s.is(Chemistry.COPPER_SULFATE));
+        VOLTA(5, true, s -> s.is(Power.ZINC_SOURCE), s -> s.is(Gas.SALT)),
+        DANIELL(10, false, s -> s.is(Power.ZINC_SOURCE), s -> s.is(Chemistry.COPPER_SULFATE)),
+        /** 乾電池：亜鉛も糊も中にあるので、液のスロットは使わない（null） */
+        DRY(8, false, s -> s.is(Power.DRY_CELL), null);
         public final double watts;
         public final boolean polarizes;
-        public final Predicate<ItemStack> electrolyte;
-        Kind(double watts, boolean polarizes, Predicate<ItemStack> electrolyte) { this.watts = watts; this.polarizes = polarizes; this.electrolyte = electrolyte; }
+        /** 負極（亜鉛、乾電池なら乾電池そのもの）と電解液 */
+        public final Predicate<ItemStack> fuel, electrolyte;
+        Kind(double watts, boolean polarizes, Predicate<ItemStack> fuel, Predicate<ItemStack> electrolyte) { this.watts = watts; this.polarizes = polarizes; this.fuel = fuel; this.electrolyte = electrolyte; }
     }
 
     public static final int TICKS_PER_FUEL = 20 * 120;
@@ -45,8 +50,15 @@ public class ChemicalCellBlockEntity extends GeneratorBlockEntity implements Mac
     public static final int DATA_DECI_W = 0, DATA_LEFT = 1, DATA_COUNT = 2;
 
     private static MachineLayout layout(Kind k) {
+        if (k == Kind.DRY) return MachineLayout.builder(DATA_COUNT)
+                .in(SLOT_ZINC, 56, 35, k.fuel)
+                .texture("dry_cell_holder")
+                .text("output", 82, 17, 90, 1, "gui.semiconductor-lab.chemical_cell.output").samples("10.0 W")
+                .text("left", 82, 27, 90, 1, "gui.semiconductor-lab.chemical_cell.left").samples("100%")
+                .text("hint", 82, 40, 90, 3, "gui.semiconductor-lab.chemical_cell.need_dry_cell", "gui.semiconductor-lab.chemical_cell.running")
+                .build();
         return MachineLayout.builder(DATA_COUNT)
-                .in(SLOT_ZINC, 56, 17, s -> s.is(Power.ZINC_SOURCE))
+                .in(SLOT_ZINC, 56, 17, k.fuel)
                 .in(SLOT_ELECTROLYTE, 56, 53, k.electrolyte)
                 .texture(k == Kind.VOLTA ? "voltaic_pile" : "daniell_cell")
                 .text("output", 82, 17, 90, 1, "gui.semiconductor-lab.chemical_cell.output").samples("10.0 W")
@@ -56,6 +68,7 @@ public class ChemicalCellBlockEntity extends GeneratorBlockEntity implements Mac
     }
     public static final MachineLayout VOLTA_LAYOUT = layout(Kind.VOLTA);
     public static final MachineLayout DANIELL_LAYOUT = layout(Kind.DANIELL);
+    public static final MachineLayout DRY_LAYOUT = layout(Kind.DRY);
 
     private final Kind kind;
     private final SimpleContainer container = new SimpleContainer(SLOT_COUNT) { @Override public void setChanged() { super.setChanged(); ChemicalCellBlockEntity.this.setChanged(); } };
@@ -71,7 +84,7 @@ public class ChemicalCellBlockEntity extends GeneratorBlockEntity implements Mac
     };
 
     public ChemicalCellBlockEntity(Kind kind, BlockPos pos, BlockState state) {
-        super(kind == Kind.VOLTA ? Power.VOLTAIC_PILE.type : Power.DANIELL_CELL.type, pos, state, 2_000, kind.watts);
+        super(switch (kind) { case VOLTA -> Power.VOLTAIC_PILE.type; case DANIELL -> Power.DANIELL_CELL.type; case DRY -> Power.DRY_CELL_HOLDER.type; }, pos, state, 2_000, kind.watts);
         this.kind = kind;
     }
 
@@ -89,9 +102,9 @@ public class ChemicalCellBlockEntity extends GeneratorBlockEntity implements Mac
     @Override protected double produceWatts(Level level, BlockPos pos, BlockState state) {
         if (left <= 0) {
             ItemStack zinc = container.getItem(SLOT_ZINC), liquid = container.getItem(SLOT_ELECTROLYTE);
-            if (!zinc.is(Power.ZINC_SOURCE) || !kind.electrolyte.test(liquid)) return 0;
+            if (!kind.fuel.test(zinc) || (kind.electrolyte != null && !kind.electrolyte.test(liquid))) return 0;
             zinc.shrink(1);
-            liquid.shrink(1);
+            if (kind.electrolyte != null) liquid.shrink(1);
             container.setChanged();
             left = TICKS_PER_FUEL;
             used = 0;   // 新しい亜鉛と液：分極も元にもどる

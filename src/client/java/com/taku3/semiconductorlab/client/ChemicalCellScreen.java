@@ -6,7 +6,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 import static com.taku3.semiconductorlab.block.ChemicalCellBlockEntity.*;
 
-/** 化学電池（ボルタ・ダニエル）の画面。上＝亜鉛、下＝電解液、右＝いまの出力（W）・今の亜鉛の残り・状態（分極で下がったら知らせる） */
+/** 化学電池（ボルタ・ダニエル・乾電池の電池入れ）の画面。上＝亜鉛、下＝電解液、右＝いまの出力（W）・今の亜鉛の残り・状態（分極で下がったら知らせる） */
 public class ChemicalCellScreen extends MachineScreen {
     private static final String K = "gui.semiconductor-lab.chemical_cell.";
 
@@ -20,7 +20,8 @@ public class ChemicalCellScreen extends MachineScreen {
             case "output" -> Component.translatable(K + "output", String.format("%.1f W", w));
             case "left" -> Component.translatable(K + "left", left + "%");
             case "hint" -> {
-                String k = left <= 0 ? "need_zinc" : (w > 0 && menu.machine().block == com.taku3.semiconductorlab.content.Power.VOLTAIC_PILE.block && w < 3.0 ? "polarized" : "running");
+                boolean dry = menu.machine().block == com.taku3.semiconductorlab.content.Power.DRY_CELL_HOLDER.block;
+                String k = left <= 0 ? (dry ? "need_dry_cell" : "need_zinc") : (w > 0 && menu.machine().block == com.taku3.semiconductorlab.content.Power.VOLTAIC_PILE.block && w < 3.0 ? "polarized" : "running");
                 yield Component.translatable(K + k);
             }
             default -> null;

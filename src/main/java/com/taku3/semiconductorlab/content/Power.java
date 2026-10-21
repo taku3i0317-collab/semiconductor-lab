@@ -53,6 +53,9 @@ public final class Power {
     public static final net.minecraft.world.item.Item ZINC_SOURCE = Metallurgy.ZINC_INGOT;
     public static final Machine<ChemicalCellBlockEntity> VOLTAIC_PILE = Power.generator("voltaic_pile", (pos, st) -> new ChemicalCellBlockEntity(ChemicalCellBlockEntity.Kind.VOLTA, pos, st), metal(1.5f)).layout(ChemicalCellBlockEntity.VOLTA_LAYOUT).build();
     public static final Machine<ChemicalCellBlockEntity> DANIELL_CELL = Power.generator("daniell_cell", (pos, st) -> new ChemicalCellBlockEntity(ChemicalCellBlockEntity.Kind.DANIELL, pos, st), metal(1.5f)).layout(ChemicalCellBlockEntity.DANIELL_LAYOUT).build();
+    // [4-28] 乾電池（ガスナー 1886、コロンビア乾電池 1896。IMP3 S-006）：亜鉛の缶＋MnO2＋塩化アンモニウムの糊＋炭素棒。電池入れに入れて 8 W
+    public static final Item DRY_CELL              = Reg.item("dry_cell");
+    public static final Machine<ChemicalCellBlockEntity> DRY_CELL_HOLDER = Power.generator("dry_cell_holder", (pos, st) -> new ChemicalCellBlockEntity(ChemicalCellBlockEntity.Kind.DRY, pos, st), metal(1.5f)).layout(ChemicalCellBlockEntity.DRY_LAYOUT).build();
     // 電気炉 [4-12]（耐火れんがの箱＋黒鉛棒の発熱体。抵抗加熱で約1500℃）。加熱中は光る
     public static final Machine<ElectricFurnaceBlockEntity> ELECTRIC_FURNACE = Machine.electric("electric_furnace", ElectricFurnaceBlockEntity::new, ElectricFurnaceBlockEntity.LAYOUT, lit(stone(3.5f), 12));
     // 銅ケーブル（v0.2a）。受け口を持たない（タスク06：導体。CableNetwork がまとめて配電する）

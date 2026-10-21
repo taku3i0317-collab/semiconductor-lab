@@ -116,6 +116,8 @@ aluminium_hydroxide  # Metallurgy [1-14] 1888
 alumina  # Metallurgy [1-14] 1888
 red_mud  # Metallurgy [1-14] 1888
 bayer_digester  # Metallurgy [1-14] 1888
+pyrolusite  # Metallurgy [4-28] 1896
+pyrolusite_ore  # Metallurgy [4-28] 1896
 metallurgical_silicon  # Metallurgy [1-15] 1900
 wolframite  # Metallurgy [1-28] 1910
 wolframite_soda_charge  # Metallurgy [1-28] 1910
@@ -393,6 +395,8 @@ transformer  # Power [4-10] 1885
 high_voltage_line  # Power [4-35] 1886
 graphite_rod  # Power [4-12] 1890
 electric_furnace  # Power [4-12] 1890
+dry_cell  # Power [4-28] 1896
+dry_cell_holder  # Power [4-28] 1896
 rectifier  # Power [4-11] 1902
 induction_coil  # Power [4-09] 1913
 hf_oscillator  # Power [4-09] 1913

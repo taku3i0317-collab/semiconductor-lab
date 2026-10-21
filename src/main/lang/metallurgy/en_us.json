@@ -767,5 +767,16 @@
   "item.semiconductor-lab.cadmium.note2": "6 zinc oxide + 2 charcoal + quartz still (returned). Material for the Weston standard cell. ⚠ GHS: acute toxicity, carcinogen, health hazard, aquatic hazard.",
   "item.semiconductor-lab.cadmium.note3": "Discovered in 1817 by Stromeyer in Germany, in zinc carbonate. When zinc is distilled, cadmium, with its lower boiling point, comes off first.",
   "item.semiconductor-lab.cadmium.note4": "Itai-itai disease along the Jinzu River in Toyama, Japan, was caused by cadmium washed down from a mine upstream (recognised in 1968 as Japan's first official pollution disease). It damaged kidneys and bones, and many people suffered for years. Since then cadmium has been dropped from many uses.",
-  "item.semiconductor-lab.cadmium.placeholder": "Approximation: the cadmium content of zinc (real: 0.1-0.5%) and the distillation are game values."
+  "item.semiconductor-lab.cadmium.placeholder": "Approximation: the cadmium content of zinc (real: 0.1-0.5%) and the distillation are game values.",
+  "item.semiconductor-lab.pyrolusite": "Pyrolusite (Manganese Dioxide)",
+  "item.semiconductor-lab.pyrolusite.note1": "A black stone that blackens your hands. It goes inside dry cells.",
+  "item.semiconductor-lab.pyrolusite.note2": "Dropped by pyrolusite ore in shallow stone. Zinc + 2 of this + ammonium chloride + graphite rod -> 2 dry cells.",
+  "item.semiconductor-lab.pyrolusite.note3": "MnO2. In a dry cell it turns hydrogen at the positive (carbon) side into water, so bubbles do not build up and weaken the current (polarization) - a 'depolarizer'. It was once used to decolorize glass too.",
+  "item.semiconductor-lab.pyrolusite.note4": "Most manganese ores are layers laid down on old sea or lake floors, where dissolved manganese joined with oxygen. Early Leclanché cells used crushed natural pyrolusite; modern cells use purer electrolytic MnO2 (EMD).",
+  "item.semiconductor-lab.pyrolusite.placeholder": "Approximation: in the game it is an ore in shallow stone (real deposits are sedimentary layers or oxidized zones).",
+  "block.semiconductor-lab.pyrolusite_ore": "Pyrolusite Ore",
+  "block.semiconductor-lab.pyrolusite_ore.note1": "Stone with black grains. Mine it for pyrolusite.",
+  "block.semiconductor-lab.pyrolusite_ore.note2": "In shallow Overworld stone (height 0 to 96). Needs a stone pickaxe or better.",
+  "block.semiconductor-lab.pyrolusite_ore.note3": "An ore of manganese dioxide MnO2. Manganese also makes steel tougher ([1-63]).",
+  "block.semiconductor-lab.pyrolusite_ore.note4": "The deep sea floor is littered with 'manganese nodules', lumps of manganese that grew like pearls."
 }

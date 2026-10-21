@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "PCP",
+    "P P",
+    "PCP"
+  ],
+  "key": {
+    "P": "#minecraft:planks",
+    "C": "minecraft:copper_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:dry_cell_holder",
+    "count": 1
+  }
+}
