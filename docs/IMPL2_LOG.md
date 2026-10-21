@@ -241,3 +241,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - **案B：NA だけ上げる**（今の投影光学の NA を 0.55 にした別の部品、アナモルフィック・半分のショットなし）。作りやすいが、High-NA ならではの「半分のショット・つなぎ」の苦労が出ない
   - **案C：マルチブロックの High-NA 装置**（v1.0 #1 の A のマルチブロックの土台ができてから）。本物の大きさ（約 150 トン、2階建て）が見えるが、土台待ち
   - **おすすめ：案A**（光学の部品として作れて、細かさ・時間・焦点深度の3つの代償が体験できる）。存命の人の名前は出さない
+- ✅ D の銅フタロシアニン（c257779f）で blue_color_resist のレシピを置き換えた（硫酸銅 → copper_phthalocyanine）。lang の note・placeholder、bayer_filter の placeholder、GameTest bayer_filter を直した。CHEMISTRY X7

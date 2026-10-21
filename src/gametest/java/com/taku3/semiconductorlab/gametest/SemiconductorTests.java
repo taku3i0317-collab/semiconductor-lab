@@ -2346,7 +2346,7 @@ public class SemiconductorTests extends LabTestBase {
     @GameTest
     public void bayer_filter(GameTestHelper h) {
         h.assertTrue(recipeUses(h, "red_color_resist", com.taku3.semiconductorlab.content.Optics.ROUGE) && recipeUses(h, "green_color_resist", Metallurgy.CHROMIUM_OXIDE)
-                && recipeUses(h, "blue_color_resist", Chemistry.COPPER_SULFATE), "pigmented resists: Fe2O3 red, Cr2O3 green, blue (approximation)");
+                && recipeUses(h, "blue_color_resist", Chemistry.COPPER_PHTHALOCYANINE), "pigmented resists: Fe2O3 red, Cr2O3 green, copper phthalocyanine blue (D)");
         var key = net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, com.taku3.semiconductorlab.SemiconductorLab.id("bayer_filter"));
         var r = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value();
         int green = 0, red = 0, blue = 0;

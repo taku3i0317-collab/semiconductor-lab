@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     "semiconductor-lab:positive_resist",
-    "semiconductor-lab:copper_sulfate"
+    "semiconductor-lab:copper_phthalocyanine"
   ],
   "result": {
     "id": "semiconductor-lab:blue_color_resist",
