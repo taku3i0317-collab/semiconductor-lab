@@ -147,7 +147,7 @@ public final class Precision {
     public static final Machine<ElectronMicroscopeBlockEntity> ELECTRON_MICROSCOPE = Machine.electric("electron_microscope", ElectronMicroscopeBlockEntity::new, ElectronMicroscopeBlockEntity.LAYOUT, metal(4.0f));
     // [8-34] NC 旋盤（IMP2 O-037・O-038 案A、1952 MIT）：穴あきテープの部品を、鋼が来るたびにくり返し削る。サーボが位置を測って直すので誤差はボールねじの送りまで
     public static final Item PUNCHED_TAPE          = Reg.item("punched_tape", com.taku3.semiconductorlab.item.PunchedTapeItem::new, new Item.Properties().stacksTo(16));
-    public static final Machine<com.taku3.semiconductorlab.block.NcLatheBlockEntity> NC_LATHE = Machine.electric("nc_lathe", com.taku3.semiconductorlab.block.NcLatheBlockEntity::new, com.taku3.semiconductorlab.block.NcLatheBlockEntity.LAYOUT, metal(3.5f));
+    public static final Machine<NcLatheBlockEntity> NC_LATHE = Machine.electric("nc_lathe", NcLatheBlockEntity::new, NcLatheBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<LatheBlockEntity> LATHE = Machine.electric("lathe", LatheBlockEntity::new, LatheBlockEntity.LAYOUT, metal(3.5f));
     // 研削盤 [8-31]（IMP2 O-013）：焼入れした鋼球＋砥石＋測る道具 → そろえた鋼球（1kW）
     // ワット天秤 [8-25]（IMP2 S-005、1975 キッブル）：mgv = UI。原器の質量を電気（標準電池・標準抵抗）と光（クリプトンの干渉）で測る。200W・30秒

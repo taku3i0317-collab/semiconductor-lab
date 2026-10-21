@@ -716,6 +716,7 @@ cultured_quartz  # Precision [8-18] 1948
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
 punched_tape  # Precision [8-34] 1952
+nc_lathe  # Precision [8-34] 1952
 krypton_lamp  # Precision [8-24] 1960
 quartz_watch  # Precision [8-35] 1969
 weston_cell  # Precision [8-25] 1975

@@ -670,16 +670,17 @@ setblock ~80 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~83 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-14] 鏡筒の精密組立","鏡筒を利き手、複式顕微","鏡を左手で右クリックを","何回か → チャットの"]}}
 setblock ~83 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:lens_barrel",count:1},{Slot:1b,id:"semiconductor-lab:centered_lens_barrel",count:1}]}
 setblock ~86 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-34] NC","白いテープを持ってマイ","クロメータで規格ねじを","測る → 「テープに記"]}}
-setblock ~86 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:punched_tape",count:16}]}
-setblock ~89 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-24] 国際単位系","干渉計とクリプトン86"," ランプを両手に持ち、","ブロック2つを右クリッ"]}}
-setblock ~89 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:krypton_lamp",count:1}]}
-setblock ~92 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-35] クオーツ腕時計","腕時計とクロノメーター","を両手に持って右クリッ","ク → 2つの差が出る"]}}
-setblock ~92 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quartz_watch",count:1}]}
-setblock ~95 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-25] ワット天秤","ワット天秤の画面（電力","・結果・±・ヒントの順","）。空調のそばと真空容"]}}
-setblock ~95 ~0 ~66 semiconductor-lab:kibble_balance
-setblock ~96 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:weston_cell",count:1},{Slot:1b,id:"semiconductor-lab:standard_resistor",count:1}]}
-setblock ~99 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-13] 液滴発生器","右クリックの文","",""]}}
-setblock ~99 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:droplet_generator",count:1}]}
+setblock ~86 ~0 ~66 semiconductor-lab:nc_lathe
+setblock ~87 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:punched_tape",count:16}]}
+setblock ~90 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-24] 国際単位系","干渉計とクリプトン86"," ランプを両手に持ち、","ブロック2つを右クリッ"]}}
+setblock ~90 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:krypton_lamp",count:1}]}
+setblock ~93 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-35] クオーツ腕時計","腕時計とクロノメーター","を両手に持って右クリッ","ク → 2つの差が出る"]}}
+setblock ~93 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quartz_watch",count:1}]}
+setblock ~96 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-25] ワット天秤","ワット天秤の画面（電力","・結果・±・ヒントの順","）。空調のそばと真空容"]}}
+setblock ~96 ~0 ~66 semiconductor-lab:kibble_balance
+setblock ~97 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:weston_cell",count:1},{Slot:1b,id:"semiconductor-lab:standard_resistor",count:1}]}
+setblock ~100 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-13] 液滴発生器","右クリックの文","",""]}}
+setblock ~100 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:droplet_generator",count:1}]}
 setblock ~0 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹9 半導体（Ge・Si）","↓ この列","",""]}}
 setblock ~2 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-47] 加速器","作業台で作れるか、見た","目",""]}}
 setblock ~2 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cw_multiplier",count:16},{Slot:1b,id:"semiconductor-lab:accelerator_tube",count:16}]}
