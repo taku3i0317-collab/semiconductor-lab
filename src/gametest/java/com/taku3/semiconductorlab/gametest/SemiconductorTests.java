@@ -3357,6 +3357,36 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [10-14] ワンチップマイコン（O-027 Q26-1 案A）：cpu4 と rom_program の箱を1チップでつなぐと、クロックだけで中の 3＋5 が動き mcu4 に合格。
+     * 8ビット CPU（Q26-2・3 案A）：見本の 8ビットの CPU（箱 約90）は 100＋55＝155 と 14 から数えるプログラムで cpu8 に合格。4ビットの見本は 100＋55 を入れられない
+     */
+    @GameTest
+    public void mcuAndCpu8(GameTestHelper h) {
+        var mcu = com.taku3.semiconductorlab.litho.Challenge.byId("mcu4");
+        var r1 = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        com.taku3.semiconductorlab.litho.LithoExamples.mcu4Boxes(r1);
+        var res = com.taku3.semiconductorlab.litho.Challenge.checkProgram(mcu, () -> com.taku3.semiconductorlab.litho.LithoExamples.mcu4Boxes(new java.util.HashMap<>()), r1);
+        h.assertTrue(res.passed(), "CPU and ROM on one chip run 3 + 5 from the clock alone: " + res);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Cpu4.run(com.taku3.semiconductorlab.litho.Cpu4.ADD_100_55, 48, 8), java.util.List.of(155), "100 + 55 = 155 in 8 bits");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Cpu4.run(com.taku3.semiconductorlab.litho.Cpu4.COUNT_FROM_14, 48, 8).subList(0, 5), java.util.List.of(14, 15, 16, 17, 18), "counting past 15");
+        var cpu8 = com.taku3.semiconductorlab.litho.Challenge.byId("cpu8");
+        var r8 = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        com.taku3.semiconductorlab.litho.LithoExamples.cpuBoxes(r8, 8, false);
+        var res8 = com.taku3.semiconductorlab.litho.Challenge.checkProgram(cpu8, () -> com.taku3.semiconductorlab.litho.LithoExamples.cpuBoxes(new java.util.HashMap<>(), 8, false), r8);
+        h.assertTrue(res8.passed(), "the 8-bit CPU passes cpu8: " + res8);
+        h.assertTrue(com.taku3.semiconductorlab.litho.Challenge.checkProgram(com.taku3.semiconductorlab.litho.Challenge.byId("cpu4"), () -> com.taku3.semiconductorlab.litho.LithoExamples.cpuBoxes(new java.util.HashMap<>(), 4, false), roles4()).passed(), "the 4-bit example still passes cpu4");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ProbeStationBlockEntity.PAD_STATES, 28, "pads have inputs E-H and outputs 9-16");
+        LOG.info("[LAB] one-chip microcomputer [10-14] and 8-bit CPU: mcu4 and cpu8 pass");
+        h.succeed();
+    }
+
+    private static java.util.Map<Integer, com.taku3.semiconductorlab.litho.Circuit.Role> roles4() {
+        var r = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        com.taku3.semiconductorlab.litho.LithoExamples.cpuBoxes(r, 4, false);
+        return r;
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

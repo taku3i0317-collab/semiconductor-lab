@@ -343,9 +343,12 @@ public final class Circuit {
     public static final double VCC = 5.0, HIGH = 2.5;
 
     /** パッドの役目（v0.3b のお題、検査台で決める）。入力C は O-018、入力D・クロック・出力3/4 は S-009（Q18-2） */
-    public enum Role { GROUND, VCC, IN_A, IN_B, OUT_1, OUT_2, IN_C, IN_D, CLK, OUT_3, OUT_4, OUT_5, OUT_6, OUT_7, OUT_8 }   // 出力5〜8 は CPU の番地（[10-13]）
+    public enum Role { GROUND, VCC, IN_A, IN_B, OUT_1, OUT_2, IN_C, IN_D, CLK, OUT_3, OUT_4, OUT_5, OUT_6, OUT_7, OUT_8, IN_E, IN_F, IN_G, IN_H, OUT_9, OUT_10, OUT_11, OUT_12, OUT_13, OUT_14, OUT_15, OUT_16 }   // 出力5〜8 は CPU の番地（[10-13]）、入力 E〜H・出力 9〜16 は 8ビット CPU（O-027）
     /** 出力の役目（ビット順：bit0＝出力1 …） */
-    public static final Role[] OUTS = {Role.OUT_1, Role.OUT_2, Role.OUT_3, Role.OUT_4, Role.OUT_5, Role.OUT_6, Role.OUT_7, Role.OUT_8};
+    public static final Role[] OUTS = {Role.OUT_1, Role.OUT_2, Role.OUT_3, Role.OUT_4, Role.OUT_5, Role.OUT_6, Role.OUT_7, Role.OUT_8,
+            Role.OUT_9, Role.OUT_10, Role.OUT_11, Role.OUT_12, Role.OUT_13, Role.OUT_14, Role.OUT_15, Role.OUT_16};
+    /** 入力の役目（ビット順：bit0＝入力A …） */
+    public static final Role[] INS = {Role.IN_A, Role.IN_B, Role.IN_C, Role.IN_D, Role.IN_E, Role.IN_F, Role.IN_G, Role.IN_H};
 
     /** 論理の計算の結果：出力のビットと、全部の点の電圧（次の手の計算の始まりに使う＝記憶、S-009） */
     public record Eval(int bits, double[] volts) {}
@@ -379,7 +382,7 @@ public final class Circuit {
                 case OUT_2 -> outNet[1] = e.getKey();
                 case OUT_3 -> outNet[2] = e.getKey();
                 case OUT_4 -> outNet[3] = e.getKey();
-                case OUT_5, OUT_6, OUT_7, OUT_8 -> {}   // CPU の番地（アナログでは見ない）
+                case OUT_5, OUT_6, OUT_7, OUT_8, OUT_9, OUT_10, OUT_11, OUT_12, OUT_13, OUT_14, OUT_15, OUT_16 -> {}   // CPU の出力（アナログでは見ない）
                 default -> d.put(e.getKey(), inputs.getOrDefault(r, 0.0));
             }
         }

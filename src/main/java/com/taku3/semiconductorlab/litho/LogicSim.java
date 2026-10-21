@@ -80,7 +80,8 @@ public final class LogicSim {
      */
     public int step(Map<Integer, Circuit.Role> roles, Map<Circuit.Role, Boolean> inputs, int outputs) {
         Map<Integer, Boolean> fixed = new HashMap<>();
-        int[] outNet = {-1, -1, -1, -1, -1, -1, -1, -1};
+        int[] outNet = new int[16];
+        java.util.Arrays.fill(outNet, -1);
         boolean gnd = false, vcc = false;
         for (var e : roles.entrySet()) {
             switch (e.getValue()) {
@@ -94,6 +95,7 @@ public final class LogicSim {
                 case OUT_6 -> outNet[5] = e.getKey();
                 case OUT_7 -> outNet[6] = e.getKey();
                 case OUT_8 -> outNet[7] = e.getKey();
+                case OUT_9, OUT_10, OUT_11, OUT_12, OUT_13, OUT_14, OUT_15, OUT_16 -> outNet[e.getValue().ordinal() - Circuit.Role.OUT_9.ordinal() + 8] = e.getKey();
                 default -> fixed.put(e.getKey(), inputs.getOrDefault(e.getValue(), false));
             }
         }
@@ -157,10 +159,11 @@ public final class LogicSim {
     /** お題ごとの箱の動き（ハンコの名前＝お題の id）。row＝入力の行番号（A が上の位、クロックつきなら最後がクロック） */
     static final class Behaviour {
         static boolean known(Challenge.Def d) {
+            if (d.program()) return d.id().equals("cpu4");   // CPU の箱（ワンチップマイコン [10-14]）
             return !d.sequential() || switch (d.id()) { case "sr_latch", "d_latch", "counter", "register", "dram_cell" -> true; default -> false; };
         }
         /** クロックの上がり・下がりで動くか */
-        static boolean edge(Challenge.Def d) { return d.id().equals("counter") || d.id().equals("register"); }
+        static boolean edge(Challenge.Def d) { return d.id().equals("counter") || d.id().equals("register") || d.id().equals("cpu4"); }
         /** 組み合わせ・ラッチ：今の入力（と記憶）から出力 */
         static int level(Challenge.Def d, int q, int row) {
             if (!d.sequential()) return d.table()[row];
@@ -180,6 +183,7 @@ public final class LogicSim {
             return switch (d.id()) {
                 case "counter" -> (row & 2) != 0 ? 0 : before && !now ? (q + 1) & 3 : q;   // R×2＋CLK。下がるときに数える、R で 0
                 case "register" -> !before && now ? ((row >> 2 & 1) | (row >> 1 & 1) << 1) : q;   // D0×4＋D1×2＋CLK。上がるときに覚える
+                case "cpu4" -> !before && now ? Cpu4.boxStep(q, (row >> 4 & 1) | (row >> 3 & 1) << 1 | (row >> 2 & 1) << 2 | (row >> 1 & 1) << 3) : q;   // A〜D＝語、上がるときに1語
                 default -> q;
             };
         }

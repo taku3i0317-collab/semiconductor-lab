@@ -26,12 +26,37 @@ public final class Cpu4 {
     /** 16語の ROM（足りない所は 0） */
     public static int[] rom(int... words) {
         int[] r = new int[16];
-        for (int i = 0; i < words.length && i < 16; i++) r[i] = words[i] & 15;
+        for (int i = 0; i < words.length && i < 16; i++) r[i] = words[i] & 255;
         return r;
     }
 
+    /** 8ビットのプログラム1：100＋55（4ビットには入らない数）→ 155 */
+    public static final int[] ADD_100_55 = rom(LOAD, 100, ADD, 55, OUT, 0, JUMP, 6);
+    /** 8ビットのプログラム2：14 から数える（15 をこえる）→ 14, 15, 16, 17, 18 */
+    public static final int[] COUNT_FROM_14 = rom(LOAD, 14, OUT, 0, ADD, 1, JUMP, 2);
+
+    /**
+     * 論理の箱としての 4ビット CPU（ワンチップマイコン [10-14] のハンコ）：記憶 q＝出力の口（bit0〜3）・番地（4〜7）・A（8〜11）・命令（12〜15）・2語目か（16）。
+     * クロックが上がるときに語 word を1つ読む（見本の {@link #run} と同じ動き）
+     */
+    public static int boxStep(int q, int word) {
+        int port = q & 15, pc = q >> 4 & 15, a = q >> 8 & 15, ir = q >> 12 & 15;
+        boolean second = (q >> 16 & 1) != 0;
+        int next = (pc + 1) & 15;
+        if (!second) ir = word & 15;
+        else if ((ir & LOAD) != 0) a = word & 15;
+        else if ((ir & ADD) != 0) a = (a + word) & 15;
+        else if ((ir & OUT) != 0) port = a;
+        else if ((ir & JUMP) != 0) next = word & 15;
+        return port | next << 4 | a << 8 | ir << 12 | (second ? 0 : 1) << 16;
+    }
+
     /** 見本の CPU で cycles 回クロックを回し、出力の口が変わった値の列（最初の 0 は入れない） */
-    public static List<Integer> run(int[] rom, int cycles) {
+    public static List<Integer> run(int[] rom, int cycles) { return run(rom, cycles, 4); }
+
+    /** 語の幅つき（8ビット CPU、O-027 Q26-2 案A：4命令のまま語を8ビットに） */
+    public static List<Integer> run(int[] rom, int cycles, int bits) {
+        int mask = (1 << bits) - 1;
         int pc = 0, a = 0, ir = 0, port = 0;
         boolean second = false;
         List<Integer> seen = new ArrayList<>();
@@ -41,7 +66,7 @@ public final class Cpu4 {
             if (!second) ir = word;
             else {
                 if ((ir & LOAD) != 0) a = word;
-                else if ((ir & ADD) != 0) a = (a + word) & 15;
+                else if ((ir & ADD) != 0) a = (a + word) & mask;
                 else if ((ir & OUT) != 0) { if (a != port) { port = a; seen.add(port); } }   // 口の値が変わったときだけ（同じ値を出しても外からは見えない）
                 else if ((ir & JUMP) != 0) next = word;
             }

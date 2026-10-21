@@ -346,5 +346,19 @@
   "assembly.semiconductor-lab.mems_accelerometer.wiring.short": "Wiring",
   "assembly.semiconductor-lab.mems_accelerometer.seal": "Seal",
   "assembly.semiconductor-lab.mems_accelerometer.seal.short": "Seal",
-  "tooltip.semiconductor-lab.yield": "Defects %s /cm², area %s cm² → yield about %s%% (e^(−D·A))"
+  "tooltip.semiconductor-lab.yield": "Defects %s /cm², area %s cm² → yield about %s%% (e^(−D·A))",
+  "litho.semiconductor-lab.challenge.mcu4": "One-chip microcomputer",
+  "litho.semiconductor-lab.challenge.mcu4.goal": "Put a CPU and a ROM on one chip. With only the clock as input, show the built-in program's answer (3 + 5) on outputs 1-4",
+  "litho.semiconductor-lab.challenge.mcu4.history": "TI TMS1000 (1974): CPU, ROM, RAM and I/O on one chip. It went inside calculators, toys and microwave ovens.",
+  "litho.semiconductor-lab.challenge.mcu4.hint1": "1. Press your passed CPU (cpu4) and ROM (rom_program) stamps on the same sheet.",
+  "litho.semiconductor-lab.challenge.mcu4.hint2": "2. Wire the CPU's address (outputs 5-7) to the ROM's inputs A-C, and the ROM's word (outputs 1-4) to the CPU's inputs A-D.",
+  "litho.semiconductor-lab.challenge.mcu4.hint3": "3. Only the supply, 0 V, clock and output port leave the chip. No outside ROM any more.",
+  "litho.semiconductor-lab.challenge.mcu4.hint4": "4. The real TMS1000 held a 1024-word program and did the same job inside appliances for years.",
+  "litho.semiconductor-lab.challenge.cpu8": "8-bit CPU",
+  "litho.semiconductor-lab.challenge.cpu8.goal": "A-H: 8-bit ROM word in, 9-12: address out, 1-8: output port. Run 100 + 55 and counting past 15",
+  "litho.semiconductor-lab.challenge.cpu8.history": "Intel 8008 (1972): the first 8-bit CPU (about 3,500 transistors). The 8080 (1974) led to the personal computer (Altair, 1975).",
+  "litho.semiconductor-lab.challenge.cpu8.hint1": "1. Same shape as the 4-bit CPU, with A, the output port, the adders and the choosers doubled to 8 bits. The address stays 4 bits.",
+  "litho.semiconductor-lab.challenge.cpu8.hint2": "2. Chain eight full adders, carry rippling from the low bit up.",
+  "litho.semiconductor-lab.challenge.cpu8.hint3": "3. The instruction only needs the low 4 bits of the word (LOAD, ADD, OUT, JUMP).",
+  "litho.semiconductor-lab.challenge.cpu8.hint4": "4. 8 bits hold 0-255. One character (ASCII) is 8 bits too: computers could now handle text."
 }

@@ -39,7 +39,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     /** パッドの数の上限（v0.3 の 8×8 には十分） */
     public static final int MAX_PADS = 12;
     /** パッドの状態：つながない・0 V・5 V・入力A・入力B・出力1・出力2（v0.3b のお題、S-005） */
-    public static final int OPEN = 0, GROUND = 1, VCC = 2, IN_A = 3, IN_B = 4, OUT_1 = 5, OUT_2 = 6, IN_C = 7, IN_D = 8, CLK = 9, OUT_3 = 10, OUT_4 = 11, OUT_5 = 12, OUT_6 = 13, OUT_7 = 14, OUT_8 = 15, PAD_STATES = 16;   // 出力5〜8 は CPU の番地（[10-13]）   // 入力C は O-018、入力D・クロック・出力3/4 は S-009（Q18-2）
+    public static final int OPEN = 0, GROUND = 1, VCC = 2, IN_A = 3, IN_B = 4, OUT_1 = 5, OUT_2 = 6, IN_C = 7, IN_D = 8, CLK = 9, OUT_3 = 10, OUT_4 = 11, OUT_5 = 12, OUT_6 = 13, OUT_7 = 14, OUT_8 = 15, IN_E = 16, IN_F = 17, IN_G = 18, IN_H = 19, OUT_9 = 20, OUT_16 = 27, PAD_STATES = 28;   // 入力 E〜H・出力 9〜16 は 8ビット CPU（O-027）   // 出力5〜8 は CPU の番地（[10-13]）   // 入力C は O-018、入力D・クロック・出力3/4 は S-009（Q18-2）
     /** 数値：0〜11＝パッドの状態、12＝このチップで見つかった発見（ビット）、13＝調べたか、14＝お題の番号、15＝お題の結果（{@link #encodeResult}） */
     public static final int DATA_FOUND = MAX_PADS, DATA_PROBED = MAX_PADS + 1, DATA_CHALLENGE = MAX_PADS + 2, DATA_RESULT = MAX_PADS + 3, DATA_COUNT = MAX_PADS + 4;
     /** ボタン：パッド i の状態を順に変える（0〜11）、調べる、次のお題 */
@@ -148,6 +148,8 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                 case OUT_6 -> com.taku3.semiconductorlab.litho.Circuit.Role.OUT_6;
                 case OUT_7 -> com.taku3.semiconductorlab.litho.Circuit.Role.OUT_7;
                 case OUT_8 -> com.taku3.semiconductorlab.litho.Circuit.Role.OUT_8;
+                case IN_E, IN_F, IN_G, IN_H -> com.taku3.semiconductorlab.litho.Circuit.INS[4 + padState.applyAsInt(i) - IN_E];
+                case OUT_9, 21, 22, 23, 24, 25, 26, OUT_16 -> com.taku3.semiconductorlab.litho.Circuit.OUTS[8 + padState.applyAsInt(i) - OUT_9];
                 case OUT_1 -> com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1;
                 case OUT_2 -> com.taku3.semiconductorlab.litho.Circuit.Role.OUT_2;
                 default -> null;

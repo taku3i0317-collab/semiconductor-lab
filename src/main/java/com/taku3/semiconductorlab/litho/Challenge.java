@@ -27,11 +27,11 @@ public final class Challenge {
         public String goalKey() { return langKey() + ".goal"; }
         public boolean sequential() { return steps != null; }
         /** 判定する場合の数（組み合わせ＝行の数、順序＝手の数） */
-        public int rows() { return program ? Cpu4.PROGRAMS.length : sequential() ? steps.length : 1 << inputs; }
+        public int rows() { return program ? programs(this).length : sequential() ? steps.length : 1 << inputs; }
         /** i 番目の入力の役目（入力A〜D、クロックつきなら最後はクロック） */
         public Circuit.Role inputRole(int i) {
             if (clock && i == inputs - 1) return Circuit.Role.CLK;
-            return new Circuit.Role[] {Circuit.Role.IN_A, Circuit.Role.IN_B, Circuit.Role.IN_C, Circuit.Role.IN_D}[i];
+            return Circuit.INS[i];
         }
         /** 入力の行番号 → 役目ごとの 1/0 */
         public Map<Circuit.Role, Boolean> inputsOf(int row) {
@@ -74,6 +74,10 @@ public final class Challenge {
         // ROM（[10-13] の ROM、S-014 Q25-3 案A）：入力A・B・C＝番地の下の位から3ビット、出力1〜4＝その番地の語（プログラム 3＋5、Cpu4.ADD_3_5）
         ALL.add(new Def("rom_program", 3, 4, romTable(Cpu4.ADD_3_5)));
         ALL.add(new Def("cpu4", 5, 8, new int[0], true, null, true));
+        // ワンチップマイコン（[10-14]、O-027 Q26-1 案A）：cpu4 と rom_program のハンコを1チップに。入力はクロックだけ、出力1〜4＝出力の口（中の ROM のプログラム 3＋5）
+        ALL.add(new Def("mcu4", 1, 4, new int[0], true, null, true));
+        // 8ビット CPU（O-027 Q26-2・3 案A）：入力A〜H＝ROM の語（8ビット）、クロック、出力1〜8＝出力の口、出力9〜12＝番地。4命令のまま
+        ALL.add(new Def("cpu8", 9, 12, new int[0], true, null, true));
     }
     private static void add(String id, int in, int out, int... table) { ALL.add(new Def(id, in, out, table)); }
 
@@ -124,32 +128,47 @@ public final class Challenge {
      * CPU のお題（[10-13]）：プログラムごとに新しい CPU（sim）で、ROM の中身を番地（出力5〜8）に合わせて入力A〜D に入れながらクロックを {@link Cpu4#CYCLES} 回。
      * 出力の口（出力1〜4）が変わった値の列の最初の何個かが、見本 {@link Cpu4#run} と同じなら、そのプログラムは合格
      */
+    /** プログラムのお題の語の幅（cpu8 は 8、ほかは 4） */
+    public static int width(Def d) { return d.id().equals("cpu8") ? 8 : 4; }
+    /** 中に ROM があるか（mcu4：入力はクロックだけ） */
+    public static boolean internalRom(Def d) { return d.id().equals("mcu4"); }
+    /** お題で動かすプログラム */
+    public static int[][] programs(Def d) {
+        return switch (d.id()) { case "mcu4" -> new int[][] {Cpu4.ADD_3_5}; case "cpu8" -> new int[][] {Cpu4.ADD_100_55, Cpu4.COUNT_FROM_14}; default -> Cpu4.PROGRAMS; };
+    }
+    /** 見本と比べる数（数えるプログラムは5個、ほかは1個） */
+    static int expectCount(int[] rom) { return rom == Cpu4.COUNT || rom == Cpu4.COUNT_FROM_14 ? 5 : 1; }
+
     public static Result checkProgram(Def d, java.util.function.Supplier<LogicSim> fresh, Map<Integer, Circuit.Role> roles) {
-        Circuit.Role[] data = {Circuit.Role.IN_A, Circuit.Role.IN_B, Circuit.Role.IN_C, Circuit.Role.IN_D};
+        int w = width(d), mask = (1 << w) - 1;
+        boolean inside = internalRom(d);
+        int outs = inside ? w : w + 4;
         int ok = 0;
-        for (int p = 0; p < Cpu4.PROGRAMS.length; p++) {
-            int[] rom = Cpu4.PROGRAMS[p];
+        int[][] progs = programs(d);
+        for (int p = 0; p < progs.length; p++) {
+            int[] rom = progs[p];
             LogicSim sim = fresh.get();
             int addr = 0, port = 0, bits = 0;
             List<Integer> seen = new ArrayList<>();
             boolean missing = false;
             for (int c = 0; c < Cpu4.CYCLES && !missing; c++) for (boolean clk : new boolean[] {true, false}) {
-                for (int k = 0; k < 6; k++) {   // 番地が変われば ROM の語も変わる：落ち着くまで
+                for (int k = 0; k < 6; k++) {   // 番地が変われば ROM の語も変わる：落ち着くまで（中に ROM があれば1回）
                     Map<Circuit.Role, Boolean> in = new EnumMap<>(Circuit.Role.class);
-                    for (int b = 0; b < 4; b++) in.put(data[b], (rom[addr] >> b & 1) != 0);
+                    if (!inside) for (int b = 0; b < w; b++) in.put(Circuit.INS[b], (rom[addr] >> b & 1) != 0);
                     in.put(Circuit.Role.CLK, clk);
-                    bits = sim.step(roles, in, 8);
+                    bits = sim.step(roles, in, outs);
                     if (bits < 0) { missing = true; break; }
-                    int a = bits >> 4 & 15;
+                    if (inside) break;
+                    int a = bits >> w & 15;
                     if (a == addr) break;
                     addr = a;
                 }
                 if (missing) break;
-                if ((bits & 15) != port) { port = bits & 15; seen.add(port); }
+                if ((bits & mask) != port) { port = bits & mask; seen.add(port); }
             }
             if (missing) return new Result(0, d.rows(), true);
-            List<Integer> want = Cpu4.run(rom, Cpu4.CYCLES);
-            int n = Cpu4.expectCount(p);
+            List<Integer> want = Cpu4.run(rom, Cpu4.CYCLES, w);
+            int n = expectCount(rom);
             if (seen.size() >= n && want.size() >= n && seen.subList(0, n).equals(want.subList(0, n))) ok++;
         }
         return new Result(ok, d.rows(), false);

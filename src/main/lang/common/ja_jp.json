@@ -346,5 +346,19 @@
   "assembly.semiconductor-lab.mems_accelerometer.wiring.short": "配線",
   "assembly.semiconductor-lab.mems_accelerometer.seal": "封止",
   "assembly.semiconductor-lab.mems_accelerometer.seal.short": "封止",
-  "tooltip.semiconductor-lab.yield": "欠陥 %s 個/cm²・面積 %s cm² → 歩留まり 約 %s%%（e^(−D·A)）"
+  "tooltip.semiconductor-lab.yield": "欠陥 %s 個/cm²・面積 %s cm² → 歩留まり 約 %s%%（e^(−D·A)）",
+  "litho.semiconductor-lab.challenge.mcu4": "ワンチップマイコン",
+  "litho.semiconductor-lab.challenge.mcu4.goal": "CPU と ROM を1つのチップに。入力はクロックだけで、出力1〜4 に中のプログラム（3＋5）の答えを出せ",
+  "litho.semiconductor-lab.challenge.mcu4.history": "1974年 TI の TMS1000：CPU・ROM・RAM・入出力を1つのチップにしたマイコン。電卓・おもちゃ・電子レンジの中に入った。",
+  "litho.semiconductor-lab.challenge.mcu4.hint1": "①合格した CPU（cpu4）と ROM（rom_program）のハンコを、同じ方眼紙に押す。",
+  "litho.semiconductor-lab.challenge.mcu4.hint2": "②CPU の番地（出力5〜7）を ROM の入力A〜C へ、ROM の語（出力1〜4）を CPU の入力A〜D へ線でつなぐ。",
+  "litho.semiconductor-lab.challenge.mcu4.hint3": "③外に出すのは電源・0 V・クロック・出力の口だけ。チップの外の ROM はもう要らない。",
+  "litho.semiconductor-lab.challenge.mcu4.hint4": "④本物の TMS1000 は ROM に1024語のプログラム。家電の中で何年も同じ仕事をし続けた。",
+  "litho.semiconductor-lab.challenge.cpu8": "8ビット CPU",
+  "litho.semiconductor-lab.challenge.cpu8.goal": "A〜H＝ROM の語（8ビット）、9〜12＝番地、1〜8＝出力の口。100＋55 と 15 をこえて数えるのを動かせ",
+  "litho.semiconductor-lab.challenge.cpu8.history": "1972年インテル 8008：最初の 8ビット CPU（約3500トランジスタ）。1974年の 8080 がパソコン（1975 アルテア）を生んだ。",
+  "litho.semiconductor-lab.challenge.cpu8.hint1": "①4ビットの CPU と同じ形で、A・出力の口・加算器・選ぶ所を8ビットに（2倍）。番地は4ビットのまま。",
+  "litho.semiconductor-lab.challenge.cpu8.hint2": "②全加算器を8つつなぐ。けた上がりは下の位から上の位へ順に。",
+  "litho.semiconductor-lab.challenge.cpu8.hint3": "③命令の語は下の4ビットだけ見ればよい（LOAD・ADD・OUT・JUMP）。",
+  "litho.semiconductor-lab.challenge.cpu8.hint4": "④8ビットなら 0〜255。文字1つ（ASCII）も8ビットで、ここからコンピュータが文字を扱えるようになった。"
 }

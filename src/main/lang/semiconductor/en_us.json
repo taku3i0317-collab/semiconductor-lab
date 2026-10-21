@@ -788,5 +788,17 @@
   "item.semiconductor-lab.color_image_sensor.note1": "An image sensor with a Bayer colour filter on top, so it can tell red, green and blue apart.",
   "item.semiconductor-lab.color_image_sensor.note2": "Image sensor + Bayer filter. Held in hand it shows electrons per pixel (same as the image sensor). Material for the camera module.",
   "item.semiconductor-lab.color_image_sensor.note3": "Today's phone camera sensors carry red, green and blue filters and tiny microlenses over tens of millions of pixels.",
-  "item.semiconductor-lab.color_image_sensor.note4": "Colour filters pass only about a third of the light to each pixel. Back-side illuminated sensors (from about 2009) were made to do better in the dark."
+  "item.semiconductor-lab.color_image_sensor.note4": "Colour filters pass only about a third of the light to each pixel. Back-side illuminated sensors (from about 2009) were made to do better in the dark.",
+  "gui.semiconductor-lab.probe_station.role16": "input E",
+  "gui.semiconductor-lab.probe_station.role17": "input F",
+  "gui.semiconductor-lab.probe_station.role18": "input G",
+  "gui.semiconductor-lab.probe_station.role19": "input H",
+  "gui.semiconductor-lab.probe_station.role20": "output 9",
+  "gui.semiconductor-lab.probe_station.role21": "output 10",
+  "gui.semiconductor-lab.probe_station.role22": "output 11",
+  "gui.semiconductor-lab.probe_station.role23": "output 12",
+  "gui.semiconductor-lab.probe_station.role24": "output 13",
+  "gui.semiconductor-lab.probe_station.role25": "output 14",
+  "gui.semiconductor-lab.probe_station.role26": "output 15",
+  "gui.semiconductor-lab.probe_station.role27": "output 16"
 }

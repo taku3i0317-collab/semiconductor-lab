@@ -788,5 +788,17 @@
   "item.semiconductor-lab.color_image_sensor.note1": "画像センサーの上にベイヤーのカラーフィルターを載せた素子。赤・緑・青を見分けられる。",
   "item.semiconductor-lab.color_image_sensor.note2": "画像センサー＋ベイヤーのフィルター。手に持つと1画素の電子の数（画像センサーと同じ）。カメラモジュールの材料。",
   "item.semiconductor-lab.color_image_sensor.note3": "今のスマホのカメラの素子は、数千万の画素の上に赤・緑・青のフィルターと小さなレンズ（マイクロレンズ）が載っている。",
-  "item.semiconductor-lab.color_image_sensor.note4": "フィルターで色を分けるので、1画素に届く光は約3分の1になる。暗い所に強くするため、裏から光を当てる裏面照射型（2009年ごろ〜）も作られた。"
+  "item.semiconductor-lab.color_image_sensor.note4": "フィルターで色を分けるので、1画素に届く光は約3分の1になる。暗い所に強くするため、裏から光を当てる裏面照射型（2009年ごろ〜）も作られた。",
+  "gui.semiconductor-lab.probe_station.role16": "入力E",
+  "gui.semiconductor-lab.probe_station.role17": "入力F",
+  "gui.semiconductor-lab.probe_station.role18": "入力G",
+  "gui.semiconductor-lab.probe_station.role19": "入力H",
+  "gui.semiconductor-lab.probe_station.role20": "出力9",
+  "gui.semiconductor-lab.probe_station.role21": "出力10",
+  "gui.semiconductor-lab.probe_station.role22": "出力11",
+  "gui.semiconductor-lab.probe_station.role23": "出力12",
+  "gui.semiconductor-lab.probe_station.role24": "出力13",
+  "gui.semiconductor-lab.probe_station.role25": "出力14",
+  "gui.semiconductor-lab.probe_station.role26": "出力15",
+  "gui.semiconductor-lab.probe_station.role27": "出力16"
 }

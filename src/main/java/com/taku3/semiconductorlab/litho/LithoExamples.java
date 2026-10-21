@@ -727,14 +727,19 @@ public final class LithoExamples {
     public static LogicSim cpu4Boxes(java.util.Map<Integer, Circuit.Role> roles) { return cpu4Boxes(roles, false); }
 
     /** broken＝足し算のけた上がりをつながない（こわれた見本、テスト用） */
-    public static LogicSim cpu4Boxes(java.util.Map<Integer, Circuit.Role> roles, boolean broken) {
+    public static LogicSim cpu4Boxes(java.util.Map<Integer, Circuit.Role> roles, boolean broken) { return cpuBoxes(roles, 4, broken); }
+
+    /** 語の幅 width（4 か 8、O-027 Q26-2 案A）の CPU の見本。8ビットは A・出力の口・加算器・選ぶ所が2倍（約90個）。番地はどちらも4ビット */
+    public static LogicSim cpuBoxes(java.util.Map<Integer, Circuit.Role> roles, int width, boolean broken) {
         final int G = 0, V = 1, CLK = 2;
-        int[] d = {3, 4, 5, 6}, port = {7, 8, 9, 10}, addr = {11, 12, 13, 14};
+        int[] d = new int[width], port = new int[width], addr = new int[4];
+        int[] next = {3};
+        for (int i = 0; i < width; i++) { d[i] = next[0]++; port[i] = next[0]++; }
+        for (int i = 0; i < 4; i++) addr[i] = next[0]++;
         roles.put(G, Circuit.Role.GROUND); roles.put(V, Circuit.Role.VCC); roles.put(CLK, Circuit.Role.CLK);
-        Circuit.Role[] in = {Circuit.Role.IN_A, Circuit.Role.IN_B, Circuit.Role.IN_C, Circuit.Role.IN_D};
-        for (int i = 0; i < 4; i++) { roles.put(d[i], in[i]); roles.put(port[i], Circuit.OUTS[i]); roles.put(addr[i], Circuit.OUTS[4 + i]); }
+        for (int i = 0; i < width; i++) { roles.put(d[i], Circuit.INS[i]); roles.put(port[i], Circuit.OUTS[i]); }
+        for (int i = 0; i < 4; i++) roles.put(addr[i], Circuit.OUTS[width + i]);
         List<LogicSim.Wire> w = new java.util.ArrayList<>();
-        int[] next = {20};
         java.util.function.IntSupplier net = () -> next[0]++;
         java.util.function.BiConsumer<String, Object[]> box = (id, kv) -> {
             java.util.Map<Circuit.Role, Integer> m = new java.util.EnumMap<>(Circuit.Role.class);
@@ -775,24 +780,40 @@ public final class LithoExamples {
         box.accept("register", new Object[] {A, pcNext[0], B, pcNext[1], K, CLK, O1, addr[0], O2, addr[1]});
         box.accept("register", new Object[] {A, pcNext[2], B, pcNext[3], K, CLK, O1, addr[2], O2, addr[3]});
         // A（アキュムレータ）：LOAD なら数、ADD なら A＋数（全加算器4つ）
-        int[] acc = {net.getAsInt(), net.getAsInt(), net.getAsInt(), net.getAsInt()};
-        int[] sum = new int[4];
+        int[] acc = new int[width];
+        for (int i = 0; i < width; i++) acc[i] = net.getAsInt();
+        int[] sum = new int[width];
         int k = G;
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < width; i++) {
             int s = net.getAsInt(), c = net.getAsInt();
             box.accept("full_adder", new Object[] {A, acc[i], B, d[i], C, broken ? G : k, O1, s, O2, c});
             sum[i] = s; k = c;
         }
-        int[] accNext = new int[4];
-        for (int i = 0; i < 4; i++) accNext[i] = mux.apply(new int[] {ir[1], sum[i], d[i]});
+        int[] accNext = new int[width];
+        for (int i = 0; i < width; i++) accNext[i] = mux.apply(new int[] {ir[1], sum[i], d[i]});
         int clkA = and.applyAsInt(clkEx, or.applyAsInt(ir[0], ir[1]));
-        box.accept("register", new Object[] {A, accNext[0], B, accNext[1], K, clkA, O1, acc[0], O2, acc[1]});
-        box.accept("register", new Object[] {A, accNext[2], B, accNext[3], K, clkA, O1, acc[2], O2, acc[3]});
+        for (int i = 0; i < width; i += 2) box.accept("register", new Object[] {A, accNext[i], B, accNext[i + 1], K, clkA, O1, acc[i], O2, acc[i + 1]});
         // 出力の口：OUT の2語目で A を写す
         int clkO = and.applyAsInt(clkEx, ir[2]);
-        box.accept("register", new Object[] {A, acc[0], B, acc[1], K, clkO, O1, port[0], O2, port[1]});
-        box.accept("register", new Object[] {A, acc[2], B, acc[3], K, clkO, O1, port[2], O2, port[3]});
+        for (int i = 0; i < width; i += 2) box.accept("register", new Object[] {A, acc[i], B, acc[i + 1], K, clkO, O1, port[i], O2, port[i + 1]});
         return LogicSim.wired(w);
+    }
+
+    /**
+     * ワンチップマイコンの見本（[10-14]、O-027 Q26-1 案A）：cpu4 の箱と rom_program の箱を1つのチップの中でつなぐ（番地の下の3ビット → ROM → 語 → CPU）。
+     * 外に出るのはクロック・電源・0 V・出力の口だけ（1974 TI の TMS1000 と同じく、CPU と ROM が1チップ）
+     */
+    public static LogicSim mcu4Boxes(java.util.Map<Integer, Circuit.Role> roles) {
+        final int G = 0, V = 1, CLK = 2;
+        int[] port = {3, 4, 5, 6}, addr = {7, 8, 9, 10}, word = {11, 12, 13, 14};
+        roles.put(G, Circuit.Role.GROUND); roles.put(V, Circuit.Role.VCC); roles.put(CLK, Circuit.Role.CLK);
+        for (int i = 0; i < 4; i++) roles.put(port[i], Circuit.OUTS[i]);
+        java.util.Map<Circuit.Role, Integer> cpu = new java.util.EnumMap<>(Circuit.Role.class), rom = new java.util.EnumMap<>(Circuit.Role.class);
+        cpu.put(Circuit.Role.GROUND, G); cpu.put(Circuit.Role.VCC, V); cpu.put(Circuit.Role.CLK, CLK);
+        rom.put(Circuit.Role.GROUND, G); rom.put(Circuit.Role.VCC, V);
+        for (int i = 0; i < 4; i++) { cpu.put(Circuit.INS[i], word[i]); cpu.put(Circuit.OUTS[i], port[i]); cpu.put(Circuit.OUTS[4 + i], addr[i]); rom.put(Circuit.OUTS[i], word[i]); }
+        for (int i = 0; i < 3; i++) rom.put(Circuit.INS[i], addr[i]);
+        return LogicSim.wired(List.of(new LogicSim.Wire("cpu4", cpu), new LogicSim.Wire("rom_program", rom)));
     }
 
     /**
