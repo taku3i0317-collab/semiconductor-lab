@@ -111,7 +111,7 @@ small.term { color: var(--sub); font-weight: 400; }
 .focus { position: absolute; inset: 0; z-index: 6; overflow: auto; background: var(--bg); padding-bottom: 76px; }
 .focus[hidden], .focus [hidden] { display: none !important; }
 .focus .time { position: relative; height: 34px; margin: 10px 12px 0; border-radius: 8px; background: linear-gradient(90deg, var(--band-a), var(--band-b)); font-size: 10px; color: var(--sub); }
-.focus .time span { position: absolute; top: 18px; transform: translateX(-50%); }
+.focus .time span { position: absolute; top: 18px; transform: translateX(-50%); white-space: nowrap; }
 .focus .time i { position: absolute; top: 2px; width: 3px; height: 16px; margin-left: -1px; background: var(--hl); border-radius: 2px; }
 .focus .time i.p { background: var(--sub); opacity: .6; height: 10px; top: 5px; }
 .focus h3 { font-size: 13px; color: var(--sub); margin: 14px 12px 6px; }
@@ -569,9 +569,10 @@ body.focusMode .intro { display: none; }
   }
 
   // ---- ズーム：近づくほど細かく（地図アプリのように）。遠いときはモノだけ ----
+  let started = false;
   const zoom = d3.zoom().scaleExtent([0.15, 8]).on('zoom', ev => {
     T = ev.transform;
-    const was = detail(); K = T.k; if (was !== detail()) render(); else requestDraw();
+    const was = detail(); K = T.k; if (was !== detail() && started) render(); else requestDraw();   // started：はじめの準備が終わるまでは render しない（S-016：768px で最初の倍率合わせのとき止まっていた）
   });
   resize();
   new ResizeObserver(resize).observe(chart);
@@ -919,10 +920,14 @@ body.focusMode .intro { display: none; }
   try { saved = localStorage.getItem('tn-layout') || 'time'; } catch (e) { /* 保存できない環境では時間軸 */ }
   placeLabels();
   if (saved === 'net') applyLayout('net', false);
+  started = true;
   render();
   fromHash();
 })();
 </script>
+<script src="vendor/budoux-ja.min.js"></script>
+<script src="linebreak.js"></script>
+<script>LineBreak.init();</script>
 <script src="furigana.js"></script>
 <script>Furigana.init(document.getElementById('furiBtn'));</script>
 </body>
