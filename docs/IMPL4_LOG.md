@@ -148,3 +148,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - 案B：ブロック：振動（近くの足音・ピストン）で信号を出す地震計
   - 案C：部品だけ
 - C の指摘（DESIGN 404行「レッドストーンは使わない」）で [9-42] 案A のレッドストーン出力をやめ、手に持って数を見るアイテムに直した。C の [9-45] フィルターは「素子＋フィルター」のレシピで載せる形で合意
+- ✅ A の焦点深度（O-030）に合わせ GameTest cmp_rescues_depth_of_focus：CVD → 塗布機（CAR）→ KrF は defocus、CMP 装置＋洗浄 → 焼ける

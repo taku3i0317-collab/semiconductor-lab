@@ -1419,6 +1419,23 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v0.5 焦点深度（IMP4-01、A の O-030）：機械で通す。CVD 炉の層間膜 → 塗布機（化学増幅）→ KrF（DOF 310nm）は段差 320nm でピンぼけ、CMP 装置で平らにして洗うと焼ける */
+    @GameTest(maxTicks = 100)
+    public void cmpRescuesDepthOfFocus(GameTestHelper h) {
+        var base = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal();
+        var one = new com.taku3.semiconductorlab.litho.ChipDesign(16, "one", base.layers().subList(0, 4), java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.MOS);
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack w = com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.product(com.taku3.semiconductorlab.litho.LithoExamples.process(ow, one, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G));
+        ItemStack car = new ItemStack(Chemistry.CHEMICALLY_AMPLIFIED_RESIST);
+        var mask = base.mask(4);
+        ItemStack bumpy = com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.product(w, car);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(bumpy, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF, 130, 0, 310).reason(), "defocus", "no CMP: 4 steps x 80 nm > KrF depth of focus 310 nm");
+        ItemStack flat = com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.product(com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.product(w), 0).out(), car);
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(flat, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF, 130, 0, 310).ok(), "after the CMP polisher (and cleaning) the via layer prints with KrF");
+        LOG.info("[LAB] depth of focus: CVD interlayer -> KrF defocus; CMP polisher -> prints");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
