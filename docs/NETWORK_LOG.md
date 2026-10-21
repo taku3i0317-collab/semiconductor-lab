@@ -779,3 +779,13 @@
 - network.html の head にも同じ1行（tech-network に書き出す network.html にも入るが、同じ1行なので問題なし）
 - **公開されたページの元の HTML で確かめた**：両方に content="lP8qobgUCL3mnbf0cKd4l2dH_m3H-Vr99uwRI9Eea1A"
 - ユーザーへ：Search Console で semiconductor-lab の方も「確認」を押せる
+
+## S-054（2026-10-21、INBOX：ユーザーの決定）ノードごとの本物のページ
+- **nodes/<番号>.html を 630 ページ**（tools/gen_node_pages.py。tools/export_tech_network.py が毎回作り直して tech-network に書き出す。このリポジトリの docs/nodes にもできる＝semiconductor-lab の Pages）
+- 見た目・動きは今の node.html と同じ（JS で入れかわる）。**本文を HTML に最初から書いた**：名前・年・分野・英語の名前・へえ①〜④・本当の話・前提（リンク）・これを使って生まれた物（リンク）・人物・出典。JS が無くても読める（MOSFET のページで確かめた）
+- ページごと：題「MOSFET とは｜1959年・仕組みと歴史｜技術ネットワーク」（発見・考え方は「発見と歴史」）、説明＝へえ①（＋英語の名前）、canonical＝tech-network のそのページ、hreflang（日本語＝そのまま、英語＝**?lang=en**。英語のときは題も英語）、og（og:image＝アイコンと名前の絵 1200×630、nodes/og/<番号>.png）、JSON-LD（WebPage・about に名前と英語の名前、Wikidata の番号がある 82 ノードは sameAs、CC0）
+- **noindex は 0**：決まり（へえも本当の話も無いノードは noindex）に当たるノードが今は無い（全部にへえ①か本当の話がある）。中身が無くなれば自動で noindex になり、サイトマップからも外れる
+- 前の URL：node.html#番号 と node.html?id=番号 は、そのまま開けて新しいページへ移る（?lang=en も引き継ぐ）。図のカード・人物・用語集・ランキング・中心図の「詳しく見る」・シェアのリンクは新しいページへ。ページの中の前提・使い道のリンクもそのノードのページへ
+- 軽く：node.html の見た目と動きを node.css・node.js に分けた（1回読めば全部のページで使える）。1ページ 約 8KB、絵 約 10KB、合わせて 12MB
+- **sitemap.xml：635**（図のページ 5 ＋ ノード 630、日本語と英語）
+- 写真 docs/mockups/S054_node.png（スマホの MOSFET のページと、リンクの絵）

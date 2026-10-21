@@ -61,11 +61,13 @@ def main():
 
     # 図のページ（GitHub Pages は docs/ から）
     (OUT / "docs").mkdir()
-    for f in ("network.html", "node.html", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
+    for f in ("network.html", "node.html", "node.css", "node.js", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
               "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js", "ui_icons.js", "film.js", "credits.html", "ranking.html", "og_image.png", "share.js", "pwa.js", "manifest.webmanifest", "app_icon_192.png", "app_icon_512.png", "app_icon_maskable_512.png", "apple-touch-icon.png"):
         shutil.copy(ROOT / "docs" / f, OUT / "docs" / f)
-    shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")   # BudouX（Apache-2.0。CC0 ではない。LICENSE-budoux.txt を一緒に）
-    for f in ("node.html", "network.html"):   # 誤りの報告はこのリポジトリの Issue へ。リンクの見た目（OGP）の URL はこのリポジトリの GitHub Pages へ（S-023）
+    shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")
+    subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "gen_node_pages.py")], check=True)   # いつも今のデータから作り直す（このリポジトリの docs/nodes も＝semiconductor-lab の Pages）
+    shutil.copytree(ROOT / "docs" / "nodes", OUT / "docs" / "nodes")   # S-054：ノードごとのページ（tools/gen_node_pages.py が作る）   # BudouX（Apache-2.0。CC0 ではない。LICENSE-budoux.txt を一緒に）
+    for f in ("node.html", "node.js", "network.html"):   # 誤りの報告はこのリポジトリの Issue へ。リンクの見た目（OGP）の URL はこのリポジトリの GitHub Pages へ（S-023）
         p = OUT / "docs" / f
         p.write_text(p.read_text(encoding="utf-8").replace("https://github.com/taku3i0317-collab/semiconductor-lab", f"https://github.com/{REPO}").replace("https://taku3i0317-collab.github.io/semiconductor-lab/", "https://{}.github.io/{}/".format(*REPO.split("/"))), encoding="utf-8")
     subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "gen_sw.py"), str(OUT / "docs")], check=True)   # オフライン用の service worker（S-026）。版の番号は書き出した中身から
@@ -103,7 +105,8 @@ def main():
     (OUT / "CITATION.cff").write_text(fill(CITATION).replace("{DATE}", datetime.date.today().isoformat()), encoding="utf-8")
     site = "https://{}.github.io/{}/".format(*REPO.split("/"))
     urls = [f'<url><loc>{site}{pg}</loc><xhtml:link rel="alternate" hreflang="ja" href="{site}{pg}"/><xhtml:link rel="alternate" hreflang="en" href="{site}{pg}?lang=en"/></url>'
-            for pg in ("network.html", "ranking.html", "people.html", "glossary.html", "credits.html")]
+            for pg in ["network.html", "ranking.html", "people.html", "glossary.html", "credits.html"]
+            + [f"nodes/{i}.html" for i in json.loads((ROOT / "docs" / "nodes" / "index.json").read_text(encoding="utf-8"))["indexed"]]]   # S-054：中身のあるノードのページ（noindex の物は入れない）
     (OUT / "docs" / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
     (OUT / "LICENSE").write_text(LICENSE, encoding="utf-8")
     size = sum(f.stat().st_size for f in OUT.rglob("*") if f.is_file())
