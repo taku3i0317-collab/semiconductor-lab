@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "semiconductor-lab:block/euv_formed_side",
+    "top": "semiconductor-lab:block/euv_formed_top",
+    "bottom": "semiconductor-lab:block/euv_formed_top"
+  }
+}

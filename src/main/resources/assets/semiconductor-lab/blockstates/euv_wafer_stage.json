@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "formed=false": {
       "model": "semiconductor-lab:block/euv_wafer_stage"
+    },
+    "formed=true": {
+      "model": "semiconductor-lab:block/euv_wafer_stage_formed"
     }
   }
 }

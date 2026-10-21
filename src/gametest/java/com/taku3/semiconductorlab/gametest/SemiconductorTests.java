@@ -2404,6 +2404,7 @@ public class SemiconductorTests extends LabTestBase {
         acb.getContainer().setItem(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Construction.HEPA_FILTER));
         tickConsumer(h, ac, acb, 2, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.WATTS));
         h.assertValueEqual(be.formedState(), com.taku3.semiconductorlab.block.EuvScannerBlockEntity.FORMED, "class-100 room -> formed");
+        h.assertTrue(h.getBlockState(shape.worldPos(at, net.minecraft.core.Direction.NORTH, 0, 0, 0)).getValue(com.taku3.semiconductorlab.machine.Multiblock.FORMED), "the casing shows the joined-up formed look (Q33-4 b)");
         BlockPos l1 = src.west(), l2 = src.above(), l3 = src.south();
         for (BlockPos lp : new BlockPos[]{l1, l2, l3}) {
             h.setBlock(lp, com.taku3.semiconductorlab.content.Optics.CO2_LASER.block);

@@ -1,7 +1,10 @@
 {
   "variants": {
-    "": {
+    "formed=false": {
       "model": "semiconductor-lab:block/euv_projection_box"
+    },
+    "formed=true": {
+      "model": "semiconductor-lab:block/euv_projection_box_formed"
     }
   }
 }
