@@ -66,18 +66,23 @@ public class DryEtcherBlockEntity extends ConsumerBlockEntity {
 
     @Override protected boolean canWork() {
         ItemStack g = container.getItem(SLOT_GAS), out = product(container.getItem(SLOT_WAFER), g);
-        return !out.isEmpty() && g.getCount() >= CF4_PER_RUN && vacuumOk() && canMerge(container.getItem(SLOT_OUT), out);
+        return !out.isEmpty() && g.getCount() >= CF4_PER_RUN && vacuumOk() && canMerge(container.getItem(SLOT_OUT), dust(out));
     }
 
     @Override protected void finishWork() {
         ItemStack out = product(container.getItem(SLOT_WAFER), container.getItem(SLOT_GAS));
         container.getItem(SLOT_WAFER).shrink(out.getCount());
         container.getItem(SLOT_GAS).shrink(CF4_PER_RUN);
-        merge(SLOT_OUT, out);
+        merge(SLOT_OUT, dust(out));
         container.setChanged();
     }
 
     /** 画面に出す：真空がよいか（1/0） */
     @Override protected int extraDataCount() { return 1; }
     @Override protected int extraData(int i) { return i == DATA_VACUUM && vacuumOk() ? 1 : 0; }
+
+    /** クリーンルームの等級のほこりと欠陥の密度（O-017・歩留まり、A の inRoom）。失敗にはしない。MEMS の板（加工中のウェハーでない）はそのまま */
+    private ItemStack dust(ItemStack out) {
+        return level == null ? out : ChipOps.inRoom(ChipOps.addDust(out, CleanRoom.dustAt(level, worldPosition)), CleanRoom.defectDensity(level, worldPosition));
+    }
 }
