@@ -41,7 +41,7 @@ public class PrintingPressBlock extends Block {
     /** 刷る：版の文の本を1冊。写しの写し（世代 2 以上）は版にできても刷れない（バニラの決まり）→ 空 */
     public static ItemStack print(ItemStack form) {
         WrittenBookContent c = form.get(DataComponents.WRITTEN_BOOK_CONTENT);
-        WrittenBookContent copy = c == null ? null : c.craftCopy();
+        WrittenBookContent copy = c == null || c.generation() >= 2 ? null : c.craftCopy();   // 26.3 の craftCopy は世代 2 でも写すので自分で止める
         if (copy == null) return ItemStack.EMPTY;
         ItemStack out = new ItemStack(Items.WRITTEN_BOOK);
         out.set(DataComponents.WRITTEN_BOOK_CONTENT, copy);
