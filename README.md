@@ -36,6 +36,10 @@
 技術ネットワーク図のノードのページ（`node.html`）の「誤りを報告」ボタンからは、ノード番号が入った状態で開きます。
 確かさの印：◎ 信頼できる出典2つ以上で一致／○ 1つで確認／△・⚠️ 未確認・諸説あり。
 
+## 影響を受けた作品
+科学の出典（事実の裏付け）とは別に、このプロジェクトが影響を受けた人・作品です。
+- 亜留間次郎さん（薬理凶室）— 配信・動画、『アリエナイ医学事典』（三才ブックス）ほか。いちばん影響を受けました。
+
 ## ライセンス
 
 **全部 CC0 1.0（パブリックドメイン）です。** コード・データ・文章・画像（テクスチャ・肖像のドット絵を含む）のすべてを、
@@ -83,6 +87,10 @@ Corrections to years, people, connections and sources are very welcome. Open an 
 
 The "誤りを報告" (report an error) buttons on each node page (`node.html`) open the template with the node number already filled in.
 Certainty marks: ◎ confirmed by two or more reliable sources / ○ one source / △ or ⚠️ unconfirmed or disputed.
+
+## Inspirations
+Separate from the scientific sources, these are the people and works that inspired this project.
+- Jiro Aruma (Yakuri Kyoshitsu) — streams and videos, "Arienai Igaku Jiten" (Sansai Books) and more. Our biggest influence.
 
 ## License
 

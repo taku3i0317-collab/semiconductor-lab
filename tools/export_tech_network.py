@@ -61,7 +61,7 @@ def main():
     # 図のページ（GitHub Pages は docs/ から）
     (OUT / "docs").mkdir()
     for f in ("network.html", "node.html", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
-              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js"):
+              "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js", "ui_icons.js", "film.js", "credits.html"):
         shutil.copy(ROOT / "docs" / f, OUT / "docs" / f)
     shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")   # BudouX（Apache-2.0。CC0 ではない。LICENSE-budoux.txt を一緒に）
     for f in ("node.html",):   # 誤りの報告はこのリポジトリの Issue へ
@@ -174,6 +174,10 @@ https://github.com/{REPO}/issues
 - 確かさ：◎ 信頼できる出典2つ以上 ／ ○ 1つ ／ △ 未確認（⚠️）。Wikipedia だけの物は ○ まで / ◎ two reliable sources, ○ one, △ unverified (⚠️); Wikipedia alone is at most ○
 - 存命の人の顔（肖像）は載せません。肖像は自作のドット絵です / No portraits of living people; portraits are original pixel art
 - 文は自分の言葉で書いています（Wikipedia などの丸写しはしない）/ Texts are written in our own words (no copying)
+
+## 影響を受けた作品 / Inspirations
+科学の出典とは別に、影響を受けた人・作品 / Separate from the scientific sources, the people and works that inspired this project:
+- 亜留間次郎さん（薬理凶室）— 配信・動画、『アリエナイ医学事典』（三才ブックス）ほか。いちばん影響を受けました。/ Jiro Aruma (Yakuri Kyoshitsu) — streams and videos, "Arienai Igaku Jiten" (Sansai Books) and more. Our biggest influence.
 
 ## ライセンス / License
 CC0 1.0（パブリックドメイン）。名前を書かなくても、何にでも自由に使えます。/ CC0 1.0 (public domain dedication). Use it for anything, no attribution required.

@@ -417,7 +417,7 @@ header.top .ic { display: none; }   /* 大きなアイコンを絵の欄に出�
 
 
       <section><h2>確かさ</h2>
-        ${d.refs.length ? d.refs.map(r => `<div class="ref"><b>${esc(r.title)}</b>${r.answer ? `<div>${rich(cite(r.answer))}${r.basis ? MK(noteNo(srcHtml(r.basis))) : ''}</div>` : ''}<div class="muted">確かさ：${esc(r.certainty || '—')}${!r.answer && r.basis ? MK(noteNo(srcHtml(r.basis))) : ''}</div></div>`).join('')
+        ${d.refs.length ? d.refs.map(r => `<div class="ref"><b>${esc(r.title)}</b>${r.answer ? `<div>${rich(cite(r.answer))}${r.basis ? r.basis.split(/(?<=[」\s])、\s*/).map(x => x.trim()).filter(Boolean).map(x => MK(noteNo(srcHtml(x)))).join('') : ''}</div>` : ''}<div class="muted">確かさ：${esc(r.certainty || '—')}${!r.answer && r.basis ? r.basis.split(/(?<=[」\s])、\s*/).map(x => x.trim()).filter(Boolean).map(x => MK(noteNo(srcHtml(x)))).join('') : ''}</div></div>`).join('')
           + `<p><a href="${REPO}/blob/master/docs/REFERENCES.md">REFERENCES.md（参考文献のまとめ）を開く</a></p>`
           : `<p class="muted">まだ REFERENCES.md に項目がない（確かさは未評価）。${d.year_uncertain ? '年は ⚠️（諸説・未確認）。' : ''}</p>`}
         ${!d.real_full && d.sources && d.sources.length ? `<p class="muted">出典 ${d.sources.map(u => MK(noteNo(srcHtml(u)))).join('')}</p>` : ''}
@@ -523,6 +523,8 @@ header.top .ic { display: none; }   /* 大きなアイコンを絵の欄に出�
   render();
 })();
 </script>
+<script src="ui_icons.js"></script>
+<script>UiIcons.init();</script>
 <script src="vendor/budoux-ja.min.js"></script>
 <script src="linebreak.js"></script>
 <script>LineBreak.init();</script>
