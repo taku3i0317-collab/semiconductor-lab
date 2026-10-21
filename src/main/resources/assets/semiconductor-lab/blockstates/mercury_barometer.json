@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "semiconductor-lab:block/mercury_barometer"
+    }
+  }
+}

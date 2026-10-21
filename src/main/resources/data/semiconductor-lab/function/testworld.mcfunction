@@ -450,33 +450,35 @@ setblock ~72 ~0 ~34 semiconductor-lab:lithium_ion_battery
 setblock ~76 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stepping_m","（人間の確認項目なし）","",""]}}
 setblock ~76 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stepping_motor",count:16},{Slot:1b,id:"semiconductor-lab:lfp_charge",count:16},{Slot:2b,id:"semiconductor-lab:lithium_iron_phosphate",count:16},{Slot:3b,id:"semiconductor-lab:lithium_fluoride",count:16},{Slot:4b,id:"semiconductor-lab:lithium_hexafluorophosphate",count:16}]}
 setblock ~0 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹5 真空","↓ この列","",""]}}
-setblock ~2 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-01] 真空ポンプ →","容器の隣でポンプを素手","で右クリック → アク","ションバーに「シュッ…"]}}
-setblock ~2 ~0 ~42 semiconductor-lab:hand_vacuum_pump
-setblock ~6 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-11] 真空容器","（人間の確認項目なし）","",""]}}
-setblock ~6 ~0 ~42 semiconductor-lab:vacuum_chamber
-setblock ~10 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-15] シュプレンゲル","真空容器の横にポンプを","置き、水銀を持って右ク","リック（「水銀が足りな"]}}
-setblock ~10 ~0 ~42 semiconductor-lab:sprengel_pump
-setblock ~11 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mercury",count:16}]}
-setblock ~14 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-10] 真空計","真空計を持って容器に右","クリック → チャット","に「水銀柱の差 760"]}}
-setblock ~14 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mercury_vacuum_gauge",count:1}]}
-setblock ~17 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-02] 真空管 → 幹","封止台を真空容器の隣に","置き、ケーブルで電気を","送る。GUI（タイトル"]}}
-setblock ~17 ~-1 ~42 semiconductor-lab:test_power_source
-setblock ~17 ~0 ~42 semiconductor-lab:sealing_station
-setblock ~18 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vacuum_tube_assembly",count:16},{Slot:1b,id:"semiconductor-lab:vacuum_tube",count:16}]}
-setblock ~21 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-04] 油回転ポンプ","真空容器｜拡散ポンプ｜","回転ポンプ と並べて電","気をつなぐ → 回転ポ"]}}
-setblock ~21 ~0 ~42 semiconductor-lab:rotary_pump
-setblock ~25 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-05] 水銀拡散ポンプ","真空容器｜拡散ポンプ｜","回転ポンプ と並べて電","気をつなぐ → 回転ポ"]}}
-setblock ~25 ~0 ~42 semiconductor-lab:diffusion_pump
-setblock ~29 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-06] 油拡散ポンプ","反応器の GUI（反応","ごとの文・足りない触媒","の文）、油拡散ポンプの"]}}
-setblock ~29 ~-1 ~42 semiconductor-lab:test_power_source
-setblock ~29 ~0 ~42 semiconductor-lab:silicone_reactor
-setblock ~30 ~-1 ~42 semiconductor-lab:test_power_source
-setblock ~30 ~0 ~42 semiconductor-lab:oil_diffusion_pump
-setblock ~31 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:methyl_chloride",count:16},{Slot:1b,id:"semiconductor-lab:dimethyldichlorosilane",count:16},{Slot:2b,id:"semiconductor-lab:silicone_oil",count:16},{Slot:3b,id:"semiconductor-lab:methanol",count:16},{Slot:4b,id:"semiconductor-lab:hydrogen_chloride_gas",count:16},{Slot:5b,id:"semiconductor-lab:alumina",count:16},{Slot:6b,id:"semiconductor-lab:metallurgical_silicon",count:16},{Slot:7b,id:"minecraft:copper_ingot",count:16},{Slot:8b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:9b,id:"semiconductor-lab:distilled_water",count:16},{Slot:10b,id:"Block{semiconductor-lab:rotary_pump}",count:16}]}
-setblock ~34 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-07] ターボ分子ポン","ターボ分子ポンプを真空","容器と回転ポンプの間に","置き、研削した玉の玉軸"]}}
-setblock ~34 ~0 ~42 semiconductor-lab:turbo_pump
-setblock ~38 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
-setblock ~38 ~0 ~42 semiconductor-lab:evaporator
+setblock ~2 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-03] 水銀柱と圧力の","山の上と谷で右クリック","して値がちがう",""]}}
+setblock ~2 ~0 ~42 semiconductor-lab:mercury_barometer
+setblock ~6 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-01] 真空ポンプ →","容器の隣でポンプを素手","で右クリック → アク","ションバーに「シュッ…"]}}
+setblock ~6 ~0 ~42 semiconductor-lab:hand_vacuum_pump
+setblock ~10 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-11] 真空容器","（人間の確認項目なし）","",""]}}
+setblock ~10 ~0 ~42 semiconductor-lab:vacuum_chamber
+setblock ~14 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-15] シュプレンゲル","真空容器の横にポンプを","置き、水銀を持って右ク","リック（「水銀が足りな"]}}
+setblock ~14 ~0 ~42 semiconductor-lab:sprengel_pump
+setblock ~15 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mercury",count:16}]}
+setblock ~18 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-10] 真空計","真空計を持って容器に右","クリック → チャット","に「水銀柱の差 760"]}}
+setblock ~18 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mercury_vacuum_gauge",count:1}]}
+setblock ~21 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-02] 真空管 → 幹","封止台を真空容器の隣に","置き、ケーブルで電気を","送る。GUI（タイトル"]}}
+setblock ~21 ~-1 ~42 semiconductor-lab:test_power_source
+setblock ~21 ~0 ~42 semiconductor-lab:sealing_station
+setblock ~22 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vacuum_tube_assembly",count:16},{Slot:1b,id:"semiconductor-lab:vacuum_tube",count:16}]}
+setblock ~25 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-04] 油回転ポンプ","真空容器｜拡散ポンプ｜","回転ポンプ と並べて電","気をつなぐ → 回転ポ"]}}
+setblock ~25 ~0 ~42 semiconductor-lab:rotary_pump
+setblock ~29 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-05] 水銀拡散ポンプ","真空容器｜拡散ポンプ｜","回転ポンプ と並べて電","気をつなぐ → 回転ポ"]}}
+setblock ~29 ~0 ~42 semiconductor-lab:diffusion_pump
+setblock ~33 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-06] 油拡散ポンプ","反応器の GUI（反応","ごとの文・足りない触媒","の文）、油拡散ポンプの"]}}
+setblock ~33 ~-1 ~42 semiconductor-lab:test_power_source
+setblock ~33 ~0 ~42 semiconductor-lab:silicone_reactor
+setblock ~34 ~-1 ~42 semiconductor-lab:test_power_source
+setblock ~34 ~0 ~42 semiconductor-lab:oil_diffusion_pump
+setblock ~35 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:methyl_chloride",count:16},{Slot:1b,id:"semiconductor-lab:dimethyldichlorosilane",count:16},{Slot:2b,id:"semiconductor-lab:silicone_oil",count:16},{Slot:3b,id:"semiconductor-lab:methanol",count:16},{Slot:4b,id:"semiconductor-lab:hydrogen_chloride_gas",count:16},{Slot:5b,id:"semiconductor-lab:alumina",count:16},{Slot:6b,id:"semiconductor-lab:metallurgical_silicon",count:16},{Slot:7b,id:"minecraft:copper_ingot",count:16},{Slot:8b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:9b,id:"semiconductor-lab:distilled_water",count:16},{Slot:10b,id:"Block{semiconductor-lab:rotary_pump}",count:16}]}
+setblock ~38 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-07] ターボ分子ポン","ターボ分子ポンプを真空","容器と回転ポンプの間に","置き、研削した玉の玉軸"]}}
+setblock ~38 ~0 ~42 semiconductor-lab:turbo_pump
+setblock ~42 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
+setblock ~42 ~0 ~42 semiconductor-lab:evaporator
 setblock ~0 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹6 ガス・電解","↓ この列","",""]}}
 setblock ~2 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-04] 岩塩鉱","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~50 semiconductor-lab:rock_salt_ore

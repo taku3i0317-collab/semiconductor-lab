@@ -129,5 +129,12 @@
   "block.semiconductor-lab.oil_diffusion_pump.note2": "電気 1kW。水銀拡散ポンプと同じく、真空容器と回っている回転ポンプの両方の隣に置き、容器が 10Pa 以下になってから動く。到達 10⁻⁵Pa で、1秒ごとに残り30%（水銀は50%）＝速い。",
   "block.semiconductor-lab.oil_diffusion_pump.note3": "1928年、イギリスのバーチが石油から低蒸気圧の油を作って水銀を置きかえ、1930年代にコダックのヒックマンが油を分けながら使う型にした。鋼の胴で大きく作れる。",
   "block.semiconductor-lab.oil_diffusion_pump.note4": "水銀のように毒の蒸気が出ない。ただし油の蒸気も少し容器に戻る（バックストリーミング）ので、きれいな膜が要るときはターボ分子ポンプを使う。熱い油に空気を入れると焦げるので、止めるときは冷ましてから。",
-  "block.semiconductor-lab.oil_diffusion_pump.placeholder": "省略：⚠️ 本物の油はフェニル基入りのシリコーンや石油の油。冷却水・バッフル・暖まる時間は省略、到達圧力と速さはゲームの値。"
+  "block.semiconductor-lab.oil_diffusion_pump.placeholder": "省略：⚠️ 本物の油はフェニル基入りのシリコーンや石油の油。冷却水・バッフル・暖まる時間は省略、到達圧力と速さはゲームの値。",
+  "block.semiconductor-lab.mercury_barometer": "水銀柱の気圧計",
+  "block.semiconductor-lab.mercury_barometer.note1": "水銀を入れたガラスの管を逆さに立てた気圧計。右クリックで、その高さの気圧が分かる。",
+  "block.semiconductor-lab.mercury_barometer.note2": "作業台：ソーダ石灰ガラス2＋水銀（鉄の容器は戻る）＋板材2。右クリックで水銀柱の高さ（mmHg）と気圧（hPa）。高い所に置くほど低い。",
+  "block.semiconductor-lab.mercury_barometer.note3": "水銀は管の中で約 760mm で止まり、上はトリチェリの真空になる。まわりの空気が水銀を押し上げる力（気圧）とつり合う高さ。1気圧＝760mmHg＝1013hPa。",
+  "block.semiconductor-lab.mercury_barometer.note4": "1643年にトリチェリが作り、1648年にパスカルの義兄ペリエが山の上では水銀柱が低いことを確かめた。天気予報の hPa（ヘクトパスカル）はパスカルの名前。水銀の蒸気は毒なので、今は使われなくなった。",
+  "block.semiconductor-lab.mercury_barometer.placeholder": "省略：⚠️ 天気・温度での変化は表さない。高さの換算（約 8400 ブロックで 1/e）はゲームの近似。",
+  "block.semiconductor-lab.mercury_barometer.reading": "水銀柱 %s mmHg（%s hPa）  高さ Y=%s"
 }

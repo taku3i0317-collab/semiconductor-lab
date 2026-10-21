@@ -402,6 +402,15 @@ public class VacuumTests extends LabTestBase {
     }
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
+    /** [5-03] 水銀柱（IMP4-01、S-009）：海面 Y63 で 760mmHg、高いほど低い、レシピ */
+    @GameTest
+    public void mercuryBarometer(GameTestHelper h) {
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.MercuryBarometerBlock.mmHg(63) - 760) < 1e-9, "sea level 760 mmHg");
+        h.assertTrue(com.taku3.semiconductorlab.block.MercuryBarometerBlock.mmHg(200) < com.taku3.semiconductorlab.block.MercuryBarometerBlock.mmHg(63), "higher -> lower column");
+        h.assertTrue(recipeUses(h, "mercury_barometer", Metallurgy.MERCURY), "made with mercury");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Vacuum.SEALING_STATION.block, "真空管の封止", L(io(Vacuum.VACUUM_TUBE_ASSEMBLY, 1), kept(cond(io("隣の真空容器", 1), SealingStationBlockEntity.SEAL_MAX_PA + " Pa 以下"))),
             L(io(Vacuum.VACUUM_TUBE, 1)), SealingStationBlockEntity.WATTS, SealingStationBlockEntity.TICKS / 20.0, "封じるたびに容器へ空気がもどる");

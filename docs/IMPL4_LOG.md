@@ -183,3 +183,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ S-009 [1-36] 単体ホウ素（混ぜ物 → 溶鉱炉 → 塩酸）。GameTest elemental_boron、REFERENCES F50
 - ✅ S-009 [9-05] 点接触ダイオード（作業台）。GameTest point_contact_diode、REFERENCES F51
 - ✅ S-009 [4-16] アーク灯（block/ArcLampBlockEntity、450W・明るさ15・黒鉛が減る）。GameTest arc_lamp、REFERENCES F52
+- ✅ S-009 [5-03] 水銀柱の気圧計（block/MercuryBarometerBlock、右クリックで高さの気圧）。GameTest mercury_barometer、REFERENCES F53

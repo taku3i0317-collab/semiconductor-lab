@@ -39,6 +39,8 @@ public final class Vacuum {
     // ===== ブロック =====
     // 真空容器 [5-11]（ガラスのベルジャー＋鉄の台板）。中の圧力を持つ
     // 手押しピストンポンプ [5-01]（ゲーリケ 1650頃）。隣の真空容器を右クリックで排気
+    // [5-03] 水銀柱の気圧計（IMP4-01、S-009）：右クリックでその高さの気圧（mmHg・hPa）
+    public static final Block MERCURY_BAROMETER = Reg.functional("mercury_barometer", MercuryBarometerBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.8f).sound(SoundType.GLASS).noOcclusion());
     public static final Block HAND_VACUUM_PUMP = Reg.functional("hand_vacuum_pump", HandVacuumPumpBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.0f).sound(SoundType.METAL));
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
