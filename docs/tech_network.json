@@ -36133,7 +36133,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O88. ラジオは最初、家具のように大きかった（真空管ラジオ）［15-09］",
+     "answer": "三極真空管は電波の小さな信号を何倍にも大きくできたので、スピーカーを鳴らすラジオができた。1920年、アメリカ・ピッツバーグの KDKA が定時のラジオ放送を始め、1925年には日本でも放送が始まった。真空管はヒーターで陰極を赤く熱して電子を出すので、温まるまで時間がかかり、電気をたくさん使った。トランジスタは熱しなくてよいので、のちのラジオは小さく、電池で長く聞けるようになった。",
+     "hee": {
+      "1": "ラジオは最初、家具のように大きかった。",
+      "2": "真空管ラジオは、つけてから音が出るまで少し待つ（ヒーターが温まるまで）。",
+      "3": "真空管は電球のように光って熱くなる。",
+      "4": "トランジスタラジオは、同じ電池で何十倍も長く聞ける。"
+     },
+     "certainty": "1920 KDKA ◎／1925 日本の放送 ◎／40W の消費電力 △（代表値）",
+     "basis": "- Wikipedia「KDKA (AM)」：https://en.wikipedia.org/wiki/KDKA_(AM)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -36143,7 +36156,7 @@
    "name": "真空管ラジオ",
    "trunk": "15",
    "trunk_name": "通信・情報",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1920,
    "year_range": null,
@@ -36161,12 +36174,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ラジオは最初、家具のように大きかった",
    "name_en": "Vacuum tube radio",
    "hee1_en": "At first, radios were as big as furniture.",
    "kind": "product",
-   "play": "",
+   "play": "作品（聞くと電気を使う）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -36844,7 +36857,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "スピーカーは、磁石と電線のコイルで紙をふるわせて音を作る（モーターの親せき）（S-003 で追加。出典：Wikipedia「Loudspeaker」、Britannica「Loudspeaker」、Trans. AIEE（1925））",
    "name_en": "Loudspeaker",
    "hee1_en": "A loudspeaker makes sound by shaking paper with a magnet and a coil of wire (a cousin of the motor) (added in S-003. Sources: Wikipedia \"Loudspeaker\", Britannica \"Loudspeaker\", Trans. AIEE (1925))",
