@@ -113,3 +113,9 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   3＝[9-30] エピタキシー・窒化膜を先に進める（A に ChipOps 側を相談中）
 - ✅ [9-30] エピタキシャル炉（block/EpitaxyReactorBlockEntity、10kW、データ部品 epi（A、"n"／"p"。塗るとき substrate＝エピ層の型）、酸化炉で受け継ぐ）。GameTest epitaxy_reactor、CHEMISTRY F60、REFERENCES F35。ChipState への反映（基板の型）は A に相談中
 - ✅ [9-30] エピは A の部品 EPI（"n"/"p"、d5814a71）に合わせた（自分の EPI_LAYER は消した）。窒化膜：CVD 炉に NH3 → ChipOps.passivate。CHEMISTRY F61、REFERENCES F36。[9-30] ✅
+- O-014 開始：[9-37] FinFET は「案と REFERENCES まで、作らない」。前提の状態：[9-24] CMOS ✅（A）・[9-27] ✅・[9-30] ✅・[7-16] 液浸 ✅、**[1-70] ハフニウム（high-k）は ❓**（FinFET の量産は high-k＋金属ゲートと組。作るときは [1-70] が先か、SiO2 ゲートで近似の「仮」か、も選ぶ）
+- **FinFET の案（A に相談、ユーザーに Discord で質問）**：
+  - 案A（判定に入れる・おすすめ候補）：細い方眼（例：ARF_IMMERSION 104 以上＝CD 約40nm 以下）の平らな MOS は、ゲートの下を電流が漏れる（短チャネル効果）＝ A の Circuit の漏れ道（今は汚れだけ）にゲートの漏れを足す → NOT などのお題が不合格・歩留まりが下がる。FinFET の工程（FIN の層：ドライエッチングで細い板を立てる。液のエッチングは断る → 酸化膜でうめて CMP → 少し削って頭を出す → ゲートが3方向から囲む）で漏れが消える。手間：A＝LayerKind FIN・ChipModel・Circuit、E＝フィンの工程（既存のドライエッチング・CVD・CMP の分岐）
+  - 案B（記録だけ）：FIN の層と ChipState の印だけ足し、判定は変えない（スパッタ・CMP と同じ形）。手軽だが「漏れが減る」体験はない
+  - 案C（後回し）：v1.0 の GAA（[9-38]）と一緒に設計する
+  - 本物：1999 カリフォルニア大学バークレー校のチームが発表（米国の研究資金）、2011 インテルが 22nm で量産（トライゲート）、2015〜 TSMC・サムスンも。REFERENCES F37
