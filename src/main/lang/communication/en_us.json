@@ -68,5 +68,22 @@
   "item.semiconductor-lab.telephone.linked": "📞 The two phones are on one line. Chat while holding one and the holder of the other hears you",
   "item.semiconductor-lab.telephone.unlinked": "Not connected yet. Hold two phones and right-click to link them",
   "item.semiconductor-lab.telephone.hint": "Chat while holding the phone to reach phones on the same line",
-  "item.semiconductor-lab.telephone.voice": "📞 %s: %s"
+  "item.semiconductor-lab.telephone.voice": "📞 %s: %s",
+  "item.semiconductor-lab.tin_foil_cylinder": "Tin-Foil Cylinder",
+  "item.semiconductor-lab.tin_foil_cylinder.note1": "A cylinder wrapped in thin tin foil. The phonograph cuts sound into it.",
+  "item.semiconductor-lab.tin_foil_cylinder.note2": "Tin + bronze -> 4. Hold it with a phonograph and chat to record.",
+  "item.semiconductor-lab.tin_foil_cylinder.note3": "Edison's first phonograph recorded on a hand-cranked cylinder wrapped in tin foil.",
+  "item.semiconductor-lab.tin_foil_cylinder.note4": "Tin foil was soft and the groove flattened after a few plays. Wax cylinders (1886) and discs (Berliner, 1887) followed.",
+  "item.semiconductor-lab.phonograph": "Phonograph",
+  "item.semiconductor-lab.phonograph.note1": "A machine that cuts a voice into a groove and later turns it back into a voice.",
+  "item.semiconductor-lab.phonograph.note2": "Standard screw (feeds the needle) + iron (needle) + 2 copper (horn) + planks. With a blank tin-foil cylinder in the other hand, chat to record; holding a recorded cylinder, right-click to play. It fades after 3 plays.",
+  "item.semiconductor-lab.phonograph.note3": "Invented by Edison in 1877; the first words recorded are said to be 'Mary had a little lamb'.",
+  "item.semiconductor-lab.phonograph.note4": "The voice shakes a diaphragm whose needle cuts a groove of varying depth in the turning cylinder. On playback the groove shakes the needle and the horn makes it louder. No electricity is used.",
+  "item.semiconductor-lab.phonograph.placeholder": "Approximation: chat text is recorded instead of a voice, up to 80 characters.",
+  "item.semiconductor-lab.phonograph.recorded": "🎙 Cut a groove into the tin foil: recorded",
+  "item.semiconductor-lab.phonograph.hint": "Use it with a tin-foil cylinder in the other hand",
+  "item.semiconductor-lab.phonograph.blank": "Nothing recorded yet. Chat while holding both to record",
+  "item.semiconductor-lab.phonograph.play": "🎵 (scratch...) \"%s\" (play %s/%s)",
+  "item.semiconductor-lab.phonograph.play_faint": "🎵 (faintly...) \"%s\" (play %s/%s, the groove is flattening)",
+  "item.semiconductor-lab.phonograph.worn": "The groove is flattened and no longer plays (tin foil lasts a few plays)"
 }

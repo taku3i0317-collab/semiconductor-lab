@@ -837,6 +837,8 @@ sulfite_liquor  # Communication [15-01] 105
 pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105
 telephone  # Communication [15-04] 1876
+tin_foil_cylinder  # Communication [15-05] 1877
+phonograph  # Communication [15-05] 1877
 tube_radio  # Communication [15-09] 1920
 transistor_radio  # Communication [15-10] 1954
 touch_panel  # Communication [15-18] 1965

@@ -2642,6 +2642,18 @@
 根拠：
 - Wikipedia「Watch」「Balance spring」「Lever escapement」「Jewel bearing」「Automatic watch」「Radium Girls」：https://en.wikipedia.org/wiki/Watch ・ https://en.wikipedia.org/wiki/Balance_spring ・ https://en.wikipedia.org/wiki/Lever_escapement ・ https://en.wikipedia.org/wiki/Jewel_bearing ・ https://en.wikipedia.org/wiki/Automatic_watch ・ https://en.wikipedia.org/wiki/Radium_Girls
 
+## O91. 最初に録音された言葉（蓄音機）［15-05］
+**答え**：1877年、エジソンは声で振動板をふるわせ、その針で錫はくを巻いた円筒に溝を刻む蓄音機を作った。溝を針でなぞると、ラッパから声が戻ってきた。最初に録音したのは「メリーさんのひつじ」だったとされる。錫はくは柔らかく数回で溝がつぶれたので、のちにろうの円筒（1886）や、ベルリナーの円盤レコード（1887）になった。
+
+- へえ①：最初に録音された言葉は「メリーさんのひつじ」。
+- へえ②：電気を使わずに、音を記録して再生できた。
+- へえ③：錫はくの録音は、数回聞くとつぶれて消えた。
+- へえ④：レコードの溝は、音の波の形そのもの。
+
+確かさ：エジソン 1877 ◎／「メリーさんのひつじ」○（本人の再現録音より）／ろう管 1886・ベルリナー 1887 ◎
+根拠：
+- Wikipedia「Phonograph」：https://en.wikipedia.org/wiki/Phonograph
+
 ---
 
 # 冶金と熱（タスク15〜）

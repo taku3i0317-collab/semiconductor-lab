@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tin_ingot",
+    "semiconductor-lab:bronze_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:tin_foil_cylinder",
+    "count": 4
+  }
+}

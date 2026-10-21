@@ -81,6 +81,22 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class CommunicationTests extends LabTestBase {
+    /** [15-05] 蓄音機（IMP2 S-010）：錫はくの筒に録音した文を再生できる。3回でつぶれて聞こえなくなる */
+    @GameTest
+    public void phonograph(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "tin_foil_cylinder", com.taku3.semiconductorlab.content.Metallurgy.TIN_INGOT) && recipeUses(h, "phonograph", com.taku3.semiconductorlab.content.Precision.STANDARD_SCREW), "tin foil + feed screw");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack foil = new ItemStack(com.taku3.semiconductorlab.content.Communication.TIN_FOIL_CYLINDER);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new ItemStack(com.taku3.semiconductorlab.content.Communication.PHONOGRAPH));
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, foil);
+        com.taku3.semiconductorlab.item.PhonographItem.record(foil, "Mary had a little lamb");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.PhonographItem.recording(foil), "Mary had a little lamb", "recorded on tin foil");
+        for (int i = 0; i < com.taku3.semiconductorlab.item.PhonographItem.PLAYS + 1; i++) com.taku3.semiconductorlab.content.Communication.PHONOGRAPH.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.PhonographItem.played(foil), com.taku3.semiconductorlab.item.PhonographItem.PLAYS, "the foil wears out after " + com.taku3.semiconductorlab.item.PhonographItem.PLAYS + " plays");
+        LOG.info("[LAB] phonograph [15-05]: tin foil records a line and plays " + com.taku3.semiconductorlab.item.PhonographItem.PLAYS + " times before the groove is flattened");
+        h.succeed();
+    }
+
     /** [15-04] 電話（IMP2 S-010）：両手の2台を結ぶと同じ回線。回線のない電話・別の回線には届かない */
     @GameTest
     public void telephone(GameTestHelper h) {

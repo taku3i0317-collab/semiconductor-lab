@@ -30,6 +30,9 @@ public final class Communication {
     public static final Item TOUCH_PANEL           = Reg.item("touch_panel", com.taku3.semiconductorlab.item.TouchPanelItem::new, new Item.Properties().stacksTo(1));
     public static final Item TRANSISTOR_RADIO      = Reg.item("transistor_radio", new Item.Properties().stacksTo(1));
     // [15-04] 電話（IMP2 S-010、1876）：電磁石（受話器）＋木炭の粒（炭素マイク）＋鉄（振動板）＋銅線。2台を両手で結び、持ってチャットすると同じ回線の電話に届く
+    // [15-05] 蓄音機（IMP2 S-010、1877 エジソン）：錫はくを巻いた筒に針で溝を刻んで録音・再生。錫はくは3回ほどで聞こえなくなる
+    public static final Item TIN_FOIL_CYLINDER     = Reg.item("tin_foil_cylinder", new Item.Properties().stacksTo(1));
+    public static final Item PHONOGRAPH            = Reg.item("phonograph", p -> new com.taku3.semiconductorlab.item.PhonographItem(p, () -> TIN_FOIL_CYLINDER), new Item.Properties().stacksTo(1));
     public static final Item TELEPHONE             = Reg.item("telephone", com.taku3.semiconductorlab.item.TelephoneItem::new, new Item.Properties().stacksTo(1));
     // [15-09] 真空管ラジオ（IMP2 S-010、1920）：三極真空管3（増幅）＋同調コイル・コンデンサ＋スピーカー＋木の箱。右クリックで聞くと鉛蓄電池から 40W×10秒（ヒーター）
     public static final Item TUBE_RADIO            = Reg.item("tube_radio", com.taku3.semiconductorlab.item.TubeRadioItem::new, new Item.Properties().stacksTo(1));
@@ -49,7 +52,10 @@ public final class Communication {
     static void init() {
         // [15-04] 電話を手に持って話すと、同じ回線の電話を持つ人に届く（IMP2 S-010）
         net.fabricmc.fabric.api.message.v1.ServerMessageEvents.CHAT_MESSAGE.register((msg, sender, params) ->
-                com.taku3.semiconductorlab.item.TelephoneItem.relay(msg.signedContent(), sender));
+                {
+                    com.taku3.semiconductorlab.item.TelephoneItem.relay(msg.signedContent(), sender);
+                    com.taku3.semiconductorlab.item.PhonographItem.onChat(msg.signedContent(), sender);   // [15-05] 蓄音機の録音
+                });
         // [15-01] 亜硫酸法の蒸解は圧力釜で煮る（加圧加熱釜の表に1行、IMP3）。圧力が足りないとリグニンが溶けず、仕込みがそのまま戻る
         AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("wood_pulp", st -> st.is(PULP_CHARGE), 1,
                 () -> new net.minecraft.world.item.ItemStack(WOOD_PULP, 2), () -> new net.minecraft.world.item.ItemStack(PULP_CHARGE), 130, 3, 20 * 30));

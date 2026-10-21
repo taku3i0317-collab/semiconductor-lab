@@ -248,3 +248,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ S-010 3. [15-09] 真空管ラジオ：tube_radio（組立台、item/TubeRadioItem：聞くたびに鉛蓄電池から 400J）。GameTest tube_radio、CHEMISTRY CO1、REFERENCES O88
 - ✅ S-010 4. [15-04] 電話：telephone（item/TelephoneItem、両手で結ぶ、持ってチャット → ServerMessageEvents.CHAT_MESSAGE で同じ回線へ）。GameTest telephone、CHEMISTRY CO2、REFERENCES O89
 - ✅ S-011 機械式腕時計：ノード [8-43] 輪列・[8-44] ぜんまい・[8-45] てんぷとひげぜんまい・[8-46] レバー脱進機・[8-47] 宝石の軸受・[8-48] 自動巻き を TECH_TREE に足して実装（番号は B に相談中、仮）。製品 [P-38] 機械式腕時計（組立台、item/MechanicalWatchItem：巻く・チクタク・2日で止まる・±10秒/日、ChronometerItem を継承）、自動巻きの腕時計。ラジウム・ガールズは note4・REFERENCES に教訓として（作り方は入れない）。エリンバー・振り子時計・知恵のノード（ガリレオ・フック）は B に頼んだ。GameTest mechanical_watch、CHEMISTRY P25、REFERENCES O90
+- ✅ S-010 5. [15-05] 蓄音機：tin_foil_cylinder・phonograph（item/PhonographItem、チャットで録音・右クリックで再生・3回で消える）。GameTest phonograph、CHEMISTRY CO3、REFERENCES O91
