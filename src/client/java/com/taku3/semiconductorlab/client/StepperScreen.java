@@ -23,7 +23,7 @@ public class StepperScreen extends MachineScreen {
         super.init();
         addRenderableWidget(Button.builder(Component.translatable(K + "step"), b -> {
             if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, StepperBlockEntity.BTN_STEP);
-        }).bounds(leftPos + 8, topPos + 60, 66, 14).build());
+        }).bounds(leftPos + 8, topPos + 84, 66, 14).build());
     }
 
     @Override
@@ -38,6 +38,9 @@ public class StepperScreen extends MachineScreen {
             case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
             case "steps" -> Component.translatable(K + "steps", menu.get(StepperBlockEntity.DATA_STEPS), StepperBlockEntity.STEPS);
             case "cd" -> Component.translatable(K + "cd", String.format("%.2f", menu.get(StepperBlockEntity.DATA_CD) / 1000.0));
+            // v0.4 #5：k1 の引き算（土台 0.60 − 工夫 ＝ 使う k1）
+            case "k1" -> Component.translatable(K + "k1", String.format("%.2f", (menu.get(StepperBlockEntity.DATA_K1) + menu.get(StepperBlockEntity.DATA_TRICKS)) / 100.0),
+                    String.format("%.2f", menu.get(StepperBlockEntity.DATA_TRICKS) / 100.0), String.format("%.2f", menu.get(StepperBlockEntity.DATA_K1) / 100.0));
             case "overlay" -> Component.translatable(A + "overlay", String.format("%.1f", menu.get(StepperBlockEntity.DATA_OVERLAY) / 1000.0));
             case "room" -> Component.translatable(A + switch (menu.get(StepperBlockEntity.DATA_ROOM)) { case 2 -> "room_100"; case 1 -> "room_1000"; default -> "room_none"; });
             case "hint" -> {

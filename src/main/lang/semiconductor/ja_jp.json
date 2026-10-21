@@ -734,5 +734,6 @@
   "gui.semiconductor-lab.bake_plate.already": "もう加熱した",
   "gui.semiconductor-lab.bake_plate.need_power": "電気が足りない",
   "gui.semiconductor-lab.bake_plate.running": "酸を働かせている",
-  "gui.semiconductor-lab.bake_plate.recipe": "露光 → 加熱 → 現像"
+  "gui.semiconductor-lab.bake_plate.recipe": "露光 → 加熱 → 現像",
+  "gui.semiconductor-lab.stepper.k1": "k1 %s-%s=%s"
 }

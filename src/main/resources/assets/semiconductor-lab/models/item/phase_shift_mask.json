@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "semiconductor-lab:item/phase_shift_mask"
+  }
+}

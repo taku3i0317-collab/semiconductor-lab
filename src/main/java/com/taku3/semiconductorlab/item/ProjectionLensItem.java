@@ -60,15 +60,29 @@ public class ProjectionLensItem extends Item {
     /** 解像度 CD（nm）＝ k1·λ/NA */
     public static int cdNm(ItemStack s) { return cdNm(s, 1.0); }
 
+    public static int cdNm(ItemStack s, double aberration) { return cdNm(s, aberration, 0); }
+
+    /** k1 を下げる工夫の合計 tricks（変形照明・位相シフトマスク、v0.4 #5）を引いた k1 の土台（下限 0.25）。収差の分はその上に足す */
+    public static double designK1(ItemStack s, double tricks) {
+        double base = s.getItem() instanceof ProjectionLensItem p ? p.k1Base : 0.6;
+        return Math.max(com.taku3.semiconductorlab.content.Optics.K1_FLOOR, base - tricks);
+    }
+
     /** スキャナー [9-39] 段階2：細いスリットの部分だけを使うと、収差が aberration 倍に減る（レンズ全体を使うステッパーは 1） */
-    public static int cdNm(ItemStack s, double aberration) {
+    public static int cdNm(ItemStack s, double aberration, double tricks) {
         ProjectionLensItem l = s.getItem() instanceof ProjectionLensItem p ? p : null;
-        double lambda = l == null ? LAMBDA_NM : l.tool.wavelengthNm, na = l == null ? NA : l.na, base = l == null ? 0.6 : l.k1Base;
-        return (int) Math.round((base + 2 * wavefrontWaves(s) * aberration) * lambda / na);
+        double lambda = l == null ? LAMBDA_NM : l.tool.wavelengthNm, na = l == null ? NA : l.na;
+        return (int) Math.round((designK1(s, tricks) + 2 * wavefrontWaves(s) * aberration) * lambda / na);
     }
 
     /** このレンズの露光の方法の CD（g線なら 1µm、i線なら 0.35µm）に届くか */
     public static boolean meetsTool(ItemStack s) { ExposureTool t = toolOf(s); return t != null && cdNm(s) <= t.cdNm; }
+
+    /** v0.4 #5：k1 を下げる工夫（四重極の絞り＋位相シフトマスク）を全部使えば届くか */
+    public static boolean meetsToolWithTricks(ItemStack s) { ExposureTool t = toolOf(s); return t != null && cdNm(s, 1, MAX_TRICKS) <= t.cdNm; }
+
+    /** いちばん強い工夫の組み合わせ（四重極の絞り＋位相シフトマスク） */
+    public static final double MAX_TRICKS = com.taku3.semiconductorlab.content.Optics.QUADRUPOLE_K1 + com.taku3.semiconductorlab.content.Optics.PHASE_SHIFT_K1;
 
     /** g線ステッパーの CD に届くか（g線のレンズ） */
     public static boolean meetsStepperG(ItemStack s) { return toolOf(s) == ExposureTool.STEPPER_G && meetsTool(s); }

@@ -209,6 +209,25 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v0.4 #5 k1 を下げる工夫（IMP2 O-027）：輪帯 −0.10・四重極 −0.15・位相シフトマスク −0.15、下限 0.25。位相シフトマスクはクロムマスクをフッ酸で削る */
+    @GameTest
+    public void k1_tricks(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "phase_shift_mask", Chemistry.HYDROFLUORIC_ACID) && recipeUses(h, "phase_shift_mask", Optics.CHROME_PHOTOMASK), "phase-shift mask = chrome mask etched with HF");
+        ItemStack none = ItemStack.EMPTY, ring = new ItemStack(Optics.ANNULAR_APERTURE), quad = new ItemStack(Optics.QUADRUPOLE_APERTURE), psm = new ItemStack(Optics.PHASE_SHIFT_MASK), cr = new ItemStack(Optics.CHROME_PHOTOMASK);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.block.StepperBlockEntity.tricks(none, cr)) < 1e-9 && Math.abs(com.taku3.semiconductorlab.block.StepperBlockEntity.tricks(ring, cr) - 0.10) < 1e-9 && Math.abs(com.taku3.semiconductorlab.block.StepperBlockEntity.tricks(quad, psm) - 0.30) < 1e-9, "tricks add up");
+        ItemStack lens = new ItemStack(Optics.PROJECTION_LENS_KRF);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.ProjectionLensItem.designK1(lens, 0) - 0.6) < 1e-9 && Math.abs(com.taku3.semiconductorlab.item.ProjectionLensItem.designK1(lens, 0.30) - 0.30) < 1e-9 && Math.abs(com.taku3.semiconductorlab.item.ProjectionLensItem.designK1(lens, 0.5) - Optics.K1_FLOOR) < 1e-9, "k1 0.6 -> 0.30, floor 0.25");
+        h.assertTrue(com.taku3.semiconductorlab.block.MaskAlignerBlockEntity.isMask(withMask(psm)), "the phase-shift mask is a mask");
+        LOG.info("[LAB] k1 tricks [v0.4 #5]: annular -0.10, quadrupole -0.15, phase shift -0.15, floor 0.25 (all lenses start at 0.6)");
+        h.succeed();
+    }
+
+    private static ItemStack withMask(ItemStack s) {
+        int g = com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid;
+        s.set(ModDataComponents.MASK, new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(g), "psm_test", 0));
+        return s;
+    }
+
     /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
     @GameTest
     public void silvering(GameTestHelper h) {

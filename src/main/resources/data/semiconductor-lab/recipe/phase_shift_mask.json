@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:chrome_photomask",
+  "material": "semiconductor-lab:hydrofluoric_acid",
+  "result": {
+    "id": "semiconductor-lab:phase_shift_mask"
+  }
+}

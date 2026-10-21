@@ -560,6 +560,9 @@ projection_lens_krf  # Optics [7-20] 1975
 projection_lens  # Optics [7-19] 1978
 projection_lens_i  # Optics [9-39] 1978
 i_line_filter  # Optics [9-39] 1978
+annular_aperture  # Optics [9-39] 1978
+quadrupole_aperture  # Optics [9-39] 1978
+phase_shift_mask  # Optics [9-39] 1978
 mo_si_target  # Optics [7-17] 1985
 multilayer_mirror  # Optics [7-17] 1985
 projection_lens_immersion  # Optics [7-16] 2006

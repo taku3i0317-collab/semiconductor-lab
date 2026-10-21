@@ -20,7 +20,7 @@ public class ScannerBlockEntity extends StepperBlockEntity {
     /** ⚠️ ゲームの値：スリットの帯だけを使うと、収差の効きが半分 */
     public static final double SLIT_ABERRATION = 0.5;
     public static final int REDUCTION = 4;
-    public static final int SLOT_MASK_STAGE = 7, SCANNER_SLOT_COUNT = 8;
+    public static final int SLOT_MASK_STAGE = 8, SCANNER_SLOT_COUNT = 9;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA).height(206)
             .in(SLOT_WAFER, 8, 17, s -> s.is(Semiconductor.PROCESS_WAFER), 1)
@@ -31,7 +31,8 @@ public class ScannerBlockEntity extends StepperBlockEntity {
             .in(SLOT_FILTER, 78, 17, s -> s.is(Optics.I_LINE_FILTER) || s.is(Optics.KRF_LASER) || s.is(Optics.ARF_LASER), 1)
             .in(SLOT_WATER, 78, 39, s -> s.is(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER))
             .in(SLOT_MASK_STAGE, 78, 61, LatheBlockEntity::isMasterScrew, 1)
-            .area("step_button", 8, 60, 66, 14)
+            .in(SLOT_APERTURE, 54, 61, StepperBlockEntity::isAperture, 1)
+            .area("step_button", 8, 84, 66, 14)
             .right("power", 17, 1, "gui.semiconductor-lab.stepper.power").samples("1.5 kW")
             .right("steps", 28, 1, "gui.semiconductor-lab.stepper.steps").samples("4", "4")
             .right("cd", 39, 1, "gui.semiconductor-lab.stepper.cd").samples("0.85")
@@ -39,13 +40,14 @@ public class ScannerBlockEntity extends StepperBlockEntity {
             .right("room", 61, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
             .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water",
                     "need_mask_stage", "blurred", "cannot", "output_full", "press", "need_power", "running"))
+            .text("k1", 8, 100, 88, 1, "gui.semiconductor-lab.stepper.k1").samples("0.60", "0.30", "0.30")
             .build();
 
     public ScannerBlockEntity(BlockPos pos, BlockState state) { super(Semiconductor.SCANNER.type, pos, state, SCANNER_SLOT_COUNT); }
 
     @Override public int lensCd() {
         ItemStack lens = container.getItem(SLOT_LENS);
-        return lensOk(lens) ? ProjectionLensItem.cdNm(lens, SLIT_ABERRATION) : 0;
+        return lensOk(lens) ? ProjectionLensItem.cdNm(lens, SLIT_ABERRATION, tricks()) : 0;
     }
 
     @Override protected boolean stagesReady() { return LatheBlockEntity.isMasterScrew(container.getItem(SLOT_MASK_STAGE)); }

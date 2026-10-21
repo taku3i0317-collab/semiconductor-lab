@@ -2033,11 +2033,13 @@ public class SemiconductorTests extends LabTestBase {
                 && recipeUses(h, "krf_laser", com.taku3.semiconductorlab.content.Gas.NEON_CYLINDER), "KrF laser gas = Kr + F2 diluted in Ne");
         ItemStack good = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_KRF), rough = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_KRF);
         good.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
-        rough.set(Precision.LENS_DECENTER, java.util.List.of(10, 10, 10, 10));
-        h.assertTrue(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsTool(good) && !com.taku3.semiconductorlab.item.ProjectionLensItem.meetsTool(rough), "KrF lens: " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm ok, " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(rough) + " nm too blurred (130 target)");
+        rough.set(Precision.LENS_DECENTER, java.util.List.of(20, 20, 20, 20));
+        // O-027：KrF のレンズの k1 は 0.6（工夫なし）。四重極の絞り＋位相シフトマスクで 0.3 まで下げると 130nm に届く
+        h.assertFalse(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsTool(good), "KrF lens alone (k1 0.6) is too coarse: " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm");
+        h.assertTrue(com.taku3.semiconductorlab.item.ProjectionLensItem.meetsToolWithTricks(good) && !com.taku3.semiconductorlab.item.ProjectionLensItem.meetsToolWithTricks(rough), "KrF lens with both tricks: " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm ok, " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(rough) + " nm too blurred (130 target)");
         int g = com.taku3.semiconductorlab.litho.ExposureTool.KRF.grid;
         var fine = new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(g), "krf_test", 0);
-        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.PHASE_SHIFT_MASK);
         mask.set(ModDataComponents.MASK, fine);
         BlockPos at = p(1, 1, 1);
         h.setBlock(at, Semiconductor.STEPPER.block);
@@ -2047,6 +2049,8 @@ public class SemiconductorTests extends LabTestBase {
         be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK, mask);
         be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, good);
         be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Optics.KRF_LASER));
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "without the aperture k1 0.45 is not enough for grid " + g);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_APERTURE, new ItemStack(com.taku3.semiconductorlab.content.Optics.QUADRUPOLE_APERTURE));
         long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.StepperBlockEntity.WATTS);
         for (int k = 1; k <= com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS; k++) {
             h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "KrF step " + k);
@@ -2057,7 +2061,7 @@ public class SemiconductorTests extends LabTestBase {
         h.assertValueEqual(be.getContainer().getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER).getDamageValue(), com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS, "one gas shot per chip");
         h.assertTrue(com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.block.StepperBlockEntity.cdOf(good))
                 > com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.block.StepperBlockEntity.cdOf(rough)), "a better-centred lens prints finer masks (S-010)");
-        LOG.info("[LAB] stepper KrF [7-20]: laser + quartz lens NA 0.8 k1 0.35 -> CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm, grid " + g + "; gas used " + com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS + "/" + com.taku3.semiconductorlab.content.Optics.KRF_LASER_SHOTS);
+        LOG.info("[LAB] stepper KrF [7-20]: laser + quartz lens NA 0.8, k1 0.6 - quadrupole 0.15 - phase shift 0.15; lens alone CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(good) + " nm, grid " + g + "; gas used " + com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS + "/" + com.taku3.semiconductorlab.content.Optics.KRF_LASER_SHOTS);
         h.succeed();
     }
 

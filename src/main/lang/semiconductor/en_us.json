@@ -734,5 +734,6 @@
   "gui.semiconductor-lab.bake_plate.already": "Already baked",
   "gui.semiconductor-lab.bake_plate.need_power": "Not enough power",
   "gui.semiconductor-lab.bake_plate.running": "Activating the acid",
-  "gui.semiconductor-lab.bake_plate.recipe": "Expose → bake → develop"
+  "gui.semiconductor-lab.bake_plate.recipe": "Expose → bake → develop",
+  "gui.semiconductor-lab.stepper.k1": "k1 %s-%s=%s"
 }

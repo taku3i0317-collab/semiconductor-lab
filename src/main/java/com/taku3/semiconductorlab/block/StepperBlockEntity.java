@@ -35,8 +35,8 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     public static final ExposureTool TOOL_KRF = ExposureTool.KRF;
     /** [7-20] ArF（193nm）。[7-16] 液浸のレンズなら ARF_IMMERSION（レンズとウェハーの間に超純水、1チップで1本） */
     public static final ExposureTool TOOL_ARF = ExposureTool.ARF, TOOL_IMMERSION = ExposureTool.ARF_IMMERSION;
-    public static final int SLOT_WAFER = 0, SLOT_MASK = 1, SLOT_LENS = 2, SLOT_STAGE = 3, SLOT_OUT = 4, SLOT_FILTER = 5, SLOT_WATER = 6, SLOT_COUNT = 7;
-    public static final int DATA_STEPS = DATA_COUNT, DATA_CD = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, EXTRA_DATA = 4;
+    public static final int SLOT_WAFER = 0, SLOT_MASK = 1, SLOT_LENS = 2, SLOT_STAGE = 3, SLOT_OUT = 4, SLOT_FILTER = 5, SLOT_WATER = 6, SLOT_APERTURE = 7, SLOT_COUNT = 8;
+    public static final int DATA_STEPS = DATA_COUNT, DATA_CD = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, DATA_K1 = DATA_COUNT + 4, DATA_TRICKS = DATA_COUNT + 5, EXTRA_DATA = 6;
     public static final int BTN_STEP = 0;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA).height(206)
@@ -47,7 +47,8 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             .out(SLOT_OUT, 54, 28)
             .in(SLOT_FILTER, 78, 17, s -> s.is(Optics.I_LINE_FILTER) || s.is(Optics.KRF_LASER) || s.is(Optics.ARF_LASER), 1)
             .in(SLOT_WATER, 78, 39, s -> s.is(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER))
-            .area("step_button", 8, 60, 66, 14)
+            .in(SLOT_APERTURE, 54, 61, StepperBlockEntity::isAperture, 1)
+            .area("step_button", 8, 84, 66, 14)
             .right("power", 17, 1, "gui.semiconductor-lab.stepper.power").samples("1.5 kW")
             .right("steps", 28, 1, "gui.semiconductor-lab.stepper.steps").samples("4", "4")
             .right("cd", 39, 1, "gui.semiconductor-lab.stepper.cd").samples("0.85")
@@ -55,6 +56,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             .right("room", 61, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
             .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water", "blurred", "cannot",
                     "output_full", "press", "need_power", "running"))
+            .text("k1", 8, 100, 88, 1, "gui.semiconductor-lab.stepper.k1").samples("0.60", "0.30", "0.30")
             .build();
 
     /** 焼き終わったチップの数と、今焼いている途中か */
@@ -63,13 +65,24 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
 
     public StepperBlockEntity(BlockPos pos, BlockState state) { this(Semiconductor.STEPPER.type, pos, state, SLOT_COUNT); }
 
+    /** v0.4 #5 変形照明の絞り（IMP2 O-027） */
+    public static boolean isAperture(ItemStack s) { return s.is(Optics.ANNULAR_APERTURE) || s.is(Optics.QUADRUPOLE_APERTURE); }
+
+    /** k1 を下げる工夫の合計：照明の絞り（輪帯 0.10・四重極 0.15）＋位相シフトマスク 0.15 */
+    public static double tricks(ItemStack aperture, ItemStack mask) {
+        double t = aperture.is(Optics.QUADRUPOLE_APERTURE) ? Optics.QUADRUPOLE_K1 : aperture.is(Optics.ANNULAR_APERTURE) ? Optics.ANNULAR_K1 : 0;
+        return t + (mask.is(Optics.PHASE_SHIFT_MASK) ? Optics.PHASE_SHIFT_K1 : 0);
+    }
+
+    public double tricks() { return tricks(container.getItem(SLOT_APERTURE), container.getItem(SLOT_MASK)); }
+
     /** スキャナー（ScannerBlockEntity）が入口を足して使う */
     protected StepperBlockEntity(net.minecraft.world.level.block.entity.BlockEntityType<?> type, BlockPos pos, BlockState state, int slots) {
         super(type, pos, state, slots, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
     /** この機械で使うときのレンズの CD（ステッパーはレンズ全体、スキャナーはスリットだけで小さくなる） */
-    public int lensCd() { return cdOf(container.getItem(SLOT_LENS)); }
+    public int lensCd() { ItemStack l = container.getItem(SLOT_LENS); return lensOk(l) ? ProjectionLensItem.cdNm(l, 1, tricks()) : 0; }
 
     /** 送りの台がそろっているか（スキャナーはマスクの台も要る） */
     protected boolean stagesReady() { return true; }
@@ -132,6 +145,8 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             case DATA_CD -> lensCd();
             case DATA_OVERLAY -> overlayNm();
             case DATA_ROOM -> level == null ? 0 : CleanRoom.classAt(level, worldPosition).ordinal();
+            case DATA_K1 -> (int) Math.round(ProjectionLensItem.designK1(container.getItem(SLOT_LENS), tricks()) * 100);
+            case DATA_TRICKS -> (int) Math.round(tricks() * 100);
             default -> 0;
         };
     }

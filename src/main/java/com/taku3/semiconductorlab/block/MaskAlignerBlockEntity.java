@@ -36,7 +36,7 @@ public class MaskAlignerBlockEntity extends ConsumerBlockEntity {
     public static final int DATA_GAP = DATA_COUNT, DATA_MASK_LEFT = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, EXTRA_DATA = 4;
     public static final int BTN_GAP = 0;
 
-    public static boolean isMask(ItemStack s) { return (s.is(Optics.PHOTOMASK) || s.is(Optics.CHROME_PHOTOMASK)) && s.has(ModDataComponents.MASK); }
+    public static boolean isMask(ItemStack s) { return (s.is(Optics.PHOTOMASK) || s.is(Optics.CHROME_PHOTOMASK) || s.is(Optics.PHASE_SHIFT_MASK)) && s.has(ModDataComponents.MASK); }
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA).height(206)
             .in(SLOT_WAFER, 8, 17, s -> s.is(Semiconductor.PROCESS_WAFER))
