@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ほどける泡 見本</title>
+<!-- S-049 見本（本番には入れていない）：分野の泡（S-048）を、切り替えボタンでなく拡大の度合いで自然に変える（意味で変わる拡大）。
+     泡ごとに、画面の上で中の丸の間が広くなったら泡がほどけて丸が出る → もっと広げると名前 → 線。泡を押すとその泡へ寄ってほどける。
+     ?id=番号（はじめはスマホ B-10）。数は全部データから。くわしい文（へえ）は後から読む -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
+<link rel="stylesheet" href="../design.css">
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: var(--bg); color: var(--ink); overscroll-behavior: none; }
+body { display: flex; flex-direction: column; font-family: "BIZ UDPGothic", sans-serif; }
+header.bar { display: flex; align-items: center; gap: 6px; padding: 8px 10px 2px; }
+header.bar .ttl { flex: 1; min-width: 0; font-family: var(--font-pixel); font-size: clamp(18px, 5vw, 24px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ib { flex: none; min-width: 40px; height: 40px; border: 1px solid var(--accent); border-radius: 10px; background: var(--panel); color: var(--accent); font: inherit; font-weight: 700; font-size: 14px; padding: 0 10px; cursor: pointer; }
+.ib:disabled { opacity: .35; cursor: default; }
+.ib[aria-pressed="true"] { background: var(--accent); color: #fff; }
+.sum { padding: 0 12px; font-size: 14px; color: var(--sub); font-weight: 700; }
+.how { margin: 2px 12px 0; font-size: 12px; color: var(--sub); }
+#wrap { position: relative; flex: 1; min-height: 0; }
+canvas#map { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; cursor: grab; }
+#fit { position: absolute; right: 10px; bottom: 10px; }
+#fit[hidden] { display: none; }
+#sheet { position: fixed; z-index: 20; left: 0; right: 0; bottom: 0; max-height: 64vh; display: flex; flex-direction: column; background: var(--panel); border-top: 1px solid var(--line); border-radius: 16px 16px 0 0; box-shadow: 0 -6px 20px rgba(0,0,0,.08); transition: transform .3s ease; }
+#sheet[hidden] { display: flex; transform: translateY(105%); visibility: hidden; }
+#sheet .hd { display: flex; align-items: center; gap: 8px; padding: 10px 12px 6px; border-bottom: 1px solid var(--line); }
+#sheet .hd h2 { flex: 1; min-width: 0; margin: 0; font-size: 18px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#sheet .bd { overflow-y: auto; padding: 8px 12px 16px; }
+.big { display: flex; gap: 12px; align-items: center; }
+.big img, .path img { image-rendering: pixelated; }
+.big img { width: 56px; height: 56px; }
+.big h3 { margin: 0; font-size: 20px; }
+.yr { font-size: 12px; color: var(--sub); }
+.chip { display: inline-block; font-size: 11px; font-weight: 700; border-radius: 6px; padding: 0 5px; margin-left: 4px; background: #dff0e2; color: #2f6f3f; }
+.hee { font-size: 15px; line-height: 1.7; margin: 10px 0; }
+.path { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 6px; margin: 8px 0; padding: 8px; background: color-mix(in srgb, #e8a33d 12%, var(--panel)); border-radius: 10px; font-size: 13px; }
+.path span.n { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; }
+.path img { width: 22px; height: 22px; }
+.path .ar { color: #c9861e; font-weight: 700; }
+.acts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.acts .ib { flex: 1 1 auto; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+@media (min-width: 900px) {
+  #sheet { left: auto; top: 56px; width: 380px; max-height: none; border-radius: 0; border-top: 0; border-left: 1px solid var(--line); }
+  #sheet[hidden] { transform: translateX(105%); }
+  body.sheetOn #wrap { margin-right: 380px; }
+}
+@media (prefers-reduced-motion: reduce) { #sheet { transition: none; } }
+</style>
+</head>
+<body>
+<header class="bar">
+  <button type="button" class="ib" id="back" aria-label="もどる" disabled>←</button>
+  <div class="ttl" id="ttl"></div>
+  <button type="button" class="ib" id="lang" lang="en">EN</button>
+  <button type="button" class="ib" id="furi" aria-pressed="false">ふりがな</button>
+</header>
+<div class="sum" id="sum"></div>
+<p class="how" id="how"></p>
+<div id="wrap"><canvas id="map" role="img" tabindex="0"></canvas><button type="button" class="ib" id="fit" hidden>⤢</button></div>
+<section id="sheet" hidden aria-live="polite"><div class="hd"><h2 id="shT"></h2><button type="button" class="ib" id="shX" aria-label="とじる">✕</button></div><div class="bd" id="shB"></div></section>
+<script>window.FILM_BASE = '../';</script>
+<script src="../tech_network_graph.js"></script>
+<script src="../film.js"></script>
+<script>
+(function () {
+  let EN = false; try { EN = localStorage.getItem('tn-lang') === 'en'; } catch (e) { /* 保存できない */ }
+  document.documentElement.lang = EN ? 'en' : 'ja';
+  const T = EN ? {
+    sum: (a, b, c) => `${a} technologies · ${b} starting points · ${c} fields`, how: 'Spread two fingers (or scroll) to open the bubbles. Tap a bubble to go in.',
+    make: n => `To make: ${n}`, origin: 'start', path: 'How it connects', center: '◎ Put in the middle', watch: '▶ Watch', more: 'Details', fields: { I: 'Ideas', P: 'Products & parts' }, fit: 'Show all'
+  } : {
+    sum: (a, b, c) => `${a} の技術・${b} 個の始まり・${c} の分野`, how: '2本の指で広げる（ホイール）と泡がほどける。泡を押すとそこへ',
+    make: n => `${n} を作るには`, origin: '始まり', path: 'つながり', center: '◎ これを真ん中に', watch: '▶ できるまで', more: '詳しく', fields: { I: '知恵（考え方・発見）', P: '製品・部品' }, fit: '全体'
+  };
+  const G = window.TECH_GRAPH, byId = new Map(G.nodes.map(n => [n.id, n]));
+  const nm = n => (EN && n.name_en) || n.name;
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const yr = y => y == null ? '' : y < 0 ? (EN ? `${-y} BC` : `紀元前 ${-y}`) : `${y}`;
+  const reduce = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cv = document.getElementById('map'), ctx = cv.getContext('2d'), sheet = document.getElementById('sheet'), shB = document.getElementById('shB'), fitB = document.getElementById('fit');
+  document.getElementById('how').textContent = T.how; fitB.textContent = '⤢ ' + T.fit;
+  const IMG = new Map(); const img = k => { if (!IMG.has(k)) { const n = byId.get(k); if (!n.icon) return null; const im = new Image(); im.onload = req; im.src = n.icon; IMG.set(k, im); } const im = IMG.get(k); return im.complete && im.naturalWidth ? im : null; };
+  let D = null; const loadDetail = () => new Promise(ok => { if (D) return ok(); if (window.TECH_DETAIL) { D = window.TECH_DETAIL.nodes; return ok(); } const s = document.createElement('script'); s.src = '../tech_network_detail.js'; s.onload = () => { D = window.TECH_DETAIL.nodes; ok(); }; document.head.appendChild(s); });
+  const q = new URLSearchParams(location.search);
+  let id = byId.has(q.get('id')) ? q.get('id') : 'B-10', hist = [], S, groups, P = new Map(), sel = null, W = 0, H = 0, dpr = 1;
+  const groupOf = k => { const n = byId.get(k); return n.kind === 'idea' ? 'I' : ['P', 'B'].includes(n.trunk) ? 'P' : n.trunk; };
+  // ---- データと、世界の座標での並び（泡はだ円の上、中の丸はひまわりの種の並び） ----
+  function build() {
+    S = Film.scene(id);
+    const roots = new Set(S.roots), m = new Map();
+    for (const k of S.dist.keys()) if (k !== id) { const g = groupOf(k); (m.get(g) || m.set(g, []).get(g)).push(k); }
+    groups = [...m].map(([g, ks]) => {
+      const ys = ks.map(k => byId.get(k).year).filter(y => y != null).sort((a, b) => a - b);
+      ks.sort((a, b) => (byId.get(b).pr || 0) - (byId.get(a).pr || 0));   // 大事な物が泡のまん中
+      return { g, ks, name: T.fields[g] || byId.get(ks[0]).trunk_name || g, med: ys.length ? ys[ys.length >> 1] : 0, nO: ks.filter(k => roots.has(k)).length };
+    }).sort((a, b) => b.med - a.med);   // 新しい分野が上、時計回りに昔へ
+    S.rootSet = roots;
+    S.direct = new Set(G.edges.filter(e => e[1] === id && e[2] !== 'u' && S.dist.has(e[0])).map(e => e[0]));
+    S.links = G.edges.filter(e => e[2] !== 'u' && S.dist.has(e[0]) && S.dist.has(e[1]));
+    document.getElementById('ttl').textContent = T.make(nm(byId.get(id)));
+    document.getElementById('sum').textContent = T.sum(S.total, S.roots.length, groups.length);
+    document.getElementById('back').disabled = !hist.length;
+    layout();
+  }
+  // 世界の大きさは 1000 × 1000 前後（画面に合わせて全体を入れる倍率が「縮めた時」）
+  function layout() {
+    const n = groups.length, Rx = 420, Ry = 520, per = 2 * Math.PI * Math.sqrt((Rx * Rx + Ry * Ry) / 2), rmax = Math.min(150, per / Math.max(3, n) * 0.42), cmax = Math.max(...groups.map(x => x.ks.length));
+    P = new Map([[id, [0, 0]]]);
+    groups.forEach((x, i) => {
+      const a = -Math.PI / 2 + i / n * Math.PI * 2;
+      x.x = Math.cos(a) * Rx; x.y = Math.sin(a) * Ry; x.r = 34 + (rmax - 34) * Math.sqrt(x.ks.length / cmax);
+      x.d = x.r * 1.55 / Math.sqrt(x.ks.length + 0.5);   // 中の丸どうしの間（世界の座標）
+      x.ks.forEach((k, j) => { const rr = x.r * 0.86 * Math.sqrt((j + 0.5) / x.ks.length), t = j * 2.39996; P.set(k, [x.x + Math.cos(t) * rr, x.y + Math.sin(t) * rr]); });
+    });
+    S.gOf = new Map(); groups.forEach((x, i) => x.ks.forEach(k => S.gOf.set(k, i)));
+  }
+  // ---- カメラ（拡大と移動） ----
+  let cam = { x: 0, y: 0, z: 1 }, fitZ = 1, anim = null;
+  const fit = () => { fitZ = Math.min(W / 1060, H / 1300); return { x: 0, y: 0, z: fitZ }; };
+  const toScr = ([x, y]) => [W / 2 + (x - cam.x) * cam.z, H / 2 + (y - cam.y) * cam.z];
+  const toWorld = (sx, sy) => [cam.x + (sx - W / 2) / cam.z, cam.y + (sy - H / 2) / cam.z];
+  function fly(to) { if (reduce()) { cam = to; req(); return; } anim = { from: { ...cam }, to, t0: performance.now() }; req(); }
+  const sm = (a, b, v) => { const t = Math.max(0, Math.min(1, (v - a) / (b - a))); return t * t * (3 - 2 * t); };
+  // ---- 描く：泡ごとに、中の丸の画面での間（d × 倍率）で、泡 → 丸 → 名前 → 線 と変わる ----
+  const BG = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#faf7f0';
+  let raf = 0; const req = () => { if (!raf) raf = requestAnimationFrame(frame); };
+  function frame() {
+    raf = 0;
+    if (anim) { const t = Math.min(1, (performance.now() - anim.t0) / 550), e = t < .5 ? 2 * t * t : 1 - (-2 * t + 2) ** 2 / 2, A = anim.from, B = anim.to;
+      const lz = Math.log(A.z) + (Math.log(B.z) - Math.log(A.z)) * e; cam = { x: A.x + (B.x - A.x) * e, y: A.y + (B.y - A.y) * e, z: Math.exp(lz) }; if (t < 1) req(); else anim = null; }
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    const z = cam.z, open = groups.map(x => sm(13, 22, x.d * z)), named = groups.map(x => x.d * z), hue = i => Math.round(i / groups.length * 360);
+    // 泡どうしの線（ほどける前だけ）と、真ん中へのオレンジの線
+    const [cx, cy] = toScr([0, 0]);
+    groups.forEach((x, i) => {
+      const [bx, by] = toScr([x.x, x.y]), nd = x.ks.filter(k => S.direct.has(k)).length;
+      if (nd) { ctx.globalAlpha = 0.55 * (1 - open[i] * 0.7); ctx.strokeStyle = '#c9861e'; ctx.lineWidth = 1 + Math.log2(1 + nd); ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(bx, by); ctx.stroke(); }
+    });
+    // 中の丸どうしの線：広げた泡の中だけ（さらに広げた時）。選んだ物の線は濃く、泡をまたいでも
+    ctx.lineWidth = 1;
+    for (const [f, t] of S.links) {
+      const gf = S.gOf.get(f), gt = S.gOf.get(t), hot = sel && (f === sel || t === sel);
+      let a = 0;
+      if (hot) a = 0.85; else if (gf != null && gf === gt) a = 0.25 * sm(30, 46, named[gf]);
+      if (a < 0.02) continue;
+      const [x1, y1] = toScr(P.get(f)), [x2, y2] = toScr(P.get(t));
+      ctx.globalAlpha = a; ctx.strokeStyle = hot ? '#e8a33d' : '#8a8278'; ctx.lineWidth = hot ? 2 : 1; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    }
+    // 泡と中の丸
+    const labels = [];
+    groups.forEach((x, i) => {
+      const [bx, by] = toScr([x.x, x.y]), br = x.r * z, o = open[i];
+      if (bx + br < -40 || bx - br > W + 40 || by + br < -40 || by - br > H + 40) return;
+      ctx.globalAlpha = 1; ctx.fillStyle = `hsl(${hue(i)} 60% ${94 + o * 3}%)`; ctx.strokeStyle = `hsl(${hue(i)} 45% 45%)`; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(bx, by, br, 0, Math.PI * 2); ctx.fill(); ctx.globalAlpha = 1 - o * 0.6; ctx.stroke();
+      // ほどける前：いちばん大事な物の絵と数
+      if (o < 1) {
+        ctx.globalAlpha = 1 - o; const is = Math.min(br * 1.1, 64), im = img(x.ks[0]);
+        if (im) { ctx.imageSmoothingEnabled = false; ctx.drawImage(im, bx - is / 2, by - is / 2 - (br > 30 ? is * 0.15 : 0), is, is); }
+        if (br > 30) { ctx.fillStyle = `hsl(${hue(i)} 45% 30%)`; ctx.font = '700 12px "BIZ UDPGothic",sans-serif'; ctx.textAlign = 'center'; ctx.fillText(x.ks.length, bx, by + is * 0.5 + 8); }
+        if (x.nO) { ctx.fillStyle = '#3f8f4f'; ctx.beginPath(); ctx.arc(bx + br * 0.72, by - br * 0.72, 9, 0, Math.PI * 2); ctx.fill(); ctx.fillStyle = '#fff'; ctx.font = '700 11px "BIZ UDPGothic",sans-serif'; ctx.textAlign = 'center'; ctx.fillText(x.nO, bx + br * 0.72, by - br * 0.72 + 4); }
+      }
+      // 分野の名前（泡の下。ほどけたら泡の上へ）
+      ctx.globalAlpha = 1; ctx.font = '700 12px "BIZ UDPGothic",sans-serif'; ctx.textAlign = 'center'; ctx.lineWidth = 3; ctx.strokeStyle = BG; ctx.fillStyle = '#2b2622';
+      const lt = x.name + (br <= 30 ? ' ' + x.ks.length : ''), ly = o > 0.5 ? by - br - 6 : by + br + 14; ctx.strokeText(lt, bx, ly); ctx.fillText(lt, bx, ly);
+      // ほどけた後：中の丸
+      if (o > 0) {
+        const nr = Math.max(3, Math.min(22, x.d * z * 0.36));
+        for (const k of x.ks) {
+          const [px, py] = toScr(P.get(k)); if (px < -30 || px > W + 30 || py < -30 || py > H + 30) continue;
+          ctx.globalAlpha = o; ctx.fillStyle = '#fffdf8'; ctx.strokeStyle = k === sel ? '#e8a33d' : S.rootSet.has(k) ? '#3f8f4f' : `hsl(${hue(i)} 45% 45%)`; ctx.lineWidth = k === sel ? 3 : 1.5;
+          const r = k === sel ? nr * 1.3 : nr;
+          ctx.beginPath(); ctx.arc(px, py, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+          const im = r >= 7 && img(k); if (im) { ctx.imageSmoothingEnabled = false; ctx.drawImage(im, px - r * 0.72, py - r * 0.72, r * 1.44, r * 1.44); }
+          if (named[i] >= 34 || k === sel) labels.push([px, py + r + 12, nm(byId.get(k)), (byId.get(k).pr || 0) + (k === sel ? 1e3 : 0), o * sm(34, 44, named[i]) || 1]);
+        }
+      }
+    });
+    // 真ん中の物（いつも見える）
+    ctx.globalAlpha = 1; const cr = Math.max(26, Math.min(70, 46 * z / fitZ * 0.9)); ctx.fillStyle = '#fffdf8'; ctx.strokeStyle = '#2f6f8f'; ctx.lineWidth = 3; ctx.beginPath(); ctx.arc(cx, cy, cr, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+    const ci = img(id); if (ci) { ctx.imageSmoothingEnabled = false; ctx.drawImage(ci, cx - cr * 0.7, cy - cr * 0.7, cr * 1.4, cr * 1.4); }
+    // 名前（大事な物から、重ならない物だけ）
+    labels.sort((a, b) => b[3] - a[3]); const boxes = [];
+    ctx.font = '700 12px "BIZ UDPGothic",sans-serif'; ctx.textAlign = 'center'; ctx.lineWidth = 3; ctx.strokeStyle = BG;   // 名前のふちは地の色
+    for (const [x, y, t, , a] of labels) { let w = 0; for (const ch of t) w += ch.codePointAt(0) > 0x2e80 ? 12 : 7; const b = [x - w / 2, y - 11, x + w / 2, y + 3]; if (boxes.some(o => o[0] < b[2] && b[0] < o[2] && o[1] < b[3] && b[1] < o[3])) continue; boxes.push(b); ctx.globalAlpha = a; ctx.strokeText(t, x, y); ctx.fillStyle = '#2b2622'; ctx.fillText(t, x, y); }
+    ctx.globalAlpha = 1;
+    fitB.hidden = cam.z < fitZ * 1.15;
+  }
+  // ---- 押す・広げる・動かす ----
+  const ptrs = new Map(); let moved = 0, pinch = null;
+  cv.addEventListener('pointerdown', e => { try { cv.setPointerCapture(e.pointerId); } catch (er) { /* 取れなくても続ける */ } ptrs.set(e.pointerId, [e.clientX, e.clientY]); moved = 0; anim = null; if (ptrs.size === 2) { const [a, b] = [...ptrs.values()]; pinch = { d: Math.hypot(a[0] - b[0], a[1] - b[1]), z: cam.z, w: toWorld((a[0] + b[0]) / 2 - cv.getBoundingClientRect().left, (a[1] + b[1]) / 2 - cv.getBoundingClientRect().top) }; } });
+  cv.addEventListener('pointermove', e => {
+    if (!ptrs.has(e.pointerId)) return; const [px, py] = ptrs.get(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]);
+    if (ptrs.size === 2 && pinch) { const [a, b] = [...ptrs.values()], r = cv.getBoundingClientRect(), mx = (a[0] + b[0]) / 2 - r.left, my = (a[1] + b[1]) / 2 - r.top; cam.z = Math.max(fitZ * 0.8, Math.min(fitZ * 40, pinch.z * Math.hypot(a[0] - b[0], a[1] - b[1]) / pinch.d)); cam.x = pinch.w[0] - (mx - W / 2) / cam.z; cam.y = pinch.w[1] - (my - H / 2) / cam.z; moved = 99; }
+    else { cam.x -= (e.clientX - px) / cam.z; cam.y -= (e.clientY - py) / cam.z; moved += Math.abs(e.clientX - px) + Math.abs(e.clientY - py); }
+    req();
+  });
+  const up = e => { const tap = ptrs.size === 1 && moved < 8; ptrs.delete(e.pointerId); if (ptrs.size < 2) pinch = null; if (!tap) return; const r = cv.getBoundingClientRect(); tapAt(e.clientX - r.left, e.clientY - r.top); };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', e => { ptrs.delete(e.pointerId); pinch = null; });
+  cv.addEventListener('wheel', e => { e.preventDefault(); const r = cv.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top, w = toWorld(mx, my); cam.z = Math.max(fitZ * 0.8, Math.min(fitZ * 40, cam.z * Math.exp(-e.deltaY * 0.0015))); cam.x = w[0] - (mx - W / 2) / cam.z; cam.y = w[1] - (my - H / 2) / cam.z; req(); }, { passive: false });
+  let lastTap = 0;
+  function tapAt(sx, sy) {
+    const now = performance.now(), dbl = now - lastTap < 300; lastTap = now;
+    const [wx, wy] = toWorld(sx, sy);
+    const gi = groups.findIndex(x => Math.hypot(wx - x.x, wy - x.y) <= x.r);
+    if (gi >= 0 && groups[gi].d * cam.z >= 13) {   // ほどけた泡の中：いちばん近い丸を選ぶ
+      let best = null, bd = 1e9; for (const k of groups[gi].ks) { const [x, y] = P.get(k), d = Math.hypot(x - wx, y - wy); if (d < bd) { bd = d; best = k; } }
+      if (best && bd * cam.z < 30) { sel = best; openNode(best); req(); return; }
+    }
+    if (gi >= 0) { const x = groups[gi]; fly({ x: x.x, y: x.y, z: Math.min(Math.min(W, H) * 0.42 / x.r, Math.max(cam.z, 40 / x.d)) }); return; }   // 泡を押す：その泡へ寄ってほどける
+    if (dbl) { fly({ x: wx, y: wy, z: Math.min(fitZ * 40, cam.z * 2) }); return; }
+    if (sel) { sel = null; hideSheet(); req(); }
+  }
+  // キーボード：+ − で拡大、矢印で移動、0 で全体
+  cv.addEventListener('keydown', e => { const k = e.key; if (k === '+' || k === '=') cam.z *= 1.25; else if (k === '-') cam.z = Math.max(fitZ * 0.8, cam.z / 1.25); else if (k === '0') cam = fit(); else if (k.startsWith('Arrow')) { const s = 60 / cam.z; if (k === 'ArrowLeft') cam.x -= s; if (k === 'ArrowRight') cam.x += s; if (k === 'ArrowUp') cam.y -= s; if (k === 'ArrowDown') cam.y += s; } else return; e.preventDefault(); req(); });
+  fitB.onclick = () => fly(fit());
+  // ---- シート：選んだ物のへえと、真ん中までの道 ----
+  function openNode(k) {
+    const n = byId.get(k), path = [k]; let u = k; while (S.via.has(u) && u !== id) { u = S.via.get(u); path.push(u); }
+    const chain = path.reverse();
+    document.getElementById('shT').textContent = nm(n);
+    const body = hee => `<div class="big">${n.icon ? `<img src="${n.icon}" alt="">` : ''}<div><h3>${esc(nm(n))}</h3><div class="yr">${yr(n.year)}${S.rootSet.has(k) ? `<span class="chip">${T.origin}</span>` : ''}</div></div></div>
+      <p class="hee">${esc(hee)}</p><div class="yr">${T.path}</div>
+      <div class="path">${chain.map(c => `<span class="n">${byId.get(c).icon ? `<img src="${byId.get(c).icon}" alt="">` : ''}${esc(nm(byId.get(c)))}</span>`).join('<span class="ar">←</span>')}</div>
+      <div class="acts"><button type="button" class="ib" data-c="${k}">${T.center}</button>${Film.countOf(k, 'down') ? `<button type="button" class="ib" data-w="${k}">${T.watch}</button>` : ''}<a class="ib" href="../node.html#${k}">${T.more}</a></div>`;
+    shB.innerHTML = body('…');
+    loadDetail().then(() => { if (sel !== k) return; const d = D[k] || {}; shB.innerHTML = body(((EN && d.hee1_en) || d.hee1 || '').replace(/（[^（）]*出典[:：][^）]*）/g, '')); furi(); });
+    const was = sheet.hidden; sheet.hidden = false; document.body.classList.add('sheetOn'); if (was && innerWidth >= 900) resize(); furi();
+  }
+  const furi = () => { if (window.Furigana && window.FURI_DICT) Furigana.apply(sheet); };
+  function hideSheet() { const was = !sheet.hidden; sheet.hidden = true; document.body.classList.remove('sheetOn'); if (was && innerWidth >= 900) resize(); }
+  document.getElementById('shX').onclick = () => { sel = null; hideSheet(); req(); };
+  shB.addEventListener('click', e => { const c = e.target.closest('[data-c]'); if (c) return go(c.dataset.c); const w = e.target.closest('[data-w]'); if (w) Film.play(w.dataset.w, { base: '../' }); });
+  function go(k, push = true) { if (k === id) return; if (push) hist.push(id); id = k; sel = null; hideSheet(); history.replaceState(null, '', '?id=' + k); build(); cam = fit(); req(); }
+  document.getElementById('back').onclick = () => { if (hist.length) go(hist.pop(), false); };
+  document.getElementById('lang').textContent = EN ? '日本語' : 'EN';
+  document.getElementById('lang').onclick = () => { try { localStorage.setItem('tn-lang', EN ? 'ja' : 'en'); } catch (e) { /* 保存できない */ } location.reload(); };
+  addEventListener('keydown', e => { if (e.key === 'Escape' && !sheet.hidden) { sel = null; hideSheet(); req(); } });
+  function resize() { const r = cv.getBoundingClientRect(); W = r.width; H = r.height; dpr = Math.min(2, devicePixelRatio || 1); cv.width = W * dpr; cv.height = H * dpr; const f = fitZ; fit(); if (cam.z === f || !cam.z) cam = fit(); req(); }
+  addEventListener('resize', resize);
+  build(); resize(); cam = fit(); frame();
+  cv.setAttribute('aria-label', document.getElementById('sum').textContent);
+  window.S049 = { set: (z, x = 0, y = 0) => { cam = { x, y, z: fitZ * z }; req(); }, sel: k => { sel = k; openNode(k); req(); }, groups: () => groups, ready: performance.now() };   // 写真を撮る用
+  setTimeout(loadDetail, 400);
+  const fb = document.getElementById('furi');
+  fb.addEventListener('click', e => { if (window.FURI_DICT) return; e.stopImmediatePropagation(); const s = document.createElement('script'); s.src = '../furigana_dict.js'; s.onload = () => fb.click(); document.head.appendChild(s); }, true);
+})();
+</script>
+<script src="../furigana.js"></script>
+<script>
+(function () { let on = false; try { on = localStorage.getItem('tn-furi') === '1'; } catch (e) { /* 保存できない */ }
+  const init = () => Furigana.init(document.getElementById('furi'));
+  if (on) { const s = document.createElement('script'); s.src = '../furigana_dict.js'; s.onload = init; document.head.appendChild(s); } else init(); })();
+</script>
+</body>
+</html>
