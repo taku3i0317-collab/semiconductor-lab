@@ -523,5 +523,13 @@
   "block.minecraft.blast_furnace.note2": "In this mod it is a ~1450 °C high-temperature kiln (refractory bricks, borosilicate glass and so on). The real iron blast furnace that taps liquid iron is a separate multiblock (blast furnace hearth [1-09]).",
   "block.minecraft.blast_furnace.note3": "A tall furnace with a strong blast from bellows burns fuel hard and gets hotter. An optical pyrometer can read it (too hot for a thermocouple).",
   "block.minecraft.blast_furnace.note4": "In 1709 Abraham Darby in England ran a blast furnace on coke instead of charcoal, making iron in quantity — the start of the Industrial Revolution.",
-  "block.minecraft.blast_furnace.placeholder": "Approximation: ⚠️ the vanilla blast furnace is a ~1450 °C kiln. The real (pig-iron) blast furnace is the multiblock [1-09]."
+  "block.minecraft.blast_furnace.placeholder": "Approximation: ⚠️ the vanilla blast furnace is a ~1450 °C kiln. The real (pig-iron) blast furnace is the multiblock [1-09].",
+  "block.semiconductor-lab.nc_lathe": "NC Lathe",
+  "block.semiconductor-lab.nc_lathe.note1": "A lathe that turns the same part again and again, by the numbers on a tape.",
+  "block.semiconductor-lab.nc_lathe.note2": "Lathe + 2 motors (servos) + copper wire + micrometer. Add steel, a recorded tape and a ball screw, and connect power (1.5 kW). No hand-lathe quirk: the error is limited by the ball screw feed.",
+  "block.semiconductor-lab.nc_lathe.note3": "Parsons had the idea in 1949; MIT's Servomechanisms Laboratory showed an NC milling machine in 1952.",
+  "block.semiconductor-lab.nc_lathe.note4": "Servo motors measure the cutter's position and move to correct any error (feedback control), so parts come out equally precise whoever runs the machine. ⚠️ Time and power are game values.",
+  "block.semiconductor-lab.nc_lathe.placeholder": "Approximation: cutting time and power are game values.",
+  "block.semiconductor-lab.nc_lathe.howto": "Add steel (hoppers and conveyor belts work too), a recorded punched tape and a ball screw, and connect power. One tape part comes out per steel. Make a tape by measuring a part with a micrometer while carrying a blank tape.",
+  "item.semiconductor-lab.gauge.taped": "📼 Recorded the shape of %s on punched tape"
 }

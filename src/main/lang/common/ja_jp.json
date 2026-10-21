@@ -523,5 +523,13 @@
   "block.minecraft.blast_furnace.note2": "この MOD では約1450℃ の「高温の窯」とする（耐火れんが・ホウケイ酸ガラスなどを焼く）。鉄を液体で取り出す本物の高炉は、別のマルチブロック（高炉の炉床 [1-09]）で作る。",
   "block.minecraft.blast_furnace.note3": "炉を高くし、ふいごで強い風を送り込むと、燃料がよく燃えて温度が上がる。光高温計で温度を測れる（熱電対では熱すぎて測れない）。",
   "block.minecraft.blast_furnace.note4": "1709年、イギリスのエイブラハム・ダービーが木炭の代わりにコークスで高炉を動かし、鉄をたくさん作れるようになった（産業革命の始まり）。",
-  "block.minecraft.blast_furnace.placeholder": "近似：⚠️ バニラの溶鉱炉は約1450℃ の高温の窯。本物の高炉（銑鉄）はマルチブロック [1-09]。"
+  "block.minecraft.blast_furnace.placeholder": "近似：⚠️ バニラの溶鉱炉は約1450℃ の高温の窯。本物の高炉（銑鉄）はマルチブロック [1-09]。",
+  "block.semiconductor-lab.nc_lathe": "NC 旋盤",
+  "block.semiconductor-lab.nc_lathe.note1": "テープの数字どおりに、同じ部品を何個でも自動で削る旋盤。",
+  "block.semiconductor-lab.nc_lathe.note2": "旋盤＋モーター×2（サーボ）＋銅線＋マイクロメータ。鋼・記録したテープ・ボールねじを入れて電気（1.5kW）をつなぐ。手の旋盤の「くせ」が無く、誤差はボールねじの送りまで。",
+  "block.semiconductor-lab.nc_lathe.note3": "1949年にパーソンズが考え、1952年に MIT のサーボ機構研究所が NC のフライス盤を公開した。",
+  "block.semiconductor-lab.nc_lathe.note4": "サーボモーターは刃物の位置を測りながら、ずれた分だけ動いて直す（フィードバック制御）。だから職人の腕にたよらず、誰が動かしても同じ精度の部品ができる。⚠️ 時間・電力はゲームの値。",
+  "block.semiconductor-lab.nc_lathe.placeholder": "近似：削る時間と電力はゲームの値。",
+  "block.semiconductor-lab.nc_lathe.howto": "鋼（ホッパーやベルトコンベアからも入る）・記録した穴あきテープ・ボールねじを入れて電気をつなぐ。テープの部品が鋼1つごとに出てくる。テープは白いテープを持ってマイクロメータで部品を測ると作れる。",
+  "item.semiconductor-lab.gauge.taped": "📼 %s の形を穴あきテープに記録した"
 }

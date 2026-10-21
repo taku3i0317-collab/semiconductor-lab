@@ -2872,6 +2872,18 @@
 根拠：
 - Wikipedia「Printing press」「Type metal」「Movable type」「Gutenberg Bible」：https://en.wikipedia.org/wiki/Printing_press ・ https://en.wikipedia.org/wiki/Type_metal ・ https://en.wikipedia.org/wiki/Movable_type ・ https://en.wikipedia.org/wiki/Gutenberg_Bible
 
+## O95. 数字で動く工作機械（NC 工作機械）［8-34］
+**答え**：NC（数値制御）工作機械は、旋盤やフライス盤の刃物の動きを、人の手ではなく数字の指令で決める。最初は紙の穴あきテープに数字を記録し、サーボモーターが刃物の位置を測りながら（フィードバック制御）ねじを回して合わせた。1949年にジョン・パーソンズが構想し、1952年に MIT のサーボ機構研究所が NC のフライス盤を公開した。日本では1956年に最初の NC 装置ができ、1968年の NC 旋盤は機械遺産に選ばれている。今の 3D プリンターも同じ形の位置の指令（G コード）で動く。
+
+- へえ①：最初の NC 工作機械は、穴をあけた紙のテープで動いた。
+- へえ②：構想を出したパーソンズの名前は、長いあいだ表に出なかった。
+- へえ③：3D プリンターも、NC と同じ G コードで動く。
+- へえ④：職人の腕にたよらず、誰が動かしても同じ部品ができるようになった。
+
+確かさ：パーソンズ 1949・MIT 1952 ◎／日本 1956・1968 機械遺産 ○／G コード ◎
+根拠：
+- Wikipedia「Numerical control」「John T. Parsons」「G-code」：https://en.wikipedia.org/wiki/Numerical_control ・ https://en.wikipedia.org/wiki/John_T._Parsons ・ https://en.wikipedia.org/wiki/G-code
+
 ---
 
 # 冶金と熱（タスク15〜）

@@ -46,6 +46,7 @@ HOWTO_EXTRA = {
     "surface_plate": "鋳鉄の板を3枚、2枚ずつ順にすり合わせると定盤になる（ホイットワースの3枚合わせ、[8-03]、CastPlateItem）",   # IMP2 O-036
     "duralumin": "焼き入れしたジュラルミンを部屋の温度で数日置くと固くなる（時効硬化 [14-13]、QuenchedDuraluminItem）",   # IMP2 O-036
     "exposed_plate": "カメラを持ち、反対の手に感光した銀板を持って、日なたで右クリックを押している間に写る（[B-02a]、CameraItem）",   # IMP2 O-036
+    "typeset_form": "書いた本を持ち、反対の手に活字を持って活版印刷機を右クリックで組む（[15-02]、PrintingPressBlock）",   # IMP2 S-010
     "exposed_dry_plate": "カメラを持ち、反対の手に感光乾板を持って、日なたで右クリックを押している間に写る（[B-02b]、CameraItem）",   # IMP2 O-036
 }
 # 機械のコードが作る物（machine_recipes に書き出していない道）：ID → 道の印（ツールチップにも出る）

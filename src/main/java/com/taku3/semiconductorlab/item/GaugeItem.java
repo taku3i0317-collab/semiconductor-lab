@@ -62,6 +62,8 @@ public class GaugeItem extends Item {
                 String.format(Locale.ROOT, "%.3f", resolutionUm / 1000.0)));
         String g = grade(err);
         p.sendSystemMessage(g == null ? Component.translatable(K + "no_grade") : Component.translatable(K + "grade_" + g.toLowerCase(Locale.ROOT), err));
+        // [8-34] 読みが細かい計器（マイクロメータ）で測ると、持ち物の白い穴あきテープに部品の形を記録する（IMP2 O-038）
+        if (g != null && PunchedTapeItem.recordFromInventory(p, part)) p.sendSystemMessage(Component.translatable(K + "taped", part.getHoverName()));
         return InteractionResult.SUCCESS;
     }
 }

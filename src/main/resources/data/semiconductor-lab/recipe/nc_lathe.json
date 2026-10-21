@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lathe",
+    "semiconductor-lab:electric_motor",
+    "semiconductor-lab:electric_motor",
+    "semiconductor-lab:copper_wire",
+    "semiconductor-lab:micrometer"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nc_lathe",
+    "count": 1
+  }
+}

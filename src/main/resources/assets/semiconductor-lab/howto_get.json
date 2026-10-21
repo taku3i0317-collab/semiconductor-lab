@@ -1636,6 +1636,9 @@
 "molybdenum_trioxide": [
 "machine:reverberatory_furnace"
 ],
+"movable_type": [
+"crafting"
+],
 "multilayer_mirror": [
 "machine:sputter"
 ],
@@ -1659,6 +1662,9 @@
 ],
 "natural_asphalt": [
 "ore"
+],
+"nc_lathe": [
+"crafting"
 ],
 "ndfeb_alloy": [
 "crafting"
@@ -1995,6 +2001,9 @@
 "printing_paper": [
 "crafting"
 ],
+"printing_press": [
+"crafting"
+],
 "prism": [
 "crafting"
 ],
@@ -2030,6 +2039,9 @@
 ],
 "pump_rotor": [
 "machine:lathe"
+],
+"punched_tape": [
+"crafting"
 ],
 "pva_film": [
 "crafting"
@@ -2707,6 +2719,12 @@
 ],
 "tuyere": [
 "crafting"
+],
+"type_metal": [
+"crafting"
+],
+"typeset_form": [
+"special"
 ],
 "ule_feed": [
 "crafting"

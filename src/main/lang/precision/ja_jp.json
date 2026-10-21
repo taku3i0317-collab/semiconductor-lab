@@ -366,5 +366,13 @@
   "block.semiconductor-lab.electron_microscope.howto": "隣の真空容器をとても低い圧力にして、電気をつなぐ。マスク・設計図・ウェハーを入れると、どこまで細かく見えるかが出る。",
   "block.semiconductor-lab.grinder.howto": "焼入れした鋼球・砥石・測る道具を入れて電気をつなぐ。マイクロメータなら研削した鋼球、ゲージブロックならそろえた鋼球が出る。",
   "block.semiconductor-lab.kibble_balance.howto": "キログラム原器・標準電池・標準抵抗・クリプトンのランプを入れて電気をつなぐ。原器の重さを電気で測り、ずれとあいまいさが出る。空調があると正確になる。",
-  "block.semiconductor-lab.ruling_engine.howto": "鏡・ダイヤモンド・送りねじを入れて電気をつなぐ。回折格子ができる。床がゆれたり温度が変わるとにせの線が出るので、防振台と空調を。"
+  "block.semiconductor-lab.ruling_engine.howto": "鏡・ダイヤモンド・送りねじを入れて電気をつなぐ。回折格子ができる。床がゆれたり温度が変わるとにせの線が出るので、防振台と空調を。",
+  "item.semiconductor-lab.punched_tape": "穴あきテープ",
+  "item.semiconductor-lab.punched_tape.note1": "紙のテープに穴をあけて、刃物の動かし方を数字で残した物。",
+  "item.semiconductor-lab.punched_tape.note2": "紙×3 → 3。白いテープを持ち物に入れたまま、マイクロメータで旋盤の部品を測ると、その部品の形が記録される。NC 旋盤に入れて使う（64回で傷む）。",
+  "item.semiconductor-lab.punched_tape.note3": "最初の NC 工作機械（1952年）は、穴あきテープの数字で刃物を動かした。",
+  "item.semiconductor-lab.punched_tape.note4": "穴の並びが数字を表し、機械がそれを読んで刃物の位置を決める。のちに磁気テープやコンピューターに変わり、今の G コード（3D プリンターも使う）につながっている。⚠️ テープの持ちはゲームの値。",
+  "item.semiconductor-lab.punched_tape.placeholder": "近似：テープの持ち（64回）はゲームの値。",
+  "item.semiconductor-lab.punched_tape.blank": "白いテープ（まだ何も記録していない）",
+  "item.semiconductor-lab.punched_tape.recorded": "記録：%s（%s mm）、あと %s 回"
 }

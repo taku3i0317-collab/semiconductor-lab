@@ -15,6 +15,37 @@ import net.minecraft.world.item.Items;
  * GameTest：幹8 精密機械・計測（IMP2-01 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class PrecisionTests extends LabTestBase {
+    /** [8-34] NC 旋盤（IMP2 O-038 案A）：マイクロメータで測った部品をテープに記録 → NC 旋盤が鋼から同じ部品をくり返す。誤差はボールねじの送りの半分まで、テープは com.taku3.semiconductorlab.item.PunchedTapeItem.RUNS 回で傷む */
+    @GameTest(maxTicks = 1000)
+    public void nc_lathe(GameTestHelper h) {
+        ItemStack screw = new ItemStack(Precision.STANDARD_SCREW, 4);
+        screw.set(Precision.PART_ERROR_UM, 18);   // 手の旋盤のくせ
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.getInventory().add(new ItemStack(Precision.PUNCHED_TAPE, 2));
+        h.assertTrue(com.taku3.semiconductorlab.item.PunchedTapeItem.recordFromInventory(player, screw), "measuring with a blank tape in the inventory records the part");
+        ItemStack tape = ItemStack.EMPTY;
+        for (int i = 0; i < player.getInventory().getContainerSize(); i++) if (com.taku3.semiconductorlab.item.PunchedTapeItem.isRecorded(player.getInventory().getItem(i))) tape = player.getInventory().getItem(i);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.PunchedTapeItem.part(tape), "standard_screw", "the tape holds the part");
+        h.assertTrue(com.taku3.semiconductorlab.block.NcLatheBlockEntity.product(new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.STEEL_INGOT), new ItemStack(Precision.PUNCHED_TAPE)).isEmpty(), "a blank tape makes nothing");
+        ItemStack ball = new ItemStack(Precision.BALL_SCREW);
+        ball.set(Precision.BEARING_GRADE, 3);
+        h.assertTrue(com.taku3.semiconductorlab.block.NcLatheBlockEntity.errorRangeUm(ball) <= 1 && com.taku3.semiconductorlab.block.NcLatheBlockEntity.errorRangeUm(ball) < com.taku3.semiconductorlab.block.LatheBlockEntity.ERROR_UM, "servo + fine ball screw: within " + com.taku3.semiconductorlab.block.NcLatheBlockEntity.errorRangeUm(ball) + " um");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Precision.NC_LATHE.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.NcLatheBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.NcLatheBlockEntity.SLOT_IN, new ItemStack(com.taku3.semiconductorlab.content.Metallurgy.STEEL_INGOT, 3));
+        c.setItem(com.taku3.semiconductorlab.block.NcLatheBlockEntity.SLOT_TAPE, tape.copy());
+        c.setItem(com.taku3.semiconductorlab.block.NcLatheBlockEntity.SLOT_SCREW, ball);
+        tickConsumer(h, at, be, 3 * com.taku3.semiconductorlab.block.NcLatheBlockEntity.TICKS + 10, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.NcLatheBlockEntity.WATTS));
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.NcLatheBlockEntity.SLOT_OUT);
+        h.assertTrue(out.is(Precision.STANDARD_SCREW) && out.getCount() == 12, "3 steel -> 12 screws by tape, got " + out);
+        h.assertTrue(Math.abs(out.getOrDefault(Precision.PART_ERROR_UM, 99)) <= com.taku3.semiconductorlab.block.NcLatheBlockEntity.errorRangeUm(ball), "error within the ball screw feed");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.PunchedTapeItem.used(c.getItem(com.taku3.semiconductorlab.block.NcLatheBlockEntity.SLOT_TAPE)), 3, "the tape wears a little each run");
+        LOG.info("[LAB] NC lathe [8-34]: tape from a measured part, 3 steel -> 12 screws, error <= " + com.taku3.semiconductorlab.block.NcLatheBlockEntity.errorRangeUm(ball) + " um (hand lathe +-" + com.taku3.semiconductorlab.block.LatheBlockEntity.ERROR_UM + "), tape lasts " + com.taku3.semiconductorlab.item.PunchedTapeItem.RUNS);
+        h.succeed();
+    }
+
     /** [8-11] 電子顕微鏡（IMP2 O-017）：電子の波長は光の 10 万分の1。光学顕微鏡（306nm）で見えない KrF 以降の細かい方眼も見える。高真空がないと電子線が出ない */
     @GameTest
     public void electron_microscope(GameTestHelper h) {
