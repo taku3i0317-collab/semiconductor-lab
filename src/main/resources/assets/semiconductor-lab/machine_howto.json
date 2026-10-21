@@ -479,6 +479,22 @@
 ],
 "watts": 2000.0,
 "seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:bauxite",
+8
+]
+],
+"out": [
+[
+"semiconductor-lab:spent_bayer_liquor",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 120.0
 }
 ],
 "bessemer_converter": [
@@ -691,6 +707,100 @@
 "seconds": 10.0
 }
 ],
+"compound_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:white_arsenic",
+1
+],
+[
+"semiconductor-lab:coke",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:arsenic",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:gallium",
+1
+],
+[
+"semiconductor-lab:arsenic",
+1
+],
+[
+"semiconductor-lab:red_phosphorus",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:gaasp_wafer",
+4
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:gallium",
+1
+],
+[
+"semiconductor-lab:ammonia_gas",
+1
+],
+[
+"semiconductor-lab:magnesium",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:gan_wafer",
+4
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:yttrium_oxide",
+1
+],
+[
+"semiconductor-lab:alumina",
+1
+],
+[
+"semiconductor-lab:cerium_oxide",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:yag_phosphor",
+4
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+}
+],
 "compressor": [
 {
 "in": [
@@ -790,6 +900,34 @@
 }
 ],
 "cvd_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:ito_glass",
+8
+],
+[
+"semiconductor-lab:silane_cylinder",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:tft_array_glass",
+8
+],
+[
+"semiconductor-lab:empty_gas_cylinder",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 20.0
+},
 {
 "in": [
 [
@@ -970,6 +1108,26 @@
 }
 ],
 "dry_etcher": [
+{
+"in": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+],
+[
+"semiconductor-lab:chlorine_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:mems_wafer",
+8
+]
+],
+"watts": 3000.0,
+"seconds": 15.0
+},
 {
 "in": [
 [
@@ -1215,6 +1373,26 @@
 {
 "in": [
 [
+"semiconductor-lab:waxed_wafer",
+1
+],
+[
+"semiconductor-lab:silicon_etch",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:mesa_wafer",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
 "semiconductor-lab:oxidized_wafer",
 8
 ],
@@ -1253,6 +1431,26 @@
 [
 "semiconductor-lab:indium_tin_coated_glass",
 1
+]
+],
+"watts": 300.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:pn_junction_wafer",
+8
+],
+[
+"semiconductor-lab:aluminium_ingot",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:al_dotted_wafer",
+8
 ]
 ],
 "watts": 300.0,
@@ -1999,6 +2197,30 @@
 ],
 "watts": 1000.0,
 "seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:euv_mask_blank",
+1
+],
+[
+"semiconductor-lab:positive_resist",
+1
+],
+[
+"semiconductor-lab:chlorine_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:euv_mask",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
 }
 ],
 "resist_reactor": [
@@ -2265,6 +2487,22 @@
 ],
 "watts": 0.0,
 "seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:pyrite",
+4
+]
+],
+"out": [
+[
+"semiconductor-lab:white_arsenic",
+1
+]
+],
+"watts": 0.0,
+"seconds": 0.0
 }
 ],
 "salt_pan": [
@@ -2532,6 +2770,30 @@
 }
 ],
 "sputter": [
+{
+"in": [
+[
+"semiconductor-lab:multilayer_mirror",
+1
+],
+[
+"semiconductor-lab:tantalum",
+1
+],
+[
+"semiconductor-lab:argon_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:euv_mask_blank",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 20.0
+},
 {
 "in": [
 [

@@ -53,6 +53,9 @@
 "air_separation_unit": [
 "crafting"
 ],
+"al_dotted_wafer": [
+"machine:evaporator"
+],
 "ald_reactor": [
 "crafting"
 ],
@@ -166,6 +169,9 @@
 ],
 "argon_gas": [
 "machine:air_separation_unit"
+],
+"arsenic": [
+"machine:compound_furnace"
 ],
 "asphalt": [
 "loot",
@@ -835,6 +841,12 @@
 "euv_illuminator": [
 "crafting"
 ],
+"euv_mask": [
+"machine:reduction_camera"
+],
+"euv_mask_blank": [
+"machine:sputter"
+],
 "euv_mirror_set": [
 "crafting"
 ],
@@ -946,6 +958,9 @@
 "fz_puller": [
 "crafting"
 ],
+"gaasp_wafer": [
+"machine:compound_furnace"
+],
 "galena": [
 "loot",
 "ore"
@@ -961,6 +976,9 @@
 ],
 "game_console": [
 "machine:assembly_bench"
+],
+"gan_wafer": [
+"machine:compound_furnace"
 ],
 "gas_holder": [
 "crafting"
@@ -1449,6 +1467,9 @@
 "mems_accelerometer": [
 "machine:assembly_bench"
 ],
+"mems_wafer": [
+"machine:dry_etcher"
+],
 "mercuric_sulfate": [
 "crafting"
 ],
@@ -1473,6 +1494,9 @@
 ],
 "mesa_transistor": [
 "crafting"
+],
+"mesa_wafer": [
+"machine:etch_tank"
 ],
 "metallurgical_silicon": [
 "machine:arc_furnace"
@@ -2257,6 +2281,9 @@
 "spent_aqua_regia": [
 "special"
 ],
+"spent_bayer_liquor": [
+"machine:bayer_digester"
+],
 "spent_lye": [
 "crafting",
 "special"
@@ -2397,6 +2424,9 @@
 ],
 "tetrafluoroethylene_gas": [
 "machine:pyrolysis_furnace"
+],
+"tft_array_glass": [
+"machine:cvd_furnace"
 ],
 "tft_lcd": [
 "machine:assembly_bench"
@@ -2574,6 +2604,9 @@
 "weston_cell": [
 "crafting"
 ],
+"white_arsenic": [
+"machine:reverberatory_furnace"
+],
 "white_led": [
 "crafting"
 ],
@@ -2628,6 +2661,9 @@
 ],
 "xylene": [
 "smelting"
+],
+"yag_phosphor": [
+"machine:compound_furnace"
 ],
 "yttrium_oxide": [
 "crafting"

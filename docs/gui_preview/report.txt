@@ -836,6 +836,8 @@ euv_scanner_en_us overlay gui.semiconductor-lab.mask_aligner.overlay w=63 lines=
 euv_scanner_en_us room gui.semiconductor-lab.mask_aligner.room_none w=47 lines=1/1
 euv_scanner_en_us room gui.semiconductor-lab.mask_aligner.room_1000 w=55 lines=1/1
 euv_scanner_en_us room gui.semiconductor-lab.mask_aligner.room_100 w=49 lines=1/1
+euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.not_formed w=61 lines=1/3
+euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.need_room w=123 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.stepper.need_wafer w=149 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.need_mask w=145 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.need_optics w=146 lines=3/3
@@ -1908,6 +1910,8 @@ euv_scanner_ja_jp overlay gui.semiconductor-lab.mask_aligner.overlay w=58 lines=
 euv_scanner_ja_jp room gui.semiconductor-lab.mask_aligner.room_none w=36 lines=1/1
 euv_scanner_ja_jp room gui.semiconductor-lab.mask_aligner.room_1000 w=51 lines=1/1
 euv_scanner_ja_jp room gui.semiconductor-lab.mask_aligner.room_100 w=45 lines=1/1
+euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.not_formed w=72 lines=1/3
+euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.need_room w=99 lines=2/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.stepper.need_wafer w=117 lines=2/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.need_mask w=125 lines=2/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.need_optics w=103 lines=3/3

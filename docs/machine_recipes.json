@@ -2039,6 +2039,31 @@
       "note": "真空で合金を蒸発させてガラスに付ける → かまどで酸化して ITO（[2-46]）"
     },
     {
+      "machine": "semiconductor-lab:evaporator",
+      "process": "アルミの点（メサ）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:pn_junction_wafer",
+          "count": 8,
+          "cond": "ホウ素の p-n 接合"
+        },
+        {
+          "item": "semiconductor-lab:aluminium_ingot",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:al_dotted_wafer",
+          "count": 8
+        }
+      ],
+      "watts": 300.0,
+      "seconds": 20.0,
+      "energy_kj": 6,
+      "note": "[9-17] 隣の真空容器 0.01Pa 以下"
+    },
+    {
       "machine": "semiconductor-lab:fluorination_reactor",
       "process": "CF4 を作る",
       "inputs": [
