@@ -486,5 +486,6 @@
   "multiblock.semiconductor-lab.euv_reticle_stage": "マスクの台",
   "multiblock.semiconductor-lab.euv_projection_box": "投影の鏡の箱",
   "multiblock.semiconductor-lab.euv_wafer_stage": "ウェハーの台",
-  "multiblock.semiconductor-lab.vacuum_chamber": "真空容器"
+  "multiblock.semiconductor-lab.vacuum_chamber": "真空容器",
+  "tooltip.semiconductor-lab.howto_get.special": "特別な作り方（図鑑）"
 }

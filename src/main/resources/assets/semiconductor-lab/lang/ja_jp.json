@@ -487,6 +487,7 @@
   "multiblock.semiconductor-lab.euv_projection_box": "投影の鏡の箱",
   "multiblock.semiconductor-lab.euv_wafer_stage": "ウェハーの台",
   "multiblock.semiconductor-lab.vacuum_chamber": "真空容器",
+  "tooltip.semiconductor-lab.howto_get.special": "特別な作り方（図鑑）",
   "advancements.semiconductor-lab.chapter1.root.title": "第1章：トランジスタの誕生",
   "advancements.semiconductor-lab.chapter1.root.description": "1947年。シリコンの前に、ゲルマニウムがあった。ゴール：トランジスタラジオを作ろう！",
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "灰の中の元素",

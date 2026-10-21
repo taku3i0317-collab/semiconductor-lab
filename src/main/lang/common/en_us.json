@@ -486,5 +486,6 @@
   "multiblock.semiconductor-lab.euv_reticle_stage": "reticle stage",
   "multiblock.semiconductor-lab.euv_projection_box": "projection housing",
   "multiblock.semiconductor-lab.euv_wafer_stage": "wafer stage",
-  "multiblock.semiconductor-lab.vacuum_chamber": "vacuum chamber"
+  "multiblock.semiconductor-lab.vacuum_chamber": "vacuum chamber",
+  "tooltip.semiconductor-lab.howto_get.special": "a special way (see the encyclopedia)"
 }

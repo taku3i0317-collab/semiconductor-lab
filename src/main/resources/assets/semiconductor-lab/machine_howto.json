@@ -363,6 +363,22 @@
 {
 "in": [
 [
+"semiconductor-lab:pulp_charge",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:wood_pulp",
+2
+]
+],
+"watts": 10000.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
 "semiconductor-lab:resol_mix",
 1
 ],
@@ -1221,6 +1237,28 @@
 "seconds": 6.25
 }
 ],
+"evaporator": [
+{
+"in": [
+[
+"semiconductor-lab:borosilicate_glass",
+1
+],
+[
+"semiconductor-lab:indium_tin_alloy",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:indium_tin_coated_glass",
+1
+]
+],
+"watts": 300.0,
+"seconds": 20.0
+}
+],
 "fluorination_reactor": [
 {
 "in": [
@@ -1301,6 +1339,32 @@
 ],
 "watts": 0.0,
 "seconds": 80.0
+}
+],
+"haber_bosch_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:nitrogen_gas",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+3
+],
+[
+"semiconductor-lab:iron_catalyst",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:ammonia_gas",
+2
+]
+],
+"watts": 20000.0,
+"seconds": 10.0
 }
 ],
 "hafnium_chlorinator": [
@@ -1615,6 +1679,28 @@
 ],
 "watts": 0.0,
 "seconds": 10.0
+}
+],
+"magnesium_cell": [
+{
+"in": [
+[
+"semiconductor-lab:anhydrous_magnesium_chloride",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:magnesium",
+1
+],
+[
+"semiconductor-lab:chlorine_gas",
+1
+]
+],
+"watts": 10000.0,
+"seconds": 20.0
 }
 ],
 "oil_diffusion_pump": [
@@ -2076,6 +2162,30 @@
 }
 ],
 "reverberatory_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:pyrite",
+1
+],
+[
+"minecraft:coal",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:colcothar",
+1
+],
+[
+"semiconductor-lab:sulfur_dioxide",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+},
 {
 "in": [
 [

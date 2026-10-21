@@ -56,6 +56,10 @@
 "ald_reactor": [
 "crafting"
 ],
+"alkali_waste": [
+"crafting",
+"special"
+],
 "alloyed_wafer": [
 "smelting"
 ],
@@ -82,6 +86,9 @@
 ],
 "aluminosilicate_glass": [
 "smelting"
+],
+"ammonia_gas": [
+"machine:haber_bosch_reactor"
 ],
 "ammonia_still": [
 "crafting"
@@ -115,7 +122,8 @@
 "crafting"
 ],
 "anhydrous_magnesium_chloride": [
-"smelting"
+"smelting",
+"crafting"
 ],
 "anion_exchange_resin": [
 "crafting"
@@ -160,6 +168,7 @@
 "machine:air_separation_unit"
 ],
 "asphalt": [
+"loot",
 "ore"
 ],
 "assembly_bench": [
@@ -190,12 +199,17 @@
 "crafting"
 ],
 "bastnaesite": [
+"loot",
 "ore"
 ],
 "bastnaesite_ore": [
 "ore"
 ],
+"battery_energy": [
+"loot"
+],
 "bauxite": [
+"loot",
 "ore"
 ],
 "bauxite_ore": [
@@ -277,6 +291,7 @@
 "smelting"
 ],
 "borax": [
+"loot",
 "ore"
 ],
 "borax_deposit": [
@@ -399,7 +414,11 @@
 "carded_wool": [
 "crafting"
 ],
+"carotene": [
+"special"
+],
 "cassiterite": [
+"loot",
 "ore"
 ],
 "cassiterite_ore": [
@@ -429,6 +448,9 @@
 "cfc12_gas": [
 "crafting"
 ],
+"chamber_acid": [
+"crafting"
+],
 "chemically_amplified_resist": [
 "crafting"
 ],
@@ -442,7 +464,8 @@
 "machine:compressor"
 ],
 "chlorine_gas": [
-"machine:electrolyzer"
+"machine:electrolyzer",
+"machine:magnesium_cell"
 ],
 "chloroauric_acid": [
 "crafting"
@@ -453,6 +476,9 @@
 "chloroform": [
 "crafting"
 ],
+"chlorophyll": [
+"special"
+],
 "chloroplatinic_acid": [
 "crafting"
 ],
@@ -460,6 +486,7 @@
 "crafting"
 ],
 "chromite": [
+"loot",
 "ore"
 ],
 "chromite_ore": [
@@ -506,6 +533,10 @@
 ],
 "coke": [
 "machine:gas_retort"
+],
+"colcothar": [
+"machine:reverberatory_furnace",
+"crafting"
 ],
 "colloidal_silica": [
 "crafting"
@@ -616,6 +647,9 @@
 "cured_epoxy": [
 "smelting"
 ],
+"cured_photopolymer": [
+"special"
+],
 "cvd_furnace": [
 "crafting"
 ],
@@ -642,6 +676,9 @@
 ],
 "daniell_cell": [
 "crafting"
+],
+"deionized_water": [
+"special"
 ],
 "developed_dry_plate": [
 "crafting"
@@ -738,6 +775,10 @@
 "smelting",
 "campfire"
 ],
+"einkorn": [
+"loot",
+"special"
+],
 "electric_furnace": [
 "crafting"
 ],
@@ -782,10 +823,22 @@
 "ethanol": [
 "crafting"
 ],
+"ethylene_gas": [
+"special"
+],
+"euv_casing": [
+"crafting"
+],
 "euv_high_na_optics": [
 "crafting"
 ],
+"euv_illuminator": [
+"crafting"
+],
 "euv_mirror_set": [
+"crafting"
+],
+"euv_projection_box": [
 "crafting"
 ],
 "euv_projection_optics": [
@@ -794,10 +847,16 @@
 "euv_resist": [
 "crafting"
 ],
+"euv_reticle_stage": [
+"crafting"
+],
 "euv_scanner": [
 "crafting"
 ],
 "euv_source": [
+"crafting"
+],
+"euv_wafer_stage": [
 "crafting"
 ],
 "evaporator": [
@@ -805,6 +864,9 @@
 ],
 "fermentation_crock": [
 "crafting"
+],
+"fermented_wash": [
+"special"
 ],
 "ferroboron": [
 "smelting"
@@ -833,6 +895,10 @@
 "flax_fiber": [
 "crafting"
 ],
+"flax_stalks": [
+"loot",
+"special"
+],
 "flint_flake": [
 "crafting"
 ],
@@ -858,6 +924,7 @@
 "crafting"
 ],
 "fluorite": [
+"loot",
 "ore"
 ],
 "fluorite_ore": [
@@ -865,6 +932,9 @@
 ],
 "foamy_bakelite": [
 "smelting"
+],
+"formalin": [
+"special"
 ],
 "foup": [
 "crafting"
@@ -877,6 +947,7 @@
 "crafting"
 ],
 "galena": [
+"loot",
 "ore"
 ],
 "galena_ore": [
@@ -958,6 +1029,7 @@
 "crafting"
 ],
 "graphite": [
+"loot",
 "ore"
 ],
 "graphite_boat": [
@@ -981,6 +1053,9 @@
 ],
 "green_color_resist": [
 "crafting"
+],
+"green_vitriol": [
+"special"
 ],
 "grinder": [
 "crafting"
@@ -1029,6 +1104,9 @@
 ],
 "hdpe": [
 "crafting"
+],
+"heliograph": [
+"special"
 ],
 "heliograph_plate": [
 "crafting"
@@ -1118,6 +1196,9 @@
 "indium_tin_alloy": [
 "crafting"
 ],
+"indium_tin_coated_glass": [
+"machine:evaporator"
+],
 "induction_coil": [
 "crafting"
 ],
@@ -1200,6 +1281,9 @@
 "krypton_lamp": [
 "crafting"
 ],
+"latex": [
+"special"
+],
 "lathe": [
 "crafting"
 ],
@@ -1215,6 +1299,9 @@
 "lead_bottle": [
 "crafting",
 "machine:etch_tank"
+],
+"lead_chamber": [
+"crafting"
 ],
 "lead_ingot": [
 "smelting"
@@ -1252,6 +1339,10 @@
 ],
 "light_oil": [
 "campfire"
+],
+"light_rare_earth_liquor": [
+"crafting",
+"special"
 ],
 "light_rare_earth_oxalate": [
 "crafting"
@@ -1299,6 +1390,9 @@
 "macadam": [
 "crafting"
 ],
+"magnesium": [
+"machine:magnesium_cell"
+],
 "magnesium_cell": [
 "crafting"
 ],
@@ -1312,8 +1406,8 @@
 "crafting"
 ],
 "magnetite": [
-"ore",
-"loot"
+"loot",
+"ore"
 ],
 "magnetite_ore": [
 "ore"
@@ -1325,6 +1419,7 @@
 "crafting"
 ],
 "malachite": [
+"loot",
 "ore"
 ],
 "malachite_ore": [
@@ -1473,6 +1568,7 @@
 "crafting"
 ],
 "nitre_earth": [
+"loot",
 "ore"
 ],
 "nitre_earth_block": [
@@ -1492,6 +1588,9 @@
 ],
 "nitrogen_cylinder": [
 "machine:compressor"
+],
+"nitrogen_farmland": [
+"special"
 ],
 "nitrogen_gas": [
 "machine:air_separation_unit"
@@ -1513,6 +1612,9 @@
 ],
 "nylon_salt": [
 "crafting"
+],
+"obsidian_flake": [
+"special"
 ],
 "oil_diffusion_pump": [
 "crafting"
@@ -1549,6 +1651,7 @@
 "loot"
 ],
 "pentlandite": [
+"loot",
 "ore"
 ],
 "pentlandite_ore": [
@@ -1611,6 +1714,9 @@
 "pig_iron": [
 "machine:blast_furnace_hearth"
 ],
+"pine_resin": [
+"special"
+],
 "pitch": [
 "smelting"
 ],
@@ -1630,6 +1736,7 @@
 "crafting"
 ],
 "platinum_grain": [
+"loot",
 "ore"
 ],
 "platinum_ingot": [
@@ -1701,6 +1808,10 @@
 "potassium_fluorotantalate": [
 "machine:tantalum_refinery"
 ],
+"potassium_fluorozirconate": [
+"crafting",
+"special"
+],
 "potassium_hexafluoroantimonate": [
 "machine:resist_reactor"
 ],
@@ -1759,12 +1870,14 @@
 "crafting"
 ],
 "pyrite": [
+"loot",
 "ore"
 ],
 "pyrite_ore": [
 "ore"
 ],
 "pyrolusite": [
+"loot",
 "ore"
 ],
 "pyrolusite_ore": [
@@ -1892,6 +2005,9 @@
 "resol_mix": [
 "crafting"
 ],
+"retted_flax": [
+"special"
+],
 "reverberatory_furnace": [
 "crafting"
 ],
@@ -1902,13 +2018,21 @@
 "smelting"
 ],
 "rock_crystal": [
+"loot",
 "ore"
 ],
 "rock_salt": [
+"loot",
 "ore"
 ],
 "rock_salt_ore": [
 "ore"
+],
+"rock_wool": [
+"smelting"
+],
+"roman_concrete": [
+"special"
 ],
 "roman_concrete_mix": [
 "crafting"
@@ -1935,6 +2059,7 @@
 "ore"
 ],
 "rubber_sapling": [
+"loot",
 "ore"
 ],
 "ruby_boule": [
@@ -1963,7 +2088,8 @@
 "machine:salt_pan"
 ],
 "salt_cake": [
-"smelting"
+"smelting",
+"crafting"
 ],
 "salt_cake_charge": [
 "crafting"
@@ -1979,6 +2105,9 @@
 ],
 "saltpeter": [
 "smelting"
+],
+"salty_farmland": [
+"special"
 ],
 "saponified_tallow": [
 "campfire"
@@ -2125,7 +2254,15 @@
 "speculum_mirror": [
 "crafting"
 ],
+"spent_aqua_regia": [
+"special"
+],
+"spent_lye": [
+"crafting",
+"special"
+],
 "sphalerite": [
+"loot",
 "ore"
 ],
 "sphalerite_ore": [
@@ -2141,6 +2278,7 @@
 "crafting"
 ],
 "spodumene": [
+"loot",
 "ore"
 ],
 "spodumene_ore": [
@@ -2189,6 +2327,7 @@
 "crafting"
 ],
 "stibnite": [
+"loot",
 "ore"
 ],
 "stibnite_ore": [
@@ -2238,6 +2377,7 @@
 "loot"
 ],
 "tantalite": [
+"loot",
 "ore"
 ],
 "tantalite_ore": [
@@ -2267,6 +2407,9 @@
 "thermite_charge": [
 "crafting"
 ],
+"thermocouple": [
+"crafting"
+],
 "thyristor": [
 "crafting"
 ],
@@ -2284,6 +2427,9 @@
 ],
 "tin_ingot": [
 "smelting"
+],
+"tired_farmland": [
+"special"
 ],
 "titanium_sponge": [
 "crafting"
@@ -2322,6 +2468,7 @@
 "crafting"
 ],
 "trona": [
+"loot",
 "ore"
 ],
 "trona_deposit": [
@@ -2391,10 +2538,14 @@
 "crafting"
 ],
 "vein_quartz": [
+"loot",
 "ore"
 ],
 "vernier_caliper": [
 "crafting"
+],
+"vinegar": [
+"special"
 ],
 "vinyl_acetate": [
 "crafting"
@@ -2442,6 +2593,7 @@
 "crafting"
 ],
 "wolframite": [
+"loot",
 "ore"
 ],
 "wolframite_ore": [
@@ -2452,6 +2604,9 @@
 ],
 "wood_ash": [
 "campfire"
+],
+"wood_pulp": [
+"machine:autoclave"
 ],
 "wood_retort": [
 "crafting"
@@ -2464,6 +2619,9 @@
 ],
 "wooden_wheel": [
 "crafting"
+],
+"woolen_yarn": [
+"special"
 ],
 "xenon_flashlamp": [
 "crafting"

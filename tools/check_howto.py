@@ -93,6 +93,12 @@ def main():
         lst = ways.setdefault(i, [])
         if w not in lst:
             lst.append(w)
+    for i in HOWTO_EXTRA:
+        if i != "test_power_source":
+            way(i, "special")   # 手書きの道（ブロックを右クリック・待つ など）。ツールチップは「特別（図鑑）」
+    for p in (RES / f"data/{NS}/loot_table/blocks").glob("*.json"):   # ブロックを壊すと出る物（作物の収穫など。ブロック自身は除く）
+        for i in ids_in(load(p)) - {p.stem}:
+            way(i, "loot")
     for i, ws in EXTRA_WAYS.items():
         for w in ws:
             way(i, w)
@@ -125,6 +131,10 @@ def main():
             for name in re.findall(r"\b([A-Z][A-Z0-9_]+)\b", body):
                 if name in consts:
                     way(consts[name], "loot")
+    for src in srcs.values():   # 作業台で使うと残る物（craftRemainder）
+        for name in re.findall(r"craftRemainder\((?:[\w.]+\.)?([A-Z][A-Z0-9_]+)\)", src):
+            if name in consts:
+                way(consts[name], "crafting")
     no_way = [i for i in items if i not in got]
 
     lang = load(RES / f"assets/{NS}/lang/ja_jp.json")
@@ -178,6 +188,8 @@ def main():
     for o in sorted(hb):
         lines.append(f"- **{o}**（{len(hb[o])}）：" + "、".join(sorted(hb[o])))
     lines += ["", "## ③ 見取り図の無いマルチブロック", "- " + ("、".join(no_view) if no_view else "なし")]
+    for k in ways:   # 手書きの道は最後に（レシピ・機械・掘る・壊す が先）
+        ways[k].sort(key=lambda w: w == "special")
     hg = RES / f"assets/{NS}/howto_get.json"
     hg.write_text(json.dumps({"_note": "自動生成：python tools/check_howto.py（O-035）。ツールチップの「作り方」1行（machine/HowToGet）。手で直さない",
                               "ways": {k: ways[k] for k in sorted(ways)}}, ensure_ascii=False, indent=0) + chr(10), encoding="utf-8")
