@@ -798,18 +798,20 @@ setblock ~5 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] ca
 setblock ~5 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:camera",count:1}]}
 setblock ~8 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-14] アセチレンラン","ランプの見た目（火のつ","いた・消えた）、夜に置","いて明るさ、数分で消え"]}}
 setblock ~8 ~0 ~114 semiconductor-lab:carbide_lamp
-setblock ~12 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-12] 太陽電池","通しプレイ（多結晶Si"," → CZ（リンで n","型）→ 切断 → 拡散"]}}
-setblock ~12 ~0 ~114 semiconductor-lab:solar_cell
-setblock ~16 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-24] ニキシー管 🌿","合格したチップ（全加算","器・レジスタ×2・カウ","ンタ）とキー・ニキシー"]}}
-setblock ~16 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nixie_tube",count:16}]}
-setblock ~19 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-08] 電卓","合格したチップ（全加算","器・レジスタ×2・カウ","ンタ）とキー・ニキシー"]}}
-setblock ~19 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:key_switch",count:16},{Slot:1b,id:"semiconductor-lab:calculator",count:1}]}
-setblock ~22 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-09] ゲーム機","組立台でゲーム機を組み","、右クリックで卓球（左","の板がマウスに付いてく"]}}
-setblock ~22 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:game_console",count:1}]}
-setblock ~25 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
-setblock ~25 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:camera_module",count:1}]}
-setblock ~28 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-10] スマホ","スマホのアイテムを右ク","リックで「画面はまだ」","の文、ツールチップに "]}}
-setblock ~28 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:smartphone",count:1}]}
+setblock ~12 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-06] 偏光フィルム ","両手に持って右クリック","したときのメッセージ、","1枚だけのときのメッセ"]}}
+setblock ~12 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:pva_film",count:16},{Slot:1b,id:"semiconductor-lab:potassium_iodide",count:16},{Slot:2b,id:"semiconductor-lab:polarizing_film",count:16}]}
+setblock ~15 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-12] 太陽電池","通しプレイ（多結晶Si"," → CZ（リンで n","型）→ 切断 → 拡散"]}}
+setblock ~15 ~0 ~114 semiconductor-lab:solar_cell
+setblock ~19 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-24] ニキシー管 🌿","合格したチップ（全加算","器・レジスタ×2・カウ","ンタ）とキー・ニキシー"]}}
+setblock ~19 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nixie_tube",count:16}]}
+setblock ~22 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-08] 電卓","合格したチップ（全加算","器・レジスタ×2・カウ","ンタ）とキー・ニキシー"]}}
+setblock ~22 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:key_switch",count:16},{Slot:1b,id:"semiconductor-lab:calculator",count:1}]}
+setblock ~25 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-09] ゲーム機","組立台でゲーム機を組み","、右クリックで卓球（左","の板がマウスに付いてく"]}}
+setblock ~25 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:game_console",count:1}]}
+setblock ~28 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
+setblock ~28 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:camera_module",count:1}]}
+setblock ~31 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-10] スマホ","スマホのアイテムを右ク","リックで「画面はまだ」","の文、ツールチップに "]}}
+setblock ~31 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:smartphone",count:1}]}
 setblock ~0 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["本物の発電","↓ この列","",""]}}
 setblock ~2 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["蒸気機関で発電","石炭と水バケツ","を入れると","電気炉が動く"]}}
 setblock ~2 ~0 ~122 semiconductor-lab:steam_engine

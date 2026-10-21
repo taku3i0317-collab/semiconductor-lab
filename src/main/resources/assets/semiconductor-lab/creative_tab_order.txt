@@ -755,6 +755,9 @@ negative  # Branches [B-02] 1839
 printing_paper  # Branches [B-02] 1839
 print  # Branches [B-02] 1839
 carbide_lamp  # Branches [B-14] 1892
+pva_film  # Branches [B-06] 1929
+potassium_iodide  # Branches [B-06] 1929
+polarizing_film  # Branches [B-06] 1929
 solar_cell  # Branches [B-12] 1954
 nixie_tube  # Branches [B-24] 1955
 key_switch  # Branches [B-08] 1964

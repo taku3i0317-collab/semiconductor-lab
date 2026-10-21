@@ -118,5 +118,11 @@ public final class Branches {
     public static final Block CARBIDE_LAMP = Reg.functional("carbide_lamp", CarbideLampBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(1.0f).sound(SoundType.LANTERN).noOcclusion().lightLevel(CarbideLampBlock::light));
 
+    // [B-06] 偏光フィルム（IMP3、O-023）：ポリビニルアルコール＋水 → PVA の膜2。ヨウ素3＋鉄＋カリ＋水 → ヨウ化カリウム（昔の作り方）。
+    //   PVA の膜＋ヨウ素＋ヨウ化カリウム＋ホウ酸 → 偏光フィルム2（引き伸ばしてヨウ素で染め、ホウ酸で止める＝1938 ランドの H シート）。両手に持って右クリックで回す（マリュスの法則）
+    public static final Item PVA_FILM              = Reg.item("pva_film");
+    public static final Item POTASSIUM_IODIDE      = Reg.item("potassium_iodide");
+    public static final Item POLARIZING_FILM       = Reg.item("polarizing_film", PolarizerItem::new, new Item.Properties().stacksTo(16));
+
     static void init() {}
 }

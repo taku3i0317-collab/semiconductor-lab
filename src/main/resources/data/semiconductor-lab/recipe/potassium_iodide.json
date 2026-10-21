@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:iodine",
+    "semiconductor-lab:iodine",
+    "semiconductor-lab:iodine",
+    "minecraft:iron_ingot",
+    "semiconductor-lab:potash",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:potassium_iodide",
+    "count": 2
+  }
+}

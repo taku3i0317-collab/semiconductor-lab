@@ -270,4 +270,24 @@ public class BranchesTests extends LabTestBase {
         h.assertTrue(a.satisfied(0, counter) && !a.satisfied(0, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.CHIP, 2)), "counter chips only");
         h.succeed();
     }
+
+    /** [B-06] 偏光フィルム（IMP3、O-023）：PVA の膜＋ヨウ素＋KI＋ホウ酸。1枚で 50%、2枚で 50 cos²θ（同じ向き 50、45度 25、直角 0）。両手で右クリックすると15度ずつ回る */
+    @GameTest
+    public void polarizingFilm(GameTestHelper h) {
+        var B = com.taku3.semiconductorlab.content.Branches.class;
+        h.assertTrue(recipeUses(h, "polarizing_film", com.taku3.semiconductorlab.content.Branches.PVA_FILM) && recipeUses(h, "polarizing_film", com.taku3.semiconductorlab.content.Chemistry.IODINE)
+                && recipeUses(h, "polarizing_film", com.taku3.semiconductorlab.content.Metallurgy.BORIC_ACID), "PVA + iodine + boric acid (H-sheet)");
+        h.assertTrue(recipeUses(h, "pva_film", com.taku3.semiconductorlab.content.Chemistry.POLYVINYL_ALCOHOL) && recipeUses(h, "potassium_iodide", com.taku3.semiconductorlab.content.Chemistry.POTASH), "PVA film, KI");
+        var P = com.taku3.semiconductorlab.item.PolarizerItem.class;
+        h.assertTrue(com.taku3.semiconductorlab.item.PolarizerItem.brightness(1, 0) == 50, "one film: half");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.PolarizerItem.brightness(2, 0) - 50) < 1e-9 && Math.abs(com.taku3.semiconductorlab.item.PolarizerItem.brightness(2, 45) - 25) < 1e-9
+                && com.taku3.semiconductorlab.item.PolarizerItem.brightness(2, 90) < 1e-9, "Malus: 50, 25, 0");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Branches.POLARIZING_FILM));
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Branches.POLARIZING_FILM));
+        for (int i = 0; i < 6; i++) player.getMainHandItem().use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.PolarizerItem.angle(player.getMainHandItem()), 90, "six turns of 15 degrees = crossed");
+        LOG.info("[LAB] polarizing film [B-06]: 1 film 50%, 2 films 50cos^2: 0deg 50, 45deg 25, 90deg 0 (" + B.getSimpleName() + "/" + P.getSimpleName() + ")");
+        h.succeed();
+    }
 }

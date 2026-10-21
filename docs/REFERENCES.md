@@ -3493,6 +3493,20 @@
 - Wikipedia「Crystal bar process」：https://en.wikipedia.org/wiki/Crystal_bar_process
 - Wikipedia「High-κ dielectric」：https://en.wikipedia.org/wiki/High-%CE%BA_dielectric
 
+## C60. ヨウ素で染めたフィルムが光の向きを選ぶ（偏光フィルム）［B-06］
+**答え**：ふつうの光は、いろいろな向きにゆれる波がまざっている。偏光フィルムは、決まった向きにゆれる光だけを通す。1929年、アメリカのエドウィン・ランドがヨウ素キニーネ（ヘラパタイト）の小さな結晶を並べたシートを作り、1938年には、ポリビニルアルコール（PVA）の膜を引き伸ばしてヨウ素で染めた「H シート」を作った。引き伸ばすと PVA の鎖がそろい、ヨウ素がその鎖にそって細い列になって、列の向きにゆれる光を吸う。2枚を重ねて回すと、向きの差 θ に応じて明るさが cos²θ で変わり、直角でまっ暗になる（1809 マリュスの法則）。
+
+- へえ①：液晶の画面の前には、ヨウ素で染めたフィルムが貼ってある。
+- へえ②：偏光サングラスは、水面や道路の照り返し（横向きにゆれる光）を消す。
+- へえ③：2枚を直角に重ねると暗くなるが、間に3枚目を45度で入れると、また少し明るくなる。
+- へえ④：ヘラパタイトは、キニーネを飲んだ犬の尿から 1852年にヘラパスが見つけた結晶だった。
+
+確かさ：ランド 1929・H シート 1938・マリュス 1809 ◎／ヘラパタイトの発見の話 ○
+根拠：
+- Wikipedia「Polarizer」：https://en.wikipedia.org/wiki/Polarizer
+- Wikipedia「Herapathite」：https://en.wikipedia.org/wiki/Herapathite
+- Wikipedia「Malus's law」（Polarizer の節）：https://en.wikipedia.org/wiki/Polarizer#Malus's_law_and_other_properties
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:pva_film",
+    "semiconductor-lab:iodine",
+    "semiconductor-lab:potassium_iodide",
+    "semiconductor-lab:boric_acid"
+  ],
+  "result": {
+    "id": "semiconductor-lab:polarizing_film",
+    "count": 2
+  }
+}
