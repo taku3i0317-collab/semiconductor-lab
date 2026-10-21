@@ -1096,6 +1096,16 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-13] 亜鉛の蒸留（IMP4-01、O-030 案A）：酸化亜鉛2＋木炭＋土器のつぼ → 蒸留のかめ → かまど → 亜鉛2（直接焼くより多い）。今の近道（閃亜鉛鉱・酸化亜鉛をそのまま焼く）は残る */
+    @GameTest
+    public void zincRetort(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "zinc_retort_charge", Heat.ZINC_OXIDE) && recipeUses(h, "zinc_retort_charge", com.taku3.semiconductorlab.content.Survival.EARTHENWARE_POT), "ZnO + clay pot");
+        ItemStack out = cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.ZINC_RETORT_CHARGE);
+        h.assertTrue(out.is(Metallurgy.ZINC_INGOT) && out.getCount() == 2, "retort gives 2 zinc, got " + out);
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Heat.ZINC_OXIDE).getCount() == 1, "direct ZnO still gives 1 (shortcut kept)");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [1-39] マグネシウムの電解槽（IMP3、O-028 で書き出しに足した）
         rec(a, Metallurgy.MAGNESIUM_CELL.block, "マグネシウム", L(io(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 1)), L(io(Metallurgy.MAGNESIUM, 1), mol(Gas.CHLORINE_GAS, 1)),

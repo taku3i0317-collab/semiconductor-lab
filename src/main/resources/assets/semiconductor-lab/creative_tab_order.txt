@@ -71,6 +71,7 @@ cinnabar_retort_charge  # Metallurgy [1-45] -500
 pig_iron  # Metallurgy [1-09] -450
 tuyere  # Metallurgy [1-09] -450
 blast_furnace_hearth  # Metallurgy [1-09] -450
+zinc_retort_charge  # Metallurgy [1-13] 1150
 sphalerite  # Metallurgy [1-13] 1150
 zinc_ingot  # Metallurgy [1-13] 1150
 sphalerite_ore  # Metallurgy [1-13] 1150

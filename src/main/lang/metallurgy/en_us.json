@@ -1207,5 +1207,11 @@
   "item.semiconductor-lab.alumina_ceramic_plate.note2": "Fire an alumina compact in the electric furnace. A material for C's EUV parts (electrostatic chuck).",
   "item.semiconductor-lab.alumina_ceramic_plate.note3": "Fine ceramic of sintered Al2O3: nearly as hard as diamond's next rank, insulating, and stable at high temperature. With electrodes buried under the surface and a voltage applied, it holds a wafer flat by electric force (an electrostatic chuck).",
   "item.semiconductor-lab.alumina_ceramic_plate.note4": "From the 1930s it insulated car spark plugs, and from the 1960s it carried ICs as substrates. Suction cups do not work in vacuum, so semiconductor tools hold wafers with electrostatic chucks ⚠️.",
-  "item.semiconductor-lab.alumina_ceramic_plate.placeholder": "Approximation: firing temperature, shrinkage and polishing are omitted."
+  "item.semiconductor-lab.alumina_ceramic_plate.placeholder": "Approximation: firing temperature, shrinkage and polishing are omitted.",
+  "item.semiconductor-lab.zinc_retort_charge": "Zinc Retort Charge",
+  "item.semiconductor-lab.zinc_retort_charge.note1": "Zinc oxide and charcoal packed into a clay pot. Heat it and zinc comes off as vapour, then condenses.",
+  "item.semiconductor-lab.zinc_retort_charge.note2": "Crafting: 2 zinc oxide + charcoal + earthenware pot. Smelt for 2 zinc ingots (zinc oxide smelted directly gives 1). The pot breaks and is used up.",
+  "item.semiconductor-lab.zinc_retort_charge.note3": "ZnO + C → Zn + CO needs about 1000 °C, but zinc boils at 907 °C, so in an ordinary furnace it escapes as vapour. With the pot's mouth pointing down into a cool place, the vapour condenses to liquid zinc (distillation smelting).",
+  "item.semiconductor-lab.zinc_retort_charge.note4": "At Zawar in India, from around the 12th century, hundreds of small aubergine-shaped retorts were fired together. They were broken to get the zinc out, and heaps of the fragments remain ⚠️. In Europe William Champion patented the process in 1738.",
+  "item.semiconductor-lab.zinc_retort_charge.placeholder": "Omitted: ⚠️ the inverted, cooled retort is reduced to simply smelting in a furnace."
 }

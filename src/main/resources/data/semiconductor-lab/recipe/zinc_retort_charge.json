@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:zinc_oxide",
+    "semiconductor-lab:zinc_oxide",
+    "minecraft:charcoal",
+    "semiconductor-lab:earthenware_pot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:zinc_retort_charge",
+    "count": 1
+  }
+}

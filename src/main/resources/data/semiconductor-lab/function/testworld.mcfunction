@@ -106,9 +106,9 @@ setblock ~49 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-09] 
 setblock ~49 ~0 ~10 semiconductor-lab:tuyere
 setblock ~50 ~0 ~10 semiconductor-lab:blast_furnace_hearth
 setblock ~51 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:pig_iron",count:16},{Slot:1b,id:"minecraft:raw_iron",count:16},{Slot:2b,id:"minecraft:charcoal",count:16},{Slot:3b,id:"minecraft:calcite",count:16}]}
-setblock ~54 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-13] 亜鉛","（人間の確認項目なし）","",""]}}
+setblock ~54 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-13] 亜鉛","作業台で蒸留のかめを作","ってかまどで焼く",""]}}
 setblock ~54 ~0 ~10 semiconductor-lab:sphalerite_ore
-setblock ~55 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sphalerite",count:16},{Slot:1b,id:"semiconductor-lab:zinc_ingot",count:16}]}
+setblock ~55 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:zinc_retort_charge",count:16},{Slot:1b,id:"semiconductor-lab:sphalerite",count:16},{Slot:2b,id:"semiconductor-lab:zinc_ingot",count:16}]}
 setblock ~58 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-58] 伸線","作業台で引き板・ダイス","が手元に戻るか",""]}}
 setblock ~58 ~0 ~10 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:draw_plate",count:1},{Slot:1b,id:"semiconductor-lab:diamond_die",count:1},{Slot:2b,id:"semiconductor-lab:gold_wire",count:16},{Slot:3b,id:"semiconductor-lab:gold_bonding_wire",count:16},{Slot:4b,id:"semiconductor-lab:copper_wire",count:16}]}
 setblock ~61 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-21] 蛍石 CaF2","鉱石・蛍石の見た目（紫","と緑のつぶ）、石のツル","ハシで掘れて木では掘れ"]}}

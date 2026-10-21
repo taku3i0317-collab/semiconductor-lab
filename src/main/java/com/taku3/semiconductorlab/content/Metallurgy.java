@@ -27,6 +27,8 @@ public final class Metallurgy {
     private Metallurgy() {}
 
     // ===== アイテム =====
+    // [1-13] 亜鉛（蒸留法：蒸留のかめ）（IMP4-01、S-009）
+    public static final Item ZINC_RETORT_CHARGE    = Reg.item("zinc_retort_charge");
     // [1-02] 自然銅（金属のままの銅）（IMP4-01、S-009）
     public static final Item NATIVE_COPPER         = Reg.item("native_copper");
     // [1-36] 単体ホウ素（マグネシウムで還元、1892 モアッサン）（IMP4-01、S-009）

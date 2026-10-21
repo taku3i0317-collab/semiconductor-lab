@@ -2842,6 +2842,9 @@
 "zinc_oxide": [
 "machine:reverberatory_furnace"
 ],
+"zinc_retort_charge": [
+"crafting"
+],
 "zircon": [
 "loot"
 ],
