@@ -494,30 +494,32 @@ setblock ~13 ~0 ~50 semiconductor-lab:electrolyzer
 setblock ~14 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hydrogen_gas",count:16},{Slot:1b,id:"semiconductor-lab:oxygen_gas",count:16},{Slot:2b,id:"minecraft:water_bucket",count:1},{Slot:3b,id:"semiconductor-lab:sulfuric_acid",count:16},{Slot:4b,id:"semiconductor-lab:salt",count:16}]}
 setblock ~17 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-02] ガスホルダー","見た目：側面（上が鉄の","ベル・下が青い水）、上","面、下面、インベントリ"]}}
 setblock ~17 ~0 ~50 semiconductor-lab:gas_holder
-setblock ~21 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-03] 圧縮機","圧縮機の見た目（正面の","窓が動作中に青）、GU","I（タイトル「圧縮機」"]}}
-setblock ~21 ~-1 ~50 semiconductor-lab:test_power_source
-setblock ~21 ~0 ~50 semiconductor-lab:compressor
-setblock ~22 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:empty_gas_cylinder",count:16},{Slot:1b,id:"semiconductor-lab:hydrogen_cylinder",count:16},{Slot:2b,id:"semiconductor-lab:oxygen_cylinder",count:16}]}
-setblock ~25 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-14] フッ素ガス","電解槽に KF・黒鉛・","フッ酸・空のボンベを入","れてフッ素のボンベがで"]}}
-setblock ~25 ~0 ~50 semiconductor-lab:fluorine_cell
-setblock ~26 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:fluorine_cylinder",count:16}]}
-setblock ~29 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-05] クロルアルカリ","（人間の確認項目なし）","",""]}}
-setblock ~29 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:1b,id:"semiconductor-lab:chlorine_cylinder",count:16},{Slot:2b,id:"semiconductor-lab:sodium_hydroxide",count:16}]}
-setblock ~32 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-07] 空気分離","空気分離装置の GUI","（左に縦の青いバーが下","からたまる、出口3つに"]}}
-setblock ~32 ~-1 ~50 semiconductor-lab:test_power_source
-setblock ~32 ~0 ~50 semiconductor-lab:air_separation_unit
-setblock ~33 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nitrogen_gas",count:16},{Slot:1b,id:"semiconductor-lab:argon_gas",count:16},{Slot:2b,id:"semiconductor-lab:nitrogen_cylinder",count:16},{Slot:3b,id:"semiconductor-lab:argon_cylinder",count:16}]}
-setblock ~36 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-08] 希ガス精製","空気分離装置の酸素・窒","素の袋を希ガスの精留塔","に入れて、Kr・Ne "]}}
-setblock ~36 ~0 ~50 semiconductor-lab:rare_gas_column
-setblock ~37 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:neon_gas",count:16},{Slot:1b,id:"semiconductor-lab:krypton_gas",count:16},{Slot:2b,id:"semiconductor-lab:xenon_gas",count:16},{Slot:3b,id:"semiconductor-lab:neon_cylinder",count:16},{Slot:4b,id:"semiconductor-lab:krypton_cylinder",count:16},{Slot:5b,id:"semiconductor-lab:xenon_cylinder",count:16}]}
-setblock ~40 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-06] 塩酸","（人間の確認項目なし）","",""]}}
-setblock ~40 ~0 ~50 semiconductor-lab:hcl_burner
-setblock ~41 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hydrochloric_acid",count:16},{Slot:1b,id:"semiconductor-lab:hydrogen_gas",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"minecraft:water_bucket",count:1},{Slot:4b,id:"semiconductor-lab:glass_bottle",count:16}]}
-setblock ~44 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-09] ハーバー・ボッ","反応塔の画面（ふつうの","画面）、肥料を耕地に使","ったときの音とメッセー"]}}
-setblock ~44 ~0 ~50 semiconductor-lab:haber_bosch_reactor
-setblock ~45 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:iron_catalyst",count:1},{Slot:1b,id:"semiconductor-lab:ammonia_gas",count:16},{Slot:2b,id:"semiconductor-lab:ammonium_sulfate",count:16}]}
-setblock ~48 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-14] CO2 レーザ","反射炉の煙道の表示（「","煙道」）、方解石で C","O2 の袋が出るか。C"]}}
-setblock ~48 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_dioxide_gas",count:16}]}
+setblock ~21 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-13] 接触法硫酸","レシピ本で SO3 →"," 発煙硫酸 → 硫酸2"," がたどれるか、容器の"]}}
+setblock ~21 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_gauze",count:1},{Slot:1b,id:"semiconductor-lab:sulfur_trioxide",count:16},{Slot:2b,id:"semiconductor-lab:oleum",count:16}]}
+setblock ~24 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-03] 圧縮機","圧縮機の見た目（正面の","窓が動作中に青）、GU","I（タイトル「圧縮機」"]}}
+setblock ~24 ~-1 ~50 semiconductor-lab:test_power_source
+setblock ~24 ~0 ~50 semiconductor-lab:compressor
+setblock ~25 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:empty_gas_cylinder",count:16},{Slot:1b,id:"semiconductor-lab:hydrogen_cylinder",count:16},{Slot:2b,id:"semiconductor-lab:oxygen_cylinder",count:16}]}
+setblock ~28 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-14] フッ素ガス","電解槽に KF・黒鉛・","フッ酸・空のボンベを入","れてフッ素のボンベがで"]}}
+setblock ~28 ~0 ~50 semiconductor-lab:fluorine_cell
+setblock ~29 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:fluorine_cylinder",count:16}]}
+setblock ~32 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-05] クロルアルカリ","（人間の確認項目なし）","",""]}}
+setblock ~32 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:1b,id:"semiconductor-lab:chlorine_cylinder",count:16},{Slot:2b,id:"semiconductor-lab:sodium_hydroxide",count:16}]}
+setblock ~35 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-07] 空気分離","空気分離装置の GUI","（左に縦の青いバーが下","からたまる、出口3つに"]}}
+setblock ~35 ~-1 ~50 semiconductor-lab:test_power_source
+setblock ~35 ~0 ~50 semiconductor-lab:air_separation_unit
+setblock ~36 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nitrogen_gas",count:16},{Slot:1b,id:"semiconductor-lab:argon_gas",count:16},{Slot:2b,id:"semiconductor-lab:nitrogen_cylinder",count:16},{Slot:3b,id:"semiconductor-lab:argon_cylinder",count:16}]}
+setblock ~39 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-08] 希ガス精製","空気分離装置の酸素・窒","素の袋を希ガスの精留塔","に入れて、Kr・Ne "]}}
+setblock ~39 ~0 ~50 semiconductor-lab:rare_gas_column
+setblock ~40 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:neon_gas",count:16},{Slot:1b,id:"semiconductor-lab:krypton_gas",count:16},{Slot:2b,id:"semiconductor-lab:xenon_gas",count:16},{Slot:3b,id:"semiconductor-lab:neon_cylinder",count:16},{Slot:4b,id:"semiconductor-lab:krypton_cylinder",count:16},{Slot:5b,id:"semiconductor-lab:xenon_cylinder",count:16}]}
+setblock ~43 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-06] 塩酸","（人間の確認項目なし）","",""]}}
+setblock ~43 ~0 ~50 semiconductor-lab:hcl_burner
+setblock ~44 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hydrochloric_acid",count:16},{Slot:1b,id:"semiconductor-lab:hydrogen_gas",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"minecraft:water_bucket",count:1},{Slot:4b,id:"semiconductor-lab:glass_bottle",count:16}]}
+setblock ~47 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-09] ハーバー・ボッ","反応塔の画面（ふつうの","画面）、肥料を耕地に使","ったときの音とメッセー"]}}
+setblock ~47 ~0 ~50 semiconductor-lab:haber_bosch_reactor
+setblock ~48 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:iron_catalyst",count:1},{Slot:1b,id:"semiconductor-lab:ammonia_gas",count:16},{Slot:2b,id:"semiconductor-lab:ammonium_sulfate",count:16}]}
+setblock ~51 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-14] CO2 レーザ","反射炉の煙道の表示（「","煙道」）、方解石で C","O2 の袋が出るか。C"]}}
+setblock ~51 ~0 ~50 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_dioxide_gas",count:16}]}
 setblock ~0 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹7 光学","↓ この列","",""]}}
 setblock ~2 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-04] 屈折望遠鏡と色","屈折望遠鏡を右クリック","で押している間、バニラ","の望遠鏡と同じように視"]}}
 setblock ~2 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:achromatic_lens",count:16},{Slot:1b,id:"semiconductor-lab:refracting_telescope",count:1}]}

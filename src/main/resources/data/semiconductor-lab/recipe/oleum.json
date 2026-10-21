@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sulfur_trioxide",
+    "semiconductor-lab:sulfuric_acid",
+    "semiconductor-lab:iron_flask"
+  ],
+  "result": {
+    "id": "semiconductor-lab:oleum",
+    "count": 1
+  }
+}

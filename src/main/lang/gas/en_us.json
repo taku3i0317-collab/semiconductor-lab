@@ -271,5 +271,21 @@
   "block.semiconductor-lab.haber_bosch_reactor.note3": "Nitrogen and hydrogen pass over the iron catalyst at about 200 atm and 450 C. Only about 15% reacts per pass, so the ammonia is cooled out as a liquid and the rest of the gas is sent round again.",
   "block.semiconductor-lab.haber_bosch_reactor.note4": "Haber succeeded in the lab in 1909 and Bosch at BASF built the plant in 1913 (high-pressure hydrogen makes steel brittle, so he designed a double-walled reactor). Lesson: in World War I Haber led the chlorine gas attack (Ypres, 1915), and many soldiers died. The scientist who helped feed billions was also a developer of poison gas (how to make it is not in this mod).",
   "block.semiconductor-lab.haber_bosch_reactor.placeholder": "Approximation: everything reacts in one pass; pressure and temperature are not given as numbers (standard screen).",
-  "message.semiconductor-lab.ammonium_sulfate.fertilized": "Nitrogen fertilizer spread: fertile farmland (3 shares of nitrogen)"
+  "message.semiconductor-lab.ammonium_sulfate.fertilized": "Nitrogen fertilizer spread: fertile farmland (3 shares of nitrogen)",
+  "item.semiconductor-lab.platinum_gauze": "Platinum Gauze (Catalyst)",
+  "item.semiconductor-lab.platinum_gauze.note1": "A net woven from fine platinum wire. Speeds up reactions between gases.",
+  "item.semiconductor-lab.platinum_gauze.note2": "2 platinum. Returned after crafting (a catalyst). SO2 + oxygen + this -> sulfur trioxide.",
+  "item.semiconductor-lab.platinum_gauze.note3": "SO2 and O2 stick to the platinum surface, react, and leave as SO3; the platinum itself is unchanged (a catalyst).",
+  "item.semiconductor-lab.platinum_gauze.note4": "In 1831 Peregrine Phillips, an English vinegar maker, patented turning SO2 into SO3 with platinum (the contact process). Arsenic and the like poison platinum, so from about 1915 vanadium pentoxide took over.",
+  "item.semiconductor-lab.platinum_gauze.placeholder": "Approximation: really platinum on a carrier such as asbestos (no longer used), not a net. The temperature (about 450 °C) is omitted.",
+  "item.semiconductor-lab.sulfur_trioxide": "Sulfur Trioxide (SO3)",
+  "item.semiconductor-lab.sulfur_trioxide.note1": "White crystals. Reacts violently with water to give sulfuric acid.",
+  "item.semiconductor-lab.sulfur_trioxide.note2": "Sulfur dioxide + oxygen (bag) + platinum gauze (returned) or vanadium pentoxide (returned). + sulfuric acid + iron flask -> oleum. ⚠ GHS: corrosive, reacts violently with water.",
+  "item.semiconductor-lab.sulfur_trioxide.note3": "2SO2 + O2 ⇄ 2SO3. The reaction gives off heat, so high temperatures push it back and low temperatures make it slow; with a catalyst about 450 °C is the compromise between speed and yield.",
+  "item.semiconductor-lab.sulfur_trioxide.note4": "Put straight into water, SO3 forms a fine mist of acid that is hard to absorb, so it is absorbed into concentrated sulfuric acid instead (oleum).",
+  "item.semiconductor-lab.oleum": "Oleum (Fuming Sulfuric Acid)",
+  "item.semiconductor-lab.oleum.note1": "Very concentrated sulfuric acid that fumes. Kept in an iron flask.",
+  "item.semiconductor-lab.oleum.note2": "Sulfur trioxide + sulfuric acid (bottle returned) + iron flask. + water + 2 glass bottles -> 2 sulfuric acid (iron flask returned). ⚠ GHS: corrosive (severe skin and eye damage), reacts violently with water.",
+  "item.semiconductor-lab.oleum.note3": "SO3 + H2SO4 -> H2S2O7. Adding water doubles it: H2S2O7 + H2O -> 2H2SO4. It reacts with moisture in the air and gives off white fumes.",
+  "item.semiconductor-lab.oleum.note4": "Concentrated sulfuric acid and oleum form a thin film on iron that stops further attack (passivation), so they ship in steel tanks. Dilute sulfuric acid dissolves iron and cannot."
 }

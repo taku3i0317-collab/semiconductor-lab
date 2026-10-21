@@ -271,5 +271,21 @@
   "block.semiconductor-lab.haber_bosch_reactor.note3": "約200気圧・約450℃で、鉄の触媒の上に窒素と水素を通す。1回で反応するのは15%ほどなので、できたアンモニアを冷やして液にして取り、残りのガスをまた回す。",
   "block.semiconductor-lab.haber_bosch_reactor.note4": "1909年ハーバーが実験室で成功し、1913年 BASF のボッシュが工場にした（高圧の水素が鋼をもろくするので、二重の壁の塔を考えた）。教訓：ハーバーは第一次世界大戦で塩素ガスの攻撃（1915 イーペル）を指導し、多くの兵士が死んだ。肥料で多くの人を養った科学者が、毒ガスの開発者でもあった（作り方はこの MOD には入れない）。",
   "block.semiconductor-lab.haber_bosch_reactor.placeholder": "近似：1回で全部反応する。圧力・温度は数字で扱わない（ふつうの画面）。",
-  "message.semiconductor-lab.ammonium_sulfate.fertilized": "窒素肥料をまいた：肥えた耕地になった（窒素3回分）"
+  "message.semiconductor-lab.ammonium_sulfate.fertilized": "窒素肥料をまいた：肥えた耕地になった（窒素3回分）",
+  "item.semiconductor-lab.platinum_gauze": "白金の網（触媒）",
+  "item.semiconductor-lab.platinum_gauze.note1": "白金の細い線で編んだ網。気体どうしの反応を速める。",
+  "item.semiconductor-lab.platinum_gauze.note2": "白金2。作業台で使っても戻る（触媒）。SO2＋酸素＋これ → 三酸化硫黄。",
+  "item.semiconductor-lab.platinum_gauze.note3": "白金の表面に SO2 と O2 がくっついて反応し、SO3 になって離れる。白金そのものは変わらない（触媒）。",
+  "item.semiconductor-lab.platinum_gauze.note4": "1831年、イギリスの酢の商人ペレグリン・フィリップスが、白金を使って SO2 を SO3 にする方法の特許を取った（接触法）。ヒ素などで白金がだめになる（触媒毒）ので、1915年ごろから五酸化バナジウムに代わっていった。",
+  "item.semiconductor-lab.platinum_gauze.placeholder": "近似：本物は網でなく、白金をつけた石綿などの担体（今は使わない）。温度（約450℃）は省略。",
+  "item.semiconductor-lab.sulfur_trioxide": "三酸化硫黄（SO3）",
+  "item.semiconductor-lab.sulfur_trioxide.note1": "白い結晶。水と激しく反応して硫酸になる。",
+  "item.semiconductor-lab.sulfur_trioxide.note2": "二酸化硫黄＋酸素（袋）＋白金の網（戻る）か五酸化バナジウム（戻る）。＋硫酸＋鉄のびん → 発煙硫酸。⚠ GHS：腐食性、水と激しく反応。",
+  "item.semiconductor-lab.sulfur_trioxide.note3": "2SO2 + O2 ⇄ 2SO3。熱を出す反応で、温度が高いと逆にもどりやすく、低いと遅い。触媒で約450℃にして、速さと量の間をとる。",
+  "item.semiconductor-lab.sulfur_trioxide.note4": "SO3 を直接水に入れると、硫酸のこまかい霧になって吸収しにくい。だから濃い硫酸に吸わせる（発煙硫酸）。",
+  "item.semiconductor-lab.oleum": "発煙硫酸（オレウム）",
+  "item.semiconductor-lab.oleum.note1": "けむりを出す、とても濃い硫酸。鉄のびんに入れる。",
+  "item.semiconductor-lab.oleum.note2": "三酸化硫黄＋硫酸（瓶は戻る）＋鉄のびん。＋水＋ガラス瓶2 → 硫酸2（鉄のびんは戻る）。⚠ GHS：腐食性（皮膚・目にひどい害）、水と激しく反応。",
+  "item.semiconductor-lab.oleum.note3": "SO3 + H2SO4 → H2S2O7。水を足すと2倍の硫酸になる：H2S2O7 + H2O → 2H2SO4。空気の湿気と反応して白いけむりを出す。",
+  "item.semiconductor-lab.oleum.note4": "濃い硫酸や発煙硫酸は、鉄の表面にうすい膜を作って鉄をそれ以上とかさない（不動態）ので、鉄のタンクで運べる。うすい硫酸は鉄をとかすので、運べない。"
 }

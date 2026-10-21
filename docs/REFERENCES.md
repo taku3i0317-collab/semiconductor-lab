@@ -3920,6 +3920,19 @@
 - Wikipedia「The Iron Bridge」：https://en.wikipedia.org/wiki/The_Iron_Bridge
 - Wikipedia「Home Insurance Building」：https://en.wikipedia.org/wiki/Home_Insurance_Building
 
+## C74. 触媒でとても濃い硫酸を（接触法）［6-13］
+**答え**：硫酸は、硫黄を燃やした二酸化硫黄（SO2）を三酸化硫黄（SO3）にして水と合わせて作る。SO2 と酸素はそのままではほとんど反応しないが、熱した白金の表面にふれると速く SO3 になる。1831年、イギリスの酢の商人ペレグリン・フィリップスがこの方法の特許を取った（接触法）。白金はヒ素などで働かなくなるので、1915年ごろから五酸化バナジウムの触媒に代わった。SO3 は濃い硫酸に吸わせて発煙硫酸にし、水でうすめて硫酸にする。鉛室法より濃い硫酸ができ、今の硫酸はほぼすべて接触法で作られる。
+
+- へえ①：白金などの触媒を使うと、とても濃い硫酸が作れる。
+- へえ②：濃い硫酸は鉄をとかさない（不動態）ので、鉄のタンクで運べる。
+- へえ③：SO3 を直接水に入れると、硫酸の霧になってうまく吸えない。
+- へえ④：硫酸の生産量は、その国の化学工業の大きさの目安と言われた。
+
+確かさ：フィリップス 1831・V2O5 への交代・発煙硫酸 ◎
+根拠：
+- Wikipedia「Contact process」：https://en.wikipedia.org/wiki/Contact_process
+- Wikipedia「Oleum」：https://en.wikipedia.org/wiki/Oleum
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

@@ -645,4 +645,17 @@ public class GasTests extends LabTestBase {
         LOG.info("[LAB] Haber-Bosch [6-09]: no catalyst -> nothing; N2 + 3H2 -> 2NH3 on iron; NH3 + H2SO4 -> ammonium sulfate -> nitrogen-rich farmland");
         h.succeed();
     }
+
+    /** [6-13] 接触法硫酸（IMP3、S-011）：SO2＋O2＋触媒（白金の網・V2O5、どちらも戻る）→ SO3 → ＋硫酸 → 発煙硫酸（鉄のびん）→ ＋水 → 硫酸2 */
+    @GameTest
+    public void contactProcess(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "sulfur_trioxide", Gas.PLATINUM_GAUZE) && recipeUses(h, "sulfur_trioxide", Gas.OXYGEN_GAS), "Pt catalyst (1831)");
+        h.assertTrue(recipeUses(h, "sulfur_trioxide_vanadium", com.taku3.semiconductorlab.content.Metallurgy.VANADIUM_PENTOXIDE), "V2O5 catalyst (1915-)");
+        h.assertTrue(recipeUses(h, "oleum", Gas.SULFUR_TRIOXIDE) && recipeUses(h, "oleum", Chemistry.SULFURIC_ACID), "SO3 absorbed in H2SO4");
+        h.assertTrue(com.taku3.semiconductorlab.machine.Vessel.of(Gas.OLEUM) == com.taku3.semiconductorlab.machine.Vessel.IRON_FLASK, "oleum ships in iron (passivation)");
+        h.assertTrue(recipeUses(h, "sulfuric_acid_from_oleum", Gas.OLEUM), "dilute -> 2 acid");
+        var rem = Gas.PLATINUM_GAUZE.getCraftingRemainder(new ItemStack(Gas.PLATINUM_GAUZE));
+        h.assertTrue(rem != null && rem.create().is(Gas.PLATINUM_GAUZE), "platinum returned");
+        h.succeed();
+    }
 }

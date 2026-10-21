@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:platinum_ingot",
+    "semiconductor-lab:platinum_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:platinum_gauze",
+    "count": 1
+  }
+}

@@ -44,6 +44,11 @@ public final class Gas {
     public static final Item EMPTY_GAS_CYLINDER    = Reg.item("empty_gas_cylinder", new Item.Properties().stacksTo(16));
     public static final Item HYDROGEN_CYLINDER     = Reg.contained("hydrogen_cylinder", Vessel.STEEL_CYLINDER);
     public static final Item OXYGEN_CYLINDER       = Reg.contained("oxygen_cylinder", Vessel.STEEL_CYLINDER);
+    // [6-13] 接触法硫酸（IMP3、S-011）：白金2 → 白金の網（触媒、戻る）。SO2＋O2＋白金の網（1831）か五酸化バナジウム（1915〜）→ 三酸化硫黄。
+    //   SO3＋硫酸＋鉄のびん → 発煙硫酸（オレウム、鉄のびん入り：濃い硫酸は鉄を侵さない）。発煙硫酸＋水＋ガラス瓶2 → 硫酸2（SO3 1つで硫酸が1つ増える）
+    public static final Item PLATINUM_GAUZE        = Reg.item("platinum_gauze", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item SULFUR_TRIOXIDE       = Reg.item("sulfur_trioxide", new Item.Properties().stacksTo(16));
+    public static final Item OLEUM                 = Reg.contained("oleum", com.taku3.semiconductorlab.machine.Vessel.IRON_FLASK);
     // [6-05] クロルアルカリ電解：2NaCl + 2H2O → Cl2 + H2 + 2NaOH
     public static final Item CHLORINE_GAS          = Reg.contained("chlorine_gas", Vessel.GAS_BAG);      // 塩素（黄緑色の有毒な気体）。1袋＝約1mol
     public static final Item CHLORINE_CYLINDER     = Reg.contained("chlorine_cylinder", Vessel.STEEL_CYLINDER); // 塗色は黄（日本の規格）

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sulfur_dioxide",
+    "semiconductor-lab:oxygen_gas",
+    "semiconductor-lab:platinum_gauze"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sulfur_trioxide",
+    "count": 1
+  }
+}

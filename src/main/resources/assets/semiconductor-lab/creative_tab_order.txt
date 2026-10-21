@@ -535,6 +535,9 @@ hydrogen_gas  # Gas [6-01] 1800
 oxygen_gas  # Gas [6-01] 1800
 electrolyzer  # Gas [6-01] 1800
 gas_holder  # Gas [6-02] 1812
+platinum_gauze  # Gas [6-13] 1831
+sulfur_trioxide  # Gas [6-13] 1831
+oleum  # Gas [6-13] 1831
 empty_gas_cylinder  # Gas [6-03] 1880
 hydrogen_cylinder  # Gas [6-03] 1880
 oxygen_cylinder  # Gas [6-03] 1880
