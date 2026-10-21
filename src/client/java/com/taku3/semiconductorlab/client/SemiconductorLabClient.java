@@ -1,5 +1,6 @@
 package com.taku3.semiconductorlab.client;
 
+import com.taku3.semiconductorlab.content.Branches;
 import com.taku3.semiconductorlab.content.Chemistry;
 import com.taku3.semiconductorlab.content.Gas;
 import com.taku3.semiconductorlab.content.Heat;
@@ -113,6 +114,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Metallurgy.CASTNER_CELL, CastnerCellScreen::new);
 		screen(Metallurgy.TANTALUM_REFINERY, TantalumRefineryScreen::new);
 		screen(Metallurgy.GALLIUM_CELL, GalliumCellScreen::new);
+		screen(Branches.COMPOUND_FURNACE, CompoundFurnaceScreen::new);
 		screen(Semiconductor.COPPER_PLATER, CopperPlaterScreen::new);
 		screen(Semiconductor.HAFNIUM_CHLORINATOR, HafniumChlorinatorScreen::new);
 		screen(Semiconductor.ALD_REACTOR, AldReactorScreen::new);

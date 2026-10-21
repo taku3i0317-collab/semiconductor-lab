@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "QQQ",
+    "SFS",
+    "SKS"
+  ],
+  "key": {
+    "Q": "semiconductor-lab:quartz_tube",
+    "S": "semiconductor-lab:steel_ingot",
+    "F": "semiconductor-lab:electric_furnace",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:compound_furnace",
+    "count": 1
+  }
+}

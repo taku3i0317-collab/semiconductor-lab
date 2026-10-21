@@ -959,7 +959,7 @@
   "gui.semiconductor-lab.gallium_cell.recipe": "Ga(OH)₄⁻ → Ga (cathode)",
   "item.semiconductor-lab.white_arsenic": "White Arsenic (Arsenic Trioxide)",
   "item.semiconductor-lab.white_arsenic.note1": "A white powder that collects in the flue dust when metal ores are roasted. Highly toxic. ⚠️ Skull symbol",
-  "item.semiconductor-lab.white_arsenic.note2": "Comes out of the reverberatory furnace's flue slot now and then when roasting pyrite or cassiterite. Heated with carbon it gives arsenic (an LED material). Industrial material only.",
+  "item.semiconductor-lab.white_arsenic.note2": "The reverberatory furnace puts one in the by-product slot for every 4 pyrite roasted. Heated with carbon it gives arsenic (an LED material). Industrial material only.",
   "item.semiconductor-lab.white_arsenic.note3": "As2O3. Arsenic in the ore turns to fumes on roasting and settles as white powder in the cool flue. GHS: skull (acute toxicity), health hazard (carcinogen), environment (toxic to aquatic life).",
   "item.semiconductor-lab.white_arsenic.note4": "Smelter fumes once badly harmed surrounding land and people (mine pollution). Today they must be captured in the flue and not released."
 }

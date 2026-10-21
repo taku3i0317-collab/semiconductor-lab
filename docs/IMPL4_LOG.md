@@ -161,3 +161,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - D と [2-33] の分担を決めた（S-008）：D が (a) 樹脂を 4-アセトキシスチレン経由の本物の道、(b) SbF6⁻ を KSbF6（Sb2O3＋KF＋HF＋H2O2）に。D が合成釜の RECIPES の行・Chemistry のアイテム・chemicallyAmplifiedChain のテスト・placeholder／F70〜F71 の ⚠️ を直す。E は今そのファイルを触らない
 - A のスマホ [B-10] の組立台（Branches.TFT_ID）：E の [B-19] は ID tft_lcd、[B-20] は led_backlight で作る（作ったら A に知らせる）
 - 存命の人の名前（O-022 のきまり、D の指摘）：[2-33] の F72・REFERENCES F42・TECH_TREE・lang note4 から伊藤・ウィルソン・フレシェを消し「IBM の研究者たち」に
+- ✅ [B-07] 赤い LED（S-007 案A）：白ヒ素（A の反射炉、黄鉄鉱4個ごと）→ 化合物半導体の炉（block/CompoundFurnaceBlockEntity）でヒ素・GaAsP → 作業台で red_led → LED の明かり（block/LedLampBlockEntity、2W・明るさ7）。Branches.java に追記。GameTest red_led、CHEMISTRY B-L1〜L2、REFERENCES F46

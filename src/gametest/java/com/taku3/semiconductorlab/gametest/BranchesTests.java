@@ -290,4 +290,36 @@ public class BranchesTests extends LabTestBase {
         LOG.info("[LAB] polarizing film [B-06]: 1 film 50%, 2 films 50cos^2: 0deg 50, 45deg 25, 90deg 0 (" + B.getSimpleName() + "/" + P.getSimpleName() + ")");
         h.succeed();
     }
+    /** [B-07] 赤い LED（IMP4-01、S-007 案A）：白ヒ素＋コークス → ヒ素、ガリウム＋ヒ素＋赤リン → GaAsP 4（瓶が戻る）、作業台で LED、LED の明かりは 2W で光る */
+    @GameTest(maxTicks = 200)
+    public void redLed(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos fp = p(2, 1, 2);
+        h.setBlock(fp, Branches.COMPOUND_FURNACE.block);
+        var be = h.getBlockEntity(fp, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_A, new ItemStack(Metallurgy.WHITE_ARSENIC));
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_B, new ItemStack(Metallurgy.COKE));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT).is(Branches.ARSENIC), "As2O3 + 3C -> As");
+        ItemStack as = c.removeItemNoUpdate(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT);
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_A, new ItemStack(Metallurgy.GALLIUM));
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_B, as);
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT).isEmpty(), "no phosphorus: no GaAsP (GaAs alone would glow infrared)");
+        c.setItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_C, new ItemStack(Chemistry.RED_PHOSPHORUS));
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.TICKS + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT).is(Branches.GAASP_WAFER) && c.getItem(com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.SLOT_OUT).getCount() == com.taku3.semiconductorlab.block.CompoundFurnaceBlockEntity.WAFERS_PER_RUN, "Ga + As + P -> 4 GaAsP wafers");
+        h.assertTrue(recipeUses(h, "red_led", Branches.GAASP_WAFER) && recipeUses(h, "led_lamp", Branches.RED_LED), "wafer -> LED dies -> lamp");
+        BlockPos lp = p(4, 1, 4);
+        h.setBlock(lp, Branches.LED_LAMP.block);
+        var lamp = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.LedLampBlockEntity.class);
+        tickConsumer(h, lp, lamp, 25, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.LedLampBlockEntity.WATTS));
+        h.assertTrue(h.getBlockState(lp).getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT), "LED lamp lights on 2 W");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(fp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] red LED [B-07]: white arsenic -> As; Ga + As + P -> GaAsP; LED lamp on 2 W");
+        h.succeed();
+    }
+
 }

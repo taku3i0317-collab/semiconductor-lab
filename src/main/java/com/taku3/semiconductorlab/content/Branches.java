@@ -77,10 +77,17 @@ public final class Branches {
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
     // 発電機（v0.2a）：水車＋ダイナモ／ボイラー＋蒸気機関＋ダイナモ。[B-12] 太陽電池（昼・空・雨なしで 60W）
+    // [B-07] 化合物半導体の炉（ヒ素の還元・GaAsP、3kW）と赤い LED の明かり（2W、明るさ7）（IMP4-01）
+    public static final Machine<CompoundFurnaceBlockEntity> COMPOUND_FURNACE = Machine.electric("compound_furnace", CompoundFurnaceBlockEntity::new, CompoundFurnaceBlockEntity.LAYOUT, metal(4.0f));
+    public static final Machine<LedLampBlockEntity> LED_LAMP = Machine.electric("led_lamp", LedLampBlockEntity::new, LedLampBlockEntity.LAYOUT, lit(metal(1.0f).sound(SoundType.GLASS), 7));
     public static final Machine<SolarCellBlockEntity> SOLAR_CELL = Power.generator("solar_cell", SolarCellBlockEntity::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLUE).requiresCorrectToolForDrops().strength(2.0f).sound(SoundType.GLASS)).build();
 
     // ===== [B-24] ニキシー管・[B-08] 電卓（A、S-010） =====
     /** ニキシー管（1955 ⚠️ ハイドゥ兄弟／バローズ）：ネオンを入れたガラス管に、数字の形の陰極10枚。光る数字を重ねて見せる */
+    // [B-07] 赤い LED（IMP4-01、S-007 案A：GaAsP 1962）：白ヒ素 → ヒ素、ガリウム＋ヒ素＋赤リン → GaAsP の板 → 素子 → 明かり
+    public static final Item ARSENIC               = Reg.item("arsenic");          // ヒ素（灰色の結晶）。毒、工業の材料としてだけ
+    public static final Item GAASP_WAFER           = Reg.item("gaasp_wafer");      // ガリウムヒ素リンの板
+    public static final Item RED_LED               = Reg.item("red_led");          // 赤い LED の素子
     public static final Item NIXIE_TUBE            = Reg.item("nixie_tube");
     /** 電卓のキー（ばねで戻る押しボタンの接点） */
     public static final Item KEY_SWITCH            = Reg.item("key_switch");

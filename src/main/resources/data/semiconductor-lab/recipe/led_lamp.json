@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LGL",
+    "GKG",
+    "LGL"
+  ],
+  "key": {
+    "L": "semiconductor-lab:red_led",
+    "G": "semiconductor-lab:soda_lime_glass",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:led_lamp",
+    "count": 1
+  }
+}

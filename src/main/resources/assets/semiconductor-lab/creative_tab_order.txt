@@ -179,6 +179,7 @@ trichlorosilane  # Metallurgy [1-16] 1953
 trichlorosilane_reactor  # Metallurgy [1-16] 1953
 polysilicon  # Metallurgy [1-17] 1956
 siemens_reactor  # Metallurgy [1-17] 1956
+white_arsenic  # Metallurgy [B-07] 1962
 cadmium  # Metallurgy [8-25] 1975
 pentlandite  # Metallurgy [None] None
 matte_charge  # Metallurgy [None] None
@@ -194,7 +195,6 @@ crude_titanium_tetrachloride  # Metallurgy [None] None
 kroll_charge  # Metallurgy [None] None
 sponge_with_salt  # Metallurgy [None] None
 blast_furnace_slag  # Metallurgy [None] None
-white_arsenic  # Metallurgy [None] None
 wood_ash  # Chemistry [2-02] -2800
 lye  # Chemistry [2-02] -2800
 potash  # Chemistry [2-02] -2800
@@ -760,6 +760,11 @@ potassium_iodide  # Branches [B-06] 1929
 polarizing_film  # Branches [B-06] 1929
 solar_cell  # Branches [B-12] 1954
 nixie_tube  # Branches [B-24] 1955
+compound_furnace  # Branches [B-07] 1962
+led_lamp  # Branches [B-07] 1962
+arsenic  # Branches [B-07] 1962
+gaasp_wafer  # Branches [B-07] 1962
+red_led  # Branches [B-07] 1962
 key_switch  # Branches [B-08] 1964
 calculator  # Branches [B-08] 1964
 game_console  # Branches [B-09] 1972
