@@ -611,9 +611,27 @@ def export_json(nodes):
     # 補った前提（S-025）：TECH_TREE に書きもれていた本当の前提。担当が TECH_TREE に書くまで、ネットワークの側で補う（network_meta.json の added_requires）。
     # TECH_TREE に同じ前提がもうあれば足さない（重複しない）
     have = {(e["from"], e["to"]) for e in edges if e["kind"] == "requires"}
+    adj = {}
+    for e in edges:
+        if e["kind"] in ("requires", "enables", "part"):
+            adj.setdefault(e["from"], set()).add(e["to"])
+    def reaches(a, b):   # a から前へ進んで b に着くか（着くなら b→a を足すと輪になる）
+        seen, q = {a}, [a]
+        while q:
+            u = q.pop()
+            if u == b:
+                return True
+            for v in adj.get(u, ()):
+                if v not in seen:
+                    seen.add(v); q.append(v)
+        return False
     for x in meta.get("added_requires", []):
-        if x.get("from") in nodes and x.get("to") in nodes and (x["from"], x["to"]) not in have:
-            edges.append({"from": x["from"], "to": x["to"], "kind": "requires", "added": True}); have.add((x["from"], x["to"]))
+        f, t = x.get("from"), x.get("to")
+        if f in nodes and t in nodes and (f, t) not in have:
+            if reaches(t, f):
+                print(f"warning: added_requires {f}->{t} は前提の輪になるので足さない")
+                continue
+            edges.append({"from": f, "to": t, "kind": "requires", "added": True}); have.add((f, t)); adj.setdefault(f, set()).add(t)
     # 前提でも理解でもないつながり（O-019）：つくるのに使った道具（tool）・同じしくみ（same）。network_meta.json の extra_links から
     for x in meta.get("extra_links", []):
         if "from" in x and x["from"] in nodes and x["to"] in nodes:
