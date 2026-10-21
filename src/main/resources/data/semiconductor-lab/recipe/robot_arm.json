@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "MGM",
+    "SCS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "M": "semiconductor-lab:electric_motor",
+    "G": "semiconductor-lab:centrifugal_governor",
+    "C": "semiconductor-lab:copper_wire"
+  },
+  "result": {
+    "id": "semiconductor-lab:robot_arm",
+    "count": 1
+  }
+}

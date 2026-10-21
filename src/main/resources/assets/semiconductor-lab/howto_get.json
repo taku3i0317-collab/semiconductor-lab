@@ -2143,6 +2143,9 @@
 "roasted_bastnaesite": [
 "smelting"
 ],
+"robot_arm": [
+"crafting"
+],
 "rock_crystal": [
 "loot",
 "ore"
@@ -2546,6 +2549,9 @@
 "crafting"
 ],
 "tarmac": [
+"crafting"
+],
+"teach_pendant": [
 "crafting"
 ],
 "telegraphone": [

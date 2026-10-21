@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "KK",
+    "IC",
+    "II"
+  ],
+  "key": {
+    "K": "semiconductor-lab:key_switch",
+    "I": "minecraft:iron_ingot",
+    "C": "semiconductor-lab:copper_wire"
+  },
+  "result": {
+    "id": "semiconductor-lab:teach_pendant",
+    "count": 1
+  }
+}

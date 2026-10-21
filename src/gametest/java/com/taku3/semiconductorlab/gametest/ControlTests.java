@@ -129,4 +129,38 @@ public class ControlTests extends LabTestBase {
         LOG.info("[LAB] governor [10-04]: burn left {} vs {} ticks, speed {}% (target 100)", gov.getBurnTicks(), plain.getBurnTicks(), speed);
         h.succeed();
     }
+
+    /**
+     * [10-26] 産業用ロボット（O-037、Q36-2 案A 仮決定）：ペンダントで「ウェハー切断機の出口 → チェスト」を教えると、1 秒に1回 16 個まで運ぶ。
+     * 届かない所は覚えない。覚えるのは1組（2組目で古い組を忘れる）、マイコンを入れると8組まで
+     */
+    @GameTest(maxTicks = 200)
+    public void robotArm(GameTestHelper h) {
+        net.minecraft.core.BlockPos armAt = p(2, 1, 2), sawAt = p(0, 1, 2), chestAt = p(4, 1, 2);
+        h.setBlock(armAt, Control.ROBOT_ARM.block);
+        h.setBlock(sawAt, com.taku3.semiconductorlab.content.Semiconductor.WAFER_SAW.block);
+        h.setBlock(chestAt, net.minecraft.world.level.block.Blocks.CHEST);
+        var arm = h.getBlockEntity(armAt, com.taku3.semiconductorlab.block.RobotArmBlockEntity.class);
+        var saw = h.getBlockEntity(sawAt, com.taku3.semiconductorlab.block.WaferSawBlockEntity.class);
+        saw.getContainer().setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_OUT, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.SILICON_WAFER, 20));
+        arm.startTeaching(null, false);
+        h.assertTrue(arm.teach(null, h.absolutePos(p(9, 1, 2))) && arm.teachStep() == 1, "out of reach is refused, still waiting for the source");
+        arm.teach(null, h.absolutePos(sawAt));
+        arm.teach(null, h.absolutePos(chestAt));
+        h.assertValueEqual(arm.program().size(), 1, "one move learned");
+        tickConsumer(h, armAt, arm, com.taku3.semiconductorlab.block.RobotArmBlockEntity.TICKS, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.RobotArmBlockEntity.WATTS));
+        var chest = (net.minecraft.world.Container) h.getLevel().getBlockEntity(h.absolutePos(chestAt));
+        h.assertValueEqual(chest.countItem(com.taku3.semiconductorlab.content.Semiconductor.SILICON_WAFER), 16, "one grab = 16 wafers");
+        tickConsumer(h, armAt, arm, com.taku3.semiconductorlab.block.RobotArmBlockEntity.TICKS, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.RobotArmBlockEntity.WATTS));
+        h.assertValueEqual(chest.countItem(com.taku3.semiconductorlab.content.Semiconductor.SILICON_WAFER), 20, "all 20 moved");
+        // 2組目：マイコンなしは古い組を忘れる、マイコンありは残る
+        arm.startTeaching(null, false); arm.teach(null, h.absolutePos(chestAt)); arm.teach(null, h.absolutePos(sawAt));
+        h.assertValueEqual(arm.program().size(), 1, "without a microcomputer only 1 move");
+        arm.getContainer().setItem(com.taku3.semiconductorlab.block.RobotArmBlockEntity.SLOT_MCU, new net.minecraft.world.item.ItemStack(Control.MICROCOMPUTER));
+        arm.startTeaching(null, false); arm.teach(null, h.absolutePos(sawAt)); arm.teach(null, h.absolutePos(chestAt));
+        h.assertValueEqual(arm.program().size(), 2, "with a microcomputer 2 moves kept (up to 8)");
+        h.assertValueEqual(arm.capacity(), com.taku3.semiconductorlab.block.RobotArmBlockEntity.MCU_STEPS, "capacity 8");
+        LOG.info("[LAB] robot arm [10-26]: 16 per grab, 20 wafers moved in 2 s, 1 move (8 with a microcomputer)");
+        h.succeed();
+    }
 }

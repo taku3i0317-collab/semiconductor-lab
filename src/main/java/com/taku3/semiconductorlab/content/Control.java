@@ -6,6 +6,9 @@ import net.minecraft.world.item.Item;
  * 幹10 制御・計算（docs/TECH_TREE.md の「幹10」のノード）。最初のノード [10-01] 電磁石のときに作った（IMP4-01、O-011）。
  * この幹のノードを足すときは、このファイル（と src/main/lang/control/、src/gametest/.../ControlTests.java）だけを書き換える。
  */
+import com.taku3.semiconductorlab.block.RobotArmBlockEntity;
+import com.taku3.semiconductorlab.machine.Machine;
+
 public final class Control {
     private Control() {}
 
@@ -14,6 +17,9 @@ public final class Control {
     public static final Item ELECTROMAGNET         = Reg.item("electromagnet");
     // [10-04] フィードバック制御（O-037）：遠心調速機（1788 ワット）。蒸気機関・タービンに右クリックで付ける
     public static final Item CENTRIFUGAL_GOVERNOR  = Reg.item("centrifugal_governor");
+    // [10-26] 産業用ロボット（O-037）：腕（1kW）と、動きを教えるティーチングペンダント
+    public static final Item TEACH_PENDANT         = Reg.item("teach_pendant", com.taku3.semiconductorlab.item.TeachPendantItem::new, new Item.Properties().stacksTo(1));
+    public static final Machine<RobotArmBlockEntity> ROBOT_ARM = Machine.electric("robot_arm", com.taku3.semiconductorlab.block.RobotArmBlockEntity::new, com.taku3.semiconductorlab.block.RobotArmBlockEntity.LAYOUT, com.taku3.semiconductorlab.machine.Machine.metal(3.0f));
 
     // [10-13] 4ビットのマイコン（1971 インテル MCS-4 の形、A、S-014）：CPU のチップ＋ROM のチップ＋水晶＋ニキシー管を組立台で
     public static final Item MICROCOMPUTER         = Reg.item("microcomputer", com.taku3.semiconductorlab.item.MicrocomputerItem::new, new Item.Properties().stacksTo(1));

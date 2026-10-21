@@ -25,5 +25,10 @@
   "item.semiconductor-lab.centrifugal_governor.note2": "The start of feedback control: watch the gap from the target and correct it. The screen shows the speed and the 100% target. With little load the valve closes and coal lasts longer.",
   "item.semiconductor-lab.centrifugal_governor.note3": "In 1788 Watt fitted one to keep his steam engine's speed steady (adapted from windmill millstones ⚠️). As the shaft speeds up, two balls swing out and a linkage closes the steam valve.",
   "item.semiconductor-lab.centrifugal_governor.note4": "In 1868 Maxwell's 'On Governors' used equations to explain why governors make the speed hunt, starting control theory. In 1922 Minorsky described PID control for automatic ship steering. The game's governor is P only.",
-  "item.semiconductor-lab.centrifugal_governor.placeholder": "Simplified: the stored energy (80-120%) stands in for the shaft speed; the valve linkage is not modelled"
+  "item.semiconductor-lab.centrifugal_governor.placeholder": "Simplified: the stored energy (80-120%) stands in for the shaft speed; the valve linkage is not modelled",
+  "item.semiconductor-lab.teach_pendant": "Teach pendant",
+  "item.semiconductor-lab.teach_pendant.note1": "Teaches a robot arm: right-click the arm, then the machine to take from, then the one to put into.",
+  "item.semiconductor-lab.teach_pendant.note2": "In real factories people also jog the arm with pendant buttons to teach positions. Sneak + right-click the arm to make it forget.",
+  "item.semiconductor-lab.teach_pendant.note3": "You jog the arm with the pendant and press a button at each position to store it; the arm then joins the stored positions (as the 1961 Unimate did).",
+  "item.semiconductor-lab.teach_pendant.note4": "Factories today may also build motions on a 3D model in a computer and send them to the arm (offline teaching). The game only has hand teaching."
 }

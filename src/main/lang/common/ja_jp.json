@@ -491,5 +491,21 @@
   "key.semiconductor-lab.ghost": "マルチブロックのうすい形（見ている制御ブロック）",
   "message.semiconductor-lab.governor.installed": "遠心調速機を付けた：回りすぎると弁をしぼる",
   "message.semiconductor-lab.governor.already": "もう調速機が付いている",
-  "message.semiconductor-lab.governor.not_possible": "調速機は蒸気機関・蒸気タービンに付ける"
+  "message.semiconductor-lab.governor.not_possible": "調速機は蒸気機関・蒸気タービンに付ける",
+  "block.semiconductor-lab.robot_arm": "ロボットの腕",
+  "block.semiconductor-lab.robot_arm.note1": "教えた動き（この機械から取って、あの機械に入れる）を、くり返してくれる腕。",
+  "block.semiconductor-lab.robot_arm.note2": "ティーチングペンダントで腕を右クリック → 取る機械 → 置く機械。3ブロック以内、1秒に1回、16個まで。覚えられるのは1組、自分で作ったマイコンを入れると8組。",
+  "block.semiconductor-lab.robot_arm.note3": "1961年、最初の産業用ロボット『ユニメート』がアメリカの自動車工場に入った。最初の仕事は、ダイカストの機械から熱い金属の部品を取り出すこと＝人がさわると危ない仕事だった。",
+  "block.semiconductor-lab.robot_arm.note4": "1954年にデボルが『覚えた動きをくり返す腕』の特許を出した（1961年成立）。腕は油の圧力で動き、手順は磁気ドラムに記憶した。日本では1969年に国産化、1977年には全部の関節を電気のモーターで動かすロボットが出た。",
+  "block.semiconductor-lab.robot_arm.placeholder": "省略：本物は油圧で動き、磁気ドラムに手順を覚えた（ゲームは電気 1kW、覚えるのは組だけ）",
+  "block.semiconductor-lab.robot_arm.howto": "教えた「取る機械 → 置く機械」をくり返す。\n・ティーチングペンダントで腕を右クリック → 取る機械を右クリック → 置く機械を右クリック\n・しゃがんで腕を右クリックで忘れる\n・届くのは3ブロック以内。1秒に1回、出口から16個まで取って入口に入れる\n・覚えられるのは1組。スロットに自分のマイコンを入れると8組（順番に回る）",
+  "gui.semiconductor-lab.robot_arm.program": "覚えた動き %s / %s",
+  "gui.semiconductor-lab.robot_arm.teaching_from": "教える：取る機械を右クリック",
+  "gui.semiconductor-lab.robot_arm.teaching_to": "教える：置く機械を右クリック",
+  "message.semiconductor-lab.robot_arm.teach_from": "教える：取る機械を右クリック",
+  "message.semiconductor-lab.robot_arm.teach_to": "次に、置く機械を右クリック",
+  "message.semiconductor-lab.robot_arm.learned": "覚えた（%s / %s 組）",
+  "message.semiconductor-lab.robot_arm.cleared": "腕の動きを全部忘れた",
+  "message.semiconductor-lab.robot_arm.too_far": "腕が届かない（3ブロック以内）",
+  "message.semiconductor-lab.robot_arm.not_machine": "物を出し入れできる所ではない"
 }

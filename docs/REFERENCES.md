@@ -4426,3 +4426,15 @@ Long Now 財団の「Manual for Civilization（文明の手引き）」の推薦
 ゲーム（2026-10-21 A、O-037 で実装）：遠心調速機を蒸気機関・タービンに右クリックで付けると、蓄えの量（＝回転の代わり、80〜120%）を目標 100% とくらべて弁をしぼる（P 制御）。電気を使う物が少ないと石炭が長持ち。画面に「回転 xx%（目標 100%）」
 根拠：Wikipedia「Centrifugal governor」https://en.wikipedia.org/wiki/Centrifugal_governor （英語）、J. C. Maxwell「On Governors」Proc. Royal Society 1868 https://doi.org/10.1098/rspl.1867.0055 、Wikipedia「Proportional–integral–derivative controller」（History）https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller
 
+## F61. 熱い部品を取り出した最初のロボット（産業用ロボット）［10-26］
+**答え**：覚えた動きをくり返す腕。1954年にデボルが特許を出し（1961年成立）、1961年に最初の産業用ロボット「ユニメート」がアメリカの自動車工場で働き始めた。腕は油の圧力で動き、手順は磁気ドラムに記憶した。
+
+- へえ①：最初の仕事は、ダイカスト（溶けた金属を型に流す）の機械から熱い部品を取り出すこと＝人がさわると危ない仕事だった
+- へえ②：動きは人がペンダント（手元の操作盤）で腕を動かして1つずつ覚えさせた（ティーチング）
+- へえ③：日本では1969年に国産化され、1977年には全部の関節を電気のモーターで動かすロボットが出た（機械遺産）
+- へえ④：1978年には、水平に動く腕（SCARA 型）の試作機が日本の大学で作られ、電子部品の組み立てに広まった
+
+確かさ：特許 1954 出願・1961 成立 ◎／1961 自動車工場に導入 ◎（最初の工場の名前は資料で分かれる △）／油圧・磁気ドラム ◎／1969 国産化・1977 電動 ○
+ゲーム（2026-10-21 A、O-037 で実装）：ロボットの腕（1kW）とティーチングペンダント。腕 → 取る機械 → 置く機械を右クリックで覚える、3ブロック以内、1秒に1回 16 個まで（Transfer API）。覚えるのは1組、自作のマイコン [10-14] を入れると8組
+根拠：The Henry Ford「Unimate」https://www.thehenryford.org/collections-and-research/digital-collections/artifact/449359 、Wikipedia「Unimate」https://en.wikipedia.org/wiki/Unimate 、日本機械学会 機械遺産 No.076 https://www.jsme.or.jp/kikaiisan/heritage_076.html
+
