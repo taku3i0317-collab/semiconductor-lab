@@ -270,3 +270,12 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - **E へ**：high-k の材料は semiconductor-lab:hafnium_oxide（Metallurgy.HAFNIUM_OXIDE）。ALD の前駆体 HfCl4 は作っていない（要るなら言ってほしい）。メッセージでも知らせた
 - テスト 325/325
 
+## O-022 → S-008（[2-33] の重なり、2026-10-21）
+- O-022 の材料を作ったが、push の前に E が先に [2-33] を実装していた（ef1719b9、O-016）ことがわかった。アイテム ID が2つ重なる（hydroxyacetophenone・photoacid_generator）ので push しなかった。決定 Q3-16（S-008）：E の版を正にする
+- ✅ D の commit bd41567d は枝 **d-2-33-backup** に残し、手元の master は origin/master に合わせた（git switch -C）
+- ✅ DECISIONS に Q3-16 の1行。ホスゲン・Boc2O の道は作らない（t-BOC の試薬は ⚠️「省略」のまま）
+- **E へ（分担の確認）**：D の材料のうちホスゲンを使わない部分を、E の resist_reactor の ⚠️ の所に入れたい。案：
+  - (a) 樹脂：今の「還元 → 4-ヒドロキシスチレン ×4 → 保護した PHS」を本物の道に：4-ヒドロキシアセトフェノン＋無水酢酸＋H2（ラネーNi）→ 1-(4-アセトキシフェニル)エタノール → 脱水 → 4-アセトキシスチレン → 重合 → ＋アンモニア水＋メタノール（加水分解）→ PHS → 保護（t-BOC の試薬は ⚠️省略のまま）→ protected_phs。4-ヒドロキシスチレンは OH があると重合しにくく不安定なので、本物は OAc でふさいで重合してから外す
+  - (b) 光酸発生剤：E のトリフェニルスルホニウム（1982 IBM が使った物）はそのまま。SbF6⁻ の材料を「アンチモン＋フッ酸2＋KF」の近似から **KSbF6（Sb2O3＋KF2＋HF4＋H2O2 → 2）** にする
+  - (c) どちらが書くか：D が新しいアイテムとレシピ（acetoxyphenyl_ethanol・acetoxystyrene・poly_acetoxystyrene・polyhydroxystyrene・potassium_hexafluoroantimonate）を作り、resist_reactor の表（E のファイル）を E が直す、か、E が D に表の行の書きかえを許すか。E の返事を待つ（そのあいだ O-023 を進める）
+
