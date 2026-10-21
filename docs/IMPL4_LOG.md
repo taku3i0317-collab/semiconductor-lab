@@ -106,3 +106,8 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - S-002 の1 完了（CVD 炉・2層配線、289/289）。ROADMAP v0.4 #3・#4 にチェック。S-002 の2：v0.5 #2 [9-31] CMP の ChipState 側（段差 steps と planarize、DOF との組）を A に相談中
 - ✅ [9-31] CMP 装置（block/CmpPolisherBlockEntity、2kW、A の ChipOps.planarize e2da4075）。GameTest cmp_polisher、CHEMISTRY F59、REFERENCES F34、ROADMAP v0.5 #2
 - S-002 完了（6310b435、292/292）。v0.5 で E の範囲の残り：#7 FinFET は前提 [1-70] ハフニウム・[7-16] 液浸が ❓、[9-36] 銅配線は [1-66] タンタルが ❓。ほかは A・光学の担当。INBOX を待つ
+- O-013 開始。1＝[9-31] CMP は S-002 で済（6310b435）。2＝[9-36] 銅配線：**前提 [1-66] タンタルが ❓（TECH_TREE の MC 欄「未定（実装の前に相談）」）→ ユーザーに質問（Discord）、作らない**。案：
+  - 案A：タンタルを本物どおり作る（新しい鉱石＝タンタル石（コルンブ石）をペグマタイトに生成 → フッ酸で溶かし K2TaF7（1866 マリニャック法、フッ酸・フッ化カリウムは既にある）→ ナトリウムで還元）。鉱石を足すので worldgen（幹1）に触れる
+  - 案B：バリア膜を窒化チタン TiN で近似（チタンは IMP3 で済）。⚠️ 銅配線のバリアは本物は Ta/TaN が主流なので「仮」になる
+  - 案C：銅配線は後回し（タンタルの扱いが決まるまで）
+  3＝[9-30] エピタキシー・窒化膜を先に進める（A に ChipOps 側を相談中）
