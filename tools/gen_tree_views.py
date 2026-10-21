@@ -608,6 +608,12 @@ def export_json(nodes):
         for t in n["parts"]:
             if t in nodes:
                 edges.append({"from": t, "to": i, "kind": "part"})
+    # 補った前提（S-025）：TECH_TREE に書きもれていた本当の前提。担当が TECH_TREE に書くまで、ネットワークの側で補う（network_meta.json の added_requires）。
+    # TECH_TREE に同じ前提がもうあれば足さない（重複しない）
+    have = {(e["from"], e["to"]) for e in edges if e["kind"] == "requires"}
+    for x in meta.get("added_requires", []):
+        if x.get("from") in nodes and x.get("to") in nodes and (x["from"], x["to"]) not in have:
+            edges.append({"from": x["from"], "to": x["to"], "kind": "requires", "added": True}); have.add((x["from"], x["to"]))
     # 前提でも理解でもないつながり（O-019）：つくるのに使った道具（tool）・同じしくみ（same）。network_meta.json の extra_links から
     for x in meta.get("extra_links", []):
         if "from" in x and x["from"] in nodes and x["to"] in nodes:
