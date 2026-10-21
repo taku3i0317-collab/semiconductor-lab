@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 GLYPHS = ROOT / "docs" / "ui_glyphs.json"
 OUT = ROOT / "docs" / "mockups" / "S016_emoji.html"
 JS = ROOT / "docs" / "ui_icons.js"
-ALT = {"ok": "ゲームにある", "todo": "まだ", "blocked": "作れない", "wip": "作っている途中", "none": "入れない", "warn": "確かでない", "no": "ちがう", "person": "人物", "idea": "発見"}
+ALT = {"ok": "ゲームにある", "todo": "まだ", "blocked": "作れない", "wip": "作っている途中", "none": "入れない", "warn": "確かでない", "no": "ちがう", "person": "人物", "idea": "発見", "share": "シェア", "copy": "コピー"}
 
 
 def main():
