@@ -589,3 +589,7 @@
 - TECH_TREE [10-14] ✅、ROADMAP v0.4 #6 ✅、REFERENCES L17、test_queue。GameTest mcuAndCpu8
 - Q27（ゲーム機）はユーザーに聞いている（司令塔）。答えまで作らない
 
+## S-016（中心図の案と見本、2026-10-21）
+- DESIGN「ゲーム内の技術ネットワーク画面」に案：開き方（マウスを乗せてキー・図鑑・ガイド本）、出す物（真ん中＝作りたい物、内側＝すぐ要る前提、3輪まで、作れる＝太い枠・まだ＝細い枠、押すと真ん中に、作り方の機械と年）、データ（TECH_TREE の前提と machine_recipes.json から生成、手で書かない）、重さ（最大25個、開くとき1回組み立て、バニラの Screen で描ける）、霧の地図とのつなぎ（ピン留め・「地図で見る」）
+- 見本の絵 docs/gui_preview/center_map_mock.png（[10-13] を真ん中、tools/gen_center_map_mock.py）。版の案：v0.5 #8 か v0.6。**ユーザーの OK まで作らない**
+
