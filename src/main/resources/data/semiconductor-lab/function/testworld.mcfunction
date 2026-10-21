@@ -409,6 +409,8 @@ setblock ~33 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-10]
 setblock ~33 ~-1 ~26 semiconductor-lab:test_power_source
 setblock ~33 ~0 ~26 semiconductor-lab:acheson_furnace
 setblock ~34 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:synthetic_graphite",count:16},{Slot:1b,id:"minecraft:coal",count:16},{Slot:2b,id:"minecraft:sand",count:16}]}
+setblock ~37 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-11] 光高温計","動いているアーク炉・ア","チソン炉を右クリック",""]}}
+setblock ~37 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:optical_pyrometer",count:1}]}
 setblock ~0 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹4 電気・動力","↓ この列","",""]}}
 setblock ~2 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-47] 天然磁石","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:magnet",count:16}]}

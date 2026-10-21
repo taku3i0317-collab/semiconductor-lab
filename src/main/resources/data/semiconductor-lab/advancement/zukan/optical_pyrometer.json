@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:optical_pyrometer"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.optical_pyrometer"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.optical_pyrometer.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.optical_pyrometer.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:optical_pyrometer"
+          }
+        ]
+      }
+    }
+  }
+}

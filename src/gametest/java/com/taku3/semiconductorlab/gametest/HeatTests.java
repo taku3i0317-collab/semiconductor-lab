@@ -343,6 +343,15 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-11] 光高温計（IMP4-01、S-009）：溶岩は測れる、氷・石は暗くて測れない、レシピ */
+    @GameTest
+    public void opticalPyrometer(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.item.OpticalPyrometerItem.glowC(net.minecraft.world.level.block.Blocks.LAVA.defaultBlockState()) > 1000, "lava glows");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.OpticalPyrometerItem.glowC(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState()), 0, "cold stone is dark");
+        h.assertTrue(recipeUses(h, "optical_pyrometer", Metallurgy.TUNGSTEN_WIRE), "W filament");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [2-43] 黄鉄鉱の焙焼（IMP3、O-028 で書き出しに足した）
         rec(a, Heat.REVERBERATORY_FURNACE.block, "焙焼（黄鉄鉱）", L(io(Chemistry.PYRITE, 1), perRuns(io(Items.COAL, 1), (int) (ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS))),

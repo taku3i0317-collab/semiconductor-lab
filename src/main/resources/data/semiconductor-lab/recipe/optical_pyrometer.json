@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " L ",
+    "IWI",
+    " D "
+  ],
+  "key": {
+    "L": "semiconductor-lab:crown_lens",
+    "I": "minecraft:iron_ingot",
+    "W": "semiconductor-lab:tungsten_wire",
+    "D": "semiconductor-lab:dry_cell"
+  },
+  "result": {
+    "id": "semiconductor-lab:optical_pyrometer",
+    "count": 1
+  }
+}

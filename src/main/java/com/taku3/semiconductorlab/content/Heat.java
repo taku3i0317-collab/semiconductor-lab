@@ -26,6 +26,8 @@ public final class Heat {
     private Heat() {}
 
     // ===== アイテム =====
+    // [3-11] 光高温計（消失フィラメント型）（IMP4-01、S-009）
+    public static final Item OPTICAL_PYROMETER     = Reg.item("optical_pyrometer", com.taku3.semiconductorlab.item.OpticalPyrometerItem::new, new Item.Properties().stacksTo(1));
     // [3-09] 熱電対（銅＋鉄、ゼーベック効果）（IMP4-01、S-009）
     public static final Item THERMOCOUPLE          = Reg.item("thermocouple", com.taku3.semiconductorlab.item.ThermocoupleItem::new, new Item.Properties().stacksTo(1));
     // [3-13] 断熱材（ロックウール。石綿は作らない）（IMP4-01、S-009）

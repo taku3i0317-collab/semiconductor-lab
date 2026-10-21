@@ -108,5 +108,13 @@
   "item.semiconductor-lab.thermocouple.note4": "Seebeck found it in 1821; Le Chatelier's platinum–platinum-rhodium thermocouple (1886) reached about 1600 °C. Before that, Wedgwood (1782) judged kiln heat by how much clay shrank.",
   "item.semiconductor-lab.thermocouple.placeholder": "Omitted: ⚠️ temperatures are typical values by block type and whether it is lit. The high-temperature Pt–Rh type is not made (no rhodium).",
   "item.semiconductor-lab.thermocouple.reading": "%s °C (%s mV)",
-  "item.semiconductor-lab.thermocouple.over": "Above %s °C — cannot measure (the copper oxidises)"
+  "item.semiconductor-lab.thermocouple.over": "Above %s °C — cannot measure (the copper oxidises)",
+  "item.semiconductor-lab.optical_pyrometer": "Optical Pyrometer",
+  "item.semiconductor-lab.optical_pyrometer.note1": "Measures temperature by comparing the colour of a hot object with a bulb filament. For very hot furnaces.",
+  "item.semiconductor-lab.optical_pyrometer.note2": "Crafting: crown lens + 2 iron + W wire + dry cell. Right-click something glowing for its temperature (below about 700 °C it is too dark). For arc, Acheson and crystal-pulling furnaces that melt thermocouples.",
+  "item.semiconductor-lab.optical_pyrometer.note3": "A lens images the furnace and a battery-lit filament is placed over the image. The current at which the filament vanishes into the image gives the temperature (disappearing-filament type).",
+  "item.semiconductor-lab.optical_pyrometer.note4": "Built by Holborn and Kurlbaum in Germany in 1901. The link between colour and temperature was explained by Planck's radiation law of 1900, the start of quantum theory.",
+  "item.semiconductor-lab.optical_pyrometer.placeholder": "Omitted: ⚠️ temperatures are typical values per machine.",
+  "item.semiconductor-lab.optical_pyrometer.reading": "About %s °C (the filament vanished)",
+  "item.semiconductor-lab.optical_pyrometer.dark": "Too dark to measure (below about %s °C)"
 }

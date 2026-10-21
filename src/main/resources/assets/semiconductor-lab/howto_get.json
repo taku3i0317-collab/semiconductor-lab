@@ -1715,6 +1715,9 @@
 "optical_fiber": [
 "machine:oxyhydrogen_burner"
 ],
+"optical_pyrometer": [
+"crafting"
+],
 "oxalic_acid": [
 "crafting"
 ],

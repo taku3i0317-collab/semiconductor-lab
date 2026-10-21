@@ -481,6 +481,7 @@ calcium_carbide  # Heat [3-25] 1892
 arc_furnace  # Heat [3-15] 1892
 synthetic_graphite  # Heat [3-10] 1896
 acheson_furnace  # Heat [3-10] 1896
+optical_pyrometer  # Heat [3-11] 1901
 magnet  # Power [1-47] -600
 voltaic_pile  # Power [4-13] 1800
 arc_lamp  # Power [4-16] 1808
