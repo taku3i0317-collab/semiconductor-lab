@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 657（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 658（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1241,6 +1241,8 @@ en_us silane_generator lines=4
 en_us silane_generator shift lines=16
 en_us cvd_furnace lines=4
 en_us cvd_furnace shift lines=18
+en_us cmp_polisher lines=3
+en_us cmp_polisher shift lines=17
 en_us crystal_puller lines=3
 en_us crystal_puller shift lines=16
 en_us electromagnet lines=6
@@ -2555,6 +2557,8 @@ ja_jp silane_generator lines=3
 ja_jp silane_generator shift lines=14
 ja_jp cvd_furnace lines=3
 ja_jp cvd_furnace shift lines=16
+ja_jp cmp_polisher lines=3
+ja_jp cmp_polisher shift lines=17
 ja_jp crystal_puller lines=3
 ja_jp crystal_puller shift lines=15
 ja_jp electromagnet lines=6

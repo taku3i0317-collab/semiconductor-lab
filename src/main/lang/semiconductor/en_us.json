@@ -626,5 +626,20 @@
   "gui.semiconductor-lab.cvd_furnace.cannot": "Pattern the first metal first",
   "gui.semiconductor-lab.cvd_furnace.need_power": "Not enough power",
   "gui.semiconductor-lab.cvd_furnace.running": "Depositing SiO2",
-  "gui.semiconductor-lab.cvd_furnace.recipe": "SiH4 + O2 → SiO2 (~400 °C)"
+  "gui.semiconductor-lab.cvd_furnace.recipe": "SiH4 + O2 → SiO2 (~400 °C)",
+  "block.semiconductor-lab.cmp_polisher": "CMP Polisher",
+  "block.semiconductor-lab.cmp_polisher.note1": "Polishes a bumpy wafer surface flat with chemicals and fine particles.",
+  "block.semiconductor-lab.cmp_polisher.note2": "2 kW. 1–8 wafers with an interlayer film + 1 colloidal silica → planarised wafers (30 s, bottle pops out on top). Refuses wafers with resist or a metal film. The particles leave a little dirt (clean it in the cleaning bench).",
+  "block.semiconductor-lab.cmp_polisher.note3": "Alkaline silica slurry flows onto a pad on a rotating platen while the wafer is pressed on it. The chemistry softens the surface and the particles cut the high spots first. Flattening after each layer keeps fine lines in focus (depth of focus DOF = k2·λ/NA²).",
+  "block.semiconductor-lab.cmp_polisher.note4": "IBM began using it in production in the 1980s ⚠️ (date being checked). Like building a skyscraper and levelling each floor before the next. Today it is also essential for copper (damascene) wiring.",
+  "block.semiconductor-lab.cmp_polisher.placeholder": "Omitted: ⚠️ real pads are polyurethane foam; nylon felt stands in here. Power and time are game values. Depth-of-focus checks are not in yet (v0.5; steps are only recorded).",
+  "gui.semiconductor-lab.cmp_polisher.power": "Power %s",
+  "gui.semiconductor-lab.cmp_polisher.need_input": "Needs wafers and slurry",
+  "gui.semiconductor-lab.cmp_polisher.no_interlayer": "No interlayer film",
+  "gui.semiconductor-lab.cmp_polisher.resist_on": "Strip the resist first",
+  "gui.semiconductor-lab.cmp_polisher.metal_on": "Etch the metal film first",
+  "gui.semiconductor-lab.cmp_polisher.already_flat": "Already flat",
+  "gui.semiconductor-lab.cmp_polisher.need_power": "Not enough power",
+  "gui.semiconductor-lab.cmp_polisher.running": "Polishing with slurry",
+  "gui.semiconductor-lab.cmp_polisher.recipe": "Slurry + pad → flat"
 }

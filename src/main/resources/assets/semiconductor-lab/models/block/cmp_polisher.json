@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/cmp_polisher_front",
+    "side": "semiconductor-lab:block/cmp_polisher_side",
+    "top": "semiconductor-lab:block/cmp_polisher_top"
+  }
+}

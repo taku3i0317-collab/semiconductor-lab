@@ -1135,6 +1135,39 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-31] CMP（IMP4-01、v0.5 #2）：層間膜のない板は断る、層間膜のある板は段差 steps → 0、粒で汚れ +2、瓶は戻る、2回目は already_flat */
+    @GameTest(maxTicks = 100)
+    public void cmpPolisher(GameTestHelper h) {
+        var d = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal();
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        int via = -1;
+        for (int i = 0; i < d.layers().size(); i++) if (d.layers().get(i).kind() == com.taku3.semiconductorlab.litho.LayerKind.VIA) { via = i; break; }
+        var head = new com.taku3.semiconductorlab.litho.ChipDesign(d.size(), "head", d.layers().subList(0, via), java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.MOS);
+        w = com.taku3.semiconductorlab.litho.LithoExamples.process(w, head, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        h.assertTrue(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.product(w).isEmpty() && com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.reason(w).equals("no_interlayer"), "no interlayer: nothing to polish");
+        w = com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.product(w);
+        var before = com.taku3.semiconductorlab.litho.ChipOps.state(w);
+        h.assertTrue(before.steps() > 0, "layers piled up -> steps " + before.steps());
+        floor(h, 5);
+        BlockPos cp = p(2, 1, 2);
+        h.setBlock(cp, Semiconductor.CMP_POLISHER.block);
+        var be = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.SLOT_WAFER, w.copy());
+        c.setItem(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.SLOT_SLURRY, new ItemStack(Chemistry.COLLOIDAL_SILICA, 2));
+        tickConsumer(h, cp, be, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.WATTS));
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.SLOT_OUT);
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(out);
+        h.assertTrue(out.getCount() == 8 && st.steps() == 0, "CMP: steps -> 0, got " + out);
+        h.assertValueEqual(st.contamination(), before.contamination() + 2, "slurry particles: dirt +2");
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.SLOT_SLURRY).getCount(), 1, "1 slurry per run");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.reason(out), "already_flat", "second pass: already flat");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(cp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] CMP [9-31]: interlayer wafer steps " + before.steps() + " -> 0, dirt +2, bottle back");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2531,6 +2564,8 @@ public class SemiconductorTests extends LabTestBase {
             L(io(Semiconductor.SILANE_CYLINDER, 1)), com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS / 20.0, "Mg2Si + 4HCl → SiH4 + 2MgCl2（塩酸の瓶は戻る）");
         rec(a, Semiconductor.CVD_FURNACE.block, "層間膜", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "1層目の金属を削った 1〜8枚"), io(Semiconductor.SILANE_CYLINDER, 1), io(Gas.OXYGEN_GAS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.O2_PER_RUN)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "層間膜（このあと VIA・METAL2）"), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS / 20.0, "SiH4 + O2 → SiO2 を約400℃。O2 はホルダーから");
+        rec(a, Semiconductor.CMP_POLISHER.block, "平らにする（CMP）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.WAFERS_PER_RUN), "層間膜のある 1〜8枚"), io(Chemistry.COLLOIDAL_SILICA, 1)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.WAFERS_PER_RUN), "段差 0（汚れ +2）"), io(Chemistry.GLASS_BOTTLE, 1)), com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.WATTS, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.TICKS / 20.0, "スラリー＋パッドで出っぱりから削る");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

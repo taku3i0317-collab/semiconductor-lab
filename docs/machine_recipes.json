@@ -554,6 +554,36 @@
       "note": "熱い硝酸で煮る → フッ酸 → 蒸留水ですすぐ（1950年代）"
     },
     {
+      "machine": "semiconductor-lab:cmp_polisher",
+      "process": "平らにする（CMP）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "層間膜のある 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:colloidal_silica",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "段差 0（汚れ +2）"
+        },
+        {
+          "item": "semiconductor-lab:glass_bottle",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 30.0,
+      "energy_kj": 60,
+      "note": "スラリー＋パッドで出っぱりから削る"
+    },
+    {
       "machine": "semiconductor-lab:co2_laser",
       "process": "赤外線で石英を溶かす",
       "inputs": [

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FFF",
+    "SPS",
+    "SMS"
+  ],
+  "key": {
+    "F": "semiconductor-lab:nylon_fiber",
+    "S": "semiconductor-lab:steel_ingot",
+    "P": "semiconductor-lab:surface_plate",
+    "M": "semiconductor-lab:electric_motor"
+  },
+  "result": {
+    "id": "semiconductor-lab:cmp_polisher",
+    "count": 1
+  }
+}
