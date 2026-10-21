@@ -890,3 +890,7 @@ public boolean instabuild;                         // クリエイティブ（�
 ## 画面を開く・アイテムの画面（S-010、A、javap で確認）
 - `Minecraft` には `setScreen` が無い。`Minecraft.getInstance().gui.setScreen(Screen)`（`net.minecraft.client.gui.Gui#setScreen(Screen)`、ほかに `setScreenAndShow`）
 - `Screen(Component)` は protected。`protected void init()`・`public boolean isPauseScreen()`・`public void extractBackground(GuiGraphicsExtractor, int, int, float)` をオーバーライドする
+
+## 空が見えるか（IMP2 O-023 [8-21]、javap 26.3）
+- `Level.canSeeSky(BlockPos)` は `BlockAndLightGetter` の default（LevelReader には無い）。雨は `Level.isRaining()`、次元は `level.dimension() == Level.OVERWORLD`、時刻は `getOverworldClockTime()`
+- `CompoundTag.getBooleanOr(String, boolean)` / `putBoolean`、`remove(String)`、`contains(String)`

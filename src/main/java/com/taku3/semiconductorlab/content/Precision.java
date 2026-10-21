@@ -57,6 +57,8 @@ public final class Precision {
     // [8-25] ワット天秤の電気の基準（IMP2 S-005 案A＝古典版）：ウェストン標準電池（1893、Cd アマルガム｜CdSO4｜Hg2SO4｜Hg、1.0186V）、標準抵抗（Cu-Ni 線を油の缶に）
     public static final Item WESTON_CELL           = Reg.item("weston_cell", new Item.Properties().stacksTo(1));
     public static final Item STANDARD_RESISTOR     = Reg.item("standard_resistor", new Item.Properties().stacksTo(1));
+    // [8-21] 六分儀（IMP2 O-023、1731〜1757）：銀鏡（動く鏡）＋半透明鏡（水平線の鏡）＋望遠鏡＋副尺（ノギス）＋青銅の枠。太陽の南中高度から緯度（item/SextantItem、Navigation）
+    public static final Item SEXTANT               = Reg.item("sextant", SextantItem::new, new Item.Properties().stacksTo(1));
     public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤

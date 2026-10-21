@@ -576,6 +576,25 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-21] 六分儀（IMP2 O-023）：昼前から何回か太陽の高さを測り、下がり始めたら 南中高度 → 緯度。z＝−20000（北緯20°）・x＝0 で */
+    @GameTest
+    public void sextant_noon_sight(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "sextant", com.taku3.semiconductorlab.content.Optics.HALF_SILVERED_MIRROR) && recipeUses(h, "sextant", Precision.VERNIER_CALIPER), "two mirrors + vernier");
+        BlockPos at = new BlockPos(0, 64, -20_000);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.Navigation.latitudeDeg(at) - 20) < 1e-9, "z = -20000 is 20 N");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.Navigation.sunAltitudeDeg(20, 12) - 70) < 1e-9 && com.taku3.semiconductorlab.item.Navigation.sunAltitudeDeg(20, 6) < 1e-9, "noon sun at 20 N stands 70 deg; at 6 o'clock on the horizon");
+        ItemStack sx = new ItemStack(Precision.SEXTANT);
+        int[] stages = new int[4];
+        long[] ticks = {5_000, 5_600, 6_000, 6_400};   // 11時・11時36分・正午・12時24分（グリニッジ＝その場所）
+        for (int i = 0; i < ticks.length; i++) stages[i] = com.taku3.semiconductorlab.item.SextantItem.sight(sx, h.getLevel(), at, ticks[i], ItemStack.EMPTY, null);
+        h.assertTrue(stages[0] == 0 && stages[1] == 1 && stages[2] == 1 && stages[3] == 2, "first / rising / rising / past noon: " + java.util.Arrays.toString(stages));
+        int max = sx.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA).copyTag().getIntOr("MaxMin", 0);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.SextantItem.latitudeFromNoon(max, true) - 20) < 0.02, "noon altitude " + max / 60.0 + " -> latitude 20 N");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.SextantItem.sight(sx, h.getLevel(), at, 6_800, ItemStack.EMPTY, null), 3, "after the noon result it just reports falling");
+        LOG.info("[LAB] sextant [8-21]: noon sight at 20 N -> " + com.taku3.semiconductorlab.item.Navigation.dm(max / 60.0) + " -> latitude " + com.taku3.semiconductorlab.item.Navigation.dm(com.taku3.semiconductorlab.item.SextantItem.latitudeFromNoon(max, true)));
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");

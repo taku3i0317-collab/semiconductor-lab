@@ -536,6 +536,7 @@ vernier_caliper  # Precision [8-04] 1631
 micrometer  # Precision [8-04] 1631
 simple_microscope  # Precision [8-10] 1670
 compound_microscope  # Precision [8-10] 1670
+sextant  # Precision [8-21] 1757
 lead_screw  # Precision [8-02] 1797
 standard_screw  # Precision [8-02] 1797
 pump_rotor  # Precision [8-01] 1797

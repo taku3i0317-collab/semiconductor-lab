@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "MTH",
+    "BVB",
+    " B "
+  ],
+  "key": {
+    "M": "semiconductor-lab:silvered_mirror",
+    "T": "semiconductor-lab:refracting_telescope",
+    "H": "semiconductor-lab:half_silvered_mirror",
+    "B": "semiconductor-lab:bronze_ingot",
+    "V": "semiconductor-lab:vernier_caliper"
+  },
+  "result": {
+    "id": "semiconductor-lab:sextant",
+    "count": 1
+  }
+}
