@@ -400,6 +400,28 @@
       "note": "ナイロン塩の水溶液を約270℃・15気圧以上（1935 カロザース）。圧力が足りないと塩のまま"
     },
     {
+      "machine": "semiconductor-lab:bake_plate",
+      "process": "露光後の加熱（PEB）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "露光した化学増幅レジスト 1〜8枚"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "加熱済み（このあと現像）"
+        }
+      ],
+      "watts": 300.0,
+      "seconds": 10.0,
+      "energy_kj": 3,
+      "note": "酸1個が何百もの保護基を外す"
+    },
+    {
       "machine": "semiconductor-lab:bayer_digester",
       "process": "バイヤー法",
       "inputs": [
@@ -2039,6 +2061,151 @@
       "seconds": 30.0,
       "energy_kj": 30,
       "note": "照明して色消しレンズで縮め、乾板に写して現像・定着（原図は減らない）"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：fries",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:phenol",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:acetic_anhydride",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:aluminium_chloride",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydroxyacetophenone",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:acetic_acid",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：reduce",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:hydroxyacetophenone",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:raney_nickel",
+          "count": 1,
+          "consumed": false
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:hydroxystyrene",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：polymer",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:hydroxystyrene",
+          "count": 4
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:protected_phs",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：sulfoxide",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:benzene",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:sulfur_dioxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:aluminium_chloride",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:diphenyl_sulfoxide",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
+    },
+    {
+      "machine": "semiconductor-lab:resist_reactor",
+      "process": "化学増幅レジスト：pag",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:diphenyl_sulfoxide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:benzene",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:antimony",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrofluoric_acid_pe",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:potassium_fluoride",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:photoacid_generator",
+          "count": 1
+        }
+      ],
+      "watts": 1500.0,
+      "seconds": 15.0,
+      "energy_kj": 23,
+      "note": "[2-33] 1982 IBM の化学増幅レジストの材料"
     },
     {
       "machine": "semiconductor-lab:resist_stripper",

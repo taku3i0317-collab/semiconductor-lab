@@ -85,6 +85,13 @@ public final class Chemistry {
     public static final Item DEVELOPER             = Reg.contained("developer", Vessel.GLASS_BOTTLE); // [9-21] ポジ型の現像液（薄い NaOH 水溶液、IMP4-01）
     // [2-30] ネガ型レジスト KPR（IMP4-01、O-009）：ポリケイ皮酸ビニル（D）をキシレンに溶かした液（ガラス瓶）。光で橋かけして溶けなくなる。日なたで感光する（ポジ型と同じクラス）
     public static final Item NEGATIVE_RESIST       = containedItem("negative_resist", com.taku3.semiconductorlab.item.PositiveResistItem::new, Vessel.GLASS_BOTTLE, 16);
+    // [2-33] 化学増幅レジスト（IMP4-01、O-016）：保護したポリヒドロキシスチレン＋光酸発生剤（1982 IBM）。合成釜 resist_reactor で
+    public static final Item HYDROXYACETOPHENONE   = Reg.item("hydroxyacetophenone");     // 4-ヒドロキシアセトフェノン（フリース転位）
+    public static final Item HYDROXYSTYRENE        = Reg.item("hydroxystyrene");          // 4-ヒドロキシスチレン（単量体）
+    public static final Item PROTECTED_PHS         = Reg.item("protected_phs");           // 保護したポリヒドロキシスチレン（t-BOC、樹脂）
+    public static final Item DIPHENYL_SULFOXIDE    = Reg.item("diphenyl_sulfoxide");      // ジフェニルスルホキシド
+    public static final Item PHOTOACID_GENERATOR   = Reg.item("photoacid_generator");     // 光酸発生剤（トリフェニルスルホニウム SbF6⁻）
+    public static final Item CHEMICALLY_AMPLIFIED_RESIST = Reg.contained("chemically_amplified_resist", Vessel.GLASS_BOTTLE);   // 化学増幅レジスト（液、ガラス瓶）
     // [9-25] リン酸（IMP4-01）：骨灰＋硫酸（シェーレの時代からの湿式法）。Al のエッチング液
     public static final Item PHOSPHORIC_ACID       = Reg.contained("phosphoric_acid", Vessel.GLASS_BOTTLE);
     // [9-13] 研磨のコロイダルシリカ（IMP4-01）：砂＋NaOH → 水ガラス（ケイ酸ナトリウム）→ 硫酸で中和 → シリカの微粒子が水に分散した液（ガラス瓶）
@@ -361,6 +368,8 @@ public final class Chemistry {
     public static final Machine<SolvayTowerBlockEntity> SOLVAY_TOWER = Machine.electric("solvay_tower", SolvayTowerBlockEntity::new, SolvayTowerBlockEntity.LAYOUT, metal(3.0f));
 
     // 自動製びん機 [2-56]（IMP3、O-016、1903 オーエンス）：ソーダ石灰ガラス → ガラス瓶を1秒に1本、作り続ける。2kW
+    // [2-33] 化学増幅レジストの合成釜（IMP4-01）：フリース転位・還元・重合、光酸発生剤の2段。1.5kW
+    public static final Machine<ResistReactorBlockEntity> RESIST_REACTOR = Machine.electric("resist_reactor", ResistReactorBlockEntity::new, ResistReactorBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<BottleMachineBlockEntity> BOTTLE_MACHINE = Machine.electric("bottle_machine", BottleMachineBlockEntity::new, BottleMachineBlockEntity.LAYOUT, metal(3.0f));
 
     /** 専用のクラスを持つ中身入りのアイテム（Reg.contained と同じこと：作業台で空の容器が戻る・容器の表に登録） */

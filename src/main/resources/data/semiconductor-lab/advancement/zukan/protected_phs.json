@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:protected_phs"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.protected_phs"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.protected_phs.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.protected_phs.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:protected_phs"
+          }
+        ]
+      }
+    }
+  }
+}

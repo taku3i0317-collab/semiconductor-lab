@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "AAA",
+    "SWS",
+    "SKS"
+  ],
+  "key": {
+    "A": "semiconductor-lab:aluminium_ingot",
+    "S": "semiconductor-lab:steel_ingot",
+    "W": "semiconductor-lab:tungsten_wire",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:bake_plate",
+    "count": 1
+  }
+}

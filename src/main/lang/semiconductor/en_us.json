@@ -720,5 +720,19 @@
   "gui.semiconductor-lab.probe_station.role12": "output 5",
   "gui.semiconductor-lab.probe_station.role13": "output 6",
   "gui.semiconductor-lab.probe_station.role14": "output 7",
-  "gui.semiconductor-lab.probe_station.role15": "output 8"
+  "gui.semiconductor-lab.probe_station.role15": "output 8",
+  "block.semiconductor-lab.bake_plate": "Hot Plate (PEB)",
+  "block.semiconductor-lab.bake_plate.note1": "Heats exposed chemically amplified resist so the acid made by light can work.",
+  "block.semiconductor-lab.bake_plate.note2": "300 W. 1–8 wafers with exposed chemically amplified resist → baked wafers (10 s). Then the developer bench (alkali). Developing without the bake dissolves nothing.",
+  "block.semiconductor-lab.bake_plate.note3": "At about 100 °C one acid moves through the resist and removes hundreds of protecting groups (catalysis). Only those areas dissolve in alkali.",
+  "block.semiconductor-lab.bake_plate.note4": "Too hot or too long and the acid spreads, blurring lines, so the temperature is set to a tenth of a degree.",
+  "block.semiconductor-lab.bake_plate.placeholder": "Omitted: ⚠️ temperature and time are game values. Acid spreading is not modelled.",
+  "gui.semiconductor-lab.bake_plate.power": "Power %s",
+  "gui.semiconductor-lab.bake_plate.need_input": "Needs exposed wafers",
+  "gui.semiconductor-lab.bake_plate.not_exposed": "Not exposed yet",
+  "gui.semiconductor-lab.bake_plate.not_car": "Not a chemically amplified resist",
+  "gui.semiconductor-lab.bake_plate.already": "Already baked",
+  "gui.semiconductor-lab.bake_plate.need_power": "Not enough power",
+  "gui.semiconductor-lab.bake_plate.running": "Activating the acid",
+  "gui.semiconductor-lab.bake_plate.recipe": "Expose → bake → develop"
 }

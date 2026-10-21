@@ -132,3 +132,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - O-016（訂正：v0.6＝v1.0 EUV）を読んだ。分担：C が [7-17] 多層膜ミラー → [8-13] 液滴発生器 → [7-18] EUV 光源（sputter に Mo/Si の的の分岐を C が足す）、E が [2-33] 化学増幅レジスト（A に litho の形を相談中）。[9-38] GAA は [7-18] 待ち
 - [2-33] の材料の道（案、出典で確かめながら）：ポリヒドロキシスチレン＝フェノール＋無水酢酸 → 酢酸フェニル →（AlCl3、フリース転位）→ 4-ヒドロキシアセトフェノン → 水素化 → 脱水 → 4-ヒドロキシスチレン → 重合。保護基（t-BOC）は ⚠️ 近似を検討。光酸発生剤＝トリフェニルスルホニウム塩（1982 の IBM は Ph3S⁺ SbF6⁻、クリベロのオニウム塩）：アンチモン（IMP3）＋フッ酸で SbF6⁻
 - ✅ high-k（S-004 の「あとで①」）：D の HfO2 → ハフニウムの塩素化炉（HfCl4）→ ALD 装置（ChipOps.highK、A）。GameTest high_k_gate、CHEMISTRY F68〜F69、REFERENCES F41
+- ✅ [2-33] 化学増幅レジスト：合成釜（block/ResistReactorBlockEntity、5つの反応の表）・ホットプレート（block/BakePlateBlockEntity、ChipOps.bake）・塗布機がレジストの種類を記録（DNQ/KPR/CAR、A の 55cfe13b）。GameTest chemically_amplified_chain、CHEMISTRY F70〜F72、REFERENCES F42

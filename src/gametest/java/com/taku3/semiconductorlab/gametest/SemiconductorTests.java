@@ -1341,6 +1341,62 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [2-33] 化学増幅レジスト（IMP4-01、O-016）：合成釜の5つの反応で樹脂と光酸発生剤 → 作業台で CAR。塗布機で DNQ は KrF で opaque、CAR は焼ける。
+     * ホットプレート（PEB）なしの現像はどこも溶けず、加熱すると露光した所が溶ける
+     */
+    @GameTest(maxTicks = 400)
+    public void chemicallyAmplifiedChain(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos rp = p(2, 1, 2);
+        h.setBlock(rp, Chemistry.RESIST_REACTOR.block);
+        var be = h.getBlockEntity(rp, com.taku3.semiconductorlab.block.ResistReactorBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.WATTS);
+        java.util.function.BiFunction<ItemStack[], ItemStack, ItemStack> run = (ins, cat) -> {
+            for (int i = 0; i < 4; i++) c.setItem(i, i < ins.length ? ins[i] : ItemStack.EMPTY);
+            c.setItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_CAT, cat);
+            c.setItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_OUT, ItemStack.EMPTY); c.setItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_OUT2, ItemStack.EMPTY);
+            tickConsumer(h, rp, be, com.taku3.semiconductorlab.block.ResistReactorBlockEntity.TICKS + 1, feed);
+            return c.getItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_OUT).copy();
+        };
+        ItemStack hap = run.apply(new ItemStack[] {new ItemStack(Chemistry.PHENOL), new ItemStack(Chemistry.ACETIC_ANHYDRIDE), new ItemStack(Chemistry.ALUMINIUM_CHLORIDE)}, ItemStack.EMPTY);
+        h.assertTrue(hap.is(Chemistry.HYDROXYACETOPHENONE) && c.getItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_OUT2).is(Chemistry.ACETIC_ACID), "Fries: -> 4-hydroxyacetophenone + acetic acid");
+        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYACETOPHENONE), new ItemStack(Gas.HYDROGEN_GAS)}, ItemStack.EMPTY).isEmpty(), "reduction needs Raney nickel");
+        ItemStack hs = run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYACETOPHENONE), new ItemStack(Gas.HYDROGEN_GAS)}, new ItemStack(Chemistry.RANEY_NICKEL));
+        h.assertTrue(hs.is(Chemistry.HYDROXYSTYRENE) && c.getItem(com.taku3.semiconductorlab.block.ResistReactorBlockEntity.SLOT_CAT).is(Chemistry.RANEY_NICKEL), "-> 4-hydroxystyrene, catalyst kept");
+        ItemStack phs = run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYSTYRENE, 4)}, ItemStack.EMPTY);
+        h.assertTrue(phs.is(Chemistry.PROTECTED_PHS), "4 monomers -> protected PHS");
+        h.assertTrue(run.apply(new ItemStack[] {new ItemStack(Chemistry.HYDROXYSTYRENE, 4), new ItemStack(Chemistry.BENZENE)}, ItemStack.EMPTY).isEmpty(), "an extra ingredient stops the reactor");
+        ItemStack dps = run.apply(new ItemStack[] {new ItemStack(Chemistry.BENZENE, 2), new ItemStack(Chemistry.SULFUR_DIOXIDE), new ItemStack(Chemistry.ALUMINIUM_CHLORIDE)}, ItemStack.EMPTY);
+        h.assertTrue(dps.is(Chemistry.DIPHENYL_SULFOXIDE), "-> diphenyl sulfoxide");
+        ItemStack pag = run.apply(new ItemStack[] {new ItemStack(Chemistry.DIPHENYL_SULFOXIDE), new ItemStack(Chemistry.BENZENE), new ItemStack(Metallurgy.ANTIMONY), new ItemStack(Chemistry.HYDROFLUORIC_ACID_PE, 2)}, new ItemStack(Chemistry.POTASSIUM_FLUORIDE));
+        h.assertTrue(pag.is(Chemistry.PHOTOACID_GENERATOR), "-> photoacid generator (Ph3S+ SbF6-)");
+        h.assertTrue(recipeUses(h, "chemically_amplified_resist", Chemistry.PROTECTED_PHS) && recipeUses(h, "chemically_amplified_resist", Chemistry.PHOTOACID_GENERATOR), "CAR = resin + PAG + solvent");
+        // 塗布機：DNQ（今のポジ型）は KrF で焼けない、CAR は焼ける。PEB なしは溶けない
+        var mask = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.CONTACT, com.taku3.semiconductorlab.litho.BitGrid.empty(16).with(3, 3, true).with(4, 3, true), "x", 0);
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack dnq = com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.product(ow, new ItemStack(Chemistry.POSITIVE_RESIST));
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(dnq, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF).reason(), "opaque_resist", "novolac/DNQ from the coater is opaque at 248 nm");
+        ItemStack car = com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.product(ow, new ItemStack(Chemistry.CHEMICALLY_AMPLIFIED_RESIST));
+        ItemStack ex = com.taku3.semiconductorlab.litho.ChipOps.expose(car, mask, com.taku3.semiconductorlab.litho.ExposureTool.KRF).out();
+        h.assertTrue(!ex.isEmpty(), "CAR from the coater prints at 248 nm");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.develop(ex).out()).resistPattern().invert().isEmpty(), "no PEB -> nothing dissolves");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.BakePlateBlockEntity.reason(car), "not_exposed", "hot plate: bake after exposure");
+        BlockPos bp = p(3, 1, 4);
+        h.setBlock(bp, Semiconductor.BAKE_PLATE.block);
+        var bpe = h.getBlockEntity(bp, com.taku3.semiconductorlab.block.BakePlateBlockEntity.class);
+        bpe.getContainer().setItem(com.taku3.semiconductorlab.block.BakePlateBlockEntity.SLOT_WAFER, ex.copy());
+        tickConsumer(h, bp, bpe, com.taku3.semiconductorlab.block.BakePlateBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.BakePlateBlockEntity.WATTS));
+        ItemStack baked = bpe.getContainer().getItem(com.taku3.semiconductorlab.block.BakePlateBlockEntity.SLOT_OUT);
+        h.assertTrue(baked.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(baked).extras().baked(), "hot plate: PEB done");
+        var dev = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.develop(baked).out());
+        h.assertTrue(!dev.resistPattern().get(3, 3) && dev.resistPattern().get(0, 0), "after PEB the exposed cells dissolve");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(rp)).inflate(3)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] chemically amplified resist [2-33]: Fries, reduction, polymer; sulfoxide, PAG; DNQ opaque at KrF, CAR prints; PEB needed");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -3178,6 +3234,8 @@ public class SemiconductorTests extends LabTestBase {
             L(io(Semiconductor.HAFNIUM_TETRACHLORIDE, 1), io(Metallurgy.CARBON_MONOXIDE_GAS, com.taku3.semiconductorlab.block.HafniumChlorinatorBlockEntity.CO_PER_RUN)), com.taku3.semiconductorlab.block.HafniumChlorinatorBlockEntity.WATTS, com.taku3.semiconductorlab.block.HafniumChlorinatorBlockEntity.TICKS / 20.0, "HfO2 + 2C + 2Cl2 → HfCl4 + 2CO（約900℃）");
         rec(a, Semiconductor.ALD_REACTOR.block, "high-k のゲート（ALD）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.AldReactorBlockEntity.WAFERS_PER_RUN), "ゲート酸化の済んだ 1〜8枚"), io(Semiconductor.HAFNIUM_TETRACHLORIDE, 1), io(Chemistry.DISTILLED_WATER, 1)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.AldReactorBlockEntity.WAFERS_PER_RUN), "HfO2 のゲート（記録）"), io(Chemistry.GLASS_BOTTLE, 2)), com.taku3.semiconductorlab.block.AldReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.AldReactorBlockEntity.TICKS / 20.0, "HfCl4 と水を交互に、1層ずつ（約300℃）");
+        rec(a, Semiconductor.BAKE_PLATE.block, "露光後の加熱（PEB）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.BakePlateBlockEntity.WAFERS_PER_RUN), "露光した化学増幅レジスト 1〜8枚")),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.BakePlateBlockEntity.WAFERS_PER_RUN), "加熱済み（このあと現像）")), com.taku3.semiconductorlab.block.BakePlateBlockEntity.WATTS, com.taku3.semiconductorlab.block.BakePlateBlockEntity.TICKS / 20.0, "酸1個が何百もの保護基を外す");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

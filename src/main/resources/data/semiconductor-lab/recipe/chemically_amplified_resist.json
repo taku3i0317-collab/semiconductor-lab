@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:protected_phs",
+    "semiconductor-lab:photoacid_generator",
+    "semiconductor-lab:xylene",
+    "semiconductor-lab:glass_bottle"
+  ],
+  "result": {
+    "id": "semiconductor-lab:chemically_amplified_resist",
+    "count": 1
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:diphenyl_sulfoxide"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.diphenyl_sulfoxide"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.diphenyl_sulfoxide.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.diphenyl_sulfoxide.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:diphenyl_sulfoxide"
+          }
+        ]
+      }
+    }
+  }
+}

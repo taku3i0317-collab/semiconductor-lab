@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GQG",
+    "SFS",
+    "SKS"
+  ],
+  "key": {
+    "G": "semiconductor-lab:soda_lime_glass",
+    "Q": "semiconductor-lab:quartz_tube",
+    "S": "semiconductor-lab:steel_ingot",
+    "F": "semiconductor-lab:electric_furnace",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:resist_reactor",
+    "count": 1
+  }
+}

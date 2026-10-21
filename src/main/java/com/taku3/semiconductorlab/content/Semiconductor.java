@@ -161,6 +161,8 @@ public final class Semiconductor {
     // high-k（IMP4-01、S-004）：ハフニウムの塩素化炉（HfO2 + 2C + 2Cl2 → HfCl4 + 2CO、3kW）と ALD 装置（HfCl4 と水を交互に、2kW）
     public static final Machine<HafniumChlorinatorBlockEntity> HAFNIUM_CHLORINATOR = Machine.electric("hafnium_chlorinator", HafniumChlorinatorBlockEntity::new, HafniumChlorinatorBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<AldReactorBlockEntity> ALD_REACTOR = Machine.electric("ald_reactor", AldReactorBlockEntity::new, AldReactorBlockEntity.LAYOUT, metal(4.0f));
+    // [2-33] ホットプレート（露光後の加熱 PEB、IMP4-01）：化学増幅レジストの酸を働かせる。300W
+    public static final Machine<BakePlateBlockEntity> BAKE_PLATE = Machine.electric("bake_plate", BakePlateBlockEntity::new, BakePlateBlockEntity.LAYOUT, metal(3.0f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

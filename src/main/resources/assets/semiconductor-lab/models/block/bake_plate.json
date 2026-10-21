@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/bake_plate_front",
+    "side": "semiconductor-lab:block/bake_plate_side",
+    "top": "semiconductor-lab:block/bake_plate_top"
+  }
+}

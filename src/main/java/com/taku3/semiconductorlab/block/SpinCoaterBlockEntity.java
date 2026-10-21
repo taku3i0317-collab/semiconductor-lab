@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * そのあと温めて溶剤を飛ばす（プリベーク）。加工中のウェハー・酸化膜つきの板 1〜8枚 ＋ ポジ型レジスト 1（空のガラス瓶は上に戻る）
  * → レジストを塗ったウェハー（ChipOps.coat、LITHO_DESIGN §5）。感光してしまったレジストは使えない。
  * ネガ型レジスト（[2-30] KPR）を入れるとネガ型で塗る（ChipOps.coat(w, NEGATIVE)。現像はキシレン）。
+ * 化学増幅レジスト（[2-33] CAR）はポジ型、露光のあとホットプレートで加熱（PEB）してから現像。KrF より短い光は CAR でないと焼けない（種類を記録、A）。
  * ⚠️ 電力（500W：モーター＋プリベークの熱板）・時間（20秒）はゲームの値（spin_coater.placeholder）。
  */
 public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
@@ -27,7 +28,7 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_WAFER, 8, 26, s -> s.is(Semiconductor.OXIDIZED_WAFER) || ChipOps.isProcessWafer(s))
-            .in(SLOT_RESIST, 8, 50, s -> s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST))
+            .in(SLOT_RESIST, 8, 50, s -> s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST) || s.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.spin_coater.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.spin_coater.need_input", "gui.semiconductor-lab.spin_coater.spoiled",
@@ -39,7 +40,7 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.SPIN_COATER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean goodResist(ItemStack s) { return (s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST)) && !PositiveResistItem.spoiled(s); }
+    public static boolean goodResist(ItemStack s) { return (s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST) || s.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST)) && !PositiveResistItem.spoiled(s); }
 
     /** 塗ったウェハー（1〜8枚）。塗れなければ EMPTY */
     public static ItemStack product(ItemStack w) { return product(w, new ItemStack(Chemistry.POSITIVE_RESIST)); }
@@ -48,7 +49,11 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
     public static ItemStack product(ItemStack w, ItemStack resist) {
         if (w.isEmpty()) return ItemStack.EMPTY;
         ItemStack n = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
-        ChipOps.Result r = resist.is(Chemistry.NEGATIVE_RESIST) ? ChipOps.coat(n, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE) : ChipOps.coat(n);
+        // レジストの種類も記録する（[2-33]、A）：DNQ・KPR は 250nm より短い光を吸いすぎて焼けない、化学増幅（CAR）は焼ける
+        var pos = com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE;
+        ChipOps.Result r = resist.is(Chemistry.NEGATIVE_RESIST) ? ChipOps.coat(n, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE, ChipOps.RESIST_KPR)
+                : resist.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST) ? ChipOps.coat(n, pos, ChipOps.RESIST_CAR)
+                : ChipOps.coat(n, pos, ChipOps.RESIST_DNQ);
         return r.ok() ? r.out() : ItemStack.EMPTY;
     }
 

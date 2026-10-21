@@ -1390,6 +1390,15 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        for (var r : com.taku3.semiconductorlab.block.ResistReactorBlockEntity.RECIPES) {
+            var ins = new com.google.gson.JsonArray();
+            for (var i : r.in()) ins.add(io(i.shown(), i.count()));
+            if (r.catalyst() != null) ins.add(r.key().equals("pag") ? io(r.catalyst(), 1) : kept(io(r.catalyst(), 1)));
+            var outs = new com.google.gson.JsonArray();
+            outs.add(io(r.out(), r.outCount()));
+            if (r.out2() != null) outs.add(io(r.out2(), r.out2Count()));
+            rec(a, Chemistry.RESIST_REACTOR.block, "化学増幅レジスト：" + r.key(), ins, outs, com.taku3.semiconductorlab.block.ResistReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.ResistReactorBlockEntity.TICKS / 20.0, "[2-33] 1982 IBM の化学増幅レジストの材料");
+        }
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
             L(io(Chemistry.HYDROGEN_PEROXIDE, 1), mol(com.taku3.semiconductorlab.content.Gas.HYDROGEN_GAS, 1)), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.TICKS / 20.0, "白金の陽極で硫酸 → 過硫酸 → 水で分解して H2O2（硫酸は戻る）。全体 2H2O → H2O2 + H2");
         rec(a, Chemistry.AMMONIA_STILL.block, "アンモニア水", L(io(Chemistry.AMMONIACAL_LIQUOR, com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.LIQUOR_PER_RUN), io(com.taku3.semiconductorlab.content.Survival.SLAKED_LIME, 1), io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.AmmoniaStillBlockEntity.RUNS_PER_WATER)),
