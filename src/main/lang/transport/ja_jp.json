@@ -58,5 +58,13 @@
   "gui.semiconductor-lab.oht_drive.waiting": "FOUP がいっぱいになるのを待つ",
   "gui.semiconductor-lab.oht_drive.need_power": "電気が足りない",
   "gui.semiconductor-lab.oht_drive.running": "FOUP を運んでいる",
-  "gui.semiconductor-lab.oht_drive.recipe": "出す FOUP → レール → 入れる口"
+  "gui.semiconductor-lab.oht_drive.recipe": "出す FOUP → レール → 入れる口",
+  "item.semiconductor-lab.magnetic_compass": "羅針盤",
+  "item.semiconductor-lab.magnetic_compass.note1": "いつも北を指す針。手に持つと北の方向が矢印で出る。",
+  "item.semiconductor-lab.magnetic_compass.note2": "鉄の粒＋天然磁石＋器＋水バケツ（バケツは戻る）。磁石でこすった針を水に浮かべる。近くに鉄や鋼のブロックがあると針がくるう。",
+  "item.semiconductor-lab.magnetic_compass.note3": "1088年ごろ、中国の沈括が磁石の針で方角を知る方法を書き残した。12世紀には船で使われた。",
+  "item.semiconductor-lab.magnetic_compass.note4": "地球は大きな磁石で、針は地球の磁気にそろう。鉄の船では船の鉄が針を引くので、1801年ごろフリンダースが鉄の棒、1876年にケルビンが鉄の玉で打ち消した。⚠️ 真北と磁石の北のずれ（偏角）は省略。",
+  "item.semiconductor-lab.magnetic_compass.placeholder": "近似：偏角（真北と磁石の北のずれ）を省略。鉄が針を引く強さはゲームの値。",
+  "item.semiconductor-lab.magnetic_compass.north": "🧭 北 %s",
+  "item.semiconductor-lab.magnetic_compass.disturbed": "🧭 北 %s（近くの鉄で %s° くるっている）"
 }

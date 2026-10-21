@@ -257,3 +257,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ S-010 6. [15-12] 磁気記録：steel_wire_spool・magnetic_tape・telegraphone（item/TelegraphoneItem、チャットで記録・右クリックで再生・消えない・しゃがんで消す）。GameTest magnetic_recording、CHEMISTRY CO4、REFERENCES O92
 - ⏸ O-037 続き：A が [10-04] を ✅ に（ab8fff85、サーボはノードの中で表してよい）。前提の問題は解消。残りは遊び方（上の 案A／案B）の判断だけ。おすすめは 案A
 - ✅ O-034 材料の本物化（D の O-029）：EUV の囲い＝ステンレス鋼×4＋ガラス＋フッ素ゴムの O リング、マスクの台・ウェハーの台＝アルミナのセラミックス板、投影の鏡の箱＝ステンレス鋼。囲い・台の「仮」（placeholder）を消した
+- ✅ S-010 7. [14-02] 羅針盤：magnetic_compass（item/CompassItem、持つと北の矢印・近くの鉄でくるう）。GameTest magnetic_compass、CHEMISTRY T3、REFERENCES O93。⏸ [15-02] 活版印刷はインク（すす・アマニ油）が無いので保留、D が司令塔の割り振り待ち（IMPL3_LOG「C の頼み」）

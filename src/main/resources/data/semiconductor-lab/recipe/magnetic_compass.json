@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_nugget",
+    "semiconductor-lab:magnet",
+    "minecraft:bowl",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:magnetic_compass",
+    "count": 1
+  }
+}

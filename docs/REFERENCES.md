@@ -2792,6 +2792,18 @@
 根拠：
 - Wikipedia「Wire recording」「Magnetic tape」「Fritz Pfleumer」：https://en.wikipedia.org/wiki/Wire_recording ・ https://en.wikipedia.org/wiki/Magnetic_tape ・ https://en.wikipedia.org/wiki/Fritz_Pfleumer
 
+## O93. 針はなぜ北を指す（羅針盤）［14-02］
+**答え**：地球は大きな磁石で、磁化した鉄の針は地球の磁気にそろって北（磁石の北）を指す。11世紀の中国で、沈括が『夢渓筆談』（1088年ごろ）に磁石でこすった針で方角を知る方法と、針が真北から少しずれること（偏角）を書いた。12世紀には船で使われた。鉄の船になると船の鉄が針を引いてくるわせたので、1801年ごろフリンダースが縦の鉄の棒で、1876年にケルビン卿が両わきの鉄の玉で、そのくるいを打ち消した。
+
+- へえ①：最初の羅針盤は、針を水に浮かべていた。
+- へえ②：磁石の北と本当の北（北極）は、少しずれている。
+- へえ③：鉄の船では、船そのものが羅針盤をくるわせた。
+- へえ④：船の羅針盤の両わきの丸い玉は、そのくるいを打ち消すための鉄の玉。
+
+確かさ：沈括 1088 ◎／12世紀の航海 ○／フリンダース 1801ごろ ○⚠️／ケルビン 1876 ○（鉄の玉の年は資料で違う ⚠️）
+根拠：
+- Wikipedia「Compass」「Shen Kuo」「Binnacle」：https://en.wikipedia.org/wiki/Compass ・ https://en.wikipedia.org/wiki/Shen_Kuo ・ https://en.wikipedia.org/wiki/Binnacle
+
 ---
 
 # 冶金と熱（タスク15〜）

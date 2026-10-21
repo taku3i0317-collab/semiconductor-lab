@@ -14,6 +14,25 @@ import net.minecraft.world.item.ItemStack;
  * GameTest：幹14 交通・運輸（IMP2 O-023 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class TransportTests extends LabTestBase {
+    /** [14-02] 羅針盤（IMP2 S-010）：何もなければ北（くるい 0）を指し、近くに鉄のブロックがあると引かれてくるう。遠い鉄は効かない */
+    @GameTest
+    public void magnetic_compass(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "magnetic_compass", com.taku3.semiconductorlab.content.Power.MAGNET), "needle rubbed with a lodestone");
+        var lv = h.getLevel();
+        BlockPos at = h.absolutePos(p(3, 2, 3));
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.CompassItem.errorDeg(lv, at)) < 1, "no iron -> points north");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.CompassItem.arrow(com.taku3.semiconductorlab.item.CompassItem.needleDeg(lv, at), 180f), "↑", "facing north: arrow straight ahead");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.CompassItem.arrow(com.taku3.semiconductorlab.item.CompassItem.needleDeg(lv, at), 0f), "↓", "facing south: arrow behind");
+        h.setBlock(p(4, 2, 3), net.minecraft.world.level.block.Blocks.IRON_BLOCK);   // 東どなりに鉄
+        double err = com.taku3.semiconductorlab.item.CompassItem.errorDeg(lv, at);
+        h.assertTrue(err > 20, "iron to the east pulls the needle east: " + err);
+        h.setBlock(p(4, 2, 3), net.minecraft.world.level.block.Blocks.AIR);
+        h.setBlock(p(3 + com.taku3.semiconductorlab.item.CompassItem.IRON_RANGE + 2, 2, 3), net.minecraft.world.level.block.Blocks.IRON_BLOCK);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.CompassItem.errorDeg(lv, at)) < 1, "far iron does nothing");
+        LOG.info("[LAB] magnetic compass [14-02]: points north, iron next to it turns the needle " + String.format(java.util.Locale.ROOT, "%.0f", err) + " deg");
+        h.succeed();
+    }
+
     /** [14-13] ジュラルミン（IMP2 S-010）：Al＋Cu＋Mg を焼入れ → 放っておくと硬くなる（時効硬化）。1日で HV 60 → 120 近く、持ち物で硬いジュラルミンに変わる */
     @GameTest(maxTicks = 100)
     public void duralumin(GameTestHelper h) {
