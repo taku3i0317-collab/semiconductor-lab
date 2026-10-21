@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:soda_lime_glass",
+    "semiconductor-lab:tin_bath"
+  ],
+  "result": {
+    "id": "minecraft:glass_pane",
+    "count": 16
+  }
+}

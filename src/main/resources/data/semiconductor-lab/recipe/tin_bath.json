@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BTB",
+    "BTB",
+    "TTT"
+  ],
+  "key": {
+    "B": "semiconductor-lab:refractory_brick",
+    "T": "semiconductor-lab:tin_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:tin_bath",
+    "count": 1
+  }
+}

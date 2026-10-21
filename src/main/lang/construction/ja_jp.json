@@ -73,5 +73,11 @@
   "block.semiconductor-lab.reinforced_concrete.note2": "灰色のコンクリート8＋鋼（鉄筋）→ 8。ふつうのコンクリートの十数倍、爆発に強い。",
   "block.semiconductor-lab.reinforced_concrete.note3": "コンクリートは押す力に強いが、引っぱる力にはとても弱い。鋼は引っぱる力に強い。熱でのびる割合（熱膨張率）がほぼ同じなので、暑さ寒さで割れない。コンクリートのアルカリが鋼のさびも防ぐ。",
   "block.semiconductor-lab.reinforced_concrete.note4": "1867年、フランスの庭師ジョゼフ・モニエが、鉄の網を入れた植木鉢で特許を取った。今のビル・橋・ダムのほとんどがこの組み合わせ。",
-  "block.semiconductor-lab.reinforced_concrete.placeholder": "近似：強さは「爆発への強さ」だけで表した（本物は引っぱり・曲げの強さ）。"
+  "block.semiconductor-lab.reinforced_concrete.placeholder": "近似：強さは「爆発への強さ」だけで表した（本物は引っぱり・曲げの強さ）。",
+  "item.semiconductor-lab.tin_bath": "スズの浴槽（フロート法）",
+  "item.semiconductor-lab.tin_bath.note1": "溶けたスズを入れた浅い浴槽。この上にガラスを浮かべて板にする。",
+  "item.semiconductor-lab.tin_bath.note2": "スズ5＋耐火れんが4。作業台で使っても戻る。ソーダ石灰ガラス6＋これ → ガラス板16。",
+  "item.semiconductor-lab.tin_bath.note3": "溶けたスズ（約1000℃）の上に溶けたガラスを流すと、ガラスはスズより軽いので浮き、重力と表面張力で厚さ約6mm のまっ平らな板になる。下の面はスズにふれて、上の面は炎で、どちらも鏡のように平らになる。スズが酸化しないよう、上は窒素と水素のガスでおおう。",
+  "item.semiconductor-lab.tin_bath.note4": "1959年、イギリスのアラステア・ピルキントンがフロート法を発表した。それまでの板ガラスは、のばしたあとで両面をみがく必要があった。今の窓ガラスやスマホの画面のガラスの多くはこの方法。",
+  "item.semiconductor-lab.tin_bath.placeholder": "近似：窒素と水素のおおい・徐冷（ゆっくり冷やす）は省略。スズは減らない。"
 }

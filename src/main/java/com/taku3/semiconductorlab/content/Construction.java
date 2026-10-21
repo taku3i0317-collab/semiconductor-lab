@@ -55,6 +55,10 @@ public final class Construction {
     public static final Block REINFORCED_CONCRETE = Reg.block("reinforced_concrete", Block::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(3.0f, REINFORCED_BLAST_RESISTANCE).sound(SoundType.STONE));
 
+    // ===== [12-05] 板ガラス（フロート法、IMP3、S-011）：スズ4＋耐火れんが4 → スズの浴槽（作業台で戻る道具）。ソーダ石灰ガラス6＋浴槽 → ガラス板16
+    //   （溶けたスズの上に溶けたガラスを流すと、両面が鏡のように平らになる。バニラのガラス板の本物の作り方）=====
+    public static final Item TIN_BATH              = Reg.item("tin_bath", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

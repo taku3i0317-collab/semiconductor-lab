@@ -184,4 +184,14 @@ public class ConstructionTests extends LabTestBase {
         h.assertTrue(rc > c * 10, "much stronger than plain concrete: " + rc + " vs " + c);
         h.succeed();
     }
+
+    /** [12-05] 板ガラス（フロート法、IMP3、S-011）：スズの浴槽（戻る）＋ソーダ石灰ガラス6 → バニラのガラス板16 */
+    @GameTest
+    public void floatGlass(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "glass_pane_float", Construction.TIN_BATH) && recipeUses(h, "glass_pane_float", com.taku3.semiconductorlab.content.Chemistry.SODA_LIME_GLASS), "float glass on molten tin");
+        h.assertTrue(recipeUses(h, "tin_bath", com.taku3.semiconductorlab.content.Metallurgy.TIN_INGOT), "tin bath");
+        var rem = Construction.TIN_BATH.getCraftingRemainder(new ItemStack(Construction.TIN_BATH));
+        h.assertTrue(rem != null && rem.create().is(Construction.TIN_BATH), "the tin bath comes back");
+        h.succeed();
+    }
 }

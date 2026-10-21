@@ -806,8 +806,10 @@ setblock ~17 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-12
 setblock ~17 ~0 ~90 semiconductor-lab:air_conditioner
 setblock ~21 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-13] HEPA フ","ブッシングでガラス繊維"," → HEPA フィル","ター → 空調機の左上"]}}
 setblock ~21 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_bushing",count:1},{Slot:1b,id:"semiconductor-lab:glass_fiber",count:16},{Slot:2b,id:"semiconductor-lab:hepa_filter",count:1}]}
-setblock ~24 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-14] 層流クリーン","石で部屋を囲み、天井に"," HEPA の天井を並","べ、中に HEPA 入"]}}
-setblock ~24 ~0 ~90 semiconductor-lab:hepa_ceiling
+setblock ~24 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-05] 板ガラス","レシピ本で MOD の","ガラスからガラス板が作","れるか"]}}
+setblock ~24 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tin_bath",count:1}]}
+setblock ~27 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-14] 層流クリーン","石で部屋を囲み、天井に"," HEPA の天井を並","べ、中に HEPA 入"]}}
+setblock ~27 ~0 ~90 semiconductor-lab:hepa_ceiling
 setblock ~0 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹14 交通・運輸","↓ この列","",""]}}
 setblock ~2 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-03] 経度とクロノ","クロノメーターを持って","六分儀で南中を測ると経","度の文が出るか。x を"]}}
 setblock ~2 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:marine_chronometer",count:1}]}
