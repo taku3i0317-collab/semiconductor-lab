@@ -2238,6 +2238,19 @@
 - Wikipedia「Extreme ultraviolet lithography」（Light source）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
 - Wikipedia「Laser-produced plasma」：https://en.wikipedia.org/wiki/Laser-produced_plasma
 
+## O79. ほこり1粒がチップをだめにする（歩留まりとクリーンルーム）［12-14・v0.5］
+**答え**：チップの上に欠陥（ほこりなど）が1つ落ちると、そのチップは動かないことが多い。欠陥がでたらめに散らばるとすると、欠陥の密度 D（1cm² あたりの数）と面積 A のチップが無事な割合は Y ≒ e^(−D·A)（ポアソンのモデル）。1963年の米国連邦規格 209 は、空気 1立方フィートにある 0.5µm 以上の粒の数でクリーンルームの等級（クラス100・1000 など）を決めた。部屋をきれいにするほど D が減り、同じ面積のチップでも歩留まりが大きく上がる。チップが大きくなるほど、きれいな部屋が必要になる。
+
+- へえ①：ほこり1粒で、チップ1個がだめになる。
+- へえ②：D が 1個/cm² なら、1cm² のチップは約37%しか動かない。
+- へえ③：クラス100 は、1立方フィート（約28リットル）に 0.5µm 以上の粒が100個以下。ふつうの部屋は数十万〜数百万個。
+- へえ④：本物の工場は、欠陥の集まり方を考えたもっと細かい式（負の二項分布など）を使う。
+
+確かさ：ポアソンの歩留まり式 ◎／連邦規格 209（1963）◎／D の数字 △（ゲームの代表値）
+根拠：
+- Wikipedia「Cleanroom」：https://en.wikipedia.org/wiki/Cleanroom
+- Wikipedia「Semiconductor device fabrication」（Yield）：https://en.wikipedia.org/wiki/Semiconductor_device_fabrication
+
 ---
 
 # 冶金と熱（タスク15〜）

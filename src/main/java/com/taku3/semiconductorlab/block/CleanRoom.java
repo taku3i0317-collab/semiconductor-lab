@@ -28,12 +28,27 @@ public final class CleanRoom {
     public static final int MAX_AIR = 512;
     public static final int CLASS100_COVER = 80, CLASS1000_COVER = 25;
 
-    /** 部屋の等級と、露光のあとに足す汚れ（A の目安：外 +2、クラス1000 +1、クラス100 0） */
+    /**
+     * 部屋の等級と、露光のあとに足す汚れ（A の目安：外 +2、クラス1000 +1、クラス100 0）、
+     * v0.5 #4 歩留まりの欠陥の密度 D（個/cm²、IMP2 O-025）。⚠️ ゲームの代表値：1970年代の工場で D は数個/cm²、
+     * クリーンルームが良くなるほど空気中の粒（＝チップに落ちる欠陥）が減り、等級が1つ上がる（粒が1/10）と D もおよそ下がる
+     */
     public enum Grade {
-        NONE(2), CLASS_1000(1), CLASS_100(0);
+        NONE(2, 5.0), CLASS_1000(1, 1.0), CLASS_100(0, 0.2);
         public final int dust;
-        Grade(int dust) { this.dust = dust; }
+        /** 欠陥の密度 D（個/cm²） */
+        public final double defectsPerCm2;
+        Grade(int dust, double defectsPerCm2) { this.dust = dust; this.defectsPerCm2 = defectsPerCm2; }
     }
+
+    /** v0.5 #4（IMP2 O-025）：その場所の欠陥の密度 D（個/cm²）。歩留まりの式（A の litho）に入れる入口 */
+    public static double defectDensity(Level level, BlockPos pos) { return classAt(level, pos).defectsPerCm2; }
+
+    /** 歩留まりの目安（ポアソンのモデル）Y ＝ e^(−D×A)。A＝チップの面積（cm²）。式をチップにどう効かせるかは A の litho */
+    public static double poissonYield(double defectsPerCm2, double areaCm2) { return Math.exp(-defectsPerCm2 * areaCm2); }
+
+    /** ①（IMP2 O-025）：露光以外の工程（拡散炉・CVD・CMP など）が、仕上げたあと ChipOps.addDust(w, dustAt(level, pos)) で使う入口 */
+    public static int dustAt(Level level, BlockPos pos) { return classAt(level, pos).dust; }
 
     public static Grade classAt(Level level, BlockPos pos) {
         Set<BlockPos> air = room(level, pos.above());

@@ -6,6 +6,7 @@ import com.taku3.semiconductorlab.content.Precision;
 import com.taku3.semiconductorlab.item.SurveyStation;
 import com.taku3.semiconductorlab.item.TheodoliteItem;
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
+import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
@@ -50,6 +51,21 @@ public class ConstructionTests extends LabTestBase {
     }
 
     /** [12-13] HEPA フィルター（IMP2 S-003）：ソーダ石灰ガラス →溶鉱炉→ ガラス繊維×4 → HEPA フィルター。空調機のフィルターの入口に入る */
+    /** v0.5 #4・#5（IMP2 O-025）：部屋の等級 → 欠陥の密度 D（外 5・クラス1000 1・クラス100 0.2 個/cm²）と歩留まり e^(−D·A)。露光以外の工程の汚れの入口 dustAt */
+    @GameTest
+    public void clean_room_yield(GameTestHelper h) {
+        var g = com.taku3.semiconductorlab.block.CleanRoom.Grade.values();
+        h.assertTrue(com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE.defectsPerCm2 > com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_1000.defectsPerCm2 && com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_1000.defectsPerCm2 > com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_100.defectsPerCm2, "cleaner room -> fewer defects");
+        double out = com.taku3.semiconductorlab.block.CleanRoom.poissonYield(com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE.defectsPerCm2, 1), c1000 = com.taku3.semiconductorlab.block.CleanRoom.poissonYield(com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_1000.defectsPerCm2, 1), c100 = com.taku3.semiconductorlab.block.CleanRoom.poissonYield(com.taku3.semiconductorlab.block.CleanRoom.Grade.CLASS_100.defectsPerCm2, 1);
+        h.assertTrue(out < 0.01 && Math.abs(c1000 - 0.368) < 0.001 && Math.abs(c100 - 0.819) < 0.001, "1 cm2 chip yield: open " + out + ", class 1000 " + c1000 + ", class 100 " + c100);
+        h.assertTrue(com.taku3.semiconductorlab.block.CleanRoom.poissonYield(1, 0.1) > com.taku3.semiconductorlab.block.CleanRoom.poissonYield(1, 1), "small chips yield better");
+        BlockPos at = p(1, 1, 1);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.CleanRoom.dustAt(h.getLevel(), h.absolutePos(at)), com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE.dust, "no room -> open-air dust for any process");
+        h.assertTrue(com.taku3.semiconductorlab.block.CleanRoom.defectDensity(h.getLevel(), h.absolutePos(at)) == com.taku3.semiconductorlab.block.CleanRoom.Grade.NONE.defectsPerCm2, "no room -> open-air defect density");
+        LOG.info("[LAB] clean room yield [v0.5 #4/#5]: D = 5 / 1 / 0.2 per cm2 -> 1 cm2 yield " + String.format(java.util.Locale.ROOT, "%.1f%% / %.0f%% / %.0f%%", out * 100, c1000 * 100, c100 * 100) + " (open / class 1000 / class 100)");
+        h.succeed();
+    }
+
     @GameTest
     public void hepa_filter(GameTestHelper h) {
         h.assertTrue(recipeUses(h, "glass_fiber", Construction.PLATINUM_BUSHING) && recipeUses(h, "glass_fiber", com.taku3.semiconductorlab.content.Chemistry.SODA_LIME_GLASS), "glass drawn through a platinum bushing");
