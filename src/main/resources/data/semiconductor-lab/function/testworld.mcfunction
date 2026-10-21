@@ -401,29 +401,31 @@ setblock ~5 ~0 ~26 semiconductor-lab:bellows
 setblock ~9 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-06] 反射炉","（人間の確認項目なし）","",""]}}
 setblock ~9 ~0 ~26 semiconductor-lab:reverberatory_furnace
 setblock ~10 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:zinc_oxide",count:16},{Slot:1b,id:"semiconductor-lab:pyrite",count:16},{Slot:2b,id:"minecraft:coal",count:16},{Slot:3b,id:"semiconductor-lab:galena",count:16},{Slot:4b,id:"semiconductor-lab:cinnabar_retort_charge",count:16},{Slot:5b,id:"semiconductor-lab:sphalerite",count:16}]}
-setblock ~13 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-09] 熱電対","かまど（火あり／なし）","・水・氷・溶岩を右クリ","ックして値がちがう"]}}
-setblock ~13 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:thermocouple",count:1}]}
-setblock ~16 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-12] 耐火れんが","耐火れんが（未焼成）/","耐火れんが の名前・テ","クスチャ（白っぽい薄黄"]}}
-setblock ~16 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:refractory_brick_blank",count:16},{Slot:1b,id:"semiconductor-lab:refractory_brick",count:16}]}
-setblock ~19 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-22] 蒸気圧縮の冷凍","冷凍機を置いて、エーテ","ル・水を入れ、素手で右","クリックを16回、音と"]}}
-setblock ~19 ~0 ~26 semiconductor-lab:perkins_ice_machine
-setblock ~23 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-13] 断熱材","（人間の確認項目なし）","",""]}}
-setblock ~23 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:rock_wool",count:16}]}
-setblock ~26 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-25] 炭化カルシウム","アーク炉の入口1に生石","灰を入れると約22秒で","カーバイドができ、画面"]}}
-setblock ~26 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:calcium_carbide",count:16}]}
-setblock ~29 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-15] アーク炉","アーク炉の GUI（左","に珪石・木炭・電極、青","白いバー、右に電力・必"]}}
-setblock ~29 ~-1 ~26 semiconductor-lab:test_power_source
-setblock ~29 ~0 ~26 semiconductor-lab:arc_furnace
-setblock ~30 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vein_quartz",count:16},{Slot:1b,id:"minecraft:charcoal",count:16},{Slot:2b,id:"semiconductor-lab:graphite_rod",count:16}]}
-setblock ~33 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-10] アチソン炉","GUI（左上＝炭素「C","」、左下＝砂「SiO2","」、中央＝進み具合バー"]}}
+setblock ~13 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-07] るつぼ炉","ふいごを横に置いて温度","が 1500℃ をこえ","る・画面の温度計"]}}
+setblock ~13 ~0 ~26 semiconductor-lab:crucible_furnace
+setblock ~17 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-09] 熱電対","かまど（火あり／なし）","・水・氷・溶岩を右クリ","ックして値がちがう"]}}
+setblock ~17 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:thermocouple",count:1}]}
+setblock ~20 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-12] 耐火れんが","耐火れんが（未焼成）/","耐火れんが の名前・テ","クスチャ（白っぽい薄黄"]}}
+setblock ~20 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:refractory_brick_blank",count:16},{Slot:1b,id:"semiconductor-lab:refractory_brick",count:16}]}
+setblock ~23 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-22] 蒸気圧縮の冷凍","冷凍機を置いて、エーテ","ル・水を入れ、素手で右","クリックを16回、音と"]}}
+setblock ~23 ~0 ~26 semiconductor-lab:perkins_ice_machine
+setblock ~27 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-13] 断熱材","（人間の確認項目なし）","",""]}}
+setblock ~27 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:rock_wool",count:16}]}
+setblock ~30 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-25] 炭化カルシウム","アーク炉の入口1に生石","灰を入れると約22秒で","カーバイドができ、画面"]}}
+setblock ~30 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:calcium_carbide",count:16}]}
+setblock ~33 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-15] アーク炉","アーク炉の GUI（左","に珪石・木炭・電極、青","白いバー、右に電力・必"]}}
 setblock ~33 ~-1 ~26 semiconductor-lab:test_power_source
-setblock ~33 ~0 ~26 semiconductor-lab:acheson_furnace
-setblock ~34 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:synthetic_graphite",count:16},{Slot:1b,id:"minecraft:coal",count:16},{Slot:2b,id:"minecraft:sand",count:16}]}
-setblock ~37 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-11] 光高温計","動いているアーク炉・ア","チソン炉を右クリック",""]}}
-setblock ~37 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:optical_pyrometer",count:1}]}
-setblock ~40 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-24] 電熱線ヒーター","電気こんろが動いている","間光る・画面の文",""]}}
-setblock ~40 ~0 ~26 semiconductor-lab:electric_stove
-setblock ~41 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nichrome_wire",count:16}]}
+setblock ~33 ~0 ~26 semiconductor-lab:arc_furnace
+setblock ~34 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vein_quartz",count:16},{Slot:1b,id:"minecraft:charcoal",count:16},{Slot:2b,id:"semiconductor-lab:graphite_rod",count:16}]}
+setblock ~37 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-10] アチソン炉","GUI（左上＝炭素「C","」、左下＝砂「SiO2","」、中央＝進み具合バー"]}}
+setblock ~37 ~-1 ~26 semiconductor-lab:test_power_source
+setblock ~37 ~0 ~26 semiconductor-lab:acheson_furnace
+setblock ~38 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:synthetic_graphite",count:16},{Slot:1b,id:"minecraft:coal",count:16},{Slot:2b,id:"minecraft:sand",count:16}]}
+setblock ~41 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-11] 光高温計","動いているアーク炉・ア","チソン炉を右クリック",""]}}
+setblock ~41 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:optical_pyrometer",count:1}]}
+setblock ~44 ~0 ~25 minecraft:oak_sign[rotation=8]{front_text:{messages:["[3-24] 電熱線ヒーター","電気こんろが動いている","間光る・画面の文",""]}}
+setblock ~44 ~0 ~26 semiconductor-lab:electric_stove
+setblock ~45 ~0 ~26 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:nichrome_wire",count:16}]}
 setblock ~0 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹4 電気・動力","↓ この列","",""]}}
 setblock ~2 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-47] 天然磁石","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:magnet",count:16}]}

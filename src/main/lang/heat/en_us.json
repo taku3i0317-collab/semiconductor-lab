@@ -135,5 +135,20 @@
   "gui.semiconductor-lab.electric_stove.output_full": "Output full",
   "gui.semiconductor-lab.electric_stove.need_power": "Not enough power",
   "gui.semiconductor-lab.electric_stove.cooking": "Cooking",
-  "gui.semiconductor-lab.electric_stove.recipe": "Food → cooked"
+  "gui.semiconductor-lab.electric_stove.recipe": "Food → cooked",
+  "block.semiconductor-lab.crucible_furnace": "Crucible Furnace",
+  "block.semiconductor-lab.crucible_furnace.note1": "A furnace that sets a crucible in a coke fire to melt its contents without contaminating them.",
+  "block.semiconductor-lab.crucible_furnace.note2": "Crafting: 7 refractory bricks + iron bars. Crucible charge or flint glass batch top left, coke bottom left. With bellows it passes about 1500 °C and melts: 2 crucible steel or 1 flint glass. The steel crucible comes back bottom right and cracks on the third use ⚠️.",
+  "block.semiconductor-lab.crucible_furnace.note3": "Melting inside a crucible keeps fuel ash and flame gases out of the contents. Without bellows it stays near 1100 °C and steel does not melt.",
+  "block.semiconductor-lab.crucible_furnace.note4": "Around 1740 in Sheffield, England, the clockmaker Benjamin Huntsman started this method to make even steel for springs.",
+  "block.semiconductor-lab.crucible_furnace.placeholder": "Omitted: ⚠️ the crucible cracking after three uses is a game value (real ones were reused a few times). A fire-clay crucible stands in for graphite.",
+  "block.semiconductor-lab.crucible_furnace.howto": "Crucible charge or flint glass batch top left, coke bottom left, bellows beside it. Melts above about 1500 °C. Product top right, returned crucible bottom right (cracks on the third use).",
+  "gui.semiconductor-lab.crucible_furnace.temp": "Temp %s °C",
+  "gui.semiconductor-lab.crucible_furnace.air": "Air %s%%",
+  "gui.semiconductor-lab.crucible_furnace.need_charge": "Add a charge",
+  "gui.semiconductor-lab.crucible_furnace.need_fuel": "Add coke",
+  "gui.semiconductor-lab.crucible_furnace.need_air": "Blow with bellows (1500 °C+)",
+  "gui.semiconductor-lab.crucible_furnace.melting": "Melting",
+  "gui.semiconductor-lab.crucible_furnace.out_full": "Output full",
+  "gui.semiconductor-lab.crucible_furnace.recipe": "Charge → steel + crucible"
 }

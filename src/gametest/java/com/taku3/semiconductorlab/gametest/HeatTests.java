@@ -392,6 +392,29 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-07] るつぼ炉（IMP4-01、O-030 案A）：風なし 1100℃ では溶けない・ふいご全開で 1600℃。仕込み → るつぼ鋼2＋るつぼが戻る（3回目は割れる）、フリントガラスの調合 → フリントガラス */
+    @GameTest
+    public void crucibleFurnace(GameTestHelper h) {
+        var C = com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.class;
+        h.assertTrue(com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.targetTemp(true, 0) < com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.T_MELT
+                && com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.targetTemp(true, 1) >= com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.T_MELT, "needs bellows to melt steel");
+        BlockPos fp = p(1, 1, 1);
+        h.setBlock(fp, Heat.CRUCIBLE_FURNACE.block);
+        var f = h.getBlockEntity(fp, C);
+        var box = f.getContainer();
+        int IN = com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.SLOT_CHARGE, OUT = com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.SLOT_OUT, CR = com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.SLOT_CRUCIBLE;
+        box.setItem(IN, new ItemStack(Metallurgy.CRUCIBLE_CHARGE, 3));
+        for (int i = 0; i < 3; i++) f.finish();
+        h.assertTrue(box.getItem(OUT).is(Metallurgy.CRUCIBLE_STEEL) && box.getItem(OUT).getCount() == 6, "3 charges -> 6 crucible steel");
+        h.assertTrue(box.getItem(CR).is(Metallurgy.CLAY_CRUCIBLE) && box.getItem(CR).getCount() == 2, "crucible back twice, cracked on the third");
+        box.setItem(OUT, ItemStack.EMPTY);
+        box.setItem(IN, new ItemStack(com.taku3.semiconductorlab.content.Optics.FLINT_GLASS_BATCH));
+        f.finish();
+        h.assertTrue(box.getItem(OUT).is(com.taku3.semiconductorlab.content.Optics.FLINT_GLASS), "flint glass batch -> flint glass");
+        h.assertTrue(com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.isFuel(new ItemStack(Metallurgy.COKE)), "coke fire");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [2-43] 黄鉄鉱の焙焼（IMP3、O-028 で書き出しに足した）
         rec(a, Heat.REVERBERATORY_FURNACE.block, "焙焼（黄鉄鉱）", L(io(Chemistry.PYRITE, 1), perRuns(io(Items.COAL, 1), (int) (ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS))),

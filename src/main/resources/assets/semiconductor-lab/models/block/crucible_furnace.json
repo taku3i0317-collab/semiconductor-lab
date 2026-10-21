@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/crucible_furnace_front",
+    "side": "semiconductor-lab:block/crucible_furnace_side",
+    "top": "semiconductor-lab:block/crucible_furnace_top"
+  }
+}

@@ -53,6 +53,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Heat.ACHESON_FURNACE, AchesonFurnaceScreen::new);
 		screen(Heat.REVERBERATORY_FURNACE, ReverberatoryFurnaceScreen::new);
 		screen(Heat.ELECTRIC_STOVE, ElectricStoveScreen::new);   // [3-24] 電気こんろ（IMP4-01）
+		screen(Heat.CRUCIBLE_FURNACE, CrucibleFurnaceScreen::new);   // [3-07] るつぼ炉（IMP4-01）
 		// 幹4 動力・電気
 		screen(Power.STEAM_ENGINE, SteamEngineScreen::new);
 		screen(Power.STEAM_TURBINE, SteamEngineScreen::new);   // 蒸気機関と同じ画面

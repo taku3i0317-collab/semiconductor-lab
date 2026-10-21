@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 222（ja・en）、文字の置き場所 822、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 224（ja・en）、文字の置き場所 830、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
@@ -384,6 +384,14 @@ electric_stove_en_us hint gui.semiconductor-lab.electric_stove.output_full w=53 
 electric_stove_en_us hint gui.semiconductor-lab.electric_stove.need_power w=90 lines=2/3
 electric_stove_en_us hint gui.semiconductor-lab.electric_stove.cooking w=37 lines=1/3
 electric_stove_en_us recipe gui.semiconductor-lab.electric_stove.recipe w=75 lines=1/1
+crucible_furnace_en_us temp gui.semiconductor-lab.crucible_furnace.temp w=67 lines=1/1
+crucible_furnace_en_us air gui.semiconductor-lab.crucible_furnace.air w=42 lines=1/1
+crucible_furnace_en_us hint gui.semiconductor-lab.crucible_furnace.need_charge w=68 lines=1/3
+crucible_furnace_en_us hint gui.semiconductor-lab.crucible_furnace.need_fuel w=45 lines=1/3
+crucible_furnace_en_us hint gui.semiconductor-lab.crucible_furnace.need_air w=140 lines=3/3
+crucible_furnace_en_us hint gui.semiconductor-lab.crucible_furnace.melting w=33 lines=1/3
+crucible_furnace_en_us hint gui.semiconductor-lab.crucible_furnace.out_full w=53 lines=1/3
+crucible_furnace_en_us formula gui.semiconductor-lab.crucible_furnace.recipe w=132 lines=1/1 scale=0.79999995
 arc_lamp_en_us power gui.semiconductor-lab.arc_lamp.power w=75 lines=1/1
 arc_lamp_en_us hint gui.semiconductor-lab.arc_lamp.need_rod w=158 lines=3/4
 arc_lamp_en_us hint gui.semiconductor-lab.arc_lamp.need_power w=90 lines=2/4
@@ -1495,6 +1503,14 @@ electric_stove_ja_jp hint gui.semiconductor-lab.electric_stove.output_full w=45 
 electric_stove_ja_jp hint gui.semiconductor-lab.electric_stove.need_power w=63 lines=1/3
 electric_stove_ja_jp hint gui.semiconductor-lab.electric_stove.cooking w=45 lines=1/3
 electric_stove_ja_jp recipe gui.semiconductor-lab.electric_stove.recipe w=79 lines=1/1
+crucible_furnace_ja_jp temp gui.semiconductor-lab.crucible_furnace.temp w=54 lines=1/1
+crucible_furnace_ja_jp air gui.semiconductor-lab.crucible_furnace.air w=46 lines=1/1
+crucible_furnace_ja_jp hint gui.semiconductor-lab.crucible_furnace.need_charge w=63 lines=1/3
+crucible_furnace_ja_jp hint gui.semiconductor-lab.crucible_furnace.need_fuel w=72 lines=1/3
+crucible_furnace_ja_jp hint gui.semiconductor-lab.crucible_furnace.need_air w=140 lines=2/3
+crucible_furnace_ja_jp hint gui.semiconductor-lab.crucible_furnace.melting w=54 lines=1/3
+crucible_furnace_ja_jp hint gui.semiconductor-lab.crucible_furnace.out_full w=45 lines=1/3
+crucible_furnace_ja_jp formula gui.semiconductor-lab.crucible_furnace.recipe w=112 lines=1/1 scale=0.95
 arc_lamp_ja_jp power gui.semiconductor-lab.arc_lamp.power w=63 lines=1/1
 arc_lamp_ja_jp hint gui.semiconductor-lab.arc_lamp.need_rod w=99 lines=2/4
 arc_lamp_ja_jp hint gui.semiconductor-lab.arc_lamp.need_power w=63 lines=1/4

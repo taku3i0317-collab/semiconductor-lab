@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "R R",
+    "R R",
+    "RIR"
+  ],
+  "key": {
+    "R": "semiconductor-lab:refractory_brick",
+    "I": "minecraft:iron_bars"
+  },
+  "result": {
+    "id": "semiconductor-lab:crucible_furnace",
+    "count": 1
+  }
+}

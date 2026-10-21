@@ -60,6 +60,10 @@ public final class Heat {
     public static final Item NICHROME_WIRE         = Reg.item("nichrome_wire");
     public static final Machine<ElectricStoveBlockEntity> ELECTRIC_STOVE = Machine.electric("electric_stove", ElectricStoveBlockEntity::new, ElectricStoveBlockEntity.LAYOUT, Machine.lit(Machine.metal(2.0f), 9));
 
+    // [3-07] るつぼ炉（IMP4-01、O-030 案A 仮決定、1740 ハンツマン）：コークス＋ふいごで約1600℃、るつぼの仕込み → るつぼ鋼2（るつぼが戻る、3回目で割れる ⚠️）、フリントガラスの調合 → フリントガラス
+    public static final Machine<CrucibleFurnaceBlockEntity> CRUCIBLE_FURNACE = Machine.builder("crucible_furnace", CrucibleFurnaceBlockEntity::new)
+            .ticker(CrucibleFurnaceBlockEntity::tick).layout(CrucibleFurnaceBlockEntity.LAYOUT).props(Machine.lit(Machine.stone(3.0f), 12)).build();
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     // [3-22] 蒸気圧縮の冷凍サイクル（IMP3、O-019、1834 パーキンス）：手回しの冷凍機。冷媒（エーテル）＋水 → ハンドル16回で氷
     public static final Block PERKINS_ICE_MACHINE = Reg.functional("perkins_ice_machine", PerkinsIceMachineBlock::new,

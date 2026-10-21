@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 939（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 940（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=4
 en_us hammerstone shift lines=17
 en_us flint_flake lines=5
@@ -1093,6 +1093,8 @@ en_us nichrome_wire lines=5
 en_us nichrome_wire shift lines=11
 en_us electric_stove lines=5
 en_us electric_stove shift lines=17
+en_us crucible_furnace lines=4
+en_us crucible_furnace shift lines=19
 en_us perkins_ice_machine lines=8
 en_us perkins_ice_machine shift lines=21
 en_us induction_coil lines=6
@@ -2971,6 +2973,8 @@ ja_jp nichrome_wire lines=4
 ja_jp nichrome_wire shift lines=10
 ja_jp electric_stove lines=4
 ja_jp electric_stove shift lines=14
+ja_jp crucible_furnace lines=3
+ja_jp crucible_furnace shift lines=15
 ja_jp perkins_ice_machine lines=7
 ja_jp perkins_ice_machine shift lines=18
 ja_jp induction_coil lines=4
