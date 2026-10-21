@@ -512,5 +512,11 @@
   "item.semiconductor-lab.euv_projection_optics.note2": "心出し済みの鏡筒＋EUV の鏡の組（ずれを引き継ぐ）。13.5nm・NA 0.33。EUV 露光装置のレンズの入口へ。",
   "item.semiconductor-lab.euv_projection_optics.note3": "13.5nm の EUV はどんなガラスにも吸われるので、レンズが作れない。2019年に量産が始まった EUV 露光装置は、投影も照明も全部が鏡。",
   "item.semiconductor-lab.euv_projection_optics.note4": "鏡は斜めに使うので、マスクも反射型になり、光は少し傾いてマスクに当たる。NA を 0.55 に上げた「High-NA EUV」も作られている。",
-  "item.semiconductor-lab.euv_projection_optics.placeholder": "近似：NA 0.33・k1 の土台 0.6（工夫で下げられる）。鏡の形・斜めの照明の影響は作らない。"
+  "item.semiconductor-lab.euv_projection_optics.placeholder": "近似：NA 0.33・k1 の土台 0.6（工夫で下げられる）。鏡の形・斜めの照明の影響は作らない。",
+  "item.semiconductor-lab.euv_high_na_optics": "High-NA EUV の投影光学",
+  "item.semiconductor-lab.euv_high_na_optics.note1": "もっと大きな鏡で光を大きく曲げて、さらに細い線を描く EUV の光学。",
+  "item.semiconductor-lab.euv_high_na_optics.note2": "EUV の投影光学＋EUV の鏡の組（ずれを引き継ぐ）。NA 0.55。鏡筒の心出しのずれが合計 1.6µm 以下でないと使えない。EUV 露光装置に入れると、CD がさらに細かく（約15nm）、1チップの送りが2倍（8回）、焦点深度が 約36nm（段差1段でも焼けない＝毎層 CMP）。",
+  "item.semiconductor-lab.euv_high_na_optics.note3": "NA を 0.33 から 0.55 に上げた EUV 露光装置が、2020年代に作られ始めた⚠️。1台が今の EUV よりさらに大きい。",
+  "item.semiconductor-lab.euv_high_na_optics.note4": "NA を上げると光がマスクに当たる角度が大きくなりすぎるので、縦と横で縮小の倍率をかえた（アナモルフィック：片方 1/4・もう片方 1/8）。そのため1回に焼ける範囲が半分になり、大きなチップは2回に分けてつなぐ。",
+  "item.semiconductor-lab.euv_high_na_optics.placeholder": "近似：アナモルフィックは「送りが2倍」で表す。心出しの上限（1.6µm）・NA 0.55 の効き方はゲームの値。"
 }

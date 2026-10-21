@@ -844,5 +844,6 @@
   "gui.semiconductor-lab.load_port.no_machine": "No process machine next to it",
   "gui.semiconductor-lab.load_port.need_power": "Not enough power",
   "gui.semiconductor-lab.load_port.running": "Loading and unloading wafers",
-  "gui.semiconductor-lab.load_port.recipe": "In FOUP → machine → out FOUP"
+  "gui.semiconductor-lab.load_port.recipe": "In FOUP → machine → out FOUP",
+  "gui.semiconductor-lab.euv_scanner.high_na_rough": "High-NA: barrel too rough"
 }

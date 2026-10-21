@@ -91,6 +91,9 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     /** 使えるマスク（EUV の露光装置は反射型の EUV マスクだけ） */
     protected boolean maskOk(ItemStack m) { return MaskAlignerBlockEntity.isMask(m); }
 
+    /** 1枚を焼くのに送る回数（High-NA EUV はショットが半分なので2倍） */
+    public int steps() { return STEPS; }
+
     /** 送りの台がそろっているか（スキャナーはマスクの台も要る） */
     protected boolean stagesReady() { return true; }
 
@@ -170,7 +173,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             light.setDamageValue(light.getDamageValue() + 1);
             if (light.getDamageValue() >= light.getMaxDamage()) container.setItem(SLOT_FILTER, ItemStack.EMPTY);
         }
-        if (++stepsDone < STEPS) { setChanged(); return; }
+        if (++stepsDone < steps()) { setChanged(); return; }
         stepsDone = 0;
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         ChipOps.Result r = ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), overlayNm(), ProjectionLensItem.dofNm(container.getItem(SLOT_LENS)));   // v0.5 #1 段差＞焦点深度なら焼けない（A）

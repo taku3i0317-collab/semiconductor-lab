@@ -20,6 +20,8 @@ public class EuvScannerScreen extends ScannerScreen {
     @Override
     protected Component text(String id) {
         if (id.equals("power")) return Component.translatable(E + "power", String.valueOf(menu.get(EuvScannerBlockEntity.DATA_EUV_MW)));
+        if (id.equals("steps")) return Component.translatable(S + "steps", menu.get(StepperBlockEntity.DATA_STEPS),
+                EuvScannerBlockEntity.isHighNa(menu.getSlot(StepperBlockEntity.SLOT_LENS).getItem()) ? 2 * StepperBlockEntity.STEPS : StepperBlockEntity.STEPS);
         if (!id.equals("hint")) return super.text(id);
         ItemStack w = menu.getSlot(StepperBlockEntity.SLOT_WAFER).getItem(), m = menu.getSlot(StepperBlockEntity.SLOT_MASK).getItem(),
                 lens = menu.getSlot(StepperBlockEntity.SLOT_LENS).getItem();
@@ -27,6 +29,7 @@ public class EuvScannerScreen extends ScannerScreen {
         if (!w.is(com.taku3.semiconductorlab.content.Semiconductor.PROCESS_WAFER)) h = S + "need_wafer";
         else if (!EuvScannerBlockEntity.isEuvMask(m)) h = E + "need_mask";
         else if (!EuvScannerBlockEntity.isEuvOptics(lens)) h = E + "need_optics";
+        else if (!EuvScannerBlockEntity.opticsUsable(lens)) h = E + "high_na_rough";
         else if (menu.get(EuvScannerBlockEntity.DATA_EUV_MW) <= 0) h = E + "need_source";
         else if (!LatheBlockEntity.isMasterScrew(menu.getSlot(EuvScannerBlockEntity.SLOT_MASK_STAGE).getItem())) h = S + "need_mask_stage";
         else {

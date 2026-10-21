@@ -41,7 +41,7 @@ public class EuvScannerBlockEntity extends ScannerBlockEntity {
             .right("overlay", 50, 1, "gui.semiconductor-lab.mask_aligner.overlay").samples("20.0")
             .right("room", 61, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
             .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.", "stepper.need_wafer", "euv_scanner.need_mask", "euv_scanner.need_optics", "euv_scanner.need_source",
-                    "euv_scanner.need_vacuum", "stepper.need_mask_stage", "stepper.defocus", "stepper.blurred", "stepper.cannot", "stepper.output_full", "stepper.press",
+                    "euv_scanner.need_vacuum", "euv_scanner.high_na_rough", "stepper.need_mask_stage", "stepper.defocus", "stepper.blurred", "stepper.cannot", "stepper.output_full", "stepper.press",
                     "stepper.need_power", "stepper.running"))
             .text("dof", 8, 62, 44, 2, "gui.semiconductor-lab.stepper.dof").samples("0.12")
             .text("k1", 8, 100, 88, 1, "gui.semiconductor-lab.stepper.k1").samples("0.60", "0.30", "0.30")
@@ -53,6 +53,19 @@ public class EuvScannerBlockEntity extends ScannerBlockEntity {
     public static boolean isEuvMask(ItemStack s) { return s.has(ModDataComponents.MASK) && "euv_mask".equals(BuiltInRegistries.ITEM.getKey(s.getItem()).getPath()); }
 
     public static boolean isEuvOptics(ItemStack s) { return ProjectionLensItem.toolOf(s) == ExposureTool.EUV; }
+
+    /** v1.0 #6 High-NA の投影光学（NA 0.55） */
+    public static boolean isHighNa(ItemStack s) { return s.is(com.taku3.semiconductorlab.content.Optics.EUV_HIGH_NA_OPTICS); }
+
+    /** High-NA は鏡筒の心出しのずれが合計 {@value #HIGH_NA_MAX_DECENTER}（0.1µm 単位）以下でないと使えない（⚠️ ゲームの値） */
+    public static final int HIGH_NA_MAX_DECENTER = 16;
+
+    public static boolean opticsUsable(ItemStack s) {
+        if (!isEuvOptics(s)) return false;
+        if (!isHighNa(s)) return true;
+        var d = s.get(com.taku3.semiconductorlab.content.Precision.LENS_DECENTER);
+        return d != null && d.stream().mapToInt(Integer::intValue).sum() <= HIGH_NA_MAX_DECENTER;
+    }
 
     /** 鏡10枚＋マスクの反射で、光源からウェハーに届く割合 */
     public static double throughput() { return Math.pow(MIRROR_R, MIRRORS + 1); }
@@ -79,7 +92,10 @@ public class EuvScannerBlockEntity extends ScannerBlockEntity {
 
     @Override public ExposureTool tool() { return ExposureTool.EUV; }
     @Override protected boolean maskOk(ItemStack m) { return isEuvMask(m); }
-    @Override protected boolean lightReady(ItemStack lens) { return isEuvOptics(lens) && vacuumOk() && deliveredW() > 0; }
+    @Override protected boolean lightReady(ItemStack lens) { return opticsUsable(lens) && vacuumOk() && deliveredW() > 0; }
+
+    /** High-NA はアナモルフィックで1ショットが半分＝送りが2倍 */
+    @Override public int steps() { return isHighNa(container.getItem(SLOT_LENS)) ? 2 * STEPS : STEPS; }
     @Override protected int workTicks() { return stepTicks(deliveredW()); }
 
     @Override protected int extraDataCount() { return EUV_EXTRA; }

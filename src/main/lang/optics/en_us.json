@@ -512,5 +512,11 @@
   "item.semiconductor-lab.euv_projection_optics.note2": "Centred lens barrel + EUV mirror set (keeps the offsets). 13.5 nm, NA 0.33. Goes in the EUV scanner's lens slot.",
   "item.semiconductor-lab.euv_projection_optics.note3": "13.5 nm EUV is absorbed by every glass, so no lens can be made. The EUV scanners that entered production in 2019 use mirrors for both projection and illumination.",
   "item.semiconductor-lab.euv_projection_optics.note4": "Because the mirrors work at an angle, the mask is reflective too and light strikes it slightly tilted. High-NA EUV with NA 0.55 is now being built.",
-  "item.semiconductor-lab.euv_projection_optics.placeholder": "Approximation: NA 0.33, k1 base 0.6 (reducible with tricks). Mirror figure and oblique illumination effects are not modelled."
+  "item.semiconductor-lab.euv_projection_optics.placeholder": "Approximation: NA 0.33, k1 base 0.6 (reducible with tricks). Mirror figure and oblique illumination effects are not modelled.",
+  "item.semiconductor-lab.euv_high_na_optics": "High-NA EUV Projection Optics",
+  "item.semiconductor-lab.euv_high_na_optics.note1": "EUV optics with larger mirrors that bend light more sharply to draw even finer lines.",
+  "item.semiconductor-lab.euv_high_na_optics.note2": "EUV projection optics + EUV mirror set (keeps the offsets). NA 0.55. Usable only if the barrel's total centring offset is 1.6 um or less. In the EUV scanner it gives finer CD (about 15 nm), twice the steps per wafer (8), and a depth of focus of about 36 nm (even one step fails, so CMP every layer).",
+  "item.semiconductor-lab.euv_high_na_optics.note3": "EUV scanners with NA raised from 0.33 to 0.55 began to be built in the 2020s ⚠️. Each is even larger than today's EUV tools.",
+  "item.semiconductor-lab.euv_high_na_optics.note4": "Raising NA would make light strike the mask too steeply, so the magnification differs between directions (anamorphic: 1/4 one way, 1/8 the other). The exposure field halves, and large chips are printed in two parts and stitched.",
+  "item.semiconductor-lab.euv_high_na_optics.placeholder": "Approximation: anamorphic imaging is represented as double steps. The centring limit (1.6 um) and NA 0.55 effects are game values."
 }

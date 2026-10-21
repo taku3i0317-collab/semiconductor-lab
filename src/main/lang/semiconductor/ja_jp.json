@@ -844,5 +844,6 @@
   "gui.semiconductor-lab.load_port.no_machine": "隣に工程の機械がない",
   "gui.semiconductor-lab.load_port.need_power": "電気が足りない",
   "gui.semiconductor-lab.load_port.running": "ウェハーを出し入れしている",
-  "gui.semiconductor-lab.load_port.recipe": "入れる FOUP → 機械 → 出す FOUP"
+  "gui.semiconductor-lab.load_port.recipe": "入れる FOUP → 機械 → 出す FOUP",
+  "gui.semiconductor-lab.euv_scanner.high_na_rough": "High-NA は心出しが粗い（1.6µm 以下に）"
 }

@@ -2422,6 +2422,29 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v1.0 #6 High-NA EUV（IMP2 O-035）：NA 0.55 で CD がより細かく、送りが2倍、焦点深度 約36nm（段差1段でも焼けない）。心出しが粗いと使えない */
+    @GameTest
+    public void euv_high_na(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "euv_high_na_optics", com.taku3.semiconductorlab.content.Optics.EUV_MIRROR_SET), "High-NA optics add another mirror set");
+        ItemStack std = withDecenter(new ItemStack(com.taku3.semiconductorlab.content.Optics.EUV_PROJECTION_OPTICS));
+        ItemStack hna = withDecenter(new ItemStack(com.taku3.semiconductorlab.content.Optics.EUV_HIGH_NA_OPTICS));
+        ItemStack rough = new ItemStack(com.taku3.semiconductorlab.content.Optics.EUV_HIGH_NA_OPTICS);
+        rough.set(Precision.LENS_DECENTER, java.util.List.of(8, 8, 8, 8));
+        int cdStd = com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(std), cdHna = com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(hna), dof = com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(hna);
+        h.assertTrue(cdHna < cdStd && cdHna < 20, "High-NA CD " + cdHna + " nm vs " + cdStd + " nm");
+        h.assertTrue(dof < com.taku3.semiconductorlab.litho.ChipOps.STEP_NM && dof < com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(std), "DOF " + dof + " nm < one 80 nm step: CMP every layer");
+        h.assertTrue(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.opticsUsable(hna) && !com.taku3.semiconductorlab.block.EuvScannerBlockEntity.opticsUsable(rough) && com.taku3.semiconductorlab.block.EuvScannerBlockEntity.opticsUsable(withDecenter(new ItemStack(com.taku3.semiconductorlab.content.Optics.EUV_PROJECTION_OPTICS))), "High-NA needs a barrel centred to 1.6 um");
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.EUV_SCANNER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.EuvScannerBlockEntity.class);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.SLOT_LENS, hna);
+        h.assertValueEqual(be.steps(), 2 * com.taku3.semiconductorlab.block.EuvScannerBlockEntity.STEPS, "anamorphic: half field -> twice the steps");
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.SLOT_LENS, std);
+        h.assertValueEqual(be.steps(), com.taku3.semiconductorlab.block.EuvScannerBlockEntity.STEPS, "standard EUV: 4 steps");
+        LOG.info("[LAB] High-NA EUV [v1.0 #6]: CD " + cdStd + " -> " + cdHna + " nm, grid " + com.taku3.semiconductorlab.litho.ExposureTool.gridFor(cdHna) + ", DOF " + dof + " nm, 8 steps per wafer");
+        h.succeed();
+    }
+
     private static ItemStack withDecenter(ItemStack s) { s.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4)); return s; }
 
     @GameTest(maxTicks = 200)

@@ -130,6 +130,8 @@ public final class Optics {
     // [9-40] EUV 露光装置の投影光学（IMP2 S-009）：多層膜ミラー6枚 → 鏡の組 → 心出し済みの鏡筒に組む（鏡筒のずれを引き継ぐ）。13.5nm・NA 0.33、全部が鏡
     public static final Item EUV_MIRROR_SET        = Reg.item("euv_mirror_set", new Item.Properties().stacksTo(1));
     public static final Item EUV_PROJECTION_OPTICS = Reg.item("euv_projection_optics", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.EUV, 0.33), new Item.Properties().stacksTo(1));
+    // v1.0 #6 High-NA EUV（IMP2 O-035 仮決定）：EUV の投影光学＋もう1組の鏡（大きい鏡）→ NA 0.55・アナモルフィック（縦横で倍率がちがう）。鏡筒の心出しのずれが合計 1.6µm 以下でないと使えない
+    public static final Item EUV_HIGH_NA_OPTICS    = Reg.item("euv_high_na_optics", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.EUV, 0.55), new Item.Properties().stacksTo(1));
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
