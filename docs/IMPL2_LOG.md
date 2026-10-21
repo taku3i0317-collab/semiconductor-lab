@@ -185,3 +185,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - 📝 B（ネットワーク担当）へ：カドミウム cadmium（Metallurgy、酸化亜鉛の蒸留、シュトロマイヤー 1817）を [8-25] の前提として作ったが、TECH_TREE にノードがない
 - ✅ S-006：マルチパターニングは2枚まで（決定）を DECISIONS に。作ってある形（MAX_SPLIT=2）のまま。A との相談（gridFor×2・ずれと歩留まり）は続ける。クリーンルームの案（O-022 2）はまだ判断待ち
 - ✅ O-023 1. [8-21] 六分儀：sextant（item/SextantItem、Navigation＝世界の緯度・経度・グリニッジ時刻・太陽の高さ）。昼前から何回か測り、下がり始めたら 緯度＝90°−南中高度。もう片方の手に時計があれば経度（[14-03] で）。⚠️ 季節なし・1°＝1000 ブロック。GameTest sextant_noon_sight、CHEMISTRY P20、REFERENCES O72。API_26X：空が見えるかは BlockAndLightGetter.canSeeSky
+- ✅ O-023 2. [14-03] 経度とクロノメーター：幹14 のファイル content/Transport.java を作った（Content・lang_build の ORDER・gen_testworld・fabric.mod.json に1行ずつ、TransportTests）。marine_chronometer（item/ChronometerItem、1日の狂い ±0.5秒⚠️、custom_data）。六分儀で南中を測るときもう片方の手に持つと経度。GameTest chronometer_longitude、CHEMISTRY T1、REFERENCES O73

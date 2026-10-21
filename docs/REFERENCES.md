@@ -2088,6 +2088,20 @@
 - Wikipedia「Sextant」：https://en.wikipedia.org/wiki/Sextant
 - Wikipedia「Octant (instrument)」：https://en.wikipedia.org/wiki/Octant_(instrument)
 
+## O73. 時計が船の位置を決めた（経度とクロノメーター）［14-03］
+**答え**：緯度は太陽や星の高さで分かるが、経度（東西の位置）は分からなかった。地球は1時間に15°回るので、その場所の正午と出港地の時刻の差が分かれば経度になる。そのために、揺れる船の上でも何か月もくるわない時計が要った。1707年の大きな座礁事故のあと、1714年にイギリスは経度の測り方に賞金をかけた。ジョン・ハリソンは40年かけて時計を改良し、1761〜62年の航海で H4 は81日で約5秒しかくるわなかった。
+
+- へえ①：時計の正確さが船の位置を決めた。
+- へえ②：1秒くるうと、経度が 15″（赤道で約460m）ずれる。
+- へえ③：振り子の時計は船の揺れで使えないので、ぜんまいとてんぷで動く時計が作られた。
+- へえ④：のちに電波の時報、そして GPS（人工衛星の原子時計）が同じ役目をするようになった。
+
+確かさ：1714 経度法・1761 H4 ◎／81日で約5秒 ○／1707 シリー諸島の座礁 ◎
+根拠：
+- Wikipedia「Marine chronometer」：https://en.wikipedia.org/wiki/Marine_chronometer
+- Wikipedia「John Harrison」：https://en.wikipedia.org/wiki/John_Harrison
+- Wikipedia「Longitude Act」：https://en.wikipedia.org/wiki/Longitude_Act
+
 ---
 
 # 冶金と熱（タスク15〜）

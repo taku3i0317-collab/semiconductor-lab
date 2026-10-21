@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BGB",
+    "SRS",
+    "BCB"
+  ],
+  "key": {
+    "B": "semiconductor-lab:bronze_ingot",
+    "G": "semiconductor-lab:crown_glass",
+    "S": "semiconductor-lab:crucible_steel",
+    "R": "semiconductor-lab:ruby_boule",
+    "C": "semiconductor-lab:standard_screw"
+  },
+  "result": {
+    "id": "semiconductor-lab:marine_chronometer",
+    "count": 1
+  }
+}

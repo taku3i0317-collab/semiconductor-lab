@@ -24,7 +24,7 @@ NS = "semiconductor-lab"
 CODES = ("en_us", "ja_jp")
 # まとめる順（＝ファイルの中の順）
 ORDER = ["common", "guide", "survival", "metallurgy", "chemistry", "heat", "power", "vacuum", "gas", "optics", "precision",
-         "semiconductor", "control", "agriculture", "construction", "communication", "branches", "vanilla"]
+         "semiconductor", "control", "agriculture", "construction", "transport", "communication", "branches", "vanilla"]
 # ID ではない名前の message.*・gui.* の行き先
 SPECIAL = {"generator": "power", "cable": "power", "refiner": "semiconductor"}
 # 決まった頭のキーの行き先（ツールチップなど）
