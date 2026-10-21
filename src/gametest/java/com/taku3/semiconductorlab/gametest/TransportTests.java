@@ -59,4 +59,31 @@ public class TransportTests extends LabTestBase {
         LOG.info("[LAB] chronometer [14-03]: noon at 10:00 GMT -> 30 E; a clock 40 s fast misplaces the ship by " + String.format(java.util.Locale.ROOT, "%.1f", Math.abs(badLon - 30) * 60) + " arcmin");
         h.succeed();
     }
+    /** [14-22] ベルトコンベア（IMP4-01、O-029）：チェスト → 駆動 → ベルト（東2マス→北へ曲がる1マス）→ チェスト。1秒1マスで運び、終わりの先へ入れる。電気はベルト1マス 5W */
+    @GameTest
+    public void conveyorBelt(GameTestHelper h) {
+        var E = net.minecraft.core.Direction.EAST; var Nd = net.minecraft.core.Direction.NORTH;
+        var F = net.minecraft.world.level.block.HorizontalDirectionalBlock.FACING;
+        h.setBlock(p(1, 1, 3), net.minecraft.world.level.block.Blocks.CHEST);
+        h.setBlock(p(2, 1, 3), Transport.CONVEYOR_DRIVE.block);
+        h.setBlock(p(3, 1, 3), Transport.CONVEYOR_BELT.block.defaultBlockState().setValue(F, E));
+        h.setBlock(p(4, 1, 3), Transport.CONVEYOR_BELT.block.defaultBlockState().setValue(F, E));
+        h.setBlock(p(5, 1, 3), Transport.CONVEYOR_BELT.block.defaultBlockState().setValue(F, Nd));
+        h.setBlock(p(5, 1, 2), net.minecraft.world.level.block.Blocks.CHEST);
+        var src = (net.minecraft.world.level.block.entity.ChestBlockEntity) h.getBlockEntity(p(1, 1, 3), net.minecraft.world.level.block.entity.ChestBlockEntity.class);
+        src.setItem(0, new ItemStack(net.minecraft.world.item.Items.IRON_INGOT, 10));
+        src.setItem(1, new ItemStack(net.minecraft.world.item.Items.COPPER_INGOT, 5));
+        BlockPos drive = h.absolutePos(p(2, 1, 3));
+        var lv = h.getLevel();
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ConveyorDriveBlockEntity.belts(lv, drive).size(), 3, "3 belts, following the corner");
+        for (int i = 0; i < 8; i++) com.taku3.semiconductorlab.block.ConveyorDriveBlockEntity.step(lv, drive);
+        var dst = (net.minecraft.world.level.block.entity.ChestBlockEntity) h.getBlockEntity(p(5, 1, 2), net.minecraft.world.level.block.entity.ChestBlockEntity.class);
+        int iron = 0, copper = 0;
+        for (int i = 0; i < dst.getContainerSize(); i++) { var s = dst.getItem(i); if (s.is(net.minecraft.world.item.Items.IRON_INGOT)) iron += s.getCount(); if (s.is(net.minecraft.world.item.Items.COPPER_INGOT)) copper += s.getCount(); }
+        h.assertTrue(iron == 10 && copper == 5 && src.isEmpty(), "carried to the far chest: iron " + iron + ", copper " + copper);
+        h.assertTrue(recipeUses(h, "conveyor_drive", com.taku3.semiconductorlab.content.Power.ELECTRIC_MOTOR) && recipeUses(h, "conveyor_belt", com.taku3.semiconductorlab.content.Chemistry.VULCANIZED_RUBBER), "motor drive, rubber belt");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.ConveyorDriveBlockEntity.WATTS_PER_BELT, 5.0, "5 W per belt block");
+        h.succeed();
+    }
+
 }

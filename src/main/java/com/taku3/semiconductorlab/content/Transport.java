@@ -1,6 +1,10 @@
 package com.taku3.semiconductorlab.content;
 
+import com.taku3.semiconductorlab.block.ConveyorBeltBlock;
+import com.taku3.semiconductorlab.block.ConveyorBeltBlockEntity;
+import com.taku3.semiconductorlab.block.ConveyorDriveBlockEntity;
 import com.taku3.semiconductorlab.item.ChronometerItem;
+import com.taku3.semiconductorlab.machine.Machine;
 import net.minecraft.world.item.Item;
 
 /**
@@ -18,6 +22,12 @@ public final class Transport {
     public static final Item DURALUMIN_CHARGE      = Reg.item("duralumin_charge");
     public static final Item DURALUMIN             = Reg.item("duralumin");
     public static final Item QUENCHED_DURALUMIN    = Reg.item("quenched_duralumin", p -> new com.taku3.semiconductorlab.item.QuenchedDuraluminItem(p, () -> DURALUMIN), new Item.Properties());
+
+    // [14-22] 流れ作業とベルトコンベア（IMP4-01、O-029 仮決定の案A、1913 フォード ⚠️）：ベルト（向き＝物の進む向き、1マスに1スタック）＋電動モーターの駆動（ベルト1マス 5W）。
+    //   駆動の後ろの機械の出口 → ベルト1秒1マス → 終わりの先の機械の入口（Transfer API）。E は運ぶ道具だけ（幹14 のほかのノードは C）
+    public static final Machine<ConveyorBeltBlockEntity> CONVEYOR_BELT = Machine.builder("conveyor_belt", ConveyorBeltBlockEntity::new)
+            .block(ConveyorBeltBlock::new).props(Machine.metal(1.0f).noOcclusion()).build();
+    public static final Machine<ConveyorDriveBlockEntity> CONVEYOR_DRIVE = Machine.electric("conveyor_drive", ConveyorDriveBlockEntity::new, ConveyorDriveBlockEntity.LAYOUT, Machine.metal(2.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

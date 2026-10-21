@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "IMI",
+    "ICI"
+  ],
+  "key": {
+    "M": "semiconductor-lab:electric_motor",
+    "C": "semiconductor-lab:copper_cable",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:conveyor_drive",
+    "count": 1
+  }
+}

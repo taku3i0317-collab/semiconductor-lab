@@ -598,6 +598,12 @@
 "continuity_tester": [
 "crafting"
 ],
+"conveyor_belt": [
+"crafting"
+],
+"conveyor_drive": [
+"crafting"
+],
 "copper_cable": [
 "crafting"
 ],

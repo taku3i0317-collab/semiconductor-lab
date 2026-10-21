@@ -202,3 +202,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
     - 案B：台車（エンティティ）がレールの上を走って見える（見た目は大きいが、描画と経路の手間）
     - 案C：OHT は作らず、ベルトコンベアで FOUP も運べるようにする
 - ✅ S-009 [3-11] 光高温計（item/OpticalPyrometerItem、光っている物の温度）。GameTest optical_pyrometer、REFERENCES F60
+- ✅ O-029-1 [14-22] ベルトコンベア＋駆動（block/ConveyorBeltBlock・ConveyorDriveBlockEntity、client/ConveyorBeltRenderer、Transfer API で機械・チェストどうしを遠くまで）。GameTest conveyor_belt、REFERENCES F61

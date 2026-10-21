@@ -901,3 +901,10 @@ public boolean instabuild;                         // クリエイティブ（�
 - `LevelReader.getMaxLocalRawBrightness(BlockPos)`：その場の明るさ 0〜15（空の光は昼夜の暗さ getSkyDarken を引いた値、ブロックの光と大きい方）
 - `Entity.position()`・`getXRot()`・`onGround()`・`getUUID()`、`EquipmentSlot.MAINHAND / OFFHAND`
 - 色つきのブロック（コンクリート・羊毛など）は 26.x で `Blocks.CONCRETE`・`Items.CONCRETE` が `ColorCollection<T>`（16色の record）。灰色は `.gray()`、色で選ぶのは `.pick(DyeColor)`（javap で確認、IMP3 [12-03]）
+
+## ブロックの上に物を描く（BlockEntityRenderer、26.3、IMP4-01 O-029 ベルトコンベア。javap で確認）
+- `BlockEntityRenderer<T, S extends BlockEntityRenderState>`：`S createRenderState()`、`extractRenderState(T, S, float partial, Vec3 camera, ModelFeatureRenderer.CrumblingOverlay)`（default。super を呼ぶと blockPos・lightCoords が入る）、`submit(S, PoseStack, SubmitNodeCollector, CameraRenderState)`。描く前に BE の値を状態 S に写し、submit では S だけを見る
+- 物：`ctx.itemModelResolver()` → `updateForTopItem(ItemStackRenderState, ItemStack, ItemDisplayContext.FIXED, Level, ItemOwner(null 可), int seed)`、描くのは `ItemStackRenderState.submit(pose, collector, lightCoords, OverlayTexture.NO_OVERLAY, 0)`（たき火 CampfireRenderer と同じ）。`PoseStack.rotateDegrees(Axis.XP, 90f)` で寝かせる
+- 登録：`BlockEntityRenderers.register(type, Renderer::new)`（クライアント）
+- BE の中身をクライアントへ：`getUpdatePacket()` → `ClientboundBlockEntityDataPacket.create(this)`、`getUpdateTag(HolderLookup.Provider)` → `saveCustomOnly(p)`。変わったら `level.sendBlockUpdated(pos, state, state, 3)`
+- Fabric Transfer：`ItemStorage.SIDED.find(level, pos, side)`、`Transaction.openOuter()`（try で閉じる、`commit()`）、`Storage.insert/extract(ItemVariant, long, tx)`、`nonEmptyViews()`、`ItemVariant.of(stack)`・`toStack(int)`

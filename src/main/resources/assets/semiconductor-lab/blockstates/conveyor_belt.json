@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "semiconductor-lab:block/conveyor_belt"
+    },
+    "facing=east": {
+      "model": "semiconductor-lab:block/conveyor_belt",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "semiconductor-lab:block/conveyor_belt",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "semiconductor-lab:block/conveyor_belt",
+      "y": 270
+    }
+  }
+}
