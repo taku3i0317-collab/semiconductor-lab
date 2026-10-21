@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide6/p2",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:projection_lens_krf"
+    },
+    "title": {
+      "translate": "guide6.semiconductor-lab.p3.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch6.p3"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "projection_lens_krf": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:projection_lens_krf"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "projection_lens_krf"
+    ]
+  ]
+}

@@ -548,3 +548,4 @@
 - E の [9-30] の受け口（E から相談）：データ部品 epi（"n"／"p"、E のエピタキシャル炉が素の板に付け、酸化でも残す）→ 塗るとき substrate＝エピ層の型、下の板の型は ChipState.Extras.epiOn に記録。ChipOps.passivate（窒化膜の保護膜、金属のあと・レジストなし、記録だけ）。ChipState の Codec が16項目の上限なので、あとから足す記録は Extras（Codec.mapPair、保存は今までと同じ平らな形）。GameTest epiAndPassivation（298/298）
 - O-023（司令塔の訂正）：O-022 の「1T1C」はお題の形を決めたものではない → Q22-3 を案B として読んだのを取り消し。Q22-1〜4 は全部答え待ち、DRAM は作らない
 
+- O-024：ガイド第6巻「微細化」（guide6/、13個：波長・レイリーの式・ステッパーと液浸・ムーアの法則・交流と変圧器・整流器・イオン注入・スパッタとドライエッチング・MOSFET・CMOS・2層目と CMP）と give_guidebook6。HUMAN_CHECK を v0.4 の確認表に（ステッパー・電気・新しい工程・MOS／CMOS・CMP の5手順）。tag v0.4 はしない。GameTest guide6Shrinking（300/300）

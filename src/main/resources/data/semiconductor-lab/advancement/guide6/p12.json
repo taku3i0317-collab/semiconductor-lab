@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide6/p11",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:cmp_polisher"
+    },
+    "title": {
+      "translate": "guide6.semiconductor-lab.p12.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch6.p12"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "cmp_polisher": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:cmp_polisher"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "cmp_polisher"
+    ]
+  ]
+}

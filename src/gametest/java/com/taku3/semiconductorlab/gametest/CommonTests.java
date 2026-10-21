@@ -357,6 +357,21 @@ public class CommonTests extends LabTestBase {
         h.succeed();
     }
 
+    /** O-024：ガイド第6巻「微細化」（guide6/）の13個と give_guidebook6。ページを開く物がみな登録されている */
+    @GameTest
+    public void guide6Shrinking(GameTestHelper h) {
+        MinecraftServer server = h.getLevel().getServer();
+        String[] adv = {"root", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10", "p11", "p12"};
+        List<String> missing = new ArrayList<>();
+        for (String a : adv) if (server.getAdvancements().get(SemiconductorLab.id("guide6/" + a)) == null) missing.add("guide6/" + a);
+        if (server.getFunctions().get(SemiconductorLab.id("give_guidebook6")).isEmpty()) missing.add("function give_guidebook6");
+        for (String id : new String[] {"cmp_polisher", "drafting_table", "dry_etcher", "i_line_filter", "ion_implanter", "probe_station", "projection_lens", "projection_lens_krf", "rectifier", "stepper", "transformer"})
+            if (!net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(SemiconductorLab.id(id))) missing.add("item " + id);
+        h.assertTrue(missing.isEmpty(), "not registered: " + missing);
+        LOG.info("[LAB] guide6 (shrinking): {} advancements + give_guidebook6", adv.length);
+        h.succeed();
+    }
+
     /** O-019：ガイド第5巻「論理回路」（guide5/）の11個と give_guidebook5、進捗のつながり（NOT → 最初のハンコ → NOR） */
     @GameTest
     public void guide5Logic(GameTestHelper h) {

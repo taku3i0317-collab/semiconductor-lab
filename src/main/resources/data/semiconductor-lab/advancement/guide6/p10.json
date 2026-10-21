@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide6/p9",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:drafting_table"
+    },
+    "title": {
+      "translate": "guide6.semiconductor-lab.p10.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch6.p10"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "drafting_table": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:drafting_table"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "drafting_table"
+    ]
+  ]
+}
