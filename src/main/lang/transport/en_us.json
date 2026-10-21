@@ -5,5 +5,6 @@
   "item.semiconductor-lab.marine_chronometer.note3": "In 1707 a British fleet lost its position in fog and ran aground with great loss of life. In 1714 Britain offered a prize for finding longitude. John Harrison, a carpenter by training, spent 40 years on his clocks, and on the 1761 voyage H4 lost only about 5 seconds in 81 days.",
   "item.semiconductor-lab.marine_chronometer.note4": "The Earth turns 15 deg an hour, so the gap between local noon and Greenwich time is your longitude. Pendulum clocks fail on a rolling ship, so H4 ran on a balance and mainspring compensated so heat would not change it. Its bearings used jewels such as ruby.",
   "item.semiconductor-lab.marine_chronometer.placeholder": "Approximation: the daily rate is a game value within +-0.5 s (a game day is 20 minutes).",
-  "item.semiconductor-lab.marine_chronometer.reading": "🕰 Greenwich time %s (set %s days ago)"
+  "item.semiconductor-lab.marine_chronometer.reading": "🕰 Greenwich time %s (set %s days ago)",
+  "item.semiconductor-lab.marine_chronometer.compare": "  Difference from %s: %s s"
 }

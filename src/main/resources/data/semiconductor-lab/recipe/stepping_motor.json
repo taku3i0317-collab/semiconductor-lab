@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:electromagnet",
+    "semiconductor-lab:magnet",
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:stepping_motor",
+    "count": 2
+  }
+}

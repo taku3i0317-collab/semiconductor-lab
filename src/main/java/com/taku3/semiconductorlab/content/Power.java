@@ -32,6 +32,8 @@ public final class Power {
     public static final Item HF_OSCILLATOR         = Reg.item("hf_oscillator");
     public static final Item LEYDEN_JAR            = Reg.item("leyden_jar");       // コンデンサ（ライデン瓶 1745：ガラス瓶の内外に金属箔）
     // --- 電気の部品（v0.2a）---
+    // [4-17] ステッピングモーター（IMP2 O-023、[8-35] クオーツ腕時計の前提。今は部品だけ＝時計用のラヴェ型 1936 ⚠️。位置決めの遊び方は未定）：電磁石＋磁石＋鉄 → 2個
+    public static final Item STEPPING_MOTOR        = Reg.item("stepping_motor");
     public static final Item MAGNET                = Reg.item("magnet");   // 天然磁石（磁鉄鉱のうち磁化したもの＝ロードストーン）
     public static final Item DYNAMO                = Reg.item("dynamo");   // 磁石＋銅コイル＋鉄：ファラデーの電磁誘導
     public static final Item SELF_EXCITED_DYNAMO   = Reg.item("self_excited_dynamo");

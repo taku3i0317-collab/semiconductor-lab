@@ -289,5 +289,12 @@
   "item.semiconductor-lab.sextant.west": "W",
   "item.semiconductor-lab.sextant.need_clock": "For longitude too, hold a clock that carries Greenwich time (a chronometer) in the other hand",
   "item.semiconductor-lab.sextant.no_sky": "Cannot see the sky and horizon (not under a roof, in rain, or outside the Overworld)",
-  "item.semiconductor-lab.sextant.night": "The sun is not up"
+  "item.semiconductor-lab.sextant.night": "The sun is not up",
+  "item.semiconductor-lab.quartz_watch": "Quartz Wristwatch",
+  "item.semiconductor-lab.quartz_watch.note1": "A wristwatch whose IC counts a tiny quartz plate vibrating 32,768 times a second to make one second.",
+  "item.semiconductor-lab.quartz_watch.note2": "Crystal resonator + IC (plastic package) + stepping motor + dry cell + crown glass + iron. Right-click for Greenwich time. It drifts about +-0.2 s a day (a spring-driven wristwatch about +-10 s). With another clock in the other hand you see their difference; with a sextant it also measures longitude.",
+  "item.semiconductor-lab.quartz_watch.note3": "In 1927 Bell Labs built a quartz clock the size of a room. In December 1969 Suwa Seikosha (Seiko) in Japan released the world's first quartz wristwatch, the Quartz Astron 35SQ.",
+  "item.semiconductor-lab.quartz_watch.note4": "32,768 is 2 to the 15th, so 15 divide-by-two stages in the IC give exactly one second. The quartz is cut as a tuning fork whose frequency barely changes with temperature.",
+  "item.semiconductor-lab.quartz_watch.placeholder": "Approximation: it takes the same crystal plate as the film-thickness monitor (real watch crystals are 32,768 Hz tuning forks). Any IC chip will do.",
+  "item.semiconductor-lab.quartz_watch.reading": "⌚ Greenwich time %s (set %s days ago)"
 }

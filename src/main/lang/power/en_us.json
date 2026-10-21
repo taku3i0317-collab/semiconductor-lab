@@ -178,5 +178,11 @@
   "item.semiconductor-lab.lithium_hexafluorophosphate.note2": "Lithium fluoride + red phosphorus + fluorine (cylinder returned). ⚠ GHS: gives off hydrogen fluoride with water or moisture (acute toxicity, corrosive).",
   "item.semiconductor-lab.lithium_hexafluorophosphate.note3": "LiPF6. Phosphorus and fluorine form phosphorus pentafluoride PF5, which joins lithium fluoride. In a battery it is dissolved in organic solvents such as ethylene carbonate.",
   "item.semiconductor-lab.lithium_hexafluorophosphate.note4": "Water breaks it down, so battery factories assemble cells in very dry rooms (dry rooms).",
-  "item.semiconductor-lab.lithium_hexafluorophosphate.placeholder": "Approximation: really PF5 is made first and reacted with lithium fluoride in anhydrous hydrogen fluoride. There is no electrolyte solvent yet (left out)."
+  "item.semiconductor-lab.lithium_hexafluorophosphate.placeholder": "Approximation: really PF5 is made first and reacted with lithium fluoride in anhydrous hydrogen fluoride. There is no electrolyte solvent yet (left out).",
+  "item.semiconductor-lab.stepping_motor": "Stepping Motor (Watch)",
+  "item.semiconductor-lab.stepping_motor.note1": "A small motor that clicks round by a fixed angle every time it gets one pulse of electricity.",
+  "item.semiconductor-lab.stepping_motor.note2": "Electromagnet + magnet + iron -> 2. It moves a quartz watch's second hand once a second.",
+  "item.semiconductor-lab.stepping_motor.note3": "A variable-reluctance type was patented in Britain in 1919, and around 1936 Marius Lavet in France devised a small form for clocks (the Lavet type) ⚠️. Mass production began around 1950.",
+  "item.semiconductor-lab.stepping_motor.note4": "Counting pulses tells you how far it has turned, so it also positions printers, 3D printers and machine tools.",
+  "item.semiconductor-lab.stepping_motor.placeholder": "Approximation: for now only a watch part. How to play with it for positioning is not decided yet ([4-17])."
 }

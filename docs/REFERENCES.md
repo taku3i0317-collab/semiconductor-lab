@@ -2116,6 +2116,20 @@
 - Wikipedia「John Harrison」：https://en.wikipedia.org/wiki/John_Harrison
 - Wikipedia「Longitude Act」：https://en.wikipedia.org/wiki/Longitude_Act
 
+## O74. 1秒に32768回ふるえる石（クオーツ腕時計）［8-35］
+**答え**：水晶の板は電圧をかけると決まった速さでふるえる（圧電効果）。1927年、ベル研究所は水晶のふるえで動く部屋ほどの大きさの時計を作った。トランジスタと IC で回路が小さくなり、1969年12月、日本の諏訪精工舎（セイコー）が世界で初めてのクオーツ腕時計「クオーツアストロン 35SQ」を売り出した（月の狂い ±5秒）。音叉の形の水晶が1秒に 32768 回ふるえ、IC が数えて1秒ごとにステッピングモーターで秒針を動かす。安くて正確な時計が世界中に広まり、機械式時計の産業を大きく変えた。
+
+- へえ①：クオーツ時計の中の水晶は、1秒に 32768 回も震えている。
+- へえ②：32768 は 2 の15乗なので、「2で割る」回路を15段つなぐとちょうど1秒。
+- へえ③：1761年のハリソンの航海用時計より、今の安い腕時計のほうが正確。
+- へえ④：秒針がカチッカチッと1秒ずつ動くのは、ステッピングモーターだから。
+
+確かさ：1927 ベル研 ◎／1969年12月 アストロン 35SQ ◎（機械遺産 No.066）／32768Hz ◎
+根拠：
+- Wikipedia「Seiko Astron」：https://en.wikipedia.org/wiki/Seiko_Astron
+- 日本機械学会「機械遺産 No.066」：https://www.jsme.or.jp/kikaiisan/heritage_066.html
+- Wikipedia「Quartz clock」：https://en.wikipedia.org/wiki/Quartz_clock
+
 ---
 
 # 冶金と熱（タスク15〜）

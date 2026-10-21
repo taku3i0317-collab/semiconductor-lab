@@ -414,6 +414,7 @@ induction_coil  # Power [4-09] 1913
 hf_oscillator  # Power [4-09] 1913
 leyden_jar  # Power [4-09] 1913
 lithium_ion_battery  # Power [4-15] 1991
+stepping_motor  # Power [None] None
 lfp_charge  # Power [None] None
 lithium_iron_phosphate  # Power [None] None
 lithium_fluoride  # Power [None] None
@@ -575,6 +576,7 @@ cultured_quartz  # Precision [8-18] 1948
 lens_barrel  # Precision [8-14] 1950
 centered_lens_barrel  # Precision [8-14] 1950
 krypton_lamp  # Precision [8-24] 1960
+quartz_watch  # Precision [8-35] 1969
 weston_cell  # Precision [8-25] 1975
 standard_resistor  # Precision [8-25] 1975
 kibble_balance  # Precision [8-25] 1975

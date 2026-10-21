@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crystal_resonator",
+    "semiconductor-lab:plastic_packaged_chip",
+    "semiconductor-lab:stepping_motor",
+    "semiconductor-lab:dry_cell",
+    "semiconductor-lab:crown_glass",
+    "minecraft:iron_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:quartz_watch",
+    "count": 1
+  }
+}

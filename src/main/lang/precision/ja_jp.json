@@ -289,5 +289,12 @@
   "item.semiconductor-lab.sextant.west": "西経",
   "item.semiconductor-lab.sextant.need_clock": "経度も知るには、もう片方の手にグリニッジの時刻を持ち歩く時計（クロノメーター）が要る",
   "item.semiconductor-lab.sextant.no_sky": "空と水平線が見えない（屋根の下・雨・地上の外では測れない）",
-  "item.semiconductor-lab.sextant.night": "太陽が出ていない"
+  "item.semiconductor-lab.sextant.night": "太陽が出ていない",
+  "item.semiconductor-lab.quartz_watch": "クオーツ腕時計",
+  "item.semiconductor-lab.quartz_watch.note1": "水晶の小さな板が1秒に 32768 回ふるえるのを IC で数えて、1秒を作る腕時計。",
+  "item.semiconductor-lab.quartz_watch.note2": "水晶振動子＋IC（樹脂のパッケージ）＋ステッピングモーター＋乾電池＋クラウンガラス＋鉄。右クリックでグリニッジ時刻。1日の狂いは ±0.2秒ほど（ぜんまいの腕時計は ±10秒ほど）。もう片方の手に別の時計を持つと2つの差、六分儀と使うと経度も測れる。",
+  "item.semiconductor-lab.quartz_watch.note3": "1927年、ベル研究所が部屋ほどの大きさの水晶時計を作った。1969年12月、日本の諏訪精工舎（セイコー）が世界で初めてのクオーツ腕時計「クオーツアストロン 35SQ」を売り出した。",
+  "item.semiconductor-lab.quartz_watch.note4": "32768 は 2 の 15 乗なので、IC の中の「2で割る」回路を15段つなぐとちょうど1秒になる。水晶は音叉の形に切ってあり、温度で振動数がほとんど変わらない。",
+  "item.semiconductor-lab.quartz_watch.placeholder": "近似：入れる水晶振動子は膜厚計と同じ板（本物の時計の水晶は 32768Hz の音叉形）。IC はどのチップでもよい。",
+  "item.semiconductor-lab.quartz_watch.reading": "⌚ グリニッジ時刻 %s（合わせてから %s 日）"
 }

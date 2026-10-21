@@ -5,5 +5,6 @@
   "item.semiconductor-lab.marine_chronometer.note3": "1707年、霧の中でイギリスの艦隊が自分の位置を見失って座礁し、多くの人が亡くなった。1714年、イギリスは経度の測り方に賞金をかける法律を作った。大工出身のジョン・ハリソンは40年かけて時計を作り、1761年の航海で H4 は81日で約5秒しかくるわなかった。",
   "item.semiconductor-lab.marine_chronometer.note4": "地球は1時間に15°回るので、その場所の正午とグリニッジの時刻の差が経度になる。振り子の時計は船の揺れで使えないので、H4 は温度で長さが変わらないよう工夫したてんぷとぜんまいで動いた。軸受けにはルビーなどの宝石を使った。",
   "item.semiconductor-lab.marine_chronometer.placeholder": "近似：1日の狂いは ±0.5秒の範囲でゲームの値（ゲームの1日は20分）。",
-  "item.semiconductor-lab.marine_chronometer.reading": "🕰 グリニッジ時刻 %s（合わせてから %s 日）"
+  "item.semiconductor-lab.marine_chronometer.reading": "🕰 グリニッジ時刻 %s（合わせてから %s 日）",
+  "item.semiconductor-lab.marine_chronometer.compare": "  %s との差：%s 秒"
 }

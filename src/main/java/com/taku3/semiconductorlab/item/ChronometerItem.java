@@ -67,6 +67,13 @@ public class ChronometerItem extends Item {
             long now = level.getOverworldClockTime();
             p.sendSystemMessage(Component.translatable(key + "reading", Navigation.hms(readingHours(s, now)),
                     String.format(java.util.Locale.ROOT, "%.1f", daysSinceSet(s, now))));
+            // もう片方の手にも時計：2つの読みの差（どちらがくるっているかは、正しい時刻＝時報がないと分からない）
+            ItemStack o = p.getItemInHand(hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
+            if (o.getItem() instanceof ChronometerItem) {
+                ensure(o, level);
+                p.sendSystemMessage(Component.translatable("item.semiconductor-lab.marine_chronometer.compare", o.getHoverName(),
+                        String.format(java.util.Locale.ROOT, "%+.1f", (readingHours(s, now) - readingHours(o, now)) * 3600)));
+            }
         }
         return InteractionResult.SUCCESS;
     }

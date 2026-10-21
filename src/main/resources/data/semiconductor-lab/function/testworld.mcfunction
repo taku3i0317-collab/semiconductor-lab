@@ -417,8 +417,8 @@ setblock ~65 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-09]
 setblock ~65 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:induction_coil",count:16},{Slot:1b,id:"semiconductor-lab:hf_oscillator",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16}]}
 setblock ~68 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[4-15] リチウムイオン","右クリックの表示（「リ","チウムイオン電池: …","」）、放電中に光るか、"]}}
 setblock ~68 ~0 ~34 semiconductor-lab:lithium_ion_battery
-setblock ~72 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] lfp_charge","（人間の確認項目なし）","",""]}}
-setblock ~72 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:lfp_charge",count:16},{Slot:1b,id:"semiconductor-lab:lithium_iron_phosphate",count:16},{Slot:2b,id:"semiconductor-lab:lithium_fluoride",count:16},{Slot:3b,id:"semiconductor-lab:lithium_hexafluorophosphate",count:16}]}
+setblock ~72 ~0 ~33 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stepping_m","（人間の確認項目なし）","",""]}}
+setblock ~72 ~0 ~34 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stepping_motor",count:16},{Slot:1b,id:"semiconductor-lab:lfp_charge",count:16},{Slot:2b,id:"semiconductor-lab:lithium_iron_phosphate",count:16},{Slot:3b,id:"semiconductor-lab:lithium_fluoride",count:16},{Slot:4b,id:"semiconductor-lab:lithium_hexafluorophosphate",count:16}]}
 setblock ~0 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹5 真空","↓ この列","",""]}}
 setblock ~2 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-01] 真空ポンプ →","容器の隣でポンプを素手","で右クリック → アク","ションバーに「シュッ…"]}}
 setblock ~2 ~0 ~42 semiconductor-lab:hand_vacuum_pump
@@ -584,9 +584,11 @@ setblock ~62 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-14]
 setblock ~62 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:lens_barrel",count:1},{Slot:1b,id:"semiconductor-lab:centered_lens_barrel",count:1}]}
 setblock ~65 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-24] 国際単位系","干渉計とクリプトン86"," ランプを両手に持ち、","ブロック2つを右クリッ"]}}
 setblock ~65 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:krypton_lamp",count:1}]}
-setblock ~68 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-25] ワット天秤","ワット天秤の画面（電力","・結果・±・ヒントの順","）。空調のそばと真空容"]}}
-setblock ~68 ~0 ~66 semiconductor-lab:kibble_balance
-setblock ~69 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:weston_cell",count:1},{Slot:1b,id:"semiconductor-lab:standard_resistor",count:1}]}
+setblock ~68 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-35] クオーツ腕時計","腕時計とクロノメーター","を両手に持って右クリッ","ク → 2つの差が出る"]}}
+setblock ~68 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quartz_watch",count:1}]}
+setblock ~71 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-25] ワット天秤","ワット天秤の画面（電力","・結果・±・ヒントの順","）。空調のそばと真空容"]}}
+setblock ~71 ~0 ~66 semiconductor-lab:kibble_balance
+setblock ~72 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:weston_cell",count:1},{Slot:1b,id:"semiconductor-lab:standard_resistor",count:1}]}
 setblock ~0 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹9 半導体（Ge・Si）","↓ この列","",""]}}
 setblock ~2 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-47] 加速器","作業台で作れるか、見た","目",""]}}
 setblock ~2 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cw_multiplier",count:16},{Slot:1b,id:"semiconductor-lab:accelerator_tube",count:16}]}

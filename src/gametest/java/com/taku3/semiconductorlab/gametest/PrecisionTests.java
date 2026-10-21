@@ -595,6 +595,22 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-35] クオーツ腕時計（IMP2 O-023）：水晶振動子＋IC＋ステッピングモーター＋乾電池。狂いの幅はクロノメーターより小さく、六分儀の時計にも使える */
+    @GameTest
+    public void quartz_watch(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "quartz_watch", Precision.CRYSTAL_RESONATOR) && recipeUses(h, "quartz_watch", com.taku3.semiconductorlab.content.Semiconductor.PLASTIC_PACKAGED_CHIP)
+                && recipeUses(h, "quartz_watch", com.taku3.semiconductorlab.content.Power.STEPPING_MOTOR), "quartz watch = crystal + IC + stepping motor");
+        h.assertTrue(recipeUses(h, "stepping_motor", com.taku3.semiconductorlab.content.Control.ELECTROMAGNET), "the watch motor is a tiny electromagnet + magnet");
+        var q = (com.taku3.semiconductorlab.item.ChronometerItem) Precision.QUARTZ_WATCH; var m = (com.taku3.semiconductorlab.item.ChronometerItem) com.taku3.semiconductorlab.content.Transport.MARINE_CHRONOMETER;
+        h.assertTrue(q.maxRateSecPerDay < m.maxRateSecPerDay, "a cheap quartz watch keeps better time than the marine chronometer");
+        ItemStack w = new ItemStack(Precision.QUARTZ_WATCH);
+        com.taku3.semiconductorlab.item.ChronometerItem.ensure(w, h.getLevel());
+        long later = h.getLevel().getOverworldClockTime() + 30 * com.taku3.semiconductorlab.item.Navigation.DAY_TICKS;
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.ChronometerItem.errorSec(w, later)) <= 30 * q.maxRateSecPerDay + 1e-6, "30 days: within " + 30 * q.maxRateSecPerDay + " s");
+        LOG.info("[LAB] quartz watch [8-35]: crystal + IC + stepping motor; +-" + q.maxRateSecPerDay + " s/day vs chronometer +-" + m.maxRateSecPerDay + " s/day");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");

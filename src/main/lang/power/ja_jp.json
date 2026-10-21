@@ -178,5 +178,11 @@
   "item.semiconductor-lab.lithium_hexafluorophosphate.note2": "フッ化リチウム＋赤リン＋フッ素（ボンベは戻る）。⚠ GHS：水や湿気でフッ化水素を出す（急性毒性・腐食性）。",
   "item.semiconductor-lab.lithium_hexafluorophosphate.note3": "LiPF6。リンとフッ素から五フッ化リン PF5 ができ、フッ化リチウムとくっつく。電池では、有機の溶媒（炭酸エチレンなど）にとかして使う。",
   "item.semiconductor-lab.lithium_hexafluorophosphate.note4": "水があると分解するので、電池の工場はとても乾いた部屋（ドライルーム）で組み立てる。",
-  "item.semiconductor-lab.lithium_hexafluorophosphate.placeholder": "近似：本物は五フッ化リンを作り、無水フッ化水素の中でフッ化リチウムと反応させる。電解液の溶媒はまだ無い（省略）。"
+  "item.semiconductor-lab.lithium_hexafluorophosphate.placeholder": "近似：本物は五フッ化リンを作り、無水フッ化水素の中でフッ化リチウムと反応させる。電解液の溶媒はまだ無い（省略）。",
+  "item.semiconductor-lab.stepping_motor": "ステッピングモーター（時計用）",
+  "item.semiconductor-lab.stepping_motor.note1": "電気を1回送るたびに、カチッと決まった角度だけ回る小さなモーター。",
+  "item.semiconductor-lab.stepping_motor.note2": "電磁石＋磁石＋鉄 → 2個。クオーツ腕時計の秒針を1秒に1回動かす。",
+  "item.semiconductor-lab.stepping_motor.note3": "1919年にイギリスで可変リラクタンス型の特許が出され、1936年にフランスのマリウス・ラヴェが時計に使う小さな形（ラヴェ型）を考えたとされる⚠️。工場で多く作られるのは1950年ごろから。",
+  "item.semiconductor-lab.stepping_motor.note4": "パルスの数を数えるだけで回った角度が分かるので、プリンター・3D プリンター・工作機械の位置決めにも使われる。",
+  "item.semiconductor-lab.stepping_motor.placeholder": "近似：今は時計用の部品だけ。位置決めに使う遊び方はまだ決まっていない（[4-17]）。"
 }

@@ -59,6 +59,8 @@ public final class Precision {
     public static final Item STANDARD_RESISTOR     = Reg.item("standard_resistor", new Item.Properties().stacksTo(1));
     // [8-21] 六分儀（IMP2 O-023、1731〜1757）：銀鏡（動く鏡）＋半透明鏡（水平線の鏡）＋望遠鏡＋副尺（ノギス）＋青銅の枠。太陽の南中高度から緯度（item/SextantItem、Navigation）
     public static final Item SEXTANT               = Reg.item("sextant", SextantItem::new, new Item.Properties().stacksTo(1));
+    // [8-35] クオーツ腕時計（IMP2 O-023、1969）：水晶振動子＋IC（ふるえを数えて1秒に）＋ステッピングモーター＋乾電池。1日の狂い ±0.2秒⚠️（機械式の腕時計は ±10秒ほど）
+    public static final Item QUARTZ_WATCH          = Reg.item("quartz_watch", p -> new ChronometerItem(p, 0.2, "quartz_watch"), new Item.Properties().stacksTo(1));
     public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤
