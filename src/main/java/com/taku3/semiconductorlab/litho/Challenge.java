@@ -75,6 +75,7 @@ public final class Challenge {
 
     public static List<Def> all() { return List.copyOf(ALL); }
     public static Def byIndex(int i) { return i >= 0 && i < ALL.size() ? ALL.get(i) : null; }
+    public static Def byId(String id) { for (Def d : ALL) if (d.id().equals(id)) return d; return null; }
 
     /** 行 r の入力 → Circuit.logic のビット（bit2＝A、bit1＝B、bit0＝C）。3入力までの組み合わせ回路用 */
     public static int bits(Def d, int r) { return r << (3 - d.inputs()); }
@@ -88,6 +89,24 @@ public final class Challenge {
      * お題を判定する。roles＝線の番号 → 役目。組み合わせ回路は行ごとに、順序回路は前の手の電圧から順に計算する。
      * 電源と 0 V・要る入力・要る出力がそろっていなければ missingRoles
      */
+    /**
+     * ハンコの記録つき（[10-13]、S-014 Q25-4 案A）：チップがみな合格したハンコ（論理の箱）と線でできていれば、{@link LogicSim} で速く判定する。
+     * そうでなければ今までどおりアナログ
+     */
+    public static Result check(Def d, Netlist nl, Map<Integer, Circuit.Role> roles, double leakScale, List<Part> parts) {
+        LogicSim sim = LogicSim.of(nl, parts);
+        if (sim == null) return check(d, nl, roles, leakScale);
+        int ok = 0;
+        for (int r = 0; r < d.rows(); r++) {
+            int row = d.sequential() ? d.steps()[r][0] : r, want = d.sequential() ? d.steps()[r][1] : d.table()[r];
+            int bits = sim.step(roles, d.inputsOf(row), d.outputs());
+            if (bits < 0) return new Result(0, d.rows(), true);
+            if (want < 0 || bits == want) ok++;
+            if (!d.sequential()) sim = LogicSim.of(nl, parts);   // 組み合わせ回路は行ごとに記憶を消す
+        }
+        return new Result(ok, d.rows(), false);
+    }
+
     public static Result check(Def d, Netlist nl, Map<Integer, Circuit.Role> roles, double leakScale) {
         int ok = 0;
         double[] prev = null;

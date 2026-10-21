@@ -157,12 +157,26 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
     public static boolean passed(ItemStack chip, String id) { return chip.getOrDefault(ModDataComponents.CHALLENGES, java.util.List.of()).contains(id); }
 
     /** チップ（加工中のウェハー）からハンコを作る：層を設計図に戻し、描いてある所で切り抜く。名前＝お題の id */
-    public static ItemStack stampOf(ItemStack wafer, String name) {
+    public static ItemStack stampOf(ItemStack wafer, String name) { return stampOf(wafer, name, java.util.List.of()); }
+
+    /** ピンつき（[10-13]、S-014）：合格したときのパッドの役目と場所をハンコに残す（ハンコを論理の箱として使う口） */
+    public static ItemStack stampOf(ItemStack wafer, String name, java.util.List<com.taku3.semiconductorlab.litho.ChipDesign.Pin> pins) {
         ChipState s = wafer.get(ModDataComponents.CHIP_STATE);
         if (s == null || !s.sized()) return ItemStack.EMPTY;
         ItemStack st = new ItemStack(Semiconductor.STAMP);
-        st.set(ModDataComponents.CHIP_DESIGN, com.taku3.semiconductorlab.litho.ChipDesign.fromState(s, name).crop());
+        st.set(ModDataComponents.CHIP_DESIGN, com.taku3.semiconductorlab.litho.ChipDesign.fromState(s, name).withPins(pins).crop());
         return st;
+    }
+
+    /** 線 → 役目 から、ピン（役目の名前とパッドのマス） */
+    public static java.util.List<com.taku3.semiconductorlab.litho.ChipDesign.Pin> pinsOf(Netlist nl, Map<Integer, com.taku3.semiconductorlab.litho.Circuit.Role> roles) {
+        java.util.List<com.taku3.semiconductorlab.litho.ChipDesign.Pin> out = new java.util.ArrayList<>();
+        for (var e : roles.entrySet()) {
+            var net = nl.nets.get(e.getKey());
+            int[] at = net.pad() != null ? net.pad() : net.cells().isEmpty() ? null : net.cells().get(0);   // パッド（ふち）がなければ線の最初のマス
+            if (at != null) out.add(new com.taku3.semiconductorlab.litho.ChipDesign.Pin(e.getValue().name(), at[0], at[1]));
+        }
+        return out;
     }
 
     /** お題 i は開いているか（最初のお題、または前のお題の進捗 challenge/&lt;前&gt; が済んでいる） */
@@ -223,7 +237,8 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
             var def = com.taku3.semiconductorlab.litho.Challenge.byIndex(challenge);
             if (def != null) {
                 var roleMap = roles(nl, i -> pads[i]);
-                var r = com.taku3.semiconductorlab.litho.Challenge.check(def, nl, roleMap, leakScale);
+                ChipState cs = container.getItem(SLOT_WAFER).get(ModDataComponents.CHIP_STATE);
+                var r = com.taku3.semiconductorlab.litho.Challenge.check(def, nl, roleMap, leakScale, cs == null ? java.util.List.of() : cs.parts());
                 result = encodeResult(r);
                 if (r.passed()) {   // 合格したお題をチップ（ウェハー）に記録（[B-08] 電卓の組み立てに使う、S-010）
                     ItemStack chip = container.getItem(SLOT_WAFER);
@@ -246,7 +261,7 @@ public class ProbeStationBlockEntity extends BlockEntity implements MachineBE {
                             sp.sendSystemMessage(Component.translatable("litho.semiconductor-lab.challenge.self", Component.translatable(def.langKey())));
                         }
                         sp.sendSystemMessage(Component.translatable(def.langKey() + ".history"));   // 歴史とつなぐ（§11.5）
-                        ItemStack stamp = stampOf(container.getItem(SLOT_WAFER), def.id());   // 見つけた物はハンコになる（§11.3）
+                        ItemStack stamp = stampOf(container.getItem(SLOT_WAFER), def.id(), pinsOf(nl, roleMap));   // 見つけた物はハンコになる（§11.3）。ピンつき（[10-13]）
                         if (!stamp.isEmpty() && !sp.getInventory().add(stamp)) net.minecraft.world.level.block.Block.popResource(level, worldPosition.above(), stamp);
                     }
                 }

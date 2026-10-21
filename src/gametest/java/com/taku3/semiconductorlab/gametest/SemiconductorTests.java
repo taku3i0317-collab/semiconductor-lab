@@ -2955,6 +2955,59 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [10-13] 論理の箱（S-014 Q25-4 案A）：ピンつきの NOT のハンコを2つ押して線でつないだ 24×24 のチップは、論理の箱で入力と同じ出力（バッファ）。⚠️アナログでは例の RTL の NOT は次の段を引ききれない（論理の箱は電気の強さを見ない）。
+     * ハンコの外に拡散を足すと論理の箱は使えない（アナログに戻る）。ハンコ1つの NOT のチップは、論理の箱で NOT のお題に合格
+     */
+    @GameTest(maxTicks = 200)
+    public void logicBoxes(GameTestHelper h) {
+        var R = com.taku3.semiconductorlab.litho.Circuit.Role.class;
+        var not = com.taku3.semiconductorlab.litho.LithoExamples.notGate().named("not").withPins(java.util.List.of(
+                new com.taku3.semiconductorlab.litho.ChipDesign.Pin("GROUND", 0, 0), new com.taku3.semiconductorlab.litho.ChipDesign.Pin("VCC", 7, 0),
+                new com.taku3.semiconductorlab.litho.ChipDesign.Pin("OUT_1", 7, 4), new com.taku3.semiconductorlab.litho.ChipDesign.Pin("IN_A", 6, 7)));
+        var blank = com.taku3.semiconductorlab.block.DraftingTableBlockEntity.blank(24, com.taku3.semiconductorlab.litho.ChipDesign.BIPOLAR, false);
+        var d = blank.stamp(not, 0, 0).stamp(not, 8, 8);
+        var metal = d.layers().get(4).cells();
+        for (int x = 8; x <= 17; x++) metal = metal.with(x, 4, true);   // 1つ目の出力 → 右へ → 下へ → 2つ目の入力（14,15）の下
+        for (int y = 4; y <= 16; y++) metal = metal.with(17, y, true);
+        for (int x = 14; x <= 17; x++) metal = metal.with(x, 16, true);
+        d = d.withLayer(4, metal);
+        java.util.function.Function<com.taku3.semiconductorlab.litho.ChipDesign, ItemStack> burn = dd -> {
+            ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+            return com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.litho.LithoExamples.process(ow, dd, com.taku3.semiconductorlab.litho.ExposureTool.PROJECTION_1X), 0).out();
+        };
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(burn.apply(d));
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st));
+        int n = 24;
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        roles.put(nl.netOf[0], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        roles.put(nl.netOf[7], com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        roles.put(nl.netOf[8 * n + 8], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        roles.put(nl.netOf[8 * n + 15], com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        roles.put(nl.netOf[7 * n + 6], com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        roles.put(nl.netOf[12 * n + 15], com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+        var sim = com.taku3.semiconductorlab.litho.LogicSim.of(nl, st.parts());
+        h.assertTrue(sim != null && st.parts().size() == 2, "two stamps, all logic boxes");
+        for (boolean in : new boolean[] {false, true}) {
+            int logic = sim.step(roles, java.util.Map.of(com.taku3.semiconductorlab.litho.Circuit.Role.IN_A, in), 1);
+            h.assertTrue(logic == (in ? 1 : 0), "NOT then NOT is a buffer in logic: " + logic + " for " + in);   // ⚠️アナログでは例の RTL の NOT は次の段を引ききれない（低い方が約 1 V）＝論理の箱は見ない
+        }
+        var stray = d.withLayer(0, d.layers().get(0).cells().with(20, 20, true));
+        var st2 = com.taku3.semiconductorlab.litho.ChipOps.state(burn.apply(stray));
+        h.assertTrue(com.taku3.semiconductorlab.litho.LogicSim.of(com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st2)), st2.parts()) == null, "a diffusion outside the stamps means analog");
+        var one = blank.stamp(not, 0, 0);
+        var s1 = com.taku3.semiconductorlab.litho.ChipOps.state(burn.apply(one));
+        var nl1 = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(s1));
+        var r1 = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        r1.put(nl1.netOf[0], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND); r1.put(nl1.netOf[7], com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        r1.put(nl1.netOf[4 * n + 7], com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1); r1.put(nl1.netOf[7 * n + 6], com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        h.assertTrue(com.taku3.semiconductorlab.litho.Challenge.check(com.taku3.semiconductorlab.litho.Challenge.byId("not"), nl1, r1, 1.0, s1.parts()).passed(), "a stamped NOT passes NOT as a logic box");
+        var pins = com.taku3.semiconductorlab.block.ProbeStationBlockEntity.pinsOf(nl1, r1);
+        h.assertValueEqual(pins.size(), 4, "four pins from the pad roles");
+        LOG.info("[LAB] logic boxes [10-13]: two NOT stamps make a buffer in logic and analog");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

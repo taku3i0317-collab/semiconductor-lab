@@ -11,7 +11,7 @@ import java.util.List;
  * 製図台で描く。ChipModel.of(design) が「全部うまくいったら」の予想を作る。
  * parts＝押したハンコ（v0.3b、§11.3）：記号として見せ、中身をのぞくための記録。判定は層（マスクの絵）だけから。
  */
-public record ChipDesign(int size, String name, List<Layer> layers, List<Part> parts, String process) {
+public record ChipDesign(int size, String name, List<Layer> layers, List<Part> parts, String process, List<Pin> pins) {
     /** 工程の種類（S-011 Q21-3 案A）：バイポーラ（島・ベース・エミッタ・窓・金属）か MOS（ソースとドレイン・ゲート酸化膜・窓・金属） */
     public static final String BIPOLAR = "bipolar", MOS = "mos";
     /** CMOS（[9-24]、1963 ワンラスとサー）：n のウェル・p のソースとドレイン・n のソースとドレイン・ゲート酸化膜・窓・金属の6層 */
@@ -26,19 +26,36 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
         ).apply(i, Layer::new));
     }
 
+    /** ピン（[10-13]、S-014 Q25-4）：お題に合格したとき、パッドに決めた役目（Circuit.Role の名前）とその場所。ハンコを論理の箱として使うときの口 */
+    public record Pin(String role, int x, int y) {
+        public static final Codec<Pin> CODEC = RecordCodecBuilder.create(i -> i.group(
+                Codec.STRING.fieldOf("role").forGetter(Pin::role),
+                Codec.INT.fieldOf("x").forGetter(Pin::x),
+                Codec.INT.fieldOf("y").forGetter(Pin::y)
+        ).apply(i, Pin::new));
+    }
+
     /** ハンコの中にハンコ（入れ子）があるので、自分を使う形 */
     public static final Codec<ChipDesign> CODEC = Codec.recursive("chip_design", self -> RecordCodecBuilder.create(i -> i.group(
             Codec.intRange(BitGrid.MIN, BitGrid.MAX).fieldOf("size").forGetter(ChipDesign::size),
             Codec.STRING.optionalFieldOf("name", "").forGetter(ChipDesign::name),
             Layer.CODEC.listOf().fieldOf("layers").forGetter(ChipDesign::layers),
             Part.codec(self).listOf().optionalFieldOf("parts", List.of()).forGetter(ChipDesign::parts),
-            Codec.STRING.optionalFieldOf("process", BIPOLAR).forGetter(ChipDesign::process)
+            Codec.STRING.optionalFieldOf("process", BIPOLAR).forGetter(ChipDesign::process),
+            Pin.CODEC.listOf().optionalFieldOf("pins", List.of()).forGetter(ChipDesign::pins)
     ).apply(i, ChipDesign::new)));
 
     public ChipDesign {
         layers = List.copyOf(layers);
         parts = List.copyOf(parts);
+        pins = pins == null ? List.of() : List.copyOf(pins);
     }
+
+    /** ピンなしの形（前からの呼び方） */
+    public ChipDesign(int size, String name, List<Layer> layers, List<Part> parts, String process) { this(size, name, layers, parts, process, List.of()); }
+
+    /** ピンを決めた設計図（お題に合格したとき） */
+    public ChipDesign withPins(List<Pin> p) { return new ChipDesign(size, name, layers, parts, process, p); }
 
     /** ハンコなしの形（前からの呼び方） */
     public ChipDesign(int size, String name, List<Layer> layers) { this(size, name, layers, List.of(), BIPOLAR); }
@@ -51,11 +68,11 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     public ChipDesign withLayer(int i, BitGrid cells) {
         List<Layer> l = new ArrayList<>(layers);
         l.set(i, new Layer(l.get(i).kind(), cells));
-        return new ChipDesign(size, name, l, parts, process);
+        return new ChipDesign(size, name, l, parts, process, pins);
     }
 
     /** 名前を変えた設計図 */
-    public ChipDesign named(String n) { return new ChipDesign(size, n, layers, parts, process); }
+    public ChipDesign named(String n) { return new ChipDesign(size, n, layers, parts, process, pins); }
 
     /** 層 i のマスク（原図・フォトマスクに入れる中身）。押したハンコの記録もいっしょに運ぶ（チップがハンコになるとき中身をのぞける） */
     public MaskData mask(int i) { return new MaskData(size, layers.get(i).kind(), layers.get(i).cells(), name, i, 0, 1, parts); }
@@ -74,7 +91,7 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
         }
         List<Part> p = new ArrayList<>(parts);
         p.add(new Part(st, x, y));
-        return new ChipDesign(size, name, l, p, process);
+        return new ChipDesign(size, name, l, p, process, pins);
     }
 
     /** 何か描いてある所を囲む、いちばん小さい正方形に切り抜く（ハンコにする。最小 BitGrid.MIN） */
@@ -93,7 +110,9 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
         }
         List<Part> p = new ArrayList<>();
         for (Part pt : parts) p.add(new Part(pt.stamp(), pt.x() - x0, pt.y() - y0));
-        return new ChipDesign(s, name, l, p, process);
+        List<Pin> pn = new ArrayList<>();
+        for (Pin q : pins) if (q.x() - x0 >= 0 && q.y() - y0 >= 0 && q.x() - x0 < s && q.y() - y0 < s) pn.add(new Pin(q.role(), q.x() - x0, q.y() - y0));
+        return new ChipDesign(s, name, l, p, process, pn);
     }
 
     /** 工程ごとの決まった層の並び（製図台の白紙と同じ）。twoMetal＝2層目の金属つき（S-011） */
