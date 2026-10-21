@@ -24,6 +24,15 @@ CLOTH = {"navy": (40, 50, 90), "black": (35, 35, 40), "brown": (100, 70, 45), "r
 # hat（none・official＝中国の官帽・futou・tophat・cap・beret・turban）/ glasses / cloth / tie（white＝白い襟、kimono＝和服の合わせ襟、red など）
 # style の bun は後ろでまとめた髪（頭の上にまげ）。顔は男女とも同じ形で、髪型と服で描き分ける
 TRAITS = {
+    "クロード・シャップ": dict(skin='a', hair='white', style='wig', beard='none', hat='none', cloth='blue', tie='white'),   # S-019
+    "ルドルフ・ヘル": dict(skin='a', hair='grey', style='short', beard='none', hat='none', cloth='grey', tie='red'),   # S-019
+    "ヨーゼフ・ペッツバール": dict(skin='a', hair='dark', style='short', beard='full', hat='none', cloth='black', tie='white'),   # S-019
+    "ジョン・マディ": dict(skin='a', hair='grey', style='short', beard='none', hat='none', cloth='navy', tie='blue', glasses=True),   # S-019
+    "フィリップ・ドルトン": dict(skin='a', hair='brown', style='side', beard='none', hat='none', cloth='brown', tie='red'),   # S-019
+    "アンブロワーズ・パレ": dict(skin='a', hair='dark', style='short', beard='full', hat='beret', cloth='black', tie='white'),   # S-019
+    "ジェルマン・ソメイエ": dict(skin='a', hair='dark', style='short', beard='moustache', hat='none', cloth='black', tie='white'),   # S-019
+    "ミオミル・ヴコブラトヴィッチ": dict(skin='a', hair='grey', style='short', beard='none', hat='none', cloth='grey', tie='red', glasses=True),   # S-019
+    "パーシヴァル・ポット": dict(skin='a', hair='white', style='wig', beard='none', hat='none', cloth='black', tie='white'),   # S-019
     "蔡倫": dict(skin="b", hair="black", style="tied", beard="none", hat="official", cloth="red"),
     "グーテンベルク": dict(skin="a", hair="brown", style="long", beard="full", hat="beret", cloth="brown"),
     "沈括": dict(skin="b", hair="black", style="tied", beard="goatee", hat="futou", cloth="blue"),

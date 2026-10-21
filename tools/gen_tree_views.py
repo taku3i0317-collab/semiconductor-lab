@@ -560,9 +560,9 @@ def export_json(nodes):
                     seen.add(w)
                     q.append(w)
         return seen
-    def field(body, pat):
+    def field(body, pat, n=400):
         m = re.search(pat + r"[:：]\s*(.*?)(?:／|\n|$)", body, re.S)
-        return re.sub(r"\*\*|`", "", m.group(1)).strip()[:400] if m else ""
+        return re.sub(r"\*\*|`", "", m.group(1)).strip()[:n] if m else ""
     now = set(buildable(nodes))
     # 見た目の情報（アイコン・モノの絵文字・人物）。docs/network_meta.json を手で編集する
     meta = json.loads(META.read_text(encoding="utf-8")) if META.exists() else {}
@@ -579,7 +579,7 @@ def export_json(nodes):
                           "status": n["st"], "branch": n["branch"], "year": n["year"], "year_range": n["year_range"],
                           "year_uncertain": n["year_uncertain"], "requires": [[a for a in alts] for alts in n["groups"]],
                           "understanding": n["understand"], "buildable_now": i in now,
-                          "real": field(n["body"], r"本物"), "hee1": field(n["body"], r"へえ①?"),
+                          "real": field(n["body"], r"本物"), "hee1": field(n["body"], r"へえ①?", 1500),   # S-019：へえ①の後ろの（出典：…）が長いので 400 字で切れていた
                           "name_en": EN.get(i, {}).get("name"), "hee1_en": EN.get(i, {}).get("hee1") or None,
                           "kind": kind_of(n["body"]),
                           "play": field(n["body"], r"遊び方"), "missing": field(n["body"], r"足りない"),
