@@ -97,5 +97,6 @@
   "block.semiconductor-lab.tarmac.note2": "4 macadam + coal tar -> 4. Walking speed x1.3.",
   "block.semiconductor-lab.tarmac.note3": "Tar fills the gaps and glues the stones, keeping water out so car tyres do not pluck the stones loose.",
   "block.semiconductor-lab.tarmac.note4": "In 1902 Edgar Hooley in England noticed a stretch of road where tar had spilled was hard and dust-free, and patented 'tarmac' (tar + macadam). Today's asphalt comes from petroleum (not in this mod).",
-  "block.semiconductor-lab.tarmac.placeholder": "Approximation: the speed factor is a game value."
+  "block.semiconductor-lab.tarmac.placeholder": "Approximation: the speed factor is a game value.",
+  "block.semiconductor-lab.air_conditioner.howto": "Just connect power (copper cable). Nearby temperature swings shrink, so precision machines drift less. Add a HEPA filter for clean-room air."
 }

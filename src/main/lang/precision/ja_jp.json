@@ -362,5 +362,9 @@
   "item.semiconductor-lab.automatic_watch.note2": "機械式腕時計＋自動巻きのローター（巻いた状態を引き継ぐ）。持ち物に入れて歩くと巻かれる。止まっていたら右クリックで巻く。",
   "item.semiconductor-lab.automatic_watch.note3": "1930年代から自動巻きの腕時計が広まった。",
   "item.semiconductor-lab.automatic_watch.note4": "毎日つけていれば巻かなくてよいが、何日も置いておくと止まる。",
-  "item.semiconductor-lab.automatic_watch.placeholder": "近似：歩くとすぐに巻ける量はゲームの値。"
+  "item.semiconductor-lab.automatic_watch.placeholder": "近似：歩くとすぐに巻ける量はゲームの値。",
+  "block.semiconductor-lab.electron_microscope.howto": "隣の真空容器をとても低い圧力にして、電気をつなぐ。マスク・設計図・ウェハーを入れると、どこまで細かく見えるかが出る。",
+  "block.semiconductor-lab.grinder.howto": "焼入れした鋼球・砥石・測る道具を入れて電気をつなぐ。マイクロメータなら研削した鋼球、ゲージブロックならそろえた鋼球が出る。",
+  "block.semiconductor-lab.kibble_balance.howto": "キログラム原器・標準電池・標準抵抗・クリプトンのランプを入れて電気をつなぐ。原器の重さを電気で測り、ずれとあいまいさが出る。空調があると正確になる。",
+  "block.semiconductor-lab.ruling_engine.howto": "鏡・ダイヤモンド・送りねじを入れて電気をつなぐ。回折格子ができる。床がゆれたり温度が変わるとにせの線が出るので、防振台と空調を。"
 }

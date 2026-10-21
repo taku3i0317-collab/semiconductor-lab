@@ -489,7 +489,7 @@ setblock ~38 ~0 ~42 semiconductor-lab:turbo_pump
 setblock ~42 ~0 ~41 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-25] 金属配線","真空蒸着装置に加工中の","ウェハーとアルミを入れ","たときの画面（入口に入"]}}
 setblock ~42 ~-1 ~42 semiconductor-lab:test_power_source
 setblock ~42 ~0 ~42 semiconductor-lab:evaporator
-setblock ~43 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:borosilicate_glass",count:16},{Slot:1b,id:"semiconductor-lab:indium_tin_alloy",count:16}]}
+setblock ~43 ~0 ~42 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:borosilicate_glass",count:16},{Slot:1b,id:"semiconductor-lab:indium_tin_alloy",count:16},{Slot:2b,id:"semiconductor-lab:pn_junction_wafer",count:16},{Slot:3b,id:"semiconductor-lab:aluminium_ingot",count:16}]}
 setblock ~0 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹6 ガス・電解","↓ この列","",""]}}
 setblock ~2 ~0 ~49 minecraft:oak_sign[rotation=8]{front_text:{messages:["[6-04] 岩塩鉱","（人間の確認項目なし）","",""]}}
 setblock ~2 ~0 ~50 semiconductor-lab:rock_salt_ore

@@ -138,5 +138,8 @@
   "block.semiconductor-lab.mercury_barometer.placeholder": "Omitted: ⚠️ weather and temperature changes are not modelled. The height scale (1/e per about 8400 blocks) is a game approximation.",
   "block.semiconductor-lab.mercury_barometer.reading": "Mercury column %s mmHg (%s hPa)  height Y=%s",
   "block.semiconductor-lab.oil_diffusion_pump.howto": "Place next to both a vacuum chamber and a running rotary pump. Once the chamber is below 10 Pa it pumps to 10⁻⁵ Pa. 1 kW.",
-  "block.semiconductor-lab.silicone_reactor.howto": "By combination: methanol + hydrogen chloride (alumina) → methyl chloride; metallurgical silicon + 2 methyl chloride (copper) + bottle → dimethyldichlorosilane; that + distilled water → silicone oil. 2 kW."
+  "block.semiconductor-lab.silicone_reactor.howto": "By combination: methanol + hydrogen chloride (alumina) → methyl chloride; metallurgical silicon + 2 methyl chloride (copper) + bottle → dimethyldichlorosilane; that + distilled water → silicone oil. 2 kW.",
+  "block.semiconductor-lab.diffusion_pump.howto": "Place next to a vacuum chamber and a running rotary pump, then connect power. The rotary pump must pump first. Nothing is used up.",
+  "block.semiconductor-lab.rotary_pump.howto": "Place next to a vacuum chamber and connect power. It slowly pumps the air out, and also backs diffusion and turbo pumps.",
+  "block.semiconductor-lab.turbo_pump.howto": "Place next to a vacuum chamber and a running rotary pump, right-click it with precise ball bearings, then connect power. A clean vacuum without oil or mercury."
 }

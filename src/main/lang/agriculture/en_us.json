@@ -132,5 +132,6 @@
   "block.semiconductor-lab.salty_farmland.note3": "River and ground water carry a little dissolved salt. In dry land the water evaporates and the salt stays in the soil; with too much salt, roots cannot take up water. Calcium from gypsum swaps for sodium in the soil so it washes out more easily.",
   "block.semiconductor-lab.salty_farmland.note4": "In Sumer in Mesopotamia, salt built up in long-irrigated fields, and crops are said to have shifted from salt-sensitive wheat to salt-tolerant barley ⚠️. Many irrigated fields worldwide still suffer from salinity today.",
   "block.semiconductor-lab.salty_farmland.placeholder": "Approximation: salt is counted as '3 irrigated harvests in dry land -> -1'. Drainage and rising ground water are omitted.",
-  "message.semiconductor-lab.salty_farmland.gypsum": "Gypsum spread: the salt washed out and the farmland is back to normal"
+  "message.semiconductor-lab.salty_farmland.gypsum": "Gypsum spread: the salt washed out and the farmland is back to normal",
+  "block.semiconductor-lab.refrigerator.howto": "Add water buckets and ammonia water (not used up), then connect power. Ice comes out and the bucket returns."
 }

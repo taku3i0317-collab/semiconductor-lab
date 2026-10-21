@@ -518,5 +518,7 @@
   "item.semiconductor-lab.euv_high_na_optics.note2": "EUV projection optics + EUV mirror set (keeps the offsets). NA 0.55. Usable only if the barrel's total centring offset is 1.6 um or less. In the EUV scanner it gives finer CD (about 15 nm), twice the steps per wafer (8), and a depth of focus of about 36 nm (even one step fails, so CMP every layer).",
   "item.semiconductor-lab.euv_high_na_optics.note3": "EUV scanners with NA raised from 0.33 to 0.55 began to be built in the 2020s ⚠️. Each is even larger than today's EUV tools.",
   "item.semiconductor-lab.euv_high_na_optics.note4": "Raising NA would make light strike the mask too steeply, so the magnification differs between directions (anamorphic: 1/4 one way, 1/8 the other). The exposure field halves, and large chips are printed in two parts and stitched.",
-  "item.semiconductor-lab.euv_high_na_optics.placeholder": "Approximation: anamorphic imaging is represented as double steps. The centring limit (1.6 um) and NA 0.55 effects are game values."
+  "item.semiconductor-lab.euv_high_na_optics.placeholder": "Approximation: anamorphic imaging is represented as double steps. The centring limit (1.6 um) and NA 0.55 effects are game values.",
+  "block.semiconductor-lab.euv_source.howto": "Put a pumped-down vacuum chamber and CO2 lasers next to it, add tin, a droplet generator and a multilayer mirror, and connect power. Hydrogen keeps the mirror clean.",
+  "block.semiconductor-lab.mercury_lamp.howto": "Just connect power and it glows. Nothing is used up. A spectroscope shows mercury's coloured lines."
 }

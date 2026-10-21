@@ -910,5 +910,9 @@
   "block.semiconductor-lab.spin_coater.howto": "Insert wafers and resist (positive, negative, chemically amplified, EUV) → coated wafers. Electric.",
   "block.semiconductor-lab.sputter.howto": "Pump the adjacent chamber below 0.01 Pa, then insert wafers, a target (aluminium, tantalum, Mo/Si) and argon → coated items. 5 kW. Argon also from an adjacent holder.",
   "block.semiconductor-lab.wafer_polisher.howto": "Insert process wafers, abrasive (alumina or rouge) and colloidal silica → wafers with layers polished off (twice at most). 1 kW.",
-  "block.semiconductor-lab.wire_bonder.howto": "Insert a chip, gold bonding wire and a header → a wire-bonded chip. Electric."
+  "block.semiconductor-lab.wire_bonder.howto": "Insert a chip, gold bonding wire and a header → a wire-bonded chip. Electric.",
+  "block.semiconductor-lab.euv_scanner.howto": "Build the 5x3x3 shape (sneak + right-click for the plan) inside a class-100 room. Give the source CO2 lasers and tin, pump the vacuum chamber low. Add an EUV-resist wafer, EUV mask, EUV optics and a lead screw, then press the button.",
+  "block.semiconductor-lab.mask_aligner.howto": "Add a resist-coated wafer and a photomask, connect power, pick the gap with the button and expose. A lead screw on the stage lets you align to the previous layer.",
+  "block.semiconductor-lab.scanner.howto": "Same inputs as the stepper plus a lead screw for the mask stage. Mask and wafer move together while exposing, so lens errors matter less.",
+  "block.semiconductor-lab.stepper.howto": "Add a resist-coated wafer, a mask, a projection lens, light (mercury lamp with i-line filter, or a laser) and a stage lead screw, connect power and press the button. It steps and exposes chip by chip."
 }

@@ -84,6 +84,9 @@
 "aluminium_ingot": [
 "machine:hall_heroult_cell"
 ],
+"aluminized_mirror": [
+"machine:evaporator"
+],
 "aluminosilicate_batch": [
 "crafting"
 ],
@@ -407,6 +410,9 @@
 "carbolic_oil": [
 "smelting"
 ],
+"carbon_dioxide_gas": [
+"machine:reverberatory_furnace"
+],
 "carbon_monoxide_gas": [
 "crafting",
 "machine:hafnium_chlorinator"
@@ -447,6 +453,9 @@
 ],
 "cement_raw_meal": [
 "crafting"
+],
+"centered_lens_barrel": [
+"special"
 ],
 "cerium_oxide": [
 "crafting"
@@ -490,6 +499,12 @@
 ],
 "chromatography_column": [
 "crafting"
+],
+"chrome_blank": [
+"machine:evaporator"
+],
+"chrome_photomask": [
+"machine:reduction_camera"
 ],
 "chromite": [
 "loot",
@@ -536,6 +551,12 @@
 ],
 "coal_tar": [
 "machine:gas_retort"
+],
+"coated_crown_lens": [
+"machine:evaporator"
+],
+"coated_flint_lens": [
+"machine:evaporator"
 ],
 "coke": [
 "machine:gas_retort"
@@ -640,6 +661,9 @@
 ],
 "crystal_resonator": [
 "crafting"
+],
+"cultured_quartz": [
+"machine:autoclave"
 ],
 "cupel": [
 "crafting"
@@ -767,6 +791,9 @@
 "dugout_canoe": [
 "crafting"
 ],
+"duralumin": [
+"special"
+],
 "duralumin_charge": [
 "crafting"
 ],
@@ -874,6 +901,12 @@
 "evaporator": [
 "crafting"
 ],
+"exposed_dry_plate": [
+"special"
+],
+"exposed_plate": [
+"special"
+],
 "fermentation_crock": [
 "crafting"
 ],
@@ -934,6 +967,9 @@
 ],
 "fluorine_cell": [
 "crafting"
+],
+"fluorine_cylinder": [
+"machine:fluorine_cell"
 ],
 "fluorite": [
 "loot",
@@ -1202,6 +1238,9 @@
 "hypo_liquor": [
 "crafting"
 ],
+"i_line_filter": [
+"machine:evaporator"
+],
 "ilmenite": [
 "loot"
 ],
@@ -1237,6 +1276,9 @@
 ],
 "ion_implanter": [
 "crafting"
+],
+"ir_cut_filter": [
+"machine:evaporator"
 ],
 "iron_bloom": [
 "machine:bloomery"
@@ -1295,6 +1337,12 @@
 ],
 "kroll_charge": [
 "crafting"
+],
+"krypton_cylinder": [
+"machine:compressor"
+],
+"krypton_gas": [
+"machine:rare_gas_column"
 ],
 "krypton_lamp": [
 "crafting"
@@ -1486,6 +1534,9 @@
 "mercury_lamp_assembly": [
 "crafting"
 ],
+"mercury_lamp_tube": [
+"machine:sealing_station"
+],
 "mercury_thermometer": [
 "crafting"
 ],
@@ -1524,6 +1575,15 @@
 ],
 "molybdenite": [
 "loot"
+],
+"molybdenum": [
+"machine:hydrogen_furnace"
+],
+"molybdenum_trioxide": [
+"machine:reverberatory_furnace"
+],
+"multilayer_mirror": [
+"machine:sputter"
 ],
 "n_type_germanium": [
 "machine:zone_refining_furnace"
@@ -1575,6 +1635,12 @@
 ],
 "neodymium_oxide": [
 "crafting"
+],
+"neon_cylinder": [
+"machine:compressor"
+],
+"neon_gas": [
+"machine:rare_gas_column"
 ],
 "nickel": [
 "smelting"
@@ -1645,6 +1711,9 @@
 ],
 "oleum": [
 "crafting"
+],
+"optical_fiber": [
+"machine:oxyhydrogen_burner"
 ],
 "oxalic_acid": [
 "crafting"
@@ -2101,6 +2170,9 @@
 "rubylith": [
 "machine:drafting_table"
 ],
+"ruled_grating": [
+"machine:ruling_engine"
+],
 "ruled_spectroscope": [
 "crafting"
 ],
@@ -2168,6 +2240,9 @@
 ],
 "silicon_single_crystal": [
 "machine:cz_puller"
+],
+"silicon_tetrachloride": [
+"machine:trichlorosilane_reactor"
 ],
 "silicon_wafer": [
 "machine:etch_tank",
@@ -2335,6 +2410,12 @@
 "steam_turbine": [
 "crafting"
 ],
+"steel_balls_ground": [
+"machine:grinder"
+],
+"steel_balls_precise": [
+"machine:grinder"
+],
 "steel_balls_rough": [
 "crafting"
 ],
@@ -2390,6 +2471,9 @@
 ],
 "superphosphate": [
 "crafting"
+],
+"surface_plate": [
+"special"
 ],
 "synthetic_graphite": [
 "machine:acheson_furnace"
@@ -2656,8 +2740,14 @@
 "woolen_yarn": [
 "special"
 ],
+"xenon_cylinder": [
+"machine:compressor"
+],
 "xenon_flashlamp": [
 "crafting"
+],
+"xenon_gas": [
+"machine:rare_gas_column"
 ],
 "xylene": [
 "smelting"

@@ -97,5 +97,6 @@
   "block.semiconductor-lab.tarmac.note2": "砕石の道4＋コールタール → 4。上を歩くと速さ 1.3倍。",
   "block.semiconductor-lab.tarmac.note3": "タールが石のすき間をうめて接着し、水が入らず、自動車のタイヤでも砕石がはがれない。",
   "block.semiconductor-lab.tarmac.note4": "1902年、イギリスのエドガー・フーリーが、こぼれたタールの上の道が固くほこりも立たないのに気づき、特許を取った（ターマック＝タール＋マカダム）。今の道路のアスファルトは石油から作る（このMODでは扱わない）。",
-  "block.semiconductor-lab.tarmac.placeholder": "近似：速さの倍率はゲームの値。"
+  "block.semiconductor-lab.tarmac.placeholder": "近似：速さの倍率はゲームの値。",
+  "block.semiconductor-lab.air_conditioner.howto": "電気（銅ケーブル）をつなぐだけ。近くの温度のゆれが小さくなり、精密な機械がずれにくくなる。HEPA フィルターを入れるとクリーンルームの空気になる。"
 }

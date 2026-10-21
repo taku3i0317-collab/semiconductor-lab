@@ -910,5 +910,9 @@
   "block.semiconductor-lab.spin_coater.howto": "ウェハーとレジスト（ポジ型・ネガ型・化学増幅・EUV）を入れる → レジストを塗ったウェハー。電気。",
   "block.semiconductor-lab.sputter.howto": "隣の真空容器を 0.01Pa 以下にし、ウェハー・的（アルミ・タンタル・Mo/Si）・アルゴンを入れる → 膜を付けた物。電気 5kW。アルゴンは隣のガスホルダーからも。",
   "block.semiconductor-lab.wafer_polisher.howto": "加工中のウェハー・砥粒（アルミナかベンガラ）・コロイダルシリカを入れる → 層を削ったウェハー（2回まで）。電気 1kW。",
-  "block.semiconductor-lab.wire_bonder.howto": "チップ・金の細い線・ヘッダー（足の付いた台）を入れる → 線をつないだチップ。電気。"
+  "block.semiconductor-lab.wire_bonder.howto": "チップ・金の細い線・ヘッダー（足の付いた台）を入れる → 線をつないだチップ。電気。",
+  "block.semiconductor-lab.euv_scanner.howto": "5×3×3 の形に組む（しゃがんで右クリックで図）。クラス100 の部屋の中で、光源に CO2 レーザーとスズ、真空容器を低い圧力に。EUV レジストのウェハー・EUV マスク・EUV 投影光学・送りねじを入れ、ボタンで焼く。",
+  "block.semiconductor-lab.mask_aligner.howto": "レジストを塗ったウェハーとフォトマスクを入れ、電気をつなぐ。ボタンですき間を選んで焼く。台に送りねじを入れると前の層に合わせられる。",
+  "block.semiconductor-lab.scanner.howto": "ステッパーと同じ材料に、マスクの台の送りねじを足す。マスクとウェハーを一緒に動かして焼くので、レンズの狂いが小さくなる。",
+  "block.semiconductor-lab.stepper.howto": "レジストを塗ったウェハー・マスク・投影レンズ・光（水銀灯の i線フィルターやレーザー）・台の送りねじを入れ、電気をつないでボタン。チップごとに送って焼く。"
 }

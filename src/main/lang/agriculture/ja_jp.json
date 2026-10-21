@@ -132,5 +132,6 @@
   "block.semiconductor-lab.salty_farmland.note3": "川や地下の水にもわずかな塩がとけている。雨の少ない土地で水をまくと、水は蒸発して塩だけが土に残る。塩が多いと根が水を吸えなくなる。石こうのカルシウムが土のナトリウムと入れかわり、水で流しやすくなる。",
   "block.semiconductor-lab.salty_farmland.note4": "メソポタミアのシュメールでは、灌漑を続けた畑に塩がたまり、塩に弱い小麦から塩に強い大麦へ作物が移ったとされる ⚠️。今も世界の灌漑の畑の多くが塩害に悩んでいる。",
   "block.semiconductor-lab.salty_farmland.placeholder": "近似：塩のたまり方は「乾いた土地の灌漑の収穫3回で −1」の数え方。水はけ・地下水の上がり方は省略。",
-  "message.semiconductor-lab.salty_farmland.gypsum": "石こうをまいた：塩が洗い流されて、ふつうの耕地にもどった"
+  "message.semiconductor-lab.salty_farmland.gypsum": "石こうをまいた：塩が洗い流されて、ふつうの耕地にもどった",
+  "block.semiconductor-lab.refrigerator.howto": "水バケツとアンモニア水（減らない）を入れて電気をつなぐ。氷ができ、バケツは戻る。"
 }

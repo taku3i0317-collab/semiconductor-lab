@@ -307,5 +307,7 @@
   "item.semiconductor-lab.chamber_acid.placeholder": "Approximation: really the saltpetre's nitrogen oxides are recovered and reused (the game uses one). Glover and Gay-Lussac towers are omitted.",
   "message.semiconductor-lab.chamber_acid.leak": "Brown fumes (nitrogen dioxide) leaked... you feel a little sick",
   "block.semiconductor-lab.haber_bosch_reactor.howto": "Put in 1 nitrogen bag, 3 hydrogen bags and the iron catalyst, and connect power. You get 2 ammonia bags. Without the catalyst it does nothing (the catalyst is not used up).",
-  "block.semiconductor-lab.gas_holder.howto": "Stores one kind of gas (no power).\n- Takes gas from a neighbouring electrolyzer or air separation unit\n- Put bagged gas on the left to fill it; bags come out on the right\n- The first gas decides the kind; empty resets it\n- Mixing hydrogen and oxygen explodes and empties it"
+  "block.semiconductor-lab.gas_holder.howto": "Stores one kind of gas (no power).\n- Takes gas from a neighbouring electrolyzer or air separation unit\n- Put bagged gas on the left to fill it; bags come out on the right\n- The first gas decides the kind; empty resets it\n- Mixing hydrogen and oxygen explodes and empties it",
+  "block.semiconductor-lab.fluorine_cell.howto": "Add KF, graphite, a bottle of hydrofluoric acid and an empty cylinder, then connect power. Out come fluorine cylinders and hydrogen bags. If the hydrogen output fills up, it has an accident and stops.",
+  "block.semiconductor-lab.rare_gas_column.howto": "Add oxygen bags and nitrogen bags, then connect power. Neon, krypton and xenon bags slowly collect."
 }

@@ -362,5 +362,9 @@
   "item.semiconductor-lab.automatic_watch.note2": "Mechanical watch + automatic rotor (keeps its state). Walking with it in your inventory winds it. If it has stopped, right-click to wind.",
   "item.semiconductor-lab.automatic_watch.note3": "Self-winding wristwatches spread from the 1930s.",
   "item.semiconductor-lab.automatic_watch.note4": "Worn daily it never needs winding, but left for days it stops.",
-  "item.semiconductor-lab.automatic_watch.placeholder": "Approximation: how fast walking winds it is a game value."
+  "item.semiconductor-lab.automatic_watch.placeholder": "Approximation: how fast walking winds it is a game value.",
+  "block.semiconductor-lab.electron_microscope.howto": "Pump the next vacuum chamber very low and connect power. Put in a mask, layout or wafer to see how fine it can be seen.",
+  "block.semiconductor-lab.grinder.howto": "Add hardened steel balls, a grinding wheel and a measuring tool, then connect power. A micrometer gives ground balls; gauge blocks give matched balls.",
+  "block.semiconductor-lab.kibble_balance.howto": "Add the kilogram prototype, a standard cell, a standard resistor and a krypton lamp, then connect power. It weighs the prototype with electricity and shows the offset and uncertainty. An air conditioner makes it more precise.",
+  "block.semiconductor-lab.ruling_engine.howto": "Add a mirror, a diamond and a lead screw, then connect power to rule a diffraction grating. Floor shaking or temperature changes make ghost lines, so use an isolation table and an air conditioner."
 }

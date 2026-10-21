@@ -42,6 +42,11 @@ HOWTO_EXTRA = {
     "spent_lye": "けん化した獣脂を作業台で使うと残る（craftRemainder、[2-09] 石けん）",   # IMP3 O-028
     "light_rare_earth_liquor": "焼いたバストネス石を作業台で使うと残る（craftRemainder、[1-35]）",   # IMP3 O-028
     "potassium_fluorozirconate": "粗いフッ化ジルコニウムカリウムを作業台で使うと残る（craftRemainder、[1-70] 分別結晶）",   # IMP3 O-028
+    "centered_lens_barrel": "利き手に鏡筒、反対の手に顕微鏡を持って右クリックで心出しをくり返すと仕上がる（[8-14]、LensBarrelItem）",   # IMP2 O-036
+    "surface_plate": "鋳鉄の板を3枚、2枚ずつ順にすり合わせると定盤になる（ホイットワースの3枚合わせ、[8-03]、CastPlateItem）",   # IMP2 O-036
+    "duralumin": "焼き入れしたジュラルミンを部屋の温度で数日置くと固くなる（時効硬化 [14-13]、QuenchedDuraluminItem）",   # IMP2 O-036
+    "exposed_plate": "カメラを持ち、反対の手に感光した銀板を持って、日なたで右クリックを押している間に写る（[B-02a]、CameraItem）",   # IMP2 O-036
+    "exposed_dry_plate": "カメラを持ち、反対の手に感光乾板を持って、日なたで右クリックを押している間に写る（[B-02b]、CameraItem）",   # IMP2 O-036
 }
 # 機械のコードが作る物（machine_recipes に書き出していない道）：ID → 道の印（ツールチップにも出る）
 EXTRA_WAYS = {
@@ -50,6 +55,29 @@ EXTRA_WAYS = {
     "chip": ["machine:dicing_saw"],               # ダイシングソー：処理したウェハーを割る
     "layout_sheet": ["machine:drafting_table"], "rubylith": ["machine:drafting_table"],   # 製図台（⚠️ 材料なし、S-001）
     "stamp": ["machine:probe_station"],           # 検査台：調べた回路をハンコに
+    "aluminized_mirror": ["machine:evaporator"],   # IMP2 O-036
+    "chrome_blank": ["machine:evaporator"],   # IMP2 O-036
+    "coated_crown_lens": ["machine:evaporator"],   # IMP2 O-036
+    "coated_flint_lens": ["machine:evaporator"],   # IMP2 O-036
+    "i_line_filter": ["machine:evaporator"],   # IMP2 O-036
+    "ir_cut_filter": ["machine:evaporator"],   # IMP2 O-036
+    "carbon_dioxide_gas": ["machine:reverberatory_furnace"],   # IMP2 O-036
+    "molybdenum_trioxide": ["machine:reverberatory_furnace"],   # IMP2 O-036
+    "molybdenum": ["machine:hydrogen_furnace"],   # IMP2 O-036
+    "chrome_photomask": ["machine:reduction_camera"],   # IMP2 O-036
+    "cultured_quartz": ["machine:autoclave"],   # IMP2 O-036
+    "fluorine_cylinder": ["machine:fluorine_cell"],   # IMP2 O-036
+    "krypton_gas": ["machine:rare_gas_column"],   # IMP2 O-036
+    "neon_gas": ["machine:rare_gas_column"],   # IMP2 O-036
+    "xenon_gas": ["machine:rare_gas_column"],   # IMP2 O-036
+    "mercury_lamp_tube": ["machine:sealing_station"],   # IMP2 O-036
+    "multilayer_mirror": ["machine:sputter"],   # IMP2 O-036
+    "optical_fiber": ["machine:oxyhydrogen_burner"],   # IMP2 O-036
+    "ruled_grating": ["machine:ruling_engine"],   # IMP2 O-036
+    "silicon_tetrachloride": ["machine:trichlorosilane_reactor"],   # IMP2 O-036
+    "steel_balls_ground": ["machine:grinder"],   # IMP2 O-036
+    "steel_balls_precise": ["machine:grinder"],   # IMP2 O-036
+    **{f"{g}_cylinder": ["machine:compressor"] for g in ("krypton", "neon", "xenon")},   # IMP2 O-036 圧縮機：希ガスの塔のガスを空ボンベへ
 }
 TRUNK_OWNER = {"Survival": "D", "Metallurgy": "D", "Chemistry": "D", "Heat": "D", "Power": "A", "Vacuum": "A", "Gas": "A", "Optics": "C",
                "Precision": "E", "Semiconductor": "A", "Control": "A", "Agriculture": "D", "Construction": "D", "Medicine": "D",

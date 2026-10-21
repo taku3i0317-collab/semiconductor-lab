@@ -2,6 +2,9 @@
 
 - ①入手の道が無いアイテム：**31** / 900
 - ②「?」の説明が無い機械（画面のある機械のうち、手書きの lang block.semiconductor-lab.<id>.howto も、自動のレシピの一覧＝machine_recipes も無い物）：**17** / 101
+
+- ①入手の道が無いアイテム：**13** / 900
+- ②「?」の説明が無い機械（画面のある機械のうち、手書きの lang block.semiconductor-lab.<id>.howto も、自動のレシピの一覧＝machine_recipes も無い物）：**8** / 101
 - ③見取り図の無いマルチブロック：**0**
 
 道の数え方：作業台・かまどのレシピ、機械・組立台のレシピ（docs/machine_recipes.json）、世界に生える鉱石とそのルート、ルートの書き換え（LootTableEvents）、例外の一覧（tools/check_howto.py の HOWTO_EXTRA）。ここに無いのに手に入る物は、HOWTO_EXTRA に理由を書いて足すか、machine_recipes の書き出しに足す
@@ -12,6 +15,11 @@
 
 ## ② 「?」の説明が無い機械（作った担当ごと）
 - **C**（17）：air_conditioner、diffusion_pump、electron_microscope、euv_scanner、euv_source、fluorine_cell、grinder、kibble_balance、mask_aligner、mercury_lamp、rare_gas_column、refrigerator、rotary_pump、ruling_engine、scanner、stepper、turbo_pump
+
+- **E**（13）：al_dotted_wafer（Semiconductor）、arsenic（Branches）、euv_mask_blank（Semiconductor）、euv_mask（Semiconductor）、gaasp_wafer（Branches）、gan_wafer（Branches）、mems_wafer（Semiconductor）、mesa_wafer（Semiconductor）、oxidized_wafer（Semiconductor）、spent_bayer_liquor（Metallurgy）、tft_array_glass（Branches）、white_arsenic（Metallurgy）、yag_phosphor（Branches）
+
+## ② 「?」の説明が無い機械（作った担当ごと）
+- **E**（8）：arc_lamp、compound_furnace、fz_puller、led_lamp、load_port、rca_bench、wafer_polisher、white_led_lamp
 
 ## ③ 見取り図の無いマルチブロック
 - なし

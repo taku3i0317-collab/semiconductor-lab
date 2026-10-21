@@ -138,5 +138,8 @@
   "block.semiconductor-lab.mercury_barometer.placeholder": "省略：⚠️ 天気・温度での変化は表さない。高さの換算（約 8400 ブロックで 1/e）はゲームの近似。",
   "block.semiconductor-lab.mercury_barometer.reading": "水銀柱 %s mmHg（%s hPa）  高さ Y=%s",
   "block.semiconductor-lab.oil_diffusion_pump.howto": "真空容器と、動いている回転ポンプの両方の隣に置く。容器が 10Pa 以下になると 10⁻⁵Pa まで引く。電気 1kW。",
-  "block.semiconductor-lab.silicone_reactor.howto": "組み合わせで切りかわる：メタノール＋塩化水素（アルミナ）→ 塩化メチル、金属シリコン＋塩化メチル2（銅）＋瓶 → ジメチルジクロロシラン、それ＋蒸留水 → シリコーン油。電気 2kW。"
+  "block.semiconductor-lab.silicone_reactor.howto": "組み合わせで切りかわる：メタノール＋塩化水素（アルミナ）→ 塩化メチル、金属シリコン＋塩化メチル2（銅）＋瓶 → ジメチルジクロロシラン、それ＋蒸留水 → シリコーン油。電気 2kW。",
+  "block.semiconductor-lab.diffusion_pump.howto": "真空容器と、回っている回転ポンプの両方の隣に置いて電気をつなぐ。回転ポンプで先に引いてからでないと動かない。材料は減らない。",
+  "block.semiconductor-lab.rotary_pump.howto": "真空容器の隣に置いて電気をつなぐ。空気を少しずつ抜く。拡散ポンプ・ターボポンプの前段にもなる。",
+  "block.semiconductor-lab.turbo_pump.howto": "真空容器と回っている回転ポンプの隣に置き、精密な玉軸受で右クリックして入れてから電気をつなぐ。油や水銀を使わないきれいな真空。"
 }
