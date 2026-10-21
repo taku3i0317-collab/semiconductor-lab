@@ -10,5 +10,14 @@
   "item.semiconductor-lab.microcomputer.note2": "Chips that passed the 4-bit CPU (cpu4) and ROM (rom_program) challenges, a quartz resonator (clock) and a Nixie tube, on the assembly bench.",
   "item.semiconductor-lab.microcomputer.note3": "Intel MCS-4 (1971): the 4004 CPU, 4001 ROM, 4002 RAM and 4003 ran Busicom's 141-PF calculator. Change the program and it does another job: a general-purpose part.",
   "item.semiconductor-lab.microcomputer.note4": "Four instructions (LOAD, ADD, OUT, JUMP, one-hot), an 8-word ROM (the 4001 had 256). It runs on the reference CPU; your chips were proven by the challenges.",
-  "message.semiconductor-lab.microcomputer.run": "Microcomputer: program \"%s\" -> output port %s"
+  "message.semiconductor-lab.microcomputer.run": "Microcomputer: program \"%s\" -> output port %s",
+  "item.semiconductor-lab.math_coprocessor": "Math coprocessor (floating point)",
+  "item.semiconductor-lab.math_coprocessor.note1": "A helper chip for decimal maths. Right-click to work out 0.1 + 0.2.",
+  "item.semiconductor-lab.math_coprocessor.note2": "Chips that passed the 8-bit CPU, multiplier and register challenges, plus wiring and a board, on the assembly bench. A part of the AI chip (learning uses decimals).",
+  "item.semiconductor-lab.math_coprocessor.note3": "IEEE 754 (1985): the world rule for numbers as 'mantissa x 2 to a power'. Intel's 8087 (1980) built it first; before that, makers gave different answers.",
+  "item.semiconductor-lab.math_coprocessor.note4": "In binary, 0.1 cannot be written exactly, so 0.1 + 0.2 misses 0.3 a little (rounding error). AI usually learns in floating point (16/32 bits) and answers in integers (4/8 bits). ⚠️ The learning maths itself runs in Java.",
+  "message.semiconductor-lab.math_coprocessor.title": "Math coprocessor: 0.1 + 0.2 is...",
+  "message.semiconductor-lab.math_coprocessor.row0": "16-bit (half): %s (bits %s)",
+  "message.semiconductor-lab.math_coprocessor.row1": "32-bit (single): %s (bits %s)",
+  "message.semiconductor-lab.math_coprocessor.row2": "64-bit (double): %s (bits %s)"
 }

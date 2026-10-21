@@ -411,5 +411,15 @@
   "litho.semiconductor-lab.challenge.mul4.hint1": "1. x * y: for each bit of y, copy x or not (AND), shift, and add.",
   "litho.semiconductor-lab.challenge.mul4.hint2": "2. Sixteen ANDs make the partial products: x_i AND y_j goes to the 2^(i+j) place.",
   "litho.semiconductor-lab.challenge.mul4.hint3": "3. Add one row at a time with four full adders (three rows = 12). Carries go to the next place.",
-  "litho.semiconductor-lab.challenge.mul4.hint4": "4. Line up many of these and the AI's multiply-adds run faster. The count is speed; the challenge proves it is right."
+  "litho.semiconductor-lab.challenge.mul4.hint4": "4. Line up many of these and the AI's multiply-adds run faster. The count is speed; the challenge proves it is right.",
+  "assembly.semiconductor-lab.math_coprocessor.cpu": "CPU chip (passed 8-bit CPU)",
+  "assembly.semiconductor-lab.math_coprocessor.cpu.short": "CPU",
+  "assembly.semiconductor-lab.math_coprocessor.multiplier": "Multiplier chip (passed multiplier)",
+  "assembly.semiconductor-lab.math_coprocessor.multiplier.short": "Multiplier",
+  "assembly.semiconductor-lab.math_coprocessor.register": "Register chip (passed register)",
+  "assembly.semiconductor-lab.math_coprocessor.register.short": "Register",
+  "assembly.semiconductor-lab.math_coprocessor.wiring": "Wiring",
+  "assembly.semiconductor-lab.math_coprocessor.wiring.short": "Wiring",
+  "assembly.semiconductor-lab.math_coprocessor.board": "Board",
+  "assembly.semiconductor-lab.math_coprocessor.board.short": "Board"
 }

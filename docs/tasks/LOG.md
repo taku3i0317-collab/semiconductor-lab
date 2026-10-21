@@ -633,4 +633,5 @@
 
 ## O-031（[10-32] 浮動小数点、2026-10-21）
 - EUV（C）・GAA（E）はできた → 残る前提は [10-32]。ノードの MC が「未定（実装の前に相談）」なので案を書いた（LITHO_DESIGN §18）。**Q31**：案A 数値演算チップ（8087 の形：cpu8・mul4 のチップ＋レジスタを組立台で、右クリックで 0.1＋0.2 を 16・32・64ビットで見せる、AI チップの部品、学び直しはこのチップがあるとき）／案B 小さな浮動小数点の掛け算器のお題（むずかしい）／案C 知識だけ。おすすめ案A。答えまで作らない
+- O-032（Q31 案A 仮決定）：[10-32] 数値演算チップ Control.MATH_COPROCESSOR（item/MathCoprocessorItem：0.1＋0.2 を Float.floatToFloat16 の半精度・float・double で、ちょうどの10進とビットの並び）、組立台（cpu8・mul4・レジスタのチップ＋配線＋板）。TECH_TREE [10-32] ✅、REFERENCES L19、DECISIONS。GameTest mathCoprocessor。次：AI チップ [B-11]（書く画面の見た目はユーザーに）
 

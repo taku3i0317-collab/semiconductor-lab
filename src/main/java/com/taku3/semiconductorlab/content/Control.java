@@ -16,6 +16,9 @@ public final class Control {
     // [10-13] 4ビットのマイコン（1971 インテル MCS-4 の形、A、S-014）：CPU のチップ＋ROM のチップ＋水晶＋ニキシー管を組立台で
     public static final Item MICROCOMPUTER         = Reg.item("microcomputer", com.taku3.semiconductorlab.item.MicrocomputerItem::new, new Item.Properties().stacksTo(1));
 
+    // [10-32] 数値演算チップ（IEEE 754、1980 インテル 8087 の形、A、O-032）：右クリックで 0.1＋0.2 を 16・32・64ビットで
+    public static final Item MATH_COPROCESSOR      = Reg.item("math_coprocessor", com.taku3.semiconductorlab.item.MathCoprocessorItem::new, new Item.Properties().stacksTo(16));
+
     /** お題に合格したチップの見本（組立台の表示・テスト用） */
     static net.minecraft.world.item.ItemStack passedChip(String id) {
         var st = new net.minecraft.world.item.ItemStack(Semiconductor.CHIP);
@@ -32,6 +35,14 @@ public final class Control {
                 .part("display", Branches.NIXIE_TUBE, 1)
                 .part("board", net.minecraft.world.item.Items.IRON_INGOT, 2)
                 .part("wiring", Power.COPPER_CABLE.block.asItem(), 1)
+                .seconds(10).build();
+        // [10-32] 数値演算チップ（O-032 Q31 案A 仮決定）：8ビット CPU・掛け算器・レジスタのお題に合格したチップ＋配線＋板
+        com.taku3.semiconductorlab.machine.Assembly.recipe("math_coprocessor", MATH_COPROCESSOR)
+                .part("cpu", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "cpu8"), 1, Semiconductor.CHIP, () -> passedChip("cpu8"))
+                .part("multiplier", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "mul4"), 1, Semiconductor.CHIP, () -> passedChip("mul4"))
+                .part("register", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "register"), 1, Semiconductor.CHIP, () -> passedChip("register"))
+                .part("wiring", Power.COPPER_CABLE.block.asItem(), 1)
+                .part("board", net.minecraft.world.item.Items.IRON_INGOT, 1)
                 .seconds(10).build();
     }
 

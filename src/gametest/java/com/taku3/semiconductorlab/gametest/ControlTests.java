@@ -84,4 +84,22 @@ public class ControlTests extends LabTestBase {
         LOG.info("[LAB] AI [10-16] prep: mul4 passes, float {} 4-bit {}, {} multiplies for {} digits", accF, accQ, count.multiplies, test.size());
         h.succeed();
     }
+
+    /**
+     * [10-32] 数値演算チップ（O-032 Q31 案A 仮決定）：0.1＋0.2 は 64ビットで 0.3000000000000000444…（0.3 ではない）、32ビット・16ビットでもずれる。
+     * 組立台は cpu8・mul4・レジスタに合格したチップ＋配線＋板
+     */
+    @GameTest
+    public void mathCoprocessor(GameTestHelper h) {
+        String[] s = com.taku3.semiconductorlab.item.MathCoprocessorItem.sums();
+        h.assertTrue(s[2].startsWith("0.3000000000000000444"), "double 0.1 + 0.2 = " + s[2]);
+        for (String v : s) h.assertFalse(new java.math.BigDecimal(v).compareTo(new java.math.BigDecimal("0.3")) == 0, "never exactly 0.3: " + v);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.MathCoprocessorItem.bits()[2], "3FD3333333333334", "64-bit pattern of 0.1 + 0.2");
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Control.MATH_COPROCESSOR);
+        h.assertTrue(a != null && a.parts.size() == 5, "math coprocessor assembly with 5 roles");
+        var chip = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.CHIP);
+        chip.set(com.taku3.semiconductorlab.ModDataComponents.CHALLENGES, java.util.List.of("mul4"));
+        h.assertTrue(a.satisfied(1, chip) && !a.satisfied(0, chip), "mul4 chip is the multiplier, not the CPU");
+        h.succeed();
+    }
 }

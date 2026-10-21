@@ -8,6 +8,7 @@ assembly_bench_en_us product item.semiconductor-lab.calculator w=52 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.game_console w=134 lines=2/2 scale=0.79999995
 assembly_bench_en_us product item.semiconductor-lab.smartphone w=58 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.microcomputer w=100 lines=2/2 scale=0.74999994
+assembly_bench_en_us product item.semiconductor-lab.math_coprocessor w=170 lines=3/2 scale=0.6499999
 assembly_bench_en_us product item.semiconductor-lab.image_sensor w=86 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.mems_accelerometer w=101 lines=2/2 scale=0.6999999
 assembly_bench_en_us role assembly.semiconductor-lab.hf_oscillator.oscillate w=273 lines=2/2
@@ -57,6 +58,11 @@ assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.clock w=72 li
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.display w=35 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.board w=30 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.wiring w=28 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.math_coprocessor.cpu w=140 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.math_coprocessor.multiplier w=164 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.math_coprocessor.register w=160 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.math_coprocessor.wiring w=28 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.math_coprocessor.board w=30 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.image_sensor.photodiode w=163 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.image_sensor.readout w=134 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.image_sensor.wiring w=28 lines=1/2
@@ -810,6 +816,7 @@ euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.need_mask w=145 lines=3
 euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.need_optics w=146 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.need_source w=171 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.need_vacuum w=162 lines=3/3
+euv_scanner_en_us hint gui.semiconductor-lab.euv_scanner.high_na_rough w=131 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.stepper.need_mask_stage w=137 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.stepper.defocus w=168 lines=3/3
 euv_scanner_en_us hint gui.semiconductor-lab.stepper.blurred w=143 lines=3/3
@@ -1050,6 +1057,7 @@ assembly_bench_ja_jp product item.semiconductor-lab.calculator w=18 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.game_console w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.smartphone w=27 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.microcomputer w=78 lines=2/2
+assembly_bench_ja_jp product item.semiconductor-lab.math_coprocessor w=126 lines=2/2 scale=0.84999996
 assembly_bench_ja_jp product item.semiconductor-lab.image_sensor w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.mems_accelerometer w=91 lines=2/2 scale=0.84999996
 assembly_bench_ja_jp role assembly.semiconductor-lab.hf_oscillator.oscillate w=228 lines=2/2
@@ -1099,6 +1107,11 @@ assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.clock w=72 li
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.display w=18 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.board w=9 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.wiring w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.math_coprocessor.cpu w=162 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.math_coprocessor.multiplier w=153 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.math_coprocessor.register w=153 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.math_coprocessor.wiring w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.math_coprocessor.board w=9 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.image_sensor.photodiode w=148 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.image_sensor.readout w=139 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.image_sensor.wiring w=18 lines=1/2
@@ -1850,6 +1863,7 @@ euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.need_mask w=125 lines=2
 euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.need_optics w=103 lines=3/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.need_source w=125 lines=3/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.need_vacuum w=112 lines=2/3
+euv_scanner_ja_jp hint gui.semiconductor-lab.euv_scanner.high_na_rough w=180 lines=3/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.stepper.need_mask_stage w=108 lines=2/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.stepper.defocus w=175 lines=3/3
 euv_scanner_ja_jp hint gui.semiconductor-lab.stepper.blurred w=126 lines=2/3

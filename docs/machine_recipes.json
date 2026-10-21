@@ -545,6 +545,46 @@
     },
     {
       "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（math_coprocessor）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "cpu"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "multiplier"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "register"
+        },
+        {
+          "item": "semiconductor-lab:copper_cable",
+          "count": 1,
+          "cond": "wiring"
+        },
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 1,
+          "cond": "board"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:math_coprocessor",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
       "process": "組み立て（image_sensor）",
       "inputs": [
         {

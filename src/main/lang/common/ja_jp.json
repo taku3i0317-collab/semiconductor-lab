@@ -411,5 +411,15 @@
   "litho.semiconductor-lab.challenge.mul4.hint1": "①x×y は、y の各ビットで「x を写すか 0 か」を決めて（AND）、ずらして足す。",
   "litho.semiconductor-lab.challenge.mul4.hint2": "②部分積は AND 16個。x_i AND y_j が 2^(i+j) の位に入る。",
   "litho.semiconductor-lab.challenge.mul4.hint3": "③1段ずつ全加算器4つで足していく（3段＝12個）。けた上がりは次の位へ。",
-  "litho.semiconductor-lab.challenge.mul4.hint4": "④この掛け算器を何個も並べると、AI の計算（掛けて足す）が速くなる。数は速さ、正しさはお題で確かめる。"
+  "litho.semiconductor-lab.challenge.mul4.hint4": "④この掛け算器を何個も並べると、AI の計算（掛けて足す）が速くなる。数は速さ、正しさはお題で確かめる。",
+  "assembly.semiconductor-lab.math_coprocessor.cpu": "CPU のチップ（8ビット CPU に合格）",
+  "assembly.semiconductor-lab.math_coprocessor.cpu.short": "CPU",
+  "assembly.semiconductor-lab.math_coprocessor.multiplier": "掛け算器のチップ（掛け算器に合格）",
+  "assembly.semiconductor-lab.math_coprocessor.multiplier.short": "掛け算器",
+  "assembly.semiconductor-lab.math_coprocessor.register": "レジスタのチップ（レジスタに合格）",
+  "assembly.semiconductor-lab.math_coprocessor.register.short": "レジスタ",
+  "assembly.semiconductor-lab.math_coprocessor.wiring": "配線",
+  "assembly.semiconductor-lab.math_coprocessor.wiring.short": "配線",
+  "assembly.semiconductor-lab.math_coprocessor.board": "板",
+  "assembly.semiconductor-lab.math_coprocessor.board.short": "板"
 }

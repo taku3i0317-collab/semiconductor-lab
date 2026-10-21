@@ -10,5 +10,14 @@
   "item.semiconductor-lab.microcomputer.note2": "4ビット CPU（お題 cpu4）と ROM（お題 rom_program）に合格したチップ＋水晶の振動子（クロック）＋ニキシー管を組立台で。",
   "item.semiconductor-lab.microcomputer.note3": "1971年インテル MCS-4：4004（CPU）・4001（ROM）・4002（RAM）・4003 を組んで、ビジコンの電卓 141-PF を動かした。命令を変えれば別の仕事ができる＝汎用の部品。",
   "item.semiconductor-lab.microcomputer.note4": "命令は4つ（LOAD・ADD・OUT・JUMP、ビット1つの形 ⚠️）、ROM は8語（⚠️ 4001 は256語）。動きは見本の CPU で計算する（組んだチップはお題で確かめ済み）。",
-  "message.semiconductor-lab.microcomputer.run": "マイコン：プログラム「%s」→ 出力の口 %s"
+  "message.semiconductor-lab.microcomputer.run": "マイコン：プログラム「%s」→ 出力の口 %s",
+  "item.semiconductor-lab.math_coprocessor": "数値演算チップ（浮動小数点）",
+  "item.semiconductor-lab.math_coprocessor.note1": "小数の計算をする補助のチップ。右クリックで 0.1＋0.2 を計算してみよう。",
+  "item.semiconductor-lab.math_coprocessor.note2": "8ビット CPU・掛け算器・レジスタのお題に合格したチップ＋配線＋板を組立台で。AI チップの部品（学び直し＝学習は小数で）。",
+  "item.semiconductor-lab.math_coprocessor.note3": "1985年 IEEE 754：小数を「仮数×2の何乗」で表す世界の決まり。1980年のインテル 8087 が最初に作った。それまではメーカーごとに答えがちがった。",
+  "item.semiconductor-lab.math_coprocessor.note4": "2進では 0.1 がちょうどに表せないので、0.1＋0.2 は 0.3 から少しずれる（丸めの誤差）。AI は学習を小数（16・32ビット）、答えを整数（4・8ビット）でするのがふつう。⚠️ 学習の計算そのものは Java。",
+  "message.semiconductor-lab.math_coprocessor.title": "数値演算チップ：0.1＋0.2 を計算すると…",
+  "message.semiconductor-lab.math_coprocessor.row0": "16ビット（半精度）：%s（ビット %s）",
+  "message.semiconductor-lab.math_coprocessor.row1": "32ビット（単精度）：%s（ビット %s）",
+  "message.semiconductor-lab.math_coprocessor.row2": "64ビット（倍精度）：%s（ビット %s）"
 }

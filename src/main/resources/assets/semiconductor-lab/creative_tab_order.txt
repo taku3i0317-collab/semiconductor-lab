@@ -769,6 +769,7 @@ drafting_table  # Semiconductor [None] None
 load_port  # Semiconductor [None] None
 electromagnet  # Control [10-01] 1820
 microcomputer  # Control [10-13] 1971
+math_coprocessor  # Control [10-32] 1985
 quern  # Agriculture [11-08] -9500
 flour  # Agriculture [11-08] -9500
 vinegar  # Agriculture [11-10] -6000
