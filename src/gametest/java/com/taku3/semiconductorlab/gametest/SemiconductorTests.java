@@ -2379,6 +2379,30 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** S-011：製図台の P で工程の種類を順に（バイポーラ5層 → ＋2層目7層 → MOS 4層 → MOS＋2層目6層）。MOS のハンコはバイポーラの紙には押せない */
+    @GameTest(maxTicks = 50)
+    public void draftingProcess(GameTestHelper h) {
+        h.setBlock(p(1, 1, 1), Semiconductor.DRAFTING_TABLE.block);
+        var dt = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.DraftingTableBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_NEW);
+        int[] sizes = new int[4]; boolean[] mos = new boolean[4];
+        for (int k = 0; k < 4; k++) {
+            sizes[k] = dt.design().layers().size(); mos[k] = dt.design().mos();
+            dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_PROCESS);
+        }
+        h.assertTrue(java.util.Arrays.equals(sizes, new int[] {5, 7, 4, 6}) && java.util.Arrays.equals(mos, new boolean[] {false, false, true, true}), "process cycle: " + java.util.Arrays.toString(sizes));
+        h.assertValueEqual(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.role(com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter(), 1), "gate_ox", "MOS layer 1 is the gate oxide");
+        ItemStack stamp = new ItemStack(Semiconductor.STAMP);
+        stamp.set(ModDataComponents.CHIP_DESIGN, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter().crop());
+        dt.getContainer().setItem(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.SLOT_STAMP, stamp);
+        h.assertFalse(dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_STAMP), "a MOS stamp does not go on a bipolar sheet");
+        dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_PROCESS);
+        dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_PROCESS);
+        h.assertTrue(dt.design().mos() && dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_STAMP), "it goes on a MOS sheet");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

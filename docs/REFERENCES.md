@@ -587,7 +587,7 @@
 - へえ④：今のチップのトランジスタはほとんど全部 MOS（CMOS）。1つのチップに数百億個。
 
 確かさ：アタラとカーン 1959 試作・1960 発表 ◎／ゲート酸化膜の厚さのめやす ○／Na イオンの問題と洗浄 ○
-ゲーム：まだ（LITHO_DESIGN §12 の案、Q21-1〜4 の答え待ち）
+ゲーム（S-011、全部案A）：層 GATE_OX＋Al ゲート、製図台で工程の種類 MOS、二乗の式（Vt 1V ⚠️）。16×16 の NMOS インバータ（抵抗負荷）が NOT のお題に合格
 根拠：Computer History Museum「1960 – Metal Oxide Semiconductor (MOS) Transistor Demonstrated」、Wikipedia「MOSFET」（History）
 
 ---

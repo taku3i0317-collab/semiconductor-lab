@@ -534,3 +534,9 @@
 - INBOX に6時間変化が無かったので止まる。答え待ち：O-021 の Q21-1〜4（MOSFET の入れ方、LITHO_DESIGN §12、A のおすすめは全部 案A）、E が出した多層化（金属2層目）の質問
 - ほかの担当との約束：D の [4-15] リチウムイオン電池が来たら、A が energy/ に充電池の共通の親クラスを作る（鉛蓄電池も使う形に）
 
+## S-011（Q21 全部案A・多層化 案B、2026-10-21）・O-021
+- litho の MOS と2層目の金属（a2cba43b）：GATE_OX・gateOxide、depositInterlayer → VIA・METAL2、Netlist の MOS と2層の線、二乗の式。例 nmosInverter（NOT に合格）・nmosInverterTwoMetal。DECISIONS 5行
+- 製図台：P で工程の種類（バイポーラ5層・＋2層目7層・MOS 4層・MOS＋2層目6層）、層の名前は工程で、MOS のハンコはバイポーラの紙に押せない。検査台の絵にゲート酸化膜・2層目
+- E に API を知らせた（層間膜の CVD 炉・シランは E）。TECH_TREE [9-23] ✅、REFERENCES L13、test_queue
+- 次：[9-24] CMOS（p チャネル＋ウェル）、[10-12] DRAM（電荷が漏れる→手順の列に足す案が要る）
+

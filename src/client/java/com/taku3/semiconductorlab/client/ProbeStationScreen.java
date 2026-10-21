@@ -98,7 +98,9 @@ public class ProbeStationScreen extends MachineScreen {
             int x0 = gx + x * c, y0 = gy + y * c;
             boolean sub = m.level(x, y) == 0;
             g.fill(x0, y0, x0 + c, y0 + c, m.type(x, y) == 'p' ? (sub ? P_SUB : P) : (sub ? N_SUB : N));
+            if (m.gate(x, y)) g.fill(x0, y0, x0 + c, y0 + c, 0x6040A040);   // ゲート酸化膜（MOS、S-011）
             if (m.metal(x, y)) g.fill(x0, y0, x0 + c, y0 + c, METAL);
+            if (m.metal2(x, y)) g.fill(x0, y0, x0 + c, y0 + c, 0x80506090);   // 2層目の金属
             if (m.contact(x, y)) g.fill(x0 + c / 2 - 1, y0 + c / 2 - 1, x0 + c / 2 + 1, y0 + c / 2 + 1, 0xFF202020);
             if (sol != null) {   // 電流の明るさ（対数）
                 double a = sol.cellAmps()[y * n + x];

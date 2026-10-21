@@ -261,7 +261,7 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 ### 11.6 v0.3a から変わらない物
 - データ（ChipState・MaskData・ChipDesign）、工程の関数（ChipOps）、Netlist・Circuit.solve はそのまま使う。お題・ハンコは新しいデータで、チップの中身には入れない
 
-## 12. MOS（[9-23] MOSFET → [9-24] CMOS → [10-12] DRAM）— 案（O-021、A）。**大きな選択 Q21-1〜4 はユーザーの答え待ち。答えまで作らない**
+## 12. MOS（[9-23] MOSFET → [9-24] CMOS → [10-12] DRAM）— O-021 の案 → ✅ S-011 で全部案A、実装済み（GATE_OX・Al ゲート・工程の種類・二乗の式）。2層目の金属（案B：層間膜 → VIA → METAL2）も
 
 ### 12.1 本物（決まっている所）
 - 1959 アタラとカーン（ベル研）が試作、1960 発表 ◎。p型の板に n+ のソースとドレイン（拡散）、その間の上にごく薄いゲート酸化膜（約 0.1 µm、厚い酸化膜は約 1 µm）、その上に金属のゲート。ゲートに電圧をかけると、酸化膜の下に電子の通り道（反転層＝チャネル）ができて、ソースとドレインがつながる
@@ -283,6 +283,7 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 - [10-12] DRAM：1トランジスタ＋1コンデンサ（デナード 1966〜68）。電荷が漏れるので書き直し（リフレッシュ）。直流の計算ではコンデンサの電荷を扱えないので、順序回路の「手順の列」に電荷の減りを足す案が要る（そのときにまた聞く）
 
 ## 変更履歴
+- 2026-10-21 S-011：MOS（LayerKind.GATE_OX、ChipOps.gateOxide、ChipModel.gate、Netlist.mosfets＝ゲート酸化膜＋p＋1層目の金属のまとまりの両わきに n の領域2つ、Circuit の二乗の式 Vt 1V・KP 1e-4 A/V²×W/L）と2層目の金属（LayerKind.VIA・METAL2、ChipOps.depositInterlayer、その後の窓＝VIA・金属＝METAL2、Netlist.netOf2・VIA で層をまたぐ）。ChipDesign.process（bipolar／mos）・kindsFor・twoMetal、製図台の「P」で 5→7→4→6 層。例 nmosInverter・nmosInverterTwoMetal
 - 2026-10-20 [9-27] ドライエッチングの土台（E と決めた形、案α）：ChipOps.etchOxide(w, anisotropic)。液（HF）は方眼 36（g線ステッパー、CD 約1µm）以上で開ける所が上下左右に1マス太る（アンダーカット）、ドライは太らない。16・24 の方眼は今までどおり
 - 2026-10-20 §12 MOS の案（O-021、Q21-1〜4 はユーザーの答え待ち）
 - 2026-10-20 [9-26] スパッタの土台（E と決めた形、案②）：ChipOps.depositMetal(w, conformal)、ChipState.conformalMetal（記録だけ）。蒸着とスパッタで回路は同じ。v0.5 の歩留まりで「蒸着は段差のふちで切れやすい」に使う ⚠️（今切れる形にすると NOT の例の蒸着がこわれるため）

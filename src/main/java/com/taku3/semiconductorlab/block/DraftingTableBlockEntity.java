@@ -35,7 +35,7 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
     public static final int SLOT_SHEET = 0, SLOT_OUT = 1, SLOT_STAMP = 2, SLOT_COUNT = 3;
     public static final int DATA_UNDO = 0, DATA_REDO = 1, DATA_COUNT = 2;
     /** ボタン：新しい方眼紙・元に戻す・やり直す・ひと筆の始まり（元に戻す単位）、方眼の大きさ（+i）、原図を切る（+層）、層を消す（+層） */
-    public static final int BTN_NEW = 1, BTN_UNDO = 2, BTN_REDO = 3, BTN_STROKE = 4, BTN_SIZE = 10, BTN_CUT = 100, BTN_CLEAR = 200;
+    public static final int BTN_NEW = 1, BTN_UNDO = 2, BTN_REDO = 3, BTN_STROKE = 4, BTN_PROCESS = 5, BTN_SIZE = 10, BTN_CUT = 100, BTN_CLEAR = 200;
     /** ハンコを押す（v0.3b）：300000 ＋ マス（押す所の左上） */
     public static final int BTN_STAMP = 300_000;
     /** 選べる方眼の大きさ（露光の方法ごと、ExposureTool と同じ。v0.3 の密着露光は 8、より細かい物はその方法ができてから焼ける） */
@@ -45,17 +45,32 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
     /** 塗る（on）・消す（off）のボタンの番号：100000×(1 か 2) ＋ 10000×層 ＋ マス */
     public static int paintId(boolean on, int layer, int cell) { return (on ? 1 : 2) * 100_000 + layer * 10_000 + cell; }
 
-    /** v0.3 のふつうの層の並び（三重拡散＋窓＋アルミ1層。INBOX S-001）。役目の名前は lang litho.semiconductor-lab.role.&lt;ROLES&gt; */
-    public static final String[] ROLES = {"island", "base", "emitter", "contact", "metal"};
-    public static ChipDesign blank(int size) {
+    /** バイポーラの層の役目（三重拡散＋窓＋アルミ、INBOX S-001）。lang litho.semiconductor-lab.role.&lt;役目&gt; */
+    public static final String[] ROLES = {"island", "base", "emitter", "contact", "metal", "via", "metal2"};
+    /** MOS の層の役目（S-011 Q21-3 案A：ソースとドレイン・ゲート酸化膜・窓・金属、2層目の金属つきなら＋VIA・2層目） */
+    public static final String[] MOS_ROLES = {"source_drain", "gate_ox", "contact", "metal", "via", "metal2"};
+    /** 層の数のいちばん多い場合（バイポーラ＋2層目） */
+    public static final int MAX_LAYERS = ROLES.length;
+
+    /** 層 i の役目の名前（設計図の工程の種類で決まる） */
+    public static String role(ChipDesign d, int i) {
+        String[] r = d.mos() ? MOS_ROLES : ROLES;
+        return i < r.length ? r[i] : "metal";
+    }
+
+    public static ChipDesign blank(int size) { return blank(size, ChipDesign.BIPOLAR, false); }
+
+    /** 白紙（工程の種類と2層目の金属で層の並びが決まる、S-011） */
+    public static ChipDesign blank(int size, String process, boolean twoMetal) {
         BitGrid e = BitGrid.empty(size);
-        return new ChipDesign(size, "", List.of(new ChipDesign.Layer(LayerKind.DIFF_N, e), new ChipDesign.Layer(LayerKind.DIFF_P, e),
-                new ChipDesign.Layer(LayerKind.DIFF_N, e), new ChipDesign.Layer(LayerKind.CONTACT, e), new ChipDesign.Layer(LayerKind.METAL, e)));
+        List<ChipDesign.Layer> l = new java.util.ArrayList<>();
+        for (LayerKind k : ChipDesign.kindsFor(process, twoMetal)) l.add(new ChipDesign.Layer(k, e));
+        return new ChipDesign(size, "", l, List.of(), process);
     }
 
     /** 画面の中の位置（画面のクラス DraftingTableScreen も同じ数字を使う） */
-    public static final int H = 256, GRID_X = 8, GRID_Y = 18, GRID_W = 80, LAYER_X = 94, LAYER_Y = 18, LAYER_ROW = 12,
-            BTN_Y = 80, SECTION_X = 8, SECTION_Y = 102, SECTION_H = 24, SHEET_X = 96, SHEET_Y = 102, OUT_X = 152, OUT_Y = 102,
+    public static final int H = 256, GRID_X = 8, GRID_Y = 18, GRID_W = 80, LAYER_X = 94, LAYER_Y = 18, LAYER_ROW = 9,
+            BTN_Y = 82, SECTION_X = 8, SECTION_Y = 102, SECTION_H = 24, SHEET_X = 96, SHEET_Y = 102, OUT_X = 152, OUT_Y = 102,
             STAMP_X = 152, STAMP_Y = 124, SYMBOL_BTN_X = 96, SYMBOL_BTN_Y = 124;
 
     public static final MachineLayout LAYOUT;
@@ -66,11 +81,12 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
                 .in(SLOT_STAMP, STAMP_X, STAMP_Y, s -> s.is(Semiconductor.STAMP), 1)   // ハンコ（v0.3b）：入れている間は左クリックで押す
                 .area("symbol_button", SYMBOL_BTN_X, SYMBOL_BTN_Y, 16, 14)
                 .area("grid", GRID_X, GRID_Y, GRID_W, GRID_W)
-                .area("swatch", LAYER_X, LAYER_Y, 8, LAYER_ROW * ROLES.length - 1)
+                .area("swatch", LAYER_X, LAYER_Y, 8, LAYER_ROW * MAX_LAYERS - 1)
                 .area("buttons", LAYER_X, BTN_Y, 78, 14)
                 .area("section", SECTION_X, SECTION_Y, GRID_W, SECTION_H);
-        for (int i = 0; i < ROLES.length; i++)
-            b.text("layer" + i, LAYER_X + 10, LAYER_Y + 1 + LAYER_ROW * i, 68, 1, "litho.semiconductor-lab.role." + ROLES[i]).fit();
+        java.util.List<String> roleKeys = java.util.stream.Stream.concat(java.util.Arrays.stream(ROLES), java.util.Arrays.stream(MOS_ROLES)).distinct().map(r -> "litho.semiconductor-lab.role." + r).toList();
+        for (int i = 0; i < MAX_LAYERS; i++)
+            b.lazyText("layer" + i, LAYER_X + 10, LAYER_Y + LAYER_ROW * i, 68, 1, () -> roleKeys).fit();
         LAYOUT = b.label("arrow", SHEET_X + 22, SHEET_Y + 4, 28, "→")
                 .text("stamp_label", STAMP_X - 34, STAMP_Y + 4, 32, 1, "gui.semiconductor-lab.drafting_table.stamp_slot").fit()
                 .text("hint", LAYER_X, 144, 78, 1, MachineLayout.keys("gui.semiconductor-lab.drafting_table.", "need_sheet", "draw", "zoom", "out_full", "stamp")).fit()
@@ -134,11 +150,18 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
             return true;
         }
         if (id == BTN_STROKE) { remember(d); return true; }   // ひと筆の始まり：ここまでを1回で戻せる
+        if (id == BTN_PROCESS) {   // 工程の種類を順に：バイポーラ → バイポーラ＋2層目 → MOS → MOS＋2層目（白紙になる、元に戻せる、S-011）
+            boolean mos = d.mos(), two = d.twoMetal();
+            boolean nextMos = two ? !mos : mos, nextTwo = !two;
+            remember(d);
+            setDesign(blank(d.size(), nextMos ? ChipDesign.MOS : ChipDesign.BIPOLAR, nextTwo));
+            return true;
+        }
         if (id >= BTN_SIZE && id < BTN_SIZE + SIZES.length) {
             int size = SIZES[id - BTN_SIZE];
             if (size == d.size()) return false;
             remember(d);
-            setDesign(blank(size));
+            setDesign(blank(size, d.process(), d.twoMetal()));
             return true;
         }
         if (id >= BTN_CUT && id < BTN_CUT + d.layers().size()) {
@@ -156,7 +179,7 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
         if (id >= BTN_STAMP && id < BTN_STAMP + 10_000) {   // ハンコを押す（左上のマス）
             ChipDesign st = container.getItem(SLOT_STAMP).get(ModDataComponents.CHIP_DESIGN);
             int cell = id - BTN_STAMP;
-            if (st == null || cell >= d.size() * d.size()) return false;
+            if (st == null || cell >= d.size() * d.size() || st.mos() != d.mos()) return false;   // 工程の種類のちがうハンコは押せない
             remember(d);
             setDesign(d.stamp(st, cell % d.size(), cell / d.size()));
             return true;

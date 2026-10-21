@@ -22,7 +22,15 @@ import static com.taku3.semiconductorlab.block.DraftingTableBlockEntity.*;
 public class DraftingTableScreen extends MachineScreen {
     private static final int P = 0xFFE89A9A, N = 0xFF92B4EE, P_SUB = 0xFFF2C4C4, N_SUB = 0xFFC4D6F4, METAL = 0x90707078, OXIDE = 0xFFF4F4F4,
             HILITE = 0xFFFFD030, GRIDLINE = 0x30000000;
-    private static final int[] SWATCH = {N, P, N, 0xFF303030, 0xFF8A8A92};
+    private static final int[] SWATCH = {N, P, N, 0xFF303030, 0xFF8A8A92, 0xFF4040A0, 0xFF506090};
+
+    /** 層の種類の色見本 */
+    private static int swatch(com.taku3.semiconductorlab.litho.LayerKind k) {
+        return switch (k) {
+            case DIFF_N -> N; case DIFF_P -> P; case CONTACT -> 0xFF303030; case METAL -> 0xFF8A8A92;
+            case GATE_OX -> 0xFF60A060; case VIA -> 0xFF4040A0; case METAL2 -> 0xFF506090;
+        };
+    }
 
     private int layer = 0, sectionRow = 0, lastCell = -1;
     private boolean painting, paintOn;
@@ -57,10 +65,10 @@ public class DraftingTableScreen extends MachineScreen {
 
     @Override protected void init() {
         super.init();
-        String[] labels = {"←", "→", "✂", "×", "+", "#"};
+        String[] labels = {"←", "→", "✂", "×", "+", "#", "P"};   // P＝工程の種類（バイポーラ／MOS・2層目、S-011）
         for (int i = 0; i < labels.length; i++) {
             final int k = i;
-            addRenderableWidget(Button.builder(Component.literal(labels[i]), b -> button(k)).bounds(leftPos + LAYER_X + 13 * i, topPos + BTN_Y, 12, 14).build());
+            addRenderableWidget(Button.builder(Component.literal(labels[i]), b -> button(k)).bounds(leftPos + LAYER_X + 11 * i, topPos + BTN_Y, 10, 14).build());
         }
         // 記号の切りかえ（v0.3b）：押したハンコを記号（色の箱）で見せる。中身をのぞいているときは1段もどる
         addRenderableWidget(Button.builder(Component.literal("▣"), b -> { if (!inside.isEmpty()) inside.pop(); else symbols = !symbols; })
@@ -75,6 +83,7 @@ public class DraftingTableScreen extends MachineScreen {
             case 2 -> press(BTN_CUT + layer);
             case 3 -> press(BTN_CLEAR + layer);
             case 4 -> press(BTN_NEW);
+            case 6 -> press(BTN_PROCESS);
             default -> {   // 方眼の大きさを順に（8 → 12 → 16 → 24 → … → 72、露光の方法ごと）
                 if (d == null) return;
                 int i = 0;
@@ -132,7 +141,8 @@ public class DraftingTableScreen extends MachineScreen {
     @Override public boolean mouseClicked(MouseButtonEvent e, boolean doubleClick) {
         ChipDesign d = design();
         double rx = e.x() - leftPos, ry = e.y() - topPos;
-        if (rx >= LAYER_X && rx < LAYER_X + 78 && ry >= LAYER_Y && ry < LAYER_Y + LAYER_ROW * ROLES.length) {
+        int nLayers = d == null ? 0 : d.layers().size();
+        if (rx >= LAYER_X && rx < LAYER_X + 78 && ry >= LAYER_Y && ry < LAYER_Y + LAYER_ROW * nLayers) {
             layer = (int) ((ry - LAYER_Y) / LAYER_ROW);
             return true;
         }
@@ -189,12 +199,14 @@ public class DraftingTableScreen extends MachineScreen {
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         super.extractBackground(g, mouseX, mouseY, partialTick);
-        for (int i = 0; i < ROLES.length; i++) {   // 層の色見本と、いま選んでいる層
-            int y = topPos + LAYER_Y + LAYER_ROW * i;
-            g.fill(leftPos + LAYER_X, y + 1, leftPos + LAYER_X + 8, y + 9, SWATCH[i]);
-            if (i == layer) g.outline(leftPos + LAYER_X - 1, y, 80, LAYER_ROW - 1, HILITE);
-        }
         ChipDesign d = design();
+        int nLayers = d == null ? ROLES.length - 2 : d.layers().size();
+        if (layer >= nLayers) layer = 0;
+        for (int i = 0; i < nLayers; i++) {   // 層の色見本と、いま選んでいる層（層の種類で色）
+            int y = topPos + LAYER_Y + LAYER_ROW * i;
+            g.fill(leftPos + LAYER_X, y + 1, leftPos + LAYER_X + 8, y + LAYER_ROW - 1, d == null ? SWATCH[i] : swatch(d.layers().get(i).kind()));
+            if (i == layer) g.outline(leftPos + LAYER_X - 1, y, 80, LAYER_ROW, HILITE);
+        }
         int gx = leftPos + GRID_X, gy = topPos + GRID_Y;
         g.fill(gx, gy, gx + GRID_W, gy + GRID_W, 0xFFDADADA);
         g.fill(leftPos + SECTION_X, topPos + SECTION_Y, leftPos + SECTION_X + GRID_W, topPos + SECTION_Y + SECTION_H, 0xFFDADADA);
@@ -208,7 +220,10 @@ public class DraftingTableScreen extends MachineScreen {
             int x = ox + vx, y = oy + vy;
             int x0 = gx + vx * cs, y0 = gy + vy * cs;
             g.fill(x0, y0, x0 + cs, y0 + cs, color(m, x, y));
+            if (m.gate(x, y)) g.fill(x0, y0, x0 + cs, y0 + cs, 0x6040A040);   // ゲート酸化膜（緑がかった色）
             if (m.metal(x, y)) g.fill(x0, y0, x0 + cs, y0 + cs, METAL);
+            if (m.metal2(x, y)) g.fill(x0, y0, x0 + cs, y0 + cs, 0x80506090);   // 2層目の金属（青がかった灰）
+            if (m.via(x, y)) { int d3 = Math.max(1, cs / 3); g.fill(x0 + cs / 2 - d3, y0 + cs / 2 - d3, x0 + cs / 2 + d3, y0 + cs / 2 + d3, 0xFF4040A0); }
             if (m.contact(x, y)) { int d2 = Math.max(1, cs / 4); g.fill(x0 + cs / 2 - d2, y0 + cs / 2 - d2, x0 + cs / 2 + d2, y0 + cs / 2 + d2, 0xFF202020); }
             boolean on = layer < d.layers().size() && d.layers().get(layer).cells().get(x, y);
             if (cs >= 3) g.outline(x0, y0, cs, cs, on ? HILITE : GRIDLINE);
@@ -281,7 +296,12 @@ public class DraftingTableScreen extends MachineScreen {
             return Component.translatable(k + (design().size() > SIZES[0] ? "zoom" : "draw"));
         }
         if (id.equals("stamp_label")) return Component.translatable(k0 + "stamp_slot");
-        if (id.startsWith("layer")) return Component.translatable("litho.semiconductor-lab.role." + ROLES[id.charAt(5) - '0']);
+        if (id.startsWith("layer")) {
+            ChipDesign d = design();
+            int i = id.charAt(5) - '0';
+            if (d == null ? i >= ROLES.length - 2 : i >= d.layers().size()) return null;
+            return Component.translatable("litho.semiconductor-lab.role." + (d == null ? ROLES[i] : role(d, i)));
+        }
         return null;
     }
 }

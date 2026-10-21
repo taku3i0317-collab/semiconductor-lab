@@ -278,5 +278,12 @@
   "item.semiconductor-lab.mirror.tarnish.speculum": "Speculum: oxidises and sulfides within weeks; needs re-polishing",
   "item.semiconductor-lab.mirror.tarnish.silver": "Silver: yellows and blackens within months from sulfur in the air (silver sulfide); needs re-silvering",
   "item.semiconductor-lab.mirror.tarnish.aluminium": "Aluminium: a few-nm oxide film forms and stops further corrosion. Stays bright for years",
-  "message.semiconductor-lab.ozone.sunburn": "Strong UV through the ozone hole... you got sunburned (weakness)"
+  "message.semiconductor-lab.ozone.sunburn": "Strong UV through the ozone hole... you got sunburned (weakness)",
+  "litho.semiconductor-lab.role.source_drain": "Source/drain",
+  "litho.semiconductor-lab.role.gate_ox": "Gate oxide",
+  "litho.semiconductor-lab.role.via": "Via",
+  "litho.semiconductor-lab.role.metal2": "Metal 2",
+  "litho.semiconductor-lab.layer.gate_ox": "gate oxide",
+  "litho.semiconductor-lab.layer.via": "via",
+  "litho.semiconductor-lab.layer.metal2": "metal 2"
 }
