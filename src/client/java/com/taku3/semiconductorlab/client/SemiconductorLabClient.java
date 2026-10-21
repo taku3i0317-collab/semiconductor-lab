@@ -110,6 +110,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		screen(Semiconductor.EPITAXY_REACTOR, EpitaxyReactorScreen::new);
 		screen(Metallurgy.CASTNER_CELL, CastnerCellScreen::new);
 		screen(Metallurgy.TANTALUM_REFINERY, TantalumRefineryScreen::new);
+		screen(Semiconductor.COPPER_PLATER, CopperPlaterScreen::new);
 		screen(Semiconductor.WAFER_SAW, WaferSawScreen::new);
 		screen(Semiconductor.CZ_PULLER, CzPullerScreen::new);
 		// 専用の画面を書いていない機械は、ふつうの画面（電力・進み具合・状態）

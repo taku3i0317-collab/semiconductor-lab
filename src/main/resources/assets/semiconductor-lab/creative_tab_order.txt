@@ -649,6 +649,7 @@ stepper  # Semiconductor [9-39] 1978
 scanner  # Semiconductor [9-39] 1978
 anneal_furnace  # Semiconductor [9-29] 1980
 cmp_polisher  # Semiconductor [9-31] 1980
+copper_plater  # Semiconductor [9-36] 1997
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None

@@ -698,9 +698,11 @@ setblock ~122 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-31
 setblock ~122 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~122 ~0 ~74 semiconductor-lab:cmp_polisher
 setblock ~123 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:process_wafer",count:16},{Slot:1b,id:"semiconductor-lab:colloidal_silica",count:16}]}
-setblock ~126 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stamp","（人間の確認項目なし）","",""]}}
-setblock ~126 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~127 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stamp",count:1},{Slot:1b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~126 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-36] 銅配線","めっき装置の GUI（","「⚠ バリア膜なし」）","、スパッタに Ta の"]}}
+setblock ~126 ~0 ~74 semiconductor-lab:copper_plater
+setblock ~130 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] stamp","（人間の確認項目なし）","",""]}}
+setblock ~130 ~0 ~74 semiconductor-lab:drafting_table
+setblock ~131 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:stamp",count:1},{Slot:1b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-08] 製粉","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quern",count:1},{Slot:1b,id:"semiconductor-lab:flour",count:16}]}

@@ -1207,6 +1207,44 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-36] 銅配線（IMP4-01、S-003）：CVD 炉の層間膜 → ドライで穴と溝 → スパッタ（Ta の的）でバリア → めっき装置 → CMP 装置 → METAL2＋VIA。バリアなしは汚れ +30 */
+    @GameTest(maxTicks = 100)
+    public void copperWiring(GameTestHelper h) {
+        var base = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal();
+        var one = new com.taku3.semiconductorlab.litho.ChipDesign(16, "one", base.layers().subList(0, 4), java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.MOS);
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8); w.set(ModDataComponents.DOPANT, "boron");
+        w = com.taku3.semiconductorlab.litho.LithoExamples.process(w, one, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        w = com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.product(w);
+        for (int layer : new int[] {4, 5}) {   // 1回目＝ビアの穴、2回目＝溝（ドライエッチング装置）
+            var mask = new com.taku3.semiconductorlab.litho.ChipDesign(16, "m", java.util.List.of(new com.taku3.semiconductorlab.litho.ChipDesign.Layer(com.taku3.semiconductorlab.litho.LayerKind.CONTACT, base.layers().get(layer).cells()))).mask(0);
+            w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), mask, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(w)).out();
+        }
+        h.assertTrue(com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.product(w).getCount() == 8 && !com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.hasBarrier(w), "plating without a barrier is possible but...");
+        int dirt0 = com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.product(w)).contamination(), dirt0 + 30, "...copper poisons the silicon (+30)");
+        ItemStack b = com.taku3.semiconductorlab.block.SputterBlockEntity.product(w, new ItemStack(Metallurgy.TANTALUM));
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(b).extras().barrier(), "sputter with a Ta target lays the barrier");
+        floor(h, 5);
+        BlockPos pp = p(2, 1, 2);
+        h.setBlock(pp, Semiconductor.COPPER_PLATER.block);
+        var be = h.getBlockEntity(pp, com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.class);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.SLOT_WAFER, b.copy());
+        c.setItem(com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.SLOT_SULFATE, new ItemStack(Chemistry.COPPER_SULFATE));
+        c.setItem(com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.SLOT_ANODE, new ItemStack(net.minecraft.world.item.Items.COPPER_INGOT));
+        tickConsumer(h, pp, be, com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.WATTS));
+        ItemStack plated = c.getItem(com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.SLOT_OUT);
+        h.assertTrue(plated.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(plated).metalFilm() && com.taku3.semiconductorlab.litho.ChipOps.state(plated).contamination() < dirt0 + 30, "plated with the barrier: copper film, little dirt");
+        ItemStack done = com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.product(plated);
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(done);
+        h.assertTrue(st.has(com.taku3.semiconductorlab.litho.LayerKind.METAL2) && st.has(com.taku3.semiconductorlab.litho.LayerKind.VIA) && !st.metalFilm(), "CMP leaves copper only in trenches and holes");
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st));
+        h.assertValueEqual(nl.netOf[12 * 16 + 15], nl.netOf[15 * 16 + 8], "right pad and bottom pad joined through copper");
+        LOG.info("[LAB] copper wiring [9-36]: CVD, dry-etched holes and trenches, Ta barrier by sputter, plating, CMP -> copper metal 2 + vias");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2857,6 +2895,10 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.WAFERS_PER_RUN), "エピ層付き"), io(Metallurgy.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.HCL_PER_RUN)), com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.TICKS / 20.0, "SiCl4 + 2H2 → Si + 4HCl を約1200℃。H2 はホルダーから");
         rec(a, Semiconductor.CVD_FURNACE.block, "窒化膜（保護膜）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "金属を削り終えた 1〜8枚"), io(Semiconductor.SILANE_CYLINDER, 1), io(Gas.AMMONIA_GAS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.O2_PER_RUN)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "保護膜つき"), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS / 20.0, "3SiH4 + 4NH3 → Si3N4 + 12H2");
+        rec(a, Semiconductor.COPPER_PLATER.block, "銅めっき（ダマシン）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.WAFERS_PER_RUN), "層間膜に穴と溝 1〜8枚（先にバリア）"), io(Chemistry.COPPER_SULFATE, 1), io(net.minecraft.world.item.Items.COPPER_INGOT, 1)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.WAFERS_PER_RUN), "銅の膜（このあと CMP）")), com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.WATTS, com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.TICKS / 20.0, "Cu²⁺ + 2e⁻ → Cu。バリアなしは汚れ +30");
+        rec(a, Semiconductor.SPUTTER.block, "タンタルのバリア膜", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "層間膜に穴と溝 1〜8枚"), io(Metallurgy.TANTALUM, 1), io(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.SputterBlockEntity.AR_PER_RUN)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "バリア膜つき")), com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS / 20.0, "銅がシリコンへしみるのを止める（[9-36]）");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

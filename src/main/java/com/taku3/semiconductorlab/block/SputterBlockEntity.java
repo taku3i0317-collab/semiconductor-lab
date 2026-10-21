@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * ウェハーに積もる。的の裏の磁石が電子を閉じこめて放電を濃くする（マグネトロン）。原子がいろいろな向きから飛んでくるので、段差の横にも付く（蒸着は影ができる）。
  * 加工中のウェハー 1〜8枚 ＋ アルミニウム 1（的が削れる分）＋ アルゴン 1 → Al を一面に付けたウェハー（ChipOps.depositMetal(w, true)＝conformalMetal の印が付く。回路は [9-25] の蒸着と同じ）。
  * 隣の真空容器が {@link #MAX_PA} 以下に引けていること（先に空気を抜いてから Ar を入れる）。アルゴンは隣のガスホルダーから補充。
+ * [9-36] Ta の的にすると、銅配線（ダマシン）の溝・穴にタンタルのバリア膜（ChipOps.depositBarrier、A）。銅がシリコンへしみるのを止める。
  * ⚠️ 段差を覆える差は記録だけ（A と決めた案②）。v0.5 の歩留まりで「蒸着は段差のふちで切れやすい」に使う。電力・時間はゲームの値（sputter.placeholder）。
  */
 public class SputterBlockEntity extends ConsumerBlockEntity {
@@ -33,7 +34,7 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + 1)
             .in(SLOT_WAFER, 8, 17, ChipOps::isProcessWafer)
-            .in(SLOT_TARGET, 8, 35, s -> s.is(Metallurgy.ALUMINIUM_INGOT))
+            .in(SLOT_TARGET, 8, 35, s -> s.is(Metallurgy.ALUMINIUM_INGOT) || s.is(Metallurgy.TANTALUM))
             .in(SLOT_AR, 8, 53, s -> s.is(Gas.ARGON_GAS))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.sputter.power").samples("500.0 kW")
@@ -48,8 +49,12 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
 
     /** Al を付けたウェハー（1〜8枚）。付けられなければ EMPTY */
     public static ItemStack product(ItemStack w, ItemStack target) {
-        if (!ChipOps.isProcessWafer(w) || !target.is(Metallurgy.ALUMINIUM_INGOT)) return ItemStack.EMPTY;
-        ChipOps.Result r = ChipOps.depositMetal(w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)), true);   // conformal＝段差によく付く（記録、A）
+        if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
+        ItemStack in = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
+        ChipOps.Result r;
+        if (target.is(Metallurgy.TANTALUM)) r = ChipOps.depositBarrier(in);   // [9-36] Ta の的：銅配線の溝・穴にバリア膜（A）
+        else if (target.is(Metallurgy.ALUMINIUM_INGOT)) r = ChipOps.depositMetal(in, true);   // conformal＝段差によく付く（記録、A）
+        else return ItemStack.EMPTY;
         return r.ok() ? r.out() : ItemStack.EMPTY;
     }
 

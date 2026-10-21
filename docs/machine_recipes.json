@@ -658,6 +658,36 @@
       "note": "約150気圧。H2・O2・Cl2・N2・Ar"
     },
     {
+      "machine": "semiconductor-lab:copper_plater",
+      "process": "銅めっき（ダマシン）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "層間膜に穴と溝 1〜8枚（先にバリア）"
+        },
+        {
+          "item": "semiconductor-lab:copper_sulfate",
+          "count": 1
+        },
+        {
+          "item": "minecraft:copper_ingot",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "銅の膜（このあと CMP）"
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 20.0,
+      "energy_kj": 20,
+      "note": "Cu²⁺ + 2e⁻ → Cu。バリアなしは汚れ +30"
+    },
+    {
       "machine": "semiconductor-lab:crystal_puller",
       "process": "種結晶づくり",
       "inputs": [
@@ -2350,6 +2380,36 @@
       "seconds": 20.0,
       "energy_kj": 100,
       "note": "Ar⁺ で的をたたく。隣の真空容器 0.01Pa 以下、Ar はホルダーから"
+    },
+    {
+      "machine": "semiconductor-lab:sputter",
+      "process": "タンタルのバリア膜",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "層間膜に穴と溝 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:tantalum",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:argon_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "バリア膜つき"
+        }
+      ],
+      "watts": 5000.0,
+      "seconds": 20.0,
+      "energy_kj": 100,
+      "note": "銅がシリコンへしみるのを止める（[9-36]）"
     },
     {
       "machine": "semiconductor-lab:steam_engine",

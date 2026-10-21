@@ -148,6 +148,8 @@ public final class Semiconductor {
     public static final Machine<CmpPolisherBlockEntity> CMP_POLISHER = Machine.electric("cmp_polisher", CmpPolisherBlockEntity::new, CmpPolisherBlockEntity.LAYOUT, metal(4.0f));
     // [9-30] エピタキシャル炉（IMP4-01、O-013）：SiCl4 + 2H2 → Si + 4HCl を約1200℃、素のウェハーに単結晶の層。10kW
     public static final Machine<EpitaxyReactorBlockEntity> EPITAXY_REACTOR = Machine.electric("epitaxy_reactor", EpitaxyReactorBlockEntity::new, EpitaxyReactorBlockEntity.LAYOUT, lit(metal(4.0f), 9));
+    // [9-36] ウェハーの銅めっき装置（IMP4-01、S-003）：硫酸銅＋銅の陽極で溝と穴を銅で埋める（ダマシン）。1kW
+    public static final Machine<CopperPlaterBlockEntity> COPPER_PLATER = Machine.electric("copper_plater", CopperPlaterBlockEntity::new, CopperPlaterBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
