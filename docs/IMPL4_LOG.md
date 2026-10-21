@@ -138,3 +138,12 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - S-006：[2-33] は E の版が正。D がホスゲンを使わない部分（PHS 樹脂の本物の道・光酸発生剤の材料）を ⚠️ の所に入れに来る → D と分担を相談（SendMessage）。t-BOC の試薬は省略のまま
 - **D へ（S-006 の分担の案。D のセッションが今つながらないので LOG に）**：合成釜 block/ResistReactorBlockEntity の RECIPES 表（Recipe 1行＝材料4つまで・触媒・出る物2つ）の ⚠️ の行を、D が本物の材料（塩化チオニル・KSbF6・4-アセトキシスチレン・PGMEA など、D の幹のファイルでアイテムを作る）に書きかえてよい。触るのは表の行と Chemistry 側のアイテムの1行だけ。行を変えたら SemiconductorTests.chemicallyAmplifiedChain の材料も合わせて直し、test.ps1 全 PASS。本物にした所は lang の .placeholder（protected_phs・diphenyl_sulfoxide・photoacid_generator・chemically_amplified_resist・resist_reactor）と CHEMISTRY F70〜F72 の ⚠️ も外す。t-BOC の試薬は省略のまま。違う形がよければ D の LOG か INBOX で
 - ✅ O-017：1＝E の工程の機械6台（塗布機・CVD 炉・スパッタ・CMP・めっき・ALD）の出口でほこり（ChipOps.addDust(CleanRoom.dustAt)）、GameTest process_dust_outside。2＝FinFET の high-k は S-004 で済（DECISIONS に入れ替え済みの行）
+- O-018 開始。[9-42]・[9-43] とも TECH_TREE の MC 欄が「未定（実装の前に相談）」なので、遊び方の案を書いて仮決定を待つ（作らない）。[B-19] は D の [B-18] 液晶が ❓ のまま＝待つ
+- **[9-42] 画像センサーの案**：
+  - 案A（おすすめ）：画像センサーのブロック image_sensor。作り方＝p-n 接合の板（フォトダイオード）を切った素子＋MOS のチップ（読み出しの増幅、A の litho で合格した NMOS／CMOS のチップ）＋アルミ配線＋カラーフィルター（色素）。置くと、当たっている光（空の光・ブロックの光）を「画素にたまった電子の数」として画面に出し、明るさに比例したレッドストーンの強さを出す（日照センサーの半導体版）。のちのスマホのカメラ [P-17]（レンズは C）の部品にもなる。litho の判定は今のチップを使うだけ＝A の変更なし
+  - 案B：アイテムのカメラ：右クリックで、見ている方向の 8×8 の明るさを「写真」（地図のような絵）にする。体験は大きいが、描画（client）の手間が大きい
+  - 案C：部品（アイテム）だけ作り、[P-17] で使う
+- **[9-43] MEMS（加速度センサー）の案**：
+  - 案A（おすすめ）：加速度センサー mems_accelerometer（アイテム）。作り方＝シリコンの板 → ドライエッチング装置の深堀りのモード（Cl2、本物は 1994 ボッシュ法の SF6／C4F8 ⚠️）で「ばねとおもり」を削り出した板 → 切って素子 → 読み出しのチップと封止。手に持つと、画面の下に今の加速度を g で出す（立ち止まり 1.00g、落ちている間 0g、着地の瞬間に大きく、走る・乗り物で変わる）。傾け（向き）も出す。[P-18] の部品
+  - 案B：ブロック：振動（近くの足音・ピストン）で信号を出す地震計
+  - 案C：部品だけ
