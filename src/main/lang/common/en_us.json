@@ -421,5 +421,15 @@
   "assembly.semiconductor-lab.math_coprocessor.wiring": "Wiring",
   "assembly.semiconductor-lab.math_coprocessor.wiring.short": "Wiring",
   "assembly.semiconductor-lab.math_coprocessor.board": "Board",
-  "assembly.semiconductor-lab.math_coprocessor.board.short": "Board"
+  "assembly.semiconductor-lab.math_coprocessor.board.short": "Board",
+  "assembly.semiconductor-lab.ai_chip.multipliers": "Multiplier chips (passed mul4, EUV and GAA)",
+  "assembly.semiconductor-lab.ai_chip.multipliers.short": "Multipliers",
+  "assembly.semiconductor-lab.ai_chip.fpu": "Math coprocessor",
+  "assembly.semiconductor-lab.ai_chip.fpu.short": "Coprocessor",
+  "assembly.semiconductor-lab.ai_chip.memory": "DRAM chip (passed DRAM cell)",
+  "assembly.semiconductor-lab.ai_chip.memory.short": "DRAM",
+  "assembly.semiconductor-lab.ai_chip.wiring": "Wiring",
+  "assembly.semiconductor-lab.ai_chip.wiring.short": "Wiring",
+  "assembly.semiconductor-lab.ai_chip.board": "Board",
+  "assembly.semiconductor-lab.ai_chip.board.short": "Board"
 }

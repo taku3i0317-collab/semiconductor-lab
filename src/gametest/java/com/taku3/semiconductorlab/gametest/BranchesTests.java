@@ -431,4 +431,31 @@ public class BranchesTests extends LabTestBase {
         h.assertFalse(menu.clickMenuButton(player, 7), "no such icon");
         h.succeed();
     }
+
+    /**
+     * [B-11] AI チップ（S-019 Q30 全部案A）：掛け算器になれるのは mul4 に合格し方眼 148・GAA のチップだけ。組立台は6種。
+     * 見本の数字を読む答えは、Java の掛け算と同じ（掛け算は mul4 の箱で）。教えた数字は、そのチップで教えた答えになる
+     */
+    @GameTest
+    public void aiChip(GameTestHelper h) {
+        var good = com.taku3.semiconductorlab.content.Branches.euvMultiplierSample();
+        h.assertTrue(com.taku3.semiconductorlab.item.AiChipItem.euvMultiplier(good), "mul4 + EUV grid + GAA");
+        var plain = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.CHIP);
+        plain.set(com.taku3.semiconductorlab.ModDataComponents.CHALLENGES, java.util.List.of("mul4"));
+        h.assertFalse(com.taku3.semiconductorlab.item.AiChipItem.euvMultiplier(plain), "a mul4 chip without EUV and GAA is not enough");
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Branches.AI_CHIP);
+        h.assertTrue(a != null && a.parts.size() == 5, "AI chip assembly with 5 roles");
+        var chip = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Branches.AI_CHIP);
+        var test = com.taku3.semiconductorlab.ai.DigitNet.bundled("test");
+        int ok = 0;
+        for (int k = 0; k < 30; k++) if (com.taku3.semiconductorlab.item.AiChipItem.recognize(chip, test.get(k).x()).digit() == test.get(k).label()) ok++;
+        h.assertTrue(ok >= 24, "the AI chip reads most sample digits: " + ok + "/30");
+        var ans = com.taku3.semiconductorlab.item.AiChipItem.recognize(chip, test.get(0).x());
+        h.assertTrue(ans.multiplies() > 100 && ans.clocks() == (ans.multiplies() + 3) / 4, "multiplies counted, four per clock: " + ans.multiplies());
+        int[] odd = new int[64]; odd[0] = odd[7] = odd[56] = odd[63] = 1;
+        int before = com.taku3.semiconductorlab.item.AiChipItem.recognize(chip, odd).digit(), target = (before + 3) % 10;
+        com.taku3.semiconductorlab.item.AiChipItem.teach(chip, odd, target);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.AiChipItem.recognize(chip, odd).digit(), target, "after teaching, this chip answers as taught");
+        h.succeed();
+    }
 }

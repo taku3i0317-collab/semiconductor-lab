@@ -80,6 +80,15 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.VAR_INT)
                     .build());
 
+    // [B-11] AI チップに教えた数字（"16進16けた:答え"、最大 32、S-019 Q30-1：プレイヤーの字で学び直す）
+    public static final DataComponentType<java.util.List<String>> AI_SAMPLES = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("ai_samples"),
+            DataComponentType.<java.util.List<String>>builder()
+                    .persistent(Codec.STRING.listOf())
+                    .networkSynchronized(ByteBufCodecs.STRING_UTF8.apply(ByteBufCodecs.list()))
+                    .build());
+
     // [B-10] スマホの今のアプリ（0＝電卓・1＝写真・2＝傾き、O-030）
     public static final DataComponentType<Integer> PHONE_APP = Registry.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE,

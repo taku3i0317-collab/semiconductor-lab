@@ -634,4 +634,6 @@
 ## O-031（[10-32] 浮動小数点、2026-10-21）
 - EUV（C）・GAA（E）はできた → 残る前提は [10-32]。ノードの MC が「未定（実装の前に相談）」なので案を書いた（LITHO_DESIGN §18）。**Q31**：案A 数値演算チップ（8087 の形：cpu8・mul4 のチップ＋レジスタを組立台で、右クリックで 0.1＋0.2 を 16・32・64ビットで見せる、AI チップの部品、学び直しはこのチップがあるとき）／案B 小さな浮動小数点の掛け算器のお題（むずかしい）／案C 知識だけ。おすすめ案A。答えまで作らない
 - O-032（Q31 案A 仮決定）：[10-32] 数値演算チップ Control.MATH_COPROCESSOR（item/MathCoprocessorItem：0.1＋0.2 を Float.floatToFloat16 の半精度・float・double で、ちょうどの10進とビットの並び）、組立台（cpu8・mul4・レジスタのチップ＋配線＋板）。TECH_TREE [10-32] ✅、REFERENCES L19、DECISIONS。GameTest mathCoprocessor。次：AI チップ [B-11]（書く画面の見た目はユーザーに）
+- O-031 の2：[B-11] AI チップ Branches.AI_CHIP（item/AiChipItem）：組立台（mul4 に合格し方眼 148・GAA の掛け算器のチップ4つ＝AiChipItem.euvMultiplier・数値演算チップ・DRAM のチップ・配線・板）、recognize（同梱の重み＋教えた数字で学び直し〔データ部品 ai_samples、最大32〕→ 4ビット、掛け算は mul4 の箱 LogicSim で1回ずつ、回数とクロック）、teach。右クリックは今は見本の数字を読む。TECH_TREE [B-11] ✅⚠️。GameTest aiChip
+- **Q32（ユーザーへ、書く画面の見た目）**：見本 docs/gui_preview/ai_chip_mock.png（tools/gen_ai_screen_mock.py）。案A 左に 8×8 の方眼（マウスで塗る）・右に答えの数字（ニキシー管の色）・0〜9 の確からしさの棒・16 個の隠れニューロンのランプ・「消す」「教える」のアイコンのボタン（文字なし、icons_e の色）／案B 方眼と答えの数字だけ（軽い）／案C 案A＋掛け算器が1回ずつ動く様子（クロックの数が増える、遅く見せる）。おすすめ案A。答えまで画面は作らない
 

@@ -50,6 +50,14 @@ public final class Branches {
                 .part("frame", net.minecraft.world.item.Items.IRON_INGOT, 4)
                 .part("wiring", Power.COPPER_CABLE.block.asItem(), 2)
                 .seconds(10).build();
+        // [B-11] AI チップ（S-019 Q30-2 案A）：EUV・GAA で作り mul4 に合格した掛け算器4つ（並べるほど速い）＋数値演算チップ（学び直し）＋DRAM（重みの置き場）＋配線＋板
+        com.taku3.semiconductorlab.machine.Assembly.recipe("ai_chip", AI_CHIP)
+                .part("multipliers", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.item.AiChipItem.euvMultiplier(s), com.taku3.semiconductorlab.item.AiChipItem.UNITS, Semiconductor.CHIP, () -> euvMultiplierSample())
+                .part("fpu", com.taku3.semiconductorlab.content.Control.MATH_COPROCESSOR, 1)
+                .part("memory", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "dram_cell"), 1, Semiconductor.CHIP, () -> passedChip("dram_cell"))
+                .part("wiring", Power.COPPER_CABLE.block.asItem(), 2)
+                .part("board", net.minecraft.world.item.Items.IRON_INGOT, 2)
+                .seconds(30).build();
         // [B-09] ゲーム機（S-017 Q27 案A ポン型）：玉と板の位置を数えるカウンタ2・速さを足す全加算器・点数を覚えるレジスタ（1972 のポンは TTL の IC 約66個、CPU なし）＋つまみ＋箱
         com.taku3.semiconductorlab.machine.Assembly.recipe("game_console", GAME_CONSOLE)
                 .part("counter", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "counter"), 2, Semiconductor.CHIP, () -> passedChip("counter"))
@@ -75,6 +83,16 @@ public final class Branches {
 
     /** まだ登録されていない部品（ほかの担当が作る）の ID：TFT 液晶 [B-19]（E）・白色 LED バックライト [B-20]。この ID のアイテムができれば、スマホのレシピに入る */
     public static final String TFT_ID = "tft_lcd", BACKLIGHT_ID = "led_backlight";
+
+    /** AI チップの掛け算器の見本（mul4 に合格・方眼 148・GAA） */
+    public static net.minecraft.world.item.ItemStack euvMultiplierSample() {
+        var st = passedChip("mul4");
+        var e = new com.taku3.semiconductorlab.litho.ChipState.Extras("", false, false, false, com.taku3.semiconductorlab.litho.BitGrid.empty(16), "", false, false, 0, 0, true);
+        st.set(com.taku3.semiconductorlab.ModDataComponents.CHIP_STATE, new com.taku3.semiconductorlab.litho.ChipState(148, "p", java.util.List.of(), com.taku3.semiconductorlab.litho.BitGrid.empty(148),
+                com.taku3.semiconductorlab.litho.ChipState.Resist.NONE, com.taku3.semiconductorlab.litho.BitGrid.empty(148), false, 0, 0, 0, com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE,
+                java.util.List.of(), java.util.List.of(), false, false, 0, e));
+        return st;
+    }
 
     /** スマホの部品がそろったか（TFT 液晶とバックライトのアイテムが登録されているか） */
     public static boolean smartphoneReady() {
@@ -110,6 +128,8 @@ public final class Branches {
     public static final Item KEY_SWITCH            = Reg.item("key_switch");
     /** 電卓：自分で作ったチップ＋キー＋ニキシー管を組立台で。右クリックで計算 */
     public static final Item CALCULATOR            = Reg.item("calculator", com.taku3.semiconductorlab.item.CalculatorItem::new, new Item.Properties().stacksTo(1));
+    /** [B-11] AI チップ（A、S-019 Q30 全部案A）：EUV・GAA で作った掛け算器4つ＋数値演算チップ＋DRAM。中で本物の小さなニューラルネットが 8×8 の数字を読む */
+    public static final Item AI_CHIP               = Reg.item("ai_chip", com.taku3.semiconductorlab.item.AiChipItem::new, new Item.Properties().stacksTo(1));
     /** [B-09] ゲーム機（A、S-017 Q27 案A ポン型）：合格したチップで組む、CPU なしの卓球。右クリックで画面 */
     public static final Item GAME_CONSOLE          = Reg.item("game_console", com.taku3.semiconductorlab.item.GameConsoleItem::new, new Item.Properties().stacksTo(1));
     /** [B-10] スマホ（A、O-029）：組立台で。アプリの画面はユーザーの答え待ち、TFT・バックライトがまだなので組めない ⚠️ */

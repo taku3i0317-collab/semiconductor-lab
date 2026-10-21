@@ -843,4 +843,5 @@ white_led  # Branches [B-20] 1996
 tft_lcd  # Branches [B-10] 2007
 led_backlight  # Branches [B-10] 2007
 smartphone  # Branches [B-10] 2007
+ai_chip  # Branches [B-11] 2012
 test_power_source  # Testing [None] None

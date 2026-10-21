@@ -5,6 +5,7 @@ assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.tft_lcd w=40 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.calculator w=52 lines=1/2
+assembly_bench_en_us product item.semiconductor-lab.ai_chip w=34 lines=1/2
 assembly_bench_en_us product item.semiconductor-lab.game_console w=134 lines=2/2 scale=0.79999995
 assembly_bench_en_us product item.semiconductor-lab.smartphone w=58 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.microcomputer w=100 lines=2/2 scale=0.74999994
@@ -38,6 +39,11 @@ assembly_bench_en_us role assembly.semiconductor-lab.calculator.display w=35 lin
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.keys w=24 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.frame w=30 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.wiring w=28 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.ai_chip.multipliers w=215 lines=2/2
+assembly_bench_en_us role assembly.semiconductor-lab.ai_chip.fpu w=92 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.ai_chip.memory w=146 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.ai_chip.wiring w=28 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.ai_chip.board w=30 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.game_console.counter w=162 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.game_console.adder w=157 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.game_console.register w=160 lines=1/2
@@ -1054,6 +1060,7 @@ assembly_bench_ja_jp product item.semiconductor-lab.touch_panel w=99 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.transistor_radio w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.tft_lcd w=40 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.calculator w=18 lines=1/2
+assembly_bench_ja_jp product item.semiconductor-lab.ai_chip w=41 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.game_console w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.smartphone w=27 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.microcomputer w=78 lines=2/2
@@ -1087,6 +1094,11 @@ assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.display w=18 lin
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.keys w=18 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.frame w=9 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.wiring w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.ai_chip.multipliers w=196 lines=2/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.ai_chip.fpu w=63 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.ai_chip.memory w=164 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.ai_chip.wiring w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.ai_chip.board w=9 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.counter w=153 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.adder w=144 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.register w=153 lines=1/2

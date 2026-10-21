@@ -400,6 +400,46 @@
     },
     {
       "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（ai_chip）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 4,
+          "cond": "multipliers"
+        },
+        {
+          "item": "semiconductor-lab:math_coprocessor",
+          "count": 1,
+          "cond": "fpu"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "memory"
+        },
+        {
+          "item": "semiconductor-lab:copper_cable",
+          "count": 2,
+          "cond": "wiring"
+        },
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 2,
+          "cond": "board"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:ai_chip",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 30.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
       "process": "組み立て（game_console）",
       "inputs": [
         {

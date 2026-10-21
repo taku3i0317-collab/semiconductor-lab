@@ -421,5 +421,15 @@
   "assembly.semiconductor-lab.math_coprocessor.wiring": "配線",
   "assembly.semiconductor-lab.math_coprocessor.wiring.short": "配線",
   "assembly.semiconductor-lab.math_coprocessor.board": "板",
-  "assembly.semiconductor-lab.math_coprocessor.board.short": "板"
+  "assembly.semiconductor-lab.math_coprocessor.board.short": "板",
+  "assembly.semiconductor-lab.ai_chip.multipliers": "掛け算器のチップ（mul4 に合格、EUV・GAA）",
+  "assembly.semiconductor-lab.ai_chip.multipliers.short": "掛け算器",
+  "assembly.semiconductor-lab.ai_chip.fpu": "数値演算チップ",
+  "assembly.semiconductor-lab.ai_chip.fpu.short": "数値演算",
+  "assembly.semiconductor-lab.ai_chip.memory": "DRAM のチップ（DRAM のセルに合格）",
+  "assembly.semiconductor-lab.ai_chip.memory.short": "DRAM",
+  "assembly.semiconductor-lab.ai_chip.wiring": "配線",
+  "assembly.semiconductor-lab.ai_chip.wiring.short": "配線",
+  "assembly.semiconductor-lab.ai_chip.board": "板",
+  "assembly.semiconductor-lab.ai_chip.board.short": "板"
 }
