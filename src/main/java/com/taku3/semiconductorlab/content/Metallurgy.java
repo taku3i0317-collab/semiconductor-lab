@@ -86,6 +86,11 @@ public final class Metallurgy {
     public static final Item IRON_POWDER           = Reg.item("iron_powder");
     public static final Item IRON_COMPACT          = Reg.item("iron_compact");
     public static final Item SINTERED_GEAR         = Reg.item("sintered_gear");
+    // [1-62] ステンレス鋼（IMP3、O-029、仮決定 Q3-23）：鋼6＋クロム2＋ニッケル → 仕込み9 → 電気炉 → ステンレス鋼（18-8）の板。
+    //   実験：鋼＋塩＋水 → さびた鋼（赤さび）。ステンレス鋼は塩水でもさびない（レシピが無い＝何も起きない）
+    public static final Item STAINLESS_CHARGE      = Reg.item("stainless_charge");
+    public static final Item STAINLESS_STEEL       = Reg.item("stainless_steel");
+    public static final Item RUSTED_STEEL          = Reg.item("rusted_steel");
     // [1-35] ネオジム磁石（IMP3、O-024、Q3-17 ①）：La・Pr・Nd の液＋シュウ酸 → シュウ酸塩 →かまど→ 軽い希土類の酸化物 → 4つ＋塩酸＋陽イオン交換樹脂 → 酸化ネオジム
     //   ＋フッ酸2 → フッ化ネオジム。酸化ネオジム＋フッ化ネオジム＋黒鉛棒 → 電解の仕込み →電気炉（溶融塩電解の近似）→ ネオジム
     //   B2O3＋磁鉄鉱＋木炭2 →溶鉱炉→ フェロボロン。ネオジム2＋鉄の粉4＋フェロボロン → NdFeB 合金 → ＋水素 → 粉2（水素で砕く）

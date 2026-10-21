@@ -1179,5 +1179,22 @@
   "block.semiconductor-lab.castner_cell.howto": "Insert 4 sodium hydroxide and an empty iron flask → metallic sodium. 2 kW.",
   "block.semiconductor-lab.gallium_cell.howto": "Insert 4 spent Bayer liquor and an empty polyethylene bottle → gallium and sodium hydroxide. 1 kW.",
   "block.semiconductor-lab.hall_heroult_cell.howto": "Insert alumina, cryolite and graphite rods (anodes) → aluminium. Needs a lot of power. Anodes wear away.",
-  "block.semiconductor-lab.tantalum_refinery.howto": "Tantalite + 2 hydrofluoric acid + potassium fluoride → K2TaF7; that + metallic sodium → tantalum. 3 kW. Containers pop out."
+  "block.semiconductor-lab.tantalum_refinery.howto": "Tantalite + 2 hydrofluoric acid + potassium fluoride → K2TaF7; that + metallic sodium → tantalum. 3 kW. Containers pop out.",
+  "item.semiconductor-lab.stainless_charge": "Stainless Steel Charge",
+  "item.semiconductor-lab.stainless_charge.note1": "Steel mixed with chromium and nickel. Melted together in an electric furnace.",
+  "item.semiconductor-lab.stainless_charge.note2": "6 steel + 2 chromium + nickel -> 9. Electric furnace -> stainless steel.",
+  "item.semiconductor-lab.stainless_charge.note3": "Melted, it becomes an alloy of about 18% chromium and 8% nickel (18-8 stainless).",
+  "item.semiconductor-lab.stainless_charge.note4": "In an ordinary furnace the chromium oxidizes away, so it is melted electrically and oxygen is blown in to burn off only the carbon (the AOD process of the 1960s and others).",
+  "item.semiconductor-lab.stainless_charge.placeholder": "Approximation: the proportions are game values (about 22% Cr, 11% Ni).",
+  "item.semiconductor-lab.stainless_steel": "Stainless Steel (18-8)",
+  "item.semiconductor-lab.stainless_steel.note1": "Steel that does not rust. For sinks, cutlery and vacuum vessels.",
+  "item.semiconductor-lab.stainless_steel.note2": "Fire the charge in an electric furnace. It does not rust even in brine (ordinary steel + salt + water becomes rusted steel - compare them). A material for C's EUV vacuum enclosure and ultrapure-water piping.",
+  "item.semiconductor-lab.stainless_steel.note3": "With more than about 12% chromium, iron grows a chromium-oxide film a few nanometres thick that keeps out oxygen and water (passivation); scratched, it heals in air. Nickel makes it non-magnetic and tough.",
+  "item.semiconductor-lab.stainless_steel.note4": "Guillet in France studied iron-chromium alloys in 1904-06, Krupp in Germany patented 18-8 in 1912, and Brearley in England made 13% chromium 'rustless steel' in 1913. It gives off little gas, so ultra-high-vacuum chambers are made of stainless steel.",
+  "item.semiconductor-lab.rusted_steel": "Rusted Steel (Experiment)",
+  "item.semiconductor-lab.rusted_steel.note1": "Steel rusted red in brine.",
+  "item.semiconductor-lab.rusted_steel.note2": "Steel + salt + water (bucket returned). Stainless steel does not rust in this experiment (there is no recipe).",
+  "item.semiconductor-lab.rusted_steel.note3": "Iron becomes iron oxide (red rust) with water and oxygen. Salt makes the water conduct and the rusting goes faster (electrochemical corrosion).",
+  "item.semiconductor-lab.rusted_steel.note4": "Iron bridges and cars near the sea rust faster because of salty winds.",
+  "item.semiconductor-lab.rusted_steel.placeholder": "Approximation: the time to rust (really days) is omitted."
 }

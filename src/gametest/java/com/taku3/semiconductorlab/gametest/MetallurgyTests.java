@@ -1276,4 +1276,15 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-62] ステンレス鋼（IMP3、O-029）：鋼＋Cr＋Ni → 仕込み → 電気炉 → ステンレス。鋼は塩水でさびる、ステンレスはさびない */
+    @GameTest
+    public void stainlessSteel(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "stainless_charge", Metallurgy.CHROMIUM) && recipeUses(h, "stainless_charge", Metallurgy.NICKEL) && recipeUses(h, "stainless_charge", Metallurgy.STEEL_INGOT), "Fe + Cr + Ni");
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectricFurnaceBlockEntity.recipes().get(Metallurgy.STAINLESS_CHARGE) == Metallurgy.STAINLESS_STEEL, "electric furnace melts it");
+        h.assertTrue(recipeUses(h, "rusted_steel", Metallurgy.STEEL_INGOT), "plain steel rusts in brine");
+        var mgr = h.getLevel().getServer().getRecipeManager();
+        var input = net.minecraft.world.item.crafting.CraftingInput.of(3, 1, java.util.List.of(new ItemStack(Metallurgy.STAINLESS_STEEL), new ItemStack(com.taku3.semiconductorlab.content.Gas.SALT), new ItemStack(Items.WATER_BUCKET)));
+        h.assertTrue(mgr.getRecipeFor(net.minecraft.world.item.crafting.RecipeType.CRAFTING, input, h.getLevel()).isEmpty(), "stainless + brine: nothing happens");
+        h.succeed();
+    }
 }

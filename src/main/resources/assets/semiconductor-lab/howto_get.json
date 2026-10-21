@@ -2182,6 +2182,9 @@
 "ruling_engine": [
 "crafting"
 ],
+"rusted_steel": [
+"crafting"
+],
 "salt": [
 "crafting",
 "machine:salt_pan"
@@ -2397,6 +2400,12 @@
 ],
 "sputter": [
 "crafting"
+],
+"stainless_charge": [
+"crafting"
+],
+"stainless_steel": [
+"machine:electric_furnace"
 ],
 "stamp": [
 "machine:probe_station"

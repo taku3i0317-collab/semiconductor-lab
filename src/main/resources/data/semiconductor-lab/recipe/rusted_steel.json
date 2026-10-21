@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:salt",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:rusted_steel",
+    "count": 1
+  }
+}

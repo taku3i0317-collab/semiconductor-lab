@@ -151,6 +151,9 @@ tungsten_bar  # Metallurgy [1-28] 1910
 tungsten_wire  # Metallurgy [1-28] 1910
 wolframite_ore  # Metallurgy [1-28] 1910
 hydrogen_furnace  # Metallurgy [1-28] 1910
+stainless_charge  # Metallurgy [1-62] 1913
+stainless_steel  # Metallurgy [1-62] 1913
+rusted_steel  # Metallurgy [1-62] 1913
 silicon_tetrachloride  # Metallurgy [7-15] 1920
 rock_crystal  # Metallurgy [8-15] 1921
 zircon  # Metallurgy [1-70] 1925
