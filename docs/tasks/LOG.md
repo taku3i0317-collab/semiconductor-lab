@@ -555,3 +555,4 @@
 - DECISIONS に4行。[10-10] IC 論理は今のお題（RTL）で ✅⚠️（TTL は省略）
 - [10-12] DRAM：litho に時間（Circuit.solve の dt、MOS のゲートと MOS のコンデンサが電荷をため、手から手へ持ちこす、漏れる）。お題 dram_cell（1103 の3トランジスタ、書く → W を先に切る → 読む、2 ms ごとのリフレッシュ）、例 dramCell（24×24）が合格、20 ms で忘れる。CAP_PER_CELL は 1e-11 だと 2 ms もたなかったので 3e-11（約 4〜5 ms）。REFERENCES L15、TECH_TREE ✅
 
+- E の [9-36] 銅配線の受け口（S-003【2】、E と決めた形）：層間膜の1回目の窓＝ビアの穴（2回目の窓を開けるとき extras.viaHoles に覚える）、2回目＝溝。ChipOps.depositBarrier（Ta）・plateCopper（バリアなしは汚れ +30）・planarize が銅の膜のとき溝の中だけ残す（METAL2＝溝、VIA＝ビアの穴、Al のエッチングなし）。GameTest copperDamascene

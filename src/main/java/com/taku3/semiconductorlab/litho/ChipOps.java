@@ -173,7 +173,10 @@ public final class ChipOps {
         if (!anisotropic && s.size() >= WET_LIMIT_GRID) cut = grow(cut);
         BitGrid open = s.windows();
         for (int y = 0; y < s.size(); y++) for (int x = 0; x < s.size(); x++) if (cut.get(x, y)) open = open.with(x, y, true);
-        return Result.ok(write(w, s.withWindows(open).dirtier(1)));
+        ChipState t = s;
+        // 銅のダマシン（[9-36]、ビアが先）：層間膜に2回目の窓を開けるとき、1回目の窓をビアの穴として覚える（2回目＝配線の溝）
+        if (s.interlayer() && s.hasWindows() && !s.extras().hasViaHoles()) t = t.withExtras(s.extras().withViaHoles(s.windows()));
+        return Result.ok(write(w, t.withWindows(open).dirtier(1)));
     }
 
     /** 上下左右に1マス太らせる（液の横への溶け） */
@@ -272,9 +275,45 @@ public final class ChipOps {
         ChipState s = state(w);
         if (s == null || !s.interlayer()) return Result.fail("no_interlayer");
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.extras().copperFilm()) {   // 銅のダマシン（[9-36]）：上の銅をけずり、溝の中だけ残す＝溝の形がそのまま2層目、ビアの穴が VIA（Al のエッチングは使わない）
+            ChipState t = s.extras().hasViaHoles() ? s.plus(LayerKind.VIA, s.extras().viaHoles()) : s;
+            t = t.plus(LayerKind.METAL2, s.windows()).withWindows(BitGrid.empty(s.size())).withMetalFilm(false);
+            return Result.ok(write(w, t.withExtras(t.extras().withCopperFilm(false)).flattened().dirtier(2)));
+        }
         if (s.metalFilm()) return Result.fail("metal_on");
         if (s.steps() == 0) return Result.fail("already_flat");
         return Result.ok(write(w, s.flattened().dirtier(2)));
+    }
+
+    public static boolean canDepositBarrier(ItemStack w) { return depositBarrier(w).ok(); }
+
+    /**
+     * 銅の配線のバリア膜（[9-36]、1997 IBM、E のスパッタ＋タンタルの的、E と決めた形）：窓（溝）のある層間膜に Ta（TaN）をうすく付ける。
+     * 銅はシリコンにしみこむと接合をこわすので、先にふたをする（記録だけ）
+     */
+    public static Result depositBarrier(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || !s.interlayer()) return Result.fail("no_interlayer");
+        if (!s.hasWindows()) return Result.fail("no_window");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.metalFilm()) return Result.fail("metal_on");
+        if (s.extras().barrier()) return Result.fail("already");
+        return Result.ok(write(w, s.withExtras(s.extras().withBarrier(true)).dirtier(1)));
+    }
+
+    public static boolean canPlateCopper(ItemStack w) { return plateCopper(w).ok(); }
+
+    /**
+     * 銅めっき（[9-36]、E の硫酸銅のめっき槽）：窓（溝とビアの穴）を銅で埋めて、上一面に銅の膜。
+     * バリアなしだと銅がシリコンへしみて汚れ +30（漏れが増える）。このあと CMP（{@link #planarize}）で溝の中だけ残す
+     */
+    public static Result plateCopper(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || !s.interlayer()) return Result.fail("no_interlayer");
+        if (!s.hasWindows()) return Result.fail("no_window");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.metalFilm() || s.has(LayerKind.METAL2)) return Result.fail("metal_on");
+        return Result.ok(write(w, s.withMetalFilm(true).withExtras(s.extras().withCopperFilm(true)).dirtier(s.extras().barrier() ? 1 : 30)));
     }
 
     public static boolean canPassivate(ItemStack w) { return passivate(w).ok(); }
@@ -289,7 +328,7 @@ public final class ChipOps {
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
         if (s.metalFilm()) return Result.fail("metal_on");
         if (s.extras().passivated()) return Result.fail("already");
-        return Result.ok(write(w, s.withExtras(new ChipState.Extras(s.extras().epiOn(), true))));
+        return Result.ok(write(w, s.withExtras(s.extras().withPassivated(true))));
     }
 
     public static boolean canGateOxide(ItemStack w) { return gateOxide(w).ok(); }

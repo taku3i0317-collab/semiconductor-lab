@@ -11,7 +11,7 @@ import java.util.List;
  * 中身は ChipOps だけが書きかえる（C・E の機械は ChipOps を呼ぶ）。
  * contamination＝汚れの度合い（[9-14] 洗浄、E と決めた形）：削る・はがす・しみ込ませる・Al のたびに +1、ChipOps.clean で落とす。
  * 失敗にはしない（O-002 方針2）。ツールチップに出し、v0.5 の歩留まりの欠陥密度 D に足す
- * extras＝あとから足した記録（Codec の16項目の上限をこえるので別の MapCodec、保存の名前は同じ平らな形）：epiOn＝エピタキシー（[9-30]、E と決めた形）の下の板の型（substrate はエピ層の型）、passivated＝最後の保護膜（窒化膜、記録だけ）。
+ * extras＝あとから足した記録（銅のダマシン [9-36]：barrier＝Ta のバリア膜、copperFilm＝めっきした銅の膜、viaHoles＝層間膜の1回目の窓＝ビアの穴）（Codec の16項目の上限をこえるので別の MapCodec、保存の名前は同じ平らな形）：epiOn＝エピタキシー（[9-30]、E と決めた形）の下の板の型（substrate はエピ層の型）、passivated＝最後の保護膜（窒化膜、記録だけ）。
  * planarizedAt＝CMP（[9-31] 化学機械研磨、E と決めた形）で平らにしたときの done の数。steps()＝それから後に重ねた層の数＝表面の段差の段数（記録だけ。v0.5 の焦点深度で使う）。
  * interlayer＝1層目の金属の上に層間膜（CVD の SiO2）を付けたか（S-011、2層目の金属）。付けたあとの窓は VIA、金属は METAL2 になる。
  * conformalMetal＝金属を段差によく付く方法（[9-26] スパッタ）で付けたか（E と決めた形、記録だけ。v0.5 の歩留まりで、蒸着は段差のふちで切れやすい ⚠️）。
@@ -46,13 +46,25 @@ public record ChipState(int size, String substrate, List<Applied> done, BitGrid 
     private static final int UNSET = BitGrid.MIN;
 
     /** あとから足した記録（S-012 前後、E と決めた形）。epiOn＝エピ層の下の板の型（""＝エピなし）、passivated＝窒化膜の保護膜を付けたか */
-    public record Extras(String epiOn, boolean passivated) {
+    public record Extras(String epiOn, boolean passivated, boolean barrier, boolean copperFilm, BitGrid viaHoles) {
+        /** 何もない方眼（大きさの決まっていない印） */
+        static final BitGrid NO_GRID = BitGrid.empty(BitGrid.MIN);
         public static final Extras NONE = new Extras("", false);
         static final com.mojang.serialization.MapCodec<Extras> MAP_CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
                 Codec.STRING.optionalFieldOf("epi_on", "").forGetter(Extras::epiOn),
-                Codec.BOOL.optionalFieldOf("passivated", false).forGetter(Extras::passivated)
+                Codec.BOOL.optionalFieldOf("passivated", false).forGetter(Extras::passivated),
+                Codec.BOOL.optionalFieldOf("barrier", false).forGetter(Extras::barrier),
+                Codec.BOOL.optionalFieldOf("copper_film", false).forGetter(Extras::copperFilm),
+                BitGrid.CODEC.optionalFieldOf("via_holes", NO_GRID).forGetter(Extras::viaHoles)
         ).apply(i, Extras::new));
+        public Extras(String epiOn, boolean passivated) { this(epiOn, passivated, false, false, NO_GRID); }
         public boolean epi() { return !epiOn.isEmpty(); }
+        /** 銅のダマシン（[9-36]）：ビアの穴を覚えているか */
+        public boolean hasViaHoles() { return !viaHoles.isEmpty(); }
+        Extras withPassivated(boolean p) { return new Extras(epiOn, p, barrier, copperFilm, viaHoles); }
+        Extras withBarrier(boolean b) { return new Extras(epiOn, passivated, b, copperFilm, viaHoles); }
+        Extras withCopperFilm(boolean c) { return new Extras(epiOn, passivated, barrier, c, viaHoles); }
+        Extras withViaHoles(BitGrid g) { return new Extras(epiOn, passivated, barrier, copperFilm, g); }
     }
 
     private static final com.mojang.serialization.MapCodec<ChipState> BASE_CODEC = RecordCodecBuilder.mapCodec(i -> i.group(

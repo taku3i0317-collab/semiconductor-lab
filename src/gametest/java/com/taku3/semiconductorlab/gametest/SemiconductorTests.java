@@ -2718,6 +2718,44 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-36] 銅のデュアルダマシンの受け口（E と決めた形）：層間膜 → 1回目の窓＝ビアの穴 → 2回目の窓＝溝 → バリア → 銅めっき → CMP で溝の中だけ残る。
+     * NMOS インバータ＋2層目の例と同じ形を銅で作ると、右と下のパッドが同じ線（Al のエッチングなし）。バリアなしのめっきは汚れ +30
+     */
+    @GameTest(maxTicks = 200)
+    public void copperDamascene(GameTestHelper h) {
+        var base = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal();
+        var one = new com.taku3.semiconductorlab.litho.ChipDesign(16, "one", base.layers().subList(0, 4), java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.MOS);
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack w = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, one, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        w = com.taku3.semiconductorlab.litho.ChipOps.depositInterlayer(w).out();
+        var tool = com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G;
+        for (int layer : new int[] {4, 5}) {   // 1回目＝VIA の穴、2回目＝2層目の溝（窓として開ける）
+            var cells = base.layers().get(layer).cells();
+            var mask = new com.taku3.semiconductorlab.litho.ChipDesign(16, "m", java.util.List.of(new com.taku3.semiconductorlab.litho.ChipDesign.Layer(com.taku3.semiconductorlab.litho.LayerKind.CONTACT, cells))).mask(0);
+            w = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.expose(w, mask, tool).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.develop(w).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.etchOxide(w, true).out();
+            w = com.taku3.semiconductorlab.litho.ChipOps.strip(w).out();
+        }
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.state(w).extras().hasViaHoles(), "the first opening is remembered as via holes");
+        int dirt0 = com.taku3.semiconductorlab.litho.ChipOps.state(w).contamination();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.plateCopper(w).out()).contamination(), dirt0 + 30, "copper without a barrier poisons the silicon");
+        w = com.taku3.semiconductorlab.litho.ChipOps.depositBarrier(w).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.depositBarrier(w).reason(), "already", "one barrier");
+        w = com.taku3.semiconductorlab.litho.ChipOps.plateCopper(w).out();
+        var r = com.taku3.semiconductorlab.litho.ChipOps.planarize(w);
+        h.assertTrue(r.ok(), "CMP leaves copper only in the trenches: " + r.reason());
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(r.out());
+        h.assertTrue(st.has(com.taku3.semiconductorlab.litho.LayerKind.METAL2) && st.has(com.taku3.semiconductorlab.litho.LayerKind.VIA) && !st.metalFilm() && st.steps() == 0, "metal 2 and vias, flat, no film left");
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st));
+        int n = nl.model.size;
+        h.assertValueEqual(nl.netOf[12 * n + 15], nl.netOf[15 * n + 8], "the right pad and the bottom pad are one net through copper");
+        LOG.info("[LAB] copper damascene [9-36]: via holes, trenches, barrier, plating, CMP -> metal 2 without etching");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
