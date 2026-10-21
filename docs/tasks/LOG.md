@@ -549,3 +549,4 @@
 - O-023（司令塔の訂正）：O-022 の「1T1C」はお題の形を決めたものではない → Q22-3 を案B として読んだのを取り消し。Q22-1〜4 は全部答え待ち、DRAM は作らない
 
 - O-024：ガイド第6巻「微細化」（guide6/、13個：波長・レイリーの式・ステッパーと液浸・ムーアの法則・交流と変圧器・整流器・イオン注入・スパッタとドライエッチング・MOSFET・CMOS・2層目と CMP）と give_guidebook6。HUMAN_CHECK を v0.4 の確認表に（ステッパー・電気・新しい工程・MOS／CMOS・CMP の5手順）。tag v0.4 はしない。GameTest guide6Shrinking（300/300）
+- S-011 の3：充電池の親 energy/RechargeableBatteryBlockEntity（Spec＝容量 J・上限 W・効率 %、全面で充放電・直流だけ・隣の受け取るだけの機械へ押し出す・残量は battery_energy）。新しい電池は継承＋ content に RechargeableBatteryBlockEntity.machine(...) の1行＋ lang message.semiconductor-lab.<id>.status。鉛蓄電池は継承に（定数・tick はそのまま）、ブロックとツールチップは電池ごとの容量。D に使い方を知らせた。GameTest rechargeableBase（303/303）

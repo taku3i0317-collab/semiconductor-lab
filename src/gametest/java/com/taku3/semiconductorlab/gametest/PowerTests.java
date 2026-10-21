@@ -585,6 +585,17 @@ public class PowerTests extends LabTestBase {
     }
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
+    /** S-011 の3：充電池の親 RechargeableBatteryBlockEntity。鉛蓄電池はそれを継承し、容量はアイテムの ID から引ける（ツールチップ）、ブロックの文は機械の名前から */
+    @GameTest
+    public void rechargeableBase(GameTestHelper h) {
+        h.setBlock(p(1, 1, 1), Power.LEAD_ACID_BATTERY.block);
+        var be = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.class);
+        h.assertTrue(be instanceof LeadAcidBatteryBlockEntity && be.getCapacityJ() == LeadAcidBatteryBlockEntity.CAPACITY, "lead-acid is a rechargeable battery with 1 MJ");
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.capacityOf("semiconductor-lab:lead_acid_battery"), 1_000_000L, "capacity by item id");
+        h.assertValueEqual(com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.capacityOf("semiconductor-lab:nothing"), 0L, "unknown id");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // recipes() は順番のない Map なので、材料の ID 順に並べて毎回同じ順で書く（IMP-27）
         for (var e : ElectricFurnaceBlockEntity.recipes().entrySet().stream().sorted(java.util.Comparator.comparing(x -> iid(x.getKey()))).toList())

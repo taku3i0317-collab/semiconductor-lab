@@ -16,10 +16,10 @@ public class NoteTooltip {
     public static void register() {
         ItemTooltipCallback.EVENT.register((stack, context, flag, lines) -> {
             String id = BuiltInRegistries.ITEM.getKey(stack.getItem()).toString().replace(':', '.');
-            // 鉛蓄電池の残量（データコンポーネント battery_energy）
+            // 充電池の残量（データコンポーネント battery_energy）
             Long battery = stack.get(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY);
             if (battery != null) lines.add(Component.translatable("tooltip.semiconductor-lab.battery_energy",
-                    com.taku3.semiconductorlab.energy.EnergyStorage.format(battery), com.taku3.semiconductorlab.energy.EnergyStorage.format(com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity.CAPACITY)).withStyle(ChatFormatting.AQUA));
+                    com.taku3.semiconductorlab.energy.EnergyStorage.format(battery), com.taku3.semiconductorlab.energy.EnergyStorage.format(com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.capacityOf(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString()))).withStyle(ChatFormatting.AQUA));
             // 加工中のウェハーの汚れ（[9-14] 洗浄、O-002）
             var chip = stack.get(com.taku3.semiconductorlab.ModDataComponents.CHIP_STATE);
             if (chip != null && chip.contamination() > 0)

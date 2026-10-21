@@ -44,9 +44,8 @@ public final class Power {
     // 発電機（v0.2a）：水車＋ダイナモ [4-01]／ボイラー＋蒸気機関＋ダイナモ [4-02][4-14]／蒸気タービン [4-06]、鉛蓄電池 [4-07]
     public static final Machine<WaterWheelBlockEntity> WATER_WHEEL = Power.generator("water_wheel", WaterWheelBlockEntity::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0f).sound(SoundType.WOOD)).build();
     public static final Machine<SteamTurbineBlockEntity> STEAM_TURBINE = Power.generator("steam_turbine", SteamTurbineBlockEntity::new, metal(4.0f)).layout(SteamEngineBlockEntity.LAYOUT).build();
-    public static final Machine<LeadAcidBatteryBlockEntity> LEAD_ACID_BATTERY = Machine.builder("lead_acid_battery", LeadAcidBatteryBlockEntity::new)
-            .block(LeadAcidBatteryBlock::new).ticker(LeadAcidBatteryBlockEntity::tick).energy((be, dir) -> be.storageFor(dir))   // 全面で充放電（タスク06）
-            .props(BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2.5f).sound(SoundType.GLASS)).build();
+    public static final Machine<LeadAcidBatteryBlockEntity> LEAD_ACID_BATTERY = com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity.machine("lead_acid_battery", LeadAcidBatteryBlockEntity::new, LeadAcidBatteryBlockEntity.SPEC,   // 全面で充放電（タスク06）、充電池の親（S-011）
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2.5f).sound(SoundType.GLASS));
     public static final Machine<SteamEngineBlockEntity> STEAM_ENGINE = Power.generator("steam_engine", SteamEngineBlockEntity::new, metal(3.5f)).layout(SteamEngineBlockEntity.LAYOUT).build();
 
     // [4-13] ボルタの電堆・[4-36] ダニエル電池（IMP3、S-005、A と決めた形：発電機、直流）：亜鉛＋塩水（ボルタ、分極で下がる）／亜鉛＋硫酸銅（ダニエル、一定）

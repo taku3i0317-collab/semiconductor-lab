@@ -3,7 +3,7 @@ package com.taku3.semiconductorlab.block;
 import com.taku3.semiconductorlab.machine.Machine;
 import com.taku3.semiconductorlab.machine.MachineBlock;
 import com.taku3.semiconductorlab.energy.EnergyStorage;
-import com.taku3.semiconductorlab.energy.LeadAcidBatteryBlockEntity;
+import com.taku3.semiconductorlab.energy.RechargeableBatteryBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
@@ -22,14 +22,14 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.phys.BlockHitResult;
 
-/** 鉛蓄電池 [4-07] のブロック。向き FACING（正面＝放電端子、置いた人の方を向く）＋ LIT（放電中）。右クリックで残量をチャットに表示 */
+/** 充電池のブロック（鉛蓄電池 [4-07] から。親 RechargeableBatteryBlockEntity の電池はみなこれ、文は message.semiconductor-lab.<機械の名前>.status）。向き FACING（正面＝放電端子、置いた人の方を向く）＋ LIT（放電中）。右クリックで残量をチャットに表示 */
 public class LeadAcidBatteryBlock extends MachineBlock {
     public LeadAcidBatteryBlock(Properties props, Machine<?> machine) { super(props, machine); }
 
     @Override protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide() && level.getBlockEntity(pos) instanceof LeadAcidBatteryBlockEntity be)
-            player.sendSystemMessage(Component.translatable("message.semiconductor-lab.lead_acid_battery.status",
-                    EnergyStorage.format(be.getStoredJ()), EnergyStorage.format(LeadAcidBatteryBlockEntity.CAPACITY),
+        if (!level.isClientSide() && level.getBlockEntity(pos) instanceof RechargeableBatteryBlockEntity be)
+            player.sendSystemMessage(Component.translatable("message.semiconductor-lab." + machine.name + ".status",
+                    EnergyStorage.format(be.getStoredJ()), EnergyStorage.format(be.getCapacityJ()),
                     String.format("%.1f kW", be.getLastChargeWatts() / 1000), String.format("%.1f kW", be.getLastDischargeWatts() / 1000)));
         return InteractionResult.SUCCESS;
     }
