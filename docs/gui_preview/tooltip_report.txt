@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 704（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 705（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1351,6 +1351,8 @@ en_us bread_dough lines=5
 en_us bread_dough shift lines=11
 en_us leavened_bread lines=6
 en_us leavened_bread shift lines=11
+en_us tired_farmland lines=8
+en_us tired_farmland shift lines=20
 en_us theodolite lines=10
 en_us theodolite shift lines=22
 en_us air_conditioner lines=10
@@ -2759,6 +2761,8 @@ ja_jp bread_dough lines=4
 ja_jp bread_dough shift lines=9
 ja_jp leavened_bread lines=5
 ja_jp leavened_bread shift lines=10
+ja_jp tired_farmland lines=6
+ja_jp tired_farmland shift lines=15
 ja_jp theodolite lines=7
 ja_jp theodolite shift lines=17
 ja_jp air_conditioner lines=5
