@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide7/p9",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:ald_reactor"
+    },
+    "title": {
+      "translate": "guide7.semiconductor-lab.p10.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch7.p10"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "ald_reactor": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:ald_reactor"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ald_reactor"
+    ]
+  ]
+}

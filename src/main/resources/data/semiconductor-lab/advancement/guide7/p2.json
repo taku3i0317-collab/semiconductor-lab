@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide7/p1",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:projection_lens_immersion"
+    },
+    "title": {
+      "translate": "guide7.semiconductor-lab.p2.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch7.p2"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "projection_lens_immersion": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:projection_lens_immersion"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "projection_lens_immersion"
+    ]
+  ]
+}

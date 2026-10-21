@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:scanner"
+    },
+    "title": {
+      "translate": "guide7.semiconductor-lab.root.title"
+    },
+    "description": {
+      "translate": "guide7.semiconductor-lab.root.description"
+    },
+    "background": "minecraft:block/white_concrete",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "projection_lens_immersion": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:projection_lens_immersion"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "projection_lens_immersion"
+    ]
+  ],
+  "rewards": {
+    "function": "semiconductor-lab:give_guidebook7"
+  }
+}

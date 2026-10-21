@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide7/p7",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:wafer_prober"
+    },
+    "title": {
+      "translate": "guide7.semiconductor-lab.p8.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch7.p8"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "wafer_prober": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:wafer_prober"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "wafer_prober"
+    ]
+  ]
+}

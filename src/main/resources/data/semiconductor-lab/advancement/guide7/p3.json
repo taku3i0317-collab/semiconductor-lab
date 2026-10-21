@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide7/p2",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chemically_amplified_resist"
+    },
+    "title": {
+      "translate": "guide7.semiconductor-lab.p3.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch7.p3"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "chemically_amplified_resist": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:chemically_amplified_resist"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "chemically_amplified_resist"
+    ]
+  ]
+}
