@@ -610,3 +610,4 @@
 - 4 E の白ヒ素：E のアイテムが来たら反射炉に1行（受けた）
 
 - S-017 の4（E の [B-07]）：反射炉で黄鉄鉱を焼くとベンガラ（Fe2O3）＋SO2、4個ごとに白ヒ素（煙道のちり、副産物スロット4）。錫石は焼いても錫石のまま（同じ物が出ると何度でも白ヒ素が取れてしまう）なので黄鉄鉱だけにした。CHEMISTRY（3_heat）、GameTest pyriteWhiteArsenic
+- E の tft_lcd・led_backlight がそろい、スマホのレシピ（8種）が現れた。GameTest smartphoneRecipe がそろった方の道で PASS（364）。lang の「まだない ⚠️」を直した。アプリの画面はこれから
