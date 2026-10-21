@@ -4376,3 +4376,15 @@ Long Now 財団の「Manual for Civilization（文明の手引き）」の推薦
 - つなぐノード：（ノードにはつながない。全体の本）
 - 確かさ：○（目録 https://catalog.saclibrary.org/Record/.b21134418、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000008042780）
 
+## F60. 回りすぎたら弁をしぼる（遠心調速機とフィードバック制御）［10-04］
+**答え**：目標（ねらいの速さ）と今の値のずれを測り、ずれを小さくする向きに直し続ける＝フィードバック制御。1788年、ワットは蒸気機関の軸に2つのおもりの玉を付け、速く回ると玉が遠心力で開いて蒸気の弁を閉じるようにした（遠心調速機）。
+
+- へえ①：調速機は風車の石臼のすき間の調整にすでに使われていて、ワットはそれを蒸気機関に応用した ⚠️
+- へえ②：1868年、マクスウェルが論文『調速機について』で、調速機が回転をふらつかせる（ハンチング）理由を式で調べ、制御の理論が始まった
+- へえ③：1922年、ミノルスキーが船の自動かじ取りの研究で、今の PID 制御（ずれ・ずれの合計・ずれの変わる速さ）の形を示した
+- へえ④：エアコン・自動運転・ロボットの腕・露光装置のステージも、みな「測って、くらべて、直す」のくり返し
+
+確かさ：ワットの調速機 1788 ◎／マクスウェル 1868 ◎／ミノルスキー 1922 ◎／風車からの応用 △
+ゲーム（2026-10-21 A、O-037 で実装）：遠心調速機を蒸気機関・タービンに右クリックで付けると、蓄えの量（＝回転の代わり、80〜120%）を目標 100% とくらべて弁をしぼる（P 制御）。電気を使う物が少ないと石炭が長持ち。画面に「回転 xx%（目標 100%）」
+根拠：Wikipedia「Centrifugal governor」https://en.wikipedia.org/wiki/Centrifugal_governor （英語）、J. C. Maxwell「On Governors」Proc. Royal Society 1868 https://doi.org/10.1098/rspl.1867.0055 、Wikipedia「Proportional–integral–derivative controller」（History）https://en.wikipedia.org/wiki/Proportional%E2%80%93integral%E2%80%93derivative_controller
+

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "S S",
+    "IWI",
+    " I "
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "I": "minecraft:iron_ingot",
+    "W": "semiconductor-lab:standard_screw"
+  },
+  "result": {
+    "id": "semiconductor-lab:centrifugal_governor",
+    "count": 1
+  }
+}

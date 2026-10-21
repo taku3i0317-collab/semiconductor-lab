@@ -32,15 +32,22 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Mach
     public static final double COAL_HEAT_J = 30_000_000;   // 石炭1個の熱（ゲームの約束）
     public static final int SLOT_COAL = 0, SLOT_WATER = 1;
     // GUI へ送る数値。同期は short（最大32767）なので、W は「0.1kW 単位」、J は「kJ 単位」に縮めて送る
-    public static final int DATA_BURN = 0, DATA_BURN_TOTAL = 1, DATA_WATER = 2, DATA_DECI_KW = 3, DATA_KJ = 4, DATA_COUNT = 5;
+    public static final int DATA_BURN = 0, DATA_BURN_TOTAL = 1, DATA_WATER = 2, DATA_DECI_KW = 3, DATA_KJ = 4, DATA_SPEED = 5, DATA_GOVERNOR = 6, DATA_COUNT = 7;
+    /** [10-04] 遠心調速機：目標の回転（%）と、今の回転の計算（蓄えの量 0〜1 → 80〜120%。蓄えがあふれそう＝回りすぎ） */
+    public static final int TARGET_SPEED = 100;
+    public static int speedPercent(double fill) { return (int) Math.round(80 + 40 * fill); }
     private final SimpleContainer container = new SimpleContainer(2) { @Override public void setChanged() { super.setChanged(); SteamEngineBlockEntity.this.setChanged(); } };
     private int burnTicks, waterUnits;
+    /** [10-04] 遠心調速機を付けたか・弁の開き（0〜1）・燃え進みの端数 */
+    private boolean governor;
+    private double throttle = 1, burnFrac;
     // waterUnits: 石炭何個分の水が残っているか。feedNow: 隣の水源から給水できたか（タービンだけ。GUI には水 = -1 で送る）
     private boolean feedNow;
     private final ContainerData data = new ContainerData() {
         @Override public int get(int i) { return switch (i) {
             case DATA_BURN -> burnTicks; case DATA_BURN_TOTAL -> coalTicks; case DATA_WATER -> feedNow ? -1 : waterUnits;
-            case DATA_DECI_KW -> (int) Math.round(getLastWatts() / 100); case DATA_KJ -> (int) (storage.getStoredJ() / 1000); default -> 0; }; }
+            case DATA_DECI_KW -> (int) Math.round(getLastWatts() / 100); case DATA_KJ -> (int) (storage.getStoredJ() / 1000);
+            case DATA_SPEED -> speedPercent(fill()); case DATA_GOVERNOR -> governor ? 1 : 0; default -> 0; }; }
         @Override public void set(int i, int v) {}
         @Override public int getCount() { return DATA_COUNT; }
     };
@@ -56,7 +63,7 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Mach
             .text("output", 82, 17, 90, 1, "gui.semiconductor-lab.steam_engine.output").samples("500.0 kW")
             .text("stored", 82, 27, 90, 1, "gui.semiconductor-lab.steam_engine.stored").samples("50 kJ")
             .text("water", 82, 37, 90, 2, "gui.semiconductor-lab.steam_engine.water_intake", "gui.semiconductor-lab.steam_engine.water").samples("8")
-            .text("hint", 82, 58, 90, 2, "gui.semiconductor-lab.steam_engine.running", "gui.semiconductor-lab.steam_engine.need_water", "gui.semiconductor-lab.steam_engine.need_coal")
+            .text("hint", 82, 58, 90, 2, "gui.semiconductor-lab.steam_engine.running", "gui.semiconductor-lab.steam_engine.need_water", "gui.semiconductor-lab.steam_engine.need_coal", "gui.semiconductor-lab.steam_engine.governor").samples("120", "100")
             .build();
 
     public SteamEngineBlockEntity(BlockPos pos, BlockState state) { this(Power.STEAM_ENGINE.type, pos, state, 200_000, WATTS, COAL_TICKS); }
@@ -79,8 +86,17 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Mach
     public int getWaterUnits() { return waterUnits; }
     public static boolean isFuel(ItemStack s) { return s.is(Items.COAL) || s.is(Items.CHARCOAL); }
 
+    /** 蓄えの量（0〜1） */
+    public double fill() { return storage.getStoredJ() / (double) Math.max(1, storage.getCapacityJ()); }
+    public boolean hasGovernor() { return governor; }
+    public double throttle() { return throttle; }
+    /** [10-04] 遠心調速機を付ける（付けたら true、アイテムを減らすのは呼ぶ側） */
+    public boolean installGovernor() { if (governor) return false; governor = true; setChanged(); return true; }
+
     @Override protected double produceWatts(Level level, BlockPos pos, BlockState state) {
-        if (burnTicks <= 0) {
+        // [10-04] フィードバック制御：今の回転（蓄えの量）を目標とくらべ、回りすぎなら弁をしぼる（P 制御）。調速機が無ければいつも全開＝あふれた電気は捨てる
+        throttle = governor ? Math.max(0, Math.min(1, 0.5 + (TARGET_SPEED - speedPercent(fill())) / 20.0)) : 1;
+        if (burnTicks <= 0 && throttle > 0) {
             boolean feed = feedNow = hasFeedWater(level, pos);
             ItemStack water = container.getItem(SLOT_WATER);
             if (!feed && waterUnits <= 0 && water.is(Items.WATER_BUCKET)) { container.setItem(SLOT_WATER, new ItemStack(Items.BUCKET)); waterUnits = 2; }
@@ -88,10 +104,15 @@ public class SteamEngineBlockEntity extends GeneratorBlockEntity implements Mach
             if ((feed || waterUnits > 0) && isFuel(coal)) { coal.shrink(1); container.setChanged(); if (!feed) waterUnits--; burnTicks = coalTicks; }
         }
         if (burnTicks <= 0) return 0;
-        burnTicks = Math.max(0, burnTicks - dynamoFactor());   // 自励式：2倍の出力＝2倍の速さで石炭を使う
-        return ratedWatts();
+        burnFrac += dynamoFactor() * throttle;   // 自励式：2倍の出力＝2倍の速さで石炭を使う。弁をしぼると石炭もゆっくり
+        int used = (int) burnFrac;
+        burnFrac -= used;
+        burnTicks = Math.max(0, burnTicks - used);
+        return ratedWatts() * throttle;
     }
-    @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); ContainerHelper.saveAllItems(out, container.getItems()); out.putInt("Burn", burnTicks); out.putInt("Water", waterUnits); }
-    @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); container.getItems().replaceAll(s -> ItemStack.EMPTY); ContainerHelper.loadAllItems(in, container.getItems()); burnTicks = in.getIntOr("Burn", 0); waterUnits = in.getIntOr("Water", 0); }
-    @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) { if (level != null) net.minecraft.world.Containers.dropContents(level, pos, container.getItems()); super.preRemoveSideEffects(pos, state); }
+    @Override protected void saveAdditional(ValueOutput out) { super.saveAdditional(out); ContainerHelper.saveAllItems(out, container.getItems()); out.putInt("Burn", burnTicks); out.putInt("Water", waterUnits); out.putBoolean("Governor", governor); }
+    @Override protected void loadAdditional(ValueInput in) { super.loadAdditional(in); container.getItems().replaceAll(s -> ItemStack.EMPTY); ContainerHelper.loadAllItems(in, container.getItems()); burnTicks = in.getIntOr("Burn", 0); waterUnits = in.getIntOr("Water", 0); governor = in.getBooleanOr("Governor", false); }
+    @Override public void preRemoveSideEffects(BlockPos pos, BlockState state) { if (level != null) net.minecraft.world.Containers.dropContents(level, pos, container.getItems());
+        if (governor && level != null) net.minecraft.world.level.block.Block.popResource(level, pos, new ItemStack(com.taku3.semiconductorlab.content.Control.CENTRIFUGAL_GOVERNOR));
+        super.preRemoveSideEffects(pos, state); }
 }

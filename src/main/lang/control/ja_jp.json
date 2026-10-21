@@ -19,5 +19,11 @@
   "message.semiconductor-lab.math_coprocessor.title": "数値演算チップ：0.1＋0.2 を計算すると…",
   "message.semiconductor-lab.math_coprocessor.row0": "16ビット（半精度）：%s（ビット %s）",
   "message.semiconductor-lab.math_coprocessor.row1": "32ビット（単精度）：%s（ビット %s）",
-  "message.semiconductor-lab.math_coprocessor.row2": "64ビット（倍精度）：%s（ビット %s）"
+  "message.semiconductor-lab.math_coprocessor.row2": "64ビット（倍精度）：%s（ビット %s）",
+  "item.semiconductor-lab.centrifugal_governor": "遠心調速機",
+  "item.semiconductor-lab.centrifugal_governor.note1": "蒸気機関・タービンに右クリックで付ける。回りすぎると玉が開いて弁をしぼる＝使う分だけ石炭を燃やす。",
+  "item.semiconductor-lab.centrifugal_governor.note2": "目標とのずれを見て直す『フィードバック制御』のはじまり。画面に今の回転と目標（100%）が出る。電気を使う物が少ないと弁がしぼられ、石炭が長持ちする。",
+  "item.semiconductor-lab.centrifugal_governor.note3": "1788年、ワットが回転の速さを一定にするために蒸気機関に付けた（風車の石臼で使われていた仕組みを応用 ⚠️）。軸が速く回ると2つの玉が遠心力で外へ開き、つながった棒が蒸気の弁を閉じる。",
+  "item.semiconductor-lab.centrifugal_governor.note4": "1868年、マクスウェルが『調速機について』で、調速機が回転をふらつかせる（ハンチング）理由を式で調べ、制御の理論が始まった。1922年、ミノルスキーが船の自動かじ取りで今の PID 制御の形を示した。ゲームの調速機は P（ずれに比例）だけ。",
+  "item.semiconductor-lab.centrifugal_governor.placeholder": "省略：ワットの機関の弁の仕組みは書かず、蓄えの量を回転の代わりに使う（80〜120%）"
 }

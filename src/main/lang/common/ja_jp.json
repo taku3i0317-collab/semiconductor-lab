@@ -488,5 +488,8 @@
   "multiblock.semiconductor-lab.euv_wafer_stage": "ウェハーの台",
   "multiblock.semiconductor-lab.vacuum_chamber": "真空容器",
   "tooltip.semiconductor-lab.howto_get.special": "特別な作り方（図鑑）",
-  "key.semiconductor-lab.ghost": "マルチブロックのうすい形（見ている制御ブロック）"
+  "key.semiconductor-lab.ghost": "マルチブロックのうすい形（見ている制御ブロック）",
+  "message.semiconductor-lab.governor.installed": "遠心調速機を付けた：回りすぎると弁をしぼる",
+  "message.semiconductor-lab.governor.already": "もう調速機が付いている",
+  "message.semiconductor-lab.governor.not_possible": "調速機は蒸気機関・蒸気タービンに付ける"
 }

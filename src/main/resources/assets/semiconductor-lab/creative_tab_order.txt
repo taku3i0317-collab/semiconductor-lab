@@ -806,6 +806,7 @@ euv_reticle_stage  # Semiconductor [None] None
 euv_projection_box  # Semiconductor [None] None
 euv_wafer_stage  # Semiconductor [None] None
 load_port  # Semiconductor [None] None
+centrifugal_governor  # Control [10-04] 1788
 electromagnet  # Control [10-01] 1820
 microcomputer  # Control [10-13] 1971
 math_coprocessor  # Control [10-32] 1985

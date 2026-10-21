@@ -40,6 +40,16 @@ public class GeneratorBlock extends MachineEntityBlock {
             }
             return InteractionResult.SUCCESS;
         }
+        if (stack.is(com.taku3.semiconductorlab.content.Control.CENTRIFUGAL_GOVERNOR)) {   // [10-04] 遠心調速機（蒸気機関・タービン）
+            if (level.isClientSide()) return InteractionResult.SUCCESS;
+            if (!(level.getBlockEntity(pos) instanceof SteamEngineBlockEntity se)) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.governor.not_possible"));
+            else if (!se.installGovernor()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.governor.already"));
+            else {
+                if (!player.getAbilities().instabuild) stack.shrink(1);
+                player.sendSystemMessage(Component.translatable("message.semiconductor-lab.governor.installed"));
+            }
+            return InteractionResult.SUCCESS;
+        }
         if (!stack.is(com.taku3.semiconductorlab.content.Power.SELF_EXCITED_DYNAMO) || !(level.getBlockEntity(pos) instanceof GeneratorBlockEntity be)) return InteractionResult.TRY_WITH_EMPTY_HAND;
         if (level.isClientSide()) return InteractionResult.SUCCESS;
         if (!be.supportsDynamoUpgrade()) player.sendSystemMessage(Component.translatable("message.semiconductor-lab.self_excited_dynamo.not_needed"));

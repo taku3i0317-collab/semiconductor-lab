@@ -710,3 +710,7 @@ TECH_TREE：[10-26] の前提は [10-04]・[4-08]✅・[1-26]✅。[10-04] の�
 - 案B：プログラムを自作 CPU のお題（litho）で書く（遊びが重い）
 - 年・会社は出典どおり（ユニメーション社・GM は会社の扱いの決まりに従い歴史として書く）。存命の人の名前は出さない
 → 司令塔の仮決定（§4b）かユーザーの決定を待つ。待つ間は INBOX を見る
+
+## O-037 ① [10-04] フィードバック制御 ✅（2026-10-21）
+- 遠心調速機（Control.CENTRIFUGAL_GOVERNOR、作業台：鋼2＋鉄3＋ねじ）を蒸気機関・タービンに右クリック（GeneratorBlock）。SteamEngineBlockEntity：回転＝蓄えの量 80〜120% ⚠️、弁の開き＝0.5＋(100−回転)/20 の P 制御、石炭の燃え進みも弁に比例。画面のヒントに「回転 xx%（目標 100%）」
+- GameTest centrifugal_governor（残り 541 vs 200 tick、110%）。REFERENCES F60、chemistry・test_queue、TECH_TREE ✅、DECISIONS 2 行（仮決定）。417/417 PASS

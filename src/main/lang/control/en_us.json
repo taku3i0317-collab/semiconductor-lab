@@ -19,5 +19,11 @@
   "message.semiconductor-lab.math_coprocessor.title": "Math coprocessor: 0.1 + 0.2 is...",
   "message.semiconductor-lab.math_coprocessor.row0": "16-bit (half): %s (bits %s)",
   "message.semiconductor-lab.math_coprocessor.row1": "32-bit (single): %s (bits %s)",
-  "message.semiconductor-lab.math_coprocessor.row2": "64-bit (double): %s (bits %s)"
+  "message.semiconductor-lab.math_coprocessor.row2": "64-bit (double): %s (bits %s)",
+  "item.semiconductor-lab.centrifugal_governor": "Centrifugal governor",
+  "item.semiconductor-lab.centrifugal_governor.note1": "Right-click a steam engine or turbine to fit it. When it spins too fast the balls fly out and close the valve, so it burns only the coal it needs.",
+  "item.semiconductor-lab.centrifugal_governor.note2": "The start of feedback control: watch the gap from the target and correct it. The screen shows the speed and the 100% target. With little load the valve closes and coal lasts longer.",
+  "item.semiconductor-lab.centrifugal_governor.note3": "In 1788 Watt fitted one to keep his steam engine's speed steady (adapted from windmill millstones ⚠️). As the shaft speeds up, two balls swing out and a linkage closes the steam valve.",
+  "item.semiconductor-lab.centrifugal_governor.note4": "In 1868 Maxwell's 'On Governors' used equations to explain why governors make the speed hunt, starting control theory. In 1922 Minorsky described PID control for automatic ship steering. The game's governor is P only.",
+  "item.semiconductor-lab.centrifugal_governor.placeholder": "Simplified: the stored energy (80-120%) stands in for the shaft speed; the valve linkage is not modelled"
 }

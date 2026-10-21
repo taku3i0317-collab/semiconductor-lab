@@ -102,4 +102,31 @@ public class ControlTests extends LabTestBase {
         h.assertTrue(a.satisfied(1, chip) && !a.satisfied(0, chip), "mul4 chip is the multiplier, not the CPU");
         h.succeed();
     }
+
+    /**
+     * [10-04] フィードバック制御（O-037、Q36-1 案A 仮決定）：遠心調速機を付けた蒸気機関は、電気を使う物が無いとき回りすぎ（蓄えがあふれそう）を見て弁をしぼり、
+     * 石炭がゆっくり減る。付けていない機関は全開のまま（あふれた電気は捨てる）。調速機は2個目が付かない
+     */
+    @GameTest(maxTicks = 100)
+    public void centrifugalGovernor(GameTestHelper h) {
+        net.minecraft.core.BlockPos a = p(1, 1, 1), b = p(4, 1, 1);
+        h.setBlock(a, com.taku3.semiconductorlab.content.Power.STEAM_ENGINE.block);
+        h.setBlock(b, com.taku3.semiconductorlab.content.Power.STEAM_ENGINE.block);
+        var plain = h.getBlockEntity(a, com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.class);
+        var gov = h.getBlockEntity(b, com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.class);
+        h.assertTrue(gov.installGovernor() && !gov.installGovernor(), "one governor only");
+        for (var e : new com.taku3.semiconductorlab.energy.SteamEngineBlockEntity[] {plain, gov}) {
+            e.getContainer().setItem(com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.SLOT_COAL, new net.minecraft.world.item.ItemStack(Items.COAL, 2));
+            e.getContainer().setItem(com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.SLOT_WATER, new net.minecraft.world.item.ItemStack(Items.WATER_BUCKET));
+        }
+        tickGenerator(h, a, plain, 400);
+        tickGenerator(h, b, gov, 400);
+        int speed = com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.speedPercent(gov.fill());
+        h.assertTrue(plain.getBurnTicks() < 250, "without a governor the coal burns at full rate: " + plain.getBurnTicks());
+        h.assertTrue(gov.getBurnTicks() > plain.getBurnTicks() + 150, "the governor saves coal: " + gov.getBurnTicks() + " vs " + plain.getBurnTicks());
+        h.assertTrue(speed >= 95 && speed <= 112, "the governor holds the speed near the 100% target: " + speed);
+        h.assertTrue(com.taku3.semiconductorlab.energy.SteamEngineBlockEntity.speedPercent(plain.fill()) >= 118, "the plain engine overspeeds");
+        LOG.info("[LAB] governor [10-04]: burn left {} vs {} ticks, speed {}% (target 100)", gov.getBurnTicks(), plain.getBurnTicks(), speed);
+        h.succeed();
+    }
 }

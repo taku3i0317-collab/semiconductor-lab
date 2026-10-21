@@ -12,6 +12,8 @@ public final class Control {
     // ===== アイテム =====
     // [10-01] 電磁石（1825 スタージャン、1830年代 ヘンリー）：鉄の芯に絶縁した銅線を何重にも巻く。電流を流す間だけ磁石になる。イオン注入 [9-28] の質量分離・電磁レンズなどの部品
     public static final Item ELECTROMAGNET         = Reg.item("electromagnet");
+    // [10-04] フィードバック制御（O-037）：遠心調速機（1788 ワット）。蒸気機関・タービンに右クリックで付ける
+    public static final Item CENTRIFUGAL_GOVERNOR  = Reg.item("centrifugal_governor");
 
     // [10-13] 4ビットのマイコン（1971 インテル MCS-4 の形、A、S-014）：CPU のチップ＋ROM のチップ＋水晶＋ニキシー管を組立台で
     public static final Item MICROCOMPUTER         = Reg.item("microcomputer", com.taku3.semiconductorlab.item.MicrocomputerItem::new, new Item.Properties().stacksTo(1));

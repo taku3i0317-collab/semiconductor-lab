@@ -34,6 +34,8 @@ public class SteamEngineScreen extends MachineScreen {
             case "stored" -> Component.translatable(K + "stored", menu.get(SteamEngineBlockEntity.DATA_KJ) + " kJ");
             case "water" -> water < 0 ? Component.translatable(K + "water_intake") : Component.translatable(K + "water", water);
             case "hint" -> {
+                if (menu.get(SteamEngineBlockEntity.DATA_GOVERNOR) == 1 && menu.get(SteamEngineBlockEntity.DATA_BURN) > 0)   // [10-04] 調速機：目標の回転と今の回転（ずれを見て直す）
+                    yield Component.translatable(K + "governor", menu.get(SteamEngineBlockEntity.DATA_SPEED), SteamEngineBlockEntity.TARGET_SPEED);
                 if (menu.get(SteamEngineBlockEntity.DATA_BURN) > 0) yield Component.translatable(K + "running");
                 if (water == 0 && !menu.getSlot(1).getItem().is(Items.WATER_BUCKET)) yield Component.translatable(K + "need_water");
                 if (menu.getSlot(0).getItem().isEmpty()) yield Component.translatable(K + "need_coal");
