@@ -32,6 +32,7 @@
 - A が持つ共通の仕組みの使い方：DESIGN「機械の共通化」「画面の文字と自動チェック」「容器のしくみ」「組立台」「マルチブロック」、docs/LITHO_DESIGN.md（§8 が担当のつなぎ方）
 
 ## A の直近（2026-10-21）
+- **[10-16] ✅ MOD の最終目的**：自作チップ（EUV・GAA の掛け算器）の上で本物の小さなニューラルネットが、描いた数字を読む（AI チップ [B-11]・数値演算チップ [10-32]・自作の CC0 の数字・書く画面・教える）。tag v0.4・v0.5 済み
 - O-021・O-022・S-011：litho に MOS（[9-23]：GATE_OX・Al ゲート・二乗の式、NMOS インバータ）・2層目の金属（層間膜 → VIA → METAL2、E の CVD 炉）・CMOS（[9-24]：n のウェル・p チャネル、待っている間の電流は NMOS の約 1/1000、検査台で nA まで）。製図台の P で工程5種類。E の CMP の受け口 ChipOps.planarize（記録だけ、焦点深度は v0.5 #1）
 - S-012：[10-12] DRAM ✅（litho に時間とコンデンサ、お題 dram_cell＝1103 の3トランジスタのセル、リフレッシュ）・[10-10] ✅⚠️。[10-13] 4ビット CPU ✅（S-014：論理の箱・Cpu4・ROM・マイコン）。次は v0.4 の残り（8ビット CPU のマスク）か v0.5 #4 歩留まり（C の CleanRoom.defectDensity・dustAt を litho へ）。E との受け口：epi・passivate・銅のダマシン（depositBarrier・plateCopper・planarize）・FinFET（FIN・formFins・短チャネルの漏れ）、ChipState の新しい記録は Extras へ。充電池の親 energy/RechargeableBatteryBlockEntity
 - **tag v0.3b**：回路の発見（お題・あと少し・ハンコと記号・ヒント・歴史、全加算器・ラッチ・カウンタ・レジスタ）と電卓 [B-08]（合格したチップで組む、4ケタの足し算・引き算、ニキシー管 [B-24]）。方眼は 16 から（S-008）、レンズの CD から方眼（S-010）

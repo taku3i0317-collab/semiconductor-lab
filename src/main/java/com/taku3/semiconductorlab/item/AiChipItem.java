@@ -23,7 +23,7 @@ import java.util.Map;
  * AI チップ [B-11]（v1.0、MOD の最終目的 [10-16] の部品、S-019 Q30 全部案A）：EUV と GAA で作った掛け算器（お題 mul4 に合格）4つ＋数値演算チップ＋DRAM を組立台で。
  * 中では本物の小さなニューラルネット（{@link DigitNet}、64→16→10）が、8×8 に書いた数字を読む。掛け算はみな 4ビット×4ビットで、
  * お題 mul4 に合格した掛け算器の動き（論理の箱）で1回ずつ計算する。プレイヤーが教えた数字（最大 {@link #MAX_SAMPLES}）でネットを少し学び直す（学習は浮動小数点＝数値演算チップ）。
- * 書く画面の見た目はユーザーの答え待ち（それまで右クリックは見本の数字を読んでみせる）
+ * 右クリックで書く画面（S-020 Q32 案A：8×8 の方眼・答え・確からしさの棒・光るニューロン・消す／教える）、しゃがんで右クリックで見本の数字を読んでみせる
  */
 public class AiChipItem extends Item {
     /** 中の掛け算器の数（組立台のレシピと同じ）。1クロックにこの数だけ掛け算できる */
@@ -39,8 +39,8 @@ public class AiChipItem extends Item {
         return st != null && st.sized() && st.size() >= Circuit.GAA_GRID && st.extras().gaa();
     }
 
-    /** 答え：数字・出力の点数（0〜9）・隠れ層の光り方（0〜15）・掛け算の回数 */
-    public record Answer(int digit, long[] scores, int[] hidden, long multiplies) {
+    /** 答え：数字・出力の点数（0〜9）・隠れ層の光り方（0〜15）・掛け算の回数・確からしさ（%、0〜9） */
+    public record Answer(int digit, long[] scores, int[] hidden, long multiplies, int[] percent) {
         public long clocks() { return (multiplies + UNITS - 1) / UNITS; }
     }
 
@@ -61,10 +61,15 @@ public class AiChipItem extends Item {
         load();
         List<String> samples = chip.getOrDefault(ModDataComponents.AI_SAMPLES, List.of());
         if (samples.isEmpty()) return baseQ;
+        synchronized (AiChipItem.class) { if (samples.equals(lastSamples)) return lastQ; }   // 同じ見本なら作り直さない（画面で何度も読むため）
         DigitNet n = copy(base);
         for (String s : samples) { int[] x = decode(s); n.learn(x, label(s), LEARN_STEPS); }
-        return n.quantize(calib);
+        DigitNet.Quantized q = n.quantize(calib);
+        synchronized (AiChipItem.class) { lastSamples = samples; lastQ = q; }
+        return q;
     }
+    private static List<String> lastSamples;
+    private static DigitNet.Quantized lastQ;
 
     private static DigitNet copy(DigitNet b) {
         DigitNet n = new DigitNet();
@@ -95,8 +100,16 @@ public class AiChipItem extends Item {
     public static Answer recognize(ItemStack chip, int[] x) {
         DigitNet.Quantized q = network(chip);
         DigitNet.Counter c = new DigitNet.Counter();
-        int d = DigitNet.predict(q, x, AiChipItem::chipMultiply, c);
-        return new Answer(d, new long[0], new int[0], c.multiplies);
+        int[] h = new int[DigitNet.HID];
+        long[] sc = new long[DigitNet.OUT];
+        int d = DigitNet.predict(q, x, AiChipItem::chipMultiply, c, h, sc);
+        double scale = q.s2() * q.hScale(), max = Double.NEGATIVE_INFINITY, sum = 0;   // 点数を実数に戻して、ソフトマックスで確からしさに
+        double[] e = new double[DigitNet.OUT];
+        for (long v : sc) max = Math.max(max, v / scale);
+        for (int o = 0; o < DigitNet.OUT; o++) { e[o] = Math.exp(sc[o] / scale - max); sum += e[o]; }
+        int[] pct = new int[DigitNet.OUT];
+        for (int o = 0; o < DigitNet.OUT; o++) pct[o] = (int) Math.round(100 * e[o] / sum);
+        return new Answer(d, sc, h, c.multiplies, pct);
     }
 
     /** 教える（このチップに見本を足す。古いものから消える） */
@@ -114,7 +127,11 @@ public class AiChipItem extends Item {
 
     @Override
     public InteractionResult use(Level level, Player p, InteractionHand hand) {
-        if (!level.isClientSide()) {   // 書く画面ができるまで：同梱の見本（テスト用の数字）を1つ読んでみせる
+        if (!p.isShiftKeyDown()) {   // 書く画面（S-020 Q32 案A）
+            if (!level.isClientSide()) p.openMenu(new net.minecraft.world.SimpleMenuProvider((id, inv, pl) -> new AiChipMenu(id, inv), Component.translatable("item.semiconductor-lab.ai_chip")));
+            return InteractionResult.SUCCESS;
+        }
+        if (!level.isClientSide()) {   // しゃがんで右クリック：同梱の見本（テスト用の数字）を1つ読んでみせる
             var test = DigitNet.bundled("test");
             var s = test.get(level.getRandom().nextInt(test.size()));
             Answer a = recognize(p.getItemInHand(hand), s.x());

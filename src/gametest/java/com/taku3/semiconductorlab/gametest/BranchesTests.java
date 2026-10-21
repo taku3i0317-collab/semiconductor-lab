@@ -458,4 +458,34 @@ public class BranchesTests extends LabTestBase {
         h.assertValueEqual(com.taku3.semiconductorlab.item.AiChipItem.recognize(chip, odd).digit(), target, "after teaching, this chip answers as taught");
         h.succeed();
     }
+
+    /**
+     * [10-16] ニューラルネットの通し（S-020）：自作データで学習済みの重み → 自分で描いた（データにない形の）数字を、AI チップの書く画面のボタンで描いて読む →
+     * 「教える」で学び直すと、読みにくかった字も教えた答えになる。確からしさは足して約100%、光るニューロンは 0〜15
+     */
+    @GameTest
+    public void neuralNetEndToEnd(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var chip = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Branches.AI_CHIP);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, chip);
+        var menu = new com.taku3.semiconductorlab.item.AiChipMenu(1, player.getInventory());
+        String[] one = {"....#...", "...##...", "....#...", "....#...", "....#...", "....#...", "....#...", "...###.."};   // データの見本とはちがう「1」（下に台）
+        for (int y = 0; y < 8; y++) for (int x = 0; x < 8; x++) if (one[y].charAt(x) == '#') menu.clickMenuButton(player, y * 8 + x);
+        var held = player.getItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND);
+        var a = com.taku3.semiconductorlab.item.AiChipItem.recognize(held, menu.grid);
+        int sum = 0; for (int v : a.percent()) sum += v;
+        h.assertTrue(sum >= 97 && sum <= 103, "confidences add to about 100%: " + sum);
+        for (int v : a.hidden()) h.assertTrue(v >= 0 && v <= 15, "neuron lamps 0-15");
+        LOG.info("[LAB] [10-16] end to end: own '1' read as {} ({}%), {} multiplies", a.digit(), a.percent()[a.digit()], a.multiplies());
+        int[] weird = new int[64]; weird[9] = weird[14] = weird[49] = weird[54] = weird[27] = weird[36] = 1;   // 読めない形
+        menu.clickMenuButton(player, com.taku3.semiconductorlab.item.AiChipMenu.CLEAR);
+        for (int i = 0; i < 64; i++) if (weird[i] != 0) menu.clickMenuButton(player, i);
+        int was = com.taku3.semiconductorlab.item.AiChipItem.recognize(held, menu.grid).digit(), teach = (was + 5) % 10;
+        h.assertFalse(menu.clickMenuButton(player, com.taku3.semiconductorlab.item.AiChipMenu.TEACH), "choose an answer before teaching");
+        menu.clickMenuButton(player, com.taku3.semiconductorlab.item.AiChipMenu.LABEL + teach);
+        h.assertTrue(menu.clickMenuButton(player, com.taku3.semiconductorlab.item.AiChipMenu.TEACH), "teach");
+        h.assertValueEqual(held.getOrDefault(com.taku3.semiconductorlab.ModDataComponents.AI_SAMPLES, java.util.List.of()).size(), 1, "the chip remembers one sample");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.AiChipItem.recognize(held, menu.grid).digit(), teach, "after teaching it answers as taught");
+        h.succeed();
+    }
 }

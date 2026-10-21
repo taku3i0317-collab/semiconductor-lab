@@ -637,3 +637,8 @@
 - O-031 の2：[B-11] AI チップ Branches.AI_CHIP（item/AiChipItem）：組立台（mul4 に合格し方眼 148・GAA の掛け算器のチップ4つ＝AiChipItem.euvMultiplier・数値演算チップ・DRAM のチップ・配線・板）、recognize（同梱の重み＋教えた数字で学び直し〔データ部品 ai_samples、最大32〕→ 4ビット、掛け算は mul4 の箱 LogicSim で1回ずつ、回数とクロック）、teach。右クリックは今は見本の数字を読む。TECH_TREE [B-11] ✅⚠️。GameTest aiChip
 - **Q32（ユーザーへ、書く画面の見た目）**：見本 docs/gui_preview/ai_chip_mock.png（tools/gen_ai_screen_mock.py）。案A 左に 8×8 の方眼（マウスで塗る）・右に答えの数字（ニキシー管の色）・0〜9 の確からしさの棒・16 個の隠れニューロンのランプ・「消す」「教える」のアイコンのボタン（文字なし、icons_e の色）／案B 方眼と答えの数字だけ（軽い）／案C 案A＋掛け算器が1回ずつ動く様子（クロックの数が増える、遅く見せる）。おすすめ案A。答えまで画面は作らない
 
+## S-020（Q32 案A、2026-10-21）：[10-16] ✅（MOD の最終目的）
+- DECISIONS に1行
+- AI チップの書く画面：item/AiChipMenu（ボタン：0〜63 マス・100 消す・110〜119 教える答え・200 教える）、client/AiChipScreen（mock どおり：方眼・ニキシー管の色の答え・確からしさの棒〔押すと教える答え〕・16 のランプ・石＝消す・銅＝教える、文字なし＝はみ出しなし）、DigitNet.predict が隠れ層と点数も返す、AiChipItem.Answer に確からしさ（%）、学び直しの結果は見本が同じなら使い回す。右クリック＝書く画面、しゃがんで右クリック＝見本の数字
+- 通しの試験 neuralNetEndToEnd：データにない形の「1」を 99% で 1、教えると教えた答え。TECH_TREE [10-16] ✅・[B-11] ✅、ROADMAP v1.0 #5 ✅、REFERENCES L20
+

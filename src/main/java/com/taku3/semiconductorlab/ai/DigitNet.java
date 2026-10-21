@@ -146,7 +146,10 @@ public final class DigitNet {
      * 4ビットで答える。mul＝4ビット×4ビットの掛け算（0〜15 × 0〜15）。符号つきの重みは、大きさを掛けてから足すか引くか。
      * 入力は 0/1 を 0/15 に、隠れ層は 0〜15 に丸める
      */
-    public static int predict(Quantized q, int[] x, IntBinaryOperator mul, Counter count) {
+    public static int predict(Quantized q, int[] x, IntBinaryOperator mul, Counter count) { return predict(q, x, mul, count, null, null); }
+
+    /** 中も見る：hOut＝隠れ層の 0〜15（16個）、sOut＝出力の点数（10個、目盛りは s2×hScale） */
+    public static int predict(Quantized q, int[] x, IntBinaryOperator mul, Counter count, int[] hOut, long[] sOut) {
         int[] h = new int[HID];
         for (int j = 0; j < HID; j++) {
             long s = q.b1()[j];
@@ -171,8 +174,10 @@ public final class DigitNet {
                 if (count != null) count.multiplies++;
                 s += w < 0 ? -p : p;
             }
+            if (sOut != null) sOut[o] = s;
             if (s > best) { best = s; arg = o; }   // 足し算の目盛りはみな s2×hScale でそろっている
         }
+        if (hOut != null) System.arraycopy(h, 0, hOut, 0, HID);
         return arg;
     }
 

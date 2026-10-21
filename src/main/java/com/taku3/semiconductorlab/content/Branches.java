@@ -129,6 +129,9 @@ public final class Branches {
     /** 電卓：自分で作ったチップ＋キー＋ニキシー管を組立台で。右クリックで計算 */
     public static final Item CALCULATOR            = Reg.item("calculator", com.taku3.semiconductorlab.item.CalculatorItem::new, new Item.Properties().stacksTo(1));
     /** [B-11] AI チップ（A、S-019 Q30 全部案A）：EUV・GAA で作った掛け算器4つ＋数値演算チップ＋DRAM。中で本物の小さなニューラルネットが 8×8 の数字を読む */
+    /** AI チップの書く画面の入れ物（S-020） */
+    public static final net.minecraft.world.inventory.MenuType<com.taku3.semiconductorlab.item.AiChipMenu> AI_MENU = net.minecraft.core.Registry.register(net.minecraft.core.registries.BuiltInRegistries.MENU,
+            com.taku3.semiconductorlab.SemiconductorLab.id("ai_chip"), new net.minecraft.world.inventory.MenuType<>(com.taku3.semiconductorlab.item.AiChipMenu::new, net.minecraft.world.flag.FeatureFlags.DEFAULT_FLAGS));
     public static final Item AI_CHIP               = Reg.item("ai_chip", com.taku3.semiconductorlab.item.AiChipItem::new, new Item.Properties().stacksTo(1));
     /** [B-09] ゲーム機（A、S-017 Q27 案A ポン型）：合格したチップで組む、CPU なしの卓球。右クリックで画面 */
     public static final Item GAME_CONSOLE          = Reg.item("game_console", com.taku3.semiconductorlab.item.GameConsoleItem::new, new Item.Properties().stacksTo(1));
