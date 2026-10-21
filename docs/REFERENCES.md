@@ -3947,6 +3947,19 @@
 - Wikipedia「Contact process」：https://en.wikipedia.org/wiki/Contact_process
 - Wikipedia「Oleum」：https://en.wikipedia.org/wiki/Oleum
 
+## C75. 硝石は細菌が作る（硝石床）［6-10］
+**答え**：硝石（硝酸カリウム）は火薬の材料で、天然には洞窟や乾いた土地の土にしかたまらない。18世紀のヨーロッパでは、土・家畜のふん・尿・わら・石灰を積んだ山（硝石床・硝石丘）を作り、何か月もかけて硝石の土を作らせた。くさった有機物のアンモニアを、土の細菌が酸素で硝酸に変え（硝化）、石灰のカルシウムと合わさって硝酸カルシウムになる。木灰のカリで硝酸カリウムに変えて取り出す。日本の五箇山・白川郷でも、家の床下で蚕のふんや草から硝石を作った。
+
+- へえ①：硝石は細菌が作る。
+- へえ②：五箇山の合掌造りの家の床下は、硝石の工場だった。
+- へえ③：硝化のしくみは、堆肥（[11-05]）と同じ土の細菌のはたらき。
+- へえ④：1913年のハーバー・ボッシュ法（[6-09]）で、硝石を掘ったり作らせたりする時代が終わった。
+
+確かさ：硝化・硝石床の作り方 ◎／五箇山の培養法 ○
+根拠：
+- Wikipedia「Potassium nitrate」（Production の節）：https://en.wikipedia.org/wiki/Potassium_nitrate
+- Wikipedia「Nitrification」：https://en.wikipedia.org/wiki/Nitrification
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

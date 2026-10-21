@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:dirt",
+    "minecraft:rotten_flesh",
+    "minecraft:rotten_flesh",
+    "minecraft:bone_meal",
+    "semiconductor-lab:slaked_lime"
+  ],
+  "result": {
+    "id": "semiconductor-lab:nitre_bed",
+    "count": 1
+  }
+}

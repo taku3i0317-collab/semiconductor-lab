@@ -532,6 +532,7 @@ saltpeter  # Gas [6-16] 1250
 nitre_earth_block  # Gas [6-16] 1250
 nitric_acid  # Gas [6-11] 1300
 silver_nitrate  # Gas [6-11] 1300
+nitre_bed  # Gas [6-10] 1750
 hydrogen_gas  # Gas [6-01] 1800
 oxygen_gas  # Gas [6-01] 1800
 electrolyzer  # Gas [6-01] 1800

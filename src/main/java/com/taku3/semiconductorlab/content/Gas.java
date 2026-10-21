@@ -96,6 +96,9 @@ public final class Gas {
 
     // [6-16] 硝石土（IMP2-02）：鍾乳石の洞窟（石灰岩の洞窟）の鍾乳石ブロックを置き換える、やわらかい土（シャベル）
     public static final Block NITRE_EARTH_BLOCK = Reg.ore("nitre_earth_block", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).strength(0.8f).sound(SoundType.GRAVEL));
+    // [6-10] 硝石床（IMP3、S-011）：土＋腐った肉2＋骨粉＋消石灰 → 硝石床。時間がたつと（細菌の硝化）硝石土のブロックになる
+    public static final Block NITRE_BED = Reg.block("nitre_bed", com.taku3.semiconductorlab.block.NitreBedBlock::new,
+            net.minecraft.world.level.block.state.BlockBehaviour.Properties.of().mapColor(net.minecraft.world.level.material.MapColor.DIRT).strength(0.6f).sound(net.minecraft.world.level.block.SoundType.GRAVEL).randomTicks());
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     // [6-09] ハーバー・ボッシュ法（IMP3、S-005）：磁鉄鉱＋カリ＋アルミナ → 鉄の触媒（ミタッシュ）。反応塔：窒素1＋水素3 → アンモニア2（触媒は減らない）。

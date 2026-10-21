@@ -658,4 +658,17 @@ public class GasTests extends LabTestBase {
         h.assertTrue(rem != null && rem.create().is(Gas.PLATINUM_GAUZE), "platinum returned");
         h.succeed();
     }
+
+    /** [6-10] 硝石床（IMP3、S-011）：土＋腐った肉＋骨粉＋消石灰 → 硝石床、ランダムtick で熟して硝石土のブロックになる */
+    @GameTest
+    public void nitreBed(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "nitre_bed", net.minecraft.world.item.Items.ROTTEN_FLESH) && recipeUses(h, "nitre_bed", com.taku3.semiconductorlab.content.Survival.SLAKED_LIME), "organic matter + lime");
+        floor(h, 3);
+        BlockPos b = p(1, 1, 1);
+        h.setBlock(b, Gas.NITRE_BED);
+        net.minecraft.util.RandomSource rnd = net.minecraft.util.RandomSource.create(1);
+        for (int i = 0; i < 200 && h.getBlockState(b).is(Gas.NITRE_BED); i++) h.getBlockState(b).randomTick(h.getLevel(), h.absolutePos(b), rnd);
+        h.assertBlockPresent(Gas.NITRE_EARTH_BLOCK, b);
+        h.succeed();
+    }
 }
