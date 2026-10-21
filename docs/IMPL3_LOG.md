@@ -379,3 +379,4 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - **C へ**：EUV の部品の材料の ID：ステンレス鋼 semiconductor-lab:stainless_steel（Metallurgy.STAINLESS_STEEL）、アルミナのセラミックス板 alumina_ceramic_plate（Metallurgy.ALUMINA_CERAMIC_PLATE、[3-26]）、フッ素ゴムの O リング fkm_o_ring（Chemistry.FKM_O_RING）。メッセージでも知らせた
 - テスト 421/421
 
+- **C の頼み（INBOX で割り振りを待つ）**：[15-02] 活版印刷のインク（グーテンベルク：すす＋アマニ油を煮たワニス）の材料。D が作るのがよい（亜麻 [0-06]・獣脂 [2-09] は D）。案：亜麻の収穫に種を足す → しぼる → アマニ油 → 煮てワニス（酸化重合）、獣脂・油を少ない空気で燃やす → すす（ランプブラック）。ノードが無ければ B に頼む
