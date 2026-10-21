@@ -164,4 +164,47 @@ public class AgricultureTests extends LabTestBase {
         h.assertFalse(com.taku3.semiconductorlab.item.FertilizerItem.compost(lv, h.absolutePos(f)), "already full");
         h.succeed();
     }
+
+    /** [11-03] 輪作（IMP3、S-007、決定 Q3-15 ①）：同じ作物3回目から収穫 −1、違う作物で数え直し、豆・肥料で戻る、休閑でふつうの耕地 */
+    @GameTest
+    public void cropRotation(GameTestHelper h) {
+        var lv = h.getLevel();
+        var T = Agriculture.TIRED_FARMLAND;
+        var C = com.taku3.semiconductorlab.block.TiredFarmlandBlock.COUNT;
+        var wheat = (net.minecraft.world.level.block.CropBlock) Blocks.WHEAT;
+        var carrots = (net.minecraft.world.level.block.CropBlock) Blocks.CARROTS;
+        floor(h, 4);
+        BlockPos f = p(1, 1, 1), crop = p(1, 2, 1);
+        h.setBlock(f, Blocks.FARMLAND);
+        int[] wheatGot = new int[4];
+        for (int i = 0; i < 4; i++) {
+            java.util.List<ItemStack> drops = new java.util.ArrayList<>(java.util.List.of(new ItemStack(Items.WHEAT, 2), new ItemStack(Items.WHEAT_SEEDS)));
+            com.taku3.semiconductorlab.block.TiredFarmlandBlock.onHarvest(lv, h.absolutePos(crop), wheat.getStateForAge(wheat.getMaxAge()), drops);
+            wheatGot[i] = drops.get(0).is(Items.WHEAT) ? drops.get(0).getCount() : 0;
+        }
+        h.assertTrue(wheatGot[0] == 2 && wheatGot[1] == 2 && wheatGot[2] == 1 && wheatGot[3] == 1, "3rd wheat in a row and after: -1 (" + java.util.Arrays.toString(wheatGot) + ")");
+        h.assertTrue(h.getBlockState(f).is(T) && h.getBlockState(f).getValue(C) == 3, "worn farmland remembers 3");
+        // 違う作物で数え直し
+        java.util.List<ItemStack> c = new java.util.ArrayList<>(java.util.List.of(new ItemStack(Items.CARROT, 3)));
+        h.assertFalse(com.taku3.semiconductorlab.block.TiredFarmlandBlock.onHarvest(lv, h.absolutePos(crop), carrots.getStateForAge(carrots.getMaxAge()), c), "a different crop is not reduced");
+        h.assertTrue(h.getBlockState(f).getValue(C) == 1 && c.get(0).getCount() == 3, "count starts again");
+        // 未熟は数えない
+        h.assertFalse(com.taku3.semiconductorlab.block.TiredFarmlandBlock.onHarvest(lv, h.absolutePos(crop), wheat.getStateForAge(2), new java.util.ArrayList<>()), "unripe: not counted");
+        // 肥料・堆肥で肥えた耕地に（連作の数は消える）
+        h.assertTrue(com.taku3.semiconductorlab.item.FertilizerItem.compost(lv, h.absolutePos(f)), "compost works on worn farmland");
+        h.assertTrue(h.getBlockState(f).is(com.taku3.semiconductorlab.content.Survival.NITROGEN_FARMLAND), "-> fertile farmland");
+        // 豆で戻る
+        BlockPos g = p(3, 1, 1);
+        h.setBlock(g, T.defaultBlockState().setValue(C, 3));
+        com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.enrich(lv, h.absolutePos(g), com.taku3.semiconductorlab.content.Survival.NITROGEN_FARMLAND);
+        h.assertTrue(h.getBlockState(g).is(com.taku3.semiconductorlab.content.Survival.NITROGEN_FARMLAND), "peas restore worn farmland");
+        // 休閑：何も植えずにランダムtick → ふつうの耕地
+        BlockPos k = p(5, 1, 1);
+        h.setBlock(k, T.defaultBlockState().setValue(C, 3).setValue(net.minecraft.world.level.block.FarmlandBlock.MOISTURE, 7));
+        net.minecraft.util.RandomSource rnd = net.minecraft.util.RandomSource.create(7);
+        for (int i = 0; i < 200 && h.getBlockState(k).is(T); i++) h.getBlockState(k).randomTick(lv, h.absolutePos(k), rnd);
+        h.assertTrue(h.getBlockState(k).is(Blocks.FARMLAND) || h.getBlockState(k).is(Blocks.DIRT), "fallow restores the land");
+        LOG.info("[LAB] crop rotation [11-03]: wheat x4 -> " + java.util.Arrays.toString(wheatGot) + "; carrot resets; compost/peas/fallow restore");
+        h.succeed();
+    }
 }

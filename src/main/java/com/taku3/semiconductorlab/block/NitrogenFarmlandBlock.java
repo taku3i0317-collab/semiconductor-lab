@@ -47,7 +47,7 @@ public class NitrogenFarmlandBlock extends FarmlandBlock {
     /** 豆が熟したとき：下の耕地（ふつう・窒素）を窒素いっぱいの耕地にする。湿り気はそのまま */
     public static void enrich(ServerLevel level, BlockPos farmland, Block self) {
         BlockState s = level.getBlockState(farmland);
-        if (!s.is(Blocks.FARMLAND) && !s.is(self)) return;
+        if (!TiredFarmlandBlock.isPlain(s) && !s.is(self)) return;   // 連作の耕地も豆で戻る [11-03]
         int phosphorus = s.is(self) ? s.getValue(PHOSPHORUS) : 0;   // リンはそのまま
         level.setBlock(farmland, self.defaultBlockState().setValue(MOISTURE, s.getValue(MOISTURE)).setValue(PHOSPHORUS, phosphorus), 2);
     }

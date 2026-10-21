@@ -113,5 +113,11 @@
   "item.semiconductor-lab.leavened_bread.note3": "Risen bread is easier to digest and bigger from the same flour. Leavened bread is said to have been baked in Egypt around 4000 BC ⚠️.",
   "item.semiconductor-lab.leavened_bread.note4": "Why bread rises (the work of a living thing, yeast) became clear only with Pasteur's research in 1857. For thousands of years people baked it without knowing why.",
   "item.semiconductor-lab.leavened_bread.placeholder": "Approximation: the extra hunger is a game rule (compare with vanilla bread as flat, unrisen bread).",
-  "message.semiconductor-lab.compost.fertilized": "Compost (bone meal) spread: a little nitrogen and phosphorus (1 share each)"
+  "message.semiconductor-lab.compost.fertilized": "Compost (bone meal) spread: a little nitrogen and phosphorus (1 share each)",
+  "block.semiconductor-lab.tired_farmland": "Continuously Cropped Farmland (Worn)",
+  "block.semiconductor-lab.tired_farmland.note1": "A field that keeps growing the same crop. Too many times in a row and the harvest shrinks.",
+  "block.semiconductor-lab.tired_farmland.note2": "Harvesting a ripe crop on ordinary farmland makes it remember which crop and how many times in a row. After 3 of the same crop (wheat, einkorn, carrots, potatoes, beetroot), each harvest gives 1 less. To recover: grow a different crop, grow peas, spread compost or fertilizer, or leave it empty for a while (fallow).",
+  "block.semiconductor-lab.tired_farmland.note3": "The same crop keeps using the same nutrients, and its pests and diseases build up in the soil (continuous-cropping injury). Medieval Europe's three-field system rotated winter crop, spring crop and fallow; livestock grazed the fallow and manured it.",
+  "block.semiconductor-lab.tired_farmland.note4": "The Norfolk four-course rotation, spread by Charles Townshend in the 1730s, cycled wheat, turnips, barley and clover and did away with fallow. Turnips fed livestock in winter; clover, a legume, added nitrogen. With more animals kept through winter, there was more manure too.",
+  "block.semiconductor-lab.tired_farmland.placeholder": "Approximation: wear is counted as '3 of the same crop -> harvest -1' (decision Q3-15 ①). There are no turnips or clover (explained only)."
 }

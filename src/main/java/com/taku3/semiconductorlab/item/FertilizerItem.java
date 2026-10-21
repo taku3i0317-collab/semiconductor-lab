@@ -36,7 +36,7 @@ public class FertilizerItem extends Item {
         int max = nutrient == Nutrient.NITROGEN ? NitrogenFarmlandBlock.MAX_NITROGEN : NitrogenFarmlandBlock.MAX_PHOSPHORUS;
         BlockState s = level.getBlockState(pos);
         BlockState rich;
-        if (s.is(Blocks.FARMLAND)) {
+        if (com.taku3.semiconductorlab.block.TiredFarmlandBlock.isPlain(s)) {   // 連作の耕地も肥料で戻る [11-03]
             rich = Survival.NITROGEN_FARMLAND.defaultBlockState().setValue(NitrogenFarmlandBlock.NITROGEN, 0).setValue(NitrogenFarmlandBlock.PHOSPHORUS, 0)
                     .setValue(prop, max).setValue(FarmlandBlock.MOISTURE, s.getValue(FarmlandBlock.MOISTURE));
         } else if (s.is(Survival.NITROGEN_FARMLAND)) {
@@ -53,7 +53,7 @@ public class FertilizerItem extends Item {
     public static boolean compost(Level level, BlockPos pos) {
         BlockState s = level.getBlockState(pos);
         BlockState rich;
-        if (s.is(Blocks.FARMLAND)) {
+        if (com.taku3.semiconductorlab.block.TiredFarmlandBlock.isPlain(s)) {   // 連作の耕地も肥料で戻る [11-03]
             rich = Survival.NITROGEN_FARMLAND.defaultBlockState().setValue(NitrogenFarmlandBlock.NITROGEN, COMPOST_SHARE).setValue(NitrogenFarmlandBlock.PHOSPHORUS, COMPOST_SHARE)
                     .setValue(FarmlandBlock.MOISTURE, s.getValue(FarmlandBlock.MOISTURE));
         } else if (s.is(Survival.NITROGEN_FARMLAND)) {

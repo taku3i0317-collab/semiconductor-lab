@@ -671,6 +671,7 @@ cane_juice  # Agriculture [11-14] 0
 beet_juice  # Agriculture [11-14] 0
 raw_sugar  # Agriculture [11-14] 0
 bone_char  # Agriculture [11-14] 0
+tired_farmland  # Agriculture [11-03] 800
 tin_can  # Agriculture [11-12] 1804
 sealed_can  # Agriculture [11-12] 1804
 canned_meat  # Agriculture [11-12] 1804

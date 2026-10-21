@@ -3249,6 +3249,20 @@
 - Wikipedia「Compost」：https://en.wikipedia.org/wiki/Compost
 - Wikipedia「Nitrification」：https://en.wikipedia.org/wiki/Nitrification
 
+## C58. 同じ作物ばかりだと畑がやせる（輪作）［11-03］
+**答え**：同じ畑に同じ作物を続けて植えると、同じ養分ばかり使われ、その作物につく病気や虫が土に増えて、とれる量が減る（連作障害）。中世ヨーロッパでは、畑を3つに分けて冬作・夏作・休閑（何も植えない）を順に回す三圃式で地力を保った。1730年代、イギリスのチャールズ・タウンゼンドが広めたノーフォーク四輪作は、小麦・カブ・大麦・クローバーを4年で回し、休閑地をなくした。クローバーはマメ科で根粒菌が窒素を入れ、カブは冬の家畜のえさになって、家畜のふんも肥料になった。
+
+- へえ①：豆を育てると畑が肥える。
+- へえ②：タウンゼンドはカブをすすめたので「カブのタウンゼンド（Turnip Townshend）」と呼ばれた。
+- へえ③：三圃式では、休ませた畑に家畜を放して、ふんで肥やした。
+- へえ④：日本でもナスやトマトなどは連作をきらう作物として知られている。
+
+確かさ：三圃式・ノーフォーク四輪作 ◎／タウンゼンドの年 ○
+根拠：
+- Wikipedia「Crop rotation」：https://en.wikipedia.org/wiki/Crop_rotation
+- Wikipedia「Norfolk four-course system」：https://en.wikipedia.org/wiki/Norfolk_four-course_system
+- Wikipedia「Charles Townshend, 2nd Viscount Townshend」：https://en.wikipedia.org/wiki/Charles_Townshend,_2nd_Viscount_Townshend
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

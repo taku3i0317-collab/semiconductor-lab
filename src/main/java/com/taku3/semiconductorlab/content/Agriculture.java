@@ -4,6 +4,7 @@ import com.taku3.semiconductorlab.block.RefrigeratorBlockEntity;
 import com.taku3.semiconductorlab.machine.Machine;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 import static com.taku3.semiconductorlab.machine.Machine.metal;
 
@@ -60,6 +61,9 @@ public final class Agriculture {
     public static final Item BREAD_DOUGH = Reg.item("bread_dough");
     public static final Item LEAVENED_BREAD = Reg.item("leavened_bread", new Item.Properties().food(new FoodProperties(LEAVENED_NUTRITION, LEAVENED_SATURATION, false)));
 
+    // [11-03] 輪作（IMP3、S-007）：同じ作物を3回続けた耕地は収穫 −1（やせた耕地）。違う作物・豆・肥料・休閑で戻る
+    public static final Block TIRED_FARMLAND = Reg.block("tired_farmland", com.taku3.semiconductorlab.block.TiredFarmlandBlock::new, net.minecraft.world.level.block.state.BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.FARMLAND));
+
     static void init() {
         // [11-05] 堆肥（IMP3、O-021）：コンポスターの骨粉（＝堆肥の近似）を耕地に使うと、窒素とリンが1回分ずつ入る
         net.fabricmc.fabric.api.event.player.UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
@@ -67,7 +71,7 @@ public final class Agriculture {
             if (!stack.is(net.minecraft.world.item.Items.BONE_MEAL)) return net.minecraft.world.InteractionResult.PASS;
             var pos = hit.getBlockPos();
             var st = level.getBlockState(pos);
-            if (!st.is(net.minecraft.world.level.block.Blocks.FARMLAND) && !st.is(Survival.NITROGEN_FARMLAND)) return net.minecraft.world.InteractionResult.PASS;
+            if (!com.taku3.semiconductorlab.block.TiredFarmlandBlock.isPlain(st) && !st.is(Survival.NITROGEN_FARMLAND)) return net.minecraft.world.InteractionResult.PASS;
             if (level.isClientSide()) return net.minecraft.world.InteractionResult.SUCCESS;
             if (!com.taku3.semiconductorlab.item.FertilizerItem.compost(level, pos)) return net.minecraft.world.InteractionResult.PASS;
             if (!player.getAbilities().instabuild) stack.shrink(1);
@@ -79,7 +83,9 @@ public final class Agriculture {
             var crop = ctx.getOptional(net.minecraft.world.level.storage.loot.parameters.LootContextParams.BLOCK_STATE);
             var origin = ctx.getOptional(net.minecraft.world.level.storage.loot.parameters.LootContextParams.ORIGIN);
             if (crop == null || origin == null || !(crop.getBlock() instanceof net.minecraft.world.level.block.CropBlock)) return;
-            com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.harvestBonus(ctx.getLevel(), net.minecraft.core.BlockPos.containing(origin), crop, drops);
+            var cropPos = net.minecraft.core.BlockPos.containing(origin);
+            com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.harvestBonus(ctx.getLevel(), cropPos, crop, drops);
+            com.taku3.semiconductorlab.block.TiredFarmlandBlock.onHarvest(ctx.getLevel(), cropPos, crop, drops);   // [11-03] 連作
         });
     }
 }
