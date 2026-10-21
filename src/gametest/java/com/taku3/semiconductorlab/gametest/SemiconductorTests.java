@@ -1058,6 +1058,31 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-30] シラン（IMP4-01、S-002）：Mg2 + Si → Mg2Si、Mg2Si + 4HCl + 空ボンベ → シランのボンベ（ボンベがないと動かない） */
+    @GameTest(maxTicks = 100)
+    public void silaneGenerator(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos sp = p(2, 1, 2);
+        h.setBlock(sp, Semiconductor.SILANE_GENERATOR.block);
+        var be = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.class);
+        var c = be.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.WATTS);
+        c.setItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_A, new ItemStack(Metallurgy.MAGNESIUM, 2));
+        c.setItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_B, new ItemStack(Metallurgy.METALLURGICAL_SILICON));
+        tickConsumer(h, sp, be, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_OUT).is(Semiconductor.MAGNESIUM_SILICIDE) && c.getItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_A).isEmpty(), "2Mg + Si -> Mg2Si");
+        c.setItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_A, c.removeItemNoUpdate(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_OUT));
+        c.setItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_B, new ItemStack(Gas.HYDROCHLORIC_ACID, 4));
+        tickConsumer(h, sp, be, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS + 5, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_OUT).isEmpty(), "no empty cylinder -> the pyrophoric gas has nowhere to go");
+        c.setItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_CYL, new ItemStack(Gas.EMPTY_GAS_CYLINDER));
+        tickConsumer(h, sp, be, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS + 1, feed);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_OUT).is(Semiconductor.SILANE_CYLINDER) && c.getItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_B).isEmpty() && c.getItem(com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.SLOT_CYL).isEmpty(), "Mg2Si + 4HCl -> SiH4 in the cylinder");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(sp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] silane generator [9-30]: 2Mg + Si -> Mg2Si; Mg2Si + 4HCl + cylinder -> silane cylinder");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2399,6 +2424,10 @@ public class SemiconductorTests extends LabTestBase {
             L(io(Semiconductor.CARBON_TETRAFLUORIDE, com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.CF4_PER_RUN), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.FluorinationReactorBlockEntity.TICKS / 20.0, "C + 2F2 → CF4。ニッケルの管で冷やしながら");
         rec(a, Semiconductor.DRY_ETCHER.block, "ドライエッチング", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "現像したレジスト 1〜8枚"), io(Semiconductor.CARBON_TETRAFLUORIDE, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.CF4_PER_RUN)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "窓を開けた（真下だけ）")), com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WATTS, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.TICKS / 20.0, "CF4 のプラズマ（RIE）。隣の真空容器 0.1Pa 以下");
+        rec(a, Semiconductor.SILANE_GENERATOR.block, "ケイ化マグネシウム", L(io(Metallurgy.MAGNESIUM, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.MG_PER_RUN), io(Metallurgy.METALLURGICAL_SILICON, 1)),
+            L(io(Semiconductor.MAGNESIUM_SILICIDE, 1)), com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS / 20.0, "2Mg + Si → Mg2Si");
+        rec(a, Semiconductor.SILANE_GENERATOR.block, "シラン", L(io(Semiconductor.MAGNESIUM_SILICIDE, 1), io(Gas.HYDROCHLORIC_ACID, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.HCL_PER_RUN), io(Gas.EMPTY_GAS_CYLINDER, 1)),
+            L(io(Semiconductor.SILANE_CYLINDER, 1)), com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SilaneGeneratorBlockEntity.TICKS / 20.0, "Mg2Si + 4HCl → SiH4 + 2MgCl2（塩酸の瓶は戻る）");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

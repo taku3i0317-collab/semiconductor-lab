@@ -58,6 +58,9 @@ public final class Semiconductor {
     public static final Item PROCESS_WAFER         = Reg.item("process_wafer");
     // [9-27] 四フッ化炭素（IMP4-01）：ドライエッチングのガス。フッ素化の反応器で 黒鉛＋F2
     public static final Item CARBON_TETRAFLUORIDE  = Reg.contained("carbon_tetrafluoride", com.taku3.semiconductorlab.machine.Vessel.GAS_BAG);
+    // [9-30] シラン（IMP4-01、S-002：層間膜の CVD の原料）。Mg2Si＋塩酸。空気中で自然に燃えるのでボンベ
+    public static final Item MAGNESIUM_SILICIDE    = Reg.item("magnesium_silicide");
+    public static final Item SILANE_CYLINDER       = Reg.contained("silane_cylinder", com.taku3.semiconductorlab.machine.Vessel.STEEL_CYLINDER);
     // [9-32] ダイシング 段階1（A、O-013）：ダイヤモンドのけがき針で傷を付けて割る（1960ごろ）→ チップ（chip_state を引き継ぐ）
     public static final Item DIAMOND_SCRIBE        = Reg.item("diamond_scribe", com.taku3.semiconductorlab.item.DiamondScribeItem::new, new Item.Properties().durability(64));
     public static final Item CHIP                  = Reg.item("chip");
@@ -135,6 +138,8 @@ public final class Semiconductor {
     public static final Machine<FluorinationReactorBlockEntity> FLUORINATION_REACTOR = Machine.electric("fluorination_reactor", FluorinationReactorBlockEntity::new, FluorinationReactorBlockEntity.LAYOUT, metal(3.5f));
     // [9-27] ドライエッチング装置 RIE（IMP4-01）：CF4 のプラズマで真下だけ削る。隣の真空容器 0.1Pa 以下。3kW
     public static final Machine<DryEtcherBlockEntity> DRY_ETCHER = Machine.electric("dry_etcher", DryEtcherBlockEntity::new, DryEtcherBlockEntity.LAYOUT, lit(metal(4.0f), 9));
+    // [9-30] シランの発生器（IMP4-01、S-002）：Mg + Si → Mg2Si、Mg2Si + 4HCl → SiH4。1kW
+    public static final Machine<SilaneGeneratorBlockEntity> SILANE_GENERATOR = Machine.electric("silane_generator", SilaneGeneratorBlockEntity::new, SilaneGeneratorBlockEntity.LAYOUT, metal(3.5f));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

@@ -1935,6 +1935,58 @@
       "note": "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる"
     },
     {
+      "machine": "semiconductor-lab:silane_generator",
+      "process": "ケイ化マグネシウム",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:magnesium",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:metallurgical_silicon",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:magnesium_silicide",
+          "count": 1
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 10.0,
+      "energy_kj": 10,
+      "note": "2Mg + Si → Mg2Si"
+    },
+    {
+      "machine": "semiconductor-lab:silane_generator",
+      "process": "シラン",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:magnesium_silicide",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrochloric_acid",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:empty_gas_cylinder",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silane_cylinder",
+          "count": 1
+        }
+      ],
+      "watts": 1000.0,
+      "seconds": 10.0,
+      "energy_kj": 10,
+      "note": "Mg2Si + 4HCl → SiH4 + 2MgCl2（塩酸の瓶は戻る）"
+    },
+    {
       "machine": "semiconductor-lab:silicone_reactor",
       "process": "塩化メチル",
       "inputs": [

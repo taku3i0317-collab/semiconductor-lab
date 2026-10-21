@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SQS",
+    "SFS",
+    "SKS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "Q": "semiconductor-lab:quartz_tube",
+    "F": "semiconductor-lab:electric_furnace",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:silane_generator",
+    "count": 1
+  }
+}
