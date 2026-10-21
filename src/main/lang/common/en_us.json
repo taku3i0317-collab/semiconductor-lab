@@ -518,5 +518,10 @@
   "block.minecraft.furnace.note2": "In this mod it is a ~1000 °C furnace. Silver (962 °C) and germanium (938 °C) melt, but above copper (1085 °C) you need bellows ([3-04]) or a hotter furnace. An optical pyrometer can read it.",
   "block.minecraft.furnace.note3": "Walling in a fire sends its radiated heat back from the walls, so heat builds up inside. The ancestor of pottery kilns and smithing hearths.",
   "block.minecraft.furnace.note4": "Pottery kilns were in use in West Asia about 8,000 years ago ⚠️. Smelting copper and iron ores in it is kept as an approximation of the bloomery and crucible furnace (real ones work at about 1100–1200 °C).",
-  "block.minecraft.furnace.placeholder": "Approximation: ⚠️ the furnace is fixed at about 1000 °C. Ore smelting stands in for the bloomery and crucible furnace."
+  "block.minecraft.furnace.placeholder": "Approximation: ⚠️ the furnace is fixed at about 1000 °C. Ore smelting stands in for the bloomery and crucible furnace.",
+  "block.minecraft.blast_furnace.note1": "A kiln that gets very hot (about 1450 °C). Used to fire glass and bricks.",
+  "block.minecraft.blast_furnace.note2": "In this mod it is a ~1450 °C high-temperature kiln (refractory bricks, borosilicate glass and so on). The real iron blast furnace that taps liquid iron is a separate multiblock (blast furnace hearth [1-09]).",
+  "block.minecraft.blast_furnace.note3": "A tall furnace with a strong blast from bellows burns fuel hard and gets hotter. An optical pyrometer can read it (too hot for a thermocouple).",
+  "block.minecraft.blast_furnace.note4": "In 1709 Abraham Darby in England ran a blast furnace on coke instead of charcoal, making iron in quantity — the start of the Industrial Revolution.",
+  "block.minecraft.blast_furnace.placeholder": "Approximation: ⚠️ the vanilla blast furnace is a ~1450 °C kiln. The real (pig-iron) blast furnace is the multiblock [1-09]."
 }

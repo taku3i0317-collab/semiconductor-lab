@@ -364,6 +364,17 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-05] 高炉の扱い（IMP4-01、S-009）：火の入ったバニラの溶鉱炉は約1450℃（かまどより熱い、光高温計で読める）。本物の高炉はマルチブロックの炉床 */
+    @GameTest
+    public void blastFurnaceTemperature(GameTestHelper h) {
+        var lit = net.minecraft.world.level.block.Blocks.BLAST_FURNACE.defaultBlockState().setValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT, true);
+        h.assertValueEqual(com.taku3.semiconductorlab.item.ThermocoupleItem.temperatureC(lit), 1450, "lit blast furnace about 1450 C");
+        h.assertTrue(com.taku3.semiconductorlab.item.ThermocoupleItem.BLAST_FURNACE_C > com.taku3.semiconductorlab.item.ThermocoupleItem.FURNACE_C, "hotter than the furnace");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.OpticalPyrometerItem.glowC(lit), 1450, "the pyrometer reads it");
+        h.assertTrue(net.minecraft.core.registries.BuiltInRegistries.BLOCK.containsKey(com.taku3.semiconductorlab.SemiconductorLab.id("blast_furnace_hearth")), "the real blast furnace is the multiblock hearth [1-09]");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [2-43] 黄鉄鉱の焙焼（IMP3、O-028 で書き出しに足した）
         rec(a, Heat.REVERBERATORY_FURNACE.block, "焙焼（黄鉄鉱）", L(io(Chemistry.PYRITE, 1), perRuns(io(Items.COAL, 1), (int) (ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS))),

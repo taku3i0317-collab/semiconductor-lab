@@ -205,3 +205,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ O-029-1 [14-22] ベルトコンベア＋駆動（block/ConveyorBeltBlock・ConveyorDriveBlockEntity、client/ConveyorBeltRenderer、Transfer API で機械・チェストどうしを遠くまで）。GameTest conveyor_belt、REFERENCES F61
 - ✅ O-029-2 [14-23] 天井の搬送 OHT（block/OhtRailBlock・OhtDriveBlockEntity：いっぱいの FOUP をレールの先のロードポートへ、光が動く）。GameTest oht_rail、REFERENCES F62。O-029 完了
 - ✅ S-009 [3-02] かまど（バニラ furnace の解説・≈1000℃ に統一：熱電対・光高温計の値 600→1000℃）。GameTest furnace_temperature、REFERENCES F63
+- ✅ S-009 [3-05] 高炉の扱い（バニラ溶鉱炉＝高温の窯 ≈1450℃ の解説、熱電対・光高温計の値 1200→1450℃）。GameTest blast_furnace_temperature、REFERENCES F64
