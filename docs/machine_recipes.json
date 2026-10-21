@@ -785,6 +785,26 @@
     },
     {
       "machine": "semiconductor-lab:autoclave",
+      "process": "亜硫酸パルプ",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:pulp_charge",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:wood_pulp",
+          "count": 2
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 30.0,
+      "energy_kj": 300,
+      "note": "木のチップを亜硫酸塩の液で約130℃・3気圧で煮てリグニンをとかす（[15-01]）"
+    },
+    {
+      "machine": "semiconductor-lab:autoclave",
       "process": "ベークライト",
       "inputs": [
         {
@@ -1787,6 +1807,30 @@
       "note": "SiO2 + 6HF → H2SiF6 + 2H2O。シリコンは溶けない。室温・電気なし（125nm の膜の時間）"
     },
     {
+      "machine": "semiconductor-lab:evaporator",
+      "process": "インジウム錫を付ける",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:borosilicate_glass",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:indium_tin_alloy",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:indium_tin_coated_glass",
+          "count": 1
+        }
+      ],
+      "watts": 300.0,
+      "seconds": 20.0,
+      "energy_kj": 6,
+      "note": "真空で合金を蒸発させてガラスに付ける → かまどで酸化して ITO（[2-46]）"
+    },
+    {
       "machine": "semiconductor-lab:fluorination_reactor",
       "process": "CF4 を作る",
       "inputs": [
@@ -1875,6 +1919,38 @@
       "watts": 0.0,
       "seconds": 80.0,
       "note": "空気なしで約1000℃（燃料は石炭・木炭・コークス1個で石炭8個、電気なし）。石炭ガスは回収しない"
+    },
+    {
+      "machine": "semiconductor-lab:haber_bosch_reactor",
+      "process": "アンモニア",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:nitrogen_gas",
+          "count": 1,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 3,
+          "unit": "mol"
+        },
+        {
+          "item": "semiconductor-lab:iron_catalyst",
+          "count": 1,
+          "consumed": false
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:ammonia_gas",
+          "count": 2,
+          "unit": "mol"
+        }
+      ],
+      "watts": 20000.0,
+      "seconds": 10.0,
+      "energy_kj": 200,
+      "note": "N2 + 3H2 → 2NH3（鉄の触媒は減らない。触媒なしでは動かない）"
     },
     {
       "machine": "semiconductor-lab:hafnium_chlorinator",
@@ -2240,6 +2316,31 @@
       "watts": 0.0,
       "seconds": 10.0,
       "note": "CaF2 + H2SO4 → CaSO4 + 2HF（約200℃）。HF を受け器の水に吸わせる。釜も瓶も鉛（ガラスは溶ける）"
+    },
+    {
+      "machine": "semiconductor-lab:magnesium_cell",
+      "process": "マグネシウム",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:anhydrous_magnesium_chloride",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:magnesium",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:chlorine_gas",
+          "count": 1,
+          "unit": "mol"
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 20.0,
+      "energy_kj": 200,
+      "note": "溶かした MgCl2 → Mg + Cl2（ダウ法）"
     },
     {
       "machine": "semiconductor-lab:oil_diffusion_pump",
@@ -2880,6 +2981,34 @@
       "seconds": 20.0,
       "energy_kj": 10,
       "note": "熱い硫酸＋過酸化水素でレジストを酸化して落とす（ChipOps.strip）。塗り直しにも"
+    },
+    {
+      "machine": "semiconductor-lab:reverberatory_furnace",
+      "process": "焙焼（黄鉄鉱）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:pyrite",
+          "count": 1
+        },
+        {
+          "item": "minecraft:coal",
+          "count": 1,
+          "per_runs": 8
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:colcothar",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sulfur_dioxide",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "4FeS2 + 11O2 → 2Fe2O3（ベンガラ）+ 8SO2"
     },
     {
       "machine": "semiconductor-lab:reverberatory_furnace",

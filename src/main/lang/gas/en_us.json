@@ -305,5 +305,6 @@
   "item.semiconductor-lab.chamber_acid.note3": "2SO2 + O2 + 2H2O -> 2H2SO4, with NO and NO2 acting as oxygen-carrying catalysts. It reaches only about 65%; it cannot make concentrated acid or oleum like the contact process [6-13].",
   "item.semiconductor-lab.chamber_acid.note4": "Nitrogen dioxide (NO2) is a brown toxic gas (GHS: acute toxicity, inhalation). Fumes leaking from lead-chamber works harmed nearby fields and homes.",
   "item.semiconductor-lab.chamber_acid.placeholder": "Approximation: really the saltpetre's nitrogen oxides are recovered and reused (the game uses one). Glover and Gay-Lussac towers are omitted.",
-  "message.semiconductor-lab.chamber_acid.leak": "Brown fumes (nitrogen dioxide) leaked... you feel a little sick"
+  "message.semiconductor-lab.chamber_acid.leak": "Brown fumes (nitrogen dioxide) leaked... you feel a little sick",
+  "block.semiconductor-lab.haber_bosch_reactor.howto": "Put in 1 nitrogen bag, 3 hydrogen bags and the iron catalyst, and connect power. You get 2 ammonia bags. Without the catalyst it does nothing (the catalyst is not used up)."
 }

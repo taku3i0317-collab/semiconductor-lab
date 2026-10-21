@@ -1090,6 +1090,9 @@ public class MetallurgyTests extends LabTestBase {
     }
 
     static void machineRecipes(com.google.gson.JsonArray a) {
+        // [1-39] マグネシウムの電解槽（IMP3、O-028 で書き出しに足した）
+        rec(a, Metallurgy.MAGNESIUM_CELL.block, "マグネシウム", L(io(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 1)), L(io(Metallurgy.MAGNESIUM, 1), mol(Gas.CHLORINE_GAS, 1)),
+            com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.MagnesiumCellBlockEntity.TICKS / 20.0, "溶かした MgCl2 → Mg + Cl2（ダウ法）");
         rec(a, Metallurgy.GALLIUM_CELL.block, "ガリウム", L(io(Metallurgy.SPENT_BAYER_LIQUOR, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.LIQUOR_PER_RUN), io(Chemistry.POLYETHYLENE_BOTTLE, 1)),
             L(io(Metallurgy.GALLIUM, 1), io(Gas.SODIUM_HYDROXIDE, 1)), com.taku3.semiconductorlab.block.GalliumCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.TICKS / 20.0, "バイヤー法の使い終わった液を電解（液はバイヤー法の溶解釜が液を使い切るたびに1つ）");
         rec(a, Metallurgy.CASTNER_CELL.block, "金属ナトリウム", L(io(Gas.SODIUM_HYDROXIDE, com.taku3.semiconductorlab.block.CastnerCellBlockEntity.NAOH_PER_RUN), io(Metallurgy.IRON_FLASK, 1)),

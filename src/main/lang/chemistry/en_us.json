@@ -1475,5 +1475,12 @@
   "item.semiconductor-lab.copper_phthalocyanine.note2": "4 phthalic anhydride + 2 urea + copper(I) chloride + ammonium molybdate (catalyst, returned). The blue for colour resists (C's [9-45]).",
   "item.semiconductor-lab.copper_phthalocyanine.note3": "Copper sits in the middle of a big ring of four phthalic units linked by nitrogen. It stands up very well to light, heat and chemicals.",
   "item.semiconductor-lab.copper_phthalocyanine.note4": "A blue substance found by accident in Switzerland in 1927 is said to be the first; it turned up again at a Scottish factory in 1928, and sold as 'phthalocyanine blue' from about 1935. The 1936 Wyler process made it cheap. It colours bullet-train blue, ballpoint ink and the blue filters of camera sensors.",
-  "item.semiconductor-lab.copper_phthalocyanine.placeholder": "Approximation: really reacted in a solvent at about 200 °C. The proportions are game values."
+  "item.semiconductor-lab.copper_phthalocyanine.placeholder": "Approximation: really reacted in a solvent at about 200 °C. The proportions are game values.",
+  "block.semiconductor-lab.autoclave.howto": "Put the material and water on the left and connect power. Water turns to steam and the inside gets hot and pressurised, then it reacts (Bakelite, PTFE, nylon, pulp...). Too little heat or pressure gives a failed product.",
+  "block.semiconductor-lab.bottle_machine.howto": "Put in soda-lime glass and connect power: glass bottles come out quickly, far faster than glassblowing by hand.",
+  "block.semiconductor-lab.electroplating_bath.howto": "Put in a copper ingot and a mould (wax coated with graphite) and connect power. Copper travels through the liquid onto the mould, making a copper electrotype.",
+  "block.semiconductor-lab.high_pressure_reactor.howto": "Put in ethylene bags and a little oxygen and connect power. At very high pressure you get polyethylene.",
+  "block.semiconductor-lab.pyrolysis_furnace.howto": "Put in chlorodifluoromethane bags and connect power. Heat splits it into tetrafluoroethylene (the PTFE raw material) and hydrogen chloride.",
+  "block.semiconductor-lab.solvay_tower.howto": "Put in salt, calcite and ammonia water and connect power. You get sodium carbonate (soda). The ammonia mostly goes round and comes back.",
+  "block.semiconductor-lab.ultrapure_water_system.howto": "Put in deionized water and a polyethylene bottle and connect power. You get ultrapure water for washing chips."
 }

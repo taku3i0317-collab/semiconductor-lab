@@ -244,5 +244,6 @@
   "item.semiconductor-lab.ai_chip.note3": "2012年 AlexNet が GPU で画像の認識を大きく進め、2016年グーグルの TPU など AI 専用のチップへ。中身は「掛けて足す」のくり返し。",
   "item.semiconductor-lab.ai_chip.note4": "ネットは 64→16→10、自作の CC0 の数字で学習。4ビットの掛け算は mul4 の動きで1回ずつ。読みちがえたら答えの棒を選んで「教える」（銅のボタン）で学び直す。しゃがんで右クリックで見本の数字を読む。⚠️ 学習の計算そのものは Java",
   "item.semiconductor-lab.ai_chip.placeholder": "⚠️ 仮：学習の計算は Java（掛け算は自分の掛け算器の動き）",
-  "message.semiconductor-lab.ai_chip.demo": "AI チップ：見本の「%s」を読んだ → 答え %s（掛け算 %s 回、掛け算器4つで %s クロック）"
+  "message.semiconductor-lab.ai_chip.demo": "AI チップ：見本の「%s」を読んだ → 答え %s（掛け算 %s 回、掛け算器4つで %s クロック）",
+  "block.semiconductor-lab.lcd_cell.howto": "銅ケーブルで電気（1W）をつなぐと正面が暗くなり、切ると明るくもどる。これを7つ並べると数字が作れる。"
 }

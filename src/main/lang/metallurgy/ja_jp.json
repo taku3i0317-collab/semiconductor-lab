@@ -1173,5 +1173,6 @@
   "item.semiconductor-lab.native_copper.note1": "地面から金属のまま出てくる銅。たたいて形にできる。",
   "item.semiconductor-lab.native_copper.note2": "銅の鉱石を掘ると時々出る（5% ⚠️）。かまどで溶かすと銅のインゴット。",
   "item.semiconductor-lab.native_copper.note3": "たたくと硬くなり（加工硬化）、熱すると柔らかく戻る（焼きなまし）。人がはじめて使った金属の一つ。",
-  "item.semiconductor-lab.native_copper.note4": "紀元前8000年ごろのアナトリア（今のトルコ）で、自然銅をたたいて作ったビーズが見つかっている。北アメリカの五大湖のまわりでは大きな自然銅のかたまりが出た。"
+  "item.semiconductor-lab.native_copper.note4": "紀元前8000年ごろのアナトリア（今のトルコ）で、自然銅をたたいて作ったビーズが見つかっている。北アメリカの五大湖のまわりでは大きな自然銅のかたまりが出た。",
+  "block.semiconductor-lab.magnesium_cell.howto": "無水の塩化マグネシウムを入れて電気をつなぐ。マグネシウムと塩素の袋が出る。にがりを乾かして無水にしてから入れる。"
 }

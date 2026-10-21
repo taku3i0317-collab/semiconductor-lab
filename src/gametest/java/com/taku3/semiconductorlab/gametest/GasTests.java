@@ -602,6 +602,9 @@ public class GasTests extends LabTestBase {
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める。機械を足したらここに rec を1つ） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        // [6-09] ハーバー・ボッシュ（IMP3、O-028 で書き出しに足した）
+        rec(a, Gas.HABER_BOSCH_REACTOR.block, "アンモニア", L(mol(Gas.NITROGEN_GAS, 1), mol(Gas.HYDROGEN_GAS, 3), kept(io(Gas.IRON_CATALYST, 1))), L(mol(Gas.AMMONIA_GAS, 2)),
+            com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.HaberBoschReactorBlockEntity.TICKS / 20.0, "N2 + 3H2 → 2NH3（鉄の触媒は減らない。触媒なしでは動かない）");
         rec(a, Gas.ELECTROLYZER.block, "水の電気分解", L(io(Items.WATER_BUCKET, 1), kept(io(Chemistry.SULFURIC_ACID, 1))),
             L(io(Gas.HYDROGEN_GAS, 2), io(Gas.OXYGEN_GAS, 1), io(Items.BUCKET, 1)), ElectrolyzerBlockEntity.WATTS, ElectrolyzerBlockEntity.TOTAL_TICKS / 20.0, "2H2O → 2H2 + O2。硫酸は電解質");
         rec(a, Gas.ELECTROLYZER.block, "塩水の電気分解（クロルアルカリ）", L(io(Items.WATER_BUCKET, 1), io(Gas.SALT, ElectrolyzerBlockEntity.SALT_PER_RUN)),

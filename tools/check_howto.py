@@ -16,6 +16,32 @@ CONTENT = ROOT / "src/main/java/com/taku3/semiconductorlab/content"
 # 例外（レシピの JSON に出ない道）：ID → 道の説明
 HOWTO_EXTRA = {
     "test_power_source": "テスト用（クリエイティブのみ）",
+    "carotene": "クロマトグラフィーの塔（[2-54]）で葉の汁を分けると出る（ブロックの右クリック、ChromatographyColumnBlock）",   # IMP3 O-028
+    "chlorophyll": "クロマトグラフィーの塔（[2-54]）で葉の汁を分けると出る（ChromatographyColumnBlock）",   # IMP3 O-028
+    "cured_photopolymer": "光で固まる樹脂を日なたで持つと固まる（[2-45]、PhotopolymerResinItem）",   # IMP3 O-028
+    "deionized_water": "イオン交換塔（[2-17]）に蒸留水を持って右クリック（IonExchangeColumnBlock）",   # IMP3 O-028
+    "ethylene_gas": "アルミナの触媒管（[2-36]）をたき火の上に置き、エタノールを持って右クリック（AluminaCatalystTubeBlock）",   # IMP3 O-028
+    "fermented_wash": "発酵のかめ（[2-39]）に酵母入りの砂糖水を入れて待つ（FermentationCrockBlock）",   # IMP3 O-028
+    "vinegar": "発酵のかめ（[11-10]）に発酵した液を入れて空気にさらす（FermentationCrockBlock）",   # IMP3 O-028
+    "formalin": "熱した銅の網（[2-27]）にメタノールを持って右クリック（CopperGauzeBlock）",   # IMP3 O-028
+    "green_vitriol": "黄鉄鉱を水のそばに置いておくと風化して緑ばんになる（[2-43]、Retting の仕組み）",   # IMP3 O-028
+    "retted_flax": "亜麻の茎を水に落として待つ（レッティング [0-06]、Retting）",   # IMP3 O-028
+    "flax_stalks": "亜麻の作物（[0-06]）を収穫すると出る（作物のルートテーブル）",   # IMP3 O-028
+    "einkorn": "野生のヒトツブコムギを刈ると、ときどき穂の落ちない種が出る（[0-04]、作物のルートテーブル）",   # IMP3 O-028
+    "heliograph": "ヘリオグラフの板を日なたで露光して、テレビン油で洗う（[2-31]、HeliographPlateBlock）",   # IMP3 O-028
+    "latex": "剥片でゴムの木を右クリック（[2-29]、FlakeItem）",   # IMP3 O-028
+    "pine_resin": "剥片でトウヒの丸太を右クリック（[2-31]、FlakeItem）",   # IMP3 O-028
+    "obsidian_flake": "たたき石で黒曜石を右クリック（[0-01]、HammerstoneItem）",   # IMP3 O-028
+    "woolen_yarn": "紡錘で羊毛を紡ぐ（[0-06]、SpindleItem）",   # IMP3 O-028
+    "spent_aqua_regia": "王水は時間がたつと弱ってこれになる（[2-22]、AquaRegiaItem）",   # IMP3 O-028
+    "roman_concrete": "ローマンコンクリートの生コンが水にふれると固まる（[12-01]、ConcretePowderBlock）",   # IMP3 O-028
+    "nitrogen_farmland": "耕地のブロック（アイテムにはならない）：エンドウが熟す・肥料・堆肥でできる（[0-05][11-05][11-06][11-07]）",   # IMP3 O-028
+    "tired_farmland": "耕地のブロック（アイテムにはならない）：同じ作物を続けて収穫するとできる（[11-03]）",   # IMP3 O-028
+    "salty_farmland": "耕地のブロック（アイテムにはならない）：乾いた土地の灌漑で収穫するとできる（[11-01]）",   # IMP3 O-028
+    "alkali_waste": "黒灰を作業台で使うと残る（craftRemainder、[2-05] ルブラン法）",   # IMP3 O-028
+    "spent_lye": "けん化した獣脂を作業台で使うと残る（craftRemainder、[2-09] 石けん）",   # IMP3 O-028
+    "light_rare_earth_liquor": "焼いたバストネス石を作業台で使うと残る（craftRemainder、[1-35]）",   # IMP3 O-028
+    "potassium_fluorozirconate": "粗いフッ化ジルコニウムカリウムを作業台で使うと残る（craftRemainder、[1-70] 分別結晶）",   # IMP3 O-028
 }
 TRUNK_OWNER = {"Survival": "D", "Metallurgy": "D", "Chemistry": "D", "Heat": "D", "Power": "A", "Vacuum": "A", "Gas": "A", "Optics": "C",
                "Precision": "E", "Semiconductor": "A", "Control": "A", "Agriculture": "D", "Construction": "D", "Medicine": "D",

@@ -357,3 +357,12 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - [11-04] 品種改良：案＝メンデルのエンドウの交配の実験（背の高い × 低い → 子は全部高い、孫は 3:1）か、緑の革命の背の低い小麦（肥料で倒れない＝肥えた耕地で収穫 +1）。新しい作物のブロックが要るので決めてほしい
 
 - 13. ✅ [6-12] 鉛室法（O-027、仮決定 Q3-19 ①）：鉛の部屋（戻る）で SO2 2＋水＋硝石 → 鉛室の酸2（ときどき NO2 がもれる事故＝吐き気）→ 蒸留器で硫酸。今の SO2＋水 の道はそのまま
+
+## O-028（わかりやすさの穴：入手の道・機械の「?」、2026-10-21）
+- ✅ D の分を 0 にした（python tools/check_howto.py：① D の 30 → 0、② D の 10 → 0）
+  - 書き出し漏れ（機械のレシピ）を足した：ハーバー・ボッシュ → アンモニア（GasTests）、マグネシウムの電解槽 → マグネシウム（MetallurgyTests）、オートクレーブ → 亜硫酸パルプ・真空蒸着 → ITO を付けたガラス（D が足した行、ChemistryTests）、反射炉の黄鉄鉱 → ベンガラ（HeatTests）
+  - ブロック・アイテムのしくみで出る物（クロマトグラフィー・イオン交換塔・発酵のかめ・銅の網・触媒管・剥片・たたき石・紡錘・日光・レッティング・王水の劣化・生コン）、作物のルート（亜麻・ヒトツブコムギ）、作業台の残り（craftRemainder：アルカリのかす・使った灰汁・軽い希土類の液・フッ化ジルコニウムカリウム）、アイテムにならない耕地のブロック3つは、tools/check_howto.py の HOWTO_EXTRA に理由つきで足した
+  - 機械の「?」（block.<id>.howto）を10個書いた：autoclave・bottle_machine・electroplating_bath・haber_bosch_reactor・high_pressure_reactor・lcd_cell・magnesium_cell・pyrolysis_furnace・solvay_tower・ultrapure_water_system
+- **A へ**：検査の仕組みの案。(1) content の `craftRemainder(X)` の X を「道あり」と数える、(2) 作物などワールドに生えないブロックのルートテーブル（loot_table/blocks の全部）の出る物も数える、とすれば HOWTO_EXTRA の手書きが減る（D の分は今は手書きで足してある）
+- テスト 414/414
+

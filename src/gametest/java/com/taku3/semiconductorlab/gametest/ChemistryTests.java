@@ -1414,6 +1414,11 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
 
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
+        // IMP3、O-028 で書き出しに足した：オートクレーブの亜硫酸パルプ、真空蒸着の ITO（D が足した行）
+        rec(a, Chemistry.AUTOCLAVE.block, "亜硫酸パルプ", L(io(com.taku3.semiconductorlab.content.Communication.PULP_CHARGE, 1)), L(io(com.taku3.semiconductorlab.content.Communication.WOOD_PULP, 2)),
+            com.taku3.semiconductorlab.block.AutoclaveBlockEntity.WATTS, 30.0, "木のチップを亜硫酸塩の液で約130℃・3気圧で煮てリグニンをとかす（[15-01]）");
+        rec(a, com.taku3.semiconductorlab.content.Vacuum.EVAPORATOR.block, "インジウム錫を付ける", L(io(Chemistry.BOROSILICATE_GLASS, 1), io(Chemistry.INDIUM_TIN_ALLOY, 1)), L(io(Chemistry.INDIUM_TIN_COATED_GLASS, 1)),
+            com.taku3.semiconductorlab.block.EvaporatorBlockEntity.WATTS, com.taku3.semiconductorlab.block.EvaporatorBlockEntity.TICKS / 20.0, "真空で合金を蒸発させてガラスに付ける → かまどで酸化して ITO（[2-46]）");
         for (var r : com.taku3.semiconductorlab.block.ResistReactorBlockEntity.RECIPES) {
             var ins = new com.google.gson.JsonArray();
             for (var i : r.in()) ins.add(io(i.shown(), i.count()));

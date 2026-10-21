@@ -1173,5 +1173,6 @@
   "item.semiconductor-lab.native_copper.note1": "Copper that comes out of the ground already as metal. It can be hammered into shape.",
   "item.semiconductor-lab.native_copper.note2": "Sometimes drops when mining copper ore (5% ⚠️). Smelt it for a copper ingot.",
   "item.semiconductor-lab.native_copper.note3": "Hammering hardens it (work hardening); heating softens it again (annealing). One of the first metals people used.",
-  "item.semiconductor-lab.native_copper.note4": "Beads hammered from native copper around 8000 BC have been found in Anatolia (modern Turkey); big lumps came from around North America's Great Lakes."
+  "item.semiconductor-lab.native_copper.note4": "Beads hammered from native copper around 8000 BC have been found in Anatolia (modern Turkey); big lumps came from around North America's Great Lakes.",
+  "block.semiconductor-lab.magnesium_cell.howto": "Put in anhydrous magnesium chloride and connect power. Out come magnesium and a chlorine bag. Dry the bittern salt first."
 }

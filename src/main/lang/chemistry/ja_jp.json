@@ -1475,5 +1475,12 @@
   "item.semiconductor-lab.copper_phthalocyanine.note2": "無水フタル酸4＋尿素2＋塩化銅(I)＋モリブデン酸アンモニウム（触媒、戻る）。カラーレジストの青の材料（C の [9-45]）。",
   "item.semiconductor-lab.copper_phthalocyanine.note3": "4つのフタル酸の部分が窒素でつながった大きな輪のまん中に、銅がはまっている。光や熱、薬にとても強い。",
   "item.semiconductor-lab.copper_phthalocyanine.note4": "1927年、スイスで偶然できた青い物が最初とされ、1928年にスコットランドの工場でも見つかって、1935年ごろから「フタロシアニンブルー」として売られた。1936年のワイラー法で安く作れるようになった。新幹線の青やボールペンのインク、カメラのセンサーの青のフィルターにも使われる。",
-  "item.semiconductor-lab.copper_phthalocyanine.placeholder": "近似：本物は溶剤の中で約200℃で反応させる。量の割合はゲームの値。"
+  "item.semiconductor-lab.copper_phthalocyanine.placeholder": "近似：本物は溶剤の中で約200℃で反応させる。量の割合はゲームの値。",
+  "block.semiconductor-lab.autoclave.howto": "左に材料と水、電気をつなぐ。水が熱で蒸気になって、中が熱く・高い圧力になると反応する（ベークライト・PTFE・ナイロン・パルプなど）。温度と圧力が足りないと失敗作が出る。",
+  "block.semiconductor-lab.bottle_machine.howto": "ソーダ石灰ガラスを入れて電気をつなぐと、ガラス瓶がどんどん出る。手で吹くよりずっと速い。",
+  "block.semiconductor-lab.electroplating_bath.howto": "銅のインゴットと型（黒鉛をぬったろうの型）を入れて電気をつなぐ。銅が液を通って型に積もり、銅の電鋳ができる。",
+  "block.semiconductor-lab.high_pressure_reactor.howto": "エチレンの袋と少しの酸素の袋を入れて電気をつなぐ。とても高い圧力でポリエチレンができる。",
+  "block.semiconductor-lab.pyrolysis_furnace.howto": "クロロジフルオロメタンの袋を入れて電気をつなぐ。熱で分かれて、テトラフルオロエチレン（PTFE のもと）と塩化水素が出る。",
+  "block.semiconductor-lab.solvay_tower.howto": "塩と方解石とアンモニア水を入れて電気をつなぐ。炭酸ナトリウム（ソーダ）が出る。アンモニアはほとんど回って戻る。",
+  "block.semiconductor-lab.ultrapure_water_system.howto": "脱イオン水とポリエチレンの瓶を入れて電気をつなぐ。チップの洗浄に使う超純水が出る。"
 }

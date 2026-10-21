@@ -344,6 +344,9 @@ public class HeatTests extends LabTestBase {
     }
 
     static void machineRecipes(com.google.gson.JsonArray a) {
+        // [2-43] 黄鉄鉱の焙焼（IMP3、O-028 で書き出しに足した）
+        rec(a, Heat.REVERBERATORY_FURNACE.block, "焙焼（黄鉄鉱）", L(io(Chemistry.PYRITE, 1), perRuns(io(Items.COAL, 1), (int) (ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS))),
+            L(io(Chemistry.COLCOTHAR, 1), io(Chemistry.SULFUR_DIOXIDE, 1)), 0, ReverberatoryFurnaceBlockEntity.ROAST_TICKS / 20.0, "4FeS2 + 11O2 → 2Fe2O3（ベンガラ）+ 8SO2");
         rec(a, Heat.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(Heat.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");
         double fuelS = ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS;

@@ -305,5 +305,6 @@
   "item.semiconductor-lab.chamber_acid.note3": "2SO2 + O2 + 2H2O → 2H2SO4。NO と NO2 が酸素を運ぶ触媒としてはたらく。濃さは約65%で、接触法 [6-13] のような濃い硫酸や発煙硫酸は作れない。",
   "item.semiconductor-lab.chamber_acid.note4": "二酸化窒素（NO2）は茶色の毒のある気体（GHS：急性毒性（吸入））。鉛室法の工場では、もれたけむりがまわりの畑や家にも害を出した。",
   "item.semiconductor-lab.chamber_acid.placeholder": "近似：硝石は本物では回収してくり返し使う（ゲームでは1つ使う）。グラバー塔・ゲイ＝リュサック塔は省略。",
-  "message.semiconductor-lab.chamber_acid.leak": "茶色いけむり（二酸化窒素）がもれた…少し気分が悪い"
+  "message.semiconductor-lab.chamber_acid.leak": "茶色いけむり（二酸化窒素）がもれた…少し気分が悪い",
+  "block.semiconductor-lab.haber_bosch_reactor.howto": "窒素の袋1・水素の袋3と鉄の触媒を入れて電気をつなぐ。アンモニアの袋2が出る。触媒がないと動かない（触媒は減らない）。"
 }
