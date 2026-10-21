@@ -736,5 +736,6 @@
   "gui.semiconductor-lab.bake_plate.running": "酸を働かせている",
   "gui.semiconductor-lab.bake_plate.recipe": "露光 → 加熱 → 現像",
   "gui.semiconductor-lab.stepper.k1": "k1 %s-%s=%s",
-  "gui.semiconductor-lab.stepper.dof": "焦点深度 %s µm"
+  "gui.semiconductor-lab.stepper.dof": "焦点深度 %s µm",
+  "gui.semiconductor-lab.stepper.defocus": "段差が焦点深度より大きい：CMP で平らに"
 }

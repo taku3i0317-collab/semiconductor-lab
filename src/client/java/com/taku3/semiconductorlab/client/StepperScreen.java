@@ -54,10 +54,12 @@ public class StepperScreen extends MachineScreen {
                 else if (!StepperBlockEntity.lensMatches(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem())) hint = "lens_wrong";
                 else if (StepperBlockEntity.immersion(lens) && !menu.getSlot(StepperBlockEntity.SLOT_WATER).getItem().is(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER)) hint = "need_water";
                 else if (!ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), StepperBlockEntity.toolWith(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem()),
-                        menu.get(StepperBlockEntity.DATA_CD), 0).ok())
+                        menu.get(StepperBlockEntity.DATA_CD), 0, menu.get(StepperBlockEntity.DATA_DOF)).ok())
                     // レンズの CD より細かいマスク（S-010。縮小カメラで2つに分けたマスクは方眼の2倍まで＝A の v0.5 #6）は「ぼけ」、ほかは「焼けない」
                     hint = "too_fine".equals(ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), StepperBlockEntity.toolWith(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem()),
-                            menu.get(StepperBlockEntity.DATA_CD), 0).reason()) ? "blurred" : "cannot";
+                            menu.get(StepperBlockEntity.DATA_CD), 0, menu.get(StepperBlockEntity.DATA_DOF)).reason()) ? "blurred"
+                            : "defocus".equals(ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), StepperBlockEntity.toolWith(lens, menu.getSlot(StepperBlockEntity.SLOT_FILTER).getItem()),
+                            menu.get(StepperBlockEntity.DATA_CD), 0, menu.get(StepperBlockEntity.DATA_DOF)).reason()) ? "defocus" : "cannot";
                 else if (!menu.getSlot(StepperBlockEntity.SLOT_OUT).getItem().isEmpty()) hint = "output_full";
                 else if (menu.getKw() <= 0 && menu.getProgress() == 0) hint = "press";
                 else if (menu.getKw() <= 0) hint = "need_power";

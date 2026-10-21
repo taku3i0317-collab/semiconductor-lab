@@ -5216,6 +5216,7 @@
   "gui.semiconductor-lab.bake_plate.recipe": "Expose → bake → develop",
   "gui.semiconductor-lab.stepper.k1": "k1 %s-%s=%s",
   "gui.semiconductor-lab.stepper.dof": "DOF %s um",
+  "gui.semiconductor-lab.stepper.defocus": "Steps exceed DOF: flatten by CMP",
   "item.semiconductor-lab.electromagnet": "Electromagnet",
   "item.semiconductor-lab.electromagnet.note1": "Iron wound with copper wire that is a magnet only while current flows.",
   "item.semiconductor-lab.electromagnet.note2": "Crafting: 1 iron ingot (core) + 8 copper wire (wire drawing [1-58]) → 1. A part for the magnet that sorts ions by mass in ion implantation [9-28] and more.",

@@ -3242,6 +3242,35 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v0.5 #1 焦点深度（IMP2 O-030、ステッパーの側）：KrF のレンズ（DOF 310nm）は段差 320nm の板を焼けない（ボタンが効かない・材料は減らない）。CMP で平らにすると焼ける */
+    @GameTest(maxTicks = 200)
+    public void stepper_defocus(GameTestHelper h) {
+        var base = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal();
+        var one = new com.taku3.semiconductorlab.litho.ChipDesign(16, "one", base.layers().subList(0, 4), java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.MOS);
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack w = com.taku3.semiconductorlab.litho.ChipOps.depositInterlayer(com.taku3.semiconductorlab.litho.LithoExamples.process(ow, one, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G)).out();
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        mask.set(ModDataComponents.MASK, base.mask(4));
+        ItemStack lens = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_KRF);
+        lens.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.STEPPER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.StepperBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var c = be.getContainer();
+        ItemStack stepped = com.taku3.semiconductorlab.litho.ChipOps.coat(w).out();
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER, stepped);
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK, mask);
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, lens);
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Optics.KRF_LASER));
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "320 nm of steps > KrF depth of focus " + com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(lens) + " nm");
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER).getCount() == 1 && c.getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER).getDamageValue() == 0, "nothing is lost");
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER, com.taku3.semiconductorlab.litho.ChipOps.coat(com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.litho.ChipOps.planarize(w).out(), 0).out()).out());
+        h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "after CMP the stepper can print");
+        LOG.info("[LAB] stepper defocus [v0.5 #1]: KrF DOF " + com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(lens) + " nm vs 320 nm steps -> refused; after CMP -> prints");
+        h.succeed();
+    }
+
     /**
      * v0.5 #1 焦点深度（C と決めた形、O-030）：KrF のレンズ（焦点深度 310 nm）で、MOS の4段（拡散・ゲート・窓・金属）＋層間膜のあとの VIA は 320 nm の段差で defocus。
      * CMP で平らにすると焼ける。焦点深度の深い g線（2847 nm）なら CMP なしでも焼ける。5引数の exposeAtCd は今までどおり焦点深度を見ない

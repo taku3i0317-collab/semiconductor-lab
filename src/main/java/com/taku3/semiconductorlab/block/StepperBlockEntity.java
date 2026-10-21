@@ -55,7 +55,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             .right("overlay", 50, 1, "gui.semiconductor-lab.mask_aligner.overlay").samples("20.0")
             .right("room", 61, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
             .text("dof", 8, 62, 44, 2, "gui.semiconductor-lab.stepper.dof").samples("0.12")
-            .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water", "blurred", "cannot",
+            .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water", "defocus", "blurred", "cannot",
                     "output_full", "press", "need_power", "running"))
             .text("k1", 8, 100, 88, 1, "gui.semiconductor-lab.stepper.k1").samples("0.60", "0.30", "0.30")
             .build();
@@ -123,7 +123,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         ItemStack lens = container.getItem(SLOT_LENS);
         return MaskAlignerBlockEntity.isMask(m) && lensOk(lens) && lensMatches(lens, container.getItem(SLOT_FILTER)) && waterOk() && stagesReady() && container.getItem(SLOT_OUT).isEmpty()
-                && ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), 0).ok();
+                && ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), 0, ProjectionLensItem.dofNm(lens)).ok();
     }
 
     /** 画面のボタン：1チップ送って焼く（段階1＝人の手で送る） */
@@ -167,7 +167,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
         if (++stepsDone < STEPS) { setChanged(); return; }
         stepsDone = 0;
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
-        ChipOps.Result r = ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), overlayNm());
+        ChipOps.Result r = ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), overlayNm(), ProjectionLensItem.dofNm(container.getItem(SLOT_LENS)));   // v0.5 #1 段差＞焦点深度なら焼けない（A）
         if (!r.ok()) return;
         container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.addDust(r.out(), CleanRoom.classAt(level, worldPosition).dust));
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);   // マスクは触れないので傷まない

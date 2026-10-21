@@ -5216,6 +5216,7 @@
   "gui.semiconductor-lab.bake_plate.recipe": "露光 → 加熱 → 現像",
   "gui.semiconductor-lab.stepper.k1": "k1 %s-%s=%s",
   "gui.semiconductor-lab.stepper.dof": "焦点深度 %s µm",
+  "gui.semiconductor-lab.stepper.defocus": "段差が焦点深度より大きい：CMP で平らに",
   "item.semiconductor-lab.electromagnet": "電磁石",
   "item.semiconductor-lab.electromagnet.note1": "電気を流している間だけ磁石になる、銅線を巻いた鉄。",
   "item.semiconductor-lab.electromagnet.note2": "作業台で 鉄インゴット1（芯）＋銅線8（伸線 [1-58]）→ 1。イオン注入 [9-28] でイオンを重さでふるい分ける磁石などの部品になる。",

@@ -39,7 +39,7 @@ public class ScannerBlockEntity extends StepperBlockEntity {
             .right("overlay", 50, 1, "gui.semiconductor-lab.mask_aligner.overlay").samples("20.0")
             .right("room", 61, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
             .text("dof", 8, 62, 44, 2, "gui.semiconductor-lab.stepper.dof").samples("0.12")
-            .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water",
+            .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water", "defocus",
                     "need_mask_stage", "blurred", "cannot", "output_full", "press", "need_power", "running"))
             .text("k1", 8, 100, 88, 1, "gui.semiconductor-lab.stepper.k1").samples("0.60", "0.30", "0.30")
             .build();
