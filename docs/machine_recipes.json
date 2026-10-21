@@ -360,6 +360,51 @@
     },
     {
       "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（game_console）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 2,
+          "cond": "counter"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "adder"
+        },
+        {
+          "item": "semiconductor-lab:chip",
+          "count": 1,
+          "cond": "register"
+        },
+        {
+          "item": "minecraft:lever",
+          "count": 2,
+          "cond": "knobs"
+        },
+        {
+          "item": "semiconductor-lab:copper_cable",
+          "count": 2,
+          "cond": "wiring"
+        },
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 4,
+          "cond": "case"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:game_console",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 10.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
       "process": "組み立て（microcomputer）",
       "inputs": [
         {

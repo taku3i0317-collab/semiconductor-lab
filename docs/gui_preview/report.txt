@@ -4,6 +4,7 @@ assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
 assembly_bench_en_us product item.semiconductor-lab.transistor_radio w=84 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.calculator w=52 lines=1/2
+assembly_bench_en_us product item.semiconductor-lab.game_console w=134 lines=2/2 scale=0.79999995
 assembly_bench_en_us product item.semiconductor-lab.microcomputer w=100 lines=2/2 scale=0.74999994
 assembly_bench_en_us product item.semiconductor-lab.image_sensor w=86 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.mems_accelerometer w=101 lines=2/2 scale=0.6999999
@@ -29,6 +30,12 @@ assembly_bench_en_us role assembly.semiconductor-lab.calculator.display w=35 lin
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.keys w=24 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.frame w=30 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.calculator.wiring w=28 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.game_console.counter w=162 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.game_console.adder w=157 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.game_console.register w=160 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.game_console.knobs w=30 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.game_console.wiring w=28 lines=1/2
+assembly_bench_en_us role assembly.semiconductor-lab.game_console.case w=24 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.cpu w=140 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.rom w=112 lines=1/2
 assembly_bench_en_us role assembly.semiconductor-lab.microcomputer.clock w=72 lines=1/2
@@ -968,6 +975,7 @@ assembly_bench_ja_jp product item.semiconductor-lab.hf_oscillator w=54 lines=1/2
 assembly_bench_ja_jp product item.semiconductor-lab.touch_panel w=99 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.transistor_radio w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.calculator w=18 lines=1/2
+assembly_bench_ja_jp product item.semiconductor-lab.game_console w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.microcomputer w=78 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.image_sensor w=81 lines=2/2
 assembly_bench_ja_jp product item.semiconductor-lab.mems_accelerometer w=91 lines=2/2 scale=0.84999996
@@ -993,6 +1001,12 @@ assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.display w=18 lin
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.keys w=18 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.frame w=9 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.calculator.wiring w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.counter w=153 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.adder w=144 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.register w=153 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.knobs w=27 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.wiring w=18 lines=1/2
+assembly_bench_ja_jp role assembly.semiconductor-lab.game_console.case w=9 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.cpu w=162 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.rom w=125 lines=1/2
 assembly_bench_ja_jp role assembly.semiconductor-lab.microcomputer.clock w=72 lines=1/2

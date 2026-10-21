@@ -43,6 +43,15 @@ public final class Branches {
                 .part("frame", net.minecraft.world.item.Items.IRON_INGOT, 4)
                 .part("wiring", Power.COPPER_CABLE.block.asItem(), 2)
                 .seconds(10).build();
+        // [B-09] ゲーム機（S-017 Q27 案A ポン型）：玉と板の位置を数えるカウンタ2・速さを足す全加算器・点数を覚えるレジスタ（1972 のポンは TTL の IC 約66個、CPU なし）＋つまみ＋箱
+        com.taku3.semiconductorlab.machine.Assembly.recipe("game_console", GAME_CONSOLE)
+                .part("counter", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "counter"), 2, Semiconductor.CHIP, () -> passedChip("counter"))
+                .part("adder", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "full_adder"), 1, Semiconductor.CHIP, () -> passedChip("full_adder"))
+                .part("register", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "register"), 1, Semiconductor.CHIP, () -> passedChip("register"))
+                .part("knobs", net.minecraft.world.item.Items.LEVER, 2)
+                .part("wiring", Power.COPPER_CABLE.block.asItem(), 2)
+                .part("case", net.minecraft.world.item.Items.IRON_INGOT, 4)
+                .seconds(10).build();
         // [B-10] スマホ（O-029 Q28 案A 仮決定）：マイコン（mcu4 に合格）＋カメラ＋MEMS の加速度計＋タッチパネル＋TFT 液晶＋バックライト＋リチウムイオン電池＋ケース。
         // TFT 液晶・バックライトはまだない（ID で待つ）⚠️：その2つのアイテムが登録されたときだけレシピを作る（それまで組めない）
         if (smartphoneReady()) com.taku3.semiconductorlab.machine.Assembly.recipe("smartphone", SMARTPHONE)
@@ -77,6 +86,8 @@ public final class Branches {
     public static final Item KEY_SWITCH            = Reg.item("key_switch");
     /** 電卓：自分で作ったチップ＋キー＋ニキシー管を組立台で。右クリックで計算 */
     public static final Item CALCULATOR            = Reg.item("calculator", com.taku3.semiconductorlab.item.CalculatorItem::new, new Item.Properties().stacksTo(1));
+    /** [B-09] ゲーム機（A、S-017 Q27 案A ポン型）：合格したチップで組む、CPU なしの卓球。右クリックで画面 */
+    public static final Item GAME_CONSOLE          = Reg.item("game_console", com.taku3.semiconductorlab.item.GameConsoleItem::new, new Item.Properties().stacksTo(1));
     /** [B-10] スマホ（A、O-029）：組立台で。アプリの画面はユーザーの答え待ち、TFT・バックライトがまだなので組めない ⚠️ */
     public static final Item SMARTPHONE            = Reg.item("smartphone", com.taku3.semiconductorlab.item.SmartphoneItem::new, new Item.Properties().stacksTo(1));
 

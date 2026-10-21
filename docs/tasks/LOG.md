@@ -602,3 +602,10 @@
 - [B-10] スマホの入れ物：Branches.SMARTPHONE（item/SmartphoneItem、右クリックは「画面はまだ」の仮の文、.placeholder）、組立台のレシピの形（マイコン mcu4・カメラ・加速度計・タッチパネル・TFT 液晶・バックライト・リチウムイオン電池・ケース）。TFT 液晶（ID tft_lcd、E）とバックライト（ID led_backlight）のアイテムが登録されたときだけレシピを作る＝それまで組めない（組立台の「見本は正しい部品」の決まりを守るため）。TECH_TREE [B-10] 🔧。GameTest smartphoneRecipe（今はレシピなし、そろったら8種）
 - E に TFT の ID（tft_lcd）を知らせた。バックライトの ID は led_backlight で待つ（担当が決まったら合わせる）
 
+## S-017（ユーザーの決定、2026-10-21）
+- DECISIONS に4行
+- 1 [B-09] ゲーム機（ポン型）：Branches.GAME_CONSOLE（item/GameConsoleItem・PongLogic、client/PongScreen：黒いコート・板2つ・玉・点数を線の数字で、左の板はマウス、右は自動、9点で勝ち）、組立台（カウンタ2・全加算器・レジスタのチップ・つまみ2・配線2・鉄4）。TECH_TREE [B-09] ✅、ROADMAP v0.4 #7 ✅、REFERENCES L18。GameTest gameConsolePong
+- 2 ROADMAP v0.5 #9 中心図（作るのは v0.5 の中で）。あわせて v0.5 #1 焦点深度・#4 歩留まりを ✅ に（A の分）
+- 3 スマホの画面は自作のドット絵のアイコン（icons_e の決まり）＝部品がそろって作るとき
+- 4 E の白ヒ素：E のアイテムが来たら反射炉に1行（受けた）
+

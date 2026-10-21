@@ -382,5 +382,17 @@
   "assembly.semiconductor-lab.smartphone.battery": "リチウムイオン電池",
   "assembly.semiconductor-lab.smartphone.battery.short": "電池",
   "assembly.semiconductor-lab.smartphone.case": "ケース",
-  "assembly.semiconductor-lab.smartphone.case.short": "ケース"
+  "assembly.semiconductor-lab.smartphone.case.short": "ケース",
+  "assembly.semiconductor-lab.game_console.counter": "カウンタのチップ（カウンタに合格）",
+  "assembly.semiconductor-lab.game_console.counter.short": "カウンタ",
+  "assembly.semiconductor-lab.game_console.adder": "加算器のチップ（全加算器に合格）",
+  "assembly.semiconductor-lab.game_console.adder.short": "加算器",
+  "assembly.semiconductor-lab.game_console.register": "レジスタのチップ（レジスタに合格）",
+  "assembly.semiconductor-lab.game_console.register.short": "レジスタ",
+  "assembly.semiconductor-lab.game_console.knobs": "つまみ",
+  "assembly.semiconductor-lab.game_console.knobs.short": "つまみ",
+  "assembly.semiconductor-lab.game_console.wiring": "配線",
+  "assembly.semiconductor-lab.game_console.wiring.short": "配線",
+  "assembly.semiconductor-lab.game_console.case": "箱",
+  "assembly.semiconductor-lab.game_console.case.short": "箱"
 }

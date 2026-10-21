@@ -102,5 +102,10 @@
   "item.semiconductor-lab.smartphone.note3": "iPhone 2007, Android 2008: phone, music, camera and internet in one device. The chips hold over a billion transistors (ArF immersion and multiple patterning).",
   "item.semiconductor-lab.smartphone.note4": "⚠️ Placeholder: the TFT LCD [B-19] and white LED backlight [B-20] do not exist yet, so it cannot be assembled. The app screen's look awaits the user. Radio (calls, internet) is left out.",
   "item.semiconductor-lab.smartphone.placeholder": "⚠️ Placeholder: no TFT LCD or backlight yet (no screen)",
-  "message.semiconductor-lab.smartphone.placeholder": "Smartphone: the screen (calculator, photos, tilt) is not built yet (waiting for the LCD, the backlight and a decision on the look)"
+  "message.semiconductor-lab.smartphone.placeholder": "Smartphone: the screen (calculator, photos, tilt) is not built yet (waiting for the LCD, the backlight and a decision on the look)",
+  "item.semiconductor-lab.game_console": "Game console (Pong-style)",
+  "item.semiconductor-lab.game_console.note1": "A table-tennis game built from your own chips. Right-click to play (move the left paddle with the mouse, first to 9 wins).",
+  "item.semiconductor-lab.game_console.note2": "Chips that passed counter (2), full adder and register, plus knobs, wiring and a case, on the assembly bench. No CPU.",
+  "item.semiconductor-lab.game_console.note3": "1972: the Magnavox Odyssey (the first home console, Ralph Baer) and Atari's Pong (arcade). Pong had no CPU: about 66 TTL chips counted the ball and paddle positions.",
+  "item.semiconductor-lab.game_console.note4": "⚠️ The game runs in Java (your chips were proven by the challenges) and shows on screen instead of a TV. From the Atari 2600 (1977) and Famicom (1983), a CPU and cartridge ROM changed the game (a later stage)."
 }

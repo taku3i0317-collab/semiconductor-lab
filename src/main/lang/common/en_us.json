@@ -382,5 +382,17 @@
   "assembly.semiconductor-lab.smartphone.battery": "Lithium-ion battery",
   "assembly.semiconductor-lab.smartphone.battery.short": "Battery",
   "assembly.semiconductor-lab.smartphone.case": "Case",
-  "assembly.semiconductor-lab.smartphone.case.short": "Case"
+  "assembly.semiconductor-lab.smartphone.case.short": "Case",
+  "assembly.semiconductor-lab.game_console.counter": "Counter chips (passed counter)",
+  "assembly.semiconductor-lab.game_console.counter.short": "Counters",
+  "assembly.semiconductor-lab.game_console.adder": "Adder chip (passed full adder)",
+  "assembly.semiconductor-lab.game_console.adder.short": "Adder",
+  "assembly.semiconductor-lab.game_console.register": "Register chip (passed register)",
+  "assembly.semiconductor-lab.game_console.register.short": "Register",
+  "assembly.semiconductor-lab.game_console.knobs": "Knobs",
+  "assembly.semiconductor-lab.game_console.knobs.short": "Knobs",
+  "assembly.semiconductor-lab.game_console.wiring": "Wiring",
+  "assembly.semiconductor-lab.game_console.wiring.short": "Wiring",
+  "assembly.semiconductor-lab.game_console.case": "Case",
+  "assembly.semiconductor-lab.game_console.case.short": "Case"
 }

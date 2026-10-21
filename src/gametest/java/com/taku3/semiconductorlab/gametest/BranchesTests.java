@@ -241,4 +241,33 @@ public class BranchesTests extends LabTestBase {
         h.assertTrue(a.satisfied(3, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Communication.TOUCH_PANEL)), "the touch panel fits");
         h.succeed();
     }
+
+    /**
+     * [B-09] ゲーム機（S-017 Q27 案A ポン型）：卓球の動き（PongLogic）。玉は上の壁で跳ね返る、プレイヤーが板を動かさないと自動の側に点が入る、
+     * 板で打ち返せる、9点で終わる。組立台はカウンタ・全加算器・レジスタに合格したチップ（6種）
+     */
+    @GameTest
+    public void gameConsolePong(GameTestHelper h) {
+        var p = new com.taku3.semiconductorlab.item.PongLogic();
+        p.by = 1; p.vy = -1; p.bx = 60; p.vx = 2;
+        p.step(p.left);
+        h.assertTrue(p.vy > 0, "the ball bounces off the top wall");
+        var miss = new com.taku3.semiconductorlab.item.PongLogic();
+        miss.vx = -2; miss.vy = 0; miss.by = 2;
+        for (int i = 0; i < 80 && miss.scoreRight == 0; i++) miss.step(com.taku3.semiconductorlab.item.PongLogic.H);   // 板を下に置いたまま
+        h.assertValueEqual(miss.scoreRight, 1, "a missed ball scores for the other side");
+        var hit = new com.taku3.semiconductorlab.item.PongLogic();
+        hit.vx = -2; hit.vy = 0; hit.by = hit.left + 4;
+        for (int i = 0; i < 40; i++) hit.step(hit.left);
+        h.assertTrue(hit.scoreRight == 0 && hit.vx > 0, "the paddle returns the ball");
+        var end = new com.taku3.semiconductorlab.item.PongLogic();
+        for (int i = 0; i < 20000 && !end.over(); i++) end.step(end.by < com.taku3.semiconductorlab.item.PongLogic.H / 2 ? com.taku3.semiconductorlab.item.PongLogic.H : 0);   // 玉から逃げる板
+        h.assertTrue(end.over() && Math.max(end.scoreLeft, end.scoreRight) == com.taku3.semiconductorlab.item.PongLogic.WIN, "the game ends at 9");
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Branches.GAME_CONSOLE);
+        h.assertTrue(a != null && a.parts.size() == 6, "game console assembly with 6 roles");
+        var counter = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.CHIP, 2);
+        counter.set(com.taku3.semiconductorlab.ModDataComponents.CHALLENGES, java.util.List.of("counter"));
+        h.assertTrue(a.satisfied(0, counter) && !a.satisfied(0, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.CHIP, 2)), "counter chips only");
+        h.succeed();
+    }
 }

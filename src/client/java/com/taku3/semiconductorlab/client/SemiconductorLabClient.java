@@ -25,6 +25,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		PurityTooltip.register();
 		NoteTooltip.register();
 		com.taku3.semiconductorlab.item.CalculatorItem.clientOpen = () -> net.minecraft.client.Minecraft.getInstance().gui.setScreen(new CalculatorScreen());   // [B-08] 電卓
+		com.taku3.semiconductorlab.item.GameConsoleItem.clientOpen = () -> net.minecraft.client.Minecraft.getInstance().gui.setScreen(new PongScreen());   // [B-09] ゲーム機
 		// 専用の画面を持つ機械（IMP-28：画面は MachineScreen を継承）。幹ごとにまとめる（自分の幹の段にだけ足す）
 		// 幹0 生存・道具
 		screen(Survival.ASSEMBLY_BENCH, AssemblyBenchScreen::new);   // IMP-33 組立台
