@@ -972,3 +972,16 @@ A（S-005、ユーザーの決定）からの依頼を司令塔へ上げる。�
 - **枝B**：[B-09] ゲーム機 ← [15-11] テレビ（前提：最初の家庭用ゲーム機 Magnavox Odyssey はテレビにつないだ、○）／[B-16] パソコン の部品に [B-21] ボールマウス（○）
 - **幹14**：[14-11] 自動車 の部品に [0-09] 車輪・[4-07] 鉛蓄電池（始動用、○）
 - 前提でも部品でもない新しい種類（改良・置き換え・需要・道具）は、図の側だけで持つ（TECH_TREE には入れなくてよい）
+
+## S-059 途中3（2026-10-21）：今あるつながりで直したほうがよさそうな物と、足りないノード（調べた時に見つかった）
+- **年が合わない今の前提**（TECH_TREE）：
+  - [B-08] 電卓（1964 シャープ CS-10A）の前提に [9-22] 集積回路・[9-24] CMOS → 1964年の電卓はばらのゲルマニウムトランジスタ。IC・CMOS の電卓はあと（別の物か、年の欄を見直す）
+  - [15-10] トランジスタラジオ（1954 TR-1）の前提が [9-04] 合金接合 → TR-1 は TI の成長接合トランジスタ（[9-10]）。ネットワークの側で [9-10] を足した
+  - [9-03] 点接触トランジスタ（1947）の前提に [9-02] ゾーンレベリング（1952）→ 年が逆
+  - [P-07] モニター（1996）の部品に [B-20] 白色 LED のバックライト → 1996年の液晶のモニターは冷陰極管（CCFL）
+- **足りないノードの案**（出典つき、作るかは担当と相談役）：
+  - たたき石と 火打ち石（割りやすい石）（Hammerstone and flint/chert (knappable stone)）：0-01 のため。Knapped tools are made by striking flint or chert with a hammerstone; no earlier node exists in the list.　出典 https://en.wikipedia.org/wiki/Hand_axe
+  - プラスチックの 非球面レンズ（Molded plastic aspheric lenses）：P-17 のため。Phone camera lenses are made of many molded plastic aspheric elements, not ground glass.　出典 https://en.wikipedia.org/wiki/Camera_phone
+  - アルミ電解コンデンサ（Aluminium electrolytic capacitor）：P-11 のため。Smooths the rectified DC in power supplies and switched-mode supplies; a main component of every PSU.　出典 https://en.wikipedia.org/wiki/Aluminum_electrolytic_capacitor
+  - コバルト酸リチウム正極（Lithium cobalt oxide cathode）：P-22 のため。Goodenough's 1980 cathode used in the first commercial Li-ion battery; no cobalt or LiCoO2 node exists.　出典 https://en.wikipedia.org/wiki/Lithium-ion_battery
+  - シリンダー中ぐり盤（Cylinder boring machine (Wilkinson, 1774)）：4-02 のため。ワットの1776年の機関は、ウィルキンソンが精密にくりぬいたシリンダーで初めて実用になった。旋盤[8-01]（1797）とは別で、年も前。　出典 https://en.wikipedia.org/wiki/Watt_steam_engine

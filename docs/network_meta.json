@@ -1823,6 +1823,669 @@
    ],
    "certainty": "○",
    "by": "S-059"
+  },
+  {
+   "from": "0-08",
+   "to": "7-04",
+   "kind": "part",
+   "note": "ガリレオの のこっている望遠鏡の つつは 木で できている。",
+   "sources": [
+    "https://brunelleschi.imss.fi.it/esplora/cannocchiale/dswmedia/storia/estoria4_st.html"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-01",
+   "to": "7-04",
+   "kind": "part",
+   "note": "木の つつに 紙を はって つくった 望遠鏡が ある。",
+   "sources": [
+    "https://brunelleschi.imss.fi.it/esplora/cannocchiale/dswmedia/storia/estoria4_st.html"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-27",
+   "to": "7-04",
+   "kind": "part",
+   "note": "ガリレオの 最初の つつは 鉛。色消しレンズの フリントガラスにも 鉛が 入っている。",
+   "sources": [
+    "https://brunelleschi.imss.fi.it/esplora/cannocchiale/dswmedia/storia/estoria4_st.html",
+    "https://en.wikipedia.org/wiki/Flint_glass"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "4-36",
+   "to": "10-03",
+   "kind": "part",
+   "note": "ダニエル電池は 電信の 電池として たくさん 使われた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Daniell_cell",
+    "https://en.wikipedia.org/wiki/Electrical_telegraph"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-08",
+   "to": "14-04",
+   "kind": "part",
+   "note": "クラーモント号の 船体は マツや カシの 板で できた 木の 船。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/North_River_Steamboat"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-03",
+   "to": "14-04",
+   "kind": "part",
+   "note": "クラーモント号の ボイラーは 長さ 6m の 銅で できていた。",
+   "sources": [
+    "https://www.invent.org/inductees/robert-fulton",
+    "https://images.maritimehistoryofthegreatlakes.ca/124578/page/19"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "0-06",
+   "to": "14-04",
+   "kind": "part",
+   "note": "最初の 蒸気船は 帆も 持っていて、風も 使えた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/North_River_Steamboat"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-18",
+   "to": "14-04",
+   "kind": "part",
+   "note": "帆を はるための つな（索具）も ついていた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/North_River_Steamboat"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-18",
+   "to": "15-01",
+   "kind": "part",
+   "note": "蔡倫は 古い 魚とりの 網や 麻を ほぐして 紙に した。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cai_Lun"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-22",
+   "to": "15-09",
+   "kind": "part",
+   "note": "ラジオは アンテナで 電波を つかまえる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Radio_receiver"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-07",
+   "to": "15-09",
+   "kind": "part",
+   "note": "むかしの 真空管ラジオは フィラメントを あたためるのに 鉛蓄電池（A電池）を 使った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Battery_(vacuum_tube)"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-28",
+   "to": "15-09",
+   "kind": "part",
+   "note": "高い 電圧の B電池は 乾電池を つないだ もの だった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Battery_(vacuum_tube)"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-04",
+   "to": "15-09",
+   "kind": "part",
+   "note": "はじめの ころは スピーカーでなく、電話の 受話器から 生まれた ヘッドホンで きいた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Headphones",
+    "https://en.wikipedia.org/wiki/Crystal_radio"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-01",
+   "to": "B-02",
+   "kind": "part",
+   "note": "タルボットの 写真は 紙に 塩と 硝酸銀を ぬって つくった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Salted_paper_print"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "7-03",
+   "to": "B-02",
+   "kind": "part",
+   "note": "カメラの レンズで 光を あつめて 像を うつす。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Daguerreotype"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-14",
+   "to": "P-09",
+   "kind": "part",
+   "note": "キーボードの 中には 小さな コンピューター（8048 マイコン）が 入っている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Computer_keyboard",
+    "https://en.wikipedia.org/wiki/Intel_MCS-48"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-29",
+   "to": "P-09",
+   "kind": "part",
+   "note": "いまの キーボードの 多くは ゴムの ドームで キーを おしかえす（いまの 物の 話）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Keyboard_technology"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-17",
+   "to": "P-13",
+   "kind": "tool",
+   "note": "1700万個 もの トランジスタは コンピューターの 設計道具（EDA）で 設計する。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electronic_design_automation",
+    "https://en.wikipedia.org/wiki/GeForce_256"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-45",
+   "to": "P-17",
+   "kind": "part",
+   "note": "赤・緑・青の 小さな フィルターを ならべて 色を 見分ける。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Bayer_filter"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "7-24",
+   "to": "P-17",
+   "kind": "part",
+   "note": "いまの スマホの カメラには 自動で ピントを あわせる しくみが ある（いまの 物の 話）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Camera_phone"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-03",
+   "to": "P-20",
+   "kind": "part",
+   "note": "スピーカーの コイルは ふつう 細い 銅の 線を まいて つくる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Loudspeaker"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-03",
+   "to": "1-05",
+   "kind": "tool",
+   "note": "青銅は、ねんどで作ったるつぼの中でとかした。",
+   "sources": [
+    "https://leventis-chair.cyi.ac.cy/?p=628",
+    "https://britishmuseum.iro.bl.uk/concern/articles/7c9a3586-40c3-4412-aa29-730f18f4f88d"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-13",
+   "to": "15-04",
+   "kind": "part",
+   "note": "初期の電話の回路には電池がつながれていた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Invention_of_the_telephone"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-10",
+   "to": "15-10",
+   "kind": "part",
+   "note": "最初のトランジスタラジオ TR-1 には、引き上げで作る成長接合トランジスタが4こ入っていた。",
+   "sources": [
+    "https://siliconchip.com.au/Issue/2013/April/The+First+%22Trannie%22+%E2%80%93+The+Regency+TR-1+4-transistor+radio",
+    "https://www.radiomuseum.org/tubes/tube_ti210.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-53",
+   "to": "15-10",
+   "kind": "part",
+   "note": "TR-1 は、フェライトの棒に線をまいたアンテナで電波を受けた。",
+   "sources": [
+    "https://siliconchip.com.au/Issue/2013/April/The+First+%22Trannie%22+%E2%80%93+The+Regency+TR-1+4-transistor+radio"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-19",
+   "to": "15-10",
+   "kind": "part",
+   "note": "TR-1 の音は、小さなスピーカーから出た。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Regency_TR-1"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-01",
+   "to": "B-04",
+   "kind": "part",
+   "note": "ハルのマグネトロンは、外側のコイル（電磁石）の磁場で電子の道を曲げた。",
+   "sources": [
+    "https://edisontechcenter.org/hull.html"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-10",
+   "to": "B-04",
+   "kind": "part",
+   "note": "電子レンジは、大きな変圧器で高い電圧を作ってマグネトロンに送る（電子レンジのほう）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Microwave_oven"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-46",
+   "to": "P-07",
+   "kind": "part",
+   "note": "液晶モニターの画素には、すきとおった電極 ITO がついている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Liquid-crystal_display",
+    "https://patents.google.com/patent/US5153142"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-26",
+   "to": "P-07",
+   "kind": "tool",
+   "note": "ITO の膜は、スパッタリングでガラスにつける。",
+   "sources": [
+    "https://patents.google.com/patent/US5153142"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-53",
+   "to": "P-11",
+   "kind": "part",
+   "note": "スイッチング電源の小さな変圧器は、フェライトの芯でできている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Power_supply_unit_(computer)",
+    "https://patents.google.com/patent/US5846448"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "4-18",
+   "to": "P-11",
+   "kind": "part",
+   "note": "パソコンの電源の多くは、中のファンで冷やしている（今の電源ユニット）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Power_supply_unit_(computer)"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-23",
+   "to": "P-14",
+   "kind": "part",
+   "note": "DRAM の1つの記憶は、MOS トランジスタ1ことコンデンサ1こでできている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Dynamic_random-access_memory",
+    "https://patents.google.com/patent/US3387286A/en"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-22",
+   "to": "P-18",
+   "kind": "part",
+   "note": "センサーの信号を読む集積回路（ASIC）が、MEMS とはり合わされている。",
+   "sources": [
+    "https://patents.google.com/patent/US9726689B1/en"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-29",
+   "to": "P-22",
+   "kind": "part",
+   "note": "リチウムイオン電池の正極は、アルミのはくにぬってある。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Lithium-ion_battery",
+    "https://patents.google.com/patent/US8211981"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "2-37",
+   "to": "P-22",
+   "kind": "part",
+   "note": "正極と負極のあいだの仕切りは、小さな穴のあいたポリエチレンのシート。",
+   "sources": [
+    "https://patents.google.com/patent/US8211981"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-42",
+   "to": "P-22",
+   "kind": "part",
+   "note": "名前のとおり、リチウムのイオンが行き来して電気をためる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Lithium-ion_battery"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-07",
+   "to": "P-22",
+   "kind": "part",
+   "note": "今の電池の負極はふつう黒鉛（1991年の最初の電池は別の炭素だった）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Lithium-ion_battery"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-08",
+   "to": "14-02",
+   "kind": "part",
+   "note": "針は鉄（はがね）で、天然磁石でこすって磁石にした。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Compass",
+    "https://en.wikipedia.org/wiki/Shen_Kuo"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-08",
+   "to": "14-12",
+   "kind": "part",
+   "note": "ライト兄弟の飛行機の骨組みは、トウヒとトネリコの木でできていた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Wright_Flyer",
+    "https://airandspace.si.edu/collection-objects/1903-wright-flyer/nasm_A19610048000"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "0-06",
+   "to": "14-12",
+   "kind": "part",
+   "note": "つばさには、木綿の布（モスリン）がはられていた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Wright_Flyer",
+    "https://airandspace.si.edu/collection-objects/1903-wright-flyer/nasm_A19610048000"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "8-29",
+   "to": "14-12",
+   "kind": "part",
+   "note": "エンジンの力は、自転車のようなチェーンでプロペラに伝えた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Wright_Flyer",
+    "https://airandspace.si.edu/collection-objects/1903-wright-flyer/nasm_A19610048000"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "14-08",
+   "to": "14-12",
+   "kind": "tool",
+   "note": "自転車屋だったライト兄弟は、自転車の技術と店の道具を使って作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Wright_Flyer"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-04",
+   "to": "15-05",
+   "kind": "tool",
+   "note": "電話の振動板に針をつけた実験から、音を記録するアイデアが生まれた。",
+   "sources": [
+    "https://www.nps.gov/edis/learn/historyculture/origins-of-sound-recording-edisons-path-to-the-phonograph.htm",
+    "https://en.wikipedia.org/wiki/Phonograph"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "10-03",
+   "to": "15-05",
+   "kind": "tool",
+   "note": "電信の信号を記録して再生する機械の考えを、声に広げた。",
+   "sources": [
+    "https://www.nps.gov/edis/learn/historyculture/origins-of-sound-recording-edisons-path-to-the-phonograph.htm",
+    "https://en.wikipedia.org/wiki/Phonograph"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "6-08",
+   "to": "15-11",
+   "kind": "part",
+   "note": "受像機は、ネオンランプの明るさを変えて絵を作った。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Mechanical_television",
+    "https://collection.sciencemuseumgroup.org.uk/objects/co8210857/baird-televisior"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "4-08",
+   "to": "15-11",
+   "kind": "part",
+   "note": "穴のあいた円板をモーターで回して、絵を細かくなぞった。",
+   "sources": [
+    "https://collection.sciencemuseumgroup.org.uk/objects/co8210857/baird-televisior"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "7-03",
+   "to": "15-11",
+   "kind": "part",
+   "note": "回る円板にレンズをならべて、景色を光の点にした。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/John_Logie_Baird",
+    "https://en.wikipedia.org/wiki/Mechanical_television"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "10-09",
+   "to": "B-08",
+   "kind": "part",
+   "note": "1964年の電卓は、ICではなく、ばらばらのトランジスタで計算した。",
+   "sources": [
+    "https://oldcalculatormuseum.com/w-sharpcs10a.html",
+    "https://en.wikipedia.org/wiki/Calculator"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "B-24",
+   "to": "B-08",
+   "kind": "part",
+   "note": "数字はニキシー管という光る管で表示した。",
+   "sources": [
+    "https://oldcalculatormuseum.com/w-sharpcs10a.html",
+    "https://en.wikipedia.org/wiki/Calculator"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "15-16",
+   "to": "P-08",
+   "kind": "part",
+   "note": "いまの有線マウスのほとんどはUSBでパソコンとつながる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Computer_mouse",
+    "https://en.wikipedia.org/wiki/USB_human_interface_device_class"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-21",
+   "to": "P-08",
+   "kind": "part",
+   "note": "線のないマウスにはBluetoothでつながるものがある（今のマウスの話）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Computer_mouse"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-13",
+   "to": "P-08",
+   "kind": "part",
+   "note": "光学式マウスには1984年ごろから小さなプロセッサが入っている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Computer_mouse"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-34",
+   "to": "P-12",
+   "kind": "part",
+   "note": "チップは16本の足があるセラミックのパッケージに入れられた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Intel_4004",
+    "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "10-13",
+   "to": "P-15",
+   "kind": "part",
+   "note": "SSDの中には、データの出し入れを仕切る小さなプロセッサ（コントローラ）がある。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solid-state_drive"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-29",
+   "to": "P-15",
+   "kind": "part",
+   "note": "SSDは誤り訂正符号で、こわれたビットを直しながら読む。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solid-state_drive"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-28",
+   "to": "P-19",
+   "kind": "part",
+   "note": "かたよった重りには、とても重い金属タングステンの合金を使う（ノードは線だが同じ金属）。",
+   "sources": [
+    "https://patents.google.com/patent/US6326711",
+    "https://en.wikipedia.org/wiki/Tungsten"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-72",
+   "to": "P-19",
+   "kind": "tool",
+   "note": "タングステン合金は、粉を焼き固める方法で作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tungsten"
+   ],
+   "certainty": "○",
+   "by": "S-059"
   }
  ],
  "aliases": {
@@ -2101,6 +2764,317 @@
    "note": "パソコンの熱をにがすヒートシンクは、よくアルミでつくられます。（材料）",
    "sources": [
     "https://en.wikipedia.org/wiki/Heat_sink"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-01",
+   "to": "10-03",
+   "note": "電信は 電気が 来ると 電磁石が 鉄を 引きつけて 音や しるしを 出す。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electrical_telegraph",
+    "https://en.wikipedia.org/wiki/Morse_code"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "4-13",
+   "to": "10-03",
+   "note": "電信には ずっと 流れる 電気が いる。それを はじめて くれたのが ボルタの 電池。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electrical_telegraph"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-07",
+   "to": "15-09",
+   "note": "ラジオの 前に、電波で 信号を おくる 無線電信が あった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Headphones"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-32",
+   "to": "B-02",
+   "note": "銀塩写真は 銀の 化合物が 光で 黒くなる ことを 使う。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Daguerreotype",
+    "https://en.wikipedia.org/wiki/Salted_paper_print"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "6-11",
+   "to": "B-02",
+   "note": "写真に 使う 硝酸銀は 銀を 硝酸に とかして つくる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Silver_nitrate",
+    "https://en.wikipedia.org/wiki/Salted_paper_print"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-16",
+   "to": "B-02",
+   "note": "ふつうの 食塩と 銀で、光に かんじる 塩化銀が できる。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Salted_paper_print"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-45",
+   "to": "P-04",
+   "note": "光で かたまる 液体の 樹脂が ないと この 3Dプリンターは うごかない。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Stereolithography",
+    "https://www.3dsystems.com/our-story"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-24",
+   "to": "P-13",
+   "note": "さいしょの GPU（GeForce 256）は 220nm の CMOS で つくられた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/GeForce_256"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-39",
+   "to": "P-13",
+   "note": "1ミクロンより 細い 線は 縮小投影の 露光機（ステッパー）で やきつける。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Stepper"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-24",
+   "to": "P-17",
+   "note": "スマホの カメラの センサーは 電気を あまり 使わない CMOS で できている。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Active-pixel_sensor",
+    "https://en.wikipedia.org/wiki/Camera_phone"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "3-01",
+   "to": "0-03",
+   "note": "いちばん古い土器は、かまどではなく野外のたき火で焼かれていた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Pottery"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-12",
+   "to": "1-05",
+   "note": "銅とすずをとかすには、木炭をもやして高い温度にした。",
+   "sources": [
+    "https://leventis-chair.cyi.ac.cy/?p=628",
+    "https://www.stonepages.com/news/archives/001265.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-05",
+   "to": "9-03",
+   "note": "点接触トランジスタは、戦争中に育ったゲルマニウムの点接触ダイオードの作り方から生まれた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Point-contact_transistor",
+    "https://www.computerhistory.org/siliconengine/invention-of-the-point-contact-transistor/"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "3-22",
+   "to": "11-13",
+   "note": "リンデの冷凍機は、気体をおしちぢめて液にし、また蒸発させて熱をうばう「蒸気圧縮のしくみ」で動いた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Vapor-compression_refrigeration",
+    "https://collection.sciencemuseumgroup.org.uk/objects/co64202/linde-ammonia-refrigeration-compressor-155mm-bore-x-260mm-stroke",
+    "https://www.deutsche-biographie.de/sfz51513.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-10",
+   "to": "14-05",
+   "note": "1804年の最初の機関車は、コークス高炉で作った鋳鉄のレールの上を走った（重さでレールが割れた）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Richard_Trevithick",
+    "https://museum.wales/blog/2189/Birth-of-the-Railway-Locomotive/",
+    "https://en.wikipedia.org/wiki/Coalbrookdale"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "I-26",
+   "to": "B-04",
+   "note": "マグネトロンは、熱した陰極から電子が飛び出すことを使う（マグネトロン一般）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Cavity_magnetron"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-22",
+   "to": "P-14",
+   "note": "メモリは、たくさんの記憶を1まいのチップにまとめる集積回路として作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Dynamic_random-access_memory",
+    "https://patents.google.com/patent/US3387286A/en"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-27",
+   "to": "P-18",
+   "note": "動きのセンサーの小さなばねやおもりは、シリコンを深くけずるドライエッチングで作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Deep_reactive-ion_etching",
+    "https://patents.google.com/patent/US8522612B1/en"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-03",
+   "to": "0-09",
+   "note": "車輪と軸のぴったりした穴をけずるには、銅でできたのみが必要だったと考えられている。",
+   "sources": [
+    "https://www.scientificamerican.com/article/why-it-took-so-long-to-inv/"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "5-03",
+   "to": "4-02",
+   "note": "蒸気が冷えて真空になると、空気の重さ（大気圧）がピストンをおし下げるしくみを使う。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/History_of_the_steam_engine",
+    "https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "1-10",
+   "to": "4-02",
+   "note": "大きな鋳鉄のシリンダーは、コークスで鉄を作ったコールブルックデールなどの工場で鋳造された。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Coalbrookdale",
+    "https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-17",
+   "to": "9-22",
+   "note": "キルビーの最初のICは、ゲルマニウムのメサトランジスタの板をけずって作った。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/all-semiconductor-solid-circuit-is-demonstrated/",
+    "https://en.wikipedia.org/wiki/Invention_of_the_integrated_circuit"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-16",
+   "to": "9-22",
+   "note": "部品はシリコンに不純物をしみこませて（拡散して）作る。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/",
+    "https://en.wikipedia.org/wiki/Invention_of_the_integrated_circuit"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-15",
+   "to": "9-22",
+   "note": "表面の酸化膜が、拡散のマスクと配線の下の守りになる。",
+   "sources": [
+    "https://www.computerhistory.org/siliconengine/practical-monolithic-integrated-circuit-concept-patented/",
+    "https://en.wikipedia.org/wiki/Invention_of_the_integrated_circuit"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-20",
+   "to": "9-22",
+   "note": "光で模様をうつす露光で、部品を作る窓をあける（ノイスのプレーナIC）。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Invention_of_the_integrated_circuit"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-23",
+   "to": "P-12",
+   "note": "最初のCPU 4004は、シリコンゲートのMOSトランジスタ2300個でできていた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Intel_4004",
+    "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-30",
+   "to": "P-12",
+   "note": "シリコンのゲートは、ガスから多結晶シリコンを積もらせて作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Self-aligned_gate"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-23",
+   "to": "P-23",
+   "note": "フラッシュメモリの1つ1つは、ゲートが2つあるMOSトランジスタ。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Flash_memory",
+    "https://en.wikipedia.org/wiki/Floating-gate_MOSFET"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-30",
+   "to": "P-23",
+   "note": "電子をためる浮いたゲートは、ふつう多結晶シリコンで作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Flash_memory",
+    "https://en.wikipedia.org/wiki/Self-aligned_gate"
    ],
    "certainty": "○",
    "by": "S-059"
