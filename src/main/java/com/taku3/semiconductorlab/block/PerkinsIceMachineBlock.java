@@ -27,7 +27,7 @@ import net.minecraft.world.phys.BlockHitResult;
  * 冷凍機は「冷たさを作る」のでなく、中の熱を外へくみ出す熱のポンプ。
  */
 public class PerkinsIceMachineBlock extends Block {
-    public static final int NONE = 0, ETHER = 1, CFC = 2, MAX_REFRIGERANT = 2;
+    public static final int NONE = 0, ETHER = 1, CFC = 2, HFC = 3, MAX_REFRIGERANT = 3;
     public static final int CRANKS = 16;
     public static final float ETHER_LEAK_CHANCE = 1f / 8f;
     public static final IntegerProperty REFRIGERANT = IntegerProperty.create("refrigerant", 0, MAX_REFRIGERANT);
@@ -46,6 +46,7 @@ public class PerkinsIceMachineBlock extends Block {
     public static int refrigerantOf(ItemStack s) {
         if (s.is(Chemistry.DIETHYL_ETHER)) return ETHER;
         if (s.is(Chemistry.CFC12_GAS)) return CFC;
+        if (s.is(Chemistry.HFC23_GAS)) return HFC;   // 代替フロン：オゾンは減らない
         return NONE;
     }
 

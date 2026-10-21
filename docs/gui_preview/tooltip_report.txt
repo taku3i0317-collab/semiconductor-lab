@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 647（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 648（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -651,10 +651,12 @@ en_us continuity_tester lines=7
 en_us continuity_tester shift lines=19
 en_us diethyl_ether lines=8
 en_us diethyl_ether shift lines=20
-en_us cfc12_gas lines=9
-en_us cfc12_gas shift lines=22
+en_us cfc12_gas lines=12
+en_us cfc12_gas shift lines=25
 en_us dobson_meter lines=5
-en_us dobson_meter shift lines=14
+en_us dobson_meter shift lines=17
+en_us hfc23_gas lines=8
+en_us hfc23_gas shift lines=19
 en_us chromatography_column lines=8
 en_us chromatography_column shift lines=19
 en_us pyrite_ore lines=6
@@ -1945,10 +1947,12 @@ ja_jp continuity_tester lines=5
 ja_jp continuity_tester shift lines=15
 ja_jp diethyl_ether lines=5
 ja_jp diethyl_ether shift lines=13
-ja_jp cfc12_gas lines=6
-ja_jp cfc12_gas shift lines=15
+ja_jp cfc12_gas lines=8
+ja_jp cfc12_gas shift lines=17
 ja_jp dobson_meter lines=5
-ja_jp dobson_meter shift lines=13
+ja_jp dobson_meter shift lines=15
+ja_jp hfc23_gas lines=6
+ja_jp hfc23_gas shift lines=14
 ja_jp chromatography_column lines=5
 ja_jp chromatography_column shift lines=14
 ja_jp pyrite_ore lines=4

@@ -277,5 +277,6 @@
   "item.semiconductor-lab.mirror.line2": "  紫外 %s nm：%s%%",
   "item.semiconductor-lab.mirror.tarnish.speculum": "スペキュラム：数週間で表面が酸化・硫化して曇り、研ぎ直しが要る",
   "item.semiconductor-lab.mirror.tarnish.silver": "銀：空気中の硫黄で数か月のうちに黄ばみ黒ずむ（硫化銀）。めっきし直しが要る",
-  "item.semiconductor-lab.mirror.tarnish.aluminium": "アルミ：表面に数nm の酸化膜ができて、それ以上はさびない。何年も曇らない"
+  "item.semiconductor-lab.mirror.tarnish.aluminium": "アルミ：表面に数nm の酸化膜ができて、それ以上はさびない。何年も曇らない",
+  "message.semiconductor-lab.ozone.sunburn": "オゾンホールで紫外線が強い…日焼けした（力が入らない）"
 }

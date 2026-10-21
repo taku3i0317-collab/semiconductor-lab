@@ -284,7 +284,7 @@ setblock ~132 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semicondu
 setblock ~135 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-60] ポリビニルアル","6つのアイテムの見た目","とツールチップ（GHS","、水俣病の教訓の書き方"]}}
 setblock ~135 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:acetylene_gas",count:16},{Slot:1b,id:"semiconductor-lab:mercuric_sulfate",count:1},{Slot:2b,id:"semiconductor-lab:vinyl_acetate",count:16},{Slot:3b,id:"semiconductor-lab:polyvinyl_acetate",count:16},{Slot:4b,id:"semiconductor-lab:polyvinyl_alcohol",count:16},{Slot:5b,id:"semiconductor-lab:polyvinyl_cinnamate",count:16}]}
 setblock ~138 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-48] 冷媒フロン","ドブソン計でオゾンを読","む → フロンの冷凍機","で氷をたくさん作る →"]}}
-setblock ~138 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cfc12_gas",count:16},{Slot:1b,id:"semiconductor-lab:dobson_meter",count:1}]}
+setblock ~138 ~0 ~18 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cfc12_gas",count:16},{Slot:1b,id:"semiconductor-lab:dobson_meter",count:1},{Slot:2b,id:"semiconductor-lab:hfc23_gas",count:16}]}
 setblock ~141 ~0 ~17 minecraft:oak_sign[rotation=8]{front_text:{messages:["[2-37] ポリエチレン","反応釜の画面（ふつうの","画面：電力・蓄積・状態","）、見た目、レシピ（鋼"]}}
 setblock ~141 ~-1 ~18 semiconductor-lab:test_power_source
 setblock ~141 ~0 ~18 semiconductor-lab:high_pressure_reactor

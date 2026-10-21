@@ -282,6 +282,8 @@ public final class Chemistry {
     //   ドブソン計でオゾンの量をはかる（1924 ドブソン）
     public static final Item CFC12_GAS             = Reg.contained("cfc12_gas", Vessel.GAS_BAG);
     public static final Item DOBSON_METER          = Reg.item("dobson_meter", com.taku3.semiconductorlab.item.DobsonMeterItem::new, new Item.Properties().stacksTo(1));
+    // 代替フロン HFC-23（CHF3、IMP3 S-006）：クロロホルム＋フッ酸3＋SbCl5。冷媒にしてもオゾンは壊さないが、とても強い温室効果ガス（キガリ改正 2016）
+    public static final Item HFC23_GAS             = Reg.contained("hfc23_gas", Vessel.GAS_BAG);
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
     public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [2-43] 黄鉄鉱（IMP3）
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
@@ -372,6 +374,8 @@ public final class Chemistry {
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {
+        // [2-48] オゾンホールの日焼け（決定 Q3-11 ②、IMP3 S-006）
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(com.taku3.semiconductorlab.OzoneLayer::tick);
         // [2-09] 獣脂（IMP3）：牛・豚・羊が落とす（決定）。肉といっしょにとれる脂身
         net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
             for (var type : java.util.List.of(net.minecraft.world.entity.EntityTypes.COW, net.minecraft.world.entity.EntityTypes.PIG, net.minecraft.world.entity.EntityTypes.SHEEP)) {

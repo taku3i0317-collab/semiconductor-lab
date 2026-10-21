@@ -288,6 +288,7 @@ polyvinyl_alcohol  # Chemistry [2-60] 1924
 polyvinyl_cinnamate  # Chemistry [2-60] 1924
 cfc12_gas  # Chemistry [2-48] 1928
 dobson_meter  # Chemistry [2-48] 1928
+hfc23_gas  # Chemistry [2-48] 1928
 polyethylene  # Chemistry [2-37] 1933
 high_pressure_reactor  # Chemistry [2-37] 1933
 cation_exchange_resin  # Chemistry [2-17] 1935

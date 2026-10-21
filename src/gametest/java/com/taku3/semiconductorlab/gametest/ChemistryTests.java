@@ -1365,6 +1365,29 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** Q3-11 ②（IMP3、S-006）：オゾンホール（220 DU 未満）で日なたなら日焼け、日かげ・ホールなしは無い。HFC は冷媒になり、オゾンは減らない */
+    @GameTest
+    public void ozoneHoleHfc(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.OzoneLayer.sunburnRisk(200, true), "hole + sun -> risk");
+        h.assertFalse(com.taku3.semiconductorlab.OzoneLayer.sunburnRisk(200, false) || com.taku3.semiconductorlab.OzoneLayer.sunburnRisk(300, true), "no risk in shade or without a hole");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        com.taku3.semiconductorlab.OzoneLayer.sunburn(player);
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.WEAKNESS), "sunburn = brief weakness");
+        h.assertTrue(recipeUses(h, "hfc23_gas", Chemistry.CHLOROFORM) && recipeUses(h, "hfc23_gas", Chemistry.HYDROFLUORIC_ACID), "chloroform + 3HF -> HFC-23");
+        var level = h.getLevel();
+        var ozone = com.taku3.semiconductorlab.OzoneLayer.get(level);
+        ozone.resetForTest(level);
+        floor(h, 3);
+        BlockPos rel = p(1, 1, 1); BlockPos pos = h.absolutePos(rel);
+        h.setBlock(rel, com.taku3.semiconductorlab.content.Heat.PERKINS_ICE_MACHINE);
+        h.assertTrue(com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.fill(level, pos, player, new ItemStack(Chemistry.HFC23_GAS)), "HFC as refrigerant");
+        com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.fill(level, pos, player, new ItemStack(Items.WATER_BUCKET));
+        for (int i = 0; i < com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.CRANKS; i++) com.taku3.semiconductorlab.block.PerkinsIceMachineBlock.crank(level, pos, player);
+        h.assertTrue(player.getInventory().countItem(Items.ICE) == 1, "ice with HFC");
+        h.assertTrue(ozone.dobson(level) >= 299.9, "HFC does not lower the ozone");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Chemistry.PEROXIDE_CELL.block, "過酸化水素", L(io(Chemistry.GLASS_BOTTLE, 1), perRuns(io(Items.WATER_BUCKET, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_WATER), perRuns(io(Chemistry.SULFURIC_ACID, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ACID), perRuns(io(com.taku3.semiconductorlab.content.Metallurgy.PLATINUM_INGOT, 1), com.taku3.semiconductorlab.block.PeroxideCellBlockEntity.RUNS_PER_ANODE)),
