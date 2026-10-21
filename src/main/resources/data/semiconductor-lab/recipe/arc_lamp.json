@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IGI",
+    "GCG",
+    "IKI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "G": "semiconductor-lab:graphite",
+    "C": "semiconductor-lab:soda_lime_glass",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:arc_lamp",
+    "count": 1
+  }
+}

@@ -184,5 +184,16 @@
   "item.semiconductor-lab.stepping_motor.note2": "Electromagnet + magnet + iron -> 2. It moves a quartz watch's second hand once a second.",
   "item.semiconductor-lab.stepping_motor.note3": "A variable-reluctance type was patented in Britain in 1919, and around 1936 Marius Lavet in France devised a small form for clocks (the Lavet type) ⚠️. Mass production began around 1950.",
   "item.semiconductor-lab.stepping_motor.note4": "Counting pulses tells you how far it has turned, so it also positions printers, 3D printers and machine tools.",
-  "item.semiconductor-lab.stepping_motor.placeholder": "Approximation: for now only a watch part. How to play with it for positioning is not decided yet ([4-17])."
+  "item.semiconductor-lab.stepping_motor.placeholder": "Approximation: for now only a watch part. How to play with it for positioning is not decided yet ([4-17]).",
+  "block.semiconductor-lab.arc_lamp": "Arc Lamp",
+  "block.semiconductor-lab.arc_lamp.note1": "A very bright light made by an electric spark jumping between two carbon rods. The rods burn away.",
+  "block.semiconductor-lab.arc_lamp.note2": "Glows on 450 W (light level 15). Feed graphite (carbon rods); one lasts 2 minutes. Crafting: 4 iron + 2 graphite + soda-lime glass + copper cable.",
+  "block.semiconductor-lab.arc_lamp.note3": "Works like the arc furnace [3-15]: the arc heats the carbon tips white-hot. The carbon slowly reacts with oxygen in the air.",
+  "block.semiconductor-lab.arc_lamp.note4": "Davy showed the arc around 1808, and from the late 1870s arc lamps lit streets and lighthouses — electric light before the bulb. In 1899 Hertha Ayrton showed the hissing came from carbon reacting with oxygen. ⚠️ Dates being checked.",
+  "block.semiconductor-lab.arc_lamp.placeholder": "Omitted: ⚠️ power and rod burn rate are game values. The mechanism keeping the gap is omitted.",
+  "gui.semiconductor-lab.arc_lamp.power": "Power %s",
+  "gui.semiconductor-lab.arc_lamp.need_rod": "Insert a carbon rod (graphite)",
+  "gui.semiconductor-lab.arc_lamp.need_power": "Not enough power",
+  "gui.semiconductor-lab.arc_lamp.running": "Glowing with the arc",
+  "gui.semiconductor-lab.arc_lamp.recipe": "Carbon-rod arc → light"
 }

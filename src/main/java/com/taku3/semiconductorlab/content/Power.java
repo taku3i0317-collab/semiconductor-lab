@@ -43,6 +43,8 @@ public final class Power {
     public static final Item GRAPHITE_ROD          = Reg.item("graphite_rod");      // 黒鉛棒（電気炉の発熱体・アチソン炉の電極）
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
+    // [4-16] アーク灯（IMP4-01、S-009）：炭素棒のアーク、450W、明るさ15、棒が減る
+    public static final Machine<ArcLampBlockEntity> ARC_LAMP = Machine.electric("arc_lamp", ArcLampBlockEntity::new, ArcLampBlockEntity.LAYOUT, lit(metal(2.0f), 15));
     // 発電機（v0.2a）：水車＋ダイナモ [4-01]／ボイラー＋蒸気機関＋ダイナモ [4-02][4-14]／蒸気タービン [4-06]、鉛蓄電池 [4-07]
     public static final Machine<WaterWheelBlockEntity> WATER_WHEEL = Power.generator("water_wheel", WaterWheelBlockEntity::new, BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).strength(2.0f).sound(SoundType.WOOD)).build();
     public static final Machine<SteamTurbineBlockEntity> STEAM_TURBINE = Power.generator("steam_turbine", SteamTurbineBlockEntity::new, metal(4.0f)).layout(SteamEngineBlockEntity.LAYOUT).build();

@@ -184,5 +184,16 @@
   "item.semiconductor-lab.stepping_motor.note2": "電磁石＋磁石＋鉄 → 2個。クオーツ腕時計の秒針を1秒に1回動かす。",
   "item.semiconductor-lab.stepping_motor.note3": "1919年にイギリスで可変リラクタンス型の特許が出され、1936年にフランスのマリウス・ラヴェが時計に使う小さな形（ラヴェ型）を考えたとされる⚠️。工場で多く作られるのは1950年ごろから。",
   "item.semiconductor-lab.stepping_motor.note4": "パルスの数を数えるだけで回った角度が分かるので、プリンター・3D プリンター・工作機械の位置決めにも使われる。",
-  "item.semiconductor-lab.stepping_motor.placeholder": "近似：今は時計用の部品だけ。位置決めに使う遊び方はまだ決まっていない（[4-17]）。"
+  "item.semiconductor-lab.stepping_motor.placeholder": "近似：今は時計用の部品だけ。位置決めに使う遊び方はまだ決まっていない（[4-17]）。",
+  "block.semiconductor-lab.arc_lamp": "アーク灯",
+  "block.semiconductor-lab.arc_lamp.note1": "2本の炭素の棒のあいだに電気の火花を飛ばして光る、とても明るい明かり。棒は燃えて減る。",
+  "block.semiconductor-lab.arc_lamp.note2": "電気 450W で光る（明るさ15）。黒鉛（炭素棒）を入れる。1本で2分。作業台：鉄4＋黒鉛2＋ソーダ石灰ガラス＋銅ケーブル。",
+  "block.semiconductor-lab.arc_lamp.note3": "アーク炉 [3-15] と同じ原理の明かり。アークの熱で炭素の先が白く光る。炭素は空気の酸素と反応して少しずつ減る。",
+  "block.semiconductor-lab.arc_lamp.note4": "1808年ごろデービーがアークを見せ、1870年代後半から街灯や灯台に使われた。電球より先の電気の明かり。1899年、ハータ・エアトンがシューという音は炭素と酸素の反応だと示した。⚠️ 年は出典で確かめ中。",
+  "block.semiconductor-lab.arc_lamp.placeholder": "省略：⚠️ 電力・棒の減り方はゲームの値。棒どうしのすき間を保つ仕組みは省略。",
+  "gui.semiconductor-lab.arc_lamp.power": "電力 %s",
+  "gui.semiconductor-lab.arc_lamp.need_rod": "炭素棒（黒鉛）を入れる",
+  "gui.semiconductor-lab.arc_lamp.need_power": "電気が足りない",
+  "gui.semiconductor-lab.arc_lamp.running": "アークで光っている",
+  "gui.semiconductor-lab.arc_lamp.recipe": "炭素棒のアーク → 光"
 }

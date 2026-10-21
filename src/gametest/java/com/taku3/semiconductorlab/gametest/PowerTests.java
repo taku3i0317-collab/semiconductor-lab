@@ -596,6 +596,21 @@ public class PowerTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [4-16] アーク灯（IMP4-01、S-009）：黒鉛を入れて電気で光る（LIT）、2分で棒が1本減る */
+    @GameTest(maxTicks = 3000)
+    public void arcLamp(GameTestHelper h) {
+        floor(h, 3);
+        BlockPos lp = p(1, 1, 1);
+        h.setBlock(lp, Power.ARC_LAMP.block);
+        var be = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.ArcLampBlockEntity.class);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ArcLampBlockEntity.SLOT_ROD, new ItemStack(Metallurgy.GRAPHITE, 2));
+        tickConsumer(h, lp, be, 5, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ArcLampBlockEntity.WATTS));
+        h.assertTrue(h.getBlockState(lp).getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT), "arc lamp lights");
+        tickConsumer(h, lp, be, com.taku3.semiconductorlab.block.ArcLampBlockEntity.TICKS, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ArcLampBlockEntity.WATTS));
+        h.assertValueEqual(be.getContainer().getItem(com.taku3.semiconductorlab.block.ArcLampBlockEntity.SLOT_ROD).getCount(), 1, "one carbon rod burned away");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // recipes() は順番のない Map なので、材料の ID 順に並べて毎回同じ順で書く（IMP-27）
         for (var e : ElectricFurnaceBlockEntity.recipes().entrySet().stream().sorted(java.util.Comparator.comparing(x -> iid(x.getKey()))).toList())

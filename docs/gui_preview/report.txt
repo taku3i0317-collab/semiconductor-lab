@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 210（ja・en）、文字の置き場所 778、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 212（ja・en）、文字の置き場所 784、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
@@ -363,6 +363,11 @@ arc_furnace_en_us hint gui.semiconductor-lab.arc_furnace.need_power w=90 lines=2
 arc_furnace_en_us hint gui.semiconductor-lab.arc_furnace.running w=90 lines=2/3
 arc_furnace_en_us recipe gui.semiconductor-lab.arc_furnace.recipe w=105 lines=1/1
 arc_furnace_en_us recipe gui.semiconductor-lab.arc_furnace.recipe_carbide w=113 lines=1/1 scale=0.95
+arc_lamp_en_us power gui.semiconductor-lab.arc_lamp.power w=75 lines=1/1
+arc_lamp_en_us hint gui.semiconductor-lab.arc_lamp.need_rod w=158 lines=3/4
+arc_lamp_en_us hint gui.semiconductor-lab.arc_lamp.need_power w=90 lines=2/4
+arc_lamp_en_us hint gui.semiconductor-lab.arc_lamp.running w=99 lines=2/4
+arc_lamp_en_us recipe gui.semiconductor-lab.arc_lamp.recipe w=119 lines=1/1 scale=0.9
 steam_turbine_en_us output gui.semiconductor-lab.steam_engine.output w=79 lines=1/1
 steam_turbine_en_us stored gui.semiconductor-lab.steam_engine.stored w=67 lines=1/1
 steam_turbine_en_us water gui.semiconductor-lab.steam_engine.water_intake w=107 lines=2/2
@@ -1417,6 +1422,11 @@ arc_furnace_ja_jp hint gui.semiconductor-lab.arc_furnace.need_power w=63 lines=1
 arc_furnace_ja_jp hint gui.semiconductor-lab.arc_furnace.running w=91 lines=2/3
 arc_furnace_ja_jp recipe gui.semiconductor-lab.arc_furnace.recipe w=102 lines=1/1
 arc_furnace_ja_jp recipe gui.semiconductor-lab.arc_furnace.recipe_carbide w=110 lines=1/1
+arc_lamp_ja_jp power gui.semiconductor-lab.arc_lamp.power w=63 lines=1/1
+arc_lamp_ja_jp hint gui.semiconductor-lab.arc_lamp.need_rod w=99 lines=2/4
+arc_lamp_ja_jp hint gui.semiconductor-lab.arc_lamp.need_power w=63 lines=1/4
+arc_lamp_ja_jp hint gui.semiconductor-lab.arc_lamp.running w=81 lines=2/4
+arc_lamp_ja_jp recipe gui.semiconductor-lab.arc_lamp.recipe w=88 lines=1/1
 steam_turbine_ja_jp output gui.semiconductor-lab.steam_engine.output w=65 lines=1/1
 steam_turbine_ja_jp stored gui.semiconductor-lab.steam_engine.stored w=51 lines=1/1
 steam_turbine_ja_jp water gui.semiconductor-lab.steam_engine.water_intake w=69 lines=1/2

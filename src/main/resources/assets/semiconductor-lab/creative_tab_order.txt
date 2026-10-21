@@ -478,6 +478,7 @@ synthetic_graphite  # Heat [3-10] 1896
 acheson_furnace  # Heat [3-10] 1896
 magnet  # Power [1-47] -600
 voltaic_pile  # Power [4-13] 1800
+arc_lamp  # Power [4-16] 1808
 electric_motor  # Power [4-08] 1821
 dynamo  # Power [4-04] 1831
 daniell_cell  # Power [4-36] 1836
