@@ -839,6 +839,9 @@
 "electric_motor": [
 "crafting"
 ],
+"electric_stove": [
+"crafting"
+],
 "electrolyzer": [
 "crafting"
 ],
@@ -1692,6 +1695,9 @@
 ],
 "neon_gas": [
 "machine:rare_gas_column"
+],
+"nichrome_wire": [
+"crafting"
 ],
 "nickel": [
 "smelting"

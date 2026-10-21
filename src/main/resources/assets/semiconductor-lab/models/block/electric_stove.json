@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/electric_stove_front",
+    "side": "semiconductor-lab:block/electric_stove_side",
+    "top": "semiconductor-lab:block/electric_stove_top"
+  }
+}

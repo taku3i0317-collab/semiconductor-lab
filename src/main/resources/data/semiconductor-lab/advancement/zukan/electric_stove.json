@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:electric_stove"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.electric_stove"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.electric_stove.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.electric_stove.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:electric_stove"
+          }
+        ]
+      }
+    }
+  }
+}

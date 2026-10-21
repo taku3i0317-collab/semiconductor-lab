@@ -375,6 +375,23 @@ public class HeatTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [3-24] ニクロム線と電気こんろ（IMP4-01、O-030 案A）：生の牛肉 → ステーキ（燻製器のレシピ）、鉄の原石は焼けない（約800℃ はかまどより低い）、ニッケル4＋クロムの線 */
+    @GameTest
+    public void electricStove(GameTestHelper h) {
+        var lv = h.getLevel();
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.cooked(lv, new ItemStack(net.minecraft.world.item.Items.BEEF)).is(net.minecraft.world.item.Items.COOKED_BEEF), "beef -> steak");
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.cooked(lv, new ItemStack(net.minecraft.world.item.Items.RAW_IRON)).isEmpty(), "ores are not smelted");
+        h.assertTrue(com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.HEATER_C < com.taku3.semiconductorlab.item.ThermocoupleItem.FURNACE_C, "cooler than the furnace");
+        h.assertTrue(recipeUses(h, "nichrome_wire", com.taku3.semiconductorlab.content.Metallurgy.NICKEL) && recipeUses(h, "nichrome_wire", com.taku3.semiconductorlab.content.Metallurgy.CHROMIUM) && recipeUses(h, "electric_stove", Heat.NICHROME_WIRE), "Ni-Cr wire heater");
+        BlockPos sp = p(1, 1, 1);
+        h.setBlock(sp, Heat.ELECTRIC_STOVE.block);
+        var be = h.getBlockEntity(sp, com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.class);
+        be.getContainer().setItem(com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.SLOT_IN, new ItemStack(net.minecraft.world.item.Items.POTATO, 2));
+        tickConsumer(h, sp, be, com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.TICKS + 5, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.WATTS));
+        h.assertTrue(be.getContainer().getItem(com.taku3.semiconductorlab.block.ElectricStoveBlockEntity.SLOT_OUT).is(net.minecraft.world.item.Items.BAKED_POTATO), "a baked potato in 5 s");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [2-43] 黄鉄鉱の焙焼（IMP3、O-028 で書き出しに足した）
         rec(a, Heat.REVERBERATORY_FURNACE.block, "焙焼（黄鉄鉱）", L(io(Chemistry.PYRITE, 1), perRuns(io(Items.COAL, 1), (int) (ReverberatoryFurnaceBlockEntity.FUEL_TICKS / (double) ReverberatoryFurnaceBlockEntity.ROAST_TICKS))),

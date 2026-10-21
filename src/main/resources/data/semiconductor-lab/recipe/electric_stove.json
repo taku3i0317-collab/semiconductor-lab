@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "WWW",
+    "ICI",
+    "III"
+  ],
+  "key": {
+    "W": "semiconductor-lab:nichrome_wire",
+    "C": "semiconductor-lab:copper_cable",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:electric_stove",
+    "count": 1
+  }
+}

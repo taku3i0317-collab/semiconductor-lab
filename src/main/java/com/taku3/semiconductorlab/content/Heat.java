@@ -56,6 +56,10 @@ public final class Heat {
             .props(lit(stone(3.5f).mapColor(MapColor.COLOR_RED), 13)).build();
     public static final Machine<ArcFurnaceBlockEntity> ARC_FURNACE = Machine.electric("arc_furnace", ArcFurnaceBlockEntity::new, ArcFurnaceBlockEntity.LAYOUT, metal(4.0f));
 
+    // [3-24] ニクロム線ヒーター（IMP4-01、O-030 案A 仮決定、1906 マーシュ）：ニッケル4＋クロム → ニクロム線（Ni 80%・Cr 20%）、電気こんろ（500W、約800℃ ⚠️、燻製器のレシピで食べ物を焼く）
+    public static final Item NICHROME_WIRE         = Reg.item("nichrome_wire");
+    public static final Machine<ElectricStoveBlockEntity> ELECTRIC_STOVE = Machine.electric("electric_stove", ElectricStoveBlockEntity::new, ElectricStoveBlockEntity.LAYOUT, Machine.lit(Machine.metal(2.0f), 9));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     // [3-22] 蒸気圧縮の冷凍サイクル（IMP3、O-019、1834 パーキンス）：手回しの冷凍機。冷媒（エーテル）＋水 → ハンドル16回で氷
     public static final Block PERKINS_ICE_MACHINE = Reg.functional("perkins_ice_machine", PerkinsIceMachineBlock::new,
