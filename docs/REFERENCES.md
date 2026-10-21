@@ -1912,6 +1912,20 @@
 - Wikipedia「International Prototype of the Kilogram」：https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram
 - Wikipedia「2019 revision of the SI」：https://en.wikipedia.org/wiki/2019_revision_of_the_SI
 
+## O67. 光の波で決めたメートル（国際単位系 SI）［8-24］
+**答え**：1960年、第11回国際度量衡総会は、メートル・キログラム・秒・アンペア・ケルビン・カンデラの6つを基本単位とする「国際単位系（SI）」を決めた（1971年にモルが加わって7つ）。同じ総会で、メートルは白金イリジウムの棒ではなく「クリプトン86 が出す橙の光の波長の 1,650,763.73 倍」になった。原子の光の波長は、どこで作っても同じだからである。1983年には光の速さで決め直され、2019年には7つの単位すべてが自然の定数で決まった。
+
+- へえ①：世界中で同じ「1メートル」「1秒」を使えるのは、1960年に決めた国際単位系のおかげ。
+- へえ②：1960〜1983年の1メートルは、ランプの光の波を約165万回数えた長さ。
+- へえ③：キロ・ミリ・マイクロ・ナノなどの接頭語も SI の一部。
+- へえ④：クリプトンのランプは窒素の三重点（約63K）に冷やして、線の幅を細くした。
+
+確かさ：1960・6単位・1,650,763.73 ◎／1971 モル・1983 光速 ◎／2019 定義し直し ◎
+根拠：
+- BIPM「Resolution 6 / 12 of the 11th CGPM (1960)」：https://www.bipm.org/en/committees/cg/cgpm/11-1960
+- Wikipedia「History of the metre」：https://en.wikipedia.org/wiki/History_of_the_metre
+- Wikipedia「International System of Units」：https://en.wikipedia.org/wiki/International_System_of_Units
+
 ---
 
 # 冶金と熱（タスク15〜）

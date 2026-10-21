@@ -52,6 +52,8 @@ public final class Precision {
                     .networkSynchronized(net.minecraft.core.BlockPos.STREAM_CODEC).build());
     public static final Item METRE_BAR             = Reg.item("metre_bar", MetreBarItem::new, new Item.Properties().stacksTo(1));
     // [8-23] キログラム原器（IMP2 O-020）：白金インゴットをベンガラで磨き上げた円柱（1799 アルシーヴのキログラム。1889 の国際原器は Pt90・Ir10%⚠️）。2つ持って比べると差が µg で出る
+    // [8-24] 国際単位系 1960（IMP2 S-005 案A）：クリプトン86 の放電ランプ（石英管＋Kr＋W電極）。干渉計のもう片方の手に持つと、2点の間をクリプトンの波長で測れる（1m＝1,650,763.73 波長）。耐久＝ランプの寿命
+    public static final Item KRYPTON_LAMP          = Reg.item("krypton_lamp", new Item.Properties().durability(64));
     public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤

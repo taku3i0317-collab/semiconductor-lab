@@ -414,5 +414,9 @@
   "item.semiconductor-lab.aluminized_mirror.note2": "Vacuum evaporator: crown glass + aluminium. Works as the mirror of a reflecting telescope. Right-click a lit mercury lamp to compare reflectance (it reflects UV well too). Right-click in the air for how it tarnishes.",
   "item.semiconductor-lab.aluminized_mirror.note3": "In the 1930s John Strong at Caltech made telescope mirrors by evaporating aluminium (paper 1936). The 5 m Palomar telescope (1948) has an aluminium mirror.",
   "item.semiconductor-lab.aluminized_mirror.note4": "Aluminium quickly grows a few-nm oxide film and then stops reacting with air. Silver reacts with sulfur in air to form black silver sulfide. Aluminium also reflects UV well, which suits later exposure-tool mirrors.",
-  "item.semiconductor-lab.aluminized_mirror.placeholder": "Approximation: real coatings use only tens of mg of aluminium on glass ground concave first. Reflectances are typical values."
+  "item.semiconductor-lab.aluminized_mirror.placeholder": "Approximation: real coatings use only tens of mg of aluminium on glass ground concave first. Reflectances are typical values.",
+  "item.semiconductor-lab.interferometer.kr_mark": "📍 Marked. Right-click another block to measure the distance in krypton waves",
+  "item.semiconductor-lab.interferometer.kr_measure": "📏 Distance %s m = %2$s wavelengths of krypton-86's orange line (%3$s nm)",
+  "item.semiconductor-lab.interferometer.kr_metre": "✨ This is 1 m (the SI definition 1960-1983: 1,650,763.73 wavelengths), set without the metre bar",
+  "item.semiconductor-lab.interferometer.kr_si": "🌐 International System of Units (SI, 1960): 1 m = 1,650,763.73 wavelengths of krypton-86 orange light. Right-click two blocks to measure"
 }

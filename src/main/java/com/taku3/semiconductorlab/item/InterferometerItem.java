@@ -19,6 +19,8 @@ import java.util.Locale;
  * 炎（たき火・火）では色が混ざって縞がすぐ消える、と出る。
  * [8-07]：まわりの揺れ（block/Vibration）で縞がゆれる。水銀灯を除振台の上に置くと 1/20。
  * [8-06]：もう片方の手にゲージブロック・メートル原器を持つと、縞を数えて光の波長でその長さを測る（マイケルソン 1892〜93）。
+ * [8-24]：もう片方の手にクリプトン86 ランプ → 2つのブロックを順に右クリックして、間の長さをクリプトンの橙の線の波長で測る
+ *   （1960〜1983 の SI のメートル：1 m ＝ 1,650,763.73 波長。メートル原器が要らない）。
  * [7-21]：もう片方の手に材料（ULE ガラス・石英・ガラス・鋼・鉄・銅）を持つと、長さ {@value #SAMPLE_MM} mm の棒が部屋の温度のゆれ
  * （空調 [12-12] がなければ ±3℃、あれば ±0.1℃）で伸び縮みして、縞が何本ゆれるかを見る。
  */
@@ -36,6 +38,13 @@ public class InterferometerItem extends Item {
 
     /** ゲージブロック1個の本当のずれの幅（nm）。⚠️ ゲームの値（ヨハンソンのブロックで 0.1〜0.3µm ほど） */
     public static final int GAUGE_ERR_NM = 200;
+
+    /** [8-24] クリプトン86 の橙の線（真空中、nm）と、1960 の定義の 1 m の波の数 */
+    public static final double KR86_NM = 605.780_211;
+    public static final double KR86_PER_METRE = 1_650_763.73;
+
+    /** 2点（ブロックの真ん中どうし）の距離（m、1ブロック＝1m） */
+    public static double distanceM(net.minecraft.core.BlockPos a, net.minecraft.core.BlockPos b) { return Math.sqrt(a.distSqr(b)); }
 
     /** [7-21] 熱膨張を見る棒の長さ（mm） */
     public static final double SAMPLE_MM = 100;
@@ -64,6 +73,10 @@ public class InterferometerItem extends Item {
         Level level = ctx.getLevel();
         var state = level.getBlockState(ctx.getClickedPos());
         Player p = ctx.getPlayer();
+        if (p != null && kryptonLampIn(p, ctx.getHand())) {   // [8-24] クリプトン86 の波長で 2点の間を測る
+            if (!level.isClientSide()) measureWithKrypton(level, p, ctx.getItemInHand(), ctx.getClickedPos(), otherHand(p, ctx.getHand()));
+            return InteractionResult.SUCCESS;
+        }
         if (MercuryLampBlockEntity.isLit(state)) {
             if (!level.isClientSide() && p != null) {
                 long n = Math.round(fringes(SCREW_MM, HG_GREEN_NM));
@@ -111,8 +124,37 @@ public class InterferometerItem extends Item {
         return InteractionResult.PASS;
     }
 
+    private static net.minecraft.world.item.ItemStack otherHand(Player p, InteractionHand hand) {
+        return p.getItemInHand(hand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND);
+    }
+
+    private static boolean kryptonLampIn(Player p, InteractionHand hand) { return otherHand(p, hand).is(com.taku3.semiconductorlab.content.Precision.KRYPTON_LAMP); }
+
+    /** [8-24] 1回目の右クリックで印、2回目で間の長さをクリプトンの波の数で。ランプは1回測るごとに1減る */
+    public static void measureWithKrypton(Level level, Player p, net.minecraft.world.item.ItemStack meter, net.minecraft.core.BlockPos at, net.minecraft.world.item.ItemStack lamp) {
+        var data = meter.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA);
+        net.minecraft.nbt.CompoundTag t = data == null ? new net.minecraft.nbt.CompoundTag() : data.copyTag();
+        if (!t.contains("KrMark")) {
+            t.putLong("KrMark", at.asLong());
+            meter.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA, net.minecraft.world.item.component.CustomData.of(t));
+            p.sendSystemMessage(Component.translatable(K + "kr_mark"));
+            return;
+        }
+        double m = distanceM(net.minecraft.core.BlockPos.of(t.getLongOr("KrMark", 0)), at);
+        t.remove("KrMark");
+        meter.set(net.minecraft.core.component.DataComponents.CUSTOM_DATA, net.minecraft.world.item.component.CustomData.of(t));
+        p.sendSystemMessage(Component.translatable(K + "kr_measure", String.format(Locale.ROOT, "%.6f", m),
+                String.format(Locale.ROOT, "%,.2f", m * KR86_PER_METRE), String.format(Locale.ROOT, "%.4f", KR86_NM)));
+        if (Math.abs(m - 1) < 1e-9) p.sendSystemMessage(Component.translatable(K + "kr_metre"));
+        if (!p.getAbilities().instabuild) {
+            lamp.setDamageValue(lamp.getDamageValue() + 1);
+            if (lamp.getDamageValue() >= lamp.getMaxDamage()) lamp.shrink(1);
+        }
+    }
+
     @Override
     public InteractionResult use(Level level, Player p, InteractionHand hand) {
+        if (!level.isClientSide() && kryptonLampIn(p, hand)) { p.sendSystemMessage(Component.translatable(K + "kr_si")); return InteractionResult.SUCCESS; }
         if (!level.isClientSide()) p.sendSystemMessage(Component.translatable(K + "hint"));
         return InteractionResult.SUCCESS;
     }

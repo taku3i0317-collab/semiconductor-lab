@@ -524,6 +524,30 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-24] 国際単位系（IMP2 S-005）：クリプトン86 ランプ＋干渉計で 2点の間を波の数で測る。1m ちょうどなら 1,650,763.73 波長（メートル原器なし） */
+    @GameTest
+    public void krypton_metre(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "krypton_lamp", com.taku3.semiconductorlab.content.Gas.KRYPTON_GAS), "the SI metre lamp is filled with krypton");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.InterferometerItem.KR86_NM * 1e-9 * com.taku3.semiconductorlab.item.InterferometerItem.KR86_PER_METRE - 1) < 1e-8, "1,650,763.73 wavelengths of 605.78 nm = 1 m");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack meter = new ItemStack(com.taku3.semiconductorlab.content.Optics.INTERFEROMETER), lamp = new ItemStack(Precision.KRYPTON_LAMP);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, meter);
+        player.setItemInHand(net.minecraft.world.InteractionHand.OFF_HAND, lamp);
+        BlockPos a = p(1, 1, 1), b = p(2, 1, 1);
+        h.setBlock(a, net.minecraft.world.level.block.Blocks.STONE); h.setBlock(b, net.minecraft.world.level.block.Blocks.STONE);
+        for (BlockPos rel : new BlockPos[]{a, b}) {
+            BlockPos abs = h.absolutePos(rel);
+            com.taku3.semiconductorlab.content.Optics.INTERFEROMETER.useOn(new net.minecraft.world.item.context.UseOnContext(player, net.minecraft.world.InteractionHand.MAIN_HAND,
+                    new net.minecraft.world.phys.BlockHitResult(net.minecraft.world.phys.Vec3.atCenterOf(abs), net.minecraft.core.Direction.UP, abs, false)));
+            if (rel == a) h.assertTrue(meter.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA) != null, "first click leaves a mark");
+        }
+        h.assertValueEqual(lamp.getDamageValue(), 1, "one measurement uses the lamp once");
+        h.assertTrue(!meter.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA).copyTag().contains("KrMark"), "the mark is cleared after measuring");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.InterferometerItem.distanceM(h.absolutePos(a), h.absolutePos(b)) - 1) < 1e-12, "neighbouring blocks are 1 m apart");
+        LOG.info("[LAB] SI metre [8-24]: krypton-86 lamp + interferometer, 1 m = 1,650,763.73 x 605.78 nm, no metre bar needed");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");
