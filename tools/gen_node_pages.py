@@ -46,7 +46,7 @@ def og_image(n, out):
     im = Image.new("RGB", (W, H), "#faf7f0")
     d = ImageDraw.Draw(im)
     d.rectangle([24, 24, W - 24, H - 24], outline="#2f6f8f", width=6)
-    if n.get("icon", "").startswith("data:image"):
+    if (n.get("icon") or "").startswith("data:image"):   # 新しいノードはアイコンがまだ無いことがある
         ic = Image.open(io.BytesIO(base64.b64decode(n["icon"].split(",", 1)[1]))).convert("RGBA").resize((384, 384), Image.NEAREST)
         im.paste(ic, (80, 123), ic)
     font = lambda s: ImageFont.truetype("C:/Windows/Fonts/meiryob.ttc", s) if Path("C:/Windows/Fonts/meiryob.ttc").exists() else ImageFont.load_default()
