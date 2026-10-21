@@ -81,6 +81,22 @@ public class ProjectionLensItem extends Item {
     /** v0.4 #5：k1 を下げる工夫（四重極の絞り＋位相シフトマスク）を全部使えば届くか */
     public static boolean meetsToolWithTricks(ItemStack s) { ExposureTool t = toolOf(s); return t != null && cdNm(s, 1, MAX_TRICKS) <= t.cdNm; }
 
+    /** v0.5 #1 焦点深度の係数 k2（⚠️ 代表値。教科書では 0.5〜1 ほど） */
+    public static final double K2 = 0.8;
+    /** 液浸の水の屈折率（193nm） */
+    public static final double WATER_N = 1.44;
+
+    /**
+     * v0.5 #1 焦点深度 DOF（nm）＝ k2·λ/NA²（IMP2 O-028）。NA を上げるほど細かく描けるが、焦点が浅くなる。
+     * 液浸は水の中で波長が 1/n になり、同じ NA なら n 倍深い（k2·λ·n/NA²、近似 ⚠️）
+     */
+    public static int dofNm(ItemStack s) {
+        ProjectionLensItem l = s.getItem() instanceof ProjectionLensItem p ? p : null;
+        if (l == null) return 0;
+        double n = l.tool == ExposureTool.ARF_IMMERSION ? WATER_N : 1;
+        return (int) Math.round(K2 * l.tool.wavelengthNm * n / (l.na * l.na));
+    }
+
     /** いちばん強い工夫の組み合わせ（四重極の絞り＋位相シフトマスク） */
     public static final double MAX_TRICKS = com.taku3.semiconductorlab.content.Optics.QUADRUPOLE_K1 + com.taku3.semiconductorlab.content.Optics.PHASE_SHIFT_K1;
 
@@ -104,5 +120,6 @@ public class ProjectionLensItem extends Item {
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> out, TooltipFlag flag) {
         out.accept(Component.translatable(K + "spec", REDUCTION, String.format(Locale.ROOT, "%.2f", na), String.format(Locale.ROOT, "%.2f", cdNm(stack) / 1000.0)));
+        out.accept(Component.translatable(K + "dof", String.format(Locale.ROOT, "%.2f", dofNm(stack) / 1000.0)));
     }
 }

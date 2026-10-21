@@ -487,5 +487,6 @@
   "item.semiconductor-lab.phase_shift_mask.note2": "クロムマスク＋フッ酸（鉛の瓶、空き瓶は戻る。マスクの模様と耐久は引き継ぐ）。ステッパー・スキャナーで使うと k1 を 0.15 下げる。⚠ フッ酸は GHS：急性毒性・腐食性。",
   "item.semiconductor-lab.phase_shift_mask.note3": "1982年、IBM の研究者が、となりの光の位相を半波長ずらして境目で打ち消し合わせる方法を発表した⚠️。KrF・ArF の時代に広く使われた。",
   "item.semiconductor-lab.phase_shift_mask.note4": "石英を、光の波長÷(2×(石英の屈折率−1)) だけ削ると、そこを通る光の位相が180°ずれる。となりの光と打ち消し合って、間の暗い所がしっかり暗くなる。",
-  "item.semiconductor-lab.phase_shift_mask.placeholder": "近似：どこを削るかの設計（位相の割り振り）は作らず、k1 を一律に下げる。"
+  "item.semiconductor-lab.phase_shift_mask.placeholder": "近似：どこを削るかの設計（位相の割り振り）は作らず、k1 を一律に下げる。",
+  "item.semiconductor-lab.projection_lens.dof": "焦点深度（DOF）%s µm：板の段差がこれより大きいと、どこかがぼける"
 }

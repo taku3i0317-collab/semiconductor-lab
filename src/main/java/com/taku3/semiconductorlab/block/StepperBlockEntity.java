@@ -36,7 +36,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     /** [7-20] ArF（193nm）。[7-16] 液浸のレンズなら ARF_IMMERSION（レンズとウェハーの間に超純水、1チップで1本） */
     public static final ExposureTool TOOL_ARF = ExposureTool.ARF, TOOL_IMMERSION = ExposureTool.ARF_IMMERSION;
     public static final int SLOT_WAFER = 0, SLOT_MASK = 1, SLOT_LENS = 2, SLOT_STAGE = 3, SLOT_OUT = 4, SLOT_FILTER = 5, SLOT_WATER = 6, SLOT_APERTURE = 7, SLOT_COUNT = 8;
-    public static final int DATA_STEPS = DATA_COUNT, DATA_CD = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, DATA_K1 = DATA_COUNT + 4, DATA_TRICKS = DATA_COUNT + 5, EXTRA_DATA = 6;
+    public static final int DATA_STEPS = DATA_COUNT, DATA_CD = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, DATA_K1 = DATA_COUNT + 4, DATA_TRICKS = DATA_COUNT + 5, DATA_DOF = DATA_COUNT + 6, EXTRA_DATA = 7;
     public static final int BTN_STEP = 0;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA).height(206)
@@ -54,6 +54,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             .right("cd", 39, 1, "gui.semiconductor-lab.stepper.cd").samples("0.85")
             .right("overlay", 50, 1, "gui.semiconductor-lab.mask_aligner.overlay").samples("20.0")
             .right("room", 61, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
+            .text("dof", 8, 62, 44, 2, "gui.semiconductor-lab.stepper.dof").samples("0.12")
             .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water", "blurred", "cannot",
                     "output_full", "press", "need_power", "running"))
             .text("k1", 8, 100, 88, 1, "gui.semiconductor-lab.stepper.k1").samples("0.60", "0.30", "0.30")
@@ -147,6 +148,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             case DATA_ROOM -> level == null ? 0 : CleanRoom.classAt(level, worldPosition).ordinal();
             case DATA_K1 -> (int) Math.round(ProjectionLensItem.designK1(container.getItem(SLOT_LENS), tricks()) * 100);
             case DATA_TRICKS -> (int) Math.round(tricks() * 100);
+            case DATA_DOF -> ProjectionLensItem.dofNm(container.getItem(SLOT_LENS));
             default -> 0;
         };
     }

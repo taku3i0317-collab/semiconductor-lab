@@ -38,6 +38,7 @@ public class StepperScreen extends MachineScreen {
             case "power" -> Component.translatable(K + "power", String.format("%.1f kW", menu.getKw()));
             case "steps" -> Component.translatable(K + "steps", menu.get(StepperBlockEntity.DATA_STEPS), StepperBlockEntity.STEPS);
             case "cd" -> Component.translatable(K + "cd", String.format("%.2f", menu.get(StepperBlockEntity.DATA_CD) / 1000.0));
+            case "dof" -> Component.translatable(K + "dof", String.format("%.2f", menu.get(StepperBlockEntity.DATA_DOF) / 1000.0));   // v0.5 #1 焦点深度
             // v0.4 #5：k1 の引き算（土台 0.60 − 工夫 ＝ 使う k1）
             case "k1" -> Component.translatable(K + "k1", String.format("%.2f", (menu.get(StepperBlockEntity.DATA_K1) + menu.get(StepperBlockEntity.DATA_TRICKS)) / 100.0),
                     String.format("%.2f", menu.get(StepperBlockEntity.DATA_TRICKS) / 100.0), String.format("%.2f", menu.get(StepperBlockEntity.DATA_K1) / 100.0));

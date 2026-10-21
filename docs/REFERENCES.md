@@ -2265,6 +2265,19 @@
 - Wikipedia「Resolution enhancement technologies」：https://en.wikipedia.org/wiki/Resolution_enhancement_technologies
 - Wikipedia「Optical proximity correction」：https://en.wikipedia.org/wiki/Optical_proximity_correction
 
+## O81. 細かく描くほど、ピントが浅くなる（焦点深度）［7-19・v0.5］
+**答え**：レンズの NA を大きくすると細かく描けるが、ピントの合う深さ（焦点深度 DOF ≒ k2·λ/NA²）は NA の2乗で浅くなる。g線のころは数µm あったが、ArF では 0.2µm ほどになり、ウェハーの表面のでこぼこ（配線を重ねた段差）がそれを超えると、どこかがぼけて焼けない。そこで1990年ごろから、層を重ねるたびに表面を削って平らにする CMP（化学機械研磨）が必要になった。液浸では水の中で波長が短くなるので、同じ NA でも焦点深度が少し深くなる。
+
+- へえ①：細かく描くほど、ピントが合う深さは浅くなる。
+- へえ②：ArF のピントの深さは 0.2µm ほど＝髪の毛の太さの数百分の1。
+- へえ③：だから層を重ねるたびに、表面を鏡のように磨いて平らにする。
+- へえ④：液浸は、細かくするだけでなく、ピントの深さにも少し得をする。
+
+確かさ：DOF ∝ λ/NA² ◎／k2 の値 △（0.5〜1、ゲームは 0.8）／CMP の導入 1990年ごろ ○
+根拠：
+- Wikipedia「Depth of focus」：https://en.wikipedia.org/wiki/Depth_of_focus
+- Wikipedia「Chemical-mechanical polishing」：https://en.wikipedia.org/wiki/Chemical-mechanical_polishing
+
 ---
 
 # 冶金と熱（タスク15〜）

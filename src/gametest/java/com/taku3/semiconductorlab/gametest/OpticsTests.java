@@ -228,6 +228,19 @@ public class OpticsTests extends LabTestBase {
         return s;
     }
 
+    /** v0.5 #1 焦点深度（IMP2 O-028、光学の側）：DOF＝k2·λ/NA²。NA を上げるほど浅い。液浸は水で n 倍深くなる */
+    @GameTest
+    public void depth_of_focus(GameTestHelper h) {
+        int g = com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(new ItemStack(Optics.PROJECTION_LENS)), i = com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(new ItemStack(Optics.PROJECTION_LENS_I)),
+                krf = com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(new ItemStack(Optics.PROJECTION_LENS_KRF)), arf = com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(new ItemStack(Optics.PROJECTION_LENS_ARF)),
+                wet = com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(new ItemStack(Optics.PROJECTION_LENS_IMMERSION));
+        h.assertTrue(g > i && i > krf && krf > arf && arf > wet, "finer lenses focus shallower: g " + g + " / i " + i + " / KrF " + krf + " / ArF " + arf + " / immersion " + wet + " nm");
+        h.assertTrue(Math.abs(g - 0.8 * 436 / (0.35 * 0.35)) < 60 && wet > 0.8 * 193 / (1.35 * 1.35), "g-line about 2.8 um; water deepens the immersion DOF by n");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.ProjectionLensItem.dofNm(ItemStack.EMPTY), 0, "no lens, no DOF");
+        LOG.info("[LAB] depth of focus [v0.5 #1]: g " + g + " / i " + i + " / KrF " + krf + " / ArF " + arf + " / immersion " + wet + " nm (k2 0.8)");
+        h.succeed();
+    }
+
     /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
     @GameTest
     public void silvering(GameTestHelper h) {
