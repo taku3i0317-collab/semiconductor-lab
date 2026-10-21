@@ -2322,6 +2322,26 @@ public class SemiconductorTests extends LabTestBase {
         int mg = com.taku3.semiconductorlab.litho.ExposureTool.STEPPER_G.grid;
         mask.set(ModDataComponents.MASK, new com.taku3.semiconductorlab.litho.MaskData(mg, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(mg), "euv_test", 0));
         h.assertFalse(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.isEuvMask(mask), "a chrome (transmissive) mask does not work for EUV");
+        // E の EUV マスクの板 → 縮小カメラ（ポジ型レジスト＋塩素）→ EUV マスク。それで1チップ焼ける
+        h.assertTrue(com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.chemicalsMatch(new ItemStack(Semiconductor.EUV_MASK_BLANK), new ItemStack(Chemistry.POSITIVE_RESIST), new ItemStack(Gas.CHLORINE_GAS)), "EUV blank: resist + chlorine etch of the absorber");
+        ItemStack paper = new ItemStack(net.minecraft.world.item.Items.PAPER);
+        paper.set(ModDataComponents.MASK, new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(g), "euv_test", 0));
+        ItemStack euvMask = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.photomaskOf(paper, new ItemStack(Semiconductor.EUV_MASK_BLANK));
+        h.assertTrue(euvMask.is(Semiconductor.EUV_MASK) && com.taku3.semiconductorlab.block.EuvScannerBlockEntity.isEuvMask(euvMask), "the reduction camera makes a reflective EUV mask");
+        var c = be.getContainer();
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertTrue(euvMask.get(ModDataComponents.MASK).reflective(), "the EUV mask data is reflective (A)");
+        c.setItem(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.SLOT_WAFER, ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized(), com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE, com.taku3.semiconductorlab.litho.ChipOps.RESIST_EUV), "EUV resist"));
+        c.setItem(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.SLOT_MASK, euvMask);
+        c.setItem(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.SLOT_LENS, optics);
+        c.setItem(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.SLOT_MASK_STAGE, new ItemStack(Precision.LEAD_SCREW));
+        long full = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.WATTS);
+        for (int k = 1; k <= com.taku3.semiconductorlab.block.EuvScannerBlockEntity.STEPS; k++) {
+            h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.EuvScannerBlockEntity.BTN_STEP), "EUV step " + k);
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(d) + 2, full);
+        }
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(c.getItem(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.SLOT_OUT));
+        h.assertTrue(st != null && st.size() == g, "EUV prints grid " + g);
         LOG.info("[LAB] EUV scanner [9-40]: all-mirror NA 0.33 CD " + cd + " nm grid " + g + "; source " + String.format(java.util.Locale.ROOT, "%.2f", s.euvW()) + " W -> wafer " + String.format(java.util.Locale.ROOT, "%.3f", d) + " W, step " + com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(d) / 20.0 + " s");
         h.succeed();
     }

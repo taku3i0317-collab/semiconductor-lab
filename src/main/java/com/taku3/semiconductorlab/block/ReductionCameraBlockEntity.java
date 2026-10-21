@@ -27,14 +27,16 @@ public class ReductionCameraBlockEntity extends ConsumerBlockEntity {
      *  A の方眼の係数が変わっても合うように ExposureTool から読む（S-008 で 8→16） */
     public static final int EMULSION_MAX_GRID = com.taku3.semiconductorlab.litho.ExposureTool.PROJECTION_1X.grid;
 
-    public static boolean isPlate(ItemStack s) { return s.is(Optics.PHOTO_PLATE) || s.is(Optics.CHROME_BLANK); }
+    public static boolean isPlate(ItemStack s) { return s.is(Optics.PHOTO_PLATE) || s.is(Optics.CHROME_BLANK) || s.is(com.taku3.semiconductorlab.content.Semiconductor.EUV_MASK_BLANK); }
     public static boolean isDeveloper(ItemStack s) { return s.is(Optics.FERROUS_SULFATE) || s.is(com.taku3.semiconductorlab.content.Chemistry.POSITIVE_RESIST); }
-    public static boolean isFixer(ItemStack s) { return s.is(Optics.SODIUM_THIOSULFATE) || s.is(com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID); }
+    public static boolean isFixer(ItemStack s) { return s.is(Optics.SODIUM_THIOSULFATE) || s.is(com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID) || s.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS); }
 
     /** 板に合う薬：乾板＝硫酸鉄(II)＋ハイポ、クロムのブランク＝ポジ型レジスト＋塩酸（Cr を溶かす） */
     public static boolean chemicalsMatch(ItemStack plate, ItemStack dev, ItemStack fix) {
         if (plate.is(Optics.PHOTO_PLATE)) return dev.is(Optics.FERROUS_SULFATE) && fix.is(Optics.SODIUM_THIOSULFATE);
         if (plate.is(Optics.CHROME_BLANK)) return dev.is(com.taku3.semiconductorlab.content.Chemistry.POSITIVE_RESIST) && fix.is(com.taku3.semiconductorlab.content.Gas.HYDROCHLORIC_ACID);
+        // [9-40] EUV マスクの板（E）：レジストに写して、吸収体（タンタルの化合物）を塩素のプラズマで削る（E と合意、IMP2 S-009）
+        if (plate.is(com.taku3.semiconductorlab.content.Semiconductor.EUV_MASK_BLANK)) return dev.is(com.taku3.semiconductorlab.content.Chemistry.POSITIVE_RESIST) && fix.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS);
         return false;
     }
 
@@ -97,8 +99,11 @@ public class ReductionCameraBlockEntity extends ConsumerBlockEntity {
 
     /** できるフォトマスク：乾板なら銀塩マスク、クロムのブランクならクロムマスク */
     public static ItemStack photomaskOf(ItemStack original, ItemStack plate) {
-        ItemStack m = new ItemStack(plate.is(Optics.CHROME_BLANK) ? Optics.CHROME_PHOTOMASK : Optics.PHOTOMASK);
-        m.set(ModDataComponents.MASK, original.get(ModDataComponents.MASK));
+        ItemStack m = new ItemStack(plate.is(com.taku3.semiconductorlab.content.Semiconductor.EUV_MASK_BLANK) ? com.taku3.semiconductorlab.content.Semiconductor.EUV_MASK
+                : plate.is(Optics.CHROME_BLANK) ? Optics.CHROME_PHOTOMASK : Optics.PHOTOMASK);
+        var data = original.get(ModDataComponents.MASK);
+        if (data != null && plate.is(com.taku3.semiconductorlab.content.Semiconductor.EUV_MASK_BLANK)) data = data.reflectiveCopy();   // [9-40] EUV マスクは反射型（A の MaskData.reflective）
+        m.set(ModDataComponents.MASK, data);
         return m;
     }
 
