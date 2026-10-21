@@ -900,3 +900,4 @@ public boolean instabuild;                         // クリエイティブ（�
 - `Player.sendOverlayMessage(Component)`：画面の下（アクションバー）に1行（手に持つ測定器の表示に使う）
 - `LevelReader.getMaxLocalRawBrightness(BlockPos)`：その場の明るさ 0〜15（空の光は昼夜の暗さ getSkyDarken を引いた値、ブロックの光と大きい方）
 - `Entity.position()`・`getXRot()`・`onGround()`・`getUUID()`、`EquipmentSlot.MAINHAND / OFFHAND`
+- 色つきのブロック（コンクリート・羊毛など）は 26.x で `Blocks.CONCRETE`・`Items.CONCRETE` が `ColorCollection<T>`（16色の record）。灰色は `.gray()`、色で選ぶのは `.pick(DyeColor)`（javap で確認、IMP3 [12-03]）

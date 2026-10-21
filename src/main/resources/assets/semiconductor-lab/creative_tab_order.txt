@@ -801,6 +801,7 @@ theodolite  # Construction [12-11] 1615
 cement_raw_meal  # Construction [12-02] 1824
 cement_clinker  # Construction [12-02] 1824
 portland_cement  # Construction [12-02] 1824
+reinforced_concrete  # Construction [12-03] 1867
 air_conditioner  # Construction [12-12] 1902
 platinum_bushing  # Construction [12-13] 1940
 glass_fiber  # Construction [12-13] 1940

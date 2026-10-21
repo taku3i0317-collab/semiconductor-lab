@@ -67,5 +67,11 @@
   "item.semiconductor-lab.portland_cement.note1": "灰色の粉。水と砂と砂利でコンクリートになる。",
   "item.semiconductor-lab.portland_cement.note2": "クリンカー2＋石こう → 4。＋砂4＋砂利4 → 灰色のコンクリートパウダー8（水にふれると固まる）。",
   "item.semiconductor-lab.portland_cement.note3": "石こうを少し入れるのは、水を入れたとたんに固まってしまうのを遅らせるため。セメントは水と反応して固まる（乾くのではない）ので、水の中でも固まる。",
-  "item.semiconductor-lab.portland_cement.note4": "1824年、イギリスのジョセフ・アスプディンが特許を取った。固まった色がポートランド島の石に似ていたので、この名前になった。"
+  "item.semiconductor-lab.portland_cement.note4": "1824年、イギリスのジョセフ・アスプディンが特許を取った。固まった色がポートランド島の石に似ていたので、この名前になった。",
+  "block.semiconductor-lab.reinforced_concrete": "鉄筋コンクリート",
+  "block.semiconductor-lab.reinforced_concrete.note1": "中に鋼の棒が入ったコンクリート。とても強い。",
+  "block.semiconductor-lab.reinforced_concrete.note2": "灰色のコンクリート8＋鋼（鉄筋）→ 8。ふつうのコンクリートの十数倍、爆発に強い。",
+  "block.semiconductor-lab.reinforced_concrete.note3": "コンクリートは押す力に強いが、引っぱる力にはとても弱い。鋼は引っぱる力に強い。熱でのびる割合（熱膨張率）がほぼ同じなので、暑さ寒さで割れない。コンクリートのアルカリが鋼のさびも防ぐ。",
+  "block.semiconductor-lab.reinforced_concrete.note4": "1867年、フランスの庭師ジョゼフ・モニエが、鉄の網を入れた植木鉢で特許を取った。今のビル・橋・ダムのほとんどがこの組み合わせ。",
+  "block.semiconductor-lab.reinforced_concrete.placeholder": "近似：強さは「爆発への強さ」だけで表した（本物は引っぱり・曲げの強さ）。"
 }

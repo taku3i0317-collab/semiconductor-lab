@@ -50,6 +50,11 @@ public final class Construction {
     public static final Item CEMENT_CLINKER        = Reg.item("cement_clinker");
     public static final Item PORTLAND_CEMENT       = Reg.item("portland_cement");
 
+    // ===== [12-03] 鉄筋コンクリート（IMP3、S-011）：灰色のコンクリート8＋鋼（鉄筋）→ 8。押す力に強いコンクリートと、引く力に強い鋼を組み合わせ、爆発にも強い =====
+    public static final float REINFORCED_BLAST_RESISTANCE = 30.0f;
+    public static final Block REINFORCED_CONCRETE = Reg.block("reinforced_concrete", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(3.0f, REINFORCED_BLAST_RESISTANCE).sound(SoundType.STONE));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

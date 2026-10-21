@@ -175,4 +175,13 @@ public class ConstructionTests extends LabTestBase {
         h.assertTrue(recipeUses(h, "gray_concrete_powder_from_cement", Construction.PORTLAND_CEMENT), "cement -> concrete powder");
         h.succeed();
     }
+
+    /** [12-03] 鉄筋コンクリート（IMP3、S-011）：コンクリート8＋鋼 → 8、ふつうのコンクリートより爆発に強い */
+    @GameTest
+    public void reinforcedConcrete(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "reinforced_concrete", com.taku3.semiconductorlab.content.Metallurgy.STEEL_INGOT) && recipeUses(h, "reinforced_concrete", net.minecraft.world.item.Items.CONCRETE.gray()), "concrete + steel rebar");
+        float rc = Construction.REINFORCED_CONCRETE.getExplosionResistance(), c = net.minecraft.world.level.block.Blocks.CONCRETE.gray().getExplosionResistance();
+        h.assertTrue(rc > c * 10, "much stronger than plain concrete: " + rc + " vs " + c);
+        h.succeed();
+    }
 }
