@@ -488,5 +488,17 @@
   "item.semiconductor-lab.phase_shift_mask.note3": "1982年、IBM の研究者が、となりの光の位相を半波長ずらして境目で打ち消し合わせる方法を発表した⚠️。KrF・ArF の時代に広く使われた。",
   "item.semiconductor-lab.phase_shift_mask.note4": "石英を、光の波長÷(2×(石英の屈折率−1)) だけ削ると、そこを通る光の位相が180°ずれる。となりの光と打ち消し合って、間の暗い所がしっかり暗くなる。",
   "item.semiconductor-lab.phase_shift_mask.placeholder": "近似：どこを削るかの設計（位相の割り振り）は作らず、k1 を一律に下げる。",
-  "item.semiconductor-lab.projection_lens.dof": "焦点深度（DOF）%s µm：板の段差がこれより大きいと、どこかがぼける"
+  "item.semiconductor-lab.projection_lens.dof": "焦点深度（DOF）%s µm：板の段差がこれより大きいと、どこかがぼける",
+  "item.semiconductor-lab.camera_lens": "カメラの小さなレンズ",
+  "item.semiconductor-lab.camera_lens.note1": "スマホのカメラに入る、米つぶほどの小さなレンズ。",
+  "item.semiconductor-lab.camera_lens.note2": "クラウンレンズ＋ベンガラ（小さく磨く）→ 4個。スマホのカメラの部品（画像センサーができたら組み立てる）。",
+  "item.semiconductor-lab.camera_lens.note3": "厚さ数 mm のスマホに入れるため、焦点距離 約4mm・明るさ F2 ほどのレンズを数枚重ねる。今はプラスチックやガラスを型で押して、場所ごとに曲がり方の違う非球面レンズにする。",
+  "item.semiconductor-lab.camera_lens.note4": "画素が約1µm と小さいので、レンズの回折で光が広がる円（エアリーの円の直径 ≒ 2.44×波長×F値、緑で F2 なら約2.7µm）が画素より大きくなる。レンズをいくら良くしても、ここで限りがある。",
+  "item.semiconductor-lab.camera_lens.placeholder": "近似：本物は型で押した非球面レンズ。ここではクラウンレンズを小さく磨いて代わり。",
+  "item.semiconductor-lab.ir_cut_filter": "赤外線カット膜",
+  "item.semiconductor-lab.ir_cut_filter.note1": "目に見えない赤外線をはね返して、見える光だけを通すうすいガラス。",
+  "item.semiconductor-lab.ir_cut_filter.note2": "真空蒸着装置：クラウンガラス＋蛍石×3（膜を何層も重ねる）。スマホのカメラの部品。",
+  "item.semiconductor-lab.ir_cut_filter.note3": "シリコンの画像センサーは人の目に見えない近赤外線（約0.7〜1.1µm）にも反応するので、そのままだと色がおかしくなる。",
+  "item.semiconductor-lab.ir_cut_filter.note4": "屈折率のちがう薄い膜を交互に何十層も重ねると、決まった波長だけを強くはね返す（干渉フィルター）。反射防止膜・i線フィルターと同じ考え。",
+  "item.semiconductor-lab.ir_cut_filter.placeholder": "近似：本物は SiO2 と TiO2 などを何十層。ここでは蛍石3つで代わり。"
 }

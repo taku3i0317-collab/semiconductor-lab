@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crown_lens",
+    "semiconductor-lab:rouge"
+  ],
+  "result": {
+    "id": "semiconductor-lab:camera_lens",
+    "count": 4
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:ir_cut_filter"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.ir_cut_filter"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.ir_cut_filter.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.ir_cut_filter.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:ir_cut_filter"
+          }
+        ]
+      }
+    }
+  }
+}

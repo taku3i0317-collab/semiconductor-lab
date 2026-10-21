@@ -506,6 +506,8 @@ crown_lens_blank  # Optics [7-03] 1650
 flint_lens_blank  # Optics [7-03] 1650
 crown_lens  # Optics [7-03] 1650
 flint_lens  # Optics [7-03] 1650
+camera_lens  # Optics [7-03] 1650
+ir_cut_filter  # Optics [7-03] 1650
 prism  # Optics [7-06] 1666
 spectroscope  # Optics [7-06] 1666
 speculum_charge  # Optics [7-05] 1668

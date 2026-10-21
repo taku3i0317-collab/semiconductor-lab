@@ -488,5 +488,17 @@
   "item.semiconductor-lab.phase_shift_mask.note3": "In 1982 IBM researchers presented shifting neighbouring light by half a wavelength so it cancels at the edges ⚠️. It was widely used in the KrF and ArF eras.",
   "item.semiconductor-lab.phase_shift_mask.note4": "Etching the quartz by wavelength / (2 x (n - 1)) shifts the light by 180 deg, so it cancels its neighbour and the dark gap between stays truly dark.",
   "item.semiconductor-lab.phase_shift_mask.placeholder": "Approximation: the phase assignment design is not modelled; k1 is lowered by a fixed amount.",
-  "item.semiconductor-lab.projection_lens.dof": "Depth of focus %s um: wafer steps taller than this put part of the image out of focus"
+  "item.semiconductor-lab.projection_lens.dof": "Depth of focus %s um: wafer steps taller than this put part of the image out of focus",
+  "item.semiconductor-lab.camera_lens": "Camera Lens (Small)",
+  "item.semiconductor-lab.camera_lens.note1": "A lens the size of a grain of rice that goes into a phone camera.",
+  "item.semiconductor-lab.camera_lens.note2": "Crown lens + rouge (polished small) -> 4. Part of the phone camera (assembled once the image sensor exists).",
+  "item.semiconductor-lab.camera_lens.note3": "To fit a phone a few mm thick, several lenses with a focal length of about 4 mm and about F2 are stacked. Today they are pressed from plastic or glass in moulds as aspheric lenses whose curvature changes across the surface.",
+  "item.semiconductor-lab.camera_lens.note4": "Pixels are only about 1 um, so the lens's diffraction blur (Airy disk diameter about 2.44 x wavelength x F-number, about 2.7 um in green at F2) is larger than a pixel. However good the lens, this is the limit.",
+  "item.semiconductor-lab.camera_lens.placeholder": "Approximation: real lenses are moulded aspherics; here a crown lens is polished small instead.",
+  "item.semiconductor-lab.ir_cut_filter": "IR-Cut Filter",
+  "item.semiconductor-lab.ir_cut_filter.note1": "A thin glass that reflects invisible infrared and lets only visible light through.",
+  "item.semiconductor-lab.ir_cut_filter.note2": "Vacuum evaporator: crown glass + 3 fluorite (many stacked layers). Part of the phone camera.",
+  "item.semiconductor-lab.ir_cut_filter.note3": "Silicon image sensors also respond to near infrared (about 0.7-1.1 um) that eyes cannot see, which would spoil the colours.",
+  "item.semiconductor-lab.ir_cut_filter.note4": "Stacking dozens of thin films of alternating refractive index strongly reflects a chosen band (an interference filter), the same idea as anti-reflection coatings and the i-line filter.",
+  "item.semiconductor-lab.ir_cut_filter.placeholder": "Approximation: real filters use dozens of SiO2/TiO2 layers; three fluorite stand in here."
 }

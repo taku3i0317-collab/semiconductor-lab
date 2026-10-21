@@ -40,7 +40,8 @@ public class EvaporatorBlockEntity extends ConsumerBlockEntity {
             new Recipe(Optics.CROWN_GLASS, Metallurgy.ALUMINIUM_INGOT, 1, Optics.ALUMINIZED_MIRROR),
             new Recipe(Optics.FLINT_LENS, Metallurgy.FLUORITE, 1, Optics.COATED_FLINT_LENS),
             new Recipe(Optics.SYNTHETIC_QUARTZ, Metallurgy.CHROMIUM, 1, Optics.CHROME_BLANK),   // [7-12] クロムマスクのブランク（IMP2 O-015）
-            new Recipe(Optics.SYNTHETIC_QUARTZ, Metallurgy.FLUORITE, 2, Optics.I_LINE_FILTER),   // O-017 i線フィルター（薄い膜を重ねた干渉フィルター、IMP2）
+            new Recipe(Optics.SYNTHETIC_QUARTZ, Metallurgy.FLUORITE, 2, Optics.I_LINE_FILTER),
+            new Recipe(Optics.CROWN_GLASS, Metallurgy.FLUORITE, 3, Optics.IR_CUT_FILTER),   // [P-17] 赤外線カット膜（干渉フィルター、IMP2 O-030）   // O-017 i線フィルター（薄い膜を重ねた干渉フィルター、IMP2）
             // [2-46] ITO（IMP3 O-015）：ホウケイ酸ガラスにインジウム錫の合金を付ける → かまどで焼いて酸化すると ITO
             new Recipe(com.taku3.semiconductorlab.content.Chemistry.BOROSILICATE_GLASS, com.taku3.semiconductorlab.content.Chemistry.INDIUM_TIN_ALLOY, 1, com.taku3.semiconductorlab.content.Chemistry.INDIUM_TIN_COATED_GLASS));
 

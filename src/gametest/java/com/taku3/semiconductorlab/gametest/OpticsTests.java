@@ -241,6 +241,17 @@ public class OpticsTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [P-17] スマホのカメラの光学の部品（IMP2 O-030）：小さなレンズ（クラウンレンズを小さく磨く）と赤外線カット膜（蒸着） */
+    @GameTest
+    public void camera_optics_parts(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "camera_lens", Optics.CROWN_LENS), "small lens from a crown lens");
+        var r = com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.CROWN_GLASS), new ItemStack(Metallurgy.FLUORITE));
+        h.assertTrue(r != null && r.product() == Optics.IR_CUT_FILTER && r.count() == 3, "IR-cut filter = crown glass + 3 fluorite layers");
+        h.assertTrue(com.taku3.semiconductorlab.block.EvaporatorBlockEntity.recipe(new ItemStack(Optics.CROWN_LENS), new ItemStack(Metallurgy.FLUORITE)).product() == Optics.COATED_CROWN_LENS, "anti-reflection coating unchanged");
+        LOG.info("[LAB] camera optics [P-17]: camera lens + IR-cut filter (assembly waits for the image sensor)");
+        h.succeed();
+    }
+
     /** [7-05] 段階2 銀鏡反応（IMP2 O-012）：ガラス＋硝酸銀＋アンモニア水＋砂糖 → 半透明鏡、もう一度で銀鏡。干渉計・反射望遠鏡も 1881／1857 の年どおりに作れる */
     @GameTest
     public void silvering(GameTestHelper h) {

@@ -124,6 +124,9 @@ public final class Optics {
     public static final Item QUADRUPOLE_APERTURE   = Reg.item("quadrupole_aperture", new Item.Properties().stacksTo(1));
     //   位相シフトマスク（1982 IBM の研究者が提案 ⚠️）：クロムマスクの透明な所を1つおきにフッ酸で削り、光の位相を半波長ずらす（−0.15）。耐久はクロムマスクを引き継ぐ
     public static final Item PHASE_SHIFT_MASK      = Reg.item("phase_shift_mask", new Item.Properties().durability(CHROME_MASK_USES));
+    // [P-17] スマホのカメラの光学の部品（IMP2 O-030 仮決定）：小さなレンズ（焦点距離 約4mm・F2）と赤外線カット膜。組み立ては E の画像センサー [9-42]・ベイヤー [9-45] のあと
+    public static final Item CAMERA_LENS           = Reg.item("camera_lens");
+    public static final Item IR_CUT_FILTER         = Reg.item("ir_cut_filter");
     // [7-06] プリズム分光（IMP2-01）：フリントガラスを削って磨いた三角柱（分散が大きい）→ 分光器（キルヒホッフとブンゼン 1859：隙間＋レンズ＋プリズム＋望遠鏡）
     public static final Item PRISM                 = Reg.item("prism");
     public static final Item SPECTROSCOPE          = Reg.item("spectroscope", SpectroscopeItem::new, new Item.Properties().stacksTo(1));
