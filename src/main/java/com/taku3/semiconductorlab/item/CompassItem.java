@@ -46,8 +46,8 @@ public class CompassItem extends Item {
         return Math.toDegrees(Math.atan2(x, -z));
     }
 
-    /** 真北からのくるい（度、−180〜180） */
-    public static double errorDeg(Level level, BlockPos at) { return Math.IEEE754remainder(needleDeg(level, at), 360); }
+    /** 真北からのくるい（度、−180〜180。atan2 がこの範囲で返す） */
+    public static double errorDeg(Level level, BlockPos at) { return needleDeg(level, at); }
 
     /** 向いている方位（北から時計回りの度）。マイクラの yaw は 0＝南・90＝西 */
     public static double headingDeg(float yaw) { return ((yaw + 180) % 360 + 360) % 360; }
@@ -62,7 +62,7 @@ public class CompassItem extends Item {
     public void inventoryTick(ItemStack stack, ServerLevel level, Entity entity, EquipmentSlot slot) {
         if (!(entity instanceof Player p) || level.getGameTime() % 10 != 0) return;
         if (slot != EquipmentSlot.MAINHAND && slot != EquipmentSlot.OFFHAND) return;
-        double n = needleDeg(level, p.blockPosition()), err = Math.IEEE754remainder(n, 360);
+        double n = needleDeg(level, p.blockPosition()), err = n;
         String a = arrow(n, p.getYRot());
         p.sendOverlayMessage(Math.abs(err) >= 5
                 ? Component.translatable(K + "disturbed", a, String.format(java.util.Locale.ROOT, "%.0f", Math.abs(err)))
