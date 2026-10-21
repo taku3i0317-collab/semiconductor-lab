@@ -795,6 +795,9 @@ ammonium_nitrate  # Agriculture [11-07] 1913
 roman_concrete  # Construction [12-01] -150
 roman_concrete_mix  # Construction [12-01] -150
 theodolite  # Construction [12-11] 1615
+cement_raw_meal  # Construction [12-02] 1824
+cement_clinker  # Construction [12-02] 1824
+portland_cement  # Construction [12-02] 1824
 air_conditioner  # Construction [12-12] 1902
 platinum_bushing  # Construction [12-13] 1940
 glass_fiber  # Construction [12-13] 1940

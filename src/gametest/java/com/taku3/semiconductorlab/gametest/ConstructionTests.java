@@ -165,4 +165,14 @@ public class ConstructionTests extends LabTestBase {
         h.setBlock(p(2, 1, 1), net.minecraft.world.level.block.Blocks.WATER);
         h.succeedWhen(() -> h.assertBlockPresent(com.taku3.semiconductorlab.content.Construction.ROMAN_CONCRETE, mix));
     }
+
+    /** [12-02] ポルトランドセメント（IMP3、S-011）：石灰石＋粘土 → 溶鉱炉 → クリンカー → ＋石こう → セメント → ＋砂＋砂利 → 灰色のコンクリートパウダー */
+    @GameTest
+    public void portlandCement(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "cement_raw_meal", net.minecraft.world.item.Items.CALCITE) && recipeUses(h, "cement_raw_meal", net.minecraft.world.item.Items.CLAY_BALL), "limestone + clay");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Construction.CEMENT_RAW_MEAL).is(Construction.CEMENT_CLINKER), "kiln -> clinker");
+        h.assertTrue(recipeUses(h, "portland_cement", com.taku3.semiconductorlab.content.Chemistry.CALCIUM_SULFATE), "clinker + gypsum");
+        h.assertTrue(recipeUses(h, "gray_concrete_powder_from_cement", Construction.PORTLAND_CEMENT), "cement -> concrete powder");
+        h.succeed();
+    }
 }

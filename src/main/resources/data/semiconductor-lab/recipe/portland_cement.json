@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:cement_clinker",
+    "semiconductor-lab:cement_clinker",
+    "semiconductor-lab:calcium_sulfate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:portland_cement",
+    "count": 4
+  }
+}

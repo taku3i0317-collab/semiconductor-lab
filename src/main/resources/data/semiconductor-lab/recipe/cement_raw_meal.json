@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:calcite",
+    "minecraft:calcite",
+    "minecraft:calcite",
+    "minecraft:clay_ball"
+  ],
+  "result": {
+    "id": "semiconductor-lab:cement_raw_meal",
+    "count": 2
+  }
+}

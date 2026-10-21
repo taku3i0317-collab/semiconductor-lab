@@ -50,5 +50,22 @@
   "block.semiconductor-lab.roman_concrete_mix.note1": "Concrete that has not set yet. It sets when it touches water.",
   "block.semiconductor-lab.roman_concrete_mix.note2": "Slaked lime + 2 tuff + 2 gravel -> 4. It falls like sand when placed. Placed next to water (poured into water) it sets into Roman concrete.",
   "block.semiconductor-lab.roman_concrete_mix.note3": "With water the lime-ash reaction starts and it hardens (hydraulic). Ordinary lime plaster sets with CO2 from the air, so it will not set underwater.",
-  "block.semiconductor-lab.roman_concrete_mix.note4": "Romans sank wooden forms into the sea and poured the mix into them to build harbour walls."
+  "block.semiconductor-lab.roman_concrete_mix.note4": "Romans sank wooden forms into the sea and poured the mix into them to build harbour walls.",
+  "item.semiconductor-lab.cement_raw_meal": "Cement Raw Meal",
+  "item.semiconductor-lab.cement_raw_meal.note1": "Powder of limestone and clay. Fired, it becomes the base of cement.",
+  "item.semiconductor-lab.cement_raw_meal.note2": "3 calcite (limestone) + clay -> 2. Fire in a blast furnace -> clinker.",
+  "item.semiconductor-lab.cement_raw_meal.note3": "About 80% limestone (CaCO3) and 20% clay (oxides of silicon, aluminium, iron). If the ratio drifts, it sets poorly.",
+  "item.semiconductor-lab.cement_raw_meal.note4": "Cement works are built next to limestone quarries.",
+  "item.semiconductor-lab.cement_raw_meal.placeholder": "Approximation: calcite stands in for limestone (whose main mineral is calcite).",
+  "item.semiconductor-lab.cement_clinker": "Cement Clinker",
+  "item.semiconductor-lab.cement_clinker.note1": "Grey, half-melted lumps from the kiln. Ground, they become cement.",
+  "item.semiconductor-lab.cement_clinker.note2": "Fire raw meal in a blast furnace. 2 + gypsum -> 4 Portland cement.",
+  "item.semiconductor-lab.cement_clinker.note3": "At about 1450 °C, lime and clay react to calcium silicates (alite Ca3SiO5, belite Ca2SiO4) and others, which set by reacting with water (hydration).",
+  "item.semiconductor-lab.cement_clinker.note4": "From the 1880s it was fired in long, slowly turning cylinders (rotary kilns). Cement-making is said to release about 8% of the world's CO2 (from the limestone and from fuel) ⚠️.",
+  "item.semiconductor-lab.cement_clinker.placeholder": "Approximation: grinding (ball mill) is omitted.",
+  "item.semiconductor-lab.portland_cement": "Portland Cement",
+  "item.semiconductor-lab.portland_cement.note1": "A grey powder. With water, sand and gravel it becomes concrete.",
+  "item.semiconductor-lab.portland_cement.note2": "2 clinker + gypsum -> 4. + 4 sand + 4 gravel -> 8 grey concrete powder (sets when it touches water).",
+  "item.semiconductor-lab.portland_cement.note3": "A little gypsum is added so it does not set the instant water goes in. Cement sets by reacting with water (not by drying), so it even sets underwater.",
+  "item.semiconductor-lab.portland_cement.note4": "Joseph Aspdin in England patented it in 1824. Its set colour resembled Portland stone, hence the name."
 }

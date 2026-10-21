@@ -44,6 +44,12 @@ public final class Construction {
     public static final Block ROMAN_CONCRETE_MIX = Reg.block("roman_concrete_mix", p -> new net.minecraft.world.level.block.ConcretePowderBlock(ROMAN_CONCRETE, p),
             BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5f).sound(SoundType.SAND));
 
+    // ===== [12-02] ポルトランドセメント（IMP3、S-011）：方解石（石灰石の近似）3＋粘土 → 原料の粉 →溶鉱炉（約1450℃）→ クリンカー、2つ＋石こう → セメント4。
+    //   セメント＋砂4＋砂利4 → 灰色のコンクリートパウダー8（バニラのコンクリートの本物の作り方）=====
+    public static final Item CEMENT_RAW_MEAL       = Reg.item("cement_raw_meal");
+    public static final Item CEMENT_CLINKER        = Reg.item("cement_clinker");
+    public static final Item PORTLAND_CEMENT       = Reg.item("portland_cement");
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }
