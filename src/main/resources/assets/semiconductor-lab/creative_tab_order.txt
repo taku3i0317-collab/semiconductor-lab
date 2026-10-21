@@ -99,6 +99,13 @@ ammonium_chloroplatinate  # Metallurgy [1-18] 1800
 platinum_sponge  # Metallurgy [1-18] 1800
 platinum_compact  # Metallurgy [1-18] 1800
 platinum_ingot  # Metallurgy [1-18] 1800
+sodium  # Metallurgy [1-66] 1802
+tantalite  # Metallurgy [1-66] 1802
+potassium_fluorotantalate  # Metallurgy [1-66] 1802
+tantalum  # Metallurgy [1-66] 1802
+tantalite_ore  # Metallurgy [1-66] 1802
+castner_cell  # Metallurgy [1-66] 1802
+tantalum_refinery  # Metallurgy [1-66] 1802
 borax  # Metallurgy [1-33] 1808
 boric_acid  # Metallurgy [1-33] 1808
 boron_trioxide  # Metallurgy [1-33] 1808
@@ -124,13 +131,6 @@ bayer_digester  # Metallurgy [1-14] 1888
 pyrolusite  # Metallurgy [4-28] 1896
 pyrolusite_ore  # Metallurgy [4-28] 1896
 metallurgical_silicon  # Metallurgy [1-15] 1900
-sodium  # Metallurgy [1-66] 1903
-tantalite  # Metallurgy [1-66] 1903
-potassium_fluorotantalate  # Metallurgy [1-66] 1903
-tantalum  # Metallurgy [1-66] 1903
-tantalite_ore  # Metallurgy [1-66] 1903
-castner_cell  # Metallurgy [1-66] 1903
-tantalum_refinery  # Metallurgy [1-66] 1903
 wolframite  # Metallurgy [1-28] 1910
 wolframite_soda_charge  # Metallurgy [1-28] 1910
 sodium_tungstate  # Metallurgy [1-28] 1910
