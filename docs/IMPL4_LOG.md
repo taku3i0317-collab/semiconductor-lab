@@ -158,3 +158,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - [15-18] 静電容量式タッチパネル：MC 未定。案A（おすすめ）：部品 touch_panel（ITO ガラス＋銅の電極＋NOT に合格したチップ）。手に持って右クリックすると「指の静電容量の変化」を読み、近くのプレイヤー・動物（体に電気をためられる物）に向けると反応、棒・ブロックでは反応しない（静電容量式の特徴）。スマホの部品 [P-?]。案B：部品だけ
 - ✅ ドライエッチング装置にもほこり＋欠陥の密度（A の頼み、O-017 の「など」の範囲）
 - ✅ [15-18] タッチパネル（item/TouchPanelItem、Communication.java に1行と組立台のレシピ）。GameTest touch_panel、REFERENCES F45、DECISIONS。[B-07]・[B-20] はユーザーの答え待ち
+- D と [2-33] の分担を決めた（S-008）：D が (a) 樹脂を 4-アセトキシスチレン経由の本物の道、(b) SbF6⁻ を KSbF6（Sb2O3＋KF＋HF＋H2O2）に。D が合成釜の RECIPES の行・Chemistry のアイテム・chemicallyAmplifiedChain のテスト・placeholder／F70〜F71 の ⚠️ を直す。E は今そのファイルを触らない
