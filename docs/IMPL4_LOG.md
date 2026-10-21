@@ -221,3 +221,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ O-030 [9-46] 人を感じるセンサー＝案A（pir_sensor、5マスで動く生き物 → 10秒光る、隣の LED の明かりはその間だけ）。GameTest pir_sensor、REFERENCES F69
 - ✅ O-030 [3-07] るつぼ炉＝案A（crucible_furnace、コークス＋ふいごで 1600℃、るつぼ鋼2＋るつぼが戻る・3回目で割れる、フリントガラスも）。GameTest crucible_furnace、REFERENCES F70
 - ✅ O-030 [4-18] 扇風機＝案A（electric_fan、50W、正面5マスを押す）。**「隣の機械の冷却 +10%」は入れず説明だけ**：A の判断（冷やすと遅くなる機械がある・電気の勘定が合わない・出口満杯で物が消えるおそれ）。効果が要るなら、温度を持つ機械を作るときに「過熱で止まりにくくする」形で司令塔に相談。GameTest electric_fan、REFERENCES F71。O-030 完了
+- 待機終了（2026-10-22 02:14）：INBOX が6時間変わらなかった。O-028〜O-030・S-009（軽いノード13個）まで完了。続きは INBOX の新しい項目から
