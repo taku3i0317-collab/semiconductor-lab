@@ -3098,7 +3098,7 @@
   "item.semiconductor-lab.chemically_amplified_resist.note1": "A resist that prints with short light such as the KrF laser (248 nm). Acid made by light is multiplied hundreds of times by heat.",
   "item.semiconductor-lab.chemically_amplified_resist.note2": "Protected polyhydroxystyrene + photoacid generator + xylene + glass bottle (crafting). Spin-coat (positive) → expose → bake on the hot plate (PEB) → develop in alkali. Without the bake nothing dissolves.",
   "item.semiconductor-lab.chemically_amplified_resist.note3": "Novolac (the older positive resist) absorbs too much light below 250 nm, so it never reaches the bottom. Chemically amplified resist absorbs a little and then the acid works as a catalyst.",
-  "item.semiconductor-lab.chemically_amplified_resist.note4": "Announced by Ito, Willson and Fréchet at IBM in 1982; every KrF, ArF and EUV generation uses resists built on this idea.",
+  "item.semiconductor-lab.chemically_amplified_resist.note4": "Announced by IBM researchers in 1982; every KrF, ArF and EUV generation uses resists built on this idea.",
   "item.semiconductor-lab.chemically_amplified_resist.placeholder": "Omitted: ⚠️ the real solvent is PGMEA or similar; xylene stands in here.",
   "block.semiconductor-lab.resist_reactor": "Resist Reactor",
   "block.semiconductor-lab.resist_reactor.note1": "Makes the materials of chemically amplified resist (resin and photoacid generator). The combination you put in picks the reaction.",

@@ -3098,7 +3098,7 @@
   "item.semiconductor-lab.chemically_amplified_resist.note1": "KrF のレーザー（248nm）など、短い光で焼けるレジスト。光で出た酸が、熱で何百倍も働く。",
   "item.semiconductor-lab.chemically_amplified_resist.note2": "保護したポリヒドロキシスチレン＋光酸発生剤＋キシレン＋ガラス瓶（作業台）。塗布機で塗る（ポジ型）→ 露光 → ホットプレートで加熱（PEB）→ アルカリで現像。加熱を忘れるとどこも溶けない。",
   "item.semiconductor-lab.chemically_amplified_resist.note3": "ノボラック（今までのポジ型）は 250nm より短い光を吸いすぎて底まで届かない。化学増幅は光を少し吸うだけで、あとは酸が触媒として働く。",
-  "item.semiconductor-lab.chemically_amplified_resist.note4": "1982年に IBM の伊藤洋・ウィルソン・フレシェが発表し、KrF・ArF・EUV のどの世代もこの考えのレジストを使う。",
+  "item.semiconductor-lab.chemically_amplified_resist.note4": "1982年に IBM の研究者たちが発表し、KrF・ArF・EUV のどの世代もこの考えのレジストを使う。",
   "item.semiconductor-lab.chemically_amplified_resist.placeholder": "省略：⚠️ 溶剤は本物は PGMEA など。ここはキシレンで近似。",
   "block.semiconductor-lab.resist_reactor": "化学増幅レジストの合成釜",
   "block.semiconductor-lab.resist_reactor.note1": "化学増幅レジストの材料（樹脂と光酸発生剤）を作る釜。入れた物の組み合わせで反応が切りかわる。",
