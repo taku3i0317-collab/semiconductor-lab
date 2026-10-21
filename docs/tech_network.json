@@ -6051,17 +6051,42 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F41. 原子1層ずつ積む（ALD と high-k のゲート）［1-70］［9-37］",
+     "answer": "トランジスタを小さくするとゲートの絶縁膜（SiO2）も薄くなり、電子がすり抜けて漏れる（トンネル効果）。そこで誘電率が約6倍高い酸化ハフニウム（high-k）に替え、厚いままでも同じ効き目にした。膜は ALD（原子層堆積）で、四塩化ハフニウムと水の蒸気を交互に流し、原子1層ずつ積む。2007年にインテルの 45nm の世代で量産に入った。",
+     "hee": {
+      "1": "ALD は1回で1層だけ付いて自分で止まる。だから厚さを原子の数で決められる。",
+      "2": "HfCl4 は、酸化ハフニウムを炭素と塩素で熱して作る（チタンのクロール法と同じ）。",
+      "3": "ジルコニウムとハフニウムはとても似ていて、原子炉の材料のためにわざわざ分ける（ハフニウムは中性子をよく吸う）。",
+      "4": "ALD の考えは 1960年代のソ連と、1970年代のフィンランドで別々に生まれた。"
+     },
+     "certainty": "インテル 45nm の high-k／金属ゲート（2007）◎／HfO2 の誘電率 約25 ○／ALD の起源 ○",
+     "basis": "Wikipedia「High-κ dielectric」https://en.wikipedia.org/wiki/High-%CE%BA_dielectric 、Wikipedia「Atomic layer deposition」https://en.wikipedia.org/wiki/Atomic_layer_deposition （英語）"
+    },
+    {
+     "title": "C59. X線で見つかったそっくりな双子（ジルコニウム・ハフニウム）［1-70］",
+     "answer": "ジルコニウムとハフニウムは、原子の大きさも化学の性質もほとんど同じで、ジルコンの中にいつもいっしょに入っている（ハフニウムはジルコニウムの約2%）。化学では区別できず、1923年にコペンハーゲンのコスターとヘヴェシーが、X線の分光で新しい線を見つけて初めてハフニウムを発見した。分けるには、フッ化物の複塩の水へのとけやすさのわずかな差を使い、結晶させるのを何十回もくり返した（今は溶媒抽出）。1925年、ファン・アルケルとデ・ブールは、金属をヨウ素と気体にして熱したタングステン線の上で分ける「ヨウ化物法」で、とても純粋な金属を作った。2007年ごろから、チップのトランジスタのゲートの絶縁膜に酸化ハフニウム（high-k）が使われている。",
+     "hee": {
+      "1": "ハフニウムは、X線で元素を調べる方法ができてから、やっと見つかった。",
+      "2": "名前はコペンハーゲンのラテン語名「ハフニア」から。",
+      "3": "ジルコニウムは中性子をほとんど吸わず原子炉の燃料の入れ物に、ハフニウムはよく吸うので制御棒に使われる。",
+      "4": "オーストラリアで見つかった約44億年前のジルコンの粒は、地球でいちばん古い鉱物のかけら。"
+     },
+     "certainty": "発見 1923・ヨウ化物法 1925・high-k 2007 ◎／分別結晶の回数 ○",
+     "basis": "- Wikipedia「Hafnium」：https://en.wikipedia.org/wiki/Hafnium"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "未定（実装の前に相談）",
+   "game_text": "",
    "id": "1-70",
    "name": "ジルコニウム・ハフニウム",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1925,
    "year_range": "1923〜1945",
@@ -6074,7 +6099,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ハフニウムは、X線で元素を調べる方法ができてから、やっと見つかった（O-012 で追加。出典：Wikipedia「Hafnium」「Crystal bar process」）",
    "name_en": "Zirconium and hafnium",
    "hee1_en": "Hafnium was only found after a method of studying elements with X-rays was developed. (Added in O-012. Sources: Wikipedia \"Hafnium\", \"Crystal bar process\")",
@@ -8902,7 +8927,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F42. 光で生まれた酸1つが何百も働く（化学増幅レジスト）［2-33］",
+     "answer": "KrF のレーザー（248nm）より短い光では、それまでのノボラックのレジストが光を吸いすぎて底まで届かない。1982年に IBM の伊藤洋・ウィルソン・フレシェは、保護基（ふた）をかぶせたポリヒドロキシスチレンに光酸発生剤を混ぜたレジストを作った。光で出た酸1個が、露光後の加熱（PEB）で何百ものふたを外す（触媒）ので、少しの光で模様が写る。KrF・ArF・EUV のどの世代もこの考えを使う。",
+     "hee": {
+      "1": "加熱を忘れると、光を当てても模様が出ない。酸は熱で動いてはじめて働く。",
+      "2": "光酸発生剤のトリフェニルスルホニウム塩は、光でこわれてとても強い酸（HSbF6）を出す。1970年代にクリベロが見つけた。",
+      "3": "熱しすぎると酸が広がって線がぼける。だから PEB の温度は 0.1℃ の単位で決める。",
+      "4": "樹脂の材料 4-ヒドロキシアセトフェノンは、痛み止め（アセトアミノフェン）の工業の材料でもある。"
+     },
+     "certainty": "1982 IBM の化学増幅レジスト ◎／ノボラックが 248nm で不透明 ◎／材料の工業の作り方の細部 ○",
+     "basis": "Wikipedia「Photoresist」（Chemical amplification）https://en.wikipedia.org/wiki/Photoresist 、Wikipedia「Photoacid」https://en.wikipedia.org/wiki/Photoacid （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -8912,7 +8950,7 @@
    "name": "化学増幅レジスト",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1982,
    "year_range": null,
@@ -8930,12 +8968,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "光で生まれた酸1つが、何百もの反応を起こす。だから少ない光で模様がうつせる",
    "name_en": "Chemically amplified resist",
    "hee1_en": "One acid made by light sets off hundreds of reactions. That is why a pattern can be copied with very little light.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9506,7 +9544,9 @@
    "recipes": [
     "作業台：酢酸カルシウム（酢酸石灰） ＋ 硫酸 → 氷酢酸×2"
    ],
-   "machine_recipes": [],
+   "machine_recipes": [
+    "化学増幅レジストの合成釜「化学増幅レジスト：fries」：フェノール（石炭酸） ＋ 無水酢酸 ＋ 塩化アルミニウム（無水） → 4-ヒドロキシアセトフェノン ＋ 氷酢酸（1.5 kW × 15 秒＝23 kJ）。[2-33] 1982 IBM の化学増幅レジストの材料"
+   ],
    "placeholder": "近似：石こう（副産物）は回収しない。凍る温度はバイオームの気温で表した。",
    "game_text": "酢（or 木酢液）+消石灰+硫酸 → 酢酸",
    "id": "2-42",
@@ -18752,7 +18792,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O76. 40回の弱い反射を重ねる鏡（多層膜ミラー）［7-17］",
+     "answer": "13.5nm の EUV の光はどんな物質にも吸われるので、レンズは作れず、ふつうの鏡も1%ほどしか反射しない。1981年にアンダーウッドとバービーが W/C の多層膜で軟X線を垂直に反射させ、1985年にバービーらが EUV 用の Mo/Si 多層膜（反射率 最大 約78%）を報告した。モリブデンとケイ素を約6.9nm の周期で約40対重ねると、境目ごとの弱い反射が全部強め合う（ブラッグ反射）。EUV 露光装置は約10枚のこの鏡で光を運ぶので、マスクに届く光はわずかになる。",
+     "hee": {
+      "1": "1枚では反射しない光を、40回の弱い反射を重ねて跳ね返す。",
+      "2": "鏡1枚で約70%、10枚通ると光は約3%しか残らない。",
+      "3": "土台は温まっても伸びない ULE ガラス、表面は原子1個ぶんまで滑らか。",
+      "4": "同じ考え（薄い膜の干渉）は、レンズの反射防止膜やシャボン玉の色と同じ。"
+     },
+     "certainty": "1981 W/C・1985 Mo/Si ◎／最大 約78%・実用 約70% ○／周期 約6.9nm・約40対 ◎",
+     "basis": "- Wikipedia「Extreme ultraviolet lithography」（Mirrors）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -18762,7 +18815,7 @@
    "name": "多層膜ミラー",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1985,
    "year_range": "1981〜1985",
@@ -18803,12 +18856,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "1枚では反射しない光を、40回の弱い反射を重ねて跳ね返す",
    "name_en": "Multilayer mirror",
    "hee1_en": "Light that one layer cannot reflect is bounced back by stacking 40 weak reflections.",
    "kind": "tech",
-   "play": "",
+   "play": "重（スパッタで対を重ね、反射率を上げる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -18833,7 +18886,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O78. 落ちてくる錫の粒を撃ち抜く光（EUV 光源）［7-18］",
+     "answer": "13.5nm の EUV は、ふつうのランプやレーザーでは作れない。2000年代、アメリカのサイマー社などは、直径約30µm のスズの滴を1秒に約5万個落とし、CO2 レーザーで撃って数十万℃のプラズマにする光源（LPP）を開発した。光に変わるのは約5%なので、約250W の EUV に数十kW のレーザーが要る。出た光は Mo/Si の多層膜の集光鏡で集め、飛び散るスズは水素ガスで SnH4 の気体にして取り除く。2019年からこの光で最先端のチップの量産が始まった。",
+     "hee": {
+      "1": "落ちてくる錫の粒をレーザーで撃ち抜いて光らせる。",
+      "2": "1秒に5万回、1粒も外さずに撃つ。",
+      "3": "光に変わるのは約5%だけで、電気の大部分は熱になる。",
+      "4": "鏡を汚すスズは、水素と反応させて気体にして掃除する。"
+     },
+     "certainty": "LPP・Sn・CO2 レーザー ◎／変換効率 約5%・約250W ○／2019 量産 ◎／数十万℃ ○",
+     "basis": "- Wikipedia「Extreme ultraviolet lithography」（Light source）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -18843,7 +18909,7 @@
    "name": "EUV 光源",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 2010,
    "year_range": null,
@@ -18886,7 +18952,7 @@
    "name_en": "EUV light source",
    "hee1_en": "Falling droplets of tin are hit by a laser to make them glow",
    "kind": "tech",
-   "play": "",
+   "play": "重（スズの滴をレーザーで撃つ）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -20512,7 +20578,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O77. EUV とインクジェットは親戚（液滴発生器）［8-13］",
+     "answer": "1880年、キュリー兄弟は水晶を押すと電圧が出る圧電効果を見つけ、翌年には逆に電圧で水晶が伸び縮みすることも確かめた。1878年、レイリーは細い液体の柱が太さの約4.5倍ごとにくびれて滴に分かれる理由を解いた（レイリー・プラトー不安定性）。インクジェットプリンターはこの2つを使って、そろった小さなインクの滴を飛ばす。EUV 光源は同じ原理で溶けたスズを1秒に約5万個の滴にし、2006年ごろから CO2 レーザーで撃って光らせるようになった。",
+     "hee": {
+      "1": "EUV の光源とインクジェットプリンターは親戚。",
+      "2": "水を細く流すと、勝手に同じ大きさの粒に分かれる（蛇口でも見える）。",
+      "3": "水晶は、押すと電気、電気をかけると伸び縮み（クオーツ時計と同じ性質）。",
+      "4": "滴の大きさは柱の太さの約1.9倍。"
+     },
+     "certainty": "キュリー 1880・逆効果 1881 ◎／レイリー 1878 ◎／2006 稼働・2007 採用 ○",
+     "basis": "- Wikipedia「Plateau-Rayleigh instability」：https://en.wikipedia.org/wiki/Plateau%E2%80%93Rayleigh_instability"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -20522,7 +20601,7 @@
    "name": "液滴発生器",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 2006,
    "year_range": "1880〜2007",
@@ -20545,12 +20624,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "EUV の光源とインクジェットプリンターは親戚",
    "name_en": "Droplet generator",
    "hee1_en": "EUV light sources and inkjet printers are relatives.",
    "kind": "tech",
-   "play": "",
+   "play": "重（EUV 光源の部品）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -20772,7 +20851,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "原子1個の凸凹を、とがった針でなぞって見る",
    "name_en": "Scanning probe microscope",
    "hee1_en": "It sees the bumps of single atoms by tracing them with a sharp needle",
@@ -25718,6 +25797,18 @@
      },
      "certainty": "1999 の発表（IEDM の論文）◎／2011 インテルの 22nm 量産 ◎／TSMC・サムスンの採用 2015ごろ ○",
      "basis": "Wikipedia「FinFET」https://en.wikipedia.org/wiki/FinFET 、Intel のニュースリリース「Intel Reinvents Transistors Using New 3-D Structure」（2011年5月）、Wikipedia「Multigate device」https://en.wikipedia.org/wiki/Multigate_device （英語）"
+    },
+    {
+     "title": "F41. 原子1層ずつ積む（ALD と high-k のゲート）［1-70］［9-37］",
+     "answer": "トランジスタを小さくするとゲートの絶縁膜（SiO2）も薄くなり、電子がすり抜けて漏れる（トンネル効果）。そこで誘電率が約6倍高い酸化ハフニウム（high-k）に替え、厚いままでも同じ効き目にした。膜は ALD（原子層堆積）で、四塩化ハフニウムと水の蒸気を交互に流し、原子1層ずつ積む。2007年にインテルの 45nm の世代で量産に入った。",
+     "hee": {
+      "1": "ALD は1回で1層だけ付いて自分で止まる。だから厚さを原子の数で決められる。",
+      "2": "HfCl4 は、酸化ハフニウムを炭素と塩素で熱して作る（チタンのクロール法と同じ）。",
+      "3": "ジルコニウムとハフニウムはとても似ていて、原子炉の材料のためにわざわざ分ける（ハフニウムは中性子をよく吸う）。",
+      "4": "ALD の考えは 1960年代のソ連と、1970年代のフィンランドで別々に生まれた。"
+     },
+     "certainty": "インテル 45nm の high-k／金属ゲート（2007）◎／HfO2 の誘電率 約25 ○／ALD の起源 ○",
+     "basis": "Wikipedia「High-κ dielectric」https://en.wikipedia.org/wiki/High-%CE%BA_dielectric 、Wikipedia「Atomic layer deposition」https://en.wikipedia.org/wiki/Atomic_layer_deposition （英語）"
     }
    ],
    "item": null,
@@ -25826,7 +25917,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "最後はゲートがチャネルを全部くるむ",
    "name_en": "GAA (gate-all-around)",
    "hee1_en": "In the end, the gate wraps all the way around the channel",
@@ -29198,7 +29289,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C58. 同じ作物ばかりだと畑がやせる（輪作）［11-03］",
+     "answer": "同じ畑に同じ作物を続けて植えると、同じ養分ばかり使われ、その作物につく病気や虫が土に増えて、とれる量が減る（連作障害）。中世ヨーロッパでは、畑を3つに分けて冬作・夏作・休閑（何も植えない）を順に回す三圃式で地力を保った。1730年代、イギリスのチャールズ・タウンゼンドが広めたノーフォーク四輪作は、小麦・カブ・大麦・クローバーを4年で回し、休閑地をなくした。クローバーはマメ科で根粒菌が窒素を入れ、カブは冬の家畜のえさになって、家畜のふんも肥料になった。",
+     "hee": {
+      "1": "豆を育てると畑が肥える。",
+      "2": "タウンゼンドはカブをすすめたので「カブのタウンゼンド（Turnip Townshend）」と呼ばれた。",
+      "3": "三圃式では、休ませた畑に家畜を放して、ふんで肥やした。",
+      "4": "日本でもナスやトマトなどは連作をきらう作物として知られている。"
+     },
+     "certainty": "三圃式・ノーフォーク四輪作 ◎／タウンゼンドの年 ○",
+     "basis": "- Wikipedia「Crop rotation」：https://en.wikipedia.org/wiki/Crop_rotation"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29208,7 +29312,7 @@
    "name": "輪作",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 800,
    "year_range": "800〜1730",
@@ -29226,7 +29330,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "豆を育てると畑が肥える",
    "name_en": "Crop rotation",
    "hee1_en": "Growing beans makes the field richer.",
@@ -31048,6 +31152,18 @@
      },
      "certainty": "ホイットフィールド 1962 ◎／連邦規格 209 1963 ◎／歩留まりへの効果 ○",
      "basis": "- Wikipedia「Willis Whitfield」：https://en.wikipedia.org/wiki/Willis_Whitfield"
+    },
+    {
+     "title": "O79. ほこり1粒がチップをだめにする（歩留まりとクリーンルーム）［12-14・v0.5］",
+     "answer": "チップの上に欠陥（ほこりなど）が1つ落ちると、そのチップは動かないことが多い。欠陥がでたらめに散らばるとすると、欠陥の密度 D（1cm² あたりの数）と面積 A のチップが無事な割合は Y ≒ e^(−D·A)（ポアソンのモデル）。1963年の米国連邦規格 209 は、空気 1立方フィートにある 0.5µm 以上の粒の数でクリーンルームの等級（クラス100・1000 など）を決めた。部屋をきれいにするほど D が減り、同じ面積のチップでも歩留まりが大きく上がる。チップが大きくなるほど、きれいな部屋が必要になる。",
+     "hee": {
+      "1": "ほこり1粒で、チップ1個がだめになる。",
+      "2": "D が 1個/cm² なら、1cm² のチップは約37%しか動かない。",
+      "3": "クラス100 は、1立方フィート（約28リットル）に 0.5µm 以上の粒が100個以下。ふつうの部屋は数十万〜数百万個。",
+      "4": "本物の工場は、欠陥の集まり方を考えたもっと細かい式（負の二項分布など）を使う。"
+     },
+     "certainty": "ポアソンの歩留まり式 ◎／連邦規格 209（1963）◎／D の数字 △（ゲームの代表値）",
+     "basis": "- Wikipedia「Cleanroom」：https://en.wikipedia.org/wiki/Cleanroom"
     }
    ],
    "item": null,
