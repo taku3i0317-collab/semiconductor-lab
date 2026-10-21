@@ -107,8 +107,22 @@ public final class ChipOps {
      * baseTool＝光の当て方の種類（密着か投影か、波長）。表の方眼の数は「基準のレンズ」の値として残る
      */
     public static Result exposeAtCd(ItemStack w, MaskData mask, ExposureTool baseTool, int cdNm, int overlayNm) {
-        if (cdNm <= 0 || mask.size() > ExposureTool.gridFor(cdNm)) return Result.fail("too_fine");
+        if (cdNm <= 0) return Result.fail("too_fine");
+        int g = ExposureTool.gridFor(cdNm);
+        // マルチパターニング（LELE、v0.5 #6、C と決めた形・ユーザーの決定 S-013「2枚まで」）：縮小カメラで2つに分けたマスク（設計の名前の末尾 " [1/2]"・" [2/2]"）で、
+        // となり合う列に描いた所がなければ、方眼の2倍まで焼ける
+        boolean split = isSplitMask(mask) && mask.size() <= Math.min(BitGrid.MAX, 2 * g) && isSplit(mask.cells());
+        if (mask.size() > g && !split) return Result.fail("too_fine");
         return exposeGrid(w, mask, baseTool, Math.max(mask.size(), 1), overlayNm);
+    }
+
+    /** 縮小カメラで2つに分けたマスクか（設計の名前の末尾が " [1/2]" か " [2/2]"） */
+    public static boolean isSplitMask(MaskData m) { return m.design() != null && (m.design().endsWith(" [1/2]") || m.design().endsWith(" [2/2]")); }
+
+    /** 分けたマスクか：描いた所の横どなりに描いた所がない（列の偶数・奇数で2枚に分けた形＝横のピッチが2倍） */
+    public static boolean isSplit(BitGrid cells) {
+        for (int y = 0; y < cells.size(); y++) for (int x = 0; x + 1 < cells.size(); x++) if (cells.get(x, y) && cells.get(x + 1, y)) return false;
+        return true;
     }
 
     public static Result expose(ItemStack w, MaskData mask, ExposureTool tool, int overlayNm) { return exposeGrid(w, mask, tool, tool.grid, overlayNm); }

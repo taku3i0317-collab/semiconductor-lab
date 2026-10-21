@@ -2838,6 +2838,28 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v0.5 #6 マルチパターニング（C と決めた形）：方眼の2倍の大きさのマスクは、となり合う列に描いた所がなければ焼け、あれば too_fine。2倍をこえると焼けない */
+    @GameTest
+    public void multiPatterningSplit(GameTestHelper h) {
+        int cd = 65, g = com.taku3.semiconductorlab.litho.ExposureTool.gridFor(cd), n = Math.min(com.taku3.semiconductorlab.litho.BitGrid.MAX, 2 * g);
+        n -= n % 4;
+        var even = com.taku3.semiconductorlab.litho.BitGrid.empty(n);
+        var dense = com.taku3.semiconductorlab.litho.BitGrid.empty(n);
+        for (int y = 0; y < n; y++) { even = even.with(0, y, true).with(2, y, true); dense = dense.with(0, y, true).with(1, y, true); }
+        java.util.function.Function<com.taku3.semiconductorlab.litho.BitGrid, String> burn = cells -> {
+            ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+            var mask = new com.taku3.semiconductorlab.litho.MaskData(cells.size(), com.taku3.semiconductorlab.litho.LayerKind.CONTACT, cells, "x [1/2]", 0);
+            var r = com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out(), mask, com.taku3.semiconductorlab.litho.ExposureTool.ARF, cd, 0);
+            return r.ok() ? "ok" : r.reason();
+        };
+        h.assertTrue(n > g, "the test grid is finer than one exposure: " + n + " > " + g);
+        h.assertValueEqual(burn.apply(even), "ok", "a split mask prints at twice the grid");
+        h.assertValueEqual(burn.apply(dense), "too_fine", "neighbouring columns do not");
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out(), new com.taku3.semiconductorlab.litho.MaskData(n, com.taku3.semiconductorlab.litho.LayerKind.CONTACT, even, "x", 0), com.taku3.semiconductorlab.litho.ExposureTool.ARF, cd, 0).reason(), "too_fine", "only masks split by the reduction camera");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
