@@ -159,3 +159,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ ドライエッチング装置にもほこり＋欠陥の密度（A の頼み、O-017 の「など」の範囲）
 - ✅ [15-18] タッチパネル（item/TouchPanelItem、Communication.java に1行と組立台のレシピ）。GameTest touch_panel、REFERENCES F45、DECISIONS。[B-07]・[B-20] はユーザーの答え待ち
 - D と [2-33] の分担を決めた（S-008）：D が (a) 樹脂を 4-アセトキシスチレン経由の本物の道、(b) SbF6⁻ を KSbF6（Sb2O3＋KF＋HF＋H2O2）に。D が合成釜の RECIPES の行・Chemistry のアイテム・chemicallyAmplifiedChain のテスト・placeholder／F70〜F71 の ⚠️ を直す。E は今そのファイルを触らない
+- A のスマホ [B-10] の組立台（Branches.TFT_ID）：E の [B-19] は ID tft_lcd、[B-20] は led_backlight で作る（作ったら A に知らせる）
