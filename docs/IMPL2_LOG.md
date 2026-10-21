@@ -262,3 +262,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ S-010 8. [15-02] 活版印刷：type_metal・movable_type・typeset_form・printing_press（block/PrintingPressBlock、書いた本を組んで白い本に刷る、D の印刷インク [2-66] を使う。前提のインクを [2-66] につないだ）。GameTest letterpress、CHEMISTRY CO5、REFERENCES O94
 - ⚠️ [15-02] の最初の push（0dc4d2c7 まで）は GameTest letterpress が1つ落ちていた（写しの写しを刷れてしまう）。b7cdac4d で直した（434 テスト合格）。26.3 の WrittenBookContent.craftCopy は世代 2 でも写す（API_26X に追記）
 - ✅ O-037・O-038 [8-34] NC 工作機械（案A 仮決定）：punched_tape（item/PunchedTapeItem、マイクロメータで測ると記録、64回で傷む）・nc_lathe（block/NcLatheBlockEntity、鋼＋テープ＋ボールねじ → テープの部品、誤差はボールねじの送りの半分まで、1.5kW・15秒）。GaugeItem に記録の1行。GameTest nc_lathe、CHEMISTRY P26、REFERENCES O95、DECISIONS に（仮決定）1行、howto と入手の道つき
+- ⚠️ [8-34] の push（f5804d3b〜ad451546）はテストが落ちていた（タブの並び・スロットの重なり・出口で重ならない）。8ce4cdfe で直した（437 合格）。push 用スクリプトを「commit の前にも全部のテストを通す」に直した
