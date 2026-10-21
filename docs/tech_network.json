@@ -4079,7 +4079,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F50. マグネシウムで酸素を奪う（単体ホウ素）［1-36］",
+     "answer": "酸化ホウ素（B2O3）にマグネシウムを混ぜて熱すると、マグネシウムが酸素を奪ってホウ素が残る（B2O3 + 3Mg → 2B + 3MgO）。1892年にモアッサンがこの方法で純度 約90% のホウ素を作った。混じった酸化マグネシウムは塩酸で溶かして洗い流す。",
+     "hee": {
+      "1": "ホウ素はダイヤモンドに次ぐほど硬い物質（炭化ホウ素）の元。",
+      "2": "シリコンに入れると電子が1つ足りない穴ができ、p 型の半導体になる。",
+      "3": "もっと純粋なホウ素は、三塩化ホウ素を水素で還元して作る。",
+      "4": "原子炉の中性子を吸う棒にもホウ素が使われる。"
+     },
+     "certainty": "反応とモアッサン 1892 ◎",
+     "basis": "Wikipedia「Boron」（History／Production）https://en.wikipedia.org/wiki/Boron （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -4089,7 +4102,7 @@
    "name": "単体ホウ素",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1892,
    "year_range": null,
@@ -4107,12 +4120,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "マグネシウムに酸素を奪わせて、ホウ素を取り出す",
    "name_en": "Elemental boron",
    "hee1_en": "Magnesium steals the oxygen, leaving boron behind.",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -22086,7 +22099,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O86. 力を4分の1にする代わりに、綱を4倍引く（滑車）［8-19］",
+     "answer": "車に綱をかけた定滑車は力の向きを変えるだけだが、車を組み合わせた複滑車では、重さを何本もの綱で分けて支えるので、引く力は綱の本数分の1になる。そのかわり、綱は本数倍の長さを引かなければならない（力×距離＝仕事は変わらない）。古代ローマのウィトルウィウスやアレクサンドリアのヘロンが、複滑車を使ったクレーンを書き残している。",
+     "hee": {
+      "1": "力を4分の1にする代わりに、綱を4倍引く。",
+      "2": "楽をしても、した仕事の量は変わらない。",
+      "3": "今の建設用クレーンも、ワイヤーを何本もかけて重い物を吊る。",
+      "4": "本物は車の摩擦があるので、少し余分に力が要る。"
+     },
+     "certainty": "複滑車の原理 ◎／ウィトルウィウス・ヘロンの記述 ○（⚠️ 年は古代として近似）",
+     "basis": "- Wikipedia「Pulley」：https://en.wikipedia.org/wiki/Pulley"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -22096,7 +22122,7 @@
    "name": "滑車",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -25,
    "year_range": null,
@@ -22109,7 +22135,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "力を4分の1にする代わりに、綱を4倍引く （IMP-24 で追加、network_proposals N-1）",
    "name_en": "Pulley",
    "hee1_en": "You need only a quarter of the force, but you pull the rope four times as far. (Added in IMP-24, network_proposals N-1)",
@@ -24062,7 +24088,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F51. 針を立てた結晶でレーダーの電波をとらえる（点接触ダイオード）［9-05］",
+     "answer": "ゲルマニウムの小さな結晶に細い金属の針を立てると、接点が電流を一方向にだけ通す。電波の細かい振動から信号を取り出せる（検波）ので、1940年代のレーダーの検波器として大量に作られた。この研究の中から、1947年の点接触トランジスタが生まれた。",
+     "hee": {
+      "1": "鉱石ラジオの「鉱石検波器」も同じしくみ（方鉛鉱に針）。",
+      "2": "真空管ではとらえにくい細かい（周波数の高い）電波でも働いた。",
+      "3": "ゲルマニウムの純度を上げる研究は、このダイオードのために進んだ。",
+      "4": "トランジスタは、針を2本立てたら電気が増幅されることから見つかった。"
+     },
+     "certainty": "1940年代のレーダー検波器 ◎／点接触トランジスタ 1947 ◎",
+     "basis": "Wikipedia「Point-contact transistor」・「Crystal detector」https://en.wikipedia.org/wiki/Crystal_detector （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24072,7 +24111,7 @@
    "name": "Geダイオード",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1940,
    "year_range": null,
@@ -24091,12 +24130,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ゲルマニウムに細い針を立てた部品が、レーダーの電波をとらえた",
    "name_en": "Ge diode",
    "hee1_en": "A part with a thin needle standing on germanium caught radar waves.",
    "kind": "tech",
-   "play": "",
+   "play": "軽（部品）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -29172,7 +29211,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L20. 考える機械の部品（ニューラルネット・AI チップ）［10-16］［B-11］",
+     "answer": "ニューラルネットは、たくさんの「掛けて足して、しきい値で光る」小さな計算（人工ニューロン）をつないだもの。見本から重み（掛ける数）を少しずつ直して学ぶ。1943年マカロックとピッツの人工ニューロン、1958年ローゼンブラットのパーセプトロン、1986年ラメルハート・ヒントン・ウィリアムズの誤差逆伝播、1998年ルカンらの LeNet-5（手書き数字）、2012年 AlexNet（GPU）。中身は掛け算と足し算のくり返しなので、それを速くする AI チップ（2016 グーグル TPU など）が作られた。",
+     "hee": {
+      "1": "石と砂から始めて、数字を読める機械にたどり着いた（この MOD の最後）。",
+      "2": "AI は「教えた見本」から学ぶ。まちがえた字を教え直すと、そのとおりに答えるようになる。",
+      "3": "答えるときは掛け算を小さな整数（4・8ビット）ですることが多い。速く・電気が少なくてすむ。",
+      "4": "この MOD の数字のデータは自分たちで描いた CC0 の 8×8（UCI・MNIST は使っていない）。"
+     },
+     "certainty": "マカロック＆ピッツ 1943 ◎／パーセプトロン 1958 ◎／誤差逆伝播 1986 ◎／LeNet-5・MNIST 1998 ◎／AlexNet 2012 ◎／TPU 2016 ◎",
+     "basis": "McCulloch & Pitts (1943)、Rosenblatt (1958)、Rumelhart, Hinton & Williams, Nature (1986)、LeCun et al., Proc. IEEE (1998)、Krizhevsky et al. (2012)、Jouppi et al., ISCA (2017, TPU)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29182,7 +29234,7 @@
    "name": "ニューラルネット",
    "trunk": "10",
    "trunk_name": "制御・計算",
-   "status": "🔧",
+   "status": "✅",
    "branch": false,
    "year": 1998,
    "year_range": "1943〜2012",
@@ -30538,7 +30590,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "AI は、アミノ酸の並びだけから、たんぱく質がどんな形に折りたたまれるかを当てられるようになった（O-011 で追加。出典：Nobel Prize「Chemistry 2024」「Chemistry 1972」、Nobel Prize「The Nobel Prize in Chemistry 2024 press release」（https://www.nobelprize.org/prizes/chemistry/2024/press-release/））",
    "name_en": "Predicting protein shapes with AI",
    "hee1_en": "AI can now guess how a protein folds just from its order of amino acids (added in O-011. Sources: Nobel Prize \"Chemistry 2024\", \"Chemistry 1972\", Nobel Prize \"The Nobel Prize in Chemistry 2024 press release\" (https://www.nobelprize.org/prizes/chemistry/2024/press-release/))",
@@ -31891,7 +31943,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C67. 水の中でも固まる2000年のコンクリート（ローマンコンクリート）［12-01］",
+     "answer": "ローマ人は、消石灰に火山灰（ナポリ近くのポッツオーリの火山灰＝ポッツォラーナ）と石のかけらをまぜ、水を加えてコンクリートを作った。石灰と火山灰のケイ素・アルミニウムが水の中で反応して、水にとけない石のような物になる（ポッツォラン反応）ので、水の中でも固まる。紀元前2世紀ごろから使われ、128年ごろのパンテオンの丸屋根は鉄筋なしのコンクリートで今も残る。港の壁は海水と反応してできた結晶でむしろ強くなったと言われる。",
+     "hee": {
+      "1": "2000年前のローマのコンクリートは、今も建物として使われている。",
+      "2": "ふつうの石灰のしっくいは空気で固まるが、火山灰を入れると水の中でも固まる。",
+      "3": "パンテオンの丸屋根は、上に行くほど軽い石をまぜて軽くしてある。",
+      "4": "海の中のローマの港の壁は、海水でむしろ強くなったと言われる ⚠️。"
+     },
+     "certainty": "ポッツォラン反応・パンテオン ◎／海水で強くなる話 △",
+     "basis": "- Wikipedia「Roman concrete」：https://en.wikipedia.org/wiki/Roman_concrete"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -31901,7 +31966,7 @@
    "name": "ローマンコンクリート",
    "trunk": "12",
    "trunk_name": "建築・土木",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -150,
    "year_range": null,
@@ -31914,7 +31979,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "2000年前のローマのコンクリートは海水でむしろ強くなる⚠️",
    "name_en": "Roman concrete",
    "hee1_en": "Roman concrete from 2000 years ago actually gets stronger in seawater ⚠️",
@@ -31946,7 +32011,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C68. 水で「乾く」のではなく「反応して」固まる（ポルトランドセメント）［12-02］",
+     "answer": "セメントは、石灰石と粘土の粉を約1450℃で焼いてできたクリンカーに、石こうを少し加えてくだいた粉。水を加えるとケイ酸カルシウムなどが水と反応して（水和）、針のような結晶がからみ合って固まる。乾くのではなく反応なので、水の中でも固まる。1824年にイギリスのジョセフ・アスプディンが特許を取り、色がポートランド島の石に似ていたのでこの名前になった。今のセメント作りは、石灰石から出る CO2 と燃料の CO2 で、世界の CO2 の約8%を出すと言われる。",
+     "hee": {
+      "1": "ポートランド島の石に色が似ていたので名前が付いた。",
+      "2": "石こうを入れるのは、水を入れたとたんに固まるのを遅らせるため。",
+      "3": "セメントは乾いて固まるのではなく、水と反応して固まる。",
+      "4": "セメント作りは世界の CO2 の約8%を出すと言われる ⚠️。"
+     },
+     "certainty": "アスプディン 1824・水和 ◎／CO2 の割合 ○",
+     "basis": "- Wikipedia「Portland cement」：https://en.wikipedia.org/wiki/Portland_cement"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -31956,7 +32034,7 @@
    "name": "ポルトランドセメント",
    "trunk": "12",
    "trunk_name": "建築・土木",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1824,
    "year_range": null,
@@ -31977,7 +32055,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ポートランド島の石に色が似ていたので名前が付いた",
    "name_en": "Portland cement",
    "hee1_en": "It got its name because its color looked like the stone from the Isle of Portland.",
@@ -32009,7 +32087,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C69. 植木鉢から生まれたビルの骨組み（鉄筋コンクリート）［12-03］",
+     "answer": "コンクリートは押す力には強いが、引っぱる力には弱く、曲げるとすぐ割れる。そこで引っぱる力に強い鋼の棒（鉄筋）を中に入れる。コンクリートと鋼は温度でのびる割合がほぼ同じなので暑さ寒さで離れず、コンクリートのアルカリが鋼のさびを防ぐ。1867年、フランスの庭師ジョゼフ・モニエが、鉄の網を入れた割れにくい植木鉢で特許を取ったのが始まり。",
+     "hee": {
+      "1": "鉄筋コンクリートは植木鉢から生まれた。",
+      "2": "コンクリートと鋼は、温度でのびる割合がほぼ同じ。",
+      "3": "コンクリートのアルカリが、中の鋼をさびから守る（二酸化炭素で中性になるとさびはじめる）。",
+      "4": "今のビル・橋・ダムのほとんどは鉄筋コンクリート。"
+     },
+     "certainty": "モニエ 1867・熱膨張率 ◎",
+     "basis": "- Wikipedia「Reinforced concrete」：https://en.wikipedia.org/wiki/Reinforced_concrete"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -32019,7 +32110,7 @@
    "name": "鉄筋コンクリート",
    "trunk": "12",
    "trunk_name": "建築・土木",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1867,
    "year_range": null,
@@ -32127,7 +32218,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C70. 溶けた金属の上に浮かべて作る窓ガラス（フロート法）［12-05］",
+     "answer": "窓の板ガラスは、昔は吹いたガラスを回して広げたり（クラウン法）、筒にして切り開いたり（円筒法）、のばしてから両面をみがいたりして作った。1959年、イギリスのアラステア・ピルキントンは、溶けたスズの浴槽の上に溶けたガラスを流すフロート法を発表した。ガラスはスズより軽いので浮かび、重力と表面張力で厚さ約6mm のまっ平らな板になり、みがかなくても両面が鏡のように平らになる。スズが酸化しないよう、上は窒素と水素のガスでおおう。",
+     "hee": {
+      "1": "窓ガラスは「溶けた金属の上に浮かべて」作る。",
+      "2": "フロート法のガラスの厚さは、何もしなければ自然に約6mm になる。",
+      "3": "ガラスの片面にはスズが少ししみこんでいて、紫外線を当てると光って見分けられる。",
+      "4": "スマホの画面のガラスもフロート法などで作った平らな板から。"
+     },
+     "certainty": "ピルキントン 1959・約6mm の平衡厚さ ◎",
+     "basis": "- Wikipedia「Float glass」：https://en.wikipedia.org/wiki/Float_glass"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -32137,7 +32241,7 @@
    "name": "板ガラス",
    "trunk": "12",
    "trunk_name": "建築・土木",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1959,
    "year_range": null,
@@ -32155,7 +32259,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "窓ガラスは「溶けた金属の上に浮かべて」作る",
    "name_en": "Flat glass",
    "hee1_en": "Window glass is made by \"floating it on melted metal.\"",
@@ -32454,7 +32558,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "三角形の組み合わせ（トラス）は形が崩れない",
    "name_en": "Bridge",
    "hee1_en": "A framework of triangles (a truss) does not lose its shape.",
@@ -32824,7 +32928,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C71. 雷を地面へ逃がす銅の棒（避雷針）［12-15］",
+     "answer": "雷は雲と地面のあいだの大きな放電で、何万アンペアもの電流が一瞬流れる。建物の上にとがった金属の棒を立て、太い銅線で地面の電極につなぐと、雷の電流が建物の中を通らずに地面へ逃げ、火事を防げる。1752年、アメリカのベンジャミン・フランクリンが雷は電気だと確かめる凧の実験を書き（本当にしたかは議論がある）、1753年ごろから避雷針を広めた。同じころロシアのリヒマンは、雷の実験中に亡くなった。",
+     "hee": {
+      "1": "マイクラの避雷針が銅でできているのは本物どおり。",
+      "2": "避雷針は雷を「呼ぶ」のではなく、落ちる場所を決めて安全に流す。",
+      "3": "フランクリンの凧の実験は、本当にしたかどうか議論がある。",
+      "4": "1753年、ロシアのリヒマンは雷の実験中に亡くなった。"
+     },
+     "certainty": "避雷針のしくみ・リヒマン 1753 ◎／フランクリンの凧の実験の実際 △",
+     "basis": "- Wikipedia「Lightning rod」：https://en.wikipedia.org/wiki/Lightning_rod"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -32834,7 +32951,7 @@
    "name": "避雷針",
    "trunk": "12",
    "trunk_name": "建築・土木",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1752,
    "year_range": null,
@@ -32850,7 +32967,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "マイクラの避雷針が銅でできているのは本物どおり",
    "name_en": "Lightning rod",
    "hee1_en": "Minecraft's lightning rod is made of copper, just like the real thing",
@@ -32915,7 +33032,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "エレベーターを発明したのはオーチスではなく、オーチスが作ったのは『ロープが切れても落ちない』つめの仕組みだった。（S-004 で追加。出典：asme.org、theelevatormuseum.org、invent.org）",
    "name_en": "Elevator safety brake",
    "hee1_en": "Otis did not invent the elevator; what he made was a catch that stops it from falling even if the rope breaks. (Added in S-004. Sources: asme.org, theelevatormuseum.org, invent.org)",
@@ -34843,7 +34960,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O87. 週末に放っておいたら硬くなった（ジュラルミン）［14-13］",
+     "answer": "1906年、ドイツのアルフレート・ヴィルムは、アルミに銅とマグネシウムを少し混ぜて焼入れした合金を、週末のあいだ放っておいた。月曜日に測ると、ずっと硬くなっていた。焼入れで溶けこんだ銅の原子が、部屋の温度でも少しずつ集まって小さな析出物を作り、変形をじゃまするからで、「時効硬化」と呼ばれる。軽くて強いジュラルミンは、ツェッペリンの飛行船や金属の飛行機の骨組みになった。",
+     "hee": {
+      "1": "週末に放っておいたら、金属が勝手に硬くなっていた。",
+      "2": "重さは鋼の3分の1ほどなのに、強さは鋼に近い。",
+      "3": "硬くなるわけ（析出物）がわかったのは、発見から十数年あと。",
+      "4": "名前はドイツの町デューレンから。"
+     },
+     "certainty": "1906 ヴィルム・時効硬化 ◎／飛行船・飛行機 ◎／数日（約4日）○",
+     "basis": "- Wikipedia「Duralumin」：https://en.wikipedia.org/wiki/Duralumin"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -34853,7 +34983,7 @@
    "name": "ジュラルミン",
    "trunk": "14",
    "trunk_name": "輸送",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1906,
    "year_range": null,
@@ -34871,12 +35001,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "週末に放っておいたら、金属が勝手に硬くなっていた",
    "name_en": "Duralumin",
    "hee1_en": "Left alone over a weekend, the metal had hardened all by itself.",
    "kind": "tech",
-   "play": "",
+   "play": "軽＋実験（放っておくと硬くなる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -38571,7 +38701,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L20. 考える機械の部品（ニューラルネット・AI チップ）［10-16］［B-11］",
+     "answer": "ニューラルネットは、たくさんの「掛けて足して、しきい値で光る」小さな計算（人工ニューロン）をつないだもの。見本から重み（掛ける数）を少しずつ直して学ぶ。1943年マカロックとピッツの人工ニューロン、1958年ローゼンブラットのパーセプトロン、1986年ラメルハート・ヒントン・ウィリアムズの誤差逆伝播、1998年ルカンらの LeNet-5（手書き数字）、2012年 AlexNet（GPU）。中身は掛け算と足し算のくり返しなので、それを速くする AI チップ（2016 グーグル TPU など）が作られた。",
+     "hee": {
+      "1": "石と砂から始めて、数字を読める機械にたどり着いた（この MOD の最後）。",
+      "2": "AI は「教えた見本」から学ぶ。まちがえた字を教え直すと、そのとおりに答えるようになる。",
+      "3": "答えるときは掛け算を小さな整数（4・8ビット）ですることが多い。速く・電気が少なくてすむ。",
+      "4": "この MOD の数字のデータは自分たちで描いた CC0 の 8×8（UCI・MNIST は使っていない）。"
+     },
+     "certainty": "マカロック＆ピッツ 1943 ◎／パーセプトロン 1958 ◎／誤差逆伝播 1986 ◎／LeNet-5・MNIST 1998 ◎／AlexNet 2012 ◎／TPU 2016 ◎",
+     "basis": "McCulloch & Pitts (1943)、Rosenblatt (1958)、Rumelhart, Hinton & Williams, Nature (1986)、LeCun et al., Proc. IEEE (1998)、Krizhevsky et al. (2012)、Jouppi et al., ISCA (2017, TPU)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
