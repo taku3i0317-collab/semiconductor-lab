@@ -17,7 +17,7 @@ public final class Challenge {
     /**
      * @param table 組み合わせ回路：行＝入力の組み合わせ（行番号＝入力を上から順に並べた2進数。1入力なら A、2入力なら A×2＋B…）、値＝出力のビット（bit0＝出力1 …）。順序回路は空
      * @param clock 最後の入力がクロック（パッドの役目 CLK）
-     * @param steps 順序回路：手ごとに {入力の行番号, 期待する出力のビット（−1＝見ない）}。null なら組み合わせ回路
+     * @param steps 順序回路：手ごとに {入力の行番号, 期待する出力のビット（−1＝見ない）[, そのあと待つ µs]}。null なら組み合わせ回路
      */
     public record Def(String id, int inputs, int outputs, int[] table, boolean clock, int[][] steps) {
         public Def(String id, int inputs, int outputs, int[] table) { this(id, inputs, outputs, table, false, null); }
@@ -42,6 +42,8 @@ public final class Challenge {
 
     /** 順序回路で、手から手へ入力を変える細かさ（何回に分けるか） */
     static final int RAMP = 10;
+    /** 順序回路の細かい1回の時間（秒）。1手＝RAMP 回＝0.1 ms。コンデンサの電荷はこの時間で持ちこされ、少しずつ漏れる（[10-12]、S-012） */
+    public static final double DT = 1e-5;
 
     private static final List<Def> ALL = new ArrayList<>();
     static {
@@ -62,6 +64,11 @@ public final class Challenge {
         seq("counter", 2, 2, true, new int[][] {{2, 0b00}, {0, 0b00}, {1, -1}, {0, 0b01}, {1, -1}, {0, 0b10}, {1, -1}, {0, 0b11}, {1, -1}, {0, 0b00}});
         // 2ビットのレジスタ：入力A＝D0、入力B＝D1、クロック（上がるときに覚える）。出力1＝Q0、出力2＝Q1。行＝D0×4＋D1×2＋CLK
         seq("register", 3, 2, true, new int[][] {{0b100, -1}, {0b101, 0b01}, {0b000, 0b01}, {0b010, 0b01}, {0b011, 0b10}, {0b110, 0b10}, {0b111, 0b11}, {0b000, 0b11}});
+        // ===== 記憶の IC（[10-12]、S-012 Q22-3 案A：1970 インテル 1103 の3トランジスタのセル） =====
+        // 入力A＝書きこみの線（W）、入力B＝データ（D）、入力C＝読み出しの線（R）、出力1＝読み出しの線（1103 と同じく、読むと逆の値：覚えた1 → 0）。行＝W×4＋D×2＋R。
+        // 1を書く → 読む → 0を書く → 読む → 1を書く → 2 ms 待つ → 書き直す（リフレッシュ）→ 2 ms 待つ → 読む。書いたあとは先に W を切ってからデータを下げる（本物と同じ）
+        seq("dram_cell", 3, 1, false, new int[][] {{0b110, -1}, {0b010, -1}, {0b000, -1}, {0b001, 0}, {0b000, -1}, {0b100, -1}, {0b000, -1}, {0b001, 1}, {0b000, -1},
+                {0b110, -1}, {0b010, -1}, {0b000, -1, 2000}, {0b110, -1}, {0b010, -1}, {0b000, -1, 2000}, {0b001, 0}});
     }
     private static void add(String id, int in, int out, int... table) { ALL.add(new Def(id, in, out, table)); }
     private static void seq(String id, int in, int out, boolean clock, int[][] steps) { ALL.add(new Def(id, in, out, new int[0], clock, steps)); }
@@ -97,9 +104,16 @@ public final class Challenge {
                         double from = Boolean.TRUE.equals(last.get(in.getKey())) ? Circuit.VCC : 0, to = in.getValue() ? Circuit.VCC : 0;
                         v.put(in.getKey(), from + (to - from) * k / RAMP);
                     }
-                    e = Circuit.evaluateVolts(nl, roles, v, d.outputs(), leakScale, prev);
+                    e = Circuit.evaluateVolts(nl, roles, v, d.outputs(), leakScale, prev, DT);
                     if (e == null) break;
                     prev = e.volts();
+                }
+                int wait = d.steps()[r].length > 2 ? d.steps()[r][2] : 0;   // 入力をそのままにして待つ（µs）：コンデンサの電荷が漏れる
+                Map<Circuit.Role, Double> hold = new EnumMap<>(Circuit.Role.class);
+                for (var in : now.entrySet()) hold.put(in.getKey(), in.getValue() ? Circuit.VCC : 0);
+                for (int k = 0; k < 10 && wait > 0 && e != null; k++) {
+                    e = Circuit.evaluateVolts(nl, roles, hold, d.outputs(), leakScale, prev, wait * 1e-6 / 10);
+                    if (e != null) prev = e.volts();
                 }
             } else e = Circuit.evaluate(nl, roles, now, d.outputs(), leakScale, prev);
             if (e == null) return new Result(0, d.rows(), true);

@@ -283,7 +283,7 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 - [10-12] DRAM：1トランジスタ＋1コンデンサ（デナード 1966〜68）。電荷が漏れるので書き直し（リフレッシュ）。直流の計算ではコンデンサの電荷を扱えないので、順序回路の「手順の列」に電荷の減りを足す案が要る（そのときにまた聞く）
 
 
-### 12.4 [10-12] DRAM の案と質問（O-021 の2、A）。**Q22-1〜4 はユーザーの答え待ち。答えまで作らない**
+### 12.4 [10-12] DRAM の案と質問（O-021 の2、A）→ ✅ S-012 で全部案A、実装済み（Circuit.CAP_PER_CELL・solve の dt・Challenge.DT と待つ手・お題 dram_cell・例 dramCell）
 本物（決まっている所）：1966〜68 デナード（IBM）の1トランジスタ＋1コンデンサのセル（特許 1968）◎。1970 インテル 1103（1kbit、最初に売れた DRAM）は3トランジスタのセル（読み出しのトランジスタのゲートに電荷をためる、読んでも消えない）◎。コンデンサの電荷は漏れるので数 ms ごとに書き直す（リフレッシュ）◎。
 
 - **Q22-1 前提 [10-10] IC 論理（RTL→TTL）が ❓**。DRAM の前提にある
@@ -301,6 +301,7 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 - A のおすすめ：Q22-1 案A・Q22-2 案A・Q22-3 案A（1103 の3トランジスタ、1T1C は段階2）・Q22-4 案A
 
 ## 変更履歴
+- 2026-10-21 [10-12] DRAM（S-012）：Netlist.caps（ゲート酸化膜＋金属が n の領域の上、MOS にならないもの）、Circuit.solve(…, dt)＝前の手の電圧から dt 秒後（コンデンサは後退オイラー、MOS のゲートも容量、CAP_PER_CELL 3e-11 F ⚠️）、Challenge の手に「待つ µs」、順序回路の1回＝Challenge.DT（10 µs）。直列の MOS の間の点は線がなくてよい（Netlist）
 - 2026-10-21 [9-24] CMOS：ChipDesign.CMOS（DIFF_N ウェル・DIFF_P・DIFF_N・GATE_OX・CONTACT・METAL）、Netlist.Mos.p（n のウェルの上のゲート＝p チャネル）、Circuit の p チャネル（Vsg・Vsd、MOS_KP_P＝KP/2.5）、fromState はゲート酸化膜＋拡散2回以上で CMOS、製図台の P は5つの順
 - 2026-10-21 S-011：MOS（LayerKind.GATE_OX、ChipOps.gateOxide、ChipModel.gate、Netlist.mosfets＝ゲート酸化膜＋p＋1層目の金属のまとまりの両わきに n の領域2つ、Circuit の二乗の式 Vt 1V・KP 1e-4 A/V²×W/L）と2層目の金属（LayerKind.VIA・METAL2、ChipOps.depositInterlayer、その後の窓＝VIA・金属＝METAL2、Netlist.netOf2・VIA で層をまたぐ）。ChipDesign.process（bipolar／mos）・kindsFor・twoMetal、製図台の「P」で 5→7→4→6 層。例 nmosInverter・nmosInverterTwoMetal
 - 2026-10-20 [9-27] ドライエッチングの土台（E と決めた形、案α）：ChipOps.etchOxide(w, anisotropic)。液（HF）は方眼 36（g線ステッパー、CD 約1µm）以上で開ける所が上下左右に1マス太る（アンダーカット）、ドライは太らない。16・24 の方眼は今までどおり

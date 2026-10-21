@@ -51,7 +51,19 @@ public final class Circuit {
     public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale) { return solve(nl, drive, leakScale, null); }
 
     /** start＝計算を始める電圧（前の手の答え。順序回路の記憶、S-009）。長さがちがえば無視 */
-    public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale, double[] start) {
+    public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale, double[] start) { return solve(nl, drive, leakScale, start, 0); }
+
+    /**
+     * MOS のゲートと MOS のコンデンサの1マスの容量（F、ゲームの値 ⚠️：本物の 1103 のセルは 0.1 pF より小さい）。
+     * ためた電荷は、どの点にもある逃げ道 GMIN と接合の漏れで少しずつ減る（数 ms で忘れる＝リフレッシュが要る、[10-12]）
+     */
+    public static final double CAP_PER_CELL = 3e-11;
+
+    /**
+     * dt＞0：前の手の電圧 start から dt 秒たった後を解く（[10-12]、S-012 Q22-2 案A）。コンデンサ（MOS のゲート・MOS のコンデンサ）は
+     * 後退オイラー法（電流 C·(V−V前)/dt）。dt＝0 は直流（コンデンサは開いたまま、今までと同じ）
+     */
+    public static Solution solve(Netlist nl, Map<Integer, Double> drive, double leakScale, double[] start, double dt) {
         ChipModel m = nl.model;
         double leak = LEAK_PER_DIRT * m.contamination * leakScale;
         int n = m.size, cells = n * n, nodes = cells + nl.nets.size();
@@ -87,8 +99,17 @@ public final class Circuit {
         List<int[]> mos = new ArrayList<>();
         List<Double> mosK = new ArrayList<>();
         for (Netlist.Mos t : nl.mosfets) { mos.add(new int[] {cells + t.gateNet(), t.cellA(), t.cellB(), t.p() ? 1 : 0}); mosK.add((t.p() ? MOS_KP_P : MOS_KP) * t.wOverL()); }
+        // コンデンサ {a, b}・容量（時間を進めるときだけ）：MOS のゲート（ゲートの線 ↔ チャネルの下のマス）と MOS のコンデンサ
+        List<int[]> cap = new ArrayList<>();
+        List<Double> capC = new ArrayList<>();
+        boolean timed = dt > 0 && start != null && start.length == nodes;
+        if (timed) {
+            for (Netlist.Mos t : nl.mosfets) { int[] c0 = t.channel().get(0); cap.add(new int[] {cells + t.gateNet(), c0[1] * n + c0[0]}); capC.add(CAP_PER_CELL * t.channel().size()); }
+            for (Netlist.Cap c : nl.caps) { cap.add(new int[] {cells + c.net(), c.cell()}); capC.add(CAP_PER_CELL * c.area()); }
+        }
         // 固定の点（パッド）と、解く点
         double[] v = start != null && start.length == nodes ? start.clone() : new double[nodes];
+        double[] before = timed ? start.clone() : null;
         boolean[] fixed = new boolean[nodes];
         for (var e : drive.entrySet()) { int k = cells + e.getKey(); fixed[k] = true; v[k] = e.getValue(); }
         int[] idx = new int[nodes];
@@ -125,6 +146,12 @@ public final class Circuit {
                 addI(F, idx, dn, i); addI(F, idx, sn, -i);
                 addJ(J, idx, dn, g, gm); addJ(J, idx, dn, dn, gds); addJ(J, idx, dn, sn, -gm - gds);
                 addJ(J, idx, sn, g, -gm); addJ(J, idx, sn, dn, -gds); addJ(J, idx, sn, sn, gm + gds);
+            }
+            for (int q = 0; q < cap.size(); q++) {   // コンデンサ：i = C/dt·((Va−Vb) − (Va−Vb)前)
+                int a = cap.get(q)[0], b = cap.get(q)[1];
+                double g = capC.get(q) / dt, i = g * ((v[a] - v[b]) - (before[a] - before[b]));
+                addI(F, idx, a, i); addI(F, idx, b, -i);
+                addJ(J, idx, a, a, g); addJ(J, idx, a, b, -g); addJ(J, idx, b, a, -g); addJ(J, idx, b, b, g);
             }
             for (Src s : src) {
                 double vd = v[s.anode] - v[s.cathode], i = s.k * id(vd), g = s.k * gd(vd);
@@ -317,7 +344,10 @@ public final class Circuit {
     }
 
     /** 入力を電圧で（手から手へ入力をなめらかに変えるとき、S-009） */
-    public static Eval evaluateVolts(Netlist nl, Map<Integer, Role> roles, Map<Role, Double> inputs, int outputs, double leakScale, double[] start) {
+    public static Eval evaluateVolts(Netlist nl, Map<Integer, Role> roles, Map<Role, Double> inputs, int outputs, double leakScale, double[] start) { return evaluateVolts(nl, roles, inputs, outputs, leakScale, start, 0); }
+
+    /** dt＞0：前の手の電圧から dt 秒後（コンデンサの電荷を持ちこす、[10-12]） */
+    public static Eval evaluateVolts(Netlist nl, Map<Integer, Role> roles, Map<Role, Double> inputs, int outputs, double leakScale, double[] start, double dt) {
         Map<Integer, Double> d = new HashMap<>();
         int[] outNet = {-1, -1, -1, -1};
         java.util.EnumSet<Role> seen = java.util.EnumSet.noneOf(Role.class);
@@ -337,7 +367,7 @@ public final class Circuit {
         if (!seen.contains(Role.GROUND) || !seen.contains(Role.VCC)) return null;
         for (Role r : inputs.keySet()) if (!seen.contains(r)) return null;
         for (int i = 0; i < outputs; i++) if (outNet[i] < 0) return null;
-        Solution sol = solve(nl, d, leakScale, start);
+        Solution sol = solve(nl, d, leakScale, start, dt);
         int bits = 0;
         for (int i = 0; i < outputs; i++) if (sol.netVolts(nl, outNet[i]) > HIGH) bits |= 1 << i;
         return new Eval(bits, sol.volts());

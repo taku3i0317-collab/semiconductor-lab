@@ -2687,6 +2687,37 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [10-12] DRAM（S-012 全部案A）：24×24 の 1103 の3トランジスタのセルを投影露光で焼くと MOS が3個、お題 dram_cell（書く・読む・リフレッシュ）に合格。
+     * 1を書いて 2 ms は覚えていて、20 ms 放っておくと電荷が漏れて忘れる（読むと 0 のときと同じ＝出力1）。とても汚れたチップは漏れが大きくて記憶にならない
+     */
+    @GameTest(maxTicks = 200)
+    public void dramCell(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.dramCell(), com.taku3.semiconductorlab.litho.ExposureTool.PROJECTION_1X);
+        chip = com.taku3.semiconductorlab.litho.ChipOps.clean(chip, 0).out();
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.ChipOps.state(chip)));
+        h.assertValueEqual(nl.mosfets.size(), 3, "three MOSFETs (write, store, read)");
+        int n = nl.model.size;
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        roles.put(nl.netOf[23 * n], com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        roles.put(nl.netOf[0], com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        roles.put(nl.netOf[5 * n], com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        roles.put(nl.netOf[3 * n], com.taku3.semiconductorlab.litho.Circuit.Role.IN_B);
+        roles.put(nl.netOf[14 * n + 23], com.taku3.semiconductorlab.litho.Circuit.Role.IN_C);
+        roles.put(nl.netOf[11 * n + 23], com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+        var def = com.taku3.semiconductorlab.litho.Challenge.all().stream().filter(d -> d.id().equals("dram_cell")).findFirst().orElseThrow();
+        var r = com.taku3.semiconductorlab.litho.Challenge.check(def, nl, roles, 1.0);
+        h.assertTrue(r.passed(), "the 1103-style cell solves dram_cell: " + r);
+        var forget = new com.taku3.semiconductorlab.litho.Challenge.Def("forget", 3, 1, new int[0], false, new int[][] {{0b110, -1}, {0b010, -1}, {0b000, -1}, {0b001, 0}, {0b000, -1, 20000}, {0b001, 1}});
+        h.assertTrue(com.taku3.semiconductorlab.litho.Challenge.check(forget, nl, roles, 1.0).passed(), "after 20 ms without refresh the charge has leaked away");
+        var hold = new com.taku3.semiconductorlab.litho.Challenge.Def("hold", 3, 1, new int[0], false, new int[][] {{0b110, -1}, {0b010, -1}, {0b000, -1, 2000}, {0b001, 0}});
+        h.assertTrue(com.taku3.semiconductorlab.litho.Challenge.check(hold, nl, roles, 1.0).passed(), "it still holds after 2 ms");
+        h.assertFalse(com.taku3.semiconductorlab.litho.Challenge.check(def, com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.addDust(chip, 200)))), roles, 1.0).passed(), "a very dirty chip leaks too much to work as memory");
+        LOG.info("[LAB] DRAM [10-12]: 1103 three-transistor cell writes, reads, refreshes; forgets after 20 ms");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

@@ -287,5 +287,12 @@
   "litho.semiconductor-lab.layer.metal2": "2層目の金属",
   "litho.semiconductor-lab.role.n_well": "n のウェル",
   "litho.semiconductor-lab.role.p_source_drain": "p のソース・ドレイン",
-  "litho.semiconductor-lab.role.n_source_drain": "n のソース・ドレイン"
+  "litho.semiconductor-lab.role.n_source_drain": "n のソース・ドレイン",
+  "litho.semiconductor-lab.challenge.dram_cell": "DRAM のセル（1ビット）",
+  "litho.semiconductor-lab.challenge.dram_cell.goal": "A（書く）の間 B（データ）を覚え、C（読む）で出力1に逆の値。漏れて忘れてよいが、書き直し（リフレッシュ）で覚えている",
+  "litho.semiconductor-lab.challenge.dram_cell.history": "1970年インテル 1103：最初に売れた DRAM（1kbit、3トランジスタのセル）。1968年デナードの1トランジスタ＋1コンデンサが、のちの主流になった。",
+  "litho.semiconductor-lab.challenge.dram_cell.hint1": "①覚えるのは電気の量（電荷）。MOS のゲートは電流を通さないので、電荷をためておける。",
+  "litho.semiconductor-lab.challenge.dram_cell.hint2": "②3つの MOS：書く線でデータを通す門、ためた電荷がゲートになる MOS、読む線で開く門。",
+  "litho.semiconductor-lab.challenge.dram_cell.hint3": "③読み出しの線は抵抗で電源へ引き上げ、ためる MOS と読む MOS を直列にして 0 V へ。覚えた1で線が下がる（逆の値）。",
+  "litho.semiconductor-lab.challenge.dram_cell.hint4": "④電荷は数 ms で漏れる。汚れが多いともっと早い。ゲートを広くするか、ゲート酸化膜の上の金属を n の領域に重ねたコンデンサを足すと長くもつ。"
 }

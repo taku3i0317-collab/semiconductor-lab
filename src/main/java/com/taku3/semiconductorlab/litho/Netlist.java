@@ -37,6 +37,9 @@ public final class Netlist {
     public final List<Diode> diodes = new ArrayList<>();
     public final List<Transistor> transistors = new ArrayList<>();
     public final List<Mos> mosfets = new ArrayList<>();
+    /** MOS のコンデンサ（[10-12]、S-012 Q22-2 案A）：ゲート酸化膜の上の金属が n の領域と向き合う所（MOS にならないもの）。net＝金属の線、cell＝下の領域の代表のマス、area＝マスの数 */
+    public record Cap(int net, int cell, int area) {}
+    public final List<Cap> caps = new ArrayList<>();
     /** マス → 領域の番号、金属のマス → 線の番号（金属がなければ −1） */
     public final int[] regionOf, netOf;
     /** 2層目の金属のマス → 線の番号（S-011） */
@@ -147,10 +150,11 @@ public final class Netlist {
                     else if (model.type(a, b) == sdType && !channel(a, b)) sd.putIfAbsent(regionOf[b * n + a], new int[] {a, b});
                 }
             }
+            if (sd.size() != 2 && gateNet >= 0 && t == 'n') { caps.add(new Cap(gateNet, ch.get(0)[1] * n + ch.get(0)[0], ch.size())); continue; }   // コンデンサ
             if (sd.size() != 2 || gateNet < 0) continue;
             var it = sd.entrySet().iterator();
             var ea = it.next(); var eb = it.next();
-            if (firstNet(ea.getKey()) < 0 || firstNet(eb.getKey()) < 0) continue;
+            if (firstNet(ea.getKey()) < 0 && firstNet(eb.getKey()) < 0) continue;   // 片方は線がなくてよい（直列の MOS の間の点、[10-12] 1103 のセル）
             int len = Math.max(1, Math.abs(ea.getValue()[0] - eb.getValue()[0]) + Math.abs(ea.getValue()[1] - eb.getValue()[1]) - 1);
             mosfets.add(new Mos(gateNet, ea.getKey(), eb.getKey(), ea.getValue()[1] * n + ea.getValue()[0], eb.getValue()[1] * n + eb.getValue()[0], (double) ch.size() / len / len, ch, t == 'n'));
         }

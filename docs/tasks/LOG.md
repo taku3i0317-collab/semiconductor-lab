@@ -550,3 +550,8 @@
 
 - O-024：ガイド第6巻「微細化」（guide6/、13個：波長・レイリーの式・ステッパーと液浸・ムーアの法則・交流と変圧器・整流器・イオン注入・スパッタとドライエッチング・MOSFET・CMOS・2層目と CMP）と give_guidebook6。HUMAN_CHECK を v0.4 の確認表に（ステッパー・電気・新しい工程・MOS／CMOS・CMP の5手順）。tag v0.4 はしない。GameTest guide6Shrinking（300/300）
 - S-011 の3：充電池の親 energy/RechargeableBatteryBlockEntity（Spec＝容量 J・上限 W・効率 %、全面で充放電・直流だけ・隣の受け取るだけの機械へ押し出す・残量は battery_energy）。新しい電池は継承＋ content に RechargeableBatteryBlockEntity.machine(...) の1行＋ lang message.semiconductor-lab.<id>.status。鉛蓄電池は継承に（定数・tick はそのまま）、ブロックとツールチップは電池ごとの容量。D に使い方を知らせた。GameTest rechargeableBase（303/303）
+
+## S-012（Q22-1〜4 全部案A、2026-10-21）
+- DECISIONS に4行。[10-10] IC 論理は今のお題（RTL）で ✅⚠️（TTL は省略）
+- [10-12] DRAM：litho に時間（Circuit.solve の dt、MOS のゲートと MOS のコンデンサが電荷をため、手から手へ持ちこす、漏れる）。お題 dram_cell（1103 の3トランジスタ、書く → W を先に切る → 読む、2 ms ごとのリフレッシュ）、例 dramCell（24×24）が合格、20 ms で忘れる。CAP_PER_CELL は 1e-11 だと 2 ms もたなかったので 3e-11（約 4〜5 ms）。REFERENCES L15、TECH_TREE ✅
+
