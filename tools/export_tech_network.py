@@ -10,6 +10,7 @@ semiconductor-lab の技術ネットワークを、別リポジトリ tech-netwo
   .github/              … 誤りの報告の Issue のひな形、check.py を動かす GitHub Actions
   README.md（日・英）・LICENSE（CC0）
 使い方:  python tools/gen_tree_views.py → python tools/export_tech_network.py [--repo owner/name]
+        → cd build/tech-network → git add -A → git commit → git push（公開リポジトリ taku3i0317-collab/tech-network、S-011）
 入れない物（DESIGN「公開」と今の決まり）：Wikipedia の文の丸写し（O-002 で点検ずみ）・Mojang の素材・存命の人の顔
 """
 import json
@@ -33,8 +34,12 @@ GAME = ["status", "buildable_now", "play", "missing", "item", "recipes", "machin
 def main():
     data = json.loads((ROOT / "docs" / "tech_network.json").read_text(encoding="utf-8"))
     portraits = data.get("portraits", [])
-    if OUT.exists():
-        shutil.rmtree(OUT)
+    # 作り直すときは中身だけ消す（.git は残す＝公開リポジトリの履歴。S-011）
+    OUT.mkdir(parents=True, exist_ok=True)
+    for c in OUT.iterdir():
+        if c.name == ".git":
+            continue
+        shutil.rmtree(c) if c.is_dir() else c.unlink()
     (OUT / "data" / "nodes").mkdir(parents=True)
     for n in data["nodes"]:
         h = {k: n.get(k) for k in HISTORY if k in n}

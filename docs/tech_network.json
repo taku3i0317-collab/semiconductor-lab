@@ -14420,17 +14420,30 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C51. こぼれない電池（乾電池と軟マンガン鉱）［4-28］",
+     "answer": "1866年、フランスのルクランシェが、亜鉛と、二酸化マンガン（軟マンガン鉱）を炭素棒のまわりにつめた物を、塩化アンモニウムの液に入れた電池を作った。二酸化マンガンは正極で出る水素を水に変えるので、ボルタの電堆のように泡がたまって弱くなりにくい。1886年、ドイツのガスナーが液を石こうなどで糊にして、こぼれない「乾電池」にした。1896年、アメリカのナショナル・カーボン社のコロンビア乾電池が家庭に広まった。亜鉛の缶がマイナス、まん中の炭素棒がプラスで、約1.5V。",
+     "hee": {
+      "1": "「乾」電池でも、中はしめった糊で、完全に乾いてはいない。",
+      "2": "二酸化マンガンは「減極剤」：水素の泡がたまって電気が弱くなるのを防ぐ。",
+      "3": "日本でも屋井先蔵が1887年ごろ独自に乾電池を作ったとされる ⚠️（年は資料で揺れる）。",
+      "4": "乾電池が持ち運べるようになって、懐中電灯（1899年ごろ）が生まれた。"
+     },
+     "certainty": "ルクランシェ 1866・ガスナー 1886・コロンビア 1896 ◎／屋井先蔵の年 △",
+     "basis": "- ACS「Columbia Dry Cell Battery」（化学遺産）：https://www.acs.org/education/whatischemistry/landmarks/drycellbattery.html"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "未定（実装の前に相談）",
+   "game_text": "",
    "id": "4-28",
    "name": "乾電池",
    "trunk": "4",
    "trunk_name": "動力・電気",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1896,
    "year_range": "1866〜1896",
@@ -18421,14 +18434,14 @@
    "refs": [
     {
      "title": "O63. 塩の窓から出る見えない光（CO2 レーザー）［7-14］",
-     "answer": "1964年、ベル研究所のクマール・パテルは、二酸化炭素の気体に放電をかけて、分子の振動から 10.6µm の赤外線のレーザーを出した。翌1965年、窒素を混ぜると、放電で揺れた N2 が CO2 にエネルギーを渡して出力が大きく上がることを見つけた（さらにヘリウムで効率 10〜20%）。赤外線はガラスを通らないので、窓には岩塩 NaCl の結晶を使った。",
+     "answer": "1964年、ベル研究所の研究者が、二酸化炭素の気体に放電をかけて、分子の振動から 10.6µm の赤外線のレーザーを出した。翌1965年、窒素を混ぜると、放電で揺れた N2 が CO2 にエネルギーを渡して出力が大きく上がることを見つけた（さらにヘリウムで効率 10〜20%）。赤外線はガラスを通らないので、窓には岩塩 NaCl の結晶を使った。",
      "hee": {
       "1": "このレーザーの光はガラスを通らないので、窓は塩の結晶。",
       "2": "CO2 は石灰石を焼く窯の煙から集められる。",
       "3": "今も金属・木・アクリルの切断や、手術、そして EUV 露光の光源（スズの粒を撃つ）に使う。",
       "4": "N2 の振動の高さが CO2 の上の準位とほぼ同じなので、ぶつかるとエネルギーが渡る（共鳴エネルギー移動）。"
      },
-     "certainty": "1964 パテル・10.6µm ◎／N2 の効果 1965 ◎／He で 10〜20% ○／ゲームの出力の数字 △（ゲームの値）",
+     "certainty": "1964 ベル研究所・10.6µm ◎／N2 の効果 1965 ◎／He で 10〜20% ○／ゲームの出力の数字 △（ゲームの値）",
      "basis": "- Wikipedia「Carbon-dioxide laser」：https://en.wikipedia.org/wiki/Carbon-dioxide_laser"
     }
    ],
@@ -18632,7 +18645,7 @@
    "name": "液浸光学",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 2006,
    "year_range": "1878〜2006",
@@ -18655,12 +18668,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "レンズとウェハーの間に水を入れるだけで、細かく描ける",
    "name_en": "Immersion optics",
    "hee1_en": "Just putting water between the lens and the wafer lets you draw finer patterns.",
    "kind": "tech",
-   "play": "",
+   "play": "重（ステッパーに超純水）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -18961,6 +18974,18 @@
      },
      "certainty": "1975 発振・1982 ジェイン ◎／KrF 量産 1990年代後半 ○／k1 0.3〜0.4 ○",
      "basis": "- Wikipedia「Excimer laser」：https://en.wikipedia.org/wiki/Excimer_laser"
+    },
+    {
+     "title": "O69. 水で細かくする（ArF 液浸）［7-20 ArF・7-16］",
+     "answer": "ArF エキシマレーザー（193nm）は2000年代の露光の主役になった。空気中ではレンズの NA は1を超えられないが、2002年に TSMC の研究者が、いちばん下のレンズとウェハーの間を水で満たす「液浸」を提案した。水の屈折率は 193nm で 1.44 なので NA を 1.35 まで上げられ、2006年ごろから量産に使われた。同じ考えは1878年ごろアッベとツァイスの油浸顕微鏡にさかのぼる。157nm の F2 レーザーはレンズとレジストの問題で2003年ごろ主流から外れ、業界は 193nm 液浸へ進んだ。",
+     "hee": {
+      "1": "最先端の露光装置は、レンズとウェハーの間に水を流している。",
+      "2": "水の中では光の波長が 1.44分の1 になったのと同じ働きをする。",
+      "3": "顕微鏡の油浸と同じ考えを、120年以上あとに半導体で使った。",
+      "4": "193nm 液浸に何度も露光を重ねる（マルチパターニング）ことで、EUV の前の世代まで細かくした。"
+     },
+     "certainty": "ArF 2000年代 ◎／TSMC 2002 提案・2006 量産・NA 1.35 ◎／水 n=1.44 ◎／157nm の撤退 2003 ○",
+     "basis": "- Wikipedia「Immersion lithography」：https://en.wikipedia.org/wiki/Immersion_lithography"
     }
    ],
    "item": null,
@@ -21233,7 +21258,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O67. 光の波で決めたメートル（国際単位系 SI）［8-24］",
+     "answer": "1960年、第11回国際度量衡総会は、メートル・キログラム・秒・アンペア・ケルビン・カンデラの6つを基本単位とする「国際単位系（SI）」を決めた（1971年にモルが加わって7つ）。同じ総会で、メートルは白金イリジウムの棒ではなく「クリプトン86 が出す橙の光の波長の 1,650,763.73 倍」になった。原子の光の波長は、どこで作っても同じだからである。1983年には光の速さで決め直され、2019年には7つの単位すべてが自然の定数で決まった。",
+     "hee": {
+      "1": "世界中で同じ「1メートル」「1秒」を使えるのは、1960年に決めた国際単位系のおかげ。",
+      "2": "1960〜1983年の1メートルは、ランプの光の波を約165万回数えた長さ。",
+      "3": "キロ・ミリ・マイクロ・ナノなどの接頭語も SI の一部。",
+      "4": "クリプトンのランプは窒素の三重点（約63K）に冷やして、線の幅を細くした。"
+     },
+     "certainty": "1960・6単位・1,650,763.73 ◎／1971 モル・1983 光速 ◎／2019 定義し直し ◎",
+     "basis": "- BIPM「Resolution 6 / 12 of the 11th CGPM (1960)」：https://www.bipm.org/en/committees/cg/cgpm/11-1960"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -21243,7 +21281,7 @@
    "name": "国際単位系",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": null,
@@ -21266,12 +21304,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "世界中で同じ「1メートル」「1秒」を使えるのは、1960年に決めた国際単位系のおかげ（NET-06 で追加。出典：BIPM「Resolution 12 of the 11th CGPM (1960)」）",
    "name_en": "International System of Units (SI)",
    "hee1_en": "The whole world can use the same \"1 meter\" and \"1 second\" thanks to the SI, decided in 1960 (added in NET-06. Source: BIPM \"Resolution 12 of the 11th CGPM (1960)\")",
    "kind": "tech",
-   "play": "",
+   "play": "実験（光の波で 1m を測る）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -21296,7 +21334,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O68. 電気の力で量る1キログラム（ワット天秤）［8-25］",
+     "answer": "1975年、イギリス国立物理学研究所のブライアン・キッブルは、磁石の中のコイルに電流を流して、その力でおもりの重さを支える天秤を考えた。重さの段で電流 I、コイルを速さ v で動かす段で電圧 U を測ると、磁石の強さが消えて mgv = UI になる。電圧をジョセフソン効果、抵抗を量子ホール効果で測れば、質量はプランク定数で決まる。2019年5月20日、キログラムは金属の原器ではなく h = 6.62607015×10⁻³⁴ J·s で定義された。古い電気の基準（1893年のウェストン標準電池など）では 100万分の1 ほどが限界で、原器の 50µg のずれを確かめるには量子の基準が必要だった。",
+     "hee": {
+      "1": "いまの1キログラムは、金属のかたまりではなく、電気の力で決めている。",
+      "2": "1911〜1990年の「1ボルト」は、水銀とカドミウムでできた小さな電池で保たれていた。",
+      "3": "天秤の名前は、2016年に亡くなった発明者キッブルにちなんで「キッブル天秤」に変わった。",
+      "4": "カドミウムは富山のイタイイタイ病（1968年、日本で最初の公害病の認定）の原因にもなった金属。"
+     },
+     "certainty": "1975 キッブル・mgv=UI ◎／2019 h の値 ◎／ウェストン 1893・1.0186V ◎／古典版のあいまいさの数字 △（ゲームの代表値）",
+     "basis": "- Wikipedia「Kibble balance」：https://en.wikipedia.org/wiki/Kibble_balance"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -21306,7 +21357,7 @@
    "name": "ワット天秤",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "➖",
    "branch": false,
    "year": 1975,
    "year_range": "1975〜2019",
@@ -21337,12 +21388,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "いまの1キログラムは、金属のかたまりではなく、電気の力で決めている（NET-06 で追加。出典：NPL「Bryan Kibble」、NIST「Kilogram: Kibble balance」、Comptes Rendus Physique 2019）",
    "name_en": "Watt balance",
    "hee1_en": "Today one kilogram is defined not by a lump of metal but by electric force. (Added in NET-06. Sources: NPL \"Bryan Kibble\", NIST \"Kilogram: Kibble balance\", Comptes Rendus Physique 2019)",
    "kind": "tech",
-   "play": "",
+   "play": "重＋実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -24428,7 +24479,7 @@
    "name": "MOSFET",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1959,
    "year_range": "1959〜60",
@@ -24451,7 +24502,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "人類が作った物の中で、いちばん数が多いのが MOSFET",
    "name_en": "MOSFET",
    "hee1_en": "Of all the things humans have ever made, the MOSFET is the most numerous.",
@@ -24481,7 +24532,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L14. 電気をほとんど使わない門（CMOS）［9-24］",
+     "answer": "CMOS は、p チャネルと n チャネルの MOS を対にした回路。入力が 0 でも 1 でも、どちらか片方は必ず切れているので、止まっている間は電源から 0 V へ電流がほとんど流れない。1963年にフェアチャイルドのフランク・ワンラスとサー・チータンが発表した。",
+     "hee": {
+      "1": "電卓や腕時計の電池が何年ももつのは CMOS のおかげ。1970年代の時計・電卓から広まった。",
+      "2": "p チャネルを作るには、p 型の板の中に n 型の「井戸（ウェル）」を作り、その中に作る。拡散がもう1回ふえる。",
+      "3": "p チャネルの電気を運ぶ正孔は、電子より2〜3倍動きにくい。同じ強さにするため、p チャネルは幅を広く作る。",
+      "4": "電気を使うのは、0 と 1 が切りかわる一瞬だけ。だから今の CPU は速く切りかえるほど熱くなる。"
+     },
+     "certainty": "ワンラスとサー 1963 発表 ◎／止まっている間ほとんど電流が流れない ◎／正孔の動きにくさ（移動度 約 1/2〜1/3）◎／時計・電卓から広まった ○",
+     "basis": "Computer History Museum「1963 – Complementary MOS Circuit Configuration is Invented」、Wikipedia「CMOS」（History）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24491,7 +24555,7 @@
    "name": "CMOS",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1963,
    "year_range": null,
@@ -25000,7 +25064,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F33. 配線を2階建てにする（CVD の層間膜と2層配線）［9-30］",
+     "answer": "1層目のアルミの配線の上に、気体の反応で二酸化ケイ素の膜を積む（CVD：シランと酸素を約400℃ で反応）。熱酸化は約1000℃ でアルミが溶けてしまうので使えない。膜に縦の穴（VIA）を開けて2層目のアルミを付け、削ると、配線どうしが交差できる2階建てになる。",
+     "hee": {
+      "1": "シラン（SiH4）は空気にふれるとひとりでに燃える気体。だからボンベを囲いの中に置く。",
+      "2": "シランを初めて作ったのは 1857年のヴェーラーとブフ（ケイ化マグネシウムに酸）。",
+      "3": "配線が交差できると、遠回りがいらなくなりチップが小さくなる。今のチップは10層をこえる。",
+      "4": "⚠️ 2層の金属配線が量産で広まったのは 1970年代ごろ（年は出典で確かめ中）。"
+     },
+     "certainty": "低温 CVD の SiO2（シラン＋酸素、約400℃）◎／シランの初合成 1857 ○／2層配線の年 △",
+     "basis": "Wikipedia「Chemical vapor deposition」（Silicon dioxide）https://en.wikipedia.org/wiki/Chemical_vapor_deposition 、Wikipedia「Silane」https://en.wikipedia.org/wiki/Silane （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -25010,7 +25087,7 @@
    "name": "エピタキシーと CVD",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": null,
@@ -25038,7 +25115,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "シーメンス法で棒を太らせる反応を、薄い膜にして使う",
    "name_en": "Epitaxy and CVD",
    "hee1_en": "The reaction that thickens rods in the Siemens process is used to make thin films",
@@ -25070,7 +25147,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F34. 1階ずつ床を平らにする（CMP）［9-31］",
+     "answer": "層を重ねるとウェハーの表面が凸凹になり、細い線を焼くときに焦点が合わなくなる（焦点深度 DOF = k2·λ/NA² は、細い光ほど浅い）。回る台のパッドに、アルカリ性のシリカの粒の液（スラリー）を流し、ウェハーを押しつけて、出っぱった所から平らに削る。化学（薬で柔らかくする）と機械（粒でこする）を合わせるので「化学機械研磨」。1980年代に IBM が工場で使いはじめた。",
+     "hee": {
+      "1": "シリコンウェハーを鏡にみがく方法（コロイダルシリカ、1960年代）を、層の平らにするのに使い直した。",
+      "2": "細い線ほど焦点深度が浅い。だから層ごとに平らにしないと、上の層がピンぼけになる。",
+      "3": "銅の配線（ダマシン、1997）は、溝に銅をうめて CMP で余分を削る。CMP がないと作れない。",
+      "4": "⚠️ IBM が使いはじめた年（1980年代の半ば）は出典で確かめ中。"
+     },
+     "certainty": "CMP の原理とスラリー ◎／IBM の導入 1980年代 △",
+     "basis": "Wikipedia「Chemical-mechanical polishing」https://en.wikipedia.org/wiki/Chemical-mechanical_polishing （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -25080,7 +25170,7 @@
    "name": "CMP",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1980,
    "year_range": null,
@@ -25098,12 +25188,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "何十階建てのビルを、1階ずつ床を平らにしながら建てる",
    "name_en": "CMP (chemical mechanical polishing)",
    "hee1_en": "Like building a skyscraper of dozens of floors, flattening each floor one at a time.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -25675,6 +25765,18 @@
      },
      "certainty": "水銀の i線 365nm ◎／i線ステッパーの普及 1980年代後半〜1990年代 ○／NA 0.5〜0.65 ○",
      "basis": "- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper"
+    },
+    {
+     "title": "O70. すき間でなぞって焼く（スキャナー）［9-39］",
+     "answer": "ステッパーはチップ全体を一度に写すので、大きくて収差のないレンズが要った。1990年代、細いスリットの光でマスクと板を逆向きに同じ比（4:1）で動かし、1チップの中をなぞって焼く「ステップ・アンド・スキャン」の露光装置が広まった。レンズの中心の細い帯だけを使えばよいので、同じレンズでもより細かく、広いチップを焼ける。今の ArF 液浸や EUV の露光装置もすべてスキャナー。",
+     "hee": {
+      "1": "今の露光装置は、写真を一度に撮るのではなく、すき間でなぞってコピーする。",
+      "2": "マスクの台は板の台の4倍の速さで動く。",
+      "3": "マスクの台のずれは 1/4 になって板に写る（縮小のおかげ）。",
+      "4": "2つの台をナノメートルの精度で同時に動かす制御が、スキャナーのいちばん難しいところ。"
+     },
+     "certainty": "ステップ・アンド・スキャン 1990年代 ○（最初の機種の年・会社は出典で確かめ中 ⚠️）／4:1 縮小 ◎",
+     "basis": "- Wikipedia「Stepper」（Scanners の節）：https://en.wikipedia.org/wiki/Stepper"
     }
    ],
    "item": null,
@@ -25953,7 +26055,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "スマホのカメラも光学式マウスも、中身は同じ仲間の「光を電子に変えて数える」チップ（S-003 で追加。出典：Nobel Prize「Physics 2009」、Wikipedia「Active-pixel sensor」「Optical mouse」）",
    "name_en": "Image sensor",
    "hee1_en": "Phone cameras and optical mice both use the same family of chips that \"turn light into electrons and count them\" (added in S-003. Sources: Nobel Prize \"Physics 2009\", Wikipedia \"Active-pixel sensor\", \"Optical mouse\")",
@@ -29458,7 +29560,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C52. 煮てから封をするか、封をしてから煮るか（缶詰とボルドー液）［11-12］［11-16］",
+     "answer": "1804〜10年、フランスのニコラ・アペールは、食べ物をびんにつめてしっかり封をし、湯で長く煮ると腐らないことを見つけ、ナポレオンの軍の懸賞を取った。1810年にはイギリスのピーター・デュランドが、ブリキ（鉄にスズをめっきした板）の缶の特許を取った。なぜ腐らないか（加熱で菌が死に、封で新しい菌が入らない）は、1860年代のパスツールまでわからなかった。1885年、フランスのピエール・ミラルデは、硫酸銅と石灰をまぜたボルドー液がブドウのべと病（カビの病気）を防ぐと発表した。",
+     "hee": {
+      "1": "缶詰が発明されてから約50年、缶切りがなかった ⚠️。",
+      "2": "アペールは、なぜ腐らないのかを知らないまま、缶詰のもとを作った。",
+      "3": "ボルドーの農家が、ブドウ泥棒よけに道ばたのブドウに青い薬をぬったら、そこだけ病気にならなかった。",
+      "4": "ボルドー液の銅は、カビの胞子が芽を出すのを止める。石灰は銅を葉にくっつけ、雨で流れにくくする。"
+     },
+     "certainty": "アペール 1804〜10・デュランド 1810・ミラルデ 1885 ◎／缶切りがなかった年数 △",
+     "basis": "- Wikipedia「Nicolas Appert」：https://en.wikipedia.org/wiki/Nicolas_Appert"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29468,7 +29583,7 @@
    "name": "缶詰",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1804,
    "year_range": "1804〜10",
@@ -29490,7 +29605,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "缶詰は発明から約50年、缶切りがなかった⚠️",
    "name_en": "Canning",
    "hee1_en": "For about 50 years after cans were invented, there was no can opener⚠️",
@@ -29743,7 +29858,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C52. 煮てから封をするか、封をしてから煮るか（缶詰とボルドー液）［11-12］［11-16］",
+     "answer": "1804〜10年、フランスのニコラ・アペールは、食べ物をびんにつめてしっかり封をし、湯で長く煮ると腐らないことを見つけ、ナポレオンの軍の懸賞を取った。1810年にはイギリスのピーター・デュランドが、ブリキ（鉄にスズをめっきした板）の缶の特許を取った。なぜ腐らないか（加熱で菌が死に、封で新しい菌が入らない）は、1860年代のパスツールまでわからなかった。1885年、フランスのピエール・ミラルデは、硫酸銅と石灰をまぜたボルドー液がブドウのべと病（カビの病気）を防ぐと発表した。",
+     "hee": {
+      "1": "缶詰が発明されてから約50年、缶切りがなかった ⚠️。",
+      "2": "アペールは、なぜ腐らないのかを知らないまま、缶詰のもとを作った。",
+      "3": "ボルドーの農家が、ブドウ泥棒よけに道ばたのブドウに青い薬をぬったら、そこだけ病気にならなかった。",
+      "4": "ボルドー液の銅は、カビの胞子が芽を出すのを止める。石灰は銅を葉にくっつけ、雨で流れにくくする。"
+     },
+     "certainty": "アペール 1804〜10・デュランド 1810・ミラルデ 1885 ◎／缶切りがなかった年数 △",
+     "basis": "- Wikipedia「Nicolas Appert」：https://en.wikipedia.org/wiki/Nicolas_Appert"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29753,7 +29881,7 @@
    "name": "ボルドー液",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1885,
    "year_range": null,
@@ -29771,7 +29899,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "盗まれないよう道ばたのブドウに塗った青い薬が、病気を防いでいた",
    "name_en": "Bordeaux mixture",
    "hee1_en": "A blue spray put on roadside grapes to stop theft turned out to prevent disease",
@@ -41726,7 +41854,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "電気抵抗の「1オーム」の基準は、冷やしたトランジスタと磁石で作られている",
    "name_en": "Quantum Hall effect",
    "hee1_en": "The standard for \"1 ohm\" of electrical resistance is made with a cooled transistor and a magnet.",

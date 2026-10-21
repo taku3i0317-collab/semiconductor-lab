@@ -431,3 +431,8 @@
   1. GitHub で「New repository」→ 名前 tech-network、Public、README などは付けずに作る（別の名前なら INBOX で教えてほしい：`python tools/export_tech_network.py --repo 持ち主/名前` で作り直す）
   2. 作ったら INBOX に「tech-network を作った」と書けば、ネットワーク担当が build/tech-network を git に入れて push する
   3. push のあと GitHub の Settings → Pages で「Branch: main / docs」を選ぶと、図が公開される
+
+## S-011（2026-10-21、INBOX：ユーザーが tech-network を作った）tech-network の公開
+- build/tech-network を git に入れて https://github.com/taku3i0317-collab/tech-network に push（f374641、615 ノード、CC0）。push ごとの自動チェック（GitHub Actions の check）は成功
+- GitHub Pages を gh で設定（main / docs）→ 公開された図：**https://taku3i0317-collab.github.io/tech-network/**（network.html が開き、コンソールのエラーなし）
+- 書き出しの道具は、作り直しても build/tech-network/.git を消さないように直した。今後の更新：gen_tree_views → export_tech_network → build/tech-network で commit・push
