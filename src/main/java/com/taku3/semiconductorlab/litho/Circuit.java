@@ -100,7 +100,7 @@ public final class Circuit {
         List<Double> mosK = new ArrayList<>();
         for (Netlist.Mos t : nl.mosfets) { mos.add(new int[] {cells + t.gateNet(), t.cellA(), t.cellB(), t.p() ? 1 : 0}); mosK.add((t.p() ? MOS_KP_P : MOS_KP) * t.wOverL()); }
         if (n >= SHORT_CHANNEL_GRID) for (Netlist.Mos t : nl.mosfets)   // 細い平らな MOS の漏れ（[9-37]）
-            if (!t.channel().stream().allMatch(c -> m.fin(c[0], c[1]))) res.add(new Res(t.cellA(), t.cellB(), (t.p() ? MOS_KP_P : MOS_KP) * t.wOverL() * SHORT_CHANNEL_VOLTS));
+            if (!t.channel().stream().allMatch(c -> m.fin(c[0], c[1])) || (n >= GAA_GRID && !m.gaa)) res.add(new Res(t.cellA(), t.cellB(), (t.p() ? MOS_KP_P : MOS_KP) * t.wOverL() * SHORT_CHANNEL_VOLTS));
         // コンデンサ {a, b}・容量（時間を進めるときだけ）：MOS のゲート（ゲートの線 ↔ チャネルの下のマス）と MOS のコンデンサ
         List<int[]> cap = new ArrayList<>();
         List<Double> capC = new ArrayList<>();
@@ -206,6 +206,8 @@ public final class Circuit {
      */
     public static final int SHORT_CHANNEL_GRID = ExposureTool.gridFor(40);
     static final double SHORT_CHANNEL_VOLTS = 3.0;
+    /** さらに細い方眼（CD 約 16 nm 以下、[9-38]、E と決めた形）では、フィンでも漏れる。GAA（ゲートが4方向）なら漏れない */
+    public static final int GAA_GRID = ExposureTool.gridFor(16);
 
     /** n チャネル MOS の二乗の式：{I, ∂I/∂Vgs, ∂I/∂Vds}。しきい値の下は 0（計算のためにごく小さな電流） */
     static double[] mosCurrent(double k, double vgs, double vds) {

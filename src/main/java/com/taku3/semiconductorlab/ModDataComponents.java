@@ -71,6 +71,15 @@ public class ModDataComponents {
                     .networkSynchronized(ByteBufCodecs.STRING_UTF8)
                     .build());
 
+    // [9-38] GAA（E のエピタキシャル炉の Si/SiGe の重ね、A と決めた形）：対の数。EPI と同じく酸化しても残し、レジストを塗るとき ChipState に記録
+    public static final DataComponentType<Integer> SUPERLATTICE = Registry.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE,
+            SemiconductorLab.id("superlattice"),
+            DataComponentType.<Integer>builder()
+                    .persistent(Codec.INT)
+                    .networkSynchronized(ByteBufCodecs.VAR_INT)
+                    .build());
+
     // [B-10] スマホの今のアプリ（0＝電卓・1＝写真・2＝傾き、O-030）
     public static final DataComponentType<Integer> PHONE_APP = Registry.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE,

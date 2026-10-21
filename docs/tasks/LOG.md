@@ -628,3 +628,4 @@
 - ROADMAP v0.5 #8 ✅、#9 中心図は v1.0 #0 へ → **tag v0.5**（version 0.5、jar は作らない）
 - 次：mul4 のお題・自作の数字のデータ（CC0）・重みの準備（Q30）、E の GAA・EUV のマスクの受け口
 
+- E の [9-38] GAA・EUV のマスクとレジストの受け口（E と決めた形）：ModDataComponents.SUPERLATTICE（対の数）→ 塗るとき Extras.superlattice、ChipOps.releaseSheets（no_fin・no_superlattice・resist_on・already）→ Extras.gaa → ChipModel.gaa、Circuit.GAA_GRID＝gridFor(16 nm)＝136 以上はフィンでも漏れ GAA なら漏れない。MaskData.reflective（reflectiveCopy）：EUV は反射型でないと transmissive_mask、反射型は EUV でないと reflective_mask。RESIST_EUV（化学増幅と同じく加熱が要る）。GameTest gaaAndEuvMask

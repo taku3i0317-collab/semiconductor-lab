@@ -62,7 +62,15 @@ public final class ChipModel {
     }
 
     /** 工程を終えたウェハーの中身から（まだ露光していなければ null） */
-    public static ChipModel of(ChipState s) { return s.sized() ? build(s.size(), s.substrate(), s.done(), s.contamination()) : null; }
+    public static ChipModel of(ChipState s) {
+        if (!s.sized()) return null;
+        ChipModel m = build(s.size(), s.substrate(), s.done(), s.contamination());
+        m.gaa = s.extras().gaa();
+        return m;
+    }
+
+    /** GAA（[9-38]）：ゲートが4方向を囲む板にしたか（Circuit のさらに細い方眼の漏れ） */
+    public boolean gaa;
 
     /** 設計図から（板の型は substrate） */
     public static ChipModel of(ChipDesign d, String substrate) { return build(d.size(), substrate, d.layers(), 0); }

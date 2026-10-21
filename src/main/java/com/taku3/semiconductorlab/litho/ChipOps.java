@@ -78,6 +78,8 @@ public final class ChipOps {
     /** [9-19] レジストを塗る（型つき：ポジ型 [2-32]・ネガ型 [2-30] KPR）。酸化膜つきの板はここで加工中のウェハーになる */
     /** レジストの種類（[2-33]、E と決めた形）：DNQ ノボラック（ポジ型）・KPR（ネガ型）・化学増幅（1982 IBM） */
     public static final String RESIST_DNQ = "dnq", RESIST_KPR = "kpr", RESIST_CAR = "car";
+    /** EUV のレジスト（[9-40]、D の材料・E の塗布機、E と決めた形）：化学増幅と同じく露光後の加熱が要る、13.5 nm の光も通す */
+    public static final String RESIST_EUV = "euv";
     /** これより短い波長（KrF 248 nm から）では、ノボラックも KPR も光を吸いすぎて底まで届かない（化学増幅でないと焼けない） */
     public static final double OPAQUE_BELOW_NM = 250;
 
@@ -97,6 +99,8 @@ public final class ChipOps {
             if (sub == null) return Result.fail("undoped");
             s = ChipState.fresh(sub, 0);
             if (w.has(ModDataComponents.EPI)) s = s.withExtras(new ChipState.Extras(baseOf(w), false));   // エピの下の板の型を記録
+            Integer sl = w.get(ModDataComponents.SUPERLATTICE);
+            if (sl != null && sl > 0) s = s.withExtras(s.extras().withSuperlattice(sl));   // GAA の Si/SiGe の重ね（[9-38]）
         }
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("already_coated");
         return Result.ok(write(w, s.withTone(tone).withResist(ChipState.Resist.COATED, s.resistPattern())));
@@ -160,6 +164,8 @@ public final class ChipOps {
         if (s.sized() && s.size() != mask.size()) return Result.fail("size_mismatch");
         String kind = s.extras().resistKind();
         if (tool.wavelengthNm < OPAQUE_BELOW_NM && (RESIST_DNQ.equals(kind) || RESIST_KPR.equals(kind))) return Result.fail("opaque_resist");   // [2-33]：ノボラックは 248 nm で不透明
+        if (tool == ExposureTool.EUV && !mask.reflective()) return Result.fail("transmissive_mask");   // EUV の光はどんな物にも吸われる＝反射型のマスクだけ（[9-40]）
+        if (tool != ExposureTool.EUV && mask.reflective()) return Result.fail("reflective_mask");     // 反射型のマスクは光を通さない
         if (!s.sized()) s = s.withSize(mask.size()).withParts(mask.parts());   // 1枚目：設計図に押したハンコの記録もチップへ（v0.3b）
         else if (overlayNm > 0) s = s.overlay(overlayNm);   // 2層目から
         BitGrid lit = mask.kind().window ? mask.cells() : mask.cells().invert();
@@ -178,7 +184,7 @@ public final class ChipOps {
         if (s == null || s.resist() != ChipState.Resist.EXPOSED) return Result.fail("not_exposed");
         boolean neg = s.tone() == ChipState.Tone.NEGATIVE;
         if (dev != (neg ? Developer.ORGANIC : Developer.ALKALI)) return Result.fail("wrong_developer");
-        if (RESIST_CAR.equals(s.extras().resistKind()) && !s.extras().baked())   // 化学増幅：露光後の加熱（PEB）がないと酸が保護基を外さない＝どこも溶けない
+        if ((RESIST_CAR.equals(s.extras().resistKind()) || RESIST_EUV.equals(s.extras().resistKind())) && !s.extras().baked())   // 化学増幅：露光後の加熱（PEB）がないと酸が保護基を外さない＝どこも溶けない
             return Result.ok(write(w, s.withResist(ChipState.Resist.DEVELOPED, BitGrid.empty(s.size()).invert())));
         return Result.ok(write(w, s.withResist(ChipState.Resist.DEVELOPED, neg ? s.resistPattern() : s.resistPattern().invert())));
     }
@@ -192,9 +198,9 @@ public final class ChipOps {
     public static Result bake(ItemStack w) {
         ChipState s = state(w);
         if (s == null || s.resist() != ChipState.Resist.EXPOSED) return Result.fail("not_exposed");
-        if (!RESIST_CAR.equals(s.extras().resistKind())) return Result.fail("not_car");
+        if (!RESIST_CAR.equals(s.extras().resistKind()) && !RESIST_EUV.equals(s.extras().resistKind())) return Result.fail("not_car");
         if (s.extras().baked()) return Result.fail("already");
-        return Result.ok(write(w, s.withExtras(s.extras().withResist(RESIST_CAR, true))));
+        return Result.ok(write(w, s.withExtras(s.extras().withResist(s.extras().resistKind(), true))));
     }
 
     public static boolean canStrip(ItemStack w) { return strip(w).ok(); }
@@ -423,6 +429,21 @@ public final class ChipOps {
 
     /** 歩留まりの目安 Y＝e^(−D·A)（ポアソンの式。マーフィーなどの式もある ⚠️）。記録がなければ 1 */
     public static double expectedYield(ChipState s) { return s == null || !s.sized() ? 1 : Math.exp(-s.extras().defectD() * areaCm2(s.size())); }
+
+    public static boolean canReleaseSheets(ItemStack w) { return releaseSheets(w).ok(); }
+
+    /**
+     * GAA の板を浮かせる（[9-38]、E のエッチング：SiGe だけを選んで溶かす、E と決めた形）：Si/SiGe の重ねでフィンを立てたあと、SiGe を抜くと Si の薄い板が宙に浮き、
+     * ゲートが4方向を囲む（2022 サムスン 3 nm、インテル RibbonFET）。フィン・重ねがあり、レジストなしのとき1回
+     */
+    public static Result releaseSheets(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || !s.has(LayerKind.FIN)) return Result.fail("no_fin");
+        if (s.extras().superlattice() <= 0) return Result.fail("no_superlattice");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.extras().gaa()) return Result.fail("already");
+        return Result.ok(write(w, s.withExtras(s.extras().withGaa(true))));
+    }
 
     public static boolean canPassivate(ItemStack w) { return passivate(w).ok(); }
 

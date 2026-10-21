@@ -3460,6 +3460,33 @@ public class SemiconductorTests extends LabTestBase {
         return r;
     }
 
+    /**
+     * [9-38] GAA と EUV のマスク・レジストの受け口（E と決めた形）：重ね（superlattice）のある板はフィンのあと releaseSheets で GAA。重ね・フィンがないと断る。
+     * EUV は反射型のマスクでないと transmissive_mask、反射型のマスクは EUV でないと reflective_mask。EUV のレジストは加熱が要る
+     */
+    @GameTest
+    public void gaaAndEuvMask(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron"); ow.set(ModDataComponents.SUPERLATTICE, 3);
+        var cells = com.taku3.semiconductorlab.litho.BitGrid.empty(16).with(4, 4, true);
+        var fin = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.FIN, cells, "x", 0);
+        ItemStack dev = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(ow).out(), fin, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(dev).extras().superlattice(), 3, "three Si/SiGe pairs recorded");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.releaseSheets(dev).reason(), "no_fin", "fins first");
+        ItemStack fins = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.formFins(dev, true).out()).out();
+        var r = com.taku3.semiconductorlab.litho.ChipOps.releaseSheets(fins);
+        h.assertTrue(r.ok() && com.taku3.semiconductorlab.litho.ChipOps.state(r.out()).extras().gaa(), "sheets released: gate all around");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.releaseSheets(r.out()).reason(), "already", "once");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.ChipOps.state(r.out())).gaa, "the model knows GAA");
+        ItemStack plain = new ItemStack(Semiconductor.OXIDIZED_WAFER); plain.set(ModDataComponents.DOPANT, "boron");
+        var euv = com.taku3.semiconductorlab.litho.ExposureTool.EUV;
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(plain, com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE, com.taku3.semiconductorlab.litho.ChipOps.RESIST_EUV).out(), fin, euv).reason(), "transmissive_mask", "EUV needs a reflective mask");
+        ItemStack e1 = com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(plain, com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE, com.taku3.semiconductorlab.litho.ChipOps.RESIST_EUV).out(), fin.reflectiveCopy(), euv).out();
+        h.assertTrue(!e1.isEmpty() && com.taku3.semiconductorlab.litho.ChipOps.bake(e1).ok(), "reflective mask + EUV resist, then bake");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(plain).out(), fin.reflectiveCopy(), com.taku3.semiconductorlab.litho.ExposureTool.KRF).reason(), "reflective_mask", "a reflective mask does not pass light");
+        h.assertTrue(com.taku3.semiconductorlab.litho.Circuit.GAA_GRID > com.taku3.semiconductorlab.litho.Circuit.SHORT_CHANNEL_GRID, "GAA is for finer grids than FinFET: " + com.taku3.semiconductorlab.litho.Circuit.GAA_GRID);
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",
