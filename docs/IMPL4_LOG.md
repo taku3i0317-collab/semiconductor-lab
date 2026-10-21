@@ -105,3 +105,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [9-30] CVD 炉（block/CvdFurnaceBlockEntity、2kW、ChipOps.depositInterlayer）と2層配線の通し（GameTest v03_chain_two_metal：CVD → ドライで VIA → スパッタで2層目 → METAL2、パッドが同じ線）。CHEMISTRY F58、REFERENCES F33。2層配線の年 1970年代は △
 - S-002 の1 完了（CVD 炉・2層配線、289/289）。ROADMAP v0.4 #3・#4 にチェック。S-002 の2：v0.5 #2 [9-31] CMP の ChipState 側（段差 steps と planarize、DOF との組）を A に相談中
 - ✅ [9-31] CMP 装置（block/CmpPolisherBlockEntity、2kW、A の ChipOps.planarize e2da4075）。GameTest cmp_polisher、CHEMISTRY F59、REFERENCES F34、ROADMAP v0.5 #2
+- S-002 完了（6310b435、292/292）。v0.5 で E の範囲の残り：#7 FinFET は前提 [1-70] ハフニウム・[7-16] 液浸が ❓、[9-36] 銅配線は [1-66] タンタルが ❓。ほかは A・光学の担当。INBOX を待つ
