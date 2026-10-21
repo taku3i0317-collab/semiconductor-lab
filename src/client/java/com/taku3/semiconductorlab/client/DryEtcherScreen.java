@@ -28,10 +28,10 @@ public class DryEtcherScreen extends MachineScreen {
                 ItemStack w = menu.machineItem(DryEtcherBlockEntity.SLOT_WAFER), gas = menu.machineItem(DryEtcherBlockEntity.SLOT_GAS);
                 String k;
                 if (w.isEmpty() || gas.isEmpty()) k = "need_input";
-                else if (DryEtcherBlockEntity.product(w).isEmpty()) k = "cannot";
+                else if (DryEtcherBlockEntity.product(w, gas).isEmpty()) k = "cannot";
                 else if (menu.get(DryEtcherBlockEntity.DATA_VACUUM) == 0) k = "need_vacuum";
                 else if (menu.getKw() <= 0) k = "need_power";
-                else k = "running";
+                else k = gas.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS) ? "running_fin" : "running";
                 yield Component.translatable(K + k);
             }
             case "recipe" -> Component.translatable(K + "recipe");

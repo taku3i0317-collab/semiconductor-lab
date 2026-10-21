@@ -124,3 +124,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - A の答え（S-003）：銅＝デュアルダマシン（層間膜 → etchOxide 1回目＝ビアの穴、2回目＝溝 → depositBarrier（Ta）→ plateCopper（バリアなしは汚れ +30）→ planarize で溝の中だけ残す＝METAL2＋VIA）。FinFET＝平らな MOS は方眼が ARF_IMMERSION の CD より細いと漏れ、チャネルが FIN の上なら漏れない。A が litho に入れたら E の機械をつなぐ
 - **ユーザーに質問（Discord）**：FinFET の high-k。本物の FinFET（2011）は high-k（ハフニウムの酸化物）＋金属ゲートと組。[1-70] ハフニウムは ❓。案①[1-70] を先に作る／案②ゲートは SiO2 のまま「仮」（漏れの判定は SiO2 でも成り立つ。high-k はゲートの漏れの話で短チャネルの漏れとは別）。答えまで FinFET の high-k の部分は作らない（フィンの工程は進めてよいかも合わせて聞いた）
 - ✅ [9-36] 銅配線：スパッタに Ta の的（depositBarrier）、ウェハーの銅めっき装置（block/CopperPlaterBlockEntity、plateCopper）、CMP は既存。A の 1e6f067d。GameTest copper_wiring、CHEMISTRY F65、REFERENCES F39
+- ✅ [9-37] FinFET の E の分：ドライエッチング装置に Cl2 → ChipOps.formFins（A の 76d68bcd）。GameTest fin_etch、CHEMISTRY F66、REFERENCES F37 更新。STI は省略、high-k はユーザーの決定待ち

@@ -820,6 +820,7 @@ dry_etcher_en_us hint gui.semiconductor-lab.dry_etcher.cannot w=101 lines=2/4
 dry_etcher_en_us hint gui.semiconductor-lab.dry_etcher.need_vacuum w=138 lines=3/4
 dry_etcher_en_us hint gui.semiconductor-lab.dry_etcher.need_power w=90 lines=2/4
 dry_etcher_en_us hint gui.semiconductor-lab.dry_etcher.running w=73 lines=1/4
+dry_etcher_en_us hint gui.semiconductor-lab.dry_etcher.running_fin w=98 lines=2/4
 dry_etcher_en_us recipe gui.semiconductor-lab.dry_etcher.recipe w=139 lines=1/1 scale=0.74999994
 silane_generator_en_us power gui.semiconductor-lab.silane_generator.power w=75 lines=1/1
 silane_generator_en_us hint gui.semiconductor-lab.silane_generator.need_input w=139 lines=3/4
@@ -1697,6 +1698,7 @@ dry_etcher_ja_jp hint gui.semiconductor-lab.dry_etcher.cannot w=99 lines=2/4
 dry_etcher_ja_jp hint gui.semiconductor-lab.dry_etcher.need_vacuum w=124 lines=2/4
 dry_etcher_ja_jp hint gui.semiconductor-lab.dry_etcher.need_power w=63 lines=1/4
 dry_etcher_ja_jp hint gui.semiconductor-lab.dry_etcher.running w=90 lines=2/4
+dry_etcher_ja_jp hint gui.semiconductor-lab.dry_etcher.running_fin w=109 lines=3/4
 dry_etcher_ja_jp recipe gui.semiconductor-lab.dry_etcher.recipe w=119 lines=1/1 scale=0.9
 silane_generator_ja_jp power gui.semiconductor-lab.silane_generator.power w=63 lines=1/1
 silane_generator_ja_jp hint gui.semiconductor-lab.silane_generator.need_input w=99 lines=2/4

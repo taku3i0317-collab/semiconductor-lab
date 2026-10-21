@@ -580,7 +580,7 @@
   "gui.semiconductor-lab.fluorination_reactor.recipe": "C + 2F2 → CF4",
   "block.semiconductor-lab.dry_etcher": "ドライエッチング装置",
   "block.semiconductor-lab.dry_etcher.note1": "放電（プラズマ）で酸化膜を削る装置。液のフッ酸とちがって、真下だけ削れる。",
-  "block.semiconductor-lab.dry_etcher.note2": "電気 3kW。現像したレジストの付いたウェハー1〜8枚＋CF4 1 → 窓を開けたウェハー（15秒）。隣の真空容器が 0.1Pa 以下でないと動かない。そのあとはレジストをはがす。",
+  "block.semiconductor-lab.dry_etcher.note2": "電気 3kW。現像したレジストの付いたウェハー1〜8枚＋CF4 1 → 窓を開けたウェハー（15秒）。隣の真空容器が 0.1Pa 以下でないと動かない。そのあとはレジストをはがす。　塩素（Cl2）を入れると、酸化膜ではなくシリコンを真下に削り、レジストの残った所に細い板（フィン）が立つ（FinFET [9-37]）。",
   "block.semiconductor-lab.dry_etcher.note3": "CF4 を高周波で放電させると F がばらばらに出て、SiO2 を SiF4 の気体にする。ウェハーを置いた電極にマイナスの電圧がたまり、イオンが真上から当たる＝縦にだけ削れる（異方性、反応性イオンエッチング RIE）。",
   "block.semiconductor-lab.dry_etcher.note4": "1970年代から。液は横にも同じだけ溶けるので、線が細くなると（約2〜3µm 以下）太ってくっつく。今のチップの細い線は、全部ドライで削る。",
   "block.semiconductor-lab.dry_etcher.placeholder": "省略：⚠️ ゲームでは方眼 36 以上（ステッパー g 線から）で液の窓が1マス太り、ドライは太らない。電力・時間はゲームの値。O2 を混ぜること・放電中の圧力は省略。",
@@ -676,5 +676,6 @@
   "gui.semiconductor-lab.copper_plater.no_barrier": "⚠ バリア膜なし（汚れ大）",
   "gui.semiconductor-lab.copper_plater.need_power": "電気が足りない",
   "gui.semiconductor-lab.copper_plater.running": "銅でうめている",
-  "gui.semiconductor-lab.copper_plater.recipe": "Cu²⁺ + 2e⁻ → Cu"
+  "gui.semiconductor-lab.copper_plater.recipe": "Cu²⁺ + 2e⁻ → Cu",
+  "gui.semiconductor-lab.dry_etcher.running_fin": "Cl2 でフィンを立てている"
 }

@@ -1245,6 +1245,25 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-37] FinFET のフィン（IMP4-01、S-003 案A）：現像したウェハーにドライエッチング装置＋Cl2 → FIN（レジストの残った所）。CF4 なら窓、液は不可、拡散のあとは too_late */
+    @GameTest(maxTicks = 100)
+    public void finEtch(GameTestHelper h) {
+        int n = com.taku3.semiconductorlab.litho.Circuit.SHORT_CHANNEL_GRID;
+        var bars = com.taku3.semiconductorlab.litho.BitGrid.empty(n);
+        for (int y = 2; y < 8; y++) bars = bars.with(4, y, true).with(8, y, true);
+        var mask = new com.taku3.semiconductorlab.litho.MaskData(n, com.taku3.semiconductorlab.litho.LayerKind.FIN, bars, "", 0);
+        ItemStack w = new ItemStack(Semiconductor.OXIDIZED_WAFER, 8); w.set(ModDataComponents.DOPANT, "boron");
+        w = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.exposeAtCd(com.taku3.semiconductorlab.litho.ChipOps.coat(w).out(), mask, com.taku3.semiconductorlab.litho.ExposureTool.ARF_IMMERSION, 38, 0).out()).out();
+        ItemStack fins = com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(w, new ItemStack(Gas.CHLORINE_GAS));
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(fins);
+        h.assertTrue(fins.getCount() == 8 && st.has(com.taku3.semiconductorlab.litho.LayerKind.FIN), "Cl2 plasma stands fins up, got " + fins);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.formFins(w, false).reason(), "wet", "liquids cannot cut fins");
+        h.assertTrue(!com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(w, new ItemStack(Semiconductor.CARBON_TETRAFLUORIDE))).has(com.taku3.semiconductorlab.litho.LayerKind.FIN), "CF4 opens oxide windows instead");
+        h.assertTrue(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(new ItemStack(Semiconductor.OXIDIZED_WAFER), new ItemStack(Gas.CHLORINE_GAS)).isEmpty(), "no developed resist -> refused");
+        LOG.info("[LAB] fin etch [9-37]: Cl2 plasma in the dry etcher -> FIN under the resist; wet refused; CF4 gives windows");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
@@ -2921,6 +2940,8 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.WAFERS_PER_RUN), "銅の膜（このあと CMP）")), com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.WATTS, com.taku3.semiconductorlab.block.CopperPlaterBlockEntity.TICKS / 20.0, "Cu²⁺ + 2e⁻ → Cu。バリアなしは汚れ +30");
         rec(a, Semiconductor.SPUTTER.block, "タンタルのバリア膜", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "層間膜に穴と溝 1〜8枚"), io(Metallurgy.TANTALUM, 1), io(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.SputterBlockEntity.AR_PER_RUN)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.SputterBlockEntity.WAFERS_PER_RUN), "バリア膜つき")), com.taku3.semiconductorlab.block.SputterBlockEntity.WATTS, com.taku3.semiconductorlab.block.SputterBlockEntity.TICKS / 20.0, "銅がシリコンへしみるのを止める（[9-36]）");
+        rec(a, Semiconductor.DRY_ETCHER.block, "フィンを立てる（FinFET）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "フィンの形に現像した 1〜8枚"), io(Gas.CHLORINE_GAS, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.CF4_PER_RUN)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WAFERS_PER_RUN), "フィン（FIN の層）")), com.taku3.semiconductorlab.block.DryEtcherBlockEntity.WATTS, com.taku3.semiconductorlab.block.DryEtcherBlockEntity.TICKS / 20.0, "Cl2 のプラズマでシリコンを真下に削る");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),
