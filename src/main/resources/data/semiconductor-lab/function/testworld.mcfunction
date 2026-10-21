@@ -682,7 +682,7 @@ setblock ~104 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~104 ~0 ~74 semiconductor-lab:fluorination_reactor
 setblock ~105 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~105 ~0 ~74 semiconductor-lab:dry_etcher
-setblock ~106 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_tetrafluoride",count:16},{Slot:1b,id:"semiconductor-lab:graphite",count:16},{Slot:2b,id:"semiconductor-lab:fluorine_cylinder",count:16},{Slot:3b,id:"semiconductor-lab:process_wafer",count:16}]}
+setblock ~106 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:carbon_tetrafluoride",count:16},{Slot:1b,id:"semiconductor-lab:graphite",count:16},{Slot:2b,id:"semiconductor-lab:fluorine_cylinder",count:16},{Slot:3b,id:"semiconductor-lab:process_wafer",count:16},{Slot:4b,id:"semiconductor-lab:chlorine_gas",count:16}]}
 setblock ~109 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-26] スパッタリング","スパッタ装置の GUI","（「隣の真空容器を 0",".01Pa 以下に」）"]}}
 setblock ~109 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~109 ~0 ~74 semiconductor-lab:sputter
