@@ -146,6 +146,8 @@ public final class Semiconductor {
     public static final Machine<CvdFurnaceBlockEntity> CVD_FURNACE = Machine.electric("cvd_furnace", CvdFurnaceBlockEntity::new, CvdFurnaceBlockEntity.LAYOUT, lit(metal(4.0f), 9));
     // [9-31] CMP 装置（IMP4-01、v0.5 #2）：層間膜をスラリーで平らに（段差 steps → 0）。2kW
     public static final Machine<CmpPolisherBlockEntity> CMP_POLISHER = Machine.electric("cmp_polisher", CmpPolisherBlockEntity::new, CmpPolisherBlockEntity.LAYOUT, metal(4.0f));
+    // [9-30] エピタキシャル炉（IMP4-01、O-013）：SiCl4 + 2H2 → Si + 4HCl を約1200℃、素のウェハーに単結晶の層。10kW
+    public static final Machine<EpitaxyReactorBlockEntity> EPITAXY_REACTOR = Machine.electric("epitaxy_reactor", EpitaxyReactorBlockEntity::new, EpitaxyReactorBlockEntity.LAYOUT, lit(metal(4.0f), 9));
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

@@ -725,6 +725,40 @@
       "note": "SiH4 + O2 → SiO2 を約400℃。O2 はホルダーから"
     },
     {
+      "machine": "semiconductor-lab:cvd_furnace",
+      "process": "窒化膜（保護膜）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "金属を削り終えた 1〜8枚"
+        },
+        {
+          "item": "semiconductor-lab:silane_cylinder",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:ammonia_gas",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:process_wafer",
+          "count": 8,
+          "cond": "保護膜つき"
+        },
+        {
+          "item": "semiconductor-lab:empty_gas_cylinder",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 20.0,
+      "energy_kj": 40,
+      "note": "3SiH4 + 4NH3 → Si3N4 + 12H2"
+    },
+    {
       "machine": "semiconductor-lab:cz_puller",
       "process": "種結晶",
       "inputs": [
@@ -1008,6 +1042,47 @@
       "seconds": 96.485,
       "energy_kj": 193,
       "note": "硫酸銅の液（減らない）で、陽極の銅を型へ運ぶ。2F（193 kC）で銅 63.5 g（ファラデーの法則）"
+    },
+    {
+      "machine": "semiconductor-lab:epitaxy_reactor",
+      "process": "エピタキシー",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8
+        },
+        {
+          "item": "semiconductor-lab:silicon_tetrachloride",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_gas",
+          "count": 2
+        },
+        {
+          "item": "semiconductor-lab:boron_trioxide",
+          "count": 1,
+          "alt": [
+            "semiconductor-lab:phosphorus"
+          ],
+          "cond": "B＝p・P＝n の層"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:silicon_wafer",
+          "count": 8,
+          "cond": "エピ層付き"
+        },
+        {
+          "item": "semiconductor-lab:hydrogen_chloride_gas",
+          "count": 4
+        }
+      ],
+      "watts": 10000.0,
+      "seconds": 30.0,
+      "energy_kj": 300,
+      "note": "SiCl4 + 2H2 → Si + 4HCl を約1200℃。H2 はホルダーから"
     },
     {
       "machine": "semiconductor-lab:etch_tank",

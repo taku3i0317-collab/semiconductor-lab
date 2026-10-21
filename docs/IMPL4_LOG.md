@@ -111,3 +111,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - 案B：バリア膜を窒化チタン TiN で近似（チタンは IMP3 で済）。⚠️ 銅配線のバリアは本物は Ta/TaN が主流なので「仮」になる
   - 案C：銅配線は後回し（タンタルの扱いが決まるまで）
   3＝[9-30] エピタキシー・窒化膜を先に進める（A に ChipOps 側を相談中）
+- ✅ [9-30] エピタキシャル炉（block/EpitaxyReactorBlockEntity、10kW、データ部品 epi（A、"n"／"p"。塗るとき substrate＝エピ層の型）、酸化炉で受け継ぐ）。GameTest epitaxy_reactor、CHEMISTRY F60、REFERENCES F35。ChipState への反映（基板の型）は A に相談中
+- ✅ [9-30] エピは A の部品 EPI（"n"/"p"、d5814a71）に合わせた（自分の EPI_LAYER は消した）。窒化膜：CVD 炉に NH3 → ChipOps.passivate。CHEMISTRY F61、REFERENCES F36。[9-30] ✅

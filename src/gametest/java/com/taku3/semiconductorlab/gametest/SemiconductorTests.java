@@ -1131,7 +1131,17 @@ public class SemiconductorTests extends LabTestBase {
         h.assertTrue(cvdTried && st.has(com.taku3.semiconductorlab.litho.LayerKind.VIA) && st.has(com.taku3.semiconductorlab.litho.LayerKind.METAL2), "vias and a second metal");
         var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st));
         h.assertValueEqual(nl.netOf[12 * n + 15], nl.netOf[15 * n + 8], "right pad and bottom pad are one net through metal 2");
-        LOG.info("[LAB] two-metal chain [9-30]: CVD interlayer (silane + O2 from holder), dry-etched vias, sputtered metal 2 -> pads joined");
+        // 窒化膜の保護膜（O-013）：同じ CVD 炉に NH3 を入れる → passivated、2回目は断る
+        c.setItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_WAFER, w.copy());
+        c.setItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_SILANE, new ItemStack(Semiconductor.SILANE_CYLINDER));
+        c.setItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_O2, new ItemStack(Gas.AMMONIA_GAS, 2));
+        c.setItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_CYL, ItemStack.EMPTY);
+        tickConsumer(h, fp, be, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS + 1, feed);
+        ItemStack pas = c.getItem(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.SLOT_OUT);
+        h.assertTrue(pas.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(pas).extras().passivated(), "silane + NH3 -> nitride passivation, got " + pas);
+        h.assertTrue(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.product(pas, new ItemStack(Gas.AMMONIA_GAS)).isEmpty(), "already passivated");
+        h.assertTrue(com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.product(w, new ItemStack(Gas.OXYGEN_GAS)).isEmpty(), "only one interlayer");
+        LOG.info("[LAB] two-metal chain [9-30]: CVD interlayer (silane + O2 from holder), dry-etched vias, sputtered metal 2 -> pads joined; NH3 -> nitride passivation");
         h.succeed();
     }
 
@@ -1165,6 +1175,35 @@ public class SemiconductorTests extends LabTestBase {
         h.assertValueEqual(com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.reason(out), "already_flat", "second pass: already flat");
         h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(cp)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
         LOG.info("[LAB] CMP [9-31]: interlayer wafer steps " + before.steps() + " -> 0, dirt +2, bottle back");
+        h.succeed();
+    }
+
+    /** [9-30] エピタキシー（IMP4-01、O-013）：p のウェハー＋SiCl4＋H2（ホルダーから）＋リン → n のエピ層＋HCl 4。2回目は断る。酸化しても受け継ぐ */
+    @GameTest(maxTicks = 100)
+    public void epitaxyReactor(GameTestHelper h) {
+        floor(h, 5);
+        BlockPos ep = p(2, 1, 2), gp = p(3, 1, 2);
+        h.setBlock(ep, Semiconductor.EPITAXY_REACTOR.block);
+        h.setBlock(gp, Gas.GAS_HOLDER.block);
+        h.getBlockEntity(gp, com.taku3.semiconductorlab.block.GasHolderBlockEntity.class).setContentsForTest(com.taku3.semiconductorlab.block.GasType.HYDROGEN, 4);
+        var be = h.getBlockEntity(ep, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.class);
+        var c = be.getContainer();
+        ItemStack w = new ItemStack(Semiconductor.SILICON_WAFER, 8);
+        w.set(ModDataComponents.DOPANT, "boron");
+        c.setItem(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SLOT_WAFER, w);
+        c.setItem(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SLOT_SICL4, new ItemStack(Metallurgy.SILICON_TETRACHLORIDE));
+        c.setItem(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SLOT_DOPANT, new ItemStack(Chemistry.PHOSPHORUS));
+        tickConsumer(h, ep, be, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.TICKS + 15, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.WATTS));
+        ItemStack out = c.getItem(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SLOT_OUT);
+        h.assertTrue(out.getCount() == 8 && "n".equals(out.get(ModDataComponents.EPI)) && "boron".equals(out.get(ModDataComponents.DOPANT)), "n epi layer on the p wafer, got " + out);
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SLOT_HCL).is(Metallurgy.HYDROGEN_CHLORIDE_GAS) && c.getItem(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SLOT_HCL).getCount() == com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.HCL_PER_RUN, "SiCl4 + 2H2 -> Si + 4HCl");
+        h.assertTrue(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.product(out, new ItemStack(Chemistry.PHOSPHORUS)).isEmpty(), "already has an epi layer");
+        ItemStack ox = com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.oxidized(out, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.DRY, 8);
+        h.assertValueEqual(ox.get(ModDataComponents.EPI), "n", "the epi layer survives oxidation");
+        var cs = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.coat(ox).out());
+        h.assertTrue(cs.substrate().equals("n") && cs.extras().epiOn().equals("p"), "coated: surface = n epi layer, base p recorded (A)");
+        h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(ep)).inflate(2)).forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] epitaxy [9-30]: p wafer + SiCl4 + H2 (holder) + P -> n epi layer + 4 HCl; kept through oxidation");
         h.succeed();
     }
 
@@ -2701,6 +2740,10 @@ public class SemiconductorTests extends LabTestBase {
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "層間膜（このあと VIA・METAL2）"), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS / 20.0, "SiH4 + O2 → SiO2 を約400℃。O2 はホルダーから");
         rec(a, Semiconductor.CMP_POLISHER.block, "平らにする（CMP）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.WAFERS_PER_RUN), "層間膜のある 1〜8枚"), io(Chemistry.COLLOIDAL_SILICA, 1)),
             L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.WAFERS_PER_RUN), "段差 0（汚れ +2）"), io(Chemistry.GLASS_BOTTLE, 1)), com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.WATTS, com.taku3.semiconductorlab.block.CmpPolisherBlockEntity.TICKS / 20.0, "スラリー＋パッドで出っぱりから削る");
+        rec(a, Semiconductor.EPITAXY_REACTOR.block, "エピタキシー", L(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.WAFERS_PER_RUN), io(Metallurgy.SILICON_TETRACHLORIDE, 1), io(Gas.HYDROGEN_GAS, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.H2_PER_RUN), cond(alt(io(Metallurgy.BORON_TRIOXIDE, 1), Chemistry.PHOSPHORUS), "B＝p・P＝n の層")),
+            L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.WAFERS_PER_RUN), "エピ層付き"), io(Metallurgy.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.HCL_PER_RUN)), com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.TICKS / 20.0, "SiCl4 + 2H2 → Si + 4HCl を約1200℃。H2 はホルダーから");
+        rec(a, Semiconductor.CVD_FURNACE.block, "窒化膜（保護膜）", L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "金属を削り終えた 1〜8枚"), io(Semiconductor.SILANE_CYLINDER, 1), io(Gas.AMMONIA_GAS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.O2_PER_RUN)),
+            L(cond(io(Semiconductor.PROCESS_WAFER, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WAFERS_PER_RUN), "保護膜つき"), io(Gas.EMPTY_GAS_CYLINDER, 1)), com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.WATTS, com.taku3.semiconductorlab.block.CvdFurnaceBlockEntity.TICKS / 20.0, "3SiH4 + 4NH3 → Si3N4 + 12H2");
         rec(a, Semiconductor.WAFER_SAW.block, "板に切る", L(io(Semiconductor.SILICON_SINGLE_CRYSTAL, 1), perRuns(io(Semiconductor.DIAMOND_SAW_BLADE, 1), com.taku3.semiconductorlab.block.WaferSawBlockEntity.RUNS_PER_BLADE)),
             L(cond(io(Semiconductor.SILICON_WAFER, com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLICES_PER_INGOT), "純度とドーパントを受け継ぐ")), com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS, com.taku3.semiconductorlab.block.WaferSawBlockEntity.TICKS / 20.0, "ダイヤモンドの円盤刃（1954 の作り方）");
         rec(a, Semiconductor.CZ_PULLER.block, "種結晶", L(cond(io(Metallurgy.POLYSILICON, 1), "種のスロットに"), io(Semiconductor.QUARTZ_CRUCIBLE, 1), mol(Gas.ARGON_GAS, com.taku3.semiconductorlab.block.CzPullerBlockEntity.AR_PER_SEED)),

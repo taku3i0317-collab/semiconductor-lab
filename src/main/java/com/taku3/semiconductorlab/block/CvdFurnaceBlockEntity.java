@@ -18,6 +18,8 @@ import net.minecraft.world.level.block.state.BlockState;
  * 熱酸化（約1000℃、[9-15]）はシリコンを食べて育つうえ、アルミ（660℃ で溶ける）の上ではできない＝金属の上の絶縁膜は CVD で積む。
  * 1層目の金属を削った加工中のウェハー 1〜8枚 ＋ シランのボンベ 1 ＋ 酸素 1 → 層間膜を付けたウェハー（ChipOps.depositInterlayer、A）＋ 空のボンベ。
  * そのあと VIA の窓（塗布→露光→現像→エッチング→はがす）→ 2層目の Al → 削る（METAL2）。酸素は隣のガスホルダーから補充。
+ * 窒化膜モード（O-013）：酸素の代わりにアンモニアを入れると、窒化ケイ素の保護膜（パッシベーション）を積む（3SiH4 + 4NH3 → Si3N4 + 12H2、約700〜800℃）。
+ * 金属を削り終えたウェハー → ChipOps.passivate（A、記録だけ）。水分やナトリウムからチップを守る最後の膜。
  * ⚠️ 電力・時間はゲームの値。膜の厚さ・りん（PSG）を混ぜて流れやすくする工夫は省略（cvd_furnace.placeholder）。
  */
 public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
@@ -31,12 +33,13 @@ public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_WAFER, 8, 17, ChipOps::isProcessWafer)
             .in(SLOT_SILANE, 8, 35, s -> s.is(Semiconductor.SILANE_CYLINDER))
-            .in(SLOT_O2, 8, 53, s -> s.is(Gas.OXYGEN_GAS))
+            .in(SLOT_O2, 8, 53, s -> s.is(Gas.OXYGEN_GAS) || s.is(Gas.AMMONIA_GAS))
             .out(SLOT_OUT, 78, 26)
             .out(SLOT_CYL, 78, 46)
             .right("power", 17, 1, "gui.semiconductor-lab.cvd_furnace.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.cvd_furnace.need_input", "gui.semiconductor-lab.cvd_furnace.cannot",
-                    "gui.semiconductor-lab.cvd_furnace.need_power", "gui.semiconductor-lab.cvd_furnace.running")
+                    "gui.semiconductor-lab.cvd_furnace.need_power", "gui.semiconductor-lab.cvd_furnace.running",
+                    "gui.semiconductor-lab.cvd_furnace.cannot_nitride", "gui.semiconductor-lab.cvd_furnace.running_nitride")
             .bottom("recipe", "gui.semiconductor-lab.cvd_furnace.recipe")
             .build();
 
@@ -45,23 +48,27 @@ public class CvdFurnaceBlockEntity extends ConsumerBlockEntity {
     }
 
     /** 層間膜を付けたウェハー（1〜8枚）。付けられなければ EMPTY */
-    public static ItemStack product(ItemStack w) {
+    public static ItemStack product(ItemStack w) { return product(w, new ItemStack(Gas.OXYGEN_GAS)); }
+
+    /** gas が酸素なら層間膜（SiO2）、アンモニアなら窒化膜の保護膜（Si3N4）。できなければ EMPTY */
+    public static ItemStack product(ItemStack w, ItemStack gas) {
         if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
-        ChipOps.Result r = ChipOps.depositInterlayer(w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)));
-        return r.ok() ? r.out() : ItemStack.EMPTY;
+        ItemStack in = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
+        ChipOps.Result r = gas.is(Gas.AMMONIA_GAS) ? ChipOps.passivate(in) : gas.is(Gas.OXYGEN_GAS) ? ChipOps.depositInterlayer(in) : null;
+        return r != null && r.ok() ? r.out() : ItemStack.EMPTY;
     }
 
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return TICKS; }
 
     @Override protected boolean canWork() {
-        ItemStack out = product(container.getItem(SLOT_WAFER)), o2 = container.getItem(SLOT_O2);
-        return !out.isEmpty() && container.getItem(SLOT_SILANE).is(Semiconductor.SILANE_CYLINDER) && o2.is(Gas.OXYGEN_GAS) && o2.getCount() >= O2_PER_RUN
+        ItemStack o2 = container.getItem(SLOT_O2), out = product(container.getItem(SLOT_WAFER), o2);
+        return !out.isEmpty() && container.getItem(SLOT_SILANE).is(Semiconductor.SILANE_CYLINDER) && o2.getCount() >= O2_PER_RUN
                 && canMerge(container.getItem(SLOT_OUT), out) && canMerge(container.getItem(SLOT_CYL), new ItemStack(Gas.EMPTY_GAS_CYLINDER));
     }
 
     @Override protected void finishWork() {
-        ItemStack out = product(container.getItem(SLOT_WAFER));
+        ItemStack out = product(container.getItem(SLOT_WAFER), container.getItem(SLOT_O2));
         container.getItem(SLOT_WAFER).shrink(out.getCount());
         container.getItem(SLOT_SILANE).shrink(1);
         container.getItem(SLOT_O2).shrink(O2_PER_RUN);
