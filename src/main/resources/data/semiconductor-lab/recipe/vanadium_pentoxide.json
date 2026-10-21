@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.2,
+  "ingredient": "semiconductor-lab:ammonium_metavanadate",
+  "result": {
+    "id": "semiconductor-lab:vanadium_pentoxide"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:naphthalene",
+    "semiconductor-lab:vanadium_pentoxide"
+  ],
+  "result": {
+    "id": "semiconductor-lab:phthalic_anhydride",
+    "count": 1
+  }
+}

@@ -407,6 +407,15 @@ public final class Chemistry {
     public static final Item ANISOLE               = Reg.item("anisole", new Item.Properties().stacksTo(16));
     public static final Item ANISALDEHYDE          = Reg.item("anisaldehyde", new Item.Properties().stacksTo(16));
 
+    // 銅フタロシアニン（青い顔料、IMP3、O-025。C の [9-45] 青のカラーレジストの材料）：ナフタレン＋V2O5（触媒、戻る）→ 無水フタル酸（空気酸化 1916〜）。
+    //   アンモニア2＋CO2 → 尿素（1922 ボッシュ・マイザー）。銅＋塩酸2 → 塩化銅(I)2。三酸化モリブデン＋アンモニア水 → モリブデン酸アンモニウム（触媒、戻る）
+    //   無水フタル酸4＋尿素2＋塩化銅(I)＋モリブデン酸アンモニウム → 銅フタロシアニン（ワイラー法 1936）
+    public static final Item PHTHALIC_ANHYDRIDE    = Reg.item("phthalic_anhydride");
+    public static final Item UREA                  = Reg.item("urea");
+    public static final Item CUPROUS_CHLORIDE      = Reg.item("cuprous_chloride");
+    public static final Item AMMONIUM_MOLYBDATE    = Reg.item("ammonium_molybdate", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(16));
+    public static final Item COPPER_PHTHALOCYANINE = Reg.item("copper_phthalocyanine");
+
     static void init() {
         // [2-48] オゾンホールの日焼け（決定 Q3-11 ②、IMP3 S-006）
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents.END_SERVER_TICK.register(com.taku3.semiconductorlab.OzoneLayer::tick);

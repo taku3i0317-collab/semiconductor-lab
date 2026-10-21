@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:phthalic_anhydride",
+    "semiconductor-lab:phthalic_anhydride",
+    "semiconductor-lab:phthalic_anhydride",
+    "semiconductor-lab:phthalic_anhydride",
+    "semiconductor-lab:urea",
+    "semiconductor-lab:urea",
+    "semiconductor-lab:cuprous_chloride",
+    "semiconductor-lab:ammonium_molybdate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:copper_phthalocyanine",
+    "count": 1
+  }
+}

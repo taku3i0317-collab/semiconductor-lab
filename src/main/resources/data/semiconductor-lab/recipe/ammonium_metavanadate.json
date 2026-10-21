@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:sodium_vanadate_solution",
+    "semiconductor-lab:ammonium_chloride"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ammonium_metavanadate",
+    "count": 1
+  }
+}

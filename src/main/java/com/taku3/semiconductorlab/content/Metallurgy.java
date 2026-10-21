@@ -115,6 +115,15 @@ public final class Metallurgy {
     //   → 8つ＋水で分別結晶（1924 ヘヴェシー）→ フッ化ハフニウムカリウム1（各マスに純粋なフッ化ジルコニウムカリウムが残る）
     //   K2HfF6 ＋アンモニア水 → 水酸化ハフニウム →かまど→ 酸化ハフニウム HfO2（high-k）。K2ZrF6/K2HfF6 ＋ナトリウム → 粗い金属 → ＋ヨウ素＋W線 → 結晶棒（1925 ヨウ化物法）
     public static final float ZIRCON_FROM_IRON_SAND = 0.05f;
+    // バナジウム（IMP3、O-026、仮決定 Q3-18 ①）：砂鉄にはバナジウムの多い磁鉄鉱（チタン磁鉄鉱）がまじる（VANADIUM_MAGNETITE_FROM_IRON_SAND）。
+    //   ＋食塩 → 焙焼の仕込み →かまど（ナトリウム塩焙焼）→ 焼いた鉱 → ＋水 → バナジン酸ナトリウムの液 → ＋塩化アンモニウム → メタバナジン酸アンモニウム →かまど→ V2O5（触媒、戻る）
+    public static final float VANADIUM_MAGNETITE_FROM_IRON_SAND = 0.08f;
+    public static final Item VANADIUM_MAGNETITE    = Reg.item("vanadium_magnetite");
+    public static final Item VANADIUM_ROAST_CHARGE = Reg.item("vanadium_roast_charge");
+    public static final Item VANADIUM_CALCINE      = Reg.item("vanadium_calcine");
+    public static final Item SODIUM_VANADATE_SOLUTION = Reg.item("sodium_vanadate_solution", new Item.Properties().stacksTo(16));
+    public static final Item AMMONIUM_METAVANADATE = Reg.item("ammonium_metavanadate");
+    public static final Item VANADIUM_PENTOXIDE    = Reg.item("vanadium_pentoxide", CatalystItem::new, new Item.Properties().stacksTo(16));
     public static final Item ZIRCON                = Reg.item("zircon");
     public static final Item CRUDE_ZIRCONIA        = Reg.item("crude_zirconia");
     public static final Item POTASSIUM_FLUOROZIRCONATE = Reg.item("potassium_fluorozirconate");
@@ -323,6 +332,12 @@ public final class Metallurgy {
             if (!table.is(IRON_SAND.getLootTable().orElseThrow())) return;
             if (drops.stream().anyMatch(st -> st.is(MAGNETITE)) && ctx.getRandom().nextFloat() < ZIRCON_FROM_IRON_SAND)
                 drops.add(new net.minecraft.world.item.ItemStack(ZIRCON));
+        });
+        // 砂鉄にはバナジウムの多い磁鉄鉱もまじる（IMP3、O-026）
+        net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            if (!table.is(IRON_SAND.getLootTable().orElseThrow())) return;
+            if (drops.stream().anyMatch(st -> st.is(MAGNETITE)) && ctx.getRandom().nextFloat() < VANADIUM_MAGNETITE_FROM_IRON_SAND)
+                drops.add(new net.minecraft.world.item.ItemStack(VANADIUM_MAGNETITE));
         });
     }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:molybdenum_trioxide",
+    "semiconductor-lab:ammonia_water"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ammonium_molybdate",
+    "count": 1
+  }
+}

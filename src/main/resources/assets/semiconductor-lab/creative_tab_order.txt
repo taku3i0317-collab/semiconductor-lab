@@ -220,6 +220,12 @@ oxalic_acid  # Metallurgy [None] None
 rare_earth_leachate  # Metallurgy [None] None
 rare_earth_oxalate  # Metallurgy [None] None
 mixed_rare_earth_oxide  # Metallurgy [None] None
+vanadium_magnetite  # Metallurgy [None] None
+vanadium_roast_charge  # Metallurgy [None] None
+vanadium_calcine  # Metallurgy [None] None
+sodium_vanadate_solution  # Metallurgy [None] None
+ammonium_metavanadate  # Metallurgy [None] None
+vanadium_pentoxide  # Metallurgy [None] None
 crude_titanium_tetrachloride  # Metallurgy [None] None
 kroll_charge  # Metallurgy [None] None
 sponge_with_salt  # Metallurgy [None] None
@@ -399,6 +405,7 @@ cellulose_acetate  # Chemistry [2-18] 1970
 ro_membrane  # Chemistry [2-18] 1970
 ultrapure_water  # Chemistry [2-18] 1970
 ultrapure_water_system  # Chemistry [2-18] 1970
+copper_phthalocyanine  # Chemistry [9-45] 1976
 polyacetylene_film  # Chemistry [2-55] 1977
 doped_polyacetylene  # Chemistry [2-55] 1977
 continuity_tester  # Chemistry [2-55] 1977
@@ -452,6 +459,10 @@ nitrobutylbenzene  # Chemistry [None] None
 butylaniline  # Chemistry [None] None
 anisole  # Chemistry [None] None
 anisaldehyde  # Chemistry [None] None
+phthalic_anhydride  # Chemistry [None] None
+urea  # Chemistry [None] None
+cuprous_chloride  # Chemistry [None] None
+ammonium_molybdate  # Chemistry [None] None
 bellows  # Heat [3-04] -1450
 zinc_oxide  # Heat [3-06] 1690
 reverberatory_furnace  # Heat [3-06] 1690

@@ -1399,6 +1399,19 @@ public class ChemistryTests extends LabTestBase {    @GameTest public void oreTr
         h.succeed();
     }
 
+    /** 銅フタロシアニン（IMP3、O-025）：ナフタレン＋V2O5 → 無水フタル酸、NH3＋CO2 → 尿素、Cu＋HCl → CuCl、MoO3＋NH3 水 → モリブデン酸アンモニウム（触媒）→ 青い顔料 */
+    @GameTest
+    public void copperPhthalocyanine(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "phthalic_anhydride", Chemistry.NAPHTHALENE) && recipeUses(h, "phthalic_anhydride", com.taku3.semiconductorlab.content.Metallurgy.VANADIUM_PENTOXIDE), "V2O5 air oxidation (no mercury)");
+        h.assertTrue(recipeUses(h, "urea", com.taku3.semiconductorlab.content.Gas.AMMONIA_GAS) && recipeUses(h, "urea", com.taku3.semiconductorlab.content.Gas.CARBON_DIOXIDE_GAS), "urea from NH3 + CO2");
+        h.assertTrue(recipeUses(h, "ammonium_molybdate", com.taku3.semiconductorlab.content.Metallurgy.MOLYBDENUM_TRIOXIDE), "molybdate catalyst from C's MoO3");
+        h.assertTrue(recipeUses(h, "copper_phthalocyanine", Chemistry.PHTHALIC_ANHYDRIDE) && recipeUses(h, "copper_phthalocyanine", Chemistry.UREA)
+                && recipeUses(h, "copper_phthalocyanine", Chemistry.CUPROUS_CHLORIDE) && recipeUses(h, "copper_phthalocyanine", Chemistry.AMMONIUM_MOLYBDATE), "Wyler process");
+        var rem = Chemistry.AMMONIUM_MOLYBDATE.getCraftingRemainder(new ItemStack(Chemistry.AMMONIUM_MOLYBDATE));
+        h.assertTrue(rem != null && rem.create().is(Chemistry.AMMONIUM_MOLYBDATE), "molybdate catalyst returned");
+        h.succeed();
+    }
+
     /** この幹の機械のレシピ（docs/machine_recipes.json の元。CommonTests.exportMachineRecipes が集める） */
     static void machineRecipes(com.google.gson.JsonArray a) {
         for (var r : com.taku3.semiconductorlab.block.ResistReactorBlockEntity.RECIPES) {

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:vanadium_magnetite",
+    "semiconductor-lab:vanadium_magnetite",
+    "semiconductor-lab:salt"
+  ],
+  "result": {
+    "id": "semiconductor-lab:vanadium_roast_charge",
+    "count": 1
+  }
+}

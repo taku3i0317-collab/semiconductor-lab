@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:vanadium_calcine",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sodium_vanadate_solution",
+    "count": 1
+  }
+}

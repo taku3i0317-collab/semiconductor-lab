@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ammonia_gas",
+    "semiconductor-lab:ammonia_gas",
+    "semiconductor-lab:carbon_dioxide_gas"
+  ],
+  "result": {
+    "id": "semiconductor-lab:urea",
+    "count": 1
+  }
+}

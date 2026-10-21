@@ -377,7 +377,7 @@ public class MetallurgyTests extends LabTestBase {
             net.minecraft.world.item.Item raw = (net.minecraft.world.item.Item) o[1];
             List<ItemStack> normal = Block.getDrops(b.defaultBlockState(), lv, at, null, null, pick);
             List<ItemStack> silky = Block.getDrops(b.defaultBlockState(), lv, at, null, null, silk);
-            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw) || (b == Metallurgy.IRON_SAND && (s.is(Metallurgy.PLATINUM_GRAIN) || s.is(Metallurgy.ILMENITE) || s.is(Metallurgy.ZIRCON)))), b + " with a pickaxe should drop " + raw + ", got " + normal);   // 砂鉄はまれに砂白金 [1-20]・チタン鉄鉱 [1-41] も
+            h.assertTrue(!normal.isEmpty() && normal.stream().allMatch(s -> s.is(raw) || (b == Metallurgy.IRON_SAND && (s.is(Metallurgy.PLATINUM_GRAIN) || s.is(Metallurgy.ILMENITE) || s.is(Metallurgy.ZIRCON) || s.is(Metallurgy.VANADIUM_MAGNETITE)))), b + " with a pickaxe should drop " + raw + ", got " + normal);   // 砂鉄はまれに砂白金 [1-20]・チタン鉄鉱 [1-41] も
             h.assertTrue(silky.size() == 1 && silky.get(0).is(b.asItem()), b + " with silk touch should drop itself, got " + silky);
         }
         for (Block m : new Block[] {Power.STEAM_ENGINE.block, Power.STEAM_TURBINE.block, Power.LEAD_ACID_BATTERY.block, Power.WATER_WHEEL.block, Gas.ELECTROLYZER.block, Gas.GAS_HOLDER.block,
@@ -1168,6 +1168,18 @@ public class MetallurgyTests extends LabTestBase {
         var y = Metallurgy.MAGNETIZING_YOKE.getCraftingRemainder(new ItemStack(Metallurgy.MAGNETIZING_YOKE));
         h.assertTrue(y != null && y.create().is(Metallurgy.MAGNETIZING_YOKE), "the yoke comes back");
         LOG.info("[LAB] neodymium magnet [1-35]: bastnaesite liquor -> Nd2O3 -> NdF3 -> Nd; Nd2Fe14B -> H2 powder -> aligned compact -> sinter -> magnetize");
+        h.succeed();
+    }
+
+    /** バナジウム（IMP3、O-026）：砂鉄の副産物 → ＋食塩 → 焙焼 → 水で浸出 → ＋NH4Cl → NH4VO3 → 焼く → V2O5（触媒、戻る） */
+    @GameTest
+    public void vanadium(GameTestHelper h) {
+        h.assertTrue(Metallurgy.VANADIUM_MAGNETITE_FROM_IRON_SAND > 0 && Metallurgy.VANADIUM_MAGNETITE_FROM_IRON_SAND < 0.5f, "by-product of iron sand");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.VANADIUM_ROAST_CHARGE).is(Metallurgy.VANADIUM_CALCINE), "salt roast");
+        h.assertTrue(recipeUses(h, "ammonium_metavanadate", Chemistry.AMMONIUM_CHLORIDE), "precipitate with NH4Cl");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.AMMONIUM_METAVANADATE).is(Metallurgy.VANADIUM_PENTOXIDE), "calcine -> V2O5");
+        var rem = Metallurgy.VANADIUM_PENTOXIDE.getCraftingRemainder(new ItemStack(Metallurgy.VANADIUM_PENTOXIDE));
+        h.assertTrue(rem != null && rem.create().is(Metallurgy.VANADIUM_PENTOXIDE), "V2O5 is a catalyst (returned)");
         h.succeed();
     }
 }
