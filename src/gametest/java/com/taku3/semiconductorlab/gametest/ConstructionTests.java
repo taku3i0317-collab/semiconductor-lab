@@ -215,4 +215,12 @@ public class ConstructionTests extends LabTestBase {
         h.assertBlockPresent(Construction.STEEL_BEAM, p(1, 1, 1));
         h.succeed();
     }
+
+    /** [12-09] 道路（IMP3、S-011）：マカダム（速さ 1.15）→ ＋コールタール → タールマカダム（1.3） */
+    @GameTest
+    public void roads(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "tarmac", Construction.MACADAM.asItem()) && recipeUses(h, "tarmac", com.taku3.semiconductorlab.content.Chemistry.COAL_TAR), "tar + macadam");
+        h.assertTrue(Construction.TARMAC.getSpeedFactor() > Construction.MACADAM.getSpeedFactor() && Construction.MACADAM.getSpeedFactor() > 1.0f, "faster roads");
+        h.succeed();
+    }
 }

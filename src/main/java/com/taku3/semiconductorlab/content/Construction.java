@@ -63,6 +63,13 @@ public final class Construction {
     public static final Block STEEL_BEAM = Reg.block("steel_beam", net.minecraft.world.level.block.RotatedPillarBlock::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(4.0f, 8.0f).sound(SoundType.METAL));
 
+    // ===== [12-09] 道路（IMP3、S-011）：丸石2＋砂利2 → 砕石の道（マカダム）4、少し速く歩ける。マカダム4＋コールタール → タールマカダム4、もっと速く歩ける =====
+    public static final float MACADAM_SPEED = 1.15f, TARMAC_SPEED = 1.3f;
+    public static final Block MACADAM = Reg.block("macadam", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.STONE).strength(1.5f, 4.0f).sound(SoundType.GRAVEL).speedFactor(MACADAM_SPEED));
+    public static final Block TARMAC = Reg.block("tarmac", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(1.8f, 4.0f).sound(SoundType.STONE).speedFactor(TARMAC_SPEED));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

@@ -818,6 +818,8 @@ roman_concrete  # Construction [12-01] -150
 roman_concrete_mix  # Construction [12-01] -150
 theodolite  # Construction [12-11] 1615
 steel_beam  # Construction [12-04] 1779
+macadam  # Construction [12-09] 1820
+tarmac  # Construction [12-09] 1820
 cement_raw_meal  # Construction [12-02] 1824
 cement_clinker  # Construction [12-02] 1824
 portland_cement  # Construction [12-02] 1824

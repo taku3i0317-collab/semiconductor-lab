@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:macadam",
+    "semiconductor-lab:macadam",
+    "semiconductor-lab:macadam",
+    "semiconductor-lab:macadam",
+    "semiconductor-lab:coal_tar"
+  ],
+  "result": {
+    "id": "semiconductor-lab:tarmac",
+    "count": 4
+  }
+}

@@ -3972,6 +3972,19 @@
 - Wikipedia「Potassium nitrate」（Production の節）：https://en.wikipedia.org/wiki/Potassium_nitrate
 - Wikipedia「Nitrification」：https://en.wikipedia.org/wiki/Nitrification
 
+## C76. ぬかるまない道（マカダム・ターマック）［12-09］
+**答え**：昔の道は雨でどろどろになり、馬車が進めなかった。1820年ごろ、スコットランドのジョン・ラウドン・マカダムは、とがった砕石を何層にも重ねて押し固め、真ん中を少し高くして水を流す道を広めた。自動車が走るようになると、タイヤが砕石をはがしてほこりが立ったので、1902年にイギリスのエドガー・フーリーがコールタールで砕石を固める「タールマカダム（ターマック）」の特許を取った。今の道路のアスファルトは石油から作る。
+
+- へえ①：「ターマック」はコールタールとマカダムさんの名前を合わせた言葉。
+- へえ②：道の真ん中が少し高いのは、雨水を両側に流すため。
+- へえ③：フーリーは、タールがこぼれた所だけ道が固くほこりが立たないのに気づいた。
+- へえ④：空港の滑走路を「ターマック」と呼ぶのはこの名前から。
+
+確かさ：マカダム 1820年ごろ・フーリー 1902 ◎
+根拠：
+- Wikipedia「Macadam」：https://en.wikipedia.org/wiki/Macadam
+- Wikipedia「Tarmac」：https://en.wikipedia.org/wiki/Tarmac
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
