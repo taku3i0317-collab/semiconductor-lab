@@ -33,6 +33,11 @@ public final class Multiblock {
     public interface ItemPort { MachineBE controller(); }
 
     public static final int CHECK_EVERY = 20;
+    /**
+     * 組み上がった見た目（Q33-4＝b、S-025）：部品のブロックがこの状態を持っていれば、組み上がると true・崩れると false に切りかえる。
+     * 部品のブロックは createBlockStateDefinition に FORMED を足し、blockstates の JSON で formed=true の絵（つながった模様）を出す
+     */
+    public static final net.minecraft.world.level.block.state.properties.BooleanProperty FORMED = net.minecraft.world.level.block.state.properties.BooleanProperty.create("formed");
     /** マスの状態（見取り図の色）：合っている・足りない（空気）・ちがうブロック・何でもよい */
     public static final int OK = 0, MISSING = 1, WRONG = 2, FREE = 3;
     /** しゃがんで右クリックで見取り図を開く（クライアントの初期化で入れる） */
@@ -61,8 +66,10 @@ public final class Multiblock {
         if (level == null) return null;
         MultiblockPattern p = pattern.get();
         last = p.check(level, pos, facing);
+        boolean was = formed;
         formed = last.formed();
         ports.clear();
+        if (was != formed && !level.isClientSide()) setFormedLook(level, pos, facing, p, formed);
         if (formed) {
             for (int y = 0; y < p.height(); y++) for (int z = 0; z < p.depth(); z++) for (int x = 0; x < p.width(); x++) {
                 BlockPos at = p.worldPos(pos, facing, x, y, z);
@@ -71,6 +78,15 @@ public final class Multiblock {
             if (!announced && level instanceof ServerLevel sl) { announced = true; announce(sl, pos); }
         }
         return last;
+    }
+
+    /** 形の中で FORMED を持つブロックを切りかえる（組み上がった見た目） */
+    private static void setFormedLook(Level level, BlockPos pos, Direction facing, MultiblockPattern p, boolean on) {
+        for (int y = 0; y < p.height(); y++) for (int z = 0; z < p.depth(); z++) for (int x = 0; x < p.width(); x++) {
+            BlockPos at = p.worldPos(pos, facing, x, y, z);
+            BlockState s = level.getBlockState(at);
+            if (s.hasProperty(FORMED) && s.getValue(FORMED) != on) level.setBlock(at, s.setValue(FORMED, on), net.minecraft.world.level.block.Block.UPDATE_CLIENTS);
+        }
     }
 
     private static void announce(ServerLevel sl, BlockPos pos) {

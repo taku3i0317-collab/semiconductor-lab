@@ -692,3 +692,9 @@
 - 今の数：① 74 / 891（C 30・D 31・E 13）② 29 / 101（C 18・D 3・E 8）③ 0
 - **ユーザーに聞く（見た目）**：うすい形（ゴースト）は今は光の点。半透明のブロックで描く形にするか（Discord で質問）
 - test 413/413 PASS
+
+## S-029（うすい形＝半透明のブロック、2026-10-21）
+- client/MultiblockGhost を作り直し：Fabric の LevelRenderEvents.COLLECT_SUBMITS で、置くブロックの絵（パーティクルの絵）の半透明の立方体、ちがうブロックの所は赤い枠（LINES）。キー G（KeyMappingHelper）か見取り図の「形」で出す／消す、組み上がると消える。48 ブロックまで、10 tick に1回だけ調べ直し
+- ⚠️ 描き方は javap で確かめたが、ゲームの画面では未確認（runClient しない決まり）→ test_queue に
+- C のために：Multiblock.FORMED（ブロックの状態 formed）を足すと、組み上がり／崩れで自動で切りかわる（Q33-4＝b の見た目の土台）
+- DECISIONS に1行。test PASS
