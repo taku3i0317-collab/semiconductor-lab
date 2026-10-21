@@ -27,7 +27,8 @@ public final class Netlist {
     public record Diode(int anodeRegion, int cathodeRegion, int anodeNet, int cathodeNet) {}
     public record Transistor(boolean npn, int emitter, int base, int collector, int eNet, int bNet, int cNet) {}
     /** MOS トランジスタ（n チャネル、S-011）：ゲートの線、ソース・ドレインの領域（どちらがどちらかは電圧で決まる）、その代表のマス、W/L、チャネルのマス */
-    public record Mos(int gateNet, int sdA, int sdB, int cellA, int cellB, double wOverL, List<int[]> channel) {}
+    /** p＝p チャネル（n のウェルの上、[9-24] CMOS）。false＝n チャネル */
+    public record Mos(int gateNet, int sdA, int sdB, int cellA, int cellB, double wOverL, List<int[]> channel, boolean p) {}
 
     public final ChipModel model;
     public final List<Region> regions = new ArrayList<>();
@@ -129,6 +130,7 @@ public final class Netlist {
         boolean[] seen = new boolean[n * n];
         for (int y = 0; y < n; y++) for (int x = 0; x < n; x++) {
             if (seen[y * n + x] || !channel(x, y)) continue;
+            char t = model.type(x, y), sdType = t == 'p' ? 'n' : 'p';   // チャネルの下の型と、ソース・ドレインの型（反対）
             List<int[]> ch = new ArrayList<>();
             ArrayDeque<int[]> q = new ArrayDeque<>();
             q.add(new int[] {x, y}); seen[y * n + x] = true;
@@ -141,8 +143,8 @@ public final class Netlist {
                 for (int[] d : DIRS) {
                     int a = c[0] + d[0], b = c[1] + d[1];
                     if (!model.inside(a, b)) continue;
-                    if (channel(a, b)) { if (!seen[b * n + a]) { seen[b * n + a] = true; q.add(new int[] {a, b}); } }
-                    else if (model.type(a, b) == 'n') sd.putIfAbsent(regionOf[b * n + a], new int[] {a, b});
+                    if (channel(a, b) && model.type(a, b) == t) { if (!seen[b * n + a]) { seen[b * n + a] = true; q.add(new int[] {a, b}); } }
+                    else if (model.type(a, b) == sdType && !channel(a, b)) sd.putIfAbsent(regionOf[b * n + a], new int[] {a, b});
                 }
             }
             if (sd.size() != 2 || gateNet < 0) continue;
@@ -150,12 +152,12 @@ public final class Netlist {
             var ea = it.next(); var eb = it.next();
             if (firstNet(ea.getKey()) < 0 || firstNet(eb.getKey()) < 0) continue;
             int len = Math.max(1, Math.abs(ea.getValue()[0] - eb.getValue()[0]) + Math.abs(ea.getValue()[1] - eb.getValue()[1]) - 1);
-            mosfets.add(new Mos(gateNet, ea.getKey(), eb.getKey(), ea.getValue()[1] * n + ea.getValue()[0], eb.getValue()[1] * n + eb.getValue()[0], (double) ch.size() / len / len, ch));
+            mosfets.add(new Mos(gateNet, ea.getKey(), eb.getKey(), ea.getValue()[1] * n + ea.getValue()[0], eb.getValue()[1] * n + eb.getValue()[0], (double) ch.size() / len / len, ch, t == 'n'));
         }
     }
 
-    /** チャネルになるマス：ゲート酸化膜・p・上に1層目の金属 */
-    private boolean channel(int x, int y) { return model.gate(x, y) && model.type(x, y) == 'p' && model.metal(x, y); }
+    /** チャネルになるマス：ゲート酸化膜・上に1層目の金属（下が p なら n チャネル、n のウェルなら p チャネル、[9-24]） */
+    private boolean channel(int x, int y) { return model.gate(x, y) && model.metal(x, y) && model.type(x, y) != ' '; }
 
     /** 領域どうしが接しているか */
     public boolean touches(int ra, int rb) {

@@ -2509,12 +2509,12 @@ public class SemiconductorTests extends LabTestBase {
         var dt = h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.DraftingTableBlockEntity.class);
         var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
         dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_NEW);
-        int[] sizes = new int[4]; boolean[] mos = new boolean[4];
-        for (int k = 0; k < 4; k++) {
+        int[] sizes = new int[5]; boolean[] mos = new boolean[5];
+        for (int k = 0; k < 5; k++) {
             sizes[k] = dt.design().layers().size(); mos[k] = dt.design().mos();
             dt.onButton(player, com.taku3.semiconductorlab.block.DraftingTableBlockEntity.BTN_PROCESS);
         }
-        h.assertTrue(java.util.Arrays.equals(sizes, new int[] {5, 7, 4, 6}) && java.util.Arrays.equals(mos, new boolean[] {false, false, true, true}), "process cycle: " + java.util.Arrays.toString(sizes));
+        h.assertTrue(java.util.Arrays.equals(sizes, new int[] {5, 7, 4, 6, 6}) && java.util.Arrays.equals(mos, new boolean[] {false, false, true, true, false}), "process cycle: " + java.util.Arrays.toString(sizes));
         h.assertValueEqual(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.role(com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter(), 1), "gate_ox", "MOS layer 1 is the gate oxide");
         ItemStack stamp = new ItemStack(Semiconductor.STAMP);
         stamp.set(ModDataComponents.CHIP_DESIGN, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter().crop());
@@ -2548,6 +2548,44 @@ public class SemiconductorTests extends LabTestBase {
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.planarize(coated).reason(), "resist_on", "no CMP through resist");
         var codec = com.taku3.semiconductorlab.litho.ChipState.CODEC.encodeStart(com.mojang.serialization.JsonOps.INSTANCE, after).getOrThrow();
         h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipState.CODEC.parse(com.mojang.serialization.JsonOps.INSTANCE, codec).getOrThrow().steps(), 0, "planarized_at is saved");
+        h.succeed();
+    }
+
+    /**
+     * [9-24] CMOS：16×16 の CMOS インバータを密着露光で焼くと、p チャネルと n チャネルの MOS が1個ずつ見つかり、NOT のお題に合格。
+     * 止まっている間（入力 0 V でも 5 V でも）電源から流れる電流は、抵抗を負荷にした NMOS インバータ（入力 5 V）の 1/100 より小さい。ハンコは工程 CMOS
+     */
+    @GameTest(maxTicks = 200)
+    public void cmosInverter(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.cmosInverter(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        chip = com.taku3.semiconductorlab.litho.ChipOps.clean(chip, 0).out();
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(chip);
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st));
+        long pch = nl.mosfets.stream().filter(com.taku3.semiconductorlab.litho.Netlist.Mos::p).count();
+        h.assertTrue(nl.mosfets.size() == 2 && pch == 1, "one p-channel and one n-channel MOSFET: " + nl.mosfets.size() + " / p " + pch);
+        int n = nl.model.size;
+        int gnd = nl.netOf[15 * n], vcc = nl.netOf[0], in = nl.netOf[7 * n], out = nl.netOf[8 * n + 15];
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        roles.put(gnd, com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        roles.put(vcc, com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        roles.put(in, com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        roles.put(out, com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+        var r = com.taku3.semiconductorlab.litho.Challenge.check(com.taku3.semiconductorlab.litho.Challenge.byIndex(0), nl, roles, 1.0);
+        h.assertTrue(r.passed(), "the CMOS inverter solves the NOT challenge: " + r);
+        double worst = 0;
+        for (double vin : new double[] {0.0, 5.0}) {
+            Double a = com.taku3.semiconductorlab.litho.Circuit.solve(nl, java.util.Map.of(gnd, 0.0, vcc, 5.0, in, vin)).padAmps().get(vcc);
+            worst = Math.max(worst, a == null ? 0 : Math.abs(a));
+        }
+        ItemStack ow2 = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow2.set(ModDataComponents.DOPANT, "boron");
+        ItemStack nm = com.taku3.semiconductorlab.litho.ChipOps.clean(com.taku3.semiconductorlab.litho.LithoExamples.process(ow2, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G), 0).out();
+        var nl2 = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(com.taku3.semiconductorlab.litho.ChipOps.state(nm)));
+        Double nAmps = com.taku3.semiconductorlab.litho.Circuit.solve(nl2, java.util.Map.of(nl2.netOf[0], 0.0, nl2.netOf[10], 5.0, nl2.netOf[9 * nl2.model.size], 5.0)).padAmps().get(nl2.netOf[10]);
+        h.assertTrue(nAmps != null && worst < Math.abs(nAmps) / 100, "CMOS draws almost nothing while idle: CMOS " + worst + " A vs NMOS " + nAmps + " A");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipDesign.fromState(st, "x").process(), com.taku3.semiconductorlab.litho.ChipDesign.CMOS, "a stamp keeps the CMOS process");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.DraftingTableBlockEntity.role(com.taku3.semiconductorlab.litho.LithoExamples.cmosInverter(), 0), "n_well", "CMOS layer 0 is the n-well");
+        LOG.info("[LAB] CMOS [9-24]: inverter passes NOT, idle supply current {} A (NMOS with resistor load {} A)", worst, nAmps);
         h.succeed();
     }
 

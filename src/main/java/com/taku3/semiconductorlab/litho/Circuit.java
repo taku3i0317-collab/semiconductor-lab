@@ -86,7 +86,7 @@ public final class Circuit {
         // MOS（S-011 Q21-4 案A、二乗の式）：ゲートの線の電圧で、ソースとドレインの代表のマスの間に電流
         List<int[]> mos = new ArrayList<>();
         List<Double> mosK = new ArrayList<>();
-        for (Netlist.Mos t : nl.mosfets) { mos.add(new int[] {cells + t.gateNet(), t.cellA(), t.cellB()}); mosK.add(MOS_KP * t.wOverL()); }
+        for (Netlist.Mos t : nl.mosfets) { mos.add(new int[] {cells + t.gateNet(), t.cellA(), t.cellB(), t.p() ? 1 : 0}); mosK.add((t.p() ? MOS_KP_P : MOS_KP) * t.wOverL()); }
         // 固定の点（パッド）と、解く点
         double[] v = start != null && start.length == nodes ? start.clone() : new double[nodes];
         boolean[] fixed = new boolean[nodes];
@@ -108,6 +108,16 @@ public final class Circuit {
             }
             for (int q = 0; q < mos.size(); q++) {   // MOS：ドレイン（電圧の高い方）→ ソース
                 int g = mos.get(q)[0], a = mos.get(q)[1], b = mos.get(q)[2];
+                if (mos.get(q)[3] == 1) {   // p チャネル（[9-24]）：ソース（電圧の高い方）→ ドレイン。Vsg・Vsd で同じ二乗の式
+                    boolean fl = v[b] > v[a];
+                    int sp = fl ? b : a, dp = fl ? a : b;
+                    double[] ip = mosCurrent(mosK.get(q), v[sp] - v[g], v[sp] - v[dp]);
+                    double i = ip[0], gm = ip[1], gds = ip[2];
+                    addI(F, idx, sp, i); addI(F, idx, dp, -i);
+                    addJ(J, idx, sp, sp, gm + gds); addJ(J, idx, sp, g, -gm); addJ(J, idx, sp, dp, -gds);
+                    addJ(J, idx, dp, sp, -gm - gds); addJ(J, idx, dp, g, gm); addJ(J, idx, dp, dp, gds);
+                    continue;
+                }
                 boolean flip = v[b] > v[a];
                 int dn = flip ? b : a, sn = flip ? a : b;
                 double[] ig = mosCurrent(mosK.get(q), v[g] - v[sn], v[dn] - v[sn]);   // {I, ∂I/∂Vgs, ∂I/∂Vds}
@@ -149,6 +159,8 @@ public final class Circuit {
 
     /** MOS のしきい値（V）・利得の係数（A/V²、W/L＝1 のとき）。⚠️ ゲームの値（1960年代の MOS は Vt 数 V） */
     static final double MOS_VT = 1.0, MOS_KP = 1e-4;
+    /** p チャネルの係数：正孔は電子より動きにくい（移動度 約 1/2.5）ので同じ形でも電流が小さい ⚠️ */
+    static final double MOS_KP_P = MOS_KP / 2.5;
 
     /** n チャネル MOS の二乗の式：{I, ∂I/∂Vgs, ∂I/∂Vds}。しきい値の下は 0（計算のためにごく小さな電流） */
     static double[] mosCurrent(double k, double vgs, double vds) {

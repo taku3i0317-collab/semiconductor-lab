@@ -285,5 +285,8 @@
   "litho.semiconductor-lab.role.metal2": "2層目の金属",
   "litho.semiconductor-lab.layer.gate_ox": "ゲート酸化膜",
   "litho.semiconductor-lab.layer.via": "VIA",
-  "litho.semiconductor-lab.layer.metal2": "2層目の金属"
+  "litho.semiconductor-lab.layer.metal2": "2層目の金属",
+  "litho.semiconductor-lab.role.n_well": "n のウェル",
+  "litho.semiconductor-lab.role.p_source_drain": "p のソース・ドレイン",
+  "litho.semiconductor-lab.role.n_source_drain": "n のソース・ドレイン"
 }

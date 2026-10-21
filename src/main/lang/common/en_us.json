@@ -285,5 +285,8 @@
   "litho.semiconductor-lab.role.metal2": "Metal 2",
   "litho.semiconductor-lab.layer.gate_ox": "gate oxide",
   "litho.semiconductor-lab.layer.via": "via",
-  "litho.semiconductor-lab.layer.metal2": "metal 2"
+  "litho.semiconductor-lab.layer.metal2": "metal 2",
+  "litho.semiconductor-lab.role.n_well": "N-well",
+  "litho.semiconductor-lab.role.p_source_drain": "P source/drain",
+  "litho.semiconductor-lab.role.n_source_drain": "N source/drain"
 }

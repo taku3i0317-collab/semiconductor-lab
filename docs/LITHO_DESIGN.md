@@ -279,10 +279,11 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 - A のおすすめ：Q21-1 案A・Q21-2 案A・Q21-3 案A・Q21-4 案A。お題・ハンコ・電卓のしくみはそのまま使える（判定はいつも一番下のマスクの絵から）
 
 ### 12.3 次（答えのあと）
-- [9-24] CMOS：n型の井戸（ウェル）に p チャネルを作る＝拡散がもう1回（ウェル）。止まっている間ほとんど電流が流れない（電卓の電池で長く動く）
+- ✅ [9-24] CMOS（O-021 の2）：工程の種類 cmos、p チャネル、例 cmosInverter。元の案→ n型の井戸（ウェル）に p チャネルを作る＝拡散がもう1回（ウェル）。止まっている間ほとんど電流が流れない（電卓の電池で長く動く）
 - [10-12] DRAM：1トランジスタ＋1コンデンサ（デナード 1966〜68）。電荷が漏れるので書き直し（リフレッシュ）。直流の計算ではコンデンサの電荷を扱えないので、順序回路の「手順の列」に電荷の減りを足す案が要る（そのときにまた聞く）
 
 ## 変更履歴
+- 2026-10-21 [9-24] CMOS：ChipDesign.CMOS（DIFF_N ウェル・DIFF_P・DIFF_N・GATE_OX・CONTACT・METAL）、Netlist.Mos.p（n のウェルの上のゲート＝p チャネル）、Circuit の p チャネル（Vsg・Vsd、MOS_KP_P＝KP/2.5）、fromState はゲート酸化膜＋拡散2回以上で CMOS、製図台の P は5つの順
 - 2026-10-21 S-011：MOS（LayerKind.GATE_OX、ChipOps.gateOxide、ChipModel.gate、Netlist.mosfets＝ゲート酸化膜＋p＋1層目の金属のまとまりの両わきに n の領域2つ、Circuit の二乗の式 Vt 1V・KP 1e-4 A/V²×W/L）と2層目の金属（LayerKind.VIA・METAL2、ChipOps.depositInterlayer、その後の窓＝VIA・金属＝METAL2、Netlist.netOf2・VIA で層をまたぐ）。ChipDesign.process（bipolar／mos）・kindsFor・twoMetal、製図台の「P」で 5→7→4→6 層。例 nmosInverter・nmosInverterTwoMetal
 - 2026-10-20 [9-27] ドライエッチングの土台（E と決めた形、案α）：ChipOps.etchOxide(w, anisotropic)。液（HF）は方眼 36（g線ステッパー、CD 約1µm）以上で開ける所が上下左右に1マス太る（アンダーカット）、ドライは太らない。16・24 の方眼は今までどおり
 - 2026-10-20 §12 MOS の案（O-021、Q21-1〜4 はユーザーの答え待ち）

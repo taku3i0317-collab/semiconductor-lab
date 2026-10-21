@@ -14,6 +14,8 @@ import java.util.List;
 public record ChipDesign(int size, String name, List<Layer> layers, List<Part> parts, String process) {
     /** 工程の種類（S-011 Q21-3 案A）：バイポーラ（島・ベース・エミッタ・窓・金属）か MOS（ソースとドレイン・ゲート酸化膜・窓・金属） */
     public static final String BIPOLAR = "bipolar", MOS = "mos";
+    /** CMOS（[9-24]、1963 ワンラスとサー）：n のウェル・p のソースとドレイン・n のソースとドレイン・ゲート酸化膜・窓・金属の6層 */
+    public static final String CMOS = "cmos";
     /** 1つの層（工程の順に並ぶ） */
     public record Layer(LayerKind kind, BitGrid cells) {
         public static final Codec<Layer> CODEC = RecordCodecBuilder.create(i -> i.group(
@@ -40,6 +42,7 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     public ChipDesign(int size, String name, List<Layer> layers) { this(size, name, layers, List.of(), BIPOLAR); }
     public ChipDesign(int size, String name, List<Layer> layers, List<Part> parts) { this(size, name, layers, parts, BIPOLAR); }
     public boolean mos() { return MOS.equals(process); }
+    public boolean cmos() { return CMOS.equals(process); }
 
     /** 層 i を書きかえた設計図 */
     public ChipDesign withLayer(int i, BitGrid cells) {
@@ -94,6 +97,8 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     public static List<LayerKind> kindsFor(String process, boolean twoMetal) {
         List<LayerKind> k = new ArrayList<>(MOS.equals(process)
                 ? List.of(LayerKind.DIFF_N, LayerKind.GATE_OX, LayerKind.CONTACT, LayerKind.METAL)
+                : CMOS.equals(process)
+                ? List.of(LayerKind.DIFF_N, LayerKind.DIFF_P, LayerKind.DIFF_N, LayerKind.GATE_OX, LayerKind.CONTACT, LayerKind.METAL)
                 : List.of(LayerKind.DIFF_N, LayerKind.DIFF_P, LayerKind.DIFF_N, LayerKind.CONTACT, LayerKind.METAL));
         if (twoMetal) { k.add(LayerKind.VIA); k.add(LayerKind.METAL2); }
         return k;
@@ -108,7 +113,8 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     public static ChipDesign fromState(ChipState st, String name) {
         int n = st.size();
         boolean mos = st.has(LayerKind.GATE_OX), two = st.has(LayerKind.METAL2);
-        List<LayerKind> kinds = new ArrayList<>(kindsFor(mos ? MOS : BIPOLAR, two));
+        String process = !mos ? BIPOLAR : st.diffusions() >= 2 ? CMOS : MOS;   // ゲート酸化膜＋拡散2回以上＝ウェルのある CMOS
+        List<LayerKind> kinds = new ArrayList<>(kindsFor(process, two));
         BitGrid[] g = new BitGrid[kinds.size()];
         java.util.Arrays.fill(g, BitGrid.empty(n));
         boolean[] used = new boolean[kinds.size()];
@@ -120,6 +126,6 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
         }
         List<Layer> l = new ArrayList<>();
         for (int i = 0; i < kinds.size(); i++) l.add(new Layer(kinds.get(i), g[i]));
-        return new ChipDesign(n, name, l, st.parts(), mos ? MOS : BIPOLAR);
+        return new ChipDesign(n, name, l, st.parts(), process);
     }
 }

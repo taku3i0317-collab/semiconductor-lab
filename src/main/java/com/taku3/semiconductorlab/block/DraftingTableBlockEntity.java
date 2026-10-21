@@ -49,12 +49,14 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
     public static final String[] ROLES = {"island", "base", "emitter", "contact", "metal", "via", "metal2"};
     /** MOS の層の役目（S-011 Q21-3 案A：ソースとドレイン・ゲート酸化膜・窓・金属、2層目の金属つきなら＋VIA・2層目） */
     public static final String[] MOS_ROLES = {"source_drain", "gate_ox", "contact", "metal", "via", "metal2"};
+    /** CMOS の層の役目（[9-24]）。1970年代の CMOS は金属1層（2層目なし） */
+    public static final String[] CMOS_ROLES = {"n_well", "p_source_drain", "n_source_drain", "gate_ox", "contact", "metal"};
     /** 層の数のいちばん多い場合（バイポーラ＋2層目） */
     public static final int MAX_LAYERS = ROLES.length;
 
     /** 層 i の役目の名前（設計図の工程の種類で決まる） */
     public static String role(ChipDesign d, int i) {
-        String[] r = d.mos() ? MOS_ROLES : ROLES;
+        String[] r = d.cmos() ? CMOS_ROLES : d.mos() ? MOS_ROLES : ROLES;
         return i < r.length ? r[i] : "metal";
     }
 
@@ -84,7 +86,7 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
                 .area("swatch", LAYER_X, LAYER_Y, 8, LAYER_ROW * MAX_LAYERS - 1)
                 .area("buttons", LAYER_X, BTN_Y, 78, 14)
                 .area("section", SECTION_X, SECTION_Y, GRID_W, SECTION_H);
-        java.util.List<String> roleKeys = java.util.stream.Stream.concat(java.util.Arrays.stream(ROLES), java.util.Arrays.stream(MOS_ROLES)).distinct().map(r -> "litho.semiconductor-lab.role." + r).toList();
+        java.util.List<String> roleKeys = java.util.stream.Stream.of(ROLES, MOS_ROLES, CMOS_ROLES).flatMap(java.util.Arrays::stream).distinct().map(r -> "litho.semiconductor-lab.role." + r).toList();
         for (int i = 0; i < MAX_LAYERS; i++)
             b.lazyText("layer" + i, LAYER_X + 10, LAYER_Y + LAYER_ROW * i, 68, 1, () -> roleKeys).fit();
         LAYOUT = b.label("arrow", SHEET_X + 22, SHEET_Y + 4, 28, "→")
@@ -150,11 +152,10 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
             return true;
         }
         if (id == BTN_STROKE) { remember(d); return true; }   // ひと筆の始まり：ここまでを1回で戻せる
-        if (id == BTN_PROCESS) {   // 工程の種類を順に：バイポーラ → バイポーラ＋2層目 → MOS → MOS＋2層目（白紙になる、元に戻せる、S-011）
-            boolean mos = d.mos(), two = d.twoMetal();
-            boolean nextMos = two ? !mos : mos, nextTwo = !two;
+        if (id == BTN_PROCESS) {   // 工程の種類を順に：バイポーラ → バイポーラ＋2層目 → MOS → MOS＋2層目 → CMOS（白紙になる、元に戻せる、S-011・[9-24]）
+            int cur = d.cmos() ? 4 : (d.mos() ? 2 : 0) + (d.twoMetal() ? 1 : 0), nx = (cur + 1) % 5;
             remember(d);
-            setDesign(blank(d.size(), nextMos ? ChipDesign.MOS : ChipDesign.BIPOLAR, nextTwo));
+            setDesign(blank(d.size(), nx == 4 ? ChipDesign.CMOS : nx >= 2 ? ChipDesign.MOS : ChipDesign.BIPOLAR, nx < 4 && nx % 2 == 1));
             return true;
         }
         if (id >= BTN_SIZE && id < BTN_SIZE + SIZES.length) {
@@ -179,7 +180,7 @@ public class DraftingTableBlockEntity extends BlockEntity implements MachineBE {
         if (id >= BTN_STAMP && id < BTN_STAMP + 10_000) {   // ハンコを押す（左上のマス）
             ChipDesign st = container.getItem(SLOT_STAMP).get(ModDataComponents.CHIP_DESIGN);
             int cell = id - BTN_STAMP;
-            if (st == null || cell >= d.size() * d.size() || st.mos() != d.mos()) return false;   // 工程の種類のちがうハンコは押せない
+            if (st == null || cell >= d.size() * d.size() || !st.process().equals(d.process())) return false;   // 工程の種類のちがうハンコは押せない
             remember(d);
             setDesign(d.stamp(st, cell % d.size(), cell / d.size()));
             return true;

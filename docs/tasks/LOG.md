@@ -541,3 +541,5 @@
 - 次：[9-24] CMOS（p チャネル＋ウェル）、[10-12] DRAM（電荷が漏れる→手順の列に足す案が要る）
 
 - E の [9-31] CMP の受け口（E から相談）：ChipState.planarizedAt（保存 planarized_at）と steps()＝平らにしてから重ねた層の数、ChipOps.planarize（層間膜あり・レジストなし・金属の膜なしで steps→0、スラリーで汚れ +2）。記録だけ。焦点深度（DOF＝k2·λ/NA²、段差でピンぼけ）は v0.5 #1 で A が litho に入れる。GameTest planarizeRecord（291/291）
+- O-021 の2 [9-24] CMOS：工程の種類 CMOS（6層、金属1層）、p チャネルの MOS（n のウェルの上）、例 cmosInverter が NOT に合格、止まっている間の電流は NMOS の約 1/1000（4.5e-7 A 対 4.3e-4 A）。TECH_TREE ✅、REFERENCES L14（293/293）
+
