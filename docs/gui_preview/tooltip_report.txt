@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 690（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 698（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1351,6 +1351,8 @@ en_us hepa_filter lines=6
 en_us hepa_filter shift lines=12
 en_us hepa_ceiling lines=7
 en_us hepa_ceiling shift lines=18
+en_us marine_chronometer lines=8
+en_us marine_chronometer shift lines=21
 en_us transistor_radio lines=14
 en_us transistor_radio shift lines=35
 en_us sulfite_liquor lines=6
@@ -2745,6 +2747,8 @@ ja_jp hepa_filter lines=6
 ja_jp hepa_filter shift lines=12
 ja_jp hepa_ceiling lines=6
 ja_jp hepa_ceiling shift lines=17
+ja_jp marine_chronometer lines=7
+ja_jp marine_chronometer shift lines=17
 ja_jp transistor_radio lines=11
 ja_jp transistor_radio shift lines=29
 ja_jp sulfite_liquor lines=4
