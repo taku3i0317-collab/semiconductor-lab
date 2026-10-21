@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#minecraft:planks",
+    "minecraft:stick",
+    "semiconductor-lab:rope"
+  ],
+  "result": {
+    "id": "semiconductor-lab:simple_pulley",
+    "count": 1
+  }
+}

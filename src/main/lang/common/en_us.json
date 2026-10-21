@@ -431,5 +431,8 @@
   "assembly.semiconductor-lab.ai_chip.wiring": "Wiring",
   "assembly.semiconductor-lab.ai_chip.wiring.short": "Wiring",
   "assembly.semiconductor-lab.ai_chip.board": "Board",
-  "assembly.semiconductor-lab.ai_chip.board.short": "Board"
+  "assembly.semiconductor-lab.ai_chip.board.short": "Board",
+  "item.semiconductor-lab.pulley.lift": "🪝 One %s (about %s kg) on %s ropes: pull %s N, haul %s m of rope to raise it 1 m",
+  "item.semiconductor-lab.pulley.can": "A person (about %s N) can lift it",
+  "item.semiconductor-lab.pulley.cannot": "Too heavy for a person (about %s N). It would take %s ropes"
 }

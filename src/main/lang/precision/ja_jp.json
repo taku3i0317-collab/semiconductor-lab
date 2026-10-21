@@ -303,5 +303,16 @@
   "item.semiconductor-lab.droplet_generator.note3": "1880年、キュリー兄弟が水晶を押すと電圧が出る圧電効果を見つけ、翌年には逆に電圧で伸び縮みすることも確かめた。1878年、レイリーが液体の柱が決まった間隔の滴に分かれるわけを解いた。2006年ごろから、スズの滴を CO2 レーザーで撃つ EUV 光源が動き始めた。",
   "item.semiconductor-lab.droplet_generator.note4": "液体の柱は、表面張力のせいで、太さの約4.5倍の長さごとにくびれて、太さの約1.9倍の滴になる。水晶でふるわせると間隔がそろい、さらにいくつかの滴を合体させて、1秒に約5万個・直径約30µm の滴にする。",
   "item.semiconductor-lab.droplet_generator.placeholder": "近似：ノズル 16µm・速さ 70m/s は代表値。滴を合体させる工夫は作らない。",
-  "item.semiconductor-lab.droplet_generator.spec": "💧 ノズル %sµm → 滴の直径 約%sµm、%sµm ごとに分かれる → 1秒に約 %s 滴（本物はまとめて約5万滴）"
+  "item.semiconductor-lab.droplet_generator.spec": "💧 ノズル %sµm → 滴の直径 約%sµm、%sµm ごとに分かれる → 1秒に約 %s 滴（本物はまとめて約5万滴）",
+  "item.semiconductor-lab.simple_pulley": "定滑車",
+  "item.semiconductor-lab.simple_pulley.note1": "車に綱をかけた道具。力の向きを変えるだけで、軽くはならない。",
+  "item.semiconductor-lab.simple_pulley.note2": "板材＋棒＋ロープ。ブロックを右クリックすると、そのブロック1個（1m³）を持ち上げるのに要る力。4つで複滑車。",
+  "item.semiconductor-lab.simple_pulley.note3": "井戸のつるべのように、下に引けば上に上がる。古代から使われた。",
+  "item.semiconductor-lab.simple_pulley.note4": "1本の綱で重さを支えるので、力は重さと同じ（m×9.8 N）。",
+  "item.semiconductor-lab.compound_pulley": "複滑車",
+  "item.semiconductor-lab.compound_pulley.note1": "車をいくつも組み合わせて、小さな力で重い物を持ち上げる道具。",
+  "item.semiconductor-lab.compound_pulley.note2": "定滑車×4＋ロープ×2（綱4本で支える）。右クリックしたブロックを持ち上げる力は4分の1、そのかわり綱を4倍引く。人の力（約400N）で上がるかが出る。",
+  "item.semiconductor-lab.compound_pulley.note3": "古代ローマのウィトルウィウスや、アレクサンドリアのヘロンが、複滑車のクレーンを書き残した⚠️。",
+  "item.semiconductor-lab.compound_pulley.note4": "力×引く長さ＝重さ×上がる高さ（仕事は変わらない）。綱が4本で重さを分けて持つので、1本の力は4分の1。",
+  "item.semiconductor-lab.compound_pulley.placeholder": "近似：ブロックの重さは代表的な密度、人の力は 400N。摩擦は作らない。"
 }

@@ -431,5 +431,8 @@
   "assembly.semiconductor-lab.ai_chip.wiring": "配線",
   "assembly.semiconductor-lab.ai_chip.wiring.short": "配線",
   "assembly.semiconductor-lab.ai_chip.board": "板",
-  "assembly.semiconductor-lab.ai_chip.board.short": "板"
+  "assembly.semiconductor-lab.ai_chip.board.short": "板",
+  "item.semiconductor-lab.pulley.lift": "🪝 %s 1個（約 %s kg）を綱 %s 本で：引く力 %s N、綱を %s m 引くと 1m 上がる",
+  "item.semiconductor-lab.pulley.can": "人の力（約 %s N）で持ち上げられる",
+  "item.semiconductor-lab.pulley.cannot": "人の力（約 %s N）では無理。綱が %s 本あれば上がる"
 }

@@ -63,6 +63,9 @@ public final class Precision {
     public static final Item QUARTZ_WATCH          = Reg.item("quartz_watch", p -> new ChronometerItem(p, 0.2, "quartz_watch"), new Item.Properties().stacksTo(1));
     // [8-13] 液滴発生器（ピエゾ、IMP2 S-007）：水晶振動子（圧電）でノズルをふるわせ、溶けたスズをそろった滴に。EUV 光源 [7-18] の部品
     public static final Item DROPLET_GENERATOR     = Reg.item("droplet_generator", DropletGeneratorItem::new, new Item.Properties().stacksTo(1));
+    // [8-19] 滑車（IMP2 S-010、古代）：定滑車（向きを変えるだけ、綱1本）・複滑車（綱4本で力が4分の1、綱を4倍引く）。右クリックしたブロックを持ち上げる力
+    public static final Item SIMPLE_PULLEY         = Reg.item("simple_pulley", p -> new PulleyItem(p, 1), new Item.Properties().stacksTo(16));
+    public static final Item COMPOUND_PULLEY       = Reg.item("compound_pulley", p -> new PulleyItem(p, 4), new Item.Properties().stacksTo(16));
     public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤

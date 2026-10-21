@@ -633,6 +633,8 @@ euv_source  # Optics [7-18] 2010
 euv_mirror_set  # Optics [9-40] 2019
 euv_projection_optics  # Optics [9-40] 2019
 euv_high_na_optics  # Optics [9-40] 2019
+simple_pulley  # Precision [8-19] -25
+compound_pulley  # Precision [8-19] -25
 vernier_caliper  # Precision [8-04] 1631
 micrometer  # Precision [8-04] 1631
 simple_microscope  # Precision [8-10] 1670

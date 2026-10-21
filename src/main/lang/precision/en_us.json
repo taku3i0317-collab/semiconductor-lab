@@ -303,5 +303,16 @@
   "item.semiconductor-lab.droplet_generator.note3": "In 1880 the Curie brothers found that squeezing quartz makes a voltage (piezoelectricity), and the next year confirmed that a voltage makes it stretch. In 1878 Rayleigh explained why a liquid jet breaks into evenly spaced drops. From around 2006, EUV sources fired CO2 lasers at tin droplets.",
   "item.semiconductor-lab.droplet_generator.note4": "Surface tension pinches a liquid jet every ~4.5 jet diameters into drops ~1.9 diameters across. Vibrating the nozzle with quartz evens the spacing, and several drops are merged into about 50,000 drops a second, about 30 um across.",
   "item.semiconductor-lab.droplet_generator.placeholder": "Approximation: 16 um nozzle and 70 m/s are typical values. Droplet merging is not modelled.",
-  "item.semiconductor-lab.droplet_generator.spec": "💧 Nozzle %s um -> droplets about %s um, pinched every %s um -> about %s drops a second (real sources merge them to about 50,000)"
+  "item.semiconductor-lab.droplet_generator.spec": "💧 Nozzle %s um -> droplets about %s um, pinched every %s um -> about %s drops a second (real sources merge them to about 50,000)",
+  "item.semiconductor-lab.simple_pulley": "Simple Pulley",
+  "item.semiconductor-lab.simple_pulley.note1": "A wheel with a rope over it. It changes the direction of the pull but does not make the load lighter.",
+  "item.semiconductor-lab.simple_pulley.note2": "Planks + stick + rope. Right-click a block to see the force needed to lift one (1 m3). Four make a compound pulley.",
+  "item.semiconductor-lab.simple_pulley.note3": "Pull down and the load goes up, like a well bucket. Used since ancient times.",
+  "item.semiconductor-lab.simple_pulley.note4": "One rope carries the whole weight, so the force equals the weight (m x 9.8 N).",
+  "item.semiconductor-lab.compound_pulley": "Compound Pulley",
+  "item.semiconductor-lab.compound_pulley.note1": "A set of wheels that lets a small force lift a heavy load.",
+  "item.semiconductor-lab.compound_pulley.note2": "4 simple pulleys + 2 rope (four ropes carry the load). The force to lift a right-clicked block is a quarter, but you pull four times the rope. Shows whether a person (about 400 N) can lift it.",
+  "item.semiconductor-lab.compound_pulley.note3": "Vitruvius in ancient Rome and Hero of Alexandria described compound-pulley cranes ⚠️.",
+  "item.semiconductor-lab.compound_pulley.note4": "Force x rope pulled = weight x height raised (the work is the same). Four ropes share the weight, so each carries a quarter.",
+  "item.semiconductor-lab.compound_pulley.placeholder": "Approximation: block masses use typical densities and a person pulls 400 N. Friction is ignored."
 }

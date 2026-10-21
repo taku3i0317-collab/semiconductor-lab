@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:simple_pulley",
+    "semiconductor-lab:simple_pulley",
+    "semiconductor-lab:simple_pulley",
+    "semiconductor-lab:simple_pulley",
+    "semiconductor-lab:rope",
+    "semiconductor-lab:rope"
+  ],
+  "result": {
+    "id": "semiconductor-lab:compound_pulley",
+    "count": 1
+  }
+}

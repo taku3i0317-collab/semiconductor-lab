@@ -621,6 +621,18 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-19] 滑車（IMP2 S-010）：複滑車（綱4本）は力が4分の1。1m³ の木（600kg）は人の力 400N では定滑車で上がらず、複滑車でも上がらない…が、力は 1470N に */
+    @GameTest
+    public void pulley(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "compound_pulley", Precision.SIMPLE_PULLEY) && recipeUses(h, "simple_pulley", com.taku3.semiconductorlab.content.Survival.ROPE), "pulleys from rope and wood");
+        double one = com.taku3.semiconductorlab.item.PulleyItem.forceN(100, (((com.taku3.semiconductorlab.item.PulleyItem) Precision.SIMPLE_PULLEY).ropes)), four = com.taku3.semiconductorlab.item.PulleyItem.forceN(100, (((com.taku3.semiconductorlab.item.PulleyItem) Precision.COMPOUND_PULLEY).ropes));
+        h.assertTrue(Math.abs(one - 980) < 1e-6 && Math.abs(four - 245) < 1e-6, "100 kg: 980 N with one rope, 245 N with four");
+        h.assertTrue(four <= com.taku3.semiconductorlab.item.PulleyItem.HUMAN_N && one > com.taku3.semiconductorlab.item.PulleyItem.HUMAN_N, "a person lifts 100 kg only with the compound pulley");
+        h.assertTrue(com.taku3.semiconductorlab.item.PulleyItem.massKg(net.minecraft.world.level.block.Blocks.IRON_BLOCK.defaultBlockState()) > com.taku3.semiconductorlab.item.PulleyItem.massKg(net.minecraft.world.level.block.Blocks.OAK_PLANKS.defaultBlockState()), "iron is heavier than wood");
+        LOG.info("[LAB] pulley [8-19]: 100 kg -> 980 N (1 rope) / 245 N (4 ropes), pull 4x the rope");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");
