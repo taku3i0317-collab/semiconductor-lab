@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:crafting_transmute",
+  "category": "misc",
+  "input": "semiconductor-lab:mechanical_watch",
+  "material": "semiconductor-lab:automatic_rotor",
+  "result": {
+    "id": "semiconductor-lab:automatic_watch"
+  }
+}

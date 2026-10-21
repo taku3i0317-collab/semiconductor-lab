@@ -580,6 +580,56 @@
     },
     {
       "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（mechanical_watch）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:mainspring",
+          "count": 1,
+          "cond": "mainspring"
+        },
+        {
+          "item": "semiconductor-lab:gear_train",
+          "count": 1,
+          "cond": "gear_train"
+        },
+        {
+          "item": "semiconductor-lab:lever_escapement",
+          "count": 1,
+          "cond": "escapement"
+        },
+        {
+          "item": "semiconductor-lab:balance_wheel",
+          "count": 1,
+          "cond": "balance"
+        },
+        {
+          "item": "semiconductor-lab:jewel_bearing",
+          "count": 17,
+          "cond": "jewels"
+        },
+        {
+          "item": "semiconductor-lab:crown_glass",
+          "count": 1,
+          "cond": "crystal"
+        },
+        {
+          "item": "semiconductor-lab:steel_ingot",
+          "count": 2,
+          "cond": "case"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:mechanical_watch",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
       "process": "組み立て（microcomputer）",
       "inputs": [
         {

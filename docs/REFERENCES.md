@@ -2616,6 +2616,18 @@
 - Wikipedia「Telephone」：https://en.wikipedia.org/wiki/Telephone
 - Wikipedia「Carbon microphone」：https://en.wikipedia.org/wiki/Carbon_microphone
 
+## O90. チクタクと動く小さな機械（機械式腕時計）［8-43〜8-48］
+**答え**：機械式の時計は、ぜんまい（力）・輪列（歯車）・脱進機（1歯ずつ放す）・てんぷ（決まった速さで往復する）でできている。1300年ごろの塔の時計、1400年代のぜんまい時計を経て、1675年にホイヘンスがてんぷに渦巻きのひげぜんまいを付け、時計は1日数分以内の正確さになった。1704年には宝石の軸受、1755年ごろにはマッジのレバー脱進機が生まれ、1923年にハーウッドが腕時計の自動巻きの特許をとった。夜光の文字盤に使われたラジウムは、塗る仕事をした女性たちに深刻な被害を出し（ラジウム・ガールズ）、働く人を守る法律と放射線の安全の基準につながった。
+
+- へえ①：「17石」は、時計の中に17個のルビーが入っているという意味。
+- へえ②：チクタクの音は、脱進機が歯車を1歯ずつ放す音。
+- へえ③：自動巻きは、腕を振ると中のおもりが回ってぜんまいを巻く。
+- へえ④：ラジウム・ガールズの裁判は、仕事による病気を会社が償う考えを広めた。
+
+確かさ：ホイヘンス 1675・宝石の軸受 1704・マッジ 1755・ハーウッド 1923 ◎／塔の時計 1300年ごろ・ぜんまい 1400年代・ペルレ 1770 ○⚠️／ラジウム・ガールズ ◎
+根拠：
+- Wikipedia「Watch」「Balance spring」「Lever escapement」「Jewel bearing」「Automatic watch」「Radium Girls」：https://en.wikipedia.org/wiki/Watch ・ https://en.wikipedia.org/wiki/Balance_spring ・ https://en.wikipedia.org/wiki/Lever_escapement ・ https://en.wikipedia.org/wiki/Jewel_bearing ・ https://en.wikipedia.org/wiki/Automatic_watch ・ https://en.wikipedia.org/wiki/Radium_Girls
+
 ---
 
 # 冶金と熱（タスク15〜）

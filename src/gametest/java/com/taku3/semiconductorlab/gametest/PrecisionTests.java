@@ -633,6 +633,24 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** S-011 機械式腕時計（IMP2）：部品のレシピ、巻くと com.taku3.semiconductorlab.item.MechanicalWatchItem.RESERVE_TICKS tick 動いて止まる、止まったあと巻くと時刻を合わせ直す。自動巻きは歩くと巻かれる */
+    @GameTest
+    public void mechanical_watch(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "mainspring", Metallurgy.CRUCIBLE_STEEL) && recipeUses(h, "jewel_bearing", com.taku3.semiconductorlab.content.Optics.RUBY_BOULE)
+                && recipeUses(h, "lever_escapement", Precision.JEWEL_BEARING) && recipeUses(h, "balance_wheel", Metallurgy.CRUCIBLE_STEEL)
+                && recipeUses(h, "gear_train", Metallurgy.BRONZE_INGOT) && recipeUses(h, "automatic_watch", Precision.AUTOMATIC_ROTOR), "watch parts");
+        ItemStack w = new ItemStack(Precision.MECHANICAL_WATCH);
+        h.assertFalse(com.taku3.semiconductorlab.item.MechanicalWatchItem.running(w, 1000), "an unwound watch does not run");
+        com.taku3.semiconductorlab.item.MechanicalWatchItem.wind(w, 1000, 5);
+        h.assertTrue(com.taku3.semiconductorlab.item.MechanicalWatchItem.running(w, 1000 + com.taku3.semiconductorlab.item.MechanicalWatchItem.RESERVE_TICKS) && !com.taku3.semiconductorlab.item.MechanicalWatchItem.running(w, 1001 + com.taku3.semiconductorlab.item.MechanicalWatchItem.RESERVE_TICKS), "runs for the power reserve, then stops");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.MechanicalWatchItem.reserveHours(w, 1000) - com.taku3.semiconductorlab.item.MechanicalWatchItem.RESERVE_TICKS / 1000.0) < 1e-9, "fully wound: " + com.taku3.semiconductorlab.item.MechanicalWatchItem.reserveHours(w, 1000) + " h");
+        com.taku3.semiconductorlab.item.MechanicalWatchItem.wind(w, 1000 + 2 * com.taku3.semiconductorlab.item.MechanicalWatchItem.RESERVE_TICKS, 5);
+        h.assertValueEqual(net.minecraft.world.item.component.CustomData.EMPTY == null ? 0L : w.get(net.minecraft.core.component.DataComponents.CUSTOM_DATA).copyTag().getLongOr("SetTick", 0), 1000 + 2 * com.taku3.semiconductorlab.item.MechanicalWatchItem.RESERVE_TICKS, "rewound after stopping -> time set again");
+        h.assertTrue(((com.taku3.semiconductorlab.item.MechanicalWatchItem) Precision.AUTOMATIC_WATCH).automatic() && !((com.taku3.semiconductorlab.item.MechanicalWatchItem) Precision.MECHANICAL_WATCH).automatic(), "only the automatic watch self-winds");
+        LOG.info("[LAB] mechanical watch [P-38]: 17 jewels, lever escapement, +-" + com.taku3.semiconductorlab.item.MechanicalWatchItem.RATE + " s/day, power reserve " + com.taku3.semiconductorlab.item.MechanicalWatchItem.RESERVE_TICKS / 1000 + " h (game)");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");

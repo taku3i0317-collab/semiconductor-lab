@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tungsten_bar",
+    "semiconductor-lab:bronze_ingot",
+    "semiconductor-lab:jewel_bearing"
+  ],
+  "result": {
+    "id": "semiconductor-lab:automatic_rotor",
+    "count": 1
+  }
+}

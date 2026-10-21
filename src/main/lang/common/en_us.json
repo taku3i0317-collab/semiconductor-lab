@@ -439,5 +439,12 @@
   "assembly.semiconductor-lab.tube_radio.tuning_coil": "Tuning coil",
   "assembly.semiconductor-lab.tube_radio.tuning_capacitor": "Tuning capacitor",
   "assembly.semiconductor-lab.tube_radio.speaker": "Speaker",
-  "assembly.semiconductor-lab.tube_radio.cabinet": "Wooden cabinet"
+  "assembly.semiconductor-lab.tube_radio.cabinet": "Wooden cabinet",
+  "assembly.semiconductor-lab.mechanical_watch.mainspring": "Mainspring",
+  "assembly.semiconductor-lab.mechanical_watch.gear_train": "Gear train",
+  "assembly.semiconductor-lab.mechanical_watch.escapement": "Escapement",
+  "assembly.semiconductor-lab.mechanical_watch.balance": "Balance",
+  "assembly.semiconductor-lab.mechanical_watch.jewels": "Jewel bearings (17 jewels)",
+  "assembly.semiconductor-lab.mechanical_watch.crystal": "Crystal",
+  "assembly.semiconductor-lab.mechanical_watch.case": "Case"
 }

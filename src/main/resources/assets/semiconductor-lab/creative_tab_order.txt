@@ -681,6 +681,14 @@ weston_cell  # Precision [8-25] 1975
 standard_resistor  # Precision [8-25] 1975
 kibble_balance  # Precision [8-25] 1975
 droplet_generator  # Precision [8-13] 2006
+gear_train  # Precision [8-43] None
+mainspring  # Precision [8-44] None
+balance_wheel  # Precision [8-45] None
+lever_escapement  # Precision [8-46] None
+jewel_bearing  # Precision [8-47] None
+mechanical_watch  # Precision [8-43] None
+automatic_rotor  # Precision [8-48] None
+automatic_watch  # Precision [8-48] None
 cw_multiplier  # Semiconductor [9-47] 1932
 accelerator_tube  # Semiconductor [9-47] 1932
 point_contact_diode  # Semiconductor [9-05] 1940

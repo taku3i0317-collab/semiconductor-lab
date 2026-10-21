@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crucible_steel",
+    "semiconductor-lab:crucible_steel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:mainspring",
+    "count": 1
+  }
+}

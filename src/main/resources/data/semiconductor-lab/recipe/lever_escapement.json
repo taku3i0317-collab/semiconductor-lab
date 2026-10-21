@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:crucible_steel",
+    "semiconductor-lab:jewel_bearing",
+    "semiconductor-lab:jewel_bearing"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lever_escapement",
+    "count": 1
+  }
+}

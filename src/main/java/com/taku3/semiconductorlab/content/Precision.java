@@ -66,6 +66,16 @@ public final class Precision {
     // [8-19] 滑車（IMP2 S-010、古代）：定滑車（向きを変えるだけ、綱1本）・複滑車（綱4本で力が4分の1、綱を4倍引く）。右クリックしたブロックを持ち上げる力
     public static final Item SIMPLE_PULLEY         = Reg.item("simple_pulley", p -> new PulleyItem(p, 1), new Item.Properties().stacksTo(16));
     public static final Item COMPOUND_PULLEY       = Reg.item("compound_pulley", p -> new PulleyItem(p, 4), new Item.Properties().stacksTo(16));
+    // S-011 機械式腕時計の部品（IMP2）：[8-43] 輪列（青銅の歯車）・[8-44] ぜんまい（るつぼ鋼）・[8-45] てんぷとひげぜんまい・[8-46] レバー脱進機・[8-47] 宝石の軸受（人工ルビー [7-13]）
+    public static final Item GEAR_TRAIN            = Reg.item("gear_train");
+    public static final Item MAINSPRING            = Reg.item("mainspring");
+    public static final Item BALANCE_WHEEL         = Reg.item("balance_wheel");
+    public static final Item LEVER_ESCAPEMENT      = Reg.item("lever_escapement");
+    public static final Item JEWEL_BEARING         = Reg.item("jewel_bearing");
+    // [P-38] 機械式腕時計（組立台）・[8-48] 自動巻き（ローターを足すと、歩くと巻かれる）
+    public static final Item MECHANICAL_WATCH      = Reg.item("mechanical_watch", p -> new MechanicalWatchItem(p, false), new Item.Properties().stacksTo(1));
+    public static final Item AUTOMATIC_ROTOR       = Reg.item("automatic_rotor");
+    public static final Item AUTOMATIC_WATCH       = Reg.item("automatic_watch", p -> new MechanicalWatchItem(p, true), new Item.Properties().stacksTo(1));
     public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤
@@ -151,5 +161,19 @@ public final class Precision {
     public static final Item MASS_SPECTROMETER     = Reg.item("mass_spectrometer", com.taku3.semiconductorlab.item.MassSpectrometerItem::new, new Item.Properties().stacksTo(1));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
+    /** 組立台のレシピ（Content.initialize が全部の幹のあとで呼ぶ） */
+    static void assemblies() {
+        // [P-38] 機械式腕時計（IMP2 S-011）：17石（軸受の人工ルビー17個）
+        com.taku3.semiconductorlab.machine.Assembly.recipe("mechanical_watch", MECHANICAL_WATCH)
+                .part("mainspring", MAINSPRING, 1)
+                .part("gear_train", GEAR_TRAIN, 1)
+                .part("escapement", LEVER_ESCAPEMENT, 1)
+                .part("balance", BALANCE_WHEEL, 1)
+                .part("jewels", JEWEL_BEARING, 17)
+                .part("crystal", Optics.CROWN_GLASS, 1)
+                .part("case", Metallurgy.STEEL_INGOT, 2)
+                .seconds(5).build();
+    }
+
     static void init() {}
 }

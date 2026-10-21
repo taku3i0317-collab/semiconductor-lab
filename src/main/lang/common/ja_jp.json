@@ -439,5 +439,12 @@
   "assembly.semiconductor-lab.tube_radio.tuning_coil": "同調コイル",
   "assembly.semiconductor-lab.tube_radio.tuning_capacitor": "同調コンデンサ",
   "assembly.semiconductor-lab.tube_radio.speaker": "スピーカー",
-  "assembly.semiconductor-lab.tube_radio.cabinet": "木の箱"
+  "assembly.semiconductor-lab.tube_radio.cabinet": "木の箱",
+  "assembly.semiconductor-lab.mechanical_watch.mainspring": "ぜんまい",
+  "assembly.semiconductor-lab.mechanical_watch.gear_train": "輪列",
+  "assembly.semiconductor-lab.mechanical_watch.escapement": "脱進機",
+  "assembly.semiconductor-lab.mechanical_watch.balance": "てんぷ",
+  "assembly.semiconductor-lab.mechanical_watch.jewels": "宝石の軸受（17石）",
+  "assembly.semiconductor-lab.mechanical_watch.crystal": "風防",
+  "assembly.semiconductor-lab.mechanical_watch.case": "ケース"
 }

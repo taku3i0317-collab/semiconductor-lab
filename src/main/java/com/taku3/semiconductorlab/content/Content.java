@@ -38,7 +38,8 @@ public final class Content {
         // 組立台のレシピ（IMP-33）：ほかの幹のアイテムを使うので、全部の幹を読み込んでから。製品の幹のファイルに書く
         Power.assemblies();
         Communication.assemblies();
-        Branches.assemblies();   // [B-08] 電卓（S-010）
+        Branches.assemblies();
+        Precision.assemblies();   // [P-38] 機械式腕時計（IMP2 S-011）   // [B-08] 電卓（S-010）
         Control.assemblies();    // [10-13] マイコン（S-014）
         Semiconductor.assemblies();   // [9-42] 画像センサー・[9-43] MEMS（IMP4-01）
         Reg.registerTabs();

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:bronze_ingot",
+    "semiconductor-lab:bronze_ingot",
+    "semiconductor-lab:standard_screw"
+  ],
+  "result": {
+    "id": "semiconductor-lab:gear_train",
+    "count": 1
+  }
+}

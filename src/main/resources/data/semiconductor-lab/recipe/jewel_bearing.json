@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ruby_boule"
+  ],
+  "result": {
+    "id": "semiconductor-lab:jewel_bearing",
+    "count": 32
+  }
+}

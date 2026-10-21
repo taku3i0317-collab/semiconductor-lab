@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:bronze_ingot",
+    "semiconductor-lab:crucible_steel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:balance_wheel",
+    "count": 1
+  }
+}
