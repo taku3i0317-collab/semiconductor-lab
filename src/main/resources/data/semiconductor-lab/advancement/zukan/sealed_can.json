@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:sealed_can"
+    },
+    "title": {
+      "translate": "item.semiconductor-lab.sealed_can"
+    },
+    "description": {
+      "translate": "item.semiconductor-lab.sealed_can.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "item.semiconductor-lab.sealed_can.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:sealed_can"
+          }
+        ]
+      }
+    }
+  }
+}

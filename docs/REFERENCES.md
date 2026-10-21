@@ -3001,6 +3001,20 @@
 - Wikipedia「Leclanché cell」：https://en.wikipedia.org/wiki/Leclanch%C3%A9_cell
 - Wikipedia「Zinc–carbon battery」：https://en.wikipedia.org/wiki/Zinc%E2%80%93carbon_battery
 
+## C52. 煮てから封をするか、封をしてから煮るか（缶詰とボルドー液）［11-12］［11-16］
+**答え**：1804〜10年、フランスのニコラ・アペールは、食べ物をびんにつめてしっかり封をし、湯で長く煮ると腐らないことを見つけ、ナポレオンの軍の懸賞を取った。1810年にはイギリスのピーター・デュランドが、ブリキ（鉄にスズをめっきした板）の缶の特許を取った。なぜ腐らないか（加熱で菌が死に、封で新しい菌が入らない）は、1860年代のパスツールまでわからなかった。1885年、フランスのピエール・ミラルデは、硫酸銅と石灰をまぜたボルドー液がブドウのべと病（カビの病気）を防ぐと発表した。
+
+- へえ①：缶詰が発明されてから約50年、缶切りがなかった ⚠️。
+- へえ②：アペールは、なぜ腐らないのかを知らないまま、缶詰のもとを作った。
+- へえ③：ボルドーの農家が、ブドウ泥棒よけに道ばたのブドウに青い薬をぬったら、そこだけ病気にならなかった。
+- へえ④：ボルドー液の銅は、カビの胞子が芽を出すのを止める。石灰は銅を葉にくっつけ、雨で流れにくくする。
+
+確かさ：アペール 1804〜10・デュランド 1810・ミラルデ 1885 ◎／缶切りがなかった年数 △
+根拠：
+- Wikipedia「Nicolas Appert」：https://en.wikipedia.org/wiki/Nicolas_Appert
+- Wikipedia「Canning」：https://en.wikipedia.org/wiki/Canning
+- Wikipedia「Bordeaux mixture」：https://en.wikipedia.org/wiki/Bordeaux_mixture
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

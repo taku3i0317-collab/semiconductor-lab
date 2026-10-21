@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:tin_can",
+    "#semiconductor-lab:cannable_food"
+  ],
+  "result": {
+    "id": "semiconductor-lab:sealed_can",
+    "count": 1
+  }
+}

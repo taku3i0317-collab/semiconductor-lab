@@ -637,8 +637,12 @@ cane_juice  # Agriculture [11-14] 0
 beet_juice  # Agriculture [11-14] 0
 raw_sugar  # Agriculture [11-14] 0
 bone_char  # Agriculture [11-14] 0
+tin_can  # Agriculture [11-12] 1804
+sealed_can  # Agriculture [11-12] 1804
+canned_meat  # Agriculture [11-12] 1804
 pasteurized_wine  # Agriculture [11-15] 1864
 refrigerator  # Agriculture [11-13] 1876
+bordeaux_mixture  # Agriculture [11-16] 1885
 theodolite  # Construction [12-11] 1615
 air_conditioner  # Construction [12-12] 1902
 platinum_bushing  # Construction [12-13] 1940

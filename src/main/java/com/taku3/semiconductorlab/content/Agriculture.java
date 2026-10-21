@@ -2,6 +2,7 @@ package com.taku3.semiconductorlab.content;
 
 import com.taku3.semiconductorlab.block.RefrigeratorBlockEntity;
 import com.taku3.semiconductorlab.machine.Machine;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 
 import static com.taku3.semiconductorlab.machine.Machine.metal;
@@ -11,6 +12,9 @@ import static com.taku3.semiconductorlab.machine.Machine.metal;
  * この幹のノードを足すときは、このファイル（と src/main/lang/agriculture/、src/gametest/.../AgricultureTests.java）だけを書き換える。
  */
 public final class Agriculture {
+    /** 缶詰の満腹度：焼いた牛肉（8・12.8）より少し多い（ゲームの約束、決定 Q3-14 ①） */
+    public static final int CANNED_NUTRITION = 9;
+    public static final float CANNED_SATURATION = 14.4f;
     private Agriculture() {}
 
     // [11-13] 冷凍機（IMP2 S-003、1876 リンデのアンモニア圧縮式）：水バケツ → 氷（冷媒のアンモニアは減らない）。1kW
@@ -28,6 +32,14 @@ public final class Agriculture {
     public static final Item BEET_JUICE = Reg.item("beet_juice", new Item.Properties().stacksTo(16));
     public static final Item RAW_SUGAR = Reg.item("raw_sugar");
     public static final Item BONE_CHAR = Reg.item("bone_char");
+
+    // [11-12] 缶詰（IMP3、S-006、決定 Q3-14 ①）：鉄＋スズ → ブリキ缶4（1810 デュランド）。缶＋焼いた肉・魚 → 詰めて封をした缶 → かまど・たき火で加熱 → 缶詰
+    //   （長く持ち運べる、満腹度が少し多い食べ物）。1804〜10 アペールの瓶詰（ナポレオン軍の懸賞）
+    public static final Item TIN_CAN = Reg.item("tin_can");
+    public static final Item SEALED_CAN = Reg.item("sealed_can");
+    public static final Item CANNED_MEAT = Reg.item("canned_meat", new Item.Properties().food(new FoodProperties(CANNED_NUTRITION, CANNED_SATURATION, false)));
+    // [11-16] ボルドー液（IMP3、S-006、決定 Q3-14 ②）：硫酸銅＋消石灰＋水 → 青い液（1885 ミラルデ、ブドウのべと病）。作るだけ（作物の病気の仕組みはまだない）
+    public static final Item BORDEAUX_MIXTURE = Reg.item("bordeaux_mixture", new Item.Properties().stacksTo(16));
 
     static void init() {}
 }

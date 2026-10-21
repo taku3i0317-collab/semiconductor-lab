@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:copper_sulfate",
+    "semiconductor-lab:slaked_lime",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:bordeaux_mixture",
+    "count": 4
+  }
+}

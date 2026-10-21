@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "semiconductor-lab:tin_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:tin_can",
+    "count": 4
+  }
+}

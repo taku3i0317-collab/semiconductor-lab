@@ -63,4 +63,18 @@ public class AgricultureTests extends LabTestBase {
         h.assertTrue(recipeUses(h, "white_sugar", Agriculture.RAW_SUGAR) && recipeUses(h, "white_sugar", Agriculture.BONE_CHAR), "bone char decolourizes -> white sugar");
         h.succeed();
     }
+
+    /** [11-12] 缶詰・[11-16] ボルドー液（IMP3、S-006）：鉄＋スズ → ブリキ缶、缶＋肉 → 封をした缶 → 加熱 → 缶詰（焼いた牛肉より少し満腹）。硫酸銅＋消石灰 → ボルドー液 */
+    @GameTest
+    public void cannedFoodBordeaux(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "tin_can", com.taku3.semiconductorlab.content.Metallurgy.TIN_INGOT) && recipeUses(h, "tin_can", net.minecraft.world.item.Items.IRON_INGOT), "iron + tin -> tinplate can");
+        h.assertTrue(recipeUses(h, "sealed_can", Agriculture.TIN_CAN) && recipeUses(h, "sealed_can", net.minecraft.world.item.Items.COOKED_BEEF), "can + cooked meat -> sealed can");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Agriculture.SEALED_CAN).is(Agriculture.CANNED_MEAT), "heat the sealed can -> canned food");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Agriculture.SEALED_CAN).is(Agriculture.CANNED_MEAT), "campfire works too");
+        var food = new ItemStack(Agriculture.CANNED_MEAT).get(net.minecraft.core.component.DataComponents.FOOD);
+        var beef = new ItemStack(net.minecraft.world.item.Items.COOKED_BEEF).get(net.minecraft.core.component.DataComponents.FOOD);
+        h.assertTrue(food != null && food.nutrition() > beef.nutrition() && food.saturation() > beef.saturation(), "a little more filling than cooked beef");
+        h.assertTrue(recipeUses(h, "bordeaux_mixture", com.taku3.semiconductorlab.content.Chemistry.COPPER_SULFATE) && recipeUses(h, "bordeaux_mixture", com.taku3.semiconductorlab.content.Survival.SLAKED_LIME), "CuSO4 + Ca(OH)2 -> Bordeaux");
+        h.succeed();
+    }
 }
