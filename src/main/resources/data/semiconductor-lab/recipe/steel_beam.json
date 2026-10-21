@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    " S ",
+    "SSS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:steel_beam",
+    "count": 6
+  }
+}

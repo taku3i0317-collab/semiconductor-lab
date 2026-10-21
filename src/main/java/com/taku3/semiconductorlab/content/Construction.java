@@ -59,6 +59,10 @@ public final class Construction {
     //   （溶けたスズの上に溶けたガラスを流すと、両面が鏡のように平らになる。バニラのガラス板の本物の作り方）=====
     public static final Item TIN_BATH              = Reg.item("tin_bath", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
 
+    // ===== [12-04] 鉄骨構造（IMP3、S-011）：鋼3 → 鉄骨（H 形鋼）6。丸太のように向きをつけて置ける柱・はり =====
+    public static final Block STEEL_BEAM = Reg.block("steel_beam", net.minecraft.world.level.block.RotatedPillarBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(4.0f, 8.0f).sound(SoundType.METAL));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

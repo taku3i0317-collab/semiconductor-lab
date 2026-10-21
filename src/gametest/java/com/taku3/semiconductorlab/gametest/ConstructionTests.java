@@ -204,4 +204,15 @@ public class ConstructionTests extends LabTestBase {
         h.assertTrue(copper, "the vanilla lightning rod is made of copper");
         h.succeed();
     }
+
+    /** [12-04] 鉄骨構造（IMP3、S-011）：鋼7 → 鉄骨6、向きつき（縦・横）で置ける */
+    @GameTest
+    public void steelBeam(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "steel_beam", com.taku3.semiconductorlab.content.Metallurgy.STEEL_INGOT), "steel");
+        h.assertTrue(Construction.STEEL_BEAM.defaultBlockState().hasProperty(net.minecraft.world.level.block.RotatedPillarBlock.AXIS), "beam has an axis (column or beam)");
+        floor(h, 3);
+        h.setBlock(p(1, 1, 1), Construction.STEEL_BEAM.defaultBlockState().setValue(net.minecraft.world.level.block.RotatedPillarBlock.AXIS, net.minecraft.core.Direction.Axis.X));
+        h.assertBlockPresent(Construction.STEEL_BEAM, p(1, 1, 1));
+        h.succeed();
+    }
 }

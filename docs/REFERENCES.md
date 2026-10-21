@@ -3853,6 +3853,20 @@
 - Wikipedia「Medical thermometer」：https://en.wikipedia.org/wiki/Medical_thermometer
 - Wikipedia「Thomas Clifford Allbutt」：https://en.wikipedia.org/wiki/Thomas_Clifford_Allbutt
 
+## C73. 鉄の骨組みで高く（鉄骨構造）［12-04］
+**答え**：れんがや石の建物は、上の重さを下の壁で支えるので、高くするほど下の壁を厚くしなければならない。鉄や鋼の骨組み（柱とはり）で重さを支えれば、壁はうすくてよく、高い建物が建てられる。1779年、イギリスのアイアンブリッジは鋳鉄で作った最初の大きな橋。1885年、シカゴのホーム・インシュアランス・ビルは鉄骨で建てた初期の高層ビルとされる。H の形の断面の鋼（H 形鋼）は、同じ重さで曲げに強い形。
+
+- へえ①：エッフェル塔は夏と冬で高さが十数cm 変わる（熱膨張）。
+- へえ②：H 形鋼は、材料を上下のふちに集めて曲げに強くした形。
+- へえ③：鉄骨の高層ビルは、エレベーター（[12-16]）と一緒に広まった。
+- へえ④：アイアンブリッジは、木の橋と同じ組み方（ほぞ・くさび）で鋳鉄をつないだ。
+
+確かさ：アイアンブリッジ 1779・エッフェル塔 1889 ◎／「最初の高層ビル」の定義 △
+根拠：
+- Wikipedia「Structural steel」：https://en.wikipedia.org/wiki/Structural_steel
+- Wikipedia「The Iron Bridge」：https://en.wikipedia.org/wiki/The_Iron_Bridge
+- Wikipedia「Home Insurance Building」：https://en.wikipedia.org/wiki/Home_Insurance_Building
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
