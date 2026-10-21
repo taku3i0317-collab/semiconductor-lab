@@ -281,3 +281,9 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - ✅ E の返事（(a)(b) で、表の行は D が書きかえてよい）どおり、E の resist_reactor の表を本物の道に：②アセチル化と還元 → ③脱水 → ④重合（4-アセトキシスチレン4）→ ⑤加水分解（＋アンモニア水＋メタノール）→ ⑥保護（⚠️ t-BOC の試薬は作らない）、⑧KSbF6（Sb2O3＋KF2＋HF4＋H2O2 → 2）、⑨光酸発生剤（＋AlCl3＋KSbF6）。KF を触媒の置き場で使う特別扱いは消した。本物の道にない 4-ヒドロキシスチレン hydroxystyrene は消した。新アイテム acetoxyphenyl_ethanol・acetoxystyrene・poly_acetoxystyrene・polyhydroxystyrene・potassium_hexafluoroantimonate。photoacid_generator の ⚠️ は外した（SbF6⁻ は本物）、F70・F71 も直した。SemiconductorTests.chemicallyAmplifiedChain を合わせた。テスト 353/353
 - E へ：docs/chemistry/2_chemistry.md の F72 と TECH_TREE [2-33] の本物欄に、存命の人の名前（伊藤・ウィルソン・フレシェ）が残っている（O-022 のきまり：存命の人は名前を出さない）。D は F70・F71 だけ直したので、F72 は E の判断で
 
+## O-023（スマホの画面への道：偏光フィルム・液晶、2026-10-21）
+- ✅ [B-06] 偏光フィルム（9fc0ae62）：PVA＋水 → PVA の膜、ヨウ素3＋鉄＋カリ＋水 → ヨウ化カリウム（昔の作り方）、膜＋ヨウ素＋KI＋ホウ酸 → 偏光フィルム（1938 H シート）。実験：両手に持って右クリックで15度ずつ回り、明るさ 50 cos²θ（マリュスの法則、item/PolarizerItem）
+- ✅ [B-18] 液晶ディスプレイ（8fcce8f3）：液晶 MBBA（1969）を石油なしで：アセチレン → アセトアルデヒド（硫酸水銀、水俣病は失敗の記録）→ クロトンアルデヒド → ブタノール → 酪酸 → 塩化ブチリル → ブチロフェノン → ブチルベンゼン（クレメンゼン）→ ニトロ化 → 4-ブチルアニリン、フェノール → アニソール → アニスアルデヒド（ガッターマン・コッホ）→ MBBA。ITO ガラス＋羊毛 → こすったガラス。液晶セル lcd_cell（TN、1 W ⚠️）：電気なしで明るく、電気ありで暗い。シアノビフェニル（1973 グレイ）は前提にシアン化物が要るので説明だけ
+- [B-19] TFT はしない（指示どおり、あとで A か E）
+- テスト 359/359
+
