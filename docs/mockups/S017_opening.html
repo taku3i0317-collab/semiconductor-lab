@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>はじめの動き 見本</title>
+<!-- S-017 見本：初めて来た人に見せる「〇〇を作るには？」のミニムービー（docs/film.js）。まだ本物の図には入れていない（ユーザーの OK 待ち）。
+     ?id=B-08 で別のモノ、?still=1 で「動きを減らす」の人の見え方（静止画5枚） -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap">
+<link rel="stylesheet" href="../design.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; padding: 16px; max-width: 760px; }
+h1 { font-size: 20px; margin: 4px 0 8px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.muted { color: var(--sub); font-size: 13px; }
+/* ムービー（film.js）：画面いっぱいの重ね。文は下、数は上、とばすは右上に大きく */
+.film { position: fixed; inset: 0; z-index: 100; background: var(--bg); transition: opacity 400ms; outline: none; cursor: pointer; }
+.film.out { opacity: 0; }
+.film canvas { position: absolute; inset: 0; }
+.film .cap { position: absolute; left: 16px; right: 16px; bottom: calc(10% + env(safe-area-inset-bottom)); text-align: center; font-family: var(--font-pixel); font-size: clamp(20px, 4.5vw, 34px); line-height: 1.4; color: var(--ink); text-shadow: 0 0 6px var(--bg), 0 0 12px var(--bg); }
+.film .cap.in { animation: capin 400ms ease-out; }
+@keyframes capin { from { opacity: 0; transform: translateY(8px); } }
+.film .cnt { position: absolute; left: 16px; top: 18px; font-size: clamp(15px, 3.6vw, 20px); color: var(--sub); font-weight: 700; }
+.film .skip { position: absolute; right: 12px; top: 12px; min-height: 48px; padding: 0 18px; font-size: 16px; font-weight: 700; border: 1px solid var(--accent); color: var(--accent); background: var(--panel); border-radius: 12px; cursor: pointer; }
+.film .nextb { position: absolute; right: 12px; bottom: 16px; min-height: 48px; padding: 0 18px; font-size: 16px; font-weight: 700; border: 1px solid var(--accent); color: var(--panel); background: var(--accent); border-radius: 12px; }
+@media (prefers-reduced-motion: reduce) { .film, .film .cap.in { transition: none; animation: none; } }
+</style>
+</head>
+<body>
+<h1>「〇〇を作るには？」ミニムービー（見本）</h1>
+<p>初めて図を開いた人には「スマホ」を自動で1回だけ（本番では、メニューに「はじめの動きをもう一度」）。ほかのモノは詳しいページと図の引き出しの「▶ できるまでを観る」から。下のボタンで見比べてください。右上の「とばす」でいつでも終わり、画面のどこを押しても次の場面へ。</p>
+<div class="row">
+  <button class="btn" data-id="B-10">▶ スマホ</button>
+  <button class="btn" data-id="B-08">▶ 電卓</button>
+  <button class="btn" data-id="B-11">▶ AIチップ</button>
+  <button class="btn" data-id="15-01">▶ 紙</button>
+</div>
+<div class="row"><a href="?still=1">「動きを減らす」の人の見え方（静止画5枚）</a>　<a href="?">ふつう</a></div>
+<p class="muted">数（技術の数・人の数）はすべてデータから数える。説明は S017.md。</p>
+<script>window.FILM_BASE = '../'; window.FILM_STILL = new URLSearchParams(location.search).get('still') === '1';
+try { document.documentElement.lang = localStorage.getItem('tn-lang') === 'en' ? 'en' : 'ja'; } catch (e) {}</script>
+<script src="../tech_network_graph.js"></script>
+<script src="../film.js"></script>
+<script>
+document.querySelectorAll('[data-id]').forEach(b => b.onclick = () => Film.play(b.dataset.id));
+Film.play(new URLSearchParams(location.search).get('id') || 'B-10');
+</script>
+</body>
+</html>
