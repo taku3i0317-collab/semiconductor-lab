@@ -641,5 +641,6 @@
   "gui.semiconductor-lab.cmp_polisher.already_flat": "Already flat",
   "gui.semiconductor-lab.cmp_polisher.need_power": "Not enough power",
   "gui.semiconductor-lab.cmp_polisher.running": "Polishing with slurry",
-  "gui.semiconductor-lab.cmp_polisher.recipe": "Slurry + pad → flat"
+  "gui.semiconductor-lab.cmp_polisher.recipe": "Slurry + pad → flat",
+  "gui.semiconductor-lab.stepper.need_water": "Insert ultrapure water"
 }

@@ -93,6 +93,12 @@ public final class Optics {
     // [7-20] KrF エキシマレーザー（IMP2 O-018）：Kr＋F2（Ne で薄める）を放電で励起 → 248nm の紫外パルス。ステッパーの光源の入口に入れる。耐久＝ガスの残り（1チップで1）
     public static final int KRF_LASER_SHOTS = 64;
     public static final Item KRF_LASER             = Reg.item("krf_laser", new Item.Properties().durability(KRF_LASER_SHOTS));
+    // [7-20] ArF エキシマレーザー（IMP2 S-005 v0.5）：Ar＋F2（Ne で薄める）→ 193nm。2000年代の主役
+    public static final Item ARF_LASER             = Reg.item("arf_laser", new Item.Properties().durability(KRF_LASER_SHOTS));
+    // ArF の投影レンズ：193nm では石英だけだと色がにじむので CaF2 のレンズを混ぜて色消し。NA 0.85・k1 0.35⚠️
+    public static final Item PROJECTION_LENS_ARF   = Reg.item("projection_lens_arf", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.ARF, 0.85, 0.35), new Item.Properties().stacksTo(1));
+    // [7-16] 液浸の投影レンズ（IMP2 S-005 v0.5、2006〜）：いちばん下のレンズとウェハーの間を超純水（193nm で屈折率 1.44）で満たし、NA 1.35。k1 0.3⚠️
+    public static final Item PROJECTION_LENS_IMMERSION = Reg.item("projection_lens_immersion", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.ARF_IMMERSION, 1.35, 0.3), new Item.Properties().stacksTo(1));
     // KrF の投影レンズ：248nm を通すのは石英と CaF2 だけ。NA 0.8・解像度を上げる工夫（位相シフトマスクなど）で k1 0.35⚠️
     public static final Item PROJECTION_LENS_KRF   = Reg.item("projection_lens_krf", p -> new ProjectionLensItem(p, com.taku3.semiconductorlab.litho.ExposureTool.KRF, 0.8, 0.35), new Item.Properties().stacksTo(1));
     // [7-13] ルビーレーザー（IMP2 O-019、1960 メイマン）：アルミナ＋少しの酸化クロム → 酸水素炎で溶かして落とす（ベルヌーイ法 1902）→ ルビーの単結晶

@@ -511,10 +511,13 @@ co2_laser  # Optics [7-14] 1964
 chrome_blank  # Optics [7-12] 1970
 chrome_photomask  # Optics [7-12] 1970
 krf_laser  # Optics [7-20] 1975
+arf_laser  # Optics [7-20] 1975
+projection_lens_arf  # Optics [7-20] 1975
 projection_lens_krf  # Optics [7-20] 1975
 projection_lens  # Optics [7-19] 1978
 projection_lens_i  # Optics [9-39] 1978
 i_line_filter  # Optics [9-39] 1978
+projection_lens_immersion  # Optics [7-16] 2006
 vernier_caliper  # Precision [8-04] 1631
 micrometer  # Precision [8-04] 1631
 simple_microscope  # Precision [8-10] 1670

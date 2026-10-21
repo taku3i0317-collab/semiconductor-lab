@@ -641,5 +641,6 @@
   "gui.semiconductor-lab.cmp_polisher.already_flat": "もう平ら",
   "gui.semiconductor-lab.cmp_polisher.need_power": "電気が足りない",
   "gui.semiconductor-lab.cmp_polisher.running": "スラリーでみがいている",
-  "gui.semiconductor-lab.cmp_polisher.recipe": "スラリー＋パッドで平らに"
+  "gui.semiconductor-lab.cmp_polisher.recipe": "スラリー＋パッドで平らに",
+  "gui.semiconductor-lab.stepper.need_water": "液浸の超純水を入れて"
 }

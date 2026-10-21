@@ -1968,6 +1968,19 @@
 - Wikipedia「Weston cell」：https://en.wikipedia.org/wiki/Weston_cell
 - Wikipedia「Itai-itai disease」：https://en.wikipedia.org/wiki/Itai-itai_disease
 
+## O69. 水で細かくする（ArF 液浸）［7-20 ArF・7-16］
+**答え**：ArF エキシマレーザー（193nm）は2000年代の露光の主役になった。空気中ではレンズの NA は1を超えられないが、2002年に TSMC のバーン・リン（林本堅）は、いちばん下のレンズとウェハーの間を水で満たす「液浸」を提案した。水の屈折率は 193nm で 1.44 なので NA を 1.35 まで上げられ、2006年ごろから量産に使われた。同じ考えは1878年ごろアッベとツァイスの油浸顕微鏡にさかのぼる。157nm の F2 レーザーはレンズとレジストの問題で2003年ごろ主流から外れ、業界は 193nm 液浸へ進んだ。
+
+- へえ①：最先端の露光装置は、レンズとウェハーの間に水を流している。
+- へえ②：水の中では光の波長が 1.44分の1 になったのと同じ働きをする。
+- へえ③：顕微鏡の油浸と同じ考えを、120年以上あとに半導体で使った。
+- へえ④：193nm 液浸に何度も露光を重ねる（マルチパターニング）ことで、EUV の前の世代まで細かくした。
+
+確かさ：ArF 2000年代 ◎／リン 2002 提案・2006 量産・NA 1.35 ◎／水 n=1.44 ◎／157nm の撤退 2003 ○
+根拠：
+- Wikipedia「Immersion lithography」：https://en.wikipedia.org/wiki/Immersion_lithography
+- Wikipedia「Excimer laser」：https://en.wikipedia.org/wiki/Excimer_laser
+
 ---
 
 # 冶金と熱（タスク15〜）

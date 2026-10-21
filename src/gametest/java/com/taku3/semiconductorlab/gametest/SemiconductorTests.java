@@ -1832,6 +1832,44 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [7-20] ArF・[7-16] 液浸（IMP2 S-005 v0.5）：ArF レーザー＋CaF2 入りのレンズ（NA 0.85）、液浸のレンズ（水で NA 1.35）はもっと細かいマスクが焼ける。液浸は超純水がないと焼けず、1チップで1本使う */
+    @GameTest(maxTicks = 200)
+    public void stepper_arf_immersion(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "arf_laser", com.taku3.semiconductorlab.content.Gas.ARGON_CYLINDER) && recipeUses(h, "arf_laser", com.taku3.semiconductorlab.content.Gas.FLUORINE_CYLINDER), "ArF laser = Ar + F2 in Ne");
+        h.assertTrue(com.taku3.semiconductorlab.block.StepperBlockEntity.LAYOUT.slots().stream().anyMatch(sl -> sl.index() == com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS && sl.accepts().test(new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_KRF))), "the lens slot takes every projection lens");
+        ItemStack dry = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_ARF), wet = new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_IMMERSION);
+        dry.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        wet.set(Precision.LENS_DECENTER, java.util.List.of(4, 4, 4, 4));
+        int gDry = com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(dry)), gWet = com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(wet));
+        h.assertTrue(gWet > gDry, "water raises NA: CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(dry) + " -> " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(wet) + " nm, grid " + gDry + " -> " + gWet);
+        var fine = new com.taku3.semiconductorlab.litho.MaskData(gWet, com.taku3.semiconductorlab.litho.LayerKind.DIFF_N, com.taku3.semiconductorlab.litho.BitGrid.empty(gWet), "immersion_test", 0);
+        ItemStack mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
+        mask.set(ModDataComponents.MASK, fine);
+        BlockPos at = p(1, 1, 1);
+        h.setBlock(at, Semiconductor.STEPPER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.StepperBlockEntity.class);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var c = be.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WAFER, ok(h, com.taku3.semiconductorlab.litho.ChipOps.coat(oxidized()), "coat"));
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_MASK, mask);
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Optics.ARF_LASER));
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, dry);
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "the dry ArF lens is too blurred for grid " + gWet);
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_LENS, wet);
+        h.assertFalse(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "immersion without ultrapure water cannot print");
+        c.setItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WATER, new ItemStack(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER, 2));
+        long full = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.StepperBlockEntity.WATTS);
+        for (int k = 1; k <= com.taku3.semiconductorlab.block.StepperBlockEntity.STEPS; k++) {
+            h.assertTrue(be.onButton(player, com.taku3.semiconductorlab.block.StepperBlockEntity.BTN_STEP), "immersion step " + k);
+            tickConsumer(h, at, be, com.taku3.semiconductorlab.block.StepperBlockEntity.STEP_TICKS + 2, full);
+        }
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(c.getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_OUT));
+        h.assertTrue(st != null && st.size() == gWet, "ArF immersion prints grid " + gWet);
+        h.assertValueEqual(c.getItem(com.taku3.semiconductorlab.block.StepperBlockEntity.SLOT_WATER).getCount(), 1, "one bottle of ultrapure water per chip");
+        LOG.info("[LAB] ArF [7-20] / immersion [7-16]: dry NA 0.85 CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(dry) + " nm grid " + gDry + "; water NA 1.35 CD " + com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(wet) + " nm grid " + gWet);
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

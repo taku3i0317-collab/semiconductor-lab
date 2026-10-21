@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:arf_laser",
+    "semiconductor-lab:argon_cylinder",
+    "semiconductor-lab:fluorine_cylinder",
+    "semiconductor-lab:neon_cylinder"
+  ],
+  "result": {
+    "id": "semiconductor-lab:arf_laser",
+    "count": 1
+  }
+}

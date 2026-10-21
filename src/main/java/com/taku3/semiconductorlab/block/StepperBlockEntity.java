@@ -33,24 +33,27 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     public static final ExposureTool TOOL_I = ExposureTool.STEPPER_I;
     /** [7-20]：KrF エキシマレーザーを入れると KrF（248nm、方眼がさらに細かい）。1チップごとにレーザーのガスを1使う */
     public static final ExposureTool TOOL_KRF = ExposureTool.KRF;
-    public static final int SLOT_WAFER = 0, SLOT_MASK = 1, SLOT_LENS = 2, SLOT_STAGE = 3, SLOT_OUT = 4, SLOT_FILTER = 5, SLOT_COUNT = 6;
+    /** [7-20] ArF（193nm）。[7-16] 液浸のレンズなら ARF_IMMERSION（レンズとウェハーの間に超純水、1チップで1本） */
+    public static final ExposureTool TOOL_ARF = ExposureTool.ARF, TOOL_IMMERSION = ExposureTool.ARF_IMMERSION;
+    public static final int SLOT_WAFER = 0, SLOT_MASK = 1, SLOT_LENS = 2, SLOT_STAGE = 3, SLOT_OUT = 4, SLOT_FILTER = 5, SLOT_WATER = 6, SLOT_COUNT = 7;
     public static final int DATA_STEPS = DATA_COUNT, DATA_CD = DATA_COUNT + 1, DATA_OVERLAY = DATA_COUNT + 2, DATA_ROOM = DATA_COUNT + 3, EXTRA_DATA = 4;
     public static final int BTN_STEP = 0;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + EXTRA_DATA).height(206)
             .in(SLOT_WAFER, 8, 17, s -> s.is(Semiconductor.PROCESS_WAFER), 1)
             .in(SLOT_MASK, 8, 39, MaskAlignerBlockEntity::isMask, 1)
-            .in(SLOT_LENS, 30, 17, s -> s.is(Optics.PROJECTION_LENS), 1)
+            .in(SLOT_LENS, 30, 17, s -> s.getItem() instanceof ProjectionLensItem, 1)
             .in(SLOT_STAGE, 30, 39, LatheBlockEntity::isMasterScrew, 1)
             .out(SLOT_OUT, 54, 28)
-            .in(SLOT_FILTER, 78, 17, s -> s.is(Optics.I_LINE_FILTER) || s.is(Optics.KRF_LASER), 1)
+            .in(SLOT_FILTER, 78, 17, s -> s.is(Optics.I_LINE_FILTER) || s.is(Optics.KRF_LASER) || s.is(Optics.ARF_LASER), 1)
+            .in(SLOT_WATER, 78, 39, s -> s.is(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER))
             .area("step_button", 8, 60, 66, 14)
             .right("power", 17, 1, "gui.semiconductor-lab.stepper.power").samples("1.5 kW")
             .right("steps", 28, 1, "gui.semiconductor-lab.stepper.steps").samples("4", "4")
             .right("cd", 39, 1, "gui.semiconductor-lab.stepper.cd").samples("0.85")
             .right("overlay", 50, 1, "gui.semiconductor-lab.mask_aligner.overlay").samples("20.0")
             .right("room", 61, 1, "gui.semiconductor-lab.mask_aligner.room_none", "gui.semiconductor-lab.mask_aligner.room_1000", "gui.semiconductor-lab.mask_aligner.room_100")
-            .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "blurred", "cannot",
+            .right("hint", 72, 3, MachineLayout.keys("gui.semiconductor-lab.stepper.", "need_wafer", "need_mask", "need_lens", "lens_wrong", "need_water", "blurred", "cannot",
                     "output_full", "press", "need_power", "running"))
             .build();
 
@@ -71,18 +74,32 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     public static int cdOf(ItemStack lens) { return lensOk(lens) ? ProjectionLensItem.cdNm(lens) : 0; }
 
     /** 光源：i線フィルターがあれば i線、なければ g線 */
-    public static ExposureTool toolFor(ItemStack filter) { return filter.is(Optics.KRF_LASER) ? TOOL_KRF : filter.is(Optics.I_LINE_FILTER) ? TOOL_I : TOOL; }
+    public static ExposureTool toolFor(ItemStack filter) {
+        return filter.is(Optics.ARF_LASER) ? TOOL_ARF : filter.is(Optics.KRF_LASER) ? TOOL_KRF : filter.is(Optics.I_LINE_FILTER) ? TOOL_I : TOOL;
+    }
+
+    /** [7-16] 液浸のレンズか */
+    public static boolean immersion(ItemStack lens) { return ProjectionLensItem.toolOf(lens) == TOOL_IMMERSION; }
+
+    /** レンズと光源から決まる露光の方法（液浸のレンズ＋ArF なら ARF_IMMERSION） */
+    public static ExposureTool toolWith(ItemStack lens, ItemStack filter) {
+        ExposureTool t = toolFor(filter);
+        return t == TOOL_ARF && immersion(lens) ? TOOL_IMMERSION : t;
+    }
 
     /** レンズが光の波長に合っているか（g線のガラスのレンズは i線を吸う） */
-    public static boolean lensMatches(ItemStack lens, ItemStack filter) { return ProjectionLensItem.toolOf(lens) == toolFor(filter); }
+    public static boolean lensMatches(ItemStack lens, ItemStack filter) { return ProjectionLensItem.toolOf(lens) == toolWith(lens, filter); }
 
-    public ExposureTool tool() { return toolFor(container.getItem(SLOT_FILTER)); }
+    public ExposureTool tool() { return toolWith(container.getItem(SLOT_LENS), container.getItem(SLOT_FILTER)); }
+
+    /** 液浸なら超純水が要る */
+    public boolean waterOk() { return !immersion(container.getItem(SLOT_LENS)) || container.getItem(SLOT_WATER).is(com.taku3.semiconductorlab.content.Chemistry.ULTRAPURE_WATER); }
 
     /** 材料がそろっていて、1チップ焼ける状態か（送りの前の確かめ） */
     public boolean canStep() {
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         ItemStack lens = container.getItem(SLOT_LENS);
-        return MaskAlignerBlockEntity.isMask(m) && lensOk(lens) && lensMatches(lens, container.getItem(SLOT_FILTER)) && container.getItem(SLOT_OUT).isEmpty()
+        return MaskAlignerBlockEntity.isMask(m) && lensOk(lens) && lensMatches(lens, container.getItem(SLOT_FILTER)) && waterOk() && container.getItem(SLOT_OUT).isEmpty()
                 && ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), cdOf(lens), 0).ok();
     }
 
@@ -117,7 +134,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
     @Override protected void finishWork() {
         stepping = false;
         ItemStack light = container.getItem(SLOT_FILTER);
-        if (light.is(Optics.KRF_LASER)) {   // [7-20] 1チップでガスを1使う。使い切ると空になる
+        if (light.is(Optics.KRF_LASER) || light.is(Optics.ARF_LASER)) {   // [7-20] 1チップでガスを1使う。使い切ると空になる
             light.setDamageValue(light.getDamageValue() + 1);
             if (light.getDamageValue() >= light.getMaxDamage()) container.setItem(SLOT_FILTER, ItemStack.EMPTY);
         }
@@ -128,6 +145,10 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
         if (!r.ok()) return;
         container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.addDust(r.out(), CleanRoom.classAt(level, worldPosition).dust));
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);   // マスクは触れないので傷まない
+        if (immersion(container.getItem(SLOT_LENS))) {   // [7-16] 1チップ焼くごとに超純水を1本（空き瓶は上に）
+            com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, container.getItem(SLOT_WATER), 1);
+            container.getItem(SLOT_WATER).shrink(1);
+        }
         container.setChanged();
     }
 
