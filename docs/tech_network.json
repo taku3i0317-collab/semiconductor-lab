@@ -4512,7 +4512,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F44. 予言された金属（ガリウム）［1-44］",
+     "answer": "ガリウムは、1871年にメンデレーエフが周期表のすき間から「エカアルミニウム」として性質まで予言し、1875年にルコック・ド・ボアボードランが閃亜鉛鉱の光の線（分光）から見つけた。アルミニウムとそっくりなので、ボーキサイトからアルミナを作るバイヤー法の液にたまり、今のガリウムの大半はそこから電気で取り出している。融点は約30℃で、手のひらで溶ける。",
+     "hee": {
+      "1": "ガリウムは手のひらの温度で溶ける金属。",
+      "2": "予言の密度（5.9）と、最初の測定（4.7）がちがったので、メンデレーエフは「測り直して」と言い、本当に 5.9 だった。",
+      "3": "アルミニウムに付けると中にしみこんでぼろぼろにするので、ポリエチレンの瓶に入れる。",
+      "4": "LED・スマホの電波の増幅器（GaAs・GaN）に欠かせない。"
+     },
+     "certainty": "予言 1871・発見 1875 ◎／バイヤー法の母液から回収が主 ◎／密度の逸話 ○",
+     "basis": "Wikipedia「Gallium」（History／Production）https://en.wikipedia.org/wiki/Gallium （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -4522,7 +4535,7 @@
    "name": "ガリウム",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1871,
    "year_range": "1871〜1875",
@@ -4535,12 +4548,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ガリウムは手のひらの体温（融点約30℃）で溶ける",
    "name_en": "Gallium",
    "hee1_en": "Gallium melts from the warmth of your palm (melting point about 30°C).",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -26657,7 +26670,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F43. 光を数える・動きを感じる（画像センサーと MEMS）［9-42］［9-43］",
+     "answer": "画像センサーは、画素ごとのフォトダイオードに光の粒が当たって生まれた電子をためて数える。1969年にベル研究所で CCD が考えられ、1993年ごろ NASA ジェット推進研究所のグループが画素ごとに増幅のトランジスタを持つ CMOS センサーを作り、スマホのカメラはほぼこれになった。MEMS の加速度センサーは、シリコンを深く削って作ったばねとおもりの動きを電極のすき間（静電容量）で測る。1993年に自動車のエアバッグ用に量産され、2007年のスマホで画面の向きを変えるのに使われた。",
+     "hee": {
+      "1": "光の粒は不規則に来るので、数は ±√N ほどばらつく。暗い写真がざらざらなのはこのため。",
+      "2": "加速度センサーは、立っていると 1g、自由に落ちると 0g を示す。感じるのは「支えられている分」。",
+      "3": "深く垂直に削るボッシュ法（1994）は、削るガスと壁を守るガスを交互に流す。",
+      "4": "CCD の発明は 2009年のノーベル物理学賞になった。"
+     },
+     "certainty": "CCD 1969・ノーベル賞 2009 ◎／CMOS 能動画素センサー 1993ごろ ○／ADXL50 1993 ○／iPhone の加速度センサー 2007 ○（年は ⚠️ 出典で確かめ中）",
+     "basis": "Wikipedia「Image sensor」https://en.wikipedia.org/wiki/Image_sensor 、Wikipedia「Accelerometer」（MEMS）https://en.wikipedia.org/wiki/Accelerometer （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26667,7 +26693,7 @@
    "name": "画像センサー",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1969,
    "year_range": "1969〜1993",
@@ -26690,12 +26716,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "スマホのカメラも光学式マウスも、中身は同じ仲間の「光を電子に変えて数える」チップ（S-003 で追加。出典：Nobel Prize「Physics 2009」、Wikipedia「Active-pixel sensor」「Optical mouse」）",
    "name_en": "Image sensor",
    "hee1_en": "Phone cameras and optical mice both use the same family of chips that \"turn light into electrons and count them\" (added in S-003. Sources: Nobel Prize \"Physics 2009\", Wikipedia \"Active-pixel sensor\", \"Optical mouse\")",
    "kind": "tech",
-   "play": "",
+   "play": "軽（手に持って光の電子を数える）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -26720,7 +26746,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F43. 光を数える・動きを感じる（画像センサーと MEMS）［9-42］［9-43］",
+     "answer": "画像センサーは、画素ごとのフォトダイオードに光の粒が当たって生まれた電子をためて数える。1969年にベル研究所で CCD が考えられ、1993年ごろ NASA ジェット推進研究所のグループが画素ごとに増幅のトランジスタを持つ CMOS センサーを作り、スマホのカメラはほぼこれになった。MEMS の加速度センサーは、シリコンを深く削って作ったばねとおもりの動きを電極のすき間（静電容量）で測る。1993年に自動車のエアバッグ用に量産され、2007年のスマホで画面の向きを変えるのに使われた。",
+     "hee": {
+      "1": "光の粒は不規則に来るので、数は ±√N ほどばらつく。暗い写真がざらざらなのはこのため。",
+      "2": "加速度センサーは、立っていると 1g、自由に落ちると 0g を示す。感じるのは「支えられている分」。",
+      "3": "深く垂直に削るボッシュ法（1994）は、削るガスと壁を守るガスを交互に流す。",
+      "4": "CCD の発明は 2009年のノーベル物理学賞になった。"
+     },
+     "certainty": "CCD 1969・ノーベル賞 2009 ◎／CMOS 能動画素センサー 1993ごろ ○／ADXL50 1993 ○／iPhone の加速度センサー 2007 ○（年は ⚠️ 出典で確かめ中）",
+     "basis": "Wikipedia「Image sensor」https://en.wikipedia.org/wiki/Image_sensor 、Wikipedia「Accelerometer」（MEMS）https://en.wikipedia.org/wiki/Accelerometer （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26730,7 +26769,7 @@
    "name": "MEMS",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1993,
    "year_range": "1954〜2010",
@@ -26758,12 +26797,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "スマホの中には、シリコンでできた小さなばねとおもりがあって、傾けると本当に動いている（S-003 で追加。出典：Proc. IEEE「Silicon as a Mechanical Material」（1982）、Wikipedia「Microelectromechanical systems」）",
    "name_en": "MEMS",
    "hee1_en": "Inside a smartphone are tiny springs and weights made of silicon, and they really move when you tilt it. (Added in S-003. Sources: Proc. IEEE \"Silicon as a Mechanical Material\" (1982), Wikipedia \"Microelectromechanical systems\")",
    "kind": "tech",
-   "play": "",
+   "play": "軽（手に持って加速度と傾き）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -28131,7 +28170,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L17. 1つのチップのコンピュータと 8ビット（TMS1000・8008）［10-14］",
+     "answer": "ワンチップマイコンは、CPU・プログラムの ROM・データの RAM・入出力を1つのチップに入れたもの。1974年の TI の TMS1000（4ビット）が初めて広く売れ、電卓・おもちゃ・家電の中に入った。8ビットの CPU は 1972年のインテル 8008（約3500トランジスタ）が最初で、1974年の 8080 がパソコン（1975 アルテア）を生んだ。",
+     "hee": {
+      "1": "炊飯器にも洗濯機にも、小さなコンピュータ（マイコン）が入っている。今は1つの家に何十個もある。",
+      "2": "4ビットは 0〜15、8ビットは 0〜255。文字1つ（ASCII）が8ビットに入るので、8ビットからコンピュータが文字をふつうに扱えるようになった。",
+      "3": "TMS1000 の ROM は 1024語。中身はお客ごとにマスクで焼きこみ、同じ仕事を何年も続けた。",
+      "4": "8008 はもとは端末（文字を出す機械）のために作られた。"
+     },
+     "certainty": "TMS1000 は1974年・CPU＋ROM＋RAM＋入出力 ◎／8008 は1972年・約3500トランジスタ ◎／8080 は1974年・アルテア 1975 ◎／8008 の始まりが端末（CTC）○",
+     "basis": "Texas Instruments「TMS1000」史料、Computer History Museum「1974 – General-purpose microprocessors」、Wikipedia「TMS1000」「Intel 8008」「Intel 8080」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -28141,7 +28193,7 @@
    "name": "マイクロコンピュータ",
    "trunk": "10",
    "trunk_name": "制御・計算",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1974,
    "year_range": null,
@@ -28154,7 +28206,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "炊飯器にも洗濯機にも、小さなコンピュータが入っている",
    "name_en": "Microcomputer",
    "hee1_en": "Rice cookers and washing machines have small computers inside too.",
@@ -28355,7 +28407,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "図面を紙ではなく数字で持つと、何度でも直せる （IMP-24 で追加、network_proposals N-7）",
    "name_en": "CAD",
    "hee1_en": "Keep drawings as numbers instead of on paper, and you can fix them as many times as you like (added in IMP-24, network_proposals N-7)",
@@ -29674,7 +29726,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "「スタンプ」は郵便切手。切手くらい小さいコンピューター（S-019 で追加。出典：Parallax「Our Story」 https://www.parallax.com/pages/our-story 、亜留間次郎さん（Arumaddilo）が作った Wikipedia 日本語版「BASIC Stamp」 https://ja.wikipedia.org/wiki/BASIC_Stamp ）",
    "name_en": null,
    "hee1_en": null,
@@ -39382,7 +39434,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "スマホのカメラと光学式マウスの目は、同じ仲間のチップ",
    "name_en": "Smartphone camera",
    "hee1_en": "A smartphone camera and the eye of an optical mouse are the same kind of chip.",
@@ -39442,7 +39494,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "スマホを横にすると画面が回るのは、中の小さなおもりが動くから",
    "name_en": "Motion sensor",
    "hee1_en": "The screen turns when you tip your smartphone sideways because a tiny weight inside moves.",
