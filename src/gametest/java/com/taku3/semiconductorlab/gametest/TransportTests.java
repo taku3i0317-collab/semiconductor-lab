@@ -86,4 +86,30 @@ public class TransportTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [14-23] 天井の搬送 OHT（IMP4-01、O-029）：ロードポートの出す FOUP が25枚でいっぱい → 駆動が持ち上げ、レール3マスの先のロードポートの入れる口へ降ろす */
+    @GameTest(maxTicks = 200)
+    public void ohtRail(GameTestHelper h) {
+        var LP = com.taku3.semiconductorlab.content.Semiconductor.LOAD_PORT;
+        h.setBlock(p(1, 1, 1), LP.block);
+        h.setBlock(p(4, 1, 1), LP.block);
+        h.setBlock(p(1, 3, 1), Transport.OHT_DRIVE.block);
+        for (int x = 2; x <= 4; x++) h.setBlock(p(x, 3, 1), Transport.OHT_RAIL);
+        var a = (com.taku3.semiconductorlab.block.LoadPortBlockEntity) h.getBlockEntity(p(1, 1, 1), com.taku3.semiconductorlab.block.LoadPortBlockEntity.class);
+        var b = (com.taku3.semiconductorlab.block.LoadPortBlockEntity) h.getBlockEntity(p(4, 1, 1), com.taku3.semiconductorlab.block.LoadPortBlockEntity.class);
+        ItemStack foup = new ItemStack(com.taku3.semiconductorlab.content.Semiconductor.FOUP);
+        com.taku3.semiconductorlab.item.FoupItem.add(foup, new ItemStack(com.taku3.semiconductorlab.content.Semiconductor.SILICON_WAFER, 25));
+        a.getContainer().setItem(com.taku3.semiconductorlab.block.LoadPortBlockEntity.SLOT_OUT_FOUP, foup);
+        BlockPos drive = h.absolutePos(p(1, 3, 1));
+        h.assertTrue(com.taku3.semiconductorlab.block.OhtDriveBlockEntity.shouldSend(a), "a full FOUP is sent");
+        var r = com.taku3.semiconductorlab.block.OhtDriveBlockEntity.route(h.getLevel(), drive);
+        h.assertTrue(r != null && r.rails().size() == 3 && r.port().equals(h.absolutePos(p(4, 1, 1))), "route: 3 rails to the far load port");
+        var d = (com.taku3.semiconductorlab.block.OhtDriveBlockEntity) h.getBlockEntity(p(1, 3, 1), com.taku3.semiconductorlab.block.OhtDriveBlockEntity.class);
+        ((com.taku3.semiconductorlab.energy.SimpleEnergyStorage) d.getStorage()).insertRaw(4_000);
+        h.assertTrue(recipeUses(h, "oht_drive", com.taku3.semiconductorlab.content.Power.ELECTRIC_MOTOR) && recipeUses(h, "oht_rail", com.taku3.semiconductorlab.content.Metallurgy.STEEL_INGOT), "motor drive, steel rail");
+        h.succeedWhen(() -> {
+            h.assertValueEqual(com.taku3.semiconductorlab.item.FoupItem.contents(b.getContainer().getItem(com.taku3.semiconductorlab.block.LoadPortBlockEntity.SLOT_IN_FOUP)).getCount(), 25, "25 wafers dropped at the far load port");
+            h.assertTrue(a.getContainer().getItem(com.taku3.semiconductorlab.block.LoadPortBlockEntity.SLOT_OUT_FOUP).isEmpty(), "lifted from the first");
+        });
+    }
+
 }

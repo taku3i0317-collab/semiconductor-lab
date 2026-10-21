@@ -1,4 +1,4 @@
-# 自動生成：GameTest gui_layout（IMP-30）。画面 216（ja・en）、文字の置き場所 800、問題 0
+# 自動生成：GameTest gui_layout（IMP-30）。画面 218（ja・en）、文字の置き場所 808、問題 0
 assembly_bench_en_us index =1/2 w=18 lines=1/1
 assembly_bench_en_us product item.semiconductor-lab.hf_oscillator w=64 lines=2/2
 assembly_bench_en_us product item.semiconductor-lab.touch_panel w=115 lines=2/2 scale=0.84999996
@@ -1067,6 +1067,14 @@ conveyor_drive_en_us hint gui.semiconductor-lab.conveyor_drive.no_belt w=143 lin
 conveyor_drive_en_us hint gui.semiconductor-lab.conveyor_drive.need_power w=90 lines=2/2
 conveyor_drive_en_us hint gui.semiconductor-lab.conveyor_drive.running w=50 lines=1/2
 conveyor_drive_en_us recipe gui.semiconductor-lab.conveyor_drive.recipe w=113 lines=1/1 scale=0.95
+oht_drive_en_us power gui.semiconductor-lab.oht_drive.power w=75 lines=1/1
+oht_drive_en_us rail gui.semiconductor-lab.oht_drive.rail w=75 lines=1/1
+oht_drive_en_us hint gui.semiconductor-lab.oht_drive.no_port w=94 lines=2/3
+oht_drive_en_us hint gui.semiconductor-lab.oht_drive.no_dest w=146 lines=2/3
+oht_drive_en_us hint gui.semiconductor-lab.oht_drive.waiting w=112 lines=2/3
+oht_drive_en_us hint gui.semiconductor-lab.oht_drive.need_power w=90 lines=2/3
+oht_drive_en_us hint gui.semiconductor-lab.oht_drive.running w=82 lines=2/3
+oht_drive_en_us recipe gui.semiconductor-lab.oht_drive.recipe w=133 lines=1/1 scale=0.79999995
 compound_furnace_en_us title shrunk to 0.9882353
 compound_furnace_en_us power gui.semiconductor-lab.compound_furnace.power w=75 lines=1/1
 compound_furnace_en_us hint gui.semiconductor-lab.compound_furnace.need_input w=139 lines=3/4
@@ -2157,6 +2165,14 @@ conveyor_drive_ja_jp hint gui.semiconductor-lab.conveyor_drive.no_belt w=144 lin
 conveyor_drive_ja_jp hint gui.semiconductor-lab.conveyor_drive.need_power w=63 lines=1/2
 conveyor_drive_ja_jp hint gui.semiconductor-lab.conveyor_drive.running w=45 lines=1/2
 conveyor_drive_ja_jp recipe gui.semiconductor-lab.conveyor_drive.recipe w=86 lines=1/1
+oht_drive_ja_jp power gui.semiconductor-lab.oht_drive.power w=63 lines=1/1
+oht_drive_ja_jp rail gui.semiconductor-lab.oht_drive.rail w=71 lines=1/1
+oht_drive_ja_jp hint gui.semiconductor-lab.oht_drive.no_port w=99 lines=2/3
+oht_drive_ja_jp hint gui.semiconductor-lab.oht_drive.no_dest w=180 lines=3/3
+oht_drive_ja_jp hint gui.semiconductor-lab.oht_drive.waiting w=136 lines=3/3
+oht_drive_ja_jp hint gui.semiconductor-lab.oht_drive.need_power w=63 lines=1/3
+oht_drive_ja_jp hint gui.semiconductor-lab.oht_drive.running w=82 lines=2/3
+oht_drive_ja_jp recipe gui.semiconductor-lab.oht_drive.recipe w=141 lines=1/1 scale=0.74999994
 compound_furnace_ja_jp power gui.semiconductor-lab.compound_furnace.power w=63 lines=1/1
 compound_furnace_ja_jp hint gui.semiconductor-lab.compound_furnace.need_input w=99 lines=2/4
 compound_furnace_ja_jp hint gui.semiconductor-lab.compound_furnace.need_power w=63 lines=1/4

@@ -879,6 +879,9 @@ setblock ~5 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduct
 setblock ~8 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-22] 流れ作業とベ","ベルトの上に物が寝て見","える・1秒に1マス進む","・駆動の画面の数字・電"]}}
 setblock ~8 ~0 ~98 semiconductor-lab:conveyor_belt
 setblock ~9 ~0 ~98 semiconductor-lab:conveyor_drive
+setblock ~13 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-23] 天井の搬送 ","運んでいる間レールの光","が先へ動く・駆動の画面","・行き止まりが2つのと"]}}
+setblock ~13 ~0 ~98 semiconductor-lab:oht_rail
+setblock ~14 ~0 ~98 semiconductor-lab:oht_drive
 setblock ~0 ~0 ~105 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹15 通信","↓ この列","",""]}}
 setblock ~2 ~0 ~105 minecraft:oak_sign[rotation=8]{front_text:{messages:["[15-01] 紙","3つのアイテムの見た目","とツールチップ、パルプ","から紙ができるか（レシ"]}}
 setblock ~2 ~0 ~106 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sulfite_liquor",count:16},{Slot:1b,id:"semiconductor-lab:pulp_charge",count:16},{Slot:2b,id:"semiconductor-lab:wood_pulp",count:16}]}

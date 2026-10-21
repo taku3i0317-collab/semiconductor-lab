@@ -43,5 +43,20 @@
   "gui.semiconductor-lab.conveyor_drive.no_belt": "横に、遠ざかる向きのベルトがない",
   "gui.semiconductor-lab.conveyor_drive.need_power": "電気が足りない",
   "gui.semiconductor-lab.conveyor_drive.running": "運んでいる",
-  "gui.semiconductor-lab.conveyor_drive.recipe": "後ろ → ベルト → 先"
+  "gui.semiconductor-lab.conveyor_drive.recipe": "後ろ → ベルト → 先",
+  "block.semiconductor-lab.oht_drive": "天井の搬送の駆動",
+  "block.semiconductor-lab.oht_drive.note1": "レールの頭。下のロードポートの FOUP がいっぱいになると、持ち上げてレールの先のロードポートへ運ぶ。",
+  "block.semiconductor-lab.oht_drive.note2": "作業台：鋼2＋電動モーター＋加硫ゴム2＋銅ケーブル。下（4マスまで）のロードポートの「出す FOUP」が25枚でいっぱいか、入れる FOUP が空で止まったとき、レールの行き止まりの下のロードポートの「入れる FOUP」の口が空なら、そこへ運ぶ。電気 200W。",
+  "block.semiconductor-lab.oht_drive.note3": "時間はレールの長さに比例（1マス 0.25秒 ⚠️）。行き止まりが何か所かあれば、空いている近い方へ。",
+  "block.semiconductor-lab.oht_drive.note4": "レッドストーンは使わない。電気がある間だけ動く。",
+  "block.semiconductor-lab.oht_drive.placeholder": "省略：⚠️ 台車は描かず、レールが光るだけ。本物は台車がベルトで FOUP を吊り下ろす。速さ・電気は目安。",
+  "block.semiconductor-lab.oht_drive.howto": "ロードポートの真上（4マスまで）に置き、天井のレールで別のロードポートの真上までつなぐ。出す FOUP がいっぱいになると、先の入れる口へ運ぶ。電気 200W。",
+  "gui.semiconductor-lab.oht_drive.power": "電力 %s",
+  "gui.semiconductor-lab.oht_drive.rail": "レール %s マス",
+  "gui.semiconductor-lab.oht_drive.no_port": "下にロードポートがない",
+  "gui.semiconductor-lab.oht_drive.no_dest": "降ろす先がない（入れる口が空いていない）",
+  "gui.semiconductor-lab.oht_drive.waiting": "FOUP がいっぱいになるのを待つ",
+  "gui.semiconductor-lab.oht_drive.need_power": "電気が足りない",
+  "gui.semiconductor-lab.oht_drive.running": "FOUP を運んでいる",
+  "gui.semiconductor-lab.oht_drive.recipe": "出す FOUP → レール → 入れる口"
 }

@@ -3,9 +3,12 @@ package com.taku3.semiconductorlab.content;
 import com.taku3.semiconductorlab.block.ConveyorBeltBlock;
 import com.taku3.semiconductorlab.block.ConveyorBeltBlockEntity;
 import com.taku3.semiconductorlab.block.ConveyorDriveBlockEntity;
+import com.taku3.semiconductorlab.block.OhtDriveBlockEntity;
+import com.taku3.semiconductorlab.block.OhtRailBlock;
 import com.taku3.semiconductorlab.item.ChronometerItem;
 import com.taku3.semiconductorlab.machine.Machine;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 /**
  * 幹14 交通・運輸（[14-..] のノード。IMP2 O-023 の [14-03] 経度とクロノメーターで作成。[8-21] 六分儀の続き）。
@@ -28,6 +31,11 @@ public final class Transport {
     public static final Machine<ConveyorBeltBlockEntity> CONVEYOR_BELT = Machine.builder("conveyor_belt", ConveyorBeltBlockEntity::new)
             .block(ConveyorBeltBlock::new).props(Machine.metal(1.0f).noOcclusion()).build();
     public static final Machine<ConveyorDriveBlockEntity> CONVEYOR_DRIVE = Machine.electric("conveyor_drive", ConveyorDriveBlockEntity::new, ConveyorDriveBlockEntity.LAYOUT, Machine.metal(2.0f));
+
+    // [14-23] 天井の搬送 OHT（IMP4-01、O-029 仮決定の案A、1990年代の 300mm 工場 ⚠️）：天井のレール（光る＝台車のいる所）＋駆動（下のロードポートの出す FOUP がいっぱいなら、
+    //   レールの行き止まりの下のロードポートの入れる口へ。時間はレールの長さに比例、200W）
+    public static final Block OHT_RAIL = Reg.block("oht_rail", OhtRailBlock::new, Machine.lit(Machine.metal(1.5f).noOcclusion(), 7));
+    public static final Machine<OhtDriveBlockEntity> OHT_DRIVE = Machine.electric("oht_drive", OhtDriveBlockEntity::new, OhtDriveBlockEntity.LAYOUT, Machine.metal(2.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}

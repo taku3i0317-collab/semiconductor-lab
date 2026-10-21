@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "semiconductor-lab:block/oht_rail"
+    },
+    "lit=true": {
+      "model": "semiconductor-lab:block/oht_rail_on"
+    }
+  }
+}

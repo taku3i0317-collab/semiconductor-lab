@@ -507,5 +507,11 @@
   "message.semiconductor-lab.robot_arm.learned": "覚えた（%s / %s 組）",
   "message.semiconductor-lab.robot_arm.cleared": "腕の動きを全部忘れた",
   "message.semiconductor-lab.robot_arm.too_far": "腕が届かない（3ブロック以内）",
-  "message.semiconductor-lab.robot_arm.not_machine": "物を出し入れできる所ではない"
+  "message.semiconductor-lab.robot_arm.not_machine": "物を出し入れできる所ではない",
+  "block.semiconductor-lab.oht_rail": "天井の搬送のレール",
+  "block.semiconductor-lab.oht_rail.note1": "工場の天井に付けるレール。この上を台車が走り、ウェハーの箱（FOUP）を運ぶ。",
+  "block.semiconductor-lab.oht_rail.note2": "作業台：鋼3 → 8。となりどうし（上下も）つながる。行き止まりの下（4マスまで）にロードポートを置くと、そこが降ろす先になる。運んでいる間、台車のいる所が光る。",
+  "block.semiconductor-lab.oht_rail.note3": "今の 300mm の半導体工場では、天井を何kmものレールが走り、何百台もの台車が FOUP を装置から装置へ運ぶ。人はほとんど運ばない ⚠️。",
+  "block.semiconductor-lab.oht_rail.note4": "FOUP は約8kg あり、人が一日中運ぶのは大変で、落とすとウェハー25枚がだめになる。それで 300mm の工場は最初から自動搬送で作られた ⚠️。",
+  "block.semiconductor-lab.oht_rail.howto": "駆動から天井につなぐ。行き止まりの下（4マスまで）のロードポートが降ろす先。運んでいる間、台車のいる所が光る。"
 }

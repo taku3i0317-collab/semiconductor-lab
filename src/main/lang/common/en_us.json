@@ -507,5 +507,11 @@
   "message.semiconductor-lab.robot_arm.learned": "Learned (%s / %s moves)",
   "message.semiconductor-lab.robot_arm.cleared": "The arm forgot all its moves",
   "message.semiconductor-lab.robot_arm.too_far": "Out of reach (within 3 blocks)",
-  "message.semiconductor-lab.robot_arm.not_machine": "Nothing to take from or put into there"
+  "message.semiconductor-lab.robot_arm.not_machine": "Nothing to take from or put into there",
+  "block.semiconductor-lab.oht_rail": "OHT Rail",
+  "block.semiconductor-lab.oht_rail.note1": "A rail on the factory ceiling. Carriages run along it carrying wafer boxes (FOUPs).",
+  "block.semiconductor-lab.oht_rail.note2": "Crafting: 3 steel → 8. Joins to neighbours (up and down too). A load port up to 4 blocks below a dead end is a drop-off point. The rail glows where the carriage is.",
+  "block.semiconductor-lab.oht_rail.note3": "In today's 300 mm fabs kilometres of ceiling rail carry FOUPs between tools on hundreds of carriages; people hardly carry wafers at all ⚠️.",
+  "block.semiconductor-lab.oht_rail.note4": "A FOUP weighs about 8 kg; carrying them all day is hard and a drop ruins 25 wafers. So 300 mm fabs were built with automated transport from the start ⚠️.",
+  "block.semiconductor-lab.oht_rail.howto": "Run it along the ceiling from a drive. A load port up to 4 blocks below a dead end is a drop-off point. It glows where the carriage is."
 }

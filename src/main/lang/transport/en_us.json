@@ -43,5 +43,20 @@
   "gui.semiconductor-lab.conveyor_drive.no_belt": "No belt beside, pointing away",
   "gui.semiconductor-lab.conveyor_drive.need_power": "Not enough power",
   "gui.semiconductor-lab.conveyor_drive.running": "Conveying",
-  "gui.semiconductor-lab.conveyor_drive.recipe": "Behind → belt → ahead"
+  "gui.semiconductor-lab.conveyor_drive.recipe": "Behind → belt → ahead",
+  "block.semiconductor-lab.oht_drive": "OHT Drive",
+  "block.semiconductor-lab.oht_drive.note1": "The head of the rail. When the load port below fills its FOUP, it lifts it and carries it to the load port at the end of the rail.",
+  "block.semiconductor-lab.oht_drive.note2": "Crafting: 2 steel + electric motor + 2 vulcanised rubber + copper cable. When the output FOUP of the load port below (up to 4 blocks) is full at 25, or its input FOUP is empty and the tool has stopped, it carries it to the empty input slot of the load port under a dead end of the rail. 200 W.",
+  "block.semiconductor-lab.oht_drive.note3": "Travel time grows with rail length (0.25 s per block ⚠️). With several dead ends, it picks the nearest free one.",
+  "block.semiconductor-lab.oht_drive.note4": "No redstone. Runs only while powered.",
+  "block.semiconductor-lab.oht_drive.placeholder": "Omitted: ⚠️ no carriage is drawn, the rail just glows. Real carriages lower the FOUP on belts. Speed and power are rough.",
+  "block.semiconductor-lab.oht_drive.howto": "Place up to 4 blocks above a load port and run ceiling rail to above another load port. A full output FOUP goes to the input slot there. 200 W.",
+  "gui.semiconductor-lab.oht_drive.power": "Power %s",
+  "gui.semiconductor-lab.oht_drive.rail": "Rail %s blocks",
+  "gui.semiconductor-lab.oht_drive.no_port": "No load port below",
+  "gui.semiconductor-lab.oht_drive.no_dest": "No free input slot to drop at",
+  "gui.semiconductor-lab.oht_drive.waiting": "Waiting for a full FOUP",
+  "gui.semiconductor-lab.oht_drive.need_power": "Not enough power",
+  "gui.semiconductor-lab.oht_drive.running": "Carrying a FOUP",
+  "gui.semiconductor-lab.oht_drive.recipe": "Output FOUP → rail → input"
 }

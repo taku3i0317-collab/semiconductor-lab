@@ -864,8 +864,10 @@ marine_chronometer  # Transport [14-03] 1761
 duralumin_charge  # Transport [14-13] 1906
 duralumin  # Transport [14-13] 1906
 quenched_duralumin  # Transport [14-13] 1906
-conveyor_belt  # Transport [14-22] None
-conveyor_drive  # Transport [14-22] None
+conveyor_belt  # Transport [14-22] 1913
+conveyor_drive  # Transport [14-22] 1913
+oht_rail  # Transport [14-23] None
+oht_drive  # Transport [14-23] None
 sulfite_liquor  # Communication [15-01] 105
 pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105

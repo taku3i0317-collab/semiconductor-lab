@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "pattern": [
+    "SSS"
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:oht_rail",
+    "count": 8
+  }
+}
