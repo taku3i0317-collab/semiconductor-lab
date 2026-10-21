@@ -878,6 +878,10 @@ oht_drive  # Transport [14-23] 2000
 sulfite_liquor  # Communication [15-01] 105
 pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105
+type_metal  # Communication [15-02] 1450
+movable_type  # Communication [15-02] 1450
+typeset_form  # Communication [15-02] 1450
+printing_press  # Communication [15-02] 1450
 telephone  # Communication [15-04] 1876
 tin_foil_cylinder  # Communication [15-05] 1877
 phonograph  # Communication [15-05] 1877

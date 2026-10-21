@@ -81,6 +81,30 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class CommunicationTests extends LabTestBase {
+    /** [15-02] 活版印刷（IMP2 S-010）：活字金は鉛・アンチモン・錫。書いた本を組むと版になり、版から同じ文の本を刷れる（インクを使う）。写しの写しは刷れない */
+    @GameTest
+    public void letterpress(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "type_metal", com.taku3.semiconductorlab.content.Metallurgy.ANTIMONY) && recipeUses(h, "type_metal", com.taku3.semiconductorlab.content.Metallurgy.LEAD_INGOT) && recipeUses(h, "type_metal", com.taku3.semiconductorlab.content.Metallurgy.TIN_INGOT), "type metal = Pb + Sb + Sn");
+        ItemStack book = new ItemStack(net.minecraft.world.item.Items.WRITTEN_BOOK);
+        book.set(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT, new net.minecraft.world.item.component.WrittenBookContent(
+                net.minecraft.server.network.Filterable.passThrough("Guide"), "Lab", 0, java.util.List.of(net.minecraft.server.network.Filterable.passThrough(net.minecraft.network.chat.Component.literal("page 1"))), true));
+        ItemStack form = com.taku3.semiconductorlab.block.PrintingPressBlock.compose(book);
+        h.assertTrue(form.is(com.taku3.semiconductorlab.content.Communication.TYPESET_FORM), "a written book composes into a form");
+        ItemStack copy = com.taku3.semiconductorlab.block.PrintingPressBlock.print(form);
+        var c = copy.get(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT);
+        h.assertTrue(copy.is(net.minecraft.world.item.Items.WRITTEN_BOOK) && c != null && c.generation() == 1 && c.pages().size() == 1, "prints a copy of the original with the same pages");
+        h.assertTrue(!com.taku3.semiconductorlab.block.PrintingPressBlock.print(form).isEmpty(), "the form prints again and again");
+        ItemStack copyOfCopy = book.copy();
+        copyOfCopy.set(net.minecraft.core.component.DataComponents.WRITTEN_BOOK_CONTENT, c.craftCopy());
+        h.assertTrue(com.taku3.semiconductorlab.block.PrintingPressBlock.print(com.taku3.semiconductorlab.block.PrintingPressBlock.compose(copyOfCopy)).isEmpty(), "a copy of a copy cannot be printed (vanilla rule)");
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertFalse(com.taku3.semiconductorlab.block.PrintingPressBlock.useInk(player), "no ink -> no print");
+        player.getInventory().add(new ItemStack(com.taku3.semiconductorlab.content.Chemistry.PRINTING_INK, 1));
+        h.assertTrue(com.taku3.semiconductorlab.block.PrintingPressBlock.useInk(player) && !com.taku3.semiconductorlab.block.PrintingPressBlock.useInk(player), "one ink per copy");
+        LOG.info("[LAB] letterpress [15-02]: type metal Pb+Sb+Sn, compose a written book, print copies with ink");
+        h.succeed();
+    }
+
     /** [15-12] 磁気記録（IMP2 S-010）：鋼線は短く・テープは長く記録できる。何度再生しても消えない。しゃがんで右クリックで消して記録し直せる */
     @GameTest
     public void magnetic_recording(GameTestHelper h) {

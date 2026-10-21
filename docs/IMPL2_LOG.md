@@ -259,3 +259,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ O-034 材料の本物化（D の O-029）：EUV の囲い＝ステンレス鋼×4＋ガラス＋フッ素ゴムの O リング、マスクの台・ウェハーの台＝アルミナのセラミックス板、投影の鏡の箱＝ステンレス鋼。囲い・台の「仮」（placeholder）を消した
 - ✅ S-010 7. [14-02] 羅針盤：magnetic_compass（item/CompassItem、持つと北の矢印・近くの鉄でくるう）。GameTest magnetic_compass、CHEMISTRY T3、REFERENCES O93。⏸ [15-02] 活版印刷はインク（すす・アマニ油）が無いので保留、D が司令塔の割り振り待ち（IMPL3_LOG「C の頼み」）
 - ⚠️ 00c5ded1 はコンパイルできない状態で push してしまった（CompassItem の Math.IEEE754remainder）。affa19fd で直した（429 テスト合格）。原因：自分の push 用スクリプトがコンパイル失敗でも止まらなかった → コンパイルに失敗したら commit しないように直した
+- ✅ S-010 8. [15-02] 活版印刷：type_metal・movable_type・typeset_form・printing_press（block/PrintingPressBlock、書いた本を組んで白い本に刷る、D の印刷インク [2-66] を使う。前提のインクを [2-66] につないだ）。GameTest letterpress、CHEMISTRY CO5、REFERENCES O94

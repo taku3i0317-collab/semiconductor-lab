@@ -1,11 +1,1 @@
-{
-  "replace": false,
-  "values": [
-    "semiconductor-lab:water_wheel",
-    "semiconductor-lab:assembly_bench",
-    "semiconductor-lab:potters_wheel",
-    "semiconductor-lab:drafting_table",
-    "semiconductor-lab:bellows",
-    "semiconductor-lab:rubber_log"
-  ]
-}
+{"replace": false, "values": ["semiconductor-lab:water_wheel", "semiconductor-lab:assembly_bench", "semiconductor-lab:potters_wheel", "semiconductor-lab:drafting_table", "semiconductor-lab:bellows", "semiconductor-lab:rubber_log", "semiconductor-lab:printing_press"]}

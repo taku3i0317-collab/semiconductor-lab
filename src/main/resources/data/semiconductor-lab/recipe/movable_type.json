@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:type_metal",
+    "semiconductor-lab:type_metal",
+    "semiconductor-lab:type_metal",
+    "minecraft:copper_ingot"
+  ],
+  "result": {
+    "id": "semiconductor-lab:movable_type",
+    "count": 1
+  }
+}

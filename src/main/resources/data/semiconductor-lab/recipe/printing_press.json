@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#minecraft:logs",
+    "#minecraft:logs",
+    "#minecraft:logs",
+    "#minecraft:planks",
+    "#minecraft:planks",
+    "#minecraft:planks"
+  ],
+  "result": {
+    "id": "semiconductor-lab:printing_press",
+    "count": 1
+  }
+}

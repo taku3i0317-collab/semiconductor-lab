@@ -2846,6 +2846,18 @@
 根拠：
 - Wikipedia「Compass」「Shen Kuo」「Binnacle」：https://en.wikipedia.org/wiki/Compass ・ https://en.wikipedia.org/wiki/Shen_Kuo ・ https://en.wikipedia.org/wiki/Binnacle
 
+## O94. 同じ本を何冊も（活版印刷）［15-02］
+**答え**：1450年ごろ、ドイツのグーテンベルクは、1文字ずつの金属の活字を並べて版を組み、油性のインクを塗って、ぶどう搾り機を元にした木のねじの押し機で紙に刷る方法を作った。活字は鉛・錫・アンチモンの合金で、固まるときに少しふくらむので文字のへりまでくっきり写る。同じ形の活字は、銅の母型と手で持てる鋳型でたくさん作った。それまで手で写して何か月もかかった本が何冊も作れるようになり、知識が速く広がった。中国では1040年代に畢昇が焼き物の活字を作っていた。
+
+- へえ①：活字金は、固まるときにふくらむ珍しい合金。
+- へえ②：グーテンベルクの印刷機は、ぶどうをしぼる押し機が元。
+- へえ③：グーテンベルク聖書は、約180冊刷られたと言われる。
+- へえ④：活字の発明は中国（畢昇、1040年代）の方が400年早い。
+
+確かさ：グーテンベルク 1450年ごろ ◎／活字金の成分 ◎／約180冊 ○／畢昇 1040年代 ◎
+根拠：
+- Wikipedia「Printing press」「Type metal」「Movable type」「Gutenberg Bible」：https://en.wikipedia.org/wiki/Printing_press ・ https://en.wikipedia.org/wiki/Type_metal ・ https://en.wikipedia.org/wiki/Movable_type ・ https://en.wikipedia.org/wiki/Gutenberg_Bible
+
 ---
 
 # 冶金と熱（タスク15〜）
