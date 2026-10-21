@@ -730,7 +730,8 @@ def export_json(nodes):
     light_keys = ("id", "name", "name_en", "gran", "pr", "src", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
                   "icon", "emoji", "symbol", "descendants", "buildable_now", "frontier")
     layout = compute_layout(out_nodes, edges)
-    kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p", "tool": "t", "same": "s"}
+    kind_code = {"requires": "r", "understanding": "u", "enables": "e", "part": "p", "tool": "t", "same": "s",
+                 "improves": "i", "byproduct": "b", "demand": "d", "replaces": "x"}   # S-059：改良・副産物・需要を生んだ・置き換えた
     graph = {"goal": GOAL, "start": START, "inversions": sum(1 for x in data["year_inversions"] if not x["explained"]),
              "nodes": [{k: n[k] for k in light_keys} for n in out_nodes],
              "edges": [[e["from"], e["to"], kind_code[e["kind"]]] for e in edges], "layout": layout,
