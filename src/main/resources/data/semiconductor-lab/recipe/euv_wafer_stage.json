@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lead_screw",
+    "semiconductor-lab:neodymium_magnet",
+    "semiconductor-lab:neodymium_magnet",
+    "semiconductor-lab:alumina",
+    "semiconductor-lab:euv_casing"
+  ],
+  "result": {
+    "id": "semiconductor-lab:euv_wafer_stage",
+    "count": 1
+  }
+}

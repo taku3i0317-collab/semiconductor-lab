@@ -26,7 +26,10 @@ public class EuvScannerScreen extends ScannerScreen {
         ItemStack w = menu.getSlot(StepperBlockEntity.SLOT_WAFER).getItem(), m = menu.getSlot(StepperBlockEntity.SLOT_MASK).getItem(),
                 lens = menu.getSlot(StepperBlockEntity.SLOT_LENS).getItem();
         String h;
-        if (!w.is(com.taku3.semiconductorlab.content.Semiconductor.PROCESS_WAFER)) h = S + "need_wafer";
+        int formed = menu.get(EuvScannerBlockEntity.DATA_FORMED);
+        if (formed == EuvScannerBlockEntity.NOT_FORMED) h = E + "not_formed";   // O-034 マルチブロック：しゃがんで右クリックで見取り図
+        else if (formed == EuvScannerBlockEntity.NEED_ROOM) h = E + "need_room";
+        else if (!w.is(com.taku3.semiconductorlab.content.Semiconductor.PROCESS_WAFER)) h = S + "need_wafer";
         else if (!EuvScannerBlockEntity.isEuvMask(m)) h = E + "need_mask";
         else if (!EuvScannerBlockEntity.isEuvOptics(lens)) h = E + "need_optics";
         else if (!EuvScannerBlockEntity.opticsUsable(lens)) h = E + "high_na_rough";

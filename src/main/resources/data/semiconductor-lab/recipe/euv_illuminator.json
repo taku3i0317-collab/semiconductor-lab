@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:multilayer_mirror",
+    "semiconductor-lab:multilayer_mirror",
+    "semiconductor-lab:ule_glass",
+    "semiconductor-lab:euv_casing"
+  ],
+  "result": {
+    "id": "semiconductor-lab:euv_illuminator",
+    "count": 1
+  }
+}

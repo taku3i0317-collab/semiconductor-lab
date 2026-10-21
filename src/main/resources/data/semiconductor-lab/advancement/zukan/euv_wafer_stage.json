@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:euv_wafer_stage"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.euv_wafer_stage"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.euv_wafer_stage.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.euv_wafer_stage.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:euv_wafer_stage"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -40,6 +40,66 @@
           "block": "semiconductor-lab:tuyere"
         }
       }
+    },
+    {
+      "controller_block": "semiconductor-lab:euv_scanner",
+      "controller": "C",
+      "width": 5,
+      "depth": 3,
+      "height": 3,
+      "layers": [
+        [
+          "HHCHH",
+          "HHWHH",
+          "HHHHH"
+        ],
+        [
+          "HHHHH",
+          "HHPHH",
+          "VIHHH"
+        ],
+        [
+          "HHHHH",
+          "HHMHH",
+          "SHHHH"
+        ]
+      ],
+      "legend": {
+        "H": {
+          "name": "euv_casing",
+          "lang": "multiblock.semiconductor-lab.euv_casing"
+        },
+        "W": {
+          "name": "euv_wafer_stage",
+          "lang": "multiblock.semiconductor-lab.euv_wafer_stage",
+          "block": "semiconductor-lab:euv_wafer_stage"
+        },
+        "P": {
+          "name": "euv_projection_box",
+          "lang": "multiblock.semiconductor-lab.euv_projection_box",
+          "block": "semiconductor-lab:euv_projection_box"
+        },
+        "V": {
+          "name": "vacuum_chamber",
+          "lang": "multiblock.semiconductor-lab.vacuum_chamber",
+          "block": "semiconductor-lab:vacuum_chamber"
+        },
+        "I": {
+          "name": "euv_illuminator",
+          "lang": "multiblock.semiconductor-lab.euv_illuminator",
+          "block": "semiconductor-lab:euv_illuminator"
+        },
+        "M": {
+          "name": "euv_reticle_stage",
+          "lang": "multiblock.semiconductor-lab.euv_reticle_stage",
+          "block": "semiconductor-lab:euv_reticle_stage"
+        },
+        "S": {
+          "name": "euv_source",
+          "lang": "multiblock.semiconductor-lab.euv_source",
+          "block": "semiconductor-lab:euv_source"
+        }
+      }
     }
   ]
 }

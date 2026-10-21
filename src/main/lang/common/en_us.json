@@ -479,5 +479,12 @@
   "multiblock.semiconductor-lab.complete": "All in place",
   "gui.semiconductor-lab.howto.recipes": "Recipes:",
   "gui.semiconductor-lab.howto.seconds": "%s s",
-  "gui.semiconductor-lab.howto.extra": " (%s)"
+  "gui.semiconductor-lab.howto.extra": " (%s)",
+  "multiblock.semiconductor-lab.euv_casing": "vacuum casing (or port)",
+  "multiblock.semiconductor-lab.euv_source": "EUV source",
+  "multiblock.semiconductor-lab.euv_illuminator": "illuminator",
+  "multiblock.semiconductor-lab.euv_reticle_stage": "reticle stage",
+  "multiblock.semiconductor-lab.euv_projection_box": "projection housing",
+  "multiblock.semiconductor-lab.euv_wafer_stage": "wafer stage",
+  "multiblock.semiconductor-lab.vacuum_chamber": "vacuum chamber"
 }

@@ -804,8 +804,13 @@ setblock ~162 ~0 ~74 semiconductor-lab:energy_port
 setblock ~163 ~0 ~74 semiconductor-lab:item_port
 setblock ~164 ~0 ~74 semiconductor-lab:gas_port
 setblock ~165 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~166 ~0 ~74 semiconductor-lab:load_port
-setblock ~167 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:foup",count:1},{Slot:2b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:stamp",count:1},{Slot:4b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~166 ~0 ~74 semiconductor-lab:euv_casing
+setblock ~167 ~0 ~74 semiconductor-lab:euv_illuminator
+setblock ~168 ~0 ~74 semiconductor-lab:euv_reticle_stage
+setblock ~169 ~0 ~74 semiconductor-lab:euv_projection_box
+setblock ~170 ~0 ~74 semiconductor-lab:euv_wafer_stage
+setblock ~171 ~0 ~74 semiconductor-lab:load_port
+setblock ~172 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:foup",count:1},{Slot:2b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:stamp",count:1},{Slot:4b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-08] 製粉","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quern",count:1},{Slot:1b,id:"semiconductor-lab:flour",count:16}]}

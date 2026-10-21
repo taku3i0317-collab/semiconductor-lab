@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:ule_glass",
+    "semiconductor-lab:ule_glass",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:euv_casing"
+  ],
+  "result": {
+    "id": "semiconductor-lab:euv_projection_box",
+    "count": 1
+  }
+}

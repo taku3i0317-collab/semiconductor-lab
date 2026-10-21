@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "side": "semiconductor-lab:block/euv_wafer_stage_side",
+    "top": "semiconductor-lab:block/euv_wafer_stage_top",
+    "bottom": "semiconductor-lab:block/euv_wafer_stage_top"
+  }
+}

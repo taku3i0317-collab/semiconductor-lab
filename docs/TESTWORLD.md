@@ -580,7 +580,7 @@ GameTest `testworld` が「関数が最後まで動き、置いた物が正し�
   - 見ること：ドライエッチング装置に Cl2 を入れたとき「Cl2 でフィンを立てている」
 - [9-40] EUV 露光装置：ブロック euv_scanner／チェスト 1 種
   - 見ること：EUV 光源・真空容器を隣に置いて、画面の「EUV ○mW」とヒントの順。光源のレーザーを増やすと速くなるか
-- [-] euv_mask_blank：ブロック energy_port, item_port, gas_port, drafting_table, load_port／チェスト 5 種
+- [-] euv_mask_blank：ブロック energy_port, item_port, gas_port, drafting_table, euv_casing, euv_illuminator, euv_reticle_stage, euv_projection_box, euv_wafer_stage, load_port／チェスト 5 種
 
 ### 幹11 農業・食品（南へ 82 ブロックの列）
 

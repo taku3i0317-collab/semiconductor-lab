@@ -154,13 +154,16 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
             case DATA_STEPS -> stepsDone;
             case DATA_CD -> lensCd();
             case DATA_OVERLAY -> overlayNm();
-            case DATA_ROOM -> level == null ? 0 : CleanRoom.classAt(level, worldPosition).ordinal();
+            case DATA_ROOM -> level == null ? 0 : CleanRoom.classAt(level, roomPos()).ordinal();
             case DATA_K1 -> (int) Math.round(ProjectionLensItem.designK1(container.getItem(SLOT_LENS), tricks()) * 100);
             case DATA_TRICKS -> (int) Math.round(tricks() * 100);
             case DATA_DOF -> ProjectionLensItem.dofNm(container.getItem(SLOT_LENS));
             default -> 0;
         };
     }
+
+    /** 部屋の等級を調べる場所（ふつうは自分。EUV のマルチブロックは上が囲いなので正面の空気） */
+    protected BlockPos roomPos() { return worldPosition; }
 
     @Override protected double workWatts() { return WATTS; }
     @Override protected int workTicks() { return STEP_TICKS; }
@@ -178,7 +181,7 @@ public class StepperBlockEntity extends ConsumerBlockEntity {
         ItemStack w = container.getItem(SLOT_WAFER), m = container.getItem(SLOT_MASK);
         ChipOps.Result r = ChipOps.exposeAtCd(w, m.get(ModDataComponents.MASK), tool(), lensCd(), overlayNm(), ProjectionLensItem.dofNm(container.getItem(SLOT_LENS)));   // v0.5 #1 段差＞焦点深度なら焼けない（A）
         if (!r.ok()) return;
-        container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.inRoom(ChipOps.addDust(r.out(), CleanRoom.dustAt(level, worldPosition)), CleanRoom.defectDensity(level, worldPosition)));   // v0.5 #4 部屋の欠陥の密度を記録（A の歩留まり）
+        container.setItem(SLOT_OUT, level == null ? r.out() : ChipOps.inRoom(ChipOps.addDust(r.out(), CleanRoom.dustAt(level, roomPos())), CleanRoom.defectDensity(level, roomPos())));   // v0.5 #4 部屋の欠陥の密度を記録（A の歩留まり）
         container.setItem(SLOT_WAFER, ItemStack.EMPTY);   // マスクは触れないので傷まない
         if (immersion(container.getItem(SLOT_LENS))) {   // [7-16] 1チップ焼くごとに超純水を1本（空き瓶は上に）
             com.taku3.semiconductorlab.machine.Vessel.returnEmpty(level, worldPosition, container.getItem(SLOT_WATER), 1);

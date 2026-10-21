@@ -796,6 +796,11 @@ energy_port  # Semiconductor [None] None
 item_port  # Semiconductor [None] None
 gas_port  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
+euv_casing  # Semiconductor [None] None
+euv_illuminator  # Semiconductor [None] None
+euv_reticle_stage  # Semiconductor [None] None
+euv_projection_box  # Semiconductor [None] None
+euv_wafer_stage  # Semiconductor [None] None
 load_port  # Semiconductor [None] None
 electromagnet  # Control [10-01] 1820
 microcomputer  # Control [10-13] 1971

@@ -524,6 +524,7 @@ public class CommonTests extends LabTestBase {
     public void exportMultiblocks(GameTestHelper h) {
         var all = new java.util.LinkedHashMap<String, com.taku3.semiconductorlab.machine.MultiblockPattern>();
         all.put("semiconductor-lab:blast_furnace_hearth", com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.shape());
+        all.put("semiconductor-lab:euv_scanner", com.taku3.semiconductorlab.block.EuvScannerBlockEntity.shape());   // IMP2 O-034
         var root = new com.google.gson.JsonObject();
         root.addProperty("_note", "自動生成：GameTest exportMultiblocks（tools/test.ps1 で更新）。layers は下の層から、各層は奥から手前の行。' '＝空気、'?'＝何でも、controller＝制御ブロックの文字");
         var list = new com.google.gson.JsonArray();

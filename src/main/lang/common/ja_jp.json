@@ -479,5 +479,12 @@
   "multiblock.semiconductor-lab.complete": "全部そろっている",
   "gui.semiconductor-lab.howto.recipes": "できること：",
   "gui.semiconductor-lab.howto.seconds": "%s 秒",
-  "gui.semiconductor-lab.howto.extra": "（%s）"
+  "gui.semiconductor-lab.howto.extra": "（%s）",
+  "multiblock.semiconductor-lab.euv_casing": "真空の囲い（または口）",
+  "multiblock.semiconductor-lab.euv_source": "EUV 光源",
+  "multiblock.semiconductor-lab.euv_illuminator": "照明の鏡",
+  "multiblock.semiconductor-lab.euv_reticle_stage": "マスクの台",
+  "multiblock.semiconductor-lab.euv_projection_box": "投影の鏡の箱",
+  "multiblock.semiconductor-lab.euv_wafer_stage": "ウェハーの台",
+  "multiblock.semiconductor-lab.vacuum_chamber": "真空容器"
 }

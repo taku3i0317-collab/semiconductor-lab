@@ -2370,14 +2370,42 @@ public class SemiconductorTests extends LabTestBase {
         h.assertTrue(cd < 30 && g > com.taku3.semiconductorlab.litho.ExposureTool.gridFor(com.taku3.semiconductorlab.item.ProjectionLensItem.cdNm(withDecenter(new ItemStack(com.taku3.semiconductorlab.content.Optics.PROJECTION_LENS_IMMERSION)))), "EUV CD " + cd + " nm, grid " + g + " finer than immersion");
         h.assertTrue(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.throughput() < 0.03, "10 mirrors + mask leave " + com.taku3.semiconductorlab.block.EuvScannerBlockEntity.throughput() * 100 + "% of the light");
         h.assertTrue(com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(0.05) > com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(0.2) && com.taku3.semiconductorlab.block.EuvScannerBlockEntity.stepTicks(0.2) >= com.taku3.semiconductorlab.block.EuvScannerBlockEntity.STEP_TICKS, "less light -> slower");
-        BlockPos at = p(2, 1, 2), src = p(3, 1, 2), ch1 = p(2, 1, 1), ch2 = p(3, 1, 1), l1 = p(4, 1, 2), l2 = p(3, 1, 3);
-        h.setBlock(at, Semiconductor.EUV_SCANNER.block);
-        h.setBlock(src, com.taku3.semiconductorlab.content.Optics.EUV_SOURCE.block);
-        for (BlockPos c : new BlockPos[]{ch1, ch2}) {
-            h.setBlock(c, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block);
-            h.getBlockEntity(c, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(0.5);
+        // O-034 マルチブロック（5×3×3）をクラス100 の部屋（x0..8・z0..6・y1..6、天井は HEPA）の中に組む
+        for (int x = 0; x <= 8; x++) for (int y = 1; y <= 6; y++) for (int z = 0; z <= 6; z++) {
+            boolean wall = x == 0 || x == 8 || z == 0 || z == 6 || y == 1;
+            h.setBlock(p(x, y, z), y == 6 ? com.taku3.semiconductorlab.content.Construction.HEPA_CEILING : wall ? net.minecraft.world.level.block.Blocks.STONE : net.minecraft.world.level.block.Blocks.AIR);
         }
-        for (BlockPos lp : new BlockPos[]{l1, l2}) {
+        var shape = com.taku3.semiconductorlab.block.EuvScannerBlockEntity.shape();
+        BlockPos at = p(4, 2, 2);
+        h.setBlock(at, Semiconductor.EUV_SCANNER.block);
+        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.EuvScannerBlockEntity.class);
+        h.assertTrue(!be.recheck().formed() && be.formedState() == com.taku3.semiconductorlab.block.EuvScannerBlockEntity.NOT_FORMED, "nothing built -> not formed");
+        BlockPos src = null, ch = null;
+        for (int y = 0; y < shape.height(); y++) for (int z = 0; z < shape.depth(); z++) for (int x = 0; x < shape.width(); x++) {
+            char c = shape.layers().get(y)[z].charAt(x);
+            BlockPos q = shape.worldPos(at, net.minecraft.core.Direction.NORTH, x, y, z);
+            switch (c) {
+                case 'H' -> h.setBlock(q, Semiconductor.EUV_CASING);
+                case 'I' -> h.setBlock(q, Semiconductor.EUV_ILLUMINATOR);
+                case 'M' -> h.setBlock(q, Semiconductor.EUV_RETICLE_STAGE);
+                case 'P' -> h.setBlock(q, Semiconductor.EUV_PROJECTION_BOX);
+                case 'W' -> h.setBlock(q, Semiconductor.EUV_WAFER_STAGE);
+                case 'S' -> { h.setBlock(q, com.taku3.semiconductorlab.content.Optics.EUV_SOURCE.block); src = q; }
+                case 'V' -> { h.setBlock(q, com.taku3.semiconductorlab.content.Vacuum.VACUUM_CHAMBER.block); ch = q; }
+                default -> {}
+            }
+        }
+        h.setBlock(shape.worldPos(at, net.minecraft.core.Direction.NORTH, 3, 0, 1), Semiconductor.ENERGY_PORT.block);   // 囲いの場所に口も置ける
+        h.getBlockEntity(ch, com.taku3.semiconductorlab.block.VacuumChamberBlockEntity.class).setPressure(0.5);
+        h.assertTrue(be.recheck().formed() && be.formedState() == com.taku3.semiconductorlab.block.EuvScannerBlockEntity.NEED_ROOM, "built, but the room air is not filtered yet: " + be.recheck().problems());
+        BlockPos ac = p(1, 2, 1);
+        h.setBlock(ac, com.taku3.semiconductorlab.content.Construction.AIR_CONDITIONER.block);
+        var acb = h.getBlockEntity(ac, com.taku3.semiconductorlab.block.AirConditionerBlockEntity.class);
+        acb.getContainer().setItem(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.SLOT_FILTER, new ItemStack(com.taku3.semiconductorlab.content.Construction.HEPA_FILTER));
+        tickConsumer(h, ac, acb, 2, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.AirConditionerBlockEntity.WATTS));
+        h.assertValueEqual(be.formedState(), com.taku3.semiconductorlab.block.EuvScannerBlockEntity.FORMED, "class-100 room -> formed");
+        BlockPos l1 = src.west(), l2 = src.above(), l3 = src.south();
+        for (BlockPos lp : new BlockPos[]{l1, l2, l3}) {
             h.setBlock(lp, com.taku3.semiconductorlab.content.Optics.CO2_LASER.block);
             var lc = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.Co2LaserBlockEntity.class).getContainer();
             lc.setItem(com.taku3.semiconductorlab.block.Co2LaserBlockEntity.SLOT_WINDOW, new ItemStack(com.taku3.semiconductorlab.content.Optics.SALT_WINDOW));
@@ -2391,7 +2419,6 @@ public class SemiconductorTests extends LabTestBase {
         s.getContainer().setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_COLLECTOR, com.taku3.semiconductorlab.item.MultilayerMirrorItem.withPairs(new ItemStack(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR), 40));
         s.getContainer().setItem(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.SLOT_H2, new ItemStack(Gas.HYDROGEN_GAS, 8));
         tickConsumer(h, src, s, com.taku3.semiconductorlab.block.EuvSourceBlockEntity.TICKS + 5, com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.EuvSourceBlockEntity.WATTS));
-        var be = h.getBlockEntity(at, com.taku3.semiconductorlab.block.EuvScannerBlockEntity.class);
         double d = be.deliveredW();
         h.assertTrue(s.euvW() > 0 && d > 0 && Math.abs(d - s.euvW() * com.taku3.semiconductorlab.block.EuvScannerBlockEntity.throughput()) < 1e-9, "source " + s.euvW() + " W -> wafer " + d + " W");
         var mask = new ItemStack(com.taku3.semiconductorlab.content.Optics.CHROME_PHOTOMASK);
