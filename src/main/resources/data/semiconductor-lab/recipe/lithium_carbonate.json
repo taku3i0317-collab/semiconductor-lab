@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:lithium_sulfate",
+    "semiconductor-lab:sodium_carbonate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lithium_carbonate",
+    "count": 1
+  }
+}

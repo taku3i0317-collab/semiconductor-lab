@@ -126,6 +126,7 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreWolframite(GameTestHelper h) { oreFeature(h, "wolframite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.WOLFRAMITE_ORE, s -> s.is(Blocks.GRANITE)); }
     @GameTest public void oreMalachite(GameTestHelper h)  { oreFeature(h, "malachite_ore", Blocks.STONE, Blocks.DIRT, Metallurgy.MALACHITE_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreCassiterite(GameTestHelper h) { oreFeature(h, "cassiterite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.CASSITERITE_ORE, s -> s.is(Blocks.GRANITE)); }
+    @GameTest public void oreSpodumene(GameTestHelper h) { oreFeature(h, "spodumene_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.SPODUMENE_ORE, x -> x.is(Blocks.GRANITE)); }   // [1-42] IMP3 S-006
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreChromite(GameTestHelper h)   { oreFeature(h, "chromite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.CHROMITE_ORE, st -> st.is(Blocks.DEEPSLATE)); }   // [1-40] IMP2 O-015
     @GameTest public void oreBauxite(GameTestHelper h)    { oreFeature(h, "bauxite_ore", Blocks.DIRT, Blocks.COBBLESTONE, Metallurgy.BAUXITE_ORE, st -> st.is(Blocks.DIRT) || st.is(Blocks.COARSE_DIRT) || st.is(Blocks.STONE)); }   // [1-24] IMP4-01
@@ -707,7 +708,7 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "pyrolusite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "fluorite_ore", "chromite_ore"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "pyrolusite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "spodumene_ore", "fluorite_ore", "chromite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));
@@ -1009,5 +1010,15 @@ public class MetallurgyTests extends LabTestBase {
         rec(a, Metallurgy.SIEMENS_REACTOR.block, "多結晶シリコン", L(cond(io(Metallurgy.TRICHLOROSILANE, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TCS_PER_RUN), "9N 以上に蒸留したもの"), mol(Gas.HYDROGEN_GAS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.H2_PER_RUN)),
             L(cond(io(Metallurgy.POLYSILICON, 1), "純度はトリクロロシランと同じ（9N〜11N）"), mol(Metallurgy.HYDROGEN_CHLORIDE_GAS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.HCL_OUT)),
             com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.WATTS, com.taku3.semiconductorlab.block.SiemensReactorBlockEntity.TICKS / 20.0, "SiHCl3 + H2 → Si + 3HCl（約1100℃の棒が太る）。HCl はトリクロロシラン作りに戻せる");
+    }
+
+    /** [1-42] リチウム（IMP3、S-006）：リチア輝石 → 溶鉱炉 → β型 → ＋硫酸＋水 → 硫酸リチウム → ＋ソーダ灰 → 炭酸リチウム */
+    @GameTest
+    public void lithium(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.SPODUMENE).is(Metallurgy.BETA_SPODUMENE), "roast: alpha -> beta spodumene");
+        h.assertTrue(recipeUses(h, "lithium_sulfate", Metallurgy.BETA_SPODUMENE) && recipeUses(h, "lithium_sulfate", Chemistry.SULFURIC_ACID), "beta + H2SO4 -> Li2SO4");
+        h.assertTrue(recipeUses(h, "lithium_carbonate", Metallurgy.LITHIUM_SULFATE) && recipeUses(h, "lithium_carbonate", Chemistry.SODIUM_CARBONATE), "Li2SO4 + Na2CO3 -> Li2CO3");
+        LOG.info("[LAB] lithium [1-42]: spodumene -> (blast) beta -> + H2SO4 -> Li2SO4 -> + Na2CO3 -> Li2CO3");
+        h.succeed();
     }
 }

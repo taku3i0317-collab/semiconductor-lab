@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:beta_spodumene",
+    "semiconductor-lab:beta_spodumene",
+    "semiconductor-lab:sulfuric_acid",
+    "minecraft:water_bucket"
+  ],
+  "result": {
+    "id": "semiconductor-lab:lithium_sulfate",
+    "count": 1
+  }
+}

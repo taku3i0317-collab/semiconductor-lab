@@ -103,6 +103,11 @@ borax  # Metallurgy [1-33] 1808
 boric_acid  # Metallurgy [1-33] 1808
 boron_trioxide  # Metallurgy [1-33] 1808
 borax_deposit  # Metallurgy [1-33] 1808
+spodumene  # Metallurgy [1-42] 1817
+beta_spodumene  # Metallurgy [1-42] 1817
+lithium_sulfate  # Metallurgy [1-42] 1817
+lithium_carbonate  # Metallurgy [1-42] 1817
+spodumene_ore  # Metallurgy [1-42] 1817
 bauxite  # Metallurgy [1-24] 1821
 bauxite_ore  # Metallurgy [1-24] 1821
 graphite  # Metallurgy [1-07] 1850

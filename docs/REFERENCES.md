@@ -3015,6 +3015,20 @@
 - Wikipedia「Canning」：https://en.wikipedia.org/wiki/Canning
 - Wikipedia「Bordeaux mixture」：https://en.wikipedia.org/wiki/Bordeaux_mixture
 
+## C53. 焼くと酸にとけるようになる石（リチウム）［1-42］
+**答え**：リチウムは1817年、スウェーデンのアルフェドソン（ベルセリウスの研究室）がペタル石から見つけた。金属は1855年、ブンゼンとマティーセンがとかした塩化リチウムを電気分解して取り出した。鉱石のリチア輝石（LiAlSi2O6）は花崗岩のペグマタイトにでき、そのままでは硫酸にとけにくいが、約1050℃で焼くと結晶の形がかわって（α→β）とけやすくなる。硫酸と焼いて硫酸リチウムを水で取り出し、ソーダ灰を加えると炭酸リチウムが沈む。今はチリ・アルゼンチンなどの塩湖の水を天日で濃くして取るのが多い。
+
+- へえ①：リチウムは水に浮くほど軽い金属。
+- へえ②：熱で結晶の形をかえるだけで、酸へのとけやすさが大きくかわる。
+- へえ③：炭酸リチウムは、お湯の方がとけにくい（ふつうの塩と逆）。
+- へえ④：名前はギリシャ語の「石」から（植物や動物でなく、石から見つかったので）。
+
+確かさ：発見 1817・金属 1855 ◎／β 型への変化の温度 ○
+根拠：
+- Wikipedia「Lithium」：https://en.wikipedia.org/wiki/Lithium
+- Wikipedia「Spodumene」：https://en.wikipedia.org/wiki/Spodumene
+- Wikipedia「Lithium carbonate」：https://en.wikipedia.org/wiki/Lithium_carbonate
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）
