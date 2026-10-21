@@ -1509,6 +1509,31 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** v1.0 の通し（IMP4-01、S-008）：Si/SiGe の板 → EUV のレジスト（塗布機）→ C の縮小カメラで作った反射型の EUV マスクで EUV 露光 → ホットプレート → 現像 → フィン（Cl2）→ HCl → GAA */
+    @GameTest
+    public void gaaWithEuv(GameTestHelper h) {
+        int g = com.taku3.semiconductorlab.litho.ExposureTool.EUV.grid;
+        ItemStack sw = new ItemStack(Semiconductor.SILICON_WAFER, 8); sw.set(ModDataComponents.DOPANT, "boron");
+        ItemStack ox = com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.oxidized(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.product(sw, new ItemStack(Metallurgy.GERMANIUM_TETRACHLORIDE)), com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.DRY, 8);
+        ItemStack paper = new ItemStack(net.minecraft.world.item.Items.PAPER);
+        paper.set(ModDataComponents.MASK, new com.taku3.semiconductorlab.litho.MaskData(g, com.taku3.semiconductorlab.litho.LayerKind.FIN, com.taku3.semiconductorlab.litho.BitGrid.empty(g).with(10, 10, true).with(10, 11, true), "gaa_euv", 0));
+        ItemStack euvMask = com.taku3.semiconductorlab.block.ReductionCameraBlockEntity.photomaskOf(paper, new ItemStack(Semiconductor.EUV_MASK_BLANK));
+        var mask = euvMask.get(ModDataComponents.MASK);
+        h.assertTrue(mask != null && mask.reflective(), "C's camera makes a reflective EUV mask from E's blank");
+        ItemStack coated = com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.product(ox, new ItemStack(Chemistry.EUV_RESIST));
+        var ex = com.taku3.semiconductorlab.litho.ChipOps.expose(coated, mask, com.taku3.semiconductorlab.litho.ExposureTool.EUV);
+        h.assertTrue(ex.ok(), "EUV exposure with EUV resist and a reflective mask: " + ex.reason());
+        ItemStack baked = com.taku3.semiconductorlab.block.BakePlateBlockEntity.product(ex.out());
+        h.assertTrue(!baked.isEmpty(), "hot plate (PEB) for the EUV resist");
+        ItemStack dev = com.taku3.semiconductorlab.litho.ChipOps.develop(baked).out();
+        ItemStack fins = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(dev, new ItemStack(Gas.CHLORINE_GAS))).out();
+        ItemStack gaa = com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(fins, new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS));
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(gaa);
+        h.assertTrue(st.size() == g && st.has(com.taku3.semiconductorlab.litho.LayerKind.FIN) && st.extras().gaa(), "EUV-printed fins released into GAA on the " + g + " grid");
+        LOG.info("[LAB] v1.0 chain: Si/SiGe -> EUV resist -> reflective EUV mask (C) -> EUV -> PEB -> fins -> HCl -> GAA on grid " + g);
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
