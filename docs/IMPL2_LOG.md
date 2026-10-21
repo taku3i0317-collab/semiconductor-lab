@@ -230,3 +230,14 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ O-033 [15-13] 光ファイバー（幹15 は担当がいないので C の光学の前提として）：fiber_preform（合成石英×4＋GeO2）・fiber_preform_natural（溶融石英×4＋GeO2）→酸水素バーナー → optical_fiber×8（item/OpticalFiberItem、custom_data に dB/km：20 と 1000）。ブロック2つで届く光の％、臨界角 85.3°。光源（[B-07] LED・[7-25] 半導体レーザー）はまだないので光源なし⚠️。GameTest optical_fiber、CHEMISTRY FO1、REFERENCES O83
 - ✅ S-009（v1.0 の C の分）：1 光源・2 多層膜は S-007 で済み（06f1db37・c1955c42）。3 EUV 露光装置 [9-40]：block/EuvScannerBlockEntity（ScannerBlockEntity を継承、ステッパーに lightReady・maskOk の上書き口を足した）、client/EuvScannerScreen。euv_mirror_set（多層膜×6）、euv_projection_optics（心出し済みの鏡筒＋鏡の組、ProjectionLensItem(EUV, NA 0.33)）。隣の EUV 光源（EuvSourceBlockEntity.ready）・真空容器 1Pa、マスクは E の euv_mask（ID の名前で判定）。鏡10枚＋マスクで 1.7%、1チップ 0.2J。GameTest euv_scanner、CHEMISTRY X6、REFERENCES O84
 - ✅ S-009 の続き：縮小カメラに E の euv_mask_blank の分岐（ポジ型レジスト＋塩素 Gas.CHLORINE_GAS で吸収体を削る → Semiconductor.EUV_MASK、MASK は A の reflectiveCopy で反射型）。euv_scanner の通しのテスト（EUV のレジスト ChipOps.RESIST_EUV で1チップ焼ける）。A の litho：EUV は反射型のマスクだけ、レジストは EUV か化学増幅
+- ❓ O-034 v1.0「6. High-NA EUV（NA 0.55）」の案（作っていない。決まるまで待つ）
+  - **本物（⚠️ 年は出典で要確認）**：NA を 0.33 → 0.55 に上げた EUV 露光装置（ASML の EXE 系。最初の装置の出荷は 2023年末ごろ⚠️、量産向けは 2025年ごろ⚠️）。NA が大きいと鏡の角度が大きくなり、マスクに当たる光の角度の都合で、縦と横で縮小の倍率がちがう「アナモルフィック」の投影光学（片方 1/4・もう片方 1/8）にした。そのため1回に焼ける範囲（ショット）が今の半分（26×16.5mm）になり、大きなチップは2回に分けてつなぐ（スティッチング）。焦点深度は NA の2乗で浅くなる（k2·λ/NA² で約 36nm）。線は約 8nm の半ピッチまで
+  - **今のゲームとの関係**：EUV の投影光学（NA 0.33、k1 0.6）で CD 26nm・方眼116。焦点深度 99nm（段1 まで）。A の方眼の式 gridFor(CD) と BitGrid の上限 148
+  - **案A（おすすめ）：High-NA の投影光学を「部品」として足す**。EUV の鏡の組＋心出し済みの鏡筒（より精密：心出しのずれが小さくないと作れない）→ High-NA の投影光学（NA 0.55、アナモルフィック）。EUV 露光装置のレンズの入口に入れると：
+    - CD が細かくなる（k1 0.6 で 約15nm）
+    - アナモルフィックで1ショットが半分＝1チップの送りが2倍（STEPS 4 → 8）＝時間が2倍（光源の強さがもっと大事に）
+    - 焦点深度 約36nm＝段差が1段（80nm）でも焼けない＝毎層 CMP が要る
+    - **A にお願いする所**：方眼の上限（BitGrid.MAX＝148）を超える細かさになるので、High-NA で 148 を超えた分をどう扱うか（上限を上げる／148 で止める）
+  - **案B：NA だけ上げる**（今の投影光学の NA を 0.55 にした別の部品、アナモルフィック・半分のショットなし）。作りやすいが、High-NA ならではの「半分のショット・つなぎ」の苦労が出ない
+  - **案C：マルチブロックの High-NA 装置**（v1.0 #1 の A のマルチブロックの土台ができてから）。本物の大きさ（約 150 トン、2階建て）が見えるが、土台待ち
+  - **おすすめ：案A**（光学の部品として作れて、細かさ・時間・焦点深度の3つの代償が体験できる）。存命の人の名前は出さない
