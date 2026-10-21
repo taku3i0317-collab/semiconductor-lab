@@ -735,6 +735,9 @@ pulp_charge  # Communication [15-01] 105
 wood_pulp  # Communication [15-01] 105
 transistor_radio  # Communication [15-10] 1954
 touch_panel  # Communication [15-18] 1965
+fiber_preform  # Communication [15-13] 1966
+fiber_preform_natural  # Communication [15-13] 1966
+optical_fiber  # Communication [15-13] 1966
 silvered_plate  # Branches [B-02] 1839
 daguerreotype_plate  # Branches [B-02] 1839
 camera  # Branches [B-02a] 1839

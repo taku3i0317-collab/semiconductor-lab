@@ -36,6 +36,12 @@ public final class Communication {
     public static final Item WOOD_PULP             = Reg.item("wood_pulp");
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
+    // [15-13] 光ファイバー（IMP2 O-033、1966 カオ・1970 コーニング）：石英×4＋GeO2（コアの屈折率を上げる）→ 母材 →酸水素バーナーで引く → ファイバー×8。
+    //   合成石英の母材は 20dB/km、天然の珪石を溶かした石英の母材は 1000dB/km（不純物の鉄・水が光を吸う）
+    public static final Item FIBER_PREFORM         = Reg.item("fiber_preform");
+    public static final Item FIBER_PREFORM_NATURAL = Reg.item("fiber_preform_natural");
+    public static final Item OPTICAL_FIBER         = Reg.item("optical_fiber", com.taku3.semiconductorlab.item.OpticalFiberItem::new, new Item.Properties());
+
     static void init() {
         // [15-01] 亜硫酸法の蒸解は圧力釜で煮る（加圧加熱釜の表に1行、IMP3）。圧力が足りないとリグニンが溶けず、仕込みがそのまま戻る
         AutoclaveBlockEntity.RECIPES.add(new AutoclaveBlockEntity.Recipe("wood_pulp", st -> st.is(PULP_CHARGE), 1,

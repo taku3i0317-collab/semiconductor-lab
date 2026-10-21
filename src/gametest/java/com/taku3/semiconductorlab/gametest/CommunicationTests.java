@@ -81,6 +81,20 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class CommunicationTests extends LabTestBase {
+    /** [15-13] 光ファイバー（IMP2 O-033）：合成石英の母材は 20dB/km、天然の石英は 1000dB/km。100m 送ると 63% と 0.0000000001% */
+    @GameTest
+    public void optical_fiber(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "fiber_preform", com.taku3.semiconductorlab.content.Optics.SYNTHETIC_QUARTZ) && recipeUses(h, "fiber_preform", com.taku3.semiconductorlab.content.Metallurgy.GERMANIUM_DIOXIDE), "preform = synthetic silica + GeO2 core");
+        ItemStack good = com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.productOf(new ItemStack(com.taku3.semiconductorlab.content.Communication.FIBER_PREFORM));
+        ItemStack bad = com.taku3.semiconductorlab.block.OxyhydrogenBurnerBlockEntity.productOf(new ItemStack(com.taku3.semiconductorlab.content.Communication.FIBER_PREFORM_NATURAL));
+        h.assertTrue(good.is(com.taku3.semiconductorlab.content.Communication.OPTICAL_FIBER) && good.getCount() == 8 && com.taku3.semiconductorlab.item.OpticalFiberItem.lossDbKm(good) == 20 && com.taku3.semiconductorlab.item.OpticalFiberItem.lossDbKm(bad) == 1000, "drawn in the flame: 8 fibres, 20 vs 1000 dB/km");
+        double g = com.taku3.semiconductorlab.item.OpticalFiberItem.transmitted(20, 100), b = com.taku3.semiconductorlab.item.OpticalFiberItem.transmitted(1000, 100);
+        h.assertTrue(Math.abs(g - 0.631) < 0.001 && b < 1e-9, "100 m: pure " + g + " vs impure " + b);
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.OpticalFiberItem.criticalAngleDeg() - 85.3) < 0.2, "total internal reflection beyond " + com.taku3.semiconductorlab.item.OpticalFiberItem.criticalAngleDeg() + " deg");
+        LOG.info("[LAB] optical fibre [15-13]: 100 m through synthetic silica " + Math.round(g * 100) + "%, through natural fused quartz ~0%; critical angle " + String.format(java.util.Locale.ROOT, "%.1f", com.taku3.semiconductorlab.item.OpticalFiberItem.criticalAngleDeg()) + " deg");
+        h.succeed();
+    }
+
     /** トランジスタラジオ [15-10]：合金接合型3＋炭素抵抗（黒鉛）＋コイル（銅ケーブル）＋コンデンサ（ライデン瓶）＋スピーカー（磁石）＋乾電池（亜鉛・黒鉛棒） */
     @GameTest
     public void transistorRadioParts(GameTestHelper h) {

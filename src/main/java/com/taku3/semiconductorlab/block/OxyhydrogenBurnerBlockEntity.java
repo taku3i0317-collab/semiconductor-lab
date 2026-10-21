@@ -88,7 +88,12 @@ public class OxyhydrogenBurnerBlockEntity extends BlockEntity implements Machine
         if (in.is(Metallurgy.VEIN_QUARTZ)) return new ItemStack(Optics.FUSED_QUARTZ);
         if (in.is(Metallurgy.SILICON_TETRACHLORIDE)) return new ItemStack(Optics.SYNTHETIC_QUARTZ);
         if (in.is(Optics.RUBY_FEED)) return new ItemStack(Optics.RUBY_BOULE);
-        if (in.is(Optics.ULE_FEED)) return new ItemStack(Optics.ULE_GLASS);   // [7-21] SiCl4＋TiCl4 を炎で加水分解 → SiO2・TiO2 のガラス（ULE）   // [7-13] ベルヌーイ法 1902：粉を炎に落として溶かし、下の種の上に積もらせて単結晶に
+        if (in.is(Optics.ULE_FEED)) return new ItemStack(Optics.ULE_GLASS);
+        // [15-13] 光ファイバー（IMP2 O-033）：母材の先を炎で溶かして細く引く。合成石英の母材は 20dB/km、天然の石英は 1000dB/km
+        if (in.is(com.taku3.semiconductorlab.content.Communication.FIBER_PREFORM))
+            return com.taku3.semiconductorlab.item.OpticalFiberItem.withLoss(new ItemStack(com.taku3.semiconductorlab.content.Communication.OPTICAL_FIBER, 8), com.taku3.semiconductorlab.item.OpticalFiberItem.SYNTHETIC_DB_KM);
+        if (in.is(com.taku3.semiconductorlab.content.Communication.FIBER_PREFORM_NATURAL))
+            return com.taku3.semiconductorlab.item.OpticalFiberItem.withLoss(new ItemStack(com.taku3.semiconductorlab.content.Communication.OPTICAL_FIBER, 8), com.taku3.semiconductorlab.item.OpticalFiberItem.NATURAL_DB_KM);   // [7-21] SiCl4＋TiCl4 を炎で加水分解 → SiO2・TiO2 のガラス（ULE）   // [7-13] ベルヌーイ法 1902：粉を炎に落として溶かし、下の種の上に積もらせて単結晶に
         return ItemStack.EMPTY;
     }
 
