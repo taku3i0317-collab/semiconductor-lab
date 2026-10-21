@@ -123,6 +123,7 @@ public class ProbeStationScreen extends MachineScreen {
         double v = Math.abs(a);
         if (v >= 1e-3) return String.format("%.2f mA", a * 1e3);
         if (v >= 1e-6) return String.format("%.1f µA", a * 1e6);
+        if (v >= 1e-9) return String.format("%.0f nA", a * 1e9);   // CMOS の待っている間の電流が見えるように（[9-24]）
         return "0";
     }
 
