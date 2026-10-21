@@ -625,3 +625,14 @@
 - ノードが出てくる時刻を 1つずつ 0〜120ms ずらし、速さを ±13%（0.87〜1.13 倍）変えた。値はノードの番号から決まる（毎回同じ、中心図を作る時に1回だけ計算）
 - 出てくる時に 12% だけふくらんで元へ。点滅はしない。止まる場所はきちんとそろう。動きを減らす設定の人は今までどおり静止画
 - 写真 docs/mockups/S038_jitter.png（部品が少しずつずれて出てくる所）
+
+## S-028（2026-10-21、INBOX：ユーザーの決定）AI のための「確かめられた技術の地図」の公開の準備（**公開はユーザーの操作の後**）
+- **Hugging Face のデータセット**：build/huggingface/（git に入れない）。data/ に nodes（本当の歴史だけ）・nodes_game（MOD での作り方、別の設定）・edges・glossary・benchmark を JSONL と Parquet で。README.md＝データセットカード（目的・中身の数・CC0・使い方の例・限界）。作り直し：`python tools/make_hf_dataset.py`（pyarrow が要るので -I を付けない）
+- **出どころと確かめ方**（tools/provenance.py）：ノードごとに、最初に足したコミット（日付・タスク・担当・AI のモデル）と、出典の数・確かさ・別のモデルの監査（AUDIT_RESULTS、Claude Fable 5.1、同意・修正・不明）・人の確認。数：AI のモデルの記録あり 596（Claude Opus 5.5）、記録なし 34。担当：分ける前の1つのセッション 347・ネットワーク担当 242・実装担当 18・不明 23。出典あり 490、別のモデルの監査 102、**人の専門家の確認 0**（カードにも正直に書いた）
+- **Wikidata の番号**（tools/wikidata_match.py、1秒に1回まで）：名前と年が合った物 90 → そのうちラベルでなく別名だけで合っていた 8 を外した（GPS → フィギュアスケートの ISU グランプリ、NC → ネパール会議派 など）→ **82**。名前だけ合って年が合わない・年が無い 344 は空のまま
+- **ベンチマークの見本**（tools/make_benchmark.py）：200 問（要らない物はどれ 66・前に要るのはどちら 66・作る順に並べる 68）。使ったのは出典があり確かでない印の無いノード 316。「要る物」は3段までの近い前提（遠すぎると問題として不自然だったので）。どの問題にも根拠のつながりと出典
+- **docs/PITCH.md**（tools/make_pitch.py、数はデータから）：ノード 630・つながり 1814・ゲームで作れる 293・出典の URL 309・GameTest 363・別のモデルの監査 102・ベンチマーク 200・Wikidata 82。限界も書いた
+- **ユーザーにお願い（公開の手順）**：
+  1. huggingface.co にログインし、「New Dataset」で名前（案：tech-network）、Public、License は CC0 で作る
+  2. ブラウザなら、作ったページの「Files → Add file → Upload files」に build/huggingface の中身（README.md と data フォルダ）をそのまま入れる。コマンドなら `pip install huggingface_hub` → `huggingface-cli login` → `huggingface-cli upload <名前>/tech-network build/huggingface . --repo-type dataset`
+  3. INBOX に「Hugging Face を作った（<名前>/tech-network）」と書けば、カードの使い方の例の <user> を直して、以後の更新はネットワーク担当が書き出す
