@@ -43,6 +43,27 @@ public final class Branches {
                 .part("frame", net.minecraft.world.item.Items.IRON_INGOT, 4)
                 .part("wiring", Power.COPPER_CABLE.block.asItem(), 2)
                 .seconds(10).build();
+        // [B-10] スマホ（O-029 Q28 案A 仮決定）：マイコン（mcu4 に合格）＋カメラ＋MEMS の加速度計＋タッチパネル＋TFT 液晶＋バックライト＋リチウムイオン電池＋ケース。
+        // TFT 液晶・バックライトはまだない（ID で待つ）⚠️：その2つのアイテムが登録されたときだけレシピを作る（それまで組めない）
+        if (smartphoneReady()) com.taku3.semiconductorlab.machine.Assembly.recipe("smartphone", SMARTPHONE)
+                .part("soc", s -> s.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "mcu4"), 1, Semiconductor.CHIP, () -> passedChip("mcu4"))
+                .part("camera", CAMERA_MODULE, 1)
+                .part("motion", Semiconductor.MEMS_ACCELEROMETER, 1)
+                .part("touch", Communication.TOUCH_PANEL, 1)
+                .part("display", net.minecraft.core.registries.BuiltInRegistries.ITEM.getValue(com.taku3.semiconductorlab.SemiconductorLab.id(TFT_ID)), 1)
+                .part("backlight", net.minecraft.core.registries.BuiltInRegistries.ITEM.getValue(com.taku3.semiconductorlab.SemiconductorLab.id(BACKLIGHT_ID)), 1)
+                .part("battery", Power.LITHIUM_ION_BATTERY.block.asItem(), 1)
+                .part("case", net.minecraft.world.item.Items.IRON_INGOT, 2)
+                .seconds(20).build();
+    }
+
+    /** まだ登録されていない部品（ほかの担当が作る）の ID：TFT 液晶 [B-19]（E）・白色 LED バックライト [B-20]。この ID のアイテムができれば、スマホのレシピに入る */
+    public static final String TFT_ID = "tft_lcd", BACKLIGHT_ID = "led_backlight";
+
+    /** スマホの部品がそろったか（TFT 液晶とバックライトのアイテムが登録されているか） */
+    public static boolean smartphoneReady() {
+        return net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(com.taku3.semiconductorlab.SemiconductorLab.id(TFT_ID))
+                && net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(com.taku3.semiconductorlab.SemiconductorLab.id(BACKLIGHT_ID));
     }
 
     // ===== 機械（BE を持つブロック、Machine 1行） =====
@@ -56,6 +77,8 @@ public final class Branches {
     public static final Item KEY_SWITCH            = Reg.item("key_switch");
     /** 電卓：自分で作ったチップ＋キー＋ニキシー管を組立台で。右クリックで計算 */
     public static final Item CALCULATOR            = Reg.item("calculator", com.taku3.semiconductorlab.item.CalculatorItem::new, new Item.Properties().stacksTo(1));
+    /** [B-10] スマホ（A、O-029）：組立台で。アプリの画面はユーザーの答え待ち、TFT・バックライトがまだなので組めない ⚠️ */
+    public static final Item SMARTPHONE            = Reg.item("smartphone", com.taku3.semiconductorlab.item.SmartphoneItem::new, new Item.Properties().stacksTo(1));
 
     // ===== [B-02a] ダゲレオタイプ（IMP2、S-002 案B：化学の工程を体験。写真の中身は場所・時刻・写りのデータ）=====
     /** 写真の中身（撮った場所・時刻・露光の量） */

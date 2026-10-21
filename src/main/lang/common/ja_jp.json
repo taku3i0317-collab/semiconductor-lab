@@ -366,5 +366,21 @@
   "assembly.semiconductor-lab.touch_panel.wiring": "配線",
   "assembly.semiconductor-lab.touch_panel.wiring.short": "配線",
   "assembly.semiconductor-lab.touch_panel.readout": "読み取りのチップ（NOT に合格）",
-  "assembly.semiconductor-lab.touch_panel.readout.short": "読み取り"
+  "assembly.semiconductor-lab.touch_panel.readout.short": "読み取り",
+  "assembly.semiconductor-lab.smartphone.soc": "マイコンのチップ（ワンチップマイコンに合格）",
+  "assembly.semiconductor-lab.smartphone.soc.short": "マイコン",
+  "assembly.semiconductor-lab.smartphone.camera": "カメラ",
+  "assembly.semiconductor-lab.smartphone.camera.short": "カメラ",
+  "assembly.semiconductor-lab.smartphone.motion": "加速度計（MEMS）",
+  "assembly.semiconductor-lab.smartphone.motion.short": "加速度計",
+  "assembly.semiconductor-lab.smartphone.touch": "タッチパネル",
+  "assembly.semiconductor-lab.smartphone.touch.short": "タッチパネル",
+  "assembly.semiconductor-lab.smartphone.display": "TFT 液晶（まだない ⚠️）",
+  "assembly.semiconductor-lab.smartphone.display.short": "TFT 液晶",
+  "assembly.semiconductor-lab.smartphone.backlight": "バックライト（まだない ⚠️）",
+  "assembly.semiconductor-lab.smartphone.backlight.short": "バックライト",
+  "assembly.semiconductor-lab.smartphone.battery": "リチウムイオン電池",
+  "assembly.semiconductor-lab.smartphone.battery.short": "電池",
+  "assembly.semiconductor-lab.smartphone.case": "ケース",
+  "assembly.semiconductor-lab.smartphone.case.short": "ケース"
 }

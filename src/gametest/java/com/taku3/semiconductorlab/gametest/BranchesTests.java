@@ -221,4 +221,24 @@ public class BranchesTests extends LabTestBase {
         h.assertTrue(com.taku3.semiconductorlab.block.CarbideLampBlock.fuel(level, pos, player, carbide) && player.getInventory().countItem(Survival.SLAKED_LIME) == 1, "refill gives back the spent slaked lime");
         h.succeed();
     }
+
+    /**
+     * [B-10] スマホ（O-029 Q28 案A 仮決定）：組立台のレシピは8種（マイコン・カメラ・加速度計・タッチパネル・TFT 液晶・バックライト・電池・ケース）。
+     * TFT 液晶・バックライトのアイテムがまだ登録されていなければ、レシピそのものがない＝組めない。そろったら8種のレシピ、マイコンは mcu4 に合格したチップだけ
+     */
+    @GameTest
+    public void smartphoneRecipe(GameTestHelper h) {
+        var a = com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Branches.SMARTPHONE);
+        if (!com.taku3.semiconductorlab.content.Branches.smartphoneReady()) {   // TFT 液晶・バックライトがまだ：レシピがない＝組めない
+            h.assertTrue(a == null, "no smartphone recipe until the TFT LCD and the backlight exist");
+            h.succeed();
+            return;
+        }
+        h.assertTrue(a != null && a.parts.size() == 8, "smartphone assembly with 8 roles");
+        var chip = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.CHIP);
+        chip.set(com.taku3.semiconductorlab.ModDataComponents.CHALLENGES, java.util.List.of("mcu4"));
+        h.assertTrue(a.satisfied(0, chip) && !a.satisfied(0, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Semiconductor.CHIP)), "the SoC role needs a chip that passed mcu4");
+        h.assertTrue(a.satisfied(3, new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Communication.TOUCH_PANEL)), "the touch panel fits");
+        h.succeed();
+    }
 }

@@ -366,5 +366,21 @@
   "assembly.semiconductor-lab.touch_panel.wiring": "Wiring",
   "assembly.semiconductor-lab.touch_panel.wiring.short": "Wiring",
   "assembly.semiconductor-lab.touch_panel.readout": "Readout chip (passed NOT)",
-  "assembly.semiconductor-lab.touch_panel.readout.short": "Readout"
+  "assembly.semiconductor-lab.touch_panel.readout.short": "Readout",
+  "assembly.semiconductor-lab.smartphone.soc": "Microcomputer chip (passed one-chip microcomputer)",
+  "assembly.semiconductor-lab.smartphone.soc.short": "SoC",
+  "assembly.semiconductor-lab.smartphone.camera": "Camera",
+  "assembly.semiconductor-lab.smartphone.camera.short": "Camera",
+  "assembly.semiconductor-lab.smartphone.motion": "Accelerometer (MEMS)",
+  "assembly.semiconductor-lab.smartphone.motion.short": "Accelerometer",
+  "assembly.semiconductor-lab.smartphone.touch": "Touch panel",
+  "assembly.semiconductor-lab.smartphone.touch.short": "Touch panel",
+  "assembly.semiconductor-lab.smartphone.display": "TFT LCD (not yet ⚠️)",
+  "assembly.semiconductor-lab.smartphone.display.short": "TFT LCD",
+  "assembly.semiconductor-lab.smartphone.backlight": "Backlight (not yet ⚠️)",
+  "assembly.semiconductor-lab.smartphone.backlight.short": "Backlight",
+  "assembly.semiconductor-lab.smartphone.battery": "Lithium-ion battery",
+  "assembly.semiconductor-lab.smartphone.battery.short": "Battery",
+  "assembly.semiconductor-lab.smartphone.case": "Case",
+  "assembly.semiconductor-lab.smartphone.case.short": "Case"
 }

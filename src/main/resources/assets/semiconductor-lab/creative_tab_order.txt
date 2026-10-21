@@ -755,4 +755,5 @@ nixie_tube  # Branches [B-24] 1955
 key_switch  # Branches [B-08] 1964
 calculator  # Branches [B-08] 1964
 camera_module  # Branches [9-45] 1976
+smartphone  # Branches [B-10] 2007
 test_power_source  # Testing [None] None

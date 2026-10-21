@@ -597,3 +597,8 @@
 - 1 スマホ [B-10] の案（LITHO_DESIGN §16、作らない）：**Q28** 案A アプリ3つ（組立台でマイコンのチップ・カメラ・MEMS・タッチパネル・TFT 液晶・リチウムイオン電池・ケース → 右クリックで電卓・写真・傾き、電池が減る、おすすめ）／案B 電卓だけ／案C 携帯電話 → カメラ付き → スマホの段階。画面の見た目はユーザーに。部品がそろうまで作れない（液晶 D・TFT E・バックライト・タッチパネル E）
 - 2 ガイド本 第7巻「極限の微細化」（guide7/、10個：液浸・化学増幅レジスト・焦点深度・CMP・銅の配線・クリーンルーム・歩留まり・FinFET・high-k）と give_guidebook7。GameTest guide7Extreme
 
+## O-029（Q28 案A 仮決定、2026-10-21）
+- DECISIONS に「（仮決定）」で1行
+- [B-10] スマホの入れ物：Branches.SMARTPHONE（item/SmartphoneItem、右クリックは「画面はまだ」の仮の文、.placeholder）、組立台のレシピの形（マイコン mcu4・カメラ・加速度計・タッチパネル・TFT 液晶・バックライト・リチウムイオン電池・ケース）。TFT 液晶（ID tft_lcd、E）とバックライト（ID led_backlight）のアイテムが登録されたときだけレシピを作る＝それまで組めない（組立台の「見本は正しい部品」の決まりを守るため）。TECH_TREE [B-10] 🔧。GameTest smartphoneRecipe（今はレシピなし、そろったら8種）
+- E に TFT の ID（tft_lcd）を知らせた。バックライトの ID は led_backlight で待つ（担当が決まったら合わせる）
+

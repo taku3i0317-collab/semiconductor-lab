@@ -95,5 +95,12 @@
   "item.semiconductor-lab.camera_module.note4": "F2 のレンズでは、緑の光の回折の円が約2.7µm で、画素（約1µm）より大きい。そこで画素の数を増やしても細かさは頭打ちになり、計算（画像処理）で補っている。",
   "item.semiconductor-lab.camera_module.placeholder": "近似：レンズ・画素・F値は代表値。写真は場所・時刻・露光の量の記録（絵は作らない）。",
   "item.semiconductor-lab.camera_module.shot": "📸 すぐ見られるカラーの写真（露光 %s%%：%s）",
-  "item.semiconductor-lab.camera_module.optics": "  F%s・画素 %s µm、回折の円 %s µm（画素より大きい＝レンズの限り）"
+  "item.semiconductor-lab.camera_module.optics": "  F%s・画素 %s µm、回折の円 %s µm（画素より大きい＝レンズの限り）",
+  "item.semiconductor-lab.smartphone": "スマホ",
+  "item.semiconductor-lab.smartphone.note1": "電卓・写真・傾きが1台に入った、自分のチップのスマホ（⚠️ まだ組めない）。",
+  "item.semiconductor-lab.smartphone.note2": "ワンチップマイコンに合格したチップ＋カメラ＋MEMS の加速度計＋タッチパネル＋TFT 液晶＋バックライト＋リチウムイオン電池を組立台で。",
+  "item.semiconductor-lab.smartphone.note3": "2007年 iPhone・2008年 Android：電話・音楽・カメラ・ネットが1台に。中のチップは10億個をこえるトランジスタ（ArF 液浸とマルチパターニング）。",
+  "item.semiconductor-lab.smartphone.note4": "⚠️ 仮：TFT 液晶 [B-19]・白色 LED バックライト [B-20] がまだないので組めない。アプリの画面の見た目はユーザーの答え待ち。無線（電話・ネット）は省略。",
+  "item.semiconductor-lab.smartphone.placeholder": "⚠️ 仮：TFT 液晶とバックライトがまだない（画面はまだ）",
+  "message.semiconductor-lab.smartphone.placeholder": "スマホ：画面（電卓・写真・傾き）はまだ作っていません（液晶・バックライトと、見た目の決定を待っています）"
 }

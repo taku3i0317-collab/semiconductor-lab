@@ -806,6 +806,8 @@ setblock ~19 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-08
 setblock ~19 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:key_switch",count:16},{Slot:1b,id:"semiconductor-lab:calculator",count:1}]}
 setblock ~22 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-45] ベイヤー配列の","作業台で 緑・赤／青・","緑 に並べて4枚できる","か。画像センサーへの組"]}}
 setblock ~22 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:camera_module",count:1}]}
+setblock ~25 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-10] スマホ","（人間の確認項目なし）","",""]}}
+setblock ~25 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:smartphone",count:1}]}
 setblock ~0 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["本物の発電","↓ この列","",""]}}
 setblock ~2 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["蒸気機関で発電","石炭と水バケツ","を入れると","電気炉が動く"]}}
 setblock ~2 ~0 ~122 semiconductor-lab:steam_engine

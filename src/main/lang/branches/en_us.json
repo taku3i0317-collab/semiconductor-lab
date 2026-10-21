@@ -95,5 +95,12 @@
   "item.semiconductor-lab.camera_module.note4": "With an F2 lens the diffraction blur for green light is about 2.7 um, larger than a ~1 um pixel, so adding pixels stops adding detail and image processing makes up the rest.",
   "item.semiconductor-lab.camera_module.placeholder": "Approximation: lens, pixel and F-number are typical values. A photo records place, time and exposure (no picture is drawn).",
   "item.semiconductor-lab.camera_module.shot": "📸 An instant colour photo (exposure %s%%: %s)",
-  "item.semiconductor-lab.camera_module.optics": "  F%s, %s um pixels, diffraction blur %s um (larger than a pixel = the lens limit)"
+  "item.semiconductor-lab.camera_module.optics": "  F%s, %s um pixels, diffraction blur %s um (larger than a pixel = the lens limit)",
+  "item.semiconductor-lab.smartphone": "Smartphone",
+  "item.semiconductor-lab.smartphone.note1": "Calculator, photos and tilt in one device, built from your own chips (⚠️ cannot be assembled yet).",
+  "item.semiconductor-lab.smartphone.note2": "A chip that passed the one-chip microcomputer, a camera, a MEMS accelerometer, a touch panel, a TFT LCD, a backlight and a lithium-ion battery on the assembly bench.",
+  "item.semiconductor-lab.smartphone.note3": "iPhone 2007, Android 2008: phone, music, camera and internet in one device. The chips hold over a billion transistors (ArF immersion and multiple patterning).",
+  "item.semiconductor-lab.smartphone.note4": "⚠️ Placeholder: the TFT LCD [B-19] and white LED backlight [B-20] do not exist yet, so it cannot be assembled. The app screen's look awaits the user. Radio (calls, internet) is left out.",
+  "item.semiconductor-lab.smartphone.placeholder": "⚠️ Placeholder: no TFT LCD or backlight yet (no screen)",
+  "message.semiconductor-lab.smartphone.placeholder": "Smartphone: the screen (calculator, photos, tilt) is not built yet (waiting for the LCD, the backlight and a decision on the look)"
 }
