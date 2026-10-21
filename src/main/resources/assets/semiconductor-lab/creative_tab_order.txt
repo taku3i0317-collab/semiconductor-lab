@@ -673,6 +673,7 @@ epitaxy_reactor  # Semiconductor [9-30] 1960
 wafer_polisher  # Semiconductor [9-13] 1963
 cleaning_bench  # Semiconductor [9-14] 1965
 rca_bench  # Semiconductor [9-14] 1965
+image_sensor  # Semiconductor [9-42] 1969
 carbon_tetrafluoride  # Semiconductor [9-27] 1970
 sputter  # Semiconductor [9-26] 1970
 fluorination_reactor  # Semiconductor [9-27] 1970
@@ -687,6 +688,8 @@ anneal_furnace  # Semiconductor [9-29] 1980
 cmp_polisher  # Semiconductor [9-31] 1980
 inverter  # Semiconductor [9-41] 1980
 bake_plate  # Semiconductor [2-33] 1982
+mems_wafer  # Semiconductor [9-43] 1993
+mems_accelerometer  # Semiconductor [9-43] 1993
 copper_plater  # Semiconductor [9-36] 1997
 hafnium_chlorinator  # Semiconductor [9-37] 1999
 ald_reactor  # Semiconductor [9-37] 1999

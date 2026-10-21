@@ -329,5 +329,21 @@
   "assembly.semiconductor-lab.microcomputer.board": "Board",
   "assembly.semiconductor-lab.microcomputer.board.short": "Board",
   "assembly.semiconductor-lab.microcomputer.wiring": "Wiring",
-  "assembly.semiconductor-lab.microcomputer.wiring.short": "Wiring"
+  "assembly.semiconductor-lab.microcomputer.wiring.short": "Wiring",
+  "assembly.semiconductor-lab.image_sensor.photodiode": "Photodiode (p-n junction wafer)",
+  "assembly.semiconductor-lab.image_sensor.photodiode.short": "Photodiode",
+  "assembly.semiconductor-lab.image_sensor.readout": "Readout chip (passed NOT)",
+  "assembly.semiconductor-lab.image_sensor.readout.short": "Readout",
+  "assembly.semiconductor-lab.image_sensor.wiring": "Wiring",
+  "assembly.semiconductor-lab.image_sensor.wiring.short": "Wiring",
+  "assembly.semiconductor-lab.image_sensor.window": "Window",
+  "assembly.semiconductor-lab.image_sensor.window.short": "Window",
+  "assembly.semiconductor-lab.mems_accelerometer.proof_mass": "Springs and mass (MEMS wafer)",
+  "assembly.semiconductor-lab.mems_accelerometer.proof_mass.short": "Spring+mass",
+  "assembly.semiconductor-lab.mems_accelerometer.readout": "Readout chip (passed NOT)",
+  "assembly.semiconductor-lab.mems_accelerometer.readout.short": "Readout",
+  "assembly.semiconductor-lab.mems_accelerometer.wiring": "Wiring",
+  "assembly.semiconductor-lab.mems_accelerometer.wiring.short": "Wiring",
+  "assembly.semiconductor-lab.mems_accelerometer.seal": "Seal",
+  "assembly.semiconductor-lab.mems_accelerometer.seal.short": "Seal"
 }

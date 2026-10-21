@@ -50,6 +50,10 @@ public final class Semiconductor {
     public static final Item THYRISTOR_WAFER       = Reg.item("thyristor_wafer");
     public static final Item THYRISTOR             = Reg.item("thyristor");
     // high-k（IMP4-01、S-004）：ALD の原料 HfCl4（D の HfO2 を炭素塩素化）。湿気で HCl を出すので瓶に密封
+    // [9-42] 画像センサー・[9-43] MEMS（IMP4-01、O-019 仮決定の案A）：手に持って光の電子の数・加速度を見る素子。組立台で
+    public static final Item IMAGE_SENSOR          = Reg.item("image_sensor", com.taku3.semiconductorlab.item.ImageSensorItem::new, new Item.Properties().stacksTo(1));
+    public static final Item MEMS_WAFER            = Reg.item("mems_wafer");          // ばねとおもりを深く削り出した板
+    public static final Item MEMS_ACCELEROMETER    = Reg.item("mems_accelerometer", com.taku3.semiconductorlab.item.MemsAccelerometerItem::new, new Item.Properties().stacksTo(1));
     public static final Item HAFNIUM_TETRACHLORIDE = Reg.contained("hafnium_tetrachloride", com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE);
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");
@@ -172,5 +176,28 @@ public final class Semiconductor {
     public static final Machine<CrystalPullerBlockEntity> CRYSTAL_PULLER = Machine.electric("crystal_puller", CrystalPullerBlockEntity::new, CrystalPullerBlockEntity.LAYOUT, metal(3.5f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
+    /** 組立台のレシピ（[9-42]・[9-43]、IMP4-01）。読み出しのチップは検査台で NOT（増幅のもと）に合格した物 */
+    static net.minecraft.world.item.ItemStack passedNot() {
+        var st = new net.minecraft.world.item.ItemStack(CHIP);
+        st.set(com.taku3.semiconductorlab.ModDataComponents.CHALLENGES, java.util.List.of("not"));
+        return st;
+    }
+
+    static void assemblies() {
+        java.util.function.Predicate<net.minecraft.world.item.ItemStack> readout = s -> s.is(CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(s, "not");
+        com.taku3.semiconductorlab.machine.Assembly.recipe("image_sensor", IMAGE_SENSOR)
+                .part("photodiode", PN_JUNCTION_WAFER, 1)
+                .part("readout", readout, 1, CHIP, Semiconductor::passedNot)
+                .part("wiring", Metallurgy.ALUMINIUM_INGOT, 1)
+                .part("window", Chemistry.SODA_LIME_GLASS, 1)
+                .seconds(5).build();
+        com.taku3.semiconductorlab.machine.Assembly.recipe("mems_accelerometer", MEMS_ACCELEROMETER)
+                .part("proof_mass", MEMS_WAFER, 1)
+                .part("readout", readout, 1, CHIP, Semiconductor::passedNot)
+                .part("wiring", Metallurgy.ALUMINIUM_INGOT, 1)
+                .part("seal", CAN_CAP, 1)
+                .seconds(5).build();
+    }
+
     static void init() {}
 }

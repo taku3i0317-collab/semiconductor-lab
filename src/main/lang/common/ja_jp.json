@@ -329,5 +329,21 @@
   "assembly.semiconductor-lab.microcomputer.board": "板",
   "assembly.semiconductor-lab.microcomputer.board.short": "板",
   "assembly.semiconductor-lab.microcomputer.wiring": "配線",
-  "assembly.semiconductor-lab.microcomputer.wiring.short": "配線"
+  "assembly.semiconductor-lab.microcomputer.wiring.short": "配線",
+  "assembly.semiconductor-lab.image_sensor.photodiode": "フォトダイオード（p-n 接合の板）",
+  "assembly.semiconductor-lab.image_sensor.photodiode.short": "フォトダイオード",
+  "assembly.semiconductor-lab.image_sensor.readout": "読み出しのチップ（NOT に合格）",
+  "assembly.semiconductor-lab.image_sensor.readout.short": "読み出し",
+  "assembly.semiconductor-lab.image_sensor.wiring": "配線",
+  "assembly.semiconductor-lab.image_sensor.wiring.short": "配線",
+  "assembly.semiconductor-lab.image_sensor.window": "窓",
+  "assembly.semiconductor-lab.image_sensor.window.short": "窓",
+  "assembly.semiconductor-lab.mems_accelerometer.proof_mass": "ばねとおもり（MEMS の板）",
+  "assembly.semiconductor-lab.mems_accelerometer.proof_mass.short": "ばねとおもり",
+  "assembly.semiconductor-lab.mems_accelerometer.readout": "読み出しのチップ（NOT に合格）",
+  "assembly.semiconductor-lab.mems_accelerometer.readout.short": "読み出し",
+  "assembly.semiconductor-lab.mems_accelerometer.wiring": "配線",
+  "assembly.semiconductor-lab.mems_accelerometer.wiring.short": "配線",
+  "assembly.semiconductor-lab.mems_accelerometer.seal": "封止",
+  "assembly.semiconductor-lab.mems_accelerometer.seal.short": "封止"
 }

@@ -16,6 +16,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * 現像したレジストの付いたウェハー 1〜8枚 ＋ CF4 1 → 窓を開けたウェハー（ChipOps.etchOxide(w, true)：方眼が ChipOps.WET_LIMIT_GRID 以上の細い線でも太らない。液は1マス太る）。隣の真空容器が {@link #MAX_PA} 以下に引けていること。
  * [9-37] 塩素のプラズマ（Cl2）にすると、酸化膜ではなくシリコンを真下に削る＝レジストの残った所に細い板（フィン）が立つ（ChipOps.formFins(w, true)、A）。
  *   液では横に溶けてフィンは立たない。FinFET の短チャネルの漏れは A の判定。
+ * [9-43] 素のシリコンの板＋Cl2 → MEMS の板（深く削ったばねとおもり）。⚠️ 本物は 1994 ボッシュ法（SF6 で削る・C4F8 で壁を守る、を交互に）。
  * ⚠️ 電力・時間はゲームの値。CF4 に混ぜる O2・放電中の圧力（約1〜10Pa）は省略（dry_etcher.placeholder）。
  */
 public class DryEtcherBlockEntity extends ConsumerBlockEntity {
@@ -27,7 +28,7 @@ public class DryEtcherBlockEntity extends ConsumerBlockEntity {
     public static final int DATA_VACUUM = DATA_COUNT;
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + 1)
-            .in(SLOT_WAFER, 8, 26, ChipOps::isProcessWafer)
+            .in(SLOT_WAFER, 8, 26, s -> ChipOps.isProcessWafer(s) || s.is(Semiconductor.SILICON_WAFER))
             .in(SLOT_GAS, 8, 50, s -> s.is(Semiconductor.CARBON_TETRAFLUORIDE) || s.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.dry_etcher.power").samples("500.0 kW")
@@ -45,6 +46,8 @@ public class DryEtcherBlockEntity extends ConsumerBlockEntity {
 
     /** gas が CF4 なら酸化膜に窓、Cl2 ならシリコンを削ってフィン（[9-37]）。できなければ EMPTY */
     public static ItemStack product(ItemStack w, ItemStack gas) {
+        if (w.is(Semiconductor.SILICON_WAFER) && gas.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS))   // [9-43] MEMS：素の板を深く削ってばねとおもり（⚠️ 本物は SF6/C4F8 のボッシュ法）
+            return w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)).transmuteCopy(Semiconductor.MEMS_WAFER);
         if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
         ItemStack in = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
         ChipOps.Result r = gas.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS) ? ChipOps.formFins(in, true)

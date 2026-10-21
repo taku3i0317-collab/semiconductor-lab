@@ -895,3 +895,8 @@ public boolean instabuild;                         // クリエイティブ（�
 - `Level.canSeeSky(BlockPos)` は `BlockAndLightGetter` の default（LevelReader には無い）。雨は `Level.isRaining()`、次元は `level.dimension() == Level.OVERWORLD`、時刻は `getOverworldClockTime()`
 - `CompoundTag.getBooleanOr(String, boolean)` / `putBoolean`、`remove(String)`、`contains(String)`
 - ブロックを右クリックしたときに割りこむのは Fabric `UseBlockCallback.EVENT`：`(Player, Level, InteractionHand, BlockHitResult) -> InteractionResult`（fabric-events-interaction-v0、javap で確認、IMP3 [11-05]）
+
+## IMP4-01（O-019、2026-10-21、javap で確認）
+- `Player.sendOverlayMessage(Component)`：画面の下（アクションバー）に1行（手に持つ測定器の表示に使う）
+- `LevelReader.getMaxLocalRawBrightness(BlockPos)`：その場の明るさ 0〜15（空の光は昼夜の暗さ getSkyDarken を引いた値、ブロックの光と大きい方）
+- `Entity.position()`・`getXRot()`・`onGround()`・`getUUID()`、`EquipmentSlot.MAINHAND / OFFHAND`

@@ -1436,6 +1436,29 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-42] 画像センサー・[9-43] MEMS（IMP4-01、O-019）：電子の数は明るいほど多く満杯で止まる・ばらつく、加速度は止まって 1g・落ちて 0g、組立台の部品、ドライエッチングで MEMS の板 */
+    @GameTest
+    public void sensors(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.item.ImageSensorItem.meanElectrons(0) == com.taku3.semiconductorlab.item.ImageSensorItem.DARK && com.taku3.semiconductorlab.item.ImageSensorItem.meanElectrons(15) == com.taku3.semiconductorlab.item.ImageSensorItem.FULL_WELL, "dark current only in the dark, full well at full light");
+        for (int l = 1; l <= 15; l++) h.assertTrue(com.taku3.semiconductorlab.item.ImageSensorItem.meanElectrons(l) > com.taku3.semiconductorlab.item.ImageSensorItem.meanElectrons(l - 1), "brighter -> more electrons");
+        var r = net.minecraft.util.RandomSource.create(1);
+        java.util.Set<Integer> seen = new java.util.HashSet<>();
+        for (int i = 0; i < 20; i++) { int n = com.taku3.semiconductorlab.item.ImageSensorItem.read(8, r); seen.add(n); h.assertTrue(n >= 0 && n <= com.taku3.semiconductorlab.item.ImageSensorItem.FULL_WELL, "within the well"); }
+        h.assertTrue(seen.size() > 1, "shot noise: readings scatter");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.MemsAccelerometerItem.gForce(net.minecraft.world.phys.Vec3.ZERO) - 1.0) < 1e-9, "standing still: 1 g");
+        h.assertTrue(com.taku3.semiconductorlab.item.MemsAccelerometerItem.gForce(new net.minecraft.world.phys.Vec3(0, -com.taku3.semiconductorlab.item.MemsAccelerometerItem.GRAVITY, 0)) < 1e-9, "free fall: 0 g");
+        h.assertTrue(com.taku3.semiconductorlab.item.MemsAccelerometerItem.gForce(new net.minecraft.world.phys.Vec3(0, 0.4, 0)) > 5, "landing: a big spike");
+        var ia = com.taku3.semiconductorlab.machine.Assembly.of(Semiconductor.IMAGE_SENSOR);
+        var ma = com.taku3.semiconductorlab.machine.Assembly.of(Semiconductor.MEMS_ACCELEROMETER);
+        h.assertTrue(ia != null && ma != null, "both are built at the assembly bench");
+        ItemStack sw = new ItemStack(Semiconductor.SILICON_WAFER, 8);
+        ItemStack mw = com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(sw, new ItemStack(Gas.CHLORINE_GAS));
+        h.assertTrue(mw.is(Semiconductor.MEMS_WAFER) && mw.getCount() == 8, "dry etcher: bare wafer + Cl2 -> MEMS wafer");
+        h.assertTrue(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(sw, new ItemStack(Semiconductor.CARBON_TETRAFLUORIDE)).isEmpty(), "CF4 does not cut deep silicon");
+        LOG.info("[LAB] sensors [9-42]/[9-43]: electrons rise with light, saturate, scatter; accelerometer 1 g still / 0 g falling; assembly + MEMS wafer");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
