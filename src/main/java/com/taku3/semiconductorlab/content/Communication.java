@@ -29,6 +29,8 @@ public final class Communication {
     // [15-18] 静電容量式タッチパネル（IMP4-01、O-021 仮決定の案A）：右クリックで体の静電容量の変化を読む（生き物だけ反応）。組立台で
     public static final Item TOUCH_PANEL           = Reg.item("touch_panel", com.taku3.semiconductorlab.item.TouchPanelItem::new, new Item.Properties().stacksTo(1));
     public static final Item TRANSISTOR_RADIO      = Reg.item("transistor_radio", new Item.Properties().stacksTo(1));
+    // [15-09] 真空管ラジオ（IMP2 S-010、1920）：三極真空管3（増幅）＋同調コイル・コンデンサ＋スピーカー＋木の箱。右クリックで聞くと鉛蓄電池から 40W×10秒（ヒーター）
+    public static final Item TUBE_RADIO            = Reg.item("tube_radio", com.taku3.semiconductorlab.item.TubeRadioItem::new, new Item.Properties().stacksTo(1));
     // [15-01] 紙（パルプ）（IMP3、S-002）：SO2＋消石灰＋水 → 亜硫酸の蒸解液、原木2＋蒸解液 → 蒸解釜の仕込み →加圧加熱釜（約130℃以上・3気圧以上）→ 木材パルプ2（1867 ティルマン）。
     //   パルプ3 → 紙3。パルプのセルロースは [2-18] 酢酸セルロース（RO 膜）の材料
     public static final Item SULFITE_LIQUOR        = Reg.item("sulfite_liquor", new Item.Properties().stacksTo(16));
@@ -54,6 +56,14 @@ public final class Communication {
                 .part("electrode", Chemistry.ITO_GLASS, 1)
                 .part("wiring", net.minecraft.world.item.Items.COPPER_INGOT, 1)
                 .part("readout", st -> st.is(Semiconductor.CHIP) && com.taku3.semiconductorlab.block.ProbeStationBlockEntity.passed(st, "not"), 1, Semiconductor.CHIP, Semiconductor::passedNot)
+                .seconds(5).build();
+        // [15-09] 真空管ラジオ（IMP2 S-010）：トランジスタラジオの前の形。増幅は三極真空管、箱は木
+        com.taku3.semiconductorlab.machine.Assembly.recipe("tube_radio", TUBE_RADIO)
+                .part("amplify", com.taku3.semiconductorlab.content.Vacuum.VACUUM_TUBE, 3)
+                .part("tuning_coil", Power.COPPER_CABLE.block.asItem(), 1)
+                .part("tuning_capacitor", Power.LEYDEN_JAR, 1)
+                .part("speaker", Power.MAGNET, 1)
+                .part("cabinet", net.minecraft.world.item.Items.OAK_PLANKS, 4)
                 .seconds(5).build();
         // [15-10] トランジスタラジオ：合金接合型トランジスタ3（増幅）＋炭素抵抗＋同調コイル＋同調コンデンサ＋スピーカー＋乾電池（前は作業台）
         com.taku3.semiconductorlab.machine.Assembly.recipe("transistor_radio", TRANSISTOR_RADIO)

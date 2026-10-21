@@ -245,3 +245,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ O-035（仮決定：O-034 の案A）：euv_high_na_optics（EUV の投影光学＋鏡の組、ProjectionLensItem(EUV, NA 0.55)）。EuvScannerBlockEntity：isHighNa・opticsUsable（心出しのずれ合計 1.6µm 以下）・steps()＝8（ステッパーに steps() の上書き口を足した）。焦点深度 36nm は今の式のまま。CD 16nm・方眼136。方眼の上限 148 は今のまま（A に確かめた）。DECISIONS に1行。GameTest euv_high_na、CHEMISTRY X8、REFERENCES O85
 - ✅ S-010 1. [8-19] 滑車：simple_pulley・compound_pulley（item/PulleyItem）。ブロックを持ち上げる力と綱の長さ、人の力と比べる。GameTest pulley、CHEMISTRY P24、REFERENCES O86
 - ✅ S-010 2. [14-13] ジュラルミン：duralumin_charge →かまど → quenched_duralumin（item/QuenchedDuraluminItem：持ち物で1日たつと duralumin に、右クリックで硬さ）。GameTest duralumin、CHEMISTRY T2、REFERENCES O87
+- ✅ S-010 3. [15-09] 真空管ラジオ：tube_radio（組立台、item/TubeRadioItem：聞くたびに鉛蓄電池から 400J）。GameTest tube_radio、CHEMISTRY CO1、REFERENCES O88

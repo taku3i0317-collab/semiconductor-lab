@@ -2547,6 +2547,19 @@
 - Wikipedia「Duralumin」：https://en.wikipedia.org/wiki/Duralumin
 - Wikipedia「Precipitation hardening」：https://en.wikipedia.org/wiki/Precipitation_hardening
 
+## O88. ラジオは最初、家具のように大きかった（真空管ラジオ）［15-09］
+**答え**：三極真空管は電波の小さな信号を何倍にも大きくできたので、スピーカーを鳴らすラジオができた。1920年、アメリカ・ピッツバーグの KDKA が定時のラジオ放送を始め、1925年には日本でも放送が始まった。真空管はヒーターで陰極を赤く熱して電子を出すので、温まるまで時間がかかり、電気をたくさん使った。トランジスタは熱しなくてよいので、のちのラジオは小さく、電池で長く聞けるようになった。
+
+- へえ①：ラジオは最初、家具のように大きかった。
+- へえ②：真空管ラジオは、つけてから音が出るまで少し待つ（ヒーターが温まるまで）。
+- へえ③：真空管は電球のように光って熱くなる。
+- へえ④：トランジスタラジオは、同じ電池で何十倍も長く聞ける。
+
+確かさ：1920 KDKA ◎／1925 日本の放送 ◎／40W の消費電力 △（代表値）
+根拠：
+- Wikipedia「KDKA (AM)」：https://en.wikipedia.org/wiki/KDKA_(AM)
+- Wikipedia「Vacuum tube」：https://en.wikipedia.org/wiki/Vacuum_tube
+
 ---
 
 # 冶金と熱（タスク15〜）

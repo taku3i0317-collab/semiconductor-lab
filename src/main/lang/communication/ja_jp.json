@@ -50,5 +50,13 @@
   "item.semiconductor-lab.optical_fiber.note4": "コアの屈折率 1.462・クラッド 1.457 なら、境の面に約85°より浅い角度で当たった光は全部はね返る（全反射）。だから糸が曲がっても光は外へ出ない。",
   "item.semiconductor-lab.optical_fiber.placeholder": "近似：光源（LED・半導体レーザー）はまだないので、光を送る実験は光源なし。減り方は波長によらず一定とした。",
   "item.semiconductor-lab.optical_fiber.mark": "💡 ここから光を入れる。光は境で全反射して進む（約%s°より浅い角度なら外へ出ない）。もう1つのブロックを右クリック",
-  "item.semiconductor-lab.optical_fiber.sent": "📡 %s m 送った：%s dB/km → %s dB 弱くなり、届いた光は %s%%"
+  "item.semiconductor-lab.optical_fiber.sent": "📡 %s m 送った：%s dB/km → %s dB 弱くなり、届いた光は %s%%",
+  "item.semiconductor-lab.tube_radio": "真空管ラジオ",
+  "item.semiconductor-lab.tube_radio.note1": "真空管で音を大きくするラジオ。昔は家具のように大きかった。",
+  "item.semiconductor-lab.tube_radio.note2": "組立台：三極真空管×3＋同調コイル＋同調コンデンサ＋スピーカー＋木の箱。右クリックで10秒聞くたびに、持ち物の鉛蓄電池から 400J（真空管のヒーター 40W）。",
+  "item.semiconductor-lab.tube_radio.note3": "1920年、アメリカのピッツバーグで KDKA が定時のラジオ放送を始め、1925年に日本でも放送が始まった。家族が大きな木のラジオのまわりに集まって聞いた。",
+  "item.semiconductor-lab.tube_radio.note4": "真空管は陰極をヒーターで赤く熱して電子を出すので、つけてから温まるまで時間がかかり、電気も食う。トランジスタは熱しなくてよいので、ラジオは小さく、電池で何十時間も聞けるようになった。",
+  "item.semiconductor-lab.tube_radio.placeholder": "近似：放送局はないので、聞くと「放送」の文が出るだけ。消費電力 40W は代表値。",
+  "item.semiconductor-lab.tube_radio.listen": "📻 真空管が温まって、放送が聞こえる（ヒーター %s W × %s 秒 ＝ %s J を電池から）",
+  "item.semiconductor-lab.tube_radio.no_power": "鳴らない：真空管のヒーターに、持ち物の鉛蓄電池から %s J 要る"
 }

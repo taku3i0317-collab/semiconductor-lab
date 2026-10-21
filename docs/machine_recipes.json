@@ -260,6 +260,46 @@
     },
     {
       "machine": "semiconductor-lab:assembly_bench",
+      "process": "組み立て（tube_radio）",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:vacuum_tube",
+          "count": 3,
+          "cond": "amplify"
+        },
+        {
+          "item": "semiconductor-lab:copper_cable",
+          "count": 1,
+          "cond": "tuning_coil"
+        },
+        {
+          "item": "semiconductor-lab:leyden_jar",
+          "count": 1,
+          "cond": "tuning_capacitor"
+        },
+        {
+          "item": "semiconductor-lab:magnet",
+          "count": 1,
+          "cond": "speaker"
+        },
+        {
+          "item": "minecraft:oak_planks",
+          "count": 4,
+          "cond": "cabinet"
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:tube_radio",
+          "count": 1
+        }
+      ],
+      "watts": 0.0,
+      "seconds": 5.0,
+      "note": "部品表で組み立てる。電気なし"
+    },
+    {
+      "machine": "semiconductor-lab:assembly_bench",
       "process": "組み立て（transistor_radio）",
       "inputs": [
         {

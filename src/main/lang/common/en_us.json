@@ -434,5 +434,10 @@
   "assembly.semiconductor-lab.ai_chip.board.short": "Board",
   "item.semiconductor-lab.pulley.lift": "🪝 One %s (about %s kg) on %s ropes: pull %s N, haul %s m of rope to raise it 1 m",
   "item.semiconductor-lab.pulley.can": "A person (about %s N) can lift it",
-  "item.semiconductor-lab.pulley.cannot": "Too heavy for a person (about %s N). It would take %s ropes"
+  "item.semiconductor-lab.pulley.cannot": "Too heavy for a person (about %s N). It would take %s ropes",
+  "assembly.semiconductor-lab.tube_radio.amplify": "Amplifier (triodes)",
+  "assembly.semiconductor-lab.tube_radio.tuning_coil": "Tuning coil",
+  "assembly.semiconductor-lab.tube_radio.tuning_capacitor": "Tuning capacitor",
+  "assembly.semiconductor-lab.tube_radio.speaker": "Speaker",
+  "assembly.semiconductor-lab.tube_radio.cabinet": "Wooden cabinet"
 }

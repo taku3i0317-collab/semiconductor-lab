@@ -81,6 +81,22 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class CommunicationTests extends LabTestBase {
+    /** [15-09] 真空管ラジオ（IMP2 S-010）：聞くたびに鉛蓄電池から 400J（ヒーター 40W×10秒）。電池が足りないと鳴らない */
+    @GameTest
+    public void tube_radio(GameTestHelper h) {
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        ItemStack radio = new ItemStack(com.taku3.semiconductorlab.content.Communication.TUBE_RADIO);
+        player.setItemInHand(net.minecraft.world.InteractionHand.MAIN_HAND, radio);
+        ItemStack bat = new ItemStack(com.taku3.semiconductorlab.content.Power.LEAD_ACID_BATTERY.block.asItem());
+        bat.set(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY, com.taku3.semiconductorlab.item.TubeRadioItem.LISTEN_J + 100);
+        player.getInventory().setItem(9, bat);
+        h.assertTrue(com.taku3.semiconductorlab.content.Communication.TUBE_RADIO.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND) == net.minecraft.world.InteractionResult.SUCCESS, "plays");
+        h.assertValueEqual(bat.get(com.taku3.semiconductorlab.ModDataComponents.BATTERY_ENERGY), 100L, "10 s of 40 W heaters = 400 J");
+        h.assertTrue(com.taku3.semiconductorlab.content.Communication.TUBE_RADIO.use(h.getLevel(), player, net.minecraft.world.InteractionHand.MAIN_HAND) == net.minecraft.world.InteractionResult.FAIL, "battery too low -> silent");
+        LOG.info("[LAB] tube radio [15-09]: 3 triodes, 40 W heaters -> 400 J per 10 s listen");
+        h.succeed();
+    }
+
     /** [15-13] 光ファイバー（IMP2 O-033）：合成石英の母材は 20dB/km、天然の石英は 1000dB/km。100m 送ると 63% と 0.0000000001% */
     @GameTest
     public void optical_fiber(GameTestHelper h) {
