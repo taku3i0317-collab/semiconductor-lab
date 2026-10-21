@@ -691,6 +691,7 @@ stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None
 drafting_table  # Semiconductor [None] None
 electromagnet  # Control [10-01] 1820
+microcomputer  # Control [10-13] 1971
 quern  # Agriculture [11-08] -9500
 flour  # Agriculture [11-08] -9500
 vinegar  # Agriculture [11-10] -6000

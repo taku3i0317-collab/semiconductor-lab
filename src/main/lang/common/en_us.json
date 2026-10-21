@@ -317,5 +317,17 @@
   "litho.semiconductor-lab.challenge.rom_program.hint1": "1. Decode the address: make lines that select exactly one of the 8 words (a NOR pulled low by any wrong address bit).",
   "litho.semiconductor-lab.challenge.rom_program.hint2": "2. You need the opposite of each address bit too (NOT). Put a gate under the wrong one of each pair.",
   "litho.semiconductor-lab.challenge.rom_program.hint3": "3. Run data lines down, pulled up to the supply. A MOS where a word line crosses makes that bit 0; none makes it 1.",
-  "litho.semiconductor-lab.challenge.rom_program.hint4": "4. Only the gate-oxide mask decides the contents. Each 4001 customer got that one mask redrawn."
+  "litho.semiconductor-lab.challenge.rom_program.hint4": "4. Only the gate-oxide mask decides the contents. Each 4001 customer got that one mask redrawn.",
+  "assembly.semiconductor-lab.microcomputer.cpu": "CPU chip (passed 4-bit CPU)",
+  "assembly.semiconductor-lab.microcomputer.cpu.short": "CPU chip",
+  "assembly.semiconductor-lab.microcomputer.rom": "ROM chip (passed ROM)",
+  "assembly.semiconductor-lab.microcomputer.rom.short": "ROM chip",
+  "assembly.semiconductor-lab.microcomputer.clock": "Clock (quartz)",
+  "assembly.semiconductor-lab.microcomputer.clock.short": "Clock",
+  "assembly.semiconductor-lab.microcomputer.display": "Display",
+  "assembly.semiconductor-lab.microcomputer.display.short": "Display",
+  "assembly.semiconductor-lab.microcomputer.board": "Board",
+  "assembly.semiconductor-lab.microcomputer.board.short": "Board",
+  "assembly.semiconductor-lab.microcomputer.wiring": "Wiring",
+  "assembly.semiconductor-lab.microcomputer.wiring.short": "Wiring"
 }

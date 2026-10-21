@@ -51,6 +51,20 @@ public final class Cpu4 {
         return seen;
     }
 
+    /** プログラムを読める形に（"LOAD 3・ADD 5・OUT・JUMP 6"）。止まる JUMP（自分の番地）のあとは書かない */
+    public static String listing(int[] rom) {
+        StringBuilder sb = new StringBuilder();
+        for (int pc = 0; pc + 1 < 16; pc += 2) {
+            int op = rom[pc], n = rom[pc + 1];
+            String w = switch (op) { case LOAD -> "LOAD " + n; case ADD -> "ADD " + n; case OUT -> "OUT"; case JUMP -> "JUMP " + n; default -> null; };
+            if (w == null) break;
+            if (sb.length() > 0) sb.append("・");
+            sb.append(w);
+            if (op == JUMP) break;
+        }
+        return sb.toString();
+    }
+
     /** お題の見本：プログラムごとに、出力の口の変わり方の最初の何個を見るか */
     public static final int[][] PROGRAMS = {ADD_3_5, COUNT};
     public static final int CYCLES = 48;

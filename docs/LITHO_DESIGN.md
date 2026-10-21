@@ -301,7 +301,7 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 - A のおすすめ：Q22-1 案A・Q22-2 案A・Q22-3 案A（1103 の3トランジスタ、1T1C は段階2）・Q22-4 案A
 
 
-## 13. 4ビット CPU（[10-13] マイクロプロセッサ、1971）— 案（O-025、A）。**大きな選択 Q25-1〜5 はユーザーの答え待ち。答えまで作らない**
+## 13. 4ビット CPU（[10-13] マイクロプロセッサ、1971）— O-025 の案 → ✅ S-014 で全部案A、実装済み（論理の箱 LogicSim・ピン、Cpu4 とお題 cpu4、ROM のお題 rom_program と例 romChip、組立台のマイコン）
 
 ### 13.1 本物（決まっている所）
 - 1971 インテル 4004 ◎：約 2300 トランジスタ、10 µm の PMOS（シリコンゲート）、ダイ約 3×4 mm、クロック 740 kHz、命令 46、4ビット。日本のビジコン社の電卓（141-PF）のために、嶋正利・フェデリコ・ファジン・テッド・ホフ・スタン・メイザーが開発
@@ -336,6 +336,7 @@ DESIGN「回路の発見」の6つ（お題・あと少し・ハンコ・記号�
 - A のおすすめ：Q25-1 案A・Q25-2 案A・Q25-3 案A・Q25-4 案A・Q25-5 案A。4004 の本物の数（2300 個・46 命令・10 µm）は歴史とへえで伝え、ゲームは「部品のハンコを組んで、自分のプログラムが動く」体験にしぼる ⚠️（数を約 1/10 に縮める）
 
 ## 変更履歴
+- 2026-10-21 [10-13] 4ビット CPU（S-014）：ChipDesign.pins（Pin＝役目・場所）、LogicSim（of＝ハンコと線だけのチップ、wired＝線の番号でつなぐ見本、Behaviour＝お題ごとの箱の動き）、Challenge.check(…, parts)・checkProgram・byId、Def.program、Circuit.Role に出力5〜8、Cpu4（命令・見本・listing）、お題 rom_program・cpu4、LithoExamples.cpu4Boxes・romChip、Circuit は収束しないとき電源の階段・BiCGSTAB 3000 回まで
 - 2026-10-21 [10-12] DRAM（S-012）：Netlist.caps（ゲート酸化膜＋金属が n の領域の上、MOS にならないもの）、Circuit.solve(…, dt)＝前の手の電圧から dt 秒後（コンデンサは後退オイラー、MOS のゲートも容量、CAP_PER_CELL 3e-11 F ⚠️）、Challenge の手に「待つ µs」、順序回路の1回＝Challenge.DT（10 µs）。直列の MOS の間の点は線がなくてよい（Netlist）
 - 2026-10-21 [9-24] CMOS：ChipDesign.CMOS（DIFF_N ウェル・DIFF_P・DIFF_N・GATE_OX・CONTACT・METAL）、Netlist.Mos.p（n のウェルの上のゲート＝p チャネル）、Circuit の p チャネル（Vsg・Vsd、MOS_KP_P＝KP/2.5）、fromState はゲート酸化膜＋拡散2回以上で CMOS、製図台の P は5つの順
 - 2026-10-21 S-011：MOS（LayerKind.GATE_OX、ChipOps.gateOxide、ChipModel.gate、Netlist.mosfets＝ゲート酸化膜＋p＋1層目の金属のまとまりの両わきに n の領域2つ、Circuit の二乗の式 Vt 1V・KP 1e-4 A/V²×W/L）と2層目の金属（LayerKind.VIA・METAL2、ChipOps.depositInterlayer、その後の窓＝VIA・金属＝METAL2、Netlist.netOf2・VIA で層をまたぐ）。ChipDesign.process（bipolar／mos）・kindsFor・twoMetal、製図台の「P」で 5→7→4→6 層。例 nmosInverter・nmosInverterTwoMetal

@@ -317,5 +317,17 @@
   "litho.semiconductor-lab.challenge.rom_program.hint1": "①番地を読み解く：8つの語のどれか1つだけを選ぶ線を作る（合わない番地で 0 V へ引く NOR）。",
   "litho.semiconductor-lab.challenge.rom_program.hint2": "②番地の反対（NOT）も要る。番地の線と反対の線を縦に並べ、語の帯の下で合わない方にゲートを置く。",
   "litho.semiconductor-lab.challenge.rom_program.hint3": "③データの線を縦に引き、電源へ引き上げる。語の線との交わりに MOS を置くとそのビットは 0、置かなければ 1。",
-  "litho.semiconductor-lab.challenge.rom_program.hint4": "④中身を決めるのはゲート酸化膜のマスク1枚だけ。本物の 4001 も、お客ごとにその1枚を作り直した。"
+  "litho.semiconductor-lab.challenge.rom_program.hint4": "④中身を決めるのはゲート酸化膜のマスク1枚だけ。本物の 4001 も、お客ごとにその1枚を作り直した。",
+  "assembly.semiconductor-lab.microcomputer.cpu": "CPU のチップ（4ビット CPU に合格）",
+  "assembly.semiconductor-lab.microcomputer.cpu.short": "CPU のチップ",
+  "assembly.semiconductor-lab.microcomputer.rom": "ROM のチップ（ROM に合格）",
+  "assembly.semiconductor-lab.microcomputer.rom.short": "ROM のチップ",
+  "assembly.semiconductor-lab.microcomputer.clock": "クロック（水晶）",
+  "assembly.semiconductor-lab.microcomputer.clock.short": "クロック",
+  "assembly.semiconductor-lab.microcomputer.display": "表示",
+  "assembly.semiconductor-lab.microcomputer.display.short": "表示",
+  "assembly.semiconductor-lab.microcomputer.board": "板",
+  "assembly.semiconductor-lab.microcomputer.board.short": "板",
+  "assembly.semiconductor-lab.microcomputer.wiring": "配線",
+  "assembly.semiconductor-lab.microcomputer.wiring.short": "配線"
 }

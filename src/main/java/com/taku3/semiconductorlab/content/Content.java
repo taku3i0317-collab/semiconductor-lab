@@ -38,6 +38,7 @@ public final class Content {
         Power.assemblies();
         Communication.assemblies();
         Branches.assemblies();   // [B-08] 電卓（S-010）
+        Control.assemblies();    // [10-13] マイコン（S-014）
         Reg.registerTabs();
     }
 }

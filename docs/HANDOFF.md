@@ -31,7 +31,7 @@
 
 ## A の直近（2026-10-21）
 - O-021・O-022・S-011：litho に MOS（[9-23]：GATE_OX・Al ゲート・二乗の式、NMOS インバータ）・2層目の金属（層間膜 → VIA → METAL2、E の CVD 炉）・CMOS（[9-24]：n のウェル・p チャネル、待っている間の電流は NMOS の約 1/1000、検査台で nA まで）。製図台の P で工程5種類。E の CMP の受け口 ChipOps.planarize（記録だけ、焦点深度は v0.5 #1）
-- S-012：[10-12] DRAM ✅（litho に時間とコンデンサ、お題 dram_cell＝1103 の3トランジスタのセル、リフレッシュ）・[10-10] ✅⚠️。次は [10-13] 4ビット CPU：案と質問 Q25-1〜5 は LITHO_DESIGN §13（答え待ち）。E との受け口：epi・passivate・銅のダマシン（depositBarrier・plateCopper・planarize）・FinFET（FIN・formFins・短チャネルの漏れ）、ChipState の新しい記録は Extras へ。充電池の親 energy/RechargeableBatteryBlockEntity
+- S-012：[10-12] DRAM ✅（litho に時間とコンデンサ、お題 dram_cell＝1103 の3トランジスタのセル、リフレッシュ）・[10-10] ✅⚠️。[10-13] 4ビット CPU ✅（S-014：論理の箱・Cpu4・ROM・マイコン）。次は v0.4 の残り（8ビット CPU のマスク）か v0.5 #4 歩留まり（C の CleanRoom.defectDensity・dustAt を litho へ）。E との受け口：epi・passivate・銅のダマシン（depositBarrier・plateCopper・planarize）・FinFET（FIN・formFins・短チャネルの漏れ）、ChipState の新しい記録は Extras へ。充電池の親 energy/RechargeableBatteryBlockEntity
 - **tag v0.3b**：回路の発見（お題・あと少し・ハンコと記号・ヒント・歴史、全加算器・ラッチ・カウンタ・レジスタ）と電卓 [B-08]（合格したチップで組む、4ケタの足し算・引き算、ニキシー管 [B-24]）。方眼は 16 から（S-008）、レンズの CD から方眼（S-010）
 - O-015：**tag v0.3a**（露光と IC の工程：ポジ型・ネガ型 KPR、チップまで）。jar は build/libs/semiconductor-lab-0.3a.jar。次は v0.3b（S-005 の回路の発見）
 - S-007：v0.4 の電気の土台（交流／直流・電圧の段・変圧器 [4-10]・水銀整流器 [4-11]・交流発電機 [4-34]・高圧送電 [4-35]）。今の網はそのまま低圧の直流
@@ -56,4 +56,4 @@
 
 ## 未決の判断
 - docs/tasks/DECISIONS_PENDING.md（Q26-1 人物カードの偏り、Q22-1〜3、Q1717-8 など）
-- 未決の質問は LOG と Discord に書き、INBOX の答えを待つ（今 A が待っている質問：Q25-1〜5＝4ビット CPU）
+- 未決の質問は LOG と Discord に書き、INBOX の答えを待つ（今 A が待っている質問はない）

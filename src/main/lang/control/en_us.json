@@ -4,5 +4,11 @@
   "item.semiconductor-lab.electromagnet.note2": "Crafting: 1 iron ingot (core) + 8 copper wire (wire drawing [1-58]) → 1. A part for the magnet that sorts ions by mass in ion implantation [9-28] and more.",
   "item.semiconductor-lab.electromagnet.note3": "Current makes a magnetic field around it. Many turns add up the field and the iron core strengthens it further. Switch off the current and it is plain iron again.",
   "item.semiconductor-lab.electromagnet.note4": "In 1820 Ørsted found that a current deflects a compass needle. In 1825 Sturgeon wound copper wire on iron to make an electromagnet, and in the 1830s Henry wound many turns of insulated wire to lift heavy loads.",
-  "item.semiconductor-lab.electromagnet.placeholder": "Approximation: wire insulation (once silk) is not modelled. It is a part item and does not act as a block."
+  "item.semiconductor-lab.electromagnet.placeholder": "Approximation: wire insulation (once silk) is not modelled. It is a part item and does not act as a block.",
+  "item.semiconductor-lab.microcomputer": "4-bit microcomputer",
+  "item.semiconductor-lab.microcomputer.note1": "A tiny computer built from your own CPU and ROM chips. Right-click to run its program.",
+  "item.semiconductor-lab.microcomputer.note2": "Chips that passed the 4-bit CPU (cpu4) and ROM (rom_program) challenges, a quartz resonator (clock) and a Nixie tube, on the assembly bench.",
+  "item.semiconductor-lab.microcomputer.note3": "Intel MCS-4 (1971): the 4004 CPU, 4001 ROM, 4002 RAM and 4003 ran Busicom's 141-PF calculator. Change the program and it does another job: a general-purpose part.",
+  "item.semiconductor-lab.microcomputer.note4": "Four instructions (LOAD, ADD, OUT, JUMP, one-hot), an 8-word ROM (the 4001 had 256). It runs on the reference CPU; your chips were proven by the challenges.",
+  "message.semiconductor-lab.microcomputer.run": "Microcomputer: program \"%s\" -> output port %s"
 }
