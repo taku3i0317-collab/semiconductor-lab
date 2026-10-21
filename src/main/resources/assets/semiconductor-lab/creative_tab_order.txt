@@ -596,6 +596,7 @@ quartz_watch  # Precision [8-35] 1969
 weston_cell  # Precision [8-25] 1975
 standard_resistor  # Precision [8-25] 1975
 kibble_balance  # Precision [8-25] 1975
+droplet_generator  # Precision [8-13] 2006
 cw_multiplier  # Semiconductor [9-47] 1932
 accelerator_tube  # Semiconductor [9-47] 1932
 transistor  # Semiconductor [9-03] 1947

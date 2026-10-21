@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SXS",
+    "SQS",
+    " W "
+  ],
+  "key": {
+    "S": "semiconductor-lab:steel_ingot",
+    "X": "semiconductor-lab:crystal_resonator",
+    "Q": "semiconductor-lab:quartz_tube",
+    "W": "semiconductor-lab:tungsten_wire"
+  },
+  "result": {
+    "id": "semiconductor-lab:droplet_generator",
+    "count": 1
+  }
+}

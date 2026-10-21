@@ -611,6 +611,16 @@ public class PrecisionTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [8-13] 液滴発生器（IMP2 S-007）：水晶（圧電）でノズルをふるわせる。レイリー：滴＝柱の約1.89倍、間隔＝約4.51倍 */
+    @GameTest
+    public void droplet_generator(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "droplet_generator", Precision.CRYSTAL_RESONATOR), "piezo crystal drives the nozzle");
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.DropletGeneratorItem.dropletUm(16) - 30.2) < 0.1 && Math.abs(com.taku3.semiconductorlab.item.DropletGeneratorItem.spacingUm(16) - 72.2) < 0.1, "16 um jet -> 30 um droplets every 72 um");
+        h.assertTrue(com.taku3.semiconductorlab.item.DropletGeneratorItem.perSecond(16, 70) > 5e5, "hundreds of thousands of pinches a second");
+        LOG.info("[LAB] droplet generator [8-13]: 16 um nozzle -> 30 um tin droplets, " + Math.round(com.taku3.semiconductorlab.item.DropletGeneratorItem.perSecond(16, 70)) + " /s natural breakup");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Precision.LATHE.block, "ローターを削る", L(io(Metallurgy.STEEL_INGOT, 1)), L(io(Precision.PUMP_ROTOR, 1)),
             LatheBlockEntity.WATTS, LatheBlockEntity.TICKS / 20.0, "送りねじの刃物台で削る（モーズリー型）");

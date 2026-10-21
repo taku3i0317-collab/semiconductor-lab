@@ -296,5 +296,12 @@
   "item.semiconductor-lab.quartz_watch.note3": "In 1927 Bell Labs built a quartz clock the size of a room. In December 1969 Suwa Seikosha (Seiko) in Japan released the world's first quartz wristwatch, the Quartz Astron 35SQ.",
   "item.semiconductor-lab.quartz_watch.note4": "32,768 is 2 to the 15th, so 15 divide-by-two stages in the IC give exactly one second. The quartz is cut as a tuning fork whose frequency barely changes with temperature.",
   "item.semiconductor-lab.quartz_watch.placeholder": "Approximation: it takes the same crystal plate as the film-thickness monitor (real watch crystals are 32,768 Hz tuning forks). Any IC chip will do.",
-  "item.semiconductor-lab.quartz_watch.reading": "⌚ Greenwich time %s (set %s days ago)"
+  "item.semiconductor-lab.quartz_watch.reading": "⌚ Greenwich time %s (set %s days ago)",
+  "item.semiconductor-lab.droplet_generator": "Droplet Generator (Piezo)",
+  "item.semiconductor-lab.droplet_generator.note1": "A device that pushes molten tin through a fine nozzle and breaks it into even little drops. A relative of the inkjet printer.",
+  "item.semiconductor-lab.droplet_generator.note2": "4 steel + crystal resonator (piezo vibration) + quartz tube (nozzle) + tungsten wire (heater). Part of the EUV light source. Right-click for droplet size, spacing and rate.",
+  "item.semiconductor-lab.droplet_generator.note3": "In 1880 the Curie brothers found that squeezing quartz makes a voltage (piezoelectricity), and the next year confirmed that a voltage makes it stretch. In 1878 Rayleigh explained why a liquid jet breaks into evenly spaced drops. From around 2006, EUV sources fired CO2 lasers at tin droplets.",
+  "item.semiconductor-lab.droplet_generator.note4": "Surface tension pinches a liquid jet every ~4.5 jet diameters into drops ~1.9 diameters across. Vibrating the nozzle with quartz evens the spacing, and several drops are merged into about 50,000 drops a second, about 30 um across.",
+  "item.semiconductor-lab.droplet_generator.placeholder": "Approximation: 16 um nozzle and 70 m/s are typical values. Droplet merging is not modelled.",
+  "item.semiconductor-lab.droplet_generator.spec": "💧 Nozzle %s um -> droplets about %s um, pinched every %s um -> about %s drops a second (real sources merge them to about 50,000)"
 }

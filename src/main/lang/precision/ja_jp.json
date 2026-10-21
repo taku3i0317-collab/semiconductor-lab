@@ -296,5 +296,12 @@
   "item.semiconductor-lab.quartz_watch.note3": "1927年、ベル研究所が部屋ほどの大きさの水晶時計を作った。1969年12月、日本の諏訪精工舎（セイコー）が世界で初めてのクオーツ腕時計「クオーツアストロン 35SQ」を売り出した。",
   "item.semiconductor-lab.quartz_watch.note4": "32768 は 2 の 15 乗なので、IC の中の「2で割る」回路を15段つなぐとちょうど1秒になる。水晶は音叉の形に切ってあり、温度で振動数がほとんど変わらない。",
   "item.semiconductor-lab.quartz_watch.placeholder": "近似：入れる水晶振動子は膜厚計と同じ板（本物の時計の水晶は 32768Hz の音叉形）。IC はどのチップでもよい。",
-  "item.semiconductor-lab.quartz_watch.reading": "⌚ グリニッジ時刻 %s（合わせてから %s 日）"
+  "item.semiconductor-lab.quartz_watch.reading": "⌚ グリニッジ時刻 %s（合わせてから %s 日）",
+  "item.semiconductor-lab.droplet_generator": "液滴発生器（ピエゾ）",
+  "item.semiconductor-lab.droplet_generator.note1": "溶けたスズを細い口から押し出して、そろった小さな粒にする装置。インクジェットプリンターの親戚。",
+  "item.semiconductor-lab.droplet_generator.note2": "鋼×4＋水晶振動子（圧電でふるえる）＋石英管（ノズル）＋タングステン線（ヒーター）。EUV 光源の部品。右クリックで滴の大きさ・間隔・1秒の数。",
+  "item.semiconductor-lab.droplet_generator.note3": "1880年、キュリー兄弟が水晶を押すと電圧が出る圧電効果を見つけ、翌年には逆に電圧で伸び縮みすることも確かめた。1878年、レイリーが液体の柱が決まった間隔の滴に分かれるわけを解いた。2006年ごろから、スズの滴を CO2 レーザーで撃つ EUV 光源が動き始めた。",
+  "item.semiconductor-lab.droplet_generator.note4": "液体の柱は、表面張力のせいで、太さの約4.5倍の長さごとにくびれて、太さの約1.9倍の滴になる。水晶でふるわせると間隔がそろい、さらにいくつかの滴を合体させて、1秒に約5万個・直径約30µm の滴にする。",
+  "item.semiconductor-lab.droplet_generator.placeholder": "近似：ノズル 16µm・速さ 70m/s は代表値。滴を合体させる工夫は作らない。",
+  "item.semiconductor-lab.droplet_generator.spec": "💧 ノズル %sµm → 滴の直径 約%sµm、%sµm ごとに分かれる → 1秒に約 %s 滴（本物はまとめて約5万滴）"
 }

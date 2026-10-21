@@ -597,6 +597,8 @@ setblock ~68 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~71 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-25] ワット天秤","ワット天秤の画面（電力","・結果・±・ヒントの順","）。空調のそばと真空容"]}}
 setblock ~71 ~0 ~66 semiconductor-lab:kibble_balance
 setblock ~72 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:weston_cell",count:1},{Slot:1b,id:"semiconductor-lab:standard_resistor",count:1}]}
+setblock ~75 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-13] 液滴発生器","右クリックの文","",""]}}
+setblock ~75 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:droplet_generator",count:1}]}
 setblock ~0 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹9 半導体（Ge・Si）","↓ この列","",""]}}
 setblock ~2 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-47] 加速器","作業台で作れるか、見た","目",""]}}
 setblock ~2 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cw_multiplier",count:16},{Slot:1b,id:"semiconductor-lab:accelerator_tube",count:16}]}

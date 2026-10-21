@@ -190,3 +190,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
 - ✅ O-022 1 の続き：A が exposeAtCd に分けたマスクの判定を入れた（4e30fd22：名前の [1/2]・[2/2]＋横どなりに描いた所なし → 方眼の2倍まで、上限148）。縮小カメラはそのまま合う。ステッパーの画面の「ぼけ」は exposeAtCd の理由（too_fine）で出すように直した。GameTest stepper_lele。2枚目のずれ（線の太さのばらつき）は歩留まり #4 で A が決める
 - ✅ S-007（v0.6 に進んでよい）1. 前提 [1-23] 輝水鉛鉱・[1-31] モリブデン：銅の鉱石から 5%（Metallurgy.init の MODIFY_DROPS）、反射炉で MoO3＋SO2（A の反射炉に1行）、水素炉に REDUCE_MO（A の水素炉に1モード・画面に1行）。GameTest molybdenum、CHEMISTRY MO1〜2、REFERENCES O75
 - ✅ S-007 2. [7-17] 多層膜ミラー：mo_si_target（Mo＋多結晶シリコン）、multilayer_mirror（item/MultilayerMirrorItem、対の数は custom_data、R＝0.70·tanh²(N/15)⚠️）。E のスパッタ装置に分岐を足した（E と合意：入口に ULE・途中の鏡、的に Mo/Si、product の頭で mirrorProduct）。ULE[7-21] が基板（決定どおり溶融石英の近似から置き換え）。GameTest multilayer_mirror、CHEMISTRY O49、REFERENCES O76
+- ✅ S-007 3. [8-13] 液滴発生器：droplet_generator（item/DropletGeneratorItem、TECH_TREE どおり [7-18] の部品）。右クリックでレイリーの滴の大きさ・間隔・数。GameTest droplet_generator、CHEMISTRY P23、REFERENCES O77

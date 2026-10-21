@@ -2184,6 +2184,19 @@
 - Wikipedia「Extreme ultraviolet lithography」（Mirrors）：https://en.wikipedia.org/wiki/Extreme_ultraviolet_lithography
 - Wikipedia「Multilayer optics」：https://en.wikipedia.org/wiki/Multilayer_optics
 
+## O77. EUV とインクジェットは親戚（液滴発生器）［8-13］
+**答え**：1880年、キュリー兄弟は水晶を押すと電圧が出る圧電効果を見つけ、翌年には逆に電圧で水晶が伸び縮みすることも確かめた。1878年、レイリーは細い液体の柱が太さの約4.5倍ごとにくびれて滴に分かれる理由を解いた（レイリー・プラトー不安定性）。インクジェットプリンターはこの2つを使って、そろった小さなインクの滴を飛ばす。EUV 光源は同じ原理で溶けたスズを1秒に約5万個の滴にし、2006年ごろから CO2 レーザーで撃って光らせるようになった。
+
+- へえ①：EUV の光源とインクジェットプリンターは親戚。
+- へえ②：水を細く流すと、勝手に同じ大きさの粒に分かれる（蛇口でも見える）。
+- へえ③：水晶は、押すと電気、電気をかけると伸び縮み（クオーツ時計と同じ性質）。
+- へえ④：滴の大きさは柱の太さの約1.9倍。
+
+確かさ：キュリー 1880・逆効果 1881 ◎／レイリー 1878 ◎／2006 稼働・2007 採用 ○
+根拠：
+- Wikipedia「Plateau-Rayleigh instability」：https://en.wikipedia.org/wiki/Plateau%E2%80%93Rayleigh_instability
+- Wikipedia「Piezoelectricity」：https://en.wikipedia.org/wiki/Piezoelectricity
+
 ---
 
 # 冶金と熱（タスク15〜）

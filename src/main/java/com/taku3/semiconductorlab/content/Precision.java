@@ -61,6 +61,8 @@ public final class Precision {
     public static final Item SEXTANT               = Reg.item("sextant", SextantItem::new, new Item.Properties().stacksTo(1));
     // [8-35] クオーツ腕時計（IMP2 O-023、1969）：水晶振動子＋IC（ふるえを数えて1秒に）＋ステッピングモーター＋乾電池。1日の狂い ±0.2秒⚠️（機械式の腕時計は ±10秒ほど）
     public static final Item QUARTZ_WATCH          = Reg.item("quartz_watch", p -> new ChronometerItem(p, 0.2, "quartz_watch"), new Item.Properties().stacksTo(1));
+    // [8-13] 液滴発生器（ピエゾ、IMP2 S-007）：水晶振動子（圧電）でノズルをふるわせ、溶けたスズをそろった滴に。EUV 光源 [7-18] の部品
+    public static final Item DROPLET_GENERATOR     = Reg.item("droplet_generator", DropletGeneratorItem::new, new Item.Properties().stacksTo(1));
     public static final Item KILOGRAM_PROTOTYPE    = Reg.item("kilogram_prototype", KilogramPrototypeItem::new, new Item.Properties().stacksTo(1));
 
     // [8-03] 平面と定盤（IMP2 O-009）：銑鉄の鋳物の板を3枚、2枚ずつ順にすり合わせる（ホイットワース 1830〜40年代）。そり 1µm 以下で定盤
