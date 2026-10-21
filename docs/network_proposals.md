@@ -249,6 +249,7 @@ TECH_TREE の ⚠️ が付いた年・人物を、出典で1つずつ確かめ�
 | # | 内容 | 理由 | 状態 |
 |---|---|---|---|
 | R-1 | docs/README.md の「tech_network.js（tech_network.json と同じ中身の JS）」の行を、「tech_network_graph.js（図に要る軽いデータ・位置つき）／tech_network_detail.js（カード・詳細用の重いデータ）」に書き換える | NET-05 で tech_network.js をやめて2つに分けた（README はネットワーク担当の担当外） | ✅ 反映（NET-06） |
+- （S-010、2026-10-21）DESIGN.md の「公開（tech-network）」（「ライセンスは CC BY 4.0 を候補」）と「長期ビジョン」（「CC BY 4.0 を候補」）は、ユーザーの決定「全部 CC0」と食い違う。ROADMAP は INBOX の指示で CC0 に直した。DESIGN は実装担当のファイルなので、CC0 に直してほしい
 
 ## NET-06 で見つかった、足すべき技術ノード（追加のノードの前提に要るのに無いもの）
 | # | 足すべきノード | 使うところ | 本物（出典のある範囲） | 状態 |

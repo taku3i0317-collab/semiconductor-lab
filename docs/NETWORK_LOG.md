@@ -419,3 +419,15 @@
 
 ## 待機終了（2026-10-21）
 - INBOX に6時間新しい項目が無かったので待機を終えた。最後の項目は O-023（48890c53）。次の指示は INBOX か直接の指示で再開する
+
+## S-010（2026-10-21、INBOX：ユーザーの決定「全部おすすめで」）tech-network の別公開の準備（CC0）
+- 書き出しの道具 tools/export_tech_network.py → build/tech-network/（git に入らないフォルダ。ここを新しいリポジトリの中身にする。今 615 ノード・4.0 MB）
+  - data/nodes/<番号>.json（1ノード1ファイル。history＝本当の歴史：名前・年・本当の話・へえ・出典・参考文献・人物（自作のドット絵の肖像、存命の人なし）・画像のリンク・つながり／game＝MOD での作り方：状態・遊び方・レシピ・ゲームの文）・data/edges.json・data/glossary.json・data/meta.json
+  - tools/check.py（依存なし）：存在しない番号・前提の輪（失敗にする）、年の逆転・出典の印の無いノード（報告だけ）。今は失敗 0、逆転 88、出典の印なし 139。.github/workflows/check.yml で push ごとに動く
+  - docs/（GitHub Pages）：network・node・people・glossary の各ページとデータ。誤りの報告はこのリポジトリの Issue へ（.github/ISSUE_TEMPLATE、図へのリンクも直す）
+  - README（日・英）・LICENSE（CC0 1.0）
+- ROADMAP の「CC BY 4.0 を候補」を CC0 に直した。DESIGN.md にも同じ記述が2か所あるので、実装担当に直してもらうよう proposals「ドキュメントの直し」に書いた
+- **ここで止まる（ユーザーの操作が要る）**：GitHub で新しいリポジトリ（案：taku3i0317-collab/tech-network、Public）を作る必要がある。手順は下
+  1. GitHub で「New repository」→ 名前 tech-network、Public、README などは付けずに作る（別の名前なら INBOX で教えてほしい：`python tools/export_tech_network.py --repo 持ち主/名前` で作り直す）
+  2. 作ったら INBOX に「tech-network を作った」と書けば、ネットワーク担当が build/tech-network を git に入れて push する
+  3. push のあと GitHub の Settings → Pages で「Branch: main / docs」を選ぶと、図が公開される

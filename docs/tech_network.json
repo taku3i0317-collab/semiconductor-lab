@@ -179,7 +179,7 @@
      "verified": "2026-10-20 Commons API で PD を確認（PD の根拠は投稿者の申告）"
     }
    ],
-   "descendants": 540
+   "descendants": 542
   },
   {
    "real_full": "火の利用は約100万年前（ワンダーワーク洞窟）。摩擦熱（弓錐）で木を発火点（約300℃）へ",
@@ -232,7 +232,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 524
+   "descendants": 526
   },
   {
    "real_full": "約2万年前（中国・仙人洞）、縄文土器 約1万6500年前。粘土鉱物（カオリナイト等）は約500〜600℃で結晶水が抜け、二度と水で戻らない（不可逆な脱水）",
@@ -315,7 +315,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 515
+   "descendants": 517
   },
   {
    "real_full": "約1万1500年前、肥沃な三日月地帯でヒトツブコムギ・エンマーコムギ・大麦を栽培化（穂が落ちない変異株を選び続けた）",
@@ -774,7 +774,7 @@
     "溶鉱炉：方解石 を焼く → 生石灰"
    ],
    "machine_recipes": [],
-   "placeholder": "省略：出てくる CO2 は回収しない（かまどは出口が1つ）。",
+   "placeholder": "近似：かまどでは CO2 は集めない（反射炉で焼くと煙道に CO2 が集まる）。",
    "game_text": "バニラの方解石（calcite）を焼く→新規アイテム「生石灰」。貝殻はバニラにオウムガイの殻しかないので使わない",
    "id": "0-10",
    "name": "石灰焼成",
@@ -821,7 +821,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 363
+   "descendants": 364
   },
   {
    "real_full": "CaO+H2O→Ca(OH)2（強く発熱）、空気中で Ca(OH)2+CO2→CaCO3 に戻って固まる。ローマはポッツォラーナ（火山灰）を混ぜて水中でも固まるコンクリートに",
@@ -947,7 +947,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 488
+   "descendants": 490
   },
   {
    "real_full": "紀元前3500〜3000年、牛に引かせる四輪車（メソポタミア・中欧）。車軸と車輪の摩擦が課題（獣脂で潤滑）",
@@ -1126,7 +1126,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 504
+   "descendants": 506
   },
   {
    "real_full": "海水（塩分約3.5%）を砂に撒いて天日で濃くし（揚げ浜式・入浜式）、かん水を釜で煮詰めると NaCl が先に結晶する。残った母液が「にがり（苦汁）」＝ MgCl2 が主成分（ほかに MgSO4・KCl）。日本では縄文晩期の製塩土器から、能登の揚げ浜式は今も続く",
@@ -1189,7 +1189,7 @@
    "symbol": "🪓",
    "people": [],
    "media": [],
-   "descendants": 360
+   "descendants": 361
   },
   {
    "real_full": "約1万年前、肥沃な三日月地帯で羊・山羊、続いて野生のオーロックスから牛が家畜になった。囲って育て、乳・肉・毛・力（犂や荷車を引く）を得る",
@@ -1617,7 +1617,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 368
+   "descendants": 369
   },
   {
    "real_full": "CuFeS2 を焙焼→硫化銅の「マット」→空気を吹いて Fe を酸化しスラグへ、S を SO2 へ（1880 マネス転炉）。現代の銅の大半はこの硫化鉱から",
@@ -1839,7 +1839,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 428
+   "descendants": 429
   },
   {
    "real_full": "変成岩中の天然黒鉛（脈状黒鉛。黒鉛るつぼは1840年代に普及（ディクソン、米墨戦争のころ）、特許は1850年）",
@@ -2054,7 +2054,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 418
+   "descendants": 419
   },
   {
    "real_full": "1709 エイブラハム・ダービー1世。石炭を蒸し焼きにしたコークスで木炭を置換（森林枯渇の解決）",
@@ -2350,7 +2350,7 @@
    "symbol": "⛏️",
    "people": [],
    "media": [],
-   "descendants": 360
+   "descendants": 361
   },
   {
    "real_full": "1888 カール・ヨーゼフ・バイヤー。Al(OH)3+NaOH→NaAl(OH)4 で溶かし、鉄分（赤泥）をろ過、冷やして Al(OH)3 を析出→焼いて Al2O3",
@@ -3280,7 +3280,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 384
+   "descendants": 385
   },
   {
    "real_full": "焙焼 2PbS+3O2→2PbO+2SO2 → 炭素還元 PbO+C→Pb+CO。融点327℃で古代から製錬。ヨーロッパ最古の方鉛鉱の処理は紀元前4400〜4300年（ルーマニア・ピエトレレ）。近東ではそれ以前（後期新石器）から鉛利用の例があり、最古の鉛の像はアビドスの紀元前3800年頃",
@@ -3953,7 +3953,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "マグネシウムに酸素を奪わせて、ホウ素を取り出す",
    "name_en": "Elemental boron",
    "hee1_en": "Magnesium steals the oxygen, leaving boron behind.",
@@ -3983,7 +3983,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C36. 金属が気体になる（ニッケルとモンド法）［1-37］",
+     "answer": "ニッケルは一酸化炭素と約50℃で結びついて気体のニッケルカルボニル Ni(CO)4 になり、約200℃に熱すると分解して純粋なニッケルにもどる。鉄や銅はこの温度では気体にならないので、ニッケルだけを取り出せる。1890年にルートヴィヒ・モンドたちが見つけ、1902年にイギリスのクライダックでカナダ・サドベリーの鈹を精製する工場を動かした。ニッケルは1751年にクロンステットが単離した。ニッケルカルボニルは猛毒。",
+     "hee": {
+      "1": "ニッケルは一酸化炭素と気体になり、熱するとまた純粋なニッケルにもどる。",
+      "2": "「ニッケル」は、銅がとれない鉱石を小鬼のせいにしたドイツの鉱夫の言葉から。",
+      "3": "サドベリーのニッケル鉱山は、約18億年前の隕石の衝突でできたくぼみにある。",
+      "4": "ニッケルは水素化の触媒（サバティエ 1897、ノーベル賞 1912）になり、ナイロンやマーガリンを作るのに使われる。"
+     },
+     "certainty": "モンド法 1890・クライダック 1902 ◎／クロンステット 1751 ◎／サドベリーの衝突（約18億年前）◎／名前の由来 ○",
+     "basis": "- Wikipedia「Mond process」：https://en.wikipedia.org/wiki/Mond_process"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -3993,7 +4006,7 @@
    "name": "ニッケル",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1751,
    "year_range": "1751〜1890",
@@ -4006,12 +4019,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ニッケルは一酸化炭素と気体になり、熱するとまた純粋なニッケルにもどる",
    "name_en": "Nickel",
    "hee1_en": "Nickel becomes a gas with carbon monoxide, and when heated it turns back into pure nickel.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -4119,7 +4132,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C40. 海の水から軽い金属（マグネシウムとダウ法）［1-39］",
+     "answer": "海水 1L には約1.3g のマグネシウムが溶けている。ダウ社は1916年に地下のかん水から、1941年にテキサス州フリーポートで海水からマグネシウムを取り出し始めた。塩化マグネシウムを乾かすとき、ふつうに熱すると水と反応して酸化マグネシウムになってしまう（加水分解）ので、塩化水素の中で乾かす。無水の塩化マグネシウムを溶かして電気分解すると、マグネシウムと塩素になる。マグネシウムはクロール法でチタンを取り出す還元剤になる。",
+     "hee": {
+      "1": "豆腐を固めるにがりの中に、軽い金属マグネシウムが入っている。",
+      "2": "にがりをただ焼くと、マグネシウムでなく白い粉（マグネシア）になる。",
+      "3": "マグネシウムは燃えるとまぶしく光り、昔のカメラのフラッシュに使われた。",
+      "4": "第二次大戦では、海水から作ったマグネシウムが飛行機に使われた。"
+     },
+     "certainty": "ダウ 1916・1941 ◎／海水の Mg 約1.3g/L ◎／加水分解と HCl 雰囲気の乾燥 ◎",
+     "basis": "- Wikipedia「Dow process」：https://en.wikipedia.org/wiki/Dow_process"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -4129,7 +4155,7 @@
    "name": "マグネシウム",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1941,
    "year_range": null,
@@ -4149,12 +4175,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "海水 1L に Mg は約1.3g。第二次大戦の航空機用 Mg は海から取った",
    "name_en": "Magnesium",
    "hee1_en": "1 L of seawater holds about 1.3 g of Mg. The Mg for aircraft in World War II was taken from the sea",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -4253,7 +4279,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C41. 砂鉄の黒い粒から飛行機の金属（チタンとクロール法）［1-41］",
+     "answer": "1791年、イギリスのグレゴールがコーンウォールの砂の中の黒い粒（チタン鉄鉱、FeTiO3）から新しい元素を見つけた。チタンは酸素・窒素と強く結びつくので、なかなか金属にできなかった。1940年、ルクセンブルクのヴィルヘルム・クロールが、チタン鉄鉱を炭素と塩素で四塩化チタン（沸点136℃、蒸留で精製）にし、アルゴンの中で溶けたマグネシウムで還元してスポンジ状のチタンを取り出す方法を作った。できた塩化マグネシウムは電気分解してマグネシウムと塩素に戻す。",
+     "hee": {
+      "1": "砂鉄にまじっている黒い粒から、飛行機の骨組みの金属がとれる。",
+      "2": "チタンは鋼くらい強いのに、鉄の6割くらいの重さ。",
+      "3": "四塩化チタンは空気の水で白い煙になり、昔は煙幕に使われた。",
+      "4": "マグネシウムと塩素は、クロール法の中でぐるぐる回る。"
+     },
+     "certainty": "グレゴール 1791・クロール 1940 ◎／反応 ◎／浜の砂鉄にチタン鉄鉱が含まれること ◎",
+     "basis": "- Wikipedia「Kroll process」：https://en.wikipedia.org/wiki/Kroll_process"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -4263,7 +4302,7 @@
    "name": "チタン",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1940,
    "year_range": "1791〜1940",
@@ -4297,7 +4336,7 @@
    "name_en": "Titanium",
    "hee1_en": "From the black grains mixed into iron sand, we get the metal used for airplane frames.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -5056,7 +5095,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "鉄にニッケルを混ぜるだけで、夏も冬も長さがほとんど変わらない金属になる（O-005 で追加。出典：Nobel Prize「Physics 1920」、Nobel Prize「Physics 1920 Guillaume」（https://www.nobelprize.org/prizes/physics/1920/guillaume/facts/））",
    "name_en": "Invar",
    "hee1_en": "Just by mixing nickel into iron, you get a metal whose length hardly changes in summer or winter. (Added in O-005. Sources: Nobel Prize \"Physics 1920\", Nobel Prize \"Physics 1920 Guillaume\" (https://www.nobelprize.org/prizes/physics/1920/guillaume/facts/))",
@@ -5114,7 +5153,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "工場で使うダイヤモンドのほとんどは、黒鉛をぎゅっと押して作った合成ダイヤモンド（O-010 で追加。出典：ASME Landmark #198、Nobel Prize「Physics 1946」、GIA、Wikipedia「Synthetic diamond」）",
    "name_en": "Synthetic diamond",
    "hee1_en": "Most diamonds used in factories are synthetic diamonds made by squeezing graphite hard (added in O-010. Sources: ASME Landmark #198, Nobel Prize \"Physics 1946\", GIA, Wikipedia \"Synthetic diamond\")",
@@ -5268,17 +5307,30 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F22. 穴を通して細くする（伸線・ボンディング線）［1-58］（［9-33］の前提）",
+     "answer": "金属の棒を、少しずつ小さくなる穴（ダイス）に次々と通して引っぱると、細く長い線になる。古代から手で引き、14世紀のニュルンベルクで水車の力で引くようになった（年は ⚠️）。すり減らないダイヤモンドの穴を使うと、チップをつなぐ直径約25µm の金線まで引ける。",
+     "hee": {
+      "1": "電線の銅線は、太い棒を小さな穴に何十回も通して細く引きのばしている。",
+      "2": "金は1g から数km の線が引けるほどよくのびる。",
+      "3": "チップと外をつなぐ線は、髪の毛の3分の1ほどの太さの金。",
+      "4": "1893年のローブリングの撚り線機（ASME ランドマーク #139）は、鋼線をより合わせて吊り橋のワイヤロープを作った。"
+     },
+     "certainty": "伸線のしくみ ◎／ニュルンベルクの水車 △（年が不確か）／ASME #139 ◎／25µm の金線 ◎／ダイヤモンドのダイスの普及の年 △",
+     "basis": "Wikipedia「Wire drawing」https://en.wikipedia.org/wiki/Wire_drawing 、ASME「Roebling 80-Ton Wire Rope Machine」https://www.asme.org/about-asme/engineering-history/landmarks （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "未定（実装の前に相談）",
+   "game_text": "決定（S-001 ①）：引き板とダイヤモンドのダイス",
    "id": "1-58",
    "name": "伸線",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1350,
    "year_range": "古代〜1893",
@@ -5291,12 +5343,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "電線の銅線は、太い棒を小さな穴に何十回も通して細く引きのばしている（O-012 で追加。出典：Wikipedia「Wire drawing」、ASME Landmark #139）",
    "name_en": "Wire drawing",
    "hee1_en": "The copper wire in electric cables is made by pulling a thick rod through small holes dozens of times to stretch it thin. (Added in O-012. Sources: Wikipedia \"Wire drawing\", ASME Landmark #139)",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -5541,7 +5593,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ステンレスがさびないのは、表面に目に見えないほど薄いクロムの膜ができて守っているから（O-012 で追加。出典：Wikipedia「Stainless steel」「Harry Brearley」、Sheffield City Archives「Sources for the Study of Harry Brearley and Stainless Steel」（https://www.sheffield.gov.uk/sites/default/files/docs/libraries-and-archives/archives-and-local-studies/research/Stainless-Steel-and-Harry-Brearley-v-1-1--PDF--578-KB-.pdf））",
    "name_en": "Stainless steel",
    "hee1_en": "Stainless steel does not rust because an invisibly thin chromium film forms on the surface and protects it. (Added in O-012. Sources: Wikipedia \"Stainless steel\", \"Harry Brearley\", Sheffield City Archives \"Sources for the Study of Harry Brearley and Stainless Steel\" (https://www.sheffield.gov.uk/sites/default/files/docs/libraries-and-archives/archives-and-local-studies/research/Stainless-Steel-and-Harry-Brearley-v-1-1--PDF--578-KB-.pdf))",
@@ -5857,7 +5909,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "日本の研究者が作った磁石の鋼は、当時世界でいちばん強い磁石だった（O-012 で追加。出典：Wikipedia「Kotaro Honda」、コトバンク「MK鋼」、特許庁「日本の十大発明家 三島徳七」）",
    "name_en": "Permanent magnet steel",
    "hee1_en": "A magnet steel made by Japanese researchers was the strongest magnet in the world at the time. (Added in O-012. Sources: Wikipedia \"Kotaro Honda\", Kotobank \"MK steel\", Japan Patent Office \"Ten Great Japanese Inventors: Tokushichi Mishima\")",
@@ -5930,7 +5982,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "歯車の表面だけを硬くして、中は割れにくく粘り強くしている（O-012 で追加。出典：Wikipedia「Nitriding」「Carburizing」、D. Pye『Practical Nitriding and Ferritic Nitrocarburizing』(ASM International, 2003)）",
    "name_en": "Carburizing and nitriding",
    "hee1_en": "Only the surface of a gear is made hard, while the inside stays tough and hard to crack. (Added in O-012. Sources: Wikipedia \"Nitriding\" \"Carburizing\", D. Pye, \"Practical Nitriding and Ferritic Nitrocarburizing\" (ASM International, 2003))",
@@ -6353,6 +6405,7 @@
    "refs": [],
    "item": "sulfuric_acid",
    "recipes": [
+    "作業台：緑礬（りょくばん） ＋ 石英の蒸留器 ＋ 空のガラス瓶 → 硫酸",
     "作業台：二酸化硫黄 ＋ 水入りバケツ ＋ 空のガラス瓶 → 硫酸"
    ],
    "machine_recipes": [],
@@ -6389,7 +6442,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 355
+   "descendants": 357
   },
   {
    "real_full": "木灰を水に浸して上澄み（灰汁＝あく）を取り、鍋で煮詰めると K2CO3（\"pot ash\"＝鍋の灰、potassium の語源）。古代から石けん・ガラスの原料。灰を使った最古級の記録は、紀元前2800年頃のバビロンの粘土の円筒に「灰を脂と煮た」とあるもの（石けんの最古の証拠と同じ記録 ⚠️、[2-09]）。シュメール・ギルスの粘土板には約4500年前に羊毛を洗った記録⚠️。これに消石灰を加えると K2CO3 + Ca(OH)2 → 2KOH + CaCO3↓（苛性化）で KOH ができ、古代〜中世の石けん作りでも使われた",
@@ -6513,7 +6566,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 248
+   "descendants": 249
   },
   {
    "real_full": "海藻や塩生植物（オカヒジキ類）の灰は Na2CO3 を多く含む（陸の木灰は K2CO3＝[2-02]）。18世紀スペインのバリラ、スコットランドのケルプ産業。1811 クールトアが海藻灰の母液からヨウ素を発見",
@@ -6584,7 +6637,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 267
+   "descendants": 268
   },
   {
    "real_full": "1791 ニコラ・ルブラン。2NaCl+H2SO4→Na2SO4+2HCl↑、Na2SO4+2C+CaCO3→Na2CO3+CaS+2CO2。HCl は当初垂れ流し→1863 英国アルカリ法（初期の大気汚染規制）で回収義務",
@@ -6594,7 +6647,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C30. 空に捨てられた塩酸のガス（ルブラン法）［2-05］",
+     "answer": "1791年フランスのニコラ・ルブランが、塩と硫酸からソーダを作る方法を考えた：2NaCl + H2SO4 → Na2SO4 + 2HCl、Na2SO4 + 2C + CaCO3 → Na2CO3 + CaS + 2CO2。19世紀のソーダ工業の中心になったが、塩化水素のガスを空に捨て、硫化カルシウムのかす（ガリグー）を山積みにした。1836年ゴセージの吸収塔、1863年イギリスのアルカリ法（初期の大気汚染の法律）でガスの回収が義務になった。のちにソルベー法（1861〜）に置きかわった。",
+     "hee": {
+      "1": "塩と硫酸からソーダを作る方法。出てきた塩酸のガスは、はじめ空に捨てられた。",
+      "2": "捨てていたガスを水に吸わせると、売れる塩酸になった。",
+      "3": "ルブランは革命で工場を取り上げられ、貧しさの中で亡くなった。",
+      "4": "アルカリ法は、世界で最初の頃の公害を取りしまる法律の一つ。"
+     },
+     "certainty": "反応 ◎／ルブラン 1791・ゴセージ 1836・アルカリ法 1863 ◎／ルブランの最期（1806）◎",
+     "basis": "- Wikipedia「Leblanc process」（歴史・公害）：https://en.wikipedia.org/wiki/Leblanc_process"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -6604,7 +6670,7 @@
    "name": "ルブラン法",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1791,
    "year_range": null,
@@ -6632,12 +6698,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "塩と硫酸からソーダを作る方法。出てきた塩酸のガスは、はじめ空に捨てられた",
    "name_en": "Leblanc process",
    "hee1_en": "A way to make soda from salt and sulfuric acid. The hydrochloric acid gas it gave off was at first just released into the sky.",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -6652,7 +6718,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 271
+   "descendants": 272
   },
   {
    "real_full": "1861 エルネスト・ソルベー特許、1865 本格操業。NaCl+NH3+CO2+H2O→NaHCO3↓+NH4Cl、2NaHCO3→Na2CO3+CO2+H2O、2NH4Cl+Ca(OH)2→2NH3+CaCl2+2H2O（NH3 は循環）",
@@ -7073,7 +7139,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C34. ソーダ工場のかすから硫黄を取り戻す（硫化水素とクラウス法）［2-11］",
+     "answer": "ルブラン法のかす（硫化カルシウム、ガリグー）は工場のまわりに積まれ、雨で硫化水素（腐った卵のにおいの毒ガス）を出した。1882年チャンスが二酸化炭素でかすから硫化水素を追い出し、1883年クラウスが硫化水素を空気で半分燃やして硫黄にする方法（2H2S + O2 → 2S + 2H2O）を作って、硫黄を取り戻せるようになった。今も石油や天然ガスの硫化水素はアルミナの触媒のクラウス法で硫黄にされ、世界の硫黄の大部分はこうして作られる。硫化水素は1777年シェーレが記述した。",
+     "hee": {
+      "1": "ソーダ工場のかすから、硫黄を取り戻した。",
+      "2": "硫化水素は濃いと鼻がまひして、においがわからなくなる（だから危ない）。",
+      "3": "今の硫黄のほとんどは、鉱山ではなく、石油やガスをきれいにするときに出てくる。",
+      "4": "同じアルミナの触媒が、アルコールからエチレンを作るのにも、硫化水素から硫黄を作るのにも使える。"
+     },
+     "certainty": "シェーレ 1777 ○／チャンス 1882・クラウス 1883 ◎／今の硫黄の大部分がクラウス法 ◎",
+     "basis": "- Wikipedia「Claus process」：https://en.wikipedia.org/wiki/Claus_process"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -7083,7 +7162,7 @@
    "name": "硫化水素と硫黄回収",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1777,
    "year_range": null,
@@ -7110,7 +7189,7 @@
    "name_en": "Hydrogen sulfide and sulfur recovery",
    "hee1_en": "Sulfur was won back from the waste of soda factories",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -7196,7 +7275,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 2
+   "descendants": 3
   },
   {
    "real_full": "CaCO3→CaO+CO2→(+H2O)Ca(OH)2→(+CO2)CaCO3 の循環を[0-10][0-11][2-02][2-08]で使い回す。CaCl2 は吸湿性が強く CaCl2+6H2O→CaCl2·6H2O。ソルベー法の大量の副産物が乾燥剤・融雪剤に。1808 デービーが Ca を単離",
@@ -7274,7 +7353,8 @@
    "item": "soda_lime_glass",
    "recipes": [
     "かまど：ガラスの調合原料 を焼く → ソーダ石灰ガラス",
-    "溶鉱炉：ガラスの調合原料 を焼く → ソーダ石灰ガラス"
+    "溶鉱炉：ガラスの調合原料 を焼く → ソーダ石灰ガラス",
+    "かまど：割れたガラス（カレット） を焼く → ソーダ石灰ガラス"
    ],
    "machine_recipes": [],
    "placeholder": null,
@@ -7327,7 +7407,7 @@
    "symbol": "⚗️",
    "people": [],
    "media": [],
-   "descendants": 247
+   "descendants": 248
   },
   {
    "real_full": "1893 オットー・ショット（イェーナ）が B2O3 を入れて熱膨張を小さくしたガラスを開発、1915 コーニングの「パイレックス」。組成およそ SiO2 80%・B2O3 13%・Na2O 4%・Al2O3 2%。熱膨張係数 約3.3×10⁻⁶/K（ソーダ石灰は約9×10⁻⁶/K）なので急に熱しても割れにくい",
@@ -7337,7 +7417,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C28. 火にかけても割れないガラス（ホウケイ酸ガラス）［2-15］",
+     "answer": "ガラスにホウ素の酸化物 B2O3 を入れると、温めたときの伸び（熱膨張）がソーダ石灰ガラスの約3分の1になる（約 3.3 対 9 ×10⁻⁶/K）。急に熱しても熱い所と冷たい所の伸びの差が小さいので割れにくい。1893年ドイツ・イェーナのオットー・ショットが作り、1915年にアメリカのコーニングが「パイレックス」として売り出した。理科室のビーカー・フラスコ、熱くなるガラスの真空装置や真空管に使われた。",
+     "hee": {
+      "1": "理科室のビーカーが火にかけても割れないのは、ホウ素が入っているから。",
+      "2": "ふつうのガラスのコップに熱湯を注ぐと割れることがあるのは、熱衝撃のため。",
+      "3": "ショットはアッベ・ツァイスと組んで、レンズ用のガラスもたくさん作った。",
+      "4": "割れたガラス（カレット）は、原料に混ぜて溶かし直す。"
+     },
+     "certainty": "ショット 1893・パイレックス 1915 ◎／組成と熱膨張の値 ◎／真空装置に使われたこと ○（ゲーデのポンプとの直接のつながりは ⚠️）",
+     "basis": "- Wikipedia「Borosilicate glass」：https://en.wikipedia.org/wiki/Borosilicate_glass"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -7347,7 +7440,7 @@
    "name": "ホウケイ酸ガラス",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1893,
    "year_range": null,
@@ -7370,12 +7463,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "理科室のビーカーが火にかけても割れないのはホウ素のおかげ",
    "name_en": "Borosilicate glass",
    "hee1_en": "Science-room beakers don't crack over a flame thanks to boron",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -8798,7 +8891,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "光で生まれた酸1つが、何百もの反応を起こす。だから少ない光で模様がうつせる",
    "name_en": "Chemically amplified resist",
    "hee1_en": "One acid made by light sets off hundreds of reactions. That is why a pattern can be copied with very little light.",
@@ -8879,7 +8972,7 @@
    },
    "hee_game": {
     "note1": "熱した白い粉（アルミナ）にアルコールの蒸気を通すと、エチレンというガスになる。",
-    "note2": "鉄6＋アルミナ3で作る。火のついたたき火の上に置き、エタノールを持って右クリック → エチレン1袋（瓶は戻る）。管（触媒）は減らない。冷たい管では反応しない。",
+    "note2": "鉄6＋アルミナ3で作る。火のついたたき火の上に置き、エタノールを持って右クリック → エチレン1袋（瓶は戻る）。管（触媒）は減らない。冷たい管では反応しない。 硫化水素の袋で右クリックすると硫黄（クラウス法 [2-11]）。",
     "note3": "熱いアルミナの表面がエタノールから水を引き抜く（脱水）：C2H5OH → C2H4 + H2O。アルミナは反応を助けるだけで、なくならない（触媒）。",
     "note4": "石油が安くなる前、エチレンはこの方法でアルコールから作られていた。今もブラジルやインドではサトウキビのアルコールから「バイオエチレン」を作っている。"
    },
@@ -9442,7 +9535,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C39. 緑の結晶を焼いて作った昔の硫酸（ばん油）［2-43］",
+     "answer": "黄鉄鉱（FeS2）は水と空気で風化して緑礬（FeSO4·7H2O）になる。16〜19世紀のイギリスの「コッパラス」工場は、黄鉄鉱の山を何年も雨にさらして緑礬を作った。緑礬を焼くと SO3 が出て、水に吸わせると硫酸になる。とろりとした見た目から「ばん油（oil of vitriol）」とよばれた。イスラム世界の錬金術師も知っていたと伝わり（確かなのはラーズィーが緑礬を鉱物の分類に入れたことだけ ⚠️）、13世紀ごろのヨーロッパで知られた。のちに鉛室法（1746）、接触法（1831）に変わった。残る赤い酸化鉄（ベンガラ）は顔料や磨き粉になった。",
+     "hee": {
+      "1": "昔の硫酸は、緑色の結晶を焼いて作る「油」だった。",
+      "2": "「愚か者の金」とよばれた黄鉄鉱から、硫酸が作れた。",
+      "3": "緑礬は中世の黒いインク（没食子インク）の材料でもあった。",
+      "4": "古い鉱山の黄鉄鉱が風化して出る酸性の水は、今も川を汚す（酸性坑廃水）。"
+     },
+     "certainty": "反応 ◎／コッパラス工場（16〜19世紀イギリス）○／ばん油の最初の年・人 △ → ⚠️（TECH_TREE の本物欄と同じ）",
+     "basis": "- Wikipedia「Sulfuric acid」（歴史・oil of vitriol）：https://en.wikipedia.org/wiki/Sulfuric_acid"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9452,7 +9558,7 @@
    "name": "ばん油",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1300,
    "year_range": "900〜1300",
@@ -9465,12 +9571,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "昔の硫酸は、緑色の結晶を焼いて作る「油」だった",
    "name_en": "Oil of vitriol",
    "hee1_en": "Long ago, sulfuric acid was an \"oil\" made by roasting green crystals.",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9495,7 +9601,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C33. 同じリンなのに燃えない（赤リンと安全マッチ）［2-44］",
+     "answer": "白リン（P4 の分子）は空気中で自然に燃え、猛毒。1847年ウィーンのシュレッターは、空気を断って約250℃に熱すると、つながった高分子の赤リンに変わることを見つけた。赤リンは空気中で燃えず、毒も弱い。白リンのマッチ工場では職人が「リン顎」になったが、1855年スウェーデンのルンドストレムが赤リンを箱のこする面に分けた安全マッチを作り、1906年のベルン条約で白リンのマッチは禁止に向かった。",
+     "hee": {
+      "1": "マッチ箱のこする面には赤リンが塗ってある。",
+      "2": "同じ元素でも、原子のつながり方で性質がまったく変わる（同素体）。",
+      "3": "白リンは暗い所で青白く光る。「リン」の名前は「光を運ぶもの」から。",
+      "4": "マッチ工場の職人を病気から守るために、国どうしの条約が作られた。"
+     },
+     "certainty": "シュレッター 1847 ◎／ルンドストレム 1855 ◎／ベルン条約 1906 ◎／リン顎 ◎",
+     "basis": "- Wikipedia「Allotropes of phosphorus」（赤リン・シュレッター）：https://en.wikipedia.org/wiki/Allotropes_of_phosphorus"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9505,7 +9624,7 @@
    "name": "赤リン",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1847,
    "year_range": null,
@@ -9518,12 +9637,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "マッチ箱のこする面には赤リンが塗ってある",
    "name_en": "Red phosphorus",
    "hee1_en": "The striking surface of a matchbox is coated with red phosphorus",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9548,7 +9667,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C38. 光を当てた所だけ固まる（光で固まる樹脂）［2-45］",
+     "answer": "アクリルの単量体（手が3本のトリアクリレートなど）に光開始剤（ベンゾフェノン＋アミン）を混ぜた液は、紫外線を受けるとラジカルができて C=C が次々につながり、網になって固まる。チップのネガ型フォトレジスト（光の当たった所がつながって溶けなくなる）と同じしくみ。1981年に名古屋の小玉秀男が層ごとに光で固めて立体を作る方法を発表し、1984年にハルが光造形の特許を出した ⚠️。アクリル酸は1930年代ドイツのレッペが、アセチレンと一酸化炭素と水から（ニッケルカルボニルで）作る方法を開いた。",
+     "hee": {
+      "1": "チップの回路を描く樹脂と、3D プリンターの樹脂は同じしくみ。",
+      "2": "手が3本の単量体を使うと、つながって固い網になる。",
+      "3": "ベンゾフェノンは紫外線を吸うので、日焼け止めにも使われる。",
+      "4": "歯の詰め物やネイルも、光で固まる樹脂。"
+     },
+     "certainty": "ラジカル光重合のしくみ ◎／レッペ法 1930年代 ○／小玉 1981・ハル 1984 ○⚠️（TECH_TREE の本物欄、ASME の資料）／フリーデル・クラフツ 1877 ◎",
+     "basis": "- Wikipedia「Stereolithography」（小玉・ハル）：https://en.wikipedia.org/wiki/Stereolithography"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9558,7 +9690,7 @@
    "name": "光で固まる樹脂",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1981,
    "year_range": "1981〜1984",
@@ -9571,12 +9703,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "チップの回路を描く樹脂と、3D プリンターの樹脂は同じしくみ （IMP-24 で追加、network_proposals N-6）",
    "name_en": "Light-curing resin",
    "hee1_en": "The resin used to draw chip circuits and the resin in 3D printers work the same way. (Added in IMP-24, network_proposals N-6)",
    "kind": "tech",
-   "play": "軽",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9601,7 +9733,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C32. 透けて見えるのに電気が通る（ITO）［2-46］",
+     "answer": "酸化インジウム In2O3 に酸化スズ SnO2 を約10%混ぜた膜（ITO）は、光を通すのに電気も通す。Sn4+ が電子を1つ余らせて n 型の半導体のように電気を運ぶが、電子は金属よりずっと少ないので目に見える光をはね返さない。1907年ベーデカーが薄い酸化カドミウムの膜で透明な導電膜を初めて報告し、1950年代に酸化インジウムの膜の研究が進んだ（ITO の最初の年は資料で揺れる ⚠️）。インジウムは1863年、ライヒとリヒターが閃亜鉛鉱の藍色（インディゴ）の線から見つけた。",
+     "hee": {
+      "1": "インジウムの名前は、炎の光を分けたときに見えた藍色（インディゴ）から。",
+      "2": "スマートフォンの画面を指でさわって動かせるのは、透明な電極があるから。",
+      "3": "金属の膜は光をはね返すが、酸化物にすると透けて見える。",
+      "4": "インジウムの大部分は、今も亜鉛の製錬の副産物。"
+     },
+     "certainty": "ITO の組成としくみ ◎／ベーデカー 1907 ◎／ITO の最初の年 △ → ⚠️／ライヒとリヒター 1863 ◎",
+     "basis": "- Wikipedia「Indium tin oxide」：https://en.wikipedia.org/wiki/Indium_tin_oxide"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9611,7 +9756,7 @@
    "name": "透明な電極 ITO",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1954,
    "year_range": "1907〜1970年代",
@@ -9639,12 +9784,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "インジウムの名前は、炎の光を分けたときに見えた藍色（インディゴ）から付いた（S-003 で追加。出典：RSC「Indium」、USGS「Mineral Commodity Summaries 2024: Indium」、Wikipedia「Indium tin oxide」）",
    "name_en": "Transparent electrode ITO",
    "hee1_en": "Indium is named after the indigo color seen when the light of its flame was split. (Added in S-003. Sources: RSC \"Indium\", USGS \"Mineral Commodity Summaries 2024: Indium\", Wikipedia \"Indium tin oxide\")",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9669,7 +9814,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C31. 大きな原子を押しこんで割れにくくする（化学強化ガラス）［2-47］",
+     "answer": "ナトリウムを含むガラスを約400℃の溶けた硝酸カリウムにひたすと、表面の小さな Na+ が大きな K+ と入れかわり、表面がぎゅっと押し縮められる（圧縮応力）。ひびは引っぱる力で広がるので、表面の押す力に勝たないと割れ始めない。1962年 S・S・キスラーがイオン交換による強化を発表し、同じころコーニングが「Chemcor」を作ったが売れずに止めた。2007年、スマートフォンの画面用に改良されたアルミノケイ酸の強化ガラスが使われ、今はほとんどのスマートフォンの表面がこの種類のガラス ⚠️。",
+     "hee": {
+      "1": "大きな原子を小さなすき間に押しこむと、ガラスの表面が締まって割れにくくなる。",
+      "2": "ガラスが割れるのは、引っぱる力でひびが広がるから。",
+      "3": "一度は売れずに止めたガラスが、40年以上たってスマートフォンで使われた。",
+      "4": "アルミニウムが入ると、イオンが動きやすくなって深くまで強くできる。"
+     },
+     "certainty": "イオン交換のしくみ ◎／キスラー 1962 ○／Chemcor（1960年代・1971年ごろ中止）○／2007 スマートフォン ○⚠️（TECH_TREE の本物欄の出典：Corning「Innovations」、WIRED「The Glass That Saved Corning」）",
+     "basis": "- Wikipedia「Chemically strengthened glass」：https://en.wikipedia.org/wiki/Chemically_strengthened_glass"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9679,7 +9837,7 @@
    "name": "化学強化ガラス",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1962,
    "year_range": "1960〜2007",
@@ -9703,12 +9861,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "大きな原子を小さなすき間に押しこむと、ガラスの表面が締まって割れにくくなる（S-003 で追加。出典：Corning「Innovations」、WIRED「The Glass That Saved Corning」、Wikipedia「Chemically strengthened glass」）",
    "name_en": "Chemically strengthened glass",
    "hee1_en": "Pushing big atoms into small gaps squeezes the glass surface tight and makes it harder to break. (Added in S-003. Sources: Corning \"Innovations\", WIRED \"The Glass That Saved Corning\", Wikipedia \"Chemically strengthened glass\")",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9733,7 +9891,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C46. 安全な冷媒が空の上でオゾン層を壊していた（フロン）［2-48］",
+     "answer": "それまでの冷媒（アンモニア・二酸化硫黄・塩化メチル）は毒や燃える危険があった。1928年、GM のトマス・ミジリーたちがジクロロジフルオロメタン（CFC-12、商品名フレオン）を冷媒に選び、1930年に工業生産が始まった。毒がなく燃えない「夢の冷媒」とされたが、とても安定なので成層圏まで上り、強い紫外線で分解して出た塩素がオゾンを次々に壊す。1974年モリーナとローランドが警告し、1985年に南極のオゾンホールが見つかり（ファーマンら、ドブソン計）、1987年のモントリオール議定書で世界中の国が生産をやめた。オゾン層は少しずつ戻っている。ミジリーは有鉛ガソリンの開発者でもある。",
+     "hee": {
+      "1": "フロンは、毒のない安全な冷媒として作られたのに、空の上でオゾン層を壊していた。",
+      "2": "塩素の原子1つが、オゾンを何万個も壊す。",
+      "3": "世界中の国が約束を守ってフロンをやめたので、オゾン層は戻りつつある。",
+      "4": "オゾン 300 DU は、地上の圧力に集めるとたった 3mm の厚さ。"
+     },
+     "certainty": "ミジリー 1928・生産 1930 ◎／1974・1985・1987 ◎／回復の見通し（WMO・UNEP 2022）◎",
+     "basis": "- Wikipedia「Chlorofluorocarbon」/「Thomas Midgley Jr.」：https://en.wikipedia.org/wiki/Chlorofluorocarbon"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9743,7 +9914,7 @@
    "name": "冷媒フロン",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1928,
    "year_range": "1928〜1930",
@@ -9771,7 +9942,7 @@
    "name_en": "CFC refrigerants",
    "hee1_en": "CFCs were made as safe, non-toxic refrigerants, yet high in the sky they were destroying the ozone layer (added in S-004. Sources: en.wikipedia.org, inventionandtech.com)",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9864,7 +10035,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C42. 金属の上で1つずつつなぐ（チーグラー・ナッタ触媒）［2-50］",
+     "answer": "それまでのポリエチレンは約1400気圧が要った（1933）。1951年、フィリップス石油のホーガンとバンクスが酸化クロムの触媒で硬い高密度ポリエチレンを作り、1953年にドイツのチーグラーがチタンとアルミの触媒（TiCl4＋トリエチルアルミニウム）でほぼふつうの圧力でポリエチレンを、1954年にイタリアのナッタが向きのそろったポリプロピレンを作った（1963年ノーベル化学賞）。触媒の上でエチレンが1つずつ差しこまれるので、枝分かれのないまっすぐな鎖になり、密度が高く硬い。",
+     "hee": {
+      "1": "ペットボトルのふたのプラスチックは、金属の触媒の上で分子を1つずつつないで作っている。",
+      "2": "高圧で作るとやわらかいポリ袋、触媒で作ると硬いバケツになる。",
+      "3": "チーグラーは、まざっていたニッケルで反応が変わったことから、触媒の金属を探し始めた。",
+      "4": "トリエチルアルミニウムは空気にふれただけで燃える。"
+     },
+     "certainty": "チーグラー 1953・ナッタ 1954・ノーベル賞 1963 ◎／フィリップス 1951（ACS 化学遺産）◎／ニッケル効果 ○",
+     "basis": "- Nobel Prize「Chemistry 1963」：https://www.nobelprize.org/prizes/chemistry/1963/summary/"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9874,7 +10058,7 @@
    "name": "配位重合触媒",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1953,
    "year_range": "1951〜1954",
@@ -9907,7 +10091,7 @@
    "name_en": "Coordination polymerization catalyst",
    "hee1_en": "The plastic in bottle caps is made by joining molecules one by one on a metal catalyst. (Added in O-008. Sources: Nobel Prize \"Chemistry 1963\", ACS \"Polypropylene and High-Density Polyethylene\")",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -9932,7 +10116,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C37. 石炭と空気と水から作る糸（ナイロン 66）［2-51］",
+     "answer": "1935年2月、デュポンのウォーレス・カロザースのチームが、アジピン酸（炭素6）とヘキサメチレンジアミン（炭素6）をアミド結合で何百もつないだナイロン 66 を作った。チームのジュリアン・ヒルは1930年に溶けた高分子から糸が引けることを見つけていた。1930年代の原料はコールタールのフェノールで、ニッケルの触媒で水素を付け、硝酸で酸化してアジピン酸にし、アンモニアからジアミンを作った。1938年に発表、1939年にストッキングとして売り出され、絹の代わりになった（ACS 化学遺産）。",
+     "hee": {
+      "1": "ナイロンは「石炭と空気と水から作る」と宣伝された。",
+      "2": "「66」は、2つの原料の炭素の数（6と6）。",
+      "3": "アミド結合は、絹や羊毛のたんぱく質と同じつながり方。",
+      "4": "アジピン酸を作るときに出る一酸化二窒素は強い温室効果ガスなので、今は回収している。"
+     },
+     "certainty": "カロザース 1935・ヒル 1930・ストッキング 1939 ◎（TECH_TREE の本物欄、ACS 化学遺産）／1930年代のフェノールからの道 ○／ラネー 1926 ◎",
+     "basis": "- ACS「Foundations of Polymer Science: Wallace Carothers and the Development of Nylon」：https://www.acs.org/education/whatischemistry/landmarks/carotherspolymers.html"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -9942,7 +10139,7 @@
    "name": "ナイロン",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1935,
    "year_range": "1935〜1939",
@@ -9960,12 +10157,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ナイロンのストッキングが売り出された日、店には何千人もの行列ができた（O-010 で追加。出典：Wikipedia「National Historic Chemical Landmarks」、ACS「Landmarks directory」）",
    "name_en": "Nylon",
    "hee1_en": "On the day nylon stockings went on sale, thousands of people lined up at the stores. (Added in O-010. Sources: Wikipedia \"National Historic Chemical Landmarks\", ACS \"Landmarks directory\")",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -10109,7 +10306,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C29. 色を書く（クロマトグラフィー）［2-54］",
+     "answer": "1906年ロシアのミハイル・ツヴェットは、炭酸カルシウムの粉をつめたガラスの管に葉の色素の液を入れて液を流し、色素が色の帯に分かれることを示して「クロマトグラフィー（色を書く）」と名付けた。粉にくっつきにくい物（カロテン）ほど速く進む。1941年マーティンとシングの分配クロマトグラフィー（1952年ノーベル化学賞）、1952年ジェームズとマーティンのガスクロマトグラフィーへ進み、今は半導体の原料ガスに残ったわずかな不純物を量るのに使う。",
+     "hee": {
+      "1": "葉の緑の中に、黄色やだいだいの色もかくれている。",
+      "2": "くっつきやすさのちがいだけで、混ざった物が分かれる。",
+      "3": "ツヴェットの名前（Tsvet）はロシア語で「色」という意味。",
+      "4": "秋に葉が黄色くなるのは、クロロフィルがこわれてカロテンなどが見えてくるから。"
+     },
+     "certainty": "ツヴェット 1906 ◎／マーティンとシング 1941・1952 ノーベル賞 ◎／ガスクロマトグラフィー 1952 ◎／ツヴェットの名前の意味 ◎",
+     "basis": "- Wikipedia「Chromatography」（歴史）：https://en.wikipedia.org/wiki/Chromatography"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -10119,19 +10329,19 @@
    "name": "クロマトグラフィー",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1952,
    "year_range": "1906〜1952",
    "year_uncertain": false,
    "requires": [],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "クロマトグラフィーの名前は「色を書く」という意味。最初は植物の色素を色の帯に分けた（O-011 で追加。出典：Nobel Prize「Chemistry 1952」、Wikipedia「National Historic Chemical Landmarks」）",
    "name_en": "Chromatography",
    "hee1_en": "The name chromatography means \"color writing.\" At first it separated plant pigments into bands of color. (Added in O-011. Sources: Nobel Prize \"Chemistry 1952\", Wikipedia \"National Historic Chemical Landmarks\")",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -10156,7 +10366,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C44. 電気を通すプラスチック（導電性高分子）［2-55］",
+     "answer": "プラスチックはふつう電気を通さないが、ポリアセチレンの膜にヨウ素を加える（ドーピング）と、金属のように電気を通すようになる。1967年ごろ、東京工業大学の研究室で触媒の量をまちがえて1000倍入れたことから、銀色に光るポリアセチレンの膜ができた。1977年、日本とアメリカの研究者（ひとりはアラン・マクダイアミッド）がヨウ素で電気伝導率が大きく上がることを示した（2000年ノーベル化学賞）。半導体のドーピングと同じく、電気の運び手を足す考え方。",
+     "hee": {
+      "1": "電気を通すプラスチックは、実験の材料の量のまちがいから生まれた。",
+      "2": "ヨウ素を加えると、電気の通りやすさが1億倍以上になった。",
+      "3": "電気の通りやすさは、PTFE から銅まで23けたもちがう。",
+      "4": "リチウムイオン電池の研究も、ポリアセチレンを電極に使う試みから始まった。"
+     },
+     "certainty": "1967ごろの触媒の量のまちがい・1977・2000年ノーベル賞 ◎（TECH_TREE の本物欄、Nobel Prize「Chemistry 2000」）／伝導率の値（代表値）○",
+     "basis": "- Nobel Prize「Chemistry 2000」：https://www.nobelprize.org/prizes/chemistry/2000/summary/"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -10166,7 +10389,7 @@
    "name": "導電性高分子",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1977,
    "year_range": "1967〜1977",
@@ -10184,7 +10407,7 @@
    "name_en": "Conductive polymers",
    "hee1_en": "Plastic that conducts electricity was born from a mistake in the amount of material used in an experiment. (Added in O-011. Sources: Nobel Prize \"Chemistry 2000\", WIPO Magazine 2020)",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -10209,7 +10432,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C35. 口で吹いていたびんを機械が作る（自動製びん機）［2-56］",
+     "answer": "1903年アメリカのマイケル・オーエンスが、溶けたガラスを真空で型に吸い上げ、圧縮空気で吹いてびんにする全自動の製びん機を作った（ASME ランドマーク #86）。それまでは職人と子どもの手伝いが口で吹いていた。1926年コーニング社のリボンマシンは、ガラスの帯から電球の球を1分間に最大約2000個作り（ASME ランドマーク #81）、電球が安くなった。",
+     "hee": {
+      "1": "電球のガラスの球は、1分に何百個も機械で吹いて作られるようになった。",
+      "2": "人の息と手の仕事が、真空・圧縮空気・型に置きかわった。",
+      "3": "製びん工場で働いていた子どもたちの仕事が減った ⚠️。",
+      "4": "同じ形のびんが大量にできるので、びん詰めの飲み物や薬が広まった。"
+     },
+     "certainty": "オーエンス 1903（ASME #86）◎／リボンマシン 1926・最大約2000個/分（ASME #81）◎／児童労働が減った ○⚠️／オーエンスの機械の速さ（職人の何倍か）△ → ⚠️（ゲームの本数は記号）",
+     "basis": "- ASME Landmark #86「Owens AR Bottle Machine」：https://www.asme.org/about-asme/engineering-history/landmarks/86-owens-ar-bottle-machine"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -10219,7 +10455,7 @@
    "name": "ガラスの自動成形機",
    "trunk": "2",
    "trunk_name": "化学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1903,
    "year_range": "1903〜1926",
@@ -10232,12 +10468,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "電球のガラスの球は、1分に何百個も機械で吹いて作られるようになった（O-011 で追加。出典：ASME Landmark #86「Owens AR Bottle Machine」・#81「Corning Ribbon Machine」、ASME Landmark #81「Corning Ribbon Machine」（最大 約2000個/分）（https://www.asme.org/about-asme/engineering-history/landmarks/81-corning-ribbon-machine））",
    "name_en": "Automatic glass-forming machines",
    "hee1_en": "Glass bulbs for light bulbs came to be blown by machine, hundreds per minute (added in O-011. Sources: ASME Landmark #86 \"Owens AR Bottle Machine\", #81 \"Corning Ribbon Machine\", ASME Landmark #81 \"Corning Ribbon Machine\" (up to about 2000 per minute) (https://www.asme.org/about-asme/engineering-history/landmarks/81-corning-ribbon-machine))",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -10729,7 +10965,7 @@
    "symbol": "🔥",
    "people": [],
    "media": [],
-   "descendants": 365
+   "descendants": 366
   },
   {
    "real_full": "火を囲うと放射が壁で戻り約1000℃。土器窯・鍛冶炉の原型",
@@ -11971,7 +12207,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C45. 冷蔵庫は熱のポンプ（蒸気圧縮の冷凍サイクル）［3-22］",
+     "answer": "1834年、アメリカ生まれでロンドンにいたジェイコブ・パーキンスが、エーテルを圧縮して液にし、細い弁で圧力を下げて蒸発させ、その気化熱で冷やし、また圧縮する、閉じた回路の冷凍機の特許（英国特許6662号）を取った。機械工ジョン・ヘイグが作った試作機は少しの氷を作ったが、商売にはならなかった。この回路が今の冷蔵庫とエアコンの基本。よく「冷蔵庫はリンデ（1876）の発明」と言われるが、リンデはアンモニアで実用の機械にした人で、サイクル自体はパーキンスが先。",
+     "hee": {
+      "1": "冷蔵庫は冷たさを作る機械ではなく、中の熱を外へくみ出す「熱のポンプ」。",
+      "2": "アルコールをぬったら冷たく感じるのと同じ「気化熱」を使っている。",
+      "3": "最初の冷媒のエーテルは、手術の麻酔にも使われた燃えやすい液。",
+      "4": "冷蔵庫の裏が温かいのは、中からくみ出した熱を捨てているから。"
+     },
+     "certainty": "パーキンス 1834・英国特許6662・ヘイグの試作機 ◎（TECH_TREE の本物欄、ASME）／リンデ 1876 ◎",
+     "basis": "- Wikipedia「Jacob Perkins」/「Vapor-compression refrigeration」：https://en.wikipedia.org/wiki/Vapor-compression_refrigeration"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -11981,7 +12230,7 @@
    "name": "蒸気圧縮の冷凍サイクル",
    "trunk": "3",
    "trunk_name": "熱",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1834,
    "year_range": "1805〜1835",
@@ -11999,12 +12248,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "冷蔵庫は冷たさを作る機械ではなく、中の熱を外へくみ出す「熱のポンプ」（S-004 で追加。出典：asme.org、en.wikipedia.org）",
    "name_en": "Vapor-compression refrigeration cycle",
    "hee1_en": "A refrigerator is not a machine that makes cold; it is a \"heat pump\" that pumps the heat inside out. (Added in S-004. Sources: asme.org, en.wikipedia.org)",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -12060,7 +12309,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "エアコンの暖房は、冬の冷たい外の空気からも熱を集めて部屋に運んでいる（S-004 で追加。出典：en.wikipedia.org、austria-forum.org）",
    "name_en": "Heat pump",
    "hee1_en": "An air conditioner's heating gathers heat even from the cold outside air in winter and carries it into the room. (Added in S-004. Sources: en.wikipedia.org, austria-forum.org)",
@@ -12128,7 +12377,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "トースターの赤く光る線は、真っ赤になっても燃えつきないように、ニッケルとクロムを混ぜた特別な金属でできている。（S-004 で追加。出典：en.wikipedia.org、en.wikipedia.org、hagley.org）",
    "name_en": "Heating wire heater",
    "hee1_en": "The glowing red wires in a toaster are made of a special metal mixing nickel and chromium, so they do not burn out even when red hot. (Added in S-004. Sources: en.wikipedia.org, en.wikipedia.org, hagley.org)",
@@ -12406,7 +12655,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 397
+   "descendants": 398
   },
   {
    "real_full": "I²R損失。太線と高電圧で減らす。1882年9月4日 エジソンのパール街発電所が、銅の導体を地下の管に通して送電を始めた",
@@ -12473,7 +12722,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 189
+   "descendants": 191
   },
   {
    "real_full": "ファラデー1831。整流子付きダイナモは直流を出す（電解に直流が要る点で重要）",
@@ -12879,7 +13128,7 @@
    "symbol": "⚡",
    "people": [],
    "media": [],
-   "descendants": 393
+   "descendants": 394
   },
   {
    "real_full": "真空管発振回路（1910年代）。誘導加熱の電源",
@@ -13193,7 +13442,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C48. 最初の電池と、力が落ちない電池（ボルタの電堆・ダニエル電池）［4-13］［4-36］",
+     "answer": "1800年、イタリアのヴォルタが、銅と亜鉛の板を塩水をしみこませた布ではさんで何十段も積み（電堆）、初めて電気が流れ続けることを示した。でも銅の側に水素の泡がたまって、だんだん電気が流れにくくなる（分極）。1836年、イギリスのダニエルは、亜鉛は硫酸亜鉛、銅は硫酸銅の液に入れて素焼きのつぼで分け、銅の側で水素でなく銅が出るようにして、分極しない安定した電池を作った。これは電信の電源になった。",
+     "hee": {
+      "1": "最初の電池は、銅と亜鉛のお皿を塩水の布ではさんで積み重ねた。",
+      "2": "ヴォルタの電池が出てすぐ、水を電気で分ける実験が行われた（1800 ニコルソンとカーライル）。",
+      "3": "液を2つに分けると、電池の力が落ちなくなった。",
+      "4": "電圧の単位「ボルト」はヴォルタの名前から。"
+     },
+     "certainty": "ヴォルタ 1800・ダニエル 1836 ◎／分極のしくみ ◎",
+     "basis": "- Wikipedia「Voltaic pile」：https://en.wikipedia.org/wiki/Voltaic_pile"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -13203,7 +13465,7 @@
    "name": "ボルタ電池",
    "trunk": "4",
    "trunk_name": "動力・電気",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1800,
    "year_range": null,
@@ -13231,7 +13493,7 @@
    "name_en": "Voltaic pile",
    "hee1_en": "The first battery was a stack of copper and zinc disks with cloth soaked in salt water between them",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -13275,7 +13537,7 @@
      "verified": "2026-10-20 Commons API で PD を確認"
     }
    ],
-   "descendants": 357
+   "descendants": 358
   },
   {
    "real_full": "1882 エジソンのパール・ストリート発電所（ニューヨーク）とホルボーン高架橋発電所（ロンドン）で、蒸気機関で回したダイナモの電気を街に配った",
@@ -13506,7 +13768,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "電気を1回送るたびに、カチッと決まった角度だけ回る（S-001 で追加。出典：Nidec「History of the Motor」、Wikipedia「Marius Lavet」）",
    "name_en": "Stepper motor",
    "hee1_en": "Each time you send a pulse of electricity, it turns by exactly a set angle, click (added in S-001. Sources: Nidec \"History of the Motor\", Wikipedia \"Marius Lavet\")",
@@ -13806,7 +14068,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "誘導モーターの回る部分には電線がつながっていないのに、見えない『回る磁石』に引っぱられて回っている。（S-004 で追加。出典：ethw.org、en.wikipedia.org、patents.google.com）",
    "name_en": "Induction motor",
    "hee1_en": "No wires are connected to the spinning part of an induction motor, yet it turns, pulled by an invisible \"rotating magnet\". (Added in S-004. Sources: ethw.org, en.wikipedia.org, patents.google.com)",
@@ -14128,7 +14390,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "電池1つから、雷のような何万ボルトの火花を作れる（O-006 で追加。出典：IEEE Milestones「Callan's Pioneering Contributions 1836」、Wikipedia「Induction coil」）",
    "name_en": "Induction coil",
    "hee1_en": "From a single battery it can make lightning-like sparks of tens of thousands of volts. (Added in O-006. Sources: IEEE Milestones \"Callan's Pioneering Contributions 1836\", Wikipedia \"Induction coil\")",
@@ -14259,7 +14521,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "旅客機のエンジンの前の大きなファンも、後ろのタービンが回している（O-010 で追加。出典：ASME Landmark #135「Neuchâtel Gas Turbine」、日本機械学会「機械遺産 No.007」）",
    "name_en": "Gas turbines and jet engines",
    "hee1_en": "The big fan at the front of an airliner engine is also turned by the turbine at the back (added in O-010. Sources: ASME Landmark #135 \"Neuchâtel Gas Turbine\", JSME \"Mechanical Engineering Heritage No.007\")",
@@ -14670,6 +14932,82 @@
    "enabled_by": [],
    "explained_by": [],
    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkElEQVR42rVROw6AIAx9GE5FHJhNZw/hUTwAJ2mcHYjXqhNRSUE02onSvh8Af5bzJM6TvAbHAIkBVRJzBmgLAxEAYGFWCey52VY2yo6UZs6TdKmZR34c84KJAaIp1CJeMDmBBsjvYsARoZ9gnkYoYpKSFiF3YWsK28omAQo/VFZvPTfZr826u5dvcfodwZvaAYcjT05KKim2AAAAAElFTkSuQmCC",
+   "emoji": null,
+   "symbol": "⚡",
+   "people": [],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "1836 ジョン・フレデリック・ダニエル。Zn｜ZnSO4‖CuSO4｜Cu、約1.1V。正極で銅が出るので水素の泡がたまらない。電信の電源",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [
+    {
+     "title": "C48. 最初の電池と、力が落ちない電池（ボルタの電堆・ダニエル電池）［4-13］［4-36］",
+     "answer": "1800年、イタリアのヴォルタが、銅と亜鉛の板を塩水をしみこませた布ではさんで何十段も積み（電堆）、初めて電気が流れ続けることを示した。でも銅の側に水素の泡がたまって、だんだん電気が流れにくくなる（分極）。1836年、イギリスのダニエルは、亜鉛は硫酸亜鉛、銅は硫酸銅の液に入れて素焼きのつぼで分け、銅の側で水素でなく銅が出るようにして、分極しない安定した電池を作った。これは電信の電源になった。",
+     "hee": {
+      "1": "最初の電池は、銅と亜鉛のお皿を塩水の布ではさんで積み重ねた。",
+      "2": "ヴォルタの電池が出てすぐ、水を電気で分ける実験が行われた（1800 ニコルソンとカーライル）。",
+      "3": "液を2つに分けると、電池の力が落ちなくなった。",
+      "4": "電圧の単位「ボルト」はヴォルタの名前から。"
+     },
+     "certainty": "ヴォルタ 1800・ダニエル 1836 ◎／分極のしくみ ◎",
+     "basis": "- Wikipedia「Voltaic pile」：https://en.wikipedia.org/wiki/Voltaic_pile"
+    }
+   ],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "4-36",
+   "name": "ダニエル電池",
+   "trunk": "4",
+   "trunk_name": "動力・電気",
+   "status": "✅",
+   "branch": false,
+   "year": 1836,
+   "year_range": null,
+   "year_uncertain": false,
+   "requires": [
+    [
+     [
+      "4-13"
+     ]
+    ],
+    [
+     [
+      "2-12"
+     ]
+    ],
+    [
+     [
+      "0-03"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "液を2つに分けたら、電池の力が落ちなくなった",
+   "name_en": null,
+   "hee1_en": null,
+   "kind": "tech",
+   "play": "実験＋軽",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
    "emoji": null,
    "symbol": "⚡",
    "people": [],
@@ -15137,7 +15475,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F30. 水銀の代わりの油（シリコーン油と油拡散ポンプ）［5-06］",
+     "answer": "拡散ポンプは、沸かした液体の蒸気の噴流で気体分子をたたき落とす。1928年にバーチが、水銀の代わりに、ほとんど蒸発しない油を使った。油は毒の蒸気を出さず、鋼で大きなポンプが作れる。のちに、熱に強いシリコーン油（ロチョウの直接法 1941〜45 で大量に作れるようになった）が使われるようになった。",
+     "hee": {
+      "1": "シリコーン油は、ケイ素と酸素の鎖に、メチル基が付いたもの。シャンプーや化粧品にも入っている。",
+      "2": "直接法：金属シリコンの粉に塩化メチルを、銅を触媒にして約300℃ で反応させる。今もシリコーンの大部分はこの方法。",
+      "3": "油の蒸気も少し容器に戻る（バックストリーミング）。だから、きれいな真空が要る半導体の工場はターボ分子ポンプに替わった。",
+      "4": "⚠️ 本物の拡散ポンプ油は、ベンゼンの輪が付いたシリコーン（DC-704・705）で、もっと蒸発しにくい。"
+     },
+     "certainty": "バーチ 1928・ヒックマン 1930年代 ○（Wikipedia・真空技術の解説）／ロチョウの直接法（1941年の発見、1945年の特許）◎",
+     "basis": "Wikipedia「Diffusion pump」https://en.wikipedia.org/wiki/Diffusion_pump 、Wikipedia「Direct process」https://en.wikipedia.org/wiki/Direct_process （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -15147,7 +15498,7 @@
    "name": "油拡散ポンプ",
    "trunk": "5",
    "trunk_name": "真空",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1928,
    "year_range": null,
@@ -15170,12 +15521,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "水銀の代わりに、ほとんど蒸発しない特別な油を使う",
    "name_en": "Oil diffusion pump",
    "hee1_en": "Instead of mercury, it uses a special oil that hardly evaporates.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -15200,7 +15551,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O58. 羽根車で分子をはじく（ターボ分子ポンプ）［5-07］",
+     "answer": "ターボ分子ポンプは、何十段もの羽根車を毎分数万回転させ、羽根の先が気体分子の速さ（数百m/s）に近い速さで分子を下へはじき出す。1958年、ファイファー社のベッカーが発表した（祖先は1913年ゲーデの分子ポンプ）。油や水銀の蒸気を使わないので、蒸気が容器に戻って膜を汚すことがない。",
+     "hee": {
+      "1": "羽根の先は、音より速いくらいの速さで回っている。",
+      "2": "高速回転を支える精密な玉軸受（のちに磁気軸受）があって初めて作れた。",
+      "3": "拡散ポンプの油や水銀の蒸気は、冷却トラップで止めないと装置を汚した。",
+      "4": "今の半導体装置の真空は、ほとんどがターボ分子ポンプとドライポンプ。"
+     },
+     "certainty": "ベッカー 1958・ゲーデ 1913 ◎／毎分数万回転 ◎",
+     "basis": "- Wikipedia「Turbomolecular pump」：https://en.wikipedia.org/wiki/Turbomolecular_pump"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -15210,7 +15574,7 @@
    "name": "ターボ分子ポンプ",
    "trunk": "5",
    "trunk_name": "真空",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1958,
    "year_range": "1913〜1958",
@@ -15244,12 +15608,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "羽根の先は音速に近い速さで回っている",
    "name_en": "Turbomolecular pump",
    "hee1_en": "The tips of its blades spin at nearly the speed of sound.",
    "kind": "tech",
-   "play": "",
+   "play": "重（玉軸受がないと回せない・きれいな真空）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -15315,7 +15679,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "空気を外に出すのではなく、金属の中に閉じ込める",
    "name_en": "Ion pump",
    "hee1_en": "Instead of pushing air out, it traps it inside metal",
@@ -15827,7 +16191,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "真空管の銀色の部分は、残りの空気を食べた跡",
    "name_en": "Getter",
    "hee1_en": "The silver part of a vacuum tube is the mark left after it ate up the leftover air.",
@@ -16069,7 +16433,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 289
+   "descendants": 290
   },
   {
    "real_full": "蒸発岩層（古い海の跡）。地下の塩層・砂漠。最古の岩塩採掘は紀元前4500年頃（アゼルバイジャン・ナヒチェヴァンのドゥズダグ、出土土器の型式による推定）。年 -1500 はハルシュタット（オーストリア）の青銅器時代の採掘（最古の証拠は紀元前15世紀）",
@@ -16121,7 +16485,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 317
+   "descendants": 318
   },
   {
    "real_full": "2NaCl+2H2O→Cl2+H2+2NaOH（1890年代）。隔膜で分ける",
@@ -16234,9 +16598,12 @@
     }
    ],
    "item": "hydrochloric_acid",
-   "recipes": [],
+   "recipes": [
+    "作業台：芒硝の仕込み（塩と硫酸） ＋ 水入りバケツ ＋ 空のガラス瓶 → 塩酸"
+   ],
    "machine_recipes": [
-    "塩酸合成炉「塩酸を作る」：水素ガス（袋詰め） 1 mol ＋ 袋詰め塩素 1 mol ＋ 水入りバケツ 1/4 ＋ 空のガラス瓶 → 塩酸（5 秒）。H2 + Cl2 → 2HCl を水に溶かす。電気なし"
+    "塩酸合成炉「塩酸を作る」：水素ガス（袋詰め） 1 mol ＋ 袋詰め塩素 1 mol ＋ 水入りバケツ 1/4 ＋ 空のガラス瓶 → 塩酸（5 秒）。H2 + Cl2 → 2HCl を水に溶かす。電気なし",
+    "シリコーンの反応器「加水分解」：ジメチルジクロロシラン ＋ 蒸留水 → シリコーン油 ＋ 塩酸（2 kW × 15 秒＝30 kJ）。(CH3)2SiCl2 + H2O → シリコーン油 + 2HCl"
    ],
    "placeholder": null,
    "game_text": "Ge精鉱の浸出を硫酸→塩酸に置換可、GeCl4蒸留[1-34]の前提",
@@ -16351,7 +16718,7 @@
     }
    ],
    "media": [],
-   "descendants": 284
+   "descendants": 285
   },
   {
    "real_full": "Kr は空気の1.1ppm（KrFレーザーの発光ガス）、Ne は18ppm（ArF/KrFレーザーの緩衝ガス＝発光ガスを薄めて放電を安定させる役）。どちらも空気分離装置の副産物として取る",
@@ -16361,7 +16728,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O59. 空気の中の「隠れたもの」（希ガス）［6-08］",
+     "answer": "空気の中にはネオン 18ppm・クリプトン 1.1ppm・キセノン 0.09ppm がほんの少しだけ入っている。1898年、ラムゼーとトラヴァースは液体空気をゆっくり蒸発させて、ネオン（新しい）・クリプトン（隠れた）・キセノン（よそ者）を見つけた。今は空気分離装置の副産物として、液体酸素の底（Kr・Xe）と窒素の上（Ne）から取り出す。",
+     "hee": {
+      "1": "エキシマレーザーのガスの大部分はネオン。",
+      "2": "1960〜1983年、1メートルはクリプトン86の光の波長で決められていた。",
+      "3": "希ガスはふつう何とも結びつかないが、放電で励起するとフッ素と一瞬だけ分子（KrF*）を作る。",
+      "4": "2022年、ネオンの供給不足が半導体工場の心配ごとになった。"
+     },
+     "certainty": "1898 の発見 ◎／空気中の濃度 ◎／空気分離の副産物 ◎",
+     "basis": "- Wikipedia「Krypton」：https://en.wikipedia.org/wiki/Krypton"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -16371,7 +16751,7 @@
    "name": "希ガス精製",
    "trunk": "6",
    "trunk_name": "ガス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1898,
    "year_range": null,
@@ -16384,12 +16764,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "エキシマレーザーのガスの大半はネオン",
    "name_en": "Noble gas purification",
    "hee1_en": "Most of the gas in an excimer laser is neon.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -16404,7 +16784,7 @@
    "symbol": "💨",
    "people": [],
    "media": [],
-   "descendants": 34
+   "descendants": 35
   },
   {
    "real_full": "N2+3H2→2NH3、200気圧400℃、触媒は磁鉄鉱を還元した鉄（1913）",
@@ -16414,7 +16794,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C47. 空気からパンを作る（ハーバー・ボッシュ法）［6-09］",
+     "answer": "空気の8割は窒素だが、植物は N≡N の強い結びつきを切れないので使えない。1909年ハーバーが、窒素と水素を高い圧力で鉄の触媒の上に通すとアンモニアになることを実験室で示し、1913年 BASF のボッシュが約200気圧・約450℃の工場にした（ミタッシュが約2万回の実験で触媒を選んだ）。アンモニアから肥料を作れるようになり、今は世界の人のおよそ半分の食べ物がこの肥料で育っているといわれる。一方、ハーバーは第一次世界大戦で塩素ガスの攻撃を指導した（1915 イーペル）。",
+     "hee": {
+      "1": "空気の窒素から、肥料ができる（「空気からパンを作る」）。",
+      "2": "マメの根粒菌がしていることを、工場でできるようにした。",
+      "3": "高圧の水素は鋼をもろくするので、ボッシュは二重の壁の塔を考えた。",
+      "4": "同じ科学者が、多くの人を養う肥料と、多くの人を殺した毒ガスの両方にかかわった。"
+     },
+     "certainty": "ハーバー 1909・ボッシュ 1913・ミタッシュ ◎／世界の人口の約半分を支える（推定）○／イーペル 1915 ◎",
+     "basis": "- Wikipedia「Haber process」：https://en.wikipedia.org/wiki/Haber_process"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -16424,7 +16817,7 @@
    "name": "ハーバー・ボッシュ法",
    "trunk": "6",
    "trunk_name": "ガス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1913,
    "year_range": null,
@@ -16447,12 +16840,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "触媒の原料が磁鉄鉱",
    "name_en": "Haber-Bosch process",
    "hee1_en": "The catalyst is made from magnetite",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -16739,7 +17132,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O60. いちばん激しい元素を取り出す（フッ素）［6-14］",
+     "answer": "フッ素はすべての元素の中でいちばん電子を引きつけ、ガラスや水とも燃えるように反応する。何人もの化学者が失敗し体をこわしたあと、1886年モアッサンがフッ化カリウムを溶かしたフッ化水素を冷やして電解し、初めて取り出した（1906年ノーベル化学賞）。今は溶かした KF·2HF を電解し、フッ化物の膜で守られるニッケル・モネル・鋼の容器で扱う。",
+     "hee": {
+      "1": "フッ素はとても危ないので、工業でも専用の容器と仕組みで扱う。",
+      "2": "陽極でフッ素、陰極で水素が出るので、混ざらないように仕切る。",
+      "3": "露光用のエキシマレーザー（KrF・ArF）の光は、希ガスとフッ素から生まれる。",
+      "4": "フッ素の化合物（PTFE・フッ化物ガラスなど）は、半導体工場の配管や光学部品にも欠かせない。"
+     },
+     "certainty": "モアッサン 1886・1906 ノーベル賞 ◎／現代の KF·2HF 電解 ◎",
+     "basis": "- Wikipedia「Fluorine」：https://en.wikipedia.org/wiki/Fluorine"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -16749,7 +17155,7 @@
    "name": "フッ素ガス",
    "trunk": "6",
    "trunk_name": "ガス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1886,
    "year_range": null,
@@ -16782,12 +17188,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "フッ素は単離するまでに何人もの化学者が中毒になった「最も危険な元素」",
    "name_en": "Fluorine gas",
    "hee1_en": "Fluorine is the \"most dangerous element\": several chemists were poisoned before it was isolated.",
    "kind": "tech",
-   "play": "",
+   "play": "重（事故あり）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -17018,6 +17424,7 @@
    "item": "fused_quartz",
    "recipes": [],
    "machine_recipes": [
+    "CO2 レーザー「赤外線で石英を溶かす」：岩塩の窓（減らない） ＋ 珪石 → 溶融石英（1 kW × 10 秒＝10 kJ）。CO2＋N2 の放電で 10.6µm（CO2・N2 の袋1つずつで 8 回）。石英は赤外線をよく吸う",
     "酸水素バーナー「石英を溶かす」：珪石 ＋ 水素ボンベ 4 mol ＋ 酸素ボンベ 2 mol → 溶融石英（10 秒）。2H2 + O2 → 2H2O（約2800℃）。電気なし"
    ],
    "placeholder": null,
@@ -17319,6 +17726,18 @@
      },
      "certainty": "リービッヒ 1835 ◎／フーコー 1857（シュタインハイルも同じころ）◎／マイケルソンの半透明鏡が化学銀めっき ○",
      "basis": "- Wikipedia「Silvering」：https://en.wikipedia.org/wiki/Silvering"
+    },
+    {
+     "title": "O65. 曇らない鏡（アルミ蒸着の鏡）［7-05 段階3］",
+     "answer": "1930年代、カリフォルニア工科大のジョン・ストロングは、真空の中でアルミを熱して蒸発させ、望遠鏡のガラスの鏡に薄く付けた。銀の鏡は空気中の硫黄で黒ずんで数か月ごとにめっきし直しが要ったが、アルミは表面にできる数nm の酸化膜に守られて何年も曇らない。紫外線もよく反射する。パロマー山の5m 望遠鏡（1948）も、今の天体望遠鏡の多くもアルミの鏡。",
+     "hee": {
+      "1": "今の望遠鏡の鏡の多くは、ガラスに付けたアルミのとても薄い膜。",
+      "2": "銀は見える光をいちばんよく反射するが、紫外線はほとんど反射しない。",
+      "3": "アルミはさびないのではなく、さびの膜がとても薄くてそこで止まる。",
+      "4": "アルミの膜の上にさらに透明な膜をかぶせて守ることも多い。"
+     },
+     "certainty": "ストロングのアルミ蒸着 1930年代・論文 1936 ◎／パロマー 1948 ◎／反射率の数字 ○（代表値、スペキュラムの紫外は △）",
+     "basis": "- Wikipedia「Aluminized mirror」：https://en.wikipedia.org/wiki/Aluminized_mirror"
     }
    ],
    "item": "speculum_charge",
@@ -17359,7 +17778,7 @@
    "name_en": "Reflecting mirror",
    "hee1_en": "Silver mirrors are made by a chemical reaction that coats glass with silver from a solution",
    "kind": "tech",
-   "play": "作品（のぞける反射望遠鏡）",
+   "play": "作品（のぞける反射望遠鏡）＋実験（反射率と曇り方）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -17919,7 +18338,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O62. 宝石が光った最初のレーザー（ルビーレーザー）［7-13］",
+     "answer": "1960年、ヒューズ研究所のセオドア・メイマンは、クロムを少し含むルビーの棒にらせん形のキセノン閃光ランプを巻きつけ、強い閃光で照らして、694nm の赤い光のパルスを出した。これが最初のレーザー。考え方の元は1917年のアインシュタインの「誘導放出」と、1954年のタウンズのメーザー（マイクロ波）。人工ルビーは1902年のベルヌーイの炎溶融法で作れた。",
+     "hee": {
+      "1": "最初のレーザーは宝石のルビーで光った。",
+      "2": "レーザーの光は色の幅がとても狭く、波がそろったまま遠くまで続く（干渉の縞がずっと見える）。",
+      "3": "発明したときは「使い道を探している発明」と言われたが、今はバーコード・光通信・手術・半導体の露光にまで使う。",
+      "4": "ルビーは3準位なので、原子の半分以上を上の状態に上げる強い閃光が要った（反転分布）。"
+     },
+     "certainty": "1960 メイマン・694nm ◎／1917 アインシュタイン・1954 タウンズ ◎／1902 ベルヌーイ ◎／コヒーレンス長の数字 △（ゲームの値）",
+     "basis": "- Wikipedia「Ruby laser」：https://en.wikipedia.org/wiki/Ruby_laser"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -17929,7 +18361,7 @@
    "name": "レーザー原理",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": "1917〜1960",
@@ -17959,7 +18391,7 @@
    "name_en": "Laser principle",
    "hee1_en": "The first laser shone using a ruby gemstone.",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋作品",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -17986,7 +18418,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O63. 塩の窓から出る見えない光（CO2 レーザー）［7-14］",
+     "answer": "1964年、ベル研究所のクマール・パテルは、二酸化炭素の気体に放電をかけて、分子の振動から 10.6µm の赤外線のレーザーを出した。翌1965年、窒素を混ぜると、放電で揺れた N2 が CO2 にエネルギーを渡して出力が大きく上がることを見つけた（さらにヘリウムで効率 10〜20%）。赤外線はガラスを通らないので、窓には岩塩 NaCl の結晶を使った。",
+     "hee": {
+      "1": "このレーザーの光はガラスを通らないので、窓は塩の結晶。",
+      "2": "CO2 は石灰石を焼く窯の煙から集められる。",
+      "3": "今も金属・木・アクリルの切断や、手術、そして EUV 露光の光源（スズの粒を撃つ）に使う。",
+      "4": "N2 の振動の高さが CO2 の上の準位とほぼ同じなので、ぶつかるとエネルギーが渡る（共鳴エネルギー移動）。"
+     },
+     "certainty": "1964 パテル・10.6µm ◎／N2 の効果 1965 ◎／He で 10〜20% ○／ゲームの出力の数字 △（ゲームの値）",
+     "basis": "- Wikipedia「Carbon-dioxide laser」：https://en.wikipedia.org/wiki/Carbon-dioxide_laser"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -17996,7 +18441,7 @@
    "name": "CO2 レーザー",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1964,
    "year_range": null,
@@ -18029,12 +18474,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "このレーザーの光はガラスを通らないので、窓は塩の結晶",
    "name_en": "CO2 laser",
    "hee1_en": "This laser's light can't pass through glass, so its windows are salt crystals",
    "kind": "tech",
-   "play": "",
+   "play": "重＋実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -18210,7 +18655,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "レンズとウェハーの間に水を入れるだけで、細かく描ける",
    "name_en": "Immersion optics",
    "hee1_en": "Just putting water between the lens and the wafer lets you draw finer patterns.",
@@ -18504,6 +18949,18 @@
      },
      "certainty": "アッベの限界・レイリーの式 ◎／マイクラライン 1973（最初の投影アライナー）○（Wikipedia・SHMJ）／DSW4800 1978（最初のステッパー、g線、10:1）○（SHMJ。1975 とする資料もある）／各方法の CD の値 △（世代のめやす。とくに密着 10µm・等倍投影 3µm・DSW の 1µm は製品資料で未確認）→ ゲーム内は ⚠️",
      "basis": "- Wikipedia「Micralign」：https://en.wikipedia.org/wiki/Micralign"
+    },
+    {
+     "title": "O61. 希ガスとフッ素の一瞬の分子（KrF エキシマレーザー）［7-20］",
+     "answer": "クリプトンとフッ素をネオンで薄めたガスに強い放電をかけると、励起状態でだけ結びつく KrF* ができ、壊れるときに 248nm の紫外線を出す（エキシマレーザー）。1975年に発振し、1982年 IBM のカンティ・ジェインが露光に使えることを示した。1990年代後半から KrF の露光装置が工場の主役になり、位相シフトマスクなどの工夫で波長より細い 0.13µm ほどの線まで描いた。",
+     "hee": {
+      "1": "エキシマは「励起状態だけの二量体」。ふだんは存在しない分子が光を出す。",
+      "2": "レーザーのガスの大部分はネオン。",
+      "3": "248nm の光はふつうのガラスを通らないので、レンズは石英と CaF2 だけで作る。",
+      "4": "次は ArF（193nm）、水を使う液浸、そして EUV（13.5nm）。"
+     },
+     "certainty": "1975 発振・1982 ジェイン ◎／KrF 量産 1990年代後半 ○／k1 0.3〜0.4 ○",
+     "basis": "- Wikipedia「Excimer laser」：https://en.wikipedia.org/wiki/Excimer_laser"
     }
    ],
    "item": null,
@@ -18515,7 +18972,7 @@
    "name": "エキシマレーザー",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1975,
    "year_range": null,
@@ -18558,7 +19015,7 @@
    "name_en": "Excimer laser",
    "hee1_en": "\"Excimer\" means \"a pair that sticks together only when excited.\"",
    "kind": "tech",
-   "play": "",
+   "play": "重（ステッパーの光源）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -18583,7 +19040,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O64. 温めても伸びないガラス（超低膨張ガラス ULE）［7-21］",
+     "answer": "1960年代、アメリカのコーニング社は、合成石英と同じ火炎加水分解で SiCl4 に TiCl4 を混ぜ、SiO2 に TiO2 を約7%入れたガラスを作った。TiO2 の入った網目は温まると縮む向きに働くので、石英のわずかな膨張を打ち消し、室温で熱膨張がほぼ 0（±0.03×10⁻⁶/K ほど）になる。宇宙望遠鏡の鏡や、EUV 露光の鏡・マスクの土台になっている。",
+     "hee": {
+      "1": "温めても冷やしても長さがほとんど変わらないガラス。",
+      "2": "10cm の鋼の棒は 3℃ で約 3.6µm 伸びるが、ULE は約 0.01µm。",
+      "3": "ハッブル宇宙望遠鏡の主鏡も ULE。",
+      "4": "膨張がちょうど 0 になる温度（ゼロクロス）は TiO2 の量で決まり、使う温度に合わせて作る。"
+     },
+     "certainty": "コーニング・TiO2 約7%・±0.03×10⁻⁶/K ◎／ハッブルの主鏡 ◎／各材料の膨張係数 ○（代表値）",
+     "basis": "- Wikipedia「Ultra low expansion glass」：https://en.wikipedia.org/wiki/Ultra_low_expansion_glass"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -18593,7 +19063,7 @@
    "name": "超低膨張ガラス",
    "trunk": "7",
    "trunk_name": "光学",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": null,
@@ -18621,7 +19091,7 @@
    "name_en": "Ultra-low expansion glass",
    "hee1_en": "Glass whose length hardly changes whether you heat it or cool it.",
    "kind": "tech",
-   "play": "",
+   "play": "軽＋実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -19807,7 +20277,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O57. 電子の波で見る（電子顕微鏡）［8-11］",
+     "answer": "電子も波の性質を持ち（ド・ブロイ 1924）、数万V で速めると波長は光の 10 万分の1ほどになる。1931年、ルスカとクノールは銅のコイルの電磁レンズで電子の像を結び、1933年に光学顕微鏡の分解能（光の波長の半分ほど＝約0.2〜0.3µm）を超えた。電子は空気で散るので、鏡筒の中は高真空にする。",
+     "hee": {
+      "1": "光の顕微鏡では、光の波長より細かい物はぼやけて見えない。",
+      "2": "ルスカは発明から55年後の1986年にノーベル物理学賞を受けた。",
+      "3": "実際の分解能は、レンズのゆがみ（収差）で決まる。今は原子1個が見えるほど。",
+      "4": "半導体工場では、走査型電子顕微鏡（SEM）で回路の線幅を毎日測っている。"
+     },
+     "certainty": "ルスカとクノール 1931・1933 光学を超える ◎／1986 ノーベル賞 ◎／1930年代末の分解能 約10nm ○",
+     "basis": "- Wikipedia「Electron microscope」：https://en.wikipedia.org/wiki/Electron_microscope"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -19817,7 +20300,7 @@
    "name": "電子顕微鏡",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1931,
    "year_range": null,
@@ -19841,12 +20324,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "電子を「光」の代わりに使うと、ウイルスまで見える",
    "name_en": "Electron microscope",
    "hee1_en": "Using electrons instead of \"light\" lets you see even viruses.",
    "kind": "tech",
-   "play": "",
+   "play": "実験（光学顕微鏡と見比べる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -19876,7 +20359,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O55. 1mm に何百本の溝を刻む（刻線機）［8-12］",
+     "answer": "1882年、ジョンズ・ホプキンス大学のヘンリー・ローランドは、自分で磨き上げた精密なねじで台を少しずつ送りながら、ダイヤモンドで 1mm に数百本の溝を鏡に刻む刻線機を作った。溝の数が多いほど近い色を分けられ（分解能＝溝の数×次数）、ローランドの格子で太陽の何千本もの暗線の波長が正確に測られた。ねじの小さな周期的なずれは「ゴースト」というにせの線になるので、刻線機は温度の変わらない地下室に置かれた。",
+     "hee": {
+      "1": "何日もかけて刻む間に温度が変わると失敗した。",
+      "2": "ナトリウムの黄色い線は、細かい格子で見ると 589.0 と 589.6nm の2本に分かれる。",
+      "3": "1775年ラムズデンの目盛り刻み機が、精密なねじで等間隔に刻む技術の先祖。",
+      "4": "今の露光装置のステージの位置も、細かい格子（エンコーダー）で測っている。"
+     },
+     "certainty": "ローランド 1882・凹面格子 ◎／ゴーストとねじの周期誤差 ◎／約 570本/mm ○",
+     "basis": "- Wikipedia「Henry Augustus Rowland」：https://en.wikipedia.org/wiki/Henry_Augustus_Rowland"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -19886,7 +20382,7 @@
    "name": "刻線機",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1882,
    "year_range": null,
@@ -19909,12 +20405,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "何日もかけて刻む間に温度が変わると失敗した",
    "name_en": "Ruling engine",
    "hee1_en": "If the temperature changed during the many days of ruling, the work failed",
    "kind": "tech",
-   "play": "",
+   "play": "実験（溝の数で分解能、揺れ・温度でゴースト）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -19972,7 +20468,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "EUV の光源とインクジェットプリンターは親戚",
    "name_en": "Droplet generator",
    "hee1_en": "EUV light sources and inkjet printers are relatives.",
@@ -20090,7 +20586,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O53. 1秒に何百万回ふるえる石（水晶振動子）［8-15］",
+     "answer": "水晶は押すと電気が出て、電圧をかけると伸び縮みする（圧電効果、1880 キュリー兄弟）。決まった厚さに切った水晶の板は決まった速さでふるえるので、1921年ケイディが水晶で振動の速さを決める発振器を作り、1927年マリソンが水晶時計を作った。1959年ザウアーブレイは、水晶に膜が付くと振動数が下がることを式にし、蒸着の膜厚計が生まれた。",
+     "hee": {
+      "1": "腕時計の中では、水晶が1秒に 32768 回ふるえている。",
+      "2": "水晶の板は薄いほど速くふるえる（AT カットで 1661kHz·mm÷厚さ）。",
+      "3": "膜厚計は、ナノメートルの膜の重さを振動数の変化で量る。",
+      "4": "計算機の時計（クロック）も、水晶のふるえを数えて作る。"
+     },
+     "certainty": "キュリー兄弟 1880 ◎／ケイディ 1921・マリソン 1927 ◎／AT カットの周波数定数 約1.66MHz·mm ◎／ザウアーブレイ 1959 ◎",
+     "basis": "- Wikipedia「Crystal oscillator」：https://en.wikipedia.org/wiki/Crystal_oscillator"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -20100,7 +20609,7 @@
    "name": "水晶振動子",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1921,
    "year_range": null,
@@ -20123,12 +20632,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "腕時計の中では、水晶が1秒に32768回ふるえている",
    "name_en": "Quartz crystal oscillator",
    "hee1_en": "Inside a wristwatch, a quartz crystal vibrates 32,768 times a second.",
    "kind": "tech",
-   "play": "",
+   "play": "実験（磨いて振動数を合わせる・膜厚計）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -20294,7 +20803,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O54. 工場で育てる水晶（人工水晶）［8-18］",
+     "answer": "鋼の圧力釜の下に石英のくずとアルカリの水、上に種の水晶を入れ、下を約350℃・1000気圧以上に熱すると、溶けた石英が少し冷たい上で種の上に結晶として出てくる（水熱合成）。第二次大戦で無線機用の天然水晶（ブラジル産）が足りなくなったのをきっかけに、1940年代末からベル研究所などが工業化した。",
+     "hee": {
+      "1": "地下の熱い水の中で水晶ができるのと同じことを、工場の釜でやる。",
+      "2": "今の水晶振動子の水晶は、ほとんどが人工水晶。",
+      "3": "育つのに何週間もかかる。",
+      "4": "合成石英ガラス（[7-15]）は結晶ではなくガラスで、作り方がまったく違う。"
+     },
+     "certainty": "大戦中の天然水晶不足と戦後の工業化 ◎／約350℃・1000気圧以上 ○（方式で違う）／年 1948 ⚠️",
+     "basis": "- Wikipedia「Hydrothermal synthesis」：https://en.wikipedia.org/wiki/Hydrothermal_synthesis"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -20304,7 +20826,7 @@
    "name": "人工水晶",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1948,
    "year_range": null,
@@ -20337,7 +20859,7 @@
    "name_en": "Synthetic quartz",
    "hee1_en": "Almost all the quartz in watches is artificial crystal grown in a pressure cooker.",
    "kind": "tech",
-   "play": "",
+   "play": "重（D の加圧加熱釜）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -20640,7 +21162,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O66. 金庫の中の1キログラム（キログラム原器）［8-23］",
+     "answer": "1799年、フランスはメートル原器といっしょに白金の円柱を「1キログラム」としてパリの公文書館に納めた。1889年の第1回国際度量衡総会で、白金90%・イリジウム10%の円柱（高さ・直径 約39mm）が国際キログラム原器と決まり、パリ郊外の国際度量衡局の金庫にしまわれ、各国には複製が配られた（日本は No.6）。ところが100年ほど比べ続けると、原器と複製の差が約50µg まで広がっていた。原器は定義で「ちょうど1kg」なので、どちらが変わったのか確かめられない。2019年、キログラムはプランク定数で決め直された。",
+     "hee": {
+      "1": "2019年まで、1キログラムはパリの金庫にある金属のかたまり1個の重さだった。",
+      "2": "原器は3重のガラスのふたの中にあり、比べるときだけ取り出して決まった方法で洗った。",
+      "3": "50µg は指紋1つぶんくらい。10億分の50 のずれ。",
+      "4": "今はワット天秤（キッブル天秤）やシリコン球の原子の数でプランク定数から質量を決める。"
+     },
+     "certainty": "1799・1889・Pt90/Ir10 ◎／約50µg の差 ◎／日本 No.6 ○",
+     "basis": "- Wikipedia「International Prototype of the Kilogram」：https://en.wikipedia.org/wiki/International_Prototype_of_the_Kilogram"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -20650,7 +21185,7 @@
    "name": "キログラム原器",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1889,
    "year_range": "1879〜1889",
@@ -20668,12 +21203,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "2019年まで、1キログラムはパリの金庫にある金属のかたまり1個の重さだった（NET-06 で追加。出典：Wikipedia「International Prototype of the Kilogram」、EPFL Graph Search）",
    "name_en": "International Prototype of the Kilogram",
    "hee1_en": "Until 2019, one kilogram was the weight of a single lump of metal in a vault in Paris. (Added in NET-06. Sources: Wikipedia \"International Prototype of the Kilogram\", EPFL Graph Search)",
    "kind": "tech",
-   "play": "",
+   "play": "軽＋実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -20731,7 +21266,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "世界中で同じ「1メートル」「1秒」を使えるのは、1960年に決めた国際単位系のおかげ（NET-06 で追加。出典：BIPM「Resolution 12 of the 11th CGPM (1960)」）",
    "name_en": "International System of Units (SI)",
    "hee1_en": "The whole world can use the same \"1 meter\" and \"1 second\" thanks to the SI, decided in 1960 (added in NET-06. Source: BIPM \"Resolution 12 of the 11th CGPM (1960)\")",
@@ -20802,7 +21337,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "いまの1キログラムは、金属のかたまりではなく、電気の力で決めている（NET-06 で追加。出典：NPL「Bryan Kibble」、NIST「Kilogram: Kibble balance」、Comptes Rendus Physique 2019）",
    "name_en": "Watt balance",
    "hee1_en": "Today one kilogram is defined not by a lump of metal but by electric force. (Added in NET-06. Sources: NPL \"Bryan Kibble\", NIST \"Kilogram: Kibble balance\", Comptes Rendus Physique 2019)",
@@ -20993,7 +21528,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ひずみゲージは、地震で水のタンクがどうゆれるかを調べていた研究者が思いついた（S-005 で追加。出典：Caltech「Engineering and Science: Simmons」、Micro-Measurements「Strain gage history」）",
    "name_en": "Strain gauge",
    "hee1_en": "The strain gauge was thought up by a researcher studying how water tanks shake in earthquakes (added in S-005. Sources: Caltech \"Engineering and Science: Simmons\", Micro-Measurements \"Strain gage history\")",
@@ -21273,7 +21808,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F27. 原子を重さでふるい分ける（質量分析）［8-33］（［9-28］イオン注入の前提）",
+     "answer": "試料の原子をイオンにして飛ばし、電磁石の中で曲げると、軽いイオンほど大きく曲がる。着く場所で重さ（質量数）がわかり、同じ元素にも重さのちがう仲間（同位体）があることがわかる。1913年に J・J・トムソンがネオンの同位体を見つけ、1918年にデンプスター、1919年にアストンが質量分析器を作った（アストンは1922年ノーベル化学賞）。",
+     "hee": {
+      "1": "同じ元素なのに、重さがちがう原子がまざっている。",
+      "2": "ホウ素は ¹⁰B が約20%、¹¹B が約80%。リンや金は1種類だけ。",
+      "3": "イオン注入装置は質量分析と同じしくみで、入れたいイオンだけを選んでウェハーに打ちこむ。",
+      "4": "塩素の原子量が 35.45 と半端なのは、³⁵Cl（約76%）と ³⁷Cl（約24%）がまざっているから。"
+     },
+     "certainty": "トムソン 1913・アストン 1919・ノーベル賞 1922 ◎／同位体の割合 ◎（IUPAC）",
+     "basis": "Nobel Prize「Chemistry 1922」https://www.nobelprize.org/prizes/chemistry/1922/summary/ 、IUPAC「Isotopic compositions of the elements」https://ciaaw.org/isotopic-abundances.htm （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -21283,7 +21831,7 @@
    "name": "質量分析",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1919,
    "year_range": "1913〜1919",
@@ -21306,7 +21854,7 @@
    "name_en": "Mass spectrometry",
    "hee1_en": "When bent by an electromagnet, atoms fly apart sorted by weight. (Added in O-010. Sources: Nobel Prize \"Chemistry 1922\", \"Chemistry 2002\", Wikipedia \"National Historic Chemical Landmarks\")",
    "kind": "tech",
-   "play": "",
+   "play": "実験（試料の同位体を調べる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -21601,7 +22149,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "水を一瞬で凍らせると、氷の結晶ができずにガラスのように固まる（O-011 で追加。出典：Nobel Prize「Chemistry 2017」、Nobel Prize「Chemistry 2017 press release」（https://www.nobelprize.org/prizes/chemistry/2017/press-release/））",
    "name_en": "Cryo-electron microscope",
    "hee1_en": "If water is frozen in an instant, no ice crystals form and it sets solid like glass. (Added in O-011. Sources: Nobel Prize \"Chemistry 2017\", Nobel Prize \"Chemistry 2017 press release\" (https://www.nobelprize.org/prizes/chemistry/2017/press-release/))",
@@ -21722,7 +22270,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "酸素とアセチレンの炎は約3100℃で、鉄をバターのように切れる ⚠️（O-012 で追加。出典：Wikipedia「Oxy-fuel welding and cutting」「Edmond Fouché」、Linde「A Look at The History of Welding」（https://www.lindedirect.com/blogs/industrial-guides/industrial-guides/2024/01/30/a-look-at-the-history-of-welding））",
    "name_en": "Gas welding and cutting",
    "hee1_en": "An oxygen-acetylene flame is about 3100°C and cuts iron like butter ⚠️ (added in O-012. Sources: Wikipedia \"Oxy-fuel welding and cutting\", \"Edmond Fouché\", Linde \"A Look at The History of Welding\" (https://www.lindedirect.com/blogs/industrial-guides/industrial-guides/2024/01/30/a-look-at-the-history-of-welding))",
@@ -23857,7 +24405,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L13. 電圧で開く門（MOSFET）［9-23］（O-021、案の段階）",
+     "answer": "MOSFET は、ゲートの電圧で、ごく薄い酸化膜の下に電子の通り道（チャネル）を作り、ソースとドレインをつなぐトランジスタ。ゲートには電流が流れない。1959年にベル研のアタラとカーンが試作し、1960年に発表した。",
+     "hee": {
+      "1": "名前の M・O・S は金属（ゲート）・酸化膜・半導体の重なりの順。",
+      "2": "ゲートの酸化膜は約 0.1 µm（髪の毛の 1/500 くらい）。厚いと電圧が届かず、薄すぎると電気がもれる。",
+      "3": "1960年代はじめの MOS は、酸化膜に入りこんだナトリウムのイオンで動きが勝手に変わった。洗浄（RCA 洗浄 1965）と清浄な工程で直り、1960年代後半に実用になった。",
+      "4": "今のチップのトランジスタはほとんど全部 MOS（CMOS）。1つのチップに数百億個。"
+     },
+     "certainty": "アタラとカーン 1959 試作・1960 発表 ◎／ゲート酸化膜の厚さのめやす ○／Na イオンの問題と洗浄 ○",
+     "basis": "Computer History Museum「1960 – Metal Oxide Semiconductor (MOS) Transistor Demonstrated」、Wikipedia「MOSFET」（History）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24076,7 +24637,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F31. 原子のビリヤードで膜を作る（スパッタリング）［9-26］",
+     "answer": "低い圧力のアルゴンに高い電圧をかけて放電させると、アルゴンのイオンが的（付けたい金属）にぶつかり、原子をはじき出す。その原子がウェハーに積もって膜になる。原子がいろいろな向きから来るので、蒸着より段差の横を覆いやすい。1852年にグローブが見つけ、1970年代にマグネトロン（的の裏の磁石）で量産の方法になった。",
+     "hee": {
+      "1": "最初は「放電管の電極が削れて、ガラスが黒くなる」困った現象だった。",
+      "2": "的の裏の磁石が電子をぐるぐる回して閉じこめ、放電を濃くする（マグネトロン）。",
+      "3": "融けにくい W・Mo・Ti や、合金もそのままの割合で膜にできる。蒸着ではむずかしい。",
+      "4": "窓ガラスの断熱膜（Low-E ガラス）や、ハードディスクの磁性膜もスパッタで作る。"
+     },
+     "certainty": "グローブ 1852 の観察 ◎（Phil. Trans. R. Soc.）／マグネトロンの量産化 1970年代 ○",
+     "basis": "Wikipedia「Sputter deposition」https://en.wikipedia.org/wiki/Sputter_deposition （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24086,7 +24660,7 @@
    "name": "スパッタリング",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1970,
    "year_range": "1852〜1970",
@@ -24121,7 +24695,7 @@
    "name_en": "Sputtering",
    "hee1_en": "Making films by atomic billiards",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -24146,7 +24720,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F32. 放電で真下だけ削る（ドライエッチング・RIE）［9-27］",
+     "answer": "真空容器に四フッ化炭素（CF4）を少し入れ、高周波で放電させる。CF4 がこわれてできたフッ素が、酸化膜（SiO2）を SiF4 の気体にして運び去る。ウェハーの電極にたまる電圧でイオンが真上から当たるので、真下だけ削れる（異方性）。液のフッ酸は横にも溶けるので、線が細くなると太ってくっつく。1970年代から使われ、今のチップの細い線は全部これで削る。",
+     "hee": {
+      "1": "CF4 そのものはほとんど反応しない。放電の中でだけ「フッ素を出す」。",
+      "2": "イオンは電界で真上から当たる。だから縦にまっすぐな壁が掘れる。",
+      "3": "CF4 は二酸化炭素の約6500倍の温室効果があり、5万年も残る。工場では使ったガスをこわしてから出す。⚠️（IPCC の値）",
+      "4": "炭素はフッ素の中で燃える。CF4 はその「燃えかす」。"
+     },
+     "certainty": "RIE の原理と 1970年代の導入 ○（Wikipedia）／CF4 の温室効果の数字 ○（IPCC AR5）",
+     "basis": "Wikipedia「Reactive-ion etching」https://en.wikipedia.org/wiki/Reactive-ion_etching 、Wikipedia「Tetrafluoromethane」https://en.wikipedia.org/wiki/Tetrafluoromethane （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24156,7 +24743,7 @@
    "name": "ドライエッチング",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1970,
    "year_range": null,
@@ -24185,7 +24772,7 @@
    "name_en": "Dry etching",
    "hee1_en": "Dissolving with liquid also eats sideways, so an electric discharge is used to carve straight down only.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -24210,7 +24797,56 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F25. 電気を流すと磁石になる鉄（電磁石）［10-01］（［9-28］イオン注入の前提）",
+     "answer": "電流のまわりには磁場ができる。鉄の芯に絶縁した銅線を何重にも巻くと、電流を流している間だけ強い磁石になる。1820年にエルステッドが電流で方位磁針が振れることを見つけ、1825年にスタージャンが電磁石を、1830年代にヘンリーが強い電磁石を作った。",
+     "hee": {
+      "1": "スイッチを切ると、ただの鉄に戻る磁石。",
+      "2": "線を多く巻くほど、磁場が重なって強くなる。",
+      "3": "電磁石は、リレー（計算機のスイッチ）・モーター・発電機の中にもある。",
+      "4": "イオン注入装置は、電磁石でイオンを曲げて、重さごとにふるい分ける。"
+     },
+     "certainty": "エルステッド 1820・スタージャン 1825・ヘンリー 1830年代 ◎（ブリタニカ）",
+     "basis": "ブリタニカ「electromagnet」https://www.britannica.com/technology/electromagnet （英語）"
+    },
+    {
+     "title": "F26. 電圧を積み上げてイオンを速くする（コッククロフト・ウォルトン加速器）［9-47］（［9-28］の前提）",
+     "answer": "整流器とコンデンサーをはしごのように並べると、交流のたびに電圧が積み上がって何倍にもなる（1920 グライナッハー）。1932年、コッククロフトとウォルトンはこの回路で数十万ボルトを作り、陽子でリチウムの原子核を変えた（1951年ノーベル物理学賞）。同じころローレンスがサイクロトロンを作った（1939年ノーベル物理学賞）。イオン注入装置は、この小さな加速器でドーパントのイオンを速くしてウェハーに打ちこむ。",
+     "hee": {
+      "1": "半導体の工場には、小さな加速器（イオン注入装置）が並んでいる。",
+      "2": "はしごの段の数だけ、電圧が積み上がる。",
+      "3": "加速器は、がんの治療や病院の検査薬づくりにも使われる。",
+      "4": "高い電圧は近づくだけで感電し、速いイオンはエックス線を出すので、装置は囲って接地・遮へいする。"
+     },
+     "certainty": "グライナッハー 1920・コッククロフトとウォルトン 1932・ノーベル賞 1951 / 1939 ◎（Nobel Prize）",
+     "basis": "Nobel Prize「Physics 1951」https://www.nobelprize.org/prizes/physics/1951/summary/ 、Nobel Prize「Physics 1939」https://www.nobelprize.org/prizes/physics/1939/summary/ （英語）"
+    },
+    {
+     "title": "F27. 原子を重さでふるい分ける（質量分析）［8-33］（［9-28］イオン注入の前提）",
+     "answer": "試料の原子をイオンにして飛ばし、電磁石の中で曲げると、軽いイオンほど大きく曲がる。着く場所で重さ（質量数）がわかり、同じ元素にも重さのちがう仲間（同位体）があることがわかる。1913年に J・J・トムソンがネオンの同位体を見つけ、1918年にデンプスター、1919年にアストンが質量分析器を作った（アストンは1922年ノーベル化学賞）。",
+     "hee": {
+      "1": "同じ元素なのに、重さがちがう原子がまざっている。",
+      "2": "ホウ素は ¹⁰B が約20%、¹¹B が約80%。リンや金は1種類だけ。",
+      "3": "イオン注入装置は質量分析と同じしくみで、入れたいイオンだけを選んでウェハーに打ちこむ。",
+      "4": "塩素の原子量が 35.45 と半端なのは、³⁵Cl（約76%）と ³⁷Cl（約24%）がまざっているから。"
+     },
+     "certainty": "トムソン 1913・アストン 1919・ノーベル賞 1922 ◎／同位体の割合 ◎（IUPAC）",
+     "basis": "Nobel Prize「Chemistry 1922」https://www.nobelprize.org/prizes/chemistry/1922/summary/ 、IUPAC「Isotopic compositions of the elements」https://ciaaw.org/isotopic-abundances.htm （英語）"
+    },
+    {
+     "title": "F28. 原子を打ちこむ（イオン注入）［9-28］",
+     "answer": "ドーパントの原子をイオンにし、電磁石で入れたいイオンだけを選んで、加速器の高電圧でウェハーに打ちこむ。拡散とちがって、窓が閉じず、横に広がらず、量と深さを細かく決められる。打ちこんだだけでは結晶がこわれていて効かないので、熱で直す（アニール）。1954年にショックレーが特許を出し、1960〜70年代に量産の工程になった。",
+     "hee": {
+      "1": "半導体の工場には、小さな加速器が並んでいる。",
+      "2": "量産で最初に注入を使ったのは1962年、すべての製品に注入を使う最初の工場は1970年。",
+      "3": "イオンの量（ドーズ）は電流と時間で決まるので、拡散より正確。",
+      "4": "イオン源の三フッ化ホウ素・ホスフィンはとても毒が強く、ボンベは漏れを見張る棚に置く。"
+     },
+     "certainty": "ショックレーの特許 US 2,787,564（1954出願・1957発行）◎／量産の年（1962・1970）○（TECH_TREE の出典）",
+     "basis": "Google Patents「US2787564A」https://patents.google.com/patent/US2787564A/en 、Wikipedia「Ion implantation」https://en.wikipedia.org/wiki/Ion_implantation （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24220,7 +24856,7 @@
    "name": "イオン注入",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1954,
    "year_range": "1954〜1970",
@@ -24260,7 +24896,7 @@
    "name_en": "Ion implantation",
    "hee1_en": "Atoms are used as bullets and shot to an exact depth.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -24285,7 +24921,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F29. 打ちこんだ後に焼きなます（アニール）［9-29］",
+     "answer": "イオンを打ちこむと、結晶の原子がはじき飛ばされ、打ちこんだ原子もすき間に止まるので、そのままでは電気を運ばない。窒素やアルゴンの中で約1000℃ に熱すると、原子が並び直し、ドーパントが格子の位置に入って働きだす（活性化）。1980年代からは、ランプで数秒だけ熱する RTA が使われる。",
+     "hee": {
+      "1": "鉄の「焼きなまし」と同じことば（anneal）。熱で原子が並び直す。",
+      "2": "長く熱すると、ドーパントが決めた場所から広がってしまう。だから「短く・熱く」の RTA が生まれた。",
+      "3": "空気の中で熱すると表面が酸化するので、窒素やアルゴンで守る。",
+      "4": "今はミリ秒だけ熱するレーザーやフラッシュランプのアニールもある。"
+     },
+     "certainty": "注入の損傷と活性化に熱処理が要ること ◎／RTA が 1980年代に広まったこと ○（TECH_TREE の出典）",
+     "basis": "Wikipedia「Rapid thermal processing」https://en.wikipedia.org/wiki/Rapid_thermal_processing 、Wikipedia「Ion implantation」（Problems with ion implantation／Crystallographic damage）https://en.wikipedia.org/wiki/Ion_implantation （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24295,7 +24944,7 @@
    "name": "アニール",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1980,
    "year_range": null,
@@ -24326,7 +24975,7 @@
    "name_en": "Annealing",
    "hee1_en": "Just like annealing metal, heat lets the atoms line up again.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -24389,7 +25038,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "シーメンス法で棒を太らせる反応を、薄い膜にして使う",
    "name_en": "Epitaxy and CVD",
    "hee1_en": "The reaction that thickens rods in the Siemens process is used to make thin films",
@@ -24550,7 +25199,32 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F22. 穴を通して細くする（伸線・ボンディング線）［1-58］（［9-33］の前提）",
+     "answer": "金属の棒を、少しずつ小さくなる穴（ダイス）に次々と通して引っぱると、細く長い線になる。古代から手で引き、14世紀のニュルンベルクで水車の力で引くようになった（年は ⚠️）。すり減らないダイヤモンドの穴を使うと、チップをつなぐ直径約25µm の金線まで引ける。",
+     "hee": {
+      "1": "電線の銅線は、太い棒を小さな穴に何十回も通して細く引きのばしている。",
+      "2": "金は1g から数km の線が引けるほどよくのびる。",
+      "3": "チップと外をつなぐ線は、髪の毛の3分の1ほどの太さの金。",
+      "4": "1893年のローブリングの撚り線機（ASME ランドマーク #139）は、鋼線をより合わせて吊り橋のワイヤロープを作った。"
+     },
+     "certainty": "伸線のしくみ ◎／ニュルンベルクの水車 △（年が不確か）／ASME #139 ◎／25µm の金線 ◎／ダイヤモンドのダイスの普及の年 △",
+     "basis": "Wikipedia「Wire drawing」https://en.wikipedia.org/wiki/Wire_drawing 、ASME「Roebling 80-Ton Wire Rope Machine」https://www.asme.org/about-asme/engineering-history/landmarks （英語）"
+    },
+    {
+     "title": "F23. 髪の毛より細い金の線でつなぐ（ワイヤーボンディング）［9-33］",
+     "answer": "チップを足の付いた台（ヘッダー）に載せ、直径約25µm の金の線を、温めた台の上でチップのアルミのパッドと足に押しつけてくっつける（熱圧着）。パッド1つに線1本。1950年代後半にベル研で熱圧着が考えられ、のちに超音波でくっつける方法が加わった。",
+     "hee": {
+      "1": "チップと外をつなぐ線は、髪の毛の3分の1ほどの太さの金。",
+      "2": "足と台のすき間はガラスで溶かしふさいである（ガラスと金属の封着）。",
+      "3": "初期の IC はトランジスタと同じ丸い金属の缶（TO-5）に入っていた。",
+      "4": "今のボンダーは1秒に20本以上の線をつなぐ。"
+     },
+     "certainty": "熱圧着と金線 ◎（教科書）／ベル研 1957 △（年は未確認）／TO-5・ガラス封着 ◎",
+     "basis": "Wikipedia「Wire bonding」https://en.wikipedia.org/wiki/Wire_bonding 、Wikipedia「TO-5」https://en.wikipedia.org/wiki/TO-5 （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24560,7 +25234,7 @@
    "name": "ワイヤーボンディング",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1957,
    "year_range": null,
@@ -24583,7 +25257,7 @@
    "name_en": "Wire bonding",
    "hee1_en": "The wire connecting the chip to the outside is gold about a third as thick as a hair.",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -24608,7 +25282,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F24. 殻に閉じこめて守る（封止：金属缶とエポキシ）［9-34］",
+     "answer": "チップの表面に湿気やナトリウムが付くと特性が変わるので、殻に閉じこめる。初期のトランジスタと IC は、乾いた窒素を満たした金属の缶（TO-5 など）を溶接して封じた（気密封止）。1960年代後半から、温めた型にエポキシを押しこんで包む安いプラスチックパッケージ（DIP など）が主流になった。",
+     "hee": {
+      "1": "黒いチップの外側は、湿気から守る殻のようなプラスチック。",
+      "2": "DIP（2列に足が並んだ形）は 1964年にフェアチャイルドが作った（はじめはセラミック）。",
+      "3": "アポロ誘導コンピュータの IC も、金属の缶やフラットパックに入っていた。",
+      "4": "気密の缶は高いが信頼性が高く、今も宇宙・軍の部品に使われる。"
+     },
+     "certainty": "金属缶の気密封止 ◎／DIP 1964 フェアチャイルド ○（Wikipedia）／プラスチックが主流になった年 △／アポロの IC のパッケージ ○",
+     "basis": "Wikipedia「Dual in-line package」https://en.wikipedia.org/wiki/Dual_in-line_package 、Wikipedia「Integrated circuit packaging」https://en.wikipedia.org/wiki/Integrated_circuit_packaging （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24618,7 +25305,7 @@
    "name": "封止",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": null,
@@ -24644,7 +25331,7 @@
    "name_en": "Encapsulation",
    "hee1_en": "The outside of a black chip is plastic, like a shell protecting it from moisture",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -24669,7 +25356,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L10. 割る前に調べる（ウェハープローバー）［9-35］（O-017）",
+     "answer": "仕上がったウェハーのチップ1個ずつのパッドに細い針（プローブカード）を当てて電気を通し、良いか悪いかを決める。悪いチップにはインクの点を付け、ダイシングのあとで捨てる。精密な台がウェハーをチップからチップへ送る。悪いチップをパッケージに入れる無駄が無くなる。",
+     "hee": {
+      "1": "作ったチップが全部動くわけではない。良品の割合を歩留まりという。",
+      "2": "歩留まりのめやすは Y ≈ e^(−D×A)（D＝面積あたりの欠陥の数、A＝チップの面積）。チップが大きいほど、ほこりが1つでも乗りやすい。",
+      "3": "針はタングステンなど硬い金属で、パッドに少し傷を付けるくらいの力で当てる。",
+      "4": "今の自動テスターは1台で何億円もし、チップの値段のかなりの部分がテストの費用。"
+     },
+     "certainty": "針を当てて良否、インクの印 ◎／歩留まりの式（ポアソンの近似）◎／最初の自動プローバーの年・会社（1960年代）△⚠️（確かめていない）",
+     "basis": "Wikipedia「Wafer testing」「Semiconductor device fabrication」（Wafer testing・Yield）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -24679,7 +25379,7 @@
    "name": "テスト",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1960,
    "year_range": null,
@@ -24951,6 +25651,30 @@
      },
      "certainty": "アッベの限界・レイリーの式 ◎／マイクラライン 1973（最初の投影アライナー）○（Wikipedia・SHMJ）／DSW4800 1978（最初のステッパー、g線、10:1）○（SHMJ。1975 とする資料もある）／各方法の CD の値 △（世代のめやす。とくに密着 10µm・等倍投影 3µm・DSW の 1µm は製品資料で未確認）→ ゲーム内は ⚠️",
      "basis": "- Wikipedia「Micralign」：https://en.wikipedia.org/wiki/Micralign"
+    },
+    {
+     "title": "O52. 縮めて1チップずつ焼く（ステッパー）［9-39］",
+     "answer": "ステッパーは、マスクの像を投影レンズで縮めて、ウェハーの上に1チップずつ「送っては焼く（ステップ・アンド・リピート）」露光装置。1978年に GCA が DSW を発売し、1980年代にはニコン・キヤノンのステッパーが世界に広まった。マスクに触れないので傷まず、マスクを大きく作れるので細かい模様を正確に写せる。1990年代には、細いすき間の光でマスクとウェハーを同時に走らせるスキャナーになった。",
+     "hee": {
+      "1": "半導体の歴史は「もっと短い光で、もっと細かく」の歴史。",
+      "2": "1960年代には、ステップ・アンド・リピートの写真機でマスクの原版を何十個も並べて作っていた。",
+      "3": "ステッパーは日本の光学メーカーが世界の大部分を作った時期がある。",
+      "4": "今の EUV 露光装置は1台が数百億円、レンズの代わりに鏡を使う。"
+     },
+     "certainty": "GCA DSW 1978 ◎（光源の g線は ⚠️、TECH_TREE の記述どおり）／ニコン・キヤノンの1980年代の普及 ○／スキャナー 1990年代 ○",
+     "basis": "- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper"
+    },
+    {
+     "title": "O56. もっと短い光で、もっと細かく（i線ステッパー）［9-39］",
+     "answer": "水銀灯には g線（436nm）・h線（405nm）・i線（365nm）がある。1980年代後半、フィルターで i線だけを取り出し、紫外でも透明な硝材・石英でレンズを作り直した i線ステッパーが広まり、0.35µm ほどの線が描けるようになった。CD＝k1×λ÷NA なので、波長を短く・NA を大きくすると細かくなるが、レンズのわずかなずれも大きく効くようになる。",
+     "hee": {
+      "1": "ふつうのガラスは紫外の光を吸うので、レンズの材料から変えなければならない。",
+      "2": "その次は KrF（248nm）・ArF（193nm）のエキシマレーザー、そして EUV（13.5nm）。",
+      "3": "波長が短いほど、同じレンズのずれでもぼけ方が大きい。",
+      "4": "i線の露光装置は、今も線の太い層の露光に使われている。"
+     },
+     "certainty": "水銀の i線 365nm ◎／i線ステッパーの普及 1980年代後半〜1990年代 ○／NA 0.5〜0.65 ○",
+     "basis": "- Wikipedia「Stepper」：https://en.wikipedia.org/wiki/Stepper"
     }
    ],
    "item": null,
@@ -24962,7 +25686,7 @@
    "name": "縮小投影露光",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1978,
    "year_range": null,
@@ -25008,7 +25732,7 @@
    "name_en": "Reduction projection lithography",
    "hee1_en": "The history of semiconductors is the history of \"shorter light, finer patterns\".",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -25297,7 +26021,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "スマホの中には、シリコンでできた小さなばねとおもりがあって、傾けると本当に動いている（S-003 で追加。出典：Proc. IEEE「Silicon as a Mechanical Material」（1982）、Wikipedia「Microelectromechanical systems」）",
    "name_en": "MEMS",
    "hee1_en": "Inside a smartphone are tiny springs and weights made of silicon, and they really move when you tilt it. (Added in S-003. Sources: Proc. IEEE \"Silicon as a Mechanical Material\" (1982), Wikipedia \"Microelectromechanical systems\")",
@@ -25501,17 +26225,30 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F26. 電圧を積み上げてイオンを速くする（コッククロフト・ウォルトン加速器）［9-47］（［9-28］の前提）",
+     "answer": "整流器とコンデンサーをはしごのように並べると、交流のたびに電圧が積み上がって何倍にもなる（1920 グライナッハー）。1932年、コッククロフトとウォルトンはこの回路で数十万ボルトを作り、陽子でリチウムの原子核を変えた（1951年ノーベル物理学賞）。同じころローレンスがサイクロトロンを作った（1939年ノーベル物理学賞）。イオン注入装置は、この小さな加速器でドーパントのイオンを速くしてウェハーに打ちこむ。",
+     "hee": {
+      "1": "半導体の工場には、小さな加速器（イオン注入装置）が並んでいる。",
+      "2": "はしごの段の数だけ、電圧が積み上がる。",
+      "3": "加速器は、がんの治療や病院の検査薬づくりにも使われる。",
+      "4": "高い電圧は近づくだけで感電し、速いイオンはエックス線を出すので、装置は囲って接地・遮へいする。"
+     },
+     "certainty": "グライナッハー 1920・コッククロフトとウォルトン 1932・ノーベル賞 1951 / 1939 ◎（Nobel Prize）",
+     "basis": "Nobel Prize「Physics 1951」https://www.nobelprize.org/prizes/physics/1951/summary/ 、Nobel Prize「Physics 1939」https://www.nobelprize.org/prizes/physics/1939/summary/ （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "未定（実装の前に相談）",
+   "game_text": "決定（O-011）：イオン注入装置の部品（CW 回路・加速管）",
    "id": "9-47",
    "name": "加速器",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1932,
    "year_range": "1920〜1932",
@@ -25544,7 +26281,7 @@
    "name_en": "Particle accelerator",
    "hee1_en": "Semiconductor factories have rows of small accelerators (ion implanters). (Added in O-008. Sources: Nobel Prize \"Physics 1939\", \"Physics 1951\", University of Bern \"Greinacher\", DESY \"Wideröe\")",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -25706,7 +26443,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F25. 電気を流すと磁石になる鉄（電磁石）［10-01］（［9-28］イオン注入の前提）",
+     "answer": "電流のまわりには磁場ができる。鉄の芯に絶縁した銅線を何重にも巻くと、電流を流している間だけ強い磁石になる。1820年にエルステッドが電流で方位磁針が振れることを見つけ、1825年にスタージャンが電磁石を、1830年代にヘンリーが強い電磁石を作った。",
+     "hee": {
+      "1": "スイッチを切ると、ただの鉄に戻る磁石。",
+      "2": "線を多く巻くほど、磁場が重なって強くなる。",
+      "3": "電磁石は、リレー（計算機のスイッチ）・モーター・発電機の中にもある。",
+      "4": "イオン注入装置は、電磁石でイオンを曲げて、重さごとにふるい分ける。"
+     },
+     "certainty": "エルステッド 1820・スタージャン 1825・ヘンリー 1830年代 ◎（ブリタニカ）",
+     "basis": "ブリタニカ「electromagnet」https://www.britannica.com/technology/electromagnet （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -25716,7 +26466,7 @@
    "name": "電磁石",
    "trunk": "10",
    "trunk_name": "制御・計算",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1820,
    "year_range": "1820〜1825",
@@ -25740,12 +26490,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "スイッチを切ると、ただの鉄に戻る磁石",
    "name_en": "Electromagnet",
    "hee1_en": "A magnet that turns back into plain iron when you switch it off",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -25820,7 +26570,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "カチカチ鳴る小さなスイッチが、コンピュータの祖先",
    "name_en": "Relay",
    "hee1_en": "A small clicking switch is the ancestor of the computer.",
@@ -25984,7 +26734,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L9. 論理回路の歴史（お題の答え合わせ）［10-05］［10-09］［10-10］［10-11］（O-016、v0.3b）",
+     "answer": "トランジスタ1個と抵抗の NOT（RTL のインバータ）を並べると NOR になり、NOR だけでどの論理も作れる。1961年のフェアチャイルドの「マイクロロジック」は RTL の IC の最初の製品群で、1960年代のアポロ誘導コンピュータは3入力の NOR ゲートの IC だけで組まれた。のちに DTL・TTL の NAND が主役になった。足し算は XOR（和）と AND（けた上がり）でできる。",
+     "hee": {
+      "1": "ゲート1種類（NAND だけ、または NOR だけ）で、どんな論理回路も作れる（万能ゲート）。",
+      "2": "ド・モルガンの法則（1847）：NOT(A AND B) ＝ NOT A OR NOT B。",
+      "3": "1937年、ジョージ・スティビッツが電話のリレーで2進数の足し算器を台所で作った（モデルK）。",
+      "4": "アポロ誘導コンピュータには、同じ NOR ゲートの IC が何千個も使われた。当時アメリカで作られた IC の大きな割合を買ったといわれる ⚠️。"
+     },
+     "certainty": "マイクロロジック 1961（RTL）◎／アポロ誘導コンピュータが NOR の IC で組まれた ◎／ド・モルガン 1847 ◎／スティビッツのモデルK 1937 ◎／DTL・TTL の NAND の最初の製品の年 △⚠️／アポロが IC の大きな割合を買った ○⚠️",
+     "basis": "Computer History Museum「1961 – Fairchild's Micrologic」、Wikipedia「Apollo Guidance Computer」「Resistor–transistor logic」「De Morgan's laws」「George Stibitz」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26223,7 +26986,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L9. 論理回路の歴史（お題の答え合わせ）［10-05］［10-09］［10-10］［10-11］（O-016、v0.3b）",
+     "answer": "トランジスタ1個と抵抗の NOT（RTL のインバータ）を並べると NOR になり、NOR だけでどの論理も作れる。1961年のフェアチャイルドの「マイクロロジック」は RTL の IC の最初の製品群で、1960年代のアポロ誘導コンピュータは3入力の NOR ゲートの IC だけで組まれた。のちに DTL・TTL の NAND が主役になった。足し算は XOR（和）と AND（けた上がり）でできる。",
+     "hee": {
+      "1": "ゲート1種類（NAND だけ、または NOR だけ）で、どんな論理回路も作れる（万能ゲート）。",
+      "2": "ド・モルガンの法則（1847）：NOT(A AND B) ＝ NOT A OR NOT B。",
+      "3": "1937年、ジョージ・スティビッツが電話のリレーで2進数の足し算器を台所で作った（モデルK）。",
+      "4": "アポロ誘導コンピュータには、同じ NOR ゲートの IC が何千個も使われた。当時アメリカで作られた IC の大きな割合を買ったといわれる ⚠️。"
+     },
+     "certainty": "マイクロロジック 1961（RTL）◎／アポロ誘導コンピュータが NOR の IC で組まれた ◎／ド・モルガン 1847 ◎／スティビッツのモデルK 1937 ◎／DTL・TTL の NAND の最初の製品の年 △⚠️／アポロが IC の大きな割合を買った ○⚠️",
+     "basis": "Computer History Museum「1961 – Fairchild's Micrologic」、Wikipedia「Apollo Guidance Computer」「Resistor–transistor logic」「De Morgan's laws」「George Stibitz」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26284,7 +27060,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L9. 論理回路の歴史（お題の答え合わせ）［10-05］［10-09］［10-10］［10-11］（O-016、v0.3b）",
+     "answer": "トランジスタ1個と抵抗の NOT（RTL のインバータ）を並べると NOR になり、NOR だけでどの論理も作れる。1961年のフェアチャイルドの「マイクロロジック」は RTL の IC の最初の製品群で、1960年代のアポロ誘導コンピュータは3入力の NOR ゲートの IC だけで組まれた。のちに DTL・TTL の NAND が主役になった。足し算は XOR（和）と AND（けた上がり）でできる。",
+     "hee": {
+      "1": "ゲート1種類（NAND だけ、または NOR だけ）で、どんな論理回路も作れる（万能ゲート）。",
+      "2": "ド・モルガンの法則（1847）：NOT(A AND B) ＝ NOT A OR NOT B。",
+      "3": "1937年、ジョージ・スティビッツが電話のリレーで2進数の足し算器を台所で作った（モデルK）。",
+      "4": "アポロ誘導コンピュータには、同じ NOR ゲートの IC が何千個も使われた。当時アメリカで作られた IC の大きな割合を買ったといわれる ⚠️。"
+     },
+     "certainty": "マイクロロジック 1961（RTL）◎／アポロ誘導コンピュータが NOR の IC で組まれた ◎／ド・モルガン 1847 ◎／スティビッツのモデルK 1937 ◎／DTL・TTL の NAND の最初の製品の年 △⚠️／アポロが IC の大きな割合を買った ○⚠️",
+     "basis": "Computer History Museum「1961 – Fairchild's Micrologic」、Wikipedia「Apollo Guidance Computer」「Resistor–transistor logic」「De Morgan's laws」「George Stibitz」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26342,7 +27131,32 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L9. 論理回路の歴史（お題の答え合わせ）［10-05］［10-09］［10-10］［10-11］（O-016、v0.3b）",
+     "answer": "トランジスタ1個と抵抗の NOT（RTL のインバータ）を並べると NOR になり、NOR だけでどの論理も作れる。1961年のフェアチャイルドの「マイクロロジック」は RTL の IC の最初の製品群で、1960年代のアポロ誘導コンピュータは3入力の NOR ゲートの IC だけで組まれた。のちに DTL・TTL の NAND が主役になった。足し算は XOR（和）と AND（けた上がり）でできる。",
+     "hee": {
+      "1": "ゲート1種類（NAND だけ、または NOR だけ）で、どんな論理回路も作れる（万能ゲート）。",
+      "2": "ド・モルガンの法則（1847）：NOT(A AND B) ＝ NOT A OR NOT B。",
+      "3": "1937年、ジョージ・スティビッツが電話のリレーで2進数の足し算器を台所で作った（モデルK）。",
+      "4": "アポロ誘導コンピュータには、同じ NOR ゲートの IC が何千個も使われた。当時アメリカで作られた IC の大きな割合を買ったといわれる ⚠️。"
+     },
+     "certainty": "マイクロロジック 1961（RTL）◎／アポロ誘導コンピュータが NOR の IC で組まれた ◎／ド・モルガン 1847 ◎／スティビッツのモデルK 1937 ◎／DTL・TTL の NAND の最初の製品の年 △⚠️／アポロが IC の大きな割合を買った ○⚠️",
+     "basis": "Computer History Museum「1961 – Fairchild's Micrologic」、Wikipedia「Apollo Guidance Computer」「Resistor–transistor logic」「De Morgan's laws」「George Stibitz」"
+    },
+    {
+     "title": "L11. 覚える回路（フリップフロップ・カウンタ・レジスタ）［10-11］（S-009、v0.3b）",
+     "answer": "2つの増幅器（ゲート）の出力をたがいの入力に戻すと、2つの安定な状態のどちらかに落ち着き、入力が消えてもその状態を保つ＝1ビットの記憶（フリップフロップ）。これを並べると、クロックのたびに数を数える回路（カウンタ）や、数をしまう回路（レジスタ）になる。",
+     "hee": {
+      "1": "1918年、イギリスのエクルズとジョーダンが真空管2本で「トリガ回路」を作った。今のすべてのフリップフロップの祖先。",
+      "2": "1932年、ウィン＝ウィリアムズはサイラトロン管の「2進の計数回路」で、放射線の粒を数えた。",
+      "3": "記憶が安定するには、切れている側のトランジスタが確実に切れていること。ゲームの SR ラッチの例でも、入力の抵抗が長いと記憶が消えた（真ん中の不安定な点に落ちる）。",
+      "4": "1971年のインテル 4004 は、4ビットのレジスタ16個に数を入れていた。CPU はほとんどがレジスタと加算器。"
+     },
+     "certainty": "エクルズ・ジョーダン 1918 ◎／ウィン＝ウィリアムズ 1932 ◎／4004 の 4ビット×16 のレジスタ ◎／D ラッチが初期の IC のメモリの1ビットを覚えた ○⚠️（製品名と年は確かめていない）",
+     "basis": "Wikipedia「Flip-flop (electronics)」（History）、「C. E. Wynn-Williams」、「Intel 4004」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -26352,7 +27166,7 @@
    "name": "加算器・カウンタ・レジスタ",
    "trunk": "10",
    "trunk_name": "制御・計算",
-   "status": "❓",
+   "status": "🔧",
    "branch": false,
    "year": 1964,
    "year_range": null,
@@ -28367,7 +29181,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "空気の窒素がパンになる",
    "name_en": "Nitrogen fertilizer",
    "hee1_en": "Nitrogen from the air becomes bread.",
@@ -28510,7 +29324,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C49. お酒が酢になるわけと、それを防ぐ方法（酢・低温殺菌）［11-10］［11-15］",
+     "answer": "お酒を空気にさらしておくと、空気の中の酢酸菌がアルコールを酢酸にして酢になる（C2H5OH + O2 → CH3COOH + H2O）。1864年パスツールがこれを示し、フランスのワインが酸っぱくなる「病気」は、約60℃で数分温めて菌を減らせば防げることを見つけた（低温殺菌、パスチャライゼーション）。今は牛乳などにも使われる。ビール・ワインは紀元前数千年から作られてきた（ジョージアのワインは紀元前6000年ごろ）。",
+     "hee": {
+      "1": "お酒を空気にさらしておくと酢になる。",
+      "2": "牛乳パックの「殺菌」の英語はパスツールの名前から。",
+      "3": "酢は、人類が最初に使った酸。",
+      "4": "煮立てずに少し温めるだけで、味を変えずに菌を減らせる。"
+     },
+     "certainty": "パスツール 1864（酢酸菌・低温殺菌）◎／ジョージアのワイン 紀元前6000年ごろ ○",
+     "basis": "- Wikipedia「Vinegar」/「Acetobacter」：https://en.wikipedia.org/wiki/Vinegar"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -28520,7 +29347,7 @@
    "name": "酒と酢",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -6000,
    "year_range": "-7000〜1864",
@@ -28540,12 +29367,12 @@
    "understanding": [
     "2-39"
    ],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "お酒を空気にさらしておくと酢になる",
    "name_en": "Alcohol and vinegar",
    "hee1_en": "Leave alcohol out in the air and it turns into vinegar.",
    "kind": "tech",
-   "play": "",
+   "play": "実験＋軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -28769,7 +29596,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C50. 白い砂糖は茶色の汁を炭で白くしたもの（砂糖）［11-14］",
+     "answer": "サトウキビの砂糖はインドで紀元前後から作られた。しぼった汁に石灰を入れてにごりを沈め、煮つめると茶色の砂糖（黒糖）の結晶ができる。19世紀から、骨を焼いた骨炭に通して色のもとを吸いとり、白い砂糖にするようになった。1747年ドイツのマルクグラーフがテンサイ（砂糖大根）にも同じ砂糖があることを見つけ、1801年アシャールが最初のテンサイ製糖工場を作った。",
+     "hee": {
+      "1": "白い砂糖は、茶色の汁を炭で白くしたもの。",
+      "2": "サトウキビの砂糖とテンサイの砂糖は、まったく同じ物（ショ糖）。",
+      "3": "シュガーの語源は、サンスクリット語の「シャルカラ（砂粒）」。",
+      "4": "ナポレオンの大陸封鎖でサトウキビの砂糖が入らなくなり、テンサイ糖が広まった。"
+     },
+     "certainty": "マルクグラーフ 1747・アシャール 1801 ◎／インドの砂糖（紀元前後）○⚠️／骨炭の脱色 ◎",
+     "basis": "- Wikipedia「Sugar」（歴史）：https://en.wikipedia.org/wiki/Sugar"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -28779,7 +29619,7 @@
    "name": "砂糖",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 0,
    "year_range": "0〜1801",
@@ -28802,12 +29642,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "白い砂糖は茶色の汁を炭で白くしたもの",
    "name_en": "Sugar",
    "hee1_en": "White sugar is brown juice that was whitened with charcoal.",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -28832,7 +29672,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C49. お酒が酢になるわけと、それを防ぐ方法（酢・低温殺菌）［11-10］［11-15］",
+     "answer": "お酒を空気にさらしておくと、空気の中の酢酸菌がアルコールを酢酸にして酢になる（C2H5OH + O2 → CH3COOH + H2O）。1864年パスツールがこれを示し、フランスのワインが酸っぱくなる「病気」は、約60℃で数分温めて菌を減らせば防げることを見つけた（低温殺菌、パスチャライゼーション）。今は牛乳などにも使われる。ビール・ワインは紀元前数千年から作られてきた（ジョージアのワインは紀元前6000年ごろ）。",
+     "hee": {
+      "1": "お酒を空気にさらしておくと酢になる。",
+      "2": "牛乳パックの「殺菌」の英語はパスツールの名前から。",
+      "3": "酢は、人類が最初に使った酸。",
+      "4": "煮立てずに少し温めるだけで、味を変えずに菌を減らせる。"
+     },
+     "certainty": "パスツール 1864（酢酸菌・低温殺菌）◎／ジョージアのワイン 紀元前6000年ごろ ○",
+     "basis": "- Wikipedia「Vinegar」/「Acetobacter」：https://en.wikipedia.org/wiki/Vinegar"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -28842,7 +29695,7 @@
    "name": "低温殺菌",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1864,
    "year_range": null,
@@ -28865,7 +29718,7 @@
    "name_en": "Pasteurization",
    "hee1_en": "The word \"pasteurized\" on milk cartons comes from Pasteur's name.",
    "kind": "tech",
-   "play": "",
+   "play": "実験",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -31742,7 +32595,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "週末に放っておいたら、金属が勝手に硬くなっていた",
    "name_en": "Duralumin",
    "hee1_en": "Left alone over a weekend, the metal had hardened all by itself.",
@@ -32483,7 +33336,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "電話のマイクは炭の粒でできていた",
    "name_en": "Telephone",
    "hee1_en": "Telephone microphones were made of carbon grains.",
@@ -32990,7 +33843,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "カセットテープの茶色は、さびた鉄の粉",
    "name_en": "Magnetic recording",
    "hee1_en": "The brown on cassette tape is rusted iron powder.",
@@ -34847,7 +35700,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L12. 電卓（トランジスタから IC、そして 4004 へ）［B-08］［B-24］（S-010）",
+     "answer": "1964年のシャープ CS-10A は、トランジスタとダイオードだけで作った最初の卓上電卓の一つで、数をニキシー管で見せた（約25kg）。1960年代の終わりから IC・LSI で小さくなり、1971年に日本のビジコンが電卓のチップをインテルに頼んだことから、最初のマイクロプロセッサ 4004 が生まれた。",
+     "hee": {
+      "1": "CS-10A はトランジスタ約530個・ダイオード約2300個、重さ約25kg、値段は当時の車くらい。",
+      "2": "ニキシー管は、数字の形の金属が10枚重なったネオン管。選んだ数字の形だけがオレンジに光る。",
+      "3": "1967年、テキサス・インスツルメンツは手のひらの IC 電卓（キャル・テック）を試作した ⚠️。",
+      "4": "電卓の値下げ競争が、1つのチップに計算の全部を入れる CPU（4004、1971）を生んだ。"
+     },
+     "certainty": "CS-10A 1964・トランジスタ式・ニキシー管 ○（部品の数・重さは資料でちがう⚠️）／ニキシー管の開発（1950年代なかば、ハイドゥ兄弟・バローズ）○⚠️／TI のキャル・テック 1967 ○⚠️／ビジコンと 4004 1971 ◎",
+     "basis": "Wikipedia「Sharp Compet CS-10A」（または「Calculator」History）、「Nixie tube」、「Cal Tech (calculator)」、「Intel 4004」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -34857,7 +35723,7 @@
    "name": "電卓",
    "trunk": "B",
    "trunk_name": "枝",
-   "status": "❓",
+   "status": "✅",
    "branch": true,
    "year": 1964,
    "year_range": null,
@@ -35285,7 +36151,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C43. 水をたらすと燃えるガスが出る石（カーバイドとアセチレンランプ）［B-14］",
+     "answer": "1892年、カナダ生まれのトマス・ウィルソンはアルミを作ろうとアーク炉で石灰と炭を熱し、偶然カーバイド（CaC2）を作った。カーバイドに水をたらすとアセチレンが出て（CaC2 + 2H2O → C2H2 + Ca(OH)2）、その炎はとても明るい。20世紀の前半、炭鉱夫のヘルメットのランプ、自転車・自動車のライト、灯台に使われた。アセチレンはのちにプラスチックや合成ゴムの原料（アセチレン化学）にもなった。",
+     "hee": {
+      "1": "水をたらすと燃えるガスが出る石。",
+      "2": "アセチレンの炎が明るいのは、すすの小さな粒が強く光るから。",
+      "3": "カーバイドは、アルミを作ろうとした失敗から生まれた。",
+      "4": "燃えかすは消石灰。石灰がまたもどってくる。"
+     },
+     "certainty": "ウィルソン 1892 ◎／反応 ◎／炭鉱・自転車のランプ ◎",
+     "basis": "- Wikipedia「Carbide lamp」：https://en.wikipedia.org/wiki/Carbide_lamp"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -35295,7 +36174,7 @@
    "name": "アセチレンランプ",
    "trunk": "B",
    "trunk_name": "枝",
-   "status": "❓",
+   "status": "✅",
    "branch": true,
    "year": 1892,
    "year_range": null,
@@ -35308,12 +36187,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "水をたらすと燃えるガスが出る石",
    "name_en": "Acetylene lamp",
    "hee1_en": "A stone that gives off a burnable gas when you drip water on it",
    "kind": "tech",
-   "play": "",
+   "play": "軽",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -35894,6 +36773,82 @@
      "pi": 70
     }
    ],
+   "media": [],
+   "descendants": 0
+  },
+  {
+   "real_full": "ネオンを入れたガラス管に、0〜9 の形の陰極10枚を網の陽極の後ろに重ね、選んだ陰極がグロー放電で光る（約170V）。1950年代なかばにハイドゥ兄弟が開発し、バローズが「ニキシー」の名で売った ⚠️。1964 シャープ CS-10A の表示",
+   "hee_tree": {
+    "2": "",
+    "3": "",
+    "4": ""
+   },
+   "hee_game": {},
+   "refs": [
+    {
+     "title": "L12. 電卓（トランジスタから IC、そして 4004 へ）［B-08］［B-24］（S-010）",
+     "answer": "1964年のシャープ CS-10A は、トランジスタとダイオードだけで作った最初の卓上電卓の一つで、数をニキシー管で見せた（約25kg）。1960年代の終わりから IC・LSI で小さくなり、1971年に日本のビジコンが電卓のチップをインテルに頼んだことから、最初のマイクロプロセッサ 4004 が生まれた。",
+     "hee": {
+      "1": "CS-10A はトランジスタ約530個・ダイオード約2300個、重さ約25kg、値段は当時の車くらい。",
+      "2": "ニキシー管は、数字の形の金属が10枚重なったネオン管。選んだ数字の形だけがオレンジに光る。",
+      "3": "1967年、テキサス・インスツルメンツは手のひらの IC 電卓（キャル・テック）を試作した ⚠️。",
+      "4": "電卓の値下げ競争が、1つのチップに計算の全部を入れる CPU（4004、1971）を生んだ。"
+     },
+     "certainty": "CS-10A 1964・トランジスタ式・ニキシー管 ○（部品の数・重さは資料でちがう⚠️）／ニキシー管の開発（1950年代なかば、ハイドゥ兄弟・バローズ）○⚠️／TI のキャル・テック 1967 ○⚠️／ビジコンと 4004 1971 ◎",
+     "basis": "Wikipedia「Sharp Compet CS-10A」（または「Calculator」History）、「Nixie tube」、「Cal Tech (calculator)」、「Intel 4004」"
+    }
+   ],
+   "item": null,
+   "recipes": [],
+   "machine_recipes": [],
+   "placeholder": null,
+   "game_text": "",
+   "id": "B-24",
+   "name": "ニキシー管",
+   "trunk": "B",
+   "trunk_name": "枝",
+   "status": "✅",
+   "branch": true,
+   "year": 1955,
+   "year_range": null,
+   "year_uncertain": true,
+   "requires": [
+    [
+     [
+      "6-08"
+     ]
+    ],
+    [
+     [
+      "2-14"
+     ]
+    ],
+    [
+     [
+      "4-03"
+     ]
+    ]
+   ],
+   "understanding": [],
+   "buildable_now": false,
+   "hee1": "数字の形の金属が10枚、重なって入っている",
+   "name_en": null,
+   "hee1_en": null,
+   "kind": "tech",
+   "play": "",
+   "missing": "",
+   "sources": [],
+   "enables": [],
+   "explains": [],
+   "parts": [],
+   "materials": [],
+   "frontier": false,
+   "enabled_by": [],
+   "explained_by": [],
+   "icon": null,
+   "emoji": null,
+   "symbol": "🌿",
+   "people": [],
    "media": [],
    "descendants": 0
   },
@@ -38029,7 +38984,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "冷蔵庫は、中の熱を後ろや横から部屋に捨てている（だから冷蔵庫の後ろは温かい）",
    "name_en": "Refrigerator",
    "hee1_en": "A refrigerator dumps the heat from inside out into the room from its back and sides (that is why the back of a fridge is warm).",
@@ -38723,7 +39678,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "磁石をコイルの中で「動かしている間だけ」電気が流れる。止めると流れない",
    "name_en": "Electromagnetic induction",
    "hee1_en": "Electricity flows only while you are moving a magnet inside a coil. Stop, and it stops.",
@@ -39683,7 +40638,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "世界中の国が約束を守ってフロンをやめたので、オゾン層は少しずつ元に戻り始めている",
    "name_en": "CFCs and ozone depletion",
    "hee1_en": "Because countries around the world kept their promise and stopped using CFCs, the ozone layer is slowly starting to recover.",
@@ -39925,7 +40880,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "塩水に電気が流れるのは、塩が水の中でプラスとマイナスの粒に分かれているから",
    "name_en": "Ionic theory and electrode potential",
    "hee1_en": "Electricity flows through salt water because salt splits into plus and minus particles in water.",
@@ -40474,7 +41429,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "「何とも反応しない」と言われていたキセノンも、フッ素の仲間とは結びつく",
    "name_en": "Noble gas compounds",
    "hee1_en": "Even xenon, said to \"react with nothing\", bonds with fluorine and its relatives",
@@ -40881,7 +41836,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ハードディスクの読み取りヘッドには、原子数十個分の厚さの膜が重なっている",
    "name_en": "Giant magnetoresistance",
    "hee1_en": "A hard disk read head has stacked films only a few dozen atoms thick.",
@@ -41761,7 +42716,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "金属が曲がるのは、結晶の中の原子の並びの「ずれ」が少しずつ動くから",
    "name_en": "Dislocation theory",
    "hee1_en": "Metals bend because \"slips\" in the arrangement of atoms in the crystal move little by little.",
@@ -44926,6 +45881,27 @@
   {
    "from": "2-14",
    "to": "4-35",
+   "kind": "requires",
+   "group": 2,
+   "or": false
+  },
+  {
+   "from": "4-13",
+   "to": "4-36",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "2-12",
+   "to": "4-36",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "0-03",
+   "to": "4-36",
    "kind": "requires",
    "group": 2,
    "or": false
@@ -51081,6 +52057,27 @@
    "or": false
   },
   {
+   "from": "6-08",
+   "to": "B-24",
+   "kind": "requires",
+   "group": 0,
+   "or": false
+  },
+  {
+   "from": "2-14",
+   "to": "B-24",
+   "kind": "requires",
+   "group": 1,
+   "or": false
+  },
+  {
+   "from": "4-03",
+   "to": "B-24",
+   "kind": "requires",
+   "group": 2,
+   "or": false
+  },
+  {
    "from": "0-08",
    "to": "P-01",
    "kind": "requires",
@@ -54221,6 +55218,14 @@
    "year": 1902,
    "requires": "5-02",
    "requires_year": 1904,
+   "gap": 2,
+   "explained": null
+  },
+  {
+   "node": "4-36",
+   "year": 1836,
+   "requires": "2-12",
+   "requires_year": 1838,
    "gap": 2,
    "explained": null
   },

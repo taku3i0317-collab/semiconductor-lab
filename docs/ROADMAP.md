@@ -105,7 +105,7 @@
 ## 技術ネットワーク（2026-10-20 決定、DESIGN「技術ネットワーク」）
 - [x] ① 各ノードに年（西暦、紀元前はマイナス）を項目として持たせる（TECH_TREE.md と gen_tree_views.py）… タスク17：349/349 ノード（⚠️ 99）、docs/tech_network.json に書き出し、年の逆転 159 件を TECH_TREE_VIEW §6 に一覧（直していない）
 - [x] ② ウェブの技術ネットワーク図（タスク20：docs/network.html、d3 7.9.0 を cdnjs から1つ）：gen_tree_views.py → JSON → 1枚の HTML（点の大きさ＝子孫の数、線の色＝年の差、選ぶと「無いと作れなくなる技術」を強調）
-- [ ] ③ 別リポジトリ tech-network として公開（history と game を分けたノードごとの JSON/YAML、自動チェック、誤りの報告＝GitHub Issue、CC BY 4.0 を候補）
+- [ ] ③ 別リポジトリ tech-network として公開（history と game を分けたノードごとの JSON/YAML、自動チェック、誤りの報告＝GitHub Issue、ライセンスは CC0（2026-10-21 ユーザーの決定「全部 CC0」、S-010））。書き出しは tools/export_tech_network.py → build/tech-network/
 - [ ] ④ ゲーム内の技術ネットワーク画面（霧の地図・ノードのカード＝図鑑・目的地ナビ・つながった瞬間の通知。データはウェブ版と同じ JSON）
 
 ## v0.2b 第2章：シリコン・ウェハー → 太陽電池 ✅ 完了（2026-10-20、tag v0.2b）
