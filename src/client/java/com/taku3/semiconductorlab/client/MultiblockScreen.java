@@ -39,6 +39,8 @@ public class MultiblockScreen extends Screen {
         int x = left(p) + p.width() * CELL + 8, y = top(p);
         addRenderableWidget(Button.builder(Component.literal("▲"), b -> layer = Math.min(p.height() - 1, layer + 1)).bounds(x, y, 20, 20).build());
         addRenderableWidget(Button.builder(Component.literal("▼"), b -> layer = Math.max(0, layer - 1)).bounds(x, y + 24, 20, 20).build());
+        // 世界の中にうすい形（ゴースト）を出す・やめる（O-035）
+        addRenderableWidget(Button.builder(Component.translatable("multiblock.semiconductor-lab.ghost"), b -> MultiblockGhost.toggle(pos)).bounds(x, y + 52, 40, 20).build());
     }
 
     @Override public boolean isPauseScreen() { return false; }
@@ -57,6 +59,20 @@ public class MultiblockScreen extends Screen {
         }
         for (int k = 0; k < p.height(); k++)   // 段の目印（左に、今の段は明るく）
             g.fill(l - 14, t + (p.height() - 1 - k) * 6, l - 9, t + (p.height() - 1 - k) * 6 + 4, k == layer ? 0xFFFFFFFF : 0xFF606060);
+        // 足りないブロックと数（全部の段）
+        java.util.Map<String, Integer> need = new java.util.LinkedHashMap<>();
+        for (int y = 0; y < p.height(); y++) {
+            int[][] sy = Multiblock.status(minecraft.level, pos, facing(), p, y);
+            for (int z = 0; z < p.depth(); z++) for (int x = 0; x < p.width(); x++) {
+                if (sy[z][x] != Multiblock.MISSING && sy[z][x] != Multiblock.WRONG) continue;
+                var cell = p.cell(p.layers().get(y)[z].charAt(x));
+                String n = cell == null ? "?" : Component.translatable("multiblock.semiconductor-lab." + cell.name()).getString();
+                need.merge(n, 1, Integer::sum);
+            }
+        }
+        Component line = need.isEmpty() ? Component.translatable("multiblock.semiconductor-lab.complete")
+                : Component.translatable("multiblock.semiconductor-lab.missing", String.join(", ", need.entrySet().stream().map(e -> e.getKey() + " ×" + e.getValue()).toList()));
+        g.centeredText(font, line, width / 2, t + p.depth() * CELL + 12, need.isEmpty() ? 0xFF60E060 : 0xFFFF8080);
         int cx = (mouseX - l) / CELL, cz = (mouseY - t) / CELL;
         if (mouseX >= l && mouseY >= t && cx < p.width() && cz < p.depth()) {
             char ch = p.layers().get(layer)[cz].charAt(cx);

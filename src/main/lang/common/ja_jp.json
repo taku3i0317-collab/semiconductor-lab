@@ -466,5 +466,18 @@
   "block.semiconductor-lab.item_port.note4": "v1.0 #1 の土台。EUV 露光装置をマルチブロックにするときに使う。",
   "block.semiconductor-lab.gas_port.note2": "形の「囲い」の場所なら、れんがなどの代わりに置ける。組み上がると制御ブロックにつながり、こわすと切れる。",
   "block.semiconductor-lab.gas_port.note3": "本物の大きな装置（高炉・EUV 露光装置）も、決まった所に電気・ガス・ウェハーの口がある。",
-  "block.semiconductor-lab.gas_port.note4": "v1.0 #1 の土台。EUV 露光装置をマルチブロックにするときに使う。"
+  "block.semiconductor-lab.gas_port.note4": "v1.0 #1 の土台。EUV 露光装置をマルチブロックにするときに使う。",
+  "tooltip.semiconductor-lab.howto_get": "作り方：%s",
+  "tooltip.semiconductor-lab.howto_get.sep": "・",
+  "tooltip.semiconductor-lab.howto_get.crafting": "作業台",
+  "tooltip.semiconductor-lab.howto_get.smelting": "かまど",
+  "tooltip.semiconductor-lab.howto_get.campfire": "たき火",
+  "tooltip.semiconductor-lab.howto_get.ore": "世界で掘る",
+  "tooltip.semiconductor-lab.howto_get.loot": "ブロックを壊すと出る",
+  "multiblock.semiconductor-lab.ghost": "形",
+  "multiblock.semiconductor-lab.missing": "足りない：%s",
+  "multiblock.semiconductor-lab.complete": "全部そろっている",
+  "gui.semiconductor-lab.howto.recipes": "できること：",
+  "gui.semiconductor-lab.howto.seconds": "%s 秒",
+  "gui.semiconductor-lab.howto.extra": "（%s）"
 }

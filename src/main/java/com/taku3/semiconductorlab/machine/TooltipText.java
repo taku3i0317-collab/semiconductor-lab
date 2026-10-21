@@ -44,6 +44,9 @@ public final class TooltipText {
         // 「容器：ガラス瓶」はいつも出す（作業台で使うと空の容器が戻る、IMP-33）
         String vfmt = lang.apply("tooltip.semiconductor-lab.vessel"), vname = vesselKey == null ? null : lang.apply(vesselKey);
         if (vfmt != null && vname != null) out.add(new Line(vfmt.replace("%s", vname), Tone.VESSEL));
+        // 「作り方：〇〇」はいつも出す（O-035、DESIGN「入手・操作・組み立てを分かりやすく」）
+        String how = HowToGet.line(base, lang);
+        if (how != null) out.add(new Line(how, Tone.VESSEL));
         // 「省略：」（en は Omitted / Simplified）は Shift のときだけ。「近似：」「未実装」はいつも出す（化学ルール1：本物と違うところは隠さない）
         String ph = lang.apply(base + ".placeholder");
         boolean omittedHidden = ph != null && isOmitted(ph) && !shift;

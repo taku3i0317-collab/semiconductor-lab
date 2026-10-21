@@ -558,4 +558,16 @@ public class CommonTests extends LabTestBase {
         h.assertTrue(list.size() >= 1 && list.get(0).getAsJsonObject().getAsJsonObject("legend").has("B"), "blast furnace shape with its legend");
         h.succeed();
     }
+
+    /** O-035：ツールチップの「作り方」1行（machine/HowToGet、assets/howto_get.json）。生石灰＝かまど、ウェハー＝ウェハー切断機 */
+    @GameTest
+    public void howToGetLine(GameTestHelper h) {
+        var ja = GuiLayoutTests.lang("ja_jp");
+        var lime = com.taku3.semiconductorlab.machine.TooltipText.lines("item.semiconductor-lab.quicklime", null, null, false, ja::get, FontWidths::width)
+                .stream().map(com.taku3.semiconductorlab.machine.TooltipText.Line::text).toList();
+        h.assertTrue(lime.stream().anyMatch(l -> l.startsWith("作り方：") && l.contains("かまど")), "quicklime: " + lime);
+        String wafer = com.taku3.semiconductorlab.machine.HowToGet.line("item.semiconductor-lab.silicon_wafer", ja::get);
+        h.assertTrue(wafer != null && wafer.contains(ja.get("block.semiconductor-lab.wafer_saw")), "wafer: " + wafer);
+        h.succeed();
+    }
 }

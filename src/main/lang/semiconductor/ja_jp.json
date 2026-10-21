@@ -850,5 +850,9 @@
   "item.semiconductor-lab.point_contact_diode.note1": "ゲルマニウムの小さな結晶に、細い金属の針を立てた部品。電気を一方向にだけ通す。",
   "item.semiconductor-lab.point_contact_diode.note2": "作業台：n 型ゲルマニウム＋W 線（針）＋ソーダ石灰ガラス（封じ）→ 4個。",
   "item.semiconductor-lab.point_contact_diode.note3": "針の先とゲルマニウムの接点が、電流を一方向にだけ通す（整流）。電波の細かい振動から音や信号を取り出せる（検波）。",
-  "item.semiconductor-lab.point_contact_diode.note4": "1940年代、レーダーの検波器として大量に作られた。この研究の中から、1947年の点接触トランジスタが生まれた。"
+  "item.semiconductor-lab.point_contact_diode.note4": "1940年代、レーダーの検波器として大量に作られた。この研究の中から、1947年の点接触トランジスタが生まれた。",
+  "block.semiconductor-lab.dicing_saw.howto": "焼き上がったウェハーをチップに切る。\n・上：仕上がった加工中のウェハー\n・中：ダイヤモンドの刃（すり減る）\n・下：ボールねじ（減らない。段階が高いほど欠けにくい）\n・右にチップが出る（1.5 kW・10 秒）。プローバーで印の付いたチップは捨てる",
+  "block.semiconductor-lab.drafting_table.howto": "回路の設計図を描く（電気なし）。\n・＋で新しい方眼紙。層を選んで、左クリックで塗る・右クリックで消す（ホイールで拡大）\n・今の層を原図（ルビリス）にして取り出す → 縮小カメラでマスクに\n・ハンコの欄に回路のハンコを置くと、左クリックでその形を押せる",
+  "block.semiconductor-lab.probe_station.howto": "焼き上がったウェハー（またはチップ）の回路を調べる。\n・パッドに 0 V／5 V／つながない を決めて、電流の流れ方を見る\n・「調べる」で、歴史の発明と同じなら「発見」になり、回路のハンコが出る\n・答えは教えない：部品の名前は調べたあとだけ出る",
+  "block.semiconductor-lab.wafer_prober.howto": "ウェハーのチップを1個ずつ自動で調べ、悪いチップに印を付ける。\n・上：仕上がったウェハー　下：ボールねじ\n・右に印の付いたウェハーが出る（1チップ 0.5 秒・500 W）\n・ダイシングで、印のチップは捨てられ良品だけが出る"
 }

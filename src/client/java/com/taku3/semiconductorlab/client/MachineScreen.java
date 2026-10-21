@@ -35,7 +35,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     @Override protected void init() {
         super.init();
         int tw = font.width(title);
-        titleScale = Math.min(1f, (imageWidth - 8) / (float) tw);
+        titleScale = Math.min(1f, (imageWidth - (help() != null ? 28 : 8)) / (float) tw);   // 「?」があれば右をあける
         titleLabelX = (imageWidth - font.width(title)) / 2;
         if (titleScale < 1f) titleLabelY = -10_000;   // バニラの題名は描かない（下で縮めて描く）
     }
@@ -81,11 +81,33 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             g.text(font, title, 0, 0, TEXT_COLOR, false);
             pose.popMatrix();
         }
+        String help = help();
+        if (help != null) {   // 「?」（O-035、DESIGN「入手・操作・組み立てを分かりやすく」）：マウスを乗せると使い方
+            int hx = imageWidth - HELP_SIZE - 4, hy = 4;
+            boolean over = mouseX - leftPos >= hx && mouseX - leftPos < hx + HELP_SIZE && mouseY - topPos >= hy && mouseY - topPos < hy + HELP_SIZE;
+            g.fill(hx, hy, hx + HELP_SIZE, hy + HELP_SIZE, over ? 0xFF5080D0 : 0xFF8B8B8B);
+            g.text(font, "?", hx + (HELP_SIZE - font.width("?")) / 2 + 1, hy + 1, 0xFFFFFFFF, false);
+            if (over) {
+                List<Component> tip = new java.util.ArrayList<>();
+                for (String part : help.split("\n")) for (String l : TextWrap.split(part, 220, font::width)) tip.add(Component.literal(l));
+                g.setTooltipForNextFrame(font, tip, java.util.Optional.empty(), mouseX, mouseY);
+            }
+        }
         for (MachineLayout.TextDef d : menu.machine().layout.texts()) {
             Component c = text(d.id());
             if (c == null && d.keys().size() == 1 && d.keys().get(0).startsWith("=")) c = Component.literal(d.keys().get(0).substring(1));
             if (c != null) drawText(g, d, c);
         }
+    }
+
+    /** 「?」の四角の大きさ */
+    private static final int HELP_SIZE = 9;
+
+    /** 「?」の文（手書きの lang block.semiconductor-lab.<id>.howto ＋ 自動のレシピの一覧、machine/HowToGet）。無ければ「?」を出さない */
+    private String help() {
+        var lang = net.minecraft.locale.Language.getInstance();
+        List<String> l = com.taku3.semiconductorlab.machine.HowToGet.machineHelp(menu.machine().name, k -> lang.has(k) ? lang.getOrDefault(k) : null);
+        return l.isEmpty() ? null : String.join("\n", l);
     }
 
     /** 箱の中に描く：TextWrap で幅に折り返す（自動チェックと同じ計算）。反応式の行は1行に縮める。入らない分は念のため縮めて入れる */

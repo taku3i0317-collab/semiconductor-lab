@@ -1,0 +1,2791 @@
+{
+"_note": "自動生成：python tools/check_howto.py（O-035）。機械の画面の「?」に出すレシピの一覧（MachineScreen）。手で直さない",
+"recipes": {
+"acheson_furnace": [
+{
+"in": [
+[
+"minecraft:coal",
+4
+],
+[
+"minecraft:sand",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:synthetic_graphite",
+2
+]
+],
+"watts": 500000.0,
+"seconds": 60.0
+}
+],
+"air_separation_unit": [
+{
+"in": [
+[
+"空気",
+10
+]
+],
+"out": [
+[
+"semiconductor-lab:nitrogen_gas",
+7.808
+],
+[
+"semiconductor-lab:oxygen_gas",
+2.095
+],
+[
+"semiconductor-lab:argon_gas",
+0.093
+]
+],
+"watts": 5000.0,
+"seconds": 16.0
+}
+],
+"ald_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:hafnium_tetrachloride",
+1
+],
+[
+"semiconductor-lab:distilled_water",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:glass_bottle",
+2
+]
+],
+"watts": 2000.0,
+"seconds": 30.0
+}
+],
+"ammonia_still": [
+{
+"in": [
+[
+"semiconductor-lab:ammoniacal_liquor",
+4
+],
+[
+"semiconductor-lab:slaked_lime",
+1
+],
+[
+"semiconductor-lab:glass_bottle",
+1
+],
+[
+"minecraft:water_bucket",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:ammonia_water",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 20.0
+}
+],
+"anneal_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:nitrogen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+}
+],
+"arc_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:vein_quartz",
+2
+],
+[
+"minecraft:charcoal",
+1
+],
+[
+"semiconductor-lab:graphite_rod",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:metallurgical_silicon",
+1
+]
+],
+"watts": 500000.0,
+"seconds": 86.4
+}
+],
+"assembly_bench": [
+{
+"in": [
+[
+"semiconductor-lab:vacuum_tube",
+2
+],
+[
+"semiconductor-lab:induction_coil",
+1
+],
+[
+"semiconductor-lab:leyden_jar",
+1
+],
+[
+"semiconductor-lab:copper_cable",
+1
+],
+[
+"minecraft:iron_ingot",
+4
+]
+],
+"out": [
+[
+"semiconductor-lab:hf_oscillator",
+1
+]
+],
+"watts": 0.0,
+"seconds": 5.0
+},
+{
+"in": [
+[
+"semiconductor-lab:ito_glass",
+1
+],
+[
+"minecraft:copper_ingot",
+1
+],
+[
+"semiconductor-lab:chip",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:touch_panel",
+1
+]
+],
+"watts": 0.0,
+"seconds": 5.0
+},
+{
+"in": [
+[
+"semiconductor-lab:vacuum_tube",
+3
+],
+[
+"semiconductor-lab:copper_cable",
+1
+],
+[
+"semiconductor-lab:leyden_jar",
+1
+],
+[
+"semiconductor-lab:magnet",
+1
+],
+[
+"minecraft:oak_planks",
+4
+]
+],
+"out": [
+[
+"semiconductor-lab:tube_radio",
+1
+]
+],
+"watts": 0.0,
+"seconds": 5.0
+},
+{
+"in": [
+[
+"semiconductor-lab:junction_transistor",
+3
+],
+[
+"semiconductor-lab:graphite",
+1
+],
+[
+"semiconductor-lab:copper_cable",
+1
+],
+[
+"semiconductor-lab:leyden_jar",
+1
+],
+[
+"semiconductor-lab:magnet",
+1
+],
+[
+"semiconductor-lab:zinc_ingot",
+1
+],
+[
+"semiconductor-lab:graphite_rod",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:transistor_radio",
+1
+]
+],
+"watts": 0.0,
+"seconds": 5.0
+},
+{
+"in": [
+[
+"semiconductor-lab:tft_array_glass",
+1
+],
+[
+"semiconductor-lab:rubbed_ito_glass",
+1
+],
+[
+"semiconductor-lab:mbba",
+1
+],
+[
+"semiconductor-lab:polarizing_film",
+2
+],
+[
+"semiconductor-lab:chip",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:tft_lcd",
+1
+]
+],
+"watts": 0.0,
+"seconds": 5.0
+},
+{
+"in": [
+[
+"semiconductor-lab:chip",
+1
+],
+[
+"semiconductor-lab:chip",
+2
+],
+[
+"semiconductor-lab:chip",
+1
+],
+[
+"semiconductor-lab:nixie_tube",
+4
+],
+[
+"semiconductor-lab:key_switch",
+14
+],
+[
+"minecraft:iron_ingot",
+4
+],
+[
+"semiconductor-lab:copper_cable",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:calculator",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+}
+],
+"autoclave": [
+{
+"in": [
+[
+"semiconductor-lab:resol_mix",
+1
+],
+[
+"minecraft:water_bucket",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:bakelite",
+2
+]
+],
+"watts": 10000.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:tetrafluoroethylene_gas",
+4
+]
+],
+"out": [
+[
+"semiconductor-lab:ptfe",
+1
+]
+],
+"watts": 10000.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:nylon_salt",
+1
+],
+[
+"minecraft:water_bucket",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:nylon_66",
+1
+]
+],
+"watts": 10000.0,
+"seconds": 30.0
+}
+],
+"bake_plate": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 300.0,
+"seconds": 10.0
+}
+],
+"bayer_digester": [
+{
+"in": [
+[
+"semiconductor-lab:bauxite",
+2
+],
+[
+"semiconductor-lab:sodium_hydroxide",
+1
+],
+[
+"minecraft:water_bucket",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:aluminium_hydroxide",
+1
+],
+[
+"semiconductor-lab:red_mud",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 30.0
+}
+],
+"bessemer_converter": [
+{
+"in": [
+[
+"semiconductor-lab:pig_iron",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:steel_ingot",
+1
+]
+],
+"watts": 20000.0,
+"seconds": 20.0
+}
+],
+"blast_furnace_hearth": [
+{
+"in": [
+[
+"minecraft:raw_iron",
+1
+],
+[
+"minecraft:charcoal",
+1.3333333333333333
+],
+[
+"minecraft:calcite",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:pig_iron",
+1
+],
+[
+"semiconductor-lab:blast_furnace_slag",
+1
+]
+],
+"watts": 0.0,
+"seconds": 20.0
+}
+],
+"bloomery": [
+{
+"in": [
+[
+"minecraft:raw_iron",
+1
+],
+[
+"minecraft:charcoal",
+1.5
+]
+],
+"out": [
+[
+"semiconductor-lab:iron_bloom",
+1
+]
+],
+"watts": 0.0,
+"seconds": 30.0
+}
+],
+"bottle_machine": [
+{
+"in": [
+[
+"semiconductor-lab:soda_lime_glass",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:glass_bottle",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 1.0
+}
+],
+"bridgman_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:fluorite",
+4
+],
+[
+"semiconductor-lab:argon_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:caf2_crystal",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 90.0
+}
+],
+"castner_cell": [
+{
+"in": [
+[
+"semiconductor-lab:sodium_hydroxide",
+4
+],
+[
+"semiconductor-lab:iron_flask",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:sodium",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 20.0
+}
+],
+"cleaning_bench": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:nitric_acid",
+1
+],
+[
+"semiconductor-lab:hydrofluoric_acid",
+1
+],
+[
+"semiconductor-lab:distilled_water",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 1000.0,
+"seconds": 40.0
+}
+],
+"cmp_polisher": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:colloidal_silica",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:glass_bottle",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 30.0
+}
+],
+"co2_laser": [
+{
+"in": [
+[
+"semiconductor-lab:salt_window",
+1
+],
+[
+"semiconductor-lab:vein_quartz",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:fused_quartz",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 10.0
+}
+],
+"compressor": [
+{
+"in": [
+[
+"semiconductor-lab:empty_gas_cylinder",
+1
+],
+[
+"隣のガスホルダーのガス",
+50
+]
+],
+"out": [
+[
+"そのガスのボンベ",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 124.0
+}
+],
+"copper_plater": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:copper_sulfate",
+1
+],
+[
+"minecraft:copper_ingot",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 1000.0,
+"seconds": 20.0
+}
+],
+"crystal_puller": [
+{
+"in": [
+[
+"semiconductor-lab:tungsten_wire",
+1
+],
+[
+"semiconductor-lab:refined_germanium",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:germanium_seed_crystal",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:germanium_seed_crystal",
+1
+],
+[
+"semiconductor-lab:refined_germanium",
+4
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:germanium_single_crystal",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 60.0
+}
+],
+"cvd_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:silane_cylinder",
+1
+],
+[
+"semiconductor-lab:oxygen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:empty_gas_cylinder",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:silane_cylinder",
+1
+],
+[
+"semiconductor-lab:ammonia_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:empty_gas_cylinder",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 20.0
+}
+],
+"cz_puller": [
+{
+"in": [
+[
+"semiconductor-lab:polysilicon",
+1
+],
+[
+"semiconductor-lab:quartz_crucible",
+1
+],
+[
+"semiconductor-lab:argon_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:silicon_seed_crystal",
+1
+]
+],
+"watts": 150000.0,
+"seconds": 60.0
+},
+{
+"in": [
+[
+"semiconductor-lab:silicon_seed_crystal",
+1
+],
+[
+"semiconductor-lab:polysilicon",
+2
+],
+[
+"semiconductor-lab:quartz_crucible",
+1
+],
+[
+"semiconductor-lab:argon_gas",
+2
+],
+[
+"semiconductor-lab:boron_trioxide",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:silicon_single_crystal",
+1
+]
+],
+"watts": 150000.0,
+"seconds": 835.2
+}
+],
+"developer_bench": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:developer",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 300.0,
+"seconds": 20.0
+}
+],
+"diffusion_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+],
+[
+"semiconductor-lab:boron_trioxide",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:pn_junction_wafer",
+8
+]
+],
+"watts": 5000.0,
+"seconds": 120.0
+},
+{
+"in": [
+[
+"semiconductor-lab:pn_junction_wafer",
+8
+],
+[
+"semiconductor-lab:phosphorus",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:thyristor_wafer",
+8
+]
+],
+"watts": 5000.0,
+"seconds": 120.0
+}
+],
+"dry_etcher": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:carbon_tetrafluoride",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 3000.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:chlorine_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 3000.0,
+"seconds": 15.0
+}
+],
+"electric_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:graphite_boat_blank",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:graphite_boat",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:iron_compact",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:sintered_gear",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:ndfeb_compact",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:sintered_ndfeb",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:neodymium_electrolysis_charge",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:neodymium",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:refractory_brick_blank",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:refractory_brick",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 10.0
+}
+],
+"electrolyzer": [
+{
+"in": [
+[
+"minecraft:water_bucket",
+1
+],
+[
+"semiconductor-lab:sulfuric_acid",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:hydrogen_gas",
+2
+],
+[
+"semiconductor-lab:oxygen_gas",
+1
+],
+[
+"minecraft:bucket",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 115.0
+},
+{
+"in": [
+[
+"minecraft:water_bucket",
+1
+],
+[
+"semiconductor-lab:salt",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:hydrogen_gas",
+1
+],
+[
+"semiconductor-lab:chlorine_gas",
+1
+],
+[
+"semiconductor-lab:sodium_hydroxide",
+2
+],
+[
+"minecraft:bucket",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 128.0
+}
+],
+"electroplating_bath": [
+{
+"in": [
+[
+"minecraft:copper_ingot",
+1
+],
+[
+"semiconductor-lab:graphite_wax_mould",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:copper_electrotype",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 96.485
+}
+],
+"epitaxy_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+],
+[
+"semiconductor-lab:silicon_tetrachloride",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+2
+],
+[
+"semiconductor-lab:boron_trioxide",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+],
+[
+"semiconductor-lab:hydrogen_chloride_gas",
+4
+]
+],
+"watts": 10000.0,
+"seconds": 30.0
+}
+],
+"etch_tank": [
+{
+"in": [
+[
+"semiconductor-lab:oxidized_wafer",
+8
+],
+[
+"semiconductor-lab:hydrofluoric_acid",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+],
+[
+"semiconductor-lab:lead_bottle",
+1
+]
+],
+"watts": 0.0,
+"seconds": 6.25
+}
+],
+"fluorination_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:graphite",
+1
+],
+[
+"semiconductor-lab:fluorine_cylinder",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:carbon_tetrafluoride",
+8
+],
+[
+"semiconductor-lab:empty_gas_cylinder",
+1
+]
+],
+"watts": 500.0,
+"seconds": 10.0
+}
+],
+"gallium_cell": [
+{
+"in": [
+[
+"semiconductor-lab:spent_bayer_liquor",
+4
+],
+[
+"semiconductor-lab:polyethylene_bottle",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:gallium",
+1
+],
+[
+"semiconductor-lab:sodium_hydroxide",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 20.0
+}
+],
+"gas_retort": [
+{
+"in": [
+[
+"minecraft:coal",
+8
+],
+[
+"minecraft:coal",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:coke",
+6
+],
+[
+"semiconductor-lab:ammoniacal_liquor",
+2
+],
+[
+"semiconductor-lab:coal_tar",
+1
+]
+],
+"watts": 0.0,
+"seconds": 80.0
+}
+],
+"hafnium_chlorinator": [
+{
+"in": [
+[
+"semiconductor-lab:hafnium_oxide",
+1
+],
+[
+"semiconductor-lab:coke",
+2
+],
+[
+"semiconductor-lab:chlorine_gas",
+2
+],
+[
+"semiconductor-lab:glass_bottle",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:hafnium_tetrachloride",
+1
+],
+[
+"semiconductor-lab:carbon_monoxide_gas",
+2
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+}
+],
+"hall_heroult_cell": [
+{
+"in": [
+[
+"semiconductor-lab:alumina",
+2
+],
+[
+"semiconductor-lab:cryolite",
+1
+],
+[
+"semiconductor-lab:graphite_rod",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:aluminium_ingot",
+1
+]
+],
+"watts": 100000.0,
+"seconds": 540.0
+}
+],
+"hcl_burner": [
+{
+"in": [
+[
+"semiconductor-lab:hydrogen_gas",
+1
+],
+[
+"semiconductor-lab:chlorine_gas",
+1
+],
+[
+"minecraft:water_bucket",
+0.25
+],
+[
+"semiconductor-lab:glass_bottle",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:hydrochloric_acid",
+1
+]
+],
+"watts": 0.0,
+"seconds": 5.0
+},
+{
+"in": [
+[
+"semiconductor-lab:hydrogen_gas",
+1
+],
+[
+"semiconductor-lab:chlorine_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:hydrogen_chloride_gas",
+2
+]
+],
+"watts": 0.0,
+"seconds": 5.0
+}
+],
+"high_pressure_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:ethylene_gas",
+4
+],
+[
+"semiconductor-lab:oxygen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:polyethylene",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 20.0
+}
+],
+"hydrogen_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:tungsten_trioxide",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+3
+]
+],
+"out": [
+[
+"semiconductor-lab:tungsten_powder",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:tungsten_powder",
+2
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:tungsten_bar",
+1
+]
+],
+"watts": 10000.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:germanium_dioxide",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:raw_germanium",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+}
+],
+"ion_implanter": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:boron_trioxide",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 5000.0,
+"seconds": 30.0
+}
+],
+"lathe": [
+{
+"in": [
+[
+"semiconductor-lab:steel_ingot",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:pump_rotor",
+1
+]
+],
+"watts": 750.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:steel_ingot",
+1
+],
+[
+"semiconductor-lab:lead_screw",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:standard_screw",
+4
+]
+],
+"watts": 750.0,
+"seconds": 30.0
+}
+],
+"lead_acid_battery": [
+{
+"in": [
+[
+"電気",
+1
+]
+],
+"out": [
+[
+"電気",
+1
+]
+],
+"watts": 10000.0,
+"seconds": 0.0
+}
+],
+"lead_retort": [
+{
+"in": [
+[
+"semiconductor-lab:fluorite",
+1
+],
+[
+"semiconductor-lab:sulfuric_acid",
+1
+],
+[
+"semiconductor-lab:lead_bottle",
+1
+],
+[
+"minecraft:water_bucket",
+1
+],
+[
+"minecraft:coal",
+0.125
+]
+],
+"out": [
+[
+"semiconductor-lab:hydrofluoric_acid",
+1
+],
+[
+"semiconductor-lab:calcium_sulfate",
+1
+],
+[
+"semiconductor-lab:glass_bottle",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+}
+],
+"oil_diffusion_pump": [
+{
+"in": [
+[
+"隣の真空容器（10Pa 以下）",
+1
+],
+[
+"Block{semiconductor-lab:rotary_pump}",
+1
+]
+],
+"out": [
+[
+"真空容器の圧力",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 1.0
+}
+],
+"oxidation_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+],
+[
+"semiconductor-lab:oxygen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:oxidized_wafer",
+8
+]
+],
+"watts": 5000.0,
+"seconds": 120.0
+},
+{
+"in": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+],
+[
+"minecraft:water_bucket",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:oxidized_wafer",
+8
+],
+[
+"minecraft:bucket",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 120.0
+}
+],
+"oxyhydrogen_burner": [
+{
+"in": [
+[
+"semiconductor-lab:silicon_tetrachloride",
+1
+],
+[
+"semiconductor-lab:hydrogen_cylinder",
+4
+],
+[
+"semiconductor-lab:oxygen_cylinder",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:synthetic_quartz",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:ruby_feed",
+1
+],
+[
+"semiconductor-lab:hydrogen_cylinder",
+4
+],
+[
+"semiconductor-lab:oxygen_cylinder",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:ruby_boule",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:ule_feed",
+1
+],
+[
+"semiconductor-lab:hydrogen_cylinder",
+4
+],
+[
+"semiconductor-lab:oxygen_cylinder",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:ule_glass",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:vein_quartz",
+1
+],
+[
+"semiconductor-lab:hydrogen_cylinder",
+4
+],
+[
+"semiconductor-lab:oxygen_cylinder",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:fused_quartz",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+}
+],
+"package_sealer": [
+{
+"in": [
+[
+"semiconductor-lab:bonded_chip",
+1
+],
+[
+"semiconductor-lab:can_cap",
+1
+],
+[
+"semiconductor-lab:nitrogen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:can_packaged_chip",
+1
+]
+],
+"watts": 500.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:bonded_chip",
+4
+],
+[
+"semiconductor-lab:epoxy_molding_compound",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:plastic_packaged_chip",
+4
+]
+],
+"watts": 500.0,
+"seconds": 20.0
+}
+],
+"peroxide_cell": [
+{
+"in": [
+[
+"semiconductor-lab:glass_bottle",
+1
+],
+[
+"minecraft:water_bucket",
+1
+],
+[
+"semiconductor-lab:sulfuric_acid",
+1
+],
+[
+"semiconductor-lab:platinum_ingot",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:hydrogen_peroxide",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 60.0
+}
+],
+"pyrolysis_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:chlorodifluoromethane_gas",
+2
+]
+],
+"out": [
+[
+"semiconductor-lab:tetrafluoroethylene_gas",
+1
+],
+[
+"semiconductor-lab:hydrogen_chloride_gas",
+2
+]
+],
+"watts": 8000.0,
+"seconds": 10.0
+}
+],
+"reduction_camera": [
+{
+"in": [
+[
+"semiconductor-lab:rubylith",
+1
+],
+[
+"semiconductor-lab:photo_plate",
+1
+],
+[
+"semiconductor-lab:ferrous_sulfate",
+1
+],
+[
+"semiconductor-lab:sodium_thiosulfate",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:photomask",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 30.0
+}
+],
+"resist_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:phenol",
+1
+],
+[
+"semiconductor-lab:acetic_anhydride",
+1
+],
+[
+"semiconductor-lab:aluminium_chloride",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:hydroxyacetophenone",
+1
+],
+[
+"semiconductor-lab:acetic_acid",
+1
+]
+],
+"watts": 1500.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:hydroxyacetophenone",
+1
+],
+[
+"semiconductor-lab:acetic_anhydride",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+],
+[
+"semiconductor-lab:raney_nickel",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:acetoxyphenyl_ethanol",
+1
+],
+[
+"semiconductor-lab:acetic_acid",
+1
+]
+],
+"watts": 1500.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:acetoxyphenyl_ethanol",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:acetoxystyrene",
+1
+]
+],
+"watts": 1500.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:acetoxystyrene",
+4
+]
+],
+"out": [
+[
+"semiconductor-lab:poly_acetoxystyrene",
+1
+]
+],
+"watts": 1500.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:poly_acetoxystyrene",
+1
+],
+[
+"semiconductor-lab:ammonia_water",
+1
+],
+[
+"semiconductor-lab:methanol",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:polyhydroxystyrene",
+1
+]
+],
+"watts": 1500.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:polyhydroxystyrene",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:protected_phs",
+1
+]
+],
+"watts": 1500.0,
+"seconds": 15.0
+}
+],
+"resist_stripper": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:sulfuric_acid",
+1
+],
+[
+"semiconductor-lab:hydrogen_peroxide",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 500.0,
+"seconds": 20.0
+}
+],
+"reverberatory_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:galena",
+1
+],
+[
+"minecraft:coal",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:litharge",
+1
+],
+[
+"semiconductor-lab:sulfur_dioxide",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:cinnabar_retort_charge",
+1
+],
+[
+"minecraft:coal",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:mercury",
+1
+],
+[
+"semiconductor-lab:sulfur_dioxide",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:sphalerite",
+1
+],
+[
+"minecraft:coal",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:zinc_oxide",
+1
+],
+[
+"semiconductor-lab:sulfur_dioxide",
+1
+],
+[
+"semiconductor-lab:germanium_concentrate",
+1
+],
+[
+"semiconductor-lab:indium",
+1
+]
+],
+"watts": 0.0,
+"seconds": 10.0
+}
+],
+"salt_pan": [
+{
+"in": [
+[
+"海辺の水と日光",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:salt",
+1
+],
+[
+"semiconductor-lab:bittern",
+1
+]
+],
+"watts": 0.0,
+"seconds": 60.0
+}
+],
+"sealing_station": [
+{
+"in": [
+[
+"semiconductor-lab:vacuum_tube_assembly",
+1
+],
+[
+"隣の真空容器",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:vacuum_tube",
+1
+]
+],
+"watts": 500.0,
+"seconds": 10.0
+}
+],
+"siemens_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:trichlorosilane",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:polysilicon",
+1
+],
+[
+"semiconductor-lab:hydrogen_chloride_gas",
+3
+]
+],
+"watts": 500000.0,
+"seconds": 648.0
+}
+],
+"silane_generator": [
+{
+"in": [
+[
+"semiconductor-lab:magnesium",
+2
+],
+[
+"semiconductor-lab:metallurgical_silicon",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:magnesium_silicide",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 10.0
+},
+{
+"in": [
+[
+"semiconductor-lab:magnesium_silicide",
+1
+],
+[
+"semiconductor-lab:hydrochloric_acid",
+4
+],
+[
+"semiconductor-lab:empty_gas_cylinder",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:silane_cylinder",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 10.0
+}
+],
+"silicone_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:methanol",
+1
+],
+[
+"semiconductor-lab:hydrogen_chloride_gas",
+1
+],
+[
+"semiconductor-lab:alumina",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:methyl_chloride",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:metallurgical_silicon",
+1
+],
+[
+"semiconductor-lab:methyl_chloride",
+2
+],
+[
+"minecraft:copper_ingot",
+1
+],
+[
+"semiconductor-lab:glass_bottle",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:dimethyldichlorosilane",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 15.0
+},
+{
+"in": [
+[
+"semiconductor-lab:dimethyldichlorosilane",
+1
+],
+[
+"semiconductor-lab:distilled_water",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:silicone_oil",
+1
+],
+[
+"semiconductor-lab:hydrochloric_acid",
+1
+]
+],
+"watts": 2000.0,
+"seconds": 15.0
+}
+],
+"solvay_tower": [
+{
+"in": [
+[
+"semiconductor-lab:salt",
+2
+],
+[
+"minecraft:calcite",
+1
+],
+[
+"semiconductor-lab:ammonia_water",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:sodium_carbonate",
+1
+]
+],
+"watts": 5000.0,
+"seconds": 15.0
+}
+],
+"spin_coater": [
+{
+"in": [
+[
+"semiconductor-lab:oxidized_wafer",
+8
+],
+[
+"semiconductor-lab:positive_resist",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 500.0,
+"seconds": 20.0
+}
+],
+"sprengel_pump": [
+{
+"in": [
+[
+"semiconductor-lab:mercury",
+4
+],
+[
+"隣の真空容器",
+1
+]
+],
+"out": [
+[
+"真空容器の圧力",
+1
+]
+],
+"watts": 0.0,
+"seconds": 1.0
+}
+],
+"sputter": [
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:aluminium_ingot",
+1
+],
+[
+"semiconductor-lab:argon_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 5000.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:process_wafer",
+8
+],
+[
+"semiconductor-lab:tantalum",
+1
+],
+[
+"semiconductor-lab:argon_gas",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:process_wafer",
+8
+]
+],
+"watts": 5000.0,
+"seconds": 20.0
+}
+],
+"steam_engine": [
+{
+"in": [
+[
+"minecraft:coal",
+1
+],
+[
+"minecraft:water_bucket",
+1
+]
+],
+"out": [
+[
+"電気",
+1
+]
+],
+"watts": -50000.0,
+"seconds": 30.0
+}
+],
+"steam_turbine": [
+{
+"in": [
+[
+"minecraft:coal",
+1
+],
+[
+"minecraft:water_bucket",
+1
+]
+],
+"out": [
+[
+"電気",
+1
+]
+],
+"watts": -500000.0,
+"seconds": 18.0
+}
+],
+"tantalum_refinery": [
+{
+"in": [
+[
+"semiconductor-lab:tantalite",
+1
+],
+[
+"semiconductor-lab:hydrofluoric_acid_pe",
+2
+],
+[
+"semiconductor-lab:potassium_fluoride",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:potassium_fluorotantalate",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+},
+{
+"in": [
+[
+"semiconductor-lab:potassium_fluorotantalate",
+1
+],
+[
+"semiconductor-lab:sodium",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:tantalum",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 20.0
+}
+],
+"trichlorosilane_reactor": [
+{
+"in": [
+[
+"semiconductor-lab:metallurgical_silicon",
+1
+],
+[
+"semiconductor-lab:hydrogen_chloride_gas",
+3
+]
+],
+"out": [
+[
+"semiconductor-lab:trichlorosilane",
+1
+],
+[
+"semiconductor-lab:hydrogen_gas",
+1
+]
+],
+"watts": 10000.0,
+"seconds": 60.0
+},
+{
+"in": [
+[
+"semiconductor-lab:trichlorosilane",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:trichlorosilane",
+1
+]
+],
+"watts": 20000.0,
+"seconds": 30.0
+}
+],
+"ultrapure_water_system": [
+{
+"in": [
+[
+"semiconductor-lab:deionized_water",
+1
+],
+[
+"semiconductor-lab:polyethylene_bottle",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:ultrapure_water",
+1
+],
+[
+"semiconductor-lab:glass_bottle",
+1
+]
+],
+"watts": 1000.0,
+"seconds": 5.0
+}
+],
+"wafer_saw": [
+{
+"in": [
+[
+"semiconductor-lab:silicon_single_crystal",
+1
+],
+[
+"semiconductor-lab:diamond_saw_blade",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:silicon_wafer",
+8
+]
+],
+"watts": 1000.0,
+"seconds": 60.0
+}
+],
+"water_wheel": [
+{
+"in": [
+[
+"横に流れる水",
+1
+]
+],
+"out": [
+[
+"電気",
+1
+]
+],
+"watts": -500.0,
+"seconds": 0.0
+}
+],
+"wire_bonder": [
+{
+"in": [
+[
+"semiconductor-lab:chip",
+1
+],
+[
+"semiconductor-lab:gold_bonding_wire",
+4
+],
+[
+"semiconductor-lab:chip_header",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:bonded_chip",
+1
+]
+],
+"watts": 200.0,
+"seconds": 15.0
+}
+],
+"wood_retort": [
+{
+"in": [
+[
+"minecraft:oak_log",
+4
+],
+[
+"minecraft:coal",
+0.5
+]
+],
+"out": [
+[
+"minecraft:charcoal",
+4
+],
+[
+"semiconductor-lab:wood_vinegar",
+2
+],
+[
+"semiconductor-lab:wood_tar",
+1
+]
+],
+"watts": 0.0,
+"seconds": 40.0
+}
+],
+"zone_refining_furnace": [
+{
+"in": [
+[
+"semiconductor-lab:raw_germanium",
+1
+],
+[
+"semiconductor-lab:graphite_boat",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:refined_germanium",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:refined_germanium",
+1
+],
+[
+"semiconductor-lab:phosphorus",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:n_type_germanium",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 30.0
+},
+{
+"in": [
+[
+"semiconductor-lab:refined_germanium",
+1
+],
+[
+"semiconductor-lab:indium",
+1
+]
+],
+"out": [
+[
+"semiconductor-lab:p_type_germanium",
+1
+]
+],
+"watts": 3000.0,
+"seconds": 30.0
+}
+]
+}
+}

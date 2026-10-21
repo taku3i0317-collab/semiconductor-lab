@@ -129,6 +129,7 @@ public class SemiconductorLabClient implements ClientModInitializer {
 		MenuScreens.register(com.taku3.semiconductorlab.content.Branches.PHONE_MENU, SmartphoneScreen::new);   // [B-10] スマホのホーム画面
 		MenuScreens.register(com.taku3.semiconductorlab.content.Branches.AI_MENU, AiChipScreen::new);   // [B-11] AI チップの書く画面
 		com.taku3.semiconductorlab.machine.Multiblock.openView = p -> net.minecraft.client.Minecraft.getInstance().gui.setScreen(new MultiblockScreen(p));   // マルチブロックの見取り図（O-034）
+		MultiblockGhost.register();   // うすい形（ゴースト、O-035）
 		// 専用の画面を書いていない機械は、ふつうの画面（電力・進み具合・状態）
 		for (Machine<?> m : Machine.all())
 			if (m.menu != null && !CUSTOM.contains(m)) MenuScreens.register(m.menu, SimpleMachineScreen::new);

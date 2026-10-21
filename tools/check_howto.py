@@ -5,7 +5,7 @@
    そして例外の一覧 HOWTO_EXTRA（機械の中でコードが作る物など、レシピの JSON に出ない道。理由を書いて足す）
 ②「?」の説明が無い機械：Machine の登録（content/*.java）のうち lang に block.semiconductor-lab.<id>.howto が無い物
 ③見取り図の無いマルチブロック：docs/multiblocks.json の制御ブロックのうち、BE が Multiblock.Host を実装していない物
-使い方：python tools/check_howto.py → docs/tasks/HOWTO_GAPS.md（担当＝幹ごとの一覧、手で直さない）。--strict で 0 でなければ終了コード 1
+使い方：python tools/check_howto.py → docs/tasks/HOWTO_GAPS.md と assets/semiconductor-lab/howto_get.json（ツールチップの「作り方」1行の元、tools/test.ps1 が最後に作り直す）（担当＝幹ごとの一覧、手で直さない）。--strict で 0 でなければ終了コード 1
 """
 import json, pathlib, re, sys
 
@@ -43,6 +43,14 @@ HOWTO_EXTRA = {
     "light_rare_earth_liquor": "焼いたバストネス石を作業台で使うと残る（craftRemainder、[1-35]）",   # IMP3 O-028
     "potassium_fluorozirconate": "粗いフッ化ジルコニウムカリウムを作業台で使うと残る（craftRemainder、[1-70] 分別結晶）",   # IMP3 O-028
 }
+# 機械のコードが作る物（machine_recipes に書き出していない道）：ID → 道の印（ツールチップにも出る）
+EXTRA_WAYS = {
+    **{f"{g}_cylinder": ["machine:compressor"] for g in ("argon", "chlorine", "hydrogen", "nitrogen", "oxygen")},   # 圧縮機：ガスホルダーのガスを空ボンベへ
+    "calcium_carbide": ["machine:arc_furnace"],   # アーク炉：生石灰＋コークス
+    "chip": ["machine:dicing_saw"],               # ダイシングソー：処理したウェハーを割る
+    "layout_sheet": ["machine:drafting_table"], "rubylith": ["machine:drafting_table"],   # 製図台（⚠️ 材料なし、S-001）
+    "stamp": ["machine:probe_station"],           # 検査台：調べた回路をハンコに
+}
 TRUNK_OWNER = {"Survival": "D", "Metallurgy": "D", "Chemistry": "D", "Heat": "D", "Power": "A", "Vacuum": "A", "Gas": "A", "Optics": "C",
                "Precision": "E", "Semiconductor": "A", "Control": "A", "Agriculture": "D", "Construction": "D", "Medicine": "D",
                "Transport": "E", "Communication": "A", "Branches": "A"}
@@ -78,21 +86,34 @@ def main():
         if m:
             items[m.group(1)] = m.group(2)
     got = set(HOWTO_EXTRA)
-    for p in (RES / f"data/{NS}/recipe").glob("*.json"):
-        r = load(p).get("result")
+    ways = {}   # ID → 道の印の並び（ツールチップの「作り方」1行、assets/.../howto_get.json）
+
+    def way(i, w):
+        got.add(i)
+        lst = ways.setdefault(i, [])
+        if w not in lst:
+            lst.append(w)
+    for i, ws in EXTRA_WAYS.items():
+        for w in ws:
+            way(i, w)
+    for p in sorted((RES / f"data/{NS}/recipe").glob("*.json")):
+        rr = load(p)
+        r = rr.get("result")
         rid = r.get("id") if isinstance(r, dict) else r
         if isinstance(rid, str) and rid.startswith(NS + ":"):
-            got.add(rid.split(":")[1])
+            t = rr.get("type", "")
+            way(rid.split(":")[1], "crafting" if "crafting" in t else "campfire" if "campfire" in t else "smelting")
     mr = ROOT / "docs/machine_recipes.json"
     for r in load(mr).get("recipes", []) if mr.exists() else []:
-        got |= ids_in(r.get("outputs", []))
-        got |= ids_in(r.get("byproducts", []))
+        for i in sorted((ids_in(r.get("outputs", [])) | ids_in(r.get("byproducts", []))) - ids_in(r.get("inputs", []))):   # 通り抜けるだけの物は道にしない
+            way(i, "machine:" + r["machine"].split(":")[-1])
     loot = RES / f"data/{NS}/loot_table/blocks"
     for p in (RES / f"data/{NS}/worldgen/feature").glob("*.json"):
         for b in ids_in(load(p)):
-            got.add(b)
+            way(b, "ore")
             if (loot / f"{b}.json").exists():
-                got |= ids_in(load(loot / f"{b}.json"))
+                for i in ids_in(load(loot / f"{b}.json")):
+                    way(i, "ore")
     consts = {}
     srcs = {p.stem: p.read_text(encoding="utf-8") for p in CONTENT.glob("*.java")}
     for s in srcs.values():
@@ -103,15 +124,28 @@ def main():
             body = s[m.end(): m.end() + 3000]
             for name in re.findall(r"\b([A-Z][A-Z0-9_]+)\b", body):
                 if name in consts:
-                    got.add(consts[name])
+                    way(consts[name], "loot")
     no_way = [i for i in items if i not in got]
 
     lang = load(RES / f"assets/{NS}/lang/ja_jp.json")
     machines = []
     for trunk, s in srcs.items():
-        for m in re.finditer(r'Machine\.(?:builder|electric|simple|fuel|of)\w*\("([a-z0-9_]+)"', s):
-            machines.append((m.group(1), trunk))
-    no_help = [(i, t) for i, t in machines if f"block.{NS}.{i}.howto" not in lang]
+        for m in re.finditer(r'Machine\.(\w+)\("([a-z0-9_]+)"', s):
+            stmt = s[m.start(): s.index(";", m.start())]
+            if m.group(1) == "electric" or ".layout(" in stmt:   # 画面のある機械だけ「?」が要る
+                machines.append((m.group(2), trunk))
+    recipes_by = {}
+    for r in load(mr).get("recipes", []) if mr.exists() else []:
+        mid = r["machine"].split(":")[-1]
+        lst = recipes_by.setdefault(mid, [])
+        if len(lst) < 6:
+            lst.append({"in": [[x["item"], x.get("count", 1)] for x in r.get("inputs", []) if "item" in x],
+                        "out": [[x["item"], x.get("count", 1)] for x in r.get("outputs", []) + r.get("byproducts", []) if "item" in x],
+                        "watts": r.get("watts"), "seconds": r.get("seconds")})
+    mh = RES / f"assets/{NS}/machine_howto.json"
+    mh.write_text(json.dumps({"_note": "自動生成：python tools/check_howto.py（O-035）。機械の画面の「?」に出すレシピの一覧（MachineScreen）。手で直さない",
+                              "recipes": {k: recipes_by[k] for k in sorted(recipes_by)}}, ensure_ascii=False, indent=0) + chr(10), encoding="utf-8")
+    no_help = [(i, t) for i, t in machines if f"block.{NS}.{i}.howto" not in lang and i not in recipes_by]
 
     mbp = ROOT / "docs/multiblocks.json"
     java = {p.stem: p.read_text(encoding="utf-8") for p in (ROOT / "src/main/java").rglob("*BlockEntity.java")}
@@ -130,7 +164,7 @@ def main():
         by_owner.setdefault(who.get(i, TRUNK_OWNER.get(items[i], "?")), []).append(f"{i}（{items[i]}）")
     lines = ["# わかりやすさの穴（自動生成：python tools/check_howto.py、S-026。手で直さない）", "",
              f"- ①入手の道が無いアイテム：**{len(no_way)}** / {len(items)}",
-             f"- ②「?」の説明（lang block.{NS}.<id>.howto）が無い機械：**{len(no_help)}** / {len(machines)}",
+             f"- ②「?」の説明が無い機械（画面のある機械のうち、手書きの lang block.{NS}.<id>.howto も、自動のレシピの一覧＝machine_recipes も無い物）：**{len(no_help)}** / {len(machines)}",
              f"- ③見取り図の無いマルチブロック：**{len(no_view)}**", "",
              "道の数え方：作業台・かまどのレシピ、機械・組立台のレシピ（docs/machine_recipes.json）、世界に生える鉱石とそのルート、ルートの書き換え（LootTableEvents）、"
              "例外の一覧（tools/check_howto.py の HOWTO_EXTRA）。ここに無いのに手に入る物は、HOWTO_EXTRA に理由を書いて足すか、machine_recipes の書き出しに足す", ""]
@@ -144,6 +178,9 @@ def main():
     for o in sorted(hb):
         lines.append(f"- **{o}**（{len(hb[o])}）：" + "、".join(sorted(hb[o])))
     lines += ["", "## ③ 見取り図の無いマルチブロック", "- " + ("、".join(no_view) if no_view else "なし")]
+    hg = RES / f"assets/{NS}/howto_get.json"
+    hg.write_text(json.dumps({"_note": "自動生成：python tools/check_howto.py（O-035）。ツールチップの「作り方」1行（machine/HowToGet）。手で直さない",
+                              "ways": {k: ways[k] for k in sorted(ways)}}, ensure_ascii=False, indent=0) + chr(10), encoding="utf-8")
     out = ROOT / "docs/tasks/HOWTO_GAPS.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"no way {len(no_way)}/{len(items)}, no help {len(no_help)}/{len(machines)}, no view {len(no_view)} -> {out.relative_to(ROOT)}")

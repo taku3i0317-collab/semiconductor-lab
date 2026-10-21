@@ -306,5 +306,6 @@
   "item.semiconductor-lab.chamber_acid.note4": "二酸化窒素（NO2）は茶色の毒のある気体（GHS：急性毒性（吸入））。鉛室法の工場では、もれたけむりがまわりの畑や家にも害を出した。",
   "item.semiconductor-lab.chamber_acid.placeholder": "近似：硝石は本物では回収してくり返し使う（ゲームでは1つ使う）。グラバー塔・ゲイ＝リュサック塔は省略。",
   "message.semiconductor-lab.chamber_acid.leak": "茶色いけむり（二酸化窒素）がもれた…少し気分が悪い",
-  "block.semiconductor-lab.haber_bosch_reactor.howto": "窒素の袋1・水素の袋3と鉄の触媒を入れて電気をつなぐ。アンモニアの袋2が出る。触媒がないと動かない（触媒は減らない）。"
+  "block.semiconductor-lab.haber_bosch_reactor.howto": "窒素の袋1・水素の袋3と鉄の触媒を入れて電気をつなぐ。アンモニアの袋2が出る。触媒がないと動かない（触媒は減らない）。",
+  "block.semiconductor-lab.gas_holder.howto": "1種類のガスを貯める（電気なし）。\n・となりの電解槽・空気分離装置からガスを自動で受け取る\n・左に袋詰めのガスを入れると吸い込み、右に1袋ずつ出る\n・最初に入れたガスで種類が決まる。空になると解除\n・水素と酸素を混ぜると爆発して空になる"
 }

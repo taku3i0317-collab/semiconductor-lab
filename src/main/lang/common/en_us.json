@@ -466,5 +466,18 @@
   "block.semiconductor-lab.item_port.note4": "Part of the v1.0 #1 multiblock foundation, for the EUV scanner multiblock.",
   "block.semiconductor-lab.gas_port.note2": "Any shell spot can take it instead of a brick. It links to the controller when formed and cuts off when broken.",
   "block.semiconductor-lab.gas_port.note3": "Real big machines (blast furnaces, EUV scanners) also have fixed inlets for power, gas and wafers.",
-  "block.semiconductor-lab.gas_port.note4": "Part of the v1.0 #1 multiblock foundation, for the EUV scanner multiblock."
+  "block.semiconductor-lab.gas_port.note4": "Part of the v1.0 #1 multiblock foundation, for the EUV scanner multiblock.",
+  "tooltip.semiconductor-lab.howto_get": "Made by: %s",
+  "tooltip.semiconductor-lab.howto_get.sep": ", ",
+  "tooltip.semiconductor-lab.howto_get.crafting": "crafting table",
+  "tooltip.semiconductor-lab.howto_get.smelting": "furnace",
+  "tooltip.semiconductor-lab.howto_get.campfire": "campfire",
+  "tooltip.semiconductor-lab.howto_get.ore": "mined in the world",
+  "tooltip.semiconductor-lab.howto_get.loot": "dropped when a block breaks",
+  "multiblock.semiconductor-lab.ghost": "Show",
+  "multiblock.semiconductor-lab.missing": "Missing: %s",
+  "multiblock.semiconductor-lab.complete": "All in place",
+  "gui.semiconductor-lab.howto.recipes": "Recipes:",
+  "gui.semiconductor-lab.howto.seconds": "%s s",
+  "gui.semiconductor-lab.howto.extra": " (%s)"
 }

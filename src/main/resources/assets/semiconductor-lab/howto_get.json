@@ -1,0 +1,2496 @@
+{
+"_note": "自動生成：python tools/check_howto.py（O-035）。ツールチップの「作り方」1行（machine/HowToGet）。手で直さない",
+"ways": {
+"accelerator_tube": [
+"crafting"
+],
+"acetaldehyde": [
+"crafting"
+],
+"acetic_acid": [
+"crafting",
+"machine:resist_reactor"
+],
+"acetic_anhydride": [
+"crafting"
+],
+"acetone": [
+"smelting"
+],
+"acetoxyphenyl_ethanol": [
+"machine:resist_reactor"
+],
+"acetoxystyrene": [
+"machine:resist_reactor"
+],
+"acetyl_chloride": [
+"crafting"
+],
+"acetylene_gas": [
+"crafting"
+],
+"acheson_furnace": [
+"crafting"
+],
+"achromatic_lens": [
+"crafting"
+],
+"acrylic_acid": [
+"crafting"
+],
+"adipic_acid": [
+"crafting"
+],
+"adiponitrile": [
+"smelting"
+],
+"ai_chip": [
+"machine:assembly_bench"
+],
+"air_conditioner": [
+"crafting"
+],
+"air_separation_unit": [
+"crafting"
+],
+"ald_reactor": [
+"crafting"
+],
+"alloyed_wafer": [
+"smelting"
+],
+"alternator": [
+"crafting"
+],
+"alumina": [
+"smelting"
+],
+"alumina_catalyst_tube": [
+"crafting"
+],
+"aluminium_chloride": [
+"crafting"
+],
+"aluminium_hydroxide": [
+"machine:bayer_digester"
+],
+"aluminium_ingot": [
+"machine:hall_heroult_cell"
+],
+"aluminosilicate_batch": [
+"crafting"
+],
+"aluminosilicate_glass": [
+"smelting"
+],
+"ammonia_still": [
+"crafting"
+],
+"ammonia_water": [
+"crafting",
+"machine:ammonia_still"
+],
+"ammoniacal_liquor": [
+"machine:gas_retort"
+],
+"ammonium_adipate": [
+"crafting"
+],
+"ammonium_chloride": [
+"crafting"
+],
+"ammonium_chloroplatinate": [
+"crafting"
+],
+"ammonium_metavanadate": [
+"crafting"
+],
+"ammonium_molybdate": [
+"crafting"
+],
+"ammonium_nitrate": [
+"crafting"
+],
+"ammonium_sulfate": [
+"crafting"
+],
+"anhydrous_magnesium_chloride": [
+"smelting"
+],
+"anion_exchange_resin": [
+"crafting"
+],
+"anisaldehyde": [
+"crafting"
+],
+"anisole": [
+"crafting"
+],
+"anneal_furnace": [
+"crafting"
+],
+"annular_aperture": [
+"crafting"
+],
+"antimony": [
+"smelting"
+],
+"antimony_pentachloride": [
+"crafting"
+],
+"antimony_trioxide": [
+"smelting"
+],
+"aqua_regia": [
+"crafting"
+],
+"arc_furnace": [
+"crafting"
+],
+"arc_lamp": [
+"crafting"
+],
+"arf_laser": [
+"crafting"
+],
+"argon_cylinder": [
+"machine:compressor"
+],
+"argon_gas": [
+"machine:air_separation_unit"
+],
+"asphalt": [
+"ore"
+],
+"assembly_bench": [
+"crafting"
+],
+"autoclave": [
+"crafting"
+],
+"automatic_rotor": [
+"crafting"
+],
+"automatic_watch": [
+"crafting"
+],
+"bake_plate": [
+"crafting"
+],
+"bakelite": [
+"machine:autoclave"
+],
+"balance_wheel": [
+"crafting"
+],
+"ball_bearing": [
+"crafting"
+],
+"ball_screw": [
+"crafting"
+],
+"bastnaesite": [
+"ore"
+],
+"bastnaesite_ore": [
+"ore"
+],
+"bauxite": [
+"ore"
+],
+"bauxite_ore": [
+"ore"
+],
+"bayer_digester": [
+"crafting"
+],
+"bayer_filter": [
+"crafting"
+],
+"beet_juice": [
+"crafting"
+],
+"bellows": [
+"crafting"
+],
+"benzal_chloride": [
+"crafting"
+],
+"benzaldehyde": [
+"crafting"
+],
+"benzene": [
+"campfire"
+],
+"benzophenone": [
+"crafting"
+],
+"bessemer_converter": [
+"crafting"
+],
+"beta_spodumene": [
+"smelting"
+],
+"bisphenol_a": [
+"crafting"
+],
+"bittern": [
+"machine:salt_pan"
+],
+"bittern_under_hcl": [
+"crafting"
+],
+"bitumen_varnish": [
+"crafting"
+],
+"black_ash": [
+"smelting"
+],
+"black_ash_charge": [
+"crafting"
+],
+"blast_furnace_hearth": [
+"crafting"
+],
+"blast_furnace_slag": [
+"machine:blast_furnace_hearth"
+],
+"bleaching_powder": [
+"crafting"
+],
+"bloomery": [
+"crafting"
+],
+"blue_color_resist": [
+"crafting"
+],
+"blue_led": [
+"crafting"
+],
+"bonded_chip": [
+"machine:wire_bonder"
+],
+"bone_ash": [
+"smelting"
+],
+"bone_char": [
+"smelting"
+],
+"borax": [
+"ore"
+],
+"borax_deposit": [
+"ore"
+],
+"bordeaux_mixture": [
+"crafting"
+],
+"boric_acid": [
+"crafting"
+],
+"boron": [
+"crafting"
+],
+"boron_magnesium_mix": [
+"crafting"
+],
+"boron_trioxide": [
+"smelting"
+],
+"borosilicate_batch": [
+"crafting"
+],
+"borosilicate_glass": [
+"smelting"
+],
+"bottle_machine": [
+"crafting"
+],
+"bread_dough": [
+"crafting"
+],
+"bridgman_furnace": [
+"crafting"
+],
+"bronze_charge": [
+"crafting"
+],
+"bronze_ingot": [
+"smelting"
+],
+"butanol": [
+"crafting"
+],
+"butylaniline": [
+"crafting"
+],
+"butylbenzene": [
+"crafting"
+],
+"butyric_acid": [
+"crafting"
+],
+"butyrophenone": [
+"crafting"
+],
+"butyryl_chloride": [
+"crafting"
+],
+"cadmium": [
+"crafting"
+],
+"caf2_crystal": [
+"machine:bridgman_furnace"
+],
+"caf2_lens": [
+"crafting"
+],
+"calcium_acetate": [
+"campfire"
+],
+"calcium_carbide": [
+"machine:arc_furnace"
+],
+"calcium_sulfate": [
+"crafting",
+"machine:lead_retort"
+],
+"calculator": [
+"machine:assembly_bench"
+],
+"camera": [
+"crafting"
+],
+"camera_lens": [
+"crafting"
+],
+"camera_module": [
+"crafting"
+],
+"can_cap": [
+"crafting"
+],
+"can_packaged_chip": [
+"machine:package_sealer"
+],
+"cane_juice": [
+"crafting"
+],
+"canned_meat": [
+"smelting",
+"campfire"
+],
+"carbide_lamp": [
+"crafting"
+],
+"carbolic_oil": [
+"smelting"
+],
+"carbon_monoxide_gas": [
+"crafting",
+"machine:hafnium_chlorinator"
+],
+"carbon_tetrachloride": [
+"crafting"
+],
+"carbon_tetrafluoride": [
+"machine:fluorination_reactor"
+],
+"carded_wool": [
+"crafting"
+],
+"cassiterite": [
+"ore"
+],
+"cassiterite_ore": [
+"ore"
+],
+"cast_iron_plate": [
+"crafting"
+],
+"castner_cell": [
+"crafting"
+],
+"cation_exchange_resin": [
+"crafting"
+],
+"cellulose_acetate": [
+"crafting"
+],
+"cement_clinker": [
+"smelting"
+],
+"cement_raw_meal": [
+"crafting"
+],
+"cerium_oxide": [
+"crafting"
+],
+"cfc12_gas": [
+"crafting"
+],
+"chemically_amplified_resist": [
+"crafting"
+],
+"chip": [
+"machine:dicing_saw"
+],
+"chip_header": [
+"crafting"
+],
+"chlorine_cylinder": [
+"machine:compressor"
+],
+"chlorine_gas": [
+"machine:electrolyzer"
+],
+"chloroauric_acid": [
+"crafting"
+],
+"chlorodifluoromethane_gas": [
+"crafting"
+],
+"chloroform": [
+"crafting"
+],
+"chloroplatinic_acid": [
+"crafting"
+],
+"chromatography_column": [
+"crafting"
+],
+"chromite": [
+"ore"
+],
+"chromite_ore": [
+"ore"
+],
+"chromite_roast_charge": [
+"crafting"
+],
+"chromium": [
+"smelting"
+],
+"chromium_oxide": [
+"smelting"
+],
+"cinnabar_dust": [
+"crafting"
+],
+"cinnabar_retort_charge": [
+"crafting"
+],
+"cinnamic_acid": [
+"smelting"
+],
+"cinnamoyl_chloride": [
+"crafting"
+],
+"clay_crucible": [
+"smelting"
+],
+"cleaning_bench": [
+"crafting"
+],
+"cmp_polisher": [
+"crafting"
+],
+"co2_laser": [
+"crafting"
+],
+"coal_ash": [
+"smelting"
+],
+"coal_tar": [
+"machine:gas_retort"
+],
+"coke": [
+"machine:gas_retort"
+],
+"colloidal_silica": [
+"crafting"
+],
+"color_image_sensor": [
+"crafting"
+],
+"compound_furnace": [
+"crafting"
+],
+"compound_microscope": [
+"crafting"
+],
+"compound_pulley": [
+"crafting"
+],
+"compressor": [
+"crafting"
+],
+"continuity_tester": [
+"crafting"
+],
+"copper_cable": [
+"crafting"
+],
+"copper_electrotype": [
+"machine:electroplating_bath"
+],
+"copper_gauze": [
+"crafting"
+],
+"copper_phthalocyanine": [
+"crafting"
+],
+"copper_plater": [
+"crafting"
+],
+"copper_sulfate": [
+"crafting"
+],
+"copper_wire": [
+"crafting"
+],
+"cracked_glass": [
+"campfire",
+"crafting"
+],
+"crotonaldehyde": [
+"crafting"
+],
+"crown_glass": [
+"smelting"
+],
+"crown_lens": [
+"crafting"
+],
+"crown_lens_blank": [
+"crafting"
+],
+"crucible_charge": [
+"crafting"
+],
+"crucible_steel": [
+"smelting"
+],
+"crude_boron": [
+"smelting"
+],
+"crude_fluorozirconate": [
+"crafting"
+],
+"crude_germanium_tetrachloride": [
+"crafting"
+],
+"crude_hafnium": [
+"crafting"
+],
+"crude_nickel": [
+"crafting"
+],
+"crude_titanium_tetrachloride": [
+"crafting"
+],
+"crude_zirconia": [
+"crafting"
+],
+"crude_zirconium": [
+"crafting"
+],
+"cryolite": [
+"crafting"
+],
+"crystal_puller": [
+"crafting"
+],
+"crystal_resonator": [
+"crafting"
+],
+"cupel": [
+"crafting"
+],
+"cupel_charge": [
+"crafting"
+],
+"cuprous_chloride": [
+"crafting"
+],
+"cured_epoxy": [
+"smelting"
+],
+"cvd_furnace": [
+"crafting"
+],
+"cw_multiplier": [
+"crafting"
+],
+"cyclized_rubber": [
+"smelting"
+],
+"cyclized_rubber_mix": [
+"crafting"
+],
+"cyclohexanol": [
+"crafting"
+],
+"cz_puller": [
+"crafting"
+],
+"daguerreotype": [
+"crafting"
+],
+"daguerreotype_plate": [
+"crafting"
+],
+"daniell_cell": [
+"crafting"
+],
+"developed_dry_plate": [
+"crafting"
+],
+"developed_plate": [
+"crafting"
+],
+"developer": [
+"crafting"
+],
+"developer_bench": [
+"crafting"
+],
+"diamond_blade": [
+"crafting"
+],
+"diamond_die": [
+"crafting"
+],
+"diamond_saw": [
+"crafting"
+],
+"diamond_saw_blade": [
+"crafting"
+],
+"diamond_scribe": [
+"crafting"
+],
+"dichlorohydrin": [
+"crafting"
+],
+"dicing_saw": [
+"crafting"
+],
+"diethyl_ether": [
+"crafting"
+],
+"diffusion_furnace": [
+"crafting"
+],
+"diffusion_pump": [
+"crafting"
+],
+"dimethyldichlorosilane": [
+"machine:silicone_reactor"
+],
+"diphenyl_sulfoxide": [
+"machine:resist_reactor"
+],
+"distilled_water": [
+"crafting"
+],
+"dnq": [
+"crafting"
+],
+"dobson_meter": [
+"crafting"
+],
+"doped_polyacetylene": [
+"crafting"
+],
+"drafting_table": [
+"crafting"
+],
+"draw_plate": [
+"crafting"
+],
+"droplet_generator": [
+"crafting"
+],
+"dry_cell": [
+"crafting"
+],
+"dry_cell_holder": [
+"crafting"
+],
+"dry_etcher": [
+"crafting"
+],
+"dugout_canoe": [
+"crafting"
+],
+"duralumin_charge": [
+"crafting"
+],
+"dynamo": [
+"crafting"
+],
+"earthenware_pot": [
+"smelting",
+"campfire"
+],
+"earthenware_whorl": [
+"smelting",
+"campfire"
+],
+"electric_furnace": [
+"crafting"
+],
+"electric_motor": [
+"crafting"
+],
+"electrolyzer": [
+"crafting"
+],
+"electromagnet": [
+"crafting"
+],
+"electron_microscope": [
+"crafting"
+],
+"electroplating_bath": [
+"crafting"
+],
+"empty_gas_cylinder": [
+"crafting",
+"machine:cvd_furnace",
+"machine:fluorination_reactor"
+],
+"energy_port": [
+"crafting"
+],
+"epichlorohydrin": [
+"crafting"
+],
+"epitaxy_reactor": [
+"crafting"
+],
+"epoxy_molding_compound": [
+"crafting"
+],
+"epoxy_resin": [
+"crafting"
+],
+"etch_tank": [
+"crafting"
+],
+"ethanol": [
+"crafting"
+],
+"euv_high_na_optics": [
+"crafting"
+],
+"euv_mirror_set": [
+"crafting"
+],
+"euv_projection_optics": [
+"crafting"
+],
+"euv_resist": [
+"crafting"
+],
+"euv_scanner": [
+"crafting"
+],
+"euv_source": [
+"crafting"
+],
+"evaporator": [
+"crafting"
+],
+"fermentation_crock": [
+"crafting"
+],
+"ferroboron": [
+"smelting"
+],
+"ferroboron_charge": [
+"crafting"
+],
+"ferrous_sulfate": [
+"crafting"
+],
+"fiber_preform": [
+"crafting"
+],
+"fiber_preform_natural": [
+"crafting"
+],
+"fire_clay": [
+"crafting"
+],
+"fire_clay_crucible": [
+"crafting"
+],
+"flax": [
+"loot"
+],
+"flax_fiber": [
+"crafting"
+],
+"flint_flake": [
+"crafting"
+],
+"flint_glass": [
+"smelting"
+],
+"flint_glass_batch": [
+"crafting"
+],
+"flint_lens": [
+"crafting"
+],
+"flint_lens_blank": [
+"crafting"
+],
+"flour": [
+"crafting"
+],
+"fluorination_reactor": [
+"crafting"
+],
+"fluorine_cell": [
+"crafting"
+],
+"fluorite": [
+"ore"
+],
+"fluorite_ore": [
+"ore"
+],
+"foamy_bakelite": [
+"smelting"
+],
+"foup": [
+"crafting"
+],
+"fused_quartz": [
+"machine:co2_laser",
+"machine:oxyhydrogen_burner"
+],
+"fz_puller": [
+"crafting"
+],
+"galena": [
+"ore"
+],
+"galena_ore": [
+"ore"
+],
+"gallium": [
+"machine:gallium_cell"
+],
+"gallium_cell": [
+"crafting"
+],
+"game_console": [
+"machine:assembly_bench"
+],
+"gas_holder": [
+"crafting"
+],
+"gas_port": [
+"crafting"
+],
+"gas_retort": [
+"crafting"
+],
+"gauge_block_set": [
+"crafting"
+],
+"gear_train": [
+"crafting"
+],
+"gelatin": [
+"smelting"
+],
+"germanium_concentrate": [
+"crafting",
+"machine:reverberatory_furnace"
+],
+"germanium_dioxide": [
+"crafting"
+],
+"germanium_seed_crystal": [
+"machine:crystal_puller"
+],
+"germanium_single_crystal": [
+"machine:crystal_puller"
+],
+"germanium_tetrachloride": [
+"crafting"
+],
+"glass_batch": [
+"crafting"
+],
+"glass_bottle": [
+"crafting",
+"machine:ald_reactor",
+"machine:bottle_machine",
+"machine:cmp_polisher",
+"machine:lead_retort",
+"machine:ultrapure_water_system"
+],
+"glass_fiber": [
+"crafting"
+],
+"glass_in_salt_bath": [
+"crafting"
+],
+"glycerin": [
+"smelting"
+],
+"glycerol_triacrylate": [
+"crafting"
+],
+"gold_bonding_wire": [
+"crafting"
+],
+"gold_powder": [
+"crafting"
+],
+"gold_wire": [
+"crafting"
+],
+"graphite": [
+"ore"
+],
+"graphite_boat": [
+"smelting",
+"machine:electric_furnace"
+],
+"graphite_boat_blank": [
+"crafting"
+],
+"graphite_ore": [
+"ore"
+],
+"graphite_rod": [
+"crafting"
+],
+"graphite_wax_mould": [
+"crafting"
+],
+"grating_spectroscope": [
+"crafting"
+],
+"green_color_resist": [
+"crafting"
+],
+"grinder": [
+"crafting"
+],
+"grinding_tool": [
+"crafting"
+],
+"grinding_wheel": [
+"smelting"
+],
+"haber_bosch_reactor": [
+"crafting"
+],
+"hafnium_bar": [
+"crafting"
+],
+"hafnium_chlorinator": [
+"crafting"
+],
+"hafnium_hydroxide": [
+"crafting"
+],
+"hafnium_oxide": [
+"smelting"
+],
+"hafnium_tetrachloride": [
+"machine:hafnium_chlorinator"
+],
+"half_silvered_mirror": [
+"crafting"
+],
+"hall_heroult_cell": [
+"crafting"
+],
+"hammerstone": [
+"loot"
+],
+"hand_axe": [
+"crafting"
+],
+"hand_vacuum_pump": [
+"crafting"
+],
+"hcl_burner": [
+"crafting"
+],
+"hdpe": [
+"crafting"
+],
+"heliograph_plate": [
+"crafting"
+],
+"hepa_ceiling": [
+"crafting"
+],
+"hepa_filter": [
+"crafting"
+],
+"hexamethylenediamine": [
+"crafting"
+],
+"hf_oscillator": [
+"machine:assembly_bench"
+],
+"hfc23_gas": [
+"crafting"
+],
+"hide_broth": [
+"crafting"
+],
+"high_pressure_reactor": [
+"crafting"
+],
+"high_purity_germanium_dioxide": [
+"crafting"
+],
+"high_voltage_line": [
+"crafting"
+],
+"hot_iron_bloom": [
+"smelting"
+],
+"hydrochloric_acid": [
+"crafting",
+"machine:hcl_burner",
+"machine:silicone_reactor"
+],
+"hydrofluoric_acid": [
+"machine:lead_retort"
+],
+"hydrofluoric_acid_pe": [
+"crafting"
+],
+"hydrogen_chloride_gas": [
+"machine:epitaxy_reactor",
+"machine:hcl_burner",
+"machine:pyrolysis_furnace",
+"machine:siemens_reactor"
+],
+"hydrogen_cylinder": [
+"machine:compressor"
+],
+"hydrogen_furnace": [
+"crafting"
+],
+"hydrogen_gas": [
+"machine:electrolyzer",
+"machine:peroxide_cell",
+"machine:trichlorosilane_reactor"
+],
+"hydrogen_peroxide": [
+"machine:peroxide_cell"
+],
+"hydrogen_sulfide_gas": [
+"crafting"
+],
+"hydrothermal_charge": [
+"crafting"
+],
+"hydroxyacetophenone": [
+"machine:resist_reactor"
+],
+"hypo_liquor": [
+"crafting"
+],
+"ilmenite": [
+"loot"
+],
+"image_sensor": [
+"machine:assembly_bench"
+],
+"indium": [
+"machine:reverberatory_furnace"
+],
+"indium_tin_alloy": [
+"crafting"
+],
+"induction_coil": [
+"crafting"
+],
+"interferometer": [
+"crafting"
+],
+"inverter": [
+"crafting"
+],
+"iodine": [
+"crafting"
+],
+"ion_adsorption_clay": [
+"ore"
+],
+"ion_exchange_column": [
+"crafting"
+],
+"ion_implanter": [
+"crafting"
+],
+"iron_bloom": [
+"machine:bloomery"
+],
+"iron_catalyst": [
+"crafting"
+],
+"iron_compact": [
+"crafting"
+],
+"iron_flask": [
+"crafting"
+],
+"iron_powder": [
+"crafting"
+],
+"iron_sand": [
+"ore",
+"loot"
+],
+"isolation_table": [
+"crafting"
+],
+"item_port": [
+"crafting"
+],
+"ito_glass": [
+"smelting"
+],
+"jewel_bearing": [
+"crafting"
+],
+"junction_transistor": [
+"smelting"
+],
+"junction_transistor_blank": [
+"crafting"
+],
+"kelp_ash": [
+"campfire"
+],
+"kelp_liquor": [
+"crafting"
+],
+"key_switch": [
+"crafting"
+],
+"kibble_balance": [
+"crafting"
+],
+"kilogram_prototype": [
+"crafting"
+],
+"krf_laser": [
+"crafting"
+],
+"kroll_charge": [
+"crafting"
+],
+"krypton_lamp": [
+"crafting"
+],
+"lathe": [
+"crafting"
+],
+"layout_sheet": [
+"machine:drafting_table"
+],
+"lcd_cell": [
+"crafting"
+],
+"lead_acid_battery": [
+"crafting"
+],
+"lead_bottle": [
+"crafting",
+"machine:etch_tank"
+],
+"lead_ingot": [
+"smelting"
+],
+"lead_retort": [
+"crafting"
+],
+"lead_screw": [
+"crafting"
+],
+"leaf_pigment_extract": [
+"crafting"
+],
+"leavened_bread": [
+"smelting",
+"campfire"
+],
+"led_backlight": [
+"crafting"
+],
+"led_lamp": [
+"crafting"
+],
+"lens_barrel": [
+"crafting"
+],
+"lever_escapement": [
+"crafting"
+],
+"leyden_jar": [
+"crafting"
+],
+"lfp_charge": [
+"crafting"
+],
+"light_oil": [
+"campfire"
+],
+"light_rare_earth_oxalate": [
+"crafting"
+],
+"light_rare_earth_oxide": [
+"smelting"
+],
+"limed_wood_liquor": [
+"crafting"
+],
+"linen_cloth": [
+"crafting"
+],
+"linen_thread": [
+"crafting"
+],
+"litharge": [
+"smelting",
+"machine:reverberatory_furnace"
+],
+"lithium_carbonate": [
+"crafting"
+],
+"lithium_fluoride": [
+"crafting"
+],
+"lithium_hexafluorophosphate": [
+"crafting"
+],
+"lithium_ion_battery": [
+"crafting"
+],
+"lithium_iron_phosphate": [
+"smelting"
+],
+"lithium_sulfate": [
+"crafting"
+],
+"load_port": [
+"crafting"
+],
+"lye": [
+"crafting"
+],
+"macadam": [
+"crafting"
+],
+"magnesium_cell": [
+"crafting"
+],
+"magnesium_oxide": [
+"smelting"
+],
+"magnesium_silicide": [
+"machine:silane_generator"
+],
+"magnet": [
+"crafting"
+],
+"magnetite": [
+"ore",
+"loot"
+],
+"magnetite_ore": [
+"ore"
+],
+"magnetizing_yoke": [
+"crafting"
+],
+"mainspring": [
+"crafting"
+],
+"malachite": [
+"ore"
+],
+"malachite_ore": [
+"ore"
+],
+"marine_chronometer": [
+"crafting"
+],
+"mask_aligner": [
+"crafting"
+],
+"mass_spectrometer": [
+"crafting"
+],
+"math_coprocessor": [
+"machine:assembly_bench"
+],
+"matte_charge": [
+"crafting"
+],
+"mbba": [
+"crafting"
+],
+"mechanical_watch": [
+"machine:assembly_bench"
+],
+"mems_accelerometer": [
+"machine:assembly_bench"
+],
+"mercuric_sulfate": [
+"crafting"
+],
+"mercury": [
+"smelting",
+"machine:reverberatory_furnace"
+],
+"mercury_barometer": [
+"crafting"
+],
+"mercury_lamp": [
+"crafting"
+],
+"mercury_lamp_assembly": [
+"crafting"
+],
+"mercury_thermometer": [
+"crafting"
+],
+"mercury_vacuum_gauge": [
+"crafting"
+],
+"mesa_transistor": [
+"crafting"
+],
+"metallurgical_silicon": [
+"machine:arc_furnace"
+],
+"methanol": [
+"smelting"
+],
+"methyl_chloride": [
+"machine:silicone_reactor"
+],
+"metre_bar": [
+"crafting"
+],
+"microcomputer": [
+"machine:assembly_bench"
+],
+"micrometer": [
+"crafting"
+],
+"mixed_rare_earth_oxide": [
+"smelting"
+],
+"mo_si_target": [
+"crafting"
+],
+"molybdenite": [
+"loot"
+],
+"n_type_germanium": [
+"machine:zone_refining_furnace"
+],
+"naphthalene": [
+"crafting"
+],
+"naphthalenesulfonic_acid": [
+"crafting"
+],
+"naphthol": [
+"smelting"
+],
+"naphthol_melt": [
+"crafting"
+],
+"native_copper": [
+"loot"
+],
+"natural_asphalt": [
+"ore"
+],
+"ndfeb_alloy": [
+"crafting"
+],
+"ndfeb_compact": [
+"crafting"
+],
+"ndfeb_powder": [
+"crafting"
+],
+"negative": [
+"crafting"
+],
+"negative_resist": [
+"crafting"
+],
+"neodymium": [
+"machine:electric_furnace"
+],
+"neodymium_electrolysis_charge": [
+"crafting"
+],
+"neodymium_fluoride": [
+"crafting"
+],
+"neodymium_magnet": [
+"crafting"
+],
+"neodymium_oxide": [
+"crafting"
+],
+"nickel": [
+"smelting"
+],
+"nickel_carbonyl_gas": [
+"crafting"
+],
+"nickel_matte": [
+"smelting"
+],
+"nickel_oxide": [
+"smelting"
+],
+"nitre_bed": [
+"crafting"
+],
+"nitre_earth": [
+"ore"
+],
+"nitre_earth_block": [
+"ore"
+],
+"nitre_liquor": [
+"crafting"
+],
+"nitric_acid": [
+"crafting"
+],
+"nitrite_mix": [
+"crafting"
+],
+"nitrobutylbenzene": [
+"crafting"
+],
+"nitrogen_cylinder": [
+"machine:compressor"
+],
+"nitrogen_gas": [
+"machine:air_separation_unit"
+],
+"nixie_tube": [
+"crafting"
+],
+"novolac": [
+"smelting"
+],
+"novolac_mix": [
+"crafting"
+],
+"nylon_66": [
+"machine:autoclave"
+],
+"nylon_fiber": [
+"smelting"
+],
+"nylon_salt": [
+"crafting"
+],
+"oil_diffusion_pump": [
+"crafting"
+],
+"oleum": [
+"crafting"
+],
+"oxalic_acid": [
+"crafting"
+],
+"oxidation_furnace": [
+"crafting"
+],
+"oxygen_cylinder": [
+"machine:compressor"
+],
+"oxygen_gas": [
+"machine:air_separation_unit",
+"machine:electrolyzer"
+],
+"oxyhydrogen_burner": [
+"crafting"
+],
+"p_type_germanium": [
+"machine:zone_refining_furnace"
+],
+"package_sealer": [
+"crafting"
+],
+"pasteurized_wine": [
+"campfire"
+],
+"pea": [
+"loot"
+],
+"pentlandite": [
+"ore"
+],
+"pentlandite_ore": [
+"ore"
+],
+"perkin_mix": [
+"crafting"
+],
+"perkins_ice_machine": [
+"crafting"
+],
+"peroxide_cell": [
+"crafting"
+],
+"pewter_plate": [
+"crafting"
+],
+"phase_shift_mask": [
+"crafting"
+],
+"phenol": [
+"crafting"
+],
+"phonograph": [
+"crafting"
+],
+"phosphoric_acid": [
+"crafting"
+],
+"phosphorus": [
+"crafting"
+],
+"phosphorus_pentoxide": [
+"smelting"
+],
+"phosphorus_trichloride": [
+"crafting"
+],
+"phosphorus_under_nitrogen": [
+"crafting"
+],
+"photo_emulsion": [
+"crafting"
+],
+"photo_plate": [
+"crafting"
+],
+"photoacid_generator": [
+"machine:resist_reactor"
+],
+"photomask": [
+"machine:reduction_camera"
+],
+"photopolymer_resin": [
+"crafting"
+],
+"phthalic_anhydride": [
+"crafting"
+],
+"pig_iron": [
+"machine:blast_furnace_hearth"
+],
+"pitch": [
+"smelting"
+],
+"pitch_lap": [
+"crafting"
+],
+"plastic_packaged_chip": [
+"machine:package_sealer"
+],
+"platinum_bushing": [
+"crafting"
+],
+"platinum_compact": [
+"crafting"
+],
+"platinum_gauze": [
+"crafting"
+],
+"platinum_grain": [
+"ore"
+],
+"platinum_ingot": [
+"smelting"
+],
+"platinum_sponge": [
+"smelting"
+],
+"plow": [
+"crafting"
+],
+"pn_junction_wafer": [
+"machine:diffusion_furnace"
+],
+"point_contact_diode": [
+"crafting"
+],
+"polarizing_film": [
+"crafting"
+],
+"polished_stone_axe": [
+"crafting"
+],
+"poly_acetoxystyrene": [
+"machine:resist_reactor"
+],
+"polyacetylene_film": [
+"crafting"
+],
+"polyethylene": [
+"machine:high_pressure_reactor"
+],
+"polyethylene_bottle": [
+"crafting"
+],
+"polyhydroxystyrene": [
+"machine:resist_reactor"
+],
+"polysilicon": [
+"machine:siemens_reactor"
+],
+"polyvinyl_acetate": [
+"crafting"
+],
+"polyvinyl_alcohol": [
+"crafting"
+],
+"polyvinyl_cinnamate": [
+"crafting"
+],
+"portland_cement": [
+"crafting"
+],
+"positive_resist": [
+"crafting"
+],
+"potash": [
+"smelting"
+],
+"potassium_dichromate": [
+"crafting"
+],
+"potassium_fluoride": [
+"crafting"
+],
+"potassium_fluorohafnate": [
+"crafting"
+],
+"potassium_fluorotantalate": [
+"machine:tantalum_refinery"
+],
+"potassium_hexafluoroantimonate": [
+"machine:resist_reactor"
+],
+"potassium_iodide": [
+"crafting"
+],
+"potassium_nitrite": [
+"smelting"
+],
+"potters_wheel": [
+"crafting"
+],
+"print": [
+"crafting"
+],
+"printing_paper": [
+"crafting"
+],
+"prism": [
+"crafting"
+],
+"probe_station": [
+"crafting"
+],
+"process_wafer": [
+"machine:spin_coater"
+],
+"projection_lens": [
+"crafting"
+],
+"projection_lens_arf": [
+"crafting"
+],
+"projection_lens_i": [
+"crafting"
+],
+"projection_lens_immersion": [
+"crafting"
+],
+"projection_lens_krf": [
+"crafting"
+],
+"protected_phs": [
+"machine:resist_reactor"
+],
+"ptfe": [
+"machine:autoclave"
+],
+"pulp_charge": [
+"crafting"
+],
+"pump_rotor": [
+"machine:lathe"
+],
+"pva_film": [
+"crafting"
+],
+"pyrite": [
+"ore"
+],
+"pyrite_ore": [
+"ore"
+],
+"pyrolusite": [
+"ore"
+],
+"pyrolusite_ore": [
+"ore"
+],
+"pyrolysis_furnace": [
+"crafting"
+],
+"quadrupole_aperture": [
+"crafting"
+],
+"quartz_blank": [
+"crafting"
+],
+"quartz_crucible": [
+"crafting"
+],
+"quartz_still": [
+"crafting"
+],
+"quartz_tube": [
+"crafting"
+],
+"quartz_vein": [
+"ore"
+],
+"quartz_watch": [
+"crafting"
+],
+"quenched_duralumin": [
+"smelting"
+],
+"quern": [
+"crafting"
+],
+"quicklime": [
+"smelting"
+],
+"raney_alloy": [
+"crafting"
+],
+"raney_nickel": [
+"crafting"
+],
+"rare_earth_leachate": [
+"crafting"
+],
+"rare_earth_oxalate": [
+"crafting"
+],
+"rare_gas_column": [
+"crafting"
+],
+"raw_clay_pot": [
+"crafting"
+],
+"raw_clay_whorl": [
+"crafting"
+],
+"raw_crucible": [
+"crafting"
+],
+"raw_germanium": [
+"crafting",
+"machine:hydrogen_furnace"
+],
+"raw_grinding_wheel": [
+"crafting"
+],
+"raw_rubber": [
+"crafting"
+],
+"raw_sugar": [
+"campfire"
+],
+"rca_bench": [
+"crafting"
+],
+"rectifier": [
+"crafting"
+],
+"red_color_resist": [
+"crafting"
+],
+"red_led": [
+"crafting"
+],
+"red_mud": [
+"machine:bayer_digester"
+],
+"red_phosphorus": [
+"smelting"
+],
+"reduction_camera": [
+"crafting"
+],
+"refined_germanium": [
+"machine:zone_refining_furnace"
+],
+"reflecting_telescope": [
+"crafting"
+],
+"refracting_telescope": [
+"crafting"
+],
+"refractory_brick": [
+"smelting",
+"machine:electric_furnace"
+],
+"refractory_brick_blank": [
+"crafting"
+],
+"refrigerator": [
+"crafting"
+],
+"reinforced_concrete": [
+"crafting"
+],
+"resist_reactor": [
+"crafting"
+],
+"resist_stripper": [
+"crafting"
+],
+"resol_mix": [
+"crafting"
+],
+"reverberatory_furnace": [
+"crafting"
+],
+"ro_membrane": [
+"crafting"
+],
+"roasted_bastnaesite": [
+"smelting"
+],
+"rock_crystal": [
+"ore"
+],
+"rock_salt": [
+"ore"
+],
+"rock_salt_ore": [
+"ore"
+],
+"roman_concrete_mix": [
+"crafting"
+],
+"rope": [
+"crafting"
+],
+"rotary_pump": [
+"crafting"
+],
+"rouge": [
+"smelting"
+],
+"rubbed_ito_glass": [
+"crafting"
+],
+"rubber_compound": [
+"crafting"
+],
+"rubber_leaves": [
+"ore"
+],
+"rubber_log": [
+"ore"
+],
+"rubber_sapling": [
+"ore"
+],
+"ruby_boule": [
+"machine:oxyhydrogen_burner"
+],
+"ruby_feed": [
+"crafting"
+],
+"ruby_laser": [
+"crafting"
+],
+"ruby_rod": [
+"crafting"
+],
+"rubylith": [
+"machine:drafting_table"
+],
+"ruled_spectroscope": [
+"crafting"
+],
+"ruling_engine": [
+"crafting"
+],
+"salt": [
+"crafting",
+"machine:salt_pan"
+],
+"salt_cake": [
+"smelting"
+],
+"salt_cake_charge": [
+"crafting"
+],
+"salt_pan": [
+"crafting"
+],
+"salt_window": [
+"crafting"
+],
+"salted_meat": [
+"crafting"
+],
+"saltpeter": [
+"smelting"
+],
+"saponified_tallow": [
+"campfire"
+],
+"scanner": [
+"crafting"
+],
+"sealed_can": [
+"crafting"
+],
+"sealing_station": [
+"crafting"
+],
+"self_excited_dynamo": [
+"crafting"
+],
+"sextant": [
+"crafting"
+],
+"siemens_reactor": [
+"crafting"
+],
+"silane_cylinder": [
+"machine:silane_generator"
+],
+"silane_generator": [
+"crafting"
+],
+"silicon_etch": [
+"crafting"
+],
+"silicon_seed_crystal": [
+"machine:cz_puller"
+],
+"silicon_single_crystal": [
+"machine:cz_puller"
+],
+"silicon_wafer": [
+"machine:etch_tank",
+"machine:wafer_saw"
+],
+"silicone_oil": [
+"machine:silicone_reactor"
+],
+"silicone_reactor": [
+"crafting"
+],
+"silver_ingot": [
+"crafting"
+],
+"silver_nitrate": [
+"crafting"
+],
+"silver_nugget": [
+"smelting",
+"crafting"
+],
+"silvered_mirror": [
+"crafting"
+],
+"silvered_plate": [
+"crafting"
+],
+"simple_microscope": [
+"crafting"
+],
+"simple_pulley": [
+"crafting"
+],
+"sintered_gear": [
+"machine:electric_furnace"
+],
+"sintered_ndfeb": [
+"machine:electric_furnace"
+],
+"slaked_lime": [
+"crafting"
+],
+"smartphone": [
+"machine:assembly_bench"
+],
+"smoked_meat": [
+"smelting",
+"campfire"
+],
+"soap": [
+"crafting"
+],
+"soap_batch": [
+"crafting"
+],
+"soda_lime_glass": [
+"smelting"
+],
+"sodium": [
+"machine:castner_cell"
+],
+"sodium_acetate": [
+"crafting"
+],
+"sodium_carbonate": [
+"smelting",
+"crafting",
+"machine:solvay_tower"
+],
+"sodium_chromate": [
+"smelting"
+],
+"sodium_hydroxide": [
+"crafting",
+"machine:electrolyzer",
+"machine:gallium_cell"
+],
+"sodium_phenolate": [
+"crafting"
+],
+"sodium_silicate": [
+"crafting"
+],
+"sodium_thiosulfate": [
+"smelting"
+],
+"sodium_tungstate": [
+"smelting"
+],
+"sodium_vanadate_solution": [
+"crafting"
+],
+"solar_cell": [
+"crafting"
+],
+"solvay_tower": [
+"crafting"
+],
+"spectroscope": [
+"crafting"
+],
+"speculum_charge": [
+"crafting"
+],
+"speculum_ingot": [
+"smelting"
+],
+"speculum_mirror": [
+"crafting"
+],
+"sphalerite": [
+"ore"
+],
+"sphalerite_ore": [
+"ore"
+],
+"spin_coater": [
+"crafting"
+],
+"spindle": [
+"crafting"
+],
+"spindle_shaft": [
+"crafting"
+],
+"spodumene": [
+"ore"
+],
+"spodumene_ore": [
+"ore"
+],
+"sponge_with_salt": [
+"smelting"
+],
+"sprengel_pump": [
+"crafting"
+],
+"sputter": [
+"crafting"
+],
+"stamp": [
+"machine:probe_station"
+],
+"standard_resistor": [
+"crafting"
+],
+"standard_screw": [
+"machine:lathe"
+],
+"steam_engine": [
+"crafting"
+],
+"steam_turbine": [
+"crafting"
+],
+"steel_balls_rough": [
+"crafting"
+],
+"steel_beam": [
+"crafting"
+],
+"steel_die": [
+"crafting"
+],
+"steel_ingot": [
+"machine:bessemer_converter"
+],
+"stepper": [
+"crafting"
+],
+"stepping_motor": [
+"crafting"
+],
+"stibnite": [
+"ore"
+],
+"stibnite_ore": [
+"ore"
+],
+"stone_load": [
+"crafting"
+],
+"stone_whorl": [
+"crafting"
+],
+"strengthened_glass": [
+"smelting"
+],
+"sugar_wash": [
+"crafting"
+],
+"sulfite_liquor": [
+"crafting"
+],
+"sulfur_dioxide": [
+"smelting",
+"machine:reverberatory_furnace"
+],
+"sulfur_powder": [
+"crafting"
+],
+"sulfur_trioxide": [
+"crafting"
+],
+"sulfuric_acid": [
+"crafting"
+],
+"superphosphate": [
+"crafting"
+],
+"synthetic_graphite": [
+"machine:acheson_furnace"
+],
+"synthetic_graphite_boat": [
+"crafting"
+],
+"synthetic_quartz": [
+"machine:oxyhydrogen_burner"
+],
+"tallow": [
+"loot"
+],
+"tantalite": [
+"ore"
+],
+"tantalite_ore": [
+"ore"
+],
+"tantalum": [
+"machine:tantalum_refinery"
+],
+"tantalum_refinery": [
+"crafting"
+],
+"tarmac": [
+"crafting"
+],
+"telephone": [
+"crafting"
+],
+"tetrafluoroethylene_gas": [
+"machine:pyrolysis_furnace"
+],
+"tft_lcd": [
+"machine:assembly_bench"
+],
+"theodolite": [
+"crafting"
+],
+"thermite_charge": [
+"crafting"
+],
+"thyristor": [
+"crafting"
+],
+"thyristor_wafer": [
+"machine:diffusion_furnace"
+],
+"tin_bath": [
+"crafting"
+],
+"tin_can": [
+"crafting"
+],
+"tin_foil_cylinder": [
+"crafting"
+],
+"tin_ingot": [
+"smelting"
+],
+"titanium_sponge": [
+"crafting"
+],
+"titanium_tetrachloride": [
+"crafting"
+],
+"tobias_acid": [
+"crafting"
+],
+"toluene": [
+"crafting"
+],
+"touch_panel": [
+"machine:assembly_bench"
+],
+"transformer": [
+"crafting"
+],
+"transistor": [
+"crafting"
+],
+"transistor_radio": [
+"machine:assembly_bench"
+],
+"tributylamine": [
+"crafting"
+],
+"trichlorosilane": [
+"machine:trichlorosilane_reactor"
+],
+"trichlorosilane_reactor": [
+"crafting"
+],
+"triethylaluminium": [
+"crafting"
+],
+"trona": [
+"ore"
+],
+"trona_deposit": [
+"ore"
+],
+"tube_radio": [
+"machine:assembly_bench"
+],
+"tungsten_bar": [
+"machine:hydrogen_furnace"
+],
+"tungsten_powder": [
+"machine:hydrogen_furnace"
+],
+"tungsten_trioxide": [
+"smelting"
+],
+"tungsten_wire": [
+"crafting"
+],
+"tungstic_acid": [
+"crafting"
+],
+"turbo_pump": [
+"crafting"
+],
+"turpentine": [
+"smelting"
+],
+"tuyere": [
+"crafting"
+],
+"ule_feed": [
+"crafting"
+],
+"ule_glass": [
+"machine:oxyhydrogen_burner"
+],
+"ultrapure_water": [
+"machine:ultrapure_water_system"
+],
+"ultrapure_water_system": [
+"crafting"
+],
+"urea": [
+"crafting"
+],
+"vacuum_chamber": [
+"crafting"
+],
+"vacuum_tube": [
+"machine:sealing_station"
+],
+"vacuum_tube_assembly": [
+"crafting"
+],
+"vanadium_calcine": [
+"smelting"
+],
+"vanadium_magnetite": [
+"loot"
+],
+"vanadium_pentoxide": [
+"smelting"
+],
+"vanadium_roast_charge": [
+"crafting"
+],
+"vein_quartz": [
+"ore"
+],
+"vernier_caliper": [
+"crafting"
+],
+"vinyl_acetate": [
+"crafting"
+],
+"voltaic_pile": [
+"crafting"
+],
+"vulcanized_rubber": [
+"smelting"
+],
+"wafer_polisher": [
+"crafting"
+],
+"wafer_prober": [
+"crafting"
+],
+"wafer_saw": [
+"crafting"
+],
+"water_wheel": [
+"crafting"
+],
+"waxed_wafer": [
+"crafting"
+],
+"weston_cell": [
+"crafting"
+],
+"white_led": [
+"crafting"
+],
+"white_led_lamp": [
+"crafting"
+],
+"wild_einkorn": [
+"loot"
+],
+"wild_yeast": [
+"crafting"
+],
+"wire_bonder": [
+"crafting"
+],
+"wire_grating": [
+"crafting"
+],
+"wolframite": [
+"ore"
+],
+"wolframite_ore": [
+"ore"
+],
+"wolframite_soda_charge": [
+"crafting"
+],
+"wood_ash": [
+"campfire"
+],
+"wood_retort": [
+"crafting"
+],
+"wood_tar": [
+"machine:wood_retort"
+],
+"wood_vinegar": [
+"machine:wood_retort"
+],
+"wooden_wheel": [
+"crafting"
+],
+"xenon_flashlamp": [
+"crafting"
+],
+"xylene": [
+"smelting"
+],
+"yttrium_oxide": [
+"crafting"
+],
+"ziegler_natta_catalyst": [
+"crafting"
+],
+"zinc_ingot": [
+"smelting"
+],
+"zinc_oxide": [
+"machine:reverberatory_furnace"
+],
+"zircon": [
+"loot"
+],
+"zirconium_bar": [
+"crafting"
+],
+"zone_refining_furnace": [
+"crafting"
+]
+}
+}
