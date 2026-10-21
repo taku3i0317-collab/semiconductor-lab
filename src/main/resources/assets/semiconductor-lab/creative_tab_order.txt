@@ -134,6 +134,9 @@ aluminium_hydroxide  # Metallurgy [1-14] 1888
 alumina  # Metallurgy [1-14] 1888
 red_mud  # Metallurgy [1-14] 1888
 bayer_digester  # Metallurgy [1-14] 1888
+boron_magnesium_mix  # Metallurgy [1-36] 1892
+crude_boron  # Metallurgy [1-36] 1892
+boron  # Metallurgy [1-36] 1892
 pyrolusite  # Metallurgy [4-28] 1896
 pyrolusite_ore  # Metallurgy [4-28] 1896
 metallurgical_silicon  # Metallurgy [1-15] 1900

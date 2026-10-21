@@ -180,3 +180,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - 案C：**機械の物の口だけ**：工程の機械に Fabric の ItemStorage（ホッパーで出し入れ）を足す。いちばん軽いが、バニラのホッパーに頼る（本物の搬送の学びは少ない）
   - A にお願いする所：案A・B とも、マルチブロック（v1.0 #1）の「物の口」と FOUP／ロードポートの受け渡しの形をそろえる
 - ✅ v1.0 #4 自動搬送（O-026 仮決定の案A）：FOUP（item/FoupItem、データ部品 foup_contents）・ロードポート（block/LoadPortBlockEntity、Machine.of(type).layout の入口・出口を読む、A の了承）。GameTest load_port、ROADMAP v1.0 #4、DECISIONS
+- ✅ S-009 [1-36] 単体ホウ素（混ぜ物 → 溶鉱炉 → 塩酸）。GameTest elemental_boron、REFERENCES F50

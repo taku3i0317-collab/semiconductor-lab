@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:boron_trioxide",
+    "semiconductor-lab:magnesium",
+    "semiconductor-lab:magnesium",
+    "semiconductor-lab:magnesium"
+  ],
+  "result": {
+    "id": "semiconductor-lab:boron_magnesium_mix",
+    "count": 1
+  }
+}

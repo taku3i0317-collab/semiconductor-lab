@@ -27,6 +27,10 @@ public final class Metallurgy {
     private Metallurgy() {}
 
     // ===== アイテム =====
+    // [1-36] 単体ホウ素（マグネシウムで還元、1892 モアッサン）（IMP4-01、S-009）
+    public static final Item BORON_MAGNESIUM_MIX   = Reg.item("boron_magnesium_mix");
+    public static final Item CRUDE_BORON           = Reg.item("crude_boron");
+    public static final Item BORON                 = Reg.item("boron");
     // --- 第1章：入手 ---
     public static final Item MAGNETITE             = Reg.item("magnetite");
     public static final Item WOLFRAMITE            = Reg.item("wolframite");

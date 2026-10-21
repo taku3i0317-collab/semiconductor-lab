@@ -1065,6 +1065,15 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-36] 単体ホウ素（IMP4-01、S-009）：B2O3＋Mg3 → 混ぜ物、溶鉱炉 → 粗いホウ素、塩酸で洗う → ホウ素 */
+    @GameTest
+    public void elementalBoron(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "boron_magnesium_mix", Metallurgy.BORON_TRIOXIDE) && recipeUses(h, "boron_magnesium_mix", Metallurgy.MAGNESIUM), "B2O3 + 3Mg");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.BORON_MAGNESIUM_MIX).is(Metallurgy.CRUDE_BORON), "blast -> crude boron");
+        h.assertTrue(recipeUses(h, "boron_from_washing", Metallurgy.CRUDE_BORON) && recipeUses(h, "boron_from_washing", Gas.HYDROCHLORIC_ACID), "wash with HCl -> boron");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Metallurgy.GALLIUM_CELL.block, "ガリウム", L(io(Metallurgy.SPENT_BAYER_LIQUOR, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.LIQUOR_PER_RUN), io(Chemistry.POLYETHYLENE_BOTTLE, 1)),
             L(io(Metallurgy.GALLIUM, 1), io(Gas.SODIUM_HYDROXIDE, 1)), com.taku3.semiconductorlab.block.GalliumCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.TICKS / 20.0, "バイヤー法の使い終わった液を電解（液はバイヤー法の溶解釜が液を使い切るたびに1つ）");

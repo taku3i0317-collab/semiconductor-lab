@@ -1152,5 +1152,21 @@
   "item.semiconductor-lab.vanadium_pentoxide.note2": "Roast ammonium metavanadate in a furnace. Returned after crafting (a catalyst). Naphthalene + this -> phthalic anhydride. ⚠ GHS: acute toxicity (inhalation), suspected mutagen and carcinogen.",
   "item.semiconductor-lab.vanadium_pentoxide.note3": "V2O5 hands over oxygen and becomes V2O4, then air turns it back into V2O5. Repeating this, a little drives a lot of reaction.",
   "item.semiconductor-lab.vanadium_pentoxide.note4": "In the contact process for sulfuric acid [6-13], V2O5 replaced expensive platinum as the catalyst from the 1910s-20s.",
-  "item.semiconductor-lab.vanadium_pentoxide.placeholder": "Approximation: real catalysts slowly weaken; in the game it is not used up."
+  "item.semiconductor-lab.vanadium_pentoxide.placeholder": "Approximation: real catalysts slowly weaken; in the game it is not used up.",
+  "item.semiconductor-lab.boron_magnesium_mix": "Boron Oxide–Magnesium Mix",
+  "item.semiconductor-lab.boron_magnesium_mix.note1": "A powder for freeing boron. Fire it in a blast furnace.",
+  "item.semiconductor-lab.boron_magnesium_mix.note2": "Crafting: 1 boron oxide + 3 magnesium. Blast it for crude boron.",
+  "item.semiconductor-lab.boron_magnesium_mix.note3": "B2O3 + 3Mg → 2B + 3MgO. Magnesium grabs oxygen so strongly that it strips it from boron.",
+  "item.semiconductor-lab.boron_magnesium_mix.note4": "The reaction is violent and hot (a thermite-type reaction); plants do it in small batches in closed vessels.",
+  "item.semiconductor-lab.crude_boron": "Crude Boron",
+  "item.semiconductor-lab.crude_boron.note1": "Boron powder mixed with magnesium oxide.",
+  "item.semiconductor-lab.crude_boron.note2": "Blast the mix. Washing with hydrochloric acid dissolves the magnesium oxide and leaves boron.",
+  "item.semiconductor-lab.crude_boron.note3": "Moissan made boron of about 90% purity this way in 1892.",
+  "item.semiconductor-lab.crude_boron.note4": "Purer boron is made by reducing boron trichloride with hydrogen (2BCl3 + 3H2 → 2B + 6HCl).",
+  "item.semiconductor-lab.boron": "Boron",
+  "item.semiconductor-lab.boron.note1": "A dark, very hard element — the source of p-type silicon.",
+  "item.semiconductor-lab.boron.note2": "Crude boron + hydrochloric acid (crafting) → this (the magnesium oxide becomes magnesium chloride and washes away; the bottle comes back).",
+  "item.semiconductor-lab.boron.note3": "Boron has one electron fewer, so in silicon it leaves a hole and makes it p-type. The game's dopant source uses easier-to-handle boron oxide.",
+  "item.semiconductor-lab.boron.note4": "Used in boron carbide, the hardest material after diamond, and in reactor control rods that absorb neutrons.",
+  "item.semiconductor-lab.boron.placeholder": "Omitted: ⚠️ about 90% purity (Moissan's method). High-purity BCl3 hydrogen reduction is not made."
 }
