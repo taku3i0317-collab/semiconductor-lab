@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "NKF",
+    "I I",
+    "III"
+  ],
+  "key": {
+    "N": "semiconductor-lab:nickel",
+    "K": "semiconductor-lab:copper_cable",
+    "F": "minecraft:iron_ingot",
+    "I": "minecraft:iron_ingot"
+  },
+  "result": {
+    "id": "semiconductor-lab:castner_cell",
+    "count": 1
+  }
+}

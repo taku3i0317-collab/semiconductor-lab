@@ -167,6 +167,11 @@ public final class Metallurgy {
     public static final Item LEAD_BOTTLE           = Reg.item("lead_bottle");
     public static final Item CINNABAR_DUST         = Reg.item("cinnabar_dust");   // 辰砂（minecraft:cinnabar）を砕いた粉
     public static final Item MERCURY               = Reg.contained("mercury", Vessel.IRON_FLASK);
+    // [1-66] タンタル（IMP4-01、S-003 案A）：タンタル石 → マリニャック法の K2TaF7 → ナトリウム還元。還元剤の金属ナトリウムはカストナー法（1886）
+    public static final Item SODIUM                = Reg.contained("sodium", Vessel.IRON_FLASK);   // 金属ナトリウム（水で燃えるので鉄の容器に密封）
+    public static final Item TANTALITE             = Reg.item("tantalite");                          // タンタル石（コルンブ石）(Fe,Mn)(Ta,Nb)2O6
+    public static final Item POTASSIUM_FLUOROTANTALATE = Reg.item("potassium_fluorotantalate");      // K2TaF7（マリニャック法の結晶）
+    public static final Item TANTALUM              = Reg.item("tantalum");                           // タンタル（還元した粉を固めた金属）
     // レトルトの仕込み：辰砂の粉＋空の鉄のフラスコ（受け器）。焼くと水銀がフラスコに集まる（かまど・反射炉）
     public static final Item CINNABAR_RETORT_CHARGE = Reg.item("cinnabar_retort_charge"); // 液体の金属（容器入り）
 
@@ -194,6 +199,7 @@ public final class Metallurgy {
     public static final Block GALENA_ORE     = Reg.ore("galena_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     public static final Block STIBNITE_ORE   = Reg.ore("stibnite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.5f, 3.0f).sound(SoundType.STONE));   // [1-43] 輝安鉱（方鉛鉱と同じ熱水鉱脈の帯）
     public static final Block PENTLANDITE_ORE = Reg.ore("pentlandite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.DEEPSLATE));   // [1-37] ペントランド鉱（深い所、IMP3）
+    public static final Block TANTALITE_ORE = Reg.ore("tantalite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.STONE));   // [1-66] タンタル石（花崗岩ペグマタイト、リチア輝石よりまれ、IMP4-01）
     public static final Block PYROLUSITE_ORE = Reg.ore("pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // 軟マンガン鉱（浅い石の中、IMP3 S-006）
     public static final Block FLUORITE_ORE   = Reg.ore("fluorite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
     public static final Block BAUXITE_ORE    = Reg.ore("bauxite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().strength(1.5f, 3.0f).sound(SoundType.GRAVEL));
@@ -222,6 +228,10 @@ public final class Metallurgy {
     public static final Machine<HallHeroultCellBlockEntity> HALL_HEROULT_CELL = Machine.electric("hall_heroult_cell", HallHeroultCellBlockEntity::new, HallHeroultCellBlockEntity.LAYOUT, lit(metal(4.0f), 7));
 
     // マグネシウムの電解槽 [1-39]（IMP3、O-018、ダウ法）：無水 MgCl2 → Mg＋塩素。10kW
+    // [1-66] カストナーの電解槽（IMP4-01）：溶けた NaOH の電解 → 金属ナトリウム。2kW
+    public static final Machine<CastnerCellBlockEntity> CASTNER_CELL = Machine.electric("castner_cell", CastnerCellBlockEntity::new, CastnerCellBlockEntity.LAYOUT, metal(4.0f));
+    // [1-66] タンタルの精製槽（IMP4-01）：マリニャック法（フッ酸＋KF → K2TaF7）とナトリウム還元。3kW
+    public static final Machine<TantalumRefineryBlockEntity> TANTALUM_REFINERY = Machine.electric("tantalum_refinery", TantalumRefineryBlockEntity::new, TantalumRefineryBlockEntity.LAYOUT, metal(4.0f));
     public static final Machine<MagnesiumCellBlockEntity> MAGNESIUM_CELL = Machine.electric("magnesium_cell", MagnesiumCellBlockEntity::new, MagnesiumCellBlockEntity.LAYOUT, metal(4.0f));
 
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */

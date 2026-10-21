@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/castner_cell_front",
+    "side": "semiconductor-lab:block/castner_cell_side",
+    "top": "semiconductor-lab:block/castner_cell_top"
+  }
+}

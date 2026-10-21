@@ -18,7 +18,7 @@ public class ModWorldGen {
     public static final ResourceKey<PlacedFeature> SPHALERITE_ORE = key("sphalerite_ore"), GRAPHITE_ORE = key("graphite_ore"),
             MAGNETITE_ORE = key("magnetite_ore"), WOLFRAMITE_ORE = key("wolframite_ore"), GALENA_ORE = key("galena_ore"), STIBNITE_ORE = key("stibnite_ore"), PENTLANDITE_ORE = key("pentlandite_ore"), PYRITE_ORE = key("pyrite_ore"), PYROLUSITE_ORE = key("pyrolusite_ore"), IRON_SAND = key("iron_sand"),
             TRONA_DEPOSIT = key("trona_deposit"), ROCK_SALT_ORE = key("rock_salt_ore"), BORAX_DEPOSIT = key("borax_deposit"), QUARTZ_VEIN = key("quartz_vein"),
-            MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"), SPODUMENE_ORE = key("spodumene_ore"),
+            MALACHITE_ORE = key("malachite_ore"), CASSITERITE_ORE = key("cassiterite_ore"), SPODUMENE_ORE = key("spodumene_ore"), TANTALITE_ORE = key("tantalite_ore"),
             FLUORITE_ORE = key("fluorite_ore"), BAUXITE_ORE = key("bauxite_ore"), CHROMITE_ORE = key("chromite_ore"),
             NITRE_EARTH = key("nitre_earth_block"),
             NATURAL_ASPHALT = key("natural_asphalt"),
@@ -48,6 +48,8 @@ public class ModWorldGen {
             new OreRule(CASSITERITE_ORE, BiomeSelectors.foundInOverworld()),
             // [1-42] リチア輝石（IMP3、S-006、決定：花崗岩ペグマタイト）：花崗岩だけを置き換える。錫石よりまれ
             new OreRule(SPODUMENE_ORE, BiomeSelectors.foundInOverworld()),
+            // [1-66] タンタル石（IMP4-01、S-003 案A）：リチア輝石と同じ花崗岩ペグマタイト（本物もいっしょに出る）。花崗岩だけ、リチア輝石よりまれ
+            new OreRule(TANTALITE_ORE, BiomeSelectors.foundInOverworld()),
             // [6-16] 硝石土（IMP2-02）：鍾乳石の洞窟（石灰岩の洞窟）だけ。鍾乳石ブロックを置き換える（マンモスケーブの硝石採掘のように洞窟の堆積物）
             new OreRule(NITRE_EARTH, BiomeSelectors.includeByKey(Biomes.DRIPSTONE_CAVES)),
             // [1-21] 蛍石（IMP4-01）：方鉛鉱と同じ帯（熱水鉱脈で方鉛鉱・閃亜鉛鉱といっしょに出る）。方鉛鉱より少ない

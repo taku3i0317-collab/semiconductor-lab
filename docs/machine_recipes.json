@@ -520,6 +520,30 @@
       "note": "アルゴンの中で溶かし（1418℃）、ゆっくり下げて下から結晶化"
     },
     {
+      "machine": "semiconductor-lab:castner_cell",
+      "process": "金属ナトリウム",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:sodium_hydroxide",
+          "count": 4
+        },
+        {
+          "item": "semiconductor-lab:iron_flask",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:sodium",
+          "count": 1
+        }
+      ],
+      "watts": 2000.0,
+      "seconds": 20.0,
+      "energy_kj": 40,
+      "note": "4NaOH → 4Na + O2 + 2H2O（溶けた NaOH の電解、1886）"
+    },
+    {
       "machine": "semiconductor-lab:cleaning_bench",
       "process": "洗浄（段階1）",
       "inputs": [
@@ -2374,6 +2398,59 @@
       "watts": -500000.0,
       "seconds": 18.0,
       "note": "熱効率30%"
+    },
+    {
+      "machine": "semiconductor-lab:tantalum_refinery",
+      "process": "マリニャック法",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:tantalite",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:hydrofluoric_acid_pe",
+          "count": 2,
+          "cond": "フッ酸（鉛かポリエチレンの容器）"
+        },
+        {
+          "item": "semiconductor-lab:potassium_fluoride",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:potassium_fluorotantalate",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "K2TaF7 は結晶に、ニオブは液に残る（1866）。容器は戻る"
+    },
+    {
+      "machine": "semiconductor-lab:tantalum_refinery",
+      "process": "ナトリウム還元",
+      "inputs": [
+        {
+          "item": "semiconductor-lab:potassium_fluorotantalate",
+          "count": 1
+        },
+        {
+          "item": "semiconductor-lab:sodium",
+          "count": 1
+        }
+      ],
+      "outputs": [
+        {
+          "item": "semiconductor-lab:tantalum",
+          "count": 1
+        }
+      ],
+      "watts": 3000.0,
+      "seconds": 20.0,
+      "energy_kj": 60,
+      "note": "K2TaF7 + 5Na → Ta + 2KF + 5NaF（1903）。鉄の容器は戻る"
     },
     {
       "machine": "semiconductor-lab:trichlorosilane_reactor",

@@ -126,6 +126,7 @@ public class MetallurgyTests extends LabTestBase {
     @GameTest public void oreWolframite(GameTestHelper h) { oreFeature(h, "wolframite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.WOLFRAMITE_ORE, s -> s.is(Blocks.GRANITE)); }
     @GameTest public void oreMalachite(GameTestHelper h)  { oreFeature(h, "malachite_ore", Blocks.STONE, Blocks.DIRT, Metallurgy.MALACHITE_ORE, LabTestBase::stoneOrDeepslate); }
     @GameTest public void oreCassiterite(GameTestHelper h) { oreFeature(h, "cassiterite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.CASSITERITE_ORE, s -> s.is(Blocks.GRANITE)); }
+    @GameTest public void oreTantalite(GameTestHelper h) { oreFeature(h, "tantalite_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.TANTALITE_ORE, x -> x.is(Blocks.GRANITE)); }   // [1-66] IMP4-01 S-003
     @GameTest public void oreSpodumene(GameTestHelper h) { oreFeature(h, "spodumene_ore", Blocks.GRANITE, Blocks.STONE, Metallurgy.SPODUMENE_ORE, x -> x.is(Blocks.GRANITE)); }   // [1-42] IMP3 S-006
     @GameTest public void oreFluorite(GameTestHelper h)   { oreFeature(h, "fluorite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.FLUORITE_ORE, LabTestBase::stoneOrDeepslate); }   // [1-21] IMP4-01
     @GameTest public void oreChromite(GameTestHelper h)   { oreFeature(h, "chromite_ore", Blocks.DEEPSLATE, Blocks.COBBLESTONE, Metallurgy.CHROMITE_ORE, st -> st.is(Blocks.DEEPSLATE)); }   // [1-40] IMP2 O-015
@@ -708,7 +709,7 @@ public class MetallurgyTests extends LabTestBase {
         var ra = h.getLevel().registryAccess();
         var biomes = ra.lookupOrThrow(Registries.BIOME);
         java.util.Map<String, java.util.function.Predicate<net.minecraft.core.Holder.Reference<net.minecraft.world.level.biome.Biome>>> expect = new java.util.HashMap<>();
-        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "pyrolusite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "spodumene_ore", "fluorite_ore", "chromite_ore"})
+        for (String id : new String[] {"sphalerite_ore", "graphite_ore", "magnetite_ore", "wolframite_ore", "galena_ore", "stibnite_ore", "pentlandite_ore", "pyrite_ore", "pyrolusite_ore", "quartz_vein", "malachite_ore", "cassiterite_ore", "spodumene_ore", "tantalite_ore", "fluorite_ore", "chromite_ore"})
             expect.put(id, b -> b.is(BiomeTags.IS_OVERWORLD));
         expect.put("iron_sand", b -> b.is(BiomeTags.IS_BEACH));
         expect.put("bauxite_ore", b -> b.is(BiomeTags.IS_JUNGLE) || b.is(BiomeTags.IS_SAVANNA));
@@ -983,7 +984,47 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-66] タンタル（IMP4-01、S-003 案A）：NaOH 4 → 金属ナトリウム、タンタル石＋HF 2＋KF → K2TaF7（容器が戻る）、K2TaF7＋Na → Ta。KF がないと動かない */
+    @GameTest(maxTicks = 200)
+    public void tantalum(GameTestHelper h) {
+        floor(h, 7);
+        BlockPos cp = p(1, 1, 1), tp = p(4, 1, 4);
+        h.setBlock(cp, Metallurgy.CASTNER_CELL.block);
+        h.setBlock(tp, Metallurgy.TANTALUM_REFINERY.block);
+        var cc = h.getBlockEntity(cp, com.taku3.semiconductorlab.block.CastnerCellBlockEntity.class);
+        var c = cc.getContainer();
+        c.setItem(com.taku3.semiconductorlab.block.CastnerCellBlockEntity.SLOT_NAOH, new ItemStack(Gas.SODIUM_HYDROXIDE, 4));
+        c.setItem(com.taku3.semiconductorlab.block.CastnerCellBlockEntity.SLOT_FLASK, new ItemStack(Metallurgy.IRON_FLASK));
+        tickConsumer(h, cp, cc, com.taku3.semiconductorlab.block.CastnerCellBlockEntity.TICKS + 1, EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.CastnerCellBlockEntity.WATTS));
+        h.assertTrue(c.getItem(com.taku3.semiconductorlab.block.CastnerCellBlockEntity.SLOT_OUT).is(Metallurgy.SODIUM) && c.getItem(com.taku3.semiconductorlab.block.CastnerCellBlockEntity.SLOT_NAOH).isEmpty(), "4NaOH -> 4Na (in the iron flask)");
+        var tr = h.getBlockEntity(tp, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.class);
+        var t = tr.getContainer();
+        long feed = EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.WATTS);
+        t.setItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_A, new ItemStack(Metallurgy.TANTALITE));
+        t.setItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_B, new ItemStack(Chemistry.HYDROFLUORIC_ACID_PE, 2));
+        tickConsumer(h, tp, tr, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.TICKS + 5, feed);
+        h.assertTrue(t.getItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_OUT).isEmpty(), "no KF: K2TaF7 does not crystallise");
+        t.setItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_KF, new ItemStack(Chemistry.POTASSIUM_FLUORIDE));
+        tickConsumer(h, tp, tr, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.TICKS + 1, feed);
+        h.assertTrue(t.getItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_OUT).is(Metallurgy.POTASSIUM_FLUOROTANTALATE) && t.getItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_B).isEmpty(), "Marignac: tantalite + HF + KF -> K2TaF7");
+        t.setItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_A, t.removeItemNoUpdate(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_OUT));
+        t.setItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_B, c.removeItemNoUpdate(com.taku3.semiconductorlab.block.CastnerCellBlockEntity.SLOT_OUT));
+        tickConsumer(h, tp, tr, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.TICKS + 1, feed);
+        h.assertTrue(t.getItem(com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.SLOT_OUT).is(Metallurgy.TANTALUM), "K2TaF7 + 5Na -> Ta");
+        var drops = h.getLevel().getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(h.absolutePos(tp)).inflate(2));
+        h.assertTrue(drops.stream().anyMatch(e -> e.getItem().is(Chemistry.POLYETHYLENE_BOTTLE)) && drops.stream().anyMatch(e -> e.getItem().is(Metallurgy.IRON_FLASK)), "PE bottles and the iron flask come back");
+        drops.forEach(net.minecraft.world.entity.Entity::discard);
+        LOG.info("[LAB] tantalum [1-66]: Castner 4NaOH -> Na; tantalite + 2 HF + KF -> K2TaF7 (Marignac); + Na -> Ta; containers back");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
+        rec(a, Metallurgy.CASTNER_CELL.block, "金属ナトリウム", L(io(Gas.SODIUM_HYDROXIDE, com.taku3.semiconductorlab.block.CastnerCellBlockEntity.NAOH_PER_RUN), io(Metallurgy.IRON_FLASK, 1)),
+            L(io(Metallurgy.SODIUM, 1)), com.taku3.semiconductorlab.block.CastnerCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.CastnerCellBlockEntity.TICKS / 20.0, "4NaOH → 4Na + O2 + 2H2O（溶けた NaOH の電解、1886）");
+        rec(a, Metallurgy.TANTALUM_REFINERY.block, "マリニャック法", L(io(Metallurgy.TANTALITE, 1), cond(io(Chemistry.HYDROFLUORIC_ACID_PE, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.HF_PER_RUN), "フッ酸（鉛かポリエチレンの容器）"), io(Chemistry.POTASSIUM_FLUORIDE, 1)),
+            L(io(Metallurgy.POTASSIUM_FLUOROTANTALATE, 1)), com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.WATTS, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.TICKS / 20.0, "K2TaF7 は結晶に、ニオブは液に残る（1866）。容器は戻る");
+        rec(a, Metallurgy.TANTALUM_REFINERY.block, "ナトリウム還元", L(io(Metallurgy.POTASSIUM_FLUOROTANTALATE, 1), io(Metallurgy.SODIUM, 1)),
+            L(io(Metallurgy.TANTALUM, 1)), com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.WATTS, com.taku3.semiconductorlab.block.TantalumRefineryBlockEntity.TICKS / 20.0, "K2TaF7 + 5Na → Ta + 2KF + 5NaF（1903）。鉄の容器は戻る");
         rec(a, Metallurgy.BLAST_FURNACE.block, "高炉で銑鉄", L(io(Items.RAW_IRON, 1), io(Items.CHARCOAL, (double) com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.SMELT_TICKS / com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.FUEL_TICKS),
                 perRuns(io(Items.CALCITE, 1), com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.FLUX_EVERY)),
             L(io(Metallurgy.PIG_IRON, 1), perRuns(io(Metallurgy.BLAST_FURNACE_SLAG, 1), com.taku3.semiconductorlab.block.BlastFurnaceBlockEntity.FLUX_EVERY)), 0,

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "LPL",
+    "IFI",
+    "IKI"
+  ],
+  "key": {
+    "L": "semiconductor-lab:lead_ingot",
+    "P": "semiconductor-lab:polyethylene_bottle",
+    "I": "minecraft:iron_ingot",
+    "F": "semiconductor-lab:electric_furnace",
+    "K": "semiconductor-lab:copper_cable"
+  },
+  "result": {
+    "id": "semiconductor-lab:tantalum_refinery",
+    "count": 1
+  }
+}

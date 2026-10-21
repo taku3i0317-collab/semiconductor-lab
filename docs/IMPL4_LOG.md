@@ -119,3 +119,5 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - 案B（記録だけ）：FIN の層と ChipState の印だけ足し、判定は変えない（スパッタ・CMP と同じ形）。手軽だが「漏れが減る」体験はない
   - 案C（後回し）：v1.0 の GAA（[9-38]）と一緒に設計する
   - 本物：1999 カリフォルニア大学バークレー校のチームが発表（米国の研究資金）、2011 インテルが 22nm で量産（トライゲート）、2015〜 TSMC・サムスンも。REFERENCES F37
+- S-003 開始（ユーザーの決定「おすすめで」：タンタル＝案A、FinFET＝案A）。A に知らせ（worldgen 幹1 に tantalite_ore）と銅配線・FinFET の分担を相談（SendMessage）
+- ✅ [1-66] タンタル：tantalite_ore（ModWorldGen.RULES に1行）、カストナーの電解槽（金属ナトリウム、前提として）、タンタルの精製槽（マリニャック法・ナトリウム還元）。Metallurgy.java に追記。GameTest ore_tantalite・tantalum、CHEMISTRY F62〜F64、REFERENCES F38

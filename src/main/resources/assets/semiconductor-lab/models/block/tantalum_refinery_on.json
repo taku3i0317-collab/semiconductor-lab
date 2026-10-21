@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "semiconductor-lab:block/tantalum_refinery_front_on",
+    "side": "semiconductor-lab:block/tantalum_refinery_side",
+    "top": "semiconductor-lab:block/tantalum_refinery_top"
+  }
+}
