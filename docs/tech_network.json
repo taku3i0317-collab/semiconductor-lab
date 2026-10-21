@@ -396,8 +396,8 @@
     "4": ""
    },
    "hee_game": {
-    "note1": "豆を育てたあとの畑。次に植えた作物がよく育つ。",
-    "note2": "エンドウが熟すと、その下の耕地がこれになる。上の作物（豆以外）が速く育ち、作物が熟すたびに窒素を1回分使って、3回でふつうの耕地にもどる。水で湿るのも、踏むと土にもどるのも、ふつうの耕地と同じ。",
+    "note1": "豆を育てたり肥料をまいたりした畑。作物がよく育つ・たくさんとれる。",
+    "note2": "窒素（エンドウが熟す・硫安・硝安）：上の作物（豆以外）が速く育ち、熟すたびに1回分使う。リン（過リン酸石灰）：熟した作物を収穫すると1つ多くとれ、収穫ごとに1回分使う。どちらも3回分で、両方なくなるとふつうの耕地にもどる。",
     "note3": "作物は、体のたんぱく質や葉緑素を作るのに窒素がたくさん要る。麦を同じ畑で作り続けると土の窒素が減ってやせる。豆と麦を交代で植える（輪作）と、豆が残した窒素で麦がよく育つ。ローマ時代の農書にも、豆の後に麦をまけと書かれている。",
     "note4": "18世紀イギリスのノーフォーク農法は、小麦・カブ・大麦・クローバー（マメ科）を4年で回して収穫を大きく増やした。1913年からはハーバー・ボッシュ法 [6-09] で、空気の窒素から工場でアンモニアを作れるようになった。"
    },
@@ -418,7 +418,7 @@
    "item": "nitrogen_farmland",
    "recipes": [],
    "machine_recipes": [],
-   "placeholder": "近似：窒素の量は「作物が熟す3回分」の数え方にした。豆自身は速くならない。",
+   "placeholder": "近似：窒素は「作物が熟す3回分」、リンは「収穫3回分」の数え方にした。豆自身は速くならない。",
    "game_text": "バニラに豆類なし → 新規作物（エンドウ等）が必要",
    "id": "0-05",
    "name": "豆",
@@ -4361,7 +4361,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C53. 焼くと酸にとけるようになる石（リチウム）［1-42］",
+     "answer": "リチウムは1817年、スウェーデンのアルフェドソン（ベルセリウスの研究室）がペタル石から見つけた。金属は1855年、ブンゼンとマティーセンがとかした塩化リチウムを電気分解して取り出した。鉱石のリチア輝石（LiAlSi2O6）は花崗岩のペグマタイトにでき、そのままでは硫酸にとけにくいが、約1050℃で焼くと結晶の形がかわって（α→β）とけやすくなる。硫酸と焼いて硫酸リチウムを水で取り出し、ソーダ灰を加えると炭酸リチウムが沈む。今はチリ・アルゼンチンなどの塩湖の水を天日で濃くして取るのが多い。",
+     "hee": {
+      "1": "リチウムは水に浮くほど軽い金属。",
+      "2": "熱で結晶の形をかえるだけで、酸へのとけやすさが大きくかわる。",
+      "3": "炭酸リチウムは、お湯の方がとけにくい（ふつうの塩と逆）。",
+      "4": "名前はギリシャ語の「石」から（植物や動物でなく、石から見つかったので）。"
+     },
+     "certainty": "発見 1817・金属 1855 ◎／β 型への変化の温度 ○",
+     "basis": "- Wikipedia「Lithium」：https://en.wikipedia.org/wiki/Lithium"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -4371,7 +4384,7 @@
    "name": "リチウム",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1817,
    "year_range": null,
@@ -4389,7 +4402,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "リチウムは水に浮くほど軽い金属",
    "name_en": "Lithium",
    "hee1_en": "Lithium is a metal so light it floats on water.",
@@ -13616,7 +13629,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C54. 充電とは、イオンを黒鉛のすき間にしまうこと（リチウムイオン電池）［4-15］",
+     "answer": "リチウムイオン電池では、充電するとリチウムのイオンが正極から出て、電解液（LiPF6 を有機の溶媒にとかした液）を通り、負極の黒鉛の層のすき間に入る。放電でもとにもどる。金属のリチウムを使わないので、それまでのリチウム電池より安全になった。1980年にグッドイナフ・水島公一らが正極のコバルト酸リチウムを見つけ、1985年に吉野彰が炭素の負極と組み合わせた原型を作り、1991年にソニーが売り出した（2019年ノーベル化学賞）。1997年にはグッドイナフの研究室が、燃えにくく長持ちのリン酸鉄リチウム LiFePO4 を発表し、今の電気自動車でも多く使われている。",
+     "hee": {
+      "1": "充電とは、リチウムのイオンを黒鉛のすき間にしまい込むこと。",
+      "2": "LiFePO4 は電気をほとんど通さないが、粒を小さくして炭素でおおうと使えるようになった。",
+      "3": "電解質の LiPF6 は湿気で分解するので、電池の工場はとても乾いた部屋で組み立てる。",
+      "4": "ノーベル賞を受けたとき、グッドイナフは97歳で、最年長の受賞者だった。"
+     },
+     "certainty": "1980 LiCoO2・1985 吉野・1991 ソニー・1997 LiFePO4 ◎／2019 ノーベル化学賞 ◎",
+     "basis": "- Nobel Prize「The Nobel Prize in Chemistry 2019」：https://www.nobelprize.org/prizes/chemistry/2019/summary/"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -13626,7 +13652,7 @@
    "name": "リチウムイオン電池",
    "trunk": "4",
    "trunk_name": "動力・電気",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1991,
    "year_range": "1985〜1991",
@@ -21046,7 +21072,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O72. 太陽の高さで居場所が分かる（六分儀）［8-21］",
+     "answer": "1731年、イギリスのジョン・ハドリーは2枚の鏡を使う反射式の八分儀を王立協会で発表し、同じころアメリカのトマス・ゴドフリーも独立に作った。揺れる船の上でも、水平線と太陽の像を鏡で重ねれば太陽の高さが測れる。1757年ごろ、月と星の角度も測れるよう目盛りを広げた六分儀になった。正午に太陽が一番高くなったときの角度（南中高度）から、その日の太陽の位置の表を使って緯度が分かる。",
+     "hee": {
+      "1": "2枚の鏡で太陽を水平線に重ねると、自分が地球のどこにいるかが分かる。",
+      "2": "鏡を θ 回すと光は 2θ 曲がるので、60°の弧で 120°まで測れる（だから「六分」儀）。",
+      "3": "緯度は太陽と星で分かったが、経度は正確な時計ができるまで分からなかった。",
+      "4": "正確な目盛りを刻むには、ラムスデンの目盛り刻み機（1775）が必要だった。"
+     },
+     "certainty": "ハドリー 1731 ◎／ゴドフリー 同じころ ○／六分儀 1757（キャンベル）⚠️△／2θ の原理 ◎",
+     "basis": "- Wikipedia「Sextant」：https://en.wikipedia.org/wiki/Sextant"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -21056,7 +21095,7 @@
    "name": "六分儀",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1757,
    "year_range": "1731〜1757",
@@ -21079,7 +21118,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "2枚の鏡で太陽を水平線に重ねると、自分が地球のどこにいるかが分かる（NET-06 で追加。出典：Wikipedia「Sextant」「Octant (instrument)」、Grace's Guide「John Hadley」）",
    "name_en": "Sextant",
    "hee1_en": "Line up the Sun with the horizon using two mirrors, and you can tell where on Earth you are. (Added in NET-06. Sources: Wikipedia \"Sextant\", \"Octant (instrument)\", Grace's Guide \"John Hadley\")",
@@ -25076,6 +25115,30 @@
      },
      "certainty": "低温 CVD の SiO2（シラン＋酸素、約400℃）◎／シランの初合成 1857 ○／2層配線の年 △",
      "basis": "Wikipedia「Chemical vapor deposition」（Silicon dioxide）https://en.wikipedia.org/wiki/Chemical_vapor_deposition 、Wikipedia「Silane」https://en.wikipedia.org/wiki/Silane （英語）"
+    },
+    {
+     "title": "F35. 結晶の上に結晶を育てる（エピタキシー）［9-30］",
+     "answer": "約1200℃ に熱したシリコンウェハーに、四塩化ケイ素と水素を流すと（SiCl4 + 2H2 → Si + 4HCl）、下の結晶の並びをまねて原子が積もり、同じ向きの単結晶の層が育つ。いっしょにドーパントを入れれば、基板とちがう型・濃さの層になる。1960年にベル研がこの方法のエピタキシャルトランジスタを発表した。",
+     "hee": {
+      "1": "「エピ」は上に、「タキシー」は並ぶ、という意味のギリシャ語。",
+      "2": "シーメンス炉で多結晶の棒を太らせる反応と同じ。単結晶の上なら単結晶になる。",
+      "3": "1960年代のバイポーラ IC は、p の基板の上に n のエピ層を育て、その中にトランジスタを作った。",
+      "4": "今のスマホのチップでも、シリコンにゲルマニウムを混ぜたエピ層で電子の通り道をゆがめて速くしている。"
+     },
+     "certainty": "反応と温度 ◎／ベル研のエピタキシャルトランジスタ 1960 ○",
+     "basis": "Wikipedia「Epitaxy」（Silicon）https://en.wikipedia.org/wiki/Epitaxy （英語）"
+    },
+    {
+     "title": "F36. チップに着せる最後のコート（窒化膜のパッシベーション）［9-30］",
+     "answer": "配線を作り終えたチップの上に、シランとアンモニアから窒化ケイ素の膜を積む（3SiH4 + 4NH3 → Si3N4 + 12H2）。窒化ケイ素は水分やナトリウムのイオンをほとんど通さないので、チップが湿気や汗の塩分でこわれるのを防ぐ。",
+     "hee": {
+      "1": "ナトリウムのイオンは、MOS トランジスタのしきい値をずらす大敵。1960年代の MOS が安定しなかった原因の一つ。",
+      "2": "アルミの上に積むので、今はプラズマで約300℃ に下げて積む（プラズマ CVD）。",
+      "3": "ワイヤーをつなぐパッドの所だけ、窒化膜に窓を開ける。",
+      "4": "窒化ケイ素はとても硬く、ベアリングの玉や切削工具にも使われる。"
+     },
+     "certainty": "反応式と役目 ◎／温度（LPCVD 約700〜800℃・プラズマ CVD 約300℃）○",
+     "basis": "Wikipedia「Silicon nitride」（Production／Applications in electronics）https://en.wikipedia.org/wiki/Silicon_nitride （英語）"
     }
    ],
    "item": null,
@@ -25590,7 +25653,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F37. 平屋のトランジスタを「立てた板」に（FinFET）［9-37］（案の段階、まだゲームにない）",
+     "answer": "トランジスタを小さくすると、ゲートで電流を止めきれず、スイッチを切っても電流が漏れる（短チャネル効果）。そこでシリコンを細い板（フィン＝魚のひれ）にして立て、ゲートで上と両横の3方向から囲むと、電流をしっかり止められる。1999年にカリフォルニア大学バークレー校のチームが発表し、2011年にインテルが 22nm の世代で量産を始めた（トライゲート）。2015年ごろから TSMC・サムスンも使っている。",
+     "hee": {
+      "1": "フィンは幅が数nm〜十数nm。原子で数えると数十個ぶん。",
+      "2": "板を立てるには、横に削れない（異方性の）ドライエッチングが欠かせない。液では作れない。",
+      "3": "FinFET はゲートの絶縁膜に、SiO2 の代わりにハフニウムの酸化物（high-k）と金属のゲートを使う世代と組で量産された。",
+      "4": "次の世代はフィンを横に寝かせて重ね、ゲートで4方向から囲む（GAA、[9-38]）。"
+     },
+     "certainty": "1999 の発表（IEDM の論文）◎／2011 インテルの 22nm 量産 ◎／TSMC・サムスンの採用 2015ごろ ○",
+     "basis": "Wikipedia「FinFET」https://en.wikipedia.org/wiki/FinFET 、Intel のニュースリリース「Intel Reinvents Transistors Using New 3-D Structure」（2011年5月）、Wikipedia「Multigate device」https://en.wikipedia.org/wiki/Multigate_device （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -27185,7 +27261,7 @@
    "name": "IC 論理",
    "trunk": "10",
    "trunk_name": "制御・計算",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1961,
    "year_range": null,
@@ -27313,7 +27389,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "L15. 忘れる記憶（DRAM）［10-12］",
+     "answer": "DRAM は、小さなコンデンサにためた電荷で1ビットを覚える記憶。電荷は少しずつ漏れるので、数 ms ごとに読んで書き直す（リフレッシュ）。1970年のインテル 1103（1kbit）が最初に売れた DRAM で、3つのトランジスタのセル（ためる MOS のゲートに電荷）だった。1966〜68年に IBM のデナードが考えた1トランジスタ＋1コンデンサのセルが、のちの主流になった。",
+     "hee": {
+      "1": "「ダイナミック」は、放っておくと消えるので動き続けて（書き直し続けて）覚える、という意味。",
+      "2": "1103 は磁気コア（小さな鉄の輪）のメモリより安く小さく、1972年には世界一売れた半導体になった。",
+      "3": "1103 のセルは読むと逆の値が出る。読んでも電荷は消えない（1T1C は読むと消えるので、読むたびに書き戻す）。",
+      "4": "汚れ（金属のイオン）は接合の漏れを増やし、DRAM はすぐに忘れる。きれいな工場ほど記憶が長もちする。"
+     },
+     "certainty": "1103 は1970年・1kbit・3トランジスタのセル ◎／デナードの1T1C（特許 1968）◎／1103 のリフレッシュ約 2 ms ○／1972年に一番売れた半導体 ○",
+     "basis": "Computer History Museum「1970 – Semiconductors compete with magnetic cores」、IBM「Dynamic Random Access Memory (DRAM)」（Dennard）、Wikipedia「Intel 1103」"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -27323,7 +27412,7 @@
    "name": "DRAM",
    "trunk": "10",
    "trunk_name": "制御・計算",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1966,
    "year_range": "1966〜68",
@@ -28037,7 +28126,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "電子を薄いガラスの壁の中に閉じこめるので、電気を切っても何年も忘れない（S-002 で追加。出典：Wikipedia「Fujio Masuoka」「Flash memory」、半導体産業人協会「NAND フラッシュメモリ」）",
    "name_en": "Flash memory",
    "hee1_en": "Electrons are locked inside a thin glass wall, so it remembers for years even with the power off. (Added in S-002. Sources: Wikipedia \"Fujio Masuoka\" \"Flash memory\", Semiconductor History Museum of Japan (SSIS) \"NAND flash memory\")",
@@ -29199,7 +29288,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C55. 骨を硫酸でとかすと肥料になる（過リン酸石灰・硝安）［11-06］［11-07］",
+     "answer": "植物が大きく育つには、窒素・リン・カリが要る。骨のリン酸カルシウムは水にとけず植物が吸えないが、1842年にイギリスのジョン・ベネット・ローズは、硫酸と反応させて水にとけるリン酸二水素カルシウムにする「過リン酸石灰」の特許を取り、世界初の化学肥料の工場を作った。窒素はマメの根粒菌が空気から取りこむほか、1913年からはハーバー・ボッシュ法のアンモニアから硫安や硝安が作られるようになった。窒素は葉や茎を、リンは花や実や根を育てる。",
+     "hee": {
+      "1": "骨を硫酸でとかすと肥料になる。",
+      "2": "ローズのロザムステッド農場では、1843年から同じ畑で肥料の効き目を比べ続けている（世界最古の農業実験）。",
+      "3": "硝安は窒素が重さの約34%。でも、大量に積んだ硝安の爆発事故がくり返された（1921 オッパウ、2020 ベイルート）。",
+      "4": "今の世界の人の約半分は、工場でつくった窒素肥料のおかげで食べられているとされる ⚠️。"
+     },
+     "certainty": "ローズ 1842・反応式 ◎／「約半分」の割合 △",
+     "basis": "- Wikipedia「Superphosphate」：https://en.wikipedia.org/wiki/Superphosphate"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29209,7 +29311,7 @@
    "name": "過リン酸石灰",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1842,
    "year_range": null,
@@ -29222,7 +29324,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "骨を硫酸で溶かすと肥料になる",
    "name_en": "Superphosphate",
    "hee1_en": "Dissolve bones in sulfuric acid and they become fertilizer.",
@@ -29252,7 +29354,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C55. 骨を硫酸でとかすと肥料になる（過リン酸石灰・硝安）［11-06］［11-07］",
+     "answer": "植物が大きく育つには、窒素・リン・カリが要る。骨のリン酸カルシウムは水にとけず植物が吸えないが、1842年にイギリスのジョン・ベネット・ローズは、硫酸と反応させて水にとけるリン酸二水素カルシウムにする「過リン酸石灰」の特許を取り、世界初の化学肥料の工場を作った。窒素はマメの根粒菌が空気から取りこむほか、1913年からはハーバー・ボッシュ法のアンモニアから硫安や硝安が作られるようになった。窒素は葉や茎を、リンは花や実や根を育てる。",
+     "hee": {
+      "1": "骨を硫酸でとかすと肥料になる。",
+      "2": "ローズのロザムステッド農場では、1843年から同じ畑で肥料の効き目を比べ続けている（世界最古の農業実験）。",
+      "3": "硝安は窒素が重さの約34%。でも、大量に積んだ硝安の爆発事故がくり返された（1921 オッパウ、2020 ベイルート）。",
+      "4": "今の世界の人の約半分は、工場でつくった窒素肥料のおかげで食べられているとされる ⚠️。"
+     },
+     "certainty": "ローズ 1842・反応式 ◎／「約半分」の割合 △",
+     "basis": "- Wikipedia「Superphosphate」：https://en.wikipedia.org/wiki/Superphosphate"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29262,7 +29377,7 @@
    "name": "窒素肥料",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1913,
    "year_range": null,
@@ -29283,7 +29398,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "空気の窒素がパンになる",
    "name_en": "Nitrogen fertilizer",
    "hee1_en": "Nitrogen from the air becomes bread.",
@@ -29313,7 +29428,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C56. 塩と煙で長もち、酵母でふくらむ（塩蔵・燻製・製粉・パン）［11-11］［11-08］［11-09］",
+     "answer": "塩は肉や魚の水分を浸透圧で引き出すので、細菌が増えにくくなる。煙の中のフェノール類は菌を殺し、脂が酸化するのも防ぐ。こうした塩漬け・干物・燻製は、冷蔵庫や缶詰ができるまで長旅や冬の大事な食べ物だった。麦は石臼でひいて粉にし、水と酵母でこねると、酵母が出す二酸化炭素をグルテンのあみがとらえて生地がふくらむ。紀元前4000年ごろのエジプトで発酵パンが焼かれていたとされるが、酵母のはたらきがわかったのは1857年のパスツールから。",
+     "hee": {
+      "1": "塩は「白い金」と呼ばれ、給料（salary）の語源とも言われる ⚠️。",
+      "2": "パンの穴は、酵母が出した二酸化炭素の泡のあと。",
+      "3": "昔の石臼の粉には石の粒がまざり、人の歯がすり減った。",
+      "4": "1785年、オリバー・エヴァンズは、運ぶところから自動で動く製粉所を作った。"
+     },
+     "certainty": "浸透圧・煙の殺菌 ◎／エジプトの発酵パンの年・salary の語源 △",
+     "basis": "- Wikipedia「Salting (food)」：https://en.wikipedia.org/wiki/Salting_(food)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29323,7 +29451,7 @@
    "name": "製粉",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -9500,
    "year_range": "-9500〜1785",
@@ -29341,7 +29469,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "粉ひきは、人類が最初に機械にやらせた仕事の一つ",
    "name_en": "Milling",
    "hee1_en": "Grinding flour was one of the first jobs people gave to machines",
@@ -29371,7 +29499,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C56. 塩と煙で長もち、酵母でふくらむ（塩蔵・燻製・製粉・パン）［11-11］［11-08］［11-09］",
+     "answer": "塩は肉や魚の水分を浸透圧で引き出すので、細菌が増えにくくなる。煙の中のフェノール類は菌を殺し、脂が酸化するのも防ぐ。こうした塩漬け・干物・燻製は、冷蔵庫や缶詰ができるまで長旅や冬の大事な食べ物だった。麦は石臼でひいて粉にし、水と酵母でこねると、酵母が出す二酸化炭素をグルテンのあみがとらえて生地がふくらむ。紀元前4000年ごろのエジプトで発酵パンが焼かれていたとされるが、酵母のはたらきがわかったのは1857年のパスツールから。",
+     "hee": {
+      "1": "塩は「白い金」と呼ばれ、給料（salary）の語源とも言われる ⚠️。",
+      "2": "パンの穴は、酵母が出した二酸化炭素の泡のあと。",
+      "3": "昔の石臼の粉には石の粒がまざり、人の歯がすり減った。",
+      "4": "1785年、オリバー・エヴァンズは、運ぶところから自動で動く製粉所を作った。"
+     },
+     "certainty": "浸透圧・煙の殺菌 ◎／エジプトの発酵パンの年・salary の語源 △",
+     "basis": "- Wikipedia「Salting (food)」：https://en.wikipedia.org/wiki/Salting_(food)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29381,7 +29522,7 @@
    "name": "パン",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -4000,
    "year_range": null,
@@ -29499,7 +29640,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C56. 塩と煙で長もち、酵母でふくらむ（塩蔵・燻製・製粉・パン）［11-11］［11-08］［11-09］",
+     "answer": "塩は肉や魚の水分を浸透圧で引き出すので、細菌が増えにくくなる。煙の中のフェノール類は菌を殺し、脂が酸化するのも防ぐ。こうした塩漬け・干物・燻製は、冷蔵庫や缶詰ができるまで長旅や冬の大事な食べ物だった。麦は石臼でひいて粉にし、水と酵母でこねると、酵母が出す二酸化炭素をグルテンのあみがとらえて生地がふくらむ。紀元前4000年ごろのエジプトで発酵パンが焼かれていたとされるが、酵母のはたらきがわかったのは1857年のパスツールから。",
+     "hee": {
+      "1": "塩は「白い金」と呼ばれ、給料（salary）の語源とも言われる ⚠️。",
+      "2": "パンの穴は、酵母が出した二酸化炭素の泡のあと。",
+      "3": "昔の石臼の粉には石の粒がまざり、人の歯がすり減った。",
+      "4": "1785年、オリバー・エヴァンズは、運ぶところから自動で動く製粉所を作った。"
+     },
+     "certainty": "浸透圧・煙の殺菌 ◎／エジプトの発酵パンの年・salary の語源 △",
+     "basis": "- Wikipedia「Salting (food)」：https://en.wikipedia.org/wiki/Salting_(food)"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29509,7 +29663,7 @@
    "name": "塩蔵・乾燥・燻製",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -3000,
    "year_range": null,
@@ -29530,7 +29684,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "塩は昔「白い金」と呼ばれ、給料（salary）の語源とも言われる⚠️",
    "name_en": "Salting, drying and smoking",
    "hee1_en": "Salt was once called \"white gold\", and it is said to be the origin of the word salary ⚠️.",
@@ -32067,7 +32221,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O73. 時計が船の位置を決めた（経度とクロノメーター）［14-03］",
+     "answer": "緯度は太陽や星の高さで分かるが、経度（東西の位置）は分からなかった。地球は1時間に15°回るので、その場所の正午と出港地の時刻の差が分かれば経度になる。そのために、揺れる船の上でも何か月もくるわない時計が要った。1707年の大きな座礁事故のあと、1714年にイギリスは経度の測り方に賞金をかけた。ジョン・ハリソンは40年かけて時計を改良し、1761〜62年の航海で H4 は81日で約5秒しかくるわなかった。",
+     "hee": {
+      "1": "時計の正確さが船の位置を決めた。",
+      "2": "1秒くるうと、経度が 15″（赤道で約460m）ずれる。",
+      "3": "振り子の時計は船の揺れで使えないので、ぜんまいとてんぷで動く時計が作られた。",
+      "4": "のちに電波の時報、そして GPS（人工衛星の原子時計）が同じ役目をするようになった。"
+     },
+     "certainty": "1714 経度法・1761 H4 ◎／81日で約5秒 ○／1707 シリー諸島の座礁 ◎",
+     "basis": "- Wikipedia「Marine chronometer」：https://en.wikipedia.org/wiki/Marine_chronometer"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -32077,7 +32244,7 @@
    "name": "経度とクロノメーター",
    "trunk": "14",
    "trunk_name": "輸送",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1761,
    "year_range": "1714〜1761",
@@ -32105,7 +32272,7 @@
    "name_en": "Longitude and the chronometer",
    "hee1_en": "How accurate a clock was decided where a ship was",
    "kind": "tech",
-   "play": "",
+   "play": "実験（六分儀と組んで経度を測る）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -36753,7 +36920,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "最初のマウスは木の箱に車輪が2つ付いたもので、ボールではなかった（S-002 で追加。出典：Computer History Museum「Revolution: Input & Output」、Wikipedia「Bill English」）",
    "name_en": "Ball mouse",
    "hee1_en": "The first mouse was a wooden box with two wheels, not a ball. (Added in S-002. Sources: Computer History Museum \"Revolution: Input & Output\", Wikipedia \"Bill English\")",
@@ -37940,7 +38107,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "メモリは、忘れないように1秒に何十回も自分で書きなおしている",
    "name_en": "Memory",
    "hee1_en": "Memory rewrites itself dozens of times a second so it does not forget.",
@@ -38463,7 +38630,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "スマホの電池は、リチウムが黒鉛のすき間に出たり入ったりしている",
    "name_en": "Battery",
    "hee1_en": "In a smartphone battery, lithium moves in and out of the gaps in graphite.",
