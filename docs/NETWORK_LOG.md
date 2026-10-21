@@ -768,3 +768,8 @@
   6. 公開されたら、INBOX に `https://github.com/sponsors/<名前>` を書いてもらえれば、support に入れて図・README・FUNDING.yml に出す
   - 出典：https://docs.github.com/en/sponsors/getting-started-with-github-sponsors/about-github-sponsors 、https://docs.github.com/en/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account
   - ダメなときは Ko-fi など（Ko-fi のページの URL を INBOX に。ko_fi に名前を入れる）
+
+## S-052（2026-10-21、INBOX：ユーザー、急ぐ）Google Search Console の持ち主の確認
+- tech-network のいちばん上のページ（https://taku3i0317-collab.github.io/tech-network/ ＝ index.html）の head に `google-site-verification` の1行を入れた。書き出しの道具（tools/export_tech_network.py）の側に入れたので、次の書き出しでも消えない。ついでに index.html に題・説明・canonical も
+- **公開されたページの元の HTML で確かめた**：content="lP8qobgUCL3mnbf0cKd4l2dH_m3H-Vr99uwRI9Eea1A" が出ている（tech-network 91a6719）。図のページの Dataset の構造化データと、?lang=en で英語になるのも公開先で確かめた
+- **ユーザーへ：Search Console で「確認」を押してください**。そのあと「サイトマップ」に `sitemap.xml`（https://taku3i0317-collab.github.io/tech-network/sitemap.xml 、公開済み・5 ページ×日英）を送る
