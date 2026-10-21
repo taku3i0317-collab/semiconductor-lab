@@ -224,3 +224,4 @@ CHEMISTRY.md の行番号は IMP 側の #番号とぶつからないよう O1〜
   - おすすめ：**案A**（今ある乾板カメラ・写真の仕組みとつながり、「化学の写真 → 電子の写真」の移り変わりが見える）。E の [9-42] の形（素子のアイテムか、ブロックか）が決まってから組み立て方を合わせる
 - ✅ O-030（仮決定：O-028・O-029 の案A）：DECISIONS に2行。1 焦点深度：A に決定を知らせた（ChipOps.STEP_NM＝80、6引数の exposeAtCd で "defocus"、材料は失わない）。入ったらステッパー・スキャナーを6引数にしてヒントを足す。2 カメラ：組み立ては E の [9-42] 待ち。先に光学の部品だけ：camera_lens（クラウンレンズ＋ベンガラ → 4）、ir_cut_filter（蒸着：クラウンガラス＋蛍石×3）。GameTest camera_optics_parts、CHEMISTRY O54
 - ✅ O-030 の続き：A が焦点深度の判定を入れた（ChipOps.STEP_NM＝80、6引数の exposeAtCd）。ステッパー・スキャナーを6引数（dofNm＝レンズの DOF）にして、画面のヒント defocus「段差が焦点深度より大きい：CMP で平らに」。GameTest stepper_defocus
+- ✅ O-031（[9-45] の C の側）：red/green/blue_color_resist（ポジ型レジスト＋ベンガラ／酸化クロム／硫酸銅⚠️）、bayer_filter（作業台の 2×2 に 緑・赤／青・緑 → 4）。画像センサーへの組み立て（素子＋フィルター → 色の分かる素子）とカメラモジュールは E の image_sensor の ID が決まってから。GameTest bayer_filter、CHEMISTRY X5、REFERENCES O82。D へ：青の顔料（銅フタロシアニン）ができたら置き換えたい

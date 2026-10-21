@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:positive_resist",
+    "semiconductor-lab:copper_sulfate"
+  ],
+  "result": {
+    "id": "semiconductor-lab:blue_color_resist",
+    "count": 1
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:positive_resist",
+    "semiconductor-lab:rouge"
+  ],
+  "result": {
+    "id": "semiconductor-lab:red_color_resist",
+    "count": 1
+  }
+}

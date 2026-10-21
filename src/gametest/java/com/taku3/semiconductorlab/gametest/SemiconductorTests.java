@@ -2213,6 +2213,24 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-45] ベイヤーのカラーフィルター（IMP2 O-031、C の側）：顔料のレジスト3色 → 2×2 の「緑・赤／青・緑」（緑が2倍＝人の目） */
+    @GameTest
+    public void bayer_filter(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "red_color_resist", com.taku3.semiconductorlab.content.Optics.ROUGE) && recipeUses(h, "green_color_resist", Metallurgy.CHROMIUM_OXIDE)
+                && recipeUses(h, "blue_color_resist", Chemistry.COPPER_SULFATE), "pigmented resists: Fe2O3 red, Cr2O3 green, blue (approximation)");
+        var key = net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, com.taku3.semiconductorlab.SemiconductorLab.id("bayer_filter"));
+        var r = h.getLevel().getServer().getRecipeManager().byKey(key).orElseThrow().value();
+        int green = 0, red = 0, blue = 0;
+        for (var i : r.placementInfo().ingredients()) {
+            if (i.test(new ItemStack(Semiconductor.GREEN_COLOR_RESIST))) green++;
+            else if (i.test(new ItemStack(Semiconductor.RED_COLOR_RESIST))) red++;
+            else if (i.test(new ItemStack(Semiconductor.BLUE_COLOR_RESIST))) blue++;
+        }
+        h.assertTrue(green == 2 && red == 1 && blue == 1, "Bayer 2x2: green 2, red 1, blue 1 (got " + green + "/" + red + "/" + blue + ")");
+        LOG.info("[LAB] Bayer filter [9-45]: G R / B G from pigmented resists (waits for E's image sensor to be mounted)");
+        h.succeed();
+    }
+
     @GameTest(maxTicks = 200)
     public void v03Chain(GameTestHelper h) {
         var design = com.taku3.semiconductorlab.litho.LithoExamples.notGate();

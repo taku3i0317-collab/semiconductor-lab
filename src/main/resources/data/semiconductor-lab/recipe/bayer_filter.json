@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "GR",
+    "BG"
+  ],
+  "key": {
+    "G": "semiconductor-lab:green_color_resist",
+    "R": "semiconductor-lab:red_color_resist",
+    "B": "semiconductor-lab:blue_color_resist"
+  },
+  "result": {
+    "id": "semiconductor-lab:bayer_filter",
+    "count": 4
+  }
+}

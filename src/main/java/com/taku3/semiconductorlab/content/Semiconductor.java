@@ -69,6 +69,12 @@ public final class Semiconductor {
     // [9-32] ダイシング 段階1（A、O-013）：ダイヤモンドのけがき針で傷を付けて割る（1960ごろ）→ チップ（chip_state を引き継ぐ）
     public static final Item DIAMOND_SCRIBE        = Reg.item("diamond_scribe", com.taku3.semiconductorlab.item.DiamondScribeItem::new, new Item.Properties().durability(64));
     public static final Item CHIP                  = Reg.item("chip");
+    // [9-45] ベイヤー配列のカラーフィルター（IMP2 O-031、1976）：顔料を混ぜたレジスト（赤＝ベンガラ・緑＝酸化クロム・青＝⚠️硫酸銅で近似、本物は有機顔料）を
+    //   2×2 の「緑・赤／青・緑」に並べた膜。E の画像センサー [9-42] の素子に載せて色の分かる素子に（組み立ては E の ID が決まってから）
+    public static final Item RED_COLOR_RESIST      = Reg.item("red_color_resist", new Item.Properties().stacksTo(16));
+    public static final Item GREEN_COLOR_RESIST    = Reg.item("green_color_resist", new Item.Properties().stacksTo(16));
+    public static final Item BLUE_COLOR_RESIST     = Reg.item("blue_color_resist", new Item.Properties().stacksTo(16));
+    public static final Item BAYER_FILTER          = Reg.item("bayer_filter");
     // [9-33] ワイヤーボンディング（IMP4-01）：ヘッダー（鋼の台にガラスで封じた足）、線をつないだチップ（CHIP_STATE を写す）
     public static final Item CHIP_HEADER           = Reg.item("chip_header");
     public static final Item BONDED_CHIP           = Reg.item("bonded_chip");

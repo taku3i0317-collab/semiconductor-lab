@@ -677,6 +677,10 @@ carbon_tetrafluoride  # Semiconductor [9-27] 1970
 sputter  # Semiconductor [9-26] 1970
 fluorination_reactor  # Semiconductor [9-27] 1970
 dry_etcher  # Semiconductor [9-27] 1970
+red_color_resist  # Semiconductor [9-45] 1976
+green_color_resist  # Semiconductor [9-45] 1976
+blue_color_resist  # Semiconductor [9-45] 1976
+bayer_filter  # Semiconductor [9-45] 1976
 stepper  # Semiconductor [9-39] 1978
 scanner  # Semiconductor [9-39] 1978
 anneal_furnace  # Semiconductor [9-29] 1980
