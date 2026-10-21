@@ -336,6 +336,8 @@
         <p style="display:flex;flex-wrap:wrap;gap:6px">${issues}</p>
         <p class="muted">ノード番号が入ったひな形が開きます（GitHub のアカウントが要ります）。</p>
       </section>`;
+    // S-056：ゲームでの作り方（ウィキ）：このノードのアイテムのページへ（レシピの図・使い道）
+    if ((d.wiki_items || []).length) html += `<section><h2>${LANG === 'en' ? 'In the game (wiki)' : 'ゲームでの作り方（ウィキ）'}</h2><p class="muted">${LANG === 'en' ? 'Items of this technology in the mod. Each page shows how to make it and what it is used for.' : 'MOD のこの技術のアイテム。押すと作り方（レシピの図）と使い道'}</p><div class="chips">${d.wiki_items.map(w => `<a class="chip" href="wiki/items/${w.s}.html"><img src="wiki/icons/${w.s}.png" alt="" style="width:20px;height:20px;image-rendering:pixelated;vertical-align:middle" onerror="this.remove()"> ${esc(LANG === 'en' ? w.en || w.ja : w.ja)}</a>`).join('')}</div></section>`;
     // S-055：もっと知りたい人へ。Long Now 財団の Manual for Civilization の推薦に入った本（書名だけ。本の文は写さない）
     if ((d.reading || []).length) html += `<section><h2>${LANG === 'en' ? 'Further reading' : 'もっと知りたい人へ'}</h2><p class="muted">${LANG === 'en' ? "Books recommended for the Long Now Foundation's Manual for Civilization" : 'Long Now 財団の「Manual for Civilization（文明の手引き）」の推薦に入った本'}</p><ul>${d.reading.map(b => `<li><i>${esc(b.title)}</i>（${esc(b.authors)}${b.year ? '、' + b.year : ''}）${b.ja && LANG !== 'en' ? `<br><span class="muted">日本語訳：『${esc(b.ja)}』</span>` : ''}</li>`).join('')}</ul></section>`;
     // 出典の番号を、ページに出てくる順に振り直す（Wikipedia と同じ）。一番下に「出典」の欄

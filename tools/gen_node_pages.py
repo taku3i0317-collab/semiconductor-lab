@@ -137,6 +137,8 @@ def main():
             body.append("<section><h2>これを使って生まれた物</h2><p>" + "・".join(link(k) for k in uses[:60]) + (f" ほか {len(uses) - 60}" if len(uses) > 60 else "") + "</p></section>")
         if d.get("people"):
             body.append("<section><h2>人物</h2><p>" + "・".join(f'{esc(p.get("name"))}（{esc(p.get("year"))}）' for p in d["people"]) + "</p></section>")
+        if d.get("wiki_items"):
+            body.append("<section><h2>ゲームでの作り方（ウィキ）</h2><p>" + "・".join(f'<a href="wiki/items/{w["s"]}.html">{esc(w["ja"])}</a>' for w in d["wiki_items"]) + "</p></section>")
         if d.get("reading"):
             body.append("<section><h2>もっと知りたい人へ</h2><p>Long Now 財団の「Manual for Civilization（文明の手引き）」の推薦に入った本</p><ul>" + "".join(
                 f'<li><i>{esc(b["title"])}</i>（{esc(b["authors"])}{("、" + str(b["year"])) if b.get("year") else ""}）{("　日本語訳『" + esc(b["ja"]) + "』") if b.get("ja") else ""}</li>' for b in d["reading"]) + "</ul></section>")

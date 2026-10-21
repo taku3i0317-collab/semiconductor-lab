@@ -715,8 +715,16 @@ def export_json(nodes):
     JSON_OUT.write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     # 図の表示用（NET-05）：軽いデータ（位置を先に計算して入れる）と、カード・詳細用の重いデータに分ける。
     # ファイルを直接開いても読めるように JS（window.〜 = …）で書く（file:// では fetch できないため）
+    # S-056：ウィキ（A の docs/wiki_export.json）のアイテムを、ノードごとに
+    WIKI_ITEMS = {}
+    _wf = ROOT / "docs" / "wiki_export.json"
+    if _wf.exists():
+        for _it in json.loads(_wf.read_text(encoding="utf-8")).get("items", []):
+            if _it.get("node") and _it["id"].startswith("semiconductor-lab:"):
+                WIKI_ITEMS.setdefault(_it["node"], []).append({"s": _it["id"].split(":", 1)[1], "ja": _it["name"].get("ja") or _it["name"].get("en"), "en": _it["name"].get("en")})
     # S-047：出典のある丸（「あ！」の道に使える）：REFERENCES の確かさ ◎○ か、出典の URL がある
     for n in out_nodes:
+        n["wiki_items"] = WIKI_ITEMS.get(n["id"], [])[:40]   # S-056：このノードのゲームのアイテム（ウィキのページへ）
         n["reading"] = [{k: b.get(k) for k in ("title", "authors", "year", "ja")} for b in (meta.get("reading") or {}).get("books", []) if n["id"] in b.get("nodes", [])]   # S-055：もっと知りたい人へ（Manual for Civilization の推薦の本）
         n["src"] = 1 if n.get("refs") or n.get("sources") or re.search(r"出典[:：]", (n.get("real_full") or "") + (n.get("hee1") or "")) else 0   # tools/provenance.py と同じ数え方
     light_keys = ("id", "name", "name_en", "gran", "pr", "src", "trunk", "trunk_name", "status", "year", "year_range", "year_uncertain", "kind",
