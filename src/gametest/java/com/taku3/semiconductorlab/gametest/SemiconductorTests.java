@@ -3037,6 +3037,21 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-70] high-k の受け口（E と決めた形、記録だけ）：ゲート酸化膜のあと1回、ゲート酸化膜がなければ no_gate */
+    @GameTest
+    public void highKRecord(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        var nm = com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter();
+        var upToGate = new com.taku3.semiconductorlab.litho.ChipDesign(16, "g", nm.layers().subList(0, 2), java.util.List.of(), com.taku3.semiconductorlab.litho.ChipDesign.MOS);
+        ItemStack w = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, upToGate, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        var r = com.taku3.semiconductorlab.litho.ChipOps.highK(w);
+        h.assertTrue(r.ok() && com.taku3.semiconductorlab.litho.ChipOps.state(r.out()).extras().highK(), "high-k after the gate oxide: " + r.reason());
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.highK(r.out()).reason(), "already", "once");
+        ItemStack ow2 = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow2.set(ModDataComponents.DOPANT, "boron");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.highK(com.taku3.semiconductorlab.litho.ChipOps.coat(ow2).out()).reason(), "no_gate", "needs a gate oxide");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

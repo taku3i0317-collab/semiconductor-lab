@@ -377,6 +377,22 @@ public final class ChipOps {
         return Result.ok(write(w, s.plus(LayerKind.FIN, s.resistPattern()).dirtier(1)));
     }
 
+    public static boolean canHighK(ItemStack w) { return highK(w).ok(); }
+
+    /**
+     * high-k のゲート絶縁膜（[1-70] HfO2、E の ALD 装置：HfCl4 と水を1層ずつ交互に、約 300℃。2007 インテル 45 nm、E と決めた形）。
+     * SiO2 を薄くしすぎると電子がトンネルで漏れるので、誘電率の高い HfO2 で厚いまま同じ効き目にする（記録だけ、判定は変えない）。
+     * ゲート酸化膜（GATE_OX）があり、レジストも金属の膜もないとき1回
+     */
+    public static Result highK(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || !s.has(LayerKind.GATE_OX)) return Result.fail("no_gate");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.metalFilm()) return Result.fail("metal_on");
+        if (s.extras().highK()) return Result.fail("already");
+        return Result.ok(write(w, s.withExtras(s.extras().withHighK(true))));
+    }
+
     public static boolean canPassivate(ItemStack w) { return passivate(w).ok(); }
 
     /**

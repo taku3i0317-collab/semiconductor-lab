@@ -569,3 +569,4 @@
 - 次：段2 命令と見本の CPU（Java のモデル）、段3 ROM のチップ、段4 CPU のお題、段5 組立台で組む
 
 - E の [2-33] 化学増幅レジストの受け口（E と決めた形）：ChipOps.coat(w, tone, kind)（RESIST_DNQ・RESIST_KPR・RESIST_CAR、記録は ChipState.Extras.resistKind）。種類を決めたノボラック・KPR は 250 nm より短い光（KrF〜）で opaque_resist、化学増幅は焼ける。ChipOps.bake（露光後の加熱 PEB）をしない化学増幅は現像してもどこも溶けない。前からの塗り方（種類なし）は見ない＝今の例・C のステッパーのテストは壊れない。はがすと種類・加熱の記録も消える。GameTest chemicallyAmplifiedResist
+- E の [1-70] high-k の受け口（E と決めた形、S-004 の「SiO2 の仮 → [1-70] で入れ替え」）：ChipOps.highK（ゲート酸化膜のあと・レジストなし・金属の膜なし、記録 Extras.highK、判定は変えない）。GameTest highKRecord
