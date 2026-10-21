@@ -220,4 +220,31 @@ public class AgricultureTests extends LabTestBase {
         h.assertTrue(Agriculture.PLOW.getDefaultInstance().isDamageableItem(), "wears out");
         h.succeed();
     }
+
+    /** [11-01] 灌漑と塩害（IMP3、S-011）：乾いた土地の湿った耕地で収穫するたび塩がたまり、3回で −1。乾いた畑・雨の多い土地ではたまらない。石こうで戻す */
+    @GameTest
+    public void irrigationSalinity(GameTestHelper h) {
+        var lv = h.getLevel();
+        var S = Agriculture.SALTY_FARMLAND;
+        var wheat = (net.minecraft.world.level.block.CropBlock) Blocks.WHEAT;
+        floor(h, 3);
+        BlockPos f = p(1, 1, 1), crop = p(1, 2, 1);
+        h.setBlock(f, Blocks.FARMLAND.defaultBlockState().setValue(net.minecraft.world.level.block.FarmlandBlock.MOISTURE, 7));
+        h.assertFalse(com.taku3.semiconductorlab.block.SaltyFarmlandBlock.onHarvest(lv, h.absolutePos(crop), wheat.getStateForAge(7), new java.util.ArrayList<>(), false), "rainy land: no salt");
+        h.assertTrue(h.getBlockState(f).is(Blocks.FARMLAND), "still plain farmland");
+        int[] got = new int[4];
+        for (int i = 0; i < 4; i++) {
+            java.util.List<ItemStack> d = new java.util.ArrayList<>(java.util.List.of(new ItemStack(Items.WHEAT, 2)));
+            com.taku3.semiconductorlab.block.SaltyFarmlandBlock.onHarvest(lv, h.absolutePos(crop), wheat.getStateForAge(7), d, true);
+            got[i] = d.isEmpty() ? 0 : d.get(0).getCount();
+        }
+        h.assertTrue(got[0] == 2 && got[1] == 2 && got[2] == 1 && got[3] == 1, "irrigated dry land: 3rd harvest and after -1 (" + java.util.Arrays.toString(got) + ")");
+        h.assertTrue(h.getBlockState(f).is(S), "salinized");
+        h.assertTrue(com.taku3.semiconductorlab.block.SaltyFarmlandBlock.gypsum(lv, h.absolutePos(f)) && h.getBlockState(f).is(Blocks.FARMLAND), "gypsum restores");
+        BlockPos dry = p(2, 1, 1);
+        h.setBlock(dry, Blocks.FARMLAND.defaultBlockState().setValue(net.minecraft.world.level.block.FarmlandBlock.MOISTURE, 0));
+        com.taku3.semiconductorlab.block.SaltyFarmlandBlock.onHarvest(lv, h.absolutePos(dry.above()), wheat.getStateForAge(7), new java.util.ArrayList<>(), true);
+        h.assertTrue(h.getBlockState(dry).is(Blocks.FARMLAND), "not irrigated (dry): no salt");
+        h.succeed();
+    }
 }

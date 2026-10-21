@@ -4026,6 +4026,19 @@
 - Wikipedia「Plough」：https://en.wikipedia.org/wiki/Plough
 - Wikipedia「John Deere (inventor)」：https://en.wikipedia.org/wiki/John_Deere_(inventor)
 
+## C78. 水をやりすぎると畑が塩でだめになる（灌漑と塩害）［11-01］
+**答え**：雨の少ない土地でも、川から水路で水を引けば（灌漑）作物が育つ。紀元前6000年ごろのメソポタミアではそうして農業が広がった。でも川の水にもわずかな塩がとけていて、水が蒸発すると塩だけが土に残る。何十年も続けると塩がたまって作物が育たなくなる（塩害）。シュメールでは塩に弱い小麦から塩に強い大麦へ作物が移ったとされる。今は石こうをまいてナトリウムをカルシウムに入れかえ、水で洗い流したり、水はけをよくしたりして防ぐ。
+
+- へえ①：水をやりすぎると畑が塩でだめになる。
+- へえ②：雨の多い土地では、塩は雨で流れるのでたまらない。
+- へえ③：石こうは、塩でかたくなった土をやわらかくもどす。
+- へえ④：今も世界の灌漑の畑の多くが塩害に悩んでいる。
+
+確かさ：塩類集積のしくみ・石こうでの改良 ◎／シュメールの小麦 → 大麦 △
+根拠：
+- Wikipedia「Soil salinity」：https://en.wikipedia.org/wiki/Soil_salinity
+- Wikipedia「Irrigation」：https://en.wikipedia.org/wiki/Irrigation
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

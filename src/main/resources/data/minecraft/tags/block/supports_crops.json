@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "semiconductor-lab:nitrogen_farmland",
-    "semiconductor-lab:tired_farmland"
+    "semiconductor-lab:tired_farmland",
+    "semiconductor-lab:salty_farmland"
   ]
 }

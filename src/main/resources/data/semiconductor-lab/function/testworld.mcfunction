@@ -801,28 +801,30 @@ setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-08]
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quern",count:1},{Slot:1b,id:"semiconductor-lab:flour",count:16}]}
 setblock ~5 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-10] 酒と酢","かめに酒を入れて数分で","酢になるか、殺菌した酒","のメッセージ"]}}
 setblock ~5 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vinegar",count:16}]}
-setblock ~8 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-09] パン","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
-setblock ~8 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:bread_dough",count:16},{Slot:1b,id:"semiconductor-lab:leavened_bread",count:16}]}
-setblock ~11 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-02] 犂","草の地面に使って 3×","3 が耕地になるか、す","り減るか"]}}
-setblock ~11 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:plow",count:1}]}
-setblock ~14 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-11] 塩蔵・乾燥・","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
-setblock ~14 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:salted_meat",count:16},{Slot:1b,id:"semiconductor-lab:smoked_meat",count:16}]}
-setblock ~17 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-14] 砂糖","たき火で汁から黒糖がで","きるか、見た目（茶色 ","→ 白）"]}}
-setblock ~17 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cane_juice",count:16},{Slot:1b,id:"semiconductor-lab:beet_juice",count:16},{Slot:2b,id:"semiconductor-lab:raw_sugar",count:16},{Slot:3b,id:"semiconductor-lab:bone_char",count:16}]}
-setblock ~20 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-03] 輪作","実際に同じ畑で小麦を3","回収穫して3回目から1","つ少ないか（MODIF"]}}
-setblock ~20 ~0 ~82 semiconductor-lab:tired_farmland
-setblock ~24 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-12] 缶詰","缶詰を食べられるか（満","腹度 9）、見た目（缶","・ボルドー液の青）、レ"]}}
-setblock ~24 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tin_can",count:16},{Slot:1b,id:"semiconductor-lab:sealed_can",count:16},{Slot:2b,id:"semiconductor-lab:canned_meat",count:16}]}
-setblock ~27 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-06] 過リン酸石灰","実際に麦・ニンジンを収","穫して1つ多いか（MO","DIFY_DROPS "]}}
-setblock ~27 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:superphosphate",count:16}]}
-setblock ~30 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-15] 低温殺菌","かめに酒を入れて数分で","酢になるか、殺菌した酒","のメッセージ"]}}
-setblock ~30 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:pasteurized_wine",count:16}]}
-setblock ~33 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-13] 冷蔵・冷凍","冷凍機に電気をつなぎ、","アンモニア水と水バケツ","を入れて氷ができるか。"]}}
-setblock ~33 ~0 ~82 semiconductor-lab:refrigerator
-setblock ~37 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-16] ボルドー液","缶詰を食べられるか（満","腹度 9）、見た目（缶","・ボルドー液の青）、レ"]}}
-setblock ~37 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:bordeaux_mixture",count:16}]}
-setblock ~40 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-07] 窒素肥料","実際に麦・ニンジンを収","穫して1つ多いか（MO","DIFY_DROPS "]}}
-setblock ~40 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ammonium_nitrate",count:16}]}
+setblock ~8 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-01] 灌漑","砂漠で水をひいた畑で麦","を何回か収穫して、塩の","耕地（白い粒）になるか"]}}
+setblock ~8 ~0 ~82 semiconductor-lab:salty_farmland
+setblock ~12 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-09] パン","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
+setblock ~12 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:bread_dough",count:16},{Slot:1b,id:"semiconductor-lab:leavened_bread",count:16}]}
+setblock ~15 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-02] 犂","草の地面に使って 3×","3 が耕地になるか、す","り減るか"]}}
+setblock ~15 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:plow",count:1}]}
+setblock ~18 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-11] 塩蔵・乾燥・","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
+setblock ~18 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:salted_meat",count:16},{Slot:1b,id:"semiconductor-lab:smoked_meat",count:16}]}
+setblock ~21 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-14] 砂糖","たき火で汁から黒糖がで","きるか、見た目（茶色 ","→ 白）"]}}
+setblock ~21 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cane_juice",count:16},{Slot:1b,id:"semiconductor-lab:beet_juice",count:16},{Slot:2b,id:"semiconductor-lab:raw_sugar",count:16},{Slot:3b,id:"semiconductor-lab:bone_char",count:16}]}
+setblock ~24 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-03] 輪作","実際に同じ畑で小麦を3","回収穫して3回目から1","つ少ないか（MODIF"]}}
+setblock ~24 ~0 ~82 semiconductor-lab:tired_farmland
+setblock ~28 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-12] 缶詰","缶詰を食べられるか（満","腹度 9）、見た目（缶","・ボルドー液の青）、レ"]}}
+setblock ~28 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tin_can",count:16},{Slot:1b,id:"semiconductor-lab:sealed_can",count:16},{Slot:2b,id:"semiconductor-lab:canned_meat",count:16}]}
+setblock ~31 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-06] 過リン酸石灰","実際に麦・ニンジンを収","穫して1つ多いか（MO","DIFY_DROPS "]}}
+setblock ~31 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:superphosphate",count:16}]}
+setblock ~34 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-15] 低温殺菌","かめに酒を入れて数分で","酢になるか、殺菌した酒","のメッセージ"]}}
+setblock ~34 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:pasteurized_wine",count:16}]}
+setblock ~37 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-13] 冷蔵・冷凍","冷凍機に電気をつなぎ、","アンモニア水と水バケツ","を入れて氷ができるか。"]}}
+setblock ~37 ~0 ~82 semiconductor-lab:refrigerator
+setblock ~41 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-16] ボルドー液","缶詰を食べられるか（満","腹度 9）、見た目（缶","・ボルドー液の青）、レ"]}}
+setblock ~41 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:bordeaux_mixture",count:16}]}
+setblock ~44 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-07] 窒素肥料","実際に麦・ニンジンを収","穫して1つ多いか（MO","DIFY_DROPS "]}}
+setblock ~44 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ammonium_nitrate",count:16}]}
 setblock ~0 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹12 建設・測量","↓ この列","",""]}}
 setblock ~2 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-01] ローマンコン","生コンを水の中に置いて","固まるか、砂のように落","ちるか、見た目"]}}
 setblock ~2 ~0 ~90 semiconductor-lab:roman_concrete

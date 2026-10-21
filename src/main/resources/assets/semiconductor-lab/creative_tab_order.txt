@@ -799,6 +799,7 @@ math_coprocessor  # Control [10-32] 1985
 quern  # Agriculture [11-08] -9500
 flour  # Agriculture [11-08] -9500
 vinegar  # Agriculture [11-10] -6000
+salty_farmland  # Agriculture [11-01] -6000
 bread_dough  # Agriculture [11-09] -4000
 leavened_bread  # Agriculture [11-09] -4000
 plow  # Agriculture [11-02] -4000

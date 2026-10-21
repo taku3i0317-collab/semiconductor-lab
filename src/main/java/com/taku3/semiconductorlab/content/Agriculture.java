@@ -67,10 +67,19 @@ public final class Agriculture {
     // [11-02] 犂（IMP3、S-011）：鉄2＋板材3＋棒2 → 犂（耐久 250）。土・草に使うと 3×3 を一度に耕地にする
     public static final Item PLOW = Reg.item("plow", com.taku3.semiconductorlab.item.PlowItem::new, new Item.Properties().durability(250));
 
+    // [11-01] 灌漑と塩害（IMP3、S-011）：乾いた土地で灌漑した耕地は、収穫のたびに塩がたまる → 3回で収穫 −1。石こうで戻す
+    public static final Block SALTY_FARMLAND = Reg.block("salty_farmland", com.taku3.semiconductorlab.block.SaltyFarmlandBlock::new, net.minecraft.world.level.block.state.BlockBehaviour.Properties.ofFullCopy(net.minecraft.world.level.block.Blocks.FARMLAND));
+
     static void init() {
         // [11-05] 堆肥（IMP3、O-021）：コンポスターの骨粉（＝堆肥の近似）を耕地に使うと、窒素とリンが1回分ずつ入る
         net.fabricmc.fabric.api.event.player.UseBlockCallback.EVENT.register((player, level, hand, hit) -> {
             var stack = player.getItemInHand(hand);
+            if (stack.is(com.taku3.semiconductorlab.content.Chemistry.CALCIUM_SULFATE) && level instanceof net.minecraft.server.level.ServerLevel sl
+                    && com.taku3.semiconductorlab.block.SaltyFarmlandBlock.gypsum(sl, hit.getBlockPos())) {   // [11-01] 塩害を石こうで戻す
+                if (!player.getAbilities().instabuild) stack.shrink(1);
+                player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.semiconductor-lab.salty_farmland.gypsum"));
+                return net.minecraft.world.InteractionResult.SUCCESS;
+            }
             if (!stack.is(net.minecraft.world.item.Items.BONE_MEAL)) return net.minecraft.world.InteractionResult.PASS;
             var pos = hit.getBlockPos();
             var st = level.getBlockState(pos);
@@ -89,6 +98,7 @@ public final class Agriculture {
             var cropPos = net.minecraft.core.BlockPos.containing(origin);
             com.taku3.semiconductorlab.block.NitrogenFarmlandBlock.harvestBonus(ctx.getLevel(), cropPos, crop, drops);
             com.taku3.semiconductorlab.block.TiredFarmlandBlock.onHarvest(ctx.getLevel(), cropPos, crop, drops);   // [11-03] 連作
+            com.taku3.semiconductorlab.block.SaltyFarmlandBlock.onHarvest(ctx.getLevel(), cropPos, crop, drops, com.taku3.semiconductorlab.block.SaltyFarmlandBlock.arid(ctx.getLevel(), cropPos));   // [11-01] 塩害
         });
     }
 }

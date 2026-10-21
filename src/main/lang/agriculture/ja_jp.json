@@ -125,5 +125,12 @@
   "item.semiconductor-lab.plow.note2": "鉄2＋板材3＋棒2（耐久 250）。土・草に使うと、まわり 3×3 を一度に耕地にする（くわは1マス）。",
   "item.semiconductor-lab.plow.note3": "とがった刃（犂先）が土を切り、曲がった板（はつ土板）が土を裏返して、草を土の下にうめ、空気を入れる。牛や馬に引かせると、人がくわで耕すよりずっと広い畑を作れる。",
   "item.semiconductor-lab.plow.note4": "紀元前4000年ごろ、メソポタミアで木の掻き犂（アード）が使われた。1837年、アメリカのジョン・ディアが、粘る草原の土がくっつかない鋼の犂を作り、北アメリカの大草原が畑に変わった。",
-  "item.semiconductor-lab.plow.placeholder": "近似：牛や馬に引かせるのは省略（プレイヤーが使う）。"
+  "item.semiconductor-lab.plow.placeholder": "近似：牛や馬に引かせるのは省略（プレイヤーが使う）。",
+  "block.semiconductor-lab.salty_farmland": "塩のたまった耕地（塩害）",
+  "block.semiconductor-lab.salty_farmland.note1": "水をやり続けた乾いた土地の畑。塩がたまって、とれる量が減る。",
+  "block.semiconductor-lab.salty_farmland.note2": "砂漠・サバンナ・荒野で、水で湿らせた耕地で作物を収穫するたびに塩がたまる。3回たまると収穫が1つ少ない。石こう（硫酸カルシウム）を右クリックでまくと、ふつうの耕地にもどる。",
+  "block.semiconductor-lab.salty_farmland.note3": "川や地下の水にもわずかな塩がとけている。雨の少ない土地で水をまくと、水は蒸発して塩だけが土に残る。塩が多いと根が水を吸えなくなる。石こうのカルシウムが土のナトリウムと入れかわり、水で流しやすくなる。",
+  "block.semiconductor-lab.salty_farmland.note4": "メソポタミアのシュメールでは、灌漑を続けた畑に塩がたまり、塩に弱い小麦から塩に強い大麦へ作物が移ったとされる ⚠️。今も世界の灌漑の畑の多くが塩害に悩んでいる。",
+  "block.semiconductor-lab.salty_farmland.placeholder": "近似：塩のたまり方は「乾いた土地の灌漑の収穫3回で −1」の数え方。水はけ・地下水の上がり方は省略。",
+  "message.semiconductor-lab.salty_farmland.gypsum": "石こうをまいた：塩が洗い流されて、ふつうの耕地にもどった"
 }
