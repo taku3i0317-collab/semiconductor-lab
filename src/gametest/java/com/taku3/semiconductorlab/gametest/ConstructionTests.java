@@ -153,4 +153,16 @@ public class ConstructionTests extends LabTestBase {
         LOG.info("[LAB] triangulation [12-11]: base 20 m, sine rule to 1 cm, 1-arcminute reading < 5 cm, thin triangle amplifies error, station A -> B");
         h.succeed();
     }
+
+    /** [12-01] ローマンコンクリート（IMP3、S-011）：消石灰＋凝灰岩＋砂利 → 生コン、水にふれると固まる（水硬性） */
+    @GameTest
+    public void romanConcrete(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "roman_concrete_mix", com.taku3.semiconductorlab.content.Survival.SLAKED_LIME) && recipeUses(h, "roman_concrete_mix", net.minecraft.world.item.Items.TUFF), "lime + volcanic ash (tuff)");
+        floor(h, 3);
+        net.minecraft.core.BlockPos mix = p(1, 1, 1);
+        h.setBlock(mix, com.taku3.semiconductorlab.content.Construction.ROMAN_CONCRETE_MIX);
+        h.assertBlockPresent(com.taku3.semiconductorlab.content.Construction.ROMAN_CONCRETE_MIX, mix);
+        h.setBlock(p(2, 1, 1), net.minecraft.world.level.block.Blocks.WATER);
+        h.succeedWhen(() -> h.assertBlockPresent(com.taku3.semiconductorlab.content.Construction.ROMAN_CONCRETE, mix));
+    }
 }

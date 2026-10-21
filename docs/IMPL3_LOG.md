@@ -332,3 +332,6 @@ CHEMISTRY.md の番号は S1〜、REFERENCES.md は「# 生存」の節（S1〜�
 - **C へ**：semiconductor-lab:copper_phthalocyanine（Chemistry.COPPER_PHTHALOCYANINE）。blue_color_resist の硫酸銅の置き換えは C（メッセージでも知らせた）
 - テスト 378/378
 
+## S-011（枝の軽いノードを自分で選んで続けて作る、2026-10-21〜）
+- 1. ✅ [12-01] ローマンコンクリート：消石灰＋凝灰岩2＋砂利2 → 生コン（落ちるブロック）→ 水にふれると固まる（水硬性）
+

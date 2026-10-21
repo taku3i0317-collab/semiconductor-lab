@@ -66,7 +66,7 @@ setblock ~44 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-09] 
 setblock ~44 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:wooden_wheel",count:16}]}
 setblock ~47 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] assembly_b","（人間の確認項目なし）","",""]}}
 setblock ~47 ~0 ~2 semiconductor-lab:assembly_bench
-setblock ~48 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vacuum_tube",count:16},{Slot:1b,id:"semiconductor-lab:induction_coil",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16},{Slot:3b,id:"semiconductor-lab:copper_cable",count:16},{Slot:4b,id:"minecraft:iron_ingot",count:16},{Slot:5b,id:"semiconductor-lab:ito_glass",count:16},{Slot:6b,id:"minecraft:copper_ingot",count:16},{Slot:7b,id:"semiconductor-lab:chip",count:16},{Slot:8b,id:"semiconductor-lab:junction_transistor",count:16},{Slot:9b,id:"semiconductor-lab:graphite",count:16},{Slot:10b,id:"semiconductor-lab:magnet",count:16},{Slot:11b,id:"semiconductor-lab:zinc_ingot",count:16},{Slot:12b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:13b,id:"semiconductor-lab:tft_array_glass",count:16},{Slot:14b,id:"semiconductor-lab:rubbed_ito_glass",count:16},{Slot:15b,id:"semiconductor-lab:mbba",count:16},{Slot:16b,id:"semiconductor-lab:polarizing_film",count:16},{Slot:17b,id:"semiconductor-lab:nixie_tube",count:16},{Slot:18b,id:"semiconductor-lab:key_switch",count:16},{Slot:19b,id:"minecraft:lever",count:16},{Slot:20b,id:"semiconductor-lab:camera_module",count:1},{Slot:21b,id:"semiconductor-lab:mems_accelerometer",count:1},{Slot:22b,id:"semiconductor-lab:touch_panel",count:1},{Slot:23b,id:"semiconductor-lab:tft_lcd",count:16},{Slot:24b,id:"semiconductor-lab:led_backlight",count:16},{Slot:25b,id:"semiconductor-lab:lithium_ion_battery",count:16},{Slot:26b,id:"semiconductor-lab:crystal_resonator",count:1}]}
+setblock ~48 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:vacuum_tube",count:16},{Slot:1b,id:"semiconductor-lab:induction_coil",count:16},{Slot:2b,id:"semiconductor-lab:leyden_jar",count:16},{Slot:3b,id:"semiconductor-lab:copper_cable",count:16},{Slot:4b,id:"minecraft:iron_ingot",count:16},{Slot:5b,id:"semiconductor-lab:ito_glass",count:16},{Slot:6b,id:"minecraft:copper_ingot",count:16},{Slot:7b,id:"semiconductor-lab:chip",count:16},{Slot:8b,id:"semiconductor-lab:junction_transistor",count:16},{Slot:9b,id:"semiconductor-lab:graphite",count:16},{Slot:10b,id:"semiconductor-lab:magnet",count:16},{Slot:11b,id:"semiconductor-lab:zinc_ingot",count:16},{Slot:12b,id:"semiconductor-lab:graphite_rod",count:16},{Slot:13b,id:"semiconductor-lab:tft_array_glass",count:16},{Slot:14b,id:"semiconductor-lab:rubbed_ito_glass",count:16},{Slot:15b,id:"semiconductor-lab:mbba",count:16},{Slot:16b,id:"semiconductor-lab:polarizing_film",count:16},{Slot:17b,id:"semiconductor-lab:nixie_tube",count:16},{Slot:18b,id:"semiconductor-lab:key_switch",count:16},{Slot:19b,id:"semiconductor-lab:math_coprocessor",count:16},{Slot:20b,id:"minecraft:lever",count:16},{Slot:21b,id:"semiconductor-lab:camera_module",count:1},{Slot:22b,id:"semiconductor-lab:mems_accelerometer",count:1},{Slot:23b,id:"semiconductor-lab:touch_panel",count:1},{Slot:24b,id:"semiconductor-lab:tft_lcd",count:16},{Slot:25b,id:"semiconductor-lab:led_backlight",count:16},{Slot:26b,id:"semiconductor-lab:lithium_ion_battery",count:16}]}
 setblock ~0 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹1 冶金","↓ この列","",""]}}
 setblock ~2 ~0 ~9 minecraft:oak_sign[rotation=8]{front_text:{messages:["[1-03] 銅の製錬","新しいワールドの浅い所","（y40〜110）で孔","雀石の鉱石が見つかるか"]}}
 setblock ~2 ~0 ~10 semiconductor-lab:malachite_ore
@@ -789,14 +789,17 @@ setblock ~34 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~37 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-07] 窒素肥料","実際に麦・ニンジンを収","穫して1つ多いか（MO","DIFY_DROPS "]}}
 setblock ~37 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ammonium_nitrate",count:16}]}
 setblock ~0 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹12 建設・測量","↓ この列","",""]}}
-setblock ~2 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-11] 測量","セオドライトで遠くの木","や塔をのぞいて離す →"," チャットに方位。横に"]}}
-setblock ~2 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:theodolite",count:1}]}
-setblock ~5 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-12] 換気・空調","マスクアライナーの近く","（8 ブロック以内）に","空調機を置いて電気を流"]}}
-setblock ~5 ~0 ~90 semiconductor-lab:air_conditioner
-setblock ~9 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-13] HEPA フ","ブッシングでガラス繊維"," → HEPA フィル","ター → 空調機の左上"]}}
-setblock ~9 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_bushing",count:1},{Slot:1b,id:"semiconductor-lab:glass_fiber",count:16},{Slot:2b,id:"semiconductor-lab:hepa_filter",count:1}]}
-setblock ~12 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-14] 層流クリーン","石で部屋を囲み、天井に"," HEPA の天井を並","べ、中に HEPA 入"]}}
-setblock ~12 ~0 ~90 semiconductor-lab:hepa_ceiling
+setblock ~2 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-01] ローマンコン","生コンを水の中に置いて","固まるか、砂のように落","ちるか、見た目"]}}
+setblock ~2 ~0 ~90 semiconductor-lab:roman_concrete
+setblock ~3 ~0 ~90 semiconductor-lab:roman_concrete_mix
+setblock ~7 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-11] 測量","セオドライトで遠くの木","や塔をのぞいて離す →"," チャットに方位。横に"]}}
+setblock ~7 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:theodolite",count:1}]}
+setblock ~10 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-12] 換気・空調","マスクアライナーの近く","（8 ブロック以内）に","空調機を置いて電気を流"]}}
+setblock ~10 ~0 ~90 semiconductor-lab:air_conditioner
+setblock ~14 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-13] HEPA フ","ブッシングでガラス繊維"," → HEPA フィル","ター → 空調機の左上"]}}
+setblock ~14 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_bushing",count:1},{Slot:1b,id:"semiconductor-lab:glass_fiber",count:16},{Slot:2b,id:"semiconductor-lab:hepa_filter",count:1}]}
+setblock ~17 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-14] 層流クリーン","石で部屋を囲み、天井に"," HEPA の天井を並","べ、中に HEPA 入"]}}
+setblock ~17 ~0 ~90 semiconductor-lab:hepa_ceiling
 setblock ~0 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹14 交通・運輸","↓ この列","",""]}}
 setblock ~2 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-03] 経度とクロノ","クロノメーターを持って","六分儀で南中を測ると経","度の文が出るか。x を"]}}
 setblock ~2 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:marine_chronometer",count:1}]}
@@ -842,7 +845,7 @@ setblock ~43 ~0 ~114 semiconductor-lab:white_led_lamp
 setblock ~44 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:gan_wafer",count:16},{Slot:1b,id:"semiconductor-lab:blue_led",count:16},{Slot:2b,id:"semiconductor-lab:yag_phosphor",count:16},{Slot:3b,id:"semiconductor-lab:white_led",count:16}]}
 setblock ~47 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-10] スマホ","組立台でスマホを組み（","マイコン mcu4・カ","メラ・加速度計・タッチ"]}}
 setblock ~47 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tft_lcd",count:16},{Slot:1b,id:"semiconductor-lab:led_backlight",count:16},{Slot:2b,id:"semiconductor-lab:smartphone",count:1}]}
-setblock ~50 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-11] AIチップ","（人間の確認項目なし）","",""]}}
+setblock ~50 ~0 ~113 minecraft:oak_sign[rotation=8]{front_text:{messages:["[B-11] AIチップ","組立台で AI チップ","を組み、右クリックで「","見本の 7 を読んだ "]}}
 setblock ~50 ~0 ~114 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ai_chip",count:1}]}
 setblock ~0 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["本物の発電","↓ この列","",""]}}
 setblock ~2 ~0 ~121 minecraft:oak_sign[rotation=8]{front_text:{messages:["蒸気機関で発電","石炭と水バケツ","を入れると","電気炉が動く"]}}

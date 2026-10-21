@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:slaked_lime",
+    "minecraft:tuff",
+    "minecraft:tuff",
+    "minecraft:gravel",
+    "minecraft:gravel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:roman_concrete_mix",
+    "count": 4
+  }
+}

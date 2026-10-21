@@ -37,6 +37,13 @@ public final class Construction {
     public static final Block HEPA_CEILING = Reg.block("hepa_ceiling", Block::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.SNOW).strength(1.5f).sound(SoundType.METAL));
 
+    // ===== [12-01] ローマンコンクリート（IMP3、S-011、決定：凝灰岩＝火山灰の近似）：消石灰＋凝灰岩2＋砂利2 → まだ固まっていない生コン4。
+    //   水にふれると固まる（水中でも固まる＝水硬性。バニラのコンクリートパウダーと同じしくみ）=====
+    public static final Block ROMAN_CONCRETE = Reg.block("roman_concrete", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().strength(2.0f, 6.0f).sound(SoundType.STONE));
+    public static final Block ROMAN_CONCRETE_MIX = Reg.block("roman_concrete_mix", p -> new net.minecraft.world.level.block.ConcretePowderBlock(ROMAN_CONCRETE, p),
+            BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(0.5f).sound(SoundType.SAND));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }
