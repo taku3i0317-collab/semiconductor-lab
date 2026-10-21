@@ -1,0 +1,3 @@
+# S-053：Google Search Console の持ち主の確認（GitHub Pages の jekyll-seo-tag が、README から作るページの <head> に出す）。ほかは GitHub Pages の初期設定のまま
+webmaster_verifications:
+  google: lP8qobgUCL3mnbf0cKd4l2dH_m3H-Vr99uwRI9Eea1A
