@@ -302,5 +302,13 @@
   "block.semiconductor-lab.inverter.note2": "Back face = DC input, front face = AC output (same voltage class). 95% efficient. Lets solar cells and batteries feed transformers and AC networks. ⚠️ Keep the front and back on separate cable networks (on one network everything becomes AC and DC machines stop).",
   "block.semiconductor-lab.inverter.note3": "Switches on and off hundreds or thousands of times a second, flipping the direction to shape AC (the reverse of a rectifier). Changing the AC frequency changes how fast an AC motor turns.",
   "block.semiconductor-lab.inverter.note4": "First built with thyristors, then from the 1980s with power MOSFETs and IGBTs ⚠️ (date being checked). Electric cars, air conditioners and trains switch power thousands of times a second to drive their motors.",
-  "block.semiconductor-lab.inverter.placeholder": "Omitted: ⚠️ frequency and motor speed are not modelled. Efficiency is a game value."
+  "block.semiconductor-lab.inverter.placeholder": "Omitted: ⚠️ frequency and motor speed are not modelled. Efficiency is a game value.",
+  "litho.semiconductor-lab.challenge.cpu4": "4-bit CPU",
+  "litho.semiconductor-lab.challenge.cpu4.goal": "A-D: ROM word in, 5-8: address out, 1-4: output port. Build a CPU running LOAD, ADD, OUT, JUMP",
+  "litho.semiconductor-lab.challenge.cpu4.history": "Intel 4004 (1971): about 2,300 transistors, 10 um, 46 instructions, made for Busicom's calculator by Shima, Faggin, Hoff and Mazor.",
+  "litho.semiconductor-lab.challenge.cpu4.hint1": "1. One word per clock: the first goes into the instruction register, the second is executed. A counter's low bit tells which.",
+  "litho.semiconductor-lab.challenge.cpu4.hint2": "2. The address always adds 1 (half adders), except on JUMP. Choose with NOT, AND and OR (a multiplexer).",
+  "litho.semiconductor-lab.challenge.cpu4.hint3": "3. A takes the number on LOAD, A + number on ADD (four full adders). Split the clock with AND so registers store only then.",
+  "litho.semiconductor-lab.challenge.cpu4.hint4": "4. Build only from stamps with wires between (checked as logic boxes). About 50 stamps; two metal layers keep wires from crossing.",
+  "litho.semiconductor-lab.near.program": "A CPU is checked as logic: only passed stamps and wires. Something is drawn outside the stamps, or it behaves differently."
 }

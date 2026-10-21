@@ -302,5 +302,13 @@
   "block.semiconductor-lab.inverter.note2": "後ろの面＝直流の入力、前の面＝交流の出力（電圧の段は変えない）。効率 95%。太陽電池や電池の直流を、変圧器や交流の網につなげる。⚠️ 前と後ろは別のケーブルの網にする（同じ網にすると網全部が交流になり、直流の機械が止まる）。",
   "block.semiconductor-lab.inverter.note3": "スイッチを1秒に何百〜何千回もオン・オフして向きを入れかえ、交流の形にする（整流器の逆）。交流の周波数を変えると、交流モーターの回る速さが変わる。",
   "block.semiconductor-lab.inverter.note4": "最初はサイリスタで作られ、1980年代からはパワー MOSFET・IGBT になった ⚠️（年は出典で確かめ中）。電気自動車・エアコン・電車は、電気を1秒に何千回も切りかえてモーターを回している。",
-  "block.semiconductor-lab.inverter.placeholder": "省略：⚠️ 周波数・モーターの速さは表さない。効率はゲームの値。"
+  "block.semiconductor-lab.inverter.placeholder": "省略：⚠️ 周波数・モーターの速さは表さない。効率はゲームの値。",
+  "litho.semiconductor-lab.challenge.cpu4": "4ビット CPU",
+  "litho.semiconductor-lab.challenge.cpu4.goal": "A〜D＝ROM の語、5〜8＝番地、1〜4＝出力の口。LOAD・ADD・OUT・JUMP を動かす CPU を作れ",
+  "litho.semiconductor-lab.challenge.cpu4.history": "1971年インテル 4004：約2300トランジスタ・10 µm・命令46。日本のビジコンの電卓のために、嶋正利・ファジン・ホフ・メイザーが作った。",
+  "litho.semiconductor-lab.challenge.cpu4.hint1": "①クロック1回で1語。1語目は命令をレジスタへ、2語目で実行。今が何語目かはカウンタの下の位でわかる。",
+  "litho.semiconductor-lab.challenge.cpu4.hint2": "②番地はいつも＋1（半加算器）、JUMP のときだけ数へ。選ぶ所は NOT・AND・OR（マルチプレクサ）。",
+  "litho.semiconductor-lab.challenge.cpu4.hint3": "③A は LOAD なら数、ADD なら A＋数（全加算器4つ）。クロックを AND で分けて、そのときだけレジスタが覚える。",
+  "litho.semiconductor-lab.challenge.cpu4.hint4": "④ハンコだけで組み、ハンコの外は線だけにする（論理の箱で調べる）。ハンコは約50個、2層の金属があると線が交わらない。",
+  "litho.semiconductor-lab.near.program": "CPU は、合格したハンコと線だけで組んだチップを論理で調べる。ハンコの外に描いた所があるか、動きがちがう。"
 }

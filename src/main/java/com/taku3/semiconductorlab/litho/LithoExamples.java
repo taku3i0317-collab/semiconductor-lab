@@ -651,6 +651,82 @@ public final class LithoExamples {
     }
 
     /**
+     * 論理の箱（合格したハンコ）だけで組んだ 4ビット CPU の見本（[10-13]、約50個）。形ではなく線の番号で直接つなぐ（{@link LogicSim#wired}）。お題 cpu4 が解けることの証明。
+     * 2ビットのカウンタの下の位＝今が1語目（命令）か2語目（数）か。レジスタ（2ビット）×2 ずつ：命令・番地・A・出力の口。番地＋1 は半加算器、A＋数 は全加算器、
+     * 選ぶ所（マルチプレクサ）は NOT・AND・OR。クロックは AND で分ける（1語目のとき命令へ、2語目のとき実行へ）。roles に パッドの役目を入れる
+     */
+    public static LogicSim cpu4Boxes(java.util.Map<Integer, Circuit.Role> roles) { return cpu4Boxes(roles, false); }
+
+    /** broken＝足し算のけた上がりをつながない（こわれた見本、テスト用） */
+    public static LogicSim cpu4Boxes(java.util.Map<Integer, Circuit.Role> roles, boolean broken) {
+        final int G = 0, V = 1, CLK = 2;
+        int[] d = {3, 4, 5, 6}, port = {7, 8, 9, 10}, addr = {11, 12, 13, 14};
+        roles.put(G, Circuit.Role.GROUND); roles.put(V, Circuit.Role.VCC); roles.put(CLK, Circuit.Role.CLK);
+        Circuit.Role[] in = {Circuit.Role.IN_A, Circuit.Role.IN_B, Circuit.Role.IN_C, Circuit.Role.IN_D};
+        for (int i = 0; i < 4; i++) { roles.put(d[i], in[i]); roles.put(port[i], Circuit.OUTS[i]); roles.put(addr[i], Circuit.OUTS[4 + i]); }
+        List<LogicSim.Wire> w = new java.util.ArrayList<>();
+        int[] next = {20};
+        java.util.function.IntSupplier net = () -> next[0]++;
+        java.util.function.BiConsumer<String, Object[]> box = (id, kv) -> {
+            java.util.Map<Circuit.Role, Integer> m = new java.util.EnumMap<>(Circuit.Role.class);
+            m.put(Circuit.Role.GROUND, G); m.put(Circuit.Role.VCC, V);
+            for (int i = 0; i < kv.length; i += 2) m.put((Circuit.Role) kv[i], (Integer) kv[i + 1]);
+            w.add(new LogicSim.Wire(id, m));
+        };
+        Circuit.Role A = Circuit.Role.IN_A, B = Circuit.Role.IN_B, C = Circuit.Role.IN_C, K = Circuit.Role.CLK, O1 = Circuit.Role.OUT_1, O2 = Circuit.Role.OUT_2;
+        java.util.function.IntBinaryOperator and = (x, y) -> { int o = net.getAsInt(); box.accept("and", new Object[] {A, x, B, y, O1, o}); return o; };
+        java.util.function.IntBinaryOperator or = (x, y) -> { int o = net.getAsInt(); box.accept("or", new Object[] {A, x, B, y, O1, o}); return o; };
+        java.util.function.IntUnaryOperator not = x -> { int o = net.getAsInt(); box.accept("not", new Object[] {A, x, O1, o}); return o; };
+        // 1語目／2語目（カウンタの下の位、下がるときに変わる）
+        int ph = net.getAsInt(), unused = net.getAsInt();
+        box.accept("counter", new Object[] {A, G, K, CLK, O1, ph, O2, unused});
+        int nph = not.applyAsInt(ph);
+        int clkIr = and.applyAsInt(CLK, nph), clkEx = and.applyAsInt(CLK, ph);
+        // 命令のレジスタ（1語目で覚える）：ir0＝LOAD・ir1＝ADD・ir2＝OUT・ir3＝JUMP
+        int[] ir = {net.getAsInt(), net.getAsInt(), net.getAsInt(), net.getAsInt()};
+        box.accept("register", new Object[] {A, d[0], B, d[1], K, clkIr, O1, ir[0], O2, ir[1]});
+        box.accept("register", new Object[] {A, d[2], B, d[3], K, clkIr, O1, ir[2], O2, ir[3]});
+        // 選ぶ所：sel ? a : b
+        java.util.Map<Integer, Integer> nots = new java.util.HashMap<>();
+        java.util.function.Function<int[], Integer> mux = v -> {   // v = {sel, a, b}
+            int ns = nots.computeIfAbsent(v[0], s -> not.applyAsInt(s));
+            return or.applyAsInt(and.applyAsInt(v[0], v[1]), and.applyAsInt(ns, v[2]));
+        };
+        // 番地（プログラムカウンタ）：いつも＋1、2語目が JUMP なら数へ
+        int jump = and.applyAsInt(ir[3], ph);
+        int[] inc = new int[4];
+        int carry = V;
+        for (int i = 0; i < 4; i++) {
+            int s = net.getAsInt(), c = net.getAsInt();
+            box.accept("half_adder", new Object[] {A, addr[i], B, carry, O1, s, O2, c});
+            inc[i] = s; carry = c;
+        }
+        int[] pcNext = new int[4];
+        for (int i = 0; i < 4; i++) pcNext[i] = mux.apply(new int[] {jump, d[i], inc[i]});
+        box.accept("register", new Object[] {A, pcNext[0], B, pcNext[1], K, CLK, O1, addr[0], O2, addr[1]});
+        box.accept("register", new Object[] {A, pcNext[2], B, pcNext[3], K, CLK, O1, addr[2], O2, addr[3]});
+        // A（アキュムレータ）：LOAD なら数、ADD なら A＋数（全加算器4つ）
+        int[] acc = {net.getAsInt(), net.getAsInt(), net.getAsInt(), net.getAsInt()};
+        int[] sum = new int[4];
+        int k = G;
+        for (int i = 0; i < 4; i++) {
+            int s = net.getAsInt(), c = net.getAsInt();
+            box.accept("full_adder", new Object[] {A, acc[i], B, d[i], C, broken ? G : k, O1, s, O2, c});
+            sum[i] = s; k = c;
+        }
+        int[] accNext = new int[4];
+        for (int i = 0; i < 4; i++) accNext[i] = mux.apply(new int[] {ir[1], sum[i], d[i]});
+        int clkA = and.applyAsInt(clkEx, or.applyAsInt(ir[0], ir[1]));
+        box.accept("register", new Object[] {A, accNext[0], B, accNext[1], K, clkA, O1, acc[0], O2, acc[1]});
+        box.accept("register", new Object[] {A, accNext[2], B, accNext[3], K, clkA, O1, acc[2], O2, acc[3]});
+        // 出力の口：OUT の2語目で A を写す
+        int clkO = and.applyAsInt(clkEx, ir[2]);
+        box.accept("register", new Object[] {A, acc[0], B, acc[1], K, clkO, O1, port[0], O2, port[1]});
+        box.accept("register", new Object[] {A, acc[2], B, acc[3], K, clkO, O1, port[2], O2, port[3]});
+        return LogicSim.wired(w);
+    }
+
+    /**
      * 酸化膜つきの板（p型）に、設計図の層を順に全部の工程で焼く（塗布 → 露光 → 現像 → 削る → はがす → 拡散／Al）。
      * 途中で失敗したら、その理由を例外で投げる（テスト用）
      */

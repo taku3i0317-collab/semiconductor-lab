@@ -716,5 +716,9 @@
   "gui.semiconductor-lab.ald_reactor.cannot": "ゲート酸化がない",
   "gui.semiconductor-lab.ald_reactor.need_power": "電気が足りない",
   "gui.semiconductor-lab.ald_reactor.running": "1層ずつ積んでいる",
-  "gui.semiconductor-lab.ald_reactor.recipe": "HfCl4 + 2H2O → HfO2 + 4HCl"
+  "gui.semiconductor-lab.ald_reactor.recipe": "HfCl4 + 2H2O → HfO2 + 4HCl",
+  "gui.semiconductor-lab.probe_station.role12": "出力5",
+  "gui.semiconductor-lab.probe_station.role13": "出力6",
+  "gui.semiconductor-lab.probe_station.role14": "出力7",
+  "gui.semiconductor-lab.probe_station.role15": "出力8"
 }

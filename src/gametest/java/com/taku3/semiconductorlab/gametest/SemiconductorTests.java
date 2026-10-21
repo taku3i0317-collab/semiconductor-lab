@@ -3089,6 +3089,26 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [10-13] 4ビット CPU（S-014 全部案A、段2）：見本の CPU（Cpu4.run）は 3＋5 で 8、数えるプログラムで 1,2,3,4,5。
+     * 合格したハンコ（論理の箱）約50個で組んだ CPU は、お題 cpu4 の2つのプログラムに合格。足し算のけた上がりをつながない CPU は落ちる
+     */
+    @GameTest
+    public void cpu4Program(GameTestHelper h) {
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Cpu4.run(com.taku3.semiconductorlab.litho.Cpu4.ADD_3_5, 48), java.util.List.of(8), "3 + 5 = 8");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Cpu4.run(com.taku3.semiconductorlab.litho.Cpu4.COUNT, 48).subList(0, 5), java.util.List.of(1, 2, 3, 4, 5), "count 1..5");
+        var def = com.taku3.semiconductorlab.litho.Challenge.byId("cpu4");
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        com.taku3.semiconductorlab.litho.LithoExamples.cpu4Boxes(roles);
+        var r = com.taku3.semiconductorlab.litho.Challenge.checkProgram(def, () -> com.taku3.semiconductorlab.litho.LithoExamples.cpu4Boxes(new java.util.HashMap<>()), roles);
+        h.assertTrue(r.passed(), "the logic-box CPU runs both programs: " + r);
+        var bad = com.taku3.semiconductorlab.litho.Challenge.checkProgram(def, () -> com.taku3.semiconductorlab.litho.LithoExamples.cpu4Boxes(new java.util.HashMap<>(), true), roles);
+        h.assertTrue(!bad.passed(), "without the carry chain it cannot add: " + bad);
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.Challenge.check(def, null, roles, 1.0).rowsOk(), 0, "no analog for the CPU");
+        LOG.info("[LAB] CPU [10-13]: a 4-bit CPU of logic boxes runs 3+5 and counting");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

@@ -18,6 +18,7 @@ public final class NearMiss {
     public static String diagnose(Challenge.Def d, Netlist nl, Map<Integer, Circuit.Role> roles, Challenge.Result r, double leakScale) {
         if (r.passed()) return "solved";
         if (r.missingRoles()) return "roles";
+        if (d.program()) return "program";   // CPU（[10-13]）：論理の箱だけで調べる
         // ① 電源から電流が流れない（電源と 0 V の間に部品がない・つながっていない）
         int vcc = -1;
         for (var e : roles.entrySet()) if (e.getValue() == Circuit.Role.VCC) vcc = e.getKey();

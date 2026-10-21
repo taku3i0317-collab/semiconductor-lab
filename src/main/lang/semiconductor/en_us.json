@@ -716,5 +716,9 @@
   "gui.semiconductor-lab.ald_reactor.cannot": "No gate oxide",
   "gui.semiconductor-lab.ald_reactor.need_power": "Not enough power",
   "gui.semiconductor-lab.ald_reactor.running": "Depositing layer by layer",
-  "gui.semiconductor-lab.ald_reactor.recipe": "HfCl4 + 2H2O → HfO2 + 4HCl"
+  "gui.semiconductor-lab.ald_reactor.recipe": "HfCl4 + 2H2O → HfO2 + 4HCl",
+  "gui.semiconductor-lab.probe_station.role12": "output 5",
+  "gui.semiconductor-lab.probe_station.role13": "output 6",
+  "gui.semiconductor-lab.probe_station.role14": "output 7",
+  "gui.semiconductor-lab.probe_station.role15": "output 8"
 }

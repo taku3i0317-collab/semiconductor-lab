@@ -1,0 +1,28 @@
+{
+  "parent": "semiconductor-lab:challenge/dram_cell",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chip"
+    },
+    "title": {
+      "translate": "litho.semiconductor-lab.challenge.cpu4"
+    },
+    "description": {
+      "translate": "litho.semiconductor-lab.challenge.cpu4.goal",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "litho.semiconductor-lab.challenge.cpu4.history"
+        }
+      ]
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "solved": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

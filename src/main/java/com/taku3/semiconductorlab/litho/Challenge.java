@@ -19,14 +19,15 @@ public final class Challenge {
      * @param clock 最後の入力がクロック（パッドの役目 CLK）
      * @param steps 順序回路：手ごとに {入力の行番号, 期待する出力のビット（−1＝見ない）[, そのあと待つ µs]}。null なら組み合わせ回路
      */
-    public record Def(String id, int inputs, int outputs, int[] table, boolean clock, int[][] steps) {
-        public Def(String id, int inputs, int outputs, int[] table) { this(id, inputs, outputs, table, false, null); }
+    public record Def(String id, int inputs, int outputs, int[] table, boolean clock, int[][] steps, boolean program) {
+        public Def(String id, int inputs, int outputs, int[] table) { this(id, inputs, outputs, table, false, null, false); }
+        public Def(String id, int inputs, int outputs, int[] table, boolean clock, int[][] steps) { this(id, inputs, outputs, table, clock, steps, false); }
         /** lang：litho.semiconductor-lab.challenge.&lt;id&gt;（名前）・.goal（動きの説明） */
         public String langKey() { return "litho.semiconductor-lab.challenge." + id; }
         public String goalKey() { return langKey() + ".goal"; }
         public boolean sequential() { return steps != null; }
         /** 判定する場合の数（組み合わせ＝行の数、順序＝手の数） */
-        public int rows() { return sequential() ? steps.length : 1 << inputs; }
+        public int rows() { return program ? Cpu4.PROGRAMS.length : sequential() ? steps.length : 1 << inputs; }
         /** i 番目の入力の役目（入力A〜D、クロックつきなら最後はクロック） */
         public Circuit.Role inputRole(int i) {
             if (clock && i == inputs - 1) return Circuit.Role.CLK;
@@ -69,6 +70,8 @@ public final class Challenge {
         // 1を書く → 読む → 0を書く → 読む → 1を書く → 2 ms 待つ → 書き直す（リフレッシュ）→ 2 ms 待つ → 読む。書いたあとは先に W を切ってからデータを下げる（本物と同じ）
         seq("dram_cell", 3, 1, false, new int[][] {{0b110, -1}, {0b010, -1}, {0b000, -1}, {0b001, 0}, {0b000, -1}, {0b100, -1}, {0b000, -1}, {0b001, 1}, {0b000, -1},
                 {0b110, -1}, {0b010, -1}, {0b000, -1, 2000}, {0b110, -1}, {0b010, -1}, {0b000, -1, 2000}, {0b001, 0}});
+        // ===== 4ビット CPU（[10-13]、S-014 全部案A）：入力A〜D＝ROM の語（A が下の位）、クロック、出力1〜4＝出力の口、出力5〜8＝読む番地。判定は論理の箱だけ（Cpu4） =====
+        ALL.add(new Def("cpu4", 5, 8, new int[0], true, null, true));
     }
     private static void add(String id, int in, int out, int... table) { ALL.add(new Def(id, in, out, table)); }
     private static void seq(String id, int in, int out, boolean clock, int[][] steps) { ALL.add(new Def(id, in, out, new int[0], clock, steps)); }
@@ -95,6 +98,7 @@ public final class Challenge {
      */
     public static Result check(Def d, Netlist nl, Map<Integer, Circuit.Role> roles, double leakScale, List<Part> parts) {
         LogicSim sim = LogicSim.of(nl, parts);
+        if (d.program()) return sim == null ? new Result(0, d.rows(), false) : checkProgram(d, () -> LogicSim.of(nl, parts), roles);
         if (sim == null) return check(d, nl, roles, leakScale);
         int ok = 0;
         for (int r = 0; r < d.rows(); r++) {
@@ -107,7 +111,43 @@ public final class Challenge {
         return new Result(ok, d.rows(), false);
     }
 
+    /**
+     * CPU のお題（[10-13]）：プログラムごとに新しい CPU（sim）で、ROM の中身を番地（出力5〜8）に合わせて入力A〜D に入れながらクロックを {@link Cpu4#CYCLES} 回。
+     * 出力の口（出力1〜4）が変わった値の列の最初の何個かが、見本 {@link Cpu4#run} と同じなら、そのプログラムは合格
+     */
+    public static Result checkProgram(Def d, java.util.function.Supplier<LogicSim> fresh, Map<Integer, Circuit.Role> roles) {
+        Circuit.Role[] data = {Circuit.Role.IN_A, Circuit.Role.IN_B, Circuit.Role.IN_C, Circuit.Role.IN_D};
+        int ok = 0;
+        for (int p = 0; p < Cpu4.PROGRAMS.length; p++) {
+            int[] rom = Cpu4.PROGRAMS[p];
+            LogicSim sim = fresh.get();
+            int addr = 0, port = 0, bits = 0;
+            List<Integer> seen = new ArrayList<>();
+            boolean missing = false;
+            for (int c = 0; c < Cpu4.CYCLES && !missing; c++) for (boolean clk : new boolean[] {true, false}) {
+                for (int k = 0; k < 6; k++) {   // 番地が変われば ROM の語も変わる：落ち着くまで
+                    Map<Circuit.Role, Boolean> in = new EnumMap<>(Circuit.Role.class);
+                    for (int b = 0; b < 4; b++) in.put(data[b], (rom[addr] >> b & 1) != 0);
+                    in.put(Circuit.Role.CLK, clk);
+                    bits = sim.step(roles, in, 8);
+                    if (bits < 0) { missing = true; break; }
+                    int a = bits >> 4 & 15;
+                    if (a == addr) break;
+                    addr = a;
+                }
+                if (missing) break;
+                if ((bits & 15) != port) { port = bits & 15; seen.add(port); }
+            }
+            if (missing) return new Result(0, d.rows(), true);
+            List<Integer> want = Cpu4.run(rom, Cpu4.CYCLES);
+            int n = Cpu4.expectCount(p);
+            if (seen.size() >= n && want.size() >= n && seen.subList(0, n).equals(want.subList(0, n))) ok++;
+        }
+        return new Result(ok, d.rows(), false);
+    }
+
     public static Result check(Def d, Netlist nl, Map<Integer, Circuit.Role> roles, double leakScale) {
+        if (d.program()) return new Result(0, d.rows(), false);   // CPU は論理の箱だけ（アナログでは重すぎる）
         int ok = 0;
         double[] prev = null;
         Map<Circuit.Role, Boolean> last = null;

@@ -30,6 +30,19 @@ public final class LogicSim {
         this.lastClk = new boolean[boxes.size()];
     }
 
+    /** 線の番号で直接つないだ箱（テスト・見本用。形は見ない）：お題の id と、ピンの役目 → 線の番号 */
+    public record Wire(String id, Map<Circuit.Role, Integer> pins) {}
+
+    public static LogicSim wired(List<Wire> wires) {
+        List<Box> boxes = new ArrayList<>();
+        for (Wire w : wires) {
+            Challenge.Def def = Challenge.byId(w.id());
+            if (def == null || !Behaviour.known(def)) throw new IllegalArgumentException("not a logic box: " + w.id());
+            boxes.add(new Box(null, def, new EnumMap<>(w.pins())));
+        }
+        return new LogicSim(null, boxes);
+    }
+
     /** チップ（parts＝押したハンコ）が論理の箱だけでできていれば、その計算機。でなければ null */
     public static LogicSim of(Netlist nl, List<Part> parts) {
         if (nl == null || parts == null || parts.isEmpty()) return null;
@@ -67,7 +80,7 @@ public final class LogicSim {
      */
     public int step(Map<Integer, Circuit.Role> roles, Map<Circuit.Role, Boolean> inputs, int outputs) {
         Map<Integer, Boolean> fixed = new HashMap<>();
-        int[] outNet = {-1, -1, -1, -1};
+        int[] outNet = {-1, -1, -1, -1, -1, -1, -1, -1};
         boolean gnd = false, vcc = false;
         for (var e : roles.entrySet()) {
             switch (e.getValue()) {
@@ -77,6 +90,10 @@ public final class LogicSim {
                 case OUT_2 -> outNet[1] = e.getKey();
                 case OUT_3 -> outNet[2] = e.getKey();
                 case OUT_4 -> outNet[3] = e.getKey();
+                case OUT_5 -> outNet[4] = e.getKey();
+                case OUT_6 -> outNet[5] = e.getKey();
+                case OUT_7 -> outNet[6] = e.getKey();
+                case OUT_8 -> outNet[7] = e.getKey();
                 default -> fixed.put(e.getKey(), inputs.getOrDefault(e.getValue(), false));
             }
         }
