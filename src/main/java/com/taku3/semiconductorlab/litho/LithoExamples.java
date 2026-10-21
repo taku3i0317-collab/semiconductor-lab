@@ -800,6 +800,43 @@ public final class LithoExamples {
     }
 
     /**
+     * 4ビットの掛け算器の見本（mul4、[10-16] の前）：部分積＝AND 16個、足し合わせ＝全加算器 12個（1段ずつずらして足す「配列型」）。
+     * 入力A〜D＝x、E〜H＝y（どちらも下の位から）、出力1〜8＝x×y。roles にパッドの役目を入れる
+     */
+    public static LogicSim mul4Boxes(java.util.Map<Integer, Circuit.Role> roles) {
+        final int G = 0, V = 1;
+        int[] x = {2, 3, 4, 5}, y = {6, 7, 8, 9};
+        roles.put(G, Circuit.Role.GROUND); roles.put(V, Circuit.Role.VCC);
+        for (int i = 0; i < 4; i++) { roles.put(x[i], Circuit.INS[i]); roles.put(y[i], Circuit.INS[4 + i]); }
+        List<LogicSim.Wire> w = new java.util.ArrayList<>();
+        int[] next = {20};
+        java.util.function.BiConsumer<String, int[]> box = (id, kv) -> {
+            java.util.Map<Circuit.Role, Integer> m = new java.util.EnumMap<>(Circuit.Role.class);
+            m.put(Circuit.Role.GROUND, G); m.put(Circuit.Role.VCC, V);
+            Circuit.Role[] rs = id.equals("and") ? new Circuit.Role[] {Circuit.Role.IN_A, Circuit.Role.IN_B, Circuit.Role.OUT_1}
+                    : new Circuit.Role[] {Circuit.Role.IN_A, Circuit.Role.IN_B, Circuit.Role.IN_C, Circuit.Role.OUT_1, Circuit.Role.OUT_2};
+            for (int k = 0; k < rs.length; k++) m.put(rs[k], kv[k]);
+            w.add(new LogicSim.Wire(id, m));
+        };
+        int[][] pp = new int[4][4];   // pp[i][j] = x_i AND y_j
+        for (int i = 0; i < 4; i++) for (int j = 0; j < 4; j++) { pp[i][j] = next[0]++; box.accept("and", new int[] {x[i], y[j], pp[i][j]}); }
+        int[] r = new int[8];
+        java.util.Arrays.fill(r, G);
+        for (int i = 0; i < 4; i++) r[i] = pp[i][0];
+        for (int j = 1; j < 4; j++) {
+            int carry = G;
+            for (int i = 0; i < 4; i++) {
+                int s = next[0]++, c = next[0]++;
+                box.accept("full_adder", new int[] {r[i + j], pp[i][j], carry, s, c});
+                r[i + j] = s; carry = c;
+            }
+            r[j + 4] = carry;
+        }
+        for (int k = 0; k < 8; k++) roles.put(r[k], Circuit.OUTS[k]);
+        return LogicSim.wired(w);
+    }
+
+    /**
      * ワンチップマイコンの見本（[10-14]、O-027 Q26-1 案A）：cpu4 の箱と rom_program の箱を1つのチップの中でつなぐ（番地の下の3ビット → ROM → 語 → CPU）。
      * 外に出るのはクロック・電源・0 V・出力の口だけ（1974 TI の TMS1000 と同じく、CPU と ROM が1チップ）
      */

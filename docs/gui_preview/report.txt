@@ -665,6 +665,7 @@ drafting_table_en_us symbol litho.semiconductor-lab.challenge.rom_program w=72 l
 drafting_table_en_us symbol litho.semiconductor-lab.challenge.cpu4 w=46 lines=1/2
 drafting_table_en_us symbol litho.semiconductor-lab.challenge.mcu4 w=120 lines=2/2
 drafting_table_en_us symbol litho.semiconductor-lab.challenge.cpu8 w=46 lines=1/2
+drafting_table_en_us symbol litho.semiconductor-lab.challenge.mul4 w=72 lines=1/2
 probe_station_en_us pad gui.semiconductor-lab.probe_station.pad w=56 lines=1/1
 probe_station_en_us amps gui.semiconductor-lab.probe_station.amps w=92 lines=1/1 scale=0.79999995
 probe_station_en_us found0 litho.semiconductor-lab.discovery.diffused_resistor w=88 lines=1/1 scale=0.84999996
@@ -713,6 +714,7 @@ probe_station_en_us challenge litho.semiconductor-lab.challenge.rom_program.goal
 probe_station_en_us challenge litho.semiconductor-lab.challenge.cpu4.goal w=471 lines=3/2 scale=0.6499999
 probe_station_en_us challenge litho.semiconductor-lab.challenge.mcu4.goal w=608 lines=3/2 scale=0.6499999
 probe_station_en_us challenge litho.semiconductor-lab.challenge.cpu8.goal w=478 lines=3/2 scale=0.6499999
+probe_station_en_us challenge litho.semiconductor-lab.challenge.mul4.goal w=538 lines=3/2 scale=0.6499999
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_none w=169 lines=1/1 scale=0.84999996
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_missing w=188 lines=1/1 scale=0.74999994
 probe_station_en_us result gui.semiconductor-lab.probe_station.result_rows w=91 lines=1/1
@@ -1698,6 +1700,7 @@ drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.rom_program w=81 l
 drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.cpu4 w=55 lines=1/2
 drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.mcu4 w=81 lines=1/2
 drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.cpu8 w=55 lines=1/2
+drafting_table_ja_jp symbol litho.semiconductor-lab.challenge.mul4 w=87 lines=2/2
 probe_station_ja_jp pad gui.semiconductor-lab.probe_station.pad w=68 lines=1/1
 probe_station_ja_jp amps gui.semiconductor-lab.probe_station.amps w=70 lines=1/1
 probe_station_ja_jp found0 litho.semiconductor-lab.discovery.diffused_resistor w=36 lines=1/1
@@ -1746,6 +1749,7 @@ probe_station_ja_jp challenge litho.semiconductor-lab.challenge.rom_program.goal
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.cpu4.goal w=415 lines=3/2 scale=0.6499999
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.mcu4.goal w=439 lines=3/2 scale=0.6499999
 probe_station_ja_jp challenge litho.semiconductor-lab.challenge.cpu8.goal w=445 lines=3/2 scale=0.6499999
+probe_station_ja_jp challenge litho.semiconductor-lab.challenge.mul4.goal w=427 lines=2/2 scale=0.6499999
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_none w=117 lines=1/1
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_missing w=163 lines=1/1 scale=0.84999996
 probe_station_ja_jp result gui.semiconductor-lab.probe_station.result_rows w=93 lines=1/1

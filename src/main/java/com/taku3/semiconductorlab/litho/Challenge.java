@@ -78,8 +78,32 @@ public final class Challenge {
         ALL.add(new Def("mcu4", 1, 4, new int[0], true, null, true));
         // 8ビット CPU（O-027 Q26-2・3 案A）：入力A〜H＝ROM の語（8ビット）、クロック、出力1〜8＝出力の口、出力9〜12＝番地。4命令のまま
         ALL.add(new Def("cpu8", 9, 12, new int[0], true, null, true));
+        // 掛け算器（[10-16] の前、S-019 Q30-2 案A）：入力A〜D＝x（A が下の位）、E〜H＝y、出力1〜8＝x×y。AI チップの掛け算はこのお題に合格したチップの箱で1回ずつ
+        ALL.add(new Def("mul4", 8, 8, mulTable()));
     }
     private static void add(String id, int in, int out, int... table) { ALL.add(new Def(id, in, out, table)); }
+
+    /** 掛け算器の真理値表：行（A が上の位）→ x（A〜D、A が下の位）× y（E〜H、E が下の位） */
+    static int[] mulTable() {
+        int[] t = new int[256];
+        for (int row = 0; row < 256; row++) {
+            int x = 0, y = 0;
+            for (int b = 0; b < 4; b++) { x |= (row >> (7 - b) & 1) << b; y |= (row >> (3 - b) & 1) << b; }
+            t[row] = x * y;
+        }
+        return t;
+    }
+
+    /** 組み合わせ回路のお題を、論理の箱の計算機（見本・線の番号でつないだ物）で調べる */
+    public static Result checkCombinational(Def d, java.util.function.Supplier<LogicSim> fresh, Map<Integer, Circuit.Role> roles) {
+        int ok = 0;
+        for (int r = 0; r < d.rows(); r++) {
+            int bits = fresh.get().step(roles, d.inputsOf(r), d.outputs());
+            if (bits < 0) return new Result(0, d.rows(), true);
+            if (bits == d.table()[r]) ok++;
+        }
+        return new Result(ok, d.rows(), false);
+    }
 
     /** ROM の真理値表：行（A が上の位）→ 番地（A が下の位）の語 */
     static int[] romTable(int[] rom) {

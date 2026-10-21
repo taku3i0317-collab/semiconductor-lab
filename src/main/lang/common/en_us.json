@@ -404,5 +404,12 @@
   "assembly.semiconductor-lab.tft_lcd.polarizer": "Polarising film",
   "assembly.semiconductor-lab.tft_lcd.polarizer.short": "Polariser",
   "assembly.semiconductor-lab.tft_lcd.driver": "Driver chip (passed NOT)",
-  "assembly.semiconductor-lab.tft_lcd.driver.short": "Driver"
+  "assembly.semiconductor-lab.tft_lcd.driver.short": "Driver",
+  "litho.semiconductor-lab.challenge.mul4": "4-bit multiplier",
+  "litho.semiconductor-lab.challenge.mul4.goal": "A-D = x, E-H = y (low bit first). Build a circuit that puts x * y (0-225) on outputs 1-8. A part of the AI chip",
+  "litho.semiconductor-lab.challenge.mul4.history": "Multiplying is repeated adding. An AI chip (Google's TPU, 2016) lays out 256 x 256 8-bit multipliers to do a neural network's multiply-adds at once.",
+  "litho.semiconductor-lab.challenge.mul4.hint1": "1. x * y: for each bit of y, copy x or not (AND), shift, and add.",
+  "litho.semiconductor-lab.challenge.mul4.hint2": "2. Sixteen ANDs make the partial products: x_i AND y_j goes to the 2^(i+j) place.",
+  "litho.semiconductor-lab.challenge.mul4.hint3": "3. Add one row at a time with four full adders (three rows = 12). Carries go to the next place.",
+  "litho.semiconductor-lab.challenge.mul4.hint4": "4. Line up many of these and the AI's multiply-adds run faster. The count is speed; the challenge proves it is right."
 }

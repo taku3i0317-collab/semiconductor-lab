@@ -1,0 +1,28 @@
+{
+  "parent": "semiconductor-lab:challenge/cpu8",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:chip"
+    },
+    "title": {
+      "translate": "litho.semiconductor-lab.challenge.mul4"
+    },
+    "description": {
+      "translate": "litho.semiconductor-lab.challenge.mul4.goal",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "litho.semiconductor-lab.challenge.mul4.history"
+        }
+      ]
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "solved": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
