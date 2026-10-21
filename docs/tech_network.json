@@ -398,7 +398,7 @@
    "hee_game": {
     "note1": "豆を育てたり肥料をまいたりした畑。作物がよく育つ・たくさんとれる。",
     "note2": "窒素（エンドウが熟す・硫安・硝安）：上の作物（豆以外）が速く育ち、熟すたびに1回分使う。リン（過リン酸石灰）：熟した作物を収穫すると1つ多くとれ、収穫ごとに1回分使う。どちらも3回分で、両方なくなるとふつうの耕地にもどる。",
-    "note3": "作物は、体のたんぱく質や葉緑素を作るのに窒素がたくさん要る。麦を同じ畑で作り続けると土の窒素が減ってやせる。豆と麦を交代で植える（輪作）と、豆が残した窒素で麦がよく育つ。ローマ時代の農書にも、豆の後に麦をまけと書かれている。",
+    "note3": "作物は、体のたんぱく質や葉緑素を作るのに窒素、花や実や根にリンがたくさん要る。麦を同じ畑で作り続けると土がやせる。豆と麦を交代で植える（輪作）と豆が残した窒素で麦がよく育つ。堆肥（コンポスターの骨粉を耕地に使う）は窒素もリンも少しずつ（1回分ずつ）、化学肥料は一度に3回分。",
     "note4": "18世紀イギリスのノーフォーク農法は、小麦・カブ・大麦・クローバー（マメ科）を4年で回して収穫を大きく増やした。1913年からはハーバー・ボッシュ法 [6-09] で、空気の窒素から工場でアンモニアを作れるようになった。"
    },
    "refs": [
@@ -5800,7 +5800,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F38. 飲めないタンタロスの金属（タンタル）［1-66］",
+     "answer": "タンタルは、花崗岩の最後に固まった所（ペグマタイト）にできるタンタル石からとる。フッ酸に溶かしてフッ化カリウムを入れると、K2TaF7 が結晶になり、そっくりなニオブは液に残る（1866 マリニャック）。これを金属ナトリウムと熱するとタンタルになる。1903年にジーメンス・ハルスケ社が延ばせるタンタルを作り、電球の線になった。今はチップの銅配線の下にうすく敷いて、銅がシリコンへしみこむのを止める。",
+     "hee": {
+      "1": "名前はギリシャ神話のタンタロス（水が飲めない罰）。酸に入れても溶けない（＝酸を「飲まない」）ことから。",
+      "2": "タンタルとニオブは似すぎていて、40年以上「同じ元素では？」と争われた。分けたのがマリニャック法。",
+      "3": "還元に使う金属ナトリウムは、1886年のカストナー法（溶かした水酸化ナトリウムの電解）で安くなった。",
+      "4": "タンタルのコンデンサーはスマホに何十個も入っている。鉱石の一部は紛争の資金になり、今は出どころを確かめる決まりがある。"
+     },
+     "certainty": "マリニャック法 1866 ◎／カストナー法 1886 ◎／フォン・ボルトン 1903・タンタル電球 1905 ○（TECH_TREE の出典）",
+     "basis": "Wikipedia「Tantalum」（History／Production）https://en.wikipedia.org/wiki/Tantalum 、Wikipedia「Castner process」https://en.wikipedia.org/wiki/Castner_process （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -5810,19 +5823,19 @@
    "name": "タンタル",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
-   "year": 1903,
-   "year_range": "1802〜1905",
-   "year_uncertain": false,
+   "year": 1802,
+   "year_range": null,
+   "year_uncertain": true,
    "requires": [],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "電球の線は、炭素→タンタル→タングステンと、熱に強い物へ代わっていった（O-012 で追加。出典：Wikipedia「Tantalum」「Werner von Bolton」、Deutsche Biographie 'Bolton, Werner'（https://www.deutsche-biographie.de/sfz5200.html））",
    "name_en": "Tantalum",
    "hee1_en": "Light bulb filaments changed from carbon to tantalum to tungsten, each more heat-resistant than the last. (Added in O-012. Sources: Wikipedia \"Tantalum\", \"Werner von Bolton\", Deutsche Biographie 'Bolton, Werner' (https://www.deutsche-biographie.de/sfz5200.html))",
    "kind": "tech",
-   "play": "",
+   "play": "重",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -13776,7 +13789,7 @@
    "name": "ステッピングモーター",
    "trunk": "4",
    "trunk_name": "動力・電気",
-   "status": "❓",
+   "status": "🔧",
    "branch": false,
    "year": 1919,
    "year_range": "1919〜1950",
@@ -13794,7 +13807,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "電気を1回送るたびに、カチッと決まった角度だけ回る（S-001 で追加。出典：Nidec「History of the Motor」、Wikipedia「Marius Lavet」）",
    "name_en": "Stepper motor",
    "hee1_en": "Each time you send a pulse of electricity, it turns by exactly a set angle, click (added in S-001. Sources: Nidec \"History of the Motor\", Wikipedia \"Marius Lavet\")",
@@ -22032,7 +22045,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "O74. 1秒に32768回ふるえる石（クオーツ腕時計）［8-35］",
+     "answer": "水晶の板は電圧をかけると決まった速さでふるえる（圧電効果）。1927年、ベル研究所は水晶のふるえで動く部屋ほどの大きさの時計を作った。トランジスタと IC で回路が小さくなり、1969年12月、日本の諏訪精工舎（セイコー）が世界で初めてのクオーツ腕時計「クオーツアストロン 35SQ」を売り出した（月の狂い ±5秒）。音叉の形の水晶が1秒に 32768 回ふるえ、IC が数えて1秒ごとにステッピングモーターで秒針を動かす。安くて正確な時計が世界中に広まり、機械式時計の産業を大きく変えた。",
+     "hee": {
+      "1": "クオーツ時計の中の水晶は、1秒に 32768 回も震えている。",
+      "2": "32768 は 2 の15乗なので、「2で割る」回路を15段つなぐとちょうど1秒。",
+      "3": "1761年のハリソンの航海用時計より、今の安い腕時計のほうが正確。",
+      "4": "秒針がカチッカチッと1秒ずつ動くのは、ステッピングモーターだから。"
+     },
+     "certainty": "1927 ベル研 ◎／1969年12月 アストロン 35SQ ◎（機械遺産 No.066）／32768Hz ◎",
+     "basis": "- Wikipedia「Seiko Astron」：https://en.wikipedia.org/wiki/Seiko_Astron"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -22042,7 +22068,7 @@
    "name": "クオーツ腕時計",
    "trunk": "8",
    "trunk_name": "精密・計測",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1969,
    "year_range": "1927〜1969",
@@ -22070,7 +22096,7 @@
    "name_en": "Quartz wristwatch",
    "hee1_en": "The quartz crystal in a quartz watch vibrates as many as 32,768 times a second. (Added in O-010. Sources: JSME \"Mechanical Engineering Heritage No.066\", Wikipedia \"Seiko Astron\")",
    "kind": "tech",
-   "play": "",
+   "play": "実験（時計の狂いを比べる・六分儀で経度）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -25623,7 +25649,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "ダマスカスの象嵌細工の名前が、最先端の配線に使われている",
    "name_en": "Copper interconnects",
    "hee1_en": "The name of Damascus inlay work is used for the most advanced wiring.",
@@ -29235,7 +29261,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C57. 小さな生き物が作る肥料（堆肥）［11-05］",
+     "answer": "落ち葉や草、ふん、食べ物のくずを積んでおくと、ミミズや虫、カビや細菌などの小さな生き物が分解して、窒素・リン・カリを植物が使える形で土に返す。古代から使われてきた肥料で、ゆっくり少しずつ効き、土をふかふかにする。分解のとき土の細菌がアンモニアを硝酸に変えるはたらき（硝化）は、火薬の硝石をつくった硝石床 [6-10] と同じしくみ。化学肥料は一度にたくさんの窒素やリンを入れられるが、土の中の生き物や有機物は増やさない。",
+     "hee": {
+      "1": "落ち葉を食べる小さな生き物が肥料を作る。",
+      "2": "堆肥の山の中は、細菌の熱で 60℃ ほどになることがある。",
+      "3": "硝石床も堆肥も、細菌が窒素を硝酸に変えるはたらきは同じ。",
+      "4": "マインクラフトのコンポスターから出る骨粉は、堆肥のゲーム版。"
+     },
+     "certainty": "分解・硝化のしくみ ◎／堆肥の山の温度 ○",
+     "basis": "- Wikipedia「Compost」：https://en.wikipedia.org/wiki/Compost"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -29245,7 +29284,7 @@
    "name": "堆肥",
    "trunk": "11",
    "trunk_name": "農業・食",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": -2000,
    "year_range": null,
@@ -29258,7 +29297,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "落ち葉を食べる小さな生き物が肥料を作る",
    "name_en": "Compost",
    "hee1_en": "Tiny creatures that eat fallen leaves make fertilizer.",
