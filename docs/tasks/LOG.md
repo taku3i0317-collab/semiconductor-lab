@@ -568,3 +568,4 @@
 - 段1 論理の箱：ChipDesign.pins（Pin＝役目・場所、検査台で合格したときのパッドから。crop でずらす）、litho/LogicSim（ハンコを押した四角の中がハンコと同じ形で、外は線だけのとき、ハンコをお題の動きの箱にして線でつなぐ。組み合わせ＝真理値表、ラッチ＝レベル、カウンタ・レジスタ＝クロックの下がり・上がり、DRAM のセル＝漏れなし ⚠️）、Challenge.check(…, parts) は使えるときは論理の箱、だめならアナログ。検査台はチップの parts を渡す。GameTest logicBoxes（NOT のハンコ2つ＝バッファ）。⚠️ アナログでは例の RTL の NOT は次の段を引ききれない（低い方が約 1 V）＝論理の箱は電気の強さを見ない
 - 次：段2 命令と見本の CPU（Java のモデル）、段3 ROM のチップ、段4 CPU のお題、段5 組立台で組む
 
+- E の [2-33] 化学増幅レジストの受け口（E と決めた形）：ChipOps.coat(w, tone, kind)（RESIST_DNQ・RESIST_KPR・RESIST_CAR、記録は ChipState.Extras.resistKind）。種類を決めたノボラック・KPR は 250 nm より短い光（KrF〜）で opaque_resist、化学増幅は焼ける。ChipOps.bake（露光後の加熱 PEB）をしない化学増幅は現像してもどこも溶けない。前からの塗り方（種類なし）は見ない＝今の例・C のステッパーのテストは壊れない。はがすと種類・加熱の記録も消える。GameTest chemicallyAmplifiedResist

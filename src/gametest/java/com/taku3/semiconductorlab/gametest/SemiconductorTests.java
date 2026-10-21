@@ -3008,6 +3008,35 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [2-33] 化学増幅レジストの受け口（E と決めた形）：KrF（248 nm）では、種類を決めたノボラック（DNQ）は光を通さず opaque_resist、化学増幅（CAR）は焼ける。
+     * CAR は露光後の加熱（bake）をしないと現像してもどこも溶けない。加熱して現像すると窓が開く。g線ならノボラックも焼ける（前からの塗り方は見ない）
+     */
+    @GameTest
+    public void chemicallyAmplifiedResist(GameTestHelper h) {
+        var cells = com.taku3.semiconductorlab.litho.BitGrid.empty(16).with(3, 3, true).with(4, 3, true);
+        var mask = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.CONTACT, cells, "x", 0);
+        java.util.function.Function<String, ItemStack> coated = kind -> {
+            ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+            return com.taku3.semiconductorlab.litho.ChipOps.coat(ow, com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE, kind).out();
+        };
+        var krf = com.taku3.semiconductorlab.litho.ExposureTool.KRF;
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.expose(coated.apply(com.taku3.semiconductorlab.litho.ChipOps.RESIST_DNQ), mask, krf).reason(), "opaque_resist", "novolac is opaque at 248 nm");
+        h.assertTrue(com.taku3.semiconductorlab.litho.ChipOps.expose(coated.apply(com.taku3.semiconductorlab.litho.ChipOps.RESIST_DNQ), mask, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).ok(), "novolac is fine with the g-line");
+        ItemStack ex = com.taku3.semiconductorlab.litho.ChipOps.expose(coated.apply(com.taku3.semiconductorlab.litho.ChipOps.RESIST_CAR), mask, krf).out();
+        h.assertTrue(!ex.isEmpty(), "CAR prints at 248 nm");
+        var noBake = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.develop(ex).out());
+        h.assertTrue(noBake.resistPattern().invert().isEmpty(), "without the post-exposure bake nothing dissolves");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.bake(coated.apply(com.taku3.semiconductorlab.litho.ChipOps.RESIST_DNQ)).reason(), "not_exposed", "bake after exposure");
+        ItemStack baked = com.taku3.semiconductorlab.litho.ChipOps.bake(ex).out();
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.bake(baked).reason(), "already", "bake once");
+        var dev = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.develop(baked).out());
+        h.assertTrue(!dev.resistPattern().get(3, 3) && dev.resistPattern().get(0, 0), "after baking the exposed cells dissolve");
+        var stripped = com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.litho.ChipOps.develop(baked).out()).out());
+        h.assertTrue(stripped.extras().resistKind().isEmpty() && !stripped.extras().baked(), "stripping clears the resist record");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

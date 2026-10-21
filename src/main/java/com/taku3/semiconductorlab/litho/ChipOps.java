@@ -76,6 +76,19 @@ public final class ChipOps {
     public enum Developer { ALKALI, ORGANIC }
 
     /** [9-19] レジストを塗る（型つき：ポジ型 [2-32]・ネガ型 [2-30] KPR）。酸化膜つきの板はここで加工中のウェハーになる */
+    /** レジストの種類（[2-33]、E と決めた形）：DNQ ノボラック（ポジ型）・KPR（ネガ型）・化学増幅（1982 IBM） */
+    public static final String RESIST_DNQ = "dnq", RESIST_KPR = "kpr", RESIST_CAR = "car";
+    /** これより短い波長（KrF 248 nm から）では、ノボラックも KPR も光を吸いすぎて底まで届かない（化学増幅でないと焼けない） */
+    public static final double OPAQUE_BELOW_NM = 250;
+
+    /** レジストの種類つき（[2-33]）。種類を決めたレジストだけ、短い波長で光を通すかを見る（前からの塗り方は見ない＝今の例は壊れない） */
+    public static Result coat(ItemStack w, ChipState.Tone tone, String kind) {
+        Result r = coat(w, tone);
+        if (!r.ok()) return r;
+        ChipState s = state(r.out());
+        return Result.ok(write(r.out(), s.withExtras(s.extras().withResist(kind == null ? "" : kind, false))));
+    }
+
     public static Result coat(ItemStack w, ChipState.Tone tone) {
         ChipState s = state(w);
         if (s == null) {
@@ -132,6 +145,8 @@ public final class ChipOps {
         if (s == null || s.resist() != ChipState.Resist.COATED) return Result.fail("no_resist");
         if (mask.size() > grid) return Result.fail("too_fine");
         if (s.sized() && s.size() != mask.size()) return Result.fail("size_mismatch");
+        String kind = s.extras().resistKind();
+        if (tool.wavelengthNm < OPAQUE_BELOW_NM && (RESIST_DNQ.equals(kind) || RESIST_KPR.equals(kind))) return Result.fail("opaque_resist");   // [2-33]：ノボラックは 248 nm で不透明
         if (!s.sized()) s = s.withSize(mask.size()).withParts(mask.parts());   // 1枚目：設計図に押したハンコの記録もチップへ（v0.3b）
         else if (overlayNm > 0) s = s.overlay(overlayNm);   // 2層目から
         BitGrid lit = mask.kind().window ? mask.cells() : mask.cells().invert();
@@ -150,7 +165,23 @@ public final class ChipOps {
         if (s == null || s.resist() != ChipState.Resist.EXPOSED) return Result.fail("not_exposed");
         boolean neg = s.tone() == ChipState.Tone.NEGATIVE;
         if (dev != (neg ? Developer.ORGANIC : Developer.ALKALI)) return Result.fail("wrong_developer");
+        if (RESIST_CAR.equals(s.extras().resistKind()) && !s.extras().baked())   // 化学増幅：露光後の加熱（PEB）がないと酸が保護基を外さない＝どこも溶けない
+            return Result.ok(write(w, s.withResist(ChipState.Resist.DEVELOPED, BitGrid.empty(s.size()).invert())));
         return Result.ok(write(w, s.withResist(ChipState.Resist.DEVELOPED, neg ? s.resistPattern() : s.resistPattern().invert())));
+    }
+
+    public static boolean canBake(ItemStack w) { return bake(w).ok(); }
+
+    /**
+     * 露光後の加熱（PEB、[2-33]、E のホットプレート、E と決めた形）：化学増幅レジストで、光で生まれた酸1個が熱で何百もの保護基を外す（1982 IBM の伊藤・ウィルソン・フレシェ）。
+     * 露光したあと・現像の前に1回。化学増幅でなければ not_car
+     */
+    public static Result bake(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || s.resist() != ChipState.Resist.EXPOSED) return Result.fail("not_exposed");
+        if (!RESIST_CAR.equals(s.extras().resistKind())) return Result.fail("not_car");
+        if (s.extras().baked()) return Result.fail("already");
+        return Result.ok(write(w, s.withExtras(s.extras().withResist(RESIST_CAR, true))));
     }
 
     public static boolean canStrip(ItemStack w) { return strip(w).ok(); }
@@ -159,7 +190,8 @@ public final class ChipOps {
     public static Result strip(ItemStack w) {
         ChipState s = state(w);
         if (s == null || s.resist() == ChipState.Resist.NONE) return Result.fail("no_resist");
-        return Result.ok(write(w, s.withResist(ChipState.Resist.NONE, s.sized() ? BitGrid.empty(s.size()) : s.resistPattern()).withTone(ChipState.Tone.POSITIVE).dirtier(1)));
+        ChipState t = s.withResist(ChipState.Resist.NONE, s.sized() ? BitGrid.empty(s.size()) : s.resistPattern()).withTone(ChipState.Tone.POSITIVE).dirtier(1);
+        return Result.ok(write(w, t.withExtras(t.extras().withResist("", false))));   // はがすとレジストの種類・加熱の記録も消える
     }
 
     // ===== 削る =====
