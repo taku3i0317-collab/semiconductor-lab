@@ -54,6 +54,9 @@ public final class Semiconductor {
     public static final Item IMAGE_SENSOR          = Reg.item("image_sensor", com.taku3.semiconductorlab.item.ImageSensorItem::new, new Item.Properties().stacksTo(1));
     public static final Item MEMS_WAFER            = Reg.item("mems_wafer");          // ばねとおもりを深く削り出した板
     public static final Item MEMS_ACCELEROMETER    = Reg.item("mems_accelerometer", com.taku3.semiconductorlab.item.MemsAccelerometerItem::new, new Item.Properties().stacksTo(1));
+    // EUV のマスク（IMP4-01、S-008）：反射型。C の多層膜ミラー（40対以上）にスパッタでタンタルの吸収体 → マスクの板。模様は C の縮小カメラ（A の MaskData）→ euv_mask
+    public static final Item EUV_MASK_BLANK        = Reg.item("euv_mask_blank", new Item.Properties().stacksTo(1));
+    public static final Item EUV_MASK              = Reg.item("euv_mask", new Item.Properties().stacksTo(1));
     public static final Item HAFNIUM_TETRACHLORIDE = Reg.contained("hafnium_tetrachloride", com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE);
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）
     public static final Item OXIDIZED_WAFER        = Reg.item("oxidized_wafer");

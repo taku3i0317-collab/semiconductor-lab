@@ -170,3 +170,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ [B-19] TFT 液晶（O-024 仮決定の案A）：CVD 炉に TFT モード（ITO＋シラン＋H2 → tft_array_glass）、組立台で tft_lcd（item/TftLcdItem）。GameTest tft_lcd、CHEMISTRY B-L5、REFERENCES F48、DECISIONS
 - S-008 開始（ユーザーの決定「v1.0 を始める」）：[9-38] GAA と EUV のマスク・レジストの塗布現像。前提 [9-37]・[9-30]・[7-18] は ✅。分担の相談を出した：A（GAA の ChipOps＝超格子の記録・releaseSheets・Circuit の漏れ、EUV の MaskData に反射型の印・[9-40] の担当）、C（多層膜ミラーをマスクブランクに、[9-40]）、D（EUV のレジストの材料）。E の分：エピタキシャル炉の Si/SiGe 交互のモード、SiGe を選んで溶かす工程、スパッタの Ta＋N2（TaN の吸収体）、マスクブランク、塗布機・現像槽の EUV レジスト
 - A の答え（S-008）：SUPERLATTICE（int、A が作る）・releaseSheets・方眼 gridFor(16nm)≈136 以上は FIN でも漏れ GAA なら漏れない、MaskData に reflective（E のマスクの板の工程で印）・EUV は reflective でないと transmissive_mask、RESIST_EUV（CAR と同じ扱い）。A は S-019 のあとに入れる → E はそれ待ち（データ部品を重ねて作らない）
+- ✅ EUV のマスクの板（S-008、C と分担）：スパッタで 多層膜ミラー（40対以上）＋Ta → euv_mask_blank、euv_mask の ID を登録（模様付けは C の縮小カメラ、吸収体を削るのは塩素のプラズマ）。GameTest euv_mask_blank

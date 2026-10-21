@@ -725,6 +725,8 @@ mems_accelerometer  # Semiconductor [9-43] 1993
 copper_plater  # Semiconductor [9-36] 1997
 hafnium_chlorinator  # Semiconductor [9-37] 1999
 ald_reactor  # Semiconductor [9-37] 1999
+euv_mask_blank  # Semiconductor [None] None
+euv_mask  # Semiconductor [None] None
 hafnium_tetrachloride  # Semiconductor [None] None
 stamp  # Semiconductor [None] None
 layout_sheet  # Semiconductor [None] None

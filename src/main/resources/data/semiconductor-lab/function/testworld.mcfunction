@@ -748,9 +748,9 @@ setblock ~150 ~0 ~74 semiconductor-lab:hafnium_chlorinator
 setblock ~151 ~-1 ~74 semiconductor-lab:test_power_source
 setblock ~151 ~0 ~74 semiconductor-lab:ald_reactor
 setblock ~152 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hafnium_oxide",count:16},{Slot:1b,id:"semiconductor-lab:coke",count:16},{Slot:2b,id:"semiconductor-lab:chlorine_gas",count:16},{Slot:3b,id:"semiconductor-lab:glass_bottle",count:16},{Slot:4b,id:"semiconductor-lab:process_wafer",count:16},{Slot:5b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:6b,id:"semiconductor-lab:distilled_water",count:16}]}
-setblock ~155 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] hafnium_te","（人間の確認項目なし）","",""]}}
+setblock ~155 ~0 ~73 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] euv_mask_b","（人間の確認項目なし）","",""]}}
 setblock ~155 ~0 ~74 semiconductor-lab:drafting_table
-setblock ~156 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:1b,id:"semiconductor-lab:stamp",count:1},{Slot:2b,id:"semiconductor-lab:layout_sheet",count:1}]}
+setblock ~156 ~0 ~74 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:1b,id:"semiconductor-lab:euv_mask",count:1},{Slot:2b,id:"semiconductor-lab:hafnium_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:stamp",count:1},{Slot:4b,id:"semiconductor-lab:layout_sheet",count:1}]}
 setblock ~0 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹11 農業・食品","↓ この列","",""]}}
 setblock ~2 ~0 ~81 minecraft:oak_sign[rotation=8]{front_text:{messages:["[11-08] 製粉","食べられるか・満腹度、","見た目、レシピ本に出る","か"]}}
 setblock ~2 ~0 ~82 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:quern",count:1},{Slot:1b,id:"semiconductor-lab:flour",count:16}]}

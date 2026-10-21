@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 803（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 805（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -1315,6 +1315,10 @@ en_us mems_wafer lines=3
 en_us mems_wafer shift lines=12
 en_us mems_accelerometer lines=3
 en_us mems_accelerometer shift lines=22
+en_us euv_mask_blank lines=4
+en_us euv_mask_blank shift lines=17
+en_us euv_mask lines=3
+en_us euv_mask shift lines=10
 en_us hafnium_tetrachloride lines=5
 en_us hafnium_tetrachloride shift lines=12
 en_us oxidized_wafer lines=7
@@ -2921,6 +2925,10 @@ ja_jp mems_wafer lines=3
 ja_jp mems_wafer shift lines=11
 ja_jp mems_accelerometer lines=3
 ja_jp mems_accelerometer shift lines=21
+ja_jp euv_mask_blank lines=5
+ja_jp euv_mask_blank shift lines=17
+ja_jp euv_mask lines=4
+ja_jp euv_mask shift lines=11
 ja_jp hafnium_tetrachloride lines=4
 ja_jp hafnium_tetrachloride shift lines=10
 ja_jp oxidized_wafer lines=5

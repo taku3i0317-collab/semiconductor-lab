@@ -20,12 +20,15 @@ import net.minecraft.world.level.block.state.BlockState;
  * 加工中のウェハー 1〜8枚 ＋ アルミニウム 1（的が削れる分）＋ アルゴン 1 → Al を一面に付けたウェハー（ChipOps.depositMetal(w, true)＝conformalMetal の印が付く。回路は [9-25] の蒸着と同じ）。
  * 隣の真空容器が {@link #MAX_PA} 以下に引けていること（先に空気を抜いてから Ar を入れる）。アルゴンは隣のガスホルダーから補充。
  * [9-36] Ta の的にすると、銅配線（ダマシン）の溝・穴にタンタルのバリア膜（ChipOps.depositBarrier、A）。銅がシリコンへしみるのを止める。
+ * EUV のマスクの板（S-008）：多層膜ミラー（40対以上）＋タンタルの的 → euv_mask_blank（吸収体 ⚠️ 本物は Ar＋N2 の反応性スパッタで TaBN）。
  * ⚠️ 段差を覆える差は記録だけ（A と決めた案②）。v0.5 の歩留まりで「蒸着は段差のふちで切れやすい」に使う。電力・時間はゲームの値（sputter.placeholder）。
  */
 public class SputterBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 5_000;
     public static final int TICKS = 20 * 20;
     public static final double MAX_PA = 0.01;
+    /** EUV のマスクの板に要る多層膜の対の数（反射率が足りる、S-008） */
+    public static final int MASK_MIN_PAIRS = 40;
     public static final int WAFERS_PER_RUN = 8, AR_PER_RUN = 1;
     public static final int SLOT_WAFER = 0, SLOT_TARGET = 1, SLOT_AR = 2, SLOT_OUT = 3, SLOT_COUNT = 4;
     public static final int DATA_VACUUM = DATA_COUNT;
@@ -49,6 +52,8 @@ public class SputterBlockEntity extends ConsumerBlockEntity {
 
     /** Al を付けたウェハー（1〜8枚）。付けられなければ EMPTY */
     public static ItemStack product(ItemStack w, ItemStack target) {
+        if (w.is(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR) && target.is(Metallurgy.TANTALUM))   // EUV のマスクの板（S-008）
+            return com.taku3.semiconductorlab.item.MultilayerMirrorItem.pairs(w) >= MASK_MIN_PAIRS ? new ItemStack(Semiconductor.EUV_MASK_BLANK) : ItemStack.EMPTY;
         if (isMirrorBase(w)) return mirrorProduct(w, target);
         if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
         ItemStack in = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));

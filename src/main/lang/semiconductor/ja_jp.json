@@ -801,5 +801,16 @@
   "gui.semiconductor-lab.probe_station.role25": "出力14",
   "gui.semiconductor-lab.probe_station.role26": "出力15",
   "gui.semiconductor-lab.probe_station.role27": "出力16",
-  "gui.semiconductor-lab.cvd_furnace.running_tft": "アモルファスシリコンを積む"
+  "gui.semiconductor-lab.cvd_furnace.running_tft": "アモルファスシリコンを積む",
+  "item.semiconductor-lab.euv_mask_blank": "EUV のマスクの板（反射型）",
+  "item.semiconductor-lab.euv_mask_blank.note1": "EUV の光を反射する鏡の上に、光を吸うタンタルの膜を付けた板。模様を付けると EUV のマスクになる。",
+  "item.semiconductor-lab.euv_mask_blank.note2": "スパッタ装置で 多層膜ミラー（40対以上）＋タンタルの的＋アルゴン → これ。縮小カメラ（C）でレジストを塗って模様を写し、塩素のプラズマで吸収体を削ると EUV のマスク。",
+  "item.semiconductor-lab.euv_mask_blank.note3": "EUV（13.5nm）はどの物質にも吸われるので、光を通すマスクは作れない。Mo/Si の多層膜で反射させ、反射させたくない所をタンタルの化合物でおおう（反射型マスク）。",
+  "item.semiconductor-lab.euv_mask_blank.note4": "マスクの上の小さなごみ1つが、全部のチップに写ってしまう。だからマスクの板は世界でいちばんきれいな物の一つ。",
+  "item.semiconductor-lab.euv_mask_blank.placeholder": "省略：⚠️ 吸収体は本物は TaBN（Ar＋N2 の反応性スパッタ）、ここはタンタルで近似。キャップ層（Ru）・裏の導電膜も省略。",
+  "item.semiconductor-lab.euv_mask": "EUV のマスク",
+  "item.semiconductor-lab.euv_mask.note1": "EUV の露光装置で使う、模様を付けた反射型のマスク。",
+  "item.semiconductor-lab.euv_mask.note2": "縮小カメラ（C）で EUV のマスクの板に模様を写して作る。EUV 露光装置 [9-40]（C）はこのマスクだけを受け付ける。",
+  "item.semiconductor-lab.euv_mask.note3": "光は鏡の模様で反射し、全部が鏡の投影光学（NA 0.33）で 1/4 に縮めてウェハーに写る。",
+  "item.semiconductor-lab.euv_mask.note4": "1枚が何億円もする。マスクの上のごみを防ぐ薄い膜（ペリクル）も EUV では難しく、長く開発が続いた。"
 }

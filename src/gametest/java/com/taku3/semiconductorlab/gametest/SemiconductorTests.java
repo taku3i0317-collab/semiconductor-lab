@@ -1477,6 +1477,17 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** EUV のマスクの板（IMP4-01、S-008）：多層膜ミラー 40対以上＋タンタルの的 → euv_mask_blank、30対では足りない、Mo/Si の的では今までどおり対が増える */
+    @GameTest
+    public void euvMaskBlank(GameTestHelper h) {
+        ItemStack m40 = com.taku3.semiconductorlab.item.MultilayerMirrorItem.withPairs(new ItemStack(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR), 40);
+        ItemStack m30 = com.taku3.semiconductorlab.item.MultilayerMirrorItem.withPairs(new ItemStack(com.taku3.semiconductorlab.content.Optics.MULTILAYER_MIRROR), 30);
+        h.assertTrue(com.taku3.semiconductorlab.block.SputterBlockEntity.product(m40, new ItemStack(Metallurgy.TANTALUM)).is(Semiconductor.EUV_MASK_BLANK), "40 pairs + Ta absorber -> EUV mask blank");
+        h.assertTrue(com.taku3.semiconductorlab.block.SputterBlockEntity.product(m30, new ItemStack(Metallurgy.TANTALUM)).isEmpty(), "30 pairs: not reflective enough");
+        h.assertValueEqual(com.taku3.semiconductorlab.item.MultilayerMirrorItem.pairs(com.taku3.semiconductorlab.block.SputterBlockEntity.product(m30, new ItemStack(com.taku3.semiconductorlab.content.Optics.MO_SI_TARGET))), 40, "Mo/Si target still adds 10 pairs");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
