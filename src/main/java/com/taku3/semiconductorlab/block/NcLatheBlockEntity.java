@@ -66,19 +66,25 @@ public class NcLatheBlockEntity extends ConsumerBlockEntity {
     @Override protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput out) { super.saveAdditional(out); out.putInt("ErrorUm", errorUm); }
     @Override protected void loadAdditional(net.minecraft.world.level.storage.ValueInput in) { super.loadAdditional(in); errorUm = in.getIntOr("ErrorUm", Integer.MIN_VALUE); }
 
+    /** 削った部品（誤差つき。出口の物と重なるかを比べるのにも使う） */
+    private ItemStack made() {
+        ItemStack out = product(container.getItem(SLOT_IN), container.getItem(SLOT_TAPE));
+        if (!out.isEmpty()) out.set(Precision.PART_ERROR_UM, errorUm());
+        return out;
+    }
+
     @Override protected double workWatts() { return WATTS; }
     @Override protected double drawWatts() { return super.drawWatts() * BallScrewItem.powerFactor(container.getItem(SLOT_SCREW)); }
     @Override protected int workTicks() { return TICKS; }
 
     @Override protected boolean canWork() {
         if (!container.getItem(SLOT_SCREW).is(Precision.BALL_SCREW)) return false;
-        ItemStack out = product(container.getItem(SLOT_IN), container.getItem(SLOT_TAPE));
+        ItemStack out = made();
         return !out.isEmpty() && canMerge(container.getItem(SLOT_OUT), out);
     }
 
     @Override protected void finishWork() {
-        ItemStack out = product(container.getItem(SLOT_IN), container.getItem(SLOT_TAPE));
-        out.set(Precision.PART_ERROR_UM, errorUm());
+        ItemStack out = made();
         container.getItem(SLOT_IN).shrink(1);
         PunchedTapeItem.wear(container.getItem(SLOT_TAPE));
         merge(SLOT_OUT, out);
