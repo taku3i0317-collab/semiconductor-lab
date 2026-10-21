@@ -37896,17 +37896,30 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "C61. 電気で向きを変えて光の通り道を開け閉めする（液晶ディスプレイ）［B-18］",
+     "answer": "1888年、オーストリアのライニッツァーは、安息香酸コレステリルが約145℃でにごった液体になり、約179℃で透明になる（融点が2つある）ことを見つけ、レーマンが液体と結晶の間の状態＝液晶と考えた。細長い棒の形の分子は、液体なのに向きがそろう。1969年には室温で液晶になる MBBA が作られ、1970〜71年、スイスのロシュ社の研究者たちが、ねじれた並び（TN）の液晶を直角の偏光フィルム2枚ではさみ、電圧をかけると並びがほどけて光が止まる方式を発表した。液晶は自分では光らず、光の通り道を開け閉めするだけなので、とても少ない電気で動く。1973年に英国のジョージ・グレイがこわれにくいシアノビフェニルを作り、同じ年のシャープの電卓 EL-805 は液晶と CMOS で電池が長くもつ薄い電卓になった。",
+     "hee": {
+      "1": "液晶はそれ自体は光らず、電気で向きを変えて光の通り道を開け閉めしている。",
+      "2": "ガラスを布で一方向にこするだけで、液晶の分子の向きがそろう（1911 モーガン）。",
+      "3": "最初の室温の液晶 MBBA は湿気でこわれやすく、これがシアノビフェニルを生んだ。",
+      "4": "材料のアセトアルデヒドを水銀の触媒で作った工場から、水俣病が起きた（失敗の記録）。"
+     },
+     "certainty": "ライニッツァー 1888・MBBA 1969・TN 1971・グレイ 1973 ◎／TN の発明の順番（ヨーロッパとアメリカ）○",
+     "basis": "- Wikipedia「Liquid crystal」：https://en.wikipedia.org/wiki/Liquid_crystal"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
    "placeholder": null,
-   "game_text": "未定（実装の前に相談）",
+   "game_text": "",
    "id": "B-18",
    "name": "液晶ディスプレイ",
    "trunk": "B",
    "trunk_name": "枝",
-   "status": "❓",
+   "status": "✅",
    "branch": true,
    "year": 1971,
    "year_range": "1888〜1973",
@@ -37924,7 +37937,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "液晶はそれ自体は光らず、電気で向きを変えて光の通り道を開け閉めしている（S-002 で追加。出典：Wikipedia「Liquid crystal」「Twisted nematic field effect」、KIT「100 Objekte」）",
    "name_en": "Liquid crystal display",
    "hee1_en": "Liquid crystal doesn't glow by itself; electricity turns it to open and close the path for light (added in S-002. Sources: Wikipedia \"Liquid crystal\", \"Twisted nematic field effect\", KIT \"100 Objekte\")",
@@ -37992,7 +38005,7 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": false,
+   "buildable_now": true,
    "hee1": "画面の画素1つ1つの裏に薄いトランジスタが1個ずつあり、何百万個もガラスの上に並んでいる（S-002 で追加。出典：Wikipedia「Thin-film transistor」、IEEE Milestones「Amorphous Silicon TFT Switches」）",
    "name_en": "TFT LCD",
    "hee1_en": "Behind each pixel of a screen is one thin transistor, and millions of them are lined up on glass. (Added in S-002. Sources: Wikipedia \"Thin-film transistor\", IEEE Milestones \"Amorphous Silicon TFT Switches\")",
