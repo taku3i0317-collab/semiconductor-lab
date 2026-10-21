@@ -1582,6 +1582,247 @@
     "https://en.wikipedia.org/wiki/Flywheel",
     "https://en.wikipedia.org/wiki/Potter%27s_wheel"
    ]
+  },
+  {
+   "from": "10-03",
+   "to": "15-04",
+   "kind": "improves",
+   "note": "電話は、電信を良くしようとする研究から生まれた",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electrical_telegraph",
+    "https://en.wikipedia.org/wiki/Harmonic_telegraph",
+    "https://en.wikipedia.org/wiki/Telephone"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-03",
+   "to": "15-07",
+   "kind": "improves",
+   "note": "無線電信は、電線のいらない電信としてつくられた",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Electrical_telegraph",
+    "https://en.wikipedia.org/wiki/Wireless_telegraphy"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-21",
+   "to": "B-08",
+   "kind": "replaces",
+   "note": "ポケット電卓が安くなると、計算尺は使われなくなった",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Slide_rule",
+    "https://collection.sciencemuseumgroup.org.uk/objects/co464435"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "B-08",
+   "to": "10-13",
+   "kind": "demand",
+   "note": "電卓の会社のたのみから、最初のマイクロプロセッサが作られた",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Intel_4004",
+    "https://museum.ipsj.or.jp/en/heritage/Busicom_141-PF.html"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "8-19",
+   "to": "P-01",
+   "kind": "part",
+   "note": "古代ギリシャのクレーンは、滑車とまき上げ機で重い石を持ち上げた",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Crane_(machine)"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-08",
+   "to": "P-14",
+   "kind": "replaces",
+   "note": "1970年代、コンピュータの記憶は磁気コアからDRAMのメモリに変わった",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Magnetic-core_memory",
+    "https://www.computerhistory.org/siliconengine/mos-dynamic-ram-competes-with-magnetic-core-memory-on-price/",
+    "https://en.wikipedia.org/wiki/Dynamic_random-access_memory"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-05",
+   "to": "1-08",
+   "kind": "replaces",
+   "note": "鉄は青銅より安くて強いので、道具や武器は青銅から鉄にかわっていった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Iron_Age"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "5-02",
+   "to": "9-03",
+   "kind": "replaces",
+   "note": "トランジスタは、こわれやすい真空管のかわりになる小さな部品として作られた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Point-contact_transistor",
+    "https://www.computerhistory.org/siliconengine/invention-of-the-point-contact-transistor/"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "9-03",
+   "to": "9-10",
+   "kind": "replaces",
+   "note": "作りやすくてじょうぶな接合トランジスタが、点接触トランジスタにとってかわった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Point-contact_transistor",
+    "https://en.wikipedia.org/wiki/Grown-junction_transistor"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "14-05",
+   "to": "14-14",
+   "kind": "improves",
+   "note": "蒸気機関車の鉄道は、だんだん電気で走る鉄道にかわっていった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Steam_locomotive"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "2-08",
+   "to": "15-01",
+   "kind": "tool",
+   "note": "木から紙のもと（パルプ）を作るのに、苛性ソーダで煮る方法が1851年に生まれた。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Soda_pulping"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-17",
+   "to": "P-04",
+   "kind": "tool",
+   "note": "3Dプリンターは、コンピューターで描いた形（CADのデータ）をもとに物を作る。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/3D_printing"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "10-33",
+   "to": "P-15",
+   "kind": "replaces",
+   "note": "SSDは、速くて音がしないので、ハードディスクのかわりに使われるようになった。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Solid-state_drive"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "15-09",
+   "to": "15-10",
+   "kind": "replaces",
+   "note": "トランジスタが真空管にかわり、小さくて電池でうごくラジオができました。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Transistor_radio"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "14-02",
+   "to": "12-11",
+   "kind": "tool",
+   "note": "方位磁針のついた測量用コンパスで、土地の角度をはかりました。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Surveyor%27s_compass"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-02",
+   "to": "14-10",
+   "kind": "replaces",
+   "note": "鉄道では、蒸気機関車がディーゼル機関車におきかえられました。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Dieselisation"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-09",
+   "to": "14-11",
+   "kind": "part",
+   "note": "自動車は車輪でささえられて走ります。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Wheel"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "4-07",
+   "to": "14-11",
+   "kind": "part",
+   "note": "自動車のエンジンをかけるのに鉛蓄電池がつかわれます。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Lead%E2%80%93acid_battery"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "14-11",
+   "to": "P-26",
+   "kind": "improves",
+   "note": "自動運転車は、人が運転しなくても走れるようにした自動車です。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Self-driving_car"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "0-09",
+   "to": "14-07",
+   "kind": "improves",
+   "note": "空気入りタイヤは車輪のまわりにつけて、ゆれをやわらげます。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Tire",
+    "https://en.wikipedia.org/wiki/Wheel"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "B-21",
+   "to": "B-16",
+   "kind": "part",
+   "note": "ボール式マウスは、1980〜90年代のパソコンのおもな入力道具になりました。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Computer_mouse"
+   ],
+   "certainty": "○",
+   "by": "S-059"
   }
  ],
  "aliases": {
@@ -1832,6 +2073,37 @@
     "https://en.wikipedia.org/wiki/Soda%E2%80%93lime_glass"
    ],
    "by": "S-047"
+  },
+  {
+   "from": "15-11",
+   "to": "B-09",
+   "note": "最初の家庭用ゲーム機は、テレビにつないで画面を映した",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Magnavox_Odyssey"
+   ],
+   "certainty": "○",
+   "by": "S-059"
+  },
+  {
+   "from": "9-22",
+   "to": "10-13",
+   "note": "マイクロプロセッサーは、コンピューターの頭脳をまるごと1まいの集積回路にのせたものです。",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Microprocessor",
+    "https://www.computerhistory.org/siliconengine/microprocessor-integrates-cpu-function-onto-a-single-chip/"
+   ],
+   "certainty": "◎",
+   "by": "S-059"
+  },
+  {
+   "from": "1-29",
+   "to": "P-10",
+   "note": "パソコンの熱をにがすヒートシンクは、よくアルミでつくられます。（材料）",
+   "sources": [
+    "https://en.wikipedia.org/wiki/Heat_sink"
+   ],
+   "certainty": "○",
+   "by": "S-059"
   }
  ],
  "added_requires_note": "S-025：TECH_TREE に書きもれていた本当の前提（担当が TECH_TREE に書くまで、ネットワークの側で補う。network_proposals.md の R- の行）。note は理由（「本物の欄」は、そのノードの本物の欄にもう書いてあること）",
