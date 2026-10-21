@@ -20,12 +20,15 @@ import net.minecraft.world.level.block.state.BlockState;
  * いっしょにドーパントを入れると、その型の層になる（1960年代のバイポーラ IC は p の基板の上に n のエピ層）。シーメンス炉 [1-17] で棒を太らせる反応の、薄い膜版。
  * 素のウェハー 1〜8枚（DOPANT 付き）＋ 四塩化ケイ素 1 ＋ 水素 2 ＋ ドーパント源 1（B2O3＝p・リン＝n）→ エピ層付きのウェハー（データ部品 epi＝"n"／"p"、A の部品）＋ 乾いた塩化水素 4。
  * 水素は隣のガスホルダーから補充。エピ層は酸化炉で酸化しても受け継ぐ。
+ * [9-38] ドーパント源の代わりに GeCl4 を入れると、Si と SiGe（シリコンゲルマニウム）を交互に3対重ねる（データ部品 superlattice、A）。のちに SiGe だけ溶かして抜くとナノシート（GAA）。
  * ⚠️ 層の厚さ・抵抗率は記録しない。回路にどう効くか（基板の型）は A の ChipOps しだい。電力・時間はゲームの値（epitaxy_reactor.placeholder）。
  */
 public class EpitaxyReactorBlockEntity extends ConsumerBlockEntity {
     public static final double WATTS = 10_000;
     public static final int TICKS = 20 * 30;
     public static final int WAFERS_PER_RUN = 8, H2_PER_RUN = 2, HCL_PER_RUN = 4;
+    /** [9-38] 1回で重ねる Si/SiGe の対の数（本物の 3nm 世代のナノシートは3枚） */
+    public static final int SUPERLATTICE_PAIRS = 3;
     public static final int SLOT_WAFER = 0, SLOT_SICL4 = 1, SLOT_H2 = 2, SLOT_DOPANT = 3, SLOT_OUT = 4, SLOT_HCL = 5, SLOT_COUNT = 6;
     private static final int PULL_INTERVAL = 10, H2_TARGET = 16;
     private int pullTimer;
@@ -34,7 +37,7 @@ public class EpitaxyReactorBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_WAFER, 8, 17, s -> s.is(Semiconductor.SILICON_WAFER))
             .in(SLOT_SICL4, 8, 35, s -> s.is(Metallurgy.SILICON_TETRACHLORIDE))
             .in(SLOT_H2, 8, 53, s -> s.is(Gas.HYDROGEN_GAS))
-            .in(SLOT_DOPANT, 30, 53, s -> Dopant.of(s) != null)
+            .in(SLOT_DOPANT, 30, 53, s -> Dopant.of(s) != null || s.is(Metallurgy.GERMANIUM_TETRACHLORIDE))
             .out(SLOT_OUT, 78, 26)
             .out(SLOT_HCL, 78, 46)
             .right("power", 17, 1, "gui.semiconductor-lab.epitaxy_reactor.power").samples("500.0 kW")
@@ -49,6 +52,12 @@ public class EpitaxyReactorBlockEntity extends ConsumerBlockEntity {
 
     /** エピ層付きのウェハー（1〜8枚）。もうエピ層がある・素のウェハーでない・ドーパント源がなければ EMPTY */
     public static ItemStack product(ItemStack w, ItemStack dopantSource) {
+        if (dopantSource.is(Metallurgy.GERMANIUM_TETRACHLORIDE)) {   // [9-38] GAA：Si と SiGe を交互に重ねる（GeCl4 を混ぜたり止めたり、S-008）
+            if (!w.is(Semiconductor.SILICON_WAFER) || w.has(ModDataComponents.SUPERLATTICE) || w.has(ModDataComponents.EPI)) return ItemStack.EMPTY;
+            ItemStack out = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
+            out.set(ModDataComponents.SUPERLATTICE, SUPERLATTICE_PAIRS);
+            return out;
+        }
         Dopant d = Dopant.of(dopantSource);
         if (d == null || !w.is(Semiconductor.SILICON_WAFER) || w.has(ModDataComponents.EPI)) return ItemStack.EMPTY;
         ItemStack out = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));

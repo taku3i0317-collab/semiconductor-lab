@@ -254,3 +254,6 @@
 ## [9-40] EUV マスクを縮小カメラで（IMP2、S-009 の続き、E・A と合意）
 - [x] 自動✅ E の EUV マスクの板＋ポジ型レジスト＋塩素 → 反射型の EUV マスク（A の reflective）、EUV のレジストで EUV 露光装置が1チップ焼ける `(euv_scanner)`
 - [ ] 人間：縮小カメラに EUV マスクの板・ポジ型レジスト・塩素の袋を入れて EUV マスクができるか
+## [9-38] GAA・EUV レジスト（IMP4-01 S-008）
+- [x] 自動✅ GeCl4 で Si/SiGe 3対・1回だけ・酸化で残る、フィンの前の HCl は何もしない、Cl2 → HCl で GAA、塗布機で EUV レジストを記録 `(gaa_chain)`、マスクの板 `(euv_mask_blank)`
+- [ ] 人間：ドライエッチング装置に HCl を入れたとき「HCl で SiGe だけ抜いている」、C の EUV 露光装置で euv_mask と EUV レジストで焼く

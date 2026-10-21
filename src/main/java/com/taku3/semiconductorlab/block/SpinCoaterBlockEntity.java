@@ -28,7 +28,7 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT)
             .in(SLOT_WAFER, 8, 26, s -> s.is(Semiconductor.OXIDIZED_WAFER) || ChipOps.isProcessWafer(s))
-            .in(SLOT_RESIST, 8, 50, s -> s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST) || s.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST))
+            .in(SLOT_RESIST, 8, 50, s -> s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST) || s.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST) || s.is(Chemistry.EUV_RESIST))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.spin_coater.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.spin_coater.need_input", "gui.semiconductor-lab.spin_coater.spoiled",
@@ -40,7 +40,7 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
         super(Semiconductor.SPIN_COATER.type, pos, state, SLOT_COUNT, EnergyStorage.wattsToJoulesPerTick(WATTS) * 4, WATTS);
     }
 
-    public static boolean goodResist(ItemStack s) { return (s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST) || s.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST)) && !PositiveResistItem.spoiled(s); }
+    public static boolean goodResist(ItemStack s) { return (s.is(Chemistry.POSITIVE_RESIST) || s.is(Chemistry.NEGATIVE_RESIST) || s.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST) || s.is(Chemistry.EUV_RESIST)) && !PositiveResistItem.spoiled(s); }
 
     /** 塗ったウェハー（1〜8枚）。塗れなければ EMPTY */
     public static ItemStack product(ItemStack w) { return product(w, new ItemStack(Chemistry.POSITIVE_RESIST)); }
@@ -53,6 +53,7 @@ public class SpinCoaterBlockEntity extends ConsumerBlockEntity {
         var pos = com.taku3.semiconductorlab.litho.ChipState.Tone.POSITIVE;
         ChipOps.Result r = resist.is(Chemistry.NEGATIVE_RESIST) ? ChipOps.coat(n, com.taku3.semiconductorlab.litho.ChipState.Tone.NEGATIVE, ChipOps.RESIST_KPR)
                 : resist.is(Chemistry.CHEMICALLY_AMPLIFIED_RESIST) ? ChipOps.coat(n, pos, ChipOps.RESIST_CAR)
+                : resist.is(Chemistry.EUV_RESIST) ? ChipOps.coat(n, pos, ChipOps.RESIST_EUV)   // [9-40] EUV のレジスト（D、S-008）
                 : ChipOps.coat(n, pos, ChipOps.RESIST_DNQ);
         return r.ok() ? r.out() : ItemStack.EMPTY;
     }

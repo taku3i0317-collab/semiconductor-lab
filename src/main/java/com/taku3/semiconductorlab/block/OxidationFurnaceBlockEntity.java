@@ -109,6 +109,8 @@ public class OxidationFurnaceBlockEntity extends ConsumerBlockEntity {
         if (d != null) s.set(ModDataComponents.DOPANT, d);
         String epi = wafer.get(ModDataComponents.EPI);   // [9-30] エピタキシャル層も受け継ぐ
         if (epi != null) s.set(ModDataComponents.EPI, epi);
+        Integer sl = wafer.get(ModDataComponents.SUPERLATTICE);   // [9-38] Si/SiGe の重ねも受け継ぐ
+        if (sl != null) s.set(ModDataComponents.SUPERLATTICE, sl);
         s.set(ModDataComponents.OXIDE_NM, grow(oxideOf(wafer), m, HOURS_PER_RUN));
         return s;
     }

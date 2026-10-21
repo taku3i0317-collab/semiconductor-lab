@@ -172,3 +172,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - A の答え（S-008）：SUPERLATTICE（int、A が作る）・releaseSheets・方眼 gridFor(16nm)≈136 以上は FIN でも漏れ GAA なら漏れない、MaskData に reflective（E のマスクの板の工程で印）・EUV は reflective でないと transmissive_mask、RESIST_EUV（CAR と同じ扱い）。A は S-019 のあとに入れる → E はそれ待ち（データ部品を重ねて作らない）
 - ✅ EUV のマスクの板（S-008、C と分担）：スパッタで 多層膜ミラー（40対以上）＋Ta → euv_mask_blank、euv_mask の ID を登録（模様付けは C の縮小カメラ、吸収体を削るのは塩素のプラズマ）。GameTest euv_mask_blank
 - D の euv_resist（e2c4ad86、ポジ型・アルカリ現像、クエンチャー入り）ができた。塗布機へのつなぎは A の RESIST_EUV 待ち。C は [9-40] EUV 露光装置と、縮小カメラに euv_mask_blank＋ポジ型レジスト＋塩素 → euv_mask の分岐を作る
+- ✅ [9-38] GAA（A の受け口）：エピタキシャル炉に GeCl4 のモード（superlattice 3）、酸化炉で受け継ぐ、ドライエッチング装置に HCl（releaseSheets）。塗布機に EUV レジスト（RESIST_EUV）。GameTest gaa_chain、CHEMISTRY F76、REFERENCES F49。マスクの反射型の印は C の縮小カメラで reflectiveCopy()（C に伝えた）

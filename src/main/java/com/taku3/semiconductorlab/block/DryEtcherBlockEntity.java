@@ -17,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
  * [9-37] 塩素のプラズマ（Cl2）にすると、酸化膜ではなくシリコンを真下に削る＝レジストの残った所に細い板（フィン）が立つ（ChipOps.formFins(w, true)、A）。
  *   液では横に溶けてフィンは立たない。FinFET の短チャネルの漏れは A の判定。
  * [9-43] 素のシリコンの板＋Cl2 → MEMS の板（深く削ったばねとおもり）。⚠️ 本物は 1994 ボッシュ法（SF6 で削る・C4F8 で壁を守る、を交互に）。
+ * [9-38] 乾いた塩化水素の気体を入れると、フィンの中の SiGe の層だけを横から削り（選択エッチング）、Si のシートだけが残る → ゲートが4方向を囲める（ChipOps.releaseSheets、A）。
  * ⚠️ 電力・時間はゲームの値。CF4 に混ぜる O2・放電中の圧力（約1〜10Pa）は省略（dry_etcher.placeholder）。
  */
 public class DryEtcherBlockEntity extends ConsumerBlockEntity {
@@ -29,11 +30,11 @@ public class DryEtcherBlockEntity extends ConsumerBlockEntity {
 
     public static final MachineLayout LAYOUT = MachineLayout.builder(ConsumerBlockEntity.DATA_COUNT + 1)
             .in(SLOT_WAFER, 8, 26, s -> ChipOps.isProcessWafer(s) || s.is(Semiconductor.SILICON_WAFER))
-            .in(SLOT_GAS, 8, 50, s -> s.is(Semiconductor.CARBON_TETRAFLUORIDE) || s.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS))
+            .in(SLOT_GAS, 8, 50, s -> s.is(Semiconductor.CARBON_TETRAFLUORIDE) || s.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS) || s.is(com.taku3.semiconductorlab.content.Metallurgy.HYDROGEN_CHLORIDE_GAS))
             .out(SLOT_OUT, 78, 35)
             .right("power", 17, 1, "gui.semiconductor-lab.dry_etcher.power").samples("500.0 kW")
             .right("hint", 28, 4, "gui.semiconductor-lab.dry_etcher.need_input", "gui.semiconductor-lab.dry_etcher.cannot",
-                    "gui.semiconductor-lab.dry_etcher.need_vacuum", "gui.semiconductor-lab.dry_etcher.need_power", "gui.semiconductor-lab.dry_etcher.running", "gui.semiconductor-lab.dry_etcher.running_fin")
+                    "gui.semiconductor-lab.dry_etcher.need_vacuum", "gui.semiconductor-lab.dry_etcher.need_power", "gui.semiconductor-lab.dry_etcher.running", "gui.semiconductor-lab.dry_etcher.running_fin", "gui.semiconductor-lab.dry_etcher.running_gaa")
             .bottom("recipe", "gui.semiconductor-lab.dry_etcher.recipe")
             .build();
 
@@ -50,7 +51,8 @@ public class DryEtcherBlockEntity extends ConsumerBlockEntity {
             return w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN)).transmuteCopy(Semiconductor.MEMS_WAFER);
         if (!ChipOps.isProcessWafer(w)) return ItemStack.EMPTY;
         ItemStack in = w.copyWithCount(Math.min(w.getCount(), WAFERS_PER_RUN));
-        ChipOps.Result r = gas.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS) ? ChipOps.formFins(in, true)
+        ChipOps.Result r = gas.is(com.taku3.semiconductorlab.content.Metallurgy.HYDROGEN_CHLORIDE_GAS) ? ChipOps.releaseSheets(in)   // [9-38] HCl の気体は SiGe だけを削る → ナノシートが宙に浮く（GAA）
+                : gas.is(com.taku3.semiconductorlab.content.Gas.CHLORINE_GAS) ? ChipOps.formFins(in, true)
                 : gas.is(Semiconductor.CARBON_TETRAFLUORIDE) ? ChipOps.etchOxide(in, true)   // 異方性＝細い方眼でも太らない（A）
                 : null;
         return r != null && r.ok() ? r.out() : ItemStack.EMPTY;

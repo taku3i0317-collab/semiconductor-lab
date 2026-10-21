@@ -1488,6 +1488,27 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-38] GAA（IMP4-01、S-008）：エピタキシャル炉で Si/SiGe 3対 → 酸化で残る → フィン（ドライ＋Cl2）→ HCl で SiGe を抜く → GAA。EUV のレジストは塗布機で RESIST_EUV */
+    @GameTest
+    public void gaaChain(GameTestHelper h) {
+        ItemStack sw = new ItemStack(Semiconductor.SILICON_WAFER, 8); sw.set(ModDataComponents.DOPANT, "boron");
+        ItemStack sl = com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.product(sw, new ItemStack(Metallurgy.GERMANIUM_TETRACHLORIDE));
+        h.assertValueEqual(sl.get(ModDataComponents.SUPERLATTICE), com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SUPERLATTICE_PAIRS, "epitaxy + GeCl4 -> 3 Si/SiGe pairs");
+        h.assertTrue(com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.product(sl, new ItemStack(Metallurgy.GERMANIUM_TETRACHLORIDE)).isEmpty(), "only once");
+        ItemStack ox = com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.oxidized(sl, com.taku3.semiconductorlab.block.OxidationFurnaceBlockEntity.Mode.DRY, 8);
+        h.assertValueEqual(ox.get(ModDataComponents.SUPERLATTICE), com.taku3.semiconductorlab.block.EpitaxyReactorBlockEntity.SUPERLATTICE_PAIRS, "the stack survives oxidation");
+        var fin = new com.taku3.semiconductorlab.litho.MaskData(16, com.taku3.semiconductorlab.litho.LayerKind.FIN, com.taku3.semiconductorlab.litho.BitGrid.empty(16).with(4, 4, true).with(4, 5, true), "x", 0);
+        ItemStack dev = com.taku3.semiconductorlab.litho.ChipOps.develop(com.taku3.semiconductorlab.litho.ChipOps.expose(com.taku3.semiconductorlab.litho.ChipOps.coat(ox).out(), fin, com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G).out()).out();
+        h.assertTrue(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(dev, new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS)).isEmpty(), "HCl before fins: nothing to release");
+        ItemStack fins = com.taku3.semiconductorlab.litho.ChipOps.strip(com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(dev, new ItemStack(Gas.CHLORINE_GAS))).out();
+        ItemStack gaa = com.taku3.semiconductorlab.block.DryEtcherBlockEntity.product(fins, new ItemStack(Metallurgy.HYDROGEN_CHLORIDE_GAS));
+        h.assertTrue(gaa.getCount() == 8 && com.taku3.semiconductorlab.litho.ChipOps.state(gaa).extras().gaa(), "HCl removes SiGe -> gate all around");
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.state(com.taku3.semiconductorlab.block.SpinCoaterBlockEntity.product(ow, new ItemStack(Chemistry.EUV_RESIST))).extras().resistKind(), com.taku3.semiconductorlab.litho.ChipOps.RESIST_EUV, "the coater records EUV resist");
+        LOG.info("[LAB] GAA [9-38]: Si/SiGe epitaxy -> fins (Cl2) -> HCl removes SiGe -> GAA; EUV resist from the coater");
+        h.succeed();
+    }
+
     // =====================================================================
     // [9-12] ウェハー切断（IMP-25）
     // =====================================================================
