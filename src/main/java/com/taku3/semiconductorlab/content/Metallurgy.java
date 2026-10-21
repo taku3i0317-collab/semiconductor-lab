@@ -27,6 +27,8 @@ public final class Metallurgy {
     private Metallurgy() {}
 
     // ===== アイテム =====
+    // [1-02] 自然銅（金属のままの銅）（IMP4-01、S-009）
+    public static final Item NATIVE_COPPER         = Reg.item("native_copper");
     // [1-36] 単体ホウ素（マグネシウムで還元、1892 モアッサン）（IMP4-01、S-009）
     public static final Item BORON_MAGNESIUM_MIX   = Reg.item("boron_magnesium_mix");
     public static final Item CRUDE_BORON           = Reg.item("crude_boron");
@@ -75,6 +77,8 @@ public final class Metallurgy {
     // [1-41] チタン（IMP3、O-018、クロール法 1940）：チタン鉄鉱は砂鉄の副産物（決定、ILMENITE_FROM_IRON_SAND の確率）。チタン鉄鉱＋木炭＋塩素3 → 粗い四塩化チタン →（蒸留）→ 四塩化チタン、
     //   ＋マグネシウム2＋アルゴンの袋 → クロールの仕込み →かまど → 塩の混ざったスポンジ →（真空で蒸留）→ スポンジチタン（塩化マグネシウムが作業台に残る＝[1-39] の電解へ戻る）
     public static final float ILMENITE_FROM_IRON_SAND = 0.1f;
+    /** [1-02] 銅の鉱石を掘ると自然銅が出る割合（決定：新しい鉱石は作らない、IMP4-01 S-009） ⚠️ゲームの値 */
+    public static final float NATIVE_COPPER_FROM_COPPER = 0.05f;
     public static final Item ILMENITE              = Reg.item("ilmenite");
     // [1-72] 粉末冶金（IMP3、O-024）：鋼の型（作業台で戻る道具）。磁鉄鉱＋水素2 → 鉄の粉2（ヘガネス 1910 の海綿鉄の粉）。鉄の粉4＋型 → 鉄の圧粉体 →電気炉（焼結）→ 焼結の歯車
     //   タングステンの粉 → 水素炉の焼結 → タングステンの棒（[1-28]、1910 クーリッジ）も粉末冶金
@@ -324,6 +328,13 @@ public final class Metallurgy {
                     && !table.is(net.minecraft.world.level.block.Blocks.DEEPSLATE_COPPER_ORE.getLootTable().orElseThrow())) return;
             if (drops.stream().anyMatch(st -> st.is(net.minecraft.world.item.Items.RAW_COPPER)) && ctx.getRandom().nextFloat() < MOLYBDENITE_FROM_COPPER)
                 drops.add(new net.minecraft.world.item.ItemStack(MOLYBDENITE));
+        });
+        // [1-02] 銅の鉱床の上の方（酸化帯）には、金属のままの自然銅がある（決定：銅の鉱石から低い確率、IMP4-01 S-009）
+        net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
+            if (!table.is(net.minecraft.world.level.block.Blocks.COPPER_ORE.getLootTable().orElseThrow())
+                    && !table.is(net.minecraft.world.level.block.Blocks.DEEPSLATE_COPPER_ORE.getLootTable().orElseThrow())) return;
+            if (drops.stream().anyMatch(st -> st.is(net.minecraft.world.item.Items.RAW_COPPER)) && ctx.getRandom().nextFloat() < NATIVE_COPPER_FROM_COPPER)
+                drops.add(new net.minecraft.world.item.ItemStack(NATIVE_COPPER));
         });
         // [1-41] 浜の砂鉄には、黒い粒のチタン鉄鉱がまじっている（決定：砂鉄の副産物、IMP3 O-018）
         net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {

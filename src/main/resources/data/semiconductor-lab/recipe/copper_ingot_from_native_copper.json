@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:native_copper",
+  "result": {
+    "id": "minecraft:copper_ingot"
+  },
+  "experience": 0.2,
+  "cookingtime": 100
+}

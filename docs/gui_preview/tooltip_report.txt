@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 867（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 868（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=3
 en_us hammerstone shift lines=16
 en_us flint_flake lines=4
@@ -67,6 +67,8 @@ en_us salt_pan lines=6
 en_us salt_pan shift lines=16
 en_us assembly_bench lines=3
 en_us assembly_bench shift lines=10
+en_us native_copper lines=4
+en_us native_copper shift lines=10
 en_us boron_magnesium_mix lines=3
 en_us boron_magnesium_mix shift lines=8
 en_us crude_boron lines=3
@@ -1801,6 +1803,8 @@ ja_jp salt_pan lines=5
 ja_jp salt_pan shift lines=13
 ja_jp assembly_bench lines=3
 ja_jp assembly_bench shift lines=10
+ja_jp native_copper lines=3
+ja_jp native_copper shift lines=8
 ja_jp boron_magnesium_mix lines=2
 ja_jp boron_magnesium_mix shift lines=6
 ja_jp crude_boron lines=2

@@ -1081,6 +1081,14 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-02] 自然銅（IMP4-01、S-009）：かまどで銅のインゴット、銅の鉱石から出る割合 */
+    @GameTest
+    public void nativeCopper(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.NATIVE_COPPER).is(net.minecraft.world.item.Items.COPPER_INGOT), "smelt -> copper ingot");
+        h.assertTrue(Metallurgy.NATIVE_COPPER_FROM_COPPER > 0 && Metallurgy.NATIVE_COPPER_FROM_COPPER < 0.2f, "a small share of copper ore");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Metallurgy.GALLIUM_CELL.block, "ガリウム", L(io(Metallurgy.SPENT_BAYER_LIQUOR, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.LIQUOR_PER_RUN), io(Chemistry.POLYETHYLENE_BOTTLE, 1)),
             L(io(Metallurgy.GALLIUM, 1), io(Gas.SODIUM_HYDROXIDE, 1)), com.taku3.semiconductorlab.block.GalliumCellBlockEntity.WATTS, com.taku3.semiconductorlab.block.GalliumCellBlockEntity.TICKS / 20.0, "バイヤー法の使い終わった液を電解（液はバイヤー法の溶解釜が液を使い切るたびに1つ）");

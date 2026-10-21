@@ -1168,5 +1168,10 @@
   "item.semiconductor-lab.boron.note2": "粗いホウ素＋塩酸（作業台）→ これ（酸化マグネシウムは塩化マグネシウムになって流れる、瓶は戻る）。",
   "item.semiconductor-lab.boron.note3": "ホウ素は電子が1つ少ないので、シリコンに入れると穴（ホール）ができ p 型になる。ゲームのドーパント源は扱いやすい酸化ホウ素を使う。",
   "item.semiconductor-lab.boron.note4": "ダイヤモンドの次に硬い物質（炭化ホウ素）や、原子炉の中性子を吸う棒にも使われる。",
-  "item.semiconductor-lab.boron.placeholder": "省略：⚠️ 純度 約90%（モアッサンの方法）。高純度の BCl3 の水素還元は作らない。"
+  "item.semiconductor-lab.boron.placeholder": "省略：⚠️ 純度 約90%（モアッサンの方法）。高純度の BCl3 の水素還元は作らない。",
+  "item.semiconductor-lab.native_copper": "自然銅",
+  "item.semiconductor-lab.native_copper.note1": "地面から金属のまま出てくる銅。たたいて形にできる。",
+  "item.semiconductor-lab.native_copper.note2": "銅の鉱石を掘ると時々出る（5% ⚠️）。かまどで溶かすと銅のインゴット。",
+  "item.semiconductor-lab.native_copper.note3": "たたくと硬くなり（加工硬化）、熱すると柔らかく戻る（焼きなまし）。人がはじめて使った金属の一つ。",
+  "item.semiconductor-lab.native_copper.note4": "紀元前8000年ごろのアナトリア（今のトルコ）で、自然銅をたたいて作ったビーズが見つかっている。北アメリカの五大湖のまわりでは大きな自然銅のかたまりが出た。"
 }
