@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "F F",
+    "F F",
+    "FFF"
+  ],
+  "key": {
+    "F": "semiconductor-lab:fire_clay"
+  },
+  "result": {
+    "id": "semiconductor-lab:fire_clay_crucible",
+    "count": 1
+  }
+}

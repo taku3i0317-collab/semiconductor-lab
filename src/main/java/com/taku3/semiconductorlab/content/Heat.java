@@ -26,6 +26,9 @@ public final class Heat {
     private Heat() {}
 
     // ===== アイテム =====
+    // [3-20] 耐火粘土（水で洗って細かい粘土だけ集める）（IMP4-01、S-009）
+    public static final Item FIRE_CLAY             = Reg.item("fire_clay");
+    public static final Item FIRE_CLAY_CRUCIBLE    = Reg.item("fire_clay_crucible");
     public static final Item ZINC_OXIDE            = Reg.item("zinc_oxide");    // [3-06] 閃亜鉛鉱を反射炉で焙焼した ZnO（亜鉛華）
     // [3-25] カーバイド（炭化カルシウム、A、D のお願い）：アーク炉で CaO + 3C → CaC2 + CO（1892）。水をかけるとアセチレン（D の幹2）
     public static final Item CALCIUM_CARBIDE       = Reg.item("calcium_carbide");

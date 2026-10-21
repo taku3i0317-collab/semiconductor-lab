@@ -311,6 +311,13 @@ public class HeatTests extends LabTestBase {
         });
     }
 
+    /** [3-20] 耐火粘土（IMP4-01、S-009）：粘土玉4＋水 → 2、7つでるつぼ */
+    @GameTest
+    public void fireClay(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "fire_clay", net.minecraft.world.item.Items.CLAY_BALL) && recipeUses(h, "fire_clay_crucible_unfired", Heat.FIRE_CLAY), "clay washed -> fire clay -> crucible");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         rec(a, Heat.ACHESON_FURNACE.block, "人造黒鉛", L(alt(io(Items.COAL, AchesonFurnaceBlockEntity.CARBON_PER_BATCH), Items.CHARCOAL), io(Items.SAND, AchesonFurnaceBlockEntity.SAND_PER_BATCH)),
             L(io(Heat.SYNTHETIC_GRAPHITE, AchesonFurnaceBlockEntity.GRAPHITE_PER_BATCH)), AchesonFurnaceBlockEntity.REQUIRED_WATTS, AchesonFurnaceBlockEntity.WORK_TICKS / 20.0, "2500℃ 以上で進む（電力が足りないと届かない）");

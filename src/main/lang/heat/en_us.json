@@ -83,5 +83,16 @@
   "message.semiconductor-lab.perkins_ice_machine.ice": "The water froze",
   "message.semiconductor-lab.perkins_ice_machine.ether_leak": "Ice made, but the ether leaked out (flammable and dangerous)",
   "message.semiconductor-lab.perkins_ice_machine.cfc_leak": "Ice made. A little CFC leaked into the sky (ozone %s DU)",
-  "gui.semiconductor-lab.reverberatory_furnace.flue": "Flue"
+  "gui.semiconductor-lab.reverberatory_furnace.flue": "Flue",
+  "item.semiconductor-lab.fire_clay": "Fire Clay",
+  "item.semiconductor-lab.fire_clay.note1": "A pale clay that withstands great heat. Used for crucibles and furnace linings.",
+  "item.semiconductor-lab.fire_clay.note2": "Crafting: 4 clay balls + water bucket → 2 (washing in water lets coarse iron-rich grains settle, keeping only the fine white clay; the bucket comes back). 7 make a crucible shape.",
+  "item.semiconductor-lab.fire_clay.note3": "Clay rich in kaolinite (Al2Si2O5(OH)4) and low in iron and alkalis does not melt even at about 1500 °C; iron and alkalis make clay melt more easily.",
+  "item.semiconductor-lab.fire_clay.note4": "Used since antiquity for copper and bronze crucibles and furnace linings ⚠️ (start date unconfirmed); the generation before firebricks ([3-12], silica brick 1822).",
+  "item.semiconductor-lab.fire_clay.placeholder": "Omitted: ⚠️ washing (levigation) is approximated at the crafting table. Clay analysis is omitted.",
+  "item.semiconductor-lab.fire_clay_crucible": "Fire-Clay Crucible",
+  "item.semiconductor-lab.fire_clay_crucible.note1": "A pot for melting things, made of fire clay.",
+  "item.semiconductor-lab.fire_clay_crucible.note2": "Crafting: 7 fire clay. Melting in it keeps the contents away from flames and fuel, so no dirt gets in (the vessel for the crucible furnace [3-07]).",
+  "item.semiconductor-lab.fire_clay_crucible.note3": "Crucibles with added graphite ([1-07]) are even more heat-resistant.",
+  "item.semiconductor-lab.fire_clay_crucible.note4": "Around 1740 Huntsman melted steel in crucibles to make uniform crucible steel."
 }

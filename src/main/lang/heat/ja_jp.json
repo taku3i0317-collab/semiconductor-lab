@@ -83,5 +83,16 @@
   "message.semiconductor-lab.perkins_ice_machine.ice": "水がこおった",
   "message.semiconductor-lab.perkins_ice_machine.ether_leak": "氷ができたが、エーテルがもれてしまった（燃えやすく危ない）",
   "message.semiconductor-lab.perkins_ice_machine.cfc_leak": "氷ができた。フロンが少し空にもれた（オゾン %s DU）",
-  "gui.semiconductor-lab.reverberatory_furnace.flue": "煙道"
+  "gui.semiconductor-lab.reverberatory_furnace.flue": "煙道",
+  "item.semiconductor-lab.fire_clay": "耐火粘土",
+  "item.semiconductor-lab.fire_clay.note1": "熱にとても強い白っぽい粘土。るつぼや炉の内側に使う。",
+  "item.semiconductor-lab.fire_clay.note2": "作業台：粘土玉4＋水バケツ → 2（水で洗い、鉄分の多い粗い粒を沈めて、細かい白い粘土だけ集める。バケツは戻る）。7つでるつぼの形。",
+  "item.semiconductor-lab.fire_clay.note3": "カオリナイト（Al2Si2O5(OH)4）が多く、鉄やアルカリが少ない粘土は、約1500℃ でも溶けない。鉄やアルカリは粘土を溶けやすくする。",
+  "item.semiconductor-lab.fire_clay.note4": "古代から銅・青銅のるつぼや炉の内張りに使われた ⚠️（始まりの年は未確認）。のちの耐火れんが（[3-12]、1822 珪石れんが）の前の世代。",
+  "item.semiconductor-lab.fire_clay.placeholder": "省略：⚠️ 水で洗う（水簸）は作業台で近似。粘土の成分の分析は省略。",
+  "item.semiconductor-lab.fire_clay_crucible": "耐火粘土のるつぼ",
+  "item.semiconductor-lab.fire_clay_crucible.note1": "耐火粘土で作った、物を溶かす入れ物。",
+  "item.semiconductor-lab.fire_clay_crucible.note2": "作業台：耐火粘土7。中身を炎や燃料から隔てて溶かすと、よごれが入らない（るつぼ炉 [3-07] の入れ物）。",
+  "item.semiconductor-lab.fire_clay_crucible.note3": "黒鉛を混ぜたるつぼ（[1-07]）はさらに熱に強い。",
+  "item.semiconductor-lab.fire_clay_crucible.note4": "1740年ごろハンツマンは、るつぼで鋼を溶かして質のそろった鋼（るつぼ鋼）を作った。"
 }
