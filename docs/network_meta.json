@@ -1976,5 +1976,610 @@
   "url": "",
   "github": "",
   "ko_fi": ""
+ },
+ "reading": {
+  "_note": "S-055：文明を作り直すための本。Long Now 財団の Manual for Civilization の推薦（Stewart Brand の 76 冊・Kevin Kelly の推薦）から。書名・著者・年・出版社は図書館の目録や出版社で、日本語訳の題は国立国会図書館で確かめた物だけ。本の文は写さない。nodes＝そのノードのページの「もっと知りたい人へ」に出す。危ない作り方が入る本は入れない",
+  "sources": [
+   "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+   "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+   "https://longnow.org/ideas/manual-for-civilization-begins/"
+  ],
+  "skipped": [
+   {
+    "title": "The Golden Book of Chemistry Experiments",
+    "why": "危ない作り方（塩素ガスを作る実験など）が入っているので入れない（Wikipedia の記事による）"
+   }
+  ],
+  "books": [
+   {
+    "title": "Caveman Chemistry",
+    "full_title": "Caveman Chemistry: 28 Projects, from the Creation of Fire to the Production of Plastics",
+    "authors": "Kevin M. Dunn",
+    "year": 2003,
+    "publisher": "Universal Publishers",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL8782047M",
+    "nodes": [
+     "0-02",
+     "0-12",
+     "0-03",
+     "0-10",
+     "2-02",
+     "2-09",
+     "2-14",
+     "1-03",
+     "15-01"
+    ]
+   },
+   {
+    "title": "The New Way Things Work",
+    "full_title": "The New Way Things Work",
+    "authors": "David Macaulay",
+    "year": 1998,
+    "publisher": "Houghton Mifflin",
+    "ja": "道具と機械の本 : てこからコンピューターまで（新版）",
+    "ja_detail": {
+     "translator": "歌崎秀史",
+     "publisher": "岩波書店",
+     "year": 1999,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000002842374"
+    },
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://catalog.chattlibrary.org/Record/1082336",
+    "nodes": [
+     "0-09",
+     "10-01",
+     "15-02",
+     "14-05",
+     "10-14"
+    ]
+   },
+   {
+    "title": "Primitive Technology",
+    "full_title": "Primitive Technology: A Book of Earth Skills (vol. 1) / Primitive Technology II: Ancestral Skills",
+    "authors": "David Wescott",
+    "year": 1999,
+    "publisher": "Gibbs Smith",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL389655M",
+    "nodes": [
+     "0-01",
+     "0-02",
+     "0-06",
+     "0-18",
+     "0-03",
+     "0-08"
+    ]
+   },
+   {
+    "title": "The Elements",
+    "full_title": "The Elements: A Visual Exploration of Every Known Atom in the Universe",
+    "authors": "Theodore Gray",
+    "year": 2009,
+    "publisher": "Black Dog & Leventhal",
+    "ja": "世界で一番美しい元素図鑑",
+    "ja_detail": {
+     "translator": "武井摩利（訳）、若林文高（監修）",
+     "publisher": "創元社",
+     "year": 2010,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000011161831"
+    },
+    "lists": [
+     "brand"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+    "biblio_url": "https://openlibrary.org/books/OL23712633M",
+    "nodes": [
+     "I-03"
+    ]
+   },
+   {
+    "title": "A Short History of Technology",
+    "full_title": "A Short History of Technology: From the Earliest Times to A.D. 1900",
+    "authors": "T. K. Derry & Trevor I. Williams",
+    "year": 1960,
+    "publisher": "Oxford, Clarendon Press",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL58748646M",
+    "nodes": []
+   },
+   {
+    "title": "A History of Technology and Invention",
+    "full_title": "A History of Technology and Invention: Progress Through the Ages (vols. I-II on the list)",
+    "authors": "Maurice Daumas",
+    "year": 1969,
+    "publisher": "Crown Publishers (New York)",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL7689225M",
+    "nodes": []
+   },
+   {
+    "title": "Wheels, Clocks, and Rockets",
+    "full_title": "Wheels, Clocks, and Rockets: A History of Technology",
+    "authors": "Donald Cardwell",
+    "year": 1994,
+    "publisher": "Fontana Press (London), as The Fontana History of Technology",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://bvbvf1.bib-bvb.de/vufind/Record/DE-604.BV009834970/Versions",
+    "nodes": [
+     "0-09",
+     "P-02"
+    ]
+   },
+   {
+    "title": "The History of Science and Technology",
+    "full_title": "The History of Science and Technology: A Browser's Guide to the Great Discoveries, Inventions, and the People Who Made Them",
+    "authors": "Bryan Bunch & Alexander Hellemans",
+    "year": 2004,
+    "publisher": "Houghton Mifflin",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL7604309M",
+    "nodes": []
+   },
+   {
+    "title": "The Discoverers",
+    "full_title": "The Discoverers (the lists name the Volumes I and II Deluxe Illustrated Set)",
+    "authors": "Daniel J. Boorstin",
+    "year": 1983,
+    "publisher": "Random House",
+    "ja": "大発見 : 未知に挑んだ人間の歴史",
+    "ja_detail": {
+     "translator": "鈴木主税、野中邦子",
+     "publisher": "集英社",
+     "year": 1988,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000001919452"
+    },
+    "lists": [
+     "brand",
+     "kelly"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/ https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL3185547M",
+    "nodes": []
+   },
+   {
+    "title": "What Technology Wants",
+    "full_title": "What Technology Wants",
+    "authors": "Kevin Kelly",
+    "year": 2010,
+    "publisher": "Viking",
+    "ja": "テクニウム : テクノロジーはどこへ向かうのか?",
+    "ja_detail": {
+     "translator": "服部桂",
+     "publisher": "みすず書房",
+     "year": 2014,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I025500362"
+    },
+    "lists": [
+     "brand"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+    "biblio_url": "https://openlibrary.org/books/OL25128089M",
+    "nodes": [
+     "I-50"
+    ]
+   },
+   {
+    "title": "The Backyard Blacksmith",
+    "full_title": "The Backyard Blacksmith",
+    "authors": "Lorelei Sims",
+    "year": 2006,
+    "publisher": "Quarry Books",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL3418511M",
+    "nodes": [
+     "1-08",
+     "1-26",
+     "0-12"
+    ]
+   },
+   {
+    "title": "The Complete Modern Blacksmith",
+    "full_title": "The Complete Modern Blacksmith",
+    "authors": "Alexander G. Weygers",
+    "year": 1997,
+    "publisher": "Ten Speed Press",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL1005665M",
+    "nodes": [
+     "1-08",
+     "1-26",
+     "1-06"
+    ]
+   },
+   {
+    "title": "A Museum of Early American Tools",
+    "full_title": "A Museum of Early American Tools",
+    "authors": "Eric Sloane",
+    "year": 1964,
+    "publisher": "Wilfred Funk (New York)",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://lib.ecu.edu/catalog-preview/catalog/287558",
+    "nodes": [
+     "0-08"
+    ]
+   },
+   {
+    "title": "Understanding Wood",
+    "full_title": "Understanding Wood: A Craftsman's Guide to Wood Technology",
+    "authors": "R. Bruce Hoadley",
+    "year": 1980,
+    "publisher": "Taunton Press",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL4747128M",
+    "nodes": [
+     "0-08"
+    ]
+   },
+   {
+    "title": "The Boy Electrician",
+    "full_title": "The Boy Electrician",
+    "authors": "Alfred Powell Morgan",
+    "year": 1913,
+    "publisher": "Lothrop, Lee & Shepard Co. (Boston)",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://www.gutenberg.org/ebooks/63207",
+    "nodes": [
+     "10-01",
+     "4-13",
+     "10-03",
+     "I-01",
+     "4-28"
+    ]
+   },
+   {
+    "title": "Crystal Set Projects",
+    "full_title": "Crystal Set Projects: 15 Radio Projects You Can Build",
+    "authors": "The Xtal Set Society",
+    "year": 1997,
+    "publisher": "The Xtal Set Society (St. Louis)",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://www.worldradiohistory.com/BOOKSHELF-ARH/Technology/Technology-Early-Radio/Crystal-Set-Projects-Xtal-Set-Society-1997.pdf",
+    "nodes": [
+     "15-08",
+     "15-07"
+    ]
+   },
+   {
+    "title": "Illustrated Guide to Home Chemistry Experiments",
+    "full_title": "Illustrated Guide to Home Chemistry Experiments: All Lab, No Lecture",
+    "authors": "Robert Bruce Thompson",
+    "year": 2008,
+    "publisher": "O'Reilly / Make:Books",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://oreilly.com/library/view/illustrated-guide-to/9780596514921",
+    "nodes": [
+     "2-16",
+     "I-39"
+    ]
+   },
+   {
+    "title": "Turing's Cathedral",
+    "full_title": "Turing's Cathedral: The Origins of the Digital Universe",
+    "authors": "George Dyson",
+    "year": 2012,
+    "publisher": "Pantheon Books",
+    "ja": "チューリングの大聖堂 : コンピュータの創造とデジタル世界の到来",
+    "ja_detail": {
+     "translator": "吉田三知世",
+     "publisher": "早川書房",
+     "year": 2013,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I024250865"
+    },
+    "lists": [
+     "brand"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+    "biblio_url": "https://openlibrary.org/books/OL25011031M",
+    "nodes": [
+     "10-07",
+     "I-08"
+    ]
+   },
+   {
+    "title": "The Pattern on the Stone",
+    "full_title": "The Pattern on the Stone: The Simple Ideas that Make Computers Work",
+    "authors": "W. Daniel Hillis",
+    "year": 1998,
+    "publisher": "Basic Books",
+    "ja": "思考する機械コンピュータ",
+    "ja_detail": {
+     "translator": "倉骨彰",
+     "publisher": "草思社",
+     "year": 2000,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000002931079"
+    },
+    "lists": [
+     "brand"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+    "biblio_url": "https://openlibrary.org/books/OL376922M",
+    "nodes": [
+     "10-05",
+     "10-09",
+     "I-08",
+     "I-53"
+    ]
+   },
+   {
+    "title": "A Pattern Language",
+    "full_title": "A Pattern Language: Towns, Buildings, Construction",
+    "authors": "Christopher Alexander, Sara Ishikawa, Murray Silverstein",
+    "year": 1977,
+    "publisher": "Oxford University Press",
+    "ja": "パタン・ランゲージ : 町・建物・施工 環境設計の手引",
+    "ja_detail": {
+     "translator": "平田翰那",
+     "publisher": "鹿島出版会",
+     "year": 1984,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000001715430"
+    },
+    "lists": [
+     "brand"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+    "biblio_url": "https://openlibrary.org/books/OL5059163M",
+    "nodes": []
+   },
+   {
+    "title": "Infrastructure",
+    "full_title": "Infrastructure: A Field Guide to the Industrial Landscape",
+    "authors": "Brian Hayes",
+    "year": 2005,
+    "publisher": "W. W. Norton",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL7452053M",
+    "nodes": [
+     "12-06",
+     "12-08",
+     "12-09",
+     "12-10",
+     "14-05"
+    ]
+   },
+   {
+    "title": "Tending the Wild",
+    "full_title": "Tending the Wild: Native American Knowledge and the Management of California's Natural Resources",
+    "authors": "M. Kat Anderson",
+    "year": 2005,
+    "publisher": "University of California Press",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL23242231M",
+    "nodes": [
+     "0-04"
+    ]
+   },
+   {
+    "title": "The Art of Fermentation",
+    "full_title": "The Art of Fermentation: An In-Depth Exploration of Essential Concepts and Processes from Around the World",
+    "authors": "Sandor Ellix Katz",
+    "year": 2012,
+    "publisher": "Chelsea Green Publishing",
+    "ja": "発酵の技法 : 世界の発酵食品と発酵文化の探求",
+    "ja_detail": {
+     "translator": "水原文",
+     "publisher": "オライリー・ジャパン（発売: オーム社）",
+     "year": 2016,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I027241922"
+    },
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL25762095M",
+    "nodes": [
+     "11-10",
+     "11-09",
+     "11-11"
+    ]
+   },
+   {
+    "title": "The Art and Craft of Natural Dyeing",
+    "full_title": "The Art and Craft of Natural Dyeing: Traditional Recipes for Modern Use",
+    "authors": "J. N. Liles",
+    "year": 1990,
+    "publisher": "University of Tennessee Press",
+    "ja": null,
+    "ja_detail": null,
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL1858922M",
+    "nodes": [
+     "0-06",
+     "0-07"
+    ]
+   },
+   {
+    "title": "Basketry",
+    "full_title": "Basketry: A World Guide to Traditional Techniques",
+    "authors": "Bryan Sentance",
+    "year": 2001,
+    "publisher": "Thames & Hudson",
+    "ja": "世界のかご文化図鑑 : 自然を編む民族の知恵と技術",
+    "ja_detail": {
+     "translator": "福井正子",
+     "publisher": "東洋書林",
+     "year": 2002,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000003983984"
+    },
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL22485888M",
+    "nodes": [
+     "0-18",
+     "0-06"
+    ]
+   },
+   {
+    "title": "The Universal History of Numbers",
+    "full_title": "The Universal History of Numbers: From Prehistory to the Invention of the Computer",
+    "authors": "Georges Ifrah",
+    "year": 1998,
+    "publisher": "Harvill Press (London)",
+    "ja": "数字の歴史 : 人類は数をどのようにかぞえてきたか",
+    "ja_detail": {
+     "translator": "弥永みち代 ほか（監修: 松原秀一、弥永昌吉）",
+     "publisher": "平凡社",
+     "year": 1988,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000001933042"
+    },
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://openlibrary.org/books/OL25942403M",
+    "nodes": []
+   },
+   {
+    "title": "Where There Is No Doctor",
+    "full_title": "Where There Is No Doctor: A Village Health Care Handbook",
+    "authors": "David Werner",
+    "year": 1977,
+    "publisher": "Hesperian Foundation (Palo Alto)",
+    "ja": "医者のいないところで : 村のヘルスケア手引書",
+    "ja_detail": {
+     "translator": "河田いこひ（原訳）、シェア=国際保健協力市民の会（監訳）",
+     "publisher": "シェア=国際保健協力市民の会",
+     "year": 2009,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I031436265"
+    },
+    "lists": [
+     "kelly"
+    ],
+    "list_url": "https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization",
+    "biblio_url": "https://hesperian.org/wp-content/uploads/pdf/en_misc/WorldView_50th_Anniversary_Article.pdf",
+    "nodes": [
+     "13-01",
+     "13-02",
+     "13-16"
+    ]
+   },
+   {
+    "title": "Guns, Germs, and Steel",
+    "full_title": "Guns, Germs, and Steel: The Fates of Human Societies",
+    "authors": "Jared Diamond",
+    "year": 1997,
+    "publisher": "W. W. Norton",
+    "ja": "銃・病原菌・鉄 : 一万三〇〇〇年にわたる人類史の謎（上・下）",
+    "ja_detail": {
+     "translator": "倉骨彰",
+     "publisher": "草思社",
+     "year": 2000,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000002926200"
+    },
+    "lists": [
+     "brand"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+    "biblio_url": "https://openlibrary.org/books/OL998315M",
+    "nodes": [
+     "0-04",
+     "0-17",
+     "1-26"
+    ]
+   },
+   {
+    "title": "Collapse",
+    "full_title": "Collapse: How Societies Choose to Fail or Succeed",
+    "authors": "Jared Diamond",
+    "year": 2005,
+    "publisher": "Viking",
+    "ja": "文明崩壊 : 滅亡と存続の命運を分けるもの（上・下）",
+    "ja_detail": {
+     "translator": "楡井浩一",
+     "publisher": "草思社",
+     "year": 2005,
+     "url": "https://ndlsearch.ndl.go.jp/books/R100000002-I000008042780"
+    },
+    "lists": [
+     "brand"
+    ],
+    "list_url": "https://longnow.org/ideas/stewart-brand-book-list-for-manual/",
+    "biblio_url": "https://catalog.saclibrary.org/Record/.b21134418",
+    "nodes": []
+   }
+  ]
  }
 }

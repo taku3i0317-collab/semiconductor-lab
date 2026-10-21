@@ -11,7 +11,8 @@
 - **光学**：O1〜（IMP2、2人目の実装担当が追加）
 - **生存（石器時代）**：S1〜（IMP3、3人目の実装担当が追加。第1章の直前）
 - **冶金と熱**：M1〜（タスク15〜、Claude Code が実装時に追加）
-- **第1章 ゲルマニウム（v0.1）**：G1〜G8（このファイルの最後）
+- **第1章 ゲルマニウム（v0.1）**：G1〜G8
+- **文明を作り直すための本**：R1〜（S-055、ネットワーク担当が追加。このファイルの最後）
 
 ---
 
@@ -3942,3 +3943,157 @@
 - [ ] 点接触型の金の接点の作り方の細部（金箔とカミソリの話）
 - [ ] ゲルマニウムを多く含む石炭の産地と含有量
 - [ ] 合金接合型の最初の論文・特許の年
+
+---
+
+# 文明を作り直すための本（Long Now 財団 Manual for Civilization の推薦から、S-055）
+
+Long Now 財団の「Manual for Civilization（文明の手引き）」の推薦に入った本から、このプロジェクトに関係する物を選んだ。書名・著者・最初に出た年・出版社は図書館の目録や出版社のページで、**日本語訳の題は国立国会図書館の記録（原書の題が書いてある物）で確かめた物だけ**書く。本の文は写さない。各ノードのページの「もっと知りたい人へ」に出る。
+- 出典：Stewart Brand の 76 冊 https://longnow.org/ideas/stewart-brand-book-list-for-manual/ ・Kevin Kelly の推薦 https://www.goodreads.com/author_blog_posts/5934890-kevin-kelly-s-selected-books-for-the-manual-for-civilization ・計画の説明 https://longnow.org/ideas/manual-for-civilization-begins/
+- 入れなかった本：The Golden Book of Chemistry Experiments（危ない作り方（塩素ガスを作る実験など）が入っているので入れない（Wikipedia の記事による））
+
+## R1. Caveman Chemistry（Kevin M. Dunn、2003、Universal Publishers）
+- 推薦：Kelly
+- つなぐノード：[0-02] 火起こし・[0-12] 木炭・[0-03] 土器・[0-10] 石灰焼成・[2-02] カリ・[2-09] 石けん・[2-14] ソーダ石灰ガラス・[1-03] 銅の製錬（孔雀石）・[15-01] 紙
+- 確かさ：○（目録 https://openlibrary.org/books/OL8782047M）
+
+## R2. The New Way Things Work（David Macaulay、1998、Houghton Mifflin）
+- 推薦：Kelly／日本語訳『道具と機械の本 : てこからコンピューターまで（新版）』（岩波書店、1999）
+- つなぐノード：[0-09] 車輪・[10-01] 電磁石・[15-02] 活版印刷・[14-05] 鉄道・[10-14] マイクロコンピュータ
+- 確かさ：○（目録 https://catalog.chattlibrary.org/Record/1082336、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000002842374）
+
+## R3. Primitive Technology（David Wescott、1999、Gibbs Smith）
+- 推薦：Kelly
+- つなぐノード：[0-01] 打製石器・[0-02] 火起こし・[0-06] 織物・[0-18] ロープ・[0-03] 土器・[0-08] 木工
+- 確かさ：○（目録 https://openlibrary.org/books/OL389655M）
+
+## R4. The Elements（Theodore Gray、2009、Black Dog & Leventhal）
+- 推薦：Brand／日本語訳『世界で一番美しい元素図鑑』（創元社、2010）
+- つなぐノード：[I-03] 周期表
+- 確かさ：○（目録 https://openlibrary.org/books/OL23712633M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000011161831）
+
+## R5. A Short History of Technology（T. K. Derry & Trevor I. Williams、1960、Oxford, Clarendon Press）
+- 推薦：Kelly
+- つなぐノード：（ノードにはつながない。全体の本）
+- 確かさ：○（目録 https://openlibrary.org/books/OL58748646M）
+
+## R6. A History of Technology and Invention（Maurice Daumas、1969、Crown Publishers (New York)）
+- 推薦：Kelly
+- つなぐノード：（ノードにはつながない。全体の本）
+- 確かさ：○（目録 https://openlibrary.org/books/OL7689225M）
+
+## R7. Wheels, Clocks, and Rockets（Donald Cardwell、1994、Fontana Press (London), as The Fontana History of Technology）
+- 推薦：Kelly
+- つなぐノード：[0-09] 車輪・[P-02] 液体燃料ロケット
+- 確かさ：○（目録 https://bvbvf1.bib-bvb.de/vufind/Record/DE-604.BV009834970/Versions）
+
+## R8. The History of Science and Technology（Bryan Bunch & Alexander Hellemans、2004、Houghton Mifflin）
+- 推薦：Kelly
+- つなぐノード：（ノードにはつながない。全体の本）
+- 確かさ：○（目録 https://openlibrary.org/books/OL7604309M）
+
+## R9. The Discoverers（Daniel J. Boorstin、1983、Random House）
+- 推薦：Brand・Kelly／日本語訳『大発見 : 未知に挑んだ人間の歴史』（集英社、1988）
+- つなぐノード：（ノードにはつながない。全体の本）
+- 確かさ：○（目録 https://openlibrary.org/books/OL3185547M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000001919452）
+
+## R10. What Technology Wants（Kevin Kelly、2010、Viking）
+- 推薦：Brand／日本語訳『テクニウム : テクノロジーはどこへ向かうのか?』（みすず書房、2014）
+- つなぐノード：[I-50] ムーアの法則
+- 確かさ：○（目録 https://openlibrary.org/books/OL25128089M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I025500362）
+
+## R11. The Backyard Blacksmith（Lorelei Sims、2006、Quarry Books）
+- 推薦：Kelly
+- つなぐノード：[1-08] 鍛鉄・[1-26] 鋼・[0-12] 木炭
+- 確かさ：○（目録 https://openlibrary.org/books/OL3418511M）
+
+## R12. The Complete Modern Blacksmith（Alexander G. Weygers、1997、Ten Speed Press）
+- 推薦：Kelly
+- つなぐノード：[1-08] 鍛鉄・[1-26] 鋼・[1-06] 塊鉄炉
+- 確かさ：○（目録 https://openlibrary.org/books/OL1005665M）
+
+## R13. A Museum of Early American Tools（Eric Sloane、1964、Wilfred Funk (New York)）
+- 推薦：Kelly
+- つなぐノード：[0-08] 木工
+- 確かさ：○（目録 https://lib.ecu.edu/catalog-preview/catalog/287558）
+
+## R14. Understanding Wood（R. Bruce Hoadley、1980、Taunton Press）
+- 推薦：Kelly
+- つなぐノード：[0-08] 木工
+- 確かさ：○（目録 https://openlibrary.org/books/OL4747128M）
+
+## R15. The Boy Electrician（Alfred Powell Morgan、1913、Lothrop, Lee & Shepard Co. (Boston)）
+- 推薦：Kelly
+- つなぐノード：[10-01] 電磁石・[4-13] ボルタ電池・[10-03] 電信・[I-01] 電磁誘導・[4-28] 乾電池
+- 確かさ：○（目録 https://www.gutenberg.org/ebooks/63207）
+
+## R16. Crystal Set Projects（The Xtal Set Society、1997、The Xtal Set Society (St. Louis)）
+- 推薦：Kelly
+- つなぐノード：[15-08] 鉱石ラジオ・[15-07] 無線電信
+- 確かさ：○（目録 https://www.worldradiohistory.com/BOOKSHELF-ARH/Technology/Technology-Early-Radio/Crystal-Set-Projects-Xtal-Set-Society-1997.pdf）
+
+## R17. Illustrated Guide to Home Chemistry Experiments（Robert Bruce Thompson、2008、O'Reilly / Make:Books）
+- 推薦：Kelly
+- つなぐノード：[2-16] 蒸留水・[I-39] 化学平衡と化学熱力学
+- 確かさ：○（目録 https://oreilly.com/library/view/illustrated-guide-to/9780596514921）
+
+## R18. Turing's Cathedral（George Dyson、2012、Pantheon Books）
+- 推薦：Brand／日本語訳『チューリングの大聖堂 : コンピュータの創造とデジタル世界の到来』（早川書房、2013）
+- つなぐノード：[10-07] 真空管フリップフロップと計算機・[I-08] プログラム
+- 確かさ：○（目録 https://openlibrary.org/books/OL25011031M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I024250865）
+
+## R19. The Pattern on the Stone（W. Daniel Hillis、1998、Basic Books）
+- 推薦：Brand／日本語訳『思考する機械コンピュータ』（草思社、2000）
+- つなぐノード：[10-05] ブール代数とスイッチ回路・[10-09] トランジスタ論理・[I-08] プログラム・[I-53] 抽象化
+- 確かさ：○（目録 https://openlibrary.org/books/OL376922M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000002931079）
+
+## R20. A Pattern Language（Christopher Alexander, Sara Ishikawa, Murray Silverstein、1977、Oxford University Press）
+- 推薦：Brand／日本語訳『パタン・ランゲージ : 町・建物・施工 環境設計の手引』（鹿島出版会、1984）
+- つなぐノード：（ノードにはつながない。全体の本）
+- 確かさ：○（目録 https://openlibrary.org/books/OL5059163M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000001715430）
+
+## R21. Infrastructure（Brian Hayes、2005、W. W. Norton）
+- 推薦：Kelly
+- つなぐノード：[12-06] 上水道・[12-08] 下水道・[12-09] 道路・[12-10] 橋・[14-05] 鉄道
+- 確かさ：○（目録 https://openlibrary.org/books/OL7452053M）
+
+## R22. Tending the Wild（M. Kat Anderson、2005、University of California Press）
+- 推薦：Kelly
+- つなぐノード：[0-04] 農耕
+- 確かさ：○（目録 https://openlibrary.org/books/OL23242231M）
+
+## R23. The Art of Fermentation（Sandor Ellix Katz、2012、Chelsea Green Publishing）
+- 推薦：Kelly／日本語訳『発酵の技法 : 世界の発酵食品と発酵文化の探求』（オライリー・ジャパン（発売: オーム社）、2016）
+- つなぐノード：[11-10] 酒と酢・[11-09] パン・[11-11] 塩蔵・乾燥・燻製
+- 確かさ：○（目録 https://openlibrary.org/books/OL25762095M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I027241922）
+
+## R24. The Art and Craft of Natural Dyeing（J. N. Liles、1990、University of Tennessee Press）
+- 推薦：Kelly
+- つなぐノード：[0-06] 織物・[0-07] 羊毛と紡錘車
+- 確かさ：○（目録 https://openlibrary.org/books/OL1858922M）
+
+## R25. Basketry（Bryan Sentance、2001、Thames & Hudson）
+- 推薦：Kelly／日本語訳『世界のかご文化図鑑 : 自然を編む民族の知恵と技術』（東洋書林、2002）
+- つなぐノード：[0-18] ロープ・[0-06] 織物
+- 確かさ：○（目録 https://openlibrary.org/books/OL22485888M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000003983984）
+
+## R26. The Universal History of Numbers（Georges Ifrah、1998、Harvill Press (London)）
+- 推薦：Kelly／日本語訳『数字の歴史 : 人類は数をどのようにかぞえてきたか』（平凡社、1988）（日本語訳はフランス語の原書の訳）
+- つなぐノード：（ノードにはつながない。全体の本）
+- 確かさ：○（目録 https://openlibrary.org/books/OL25942403M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000001933042）
+
+## R27. Where There Is No Doctor（David Werner、1977、Hesperian Foundation (Palo Alto)）
+- 推薦：Kelly／日本語訳『医者のいないところで : 村のヘルスケア手引書』（シェア=国際保健協力市民の会、2009）
+- つなぐノード：[13-01] 石けんと手洗い・[13-02] 消毒・[13-16] 血管をしばって血を止める
+- 確かさ：○（目録 https://hesperian.org/wp-content/uploads/pdf/en_misc/WorldView_50th_Anniversary_Article.pdf、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I031436265）
+
+## R28. Guns, Germs, and Steel（Jared Diamond、1997、W. W. Norton）
+- 推薦：Brand／日本語訳『銃・病原菌・鉄 : 一万三〇〇〇年にわたる人類史の謎（上・下）』（草思社、2000）
+- つなぐノード：[0-04] 農耕・[0-17] 家畜化・[1-26] 鋼
+- 確かさ：○（目録 https://openlibrary.org/books/OL998315M、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000002926200）
+
+## R29. Collapse（Jared Diamond、2005、Viking）
+- 推薦：Brand／日本語訳『文明崩壊 : 滅亡と存続の命運を分けるもの（上・下）』（草思社、2005）
+- つなぐノード：（ノードにはつながない。全体の本）
+- 確かさ：○（目録 https://catalog.saclibrary.org/Record/.b21134418、国立国会図書館 https://ndlsearch.ndl.go.jp/books/R100000002-I000008042780）
+

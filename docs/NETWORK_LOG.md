@@ -789,3 +789,11 @@
 - 軽く：node.html の見た目と動きを node.css・node.js に分けた（1回読めば全部のページで使える）。1ページ 約 8KB、絵 約 10KB、合わせて 12MB
 - **sitemap.xml：635**（図のページ 5 ＋ ノード 630、日本語と英語）
 - 写真 docs/mockups/S054_node.png（スマホの MOSFET のページと、リンクの絵）
+
+## S-055（2026-10-21、INBOX：ユーザーの決定）「文明を作り直すための本」
+- Long Now 財団の **Manual for Civilization** の推薦（Stewart Brand の 76 冊・Kevin Kelly の推薦）から、相談役が選んだ 30 冊を確かめた。**30 冊とも推薦の一覧に入っていた**（Brand 7・Kelly 22・両方 1）
+- 書名・著者・最初に出た年・出版社は図書館の目録や出版社で。**日本語訳の題は国立国会図書館の記録（原書の題が書いてある物）で確かめた 13 冊だけ**（『道具と機械の本』『世界で一番美しい元素図鑑』『大発見』『テクニウム』『チューリングの大聖堂』『思考する機械コンピュータ』『パタン・ランゲージ』『発酵の技法』『世界のかご文化図鑑』『数字の歴史』（フランス語の原書の訳）『医者のいないところで』『銃・病原菌・鉄』『文明崩壊』）。『技術文化史』（Derry & Williams の訳らしい）は記録に原書の題が無いので書かなかった
+- **入れなかった本 1**：The Golden Book of Chemistry Experiments（塩素ガスを作る実験などが入る。Wikipedia の記事による）。Illustrated Guide to Home Chemistry Experiments は安全な家の実験室が中心（第2章が「実験室の安全」）なので入れた
+- 直した所：Crystal Set Projects は Xtal Set Society の本（Philip Anderson の名前は確かめきれない）、Where There Is No Doctor は英語版 1977、Collapse は 2005
+- **入れた本 29**、そのうち **22 冊を 50 のノード**の「もっと知りたい人へ」につないだ（火起こし・木炭・土器・石けん・ガラス・鍛鉄・鋼・電磁石・電信・鉱石ラジオ・ブール代数・プログラム・上水道・道路・橋・発酵・織物・ロープ・消毒 など）。技術史の通史など 7 冊は REFERENCES の一覧だけ
+- docs/REFERENCES.md の最後に1節「文明を作り直すための本」（R1〜R29、書名・推薦・日本語訳・つなぐノード・確かめた目録の URL）。本の文は写していない。network_meta.json の reading がもと（図・ノードのページ・nodes/*.html に出る）
