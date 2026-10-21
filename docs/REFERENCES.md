@@ -3111,6 +3111,21 @@
 - Wikipedia「John Bennet Lawes」：https://en.wikipedia.org/wiki/John_Bennet_Lawes
 - Wikipedia「Ammonium nitrate」：https://en.wikipedia.org/wiki/Ammonium_nitrate
 
+## C56. 塩と煙で長もち、酵母でふくらむ（塩蔵・燻製・製粉・パン）［11-11］［11-08］［11-09］
+**答え**：塩は肉や魚の水分を浸透圧で引き出すので、細菌が増えにくくなる。煙の中のフェノール類は菌を殺し、脂が酸化するのも防ぐ。こうした塩漬け・干物・燻製は、冷蔵庫や缶詰ができるまで長旅や冬の大事な食べ物だった。麦は石臼でひいて粉にし、水と酵母でこねると、酵母が出す二酸化炭素をグルテンのあみがとらえて生地がふくらむ。紀元前4000年ごろのエジプトで発酵パンが焼かれていたとされるが、酵母のはたらきがわかったのは1857年のパスツールから。
+
+- へえ①：塩は「白い金」と呼ばれ、給料（salary）の語源とも言われる ⚠️。
+- へえ②：パンの穴は、酵母が出した二酸化炭素の泡のあと。
+- へえ③：昔の石臼の粉には石の粒がまざり、人の歯がすり減った。
+- へえ④：1785年、オリバー・エヴァンズは、運ぶところから自動で動く製粉所を作った。
+
+確かさ：浸透圧・煙の殺菌 ◎／エジプトの発酵パンの年・salary の語源 △
+根拠：
+- Wikipedia「Salting (food)」：https://en.wikipedia.org/wiki/Salting_(food)
+- Wikipedia「Smoking (cooking)」：https://en.wikipedia.org/wiki/Smoking_(cooking)
+- Wikipedia「Quern-stone」：https://en.wikipedia.org/wiki/Quern-stone
+- Wikipedia「Bread」：https://en.wikipedia.org/wiki/Bread
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

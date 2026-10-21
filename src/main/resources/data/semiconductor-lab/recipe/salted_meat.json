@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#semiconductor-lab:raw_meat_and_fish",
+    "#semiconductor-lab:raw_meat_and_fish",
+    "semiconductor-lab:salt"
+  ],
+  "result": {
+    "id": "semiconductor-lab:salted_meat",
+    "count": 2
+  }
+}

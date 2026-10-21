@@ -124,4 +124,23 @@ public class AgricultureTests extends LabTestBase {
         LOG.info("[LAB] fertilizers [11-06][11-07]: N (peas/AS/AN) -> faster, P (superphosphate) -> +1 per harvest x3, P alone not faster");
         h.succeed();
     }
+
+    /** [11-11] 塩蔵・燻製、[11-08] 製粉、[11-09] 発酵パン（IMP3、O-020）：火なしで塩漬け → いぶして燻製（焼いた肉より満腹）、石臼で粉 → 酵母で生地 → 焼いてバニラのパンより満腹 */
+    @GameTest
+    public void preservedFoodAndBread(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "salted_meat", Items.BEEF) && recipeUses(h, "salted_meat", Items.COD) && recipeUses(h, "salted_meat", Gas.SALT), "raw meat/fish + salt");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMOKING, Agriculture.SALTED_MEAT).is(Agriculture.SMOKED_MEAT), "smoke the salted meat");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.CAMPFIRE_COOKING, Agriculture.SALTED_MEAT).is(Agriculture.SMOKED_MEAT), "campfire smoking");
+        var F = net.minecraft.core.component.DataComponents.FOOD;
+        var smoked = new ItemStack(Agriculture.SMOKED_MEAT).get(F);
+        var salted = new ItemStack(Agriculture.SALTED_MEAT).get(F);
+        h.assertTrue(salted != null && smoked.nutrition() > new ItemStack(Items.COOKED_BEEF).get(F).nutrition() && smoked.nutrition() > salted.nutrition(), "smoked > cooked beef > ...; salted edible");
+        h.assertTrue(recipeUses(h, "flour", Agriculture.QUERN) && recipeUses(h, "flour", Items.WHEAT), "quern + wheat -> flour");
+        h.assertTrue(new ItemStack(Agriculture.QUERN).getItem().getCraftingRemainder(new ItemStack(Agriculture.QUERN)) != null, "the quern comes back");
+        h.assertTrue(recipeUses(h, "bread_dough", Agriculture.FLOUR) && recipeUses(h, "bread_dough", Chemistry.WILD_YEAST), "flour + yeast -> dough");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Agriculture.BREAD_DOUGH).is(Agriculture.LEAVENED_BREAD), "bake -> leavened bread");
+        var bread = new ItemStack(Agriculture.LEAVENED_BREAD).get(F);
+        h.assertTrue(bread.nutrition() > new ItemStack(Items.BREAD).get(F).nutrition(), "more filling than vanilla bread");
+        h.succeed();
+    }
 }

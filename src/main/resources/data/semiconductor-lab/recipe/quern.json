@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " / ",
+    "SSS"
+  ],
+  "key": {
+    "S": "minecraft:smooth_stone",
+    "/": "minecraft:stick"
+  },
+  "result": {
+    "id": "semiconductor-lab:quern",
+    "count": 1
+  }
+}

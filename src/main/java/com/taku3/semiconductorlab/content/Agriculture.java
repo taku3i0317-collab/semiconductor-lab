@@ -46,6 +46,20 @@ public final class Agriculture {
     // [11-07] 硝酸アンモニウム（IMP3、O-020）：アンモニア＋硝酸 → 窒素肥料（硫安と同じく耕地に窒素3回分）。⚠ 酸化性の物質
     public static final Item AMMONIUM_NITRATE = Reg.item("ammonium_nitrate", com.taku3.semiconductorlab.item.FertilizerItem::new, new Item.Properties());
 
+    // [11-11] 塩蔵・燻製（IMP3、O-020）：生の肉・魚＋塩 → 塩漬け（火なしで作れて、そのまま食べられる）→ 燻製器・たき火でいぶす → 燻製（焼いた肉より満腹）
+    public static final int SALTED_NUTRITION = 5, SMOKED_NUTRITION = 9;
+    public static final float SALTED_SATURATION = 6.0f, SMOKED_SATURATION = 13.0f;
+    public static final Item SALTED_MEAT = Reg.item("salted_meat", new Item.Properties().food(new FoodProperties(SALTED_NUTRITION, SALTED_SATURATION, false)));
+    public static final Item SMOKED_MEAT = Reg.item("smoked_meat", new Item.Properties().food(new FoodProperties(SMOKED_NUTRITION, SMOKED_SATURATION, false)));
+    // [11-08] 製粉（IMP3、O-020）：石臼（石2＋棒、作業台で戻る道具）＋小麦2 → 小麦粉
+    public static final Item QUERN = Reg.item("quern", com.taku3.semiconductorlab.item.CatalystItem::new, new Item.Properties().stacksTo(1));
+    public static final Item FLOUR = Reg.item("flour");
+    // [11-09] 発酵パン（IMP3、O-020）：小麦粉3＋野生の酵母＋水 → パン生地2 → かまど・燻製器・たき火 → ふくらんだパン（バニラのパンより満腹）
+    public static final int LEAVENED_NUTRITION = 7;
+    public static final float LEAVENED_SATURATION = 9.0f;
+    public static final Item BREAD_DOUGH = Reg.item("bread_dough");
+    public static final Item LEAVENED_BREAD = Reg.item("leavened_bread", new Item.Properties().food(new FoodProperties(LEAVENED_NUTRITION, LEAVENED_SATURATION, false)));
+
     static void init() {
         // [11-06] リンのある耕地の上で熟した作物を収穫すると、1つ多い
         net.fabricmc.fabric.api.loot.v3.LootTableEvents.MODIFY_DROPS.register((table, ctx, drops) -> {
