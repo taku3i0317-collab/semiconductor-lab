@@ -11,7 +11,9 @@ import java.util.List;
  * 製図台で描く。ChipModel.of(design) が「全部うまくいったら」の予想を作る。
  * parts＝押したハンコ（v0.3b、§11.3）：記号として見せ、中身をのぞくための記録。判定は層（マスクの絵）だけから。
  */
-public record ChipDesign(int size, String name, List<Layer> layers, List<Part> parts) {
+public record ChipDesign(int size, String name, List<Layer> layers, List<Part> parts, String process) {
+    /** 工程の種類（S-011 Q21-3 案A）：バイポーラ（島・ベース・エミッタ・窓・金属）か MOS（ソースとドレイン・ゲート酸化膜・窓・金属） */
+    public static final String BIPOLAR = "bipolar", MOS = "mos";
     /** 1つの層（工程の順に並ぶ） */
     public record Layer(LayerKind kind, BitGrid cells) {
         public static final Codec<Layer> CODEC = RecordCodecBuilder.create(i -> i.group(
@@ -25,7 +27,8 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
             Codec.intRange(BitGrid.MIN, BitGrid.MAX).fieldOf("size").forGetter(ChipDesign::size),
             Codec.STRING.optionalFieldOf("name", "").forGetter(ChipDesign::name),
             Layer.CODEC.listOf().fieldOf("layers").forGetter(ChipDesign::layers),
-            Part.codec(self).listOf().optionalFieldOf("parts", List.of()).forGetter(ChipDesign::parts)
+            Part.codec(self).listOf().optionalFieldOf("parts", List.of()).forGetter(ChipDesign::parts),
+            Codec.STRING.optionalFieldOf("process", BIPOLAR).forGetter(ChipDesign::process)
     ).apply(i, ChipDesign::new)));
 
     public ChipDesign {
@@ -34,17 +37,19 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
     }
 
     /** ハンコなしの形（前からの呼び方） */
-    public ChipDesign(int size, String name, List<Layer> layers) { this(size, name, layers, List.of()); }
+    public ChipDesign(int size, String name, List<Layer> layers) { this(size, name, layers, List.of(), BIPOLAR); }
+    public ChipDesign(int size, String name, List<Layer> layers, List<Part> parts) { this(size, name, layers, parts, BIPOLAR); }
+    public boolean mos() { return MOS.equals(process); }
 
     /** 層 i を書きかえた設計図 */
     public ChipDesign withLayer(int i, BitGrid cells) {
         List<Layer> l = new ArrayList<>(layers);
         l.set(i, new Layer(l.get(i).kind(), cells));
-        return new ChipDesign(size, name, l, parts);
+        return new ChipDesign(size, name, l, parts, process);
     }
 
     /** 名前を変えた設計図 */
-    public ChipDesign named(String n) { return new ChipDesign(size, n, layers, parts); }
+    public ChipDesign named(String n) { return new ChipDesign(size, n, layers, parts, process); }
 
     /** 層 i のマスク（原図・フォトマスクに入れる中身）。押したハンコの記録もいっしょに運ぶ（チップがハンコになるとき中身をのぞける） */
     public MaskData mask(int i) { return new MaskData(size, layers.get(i).kind(), layers.get(i).cells(), name, i, 0, 1, parts); }
@@ -63,7 +68,7 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
         }
         List<Part> p = new ArrayList<>(parts);
         p.add(new Part(st, x, y));
-        return new ChipDesign(size, name, l, p);
+        return new ChipDesign(size, name, l, p, process);
     }
 
     /** 何か描いてある所を囲む、いちばん小さい正方形に切り抜く（ハンコにする。最小 BitGrid.MIN） */
@@ -82,26 +87,39 @@ public record ChipDesign(int size, String name, List<Layer> layers, List<Part> p
         }
         List<Part> p = new ArrayList<>();
         for (Part pt : parts) p.add(new Part(pt.stamp(), pt.x() - x0, pt.y() - y0));
-        return new ChipDesign(s, name, l, p);
+        return new ChipDesign(s, name, l, p, process);
     }
 
+    /** 工程ごとの決まった層の並び（製図台の白紙と同じ）。twoMetal＝2層目の金属つき（S-011） */
+    public static List<LayerKind> kindsFor(String process, boolean twoMetal) {
+        List<LayerKind> k = new ArrayList<>(MOS.equals(process)
+                ? List.of(LayerKind.DIFF_N, LayerKind.GATE_OX, LayerKind.CONTACT, LayerKind.METAL)
+                : List.of(LayerKind.DIFF_N, LayerKind.DIFF_P, LayerKind.DIFF_N, LayerKind.CONTACT, LayerKind.METAL));
+        if (twoMetal) { k.add(LayerKind.VIA); k.add(LayerKind.METAL2); }
+        return k;
+    }
+
+    /** 2層目の金属つきか */
+    public boolean twoMetal() { return layers.stream().anyMatch(l -> l.kind() == LayerKind.METAL2); }
+
     /**
-     * 焼き上がったチップから設計図を作り直す（ハンコにするとき）：拡散は順に層 0・1・2、窓＝3、金属＝4（製図台のふつうの5層）
+     * 焼き上がったチップから設計図を作り直す（ハンコにするとき）：工程の種類（ゲート酸化膜があれば MOS）の決まった並びに、焼いた層を順に入れる
      */
     public static ChipDesign fromState(ChipState st, String name) {
         int n = st.size();
-        BitGrid[] g = new BitGrid[5];
+        boolean mos = st.has(LayerKind.GATE_OX), two = st.has(LayerKind.METAL2);
+        List<LayerKind> kinds = new ArrayList<>(kindsFor(mos ? MOS : BIPOLAR, two));
+        BitGrid[] g = new BitGrid[kinds.size()];
         java.util.Arrays.fill(g, BitGrid.empty(n));
-        int diff = 0;
+        boolean[] used = new boolean[kinds.size()];
         for (ChipState.Applied a : st.done()) {
-            int slot = a.kind() == LayerKind.CONTACT ? 3 : a.kind() == LayerKind.METAL ? 4 : a.kind().isDiffusion() && diff < 3 ? diff++ : -1;
-            if (slot >= 0) g[slot] = a.cells();
+            for (int i = 0; i < kinds.size(); i++) {
+                boolean same = kinds.get(i) == a.kind() || (kinds.get(i).isDiffusion() && a.kind().isDiffusion());
+                if (!used[i] && same) { used[i] = true; g[i] = a.cells(); kinds.set(i, a.kind()); break; }
+            }
         }
-        LayerKind[] kinds = {LayerKind.DIFF_N, LayerKind.DIFF_P, LayerKind.DIFF_N, LayerKind.CONTACT, LayerKind.METAL};
-        int k = 0;
-        for (ChipState.Applied a : st.done()) if (a.kind().isDiffusion() && k < 3) kinds[k++] = a.kind();
         List<Layer> l = new ArrayList<>();
-        for (int i = 0; i < 5; i++) l.add(new Layer(kinds[i], g[i]));
-        return new ChipDesign(n, name, l, st.parts());
+        for (int i = 0; i < kinds.size(); i++) l.add(new Layer(kinds.get(i), g[i]));
+        return new ChipDesign(n, name, l, st.parts(), mos ? MOS : BIPOLAR);
     }
 }

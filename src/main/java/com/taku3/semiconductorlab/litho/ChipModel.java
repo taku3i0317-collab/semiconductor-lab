@@ -16,7 +16,7 @@ public final class ChipModel {
     private final char[] type;
     /** マスの型を決めた拡散の番号（0＝板、1＝1回目の拡散…）。あとの拡散ほど濃い */
     private final int[] level;
-    private final boolean[] contact, metal;
+    private final boolean[] contact, metal, gate, via, metal2;
 
     private ChipModel(int size, char substrate, int contamination) {
         this.size = size;
@@ -26,6 +26,9 @@ public final class ChipModel {
         level = new int[size * size];
         contact = new boolean[size * size];
         metal = new boolean[size * size];
+        gate = new boolean[size * size];
+        via = new boolean[size * size];
+        metal2 = new boolean[size * size];
         java.util.Arrays.fill(type, substrate);
     }
 
@@ -36,6 +39,9 @@ public final class ChipModel {
             if (k.isDiffusion()) { type[i] = k.dopes; level[i] = diffusionNo; }
             else if (k == LayerKind.CONTACT) contact[i] = true;
             else if (k == LayerKind.METAL) metal[i] = true;
+            else if (k == LayerKind.GATE_OX) gate[i] = true;
+            else if (k == LayerKind.VIA) via[i] = true;
+            else if (k == LayerKind.METAL2) metal2[i] = true;
         }
     }
 
@@ -63,6 +69,11 @@ public final class ChipModel {
     public int level(int x, int y) { return level[y * size + x]; }
     public boolean contact(int x, int y) { return contact[y * size + x]; }
     public boolean metal(int x, int y) { return metal[y * size + x]; }
+    /** ゲートの薄い酸化膜（MOS、S-011） */
+    public boolean gate(int x, int y) { return gate[y * size + x]; }
+    /** 2層目の金属・1層目とつなぐ窓（S-011） */
+    public boolean metal2(int x, int y) { return metal2[y * size + x]; }
+    public boolean via(int x, int y) { return via[y * size + x]; }
     /** 金属がシリコンにさわっている（窓の上に金属がある）マス */
     public boolean connected(int x, int y) { return contact(x, y) && metal(x, y); }
     /** いちばん外のマス（パッドを置ける所） */

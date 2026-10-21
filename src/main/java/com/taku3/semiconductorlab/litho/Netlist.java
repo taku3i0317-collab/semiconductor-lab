@@ -26,6 +26,8 @@ public final class Netlist {
     public record Resistor(int region, int netA, int netB, double ohms) {}
     public record Diode(int anodeRegion, int cathodeRegion, int anodeNet, int cathodeNet) {}
     public record Transistor(boolean npn, int emitter, int base, int collector, int eNet, int bNet, int cNet) {}
+    /** MOS トランジスタ（n チャネル、S-011）：ゲートの線、ソース・ドレインの領域（どちらがどちらかは電圧で決まる）、その代表のマス、W/L、チャネルのマス */
+    public record Mos(int gateNet, int sdA, int sdB, int cellA, int cellB, double wOverL, List<int[]> channel) {}
 
     public final ChipModel model;
     public final List<Region> regions = new ArrayList<>();
@@ -33,8 +35,11 @@ public final class Netlist {
     public final List<Resistor> resistors = new ArrayList<>();
     public final List<Diode> diodes = new ArrayList<>();
     public final List<Transistor> transistors = new ArrayList<>();
+    public final List<Mos> mosfets = new ArrayList<>();
     /** マス → 領域の番号、金属のマス → 線の番号（金属がなければ −1） */
     public final int[] regionOf, netOf;
+    /** 2層目の金属のマス → 線の番号（S-011） */
+    public final int[] netOf2;
     /** 領域 → それにつながっている線 */
     public final Map<Integer, Set<Integer>> netsOfRegion = new LinkedHashMap<>();
 
@@ -43,8 +48,10 @@ public final class Netlist {
         int n = m.size;
         regionOf = new int[n * n];
         netOf = new int[n * n];
+        netOf2 = new int[n * n];
         java.util.Arrays.fill(regionOf, -1);
         java.util.Arrays.fill(netOf, -1);
+        java.util.Arrays.fill(netOf2, -1);
     }
 
     public static Netlist extract(ChipModel m) {
@@ -52,6 +59,7 @@ public final class Netlist {
         nl.findRegions();
         nl.findNets();
         nl.findDevices();
+        nl.findMosfets();
         return nl;
     }
 
@@ -79,31 +87,75 @@ public final class Netlist {
         }
     }
 
+    /** 線：1層目と2層目の金属をたどる。VIA のマス（両方に金属がある所）で層をまたぐ（S-011）。c＝{x, y, 層（1/2）} */
     private void findNets() {
         int n = model.size;
-        for (int y = 0; y < n; y++) for (int x = 0; x < n; x++) {
-            if (!model.metal(x, y) || netOf[y * n + x] >= 0) continue;
+        for (int layer = 1; layer <= 2; layer++) for (int y = 0; y < n; y++) for (int x = 0; x < n; x++) {
+            if (!onLayer(x, y, layer) || at(x, y, layer) >= 0) continue;
             int id = nets.size();
             List<int[]> cells = new ArrayList<>();
             Set<Integer> regs = new LinkedHashSet<>();
             int[] pad = null;
             ArrayDeque<int[]> q = new ArrayDeque<>();
-            q.add(new int[] {x, y});
-            netOf[y * n + x] = id;
+            q.add(new int[] {x, y, layer});
+            set(x, y, layer, id);
             while (!q.isEmpty()) {
                 int[] c = q.poll();
                 cells.add(c);
-                if (model.connected(c[0], c[1])) regs.add(regionOf[c[1] * n + c[0]]);
+                if (c[2] == 1 && model.connected(c[0], c[1])) regs.add(regionOf[c[1] * n + c[0]]);
                 if (pad == null && model.edge(c[0], c[1])) pad = c;
                 for (int[] d : DIRS) {
                     int a = c[0] + d[0], b = c[1] + d[1];
-                    if (model.inside(a, b) && netOf[b * n + a] < 0 && model.metal(a, b)) { netOf[b * n + a] = id; q.add(new int[] {a, b}); }
+                    if (model.inside(a, b) && onLayer(a, b, c[2]) && at(a, b, c[2]) < 0) { set(a, b, c[2], id); q.add(new int[] {a, b, c[2]}); }
                 }
+                int other = 3 - c[2];   // VIA：1層目と2層目が重なり、窓がある所
+                if (model.via(c[0], c[1]) && onLayer(c[0], c[1], other) && at(c[0], c[1], other) < 0) { set(c[0], c[1], other, id); q.add(new int[] {c[0], c[1], other}); }
             }
             nets.add(new Net(id, cells, regs, pad));
             for (int r : regs) netsOfRegion.computeIfAbsent(r, k -> new LinkedHashSet<>()).add(id);
         }
     }
+
+    private boolean onLayer(int x, int y, int layer) { return layer == 1 ? model.metal(x, y) : model.metal2(x, y); }
+    private int at(int x, int y, int layer) { return (layer == 1 ? netOf : netOf2)[y * model.size + x]; }
+    private void set(int x, int y, int layer, int id) { (layer == 1 ? netOf : netOf2)[y * model.size + x] = id; }
+
+    /**
+     * MOS トランジスタ（S-011）：ゲート酸化膜のマスのうち p の所（チャネル）で、上に1層目の金属（ゲート）がある、つながったまとまり。
+     * まわりに n の領域がちょうど2つ（ソースとドレイン）あり、どちらも線につながっていれば1個。W/L＝チャネルのマスの数 ÷ ソースからドレインまでのマス数の2乗
+     */
+    private void findMosfets() {
+        int n = model.size;
+        boolean[] seen = new boolean[n * n];
+        for (int y = 0; y < n; y++) for (int x = 0; x < n; x++) {
+            if (seen[y * n + x] || !channel(x, y)) continue;
+            List<int[]> ch = new ArrayList<>();
+            ArrayDeque<int[]> q = new ArrayDeque<>();
+            q.add(new int[] {x, y}); seen[y * n + x] = true;
+            Map<Integer, int[]> sd = new LinkedHashMap<>();
+            int gateNet = -1;
+            while (!q.isEmpty()) {
+                int[] c = q.poll();
+                ch.add(c);
+                if (gateNet < 0) gateNet = netOf[c[1] * n + c[0]];
+                for (int[] d : DIRS) {
+                    int a = c[0] + d[0], b = c[1] + d[1];
+                    if (!model.inside(a, b)) continue;
+                    if (channel(a, b)) { if (!seen[b * n + a]) { seen[b * n + a] = true; q.add(new int[] {a, b}); } }
+                    else if (model.type(a, b) == 'n') sd.putIfAbsent(regionOf[b * n + a], new int[] {a, b});
+                }
+            }
+            if (sd.size() != 2 || gateNet < 0) continue;
+            var it = sd.entrySet().iterator();
+            var ea = it.next(); var eb = it.next();
+            if (firstNet(ea.getKey()) < 0 || firstNet(eb.getKey()) < 0) continue;
+            int len = Math.max(1, Math.abs(ea.getValue()[0] - eb.getValue()[0]) + Math.abs(ea.getValue()[1] - eb.getValue()[1]) - 1);
+            mosfets.add(new Mos(gateNet, ea.getKey(), eb.getKey(), ea.getValue()[1] * n + ea.getValue()[0], eb.getValue()[1] * n + eb.getValue()[0], (double) ch.size() / len / len, ch));
+        }
+    }
+
+    /** チャネルになるマス：ゲート酸化膜・p・上に1層目の金属 */
+    private boolean channel(int x, int y) { return model.gate(x, y) && model.type(x, y) == 'p' && model.metal(x, y); }
 
     /** 領域どうしが接しているか */
     public boolean touches(int ra, int rb) {

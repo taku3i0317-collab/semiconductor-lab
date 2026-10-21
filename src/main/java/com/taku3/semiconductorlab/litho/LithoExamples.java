@@ -306,6 +306,130 @@ public final class LithoExamples {
     }
 
     /**
+     * 16×16 の NMOS インバータ（[9-23]、S-011：抵抗を負荷にした n チャネル MOS、金属ゲート）。工程は MOS の4層（ソースとドレイン・ゲート酸化膜・窓・金属）。
+     * ソース（上の n）・ドレイン（下の n）の間の1行がチャネル（薄いゲート酸化膜の上に Al のゲート）。引き上げ抵抗は右の縦の n の帯。
+     * パッド：0 V（左上・上の線）、電源（10,0）、入力（左の 0,9）、出力（右の 15,12）
+     */
+    public static ChipDesign nmosInverter() {
+        return new ChipDesign(16, "nmos_inverter_example", List.of(
+                new ChipDesign.Layer(LayerKind.DIFF_N, BitGrid.parse(
+                "................",
+                "................",
+                "..........#.....",
+                "..........#.....",
+                "..........#.....",
+                "..........#.....",
+                "...###....#.....",
+                "...###....#.....",
+                "...###....#.....",
+                "..........#.....",
+                "...###....#.....",
+                "...###..........",
+                "...###..........",
+                "................",
+                "................",
+                "................")),
+                new ChipDesign.Layer(LayerKind.GATE_OX, BitGrid.parse(
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "...###..........",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................")),
+                new ChipDesign.Layer(LayerKind.CONTACT, BitGrid.parse(
+                "#...............",
+                "................",
+                "..........#.....",
+                "................",
+                "................",
+                "................",
+                "....#...........",
+                "................",
+                "................",
+                "................",
+                "..........#.....",
+                "................",
+                "....#...........",
+                "................",
+                "................",
+                "................")),
+                new ChipDesign.Layer(LayerKind.METAL, BitGrid.parse(
+                "#####.....#.....",
+                "....#.....#.....",
+                "....#.....#.....",
+                "....#...........",
+                "....#...........",
+                "....#...........",
+                "....#...........",
+                "................",
+                "................",
+                "######..........",
+                "..........#.....",
+                "..........#.....",
+                "....############",
+                "................",
+                "................",
+                "................"))), List.of(), ChipDesign.MOS);
+    }
+
+    /**
+     * NMOS インバータ＋2層目の金属（S-011 案B）：出力の線（右、1層目）から VIA で2層目に上がり、下を回って VIA で1層目の短い線（下のパッド 8,15）へ。
+     * 出力のパッドが2つ（右と下）、同じ線になる
+     */
+    public static ChipDesign nmosInverterTwoMetal() {
+        ChipDesign b = nmosInverter();
+        List<ChipDesign.Layer> l = new java.util.ArrayList<>(b.layers());
+        BitGrid metal = l.get(3).cells();
+        for (int[] c : new int[][] {{8, 14}, {8, 15}}) metal = metal.with(c[0], c[1], true);
+        l.set(3, new ChipDesign.Layer(LayerKind.METAL, metal));
+        l.add(new ChipDesign.Layer(LayerKind.VIA, BitGrid.parse(
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                ".............#..",
+                "................",
+                "........#.......",
+                "................")));
+        l.add(new ChipDesign.Layer(LayerKind.METAL2, BitGrid.parse(
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                "................",
+                ".............#..",
+                ".............#..",
+                "........######..",
+                "................")));
+        return new ChipDesign(16, "nmos_two_metal_example", l, List.of(), ChipDesign.MOS);
+    }
+
+    /**
      * 酸化膜つきの板（p型）に、設計図の層を順に全部の工程で焼く（塗布 → 露光 → 現像 → 削る → はがす → 拡散／Al）。
      * 途中で失敗したら、その理由を例外で投げる（テスト用）
      */
@@ -317,11 +441,15 @@ public final class LithoExamples {
         for (int i = 0; i < d.layers().size(); i++) {
             LayerKind k = d.layers().get(i).kind();
             MaskData mask = d.mask(i);
+            if (k == LayerKind.VIA) w = step(ChipOps.depositInterlayer(w), "interlayer " + i);   // 2層目の前に層間膜（S-011）
             w = step(ChipOps.coat(w, tone), "coat " + i);
             w = step(ChipOps.expose(w, mask, tool), "expose " + i);
             w = step(ChipOps.develop(w, tone == ChipState.Tone.NEGATIVE ? ChipOps.Developer.ORGANIC : ChipOps.Developer.ALKALI), "develop " + i);
-            if (k == LayerKind.METAL) {
+            if (k == LayerKind.METAL || k == LayerKind.METAL2) {
                 w = step(ChipOps.etchMetal(w), "etchMetal " + i);
+                w = step(ChipOps.strip(w), "strip " + i);
+            } else if (k == LayerKind.GATE_OX) {   // MOS：開いた所の酸化膜を薄く育て直す（S-011）
+                w = step(ChipOps.gateOxide(w), "gateOxide " + i);
                 w = step(ChipOps.strip(w), "strip " + i);
             } else {
                 w = step(ChipOps.etchOxide(w), "etchOxide " + i);

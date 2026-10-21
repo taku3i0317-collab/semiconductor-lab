@@ -185,8 +185,9 @@ public final class ChipOps {
         ChipState s = state(w);
         if (s == null || !s.metalFilm()) return Result.fail("no_metal");
         if (s.resist() != ChipState.Resist.DEVELOPED) return Result.fail("not_developed");
-        if (s.has(LayerKind.METAL)) return Result.fail("too_many");
-        return Result.ok(write(w, s.plus(LayerKind.METAL, s.resistPattern()).withMetalFilm(false).dirtier(1)));
+        LayerKind k = s.interlayer() ? LayerKind.METAL2 : LayerKind.METAL;   // 層間膜の上なら2層目（S-011）
+        if (s.has(k)) return Result.fail("too_many");
+        return Result.ok(write(w, s.plus(k, s.resistPattern()).withMetalFilm(false).dirtier(1)));
     }
 
     // ===== しみ込ませる・付ける =====
@@ -238,6 +239,36 @@ public final class ChipOps {
         return Result.ok(write(w, t.withImplanted(List.of())));
     }
 
+    public static boolean canDepositInterlayer(ItemStack w) { return depositInterlayer(w).ok(); }
+
+    /**
+     * 層間膜（S-011、2層目の金属の前、E の CVD 炉 [9-30]）：1層目の金属の上一面に SiO2（約400℃、Al が溶けない温度）。
+     * このあとの窓は VIA（1層目と2層目をつなぐ）、金属は METAL2 になる
+     */
+    public static Result depositInterlayer(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || !s.has(LayerKind.METAL)) return Result.fail("no_metal");
+        if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
+        if (s.metalFilm() || s.interlayer()) return Result.fail("too_many");
+        return Result.ok(write(w, s.withInterlayer(true).withWindows(BitGrid.empty(s.size())).dirtier(1)));
+    }
+
+    public static boolean canGateOxide(ItemStack w) { return gateOxide(w).ok(); }
+
+    /**
+     * MOS のゲート酸化膜（[9-23]、S-011 Q21-1 案A）：現像したレジストの開いた所の厚い酸化膜を削り、薄い酸化膜（約 0.1 µm）を育て直す。
+     * 上に金属（Al ゲート、Q21-2 案A）を残すとゲートになる（窓ではないので電流は流れない）
+     */
+    public static Result gateOxide(ItemStack w) {
+        ChipState s = state(w);
+        if (s == null || s.resist() != ChipState.Resist.DEVELOPED) return Result.fail("not_developed");
+        if (s.metalFilm() || s.has(LayerKind.METAL)) return Result.fail("metal_on");
+        if (s.has(LayerKind.GATE_OX)) return Result.fail("too_many");
+        BitGrid cut = s.resistPattern().invert();
+        if (cut.isEmpty()) return Result.fail("no_window");
+        return Result.ok(write(w, s.plus(LayerKind.GATE_OX, cut).dirtier(1)));
+    }
+
     public static boolean canDepositMetal(ItemStack w) { return depositMetal(w).ok(); }
 
     /** [9-25] Al を一面に付ける（真空蒸着）。開いている窓は金属とシリコンがつながる所（CONTACT）になる */
@@ -248,8 +279,9 @@ public final class ChipOps {
         ChipState s = state(w);
         if (s == null || !s.sized()) return Result.fail("no_pattern");
         if (s.resist() != ChipState.Resist.NONE) return Result.fail("resist_on");
-        if (s.metalFilm() || s.has(LayerKind.METAL)) return Result.fail("too_many");
-        ChipState t = s.hasWindows() ? s.plus(LayerKind.CONTACT, s.windows()) : s;
+        if (s.metalFilm() || s.has(s.interlayer() ? LayerKind.METAL2 : LayerKind.METAL)) return Result.fail("too_many");
+        LayerKind hole = s.interlayer() ? LayerKind.VIA : LayerKind.CONTACT;   // 層間膜の窓は1層目と2層目をつなぐ VIA（S-011）
+        ChipState t = s.hasWindows() ? s.plus(hole, s.windows()) : s;
         return Result.ok(write(w, t.withWindows(BitGrid.empty(s.size())).withMetalFilm(true).withConformal(conformal).dirtier(1)));
     }
 

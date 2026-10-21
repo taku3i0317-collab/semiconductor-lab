@@ -13,8 +13,14 @@ public enum LayerKind {
     DIFF_P("diff_p", true, 'p'),
     /** 金属と半導体をつなぐ窓 */
     CONTACT("contact", true, ' '),
-    /** アルミの配線（1層） */
-    METAL("metal", false, ' ');
+    /** アルミの配線（1層目） */
+    METAL("metal", false, ' '),
+    /** MOS のゲートの薄い酸化膜（S-011 Q21-1 案A）：厚い酸化膜を削り、薄く（約 0.1 µm）育て直す所。上の金属がゲートになる */
+    GATE_OX("gate_ox", true, ' '),
+    /** 層間膜の窓（S-011、2層目の金属）：1層目と2層目の金属をつなぐ所 */
+    VIA("via", true, ' '),
+    /** アルミの配線（2層目、S-011） */
+    METAL2("metal2", false, ' ');
 
     public final String id;
     /** 窓を開ける層か（ポジ型レジストでマスクの向きが決まる） */

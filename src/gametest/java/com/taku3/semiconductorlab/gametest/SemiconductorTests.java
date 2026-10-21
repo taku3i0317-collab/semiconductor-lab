@@ -2316,6 +2316,44 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /**
+     * [9-23] MOSFET（S-011：GATE_OX・Al ゲート・二乗の式）：16×16 の NMOS インバータを密着露光で焼くと、MOS が1個見つかり NOT のお題に合格。
+     * 2層目の金属（案B）：層間膜 → VIA → METAL2 で、離れた2つのパッドが同じ線になる。ハンコにすると工程の種類（MOS）と2層目が残る
+     */
+    @GameTest(maxTicks = 200)
+    public void mosAndTwoMetal(GameTestHelper h) {
+        ItemStack ow = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow.set(ModDataComponents.DOPANT, "boron");
+        ItemStack chip = com.taku3.semiconductorlab.litho.LithoExamples.process(ow, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverter(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        chip = com.taku3.semiconductorlab.litho.ChipOps.clean(chip, 0).out();
+        var nl = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(chip.get(ModDataComponents.CHIP_STATE)));
+        h.assertValueEqual(nl.mosfets.size(), 1, "one n-channel MOSFET");
+        h.assertValueEqual(nl.transistors.size(), 0, "no bipolar transistor");
+        int n = nl.model.size;
+        var roles = new java.util.HashMap<Integer, com.taku3.semiconductorlab.litho.Circuit.Role>();
+        java.util.function.BiConsumer<int[], com.taku3.semiconductorlab.litho.Circuit.Role> at = (xy, r) -> roles.put(nl.netOf[xy[1] * n + xy[0]], r);
+        at.accept(new int[] {0, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.GROUND);
+        at.accept(new int[] {10, 0}, com.taku3.semiconductorlab.litho.Circuit.Role.VCC);
+        at.accept(new int[] {0, 9}, com.taku3.semiconductorlab.litho.Circuit.Role.IN_A);
+        at.accept(new int[] {15, 12}, com.taku3.semiconductorlab.litho.Circuit.Role.OUT_1);
+        var not = com.taku3.semiconductorlab.litho.Challenge.byIndex(0);
+        var r = com.taku3.semiconductorlab.litho.Challenge.check(not, nl, roles, 1.0);
+        h.assertTrue(r.passed(), "the NMOS inverter solves the NOT challenge: " + r);
+        var gateAmps = com.taku3.semiconductorlab.litho.Circuit.solve(nl, java.util.Map.of(nl.netOf[0], 0.0, nl.netOf[10], 5.0, nl.netOf[9 * n], 5.0)).padAmps().get(nl.netOf[9 * n]);
+        h.assertTrue(gateAmps != null && Math.abs(gateAmps) < 1e-6, "no current flows into the gate (oxide insulates): " + gateAmps);
+        // 2層目
+        ItemStack ow2 = new ItemStack(Semiconductor.OXIDIZED_WAFER); ow2.set(ModDataComponents.DOPANT, "boron");
+        ItemStack two = com.taku3.semiconductorlab.litho.LithoExamples.process(ow2, com.taku3.semiconductorlab.litho.LithoExamples.nmosInverterTwoMetal(), com.taku3.semiconductorlab.litho.ExposureTool.CONTACT_G);
+        var st = com.taku3.semiconductorlab.litho.ChipOps.state(two);
+        h.assertTrue(st.interlayer() && st.has(com.taku3.semiconductorlab.litho.LayerKind.VIA) && st.has(com.taku3.semiconductorlab.litho.LayerKind.METAL2), "interlayer, vias and a second metal");
+        var nl2 = com.taku3.semiconductorlab.litho.Netlist.extract(com.taku3.semiconductorlab.litho.ChipModel.of(st));
+        h.assertValueEqual(nl2.netOf[12 * n + 15], nl2.netOf[15 * n + 8], "the right pad and the bottom pad are one net through metal 2");
+        h.assertValueEqual(com.taku3.semiconductorlab.litho.ChipOps.depositInterlayer(two).reason(), "too_many", "only one interlayer");
+        var stamp = com.taku3.semiconductorlab.litho.ChipDesign.fromState(st, "x");
+        h.assertTrue(stamp.mos() && stamp.twoMetal() && stamp.layers().size() == 6, "a stamp keeps the MOS process and the second metal");
+        LOG.info("[LAB] MOS [9-23]: NMOS inverter passes NOT, gate draws no current; two-metal jumper joins pads through vias");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         double zt = ZoneRefiningFurnaceBlockEntity.TOTAL_TICKS / 20.0, zw = ZoneRefiningFurnaceBlockEntity.WATTS;
         rec(a, Semiconductor.ZONE_REFINING_FURNACE.block, "帯域精製（1パスで純度が1段上がる：6N→9N→10N）",

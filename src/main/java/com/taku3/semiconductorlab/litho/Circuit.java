@@ -83,6 +83,10 @@ public final class Circuit {
                 }
             }
         }
+        // MOS（S-011 Q21-4 案A、二乗の式）：ゲートの線の電圧で、ソースとドレインの代表のマスの間に電流
+        List<int[]> mos = new ArrayList<>();
+        List<Double> mosK = new ArrayList<>();
+        for (Netlist.Mos t : nl.mosfets) { mos.add(new int[] {cells + t.gateNet(), t.cellA(), t.cellB()}); mosK.add(MOS_KP * t.wOverL()); }
         // 固定の点（パッド）と、解く点
         double[] v = start != null && start.length == nodes ? start.clone() : new double[nodes];
         boolean[] fixed = new boolean[nodes];
@@ -101,6 +105,16 @@ public final class Circuit {
                 addI(F, idx, d.anode, i); addI(F, idx, d.cathode, -i);
                 addJ(J, idx, d.anode, d.anode, g); addJ(J, idx, d.anode, d.cathode, -g);
                 addJ(J, idx, d.cathode, d.anode, -g); addJ(J, idx, d.cathode, d.cathode, g);
+            }
+            for (int q = 0; q < mos.size(); q++) {   // MOS：ドレイン（電圧の高い方）→ ソース
+                int g = mos.get(q)[0], a = mos.get(q)[1], b = mos.get(q)[2];
+                boolean flip = v[b] > v[a];
+                int dn = flip ? b : a, sn = flip ? a : b;
+                double[] ig = mosCurrent(mosK.get(q), v[g] - v[sn], v[dn] - v[sn]);   // {I, ∂I/∂Vgs, ∂I/∂Vds}
+                double i = ig[0], gm = ig[1], gds = ig[2];
+                addI(F, idx, dn, i); addI(F, idx, sn, -i);
+                addJ(J, idx, dn, g, gm); addJ(J, idx, dn, dn, gds); addJ(J, idx, dn, sn, -gm - gds);
+                addJ(J, idx, sn, g, -gm); addJ(J, idx, sn, dn, -gds); addJ(J, idx, sn, sn, gm + gds);
             }
             for (Src s : src) {
                 double vd = v[s.anode] - v[s.cathode], i = s.k * id(vd), g = s.k * gd(vd);
@@ -131,6 +145,17 @@ public final class Circuit {
         Map<Integer, Double> padAmps = new HashMap<>();
         for (int net : drive.keySet()) padAmps.put(net, pad.getOrDefault(net, 0.0));
         return new Solution(v, padAmps, cellAmps, ok);
+    }
+
+    /** MOS のしきい値（V）・利得の係数（A/V²、W/L＝1 のとき）。⚠️ ゲームの値（1960年代の MOS は Vt 数 V） */
+    static final double MOS_VT = 1.0, MOS_KP = 1e-4;
+
+    /** n チャネル MOS の二乗の式：{I, ∂I/∂Vgs, ∂I/∂Vds}。しきい値の下は 0（計算のためにごく小さな電流） */
+    static double[] mosCurrent(double k, double vgs, double vds) {
+        double ov = vgs - MOS_VT;
+        if (ov <= 0) return new double[] {1e-12 * vds, 0, 1e-12};
+        if (vds < ov) return new double[] {k * (ov * vds - vds * vds / 2), k * vds, k * (ov - vds)};   // 線形の領域
+        return new double[] {k / 2 * ov * ov, k * ov, 1e-12};                                          // 飽和
     }
 
     /** 領域 a と領域 b が接している辺（{a 側のマス, b 側のマス}） */
