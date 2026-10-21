@@ -1089,6 +1089,13 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-04] 銅の製錬（IMP4-01、O-030 案B＝解説だけ）：バニラの銅の原石はかまどで銅インゴット（黄銅鉱 → 焙焼・マット・転炉の近似）、解説と近似の注記がある */
+    @GameTest
+    public void copperSmelting(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, net.minecraft.world.item.Items.RAW_COPPER).is(net.minecraft.world.item.Items.COPPER_INGOT), "raw copper smelts to copper (approximation)");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [1-39] マグネシウムの電解槽（IMP3、O-028 で書き出しに足した）
         rec(a, Metallurgy.MAGNESIUM_CELL.block, "マグネシウム", L(io(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 1)), L(io(Metallurgy.MAGNESIUM, 1), mol(Gas.CHLORINE_GAS, 1)),

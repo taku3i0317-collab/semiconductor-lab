@@ -20,5 +20,10 @@
   "item.minecraft.lightning_rod.note1": "A copper rod that draws lightning to itself and sends it into the ground, so nothing nearby catches fire.",
   "item.minecraft.lightning_rod.note2": "3 copper ingots (vanilla). Set on top of a building, nearby lightning strikes it. Minecraft's rod being copper matches the real thing (copper conducts well).",
   "item.minecraft.lightning_rod.note3": "Lightning is a discharge of tens of thousands of amperes for an instant. A pointed metal rod set high and tied by thick copper cable to an earth electrode lets the current run to the ground without passing through the building.",
-  "item.minecraft.lightning_rod.note4": "In 1752 Benjamin Franklin in America described a kite experiment showing that lightning is electricity (whether he really did it is debated ⚠️), and from about 1753 he promoted the lightning rod. Some who copied such experiments were killed (Richmann in Russia, 1753)."
+  "item.minecraft.lightning_rod.note4": "In 1752 Benjamin Franklin in America described a kite experiment showing that lightning is electricity (whether he really did it is debated ⚠️), and from about 1753 he promoted the lightning rod. Some who copied such experiments were killed (Richmann in Russia, 1753).",
+  "item.minecraft.raw_copper.note1": "Copper ore. In this mod it stands for chalcopyrite, copper and iron bound to sulfur.",
+  "item.minecraft.raw_copper.note2": "Smelt it in a furnace for a copper ingot (an approximation of the crucible furnace). Real chalcopyrite is roasted to drive off sulfur and blown with air to remove iron before it becomes copper.",
+  "item.minecraft.raw_copper.note3": "Real process: roast chalcopyrite CuFeS2 → a lump of copper and iron sulfides called matte → blow air through it in a converter; iron oxidises into slag, sulfur leaves as SO2, and blister copper remains. The SO2 becomes sulfuric acid.",
+  "item.minecraft.raw_copper.note4": "In 1880 Manhès in France built the copper converter. Most copper today comes from these sulfide ores, refined by blowing air.",
+  "item.minecraft.raw_copper.placeholder": "Approximation: ⚠️ vanilla raw copper = chalcopyrite. Smelting it straight to copper rolls roasting, matte and converting into one step."
 }
