@@ -719,3 +719,11 @@ TECH_TREE：[10-26] の前提は [10-04]・[4-08]✅・[1-26]✅。[10-04] の�
 - block/RobotArmBlockEntity（ConsumerBlockEntity、1kW、1秒に1回）：覚えた組（取る所・置く所）を順に、StorageUtil.move で16個まで（Fabric Transfer API＝machine/MachineItems とバニラの箱）。3ブロック以内。スロットにマイコン [10-14] で8組（無いと1組、いっぱいなら古い組を忘れる）
 - item/TeachPendantItem：腕を右クリック → 取る所 → 置く所（しゃがむと忘れる）。画面 RobotArmScreen に「覚えた動き 1 / 8」・教えている途中の案内。howto（?）・note1〜4・placeholder
 - GameTest robot_arm。REFERENCES F61、chemistry・test_queue、TECH_TREE ✅。420/420 PASS
+
+## O-038（v1.0 #7 ガイドと進捗・#8 全体テストの準備、2026-10-21）
+- ガイド第8巻「EUV と AI」：guide8/（root＋p1〜p10、開く物＝EUV 光源・CO2 レーザー・多層膜ミラー・EUV マスク・EUV 露光装置・High-NA の光学系・FOUP・ロボットの腕・数値演算チップ・AI チップ）、give_guidebook8、本と進捗の文（日英）。GameTest guide8_euv_ai
+- 進捗の全章の見直し：tools/check_advancements.py → docs/tasks/ADVANCEMENT_REVIEW.md（1479 個）。つながりの抜け 0・根が2つの木 0・巻の順と年の順のずれ 0（第2巻 1882 → … → 第8巻 2010）・開く物の入手の道が無い 0。tools/test.ps1 の最後で --strict（抜けがあれば失敗）
+  - 重なり（同じ物で2つの木のページが開く）は 6 → 5：第7巻 p5（CMP）を研磨機からコロイダルシリカ（研磨の液の粒）に変えた（第6巻 p12 と同時に開いていた）。残り5つ（検査台＝ガイドとお題・ハンコ・製図台など）は「読む所と遊ぶ所」でわざと
+  - check_howto の「通り抜けるだけ」の判定を、代わりに使える alt まで見ていたのを直した（酸化したウェハーが道なしになっていた）→ 入手の道が無い 0 / 919
+- 全体テストの確認表：tools/gen_v1_check.py → docs/HUMAN_CHECK_V1.md（家畜化 → 第1章 → 第1〜8巻のページの順に 98 手順、作り方・試験場の置き場所、幹ごとの人間の確認の数）。公開・tag v1.0・jar はユーザーの決定を待つ
+- 424/424 PASS

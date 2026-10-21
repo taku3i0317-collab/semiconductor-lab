@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide8/p4",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:euv_scanner"
+    },
+    "title": {
+      "translate": "guide8.semiconductor-lab.p5.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch8.p5"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "euv_scanner": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:euv_scanner"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "euv_scanner"
+    ]
+  ]
+}

@@ -1760,6 +1760,9 @@
 "oxidation_furnace": [
 "crafting"
 ],
+"oxidized_wafer": [
+"machine:oxidation_furnace"
+],
 "oxygen_cylinder": [
 "machine:compressor"
 ],

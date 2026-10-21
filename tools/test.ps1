@@ -61,7 +61,9 @@ foreach ($l in $hits) {
 if ($Full) { Write-Host ''; Write-Host '== 全ログ' -ForegroundColor Cyan; $lines }
 
 Write-Host ''
-if ($code -eq 0) { python tools/check_howto.py }   # 入手の道（ツールチップの「作り方」の元 howto_get.json と HOWTO_GAPS.md、O-035）。machine_recipes.json が新しくなった後で
+if ($code -eq 0) { python tools/check_howto.py }
+# 進捗の見直し（O-038）：つながりの抜け・ページを開く物の入手の道が 0 でなければ失敗にする（docs/tasks/ADVANCEMENT_REVIEW.md）
+if ($code -eq 0) { python tools/check_advancements.py --strict; if ($LASTEXITCODE -ne 0) { Write-Host '== 進捗の見直しで抜け（docs/tasks/ADVANCEMENT_REVIEW.md）' -ForegroundColor Red; $code = 1 } }   # 入手の道（ツールチップの「作り方」の元 howto_get.json と HOWTO_GAPS.md、O-035）。machine_recipes.json が新しくなった後で
 if ($code -eq 0) { Write-Host "== 成功（終了コード 0）。全ログ: $log" -ForegroundColor Green }
 else { Write-Host "== 失敗（終了コード $code）。全ログ: $log" -ForegroundColor Red }
 exit $code

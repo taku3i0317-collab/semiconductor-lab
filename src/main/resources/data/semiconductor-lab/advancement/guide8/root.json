@@ -1,0 +1,37 @@
+{
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:euv_source"
+    },
+    "title": {
+      "translate": "guide8.semiconductor-lab.root.title"
+    },
+    "description": {
+      "translate": "guide8.semiconductor-lab.root.description"
+    },
+    "background": "minecraft:block/black_concrete",
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "euv_source": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:euv_source"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "euv_source"
+    ]
+  ],
+  "rewards": {
+    "function": "semiconductor-lab:give_guidebook8"
+  }
+}

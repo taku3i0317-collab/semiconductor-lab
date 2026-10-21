@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide8/p5",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:euv_high_na_optics"
+    },
+    "title": {
+      "translate": "guide8.semiconductor-lab.p6.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch8.p6"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "euv_high_na_optics": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:euv_high_na_optics"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "euv_high_na_optics"
+    ]
+  ]
+}

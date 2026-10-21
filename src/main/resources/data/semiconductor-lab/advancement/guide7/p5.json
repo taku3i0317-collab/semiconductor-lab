@@ -2,7 +2,7 @@
   "parent": "semiconductor-lab:guide7/p4",
   "display": {
     "icon": {
-      "id": "semiconductor-lab:cmp_polisher"
+      "id": "semiconductor-lab:colloidal_silica"
     },
     "title": {
       "translate": "guide7.semiconductor-lab.p5.title"
@@ -16,12 +16,12 @@
     "hidden": true
   },
   "criteria": {
-    "cmp_polisher": {
+    "colloidal_silica": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "items": "semiconductor-lab:cmp_polisher"
+            "items": "semiconductor-lab:colloidal_silica"
           }
         ]
       }
@@ -29,7 +29,7 @@
   },
   "requirements": [
     [
-      "cmp_polisher"
+      "colloidal_silica"
     ]
   ]
 }

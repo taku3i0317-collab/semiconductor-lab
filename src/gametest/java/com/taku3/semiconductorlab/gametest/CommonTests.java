@@ -571,4 +571,19 @@ public class CommonTests extends LabTestBase {
         h.assertTrue(wafer != null && wafer.contains(ja.get("block.semiconductor-lab.wafer_saw")), "wafer: " + wafer);
         h.succeed();
     }
+
+    /** O-038：ガイド第8巻「EUV と AI」（guide8/）の11個と give_guidebook8。ページを開く物がみな登録されている、本は10ページ */
+    @GameTest
+    public void guide8EuvAi(GameTestHelper h) {
+        MinecraftServer server = h.getLevel().getServer();
+        String[] adv = {"root", "p1", "p2", "p3", "p4", "p5", "p6", "p7", "p8", "p9", "p10"};
+        List<String> missing = new ArrayList<>();
+        for (String a : adv) if (server.getAdvancements().get(SemiconductorLab.id("guide8/" + a)) == null) missing.add("guide8/" + a);
+        if (server.getFunctions().get(SemiconductorLab.id("give_guidebook8")).isEmpty()) missing.add("function give_guidebook8");
+        for (String id : new String[] {"euv_source", "co2_laser", "multilayer_mirror", "euv_mask", "euv_scanner", "euv_high_na_optics", "foup", "robot_arm", "math_coprocessor", "ai_chip"})
+            if (!net.minecraft.core.registries.BuiltInRegistries.ITEM.containsKey(SemiconductorLab.id(id))) missing.add("item " + id);
+        h.assertTrue(missing.isEmpty(), "not registered: " + missing);
+        LOG.info("[LAB] guide8 (EUV and AI): {} advancements + give_guidebook8", adv.length);
+        h.succeed();
+    }
 }

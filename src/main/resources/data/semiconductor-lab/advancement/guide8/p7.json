@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide8/p6",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:foup"
+    },
+    "title": {
+      "translate": "guide8.semiconductor-lab.p7.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch8.p7"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "foup": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:foup"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "foup"
+    ]
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide8/p3",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:euv_mask"
+    },
+    "title": {
+      "translate": "guide8.semiconductor-lab.p4.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch8.p4"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "euv_mask": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:euv_mask"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "euv_mask"
+    ]
+  ]
+}

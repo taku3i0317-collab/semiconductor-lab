@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide8/p9",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:ai_chip"
+    },
+    "title": {
+      "translate": "guide8.semiconductor-lab.p10.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch8.p10"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "ai_chip": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:ai_chip"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "ai_chip"
+    ]
+  ]
+}

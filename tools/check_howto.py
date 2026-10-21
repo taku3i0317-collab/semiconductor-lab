@@ -139,7 +139,7 @@ def main():
             way(rid.split(":")[1], "crafting" if "crafting" in t else "campfire" if "campfire" in t else "smelting")
     mr = ROOT / "docs/machine_recipes.json"
     for r in load(mr).get("recipes", []) if mr.exists() else []:
-        for i in sorted((ids_in(r.get("outputs", [])) | ids_in(r.get("byproducts", []))) - ids_in(r.get("inputs", []))):   # 通り抜けるだけの物は道にしない
+        for i in sorted((ids_in(r.get("outputs", [])) | ids_in(r.get("byproducts", []))) - {x["item"].split(":")[-1] for x in r.get("inputs", []) if "item" in x}):   # 通り抜けるだけの物は道にしない（代わりに使える alt は見ない）
             way(i, "machine:" + r["machine"].split(":")[-1])
     loot = RES / f"data/{NS}/loot_table/blocks"
     for p in (RES / f"data/{NS}/worldgen/feature").glob("*.json"):

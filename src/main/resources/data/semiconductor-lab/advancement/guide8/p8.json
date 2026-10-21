@@ -1,0 +1,35 @@
+{
+  "parent": "semiconductor-lab:guide8/p7",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:robot_arm"
+    },
+    "title": {
+      "translate": "guide8.semiconductor-lab.p8.title"
+    },
+    "description": {
+      "translate": "book.semiconductor-lab.ch8.p8"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "robot_arm": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:robot_arm"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "robot_arm"
+    ]
+  ]
+}
