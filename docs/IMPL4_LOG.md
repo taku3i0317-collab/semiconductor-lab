@@ -235,3 +235,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
   - [1-73] めっき鋼板：案A（おすすめ）鉄板＋亜鉛（溶かした亜鉛にくぐらせる）→ トタン、鉄板＋錫 → ブリキ。雨に当てるとさびの進み方がちがう実験（鉄だけはさびる、トタンは亜鉛が先にさびる）／案B 材料だけ
 - ✅ S-009 [1-54] インバー（invar、右クリックで 1m・100℃ の伸びを鋼とくらべる）。GameTest invar、REFERENCES F72
 - ✅ S-010 [1-64] 金の製錬＝解説だけ（バニラの金の原石に解説、毒の作り方は入れない）。GameTest gold_explanation_only、REFERENCES F73
+- ✅ S-009 [1-65] ハイス＝案A（hss_charge → るつぼ炉 → hss_tool_bit、旋盤の SLOT_CUTTER で 0.7倍 ⚠️、C の同意あり）。GameTest high_speed_steel、REFERENCES F74

@@ -1124,6 +1124,21 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-65] ハイス（IMP4-01、S-009 案A、旋盤は C の同意あり）：仕込み → るつぼ炉 → 刃2。旋盤に刃を入れると時間 0.7倍、無ければ今のまま */
+    @GameTest
+    public void highSpeedSteel(GameTestHelper h) {
+        h.assertTrue(com.taku3.semiconductorlab.block.CrucibleFurnaceBlockEntity.melted(new ItemStack(Metallurgy.HSS_CHARGE)).is(Metallurgy.HSS_TOOL_BIT), "crucible furnace makes HSS");
+        h.assertTrue(recipeUses(h, "hss_charge", Metallurgy.TUNGSTEN_POWDER) && recipeUses(h, "hss_charge", Metallurgy.CHROMIUM), "W + Cr steel");
+        BlockPos lp = p(1, 1, 1);
+        h.setBlock(lp, com.taku3.semiconductorlab.content.Precision.LATHE.block);
+        var lathe = h.getBlockEntity(lp, com.taku3.semiconductorlab.block.LatheBlockEntity.class);
+        h.assertFalse(com.taku3.semiconductorlab.block.LatheBlockEntity.hasHss(lathe.getContainer().getItem(com.taku3.semiconductorlab.block.LatheBlockEntity.SLOT_CUTTER)), "no cutter: as before");
+        lathe.getContainer().setItem(com.taku3.semiconductorlab.block.LatheBlockEntity.SLOT_CUTTER, new ItemStack(Metallurgy.HSS_TOOL_BIT));
+        h.assertTrue(com.taku3.semiconductorlab.block.LatheBlockEntity.hasHss(lathe.getContainer().getItem(com.taku3.semiconductorlab.block.LatheBlockEntity.SLOT_CUTTER)), "HSS fitted");
+        h.assertTrue(Math.round(com.taku3.semiconductorlab.block.LatheBlockEntity.TICKS * com.taku3.semiconductorlab.block.LatheBlockEntity.HSS_FACTOR) < com.taku3.semiconductorlab.block.LatheBlockEntity.TICKS, "faster with HSS");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [1-39] マグネシウムの電解槽（IMP3、O-028 で書き出しに足した）
         rec(a, Metallurgy.MAGNESIUM_CELL.block, "マグネシウム", L(io(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 1)), L(io(Metallurgy.MAGNESIUM, 1), mol(Gas.CHLORINE_GAS, 1)),

@@ -27,7 +27,9 @@ public class LatheBlockEntity extends ConsumerBlockEntity {
     public static final int TICKS = 20 * 30;
     /** 旋盤のくせ（寸法の誤差）の幅 µm。⚠️ ゲームの値（1850年ごろの工作機械で 0.01〜0.03mm のめやす） */
     public static final int ERROR_UM = 25;
-    public static final int SLOT_IN = 0, SLOT_TOOL = 1, SLOT_OUT = 2, SLOT_COUNT = 3;
+    /** SLOT_CUTTER（IMP4-01 [1-65]、C の同意あり）：ハイスの刃を入れると削る時間が {@link #HSS_FACTOR} 倍（1900 テイラーとホワイト：赤く熱くなっても刃がなまらない ⚠️ 速さはゲームの値）。刃は減らない */
+    public static final int SLOT_IN = 0, SLOT_TOOL = 1, SLOT_OUT = 2, SLOT_CUTTER = 3, SLOT_COUNT = 4;
+    public static final double HSS_FACTOR = 0.7;
 
     /** この旋盤のくせ（µm）。Integer.MIN_VALUE＝まだ決まっていない */
     private int errorUm = Integer.MIN_VALUE;
@@ -36,6 +38,7 @@ public class LatheBlockEntity extends ConsumerBlockEntity {
             .in(SLOT_IN, 8, 26, LatheBlockEntity::isInput)
             .in(SLOT_TOOL, 8, 50, LatheBlockEntity::isMasterScrew)
             .out(SLOT_OUT, 78, 35)
+            .in(SLOT_CUTTER, 30, 50, s -> s.is(com.taku3.semiconductorlab.content.Metallurgy.HSS_TOOL_BIT))
             .text("power", 100, 18, 72, 1, "gui.semiconductor-lab.machine.power").samples("0.8 kW")
             .text("stored", 100, 30, 72, 1, "gui.semiconductor-lab.machine.stored").samples("20 kJ")
             .text("hint", 100, 42, 72, 3, "gui.semiconductor-lab.machine.need_input", "gui.semiconductor-lab.machine.need_power", "gui.semiconductor-lab.machine.running")
@@ -82,7 +85,9 @@ public class LatheBlockEntity extends ConsumerBlockEntity {
     @Override protected double workWatts() { return WATTS; }
     /** [8-08] ボールねじの送りは摩擦が小さい（玉軸受の倍率にさらに掛ける） */
     @Override protected double drawWatts() { return super.drawWatts() * com.taku3.semiconductorlab.item.BallScrewItem.powerFactor(container.getItem(SLOT_TOOL)); }
-    @Override protected int workTicks() { return TICKS; }
+    @Override protected int workTicks() { return hasHss(container.getItem(SLOT_CUTTER)) ? (int) Math.round(TICKS * HSS_FACTOR) : TICKS; }
+    /** ハイスの刃か（[1-65]） */
+    public static boolean hasHss(ItemStack s) { return s.is(com.taku3.semiconductorlab.content.Metallurgy.HSS_TOOL_BIT); }
     @Override protected boolean canWork() {
         ItemStack out = made();
         return !out.isEmpty() && canMerge(container.getItem(SLOT_OUT), out);

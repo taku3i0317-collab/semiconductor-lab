@@ -27,6 +27,9 @@ public final class Metallurgy {
     private Metallurgy() {}
 
     // ===== アイテム =====
+    // [1-65] 高速度鋼（ハイス）（IMP4-01、S-009）
+    public static final Item HSS_CHARGE            = Reg.item("hss_charge");
+    public static final Item HSS_TOOL_BIT          = Reg.item("hss_tool_bit", new Item.Properties().stacksTo(1));
     // [1-54] インバー（温度で伸び縮みしない合金）（IMP4-01、S-009）
     public static final Item INVAR                 = Reg.item("invar", p -> new com.taku3.semiconductorlab.item.ThermalExpansionItem(p, 1.2e-6, "invar"), new Item.Properties());
     // [1-13] 亜鉛（蒸留法：蒸留のかめ）（IMP4-01、S-009）

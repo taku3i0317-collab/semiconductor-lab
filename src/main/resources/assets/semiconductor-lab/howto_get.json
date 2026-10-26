@@ -1261,6 +1261,9 @@
 "hot_iron_bloom": [
 "smelting"
 ],
+"hss_charge": [
+"crafting"
+],
 "hydrochloric_acid": [
 "crafting",
 "machine:hcl_burner",
@@ -8200,6 +8203,27 @@
 "in": [
 [
 "semiconductor-lab:iron_bloom",
+1
+]
+]
+},
+"hss_charge": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:clay_crucible",
+1
+],
+[
+"semiconductor-lab:steel_ingot",
+2
+],
+[
+"semiconductor-lab:tungsten_powder",
+1
+],
+[
+"semiconductor-lab:chromium",
 1
 ]
 ]
@@ -16449,6 +16473,14 @@
 "hot_iron_bloom": [
 "minecraft:items",
 "semiconductor-lab:item/hot_iron_bloom"
+],
+"hss_charge": [
+"minecraft:items",
+"semiconductor-lab:item/hss_charge"
+],
+"hss_tool_bit": [
+"minecraft:items",
+"semiconductor-lab:item/hss_tool_bit"
 ],
 "hydrochloric_acid": [
 "minecraft:items",

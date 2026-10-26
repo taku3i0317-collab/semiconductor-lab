@@ -66,7 +66,7 @@ public class CrucibleFurnaceBlockEntity extends BlockEntity implements MachineBE
     public int temperature() { return temp; }
 
     /** るつぼの仕込み（鍛鉄＋木炭入り）かフリントガラスの調合 */
-    public static boolean isCharge(ItemStack s) { return s.is(Metallurgy.CRUCIBLE_CHARGE) || s.is(Optics.FLINT_GLASS_BATCH); }
+    public static boolean isCharge(ItemStack s) { return s.is(Metallurgy.CRUCIBLE_CHARGE) || s.is(Optics.FLINT_GLASS_BATCH) || s.is(Metallurgy.HSS_CHARGE); }
     /** コークス（1700年代のハンツマンもコークスの火） */
     public static boolean isFuel(ItemStack s) { return s.is(Metallurgy.COKE); }
 
@@ -74,6 +74,7 @@ public class CrucibleFurnaceBlockEntity extends BlockEntity implements MachineBE
     public static ItemStack melted(ItemStack in) {
         if (in.is(Metallurgy.CRUCIBLE_CHARGE)) return new ItemStack(Metallurgy.CRUCIBLE_STEEL, 2);
         if (in.is(Optics.FLINT_GLASS_BATCH)) return new ItemStack(Optics.FLINT_GLASS);
+        if (in.is(Metallurgy.HSS_CHARGE)) return new ItemStack(Metallurgy.HSS_TOOL_BIT, 2);   // [1-65] ハイス（W・Cr 入りの鋼）
         return ItemStack.EMPTY;
     }
 

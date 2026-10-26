@@ -142,6 +142,8 @@ boron  # Metallurgy [1-36] 1892
 invar  # Metallurgy [1-54] 1896
 pyrolusite  # Metallurgy [4-28] 1896
 pyrolusite_ore  # Metallurgy [4-28] 1896
+hss_charge  # Metallurgy [1-65] 1900
+hss_tool_bit  # Metallurgy [1-65] 1900
 metallurgical_silicon  # Metallurgy [1-15] 1900
 wolframite  # Metallurgy [1-28] 1910
 wolframite_soda_charge  # Metallurgy [1-28] 1910
