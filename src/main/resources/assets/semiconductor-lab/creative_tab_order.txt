@@ -241,6 +241,12 @@ crude_titanium_tetrachloride  # Metallurgy [None] None
 kroll_charge  # Metallurgy [None] None
 sponge_with_salt  # Metallurgy [None] None
 blast_furnace_slag  # Metallurgy [None] None
+deepslate_quartz_vein  # Metallurgy [None] None
+deepslate_sphalerite_ore  # Metallurgy [None] None
+deepslate_galena_ore  # Metallurgy [None] None
+deepslate_stibnite_ore  # Metallurgy [None] None
+deepslate_pentlandite_ore  # Metallurgy [None] None
+deepslate_fluorite_ore  # Metallurgy [None] None
 wood_ash  # Chemistry [2-02] -2800
 lye  # Chemistry [2-02] -2800
 potash  # Chemistry [2-02] -2800
@@ -468,6 +474,7 @@ carbon_tetrachloride  # Chemistry [None] None
 benzophenone  # Chemistry [None] None
 triethylaluminium  # Chemistry [None] None
 ziegler_natta_catalyst  # Chemistry [None] None
+deepslate_pyrite_ore  # Chemistry [None] None
 hydrofluoric_acid_pe  # Chemistry [None] None
 bleaching_powder  # Chemistry [None] None
 acetaldehyde  # Chemistry [None] None

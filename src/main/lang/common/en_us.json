@@ -532,5 +532,19 @@
   "block.semiconductor-lab.nc_lathe.placeholder": "Approximation: cutting time and power are game values.",
   "block.semiconductor-lab.nc_lathe.howto": "Add steel (hoppers and conveyor belts work too), a recorded punched tape and a ball screw, and connect power. One tape part comes out per steel. Make a tape by measuring a part with a micrometer while carrying a blank tape.",
   "item.semiconductor-lab.gauge.taped": "📼 Recorded the shape of %s on punched tape",
-  "message.semiconductor-lab.test_speed": "Test: powered machines run %s× faster (1 = normal)"
+  "message.semiconductor-lab.test_speed": "Test: powered machines run %s× faster (1 = normal)",
+  "block.semiconductor-lab.deepslate_fluorite_ore": "Deepslate Fluorite Ore",
+  "block.semiconductor-lab.deepslate_fluorite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
+  "block.semiconductor-lab.deepslate_galena_ore": "Deepslate Galena Ore",
+  "block.semiconductor-lab.deepslate_galena_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
+  "block.semiconductor-lab.deepslate_pentlandite_ore": "Deepslate Pentlandite Ore",
+  "block.semiconductor-lab.deepslate_pentlandite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
+  "block.semiconductor-lab.deepslate_pyrite_ore": "Deepslate Pyrite Ore",
+  "block.semiconductor-lab.deepslate_pyrite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
+  "block.semiconductor-lab.deepslate_quartz_vein": "Deepslate Quartz Vein",
+  "block.semiconductor-lab.deepslate_quartz_vein.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
+  "block.semiconductor-lab.deepslate_sphalerite_ore": "Deepslate Sphalerite Ore",
+  "block.semiconductor-lab.deepslate_sphalerite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
+  "block.semiconductor-lab.deepslate_stibnite_ore": "Deepslate Stibnite Ore",
+  "block.semiconductor-lab.deepslate_stibnite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same."
 }

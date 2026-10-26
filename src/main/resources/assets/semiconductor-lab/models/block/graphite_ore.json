@@ -1,1 +1,86 @@
-{ "parent": "minecraft:block/cube_all", "textures": { "all": "semiconductor-lab:block/graphite_ore" } }
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "particle": "minecraft:block/deepslate",
+    "base": "minecraft:block/deepslate",
+    "grains": "semiconductor-lab:block/graphite_ore_grains"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#base",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#base",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#base",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#base",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#base",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#base",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#grains",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#grains",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#grains",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#grains",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#grains",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#grains",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
+}

@@ -300,7 +300,8 @@ public final class Chemistry {
     // 代替フロン HFC-23（CHF3、IMP3 S-006）：クロロホルム＋フッ酸3＋SbCl5。冷媒にしてもオゾンは壊さないが、とても強い温室効果ガス（キガリ改正 2016）
     public static final Item HFC23_GAS             = Reg.contained("hfc23_gas", Vessel.GAS_BAG);
     public static final Block CHROMATOGRAPHY_COLUMN = Reg.functional("chromatography_column", ChromatographyColumnBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.NONE).strength(0.5f).sound(SoundType.GLASS).noOcclusion());
-    public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [2-43] 黄鉄鉱（IMP3）
+    public static final Block PYRITE_ORE    = Reg.ore("pyrite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_PYRITE_ORE = Reg.deepslateOre("deepslate_pyrite_ore", PYRITE_ORE);   // 深層岩の版（S-032）   // [2-43] 黄鉄鉱（IMP3）
     // O-014（A、司令塔の決定＝案A、DECISIONS「前例：容器のしくみ」）：ポリエチレンの瓶に入れたフッ酸は別のアイテム。フッ酸を使う所はタグ #semiconductor-lab:hydrofluoric_acid で両方を受ける
     public static final Item HYDROFLUORIC_ACID_PE  = Reg.contained("hydrofluoric_acid_pe", Vessel.POLYETHYLENE_BOTTLE);
     public static final net.minecraft.tags.TagKey<Item> HF_TAG = net.minecraft.tags.TagKey.create(Registries.ITEM, SemiconductorLab.id("hydrofluoric_acid"));

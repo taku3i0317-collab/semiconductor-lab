@@ -272,9 +272,11 @@ public final class Metallurgy {
     // ===== ブロック =====
     // [1-46] 石英鉱脈（熱水が岩の割れ目に SiO2 を沈めた白い脈）。石英はモース硬度7なので石のツルハシ以上
     public static final Block QUARTZ_VEIN    = Reg.ore("quartz_vein", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.QUARTZ).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_QUARTZ_VEIN = Reg.deepslateOre("deepslate_quartz_vein", QUARTZ_VEIN);   // 深層岩の版（S-032）
     public static final Block SPHALERITE_ORE = Reg.ore("sphalerite_ore", Block::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_SPHALERITE_ORE = Reg.deepslateOre("deepslate_sphalerite_ore", SPHALERITE_ORE);   // 深層岩の版（S-032）
     // 黒鉛鉱石（変成岩中の天然黒鉛。スリランカの脈状黒鉛など）
     public static final Block GRAPHITE_ORE = Reg.ore("graphite_ore", Block::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.DEEPSLATE).requiresCorrectToolForDrops()
@@ -291,11 +293,15 @@ public final class Metallurgy {
     public static final Block CASSITERITE_ORE = Reg.ore("cassiterite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_BROWN).requiresCorrectToolForDrops().strength(3.5f, 3.0f).sound(SoundType.STONE));
     public static final Block SPODUMENE_ORE = Reg.ore("spodumene_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_WHITE).requiresCorrectToolForDrops().strength(3.5f, 3.0f).sound(SoundType.STONE));   // [1-42] リチア輝石（花崗岩の中のまれな鉱脈、IMP3 S-006）
     public static final Block GALENA_ORE     = Reg.ore("galena_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
-    public static final Block STIBNITE_ORE   = Reg.ore("stibnite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.5f, 3.0f).sound(SoundType.STONE));   // [1-43] 輝安鉱（方鉛鉱と同じ熱水鉱脈の帯）
-    public static final Block PENTLANDITE_ORE = Reg.ore("pentlandite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.DEEPSLATE));   // [1-37] ペントランド鉱（深い所、IMP3）
+    public static final Block DEEPSLATE_GALENA_ORE = Reg.deepslateOre("deepslate_galena_ore", GALENA_ORE);   // 深層岩の版（S-032）
+    public static final Block STIBNITE_ORE   = Reg.ore("stibnite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).requiresCorrectToolForDrops().strength(2.5f, 3.0f).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_STIBNITE_ORE = Reg.deepslateOre("deepslate_stibnite_ore", STIBNITE_ORE);   // 深層岩の版（S-032）   // [1-43] 輝安鉱（方鉛鉱と同じ熱水鉱脈の帯）
+    public static final Block PENTLANDITE_ORE = Reg.ore("pentlandite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.DEEPSLATE));
+    public static final Block DEEPSLATE_PENTLANDITE_ORE = Reg.deepslateOre("deepslate_pentlandite_ore", PENTLANDITE_ORE);   // 深層岩の版（S-032）   // [1-37] ペントランド鉱（深い所、IMP3）
     public static final Block TANTALITE_ORE = Reg.ore("tantalite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(4.0f, 3.0f).sound(SoundType.STONE));   // [1-66] タンタル石（花崗岩ペグマタイト、リチア輝石よりまれ、IMP4-01）
     public static final Block PYROLUSITE_ORE = Reg.ore("pyrolusite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // 軟マンガン鉱（浅い石の中、IMP3 S-006）
     public static final Block FLUORITE_ORE   = Reg.ore("fluorite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_PURPLE).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));
+    public static final Block DEEPSLATE_FLUORITE_ORE = Reg.deepslateOre("deepslate_fluorite_ore", FLUORITE_ORE);   // 深層岩の版（S-032）
     public static final Block BAUXITE_ORE    = Reg.ore("bauxite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_ORANGE).requiresCorrectToolForDrops().strength(1.5f, 3.0f).sound(SoundType.GRAVEL));
     public static final Block BASTNAESITE_ORE = Reg.ore("bastnaesite_ore", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_YELLOW).requiresCorrectToolForDrops().strength(3.0f, 3.0f).sound(SoundType.STONE));   // [1-19] バストネス石（IMP3 S-009）
     public static final Block ION_ADSORPTION_CLAY = Reg.ore("ion_adsorption_clay", Block::new, BlockBehaviour.Properties.of().mapColor(MapColor.TERRACOTTA_PINK).strength(0.8f, 1.0f).sound(SoundType.GRAVEL));   // [1-19] イオン吸着型の粘土（ジャングル・サバンナ、IMP3 S-009）

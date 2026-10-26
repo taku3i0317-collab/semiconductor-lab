@@ -1,6 +1,86 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "minecraft:block/block",
   "textures": {
-    "all": "semiconductor-lab:block/natural_asphalt"
-  }
+    "particle": "minecraft:block/sand",
+    "base": "minecraft:block/sand",
+    "grains": "semiconductor-lab:block/natural_asphalt_grains"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#base",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#base",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#base",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#base",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#base",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#base",
+          "cullface": "east"
+        }
+      }
+    },
+    {
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "down": {
+          "texture": "#grains",
+          "cullface": "down"
+        },
+        "up": {
+          "texture": "#grains",
+          "cullface": "up"
+        },
+        "north": {
+          "texture": "#grains",
+          "cullface": "north"
+        },
+        "south": {
+          "texture": "#grains",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#grains",
+          "cullface": "west"
+        },
+        "east": {
+          "texture": "#grains",
+          "cullface": "east"
+        }
+      }
+    }
+  ]
 }

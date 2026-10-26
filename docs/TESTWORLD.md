@@ -158,7 +158,7 @@ GameTest `testworld` が「関数が最後まで動き、置いた物が正し�
   - 見ること：ワット天秤の画面（電力・結果・±・ヒントの順）。空調のそばと真空容器の隣であいまいさが小さくなるか。何回か測って結果がばらつくか
 - [1-35] ネオジム磁石：ブロック なし／チェスト 11 種
   - 見ること：酸化セリウムを作ったあと作業台に液が残るか、電気炉に仕込み・圧粉体を入れて出るか、C の [8-09] ステージで使えるか
-- [-] pentlandite：ブロック なし／チェスト 29 種
+- [-] pentlandite：ブロック deepslate_quartz_vein, deepslate_sphalerite_ore, deepslate_galena_ore, deepslate_stibnite_ore, deepslate_pentlandite_ore, deepslate_fluorite_ore／チェスト 29 種
 
 ### 幹2 化学（南へ 18 ブロックの列）
 
@@ -289,7 +289,7 @@ GameTest `testworld` が「関数が最後まで動き、置いた物が正し�
   - 見ること：樹脂を持って日なたに出ると数秒で固まり、メッセージが出るか、日かげ・屋内では固まらないか
 - [2-33] 化学増幅レジスト：ブロック resist_reactor／チェスト 25 種
   - 見ること：合成釜の画面（反応ごとの文・「下の置き場の物が要る」）、ホットプレートの画面（「まだ露光していない」「化学増幅レジストではない」）
-- [-] polyethylene_bottle：ブロック なし／チェスト 39 種
+- [-] polyethylene_bottle：ブロック deepslate_pyrite_ore／チェスト 39 種
 
 ### 幹3 熱（南へ 26 ブロックの列）
 

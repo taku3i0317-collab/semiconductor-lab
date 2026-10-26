@@ -11,7 +11,7 @@
       }
     },
     {
-      "state": "semiconductor-lab:quartz_vein",
+      "state": "semiconductor-lab:deepslate_quartz_vein",
       "target": {
         "predicate_type": "minecraft:tag_match",
         "tag": "minecraft:deepslate_ore_replaceables"

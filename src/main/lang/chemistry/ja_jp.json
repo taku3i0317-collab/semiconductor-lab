@@ -1552,5 +1552,8 @@
   "item.semiconductor-lab.printing_ink.note1": "すすとワニスをねった、ねばる黒いインク。活字に塗って紙に写す。",
   "item.semiconductor-lab.printing_ink.note2": "すす2＋煮アマニ油のワニス（瓶は戻る）→ 2。C の活版印刷 [15-02] の材料。",
   "item.semiconductor-lab.printing_ink.note3": "水性のインクは金属の活字からはじかれてしまうが、油のワニスでねったインクは金属によくつき、紙に写ると空気で固まって、にじまない。",
-  "item.semiconductor-lab.printing_ink.note4": "1450年ごろ、グーテンベルクはこの油性のインクと、鉛・錫・アンチモンの活字と、ぶどうしぼり機を改造した印刷機で本を刷った ⚠️（年は資料で揺れる）。"
+  "item.semiconductor-lab.printing_ink.note4": "1450年ごろ、グーテンベルクはこの油性のインクと、鉛・錫・アンチモンの活字と、ぶどうしぼり機を改造した印刷機で本を刷った ⚠️（年は資料で揺れる）。",
+  "block.semiconductor-lab.deepslate_pyrite_ore.note2": "Y 0 より下の深層岩の中にできる。バニラの鉄や銅の鉱石と同じく、深いほど深層岩の版になる。",
+  "block.semiconductor-lab.deepslate_pyrite_ore.note3": "深層岩は、地下深くで高い圧力と熱を受けて固まった、目の詰まった暗い岩（ゲームの名前）。本物でも、深い所の鉱脈は硬い岩の中にある。",
+  "block.semiconductor-lab.deepslate_pyrite_ore.note4": "中身の鉱物は石の版と同じ。精錬・化学のレシピも同じに使える。"
 }

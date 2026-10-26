@@ -134,17 +134,22 @@ public abstract class LabTestBase {
         Registry<Feature> reg = lv.registryAccess().lookupOrThrow(Registries.FEATURE);
         Feature f = reg.getValue(SemiconductorLab.id(id));
         h.assertTrue(f != null, "feature " + id + " is not registered");
+        // 深層岩の版（S-032）：深層岩の中は deepslate_<鉱石> になる。無ければ元の鉱石だけ
+        var oreKey = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(ore);
+        Block deep = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getOptional(net.minecraft.resources.Identifier.fromNamespaceAndPath(oreKey.getNamespace(), "deepslate_" + oreKey.getPath())).orElse(null);
+        Predicate<BlockState> isOre = st -> st.is(ore) || (deep != null && st.is(deep));
         int placed = 0;
         for (long seed = 0; seed < 8 && placed == 0; seed++) {
             f.place(lv, lv.getChunkSource().getGenerator(), RandomSource.create(seed), h.absolutePos(p(4, 4, 4)));
             placed = 0;
-            for (BlockPos a : before.keySet()) if (lv.getBlockState(a).is(ore)) placed++;
+            for (BlockPos a : before.keySet()) if (isOre.test(lv.getBlockState(a))) placed++;
         }
         h.assertTrue(placed > 0, "feature " + id + " placed no ore in a block of " + target);
         for (Map.Entry<BlockPos, BlockState> e : before.entrySet()) {
             BlockState now = lv.getBlockState(e.getKey());
             if (now.equals(e.getValue())) continue;
-            h.assertTrue(now.is(ore), "feature " + id + " changed " + e.getValue() + " into " + now + " at " + e.getKey());
+            h.assertTrue(isOre.test(now), "feature " + id + " changed " + e.getValue() + " into " + now + " at " + e.getKey());
+            if (deep != null) h.assertTrue(now.is(deep) == e.getValue().is(net.minecraft.tags.BlockTags.DEEPSLATE_ORE_REPLACEABLES), "feature " + id + ": the deepslate version only in deepslate, at " + e.getKey());
             h.assertTrue(replaceable.test(e.getValue()), "feature " + id + " replaced a non-target block " + e.getValue() + " at " + e.getKey());
         }
         LOG.info("[LAB] ore {}: placed {} blocks, all on targets ({} kept)", id, placed, other);

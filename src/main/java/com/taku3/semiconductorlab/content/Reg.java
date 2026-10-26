@@ -84,6 +84,13 @@ public final class Reg {
         return b;
     }
 
+    /**
+     * 深層岩の版の鉱石（S-032）：元の鉱石の性質を写し、少し硬く（＋1.5、バニラの深層岩の鉱石どおり）、深層岩の音。掘ると同じ物が出る（ルートは tools/gen_ore_overlay.py）
+     */
+    public static Block deepslateOre(String name, Block base) {
+        return ore(name, Block::new, BlockBehaviour.Properties.ofFullCopy(base).strength(base.defaultDestroyTime() + 1.5f, 6.0f).sound(net.minecraft.world.level.block.SoundType.DEEPSLATE));
+    }
+
     /** 機械ではない道具のブロック（例：手押しポンプ） */
     public static Block functional(String name, Function<BlockBehaviour.Properties, Block> factory, BlockBehaviour.Properties props) {
         Block b = block(name, factory, props);

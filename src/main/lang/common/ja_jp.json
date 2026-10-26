@@ -532,5 +532,19 @@
   "block.semiconductor-lab.nc_lathe.placeholder": "近似：削る時間と電力はゲームの値。",
   "block.semiconductor-lab.nc_lathe.howto": "鋼（ホッパーやベルトコンベアからも入る）・記録した穴あきテープ・ボールねじを入れて電気をつなぐ。テープの部品が鋼1つごとに出てくる。テープは白いテープを持ってマイクロメータで部品を測ると作れる。",
   "item.semiconductor-lab.gauge.taped": "📼 %s の形を穴あきテープに記録した",
-  "message.semiconductor-lab.test_speed": "テスト：電気の機械を %s 倍の速さに（1 で元どおり）"
+  "message.semiconductor-lab.test_speed": "テスト：電気の機械を %s 倍の速さに（1 で元どおり）",
+  "block.semiconductor-lab.deepslate_fluorite_ore": "深層岩の蛍石の鉱石",
+  "block.semiconductor-lab.deepslate_fluorite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
+  "block.semiconductor-lab.deepslate_galena_ore": "深層岩の方鉛鉱",
+  "block.semiconductor-lab.deepslate_galena_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
+  "block.semiconductor-lab.deepslate_pentlandite_ore": "深層岩のペントランド鉱",
+  "block.semiconductor-lab.deepslate_pentlandite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
+  "block.semiconductor-lab.deepslate_pyrite_ore": "深層岩の黄鉄鉱",
+  "block.semiconductor-lab.deepslate_pyrite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
+  "block.semiconductor-lab.deepslate_quartz_vein": "深層岩の石英鉱脈",
+  "block.semiconductor-lab.deepslate_quartz_vein.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
+  "block.semiconductor-lab.deepslate_sphalerite_ore": "深層岩の閃亜鉛鉱",
+  "block.semiconductor-lab.deepslate_sphalerite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
+  "block.semiconductor-lab.deepslate_stibnite_ore": "深層岩の輝安鉱",
+  "block.semiconductor-lab.deepslate_stibnite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。"
 }
