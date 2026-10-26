@@ -73,13 +73,8 @@ def main():
         p = OUT / "docs" / f
         p.write_text(p.read_text(encoding="utf-8").replace("https://github.com/taku3i0317-collab/semiconductor-lab", f"https://github.com/{REPO}").replace("https://taku3i0317-collab.github.io/semiconductor-lab/", "https://{}.github.io/{}/".format(*REPO.split("/"))), encoding="utf-8")
     subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "gen_sw.py"), str(OUT / "docs")], check=True)   # オフライン用の service worker（S-026）。版の番号は書き出した中身から
-    # いちばん上のページ（/tech-network/ を開くと出る）。S-052：Google Search Console の持ち主の確認（HTML タグ、公開してよい1行）
-    (OUT / "docs" / "index.html").write_text('<!doctype html><html lang="ja"><head><meta charset="utf-8">'
-        '<meta name="google-site-verification" content="lP8qobgUCL3mnbf0cKd4l2dH_m3H-Vr99uwRI9Eea1A" />'
-        '<title>tech-network — A map of technology / 技術の地図</title>'
-        '<meta name="description" content="A CC0 map of technologies from stone tools to EUV lithography and AI: what cannot be made without what. 石器から EUV・AI まで、技術のつながりの地図（CC0）。">'
-        '<link rel="canonical" href="https://taku3i0317-collab.github.io/tech-network/network.html">'
-        '<meta http-equiv="refresh" content="0; url=network.html"></head><body><a href="network.html">Technology network / 技術ネットワーク</a></body></html>\n', encoding="utf-8")
+    # いちばん上のページ（/tech-network/ を開くと出る）＝入口（S-061、tools/gen_home.py。Search Console の確認の1行〈S-052〉も入っている）。章の一覧・道案内・さがすの索引も
+    subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "gen_home.py"), str(OUT / "docs")], check=True)
 
     # Issue のひな形と自動チェック
     shutil.copytree(ROOT / ".github" / "ISSUE_TEMPLATE", OUT / ".github" / "ISSUE_TEMPLATE")
@@ -107,7 +102,7 @@ def main():
     (OUT / "CITATION.cff").write_text(fill(CITATION).replace("{DATE}", datetime.date.today().isoformat()), encoding="utf-8")
     site = "https://{}.github.io/{}/".format(*REPO.split("/"))
     urls = [f'<url><loc>{site}{pg}</loc><xhtml:link rel="alternate" hreflang="ja" href="{site}{pg}"/><xhtml:link rel="alternate" hreflang="en" href="{site}{pg}?lang=en"/></url>'
-            for pg in ["network.html", "ranking.html", "people.html", "glossary.html", "credits.html"]
+            for pg in ["index.html"] + sorted(f"chapters/{p.name}" for p in (OUT / "docs" / "chapters").glob("*.html")) + sorted(f"guides/{p.name}" for p in (OUT / "docs" / "guides").glob("*.html")) + ["network.html", "ranking.html", "people.html", "glossary.html", "credits.html"]
             + [f"nodes/{i}.html" for i in json.loads((ROOT / "docs" / "nodes" / "index.json").read_text(encoding="utf-8"))["indexed"]]
             + (["wiki/index.html"] + [f"wiki/{x['u']}" for x in json.loads((ROOT / "docs" / "wiki" / "index.json").read_text(encoding="utf-8"))] if (ROOT / "docs" / "wiki" / "index.json").exists() else [])]   # S-056：ウィキ   # S-054：中身のあるノードのページ（noindex の物は入れない）
     (OUT / "docs" / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
