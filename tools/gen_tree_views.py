@@ -685,6 +685,20 @@ def export_json(nodes):
     for x in meta.get("extra_links", []):
         if "from" in x and x["from"] in nodes and x["to"] in nodes:
             edges.append({"from": x["from"], "to": x["to"], "kind": x["kind"]})
+    # S-062：存命と見られる人の名前を、書き出すすべての文で置きかえる（network_meta の living_names。長い物から）
+    _ln = sorted(((meta.get("living_names") or {}).get("map") or {}).items(), key=lambda kv: -len(kv[0]))
+    def _scrub(v):
+        if isinstance(v, str):
+            for a, b in _ln:
+                v = v.replace(a, b)
+            return v
+        if isinstance(v, list):
+            return [_scrub(x) for x in v]
+        if isinstance(v, dict):
+            return {k: (_scrub(x) if k not in ("id", "icon", "portrait", "url", "sources") else x) for k, x in v.items()}
+        return v
+    if _ln:
+        out_nodes[:] = [_scrub(n) for n in out_nodes]
     # 重複を消す（NET-05）：「本物」は real_full だけ（real は1行目の400字なので表示側で作る）。肖像は人物ごとに1か所（portraits）にまとめて番号で参照
     portraits, pidx = [], {}
     for n in out_nodes:
@@ -722,21 +736,7 @@ def export_json(nodes):
         for _it in json.loads(_wf.read_text(encoding="utf-8")).get("items", []):
             if _it.get("node") and _it["id"].startswith("semiconductor-lab:"):
                 WIKI_ITEMS.setdefault(_it["node"], []).append({"s": _it["id"].split(":", 1)[1], "ja": _it["name"].get("ja") or _it["name"].get("en"), "en": _it["name"].get("en")})
-    # S-062：存命と見られる人の名前を、書き出すすべての文で置きかえる（network_meta の living_names。長い物から）
-    _ln = sorted(((meta.get("living_names") or {}).get("map") or {}).items(), key=lambda kv: -len(kv[0]))
-    def _scrub(v):
-        if isinstance(v, str):
-            for a, b in _ln:
-                v = v.replace(a, b)
-            return v
-        if isinstance(v, list):
-            return [_scrub(x) for x in v]
-        if isinstance(v, dict):
-            return {k: (_scrub(x) if k not in ("id", "icon", "portrait", "url", "sources") else x) for k, x in v.items()}
-        return v
-    if _ln:
-        out_nodes[:] = [_scrub(n) for n in out_nodes]
-        # S-047：出典のある丸（「あ！」の道に使える）：REFERENCES の確かさ ◎○ か、出典の URL がある
+    # S-047：出典のある丸（「あ！」の道に使える）：REFERENCES の確かさ ◎○ か、出典の URL がある
     for n in out_nodes:
         n["wiki_items"] = WIKI_ITEMS.get(n["id"], [])[:40]   # S-056：このノードのゲームのアイテム（ウィキのページへ）
         n["reading"] = [{k: b.get(k) for k in ("title", "authors", "year", "ja")} for b in (meta.get("reading") or {}).get("books", []) if n["id"] in b.get("nodes", [])]   # S-055：もっと知りたい人へ（Manual for Civilization の推薦の本）
