@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:clay_crucible",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:tungsten_powder",
+    "semiconductor-lab:chromium"
+  ],
+  "result": {
+    "id": "semiconductor-lab:hss_charge",
+    "count": 1
+  }
+}

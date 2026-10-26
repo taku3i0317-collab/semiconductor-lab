@@ -56,6 +56,7 @@ EXTRA_WAYS = {
     "chip": ["machine:dicing_saw"],               # ダイシングソー：処理したウェハーを割る
     "layout_sheet": ["machine:drafting_table"], "rubylith": ["machine:drafting_table"],   # 製図台（⚠️ 材料なし、S-001）
     "stamp": ["machine:probe_station"],           # 検査台：調べた回路をハンコに
+    "hss_tool_bit": ["machine:crucible_furnace"],   # IMP4 [1-65] るつぼ炉：ハイスの仕込みを溶かす
     "aluminized_mirror": ["machine:evaporator"],   # IMP2 O-036
     "chrome_blank": ["machine:evaporator"],   # IMP2 O-036
     "coated_crown_lens": ["machine:evaporator"],   # IMP2 O-036

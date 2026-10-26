@@ -1264,6 +1264,9 @@
 "hss_charge": [
 "crafting"
 ],
+"hss_tool_bit": [
+"machine:crucible_furnace"
+],
 "hydrochloric_acid": [
 "crafting",
 "machine:hcl_burner",
