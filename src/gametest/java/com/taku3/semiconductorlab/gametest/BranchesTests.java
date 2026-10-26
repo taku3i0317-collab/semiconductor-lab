@@ -80,6 +80,21 @@ import java.util.function.Predicate;
  * この幹のノードを足したら、テストはここに足す（新しいクラスを作ったら src/gametest/resources/fabric.mod.json にも1行）。
  */
 public class BranchesTests extends LabTestBase {
+    /** [7-27] ペッツバールレンズ（IMP2 O-040）：持ち物に入れるとダゲレオタイプのちょうどよい露光が 60秒 → 3秒 */
+    @GameTest
+    public void petzval_lens(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "petzval_lens", com.taku3.semiconductorlab.content.Optics.CROWN_LENS) && recipeUses(h, "petzval_lens", com.taku3.semiconductorlab.content.Optics.FLINT_LENS), "4 lenses: crown + flint");
+        ItemStack plate = new ItemStack(Branches.DAGUERREOTYPE_PLATE);
+        int before = com.taku3.semiconductorlab.item.CameraItem.targetTicks(plate, false), after = com.taku3.semiconductorlab.item.CameraItem.targetTicks(plate, true);
+        h.assertTrue(before == 20 * 60 && after == 20 * 3, "60 s -> 3 s, got " + before + " -> " + after);
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertFalse(com.taku3.semiconductorlab.item.CameraItem.hasPetzval(player), "no lens");
+        player.getInventory().add(new ItemStack(com.taku3.semiconductorlab.content.Optics.PETZVAL_LENS));
+        h.assertTrue(com.taku3.semiconductorlab.item.CameraItem.hasPetzval(player), "lens in the inventory");
+        LOG.info("[LAB] Petzval lens [7-27]: daguerreotype exposure 60 s -> 3 s");
+        h.succeed();
+    }
+
     /** [P-17] スマホのカメラ（IMP2 O-030・O-031）：色の分かる画像センサー（E の素子＋ベイヤー）＋小さなレンズ＋赤外線カット膜 → カメラモジュール。右クリックでその場でカラーの写真 */
     @GameTest
     public void camera_module(GameTestHelper h) {

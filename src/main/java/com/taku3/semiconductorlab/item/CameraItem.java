@@ -35,6 +35,21 @@ public class CameraItem extends Item {
         return 0;
     }
 
+    /** [7-27] ペッツバールレンズ（F3.6 ほど、それまでのレンズの約20倍明るい）を持ち物に入れていると、ちょうどよい露光が 1/{@value #PETZVAL_FACTOR} */
+    public static final int PETZVAL_FACTOR = 20;
+
+    public static boolean hasPetzval(Player p) {
+        var inv = p.getInventory();
+        for (int i = 0; i < inv.getContainerSize(); i++) if (inv.getItem(i).is(com.taku3.semiconductorlab.content.Optics.PETZVAL_LENS)) return true;
+        return false;
+    }
+
+    /** レンズの明るさまで入れた、ちょうどよい露光（tick） */
+    public static int targetTicks(ItemStack plate, boolean petzval) {
+        int t = targetTicks(plate);
+        return petzval && t > 0 ? Math.max(1, t / PETZVAL_FACTOR) : t;
+    }
+
     /** 光の強さ（0〜1） */
     public static double light(Level level, BlockPos pos) {
         if (!level.isBrightOutside() || !SaltPanBlockEntity.openSky(level, pos)) return 0;
@@ -64,13 +79,13 @@ public class CameraItem extends Item {
         if (level.isClientSide() || !(entity instanceof Player p)) return false;
         InteractionHand hand = p.getUsedItemHand();
         ItemStack plate = p.getItemInHand(other(hand));
-        int target = targetTicks(plate);
+        int target = targetTicks(plate, hasPetzval(p));
         if (target <= 0) return false;
         int ticks = getUseDuration(stack, entity) - timeLeft;
         int exposure = exposurePercent(ticks, light(level, p.blockPosition()), target);
         BlockPos pos = p.blockPosition();
         String biome = level.getBiome(pos).unwrapKey().map(k -> k.identifier().getPath()).orElse("?");
-        boolean dry = target == DRY_TARGET_TICKS;
+        boolean dry = plate.is(com.taku3.semiconductorlab.content.Optics.PHOTO_PLATE);
         PhotoData data = new PhotoData(biome + " (" + pos.getX() + ", " + pos.getZ() + ")", level.getOverworldClockTime(), exposure, dry ? "dry_plate" : "daguerreotype");
         ItemStack exposed = new ItemStack(dry ? Branches.EXPOSED_DRY_PLATE : Branches.EXPOSED_PLATE);
         exposed.set(Branches.PHOTO, data);

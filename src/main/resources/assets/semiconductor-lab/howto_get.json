@@ -1894,6 +1894,9 @@
 "peroxide_cell": [
 "crafting"
 ],
+"petzval_lens": [
+"crafting"
+],
 "pewter_plate": [
 "crafting"
 ],
@@ -10710,6 +10713,23 @@
 ]
 ]
 },
+"petzval_lens": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:crown_lens",
+2
+],
+[
+"semiconductor-lab:flint_lens",
+2
+],
+[
+"minecraft:copper_ingot",
+1
+]
+]
+},
 "pewter_plate": {
 "via": "crafting",
 "in": [
@@ -17425,6 +17445,10 @@
 "peroxide_cell": [
 "minecraft:blocks",
 "semiconductor-lab:block/peroxide_cell_front"
+],
+"petzval_lens": [
+"minecraft:items",
+"semiconductor-lab:item/petzval_lens"
 ],
 "pewter_plate": [
 "minecraft:items",

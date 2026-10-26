@@ -64,6 +64,8 @@ public final class Optics {
     // [7-09] マイケルソン干渉計（IMP2-01）：半透明鏡＋スペキュラム鏡×2＋送りねじ（動く鏡）＋鉄の台。水銀の緑線 546.1nm で長さを測る
     public static final Item INTERFEROMETER        = Reg.item("interferometer", InterferometerItem::new, new Item.Properties().stacksTo(1));
     // [7-22] 反射防止膜（IMP2-01）：真空蒸着装置でレンズに CaF2 を 1/4 波長の厚さ付けたもの（表面の反射 約4% → 約2%）。投影レンズ [7-19] の材料
+    // [7-27] ペッツバールレンズ（IMP2 O-040、1840）：計算で設計した4枚組（F3.6 ほど）。持ち物に入れてカメラで写すと、ちょうどよい露光の時間が約 1/20
+    public static final Item PETZVAL_LENS          = Reg.item("petzval_lens", new Item.Properties().stacksTo(1));
     public static final Item COATED_CROWN_LENS     = Reg.item("coated_crown_lens");
     public static final Item COATED_FLINT_LENS     = Reg.item("coated_flint_lens");
     // [7-15] 紫外光学材料・CaF2（IMP2-02）：ブリッジマン炉で蛍石を溶かして単結晶に → 削って磨いて CaF2 レンズ（紫外を通す。色消しのアポクロマートにも）

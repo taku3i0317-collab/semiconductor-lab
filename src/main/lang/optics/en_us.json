@@ -520,5 +520,11 @@
   "item.semiconductor-lab.euv_high_na_optics.note4": "Raising NA would make light strike the mask too steeply, so the magnification differs between directions (anamorphic: 1/4 one way, 1/8 the other). The exposure field halves, and large chips are printed in two parts and stitched.",
   "item.semiconductor-lab.euv_high_na_optics.placeholder": "Approximation: anamorphic imaging is represented as double steps. The centring limit (1.6 um) and NA 0.55 effects are game values.",
   "block.semiconductor-lab.euv_source.howto": "Put a pumped-down vacuum chamber and CO2 lasers next to it, add tin, a droplet generator and a multilayer mirror, and connect power. Hydrogen keeps the mirror clean.",
-  "block.semiconductor-lab.mercury_lamp.howto": "Just connect power and it glows. Nothing is used up. A spectroscope shows mercury's coloured lines."
+  "block.semiconductor-lab.mercury_lamp.howto": "Just connect power and it glows. Nothing is used up. A spectroscope shows mercury's coloured lines.",
+  "item.semiconductor-lab.petzval_lens": "Petzval Lens",
+  "item.semiconductor-lab.petzval_lens.note1": "A very bright photographic lens. Pictures take far less time to expose.",
+  "item.semiconductor-lab.petzval_lens.note2": "2 crown lenses + 2 flint lenses + copper (barrel). Carry it while using the camera and the right exposure is 1/20 as long (daguerreotype 60 s -> 3 s).",
+  "item.semiconductor-lab.petzval_lens.note3": "Designed by calculation by the mathematician Petzval in 1840. It was about 20 times brighter than earlier photographic lenses.",
+  "item.semiconductor-lab.petzval_lens.note4": "Brightness is given by the f-number (focal length / lens diameter); the smaller it is, the brighter. With this lens a portrait took only as long as a person could sit still. ⚠️ The lens design maths is skipped; the factor is a game value.",
+  "item.semiconductor-lab.petzval_lens.placeholder": "Approximation: the lens design is skipped; the 20x brightness factor is a game value."
 }

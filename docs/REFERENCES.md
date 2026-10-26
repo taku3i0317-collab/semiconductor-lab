@@ -3020,6 +3020,18 @@
 根拠：
 - Wikipedia「Rail transport」「Richard Trevithick」「Stockton and Darlington Railway」「Rail transport in Japan」：https://en.wikipedia.org/wiki/Rail_transport ・ https://en.wikipedia.org/wiki/Richard_Trevithick ・ https://en.wikipedia.org/wiki/Stockton_and_Darlington_Railway ・ https://en.wikipedia.org/wiki/Rail_transport_in_Japan
 
+## O98. 20倍明るいレンズ（ペッツバールレンズ）［7-27］
+**答え**：1839年に発表されたダゲレオタイプは、日なたでも何分も動かずにいないと写らなかった。1840年、数学者のヨーゼフ・ペッツバールが計算で設計した4枚組のレンズ（F3.6 ほど）は、それまでの写真のレンズより約20倍明るく、肖像写真が数十秒でとれるようになった。レンズの明るさは F 値（焦点の長さ ÷ レンズの直径）で表し、小さいほど明るい。
+
+- へえ①：レンズを経験ではなく計算で設計した、早い例の1つ。
+- へえ②：F 値が半分になると、光は4倍入る。
+- へえ③：明るいレンズのおかげで、写真館の肖像写真が広まった。
+- へえ④：ペッツバールは設計の約束のお金をきちんと受け取れなかったと言われる ⚠️。
+
+確かさ：ペッツバール 1840・F3.6・約20倍 ○／約束のお金の話 △⚠️
+根拠：
+- Wikipedia「Petzval lens」「Joseph Petzval」「F-number」：https://en.wikipedia.org/wiki/Petzval_lens ・ https://en.wikipedia.org/wiki/Joseph_Petzval ・ https://en.wikipedia.org/wiki/F-number
+
 ---
 
 # 冶金と熱（タスク15〜）

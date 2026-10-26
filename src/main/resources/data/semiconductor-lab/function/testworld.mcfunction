@@ -586,49 +586,51 @@ setblock ~17 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduc
 setblock ~20 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-02] 溶融石英","（人間の確認項目なし）","",""]}}
 setblock ~20 ~0 ~58 semiconductor-lab:oxyhydrogen_burner
 setblock ~21 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:fused_quartz",count:16},{Slot:1b,id:"semiconductor-lab:quartz_tube",count:16},{Slot:2b,id:"semiconductor-lab:silicon_tetrachloride",count:16},{Slot:3b,id:"semiconductor-lab:hydrogen_cylinder",count:16},{Slot:4b,id:"semiconductor-lab:oxygen_cylinder",count:16},{Slot:5b,id:"semiconductor-lab:ruby_feed",count:16},{Slot:6b,id:"semiconductor-lab:ule_feed",count:16},{Slot:7b,id:"semiconductor-lab:vein_quartz",count:16}]}
-setblock ~24 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] photo_plat","（人間の確認項目なし）","",""]}}
-setblock ~24 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:photo_plate",count:16}]}
-setblock ~27 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-09] 干渉計","点灯中の水銀灯を干渉計","で右クリック → 縞の","本数と長さの3行がチャ"]}}
-setblock ~27 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:interferometer",count:1}]}
-setblock ~30 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-10] 水銀ランプ","水銀灯をケーブルにつな","いで光るか（前面の絵・","明るさ）、右クリックの"]}}
-setblock ~30 ~0 ~58 semiconductor-lab:mercury_lamp
-setblock ~31 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mercury_lamp_assembly",count:16},{Slot:1b,id:"semiconductor-lab:mercury_lamp_tube",count:16}]}
-setblock ~34 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-14] 真空蒸着","真空容器｜拡散ポンプ｜","回転ポンプ の容器に蒸","着装置もとなりに置いて"]}}
-setblock ~34 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:half_silvered_mirror",count:16}]}
-setblock ~37 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-15] 紫外光学材料","ブリッジマン炉の画面（","左上に蛍石・左下にアル","ゴン、電力・状態の文字"]}}
-setblock ~37 ~-1 ~58 semiconductor-lab:test_power_source
-setblock ~37 ~0 ~58 semiconductor-lab:bridgman_furnace
-setblock ~38 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:synthetic_quartz",count:16},{Slot:1b,id:"semiconductor-lab:caf2_crystal",count:16},{Slot:2b,id:"semiconductor-lab:caf2_lens",count:16},{Slot:3b,id:"semiconductor-lab:fluorite",count:16},{Slot:4b,id:"semiconductor-lab:argon_gas",count:16}]}
-setblock ~41 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-22] 反射防止膜","蒸着装置の画面に蛍石と","レンズが入るか（シフト","クリックも）。膜付きレ"]}}
-setblock ~41 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:coated_crown_lens",count:16},{Slot:1b,id:"semiconductor-lab:coated_flint_lens",count:16}]}
-setblock ~44 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-11] 銀塩フォトマス","レシピ本に乾板までの流","れが出るか。アイテムの","見た目"]}}
-setblock ~44 ~-1 ~58 semiconductor-lab:test_power_source
-setblock ~44 ~0 ~58 semiconductor-lab:reduction_camera
-setblock ~45 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hide_broth",count:16},{Slot:1b,id:"semiconductor-lab:gelatin",count:16},{Slot:2b,id:"semiconductor-lab:photo_emulsion",count:16},{Slot:3b,id:"semiconductor-lab:ferrous_sulfate",count:16},{Slot:4b,id:"semiconductor-lab:hypo_liquor",count:16},{Slot:5b,id:"semiconductor-lab:sodium_thiosulfate",count:16},{Slot:6b,id:"semiconductor-lab:photomask",count:1},{Slot:7b,id:"semiconductor-lab:rubylith",count:1},{Slot:8b,id:"semiconductor-lab:photo_plate",count:16},{Slot:9b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:10b,id:"semiconductor-lab:positive_resist",count:16},{Slot:11b,id:"semiconductor-lab:chlorine_gas",count:16}]}
-setblock ~48 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-13] レーザー原理","ルビー→棒→レーザーを","作り、鉛蓄電池を持って","右クリック。干渉計をも"]}}
-setblock ~48 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ruby_feed",count:16},{Slot:1b,id:"semiconductor-lab:ruby_boule",count:16},{Slot:2b,id:"semiconductor-lab:ruby_rod",count:1},{Slot:3b,id:"semiconductor-lab:xenon_flashlamp",count:16},{Slot:4b,id:"semiconductor-lab:ruby_laser",count:1}]}
-setblock ~51 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-21] 超低膨張ガラス","干渉計を点灯中の水銀灯","に使い、もう片方の手に"," ULE・石英・鋼を持"]}}
-setblock ~51 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ule_feed",count:16},{Slot:1b,id:"semiconductor-lab:ule_glass",count:16}]}
-setblock ~54 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-14] CO2 レーザ","反射炉の煙道の表示（「","煙道」）、方解石で C","O2 の袋が出るか。C"]}}
-setblock ~54 ~-1 ~58 semiconductor-lab:test_power_source
-setblock ~54 ~0 ~58 semiconductor-lab:co2_laser
-setblock ~55 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:salt_window",count:1},{Slot:1b,id:"semiconductor-lab:vein_quartz",count:16}]}
-setblock ~58 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-12] クロムマスク","真空蒸着装置で合成石英","＋クロム → ブランク","。縮小カメラにブランク"]}}
-setblock ~58 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:chrome_blank",count:16},{Slot:1b,id:"semiconductor-lab:chrome_photomask",count:1}]}
-setblock ~61 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-20] エキシマレーザ","KrF レーザーと K","rF の投影レンズを作","り、ステッパーで方眼6"]}}
-setblock ~61 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:krf_laser",count:1},{Slot:1b,id:"semiconductor-lab:arf_laser",count:1},{Slot:2b,id:"semiconductor-lab:projection_lens_arf",count:1},{Slot:3b,id:"semiconductor-lab:projection_lens_krf",count:1}]}
-setblock ~64 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-19] 投影レンズ","投影レンズで点灯中の水","銀灯を右クリック → ","チャットのテスト露光（"]}}
-setblock ~64 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens",count:1}]}
-setblock ~67 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに塗った板・","クロムマスク・投影レン","ズ＋電気で「1チップ送"]}}
-setblock ~67 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens_i",count:1},{Slot:1b,id:"semiconductor-lab:i_line_filter",count:1},{Slot:2b,id:"semiconductor-lab:annular_aperture",count:1},{Slot:3b,id:"semiconductor-lab:quadrupole_aperture",count:1},{Slot:4b,id:"semiconductor-lab:phase_shift_mask",count:1}]}
-setblock ~70 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-17] 多層膜ミラー","スパッタ装置の入口に ","ULE ガラス・的の入","口に Mo/Si の的"]}}
-setblock ~70 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mo_si_target",count:16},{Slot:1b,id:"semiconductor-lab:multilayer_mirror",count:1}]}
-setblock ~73 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-16] 液浸光学","ステッパーの右下の超純","水の入口（ヒント「液浸","の超純水を入れて」）、"]}}
-setblock ~73 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens_immersion",count:1}]}
-setblock ~76 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-18] EUV 光源","EUV 光源の画面（電","力・EUV・レーザーの","台数・ヒント）、レーザ"]}}
-setblock ~76 ~0 ~58 semiconductor-lab:euv_source
-setblock ~80 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-40] EUV 露光装","EUV 光源・真空容器","を隣に置いて、画面の「","EUV ○mW」とヒン"]}}
-setblock ~80 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mirror_set",count:1},{Slot:1b,id:"semiconductor-lab:euv_projection_optics",count:1},{Slot:2b,id:"semiconductor-lab:euv_high_na_optics",count:1}]}
+setblock ~24 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-27] ペッツバールレ","レンズを持ち物に入れ、","昼の空の下でダゲレオタ","イプを3秒ほど写す →"]}}
+setblock ~24 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:petzval_lens",count:1}]}
+setblock ~27 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] photo_plat","（人間の確認項目なし）","",""]}}
+setblock ~27 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:photo_plate",count:16}]}
+setblock ~30 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-09] 干渉計","点灯中の水銀灯を干渉計","で右クリック → 縞の","本数と長さの3行がチャ"]}}
+setblock ~30 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:interferometer",count:1}]}
+setblock ~33 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-10] 水銀ランプ","水銀灯をケーブルにつな","いで光るか（前面の絵・","明るさ）、右クリックの"]}}
+setblock ~33 ~0 ~58 semiconductor-lab:mercury_lamp
+setblock ~34 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mercury_lamp_assembly",count:16},{Slot:1b,id:"semiconductor-lab:mercury_lamp_tube",count:16}]}
+setblock ~37 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[5-14] 真空蒸着","真空容器｜拡散ポンプ｜","回転ポンプ の容器に蒸","着装置もとなりに置いて"]}}
+setblock ~37 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:half_silvered_mirror",count:16}]}
+setblock ~40 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-15] 紫外光学材料","ブリッジマン炉の画面（","左上に蛍石・左下にアル","ゴン、電力・状態の文字"]}}
+setblock ~40 ~-1 ~58 semiconductor-lab:test_power_source
+setblock ~40 ~0 ~58 semiconductor-lab:bridgman_furnace
+setblock ~41 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:synthetic_quartz",count:16},{Slot:1b,id:"semiconductor-lab:caf2_crystal",count:16},{Slot:2b,id:"semiconductor-lab:caf2_lens",count:16},{Slot:3b,id:"semiconductor-lab:fluorite",count:16},{Slot:4b,id:"semiconductor-lab:argon_gas",count:16}]}
+setblock ~44 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-22] 反射防止膜","蒸着装置の画面に蛍石と","レンズが入るか（シフト","クリックも）。膜付きレ"]}}
+setblock ~44 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:coated_crown_lens",count:16},{Slot:1b,id:"semiconductor-lab:coated_flint_lens",count:16}]}
+setblock ~47 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-11] 銀塩フォトマス","レシピ本に乾板までの流","れが出るか。アイテムの","見た目"]}}
+setblock ~47 ~-1 ~58 semiconductor-lab:test_power_source
+setblock ~47 ~0 ~58 semiconductor-lab:reduction_camera
+setblock ~48 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:hide_broth",count:16},{Slot:1b,id:"semiconductor-lab:gelatin",count:16},{Slot:2b,id:"semiconductor-lab:photo_emulsion",count:16},{Slot:3b,id:"semiconductor-lab:ferrous_sulfate",count:16},{Slot:4b,id:"semiconductor-lab:hypo_liquor",count:16},{Slot:5b,id:"semiconductor-lab:sodium_thiosulfate",count:16},{Slot:6b,id:"semiconductor-lab:photomask",count:1},{Slot:7b,id:"semiconductor-lab:rubylith",count:1},{Slot:8b,id:"semiconductor-lab:photo_plate",count:16},{Slot:9b,id:"semiconductor-lab:euv_mask_blank",count:1},{Slot:10b,id:"semiconductor-lab:positive_resist",count:16},{Slot:11b,id:"semiconductor-lab:chlorine_gas",count:16}]}
+setblock ~51 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-13] レーザー原理","ルビー→棒→レーザーを","作り、鉛蓄電池を持って","右クリック。干渉計をも"]}}
+setblock ~51 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ruby_feed",count:16},{Slot:1b,id:"semiconductor-lab:ruby_boule",count:16},{Slot:2b,id:"semiconductor-lab:ruby_rod",count:1},{Slot:3b,id:"semiconductor-lab:xenon_flashlamp",count:16},{Slot:4b,id:"semiconductor-lab:ruby_laser",count:1}]}
+setblock ~54 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-21] 超低膨張ガラス","干渉計を点灯中の水銀灯","に使い、もう片方の手に"," ULE・石英・鋼を持"]}}
+setblock ~54 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:ule_feed",count:16},{Slot:1b,id:"semiconductor-lab:ule_glass",count:16}]}
+setblock ~57 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-14] CO2 レーザ","反射炉の煙道の表示（「","煙道」）、方解石で C","O2 の袋が出るか。C"]}}
+setblock ~57 ~-1 ~58 semiconductor-lab:test_power_source
+setblock ~57 ~0 ~58 semiconductor-lab:co2_laser
+setblock ~58 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:salt_window",count:1},{Slot:1b,id:"semiconductor-lab:vein_quartz",count:16}]}
+setblock ~61 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-12] クロムマスク","真空蒸着装置で合成石英","＋クロム → ブランク","。縮小カメラにブランク"]}}
+setblock ~61 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:chrome_blank",count:16},{Slot:1b,id:"semiconductor-lab:chrome_photomask",count:1}]}
+setblock ~64 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-20] エキシマレーザ","KrF レーザーと K","rF の投影レンズを作","り、ステッパーで方眼6"]}}
+setblock ~64 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:krf_laser",count:1},{Slot:1b,id:"semiconductor-lab:arf_laser",count:1},{Slot:2b,id:"semiconductor-lab:projection_lens_arf",count:1},{Slot:3b,id:"semiconductor-lab:projection_lens_krf",count:1}]}
+setblock ~67 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-19] 投影レンズ","投影レンズで点灯中の水","銀灯を右クリック → ","チャットのテスト露光（"]}}
+setblock ~67 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens",count:1}]}
+setblock ~70 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-39] 縮小投影露光","ステッパーに塗った板・","クロムマスク・投影レン","ズ＋電気で「1チップ送"]}}
+setblock ~70 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens_i",count:1},{Slot:1b,id:"semiconductor-lab:i_line_filter",count:1},{Slot:2b,id:"semiconductor-lab:annular_aperture",count:1},{Slot:3b,id:"semiconductor-lab:quadrupole_aperture",count:1},{Slot:4b,id:"semiconductor-lab:phase_shift_mask",count:1}]}
+setblock ~73 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-17] 多層膜ミラー","スパッタ装置の入口に ","ULE ガラス・的の入","口に Mo/Si の的"]}}
+setblock ~73 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:mo_si_target",count:16},{Slot:1b,id:"semiconductor-lab:multilayer_mirror",count:1}]}
+setblock ~76 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-16] 液浸光学","ステッパーの右下の超純","水の入口（ヒント「液浸","の超純水を入れて」）、"]}}
+setblock ~76 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:projection_lens_immersion",count:1}]}
+setblock ~79 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[7-18] EUV 光源","EUV 光源の画面（電","力・EUV・レーザーの","台数・ヒント）、レーザ"]}}
+setblock ~79 ~0 ~58 semiconductor-lab:euv_source
+setblock ~83 ~0 ~57 minecraft:oak_sign[rotation=8]{front_text:{messages:["[9-40] EUV 露光装","EUV 光源・真空容器","を隣に置いて、画面の「","EUV ○mW」とヒン"]}}
+setblock ~83 ~0 ~58 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:euv_mirror_set",count:1},{Slot:1b,id:"semiconductor-lab:euv_projection_optics",count:1},{Slot:2b,id:"semiconductor-lab:euv_high_na_optics",count:1}]}
 setblock ~0 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹8 精密","↓ この列","",""]}}
 setblock ~2 ~0 ~65 minecraft:oak_sign[rotation=8]{front_text:{messages:["[8-19] 滑車","ブロックを右クリックし","て力と綱の長さの文",""]}}
 setblock ~2 ~0 ~66 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:simple_pulley",count:16},{Slot:1b,id:"semiconductor-lab:compound_pulley",count:16}]}
