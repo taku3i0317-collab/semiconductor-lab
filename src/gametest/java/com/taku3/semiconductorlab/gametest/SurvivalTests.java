@@ -430,11 +430,21 @@ public class SurvivalTests extends LabTestBase {
     public void pottersWheelAndWheel(GameTestHelper h) {
         var lv = h.getLevel();
         var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        var W = com.taku3.semiconductorlab.block.PottersWheelBlock.class;
+        floor(h, 3);
+        BlockPos wp = p(1, 1, 1);
+        h.setBlock(wp, Survival.POTTERS_WHEEL);
+        BlockPos a = h.absolutePos(wp);
         ItemStack clay = new ItemStack(Items.CLAY_BALL, 5);
-        h.assertTrue(com.taku3.semiconductorlab.block.PottersWheelBlock.throwPot(player, clay), "throw a pot on the wheel");
+        h.assertFalse(com.taku3.semiconductorlab.block.PottersWheelBlock.startSpin(lv, a, player), "no clay: does not spin");
+        for (int i = 0; i < 3; i++) com.taku3.semiconductorlab.block.PottersWheelBlock.addClay(lv, a, player, clay);
+        h.assertValueEqual(h.getBlockState(wp).getValue(com.taku3.semiconductorlab.block.PottersWheelBlock.CLAY), 3, "lump grows to 3");
+        h.assertFalse(com.taku3.semiconductorlab.block.PottersWheelBlock.addClay(lv, a, player, clay), "full");
         h.assertValueEqual(clay.getCount(), 2, "3 clay used (5 by hand)");
-        h.assertValueEqual(player.getInventory().countItem(Survival.RAW_CLAY_POT), 1, "unfired pot");
-        h.assertFalse(com.taku3.semiconductorlab.block.PottersWheelBlock.throwPot(player, clay), "2 clay is not enough");
+        h.assertTrue(com.taku3.semiconductorlab.block.PottersWheelBlock.startSpin(lv, a, player), "spin");
+        for (int i = 0; i < com.taku3.semiconductorlab.block.PottersWheelBlock.SPIN_STEPS; i++) com.taku3.semiconductorlab.block.PottersWheelBlock.step(lv, a);
+        h.assertValueEqual(h.getBlockState(wp).getValue(com.taku3.semiconductorlab.block.PottersWheelBlock.CLAY), 0, "clay used, wheel stops");
+        h.assertTrue(!lv.getEntitiesOfClass(net.minecraft.world.entity.item.ItemEntity.class, new net.minecraft.world.phys.AABB(a).inflate(2), e -> e.getItem().is(Survival.RAW_CLAY_POT)).isEmpty(), "unfired pot pops out (" + W.getSimpleName() + ")");
         h.assertTrue(recipeUses(h, "potters_wheel", Survival.SPINDLE_SHAFT) && recipeUses(h, "potters_wheel", Items.STONE), "wheel = stone disc (flywheel) + spindle shaft (axle)");
 
         var mgr = lv.getServer().getRecipeManager();

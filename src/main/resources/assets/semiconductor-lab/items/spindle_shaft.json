@@ -1,6 +1,130 @@
 {
   "model": {
-    "type": "minecraft:model",
-    "model": "semiconductor-lab:item/spindle_shaft"
+    "type": "minecraft:condition",
+    "property": "minecraft:using_item",
+    "on_true": {
+      "type": "minecraft:range_dispatch",
+      "property": "minecraft:use_duration",
+      "entries": [
+        {
+          "threshold": 0,
+          "model": {
+            "type": "minecraft:range_dispatch",
+            "property": "minecraft:use_cycle",
+            "period": 4,
+            "entries": [
+              {
+                "threshold": 0,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_0_0"
+                }
+              },
+              {
+                "threshold": 1,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_0_1"
+                }
+              },
+              {
+                "threshold": 2,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_0_2"
+                }
+              },
+              {
+                "threshold": 3,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_0_3"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "threshold": 7,
+          "model": {
+            "type": "minecraft:range_dispatch",
+            "property": "minecraft:use_cycle",
+            "period": 4,
+            "entries": [
+              {
+                "threshold": 0,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_1_0"
+                }
+              },
+              {
+                "threshold": 1,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_1_1"
+                }
+              },
+              {
+                "threshold": 2,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_1_2"
+                }
+              },
+              {
+                "threshold": 3,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_1_3"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "threshold": 13,
+          "model": {
+            "type": "minecraft:range_dispatch",
+            "property": "minecraft:use_cycle",
+            "period": 4,
+            "entries": [
+              {
+                "threshold": 0,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_2_0"
+                }
+              },
+              {
+                "threshold": 1,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_2_1"
+                }
+              },
+              {
+                "threshold": 2,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_2_2"
+                }
+              },
+              {
+                "threshold": 3,
+                "model": {
+                  "type": "minecraft:model",
+                  "model": "semiconductor-lab:item/spindle_shaft_drop_2_3"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "semiconductor-lab:item/spindle_shaft"
+    }
   }
 }

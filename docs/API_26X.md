@@ -917,3 +917,5 @@ public boolean instabuild;                         // クリエイティブ（�
 - Item.Properties attributes(ItemAttributeModifiers)、ItemAttributeModifiers.builder().add(Holder<Attribute>, AttributeModifier, EquipmentSlotGroup).build()
 - new AttributeModifier(Identifier, double, AttributeModifier.Operation)、Operation：ADD_VALUE / ADD_MULTIPLIED_BASE / ADD_MULTIPLIED_TOTAL
 - Attributes.MOVEMENT_SPEED（Holder）、EquipmentSlotGroup.MAINHAND。読むとき：DataComponents.ATTRIBUTE_MODIFIERS → modifiers()（Entry：attribute()・modifier()・slot()）、modifier().amount()
+- 持った物の動き（S-012 落とし紡錘、IMP3）：items/*.json の `minecraft:condition` property `minecraft:using_item`（on_true/on_false）、`minecraft:range_dispatch` property `minecraft:use_cycle`（`period`、値＝残り tick ％ period）・`minecraft:use_duration`（値＝使った tick。`remaining` で残り）。ItemUseAnimation は NONE/EAT/DRINK/BLOCK/BOW/TRIDENT/CROSSBOW/SPYGLASS/TOOT_HORN/BRUSH/BUNDLE/SPEAR（javap 済み）
+- ブロックの予約 tick（ろくろの回転）：`level.scheduleTick(pos, block, delay)` と Block の `protected void tick(BlockState, ServerLevel, BlockPos, RandomSource)`、`Block.popResourceFromFace(level, pos, Direction, stack)`

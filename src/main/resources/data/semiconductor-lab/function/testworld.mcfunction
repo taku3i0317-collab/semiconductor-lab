@@ -58,11 +58,11 @@ setblock ~30 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconduct
 setblock ~33 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-16] 塩田","（人間の確認項目なし）","",""]}}
 setblock ~33 ~0 ~2 semiconductor-lab:salt_pan
 setblock ~34 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:bittern",count:16}]}
-setblock ~37 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-19] ろくろ","ろくろを置いて、粘土玉","を持って右クリックする","と生の土器ができるか（"]}}
+setblock ~37 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-19] ろくろ","（人間の確認項目なし）","",""]}}
 setblock ~37 ~0 ~2 semiconductor-lab:potters_wheel
 setblock ~41 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-07] 羊毛と紡錘車","もう片方の手に繊維を持","って右クリックを押し続","けると、棒だけは1秒・"]}}
 setblock ~41 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:raw_clay_whorl",count:16},{Slot:1b,id:"semiconductor-lab:earthenware_whorl",count:16},{Slot:2b,id:"semiconductor-lab:stone_whorl",count:16},{Slot:3b,id:"semiconductor-lab:spindle_shaft",count:1},{Slot:4b,id:"semiconductor-lab:spindle",count:1},{Slot:5b,id:"semiconductor-lab:carded_wool",count:16},{Slot:6b,id:"semiconductor-lab:woolen_yarn",count:16}]}
-setblock ~44 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-09] 車輪","ろくろを置いて、粘土玉","を持って右クリックする","と生の土器ができるか（"]}}
+setblock ~44 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[0-09] 車輪","（人間の確認項目なし）","",""]}}
 setblock ~44 ~0 ~2 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:wooden_wheel",count:16}]}
 setblock ~47 ~0 ~1 minecraft:oak_sign[rotation=8]{front_text:{messages:["[-] assembly_b","（人間の確認項目なし）","",""]}}
 setblock ~47 ~0 ~2 semiconductor-lab:assembly_bench

@@ -1,7 +1,69 @@
 {
-  "variants": {
-    "": {
-      "model": "semiconductor-lab:block/potters_wheel"
+  "multipart": [
+    {
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel"
+      }
+    },
+    {
+      "when": {
+        "spin": "0|4|8|12|16"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel_mark",
+        "y": 0
+      }
+    },
+    {
+      "when": {
+        "spin": "1|5|9|13"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel_mark",
+        "y": 90
+      }
+    },
+    {
+      "when": {
+        "spin": "2|6|10|14"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel_mark",
+        "y": 180
+      }
+    },
+    {
+      "when": {
+        "spin": "3|7|11|15"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel_mark",
+        "y": 270
+      }
+    },
+    {
+      "when": {
+        "clay": "1"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel_clay1"
+      }
+    },
+    {
+      "when": {
+        "clay": "2"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel_clay2"
+      }
+    },
+    {
+      "when": {
+        "clay": "3"
+      },
+      "apply": {
+        "model": "semiconductor-lab:block/potters_wheel_clay3"
+      }
     }
-  }
+  ]
 }

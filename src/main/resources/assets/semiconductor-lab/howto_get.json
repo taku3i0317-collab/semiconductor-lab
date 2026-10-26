@@ -18005,14 +18005,6 @@
 "minecraft:blocks",
 "semiconductor-lab:block/spin_coater_front"
 ],
-"spindle": [
-"minecraft:items",
-"semiconductor-lab:item/spindle"
-],
-"spindle_shaft": [
-"minecraft:items",
-"semiconductor-lab:item/spindle_shaft"
-],
 "spodumene": [
 "minecraft:items",
 "semiconductor-lab:item/spodumene"

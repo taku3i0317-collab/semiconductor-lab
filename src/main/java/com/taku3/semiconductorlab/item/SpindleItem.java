@@ -18,6 +18,8 @@ import net.minecraft.world.level.Level;
  * 紡錘 [0-07]（つむ。回して繊維に撚りをかけ、糸にする道具）。もう片方の手に繊維（亜麻の繊維・ほぐした羊毛）を持って、右クリックを押している間まわる。
  * 紡錘車（はずみ車）が付いていると、回転の勢い（慣性モーメント）が大きいので長く回り続け、1回で多くの糸ができる。
  * 棒だけだとすぐ止まり、1回で少ししかできない。材料の比（繊維2 → 糸1）はどちらも同じ。
+ * 動き（S-012）：落とし紡錘（つむを指でひねって放し、糸にぶら下げて回す。撚りは上の、手で引き出している繊維へ上っていく）。
+ * 腕は振らず（NONE）、使っている間は持った物のモデルが「糸にぶら下がって回る紡錘」に替わり、紡錘車の上に糸が巻き取られて太る（assets/items/spindle*.json）。
  */
 public class SpindleItem extends Item {
     /** 糸1本ぶん撚るのにかかる回転の時間（tick） */
@@ -62,7 +64,7 @@ public class SpindleItem extends Item {
     public int getUseDuration(ItemStack stack, LivingEntity entity) { return spinTicks; }
 
     @Override
-    public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.BRUSH; }
+    public ItemUseAnimation getUseAnimation(ItemStack stack) { return ItemUseAnimation.NONE; }
 
     /** 回りきった */
     @Override
