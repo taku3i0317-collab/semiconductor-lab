@@ -61,6 +61,8 @@ public final class Semiconductor {
     public static final Item EUV_MASK_BLANK        = Reg.item("euv_mask_blank", new Item.Properties().stacksTo(1));
     public static final Item EUV_MASK              = Reg.item("euv_mask", new Item.Properties().stacksTo(1));
     // v1.0 #4 自動搬送（IMP4-01、O-026 仮決定の案A）：FOUP（ウェハー25枚の密閉の箱）とロードポート（機械の隣で FOUP から入れて出す）
+    // [9-44] サーミスタ（温度センサー）（IMP4-01、S-009）
+    public static final Item THERMISTOR            = Reg.item("thermistor", com.taku3.semiconductorlab.item.ThermistorItem::new, new Item.Properties().stacksTo(1));
     public static final Item FOUP                  = Reg.item("foup", com.taku3.semiconductorlab.item.FoupItem::new, new Item.Properties().stacksTo(1));
     public static final Item HAFNIUM_TETRACHLORIDE = Reg.contained("hafnium_tetrachloride", com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE);
     // [9-15] 熱酸化：酸化膜つきの板（純度・ドーパント・膜の厚さ oxide_nm つき）

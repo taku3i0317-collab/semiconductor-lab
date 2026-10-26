@@ -3667,6 +3667,16 @@ public class SemiconductorTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [9-44] サーミスタ（IMP4-01、S-009 案A）：25℃ で 10kΩ、熱いほど抵抗が下がる（NTC）、氷 0℃ は約 34kΩ、溶岩は範囲外 */
+    @GameTest
+    public void thermistor(GameTestHelper h) {
+        h.assertTrue(Math.abs(com.taku3.semiconductorlab.item.ThermistorItem.ohms(25) - 10_000) < 1, "10 kOhm at 25 C");
+        h.assertTrue(com.taku3.semiconductorlab.item.ThermistorItem.ohms(100) < com.taku3.semiconductorlab.item.ThermistorItem.ohms(25) && com.taku3.semiconductorlab.item.ThermistorItem.ohms(0) > 30_000, "NTC: hotter -> lower, 0 C = " + com.taku3.semiconductorlab.item.ThermistorItem.ohms(0));
+        h.assertTrue(com.taku3.semiconductorlab.item.ThermocoupleItem.temperatureC(net.minecraft.world.level.block.Blocks.LAVA.defaultBlockState()) > com.taku3.semiconductorlab.item.ThermistorItem.MAX_C, "lava is out of range");
+        h.assertTrue(recipeUses(h, "thermistor", com.taku3.semiconductorlab.content.Metallurgy.NICKEL_OXIDE), "Mn-Ni oxide ceramic");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // O-027（S-026 入手の道）：E の機械のコードが作る物の書き出し（IMP4-01）
         rec(a, com.taku3.semiconductorlab.content.Vacuum.EVAPORATOR.block, "アルミの点（メサ）", L(cond(io(Semiconductor.PN_JUNCTION_WAFER, 8), "ホウ素の p-n 接合"), io(Metallurgy.ALUMINIUM_INGOT, 1)),

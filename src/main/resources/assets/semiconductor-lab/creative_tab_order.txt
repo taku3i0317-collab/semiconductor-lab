@@ -735,6 +735,7 @@ weston_cell  # Precision [8-25] 1975
 standard_resistor  # Precision [8-25] 1975
 kibble_balance  # Precision [8-25] 1975
 droplet_generator  # Precision [8-13] 2006
+thermistor  # Semiconductor [9-44] 1930
 cw_multiplier  # Semiconductor [9-47] 1932
 accelerator_tube  # Semiconductor [9-47] 1932
 point_contact_diode  # Semiconductor [9-05] 1940

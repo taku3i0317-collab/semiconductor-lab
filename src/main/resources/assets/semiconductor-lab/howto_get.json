@@ -2668,6 +2668,9 @@
 "theodolite": [
 "crafting"
 ],
+"thermistor": [
+"crafting"
+],
 "thermite_charge": [
 "crafting"
 ],
@@ -13737,6 +13740,27 @@
 ]
 ]
 },
+"thermistor": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:pyrolusite",
+1
+],
+[
+"minecraft:copper_ingot",
+2
+],
+[
+"semiconductor-lab:nickel_oxide",
+1
+],
+[
+"semiconductor-lab:soda_lime_glass",
+1
+]
+]
+},
 "thermite_charge": {
 "via": "crafting",
 "in": [
@@ -18292,6 +18316,10 @@
 "theodolite": [
 "minecraft:items",
 "semiconductor-lab:item/theodolite"
+],
+"thermistor": [
+"minecraft:items",
+"semiconductor-lab:item/thermistor"
 ],
 "thermite_charge": [
 "minecraft:items",

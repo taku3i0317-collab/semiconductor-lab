@@ -236,3 +236,4 @@ CHEMISTRY の行番号は F1〜（docs/chemistry/<幹>.md）。REFERENCES は第
 - ✅ S-009 [1-54] インバー（invar、右クリックで 1m・100℃ の伸びを鋼とくらべる）。GameTest invar、REFERENCES F72
 - ✅ S-010 [1-64] 金の製錬＝解説だけ（バニラの金の原石に解説、毒の作り方は入れない）。GameTest gold_explanation_only、REFERENCES F73
 - ✅ S-009 [1-65] ハイス＝案A（hss_charge → るつぼ炉 → hss_tool_bit、旋盤の SLOT_CUTTER で 0.7倍 ⚠️、C の同意あり）。GameTest high_speed_steel、REFERENCES F74
+- ✅ S-009 [9-44] サーミスタ＝案A（thermistor、右クリックで温度と抵抗、NTC）。GameTest thermistor、REFERENCES F75

@@ -918,5 +918,13 @@
   "block.semiconductor-lab.pir_sensor.note3": "体温の体からは赤外線が出ている。焦電体という結晶は、温度が変わったときだけ電気を出すので、人が動いて届く赤外線が変わると気づく。鏡やレンズで見る所を細かく区切り、体が区切りを横切ると信号になる。",
   "block.semiconductor-lab.pir_sensor.note4": "1970年ごろ、区切った鏡で視野を分けて、人が横切ると信号を出すしくみが作られたとされる ⚠️。トイレや玄関の明かり、防犯ライトに使われる。",
   "block.semiconductor-lab.pir_sensor.placeholder": "省略：⚠️ 焦電体の結晶（タンタル酸リチウムなど）と、MOSFET の増幅は熱電対と銅線で代表。点いている時間 10秒・届く距離 5マスはゲームの値。",
-  "block.semiconductor-lab.pir_sensor.howto": "LED の明かりのとなりに置く。5マス以内で人や動物が動くと10秒光り、その間だけ明かりが点く。じっとしていると感じない。"
+  "block.semiconductor-lab.pir_sensor.howto": "LED の明かりのとなりに置く。5マス以内で人や動物が動くと10秒光り、その間だけ明かりが点く。じっとしていると感じない。",
+  "item.semiconductor-lab.thermistor": "サーミスタ",
+  "item.semiconductor-lab.thermistor.note1": "温まると電気を通しやすくなる焼き物の温度計。ブロックを右クリックすると温度が分かる。",
+  "item.semiconductor-lab.thermistor.note2": "作業台：軟マンガン鉱＋酸化ニッケル＋銅2＋ソーダ石灰ガラス。ブロックを右クリックで温度と抵抗（25℃ で 10kΩ、熱いほど小さい）。−50〜300℃。熱電対より低い温度を細かく測る。",
+  "item.semiconductor-lab.thermistor.note3": "マンガンやニッケルの酸化物を焼き固めた半導体。温度が上がると、電気を運ぶ電子が増えて抵抗が下がる（NTC）。抵抗を測れば温度が分かる。",
+  "item.semiconductor-lab.thermistor.note4": "1833年、ファラデーが硫化銀は温まると電気を通しやすくなることを見つけた（半導体の性質の最初の記録）。今は体温計・エアコン・スマホの電池の温度の見張りに使われる。",
+  "item.semiconductor-lab.thermistor.placeholder": "省略：⚠️ 抵抗は B 定数の式（10kΩ・3950K）の目安。温度はブロックごとの代表値。",
+  "item.semiconductor-lab.thermistor.reading": "%s ℃（抵抗 %s）",
+  "item.semiconductor-lab.thermistor.over": "%s ℃ をこえて測れない（焼き物がこわれる）"
 }
