@@ -115,6 +115,7 @@ def main():
         if m:
             items[m.group(1)] = m.group(2)
     got = set(HOWTO_EXTRA)
+    first = {}   # ID → 最初の作り方 {via, in}（ツールチップのアイコンの並び、O-035 → S-030）
     ways = {}   # ID → 道の印の並び（ツールチップの「作り方」1行、assets/.../howto_get.json）
 
     def way(i, w):
@@ -137,11 +138,24 @@ def main():
         rid = r.get("id") if isinstance(r, dict) else r
         if isinstance(rid, str) and rid.startswith(NS + ":"):
             t = rr.get("type", "")
-            way(rid.split(":")[1], "crafting" if "crafting" in t else "campfire" if "campfire" in t else "smelting")
+            via = "crafting" if "crafting" in t else "campfire" if "campfire" in t else "smelting"
+            way(rid.split(":")[1], via)
+            ins = {}
+            for row in rr.get("pattern", []):
+                for ch in row:
+                    if ch != " ":
+                        k = rr["key"][ch]
+                        k = k if isinstance(k, str) else (k[0] if isinstance(k, list) and k and isinstance(k[0], str) else None)
+                        if k: ins[k] = ins.get(k, 0) + 1
+            for ing in rr.get("ingredients", []) + ([rr["ingredient"]] if "ingredient" in rr else []):
+                k = ing if isinstance(ing, str) else (ing[0] if isinstance(ing, list) and ing and isinstance(ing[0], str) else None)
+                if k and not k.startswith("#"): ins[k] = ins.get(k, 0) + 1
+            first.setdefault(rid.split(":")[1], []).append({"via": via, "in": [[k, n] for k, n in ins.items() if not k.startswith("#")]})
     mr = ROOT / "docs/machine_recipes.json"
     for r in load(mr).get("recipes", []) if mr.exists() else []:
         for i in sorted((ids_in(r.get("outputs", [])) | ids_in(r.get("byproducts", []))) - {x["item"].split(":")[-1] for x in r.get("inputs", []) if "item" in x}):   # 通り抜けるだけの物は道にしない（代わりに使える alt は見ない）
             way(i, "machine:" + r["machine"].split(":")[-1])
+            first.setdefault(i, []).append({"via": "machine:" + r["machine"].split(":")[-1], "in": [[x["item"], x.get("count", 1)] for x in r.get("inputs", []) if "item" in x][:4]})
     loot = RES / f"data/{NS}/loot_table/blocks"
     for p in (RES / f"data/{NS}/worldgen/feature").glob("*.json"):
         for b in ids_in(load(p)):
@@ -217,11 +231,23 @@ def main():
     for o in sorted(hb):
         lines.append(f"- **{o}**（{len(hb[o])}）：" + "、".join(sorted(hb[o])))
     lines += ["", "## ③ 見取り図の無いマルチブロック", "- " + ("、".join(no_view) if no_view else "なし")]
+    # 最初の作り方は、材料がその物から作られる物（もどる道＝酸化膜をはがしてウェハーにもどす など）でない物を選ぶ
+    def made_from(x, target):
+        return any(target in {y.split(":")[-1] for y, _ in c["in"]} for c in first.get(x, []))
+    first = {k: next((c for c in cs if not any(made_from(y.split(":")[-1], k) for y, _ in c["in"])), cs[0]) for k, cs in first.items()}
     for k in ways:   # 手書きの道は最後に（レシピ・機械・掘る・壊す が先）
         ways[k].sort(key=lambda w: w == "special")
     hg = RES / f"assets/{NS}/howto_get.json"
-    hg.write_text(json.dumps({"_note": "自動生成：python tools/check_howto.py（O-035）。ツールチップの「作り方」1行（machine/HowToGet）。手で直さない",
-                              "ways": {k: ways[k] for k in sorted(ways)}}, ensure_ascii=False, indent=0) + chr(10), encoding="utf-8")
+    icons = {}   # MOD の ID → [アトラス, 絵]（文の中にアイコンを出す AtlasSprite 用。アイテム＝items、ブロック＝blocks）
+    for f in (RES / f"assets/{NS}/items").glob("*.json"):
+        m = load(f).get("model", {}).get("model", "")
+        mp = RES / f"assets/{NS}/models/{m.split(':')[-1]}.json" if m.startswith(NS) else None
+        tex = load(mp).get("textures", {}) if mp and mp.exists() else {}
+        t = tex.get("layer0") or tex.get("front") or tex.get("all") or tex.get("side") or tex.get("top") or next(iter(tex.values()), None)
+        if isinstance(t, str) and ":" in t and not t.startswith("#"):
+            icons[f.stem] = ["minecraft:items" if "/item/" in "/" + t.split(":")[1] or t.split(":")[1].startswith("item/") else "minecraft:blocks", t]
+    hg.write_text(json.dumps({"_note": "自動生成：python tools/check_howto.py（O-035・S-030）。ツールチップの「作り方」（machine/HowToGet）：ways＝道の印、first＝最初の作り方（材料のアイコン → 機械 → できる物）、icons＝MOD の物の絵。手で直さない",
+                              "ways": {k: ways[k] for k in sorted(ways)}, "first": {k: first[k] for k in sorted(first)}, "icons": {k: icons[k] for k in sorted(icons)}}, ensure_ascii=False, indent=0) + chr(10), encoding="utf-8")
     out = ROOT / "docs/tasks/HOWTO_GAPS.md"
     out.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"no way {len(no_way)}/{len(items)}, no help {len(no_help)}/{len(machines)}, no view {len(no_view)} -> {out.relative_to(ROOT)}")

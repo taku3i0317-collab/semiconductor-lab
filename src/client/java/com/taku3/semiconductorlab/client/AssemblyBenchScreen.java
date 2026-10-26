@@ -23,15 +23,18 @@ public class AssemblyBenchScreen extends MachineScreen {
 
     @Override protected void init() {
         super.init();
-        addRenderableWidget(Button.builder(Component.literal("<"), b -> press(BUTTON_PREV)).bounds(leftPos + PREV_X, topPos + BTN_Y, BTN_W, BTN_W).build());
-        addRenderableWidget(Button.builder(Component.literal(">"), b -> press(BUTTON_NEXT)).bounds(leftPos + NEXT_X, topPos + BTN_Y, BTN_W, BTN_W).build());
-        assemble = addRenderableWidget(Button.builder(Component.translatable(K + "assemble"), b -> press(BUTTON_ASSEMBLE))
+        // 選ぶと持ち物から部品を自動でそろえる、組み立てるを押すとそろえてから組み立てる（S-030）。シフトを押しながら＝入るだけ
+        addRenderableWidget(Button.builder(Component.literal("<"), b -> { press(BUTTON_PREV); fillFromInventory(); }).bounds(leftPos + PREV_X, topPos + BTN_Y, BTN_W, BTN_W).build());
+        addRenderableWidget(Button.builder(Component.literal(">"), b -> { press(BUTTON_NEXT); fillFromInventory(); }).bounds(leftPos + NEXT_X, topPos + BTN_Y, BTN_W, BTN_W).build());
+        assemble = addRenderableWidget(Button.builder(Component.translatable(K + "assemble"), b -> { fillFromInventory(); press(BUTTON_ASSEMBLE); })
                 .bounds(leftPos + ASSEMBLE_X, topPos + ASSEMBLE_Y, ASSEMBLE_W, ASSEMBLE_H).build());
     }
 
     private void press(int id) {
         if (minecraft != null && minecraft.gameMode != null) minecraft.gameMode.handleInventoryButtonClick(menu.containerId, id);
     }
+
+    private void fillFromInventory() { press(net.minecraft.client.Minecraft.getInstance().hasShiftDown() ? BUTTON_FILL_MAX : BUTTON_FILL); }
 
     private Assembly recipe() { return Assembly.get(menu.get(DATA_RECIPE)); }
 
@@ -46,7 +49,7 @@ public class AssemblyBenchScreen extends MachineScreen {
     @Override protected void containerTick() {
         super.containerTick();
         Assembly a = recipe();
-        if (assemble != null) assemble.active = a != null && menu.get(DATA_PROGRESS) == 0 && allOk(a);
+        if (assemble != null) assemble.active = a != null && menu.get(DATA_PROGRESS) == 0;   // 押すと持ち物からそろえてから組み立てる（S-030）
     }
 
     @Override

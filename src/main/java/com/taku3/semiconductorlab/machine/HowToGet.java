@@ -22,13 +22,26 @@ public final class HowToGet {
     /** 1行に出す道の数（多い物は最初の数個＋「…」） */
     public static final int MAX = 3;
     private static Map<String, List<String>> ways;
+    private static JsonObject first, icons;
+    /** 最初の作り方（{via, in:[[ID, 数]…]}、無ければ null）。S-030：ツールチップのアイコンの並び */
+    public static JsonObject first(String id) { ways(id); return first != null && first.has(id) ? first.getAsJsonObject(id) : null; }
+    /** MOD の物の絵（[アトラス, 絵]、無ければ null） */
+    public static String[] icon(String id) {
+        ways(id);
+        if (icons == null || !icons.has(id)) return null;
+        var a = icons.getAsJsonArray(id);
+        return new String[] {a.get(0).getAsString(), a.get(1).getAsString()};
+    }
 
     public static List<String> ways(String id) {
         if (ways == null) {
             Map<String, List<String>> m = new HashMap<>();
             try (var in = HowToGet.class.getResourceAsStream("/assets/semiconductor-lab/howto_get.json")) {
                 if (in != null) {
-                    JsonObject o = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject().getAsJsonObject("ways");
+                    JsonObject root = JsonParser.parseReader(new InputStreamReader(in, StandardCharsets.UTF_8)).getAsJsonObject();
+                    JsonObject o = root.getAsJsonObject("ways");
+                    first = root.has("first") ? root.getAsJsonObject("first") : new JsonObject();
+                    icons = root.has("icons") ? root.getAsJsonObject("icons") : new JsonObject();
                     for (var e : o.entrySet()) {
                         List<String> l = new ArrayList<>();
                         e.getValue().getAsJsonArray().forEach(x -> l.add(x.getAsString()));

@@ -767,4 +767,37 @@ public class SurvivalTests extends LabTestBase {
         rec(a, Survival.SALT_PAN.block, "天日で塩", L(kept(cond(io("海辺の水と日光", 1), "雨の日は止まる"))), L(io(Gas.SALT, 1), perRuns(io(Survival.BITTERN, 1), SaltPanBlockEntity.SALT_PER_BITTERN)),
             0, SaltPanBlockEntity.TICKS_PER_SALT / 20.0, "電気なし");
     }
+
+    /**
+     * S-030：組立台で作る物を選ぶと、持ち物から部品を自動でそろえる（BUTTON_FILL＝1回分、BUTTON_FILL_MAX＝入るだけ）。
+     * 持ち物に無い部品の所は空のまま（画面で赤い枠）、ちがう物が入っていたら持ち物へ戻す
+     */
+    @GameTest
+    public void assemblyAutoFill(GameTestHelper h) {
+        var all = com.taku3.semiconductorlab.machine.Assembly.all();
+        int radio = all.indexOf(com.taku3.semiconductorlab.machine.Assembly.of(com.taku3.semiconductorlab.content.Communication.TRANSISTOR_RADIO));
+        var pos = p(1, 1, 1);
+        h.setBlock(pos, Survival.ASSEMBLY_BENCH.block);
+        var be = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.class);
+        var c = be.getContainer();
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        while (be.getMenuData().get(com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.DATA_RECIPE) != radio) be.onButton(player, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.BUTTON_NEXT);
+        var a = be.current();
+        for (int i = 1; i < a.parts.size(); i++) {   // 0番（増幅のトランジスタ）だけ持っていない
+            var s = a.parts.get(i).sample().copy();
+            s.setCount(Math.min(s.getMaxStackSize(), a.parts.get(i).count() * 3));
+            player.getInventory().add(s);
+        }
+        c.setItem(0, new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIRT));   // ちがう物
+        be.onButton(player, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.BUTTON_FILL);
+        h.assertTrue(c.getItem(0).isEmpty() && player.getInventory().countItem(net.minecraft.world.item.Items.DIRT) == 1, "a wrong item goes back to the inventory");
+        for (int i = 1; i < a.parts.size(); i++)
+            h.assertValueEqual(c.getItem(i).getCount(), a.parts.get(i).count(), "one set placed for " + a.parts.get(i).role());
+        h.assertFalse(be.ready(), "the missing transistor keeps it from starting");
+        be.onButton(player, com.taku3.semiconductorlab.block.AssemblyBenchBlockEntity.BUTTON_FILL_MAX);
+        boolean more = false;
+        for (int i = 1; i < a.parts.size(); i++) more |= c.getItem(i).getCount() > a.parts.get(i).count();
+        h.assertTrue(more, "shift fills as many as fit");
+        h.succeed();
+    }
 }

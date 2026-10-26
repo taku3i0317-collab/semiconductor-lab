@@ -28,7 +28,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  */
 public class AssemblyBenchBlockEntity extends BlockEntity implements MachineBE {
     public static final int PARTS = Assembly.MAX_PARTS, SLOT_OUT = PARTS, SLOT_COUNT = PARTS + 1;
-    public static final int BUTTON_PREV = 0, BUTTON_NEXT = 1, BUTTON_ASSEMBLE = 2;
+    public static final int BUTTON_PREV = 0, BUTTON_NEXT = 1, BUTTON_ASSEMBLE = 2, BUTTON_FILL = 3, BUTTON_FILL_MAX = 4;   // 3・4：持ち物から部品を自動でそろえる（S-030、4＝シフト：入るだけ）
     public static final int DATA_RECIPE = 0, DATA_PROGRESS = 1, DATA_TOTAL = 2, DATA_COUNT = 3;
 
     /** 画面の中の位置：部品は 4×2 のマス、完成品は右、ボタンは画面のクラス（AssemblyBenchScreen）が同じ数字で置く */
@@ -106,6 +106,7 @@ public class AssemblyBenchBlockEntity extends BlockEntity implements MachineBE {
             setChanged();
             return true;
         }
+        if ((id == BUTTON_FILL || id == BUTTON_FILL_MAX) && !working) { fill(player, id == BUTTON_FILL_MAX); return true; }
         if (id == BUTTON_ASSEMBLE && !working && ready()) {
             working = true;
             progress = 0;
@@ -113,6 +114,37 @@ public class AssemblyBenchBlockEntity extends BlockEntity implements MachineBE {
             return true;
         }
         return false;
+    }
+
+    /**
+     * 持ち物から、選んだ製品の部品を自動で置く（S-030 ユーザー「いちいちクリックでそろえるのが大変すぎる」）。
+     * max＝false：1回分（役目ごとの数）、true：入るだけ（1回分の数の倍数）。ちがう物が入っていたら持ち物へ戻す。足りない物はそのまま（画面で赤い枠）
+     */
+    public void fill(Player player, boolean max) {
+        Assembly a = current();
+        if (a == null || player == null) return;
+        var inv = player.getInventory();
+        for (int i = 0; i < a.parts.size(); i++) {
+            Assembly.Part part = a.parts.get(i);
+            ItemStack in = container.getItem(i);
+            if (!in.isEmpty() && !part.ok().test(in)) {   // ちがう物は戻す
+                ItemStack back = container.removeItemNoUpdate(i);
+                if (!inv.add(back)) Block.popResource(level, worldPosition.above(), back);
+                in = ItemStack.EMPTY;
+            }
+            for (int k = 0; k < inv.getContainerSize(); k++) {
+                ItemStack src = inv.getItem(k);
+                if (src.isEmpty() || !part.ok().test(src) || (!in.isEmpty() && !ItemStack.isSameItemSameComponents(in, src))) continue;
+                int cap = Math.min(src.getMaxStackSize(), container.getMaxStackSize());
+                int target = max ? Math.max(part.count(), cap / part.count() * part.count()) : part.count();
+                int need = target - in.getCount();
+                if (need <= 0) break;
+                ItemStack moved = src.split(Math.min(need, src.getCount()));
+                if (in.isEmpty()) { in = moved; container.setItem(i, in); } else in.grow(moved.getCount());
+            }
+        }
+        container.setChanged();
+        inv.setChanged();
     }
 
     private void giveBackParts(Player player) {

@@ -19,7 +19,7 @@ public final class TooltipText {
     public static final int PREVIEW = 18;
 
     /** 行の色（ゲームでは ChatFormatting に直す） */
-    public enum Tone { VESSEL, PLACEHOLDER, NOTE, DEEP, HINT }
+    public enum Tone { VESSEL, PLACEHOLDER, NOTE, DEEP, HINT, HOWTO }   // HOWTO＝「作り方」の行（クライアントはアイコンの並びに替える、S-030）
     public record Line(String text, Tone tone) {}
     /** 組立台の部品表の1行分（O-005、DESIGN「組立台」）：部品の名前の lang キー・数・役目（lang キーの頭、＋".short" が短い名前） */
     public record BomPart(String itemKey, int count, String roleKey) {}
@@ -46,7 +46,7 @@ public final class TooltipText {
         if (vfmt != null && vname != null) out.add(new Line(vfmt.replace("%s", vname), Tone.VESSEL));
         // 「作り方：〇〇」はいつも出す（O-035、DESIGN「入手・操作・組み立てを分かりやすく」）
         String how = HowToGet.line(base, lang);
-        if (how != null) out.add(new Line(how, Tone.VESSEL));
+        if (how != null) out.add(new Line(how, Tone.HOWTO));
         // 「省略：」（en は Omitted / Simplified）は Shift のときだけ。「近似：」「未実装」はいつも出す（化学ルール1：本物と違うところは隠さない）
         String ph = lang.apply(base + ".placeholder");
         boolean omittedHidden = ph != null && isOmitted(ph) && !shift;

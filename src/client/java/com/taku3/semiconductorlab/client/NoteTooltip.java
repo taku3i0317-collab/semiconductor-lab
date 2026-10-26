@@ -44,8 +44,16 @@ public class NoteTooltip {
             Language lang = Language.getInstance();
             String base = lang.has("item." + id) || !lang.has("block." + id) ? "item." + id : "block." + id;
             var font = Minecraft.getInstance().font;
+            boolean iconsDone = false;
             for (TooltipText.Line l : TooltipText.lines(base, vesselKey(stack), bom(stack), shiftDown(), k -> lang.has(k) ? lang.getOrDefault(k) : null, font::width)) {
+                if (l.tone() == TooltipText.Tone.HOWTO && !shiftDown()) {   // 作り方はアイコンの並び（S-030）。Shift のときは名前の文
+                    if (iconsDone) continue;   // 折り返した続きの行も、アイコンにしたら出さない
+                    String fmt = lang.getOrDefault("tooltip.semiconductor-lab.howto_get");
+                    Component icons = RecipeIcons.line(base.substring(base.lastIndexOf('.') + 1), fmt.replace("%s", ""));
+                    if (icons != null) { lines.add(icons); iconsDone = true; continue; }
+                }
                 ChatFormatting[] style = switch (l.tone()) {
+                    case HOWTO -> new ChatFormatting[] {ChatFormatting.BLUE};
                     case VESSEL -> new ChatFormatting[] {ChatFormatting.BLUE};
                     case PLACEHOLDER -> new ChatFormatting[] {ChatFormatting.YELLOW};
                     case NOTE -> new ChatFormatting[] {ChatFormatting.GRAY};
