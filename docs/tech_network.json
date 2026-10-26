@@ -6005,7 +6005,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F73. 岩の中のわずかな金（金の製錬）［1-64］",
+     "answer": "金はさびないので川の砂の中から粒のまま見つかるが、岩の中のわずかな金を取り出すには、昔は水銀に溶かしこむ方法（1554年ごろメキシコのパティオ法が広まった ⚠️）、1887年からはシアン化物のうすい液で溶かし出す方法（青化法、スコットランド）が使われた。どちらも毒で、川や土の汚染が大きな問題になり、今は扱いが厳しく決められている。この MOD では作り方は入れず、解説だけにしている。",
+     "hee": {
+      "1": "チップと足をつなぐ細い線（ワイヤーボンディング）に金が使われてきた。",
+      "2": "さびないので、電子部品の接点にうすく金めっきをする。",
+      "3": "今も小さな金鉱山で使われる水銀は、世界の大きな公害の一つ（水銀に関する水俣条約、2013）。",
+      "4": "スマホ1台に含まれる金はごくわずかだが、たくさん集めると「都市鉱山」になる。"
+     },
+     "certainty": "青化法 1887 ◎／パティオ法の年 △（1554〜57で揺れる）",
+     "basis": "Wikipedia「Gold cyanidation」https://en.wikipedia.org/wiki/Gold_cyanidation （英語）、Wikipedia「Patio process」https://en.wikipedia.org/wiki/Patio_process （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -6015,7 +6028,7 @@
    "name": "金の製錬",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1887,
    "year_range": "1554〜1887",
@@ -6028,12 +6041,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "金の鉱石1トンの中に、金は数グラムしか入っていないことが多い ⚠️（O-012 で追加。出典：Wikipedia「MacArthur–Forrest process」「Patio process」、Mining Foundation of the Southwest「Bartolomé de Medina」（https://miningfoundationsw.org/Bartolome_de_Medina ））",
    "name_en": "Gold extraction",
    "hee1_en": "One ton of gold ore often holds only a few grams of gold ⚠️ (Added in O-012. Sources: Wikipedia \"MacArthur–Forrest process\", \"Patio process\", Mining Foundation of the Southwest \"Bartolomé de Medina\" (https://miningfoundationsw.org/Bartolome_de_Medina))",
    "kind": "tech",
-   "play": "",
+   "play": "なし（解説）",
    "missing": "",
    "sources": [],
    "enables": [],
