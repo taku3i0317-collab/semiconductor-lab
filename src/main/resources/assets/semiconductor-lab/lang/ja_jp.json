@@ -532,6 +532,7 @@
   "block.semiconductor-lab.nc_lathe.placeholder": "近似：削る時間と電力はゲームの値。",
   "block.semiconductor-lab.nc_lathe.howto": "鋼（ホッパーやベルトコンベアからも入る）・記録した穴あきテープ・ボールねじを入れて電気をつなぐ。テープの部品が鋼1つごとに出てくる。テープは白いテープを持ってマイクロメータで部品を測ると作れる。",
   "item.semiconductor-lab.gauge.taped": "📼 %s の形を穴あきテープに記録した",
+  "message.semiconductor-lab.test_speed": "テスト：電気の機械を %s 倍の速さに（1 で元どおり）",
   "advancements.semiconductor-lab.chapter1.root.title": "第1章：トランジスタの誕生",
   "advancements.semiconductor-lab.chapter1.root.description": "1947年。シリコンの前に、ゲルマニウムがあった。ゴール：トランジスタラジオを作ろう！",
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "灰の中の元素",

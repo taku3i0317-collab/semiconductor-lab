@@ -531,5 +531,6 @@
   "block.semiconductor-lab.nc_lathe.note4": "Servo motors measure the cutter's position and move to correct any error (feedback control), so parts come out equally precise whoever runs the machine. ⚠️ Time and power are game values.",
   "block.semiconductor-lab.nc_lathe.placeholder": "Approximation: cutting time and power are game values.",
   "block.semiconductor-lab.nc_lathe.howto": "Add steel (hoppers and conveyor belts work too), a recorded punched tape and a ball screw, and connect power. One tape part comes out per steel. Make a tape by measuring a part with a micrometer while carrying a blank tape.",
-  "item.semiconductor-lab.gauge.taped": "📼 Recorded the shape of %s on punched tape"
+  "item.semiconductor-lab.gauge.taped": "📼 Recorded the shape of %s on punched tape",
+  "message.semiconductor-lab.test_speed": "Test: powered machines run %s× faster (1 = normal)"
 }

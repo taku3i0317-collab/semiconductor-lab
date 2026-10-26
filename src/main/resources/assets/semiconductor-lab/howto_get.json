@@ -8452,6 +8452,19 @@
 ]
 ]
 },
+"invar": {
+"via": "crafting",
+"in": [
+[
+"minecraft:iron_ingot",
+2
+],
+[
+"semiconductor-lab:nickel",
+1
+]
+]
+},
 "inverter": {
 "via": "crafting",
 "in": [
@@ -16467,6 +16480,10 @@
 "interferometer": [
 "minecraft:items",
 "semiconductor-lab:item/interferometer"
+],
+"invar": [
+"minecraft:items",
+"semiconductor-lab:item/invar"
 ],
 "inverter": [
 "minecraft:blocks",

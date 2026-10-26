@@ -1,4 +1,4 @@
-# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 944（ja・en、Shift なし・あり）、問題 0
+# 自動生成：GameTest tooltip_text（IMP-30）。アイテム 943（ja・en、Shift なし・あり）、問題 0
 en_us hammerstone lines=4
 en_us hammerstone shift lines=17
 en_us flint_flake lines=5
@@ -67,8 +67,6 @@ en_us salt_pan lines=7
 en_us salt_pan shift lines=17
 en_us assembly_bench lines=4
 en_us assembly_bench shift lines=11
-en_us invar lines=4
-en_us invar shift lines=15
 en_us zinc_retort_charge lines=5
 en_us zinc_retort_charge shift lines=16
 en_us native_copper lines=5
@@ -1955,8 +1953,6 @@ ja_jp salt_pan lines=6
 ja_jp salt_pan shift lines=14
 ja_jp assembly_bench lines=4
 ja_jp assembly_bench shift lines=11
-ja_jp invar lines=4
-ja_jp invar shift lines=15
 ja_jp zinc_retort_charge lines=4
 ja_jp zinc_retort_charge shift lines=13
 ja_jp native_copper lines=4

@@ -20,6 +20,7 @@ public class SemiconductorLab implements ModInitializer {
 		ModDataComponents.initialize();
 		com.taku3.semiconductorlab.content.Content.initialize();   // 幹ごとのアイテム・ブロック・機械（IMP-28、content/）
 		ModWorldGen.initialize();
+		com.taku3.semiconductorlab.machine.TestSpeed.register();   // /semilab speed（手のテストを速く、S-031）
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.

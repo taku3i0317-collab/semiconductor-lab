@@ -104,6 +104,10 @@ public abstract class ConsumerBlockEntity extends BlockEntity implements Machine
     public static void tick(Level level, BlockPos pos, BlockState state, ConsumerBlockEntity be) {
         if (level.isClientSide()) return;
         be.serverTick(level, pos, state);
+        for (int i = com.taku3.semiconductorlab.machine.TestSpeed.factor() - 1; i > 0; i--) {   // テストの時だけ速く（S-031、/semilab speed）。増やした分の電気はただ（テストで電気待ちにしない）
+            be.storage.insertRaw(EnergyStorage.wattsToJoulesPerTick(be.drawWatts()));
+            be.serverTick(level, pos, state);
+        }
     }
 
     /** サーバー側の1 tick。ふつうはこのままでよい（アチソン炉のように温度を持つ機械は上書きする） */

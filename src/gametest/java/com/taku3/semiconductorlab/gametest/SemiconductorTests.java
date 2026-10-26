@@ -3799,4 +3799,21 @@ public class SemiconductorTests extends LabTestBase {
             h.assertValueEqual(bottom.countItem(Semiconductor.DIAMOND_SAW_BLADE.asItem()), 0, "the blade stays in the machine");
         });
     }
+
+    /** S-031：/semilab speed で電気の機械を N 倍の速さに（テストの時だけ）。10 倍なら1回の tick で進みが 10 */
+    @GameTest
+    public void testSpeed(GameTestHelper h) {
+        var pos = p(1, 1, 1);
+        h.setBlock(pos, Semiconductor.WAFER_SAW.block);
+        var saw = h.getBlockEntity(pos, com.taku3.semiconductorlab.block.WaferSawBlockEntity.class);
+        saw.getContainer().setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_CRYSTAL, new ItemStack(Semiconductor.SILICON_SINGLE_CRYSTAL));
+        saw.getContainer().setItem(com.taku3.semiconductorlab.block.WaferSawBlockEntity.SLOT_BLADE, new ItemStack(Semiconductor.DIAMOND_SAW_BLADE));
+        long perTick = com.taku3.semiconductorlab.energy.EnergyStorage.wattsToJoulesPerTick(com.taku3.semiconductorlab.block.WaferSawBlockEntity.WATTS);
+        saw.getStorage().insert(perTick * 20, false);
+        com.taku3.semiconductorlab.machine.TestSpeed.set(10);
+        try { tickConsumer(h, pos, saw, 1, 0); } finally { com.taku3.semiconductorlab.machine.TestSpeed.set(1); }   // ほかのテストに効かないよう、すぐ戻す
+        h.assertValueEqual(saw.getMenuData().get(com.taku3.semiconductorlab.energy.ConsumerBlockEntity.DATA_PROGRESS), 10, "10x: one tick = 10 steps");
+        h.assertValueEqual(com.taku3.semiconductorlab.machine.TestSpeed.factor(), 1, "back to normal");
+        h.succeed();
+    }
 }

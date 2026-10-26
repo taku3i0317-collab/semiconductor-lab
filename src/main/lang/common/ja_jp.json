@@ -531,5 +531,6 @@
   "block.semiconductor-lab.nc_lathe.note4": "サーボモーターは刃物の位置を測りながら、ずれた分だけ動いて直す（フィードバック制御）。だから職人の腕にたよらず、誰が動かしても同じ精度の部品ができる。⚠️ 時間・電力はゲームの値。",
   "block.semiconductor-lab.nc_lathe.placeholder": "近似：削る時間と電力はゲームの値。",
   "block.semiconductor-lab.nc_lathe.howto": "鋼（ホッパーやベルトコンベアからも入る）・記録した穴あきテープ・ボールねじを入れて電気をつなぐ。テープの部品が鋼1つごとに出てくる。テープは白いテープを持ってマイクロメータで部品を測ると作れる。",
-  "item.semiconductor-lab.gauge.taped": "📼 %s の形を穴あきテープに記録した"
+  "item.semiconductor-lab.gauge.taped": "📼 %s の形を穴あきテープに記録した",
+  "message.semiconductor-lab.test_speed": "テスト：電気の機械を %s 倍の速さに（1 で元どおり）"
 }

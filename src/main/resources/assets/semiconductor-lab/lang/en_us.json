@@ -532,6 +532,7 @@
   "block.semiconductor-lab.nc_lathe.placeholder": "Approximation: cutting time and power are game values.",
   "block.semiconductor-lab.nc_lathe.howto": "Add steel (hoppers and conveyor belts work too), a recorded punched tape and a ball screw, and connect power. One tape part comes out per steel. Make a tape by measuring a part with a micrometer while carrying a blank tape.",
   "item.semiconductor-lab.gauge.taped": "📼 Recorded the shape of %s on punched tape",
+  "message.semiconductor-lab.test_speed": "Test: powered machines run %s× faster (1 = normal)",
   "advancements.semiconductor-lab.chapter1.root.title": "Chapter 1: The Birth of the Transistor",
   "advancements.semiconductor-lab.chapter1.root.description": "1947. Before silicon, there was germanium. Goal: build a transistor radio!",
   "advancements.semiconductor-lab.chapter1.coal_ash.title": "Ashes to Elements",
