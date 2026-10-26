@@ -4019,6 +4019,27 @@
 ]
 ]
 },
+"bicycle": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:pneumatic_tyre",
+2
+],
+[
+"semiconductor-lab:steel_ingot",
+2
+],
+[
+"semiconductor-lab:ball_bearing",
+1
+],
+[
+"semiconductor-lab:standard_screw",
+1
+]
+]
+},
 "bisphenol_a": {
 "via": "crafting",
 "in": [
@@ -10920,6 +10941,19 @@
 ]
 ]
 },
+"pneumatic_tyre": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:vulcanized_rubber",
+2
+],
+[
+"semiconductor-lab:linen_cloth",
+1
+]
+]
+},
 "point_contact_diode": {
 "via": "crafting",
 "in": [
@@ -15082,6 +15116,10 @@
 "minecraft:items",
 "semiconductor-lab:item/beta_spodumene"
 ],
+"bicycle": [
+"minecraft:items",
+"semiconductor-lab:item/bicycle"
+],
 "bisphenol_a": [
 "minecraft:items",
 "semiconductor-lab:item/bisphenol_a"
@@ -17245,6 +17283,10 @@
 "pn_junction_wafer": [
 "minecraft:items",
 "semiconductor-lab:item/pn_junction_wafer"
+],
+"pneumatic_tyre": [
+"minecraft:items",
+"semiconductor-lab:item/pneumatic_tyre"
 ],
 "point_contact_diode": [
 "minecraft:items",

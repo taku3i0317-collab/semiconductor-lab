@@ -2952,6 +2952,18 @@
 根拠：
 - Wikipedia「Bicycle」「Safety bicycle」「Tire」「John Boyd Dunlop」：https://en.wikipedia.org/wiki/Bicycle ・ https://en.wikipedia.org/wiki/Safety_bicycle ・ https://en.wikipedia.org/wiki/Tire ・ https://en.wikipedia.org/wiki/John_Boyd_Dunlop
 
+## O97. 蒸気で走る鉄の道（鉄道）［14-05］
+**答え**：1804年、イギリスのトレビシックが初めてレールの上で蒸気機関車を走らせた。1825年にはストックトン・ダーリントン鉄道で蒸気機関車が貨物と人を運び、1830年のリバプール・マンチェスター鉄道（スチーブンソンのロケット号）で鉄道の時代が始まった。初期のレールは錬鉄で、すぐすり減ったので、のちに鋼のレールに変わった。日本の最初の鉄道は1872年の新橋〜横浜。
+
+- へえ①：線路の幅は、馬車の車輪の幅に由来すると言われる（諸説あり）。
+- へえ②：車輪のふちの出っぱり（フランジ）のおかげで、列車はレールから外れない。
+- へえ③：日本の最初の機関車はイギリスから輸入した。
+- へえ④：鉄道ができて、国中で時刻をそろえる必要が生まれた（標準時）。
+
+確かさ：トレビシック 1804・1825・1830・1872 ◎／線路の幅の由来 △⚠️／標準時と鉄道 ◎
+根拠：
+- Wikipedia「Rail transport」「Richard Trevithick」「Stockton and Darlington Railway」「Rail transport in Japan」：https://en.wikipedia.org/wiki/Rail_transport ・ https://en.wikipedia.org/wiki/Richard_Trevithick ・ https://en.wikipedia.org/wiki/Stockton_and_Darlington_Railway ・ https://en.wikipedia.org/wiki/Rail_transport_in_Japan
+
 ---
 
 # 冶金と熱（タスク15〜）

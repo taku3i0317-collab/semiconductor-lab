@@ -14,6 +14,18 @@ import net.minecraft.world.item.ItemStack;
  * GameTest：幹14 交通・運輸（IMP2 O-023 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class TransportTests extends LabTestBase {
+    /** [14-05] 鉄道（IMP2 S-012、解説だけ＝E の [1-04] と同じ形）：バニラのレールは鉄（この MOD では鍛鉄）、かまど付きトロッコ＝燃料で走る機関車。レシピの事実と解説・近似の注記 */
+    @GameTest
+    public void railway(GameTestHelper h) {
+        var rm = h.getLevel().getServer().getRecipeManager();
+        java.util.function.BiFunction<String, net.minecraft.world.item.Item, Boolean> uses = (id, it) -> rm.byKey(net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.RECIPE, net.minecraft.resources.Identifier.withDefaultNamespace(id)))
+                .map(r -> r.value().placementInfo().ingredients().stream().anyMatch(i -> i.test(new ItemStack(it)))).orElse(false);
+        h.assertTrue(uses.apply("rail", net.minecraft.world.item.Items.IRON_INGOT), "rails are iron (wrought iron [1-08] in this mod)");
+        h.assertTrue(uses.apply("furnace_minecart", net.minecraft.world.item.Items.FURNACE) && uses.apply("furnace_minecart", net.minecraft.world.item.Items.MINECART), "locomotive = a fire-box on a cart");
+        LOG.info("[LAB] railway [14-05]: vanilla rails (wrought iron) + furnace minecart as the steam locomotive, explanation only");
+        h.succeed();
+    }
+
     /** [14-07][14-08] 空気入りタイヤと自転車（IMP2 S-012）：タイヤは加硫ゴム＋麻布、自転車はタイヤ2・鋼・玉軸受・ねじ。利き手に持つと歩く速さが 1.5 倍 */
     @GameTest
     public void bicycle(GameTestHelper h) {

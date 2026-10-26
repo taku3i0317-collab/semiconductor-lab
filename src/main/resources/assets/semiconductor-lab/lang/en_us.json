@@ -7155,5 +7155,14 @@
   "item.minecraft.raw_copper.note2": "Smelt it in a furnace for a copper ingot (an approximation of the crucible furnace). Real chalcopyrite is roasted to drive off sulfur and blown with air to remove iron before it becomes copper.",
   "item.minecraft.raw_copper.note3": "Real process: roast chalcopyrite CuFeS2 → a lump of copper and iron sulfides called matte → blow air through it in a converter; iron oxidises into slag, sulfur leaves as SO2, and blister copper remains. The SO2 becomes sulfuric acid.",
   "item.minecraft.raw_copper.note4": "In 1880 Manhès in France built the copper converter. Most copper today comes from these sulfide ores, refined by blowing air.",
-  "item.minecraft.raw_copper.placeholder": "Approximation: ⚠️ vanilla raw copper = chalcopyrite. Smelting it straight to copper rolls roasting, matte and converting into one step."
+  "item.minecraft.raw_copper.placeholder": "Approximation: ⚠️ vanilla raw copper = chalcopyrite. Smelting it straight to copper rolls roasting, matte and converting into one step.",
+  "item.minecraft.rail.note1": "An iron track for minecarts. In this mod it stands for wrought-iron rail.",
+  "item.minecraft.rail.note2": "6 iron (wrought iron) + stick -> 16. Early railways used wrought-iron rails that wore out fast (steel rails came later).",
+  "item.minecraft.rail.note3": "In 1825 England's Stockton and Darlington Railway carried goods and people behind a steam locomotive.",
+  "item.minecraft.rail.note4": "The lip on the wheel (the flange) hooks over the rail so the train stays on. The track gauge is said to come from old cart wheels ⚠️.",
+  "item.minecraft.furnace_minecart.note1": "A minecart that runs on its own when fuelled. In this mod it stands for a steam locomotive.",
+  "item.minecraft.furnace_minecart.note2": "Furnace + minecart. Feed it coal or charcoal and it pushes along. A real locomotive boils water in a boiler and drives pistons with steam.",
+  "item.minecraft.furnace_minecart.note3": "In 1804 Trevithick ran the first steam locomotive on rails. Stephenson's Rocket (1830) began the railway age.",
+  "item.minecraft.furnace_minecart.note4": "Japan's first railway (1872) ran from Shinbashi to Yokohama with locomotives imported from Britain.",
+  "item.minecraft.furnace_minecart.placeholder": "Approximation: furnace minecart = steam locomotive; boiler and pistons are skipped."
 }

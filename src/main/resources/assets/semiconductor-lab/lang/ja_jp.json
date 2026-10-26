@@ -7155,5 +7155,14 @@
   "item.minecraft.raw_copper.note2": "かまどで焼くと銅インゴット（るつぼ炉の近似）。本物の黄銅鉱は、焼いて硫黄を飛ばし、空気を吹いて鉄を取り除いてから銅になる。",
   "item.minecraft.raw_copper.note3": "本物：黄銅鉱 CuFeS2 を焼く → 硫化銅と硫化鉄のかたまり「マット」→ 転炉で空気を吹くと、鉄は酸化してスラグに、硫黄は SO2 になって、粗銅が残る。SO2 は硫酸にする。",
   "item.minecraft.raw_copper.note4": "1880年、フランスのマネスが銅の転炉を作った。今の銅のほとんどは、この硫化鉱から空気を吹いて取り出している。",
-  "item.minecraft.raw_copper.placeholder": "近似：⚠️ バニラの銅の原石＝黄銅鉱。かまどで直接銅になる道は、焙焼・マット・転炉をまとめた近似。"
+  "item.minecraft.raw_copper.placeholder": "近似：⚠️ バニラの銅の原石＝黄銅鉱。かまどで直接銅になる道は、焙焼・マット・転炉をまとめた近似。",
+  "item.minecraft.rail.note1": "トロッコを走らせる鉄の道。この MOD では鍛鉄（錬鉄）のレール。",
+  "item.minecraft.rail.note2": "鉄（鍛鉄）×6＋棒 → 16。初期の鉄道のレールは錬鉄で、すぐすり減った（のちに鋼のレール）。",
+  "item.minecraft.rail.note3": "1825年、イギリスのストックトン・ダーリントン鉄道で、蒸気機関車が貨物と人を運んだ。",
+  "item.minecraft.rail.note4": "車輪のふちの出っぱり（フランジ）がレールに引っかかって脱線しない。線路の幅は、昔の馬車の車輪の幅に由来すると言われる ⚠️。",
+  "item.minecraft.furnace_minecart.note1": "燃料を入れると自分で走るトロッコ。この MOD では蒸気機関車の近似。",
+  "item.minecraft.furnace_minecart.note2": "かまど＋トロッコ。石炭や木炭を入れると押して進む。本物の機関車はボイラーで湯をわかし、蒸気でピストンを動かす。",
+  "item.minecraft.furnace_minecart.note3": "1804年、トレビシックが初めてレールの上で蒸気機関車を走らせた。1830年のスチーブンソンのロケット号で鉄道の時代が始まった。",
+  "item.minecraft.furnace_minecart.note4": "日本の最初の鉄道は1872年の新橋〜横浜。機関車はイギリスから輸入した。",
+  "item.minecraft.furnace_minecart.placeholder": "近似：かまど付きトロッコ＝蒸気機関車。ボイラーとピストンは省略。"
 }
