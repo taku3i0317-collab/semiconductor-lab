@@ -6,7 +6,11 @@
 """
 import json
 import re
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from text_tail import tail  # noqa: E402  S-064：へえ①の末尾の出典メモなど
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "docs" / "i18n"
@@ -73,7 +77,7 @@ def main():
     for n in G["nodes"]:
         i, d = n["id"], D.get(n["id"], {})
         put(f"{i}.name", n["name"], n.get("name_en"))
-        put(f"{i}.hee1", d.get("hee1"), d.get("hee1_en"))
+        put(f"{i}.hee1", tail(d.get("hee1")), tail(d.get("hee1_en")))
         ref = (d.get("refs") or [{}])[0] if d.get("refs") else {}
         for k in ("2", "3", "4"):
             put(f"{i}.hee{k}", (d.get("hee_game") or {}).get("note" + k) or ((ref.get("hee") or {}).get(k) if ref else "") or (d.get("hee_tree") or {}).get(k))

@@ -699,6 +699,13 @@ def export_json(nodes):
         return v
     if _ln:
         out_nodes[:] = [_scrub(n) for n in out_nodes]
+    # S-064：へえ①の末尾に混ざった出典メモ・URL・編集メモ・余分な「）」を外す（tools/text_tail.py）
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from text_tail import tail as _tail
+    for n in out_nodes:
+        for f in ("hee1", "hee1_en"):
+            if n.get(f):
+                n[f] = _tail(n[f])
     # 重複を消す（NET-05）：「本物」は real_full だけ（real は1行目の400字なので表示側で作る）。肖像は人物ごとに1か所（portraits）にまとめて番号で参照
     portraits, pidx = [], {}
     for n in out_nodes:
