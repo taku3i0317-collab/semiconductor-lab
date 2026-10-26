@@ -159,10 +159,12 @@ def main():
                 continue
             b = byId[x]
             ic = f'<img src="{b["icon"]}" alt="">' if b.get("icon") else '<span class="noi"></span>'
-            out.append(f'<a href="nodes/{x}.html">{ic}<span data-en="{esc(b.get("name_en") or b["name"])}">{esc(b["name"])}</span></a>')
+            out.append(f'<a href="nodes/{x}.html">{ic}<span data-k="{x}.name" data-en="{esc(b.get("name_en") or b["name"])}">{esc(b["name"])}</span></a>')
         return "".join(out)
 
     XL = [x for x in meta.get("extra_links", []) if "from" in x and x.get("kind") in XLABEL]
+    _src = ROOT / "docs" / "i18n" / "source.json"
+    UIK = [(k[3:], v["en"]) for k, v in (json.loads(_src.read_text(encoding="utf-8"))["strings"].items() if _src.exists() else []) if k.startswith("ui.") and v.get("en")]
     indexed, noindex = [], []
     for n in G["nodes"]:
         i, d = n["id"], D.get(n["id"], {})
@@ -257,8 +259,8 @@ def main():
         xg_html = "".join(f'<h3>{esc(lab)}</h3><div class="th">{chips(ids)}</div>' for lab, ids in xgroups.items())
         body = f"""<div class="top"><a class="home" href="index.html" data-en="Tech map">技術の地図</a><form action="index.html"><input type="search" name="q" placeholder="さがす（物・技術・人の名前）" data-en-ph="Search (things, techniques, people)" aria-label="さがす"></form></div>
 <div class="wrap cols2"><div class="cols"><div>
-<section class="what"><div class="big">{icon_big}</div><div><h1 data-en="{esc(n.get("name_en") or n["name"])}">{esc(n["name"])}</h1><div class="meta">{esc(year_text(n))}・{esc(n.get("trunk_name", ""))}{warn}</div></div></section>
-<p class="one"{one_en}>{esc(hee1)}</p>
+<section class="what"><div class="big">{icon_big}</div><div><h1 data-k="{i}.name" data-en="{esc(n.get("name_en") or n["name"])}">{esc(n["name"])}</h1><div class="meta">{esc(year_text(n))}・{esc(n.get("trunk_name", ""))}{warn}</div></div></section>
+<p class="one" data-k="{i}.hee1"{one_en}>{esc(hee1)}</p>
 <div class="acts">{film_btn}<button type="button" class="btn" data-share="{i}" data-share-view="node" data-en="Share">共有</button></div>
 <h2 data-en="How to get it">どうやって手に入れるか</h2><div class="get">{"".join(get)}</div>
 {how_html}
@@ -305,6 +307,8 @@ def main():
 </body>
 </html>
 """
+        for _k, _en in UIK:
+            page = page.replace(f'data-en="{_en}"', f'data-k="ui.{_k}" data-en="{_en}"')
         (nd / f"{i}.html").write_text(page, encoding="utf-8")
         if thin:
             noindex.append(i)

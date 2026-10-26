@@ -67,6 +67,10 @@ def main():
     shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")
     subprocess.run([sys.executable, "-I", str(ROOT / "tools" / "gen_node_pages.py")], check=True)   # いつも今のデータから作り直す（このリポジトリの docs/nodes も＝semiconductor-lab の Pages）
     shutil.copytree(ROOT / "docs" / "nodes", OUT / "docs" / "nodes")
+    if (ROOT / "docs" / "lang").exists():   # S-064：ページが読む言語のファイル（tools/i18n_import.py）
+        shutil.copytree(ROOT / "docs" / "lang", OUT / "docs" / "lang")
+    if (ROOT / "docs" / "i18n").exists():   # S-063：翻訳の元の文と言語ごとの訳（docs/i18n/README.md）
+        shutil.copytree(ROOT / "docs" / "i18n", OUT / "docs" / "i18n")
     if (ROOT / "docs" / "wiki" / "index.html").exists():   # S-056：MOD のウィキ（tools/gen_wiki.py・tools/gen_wiki_iso.mjs が作る）
         shutil.copytree(ROOT / "docs" / "wiki", OUT / "docs" / "wiki")   # S-054：ノードごとのページ（tools/gen_node_pages.py が作る）   # BudouX（Apache-2.0。CC0 ではない。LICENSE-budoux.txt を一緒に）
     for f in ("node.html", "node.js", "network.html"):   # 誤りの報告はこのリポジトリの Issue へ。リンクの見た目（OGP）の URL はこのリポジトリの GitHub Pages へ（S-023）

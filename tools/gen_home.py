@@ -28,7 +28,13 @@ def js_obj(p):
     return json.loads(s[s.index("{"):s.rindex("}") + 1])
 
 
+_SRC = ROOT / "docs" / "i18n" / "source.json"
+UIK = [(k[3:], v["en"]) for k, v in (json.loads(_SRC.read_text(encoding="utf-8"))["strings"].items() if _SRC.exists() else []) if k.startswith("ui.") and v.get("en")]
+
+
 def shell(title, desc, path, body, depth=0, extra_head=""):
+    for _k, _en in UIK:   # 画面の文にキー（S-064）
+        body = body.replace(f'data-en="{_en}"', f'data-k="ui.{_k}" data-en="{_en}"')
     up = "../" * depth
     canon = SITE + path
     return f"""<!doctype html>
@@ -90,7 +96,7 @@ def main():
         up = "../" * depth_
         ic = f'<img src="{n["icon"]}" alt="">' if n.get("icon") else '<span style="width:32px"></span>'
         game = ' <span class="g" data-en="in the game">ゲームにある</span>' if n.get("status") == "✅" else ""
-        return f'<li>{ic}<a href="{up}nodes/{k}.html" data-en="{esc(n.get("name_en") or n["name"])}">{esc(n["name"])}</a>{game}<span class="y">{esc(year(n))}</span></li>'
+        return f'<li>{ic}<a href="{up}nodes/{k}.html" data-k="{k}.name" data-en="{esc(n.get("name_en") or n["name"])}">{esc(n["name"])}</a>{game}<span class="y">{esc(year(n))}</span></li>'
     (out / "chapters").mkdir(parents=True, exist_ok=True)
     (out / "guides").mkdir(parents=True, exist_ok=True)
     cards = []
