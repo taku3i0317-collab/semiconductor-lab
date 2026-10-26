@@ -61,7 +61,7 @@ def main():
 
     # 図のページ（GitHub Pages は docs/ から）
     (OUT / "docs").mkdir()
-    for f in ("network.html", "node.html", "node.css", "node.js", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
+    for f in ("network.html", "node.html", "node.css", "node.js", "thing.css", "thing.js", "people.html", "glossary.html", "design.css", "autolink.js", "glossary.js",
               "tech_network_graph.js", "tech_network_detail.js", "furigana.js", "furigana_dict.js", "linebreak.js", "ui_icons.js", "film.js", "credits.html", "ranking.html", "og_image.png", "share.js", "pwa.js", "manifest.webmanifest", "app_icon_192.png", "app_icon_512.png", "app_icon_maskable_512.png", "apple-touch-icon.png"):
         shutil.copy(ROOT / "docs" / f, OUT / "docs" / f)
     shutil.copytree(ROOT / "docs" / "vendor", OUT / "docs" / "vendor")
