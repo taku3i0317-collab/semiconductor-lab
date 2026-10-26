@@ -2,9 +2,9 @@
  "_meta": {
   "what": "翻訳の元の文（日本語が正）。形の説明は docs/i18n/README.md",
   "generated_by": "tools/i18n_export.py",
-  "keys": 3571,
+  "keys": 3579,
   "with_english": 1334,
-  "japanese_chars": 201513
+  "japanese_chars": 201773
  },
  "strings": {
   "0-01.name": {
@@ -1675,8 +1675,20 @@
    "ja": "ハイスの刃は、赤く光るほど熱くなっても切れ味が落ちない）",
    "en": "A high-speed steel blade stays sharp even when it gets hot enough to glow red. (Added in O-012. Sources: Wikipedia \"High-speed steel\" \"Robert Forester Mushet\", Knife Steel Nerds \"The History of the First Tool Steel\", West Yorkshire Steel \"A History of High Speed Steel\" (https://knifesteelnerds.com/2018/03/22/the-history-of-the-first-tool-steel/))"
   },
+  "1-65.hee2": {
+   "ja": "テイラーは、仕事の時間を測って工場を効率よくする「科学的管理法」でも知られる。"
+  },
+  "1-65.hee3": {
+   "ja": "今もドリルの刃・タップなどに使われる。もっと硬い刃は超硬合金（タングステンの炭化物）。"
+  },
+  "1-65.hee4": {
+   "ja": "同じタングステンは、電球のフィラメントにも使われる「熱に強い」金属。"
+  },
   "1-65.real": {
    "ja": "タングステン（約18%）やクロム（約4%）を入れて特別な熱処理をした鋼で、刃先が赤く熱くなっても硬さを失わず、速く削れる。1868年にロバート・マシェットがタングステン入りの「自硬鋼」を作り、1898〜1900年にアメリカのフレデリック・テイラーとマンセル・ホワイトが高い温度での熱処理を見つけて、1900年のパリ万博で赤く熱した刃で削り続けるのを見せた。旋盤で削る速さが数倍になり、工作機械が作り直された。1930年代にはタングステンの代わりにモリブデンを使うハイスもできた"
+  },
+  "1-65.play": {
+   "ja": "軽（旋盤が速くなる）"
   },
   "1-66.name": {
    "ja": "タンタル",
@@ -7369,8 +7381,20 @@
    "ja": "エアコンの温度計は、温まると電気が通りやすくなる小さな焼き物のつぶ",
    "en": "An air conditioner's thermometer is a tiny ceramic bead that lets electricity flow more easily as it warms up. (Added in S-004. Sources: shura.shu.ac.uk, murata.com)"
   },
+  "9-44.hee2": {
+   "ja": "25℃ で 10kΩ の物が、0℃ では約3倍、100℃ では約7分の1になる。"
+  },
+  "9-44.hee3": {
+   "ja": "電子体温計・エアコン・炊飯器・スマホの電池の温度の見張りに入っている。"
+  },
+  "9-44.hee4": {
+   "ja": "逆に温まると抵抗が急に上がる PTC サーミスタは、電流が流れすぎたときに止めるのに使う。"
+  },
   "9-44.real": {
    "ja": "1833年、マイケル・ファラデーが、硫化銀は温めると電気が通りやすくなる（ふつうの金属と逆）ことに気づいた。これは半導体の性質の最初の記録とされる。約100年後の1930年、サミュエル・ルーベンが酸化銅などを使った温度計の素子を特許にし、製品化が始まった。温度でセラミックの抵抗が大きく変わるので、エアコン・冷蔵庫・電池・体温計の温度を安く正確に測れる"
+  },
+  "9-44.play": {
+   "ja": "軽（右クリックで温度と抵抗）"
   },
   "9-45.name": {
    "ja": "ベイヤー配列のカラーフィルター",

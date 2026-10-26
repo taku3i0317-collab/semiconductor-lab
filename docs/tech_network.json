@@ -6073,7 +6073,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F74. 赤く熱くなっても切れる刃（高速度鋼）［1-65］",
+     "answer": "ふつうの鋼の刃は、速く削ると摩擦の熱で赤くなってなまる。1900年、アメリカのフレデリック・テイラーとマンセル・ホワイトが、タングステンとクロムの入った鋼をとても高い温度から焼き入れると、約600℃ になっても硬いままの刃になることを見つけた（高速度鋼、ハイス）。パリ万博で真っ赤になっても削り続ける刃を見せ、工場の削る速さが数倍になった。",
+     "hee": {
+      "1": "名前の「高速度」は、速く削れることから。",
+      "2": "テイラーは、仕事の時間を測って工場を効率よくする「科学的管理法」でも知られる。",
+      "3": "今もドリルの刃・タップなどに使われる。もっと硬い刃は超硬合金（タングステンの炭化物）。",
+      "4": "同じタングステンは、電球のフィラメントにも使われる「熱に強い」金属。"
+     },
+     "certainty": "テイラーとホワイト 1900 ◎／成分 18-4-1 ○／ゲームの 0.7倍 △（ゲームの値）",
+     "basis": "Wikipedia「High-speed steel」https://en.wikipedia.org/wiki/High-speed_steel （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -6083,7 +6096,7 @@
    "name": "高速度鋼",
    "trunk": "1",
    "trunk_name": "冶金",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1900,
    "year_range": "1868〜1900",
@@ -6101,12 +6114,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "ハイスの刃は、赤く光るほど熱くなっても切れ味が落ちない（O-012 で追加。出典：Wikipedia「High-speed steel」「Robert Forester Mushet」、Knife Steel Nerds「The History of the First Tool Steel」・West Yorkshire Steel「A History of High Speed Steel」（https://knifesteelnerds.com/2018/03/22/the-history-of-the-first-tool-steel/））",
    "name_en": "High-speed steel",
    "hee1_en": "A high-speed steel blade stays sharp even when it gets hot enough to glow red. (Added in O-012. Sources: Wikipedia \"High-speed steel\" \"Robert Forester Mushet\", Knife Steel Nerds \"The History of the First Tool Steel\", West Yorkshire Steel \"A History of High Speed Steel\" (https://knifesteelnerds.com/2018/03/22/the-history-of-the-first-tool-steel/))",
    "kind": "tech",
-   "play": "",
+   "play": "軽（旋盤が速くなる）",
    "missing": "",
    "sources": [],
    "enables": [],
@@ -28615,7 +28628,20 @@
     "4": ""
    },
    "hee_game": {},
-   "refs": [],
+   "refs": [
+    {
+     "title": "F75. 温まると電気を通しやすくなる焼き物（サーミスタ）［9-44］",
+     "answer": "マンガンやニッケルの酸化物を焼き固めた半導体の焼き物は、温度が上がると電気を運ぶ電子が増えて抵抗が下がる（NTC サーミスタ）。抵抗を測れば温度が分かる。この性質は1833年にファラデーが硫化銀で見つけたのが最初の記録で、半導体の研究の始まりの一つ。",
+     "hee": {
+      "1": "金属は温まると抵抗が上がるが、半導体は逆に下がる。",
+      "2": "25℃ で 10kΩ の物が、0℃ では約3倍、100℃ では約7分の1になる。",
+      "3": "電子体温計・エアコン・炊飯器・スマホの電池の温度の見張りに入っている。",
+      "4": "逆に温まると抵抗が急に上がる PTC サーミスタは、電流が流れすぎたときに止めるのに使う。"
+     },
+     "certainty": "ファラデー 1833 ◎／B 定数の値 △（製品で大きくちがう）",
+     "basis": "Wikipedia「Thermistor」https://en.wikipedia.org/wiki/Thermistor （英語）"
+    }
+   ],
    "item": null,
    "recipes": [],
    "machine_recipes": [],
@@ -28625,7 +28651,7 @@
    "name": "サーミスタ",
    "trunk": "9",
    "trunk_name": "半導体プロセス",
-   "status": "❓",
+   "status": "✅",
    "branch": false,
    "year": 1930,
    "year_range": "1833〜1930",
@@ -28643,12 +28669,12 @@
     ]
    ],
    "understanding": [],
-   "buildable_now": true,
+   "buildable_now": false,
    "hee1": "エアコンの温度計は、温まると電気が通りやすくなる小さな焼き物のつぶ（S-004 で追加。出典：shura.shu.ac.uk、murata.com）",
    "name_en": "Thermistor",
    "hee1_en": "An air conditioner's thermometer is a tiny ceramic bead that lets electricity flow more easily as it warms up. (Added in S-004. Sources: shura.shu.ac.uk, murata.com)",
    "kind": "tech",
-   "play": "",
+   "play": "軽（右クリックで温度と抵抗）",
    "missing": "",
    "sources": [],
    "enables": [],
