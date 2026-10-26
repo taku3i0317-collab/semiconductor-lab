@@ -4453,6 +4453,20 @@
 - Wikipedia「Printing ink」：https://en.wikipedia.org/wiki/Printing_ink
 - Wikipedia「Carbon black」：https://en.wikipedia.org/wiki/Carbon_black
 
+## C85. 蛇口の水が安全なわけ（上水道・砂ろ過・塩素消毒）［12-06］［12-07］
+**答え**：川や井戸の水には、目に見えない菌（コレラ菌・チフス菌など）が入っていることがある。町に管で水を配る（上水道）だけでは、病気も一緒に配ってしまう。砂の層にゆっくり水を通す（緩速砂ろ過、1829年ロンドン）と、砂の上の生物の膜が菌を大きく減らし、さらに少しの塩素を入れる（1908年ジャージーシティ）と、残った菌も殺せる。いまの水道の水は、この2つで安全になっている。
+
+- へえ①：砂ろ過は「こす」だけでなく、砂の上のぬるぬるの膜に住む微生物が菌を食べる。
+- へえ②：プールのにおいは、病気を防ぐ塩素（と汗などと反応してできた物）のにおい。
+- へえ③：1892年のハンブルクのコレラでは、ろ過した水を使ったとなり町アルトナの患者が少なかった。
+- へえ④：ローマの水道橋は、1km で数十cm だけ下がるゆるい坂で水を流した。
+
+確かさ：1829 シンプソン・1908 ジャージーシティ ◎／ハンブルクとアルトナ ○／ローマの坂の数字 △
+根拠：
+- Wikipedia「Slow sand filter」：https://en.wikipedia.org/wiki/Slow_sand_filter
+- Wikipedia「Water chlorination」：https://en.wikipedia.org/wiki/Water_chlorination
+- Wikipedia「Roman aqueduct」：https://en.wikipedia.org/wiki/Roman_aqueduct
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

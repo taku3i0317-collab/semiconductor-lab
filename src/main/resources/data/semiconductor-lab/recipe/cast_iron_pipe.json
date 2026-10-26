@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "P",
+    "P",
+    "P"
+  ],
+  "key": {
+    "P": "semiconductor-lab:pig_iron"
+  },
+  "result": {
+    "id": "semiconductor-lab:cast_iron_pipe",
+    "count": 3
+  }
+}

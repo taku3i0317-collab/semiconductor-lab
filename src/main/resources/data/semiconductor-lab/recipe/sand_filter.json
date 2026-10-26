@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "SSS",
+    "GGG",
+    " T "
+  ],
+  "key": {
+    "S": "minecraft:sand",
+    "G": "minecraft:gravel",
+    "T": "semiconductor-lab:cast_iron_pipe"
+  },
+  "result": {
+    "id": "semiconductor-lab:sand_filter",
+    "count": 1
+  }
+}

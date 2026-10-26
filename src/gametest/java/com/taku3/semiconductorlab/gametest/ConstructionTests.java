@@ -223,4 +223,38 @@ public class ConstructionTests extends LabTestBase {
         h.assertTrue(Construction.TARMAC.getSpeedFactor() > Construction.MACADAM.getSpeedFactor() && Construction.MACADAM.getSpeedFactor() > 1.0f, "faster roads");
         h.succeed();
     }
+
+    /** [12-06] 上水道・[12-07] 塩素消毒（IMP3、O-032・S-013）：管で水源 → 蛇口。ろ過なし＝にごった水、砂ろ過＝ろ過した水、＋塩素＝消毒した水 */
+    @GameTest
+    public void waterSupply(GameTestHelper h) {
+        var lv = h.getLevel();
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        h.assertTrue(recipeUses(h, "cast_iron_pipe", com.taku3.semiconductorlab.content.Metallurgy.PIG_IRON), "pipe from pig iron");
+        floor(h, 6);
+        BlockPos tap = p(4, 1, 1);
+        h.setBlock(tap, Construction.WATER_TAP);
+        h.setBlock(p(3, 1, 1), Construction.CAST_IRON_PIPE);
+        h.setBlock(p(2, 1, 1), Construction.CAST_IRON_PIPE);
+        net.minecraft.world.item.ItemStack bottles = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE, 8);
+        h.assertTrue(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles) == null, "no water source: dry");
+        h.setBlock(p(1, 1, 1), net.minecraft.world.level.block.Blocks.WATER);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles), Construction.MURKY_WATER, "murky without a filter");
+        h.setBlock(p(3, 1, 1), Construction.SAND_FILTER);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles), Construction.FILTERED_WATER, "filtered");
+        h.setBlock(p(3, 1, 2), Construction.CHLORINATOR);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles), Construction.FILTERED_WATER, "empty chlorinator does nothing");
+        net.minecraft.world.item.ItemStack cyl = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Gas.CHLORINE_CYLINDER, 1);
+        h.assertTrue(com.taku3.semiconductorlab.block.ChlorinatorBlock.load(lv, h.absolutePos(p(3, 1, 2)), player, cyl), "load chlorine");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles), Construction.CHLORINATED_WATER, "disinfected");
+        h.assertValueEqual(h.getBlockState(p(3, 1, 2)).getValue(com.taku3.semiconductorlab.block.ChlorinatorBlock.DOSES), com.taku3.semiconductorlab.block.ChlorinatorBlock.MAX_DOSES - 1, "one dose used");
+        h.assertValueEqual(bottles.getCount(), 4, "4 bottles filled");
+        // 飲んだ効果（S-013）：にごった水＝空腹、ろ過＝ときどき、消毒＝何も起きない
+        var Q = com.taku3.semiconductorlab.block.WaterSupply.Quality.class;
+        h.assertTrue(com.taku3.semiconductorlab.item.DrinkingWaterItem.drink(player, com.taku3.semiconductorlab.block.WaterSupply.Quality.MURKY, 0.9f), "murky makes you sick");
+        h.assertTrue(player.hasEffect(net.minecraft.world.effect.MobEffects.HUNGER), "hunger");
+        h.assertFalse(com.taku3.semiconductorlab.item.DrinkingWaterItem.drink(player, com.taku3.semiconductorlab.block.WaterSupply.Quality.FILTERED, 0.9f), "filtered usually fine");
+        h.assertTrue(com.taku3.semiconductorlab.item.DrinkingWaterItem.drink(player, com.taku3.semiconductorlab.block.WaterSupply.Quality.FILTERED, 0.1f), "filtered sometimes sick");
+        h.assertFalse(com.taku3.semiconductorlab.item.DrinkingWaterItem.drink(player, com.taku3.semiconductorlab.block.WaterSupply.Quality.SAFE, 0.0f), "safe (" + Q.getSimpleName() + ")");
+        h.succeed();
+    }
 }

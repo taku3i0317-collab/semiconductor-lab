@@ -546,5 +546,8 @@
   "block.semiconductor-lab.deepslate_sphalerite_ore": "Deepslate Sphalerite Ore",
   "block.semiconductor-lab.deepslate_sphalerite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
   "block.semiconductor-lab.deepslate_stibnite_ore": "Deepslate Stibnite Ore",
-  "block.semiconductor-lab.deepslate_stibnite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same."
+  "block.semiconductor-lab.deepslate_stibnite_ore.note1": "The same ore deep underground (below Y 0), inside deepslate. Slightly harder to mine; drops the same.",
+  "message.semiconductor-lab.drinking_water.sick": "Your stomach is upset (germs in the water)",
+  "message.semiconductor-lab.drinking_water.filtered": "You were fine - but filtering alone leaves a few germs",
+  "message.semiconductor-lab.drinking_water.safe": "Nothing happens. Safe water"
 }

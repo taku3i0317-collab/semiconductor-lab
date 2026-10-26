@@ -70,6 +70,24 @@ public final class Construction {
     public static final Block TARMAC = Reg.block("tarmac", Block::new,
             BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_BLACK).requiresCorrectToolForDrops().strength(1.8f, 4.0f).sound(SoundType.STONE).speedFactor(TARMAC_SPEED));
 
+    // ===== [12-06] 上水道・[12-07] 塩素消毒（IMP3、O-032・S-013）：銑鉄（鋳鉄）の管で水源から蛇口へ水を引く。
+    //   砂ろ過の槽を通すと「ろ過した水」、塩素の注入器で「消毒した水」。飲んだ効果は block/WaterSupply・item/DrinkingWaterItem =====
+    public static final Block CAST_IRON_PIPE = Reg.block("cast_iron_pipe", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(3.0f, 6.0f).sound(SoundType.METAL));
+    public static final Block SAND_FILTER = Reg.block("sand_filter", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(1.0f).sound(SoundType.GRAVEL));
+    public static final Block WATER_TAP = Reg.functional("water_tap", com.taku3.semiconductorlab.block.WaterTapBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(2.0f).sound(SoundType.COPPER));
+    public static final Block CHLORINATOR = Reg.functional("chlorinator", com.taku3.semiconductorlab.block.ChlorinatorBlock::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.METAL).requiresCorrectToolForDrops().strength(3.0f).sound(SoundType.METAL));
+    public static final Item MURKY_WATER           = Reg.item("murky_water", p -> new com.taku3.semiconductorlab.item.DrinkingWaterItem(p, com.taku3.semiconductorlab.block.WaterSupply.Quality.MURKY), new Item.Properties().stacksTo(16).craftRemainder(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE));
+    public static final Item FILTERED_WATER        = Reg.item("filtered_water", p -> new com.taku3.semiconductorlab.item.DrinkingWaterItem(p, com.taku3.semiconductorlab.block.WaterSupply.Quality.FILTERED), new Item.Properties().stacksTo(16).craftRemainder(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE));
+    public static final Item CHLORINATED_WATER     = Reg.item("chlorinated_water", p -> new com.taku3.semiconductorlab.item.DrinkingWaterItem(p, com.taku3.semiconductorlab.block.WaterSupply.Quality.SAFE), new Item.Properties().stacksTo(16).craftRemainder(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE));
+    static {
+        for (Item i : new Item[] {MURKY_WATER, FILTERED_WATER, CHLORINATED_WATER})
+            com.taku3.semiconductorlab.machine.Vessel.register(i, com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE);
+    }
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }

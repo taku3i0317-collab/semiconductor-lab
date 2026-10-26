@@ -1,0 +1,36 @@
+{
+  "parent": "semiconductor-lab:zukan/root",
+  "display": {
+    "icon": {
+      "id": "semiconductor-lab:sand_filter"
+    },
+    "title": {
+      "translate": "block.semiconductor-lab.sand_filter"
+    },
+    "description": {
+      "translate": "block.semiconductor-lab.sand_filter.note3",
+      "extra": [
+        "\n\n",
+        {
+          "translate": "block.semiconductor-lab.sand_filter.note4"
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "got": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "semiconductor-lab:sand_filter"
+          }
+        ]
+      }
+    }
+  }
+}

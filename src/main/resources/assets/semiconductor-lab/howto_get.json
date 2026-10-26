@@ -445,6 +445,9 @@
 "cassiterite_ore": [
 "ore"
 ],
+"cast_iron_pipe": [
+"crafting"
+],
 "cast_iron_plate": [
 "crafting"
 ],
@@ -485,6 +488,12 @@
 "machine:dicing_saw"
 ],
 "chip_header": [
+"crafting"
+],
+"chlorinated_water": [
+"special"
+],
+"chlorinator": [
 "crafting"
 ],
 "chlorine_cylinder": [
@@ -987,6 +996,9 @@
 ],
 "fiber_preform_natural": [
 "crafting"
+],
+"filtered_water": [
+"special"
 ],
 "fire_clay": [
 "crafting"
@@ -1687,6 +1699,9 @@
 "multilayer_mirror": [
 "machine:sputter"
 ],
+"murky_water": [
+"special"
+],
 "n_type_germanium": [
 "machine:zone_refining_furnace"
 ],
@@ -2346,6 +2361,9 @@
 "salty_farmland": [
 "special"
 ],
+"sand_filter": [
+"crafting"
+],
 "saponified_tallow": [
 "campfire"
 ],
@@ -2845,6 +2863,9 @@
 "crafting"
 ],
 "wafer_saw": [
+"crafting"
+],
+"water_tap": [
 "crafting"
 ],
 "water_wheel": [
@@ -4819,6 +4840,15 @@
 "via": "crafting",
 "in": []
 },
+"cast_iron_pipe": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:pig_iron",
+3
+]
+]
+},
 "cast_iron_plate": {
 "via": "crafting",
 "in": [
@@ -5011,6 +5041,19 @@
 ],
 [
 "semiconductor-lab:copper_wire",
+1
+]
+]
+},
+"chlorinator": {
+"via": "crafting",
+"in": [
+[
+"minecraft:iron_ingot",
+7
+],
+[
+"semiconductor-lab:cast_iron_pipe",
 1
 ]
 ]
@@ -12475,6 +12518,23 @@
 ]
 ]
 },
+"sand_filter": {
+"via": "crafting",
+"in": [
+[
+"minecraft:sand",
+3
+],
+[
+"minecraft:gravel",
+3
+],
+[
+"semiconductor-lab:cast_iron_pipe",
+1
+]
+]
+},
 "saponified_tallow": {
 "via": "campfire",
 "in": [
@@ -14522,6 +14582,19 @@
 ]
 ]
 },
+"water_tap": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:cast_iron_pipe",
+1
+],
+[
+"minecraft:copper_ingot",
+1
+]
+]
+},
 "water_wheel": {
 "via": "crafting",
 "in": [
@@ -15473,6 +15546,10 @@
 "minecraft:blocks",
 "minecraft:block/granite"
 ],
+"cast_iron_pipe": [
+"minecraft:blocks",
+"semiconductor-lab:block/cast_iron_pipe"
+],
 "cast_iron_plate": [
 "minecraft:items",
 "semiconductor-lab:item/cast_iron_plate"
@@ -15528,6 +15605,14 @@
 "chip_header": [
 "minecraft:items",
 "semiconductor-lab:item/chip_header"
+],
+"chlorinated_water": [
+"minecraft:items",
+"semiconductor-lab:item/chlorinated_water"
+],
+"chlorinator": [
+"minecraft:blocks",
+"semiconductor-lab:block/chlorinator"
 ],
 "chlorine_cylinder": [
 "minecraft:items",
@@ -16184,6 +16269,10 @@
 "fiber_preform_natural": [
 "minecraft:items",
 "semiconductor-lab:item/fiber_preform_natural"
+],
+"filtered_water": [
+"minecraft:items",
+"semiconductor-lab:item/filtered_water"
 ],
 "fire_clay": [
 "minecraft:items",
@@ -17081,6 +17170,10 @@
 "minecraft:items",
 "semiconductor-lab:item/multilayer_mirror"
 ],
+"murky_water": [
+"minecraft:items",
+"semiconductor-lab:item/murky_water"
+],
 "n_type_germanium": [
 "minecraft:items",
 "semiconductor-lab:item/n_type_germanium"
@@ -17941,6 +18034,10 @@
 "minecraft:blocks",
 "minecraft:block/dirt"
 ],
+"sand_filter": [
+"minecraft:blocks",
+"semiconductor-lab:block/sand_filter"
+],
 "saponified_tallow": [
 "minecraft:items",
 "semiconductor-lab:item/saponified_tallow"
@@ -18584,6 +18681,10 @@
 "wafer_saw": [
 "minecraft:blocks",
 "semiconductor-lab:block/wafer_saw_front"
+],
+"water_tap": [
+"minecraft:blocks",
+"semiconductor-lab:block/water_tap"
 ],
 "water_wheel": [
 "minecraft:blocks",

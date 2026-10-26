@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "I I",
+    "ITI",
+    "III"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "T": "semiconductor-lab:cast_iron_pipe"
+  },
+  "result": {
+    "id": "semiconductor-lab:chlorinator",
+    "count": 1
+  }
+}

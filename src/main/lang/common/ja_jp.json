@@ -546,5 +546,8 @@
   "block.semiconductor-lab.deepslate_sphalerite_ore": "深層岩の閃亜鉛鉱",
   "block.semiconductor-lab.deepslate_sphalerite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
   "block.semiconductor-lab.deepslate_stibnite_ore": "深層岩の輝安鉱",
-  "block.semiconductor-lab.deepslate_stibnite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。"
+  "block.semiconductor-lab.deepslate_stibnite_ore.note1": "地下深く（Y 0 より下）の深層岩の中の同じ鉱石。少し硬いが、掘ると同じ物が出る。",
+  "message.semiconductor-lab.drinking_water.sick": "おなかをこわした（水の中の菌）",
+  "message.semiconductor-lab.drinking_water.filtered": "だいじょうぶだった。でも、ろ過だけでは菌が少し残る",
+  "message.semiconductor-lab.drinking_water.safe": "何も起きない。安全な水"
 }

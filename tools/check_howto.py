@@ -15,6 +15,9 @@ NS = "semiconductor-lab"
 CONTENT = ROOT / "src/main/java/com/taku3/semiconductorlab/content"
 # 例外（レシピの JSON に出ない道）：ID → 道の説明
 HOWTO_EXTRA = {
+    "murky_water": "蛇口（[12-06]）に空のガラス瓶を持って右クリック（砂ろ過なし、WaterTapBlock）",   # IMP3 O-032
+    "filtered_water": "蛇口（[12-06]）に空のガラス瓶を持って右クリック（砂ろ過の槽を通す、WaterTapBlock）",   # IMP3 O-032
+    "chlorinated_water": "蛇口（[12-06]）に空のガラス瓶を持って右クリック（砂ろ過＋塩素の注入器を通す、WaterTapBlock）",   # IMP3 O-032
     "test_power_source": "テスト用（クリエイティブのみ）",
     "carotene": "クロマトグラフィーの塔（[2-54]）で葉の汁を分けると出る（ブロックの右クリック、ChromatographyColumnBlock）",   # IMP3 O-028
     "chlorophyll": "クロマトグラフィーの塔（[2-54]）で葉の汁を分けると出る（ChromatographyColumnBlock）",   # IMP3 O-028
