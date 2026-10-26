@@ -1106,6 +1106,17 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-54] インバー（IMP4-01、S-009）：1m・100℃ でインバー約120µm・鋼約1200µm（10分の1）、鉄＋ニッケル */
+    @GameTest
+    public void invar(GameTestHelper h) {
+        var inv = (com.taku3.semiconductorlab.item.ThermalExpansionItem) Metallurgy.INVAR;
+        double a = com.taku3.semiconductorlab.item.ThermalExpansionItem.stretchMicrometres(inv.alpha(), 1, 100);
+        double s = com.taku3.semiconductorlab.item.ThermalExpansionItem.stretchMicrometres(com.taku3.semiconductorlab.item.ThermalExpansionItem.STEEL_ALPHA, 1, 100);
+        h.assertTrue(Math.abs(a - 120) < 1 && Math.abs(s - 1200) < 1, "invar " + a + " um, steel " + s + " um");
+        h.assertTrue(recipeUses(h, "invar", Metallurgy.NICKEL), "iron + nickel");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [1-39] マグネシウムの電解槽（IMP3、O-028 で書き出しに足した）
         rec(a, Metallurgy.MAGNESIUM_CELL.block, "マグネシウム", L(io(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 1)), L(io(Metallurgy.MAGNESIUM, 1), mol(Gas.CHLORINE_GAS, 1)),

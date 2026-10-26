@@ -1213,5 +1213,12 @@
   "item.semiconductor-lab.zinc_retort_charge.note2": "Crafting: 2 zinc oxide + charcoal + earthenware pot. Smelt for 2 zinc ingots (zinc oxide smelted directly gives 1). The pot breaks and is used up.",
   "item.semiconductor-lab.zinc_retort_charge.note3": "ZnO + C → Zn + CO needs about 1000 °C, but zinc boils at 907 °C, so in an ordinary furnace it escapes as vapour. With the pot's mouth pointing down into a cool place, the vapour condenses to liquid zinc (distillation smelting).",
   "item.semiconductor-lab.zinc_retort_charge.note4": "At Zawar in India, from around the 12th century, hundreds of small aubergine-shaped retorts were fired together. They were broken to get the zinc out, and heaps of the fragments remain ⚠️. In Europe William Champion patented the process in 1738.",
-  "item.semiconductor-lab.zinc_retort_charge.placeholder": "Omitted: ⚠️ the inverted, cooled retort is reduced to simply smelting in a furnace."
+  "item.semiconductor-lab.zinc_retort_charge.placeholder": "Omitted: ⚠️ the inverted, cooled retort is reduced to simply smelting in a furnace.",
+  "item.semiconductor-lab.invar": "Invar",
+  "item.semiconductor-lab.invar.note1": "A metal of iron mixed with nickel. Hot or cold, its length hardly changes.",
+  "item.semiconductor-lab.invar.note2": "Crafting: 2 iron + nickel → 3 (about 36% nickel). Right-click in the air to compare how much a 1 m bar grows over 100 °C with steel (Invar about 120 µm, steel about 1200 µm).",
+  "item.semiconductor-lab.invar.note3": "Ordinary metals expand as atoms jiggle harder. In Invar, the shrinking that comes from its magnetism weakening as it warms just cancels the expansion.",
+  "item.semiconductor-lab.invar.note4": "In 1896 Guillaume at the International Bureau of Weights and Measures found it while looking for a cheap metal to copy the metre prototype (Nobel Prize in Physics 1920). Used for surveying tapes and clock parts that keep time whatever the temperature.",
+  "item.semiconductor-lab.invar.placeholder": "Omitted: ⚠️ the mix is only roughly set by the recipe counts (real Invar is 64% iron, 36% nickel).",
+  "item.semiconductor-lab.invar.expansion": "1 m, +100 °C: Invar %s µm / steel %s µm"
 }

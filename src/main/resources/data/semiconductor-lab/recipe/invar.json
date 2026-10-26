@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "minecraft:iron_ingot",
+    "minecraft:iron_ingot",
+    "semiconductor-lab:nickel"
+  ],
+  "result": {
+    "id": "semiconductor-lab:invar",
+    "count": 3
+  }
+}
