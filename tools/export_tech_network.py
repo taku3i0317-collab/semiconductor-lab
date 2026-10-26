@@ -111,6 +111,7 @@ def main():
             + ([f"wiki/{x['u']}" for x in json.loads((ROOT / "docs" / "wiki" / "index.json").read_text(encoding="utf-8"))] if (ROOT / "docs" / "wiki" / "index.json").exists() else [])]   # S-056：ウィキ   # S-054：中身のあるノードのページ（noindex の物は入れない）
     (OUT / "docs" / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
     (OUT / "LICENSE").write_text(LICENSE, encoding="utf-8")
+    shutil.copy(ROOT / "docs" / "CONTRIBUTING.md", OUT / "CONTRIBUTING.md")   # S-063：手伝い方（日・英）
     size = sum(f.stat().st_size for f in OUT.rglob("*") if f.is_file())
     print(f"wrote {OUT} ({len(data['nodes'])} nodes, {size / 1e6:.1f} MB)")
 

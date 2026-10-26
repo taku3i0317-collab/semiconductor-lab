@@ -31,6 +31,13 @@ def main():
                 L["strings"][k] = v.strip()
     (ROOT / "docs" / "i18n").mkdir(exist_ok=True)
     (ROOT / "docs" / "lang").mkdir(exist_ok=True)
+    # S-062・S-064：翻訳係のメモにも存命かもしれない人の名前が入ることがある（network_meta の living_names で置きかえ）
+    ln = sorted(((json.loads((ROOT / "docs" / "network_meta.json").read_text(encoding="utf-8")).get("living_names") or {}).get("map") or {}).items(), key=lambda kv: -len(kv[0]))
+    for L in langs.values():
+        for f in ("notes", "translator"):
+            if isinstance(L["_meta"].get(f), str):
+                for a, b in ln:
+                    L["_meta"][f] = L["_meta"][f].replace(a, b)
     index = []
     for lang, L in sorted(langs.items()):
         m = L["_meta"]
