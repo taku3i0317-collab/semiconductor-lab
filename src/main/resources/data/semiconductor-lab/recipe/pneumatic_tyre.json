@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:vulcanized_rubber",
+    "semiconductor-lab:vulcanized_rubber",
+    "semiconductor-lab:linen_cloth"
+  ],
+  "result": {
+    "id": "semiconductor-lab:pneumatic_tyre",
+    "count": 2
+  }
+}

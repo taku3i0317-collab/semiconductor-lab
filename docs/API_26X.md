@@ -912,3 +912,8 @@ public boolean instabuild;                         // クリエイティブ（�
 ### WrittenBookContent.craftCopy（IMP2 [15-02] で確かめた動き）
 - 26.3 では世代 2（写しの写し）にも null を返さず写す。「写しの写しは写せない」を守るなら generation() >= 2 を自分で止める（block/PrintingPressBlock.print）
 - `Entity.needsSync`（public boolean）：26.3 で `hurtMarked` の代わり。押した後に true にするとプレイヤーにも動きが送られる（IMP4-01 [4-18] 扇風機、javap で確認）
+
+### 持つと効く能力の値（IMP2 [14-08] 自転車、javap で確認）
+- Item.Properties attributes(ItemAttributeModifiers)、ItemAttributeModifiers.builder().add(Holder<Attribute>, AttributeModifier, EquipmentSlotGroup).build()
+- new AttributeModifier(Identifier, double, AttributeModifier.Operation)、Operation：ADD_VALUE / ADD_MULTIPLIED_BASE / ADD_MULTIPLIED_TOTAL
+- Attributes.MOVEMENT_SPEED（Holder）、EquipmentSlotGroup.MAINHAND。読むとき：DataComponents.ATTRIBUTE_MODIFIERS → modifiers()（Entry：attribute()・modifier()・slot()）、modifier().amount()

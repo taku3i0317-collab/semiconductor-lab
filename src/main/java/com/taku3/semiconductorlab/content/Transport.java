@@ -21,6 +21,15 @@ public final class Transport {
     //   1日の狂い ±0.5秒⚠️（H4 は81日で約5秒）。六分儀で南中を測るとき、もう片方の手に持つと経度が出る
     // [14-02] 羅針盤（IMP2 S-010、1088 沈括）：天然磁石でこすった鉄の針を水の器に浮かべる。北を指し、近くの鉄でくるう
     public static final Item MAGNETIC_COMPASS      = Reg.item("magnetic_compass", com.taku3.semiconductorlab.item.CompassItem::new, new Item.Properties().stacksTo(1));
+    // [14-07] 空気入りタイヤ（IMP2 S-012、1888 ダンロップ）：加硫ゴムの管を麻布で包んで空気を入れる
+    public static final Item PNEUMATIC_TYRE        = Reg.item("pneumatic_tyre");
+    // [14-08] 自転車（IMP2 S-012、1885 ローバー安全型）：後輪をチェーンで回す。利き手に持つと歩く速さが上がる（ゲームの近似：乗り物でなく持ち物）
+    public static final double BICYCLE_SPEED = 0.5;
+    public static final Item BICYCLE               = Reg.item("bicycle", new Item.Properties().stacksTo(1).attributes(
+            net.minecraft.world.item.component.ItemAttributeModifiers.builder().add(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED,
+                    new net.minecraft.world.entity.ai.attributes.AttributeModifier(com.taku3.semiconductorlab.SemiconductorLab.id("bicycle_speed"), BICYCLE_SPEED,
+                            net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_MULTIPLIED_BASE),
+                    net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND).build()));
     public static final Item MARINE_CHRONOMETER    = Reg.item("marine_chronometer", p -> new ChronometerItem(p, 0.5, "marine_chronometer"), new Item.Properties().stacksTo(1));
 
     // [14-13] ジュラルミン（IMP2 S-010、1906 ヴィルム）：Al×6＋銅＋Mg → 調合 →かまど（焼入れ）→ 焼入れしたジュラルミン（やわらかい）→ 持ち物で1日⚠️ → ジュラルミン（時効硬化）

@@ -2926,6 +2926,18 @@
 根拠：
 - Wikipedia「Numerical control」「John T. Parsons」「G-code」：https://en.wikipedia.org/wiki/Numerical_control ・ https://en.wikipedia.org/wiki/John_T._Parsons ・ https://en.wikipedia.org/wiki/G-code
 
+## O96. 空気のばねで走る（空気入りタイヤと自転車）［14-07・14-08］
+**答え**：最初の自転車（1817年、ドライスのドライジーネ）にはペダルがなく、足で地面をけって進んだ。1870年代には前輪の大きなペニー・ファージングが流行したが、転ぶと危なかった。1885年のローバー安全型は、同じ大きさの車輪と後輪のチェーン駆動で今の形になった。1888年、獣医のダンロップが息子の三輪車のために、ゴムの管を布で包んで空気を入れたタイヤを作り、乗り心地と速さが大きく良くなった（空気入りタイヤの特許は1845年にトムソンが先にとっていた）。
+
+- へえ①：最初の自転車にはペダルがなかった。
+- へえ②：空気入りタイヤは、獣医さんが子どものために作った。
+- へえ③：自転車の玉軸受やチェーンの技術は、のちに自動車や飛行機に使われた。
+- へえ④：ライト兄弟は自転車屋さんだった。
+
+確かさ：ドライス 1817 ◎／ローバー 1885 ◎／トムソン 1845・ダンロップ 1888 ◎／ライト兄弟の自転車屋 ◎
+根拠：
+- Wikipedia「Bicycle」「Safety bicycle」「Tire」「John Boyd Dunlop」：https://en.wikipedia.org/wiki/Bicycle ・ https://en.wikipedia.org/wiki/Safety_bicycle ・ https://en.wikipedia.org/wiki/Tire ・ https://en.wikipedia.org/wiki/John_Boyd_Dunlop
+
 ---
 
 # 冶金と熱（タスク15〜）

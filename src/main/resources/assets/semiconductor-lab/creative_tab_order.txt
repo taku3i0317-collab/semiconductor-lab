@@ -875,6 +875,8 @@ hepa_ceiling  # Construction [12-14] 1962
 mercury_thermometer  # Medicine [13-13] 1714
 magnetic_compass  # Transport [14-02] 1088
 marine_chronometer  # Transport [14-03] 1761
+pneumatic_tyre  # Transport [14-07] 1845
+bicycle  # Transport [14-07] 1845
 duralumin_charge  # Transport [14-13] 1906
 duralumin  # Transport [14-13] 1906
 quenched_duralumin  # Transport [14-13] 1906

@@ -14,6 +14,17 @@ import net.minecraft.world.item.ItemStack;
  * GameTest：幹14 交通・運輸（IMP2 O-023 で作成）。共通の道具は {@link LabTestBase}。
  */
 public class TransportTests extends LabTestBase {
+    /** [14-07][14-08] 空気入りタイヤと自転車（IMP2 S-012）：タイヤは加硫ゴム＋麻布、自転車はタイヤ2・鋼・玉軸受・ねじ。利き手に持つと歩く速さが 1.5 倍 */
+    @GameTest
+    public void bicycle(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "pneumatic_tyre", com.taku3.semiconductorlab.content.Chemistry.VULCANIZED_RUBBER) && recipeUses(h, "bicycle", Transport.PNEUMATIC_TYRE) && recipeUses(h, "bicycle", Precision.BALL_BEARING), "tyre = rubber + cloth; bicycle = tyres + ball bearing");
+        var mods = new ItemStack(Transport.BICYCLE).get(net.minecraft.core.component.DataComponents.ATTRIBUTE_MODIFIERS);
+        h.assertTrue(mods != null && mods.modifiers().stream().anyMatch(e -> e.attribute().equals(net.minecraft.world.entity.ai.attributes.Attributes.MOVEMENT_SPEED)
+                && e.modifier().amount() == Transport.BICYCLE_SPEED && e.slot() == net.minecraft.world.entity.EquipmentSlotGroup.MAINHAND), "held in the main hand: walk speed x" + (1 + Transport.BICYCLE_SPEED));
+        LOG.info("[LAB] bicycle [14-07][14-08]: pneumatic tyres, chain, ball bearings; held -> walk speed x" + (1 + Transport.BICYCLE_SPEED));
+        h.succeed();
+    }
+
     /** [14-02] 羅針盤（IMP2 S-010）：何もなければ北（くるい 0）を指し、近くに鉄のブロックがあると引かれてくるう。遠い鉄は効かない */
     @GameTest
     public void magnetic_compass(GameTestHelper h) {

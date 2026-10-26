@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:pneumatic_tyre",
+    "semiconductor-lab:pneumatic_tyre",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:steel_ingot",
+    "semiconductor-lab:ball_bearing",
+    "semiconductor-lab:standard_screw"
+  ],
+  "result": {
+    "id": "semiconductor-lab:bicycle",
+    "count": 1
+  }
+}

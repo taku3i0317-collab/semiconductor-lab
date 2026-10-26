@@ -260,6 +260,9 @@
 "beta_spodumene": [
 "smelting"
 ],
+"bicycle": [
+"crafting"
+],
 "bisphenol_a": [
 "crafting"
 ],
@@ -1927,6 +1930,9 @@
 ],
 "pn_junction_wafer": [
 "machine:diffusion_furnace"
+],
+"pneumatic_tyre": [
+"crafting"
 ],
 "point_contact_diode": [
 "crafting"

@@ -894,14 +894,16 @@ setblock ~2 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-02]
 setblock ~2 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:magnetic_compass",count:1}]}
 setblock ~5 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-03] 経度とクロノ","クロノメーターを持って","六分儀で南中を測ると経","度の文が出るか。x を"]}}
 setblock ~5 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:marine_chronometer",count:1}]}
-setblock ~8 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-13] ジュラルミン","焼入れしたジュラルミン","を持って1日待つと硬い","ジュラルミンに変わるか"]}}
-setblock ~8 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:duralumin_charge",count:16},{Slot:1b,id:"semiconductor-lab:duralumin",count:16},{Slot:2b,id:"semiconductor-lab:quenched_duralumin",count:16}]}
-setblock ~11 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-22] 流れ作業とベ","ベルトの上に物が寝て見","える・1秒に1マス進む","・駆動の画面の数字・電"]}}
-setblock ~11 ~0 ~98 semiconductor-lab:conveyor_belt
-setblock ~12 ~0 ~98 semiconductor-lab:conveyor_drive
-setblock ~16 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-23] 天井の搬送 ","運んでいる間レールの光","が先へ動く・駆動の画面","・行き止まりが2つのと"]}}
-setblock ~16 ~0 ~98 semiconductor-lab:oht_rail
-setblock ~17 ~0 ~98 semiconductor-lab:oht_drive
+setblock ~8 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-07] 空気入りタイ","自転車を利き手に持って","歩く → 速くなる（手","を替えると元の速さ）"]}}
+setblock ~8 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:pneumatic_tyre",count:16},{Slot:1b,id:"semiconductor-lab:bicycle",count:1}]}
+setblock ~11 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-13] ジュラルミン","焼入れしたジュラルミン","を持って1日待つと硬い","ジュラルミンに変わるか"]}}
+setblock ~11 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:duralumin_charge",count:16},{Slot:1b,id:"semiconductor-lab:duralumin",count:16},{Slot:2b,id:"semiconductor-lab:quenched_duralumin",count:16}]}
+setblock ~14 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-22] 流れ作業とベ","ベルトの上に物が寝て見","える・1秒に1マス進む","・駆動の画面の数字・電"]}}
+setblock ~14 ~0 ~98 semiconductor-lab:conveyor_belt
+setblock ~15 ~0 ~98 semiconductor-lab:conveyor_drive
+setblock ~19 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-23] 天井の搬送 ","運んでいる間レールの光","が先へ動く・駆動の画面","・行き止まりが2つのと"]}}
+setblock ~19 ~0 ~98 semiconductor-lab:oht_rail
+setblock ~20 ~0 ~98 semiconductor-lab:oht_drive
 setblock ~0 ~0 ~105 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹15 通信","↓ この列","",""]}}
 setblock ~2 ~0 ~105 minecraft:oak_sign[rotation=8]{front_text:{messages:["[15-01] 紙","3つのアイテムの見た目","とツールチップ、パルプ","から紙ができるか（レシ"]}}
 setblock ~2 ~0 ~106 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:sulfite_liquor",count:16},{Slot:1b,id:"semiconductor-lab:pulp_charge",count:16},{Slot:2b,id:"semiconductor-lab:wood_pulp",count:16}]}
