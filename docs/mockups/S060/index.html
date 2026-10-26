@@ -1,0 +1,47 @@
+<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>技術の地図（見本）</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&family=DotGothic16&display=swap"><style>
+:root { --bg:#faf7f0; --panel:#fffdf8; --ink:#2b2622; --sub:#6b6259; --line:#e4dccd; --accent:#2f6f8f; --warm:#e8a33d; }
+* { box-sizing: border-box; } body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.75 "BIZ UDPGothic", sans-serif; }
+.top { position:sticky; top:0; z-index:5; display:flex; gap:8px; align-items:center; padding:10px 16px; background:var(--bg); border-bottom:1px solid var(--line); }
+.top a.home { font-family:"DotGothic16",sans-serif; font-size:18px; color:var(--ink); text-decoration:none; white-space:nowrap; }
+.top input { flex:1; min-width:0; font:inherit; padding:8px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel); }
+.wrap { max-width:760px; margin:0 auto; padding:16px 16px 64px; }
+h1 { font-family:"DotGothic16",sans-serif; font-weight:400; font-size:clamp(26px,7vw,36px); margin:0; line-height:1.3; }
+h2 { font-size:15px; letter-spacing:.08em; color:var(--sub); margin:28px 0 8px; border-top:1px solid var(--line); padding-top:14px; }
+.what { display:flex; gap:16px; align-items:center; }
+.what .big { width:88px; height:88px; flex:none; display:flex; align-items:center; justify-content:center; background:var(--panel); border:1px solid var(--line); border-radius:16px; }
+.what .big img { width:64px; height:64px; image-rendering:pixelated; }
+.one { font-size:19px; margin:10px 0 2px; }
+.meta { color:var(--sub); font-size:14px; }
+.chip { display:inline-block; font-size:13px; border:1px solid var(--line); border-radius:999px; padding:0 10px; margin:2px 4px 2px 0; background:var(--panel); }
+.acts { display:flex; gap:8px; margin:14px 0 0; }
+.btn { font:inherit; font-weight:700; padding:8px 14px; border:1px solid var(--accent); color:var(--accent); background:var(--panel); border-radius:10px; text-decoration:none; }
+.btn.main { background:var(--accent); color:#fff; }
+.get { display:grid; gap:8px; }
+.get div { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:10px 12px; }
+.rec { display:grid; grid-template-columns: 1fr 92px 1fr; align-items:center; gap:8px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:10px; margin:8px 0; }
+.ins, .outs { display:flex; flex-wrap:wrap; gap:6px; } .outs { justify-content:flex-start; }
+.cell { width:84px; display:flex; flex-direction:column; align-items:center; text-align:center; font-size:12px; line-height:1.3; }
+.cell img, .cell .vi { image-rendering:pixelated; } .cell b { font-weight:400; margin-top:2px; } .cell i { font-style:normal; color:var(--accent); font-weight:700; }
+.vi { display:inline-flex; align-items:center; justify-content:center; border:1px dashed var(--sub); border-radius:8px; color:var(--sub); font-size:18px; }
+.how { display:flex; flex-direction:column; align-items:center; text-align:center; } .how span { font-weight:700; font-size:14px; } .how small { color:var(--sub); font-size:12px; } .how em { font-style:normal; font-size:22px; color:var(--warm); line-height:1; }
+.more { color:var(--sub); font-size:15px; } details summary { cursor:pointer; color:var(--accent); font-weight:700; }
+.links { display:grid; grid-template-columns: 1fr 1fr; gap:12px; } .links h3 { font-size:14px; margin:0 0 4px; color:var(--sub); }
+.th { display:flex; flex-wrap:wrap; gap:6px; } .th a { display:inline-flex; align-items:center; gap:6px; padding:2px 10px 2px 2px; border:1px solid var(--line); border-radius:10px; background:var(--panel); color:var(--ink); text-decoration:none; font-size:14px; }
+.th img { width:28px; height:28px; image-rendering:pixelated; }
+.quiet { color:var(--sub); font-size:13px; margin-top:32px; } .quiet a { color:var(--sub); }
+.cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:12px; }
+.card { display:block; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px; color:var(--ink); text-decoration:none; }
+.card b { font-size:18px; display:block; } .card span { color:var(--sub); font-size:14px; }
+.search { font:inherit; font-size:18px; width:100%; padding:14px 16px; border:2px solid var(--accent); border-radius:14px; background:var(--panel); }
+ol.order { list-style:none; padding:0; margin:0; counter-reset:o; } ol.order li { counter-increment:o; display:flex; align-items:center; gap:10px; padding:8px 0; border-bottom:1px solid var(--line); }
+ol.order li::before { content:counter(o); width:28px; text-align:right; color:var(--sub); font-size:13px; } ol.order img { width:32px; height:32px; image-rendering:pixelated; }
+ol.order .y { margin-left:auto; color:var(--sub); font-size:13px; } ol.order a { color:var(--ink); text-decoration:none; font-weight:700; }
+@media (min-width: 900px) { .wrap { max-width: 1040px; } .cols { display:grid; grid-template-columns: 1fr 320px; gap:32px; } .side { position:sticky; top:72px; align-self:start; } }
+@media (max-width: 480px) { .rec { grid-template-columns: 1fr; } .how { flex-direction:row; gap:8px; justify-content:center; } .how em { transform: rotate(90deg); } .links { grid-template-columns: 1fr; } }
+</style></head>
+<body><div class="top"><a class="home" href="index.html">技術の地図</a><input type="search" placeholder="さがす（物・技術・人の名前）" aria-label="さがす"></div>
+<div class="wrap"><h1>技術の地図</h1><p class="meta">石器から AI チップまで。物の名前でさがす、道案内で順にたどる。</p>
+<input class="search" type="search" placeholder="さがす：スマホ・鉄・トランジスタ…" aria-label="さがす">
+<h2>道案内</h2><div class="cards"><a class="card" href="list.html"><b>はじめての1時間</b><span>石器・火・土器から、はじめての金属まで</span></a><a class="card" href="list.html"><b>AI チップまで</b><span>作る順に、ぜんぶたどる</span></a></div>
+<h2>章から</h2><div class="cards"><a class="card" href="list.html"><b>生きる道具</b><span>石器・火・土器・木炭</span></a><a class="card" href="list.html"><b>金属</b><span>銅・鉄・鋼</span></a><a class="card" href="list.html"><b>化学</b><span>ソーダ・硫酸・塩素</span></a><a class="card" href="list.html"><b>電気</b><span>電池・発電機・真空管</span></a><a class="card" href="list.html"><b>半導体</b><span>ゲルマニウム・シリコン・IC</span></a></div>
+<h2>地図で見る</h2><p><a class="btn" href="#">技術の地図（年の順）</a> <a class="btn" href="#">ランキング</a></p></div></body></html>
