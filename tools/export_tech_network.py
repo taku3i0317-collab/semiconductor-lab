@@ -104,7 +104,7 @@ def main():
     urls = [f'<url><loc>{site}{pg}</loc><xhtml:link rel="alternate" hreflang="ja" href="{site}{pg}"/><xhtml:link rel="alternate" hreflang="en" href="{site}{pg}?lang=en"/></url>'
             for pg in ["index.html"] + sorted(f"chapters/{p.name}" for p in (OUT / "docs" / "chapters").glob("*.html")) + sorted(f"guides/{p.name}" for p in (OUT / "docs" / "guides").glob("*.html")) + ["network.html", "ranking.html", "people.html", "glossary.html", "credits.html"]
             + [f"nodes/{i}.html" for i in json.loads((ROOT / "docs" / "nodes" / "index.json").read_text(encoding="utf-8"))["indexed"]]
-            + (["wiki/index.html"] + [f"wiki/{x['u']}" for x in json.loads((ROOT / "docs" / "wiki" / "index.json").read_text(encoding="utf-8"))] if (ROOT / "docs" / "wiki" / "index.json").exists() else [])]   # S-056：ウィキ   # S-054：中身のあるノードのページ（noindex の物は入れない）
+            + ([f"wiki/{x['u']}" for x in json.loads((ROOT / "docs" / "wiki" / "index.json").read_text(encoding="utf-8"))] if (ROOT / "docs" / "wiki" / "index.json").exists() else [])]   # S-056：ウィキ   # S-054：中身のあるノードのページ（noindex の物は入れない）
     (OUT / "docs" / "sitemap.xml").write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n' + "\n".join(urls) + "\n</urlset>\n", encoding="utf-8")
     (OUT / "LICENSE").write_text(LICENSE, encoding="utf-8")
     size = sum(f.stat().st_size for f in OUT.rglob("*") if f.is_file())

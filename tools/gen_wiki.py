@@ -313,6 +313,8 @@ def main():
 </script>"""
     (OUT / "index.html").write_text(page("Semiconductor Lab ウィキ（アイテム・機械・道案内）", f"MOD のアイテム {nI}・機械 {nM} の作り方と使い道、道案内。CC0。", "wiki/index.html", body, depth=1), encoding="utf-8")
     print(f"wiki: items {nI}, machines {nM}, guides {len(glinks)}, icons {len(list((OUT / 'icons').glob('*.png')))}, gui {len(list((OUT / 'gui').glob('*.png')))}")
+    import subprocess, sys as _sys   # S-061：物のページがあるアイテム・機械は、新しいページへの案内にする（URL は切らない）
+    subprocess.run([_sys.executable, "-I", str(ROOT / "tools" / "wiki_redirects.py")], check=True)
 
 
 if __name__ == "__main__":

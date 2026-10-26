@@ -902,3 +902,11 @@
 - 入口が tech-network のいちばん上のページになった（Search Console の確認の1行はそのまま）。semiconductor-lab の Pages でも docs/index.html が入口になる（前は docs/README.md から作るページだった。確認の1行は入れてある）
 - sitemap.xml：1610（入口・章・道案内を足した）。画面のはみ出し 0
 - 写真 docs/mockups/S061_home_phone.png（入口・「鉄」でさがす・半導体の章・はじめての1時間）・S061_home_pc.png
+
+## S-061 — 区切り3：前のウィキの URL を新しいページへ案内（URL は切らない）
+- tools/wiki_redirects.py（tools/gen_wiki.py の最後で動く）：アイテム・機械のページのうち、その物（ノード）がある **850** を短い案内のページに（すぐ nodes/<番号>.html#it-<名前> へ移る、canonical も新しい方、検索には出さない）。物の決まっていないアイテム 83 とマルチブロック（高炉の組み立て）はそのまま
+- wiki/index.html → 入口、wiki/guides/* → 新しい道案内（ラジオ・電卓は入口へ）
+- 物のページの目印（#it-…）へ、字の読み込みの後にもう一度移る（ずれないように）
+- 図のメニューの「MOD のウィキ」→「入口（さがす・道案内・章）」
+- sitemap.xml から案内のページを外した。確かめた：wiki/items/earthenware_pot.html → 土器のページの「土器」の作り方へ。画面のはみ出し 0
+- **物の決まっていないアイテム 83** は、どのノードに入れるかの案を次に作る（担当と相談）
