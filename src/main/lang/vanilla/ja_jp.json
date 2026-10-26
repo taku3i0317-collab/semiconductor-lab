@@ -34,5 +34,10 @@
   "item.minecraft.furnace_minecart.note2": "かまど＋トロッコ。石炭や木炭を入れると押して進む。本物の機関車はボイラーで湯をわかし、蒸気でピストンを動かす。",
   "item.minecraft.furnace_minecart.note3": "1804年、トレビシックが初めてレールの上で蒸気機関車を走らせた。1830年のスチーブンソンのロケット号で鉄道の時代が始まった。",
   "item.minecraft.furnace_minecart.note4": "日本の最初の鉄道は1872年の新橋〜横浜。機関車はイギリスから輸入した。",
-  "item.minecraft.furnace_minecart.placeholder": "近似：かまど付きトロッコ＝蒸気機関車。ボイラーとピストンは省略。"
+  "item.minecraft.furnace_minecart.placeholder": "近似：かまど付きトロッコ＝蒸気機関車。ボイラーとピストンは省略。",
+  "item.minecraft.raw_gold.note1": "金の原石。金はさびないので、川の砂の中からも粒のまま見つかる。",
+  "item.minecraft.raw_gold.note2": "この MOD ではかまどで焼くと金になる（バニラのまま）。金はチップの金線（ワイヤーボンディング）や、さびない接点のめっきに使う。",
+  "item.minecraft.raw_gold.note3": "岩の中のわずかな金を取り出す方法は、昔は水銀に溶かしこむやり方、のちにシアン化物の液で溶かし出すやり方が使われた。どちらも毒で、川や土を汚す公害が起きたので、今は扱いが厳しく決められている。この MOD ではその作り方は入れない。",
+  "item.minecraft.raw_gold.note4": "1554年ごろメキシコで水銀を使うパティオ法が広まり ⚠️、1887年にスコットランドでシアン化物の青化法が作られた。今も小さな金鉱山の水銀は、世界の大きな公害の一つになっている。",
+  "item.minecraft.raw_gold.placeholder": "近似：⚠️ 金の製錬（水銀・シアン化物＝毒）は解説だけ。かまどで焼く道はバニラのまま。"
 }

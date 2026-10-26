@@ -1117,6 +1117,13 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-64] 金の製錬（IMP4-01、S-010：解説だけ。毒の作り方は入れない）：金の原石 → かまど → 金インゴット（バニラのまま） */
+    @GameTest
+    public void goldExplanationOnly(GameTestHelper h) {
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, net.minecraft.world.item.Items.RAW_GOLD).is(net.minecraft.world.item.Items.GOLD_INGOT), "raw gold smelts to gold (vanilla)");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [1-39] マグネシウムの電解槽（IMP3、O-028 で書き出しに足した）
         rec(a, Metallurgy.MAGNESIUM_CELL.block, "マグネシウム", L(io(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 1)), L(io(Metallurgy.MAGNESIUM, 1), mol(Gas.CHLORINE_GAS, 1)),

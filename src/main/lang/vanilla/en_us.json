@@ -34,5 +34,10 @@
   "item.minecraft.furnace_minecart.note2": "Furnace + minecart. Feed it coal or charcoal and it pushes along. A real locomotive boils water in a boiler and drives pistons with steam.",
   "item.minecraft.furnace_minecart.note3": "In 1804 Trevithick ran the first steam locomotive on rails. Stephenson's Rocket (1830) began the railway age.",
   "item.minecraft.furnace_minecart.note4": "Japan's first railway (1872) ran from Shinbashi to Yokohama with locomotives imported from Britain.",
-  "item.minecraft.furnace_minecart.placeholder": "Approximation: furnace minecart = steam locomotive; boiler and pistons are skipped."
+  "item.minecraft.furnace_minecart.placeholder": "Approximation: furnace minecart = steam locomotive; boiler and pistons are skipped.",
+  "item.minecraft.raw_gold.note1": "Gold ore. Gold does not rust, so it can even be found as grains in river sand.",
+  "item.minecraft.raw_gold.note2": "In this mod it smelts to gold in a furnace (as in vanilla). Gold is used for chip bonding wires and rust-free contact plating.",
+  "item.minecraft.raw_gold.note3": "Getting the tiny amount of gold out of rock was once done by dissolving it into mercury, and later by leaching it with cyanide solution. Both are poisons and polluted rivers and soil, so they are now strictly regulated. This mod does not include those methods.",
+  "item.minecraft.raw_gold.note4": "Around 1554 the mercury-based patio process spread in Mexico ⚠️, and in 1887 the cyanide process was devised in Scotland. Mercury from small gold mines is still one of the world's major pollution problems.",
+  "item.minecraft.raw_gold.placeholder": "Approximation: ⚠️ gold refining (mercury and cyanide are poisons) is explanation only. Smelting in a furnace stays as in vanilla."
 }
