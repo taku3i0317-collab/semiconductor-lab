@@ -257,4 +257,27 @@ public class ConstructionTests extends LabTestBase {
         h.assertFalse(com.taku3.semiconductorlab.item.DrinkingWaterItem.drink(player, com.taku3.semiconductorlab.block.WaterSupply.Quality.SAFE, 0.0f), "safe (" + Q.getSimpleName() + ")");
         h.succeed();
     }
+
+    /** [12-08] 下水道（IMP3、O-032）：取り入れ口の近くの汚水だめで水が1段悪くなる、下水の管で16ブロックより遠くへ流せば戻る */
+    @GameTest
+    public void sewer(GameTestHelper h) {
+        var lv = h.getLevel();
+        var player = h.makeMockPlayer(net.minecraft.world.level.GameType.SURVIVAL);
+        floor(h, 7);
+        h.setBlock(p(1, 1, 1), net.minecraft.world.level.block.Blocks.WATER);
+        h.setBlock(p(2, 1, 1), Construction.SAND_FILTER);
+        h.setBlock(p(3, 1, 1), Construction.CAST_IRON_PIPE);
+        BlockPos tap = p(4, 1, 1);
+        h.setBlock(tap, Construction.WATER_TAP);
+        net.minecraft.world.item.ItemStack bottles = new net.minecraft.world.item.ItemStack(com.taku3.semiconductorlab.content.Chemistry.GLASS_BOTTLE, 8);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles), Construction.FILTERED_WATER, "clean intake");
+        BlockPos pit = p(1, 1, 4);
+        h.setBlock(pit, Construction.CESSPIT);
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles), Construction.MURKY_WATER, "cesspit near the intake spoils it");
+        // 下水の管を汚水だめから上へ 17 本のばす（16 ブロックより遠く）
+        for (int y = 2; y <= 18; y++) h.setBlock(p(1, y, 4), Construction.SEWER_PIPE);
+        h.assertTrue(com.taku3.semiconductorlab.block.WaterSupply.drained(lv, h.absolutePos(pit)), "drained");
+        h.assertValueEqual(com.taku3.semiconductorlab.block.WaterTapBlock.fill(lv, h.absolutePos(tap), player, bottles), Construction.FILTERED_WATER, "sewer carries it away");
+        h.succeed();
+    }
 }

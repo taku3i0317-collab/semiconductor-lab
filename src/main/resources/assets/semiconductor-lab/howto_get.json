@@ -475,6 +475,9 @@
 "cerium_oxide": [
 "crafting"
 ],
+"cesspit": [
+"crafting"
+],
 "cfc12_gas": [
 "crafting"
 ],
@@ -2380,6 +2383,9 @@
 "crafting"
 ],
 "self_excited_dynamo": [
+"crafting"
+],
+"sewer_pipe": [
 "crafting"
 ],
 "sextant": [
@@ -4965,6 +4971,19 @@
 [
 "semiconductor-lab:hydrochloric_acid",
 2
+]
+]
+},
+"cesspit": {
+"via": "crafting",
+"in": [
+[
+"minecraft:cobblestone",
+7
+],
+[
+"minecraft:dirt",
+1
 ]
 ]
 },
@@ -12628,6 +12647,15 @@
 ]
 ]
 },
+"sewer_pipe": {
+"via": "crafting",
+"in": [
+[
+"minecraft:gray_concrete",
+4
+]
+]
+},
 "sextant": {
 "via": "crafting",
 "in": [
@@ -15606,6 +15634,10 @@
 "minecraft:items",
 "semiconductor-lab:item/cerium_oxide"
 ],
+"cesspit": [
+"minecraft:blocks",
+"semiconductor-lab:block/cesspit"
+],
 "cfc12_gas": [
 "minecraft:items",
 "semiconductor-lab:item/cfc12_gas"
@@ -18081,6 +18113,10 @@
 "self_excited_dynamo": [
 "minecraft:items",
 "semiconductor-lab:item/self_excited_dynamo"
+],
+"sewer_pipe": [
+"minecraft:blocks",
+"semiconductor-lab:block/sewer_pipe"
 ],
 "sextant": [
 "minecraft:items",

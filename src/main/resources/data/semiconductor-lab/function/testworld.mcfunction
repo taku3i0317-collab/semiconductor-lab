@@ -901,19 +901,22 @@ setblock ~20 ~0 ~90 semiconductor-lab:macadam
 setblock ~21 ~0 ~90 semiconductor-lab:tarmac
 setblock ~25 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-02] ポルトランド","レシピ本でセメントから","コンクリートパウダーが","作れるか"]}}
 setblock ~25 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:cement_raw_meal",count:16},{Slot:1b,id:"semiconductor-lab:cement_clinker",count:16},{Slot:2b,id:"semiconductor-lab:portland_cement",count:16}]}
-setblock ~28 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-03] 鉄筋コンクリ","TNT の爆発でふつう","のコンクリートより残る","か"]}}
-setblock ~28 ~0 ~90 semiconductor-lab:reinforced_concrete
-setblock ~32 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-12] 換気・空調","マスクアライナーの近く","（8 ブロック以内）に","空調機を置いて電気を流"]}}
-setblock ~32 ~0 ~90 semiconductor-lab:air_conditioner
-setblock ~36 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-07] 塩素消毒","（人間の確認項目なし）","",""]}}
-setblock ~36 ~0 ~90 semiconductor-lab:chlorinator
-setblock ~37 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:chlorinated_water",count:16}]}
-setblock ~40 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-13] HEPA フ","ブッシングでガラス繊維"," → HEPA フィル","ター → 空調機の左上"]}}
-setblock ~40 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_bushing",count:1},{Slot:1b,id:"semiconductor-lab:glass_fiber",count:16},{Slot:2b,id:"semiconductor-lab:hepa_filter",count:1}]}
-setblock ~43 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-05] 板ガラス","レシピ本で MOD の","ガラスからガラス板が作","れるか"]}}
-setblock ~43 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tin_bath",count:1}]}
-setblock ~46 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-14] 層流クリーン","石の部屋＋HEPA の","天井＋HEPA 入り空","調の中でマスクアライナ"]}}
-setblock ~46 ~0 ~90 semiconductor-lab:hepa_ceiling
+setblock ~28 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-08] 下水道","（人間の確認項目なし）","",""]}}
+setblock ~28 ~0 ~90 semiconductor-lab:cesspit
+setblock ~29 ~0 ~90 semiconductor-lab:sewer_pipe
+setblock ~33 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-03] 鉄筋コンクリ","TNT の爆発でふつう","のコンクリートより残る","か"]}}
+setblock ~33 ~0 ~90 semiconductor-lab:reinforced_concrete
+setblock ~37 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-12] 換気・空調","マスクアライナーの近く","（8 ブロック以内）に","空調機を置いて電気を流"]}}
+setblock ~37 ~0 ~90 semiconductor-lab:air_conditioner
+setblock ~41 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-07] 塩素消毒","（人間の確認項目なし）","",""]}}
+setblock ~41 ~0 ~90 semiconductor-lab:chlorinator
+setblock ~42 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:chlorinated_water",count:16}]}
+setblock ~45 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-13] HEPA フ","ブッシングでガラス繊維"," → HEPA フィル","ター → 空調機の左上"]}}
+setblock ~45 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:platinum_bushing",count:1},{Slot:1b,id:"semiconductor-lab:glass_fiber",count:16},{Slot:2b,id:"semiconductor-lab:hepa_filter",count:1}]}
+setblock ~48 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-05] 板ガラス","レシピ本で MOD の","ガラスからガラス板が作","れるか"]}}
+setblock ~48 ~0 ~90 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:tin_bath",count:1}]}
+setblock ~51 ~0 ~89 minecraft:oak_sign[rotation=8]{front_text:{messages:["[12-14] 層流クリーン","石の部屋＋HEPA の","天井＋HEPA 入り空","調の中でマスクアライナ"]}}
+setblock ~51 ~0 ~90 semiconductor-lab:hepa_ceiling
 setblock ~0 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["幹14 交通・運輸","↓ この列","",""]}}
 setblock ~2 ~0 ~97 minecraft:oak_sign[rotation=8]{front_text:{messages:["[14-02] 羅針盤","持ってぐるっと回ると矢","印が北を指し続ける。鉄","のブロックのそばで「く"]}}
 setblock ~2 ~0 ~98 minecraft:chest[facing=north]{Items:[{Slot:0b,id:"semiconductor-lab:magnetic_compass",count:1}]}

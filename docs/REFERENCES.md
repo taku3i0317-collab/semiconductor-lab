@@ -4479,6 +4479,20 @@
 - Wikipedia「Water chlorination」：https://en.wikipedia.org/wiki/Water_chlorination
 - Wikipedia「Roman aqueduct」：https://en.wikipedia.org/wiki/Roman_aqueduct
 
+## C86. 汚れた水は遠くへ（下水道）［12-08］
+**答え**：家の汚れた水を近くの穴（汚水だめ）にためると、汚れが地面をしみて近くの井戸や川に入り、コレラなどが広がる。1854年、ロンドンのブロード街の井戸は、すぐそばの汚水だめから菌がしみこんでいた。1858年の夏、テムズ川のひどいにおい（大悪臭）で国会が開けなくなり、ジョゼフ・バザルジェットがコンクリートの下水道網を作って、汚水を町の下流へ運び出した。飲む水（上水）と汚れた水（下水）を分けることが、町の衛生の基本になった。
+
+- へえ①：大悪臭のとき、国会の窓のカーテンを薬にひたしてにおいを防ごうとした。
+- へえ②：バザルジェットの下水道は、必要と思った太さの倍にして作ったので、人口がふえても長く使えた。
+- へえ③：ブロード街の井戸は、ポンプの柄を外したあとに流行がおさまった（すでに下火だったという見方もある）。
+- へえ④：下水道の工事でテムズ川の岸がうめ立てられ、その上が道路（エンバンクメント）になった。
+
+確かさ：1854 ブロード街・1858 大悪臭 ◎／「倍の太さ」の話 ○／カーテンの話 △
+根拠：
+- Wikipedia「Great Stink」：https://en.wikipedia.org/wiki/Great_Stink
+- Wikipedia「1854 Broad Street cholera outbreak」：https://en.wikipedia.org/wiki/1854_Broad_Street_cholera_outbreak
+- Wikipedia「Joseph Bazalgette」：https://en.wikipedia.org/wiki/Joseph_Bazalgette
+
 ---
 
 # 第1章 ゲルマニウム（v0.1）

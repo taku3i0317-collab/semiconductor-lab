@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "C C",
+    "CDC",
+    "CCC"
+  ],
+  "key": {
+    "C": "minecraft:cobblestone",
+    "D": "minecraft:dirt"
+  },
+  "result": {
+    "id": "semiconductor-lab:cesspit",
+    "count": 1
+  }
+}

@@ -884,6 +884,8 @@ tarmac  # Construction [12-09] 1820
 cement_raw_meal  # Construction [12-02] 1824
 cement_clinker  # Construction [12-02] 1824
 portland_cement  # Construction [12-02] 1824
+cesspit  # Construction [12-08] 1858
+sewer_pipe  # Construction [12-08] 1858
 reinforced_concrete  # Construction [12-03] 1867
 air_conditioner  # Construction [12-12] 1902
 chlorinator  # Construction [12-07] 1908

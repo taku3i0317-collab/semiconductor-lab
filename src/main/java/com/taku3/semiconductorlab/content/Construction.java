@@ -88,6 +88,12 @@ public final class Construction {
             com.taku3.semiconductorlab.machine.Vessel.register(i, com.taku3.semiconductorlab.machine.Vessel.GLASS_BOTTLE);
     }
 
+    // ===== [12-08] 下水道（IMP3、O-032）：汚水だめが取り入れ口の近くにあると水が汚れる。コンクリートの下水の管で遠く（16 ブロックより先）へ流せば防げる =====
+    public static final Block CESSPIT = Reg.block("cesspit", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.DIRT).strength(2.0f).sound(SoundType.STONE));
+    public static final Block SEWER_PIPE = Reg.block("sewer_pipe", Block::new,
+            BlockBehaviour.Properties.of().mapColor(MapColor.COLOR_GRAY).requiresCorrectToolForDrops().strength(2.0f, 6.0f).sound(SoundType.STONE));
+
     /** Content.initialize() から呼ぶ（このクラスを読み込んで、上の登録を走らせる） */
     static void init() {}
 }
