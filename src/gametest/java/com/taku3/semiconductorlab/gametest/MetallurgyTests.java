@@ -1139,6 +1139,15 @@ public class MetallurgyTests extends LabTestBase {
         h.succeed();
     }
 
+    /** [1-53] フェライト（IMP4-01、S-009 案A）：酸化鉄＋酸化亜鉛＋酸化マンガン → 粉 → 溶鉱炉 → フェライトの芯（かまど約1000℃ では焼けない） */
+    @GameTest
+    public void ferrite(GameTestHelper h) {
+        h.assertTrue(recipeUses(h, "ferrite_mix", com.taku3.semiconductorlab.content.Optics.ROUGE) && recipeUses(h, "ferrite_mix", Heat.ZINC_OXIDE) && recipeUses(h, "ferrite_mix", Metallurgy.PYROLUSITE), "Fe2O3 + ZnO + MnO2");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.BLASTING, Metallurgy.FERRITE_MIX).is(Metallurgy.FERRITE_CORE), "sintered in the blast furnace");
+        h.assertTrue(cook(h, net.minecraft.world.item.crafting.RecipeType.SMELTING, Metallurgy.FERRITE_MIX).isEmpty(), "not in the ~1000 C furnace");
+        h.succeed();
+    }
+
     static void machineRecipes(com.google.gson.JsonArray a) {
         // [1-39] マグネシウムの電解槽（IMP3、O-028 で書き出しに足した）
         rec(a, Metallurgy.MAGNESIUM_CELL.block, "マグネシウム", L(io(Metallurgy.ANHYDROUS_MAGNESIUM_CHLORIDE, 1)), L(io(Metallurgy.MAGNESIUM, 1), mol(Gas.CHLORINE_GAS, 1)),

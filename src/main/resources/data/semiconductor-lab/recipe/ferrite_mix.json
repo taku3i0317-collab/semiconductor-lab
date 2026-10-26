@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "semiconductor-lab:rouge",
+    "semiconductor-lab:rouge",
+    "semiconductor-lab:zinc_oxide",
+    "semiconductor-lab:pyrolusite"
+  ],
+  "result": {
+    "id": "semiconductor-lab:ferrite_mix",
+    "count": 2
+  }
+}

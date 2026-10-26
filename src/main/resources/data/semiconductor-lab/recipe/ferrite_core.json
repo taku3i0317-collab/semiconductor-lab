@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "ingredient": "semiconductor-lab:ferrite_mix",
+  "result": {
+    "id": "semiconductor-lab:ferrite_core",
+    "count": 1
+  },
+  "experience": 0.3,
+  "cookingtime": 200
+}

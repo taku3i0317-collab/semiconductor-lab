@@ -27,6 +27,9 @@ public final class Metallurgy {
     private Metallurgy() {}
 
     // ===== アイテム =====
+    // [1-53] フェライト（酸化物の磁石の材料）（IMP4-01、S-009）
+    public static final Item FERRITE_MIX           = Reg.item("ferrite_mix");
+    public static final Item FERRITE_CORE          = Reg.item("ferrite_core");
     // [1-65] 高速度鋼（ハイス）（IMP4-01、S-009）
     public static final Item HSS_CHARGE            = Reg.item("hss_charge");
     public static final Item HSS_TOOL_BIT          = Reg.item("hss_tool_bit", new Item.Properties().stacksTo(1));

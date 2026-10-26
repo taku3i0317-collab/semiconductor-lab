@@ -967,6 +967,12 @@
 "fermented_wash": [
 "special"
 ],
+"ferrite_core": [
+"smelting"
+],
+"ferrite_mix": [
+"crafting"
+],
 "ferroboron": [
 "smelting"
 ],
@@ -7045,6 +7051,32 @@
 [
 "semiconductor-lab:earthenware_pot",
 2
+]
+]
+},
+"ferrite_core": {
+"via": "smelting",
+"in": [
+[
+"semiconductor-lab:ferrite_mix",
+1
+]
+]
+},
+"ferrite_mix": {
+"via": "crafting",
+"in": [
+[
+"semiconductor-lab:rouge",
+2
+],
+[
+"semiconductor-lab:zinc_oxide",
+1
+],
+[
+"semiconductor-lab:pyrolusite",
+1
 ]
 ]
 },
@@ -16124,6 +16156,14 @@
 "fermented_wash": [
 "minecraft:items",
 "semiconductor-lab:item/fermented_wash"
+],
+"ferrite_core": [
+"minecraft:items",
+"semiconductor-lab:item/ferrite_core"
+],
+"ferrite_mix": [
+"minecraft:items",
+"semiconductor-lab:item/ferrite_mix"
 ],
 "ferroboron": [
 "minecraft:items",

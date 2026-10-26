@@ -171,6 +171,8 @@ crude_zirconium  # Metallurgy [1-70] 1925
 crude_hafnium  # Metallurgy [1-70] 1925
 zirconium_bar  # Metallurgy [1-70] 1925
 hafnium_bar  # Metallurgy [1-70] 1925
+ferrite_mix  # Metallurgy [1-53] 1930
+ferrite_core  # Metallurgy [1-53] 1930
 alumina_compact  # Metallurgy [3-26] 1930
 alumina_ceramic_plate  # Metallurgy [3-26] 1930
 coal_ash  # Metallurgy [1-01] 1930

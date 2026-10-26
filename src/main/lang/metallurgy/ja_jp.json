@@ -1250,5 +1250,17 @@
   "item.semiconductor-lab.hss_tool_bit.note2": "旋盤の刃の口（中央下）に入れると、削る時間が 0.7倍 ⚠️。刃は減らない。",
   "item.semiconductor-lab.hss_tool_bit.note3": "ふつうの鋼の刃は、速く削ると摩擦の熱で赤くなり、なまってしまう。ハイスは約600℃ になっても硬いので、それまでの数倍の速さで削れた。",
   "item.semiconductor-lab.hss_tool_bit.note4": "名前の「高速度」は、速く削れることから。今もドリルの刃などに使われる。",
-  "item.semiconductor-lab.hss_tool_bit.placeholder": "省略：⚠️ 速さ 0.7倍はゲームの値（本物は数倍）。刃のすり減りは省略。"
+  "item.semiconductor-lab.hss_tool_bit.placeholder": "省略：⚠️ 速さ 0.7倍はゲームの値（本物は数倍）。刃のすり減りは省略。",
+  "item.semiconductor-lab.ferrite_mix": "フェライトの粉",
+  "item.semiconductor-lab.ferrite_mix.note1": "酸化鉄に酸化亜鉛と酸化マンガンを混ぜた粉。焼き固めるとフェライトになる。",
+  "item.semiconductor-lab.ferrite_mix.note2": "作業台：ベンガラ（酸化鉄）2＋酸化亜鉛＋軟マンガン鉱 → 2。溶鉱炉（約1450℃ の窯）で焼くとフェライトの芯。",
+  "item.semiconductor-lab.ferrite_mix.note3": "酸化物の粉を形にして高い温度で焼き固める（焼結）。焼き物と同じ作り方。",
+  "item.semiconductor-lab.ferrite_mix.note4": "1930年、東京工業大学の加藤与五郎と武井武が発明した。日本で生まれた材料で、のちに TDK がこれを作るために生まれた。",
+  "item.semiconductor-lab.ferrite_mix.placeholder": "省略：⚠️ 混ぜる割合は作業台の数でおおよそ。",
+  "item.semiconductor-lab.ferrite_core": "フェライトの芯",
+  "item.semiconductor-lab.ferrite_core.note1": "鉄のさびのなかまでできた、磁石につく焼き物。電気の部品の芯に使う。",
+  "item.semiconductor-lab.ferrite_core.note2": "フェライトの粉を溶鉱炉で焼く。高い周波数の変圧器・コイルの芯の材料（今ある機械のレシピは変えていない）。",
+  "item.semiconductor-lab.ferrite_core.note3": "鉄の芯は電気を通すので、速く変わる磁場の中では渦電流が流れて熱くなる。フェライトは電気をほとんど通さないので、高い周波数でも熱くなりにくい。",
+  "item.semiconductor-lab.ferrite_core.note4": "パソコンの電源・充電器のトランス、ケーブルのふくらみ（ノイズを取る）、冷蔵庫に貼る磁石（ハードフェライト）にも使われる。",
+  "item.semiconductor-lab.ferrite_core.placeholder": "省略：⚠️ 今は材料だけ（使う機械は今後）。"
 }
