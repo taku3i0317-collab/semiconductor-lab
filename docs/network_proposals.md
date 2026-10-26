@@ -1030,3 +1030,7 @@ A（S-005、ユーザーの決定）からの依頼を司令塔へ上げる。�
   - ガイスラー管（放電管）（Geissler tube (gas discharge tube)）：6-08 のため。Ramsay and Travers identified neon by its red glow in a Geissler tube (Geissler 1857).　出典 https://en.wikipedia.org/wiki/Neon_sign
   - 砥石車（研削といし）（Bonded abrasive grinding wheel）：8-31 のため。The abrasive wheel is the cutting tool of a grinding machine; no abrasive node exists.　出典 https://en.wikipedia.org/wiki/Grinding_machine
   - 浮動小数点コプロセッサ 8087（Intel 8087 floating-point coprocessor）：10-32 のため。First IC implementing the draft of IEEE 754 (1980); Kahan's draft was written for it.　出典 https://en.wikipedia.org/wiki/IEEE_754-1985
+
+## S-061（2026-10-26）物（ノード）の決まっていないアイテム 82 の入れ先
+- ウェブを「1つの物に1つのページ」にした（S-061）。アイテムは、その物のページの「作り方」にのる。ノードの決まっていない 82 は前のウィキのページのまま
+- 入れ先の案（自動。レシピでいっしょに出る物のノードを数えた。64 に案、18 は案なし）：docs/mockups/S061_unassigned_items.md。**決めるのは A とユーザー**。決まったら wiki_export.json のアイテムの node に入れてもらえれば、B が作り直す
